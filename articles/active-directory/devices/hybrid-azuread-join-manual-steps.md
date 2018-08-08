@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2ee54ca3d6e787267010736343a570e614c4204d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 546717330a08b348800ea9c4c9cd7784f54595eb
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427558"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618531"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Självstudie: Konfigurera hybrid Azure Active Directory-anslutna enheter manuellt 
 
@@ -574,7 +574,12 @@ När du har slutfört steg som krävs, är du redo att automatiskt ansluta till 
 
 ### <a name="remarks"></a>Kommentarer
 
-- Du kan använda ett grupprincipobjekt eller System Center Configuration Manager-klienten inställning för att styra distributionen av automatisk registrering av Windows 10 och Windows Server 2016 domänanslutna datorer. **Om du inte vill att dessa enheter att automatiskt registrera med Azure AD eller om du vill styra registreringen**, och du måste distribuera en grupprincip som inaktiverar automatisk registrering i alla dessa enheter först eller om du använder konfigurationen Du måste konfigurera klientinställning under Cloud Services Manager -> automatiskt registrera nya Windows 10 domänanslutna enheter med Azure Active Directory som ”Nej” innan du börjar med några av konfigurationsstegen. När du är klar konfigurerar, och när du är redo att testa, måste du distribuera grupprinciper för att aktivera automatisk registrering till testenheter och sedan till alla andra enheter som du väljer.
+- Du kan använda ett grupprincipobjekt eller System Center Configuration Manager-klienten inställning för att styra distributionen av automatisk registrering av Windows 10 och Windows Server 2016 domänanslutna datorer. **Om du inte vill att dessa enheter att automatiskt registrera med Azure AD eller om du vill styra registreringen**, och du måste distribuera en grupprincip som inaktiverar automatisk registrering i alla dessa enheter först eller om du använder konfigurationen Manager måste du konfigurera klientinställning under Cloud Services > Registrera automatiskt nya Windows 10 domänanslutna enheter med Azure Active Directory som ”Nej” innan du börjar med några av konfigurationsstegen. 
+
+> [!Important]
+> Eftersom det inte finns en potentiell fördröjning vid tillämpningen av grupprincipobjektet på nyligen domänanslutna datorer då försöket automatisk registrering av Windows 10-enheter kan ske, måste du skapa en ny sysprep-avbildning från en Windows 10-enhet som har aldrig tidigare registreras automatiskt och som redan har GPO-inaktiverar automatisk registrering av Windows 10-enheter och använda den sysprep-bilden för att etablera nya datorer som ansluter till organisationens domän.
+
+När du är klar konfigurerar, och när du är redo att testa, måste du distribuera grupprinciper för att aktivera automatisk registrering till testenheter och sedan till alla andra enheter som du väljer.
 
 - Distribution av Windows äldre datorer, du kan distribuera en [Windows Installer-paketet](#windows-installer-packages-for-non-windows-10-computers) till datorer som du väljer.
 

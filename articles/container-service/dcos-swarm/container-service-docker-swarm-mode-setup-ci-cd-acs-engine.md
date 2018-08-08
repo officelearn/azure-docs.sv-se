@@ -1,6 +1,6 @@
 ---
-title: CI/CD med Azure Container Service-motorn och Swarm-läge
-description: Använda Azure Container Service-motorn med Docker Swarm-läge, ett Azure Container registret och Visual Studio Team Services för att leverera kontinuerligt ett program för flera behållare .NET Core
+title: CI/CD med Azure Container Service Engine och Swarm-läge
+description: Använda Azure Container Service Engine med Docker Swarm Mode, ett Azure Container Registry och Visual Studio Team Services för att kontinuerligt leverera en .NET Core-program med flera behållare
 services: container-service
 author: diegomrtnzg
 manager: jeconnoc
@@ -9,19 +9,19 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: 01126f3eef988eb1787bafea92e7384aad1a703c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6c41156383791fb7d72ac02dae919a25a0d15c84
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179579"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621070"
 ---
-# <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-visual-studio-team-services"></a>Fullständig CI/CD-pipelinen för att distribuera ett program för flera behållare på Azure Container Service med ACS-motorn och Docker Swarm-läge med hjälp av Visual Studio Team Services
+# <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-visual-studio-team-services"></a>Fullständig CI/CD-pipeline för att distribuera program med flera behållare på Azure Container Service med ACS-motor och Docker Swarm-läge med hjälp av Visual Studio Team Services
 
-*Den här artikeln är baserad på [fullständig CI/CD-pipelinen för att distribuera ett program för flera behållare på Azure Container Service med Docker Swarm med hjälp av Visual Studio Team Services](container-service-docker-swarm-setup-ci-cd.md) dokumentation*
+*Den här artikeln är baserad på [fullständig CI/CD-pipeline för att distribuera program med flera behållare på Azure Container Service med Docker Swarm med Visual Studio Team Services](container-service-docker-swarm-setup-ci-cd.md) dokumentation*
 
-Men i dag en av de största utmaningarna när utveckla moderna applikationer för molnet att kunna leverera dessa program kontinuerligt. I den här artikeln får du lära dig hur du implementerar en fullständig kontinuerlig integrering och distribution (CI/CD) pipeline med: 
-* Azure Container Service-motorn med Docker Swarm-läge
+Nuförtiden, håller en av de största utmaningarna när du utvecklar moderna program för molnet på att kunna leverera dessa program kontinuerligt. I den här artikeln får du lära dig hur du implementerar en fullständig kontinuerlig integrering och distribution (CI/CD) med: 
+* Azure Container Service Engine med Docker Swarm-läge
 * Azure Container Registry
 * Visual Studio Team Services
 
@@ -29,102 +29,102 @@ Den här artikeln är baserad på ett enkelt program tillgängliga på [GitHub](
 
 ![MyShop exempelprogrammet](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/myshop-application.png)
 
-Målet är att ge alltid det här programmet i ett läge för Docker Swarm-kluster med hjälp av Visual Studio Team Services. Följande bild beskrivs denna kontinuerlig leverans pipeline:
+Målet är att kontinuerligt leverera det här programmet i ett Docker Swarm Mode-kluster med hjälp av Visual Studio Team Services. Följande bild beskrivs denna pipeline för kontinuerlig leverans:
 
 ![MyShop exempelprogrammet](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/full-ci-cd-pipeline.png)
 
-Här följer en kort beskrivning av steg:
+Här är en kort beskrivning av stegen:
 
-1. Koden ändringarna har bekräftats kod källdatabasen (här GitHub) 
+1. Ändringar i koden sparas i lagringsplatsen för källkod (här GitHub) 
 2. GitHub utlöser en version i Visual Studio Team Services 
-3. Visual Studio Team Services får den senaste versionen av källorna och skapar alla avbildningar som ska utgöra programmet 
-4. Visual Studio Team Services skickar varje avbildning till en Docker-registret som skapats med Azure Container Registry-tjänsten 
+3. Visual Studio Team Services hämtar den senaste versionen av källorna och bygger alla avbildningar som utgör programmet 
+4. Visual Studio Team Services skickar varje avbildning till ett Docker-register som skapats med hjälp av Azure Container Registry-tjänsten 
 5. Visual Studio Team Services utlöser en ny version 
-6. Versionen kör vissa kommandon med hjälp av SSH på Azure container service master klusternod 
+6. Versionen kör några kommandon med hjälp av SSH på Azure container service-kluster huvudnoden 
 7. Docker Swarm-läge på klustret hämtar den senaste versionen av avbildningar 
-8. Den nya versionen av programmet distribueras med Docker-stacken 
+8. Den nya versionen av programmet distribueras med hjälp av Docker-Stack 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du påbörjar de här självstudierna måste du utföra följande uppgifter:
+Innan du påbörjar den här självstudiekursen måste du utföra följande uppgifter:
 
-- [Skapa ett läge för Swarm-kluster i Azure Container Service med ACS-motorn](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acsengine-swarmmode)
+- [Skapa ett Swarm Mode-kluster i Azure Container Service med ACS-motor](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acsengine-swarmmode)
 - [Anslut till Swarm-klustret i Azure Container Service](../container-service-connect.md)
-- [Skapa en Azure-behållaren registernyckel](../../container-registry/container-registry-get-started-portal.md)
-- [Har en Visual Studio Team Services-konto och team projekt](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
-- [Duplicera GitHub-lagringsplatsen till GitHub-konto](https://github.com/jcorioland/MyShop/tree/docker-linux)
+- [Skapa ett Azure container registry](../../container-registry/container-registry-get-started-portal.md)
+- [Har ett Visual Studio Team Services-konto och team-projekt skapas](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student)
+- [Gå till GitHub-databasen på GitHub-konto](https://github.com/jcorioland/MyShop/tree/docker-linux)
 
 >[!NOTE]
-> Docker Swarm Orchestrator i Azure Container Service använder äldre fristående versionen av Swarm. Det integrerade [Swarm-läget](https://docs.docker.com/engine/swarm/) (i Docker 1.12 och senare) är inte en orchestrator som stöds i Azure Container Service. Därför kan vi använda [ACS-motorn](https://github.com/Azure/acs-engine/blob/master/docs/swarmmode.md), en community-bidragit [quickstart mallen](https://azure.microsoft.com/resources/templates/101-acsengine-swarmmode/), eller en Docker-lösning i den [Azure Marketplace](https://azuremarketplace.microsoft.com).
+> Docker Swarm Orchestrator i Azure Container Service använder äldre fristående versionen av Swarm. Det integrerade [Swarm-läget](https://docs.docker.com/engine/swarm/) (i Docker 1.12 och senare) är inte en orchestrator som stöds i Azure Container Service. Därför använder vi [ACS Engine](https://github.com/Azure/acs-engine/blob/master/docs/swarmmode.md), en communityn har bidragit med [snabbstartsmall](https://azure.microsoft.com/resources/templates/101-acsengine-swarmmode/), eller en Docker-lösning i den [Azure Marketplace](https://azuremarketplace.microsoft.com).
 >
 
-## <a name="step-1-configure-your-visual-studio-team-services-account"></a>Steg 1: Konfigurera Visual Studio Team Services-konto 
+## <a name="step-1-configure-your-visual-studio-team-services-account"></a>Steg 1: Konfigurera din Visual Studio Team Services-konto 
 
-I det här avsnittet kan du konfigurera Visual Studio Team Services-konto. Konfigurera VSTS Services-slutpunkter i ditt projekt i Visual Studio Team Services genom att klicka på den **inställningar** ikonen i verktygsfältet och välj **Services**.
+I det här avsnittet konfigurerar du ditt Visual Studio Team Services-konto. Om du vill konfigurera VSTS Services-slutpunkter i Visual Studio Team Services-projektet klickar du på den **inställningar** ikonen i verktygsfältet och väljer **Services**.
 
-![Öppna Services slutpunkt](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/services-vsts.PNG)
+![Öppna Services-slutpunkt](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/services-vsts.PNG)
 
 ### <a name="connect-visual-studio-team-services-and-azure-account"></a>Ansluta till Visual Studio Team Services och Azure-konto
 
-Upprätta en anslutning mellan projektet VSTS och ditt Azure-konto.
+Konfigurera en anslutning mellan ditt VSTS-projekt och ditt Azure-konto.
 
-1. Klicka på vänster, **nya tjänstslutpunkten** > **Azure Resource Manager**.
-2. För att godkänna VSTS att arbeta med din Azure-konto, Välj din **prenumeration** och på **OK**.
+1. Till vänster, klicka på **nya tjänstslutpunkt** > **Azure Resource Manager**.
+2. För att auktorisera VSTS att arbeta med ditt Azure-konto, Välj din **prenumeration** och klicka på **OK**.
 
     ![Visual Studio Team Services - auktorisera Azure](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-azure.PNG)
 
 ### <a name="connect-visual-studio-team-services-and-github"></a>Ansluta Visual Studio Team Services och GitHub
 
-Upprätta en anslutning mellan projektet VSTS och GitHub-konto.
+Konfigurera en anslutning mellan ditt VSTS-projekt och ditt GitHub-konto.
 
-1. Klicka på vänster, **nya tjänstslutpunkten** > **GitHub**.
-2. För att godkänna VSTS att arbeta med GitHub-konto, klickar du på **auktorisera** och följ proceduren i fönstret som öppnas.
+1. Till vänster, klicka på **nya tjänstslutpunkt** > **GitHub**.
+2. För att auktorisera VSTS att arbeta med ditt GitHub-konto, klickar du på **auktorisera** och följer du anvisningarna i fönstret som öppnas.
 
     ![Visual Studio Team Services - auktorisera GitHub](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-github.png)
 
 ### <a name="connect-vsts-to-your-azure-container-service-cluster"></a>Ansluta VSTS till ditt Azure Container Service-kluster
 
-De sista stegen innan du hämtar till CI/CD-pipeline är att konfigurera externa anslutningar till Docker Swarm-kluster i Azure. 
+De sista stegen innan du hämtar i CI/CD-pipeline är att konfigurera externa anslutningar till Docker Swarm-kluster i Azure. 
 
-1. Lägga till en slutpunkt av typen för Docker Swarm-kluster **SSH**. Ange SSH-anslutningsinformationen för Swarm-klustret (nod).
+1. Lägg till en slutpunkt av typen för Docker Swarm-kluster **SSH**. Ange information för SSH-anslutning för Swarm-klustret (huvudnoden).
 
     ![Visual Studio Team Services - SSH](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-ssh.png)
 
-All konfiguration görs nu. I nästa steg ska skapa du CI/CD-pipeline som skapar och distribuerar programmet till Docker Swarm-kluster. 
+All konfiguration görs nu. I nästa steg ska skapa du CI/CD-pipeline som skapar och distribuerar programmet till Docker Swarm-klustret. 
 
 ## <a name="step-2-create-the-build-definition"></a>Steg 2: Skapa build-definition
 
-I det här steget kan du ställa in en build-definition för projektet VSTS och definiera build-arbetsflödet för behållaren-bilder
+I det här steget ska du konfigurera en byggesdefinition för ditt VSTS-projekt och definiera build-arbetsflödet för dina behållaravbildningar
 
-### <a name="initial-definition-setup"></a>Inledande definition installationen
+### <a name="initial-definition-setup"></a>Definitionen för den inledande installationen
 
-1. Om du vill skapa en build-definition, ansluta till ditt projekt i Visual Studio Team Services och klicka på **Skapa & släpper**. I den **skapa definitioner** klickar du på **+ ny**. 
+1. Anslut till ditt projekt i Visual Studio Team Services för att skapa en byggesdefinition, och klicka på **Build & Release**. I den **Byggesdefinitioner** klickar du på **+ ny**. 
 
-    ![Visual Studio Team Services - nya skapa Definition](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/create-build-vsts.PNG)
+    ![Visual Studio Team Services - nya Build-Definition](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/create-build-vsts.PNG)
 
 2. Välj den **tom process**.
 
-    ![Visual Studio Team Services - ny tom skapa Definition](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/create-empty-build-vsts.PNG)
+    ![Visual Studio Team Services - ny tom Build-Definition](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/create-empty-build-vsts.PNG)
 
-4. Klicka på **variabler** fliken och skapar två nya variabler: **RegistryURL** och **AgentURL**. Klistra in värden för registernyckeln och klustret agenter DNS.
+4. Klicka sedan på den **variabler** fliken och skapa två nya variabler: **RegistryURL** och **AgentURL**. Klistra in värdena för ditt register och klustret agenter DNS.
 
     ![Visual Studio Team Services - variabler Versionskonfiguration](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-variables.png)
 
-5. På den **skapa definitioner** öppna den **utlösare** och konfigurera versionen om du vill använda kontinuerlig integration med förgrening av MyShop projektet som du skapade i förutsättningarna. Markera **Batch ändringar**. Kontrollera att du väljer *docker-linux* som den **Förgrena specifikationen**.
+5. På den **skapa definitioner** öppnar den **utlösare** fliken och konfigurera versionen om du vill använda kontinuerlig integrering med förgrening av MyShop projektet som du skapade i förutsättningarna. Välj **Batch ändringar**. Kontrollera att du väljer *docker-linux* som den **grenen specifikationen**.
 
     ![Visual Studio Team Services - databasen Versionskonfiguration](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-github-repo-conf.PNG)
 
 
-6. Klicka slutligen på den **alternativ** och konfigurera standard agent köns **finns Linux Preview**.
+6. Klicka slutligen på den **alternativ** fliken och konfigurera standard-agenten kön att **finns Linux-förhandsvisningen**.
 
-    ![Visual Studio Team Services - agenten Värdkonfiguration](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-agent.png)
+    ![Visual Studio Team Services - agenten Värdkonfigurationen](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-agent.png)
 
-### <a name="define-the-build-workflow"></a>Definiera build-arbetsflöde
-Nästa steg definiera build-arbetsflöde. Först måste du konfigurera källan för koden. Om du vill göra det väljer **GitHub** och **databasen** och **gren** (docker-linux).
+### <a name="define-the-build-workflow"></a>Definiera build-arbetsflödet
+Nästa steg definierar build-arbetsflödet. Du måste först konfigurera källan för koden. Om du vill göra det väljer **GitHub** och din **databasen** och **gren** (docker-linux).
 
 ![Konfigurera Visual Studio Team Services - Kodkälla](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-source-code.png)
 
-Det finns fem behållaren avbildningar för att skapa för den *MyShop* program. Varje avbildning skapas med Dockerfile i projektet mappar:
+Det finns fem behållaravbildningar för att skapa för den *MyShop* program. Varje avbildning har skapats med den Dockerfile som finns i projektet mappar:
 
 * ProductsApi
 * Proxy
@@ -132,54 +132,54 @@ Det finns fem behållaren avbildningar för att skapa för den *MyShop* program.
 * RecommandationsApi
 * ShopFront
 
-Du behöver två Docker steg för varje bild, en för att skapa avbildningen och en push-avbildningen i registret för Azure-behållaren. 
+Du behöver två Docker steg för varje bild, en för att skapa avbildningen och en att överföra avbildningen i Azure container registry. 
 
-1. Om du vill lägga till ett steg i build-arbetsflöde, klickar du på **+ Lägg till build steg** och välj **Docker**.
+1. Om du vill lägga till ett steg i build-arbetsflöde, klickar du på **+ Lägg till byggsteg** och välj **Docker**.
 
-    ![Visual Studio Team Services – Lägg till Build steg](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-add-task.png)
+    ![Visual Studio Team Services - Lägg till Byggsteg](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-add-task.png)
 
-2. För varje bild och konfigurera ett steg som använder den `docker build` kommando.
+2. Konfigurera ett steg som används för varje bild i `docker build` kommando.
 
-    ![Visual Studio Team Services - Docker skapa](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-docker-build.png)
+    ![Visual Studio Team Services - Docker Build](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-docker-build.png)
 
-    Välj Azure-behållare registret, för build-åtgärden i **skapa en avbildning** åtgärd och Dockerfile som definierar varje avbildning. Ange den **Working Directory** som rotkatalog Dockerfile definiera den **avbildningsnamn**, och välj **inkludera senaste taggen**.
+    Välj ditt Azure-Behållarregister för build-åtgärden i **skapa en avbildning** åtgärden och den Dockerfile som definierar varje avbildning. Ange den **Working Directory** som rotkatalogen Dockerfile som definierar den **avbildningsnamn**, och välj **inkludera senaste taggen**.
     
-    Avbildningens namn måste vara i formatet: ```$(RegistryURL)/[NAME]:$(Build.BuildId)```. Ersätt **[NAME]** med avbildningens namn:
+    Avbildningens namn måste vara i följande format: ```$(RegistryURL)/[NAME]:$(Build.BuildId)```. Ersätt **[NAME]** med avbildningens namn:
     - ```proxy```
     - ```products-api```
     - ```ratings-api```
     - ```recommendations-api```
     - ```shopfront```
 
-3. Konfigurera ett andra steg som används för varje avbildning i `docker push` kommando.
+3. Konfigurera ett andra steg som används för varje bild i `docker push` kommando.
 
     ![Visual Studio Team Services - Docker Push](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-docker-push.png)
 
-    Välj din Azure-behållaren i registret för push-åtgärden den **Push en bild** åtgärd, ange den **avbildningsnamn** som är inbyggd i föregående steg och välj **inkludera senaste taggen**.
+    För push-åtgärden väljer du din Azure-behållarregister, den **Push-överför avbildningen** åtgärd, ange den **avbildningsnamn** som skapats i föregående steg och välj **inkludera senaste taggen**.
 
-4. När du har konfigurerat bygg- och push-stegen för var och en av fem avbildningar kan du lägga till tre fler steg i build-arbetsflöde.
+4. När du har konfigurerat versions- och push-steg för var och en av de fem avbildningarna kan du lägga till tre fler steg i build-arbetsflöde.
 
-   ![Visual Studio Team Services – Lägg till Kommandoradsaktivitet](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-command-task.png)
+   ![Visual Studio Team Services - Lägg till Kommandoradsaktivitet](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-command-task.png)
 
       1. En kommandoradsaktivitet som använder ett bash-skript för att ersätta den *RegistryURL* förekomsten i filen docker-compose.yml med variabeln RegistryURL. 
     
           ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose-v3.yml"```
 
-          ![Visual Studio Team Services - uppdatering skriva filen med registret URL](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
+          ![Visual Studio Team Services - uppdateringen Compose-fil med Registry URL](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
 
       2. En kommandoradsaktivitet som använder ett bash-skript för att ersätta den *AgentURL* förekomsten i filen docker-compose.yml med variabeln AgentURL.
   
           ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose-v3.yml"```
 
-     3. En uppgift som släpper den uppdaterade Skriv-filen som ett build-artefakt så den kan användas i versionen. Se följande skärm för mer information.
+     3. En aktivitet som släpper den uppdaterade Compose-filen som en byggesartefakt så att den kan användas i versionen. Se följande skärm för information.
 
-         ![Visual Studio Team Services - Publicera artefakt](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
+         ![Visual Studio Team Services - Publicera artefakter](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
 
          ![Visual Studio Team Services - Publicera Skriv fil](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
 
-5. Klicka på **Spara & kö** att testa build-definition.
+5. Klicka på **spara och köa** att testa din build-definition.
 
-   ![Visual Studio Team-Services - spara och kön](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-save.png) 
+   ![Visual Studio Team-Services - spara och kö](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-save.png) 
 
    ![Visual Studio Team Services - ny kö](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-queue.png) 
 
@@ -187,66 +187,66 @@ Du behöver två Docker steg för varje bild, en för att skapa avbildningen och
 
   ![Visual Studio Team Services - genereringen lyckades](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
 
-## <a name="step-3-create-the-release-definition"></a>Steg 3: Skapa en definition för versionen
+## <a name="step-3-create-the-release-definition"></a>Steg 3: Skapa versionsdefinitionen
 
-Visual Studio Team Services kan du [hantera versioner i miljöer](https://www.visualstudio.com/team-services/release-management/). Du kan aktivera kontinuerlig distribution att se till att programmet har distribuerats på dina olika miljöer (t.ex dev, testa, Förproduktion och produktion) i enkelt. Du kan skapa en miljö som representerar läge i Azure Container Service Docker Swarm-klustret.
+Visual Studio Team Services kan du [hantera versioner i alla miljöer](https://www.visualstudio.com/team-services/release-management/). Du kan aktivera kontinuerlig distribution att se till att programmet har distribuerats på olika miljöer (utveckling, testning, Förproduktion och produktion) i enkelt. Du kan skapa en miljö som representerar ditt Azure Container Service Docker Swarm Mode-kluster.
 
 ![Visual Studio Team Services - versionen till ACS](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-acs.png) 
 
-### <a name="initial-release-setup"></a>Första utgåvan installationen
+### <a name="initial-release-setup"></a>Första versionen installationen
 
-1. Klicka för att skapa en definition av versionen **versioner** > **+ släpper**
+1. Klicka för att skapa en versionsdefinition **versioner** > **+ Release**
 
-2. Om du vill konfigurera artefakt källan, klickar du på **artefakter** > **länka en artefakt källa**. Här kan länka den här nya versionen definitionen till build-versionen som du definierade i föregående steg. Efter att finns filen docker-compose.yml i release-processen.
+2. Om du vill konfigurera artefakt källan, klickar du på **artefakter** > **länka en artefakt källa**. Här kan länka den här nya versionsdefinition till den version som du definierade i föregående steg. Efter det är tillgängligt i lanseringsprocessen filen docker-compose.yml.
 
     ![Visual Studio Team Services - versionen artefakter](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-artefacts.png) 
 
-3. För att konfigurera utlösaren versionen, klickar du på **utlösare** och välj **kontinuerlig distribution**. Ange utlösaren på samma artefakt källa. Den här inställningen garanterar att en ny version startar när versionen har slutförts.
+3. För att konfigurera utlösaren versionen, klickar du på **utlösare** och välj **kontinuerlig distribution**. Ange utlösaren på samma käll-artefakt. Den här inställningen garanterar att en ny version startar när bygget har slutförts.
 
     ![Visual Studio Team Services - versionen utlösare](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-trigger.png) 
 
-4. Om du vill konfigurera variablerna versionen klickar du på **variabler** och välj **+ variabeln** att skapa tre nya variabler med information i registret: **docker.username**, **docker.password**, och **docker.registry**. Klistra in värden för registernyckeln och klustret agenter DNS.
+4. Om du vill konfigurera variablerna versionen klickar du på **variabler** och välj **+ variabeln** att skapa tre nya variabler med information i registret: **docker.username**, **docker.password**, och **docker.registry**. Klistra in värdena för ditt register och klustret agenter DNS.
 
     ![Visual Studio Team Services - databasen Versionskonfiguration](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-variables.png)
 
     >[!IMPORTANT]
-    > Som visas på föregående sida klickar du på den **Lås** kryssrutan i docker.password. Den här inställningen är viktigt att begränsa lösenordet.
+    > På den föregående skärmen visas klickar du på den **Lås** kryssrutan i docker.password. Den här inställningen är viktigt att begränsa lösenordet.
     >
 
 ### <a name="define-the-release-workflow"></a>Definiera versionen arbetsflödet
 
-Arbetsflödet versionen består av två aktiviteter som du lägger till.
+Versionen arbetsflödet består av två saker som du lägger till.
 
-1. Konfigurera en aktivitet för att på ett säkert sätt kopiera skriva filen till en *distribuera* mapp på Docker Swarm huvudnoden, med hjälp av SSH-anslutningen som du tidigare konfigurerat. Se följande skärm för mer information.
+1. Konfigurera en uppgift för att på ett säkert sätt kopiera compose-filen till en *distribuera* mapp på Docker Swarm huvudnoden, med hjälp av SSH-anslutningen som du tidigare konfigurerat. Se följande skärm för information.
     
     Källmapp: ```$(System.DefaultWorkingDirectory)/MyShop-CI/drop```
 
     ![Visual Studio Team Services - versionen SCP](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-scp.png)
 
-2. Konfigurera en annan uppgift om du vill köra ett bash-kommando för att köra `docker` och `docker stack deploy` kommandon på huvudnoden. Se följande skärm för mer information.
+2. Konfigurera en till aktivitet för att köra ett bash-kommando för att köra `docker` och `docker stack deploy` kommandon på huvudnoden. Se följande skärm för information.
 
     ```docker login -u $(docker.username) -p $(docker.password) $(docker.registry) && export DOCKER_HOST=:2375 && cd deploy && docker stack deploy --compose-file docker-compose-v3.yml myshop --with-registry-auth```
 
     ![Visual Studio Team Services - versionen Bash](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-bash.png)
 
-    Kommandot kördes i bakgrunden använder Docker CLI och CLI Docker Compose för att utföra följande uppgifter:
+    Kommandot körs i bakgrunden använder Docker CLI och Docker-Compose-CLI för att utföra följande uppgifter:
 
-    - Logga in på Azure-behållaren registret (den använder tre build-variabler som definieras i den **variabler** fliken)
-    - Definiera den **DOCKER_HOST** variabeln för att arbeta med Swarm-slutpunkten (: 2375)
-    - Navigera till den *distribuera* mapp som har skapats för den föregående aktiviteten säker kopia och som innehåller filen docker-compose.yml 
-    - Köra `docker stack deploy` kommandon som hämtar nya bilder och skapa behållarna.
+    - Logga in på Azure container registry (den använder tre build-variabler som definieras i den **variabler** fliken)
+    - Definiera den **DOCKER_HOST** variabel att arbeta med Swarm-slutpunkten (: 2375)
+    - Navigera till den *distribuera* mapp som har skapats i den föregående aktiviteten säker kopia och som innehåller filen docker-compose.yml 
+    - Köra `docker stack deploy` kommandon som hämtar de nya bilderna och skapa behållarna.
 
     >[!IMPORTANT]
-    > Som det visas på skärmen tidigare, kan du lämna den **misslyckas på STDERR** kryssrutan avmarkerad. Den här inställningen gör att vi kan slutföras på grund av att versionen `docker-compose` flera diagnostiska meddelanden skrivs ut som behållare är stoppas eller tas bort på standardfel utdata. Om du markerar kryssrutan rapporterar Visual Studio Team Services att fel uppstod vid version, även om allt går bra.
+    > Som du ser på den föregående skärmen kan lämna den **misslyckas på STDERR** kryssrutan avmarkerad. Den här inställningen gör att vi kan slutföras på grund av att versionen `docker-compose` skriver ut flera diagnostiska meddelanden som behållare är stoppas eller tas bort på standardfelutdata. Om du markerar kryssrutan rapporterar Visual Studio Team Services att fel uppstod vid lanseringen, även om allt går bra.
     >
-3. Spara den här nya versionen definitionen.
+3. Spara den här nya versionsdefinitionen.
 
-## <a name="step-4-test-the-cicd-pipeline"></a>Steg 4: Testa CI/CD-pipelinen
+## <a name="step-4-test-the-cicd-pipeline"></a>Steg 4: Testa CI/CD-pipeline
 
-Nu när du är klar med konfigurationen, är det dags att testa den här nya CI/CD-pipeline. Det enklaste sättet att testa den är att uppdatera källkod och spara ändringarna i GitHub-lagringsplatsen. Några sekunder efter att du push-kod, ser du en ny version körs i Visual Studio Team Services. När slutförts, utlöses en ny version och distribuera den nya versionen av programmet på Azure Container Service-kluster.
+Nu när du är klar med konfigurationen är det dags att testa den här nya CI/CD-pipeline. Det enklaste sättet att testa det är att uppdatera källkoden och sedan spara ändringarna i din GitHub-lagringsplats. Några sekunder när du har överfört koden, visas en ny version som körs i Visual Studio Team Services. När du har slutförts, utlöses en ny version och distribueras den nya versionen av programmet på Azure Container Service-kluster.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om CI/CD-skiva med Visual Studio Team Services finns i [VSTS skapa översikt](https://www.visualstudio.com/docs/build/overview).
-* Mer information om ACS-motorn finns i [ACS-motorn GitHub-repo-](https://github.com/Azure/acs-engine).
-* Mer information om Docker Swarm läge finns det [Docker Swarm översikt över](https://docs.docker.com/engine/swarm/).
+* Mer information om CI/CD med Visual Studio Team Services finns i den [VSTS skapa översikt](https://www.visualstudio.com/docs/build/overview).
+* Läs mer om ACS-motor, den [ACS Engine GitHub-lagringsplatsen](https://github.com/Azure/acs-engine).
+* Mer information om Docker Swarm-läge finns i den [översikt över Docker Swarm-läge](https://docs.docker.com/engine/swarm/).

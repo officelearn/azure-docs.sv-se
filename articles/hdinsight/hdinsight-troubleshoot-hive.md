@@ -1,38 +1,33 @@
 ---
-title: Felsöka Hive med Azure HDInsight | Microsoft Docs
+title: Felsöka Hive med Azure HDInsight
 description: Få svar på vanliga frågor om hur du arbetar med Apache Hive och Azure HDInsight.
-keywords: Azure HDInsight Hive, vanliga frågor och svar, felsökningsguide för vanliga frågor
-services: Azure HDInsight
-documentationcenter: na
-author: dharmeshkakadia
-manager: ''
-editor: ''
-ms.assetid: 15B8D0F3-F2D3-4746-BDCB-C72944AA9252
+keywords: Azure HDInsight, Hive, vanliga frågor och svar, felsökningsguide för vanliga frågor
+services: hdinsight
 ms.service: hdinsight
-ms.devlang: na
-ms.topic: article
-ms.date: 11/2/2017
+author: dharmeshkakadia
 ms.author: dharmeshkakadia
-ms.openlocfilehash: d397552285466dc038fe580a084e2d1d0d69bfe2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.topic: conceptual
+ms.date: 11/2/2017
+ms.openlocfilehash: 832fab6c4f183ddad512c5e6e4309d70938a316b
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31407705"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600031"
 ---
 # <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>Felsöka Hive med Azure HDInsight
 
-Läs mer om de vanligaste frågorna och sina lösningar när du arbetar med Apache Hive nyttolaster i Apache Ambari.
+Läs mer om på viktiga frågor och deras lösningar när du arbetar med Apache Hive nyttolaster i Apache Ambari.
 
 
-## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Hur gör exportera en Hive metastore och importera det till ett annat kluster?
+## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Hur jag för att exportera en Hive-metaarkiv och importera dem på ett annat kluster?
 
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar
 
-1. Ansluta till HDInsight-kluster med hjälp av en klient med SSH (Secure Shell). Mer information finns i [ytterligare resurser](#additional-reading-end).
+1. Anslut till HDInsight-kluster med hjälp av en Secure Shell (SSH)-klient. Mer information finns i [mer att läsa](#additional-reading-end).
 
-2. Kör följande kommando på HDInsight-klustret som du vill exportera metastore:
+2. Kör följande kommando på HDInsight-klustret som du vill exportera metaarkiv:
 
     ```apache
     for d in `hive -e "show databases"`; do echo "create database $d; use $d;" >> alltables.sql ; for t in `hive --database $d -e "show tables"` ; do ddl=`hive --database $d -e "show create table $t"`; echo "$ddl ;" >> alltables.sql ; echo "$ddl" | grep -q "PARTITIONED\s*BY" && echo "MSCK REPAIR TABLE $t ;" >> alltables.sql ; done; done
@@ -46,32 +41,32 @@ Läs mer om de vanligaste frågorna och sina lösningar när du arbetar med Apac
   hive -f alltables.sql
   ```
 
-Koden i Lösningssteg förutsätter att datasökvägar på det nya klustret är samma som datasökvägar på det gamla klustret. Om datasökvägar är olika, kan du redigera genererade alltables.sql-filen för att återspegla ändringar manuellt.
+Koden i Lösningssteg förutsätter att datasökvägar för det nya klustret är samma som datasökvägar för det gamla klustret. Om datasökvägarna är olika, kan du manuellt redigera den genererade alltables.sql-filen för att återspegla ändringar.
 
 ### <a name="additional-reading"></a>Ytterligare resurser
 
 - [Ansluta till ett HDInsight-kluster med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>Hur jag för att hitta Hive loggar på ett kluster?
+## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>Hur hittar jag Hive loggar i ett kluster?
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar
 
-1. Anslut till HDInsight-kluster med hjälp av SSH. Mer information finns i **ytterligare resurser**.
+1. Anslut till HDInsight-kluster med hjälp av SSH. Mer information finns i **mer att läsa**.
 
-2. Om du vill visa Hive Klientloggfiler, använder du följande kommando:
+2. Om du vill visa Hive klientloggar, använder du följande kommando:
 
   ```apache
   /tmp/<username>/hive.log 
   ```
 
-3. Om du vill visa Hive metastore loggarna använder du följande kommando:
+3. Om du vill visa Hive-metaarkiv loggar, använder du följande kommando:
 
   ```apache
   /var/log/hive/hivemetastore.log 
   ```
 
-4. Om du vill visa Hiveserver loggarna använder du följande kommando:
+4. Om du vill visa Hiveserver loggar, använder du följande kommando:
 
   ```apache
   /var/log/hive/hiveserver2.log 
@@ -86,19 +81,19 @@ Koden i Lösningssteg förutsätter att datasökvägar på det nya klustret är 
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar
 
-1. Ange ett nyckel / värde-par för konfiguration när du startar Hive-gränssnittet. Mer information finns i [ytterligare resurser](#additional-reading-end).
+1. Ange ett nyckel / värde-par för konfiguration när du startar Hive-gränssnittet. Mer information finns i [mer att läsa](#additional-reading-end).
 
   ```apache
   hive -hiveconf a=b 
   ```
 
-2. Om du vill visa en lista med alla effektiva konfigurationer på Hive-gränssnittet, använder du följande kommando:
+2. Om du vill visa alla effektiva konfigurationer på Hive-gränssnittet, använder du följande kommando:
 
   ```apache
   hive> set;
   ```
 
-  Till exempel använda följande kommando för att starta Hive-gränssnittet med felsökningsloggning aktiverats på konsolen:
+  Exempelvis kan du använda följande kommando för att starta Hive-gränssnittet utan felsökningsloggning aktiverats på konsolen:
 
   ```apache
   hive -hiveconf hive.root.logger=ALL,console 
@@ -109,12 +104,12 @@ Koden i Lösningssteg förutsätter att datasökvägar på det nya klustret är 
 - [Egenskaper för hive-konfiguration](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
 
-## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Hur jag för att analysera Tez DAG data på ett kluster kritiska?
+## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Hur jag för att analysera Tez DAG data på en kluster-kritisk väg?
 
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar
  
-1. Anslut till HDInsight-kluster med hjälp av SSH för att analysera en Apache Tez riktat acykliskt diagram (DAG) i ett kluster-kritiskt diagram. Mer information finns i [ytterligare resurser](#additional-reading-end).
+1. Ansluta till HDInsight-kluster med hjälp av SSH för att analysera en Apache Tez riktad Acyklisk graf (DAG) i ett kluster-kritiska diagram. Mer information finns i [mer att läsa](#additional-reading-end).
 
 2. Kör följande kommando vid en kommandotolk:
    
@@ -122,26 +117,26 @@ Koden i Lösningssteg förutsätter att datasökvägar på det nya klustret är 
   hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar CriticalPath --saveResults --dagId <DagId> --eventFileName <DagData.zip> 
   ```
 
-3. Om du vill visa en lista med andra analyzers som kan användas för att analysera Tez DAG, använder du följande kommando:
+3. Om du vill visa andra analysverktyg som kan användas för att analysera Tez DAG, använder du följande kommando:
 
   ```apache
   hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar
   ```
 
-  Du måste ange ett exempelprogram som första argument.
+  Du måste ange ett exempelprogram som det första argumentet.
 
   Giltigt programnamn inkluderar:
-    - **ContainerReuseAnalyzer**: Skriv ut behållaren återanvändning i DAG
-    - **CriticalPath**: hitta kritiska i DAG
-    - **LocalityAnalyzer**: Skriv ut ort i DAG
-    - **ShuffleTimeAnalyzer**: analysera blanda tidsinformationen i DAG
-    - **SkewAnalyzer**: analysera skeva informationen i DAG
-    - **SlowNodeAnalyzer**: skriva noden information i DAG
-    - **SlowTaskIdentifier**: Skriv ut långsam aktivitetsinformation i DAG
-    - **SlowestVertexAnalyzer**: Skriv ut långsammaste hörn i DAG
-    - **SpillAnalyzer**: Skriv ut oljesanering detaljer i DAG
-    - **TaskConcurrencyAnalyzer**: Skriv ut samtidighet aktivitetsinformation i DAG
-    - **VertexLevelCriticalPathAnalyzer**: hitta kritiska nivån hörn i DAG
+    - **ContainerReuseAnalyzer**: skriva ut behållare återanvändning information i en grupp för Databastillgänglighet
+    - **CriticalPath**: hitta den kritiska vägen i DAG
+    - **LocalityAnalyzer**: skriva ut ort information finns i en grupp för Databastillgänglighet
+    - **ShuffleTimeAnalyzer**: analysera shuffle tidsinformation i en grupp för Databastillgänglighet
+    - **SkewAnalyzer**: analysera skeva informationen i en grupp för Databastillgänglighet
+    - **SlowNodeAnalyzer**: skriva ut nodinformation i en grupp för Databastillgänglighet
+    - **SlowTaskIdentifier**: Skriv ut långsam delar av uppgifterna i en grupp för Databastillgänglighet
+    - **SlowestVertexAnalyzer**: skriva ut den långsammaste hörn information i en grupp för Databastillgänglighet
+    - **SpillAnalyzer**: Skriv ut oljesanering detaljer i en grupp för Databastillgänglighet
+    - **TaskConcurrencyAnalyzer**: skriva ut samtidighet aktivitetsinformation i en grupp för Databastillgänglighet
+    - **VertexLevelCriticalPathAnalyzer**: hitta den kritiska vägen på hörn nivå i en grupp för Databastillgänglighet
 
 
 ### <a name="additional-reading"></a>Ytterligare resurser
@@ -149,7 +144,7 @@ Koden i Lösningssteg förutsätter att datasökvägar på det nya klustret är 
 - [Ansluta till ett HDInsight-kluster med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>Hur hämta Tez DAG data från ett kluster?
+## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>Hur jag för att hämta Tez DAG data från ett kluster?
 
 
 #### <a name="resolution-steps"></a>Lösningsanvisningar
@@ -164,11 +159,11 @@ Det finns två sätt att samla in data för Tez DAG:
   hadoop jar /usr/hdp/current/tez-client/tez-history-parser-*.jar org.apache.tez.history.ATSImportTool -downloadDir . -dagId <DagId> 
   ```
 
-- Använda Ambari Tez vy:
+- Använda Ambari Tez-vy:
    
   1. Gå till Ambari. 
-  2. Gå till vyn Tez (under ikonen paneler i det övre högra hörnet). 
-  3. Välj den DAG du vill visa.
+  2. Gå till Tez-vy (under ikonen paneler i det övre högra hörnet). 
+  3. Välj den DAG som du vill visa.
   4. Välj **ladda ned data**.
 
 ### <a name="additional-reading-end"></a>Ytterligare resurser

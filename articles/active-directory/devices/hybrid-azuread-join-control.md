@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2332923946e414325b9723a59cf493d9d1060cc6
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 9ffc84009adfca60e9ae6b188b65b15e874e7d9c
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369179"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622178"
 ---
 # <a name="how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Så här kontrollerar du hybrid Azure AD-anslutning av dina enheter
 
@@ -36,7 +36,7 @@ Den här artikeln förutsätter att du är bekant med:
 
 -  [Introduktion till hantering av enheter i Azure Active Directory](../device-management-introduction.md)
  
--  [Hur du planerar din hybrid Azure Active Directory join-implementering](hybrid-azuread-join-plan.md)
+-  [Så här planerar du Azure Active Directory Join-hybridimplementeringen](hybrid-azuread-join-plan.md)
 
 -  Konfigurera hybrid Azure Active Directory-anslutning för [hanterade domäner](hybrid-azuread-join-managed-domains.md) eller [federerade domäner](hybrid-azuread-join-federated-domains.md)
 
@@ -110,6 +110,9 @@ Du kan styra beteendet enheten registreringen av din befintliga enheter genom at
     
 
 Du måste länka den här klientinställningen till en valfri plats. Till exempel för att konfigurera den här klientinställningen för alla aktuella Windows-enheter i din organisation, länka klientinställningen till domänen. Du kan konfigurera för klienten att domänanslutna Windows befintliga enheter som hör till en organisationsenhet eller en säkerhetsgrupp om du vill göra en kontrollerad distribution.
+
+> [!Important]
+> Medan konfigurationen ovan tar hand om befintliga domänanslutna Windows 10-enheter, finns det risk för nyligen domän ansluta enheter att fortsätta att försöka få fullständig hybrid Azure AD-anslutning på grund av potentiella fördröjningen i den faktiska tillämpningen av en grupprincip eller Configuration Manager-inställningarna på den nyligen domänanslutna Windows 10-enhet. Om du vill undvika detta rekommenderar vi att du skapar en ny sysprep-bild (används som exempel för en metod för etablering) från en enhet som aldrig tidigare var hybrid Azure AD-anslutna och att redan har det ovanstående inställning för Grupprincip tillämpas eller Configuration Manager-klienten inställningen för. Du måste också använda den nya avbildningen för att etablera nya datorer som ansluter till organisationens domän. 
 
 ## <a name="control-windows-down-level-devices"></a>Styra Windows äldre enheter
 

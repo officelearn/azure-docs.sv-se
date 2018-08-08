@@ -16,12 +16,12 @@ ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a4e03eac9c41c72714103a2c863a9ed6b2fd8608
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d924c1fc9697bff77f12f7f0bf33a1654d1e7d6e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577736"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597981"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Valfria anspråk i Azure AD (förhandsversion)
 
@@ -126,7 +126,7 @@ Det här objektet OptionalClaims orsakar ID-token som returneras till klienten m
 
 ## <a name="configuring-optional-claims"></a>Konfigurera valfria anspråk
 
-Du kan konfigurera valfria anspråk för ditt program genom att ändra programmanifestet (se exemplet nedan). Mer information finns i den [förstå Azure AD application manifest artikeln](active-directory-application-manifest.md).
+Du kan konfigurera valfria anspråk för ditt program genom att ändra programmanifestet (se exemplet nedan). Mer information finns i den [förstå Azure AD application manifest artikeln](reference-app-manifest.md).
 
 **Exemplet schema:**
 

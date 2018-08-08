@@ -8,22 +8,58 @@ ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 08/01/2018
 ms.author: raynew
-ms.openlocfilehash: 251e2b1f8785408bf441bcbcf3d0fcbdd767a358
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 94abdd30dc9cd279ab791541250787a111f80d30
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38479490"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618996"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Konfigurera haveriberedskap för lokala virtuella VMware-datorer eller fysiska servrar till en sekundär plats
 
-InMage Scout i [Azure Site Recovery](site-recovery-overview.md) ger i realtid replikering mellan lokala VMware-webbplatser. InMage Scout ingår i Azure Site Recovery service-prenumerationer. 
+InMage Scout i [Azure Site Recovery](site-recovery-overview.md) ger i realtid replikering mellan lokala VMware-webbplatser. InMage Scout ingår i Azure Site Recovery service-prenumerationer.
+
+## <a name="end-of-support-announcement"></a>Support upphör meddelande
+
+Azure Site Recovery-scenario för replikering mellan den lokala VMware eller fysiska Datacenter når support upphör.
+
+-   Från augusti 2018 scenariot inte kan konfigureras i Recovery Services-valvet och InMage Scout-programvaran kan inte hämtas från valvet. Befintliga distributioner kommer att stödjas. 
+-   Scenariot från December 31 2020, kommer inte att stödas.
+- Befintliga partners kan registrera nya kunder till scenariot tills support upphör.
+
+Under 2018 och 2019 släpps två uppdateringar: 
+
+-   Uppdatering 7: Korrigeringar nätverksproblem för konfiguration och efterlevnad och tillhandahåller stöd för TSL 1.2.
+-   Uppdatera 8: Lägger till stöd för Linux-operativsystem RHEL/CentOS 7.3/7.4/7.5 och SUSE 12
+
+Efter uppdatering 8, ingen ytterligare släpps uppdateringar. Det blir begränsad snabbkorrigering stöd för de operativsystem som har lagts till i uppdatering 8 och felkorrigeringar baserat på bästa prestanda.
+
+Azure Site Recovery har fortfarande till innovationer genom att VMware och Hyper-V-kunder en sömlös och klassens bästa DRaaS-lösning med Azure som en plats för katastrofåterställning. Microsoft rekommenderar att befintliga InMage / ASR Scout kunder överväga att använda Azure Site Recovery-VMware till Azure-scenariot för kontinuitet för företag behöver. Azure Site Recovery-VMware till Azure-scenariot är en katastrofåterställningslösning i företagsklass för VMware-program, som erbjuder RPO och RTO minuter, stöd för flera virtuella datorer programmet replikering och återställning, sömlös integrering omfattande övervakning och stor TCO fördel.
+
+### <a name="scenario-migration"></a>Scenario-migrering
+Som ett alternativ rekommenderar vi att konfigurera haveriberedskap för lokala virtuella VMware-datorer och fysiska datorer genom att replikera dem till Azure. Gör detta på följande sätt:
+
+1.  Granska snabb jämförelsen nedan. Innan du kan replikera lokala datorer, behöver du kontrollera att de uppfyller [krav](./vmware-physical-azure-support-matrix.md#replicated-machines) för replikering till Azure. Om du replikerar virtuella VMware-datorer, rekommenderar vi att du läser igenom [riktlinjerna för kapacitetsplanering](./site-recovery-plan-capacity-vmware.md), och kör den [planeringsverktyget](./site-recovery-deployment-planner.md) till kapacitetskrav för identitet, och kontrollera efterlevnad.
+2.  När du har kört Kapacitetsplaneraren, du kan konfigurera replikering: o för virtuella VMware-datorer, följer du de här självstudierna att [förbereda Azure](./tutorial-prepare-azure.md), [förbereda lokala VMware-miljö](./vmware-azure-tutorial-prepare-on-premises.md), och [konfigurera haveriberedskap](./vmware-azure-tutorial-prepare-on-premises.md).
+o för fysiska datorer, följ den här [självstudien](./physical-azure-disaster-recovery.md).
+3.  När datorer replikeras till Azure, kan du köra en [programåterställningstest](./site-recovery-test-failover-to-azure.md) att kontrollera att allt fungerar som förväntat.
+
+### <a name="quick-comparison"></a>Snabb jämförelse
+
+**Funktion** | **Replikering till Azure** |**Replikering mellan datacenter i VMware**
+--|--|--
+**Nödvändiga komponenter** |Mobilitetstjänsten på replikerade datorer. Den lokala konfigurationsservern, processervern och huvudmålservern. Tillfällig processerver i Azure för återställning efter fel.|Mobilitetstjänsten Processervern, konfigurationsservern och Huvudmålservern
+**Konfiguration och dirigering** |Recovery Services-valv i Azure portal | Med hjälp av vContinuum 
+**Replikerade**|Disk (Windows och Linux) |Volym-Windows<br> Disk-Linux
+**Delad klusterdisk**|Stöds inte|Stöds
+**Dataomsättning begränsningar (genomsnitt)** |10 MB/s data per disk<br> Data för 25MB/s per virtuell dator<br> [Läs mer](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | Data > 10 MB/s per disk  <br> Data > 25 MB/s per virtuell dator
+**Övervakning** |Från Azure-portalen|Från CX (konfigurationsserver)
+**Stödmatris**| [Klicka här för information](./vmware-physical-azure-support-matrix.md)|[Ladda ned ASR Scout kompatibel matris](https://aka.ms/asr-scout-cm)
 
 
 ## <a name="prerequisites"></a>Förutsättningar
-
 För att slutföra den här självstudien behöver du:
 
 - [Granska](vmware-physical-secondary-support-matrix.md) kraven för stöd för alla komponenter.
@@ -75,7 +111,7 @@ Ladda ned den [uppdatera](https://aka.ms/asr-scout-update6) .zip-filen. Filen in
 6. **Linux huvudmålserver**: Om du vill uppdatera enhetlig agenten, kopiera **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** till huvudservern målserver och extrahera den. I den extrahera mappen kör **/Install**.
 7. **Windows-källservern**: Om du vill uppdatera enhetlig agenten, kopiera **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** till källservern. Dubbelklicka på filen för att köra den. 
     Du behöver inte installera uppdatering 5-agenten på källservern om den redan har uppdaterats till uppdatering 4 eller källagent installeras med installationsprogrammet för senaste grundläggande **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
-8. **Linux-källservern**: kopiera motsvarande version av agentfilen enhetlig till Linux-servern för att uppdatera enhetlig agenten och extrahera den. I den extrahera mappen kör **/Install**.  Exempel: För RHEL 6,7 64-bitarsserver, kopiera **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** till servern, och extrahera den. I den extrahera mappen kör **/Install**.
+8. **Linux-källservern**: kopiera motsvarande version av agentfilen enhetlig till Linux-servern för att uppdatera enhetlig agenten och extrahera den. I den extrahera mappen kör **/Install**.  Exempel: För RHEL 6.7 64-bitars server, kopiera **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** till servern, och extrahera den. I den extrahera mappen kör **/Install**.
 
 ## <a name="enable-replication"></a>Aktivera replikering
 
@@ -160,7 +196,7 @@ Scout uppdatering 4 är en ackumulerad uppdatering. Den innehåller alla korrige
 
 #### <a name="bug-fixes-and-enhancements"></a>Felkorrigeringar och förbättringar
 
-* Förbättrad avstängning hantering för följande Linux-operativsystem och klonar att förhindra oönskade omsynkronisering problem:
+* Förbättrad avstängning hantering för följande Linux-operativsystem och klonar att förhindra oönskade omsynkroniseringen problem:
     * Red Hat Enterprise Linux (RHEL) 6.x
     * Oracle Linux (OL) 6.x
 * För Linux är nu åtkomstbehörigheter för alla mappar i installationskatalogen för enhetlig agenten begränsade till den lokala användaren.
@@ -222,7 +258,7 @@ Uppdatering 3 åtgärdar följande problem:
 
 Korrigeringar i uppdatering 2 omfattar:
 
-* **Konfigurationsservern**: problem som hindrade den 31 dagars kostnadsfri Avläsning av funktionen inte fungerar som förväntat när konfigurationsservern registrerades i Site Recovery.
+* **Konfigurationsservern**: problem som hindrade den 31 dagars kostnadsfri Avläsning av funktionen inte fungerar som förväntat när konfigurationsservern registrerades till Azure Site Recovery-valv.
 * **Enhetlig agenten**: åtgärda ett problem i uppdatering 1 som resulterade i uppdateringen inte installeras på huvudmålservern, vid uppgradering från version 8.0 8.0.1.
 
 ### <a name="azure-site-recovery-scout-801-update-1"></a>Azure Site Recovery Scout 8.0.1 uppdatering 1

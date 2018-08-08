@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 065f7ef822cdabad8fe25651e3cda9735c655d5f
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 4a0fb5739812950f3a01a18acae1d797fa4f9158
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414532"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622260"
 ---
 # <a name="what-are-authentication-methods"></a>Vad är autentiseringsmetoder?
 
@@ -132,7 +132,7 @@ Microsoft Authenticator-appen finns för [Android](https://go.microsoft.com/fwli
 Microsoft Authenticator-appen kan hjälpa att förhindra obehörig åtkomst till konton och stoppa olagliga transaktioner genom att skicka ett meddelande till din smartphone eller surfplatta. Användare visa meddelandet och välj kontrollera om det är tillförlitligt. I annat fall kan de välja neka.
 
 > [!WARNING]
-> För lösenordsåterställning via självbetjäning när bara en av metoderna som krävs för återställning, är verifieringskoden det enda alternativet som är tillgängliga för användare.
+> För lösenordsåterställning via självbetjäning när bara en metod krävs för återställning, verifieringskoden är det enda alternativet som är tillgängliga för användare **att säkerställa högsta säkerhetsnivå**.
 >
 > När två metoder krävs användare kommer att kunna återställa med hjälp av **antingen** meddelande **eller** Verifieringskod utöver eventuella övriga aktiverat metoder.
 >
@@ -142,7 +142,7 @@ Microsoft Authenticator-appen kan hjälpa att förhindra obehörig åtkomst till
 Microsoft Authenticator-appen eller andra appar från tredje part kan användas som en programvarutoken för att generera en OATH-Verifieringskod. När du har angett ditt användarnamn och lösenord, kan du ange koden som tillhandahålls av appen i inloggning-skärmen. Verifieringskoden ger ett andra formen av autentisering.
 
 > [!WARNING]
-> Verifieringskoden är det enda alternativet som är tillgängliga för användare för lösenordsåterställning via självbetjäning när bara en av metoderna som krävs för återställning.
+> För lösenordsåterställning via självbetjäning när bara en metod krävs för återställning av verifieringskoden är det enda alternativet som är tillgängliga för användare **att säkerställa högsta säkerhetsnivå**.
 >
 
 ## <a name="mobile-phone"></a>Mobiltelefon
@@ -198,5 +198,7 @@ Om din organisation är federerad för enkel inloggning med Azure AD och du komm
 [Aktivera lösenordsåterställning för din organisation via självbetjäning](quickstart-sspr.md)
 
 [Aktivera Azure Multi-Factor Authentication för din organisation](howto-mfa-getstarted.md)
+
+[Aktivera konvergerade registrering för Azure Multi-Factor Authentication och Azure AD lösenordsåterställning via självbetjäning](concept-registration-mfa-sspr-converged.md)
 
 [Autentisering metoden configuration användardokumentation](https://aka.ms/securityinfoguide)

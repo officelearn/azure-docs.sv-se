@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 2371ad00728a47af9e96e8e711aa07cc5170266c
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: f786a20f61c8851c1d50a89edd392b9b974db076
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158870"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622328"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Distribuera självbetjäning för återställning av lösenord
 
@@ -75,12 +75,13 @@ Du bör överväga [förväg fylla vissa autentiseringsdata för dina användare
 
 ## <a name="disable-self-service-password-reset"></a>Inaktivera lösenordsåterställning via självbetjäning
 
-Om din organisation bestämmer sig för att inaktivera lösenordsåterställning via självbetjäning är en enkel process. Öppna Azure AD-klienten och gå till **Återställning av lösenord** > **Egenskaper**. Välj sedan **Ingen** under **Återställning av lösenord via självbetjäning har aktiverats**. Användare kommer fortfarande att underhålla sina
+Om din organisation bestämmer sig för att inaktivera lösenordsåterställning via självbetjäning är en enkel process. Öppna Azure AD-klienten och gå till **Återställning av lösenord** > **Egenskaper**. Välj sedan **Ingen** under **Återställning av lösenord via självbetjäning har aktiverats**. Användare kommer fortfarande att ha sina registrerade autentiseringsmetoder för framtida användning.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Återställ eller ändra ditt lösenord](../user-help/active-directory-passwords-update-your-own-password.md)
 * [Registrera för återställning av lösenord för självbetjäning](../user-help/active-directory-passwords-reset-register.md)
+* [Aktivera konvergerade registrering för Azure Multi-Factor Authentication och Azure AD lösenordsåterställning via självbetjäning](concept-registration-mfa-sspr-converged.md)
 * [Har du en fråga om licensiering?](concept-sspr-licensing.md)
 * [Vilka data används av SSPR och vilka data bör du fylla i för dina användare?](howto-sspr-authenticationdata.md)
 * [Vilka principalternativ finns för SSPR?](concept-sspr-policy.md)

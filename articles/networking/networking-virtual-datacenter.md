@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2018
 ms.author: jonor
-ms.openlocfilehash: 2c8ca8bcce43596d521fa9c81438ac6a16f6dcdf
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fc3f334771c11d6917e15628557adfb59051f0f6
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445389"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621029"
 ---
 # <a name="azure-virtual-datacenter-a-network-perspective"></a>Azure Virtual Datacenter: Ett Nätverksperspektiv
 **Microsoft Azure**: flytta snabbare, spara pengar, integrera lokala appar och data
@@ -262,7 +262,7 @@ I en vDC är det mycket viktigt att spåra loggarna NSG: er, särskilt den här 
 
 Alla loggar kan lagras i Azure Storage-konton för granskning, statiska analys eller säkerhetskopiering. När loggarna lagras i ett Azure storage-konto kan kan kunder använda olika typer av ramverk för att hämta, Förbered, analysera och visualisera data för att rapportera status och hälsa av molnresurser.
 
-Stora företag bör redan har hämtat ett standard ramverk för att övervaka lokala system och kan utöka ramverket för att integrera loggar som genereras av molndistributioner. För organisationer som vill behålla all loggning i molnet, är [Log Analytics] [LogAnalytics] ett bra alternativ. Eftersom Log Analytics har implementerats som en molnbaserad tjänst kan kan du ha den igång snabbt med minsta möjliga investering i infrastrukturtjänster. Log Analytics kan också integreras med System Center-komponenter, till exempel System Center Operations Manager för att utöka din befintliga hanteringsinvestering i molnet.
+Stora företag bör redan har hämtat ett standard ramverk för att övervaka lokala system och kan utöka ramverket för att integrera loggar som genereras av molndistributioner. För organisationer som vill behålla all loggning i molnet, [Log Analytics] [... / log-analytics/log-analytics-overview .md] är ett bra alternativ. Eftersom Log Analytics har implementerats som en molnbaserad tjänst kan kan du ha den igång snabbt med minsta möjliga investering i infrastrukturtjänster. Log Analytics kan också integreras med System Center-komponenter, till exempel System Center Operations Manager för att utöka din befintliga hanteringsinvestering i molnet.
 
 Log Analytics är en tjänst i Azure som hjälper dig att samla in, korrelera, söka och agera på logg- och prestandadata data som genereras av operativsystem, program och infrastrukturkomponenter för molnet. Det ger kunderna operativa realtidsinsikter med integrerad sökning och anpassade instrumentpaneler för att analysera alla poster i alla arbetsbelastningar i en vDC.
 

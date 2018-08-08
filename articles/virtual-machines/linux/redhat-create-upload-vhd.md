@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2018
+ms.date: 08/07/2018
 ms.author: szark
-ms.openlocfilehash: d809b71c1fff953e946b842332146f982fca7b74
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f5bce08bfc61d5b9b17e9500c002c3b870384c7b
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422366"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618666"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Förbered en Red Hat-baserad virtuell dator för Azure
 I den här artikeln får lära du dig att förbereda en virtuell dator för Red Hat Enterprise Linux (RHEL) för användning i Azure. RHEL-versioner som beskrivs i den här artikeln är 6.7 + och 7.1 +. Hypervisorer för förberedelse av som beskrivs i den här artikeln är Hyper-V, kernel-baserad virtuell dator (KVM) och VMware. Läs mer om krav för berättigande för att du deltar i programmet för Red Hat Cloud Access [Red Hat Cloud Access webbplats](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) och [kör RHEL på Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
@@ -37,7 +37,6 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från Red Hat
 * Den maximala storleken som tillåts för den virtuella Hårddisken är 1,023 GB.
 * När du installerar Linux-operativsystem rekommenderar vi att du använder standard partitioner i stället för logiska Volume Manager (LVM), vilket ofta är standard för många installationer. Denna praxis undviker LVM namnet står i konflikt med den klonade virtuella datorer, särskilt om du behöver att koppla en operativsystemdisk till en annan identisk virtuell dator för felsökning. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) kan användas för datadiskar.
 * Kernel-stöd för att montera filsystem för Universal Disk (UDF) krävs. Vid första start på Azure skickar UDF-formaterad mediet som är kopplad till gästen etablering konfigurationen till Linux-datorn. Azure Linux Agent måste kunna montera UDF-filsystemet för att läsa konfigurationen och etablera den virtuella datorn.
-* Versioner av Linux-kernel som är äldre än 2.6.37 stöder inte icke-enhetlig minnesåtkomst (NUMA) på Hyper-V med större storlekar för virtuella datorer. I detta fall främst påverkar äldre distributioner som använder den överordnade Red Hat 2.6.32 kernel och åtgärdades i RHEL 6.6 (kernel-2.6.32-504). System som kör anpassade kernlar som är äldre än 2.6.37 eller RHEL-baserade kernlar som är äldre än 2.6.32-504 måste ställa in den `numa=off` starta parametern på kommandoraden kernel i grub.conf. Mer information finns i Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 * Konfigurera inte swap-partition på operativsystemdisken. Linux-agenten kan konfigureras för att skapa en växlingsfil på temporär disk.  Mer information om detta finns i följande steg.
 * Alla virtuella hårddiskar på Azure måste ha en virtuell storlek justeras till 1MB. Vid konvertering från en rå disk till virtuell Hårddisk måste du kontrollera att rådata diskens storlek är en multipel av 1MB före omvandlingen. Mer information finns i stegen nedan. Se även [Linux installationsinformation](create-upload-generic.md#general-linux-installation-notes) för mer information.
 
@@ -96,8 +95,6 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från Red Hat
     
     Grafiska och tyst start är inte användbart i en molnmiljö där vi vill att alla loggar som ska skickas till den seriella porten.  Du kan lämna den `crashkernel` alternativet konfigureras om så önskas. Observera att den här parametern minskar mängden tillgängligt minne på den virtuella datorn med 128 MB eller mer. Den här konfigurationen kan vara problematiskt på mindre storlekar för virtuella datorer.
 
-    >[!Important]
-    RHEL 6.5 och tidigare måste också ange den `numa=off` kernel-parameter. Se Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 
 1. Se till att secure shell (SSH)-server har installerats och konfigurerats för att starta när datorn startas, som vanligtvis är standard. Ändra /etc/ssh/sshd_config för att inkludera följande rad:
 
@@ -284,14 +281,12 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från Red Hat
     
     Grafiska och tyst start är inte användbart i en molnmiljö där vi vill att alla loggar som ska skickas till den seriella porten. Du kan lämna den `crashkernel` alternativet konfigureras om så önskas. Observera att den här parametern minskar mängden tillgängligt minne på den virtuella datorn med 128 MB eller mer, vilket kan vara problematiskt på mindre storlekar för virtuella datorer.
 
-    >[!Important]
-    RHEL 6.5 och tidigare måste också ange den `numa=off` kernel-parameter. Se Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 
 1. Lägg till Hyper-V-modulerna i initramfs:  
 
     Redigera `/etc/dracut.conf`, och Lägg till följande innehåll:
 
-        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+        add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
 
     Återskapa initramfs:
 
@@ -436,7 +431,7 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från Red Hat
 
     Redigera `/etc/dracut.conf` och lägga till innehåll:
 
-        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+        add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
 
     Återskapa initramfs:
 
@@ -580,7 +575,7 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL-dator i VM
 
     Redigera `/etc/dracut.conf`, och Lägg till följande innehåll:
 
-        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+        add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
 
     Återskapa initramfs:
 
@@ -690,7 +685,7 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL-dator i VM
 
     Redigera `/etc/dracut.conf`, lägga till innehåll:
 
-        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+        add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
 
     Återskapa initramfs:
 
@@ -914,7 +909,7 @@ Lägg till Hyper-V-modulerna i initramfs och återskapa den för att lösa probl
 
 Redigera `/etc/dracut.conf`, och Lägg till följande innehåll:
 
-        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+        add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
 
 Återskapa initramfs:
 

@@ -1,23 +1,20 @@
 ---
-title: Konfigurera HBase-kluster-replikering i Azure-nätverk | Microsoft Docs
+title: Konfigurera HBase-kluster-replikering i Azure-nätverk
 description: Lär dig hur du ställer in HBase-replikering från en HDInsight-version till en annan för Utjämning av nätverksbelastning, hög tillgänglighet, noll stilleståndstid vid migrering och uppdateringar och katastrofåterställning.
 services: hdinsight,virtual-network
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: jgao
-ms.openlocfilehash: f0367b67f141ca65ce2374722016d0fbea6c97d1
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: jasonh
+ms.openlocfilehash: 535b5dcc62020119cda3db36bfdbd707badfe549
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951132"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600313"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Konfigurera HBase-kluster-replikering i Azure-nätverk
 

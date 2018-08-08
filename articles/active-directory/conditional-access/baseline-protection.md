@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 07/02/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: dc28f4099661d027305faeeabf27de06cc98678d
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 70a0fc4236bc275cf9221f302e63f987a89af0d6
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531335"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620356"
 ---
 # <a name="what-is-baseline-protection-preview"></a>Vad är skydd vid baslinjen (förhandsversion)?  
 
@@ -95,6 +95,6 @@ Grundläggande principer gäller för äldre autentiseringsflöden som POP, IMAP
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta hur du konfigurerar principer för villkorlig åtkomst finns i [Kom igång med villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access-azure-portal-get-started.md).
+Om du vill veta hur du konfigurerar principer för villkorlig åtkomst finns i [kräver MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](app-based-mfa.md).
 
 Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö kan du läsa den [bästa praxis för villkorlig åtkomst i Azure Active Directory](best-practices.md). 

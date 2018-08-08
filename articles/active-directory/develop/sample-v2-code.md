@@ -17,12 +17,12 @@ ms.date: 04/26/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8d2ce5bb2f44d9e21fb12e96f9c68d4ecc0fc501
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 0be97bfbbaafd6045fd36be57d85e917f0325779
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581874"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600660"
 ---
 # <a name="azure-active-directory-code-samples-v2-endpoint"></a>Kodexempel för Azure Active Directory (V2-slutpunkt)
 
@@ -36,7 +36,7 @@ Den här artikeln beskriver kortfattat och tillhandahåller länkar till exempel
 > [!NOTE]
 > Om du är intresserad av V1-exempel finns i [kodexempel för Azure AD (V1-slutpunkt)](sample-v1-code.md).
 
-Information om grundläggande scenario för varje typ av exemplet finns i [apptyperna för Azure Active Directory v2.0-slutpunkten](active-directory-v2-flows.md).
+Information om grundläggande scenario för varje typ av exemplet finns i [apptyperna för Azure Active Directory v2.0-slutpunkten](v2-app-types.md).
 
 Du kan också bidra till exemplen på GitHub. Läs hur genom att läsa [Microsoft Azure Active Directory-exempel och dokumentation](https://github.com/Azure-Samples?page=3&query=active-directory).
 

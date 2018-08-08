@@ -1,143 +1,139 @@
 ---
-title: Data Lake-verktyg för Visual Studio med Hortonworks Sandbox - Azure HDInsight | Microsoft Docs
-description: Lär dig hur du använder Azure Data Lake-verktyg för Visual Studio med Hortonworks sandbox körs på en lokal virtuell dator. Med dessa verktyg kan du skapa och köra Hive och Pig-jobb på begränsat, och visa jobbutdata och historik.
+title: Data Lake tools för Visual Studio med begränsat Hortonworks-läge – Azure HDInsight
+description: Lär dig hur du använder Azure Data Lake-verktygen för Visual Studio med Hortonworks sandbox-miljön som körs i en lokal virtuell dator. Med dessa verktyg kan du skapa och köra Hive och Pig-jobb i begränsat läge, och visa jobbutdata och historik.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-ms.assetid: e3434c45-95d1-4b96-ad4c-fb59870e2ff0
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: larryfr
-ms.openlocfilehash: a4c1f5a8100d5d4017e56ef129aa4f4826746868
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.author: jasonh
+ms.openlocfilehash: 53bd629bcdf272e97c03dfb60c2693158698b837
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33886739"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597389"
 ---
-# <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Använda Azure Data Lake-verktyg för Visual Studio med Hortonworks Sandbox
+# <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Använda Azure Data Lake-verktyg för Visual Studio med begränsat Hortonworks-läge
 
-Azure Data Lake innehåller verktyg för att arbeta med allmänt Hadoop-kluster. Det här dokumentet innehåller de steg som behövs för att använda Data Lake-verktyg med Hortonworks Sandbox körs i en lokal virtuell dator.
+Azure Data Lake innehåller verktyg för att arbeta med allmänt Hadoop-kluster. Det här dokumentet innehåller de steg som behövs för att använda Data Lake-verktyg med begränsat Hortonworks-läge som körs i en lokal virtuell dator.
 
-Med Hortonworks Sandbox kan du arbeta med Hadoop lokalt på din utvecklingsmiljö. När du har utvecklat en lösning och vill distribuera i skala, kan du sedan flytta till ett HDInsight-kluster.
+Med begränsat Hortonworks-läge kan du arbeta med Hadoop lokalt i din utvecklingsmiljö. När du har utvecklat en lösning och vill distribuera i stor skala, kan du sedan flytta till ett HDInsight-kluster.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Hortonworks Sandbox körs i en virtuell dator på din utvecklingsmiljö. Dokumentet har skrivits och testas med sandbox körs i Oracle VirtualBox. Information om hur du konfigurerar sandbox finns det [Kom igång med Hortonworks sandbox.](hadoop/apache-hadoop-emulator-get-started.md) dokumentet.
+* Hortonworks sandbox-miljön, som körs i en virtuell dator i din utvecklingsmiljö. Det här dokumentet har skrivits och testats med sandbox-miljön som körs i Oracle VirtualBox. Information om hur du konfigurerar sandbox-miljön finns i den [Kom igång med begränsat Hortonworks-läge.](hadoop/apache-hadoop-emulator-get-started.md) dokumentet.
 
-* Visual Studio 2013, Visual Studio 2015 eller Visual Studio 2017 (någon utgåva).
+* Visual Studio 2013, Visual Studio 2015 eller Visual Studio 2017 (alla versioner).
 
 * Den [Azure SDK för .NET](https://azure.microsoft.com/downloads/) 2.7.1 eller senare.
 
-* Den [Azure Data Lake-verktyg för Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504).
+* Den [Azure Data Lake tools för Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504).
 
-## <a name="configure-passwords-for-the-sandbox"></a>Konfigurera lösenord för sandbox
+## <a name="configure-passwords-for-the-sandbox"></a>Konfigurera lösenord för sandbox-miljön
 
-Kontrollera att sandlådan Hortonworks körs. Följ stegen i den [komma igång i sandlådan Hortonworks](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords) dokumentet. De här stegen konfigurera lösenordet för SSH `root` konto och Ambari `admin` konto. Dessa lösenord används när du ansluter till sandbox från Visual Studio.
+Se till att Hortonworks Sandbox körs. Följ stegen i den [Kom igång med Hortonworks Sandbox](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords) dokumentet. De här stegen konfigurera lösenordet för en SSH `root` konto och Ambari `admin` konto. Dessa lösenord används när du ansluter till sandbox från Visual Studio.
 
-## <a name="connect-the-tools-to-the-sandbox"></a>Ansluta verktygen till sandbox
+## <a name="connect-the-tools-to-the-sandbox"></a>Ansluta verktygen till sandbox-miljön
 
-1. Öppna Visual Studio, markera **visa**, och välj sedan **Server Explorer**.
+1. Öppna Visual Studio, Välj **visa**, och välj sedan **Server Explorer**.
 
-2. Från **Server Explorer**, högerklicka på den **HDInsight** posten och välj sedan **Anslut till HDInsight-Emulator**.
+2. Från **Server Explorer**, högerklicka på den **HDInsight** posten och välj sedan **Anslut till HDInsight Emulator**.
 
-    ![Skärmbild av Server Explorer, med Anslut till HDInsight-Emulator markerat](./media/hdinsight-hadoop-emulator-visual-studio/connect-emulator.png)
+    ![Skärmbild av Server Explorer med Anslut till HDInsight Emulator markerat](./media/hdinsight-hadoop-emulator-visual-studio/connect-emulator.png)
 
-3. Från den **Anslut till HDInsight-Emulator** dialogrutan Ange lösenordet som du har konfigurerat för Ambari.
+3. Från den **Anslut till HDInsight Emulator** dialogrutan anger du det lösenord som du har konfigurerat för Ambari.
 
     ![Skärmbild av dialogrutan med lösenordet i textrutan markerat](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
 
     Välj **Nästa** för att fortsätta.
 
-4. Använd den **lösenord** fältet för att ange lösenordet som du har konfigurerat för den `root` konto. Lämna de andra fälten standardvärdet.
+4. Använd den **lösenord** fält för att ange lösenordet som du konfigurerade för den `root` konto. Lämna övriga fält på standardvärdet.
 
     ![Skärmbild av dialogrutan med lösenordet i textrutan markerat](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password.png)
 
     Välj **Nästa** för att fortsätta.
 
-5. Vänta på verifiering av tjänster ska slutföras. I vissa fall verifieringen misslyckas och uppmanar dig att uppdatera konfigurationen. Om valideringen misslyckas, Välj **uppdatering**, och väntar på att konfigurations- och verifiering för tjänsten för att avsluta.
+5. Vänta på verifiering av tjänster ska slutföras. I vissa fall verifieringen misslyckas och uppmanar dig att uppdatera konfigurationen. Om valideringen misslyckas, Välj **uppdatering**, och vänta tills konfigurationen och verifiering för tjänsten att slutföra.
 
-    ![Skärmbild av dialogrutan med knappen Uppdatera markerat](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update.png)
+    ![Skärmbild av dialogrutan med knappen Uppdatera markerade](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update.png)
 
     > [!NOTE]
-    > Uppdateringsprocessen använder Ambari för att ändra konfigurationen för Hortonworks begränsat till vad som förväntas av Data Lake-verktyg för Visual Studio.
+    > Uppdateringsprocessen använder Ambari för att ändra konfigurationen av Hortonworks Sandbox vad som förväntas av Data Lake-verktyg för Visual Studio.
 
-6. När verifieringen är klar väljer du **Slutför** att slutföra konfigurationen.
+6. När verifieringen är klar kan du välja **Slutför** att slutföra konfigurationen.
     ![Skärmbild av dialogrutan med Slutför markerat](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect.png)
 
      >[!NOTE]
-     > Beroende på din utvecklingsmiljö och mängden minne som allokerats till den virtuella datorn, kan det ta flera minuter att konfigurera och verifiera tjänsterna.
+     > Det kan ta flera minuter att konfigurera och verifiera tjänsterna beroende på din utvecklingsmiljö och mängden minne som allokeras till den virtuella datorn hastighet.
 
-När du har följt de här stegen, nu har du en **lokala HDInsight-kluster** transaktion i Server Explorer under den **HDInsight** avsnitt.
+När du har följt de här stegen, nu har du en **lokalt kluster för HDInsight** post i Server Explorer under den **HDInsight** avsnittet.
 
 ## <a name="write-a-hive-query"></a>Skriv en Hive-fråga
 
-Strukturen innehåller ett SQL-liknande frågespråk (HiveQL) för att arbeta med strukturerade data. Använd följande steg för att lära dig hur du kör på begäran frågor mot det lokala klustret.
+Hive innehåller ett SQL-liknande frågespråk (HiveQL) för att arbeta med strukturerade data. Använd följande steg för att lära dig hur du kör på begäran-frågor mot det lokala klustret.
 
-1. I **Server Explorer**, högerklicka på posten för det lokala klustret som du lagt till tidigare och välj sedan **skriva en Hive-fråga**.
+1. I **Server Explorer**, högerklicka på posten för det lokala klustret som du lagt till tidigare och välj sedan **Skriv en Hive-fråga**.
 
-    ![Skärmbild av Server Explorer med Skriv en Hive-fråga som markerats](./media/hdinsight-hadoop-emulator-visual-studio/write-hive-query.png)
+    ![Skärmbild av Server Explorer med Skriv en Hive-fråga som markerat](./media/hdinsight-hadoop-emulator-visual-studio/write-hive-query.png)
 
     Ett nytt frågefönster visas. Här kan du snabbt skriva och skicka en fråga till det lokala klustret.
 
-2. I frågefönstret nytt anger du följande kommando:
+2. I nya frågefönstret anger du följande kommando:
 
         select count(*) from sample_08;
 
-    Om du vill köra frågan **skicka** längst upp i fönstret. Lämna de andra värdena (**Batch** och namn på servern) sina standardvärden.
+    Om du vill köra frågan **skicka** överst i fönstret. Lämna de andra värdena (**Batch** och servernamnet) på standardvärden.
 
     ![Skärmbild av frågefönstret med knappen Skicka markerat](./media/hdinsight-hadoop-emulator-visual-studio/submit-hive.png)
 
     Du kan också använda den nedrullningsbara menyn bredvid **skicka** att välja **Avancerat**. Avancerade alternativ kan du ange ytterligare alternativ när du har skickat jobbet.
 
-    ![Dialogrutan Skicka skript skärmbild](./media/hdinsight-hadoop-emulator-visual-studio/advanced-hive.png)
+    ![Skärmbild av skicka skript-dialogrutan](./media/hdinsight-hadoop-emulator-visual-studio/advanced-hive.png)
 
-3. När du skickar frågan visas jobbstatus. Jobbet har statusen visar information om jobbet som bearbetas av Hadoop. **Jobbets status** ger status för jobbet. Tillståndet uppdateras regelbundet och du kan använda den här ikonen för att uppdatera tillståndet manuellt.
+3. När du har skickat frågan visas jobbets status. Jobbstatusen innehåller information om jobbet som bearbetas av Hadoop. **Jobbets status** innehåller statusen för jobbet. Tillståndet uppdateras regelbundet, eller du kan använda på Uppdatera-ikonen för att uppdatera tillståndet manuellt.
 
-    ![Skärmbild av jobbet dialogrutan vy med jobbstatus markerat](./media/hdinsight-hadoop-emulator-visual-studio/job-state.png)
+    ![Skärmbild av Jobbvy dialogrutan med jobbstatus markerat](./media/hdinsight-hadoop-emulator-visual-studio/job-state.png)
 
-    Efter den **jobbstatus** ändras till **avslutad**, dirigeras acykliska diagram (DAG) visas. Det här diagrammet beskrivs körning av sökväg som fastställts av Tez vid bearbetning av Hive-fråga. Tez är standard Körningsmotor för Hive i det lokala klustret.
+    Efter den **jobbstatus** ändras till **slutfört**, visas en riktad Acyklisk graf (DAG). Det här diagrammet beskriver körningssökvägen som fastställts av Tez vid bearbetning av Hive-frågan. Tez är standard Körningsmotor för Hive i det lokala klustret.
 
     > [!NOTE]
-    > Tez är standardalternativet när du använder Linux-baserade HDInsight-kluster. Det är inte standard på Windows-baserade HDInsight. Du använder den, måste du lägga till raden `set hive.execution.engine = tez;` till början av Hive-fråga.
+    > Tez är standardalternativet när du använder Linux-baserade HDInsight-kluster. Det är inte standard på Windows-baserade HDInsight. För att använda den där, måste du lägga till raden `set hive.execution.engine = tez;` i början av Hive-frågan.
 
-    Använd den **Jobbutdata** länken om du vill visa resultatet. I det här fallet är det 823, antalet rader i tabellen sample_08. Du kan visa diagnostikinformation om jobbet genom att använda den **Jobblogg** och **hämta YARN-logg** länkar.
+    Använd den **Jobbutdata** länken för att visa utdata. I det här fallet är det 823, antalet rader i tabellen sample_08. Du kan visa diagnostikinformation om jobbet med hjälp av den **Jobblogg** och **ladda ned YARN-logg** länkar.
 
-4. Du kan också köra Hive-jobb interaktivt genom att ändra den **Batch** till **interaktiv**. Välj sedan **kör**.
+4. Du kan också köra Hive-jobb interaktivt genom att ändra den **Batch** fältet **interaktiv**. Välj sedan **kör**.
 
     ![Skärmbild av interaktiva och kör knappar markerat](./media/hdinsight-hadoop-emulator-visual-studio/interactive-query.png)
 
-    En interaktiv fråga strömmar utdataloggen genereras under bearbetningen till den **HiveServer2 utdata** fönster.
+    En interaktiv fråga strömmar i utdataloggen som genereras under bearbetningen till den **HiveServer2 utdata** fönster.
 
     > [!NOTE]
-    > Informationen är samma som är tillgänglig från den **Jobblogg** länka när ett jobb har slutförts.
+    > Det är samma som är tillgänglig från den **Jobblogg** länka när ett jobb har slutförts.
 
-    ![Skärmbild av logg för utdata](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output.png)
+    ![Skärmbild av loggen](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output.png)
 
-## <a name="create-a-hive-project"></a>Skapa ett Hive-projekt
+## <a name="create-a-hive-project"></a>Skapa en Hive-projekt
 
-Du kan också skapa ett projekt som innehåller flera Hive-skript. Använd ett projekt när du har relaterade skript eller vill lagra skript i ett system för version.
+Du kan också skapa ett projekt som innehåller flera Hive-skript. Använda ett projekt när du har relaterade skript eller vill lagra skript i ett system.
 
-1. I Visual Studio väljer **filen**, **ny**, och sedan **projekt**.
+1. I Visual Studio väljer **filen**, **New**, och sedan **projekt**.
 
-2. I listan över projekt, expandera **mallar**, expandera **Azure Data Lake**, och välj sedan **HIVE (HDInsight)**. Välj i listan över mallar **Hive exempel**. Ange ett namn och plats och välj sedan **OK**.
+2. I listan med projekt expanderar **mallar**, expandera **Azure Data Lake**, och välj sedan **HIVE (HDInsight)**. Välj i listan över mallar **Hive exempel**. Ange ett namn och plats och välj sedan **OK**.
 
-    ![Skärmbild av nytt projekt fönster, med Azure Data Lake, HIVE, Hive exempel och OK markerat](./media/hdinsight-hadoop-emulator-visual-studio/new-hive-project.png)
+    ![Skärmbild av nytt projekt fönster, med Azure Data Lake, HIVE, Hive-exempel och OK markerat](./media/hdinsight-hadoop-emulator-visual-studio/new-hive-project.png)
 
 Den **Hive exempel** projektet innehåller två skript **WebLogAnalysis.hql** och **SensorDataAnalysis.hql**. Du kan skicka dessa skript med hjälp av samma **skicka** längst upp i fönstret.
 
 ## <a name="create-a-pig-project"></a>Skapa ett Pig-projekt
 
-Medan Hive innehåller en SQL-liknande språk för att arbeta med strukturerade data, fungerar Pig genom att utföra omvandlingar på data. Pig innehåller ett språk (Pig Latin) som hjälper dig att utveckla en pipeline omformningar. Följ dessa steg om du vill använda Pig med det lokala klustret:
+Medan Hive innehåller ett SQL-liknande språk för att arbeta med strukturerade data, fungerar Pig genom att utföra omvandlingar på data. Pig innehåller ett språk (Pig Latin) som gör det möjligt att utveckla en pipeline med transformationer. Följ dessa steg om du vill använda Pig med det lokala klustret:
 
-1. Öppna Visual Studio och välj **filen**, **ny**, och sedan **projekt**. I listan över projekt, expandera **mallar**, expandera **Azure Data Lake**, och välj sedan **Pig (HDInsight)**. Välj i listan över mallar **Pig programmet**. Ange ett namn, plats, och välj sedan **OK**.
+1. Öppna Visual Studio och välj **filen**, **New**, och sedan **projekt**. I listan med projekt expanderar **mallar**, expandera **Azure Data Lake**, och välj sedan **Pig (HDInsight)**. Välj i listan över mallar **Pig program**. Ange ett namn, plats, och välj sedan **OK**.
 
-    ![Skärmbild av nytt projekt fönster, med Azure Data Lake, Pig, Pig program och OK markerat](./media/hdinsight-hadoop-emulator-visual-studio/new-pig.png)
+    ![Skärmbild av nytt projekt fönster, med Azure Data Lake, Pig, Pig-programmet och OK markerat](./media/hdinsight-hadoop-emulator-visual-studio/new-pig.png)
 
 2. Ange följande text som innehållet i den **script.pig** filen som skapades med det här projektet.
 
@@ -152,43 +148,43 @@ Medan Hive innehåller en SQL-liknande språk för att arbeta med strukturerade 
         c = GROUP b BY ip_address;
         DUMP c;
 
-    Pig använder ett annat språk än Hive, hur du kör jobben är konsekventa mellan både språk via den **skicka** knappen. Att välja i listrutan bredvid **skicka** visar en dialogruta med avancerade skicka för Pig.
+    Medan Pig använder ett annat språk än Hive, hur du kör jobben är konsekvent mellan båda språken via den **skicka** knappen. Att välja listrutan bredvid **skicka** visas en dialogruta med avancerade skicka för Pig.
 
-    ![Dialogrutan Skicka skript skärmbild](./media/hdinsight-hadoop-emulator-visual-studio/advanced-pig.png)
+    ![Skärmbild av skicka skript-dialogrutan](./media/hdinsight-hadoop-emulator-visual-studio/advanced-pig.png)
 
-3. Jobbets status och utdata visas också, samma som en Hive-fråga.
+3. Jobbstatus och utdata visas också, samma som en Hive-fråga.
 
-    ![Skärmbild av ett avslutat Pig-projekt](./media/hdinsight-hadoop-emulator-visual-studio/completed-pig.png)
+    ![Skärmbild av ett slutfört Pig-jobb](./media/hdinsight-hadoop-emulator-visual-studio/completed-pig.png)
 
 ## <a name="view-jobs"></a>Visa jobb
 
-Data Lake-verktyg kan du enkelt se information om jobb som har körts på Hadoop. Använd följande steg om du vill visa de jobb som har körts på det lokala klustret.
+Data Lake-verktyg kan du enkelt se information om jobb som körts på Hadoop. Använd följande steg för att se de jobb som körts på det lokala klustret.
 
 1. Från **Server Explorer**, högerklicka på det lokala klustret och välj sedan **visa jobb**. En lista över jobb som har skickats till klustret visas.
 
-    ![Skärmbild av Server Explorer, med Visa jobb markerat](./media/hdinsight-hadoop-emulator-visual-studio/view-jobs.png)
+    ![Skärmbild av Server Explorer med Visa jobb markerat](./media/hdinsight-hadoop-emulator-visual-studio/view-jobs.png)
 
 2. Välj något att visa Jobbinformationen för jobben i listan.
 
-    ![Skärmbild av jobbet webbläsare med ett av jobben markerat](./media/hdinsight-hadoop-emulator-visual-studio/view-job-details.png)
+    ![Skärmbild av Jobbwebbläsare, ett av jobben markerat](./media/hdinsight-hadoop-emulator-visual-studio/view-job-details.png)
 
-    Informationen liknar det som visas när du har kört en Hive- eller Pig fråga, inklusive länkar om du vill visa utdata och logga information.
+    Informationen som visas liknar det som visas när du har kört en Hive- eller Pig fråga, inklusive länkar för att visa utdata och logga information.
 
-3. Du kan också ändra och skicka jobbet från den här.
+3. Du kan också ändra och skicka jobbet härifrån.
 
 ## <a name="view-hive-databases"></a>Visa Hive-databaser
 
-1. I **Server Explorer**, expandera den **lokala HDInsight-kluster** post, och expandera sedan **Hive-databaser**. Den **standard** och **xademo** databaser i det lokala klustret visas. Expandera en databas visar tabeller i databasen.
+1. I **Server Explorer**, expandera den **lokalt kluster för HDInsight** post, och expandera sedan **Hive-databaser**. Den **standard** och **xademo** databaser i det lokala klustret visas. Expandera en databas visar tabeller i databasen.
 
-    ![Skärmbild av Server Explorer, med databaser expanderas](./media/hdinsight-hadoop-emulator-visual-studio/expanded-databases.png)
+    ![Skärmbild av Server Explorer med databaser expanderas](./media/hdinsight-hadoop-emulator-visual-studio/expanded-databases.png)
 
-2. Expandera en tabell visar kolumnerna för tabellen. Högerklicka på en tabell för att snabbt visa data, och välj **visa de 100 översta raderna**.
+2. Expandera en tabell innehåller kolumner för tabellen. Högerklicka på en tabell för att snabbt visa data, och välj **visa de 100 översta raderna**.
 
-    ![Skärmbild av Server Explorer, med tabellen expanderas och visa de 100 översta raderna markerat](./media/hdinsight-hadoop-emulator-visual-studio/view-100.png)
+    ![Skärmbild av Server Explorer med tabellen expanderas och visa de 100 översta raderna valt](./media/hdinsight-hadoop-emulator-visual-studio/view-100.png)
 
 ### <a name="database-and-table-properties"></a>Egenskaper för databas och tabell
 
-Du kan visa egenskaperna för en databas eller tabell. Att välja **egenskaper** visar information för det valda objektet i egenskapsfönstret. Till exempel se informationen som visas i följande skärmbild:
+Du kan visa egenskaperna för en databas eller tabell. Att välja **egenskaper** visar information för det valda objektet i egenskapsfönstret. Se exempelvis informationen som visas i följande skärmbild:
 
 ![Skärmbild av egenskapsfönstret](./media/hdinsight-hadoop-emulator-visual-studio/properties.png)
 
@@ -196,13 +192,13 @@ Du kan visa egenskaperna för en databas eller tabell. Att välja **egenskaper**
 
 Högerklicka på en databas för att skapa en tabell, och välj sedan **Create Table**.
 
-![Skärmbild av Server Explorer, med Create Table markerat](./media/hdinsight-hadoop-emulator-visual-studio/create-table.png)
+![Skärmbild av Server Explorer med Create Table markerat](./media/hdinsight-hadoop-emulator-visual-studio/create-table.png)
 
-Du kan sedan skapa tabellen med hjälp av ett formulär. Du kan se rådata HiveQL som används för att skapa tabellen längst ned i följande skärmbild.
+Du kan sedan skapa tabellen med hjälp av ett formulär. Du kan se den råa HiveQL som används för att skapa tabellen längst ned på följande skärmbild.
 
 ![Skärmbild av formuläret som används för att skapa en tabell](./media/hdinsight-hadoop-emulator-visual-studio/create-table-form.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Learning linor av sandlådan Hortonworks](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
-* [Hadoop-vägledning - komma igång med HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
+* [Lära dig grunderna för Hortonworks sandbox-miljön](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
+* [Hadoop-självstudiekurs – komma igång med HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)

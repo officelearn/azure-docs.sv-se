@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 51d9b8e4299cfa3bc850c7405c27233d678f98b6
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: f954e726aabb34f74d81580e3afc08f2b0b9914b
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494408"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619414"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Felsökning av & begränsningar i Azure Cloud Shell
 
@@ -82,7 +82,7 @@ Azure Cloud Shell har följande kända begränsningar:
 
 Den dator som ger Cloud Shell-sessionen är tillfälligt och den återanvänds när sessionen är inaktiv i 20 minuter. Cloudshell kräver en Azure-filresurs som ska monteras. Prenumerationen måste därför att kunna konfigurera lagringsresurser för att komma åt Cloud Shell. Annat att tänka på är:
 
-- Med monterade lagringen, endast ändringar i den `clouddrive` directory sparas. I Bash, din `$Home` katalogen bevaras också.
+- Med monterade lagringen, endast ändringar i den `clouddrive` directory sparas. I Bash, din `$HOME` katalogen bevaras också.
 - Azure-filresurser kan monteras endast från din [tilldelade region](persisting-shell-storage.md#mount-a-new-clouddrive).
   - Kör i Bash, `env` att hitta din region som `ACC_LOCATION`.
 - Azure Files stöder endast lokalt redundant lagring och ra-GRS-konton.

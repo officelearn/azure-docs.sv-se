@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: b41b1fcb437dac381a17bef4f1e5a7cebe213b98
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 329653e7494d2f993acb462d7d989db07a18f790
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435923"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600871"
 ---
 # <a name="get-started-with-storage-explorer"></a>Kom igång med Storage Explorer
 
@@ -88,7 +88,8 @@ Dessutom kan du arbeta med lagringskonton i globala och nationella Azure:
 * [Arbeta med lokal utvecklingslagring](#work-with-local-development-storage): hantera lokal lagring med hjälp av Azure Storage-emulatorn.
 * [Ansluta till extern lagring](#attach-or-detach-an-external-storage-account): hantera lagringsresurser som hör till en annan Azure-prenumeration eller nationella Azure-moln med hjälp av lagringskontots namn, nyckel och slutpunkter.
 * [Ansluta ett lagringskonto med hjälp av en SAS](#attach-storage-account-using-sas): hantera lagringsresurser som tillhör en annan Azure-prenumeration med hjälp av en signatur för delad åtkomst (SAS).
-* [Ansluta en tjänst med hjälp av SAS](#attach-service-using-sas): hantera en specifik lagringstjänst (blobbehållare, kö eller tabell) som hör till en annan Azure-prenumeration med hjälp av en SAS.
+* 
+  [Ansluta en tjänst med hjälp av SAS](#attach-service-using-sas): hantera en specifik lagringstjänst (blobcontainer, kö eller tabell) som hör till en annan Azure-prenumeration med hjälp av en SAS.
 * [Ansluta till ett Azure Cosmos DB-konto med hjälp av en anslutningssträng](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): hantera Cosmos DB-konto med hjälp av en anslutningssträng.
 
 ## <a name="connect-to-an-azure-subscription"></a>Ansluta till en Azure-prenumeration
@@ -118,14 +119,14 @@ Dessutom kan du arbeta med lagringskonton i globala och nationella Azure:
 
 ## <a name="work-with-local-development-storage"></a>Arbeta med lokal utvecklingslagring
 
-Med Lagringsutforskaren kan arbeta du mot lokal lagring med hjälp av en emulator. Den här metoden kan du simulera arbeta med Azure Storage utan att nödvändigtvis ha distribuerat på Azure ett lagringskonto.
+Med Lagringsutforskaren kan arbeta du med lokal lagring med hjälp av en emulator. Den här metoden kan du simulera arbeta med Azure Storage utan att nödvändigtvis ha distribuerat på Azure ett lagringskonto.
 
 Från och med version 1.1.0, stöds lokala lagringsemulatorn på alla plattformar. Lagringsutforskaren kan ansluta till alla emulerade tjänster lyssna på dess standardslutpunkterna för lokal lagring.
 
 > [!NOTE]
 > Stöd för storage-tjänster och funktioner kan variera mycket beroende på ditt val av emulatorn. Kontrollera att din emulatorn stöder de tjänster och funktioner som du vill arbeta med.
 
-1. Konfigurera din emulatorn att lyssna på standard-slutpunkter.
+1. Konfigurera tjänster i din emulatorn att lyssna på en ledig port.
 
    Emulerade Service | Standardslutpunkten
    -----------------|-------------------------
@@ -134,16 +135,19 @@ Från och med version 1.1.0, stöds lokala lagringsemulatorn på alla plattforma
    Tabeller           | `http://127.0.0.1:10002`
 
 2. Starta emulatorn.
+   > [!IMPORTANT]
+   > Lagringsutforskaren startar inte automatiskt din emulatorn. Du måste starta det själv.
 
-3. I den vänstra rutan i Lagringsutforskaren expanderar den **(lokala och anslutna)** > **Lagringskonton** > **(utveckling)** noden.
+3. I Storage Explorer klickar du på den **Lägg till konto** knappen. Välj **koppla till en lokal emulator** och klicka på **nästa**.
+
+4. Ange portnumren för tjänsterna som du konfigurerade ovan (lämna tomt om du inte planerar att använda tjänsten). Klicka på **nästa** sedan **Connect** att skapa anslutningen.
+
+5. Expandera den **lokal och ansluten** > **Lagringskonton** > noder, sedan expanderar du tjänsten under den noden som motsvarar anslutningens emulatorn.
 
    Du kan använda den här noden för att skapa och arbeta med lokala blobbar, köer och tabeller. Om du vill veta hur du arbetar med varje typ av lagringskonto finns i följande handböcker:
 
    * [Hantera Azure Blob storage-resurser](vs-azure-tools-storage-explorer-blobs.md)
    * [Hantera Azure File storage-resurser](vs-azure-tools-storage-explorer-files.md)
-
-> [!NOTE]
-> Lagringsutforskaren stöder endast ansluta till lokala emulatorer med hjälp av standard-slutpunkter. När du startar emulatorn, kontrollera att endast standard-slutpunkter konfigureras.
 
 ## <a name="attach-or-detach-an-external-storage-account"></a>Ansluta eller koppla från ett externt lagringskonto
 
@@ -260,7 +264,8 @@ Avsnittet ”ansluta ett lagringskonto med hjälp av en SAS” förklarar hur ad
 
 I det här sammanhanget, kan en tjänst vara en blobbehållare, kö, tabell eller filresurs. Om du vill generera SAS för en tjänst kan du läsa:
 
-* [Hämta SAS för en blobbehållare](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
+* 
+  [Hämta SAS för en blobcontainer](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
 
 ### <a name="attach-to-the-shared-account-service-by-using-a-sas-uri"></a>Ansluta till tjänsten för delade kontot med hjälp av en SAS-URI
 

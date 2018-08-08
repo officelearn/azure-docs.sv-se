@@ -1,59 +1,54 @@
 ---
-title: Arkitektur för Hadoop - Azure HDInsight | Microsoft Docs
-description: Beskriver bearbetning och lagring av Hadoop i HDInsight-kluster.
+title: Hadoop-arkitektur – Azure HDInsight
+description: Beskriver Hadoop lagring och bearbetning i HDInsight-kluster.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: 5ec5f1f24d3bf953115bfa5023faf81df132f510
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 754f4538f7c2a8de6286198094b38d40c466a15f
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31397461"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599480"
 ---
 # <a name="hadoop-architecture-in-hdinsight"></a>Hadoop-arkitektur i HDInsight
 
-Hadoop innehåller två grundläggande komponenter, hög densitet File System (HDFS) som tillhandahåller lagring och ännu en annan resurs förhandlare (YARN) som tillhandahåller bearbetning. Med funktioner för lagring och bearbetning blir ett kluster kan köra MapReduce program för att utföra den önskade databearbetningen.
+Hadoop innehåller två grundläggande komponenter, hög densitet File System (HDFS) som tillhandahåller lagring och ännu en annan Resource Negotiator (YARN) som tillhandahåller bearbetning. Med funktioner för lagring och bearbetning av blir ett kluster kan köra MapReduce-program för att utföra den önskade databearbetningen.
 
 > [!NOTE]
-> Ett HDFS vanligtvis inte har distribuerats i HDInsight-klustret för att tillhandahålla lagring. I stället används ett HDFS-kompatibla gränssnitt lager av Hadoop-komponenter. Den faktiska lagringskapacitet tillhandahålls av Azure Storage eller Azure Data Lake Store. För Hadoop, MapReduce-jobb som körs på HDInsight-kluster som kör som om det fanns en HDFS och kräver inga ändringar att stödja sina lagringsbehov. Lagring utlagd i Hadoop i HDInsight, men YARN bearbetning förblir en central del. Mer information finns i [introduktion till Azure HDInsight](hadoop/apache-hadoop-introduction.md).
+> Ett HDFS vanligtvis inte har distribuerats i HDInsight-klustret för att tillhandahålla lagring. I stället används ett HDFS-kompatibla gränssnittsnivån av Hadoop-komponenter. Funktionen verkligt lagringsutrymme som tillhandahålls av Azure Storage eller Azure Data Lake Store. För Hadoop, MapReduce-jobb som körs på HDInsight-klustret körs som om det fanns en HDFS och kräver inga ändringar till stöd för sina lagringsbehov. Lagring är utlagd i Hadoop på HDInsight, men YARN bearbetning förblir en central del. Mer information finns i [introduktion till Azure HDInsight](hadoop/apache-hadoop-introduction.md).
 
-Den här artikeln beskriver YARN och hur den samordnar körningen av program på HDInsight.
+Den här artikeln introducerar YARN och hur den samordnar körning av program på HDInsight.
 
 ## <a name="yarn-basics"></a>YARN-grunderna 
 
-YARN styr och samordnar databehandling i Hadoop. YARN har två grundläggande tjänster som körs som processer på noder i klustret: 
+YARN reglerar och styr databearbetning i Hadoop. YARN har två viktiga tjänster som körs som processer på noder i klustret: 
 
-* Resurshanteraren 
+* ResourceManager 
 * NodeManager
 
-Resurshanteraren beviljar klustret beräkningsresurser till program som MapReduce-jobb. Resurshanteraren ger dessa resurser som behållare, där varje behållare består av en allokering av CPU-kärnor och RAM-minne. Om du kombineras alla resurser som är tillgängliga i ett kluster och sedan distribueras dem i block om ett visst antal kärnor och minne, är en behållare i varje block på resurser. Varje nod i klustret har kapacitet för antal behållare och därför klustret har en fast gräns för antalet behållare som är tillgängliga. Tilldelning av resurser i en behållare kan konfigureras. 
+ResourceManager beviljar kluster beräkningsresurser till program som MapReduce-jobb. ResourceManager ger de här resurserna som behållare, där varje behållare består av en allokering av CPU-kärnor och RAM-minne. Om du kombineras alla resurser som är tillgängliga i ett kluster och distribuerade dem i block om ett visst antal kärnor och minne, är en behållare i varje block på resurser. Varje nod i klustret har kapacitet för ett visst antal behållare och därför klustret har en fast gräns för hur många behållare som är tillgängliga. Tilldelning av resurser i en behållare kan konfigureras. 
 
-När ett MapReduce-program körs på ett kluster, ger resurshanteraren programmet behållare där du vill köra. Resurshanteraren spårar tillståndet för program som körs, tillgängliga klustret kapacitet och spårar program som de fullständiga och släpper resurserna. 
+När ett MapReduce-program körs på ett kluster, ger ResourceManager programmet behållare där du vill köra. ResourceManager spårar statusen för att köra program, tillgängliga kapacitet och spårar program när de slutförts och släpp sina resurser. 
 
-Resurshanteraren kör också en process som webbservern som tillhandahåller en webbaserat användargränssnitt som du kan använda för att övervaka status för program. 
+ResourceManager körs också en process som webbservern som tillhandahåller ett webbaserat användargränssnitt som du kan använda för att övervaka status för program. 
 
-När en användare skickar ett MapReduce-program att köra på klustret, skickas programmet till resurshanteraren. I sin tur allokerar resurshanteraren en behållare på tillgängliga NodeManager noder. NodeManager noderna är där det faktiskt kör programmet. Första behållaren allokerade körs ett specialprogram kallas ApplicationMaster. Den här ApplicationMaster ansvarar för hämtning av resurser i form av efterföljande behållare som behövs för att köra ansökan. ApplicationMaster undersöker led i programmet (kartan mellanlagra och minska steget) och faktorer i hur mycket data som behöver bearbetas. ApplicationMaster sedan begär (*förhandlar*) resurser från resurshanteraren för programmet. Resurshanteraren ger i sin tur resurser från NodeManagers i klustret att ApplicationMaster för att använda vid körning av programmet. 
+När en användare skickar ett MapReduce-program ska köras på klustret, har programmet skickats till ResourceManager. I sin tur allokerar ResourceManager en behållare på tillgängliga NodeManager noder. NodeManager noderna finns där programmet faktiskt körs. Den första behållaren som allokerats körs ett särskilt program, kallat ApplicationMaster. Den här ApplicationMaster ansvarar för att hämta resurser, i form av efterföljande behållare som behövs för att köra skickat program. ApplicationMaster går igenom olika programmet (kartan mellanlagra och minska steget) och faktorer inom hur mycket data som behöver bearbetas. ApplicationMaster begär sedan (*förhandlar*) resurser från ResourceManager åt programmet. ResourceManager ger i sin tur resurser från NodeManagers i klustret till ApplicationMaster för det du använder vid körning av programmet. 
 
-NodeManagers kör aktiviteter som utgör programmet, sedan rapportera sina förlopp och status till ApplicationMaster. ApplicationMaster rapporter i sin tur status för programmet till resurshanteraren. Resurshanteraren returnerar alla resultat till klienten.
+NodeManagers köra uppgifter som tillsammans bildar programmet sedan rapportera sina förlopp och status till ApplicationMaster. ApplicationMaster rapporterar i sin tur status för programmet till resurshanteraren. ResourceManager returnerar alla resultat till klienten.
 
-## <a name="yarn-on-hdinsight"></a>YARN i HDInsight
+## <a name="yarn-on-hdinsight"></a>YARN på HDInsight
 
-Alla typer av HDInsight-kluster distribuera YARN. Resurshanteraren distribueras för hög tillgänglighet med en primär och sekundär-instans som körs på de första och andra head noderna i klustret respektive. Endast en instans av resurshanteraren är aktiv i taget. NodeManager-instanser körs över tillgängliga noder i klustret.
+Alla HDInsight-klustertyper distribuera YARN. ResourceManager distribueras för hög tillgänglighet med en primär och sekundär-instans som körs på första och andra huvudnoder i klustret respektive. Endast en instans av ResourceManager är aktiv i taget. NodeManager instanserna körs tillgängliga noder i klustret.
 
-![YARN i HDInsight](./media/hdinsight-hadoop-architecture/yarn-on-hdinsight.png)
+![YARN på HDInsight](./media/hdinsight-hadoop-architecture/yarn-on-hdinsight.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda MapReduce i Hadoop i HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Använda MapReduce i Hadoop på HDInsight](hadoop/hdinsight-use-mapreduce.md)
 * [Introduktion till Azure HDInsight](hadoop/apache-hadoop-introduction.md)

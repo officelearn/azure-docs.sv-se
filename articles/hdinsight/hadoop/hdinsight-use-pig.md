@@ -1,63 +1,58 @@
 ---
-title: Använda Pig med Hadoop i HDInsight | Microsoft Docs
-description: Lär dig använda Pig med Hadoop i HDInsight.
+title: Använda Pig med Hadoop i HDInsight
+description: Lär dig mer om att använda Pig med Hadoop i HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: acfeb52b-4b81-4a7d-af77-3e9908407404
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: d030bdaf4c68a7e2ec9d11cdd8a2f55eccfbd67d
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 7f469efb536f8c2dfc95cfe1770544b93c06b29f
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081175"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597267"
 ---
 # <a name="use-pig-with-hadoop-on-hdinsight"></a>Använda Pig med Hadoop i HDInsight
 
 Lär dig hur du använder [Apache Pig](http://pig.apache.org/) med HDInsight.
 
-Pig är en plattform för att skapa program för Hadoop med hjälp av en procedurmässig språk som kallas *Pig Latin*. Pig är ett alternativ till Java för att skapa *MapReduce* lösningar och ingår i Azure HDInsight. Använd följande tabell för att identifiera de olika sätt som svin kan användas med HDInsight:
+Pig är en plattform för att skapa program för Hadoop med hjälp av en procedurmässig språk som kallas *Pig Latin*. Pig är ett alternativ till Java för att skapa *MapReduce* lösningar och ingår i Azure HDInsight. Använd följande tabell för att identifiera de olika sätt som Apache Pig-kan användas med HDInsight:
 
 | **Använd den här** om du vill... | ...an **interaktiva** shell | ...**batch** bearbetning | ...med detta **klustret operativsystem** | ...from detta **klientoperativsystem** |
 |:--- |:---:|:---:|:--- |:--- |
 | [SSH](apache-hadoop-use-pig-ssh.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X eller Windows |
-| [REST API](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux- eller Windows |Linux, Unix, Mac OS X eller Windows |
-| [.NET SDK för Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux- eller Windows |Windows (för tillfället) |
-| [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux- eller Windows |Windows |
+| [REST API](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux eller Windows |Linux, Unix, Mac OS X eller Windows |
+| [.NET SDK för Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux eller Windows |Windows (för tillfället) |
+| [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux eller Windows |Windows |
 
 > [!IMPORTANT]
 > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a id="why"></a>Varför använda Pig
+## <a id="why"></a>Varför ska man använda Pig
 
-En av utmaningarna med bearbetning av data genom att använda MapReduce i Hadoop implementerar logik för bearbetning med hjälp av endast en karta och minska funktionen. För komplexa bearbetning, behöver du ofta Bryt bearbetning i flera MapReduce-åtgärder som är sammankedjade tillsammans för att uppnå önskat resultat.
+En av utmaningarna med att bearbeta data med hjälp av MapReduce i Hadoop implementerar din standardbearbetningslogiken genom att använda endast en karta och en minska-funktion. För komplexa bearbetning du ofta behöva Bryt bearbetning i flera MapReduce-åtgärder som är sammankedjade tillsammans för att uppnå det önskade resultatet.
 
-Pig kan du definiera bearbetning som en serie transformationer som data flödar genom för att skapa önskade utgående.
+Pig kan du definiera bearbetning som en serie transformationer som data flödar genom för att skapa önskade utdata.
 
 Pig Latin-språk kan du beskriva dataflödet från rådata indata via en eller flera omvandlingar till önskat resultat. Pig Latin program följer detta allmänna mönster:
 
 * **Läs in**: läsa data hanteras från filsystemet
 
-* **Transformera**: manipulera data
+* **Omvandla**: ändra data
 
-* **Dump eller lagra**: utdata till skärmen eller lagra för bearbetning
+* **Dumpa eller lagra**: mata ut data till skärmen eller lagra den för bearbetning
 
 ### <a name="user-defined-functions"></a>Användardefinierade funktioner
 
-Pig Latin stöder även användardefinierade funktioner (UDF), där du kan anropa externa komponenter som implementerar logik som är svår att modellen i Pig Latin.
+Pig Latin även stöd för användardefinierade funktioner (UDF), där du kan anropa externa komponenter som implementerar logik som är svåra att modellen i Pig Latin.
 
 Läs mer om Pig Latin [Pig Latin referens manuell 1](http://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) och [Pig Latin referens manuell 2](http://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html).
 
-Ett exempel på med Pig UDF: er, finns i följande dokument:
+Ett exempel på hur du använder UDF: er med Pig, finns i följande dokument:
 
 * [Använda DataFu med Pig i HDInsight](apache-hadoop-use-pig-datafu-udf.md) -DataFu är en samling användbar UDF: er som underhålls av Apache
 * [Använda Python med Pig och Hive i HDInsight](python-udf-hdinsight.md)
@@ -65,20 +60,20 @@ Ett exempel på med Pig UDF: er, finns i följande dokument:
 
 ## <a id="data"></a>Exempeldata
 
-HDInsight tillhandahåller olika exempel datauppsättningar som lagras i den `/example/data` och `/HdiSamples` kataloger. Dessa kataloger finns i standardlagring för klustret. Pig-exemplet i det här dokumentet används de *log4j* filen från `/example/data/sample.log`.
+HDInsight innehåller olika exempel datauppsättningar, som lagras i den `/example/data` och `/HdiSamples` kataloger. Dessa kataloger finns i standardlagringen för klustret. Pig-exemplet i det här dokumentet används de *log4j* fil från `/example/data/sample.log`.
 
-Varje logg i filen består av en rad med fält som innehåller en `[LOG LEVEL]` fält att visa typen och allvarlighetsgrad, till exempel:
+Varje logg i filen består av en rad med fält som innehåller en `[LOG LEVEL]` fält för att visa meddelandetyp och allvarlighetsgrad, till exempel:
 
     2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
 
-I föregående exempel är loggningsnivån fel.
+I exemplet ovan är loggningsnivån fel.
 
 > [!NOTE]
-> Du kan också generera en log4j-fil med hjälp av den [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) loggning verktyget och överför denna fil till ditt blob. Se [överför Data till HDInsight](../hdinsight-upload-data.md) anvisningar. Mer information om hur du använder blobbar i Azure storage med HDInsight finns [använda Azure Blob Storage med HDInsight](../hdinsight-hadoop-use-blob-storage.md).
+> Du kan också skapa en log4j-fil med hjälp av den [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) loggning verktyget och överför sedan filen till din blob. Se [ladda upp Data till HDInsight](../hdinsight-upload-data.md) anvisningar. Mer information om hur du använder blobar i Azure storage med HDInsight finns i [använda Azure Blob Storage med HDInsight](../hdinsight-hadoop-use-blob-storage.md).
 
-## <a id="job"></a>Exempel jobb
+## <a id="job"></a>Exempel-jobb
 
-Följande Pig Latin jobbet läser in den `sample.log` filen från standard lagringen för ditt HDInsight-kluster. Därefter utför en serie transformationer som resulterar i en uppräkning av hur många gånger varje loggningsnivån uppstod i indata. Resultaten skrivs till STDOUT.
+Följande Pig Latin-jobbet läser in den `sample.log` filen från standardlagringen för HDInsight-klustret. Sedan utförs en serie transformationer som resulterar i en uppräkning av hur många gånger varje Loggnivå inträffade i indata. Resultatet skrivs till STDOUT.
 
     LOGS = LOAD 'wasb:///example/data/sample.log';
     LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
@@ -88,27 +83,27 @@ Följande Pig Latin jobbet läser in den `sample.log` filen från standard lagri
     RESULT = order FREQUENCIES by COUNT desc;
     DUMP RESULT;
 
-Följande bild visar en sammanfattning av vad varje omvandling gör att data.
+Följande bild visar en sammanfattning av vad varje transformering som gör att data.
 
 ![Grafisk representation av omvandlingarna][image-hdi-pig-data-transformation]
 
-## <a id="run"></a>Köra Pig Latin-jobbet
+## <a id="run"></a>Köra Pig Latin-jobb
 
-HDInsight kan köra Pig Latin jobb med hjälp av olika metoder. Använd följande tabell för att bestämma vilken metod som passar dig bäst och följ länken för en genomgång.
+HDInsight kan köra Pig Latin-jobb med hjälp av olika metoder. Använd följande tabell för att bestämma vilken metod som passar dig och klicka sedan på länken för en genomgång.
 
 | **Använd den här** om du vill... | ...an **interaktiva** shell | ...**batch** bearbetning | ...med detta **klustret operativsystem** | ...from detta **klienten** |
 |:--- |:---:|:---:|:--- |:--- |
 | [SSH](apache-hadoop-use-pig-ssh.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X eller Windows |
-| [cURL](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux- eller Windows |Linux, Unix, Mac OS X eller Windows |
-| [.NET SDK för Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux- eller Windows |Windows (för tillfället) |
-| [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux- eller Windows |Windows |
+| [CURL](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux eller Windows |Linux, Unix, Mac OS X eller Windows |
+| [.NET SDK för Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux eller Windows |Windows (för tillfället) |
+| [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux eller Windows |Windows |
 
 > [!IMPORTANT]
 > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="pig-and-sql-server-integration-services"></a>Pig och SQL Server Integration Services
+## <a name="pig-and-sql-server-integration-services"></a>Pig- och SQL Server Integration Services
 
-Du kan använda SQL Server Integration Services (SSIS) för att köra Pig-jobbet. Azure-Funktionspaket för SSIS tillhandahåller följande komponenter som arbetar med Pig-jobb i HDInsight.
+Du kan använda SQL Server Integration Services (SSIS) för att köra ett Pig-jobb. Azure Feature Pack för SSIS innehåller följande komponenter som fungerar med Pig-jobb på HDInsight.
 
 * [Azure HDInsight Pig-aktivitet][pigtask]
 
@@ -117,9 +112,9 @@ Du kan använda SQL Server Integration Services (SSIS) för att köra Pig-jobbet
 Läs mer om Azure Feature Pack för SSIS [här][ssispack].
 
 ## <a id="nextsteps"></a>Nästa steg
-Nu när du har lärt dig hur du använder Pig med HDInsight, Använd följande länkar för att undersöka andra sätt att arbeta med Azure HDInsight.
+Nu när du har lärt dig hur du använder Pig med HDInsight kan använda följande länkar för att utforska andra sätt att arbeta med Azure HDInsight.
 
-* [Överföra data till HDInsight](../hdinsight-upload-data.md)
+* [Ladda upp data till HDInsight](../hdinsight-upload-data.md)
 * [Använda Hive med HDInsight][hdinsight-use-hive]
 * [Använda Sqoop med HDInsight](hdinsight-use-sqoop.md)
 * [Använda Oozie med HDInsight](../hdinsight-use-oozie.md)

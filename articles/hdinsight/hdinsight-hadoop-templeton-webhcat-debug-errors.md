@@ -1,55 +1,50 @@
 ---
-title: Förstå och lösa WebHCat fel på HDInsight - Azure | Microsoft Docs
-description: Lär dig hur på cirka vanliga fel som returneras av WebHCat i HDInsight och hur du löser dem.
+title: Förstå och lösa fel med WebHCat på HDInsight - Azure
+description: Lär dig hur på cirka vanliga fel som returnerats av WebHCat på HDInsight och hur du löser dem.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 1b3d94b1-207d-4550-aece-21dc45485549
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 7349d60177982ced68b0ebb83f7e85f19e43ec15
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.author: jasonh
+ms.openlocfilehash: 9cd3ed48e7c07378a972014c468735e4034b827f
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100204"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600405"
 ---
-# <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Förstå och åtgärda fel togs emot från WebHCat på HDInsight
+# <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Förstå och lösa fel togs emot från WebHCat på HDInsight
 
-Läs mer om felmeddelanden när du använder WebHCat med HDInsight och hur du löser dem. WebHCat används internt av klientsidan verktyg som Azure PowerShell och Data Lake-verktyg för Visual Studio.
+Läs mer om felmeddelanden när du använder WebHCat med HDInsight och hur du löser dem. WebHCat används internt av klientsidan verktyg som Azure PowerShell och Data Lake Tools för Visual Studio.
 
 ## <a name="what-is-webhcat"></a>Vad är WebHCat
 
-[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) är en REST-API för [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog)en tabell och lagring lagringshanteringslager för Hadoop. WebHCat är aktiverat som standard i HDInsight-kluster och används av olika verktyg för att skicka jobb, hämta jobbstatus osv utan att logga in på klustret.
+[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) är ett REST-API för [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), tabell- och storage lagringshanteringslager för Hadoop. WebHCat är aktiverat som standard på HDInsight-kluster och används av olika verktyg och skicka jobb, hämta jobbstatus och så vidare utan att logga in i klustret.
 
 ## <a name="modifying-configuration"></a>Ändra konfigurationen
 
 > [!IMPORTANT]
-> Flera av de fel som anges i det här dokumentet inträffa konfigurerade maximalt har överskridits. När steget upplösning nämns att du kan ändra ett värde, måste du använda något av följande för att utföra ändringen:
+> Flera av de fel som anges i det här dokumentet beror på att en konfigurerade maxantalet har överskridits. När steget upplösning nämner att du kan ändra ett värde, måste du använda något av följande för att utföra ändringen:
 
-* För **Windows** kluster: Använd en skriptåtgärd för att konfigurera värdet när klustret skapas. Mer information finns i [utveckla skriptåtgärder](hdinsight-hadoop-script-actions.md).
+* För **Windows** kluster: använda en skriptåtgärd för att konfigurera värdet när klustret skapas. Mer information finns i [utveckla skriptåtgärder](hdinsight-hadoop-script-actions.md).
 
-* För **Linux** kluster: Använd Ambari (web eller REST API) för att ändra värdet. Mer information finns i [hantera HDInsight med Ambari](hdinsight-hadoop-manage-ambari.md)
+* För **Linux** kluster: Använd Ambari (webb- eller REST API) för att ändra värdet. Mer information finns i [hantera HDInsight med Ambari](hdinsight-hadoop-manage-ambari.md)
 
 > [!IMPORTANT]
 > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-### <a name="default-configuration"></a>Standardkonfigurationen
+### <a name="default-configuration"></a>Standardkonfiguration
 
-Om följande standardvärden överskrids kan försämra WebHCat prestanda eller orsaka fel:
+Om följande standardvärden överskrids, kan som försämra WebHCat prestanda eller orsaka fel:
 
 | Inställning | Vad läget gör | Standardvärde |
 | --- | --- | --- |
 | [yarn.Scheduler.Capacity.maximum-program][maximum-applications] |Det maximala antalet jobb som kan vara aktiva samtidigt (väntande eller körs) |10 000 |
-| [templeton.Exec.Max procs][max-procs] |Det maximala antalet förfrågningar som hanteras samtidigt |20 |
-| [mapreduce.jobhistory.Max-ålder-ms][max-age-ms] |Antalet dagar som jobbhistorik bevaras |7 dagar |
+| [templeton.Exec.Max-procs][max-procs] |Det maximala antalet förfrågningar som hanteras samtidigt |20 |
+| [mapreduce.jobhistory.Max ålder ms][max-age-ms] |Hur många dagar som jobbhistorik bevaras |7 dagar |
 
 ## <a name="too-many-requests"></a>För många förfrågningar
 
@@ -57,7 +52,7 @@ Om följande standardvärden överskrids kan försämra WebHCat prestanda eller 
 
 | Orsak | Lösning |
 | --- | --- |
-| Du har överskridit de maximala samtidiga begäranden som betjänats med WebHCat per minut (standard är 20) |Minska din arbetsbelastning så att du inte skickar mer än det maximala antalet samtidiga begäranden eller öka antal samtidiga begäranden genom att ändra `templeton.exec.max-procs`. Mer information finns i [ändra konfiguration](#modifying-configuration) |
+| Du har överskridit de maximalt antal samtidiga förfrågningar som hanteras av WebHCat per minut (standard 20) |Minska arbetsbelastningen och se till att du inte skickar mer än det maximala antalet samtidiga begäranden eller öka gränsen för samtidiga förfrågningar genom att ändra `templeton.exec.max-procs`. Mer information finns i [ändra konfiguration](#modifying-configuration) |
 
 ## <a name="server-unavailable"></a>Servern är inte tillgänglig
 
@@ -65,7 +60,7 @@ Om följande standardvärden överskrids kan försämra WebHCat prestanda eller 
 
 | Orsak | Lösning |
 | --- | --- |
-| Statuskoden genereras vanligtvis under växling mellan den primära och sekundära HeadNode för klustret |Vänta två minuter och försök igen |
+| Den här statuskoden sker vanligtvis under en redundansväxling mellan primära och sekundära huvudnoden för klustret |Vänta två minuter och försök igen |
 
 ## <a name="bad-request-content-could-not-find-job"></a>Felaktig begäran innehåll: Det gick inte att hitta jobbet
 
@@ -73,21 +68,21 @@ Om följande standardvärden överskrids kan försämra WebHCat prestanda eller 
 
 | Orsak | Lösning |
 | --- | --- |
-| Jobbinformation har rensats av jobbhistoriken rengöringsband |Loggperioden för jobbhistorik är 7 dagar. Loggperioden kan ändras genom att ändra `mapreduce.jobhistory.max-age-ms`. Mer information finns i [ändra konfiguration](#modifying-configuration) |
-| Jobbet har avslutats på grund av en växling vid fel |Försök jobbet i upp till två minuter |
-| Ett ogiltigt jobb-id har använts |Kontrollera om jobb-id är korrekt |
+| Information om återställningsjobb har rensats av jobbhistoriken ett rengöringsband |Standardkvarhållningsperioden för jobbets historik är 7 dagar. Loggperioden kan ändras genom att ändra `mapreduce.jobhistory.max-age-ms`. Mer information finns i [ändra konfiguration](#modifying-configuration) |
+| Jobbet har avslutats på grund av en redundansväxling |Försök jobböverföring i upp till två minuter |
+| Ett ogiltigt jobb-id användes |Kontrollera om jobb-id är korrekt |
 
-## <a name="bad-gateway"></a>Ogiltig gateway
+## <a name="bad-gateway"></a>Felaktig gateway
 
 **HTTP-statuskod**: 502
 
 | Orsak | Lösning |
 | --- | --- |
-| Internt skräpinsamling sker i WebHCat-processen |Vänta tills skräpinsamling avsluta eller starta om tjänsten WebHCat |
-| Tidsgränsen nåddes för väntar på svar från ResourceManager-tjänsten. Det här felet kan inträffa om antalet aktiva program går den konfigurerade maximalt (standard 10 000-tal) |Vänta tills pågående jobb för att slutföra eller öka gränsen för antal samtidiga jobb genom att ändra `yarn.scheduler.capacity.maximum-applications`. Mer information finns i [ändra configuration](#modifying-configuration) avsnitt. |
-| Försök att hämta alla jobb via den [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) anrop när `Fields` har angetts till `*` |Inte hämtar *alla* Jobbdetaljer. I stället använda `jobid` att hämta information om jobb som endast är större än vissa jobb-id. Eller Använd inte `Fields` |
-| WebHCat-tjänsten har stoppats under HeadNode växling vid fel |Vänta i två minuter och försök igen |
-| Det finns mer än 500 väntande jobb skicka via WebHCat |Vänta tills väntar jobben har slutförts innan du skickar flera jobb |
+| Intern skräpinsamling inträffar i processen WebHCat |Vänta tills skräpinsamling slutförts eller starta om tjänsten WebHCat |
+| Timeout för väntan på svar från ResourceManager-tjänsten. Det här felet kan inträffa när antalet aktiva program blir det konfigurerade maxantalet (standard 10 000) |Vänta tills pågående jobb för att slutföra eller öka gränsen för antal samtidiga jobb genom att ändra `yarn.scheduler.capacity.maximum-applications`. Mer information finns i den [ändra configuration](#modifying-configuration) avsnittet. |
+| Försök att hämta alla jobb via den [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) anrop när `Fields` är inställd på `*` |Inte hämtar *alla* Jobbdetaljer. I stället använda `jobid` att hämta information för jobb som bara är större än vissa jobb-id. Eller Använd inte `Fields` |
+| WebHCat-tjänsten har stoppats under huvudnoden redundans |Vänta två minuter och försök igen |
+| Det finns fler än 500 väntande jobb som skickas via WebHCat |Vänta tills väntar jobben har slutförts innan du skickar in fler jobb |
 
 [maximum-applications]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.3/bk_system-admin-guide/content/setting_application_limits.html
 [max-procs]: https://cwiki.apache.org/confluence/display/Hive/WebHCat+Configure#WebHCatConfigure-WebHCatConfiguration

@@ -17,15 +17,15 @@ ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7fcc39aed1599c1fa928736453082cbce6d7e27e
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 815311797e1897259b961debc8a0f81157495570
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581970"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596508"
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Azure Active Directory v2.0 token-referens
-V2.0-slutpunkten Azure Active Directory (Azure AD) genererar flera typer av säkerhetstoken i varje [autentiseringsflödet](active-directory-v2-flows.md). Den här referensen beskriver format, security egenskaperna och innehållet i varje typ av token.
+V2.0-slutpunkten Azure Active Directory (Azure AD) genererar flera typer av säkerhetstoken i varje [autentiseringsflödet](v2-app-types.md). Den här referensen beskriver format, security egenskaperna och innehållet i varje typ av token.
 
 > [!NOTE]
 > V2.0-slutpunkten har inte stöd för alla Azure Active Directory-scenarier och funktioner. Läs mer om för att avgöra om du ska använda v2.0-slutpunkten, [v2.0 begränsningar](active-directory-v2-limitations.md).

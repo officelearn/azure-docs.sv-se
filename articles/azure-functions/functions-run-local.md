@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: glenga
-ms.openlocfilehash: c7be9079da6be8d9d7f25b910ab07e905e8ac449
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 57011e1f7633688e00a4639ba36fd4442073161d
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126222"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618622"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -33,9 +33,9 @@ Det finns två versioner av Azure Functions Core Tools. Vilken version du använ
 
 + [Version 1.x](#v1): har stöd för version 1.x av körning, som är allmänt tillgänglig (GA). Den här versionen av verktygen stöds endast på Windows-datorer och installeras från en [npm-paketet](https://docs.npmjs.com/getting-started/what-is-npm). Med den här versionen kan du skapa funktioner i experimentella språk som inte stöds officiellt. Mer information finns i [språk som stöds i Azure Functions](supported-languages.md)
 
-+ [Version 2.x](#v2): har stöd för version 2.x av körningsmiljön. Den här versionen stöder [Windows](#windows-npm), [macOS](#brew), och [Linux](#linux). Använder plattformsspecifika pakethanterare eller npm för installation. Som 2.x-körningen är den här versionen av de viktigaste verktygen för närvarande i förhandsversion.
++ [Version 2.x](#v2): har stöd för [version 2.x av runtime](functions-versions.md). Den här versionen stöder [Windows](#windows-npm), [macOS](#brew), och [Linux](#linux). Använder plattformsspecifika pakethanterare eller npm för installation. Som 2.x-körningen är den här versionen av de viktigaste verktygen för närvarande i förhandsversion. 
 
-Om inget annat anges i exemplen i den här artikeln gäller för version 2.x.
+Om inget annat anges i exemplen i den här artikeln gäller för version 2.x. Att ta emot viktiga uppdateringar i version 2.x, inklusive de senaste ändras meddelanden, titta på den [Azure App Service-meddelanden](https://github.com/Azure/app-service-announcements/issues) lagringsplats.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Installera Azure Functions Core Tools
 

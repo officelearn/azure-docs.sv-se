@@ -1,32 +1,27 @@
 ---
-title: Hantera Hadoop-kluster med hjälp av Azure CLI - Azure HDInsight | Microsoft Docs
-description: Lär dig hur du använder Azure-kommandoradsgränssnittet för att hantera Hadoop-kluster i Azure HDInsight. Azure CLI fungerar i Windows, Mac- och Linux.
+title: Hantera Hadoop-kluster med Azure CLI - Azure HDInsight
+description: Lär dig hur du använder Azure-kommandoradsgränssnittet för att hantera Hadoop-kluster i Azure HDInsight. Azure CLI fungerar på Windows, Mac och Linux.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-author: mumian
-tags: azure-portal
-documentationcenter: ''
-ms.assetid: 4f26c79f-8540-44bd-a470-84722a9e4eca
+editor: jasonwhowell
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 18901c3e99b1c67d01c091918a6abdd2f298defa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: dea0f004c4283bf594e46097092a52dedabb9f4b
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200987"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599028"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>Hantera Hadoop-kluster i HDInsight med hjälp av Azure CLI
+# <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>Hantera Hadoop-kluster i HDInsight med Azure CLI
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Lär dig hur du använder den [Azure-kommandoradsgränssnittet](../cli-install-nodejs.md) hantera Hadoop-kluster i Azure HDInsight. Azure CLI är implementerat i Node.js. Det kan användas på alla plattformar som har stöd för Node.js, inklusive Windows, Mac- och Linux. För närvarande stöder inte HDInsight [Azure CLI 2.0](https://docs.microsoft.com/cli/azure).
+Lär dig hur du använder den [Azure-kommandoradsgränssnittet](../cli-install-nodejs.md) att hantera Hadoop-kluster i Azure HDInsight. Azure CLI är implementerat i Node.js. Det kan användas på alla plattformar som har stöd för Node.js, inklusive Windows, Mac- och Linux. För närvarande stöder inte HDInsight [Azure CLI 2.0](https://docs.microsoft.com/cli/azure).
 
-Den här artikeln beskriver endast med hjälp av Azure CLI med HDInsight. En allmän vägledning om hur du använder Azure CLI finns [installera och konfigurera Azure CLI][azure-command-line-tools].
+Den här artikeln beskriver bara med Azure CLI med HDInsight. En allmän vägledning om hur du använder Azure CLI, se [installera och konfigurera Azure CLI][azure-command-line-tools].
 
 ## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar den här artikeln måste du ha:
@@ -46,24 +41,24 @@ Innan du påbörjar den här artikeln måste du ha:
     azure config mode arm
     ```
 
-För att få hjälp att använda den **-h** växla.  Exempel:
+Om du vill ha hjälp med att använda den **-h** växla.  Exempel:
 
 ```cli
 azure hdinsight cluster create -h
 ```
 
 ## <a name="create-clusters-with-the-cli"></a>Skapa kluster med CLI
-Se [Skapa kluster i HDInsight med hjälp av Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
+Se [Skapa kluster i HDInsight med Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
 
-## <a name="list-and-show-cluster-details"></a>Listan och visa information om kluster
-Listan och visa information om kluster med hjälp av följande kommandon:
+## <a name="list-and-show-cluster-details"></a>Visa information om kluster
+Använd följande kommandon för att visa information om kluster:
 
 ```cli
 azure hdinsight cluster list
 azure hdinsight cluster show <Cluster Name>
 ```
 
-![Kommandoradsverktyget vy av klustret lista][image-cli-clusterlisting]
+![Kommandoradsverktyget vy över klusterlista][image-cli-clusterlisting]
 
 ## <a name="delete-clusters"></a>Ta bort kluster
 Använd följande kommando för att ta bort ett kluster:
@@ -72,14 +67,14 @@ Använd följande kommando för att ta bort ett kluster:
 azure hdinsight cluster delete <Cluster Name>
 ```
 
-Du kan också ta bort ett kluster genom att ta bort resursgruppen som innehåller klustret. Observera detta tar bort alla resurser i gruppen inklusive standardkontot för lagring.
+Du kan också ta bort ett kluster genom att ta bort resursgruppen som innehåller klustret. Observera att detta tar bort alla resurser i gruppen, inklusive standardkontot för lagring.
 
 ```cli
 azure group delete <Resource Group Name>
 ```
 
 ## <a name="scale-clusters"></a>Skala kluster
-Ändra storlek för Hadoop-kluster:
+Så här ändrar storleken för Hadoop-kluster:
 
 ```cli
 azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
@@ -122,4 +117,4 @@ I den här artikeln har du lärt dig hur du utför olika HDInsight-kluster admin
 [image-cli-account-download-import]: ./media/hdinsight-administer-use-command-line/HDI.CLIAccountDownloadImport.png
 [image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
-[image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/command-line-list-of-clusters.png "Listan och visa kluster"
+[image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/command-line-list-of-clusters.png "Lista och visa kluster"

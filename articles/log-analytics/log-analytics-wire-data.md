@@ -1,6 +1,6 @@
 ---
 title: Wire Data-lösning i Log Analytics| Microsoft Docs
-description: Wire-data är konsoliderade nätverks- och prestandadata från datorer med OMS-agenter, inklusive Operations Manager och Windows-anslutna agenter. Nätverksdata kombineras med dina loggdata, vilket hjälper dig att korrelera data.
+description: Kommunikationsdata (wire data) är konsoliderade nätverks- och prestandadata från datorer med OMS-agenter, inklusive Operations Manager och Windows-anslutna agenter. Nätverksdata kombineras med dina loggdata, vilket hjälper dig att korrelera data.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: f44f47129a1d989422d25b7f0c5c55c1d229c07e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 1cf67b61d330363690aea1da706e8cce4700ddcd
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129014"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618690"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Wire Data 2.0-lösning (förhandsversion) i Log Analytics
 
 ![Wire Data-symbol](./media/log-analytics-wire-data/wire-data2-symbol.png)
 
-Wire-data är konsoliderade nätverks- och prestandadata som samlas in från Windows- och Linux-anslutna datorer med OMS-agenten, inklusive de som övervakas av Operations Manager i din miljö. Nätverksdata kombineras med dina övriga loggdata, vilket hjälper dig att korrelera data.
+Kommunikationsdata (wire data) är konsoliderade nätverks- och prestandadata från datorer med OMS-agenter, inklusive Operations Manager och Windows-anslutna agenter. Nätverksdata kombineras med dina övriga loggdata, vilket hjälper dig att korrelera data.
 
 Förutom OMS-agenten använder Wire Data-lösningen Microsofts beroendeagenter som du installerar på datorer i din IT-infrastruktur. Beroendeagenterna övervakar nätverksdata som skickas till och från dina datorer på nätverksnivåerna 2–3 i [OSI-modellen](https://en.wikipedia.org/wiki/OSI_model), inklusive de olika protokoll och portar som används. Informationen skickas sedan till Log Analytics med hjälp av agenter.  
 
@@ -35,12 +35,12 @@ Förutom OMS-agenten använder Wire Data-lösningen Microsofts beroendeagenter s
 
 Som standard loggar Log Analytics data för CPU, minne, disk och nätverksprestanda från räknare som är inbyggda i Windows och Linux, samt från andra prestandaräknare som du kan ange. Nätverks- och annan datainsamling är klar i realtid för varje agent, inklusive de undernät och protokoll på programnivå som används av datorn.  Wire Data granskar nätverksdata på programnivå, inte ned på TCP-transportnivå.  Lösningen granskar inte enskilda ACK:er och SYN-förfrågningar.  När handskakningen har slutförts anses det finnas en live-anslutning, vilken markeras med Ansluten. Anslutningen finns så länge båda sidorna är överens om att socketen är öppen och data kan överföras fram och tillbaka.  När någon av sidorna stänger anslutningen, markeras den som Frånkopplad.  Därför räknar den bara bandbredden för paket som har slutförts, den rapporterar inte om återsända eller misslyckade paket.
 
-Om du har använt [sFlow](http://www.sflow.org/) eller annan programvara med [Ciscos NetFlow-protokoll](http://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html), känner du igen statistik och data som wire-datan visar.
+Om du har använt [sFlow](http://www.sflow.org/) eller annan programvara med [Ciscos NetFlow-protokoll](http://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html), kommer du att känna igen statistik och data i Wire Data.
 
 Några av typerna i de inbyggda loggsökningsfrågorna är:
 
-- Agenter som tillhandahåller wire-data
-- IP-adresser för agenterna som tillhandahåller wire-data
+- Agenter som tillhandahåller kommunikationsdata (wire data).
+- IP-adresser för agenterna som tillhandahåller kommunikationsdata
 - Utgående kommunikation från IP-adresser
 - Antal byte som skickats med programprotokoll
 - Antal byte som skickats av en tillämpningstjänst
@@ -50,28 +50,26 @@ Några av typerna i de inbyggda loggsökningsfrågorna är:
 - Datorprocesser som har initierat eller mottagit nätverkstrafik
 - Mängden nätverkstrafik för en process
 
-När du söker med wire-data kan du filtrera och gruppera data för att se information om toppagenter och topprotokoll. Du kan också se när vissa datorer (IP-adresser/MAC-adresser) har kommunicerat med varandra, under hur lång tid och hur mycket data som skickades. I princip ser du metadata om nätverkstrafiken som är sökbaserad.
+När du söker med Wire Data kan du filtrera och gruppera data för att se information om toppagenter och topprotokoll. Du kan också se när vissa datorer (IP-adresser/MAC-adresser) har kommunicerat med varandra, under hur lång tid och hur mycket data som skickades. I princip ser du metadata om nätverkstrafiken som är sökbaserad.
 
-Men eftersom du ser metadata är det inte säkert att det går att använda vid avancerad felsökning. Wire-data i Log Analytics är inte en komplett avbildning av nätverksdata.  Den är inte avsedd för djupgående felsökning på paketnivå. Fördelen med att använda agenten, jämfört med andra insamlingsmetoder, är att du inte behöver utföra några andra installationer, konfigurera om dina nätverksväxlar eller göra komplicerade konfigurationer. Wire-data är helt enkelt agentbaserad – du installerar agenten på en dator och den övervakar sin egen nätverkstrafik. En annan fördel är när du vill övervaka arbetsbelastningar som körs i molnleverantörer, värdleverantörer eller Microsoft Azure, där användaren inte äger infrastrukturnivån.
+Men eftersom du ser metadata är det inte säkert att det går att använda vid avancerad felsökning. Wire Data i Log Analytics är inte en komplett avbildning av nätverksdata.  Den är inte avsedd för djupgående felsökning på paketnivå. Fördelen med att använda agenten, jämfört med andra insamlingsmetoder, är att du inte behöver utföra några andra installationer, konfigurera om dina nätverksväxlar eller göra komplicerade konfigurationer. Wire-data är helt enkelt agentbaserad – du installerar agenten på en dator och den övervakar sin egen nätverkstrafik. En annan fördel är när du vill övervaka arbetsbelastningar som körs i molnleverantörer, värdleverantörer eller Microsoft Azure, där användaren inte äger infrastrukturnivån.
 
 ## <a name="connected-sources"></a>Anslutna källor
 
-Wire Data hämtar sina data från Microsofts beroendeagent. Beroendeagenten använder OMS-agenten för sina anslutningar till Log Analytics. Detta innebär att en server måste ha installerat och konfigurerat OMS-agenten först, därefter kan du installera beroendeagenten. I följande tabell beskrivs de anslutna källor som stöds av Wire Data-lösningen.
+Wire Data hämtar sina data från Microsofts beroendeagent. Beroendeagenten beror på Log Analytics-agenten för dess anslutningar till Log Analytics. Det innebär att en server måste ha Log Analytics-agenten installeras och konfigureras med beroendeagenten. I följande tabell beskrivs de anslutna källor som stöds av Wire Data-lösningen.
 
 | **Ansluten källa** | **Stöds** | **Beskrivning** |
 | --- | --- | --- |
-| Windows-agenter | Ja | Wire Data analyserar och samlar in data från Windows-agentdatorer. <br><br> Förutom [OMS-agenten](log-analytics-windows-agent.md) kräver Windows-agenterna att Microsofts beroendeagent finns. Se [Operativsystem som stöds](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
-| Linux-agenter | Ja | Wire Data analyserar och samlar in data från Linux-agentdatorer.<br><br> Förutom [OMS-agenten](log-analytics-quick-collect-linux-computer.md) kräver Linux-agenterna att Microsofts beroendeagent finns. Se [Operativsystem som stöds](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) för en fullständig lista med operativsystemversioner. |
-| System Center Operations Manager-hanteringsgrupp | Ja | Wire Data analyserar och samlar in data från Windows- och Linux-agenter i en ansluten [System Center Operations Manager-hanteringsgrupp](log-analytics-om-agents.md). <br><br> En direktanslutning från System Center Operations Manager-agentdatorn till Log Analytics krävs. Data vidarebefordras från hanteringsgruppen till Log Analytics. |
+| Windows-agenter | Ja | Wire Data analyserar och samlar in data från Windows-agentdatorer. <br><br> Förutom den [Log Analytics-agenten för Windows](log-analytics-windows-agent.md), Windows-agenter kräver Microsofts Beroendeagent. Se [Operativsystem som stöds](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) för en fullständig lista med operativsystemversioner. |
+| Linux-agenter | Ja | Wire Data analyserar och samlar in data från Linux-agentdatorer.<br><br> Förutom den [Log Analytics-agenten för Linux](log-analytics-quick-collect-linux-computer.md), Linux-agenter kräver Microsofts Beroendeagent. Se [Operativsystem som stöds](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems) för en fullständig lista med operativsystemversioner. |
+| System Center Operations Manager-hanteringsgrupp | Ja | Wire Data analyserar och samlar in data från Windows- och Linux-agenter i en ansluten [System Center Operations Manager-hanteringsgrupp](log-analytics-om-agents.md). <br><br> En direktanslutning från System Center Operations Manager-agentdatorn till Log Analytics krävs. |
 | Azure Storage-konto | Nej | Wire Data samlar in data från agentdatorer, så det finns inte några data att samla in från Azure Storage. |
 
-I Windows används MMA (Microsoft Monitoring Agent) av både System Center Operations Manager och Log Analytics till att samla in och skicka data. Beroende på sammanhang kallas agenten för System Center Operations Manager-agent, OMS-agent, Log Analytics-agent, MMA eller direktagent. System Center Operations Manager och Log Analytics innehåller något olika versioner av MMA. Båda dessa versioner kan rapportera till System Center Operations Manager, till Log Analytics eller till båda.
+I Windows används MMA (Microsoft Monitoring Agent) av både System Center Operations Manager och Log Analytics till att samla in och skicka data. Beroende på kontext kallas agenten för System Center Operations Manager-agenten, OMS-agenten, Log Analytics-agenten, MMA eller Direct Agent. System Center Operations Manager och Log Analytics innehåller något olika versioner av MMA. Båda dessa versioner kan rapportera till System Center Operations Manager, till Log Analytics eller till båda.
 
-I Linux samlar OMS-agenten för Linux in och skickar data till Log Analytics. Du kan använda Wire Data på servrar med OMS-direktagenter eller på servrar som är kopplade till Log Analytics via System Center Operations Manager-hanteringsgrupper.
+På Linux, Log Analytics-agenten för Linux samlar in och skickar data till Log Analytics. Du kan använda Wire-Data på servrar med anslutna direkt till Log Analytics-agenter eller på servrar som ansluter till Log Analytics via System Center Operations Manager-hanteringsgrupper.
 
-Referenser till alla agenter i den här artikeln, oavsett om det är Linux eller Windows och oavsett om de är anslutna till en System Center Operations Manager-hanteringsgrupp eller direkt till Log Analytics, kallas för _OMS-agent_. Vi använder endast det specifika distributionsnamnet på agenten om det behövs för sammanhanget.
-
-Beroendeagenten överför inte några data och kräver inte att brandväggar och portar ändras. Datan i Wire Data överförs alltid av OMS-agenten till Log Analytics, antingen direkt eller via OMS-gatewayen.
+Beroendeagenten överför inte några data och kräver inte att brandväggar och portar ändras. Data i Wire Data överförs alltid genom Log Analytics-agenten till Log Analytics, antingen direkt eller via OMS-gatewayen.
 
 ![agentdiagram](./media/log-analytics-wire-data/agents.png)
 
@@ -80,9 +78,9 @@ Om du är en System Center Operations Manager-användare med en hanteringsgrupp 
 - Ingen ytterligare konfiguration krävs när System Center Operations Manager-agenter har åtkomst till Internet för att ansluta till Log Analytics.
 - Du måste konfigurera OMS-gatewayen till att fungera med System Center Operations Manager när System Center Operations Manager-agenter inte har åtkomst till Log Analytics via Internet.
 
-Om du använder direktagenten måste du konfigurera själva OMS-agenten till att ansluta till Log Analytics eller till din OMS-gateway. Du kan ladda ned OMS-gatewayen från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
+Om din Windows- eller Linux-datorer inte kan ansluta direkt till tjänsten, måste du konfigurera Log Analytics-agenten för att ansluta till Log Analytics med hjälp av OMS-gatewayen. Du kan ladda ned OMS-gatewayen från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Kräver lösningen [Insikter och analys](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing).
 - Om du använder en tidigare version av Wire Data-lösningen måste du först bort den. Alla data som hämtats via den ursprungliga Wire Data-lösningen är dock fortfarande tillgängliga i Wire Data 2.0 och loggsökningen.
@@ -111,7 +109,7 @@ I följande avsnitt visas vilka operativsystem som stöds för beroendeagenten. 
 
 - Endast standardversioner och SMP Linux-kernelversioner stöds.
 - Avvikande kernelversioner, som exempelvis PAE och Xen, stöds inte för någon Linux-distribution. Till exempel stöds inte ett system med versionssträngen _2.6.16.21-0.8-xen_.
-- Anpassade kernlar, inklusive omkompileringar av standardkernlar, stöds inte.
+- Anpassade kernelversioner inklusive omkompileringar av standardkernelversioner, stöds inte.
 - CentOSPlus-kernel stöds inte.
 - Oracle Unbreakable Enterprise Kernel (UEK) beskrivs i ett senare avsnitt i den här artikeln.
 
@@ -373,7 +371,7 @@ Använd följande information för att installera och konfigurera lösningen.
 - Wire Data-lösningen hämtar data från datorer som kör operativsystemen Windows Server 2012 R2, Windows 8.1 och senare.
 - Microsoft .NET Framework 4.0 eller senare krävs på de datorer som du vill hämta wire-data från.
 - Lägg till Wire Data på din Log Analytics-arbetsyta med hjälp av processen som beskrivs i [Lägga till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md). Det krävs ingen ytterligare konfiguration.
-- Om du vill se wire-data för en viss lösning måste du redan ha lagt till lösningen på din arbetsyta.
+- Om du vill se kommunikationsdata för en viss lösning måste du redan ha lagt till lösningen på din arbetsyta.
 
 När du har installerade agenter och du installerar lösningen, visas Wire Data 2.0-panelen på arbetsytan.
 
@@ -419,7 +417,7 @@ Wire-datan samlar in metadata om nätverkstrafik med hjälp av de agenter som du
 
 En post av typen _WireData_ skapas för varje typ av indata. WireData-poster har egenskaper enligt följande tabell:
 
-| Egenskap  | Beskrivning |
+| Egenskap | Beskrivning |
 |---|---|
 | Dator | Namn på den dator där data samlades in |
 | TimeGenerated | Tid för posten |

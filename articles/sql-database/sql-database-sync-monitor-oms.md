@@ -1,6 +1,6 @@
 ---
-title: Övervaka Azure SQL datasynkronisering med Log Analytics | Microsoft Docs
-description: Lär dig att övervaka Azure SQL Data Sync genom att använda logganalys
+title: Övervaka Azure SQL Data Sync med Log Analytics | Microsoft Docs
+description: Lär dig hur du övervakar Azure SQL Data Sync med Log Analytics
 services: sql-database
 ms.date: 04/01/2018
 ms.topic: conceptual
@@ -9,54 +9,54 @@ author: allenwux
 ms.author: xiwu
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 9b64a5e913748cda7927877c50a964ede587ae30
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 3bad71834d11b640bbc3577bf67c10357fad36dc
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37026009"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618318"
 ---
-# <a name="monitor-sql-data-sync-with-log-analytics"></a>Övervaka SQL datasynkronisering med logganalys 
+# <a name="monitor-sql-data-sync-with-log-analytics"></a>Övervaka SQL Data Sync med Log Analytics 
 
-I aktivitetsloggen SQL datasynkronisering och identifiera fel och varningar genom tvungen du tidigare att kontrollera SQL datasynkronisering manuellt i Azure-portalen eller Använd PowerShell eller REST API. Följ stegen i den här artikeln för att konfigurera en anpassad lösning som förbättrar datasynkronisering övervakning upplevelse. Du kan anpassa den här lösningen så att den passar din situation.
+För att kontrollera aktivitetsloggen SQL Data Sync och identifiera fel och varningar, var du tidigare tvungen att kontrollera SQL Data Sync manuellt i Azure portal eller Använd PowerShell eller REST API. Följ stegen i den här artikeln för att konfigurera en anpassad lösning som förbättrar datasynkronisering övervakningsupplevelse. Du kan anpassa den här lösningen för att passa ditt scenario.
 
-En översikt över SQL datasynkronisering finns [synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering](sql-database-sync-data.md).
+En översikt över SQL Data Sync finns i [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](sql-database-sync-data.md).
 
-## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Instrumentpanelen för övervakning för alla synkroniseringsgrupper 
+## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Övervakningsinstrumentpanel för alla synkroniseringsgrupper 
 
-Du behöver inte längre att söka igenom loggarna för varje synkronisering grupp individuellt för att leta efter problem. Du kan övervaka alla synkroniseringsgrupper från någon av dina prenumerationer på en plats med hjälp av en anpassad vy för Log Analytics. Den här vyn hämtar information som är viktiga för datasynkronisering för SQL-kunder.
+Du behöver inte längre att söka igenom loggarna för varje Synkroniseringsgrupp individuellt för att leta efter problem. Du kan övervaka alla synkroniseringsgrupper från någon av dina prenumerationer på en plats med hjälp av en anpassad Log Analytics-vy. Den här vyn hämtar information som är viktiga för SQL Data Sync-kunder.
 
-![Data instrumentpanelen för övervakning av synkronisering](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
+![Instrumentpanelen för data Sync](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
-## <a name="automated-email-notifications"></a>Automatisk e-postaviseringar
+## <a name="automated-email-notifications"></a>Automatiserade e-postaviseringar
 
-Du behöver inte längre att kontrollera loggen manuellt i Azure-portalen eller via PowerShell eller REST API. Med [logganalys](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), du kan skapa varningar som gå direkt till e-postadresser för de personer som behöver se dem när ett fel uppstår.
+Du behöver inte längre Kontrollera loggen manuellt i Azure portal eller via PowerShell eller REST API. Med [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), du kan skapa aviseringar som går direkt till e-postadresserna för de personer som behöver se dem när ett fel uppstår.
 
-![Data synkronisera e-postaviseringar](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
+![Data Sync e-postaviseringar](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
 
 ## <a name="how-do-you-set-up-these-monitoring-features"></a>Hur ställer du in dessa övervakningsfunktioner? 
 
-Implementera en anpassad logganalys övervakningslösning för synkronisering för SQL-Data på mindre än en timme genom att göra följande:
+Implementera en anpassad logganalys övervakningslösning för SQL Data Sync på mindre än en timme genom att göra följande:
 
 Du måste konfigurera tre komponenter:
 
--   En PowerShell-runbook att mata in SQL datasynkronisering loggdata till logganalys.
+-   En PowerShell-runbook för att mata in loggdata för SQL Data Sync till Log Analytics.
 
--   En avisering som Log Analytics för e-postmeddelanden.
+-   En avisering i Log Analytics för e-postmeddelanden.
 
--   Vyn Log Analytics för övervakning.
+-   En Log Analytics-vy för övervakning.
 
-### <a name="samples-to-download"></a>Exempel för att hämta
+### <a name="samples-to-download"></a>Exempel för att ladda ned
 
-Hämta följande två exemplen:
+Ladda ned följande två exempel:
 
--   [Data synkroniseras loggen PowerShell-Runbook](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
+-   [Data Sync Log PowerShell-Runbook](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Synkronisera Log Analytics datavy](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Data Sync Log Analytics-vy](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-Kontrollera att du har ställt in följande saker:
+Kontrollera att du har konfigurerat följande saker:
 
 -   Ett Azure Automation-konto
 
@@ -64,49 +64,49 @@ Kontrollera att du har ställt in följande saker:
 
 ## <a name="powershell-runbook-to-get-sql-data-sync-log"></a>PowerShell-Runbook att hämta SQL Data Sync-logg 
 
-Använd en PowerShell-runbook finns i Azure Automation för att dra loggdata datasynkronisering SQL och skicka den till logganalys. Ett exempelskript ingår. Du måste ha en Azure Automation-konto som ett krav. Du måste skapa en runbook och schemalägga den körs. 
+Använd en PowerShell-runbook i Azure Automation för att hämta loggdata för SQL Data Sync och skicka den till Log Analytics. Ett exempelskript ingår. Du måste ha ett Azure Automation-konto som ett krav. Sedan måste du skapa en runbook och schemalägga den så att du kör. 
 
 ### <a name="create-a-runbook"></a>Skapa en runbook
 
-Mer information om hur du skapar en runbook finns [min första PowerShell-runbook](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell).
+Mer information om hur du skapar en runbook finns i [min första PowerShell-runbook](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell).
 
-1.  Under Azure Automation-konto markerar du den **Runbooks** Processautomatisering på fliken.
+1.  Under ditt Azure Automation-konto väljer du den **Runbooks** fliken under Processautomatisering.
 
-2.  Välj **lägga till en Runbook** i det övre vänstra hörnet på sidan Runbooks.
+2.  Välj **Lägg till en Runbook** i det övre vänstra hörnet av sidan för Runbooks.
 
 3.  Välj **importera en befintlig Runbook**.
 
-4.  Under **Runbook-filen**, använder den angivna `DataSyncLogPowerShellRunbook` fil. Ange den **runbooktyp** som `PowerShell`. Namnge runbook.
+4.  Under **Runbook-filen**, använda den angivna `DataSyncLogPowerShellRunbook` fil. Ange den **runbooktyp** som `PowerShell`. Namnge runbook.
 
 5.  Välj **Skapa**. Nu har du en runbook.
 
-6.  Under Azure Automation-kontot väljer du den **variabler** fliken under delade resurser.
+6.  Under ditt Azure Automation-konto väljer du den **variabler** fliken under delade resurser.
 
-7.  Välj **lägga till en variabel** på sidan variabler. Skapa en variabel för att lagra den senaste körningstiden för runbook. Om du har flera runbooks, behöver du en variabel för varje runbook.
+7.  Välj **Lägg till en variabel** på sidan variabler. Skapa en variabel för att lagra senaste körningstid för runbook. Om du har flera runbooks, behöver du en variabel för varje runbook.
 
-8.  Ange variabelnamnet som `DataSyncLogLastUpdatedTime` och ange typen DateTime.
+8.  Ange variabelnamnet som `DataSyncLogLastUpdatedTime` och ange dess typ som DateTime.
 
-9.  Välj runbook och klicka på redigeringsknappen överst på sidan.
+9.  Välj runbook och klicka på Redigera-knappen längst ned på sidan.
 
-10. Gör de ändringar som krävs för ditt konto och konfigurationen av SQL-datasynkronisering. (Mer information finns i exempelskript.)
+10. Göra de ändringar som krävs för ditt konto och din SQL Data Sync-konfiguration. (Mer information finns i exempelskriptet.)
 
-    1.  Azure information.
+    1.  Information om Azure.
 
-    2.  Information om synkronisering av grupp.
+    2.  Synkroniseringsgruppen information.
 
-    3.  OMS-information. Hitta den här informationen på OMS-portalen | Inställningar | Anslutna källor. Mer information om hur du skickar data till logganalys finns [skicka data till logganalys med HTTP-Data Collector API (förhandsgranskning)](../log-analytics/log-analytics-data-collector-api.md).
+    3.  OMS-information. Hitta denna information på OMS-portalen | Inställningar | Anslutna källor. Mer information om hur du skickar data till Log Analytics finns i [skicka data till Log Analytics med HTTP Data Collector API (förhandsversion)](../log-analytics/log-analytics-data-collector-api.md).
 
-11. Köra runbook i rutan. Kontrollera att det lyckades.
+11. Kör en runbook i rutan. Kontrollera att det lyckades.
 
-    Om du har fel, kontrollera att du har den senaste PowerShell module installerad. Du kan installera den senaste PowerShell-modulen i den **moduler galleriet** i Automation-kontot.
+    Om du har fel kan du kontrollera att du har den senaste PowerShell-modulen installerad. Du kan installera den senaste PowerShell-modulen i den **Modulgalleri** i ditt Automation-konto.
 
 12. Klicka på **publicera**
 
-### <a name="schedule-the-runbook"></a>Schemat för runbook
+### <a name="schedule-the-runbook"></a>Schemalägg runbook
 
 Så här schemalägger runbook:
 
-1.  Under runbook, Välj den **scheman** på fliken resurser.
+1.  Under runbook, Välj den **scheman** fliken under resurser.
 
 2.  Välj **lägga till ett schema** på sidan scheman.
 
@@ -114,81 +114,81 @@ Så här schemalägger runbook:
 
 4.  Välj **skapa ett nytt schema.**
 
-5.  Ange **återkommande** återkommande och ange intervallet ska. Använd samma intervall här, i skriptet och i OMS.
+5.  Ange **upprepning** återkommande och ange intervallet du vill. Använd samma intervall här i skriptet och i OMS.
 
 6.  Välj **Skapa**.
 
-### <a name="check-the-automation"></a>Kontrollera automatisering
+### <a name="check-the-automation"></a>Kontrollera automation
 
-Övervaka om ditt automation körs som förväntat, under **översikt** ditt automation-konto kan hitta den **jobbet statistik** visa under **övervakning**. Fäst den här vyn i instrumentpanelen för enkel visning. Lyckad körningar av runbook visas som ”slutförd” och misslyckades körs visas som ”misslyckades”.
+Övervaka om ditt automation körs som förväntat under **översikt** för ditt automation-konto, hitta den **Jobbstatistik** visa **övervakning**. Fäst vyn på instrumentpanelen för enkel visning. Lyckade körningar av runbook-Visa som ”slutförd” och misslyckade körningar visas som ”misslyckades”.
 
-## <a name="create-a-log-analytics-reader-alert-for-email-notifications"></a>Skapa en Log Analytics Reader för e-postmeddelanden
+## <a name="create-a-log-analytics-reader-alert-for-email-notifications"></a>Skapa en avisering i Log Analytics Reader för e-postaviseringar
 
-Om du vill skapa en avisering som använder logganalys, göra följande. En förutsättning, som du behöver ha logganalys kopplad till en Log Analytics-arbetsyta.
+Om du vill skapa en avisering som använder Log Analytics, gör du följande. Du måste ha Log Analytics som är kopplad till en Log Analytics-arbetsyta som ett krav.
 
-1.  Välj i OMS-portalen **loggen Sök**.
+1.  I OMS-portalen väljer du **Loggsökning**.
 
-2.  Skapa en fråga för att välja fel och varningar av sync grupp inom det intervall som du har valt. Exempel:
+2.  Skapa en fråga för att välja fel och varningar av synkroniseringsgruppen inom det intervallet som du har valt. Exempel:
 
     `Type=DataSyncLog\_CL LogLevel\_s!=Success| measure count() by SyncGroupName\_s interval 60minute`
 
-3.  När du har kört frågan Välj bell som säger **avisering**.
+3.  När du kör frågan väljer du på klockan där det står **avisering**.
 
 4.  Under **generera avisering baserat på**väljer **mått mätning**.
 
-    1.  Anger det sammanlagda värdet **större än**.
+    1.  Ställ in det sammanlagda värdet **är större än**.
 
-    2.  Efter **större än**, ange tröskelvärdet för att vara inaktiv innan du får meddelanden. Tillfälliga fel förväntas i datasynkronisering. Ange tröskelvärdet för att minska bruset till 5.
+    2.  Efter **är större än**, ange tröskelvärdet för att vara inaktiv innan du tar emot meddelanden. Tillfälliga fel förväntas i datasynkronisering. Ange tröskelvärdet till 5 för att minska bruset.
 
-5.  Under **åtgärder**, ange **e-postavisering** ”yes”. Ange de önskade e-postmottagare.
+5.  Under **åtgärder**anger **e-postavisering** till ”Yes”. Ange de önskade e-postmottagare.
 
-6.  Klicka på **Spara**. De angivna mottagarna ta emot e-postaviseringar när fel uppstår.
+6.  Klicka på **Spara**. De angivna mottagarna nu ta emot e-postaviseringar när fel uppstår.
 
 ## <a name="create-an-oms-view-for-monitoring"></a>Skapa en OMS-vy för övervakning
 
-Det här steget skapar en OMS-vy för att övervaka alla angivna synkroniseringsgrupper visuellt. Vyn innehåller flera komponenter:
+Det här steget skapar en OMS-vy för att visuellt övervaka alla angivna synkroniseringsgrupper. Vyn innehåller flera komponenter:
 
--   En översiktsikon som visar hur många fel, lyckade och varningar grupperna för synkronisering har.
+-   En översiktsikon som visar hur många fel, lyckade och varningar har alla synkroniseringsgrupper.
 
--   En panel för alla synkroniseringsgrupper som visar antalet fel och varningar per sync-grupp. Grupper utan problem visas inte på den här panelen.
+-   En panel för alla synkroniseringsgrupper, som visar antalet fel och varningar per synkroniseringsgrupp. Grupper utan problem visas inte på den här panelen.
 
--   En panel för varje Sync-grupp som visar antalet fel, har slutförts, och varningar och de senaste felmeddelandena.
+-   En panel för varje Synkroniseringsgrupp som visar antalet fel, har slutförts, och varningar och de senaste felmeddelandena.
 
-Om du vill konfigurera OMS-vy, kan du göra följande:
+Om du vill konfigurera vyn OMS, gör du följande:
 
-1.  På startsidan OMS väljer plus till vänster för att öppna den **Vydesigner**.
+1.  På startsidan OMS väljer du plus till vänster och öppna den **Vydesigner**.
 
-2.  Välj **importera** i det översta fältet i view Designer. Välj sedan exempelfilen ”DataSyncLogOMSView”.
+2.  Välj **Import** i det översta fältet i view Designer. Välj sedan exempelfilen ”DataSyncLogOMSView”.
 
-3.  Exempelvyn är för att hantera två synkroniseringsgrupper. Redigera den här vyn så att de passar din situation. Klicka på **redigera** och gör följande ändringar:
+3.  Exempelvy är för att hantera två synkroniseringsgrupper. Redigera den här vyn så att de passar ditt scenario. Klicka på **redigera** och gör följande ändringar:
 
-    1.  Skapa nya ”Ring & lista” objekt från galleriet efter behov.
+    1.  Skapa nya ”ringdiagram och lista” objekt från galleriet efter behov.
 
-    2.  Uppdatera frågorna med din information i varje bricka.
+    2.  Uppdatera frågorna med din information i varje panel.
 
-        1.  Ändra TimeStamp_t intervall enligt önskemål på varje bricka.
+        1.  Ändra TimeStamp_t intervallet efter behov i varje panel.
 
-        2.  Uppdatera Sync gruppnamn på panelerna för varje grupp med synkronisering.
+        2.  Uppdatera Synkroniseringsgruppen namnen på paneler för varje Synkroniseringsgrupp.
 
-    3.  Uppdatera titeln på varje bricka.
+    3.  Uppdatera rubriken i varje panel efter behov.
 
-4.  Klicka på **spara** och vyn är klar.
+4.  Klicka på **spara** och vyn är redo.
 
 ## <a name="cost-of-this-solution"></a>Kostnaden för den här lösningen
 
-Den här lösningen är gratis i de flesta fall.
+Den här lösningen är kostnadsfri i de flesta fall.
 
-**Azure Automation:** det kan finnas en kostnaden med Azure Automation-konto, beroende på din användning. Första 500 minut jobbkörningstid per månad är gratis. I de flesta fall förväntas den här lösningen använder mindre än 500 minuter per månad. För att undvika kostnader, schemalägga en runbook körs vid ett intervall på två timmar eller mer. Mer information finns i [Automation priser](https://azure.microsoft.com/pricing/details/automation/).
+**Azure Automation:** det kan finnas en kostnader som uppstår med Azure Automation-kontot, beroende på din användning. De första 500 minuterna uppgiftskörtid per månad är kostnadsfria. I de flesta fall förväntas i den här lösningen använder mindre än 500 minuter per månad. Om du vill undvika kostnader genom att schemalägga att runbook körs vid ett intervall av två timmar eller mer. Mer information finns i [Automation-prissättning](https://azure.microsoft.com/pricing/details/automation/).
 
-**Logganalys:** kanske kostnader som är kopplade till logganalys beroende på din användning. Den kostnadsfria nivån innehåller 500 MB infogade data per dag. Den här lösningen förväntas i de flesta fall att mata in mindre än 500 MB per dag. Använd endast fel filtreringen ingår i runbook för att minska användningen. Om du använder mer än 500 MB per dag, uppgradera till betald nivån så att risken för analytics stoppas när begränsningen har uppnåtts. Mer information finns i [logganalys priser](https://azure.microsoft.com/pricing/details/log-analytics/).
+**Logganalys:** det kan finnas en kostnad som hör till Log Analytics beroende på din användning. Den kostnadsfria nivån omfattar 500 MB inmatade data per dag. I de flesta fall förväntas i den här lösningen mata in mindre än 500 MB per dag. Använd endast fel filtrering ingår i runbook för att minska användningen. Om du använder mer än 500 MB per dag, uppgradera till den kostnadsfria nivån för att undvika risken för analytics stoppas när begränsningen har uppnåtts. Mer information finns i [priserna för Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 ## <a name="code-samples"></a>Kodexempel
 
-Hämta kodexempel som beskrivs i den här artikeln från följande platser:
+Ladda ned kodexemplen i den här artikeln från följande platser:
 
--   [Data synkroniseras loggen PowerShell-Runbook](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
+-   [Data Sync Log PowerShell-Runbook](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Synkronisera Log Analytics datavy](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Data Sync Log Analytics-vy](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om SQL Data Sync finns i:
@@ -201,8 +201,6 @@ Mer information om SQL Data Sync finns i:
 -   Slutför PowerShell-exempel som visar hur du konfigurerar SQL Data Sync:
     -   [Använda PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)
     -   [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)
-
--   [Ladda ned REST API-dokumentation för SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 Mer information om SQL Database finns i:
 

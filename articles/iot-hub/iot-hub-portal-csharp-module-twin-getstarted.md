@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: dobett
-ms.openlocfilehash: 4b4b193751606883548e25e731dcece4ae72ba7b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d85845aa9bbf9b9f311adfc2588a4a8d0c670826
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666899"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619859"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Kom igång med IoT Hub-modulidentitet och modultvilling med portalen och .NET-enhet
 
@@ -86,7 +86,7 @@ Du har skapat modulidentiteten i din IoT Hub. Försök kommunicera till molnet f
     Lägg till följande fält i klassen **Program**. Ersätt platshållarens värde med modulens anslutningssträng.
 
     ```csharp
-    private const string ModuleConnectionString = "<Your module connection string>“;
+    private const string ModuleConnectionString = "<Your module connection string>";
     private static ModuleClient Client = null;
     ```
 
@@ -138,13 +138,19 @@ Du har skapat modulidentiteten i din IoT Hub. Försök kommunicera till molnet f
         }
 
         Console.WriteLine("Waiting for Events.  Press enter to exit...");
+        Console.ReadKey();
         Client.CloseAsync().Wait();
+    }
+    
+    private static void ConnectionStatusChangeHandler(ConnectionStatus status, ConnectionStatusChangeReason reason)
+    {
+        Console.WriteLine($"Status {status} changed: {reason}");
     }
     ```
 
     Det är kodexemplet visar hur du hämtar modultvillingen och uppdaterar rapporterade egenskaper med AMQP-protokollet. I offentlig förhandsversion stöder vi endast AMQP för modultvillingåtgärder.
 
-## <a name="run-the-apps"></a>Kör apparna
+## <a name="run-the-apps"></a>Köra apparna
 
 Nu är det dags att köra apparna. Högerklicka på din lösning i Solution Explorer i Visual Studio och klicka sedan på **Ange startprojekt**. Välj **Multiple startup projects** (Starta flera projekt) och välj **Starta** som åtgärd för konsolappen. Och tryck på F5 för att starta båda apparna. 
 

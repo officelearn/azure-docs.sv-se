@@ -1,48 +1,43 @@
 ---
-title: Använd skriptåtgärder om du vill installera Solr på Linux-baserat HDInsight - Azure | Microsoft Docs
-description: Lär dig hur du installerar Solr på Linux-baserade HDInsight Hadoop-kluster med hjälp av skriptåtgärder.
+title: Använd skriptåtgärder för att installera Solr på Linux-baserade HDInsight - Azure
+description: Lär dig mer om att installera Solr på Linux-baserat HDInsight Hadoop-kluster med skriptåtgärder.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: cc93ed5c-a358-456a-91a4-f179185c0e98
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 77d3964dd54d63db58c63b567ebbe7e529473999
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 35a7410a5a30e248069ba31ad4213eff58680dcc
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201568"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597777"
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Installera och använda Solr på HDInsight Hadoop-kluster
 
-Lär dig hur du installerar Solr på Azure HDInsight med hjälp av skriptåtgärder. Solr är en kraftfull sökplattform och företagsnivå sökfunktioner om data som hanteras av Hadoop.
+Lär dig mer om att installera Solr på Azure HDInsight med hjälp av skriptåtgärder. Solr är en plattform för kraftfull sökning och ger sökfunktioner på företagsnivå för data som hanteras av Hadoop.
 
 > [!IMPORTANT]
     > Stegen i det här dokumentet kräver ett HDInsight-kluster som använder Linux. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 > [!IMPORTANT]
-> Exempelskript som används i det här dokumentet installerar Solr 4.9 med en viss konfiguration. Om du vill konfigurera Solr klustret med olika samlingar, delar, scheman, repliker, etc., måste du ändra skript och Solr binärfiler.
+> Exempelskriptet i det här dokumentet installerar Solr 4.9 med en viss konfiguration. Om du vill konfigurera Solr klustret med olika samlingar, fragment, scheman, repliker och annat måste du ändra skriptet och Solr binärfiler.
 
 ## <a name="whatis"></a>Vad är Solr
 
-[Apache Solr](http://lucene.apache.org/solr/features.html) är en enterprise search-plattform som gör att kraftfulla fulltextsökning i data. Hadoop gör det möjligt för lagring och hantering av stora mängder data, ger Apache Solr sökfunktioner snabbt hämta data.
+[Apache Solr](http://lucene.apache.org/solr/features.html) är en enterprise search plattform som möjliggör kraftfull fulltextsökning på data. Hadoop kan lagra och hantera stora mängder data, ger Apache Solr sökfunktioner för att snabbt hämta data.
 
 > [!WARNING]
-> Komponenter som ingår i HDInsight-kluster stöds fullt ut av Microsoft.
+> Komponenter som tillhandahålls med HDInsight-kluster stöds helt och hållet av Microsoft.
 >
-> Anpassade komponenter, till exempel Solr, få kommersiellt rimliga stöd för att hjälpa dig att felsöka problemet ytterligare. Microsoft-supporten kanske inte kan lösa problem med anpassade komponenter. Du kan behöva engagera communities för öppen källkod för att få hjälp. Det finns till exempel många community-webbplatser som kan användas, t.ex: [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Apache-projekt har också project-webbplatser [ http://apache.org ](http://apache.org), till exempel: [Hadoop](http://hadoop.apache.org/).
+> Anpassade komponenter, till exempel Solr, får kommersiellt rimlig support för att hjälpa dig att felsöka problemet ytterligare. Microsoft-supporten är kanske inte kan lösa problem med anpassade komponenter. Du kan behöva interagera med öppen källkod-communities för att få hjälp. Det finns exempelvis många community-webbplatser som kan användas, t.ex: [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Även Apache-projekt har project-webbplatser på [ http://apache.org ](http://apache.org), till exempel: [Hadoop](http://hadoop.apache.org/).
 
-## <a name="what-the-script-does"></a>Skriptet innehåller
+## <a name="what-the-script-does"></a>Vad skriptet gör
 
-Det här skriptet gör följande ändringar till HDInsight-klustret:
+Det här skriptet gör följande ändringar i HDInsight-klustret:
 
 * Installerar Solr 4.9 i `/usr/hdp/current/solr`
 * Skapar en användare **solrusr**, som används för att köra tjänsten Solr
@@ -55,29 +50,29 @@ Ett exempelskript för att installera Solr på ett HDInsight-kluster finns på f
 
     https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
 
-Om du vill skapa ett kluster med installerat Solr, Följ stegen i den [skapa HDInsight-kluster](hdinsight-hadoop-create-linux-clusters-portal.md) dokumentet. Under skapandeprocessen, Använd följande steg för att installera Solr:
+Om du vill skapa ett kluster som har installerat Solr, Följ stegen i den [skapa HDInsight-kluster](hdinsight-hadoop-create-linux-clusters-portal.md) dokumentet. Under skapandeprocessen, använder du följande steg för att installera Solr:
 
-1. Från den __klustret sammanfattning__ avsnitt, select__Advanced settings__, sedan __skript åtgärder__. Använd följande information för att fylla i formuläret:
+1. Från den __klustersammanfattning__ avsnittet, select__Advanced settings__, sedan __skriptåtgärder__. Använd följande information för att fylla i formuläret:
 
-   * **NAMNET**: Ange ett eget namn för skriptåtgärden.
+   * **NAMN på**: Ange ett eget namn för skriptåtgärden.
    * **SKRIPT-URI**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
    * **HEAD**: Markera det här alternativet
    * **WORKER**: Markera det här alternativet
-   * **ZOOKEEPER**: Markera det här alternativet att installera på noden Zookeeper
-   * **PARAMETRARNA**: lämna fältet tomt
+   * **ZOOKEEPER**: Markera det här alternativet att installera på Zookeeper-nod
+   * **PARAMETRAR**: lämna fältet tomt
 
-2. Längst ned i den **skript åtgärder** Använd den **Välj** för att spara konfigurationen. Använd slutligen den **nästa** vill gå tillbaka till den __klustret sammanfattning__
+2. Längst ned på den **skriptåtgärder** använder den **Välj** för att spara konfigurationen. Använd slutligen den **nästa** vill gå tillbaka till den __klustersammanfattning__
 
-3. Från den __klustret sammanfattning__ väljer __skapa__ att skapa klustret.
+3. Från den __klustersammanfattning__ väljer __skapa__ att skapa klustret.
 
-## <a name="usesolr"></a>Hur använder Solr i HDInsight
+## <a name="usesolr"></a>Hur kan jag använda Solr i HDInsight
 
 > [!IMPORTANT]
-> Stegen i det här avsnittet visar grundläggande Solr funktioner. Mer information om hur du använder Solr finns i [Apache Solr plats](http://lucene.apache.org/solr/).
+> Stegen i det här avsnittet visar grundläggande Solr funktioner. Mer information om hur du använder Solr finns i den [Apache Solr plats](http://lucene.apache.org/solr/).
 
-### <a name="index-data"></a>Indexinformationen
+### <a name="index-data"></a>Indexera data
 
-Använd följande steg för att lägga till exempeldata i Solr och fråga den:
+Använd följande steg för att lägga till exempeldata till Solr och frågar den:
 
 1. Anslut till HDInsight-klustret med hjälp av SSH:
 
@@ -93,9 +88,9 @@ Använd följande steg för att lägga till exempeldata i Solr och fråga den:
      > [!IMPORTANT]
      > Stegen senare i det här dokumentet använder en SSH-tunnel för att ansluta till Solr webbgränssnittet. Om du vill använda de här stegen, måste du upprätta en SSH-tunnel och sedan konfigurera webbläsaren för att använda den.
      >
-     > Mer information finns i [använda SSH-tunnlar med HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) dokumentet.
+     > Mer information finns i den [använda SSH-tunnlar med HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) dokumentet.
 
-2. Har Solr index exempeldata med hjälp av följande kommandon:
+2. Använd följande kommandon för att har Solr index exempeldata:
 
     ```bash
     cd /usr/hdp/current/solr/example/exampledocs
@@ -110,15 +105,15 @@ Använd följande steg för att lägga till exempeldata i Solr och fråga den:
         COMMITting Solr index changes to http://localhost:8983/solr/update..
         Time spent: 0:00:01.624
 
-    Den `post.jar` verktyget lägger till den **solr.xml** och **monitor.xml** dokument i indexet.
+    Den `post.jar` verktyget lägger till den **solr.xml** och **monitor.xml** dokument till indexet.
   
-3. Använd följande kommando för att fråga Solr REST-API:
+3. Använd följande kommando för att fråga Solr REST API:
 
     ```bash
     curl "http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true"
     ```
 
-    Det här kommandot söker **collection1** för alla dokument som matchar **\*:\*** (kodad som \*% 3A\* i frågesträngen). Följande JSON-dokumentet är ett exempel på svaret:
+    Det här kommandot söker **collection1** för alla dokument som matchar **\*:\*** (kodat som \*% 3A\* i frågesträngen). Följande JSON-dokumentet är ett exempel på svaret:
 
             "response": {
                 "numFound": 2,
@@ -172,19 +167,19 @@ Använd följande steg för att lägga till exempeldata i Solr och fråga den:
                 ]
               }
 
-### <a name="using-the-solr-dashboard"></a>Med hjälp av instrumentpanelen Solr
+### <a name="using-the-solr-dashboard"></a>Använd Solr-instrumentpanel
 
-Solr instrumentpanelen är ett webbgränssnitt som hjälper dig att arbeta med Solr via webbläsaren. Solr instrumentpanelen visas inte direkt via Internet från ditt HDInsight-kluster. Du kan använda en SSH-tunnel för att komma åt den. Mer information om hur du använder en SSH-tunnel finns i [använda SSH-tunnlar med HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) dokumentet.
+Solr instrumentpanelen är ett webbgränssnitt som låter dig arbeta med Solr via webbläsaren. Solr instrumentpanelen visas inte direkt via Internet från ditt HDInsight-kluster. Du kan använda en SSH-tunnel för att komma åt den. Mer information om hur du använder en SSH-tunnel finns i den [använda SSH-tunnlar med HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) dokumentet.
 
-När du har skapat en SSH-tunnel, Solr instrumentpanel med hjälp av följande steg:
+När du har skapat en SSH-tunnel, Använd följande steg för att använda Solr instrumentpanelen:
 
-1. Fastställa värdnamnet för den primära headnode:
+1. Fastställa värdnamnet för den primära huvudnoden:
 
    1. Använda SSH för att ansluta till klustrets huvudnod. Till exempel `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
 
-       Mer information om hur du använder SSH finns i [använda SSH med HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+       Mer information om hur du använder SSH finns i den [använda SSH med HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-   2. Använd följande kommando för att hämta det fullständigt kvalificerade värdnamnet:
+   2. Använd följande kommando för att få fullständigt kvalificerat värdnamn:
 
         ```bash
         hostname -f
@@ -196,24 +191,24 @@ När du har skapat en SSH-tunnel, Solr instrumentpanel med hjälp av följande s
 
         Spara det värde som returneras, eftersom den används senare.
 
-2. Anslut till i din webbläsare **http://HOSTNAME:8983/solr/#/**, där **VÄRDNAMN** är namnet du bestämde i föregående steg.
+2. Anslut till i din webbläsare **http://HOSTNAME:8983/solr/#/**, där **VÄRDNAMN** är det namn som du bestämde i föregående steg.
 
-    Begäran dirigeras via SSH-tunnel till Solr webbgränssnittet på ditt kluster. Sidan ser ut som följande bild:
+    Begäran dirigeras via SSH-tunnel till Solr webbgränssnittet i klustret. Sidan ser ut som följande bild:
 
     ![Bild av Solr instrumentpanelen](./media/hdinsight-hadoop-solr-install-linux/solrdashboard.png)
 
-3. Använd från den vänstra rutan i **Core Selector** listrutan för att välja **collection1**. Flera poster ska dem visas under **collection1**.
+3. Använd från den vänstra rutan i **Core väljare** listrutan att välja **collection1**. Flera poster visas dem nedan **collection1**.
 
-4. Från posterna nedan **collection1**väljer **frågan**. Använd följande värden för att fylla i sidan Sök efter:
+4. Från posterna nedan **collection1**väljer **fråga**. Använd följande värden för att fylla i sidan Sök efter:
 
-   * I den **q** text Ange  **\*:**\*. Den här frågan returnerar alla dokument som indexeras i Solr. Om du vill söka efter en specifik sträng inom dokument som kan du ange den här strängen.
-   * I den **wt** text väljer utdataformatet. Standardvärdet är **json**.
+   * I den **q** text anger  **\*:**\*. Den här frågan returnerar alla dokument som indexeras i Solr. Du kan ange den strängen här om du vill söka efter en specifik sträng i dokumenten.
+   * I den **wt** text väljer utdataformat. Standardvärdet är **json**.
 
-     Välj slutligen den **köra frågan** knappen längst ned i Sök-pate.
+     Välj slutligen den **Kör fråga** knappen längst ned på den search klistra in.
 
-     ![Använd skriptåtgärder för att anpassa ett kluster](./media/hdinsight-hadoop-solr-install-linux/hdi-solr-dashboard-query.png)
+     ![Använda skriptåtgärder för att anpassa ett kluster](./media/hdinsight-hadoop-solr-install-linux/hdi-solr-dashboard-query.png)
 
-     Utdata returnerar två dokument som du tidigare lagt till indexet. Utdata liknar följande JSON-dokumentet:
+     Resultatet returnerar två dokument som du tidigare lade till indexet. Utdata liknar följande JSON-dokument:
 
            "response": {
                "numFound": 2,
@@ -269,7 +264,7 @@ När du har skapat en SSH-tunnel, Solr instrumentpanel med hjälp av följande s
 
 ### <a name="starting-and-stopping-solr"></a>Starta och stoppa Solr
 
-Stoppa och starta Solr manuellt med hjälp av följande kommandon:
+Använd följande kommandon för att stoppa och starta Solr manuellt:
 
 ```bash
 sudo stop solr
@@ -278,21 +273,21 @@ sudo start solr
 
 ## <a name="backup-indexed-data"></a>Indexerade säkerhetskopieringsdata
 
-Använd följande steg för att säkerhetskopiera Solr data till standardlagring för klustret:
+Använd följande steg för att säkerhetskopiera Solr data till standardlagringen för klustret:
 
-1. Anslut till klustret med SSH och använda följande kommando för att hämta värdnamnet för huvudnoden:
+1. Ansluta till klustret med SSH och sedan använder du följande kommando för att hämta värdnamnet för huvudnoden:
 
     ```bash
     hostname -f
     ```
 
-2. Använd följande kommando för att skapa en ögonblicksbild av indexerade data. Ersätt **VÄRDNAMN** med namn som returnerades från föregående kommando:
+2. Använd följande kommando för att skapa en ögonblicksbild av indexerade data. Ersätt **VÄRDNAMN** med det namnet som returnerades från föregående kommando:
 
     ```bash
     curl http://HOSTNAME:8983/solr/replication?command=backup
     ```
 
-    Svaret liknar följande XML-filen:
+    Svaret liknar följande XML:
 
         <?xml version="1.0" encoding="UTF-8"?>
         <response>
@@ -303,30 +298,30 @@ Använd följande steg för att säkerhetskopiera Solr data till standardlagring
           <str name="status">OK</str>
         </response>
 
-3. Ändra kataloger till `/usr/hdp/current/solr/example/solr`. Det finns en underkatalog för varje samling. Varje samling katalogen innehåller en `data` katalog som innehåller en ögonblicksbild för samlingen.
+3. Ändra kataloger till `/usr/hdp/current/solr/example/solr`. Det finns en underkatalog för varje samling. Varje samling katalogen innehåller en `data` katalog som innehåller ögonblicksbilden för samlingen.
 
-4. Om du vill skapa en komprimerad fil i mappen med ögonblicksbilder, använder du följande kommando:
+4. Om du vill skapa ett komprimerat arkiv med ögonblicksbilden, använder du följande kommando:
 
     ```bash
     tar -zcf snapshot.20150806185338855.tgz snapshot.20150806185338855
     ```
 
-    Ersätt den `snapshot.20150806185338855` värden med namnet på ögonblicksbilden för samlingen.
+    Ersätt den `snapshot.20150806185338855` värden med namnet på ögonblicksbilden för din samling.
 
-    Det här kommandot skapas ett arkiv med namnet **snapshot.20150806185338855.tgz**, som innehåller innehållet i den **snapshot.20150806185338855** directory.
+    Det här kommandot skapar ett arkiv med namnet **snapshot.20150806185338855.tgz**, som innehåller innehållet i den **snapshot.20150806185338855** directory.
 
-5. Du kan sedan lagra arkivet till klustrets primära lagring med hjälp av följande kommando:
+5. Du kan sedan lagra arkivet till klustrets primär lagring med följande kommando:
 
     ```bash
     hdfs dfs -put snapshot.20150806185338855.tgz /example/data
     ```
 
-Mer information om hur du arbetar med Solr säkerhetskopiering och återställning finns [ https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups ](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
+Mer information om hur du arbetar med Solr säkerhetskopiering och återställning finns i [ https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups ](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Installera Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install-linux.md). Använd anpassning av klustret för att installera Giraph på HDInsight Hadoop-kluster. Giraph kan du utföra bearbetning med hjälp av Hadoop och kan användas med Azure HDInsight.
+* [Installera Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install-linux.md). Använd kluster anpassning för att installera Giraph på HDInsight Hadoop-kluster. Giraph kan du utföra diagrambearbetning med hjälp av Hadoop och kan användas med Azure HDInsight.
 
-* [Installera Hue i HDInsight-kluster](hdinsight-hadoop-hue-linux.md). Använd anpassning av klustret för att installera Hue på HDInsight Hadoop-kluster. Hue är en uppsättning webbprogram som används för att interagera med ett Hadoop-kluster.
+* [Installera Hue i HDInsight-kluster](hdinsight-hadoop-hue-linux.md). Använd kluster anpassning för att installera Hue på HDInsight Hadoop-kluster. Hue är en samling webbprogram som används för att interagera med ett Hadoop-kluster.
 
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md

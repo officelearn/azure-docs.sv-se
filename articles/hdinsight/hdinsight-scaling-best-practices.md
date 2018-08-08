@@ -1,74 +1,69 @@
 ---
-title: Skala klusterstorlekar - Azure HDInsight | Microsoft Docs
+title: Skala klusterstorlekar - Azure HDInsight
 description: Skala ett HDInsight-kluster för din arbetsbelastning.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: ashish
-ms.openlocfilehash: 8b76d7d0441a5c1c25ad17b73083ec0e4feef1fe
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2f1de608a8273d7be50e4ad432ab72052fc0e228
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31414328"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596848"
 ---
 # <a name="scale-hdinsight-clusters"></a>Skala HDInsight-kluster
 
-HDInsight tillhandahåller elasticitet genom att ge dig möjlighet att skala upp och skala ned antalet arbetarnoder i ditt kluster. På så sätt kan du minska ett kluster efter timmar eller helger och expandera den under belastning affärsbehov.
+HDInsight ger flexibilitet när det gäller genom att ge dig möjlighet att skala upp och skala ned antalet arbetarnoder i dina kluster. På så sätt kan du minska ett kluster efter timmar eller helger och expanderas under toppefterfrågan för företag.
 
-Om du har några batchbearbetning som inträffar en gång om dagen eller en gång i månaden, HDInsight-klustret kan skalas upp ett par minuter före den schemalagda händelsen så att det finns inte tillräckligt med minne och CPU-beräkningskraft. Du kan automatisera skalning med PowerShell-cmdleten [ `Set–AzureRmHDInsightClusterSize` ](hdinsight-administer-use-powershell.md#scale-clusters).  Senare, när bearbetningen är klar och användningsinformation som kraschar igen, kan du skala ned HDInsight-klustret till färre arbetarnoder.
+Till exempel om du har några batchbearbetning som inträffar en gång om dagen eller en gång i månaden, HDInsight-kluster kan skalas upp ett par minuter före den schemalagda händelsen så att det ska finnas tillräckligt med minne och CPU-beräkningskraft. Du kan automatisera skalning med PowerShell-cmdlet [ `Set–AzureRmHDInsightClusterSize` ](hdinsight-administer-use-powershell.md#scale-clusters).  Senare, när bearbetningen är klar och användning som kraschar igen, kan du skala ned HDInsight-klustret till färre arbetarnoder.
 
-* Att skala din klustret via [PowerShell](hdinsight-administer-use-powershell.md):
+* Du skalar ditt kluster via [PowerShell](hdinsight-administer-use-powershell.md):
 
     ```powershell
     Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
     ```
     
-* Att skala din klustret via den [Azure CLI](hdinsight-administer-use-command-line.md):
+* Du skalar ditt kluster via den [Azure CLI](hdinsight-administer-use-command-line.md):
 
     ```
     azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
     ```
     
-* Att skala din klustret via den [Azure-portalen](https://portal.azure.com)öppnar du fönstret ditt HDInsight-kluster, Välj **kluster** på den vänstra menyn och sedan i rutan skala kluster, ange antalet arbetarnoder, och Välj Spara.
+* Du skalar ditt kluster via den [Azure-portalen](https://portal.azure.com)öppnar du fönstret ditt HDInsight-kluster, Välj **skala kluster** i den vänstra menyn och sedan i fönstret skala kluster, Skriv antalet arbetarnoder, och Välj Spara.
 
     ![Skala ett kluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
 
-Med hjälp av någon av dessa metoder kan du skala ditt HDInsight-kluster uppåt eller nedåt i minuter.
+Med hjälp av någon av dessa metoder kan du skala ditt HDInsight-kluster upp eller ned inom några minuter.
 
-## <a name="scaling-impacts-on-running-jobs"></a>Skalning påverkan på jobb som körs
+## <a name="scaling-impacts-on-running-jobs"></a>Skala påverkan på jobb som körs
 
-När du **lägga till** noder till ditt HDInsight-kluster som körs alla väntande eller körs jobb påverkas inte. Dessutom kan nya jobb på ett säkert sätt skickas när skalning processen körs. Om skalning åtgärder misslyckas av någon anledning, hanteras felet smidigt, lämnar klustret fungerar.
+När du **lägga till** noder till ditt HDInsight-kluster som körs alla väntande eller pågående jobb påverkas inte. Dessutom kan kan nya jobb på ett säkert sätt skickas medan skalning processen körs. Om skalning åtgärder utföras av någon anledning, är felet ett smidigt sätt hanterade, lämnar klustret fungerar på.
 
-Men om du skalning av klustret med **tar bort** noder, alla väntande eller körs jobb misslyckas när skalning åtgärden har slutförts. Det här felet beror på de tjänster som startas om under processen.
+Men om du skalar ned klustret genom **tar bort** noder, alla väntande eller pågående jobb misslyckas när skalning åtgärden har slutförts. Det här felet beror på de tjänster som startas om under processen.
 
-För det här problemet kan du vänta de jobb som ska slutföras innan skalning av klustret, manuellt avsluta jobb eller skicka jobb då skalning åtgärden har avslutat.
+För det här problemet, kan du vänta jobb slutförts innan du skalar ned ditt kluster, Avsluta jobb manuellt eller skicka jobb när åtgärden skalning har avslutat.
 
-Om du vill se en lista med pågående och jobb som körs, kan du använda Gränssnittet YARN resurshanteraren för följande steg:
+Om du vill se en lista över väntande och jobb som körs, kan du använda YARN ResourceManager UI, följa dessa steg:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. På den vänstra menyn väljer **Bläddra**väljer **HDInsight-kluster**, och välj sedan klustret.
-3. I rutan för din HDInsight-kluster, Välj **instrumentpanelen** på den översta menyn för att öppna Ambari UI. Ange dina inloggningsuppgifter för klustret.
-4. Klicka på **YARN** i listan över tjänster på den vänstra menyn. Välj på sidan YARN **snabblänkar** och hovra över aktiva huvudnoden och klicka sedan på **ResourceManager UI**.
+2. På menyn till vänster väljer **Bläddra**väljer **HDInsight-kluster**, och välj sedan ditt kluster.
+3. Från ditt HDInsight-kluster-fönstret, väljer **instrumentpanelen** på den översta menyn för att öppna Ambari UI. Ange dina autentiseringsuppgifter för klusterinloggning.
+4. Klicka på **YARN** på listan över tjänster i den vänstra menyn. På sidan YARN väljer **snabblänkar** och hovra över aktiva huvudnoden och klicka sedan på **ResourceManager UI**.
 
-    ![Resurshanteraren UI](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
+    ![ResourceManager UI](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
 
-Du får direkt åtkomst till ResourceManager UI med `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`.
+Du kan direkt komma åt ResourceManager UI med `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`.
 
-Du kan se en lista över jobb tillsammans med det aktuella tillståndet. I skärmbilden finns det ett jobb som körs:
+Du kan se en lista över jobb, tillsammans med enheternas aktuella status. Det finns ett jobb som körs på skärmbilden är:
 
 ![ResourceManager UI-program](./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png)
 
-Om du vill avsluta manuellt köra programmet, kör du följande kommando från SSH-shell:
+Om du vill avsluta manuellt köra programmet, kör du följande kommando från SSH-gränssnittet:
 
 ```bash
 yarn application -kill <application_id>
@@ -80,60 +75,60 @@ Exempel:
 yarn application -kill "application_1499348398273_0003"
 ```
 
-## <a name="rebalancing-an-hbase-cluster"></a>Ombalansering ett HBase-kluster
+## <a name="rebalancing-an-hbase-cluster"></a>Balansera ett HBase-kluster
 
-Region servrar balanseras automatiskt inom några minuter efter skalning åtgärden har slutförts. Om du vill utjämna manuellt region servrar, Använd följande steg:
+Regionservrar balanseras automatiskt inom ett par minuter efter skalning åtgärden slutfördes. För att jämna ut regionservrar manuellt, använder du följande steg:
 
-1. Anslut till HDInsight-klustret via SSH. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
+1. Ansluta till HDInsight-klustret med SSH. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
 2. Starta HBase-gränssnittet:
 
         hbase shell
 
-3. Använd följande kommando för att manuellt väga region-servrar:
+3. Använder du följande kommando för att balansera regionservrar manuellt:
 
         balancer
 
 ## <a name="scale-down-implications"></a>Skala ned effekter
 
-Som tidigare nämnts avslutas alla väntande eller köra jobb i slutet av en skala ned igen. Det finns andra möjliga konsekvenser att skala ned som kan uppstå.
+Som tidigare nämnts är avslutas alla väntande eller pågående jobb vid slutförandet av en skalas ned igen. Det finns dock andra eventuella effekter att skala ned som kan uppstå.
 
-## <a name="hdinsight-name-node-stays-in-safe-mode-after-scaling-down"></a>HDInsight namn nod förblir i felsäkert läge efter skala
+## <a name="hdinsight-name-node-stays-in-safe-mode-after-scaling-down"></a>HDInsight namn noden är i felsäkert läge när du skalar ned
 
 ![Skala ett kluster](./media/hdinsight-scaling-best-practices/scale-cluster.png)
 
-Om du minska klustret ned till minst en arbetsnod som visas i föregående bild fastna HDFS i felsäkert läge när arbetarnoder startas om på grund av korrigering eller omedelbart efter skalning igen.
+Om du minska ditt kluster till minst en underordnad nod som du ser i föregående bild fastna HDFS i felsäkert läge när arbetsnoder startas om på grund av korrigeringar eller omedelbart efter skalning igen.
 
-Primär orsaken till detta är att Hive använder några `scratchdir` filer och som standard förväntar att tre repliker på varje datablock, men det är bara en replik möjligt om du skala till minst en arbetsnoden. Som en följd filerna i den `scratchdir` blir *under-replikerade*. Det kan leda till HDFS vara i felsäkert läge när tjänsten har startats om efter åtgärden.
+Den primära orsaken till detta är att Hive använder några `scratchdir` filer och förväntar sig tre repliker av varje block som standard men det finns bara en replik möjligt om du skalar till minst en arbetsnoden. Som en följd filerna i den `scratchdir` blir *under-replikerade*. Det kan leda till HDFS vara i felsäkert läge när tjänsterna har startats om efter åtgärden.
 
-När en skala ned försök händer använder HDInsight Ambari hanteringsgränssnitt att inaktivera extra oönskade arbetsnoderna som replikerar deras HDFS-block till andra online arbetsnoder först och sedan på ett säkert sätt minska klustret. HDFS hamnar i felsäkert läge under underhållsperioden och ska komma när skalningen är klar. Det är nu att HDFS kan fastna i felsäkert läge.
+När en skala ned försök sker, använder HDInsight Ambari-hanteringsgränssnitt du först inaktivera de extra oönskad arbetsnoder som replikerar sin HDFS-block till andra online arbetsnoder och på ett säkert sätt skala klustret ned. HDFS hamnar i felsäkert läge under underhållsfönstret, och ska komma när den skalning är klar. Nu är det att HDFS fastna i felsäkert läge.
 
-HDFS är konfigurerad med en `dfs.replication` för 3. Därför är block av tillfälliga filer under-replikerade när det finns färre än tre arbetarnoder online, eftersom det inte finns inte de förväntade tre kopiorna av varje fil-block.
+HDFS är konfigurerad med en `dfs.replication` inställning av 3. Därför är block av tillfälliga filer under-replikerade när det finns färre än tre arbetsnoder online, eftersom det finns inte de förväntade tre kopiorna av varje fil-block.
 
-Du kan köra ett kommando för att aktivera HDFS från felsäkert läge. Till exempel om du vet att det endast felsäkert läge finns på beror eftersom de temporära filerna som är under-replikerade, sedan på ett säkert sätt kan du lämna felsäkert läge. Det beror på att under-replikerade filer är Hive tillfälliga tillfälliga filer.
+Du kan köra ett kommando för att aktivera HDFS från felsäkert läge. Till exempel om du vet att det enda skälet felsäkert läge finns på eftersom de temporära filerna är under-replikerade, sedan på ett säkert sätt kan du lämna felsäkert läge. Det beror på att under-replikerade filer är Hive temporära tillfälliga filer.
 
 ```bash
 hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
 ```
 
-När du lämnar felsäkert läge du manuellt ta bort temporära filer eller vänta tills Hive att så småningom Rensa dem automatiskt.
+Efter att ha lämnat felsäkert läge, kan du manuellt bort temporära filer eller vänta tills Hive att så småningom Rensa dem automatiskt.
 
 ### <a name="example-errors-when-safe-mode-is-turned-on"></a>Exempel på fel när felsäkert läge är aktiverat
 
-* H070 kunde inte öppna Hive-session. org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **kan inte skapa katalogen**  /tmp/hive-hive 819c215c 6d 87-4311-97c 8-4f0b9d2adcf0. **Namn på noden är i felsäkert läge**. Rapporterat block 75 måste ytterligare 12 block till når tröskelvärdet 0.9900 totala block 87. Antal aktiva datanodes 10 har uppnått det minsta antalet 0. Felsäkert läge inaktiveras automatiskt när tröskelvärdena har uppnåtts.
+* H070 det går inte att öppna Hive-session. org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **kan inte skapa katalogen**  /tmp/hive/hive / 819c215c - 6d 87-4311-97c 8-4f0b9d2adcf0. **Namn på noden är i felsäkert läge**. De rapporterade blocken 75 måste ytterligare 12 förutsättningarna för att nå tröskelvärdet 0.9900 av totalt antal block 87. Antalet live datanodes 10 har nått det lägsta tillåtna värdet 0. Felsäkert läge stängs automatiskt när tröskelvärdena har uppnåtts.
 
 * H100 inte går att skicka instruktionen Visa databaser: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: ansluta till hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername . Det gick inte att internal.cloudapp.NET/1.1.1.1]: **anslutningen nekades**
 
 * H020 gick inte att upprätta någon anslutning till hn0 hdisrv.servername.bx.internal.cloudapp .net: 10001: org.apache.thrift.transport.TTransportException: Det gick inte att skapa http-anslutning till http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: ansluta till hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] misslyckades: anslutningen nekades: org.apache.thrift.transport.TTransportException: Det gick inte att skapa http-anslutning till http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: ansluta till hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] misslyckades: **anslutningen nekades**
 
-* Från Hive-loggar: Varna [huvudsakliga]: server. HiveServer2 (HiveServer2.java:startHiveServer2(442)) – ett fel inträffade när HiveServer2 vid försöket 21, kommer att försöka igen i 60 sekunder java.lang.RuntimeException: fel vid tillämpningen av auktoriseringsprincip på hive-konfiguration: org.apache.hadoop.ipc.RemoteException ( org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **kan inte skapa katalogen** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. **Namn på noden är i felsäkert läge**.
-    Rapporterat block 0 måste ytterligare 9 block till når tröskelvärdet 0.9900 totala block 9.
-    Antal aktiva datanodes 10 har uppnått det minsta antalet 0. **Felsäkert läge kommer att inaktiveras automatiskt när tröskelvärdena har uppnåtts**.
+* Från Hive-loggar: Varna [main]: server. HiveServer2 (HiveServer2.java:startHiveServer2(442)) – gick inte att starta HiveServer2 vid försöket 21, kommer att försöka igen i 60 sekunder java.lang.RuntimeException: fel vid tillämpningen av auktoriseringsprincip på hive-konfiguration: org.apache.hadoop.ipc.RemoteException ( org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **kan inte skapa katalogen** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. **Namn på noden är i felsäkert läge**.
+    De rapporterade blocken 0 måste ytterligare 9 förutsättningarna för att nå tröskelvärdet 0.9900 av totalt antal block 9.
+    Antalet live datanodes 10 har nått det lägsta tillåtna värdet 0. **Felsäkert läge kommer att inaktiveras automatiskt när tröskelvärdena har uppnåtts**.
     at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1324)
 
-Du kan granska loggarna för namn-noden från det `/var/log/hadoop/hdfs/` mappen nära tiden när klustret har skalats för att se när den angivna felsäkert läge. Loggfilerna namnges `Hadoop-hdfs-namenode-hn0-clustername.*`.
+Du kan granska namnet node-loggar från den `/var/log/hadoop/hdfs/` mappen nära tiden när klustret har skalats för att se när också övergick den i felsäkert läge. Loggfilerna är namngivna `Hadoop-hdfs-namenode-hn0-clustername.*`.
 
-Orsaken till tidigare fel är att Hive beror på tillfälliga filer i HDFS när du kör frågor. När HDFS anger felsäkert läge, kan inte Hive köra frågor eftersom det går inte att skriva till HDFS. Temporära filer i HDFS finns i den lokala enheten monteras till arbetsnoden enskilda virtuella datorer och replikeras bland andra arbetarnoder i tre repliker minsta.
+De grundläggande orsakerna till tidigare fel är att Hive beror på tillfälliga filer i HDFS vid körning av frågor. När HDFS anger felsäkert läge, det går inte att Hive köra frågor eftersom den inte kan skrivas till HDFS. Tillfälliga filer i HDFS finns i den lokala enheten monteras till arbetsnoden enskilda virtuella datorer och replikerade bland andra arbetsnoder i tre repliker, minsta.
 
 Den `hive.exec.scratchdir` parameter i Hive konfigureras i `/etc/hive/conf/hive-site.xml`:
 
@@ -144,9 +139,9 @@ Den `hive.exec.scratchdir` parameter i Hive konfigureras i `/etc/hive/conf/hive-
 </property>
 ```
 
-### <a name="view-the-health-and-state-of-your-hdfs-file-system"></a>Visa hälso- och tillståndet för filsystemet HDFS
+### <a name="view-the-health-and-state-of-your-hdfs-file-system"></a>Visa hälso- och tillståndet för HDFS-filsystemets
 
-Du kan visa en statusrapport från varje namn-nod för att se om noder finns i felsäkert läge. Visa rapporten SSH till varje huvudnod och kör följande kommando:
+Du kan visa en statusrapport från varje namn-nod för att se om det finns noder i felsäkert läge. Visa rapporten, SSH till varje huvudnod och kör följande kommando:
 
 ```
 hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
@@ -155,7 +150,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 ![Felsäkert läge av](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
 > [!NOTE]
-> Den `-D` växel är nödvändigt eftersom filsystemet i HDInsight Azure Storage eller Azure Data Lake Store. `-D` Anger att kommandona körs mot det lokala HDFS-filsystemet.
+> Den `-D` växel är nödvändigt eftersom standardfilsystemet i HDInsight är antingen Azure Storage eller Azure Data Lake Store. `-D` Anger att kommandona körs mot lokala HDFS-filsystemet.
 
 Därefter kan du visa en rapport som visar information om HDFS-tillstånd:
 
@@ -167,13 +162,13 @@ Det här kommandot resulterar i följande i ett felfritt kluster där alla block
 
 ![Felsäkert läge av](./media/hdinsight-scaling-best-practices/report.png)
 
-HDFS stöder den `fsck` kommando för att kontrollera inkonsekvenser med olika filer, till exempel saknas blockerar för en fil eller under-replikerade block. Att köra den `fsck` kommandot mot de `scratchdir` filer (tillfällig virtuellt minne):
+HDFS stöder den `fsck` kommando för att kontrollera efter inkonsekvenser med olika filer, till exempel saknas blockerar för en fil eller under-replikerade block. Att köra den `fsck` kommandot mot den `scratchdir` (tillfällig virtuellt minne) filer:
 
 ```
 hdfs fsck -D 'fs.default.name=hdfs://mycluster/' /tmp/hive/hive
 ```
 
-När den körs i ett felfritt HDFS-filsystem med ingen under-replikerade block, kan du se utdata som liknar följande:
+När den körs på en felfri HDFS-filsystemets med inga under-replikerade blocken, kan du se utdata som liknar följande:
 
 ```
 Connecting to namenode via http://hn0-scalin.name.bx.internal.cloudapp.net:30070/fsck?ugi=sshuser&path=%2Ftmp%2Fhive%2Fhive
@@ -200,7 +195,7 @@ FSCK ended at Thu Jul 06 20:07:01 UTC 2017 in 3 milliseconds
 The filesystem under path '/tmp/hive/hive' is HEALTHY
 ```
 
-Däremot, när den `fsck` kommando körs på ett HDFS filsystem med vissa under-replikerade block, utdata som liknar följande:
+Däremot, när den `fsck` kommando körs på ett HDFS-filsystemets med vissa under-replikerade blocken, utdata som liknar följande:
 
 ```
 Connecting to namenode via http://hn0-scalin.name.bx.internal.cloudapp.net:30070/fsck?ugi=sshuser&path=%2Ftmp%2Fhive%2Fhive
@@ -244,49 +239,49 @@ Du kan också visa status för HDFS i Ambari UI genom att välja den **HDFS** tj
 
 ![Ambari HDFS-status](./media/hdinsight-scaling-best-practices/ambari-hdfs.png)
 
-Du kan också se en eller flera allvarliga fel på NameNodes aktiva eller vänteläge. Välj länken NameNode bredvid aviseringen om du vill visa NameNode block hälsa.
+Du kan också se en eller flera kritiska fel på den aktiva eller vänteläge NameNodes. Välj länken NameNode bredvid aviseringen om du vill visa NameNode block hälsotillstånd.
 
-![NameNode block hälsa](./media/hdinsight-scaling-best-practices/ambari-hdfs-crit.png)
+![NameNode block hälsotillstånd](./media/hdinsight-scaling-best-practices/ambari-hdfs-crit.png)
 
-Att ta bort tillfälliga filer som tar bort block replikeringsfel, SSH till varje huvudnod och kör följande kommando:
+Rensa tillfälliga filer, som tar bort block replikeringsfel, SSH till varje huvudnod och kör följande kommando:
 
 ```
 hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
 ```
 
 > [!NOTE]
-> Det här kommandot kan dela Hive om vissa jobb körs fortfarande.
+> Det här kommandot kan bryta Hive om vissa jobb körs fortfarande.
 
-### <a name="how-to-prevent-hdinsight-from-getting-stuck-in-safe-mode-due-to-under-replicated-blocks"></a>Hur du förhindrar att HDInsight fastnar i felsäkert läge på grund av under-replikerade block
+### <a name="how-to-prevent-hdinsight-from-getting-stuck-in-safe-mode-due-to-under-replicated-blocks"></a>Hur du förhindrar att HDInsight blir kvar i felsäkert läge på grund av under-replikerade block
 
-Det finns flera sätt att förhindra att HDInsight fortfarande i felsäkert läge:
+Det finns flera sätt att förhindra att HDInsight kan lämnas i felsäkert läge:
 
-* Stoppa alla Hive-jobb innan ner på HDInsight. Du kan också schemalägga skala ned processen för att undvika motstridiga med Hive-jobb.
-* Rensa manuellt registreringsdata grunden `tmp` directory filerna i HDFS innan skala.
-* Endast skala ned HDInsight till tre arbetsnoder, minsta. Undvik gå så lite som en arbetsnoden.
+* Stoppa alla Hive-jobb innan du skalar ned HDInsight. Alternativt kan du schemalägga skala ned processen för att undvika motstridiga med att köra Hive-jobb.
+* Rensa manuellt Hives grunden `tmp` directory filer i HDFS innan du skalar.
+* Endast skala ned HDInsight till tre arbetsnoder, minsta. Undvik att gå så lite som en underordnad nod.
 * Kör kommandot för att lämna felsäkert läge, om det behövs.
 
 I följande avsnitt beskrivs dessa alternativ.
 
 #### <a name="stop-all-hive-jobs"></a>Stoppa alla Hive-jobb
 
-Stoppa alla Hive-jobb innan skala till en arbetsnod. Om din arbetsbelastning är schemalagd, kör du din skala ned när Hive arbetet.
+Stoppa alla Hive-jobb innan du skalar till en underordnad nod. Om din arbetsbelastning har schemalagts, kör du din skala ned när Hive-jobbet är klart.
 
-Detta bidrar till att minimera antalet tillfälliga filer i Temp-mappen (eventuella).
+På så sätt kan du minimera antalet tillfälliga filer i Temp-mappen (i förekommande fall).
 
-#### <a name="manually-clean-up-hives-scratch-files"></a>Rensa registreringsdata tillfälliga filer manuellt
+#### <a name="manually-clean-up-hives-scratch-files"></a>Manuellt Rensa Hives tillfälliga filer
 
-Om strukturen har kvar temporära filer, och sedan du manuellt rensa bort dessa filer innan du skala ned till undvika felsäkert läge.
+Om Hive har lämnat bakom temporära filer, och sedan du manuellt Rensa upp dessa filer innan du skalar ned till undvika felsäkert läge.
 
-1. Stoppa Hive-tjänster och se till att alla jobb och frågor har slutförts.
+1. Stoppa Hive-tjänster och se till att alla frågor och jobb har slutförts.
 
-2. Visa innehållet i den `hdfs://mycluster/tmp/hive/` directory för att se om det innehåller alla filer:
+2. Visa innehållet i den `hdfs://mycluster/tmp/hive/` katalog för att se om det innehåller alla filer:
 
     ```
     hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
     ```
     
-    Här är ett exempel på utdata när filer finnas:
+    Här är ett exempel på utdata när filer finns:
 
     ```
     sshuser@hn0-scalin:~$ hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
@@ -298,7 +293,7 @@ Om strukturen har kvar temporära filer, och sedan du manuellt rensa bort dessa 
     -rw-r--r--   3 hive hdfs         26 2017-07-06 20:30 hdfs://mycluster/tmp/hive/hive/c108f1c2-453e-400f-ac3e-e3a9b0d22699/inuse.info
     ```
 
-3. Om du vet Hive görs med de här filerna kan du ta bort dem. Var noga med att Hive inte har några frågor som körs genom att titta på sidan Yarn ResourceManager-Användargränssnittet.
+3. Om du vet Hive görs med de här filerna kan du ta bort dem. Var noga med att Hive inte har några frågor som körs genom att titta på Yarn ResourceManager UI-sidan.
 
     Exempel kommandoraden för att ta bort filer från HDFS:
 
@@ -308,11 +303,11 @@ Om strukturen har kvar temporära filer, och sedan du manuellt rensa bort dessa 
     
 #### <a name="scale--hdinsight-to-three-worker-nodes"></a>Skala HDInsight till tre arbetsnoder
 
-Om fastnar i felsäkert läge är beständiga problem och föregående steg är inte options, och sedan kanske du vill undvika problemet genom att endast skala ned till tre arbetsnoderna. Detta kanske inte är optimalt, på grund av begränsningar kostnader, jämfört med skala till en nod. Men med en enda arbetsnoden HDFS kan inte garantera tre kopior av data är tillgängliga för klustret.
+Om fastnar i felsäkert läge är beständiga problem och föregående steg är inte alternativ, och sedan kan du undvika problemet genom att endast skala ned till tre arbetsnoder. Det kanske inte är optimalt på grund av kostnader, jämfört med skala ned till en nod. Men med endast en underordnad nod HDFS kan inte garantera tre repliker av data är tillgängliga för klustret.
 
-#### <a name="run-the-command-to-leave-safe-mode"></a>Kör kommandot att lämna felsäkert läge
+#### <a name="run-the-command-to-leave-safe-mode"></a>Kör kommando för att lämna felsäkert läge
 
-Det sista alternativet är att bevaka sällsynta fall där HDFS försätts i felsäkert läge och sedan köra kommandot lämna felsäkert läge. När du har bestämt att orsaken HDFS har angett felsäkert läge på grund av Hive-filer som under-replikerade, kör följande kommando för att lämna felsäkert läge:
+Det sista alternativet är att bevaka sällsynta fall där HDFS försätts i felsäkert läge och sedan köra kommandot lämna felsäkert läge. När du har bestämt att orsaken HDFS har försatts i felsäkert läge är på grund av Hive-filer som under-replikerade, kör följande kommando för att lämna felsäkert läge:
 
 * HDInsight på Linux:
 

@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: a04a1693e0f626e2ee6858132d6bd6d376840039
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3fac86d53de4d5f519feaba2208f4682a0b38403
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531798"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600270"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Vad är villkor i Azure Active Directory villkorlig åtkomst? 
 
@@ -100,10 +100,10 @@ Enhetsplattformen kännetecknas av operativsystemet som körs på din enhet. Azu
 
 ![Konfigurera enhetsplattformar](./media/conditions/24.png)
 
-En lista över enhetsplattformar som stöds finns i [enheten plattform villkor](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-technical-reference#device-platform-condition).
+En lista över enhetsplattformar som stöds finns i [enheten plattform villkor](technical-reference.md#device-platform-condition).
 
 
-Ett vanligt användningsfall för det här villkoret är en princip som begränsar åtkomsten till dina appar i molnet till [hanterade enheter](../active-directory-conditional-access-policy-connected-applications.md#managed-devices). Fler scenarier inklusive enheten plattform villkoret, se [Azure Active Directory appbaserad villkorlig åtkomst](../active-directory-conditional-access-mam.md).
+Ett vanligt användningsfall för det här villkoret är en princip som begränsar åtkomsten till dina appar i molnet till [hanterade enheter](require-managed-devices.md). Fler scenarier inklusive enheten plattform villkoret, se [Azure Active Directory appbaserad villkorlig åtkomst](app-based-conditional-access.md).
 
 
 

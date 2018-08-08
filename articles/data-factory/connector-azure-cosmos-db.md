@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 6c0921a466864bf2b07711cfcd1eac397c5ced83
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 1afd64fbd7019164f0e1f5c850f2dcd8250cdbfc
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325361"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600344"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Kopiera data till och från Azure Cosmos DB med Azure Data Factory
 
@@ -35,9 +35,9 @@ Du kan kopiera data från Azure Cosmos DB till alla mottagare som stöds eller k
 Mer specifikt stöder den här Azure Cosmos DB-anslutningen:
 
 - Cosmos DB [SQL API: T](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
-- Importerar/exporterar JSON-dokument som – är eller kopiera data från/till datauppsättning i tabellformat t.ex. SQL-databas, CSV-filer, osv.
+- Importerar/exporterar JSON-dokument som – är eller kopiera data från/till datauppsättning i tabellformat t.ex. SQL-databas, CSV-filer, osv. Dokument som att kopiera-är till och från JSON-filer eller en annan Cosmos DB-samling finns i [Import/Export JSON-dokument](#importexport-json-documents).
 
-Dokument som att kopiera-är till och från JSON-filer eller en annan Cosmos DB-samling finns i [Import/Export JSON-dokument](#importexport-json-documents).
+Data Factory kan integreras med [Cosmos DB bulk executor biblioteket](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) att ge bästa möjliga prestanda skrivning till Cosmos DB.
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -166,7 +166,7 @@ För att kopiera data till Azure Cosmos DB, ange Mottagartyp i kopieringsaktivit
 |:--- |:--- |:--- |
 | typ | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till: **DocumentDbCollectionSink** |Ja |
 | WriteBehavior |Beskriv hur du skriver data till Cosmos DB. Tillåtna värden är: `insert` och `upsert`.<br/>Beteendet för **upsert** är att ersätta dokumentet om ett dokument med samma id redan finns, annars infoga den. Obs ADF genererar automatiskt ett id för dokumentet om det inte anges i det ursprungliga dokumentet eller genom kolumnmappning), vilket innebär att du måste se till att dokumentet har ett id-så att upsert fungerar som förväntat. |Nej, standard Infoga |
-| WriteBatchSize | Data Factory Använd [Cosmos DB bulk executor](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) att skriva data till Cosmos DB. ”writeBatchSize” styr storleken på dokument som vi tillhandahåller i biblioteket varje gång. Du kan försöka ökning writeBatchSize att förbättra prestanda. |Nej |
+| WriteBatchSize | Data Factory Använd [Cosmos DB bulk executor biblioteket](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) att skriva data till Cosmos DB. ”writeBatchSize” styr storleken på dokument som vi tillhandahåller i biblioteket varje gång. Du kan försöka ökning writeBatchSize att förbättra prestanda. |Nej, standardvärdet är 10 000 |
 | nestingSeparator |Specialtecken i källkolumnsnamnet som visar det kapslade dokumentet krävs. <br/><br/>Till exempel `Name.First` i datauppsättningen för utdata struktur genererar följande JSON-strukturen i Cosmos DB-dokument:`"Name": {"First": "[value maps to this column from source]"}` när nestedSeparator är punkt. |Nej (standard är punkt `.`) |
 
 **Exempel:**

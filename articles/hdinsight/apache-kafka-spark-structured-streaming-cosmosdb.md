@@ -1,51 +1,48 @@
 ---
-title: Apache Väck strukturerade direktuppspelning från Kafka till Azure Cosmos DB - Azure HDInsight | Microsoft Docs
-description: Lär dig hur du använder Apache Spark strukturerade strömning för att läsa data från Apache Kafka och sedan lagra den i Azure Cosmos DB. I det här exemplet strömma data med hjälp av en Jupyter-anteckningsbok från Spark på HDInsight.
+title: Apache Spark-strukturerad direktuppspelning från Kafka till Azure Cosmos DB – Azure HDInsight
+description: Lär dig hur du använder Apache Spark Structured Streaming för att läsa data från Apache Kafka och sedan lagra den i Azure Cosmos DB. I det här exemplet strömmas data med hjälp av en Jupyter Notebook från Apache Spark på HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: larryfr
-ms.openlocfilehash: 63c536f1a8bdcfbbbd97b904f15ccf83043659e0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: a02f517c72d1d9e07c8cc434cf57066bc828a684
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31402965"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600480"
 ---
-# <a name="use-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>Använda Spark strukturerad strömning med Kafka och Azure Cosmos DB
+# <a name="use-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>Använda Apache Spark Structured Streaming med Kafka och Azure Cosmos DB
 
-Lär dig hur du använder Spark strukturerade strömning att läsa data från Apache Kafka på Azure HDInsight och lagra data i Azure Cosmos DB.
+Lär dig hur du använder Spark Structured Streaming för att läsa data från Apache Kafka på Azure HDInsight och lagra data i Azure Cosmos DB.
 
-Azure Cosmos-DB är en global och flera olika modeller databas. Det här exemplet används en databasmodell SQL API. Mer information finns i [Välkommen till Azure Cosmos DB](../cosmos-db/introduction.md) dokumentet.
+Azure Cosmos DB är en globalt distribuerad databas för flera datamodeller. Det här exemplet används en SQL API-databasmodell. Mer information finns i den [Välkommen till Azure Cosmos DB](../cosmos-db/introduction.md) dokumentet.
 
-Spark strukturerad strömning är en dataström bearbetningsmotor som bygger på Spark SQL. Det kan du express strömmande beräkningar samma som batch beräkningar på statiska data. Läs mer strukturerade direktuppspelning av [strukturerade strömning Programmeringsguide [Alpha]](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html) på Apache.org.
+Apache Spark Structured Streaming är en bearbetningsmotor för dataströmmar som bygger på Apache Spark SQL. Med den kan du uttrycka strömmande beräkningar på samma sätt som batchberäkningar av statiska data. Läs mer om Structured Streaming i [Structured Streaming Programming Guide [Alpha]](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html) på Apache.org.
 
 > [!IMPORTANT]
-> Det här exemplet används 2.2 Spark på HDInsight 3,6.
+> Det här exemplet används Apache Spark 2.2 på HDInsight 3.6.
 >
-> Stegen i det här dokumentet skapa ett Azure-resursgrupp som innehåller både en Spark i HDInsight och en Kafka på HDInsight-kluster. Dessa kluster finns både i ett Azure Virtual Network, vilket innebär att Spark-klustret kan kommunicera direkt med Kafka kluster.
+> Stegen i det här dokumentet skapar en Azure-resursgrupp som innehåller både en Apache Spark på HDInsight och en Kafka på HDInsight-klustret. Båda dessa kluster finns i ett virtuellt Azure-nätverk, vilket innebär att Apache Spark-klustret kan kommunicera direkt med Kafka-klustret.
 >
-> Kom ihåg att ta bort kluster för att undvika överdriven avgifter när du är klar med steg i det här dokumentet.
+> Kom ihåg att ta bort klustren för att undvika onödiga avgifter när du är klar med stegen i det här dokumentet.
 
 ## <a name="create-the-clusters"></a>Skapa kluster
 
-Apache Kafka på HDInsight ger inte tillgång till Kafka mäklare via det offentliga internet. Allt som kommunicerar Kafka måste finnas i samma virtuella Azure-nätverket som noder i klustret Kafka. I det här exemplet finns både Kafka och Spark-kluster i Azure-nätverk. Följande diagram visar hur kommunikation som flödar mellan kluster:
+Apache Kafka på HDInsight ger inte tillgång till asynkrona meddelandeköer i Kafka via offentligt Internet. Allt som pratar med Kafka måste finnas i samma Azure-nätverket som noder i Kafka-klustret. I det här exemplet finns både Kafka och Spark-kluster i Azure-nätverk. Följande diagram visar hur kommunikation flödar mellan kluster:
 
-![Diagram över Spark och Kafka kluster i Azure-nätverk](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
+![Diagram över Apache Spark- och Kafka-kluster i ett virtuellt Azure-nätverk](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
 
 > [!NOTE]
-> Tjänsten Kafka är begränsad till kommunikation inom det virtuella nätverket. Andra tjänster på klustret, till exempel SSH och Ambari, kan nås via internet. Mer information om de offentliga portarna som är tillgängliga med HDInsight finns [portar och URI: er som används av HDInsight](hdinsight-hadoop-port-settings-for-services.md).
+> Kafka-tjänsten är begränsad till kommunikation inom det virtuella nätverket. Andra tjänster på klustret, till exempel SSH och Ambari, kan nås via Internet. Mer information om de offentliga portar som är tillgängliga med HDInsight finns i [Portar och URI:er som används av HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
-Du kan skapa en Azure-nätverk, Kafka, och Spark-kluster manuellt, men det är enklare att använda en Azure Resource Manager-mall. Använd följande steg för att distribuera ett Azure-nätverk, Kafka, och vidtar kluster på Azure-prenumerationen.
+Du kan skapa ett Azure-nätverk, Kafka och Spark-kluster manuellt, men det är enklare att använda en Azure Resource Manager-mall. Använd följande steg för att distribuera ett Azure-nätverk, Kafka och Spark-kluster på Azure-prenumerationen.
 
-1. Använd knappen följande för att logga in på Azure och öppna mallen i Azure-portalen.
+1. Använd följande knapp för att logga in på Azure och öppna mallen i Azure Portal.
     
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-scala-kafka-cosmosdb%2Fmaster%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
@@ -53,61 +50,61 @@ Du kan skapa en Azure-nätverk, Kafka, och Spark-kluster manuellt, men det är e
 
     Azure Resource Manager-mallen finns i GitHub-lagringsplatsen för det här projektet ([https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb)).
 
-    Den här mallen skapas i följande resurser:
+    Den här mallen skapar följande resurser:
 
-    * En Kafka på 3,6 HDInsight-klustret.
+    * En Kafka på HDInsight 3.6-klustret.
 
-    * En Spark på HDInsight 3,6 klustret.
+    * En Apache Spark på HDInsight 3.6-klustret.
 
-    * Ett Azure Virtual Network, som innehåller HDInsight-kluster.
+    * Ett virtuellt Azure-nätverk som innehåller HDInsight-klustren.
 
         > [!NOTE]
         > Det virtuella nätverket som skapas av mallen använder adressutrymmet 10.0.0.0/16.
 
-    * En Azure SQL DB-API Cosmos-databas.
+    * En Azure Cosmos DB SQL API-databas.
 
     > [!IMPORTANT]
-    > Strukturerade strömmande anteckningsboken som används i det här exemplet kräver Spark i HDInsight 3,6. Om du använder en tidigare version av Spark på HDInsight får du fel när du använder den bärbara datorn.
+    > Anteckningsboken för Structured Streaming som används i det här exemplet kräver Apache Spark i HDInsight 3.6. Om du använder en tidigare version av Apache Spark i HDInsight får du ett felmeddelande när du använder anteckningsboken.
 
-2. Använd följande information för att fylla i posterna på den **anpassad distribution** avsnitt:
+2. Använd följande information för att fylla i posterna i den **anpassad distribution** avsnittet:
    
-    ![HDInsight anpassad distribution](./media/apache-kafka-spark-structured-streaming-cosmosdb/parameters.png)
+    ![Anpassade HDInsight-distribution](./media/apache-kafka-spark-structured-streaming-cosmosdb/parameters.png)
 
     * **Prenumeration**: Välj din Azure-prenumeration.
    
-    * **Resursgruppen**: skapa en grupp eller välj en befintlig. Den här gruppen innehåller HDInsight-klustret.
+    * **Resursgrupp**: skapa en grupp eller välj en befintlig. Den här gruppen innehåller HDInsight-klustret.
 
     * **Plats**: Välj en plats geografiskt nära dig.
 
-    * **Cosmos DB kontonamn**: det här värdet används som namnet på kontot Cosmos DB.
+    * **Cosmos DB-kontonamn**: det här värdet används som namn på Cosmos DB-kontot.
 
-    * **Basera klusternamnet**: det här värdet används som det grundläggande namnet på Spark och Kafka kluster. Ange till exempel **myhdi** skapar ett Spark-kluster med namnet __spark myhdi__ och ett Kafka kluster med namnet **kafka myhdi**.
+    * **Basera klusternamnet**: det här värdet används som det grundläggande namnet för Spark och Kafka-kluster. Till exempel innebär **myhdi** skapar ett Spark-kluster med namnet __spark-myhdi__ och ett Kafka-kluster med namnet **kafka myhdi**.
 
-    * **Klustret Version**: I HDInsight-kluster av version.
+    * **Cluster Version**: The HDInsight-kluster av version.
 
         > [!IMPORTANT]
-        > Det här exemplet har testats med HDInsight 3,6 och fungerar inte med andra typer av klustret.
+        > Det här exemplet har testats med HDInsight 3.6 och kanske inte fungerar med andra klustertyper.
 
-    * **Klustrets inloggningsnamn**: admin användarnamn för Spark och Kafka kluster.
+    * **Kluster-användarnamnet för inloggningen**: administratörsanvändarnamn för Spark och Kafka-kluster.
 
-    * **Klustret inloggningslösenordet**: administratörslösenord för Spark och Kafka kluster.
+    * **Kluster inloggningslösenordet**: ett administratörslösenord för Spark och Kafka-kluster.
 
-    * **SSH-användarnamn**: SSH-användare skapa för Spark och Kafka kluster.
+    * **SSH-användarnamn**: SSH-användaren skapar för Spark och Kafka-kluster.
 
-    * **SSH-lösenordet**: lösenord för SSH-användare för Spark och Kafka kluster.
+    * **SSH-lösenord**: lösenordet för SSH-användare för Spark och Kafka-kluster.
 
-3. Läs den **villkor**, och välj sedan **jag samtycker till villkoren som anges ovan**.
+3. Granska **villkoren** och välj sedan **Jag godkänner villkoren ovan**.
 
-4. Kontrollera slutligen **fäst på instrumentpanelen** och välj sedan **inköp**. Det tar ungefär 20 minuter för att skapa kluster.
+4. Markera slutligen **Fäst på instrumentpanelen** och välj sedan **Inköp**. Det tar cirka 20 minuter för att skapa kluster.
 
 > [!IMPORTANT]
-> Det kan ta upp till 45 minuter att skapa kluster, virtuella nätverk och Cosmos-DB-konto.
+> Det kan ta upp till 45 minuter att skapa kluster, virtuella nätverk och Cosmos DB-konto.
 
-## <a name="create-the-cosmos-db-database-and-collection"></a>Skapa Cosmos-DB-databas och samling
+## <a name="create-the-cosmos-db-database-and-collection"></a>Skapa Cosmos DB-databas och samling
 
-Projektet i det här dokumentet lagrar data i Cosmos-databasen. Innan du kör koden, måste du först skapa en _databasen_ och _samling_ i din Cosmos-DB-instans. Måste du också hämta dokumentet slutpunkten och _nyckeln_ används för att autentisera förfrågningar till Cosmos DB. 
+Projektet används i det här dokumentet lagrar data i Cosmos DB. Innan du kör koden, måste du först skapa en _databasen_ och _samling_ i din Cosmos DB-instans. Måste du också hämta dokumentet slutpunkten och _nyckel_ används för att autentisera begäranden till Cosmos DB. 
 
-Ett sätt att göra detta är att använda den [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). Följande skript skapar en databas med namnet `kafkadata` och en samling med namnet `kafkacollection`. Den returnerar sedan den primära nyckeln.
+Ett sätt att göra detta är att använda den [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). Följande skript skapar en databas med namnet `kafkadata` och en samling som heter `kafkacollection`. Den returnerar sedan den primära nyckeln.
 
 ```azurecli
 #!/bin/bash
@@ -134,7 +131,7 @@ az cosmosdb show --name $name --resource-group $resourceGroupName --query docume
 az cosmosdb list-keys --name $name --resource-group $resourceGroupName --query primaryMasterKey
 ```
 
-Dokumentet slutpunkt och primära nyckelinformationen liknar följande:
+Dokumentet slutpunkt och primära nyckelinformationen som genereras liknar följande text:
 
 ```text
 # endpoint
@@ -146,9 +143,9 @@ Dokumentet slutpunkt och primära nyckelinformationen liknar följande:
 > [!IMPORTANT]
 > Spara slutpunkt och nyckelvärden, eftersom de behövs i Jupyter-anteckningsböcker.
 
-## <a name="get-the-kafka-brokers"></a>Hämta Kafka mäklare
+## <a name="get-the-kafka-brokers"></a>Hämta Kafka asynkrona meddelandeköer
 
-Koden i det här exemplet ansluter till Kafka broker värdar i klustret Kafka. Använd följande PowerShell- eller Bash exempel för att hitta adresser för de två Kafka broker värdarna:
+Koden i det här exemplet ansluter till Kafka broker värdar i Kafka-klustret. Använd följande PowerShell- eller Bash-exempel för att hitta adresserna till de två Kafka broker värdarna:
 
 ```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
@@ -162,15 +159,15 @@ $brokerHosts = $respObj.host_components.HostRoles.host_name[0..1]
 ```
 
 > [!NOTE]
-> Bash-exempel räknar `$CLUSTERNAME` som innehåller namnet på klustret Kafka.
+> Bash-exempel förväntar sig `$CLUSTERNAME` som innehåller namnet på Kafka-klustret.
 >
-> Det här exemplet används den [jq](https://stedolan.github.io/jq/) verktyg för att analysera data från JSON-dokumentet.
+> Det här exemplet används den [jq](https://stedolan.github.io/jq/) verktyg för att parsa data från JSON-dokumentet.
 
 ```bash
 curl -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2
 ```
 
-När du uppmanas, ange lösenordet för kluster-inloggningskonto (admin)
+När du uppmanas, anger du lösenordet för klusterinloggningskontot (admin)
 
 De utdata som genereras liknar följande text:
 
@@ -180,36 +177,36 @@ Spara den här informationen eftersom den används i följande avsnitt i det hä
 
 ## <a name="get-the-notebooks"></a>Hämta de bärbara datorerna
 
-Koden för det exempel som beskrivs i det här dokumentet finns på [ https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb ](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb).
+Koden för exemplet som beskrivs i det här dokumentet finns på [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb).
 
-## <a name="upload-the-notebooks"></a>Överför de bärbara datorerna
+## <a name="upload-the-notebooks"></a>Ladda upp anteckningsböckerna
 
-Använd följande steg för att överföra anteckningsböcker från projektet till din Spark på HDInsight-kluster:
+Använd följande steg för att ladda upp anteckningsböckerna från projektet till din Apache Spark på HDInsight-kluster:
 
-1. Anslut till Jupyter notebook i Spark-kluster i din webbläsare. I följande URL, ersätter `CLUSTERNAME` med namnet på din __Spark__ klustret:
+1. Anslut till Jupyter Notebook i Apache Spark-klustret i din webbläsare. I följande URL ersätter du `CLUSTERNAME` med namnet på ditt __Apache Spark__-kluster:
 
         https://CLUSTERNAME.azurehdinsight.net/jupyter
 
-    När du uppmanas ange klusterinloggning (admin) och lösenord som används när du skapade klustret.
+    Ange klusterinloggningen (administratör) och det lösenord som användes när du skapade klustret.
 
-2. Använd från det övre högra hörnet på sidan, den __överför__ för att överföra den __Stream-taxi-data-till-kafka.ipynb__ filen till klustret. Välj __öppna__ så startas guiden Överför.
+2. Använd från längst upp till höger på sidan, den __överför__ knappen för att ladda upp den __Stream-taxi-data-till-kafka.ipynb__ till klustret. Välj __Öppna__ för att påbörja uppladdningen.
 
-3. Hitta de __Stream-taxi-data-till-kafka.ipynb__ post i listan över anteckningsböcker och välj __överför__ bredvid den.
+3. Hitta den __Stream-taxi-data-till-kafka.ipynb__ posten i listan med anteckningsböcker och välj __överför__ knappen bredvid den.
 
-4. Upprepa steg 1 – 3 för att läsa in den __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ bärbar dator.
+4. Upprepa steg 1 – 3 för att läsa in den __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ anteckningsboken.
 
-## <a name="load-taxi-data-into-kafka"></a>Läs in taxi data i Kafka
+## <a name="load-taxi-data-into-kafka"></a>Läs in taxi-data i Kafka
 
-När filerna har överförts, välja den __Stream-taxi-data-till-kafka.ipynb__ post för att öppna den bärbara datorn. Följ stegen i anteckningsboken för att läsa in data till Kafka.
+När filerna har överförts, väljer den __Stream-taxi-data-till-kafka.ipynb__ post för att öppna anteckningsboken. Följ stegen i anteckningsboken för att läsa in data i Kafka.
 
-## <a name="process-taxi-data-using-spark-structured-streaming"></a>Processen taxi data med hjälp av Spark strukturerade strömning
+## <a name="process-taxi-data-using-spark-structured-streaming"></a>Bearbeta taxi-data med Spark Structured Streaming
 
-Sidan Jupyter-anteckningsbok, Välj den __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ transaktionen. Följ stegen i den bärbara datorn till dataströmmen data från Kafka och i Azure Cosmos-databasen med Spark strukturerade strömning.
+Jupyter Notebook-startsidan, väljer du den __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ posten. Följ stegen i anteckningsboken för att strömdata från Kafka och Azure Cosmos DB med Spark Structured Streaming.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du använder Spark strukturerade strömning, finns i följande dokument vill lära dig mer om hur du arbetar med Spark, Kafka och Azure Cosmos DB:
+Nu när du har lärt dig hur du använder Spark Structured Streaming, finns i följande dokument att lära dig mer om hur du arbetar med Spark, Kafka och Azure Cosmos DB:
 
-* [Hur du använder Spark streaming (DStream) med Kafka](hdinsight-apache-spark-with-kafka.md).
-* [Börja med Jupyter-anteckningsbok och Spark i HDInsight](spark/apache-spark-jupyter-spark-sql.md)
+* [Använda Apache Spark-strömning (DStream) med Kafka](hdinsight-apache-spark-with-kafka.md).
+* [Börja med Jupyter Notebook och Apache Spark i HDInsight](spark/apache-spark-jupyter-spark-sql.md)
 * [Välkommen till Azure Cosmos DB](../cosmos-db/introduction.md)

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: e6d223b386aea3ca41931c600d16c16b53765f26
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: fd2505d6262948e193531d91222cdec319f33100
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414926"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597161"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory-enhetshantering vanliga frågor och svar
 
@@ -37,7 +37,7 @@ ms.locfileid: "39414926"
 
 **Anmärkning:**
 
-- Användare som ingår i din princip för villkorlig åtkomst måste en [version av Office som stöds för macOS](../active-directory-conditional-access-technical-reference.md#client-apps-condition) att komma åt resurser. 
+- Användare som ingår i din princip för villkorlig åtkomst måste en [version av Office som stöds för macOS](../conditional-access/technical-reference.md#client-apps-condition) att komma åt resurser. 
 
 - Under den första åtkomstförsök uppmanas användarna att registrera enheten med hjälp av Företagsportalen.
 
@@ -146,7 +146,7 @@ För äldre Windows OS-versioner som är en lokal AD-ansluten till domänen:
 
 **F: jag se enhetspost under användarinformation i Azure portal och kan se tillståndet som registrerats på enheten. Kan jag in korrekt för att använda villkorlig åtkomst?**
 
-**S:** anslutningstillståndet enheten visas deviceID, måste överensstämma med den i Azure AD och utvärderingen kriterier för villkorlig åtkomst. Mer information finns i [kräver hanterade enheter för åtkomst till molnet appen med villkorlig åtkomst](../active-directory-conditional-access-policy-connected-applications.md).
+**S:** anslutningstillståndet enheten visas deviceID, måste överensstämma med den i Azure AD och utvärderingen kriterier för villkorlig åtkomst. Mer information finns i [kräver hanterade enheter för åtkomst till molnet appen med villkorlig åtkomst](../conditional-access/require-managed-devices.md).
 
 ---
 

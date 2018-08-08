@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/01/2018
+ms.date: 08/07/2018
 ms.author: shlo
-ms.openlocfilehash: 655a6ab2960047cde50bec2953015283ca8577f0
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: e1ca5356959197ae416caf0330a5a1c7eec96f38
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214870"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621461"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visuell redigering i Azure Data Factory
 Azure Data Factory användargränssnittet användarupplevelsen (UX) kan du visuellt skapa och distribuera resurser för din datafabrik utan att behöva skriva någon kod. Du kan dra aktiviteter till en rityta för pipelinen, utför testkörningar, felsöker stegvis och distribuerar och övervakar dina pipelinekörningar. Det finns två metoder för att utföra visuell redigering med UX-Gränssnittet:
@@ -47,7 +47,7 @@ Visuell redigering med VSTS Git-integrering har stöd för källkontroll och sam
 ### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Konfigurera en VSTS Git-lagringsplats med Azure Data Factory
 Du kan konfigurera en VSTS GIT-lagringsplats med en datafabrik med två metoder.
 
-#### <a name="method1"></a> Metod 1: vi sidan Kom igång
+#### <a name="method1"></a> Metod 1 (VSTS Git-lagringsplats): vi sidan Kom igång
 
 I Azure Data Factory går du till den **nu sätter vi igång** sidan. Välj **konfigurera Kodlagringsplats**:
 
@@ -66,11 +66,11 @@ Fönstret visar följande kod i VSTS inställningar för lagringsplats:
 | **Visual Studio Team Services-konto** | Ditt VSTS-kontonamn. Du hittar namnet på ditt VSTS-konto på `https://{account name}.visualstudio.com`. Du kan [logga in på ditt VSTS-konto](https://www.visualstudio.com/team-services/git/) att komma åt din Visual Studio-profil och se dina databaser och projekt. | <your account name> |
 | **Projektnamn** | Ditt VSTS-projektnamn. Du kan hitta din VSTS-projektnamn på `https://{account name}.visualstudio.com/{project name}`. | <your VSTS project name> |
 | **RepositoryName** | Din VSTS-kod databasnamn. VSTS-projekt innehålla Git-lagringsplatser för att hantera din källkod när projektet växer. Du kan skapa en ny databas eller använda en befintlig databas som redan finns i projektet. | <your VSTS code repository name> |
-| **Samarbete gren** | Din VSTS samarbete gren som ska användas för publicering. Som standard är det `master`. Ändra det här alternativet om du vill publicera resurser från en annan gren. | <your collaboration branch name> |
+| **Samarbete gren** | Din VSTS samarbete gren som ska användas för publicering. Som standard är det `master`. Ändra den här inställningen om du vill publicera resurser från en annan gren. | <your collaboration branch name> |
 | **Rotmapp för vyer** | Rotmappen i din VSTS samarbete gren. | <your root folder name> |
 | **Importera befintlig Data Factory-resurser till databasen** | Anger om du vill importera befintliga data factory-resurser från UX **Redigeringsyta** till en VSTS Git-lagringsplats. Markera kryssrutan för att importera din data factory-resurser till den associerade Git-lagringsplatsen i JSON-format. Den här åtgärden exporterar varje resurs individuellt (det vill säga länkade tjänster och datauppsättningar exporteras till separata för). När den här rutan inte har valts, importera inte befintliga resurser. | Valda (standard) |
 
-#### <a name="configuration-method-2-ux-authoring-canvas"></a>Metod 2: UX Redigeringsyta
+#### <a name="configuration-method-2--vsts-git-repo-ux-authoring-canvas"></a>Metod 2 (VSTS Git-lagringsplats): UX Redigeringsyta
 I Azure Data Factory UX **Redigeringsyta**, leta upp din data factory. Välj den **Data Factory** nedrullningsbara menyn och välj sedan **konfigurera Kodlagringsplats**.
 
 En konfigurationsruta visas. Mer information om inställningarna se beskrivningarna i <a href="#method1">konfigurationsmetoden 1</a>.
@@ -92,7 +92,7 @@ Varje VSTS Git-lagringsplats som är associerat med en data factory har en gren 
 
 ![Ändra koden genom att synkronisera eller publicera](media/author-visually/sync-publish.png)
 
-När du är klar med utvecklingen nya funktioner i din gren med funktionen kan du klicka på **skapa pull-begäran**. Då kommer du till VSTS GIT där du kan öka pull-begäranden, code granskningar och sammanfoga ändringarna i din gren för samarbete. (`master` är standard). Du kan bara publicera till Data Factory-tjänsten från din gren för samarbete. 
+När du är klar med utvecklingen nya funktioner i din gren med funktionen kan du klicka på **skapa pull-begäran**. Den här åtgärden tar du VSTS GIT där du kan öka pull-begäranden gör code granskningar och slå samman ändringar i din gren för samarbete. (`master` är standard). Du kan bara publicera till Data Factory-tjänsten från din gren för samarbete. 
 
 ![Skapa en ny pullbegäran](media/author-visually/create-pull-request.png)
 
@@ -104,8 +104,81 @@ När du har en sammanfogad ändringar i grenen samarbete (`master` är standard)
 > [!IMPORTANT]
 > Huvudgrenen är inte representerar det distribueras i Data Factory-tjänsten. Huvudgrenen *måste* publiceras manuellt till Data Factory-tjänsten.
 
+### <a name="author-with-github-integration"></a>Redigera med Github-integrering
+
+Visuell redigering med Github-integreringen har stöd för källkontroll och samarbete for work på din data factory-pipelines. Du kan associera en datafabrik med en Github-lagringsplats för kontot för källkontroll, samarbete, versionskontroll. Ett enda Github-konto kan ha flera databaser, men en Github-lagringsplats kan associeras med endast en data factory. Om du inte har aGithub konto eller databasen, följer du [instruktionerna](https://github.com/join) att skapa dina resurser. GitHub-integreringen med Data Factory har stöd för såväl offentliga Github som GitHub Enterprise.
+
+> [!NOTE]
+> Du kan lagra aktivitetsskript och datafiler i en Github-lagringsplats. Du kan dock överföra filerna manuellt till Azure Storage. Data Factory-pipeline överför inte skript eller datafiler som lagras i en Github-databas till Azure Storage automatiskt.
+
+#### <a name="configure-a-public-github-repository-with-azure-data-factory"></a>Konfigurera en offentlig Github-lagringsplats med Azure Data Factory
+
+Du kan konfigurera en Github-lagringsplats med en datafabrik med två metoder.
+
+**Metod 1 (offentliga lagringsplats): vi sidan Kom igång**
+
+I Azure Data Factory går du till den **nu sätter vi igång** sidan. Välj **konfigurera Kodlagringsplats**:
+
+![Sidan för data Factory Kom igång](media/author-visually/github-integration-image1.png)
+
+Den **inställningar för lagringsplats** konfigurationsruta visas:
+
+![Inställningar för GitHub-lagringsplats](media/author-visually/github-integration-image2.png)
+
+Fönstret visar följande kod i VSTS inställningar för lagringsplats:
+
+| **Inställning**                                              | **Beskrivning**                                                                                                                                                                                                                                                                                                                                                                                                                   | **Värde**          |
+|----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
+| **Typ av lagringsplats**                                      | Typ av VSTS-kodlagringsplatsen.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
+| **GitHub-konto**                                       | Namnet på ditt GitHub. Det här namnet kan hitta https://github.com/{account namn} / {databasnamn}. Navigera till den här sidan uppmanas du att ange autentiseringsuppgifter för Github OAuth till ditt GitHub-konto.                                                                                                                                                                                                                                               |                    |
+| **RepositoryName**                                       | Din GitHub-lagringsplatsen kodnamnet. GitHub-konton innehåller Git-lagringsplatser för att hantera din källkod. Du kan skapa en ny databas eller använda en befintlig databas som redan finns i ditt konto.                                                                                                                                                                                                                              |                    |
+| **Samarbete gren**                                 | Din GitHub samarbete gren som ska användas för publicering. Som standard är det master. Ändra den här inställningen om du vill publicera resurser från en annan gren.                                                                                                                                                                                                                                                               |                    |
+| **Rotmapp för vyer**                                          | Rotmappen i din GitHub samarbete gren.                                                                                                                                                                                                                                                                                                                                                                             |                    |
+| **Importera befintlig Data Factory-resurser till databasen** | Anger om du vill importera befintliga data factory-resurser från UX **Redigeringsyta** i GitHub-lagringsplatsen. Markera kryssrutan för att importera din data factory-resurser till den associerade Git-lagringsplatsen i JSON-format. Den här åtgärden exporterar varje resurs individuellt (det vill säga länkade tjänster och datauppsättningar exporteras till separata för). När den här rutan inte har valts, importera inte befintliga resurser. | Valda (standard) |
+| **Gren att importera resurs i**                       | Anger vilken gren som data factory-resurser (pipelines, datauppsättningar, länkade tjänster osv) importeras. Du kan importera resurser till en av följande grenar: en. Samarbete b. Skapa ny c. Använd befintlig                                                                                                                                                                                                     |                    |
+
+**Metod 2 (offentliga lagringsplats): UX Redigeringsyta**
+
+I Azure Data Factory UX **Redigeringsyta**, leta upp din data factory. Välj den **Data Factory** nedrullningsbara menyn och välj sedan **konfigurera Kodlagringsplats**.
+
+En konfigurationsruta visas. Mer information om inställningarna se beskrivningarna i *konfigurationsmetoden 1* ovan.
+
+#### <a name="configure-a-github-enterprise-repository-with-azure-data-factory"></a>Konfigurera en lagringsplats med Github Enterprise med Azure Data Factory
+
+Du kan konfigurera en lagringsplats med Github Enterprise med en datafabrik med två metoder.
+
+**Metod 1 (Enterprise lagringsplats): vi sidan Kom igång**
+
+I Azure Data Factory går du till den **nu sätter vi igång** sidan. Välj **konfigurera Kodlagringsplats**:
+
+![Sidan för data Factory Kom igång](media/author-visually/github-integration-image1.png)
+
+Den **inställningar för lagringsplats** konfigurationsruta visas:
+
+![Inställningar för GitHub-lagringsplats](media/author-visually/github-integration-image3.png)
+
+Fönstret visar följande kod i VSTS inställningar för lagringsplats:
+
+| **Inställning**                                              | **Beskrivning**                                                                                                                                                                                                                                                                                                                                                                                                                   | **Värde**          |
+|----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
+| **Typ av lagringsplats**                                      | Typ av VSTS-kodlagringsplatsen.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
+| **Använd GitHub Enterprise**                                | Kryssruta för att välja GitHub Enterprise                                                                                                                                                                                                                                                                                                                                                                                              |                    |
+| **GitHub Enterprise-URL**                                | GitHub Enterprise rot-URL. Exempel: https://github.mydomain.com                                                                                                                                                                                                                                                                                                                                                          |                    |
+| **GitHub-konto**                                       | Namnet på ditt GitHub. Det här namnet kan hitta https://github.com/{account namn} / {databasnamn}. Navigera till den här sidan uppmanas du att ange autentiseringsuppgifter för Github OAuth till ditt GitHub-konto.                                                                                                                                                                                                                                               |                    |
+| **RepositoryName**                                       | Din GitHub-lagringsplatsen kodnamnet. GitHub-konton innehåller Git-lagringsplatser för att hantera din källkod. Du kan skapa en ny databas eller använda en befintlig databas som redan finns i ditt konto.                                                                                                                                                                                                                              |                    |
+| **Samarbete gren**                                 | Din GitHub samarbete gren som ska användas för publicering. Som standard är det master. Ändra den här inställningen om du vill publicera resurser från en annan gren.                                                                                                                                                                                                                                                               |                    |
+| **Rotmapp för vyer**                                          | Rotmappen i din GitHub samarbete gren.                                                                                                                                                                                                                                                                                                                                                                             |                    |
+| **Importera befintlig Data Factory-resurser till databasen** | Anger om du vill importera befintliga data factory-resurser från UX **Redigeringsyta** i GitHub-lagringsplatsen. Markera kryssrutan för att importera din data factory-resurser till den associerade Git-lagringsplatsen i JSON-format. Den här åtgärden exporterar varje resurs individuellt (det vill säga länkade tjänster och datauppsättningar exporteras till separata för). När den här rutan inte har valts, importera inte befintliga resurser. | Valda (standard) |
+| **Gren att importera resurs i**                       | Anger vilken gren som data factory-resurser (pipelines, datauppsättningar, länkade tjänster osv) importeras. Du kan importera resurser till en av följande grenar: en. Samarbete b. Skapa ny c. Använd befintlig                                                                                                                                                                                                     |                    |
+
+**Metod 2 (Enterprise lagringsplats): UX Redigeringsyta**
+
+I Azure Data Factory UX **Redigeringsyta**, leta upp din data factory. Välj den **Data Factory** nedrullningsbara menyn och välj sedan **konfigurera Kodlagringsplats**.
+
+En konfigurationsruta visas. Mer information om inställningarna se beskrivningarna i *konfigurationsmetoden 1* ovan.
+
 ## <a name="use-the-expression-language"></a>Använd språket du uttryck
-Du kan ange uttryck för egenskapsvärden med hjälp av Uttrycksspråk som stöds av Azure Data Factory. 
+Du kan ange uttryck för egenskapsvärden med hjälp av Uttrycksspråk som stöds av Azure Data Factory.
 
 Ange uttryck för egenskapsvärdena genom att välja **Lägg till dynamiskt innehåll**:
 

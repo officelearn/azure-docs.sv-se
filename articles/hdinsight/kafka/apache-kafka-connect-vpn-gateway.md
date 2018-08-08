@@ -1,83 +1,77 @@
 ---
-title: Ansluta till Kafka med virtuella nätverk - Azure HDInsight | Microsoft Docs
-description: Lär dig mer om att ansluta direkt till Kafka på HDInsight via ett Azure Virtual Network. Lär dig hur du ansluter till Kafka från utveckling klienter med en VPN-gateway eller från klienter i det lokala nätverket med hjälp av en VPN-gateway-enhet.
+title: Ansluta till Kafka med hjälp av virtuella nätverk – Azure HDInsight
+description: Lär dig mer om att ansluta direkt till Kafka på HDInsight med Azure Virtual Network. Lär dig hur du ansluter till Kafka från utveckling-klienter som använder en VPN-gateway eller från klienter i ditt lokala nätverk med hjälp av en VPN-gateway-enhet.
 services: hdinsight
-documentationCenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
 ms.service: hdinsight
-ms.devlang: ''
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/02/2018
-ms.author: larryfr
-ms.openlocfilehash: 2740b5cf483fe3fbc2644510461863b939ffaae3
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 61732a7ac4daa9f3425d3f7f3b689be57d46b8cd
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779319"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620271"
 ---
 # <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Ansluta till Kafka på HDInsight via Azure-nätverk
 
-Lär dig mer om att ansluta direkt till Kafka på HDInsight via ett Azure Virtual Network. Det här dokumentet innehåller information om hur du ansluter till Kafka med hjälp av följande konfigurationer:
+Lär dig mer om att ansluta direkt till Kafka på HDInsight med Azure Virtual Network. Det här dokumentet innehåller information om hur du ansluter till Kafka med följande konfigurationer:
 
-* Från resurser i ett lokalt nätverk. Den här anslutningen har upprättats med hjälp av en VPN-enhet (programvara eller maskinvara) på nätverket.
-* Med hjälp av en VPN-programvaruklient från en utvecklingsmiljö.
+* Från resurser i ett lokalt nätverk. Den här anslutningen har upprättats med hjälp av en VPN-enhet (programvara eller maskinvara) i det lokala nätverket.
+* Med hjälp av en VPN-klientprogrammet från en utvecklingsmiljö.
 
 ## <a name="architecture-and-planning"></a>Arkitektur och planering
 
-HDInsight kan inte direkt anslutning till Kafka via det offentliga internet. Använd i stället Kafka klienter (producenter och konsumenter) måste en av följande anslutningsmetoder för:
+HDInsight tillåter inte direkt anslutning till Kafka via offentligt internet. Kafka-klienter (producenter och konsumenter) måste i stället använda en av följande anslutningsmetoder:
 
-* Kör klienten i samma virtuella nätverk som Kafka på HDInsight. Den här konfigurationen används i den [börja med Apache Kafka på HDInsight](apache-kafka-get-started.md) dokumentet. Klienten körs direkt på noderna i HDInsight eller på en annan virtuell dator i samma nätverk.
+* Kör klienten i samma virtuella nätverk som Kafka på HDInsight. Den här konfigurationen används i den [Kom igång med Apache Kafka på HDInsight](apache-kafka-get-started.md) dokumentet. Klienten körs direkt på noderna i HDInsight-klustret eller på en annan virtuell dator i samma nätverk.
 
 * Ansluta ett privat nätverk, till exempel ditt lokala nätverk till det virtuella nätverket. Den här konfigurationen kan klienter i det lokala nätverket att arbeta direkt med Kafka. Om du vill aktivera den här konfigurationen måste du utföra följande uppgifter:
 
     1. Skapa ett virtuellt nätverk.
-    2. Skapa en VPN-gateway som använder en plats-till-plats-konfiguration. Konfigurationen i det här dokumentet ansluter till en VPN-gateway-enhet i ditt lokala nätverk.
+    2. Skapa en VPN-gateway som använder en plats-till-plats-konfiguration. Konfigurationen används i det här dokumentet ansluter till en VPN-gateway-enhet i ditt lokala nätverk.
     3. Skapa en DNS-server i det virtuella nätverket.
     4. Konfigurera vidarebefordran mellan DNS-servern i varje nätverk.
-    5. Installera Kafka på HDInsight i det virtuella nätverket.
+    5. Installera Kafka på HDInsight till det virtuella nätverket.
 
-    Mer information finns i [Anslut till Kafka från ett lokalt nätverk](#on-premises) avsnitt. 
+    Mer information finns i den [Anslut till Kafka från ett lokalt nätverk](#on-premises) avsnittet. 
 
-* Ansluta enskilda datorer till det virtuella nätverket med hjälp av en VPN-gateway och VPN-klienten. Om du vill aktivera den här konfigurationen måste du utföra följande uppgifter:
+* Ansluta enskilda datorer till det virtuella nätverket med en VPN-gateway och VPN-klienten. Om du vill aktivera den här konfigurationen måste du utföra följande uppgifter:
 
     1. Skapa ett virtuellt nätverk.
     2. Skapa en VPN-gateway som använder en punkt-till-plats-konfiguration. Den här konfigurationen kan användas med både Windows och MacOS klienter.
-    3. Installera Kafka på HDInsight i det virtuella nätverket.
-    4. Konfigurera Kafka för IP-annonser. Den här konfigurationen gör att klienten kan ansluta med IP-adresser i stället för domännamn.
-    5. Hämta och använda VPN-klienten på utvecklingssystemet.
+    3. Installera Kafka på HDInsight till det virtuella nätverket.
+    4. Konfigurera Kafka för IP-annonsering. Den här konfigurationen gör att klienten kan ansluta med IP-adressering i stället för domännamn.
+    5. Ladda ned och använda VPN-klienten på utvecklingssystemet.
 
-    Mer information finns i [Anslut till Kafka med en VPN-klient](#vpnclient) avsnitt.
+    Mer information finns i den [Anslut till Kafka med en VPN-klient](#vpnclient) avsnittet.
 
     > [!WARNING]
     > Den här konfigurationen rekommenderas endast för utveckling på grund av följande begränsningar:
     >
-    > * Varje klient måste ansluta med en VPN-programvaruklient.
-    > * VPN-klienten klarar inte namnmatchning till det virtuella nätverket, så du måste använda IP-adresser för att kommunicera med Kafka. IP-kommunikation kräver ytterligare konfiguration på Kafka-klustret.
+    > * Varje klient måste ansluta med hjälp av en VPN-klientprogrammet.
+    > * VPN-klienten skickar inte namnmatchning till det virtuella nätverket, så du måste använda IP-adresser för att kommunicera med Kafka. IP-kommunikation kräver ytterligare konfiguration av Kafka-klustret.
 
-Mer information om hur du använder HDInsight i ett virtuellt nätverk finns [utöka HDInsight med hjälp av Azure Virtual Networks](../hdinsight-extend-hadoop-virtual-network.md).
+Mer information om hur du använder HDInsight i ett virtuellt nätverk finns i [utöka HDInsight med hjälp av Azure Virtual Networks](../hdinsight-extend-hadoop-virtual-network.md).
 
 ## <a id="on-premises"></a> Ansluta till Kafka från ett lokalt nätverk
 
-Om du vill skapa ett Kafka-kluster som kommunicerar med ditt lokala nätverk, följer du stegen i den [ansluta HDInsight till ditt lokala nätverk](./../connect-on-premises-network.md) dokumentet.
+Om du vill skapa ett Kafka-kluster som kommunicerar med ditt lokala nätverk, följer du stegen i den [ansluta HDInsight till det lokala nätverket](./../connect-on-premises-network.md) dokumentet.
 
 > [!IMPORTANT]
-> När du skapar HDInsight-kluster, Välj den __Kafka__ kluster typen.
+> När du skapar HDInsight-kluster, Välj den __Kafka__ typ av kluster.
 
-Dessa steg skapar följande konfiguration:
+De här stegen skapar följande konfiguration:
 
 * Azure Virtual Network
 * Plats-till-plats VPN-gateway
 * Azure Storage-konto (används av HDInsight)
 * Kafka på HDInsight
 
-Om du vill verifiera att en Kafka-klient kan ansluta till klustret från lokala, Följ stegen i den [exempel: Python klienten](#python-client) avsnitt.
+För att kontrollera att en Kafka-klient kan ansluta till klustret från en lokal plats, använder du stegen i den [exempel: Python-klienten](#python-client) avsnittet.
 
 ## <a id="vpnclient"></a> Anslut till Kafka med en VPN-klient
 
@@ -88,9 +82,9 @@ Använd stegen i det här avsnittet för att skapa följande konfiguration:
 * Azure Storage-konto (används av HDInsight)
 * Kafka på HDInsight
 
-1. Följ stegen i den [arbeta med självsignerade certifikat för plats-till-platsanslutningar](../../vpn-gateway/vpn-gateway-certificates-point-to-site.md) dokumentet. Det här dokumentet skapar certifikat som krävs för gatewayen.
+1. Följ stegen i den [arbeta med självsignerade certifikat för punkt-till-plats-anslutningar](../../vpn-gateway/vpn-gateway-certificates-point-to-site.md) dokumentet. Det här dokumentet skapar certifikat som krävs för gatewayen.
 
-2. Öppna ett PowerShell-Kommandotolken och använda följande kod för att logga in på Azure-prenumerationen:
+2. Öppna en PowerShell-kommandotolk och Använd följande kod för att logga in på din Azure-prenumeration:
 
     ```powershell
     Connect-AzureRmAccount
@@ -98,7 +92,7 @@ Använd stegen i det här avsnittet för att skapa följande konfiguration:
     #Select-AzureRmSubscription -SubscriptionName "name of your subscription"
     ```
 
-3. Använd följande kod för att skapa variabler som innehåller information om konfiguration:
+3. Använd följande kod för att skapa variabler som innehåller konfigurationsinformation:
 
     ```powershell
     # Prompt for generic information
@@ -135,7 +129,7 @@ Använd stegen i det här avsnittet för att skapa följande konfiguration:
     $hdiType = "Kafka"
     ```
 
-4. Använd följande kod för att skapa Azure-resursgrupp och virtuella nätverk:
+4. Använd följande kod för att skapa Azure-resursgrupp och virtuellt nätverk:
 
     ```powershell
     # Create the resource group that contains everything
@@ -193,7 +187,7 @@ Använd stegen i det här avsnittet för att skapa följande konfiguration:
     ```
 
     > [!WARNING]
-    > Det kan ta flera minuter att slutföra.
+    > Det kan ta flera minuter innan den här processen skulle slutföras.
 
 5. Använd följande kod för att skapa Azure Storage-konto och blob-behållaren:
 
@@ -216,7 +210,7 @@ Använd stegen i det här avsnittet för att skapa följande konfiguration:
         -Context $storageContext
     ```
 
-6. Använd följande kod för att skapa HDInsight-kluster:
+6. Använd följande kod för att skapa HDInsight-klustret:
 
     ```powershell
     # Create the HDInsight cluster
@@ -243,9 +237,9 @@ Använd stegen i det här avsnittet för att skapa följande konfiguration:
 
 ### <a name="configure-kafka-for-ip-advertising"></a>Konfigurera Kafka för IP-annonsering
 
-Som standard returnerar Zookeeper domännamnet för Kafka mäklare till klienter. Den här konfigurationen fungerar inte med VPN-klienten för programvara som den inte kan använda namnmatchning för entiteter i det virtuella nätverket. Använd följande steg för att konfigurera Kafka att annonsera IP-adresser i stället för domännamn för den här konfigurationen:
+Som standard returnerar Zookeeper domännamnet för asynkrona meddelandeköer i Kafka till klienter. Den här konfigurationen fungerar inte med VPN-klientprogrammet som den inte kan använda namnmatchning för entiteter i det virtuella nätverket. Använd följande steg för att konfigurera Kafka att annonsera IP-adresser i stället för domännamn för den här konfigurationen:
 
-1. Via en webbläsare går du till https://CLUSTERNAME.azurehdinsight.net. Ersätt __KLUSTERNAMN__ med namnet på Kafka på HDInsight-kluster.
+1. Via en webbläsare går du till https://CLUSTERNAME.azurehdinsight.net. Ersätt __CLUSTERNAME__ med namnet på Kafka på HDInsight-klustret.
 
     När du uppmanas, använda HTTPS-användarnamn och lösenord för klustret. Ambari-Webbgränssnittet för klustret visas.
 
@@ -253,15 +247,15 @@ Som standard returnerar Zookeeper domännamnet för Kafka mäklare till klienter
 
     ![Tjänstlista med Kafka markerat](./media/apache-kafka-connect-vpn-gateway/select-kafka-service.png)
 
-3. Om du vill visa Kafka konfiguration, markera __konfigurationerna__ från översta mitten.
+3. Om du vill visa Kafka konfiguration, Välj __Peeringkonfigurationer__ från överst i mitten.
 
-    ![Kafka konfigurationerna för länkar](./media/apache-kafka-connect-vpn-gateway/select-kafka-config.png)
+    ![Peeringkonfigurationer länkar för Kafka](./media/apache-kafka-connect-vpn-gateway/select-kafka-config.png)
 
-4. Att hitta den __kafka env__ konfiguration, ange `kafka-env` i den __Filter__ i det övre högra hörnet.
+4. Att hitta den __kafka-env__ konfiguration, ange `kafka-env` i den __Filter__ i det övre högra hörnet.
 
-    ![Kafka konfiguration för kafka env](./media/apache-kafka-connect-vpn-gateway/search-for-kafka-env.png)
+    ![Kafka-konfigurationen för kafka-env](./media/apache-kafka-connect-vpn-gateway/search-for-kafka-env.png)
 
-5. Om du vill konfigurera Kafka att annonsera IP-adresser, lägger du till följande texten längst ned i __kafka env mall__ fält:
+5. Om du vill konfigurera Kafka att annonsera IP-adresser, lägger du till följande text till slutet av den __kafka-env-template__ fält:
 
     ```
     # Configure Kafka to advertise IP addresses instead of FQDN
@@ -273,31 +267,31 @@ Som standard returnerar Zookeeper domännamnet för Kafka mäklare till klienter
 
 6. Om du vill konfigurera det gränssnitt som Kafka lyssnar på, ange `listeners` i den __Filter__ i det övre högra hörnet.
 
-7. Om du vill konfigurera Kafka att lyssna på alla nätverksgränssnitt, ändrar du värdet i den __lyssnare__ till `PLAINTEXT://0.0.0.0:9092`.
+7. Om du vill konfigurera Kafka för att lyssna på alla nätverksgränssnitt, ändra värdet i den __lyssnare__ fältet `PLAINTEXT://0.0.0.0:9092`.
 
-8. Om du vill spara konfigurationsändringarna använder den __spara__ knappen. Ange ett textmeddelande som beskriver ändringarna. Välj __OK__ när ändringarna har sparats.
+8. Om du vill spara konfigurationsändringarna, använda den __spara__ knappen. Ange ett textmeddelande som beskriver ändringarna. Välj __OK__ när ändringarna har sparats.
 
     ![Spara konfiguration](./media/apache-kafka-connect-vpn-gateway/save-button.png)
 
-9. För att förhindra fel när du startar om Kafka, Använd den __tjänståtgärder__ och välj __aktivera på underhållsläge__. Klicka på OK för att slutföra åtgärden.
+9. För att förhindra fel när du startar om Kafka, använda den __tjänståtgärder__ och välj __aktivera på underhållsläge__. Välj OK om du vill slutföra den här åtgärden.
 
-    ![Tjänståtgärder med aktivera Underhåll markerat](./media/apache-kafka-connect-vpn-gateway/turn-on-maintenance-mode.png)
+    ![Tjänståtgärder, med aktivera Underhåll markerat](./media/apache-kafka-connect-vpn-gateway/turn-on-maintenance-mode.png)
 
-10. Om du vill starta om Kafka, Använd den __starta om__ och välj __starta om alla berörda__. Bekräfta omstart och sedan använda den __OK__ knappen när åtgärden har slutförts.
+10. Om du vill starta om Kafka, använda den __starta om__ och välj __starta om alla påverkade__. Bekräfta omstarten, och sedan använda den __OK__ knappen när åtgärden har slutförts.
 
-    ![Starta om knappen med omstart alla berörda markerad](./media/apache-kafka-connect-vpn-gateway/restart-button.png)
+    ![Starta om knappen om alla påverkade markerad](./media/apache-kafka-connect-vpn-gateway/restart-button.png)
 
-11. Inaktivera underhållsläge med de __tjänståtgärder__ och välj __aktivera inaktivera underhållsläge__. Välj **OK** för den här åtgärden.
+11. Om du vill inaktivera underhållsläge, använda den __tjänståtgärder__ och välj __stänga av underhållsläge__. Välj **OK** att slutföra åtgärden.
 
 ### <a name="connect-to-the-vpn-gateway"></a>Ansluta till VPN-gateway
 
-Om du vill ansluta till VPN-gateway den __Anslut till Azure__ avsnitt i den [konfigurerar en punkt-till-plats-anslutning](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#connect) dokumentet.
+Om du vill ansluta till VPN-gateway den __Anslut till Azure__ delen av den [konfigurera en punkt-till-plats-anslutning](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#connect) dokumentet.
 
-## <a id="python-client"></a> Exempel: Python-klient
+## <a id="python-client"></a> Exempel: Python-klienten
 
-Använd följande steg för att verifiera anslutningarna till Kafka, skapa och köra en Python producenten och konsumenten:
+Använd följande steg för att verifiera anslutningarna till Kafka, att skapa och köra en Python-producent och konsument:
 
-1. Använd någon av följande metoder för att hämta det fullständigt kvalificerade domännamnet (FQDN) och IP-adresser av noderna i klustret Kafka:
+1. Använd någon av följande metoder för att hämta det fullständigt kvalificerade domännamnet (FQDN) och IP-adresser för noderna i Kafka-klustret:
 
     ```powershell
     $resourceGroupName = "The resource group that contains the virtual network used with HDInsight"
@@ -323,11 +317,11 @@ Använd följande steg för att verifiera anslutningarna till Kafka, skapa och k
 
     Spara den returnerade informationen för användning i nästa steg.
 
-2. Använd följande för att installera den [kafka python](http://kafka-python.readthedocs.io/) klient:
+2. Använd följande för att installera den [kafka-python](http://kafka-python.readthedocs.io/) klienten:
 
         pip install kafka-python
 
-3. Om du vill skicka data till Kafka, Använd följande Python-kod:
+3. Använd följande Python-kod för att skicka data till Kafka:
 
   ```python
   from kafka import KafkaProducer
@@ -340,12 +334,12 @@ Använd följande steg för att verifiera anslutningarna till Kafka, skapa och k
 
     Ersätt den `'kafka_broker'` poster med adresser som returnerades från steg 1 i det här avsnittet:
 
-    * Om du använder en __programvara VPN-klienten__, ersätter den `kafka_broker` poster med IP-adressen för din arbetsnoderna.
+    * Om du använder en __programvara VPN-klienten__, ersätter den `kafka_broker` poster med IP-adressen för din arbetsnoder.
 
-    * Om du har __aktiverat namnmatchning via en anpassad DNS-server__, ersätter den `kafka_broker` poster med FQDN för arbetsnoderna.
+    * Om du har __aktiverat namnmatchning via en anpassad DNS-server__, ersätter den `kafka_broker` poster med det fullständiga Domännamnet för arbetsnoderna.
 
     > [!NOTE]
-    > Den här koden skickar strängen `test message` till ämnet `testtopic`. Standardkonfigurationen för Kafka på HDInsight är att skapa avsnittet om det inte finns.
+    > Den här koden skickar strängen `test message` till ämnet `testtopic`. Standardkonfigurationen av Kafka på HDInsight är att skapa ämnet om det inte finns.
 
 4. Använd följande Python-kod för att hämta meddelanden från Kafka:
 
@@ -363,21 +357,21 @@ Använd följande steg för att verifiera anslutningarna till Kafka, skapa och k
 
     Ersätt den `'kafka_broker'` poster med adresser som returnerades från steg 1 i det här avsnittet:
 
-    * Om du använder en __programvara VPN-klienten__, ersätter den `kafka_broker` poster med IP-adressen för din arbetsnoderna.
+    * Om du använder en __programvara VPN-klienten__, ersätter den `kafka_broker` poster med IP-adressen för din arbetsnoder.
 
-    * Om du har __aktiverat namnmatchning via en anpassad DNS-server__, ersätter den `kafka_broker` poster med FQDN för arbetsnoderna.
+    * Om du har __aktiverat namnmatchning via en anpassad DNS-server__, ersätter den `kafka_broker` poster med det fullständiga Domännamnet för arbetsnoderna.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du använder HDInsight med ett virtuellt nätverk finns i [utöka Azure HDInsight med hjälp av ett Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md) dokumentet.
+Mer information om hur du använder HDInsight med ett virtuellt nätverk finns i den [utöka Azure HDInsight med hjälp av Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md) dokumentet.
 
-Mer information om hur du skapar ett Azure Virtual Network med punkt-till-plats VPN-gateway finns i följande dokument:
+Mer information om hur du skapar ett virtuellt Azure nätverk med punkt-till-plats-VPN-gateway finns i följande dokument:
 
-* [Konfigurera en punkt-till-plats-anslutning med hjälp av Azure portal](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+* [Konfigurera en punkt-till-plats-anslutning med Azure-portalen](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 
-* [Konfigurera en punkt-till-plats-anslutning med hjälp av Azure PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Konfigurera en punkt-till-plats-anslutning med Azure PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
 Se följande dokument för mer information om arbete med Kafka på HDInsight:
 
 * [Kom igång med Kafka på HDInsight](apache-kafka-get-started.md)
-* [Använd spegling med Kafka på HDInsight](apache-kafka-mirroring.md)
+* [Använda spegling med Kafka i HDInsight](apache-kafka-mirroring.md)

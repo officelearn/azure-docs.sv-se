@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 212da85f64f876f40e2d84d79a8c6a990d118aca
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: f139f9520b6bcb5f39fd4436a1ea2eee6fddf344
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505094"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618979"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory som bevis på koncept strategibok: komponenter
 
@@ -452,9 +452,9 @@ Ungefärlig tid att Slutför: 10 minuter
 | Steg | Resurser |
 | --- | --- |
 | Gå till Azure AD-hanteringsportalen: bladet för villkorlig åtkomst | [Azure AD-hanteringsportalen: Villkorlig åtkomst](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) |
-| Skapa princip för villkorlig åtkomst:<br/>-PoC målanvändare under ”användare och grupper”<br/>-PoC målprogrammet under ”molnappar”<br/>-Rikta alla platser utom betrodda som ”villkor” -> ”platser” **Obs:** tillförlitliga IP-adresser har konfigurerats i [MFA-portalen](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)<br/>-Kräva multifaktorautentisering under ”bidrag” | [Kom igång med villkorlig åtkomst i Azure Active Directory: principen konfigurationssteg](active-directory-conditional-access-azure-portal-get-started.md#policy-configuration-steps) |
-| Åtkomst till programmet från inuti företagsnätverket | [Kom igång med villkorlig åtkomst i Azure Active Directory: testa principen](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
-| Åtkomst till programmet från offentligt nätverk | [Kom igång med villkorlig åtkomst i Azure Active Directory: testa principen](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
+| Skapa princip för villkorlig åtkomst:<br/>-PoC målanvändare under ”användare och grupper”<br/>-PoC målprogrammet under ”molnappar”<br/>-Rikta alla platser utom betrodda som ”villkor” -> ”platser” **Obs:** tillförlitliga IP-adresser har konfigurerats i [MFA-portalen](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)<br/>-Kräva multifaktorautentisering under ”bidrag” | [Skapa principer för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#create-your-conditional-access-policy) |
+| Åtkomst till programmet från inuti företagsnätverket | [Testa din princip för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#test-your-conditional-access-policy) |
+| Åtkomst till programmet från offentligt nätverk | [Testa din princip för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#test-your-conditional-access-policy) |
 
 ### <a name="considerations"></a>Överväganden
 

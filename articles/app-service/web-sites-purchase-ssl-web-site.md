@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 1b5aa32155afc5264ecf5979ebc25f879bbc5b67
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: b7a0050791690e5157a4937df0d49a0f03f3df24
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39582104"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617606"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Köp och konfigurera ett SSL-certifikat för din Azure Apptjänst
 
@@ -199,11 +199,11 @@ Certifikatet samlar certifikatet med ett nytt certifikat som utfärdats av certi
 
 ## <a name="renew-the-certificate"></a>Förnya certifikatet
 
-Aktivera automatisk förnyelse av certifikatet när som helst genom att klicka på **inställningarna för automatisk förnyelse** i sidan för hantering av certifikat. Välj **på** och klicka på **spara**. Certifikatet förnyas 60 dagar innan den upphör om du har automatisk förnyelse aktiverad.
+Aktivera automatisk förnyelse av certifikatet när som helst genom att klicka på **inställningarna för automatisk förnyelse** i sidan för hantering av certifikat. Välj **på** och klicka på **spara**. Certifikat kan starta förnya 90 dagar innan den upphör automatiskt om du har automatisk förnyelse aktiverad.
 
 ![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
 
-Om du vill manuellt förnya certifikatet i stället, klickar du på **förnya manuellt** i stället.
+Om du vill manuellt förnya certifikatet i stället, klickar du på **förnya manuellt** i stället. Du kan begära för att förnya certifikatet manuellt 60 dagar före förfallodatum.
 
 > [!NOTE]
 > Det förnyade certifikatet är inte automatiskt bunden till din app, oavsett om du förnyade manuellt eller den förnyas automatiskt. Om du vill binda det till din app, se [förnya certifikat](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 

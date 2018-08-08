@@ -1,37 +1,34 @@
 ---
-title: Använda Grafana på Azure HDInsight | Microsoft Docs
-description: Lär dig hur du kommer åt Grafana i Azure HDInsight
+title: Använda Grafana på Azure HDInsight
+description: Lär dig hur du kommer åt Grafana i Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.author: jgao
-ms.openlocfilehash: c452cb1264dceff8cb791588fa7c58f73631d422
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: ae8e676e9a6d6590398d6ccbb759aa29d33e108e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34305480"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598151"
 ---
-# <a name="access-grafana-in-azure-hdinsight"></a>Åtkomst Grafana i Azure HDInsight
+# <a name="access-grafana-in-azure-hdinsight"></a>Grafana åtkomst i Azure HDInsight
 
 
-Grafana är populära, öppen källkod diagram och instrumentpanel builder. Grafana är funktion omfattande; inte bara tillåter att användarna skapa anpassningsbara och delbart instrumentpaneler erbjuds även mallbaserat/skripta instrumentpaneler, LDAP-integrering, flera datakällor med mera.
+Grafana är populära, open source-diagram och instrumentpaneler builder. Grafana är funktion omfattande; inte bara tillåter att användare skapar anpassningsbara och delbart instrumentpaneler, den erbjuder även mallbaserade/skriptade instrumentpaneler, LDAP-integrering, flera datakällor och mer.
 
-Grafana är för närvarande endast stöd av interaktiva frågetypen kluster i Azure HDInsight.
+Grafana finns för närvarande endast stöd av en klustertypen för interaktiva frågor i Azure HDInsight.
 
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="create-a-hadoop-cluster"></a>Skapa ett Hadoop-kluster
 
-I det här avsnittet skapar du ett interaktivt frågan kluster i HDInsight med hjälp av en Azure Resource Manager-mall. Du behöver inte ha någon erfarenhet av Resource Manager-mallar för att kunna följa den här artikeln. 
+I det här avsnittet skapar du ett interaktivt frågekluster i HDInsight med en Azure Resource Manager-mall. Du behöver inte ha någon erfarenhet av Resource Manager-mallar för att kunna följa den här artikeln. 
 
 1. Klicka på knappen **Distribuera till Azure** om du vill logga in på Azure och öppna Resource Manager-mallen i Azure Portal. 
    
@@ -51,7 +48,7 @@ I det här avsnittet skapar du ett interaktivt frågan kluster i HDInsight med h
     |Egenskap   |Beskrivning  |
     |---------|---------|
     |**Prenumeration**     |  Välj din Azure-prenumeration. |
-    |**Resursgrupp**     | Skapa en resursgrupp eller välj en befintlig resursgrupp.  En resursgrupp är en behållare med Azure-komponenter.  I det här fallet innehåller resursgruppen HDInsight-klustret och det beroende Azure Storage-kontot. |
+    |**Resursgrupp**     | Skapa en resursgrupp eller välj en befintlig resursgrupp.  En resursgrupp är en container med Azure-komponenter.  I det här fallet innehåller resursgruppen HDInsight-klustret och det beroende Azure Storage-kontot. |
     |**Plats**     | Välj en Azure-plats där du vill skapa klustret.  Välj en plats närmare så får du bättre prestanda. |
     |**Klustertyp**     | Välj **Hadoop**. |
     |**Klusternamn**     | Ange ett namn för Hadoop-klustret. Eftersom alla kluster i HDInsight delar samma DNS-namnområde måste namnet vara unikt. Namnet kan bestå av upp till 59 tecken, inklusive bokstäver, siffror och bindestreck. De första och sista tecknen i namnet får inte vara bindestreck. |
@@ -76,19 +73,19 @@ I det här avsnittet skapar du ett interaktivt frågan kluster i HDInsight med h
 > 
 >
 
-## <a name="access-the-grafana-dashboard"></a>Komma åt instrumentpanelen Grafana
+## <a name="access-the-grafana-dashboard"></a>Få åtkomst till Grafana-instrumentpanel
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj **HDInsight-kluster**, och välj sedan det klusternamn som du skapade i det sista avsnittet.
+2. Välj **HDInsight-kluster**, och välj sedan klustrets namn som du skapade i det sista avsnittet.
 3. Under **snabblänkar**, klickar du på **klusterinstrumentpanel**.
 
-    ![HDInsight-kluster instrumentpanelen portal](./media/hdinsight-grafana/hdinsight-portal-cluster-dashboard.png "instrumentpanelen för HDInsight-klustret på portalen")
+    ![HDInsight-kluster instrumentpanelen portal](./media/hdinsight-grafana/hdinsight-portal-cluster-dashboard.png "HDInsight-klusterinstrumentpanel på portalen")
 
-4. Från instrumentpanelen, klickar du på den **Grafana** panelen.
-5. Ange autentiseringsuppgifterna för Hadoop-kluster.
-6. Det ser ut så Grafana instrumentpanelen:
+4. Från instrumentpanelen klickar du på den **Grafana** panelen.
+5. Ange användarautentiseringsuppgifter för Hadoop-kluster.
+6. Grafana-instrumentpanel ser ut som:
 
-    ![Instrumentpanel för HDInsight Grafana](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "HDInsight Grafana instrumentpanelen")
+    ![HDInsight Grafana-instrumentpanel](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "HDInsight Grafana-instrumentpanel")
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 När du är klar med artikeln kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används. 

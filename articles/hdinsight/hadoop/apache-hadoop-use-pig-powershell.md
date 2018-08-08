@@ -1,34 +1,29 @@
 ---
-title: Använda Pig med Hadoop med PowerShell i HDInsight - Azure | Microsoft Docs
-description: Lär dig mer om att skicka Pig-jobb till ett Hadoop-kluster i HDInsight med hjälp av Azure PowerShell.
+title: Använda Pig med Hadoop med PowerShell i HDInsight - Azure
+description: Lär dig mer om att skicka Pig-jobb till ett Hadoop-kluster i HDInsight med Azure PowerShell.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 737089c1-b494-4387-9def-7b4dac3be532
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.author: larryfr
+ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: a3e62647ec41cfdfc7f0f7bb55474215ab435ee8
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d8a729177328b2f6f4e7e75f133b91ddb4db5a61
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939448"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597600"
 ---
-# <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>Kör jobb för Pig med HDInsight med hjälp av Azure PowerShell
+# <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>Använd Azure PowerShell för att köra Pig-jobb med HDInsight
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Det här dokumentet innehåller ett exempel på hur Azure PowerShell för att skicka Pig-jobb till en Hadoop på HDInsight-kluster. Pig kan du skriva MapReduce-jobb med hjälp av ett språk (Pig Latin) som modeller Datatransformationer i stället för att mappa och minska funktioner.
+Det här dokumentet innehåller ett exempel på hur du använder Azure PowerShell för att skicka Pig-jobb till ett Hadoop på HDInsight-kluster. Pig kan du skriva MapReduce-jobb med hjälp av ett språk (Pig Latin) som modeller dataomvandlingar, snarare än mappa och minska funktioner.
 
 > [!NOTE]
-> Det här dokumentet ger inte en detaljerad beskrivning av vad de Pig Latin-rapporterna som används i exemplen göra. Information om den Pig Latin som används i det här exemplet finns [använda Pig med Hadoop i HDInsight](hdinsight-use-pig.md).
+> Det här dokumentet ger inte en detaljerad beskrivning av vad de satser i Pig Latin i exemplen göra. Information om den Pig Latin i det här exemplet finns i [använda Pig med Hadoop på HDInsight](hdinsight-use-pig.md).
 
 ## <a id="prereq"></a>Förhandskrav
 
@@ -39,31 +34,31 @@ Det här dokumentet innehåller ett exempel på hur Azure PowerShell för att sk
 
 * **En arbetsstation med Azure PowerShell**.
 
-## <a id="powershell"></a>Kör ett Pig-jobb
+## <a id="powershell"></a>Köra ett Pig-jobb
 
-Azure PowerShell innehåller *cmdlets* som gör det möjligt att köra Pig-jobb via fjärranslutning på HDInsight. Internt, PowerShell använder REST-anrop till [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) körs på HDInsight-klustret.
+Azure PowerShell tillhandahåller *cmdletar* som gör det möjligt att köra Pig-jobb via fjärranslutning på HDInsight. Internt PowerShell använder REST-anrop till [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) körs på HDInsight-klustret.
 
-Följande cmdlets används när Pig-jobb som körs på en fjärransluten HDInsight-kluster:
+När du kör Pig-jobb i ett fjärranslutet HDInsight-kluster används följande cmdletar:
 
-* **Ansluta AzureRmAccount**: autentiserar Azure PowerShell för att din Azure-prenumeration.
-* **Nya AzureRmHDInsightPigJobDefinition**: skapar ett *jobbet definition* med hjälp av de angivna Pig Latin-instruktionerna.
+* **Connect-AzureRmAccount**: autentiserar Azure PowerShell på Azure-prenumerationen.
+* **Ny AzureRmHDInsightPigJobDefinition**: skapar en *jobbet definition* med hjälp av de angivna satser i Pig Latin.
 * **Start-AzureRmHDInsightJob**: skickar jobbdefinitionen till HDInsight och startar jobbet. En *jobbet* objekt returneras.
-* **Vänta AzureRmHDInsightJob**: använder jobbobjektet för att kontrollera status för jobbet. Den väntar tills jobbet har slutförts eller väntetiden har överskridits.
+* **Vänta AzureRmHDInsightJob**: använder objektet för att kontrollera status för jobbet. Den ska vänta tills jobbet har slutförts eller väntetiden har överskridits.
 * **Get-AzureRmHDInsightJobOutput**: används för att hämta utdata för jobbet.
 
-Följande steg visar hur du använder dessa cmdlets för att köra ett jobb på ditt HDInsight-kluster.
+Följande steg visar hur du använder dessa cmdletar för att köra ett jobb i ditt HDInsight-kluster.
 
 1. Med hjälp av en redigerare, spara följande kod som **pigjob.ps1**.
 
     [!code-powershell[main](../../../powershell_scripts/hdinsight/use-pig/use-pig.ps1?range=5-51)]
 
-1. Öppna en ny Windows PowerShell-kommandotolk. Ändra kataloger till platsen för den **pigjob.ps1** filen och sedan använder du följande kommando för att köra skriptet:
+1. Öppna en ny Windows PowerShell-kommandotolk. Ändra kataloger till platsen för den **pigjob.ps1** filen och sedan använda följande kommando för att köra skriptet:
 
         .\pigjob.ps1
 
-    Du uppmanas att logga in på Azure-prenumerationen. Du uppmanas sedan HTTPs/Admin kontonamn och lösenord för HDInsight-kluster.
+    Du uppmanas att logga in på Azure-prenumerationen. Du uppmanas sedan HTTPs/Admin-kontonamn och lösenord för HDInsight-klustret.
 
-2. När jobbet är slutfört, bör den returnera information som liknar följande text:
+2. När jobbet har slutförts bör den returnera information liknande följande text:
 
         Start the Pig job ...
         Wait for the Pig job to complete ...
@@ -77,7 +72,7 @@ Följande steg visar hur du använder dessa cmdlets för att köra ett jobb på 
 
 ## <a id="troubleshooting"></a>Felsökning
 
-Om ingen information returneras när jobbet är slutfört, visa felloggarna. Om du vill visa information om fel för det här jobbet att lägga till följande kommando i slutet av den **pigjob.ps1** filen, spara den och kör det igen.
+Om ingen information returneras när jobbet har slutförts kan visa felloggarna. Om du vill visa information om fel för det här jobbet att lägga till följande kommando i slutet av den **pigjob.ps1** filen, spara den och sedan köra det igen.
 
     # Print the output of the Pig job.
     Write-Host "Display the standard error output ..." -ForegroundColor Green
@@ -87,10 +82,10 @@ Om ingen information returneras när jobbet är slutfört, visa felloggarna. Om 
             -HttpCredential $creds `
             -DisplayOutputType StandardError
 
-Denna cmdlet returnerar information som har skrivits till STDERR under bearbetningen av jobbet.
+Denna cmdlet returnerar informationen som har skrivits till STDERR under bearbetningen av jobbet.
 
 ## <a id="summary"></a>Sammanfattning
-Du kan se ger Azure PowerShell ett enkelt sätt att köra Pig-jobb på ett HDInsight-kluster, övervaka jobbstatus och hämta utdata.
+Som du kan se är det enkelt att köra Pig-jobb på ett HDInsight-kluster, övervaka jobbstatus och hämta utdata i Azure PowerShell.
 
 ## <a id="nextsteps"></a>Nästa steg
 Allmän information om Pig i HDInsight:

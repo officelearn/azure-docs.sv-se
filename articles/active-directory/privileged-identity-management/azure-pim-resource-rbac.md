@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 07fe49be9fcb879b86d2b8a33799d11deb7d7446
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9b4980681cb3e7442211b06255d6eefd8a1b1170
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38528628"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622362"
 ---
 # <a name="pim-for-azure-resources"></a>PIM för Azure-resurser
 
-Med Azure Active Directory Privileged Identity Management (PIM), kan du nu hantera, kontrollera och övervaka åtkomst till Azure-resurser i din organisation. Detta inkluderar prenumerationer, resursgrupper och även virtuella datorer. Alla resurser i Azure-portalen som utnyttjar Azure rollbaserad åtkomstkontroll (RBAC)-funktioner kan dra nytta av alla mycket hög säkerhet och hanteringsfunktioner för programlivscykel Azure AD PIM har att erbjuda och några stora nya funktioner vi planerar att göra Azure AD-roller snart. 
+Med Azure Active Directory Privileged Identity Management (PIM) kan du nu hantera, kontrollera och övervaka åtkomst till Azure-resurser inom organisationen. Detta inkluderar prenumerationer, resursgrupper och även virtuella datorer. Alla resurser i Azure-portalen som utnyttjar Azure rollbaserad åtkomstkontroll (RBAC)-funktioner kan dra nytta av alla mycket hög säkerhet och hanteringsfunktioner för programlivscykel Azure AD PIM har att erbjuda och några stora nya funktioner vi planerar att göra Azure AD-roller snart. 
 
 ## <a name="pim-for-azure-resources-helps-resource-administrators"></a>PIM för Azure-resurser som hjälper administratörer att resursen
 

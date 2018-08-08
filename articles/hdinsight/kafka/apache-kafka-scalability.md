@@ -1,25 +1,20 @@
 ---
-title: Apache Kafka öka skala - Azure HDInsight | Microsoft Docs
+title: Apache Kafka öka skala - Azure HDInsight
 description: Lär dig hur du konfigurerar hanterade diskar för Apache Kafka-kluster på Azure HDInsight för att öka skalbarheten.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/30/2018
-ms.author: larryfr
-ms.openlocfilehash: 1a104f4b4dee340f43c1dba01b83cb80e138a9ec
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 71dc4090d0dbce17322af8f41d8f35c397681f33
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626739"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621743"
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>Konfigurera lagring och skalbarhet för Apache Kafka på HDInsight
 

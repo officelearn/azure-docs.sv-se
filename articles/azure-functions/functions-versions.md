@@ -10,14 +10,14 @@ ms.service: functions
 ms.workload: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 07/29/2018
 ms.author: glenga
-ms.openlocfilehash: 8ba12f21d76d8deded047f40489c46657c9380b8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6bf6621d650ad590cd1134bc79fcdecdc3fd0963
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602125"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622644"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions runtime versioner-översikt
 
@@ -26,7 +26,9 @@ ms.locfileid: "38602125"
 | Körmiljö | Status |
 |---------|---------|
 |1.x|Allmänt tillgänglig (GA)|
-|2.x|Förhandsversion|
+|2.x|Förhandsversion<sup>*</sup>|
+
+<sup>*</sup>Att ta emot viktiga uppdateringar i version 2.x, inklusive de senaste ändras meddelanden, titta på den [Azure App Service-meddelanden](https://github.com/Azure/app-service-announcements/issues) lagringsplats.
 
 > [!NOTE] 
 > Den här artikeln handlar om Molntjänsten Azure Functions. Läs om hur produkten som kan du köra Azure Functions lokalt på [översikt över Azure Functions Runtime](functions-runtime-overview.md).

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: e4f09e90c1ebb14cdbd528b34e016001c6556540
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 9a926eb274e5e4cec721864d1d9c5faee8ec58ef
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389658"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618347"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Granska Video Indexer-utdata som genereras av v2 API
 
@@ -81,7 +81,8 @@ Det här avsnittet visas en sammanfattning av insikterna.
 |shortId|ID för videon. Till exempel 63c6d532ff.|
 |privacyMode|Din analys på detaljnivå kan ha ett av följande lägen: **privata**, **offentliga**. **Offentliga** -videon är synlig för alla i ditt konto och vem som helst som har en länk till videon. **Privata** -videon är synlig för alla i ditt konto.|
 |varaktighet|Innehåller en varaktighet som beskriver den tid som en insikt inträffade. Varaktighet är i sekunder.|
-|thumbnailUrl|Videons miniatyr fullständiga URL: en. Till exempel ”https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO.”. Observera att om videon är privat, URL: en innehåller en åtkomsttoken för en timme. Efter en timme URL: en kommer inte längre och du behöver hämta uppdelning igen med en ny url i den eller anropa GetAccessToken för att få en ny åtkomsttoken och skapa hela webbadressen manuellt (”https://www.videoindexer.ai/api/Thumbnail/[shortId] / [ThumbnailId]? accessToken = [accessToken]').|
+|thumbnailVideoId|Id för videon som miniatyren togs.
+|thumbnailId|Videons miniatyr id. Att hämta det faktiska miniatyr anropet Get-miniatyr (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) och skickar den thumbnailVideoId och thumbnailId.|
 |ansikten|Kan innehålla noll eller flera ansikten. Mer information finns i [ansikten](#faces).|
 |nyckelord|Kan innehålla noll eller flera nyckelord. Mer information finns i [nyckelord](#keywords).|
 |sentiment|Kan innehålla noll eller flera sentiment. Mer information finns i [sentiment](#sentiments).|
@@ -106,7 +107,7 @@ Det här avsnittet visas en sammanfattning av insikterna.
 |metadata|Videons externa metadata (om det angetts av användaren).|
 |isAdult|Anger om videon manuellt har granskat och identifieras som en video som är olämpligt för barn.|
 |insikter|Insights-objekt. Mer information finns i [insights](#insights).|
-|thumbnailUrl|Videons miniatyr fullständiga URL: en. Till exempel ”https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO.”. Observera att om videon är privat, URL: en innehåller en åtkomsttoken för en timme. Efter en timme URL: en kommer inte längre och du behöver hämta uppdelning igen med en ny url i den eller anropa GetAccessToken för att få en ny åtkomsttoken och skapa hela webbadressen manuellt (”https://www.videoindexer.ai/api/Thumbnail/[shortId] / [ThumbnailId]? accessToken = [accessToken]').|
+|thumbnailId|Videons miniatyr id. Att hämta det faktiska miniatyr anropet Get-miniatyr (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) och skicka den video-id och thumbnailId.|
 |publishedUrl|En url som används för att strömma videon.|
 |publishedUrlProxy|En url som används för att strömma video från (för Apple-enheter).|
 |viewToken|En kort livslängd visa token för strömning av videon.|

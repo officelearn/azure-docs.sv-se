@@ -1,51 +1,47 @@
 ---
-title: Använda Apache Phoenix och SQLLine med HBase i Azure HDInsight | Microsoft Docs
-description: Lär dig använda Apache Phoenix i HDInsight. Lär dig också att installera och konfigurera SQLLine på datorn för att ansluta till ett HBase-kluster i HDInsight.
+title: Använda Apache Phoenix och SQLLine med HBase i Azure HDInsight
+description: Lär dig använda Apache Phoenix i HDInsight. Dessutom lär du dig hur du installerar och konfigurerar SQLLine på din dator att ansluta till ett HBase-kluster i HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: cda0f33b-a2e8-494c-972f-ae0bb482b818
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/03/2018
-ms.author: jgao
-ms.openlocfilehash: 64700567b8acf816f42e6bf8cdc5386b6c65fe3f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: jasonh
+ms.openlocfilehash: 349f1680cf754a44e2e4217ebde9d0d60479ebcf
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31516635"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597471"
 ---
 # <a name="use-apache-phoenix-with-linux-based-hbase-clusters-in-hdinsight"></a>Använda Apache Phoenix med Linux-baserade HBase-kluster i HDInsight
 Lär dig hur du använder [Apache Phoenix](http://phoenix.apache.org/) i Azure HDInsight och hur du använder SQLLine. Läs mer om Phoenix [Phoenix i 15 minuter eller mindre](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Phoenix-grammatik finns [Phoenix grammatik](http://phoenix.apache.org/language/index.html).
 
 > [!NOTE]
-> Phoenix versionsinformation om HDInsight finns i [vad är nytt i Hadoop-klusterversioner som tillhandahålls av HDInsight](../hdinsight-component-versioning.md).
+> Phoenix versionsinformation om HDInsight finns i [Nyheter i Hadoop-klusterversionerna från HDInsight](../hdinsight-component-versioning.md).
 >
 >
 
-## <a name="use-sqlline"></a>Använd SQLLine
+## <a name="use-sqlline"></a>Använda SQLLine
 [SQLLine](http://sqlline.sourceforge.net/) är ett kommandoradsverktyg för att köra SQL.
 
 ### <a name="prerequisites"></a>Förutsättningar
-Innan du kan använda SQLLine, måste du ha följande:
+Innan du kan använda SQLLine, måste du ha följande objekt:
 
-* **Ett HBase-kluster i HDInsight**. Om du vill skapa en finns [Kom igång med Apache HBase i HDInsight](./apache-hbase-tutorial-get-started-linux.md).
+* **Ett HBase-kluster i HDInsight**. Om du vill skapa en [Kom igång med Apache HBase i HDInsight](./apache-hbase-tutorial-get-started-linux.md).
 
-Du måste ansluta till en av de virtuella datorerna ZooKeeper när du ansluter till ett HBase-kluster. Varje HDInsight-kluster har tre ZooKeeper virtuella datorer.
+När du ansluter till ett HBase-kluster som du behöver ansluta till en av de virtuella datorer som ZooKeeper. Varje HDInsight-kluster är tre ZooKeeper virtuella datorer.
 
 **Att hämta värdnamnet ZooKeeper**
 
 1. Öppna Ambari genom att bläddra till **https://\<klusternamnet\>. azurehdinsight.net**.
 2. Ange HTTP (kluster)-användarnamn och lösenord för att logga in.
-3. Välj i den vänstra menyn **ZooKeeper**. Tre **ZooKeeper-Server** instanser visas.
-4. Välj en av de **ZooKeeper-Server** instanser. På den **sammanfattning** rutan Sök efter den **värdnamn**. Det liknar *zk1 jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
+3. I den vänstra menyn väljer du **ZooKeeper**. Tre **ZooKeeper-Server** instanser visas.
+4. Välj en av de **ZooKeeper-Server** instanser. På den **sammanfattning** fönstret hitta den **värdnamn**. Den liknar *zk1 jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
 
-**Att använda SQLLine**
+**Använda SQLLine**
 
 1. Ansluta till klustret med hjälp av SSH. Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
@@ -53,7 +49,7 @@ Du måste ansluta till en av de virtuella datorerna ZooKeeper när du ansluter t
 
         cd /usr/hdp/2.2.9.1-7/phoenix/bin
         ./sqlline.py <ZOOKEEPER SERVER FQDN>:2181:/hbase-unsecure
-3. Om du vill skapa en HBase-tabell och infoga data, kör du följande kommandon:
+3. Om du vill skapa en HBase-tabell och infoga vissa data, kör du följande kommandon:
 
         CREATE TABLE Company (COMPANY_ID INTEGER PRIMARY KEY, NAME VARCHAR(225));
 
@@ -65,15 +61,15 @@ Du måste ansluta till en av de virtuella datorerna ZooKeeper när du ansluter t
 
         !quit
 
-Mer information finns i [SQLLine manuell](http://sqlline.sourceforge.net/#manual) och [Phoenix grammatik](http://phoenix.apache.org/language/index.html).
+Mer information finns i den [SQLLine manuell](http://sqlline.sourceforge.net/#manual) och [Phoenix grammatik](http://phoenix.apache.org/language/index.html).
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har du lärt dig hur du använder Apache Phoenix i HDInsight. Läs mer i följande artiklar:
+I den här artikeln har du lärt dig hur du använder Apache Phoenix i HDInsight. Mer information finns i följande artiklar:
 
 * [Översikt över HDInsight HBase][hdinsight-hbase-overview].
-  HBase är en Apache öppen källkod NoSQL-databas som bygger på Hadoop och som ger direktåtkomst och stark konsekvens för stora mängder Ostrukturerade och halvstrukturerade data.
+  HBase är en Apache, öppen källkod, NoSQL-databas som bygger på Hadoop och ger direktåtkomst och stark konsekvens för stora mängder Ostrukturerade och semistrukturerade data.
 * [Etablera HBase-kluster i Azure Virtual Network][hdinsight-hbase-provision-vnet].
-  Med virtuell nätverksintegration kan HBase-kluster bara distribueras till samma virtuella nätverk som dina program så att program kan kommunicera direkt med HBase.
+  Med virtual network-integration, kan HBase-kluster bara distribueras till samma virtuella nätverk som dina program, så att program kan kommunicera direkt med HBase.
 * [Konfigurera HBase-replikering i HDInsight](apache-hbase-replication.md). Lär dig hur du ställer in HBase-replikering mellan två Azure-datacenter.
 
 

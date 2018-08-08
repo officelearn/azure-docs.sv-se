@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f1c2b028521983081ba5f276789af9701b568b7
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: da7d3898e1385119c8241efc89c68a6a60c29994
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972476"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619098"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuella datorer, planering och implementering av SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -1017,7 +1017,7 @@ Ladda upp en befintlig virtuell dator eller virtuell Hårddisk från det lokala 
 * Använd *sysprep* på Windows eller *waagent-avetablering* på Linux för att generalisera den virtuella datorn – Se [Teknisk referens för Sysprep](https://technet.microsoft.com/library/cc766049.aspx) för Windows eller [så här avbildar du en Linux-dator ska användas som en Resource Manager-mall] [ capture-image-linux-step-2-create-vm-image] för Linux
 * Ladda upp den virtuella Hårddisken med Powershell eller Azure CLI
 * (Valfritt) Skapa en avbildning av hanterad Disk från den virtuella Hårddisken med Powershell, Azure CLI eller Azure-portalen
-* Distribuera den virtuella datorn med en JSON-mall som refererar till avbildningen VHD enligt [det här exemplet JSON-mall](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-image/azuredeploy.json) eller med hjälp av hanterad Disk Image enligt [det här exemplet JSON-mall](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json).
+* Distribuera den virtuella datorn med en JSON-mall som refererar till avbildningen VHD enligt [det här exemplet JSON-mall](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-image/azuredeploy.json) eller med hjälp av hanterad Disk Image enligt [det här exemplet JSON-mall](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json).
 
 #### <a name="downloading-vhds-or-managed-disks-to-on-premises"></a>Ladda ned VHD: er eller hanterade diskar till en lokal
 Azure-infrastruktur som en tjänst är inte en enkelriktad gata endast att kunna ladda upp VHD: er och SAP system. Du kan flytta SAP-system från Azure tillbaka till den lokala miljön samt.
@@ -1156,8 +1156,8 @@ Du kan också kopiera virtuella hårddiskar mellan prenumerationer. Mer informat
 
 Det grundläggande flödet av logik för PS-cmdlet: en ut så här:
 
-* Skapa en kontexten för lagringskontot för den **källa** storage-konto med *New-AzureStorageContext* -finns i <https://msdn.microsoft.com/library/dn806380.aspx>
-* Skapa en kontexten för lagringskontot för den **target** storage-konto med *New-AzureStorageContext* -finns i <https://msdn.microsoft.com/library/dn806380.aspx>
+* Skapa en kontexten för lagringskontot för den **källa** storage-konto med *New-AzureStorageContext* -finns i <https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext>
+* Skapa en kontexten för lagringskontot för den **target** storage-konto med *New-AzureStorageContext* -finns i <https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext>
 * Starta kopieringen med
 
 ```powershell

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/03/2018
 ms.author: markvi
 ms.reviewer: ravenn
-ms.openlocfilehash: 6e8e0877dfa47fa632fa1f12d97326f922ebaf8b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 2dfef8d0dbaf4d70559c966f1587764210d8b49c
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531155"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598338"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Hantera den lokala administratörsgruppen på Azure AD-anslutna enheter
 
@@ -111,6 +111,6 @@ När du tar bort användare från administratörsrollen enhet ha de fortfarande 
 
 - Om du vill få en översikt över hur du hanterar enheten i Azure-portalen, se [hantering av enheter med hjälp av Azure portal](device-management-azure-portal.md)
 
-- Läs mer om enhetsbaserad villkorlig åtkomst i [konfigurera principer för Azure Active Directory-enhetsbaserad villkorlig åtkomst](../active-directory-conditional-access-policy-connected-applications.md).
+- Läs mer om enhetsbaserad villkorlig åtkomst i [konfigurera principer för Azure Active Directory-enhetsbaserad villkorlig åtkomst](../conditional-access/require-managed-devices.md).
 
 

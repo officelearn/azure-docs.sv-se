@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: c9ef406ecab0d88468c9f7ff290669cfbbae1856
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 641a665e0f41a612455d5649b19948146b504199
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860188"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599956"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB database-säkerhet
 
@@ -47,6 +47,7 @@ Vi rekommenderar följande kontrollista om kraven som du vill jämföra databass
 - Svara på attacker
 - Möjlighet att geo-avgränsningstecken data följa databegränsningar för styrning
 - Fysiskt skydd av servrar i skyddade data centers
+- Certifieringar
 
 Och även om det kan verka uppenbart, senaste [storskalig databas överträdelser](http://thehackernews.com/2017/01/mongodb-database-security.html) påminna oss enkla men kritiska vikten av följande krav:
 - Korrigerade servrar som hålls uppdaterade
@@ -79,7 +80,7 @@ Låt oss gå till var och en i detalj.
 |Vilande kryptering|Alla data som lagras i Azure Cosmos DB krypteras i vila. Läs mer i [Azure Cosmos DB-kryptering i vila](.\database-encryption-at-rest.md)|
 |Korrigerade servrar|Som en hanterad databas eliminerar Azure Cosmos DB behovet av att hantera och uppdatera servrar, som har utförts för dig, automatiskt.|
 |Administrativa konton med starka lösenord|Det är svårt att tro måste vi även nämner det här kravet, men till skillnad från vissa av våra konkurrenter, är det omöjligt att ha ett administrativt konto utan lösenord i Azure Cosmos DB.<br><br> Säkerhet via SSL och HMAC hemliga formulärbaserad autentisering är inbyggd i som standard.|
-|Säkerhet och data protection-certifieringar|Azure Cosmos DB har [ISO 27001](https://www.microsoft.com/en-us/TrustCenter/Compliance/ISO-IEC-27001), [Europeiska modellen satser (EUMC)](https://www.microsoft.com/en-us/TrustCenter/Compliance/EU-Model-Clauses), och [HIPAA](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA) certifieringar. Fler certifieringar pågår.|
+|Säkerhet och data protection-certifieringar|För de flesta upp till datalista över certifieringar Se övergripande (efterlevnad för Azure-webbplats) [https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings] samt senaste (Azure efterlevnad dokument) [https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942] med alla certifieringar (Sök efter Cosmos). En mer fokuserad finns Kolla in den 25 April 2018-post (Azure #CosmosDB: säkra, privata, kompatibla) [https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/] som innehåller SOC 1/2 typ 2, HITRUST, PCI DSS Level 1, ISO 27001, HIPPAA, FedRAMP High och många andra.
 
 I följande skärmbild visas Active directory-integrering (RBAC) med hjälp av åtkomstkontroll (IAM) i Azure portal: ![åtkomstkontroll (IAM) i Azure portal – visar databassäkerhet](./media/database-security/nosql-database-security-identity-access-management-iam-rbac.png)
 

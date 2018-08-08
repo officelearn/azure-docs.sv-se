@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 01/14/2018
 ms.author: kgremban
 ms.custom: seohack1
-ms.openlocfilehash: 41829add17f69c5f051618195247ed2a5512ca64
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: e3b22c0c602e8f3d47fbfc179fb8d0fb985d55d6
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505644"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619329"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Utveckla line-of-business-appar för Azure Active Directory
 Den här guiden innehåller en översikt över utveckling line-of-business (LoB)-program för Azure Active Directory (AD). Målgruppen är globala administratörer för Active Directory/Office 365.
 
 ## <a name="overview"></a>Översikt
-Att skapa program som är integrerade med Azure AD ger användare i din organisation enkel inloggning med Office 365. Att låta programmet i Azure AD ger dig kontroll över autentiseringsprincip för programmet. Mer information om villkorlig åtkomst och hur du skyddar appar med multifaktorautentisering (MFA) i avsnittet [konfigurera åtkomstregler](active-directory-conditional-access-azure-portal-get-started.md).
+Att skapa program som är integrerade med Azure AD ger användare i din organisation enkel inloggning med Office 365. Att låta programmet i Azure AD ger dig kontroll över autentiseringsprincip för programmet. Mer information om villkorlig åtkomst och hur du skyddar appar med multifaktorautentisering (MFA) i avsnittet [konfigurera åtkomstregler](conditional-access/app-based-mfa.md).
 
 Registrera din app att använda Azure Active Directory. Registrera programmet innebär att utvecklarna kan använda Azure AD för att autentisera användare och begära åtkomst till användarresurser, till exempel e-post, kalender och dokument.
 
@@ -58,7 +58,7 @@ Här är vad du som global administratör, behöver göra för att hjälpa utvec
 * Ignorera standardgränssnittet för medgivande
 
 ## <a name="configure-access-rules"></a>Konfigurera regler för åtkomst
-Konfigurera regler för programspecifika åtkomst till SaaS-appar. Du kan till exempel kräva MFA eller bara tillåta åtkomst till användare på betrodda nätverk. Information om detta finns i dokumentet [konfigurera åtkomstregler](active-directory-conditional-access-azure-portal-get-started.md).
+Konfigurera regler för programspecifika åtkomst till SaaS-appar. Du kan till exempel kräva MFA eller bara tillåta åtkomst till användare på betrodda nätverk. Information om detta finns i dokumentet [konfigurera åtkomstregler](conditional-access/app-based-mfa.md).
 
 ## <a name="configure-the-app-to-require-user-assignment-and-assign-users"></a>Konfigurera appen så att den kräver Användartilldelning och tilldela användare
 Användarna kan nå program utan att de tilldelas som standard. Om programmet exponerar roller eller om du vill att programmet ska visas på åtkomstpanelen för en användare, bör du kräva Användartilldelning.
@@ -79,6 +79,5 @@ Mer information om användarens medgivande och samtycke upplevelse i Azure, finn
 
 ## <a name="related-articles"></a>Relaterade artiklar
 * [Aktivera säker fjärråtkomst till lokala program med Azure AD Application Proxy](manage-apps/application-proxy.md)
-* [Förhandsversion av villkorlig åtkomst i Azure för SaaS-appar](active-directory-conditional-access-azure-portal-get-started.md)
 * [Hantera åtkomst till appar med Azure AD](manage-apps/what-is-access-management.md)
 * [Artikelindex för programhantering i Azure Active Directory](active-directory-apps-index.md)

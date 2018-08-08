@@ -1,23 +1,20 @@
 ---
-title: Utveckling av skriptåtgärder med HDInsight - Azure | Microsoft Docs
+title: Utveckling av skriptåtgärder med HDInsight - Azure
 description: Lär dig hur du anpassar Hadoop-kluster med skriptåtgärd. Skriptåtgärd kan användas för att installera ytterligare programvara som körs på ett Hadoop-kluster eller ändra konfigurationen för program som har installerats på ett kluster.
 services: hdinsight
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 836d68a8-8b21-4d69-8b61-281a7fe67f21
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8b00661e1561b4aa93be26994b20e33feac97ff6
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: f26a11e623148eecc8096b45c6ac9df68b8e102a
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952376"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599164"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Utveckla skriptåtgärder skript för HDInsight Windows-baserade kluster
 Lär dig hur du skriver skript för skriptåtgärd för HDInsight. Information om hur du använder skriptåtgärd skript finns i [anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster.md). Samma artikel skrivna för Linux-baserade HDInsight-kluster finns i [utveckla skriptåtgärder skript till HDInsight](hdinsight-hadoop-script-actions-linux.md).

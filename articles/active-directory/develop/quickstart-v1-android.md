@@ -17,12 +17,12 @@ ms.date: 04/30/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: cdd0d9ccff608d5882480d1394e2188579cefe75
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: c548f9287ce1326de3322950f297176b67ae61c6
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576808"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600252"
 ---
 # <a name="azure-ad-android-getting-started"></a>Azure AD-Android komma igång
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -126,7 +126,7 @@ Du kan hitta konfigurationen för det här kodexemplet i den ***src/main/java/co
 3. Hitta eventuella problem eller har förfrågningar? Du kan skapa ett ärende eller publicera på Stackoverflow med taggen `azure-active-directory`. 
 
 ### <a name="cross-app-sso"></a>Enkel inloggning mellan appar
-Lär dig [så här aktiverar du enkel inloggning mellan appar på Android med hjälp av ADAL](howto-v1-enable-sso-on-android.md). 
+Lär dig [så här aktiverar du enkel inloggning mellan appar på Android med hjälp av ADAL](howto-v1-enable-sso-android.md). 
 
 ### <a name="auth-telemetry"></a>Auth-telemetri
 ADAL-biblioteket visar auth telemetri för att hjälpa apputvecklare förstå hur deras appar fungerar och bygga bättre upplevelser. På så sätt kan du avbilda inloggning lyckades, aktiva användare och flera andra intressanta insikter. Med hjälp av auth telemetri kräver apputvecklare att upprätta en telemetritjänst för att sammanställa och lagra händelser.

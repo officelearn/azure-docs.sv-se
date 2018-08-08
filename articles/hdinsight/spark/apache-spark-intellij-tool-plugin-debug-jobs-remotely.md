@@ -1,25 +1,20 @@
 ---
-title: 'Azure Toolkit för IntelliJ: felsöka program via fjärranslutning i HDInsight Spark | Microsoft Docs'
+title: 'Azure Toolkit för IntelliJ: felsöka program via fjärranslutning i HDInsight Spark '
 description: Lär dig hur använda HDInsight-verktyg i Azure Toolkit för IntelliJ för att felsöka Spark-program som körs på HDInsight-kluster via VPN.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 55fb454f-c7dc-46de-a978-e242e9a94f4c
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.author: nitinme
-ms.openlocfilehash: 0edde5886f4fee5ec33a15a5714906b30fb4cb36
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d71186dcfd5528de48151804492d8ae51e808a07
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432362"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618928"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>Felsöka Spark-program via fjärranslutning i HDInsight via VPN-anslutning med hjälp av Azure Toolkit för IntelliJ
 

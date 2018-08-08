@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.date: 04/28/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 025bcd0cde8d73cfdd4d79a77256a1705950f90a
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 14d0cdc0bde1081f1a020c7039596a5b6880070f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444654"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619756"
 ---
 # <a name="approvals"></a>Godkännanden
 
@@ -77,7 +77,7 @@ Vi har också lagt till ett nytt avsnitt för alla användare av PIM, min gransk
 
 ![](media/azure-ad-pim-approval-workflow/image003.png)
 
-### <a name="enable-approval-for-specific-roles"></a>Aktivera godkännande för specifika roller
+### <a name="enable-approval-for-specific-roles"></a>aktivera godkännande för specifika roller
 
 Aktivera godkännande för en viss roll genom att först välja Directory-roller i det vänstra navigeringsfönstret.
 
@@ -141,7 +141,7 @@ Därifrån kan visas en lista över begäranden väntar på godkännande:
 
 ![](media/azure-ad-pim-approval-workflow/image024.png)
 
-### <a name="approve-or-reject-requests-for-role-elevation-single-andor-bulk"></a>Godkänna eller avvisa begäranden om rollen utökade privilegier (enkel och/eller)
+### <a name="approve-or-reject-requests-for-role-elevation-single-andor-bulk"></a>godkänna eller avvisa begäranden om rollen utökade privilegier (enkel och/eller)
 
 Välj de förfrågningar som du vill godkänna eller neka och klicka på knappen i Åtgärdsfältet som motsvarar ditt beslut:
 
@@ -157,7 +157,7 @@ När begäran-processen är klar visas symbolen för statusen återspeglas beslu
 
 ![](media/azure-ad-pim-approval-workflow/image031.png)
 
-### <a name="request-activation-of-a-role-that-requires-approval"></a>Begär aktivering av en roll som kräver godkännande
+### <a name="request-activation-of-a-role-that-requires-approval"></a>begära aktivering av en roll som kräver godkännande
 
 Begär aktivering av en roll som kräver godkännande kan initieras från det gamla PIM-navigeringsfönstret eller den nya navigeringen när processen för rollaktivering förblir densamma. Välj helt enkelt en roll i listan över roller för att aktivera:
 

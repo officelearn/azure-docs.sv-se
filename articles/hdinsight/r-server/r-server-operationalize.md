@@ -1,23 +1,20 @@
 ---
-title: Operationalisera ML-tjänster på HDInsight - Azure | Microsoft Docs
+title: Operationalisera ML-tjänster på HDInsight - Azure
 description: Lär dig hur du operationaliserar ML-tjänster i Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: R
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: 0472158dfb9ad228ce2ddef0edf4eafcf4cd3d29
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: aef34fea2252cdc875fa1ea1c73a8df14fdf1b9c
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430985"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622311"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Operationalisera ML-tjänster på Azure HDInsight-kluster
 
@@ -124,7 +121,7 @@ Om inget kluster har konfigurerats på vnet, eller om du har problem med anslutn
 
     ssh -L localhost:12800:localhost:12800 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
-När din SSH-session är aktiv vidarebefordras trafiken från port 12800 i datorn till port 12800 på kantnoden via SSH-sessionen. Se till att du använder `127.0.0.1:12800` i metoden `remoteLogin()`. Detta loggar in på gränsnodens driftsättning via portvidarebefordran.
+När din SSH-session är aktiv vidarebefordras trafiken från den lokala datorns port 12800 till gränsnodens port 12800 via SSH-session. Se till att du använder `127.0.0.1:12800` i metoden `remoteLogin()`. Detta loggar in på gränsnodens driftsättning via portvidarebefordran.
 
 
     library(mrsdeploy)

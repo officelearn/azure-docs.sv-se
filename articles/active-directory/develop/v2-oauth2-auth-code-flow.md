@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 1e8807030cc1e08a41bfb6c1e8d2e1fe2b2432c7
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: b56dbd4321c8b87639e34cc7fb5db2141334101f
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39582040"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600463"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0-protokoll – OAuth 2.0-Auktoriseringskodflöde
 OAuth 2.0-auktoriseringskod kan användas i appar som är installerade på en enhet för att få åtkomst till skyddade resurser, till exempel webb-API: er. Med app model v2.0 implementering av OAuth 2.0 kan du lägga till logga in och API-åtkomst till dina appar och program. Den här handboken är språkoberoende och beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda någon av de [Azure open source-autentiseringsbibliotek](active-directory-authentication-libraries.md).
@@ -32,7 +32,7 @@ OAuth 2.0-auktoriseringskod kan användas i appar som är installerade på en en
 > 
 > 
 
-OAuth 2.0-auktoriseringskodflödet beskrivs i [avsnitt 4.1 i OAuth 2.0-specifikationen](http://tools.ietf.org/html/rfc6749). Används för att utföra autentisering och auktorisering i flesta apptyper, däribland [webbappar](active-directory-v2-flows.md#web-apps) och [internt installerade appar](active-directory-v2-flows.md#mobile-and-native-apps). Flödet gör det möjligt för appar på ett säkert sätt hämta access_tokens som kan användas för att få åtkomst till resurser som skyddas av v2.0-slutpunkten. 
+OAuth 2.0-auktoriseringskodflödet beskrivs i [avsnitt 4.1 i OAuth 2.0-specifikationen](http://tools.ietf.org/html/rfc6749). Används för att utföra autentisering och auktorisering i flesta apptyper, däribland [webbappar](v2-app-types.md#web-apps) och [internt installerade appar](v2-app-types.md#mobile-and-native-apps). Flödet gör det möjligt för appar på ett säkert sätt hämta access_tokens som kan användas för att få åtkomst till resurser som skyddas av v2.0-slutpunkten. 
 
 ## <a name="protocol-diagram"></a>Protokollet diagram
 På en hög nivå ut hela autentiseringsflödet för ett program för intern/mobile lite så här:

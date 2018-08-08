@@ -1,28 +1,24 @@
 ---
-title: 'Självstudier: Bearbeta data från Azure Event Hubs med Apache Spark i Azure HDInsight | Microsoft Docs'
-description: Ansluta Apache Spark i Azure HDInsight till Azure Event Hubs och bearbeta strömmande data.
+title: 'Självstudie: Bearbeta data från Azure Event Hubs med Apache Spark i Azure HDInsight '
+description: Anslut Apache Spark i Azure HDInsight till Azure Event Hubs och bearbeta strömmande data.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive,mvc
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/07/2018
-ms.author: jgao
-ms.openlocfilehash: 9b59f5d58234aaf8f8385f722d6659548e066933
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.date: 06/14/2018
+ms.openlocfilehash: 27c8a51ee3f0274489041f4dafbbf73d906e2fa4
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33787257"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617657"
 ---
-# <a name="tutorial-process-tweets-using-azure-event-hubs-and-spark-in-hdinsight"></a>Självstudier: Processen tweets med Händelsehubbar i Azure och Spark i HDInsight
+# <a name="tutorial-process-tweets-using-azure-event-hubs-and-spark-in-hdinsight"></a>Självstudie: Processen tweetar och använder Azure Event Hubs och Spark i HDInsight
 
-I kursen får du lära dig hur du skapar ett Apache Spark streaming programmet skickar tweets till en Azure event hub och skapa ett annat program för att läsa tweets från event hub. En detaljerad förklaring av Spark streaming finns [Apache Spark streaming översikt](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview). HDInsight ger samma funktioner för strömning för ett Spark-kluster i Azure.
+I den här självstudien får du lära dig hur du skapar ett Apache Spark streaming-program att skicka tweets till en Azure event hub och skapa ett annat program att läsa tweets från event hub. En detaljerad förklaring av Spark-strömning finns [Apache Spark-strömning översikt](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview). HDInsight ger samma direktuppspelningsfunktioner till ett Spark-kluster på Azure.
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
@@ -33,84 +29,84 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **Slutföra artikeln [Självstudier: Läs in data och köra frågor i ett Apache Spark-kluster i Azure HDInsight](./apache-spark-load-data-run-query.md)**.
+* **Slutför artikeln [Självstudie: Läsa in data och köra frågor på ett Apache Spark-kluster i Azure HDInsight](./apache-spark-load-data-run-query.md)**.
 
 ## <a name="create-a-twitter-application"></a>Skapa ett Twitter-program
 
-Om du vill få en dataström med tweets skapar du ett program i Twitter. Följ anvisningarna skapa ett Twitter-program och anteckna värdena som du behöver den här kursen.
+Om du vill få en dataström med tweets skapar du ett program i Twitter. Följ anvisningarna skapa ett Twitter-program och anteckna värdena som du måste slutföra den här självstudien.
 
-1. Bläddra till [Twitter programhantering](https://apps.twitter.com/).
+1. Bläddra till [Twitter-programhantering](https://apps.twitter.com/).
 2. Välj **Skapa ny App**.
 3. Ange följande värden:
 
-    - Namn: Ange namnet på programmet. Det värde som används för den här kursen är **HDISparkStreamApp0423**. Det här namnet måste vara ett unikt namn.
-    - Beskrivning: Ange en kort beskrivning av programmet. Det värde som används för den här kursen är **en enkel HDInsight Spark streaming programmet**.
-    - Webbplats: Ange programmets webbplats. Det behöver inte vara en giltig webbplats.  Det värde som används för den här kursen är **http://www.contoso.com**.
-    - Motringning URL: du kan lämna det tomt.
+    - Namn: Ange namnet på programmet. Det värde som används för den här självstudien är **HDISparkStreamApp0423**. Det här namnet måste vara ett unikt namn.
+    - Beskrivning: Ange en kort beskrivning av programmet. Det värde som används för den här självstudien är **en enkel HDInsight Spark-strömning programmet**.
+    - Webbplats: Ange programmets webbplats. Det behöver inte vara en giltig webbplats.  Det värde som används för den här självstudien är **http://www.contoso.com**.
+    - Motringnings-URL: du kan lämna det tomt.
 
-4. Välj **Ja, jag har läst och accepterar avtalet Twitter Developer**, och välj sedan **skapa programmet Twitter**.
-5. Välj den **nycklar och åtkomst-token** fliken.
-6. Välj **skapa åtkomst-token** i slutet av sidan.
-7. Skriv ned följande värden från sidan.  Du behöver dessa värden senare under kursen:
+4. Välj **Ja, jag har läst och samtycker till Twitter-Developer-avtalet**, och välj sedan **skapa ditt Twitter-program**.
+5. Välj den **nycklar och åtkomsttoken** fliken.
+6. Välj **Skapa min åtkomsttoken** i slutet av sidan.
+7. Anteckna följande värden på sidan.  Du behöver dessa värden senare i självstudien:
 
-    - **Konsumentnyckel (API-nyckel)**    
-    - **Konsumenten hemligheten (API hemliga)**  
-    - **Åtkomst-Token**
-    - **Åtkomst-Token hemlighet**   
+    - **Använda nyckeln (API-nyckel)**    
+    - **Konsumenthemligheten (API-hemlighet)**  
+    - **Åtkomsttoken**
+    - **Åtkomsttokenhemligheten**   
 
 ## <a name="create-an-azure-event-hub"></a>Skapa en Azure-händelsehubb
 
 Du kan använda den här händelsehubben för att lagra tweets.
 
 1. Logga in på [Azure Portal](https://ms.portal.azure.com).
-2. Välj **skapar du en resurs** på upp till vänster på skärmen.
-3. Välj **Sakernas Internet**och välj **Händelsehubbar**.
+2. Välj **skapa en resurs** på upp till vänster på skärmen.
+3. Välj **Internet of Things**och välj sedan **Händelsehubbar**.
 
-    ![Skapa händelsehubb för Spark streaming exempel](./media/apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "skapa händelsehubb för Spark streaming exempel")
-4. Ange följande värden för det nya event hub namnområdet:
+    ![Skapa händelsehubb för Spark-strömning exempel](./media/apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "skapa händelsehubb för Spark-strömning exempel")
+4. Ange följande värden för det nya namnområdet för händelsehubb:
 
-    - **Namnet**: Ange ett namn för händelsehubben.  Det värde som används för den här kursen är **myeventhubns20180403**.
-    - **Priset nivå**: Välj **Standard**.
-    - **Resursgruppen**: har du möjlighet att skapa en ny eller välj resursgruppen för Spark-klustret. 
-    - **Plats**: Välj samma **plats** som Apache Spark-kluster i HDInsight för att minska latensen och kostnader.
+    - **Namn på**: Ange ett namn för event hub.  Det värde som används för den här självstudien är **myeventhubns20180403**.
+    - **Prisnivån**: Välj **Standard**.
+    - **Resursgrupp**: har du möjlighet att skapa en ny eller Välj resursgrupp för Spark-klustret. 
+    - **Plats**: Välj samma **plats** som Apache Spark-kluster i HDInsight för att minska fördröjningar och kostnader.
 
-    ![Ange ett händelsenamn hubb Spark streaming exempel](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "ger en händelsehubbens namn Spark streaming exempel")
+    ![Ange ett namn på händelsehubb för Spark-strömning exempel](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "ger en event hub-namn för Spark-strömning exempel")
 5. Välj **skapa** att skapa namnområdet.
 
-6. Öppna hubb händelsenamnrymden med hjälp av följande anvisningar:
+6. Öppna händelsehubbens namnområde med hjälp av följande anvisningar:
 
-    1. Portal, Välj **alla tjänster**.
+    1. Från portalen, väljer **alla tjänster**.
     2. I filterrutan anger **händelsehubbar**.
-    3. Dubbelklicka på namnområdet som du skapade.
-    4. Välj **+ Händelsehubb**.
+    3. Dubbelklicka på det namnområde du skapade.
+    4. Välj **+ Event Hub**.
 
-6. Markera den nyligen skapade namnområden i listan Händelsehubbar namnområde.      
+6. Välj det nyligen skapade namnområdet i listan över Event Hubs-namnområde.      
 5. Välj **Händelsehubbar**, och välj sedan **+ Event Hub** att skapa en ny Händelsehubb.
   
 
 6. Ange följande värden:
 
-    - Namn: Namnge din Event Hub.
-    - Partitions-antal: 10
-    - Meddelande kvarhållning: 1. 
+    - Namn: Ge ett namn för din Händelsehubb.
+    - Partitionera antal: 10
+    - Kvarhållning av meddelanden i: 1. 
    
-    ![Ange händelseinformationen hubb för Spark streaming exempel](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "ange händelseinformationen hubb för Spark streaming exempel")
+    ![Ange event hub-information för Spark-strömning exempel](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "ange event hub-information för Spark-strömning exempel")
 
 7. Välj **Skapa**.
-8. Välj **principer för delad åtkomst** för namnområde (Observera inte är principer för händelsen hubb delad åtkomst) och välj sedan **RootManageSharedAccessKey**.
+8. Välj **principer för delad åtkomst** för namnområde (Observera att det inte är åtkomstprinciper för event hub delad) och välj sedan **RootManageSharedAccessKey**.
     
-     ![Ange Event Hub principer för Spark streaming exempel](./media/apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "ange Event Hub principer för Spark streaming exempel")
+     ![Ange Event Hub-principer för Spark streaming exempel](./media/apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "ange Event Hub-principer för Spark streaming exempel")
 
-9. Spara värdena för **primärnyckel** och **sträng-primära anslutningsnyckel** att använda senare under kursen.
+9. Spara värdena för **primärnyckel** och **anslutningssträng – primär nyckel** att använda senare i självstudien.
 
-     ![Visa Event Hub princip nycklar för Spark streaming exempel](./media/apache-spark-eventhub-streaming/hdinsight-view-event-hub-policy-keys.png "View Event Hub princip nycklar för Spark streaming exempel")
+     ![Visa Event Hub principnycklar för Spark streaming exempel](./media/apache-spark-eventhub-streaming/hdinsight-view-event-hub-policy-keys.png "visa Event Hub-principen nycklar för Spark direktuppspelade exempel")
 
 
-## <a name="send-tweets-to-the-event-hub"></a>Skicka tweets till händelsehubben
+## <a name="send-tweets-to-the-event-hub"></a>Skicka tweets till event hub
 
-Du måste skapa en Jupyter-anteckningsbok och ge den namnet **SendTweetsToEventHub**. 
+Du behöver skapa en Jupyter-anteckningsbok och ge den namnet **SendTweetsToEventHub**. 
 
-1. Kör följande kod för att lägga till externa Maven-bibliotek:
+1. Kör följande kod för att lägga till de externa Maven-bibliotek:
 
     ```
     %%configure
@@ -186,11 +182,11 @@ Du måste skapa en Jupyter-anteckningsbok och ge den namnet **SendTweetsToEventH
     eventHubClient.get().close()
     ```
 
-3. Öppna händelsehubben i Azure-portalen.  På **översikt**, bör du se vissa diagram som visar meddelanden som skickas till händelsehubben.
+3. Öppna event hub i Azure-portalen.  På **översikt**, du kommer att se vissa diagram som visar meddelandena som skickas till händelsehubben.
 
-## <a name="read-tweets-from-the-event-hub"></a>Läs tweets från event hub
+## <a name="read-tweets-from-the-event-hub"></a>Läsa tweets från event hub
 
-Du måste skapa en annan Jupyter-anteckningsbok och ge den namnet **ReadTweetsFromEventHub**. 
+Du behöver skapa en annan Jupyter-anteckningsbok och ge den namnet **ReadTweetsFromEventHub**. 
 
 1. Kör följande kod för att lägga till ett externt Maven-bibliotek:
 
@@ -198,7 +194,7 @@ Du måste skapa en annan Jupyter-anteckningsbok och ge den namnet **ReadTweetsFr
     %%configure -f
     {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.2.0"}}
     ```
-2. Kör följande kod för att läsa tweets från din händelsehubb:
+2. Kör följande kod för att läsa tweets från event hub:
 
     ```
     import org.apache.spark.eventhubs._
@@ -208,7 +204,7 @@ Du måste skapa en annan Jupyter-anteckningsbok och ge den namnet **ReadTweetsFr
     val eventHubNSConnStr = "<Event hub namespace connection string>"
     val connStr = ConnectionStringBuilder(eventHubNSConnStr).setEventHubName(eventHubName).build 
     
-    val customEventhubParameters = EventHubsConf(connectionString).setMaxEventsPerTrigger(5)
+    val customEventhubParameters = EventHubsConf(connStr).setMaxEventsPerTrigger(5)
     val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
     //incomingStream.printSchema    
     
@@ -226,22 +222,22 @@ Du måste skapa en annan Jupyter-anteckningsbok och ge den namnet **ReadTweetsFr
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Med HDInsight lagras dina data i Azure Storage eller Azure Data Lake Store, så kan du ta bort ett kluster när den inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används. Om du planerar att arbeta med i nästa kurs direkt kanske du vill behålla klustret.
+I HDInsight lagras dina data i Azure Storage eller Azure Data Lake Store för att du på ett säkert sätt ska kunna ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används. Om du tänker arbeta med nästa självstudie direkt kan du behålla klustret.
 
-Öppna klustret i Azure-portalen och välj **ta bort**.
+Öppna klustret i Azure Portal och välj **Ta bort**.
 
-![Ta bort HDInsight-kluster](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "ta bort HDInsight-kluster")
+![Ta bort HDInsight-kluster](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Ta bort HDInsight-kluster")
 
-Du kan också välja resursgruppens namn att öppna sidan resurs grupp och välj sedan **ta bort resursgruppen**. Genom att ta bort resursgruppen bort du både HDInsight Spark-kluster och standardkontot för lagring.
+Du kan också välja resursgruppnamnet för att öppna resursgruppsidan. Välj sedan **Ta bort resursgrupp**. När resursgruppen tas bort, tas även HDInsight Spark-klustret och standardkontot för lagring bort.
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudiekursen lärde du dig att:
 
-* Läsa meddelande från en händelsehubb.
-Gå vidare till nästa artikel för att se att du kan skapa machine learning-program. 
+* Läsa meddelande från en event hub.
+Gå vidare till nästa artikel för att se du kan skapa en machine learning-program. 
 
 > [!div class="nextstepaction"]
-> [Skapa machine learning-program](./apache-spark-ipython-notebook-machine-learning.md)
+> [Skapa en machine learning-program](./apache-spark-ipython-notebook-machine-learning.md)
 
 

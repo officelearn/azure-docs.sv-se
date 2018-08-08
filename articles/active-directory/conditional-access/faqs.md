@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: f23c7f7006c52eb3dfc254080c4f836a65177043
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: a5070bf3a243993739875b42ebc562e6b017c3c4
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39582088"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598287"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Azure Active Directory villkorsstyrd åtkomst vanliga frågor och svar
 
 ## <a name="which-applications-work-with-conditional-access-policies"></a>Vilka program fungerar med principer för villkorlig åtkomst?
 
-Information om program som fungerar med principer för villkorlig åtkomst finns i [program och webbläsare som använder regler för villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access-technical-reference.md).
+Information om program som fungerar med principer för villkorlig åtkomst finns i [program och webbläsare som använder regler för villkorlig åtkomst i Azure Active Directory](technical-reference.md).
 
 ## <a name="are-conditional-access-policies-enforced-for-b2b-collaboration-and-guest-users"></a>Upprätthålls principer för villkorlig åtkomst för B2B-samarbete och gästanvändare?
 

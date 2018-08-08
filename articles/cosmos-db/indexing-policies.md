@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: ae2c6b6a53c6a195bbc79a5776161aab07e42f3d
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 79585195cf95e2074a1c455c82faa500af20218a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215272"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618775"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Hur fungerar dataindexeringen i Azure Cosmos DB?
 
@@ -323,9 +323,9 @@ I Azure Cosmos DB kan du ändra till indexprincip i en samling i farten. En änd
 
 ![Så fungerar indexering – Azure Cosmos DB onlineindexgenerering omvandlingar](./media/indexing-policies/index-transformations.png)
 
-Index transformeringar görs online. Det innebär att dokument som indexerats per gamla principen omvandlas effektivt per den nya principen *utan att påverka tillgängligheten för skrivning eller det etablerade dataflödet* i samlingen. Konsekvenskontroll av läsa och skriva åtgärder som utförs med hjälp av REST-API, SDK: er, eller inifrån lagrade procedurer och utlösare påverkas inte under index omvandling. Det finns ingen prestandaförsämring eller driftstopp för dina appar när du gör en indexeringsprincip ändra.
+Index transformeringar görs online. Det innebär att dokument som indexerats per gamla principen omvandlas effektivt per den nya principen *utan att påverka tillgängligheten för skrivning eller det etablerade dataflödet* i samlingen. Konsekvenskontroll av läsa och skriva åtgärder som utförs med hjälp av REST-API, SDK: er, eller inifrån lagrade procedurer och utlösare påverkas inte under index omvandling. 
 
-Men under den tid som index omvandlingen är förloppet är frågorna konsekvent oavsett indexering läge är konfigurerad (konsekvens eller Lazy). Detta gäller även för frågor från alla gränssnitt: REST API, SDK: er, och inifrån lagrade procedurer och utlösare. Precis som med Lazy indexering, utförs omvandling av indexet asynkront i bakgrunden på replikerna med hjälp av ledig resurserna som är tillgängliga för en specifik replik. 
+Ändra indexeringsprincip är en asynkron åtgärd och hur lång tid att slutföra åtgärden beror på antal dokument, etablerade ru: er och storleken på dokument. Medan omindexering pågår, returnerar frågan inte alla matchande resultat om frågan använder det index som håller på att ändras och frågor som inte returnerar eventuella fel/fel. Medan omindexering pågår, är frågorna konsekvent oavsett indexering läge är konfigurerad (konsekvens eller Lazy). När indexet fortsätter omvandlingen är klar, du att se enhetliga resultat. Detta gäller även för frågor från alla gränssnitt: REST API, SDK: er, och inifrån lagrade procedurer och utlösare. Precis som med Lazy indexering, utförs omvandling av indexet asynkront i bakgrunden på replikerna med hjälp av ledig resurserna som är tillgängliga för en specifik replik. 
 
 Index transformeringar görs också på plats. Azure Cosmos DB ha inte två kopior av index och Byt ut gamla indexet med den nya. Det innebär att inga ytterligare diskutrymme krävs eller konsumeras i dina samlingar medan index omvandlingar.
 

@@ -1,35 +1,30 @@
 ---
-title: Skapa rekommendationer med hjälp av Mahout HDInsight från PowerShell - Azure | Microsoft Docs
-description: Lär dig hur du använder Apache Mahout-machine learning-biblioteket för att generera filmrekommendationer med HDInsight (Hadoop) från ett PowerShell-skript som körs på klienten.
+title: Skapa rekommendationer med Mahout HDInsight från PowerShell - Azure
+description: Lär dig hur du använder Apache Mahout-machine learning-biblioteket för att skapa filmrekommendationer med HDInsight (Hadoop) från ett PowerShell-skript som körs på klienten.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 07b57208-32aa-4e59-900a-6c934fa1b7a7
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: 49a092ee23b79c483aa7bbd8b3d5150e909b6884
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: jasonh
+ms.openlocfilehash: 587ea8d9082a696853d8e25a36d9536c762d0582
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32177360"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599997"
 ---
-# <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>Generera filmrekommendationer med hjälp av Apache Mahout med Hadoop i HDInsight (PowerShell)
+# <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>Skapa filmrekommendationer med hjälp av Apache Mahout med Hadoop i HDInsight (PowerShell)
 
 [!INCLUDE [mahout-selector](../../includes/hdinsight-selector-mahout.md)]
 
-Lär dig hur du använder den [Apache Mahout](http://mahout.apache.org) machine learning-biblioteket med Azure HDInsight för att generera filmrekommendationer. Exemplet i det här dokumentet använder Azure PowerShell för att köra Mahout jobb.
+Lär dig hur du använder den [Apache Mahout](http://mahout.apache.org) machine learning-biblioteket med Azure HDInsight för att generera filmrekommendationer. I exemplet i det här dokumentet används Azure PowerShell för att köra Mahout jobb.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Ett Linux-baserat HDInsight-kluster. Information om hur du skapar en finns [komma igång med Linux-baserade Hadoop i HDInsight][getstarted].
+* Ett Linux-baserade HDInsight-kluster. Information om hur du skapar en finns i [komma igång med Linux-baserat Hadoop i HDInsight][getstarted].
 
     > [!IMPORTANT]
     > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -39,27 +34,27 @@ Lär dig hur du använder den [Apache Mahout](http://mahout.apache.org) machine 
 ## <a name="recommendations"></a>Skapa rekommendationer med hjälp av Azure PowerShell
 
 > [!WARNING]
-> Jobbet i det här avsnittet fungerar med hjälp av Azure PowerShell. Många av de klasser som medföljer Mahout fungerar inte för närvarande med Azure PowerShell. En lista med klasser som inte fungerar med Azure PowerShell finns i [felsökning](#troubleshooting) avsnitt.
+> Jobbet i det här avsnittet fungerar med hjälp av Azure PowerShell. Många av de klasser som medföljer Mahout fungerar inte för närvarande med Azure PowerShell. En lista över klasser som inte fungerar med Azure PowerShell finns i den [felsökning](#troubleshooting) avsnittet.
 >
-> Ett exempel på hur du använder SSH för att ansluta till HDInsight och kör Mahout exempel direkt på klustret finns [generera filmrekommendationer med hjälp av Mahout och HDInsight (SSH)](hadoop/apache-hadoop-mahout-linux-mac.md).
+> Ett exempel på hur du använder SSH för att ansluta till HDInsight och kör Mahout exempel direkt i klustret finns i [skapa filmrekommendationer med Mahout och HDInsight (SSH)](hadoop/apache-hadoop-mahout-linux-mac.md).
 
-En av de funktioner som tillhandahålls av Mahout är en rekommendation motor. Den här motorn accepterar data i formatet `userID`, `itemId`, och `prefValue` (användare preferens för artikeln). Mahout använder informationen för att avgöra användare med liknande objekt inställningar som kan användas för att ge rekommendationer.
+En av de funktioner som tillhandahålls av Mahout är en rekommendationsmotor. Den här motorn accepterar data i formatet `userID`, `itemId`, och `prefValue` (användare preferens för objektet). Mahout använder informationen för att fastställa användare med liknande objekt inställningar som kan användas för att göra rekommendationer.
 
-Följande exempel är en förenklad genomgång av hur rekommendationen processen fungerar:
+I följande exempel är en förenklad genomgång av hur rekommendationen processen fungerar:
 
-* **Samtidigt förekomsten**: Joe Alice och Bob alla tyckte *Star krig*, *i Empire strejker tillbaka*, och *tillbaka Jedi*. Mahout anger att användare också som en av dessa filmer som de andra två.
+* **Delad förekomsten**: Joe Alice och Bob alla gillade *Star Wars*, *The Empire under katastrofsituationer tillbaka*, och *avkastningen på Jedi*. Mahout anger att användare som gillar något av dessa filmer också som de andra två.
 
-* **Samtidigt förekomsten**: Bob och Alice också tyckte *i Phantom hot*, *Attack av klonerna*, och *Revenge av Sith*. Mahout anger att användare som även gillade föregående tre filmer som dessa filmer.
+* **Delad förekomsten**: Bob och Alice också tyckte *The Phantom hot*, *Attack av klonerna*, och *Revenge av Sith*. Mahout anger att användare som gillade föregående tre filmer också som dessa filmer.
 
-* **Likhet rekommendation**: Joe eftersom tyckte om de första tre filmerna, Mahout tittar på filmer som andra med liknande inställningar tyckte om, men Johan har inte bevakade (tyckte/klassificerad). I det här fallet Mahout rekommenderar *i Phantom hot*, *Attack av klonerna*, och *Revenge av Sith*.
+* **Likhet rekommendation**: eftersom Joe gillade tre första filmer, Mahout tittar på filmer den andra med liknande inställningar som gillade, men Josef har inte sett (gillade/klassificerad). I det här fallet Mahout rekommenderar *The Phantom hot*, *Attack av klonerna*, och *Revenge av Sith*.
 
 ### <a name="understanding-the-data"></a>Förstå data
 
-[GroupLens Research] [ movielens] innehåller klassificering av data för filmer i ett format som är kompatibel med Mahout. Informationen är tillgänglig i standard lagringsutrymme för klustret på `/HdiSamples/HdiSamples/MahoutMovieData`.
+[GroupLens Research] [ movielens] tillhandahåller data för klassificering för filmer i ett format som är kompatibel med Mahout. Informationen är tillgänglig på standardlagringen för klustret på `/HdiSamples/HdiSamples/MahoutMovieData`.
 
-Det finns två filer, `moviedb.txt` (information om filmer) och `user-ratings.txt`. Den `user-ratings.txt` filen som ska användas vid analys. Den `moviedb.txt` filen används för att tillhandahålla användarvänliga text när du visar resultatet av analysen.
+Det finns två filer, `moviedb.txt` (information om filmer) och `user-ratings.txt`. Den `user-ratings.txt` filen ska användas vid analys. Den `moviedb.txt` filen används för att tillhandahålla användarvänliga text när du visar resultatet av analysen.
 
-Data i ratings.txt användare har en struktur med `userID`, `movieID`, `userRating`, och `timestamp`, som anger hur mycket en film klassificerats som varje användare. Här är ett exempel på data:
+Data i användaren ratings.txt har en struktur för `userID`, `movieID`, `userRating`, och `timestamp`, som anger hur varje användare väl en film. Här är ett exempel på data:
 
     196    242    3    881250949
     186    302    3    891717742
@@ -69,36 +64,36 @@ Data i ratings.txt användare har en struktur med `userID`, `movieID`, `userRati
 
 ### <a name="run-the-job"></a>Kör jobbet
 
-Använd följande Windows PowerShell-skript för att köra ett jobb som använder Mahout rekommendation motor med filmdata:
+Använd följande Windows PowerShell-skript för att köra ett jobb som använder Mahout-rekommendationsmotor med Filminformationen:
 
 > [!NOTE]
-> Den här filen efterfrågas information som används för att ansluta till ditt HDInsight-kluster och köra jobb. Det kan ta flera minuter att slutföra och hämta filen output.txt-jobb.
+> Den här filen efterfrågas information som används för att ansluta till ditt HDInsight-kluster och köra jobb. Det kan ta flera minuter att slutföra och ladda ned filen output.txt-jobb.
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/mahout/use-mahout.ps1?range=5-98)]
 
 > [!NOTE]
-> Mahout jobb ta inte bort tillfälliga data som har skapats under bearbetning av jobbet. Den `--tempDir` parameter har angetts i exempel jobbet att isolera de temporära filerna i en specifik katalog.
+> Mahout jobb ta inte bort tillfälliga data som skapas vid bearbetning av jobbet. Den `--tempDir` parameter har angetts i exempel-jobbet för att isolera de temporära filerna till en viss katalog.
 
-Jobbet Mahout returnerar inga utdata STDOUT. I stället lagras den i den angivna målkatalogen som **del-r-00000**. Skriptet laddar ned filen till **output.txt** i den aktuella katalogen på din arbetsstation.
+Mahout jobbet returnerar inte utdata till STDOUT. I stället den lagrar den i den angivna katalogen som **del-r-00000**. Skriptet hämtar filen till **output.txt** i den aktuella katalogen på din arbetsstation.
 
-Följande är ett exempel på innehållet i den här filen:
+Följande text är ett exempel på innehållet i den här filen:
 
     1    [234:5.0,347:5.0,237:5.0,47:5.0,282:5.0,275:5.0,88:5.0,515:5.0,514:5.0,121:5.0]
     2    [282:5.0,210:5.0,237:5.0,234:5.0,347:5.0,121:5.0,258:5.0,515:5.0,462:5.0,79:5.0]
     3    [284:5.0,285:4.828125,508:4.7543354,845:4.75,319:4.705128,124:4.7045455,150:4.6938777,311:4.6769233,248:4.65625,272:4.649266]
     4    [690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
 
-Den första kolumnen är den `userID`. Värdena i ' [' och ']' är `movieId`:`recommendationScore`.
+Den första kolumnen är den `userID`. De värden som finns i ' [' och ']' är `movieId`:`recommendationScore`.
 
-Skriptet också hämtar den `moviedb.txt` och `user-ratings.txt` filer som behövs för att formatera utdata för att lättare att läsa.
+Skriptet kan även laddas ned den `moviedb.txt` och `user-ratings.txt` filer som behövs för att formatera utdata att vara mer lättlästa.
 
 ### <a name="view-the-output"></a>Visa utdata
 
-Även om genererade utdata kan vara OK för användning i ett program, är det inte användarvänliga. Den `moviedb.txt` från servern kan användas för att matcha den `movieId` till ett film namn. Använd följande PowerShell-skript för att visa rekommendationer med film namn:
+Även om den genererade utdatan kan vara OK för användning i ett program, är det inte användarvänliga. Den `moviedb.txt` från servern kan användas för att lösa den `movieId` till ett film-namn. Använd följande PowerShell-skript för att visa rekommendationer med film namn:
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/mahout/use-mahout.ps1?range=106-180)]
 
-Använd följande kommando för att visa rekommendationerna i ett användarvänligt format: 
+Använd följande kommando för att visa rekommendationer i ett användarvänligt format: 
 
 ```powershell
 .\show-recommendation.ps1 -userId 4 -userDataFile .\user-ratings.txt -movieFile .\moviedb.txt -recommendationFile .\output.txt
@@ -139,9 +134,9 @@ De utdata som genereras liknar följande text:
 
 ### <a name="cannot-overwrite-files"></a>Det går inte att skriva över filer
 
-Mahout jobb vill inte ta bort temporära filer som skapades under bearbetning. Dessutom Skriv jobben inte över befintliga utdatafilen.
+Mahout jobb du inte rensa för tillfälliga filer som skapades under bearbetning. Dessutom jobben inte över befintliga utdatafilen.
 
-Om du vill undvika fel när Mahout jobb som körs, att ta bort temporära och utgående filer mellan körs. Använd följande PowerShell-skript för att ta bort de filer som skapats av tidigare skript i det här dokumentet:
+Om du vill undvika fel vid Mahout jobb som körs, att ta bort tillfälliga och utgående filer mellan körningar. Använd följande PowerShell-skript för att ta bort filer som skapas av de tidigare skript i det här dokumentet:
 
 ```powershell
 # Login to your Azure subscription
@@ -188,7 +183,7 @@ foreach($blob in $blobs)
 
 ### <a name="nopowershell"></a>Klasser som inte fungerar med Azure PowerShell
 
-Mahout jobb som använder följande klasser returnera olika felmeddelanden när används från Windows PowerShell:
+Mahout-jobb som använder följande klasser returnera olika felmeddelanden när de används från Windows PowerShell:
 
 * org.apache.mahout.utils.clustering.ClusterDumper
 * org.apache.mahout.utils.SequenceFileDumper
@@ -207,11 +202,11 @@ Mahout jobb som använder följande klasser returnera olika felmeddelanden när 
 * org.apache.mahout.classifier.sequencelearning.hmm.RandomSequenceGenerator
 * org.apache.mahout.classifier.df.tools.Describe
 
-För att köra jobb som använder dessa klasser, ansluta till HDInsight-klustret med SSH och köra jobb från kommandoraden. Ett exempel för att använda SSH för att köra Mahout jobb finns [generera filmrekommendationer med hjälp av Mahout och HDInsight (SSH)](hadoop/apache-hadoop-mahout-linux-mac.md).
+Om du vill köra jobb som använder de här klasserna, ansluta till HDInsight-klustret med SSH och kör jobb från kommandoraden. Ett exempel på hur du använder SSH för att köra Mahout jobb finns i [skapa filmrekommendationer med Mahout och HDInsight (SSH)](hadoop/apache-hadoop-mahout-linux-mac.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du använder Mahout, identifiera andra sätt att arbeta med data i HDInsight:
+Nu när du har lärt dig hur du använder Mahout kan upptäcka andra sätt att arbeta med data i HDInsight:
 
 * [Hive med HDInsight](hadoop/hdinsight-use-hive.md)
 * [Pig med HDInsight](hadoop/hdinsight-use-pig.md)

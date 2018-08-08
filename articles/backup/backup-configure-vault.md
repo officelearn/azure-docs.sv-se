@@ -1,31 +1,31 @@
 ---
-title: Använda Azure Backup-agenten för att säkerhetskopiera filer och mappar
-description: Använda Microsoft Azure Backup-agenten för säkerhetskopiering av Windows-filer och mappar till Azure. Skapa ett Recovery Services-valv, installera säkerhetskopieringsagenten, definiera princip för säkerhetskopiering och kör den första säkerhetskopian på filer och mappar.
+title: Säkerhetskopiera filer och mappar med hjälp av Azure Backup-agenten
+description: Säkerhetskopiera Windows-filer och mappar till Azure med hjälp av Microsoft Azure Backup-agenten. Skapa ett Recovery Services-valv, installera säkerhetskopieringsagenten, definiera principen för säkerhetskopiering och kör den första säkerhetskopieringen för filer och mappar.
 services: backup
 author: markgalioto
 manager: carmonm
 keywords: säkerhetskopieringsvalvet; Säkerhetskopiera en Windows-server. Säkerhetskopiera windows;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/5/2018
+ms.date: 8/5/2018
 ms.author: markgal
-ms.openlocfilehash: 583149ed892f82af8687d698cabe1a876aaaa523
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fd988e2209d8a6547ec30edb4ee62fc8ff2c803d
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606270"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619963"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Säkerhetskopiera en Windows-server eller -klient till Azure med hjälp av Resource Manager-distributionsmodellen
-Den här artikeln förklarar hur du säkerhetskopierar Windows Server (eller Windows-klient) filer och mappar till Azure med Azure Backup med hjälp av Resource Manager-distributionsmodellen.
+Den här artikeln förklarar hur du säkerhetskopierar Windows Server (eller Windows-klienten) filer och mappar till Azure med Azure Backup med hjälp av Resource Manager-distributionsmodellen.
 
 ![Säkerhetskopieringsprocessen steg](./media/backup-configure-vault/initial-backup-process.png)
 
 ## <a name="before-you-start"></a>Innan du börjar
-Om du vill säkerhetskopiera en server eller klient till Azure, behöver du ett Azure-konto. Om du inte har någon, kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/) på bara några minuter.
+Om du vill säkerhetskopiera en server eller klient till Azure, behöver du ett Azure-konto. Om du inte har någon kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/) på bara några minuter.
 
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
-Recovery Services-valvet är en entitet som lagrar alla säkerhetskopior och återställningspunkter som du skapar över tid. Recovery Services-valvet innehåller också den säkerhetskopieringsprincip som tillämpas på skyddade filer och mappar. När du skapar ett Recovery Services-valv, bör du också välja det lämpliga lagringsalternativet för redundans.
+Ett Recovery Services-valv är en entitet som lagrar alla säkerhetskopior och återställningspunkter som du skapar med tiden. Recovery Services-valvet innehåller också säkerhetskopieringspolicyn som tillämpas på de skyddade filer och mappar. När du skapar ett Recovery Services-valv, bör du också välja alternativet för lämpliga redundans.
 
 ### <a name="to-create-a-recovery-services-vault"></a>Så här skapar du ett Recovery Services-valv
 1. Om du inte redan gjort det loggar du in på [Azure-portalen](https://portal.azure.com/) med din Azure-prenumeration.
@@ -66,7 +66,7 @@ Recovery Services-valvet är en entitet som lagrar alla säkerhetskopior och åt
   När du ser valvet i listan över Recovery Services-valv kan du ange lagringsredundansen.
 
 
-### <a name="set-storage-redundancy"></a>Ange lagring redundans
+### <a name="set-storage-redundancy"></a>Ange lagringsredundans
 Första gången du skapar ett Recovery Services-valv bestämmer du hur lagringen ska replikeras.
 
 1. På bladet **Recovery Services-valv** klickar du på det nya valvet.
@@ -91,7 +91,7 @@ Första gången du skapar ett Recovery Services-valv bestämmer du hur lagringen
 
   Valvet använder geo-redundant lagring som standard. Om du använder Azure som primär slutpunkt för lagring av säkerhetskopior fortsätter du att använda **geo-redundant** lagring. Om du inte använder Azure som en slutpunkt för primär lagring av säkerhetskopior väljer du **Lokalt redundant**, vilket minskar kostnaderna för Azure-lagring. Läs mer om alternativen för [geo-redundant](../storage/common/storage-redundancy-grs.md) och [lokalt redundant](../storage/common/storage-redundancy-lrs.md) i denna [översikt av lagringsredundans](../storage/common/storage-redundancy.md).
 
-Nu när du har skapat ett valv, förbereda infrastrukturen för att säkerhetskopiera filer och mappar genom att hämta och installera Microsoft Azure Recovery Services-agent, ladda ned valvautentiseringsuppgifter och sedan använda dessa autentiseringsuppgifter för att registrera agenten med valvet.
+Nu när du har skapat ett valv kan förbereda infrastrukturen för att säkerhetskopiera filer och mappar genom att hämta och installera Microsoft Azure Recovery Services-agenten, laddar ned valvautentiseringsuppgifter och sedan använda dessa autentiseringsuppgifter för att registrera agenten med den valvet.
 
 ## <a name="configure-the-vault"></a>Konfigurera valvet
 
@@ -99,7 +99,7 @@ Nu när du har skapat ett valv, förbereda infrastrukturen för att säkerhetsko
 
   ![Öppna bladet för säkerhetskopieringsmål](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
 
-  Bladet **Säkerhetskopieringsmål** öppnas. Om Recovery Services-valvet har konfigurerats tidigare, kommer **säkerhetskopiering målet** blad öppnas när du klickar på **säkerhetskopiering** valvet bladet på Recovery Services.
+  Bladet **Säkerhetskopieringsmål** öppnas. Om Recovery Services-valvet har konfigurerats tidigare, kommer **säkerhetskopieringsmål** blad öppnas när du klickar på **Backup** på Recovery Services-valv bladet.
 
   ![Öppna bladet för säkerhetskopieringsmål](./media/backup-try-azure-backup-in-10-mins/backup-goal-blade.png)
 
@@ -171,7 +171,7 @@ Nu installeras agenten och datorn registreras i valvet. Nu kan du konfigurera oc
 
 ## <a name="network-and-connectivity-requirements"></a>Nätverks- och anslutningskrav
 
-Om din dator/proxy har begränsad tillgång till internet, kontrollerar du att brandväggen på datorn/proxy har konfigurerats för att tillåta följande webbadresser: <br>
+Om din dator/proxy har begränsad tillgång till internet, kontrollerar du att brandväggsinställningarna på dator/proxy har konfigurerats för att tillåta följande webbadresser: <br>
     1. www.msftncsi.com
     2. *.Microsoft.com
     3. *.WindowsAzure.com
@@ -180,24 +180,24 @@ Om din dator/proxy har begränsad tillgång till internet, kontrollerar du att b
 
 
 ## <a name="create-the-backup-policy"></a>Skapa säkerhetskopieringsprincipen
-Principen för säkerhetskopiering är schemat när återställningspunkter tas och hur lång tid som återställningspunkterna bevaras. Använda Microsoft Azure Backup-agenten för att skapa säkerhetskopieringsprincip för filer och mappar.
+Säkerhetskopieringspolicyn är schemat när återställningspunkter skapas och hur lång tid som återställningspunkterna bevaras. Använd Microsoft Azure Backup-agenten för att skapa principen för säkerhetskopiering för filer och mappar.
 
-### <a name="to-create-a-backup-schedule"></a>Så här skapar du en schemalagd säkerhetskopiering
+### <a name="to-create-a-backup-schedule"></a>Skapa ett schema för säkerhetskopiering
 1. Öppna Microsoft Azure Backup-agenten. Du hittar den genom att söka efter **Microsoft Azure Backup** på datorn.
 
     ![Starta Azure Backup-agenten](./media/backup-configure-vault/snap-in-search.png)
-2. I Backup-agenten **åtgärder** rutan klickar du på **schemalägga säkerhetskopiering** att starta guiden Schemalägg säkerhetskopiering.
+2. I Backup-agenten **åtgärder** fönstret klickar du på **Schemalägg säkerhetskopiering** att starta guiden Schemalägg säkerhetskopiering.
 
     ![Schemalägga en Windows Server-säkerhetskopiering](./media/backup-configure-vault/schedule-first-backup.png)
 
 3. På den **komma igång** sidan i guiden Schemalägg säkerhetskopiering klickar du på **nästa**.
-4. På den **markerar objekt att säkerhetskopiera** klickar du på **Lägg till objekt**.
+4. På den **Välj objekt som ska säkerhetskopieras** klickar du på **Lägg till objekt**.
 
   Dialogrutan Välj objekt öppnas.
 
-5. Välj de filer och mappar som du vill skydda och klicka sedan på **OK**.
-6. I den **markerar objekt att säkerhetskopiera** klickar du på **nästa**.
-7. På den **ange schemat för säkerhetskopiering** anger schemat för säkerhetskopiering och klicka på **nästa**.
+5. Markera de filer och mappar som du vill skydda och klicka sedan på **OK**.
+6. I den **Välj objekt som ska säkerhetskopieras** klickar du på **nästa**.
+7. På den **Ange schema för säkerhetskopiering** anger schemat för säkerhetskopiering och klicka på **nästa**.
 
     Du kan schemalägga säkerhetskopieringar varje dag (högst tre gånger om dagen) eller varje vecka.
 
@@ -208,7 +208,7 @@ Principen för säkerhetskopiering är schemat när återställningspunkter tas 
    >
    >
 
-8. På den **Välj bevarandeprincip** väljer specifika bevarandeprinciper den för säkerhetskopia och klickar på **nästa**.
+8. På den **välja bevarandeprincip** väljer du de specifika bevarandeprinciper den för säkerhetskopian och klicka på **nästa**.
 
     Bevarandeprincipen anger hur länge där säkerhetskopian lagras. I stället för att bara ange en ”platt princip” för alla säkerhetskopieringspunkter kan du ange olika bevarandeprinciper baserat på när säkerhetskopieringen utförs. Du kan ändra de dagliga, veckovisa, månatliga och årliga bevarandeprinciperna för att uppfylla dina behov.
 9. Välj den första säkerhetskopieringstypen på sidan Välj inledande säkerhetskopieringstyp. Lämna alternativet **Automatiskt över nätverket** markerat och klicka på **Nästa**.
@@ -217,29 +217,29 @@ Principen för säkerhetskopiering är schemat när återställningspunkter tas 
 10. Läs informationen på sidan Bekräftelse och klicka sedan på **Slutför**.
 11. När guiden har skapat säkerhetskopieringsschemat klickar du på **Stäng**.
 
-### <a name="enable-network-throttling"></a>Aktivera begränsning
-Microsoft Azure Backup agent innehåller nätverksbegränsning. Begränsningskontroller hur nätverksbandbredden används när data överfördes. Den här kontrollen kan vara användbart om du behöver säkerhetskopiera data under arbetstid, men inte vill säkerhetskopieringsprocessen störa andra Internet-trafik. Begränsning gäller för att säkerhetskopiera och återställa aktiviteter.
+### <a name="enable-network-throttling"></a>Aktivera nätverksbegränsning
+Microsoft Azure Backup-agenten tillhandahåller nätverksbegränsning. Begränsningskontroller hur nätverksbandbredden används under dataöverföringar. Den här kontrollen kan vara användbart om du vill säkerhetskopiera data under arbetstid, men inte vill att säkerhetskopieringsprocessen ska störa annan Internettrafik. Begränsning gäller för att säkerhetskopiera och återställa aktiviteter.
 
 > [!NOTE]
-> Nätverksbegränsning är inte tillgänglig på Windows Server 2008 R2 SP1, Windows Server 2008 SP2 eller Windows 7 (utan servicepack). Azure Backup-nätverket begränsning funktionen aktiverar tjänstkvalitet (QoS) på det lokala operativsystemet. Även om Azure Backup kan skydda dessa operativsystem, fungerar inte versionen av QoS finns på dessa plattformar med Azure Backup nätverksbegränsning. Nätverksbegränsning kan användas på alla andra [operativsystem](backup-azure-backup-faq.md).
+> Nätverksbegränsning är inte tillgänglig på Windows Server 2008 R2 SP1, Windows Server 2008 SP2 eller Windows 7 (utan servicepack). Azure Backup-funktionen för nätverksbegränsning aktiverar tjänstkvalitet (QoS) på det lokala operativsystemet. Även om Azure Backup kan skydda dessa operativsystem, fungerar inte versionen av QoS som är tillgängliga i de här plattformarna med Azure Backup nätverksbegränsning. Nätverksbegränsning kan användas på alla andra [operativsystem som stöds](backup-azure-backup-faq.md).
 >
 >
 
-**Aktivera nätverksbegränsning av**
+**Aktivera nätverksbegränsning**
 
-1. Klicka i Microsoft Azure Backup-agenten **ändra egenskaper för**.
+1. I Microsoft Azure Backup-agenten klickar du på **ändra egenskaper för**.
 
-    ![Ändra egenskaper för](./media/backup-configure-vault/change-properties.png)
-2. På den **begränsning** väljer den **aktivera Användningsbegränsning för internetbandbredd för säkerhetskopieringsåtgärder** kryssrutan.
+    ![Ändra egenskaper](./media/backup-configure-vault/change-properties.png)
+2. På den **begränsning** fliken den **aktivera Användningsbegränsning för internetbandbredd för säkerhetskopieringsåtgärder** markerar du kryssrutan.
 
     ![Nätverksbegränsning](./media/backup-configure-vault/throttling-dialog.png)
-3. När du har aktiverat begränsning, ange tillåtna bandbredd för överföring av säkerhetskopierade data under **arbetstid** och **icke-arbetstid**.
+3. När du har aktiverat begränsning, ange tillåtna bandbredd för överföring av säkerhetskopierade data under **arbetstimmar** och **icke-arbetstid**.
 
-    Värdena bandbredd börja på 512 kilobit per sekund (Kbps) och gå upp till 1,023 megabyte per sekund (MBps). Du kan också ange början och avslutas för **arbetstid**, och vilka dagar i veckan som anses vara arbetsdagar. Timmar utanför avsedda arbete timmar anses fungerar timmar.
+    Bandbreddsvärden börjar på 512 kilobit per sekund (kbit/s) och kan gå upp till 1,023 megabyte per sekund (MBps). Du kan också ange början och avslutas för **arbetstimmar**, och vilka dagar i veckan är räknas som arbetsdagar. Timmar utanför avsedda work timmar betraktas som icke-arbete timmar.
 4. Klicka på **OK**.
 
 ### <a name="to-back-up-files-and-folders-for-the-first-time"></a>Så här säkerhetskopierar du filer och mappar för första gången
-1. Klicka på backup-agenten **Säkerhetskopiera nu** att slutföra den inledande seeding över nätverket.
+1. I backup-agenten klickar du på **Säkerhetskopiera nu** att slutföra en inledande seeding över nätverket.
 
     ![Säkerhetskopiera Windows Server nu](./media/backup-configure-vault/backup-now.png)
 2. Gå igenom inställningarna på sidan Bekräftelse som guiden Säkerhetskopiera nu ska använda för att säkerhetskopiera datorn. Klicka på **Säkerhetskopiera**.
@@ -253,7 +253,7 @@ När den första säkerhetskopieringen har slutförts visas statusen **Jobbet ha
 Om du har frågor eller om du saknar en funktion är du välkommen att [lämna feedback](http://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Nästa steg
-För ytterligare information om hur du säkerhetskopierar virtuella datorer eller andra arbetsbelastningar, se:
+Mer information om hur du säkerhetskopierar virtuella datorer eller andra arbetsbelastningar finns i:
 
 * Nu när du har säkerhetskopierat dina filer och mappar kan du [hantera dina valv och servrar](backup-azure-manage-windows-server.md).
 * Om du behöver återställa en säkerhetskopia använder du den här artikeln för att [återställa filer till en Windows-dator](backup-azure-restore-windows-server.md).

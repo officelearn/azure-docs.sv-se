@@ -1,56 +1,51 @@
 ---
-title: Felsöka och analysera Hadoop-tjänster med heap - Dumpar i Azure | Microsoft Docs
-description: Automatiskt samla in Dumpar heap för Hadoop-tjänster och placera i Azure Blob storage-konto för att felsöka och analys.
+title: Felsöka och analysera Hadoop-tjänster med heapdumpar - Azure
+description: Automatiskt samla in heapdumpar för Hadoop-tjänster och placera i Azure Blob storage-konto för felsökning och analys.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: e4ec4ebb-fd32-4668-8382-f956581485c4
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0721d20987008e5cc6370c6e853440ce93edcfa9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 484cdcb45a835a0a3b76e2c3aeca7500af7c9b7b
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31398126"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597012"
 ---
-# <a name="collect-heap-dumps-in-blob-storage-to-debug-and-analyze-hadoop-services"></a>Samla in heap Dumpar i Blob storage för att felsöka och analysera Hadoop-tjänster
+# <a name="collect-heap-dumps-in-blob-storage-to-debug-and-analyze-hadoop-services"></a>Samla in heapdumpar i Blob storage för att felsöka och analysera Hadoop-tjänster
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
-Heap Dumpar innehåller en ögonblicksbild av programmets minne, inklusive värdena för variabler vid tiden för dumpen skapades. Så att de är användbara för att diagnostisera problem som uppstår vid körning. Heap minnesdumpar kan samlas in för Hadoop-tjänster och placeras inuti Azure Blob storage-konto för en användare under HDInsightHeapDumps automatiskt /.
+Heapdumpar innehåller en ögonblicksbild av programmets minne, inklusive värdena för variabler vid tidpunkten dumpen skapades. Så att de är användbara för att diagnostisera problem som uppstår vid körning. Heapdumpar kan samlas in för Hadoop-tjänster och placeras i Azure Blob storage-konto för en användare under HDInsightHeapDumps automatiskt /.
 
-Insamling av heap Dumpar för olika tjänster måste vara aktiverat för tjänster på enskilda kluster. Standardvärdet för den här funktionen ska vara inaktiverat för ett kluster. Dessa heap minnesdumpar kan vara stora, så är det lämpligt att övervaka Blob storage-konto där de sparas när samlingen har aktiverats.
+Insamling av heap dumps för olika tjänster måste vara aktiverat för tjänster på enskilda kluster. Standard för den här funktionen är att vara inaktiverat för ett kluster. Dessa heapdumpar kan vara stora, så det är lämpligt att övervaka Blob storage-konto där de sparas när samlingen har aktiverats.
 
 > [!IMPORTANT]
-> Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Informationen i den här artikeln gäller bara för Windows-baserade HDInsight. Mer information om Linux-baserat HDInsight finns [aktivera heap Dumpar för Hadoop-tjänster på Linux-baserat HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+> Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Informationen i den här artikeln gäller endast för Windows-baserade HDInsight. Information om Linux-baserat HDInsight finns i [aktivera heapdumpar för Hadoop-tjänster på Linux-baserat HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 
 
-## <a name="eligible-services-for-heap-dumps"></a>Tjänster för heap minnesdumpar
-Du kan aktivera heap Dumpar för följande tjänster:
+## <a name="eligible-services-for-heap-dumps"></a>Berättigade tjänster för heapdumpar
+Du kan aktivera heap dumps för följande tjänster:
 
 * **hcatalog** -tempelton
-* **hive** -hiveserver2 metastore, derbyserver
+* **hive** -hiveserver2 och metaarkiv, derbyserver
 * **mapreduce** -jobhistoryserver
-* **yarn** -resurshanteraren, nodemanager, timelineserver
+* **yarn** -resourcemanager nodemanager, timelineserver
 * **hdfs** -datanode secondarynamenode, namenode
 
-## <a name="configuration-elements-that-enable-heap-dumps"></a>Konfigurationselement som möjliggör heap minnesdumpar
-Om du vill aktivera heap Dumpar för en tjänst måste du ange lämpliga konfigurationselement i avsnittet för tjänsten, som anges av **service_name**.
+## <a name="configuration-elements-that-enable-heap-dumps"></a>Konfigurationselement som aktiverar heap dumps
+Om du vill aktivera heap dumps för en tjänst måste du ange lämplig konfigurationselement i avsnittet för tjänsten, som anges med **service_name**.
 
     "javaargs.<service_name>.XX:+HeapDumpOnOutOfMemoryError" = "-XX:+HeapDumpOnOutOfMemoryError",
     "javaargs.<service_name>.XX:HeapDumpPath" = "-XX:HeapDumpPath=c:\Dumps\<service_name>_%date:~4,2%%date:~7,2%%date:~10,2%%time:~0,2%%time:~3,2%%time:~6,2%.hprof"
 
-Värdet för **service_name** kan vara någon av tjänsterna som anges här: tempelton, hiveserver2, metastore, derbyserver, jobhistoryserver, resurshanteraren, nodemanager, timelineserver, datanode secondarynamenode, eller namenode.
+Värdet för **service_name** kan vara någon av tjänsterna som anges här: tempelton, hiveserver2 och metaarkiv, derbyserver, jobhistoryserver, resourcemanager, nodemanager, timelineserver, datanode, secondarynamenode, eller namenode.
 
 ## <a name="enable-using-azure-powershell"></a>Aktivera med hjälp av Azure PowerShell
-Du kan exempelvis använda följande skript om du vill aktivera heap Dumpar med hjälp av Azure PowerShell för jobhistoryserver:
+Du kan exempelvis använda följande skript om du vill aktivera heap dumps med hjälp av Azure PowerShell för jobhistoryserver:
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
@@ -59,7 +54,7 @@ Du kan exempelvis använda följande skript om du vill aktivera heap Dumpar med 
     $MapRedConfigValues.Configuration = @{ "javaargs.jobhistoryserver.XX:+HeapDumpOnOutOfMemoryError"="-XX:+HeapDumpOnOutOfMemoryError" ; "javaargs.jobhistoryserver.XX:HeapDumpPath" = "-XX:HeapDumpPath=c:\\Dumps\\jobhistoryserver_%date:~4,2%_%date:~7,2%_%date:~10,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%.hprof" }
 
 ## <a name="enable-using-net-sdk"></a>Aktivera med hjälp av .NET SDK
-Om du vill aktivera heap Dumpar med hjälp av Azure HDInsight .NET SDK för jobhistoryserver kan du till exempel använda följande kod:
+Du kan exempelvis använda följande kod för att aktivera heap dumps med Azure HDInsight .NET SDK för jobhistoryserver:
 
     clusterInfo.MapReduceConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("javaargs.jobhistoryserver.XX:+HeapDumpOnOutOfMemoryError", "-XX:+HeapDumpOnOutOfMemoryError"));
 

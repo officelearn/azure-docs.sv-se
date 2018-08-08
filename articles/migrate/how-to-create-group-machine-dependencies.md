@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: raynew
-ms.openlocfilehash: fc74af2e7f19d05ff53925b2765c1f78fd0b30c1
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4b83380558c10bc4f96d56f89a5cc2b7b53edc2e
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919717"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621087"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Gruppera datorer med datorberoende mappning
 
@@ -55,7 +55,7 @@ Installera agenten på en Linux-dator:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-[Läs mer](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) om operativsystem som stöds av beroendeagenten.
+Mer information om stöd för beroende-agenten för den [Windows](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) och [Linux](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems) operativsystem.
 
 [Läs mer](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) om hur du kan använda skript för att installera beroendeagenten.
 

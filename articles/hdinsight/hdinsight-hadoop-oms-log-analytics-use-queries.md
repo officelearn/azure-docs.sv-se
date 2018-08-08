@@ -1,155 +1,127 @@
 ---
-title: Fråga Azure Log Analytics för att övervaka Azure HDInsight-kluster | Microsoft Docs
-description: Lär dig mer om att köra frågor i Azure Log Analytics för att övervaka jobb som körs i ett HDInsight-kluster.
+title: Fråga Azure Log Analytics för att övervaka Azure HDInsight-kluster
+description: Lär dig hur du kör frågor på Azure Log Analytics för att övervaka jobb som körs i ett HDInsight-kluster.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
-ms.author: nitinme
-ms.openlocfilehash: 61467d702f3123085fd7e067a8d56c30331c5bc6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 06/15/2018
+ms.author: jasonh
+ms.openlocfilehash: 2d2de3c2e2b291ec1f5ad170350f19e9e0582eaa
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401109"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39602097"
 ---
-# <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Frågan Azure Log Analytics för att övervaka HDInsight-kluster
+# <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Fråga Azure Log Analytics för att övervaka HDInsight-kluster
 
-Läs om några grundläggande scenarier för hur du använder Azure Log Analytics för att övervaka Azure HDInsight-kluster:
+Lär dig några grundläggande scenarier för hur du använder Azure Log Analytics för att övervaka Azure HDInsight-kluster:
 
-* [Analysera mått för HDInsight-kluster](#analyze-hdinsight-cluster-metrics)
+* [Analysera HDInsight-kluster-mått](#analyze-hdinsight-cluster-metrics)
 * [Sök efter specifika loggmeddelanden](#search-for-specific-log-messages)
 * [Skapa aviseringar](#create-alerts-for-tracking-events)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Du måste ha konfigurerat ett HDInsight-kluster för att använda Azure logganalys. Instruktioner finns i [Använd Azure logganalys med HDInsight-kluster](hdinsight-hadoop-oms-log-analytics-tutorial.md).
+* Du har konfigurerat ett HDInsight-kluster för att använda Azure Log Analytics och HDInsight klusterspecifika Log Analytics-hanteringslösningar läggs till i arbetsytan. Anvisningar finns i [med Azure Log Analytics med HDInsight-kluster](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
-* Du måste ha lagt till HDInsight klusterspecifika hanteringslösningarna till den [logganalys](../operations-management-suite/operations-management-suite-overview.md) arbetsytan enligt beskrivningen i [lägga till HDInsight-kluster hanteringslösningar till logganalys](hdinsight-hadoop-oms-log-analytics-management-solutions.md).
+## <a name="analyze-hdinsight-cluster-metrics"></a>Analysera HDInsight-kluster-mått
 
-## <a name="analyze-hdinsight-cluster-metrics"></a>Analysera mått för HDInsight-kluster
+Lär dig hur du söker efter specifika mått för ditt HDInsight-kluster.
 
-Lär dig mer om att söka efter specifika mått för HDInsight-kluster.
+1. Öppna OMS-arbetsytan som är kopplad till ditt HDInsight-kluster från Azure-portalen.
+2. Välj den **Loggsökning** panelen.
+3. Skriver du följande fråga i sökrutan för att söka efter alla mått för alla tillgängliga mått för alla HDInsight-kluster som konfigurerats att använda Azure Log Analytics och välj sedan **kör**.
 
-1. Öppna ett HDInsight-kluster som du har associerat med Azure logganalys i Azure-portalen.
-2. Klicka på **övervakning**, och klicka sedan på **öppna OMS-instrumentpanelen**.
+        search *
 
-    ![Öppna instrumentpanelen i OMS](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "öppna OMS-instrumentpanelen")
+    ![Sök alla mått](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png "Sök alla mått")
 
-2. Klicka på **loggen Sök** på den vänstra menyn.
+    Utdata bör se ut:
 
-    ![Öppna loggen sökning](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "öppna loggen sökning")
+    ![Sök alla utdata för mått](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics-output.png "Sök alla utdata för mått")
 
-3. Skriv följande fråga i sökrutan för att söka efter alla mätvärden för alla tillgängliga mått för alla HDInsight-kluster som konfigurerats att använda Azure logganalys och tryck sedan på **RETUR**.
-
-        `search *` 
-
-    ![Sök alla](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png "Sök alla mått")
-
-    Resultatet bör se ut:
-
-    ![Sök alla mått utdata](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics-output.png "Sök alla mått-utdata")
-
-5. I den vänstra rutan under **typen**, markera ett mått som du vill gräva djupare i **tillämpa**. I följande skärmbild visas den `metrics_resourcemanager_queue_root_default_CL` typ har valts. 
+5. I den vänstra rutan under **typ**, Välj ett mått som du vill gå på djupet i och välj sedan **tillämpa**. Följande skärmbild visar de `metrics_resourcemanager_queue_root_default_CL` typ har valts.
 
     > [!NOTE]
-    > Du kan behöva klicka på den **[+] mer** för att hitta måttet som du letar efter. Dessutom den **tillämpa** är knappen längst ned i listan så du måste rulla nedåt för att se den.
-    > 
-    >    
+    > Du kan behöva välja den **[+] mer** för att hitta det mått som du letar efter. Dessutom den **tillämpa** är knappen längst ned i listan så att du måste rulla ned för att se den.
 
-    Observera att frågan i textrutan ändras till visas i rutan markerade i följande skärmbild:
+    Observera att frågan i textrutan ändras till det visas i rutan markerade i följande skärmbild:
 
     ![Sök efter specifika mått](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-metrics.png "Sök efter specifika mått")
 
-6. Gräva djupare i den här specifika mått. Exempelvis kan du förfina befintliga utdata baserat på medelvärdet av de resurser som används i en 10 minuters intervall, kategoriserade efter klusternamnet med följande fråga:
+6. Att fördjupa oss i den här specifika mått. Du kan exempelvis begränsa befintliga utdata baserat på medelvärdet för resurser som används i ett 10 minuters intervall, kategoriserade efter klustrets namn med följande fråga:
 
         search in (metrics_resourcemanager_queue_root_default_CL) * | summarize AggregatedValue = avg(UsedAMResourceMB_d) by ClusterName_s, bin(TimeGenerated, 10m)
 
-7. I stället för att förfina baserat på medelvärdet av de resurser som används, kan du använda följande fråga för att förfina resultatet baserat på när de maximala användes (samt 90 och 95: e percentilen) i ett fönster med 10 minuters:
+7. I stället för att förfina baserat på genomsnittliga resurser som används kan du använda följande fråga för att förfina resultatet baserat på när de maximala som användes (samt 90 och den 95: e percentilen) i ett fönster med 10 minuters:
 
         search in (metrics_resourcemanager_queue_root_default_CL) * | summarize ["max(UsedAMResourceMB_d)"] = max(UsedAMResourceMB_d), ["pct95(UsedAMResourceMB_d)"] = percentile(UsedAMResourceMB_d, 95), ["pct90(UsedAMResourceMB_d)"] = percentile(UsedAMResourceMB_d, 90) by ClusterName_s, bin(TimeGenerated, 10m)
 
 ## <a name="search-for-specific-log-messages"></a>Sök efter specifika loggmeddelanden
 
-Lär dig hur man söker felmeddelanden under en viss tid. Stegen här är bara ett exempel på hur du kan komma fram till ett felmeddelande du är intresserad av. Du kan använda en egenskap som är tillgängligt för att leta efter fel som du försöker hitta.
+Lär dig hur du söker felmeddelanden under en viss tidsperiod. De här stegen är bara ett exempel på hur du kan komma fram till felmeddelandet du är intresserad av. Du kan använda en egenskap som är tillgänglig för att leta efter felen som du vill hitta.
 
-1. Öppna ett HDInsight-kluster som du har associerat med Azure logganalys i Azure-portalen.
-2. Klicka på **övervakning**, och klicka på **öppna OMS-instrumentpanelen**.
-
-    ![Öppna instrumentpanelen i OMS](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "öppna OMS-instrumentpanelen")
-
-2. I OMS-portalen från startsidan, klickar du på **loggen Sök**.
-
-    ![Öppna loggen sökning](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "öppna loggen sökning")
-
-3. Skriv följande fråga för att söka efter alla felmeddelanden för alla HDInsight-kluster som är konfigurerad för att använda Azure logganalys och tryck sedan på **RETUR**. 
+1. Öppna OMS-arbetsytan som är kopplad till ditt HDInsight-kluster från Azure-portalen.
+2. Välj den **Loggsökning** panelen.
+3. Skriv följande fråga för att söka efter alla felmeddelanden för alla HDInsight-kluster som är konfigurerad för att använda Azure Log Analytics och välj sedan **kör**. 
 
          search "Error"
 
     Du bör se utdata som liknar följande utdata:
 
-    ![Sök alla fel utdata](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-errors-output.png "Sök alla fel-utdata")
+    ![Sök alla utdata för fel](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-errors-output.png "Sök alla utdata för fel")
 
-5. I den vänstra rutan under **typen** kategori, Välj en typ som du vill gräva djupare i och klicka sedan på **tillämpa**.  Observera att resultaten förfinad för att endast visa fel av typen du valt.
-7. Du gräva djupare i den här listan för specifika felet med hjälp av alternativen i den vänstra rutan. Exempel: 
+4. I den vänstra rutan under **typ** kategori, Välj en typ som du vill gå djupare i och välj sedan **tillämpa**.  Observera resultatet är att finjusteras för att endast visa fel av typen som du har valt.
+5. Du kan gå på djupet i fellistan för specifika med hjälp av alternativen som finns i den vänstra rutan. Exempel:
 
     - Visa felmeddelanden från en specifik arbetsnod:
 
-        ![Sök efter specifika fel utdata](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-refined.png "Sök efter specifika fel utdata")
+        ![Sök efter specifika fel med utdata](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-refined.png "Sök efter specifika fel med utdata")
 
-    - Visa ett fel uppstod vid en viss tid:
+    - Visa ett fel uppstod vid en viss tidpunkt:
 
-        ![Sök efter specifika fel utdata](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-time.png "Sök efter specifika fel utdata")
+        ![Sök efter specifika fel med utdata](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-time.png "Sök efter specifika fel med utdata")
 
-9. För att se det specifika felet. Du kan klicka på **[+] Visa fler** titta på det verkliga felmeddelandet.
+6. För att se det specifika felet. Du kan välja **[+] Visa fler** att titta på det verkliga felmeddelandet.
 
-    ![Sök efter specifika fel utdata](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-arrived.png "Sök efter specifika fel utdata")
+    ![Sök efter specifika fel med utdata](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error-arrived.png "Sök efter specifika fel med utdata")
 
-## <a name="create-alerts-for-tracking-events"></a>Skapa aviseringar om du vill spåra händelser
+## <a name="create-alerts-for-tracking-events"></a>Skapa aviseringar för spårning av händelser
 
-Det första steget att skapa en avisering är att få fram en fråga baserat på som en avisering utlöses. För enkelhetens skull skriver du följande fråga som innehåller listan över misslyckade program som körs på HDInsight-kluster.
+Det första steget att skapa en avisering är att komma till en fråga baserad på aviseringen har utlösts. Du kan använda alla frågor som du vill skapa en avisering.
 
-    metrics_resourcemanager_queue_root_default_CL | where AppsFailed_d > 0
+1. Öppna Log Analytics-arbetsytan som är kopplad till ditt HDInsight-kluster från Azure-portalen.
+2. Välj den **Loggsökning** panelen.
+3. Kör följande fråga där du vill skapa en avisering och välj sedan **kör**.
 
-Du kan använda en fråga som du vill skapa en avisering.
+        metrics_resourcemanager_queue_root_default_CL | where AppsFailed_d > 0
 
-1. Öppna ett HDInsight-kluster som du har associerat med Azure logganalys i Azure-portalen.
-2. Klicka på **övervakning**, och klicka sedan på **öppna OMS-instrumentpanelen**.
+    Frågan innehåller en lista över misslyckade program som körs på HDInsight-kluster.
 
-    ![Öppna instrumentpanelen i OMS](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "öppna OMS-instrumentpanelen")
+4. Välj **ny Aviseringsregel** överst på sidan.
 
-2. I OMS-portalen från startsidan, klickar du på **loggen Sök**.
+    ![Ange fråga för att skapa en avisering](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png "RETUR-fråga för att skapa en avisering")
 
-    ![Öppna loggen sökning](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "öppna loggen sökning")
+5. I den **skapa regeln** fönstret anger du frågan och annan information för att skapa en avisering och välj sedan **skapa varningsregel**.
 
-3. Kör följande fråga där du vill skapa en avisering och tryck sedan på **RETUR**.
+    ![Ange fråga för att skapa en avisering](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png "RETUR-fråga för att skapa en avisering")
 
-        metrics_resourcemanager_queue_root-default-CL | where AppsFailed_d > 0
+Redigera eller ta bort en befintlig avisering:
 
-4. Klicka på **avisering** överst på sidan.
+1. Öppna Log Analytics-arbetsytan från Azure-portalen.
+2. I den vänstra menyn, Välj **avisering**.
+3. Välj den avisering du vill redigera eller ta bort.
+4. Du har följande alternativ: **spara**, **Ignorera**, **inaktivera**, och **ta bort**.
 
-    ![Ange frågan för att skapa en avisering](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png "RETUR frågan för att skapa en avisering")
+    ![HDInsight Log Analytics OMS borttagning av redigera](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
-4. I den **Lägg till regel varning** fönstret Ange frågan och annan information för att skapa en avisering och klicka sedan på **spara**.
-
-    ![Ange frågan för att skapa en avisering](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png "RETUR frågan för att skapa en avisering")
-
-    Skärmbilden visar konfigurationen för att skicka ett e-postmeddelande när aviseringen frågan returnerar utdata.
-
-5. Du kan också redigera eller ta bort en befintlig avisering. Om du vill göra det, från valfri sida i OMS-portalen, klickar du på den **inställningar** ikon.
-
-    ![Ange frågan för att skapa en avisering](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png "RETUR frågan för att skapa en avisering")
-
-6. Från den **inställningar** klickar du på **aviseringar** så visas aviseringarna som du har skapat. Du kan också aktivera eller inaktivera en avisering, redigera eller ta bort den. Mer information finns i [arbeta med Varningsregler i logganalys](../log-analytics/log-analytics-alerts-creating.md).
+Mer information finns i [erfarenhet av Varningsregler i Log Analytics](../log-analytics/log-analytics-alerts-creating.md).
 
 ## <a name="see-also"></a>Se också
 
-* [Arbeta med logganalys](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
-* [Skapa Varningsregler i logganalys](../log-analytics/log-analytics-alerts-creating.md)
+* [Arbeta med Log Analytics](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
+* [Skapa Varningsregler i Log Analytics](../log-analytics/log-analytics-alerts-creating.md)

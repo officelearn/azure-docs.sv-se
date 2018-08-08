@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/27/2018
+ms.date: 08/07/2018
 ms.author: babanisa
-ms.openlocfilehash: d2bc0d8f78e6fe0806afb3208c88df28b8cce1f9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3fe717cb60791d24637ccd5b9a3c08fd34801524
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39460242"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617949"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid säkerhet och autentisering 
 
@@ -44,7 +44,7 @@ Den här mekanismen för manuell validering är i förhandsversion. Om du vill a
 ### <a name="validation-details"></a>Verifieringsinformation
 
 * Vid tidpunkten för händelsen skapande/uppdatering av prenumeration publicerar Event Grid en händelse för verifiering av prenumerationen till mål-slutpunkten. 
-* Händelsen innehåller ett huvudvärde ”Aeg Händelsetyp: SubscriptionValidation”.
+* Händelsen innehåller ett huvudvärde ”aeg Händelsetyp: SubscriptionValidation”.
 * Händelsemeddelandet har samma schema som andra Event Grid-händelser.
 * Händelsetyp-egenskapen för händelsen är ”Microsoft.EventGrid.SubscriptionValidationEvent”.
 * Dataegenskapen för händelsen innehåller en ”validationCode”-egenskap med en slumpmässigt genererad sträng. Till exempel ”validationCode: acb13...”.

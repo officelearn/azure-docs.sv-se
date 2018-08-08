@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ca6bb987c0f977746a8359dfd40cf7a3d643950a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: af3ba66bbc0be3aca3999abc6a0de5ec0e0aae95
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38590298"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621444"
 ---
 # <a name="using-the-audit-log-in-pim"></a>Använda granskningsloggen i PIM
 Du kan använda granskningsloggen Privileged Identity Management (PIM) för att se alla användartilldelningar och aktiveringar inom en viss tidsperiod. Om du vill visa fullständig granskningshistorik för aktiviteten i din klient, inklusive administratören, slutanvändare och synkroniseringsåtgärden, kan du använda den [rapporter för åtkomst och användning av Azure Active Directory.](../active-directory-reporting-azure-portal.md)

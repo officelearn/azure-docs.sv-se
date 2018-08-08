@@ -1,41 +1,35 @@
 ---
-title: Utveckling av skriptåtgärder med Linux-baserat HDInsight - Azure | Microsoft Docs
-description: Lär dig hur du använder Bash-skript för att anpassa Linux-baserade HDInsight-kluster. Funktionen skript åtgärd i HDInsight kan du köra skript under eller efter att klustret har skapats. Kan använda skript för att ändra inställningar för klustrets eller installera ytterligare programvara.
+title: Skriptåtgärdsutveckling med Linux-baserade HDInsight - Azure
+description: Lär dig hur du använder Bash-skript för att anpassa Linux-baserade HDInsight-kluster. Funktionen för åtgärden skriptet i HDInsight kan du köra skript under eller när klustret har skapats. Skript kan användas för att ändra inställningar för klustrets eller installera ytterligare programvara.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-ms.assetid: cf4c89cd-f7da-4a10-857f-838004965d3e
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: larryfr
-ms.openlocfilehash: 5f6609018f2582ebfc6e2ecbe48bde6a6f2d0f5d
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.author: jasonh
+ms.openlocfilehash: 35d54970e41a7e1533f3d5adc09fc60dc1bbd68d
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098268"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600497"
 ---
-# <a name="script-action-development-with-hdinsight"></a>Skriptutveckling med HDInsight
+# <a name="script-action-development-with-hdinsight"></a>Skriptåtgärdsutveckling med HDInsight
 
-Lär dig hur du anpassar ditt HDInsight-kluster med hjälp av Bash-skript. Skriptåtgärder är ett sätt att anpassa HDInsight under eller efter att klustret har skapats.
+Lär dig hur du anpassar ditt HDInsight-kluster med Bash-skript. Skriptåtgärder är ett sätt att anpassa HDInsight under eller när klustret har skapats.
 
 > [!IMPORTANT]
 > Stegen i det här dokumentet kräver ett HDInsight-kluster som använder Linux. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="what-are-script-actions"></a>Vad är skriptåtgärder
 
-Skriptåtgärder är Bash-skript som Azure körs på klusternoderna för att göra konfigurationsändringar eller installera programvara. En skriptåtgärd körs som rot och ger fullständig behörighet till klusternoderna.
+Skriptåtgärder är Bash-skript som Azure körs på noderna i klustret för att kontrollera konfigurationsändringar eller installera programvara. En skriptåtgärd körs som rot och ger fullständiga åtkomsträttigheter till klusternoderna.
 
 Skriptåtgärder kan tillämpas på följande sätt:
 
-| Använd den här metoden för att använda ett skript... | Skapa kluster under... | På ett kluster som körs... |
+| Du kan använda den här metoden för att tillämpa ett skript... | Skapa kluster under... | På ett aktivt kluster... |
 | --- |:---:|:---:|
 | Azure Portal |✓ |✓ |
 | Azure PowerShell |✓ |✓ |
@@ -43,35 +37,35 @@ Skriptåtgärder kan tillämpas på följande sätt:
 | HDInsight .NET SDK |✓ |✓ |
 | Azure Resource Manager-mall |✓ |&nbsp; |
 
-Mer information om hur du använder dessa metoder för att tillämpa skriptåtgärder finns [anpassa HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md).
+Mer information om hur du använder dessa metoder för att tillämpa skriptåtgärder finns i [anpassa HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md).
 
 ## <a name="bestPracticeScripting"></a>Metodtips för skriptutveckling av
 
-Finns flera bästa praxis att tänka på när du utvecklar ett anpassat skript för ett HDInsight-kluster:
+När du utvecklar ett anpassat skript för ett HDInsight-kluster kan finns det flera bästa praxis att tänka på:
 
 * [Använder Hadoop-version](#bPS1)
-* [Mål OS-Version](#bps10)
+* [Target OS-Version](#bps10)
 * [Ange stabil länkar till skriptresurser](#bPS2)
-* [Använda fördefinierade kompilerade resurser](#bPS4)
-* [Se till att klustret anpassning skriptet idempotent](#bPS3)
-* [Garantera hög tillgänglighet för kluster-arkitektur](#bPS5)
+* [Använd förkompilerad resurser](#bPS4)
+* [Kontrollera att klustret anpassning skriptet är idempotent](#bPS3)
+* [Garantera hög tillgänglighet för klusterarkitektur](#bPS5)
 * [Konfigurera anpassade komponenter om du vill använda Azure Blob storage](#bPS6)
-* [Skriva information till STDOUT och STDERR](#bPS7)
+* [Skriva information till STDOUT- och STDERR](#bPS7)
 * [Spara filer i ASCII-format med LF radbrytningar](#bps8)
-* [Använda logik för att återställa från tillfälliga fel](#bps9)
+* [Använda logik för återförsök för att återställa från tillfälliga fel](#bps9)
 
 > [!IMPORTANT]
-> Skriptåtgärder måste slutföras inom 60 minuter eller processen misslyckas. Under noden etableringen körs skriptet samtidigt med andra processer för installation och konfiguration. Konkurrens om resurser, till exempel CPU-tid eller nätverket bandbredd kan göra att skriptet tar längre tid att slutföra än i din utvecklingsmiljö.
+> Skriptåtgärder måste slutföras inom 60 minuter eller processen misslyckas. Under noden etablering, körs skriptet samtidigt med andra processer för installation och konfiguration. Konkurrens om resurser, till exempel CPU-tid eller nätverk bandbredd kan orsaka skriptet tar längre tid att slutföra än i din utvecklingsmiljö.
 
 ### <a name="bPS1"></a>Använder Hadoop-version
 
-Olika versioner av HDInsight har olika versioner av Hadoop-tjänster och komponenter installeras. Om skriptet förväntar en viss version av en tjänst eller en komponent, bör du bara använda skriptet med versionen av HDInsight som innehåller de nödvändiga komponenterna. Du kan hitta information om komponenten-versioner som ingår i HDInsight med hjälp av den [HDInsight component-versioning](hdinsight-component-versioning.md) dokumentet.
+Olika versioner av HDInsight har olika versioner av Hadoop-tjänster och komponenter som är installerade. Om skriptet förväntar sig en specifik version av en tjänst eller en komponent, bör du endast använda skriptet med versionen av HDInsight som innehåller komponenterna som krävs. Du kan hitta information om komponenten-versioner som ingår i HDInsight med hjälp av den [versionshantering för HDInsight](hdinsight-component-versioning.md) dokumentet.
 
-### <a name="bps10"></a> Målversionen OS
+### <a name="bps10"></a> Rikta in OS-version
 
-Linux-baserat HDInsight baseras på Ubuntu Linux-distribution. Olika versioner av HDInsight förlitar sig på olika versioner av Ubuntu som kan ändra hur skriptet fungerar. Till exempel HDInsight 3,4 och tidigare baseras på Ubuntu-versioner som använder Upstart. Version 3.5 och större baseras på Ubuntu 16.04 som använder Systemd. Systemd och Upstart förlitar sig på olika kommandon så att skriptet ska skrivas till fungerar med båda.
+Linux-baserade HDInsight baseras på Ubuntu Linux-distribution. Olika versioner av HDInsight förlitar sig på olika versioner av Ubuntu och som kan ändra hur skriptet fungerar. Till exempel HDInsight 3.4 och tidigare bygger på Ubuntu-versioner som använder Upstart. Version 3.5 och större baseras på Ubuntu 16.04 som använder Systemd. Systemd och Upstart förlitar sig på olika kommandon, så att skriptet ska skrivas till fungerar med båda.
 
-En annan viktig skillnad mellan HDInsight 3.4 och 3.5 är att `JAVA_HOME` nu pekar på Java 8.
+En annan viktig skillnad mellan HDInsight 3.4 och 3.5 är att `JAVA_HOME` pekar nu på Java 8.
 
 Du kan kontrollera versionen av Operativsystemet med hjälp av `lsb_release`. Följande kod visar hur du avgör om skriptet körs på Ubuntu 14 eller 16:
 
@@ -104,60 +98,60 @@ elif [[ $OS_VERSION == 16* ]]; then
 fi
 ```
 
-Du hittar den fullständig skript som innehåller dessa kodavsnitt på https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh.
+Du hittar den fullständiga skript som innehåller dessa kodfragment på https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh.
 
 Versionen av Ubuntu som används av HDInsight finns i [HDInsight komponentversionen](hdinsight-component-versioning.md) dokumentet.
 
-Om du vill förstå skillnaderna mellan Systemd och Upstart finns [Systemd för Upstart användare](https://wiki.ubuntu.com/SystemdForUpstartUsers).
+Information om skillnaderna mellan Systemd och Upstart finns i [Systemd för Upstart användare](https://wiki.ubuntu.com/SystemdForUpstartUsers).
 
 ### <a name="bPS2"></a>Ange stabil länkar till skriptresurser
 
-Skript och associerade resurser måste vara tillgängliga under hela livslängden för klustret. Dessa resurser krävs om nya noder läggs till i klustret under skalning åtgärder.
+Skript och associerade resurser måste vara tillgängliga under hela klustrets livslängd. De här resurserna krävs om nya noder läggs till i klustret under skalningsåtgärder.
 
-Det bästa sättet är att hämta och arkivera allt innehåll i ett Azure Storage-konto på din prenumeration.
-
-> [!IMPORTANT]
-> Storage-konto som används måste vara standardkontot för lagring för klustret eller en offentlig, skrivskyddad behållare för andra storage-konto.
-
-Till exempel exemplen som tillhandahålls av Microsoft lagras i den [ https://hdiconfigactions.blob.core.windows.net/ ](https://hdiconfigactions.blob.core.windows.net/) storage-konto. Den här platsen är en offentlig, skrivskyddad behållare som underhålls av HDInsight-teamet.
-
-### <a name="bPS4"></a>Använda fördefinierade kompilerade resurser
-
-Undvik åtgärder som sammanställer resurser från källkod för att minska den tid det tar för att köra skriptet. Till exempel före kompilera resurser och lagra dem i en blob med Azure Storage-konto i samma datacenter som HDInsight.
-
-### <a name="bPS3"></a>Se till att klustret anpassning skriptet idempotent
-
-Skript måste vara idempotent. Om skriptet körs flera gånger, måste den returnera klustret till samma tillstånd varje gång.
-
-Till exempel ett skript som ändrar konfigurationsfiler bör inte lägga till dubblettposter om körde flera gånger.
-
-### <a name="bPS5"></a>Garantera hög tillgänglighet för kluster-arkitektur
-
-Linux-baserade HDInsight-kluster tillhandahåller två huvudnoderna som är aktiva i klustret och skriptåtgärder köras på båda noderna. Om de komponenter du installerar förväntas bara en huvudnod kan du inte installera komponenterna på båda huvudnoderna.
+Det bästa sättet är att hämta och arkivera allt i ett Azure Storage-konto på din prenumeration.
 
 > [!IMPORTANT]
-> Tjänster som tillhandahålls som en del av HDInsight är utformade för att växla över mellan två huvudnoderna efter behov. Den här funktionen har inte utökats till anpassade komponenter som installeras via skriptåtgärder. Om du behöver hög tillgänglighet för anpassade komponenter måste du implementera en egen mekanism för växling vid fel.
+> Lagringskontot som används måste vara standardkontot för lagring för klustret eller en offentlig, skrivskyddade behållare för andra storage-konto.
+
+Till exempel de exempel som tillhandahålls av Microsoft lagras i den [ https://hdiconfigactions.blob.core.windows.net/ ](https://hdiconfigactions.blob.core.windows.net/) storage-konto. Den här platsen är en offentlig, skrivskyddade behållare som underhålls av HDInsight-teamet.
+
+### <a name="bPS4"></a>Använd förkompilerad resurser
+
+Undvik åtgärder som kompilera resurser från källkoden för att minska den tid det tar för att köra skriptet. Till exempel förväg kompilera resurser och lagra dem i en Azure Storage-konto blob i samma datacenter som HDInsight.
+
+### <a name="bPS3"></a>Kontrollera att klustret anpassning skriptet är idempotent
+
+Skript måste vara idempotenta. Om skriptet körs flera gånger, bör den returnera klustret till samma tillstånd varje gång.
+
+Till exempel ett skript som ändrar konfigurationsfiler bör inte lägga till dubblettposter om körts flera gånger.
+
+### <a name="bPS5"></a>Garantera hög tillgänglighet för klusterarkitektur
+
+Linux-baserade HDInsight-kluster tillhandahåller två huvudnoder som är aktiva i klustret och skriptåtgärder kör på båda noderna. Om de komponenter som du installerar räknar bara en huvudnod, installera inte komponenterna på båda huvudnoder.
+
+> [!IMPORTANT]
+> Tjänster som tillhandahålls som en del av HDInsight är utformade för att växla över mellan två huvudnoder efter behov. Den här funktionen utökas inte till anpassade komponenter installeras via skriptåtgärder. Om du behöver hög tillgänglighet för anpassade komponenter måste du implementera en egen mekanism för redundans.
 
 ### <a name="bPS6"></a>Konfigurera anpassade komponenter om du vill använda Azure Blob storage
 
-Komponenter som installeras på klustret kan ha en standardkonfiguration som använder Hadoop Distributed File System (HDFS) lagring. HDInsight använder antingen Azure Storage eller Azure Data Lake Store som standardlagring. Båda ger ett kompatibelt HDFS-filsystem som kvarstår data även om klustret har tagits bort. Du kan behöva konfigurera komponenter som du installerar för att använda WASB eller ADL i stället för HDFS.
+Komponenter som du installerar på klustret kan ha en standardkonfiguration som använder lagring med Hadoop Distributed File System (HDFS). HDInsight använder Azure Storage eller Data Lake Store som standardlagring. Båda ger en kompatibel HDFS-filsystemets som data finns kvar även om klustret tas bort. Du kan behöva konfigurera komponenter som du installerar för WASB eller ADL istället för HDFS.
 
-Du behöver inte ange filsystemet för de flesta åtgärder. Till exempel följande giraph examples.jar filen kopieras från det lokala filsystemet till klusterlagringen:
+Du behöver inte ange filsystemet för de flesta åtgärder. Till exempel följande giraph-examples.jar filen kopieras från det lokala filsystemet till klusterlagringen:
 
 ```bash
 hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 ```
 
-I detta exempel på `hdfs` kommando använder transparent standard klusterlagringen. Du kan behöva ange URI för vissa åtgärder. Till exempel `adl:///example/jars` för Data Lake Store eller `wasb:///example/jars` för Azure Storage.
+I det här exemplet på `hdfs` kommando använder transparent standardklusterlagringen. För vissa åtgärder, kan du behöva ange URI: N. Till exempel `adl:///example/jars` för Data Lake Store eller `wasb:///example/jars` för Azure Storage.
 
-### <a name="bPS7"></a>Skriva information till STDOUT och STDERR
+### <a name="bPS7"></a>Skriva information till STDOUT- och STDERR
 
-HDInsight loggar utdata från skriptet som skrivs till STDOUT och STDERR. Du kan visa den här informationen med Ambari-webbgränssnittet.
+HDInsight skriptutdata som skrivs till STDOUT- och STDERR-loggar. Du kan visa den här informationen med hjälp av Ambari-webbgränssnittet.
 
 > [!NOTE]
-> Ambari är endast tillgänglig om klustret har skapats. Om du använder en skriptåtgärd under klustret har skapats och skapa misslyckas, finns i avsnittet om felsökning [anpassa HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) för andra sätt att komma åt loggade informationen.
+> Ambari är endast tillgänglig om klustret har skapats. Om du använder en skriptåtgärd under klusterskapandet och skapa misslyckas i felsökningsavsnittet [anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) andra sätt för att komma åt information som loggas.
 
-De flesta verktyg och Installationspaketen skriva redan information till STDOUT och STDERR, men du kanske vill lägga till ytterligare loggning. Om du vill skicka text STDOUT använda `echo`. Exempel:
+De flesta verktyg och Installationspaketen skriva redan information till STDOUT- och STDERR, men du kanske vill lägga till ytterligare loggning. Använda för att skicka text STDOUT `echo`. Exempel:
 
 ```bash
 echo "Getting ready to install Foo"
@@ -169,24 +163,24 @@ Som standard `echo` skickar strängen till STDOUT. Om du vill styra den till STD
 >&2 echo "An error occurred installing Foo"
 ```
 
-Detta omdirigerar information skrivs till STDOUT till STDERR (2) i stället. Mer information om i/o-omdirigering finns [ http://www.tldp.org/LDP/abs/html/io-redirection.html ](http://www.tldp.org/LDP/abs/html/io-redirection.html).
+Detta omdirigerar information skrivs till STDOUT till STDERR (2) i stället. Mer information om i/o-omdirigering finns i [ http://www.tldp.org/LDP/abs/html/io-redirection.html ](http://www.tldp.org/LDP/abs/html/io-redirection.html).
 
-Mer information om hur du visar information som loggas av skriptåtgärder finns [anpassa HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
+Mer information om hur du visar information som loggas av skriptåtgärder finns i [anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
 
 ### <a name="bps8"></a> Spara filer i ASCII-format med LF radbrytningar
 
-Bash-skript ska lagras som ASCII-format med rader som avslutas av LF. Filer som lagras som UTF-8 eller använda CRLF som rad avslutas kan misslyckas med följande fel:
+Bash-skript ska lagras som ASCII-format med rader som avslutades av LF. Filer som lagras som UTF-8 eller använder CRLF som raden slutar misslyckas med följande fel:
 
 ```
 $'\r': command not found
 line 1: #!/usr/bin/env: No such file or directory
 ```
 
-### <a name="bps9"></a> Använda logik för att återställa från tillfälliga fel
+### <a name="bps9"></a> Använda logik för återförsök för att återställa från tillfälliga fel
 
-När du laddar ned filer som installerar paket med hjälp av lgh get eller andra åtgärder som överför data via internet, misslyckas åtgärden på grund av tillfälliga nätverksfel. Till exempel kanske du kommunicerar med fjärresursen håller på att inte körs på en nod för säkerhetskopiering.
+När du laddar ned filer, installera paket med apt-get eller andra åtgärder som överför data via internet, misslyckas åtgärden på grund av tillfälliga nätverksfel. Exempelvis kanske fjärresursen du kommunicerar med håller på att redundansväxla till en säkerhetskopiering nod.
 
-Du kan implementera logik för att göra ditt skript flexibel att tillfälligt fel. Följande funktion visar hur du implementerar logik. Den försöker igen tre gånger innan åtgärden misslyckas.
+För att göra ditt skript elastiska för tillfälliga fel, kan du implementera logik för omprövning. Följande funktion visar hur du implementerar logik för omprövning. Ett nytt försök görs igen tre gånger innan åtgärden misslyckas.
 
 ```bash
 #retry
@@ -220,85 +214,85 @@ retry ls -ltr foo
 retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
 ```
 
-## <a name="helpermethods"></a>Hjälpmetoder för anpassade skript
+## <a name="helpermethods"></a>Hjälpkomponentmetoder för anpassade skript
 
-Skriptet åtgärd helper metoder är verktyg som du kan använda vid skrivning till anpassade skript. Metoderna finns i den[ https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh ](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) skript. Använd följande för att hämta och använda dem som en del av skriptet:
+Skriptet åtgärd hjälpmetoder är verktyg som du kan använda när du skriver anpassade skript. Dessa metoder finns i den[ https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh ](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) skript. Använd följande för att hämta och använda dem som en del av skriptet:
 
 ```bash
 # Import the helper method module.
 wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh && source /tmp/HDInsightUtilities-v01.sh && rm -f /tmp/HDInsightUtilities-v01.sh
 ```
 
-Följande hjälpfiler tillgängligt för användning i skriptet:
+Följande hjälpfiler tillgängliga för användning i ditt skript:
 
-| Helper användning | Beskrivning |
+| Helper-användning | Beskrivning |
 | --- | --- |
-| `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Hämtar en fil från käll-URI: N till den angivna sökvägen. Som standard den inte över en befintlig fil. |
+| `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Hämtar en fil från käll-URI: N till den angivna filsökvägen. Som standard den inte över en befintlig fil. |
 | `untar_file TARFILE DESTDIR` |Extraherar tar-filen (med hjälp av `-xf`) i målkatalogen. |
 | `test_is_headnode` |Om kördes på en klustrets huvudnod, returnerar 1. annars 0. |
-| `test_is_datanode` |Om den aktuella noden är en datanod (worker), returnera 1; annars 0. |
-| `test_is_first_datanode` |Om den aktuella noden är den första data (worker) nod (namngivna workernode0) returnerar 1. annars 0. |
-| `get_headnodes` |Returnera fullständigt kvalificerade domännamnet för headnodes i klustret. Namn är kommaavgränsade. En tom sträng returneras vid fel. |
-| `get_primary_headnode` |Hämtar fullständigt kvalificerade domännamnet för den primära headnode. En tom sträng returneras vid fel. |
-| `get_secondary_headnode` |Hämtar fullständigt kvalificerade domännamnet för den sekundära headnode. En tom sträng returneras vid fel. |
-| `get_primary_headnode_number` |Hämtar den primära headnode numeriskt suffix. En tom sträng returneras vid fel. |
-| `get_secondary_headnode_number` |Hämtar den sekundära headnode numeriskt suffix. En tom sträng returneras vid fel. |
+| `test_is_datanode` |Om den aktuella noden är en datanod (worker), returnera en 1; annars 0. |
+| `test_is_first_datanode` |Om den aktuella noden är den första data (worker) nod (namngivna workernode0) returnerar en 1; annars 0. |
+| `get_headnodes` |Returnera det fullständigt kvalificerade domännamnet för huvudnoderna i klustret. Namnen är kommaavgränsade. En tom sträng returneras vid fel. |
+| `get_primary_headnode` |Hämtar det fullständigt kvalificerade domännamnet för den primära huvudnoden. En tom sträng returneras vid fel. |
+| `get_secondary_headnode` |Hämtar det fullständigt kvalificerade domännamnet för den sekundära huvudnoden. En tom sträng returneras vid fel. |
+| `get_primary_headnode_number` |Hämtar du numeriskt suffix för den primära huvudnoden. En tom sträng returneras vid fel. |
+| `get_secondary_headnode_number` |Hämtar du numeriskt suffix för den sekundära huvudnoden. En tom sträng returneras vid fel. |
 
-## <a name="commonusage"></a>Vanliga användningsmönster
+## <a name="commonusage"></a>Vanliga mönster
 
-Det här avsnittet ger vägledning om att implementera några av de vanliga användningsmönster som kan uppstå vid skrivning till ett eget skript.
+Det här avsnittet innehåller anvisningar om hur du implementerar några av de vanliga användningsmönster som kan uppstå vid skrivning till ett eget skript.
 
 ### <a name="passing-parameters-to-a-script"></a>Skicka parametrar till ett skript
 
-I vissa fall, kan skriptet kräver parametrar. Du kan till exempel behöva administratörslösenordet för klustret när du använder Ambari REST API.
+I vissa fall kan ditt skript kräver parametrar. Du kan till exempel behöva administratörslösenordet för klustret när du använder Ambari REST API.
 
-Parametrar för skriptet kallas *positionsparametrarna*, och tilldelas `$1` för den första parametern `$2` för andra, och så på. `$0` innehåller namnet på själva skriptet.
+Parametrarna som skickades till skriptet kallas *positionsparametrar*, och tilldelas till `$1` för den första parametern `$2` för andra, och så är på. `$0` innehåller namnet på själva skriptet.
 
-Värden har överförts till skriptet som parametrar ska omges av enkla citattecken ('). På så sätt att det angivna värdet behandlas som en literal.
+Värden skickas till skriptet som parametrar ska omges av enkla citattecken ('). Detta innebär att det angivna värdet behandlas som en literal.
 
-### <a name="setting-environment-variables"></a>Ställa in miljövariabler
+### <a name="setting-environment-variables"></a>Ange miljövariabler
 
-Ange en miljövariabel utförs av följande sats:
+Ange en miljövariabel utförs med följande uttryck:
 
     VARIABLENAME=value
 
-Där VARIABELNAMN är namnet på variabeln. Om du vill få åtkomst till variabeln måste använda `$VARIABLENAME`. Om du vill tilldela ett värde som tillhandahålls av en positionsparametrarna parameter som miljövariabeln lösenord skulle du till exempel använda följande sats:
+Där VARIABLENAME är namnet på variabeln. Om du vill få åtkomst till variabeln måste använda `$VARIABLENAME`. Om du vill tilldela ett värde som tillhandahålls av en namngivna parametern som ett lösenord för miljövariabeln, skulle du till exempel använda följande uttryck:
 
     PASSWORD=$1
 
 Efterföljande åtkomst till informationen kan sedan använda `$PASSWORD`.
 
-Miljövariabler som anges i skriptet kan bara finnas inom omfånget för skriptet. I vissa fall kan behöva du lägga till systemomfattande miljövariabler som behålls när skriptet har slutförts. Lägga till variabeln för att lägga till systemomfattande miljövariabler `/etc/environment`. Till exempel följande uttryck lägger till `HADOOP_CONF_DIR`:
+Miljövariabler som anges i skriptet finns bara inom omfånget för skriptet. I vissa fall kan behöva du lägga till systemomfattande miljövariabler som behålls när skriptet har slutförts. Lägg till systemomfattande miljövariabler genom att lägga till variabeln till `/etc/environment`. Till exempel följande uttryck lägger till `HADOOP_CONF_DIR`:
 
 ```bash
 echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 ```
 
-### <a name="access-to-locations-where-the-custom-scripts-are-stored"></a>Åtkomst till platser där anpassade skript lagras
+### <a name="access-to-locations-where-the-custom-scripts-are-stored"></a>Åtkomst till platser där de anpassade skript lagras
 
-Skript som används för att anpassa ett kluster måste lagras i något av följande platser:
+Skript som används för att anpassa ett kluster behöver lagras i något av följande platser:
 
 * En __Azure Storage-konto__ som är associerad med klustret.
 
-* En __ytterligare lagringskonto__ som är associerade med klustret.
+* En __ytterligare lagringskonto__ kopplat till klustret.
 
-* En __offentligt läsbar URI__. Till exempel en URL till data som lagras på OneDrive, Dropbox eller andra filer som är värd för tjänsten.
+* En __offentligt läsbara URI__. Till exempel en URL till data som lagras på OneDrive, Dropbox eller andra filer som är värd för tjänsten.
 
-* En __Azure Data Lake Store-konto__ som är associerad med HDInsight-klustret. Mer information om hur du använder Azure Data Lake Store med HDInsight finns [Snabbstart: Skapa kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* En __Azure Data Lake Store-konto__ som är associerad med HDInsight-klustret. Mer information om hur du använder Azure Data Lake Store med HDInsight finns i [Snabbstart: Konfigurera kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     > [!NOTE]
-    > Tjänstens huvudnamn HDInsight använder för åtkomst till Data Lake Store måste ha läsbehörighet till skriptet.
+    > Tjänstens huvudnamn HDInsight använder för att få åtkomst till Data Lake Store måste ha läsbehörighet till skriptet.
 
 Resurser som används av skriptet måste också vara offentligt tillgängliga.
 
-Lagra filer i en Azure Storage-konto eller ett Azure Data Lake Store ger snabb åtkomst som både i Azure-nätverk.
+Lagra filer i ett Azure Storage-konto eller Azure Data Lake Store ger snabb åtkomst, som båda i Azure-nätverket.
 
 > [!NOTE]
-> URI-format som används för att referera till skriptet varierar beroende på vilken tjänst som används. Storage-konton som är associerade med HDInsight-klustret kan använda `wasb://` eller `wasbs://`. Offentligt läsbar URI: er använda `http://` eller `https://`. Data Lake Store använder `adl://`.
+> URI-format som används för att referera till skriptet skiljer sig beroende på tjänsten som används. Storage-konton som är associerade med HDInsight-kluster kan använda `wasb://` eller `wasbs://`. Offentligt läsbara URI: er använder `http://` eller `https://`. Data Lake Store använder `adl://`.
 
-### <a name="checking-the-operating-system-version"></a>Kontrollerar operativsystemets version
+### <a name="checking-the-operating-system-version"></a>Kontrollera versionen av operativsystemet
 
-Olika versioner av HDInsight är beroende av specifika versioner av Ubuntu. Det kan finnas skillnader mellan OS-versioner måste du kontrollera i skriptet. Du kan behöva installera en binärfil som är kopplade till versionen av Ubuntu.
+Olika versioner av HDInsight är beroende av specifika versioner av Ubuntu. Det kan finnas skillnader mellan OS-versioner måste du söka efter i ditt skript. Du kan behöva installera en binärfil som är kopplad till versionen av Ubuntu.
 
 För att kontrollera versionen av Operativsystemet, använda `lsb_release`. Till exempel visar följande skript hur du refererar till en specifik tar-filen beroende på OS-version:
 
@@ -315,27 +309,27 @@ fi
 
 ## <a name="deployScript"></a>Checklista för distribution av en skriptåtgärd
 
-Här följer stegen ta när du förbereder att distribuera ett skript:
+Här följer stegen gör när du förbereder att distribuera ett skript:
 
-* Placera de filer som innehåller anpassade skript på en plats som kan nås av klusternoder under distributionen. Till exempel standardlagring för klustret. Filer kan också lagras i offentligt läsbar värdtjänster.
-* Kontrollera att skriptet är idempotent. På så sätt kan skriptet ska köras flera gånger på samma nod.
-* Använd en tillfällig katalog /tmp för att hålla de hämtade filer som används av skripten och sedan rensa dem efter skript har körts.
-* Om inställningar för OS-nivå eller konfigurationsfiler för Hadoop-tjänsten ändras, kan du vill starta om HDInsight-tjänster.
+* Placera de filer som innehåller anpassade skript på en plats som kan nås av noderna i klustret under distributionen. Till exempel standardlagringen för klustret. Filer kan också lagras i offentligt läsbara värdtjänster.
+* Kontrollera att skriptet är idempotent. På så sätt kan skript som ska köras flera gånger på samma nod.
+* Använda en tillfällig katalog/tmp för att hålla de nedladdade filer som används av skripten och sedan rensa dem när skript har körts.
+* Om inställningar för OS eller konfigurationsfiler för Hadoop-tjänsten ändras kan du starta om HDInsight-tjänsterna.
 
 ## <a name="runScriptAction"></a>Så här kör du en skriptåtgärd
 
-Använd skriptåtgärder om du vill anpassa HDInsight-kluster med följande metoder:
+Du kan använda skriptåtgärder för att anpassa HDInsight-kluster med hjälp av följande metoder:
 
 * Azure Portal
 * Azure PowerShell
 * Azure Resource Manager-mallar
 * HDInsight .NET SDK.
 
-Mer information om hur du använder varje metod finns [hur du använder skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md).
+Mer information om hur du använder varje metod finns i [hur du använder skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md).
 
 ## <a name="sampleScripts"></a>Anpassade skriptexempel
 
-Microsoft tillhandahåller exempelskript för att installera komponenterna på ett HDInsight-kluster. Se följande länkar för flera exempel skriptåtgärder.
+Microsoft tillhandahåller exempelskript för att installera komponenter på ett HDInsight-kluster. Se följande länkar för mer exempel skriptåtgärder.
 
 * [Installera och använda Hue på HDInsight-kluster](hdinsight-hadoop-hue-linux.md)
 * [Installera och använda Solr på HDInsight-kluster](hdinsight-hadoop-solr-install-linux.md)
@@ -344,38 +338,38 @@ Microsoft tillhandahåller exempelskript för att installera komponenterna på e
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Följande är fel som kan uppstå när du använder skript som du har utvecklat:
+Här följer några fel som kan uppstå när du använder skript som du har utvecklat:
 
 **Fel**: `$'\r': command not found`. Ibland följt av `syntax error: unexpected end of file`.
 
-*Orsak*: det här felet uppstår om raderna i ett skript som avslutas med CRLF. UNIX-system förväntar sig endast LF som rad avslutas.
+*Orsak*: det här felet uppstår om rader i ett skript som avslutas med CRLF. UNIX-system förväntar sig bara LF som raden slutar.
 
-Det här problemet inträffar oftast när skriptet har skapats på en Windows-miljö som CRLF är en gemensam rader som slutar med för många textredigerare i Windows.
+Det här problemet uppstår oftast när skriptet har skapats på en Windows-miljö, eftersom CRLF är en gemensam hållning slutar för många textredigerare på Windows.
 
-*Lösning*: om det är ett alternativ i en textredigerare, Välj Unix-format eller LF för raden avslutas. Du kan även använda följande kommandon på ett Unix-system för att ändra CRLF till en LF:
+*Lösning*: om det är ett alternativ i textredigeraren väljer Unix-format eller LF för raden slutar. Du kan också använda följande kommandon på ett Unix-system för att ändra CRLF till en LF:
 
 > [!NOTE]
-> Följande kommandon är ungefär eftersom de bör ändra radbrytningar CRLF till LF. Välj en baserat på Verktyg som finns på datorn.
+> Följande kommandon kan grovt jämföras i att de ska ändra radbrytningar CRLF till LF. Välj en baserat på Verktyg som är tillgängliga på datorn.
 
 | Kommando | Anteckningar |
 | --- | --- |
 | `unix2dos -b INFILE` |Den ursprungliga filen säkerhetskopieras med en. BAK-tillägg |
 | `tr -d '\r' < INFILE > OUTFILE` |UTFIL innehåller en version med endast LF ändelser |
-| `perl -pi -e 's/\r\n/\n/g' INFILE` | Ändrar filen direkt |
+| `perl -pi -e 's/\r\n/\n/g' INFILE` | Ändrar-filen direkt |
 | ```sed 's/$'"/`echo \\\r`/" INFILE > OUTFILE``` |UTFIL innehåller en version med endast LF ändelser. |
 
 **Fel**: `line 1: #!/usr/bin/env: No such file or directory`.
 
-*Orsak*: det här felet uppstår när skriptet har sparats som UTF-8 en Byte ordning markering (BOM).
+*Orsak*: det här felet uppstår när skriptet har sparats som UTF-8 med en Byte (BOM Order Mark).
 
-*Lösning*: spara filen som ASCII eller som UTF-8 utan en struktur. Du kan också använda följande kommando på en Linux eller Unix-system för att skapa en fil utan Strukturen:
+*Lösning*: spara filen som ASCII eller som UTF-8 utan en struktur. Du kan också använda följande kommando i ett Linux- eller Unix-system för att skapa en fil utan Strukturen:
 
     awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 
-Ersätt `INFILE` med den fil som innehåller Strukturen. `OUTFILE` måste vara ett nytt filnamn som innehåller skriptet utan Strukturen.
+Ersätt `INFILE` med filen som innehåller Strukturen. `OUTFILE` ska vara ett nytt filnamn som innehåller skriptet som utan Strukturen.
 
 ## <a name="seeAlso"></a>Nästa steg
 
-* Lär dig hur du [anpassa HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md)
-* Använd den [HDInsight .NET SDK referens](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight) vill veta mer om hur du skapar .NET-program som hanterar HDInsight
+* Lär dig hur du [anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md)
+* Använd den [HDInsight .NET SDK-referensen](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight) mer information om hur du skapar .NET-program som hanterar HDInsight
 * Använd den [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) att lära dig hur du använder REST för att utföra hanteringsåtgärder på HDInsight-kluster.

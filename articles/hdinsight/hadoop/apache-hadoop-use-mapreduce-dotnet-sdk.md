@@ -1,44 +1,39 @@
 ---
-title: Skicka MapReduce-jobb med HDInsight .NET SDK - Azure | Microsoft Docs
-description: Lär dig mer om att skicka MapReduce-jobb på Azure HDInsight Hadoop med HDInsight .NET SDK.
-editor: cgronlun
-manager: jhubbard
+title: Skicka MapReduce-jobb med HDInsight .NET SDK - Azure
+description: Lär dig hur du skickar MapReduce-jobb till Azure HDInsight Hadoop med HDInsight .NET SDK.
+editor: jasonwhowell
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-ms.assetid: c85e44b0-85fd-4185-ad1c-c34a9fe5ef44
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 2b5c265827c30ec9f62cc902aa348e050aec7ba1
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.author: jasonh
+ms.openlocfilehash: a22a2c75f5f520fb74d7ef6a57ff519e95ad273e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019612"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596490"
 ---
-# <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Kör jobb för MapReduce med HDInsight .NET SDK
+# <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Köra MapReduce-jobb med HDInsight .NET SDK
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
-Lär dig mer om att skicka MapReduce-jobb med HDInsight .NET SDK. HDInsight kluster medföljer jar-filen med vissa MapReduce-exempel. Jar-filen är */example/jars/hadoop-mapreduce-examples.jar*.  Ett exempel är *wordcount*. Du kan utveckla en C#-konsolapp att skicka ett wordcount-jobb.  Jobbet läser den */example/data/gutenberg/davinci.txt* filen och skickar resultatet till */example/data/davinciwordcount*.  Om du vill köra programmet måste du rensa den utgående mappen.
+Lär dig hur du skickar MapReduce-jobb med HDInsight .NET SDK. HDInsight kluster levereras med en jar-fil med vissa MapReduce-exemplen. Jar-filen är */example/jars/hadoop-mapreduce-examples.jar*.  Ett exempel är *wordcount*. Du kan utveckla en C#-konsolprogram att skicka ett wordcount-jobb.  Jobbet läser den */example/data/gutenberg/davinci.txt* filen och skickar resultatet till */example/data/davinciwordcount*.  Om du vill köra programmet på nytt, måste du rensa den utgående mappen.
 
 > [!NOTE]
-> Stegen i den här artikeln måste utföras från en Windows-klient. Använd flikväljaren visas överst i artikeln för information om hur du använder en Linux-, OS X- eller Unix-klient ska fungera med Hive.
+> Stegen i den här artikeln måste utföras från en Windows-klient. Använd flikväljaren visas överst i artikeln för information om hur du använder en Linux-, OS X- eller Unix-klient för att arbeta med Hive.
 > 
 > 
 
 ## <a name="prerequisites"></a>Förutsättningar
-Innan du börjar den här artikeln, måste du ha följande:
+Innan du påbörjar den här artikeln måste du ha följande objekt:
 
-* **Ett Hadoop-kluster i HDInsight**. Se [komma igång med Linux-baserade Hadoop i HDInsight](apache-hadoop-linux-tutorial-get-started.md).
+* **Ett Hadoop-kluster i HDInsight**. Se [komma igång med Linux-baserat Hadoop i HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 * **Visual Studio 2013/2015/2017**.
 
 ## <a name="submit-mapreduce-jobs-using-hdinsight-net-sdk"></a>Skicka MapReduce-jobb med HDInsight .NET SDK
-HDInsight .NET SDK innehåller klientbibliotek för .NET, vilket gör det lättare att arbeta med HDInsight-kluster från .NET. 
+HDInsight .NET SDK tillhandahåller klientbibliotek för .NET, vilket gör det enklare att arbeta med HDInsight-kluster från .NET. 
 
 **Skicka jobb**
 
@@ -169,16 +164,16 @@ HDInsight .NET SDK innehåller klientbibliotek för .NET, vilket gör det lätta
 
 4. Tryck på **F5** för att köra programmet.
 
-Du kan köra jobbet igen måste du ändra mappnamnet utdata för jobbet i det här exemplet är ”/ davinciwordcount-exempel/data”.
+För att köra jobbet igen, måste du ändra mapp jobbutdatanamnet i det här exemplet är det ”/ exempel/data/davinciwordcount”.
 
-När jobbet har slutförts, skrivs innehållet i filen ”del-r-00000” i programmet.
+När jobbet har slutförts, skriver programmet innehållet i filen ”del-r-00000”.
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du lärt dig att skapa ett HDInsight-kluster på flera olika sätt. Mer information finns i följande artiklar:
 
-* För att skicka ett Hive-jobb finns [köra Hive-frågor med HDInsight .NET SDK](apache-hadoop-use-hive-dotnet-sdk.md).
+* För att skicka ett Hive-jobb, se [kör Hive-frågor med HDInsight .NET SDK](apache-hadoop-use-hive-dotnet-sdk.md).
 * För att skapa HDInsight-kluster, se [skapa Linux-baserade Hadoop-kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * För att hantera HDInsight-kluster, se [hantera Hadoop-kluster i HDInsight](../hdinsight-administer-use-portal-linux.md).
-* För HDInsight .NET SDK, se [HDInsight .NET SDK referens](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
-* För icke-interaktiv autentisera till Azure, se [skapa icke-interaktiv autentisering .NET HDInsight-program](../hdinsight-create-non-interactive-authentication-dotnet-applications.md).
+* Learning HDInsight .NET SDK finns i [HDInsight .NET SDK-referensen](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
+* För icke-interaktiv autentisering i Azure, se [skapa .NET HDInsight-program med icke-interaktiv autentisering](../hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 

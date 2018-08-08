@@ -1,15 +1,14 @@
+## <a name="add-the-applications-registration-information-to-your-app"></a>Lägg till programmets registreringsinformation i din app
 
-## <a name="add-the-applications-registration-information-to-your-app"></a>Lägg till programmets registreringsinformation i appen
+I det här steget behöver du Lägg till klient-ID i projektet.
 
-Du måste lägga till klient-ID till ditt projekt i det här steget.
-
-1.  Öppna `MainActivity` (under `app`  >  `java`  >   *`{host}.{namespace}`* )
+1.  Öppna `MainActivity` (under `app`  >  `java`  >  *`{host}.{namespace}`*)
 2.  Ersätt den rad som börjar med `final static String CLIENT_ID` med:
 ```java
 final static String CLIENT_ID = "[Enter the application Id here]";
 ```
 3. Öppna: `app` > `manifests` > `AndroidManifest.xml`
-4. Lägg till att följande aktiviteter `manifest\application` nod. Den här registrera en `BrowserTabActivity` så att operativsystem och återuppta programmet när autentiseringen har slutförts:
+4. Lägg till att följande aktiviteter `manifest\application` noden. Den här registrera en `BrowserTabActivity` så att operativsystem och återuppta ditt program när du har slutfört autentiseringen:
 
 ```xml
 <!--Intent filter to capture System Browser calling back to our app after Sign In-->

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 2b6c4b3598013baaf3277cb7810edc009df27ce2
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6374fcf1477d56b9803b63476f3fef38fc12def1
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238428"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618904"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB från serversidan programmering: lagrade procedurer, databasutlösare och UDF: er
 
@@ -394,7 +394,7 @@ client.replaceDocumentAsync(docToReplace.self,
 Efter utlösare, som tidigare utlösare associeras med en åtgärd på ett dokument och tar inte några indataparametrar. De körs **när** åtgärden har slutförts och har åtkomst till svarsmeddelandet som skickas till klienten.   
 
 I följande exempel visas efter utlösare i praktiken:
-```
+```javascript
 var updateMetadataTrigger = {
     id: "updateMetadata",
     serverScript: function updateMetadata() {
@@ -434,7 +434,7 @@ var updateMetadataTrigger = {
 
 ```
 Utlösaren kan registreras som visas i följande exempel.
-```
+```javascript
 // register post-trigger
 client.createTriggerAsync('dbs/testdb/colls/testColl', updateMetadataTrigger)
     .then(function(createdTrigger) { 
@@ -844,4 +844,3 @@ Du kan också vara användbara följande referenser och resurser i din sökväg 
 * [Säker och bärbar databasen utökningsbarhet](http://dl.acm.org/citation.cfm?id=276339) 
 * [Tjänst-orienterade Database-arkitektur](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 * [Som är värd för .NET-Runtime i Microsoft SQL server](http://dl.acm.org/citation.cfm?id=1007669)
-

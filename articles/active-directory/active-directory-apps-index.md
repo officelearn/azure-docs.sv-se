@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 446c97918a6b6287bf4cacf4711a0dd46e12f141
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 9d398d810a2d43b3754fd8950376c605d4654f38
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578559"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621539"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Artikelindex för programhantering i Azure Active Directory
 Den här sidan innehåller en fullständig lista över alla dokument som skrivits om de olika programrelaterade funktionerna i Azure Active Directory (AD Azure).
@@ -54,7 +54,7 @@ Tillåter användare att komma åt en mängd olika appar och tjänster med endas
 | Artikeln Guide |  |
 |:---:| --- |
 | En introduktion till federation och andra typer av inloggning |[Enkel inloggning med Azure AD](manage-apps/what-is-single-sign-on.md) |
-| Tusentals SaaS-appar som redan är integrerade i Azure AD med förenklad konfiguration för enkel inloggning steg |[Komma igång med Azure AD-programgalleriet](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Fullständig lista över förintegrerade appar som har stöd för Federation](saas-apps/tutorial-list.md)<br /><br />[Lägg till din App i Azure AD-Appgalleri](active-directory-app-gallery-listing.md) |
+| Tusentals SaaS-appar som redan är integrerade i Azure AD med förenklad konfiguration för enkel inloggning steg |[Komma igång med Azure AD-programgalleriet](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Fullständig lista över förintegrerade appar som har stöd för Federation](saas-apps/tutorial-list.md)<br /><br />[Lägg till din App i Azure AD-Appgalleri](develop/howto-app-gallery-listing.md) |
 | Fler än 150 app självstudier om hur du konfigurerar enkel inloggning för appar som [Salesforce](saas-apps/salesforce-tutorial.md), [ServiceNow](saas-apps/servicenow-tutorial.md), [Google Apps](saas-apps/google-apps-tutorial.md), [Workday](saas-apps/workday-tutorial.md), och många fler |[Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](saas-apps/tutorial-list.md) |
 | Hur du manuellt konfigurera och anpassa din konfiguration för enkel inloggning |[Hur du konfigurerar federerad enkel inloggning till appar som inte ingår i Azure Active Directory-Programgalleriet](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Anpassa anspråk som utfärdats i SAML-Token för förintegrerade appar](active-directory-saml-claims-customization.md) |
 | Felsökningsguide för federerade appar som använder SAML-protokoll |[Felsöka SAML-baserad enkel inloggning](develop/howto-v1-debug-saml-sso-issues.md) |
@@ -109,7 +109,7 @@ När du konfigurerar enkel inloggning till dina appar och resurser kan skydda du
 | Artikeln Guide |  |
 |:---:| --- |
 | En introduktion till funktioner för villkorlig åtkomst som erbjuds i Azure AD, Office 365 och Intune |[Hantera risker med villkorlig åtkomst](active-directory-conditional-access-azure-portal.md) |
-| Hur du aktiverar villkorlig åtkomst för följande typer av resurser |[Villkorlig åtkomst för SaaS-appar](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Villkorlig åtkomst för Office 365-tjänster](active-directory-conditional-access-device-policies.md)<br /><br />[Villkorlig åtkomst för lokala program](active-directory-conditional-access-azure-portal.md)<br /><br />[Villkorlig åtkomst för lokala program publiceras via Azure AD App Proxy](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
+| Hur du aktiverar villkorlig åtkomst för följande typer av resurser |[Villkorlig åtkomst för SaaS-appar](conditional-access/app-based-conditional-access.md)<br /><br />[Villkorlig åtkomst för Office 365-tjänster](active-directory-conditional-access-device-policies.md)<br /><br />[Villkorlig åtkomst för lokala program](active-directory-conditional-access-azure-portal.md)<br /><br />[Villkorlig åtkomst för lokala program publiceras via Azure AD App Proxy](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | Hur du registrerar enheter med Azure Active Directory för att aktivera principer för enhetsbaserad villkorlig åtkomst |[Översikt över Azure Active Directory Device Registration](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Så här aktiverar du automatisk Enhetsregistrering för domänanslutna Windows-enheter](active-directory-conditional-access-automatic-device-registration.md)<br />– [Steg för Windows 8.1-enheter](active-directory-conditional-access-automatic-device-registration-setup.md)<br />– [Steg för Windows 7-enheter](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
 | Hur du använder appen Microsoft Authenticator för tvåstegsverifiering | [Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) |
@@ -144,7 +144,7 @@ Om din organisation utvecklar eller underhållet av line-of-business (LoB) appar
 | Artikeln Guide |  |
 |:---:| --- |
 | Vägledning för både IT-proffs och utvecklare av företagsprogram om integrering av appar med Azure AD |[IT Pro's Guide för att utveckla program för Azure AD](active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[Utvecklarguide för Azure Active Directory](develop/azure-ad-developers-guide.md) |
-| Hur programmet leverantörer kan lägga till sina appar till Azure AD-Appgalleri |[Lista ditt program i Azure Active Directory-Programgalleriet](active-directory-app-gallery-listing.md) |
+| Hur programmet leverantörer kan lägga till sina appar till Azure AD-Appgalleri |[Lista ditt program i Azure Active Directory-Programgalleriet](develop/howto-app-gallery-listing.md) |
 | Hantera åtkomst till utvecklade program med Azure Active Directory |[Så här aktiverar du Användartilldelning för utvecklade program](active-directory-applications-guiding-developers-requiring-user-assignment.md)<br /><br />[Tilldela användare till din App](active-directory-applications-guiding-developers-assigning-users.md)<br /><br />[Tilldela gruppen till din App](active-directory-applications-guiding-developers-assigning-groups.md) |
 
 Om du utvecklar konsumentinriktade program kan du kanske vill använda [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) så att du inte behöver att utveckla dina egna identitetssystem för att hantera dina användare. [Läs mer](../active-directory-b2c/active-directory-b2c-overview.md).

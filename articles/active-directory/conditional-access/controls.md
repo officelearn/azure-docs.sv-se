@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 5bf8c491a3edc2efa8fa6361f4c5aec2deb30ccb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 2774111ff22572904a958037eed4c17f524770ce
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531906"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591599"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Vad är åtkomstkontroller i Azure Active Directory villkorlig åtkomst? 
 
@@ -77,15 +77,15 @@ Multi-Factor Authentication hjälper till att skydda resurser från används av 
 
 ### <a name="compliant-device"></a>Kompatibel enhet
 
-Du kan konfigurera principer för villkorlig åtkomst som baseras på enheten. Målet med principer för enhetsbaserad villkorlig åtkomst är att ge åtkomst till de Konfigurera resurserna enbart från [hanterade enheter](../active-directory-conditional-access-policy-connected-applications.md#managed-devices). Kräver en kompatibel enhet är ett alternativ måste du definiera en hanterad enhet är. Om det här alternativet väljs, principer för villkorlig åtkomst beviljar åtkomst till åtkomstförsök med enheter som är [registrerad](../devices/overview.md) till din Azure Active Directory och är markerad som kompatibel av Intune (för alla enheter OS) eller genom ditt tredje parts MDM-systemet för Windows 10-enheter. Tredje parts MDM-system för enhetstyper operativsystem än Windows 10 stöds inte.
+Du kan konfigurera principer för villkorlig åtkomst som baseras på enheten. Målet med principer för enhetsbaserad villkorlig åtkomst är att ge åtkomst till de Konfigurera resurserna enbart från [hanterade enheter](require-managed-devices.md). Kräver en kompatibel enhet är ett alternativ måste du definiera en hanterad enhet är. Om det här alternativet väljs, principer för villkorlig åtkomst beviljar åtkomst till åtkomstförsök med enheter som är [registrerad](../devices/overview.md) till din Azure Active Directory och är markerad som kompatibel av Intune (för alla enheter OS) eller genom ditt tredje parts MDM-systemet för Windows 10-enheter. Tredje parts MDM-system för enhetstyper operativsystem än Windows 10 stöds inte.
 
-Mer information finns i [ställa in principer för Azure Active Directory-enhetsbaserad villkorlig åtkomst](../active-directory-conditional-access-policy-connected-applications.md).
+Mer information finns i [ställa in principer för Azure Active Directory-enhetsbaserad villkorlig åtkomst](require-managed-devices.md).
 
 ### <a name="hybrid-azure-ad-joined-device"></a>Hybrid Azure AD-domänansluten enhet
 
 Kräver att en Hybrid Azure AD-domänansluten enhet är ett annat alternativ som du måste konfigurera principer för enhetsbaserad villkorlig åtkomst. Det här kravet refererar till Windows-arbetsstationer, bärbara datorer och enterprise-surfplattor som är anslutna till en lokal Active Directory. Om det här alternativet väljs, beviljar principer för villkorlig åtkomst åtkomst till åtkomstförsök med enheter som är anslutna till din lokala Active Directory och Azure Active Directory.  
 
-Mer information finns i [ställa in principer för Azure Active Directory-enhetsbaserad villkorlig åtkomst](../active-directory-conditional-access-policy-connected-applications.md).
+Mer information finns i [ställa in principer för Azure Active Directory-enhetsbaserad villkorlig åtkomst](require-managed-devices.md).
 
 
 
@@ -97,7 +97,7 @@ Eftersom dina anställda använder mobila enheter för både personliga och arbe
 Du kan använda [Intunes appskyddsprinciper](https://docs.microsoft.com/intune/app-protection-policy) för att skydda företagets data som är oberoende av någon lösning för hantering av mobila enheter (MDM).
 
 
-Med godkända appar, behöver du en klientapp som försöker få åtkomst till dina appar i molnet som stöd för [Intunes appskyddsprinciper](https://docs.microsoft.com/intune/app-protection-policy). Du kan exempelvis begränsa åtkomsten till Exchange Online för Outlook-appen. Principer för villkorlig åtkomst som kräver godkända klientappar kallas även [appbaserad villkorlig åtkomstprincip](../active-directory-conditional-access-mam.md). En lista över godkända klientappar som stöds finns i [godkända kravet på klienten app](../active-directory-conditional-access-technical-reference.md#approved-client-app-requirement).
+Med godkända appar, behöver du en klientapp som försöker få åtkomst till dina appar i molnet som stöd för [Intunes appskyddsprinciper](https://docs.microsoft.com/intune/app-protection-policy). Du kan exempelvis begränsa åtkomsten till Exchange Online för Outlook-appen. Principer för villkorlig åtkomst som kräver godkända klientappar kallas även [appbaserad villkorlig åtkomstprincip](app-based-conditional-access.md). En lista över godkända klientappar som stöds finns i [godkända kravet på klienten app](technical-reference.md#approved-client-app-requirement).
 
 
 ### <a name="terms-of-use"></a>Användningsvillkor

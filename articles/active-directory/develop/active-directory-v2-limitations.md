@@ -17,12 +17,12 @@ ms.date: 07/12/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: aa931702975c2c6bdcc65853c3865dbeff570bf4
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: edf0b52e5889fe8fa875de65fcaa8c2a22df1a7f
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578457"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590757"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Ska jag använda v2.0-slutpunkten?
 
@@ -39,11 +39,11 @@ Om du har en befintlig Azure AD-app som inte använder v2.0-slutpunkten är det 
 
 ## <a name="restrictions-on-app-types"></a>Begränsningar för apptyper
 
-För närvarande stöds följande typer av appar som inte av v2.0-slutpunkten. En beskrivning av apptyper som stöds finns i [apptyperna för Azure Active Directory v2.0-slutpunkten](active-directory-v2-flows.md).
+För närvarande stöds följande typer av appar som inte av v2.0-slutpunkten. En beskrivning av apptyper som stöds finns i [apptyperna för Azure Active Directory v2.0-slutpunkten](v2-app-types.md).
 
 ### <a name="standalone-web-apis"></a>Fristående webb-API: er
 
-Du kan använda v2.0-slutpunkten till [bygga en webb-API som skyddas med OAuth 2.0](active-directory-v2-flows.md#web-apis). Men den webb-API kan ta emot token från ett program som har samma programmets ID. Du kan inte komma åt ett webb-API från en klient som har ett annat program-ID. Klienten kommer inte att kunna begära eller erhålla behörighet att ditt webb-API.
+Du kan använda v2.0-slutpunkten till [bygga en webb-API som skyddas med OAuth 2.0](v2-app-types.md#web-apis). Men den webb-API kan ta emot token från ett program som har samma programmets ID. Du kan inte komma åt ett webb-API från en klient som har ett annat program-ID. Klienten kommer inte att kunna begära eller erhålla behörighet att ditt webb-API.
 
 Om du vill se hur du skapar ett webb-API som accepterar token från en klient som har samma program-ID finns i v2.0-slutpunkten webb-API-exemplen i den [komma igång](active-directory-appmodel-v2-overview.md#getting-started) avsnittet.
 
@@ -98,9 +98,9 @@ Läs hur du registrerar en app i portalen för registrering av program i [hur du
 Stöd för v2.0-slutpunkten är för närvarande begränsad. Om du vill använda v2.0-slutpunkten i ett produktionsprogram finns följande alternativ:
 
 * Om du skapar ett webbprogram, kan du på ett säkert sätt använda allmänt tillgängligt från serversidan mellanprogram för Microsoft för att utföra verifiering av inloggning och token. Dessa inkluderar OWIN öppna ID Connect-mellanprogram för ASP.NET och Node.js Passport-plugin-programmet. Kodexempel som använder Microsoft mellanprogram, finns det [komma igång](active-directory-appmodel-v2-overview.md#getting-started) avsnittet.
-* Om du skapar ett skrivbord eller mobila program kan använda du en av förhandsversionen av Microsoft Authentication Libraries (MSAL). Dessa bibliotek finns i en förhandsversion av produktion som stöds, så det är säkert att använda dem i produktionsprogram. Du kan läsa mer om villkoren för förhandsversionen och tillgängliga bibliotek i [autentisering bibliotek referens](active-directory-v2-libraries.md).
+* Om du skapar ett skrivbord eller mobila program kan använda du en av förhandsversionen av Microsoft Authentication Libraries (MSAL). Dessa bibliotek finns i en förhandsversion av produktion som stöds, så det är säkert att använda dem i produktionsprogram. Du kan läsa mer om villkoren för förhandsversionen och tillgängliga bibliotek i [autentisering bibliotek referens](reference-v2-libraries.md).
 * För plattformar som inte omfattas av Microsoft-bibliotek, kan du integrera med v2.0-slutpunkten genom att skicka och ta emot protokollmeddelanden i din programkod direkt. Protokollen v2.0 OpenID Connect och OAuth [dokumenteras uttryckligen](active-directory-v2-protocols.md) för att utföra en sådan integration.
-* Slutligen kan du använda öppna ID Connect och OAuth bibliotek med öppen källkod för integrering med v2.0-slutpunkten. V2.0-protokollet ska vara kompatibel med många bibliotek för öppen källkod-protokollet utan större ändringar. Dessa typer av bibliotek varierar efter språk och plattform. Den [öppna ID Connect](http://openid.net/connect/) och [OAuth 2.0](http://oauth.net/2/) webbplatser underhålla en lista över populära implementeringar. Mer information finns i [Azure Active Directory v2.0 och autentisering bibliotek](active-directory-v2-libraries.md), och en lista över klientbibliotek med öppen källkod och exempel som har testats med v2.0-slutpunkten.
+* Slutligen kan du använda öppna ID Connect och OAuth bibliotek med öppen källkod för integrering med v2.0-slutpunkten. V2.0-protokollet ska vara kompatibel med många bibliotek för öppen källkod-protokollet utan större ändringar. Dessa typer av bibliotek varierar efter språk och plattform. Den [öppna ID Connect](http://openid.net/connect/) och [OAuth 2.0](http://oauth.net/2/) webbplatser underhålla en lista över populära implementeringar. Mer information finns i [Azure Active Directory v2.0 och autentisering bibliotek](reference-v2-libraries.md), och en lista över klientbibliotek med öppen källkod och exempel som har testats med v2.0-slutpunkten.
 
 ## <a name="restrictions-on-protocols"></a>Begränsningar för protokoll
 

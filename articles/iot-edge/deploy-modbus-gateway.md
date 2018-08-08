@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: a90c60ed6502a36b111d2ecb0f89cb34dc011253
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: b5316479011a432f3822448f03b8ad6ecddd4fe1
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577634"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590603"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Ansluta Modbus TCP-enheter via en gateway för IoT Edge-enhet
 
@@ -35,7 +35,7 @@ Den här artikeln förutsätter att du använder Modbus TCP-protokollet. Mer inf
 Om du vill testa Modbus-gatewayens funktioner har Microsoft en exempelmodul som du kan använda. Om du vill använda exempelmodulen går du till avsnittet [Kör lösningen](#run-the-solution) och anger följande som bildens URI: 
 
 ```URL
-microsoft/azureiotedge-modbus-tcp:GA-preview-amd64
+mcr.microsoft.com/azureiotedge/modbus:1.0
 ```
 
 Om du vill skapa en egen modul och anpassa den för din miljö finns det ett projekt med öppen källkod på Github, [Azure IoT Edge Modbus-modul](https://github.com/Azure/iot-edge-modbus). Följ vägledningarna i projektet för att skapa en egen containeravbildning. Om du skapar en egen containeravbildning kan du läsa informationen om att [utveckla och distribuera en C# IoT Edge-modul](tutorial-csharp-module.md) för att få anvisningar om att publicera containeravbildningar till ett register och distribuera en anpassad modul till din enhet. 
@@ -48,7 +48,7 @@ Om du vill skapa en egen modul och anpassa den för din miljö finns det ett pro
 4. Lägg till Modbus-modulen:
    1. Klicka på **Lägg till** och välj **IoT Edge-modul**.
    2. I fältet **Namn** skriver du ”modbus”.
-   3. I fältet **Bild** anger du bildens URI för exempelcontainern: `microsoft/azureiotedge-modbus-tcp:GA-preview-amd64`.
+   3. I fältet **Bild** anger du bildens URI för exempelcontainern: `mcr.microsoft.com/azureiotedge/modbus:1.0`.
    4. Markera rutan **Aktivera** för att uppdatera önskade egenskaper för modultvillingen.
    5. Kopiera följande JSON till textrutan. Ändra värdet för **SlaveConnection** till Modbus-enhetens IPv4-adress.
 

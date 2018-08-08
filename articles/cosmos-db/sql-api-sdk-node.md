@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: SQL Node.js API, SDK & resurser | Microsoft Docs'
-description: Lär dig mer om SQL Node.js API och SDK inklusive frisläppningsdatum, tillbakadragning datum och ändringar mellan varje version av Azure Cosmos DB Node.js SDK.
+title: 'Azure Cosmos DB: SQL Node.js API, SDK och resurser | Microsoft Docs'
+description: Lär dig allt om SQL Node.js API och SDK, inklusive frisläppningsdatum, dras tillbaka datum och ändringar som gjorts mellan varje version av Azure Cosmos DB Node.js SDK.
 services: cosmos-db
 author: rnagpal
 manager: kfile
@@ -12,17 +12,17 @@ ms.topic: reference
 ms.date: 5/3/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 94d60325fa53668628ddefa68e8ce313c4fa75c6
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: e19c1cb7b297d2537e969e0dd632dae3e1c3d211
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797853"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594370"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [.NET ändra Feed](sql-api-sdk-dotnet-changefeed.md)
+> * [.NET-Ändringsfeed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
@@ -31,191 +31,185 @@ ms.locfileid: "34797853"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST-resursprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [BulkExecutor – .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor – Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**Ladda ned SDK**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
-
-<tr><td>**API-dokumentationen**</td><td>[Node.js API-referensdokumentation](https://docs.microsoft.com/javascript/api/documentdb/?view=azure-node-latest)</td></tr>
-
-<tr><td>**Installationsinstruktioner för SDK**</td><td>[Instruktioner för installation](http://azure.github.io/azure-documentdb-node/)</td></tr>
-
-<tr><td>**Bidra till SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
-
-<tr><td>**Exempel**</td><td>[Node.js-kodexempel](sql-api-nodejs-samples.md)</td></tr>
-
-<tr><td>**Självstudier för att komma igång**</td><td>[Kom igång med Node.js SDK](sql-api-nodejs-get-started.md)</td></tr>
-
-<tr><td>**Självstudier för Web app**</td><td>[Skapa en Node.js-webbapp med Azure Cosmos DB](sql-api-nodejs-application.md)</td></tr>
-
-<tr><td>**Aktuella plattform som stöds**</td><td> 
-[Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/)<br/> 
-[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> 
-[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> 
-[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
-</td></tr>
-</table></br>
+|Resurs  |Länk  |
+|---------|---------|
+|Hämta SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
+|API-dokumentation  |  [JavaScript SDK referensdokumentation](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
+|Installationsinstruktioner för SDK  |  [Installationsinstruktioner](https://github.com/Azure/azure-cosmos-js#installation)
+|Bidra till SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
+| Exempel | [Node.js-kodexempel](sql-api-nodejs-samples-preview.md)
+| Komma igång-Självstudier | [Kom igång med JavaScript-SDK](sql-api-nodejs-get-started-preview.md)
+| Självstudier om webbappen | [Skapa en Node.js-webbprogram med Azure Cosmos DB](sql-api-nodejs-application-preview.md)
+| Aktuella plattformar som stöds | [Node.js version 6.x](https://nodejs.org/en/blog/release/v6.10.3/) – krävs för SDK-Version 2.0.0 och senare.<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
 
 ## <a name="release-notes"></a>Viktig information
 
+### <a name="2.0.0-3"/>2.0.0-3</a>
+* RC1 version 2.0.0 av JavaScript SDK för en förhandsversion.
+* Ny objektmodell med översta CosmosClient och metoder dela upp på relevanta klasser för databasen, behållare och objekt. 
+* Stöd för [lovar](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises). 
+* SDK konverteras till TypeScript.
+
 ### <a name="1.14.4"/>1.14.4</a>
-* fast npm-dokumentationen.
+* npm dokumentationen korrigerad.
 
 ### <a name="1.14.3"/>1.14.3</a>
-* Tillagt stöd för standard återförsök på problem med anslutningen.
-* Tillagt stöd för att läsa samling ändra feed.
-* Fast session konsekvenskontroll fel som orsakade periodvis ”skrivskyddade sessionen som är inte tillgänglig”.
+* Stöd har lagts till för standard återförsök på problem med anslutningen.
+* Stöd har lagts till för att läsa samling ändringen flödet.
+* Fast session konsekvens bugg som ibland orsakade ”Läs sessionen som är inte tillgänglig”.
 * Stöd har lagts till för frågan mått.
-* Ändra http Agent maximalt antal anslutningar.
+* Ändra http-agenten maximalt antal anslutningar.
 
 ### <a name="1.14.2"/>1.14.2</a>
-* Uppdaterad dokumentation till referens Azure Cosmos-DB i stället för Azure DocumentDB.
-* Stöd för proxyUrl inställning i ConnectionPolicy har lagts till.
+* Uppdaterad dokumentation-referensen Azure Cosmos DB i stället för Azure DocumentDB.
+* Stöd har lagts till för proxyUrl inställning i ConnectionPolicy.
 
 ### <a name="1.14.1"/>1.14.1</a>
-* Mindre korrigera för skiftlägeskänsliga filsystem.
+* Mindre korrigering för skiftlägeskänsliga filsystem.
 
 ### <a name="1.14.0"/>1.14.0</a>
 * Lägger till stöd för Sessionskonsekvens.
-* Den här SDK-versionen kräver den senaste versionen av Azure Cosmos DB emulatorn måste vara tillgänglig för nedladdning från https://aka.ms/cosmosdb-emulator.
+* Den SDK-versionen kräver att den senaste versionen av Azure Cosmos DB-emulatorn tillgänglig för nedladdning från https://aka.ms/cosmosdb-emulator.
 
 ### <a name="1.13.0"/>1.13.0</a>
 * Dela proofed mellan partition frågor.
-* Lägger till stöd för resurslänken med inledande och avslutande snedstreck (och motsvarande tester).
+* Lägger till stöd för resurslänk med inledande och avslutande snedstreck (och motsvarande tester).
 
 ### <a name="1.12.2"/>1.12.2</a>
-*   fast npm-dokumentationen.
+*   npm dokumentationen korrigerad.
 
 ### <a name="1.12.1"/>1.12.1</a>
-* Fast ett programfel i executeStoredProcedure där dokument för hade särskilda Unicode-tecken (LS PS).
-* Fast ett programfel i dokument med Unicode-tecken i Partitionsnyckeln-hantering.
-* Fast stöd för att skapa samlingar med namnet-mediet. Github problemet #114.
-* Fast stöd för behörighet autentiseringstoken. Github problemet #178.
+* Ett fel har åtgärdats i executeStoredProcedure där dokument som är inblandade hade särskilda Unicode-tecken (LS, PS).
+* Ett fel vid hantering av dokument med Unicode-tecken i Partitionsnyckeln har åtgärdats.
+* Fast stöd för att skapa samlingar med namn på mediet. Github-ärende #114.
+* Fast stöd för auktoriseringstoken för behörighet. Github-ärende #178.
 
 ### <a name="1.12.0"/>1.12.0</a>
-* Tillagt stöd för en ny [konsekvensnivå](consistency-levels.md) kallas ConsistentPrefix.
-* Stöd för UriFactory har lagts till.
-* Fast ett programfel för Unicode-stöd. GitHub problemet #171.
+* Lagt till stöd för en ny [konsekvensnivå](consistency-levels.md) kallas ConsistentPrefix.
+* Stöd har lagts till för UriFactory.
+* En bugg Unicode support. GitHub-ärende #171.
 
 ### <a name="1.11.0"/>1.11.0</a>
-* Tillagt stöd för aggregering frågor (COUNT, MIN, MAX, SUM och AVG).
+* Lagt till stöd för mängdfrågor (COUNT, MIN, MAX, SUM och Genomsnittlig).
 * Lägga till alternativet för att styra graden av parallellitet för mellan partition frågor.
-* Lägga till alternativet för att inaktivera SSL-kontroll när du kör mot Azure Cosmos DB-emulatorn.
-* Sänks minsta dataflöde på partitionerade samlingar från 10,100 RU/s till 2500 RU/s.
-* Fast fortsättning token programfel för enskild partition samling. Github problemet #107.
-* Fast executeStoredProcedure programfel i 0-hantering som enda param. Github problemet #155.
+* Lägga till alternativet för att inaktivera verifiering av SSL när du kör mot Azure Cosmos DB-emulatorn.
+* Sänkte lägsta dataflöde på partitionerade samlingar från 10,100 RU/s till 2500 RU/s.
+* Bugg i fortsättningen token för enskilda partitionssamlingar. Github-ärende #107.
+* Bugg executeStoredProcedure vid hantering av 0 som enda param. Github-ärende #155.
 
 ### <a name="1.10.2"/>1.10.2</a>
-* Fast Användaragent-rubriken för att inkludera SDK-version.
-* Rensningen av mindre kod.
+* Fast Användaragent-rubriken för att inkludera den SDK-versionen.
+* Rensning av mindre kod.
 
 ### <a name="1.10.1"/>1.10.1</a>
-* Inaktivera SSL-kontroll när du använder SDK: N till mål i emulator(hostname=localhost).
-* Stöd har lagts till för att aktivera loggning skript under körning av lagrad procedur.
+* Inaktivera verifiering av SSL när du använder SDK: N för att rikta emulator(hostname=localhost).
+* Stöd har lagts till för att aktivera loggning för skriptet vid körningen av lagrad procedur.
 
 ### <a name="1.10.0"/>1.10.0</a>
-* Tillagt stöd för mellan partition parallella frågor.
-* Stöd för upp/ORDER BY-frågor för partitionerade samlingar har lagts till.
+* Tillagt stöd för olika plattformar partition parallella frågor.
+* Stöd har lagts till för TOP/ORDER BY-frågor för partitionerade samlingar.
 
 ### <a name="1.9.0"/>1.9.0</a>
-* Tillagda försök princip stöd för begränsad begäranden. (Begränsad begäranden får en förfrågan hastighet för stor undantag, felkod 429.) Standard Azure Cosmos DB återförsök nio gånger för varje begäran när felkoden 429 påträffas respektera retryAfter tid i rubriken. En fast försök tidsintervall kan nu anges som en del av egenskapen RetryOptions på ConnectionPolicy-objekt om du vill ignorera retryAfter tiden som returnerades av servern mellan försöken. Azure Cosmos-DB väntar nu högst 30 sekunder för varje begäran som har begränsats (oavsett antal försök) och returnerar svaret med felkoden 429. Nu kan åsidosättas i egenskapen RetryOptions på ConnectionPolicy objekt.
-* Cosmos DB Returnerar nu x-ms-begränsning--antal försök och x-ms-throttle-retry-wait-time-ms som svarshuvuden i varje begäran att ange begränsningen försök antal och kumulativa tid begäran väntade mellan försöken.
-* Klassen RetryOptions lades exponera RetryOptions-egenskapen för klassen ConnectionPolicy som kan användas för att åsidosätta en del av du standardalternativen vara försök igen.
+* Har lagts till återförsök princip stöd för begränsade begäranden. (Begränsade begäranden ta emot en begäran om frekvensen för stor undantag, felkod 429.) Som standard Azure Cosmos DB återförsök nio gånger för varje begäran när felkod 429 påträffas, respekterar retryAfter tiden i svarshuvudet. En fast återförsöksintervallet kan nu ställas in som en del av egenskapen RetryOptions på ConnectionPolicy objektet om du vill ignorera retryAfter tiden mellan återförsöken som returneras av servern. Azure Cosmos DB väntar nu upp till 30 sekunder för varje begäran som har begränsats (oavsett antal nya försök) och returnerar svaret med felkod 429. Nu kan åsidosättas i egenskapen RetryOptions ConnectionPolicy-objektet.
+* Cosmos DB Returnerar nu x-ms-begränsning--antalet återförsök och x-ms-throttle-retry-wait-time-ms som svarshuvuden i varje begäran att ange begränsningen försök antal och den kumulativ väntetid begäran mellan återförsöken.
+* Klassen RetryOptions har lagts till, exponera RetryOptions-egenskapen för klassen ConnectionPolicy som kan användas för att åsidosätta en del av standardalternativen för återförsök.
 
 ### <a name="1.8.0"/>1.8.0</a>
-* Lägga till stöd för flera regioner databasen konton.
+* Lagt till stöd för flera regioner.
 
 ### <a name="1.7.0"/>1.7.0</a>
-* Lägga till stöd för tid Live(TTL) funktion för dokument.
+* Lagt till stöd för tid Live(TTL) funktion för dokument.
 
 ### <a name="1.6.0"/>1.6.0</a>
-* Implementerad [partitionerade samlingar](partition-data.md) och [användardefinierade prestandanivåer](performance-levels.md).
+* Implementerat [partitionerade samlingar](partition-data.md) och [användardefinierade prestandanivåer](performance-levels.md).
 
 ### <a name="1.5.6"/>1.5.6</a>
-* Fast RangePartitionResolver.resolveForRead bugg där den inte returnerade länkar på grund av en felaktig concat av resultaten.
+* Bugg har åtgärdats RangePartitionResolver.resolveForRead där det inte returnerade länkar på grund av en felaktig concat resultat.
 
 ### <a name="1.5.5"/>1.5.5</a>
-* Fast hashParitionResolver resolveForRead(): när inga partitionsnyckel angavs att undantag, i stället för att returnera en lista över alla registrerade länkar.
+* Fast hashParitionResolver resolveForRead(): när inga partitionsnyckel som angetts utlöser undantag, istället för att returnera en lista över alla registrerade länkar.
 
 ### <a name="1.5.4"/>1.5.4</a>
-* För att rätta till problemet [#100](https://github.com/Azure/azure-documentdb-node/issues/100) -dedikerad HTTPS Agent: undvika att ändra globala agenten för Azure Cosmos DB ändamål. Använd en dedikerad agent för alla de lib begäranden.
+* Åtgärdar problemet [#100](https://github.com/Azure/azure-documentdb-node/issues/100) -dedikerade HTTPS-agenten: undvika att ändra globala agenten för Azure Cosmos DB. Använda en dedikerad agent för alla de lib-begäranden.
 
 ### <a name="1.5.3"/>1.5.3</a>
-* För att rätta till problemet [#81](https://github.com/Azure/azure-documentdb-node/issues/81) - korrekt hantera bindestreck i media-ID: n.
+* Åtgärdar problemet [#81](https://github.com/Azure/azure-documentdb-node/issues/81) – korrekt hantera bindestreck i media-ID: n.
 
 ### <a name="1.5.2"/>1.5.2</a>
-* För att rätta till problemet [#95](https://github.com/Azure/azure-documentdb-node/issues/95) -EventEmitter lyssnare läcka varning.
+* Åtgärdar problemet [#95](https://github.com/Azure/azure-documentdb-node/issues/95) -EventEmitter lyssnare läcka varning.
 
 ### <a name="1.5.1"/>1.5.1</a>
-* För att rätta till problemet [#92](https://github.com/Azure/azure-documentdb-node/issues/90) -Byt namn på Hash till hash för skiftlägeskänsligt system.
+* Åtgärdar problemet [#92](https://github.com/Azure/azure-documentdb-node/issues/90) – Byt namn på Hash till hash för skiftlägeskänsligt system.
 
 ### <a name="1.5.0"/>1.5.0</a>
-* Implementera stöd för horisontell partitionering genom att lägga till intervallet & hash-matchare för partitionen.
+* Implementera horisontell partitionering stöd genom att lägga till hash & rvall partition matchare.
 
 ### <a name="1.4.0"/>1.4.0</a>
-* Implementera Upsert. Nya upsertXXX-metoder på documentClient.
+* Implementera Upsert. Ny upsertXXX metoder på documentClient.
 
 ### <a name="1.3.0"/>1.3.0</a>
-* Hoppas över om du vill flytta versionsnummer i enlighet med andra SDK.
+* Hoppades över för att göra versionsnummer i linje med andra SDK: er.
 
 ### <a name="1.2.2"/>1.2.2</a>
-* Dela frågor lovar wrapper till en ny lagringsplats.
-* Uppdatera till paketfilen för npm-registret.
+* Frågor och dela lovar wrapper till nya lagringsplatsen.
+* Uppdatera till paketfil för npm-registret.
 
 ### <a name="1.2.1"/>1.2.1</a>
 * Implementerar ID baserat routning.
-* För att rätta till problemet [#49](https://github.com/Azure/azure-documentdb-node/issues/49) -aktuella egenskapen står i konflikt med metoden current().
+* Åtgärdar problemet [#49](https://github.com/Azure/azure-documentdb-node/issues/49) -aktuella egenskapen står i konflikt med metoden current().
 
 ### <a name="1.2.0"/>1.2.0</a>
-* Stöd för GeoSpatial indexet har lagts till.
-* Verifierar id-egenskapen för alla resurser. ID för resurser kan inte innehålla?, /, #, &#47; &#47;, tecken eller sluta med ett blanksteg.
-* Lägger till nya rubriken ”index omvandling pågår” ResourceResponse.
+* Tillagt stöd för geospatiala index.
+* Verifierar id-egenskapen för alla resurser. ID: n för resurser får inte innehålla?, /, #, &#47; &#47;, tecken eller sluta med ett blanksteg.
+* Lägger till ny rubrik ”index omvandling status” ResourceResponse.
 
 ### <a name="1.1.0"/>1.1.0</a>
-* Implementerar V2 indexprincip.
+* Implementerar V2 indexeringsprincip.
 
 ### <a name="1.0.3"/>1.0.3</a>
-* Problemet [#40](https://github.com/Azure/azure-documentdb-node/issues/40) - implementerat eslint och grunt konfigurationer i kärnor och lovar SDK.
+* Problemet [#40](https://github.com/Azure/azure-documentdb-node/issues/40) – implementeras eslint och trista konfigurationer i kärnan och lovar SDK.
 
 ### <a name="1.0.2"/>1.0.2</a>
-* Problemet [#45](https://github.com/Azure/azure-documentdb-node/issues/45) -löftena wrapper inkluderar inte-rubrik med fel.
+* Problemet [#45](https://github.com/Azure/azure-documentdb-node/issues/45) -löften omslutning omfattar inte-rubrik med fel.
 
 ### <a name="1.0.1"/>1.0.1</a>
-* Implementerad möjlighet till frågor för konflikter genom att lägga till readConflicts och readConflictAsync queryConflicts.
+* Implementerad möjlighet att fråga efter konflikter genom att lägga till readConflicts och readConflictAsync queryConflicts.
 * Uppdaterade API-dokumentationen.
 * Problemet [#41](https://github.com/Azure/azure-documentdb-node/issues/41) -client.createDocumentAsync fel.
 
 ### <a name="1.0.0"/>1.0.0</a>
-* GA SDK.
+* GA-SDK.
 
-## <a name="release--retirement-dates"></a>Versionen & pensionering datum
-Microsoft meddelar minst **12 månader** innan du tar bort en SDK för att utjämna övergången till en nyare/stöds version.
+## <a name="release--retirement-dates"></a>Fri & Släpp dras tillbaka datum
+Microsoft meddelar minst **12 månader** förväg dra tillbaka en SDK för att utjämna övergången till en nyare/stöds version.
 
-Nya funktioner och funktionalitet och optimeringar bara lägga till den aktuella SDK, som vi rekommenderar att du alltid uppgraderar till den senaste SDK-versionen så snart som möjligt.
+Nya funktioner och funktionalitet och optimeringar läggs endast till den aktuella SDK, så vi rekommenderar att du alltid uppgraderar till den senaste SDK-versionen så tidigt som möjligt.
 
-Alla förfrågningar till Cosmos-databas med hjälp av en pensionerad SDK är avvisas av tjänsten.
+Varje begäran till Cosmos DB med hjälp av en pensionerad SDK är avvisas av tjänsten.
 
 <br/>
 
-| Version | Utgivningsdatum | Datumet för tillbakadragandet |
+| Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
-| [1.14.4](#1.14.4) |03 kan 2018 |--- |
-| [1.14.3](#1.14.3) |03 kan 2018 |--- |
-| [1.14.2](#1.14.2) |21 december 2017 |--- |
-| [1.14.1](#1.14.1) |10 november 2017 |--- |
+| [2.0.0-3 (RC)](#2.0.0-3) |Den 2 augusti 2018 |--- |
+| [1.14.4](#1.14.4) |03 maj 2018 |--- |
+| [1.14.3](#1.14.3) |03 maj 2018 |--- |
+| [1.14.2](#1.14.2) |Den 21 december 2017 |--- |
+| [1.14.1](#1.14.1) |Den 10 november 2017 |--- |
 | [1.14.0](#1.14.0) |9 november 2017 |--- |
 | [1.13.0](#1.13.0) |11 oktober 2017 |--- |
 | [1.12.2](#1.12.2) |10 augusti 2017 |--- |
 | [1.12.1](#1.12.1) |10 augusti 2017 |--- |
 | [1.12.0](#1.12.0) |10 maj 2017 |--- |
-| [1.11.0](#1.11.0) |16 mars 2017 |--- |
+| [1.11.0](#1.11.0) |Den 16 mars 2017 |--- |
 | [1.10.2](#1.10.2) |27 januari 2017 |--- |
 | [1.10.1](#1.10.1) |Den 22 december 2016 |--- |
 | [1.10.0](#1.10.0) |03 oktober 2016 |--- |
 | [1.9.0](#1.9.0) |07 juli 2016 |--- |
-| [1.8.0](#1.8.0) |14 juni 2016 |--- |
+| [1.8.0](#1.8.0) |Den 14 juni 2016 |--- |
 | [1.7.0](#1.7.0) |26 april 2016 |--- |
 | [1.6.0](#1.6.0) |Den 29 mars 2016 |--- |
 | [1.5.6](#1.5.6) |08 mars 2016 |--- |
@@ -223,16 +217,16 @@ Alla förfrågningar till Cosmos-databas med hjälp av en pensionerad SDK är av
 | [1.5.4](#1.5.4) |01 februari 2016 |--- |
 | [1.5.2](#1.5.2) |26 januari 2016 |--- |
 | [1.5.2](#1.5.2) |Den 22 januari 2016 |--- |
-| [1.5.1](#1.5.1) |4 januari 2016 |--- |
+| [1.5.1](#1.5.1) |Den 4 januari 2016 |--- |
 | [1.5.0](#1.5.0) |Den 31 december 2015 |--- |
 | [1.4.0](#1.4.0) |06 oktober 2015 |--- |
 | [1.3.0](#1.3.0) |06 oktober 2015 |--- |
-| [1.2.2](#1.2.2) |10 september 2015 |--- |
-| [1.2.1](#1.2.1) |15 augusti 2015 |--- |
+| [1.2.2](#1.2.2) |Den 10 september 2015 |--- |
+| [1.2.1](#1.2.1) |Den 15 augusti 2015 |--- |
 | [1.2.0](#1.2.0) |05 augusti 2015 |--- |
 | [1.1.0](#1.1.0) |09 juli 2015 |--- |
 | [1.0.3](#1.0.3) |04 juni 2015 |--- |
-| [1.0.2](#1.0.2) |23 maj 2015 |--- |
+| [1.0.2](#1.0.2) |Den 23 maj 2015 |--- |
 | [1.0.1](#1.0.1) |Den 15 maj 2015 |--- |
 | [1.0.0](#1.0.0) |08 april 2015 |--- |
 
@@ -240,5 +234,5 @@ Alla förfrågningar till Cosmos-databas med hjälp av en pensionerad SDK är av
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Se också
-Läs mer om Cosmos-DB i [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) sida.
+Mer information om Cosmos DB finns [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service-sidan.
 

@@ -1,54 +1,50 @@
 ---
-title: Analysera svarta fördröjning data med Hadoop i HDInsight - Azure | Microsoft Docs
-description: Lär dig hur du använder en Windows PowerShell-skript för att skapa ett HDInsight-kluster, kör en Hive-jobb, köra ett Sqoop jobb och tar bort klustret.
+title: Analysera flygförseningsdata med Hadoop i HDInsight - Azure
+description: Lär dig hur du använder en Windows PowerShell-skript för att skapa ett HDInsight-kluster, kör ett Hive-jobb, köra ett jobb för Sqoop och ta bort klustret.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 00e26aa9-82fb-4dbe-b87d-ffe8e39a5412
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: eec5d0eb3c9cb0ae6e3e7f4eadfc58c4ab039cfd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7d1ab85f3efeaa17abbe1cc93157e63bbca1a0b9
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33770580"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592262"
 ---
-# <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Analysera svarta fördröjning data med hjälp av Hive i HDInsight
-Hive ger dig möjlighet att köra Hadoop MapReduce jobb via en SQL-liknande skriptspråk som kallas  *[HiveQL][hadoop-hiveql]*, som kan användas mot sammanfattning, fråga och analys av stora mängder data.
+# <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Analysera flygförseningsdata med hjälp av Hive i HDInsight
+Hive ger dig möjlighet att kör Hadoop MapReduce-jobb via en SQL-liknande skriptspråk som kallas  *[HiveQL][hadoop-hiveql]*, som kan tillämpas gentemot sammanfatta, frågor, och analysera stora mängder data.
 
 > [!IMPORTANT]
-> Stegen i det här dokumentet kräver ett Windows-baserade HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Åtgärder för att arbeta med ett Linux-baserade kluster, se [analysera svarta fördröjning data med hjälp av Hive i HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
+> Stegen i det här dokumentet kräver ett Windows-baserade HDInsight-kluster. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Anvisningar som fungerar med en Linux-baserat kluster finns i [analysera flygförseningsdata med hjälp av Hive i HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
 
-En av de största fördelarna med Azure HDInsight är uppdelning av datalagring och beräkning. HDInsight använder Azure Blob storage för lagring av data. En typisk jobbet innefattar tre delar:
+En av de största fördelarna med Azure HDInsight är uppdelning av lagring och beräkning. HDInsight använder Azure Blob storage för lagring av data. Ett typiskt jobb omfattar tre delar:
 
-1. **Lagra data i Azure Blob storage.**  Till exempel väder data, sensordata, webbloggar, och i det här fallet svarta fördröjning data sparas i Azure Blob storage.
-2. **Kör jobb.** När det är dags att bearbeta data som du kör ett Windows PowerShell-skript (eller ett klientprogram) för att skapa ett HDInsight-kluster, köra jobb och tar bort klustret. Jobben spara data till Azure Blob storage. Utdata sparas även när klustret har tagits bort. På så sätt kan du betalar bara vad du har förbrukat.
-3. **Hämta utdata från Azure Blob storage**, eller exportera data till en Azure SQL database i den här självstudiekursen.
+1. **Store data i Azure Blob storage.**  Till exempel väder data, sensordata, webbloggar och i det här fallet flygförseningsdata sparas i Azure Blob storage.
+2. **Kör jobb.** När det är dags att bearbeta data kan köra du ett Windows PowerShell-skript (eller ett klientprogram) för att skapa ett HDInsight-kluster, kör jobb och ta bort klustret. Jobben spara utdata till Azure Blob storage. Utdata behålls även när klustret tas bort. På så sätt kan du betala för endast vad du har förbrukat.
+3. **Hämta utdata från Azure Blob storage**, eller exportera data till en Azure SQL-databas i den här självstudien.
 
-Följande diagram illustrerar scenariot och strukturen för den här kursen:
+Följande diagram illustrerar ett scenario och strukturen för den här självstudien:
 
 ![HDI. FlightDelays.flow][img-hdi-flightdelays-flow]
 
-Observera att talen i diagrammet motsvarar avsnittsrubriker. **M** står för den huvudsakliga processen. **En** står för innehållet i tillägget.
+Observera att talen i diagrammet motsvarar avsnittsrubrikerna. **M** står för den huvudsakliga processen. **En** står för innehållet i tillägget.
 
-Den största delen av kursen visar hur du använder en Windows PowerShell-skript för att utföra följande uppgifter:
+Den viktigaste delen av kursen visar hur du använder en Windows PowerShell-skript för att utföra följande uppgifter:
 
 * Skapa ett HDInsight-kluster.
-* Köra en Hive-jobb på klustret för att beräkna genomsnitt förseningar på flygplatser. Den svarta fördröjning data lagras i ett Azure Blob storage-konto.
-* Kör ett jobb för Sqoop för att exportera Hive-jobbutdata till en Azure SQL database.
+* Kör ett Hive-jobb på klustret för att beräkna genomsnitt förseningar på flygplatser. Flygförseningsdata lagras i ett Azure Blob storage-konto.
+* Köra ett jobb för Sqoop för att exportera utdata för Hive-jobbet till en Azure SQL database.
 * Ta bort HDInsight-klustret.
 
-I bilagorna hittar du instruktionerna för överföringen svarta fördröjning data, skapa/ladda upp en Hive-frågesträng och förberedde Sqoop jobb på Azure SQL database.
+I bilagorna hittar du instruktionerna för överföringen flygförseningsdata, skapa/överföra en Hive-frågesträng och förbereda Azure SQL-databasen för Sqoop jobbet.
 
 > [!NOTE]
-> Stegen i det här dokumentet är specifika för Windows-baserade HDInsight-kluster. Åtgärder för att arbeta med ett Linux-baserade kluster, se [analysera svarta fördröjning data med Hive i HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
+> Stegen i det här dokumentet är specifika för Windows-baserade HDInsight-kluster. Anvisningar som fungerar med en Linux-baserat kluster finns i [analysera flygförseningsdata med Hive i HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
 
 ### <a name="prerequisites"></a>Förutsättningar
 Innan du börjar den här självstudiekursen behöver du följande:
@@ -61,30 +57,30 @@ Innan du börjar den här självstudiekursen behöver du följande:
     >
     > Följ stegen i [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs) för att installera den senaste versionen av Azure PowerShell. Om du har skript som behöver ändras för att använda de nya cmdletarna som fungerar med Azure Resource Manager, hittar du mer information i [Migrera till Azure Resource Manager-baserade utvecklingsverktyg för HDInsight-kluster](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
-**Filer som används i den här självstudiekursen**
+**Filer som används i den här självstudien**
 
-Den här kursen används i tid prestandan för flygbolag svarta data från [forskning och innovativa tekniken Administration, Bureau transport statistik eller RITA][rita-website].
+Den här självstudien används punktlighetsinformation av flygbolag flygning data från [forskning och innovativ teknik Administration, Bureau transport statistik eller RITA][rita-website].
 En kopia av data har överförts till en Azure Blob storage-behållare med offentliga Blob-behörighet.
-En del av PowerShell-skript kopierar data från den offentliga blob-behållaren till standardbehållaren på klustret. HiveQL-skript kopieras också till samma Blob-behållaren.
-Om du vill lära dig hur du get/överför data till ditt eget lagringskonto och hur du skapar/överför HiveQL skriptfilen finns [bilaga A](#appendix-a) och [bilaga B](#appendix-b).
+En del av PowerShell-skriptet kopierar data från den offentliga blob-behållaren till standardbehållaren för ditt kluster. HiveQL-skript kopieras även till samma Blob-behållaren.
+Om du vill lära dig att get/laddar upp data till ditt eget lagringskonto, och skapa/överföra filen HiveQL-skript kan du läsa [bilaga A](#appendix-a) och [bilaga B](#appendix-b).
 
-I följande tabell visas de filer som används i den här självstudiekursen:
+I följande tabell visas de filer som används i den här självstudien:
 
 <table border="1">
 <tr><th>Filer</th><th>Beskrivning</th></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>HiveQL skriptfilen som används av Hive-jobb. Det här skriptet har överförts till ett Azure Blob storage-konto med offentlig åtkomst. <a href="#appendix-b">Bilaga B</a> har instruktioner för att förbereda och överföra den här filen till din egen Azure Blob storage-konto.</td></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>Indata för Hive-jobb. Data har överförts till ett Azure Blob storage-konto med offentlig åtkomst. <a href="#appendix-a">Bilaga A</a> innehåller anvisningar som beskriver hämta data och överför data till din egen Azure Blob storage-konto.</td></tr>
-<tr><td>\tutorials\flightdelays\output</td><td>Utdatasökvägen för Hive-jobb. Standardbehållaren används för att lagra utdata.</td></tr>
-<tr><td>\tutorials\flightdelays\jobstatus</td><td>Hive-jobbet status mappen i standardbehållaren.</td></tr>
+<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>HiveQL skriptfilen som används av Hive-jobb. Det här skriptet har överförts till ett Azure Blob storage-konto med offentlig åtkomst. <a href="#appendix-b">Bilaga B</a> har anvisningar för hur förbereder och överför den här filen till ditt eget Azure Blob storage-konto.</td></tr>
+<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>Indata för Hive-jobb. Data har överförts till ett Azure Blob storage-konto med offentlig åtkomst. <a href="#appendix-a">Bilaga A</a> innehåller anvisningar som beskriver när data hämtades och ladda upp data till ditt eget Azure Blob storage-konto.</td></tr>
+<tr><td>\tutorials\flightdelays\output</td><td>Sökvägen för utdata för Hive-jobb. Standardbehållaren används för att lagra utdata.</td></tr>
+<tr><td>\tutorials\flightdelays\jobstatus</td><td>Hive-jobb status mappen på behållare som standard.</td></tr>
 </table>
 
 ## <a name="create-cluster-and-run-hivesqoop-jobs"></a>Skapa kluster och köra Hive/Sqoop jobb
-Hadoop MapReduce är batch-bearbetning. Det mest kostnadseffektiva sättet att köra en Hive-jobb är att skapa ett kluster för jobbet och ta bort jobbet när jobbet har slutförts. Följande skript täcker hela processen.
-Mer information om hur du skapar ett HDInsight-kluster och köra Hive-jobb finns [skapa Hadoop-kluster i HDInsight] [ hdinsight-provision] och [använda Hive med HDInsight][hdinsight-use-hive].
+Hadoop MapReduce är batchbearbetning. Det mest kostnadseffektiva sättet att köra ett Hive-jobb är att skapa ett kluster för jobbet och tar bort jobbet när jobbet har slutförts. Följande skript täcker hela processen.
+Läs mer om att skapa ett HDInsight-kluster och köra Hive-jobb, [skapa Hadoop-kluster i HDInsight] [ hdinsight-provision] och [använda Hive med HDInsight] [hdinsight-use-hive].
 
-**Att köra Hive-frågor med Azure PowerShell**
+**Du kör Hive-frågor med Azure PowerShell**
 
-1. Skapa en Azure SQL database och tabellen Sqoop utdata för jobbet med hjälp av anvisningarna i [bilaga C](#appendix-c).
+1. Skapa en Azure SQL-databas och tabell Sqoop utdata för jobbet med hjälp av anvisningarna i [bilaga C](#appendix-c).
 2. Öppna Windows PowerShell ISE och kör följande skript:
 
     ```powershell
@@ -234,39 +230,39 @@ Mer information om hur du skapar ett HDInsight-kluster och köra Hive-jobb finns
     ###########################################
     Remove-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName
     ```
-3. Anslut till SQL-databas och se genomsnittlig svarta fördröjningar efter ort i tabellen AvgDelays:
+3. Ansluter till din SQL-databas och se genomsnittlig flygförseningar efter ort i tabellen AvgDelays:
 
     ![HDI. FlightDelays.AvgDelays.Dataset][image-hdi-flightdelays-avgdelays-dataset]
 
 - - -
 
-## <a id="appendix-a"></a>Bilaga A – överföringsdata svarta fördröjning till Azure Blob storage
-Ladda upp datafilen och HiveQL skriptfiler (se [bilaga B](#appendix-b)) kräver lite planering. Tanken är att lagra datafiler och HiveQL-filen innan du skapar ett HDInsight-kluster och köra Hive-jobb. Du kan välja mellan två alternativ:
+## <a id="appendix-a"></a>Bilaga A – ladda upp flygförseningsdata till Azure Blob storage
+Ladda upp datafilen och HiveQL skriptfiler (se [bilaga B](#appendix-b)) kräver lite planering. Tanken är att lagra datafiler och HiveQL filen innan du skapar ett HDInsight-kluster och köra Hive-jobb. Du kan välja mellan två alternativ:
 
-* **Använd samma Azure Storage-konto som ska användas av HDInsight-klustret som standardfilsystem.** Eftersom HDInsight-klustret har åtkomstnyckel för lagring, behöver du inte göra några fler ändringar.
-* **Använd ett annat Azure Storage-konto från filsystemet HDInsight-kluster.** Om så är fallet måste du ändra skapas en del av Windows PowerShell-skript finns i [skapa HDInsight-kluster och kör Hive/Sqoop jobb](#runjob) länka Storage-konto som ett ytterligare Storage-konto. Instruktioner finns i [skapa Hadoop-kluster i HDInsight][hdinsight-provision]. HDInsight-klustret vet sedan åtkomstnyckeln för lagringskontot.
+* **Använd samma Azure Storage-konto som används av HDInsight-klustret som standardfilsystem.** Eftersom HDInsight-klustret ska ha åtkomst lagringskontonyckeln, behöver du inte göra några ytterligare ändringar.
+* **Använd ett annat Azure Storage-konto från standardfilsystemet för HDInsight-kluster.** Om så är fallet, måste du ändra skapas en del av Windows PowerShell-skript finns i [skapa HDInsight-kluster och köra Hive/Sqoop jobb](#runjob) länkar lagringskontot som ett ytterligare lagringskonto. Anvisningar finns i [skapa Hadoop-kluster i HDInsight][hdinsight-provision]. HDInsight-klustret vet sedan åtkomstnyckeln för lagringskontot.
 
 > [!NOTE]
-> Sökvägen för Blob-lagring för datafilen är hårddisken kodad i skriptfilen HiveQL. Du måste uppdatera därefter.
+> Blob storage-sökvägen för datafilen är svårt kodad i skriptfilen HiveQL. Du måste uppdatera dem enlighet med detta.
 
-**Att hämta data rör sig**
+**Att ladda ned flight-data**
 
-1. Bläddra till [forskning och innovativa tekniken Administration, som administreras av transport statistik][rita-website].
-2. På sidan Välj följande värden:
+1. Gå till [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website].
+2. Välj följande värden på sidan:
 
     <table border="1">
     <tr><th>Namn</th><th>Värde</th></tr>
     <tr><td>Filtrera år</td><td>2013 </td></tr>
-    <tr><td>Filtrera Period</td><td>Januari</td></tr>
+    <tr><td>Filtrera period</td><td>Januari</td></tr>
     <tr><td>Fält</td><td>*År*, *FlightDate*, *UniqueCarrier*, *operatör*, *FlightNum*, *OriginAirportID*, *Ursprung*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*,  *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*,  *LateAircraftDelay* (rensa alla andra fält)</td></tr>
     </table>
 
 3. Klicka på **Hämta**.
-4. Packa upp filen till den **C:\Tutorials\FlightDelay\2013Data** mapp. Varje fil är en CSV-fil och är ungefär 60GB i storlek.
-5. Byt namn på filen till namnet på den månad som den innehåller data för. Till exempel den fil som innehåller data januari namnet *January.csv*.
-6. Upprepa steg 2 och 5 för att hämta en fil för varje månad i 2013. Du behöver minst en fil för att köra guiden.
+4. Packa upp filen till den **C:\Tutorials\FlightDelay\2013Data** mapp. Varje fil är en CSV-fil och är cirka 60GB i storlek.
+5. Byt namn på filen till namnet på den månad som den innehåller data för. Till exempel den fil som innehåller data för januari heta *January.csv*.
+6. Upprepa steg 2 och 5 för att hämta en fil för varje månad i 2013. Du behöver minst en fil som ska köra självstudien.
 
-**Överföra svarta fördröjning data till Azure Blob storage**
+**Ladda upp flygförseningsdata till Azure Blob storage**
 
 1. Förbered parametrarna:
 
@@ -349,31 +345,31 @@ Ladda upp datafilen och HiveQL skriptfiler (se [bilaga B](#appendix-b)) kräver 
     ```
 4. Tryck **F5** för att köra skriptet.
 
-Om du väljer att använda en annan metod för att överföra filer, kontrollera att sökvägen till filen är självstudier-flightdelay-data. Syntaxen för åtkomst till filerna är:
+Om du väljer att använda en annan metod för att ladda upp filer, kontrollera att sökvägen är självstudier/flightdelay/data. Syntaxen för att komma åt filerna är:
 
     wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/tutorials/flightdelay/data
 
-Sökvägen självstudier/flightdelay/data är virtuell mapp som du skapade när du har överfört filerna. Kontrollera att det finns 12 filer, en för varje månad.
+Sökvägen självstudier/flightdelay/data är den virtuella mapp som du skapade när du har laddat upp filerna. Kontrollera att det finns 12 filer, en för varje månad.
 
 > [!NOTE]
 > Du måste uppdatera Hive-fråga för att läsa från den nya platsen.
 >
-> Antingen måste du konfigurera åtkomstbehörighet för behållaren att vara offentlig eller binda Storage-konto till HDInsight-klustret. Annars frågesträngen Hive inte åtkomst till datafiler.
+> Antingen måste du konfigurera behållaren åtkomstbehörigheten offentlig eller binda lagringskontot till HDInsight-klustret. I annat fall kan Hive frågesträngen inte komma åt datafilerna.
 
 - - -
 
 ## <a id="appendix-b"></a>Bilaga B – skapa och ladda upp en HiveQL-skript
-Med Azure PowerShell kan du köra flera HiveQL-instruktioner en i taget eller paketet HiveQL-instruktionen i en skriptfil. Det här avsnittet visar hur du skapar en HiveQL-skript och överföra skriptet till Azure Blob storage med hjälp av Azure PowerShell. Hive kräver HiveQL-skript som ska lagras i Azure Blob storage.
+Med Azure PowerShell kan du köra flera HiveQL-instruktioner en i taget eller paketera HiveQL-instruktionen i en skriptfil. Det här avsnittet visar hur du skapar en HiveQL-skript och ladda upp skriptet till Azure Blob storage med hjälp av Azure PowerShell. Hive kräver HiveQL-skript som ska lagras i Azure Blob storage.
 
 HiveQL-skript kommer att utföra följande:
 
 1. **Ta bort tabellen delays_raw**, om tabellen redan finns.
-2. **Skapa delays_raw externa Hive-tabell** pekar på platsen för Blob-lagring med filerna som rör sig fördröjning. Den här frågan anger att fälten avgränsas med ””, och att rader avslutas med ”\n”. Eftersom detta innebär ett problem när fältvärden innehålla kommatecken eftersom Hive kan skilja mellan ett kommatecken som är en fältavgränsaren och en som är en del av ett fältvärde (vilket är fallet i fältvärden för URSPRUNGET\_Stad\_namnet och MÅLET\_Stad\_namn). För att lösa det skapar TEMP kolumner för att lagra data som felaktigt delas upp i kolumner i frågan.
+2. **Skapa delays_raw externa Hive-tabell** som pekar på Blob-lagringsplats med filerna som rör sig fördröjning. Den här frågan anger att fälten avgränsas med ””, och att rader avslutas med ”\n”. Detta utgör ett problem när fältvärdena innehåller kommatecken eftersom Hive kan skilja mellan ett kommatecken som är en fältavgränsare och en som är en del av ett fältvärde (vilket är fallet i fältvärden för URSPRUNGET\_Stad\_namn och DEST\_ Stad\_namn). För att lösa det, skapar TEMP kolumner för att lagra data som felaktigt delas upp i kolumner i frågan.
 3. **Ta bort tabellen fördröjningar**, om tabellen redan finns.
-4. **Skapa tabellen fördröjningar**. Det är bra att rensa data innan vidare bearbetning. Den här frågan skapar en ny tabell *fördröjningar*, från tabellen delays_raw. Observera att inte kopieras TEMP kolumner (som tidigare nämnts) och att den **delsträngen** funktionen används för att ta bort citattecken i informationen.
-5. **Beräkna den genomsnittliga väderlek fördröjning och grupper resultaten av Ortnamn.** Det kommer också skriver resultatet till Blob storage. Observera att frågan tar bort apostrofer från data och utesluta rader där värdet för **weather_delay** är null. Detta är nödvändigt eftersom Sqoop, används senare i den här kursen kan inte hantera dessa värden avslutas som standard.
+4. **Skapa tabellen fördröjningar**. Är det bra att rensa data innan du vidare bearbetning. Den här frågan skapar en ny tabell *fördröjningar*, från tabellen delays_raw. Observera att TEMP-kolumner (som tidigare nämnts) inte kopieras och att den **delsträngen** funktion används för att ta bort citationstecken som hämtas från data.
+5. **Compute genomsnittligt väder fördröjning och grupper resultaten efter stad namn.** Det kommer också matar ut resultaten till Blob storage. Observera att frågan tar bort apostrofer från data och undantar rader där värdet för **weather_delay** är null. Detta är nödvändigt eftersom Sqoop, senare i den här självstudiekursen kan inte hantera dessa värden utan problem som standard.
 
-En fullständig lista över HiveQL-kommandon finns [Hive Data Definition Language][hadoop-hiveql]. Varje kommando HiveQL måste sluta med ett semikolon.
+En fullständig lista över HiveQL-kommandon finns i [Hive datadefinitionsspråket][hadoop-hiveql]. Varje kommando HiveQL måste sluta med ett semikolon.
 
 **Du skapar en skriptfil för HiveQL**
 
@@ -381,8 +377,8 @@ En fullständig lista över HiveQL-kommandon finns [Hive Data Definition Languag
 
     <table border="1">
     <tr><th>Variabelnamn</th><th>Anteckningar</th></tr>
-    <tr><td>$storageAccountName</td><td>Azure Storage-konto där du vill överföra HiveQL-skript till.</td></tr>
-    <tr><td>$blobContainerName</td><td>Blob-behållaren där du vill överföra HiveQL-skript till.</td></tr>
+    <tr><td>$storageAccountName</td><td>Azure Storage-konto där du vill ladda upp HiveQL-skript till.</td></tr>
+    <tr><td>$blobContainerName</td><td>Blob-behållaren där du vill ladda upp HiveQL-skript till.</td></tr>
     </table>
     
 2. Öppna Azure PowerShell ISE.  
@@ -558,23 +554,23 @@ En fullständig lista över HiveQL-kommandon finns [Hive Data Definition Languag
 
     Här är de variabler som används i skriptet:
 
-   * **$hqlLocalFileName** -skriptet sparar filen HiveQL-skript lokalt innan den skickas till Blob storage. Detta är namnet på filen. Standardvärdet är <u>C:\tutorials\flightdelay\flightdelays.hql</u>.
-   * **$hqlBlobName** -detta är HiveQL namnet på skriptfilen blob används i Azure Blob storage. Standardvärdet är tutorials/flightdelay/flightdelays.hql. Eftersom filen kommer att skrivas direkt till Azure Blob storage, är det inte en ”/” i början av blobbnamnet. Om du vill komma åt filen från Blob storage behöver du lägga till en ”/” i början av filnamnet.
-   * **$srcDataFolder** och **$dstDataFolder** -= ”data-självstudier/flightdelay” = ”självstudier/flightdelay/utdata”
+   * **$hqlLocalFileName** -skriptet sparar filen HiveQL-skript lokalt innan du skickar den till Blob storage. Det här är namnet på filen. Standardvärdet är <u>C:\tutorials\flightdelay\flightdelays.hql</u>.
+   * **$hqlBlobName** -HiveQL-skript filen blob-namnet används i Azure Blob storage. Standardvärdet är tutorials/flightdelay/flightdelays.hql. Eftersom filen skrivs direkt till Azure Blob storage, är det inte en ”/” i början av blobbnamnet. Om du vill få åtkomst till filen från Blob storage behöver du lägga till en ”/” i början av namnet på filen.
+   * **$srcDataFolder** och **$dstDataFolder** -= ”data-självstudier/flightdelay” = ”självstudier/flightdelay/output”
 
 - - -
 ## <a id="appendix-c"></a>Bilaga C – förbereda en Azure SQL database Sqoop utdata för jobbet
-**Så här förbereder du SQL-databasen (sammanfoga det med skriptet Sqoop)**
+**Förbereda SQL-databasen (sammanfoga detta med Sqoop skript)**
 
 1. Förbered parametrarna:
 
     <table border="1">
     <tr><th>Variabelnamn</th><th>Anteckningar</th></tr>
-    <tr><td>$sqlDatabaseServerName</td><td>Namnet på Azure SQL database-server. Ange inget om du vill skapa en ny server.</td></tr>
-    <tr><td>$sqlDatabaseUsername</td><td>Inloggningsnamnet för Azure SQL database-server. Om $sqlDatabaseServerName är en befintlig server, används inloggningsnamn och inloggningslösenord för att autentisera med servern. Annars används de för att skapa en ny server.</td></tr>
-    <tr><td>$sqlDatabasePassword</td><td>Logga in lösenordet för Azure SQL database-server.</td></tr>
-    <tr><td>$sqlDatabaseLocation</td><td>Det här värdet används endast när du skapar en ny Azure databasserver.</td></tr>
-    <tr><td>$sqlDatabaseName</td><td>SQL-databas som används för att skapa tabellen AvgDelays Sqoop jobbet. Lämna det tomt skapar en databas som heter HDISqoop. Tabellnamnet Sqoop utdata för jobbet är AvgDelays. </td></tr>
+    <tr><td>$sqlDatabaseServerName</td><td>Namnet på Azure SQL database-server. Ange inget att skapa en ny server.</td></tr>
+    <tr><td>$sqlDatabaseUsername</td><td>Inloggningsnamnet för Azure SQL database-server. Om $sqlDatabaseServerName är en befintlig server, är användarnamn och inloggningslösenord för används för att autentisera med servern. Annars används för att skapa en ny server.</td></tr>
+    <tr><td>$sqlDatabasePassword</td><td>Inloggningslösenordet för Azure SQL database-server.</td></tr>
+    <tr><td>$sqlDatabaseLocation</td><td>Det här värdet används endast när du skapar en ny Azure database-server.</td></tr>
+    <tr><td>$sqlDatabaseName</td><td>SQL-databas som används för att skapa tabellen AvgDelays för Sqoop jobbet. Lämna det tomt skapar en databas som heter HDISqoop. Tabellnamnet Sqoop utdata för jobbet är AvgDelays. </td></tr>
     </table>
     
 2. Öppna Azure PowerShell ISE.
@@ -704,26 +700,26 @@ En fullständig lista över HiveQL-kommandon finns [Hive Data Definition Languag
     ```
 
    > [!NOTE]
-   > Skriptet använder en representational tillstånd transfer (REST)-tjänst http://bot.whatismyipaddress.com, för att hämta extern IP-adress. IP-adressen används för att skapa en brandväggsregel för SQL-databasservern.
+   > Skriptet använder en tjänst som representational tillstånd transfer (REST) http://bot.whatismyipaddress.com, för att hämta din externa IP-adress. IP-adressen används för att skapa en brandväggsregel för SQL-databasservern.
 
     Här följer några variabler som används i skriptet:
 
-   * **$ipAddressRestService** -standardvärdet är http://bot.whatismyipaddress.com. Det är en offentlig IP-adress REST-tjänst för att hämta extern IP-adress. Du kan använda andra tjänster om du vill. Extern IP-adress som hämtats via tjänsten används för att skapa en brandväggsregel för din Azure SQL database-server så att du har åtkomst till databasen från din arbetsstation (med hjälp av Windows PowerShell-skript).
-   * **$fireWallRuleName** -detta är namnet på brandväggsregeln för Azure SQL database-server. Standardnamnet är <u>FlightDelay</u>. Du kan byta namn på den om du vill.
-   * **$sqlDatabaseMaxSizeGB** -det här värdet används endast när du skapar en ny Azure SQL database-server. Standardvärdet är 10GB. 10GB är tillräcklig för den här kursen.
-   * **$sqlDatabaseName** -det här värdet används endast när du skapar en ny Azure SQL-databas. Standardvärdet är HDISqoop. Om du byter namn måste du uppdatera Sqoop Windows PowerShell-skriptet i enlighet med detta.
+   * **$ipAddressRestService** – standardvärdet är http://bot.whatismyipaddress.com. Det är en offentlig IP-adress REST-tjänst för att hämta din externa IP-adress. Du kan använda andra tjänster om du vill. Externa IP-adress som hämtats via tjänsten används för att skapa en brandväggsregel för din Azure SQL database-server så att du har åtkomst till databasen från din arbetsstation (med hjälp av ett Windows PowerShell-skript).
+   * **$fireWallRuleName** – det här är namnet på brandväggsregeln för Azure SQL database-server. Standardnamnet är <u>FlightDelay</u>. Du kan byta namn om du vill.
+   * **$sqlDatabaseMaxSizeGB** – det här värdet används endast när du skapar en ny Azure SQL database-server. Standardvärdet är 10GB. 10GB är tillräckligt för den här självstudien.
+   * **$sqlDatabaseName** – det här värdet används endast när du skapar en ny Azure SQL-databas. Standardvärdet är HDISqoop. Om du byter namn måste du uppdatera Sqoop Windows PowerShell-skriptet i enlighet med detta.
 4. Tryck **F5** för att köra skriptet.
-5. Validera utdata från skriptet. Kontrollera att skriptet har körts.
+5. Verifiera utdata från skriptet. Kontrollera att skriptet har körts.
 
 ## <a id="nextsteps"></a>Nästa steg
-Nu förstå du hur du överför en fil till Azure Blob storage, så att fylla i en Hive-tabell med hjälp av data från Azure Blob storage, hur du kör Hive-frågor och hur du använder Sqoop för att exportera data från HDFS till en Azure SQL database. Mer information finns i följande artiklar:
+Nu förstå du hur du överför en fil till Azure Blob storage, hur du fyller i en Hive-tabell med hjälp av data från Azure Blob storage, hur du kör Hive-frågor och hur du använder Sqoop för att exportera data från HDFS till en Azure SQL database. Mer information finns i följande artiklar:
 
-* [Komma igång med HDInsight][hdinsight-get-started]
+* [Kom igång med HDInsight][hdinsight-get-started]
 * [Använda Hive med HDInsight][hdinsight-use-hive]
 * [Använda Oozie med HDInsight][hdinsight-use-oozie]
 * [Använda Sqoop med HDInsight][hdinsight-use-sqoop]
 * [Använda Pig med HDInsight][hdinsight-use-pig]
-* [Utveckla Java-MapReduce-program för HDInsight][hdinsight-develop-mapreduce]
+* [Utveckla Java MapReduce-program för HDInsight][hdinsight-develop-mapreduce]
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

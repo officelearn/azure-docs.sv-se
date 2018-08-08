@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 4a811c5354a9ff2aaa48a300d9b2655f91fdab23
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 205938bbf615face0768028717a333c13c1fafa1
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901100"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590321"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>Hur du använder en Azure VM hanterad tjänstidentitet (MSI) för inloggning 
 
@@ -38,7 +38,7 @@ Om du planerar att använda Azure PowerShell eller Azure CLI-exempel i den här 
 
 ## <a name="overview"></a>Översikt
 
-En MSI som innehåller en [tjänstens huvudnamnsobjekt](../develop/active-directory-dev-glossary.md#service-principal-object) , vilket är [skapas vid när du aktiverar MSI](overview.md#how-does-it-work) på den virtuella datorn. Tjänstens huvudnamn kan få åtkomst till Azure-resurser, och används som en identitet av skript/kommandoradsbaserad-Command-Line klienter för inloggning och åtkomst till resurser. För att komma åt skyddade resurser under sin egen identitet traditionellt har måste en skript-klient du:  
+En MSI som innehåller en [tjänstens huvudnamnsobjekt](../develop/developer-glossary.md#service-principal-object) , vilket är [skapas vid när du aktiverar MSI](overview.md#how-does-it-work) på den virtuella datorn. Tjänstens huvudnamn kan få åtkomst till Azure-resurser, och används som en identitet av skript/kommandoradsbaserad-Command-Line klienter för inloggning och åtkomst till resurser. För att komma åt skyddade resurser under sin egen identitet traditionellt har måste en skript-klient du:  
 
    - registrera och godkänt villkoren med Azure AD som ett konfidentiellt/web-klientprogram
    - logga in under dess huvudnamn för tjänsten med hjälp av appens autentiseringsuppgifter (som är sannolikt inbäddad i skriptet)

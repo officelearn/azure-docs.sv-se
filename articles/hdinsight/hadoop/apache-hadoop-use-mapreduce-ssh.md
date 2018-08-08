@@ -1,40 +1,33 @@
 ---
-title: MapReduce och SSH-anslutning med Hadoop i HDInsight - Azure | Microsoft Docs
-description: Lär dig hur du använder SSH för att köra jobb för MapReduce med Hadoop i HDInsight.
+title: MapReduce och SSH-anslutning med Hadoop i HDInsight - Azure
+description: Lär dig hur du använder SSH för att köra MapReduce-jobb med Hadoop på HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlunb
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 844678ba-1e1f-4fda-b9ef-34df4035d547
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/10/2018
-ms.author: larryfr
-ms.openlocfilehash: 67e1bf6cee04eda51f5dbfc51a95614347fc2b7f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 361adda08b48ea1f45fd35953bdef3e63afc2ae6
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31399019"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594543"
 ---
 # <a name="use-mapreduce-with-hadoop-on-hdinsight-with-ssh"></a>Använda MapReduce med Hadoop i HDInsight med SSH
 
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
-Lär dig mer om att skicka MapReduce-jobb från en SSH (Secure Shell)-anslutning till HDInsight.
+Lär dig hur du skickar MapReduce-jobb från en Secure Shell (SSH)-anslutning till HDInsight.
 
 > [!NOTE]
-> Om du redan är bekant med Linux-baserade Hadoop-servrar, men du är nybörjare på HDInsight, se [Linux-baserat HDInsight tips](../hdinsight-hadoop-linux-information.md).
+> Om du redan är bekant med Linux-baserade Hadoop-servrar, men du är nybörjare på HDInsight, se [tips för Linux-baserade HDInsight](../hdinsight-hadoop-linux-information.md).
 
 ## <a id="prereq"></a>Förhandskrav
 
-* Ett kluster på Linux-baserat HDInsight (Hadoop på HDInsight)
+* Ett kluster för Linux-baserat HDInsight (Hadoop på HDInsight)
 
   > [!IMPORTANT]
   > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -49,30 +42,30 @@ Ansluta till klustret med SSH. Till exempel följande kommando ansluter till ett
 ssh sshuser@myhdinsight-ssh.azurehdinsight.net
 ```
 
-**Om du använder en nyckel för certifikat för SSH-autentisering**, du kan behöva ange platsen för den privata nyckeln i klientsystemet, till exempel:
+**Om du använder en nyckel för SSH-autentisering**, du kan behöva ange platsen för den privata nyckeln på ditt klientsystem, till exempel:
 
 ```bash
 ssh -i ~/mykey.key sshuser@myhdinsight-ssh.azurehdinsight.net
 ```
 
-**Om du använder ett lösenord för SSH-autentisering**, måste du ange lösenordet när du tillfrågas.
+**Om du använder ett lösenord för SSH-autentisering**, måste du ange lösenordet när du uppmanas till detta.
 
-Mer information om hur du använder SSH med HDInsight finns [använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+Mer information om hur du använder SSH med HDInsight finns i [använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a id="hadoop"></a>Använda Hadoop-kommandon
 
-1. När du är ansluten till HDInsight-klustret, använder du följande kommando ett MapReduce-jobb:
+1. När du är ansluten till HDInsight-kluster, använder du följande kommando till startar ett MapReduce-jobb:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/WordCountOutput
     ```
 
-    Detta kommando startar den `wordcount` -klassen, som ingår i den `hadoop-mapreduce-examples.jar` filen. Den använder den `/example/data/gutenberg/davinci.txt` dokumentet som indata och utdata lagras på `/example/data/WordCountOutput`.
+    Detta kommando startar den `wordcount` klass, som finns i den `hadoop-mapreduce-examples.jar` filen. Den använder den `/example/data/gutenberg/davinci.txt` dokumentet som indata och utdata lagras på `/example/data/WordCountOutput`.
 
     > [!NOTE]
-    > Läs mer om MapReduce-jobb och exempeldata [använda MapReduce i Hadoop på HDInsight](hdinsight-use-mapreduce.md).
+    > Läs mer om MapReduce-jobb och exempeldata, [använda MapReduce i Hadoop på HDInsight](hdinsight-use-mapreduce.md).
 
-2. Jobbet sänder ut information när den bearbetar och returnerar information av följande slag när jobbet har slutförts:
+2. Jobbet skickar information som bearbetas, och den returnerar information liknande följande text när jobbet har slutförts:
 
         File Input Format Counters
         Bytes Read=1395666
@@ -88,7 +81,7 @@ Mer information om hur du använder SSH med HDInsight finns [använda SSH med HD
     Det här kommandot visar två filer, `_SUCCESS` och `part-r-00000`. Den `part-r-00000` filen innehåller utdata för jobbet.
 
     > [!NOTE]
-    > Vissa MapReduce-jobb kan delas upp resultaten över flera **del-r-###** filer. I så fall använder den ### suffix för att ange ordningen för filerna.
+    > Vissa MapReduce-jobb kan delas upp resultaten i flera **del-r-###** filer. I så fall använda den ### suffix för att ange ordningen på filerna.
 
 4. Om du vill visa utdata, använder du följande kommando:
 
@@ -96,7 +89,7 @@ Mer information om hur du använder SSH med HDInsight finns [använda SSH med HD
     hdfs dfs -cat /example/data/WordCountOutput/part-r-00000
     ```
 
-    Det här kommandot visar en lista över de ord som finns i den **wasb://example/data/gutenberg/davinci.txt** fil- och hur många gånger varje ord inträffade. Följande är ett exempel på de data som finns i filen:
+    Det här kommandot visar en lista över de ord som finns i den **wasb://example/data/gutenberg/davinci.txt** fil- och hur många gånger varje ord inträffade. Följande text är ett exempel på de data som finns i filen:
 
         wreathed        3
         wreathing       1
@@ -108,13 +101,13 @@ Mer information om hur du använder SSH med HDInsight finns [använda SSH med HD
 
 ## <a id="summary"></a>Sammanfattning
 
-Som du ser ger ett enkelt sätt att köra MapReduce-jobb i ett HDInsight-kluster och sedan visa jobbutdata Hadoop-kommandon.
+Som du kan se ger ett enkelt sätt att köra MapReduce-jobb i ett HDInsight-kluster och sedan visa jobbutdata i Hadoop-kommandon.
 
 ## <a id="nextsteps"></a>Nästa steg
 
 Allmän information om MapReduce-jobb i HDInsight:
 
-* [Använda MapReduce på Hadoop och HDInsight](hdinsight-use-mapreduce.md)
+* [Använda MapReduce på HDInsight Hadoop](hdinsight-use-mapreduce.md)
 
 Information om andra sätt kan du arbeta med Hadoop i HDInsight:
 

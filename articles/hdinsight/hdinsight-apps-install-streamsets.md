@@ -1,37 +1,32 @@
 ---
-title: Installera publicerade program - StreamSets datainsamlaren - Azure HDInsight | Microsoft Docs
-description: Installera och använda Hadoop-programmet StreamSets datainsamlaren från tredje part.
+title: Installera publicerad program – StreamSets Data Collector - Azure HDInsight
+description: Installera och använda Hadoop-program StreamSets Data Collector från tredje part.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: e433de82576f8b943988881ed0b6673c0dccd77e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c0b458b19abb707305ca609fbd5bfac63c92567e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401031"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591235"
 ---
-# <a name="install-published-application---streamsets-data-collector"></a>Installera publicerade program - StreamSets datainsamlaruppsättning
+# <a name="install-published-application---streamsets-data-collector"></a>Installera publicerad program – StreamSets Data Collector
 
-Den här artikeln beskriver hur du installerar och kör den [StreamSets datainsamlaren för HDInsight](https://streamsets.com/) publicerade Hadoop-program på Azure HDInsight. En översikt över HDInsight-programplattformen och en lista över tillgängliga oberoende leverantör (ISV) publicerade program finns i [installera Hadoop-program från tredje part](hdinsight-apps-install-applications.md). Anvisningar om hur du installerar ett eget program finns i [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).
+Den här artikeln beskrivs hur du installerar och kör den [StreamSets Data Collector för HDInsight](https://streamsets.com/) publicerat Hadoop-program på Azure HDInsight. En översikt över HDInsight-programplattform och en lista över tillgängliga oberoende programvaruleverantör (ISV) publicerade program finns i [installera Hadoop-program från tredje part](hdinsight-apps-install-applications.md). Anvisningar om hur du installerar ett eget program finns i [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md).
 
-## <a name="about-streamsets-data-collector"></a>Om StreamSets datainsamlaruppsättning
+## <a name="about-streamsets-data-collector"></a>Om StreamSets Data Collector
 
-Datainsamlaren StreamSets distribuerar ovanpå ett Azure HDInsight-program. StreamSets datainsamlaren innehåller en komplett integrerad utvecklingsmiljö (IDE) som kan du utforma, testa, distribuera och hantera alla-till-alla infognings-pipelines. Dessa pipelines kan nät dataströmmen och batch data och omfattar en mängd-stream omformningar, allt utan att behöva skriva egen kod.
+StreamSets Data Collector distribueras ovanpå ett Azure HDInsight-program. StreamSets Data Collector ger en komplett integrerad utvecklingsmiljö (IDE) inmatningspipelines kan du utforma, testa, distribuera och hantera any-to-any. Dessa pipelines nät batchdata och ta med olika omvandlingar i strömmen, allt utan att skriva anpassad kod.
 
-StreamSets datainsamlaren kan du skapa dataflöden med flera Stordata komponenter såsom HDFS, Kafka, Solr, Hive, HBASE och Kudu. När StreamSets datainsamlaren körs på en gränsserver eller i Hadoop-kluster kan hämta du realtidsövervakning för både data avvikelser och data flödet åtgärder. Denna övervakning innehåller tröskelvärdesbaserad aviseringar avvikelseidentifiering och automatisk reparation av felposter.
+StreamSets Data Collector kan du skapa dataflöden med hjälp av ett stort antal Big Data-komponenter, till exempel HDFS, Kafka, Solr, Hive, HBASE och Kudu. När StreamSets Data Collector körs på en edge-server eller i ditt Hadoop-kluster kan få du realtidsövervakning för såväl data avvikelser som flow åtgärder. Den här övervakning innefattar tröskelbaserade aviseringar, avvikelseidentifiering och automatisk reparation av felposter.
 
-StreamSets datainsamlaren är utformat för att isolera varje steg i en pipeline logiskt så att du kan uppfylla nya affärsbehov genom att släppa i nya processorer och kopplingar utan kodning och med minimal avbrottstid.
+StreamSets Data Collector är utformad för att isolera varje steg i en pipeline logiskt så att du kan uppfylla nya affärsbehov genom att släppa nya processorer och anslutningar utan kodning och med minimal avbrottstid.
 
 ### <a name="streamsets-resource-links"></a>StreamSets resurslänkar
 
@@ -39,47 +34,47 @@ StreamSets datainsamlaren är utformat för att isolera varje steg i en pipeline
 * [Blogg](https://streamsets.com/blog/)
 * [Självstudier](https://github.com/streamsets/tutorials)
 * [Supportforum för utvecklare](https://groups.google.com/a/streamsets.com/forum/#!forum/sdc-user)
-* [Slack offentliga StreamSets kanal](https://streamsetters.slack.com/)
-* [Källkoden](https://github.com/streamsets)
+* [Kanal för Slack offentliga StreamSets](https://streamsetters.slack.com/)
+* [Källkod](https://github.com/streamsets)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill installera den här appen på en ny HDInsight-kluster eller ett befintligt kluster, måste du ha följande konfiguration:
+Om du vill installera den här appen på ett nytt HDInsight-kluster eller ett befintligt kluster, måste du ha följande konfiguration:
 
-* Klustret tier(s): Standard eller Premium
+* Kluster tier(s): Standard eller Premium
 * Kluster-versioner: 3.5 och senare
 
-## <a name="install-the-streamsets-data-collector-published-application"></a>Installera StreamSets datainsamlaren publicerat program
+## <a name="install-the-streamsets-data-collector-published-application"></a>Installera StreamSets Data Collector publicerad program
 
-Stegvisa instruktioner om hur du installerar det här och andra tillgängliga ISV-program läsa [installera Hadoop-program från tredje part](hdinsight-apps-install-applications.md).
+Stegvisa instruktioner om hur du installerar det här och andra tillgängliga ISV-program finns [installera Hadoop-program från tredje part](hdinsight-apps-install-applications.md).
 
-## <a name="launch-streamsets-data-collector"></a>Starta datainsamlaruppsättningen StreamSets
+## <a name="launch-streamsets-data-collector"></a>Starta StreamSets Data Collector
 
-1. Efter installationen kan du starta StreamSets från ditt kluster i Azure-portalen genom att gå till den **inställningar** rutan, sedan välja **program** under den **allmänna** kategori. Den installerade appar rutan visas de installerade programmen.
+1. Efter installationen kan du starta StreamSets från ditt kluster i Azure-portalen genom att gå till den **inställningar** och sedan välja **program** under den **Allmänt** kategori. Fönstret installerade appar visar en lista över de installerade programmen.
 
     ![Installerade StreamSets app](./media/hdinsight-apps-install-streamsets/streamsets.png)
 
-2. När du väljer StreamSets datainsamlaren finns en länk till webbsidan och sökväg för SSH-slutpunkt. Välj länken för WEBBSIDAN.
+2. När du väljer StreamSets Data Collector, visas en länk till sidan och sökvägen för SSH-slutpunkten. Välj länken för WEBBSIDAN.
 
-3. Använd följande autentiseringsuppgifter i dialogrutan Logga in för att logga in: `admin` och `admin`.
+3. Använd följande autentiseringsuppgifter för inloggning i dialogrutan inloggning: `admin` och `admin`.
 
-4. På sidan komma igång **Skapa ny Pipeline**.
+4. På sidan Kom igång **Skapa ny Pipeline**.
 
     ![Skapa ny pipeline](./media/hdinsight-apps-install-streamsets/get-started.png)
 
-5. Ange ett namn för pipelinen (”Hello World”) i fönstret ny Pipeline, om du vill ange en beskrivning och välj **spara**.
+5. Ange ett namn för pipelinen (”Hello World”) i fönstret ny Pipeline, du kan också ange en beskrivning och välj **spara**.
 
-6. Datainsamlaren konsolen visas. Panelen Egenskaper visar pipeline-egenskaper.
+6. Konsolen för datainsamling visas. Panelen Egenskaper Visar egenskaper för pipeline.
  
-    ![Data Collector konsolen](./media/hdinsight-apps-install-streamsets/pipeline-canvas.png)
+    ![Data Collector-konsolen](./media/hdinsight-apps-install-streamsets/pipeline-canvas.png)
 
-7. Du är nu redo att följa den [StreamSets kursen](https://streamsets.com/documentation/datacollector/latest/help/#Tutorial/Tutorial-title.html). Guiden innehåller stegvisa anvisningar för att skapa din första pipeline.
+7. Du är nu redo att följa den [StreamSets självstudien](https://streamsets.com/documentation/datacollector/latest/help/#Tutorial/Tutorial-title.html). Självstudiekursen innehåller stegvisa anvisningar för hur du skapar din första pipeline.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [StreamSets datainsamlaren dokumentationen](https://streamsets.com/documentation/datacollector/latest/help/#Getting_Started/GettingStarted_Title.html#concept_htw_ghg_jq).
+* [StreamSets Data Collector dokumentation](https://streamsets.com/documentation/datacollector/latest/help/#Getting_Started/GettingStarted_Title.html#concept_htw_ghg_jq).
 * [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md): Lär dig hur du distribuerar ett Opublicerat HDInsight-program till HDInsight.
 * [Publicera HDInsight-program](hdinsight-apps-publish-applications.md): information om hur du publicerar anpassade HDInsight-program på Azure Marketplace.
 * [MSDN: Installera ett HDInsight-program](https://msdn.microsoft.com/library/mt706515.aspx): information om hur du definierar HDInsight-program.
-* [Anpassa Linux-baserat HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md): Lär dig hur du använder skriptåtgärd till att installera fler program.
-* [Använd tom edge-noder i HDInsight](hdinsight-apps-use-edge-node.md): Lär dig hur du använder en tom kantnod för åtkomst till HDInsight-kluster och för att testa och värd för HDInsight-program.
+* [Anpassa Linux-baserade HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md): Lär dig hur du använder skriptåtgärd till att installera fler program.
+* [Använda tomma kantnoder i HDInsight](hdinsight-apps-use-edge-node.md): Lär dig hur du använder en tom edge-nod för att komma åt HDInsight-kluster och för testning och som är värd för HDInsight-program.

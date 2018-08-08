@@ -17,12 +17,12 @@ ms.date: 05/01/2017
 ms.author: celested
 ms.reviewer: hirsin, jmprieur, elisol, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 3d71e889fccaa6de59d9a528754a5e11d0220bef
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 8cf592ddd2c4a68e15856d968b77813604713b78
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577143"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592048"
 ---
 # <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>Logga in Account och Azure Active Directory-användare i ett enda program
 Tidigare hade programutvecklare som ville stöder både personliga Microsoft-konton och arbetskonton från Azure Active Directory att integrera med två separata system. Azure Active Directory (Azure AD) v2.0-slutpunkten introducerar en ny API-autentiseringsversion som förenklar processen. Azure AD v2.0-slutpunkten kan logga in från båda typer av konton med en enkel integration. Program som använder Azure AD v2.0-slutpunkten kan också använda REST-API: er från den [Microsoft Graph API](https://graph.microsoft.io) med hjälp av valfri typ av konto.
@@ -36,7 +36,7 @@ Välj din favoritplattform i listan nedan för att skapa ett program med hjälp 
 ## <a name="learn-more-about-the-azure-ad-v20-endpoint"></a>Läs mer om Azure AD v2.0-slutpunkten
 Läs mer om vad du kan göra med Azure AD v2.0-slutpunkten:
 
-* Identifiera den [typer av program som du kan skapa med Azure AD v2.0-slutpunkten](active-directory-v2-flows.md).
+* Identifiera den [typer av program som du kan skapa med Azure AD v2.0-slutpunkten](v2-app-types.md).
 * Förstå den [begränsningar, restriktioner och villkor](active-directory-v2-limitations.md) med Azure AD v2.0-slutpunkten.
 * Den här videon för en översikt över Azure AD v2.0-slutpunkten:
 
@@ -47,7 +47,7 @@ Utforska detaljerad information om Azure AD v2.0-slutpunkt-plattformen:
 
 * [Referera till Azure AD v2.0-protokoll](active-directory-v2-protocols.md)
 * [Azure AD v2.0 tokens referens](v2-id-and-access-tokens.md)
-* [Referera till Azure AD v2.0-autentiseringsbibliotek](active-directory-v2-libraries.md)
+* [Referera till Azure AD v2.0-autentiseringsbibliotek](reference-v2-libraries.md)
 * [Omfång och godkännande i Azure AD v2.0-slutpunkten](v2-permissions-and-consent.md)
 * [Microsoft Graph API](https://graph.microsoft.io)
 

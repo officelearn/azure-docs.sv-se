@@ -4,19 +4,16 @@ description: Lär dig hur du använder Azure Virtual Network för att ansluta HD
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-ms.assetid: 37b9b600-d7f8-4cb1-a04a-0b3a827c6dcc
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.workload: big-data
 ms.date: 07/26/2018
-ms.openlocfilehash: bcfbe3b8ff198f9905fe6f36b18a9474cf987bba
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 659c33ec0e989003e68b5165fab70f50c607868c
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284643"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591889"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Utöka Azure HDInsight med hjälp av Azure Virtual Network
 
@@ -289,8 +286,8 @@ Om du använder nätverkssäkerhetsgrupper eller användardefinierade vägar, m�
     | &nbsp; | Södra Indien | 104.211.223.67<br/>104.211.216.210 | 443 | Inkommande |
     | Japan | Östra Japan | 13.78.125.90</br>13.78.89.60 | 443 | Inkommande |
     | &nbsp; | Västra Japan | 40.74.125.69</br>138.91.29.150 | 443 | Inkommande |
-    | Korea | Centrala Korea | 52.231.39.142</br>52.231.36.209 | 433 | Inkommande |
-    | &nbsp; | Sydkorea | 52.231.203.16</br>52.231.205.214 | 443 | Inkommande
+    | Korea | Sydkorea, centrala | 52.231.39.142</br>52.231.36.209 | 433 | Inkommande |
+    | &nbsp; | Sydkorea, södra | 52.231.203.16</br>52.231.205.214 | 443 | Inkommande
     | Storbritannien | Storbritannien, västra | 51.141.13.110</br>51.141.7.20 | 443 | Inkommande |
     | &nbsp; | Storbritannien, södra | 51.140.47.39</br>51.140.52.16 | 443 | Inkommande |
     | USA | Centrala USA | 13.67.223.215</br>40.86.83.253 | 443 | Inkommande |

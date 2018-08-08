@@ -1,65 +1,62 @@
 ---
-title: Felsöka HBase med Azure HDInsight | Microsoft Docs
+title: Felsöka HBase med Azure HDInsight
 description: Få svar på vanliga frågor om hur du arbetar med HBase och Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: nitinver
-manager: ashitg
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 7/7/2017
+author: nitinver
 ms.author: nitinver
-ms.openlocfilehash: d5d50121cd0375af1b57baadeb40efb237aaea11
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 7/7/2017
+ms.openlocfilehash: e25a2dcaf9b7c820f5d7e0312fb2cb55fc558882
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165289"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593907"
 ---
 # <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>Felsöka HBase med Azure HDInsight
 
-Läs mer om de vanligaste problemen och sina lösningar när du arbetar med Apache HBase nyttolaster i Apache Ambari.
+Läs mer om de viktigaste problemen och sina lösningar när du arbetar med Apache HBase-nyttolaster i Apache Ambari.
 
-## <a name="how-do-i-run-hbck-command-reports-with-multiple-unassigned-regions"></a>Hur kör hbck kommandot rapporter med flera otilldelade regioner?
+## <a name="how-do-i-run-hbck-command-reports-with-multiple-unassigned-regions"></a>Hur kör jag hbck kommandot rapporter med flera otilldelade regioner?
 
-Ett vanligt felmeddelande som kan visas när du kör den `hbase hbck` kommandot är ”flera regioner som otilldelade eller tomrum i kedjan av regioner”.
+Ett vanligt felmeddelande som kan visas när du kör den `hbase hbck` kommandot är ”flera regioner som otilldelade eller tomrum i kedjan med regioner”.
 
-I HBase Master-UI visas antalet regioner obalanserade över alla region-servrar. Kör sedan `hbase hbck` kommandot för att se tomrum i kedjan region.
+I HBase Master UI ser du antalet regioner som obalanserade på alla regionservrar. Kör sedan `hbase hbck` kommando för att se tomrum i kedjan region.
 
 Hål kanske på grund av regionerna som är offline, så åtgärda tilldelningarna först. 
 
-Utför följande steg för att göra otilldelade regioner till normalt läge:
+Utför följande steg för att göra regionerna som inte tilldelats till normalt läge:
 
-1. Logga in på HDInsight-HBase-kluster med hjälp av SSH.
-2. Om du vill ansluta till ZooKeeper-shell, kör den `hbase zkcli` kommando.
+1. Logga in på HDInsight HBase-kluster med hjälp av SSH.
+2. Om du vill ansluta med ZooKeeper-shell, kör den `hbase zkcli` kommando.
 3. Kör den `rmr /hbase/regions-in-transition` kommando eller `rmr /hbase-unsecure/regions-in-transition` kommando.
-4. Avsluta från den `hbase zkcli` shell använder den `exit` kommando.
-5. Öppna Gränssnittet Apache Ambari och starta sedan om tjänsten Active HBase Master.
-6. Kör den `hbase hbck` kommandot igen (utan alternativ). Kontrollera utdata från kommandot ska se till att alla regioner som tilldelas.
+4. Avslutar den `hbase zkcli` shell, Använd den `exit` kommando.
+5. Öppna Apache Ambari UI, och sedan starta om tjänsten aktiv HBase Master.
+6. Kör den `hbase hbck` kommandot igen (utan några alternativ). Kontrollera utdata från det här kommandot för att säkerställa att alla regioner som tilldelas.
 
 
-## <a name="how-do-i-fix-timeout-issues-with-hbck-commands-for-region-assignments"></a>Hur kan jag åtgärda timeout problem när du använder hbck kommandon för region tilldelningar?
+## <a name="how-do-i-fix-timeout-issues-with-hbck-commands-for-region-assignments"></a>Hur kan jag åtgärda timeout-problem när du använder hbck kommandon för region tilldelningar?
 
 ### <a name="issue"></a>Problem
 
-En möjlig orsak för timeout problem när du använder den `hbck` kommandot kan vara att flera regioner är i tillståndet ”i ett övergångsstadium” under lång tid. Du kan se dessa regioner som offline i HBase Master UI. Eftersom ett stort antal regioner försöker övergång, HBase Master kan timeout och går inte att sätta dessa regioner online igen.
+En möjlig orsak för timeout-problem när du använder den `hbck` kommandot kan vara att flera regioner är i tillståndet ”i ett övergångsstadium” under en längre tid. Du kan se de regionerna som offline i HBase Master UI. Eftersom ett stort antal regioner försöker övergången, HBase Master kan timeout och går inte att ta med dessa regioner online igen.
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar
 
-1. Logga in på HDInsight-HBase-kluster med hjälp av SSH.
-2. Om du vill ansluta till ZooKeeper-shell, kör den `hbase zkcli` kommando.
+1. Logga in på HDInsight HBase-kluster med hjälp av SSH.
+2. Om du vill ansluta med ZooKeeper-shell, kör den `hbase zkcli` kommando.
 3. Kör den `rmr /hbase/regions-in-transition` eller `rmr /hbase-unsecure/regions-in-transition` kommando.
-4. Avsluta den `hbase zkcli` shell använder den `exit` kommando.
-5. Starta om tjänsten Active HBase Master i Ambari-UI.
-6. Kör den `hbase hbck -fixAssignments` kommandot igen.
+4. Avsluta den `hbase zkcli` shell, Använd den `exit` kommando.
+5. Starta om tjänsten aktiv HBase Master i Ambari UI.
+6. Kör den `hbase hbck -fixAssignments` -kommandot på nytt.
 
 ## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Hur jag force-inaktivera HDFS felsäkert läge i ett kluster?
 
 ### <a name="issue"></a>Problem
 
-Den lokala Hadoop Distributed File System (HDFS) har fastnat i felsäkert läge i HDInsight-klustret.
+Den lokala Hadoop Distributed File System (HDFS) har fastnat i felsäkert läge på HDInsight-kluster.
 
 ### <a name="detailed-description"></a>Detaljerad beskrivning
 
@@ -125,7 +122,7 @@ mkdir: Cannot create directory /temp. Name node is in safe mode.
 
 ### <a name="probable-cause"></a>Möjlig orsak
 
-HDInsight-klustret har minskats till ett mycket få noder. Antalet noder som är mindre än eller nära HDFS replikering faktorn.
+HDInsight-klustret har skalats ned till en mycket få noder. Antalet noder som är lägre än eller nära replikeringsfaktorn HDFS.
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar 
 
@@ -203,19 +200,19 @@ HDInsight-klustret har minskats till ett mycket få noder. Antalet noder som är
    The filesystem under path '/' is HEALTHY
    ```
 
-3. Om du anser att det finns ingen saknas, skadad, eller under-replikerade block eller att dessa block kan ignoreras, kör följande kommando för att ta namn ur noden ur felsäkert läge:
+3. Om du anser att det finns ingen saknas, skadad, eller under-replikerade block eller att de block kan ignoreras, kör du följande kommando för att ta namn ur noden ur felsäkert läge:
 
    ```apache
    hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
    ```
 
 
-## <a name="how-do-i-fix-jdbc-or-sqlline-connectivity-issues-with-apache-phoenix"></a>Hur kan jag åtgärda JDBC eller SQLLine anslutningen problem med Apache Phoenix?
+## <a name="how-do-i-fix-jdbc-or-sqlline-connectivity-issues-with-apache-phoenix"></a>Hur kan jag åtgärda JDBC eller SQLLine anslutning problem med Apache Phoenix?
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar
 
-För att ansluta med Phoenix, måste du ange IP-adressen för en aktiv ZooKeeper-nod. Se till att tjänsten ZooKeeper till vilka sqlline.py försöker ansluta är igång.
-1. Logga in till HDInsight-kluster med hjälp av SSH.
+Om du vill ansluta Phoenix, måste du ange IP-adressen för en aktiv ZooKeeper-nod. Kontrollera som ZooKeeper-tjänsten till vilken sqlline.py försöker ansluta är igång.
+1. Logga in på HDInsight-kluster med hjälp av SSH.
 2. Ange följande kommando:
                 
    ```apache
@@ -223,21 +220,21 @@ För att ansluta med Phoenix, måste du ange IP-adressen för en aktiv ZooKeeper
    ```
 
    > [!Note] 
-   > Du kan hämta IP-adressen för den aktiva noden för ZooKeeper från Ambari UI. Gå till **HBase** > **snabblänkar** > **ZK\* (aktiv)** > **Zookeeper Info**. 
+   > Du kan hämta IP-adressen för den aktiva ZooKeeper-noden från Ambari UI. Gå till **HBase** > **snabblänkar** > **ZK\* (aktiv)** > **Zookeeper Info**. 
 
-3. Om sqlline.py ansluter till Phoenix och inte inte timeout, kör du följande kommando för att kontrollera tillgängligheten och hälsotillståndet för Phoenix:
+3. Om sqlline.py ansluter till Phoenix och har inte timeout, kör du följande kommando för att verifiera tillgängligheten och hälsotillståndet för Phoenix:
 
    ```apache
            !tables
            !quit
    ```      
-4. Om det här kommandot fungerar finns det inga problem. IP-adressen som användaren kan vara felaktig. Om kommandot pausar en längre tid och visar sedan följande fel, Fortsätt till steg 5.
+4. Om det här kommandot fungerar, finns det inga problem. IP-adressen som anges av användaren kan vara felaktig. Om kommandot pausar en längre tid och visar sedan följande fel, Fortsätt till steg 5.
 
    ```apache
            Error while connecting to sqlline.py (Hbase - phoenix) Setting property: [isolation, TRANSACTION_READ_COMMITTED] issuing: !connect jdbc:phoenix:10.2.0.7 none none org.apache.phoenix.jdbc.PhoenixDriver Connecting to jdbc:phoenix:10.2.0.7 SLF4J: Class path contains multiple SLF4J bindings. 
    ```
 
-5. Kör följande kommandon från huvudnod (hn0) för att diagnostisera villkoret Phoenix-SYSTEM. KATALOGEN tabell:
+5. Kör följande kommandon från huvudnod (hn0) för att diagnostisera villkoret för Phoenix-SYSTEM. KATALOGEN tabell:
 
    ```apache
             hbase shell
@@ -245,57 +242,57 @@ För att ansluta med Phoenix, måste du ange IP-adressen för en aktiv ZooKeeper
            count 'SYSTEM.CATALOG'
    ```
 
-   Kommandot ska returnera ett fel som liknar följande: 
+   Kommandot bör returnera ett fel som liknar följande: 
 
    ```apache
            ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189) 
    ```
-6. Utför följande steg om du vill starta om tjänsten HMaster på alla ZooKeeper-noder i Ambari-UI:
+6. Utför följande steg för att starta om tjänsten HMaster på alla ZooKeeper-noder i Ambari UI:
 
-    1. I den **sammanfattning** avsnitt i HBase, gå till **HBase** > **Active HBase Master**. 
-    2. I den **komponenter** och starta om tjänsten HBase Master.
+    1. I den **sammanfattning** avsnittet i HBase, gå till **HBase** > **aktiv HBase Master**. 
+    2. I den **komponenter** avsnittet, starta om tjänsten HBase Master.
     3. Upprepa dessa steg för alla återstående **vänteläge HBase Master** tjänster. 
 
-Det kan ta upp till fem minuter för tjänsten HBase Master att hålla och slutföra återställningen. Upprepa sqlline.py-kommandon för att bekräfta att systemet efter några minuter. KATALOGEN tabell är igång och att den kan efterfrågas. 
+Det kan ta upp till fem minuter för tjänsten HBase Master stabiliseras och slutför återställningen. Upprepa sqlline.py-kommandon för att bekräfta att systemet efter ett par minuter. Servergruppen är igång och att den kan efterfrågas. 
 
-När systemet. KATALOGEN tabellen är tillbaka till normal, problemet med anslutningen till Phoenix bör lösas automatiskt.
+När systemet. KATALOGEN tabellen är tillbaka till normal, anslutningsproblem till Phoenix bör lösas automatiskt.
 
 
 ## <a name="what-causes-a-master-server-to-fail-to-start"></a>Vad som orsakar en huvudserver inte kunde starta?
 
 ### <a name="error"></a>Fel 
 
-En atomisk namnbyte felet inträffar.
+Ett atomiskt namnändringsfel inträffar.
 
 ### <a name="detailed-description"></a>Detaljerad beskrivning
 
-Under startprocessen Slutför HMaster många initieringssstegen. Dessa inkluderar flytta data från mappen grunden (tmp) till datamappen. HMaster kontrollerar också mappen write-ahead-loggar (WALs) om det finns några svarar region-servrar och så vidare. 
+Under startprocessen Slutför HMaster många initieringsstegen. Dessa inkluderar flyttar data från mappen scratch (.tmp) till datamappen. HMaster tittar också på write-ahead (WALs) loggkatalogen för att se om det finns några svarar inte regionservrar och så vidare. 
 
-Under start HMaster har en grundläggande `list` på dessa mappar. Om HMaster ser en oväntad fil i någon av dessa mappar när som helst, genererar ett undantag och startar inte.  
+Under starten HMaster har en grundläggande `list` på dessa mappar. Om när som helst ser HMaster en oväntad fil i någon av dessa mappar, genereras ett undantag och startar inte.  
 
 ### <a name="probable-cause"></a>Möjlig orsak
 
-Försök att identifiera tidslinjen då filen skapades och se om det fanns en process krasch runt den tid då filen skapades i serverloggen region. (Kontakta HBase support att hjälpa dig att göra detta). Det här hjälper oss tillhandahålla mer robusta mekanismer så att du kan undvika träffa programfelet och se till att rätt processen avstängningar.
+Försök att identifiera tidsplanen då filen skapades och se om det uppstod ett processkrasch runt den tid då filen skapades i serverloggar region. (Kontakta HBase support att hjälpa dig att göra detta). Det här hjälper oss tillhandahålla mer robust sätt, så att du kan undvika stöter på den här buggen och se till att rätt processen avstängningar.
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar
 
-Kontrollera anropsstacken och försök att avgöra vilken mapp den orsakar problemet (till exempel kanske inte WALs mappen eller tmp). I Cloud Explorer eller med hjälp av HDFS-kommandon, försök sedan att leta reda på problemfilen. Detta är normalt en \*-renamePending.json-filen. (Den \*-renamePending.json-filen är en journal som används för att genomföra åtgärden namnbyte i WASB-drivrutinen. På grund av programfel i den här implementeringen kan dessa filer lämnas efter egna processer som kraschat osv.) Force-ta bort den här filen i Cloud Explorer eller med hjälp av HDFS-kommandon. 
+Kontrollera anropsstacken och försök att fastställa vilken mapp som kan vara orsaken till problemet (till exempel kanske inte mappen WALs eller mappen .tmp). I Cloud Explorer eller med hjälp av HDFS-kommandon, försök sedan att leta upp problemfilen. Detta är vanligtvis en \*-renamePending.json-fil. (Den \*-renamePending.json filen är en journalfil som används för att implementera namnbyte igen i WASB-drivrutinen. På grund av fel i den här implementeringen, kan dessa filer lämnas efter krascher, osv.) Force-ta bort den här filen i Cloud Explorer eller med hjälp av HDFS-kommandon. 
 
-Ibland kanske en temporär fil som heter ungefär *$$$. $$$* på den här platsen. Du måste använda HDFS `ls` kommandot för att se filen, du kan inte se filen i Cloud Explorer. Om du vill ta bort den här filen använder du kommandot HDFS `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$`.  
+Ibland kan det kan också förekomma en temporär fil som heter något som liknar *$$$. $$$* på den här platsen. Du måste använda HDFS `ls` kommando för att se den här filen, du kan inte se filen i Cloud Explorer. Ta bort den här filen genom att använda kommandot HDFS `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$`.  
 
-När du har kört dessa kommandon ska HMaster starta direkt. 
+När du har kört dessa kommandon, starta HMaster omedelbart. 
 
 ### <a name="error"></a>Fel
 
-Ingen serveradressen listas i *hbase: meta* för region xxx.
+Ingen serveradress visas i *hbase: meta* för region xxx.
 
 ### <a name="detailed-description"></a>Detaljerad beskrivning
 
-Du kan se ett meddelande på ditt Linux-kluster som indikerar att den *hbase: meta* tabellen är inte online. Kör `hbck` kan rapportera som ”hbase: meta tabell replicaId 0 hittades inte på en region”. Problemet kan bero på att HMaster inte kunde initiera när du har startat om HBase. I loggarna HMaster, kan du se meddelandet ”: ingen serveradress som anges i hbase: metadata för region hbase: säkerhetskopiering \<regionnamn\>”.  
+Du kan se ett meddelande på din Linux-kluster som indikerar att den *hbase: meta* tabellen är inte online. Kör `hbck` kan rapportera som ”hbase: metadata tabell replicaId 0 finns inte på valfri region”. Problemet kan vara att HMaster inte kunde initieras när du har startat om HBase. I HMaster-loggar kan du se meddelandet ”: ingen serveradress visas i hbase: metadata för region hbase: säkerhetskopiering \<Regionsnamn\>”.  
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar
 
-1. Ange följande kommandon (ändra faktiska värden i tillämpliga fall) i HBase-gränssnittet:  
+1. Ange följande kommandon (ändra faktiska värden som är tillämpligt) i HBase-gränssnittet:  
 
    ```apache
    > scan 'hbase:meta'  
@@ -305,11 +302,11 @@ Du kan se ett meddelande på ditt Linux-kluster som indikerar att den *hbase: me
    > delete 'hbase:meta','hbase:backup <region name>','<column name>'  
    ```
 
-2. Ta bort den *hbase: namnområdet* post. Den här posten kan vara samma fel som rapporteras när den *hbase: namnområdet* tabell genomsöks.
+2. Ta bort den *hbase: namnområde* posten. Den här posten kan vara samma fel som rapporterats när den *hbase: namnområde* tabell genomsöks.
 
-3. Starta om tjänsten Active HMaster för att få upp HBase i ett körtillstånd i Ambari-UI.  
+3. Om du vill ta fram HBase i ett fungerande tillstånd i Ambari UI, starta om tjänsten Active HMaster.  
 
-4. I HBase-gränssnittet för att visa alla offline tabeller, kör du följande kommando:
+4. I HBase-gränssnittet för att lägga till alla tabeller som är offline, kör du följande kommando:
 
    ```apache 
    hbase hbck -ignorePreCheckPermission -fixAssignments 
@@ -317,46 +314,46 @@ Du kan se ett meddelande på ditt Linux-kluster som indikerar att den *hbase: me
 
 ### <a name="additional-reading"></a>Ytterligare resurser
 
-[Det gick inte att bearbeta HBase-tabellen](http://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)
+[Det går inte att bearbeta HBase-tabellen](http://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)
 
 
 ### <a name="error"></a>Fel
 
-HMaster tidsgränsen uppnås med ett allvarligt undantagsfel av typen ”java.io.IOException: för lång tid 300000ms väntar på att namnområdet tabellen som ska tilldelas”.
+HMaster tidsgränsen uppnås med ett allvarligt undantagsfel av typen ”java.io.IOException: tidsgräns nådd 300000ms väntar på att namnområdet tabell som ska tilldelas”.
 
 ### <a name="detailed-description"></a>Detaljerad beskrivning
 
-Det här problemet kan uppstå om du har många tabeller och regioner som inte har tömts när du startar om HMaster-tjänster. Starta om misslyckas och föregående felmeddelande visas.  
+Det här problemet uppstå om du har många tabeller och regioner som inte har rensats när du startar om dina HMaster-tjänster. Omstart kan misslyckas och du ser det föregående felmeddelandet.  
 
 ### <a name="probable-cause"></a>Möjlig orsak
 
-Detta är ett känt problem med tjänsten HMaster. Allmän klustret startades uppgifter kan ta lång tid. HMaster stängs av eftersom tabellen namnområde ännu inte tilldelats. Detta inträffar endast i situationer där stora mängden unflushed data finns och en tidsgräns på fem minuter är inte tillräcklig.
+Det här är ett känt problem med tjänsten HMaster. Allmän kluster startåtgärder kan ta lång tid. HMaster stängs av eftersom tabellen namnområde ännu inte är tilldelad. Detta inträffar endast i situationer där stora mängden unflushed data finns och att en tidsgräns på fem minuter räcker inte.
   
 ### <a name="resolution-steps"></a>Lösningsanvisningar
 
-1. Ambari UI, gå till **HBase** > **konfigurationerna**. Lägg till följande inställning i filen anpassade hbase-site.XML: 
+1. I Ambari UI, går du till **HBase** > **Peeringkonfigurationer**. Lägg till följande inställning i anpassade hbase-site.xml-filen: 
 
    ```apache
    Key: hbase.master.namespace.init.timeout Value: 2400000  
    ```
 
-2. Starta om nödvändiga tjänster (HMaster och eventuellt andra HBase-tjänster).  
+2. Starta om de nödvändiga tjänsterna (HMaster och eventuellt andra HBase-tjänster).  
 
 
-## <a name="what-causes-a-restart-failure-on-a-region-server"></a>Vad som orsakar en omstart av fel på en region server?
+## <a name="what-causes-a-restart-failure-on-a-region-server"></a>Vad som orsakar en omstart av fel på en regionsserver?
 
 ### <a name="issue"></a>Problem
 
-Starta om fel inträffar på en region-server kan förhindras genom följande bästa praxis. Vi rekommenderar att du pausar arbetsbelastning aktivitet när du planerar att starta om HBase region servrar. Om ett program fortsätter att ansluta med region servrar när shutdown pågår, blir omstarten region server långsammare med flera minuter. Det är också bra att först tömma alla tabeller. En referens för hur du tömma tabeller finns [HDInsight HBase: hur du förbättrar tid för HBase-kluster-omstart av lokaliseraren tabeller](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
+En omstart av fel på en regionsserver kan förhindras genom följande säkerhetsmetoder. Vi rekommenderar att du pausar arbetsbelastning aktivitet när du planerar att starta om HBase regionservrar. Om ett program fortsätter att ansluta med regionservrar när shutdown pågår, blir omstarten region server långsammare med flera minuter. Det är också en bra idé att först tömma alla tabeller. En referens för hur du tömma tabeller finns [HDInsight HBase: hur du kan förbättra HBase-kluster omstart tid genom att rensa tabellerna](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
 
-Om du har initierat omstarten på HBase region servrar från Ambari UI kan se du direkt region servrar fungerar korrekt, men de inte startas om direkt. 
+Om du har initierat omstarten på HBase regionservrar från Ambari UI kan se du direkt att regionservrar fungerar korrekt, men de inte startas om direkt. 
 
 Här är vad som händer i bakgrunden: 
 
 1. Ambari-agenten skickar en stoppbegäran till region-servern.
-2. Ambari-agent väntar på 30 sekunder för den region servern avslutas på vanligt sätt. 
-3. Om programmet fortsätter att ansluta till servern region, stängs servern inte omedelbart. 30 sekunder timeout uppnås innan avstängning inträffar. 
-4. Efter 30 sekunder skickar agenten Ambari force-kill (`kill -9`) kommandot till region-servern. Du kan se det i loggen ambari-agent (i /var/log/directory respektive arbetsnoden):
+2. Ambari-agent väntar på 30 sekunder för den region-servern att stänga ett smidigt sätt. 
+3. Om ditt program fortsätter att ansluta med region-servern, stängs servern inte omedelbart. 30 sekunder tidsgränsen har nåtts innan avstängning inträffar. 
+4. Efter 30 sekunder, Ambari-agenten skickar en force-kill (`kill -9`) för att servern region. Du kan se följande i loggen för ambari-agent (i /var/log/directory respektive arbetsnoden):
 
    ```apache
            2017-03-21 13:22:09,171 - Execute['/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh --config /usr/hdp/current/hbase-regionserver/conf stop regionserver'] {'only_if': 'ambari-sudo.sh  -H -E t
@@ -370,7 +367,7 @@ Här är vad som händer i bakgrunden:
            2017-03-21 13:22:40,285 - File['/var/run/hbase/hbase-hbase-regionserver.pid'] {'action': ['delete']}
            2017-03-21 13:22:40,285 - Deleting File['/var/run/hbase/hbase-hbase-regionserver.pid']
    ```
-På grund av abrupt avstängning kan den port som är associerade med processen inte släppas, även om region serverprocessen har stoppats. Den här situationen kan leda till en AddressBindException när region servern startas som visas i följande loggar. Du kan kontrollera detta i den region server.log i katalogen /var/log/hbase på arbetsnoderna där region-servern inte kan startas. 
+På grund av avslutats, kan den port som är associerade med processen inte släppas, även om region serverprocessen har stoppats. Den här situationen kan leda till en AddressBindException när region servern startas enligt följande loggar. Du kan kontrollera detta i region-server.log i katalogen /var/log/hbase på arbetsnoderna där region-servern inte kan startas. 
 
    ```apache
 
@@ -412,8 +409,8 @@ På grund av abrupt avstängning kan den port som är associerade med processen 
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar
 
-1. Försök att minska belastningen på HBase region servrar innan du startar en omstart. 
-2. Du kan också (om steg 1 inte hjälper), försök att starta om region servrar på arbetsnoderna med hjälp av följande kommandon:
+1. Försök att minska belastningen på HBase regionservrar innan du startar en omstart. 
+2. Du kan också (om steg 1 inte hjälper), så försök att starta om regionservrar på arbetsnoderna manuellt med hjälp av följande kommandon:
 
    ```apache
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh stop regionserver"

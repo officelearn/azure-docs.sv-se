@@ -1,39 +1,34 @@
 ---
-title: Analysera sensordata med Hive och Hadoop - Azure HDInsight | Microsoft Docs
-description: Lär dig att analysera sensordata med hjälp av konsolen Hive-fråga med HDInsight (Hadoop) och visualisera data i Microsoft Excel med PowerView.
+title: Analysera sensordata med Hive och Hadoop - Azure HDInsight
+description: Lär dig hur du analyserar sensordata med hjälp av Frågekonsolen Hive med HDInsight (Hadoop) och sedan visualiserar dina data i Microsoft Excel med PowerView.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: a8ac160c-1cef-45d9-bf36-7beb5a439105
 ms.service: hdinsight
-ms.devlang: na
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.topic: conceptual
 ms.date: 04/14/2017
-ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: eb3dc93d7cb741a8a3099abe13d00f40c9639705
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 412942aa41e7884c6315d921b0b272b033386d17
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31398971"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590253"
 ---
-# <a name="analyze-sensor-data-using-the-hive-query-console-on-hadoop-in-hdinsight"></a>Analysera sensordata med Hive-fråga konsolen på Hadoop i HDInsight
+# <a name="analyze-sensor-data-using-the-hive-query-console-on-hadoop-in-hdinsight"></a>Analysera sensordata med Frågekonsolen Hive med Hadoop i HDInsight
 
-Lär dig att analysera sensordata med hjälp av konsolen Hive-fråga med HDInsight (Hadoop) och visualisera data i Microsoft Excel med hjälp av Power View.
+Lär dig hur du analyserar sensordata med hjälp av Frågekonsolen Hive med HDInsight (Hadoop) och visualisera data i Microsoft Excel med hjälp av Power View.
 
 > [!IMPORTANT]
-> Stegen i det här dokumentet fungerar endast med Windows-baserade HDInsight-kluster. HDInsight är endast tillgängligt i Windows för versioner som är lägre än HDInsight 3.4. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Stegen i det här dokumentet fungerar bara med Windows-baserade HDInsight-kluster. HDInsight är endast tillgänglig på Windows för versioner lägre än HDInsight 3.4. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 
-I det här exemplet använder du Hive för att bearbeta historiska data och identifiera problem med uppvärmning och luftkonditionering system. Mer specifikt kan du identifiera datorer går inte att bibehålla en inställd temperatur på ett tillförlitligt sätt genom att utföra följande uppgifter:
+I det här exemplet använder du Hive för att bearbeta historiska data och identifiera problem med uppvärmning och luftkonditionering system. Mer specifikt kan du identifiera system går inte att bibehålla en inställd temperatur på ett tillförlitligt sätt genom att utföra följande uppgifter:
 
-* Skapa HIVE-tabeller för att fråga efter data lagras i en fil med kommaavgränsade värden (CSV) filer.
+* Skapa HIVE-tabeller för att köra frågor mot data som lagras i filer med kommaavgränsade värden (CSV).
 * Skapa HIVE-frågor för att analysera data.
-* Använd Microsoft Excel för att hämta analyserade data, för att ansluta till HDInsight.
+* Hämta analyserade data genom att använda Microsoft Excel för att ansluta till HDInsight.
 * Använd Power View om du vill visualisera data.
 
 ![Ett diagram över lösningsarkitekturen](./media/apache-hive-analyze-sensor-data/hvac-architecture.png)
@@ -46,7 +41,7 @@ I det här exemplet använder du Hive för att bearbeta historiska data och iden
   > [!NOTE]
   > Microsoft Excel används för datavisualisering med [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US).
 
-* [Microsoft Hive ODBC-drivrutinen](http://www.microsoft.com/download/details.aspx?id=40886)
+* [Microsoft Hive ODBC-drivrutin](http://www.microsoft.com/download/details.aspx?id=40886)
 
 ## <a name="to-run-the-sample"></a>Att köra exemplet
 
@@ -56,10 +51,10 @@ I det här exemplet använder du Hive för att bearbeta historiska data och iden
 
     Ersätt `<clustername>` med namnet på HDInsight-klustret.
 
-    När du uppmanas, autentisera med hjälp av administratörsanvändarnamn och lösenord som du använde vid etablering av det här klustret.
+    När du uppmanas, autentisera genom att använda administratörens användarnamn och lösenord som du använde när du etablerar den här kluster.
 
-2. Från sidan som öppnas, klickar du på den **komma igång-galleriet** fliken och sedan under den **lösningar med exempeldata** kategori, klicka på den **Sensor dataanalys** exempel.
+2. På sidan som öppnas, klickar du på den **Getting Started galleriet** fliken och sedan under den **lösningar med exempeldata** kategori, klickar du på den **Sensordataanalys** exemplet.
 
-    ![Komma igång galleriet bild](./media/apache-hive-analyze-sensor-data/getting-started-gallery.png)
+    ![Komma igång galleriet bilden](./media/apache-hive-analyze-sensor-data/getting-started-gallery.png)
 
-3. Följ anvisningarna på sidan för att slutföra exemplet.
+3. Följ instruktionerna på sidan för att slutföra exemplet.

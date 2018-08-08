@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 07/24/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: fc51282717f713bbe924ad0f1b11a9bf894dbee5
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: f76995a522d268011af2440d5d91c55dcd3afd16
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581883"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590525"
 ---
 # <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>Vad är en migrering av princip för villkorlig åtkomst i Azure Active Directory? 
 
@@ -133,7 +133,7 @@ Om du har en ny princip som har **Exchange Active Sync** som klientappar villkor
 ![Azure Active Directory](./media/policy-migration/16.png)
  
 
-[Appbaserad](../active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) klassiska principer för Office 365 Exchange Online som innehåller **Exchange Active Sync** som klient apps villkor Tillåt **stöds** och **stöds inte** [enhetsplattformar](../active-directory-conditional-access-technical-reference.md#device-platform-condition). Medan du inte kan konfigurera enskilda enhetsplattformar i en ny princip för relaterade, kan du begränsa stödet till [enhetsplattformar som stöds](../active-directory-conditional-access-technical-reference.md#device-platform-condition) endast. 
+[Appbaserad](technical-reference.md#approved-client-app-requirement) klassiska principer för Office 365 Exchange Online som innehåller **Exchange Active Sync** som klient apps villkor Tillåt **stöds** och **stöds inte** [enhetsplattformar](technical-reference.md#device-platform-condition). Medan du inte kan konfigurera enskilda enhetsplattformar i en ny princip för relaterade, kan du begränsa stödet till [enhetsplattformar som stöds](technical-reference.md#device-platform-condition) endast. 
 
 ![Azure Active Directory](./media/policy-migration/65.png)
 
@@ -156,9 +156,9 @@ I det här fallet kan du konsolidera din klassiska principer till en ny princip 
 
 ### <a name="device-platforms"></a>Enhetsplattformar
 
-Klassiska principer med [appbaserad kontroller](../active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) är förkonfigurerad med iOS och Android som den [enheten plattform villkor](../active-directory-conditional-access-technical-reference.md#device-platform-condition). 
+Klassiska principer med [appbaserad kontroller](technical-reference.md#approved-client-app-requirement) är förkonfigurerad med iOS och Android som den [enheten plattform villkor](technical-reference.md#device-platform-condition). 
 
-I en ny princip, du måste välja den [enhetsplattformar](../active-directory-conditional-access-technical-reference.md#device-platform-condition) du vill stödja individuellt.
+I en ny princip, du måste välja den [enhetsplattformar](technical-reference.md#device-platform-condition) du vill stödja individuellt.
 
 ![Azure Active Directory](./media/policy-migration/41.png)
 

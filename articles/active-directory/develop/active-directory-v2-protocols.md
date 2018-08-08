@@ -17,15 +17,15 @@ ms.date: 04/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 5872190f811af208f5b27da330da3313e77a8665
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 645ce394c09f5cdd9f45b085e8d86cdc07ee9158
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579310"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591340"
 ---
 # <a name="v20-protocols---oauth-20--openid-connect"></a>v2.0 protokoll – OAuth 2.0 och OpenID Connect
-V2.0-slutpunkten kan använda Azure AD för identitets-as-a-service med branschens standardprotokoll, OpenID Connect och OAuth 2.0. Tjänsten är standardkompatibla, kan det finnas skillnader mellan två implementeringar av dessa protokoll. Information om här är praktiskt om du väljer att skriva din kod genom att skicka direkt och hantering av HTTP-begäranden eller använda ett bibliotek med 3 part öppen källkod i stället för att använda någon av våra [öppna bibliotek källkod](active-directory-v2-libraries.md).
+V2.0-slutpunkten kan använda Azure AD för identitets-as-a-service med branschens standardprotokoll, OpenID Connect och OAuth 2.0. Tjänsten är standardkompatibla, kan det finnas skillnader mellan två implementeringar av dessa protokoll. Information om här är praktiskt om du väljer att skriva din kod genom att skicka direkt och hantering av HTTP-begäranden eller använda ett bibliotek med 3 part öppen källkod i stället för att använda någon av våra [öppna bibliotek källkod](reference-v2-libraries.md).
 
 > [!NOTE]
 > Inte alla Azure Active Directory-scenarier och funktioner som stöds av v2.0-slutpunkten. Läs mer om för att avgöra om du ska använda v2.0-slutpunkten, [v2.0 begränsningar](active-directory-v2-limitations.md).
@@ -76,7 +76,7 @@ V2.0-implementeringen av OAuth 2.0 och OpenID Connect gör omfattande användnin
 Ytterligare information om olika typer av token som används i v2.0-slutpunkten är tillgänglig i [tokenreferens för v2.0-slutpunkten](v2-id-and-access-tokens.md).
 
 ## <a name="protocols"></a>Protokoll
-Om du är redo att se vissa exempel begäranden, Kom igång med någon av de nedan självstudier. Var och en motsvarar ett visst autentiseringsscenario. Om du behöver hjälp med att fastställa som är rätt för dig kan du kolla [typer av appar som du kan skapa med v2.0](active-directory-v2-flows.md).
+Om du är redo att se vissa exempel begäranden, Kom igång med någon av de nedan självstudier. Var och en motsvarar ett visst autentiseringsscenario. Om du behöver hjälp med att fastställa som är rätt för dig kan du kolla [typer av appar som du kan skapa med v2.0](v2-app-types.md).
 
 * [Skapa mobila och programspecifika med OAuth 2.0](v2-oauth2-auth-code-flow.md)
 * [Skapa webb-appar med öppna ID Connect](v2-protocols-oidc.md)

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: b65b6977dfe2043e260fd9c0eefd6038ca436d50
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 1a0bc85063a80854ff6b970b0a57a991acfb3750
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505822"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593969"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Distribuera Azure Blockchain Workbench
 
@@ -73,7 +73,7 @@ Blockchain Workbench distributionen kräver registrering av en Azure AD-program.
 
 ### <a name="modify-application-manifest"></a>Ändra programmanifest
 
-Därefter måste du ändra applikationsmanifestet om du vill använda programroller i Azure AD för att ange Blockchain Workbench administratörer.  Läs mer om programmanifesten [Azure Active Directorys programmanifest](../active-directory/develop/active-directory-application-manifest.md).
+Därefter måste du ändra applikationsmanifestet om du vill använda programroller i Azure AD för att ange Blockchain Workbench administratörer.  Läs mer om programmanifesten [Azure Active Directorys programmanifest](../active-directory/develop/reference-app-manifest.md).
 
 1. Programmet som du har registrerat, Välj **Manifest** i informationsfönstret registrerade programmet.
 2. Generera ett GUID. Du kan generera ett GUID med hjälp av PowerShell-kommandot [guid]:: NewGuid () eller cmdlet New-GUID. Ett annat alternativ är att använda en GUID generator-webbplats.
@@ -132,12 +132,12 @@ Blockchain Workbench använder Azure AD som hanteringssystemet huvudsakliga iden
 2. Välj **Nycklar**.
 3. Lägg till en ny nyckel genom att ange en nyckel **beskrivning** och välja **upphör att gälla** duration-värde. 
 
-    ![Skapa en nyckel](media/blockchain-workbench-deploy/app-key-create.png)
+    ![Skapa nyckel](media/blockchain-workbench-deploy/app-key-create.png)
 
     |Inställning  | Värde  |
     |---------|---------|
     | Beskrivning | `Service` |
-    | Förfaller | Välj en giltighetstid |
+    | Upphör att gälla | Välj en giltighetstid |
 
 4. Välj **Spara**. 
 5. Kopiera värdet för nyckeln och lagra den för senare. Du behöver den för distribution.

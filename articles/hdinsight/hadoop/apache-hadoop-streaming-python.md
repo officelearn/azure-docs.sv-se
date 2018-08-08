@@ -1,36 +1,29 @@
 ---
-title: Utveckla Python strömning MapReduce-jobb med HDInsight - Azure | Microsoft Docs
-description: Lär dig hur du använder Python i strömning MapReduce-jobb. Hadoop innehåller ett strömmande API för MapReduce för att skriva på andra språk än Java.
+title: Utveckla Python-strömmande MapReduce-jobb med HDInsight - Azure
+description: Lär dig hur du använder Python med strömmande MapReduce-jobb. Hadoop tillhandahåller en strömmande API för MapReduce för att skriva på andra språk än Java.
 services: hdinsight
 keyword: mapreduce python,python map reduce,python mapreduce
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 7631d8d9-98ae-42ec-b9ec-ee3cf7e57fb3
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/10/2018
-ms.author: larryfr
-ms.openlocfilehash: b5e19f81c3e869347f21ab3c70a70016196b946d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 34a270ce321770c3e024580be7b234bfa5f21b22
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400522"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594465"
 ---
-# <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Utveckla Python strömning MapReduce program för HDInsight
+# <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Utveckla Python-strömmande MapReduce-program för HDInsight
 
-Lär dig hur du använder Python i strömning MapReduce åtgärder. Hadoop innehåller ett strömmande API för MapReduce där du kan skriva kartan och minska funktioner på andra språk än Java. Stegen i det här dokumentet implementera kartan och minska komponenter i Python.
+Lär dig hur du använder Python med strömmande MapReduce-åtgärder. Hadoop tillhandahåller en strömmande API för MapReduce där du kan skriva kartan och minska funktioner på andra språk än Java. Stegen i det här dokumentet implementera kartan och minska komponenter i Python.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Linux-baserade Hadoop på HDInsight-kluster
+* En Linux-baserat Hadoop i HDInsight-kluster
 
   > [!IMPORTANT]
   > Stegen i det här dokumentet kräver ett HDInsight-kluster som använder Linux. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -38,31 +31,31 @@ Lär dig hur du använder Python i strömning MapReduce åtgärder. Hadoop inneh
 * En textredigerare
 
   > [!IMPORTANT]
-  > Textredigeraren måste använda LF rad avslutas. Med hjälp av en rad avslutades av CRLF orsakar fel när MapReduce-jobbet körs på Linux-baserade HDInsight-kluster.
+  > Textredigeraren måste använda LF som raden slutar. Med hjälp av en rad avslutades av CRLF orsakar fel när du kör MapReduce-jobb på Linux-baserade HDInsight-kluster.
 
 * Den `ssh` och `scp` kommandon, eller [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-3.8.0)
 
 ## <a name="word-count"></a>Räkna ord
 
-Det här exemplet är en grundläggande ordräkning genomföras i en python en mapper och reducer. Mapparen bryter meningar i individuella ord och reducer aggregerar orden och räknar om du vill generera utdata.
+Det här exemplet är en grundläggande ordräkning implementeras i ett python en mappning och reducer. Mappningen delar meningar i enskilda ord och reducer aggregerar orden och räknar för att generera utdata.
 
-I följande flödesschema visar vad som händer under kartan och minska faser.
+Flödesschemat visar vad som händer under kartan och minska faser.
 
 ![Bild av mapreduce-processen](./media/apache-hadoop-streaming-python/HDI.WordCountDiagram.png)
 
 ## <a name="streaming-mapreduce"></a>Strömmande MapReduce
 
-Hadoop kan du ange en fil som innehåller kartans och minska logik som används av ett jobb. Särskilda krav för kartan och minska logik är:
+Hadoop kan du ange en fil som innehåller kartan och minska logik som används av ett jobb. De specifika kraven för kartan och minska logic är:
 
 * **Inkommande**: kartan och minska komponenter måste läsa indata från STDIN.
 * **Utdata**: kartan och minska komponenter måste skriva utdata till STDOUT.
-* **Dataformatet**: data används och producerade måste vara ett nyckel/värde-par, avgränsade med semikolon fliken.
+* **Dataformatet**: data används och produceras måste vara ett nyckel/värdepar, avgränsade med ett tabbtecken.
 
-Python kan enkelt hantera dessa krav med hjälp av den `sys` modulen att läsa från STDIN och använder `print` skriva ut till STDOUT. Den sista aktiviteten bara formaterar data med en flik (`\t`) tecken mellan nyckel och värde.
+Python kan enkelt hantera dessa krav med hjälp av den `sys` modulen att läsa från STDIN och använder `print` skriva ut till STDOUT. Den sista aktiviteten är helt enkelt formatera data med en flik (`\t`) tecken mellan nyckel och värde.
 
 ## <a name="create-the-mapper-and-reducer"></a>Skapa mapper och reducer
 
-1. Skapa en fil med namnet `mapper.py` och använda följande kod som innehållet:
+1. Skapa en fil med namnet `mapper.py` och Använd följande kod som innehållet:
 
    ```python
    #!/usr/bin/env python
@@ -90,7 +83,7 @@ Python kan enkelt hantera dessa krav med hjälp av den `sys` modulen att läsa f
        main()
    ```
 
-2. Skapa en fil med namnet **reducer.py** och använda följande kod som innehållet:
+2. Skapa en fil med namnet **reducer.py** och Använd följande kod som innehållet:
 
    ```python
    #!/usr/bin/env python
@@ -131,11 +124,11 @@ Python kan enkelt hantera dessa krav med hjälp av den `sys` modulen att läsa f
 
 ## <a name="run-using-powershell"></a>Kör med PowerShell
 
-Använd följande PowerShell-skript för att säkerställa att dina filer har rätt radbrytningar:
+För att säkerställa att dina filer har rätt radbrytningar, använder du följande PowerShell-skript:
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=138-140)]
 
-Använd följande PowerShell-skript för att överföra filer, kör jobbet och visar utdata:
+Använd följande PowerShell-skript för att ladda upp filer, kör jobbet och visa utdata:
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=5-134)]
 
@@ -147,12 +140,12 @@ Använd följande PowerShell-skript för att överföra filer, kör jobbet och v
     scp mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:
     ```
 
-    Ersätt `username` med SSH-användarnamn för klustret, och `clustername` med namnet på klustret.
+    Ersätt `username` med SSH-användarnamn för ditt kluster och `clustername` med namnet på klustret.
 
-    Det här kommandot kopieras filerna från det lokala systemet till huvudnod.
+    Det här kommandot kopierar filerna från det lokala systemet till huvudnoden.
 
     > [!NOTE]
-    > Om du använde ett lösenord för att skydda ditt konto med SSH, uppmanas för lösenordet. Om du använder en SSH-nyckel måste du kanske använda den `-i` parametern och sökvägen till den privata nyckeln. Till exempel `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.
+    > Om du använder ett lösenord för att skydda SSH-konto, uppmanas du lösenordet. Om du har använt en SSH-nyckel kan du behöva använda den `-i` parametern och sökvägen till den privata nyckeln. Till exempel `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.
 
 2. Anslut till klustret med hjälp av SSH:
 
@@ -160,7 +153,7 @@ Använd följande PowerShell-skript för att överföra filer, kör jobbet och v
     ssh username@clustername-ssh.azurehdinsight.net`
     ```
 
-    Mer information om finns [använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+    Läs mer på [använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 3. För att säkerställa mapper.py och reducer.py har rätt radbrytningar, använder du följande kommandon:
 
@@ -179,19 +172,19 @@ Använd följande PowerShell-skript för att överföra filer, kör jobbet och v
 
    * **hadoop-streaming.jar**: används när du utför strömmande MapReduce-åtgärder. Det gränssnitt Hadoop med den externa MapReduce-kod som du anger.
 
-   * **-filer**: lägger till de angivna filerna till MapReduce-jobb.
+   * **-filer**: lägger till de angivna filerna i MapReduce-jobbet.
 
-   * **-mapper**: Anger vilken fil som ska användas som mapparen för Hadoop.
+   * **-modulen för mappning**: talar om Hadoop vilken fil som ska användas som mappningen.
 
-   * **-reducer**: Anger vilken fil som ska användas som reducer för Hadoop.
+   * **-reducer**: talar om Hadoop vilken fil som ska användas som reducer.
 
    * **-inkommande**: indatafilen som vi ska räkna ord från.
 
    * **-utdata**: katalogen som utdata skrivs till.
 
-    Eftersom MapReduce-jobb fungerar, visas processen som procenttal.
+    När MapReduce-jobb fungerar, visas processen som procenttal.
 
-        05-02-15 19:01:04 INFO mapreduce. Jobbet: karta 0% minska 0% 05-02-15 19:01:16 INFO mapreduce. Jobbet: karta 100% minska 0% 05-02-15 19:01:27 INFO mapreduce. Jobbet: karta 100% minska 100%
+        15/02/05 19:01:04 INFO mapreduce. Jobb: kartan 0% minska 0% 15/02/05 19:01:16 INFO mapreduce. Jobb: kartan 100% minska 0% 15/02/05 19:01:27 INFO mapreduce. Jobb: kartan 100% minska 100%
 
 
 5. Om du vill visa utdata, använder du följande kommando:
@@ -204,7 +197,7 @@ Använd följande PowerShell-skript för att överföra filer, kör jobbet och v
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du använder strömmande MapRedcue jobb med HDInsight, Använd följande länkar för att undersöka andra sätt att arbeta med Azure HDInsight.
+Nu när du har lärt dig hur du använder MapRedcue direktuppspelningsjobb med HDInsight kan utforska andra sätt att arbeta med Azure HDInsight med hjälp av följande länkar.
 
 * [Använda Hive med HDInsight](hdinsight-use-hive.md)
 * [Använda Pig med HDInsight](hdinsight-use-pig.md)

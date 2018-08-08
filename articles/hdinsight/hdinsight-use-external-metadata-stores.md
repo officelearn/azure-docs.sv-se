@@ -1,55 +1,50 @@
 ---
-title: Använda externa metadata lagrar - Azure HDInsight | Microsoft Docs
-description: Använda externa metadata lagras med HDInsight-kluster.
+title: Använda extern metadatalagring - Azure HDInsight
+description: Använda extern metadatalagring med HDInsight-kluster.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-tags: azure-portal
-editor: cgronlun
-ms.assetid: ''
+author: jasonwhowell
+editor: jasonwhowell
+ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 2eadee1a8695450e2219031ea1a65ee3624f26b5
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fb1401578237a92a6f164ec98e8dbcdbbb88be38
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202568"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595406"
 ---
-# <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Använda externa metadata lagras i Azure HDInsight
+# <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Använda extern metadatalagring i Azure HDInsight
 
-Hive metastore i HDInsight är en viktig del av Hadoop-arkitektur. En metastore är central schemadatabasen som kan användas av andra verktyg för åtkomst av stordata som Spark, interaktiva fråga (LLAP), Presto eller Pig. HDInsight använder Azure SQL-databas som Hive metastore.
+Hive-metaarkiv i HDInsight är en viktig del av Hadoop-arkitektur. Ett metaarkiv finns centrala schemadatabasen som kan användas av andra stordata få tillgång till verktyg som Spark, Interactive Query (LLAP), Presto eller Pig. HDInsight använder en Azure SQL Database som Hive-metaarkiv.
 
 ![HDInsight Hive-Metadata Store-arkitektur](./media/hdinsight-use-external-metadata-stores/metadata-store-architecture.png)
 
-Det finns två sätt som du kan ställa in en metastore för HDInsight-kluster:
+Det finns två sätt som du kan ställa in ett metaarkiv för dina HDInsight-kluster:
 
-* [Standard metastore](#default-metastore)
-* [Anpassade metastore](#custom-metastore)
+* [Standardmetaarkiv](#default-metastore)
+* [Anpassat metaarkiv](#custom-metastore)
 
-## <a name="default-metastore"></a>Standard metastore
+## <a name="default-metastore"></a>Standardmetaarkiv
 
-Som standard etablerar HDInsight en metastore med varje typ av kluster. I stället kan du ange en anpassad metastore. Standard-metastore innefattar följande överväganden:
-- Utan extra kostnad. HDInsight etablerar en metastore med varje typ av kluster utan någon extra kostnad för dig.
-- Varje standard metastore ingår i livscykeln för klustret. När du tar bort ett kluster att raderas även metastore och metadata.
-- Du kan inte dela standard metastore med andra kluster.
-- Standard-metastore använder grundläggande Azure SQL DB, som har en gräns för 5 DTU (database transaction unit).
-Den här standard metastore används vanligtvis för relativt enkla arbetsbelastningar som inte kräver flera kluster och behöver inte metadata bevaras utöver klustrets livscykel.
+Som standard etablerar ett metaarkiv med varje typ av kluster i HDInsight. Du kan i stället ange en anpassad metaarkiv. Standardmetaarkiv innefattar följande överväganden:
+- Utan extra kostnad. HDInsight etablerar ett metaarkiv med varje typ av kluster utan extra kostnad för dig.
+- Varje standardmetaarkiv är en del av klustrets livscykel. När du tar bort ett kluster att raderas även metaarkiv och metadata.
+- Du kan inte dela standardmetaarkiv med andra kluster.
+- Standardmetaarkiv använder grundläggande Azure SQL DB, som har en gräns för 5 DTU (database transaction unit).
+Den här standardmetaarkiv används vanligtvis för relativt enkla arbetsbelastningar som inte kräver flera kluster och behöver inte metadata bevaras utöver klustrets livscykel.
 
 
-## <a name="custom-metastore"></a>Anpassade metastore
+## <a name="custom-metastore"></a>Anpassat metaarkiv
 
-HDInsight stöder även anpassade metastores som rekommenderas för driftskluster:
-- Du kan ange egna Azure SQL Database som metastore.
-- Livscykeln för metastore är inte kopplat till ett kluster livscykel, så att du kan skapa och ta bort kluster utan att förlora metadata. Metadata, till exempel Hive-scheman behålls när du tar bort och återskapa HDInsight-klustret.
-- En anpassad metastore kan du bifoga flera kluster och klustertyper som metastore. Exempelvis kan en enda metastore delas mellan interaktiva frågan, Hive och Spark-kluster i HDInsight.
-- Du betalar för kostnaden för metastore (Azure SQL DB) enligt prestandanivå du väljer.
-- Du kan skala upp metastore efter behov.
+HDInsight har också stöd för anpassade metastores som rekommenderas för produktionskluster:
+- Du anger din egen Azure SQL-databas som metaarkiv.
+- Livscykeln för metaarkiv är inte kopplad till en kluster-livscykel, så att du kan skapa och ta bort kluster utan att förlora metadata. Metadata, till exempel dina Hive-scheman behålls även när du tar bort och återskapa HDInsight-klustret.
+- Ett anpassat metaarkiv kan du koppla flera kluster och klustertyper till den metaarkiv. Till exempel kan ett enda metaarkiv delas mellan interaktiv fråga, Hive och Spark-kluster i HDInsight.
+- Du betalar för kostnaden för metaarkiv (Azure SQL DB) enligt den prestandanivå som du väljer.
+- Du kan skala upp metaarkiv efter behov.
 
 
 ![HDInsight Hive-Metadata Store användningsfall](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
@@ -58,33 +53,33 @@ HDInsight stöder även anpassade metastores som rekommenderas för driftskluste
 
 
 
-### <a name="select-a-custom-metastore-during-cluster-creation"></a>Välj en anpassad metastore när klustret skapas
+### <a name="select-a-custom-metastore-during-cluster-creation"></a>Välj en anpassad metaarkiv när klustret skapas
 
-Du kan ange ditt kluster till ett tidigare skapade Azure SQL Database när klustret skapas eller när klustret har skapats kan du konfigurera SQL-databasen. Det här alternativet anges med lagringen > Metastore inställningar när du skapar en ny Hadoop, Spark eller interaktiv Hive kluster från Azure-portalen.
+Du kan peka ditt kluster till ett tidigare skapade Azure SQL Database när klustret skapas eller när klustret har skapats kan du konfigurera SQL-databasen. Det här alternativet anges med Storage > Inställningar för Metaarkiv när du skapar en ny Hadoop, Spark eller interaktiva Hive-kluster från Azure-portalen.
 
 ![HDInsight Hive-Metadata Store Azure-portalen](./media/hdinsight-use-external-metadata-stores/metadata-store-azure-portal.png)
 
-Du kan också lägga till ytterligare kluster anpassade metastore från Azure-portalen eller Ambari konfigurationer (Hive > Avancerat)
+Du kan också lägga till ytterligare kluster till ett anpassat metaarkiv från Azure-portalen eller från Ambari-konfigurationer (Hive-> Avancerat)
 
 ![HDInsight Hive-Metadata Store Ambari](./media/hdinsight-use-external-metadata-stores/metadata-store-ambari.png)
 
-## <a name="hive-metastore-best-practices"></a>Hive metastore bästa praxis
+## <a name="hive-metastore-best-practices"></a>Hive-metaarkiv Metodtips
 
-Här är några allmänna HDInsight Hive metastore metoder:
+Här är några allmänna HDInsight Hive metastore metodtips:
 
-- Använda en anpassad metastore när det är möjligt eftersom detta hjälper separat beräkningsresurser (körs klustret) och metadata (som lagras i metastore).
-- Börja med en S2-nivå som ger 50 DTU och 250 GB lagring. Om du ser en flaskhals kan du skala databasen upp.
-- Se till att metastore som skapats för ett HDInsight-kluster av version inte delas mellan olika versioner av HDInsight-kluster. Olika scheman används för olika versioner av Hive. Exempelvis kan du dela en metastore med både Hive 1.2 och Hive 2.1.
+- Använd ett anpassat metaarkiv när det är möjligt på så sätt kan separat beräkningsresurser (som körs klustret) och metadata (lagras i metaarkiv).
+- Börja med en S2-nivå som ger 50 DTU och 250 GB lagring. Om du ser en flaskhals kan skala du databasen upp.
+- Se till att metaarkiv som skapats för ett HDInsight-kluster av version inte delas mellan olika versioner av HDInsight-kluster. Olika versioner av Hive använda olika scheman. Exempel: du kan inte dela ett metaarkiv med både Hive 1.2 och Hive 2.1-kluster.
 - Säkerhetskopiera dina anpassade metastore med jämna mellanrum.
-- Hålla dina metastore och HDInsight-kluster i samma region.
-- Övervaka dina metastore för prestanda och tillgänglighet med hjälp av Azure SQL Database-övervakning verktyg, till exempel Azure-portalen eller Azure logganalys.
+- Se metaarkiv och HDInsight-kluster i samma region.
+- Övervaka din metaarkiv för prestanda och tillgänglighet med hjälp av Azure SQL Database-övervakning verktyg, till exempel Azure portal eller Azure Log Analytics.
 
-## <a name="oozie-metastore"></a>Oozie Metastore
+## <a name="oozie-metastore"></a>Oozie-Metaarkiv
 
-Apache Oozie är ett system för samordning av arbetsflödet som hanterar Hadoop-jobb.  Oozie stöder Hadoop-jobb för Apache MapReduce, Pig, Hive och andra.  Oozie använder en metastore för att lagra information om aktuella och slutförda arbetsflöden. Du kan använda Azure SQL Database som en anpassad metastore för att öka prestandan när du använder Oozie. Metastore kan också ge åtkomst till Oozie jobbdata när du tar bort klustret.
+Apache Oozie är ett system för samordning av arbetsflöden som hanterar Hadoop-jobb.  Oozie stöder Hadoop-jobb för Apache MapReduce, Pig, Hive och andra.  Oozie använder ett metaarkiv för att lagra information om aktuella och slutförda arbetsflöden. Du kan använda Azure SQL Database som en anpassad metaarkiv för att öka prestandan när du använder Oozie. Metaarkiv kan också ge åtkomst till Oozie jobbdata när du har tagit bort ditt kluster.
 
-Anvisningar om hur du skapar en Oozie metastore med Azure SQL Database finns [Använd Oozie för arbetsflöden](hdinsight-use-oozie-linux-mac.md).
+Anvisningar om hur du skapar en Oozie metastore med Azure SQL Database finns i [använda Oozie för arbetsflöden](hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Ställ in kluster i HDInsight Hadoop, Spark, Kafka och mycket mer](./hdinsight-hadoop-provision-linux-clusters.md)
+- [Konfigurera kluster i HDInsight med Hadoop, Spark, Kafka med mera](./hdinsight-hadoop-provision-linux-clusters.md)

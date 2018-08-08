@@ -1,36 +1,31 @@
 ---
-title: Skapa Hadoop-kluster med hjälp av kommandoraden-Azure HDInsight | Microsoft Docs
-description: Lär dig hur du skapar HDInsight-kluster med flera plattformar Azure CLI 1.0.
+title: Skapa Hadoop-kluster med hjälp av kommandoraden-Azure HDInsight
+description: Lär dig hur du skapar HDInsight-kluster med hjälp av plattformsoberoende Azure CLI 1.0.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 50b01483-455c-4d87-b754-2229005a8ab9
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: e56829c771ae47933f79c519920a20c1308873fe
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 7185e492a2cc42835ce1fa7043a963c7d5d0afb4
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31397594"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594805"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Skapa HDInsight-kluster med Azure CLI
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Stegen i den här genomgången för dokument som skapar ett HDInsight 3.5-kluster med Azure CLI 1.0.
+Stegen i den här genomgången för dokumentet som skapar ett HDInsight 3.5-kluster med Azure CLI 1.0.
 
 > [!IMPORTANT]
 > Det här avsnittet beskriver hur du skapar ett HDInsight-kluster med hjälp av Azure CLI 1.0. Den här versionen av CLI är föråldrad och stöd för att skapa HDInsight-kluster har inte lagts till Azure CLI 2.0.
 >
-> Du kan också använda Azure PowerShell för att skapa och hantera HDInsight-kluster. Mer information finns i [skapa HDInsight-kluster med hjälp av Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) dokumentet.
+> Du kan också använda Azure PowerShell för att skapa och hantera HDInsight-kluster. Mer information finns i den [skapa HDInsight-kluster med Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) dokumentet.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -49,19 +44,19 @@ Följ stegen i [Anslut till en Azure-prenumeration från Azure-kommandoradsgrän
 
 ## <a name="create-a-cluster"></a>Skapa ett kluster
 
-Följande steg ska utföras från en kommandorad, till exempel PowerShell- eller Bash.
+Följande steg ska utföras från en kommandorad, till exempel PowerShell eller Bash.
 
-1. Använd följande kommando för att autentisera till din Azure-prenumeration:
+1. Använd följande kommando för att autentisera till Azure-prenumerationen:
 
         azure login
 
-    Du uppmanas att ange ditt namn och lösenord. Om du har flera Azure-prenumerationer, Använd `azure account set <subscriptionname>` att ange den prenumeration som använder Azure CLI-kommandona.
+    Du uppmanas att ange ditt namn och lösenord. Om du har flera Azure-prenumerationer kan du använda `azure account set <subscriptionname>` att ange den prenumeration som använder Azure CLI-kommandon.
 
 2. Växla till läget Azure Resource Manager, med följande kommando:
 
         azure config mode arm
 
-3. Skapa en resursgrupp. Den här resursgruppen innehåller HDInsight-klustret och associerad storage-konto.
+3. Skapa en resursgrupp. Den här resursgruppen innehåller HDInsight-kluster och tillhörande storage-konto.
 
         azure group create groupname location
 
@@ -69,29 +64,29 @@ Följande steg ska utföras från en kommandorad, till exempel PowerShell- eller
 
     * Ersätt `location` med den geografiska region som du vill skapa gruppen i.
 
-       En lista över giltiga platser, använder den `azure location list` kommando och Använd sedan någon av platserna från den `Name` kolumn.
+       En lista över giltiga platser, använder den `azure location list` kommandot och Använd sedan någon av platserna från den `Name` kolumn.
 
-4. Skapa ett lagringskonto. Det här lagringskontot används som standardlagring för HDInsight-klustret.
+4. Skapa ett lagringskonto. Det här lagringskontot används som standardlagringen för HDInsight-klustret.
 
         azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage storagename
 
-    * Ersätt `groupname` med namnet på gruppen som skapades i föregående steg.
+    * Ersätt `groupname` med namnet på den grupp som skapades i föregående steg.
 
     * Ersätt `location` med samma plats som används i föregående steg.
 
     * Ersätt `storagename` med ett unikt namn för lagringskontot.
 
         > [!NOTE]
-        > Mer information om de parametrar som används i det här kommandot använder `azure storage account create -h` vill visa hjälp för det här kommandot.
+        > Mer information om de parametrar som används i det här kommandot använder `azure storage account create -h` Visa hjälp för det här kommandot.
 
-5. Hämta den nyckel som används för att komma åt lagringskontot.
+5. Hämta nyckeln som används för att komma åt lagringskontot.
 
         azure storage account keys list -g groupname storagename
 
     * Ersätt `groupname` med resursgruppens namn.
     * Ersätt `storagename` med namnet på lagringskontot.
 
-     Spara i de data som returneras av `key` värde för `key1`.
+     I de data som returneras, spara den `key` för `key1`.
 
 6. Skapa ett HDInsight-kluster.
 
@@ -102,7 +97,7 @@ Följande steg ska utföras från en kommandorad, till exempel PowerShell- eller
     * Ersätt `Hadoop` med den typ av kluster som du vill skapa. Till exempel `Hadoop`, `HBase`, `Kafka`, `Spark`, eller `Storm`.
 
      > [!IMPORTANT]
-     > HDInsight-kluster som har olika typer som motsvarar arbetsbelastning eller teknik som klustret är inställd för. Det finns ingen stöds metod för att skapa ett kluster som kombinerar flera typer, till exempel Storm och HBase på ett kluster.
+     > HDInsight kluster finns olika typer, vilket motsvarar arbetsbelastning eller teknik som klustret är anpassad till. Det finns ingen metod som stöds för att skapa ett kluster som kombinerar flera typer, till exempel Storm och HBase i ett kluster.
 
     * Ersätt `location` med samma plats som används i föregående steg.
 
@@ -112,16 +107,16 @@ Följande steg ska utföras från en kommandorad, till exempel PowerShell- eller
 
     * För den `--defaultStorageContainer` parametern, använder samma namn som du använder för klustret.
 
-    * Ersätt `admin` och `httppassword` med namnet och lösenordet som du vill använda när klustret via HTTPS.
+    * Ersätt `admin` och `httppassword` med namn och lösenord som du vill använda vid åtkomst till klustret via HTTPS.
 
-    * Ersätt `sshuser` och `sshuserpassword` med användarnamn och lösenord som du vill använda när du ansluter till klustret via SSH
+    * Ersätt `sshuser` och `sshuserpassword` med användarnamnet och lösenordet som du vill använda vid åtkomst till klustret med SSH
 
     > [!IMPORTANT]
-    > Det här exemplet skapar ett kluster med två arbetarnoder. Du kan också ändra antalet arbetarnoder när klustret har skapats genom att utföra skalning åtgärder. Om du tänker använda mer än 32 arbetarnoder, måste du välja en huvudnod storlek med minst 8 kärnor och 14 GB RAM-minne. Du kan ange huvudnod storlek med den `--headNodeSize` parameter när klustret skapas.
+    > Det här exemplet skapar ett kluster med två arbetarnoder. Du kan också ändra antalet arbetarnoder när klustret har skapats genom att utföra skalningsåtgärder. Om du tänker använda mer än 32 arbetsnoder, måste du välja en head nodstorlek med minst 8 kärnor och 14 GB RAM-minne. Du kan ange huvudnoden storlek med hjälp av den `--headNodeSize` parametern när klustret skapas.
     >
-    > Mer information om noden storlekar och relaterade kostnader finns [HDInsight priser](https://azure.microsoft.com/pricing/details/hdinsight/).
+    > Mer information om nodstorlekar och relaterade kostnader finns i [HDInsight-prissättning](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-    Det kan ta flera minuter för klusterskapandeprocessen ska slutföras. Vanligtvis cirka 15.
+    Det kan ta flera minuter innan klustret skapas ska slutföras. Normalt cirka 15.
 
 ## <a name="troubleshoot"></a>Felsöka
 
@@ -129,7 +124,7 @@ Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkr
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har skapat ett HDInsight-kluster med hjälp av Azure CLI, använder du följande information om hur du arbetar med ditt kluster:
+Nu när du har skapat ett HDInsight-kluster med Azure CLI, Använd följande för att lära dig hur du arbetar med ditt kluster:
 
 ### <a name="hadoop-clusters"></a>Hadoop-kluster
 
@@ -140,10 +135,10 @@ Nu när du har skapat ett HDInsight-kluster med hjälp av Azure CLI, använder d
 ### <a name="hbase-clusters"></a>HBase-kluster
 
 * [Kom igång med HBase i HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Utveckla Java-program för HBase i HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
+* [Utveckla Java-program för HBase på HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Storm-kluster
 
 * [Utveckla Java-topologier för Storm på HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Använda Python komponenter i Storm på HDInsight](storm/apache-storm-develop-python-topology.md)
+* [Använda Python-komponenter i Storm på HDInsight](storm/apache-storm-develop-python-topology.md)
 * [Distribuera och övervaka topologier med Storm på HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)

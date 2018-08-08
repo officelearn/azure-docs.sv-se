@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: c7d4351a9691c9787c42107306220e075f8648a0
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 53c993b6c7ad868c4781ced374b0c1b227a43e6d
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435131"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595101"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrera API Management i ett internt virtuellt nätverk med Application Gateway
 
@@ -35,15 +35,16 @@ Kombinera API Management som etablerats i ett internt virtuellt nätverk med App
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill utföra stegen som beskrivs i den här artikeln, måste du ha:
+Om du vill följa stegen som beskrivs i den här artikeln, måste du ha:
 
-+ En aktiv Azure-prenumeration.
+* En aktiv Azure-prenumeration.
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-+ En APIM-instansen. Mer information finns i [skapa en Azure API Management-instans](get-started-create-service-instance.md).
+* Certifikat - PFX-filen och cer för API-värdnamnet och pfx för developer-portalen värdnamn.
 
 ##<a name="scenario"> </a> Scenario
+
 Den här artikeln beskriver hur du använder ett enda API Management-tjänsten för både interna och externa konsumenter och gör det fungerar som en enda klientdel för både lokala och molnbaserade API: er. Du kan även se hur du kan exponera endast en delmängd av dina API: er (i exemplet som de är markerade i grönt) för extern användning med hjälp av PathBasedRouting funktionerna som är tillgängliga i Application Gateway.
 
 I det första exemplet installationen hanteras alla API: er endast från inom ditt virtuella nätverk. Interna konsumenter (markerade i orange) kan komma åt alla dina interna och externa API: er. Trafiken överförs aldrig till Internet en högpresterande levereras via Expressroute-kretsar.
@@ -52,9 +53,7 @@ I det första exemplet installationen hanteras alla API: er endast från inom di
 
 ## <a name="before-you-begin"> </a> Innan du börjar
 
-1. Installera den senaste versionen av Azure PowerShell-cmdlets med hjälp av installationsprogrammet för webbplattform. Du kan hämta och installera den senaste versionen från avsnittet om **Windows PowerShell** på [hämtningssidan](https://azure.microsoft.com/downloads/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-2. Skapa ett virtuellt nätverk och skapa separata undernät för API Management och Application Gateway.
-3. Om du vill skapa en anpassad DNS-server för det virtuella nätverket kan du göra det innan du påbörjar distribueringen. Kontrollera det fungerar genom att se till att en virtuell dator som skapats i ett nytt undernät i det virtuella nätverket kan lösa och få åtkomst till alla Azure-tjänstslutpunkter.
+* Kontrollera att du använder den senaste versionen av Azure PowerShell. Mer information finns i [Använda Windows PowerShell med Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/powershell-azure-resource-manager).
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>Vad krävs för att skapa en integration mellan API Management och Application Gateway?
 
@@ -63,39 +62,45 @@ I det första exemplet installationen hanteras alla API: er endast från inom di
 * **Frontend-port:** den offentliga porten som är öppen på programgatewayen. Trafik det omdirigeras till en av backend-servrarna.
 * **Lyssnare:** Lyssnaren har en frontend-port, ett protokoll (Http eller Https; dessa värden är skiftlägeskänsliga) och SSL-certifikatnamnet (om du konfigurerar SSL-avlastning).
 * **Regel:** regeln Binder en lyssnare till en backend-serverpoolen.
-* **Anpassade Hälsoavsökning:** Application Gateway, som standard använder IP-adressbaserad avsökningar för att ta reda på vilka servrar i BackendAddressPool är aktiva. API-hanteringen tjänsten bara svarar på förfrågningar som har rätt värdhuvudet är därför standard-avsökningar misslyckas. En anpassad hälsoavsökning måste definieras för att bestämma att tjänsten är aktiv och att den ska vidarebefordra begäranden Programgateway.
-* **Anpassad Domäncertifikat:** åtkomst till API Management från internet måste du skapa en CNAME-mappning av dess värdnamn till frontend-DNS-namn för Application Gateway. Detta säkerställer att värdnamnet huvud och certifikat som skickats till Application Gateway som vidarebefordras till API Management är en APIM kan identifiera som giltigt.
+* **Anpassade Hälsoavsökning:** Application Gateway, som standard använder IP-adressbaserad avsökningar för att ta reda på vilka servrar i BackendAddressPool är aktiva. API-hanteringen tjänsten bara svarar på begäranden med rätt värdhuvudet är därför standard-avsökningar misslyckas. En anpassad hälsoavsökning måste definieras för att bestämma att tjänsten är aktiv och att den ska vidarebefordra begäranden Programgateway.
+* **Anpassad Domäncertifikat:** för att komma åt API Management från internet, måste du skapa en CNAME-mappning av dess värdnamn till frontend-DNS-namn för Application Gateway. Detta säkerställer att värdnamnet huvud och certifikat som skickats till Application Gateway som vidarebefordras till API Management är en APIM kan identifiera som giltigt. I det här exemplet använder vi två certifikat – för serverdelen och developer-portalen.  
 
 ## <a name="overview-steps"> </a> Steg som krävs för att integrera API Management och Application Gateway
 
 1. Skapa en resursgrupp för Resource Manager.
 2. Skapa ett virtuellt nätverk, undernät och offentlig IP-adress för Application Gateway. Skapa ett annat undernät för API Management.
 3. Skapa en API Management-tjänsten i VNET-undernät som skapades ovan och kontrollera att du använder det interna läget.
-4. Konfigurera det anpassade domännamnet i API Management-tjänsten.
+4. Konfigurera ett anpassat domännamn i API Management-tjänsten.
 5. Skapa ett konfigurationsobjekt för Programgatewayen.
 6. Skapa en Application Gateway-resurs.
 7. Skapa en CNAME-post från det offentliga DNS-namnet på Application Gateway till värdnamn för API Management-proxy.
 
-## <a name="create-a-resource-group-for-resource-manager"></a>Skapa en resursgrupp för Resource Manager
+## <a name="exposing-the-developer-portal-externally-through-application-gateway"></a>Exponera utvecklarportalen externt via Application Gateway
 
-Kontrollera att du använder den senaste versionen av Azure PowerShell. Mer information finns i [Använda Windows PowerShell med Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/powershell-azure-resource-manager).
+I den här handboken vi kommer också att innehålla den **utvecklarportalen** till externa publik via Application Gateway. Det krävs ytterligare steg för att skapa developer-portalen lyssnare, avsökning, inställningar och regler. All information finns i respektive steg.
+
+> [!WARNING]
+> Det kan uppstå problem med AAD- och Facebook-autentisering i developer-portalen som nås via Application Gateway beskrivs-installationen.
+
+## <a name="create-a-resource-group-for-resource-manager"></a>Skapa en resursgrupp för Resource Manager
 
 ### <a name="step-1"></a>Steg 1
 
 Logga in på Azure
 
 ```powershell
-Connect-AzureRmAccount
+Login-AzureRmAccount
 ```
 
-Autentisera med dina autentiseringsuppgifter.<BR>
+Autentisera med dina autentiseringsuppgifter.
 
 ### <a name="step-2"></a>Steg 2
 
-Kontrollera prenumerationerna för kontot och välj den.
+Välj den önskade prenumerationen.
 
 ```powershell
-Get-AzureRmSubscription -Subscriptionid "GUID of subscription" | Select-AzureRmSubscription
+$subscriptionId = "00000000-0000-0000-0000-000000000000" # GUID of your Azure subscription
+Get-AzureRmSubscription -Subscriptionid $subscriptionId | Select-AzureRmSubscription
 ```
 
 ### <a name="step-3"></a>Steg 3
@@ -103,8 +108,11 @@ Get-AzureRmSubscription -Subscriptionid "GUID of subscription" | Select-AzureRmS
 Skapa en resursgrupp (hoppa över detta steg om du använder en befintlig resursgrupp).
 
 ```powershell
-New-AzureRmResourceGroup -Name "apim-appGw-RG" -Location "West US"
+$resGroupName = "apim-appGw-RG" # resource group name
+$location = "West US"           # Azure region
+New-AzureRmResourceGroup -Name $resGroupName -Location $location
 ```
+
 Azure Resource Manager kräver att alla resursgrupper anger en plats. Detta används som standardplatsen för resurser i resursgruppen. Se till att alla kommandon för att skapa en Programgateway använder samma resursgrupp.
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Skapa ett virtuellt nätverk och ett undernät för application gateway
@@ -129,10 +137,10 @@ $apimsubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "apim02" -AddressPrefi
 
 ### <a name="step-3"></a>Steg 3
 
-Skapa ett virtuellt nätverk med namnet **appgwvnet** i resursgruppen **apim-appGw-RG** för regionen West US med prefixet 10.0.0.0/16 med undernät 10.0.0.0/24 och 10.0.1.0/24.
+Skapa ett virtuellt nätverk med namnet **appgwvnet** i resursgruppen **apim-appGw-RG** för regionen West US. Använd prefixet 10.0.0.0/16 med undernät 10.0.0.0/24 och 10.0.1.0/24.
 
 ```powershell
-$vnet = New-AzureRmVirtualNetwork -Name "appgwvnet" -ResourceGroupName "apim-appGw-RG" -Location "West US" -AddressPrefix "10.0.0.0/16" -Subnet $appgatewaysubnet,$apimsubnet
+$vnet = New-AzureRmVirtualNetwork -Name "appgwvnet" -ResourceGroupName $resGroupName -Location $location -AddressPrefix "10.0.0.0/16" -Subnet $appgatewaysubnet,$apimsubnet
 ```
 
 ### <a name="step-4"></a>Steg 4
@@ -140,50 +148,70 @@ $vnet = New-AzureRmVirtualNetwork -Name "appgwvnet" -ResourceGroupName "apim-app
 Tilldela en undernätsvariabel för nästa steg
 
 ```powershell
-$appgatewaysubnetdata=$vnet.Subnets[0]
-$apimsubnetdata=$vnet.Subnets[1]
+$appgatewaysubnetdata = $vnet.Subnets[0]
+$apimsubnetdata = $vnet.Subnets[1]
 ```
+
 ## <a name="create-an-api-management-service-inside-a-vnet-configured-in-internal-mode"></a>Skapa en API Management-tjänst i ett virtuellt nätverk som konfigurerats i interna läge
 
 I följande exempel visas hur du skapar en API Management-tjänsten i ett virtuellt nätverk som konfigurerats för intern åtkomst.
 
 ### <a name="step-1"></a>Steg 1
+
 Skapa ett virtuellt nätverk för API Management-objekt med undernätet $apimsubnetdata skapade ovan.
 
 ```powershell
-$apimVirtualNetwork = New-AzureRmApiManagementVirtualNetwork -Location "West US" -SubnetResourceId $apimsubnetdata.Id
+$apimVirtualNetwork = New-AzureRmApiManagementVirtualNetwork -Location $location -SubnetResourceId $apimsubnetdata.Id
 ```
+
 ### <a name="step-2"></a>Steg 2
+
 Skapa en API Management-tjänsten i virtuella nätverk.
 
 ```powershell
-$apimService = New-AzureRmApiManagement -ResourceGroupName "apim-appGw-RG" -Location "West US" -Name "ContosoApi" -Organization "Contoso" -AdminEmail "admin@contoso.com" -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Developer"
+$apimServiceName = "ContosoApi"       # API Management service instance name
+$apimOrganization = "Contoso"         # organization name
+$apimAdminEmail = "admin@contoso.com" # administrator's email address
+$apimService = New-AzureRmApiManagement -ResourceGroupName $resGroupName -Location $location -Name $apimServiceName -Organization $apimOrganization -AdminEmail $apimAdminEmail -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Developer"
 ```
-När kommandot ovan lyckas referera till [DNS-konfiguration som krävs för att komma åt interna VNET API Management-tjänsten](api-management-using-with-internal-vnet.md#apim-dns-configuration) att komma åt den.
+
+När kommandot ovan lyckas referera till [DNS-konfiguration som krävs för att komma åt interna VNET API Management-tjänsten](api-management-using-with-internal-vnet.md#apim-dns-configuration) att komma åt den. Det här steget kan ta mer än en halvtimme.
 
 ## <a name="set-up-a-custom-domain-name-in-api-management"></a>Konfigurera ett anpassat domännamn i API Management
 
 ### <a name="step-1"></a>Steg 1
-Överför certifikatet med privat nyckel för domänen. I det här exemplet blir `*.contoso.net`.
+
+Ladda upp certifikat med privata nycklar för domänerna. I det här exemplet ska vi använda `api.contoso.net` och `portal.contoso.net`.  
 
 ```powershell
-$certUploadResult = Import-AzureRmApiManagementHostnameCertificate -ResourceGroupName "apim-appGw-RG" -Name "ContosoApi" -HostnameType "Proxy" -PfxPath <full path to .pfx file> -PfxPassword <password for certificate file> -PassThru
+$gatewayHostname = "api.contoso.net"                 # API gateway host
+$portalHostname = "portal.contoso.net"               # API developer portal host
+$gatewayCertCerPath = "C:\Users\Contoso\gateway.cer" # full path to api.contoso.net .cer file
+$gatewayCertPfxPath = "C:\Users\Contoso\gateway.pfx" # full path to api.contoso.net .pfx file
+$portalCertPfxPath = "C:\Users\Contoso\portal.pfx"   # full path to portal.contoso.net .pfx file
+$gatewayCertPfxPassword = "certificatePassword123"   # password for api.contoso.net pfx certificate
+$portalCertPfxPassword = "certificatePassword123"    # password for portal.contoso.net pfx certificate
+
+$certUploadResult = Import-AzureRmApiManagementHostnameCertificate -ResourceGroupName $resGroupName -Name $apimServiceName -HostnameType "Proxy" -PfxPath $gatewayCertPfxPath -PfxPassword $gatewayCertPfxPassword -PassThru
+$certPortalUploadResult = Import-AzureRmApiManagementHostnameCertificate -ResourceGroupName $resGroupName -Name $apimServiceName -HostnameType "Proxy" -PfxPath $portalCertPfxPath -PfxPassword $portalCertPfxPassword -PassThru
 ```
 
 ### <a name="step-2"></a>Steg 2
-När certifikatet har överförts, skapa ett konfigurationsobjekt för värdnamn för proxy med ett värdnamn för `api.contoso.net`, enligt exemplet certifikatet innehåller utfärdaren av den `*.contoso.net` domän.
+
+När certifikat som har överförts, skapa värdnamn konfigurationsobjekt för proxy och för portalen.  
 
 ```powershell
-$proxyHostnameConfig = New-AzureRmApiManagementHostnameConfiguration -CertificateThumbprint $certUploadResult.Thumbprint -Hostname "api.contoso.net"
-$result = Set-AzureRmApiManagementHostnames -Name "ContosoApi" -ResourceGroupName "apim-appGw-RG" -ProxyHostnameConfiguration $proxyHostnameConfig
+$proxyHostnameConfig = New-AzureRmApiManagementHostnameConfiguration -CertificateThumbprint $certUploadResult.Thumbprint -Hostname $gatewayHostname
+$portalHostnameConfig = New-AzureRmApiManagementHostnameConfiguration -CertificateThumbprint $certPortalUploadResult.Thumbprint -Hostname $portalHostname
+$result = Set-AzureRmApiManagementHostnames -Name $apimServiceName -ResourceGroupName $resGroupName –PortalHostnameConfiguration $portalHostnameConfig -ProxyHostnameConfiguration $proxyHostnameConfig
 ```
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Skapa en offentlig IP-adress för frontend-konfigurationen
 
-Skapa en offentlig IP-adressresurs **publicIP01** i resursgruppen **apim-appGw-RG** för regionen West US.
+Skapa en offentlig IP-adressresurs **publicIP01** i resursgruppen.
 
 ```powershell
-$publicip = New-AzureRmPublicIpAddress -ResourceGroupName "apim-appGw-RG" -name "publicIP01" -location "West US" -AllocationMethod Dynamic
+$publicip = New-AzureRmPublicIpAddress -ResourceGroupName $resGroupName -name "publicIP01" -location $location -AllocationMethod Dynamic
 ```
 
 En IP-adress tilldelas till programgatewayen när tjänsten startas.
@@ -207,6 +235,7 @@ Konfigurera frontend IP-porten för den offentliga IP-slutpunkten. Den här port
 ```powershell
 $fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "port01"  -Port 443
 ```
+
 ### <a name="step-3"></a>Steg 3
 
 Konfigurera klientdelens IP med den offentliga IP-slutpunkten.
@@ -217,30 +246,35 @@ $fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name "frontend1" -
 
 ### <a name="step-4"></a>Steg 4
 
-Konfigurera certifikatet för Application-Gateway som används för att dekryptera och kryptera trafik som passerar genom.
+Konfigurera certifikat för Application Gateway, som används för att dekryptera och kryptera trafik som passerar genom.
 
 ```powershell
-$cert = New-AzureRmApplicationGatewaySslCertificate -Name "cert01" -CertificateFile <full path to .pfx file> -Password <password for certificate file>
+$certPwd = ConvertTo-SecureString $gatewayCertPfxPassword -AsPlainText -Force
+$cert = New-AzureRmApplicationGatewaySslCertificate -Name "cert01" -CertificateFile $gatewayCertPfxPath -Password $certPwd
+$certPortalPwd = ConvertTo-SecureString $portalCertPfxPassword -AsPlainText -Force
+$certPortal = New-AzureRmApplicationGatewaySslCertificate -Name "cert02" -CertificateFile $portalCertPfxPath -Password $certPortalPwd
 ```
 
 ### <a name="step-5"></a>Steg 5
 
-Skapa HTTP-lyssnare för Programgatewayen. Tilldela frontend IP-konfiguration, port och ssl certifikatet till den.
+Skapa HTTP-lyssnare för Programgatewayen. Tilldela dem för de frontend IP-konfiguration, port och ssl certifikat.
 
 ```powershell
-$listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protocol "Https" -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $cert
+$listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protocol "Https" -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $cert -HostName $gatewayHostname -RequireServerNameIndication true
+$portalListener = New-AzureRmApplicationGatewayHttpListener -Name "listener02" -Protocol "Https" -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $certPortal -HostName $portalHostname -RequireServerNameIndication true
 ```
 
 ### <a name="step-6"></a>Steg 6
 
-Skapa en anpassad avsökning för API Management-tjänsten `ContosoApi` proxy domän slutpunkt. Sökvägen `/status-0123456789abcdef` är en standardslutpunkt för hälsotillstånd som finns i API Management-tjänster. Ange `api.contoso.net` som en anpassad avsökning värdnamnet till att skydda den med SSL-certifikat.
+Skapa anpassade avsökningar till API Management-tjänsten `ContosoApi` proxy domän slutpunkt. Sökvägen `/status-0123456789abcdef` är en standardslutpunkt för hälsotillstånd som finns i API Management-tjänster. Ange `api.contoso.net` som en anpassad avsökning värdnamnet till att skydda den med SSL-certifikat.
 
 > [!NOTE]
 > Värdnamnet `contosoapi.azure-api.net` är proxy standardvärdnamnet konfigureras när en tjänst med namnet `contosoapi` har skapats i offentliga Azure.
 >
 
 ```powershell
-$apimprobe = New-AzureRmApplicationGatewayProbeConfig -Name "apimproxyprobe" -Protocol "Https" -HostName "api.contoso.net" -Path "/status-0123456789abcdef" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
+$apimprobe = New-AzureRmApplicationGatewayProbeConfig -Name "apimproxyprobe" -Protocol "Https" -HostName $gatewayHostname -Path "/status-0123456789abcdef" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
+$apimPortalProbe = New-AzureRmApplicationGatewayProbeConfig -Name "apimportalprobe" -Protocol "Https" -HostName $portalHostname -Path "/signin" -Interval 60 -Timeout 300 -UnhealthyThreshold 8
 ```
 
 ### <a name="step-7"></a>Steg 7
@@ -248,15 +282,16 @@ $apimprobe = New-AzureRmApplicationGatewayProbeConfig -Name "apimproxyprobe" -Pr
 Ladda upp certifikat som ska användas för de resurser som SSL-aktiverad backend-pool. Är detta samma certifikat som du angav i steg 4 ovan.
 
 ```powershell
-$authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name "whitelistcert1" -CertificateFile <full path to .cer file>
+$authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name "whitelistcert1" -CertificateFile $gatewayCertCerPath
 ```
 
 ### <a name="step-8"></a>Steg 8
 
-Konfigurera inställningar för HTTP-serverdelen för Application Gateway. Detta innefattar att ställa in en timeoutgränsen för backend-förfrågan efter vilken de avbryts. Det här värdet skiljer sig från avsökningen timeout-värde.
+Konfigurera inställningar för HTTP-serverdelen för Application Gateway. Detta innefattar att ställa in en timeoutgränsen för backend-begäran, varefter de är avbruten. Det här värdet skiljer sig från avsökningen timeout-värde.
 
 ```powershell
 $apimPoolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "apimPoolSetting" -Port 443 -Protocol "Https" -CookieBasedAffinity "Disabled" -Probe $apimprobe -AuthenticationCertificates $authcert -RequestTimeout 180
+$apimPoolPortalSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "apimPoolPortalSetting" -Port 443 -Protocol "Https" -CookieBasedAffinity "Disabled" -Probe $apimPortalProbe -AuthenticationCertificates $authcert -RequestTimeout 180
 ```
 
 ### <a name="step-9"></a>Steg 9
@@ -264,68 +299,33 @@ $apimPoolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "apimP
 Konfigurera backend-IP-adresspoolen med namnet **apimbackend** med den interna virtuella IP-adressen för API Management-tjänsten som skapades ovan.
 
 ```powershell
-$apimProxyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name "apimbackend" -BackendIPAddresses $apimService.StaticIPs[0]
+$apimProxyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name "apimbackend" -BackendIPAddresses $apimService.PrivateIPAddresses[0]
 ```
 
 ### <a name="step-10"></a>Steg 10
 
-Skapa inställningar för en dummy (icke-existerande)-serverdel. Begäranden till API-sökvägar som vi inte vill exponera från API Management via Application Gateway ska nå serverdelen och returnera 404.
-
-Konfigurera HTTP-inställningar för dummy-serverdel.
+Skapa regler för Application Gateway kan använda grundläggande routning.
 
 ```powershell
-$dummyBackendSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "dummySetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled
+$rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule1" -RuleType Basic -HttpListener $listener -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
+$rule02 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule2" -RuleType Basic -HttpListener $portalListener -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolPortalSetting
 ```
 
-Konfigurera en dummy serverdel **dummyBackendPool**, som pekar på ett FQDN-adressen **dummybackend.com**. Den här FQDN-adressen finns inte i det virtuella nätverket.
-
-```powershell
-$dummyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name "dummyBackendPool" -BackendFqdns "dummybackend.com"
-```
-
-Skapa en regelinställning som Application Gateway ska använda som standard som pekar mot en obefintlig serverdelen **dummybackend.com** i det virtuella nätverket.
-
-```powershell
-$dummyPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "nonexistentapis" -Paths "/*" -BackendAddressPool $dummyBackendPool -BackendHttpSettings $dummyBackendSetting
-```
+> [!TIP]
+> Ändra regeltyp - och routning för att begränsa åtkomsten till vissa sidor i developer-portalen.
 
 ### <a name="step-11"></a>Steg 11
 
-Konfigurera URL: en regel sökvägar för backend-adresspooler. Detta gör att välja endast några av de API: er i API Management för att exponeras offentligt. Till exempel om det finns `Echo API` (/ echo /), `Calculator API` (/calc/) o.s.v. se bara `Echo API` nås från Internet).
-
-I följande exempel skapas en enkel regel för ”/ echo /” sökväg routning trafiken till backend-server ”apimProxyBackendPool”.
-
-```powershell
-$echoapiRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "externalapis" -Paths "/echo/*" -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
-```
-
-Om sökvägen inte matchar sökvägsregler som vi vill aktivera från API Management, konfigurerar regelkonfigurationen sökväg kartan även en standard backend-adresspool med namnet **dummyBackendPool**. Till exempel http://api.contoso.net/calc/sum går till **dummyBackendPool** som den definieras som standardadresspool för icke matchade trafik.
-
-```powershell
-$urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule, $dummyPathRule -DefaultBackendAddressPool $dummyBackendPool -DefaultBackendHttpSettings $dummyBackendSetting
-```
-
-Ovanstående steg säkerställer att endast begäranden för sökvägen ”/ echo” tillåts passera Application Gateway. Begäranden till andra API: er som konfigurerats i API Management genereras 404-fel från Programgatewayen när nås från Internet.
-
-### <a name="step-12"></a>Steg 12
-
-Skapa en regelinställning för Application Gateway kan använda URL-sökvägsbaserad routning.
-
-```powershell
-$rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule1" -RuleType PathBasedRouting -HttpListener $listener -UrlPathMap $urlPathMap
-```
-
-### <a name="step-13"></a>Steg 13
-
-Konfigurera antalet instanser av och storleken för Application Gateway. Här använder vi den [WAF SKU](../application-gateway/application-gateway-webapplicationfirewall-overview.md) för ökad säkerhet för API Management-resursen.
+Konfigurera antalet instanser av och storleken för Application Gateway. I det här exemplet använder vi den [WAF SKU](../application-gateway/application-gateway-webapplicationfirewall-overview.md) för ökad säkerhet för API Management-resursen.
 
 ```powershell
 $sku = New-AzureRmApplicationGatewaySku -Name "WAF_Medium" -Tier "WAF" -Capacity 2
 ```
 
-### <a name="step-14"></a>Steg 14
+### <a name="step-12"></a>Steg 12
 
 Konfigurera WAF i ”förhindringsläge”.
+
 ```powershell
 $config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
 ```
@@ -335,7 +335,8 @@ $config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enab
 Skapa en Programgateway med alla konfigurationsobjekt från föregående steg.
 
 ```powershell
-$appgw = New-AzureRmApplicationGateway -Name $applicationGatewayName -ResourceGroupName $resourceGroupName  -Location $location -BackendAddressPools $apimProxyBackendPool, $dummyBackendPool -BackendHttpSettingsCollection $apimPoolSetting, $dummyBackendSetting  -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener -UrlPathMaps $urlPathMap -RequestRoutingRules $rule01 -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert -AuthenticationCertificates $authcert -Probes $apimprobe
+$appgwName = "apim-app-gw"
+$appgw = New-AzureRmApplicationGateway -Name $appgwName -ResourceGroupName $resGroupName -Location $location -BackendAddressPools $apimProxyBackendPool -BackendHttpSettingsCollection $apimPoolSetting, $apimPoolPortalSetting  -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener, $portalListener -RequestRoutingRules $rule01, $rule02 -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert, $certPortal -AuthenticationCertificates $authcert -Probes $apimprobe, $apimPortalProbe
 ```
 
 ## <a name="cname-the-api-management-proxy-hostname-to-the-public-dns-name-of-the-application-gateway-resource"></a>CNAME för API Management proxy värdnamnet till det offentliga DNS-namnet på Application Gateway-resursen
@@ -345,7 +346,7 @@ När du har skapat gatewayen, är nästa steg att konfigurera klientprogrammet f
 Programgatewayens DNS-namn som ska användas för att skapa en CNAME-post som pekar APIM-proxyvärdnamn (t.ex. `api.contoso.net` i exemplen ovan) till den här DNS-namnet. Konfigurera frontend IP-CNAME-post genom att hämta information om Programgatewayen och dess associerade IP/DNS-namn med PublicIPAddress-elementet. Användning av A-poster rekommenderas inte eftersom VIP kan ändras vid omstart av gateway.
 
 ```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName "apim-appGw-RG" -Name "publicIP01"
+Get-AzureRmPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
 ##<a name="summary"> </a> Sammanfattning

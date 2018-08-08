@@ -1,25 +1,20 @@
 ---
-title: Hantera Hadoop-kluster i HDInsight med .NET SDK - Azure | Microsoft Docs
-description: Lär dig mer om att utföra administrativa uppgifter för Hadoop-kluster i HDInsight med HDInsight .NET SDK.
+title: Hantera Hadoop-kluster i HDInsight med .NET SDK - Azure
+description: Lär dig mer om att utföra administrativa uppgifter för Hadoop-kluster i HDInsight med hjälp av HDInsight .NET SDK.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-tags: azure-portal
-author: mumian
-documentationcenter: ''
-ms.assetid: fd134765-c2a0-488a-bca6-184d814d78e9
+editor: jasonwhowell
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 08c9d16570a923c79c81cebb8669a43488129d9a
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.author: jasonh
+ms.openlocfilehash: 481ee363c4ee48bb85bca991b6d4912560d82312
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017945"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590892"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Hantera Hadoop-kluster i HDInsight med hjälp av .NET SDK
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -42,7 +37,7 @@ Install-Package Microsoft.Azure.Management.ResourceManager -Pre
 Install-Package Microsoft.Azure.Management.HDInsight
 ```
 
-Följande kodexempel visar hur du ansluter till Azure innan du kan administrera HDInsight-kluster under din Azure-prenumeration.
+Följande kodexempel visar hur du ansluter till Azure innan du kan administrera HDInsight-kluster för din Azure-prenumeration.
 
 ```csharp
 using System;
@@ -111,13 +106,13 @@ namespace HDInsightManagement
 }
 ```
 
-En uppmaning visas när du kör programmet.  Om du inte vill se uppmaningen [skapa icke-interaktiv autentisering .NET HDInsight-program](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
+Du bör se ett meddelande när du kör programmet.  Om du inte vill se uppmaningen [skapa .NET HDInsight-program med icke-interaktiv autentisering](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 
 ## <a name="create-clusters"></a>Skapa kluster
-Se [skapa Linux-baserade kluster i HDInsight med hjälp av .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
+Se [skapa Linux-baserade kluster i HDInsight med .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 
-## <a name="list-clusters"></a>Lista över kluster
-Följande kodavsnitt visas kluster och vissa egenskaper:
+## <a name="list-clusters"></a>En lista över kluster
+Följande kodavsnitt visar en lista över kluster och vissa egenskaper:
 
 ```csharp
 var results = _hdiManagementClient.Clusters.List();
@@ -138,23 +133,23 @@ _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Nam
 ```
 
 ## <a name="scale-clusters"></a>Skala kluster
-Klustret skalning funktionen kan du ändra antalet arbetarnoder som används av ett kluster som körs i Azure HDInsight utan att behöva återskapa klustret.
+Klusterskalning funktionen kan du ändra antalet arbetarnoder som används av ett kluster som körs i Azure HDInsight utan att behöva återskapa klustret.
 
 > [!NOTE]
-> Endast kluster med HDInsight version 3.1.3 eller högre stöds. Om du är osäker på vilken version av klustret kan kontrollera du egenskapssidan.  Se [listan och visa](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+> Endast kluster med HDInsight version 3.1.3 eller högre stöds. Om du är osäker på vilken version av ditt kluster kan kontrollera du egenskapssidan.  Se [lista och visa kluster](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 > 
 > 
 
-Konsekvenser av att ändra antalet datanoder som för varje typ av kluster som stöds av HDInsight:
+Effekten av att ändra antalet datanoder som för varje typ av kluster som stöds av HDInsight:
 
 * Hadoop
   
-    Sömlöst kan du öka antalet arbetarnoder i ett Hadoop-kluster som körs utan att påverka alla väntande eller körs jobb. Också du kan skicka nya jobb medan åtgärden pågår. Fel i en åtgärd för skalning hanteras korrekt så att klustret alltid kvar i ett fungerande tillstånd.
+    Du kan smidigt öka antalet arbetarnoder i ett Hadoop-kluster som körs utan att påverka alla väntande eller pågående jobb. Också du kan skicka nya jobb medan åtgärden pågår. Fel i en åtgärd för skalning hanteras ett smidigt sätt så att klustret finns alltid kvar i funktionsdugligt tillstånd.
   
-    När ett Hadoop-kluster skalas ned genom att minska antalet datanoder som, en del av tjänsterna i klustret har startats om. Detta medför att alla körs och väntande jobb misslyckas vid skalning åtgärden slutfördes. Du kan dock skicka jobb när åtgärden har slutförts.
+    När ett Hadoop-kluster skalas genom att minska antalet datanoder några tjänster i klustret startas om. Detta gör allt körs och väntande jobb misslyckas vid skalning åtgärden slutfördes. Du kan dock skicka jobb när åtgärden har slutförts.
 * HBase
   
-    Du kan sömlöst Lägg till eller ta bort noder till HBase-kluster, medan den körs. Regional servrar balanseras automatiskt inom några minuter för att slutföra åtgärden. skalning. Du kan också manuellt balansera regionala servrar genom att logga in på headnode i klustret och köra följande kommandon från en kommandotolk:
+    Du kan smidigt lägga till eller ta bort noder till HBase-kluster medan den körs. Regionservrar balanseras automatiskt inom ett par minuter efter att du skalar igen. Du kan också manuellt balansera regionservrar genom att logga till huvudnoden i klustret och köra följande kommandon från en kommandotolk:
   
     ```bash
     >pushd %HBASE_HOME%\bin
@@ -163,20 +158,20 @@ Konsekvenser av att ändra antalet datanoder som för varje typ av kluster som s
     ```
 * Storm
   
-    Du kan sömlöst lägga till eller ta bort datanoder till ditt Storm-kluster medan den körs. Men efter en lyckad skalning åtgärden har slutförts, behöver du ombalansera topologin.
+    Du kan smidigt lägga till eller ta bort datanoder till ditt Storm-kluster medan den körs. Men när en installationen har slutförts åtgärdens skalning, behöver du balansera om topologin.
   
     Ombalansering kan utföras på två sätt:
   
-  * Storm webbgränssnittet
+  * Storm-Webbgränssnittet
   * Verktyget kommandoradsgränssnittet (CLI)
     
-    Mer information finns i [Apache Storm dokumentationen](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) för mer information.
+    Finns det [Apache Storm-dokumentationen](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) för mer information.
     
-    Storm webbgränssnittet är tillgänglig på HDInsight-kluster:
+    Storm-webbgränssnittet finns på HDInsight-klustret:
     
-    ![HDInsight Storm skala balansera](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
+    ![HDInsight Storm skala ombalansering](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
     
-    Här är ett exempel så använder du kommandot CLI för att balansera Storm-topologi:
+    Här är ett exempel hur du använder CLI-kommando för att balansera om Storm-topologi:
     
     ```cli
     ## Reconfigure the topology "mytopology" to use 5 worker processes,
@@ -185,7 +180,7 @@ Konsekvenser av att ändra antalet datanoder som för varje typ av kluster som s
     $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
     ```
 
-Följande kodavsnitt visar hur du ändrar storlek på ett kluster synkront eller asynkront:
+Följande kodfragment visar hur du ändrar storlek på ett kluster synkront eller asynkront:
 
 ```csharp
 _hdiManagementClient.Clusters.Resize("<Resource Group Name>", "<Cluster Name>", <New Size>);   
@@ -193,7 +188,7 @@ _hdiManagementClient.Clusters.ResizeAsync("<Resource Group Name>", "<Cluster Nam
 ```
 
 ## <a name="grantrevoke-access"></a>Bevilja/återkalla åtkomst
-HDInsight-kluster har följande HTTP-webbtjänster (alla dessa tjänster har RESTful slutpunkter):
+HDInsight-kluster har följande HTTP-webbtjänster (alla dessa tjänster har RESTful-slutpunkter):
 
 * ODBC
 * JDBC
@@ -201,7 +196,7 @@ HDInsight-kluster har följande HTTP-webbtjänster (alla dessa tjänster har RES
 * Oozie
 * Templeton
 
-Som standard beviljas dessa tjänster för åtkomst. Du kan återkalla/bevilja åtkomst. Återkalla:
+Som standard beviljas de här tjänsterna för åtkomst. Du kan återkalla/bevilja åtkomst. Återkalla:
 
 ```csharp
 var httpParams = new HttpSettingsParameters
@@ -226,17 +221,17 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 ```
 
 > [!NOTE]
-> Genom att bevilja/återkalla åtkomst, återställs klustret användarnamn och lösenord.
+> Genom att bevilja/återkalla åtkomst, ska du återställa klustret användarnamn och lösenord.
 > 
 > 
 
 Detta kan även göras via portalen. Se [administrera HDInsight med hjälp av Azure portal][hdinsight-admin-portal].
 
-## <a name="update-http-user-credentials"></a>Uppdatera autentiseringsuppgifterna för HTTP
-Det är på samma sätt som [HTTP att bevilja/återkalla åtkomst](#grant/revoke-access). Om klustret har beviljats HTTP-åtkomst, måste du först återkalla den.  Och sedan ge åtkomst med nya HTTP-autentiseringsuppgifter.
+## <a name="update-http-user-credentials"></a>Uppdatera HTTP-autentiseringsuppgifterna
+Det är på samma sätt som [Grant/revoke HTTP-åtkomst](#grant/revoke-access). Om klustret har beviljats HTTP-åtkomst, måste du först återkalla den.  Och sedan bevilja åtkomst med nya HTTP-autentiseringsuppgifterna.
 
 ## <a name="find-the-default-storage-account"></a>Hitta standardkontot för lagring
-Följande kodavsnitt visar hur du hämtar standard lagringskontots namn och standard lagringskontots åtkomstnyckel för ett kluster.
+Följande kodfragment visar hur du hämtar standard lagringskontonamn och lagringskontonyckeln standard för ett kluster.
 
 ```csharp
 var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");
@@ -253,25 +248,25 @@ Se [kör Hadoop-MapReduce-exempel i HDInsight](hadoop/apache-hadoop-run-samples-
 
 **Att skicka Hive-jobb** 
 
-Se [köra Hive-frågor med .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
+Se [kör Hive-frågor med .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 
-**Skicka Pig-jobb**
+**Att skicka Pig-jobb**
 
-Se [köra Pig-jobb med hjälp av .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
+Se [köra Pig-jobb med .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
 
 **Skicka Sqoop jobb**
 
 Se [använda Sqoop med HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
 
-**Skicka Oozie jobb**
+**Skicka Oozie-jobb**
 
-Se [Oozie för användning med Hadoop för att definiera och köra ett arbetsflöde i HDInsight](hdinsight-use-oozie-linux-mac.md).
+Se [Använd Oozie med Hadoop för att definiera och köra ett arbetsflöde i HDInsight](hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Ladda upp data till Azure Blob storage
 Mer information finns i [Överföra data till HDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Se även
-* [HDInsight .NET SDK-referensdokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
+* [HDInsight .NET SDK referensdokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [Administrera HDInsight med hjälp av Azure portal][hdinsight-admin-portal]
 * [Administrera HDInsight med ett kommandoradsgränssnitt][hdinsight-admin-cli]
 * [Skapa HDInsight-kluster][hdinsight-provision]

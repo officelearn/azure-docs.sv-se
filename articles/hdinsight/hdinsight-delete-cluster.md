@@ -1,45 +1,41 @@
 ---
-title: Hur du tar bort ett HDInsight-kluster - Azure | Microsoft Docs
-description: Information om de olika sätt att du tar bort ett HDInsight-kluster.
+title: Hur du tar bort ett HDInsight-kluster – Azure
+description: Information om de olika sätten att du tar bort ett HDInsight-kluster.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-ms.assetid: 55f7838b-9786-47ff-96db-1b64437bd0bb
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: larryfr
+ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 01c59d4970bca54417c9b860ec177ecf5a37d8c5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1d376b365d8755cfea8718d6d0a50cfa6008fdc3
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31398809"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596026"
 ---
-# <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>Ta bort ett HDInsight-kluster med hjälp av din webbläsare, PowerShell eller Azure CLI
+# <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>Ta bort ett HDInsight-kluster med din webbläsare, PowerShell eller Azure CLI
 
-HDInsight-kluster faktureringen påbörjas när ett kluster skapas och slutar när klustret har tagits bort. Debiteringen görs i förväg per minut, så du ska alltid ta bort ditt kluster när det inte används. Lär dig hur du tar bort ett kluster med Azure-portalen, Azure PowerShell och Azure CLI 1.0 i det här dokumentet.
+Debiteringen för HDInsight-klustret börjar när ett kluster skapas och stoppas när klustret tas bort. Debiteringen görs i förväg per minut, så du ska alltid ta bort ditt kluster när det inte används. Lär dig hur du tar bort ett kluster med Azure-portalen, Azure PowerShell och Azure CLI 1.0 i det här dokumentet.
 
 > [!IMPORTANT]
-> Tar bort ett HDInsight-kluster tas inte bort Azure Storage-konton eller Datasjölager som är associerade med klustret. Du kan återanvända data som lagras i dessa tjänster i framtiden.
+> Tar bort ett HDInsight-kluster tas inte bort Azure Storage-konton eller Data Lake Store som är associerade med klustret. Du kan återanvända data som lagras i dessa tjänster i framtiden.
 
 ## <a name="azure-portal"></a>Azure Portal
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) och välj ditt HDInsight-kluster. Om ditt HDInsight-kluster inte är fäst på instrumentpanelen, kan du söka efter den av namn med hjälp av sökfältet.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) och välj ditt HDInsight-kluster. Om inte ditt HDInsight-kluster är fäst på instrumentpanelen, kan du söka efter den efter namn med sökfältet.
    
     ![Portal-sökning](./media/hdinsight-delete-cluster/navbar.png)
 
-2. Klusterinställningar, Välj den **ta bort** ikon. När du uppmanas, Välj **Ja** att ta bort klustret.
+2. Inställningar för klustret, väljer du den **ta bort** ikon. När du uppmanas, väljer **Ja** ta bort klustret.
    
-    ![Ikonen Ta bort](./media/hdinsight-delete-cluster/deletecluster.png)
+    ![ikonen Ta bort](./media/hdinsight-delete-cluster/deletecluster.png)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Använder du följande kommando för att ta bort klustret från en PowerShell-kommandotolk:
+Använder du följande kommando från PowerShell-prompten, ta bort klustret:
 
     Remove-AzureRmHDInsightCluster -ClusterName CLUSTERNAME
 

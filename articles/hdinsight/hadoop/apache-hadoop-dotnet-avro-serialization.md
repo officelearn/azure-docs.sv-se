@@ -1,124 +1,119 @@
 ---
-title: Serialisera data i Hadoop - Microsoft Avro Library - Azure | Microsoft Docs
-description: Lär dig mer om att serialisera och deserialisera data i Hadoop i HDInsight med hjälp av Microsoft Avro Library ska sparas i minnet, en databas eller fil.
-keywords: avro hadoop avro
+title: Serialisera data i Hadoop - Microsoft Avro Library - Azure
+description: Lär dig mer om att serialisera och deserialisera data i Hadoop på HDInsight med hjälp av Microsoft Avro Library ska sparas i minnet, en databas eller fil.
+keywords: avro, hadoop avro
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: c78dc20d-5d8d-4366-94ac-abbe89aaac58
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
+ms.author: jasonh
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 0d195ab3b84a522eae4010f3b08a829f7056a35f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 59e6116d1c325e32b4bead0ab44e00fb8682a205
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202361"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595604"
 ---
 # <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>Serialisera data i Hadoop med Microsoft Avro Library
 
 >[!NOTE]
->Avro SDK stöds inte längre av Microsoft. Biblioteket är öppen källkod som stöds. Källor för biblioteket finns i [Github](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro).
+>Avro SDK stöds inte längre av Microsoft. Biblioteket är communityn för öppen källkod som stöds. Källor för biblioteket finns i [Github](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro).
 
-Det här avsnittet visar hur du använder den [Microsoft Avro Library](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro) att serialisera objekt och andra datastrukturer i dataströmmar att behålla dem till minne, en databas eller en fil. Här visas också att deserialisera dem om du vill återställa de ursprungliga objekten.
+Det här avsnittet visar hur du använder den [Microsoft Avro Library](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro) att serialisera objekt och andra datastrukturer till byteströmmar för att bevara dem i minnet, en databas eller en fil. Den visar även hur du deserialisera dem om du vill återställa de ursprungliga objekten.
 
 [!INCLUDE [windows-only](../../../includes/hdinsight-windows-only.md)]
 
 ## <a name="apache-avro"></a>Apache Avro
-Den <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> implementerar Apache Avros data serialisering system för Microsoft.NET-miljö. Apache Avro ger en kompakta binära dataöverföringsformat för serialisering. Den använder <a href="http://www.json.org" target="_blank">JSON</a> att definiera ett språkoberoende schema som meddelar försäkringar språksamverkan. Data serialiseras på ett språk kan läsas i en annan. Stöds för närvarande C, C++, C#, Java, PHP, Python och Ruby. Detaljerad information om formatet finns i den <a href="http://avro.apache.org/docs/current/spec.html" target="_blank">specifikation för Apache Avro</a>. 
+Den <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> implementerar Apache Avros data serialisering system för Microsoft.NET-miljö. Apache Avro ger en kompakta binära dataöverföringsformat för serialisering. Den använder <a href="http://www.json.org" target="_blank">JSON</a> att definiera ett språkoberoende schema som meddelar försäkringar språksamverkan. Data serialiseras på ett språk kan läsas i en annan. För närvarande stöds C, C++, C#, Java, PHP, Python och Ruby. Detaljerad information om formatet finns i den <a href="http://avro.apache.org/docs/current/spec.html" target="_blank">specifikation för Apache Avro</a>. 
 
 >[!NOTE]
->Microsoft Avro Library stöder inte RPC-anrop (RPC-anrop) en del av den här specifikationen.
+>Microsoft Avro Library stöder inte den RPC-anrop (RPC-anrop) delen av den här specifikationen.
 >
 
-Den serialiserade representationen av ett objekt i systemet Avro består av två delar: schemat och faktiskt värde. Avro-schemats beskriver språkoberoende datamodellen serialiserade data med JSON. Den visas sida vid sida med en a binär representation av data. Med schemat separat från binär representation tillåter varje objekt som ska skrivas med ingen per värde omkostnader, gör serialisering snabb och representationen små.
+Serialiserad representation av ett objekt i Avro-systemet består av två delar: schemat och faktiskt värde. Avro-schemat beskriver språkoberoende datamodellen serialiserade data med JSON. Den visas sida vid sida med en binär representation av data. Med schemat separat från binär representation gör det möjligt för varje objekt som ska skrivas med inga per värde omkostnader, att göra snabba serialisering och representationen små.
 
 ## <a name="the-hadoop-scenario"></a>Hadoop-scenario
-Apache Avro-serialiseringsformatet används ofta i Azure HDInsight och andra Apache Hadoop-miljöer. Avro är ett bekvämt sätt att representera komplicerade datastrukturer inom ett Hadoop-MapReduce-jobb. Formatet för Avro-filernas (Avro objektet behållaren-fil) har utformats för att stödja distribuerade MapReduce-programmeringsmodellen. Nyckelegenskap som gör att distributionen är att filerna är ”delbara” i den mening att söka efter valfri punkt i en fil och börja läsa från ett visst block.
+Apache Avro serialiseringsformat används ofta i Azure HDInsight och andra Apache Hadoop-miljöer. Avro är ett enkelt sätt att representera komplexa datastrukturer i ett Hadoop-MapReduce-jobb. Formatet för Avro-filernas (Avro objektet container-fil) har utformats för att stödja den distribuerade MapReduce-programmeringsmodellen. Nyckelegenskap som gör att distributionen är att filerna är ”delbara” i den mening att söka efter valfri punkt i en fil och börja läsa från ett visst block.
 
-## <a name="serialization-in-avro-library"></a>Serialisering i Avro Library
-.NET-bibliotek för Avro stöder serialisering objekt på två sätt:
+## <a name="serialization-in-avro-library"></a>Serialisering i Avro-bibliotek
+.NET-bibliotek för Avro stöder två olika sätt att serialisering av objekt:
 
-* **reflektion** -JSON-schema för typer skapas automatiskt från data kontraktet attribut för .NET-typer för att kunna serialiseras.
-* **allmän post** -A JSON-schema är explicit i en post som representeras av den [ **AvroRecord** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) klassen när det finns inga .NET-typer för att beskriva schemat för data som ska serialiseras.
+* **reflektion** -JSON-schemat för typer skapas automatiskt från data kontrakt attribut för .NET-typer serialiseras.
+* **allmän post** – en JSON-schema anges uttryckligen i en post som representeras av den [ **AvroRecord** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) klassen när det finns inga .NET-typer som beskriver schemat för data som ska serialiseras.
 
-När dataschemat är känt både skrivare och reader strömmens, kan data skickas utan ett schema. I fall när en Avro objektet behållare fil används lagras schemat i filen. Andra parametrar, till exempel den codec som används för datakomprimering, kan anges. Dessa scenarier beskrivs i detalj och visas i följande kodexempel:
+När dataschemat är känt både skrivaren och läsare på dataströmmen, kan data skickas utan dess schema. I fall när en fil med Avro-objektet behållare används lagras schemat i filen. Andra parametrar, till exempel codec som används för datakomprimering, kan anges. Dessa scenarier som beskrivs i detalj och illustreras i följande kodexempel:
 
-## <a name="install-avro-library"></a>Installera Avro Library
+## <a name="install-avro-library"></a>Installera Avro-bibliotek
 Följande krävs innan du installerar biblioteket:
 
 * <a href="http://www.microsoft.com/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework 4</a>
 * <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (6.0.4 eller senare)
 
-Observera att Newtonsoft.Json.dll beroendet hämtas automatiskt med installationen av Microsoft Avro Library. Proceduren finns i följande avsnitt:
+Observera att Newtonsoft.Json.dll beroendet ska hämtas automatiskt med installationen av Microsoft Avro Library. Proceduren finns i följande avsnitt:
 
 Microsoft Avro Library distribueras som ett NuGet-paket som kan installeras från Visual Studio via följande procedur:
 
-1. Välj den **projekt** fliken -> **hantera NuGet-paket...**
-2. Sök efter ”Microsoft.Hadoop.Avro” i den **Sök Online** rutan.
-3. Klicka på den **installera** knappen bredvid **Microsoft Azure HDInsight Avro Library**.
+1. Välj den **projekt** -> fliken **hantera NuGet-paket...**
+2. Sök efter ”Microsoft.Hadoop.Avro” i den **Sök Online** box.
+3. Klicka på den **installera** bredvid knappen **Avro-bibliotek för Microsoft Azure HDInsight**.
 
-Observera att Newtonsoft.Json.dll (> = 6.0.4) beroende hämtas även automatiskt med Microsoft Avro Library.
+Observera att Newtonsoft.Json.dll (> = 6.0.4) beroende också hämtas automatiskt med Microsoft Avro Library.
 
-Källkoden Microsoft Avro Library finns på [Github](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro).
+Microsoft Avro Library källkoden finns på [Github](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro).
 
-## <a name="compile-schemas-using-avro-library"></a>Kompilera scheman med Avro Library
-Microsoft Avro Library innehåller ett code generation verktyg som kan skapa C# typer automatiskt baserat på den tidigare definierad JSON-scheman. Verktyget code generation distribueras inte som en binär körbar fil, men är lätta att bygga via följande procedur:
+## <a name="compile-schemas-using-avro-library"></a>Kompilera scheman med Avro-bibliotek
+Microsoft Avro Library innehåller en kod generation verktyg som gör att skapa C#-typer som automatiskt baserat på den tidigare definierade JSON-scheman. Verktyget code generation distribueras inte som en binär körbar fil, men de är lätta att bygga via följande procedur:
 
-1. Hämta ZIP-filen med den senaste versionen av HDInsight SDK källkod från <a href="http://hadoopsdk.codeplex.com/SourceControl/latest#" target="_blank">Microsoft .NET SDK för Hadoop</a>. (Klicka på den **hämta** ikonen, inte den **hämtar** fliken.)
-2. Extrahera HDInsight SDK till en katalog på datorn med .NET Framework 4 installeras och ansluten till Internet för att ladda ned nödvändiga beroendet NuGet-paket. Nedan, förutsätter vi att källkoden har extraherats till C:\SDK.
-3. Gå till mappen C:\SDK\src\Microsoft.Hadoop.Avro.Tools och kör build.bat. (Filen anropar MSBuild från 32-bitars fördelningen av .NET Framework. Om du vill använda 64-bitarsversionen redigera build.bat, efter kommentarerna i filen.) Kontrollera att versionen har lyckats. (På vissa datorer MSBuild kan generera varningar. Dessa varningar påverkar inte verktyget så länge det finns inga build-fel.)
+1. Hämta ZIP-filen med den senaste versionen av HDInsight SDK källkoden från <a href="http://hadoopsdk.codeplex.com/SourceControl/latest#" target="_blank">Microsoft .NET SDK för Hadoop</a>. (Klicka på den **ladda ned** ikon, inte den **hämtar** fliken.)
+2. Extrahera HDInsight SDK till en katalog på datorn med .NET Framework 4 installerat och anslutet till Internet för att ladda ned nödvändiga beroendet NuGet-paket. Nedan förutsätter vi att källkoden ska extraheras till C:\SDK.
+3. Gå till mappen C:\SDK\src\Microsoft.Hadoop.Avro.Tools och kör build.bat. (Filen anropar MSBuild från 32-bitars fördelningen av .NET Framework. Om du vill använda 64-bitarsversionen redigera build.bat, efter kommentarerna i filen.) Kontrollera att versionen har utförts. (På vissa system, MSBuild kan ge varningar. Dessa varningar påverkar inte verktyget så länge det finns inga build-fel.)
 4. Den kompilerade som finns i C:\SDK\Bin\Unsigned\Release\Microsoft.Hadoop.Avro.Tools.
 
 Om du vill bekanta dig med att kommandoradssyntaxen, kör du följande kommando från mappen där verktyget code generation finns: `Microsoft.Hadoop.Avro.Tools help /c:codegen`
 
-Du kan skapa C#-klasser från JSON-schema exempelfilen medföljer källkoden för att testa verktyget. Kör följande kommando:
+Du kan skapa C# klasser från JSON-schema-exempelfilen medföljer källkoden för att testa verktyget. Kör följande kommando:
 
     Microsoft.Hadoop.Avro.Tools codegen /i:C:\SDK\src\Microsoft.Hadoop.Avro.Tools\SampleJSON\SampleJSONSchema.avsc /o:
 
 Detta ska skapa två C#-filer i den aktuella katalogen: SensorData.cs och Location.cs.
 
-För att förstå den logik som använder verktyget code generation vid konvertering av JSON-schema för C#-typer finns i filen GenerationVerification.feature i C:\SDK\src\Microsoft.Hadoop.Avro.Tools\Doc.
+Information om den logik som verktyget code generation använder vid konvertering av JSON-schemat för C#-typer finns i filen GenerationVerification.feature finns i C:\SDK\src\Microsoft.Hadoop.Avro.Tools\Doc.
 
-Namnområden extraheras från JSON-schema med hjälp av logiken i filen som nämns i föregående stycke. Namnområden som extraheras från schemat företräde framför allt har angetts med parametern/n på kommandoraden för verktyget. Använd parametern /nf om du vill åsidosätta de namnområden som finns i schemat. Till exempel för att ändra alla namnområden från SampleJSONSchema.avsc till my.own.nspace, kör du följande kommando:
+Namnområden extraheras från JSON-schema med hjälp av logiken i filen som nämns i föregående stycke. Namnområden som extraheras från schemat företräde framför det har angetts med parametern /n i verktyget från kommandoraden. Om du vill åsidosätta namnområden som ingår i schemat kan du använda parametern /nf. Till exempel ändra alla namnområden från SampleJSONSchema.avsc till my.own.nspace genom att köra följande kommando:
 
     Microsoft.Hadoop.Avro.Tools codegen /i:C:\SDK\src\Microsoft.Hadoop.Avro.Tools\SampleJSON\SampleJSONSchema.avsc /o:. /nf:my.own.nspace
 
 ## <a name="about-the-samples"></a>Om exemplen
-Sex exemplen i det här avsnittet visar olika scenarier som stöds av Microsoft Avro Library. Microsoft Avro Library är avsedd att fungera med en dataström. I det här exemplet ändras data via minne strömmar i stället filen dataströmmar eller databaser för enkelhetens skull. Den metod som användes i en produktionsmiljö beror på de exakta scenariokrav datakälla och volymen, prestanda begränsningar och andra faktorer.
+Sex exemplen i det här avsnittet visar olika scenarier som stöds av Microsoft Avro Library. Microsoft Avro Library är utformade att fungera med alla stream. I det här manipuleras data via minne strömmar i stället för filen strömmar eller databaser för enkelhetens skull. Den metod som användes i en produktionsmiljö är beroende av de exakta krav, datakälla och volym, prestandabegränsningar och andra faktorer.
 
-De första två exemplen visar hur du serialisera och deserialisera data i dataströmmen minnesbuffertar med hjälp av reflektion och allmänna poster. Schemat i båda fallen antas delas mellan läsare och skrivare för out-of-band.
+De två första exemplen visar hur du serialisera och deserialisera data i stream minnesbuffertar genom att använda reflektion och allmän poster. Schemat i båda fallen antas delas mellan läsare och skrivare out-of-band.
 
-Tredje och fjärde exemplen visar hur du serialisera och deserialisera data med hjälp av behållarfiler för Avro-objektet. När data lagras i en fil för Avro-behållare, lagras dess schema alltid med det eftersom schemat måste vara delad för deserialisering.
+De tredje och fjärde exempel visar hur du serialisera och deserialisera data med hjälp av behållarfiler för Avro-objektet. När data lagras i en behållare Avro-fil, lagras dess schema alltid med det eftersom schemat måste delas för deserialisering.
 
-Provet som innehåller de fyra första exemplen kan hämtas från den <a href="http://code.msdn.microsoft.com/Serialize-data-with-the-86055923" target="_blank">Azure kodexempel</a> plats.
+Exemplet som innehåller de fyra första exemplen kan laddas ned från den <a href="http://code.msdn.microsoft.com/Serialize-data-with-the-86055923" target="_blank">kodexempel för Azure</a> plats.
 
-Femte exempel visas hur du använder en anpassad komprimerings-codec för behållarfiler för Avro-objektet. Ett exempel som innehåller koden för det här exemplet kan hämtas från den <a href="http://code.msdn.microsoft.com/Serialize-data-with-the-67159111" target="_blank">Azure kodexempel</a> plats.
+Det femte exemplet visar hur du använder en anpassad komprimerings-codec för behållarfiler i Avro-objektet. Ett sampel som innehåller koden för det här exemplet kan laddas ned från den <a href="http://code.msdn.microsoft.com/Serialize-data-with-the-67159111" target="_blank">kodexempel för Azure</a> plats.
 
-I sjätte exempel visas hur du använder Avro-serialisering för att överföra data till Azure Blob storage och analysera den med hjälp av Hive med HDInsight (Hadoop)-kluster. Du kan hämta från den <a href="https://code.msdn.microsoft.com/Using-Avro-to-upload-data-ae81b1e3" target="_blank">Azure kodexempel</a> plats.
+Sjätte exemplet visar hur du använder Avro-serialisering för att överföra data till Azure Blob storage och analysera dem med hjälp av Hive med HDInsight (Hadoop)-kluster. Den kan hämtas från den <a href="https://code.msdn.microsoft.com/Using-Avro-to-upload-data-ae81b1e3" target="_blank">kodexempel för Azure</a> plats.
 
-Här är länkar till sex exemplen beskrivs i avsnittet:
+Här finns länkar till sex exemplen beskrivs i avsnittet:
 
-* <a href="#Scenario1">**Serialisering med reflektion** </a> -JSON-schema att kunna serialiseras skapas automatiskt från data kontraktet attribut.
-* <a href="#Scenario2">**Serialisering med allmän post** </a> -JSON-schema är explicit i en post när ingen .NET-typ är tillgängligt för reflektion.
-* <a href="#Scenario3">**Serialisering med reflektion objektet behållarfiler** </a> -JSON-schema har skapats automatiskt och delade tillsammans med serialiserade data via en Avro objektet behållare fil.
-* <a href="#Scenario4">**Serialisering med allmän post objektet behållarfiler** </a> -JSON-schema uttryckligen anges före serialisering och delade tillsammans med data via en Avro objektet behållare fil.
-* <a href="#Scenario5">**Serialisering med en anpassad komprimerings-codec objektet behållarfiler** </a> -exemplet visar hur du skapar en Avro objektet behållare fil med en anpassad .NET-implementering av Deflate data komprimerings-codec.
-* <a href="#Scenario6">**Använder Avro för att överföra data för tjänsten Microsoft Azure HDInsight** </a> -exemplet illustrerar hur Avro serialisering samverkar med HDInsight-tjänst. En aktiv Azure-prenumeration och åtkomst till ett Azure HDInsight-kluster krävs för att köra det här exemplet.
+* <a href="#Scenario1">**Serialisering med reflektion** </a> -JSON-schemat för typer serialiseras skapas automatiskt från data kontrakt attribut.
+* <a href="#Scenario2">**Serialisering med allmän post** </a> -JSON-schemat anges uttryckligen i en post när inga .NET är tillgänglig för reflektion.
+* <a href="#Scenario3">**Serialisering med reflektion objektet behållarfiler** </a> -JSON-schemat är automatiskt har byggt och delat tillsammans med den serialiserade data via en Avro objektet container-fil.
+* <a href="#Scenario4">**Serialisering med allmän post objektet behållarfiler** </a> -JSON-schemat som uttryckligen anges innan serialisering och delas tillsammans med data via en Avro objektet container-fil.
+* <a href="#Scenario5">**Serialisering med en anpassad komprimerings-codec objektet behållarfiler** </a> -exemplet visar hur du skapar en Avro objektet container-fil med en anpassad .NET-implementering av komprimerings-codec Deflate data.
+* <a href="#Scenario6">**Använda Avro för att överföra data för tjänsten Microsoft Azure HDInsight** </a> -exemplet illustrerar hur Avro serialisering interagerar med HDInsight-tjänsten. En aktiv Azure-prenumeration och åtkomst till ett Azure HDInsight-kluster krävs för att köra det här exemplet.
 
 ## <a name="Scenario1"></a>Exempel 1: Serialisering med reflektion
-JSON-schema för typer kan automatiskt genereras av Microsoft Avro Library via reflektion från data kontraktet attribut för C#-objekt för att kunna serialiseras. Microsoft Avro Library skapar en [ **IAvroSeralizer<T>**  ](http://msdn.microsoft.com/library/dn627341.aspx) att identifiera de fält som ska serialiseras.
+JSON-schemat för typer kan automatiskt genereras av Microsoft Avro Library via reflektion från data kontrakt attributen för C#-objekten serialiseras. Microsoft Avro Library skapar en [ **IAvroSeralizer<T>**  ](http://msdn.microsoft.com/library/dn627341.aspx) att identifiera de fält som ska serialiseras.
 
-I det här exemplet objekt (en **SensorData** klass med en medlem **plats** struct) serialiseras till en dataström med minne och den här dataströmmen i sin tur avserialiseras. Resultatet sedan jämfört med den första instansen att bekräfta att den **SensorData** objekt som återställts är identisk med ursprungligt.
+I det här exemplet objekt (en **SensorData** klass med en medlem **plats** struct) är serialiserat till en minnesström och den här strömmen i sin tur avserialiseras. Resultatet jämförs sedan den första instansen att bekräfta att den **SensorData** objekt återställas är identisk med ursprungligt.
 
-Schemat i det här exemplet förutsätts för att delas mellan läsare och skrivare, så Avro objektet behållares format inte krävs. Ett exempel på hur du serialisera och deserialisera data i minnesbuffertar med hjälp av reflektion med behållaren objektformatet när schemat måste delas med data som finns <a href="#Scenario3">serialisering med reflektionobjektetbehållarfiler</a>.
+Schemat i det här exemplet förutsätts kan delas mellan läsare och skrivare, så Avro-objektformat för behållaren inte krävs. Ett exempel på hur du serialisera och deserialisera data i minnesbuffertar genom att använda reflektion med behållare objektformat när schemat måste delas med data som finns i <a href="#Scenario3">serialisering med reflektionobjektetbehållarfiler</a>.
 
     namespace Microsoft.Hadoop.Avro.Sample
     {
@@ -239,11 +234,11 @@ Schemat i det här exemplet förutsätts för att delas mellan läsare och skriv
 
 
 ## <a name="sample-2-serialization-with-a-generic-record"></a>Exempel 2: Serialisering med en allmän post
-En JSON-schema kan uttryckligen anges i en allmän post när reflektion inte kan användas eftersom data inte kan representeras via .NET-klasser med ett datakontrakt. Den här metoden går långsammare än med hjälp av reflektion. I sådana fall kan schema för data också vara dynamisk, som är inte känd vid kompileringen. Data som visas i form av fil med kommaavgränsade värden (CSV) filer vars schema är okänd tills omvandlas till formatet Avro vid körning är ett exempel på den här typen av dynamisk scenario.
+En JSON-schema kan uttryckligen anges i en allmän post när reflektion inte kan användas eftersom data inte kan återges via .NET-klasser med ett datakontrakt. Den här metoden är långsammare än att använda reflektion. I sådana fall kan kan schema för data också vara dynamisk, det vill säga inte känd vid kompilering. Data som visas som fil med kommaavgränsade värden (CSV) filer vars schema är okänd tills det transformeras till Avro-format vid körning är ett exempel på den här typen av dynamisk scenario.
 
-Det här exemplet visar hur du skapar och använder en [ **AvroRecord** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) att explicit ange en JSON-schema, hur du fylla det med data och sedan hur du serialisera och deserialisera det. Resultatet är sedan jämfört med den första instansen att bekräfta att posten återställas är identisk med ursprungligt.
+Det här exemplet visar hur du skapar och använder en [ **AvroRecord** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) uttryckligen ange en JSON-schema, så fyller den med data och sedan hur du serialisera och deserialisera den. Den första instansen att bekräfta att posten återställas är identisk med ursprungligt jämförs sedan resultatet.
 
-Schemat i det här exemplet förutsätts för att delas mellan läsare och skrivare, så Avro objektet behållares format inte krävs. Ett exempel på hur du serialisera och deserialisera data i minnesbuffertar med hjälp av en allmän post med behållaren objektformatet när schemat måste ingå i den serialiserade informationen finns i <a href="#Scenario4">serialisering med objektet behållarfiler med allmän post</a> exempel.
+Schemat i det här exemplet förutsätts kan delas mellan läsare och skrivare, så Avro-objektformat för behållaren inte krävs. Ett exempel på hur du serialisera och deserialisera data i minnesbuffertar med hjälp av en allmän post med behållare objektformat när schemat måste ingå i den serialiserade informationen finns i den <a href="#Scenario4">serialisering med objektet behållarfiler med allmän post</a> exempel.
 
     namespace Microsoft.Hadoop.Avro.Sample
     {
@@ -361,12 +356,12 @@ Schemat i det här exemplet förutsätts för att delas mellan läsare och skriv
     // Press any key to exit.
 
 
-## <a name="sample-3-serialization-using-object-container-files-and-serialization-with-reflection"></a>Exempel 3: Serialisering med reflektion objektet behållarfiler och serialisering
-Det här exemplet liknar ett scenario för den <a href="#Scenario1"> första exemplet</a>, där schemat implicit har angetts med reflektion. Skillnaden är att här antas schemat inte vara kända för läsare som deserializes den. Den **SensorData** objekt som ska serialiseras och deras implicit angivna schemat lagras i en Avro objektet behållaren-fil som representeras av den [ **AvroContainer** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.avrocontainer.aspx) klass.
+## <a name="sample-3-serialization-using-object-container-files-and-serialization-with-reflection"></a>Exempel 3: Serialisering med objektet behållarfiler och serialisering med reflektion
+Det här exemplet påminner om scenariot i den <a href="#Scenario1"> första exemplet</a>, där schemat implicit har angetts med reflektion. Skillnaden är att här antas schemat inte vara kända för läsare som deserializes den. Den **SensorData** objekt som ska serialiseras och deras implicit angivna schema lagras i en Avro objektet container-fil som representeras av den [ **AvroContainer** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.avrocontainer.aspx) klass.
 
-Data serialiseras i det här exemplet med [ **SequentialWriter<SensorData>**  ](http://msdn.microsoft.com/library/dn627340.aspx) och avserialiserat med [ **SequentialReader<SensorData>**  ](http://msdn.microsoft.com/library/dn627340.aspx). Resultatet sedan jämförs med inledande instanser att kontrollera identiteten.
+Data är serialiserat i det här exemplet med [ **SequentialWriter<SensorData>**  ](http://msdn.microsoft.com/library/dn627340.aspx) och avserialiserade med [ **SequentialReader<SensorData>**  ](http://msdn.microsoft.com/library/dn627340.aspx). Resultatet sedan jämförs inledande instanserna så identitet.
 
-Data i filen objektet behållaren komprimeras via standard [ **Deflate** ] [ deflate-100] komprimerings-codec från .NET Framework 4. Finns det <a href="#Scenario5"> femte exempel</a> i det här avsnittet beskrivs hur du använder en senare och högre version av den [ **Deflate** ] [ deflate-110] komprimerings-codec tillgängligt i .NET Framework 4.5.
+Data i filen objektet container komprimeras via standard [ **Deflate** ] [ deflate-100] komprimerings-codec från .NET Framework 4. Se den <a href="#Scenario5"> femte exempel</a> i det här avsnittet om hur du använder en senare och överlägsen version av den [ **Deflate** ] [ deflate-110] komprimerings-codec tillgängligt i .NET Framework 4.5.
 
     namespace Microsoft.Hadoop.Avro.Sample
     {
@@ -602,11 +597,11 @@ Data i filen objektet behållaren komprimeras via standard [ **Deflate** ] [ def
 
 
 ## <a name="sample-4-serialization-using-object-container-files-and-serialization-with-generic-record"></a>Exempel 4: Serialisering med objektet behållarfiler och serialisering med allmän post
-Det här exemplet liknar ett scenario för den <a href="#Scenario2"> andra exemplet</a>, där schemat uttryckligen anges med JSON. Skillnaden är att här antas schemat inte vara kända för läsare som deserializes den.
+Det här exemplet påminner om scenariot i den <a href="#Scenario2"> andra exemplet</a>, där schemat uttryckligen anges med JSON. Skillnaden är att här antas schemat inte vara kända för läsare som deserializes den.
 
-Datauppsättningen test har samlats in i en lista över [ **AvroRecord** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) objekt via ett uttryckligen definierade JSON-schema, och lagras sedan i en behållare-fil för objektet som representeras av den [  **AvroContainer** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.avrocontainer.aspx) klass. Den här behållaren skapar en skrivare som används för att serialisera data okomprimerade till en dataström i minnet som sparas till en fil. Den [ **Codec.Null** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.codec.null.aspx) parametern används för att skapa läsaren anger inte komprimeras dessa data.
+Test-datauppsättning har samlats in i en lista över [ **AvroRecord** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) objekt via ett uttryckligen definierade JSON-schema och lagras sedan i en behållare-fil för objektet som representeras av den [  **AvroContainer** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.avrocontainer.aspx) klass. Den här behållaren skapar en skrivare som används för att serialisera data komprimeras upp till en minnesström som sedan sparas till en fil. Den [ **Codec.Null** ](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.codec.null.aspx) parametern används för att skapa läsaren anger att dessa data inte komprimeras.
 
-Data läses från filen sedan och avserialiseras till en samling objekt. Den här samlingen är jämfört med den ursprungliga listan över Avro-poster för att bekräfta att de är identiska.
+Data är sedan läsa från filen och avserialiseras till en samling objekt. Den här samlingen är jämfört med den ursprungliga listan med Avro-poster för att bekräfta att de är identiska.
 
     namespace Microsoft.Hadoop.Avro.Sample
     {
@@ -863,10 +858,10 @@ Data läses från filen sedan och avserialiseras till en samling objekt. Den hä
 
 
 
-## <a name="sample-5-serialization-using-object-container-files-with-a-custom-compression-codec"></a>Exempel 5: Serialisering med en anpassad komprimerings-codec objektet behållarfiler
-Femte exempel visas hur du använder en anpassad komprimerings-codec för behållarfiler för Avro-objektet. Ett exempel som innehåller koden för det här exemplet kan hämtas från den [Azure kodexempel](http://code.msdn.microsoft.com/Serialize-data-with-the-67159111) plats.
+## <a name="sample-5-serialization-using-object-container-files-with-a-custom-compression-codec"></a>Exempel 5: Serialisering med objektet behållarfiler med en anpassad komprimerings-codec
+Det femte exemplet visar hur du använder en anpassad komprimerings-codec för behållarfiler i Avro-objektet. Ett sampel som innehåller koden för det här exemplet kan laddas ned från den [kodexempel för Azure](http://code.msdn.microsoft.com/Serialize-data-with-the-67159111) plats.
 
-Den [Avro-specifikationen](http://avro.apache.org/docs/current/spec.html#Required+Codecs) tillåter användning av ett valfritt komprimerings-codec (förutom **Null** och **Deflate** standardinställningarna). Det här exemplet inte implementerar en ny codec, till exempel Snappy (anges som en valfri codec i den [Avro-specifikationen](http://avro.apache.org/docs/current/spec.html#snappy)). Den visar hur du använder .NET Framework 4.5-implementeringen av den [ **Deflate** ] [ deflate-110] codec, vilket ger en bättre komprimeringsalgoritm baserat på den [zlib ](http://zlib.net/) Komprimeringsbiblioteket än versionen som standard .NET Framework 4.
+Den [Avro-specifikationen](http://avro.apache.org/docs/current/spec.html#Required+Codecs) tillåter användning av ett valfritt komprimerings-codec (förutom **Null** och **Deflate** standardinställningarna). Det här exemplet är inte implementerar en ny codec, till exempel Snappy (nämns som en valfri codec i den [Avro-specifikationen](http://avro.apache.org/docs/current/spec.html#snappy)). Den visar hur du använder .NET Framework 4.5-implementering av den [ **Deflate** ] [ deflate-110] codec, vilket ger en bättre komprimeringsalgoritm baserat på den [zlib ](http://zlib.net/) Komprimeringsbiblioteket än standardversionen för .NET Framework 4.
 
     //
     // This code needs to be compiled with the parameter Target Framework set as ".NET Framework 4.5"
@@ -1359,36 +1354,36 @@ Den [Avro-specifikationen](http://avro.apache.org/docs/current/spec.html#Require
     // ----------------------------------------
     // Press any key to exit.
 
-## <a name="sample-6-using-avro-to-upload-data-for-the-microsoft-azure-hdinsight-service"></a>Exempel 6: Använder Avro för att överföra data för tjänsten Microsoft Azure HDInsight
-I sjätte exemplet vissa programmeringstekniker som rör interagerar med tjänsten Azure HDInsight. Ett exempel som innehåller koden för det här exemplet kan hämtas från den [Azure kodexempel](https://code.msdn.microsoft.com/Using-Avro-to-upload-data-ae81b1e3) plats.
+## <a name="sample-6-using-avro-to-upload-data-for-the-microsoft-azure-hdinsight-service"></a>Exempel 6: Använda Avro för att överföra data för tjänsten Microsoft Azure HDInsight
+I sjätte exempel illustrerar några programmeringstekniker som rör interagera med tjänsten Azure HDInsight. Ett sampel som innehåller koden för det här exemplet kan laddas ned från den [kodexempel för Azure](https://code.msdn.microsoft.com/Using-Avro-to-upload-data-ae81b1e3) plats.
 
-Exemplet utför följande uppgifter:
+Exemplet gör följande:
 
-* Ansluter till ett befintligt kluster i HDInsight-tjänsten.
-* Serialiserar flera CSV-filer och överför resultatet till Azure Blob storage. (CSV-filer ska distribueras tillsammans med exemplet och representera ett utdrag ur AMEX börs historiska data som distribueras av [Infochimps](http://www.infochimps.com/) för perioden 1970 2010. Exemplet läser data från en CSV, konverterar posterna till instanser av den **börs** klassen och Serialiserar dem med hjälp av reflektion. Typdefinitionen för lager har skapats från ett JSON-schema via verktyget Microsoft Avro Library code generation.
-* Skapar en ny extern tabell som kallas **lagerlista** i Hive och länkar den till data överförs i föregående steg.
-* Kör en fråga med hjälp av Hive via den **lagerlista** tabell.
+* Ansluter till ett befintligt kluster för HDInsight-tjänsten.
+* Serialiserar flera CSV-filer och överför resultatet till Azure Blob storage. (CSV-filer ska distribueras tillsammans med exemplet och som representerar ett utdrag ur AMEX lager historiska data distribueras av [Infochimps](http://www.infochimps.com/) under 1970 2010. Exemplet läser CSV-fildata, konverterar poster till instanser av den **lager** klassen och Serialiserar dem genom att använda reflektion. Definition av lagerartiklar har skapats från en JSON-schema via verktyget Microsoft Avro Library code generation.
+* Skapar en ny extern tabell som kallas **aktier** i Hive och länkar den till data laddades upp i föregående steg.
+* Kör en fråga med hjälp av Hive via den **aktier** tabell.
 
-Dessutom utför en rensning procedur exemplet före och efter att ha genomfört större operationer. Alla relaterade Azure Blob-data och mappar tas bort under rensningen, och Hive-tabellen har släppts. Du kan även anropa proceduren Rensa från kommandoraden exempel.
+Dessutom utför exemplet en Rensa procedur före och efter utför större operationer. Alla relaterade Azure Blob-data och mappar tas bort under rensningen, och Hive-tabellen har släppts. Du kan även anropa metoden Rensa från kommandoraden för exemplet.
 
 Exemplet har följande krav:
 
-* En aktiv Microsoft Azure-prenumeration och dess prenumerations-ID.
-* Ett certifikat för prenumerationen med motsvarande privata nyckel. Certifikatet ska installeras i den aktuella användaren privat lagringen på datorn som används för att köra exemplet.
-* Ett aktivt HDInsight-kluster.
-* Ett Azure Storage-konto länkas till HDInsight-kluster från de föregående nödvändiga tillsammans med motsvarande primära eller sekundära åtkomstnyckeln.
+* En aktiv prenumeration på Microsoft Azure och dess prenumerations-ID.
+* Ett hanteringscertifikat för prenumerationen med motsvarande privata nyckel. Certifikatet ska installeras i den aktuella användaren privat lagringen på den dator som används för att köra exemplet.
+* En aktiv HDInsight-kluster.
+* Ett Azure Storage-konto länkade till HDInsight-klustret från föregående krav, tillsammans med motsvarande primära eller sekundära åtkomstnyckeln.
 
-All information från kraven bör anges till exempelkonfigurationsfilen innan exemplet körs. Det finns två möjliga sätt att göra det:
+All information från kraven ska anges till exempelkonfigurationsfilen innan exemplet körs. Det finns två sätt att göra det:
 
-* Redigera filen app.config i rotkatalogen exempel och bygga exemplet
-* Bygga exemplet först och sedan redigera AvroHDISample.exe.config i katalogen build
+* Redigera filen app.config i rotkatalogen exemplet och skapa exemplet
+* Skapa först exemplet och redigerar AvroHDISample.exe.config i katalogen build
 
-I båda fallen måste alla redigeringar bör göras i den **<appSettings>** inställningar. Följ kommentarer i filen.
-Exemplet körs från kommandoraden genom att köra följande kommando (där ZIP-filen med exemplet antogs extraheras till C:\AvroHDISample; om annars använder relevanta filens sökväg):
+I båda fallen kan alla ändringar görs den **<appSettings>** inställningar. Följ kommentarerna i filen.
+Exemplet körs från kommandoraden genom att köra följande kommando (där .zip-filen med exemplet antogs extraheras till C:\AvroHDISample; om annars använder sökvägen till relevanta):
 
     AvroHDISample run C:\AvroHDISample\Data
 
-Kör följande kommando för att rensa klustret:
+Om du vill rensa klustret kör du följande kommando:
 
     AvroHDISample clean
 

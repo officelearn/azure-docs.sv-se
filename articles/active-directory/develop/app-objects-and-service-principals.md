@@ -17,18 +17,18 @@ ms.date: 10/19/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: a885170ce5c7e509e6497a8ac0e8d6790f9ea577
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 057465567217cff080b189bcdabee3042f41468d
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581880"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595883"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory-azure-ad"></a>Program och tjänstobjekt i Azure Active Directory (AD Azure)
-Ibland innebörden av termen ”program” kan vara tror många när de används i samband med Azure AD. Målet med den här artikeln är att klargöra konceptuell och konkreta aspekter av integrering av Azure AD, med en illustration av registrering och medgivande för en [program med flera innehavare](active-directory-dev-glossary.md#multi-tenant-application).
+Ibland innebörden av termen ”program” kan vara tror många när de används i samband med Azure AD. Målet med den här artikeln är att klargöra konceptuell och konkreta aspekter av integrering av Azure AD, med en illustration av registrering och medgivande för en [program med flera innehavare](developer-glossary.md#multi-tenant-application).
 
 ## <a name="overview"></a>Översikt
-Ett program som har integrerats med Azure AD har effekter som sträcker sig utöver aspekten av programvara. ”Program” används ofta som en konceptuell termen avser inte bara program, men även dess Azure AD-registrering och roll i autentisering/auktorisering ”konversationer” vid körning. Per definition, ett program kan fungera i en [klienten](active-directory-dev-glossary.md#client-application) roll (förbrukar en resurs), en [resursservern](active-directory-dev-glossary.md#resource-server) roll vilket exponerade API: er (klienter) eller till och med båda. Konversations-protokollet som definieras av en [Auktoriseringsbeviljande för OAuth 2.0-flöde](active-directory-dev-glossary.md#authorization-grant), vilket gör att klienten/resursen åtkomst/skydda en resurs data respektive. Nu ska vi ta en djupare nivå och se hur Azure AD-programmodell representerar ett program vid designtillfället och körning. 
+Ett program som har integrerats med Azure AD har effekter som sträcker sig utöver aspekten av programvara. ”Program” används ofta som en konceptuell termen avser inte bara program, men även dess Azure AD-registrering och roll i autentisering/auktorisering ”konversationer” vid körning. Per definition, ett program kan fungera i en [klienten](developer-glossary.md#client-application) roll (förbrukar en resurs), en [resursservern](developer-glossary.md#resource-server) roll vilket exponerade API: er (klienter) eller till och med båda. Konversations-protokollet som definieras av en [Auktoriseringsbeviljande för OAuth 2.0-flöde](developer-glossary.md#authorization-grant), vilket gör att klienten/resursen åtkomst/skydda en resurs data respektive. Nu ska vi ta en djupare nivå och se hur Azure AD-programmodell representerar ett program vid designtillfället och körning. 
 
 ## <a name="application-registration"></a>Programregistrering
 När du registrerar en Azure AD-program i den [Azure-portalen][AZURE-Portal], skapas två objekt i din Azure AD-klient: ett programobjekt och en tjänstens huvudnamnsobjekt.
@@ -39,7 +39,7 @@ Ett Azure AD-program har definierats med dess ett och endast programobjektet, so
 #### <a name="service-principal-object"></a>tjänstens huvudnamnsobjekt
 För att komma åt resurser som skyddas av en Azure AD-klient, måste den entitet som kräver åtkomst representeras av ett säkerhetsobjekt. Det här gäller för både användare (användarens huvudnamn) och program (tjänstens huvudnamn). Säkerhetsobjektet definierar åtkomstprincip och behörigheter för användare/program i den klienten. På så sätt kan kärnfunktioner som autentisering av användare/programmet under inloggning och auktorisering vid åtkomst till resurser.
 
-När ett program ges behörighet att komma åt resurser i en klient (vid registreringen eller [godkänna](active-directory-dev-glossary.md#consent)), en tjänstens huvudnamnsobjekt har skapats. Azure AD Graph [ServicePrincipal entitet] [ AAD-Graph-Sp-Entity] definierar schemat för en service principal objektets egenskaper. 
+När ett program ges behörighet att komma åt resurser i en klient (vid registreringen eller [godkänna](developer-glossary.md#consent)), en tjänstens huvudnamnsobjekt har skapats. Azure AD Graph [ServicePrincipal entitet] [ AAD-Graph-Sp-Entity] definierar schemat för en service principal objektets egenskaper. 
 
 #### <a name="application-and-service-principal-relationship"></a>Program och tjänstens huvudnamn relation
 Överväg att programobjektet som den *globala* representation av ditt program för användning på alla klienter och tjänstens huvudnamn som den *lokala* representation för användning i en specifik klient. Programmet objektet fungerar som den mallen från vilka vanliga och standardegenskaperna är *härledda* som ska användas när motsvarande objekt för tjänstens huvudnamn. Ett programobjekt därför har en 1:1-relation med programmet och en 1:many relationer med dess motsvarande huvudnamn service-objekt.

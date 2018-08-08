@@ -1,25 +1,20 @@
 ---
-title: Installera egna anpassade Hadoop-program i Azure HDInsight | Microsoft Docs
+title: Installera egna anpassade Hadoop-program i Azure HDInsight
 description: Ta reda på hur du installerar HDInsight-program på HDInsight-appar.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: e556b29c-8176-4bc5-a90b-aa01abfd3aee
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: ab0395f9ee9a8950b439f19502ca6cef6c4f4cf2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 23fbbdc4fc41329efadc4fc7953afa0659e79465
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201643"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595907"
 ---
 # <a name="install-custom-hadoop-applications-on-azure-hdinsight"></a>Installera anpassade Hadoop-program i Azure HDInsight
 
@@ -58,7 +53,7 @@ Filer som behövs för att distribuera programmet (Hue):
 
    * **Klusternamn**: Ange namnet på klustret där du vill installera programmet. Det här klustret måste vara ett befintligt kluster.
 3. Spara parametrarna genom att klicka på **OK**.
-4. I bladet **Anpassad distribution** anger du **Resursgrupp**.  Resursgruppen är en behållare som grupperar klustret, det beroende lagringskontot och andra resurser. Du måste använda samma resursgrupp som klustret.
+4. I bladet **Anpassad distribution** anger du **Resursgrupp**.  Resursgruppen är en container som grupperar klustret, det beroende lagringskontot och andra resurser. Du måste använda samma resursgrupp som klustret.
 5. Klicka på **Juridiska villkor** och sedan på **Skapa**.
 6. Kontrollera att kryssrutan **Fäst på instrumentpanelen** är markerad och klicka på **Skapa**. Du kan se installationsstatus via ikonen som är fäst på portalens instrumentpanel och i portalmeddelandet (klicka på klockikonen överst i portalen).  Det tar cirka 10 minuter att installera programmet.
 
@@ -83,7 +78,7 @@ Du kan validera programinstallationen genom att kontrollera statusen för progra
 3. Klicka på klustret där du installerade programmet.
 4. I bladet **Inställningar** klickar du på **Program** under kategorin **Allmänt**. Du kommer att se **hue** listat i bladet **Installerade appar**.
 5. Klicka på **hue** i listan om du vill visa egenskaperna.  
-6. Klicka på webbsidelänken och verifiera webbplatsen; Öppna HTTP-slutpunkten i en webbläsare och validera Hue-webbgränssnittet, öppna SSH-slutpunkten med SSH. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
+6. Klicka på webbsidelänken och verifiera webbplatsen; Öppna HTTP-slutpunkt i en webbläsare och validera Hue-webbgränssnittet, öppna SSH-slutpunkten med hjälp av SSH. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
 ## <a name="troubleshoot-the-installation"></a>Felsöka installationen
 Du kan kontrollera programmets installationsstatus i portalmeddelandet (klicka på klockikonen överst i portalen).

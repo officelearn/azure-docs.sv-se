@@ -1,46 +1,41 @@
 ---
-title: Kör Hadoop i HDInsight - Azure | Microsoft Docs
-description: Komma igång med tjänsten Azure HDInsight med exemplen. Använd PowerShell-skript som körs MapReduce program på datakluster.
+title: Kör Hadoop-exemplen i HDInsight - Azure
+description: Kom igång med tjänsten Azure HDInsight med exemplen. Använd PowerShell-skript som kör MapReduce-program på datakluster.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: bf76d452-abb4-4210-87bd-a2067778c6ed
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1262e0eda5cf490eb6c3ef81bc05de3954059f4c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ef88e1d3e165e3ae21b235a33b295b51b574ff67
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418717"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593292"
 ---
-# <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Kör Hadoop MapReduce prover i Windows-baserade HDInsight
+# <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Kör Hadoop MapReduce exempel i Windows-baserade HDInsight
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-En uppsättning exempel som hjälper dig att få igång MapReduce-jobb som körs på Hadoop-kluster med Azure HDInsight. De här exemplen görs tillgängliga på varje hanterad HDInsight-kluster som du skapar. Kör de här exemplen bekanta dig med hur använder Azure PowerShell-cmdlets för att köra jobb på Hadoop-kluster.
+En uppsättning exempel som hjälper dig att komma igång MapReduce-jobb som körs på Hadoop-kluster med Azure HDInsight. De här exemplen görs tillgängliga på varje HDInsight som hanterade kluster som du skapar. Köra dessa exempel bekanta dig med hjälp av Azure PowerShell-cmdletar för att köra jobb på Hadoop-kluster.
 
-* [**Word antal**][hdinsight-sample-wordcount]: räknar word förekomster i en textfil.
-* [**C#-strömning ordräkning**][hdinsight-sample-csharp-streaming]: räknar word förekomster i en textfil i Hadoop streaming-gränssnittet.
-* [**PI exteriörbedömning**][hdinsight-sample-pi-estimator]: använder en statistisk (kvasi Monte Carlo) metod för att uppskatta värdet för pi.
-* [**10 GB Graysort**][hdinsight-sample-10gb-graysort]: kör en generell GraySort på en 10 GB-fil genom att använda HDInsight. Det finns tre jobb ska köras: Teragen att generera data Terasort att sortera data och Teravalidate att bekräfta att data har sorterats korrekt.
+* [**Ordräkning**][hdinsight-sample-wordcount]: räknar ordförekomster i en textfil.
+* [**C#-strömning ordräkning**][hdinsight-sample-csharp-streaming]: räknar ordförekomster i en textfil med hjälp av Hadoop-strömmande gränssnittet.
+* [**PI-uppskattning**][hdinsight-sample-pi-estimator]: använder en statistisk (kvasi Monte Carlo) metoden för att beräkna värdet för pi.
+* [**10 GB Graysort**][hdinsight-sample-10gb-graysort]: köra ett allmänt GraySort på en 10 GB-fil med hjälp av HDInsight. Det finns tre jobb att köra: Teragen att generera data, Terasort att sortera data och Teravalidate att bekräfta att data har sorterats korrekt.
 
 > [!NOTE]
-> Källkoden kan hittas i tillägget.
+> Källkoden finns i tillägget.
 
-Mycket ytterligare dokumentation finns på webben för Hadoop-relaterade tekniker, till exempel Java-baserad MapReduce programmering och direktuppspelning och dokumentation om de cmdlets som används i Windows PowerShell-skript. För mer information om dessa resurser, se:
+Mycket ytterligare dokumentation finns på webben för Hadoop-relaterade tekniker, till exempel Java-baserade MapReduce programmering och direktuppspelning och dokumentation om de cmdlets som används i Windows PowerShell-skript. Mer information om dessa resurser finns:
 
-* [Utveckla Java-MapReduce-program för Hadoop i HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+* [Utveckla Java MapReduce-program för Hadoop i HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 * [Skicka Hadoop-jobb i HDInsight](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [Introduktion till Azure HDInsight][hdinsight-introduction]
 
-Men i dag väljer många Hive och Pig över MapReduce.  Mer information finns i:
+Många väljer Nuförtiden, Hive och Pig över MapReduce.  Mer information finns i:
 
 * [Använda Hive i HDInsight](hadoop/hdinsight-use-hive.md)
 * [Använda Pig i HDInsight](hadoop/hdinsight-use-pig.md)
@@ -48,24 +43,24 @@ Men i dag väljer många Hive och Pig över MapReduce.  Mer information finns i:
 **Krav för**:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Ett HDInsight-kluster**. Mer information om de olika sätt som du kan skapa sådana kluster finns [skapa Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+* **Ett HDInsight-kluster**. Anvisningar för de olika sätt som du kan skapa sådana kluster finns i [skapa Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * **En arbetsstation med Azure PowerShell**.
 
     > [!IMPORTANT]
     > Stödet för Azure PowerShell för hantering av HDInsight-resurser med hjälp av Azure Service Manager är **föråldrat** och dras tillbaka den 1 januari 2017. I stegen i det här dokumentet används de nya HDInsight-cmdletarna som fungerar med Azure Resource Manager.
     >
-    > Följ stegen i [installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs) att installera den senaste versionen av Azure PowerShell. Om du har skript som behöver ändras för att använda de nya cmdletarna som fungerar med Azure Resource Manager finns [migrera till Azure Resource Manager-baserade utvecklingsverktyg för HDInsight-kluster](hdinsight-hadoop-development-using-azure-resource-manager.md).
+    > Följ stegen i [installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs) att installera den senaste versionen av Azure PowerShell. Om du har skript som behöver ändras för att använda de nya cmdletarna som fungerar med Azure Resource Manager finns i [migrera till Azure Resource Manager-baserade utvecklingsverktyg för HDInsight-kluster](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
-## <a name="hdinsight-sample-wordcount"></a>Word count - Java
-Om du vill skicka ett MapReduce-projekt skapa du först en definition för MapReduce-jobb. I jobbdefinitionen, ange MapReduce programmet jar-filen, samt placering av jar-fil, som är **wasb:///example/jars/hadoop-mapreduce-examples.jar**, namnet på klassen och argumenten.  Wordcount MapReduce programmet tar två argument: källfilen som används för att räkna ord och platsen för utdata.
+## <a name="hdinsight-sample-wordcount"></a>Ordräkning – Java
+Om du vill skicka ett MapReduce-projekt skapa du först en definition för MapReduce-jobb. I jobbdefinitionen, anger du MapReduce programmet jar-filen och platsen för jar-filen, vilket är **wasb:///example/jars/hadoop-mapreduce-examples.jar**, klassnamnet på och argumenten.  MapReduce-program wordcount tar två argument: källfilen som används för att räkna ord och platsen för utdata.
 
-Källkoden kan hittas i den [bilaga A](#apendix-a---the-word-count-MapReduce-program-in-java).
+Källkoden finns i den [bilaga A](#apendix-a---the-word-count-MapReduce-program-in-java).
 
-Proceduren för att utveckla en Java-MapReduce program, se - [MapReduce utveckla Java-program för Hadoop i HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+För proceduren med att utveckla en Java-MapReduce-program, se - [utveckla Java MapReduce-program för Hadoop i HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
 **Att skicka ett word antal MapReduce-jobb**
 
-1. Öppna **Windows PowerShell ISE**. Instruktioner finns i [installera och konfigurera Azure PowerShell][powershell-install-configure].
+1. Öppna **Windows PowerShell ISE**. Anvisningar finns i [installera och konfigurera Azure PowerShell][powershell-install-configure].
 2. Klistra in följande PowerShell-skript:
 
     ```powershell
@@ -119,28 +114,28 @@ Proceduren för att utveckla en Java-MapReduce program, se - [MapReduce utveckla
     cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
     ```
 
-    MapReduce-jobb genererar en fil med namnet *del-r-00000*, som innehåller ord och antal. Skriptet använder den **findstr** kommando för att lista alla ord som innehåller *”det”*.
+    MapReduce-jobb genererar en fil med namnet *del-r-00000*, som innehåller ord och antalen. Skriptet använder den **findstr** kommando för att lista alla ord som innehåller *”det”*.
 3. Ange de första tre variablerna och kör skriptet.
 
-## <a name="hdinsight-sample-csharp-streaming"></a>Word count - C#-direktuppspelning
-Hadoop ger en strömmande API till MapReduce, där du kan skriva kartan och minska funktioner på andra språk än Java.
+## <a name="hdinsight-sample-csharp-streaming"></a>Ordräkning - strömmande C#
+Hadoop tillhandahåller en strömmande API till MapReduce, där du kan skriva kartan och minska funktioner på andra språk än Java.
 
 > [!NOTE]
-> Stegen i den här kursen gäller endast för Windows-baserade HDInsight-kluster. Ett exempel för strömning för Linux-baserade HDInsight-kluster finns [utveckla Python strömning program för HDInsight](hadoop/apache-hadoop-streaming-python.md).
+> Stegen i den här självstudien gäller endast för Windows-baserade HDInsight-kluster. Ett exempel för strömning för Linux-baserade HDInsight-kluster finns i [utveckla Python-strömningsprogram för HDInsight](hadoop/apache-hadoop-streaming-python.md).
 
-I det här exemplet kan mapparen och reducer är körbara filer som läsa indata från [stdin] [ stdin-stdout-stderr] (rad för rad) och generera utdata till [stdout] [ stdin-stdout-stderr]. Programmet räknar alla ord i texten.
+I det här exemplet mappningen och reducer är körbara filer som läser information från [stdin] [ stdin-stdout-stderr] (rad för rad) och skapa utdata till [stdout] [ stdin-stdout-stderr]. Programmet räknar alla orden i texten.
 
-När en körbar fil har angetts för **mappers**, uppgifterna mapper startar den körbara filen som en separat process när mapparen har initierats. Mapper aktiviteten körs den konverterar indata till rader och feeds raderna som ska den [stdin] [ stdin-stdout-stderr] av processen.
+När en körbar fil har angetts för **Mappningskomponenter**, varje mapper-aktivitet startar den körbara filen som en separat process när mappningen har initierats. När aktiviteten mapper körs den konverterar indata till rader och flöden, raderna som ska den [stdin] [ stdin-stdout-stderr] av processen.
 
-Under tiden samlar mapparen rad indatavärdena utdata från stdout av processen. Varje rad konverteras till ett nyckel/värde-par som samlas in som utdata från mapparen. Prefixet för en rad upp till den första fliken tecknet är nyckeln som standard och resten av raden (exklusive fliken tecken) är värdet. Om det finns inga tabbtecken i rad, betraktas hela raden som nyckel och värde är null.
+Under tiden kan samlas mappningen radorienterad utdata från stdout av processen. Den konverterar varje rad i ett nyckel/värde-par som samlas in som utdata för mappningen. Prefixet för en rad upp till det första tecknet i fliken är nyckeln och resten av raden (förutom tabbtecknet) är värdet som standard. Om det finns inga tabbtecken i rad, hela raden anses vara nyckeln och värdet är null.
 
-När en körbar fil har angetts för **förminskningsapparater**, uppgifterna reducer startar den körbara filen som en separat process när reducer har initierats. Eftersom reducer aktiviteten körs den konverterar ett nyckel/indatavärden-par i rader och den feeds raderna som ska den [stdin] [ stdin-stdout-stderr] av processen.
+När en körbar fil har angetts för **reducerare**, uppgifterna reducer startar den körbara filen som en separat process när reducer har initierats. Eftersom reducer uppgiften körs den konverterar dess indata nyckel/värde-par i rader och den feeds raderna som ska den [stdin] [ stdin-stdout-stderr] av processen.
 
-Under tiden reducer samlar in rad indatavärdena utdata från den [stdout] [ stdin-stdout-stderr] av processen. Varje rad konverteras till ett nyckel/värde-par som samlas in som utdata från reducer. Prefixet för en rad upp till den första fliken tecknet är nyckeln som standard och resten av raden (exklusive fliken tecken) är värdet.
+Under tiden kan reducer samlar in radorienterad utdata från den [stdout] [ stdin-stdout-stderr] av processen. Varje rad övergår till ett nyckel/värde-par som samlas in som utdata från reducer. Prefixet för en rad upp till det första tecknet i fliken är nyckeln och resten av raden (förutom tabbtecknet) är värdet som standard.
 
-**Att skicka en C# strömning word antal jobb**
+**Att skicka en strömmande C#-word antal jobb**
 
-* Följ proceduren i [Word count - Java](#word-count-java), och Ersätt jobbdefinitionen med följande rad:
+* Följ proceduren i [ordräkning - Java](#word-count-java), och Ersätt jobbdefinitionen för med följande rad:
 
     ```powershell
     $mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
@@ -155,14 +150,14 @@ Under tiden reducer samlar in rad indatavärdena utdata från den [stdout] [ std
 
         example/data/StreamingOutput/wc.txt/part-00000
 
-## <a name="hdinsight-sample-pi-estimator"></a>PI exteriörbedömning
-Pi exteriörbedömning använder en statistisk (kvasi Monte Carlo) metod för att uppskatta värdet för pi. Punkter slumpmässigt placeras inuti en enhet fyrkantiga också faller inom en cirkel som anges i rutan med en sannolikhet som är lika med området cirkel-pi/4. Värdet för pi beräknas från värdet för 4R, där R är förhållandet mellan antalet punkter som finns inuti cirkeln till det totala antalet punkter som ligger inom kvadraten. Ju större det här exemplet används punkter bättre uppskattning är.
+## <a name="hdinsight-sample-pi-estimator"></a>PI-uppskattning
+Pi-uppskattning använder en statistisk (kvasi Monte Carlo) metoden för att beräkna värdet för pi. Punkter slumpmässigt placeras inuti en enhet fyrkantiga också faller inom en cirkel som anges i rutan med en sannolikhet som är lika med området på cirkeln, pi/4. Värdet för pi kan beräknas från värdet för 4R, där R är förhållandet mellan antalet punkter som är i cirkeln för det totala antalet punkter som ligger inom kvadraten. Ju större urval av punkter som används, desto bättre uppskattningen anges.
 
-Skriptet för det här exemplet skickar ett jar Hadoop-jobb och är inställt för att köra med ett värde 16 kartor, som krävs för att beräkna 10 miljoner exempel punkter av parametervärden. Dessa värden kan ändras för att förbättra det beräknade värdet för pi. För referens är de första 10 decimalerna pi 3.1415926535.
+Det skript som finns för det här exemplet skickar ett jobb för Hadoop-jar och är inställt för att köra med ett värde 16 kartor, som krävs att beräkna 10 miljoner exempel punkter av parametervärden. Dessa värden kan ändras för att förbättra det beräknade värdet för pi. Referens är de första 10 decimalerna pi 3.1415926535.
 
-**Att skicka ett pi exteriörbedömning jobb**
+**Att skicka ett jobb för pi kostnadsuppskattning**
 
-* Följ proceduren i [Word count - Java](#word-count-java), och Ersätt jobbdefinitionen med följande rad:
+* Följ proceduren i [ordräkning - Java](#word-count-java), och Ersätt jobbdefinitionen för med följande rad:
 
     ```powershell
     $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -172,17 +167,17 @@ Skriptet för det här exemplet skickar ett jar Hadoop-jobb och är inställt f�
     ```
 
 ## <a name="hdinsight-sample-10gb-graysort"></a>10 GB Graysort
-Det här exemplet använder en liten 10GB data så att den kan köras relativt snabbt. Den använder MapReduce-program som utvecklats av Owen O'Malley och Arun Murthy som vann årliga allmänna (”daytona”) terabyte sortera prestandamått i 2009 med en andel 0.578 TB per minut (100 TB 173 minuter). Mer information om den här och andra sorterings prestandamått finns i [Sortbenchmark](http://sortbenchmark.org/) plats.
+Det här exemplet används en mycket små 10GB data så att den kan köras relativt snabbt. Den använder MapReduce-program som har utvecklats av Owen O'Malley och Arun Murthy som vann årliga allmänna (”daytona”) terabyte sortera benchmark 2009 med en hastighet av 0.578 TB per minut (100 TB på 173 minuter). Läs mer om den här och andra sortering prestandamått, den [Sortbenchmark](http://sortbenchmark.org/) plats.
 
-Det här exemplet använder tre olika MapReduce-program:
+Det här exemplet använder tre uppsättningar MapReduce-program:
 
-1. **TeraGen** är ett MapReduce-program som du kan använda för att generera raderna för sortering.
-2. **TeraSort** exempel indata och använder MapReduce för att sortera data i en total order. TeraSort är en standard sortering av MapReduce-funktioner, förutom en anpassad partitionerare som använder en sorterad lista över N-1 provtagning nycklar som definierar nyckeln intervallet för varje minska. I synnerhet alla nycklar sådana som exempel [i-1] < = nyckel < exempel [i] skickas till minska i. Detta garanterar att utdata för minskar i är mindre än utdata från minska i + 1.
-3. **TeraValidate** är ett MapReduce-program som verifierar att resultatet sorteras globalt. Det skapar en mappning per fil i den angivna katalogen och varje mappning garanterar att varje nyckel är mindre än eller lika med det tidigare. Funktionen kartan genererar också poster för de första och sista nycklarna för varje fil och minska funktionen garanterar att den första nyckeln för filen i är större än den senaste nyckeln i filen i-1. Eventuella problem rapporteras som utdata för sänka med nycklar som är i fel ordning.
+1. **TeraGen** är ett MapReduce-program som du kan använda för att generera datarader att sortera.
+2. **TeraSort** exempel indata och använder MapReduce för att sortera data i en total order. TeraSort är en standard sortering MapReduce-funktioner, förutom en anpassad partitioner som använder en sorterad lista över N-1 samplas nycklar som definierar nyckelintervall för varje minska. I synnerhet, alla nycklar sådana som samplar [i-1] < = key < exemplet [i] skickas för att minska i. Detta garanterar att utdata för minskar i är mindre än utdata från minska i + 1.
+3. **TeraValidate** är ett MapReduce-program som verifierar att resultatet ska sorteras efter globalt. En mappning per fil skapas i katalogen och varje diagram säkerställer att varje nyckel är mindre än eller lika med föregående. Funktionen kartan genererar även poster i de första och sista nycklarna för varje fil och minska funktionen ser till att den första nyckeln för filen i är större än den senaste nyckeln för filen i-1. Eventuella problem rapporteras som utdata för sänka med nycklar som är i fel ordning.
 
-Den inkommande och utgående format som används av alla tre program, läser och skriver textfiler i rätt format. Utdata från sänka har replikering som 1, istället för 3, som standard eftersom benchmark tävling inte kräver att utdata ska replikeras till flera noder.
+Den inkommande och utgående format som används av alla tre program, läser och skriver textfiler i rätt format. Utdata från sänka har replikering som 1, istället för standardvärdet 3, eftersom benchmark tävlingen inte kräver att utdata ska replikeras till flera noder.
 
-Tre uppgifter krävs för varje motsvarar ett MapReduce-program som beskrivs i inledningen det här exemplet:
+Tre aktiviteter som krävs av varje motsvarar ett MapReduce-program som beskrivs i inledningen det här exemplet:
 
 1. Generera data för att sortera genom att köra den **TeraGen** MapReduce-jobb.
 2. Sortera data genom att köra den **TeraSort** MapReduce-jobb.
@@ -190,7 +185,7 @@ Tre uppgifter krävs för varje motsvarar ett MapReduce-program som beskrivs i i
 
 **Att skicka jobb**
 
-* Följ proceduren i [Word count - Java](#word-count-java), och använda följande jobbdefinitioner:
+* Följ proceduren i [ordräkning - Java](#word-count-java), och Använd följande jobbdefinitioner:
 
     ```powershell
     $teragen = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -210,7 +205,7 @@ Tre uppgifter krävs för varje motsvarar ett MapReduce-program som beskrivs i i
     ```
 
 ## <a name="next-steps"></a>Nästa steg
-Från den här artikeln och artiklarna i varje prov du har lärt dig hur du kör ingår i HDInsight-kluster med hjälp av Azure PowerShell. Självstudier om hur du använder Pig, Hive och MapReduce med HDInsight finns i följande avsnitt:
+Från den här artikeln och artiklarna i varje prov lärde du dig att köra de exempel som ingår med HDInsight-kluster med hjälp av Azure PowerShell. Självstudier om hur du använder Pig, Hive och MapReduce med HDInsight finns i följande avsnitt:
 
 * [Komma igång med Hadoop med Hive i HDInsight för att analysera mobila luren användning][hdinsight-get-started]
 * [Använda Pig med Hadoop i HDInsight][hdinsight-use-pig]
@@ -290,8 +285,8 @@ System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
 ```
 
-## <a name="appendix-b---the-word-count-streaming-source-code"></a>Bilaga B - ordräkning källkoden för strömning
-MapReduce används cat.exe programmet som en mappning gränssnitt för att strömma texten i konsolen och wc.exe programmet som minska gränssnitt för att räkna antalet ord som strömmas från ett dokument. Både mapper och reducer läsa tecken, rad för rad, från Standardindataström (stdin) och skriva till standardutdataströmmen (stdout).
+## <a name="appendix-b---the-word-count-streaming-source-code"></a>Appendix B – ordräkning källkoden för direktuppspelning
+MapReduce-program använder cat.exe programmet som en mappning gränssnitt för att strömma texten till konsolen och wc.exe programmet som minska gränssnitt du räknar antalet ord som strömmas från ett dokument. Både mapper och reducer läsa tecken, rad för rad, från standard Indataströmmen (stdin) och skriva till standardutdataströmmen (stdout).
 
 ```csharp
 // The source code for the cat.exe (Mapper).
@@ -325,7 +320,7 @@ namespace cat
 }
 ```
 
-Mapper koden i filen cat.cs använder en [StreamReader] [ streamreader] objekt för att läsa tecknen i den inkommande dataströmmen i konsolen, som sedan skriver dataströmmen till standardutdataströmmen med statiska [ Console.Writeline] [ console-writeline] metod.
+Mapper koden i filen cat.cs använder en [StreamReader] [ streamreader] objekt för att läsa tecknen i den inkommande dataströmmen i konsolen, som sedan skriver dataströmmen till standardutdataströmmen med statiskhet [ Console.Writeline] [ console-writeline] metod.
 
 ```csharp
 // The source code for wc.exe (Reducer) is:
@@ -374,10 +369,10 @@ namespace wc
 }
 ```
 
-Reducer koden i filen wc.cs använder en [StreamReader] [ streamreader] objekt för att läsa tecken från Standardindataström som är resultatet av den cat.exe. Det läser även tecken med den [Console.Writeline] [ console-writeline] metod, räknar orden genom att räkna blanksteg och tecken i slutet av raden i slutet av varje ord. Det totala antalet skriver sedan till standardutdataströmmen med den [Console.Writeline] [ console-writeline] metod.
+Reducer koden i filen wc.cs använder en [StreamReader] [ streamreader] objekt för att läsa tecken från standard Indataströmmen som är resultatet av cat.exe mappningen. Den läser även tecken med den [Console.Writeline] [ console-writeline] metoden, den räknar orden genom att räkna blanksteg och tecken i slutet av raden i slutet av varje ord. Skriver sedan det totala antalet till standardutdataströmmen med den [Console.Writeline] [ console-writeline] metod.
 
-## <a name="appendix-c---the-pi-estimator-source-code"></a>Bilaga C - källkoden Pi exteriörbedömning
-Pi exteriörbedömning Java-kod som innehåller mapper och reducer funktioner är tillgängliga för inspektion nedan. Mapper programmet genererar ett angivet antal punkter slumpmässigt placeras inuti en enhet ruta och räknar antalet dessa punkter som finns inuti cirkeln. Programmet reducer ackumulerar punkter räknas av mappers och beräknar värdet för pi från formeln 4R, där R är förhållandet mellan antalet punkter som räknas inuti cirkeln till det totala antalet punkter som ligger inom kvadraten.
+## <a name="appendix-c---the-pi-estimator-source-code"></a>Bilaga C – källkoden Pi kostnadsuppskattning
+Pi-uppskattning Java-kod som innehåller funktionerna mapper och reducer är tillgänglig för granskning nedan. Mapper programmet genererar ett angivet antal punkter slumpmässigt placeras inuti en fyrkant för enhet och sedan räknar antalet de hanteringsplatser som är i cirkeln. Programmet reducer ackumulerar datapunkter räknas av Mappningskomponenter och beräknar sedan värdet för pi från formeln 4R, där R är förhållandet mellan antalet punkter som räknas i cirkeln för det totala antalet punkter som ligger inom kvadraten.
 
 ```java
 /**
@@ -715,8 +710,8 @@ System.exit(ToolRunner.run(null, new PiEstimator(), argv));
 }
 ```
 
-## <a name="appendix-d---the-10gb-graysort-source-code"></a>Bilaga D - källkoden 10gb graysort
-Koden för programmet TeraSort MapReduce presenteras för inspektion i det här avsnittet.
+## <a name="appendix-d---the-10gb-graysort-source-code"></a>Bilaga D – 10gb graysort källkoden
+Koden för TeraSort MapReduce-program visas för granskning i det här avsnittet.
 
 ```java
 /**

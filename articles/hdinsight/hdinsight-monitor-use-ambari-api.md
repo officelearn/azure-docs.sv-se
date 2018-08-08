@@ -1,25 +1,20 @@
 ---
-title: Övervaka Hadoop-kluster i HDInsight med Ambari API - Azure | Microsoft Docs
-description: 'Använd Apache Ambari APIs för att skapa, hantera och övervaka Hadoop-kluster. Döljer komplexiteten hos Hadoop intuitiva operatorn verktyg och API: er.'
+title: Övervaka Hadoop-kluster i HDInsight med Ambari-API – Azure
+description: 'Använd Apache Ambari APIs för att skapa, hantera och övervaka Hadoop-kluster. Intuitiva operatörsverktyg och API: er döljer komplexiteten i Hadoop.'
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-editor: cgronlun
-manager: jhubbard
-ms.assetid: 052135b3-d497-4acc-92ff-71cee49356ff
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/07/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3c8b1af3ad151a7a901150352202ab0b85aa6ec8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f55ee02ada5bb53d4634d119311fb9230ff15105
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31402044"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592830"
 ---
 # <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>Övervaka Hadoop-kluster i HDInsight Ambari API
 Lär dig hur du övervakar HDInsight-kluster med Ambari APIs.
@@ -30,28 +25,28 @@ Lär dig hur du övervakar HDInsight-kluster med Ambari APIs.
 > 
 
 ## <a name="what-is-ambari"></a>Vad är Ambari?
-[Apache Ambari] [ ambari-home] används för etablering, hantering och övervakning av Apache Hadoop-kluster. Det innehåller en intuitiv samling operatörsverktyg och en stabil uppsättning API:er som döljer komplexiteten hos Hadoop och förenklar klusteranvändningen. Mer information om API: erna finns [Ambari API-referens][ambari-api-reference]. 
+[Apache Ambari] [ ambari-home] används för att etablera, hantera och övervaka Apache Hadoop-kluster. Det innehåller en intuitiv samling operatörsverktyg och en stabil uppsättning API:er som döljer komplexiteten hos Hadoop och förenklar klusteranvändningen. Läs mer om API: erna [Ambari API-referens][ambari-api-reference]. 
 
-HDInsight stöder för närvarande endast övervakningsfunktion Ambari. Ambari API 1.0 stöds av version 3.0 och 2.1 HDInsight-kluster. Den här artikeln täcker inte att komma åt Ambari APIs på HDInsight version 3.1 och 2.1-kluster. Den viktigaste skillnaden mellan två är att vissa av komponenterna har ändrats av nya funktioner (t.ex historik jobbserver). 
+HDInsight stöder för närvarande endast övervakningsfunktionen Ambari. Ambari API 1.0 stöds av HDInsight version 3.0 och 2.1-kluster. Den här artikeln beskriver åtkomst till Ambari APIs på HDInsight version 3.1 och 2.1-kluster. Den viktigaste skillnaden mellan två är att några av komponenterna har ändrats med introduktionen av nya funktioner (t.ex historik jobbserver). 
 
 **Förutsättningar**
 
 Innan du börjar den här självstudiekursen behöver du följande:
 
 * **En arbetsstation med Azure PowerShell**.
-* (Valfritt) [cURL][curl]. Om du vill installera den [cURL versioner och hämtningsbara filer][curl-download].
+* (Valfritt) [cURL][curl]. För att installera den, se [cURL versioner och nedladdningar][curl-download].
   
   > [!NOTE]
-  > När du använder cURL-kommando i Windows, Använd dubbla citattecken i stället för citattecken för alternativvärden.
+  > När du använder cURL-kommando i Windows, Använd dubbla citattecken i stället för citattecken för värden för alternativ.
   > 
   > 
-* **Ett Azure HDInsight-kluster**. Instruktioner om hur klusteretablering finns [komma igång med HDInsight] [ hdinsight-get-started] eller [etablera HDInsight-kluster][hdinsight-provision]. Du behöver följande data gå igenom kursen:
+* **Ett Azure HDInsight-kluster**. Anvisningar om att etablera klustret finns i [komma igång med HDInsight] [ hdinsight-get-started] eller [etablera HDInsight-kluster][hdinsight-provision]. Följande data gå igenom självstudien behöver du:
   
-  | Kluster-egenskap | Variabelnamn för Azure PowerShell | Värde | Beskrivning |
+  | Kluster-egenskapen | Variabelnamn för Azure PowerShell | Värde | Beskrivning |
   | --- | --- | --- | --- |
-  |   HDInsight-klustrets namn |$clusterName | |Namnet på ditt HDInsight-kluster. |
-  |   Användarnamn för kluster |$clusterUsername | |Användaren klusternamnet anges när klustret skapades. |
-  |   Kluster-lösenord |$clusterPassword | |Användarlösenordet för klustret. |
+  |   HDInsight-klusternamnet |$clusterName | |Namnet på ditt HDInsight-kluster. |
+  |   Användarnamn |$clusterUsername | |Användaren klusternamnet anges när klustret skapades. |
+  |   Klusterlösenord |$clusterPassword | |Användarlösenord för klustret. |
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
@@ -61,7 +56,7 @@ Det finns flera sätt att använda Ambari och övervaka HDInsight-kluster.
 
 **Använda Azure PowerShell**
 
-Följande Azure PowerShell-skript hämtar MapReduce spåraren jobbinformation *i ett kluster i HDInsight 3.5.*  Den viktigaste skillnaden är att vi hämtar informationen från den YARN-tjänsten (i stället MapReduce).
+Följande Azure PowerShell-skript hämtar MapReduce spåraren Jobbinformationen *i ett HDInsight 3.5-kluster.*  Den viktigaste skillnaden är att vi hämta informationen från den YARN-tjänsten (snarare än MapReduce).
 
     $clusterName = "<HDInsightClusterName>"
     $clusterUsername = "<HDInsightClusterUsername>"
@@ -77,7 +72,7 @@ Följande Azure PowerShell-skript hämtar MapReduce spåraren jobbinformation *i
 
     $response.metrics.'yarn.queueMetrics'
 
-Följande PowerShell-skript hämtar MapReduce spåraren jobbinformation *i ett kluster i HDInsight 2.1*:
+Följande PowerShell-skript hämtar MapReduce spåraren Jobbinformationen *i ett kluster i HDInsight 2.1*:
 
     $clusterName = "<HDInsightClusterName>"
     $clusterUsername = "<HDInsightClusterUsername>"
@@ -120,36 +115,36 @@ Utdata är:
         "Hosts":{"cluster_name":"hdi0211v2.azurehdinsight.net",
                  "host_name":"headnode0.{ClusterDNS}.azurehdinsight.net"}}]}
 
-**2014-10-8-versionen**:
+**För version 2014-10-8**:
 
-När du använder Ambari-slutpunkten ”https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}” den *värddatornamn* field returnerar det fullständigt kvalificerade domännamnet (FQDN) för noden i stället för värdnamnet. Före version 2014-10-8, det här exemplet returneras bara ”**headnode0**”. Efter 2014-10-8-version du hämta det fullständiga Domännamnet ”**headnode0. { ClusterDNS}. azurehdinsight.NET .net**”, som visas i föregående exempel. Den här ändringen krävdes för att underlätta scenarier där flera klustertyper (till exempel HBase och Hadoop) kan distribueras i ett virtuellt nätverk (VNET). Detta inträffar exempelvis när du använder HBase som en backend-plattform för Hadoop.
+När du använder Ambari-slutpunkten ”https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}” i *värddatornamn* fält Returnerar det fullständigt kvalificerade domännamnet (FQDN) för noden i stället för värdnamnet. Före 10/8/2014-versionen i det här exemplet returneras bara ”**headnode0**”. Efter 10/8/2014-versionen kan du hämta det fullständiga Domännamnet ”**headnode0. { ClusterDNS} gt; .azurehdinsight .net**”, enligt exemplet ovan. Den här ändringen krävdes för att underlätta scenarier där flera klustertyper (till exempel HBase och Hadoop) kan distribueras i ett virtuellt nätverk (VNET). Detta inträffar exempelvis när du använder HBase som en backend-plattform för Hadoop.
 
-## <a name="ambari-monitoring-apis"></a>Ambari övervakning API: er
-I följande tabell visas några av de vanligaste Ambari övervakning API-anrop. Mer information om API finns [Ambari API-referens][ambari-api-reference].
+## <a name="ambari-monitoring-apis"></a>Ambari övervaka API: er
+I följande tabell visas några av de vanligaste Ambari övervakning av API-anrop. Mer information om API: et finns i [Ambari API-referens][ambari-api-reference].
 
-| Övervakare för API-anrop | URI | Beskrivning |
+| Övervaka API-anrop | URI | Beskrivning |
 | --- | --- | --- |
 | Hämta kluster |`/api/v1/clusters` | |
 | Hämta klusterinformation. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net` |kluster, tjänster, värdar |
 | Hämta tjänster |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services` |Tjänsterna omfattar: hdfs, mapreduce |
-| Hämta information för tjänster. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>` | |
+| Hämta info för tjänster. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>` | |
 | Hämta tjänstkomponenter |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components` |HDFS: namenode, datanodeMapReduce: jobtracker; tasktracker |
-| Hämta information för komponenten. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components/<ComponentName>` |ServiceComponentInfo värd-komponenter, mått |
+| Hämta info för komponenten. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components/<ComponentName>` |ServiceComponentInfo värd-komponenter, mått |
 | Hämta värdar |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts` |headnode0 workernode0 |
-| Hämta information om värden. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>` | |
-| Hämta värden komponenter |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>/host_components` |namenode, resourcemanager |
-| Hämta värden komponenten information. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>/host_components/<ComponentName>` |HostRoles komponent, värd, mått |
+| Hämta värdinformationen. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>` | |
+| Hämta värd-komponenter |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>/host_components` |namenode, resourcemanager |
+| Hämta värden komponent-information. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>/host_components/<ComponentName>` |HostRoles komponent, värden, mått |
 | Hämta konfigurationer |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations` |Config-typer: core-plats, hdfs-plats, mapred-plats, hive-plats |
-| Hämta konfigurationsinformation. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations?type=<ConfigType>&tag=<VersionName>` |Config-typer: core-plats, hdfs-plats, mapred-plats, hive-plats |
+| Få information om serverkonfigurationen. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations?type=<ConfigType>&tag=<VersionName>` |Config-typer: core-plats, hdfs-plats, mapred-plats, hive-plats |
 
 ## <a name="next-steps"></a>Nästa steg
-Nu har du lärt dig hur du använder Ambari övervakning API-anrop. Du kan läsa mer här:
+Nu har du lärt dig hur du använder Ambari övervakning av API-anrop. Du kan läsa mer här:
 
-* [Hantera HDInsight-kluster med Azure-portalen][hdinsight-admin-portal]
+* [Hantera HDInsight-kluster med Azure portal][hdinsight-admin-portal]
 * [Hantera HDInsight-kluster med Azure PowerShell][hdinsight-admin-powershell]
 * [Hantera HDInsight-kluster med hjälp av kommandoradsgränssnittet][hdinsight-admin-cli]
 * [HDInsight-dokumentation][hdinsight-documentation]
-* [Komma igång med HDInsight][hdinsight-get-started]
+* [Kom igång med HDInsight][hdinsight-get-started]
 
 [ambari-home]: http://ambari.apache.org/
 [ambari-api-reference]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md

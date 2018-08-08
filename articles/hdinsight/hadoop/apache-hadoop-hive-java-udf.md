@@ -1,28 +1,24 @@
 ---
-title: Java användardefinierad funktion (UDF) med Hive i HDInsight - Azure | Microsoft Docs
-description: Lär dig hur du skapar en Java-baserad användardefinierad funktion (UDF) som fungerar med Hive. Det här exemplet UDF konverterar en tabell med textsträngar till gemener.
+title: Java-användardefinierade funktion (UDF med Hive i HDInsight - Azure)
+description: Lär dig hur du skapar en Java-baserade användardefinierade funktion (UDF) som fungerar med Hive. Det här exemplet UDF konverterar en tabell med textsträngar till gemener.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 00af8ca67af6ba3242c0fee6c50640944768ec4c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: eb98b5e4ef2251ad44cbb4b737141fea79adc743
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200766"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590373"
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>Använda en Java UDF med Hive i HDInsight
 
-Lär dig hur du skapar en Java-baserad användardefinierad funktion (UDF) som fungerar med Hive. Java-UDF i det här exemplet konverterar en tabell med textsträngar till alla gemena tecken.
+Lär dig hur du skapar en Java-baserade användardefinierade funktion (UDF) som fungerar med Hive. Java-UDF i det här exemplet konverterar en tabell med textsträngar till alla gemena tecken.
 
 ## <a name="requirements"></a>Krav
 
@@ -31,16 +27,16 @@ Lär dig hur du skapar en Java-baserad användardefinierad funktion (UDF) som fu
     > [!IMPORTANT]
     > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-    De flesta stegen i det här dokumentet fungerar för både Windows - och Linux-baserade kluster. Dock är de steg som används för att överföra den kompilerade UDF till klustret och köra den specifika för Linux-baserade kluster. Länkar finns information som kan användas med Windows-baserade kluster.
+    De flesta stegen i det här dokumentet fungerar på både Windows - och Linux-baserade kluster. Men är de steg som används för att ladda upp en kompilerad användardefinierad funktion till klustret och köra den specifika för Linux-baserade kluster. Länkar till information som kan användas med Windows-baserade kluster.
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 eller senare (eller en motsvarande, till exempel OpenJDK)
+* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 eller senare (eller ett motsvarande, till exempel OpenJDK)
 
 * [Apache Maven](http://maven.apache.org/)
 
 * En textredigerare eller IDE för Java
 
     > [!IMPORTANT]
-    > Om du skapar Python-filer på en Windows-klient, måste du använda ett redigeringsprogram som använder LF som en rad avslutades. Om du inte är säker på om redigeringsprogram använder LF eller CRLF finns i [felsökning](#troubleshooting) avsnittet stegvisa instruktioner för att ta bort CR-tecken.
+    > Om du skapar en Python-filer på en Windows-klient, måste du använda ett redigeringsprogram som använder LF som en raden slutar. Om du inte är säker på om din Redigerare använder LF eller CRLF se den [felsökning](#troubleshooting) avsnitt för anvisningar för att ta bort CR-tecken.
 
 ## <a name="create-an-example-java-udf"></a>Skapa ett exempel Java UDF 
 
@@ -51,13 +47,13 @@ Lär dig hur du skapar en Java-baserad användardefinierad funktion (UDF) som fu
     ```
 
    > [!NOTE]
-   > Om du använder PowerShell, måste du placera citattecken runt parametrarna. Till exempel `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=ExampleUDF" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`.
+   > Om du använder PowerShell måste du placera citattecken runt parametrarna. Till exempel `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=ExampleUDF" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`.
 
     Det här kommandot skapar en katalog med namnet **exampleudf**, som innehåller Maven-projekt.
 
-2. När projektet har skapats kan du ta bort den **exampleudf/src/test** katalogen som har skapats som en del av projektet.
+2. När projektet har skapats, ta bort den **exampleudf/src/test** katalog som skapades som en del av projektet.
 
-3. Öppna den **exampleudf/pom.xml**, och Ersätt den befintliga `<dependencies>` post med följande XML-filen:
+3. Öppna den **exampleudf/pom.xml**, och Ersätt den befintliga `<dependencies>` posten med följande XML:
 
     ```xml
     <dependencies>
@@ -76,9 +72,9 @@ Lär dig hur du skapar en Java-baserad användardefinierad funktion (UDF) som fu
     </dependencies>
     ```
 
-    De här posterna ange version för Hadoop och Hive som ingår i HDInsight 3,6. Du kan hitta information om versioner av Hadoop och Hive med HDInsight från den [HDInsight component-versioning](../hdinsight-component-versioning.md) dokumentet.
+    De här posterna ange versionen av Hadoop och Hive som medföljer HDInsight 3.6. Du hittar information om vilka versioner av Hadoop och Hive med HDInsight från den [versionshantering för HDInsight](../hdinsight-component-versioning.md) dokumentet.
 
-    Lägg till en `<build>` avsnittet före den `</project>` rad i slutet av filen. Det här avsnittet bör innehålla följande XML-filen:
+    Lägg till en `<build>` avsnittet före den `</project>` rad i slutet av filen. Det här avsnittet bör innehålla följande XML:
 
     ```xml
     <build>
@@ -132,9 +128,9 @@ Lär dig hur du skapar en Java-baserad användardefinierad funktion (UDF) som fu
     </build>
     ```
 
-    Dessa poster definierar hur att skapa projektet. Mer specifikt versionen av Java som projektet använder och hur du skapar en uberjar för distribution till klustret.
+    De här posterna definiera hur du skapar projektet. Mer specifikt versionen av Java som projektet använder och hur du skapar en uberjar för distribution till klustret.
 
-    Spara filen när de har ändrats.
+    Spara filen när ändringarna har gjorts.
 
 4. Byt namn på **exampleudf/src/main/java/com/microsoft/examples/App.java** till **ExampleUDF.java**, och sedan öppna filen i redigeringsprogrammet.
 
@@ -165,17 +161,17 @@ Lär dig hur du skapar en Java-baserad användardefinierad funktion (UDF) som fu
     }
     ```
 
-    Den här koden implementerar en UDF som accepterar ett strängvärde och returnerar en gemen version av strängen.
+    Den här koden implementerar en UDF som tar emot ett strängvärde och returnerar en gemen version av strängen.
 
 ## <a name="build-and-install-the-udf"></a>Skapa och installera en användardefinierad funktion
 
-1. Använd följande kommando för att kompilera och paketera UDF-filen:
+1. Använd följande kommando för att kompilera och paketera en användardefinierad funktion:
 
     ```bash
     mvn compile package
     ```
 
-    Det här kommandot skapar och paketerar UDF till den `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar` filen.
+    Det här kommandot skapar och paketerar UDF-filen till den `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar` filen.
 
 2. Använd den `scp` kommando för att kopiera filen till HDInsight-klustret.
 
@@ -183,7 +179,7 @@ Lär dig hur du skapar en Java-baserad användardefinierad funktion (UDF) som fu
     scp ./target/ExampleUDF-1.0-SNAPSHOT.jar myuser@mycluster-ssh.azurehdinsight
     ```
 
-    Ersätt `myuser` med SSH-användarkonto för klustret. Ersätt `mycluster` med klustrets namn. Om du har använt ett lösenord för att skydda det SSH-kontot uppmanas du att ange lösenordet. Om du använder ett certifikat, kan du behöva använda de `-i` parametern för att ange fil för privat nyckel.
+    Ersätt `myuser` med SSH-användarkontot för klustret. Ersätt `mycluster` med klustrets namn. Om du använder ett lösenord för att skydda SSH-kontot, uppmanas du att ange lösenordet. Om du använder ett certifikat, kan du behöva använda den `-i` parametern för att ange filen för privat nyckel.
 
 3. Ansluta till klustret med SSH.
 
@@ -193,23 +189,23 @@ Lär dig hur du skapar en Java-baserad användardefinierad funktion (UDF) som fu
 
     Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
-4. Kopiera jar-filen i HDInsight-lagringen från SSH-session.
+4. Kopiera jar-filen till HDInsight storage från SSH-sessionen.
 
     ```bash
     hdfs dfs -put ExampleUDF-1.0-SNAPSHOT.jar /example/jars
     ```
 
-## <a name="use-the-udf-from-hive"></a>Använda en användardefinierad funktion från Hive
+## <a name="use-the-udf-from-hive"></a>Använd UDF från Hive
 
-1. Använd följande för att starta klienten Beeline från SSH-session.
+1. Använd följande för att starta Beeline-klienten från SSH-sessionen.
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
-    Det här kommandot förutsätter att du använde standardvärdet **admin** för inloggningskontot för klustret.
+    Det här kommandot förutsätter att du använder standardinställningarna för **admin** för inloggningskontot för klustret.
 
-2. När du kommer till den `jdbc:hive2://localhost:10001/>` uppmanar, ange följande om du vill lägga till en användardefinierad funktion Hive och exponera som en funktion.
+2. När du når den `jdbc:hive2://localhost:10001/>` uppmanar, anger du följande för att lägga till en användardefinierad funktion i Hive och gör den tillgänglig som en funktion.
 
     ```hiveql
     ADD JAR wasb:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
@@ -217,7 +213,7 @@ Lär dig hur du skapar en Java-baserad användardefinierad funktion (UDF) som fu
     ```
 
     > [!NOTE]
-    > Det här exemplet förutsätter att lagringen Azure standardlagring för klustret. Om klustret använder Data Lake Store i stället ändrar den `wasb:///` värde till `adl:///`.
+    > Det här exemplet förutsätts att Azure Storage är standardlagringen för klustret. Om klustret använder Data Lake Store i stället, ändra den `wasb:///` värde att `adl:///`.
 
 3. Använda en användardefinierad funktion för att konvertera värden som hämtats från en tabell till gemen strängar.
 
@@ -225,7 +221,7 @@ Lär dig hur du skapar en Java-baserad användardefinierad funktion (UDF) som fu
     SELECT tolower(deviceplatform) FROM hivesampletable LIMIT 10;
     ```
 
-    Den här frågan väljer plattform för enheter (Android, Windows, iOS, etc.) från tabellen, konvertera strängen till lägre fall och visa dem sedan. Utdata liknar följande:
+    Den här frågan väljer du enhetsplattformen (Android, Windows, iOS, osv.) från tabellen, konvertera strängen till lägre för användningsfall och visa dem sedan. Utdata ser ut som följande text:
 
         +----------+--+
         |   _c0    |
@@ -244,6 +240,6 @@ Lär dig hur du skapar en Java-baserad användardefinierad funktion (UDF) som fu
 
 ## <a name="next-steps"></a>Nästa steg
 
-Andra sätt att arbeta med Hive finns [använda Hive med HDInsight](hdinsight-use-hive.md).
+Andra sätt att arbeta med Hive, se [använda Hive med HDInsight](hdinsight-use-hive.md).
 
-Mer information om Hive User-Defined funktioner finns [Hive operatorer och användardefinierade funktioner](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) avsnitt i Hive-wiki på apache.org.
+Mer information om Hive User-Defined funktioner finns i [Hive operatorer och användardefinierade funktioner](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) delen av Hive-wiki på apache.org.

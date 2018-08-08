@@ -1,51 +1,46 @@
 ---
-title: Skapa icke-interaktiv autentisering .NET-program i Azure HDInsight | Microsoft Docs
-description: Lär dig hur du skapar icke-interaktiv autentisering Microsoft .NET-program i Azure HDInsight.
-editor: cgronlun
-manager: jhubbard
+title: Skapa .NET-program för icke-interaktiv autentisering i Azure HDInsight
+description: Lär dig mer om att skapa icke-interaktiv autentisering Microsoft .NET-program i Azure HDInsight.
+editor: jasonwhowell
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-ms.assetid: 8e32430f-6404-498a-9fcd-f20338d964af
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 497c67132b6d5ebc1301f56fde72031ca3e7b976
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: f5f1aae62d8f2959f26a361f3c1187037cafcca5
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199708"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591527"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Skapa en icke-interaktiv autentisering .NET HDInsight-program
-Du kan köra programmet Microsoft .NET Azure HDInsight under programmets egen identitet (icke-interaktiv) eller under identiteten för den inloggade användaren för programmet (Interaktiv). Den här artikeln visar hur du skapar en icke-interaktiv autentisering .NET-program att ansluta till Azure och hantera HDInsight. Ett exempel på ett interaktivt program finns i [Anslut till Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
+Du kan köra ditt Microsoft .NET Azure HDInsight-program under programmets egen identitet (icke-interaktivt) eller under identiteten för den inloggade användaren av programmet (interaktivt). Den här artikeln visar hur du skapar en icke-interaktiv autentisering .NET-program för att ansluta till Azure och hantera HDInsight. Ett exempel på ett interaktivt program, se [Anslut till Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
 
 Från ditt icke-interaktiv .NET-program behöver du:
 
-* Ditt Azure-prenumeration klient-ID (kallas även en *katalog-ID*). Se [hämta klient-ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
-* Azure Active Directory (Azure AD) application klient-ID. Se [skapa ett Azure Active Directory-program](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) och [hämta ett program-ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
-* Azure AD application hemliga nyckeln. Se [Get programmet autentiseringsnyckel](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* Ditt Azure-prenumeration klient-ID (även kallat en *katalog-ID*). Se [hämta klient-ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
+* Azure Active Directory (Azure AD)-programmets klients-ID. Se [skapar ett Azure Active Directory-program](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) och [hämta ett program-ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* Den Azure AD hemlig nyckeln för program. Se [autentiseringsnyckeln för Get-programmet](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
 
 ## <a name="prerequisites"></a>Förutsättningar
-* Ett HDInsight-kluster. Finns det [komma igång-självstudiekurs](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
+* Ett HDInsight-kluster. Se den [komma igång-självstudiekurs](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
-## <a name="assign-a-role-to-the-azure-ad-application"></a>Tilldela en roll till Azure AD-program
-Tilldela Azure AD-program en [rollen](../role-based-access-control/built-in-roles.md), för att bevilja behörighet för att utföra åtgärder. Du kan ange omfånget för prenumerationen, resursgruppen eller resursen. Behörigheter ärvs på lägre nivåer i omfånget. (Till exempel lägga till ett program rollen Läsare för en resursgrupp innebär att programmet kan läsa resursgruppen och alla resurser i den.) I kursen får ange du omfånget på resursgruppsnivå. Mer information finns i [använda rolltilldelningar för att hantera åtkomst till resurserna i Azure-prenumeration](../role-based-access-control/role-assignments-portal.md).
+## <a name="assign-a-role-to-the-azure-ad-application"></a>Tilldela en roll till Azure AD-programmet
+Tilldela din Azure AD-program en [rollen](../role-based-access-control/built-in-roles.md), för att bevilja behörigheter för att utföra åtgärder. Du kan ange omfånget för den prenumerationen, resursgruppen eller resursen. Behörigheterna som ärvs till lägre nivåer av omfång. (Till exempel lägga till ett program till rollen Läsare för en resursgrupp innebär att programmet kan läsa resursgruppen och alla resurser i den.) I den här självstudien får ange du omfånget på resursgruppsnivå. Mer information finns i [använda rolltilldelningar för att hantera åtkomst till din Azure-prenumerationsresurser](../role-based-access-control/role-assignments-portal.md).
 
-**Att lägga till rollen som ägare till Azure AD-program**
+**Att lägga till rollen ägare till Azure AD-programmet**
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj i den vänstra menyn **resursgruppen**.
-3. Välj den resursgrupp som har HDInsight-klustret som du ska köra Hive-fråga senare i den här kursen. Om du har ett stort antal resursgrupper kan använda du filtret för att hitta det du vill använda.
-4. Välj på menyn resurs grupp **åtkomstkontroll (IAM)**.
+2. I den vänstra menyn väljer du **resursgrupp**.
+3. Välj den resursgrupp som innehåller HDInsight-klustret som du ska köra Hive-frågan senare i den här självstudien. Om du har ett stort antal resursgrupper kan använda du filtret för att hitta det du vill använda.
+4. På resursgruppmenyn, väljer **åtkomstkontroll (IAM)**.
 5. Under **användare**väljer **Lägg till**.
-6. Följ instruktionerna för att lägga till rollen som ägare till Azure AD-program. När du har lagt till rollen programmet visas under **användare**, med rollen som ägare. 
+6. Följ anvisningarna för att lägga till rollen ägare till din Azure AD-program. När du har lagt till rollen kan programmet finns under **användare**, med rollen ägare. 
 
-## <a name="develop-an-hdinsight-client-application"></a>Utveckla ett HDInsight-program för klienten
+## <a name="develop-an-hdinsight-client-application"></a>Utveckla ett HDInsight-klientprogram
 
 1. Skapa ett C#-konsolprogram
 2. Lägg till följande NuGet-paket:
@@ -124,6 +119,6 @@ Tilldela Azure AD-program en [rollen](../role-based-access-control/built-in-role
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Skapa ett Azure Active Directory huvudnamn för program och tjänster i Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).
-* Lär dig hur du [autentisera ett huvudnamn för tjänsten med Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+* [Skapa en Azure Active Directory program och tjänstens huvudnamn i Azure-portalen](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+* Lär dig hur du [autentisera tjänstens huvudnamn med Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 * Lär dig mer om [Azure rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/role-assignments-portal.md).

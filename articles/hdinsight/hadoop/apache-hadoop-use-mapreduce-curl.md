@@ -1,47 +1,42 @@
 ---
-title: Använd MapReduce och Curl med Hadoop i HDInsight - Azure | Microsoft Docs
-description: Lär dig hur du Fjärrkör MapReduce-jobb med Hadoop i HDInsight med Curl.
+title: Använda MapReduce och Curl med Hadoop i HDInsight - Azure
+description: Lär dig hur du kör MapReduce-jobb via fjärranslutning med Hadoop på HDInsight med Curl.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: bc6daf37-fcdc-467a-a8a8-6fb2f0f773d1
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: eeecdb6432c4ab13b051c9a9dba1e7f14ce40f91
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: f6b72a464bfd5eee2bedc52fd9f7163f2c970c13
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400222"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590725"
 ---
-# <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>Kör jobb för MapReduce med Hadoop i HDInsight med hjälp av REST
+# <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>Köra MapReduce-jobb med Hadoop på HDInsight med hjälp av REST
 
-Lär dig hur du använder WebHCat REST API för att köra MapReduce-jobb på en Hadoop på HDInsight-kluster. CURL används för att demonstrera hur du kan interagera med HDInsight med hjälp av rådata HTTP-begäranden för att köra MapReduce-jobb.
+Lär dig hur du använder WebHCat REST API för att köra MapReduce-jobb på ett Hadoop på HDInsight-kluster. CURL används för att demonstrera hur du kan interagera med HDInsight med hjälp av rådata HTTP-begäranden för att köra MapReduce-jobb.
 
 > [!NOTE]
-> Om du redan är bekant med Linux-baserade Hadoop-servrar, men du är nybörjare på HDInsight, finns det [vad du behöver veta om Linux-baserade Hadoop på HDInsight](../hdinsight-hadoop-linux-information.md) dokumentet.
+> Om du redan är bekant med Linux-baserade Hadoop-servrar, men du är nybörjare på HDInsight, finns i den [vad du behöver veta om Linux-baserat Hadoop i HDInsight](../hdinsight-hadoop-linux-information.md) dokumentet.
 
 
 ## <a id="prereq"></a>Förhandskrav
 
-* En Hadoop på HDInsight-kluster
+* Ett Hadoop på HDInsight-kluster
 * Windows PowerShell eller [Curl](http://curl.haxx.se/) och [jq](http://stedolan.github.io/jq/)
 
 ## <a id="curl"></a>Kör ett MapReduce-jobb
 
 > [!NOTE]
-> När du använder Curl eller annan REST-kommunikation med WebHCat, måste du autentisera begärandena genom att ange administratörsanvändarnamn för HDInsight-kluster och lösenord. Du måste använda klustrets namn som en del av den URI som används för att skicka begäranden till servern.
+> När du använder Curl eller annan REST-kommunikation med WebHCat, måste du autentisera begärandena genom att ange HDInsight-kluster administratörens användarnamn och lösenord. Du måste använda klustrets namn som en del av den URI som används för att skicka begäranden till servern.
 >
-> REST API skyddas med hjälp av [grundläggande autentisering](http://en.wikipedia.org/wiki/Basic_access_authentication). Du bör alltid göra begäranden genom att använda HTTPS för att se till att dina autentiseringsuppgifter skickas på ett säkert sätt till servern.
+> REST API skyddas med hjälp av [grundläggande autentisering](http://en.wikipedia.org/wiki/Basic_access_authentication). Du bör alltid göra begäranden genom att använda HTTPS för att säkerställa att dina autentiseringsuppgifter skickas på ett säkert sätt till servern.
 
-1. Om du vill ange klusterinloggning som används av skript i det här dokumentet använder du något av kommandona followig:
+1. Ange klusterinloggning som används av skripten i det här dokumentet genom att använda något av kommandona followig:
 
     ```bash
     read -p "Enter your cluster login account name: " LOGIN
@@ -51,7 +46,7 @@ Lär dig hur du använder WebHCat REST API för att köra MapReduce-jobb på en 
     $creds = Get-Credential -UserName admin -Message "Enter the cluster login name and password"
     ```
 
-2. Om du vill ange klusternamnet, använder du någon av följande kommandon:
+2. Ange klusternamnet genom att använda något av följande kommandon:
 
     ```bash
     read -p "Enter the HDInsight cluster name: " CLUSTERNAME
@@ -80,10 +75,10 @@ Lär dig hur du använder WebHCat REST API för att köra MapReduce-jobb på en 
 
     De parametrar som används i det här kommandot är följande:
 
-   * **-u**: anger användarnamn och lösenord som används för att autentisera begäran
+   * **-u**: Anger det användarnamn och lösenord som används för att autentisera begäran
    * **-G**: Anger att den här åtgärden är en GET-begäran
 
-   I början av URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, är samma för alla begäranden.
+   I början av URI: N, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, är samma för alla förfrågningar.
 
 4. För att skicka ett MapReduce-jobb, använder du följande kommando:
 
@@ -109,13 +104,13 @@ Lär dig hur du använder WebHCat REST API för att köra MapReduce-jobb på en 
     $jobID
     ```
 
-    I slutet av URI: N (/ mapreduce/jar) anger WebHCat att denna begäran startar ett MapReduce-jobb från en klass i jar-filen. De parametrar som används i det här kommandot är följande:
+    Slutet av URI: N (/ mapreduce/jar) meddelar WebHCat att denna begäran startar ett MapReduce-jobb från en klass i ett jar-filen. De parametrar som används i det här kommandot är följande:
 
-   * **-d**: `-G` används inte, så begäran som standard POST-metoden. `-d` Anger datavärdena som skickas med begäran.
+   * **-d**: `-G` inte används, så att begäran som standard POST-metoden. `-d` Anger de datavärden som skickas med begäran.
     * **User.name**: användare som kör kommandot
-    * **JAR**: platsen för jar-filen som innehåller klassen kördes
-    * **klassen**: klass som innehåller logiken som MapReduce
-    * **%d{arg/**: argument som ska skickas till MapReduce-jobb. I det här fallet, inkommande textfilen och katalogen som används för utdata
+    * **JAR**: platsen för den jar-fil som innehåller klassen till kördes
+    * **klassen**: klassen som innehåller logiken som MapReduce
+    * **arg**: argument som ska skickas till MapReduce-jobb. I det här fallet, indatafilen och den katalog som används för utdata
 
    Det här kommandot ska returnera ett jobb-ID som kan användas för att kontrollera status för jobbet:
 
@@ -139,14 +134,14 @@ Lär dig hur du använder WebHCat REST API för att köra MapReduce-jobb på en 
     (ConvertFrom-Json $fixDup).status.state
     ```
 
-    Om jobbet är klart, tillståndet returneras är `SUCCEEDED`.
+    Om jobbet har slutförts, tillståndet som returnerades är `SUCCEEDED`.
 
    > [!NOTE]
    > Den här Curl-begäran returnerar ett JSON-dokument med information om jobbet. Jq används för att hämta tillståndet värdet.
 
-6. När status för jobbet har ändrats till `SUCCEEDED`, kan du hämta resultatet av jobbet från Azure Blob storage. Den `statusdir` parameter som skickas med frågan innehåller platsen för utdatafilen. I det här exemplet platsen är `/example/curl`. Den här adressen lagrar resultatet av jobbet i kluster standardlagring på `/example/curl`.
+6. När tillståndet för jobbet har ändrats till `SUCCEEDED`, kan du hämta resultatet av jobbet från Azure Blob storage. Den `statusdir` parametern som skickas med frågan innehåller platsen för utdatafilen. I det här exemplet platsen är `/example/curl`. Den här adressen lagrar utdata för jobbet i kluster standardlagring på `/example/curl`.
 
-Du kan visa och ladda ned dessa filer med hjälp av den [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Mer information om hur du arbetar med blobbar från Azure CLI finns i [använder Azure CLI 2.0 med Azure Storage](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) dokumentet.
+Du kan visa och hämta dessa filer med hjälp av den [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Mer information om hur du arbetar med blobar med Azure CLI finns i den [med hjälp av Azure CLI 2.0 med Azure Storage](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) dokumentet.
 
 ## <a id="nextsteps"></a>Nästa steg
 

@@ -39,6 +39,8 @@
       items:
         - name: Översikt
           href: content-protection-overview.md
+        - name: Multi-DRM-system med åtkomstkontroll
+          href: design-multi-drm-system-with-access-control.md
     - name: Kodning
       items:
         - name: Översikt

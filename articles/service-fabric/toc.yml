@@ -553,8 +553,8 @@
                   href: service-fabric-cluster-scale-up-down.md
                 - name: Skala ut programmässigt
                   href: service-fabric-cluster-programmatic-scaling.md
-                - name: Skala upp eller uppgradera virtuella datorer med primär nodtyp
-                  href: service-fabric-cluster-upgrade-primary-nodetype-vm.md
+                - name: Skala ut med nodtyp för skalningsuppsättning för virtuell dator
+                  href: virtual-machine-scale-set-scale-node-type-scale-out.md
             - name: Uppgradera
               href: service-fabric-cluster-upgrade.md
             - name: Ange åtkomstkontroll

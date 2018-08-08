@@ -171,12 +171,13 @@
 #### [Planera Azure AD Join](devices/azureadjoin-plan.md)
 #### [Planera implementering av Azure AD Join-hybrid](devices/hybrid-azuread-join-plan.md)
 #### [Kontrollera Azure AD Join-hybriden för dina enheter](devices/hybrid-azuread-join-control.md)
+#### [Tilldela lokala administratörer till Azure AD-anslutna enheter](devices/assign-local-admin.md)
 #### [Felsöka Azure AD Join-hybriden för aktuella Windows-enheter](devices/troubleshoot-hybrid-join-windows-current.md)
 #### [Felsöka Azure AD Join-hybride för äldre Windows-enheter](devices/troubleshoot-hybrid-join-windows-legacy.md)
 
 ### Begrepp
-### [Hantera enheter med Azure Portal](devices/device-management-azure-portal.md)
-### [Vanliga frågor och svar](devices/faq.md)
+#### [Hantera enheter med Azure Portal](devices/device-management-azure-portal.md)
+#### [Vanliga frågor och svar](devices/faq.md)
 
 ## Hantera appar
 ### [Översikt](manage-apps/what-is-application-management.md)
@@ -403,30 +404,30 @@
 ### [Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md)
 #### [Komma igång](active-directory-conditional-access-azure-portal-get-started.md)
 #### Snabbstarter
-##### [Konfigurera MFA per app](active-directory-conditional-access-app-based-mfa.md)
-##### [Kräv att användningsvillkoren godkänns](active-directory-conditional-access-tou.md)
-##### [Blockera åtkomst när en sessionsrisk identifieras](active-directory-conditional-access-app-sign-in-risk.md)
+##### [Konfigurera MFA per app](conditional-access/app-based-mfa.md)
+##### [Kräv att användningsvillkoren godkänns](conditional-access/require-tou.md)
+##### [Blockera åtkomst när en sessionsrisk identifieras](conditional-access/app-sign-in-risk.md)
 #### Självstudier
-##### [Migrera en klassisk MFA-princip](active-directory-conditional-access-migration-mfa.md)
+##### [Migrera en klassisk MFA-princip](conditional-access/policy-migration-mfa.md)
 #### Begrepp
-##### [Baslinjeskydd](active-directory-conditional-access-baseline-protection.md)
-##### [Villkor](active-directory-conditional-access-conditions.md)
-##### [Platsvillkor](active-directory-conditional-access-locations.md)
-##### [Kontroller](active-directory-conditional-access-controls.md)
-##### [Konsekvensverktyg](active-directory-conditional-access-whatif.md)
+##### [Baslinjeskydd](conditional-access/baseline-protection.md)
+##### [Villkor](conditional-access/conditions.md)
+##### [Platsvillkor](conditional-access/location-condition.md)
+##### [Kontroller](conditional-access/controls.md)
+##### [Konsekvensverktyg](conditional-access/what-if-tool.md)
 ##### [Förstå enhetsprinciper för Office 365-tjänster](active-directory-conditional-access-device-policies.md)
 #### Instruktionsguider
-##### [Bästa praxis](active-directory-conditional-access-best-practices.md)
+##### [Bästa praxis](conditional-access/best-practices.md)
 ##### [Konfigurera principer för villkorlig åtkomst för åtkomstförsök från ej betrodda nätverk](active-directory-conditional-access-untrusted-networks.md)
 ##### [Konfigurera enhetsbaserad villkorlig åtkomst](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Konfigurera appbaserad villkorlig åtkomst](active-directory-conditional-access-mam.md)
 ##### [Ange användningsvillkor för användare och appar](active-directory-tou.md)
-##### [Migrera klassiska principer](active-directory-conditional-access-migration.md)
+##### [Migrera klassiska principer](conditional-access/policy-migration.md)
 ##### [Konfigurera VPN-anslutning](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [Konfigurera SharePoint och Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Reparation](active-directory-conditional-access-device-remediation.md)
 #### [Teknisk referens](active-directory-conditional-access-technical-reference.md)
-#### [Vanliga frågor och svar](active-directory-conditional-faqs.md)
+#### [Vanliga frågor och svar](conditional-access/faqs.md)
 
 ### Certifikatbaserad autentisering
 #### [Android](active-directory-certificate-based-authentication-android.md)

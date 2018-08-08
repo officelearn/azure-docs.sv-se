@@ -16,7 +16,6 @@
     - name: Skapa mallar – Visual Studio
       href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
 - name: Självstudier
-  expanded: true
   items:
     - name: Skapa ett krypterat lagringskonto
       href: resource-manager-tutorial-create-encrypted-storage-accounts.md
@@ -52,10 +51,12 @@
               href: resource-manager-templates-outputs.md
         - name: Länkade och kapslade mallar
           href: resource-group-linked-templates.md
-        - name: Definiera beroendet mellan resurser
+        - name: Resursberoenden
           href: resource-group-define-dependencies.md
         - name: Skapa flera instanser
           href: resource-group-create-multiple.md
+        - name: Skapa resursgrupp i mall
+          href: create-resource-group-in-template.md
         - name: Uppdatera resurs
           href: /azure/architecture/building-blocks/extending-templates/update-resource
     - name: Distribuera

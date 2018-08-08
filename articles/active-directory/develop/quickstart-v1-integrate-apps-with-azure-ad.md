@@ -16,12 +16,12 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: bb1f53b2ea014bfc8e658cf840e0a22368ba9f7c
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 90b8a9bd45d2c6a8551e3af84a5bfa915f4c3cea
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579671"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592211"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrera program med Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -46,8 +46,8 @@ Alla program som vill använda funktioner i Azure AD måste först registreras i
 
   - **Namn:** ange ett beskrivande namn
   - **Programtyp:** 
-    - Välj ”intern” för [klientprogram](active-directory-dev-glossary.md#client-application) som är lokalt installerade på en enhet. Den här inställningen används för OAuth-offentliga [interna klienter](active-directory-dev-glossary.md#native-client).
-    - Välj ”webbapp / API” för [klientprogram](active-directory-dev-glossary.md#client-application) och [resurs/API-program](active-directory-dev-glossary.md#resource-server) som är installerade på en säker server. Den här inställningen används för OAuth-konfidentiella [webbklienter](active-directory-dev-glossary.md#web-client) och offentliga [användar-agent-baserade klienter](active-directory-dev-glossary.md#user-agent-based-client). Samma program kan också visas både en klient och resurs/API.
+    - Välj ”intern” för [klientprogram](developer-glossary.md#client-application) som är lokalt installerade på en enhet. Den här inställningen används för OAuth-offentliga [interna klienter](developer-glossary.md#native-client).
+    - Välj ”webbapp / API” för [klientprogram](developer-glossary.md#client-application) och [resurs/API-program](developer-glossary.md#resource-server) som är installerade på en säker server. Den här inställningen används för OAuth-konfidentiella [webbklienter](developer-glossary.md#web-client) och offentliga [användar-agent-baserade klienter](developer-glossary.md#user-agent-based-client). Samma program kan också visas både en klient och resurs/API.
   - **Inloggnings-URL:** för ”webbapp / API” program, ange den grundläggande Webbadressen för din app. Till exempel `http://localhost:31544` kan vara URL-Adressen för en webbapp som körs på den lokala datorn. Användare använder den här URL: en för att logga in till ett webbprogram för klienten. 
   - **Omdirigerings-URI:** för ”interna” program, anger du den URI som används av Azure AD för att returnera tokensvar. Ange ett specifikt värde till ditt program, till exempel `http://MyFirstAADApp`
 
@@ -105,7 +105,7 @@ Följande steg visar hur samtycke uppleva fungerar för både programutvecklare 
 ### <a name="configure-a-client-application-to-access-web-apis"></a>Konfigurera ett klientprogram för att få åtkomst till webb-API: er
 Det måste upprätta säkra autentiseringsuppgifter för ett webb-/ konfidentiell klientprogram för att kunna delta i ett flöde för auktorisering att bevilja som kräver autentisering (och få en åtkomsttoken). Standardmetoden för autentisering som stöds av Azure-portalen är klient-ID + hemlig nyckel. Det här avsnittet beskriver de konfigurationssteg som krävs för att tillhandahålla den hemliga nyckeln med klientens autentiseringsuppgifter.
 
-Dessutom innan en klient kan komma åt ett webb-API som exponeras av resursprogram (till exempel Microsoft Graph-API), ramverket för medgivande säkerställer klienten hämtar åtgärden bevilja behörigheter krävs, baserat på de behörigheter som begärdes. Som standard kan alla program Välj behörigheter från ”Windows Azure Active Directory” (Graph-API) och ”Windows Azure Service Management-API”. Den [Graph API ”logga in och Läs användarprofil” behörighet](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) har markerats som standard. Om klienten registreras i en klient som har konton som prenumererar på Office 365, kan webb-API: er och behörigheter för SharePoint och Exchange Online välja. Du kan välja från [två typer av behörigheter](active-directory-dev-glossary.md#permissions) för var och en önskad webb-API:
+Dessutom innan en klient kan komma åt ett webb-API som exponeras av resursprogram (till exempel Microsoft Graph-API), ramverket för medgivande säkerställer klienten hämtar åtgärden bevilja behörigheter krävs, baserat på de behörigheter som begärdes. Som standard kan alla program Välj behörigheter från ”Windows Azure Active Directory” (Graph-API) och ”Windows Azure Service Management-API”. Den [Graph API ”logga in och Läs användarprofil” behörighet](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) har markerats som standard. Om klienten registreras i en klient som har konton som prenumererar på Office 365, kan webb-API: er och behörigheter för SharePoint och Exchange Online välja. Du kan välja från [två typer av behörigheter](developer-glossary.md#permissions) för var och en önskad webb-API:
 
 - Behörigheter för programmet: Klientprogrammet behöver åtkomst till webb-API som sig självt (inga användarkontext). Den här typen av behörighet kräver administratörens godkännande och är inte heller tillgängliga för interna klientprogram.
 
@@ -149,7 +149,7 @@ Dessutom innan en klient kan komma åt ett webb-API som exponeras av resursprogr
 
 ### <a name="configuring-a-resource-application-to-expose-web-apis"></a>Konfigurera resursprogram att exponera webb API: er
 
-Du kan utveckla ett webb-API och göra det tillgängligt för klientprogram genom att exponera åtkomst [scope](active-directory-dev-glossary.md#scopes) och [roller](active-directory-dev-glossary.md#roles). Ett korrekt konfigurerat webb-API tillhandahålls precis som andra Microsoft webb API: er, inklusive Graph API och API: er för Office 365. Åtkomstscope och roller är tillgängliga via din [programmets manifest](active-directory-dev-glossary.md#application-manifest), vilket är en JSON-fil som representerar identitet programkonfiguration. 
+Du kan utveckla ett webb-API och göra det tillgängligt för klientprogram genom att exponera åtkomst [scope](developer-glossary.md#scopes) och [roller](developer-glossary.md#roles). Ett korrekt konfigurerat webb-API tillhandahålls precis som andra Microsoft webb API: er, inklusive Graph API och API: er för Office 365. Åtkomstscope och roller är tillgängliga via din [programmets manifest](developer-glossary.md#application-manifest), vilket är en JSON-fil som representerar identitet programkonfiguration. 
 
 Följande avsnitt visar hur du exponera åtkomstscope, genom att ändra resursen programmets manifest.
 
@@ -203,10 +203,10 @@ Följande avsnitt visar hur du exponera åtkomstscope, genom att ändra resursen
 
 Applikationsmanifestet faktiskt fungerar som en mekanism för att uppdatera entiteten program, som definierar alla attribut för ett Azure AD-program identitet konfigurationen, inklusive API-åtkomstscope som beskrivits. Mer information om entiteten programmet och dess schema finns i den [Graph-API-program entity dokumentation](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity). Artikeln innehåller utförlig referensinformation om programmet enhetsmedlemmar som används för att ange behörigheter för ditt API, inklusive:  
 
-- Medlemmen appRoles som är en samling av [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) entiteter som används för att definiera [programbehörigheter](active-directory-dev-glossary.md#permissions) för ett webb-API. 
-- Oauth2Permissions-medlem, som är en samling av [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) entiteter som används för att definiera [delegerade behörigheter](active-directory-dev-glossary.md#permissions) för ett webb-API.
+- Medlemmen appRoles som är en samling av [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) entiteter som används för att definiera [programbehörigheter](developer-glossary.md#permissions) för ett webb-API. 
+- Oauth2Permissions-medlem, som är en samling av [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) entiteter som används för att definiera [delegerade behörigheter](developer-glossary.md#permissions) för ett webb-API.
 
-Mer information om application manifest begrepp i allmänhet, se [förstå programmanifestet för Azure Active Directory](active-directory-application-manifest.md).
+Mer information om application manifest begrepp i allmänhet, se [förstå programmanifestet för Azure Active Directory](reference-app-manifest.md).
 
 ### <a name="accessing-the-azure-ad-graph-and-office-365-via-microsoft-graph-apis"></a>Åtkomst till Azure AD Graph och Office 365 via Microsoft Graph API: er  
 
@@ -269,7 +269,7 @@ Enskild sida programmets (SPA) är vanligtvis strukturerade med JavaScript-aktiv
 
 När användaren har gett ditt medgivande, kan det här samma autentiseringsprotokoll användas till att hämta token för att skydda anrop mellan klienten och andra webb-API-resurserna som konfigurerats för programmet. Mer information om implicit auktoriseringsbeviljande och hjälper dig att avgöra om det är bäst för ditt program-scenario genom att se [förstå OAuth2 implicit ge flow i Azure Active Directory](v1-oauth2-implicit-grant-flow.md).
 
-Som standard inaktiveras implicit beviljande av OAuth 2.0 för program. Du kan aktivera Implicit beviljande av OAuth 2.0 för ditt program genom att ange den `oauth2AllowImplicitFlow` värde i dess [programmanifestet](active-directory-application-manifest.md).
+Som standard inaktiveras implicit beviljande av OAuth 2.0 för program. Du kan aktivera Implicit beviljande av OAuth 2.0 för ditt program genom att ange den `oauth2AllowImplicitFlow` värde i dess [programmanifestet](reference-app-manifest.md).
 
 #### <a name="to-enable-oauth-20-implicit-grant"></a>Aktivera implicit beviljande av OAuth 2.0
 
@@ -317,7 +317,7 @@ Företagets administratör måste ta bort dess huvudnamn för tjänsten för att
 - Mer information om hur autentisering fungerar i Azure AD finns i [Autentiseringsscenarier för Azure AD](authentication-scenarios.md).
 - Se den [anpassning riktlinjer för integrerade appar](howto-add-branding-in-azure-ad-apps.md) tips om visual vägledning för din app.
 - Mer information om relationen mellan program och tjänstens huvudnamn objekt i ett program finns i [programobjekt och tjänstobjekt](app-objects-and-service-principals.md).
-- Läs mer om rollen app manifest spelar i [förstå programmanifestet för Azure Active Directory](active-directory-application-manifest.md)
-- Se den [ordlista för Azure AD-utvecklare](active-directory-dev-glossary.md) för definitioner av några av de viktigaste Azure AD-begreppen för utvecklare.
+- Läs mer om rollen app manifest spelar i [förstå programmanifestet för Azure Active Directory](reference-app-manifest.md)
+- Se den [ordlista för Azure AD-utvecklare](developer-glossary.md) för definitioner av några av de viktigaste Azure AD-begreppen för utvecklare.
 - Gå till den [utvecklarguide för Active Directory](azure-ad-developers-guide.md) en översikt över alla developer-relaterat innehåll.
 

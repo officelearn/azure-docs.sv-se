@@ -40,6 +40,8 @@
       items:
         - name: Hantera konton och nycklar
           href: how-to-manage-account-keys.md
+        - name: Visa användningsstatistik
+          href: how-to-view-api-usage.md
     - name: 'Hämta mappningsdata från REST API:er'
       items:
         - name: Söka efter en adress

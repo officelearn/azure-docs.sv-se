@@ -176,6 +176,8 @@
               href: howto-mfa-nps-extension-errors.md
     - name: Felsöka
       items:
+        - name: Inaktivera konvergerad registrering
+          href: howto-registration-mfa-sspr-converged-troubleshoot.md
         - name: Felsöka SSPR
           href: active-directory-passwords-troubleshoot.md
         - name: VANLIGA FRÅGOR OCH SVAR OM SSPR

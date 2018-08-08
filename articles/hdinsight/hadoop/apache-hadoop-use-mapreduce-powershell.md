@@ -1,31 +1,26 @@
 ---
-title: Använda MapReduce och PowerShell med Hadoop - Azure HDInsight | Microsoft Docs
-description: Lär dig hur du använder PowerShell fjärrköra MapReduce-jobb med Hadoop i HDInsight.
+title: Använda MapReduce och PowerShell med Hadoop - Azure HDInsight
+description: Lär dig hur du använder PowerShell för att köra MapReduce-jobb via fjärranslutning med Hadoop på HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 21b56d32-1785-4d44-8ae8-94467c12cfba
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.author: larryfr
-ms.openlocfilehash: 7416d064f89515feb04523ca6d4ea73f37c14e38
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: jasonh
+ms.openlocfilehash: cab6fc652fa11db7dd1e9e9ae7f0a1a634dca3b0
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33938546"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591828"
 ---
-# <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>Kör jobb för MapReduce med Hadoop i HDInsight med hjälp av PowerShell
+# <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>Köra MapReduce-jobb med Hadoop på HDInsight med hjälp av PowerShell
 
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
-Det här dokumentet innehåller ett exempel på hur Azure PowerShell för att köra ett MapReduce-jobb i en Hadoop på HDInsight-kluster.
+Det här dokumentet innehåller ett exempel på hur du använder Azure PowerShell kör ett MapReduce-jobb i ett Hadoop på HDInsight-kluster.
 
 ## <a id="prereq"></a>Förhandskrav
 
@@ -38,33 +33,33 @@ Det här dokumentet innehåller ett exempel på hur Azure PowerShell för att k�
 
 ## <a id="powershell"></a>Kör ett MapReduce-jobb
 
-Azure PowerShell innehåller *cmdlets* som gör det möjligt att fjärrköra MapReduce-jobb i HDInsight. Internt, PowerShell anropar REST [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (kallades Templeton) körs på HDInsight-klustret.
+Azure PowerShell tillhandahåller *cmdletar* som gör det möjligt att köra MapReduce-jobb via fjärranslutning på HDInsight. Internt PowerShell gör REST-anrop till [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (tidigare kallad Templeton) körs på HDInsight-klustret.
 
-Följande cmdlets används när du kör MapReduce-jobb i en fjärransluten HDInsight-kluster.
+Följande cmdletar som används när du kör MapReduce-jobb i ett fjärranslutet HDInsight-kluster.
 
-* **Ansluta AzureRmAccount**: autentiserar till Azure-prenumeration i Azure PowerShell.
+* **Connect-AzureRmAccount**: autentiserar Azure PowerShell på Azure-prenumerationen.
 
-* **Nya AzureRmHDInsightMapReduceJobDefinition**: skapar en ny *jobbet definition* med hjälp av angivna MapReduce-informationen.
+* **Ny AzureRmHDInsightMapReduceJobDefinition**: skapar en ny *jobbet definition* med hjälp av den angivna MapReduce-informationen.
 
 * **Start-AzureRmHDInsightJob**: skickar jobbdefinitionen till HDInsight och startar jobbet. En *jobbet* objekt returneras.
 
-* **Vänta AzureRmHDInsightJob**: använder jobbobjektet för att kontrollera status för jobbet. Den väntar tills jobbet slutförs eller väntetiden har överskridits.
+* **Vänta AzureRmHDInsightJob**: använder objektet för att kontrollera status för jobbet. Den ska vänta tills jobbet har slutförts eller väntetiden har överskridits.
 
 * **Get-AzureRmHDInsightJobOutput**: används för att hämta utdata för jobbet.
 
-Följande steg visar hur du använder dessa cmdlets för att köra ett jobb i HDInsight-kluster.
+Följande steg visar hur du använder dessa cmdletar för att köra ett jobb i HDInsight-klustret.
 
 1. Med hjälp av en redigerare, spara följande kod som **mapreducejob.ps1**.
 
     [!code-powershell[main](../../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 
-2. Öppna ett nytt **Azure PowerShell** kommandotolk. Ändra kataloger till platsen för den **mapreducejob.ps1** filen och sedan använder du följande kommando för att köra skriptet:
+2. Öppna ett nytt **Azure PowerShell** Kommandotolken. Ändra kataloger till platsen för den **mapreducejob.ps1** filen och sedan använda följande kommando för att köra skriptet:
 
         .\mapreducejob.ps1
 
-    När du kör skriptet tillfrågas om namnet på HDInsight-kluster och klustret inloggningen. Du kan också uppmanas att autentisera till din Azure-prenumeration.
+    När du kör skriptet uppmanas du namnet på HDInsight-kluster och klusterinloggning. Du kan också uppmanas att autentisera till din Azure-prenumeration.
 
-3. När jobbet har slutförts visas utdata som liknar följande:
+3. När jobbet har slutförts visas utdata som liknar följande text:
 
         Cluster         : CLUSTERNAME
         ExitCode        : 0
@@ -76,23 +71,23 @@ Följande steg visar hur du använder dessa cmdlets för att köra ett jobb i HD
         SubmissionTime  : 12/5/2014 8:34:09 PM
         JobId           : job_1415949758166_0071
 
-    Den här utdatan anger att jobbet har slutförts.
+    Den här utdata visar att jobbet har slutförts.
 
     > [!NOTE]
-    > Om den **ExitCode** är ett värde än 0, se [felsökning](#troubleshooting).
+    > Om den **ExitCode** är ett värde annat än 0, se [felsökning](#troubleshooting).
 
-    Det här exemplet lagras också hämtade filer till en **output.txt** fil i katalogen som du kör skriptet från.
+    Det här exemplet lagras också de hämta filerna till en **output.txt** fil i den katalog som du kör skriptet från.
 
 ### <a name="view-output"></a>Visa utdata
 
-Om du vill se ord och antal produceras av jobbet, öppna den **output.txt** i en textredigerare.
+Om du vill se ord och antalet som produceras av jobbet, öppna den **output.txt** filen i en textredigerare.
 
 > [!NOTE]
-> Utdatafilerna till ett MapReduce-jobb är oföränderliga. Så om du kör det här exemplet måste ändra namnet på utdatafilen.
+> Utdatafilerna i ett MapReduce-jobb är inte kan ändras. Så om du kör det här exemplet måste du ändra namnet på utdatafilen.
 
 ## <a id="troubleshooting"></a>Felsökning
 
-Om ingen information returneras när jobbet är slutfört, visa fel för jobbet. Om du vill visa information om fel för det här jobbet att lägga till följande kommando i slutet av den **mapreducejob.ps1** filen, spara den och kör det igen.
+Om ingen information returneras när jobbet har slutförts, kan du visa fel för jobbet. Om du vill visa information om fel för det här jobbet att lägga till följande kommando i slutet av den **mapreducejob.ps1** filen, spara den och sedan köra det igen.
 
 ```powershell
 # Print the output of the WordCount job.
@@ -104,17 +99,17 @@ Get-AzureRmHDInsightJobOutput `
         -DisplayOutputType StandardError
 ```
 
-Denna cmdlet returnerar informationen som skrivs till STDERR jobbet körs.
+Denna cmdlet returnerar informationen som har skrivits till STDERR när jobbet körs.
 
 ## <a id="summary"></a>Sammanfattning
 
-Du kan se ger Azure PowerShell ett enkelt sätt att köra MapReduce-jobb på ett HDInsight-kluster, övervaka jobbstatus och hämta utdata.
+Som du kan se är det enkelt att köra MapReduce-jobb på ett HDInsight-kluster, övervaka jobbstatus och hämta utdata i Azure PowerShell.
 
 ## <a id="nextsteps"></a>Nästa steg
 
 Allmän information om MapReduce-jobb i HDInsight:
 
-* [Använda MapReduce på Hadoop och HDInsight](hdinsight-use-mapreduce.md)
+* [Använda MapReduce på HDInsight Hadoop](hdinsight-use-mapreduce.md)
 
 Information om andra sätt kan du arbeta med Hadoop i HDInsight:
 

@@ -49,7 +49,6 @@
     - name: REST-API
       href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
 - name: Resurser
-  expanded: true
   items:
     - name: Blogg
       href: 'https://azure.microsoft.com/blog/topics/blockchain/'
@@ -60,10 +59,12 @@
     - name: Forum
       href: 'https://aka.ms/workbenchforum'
     - name: Produktfeedback
-      href: 'https://feedback.azure.com/forums/586780-blockchain'
-    - name: Lösningsmallar
-      items:
-        - name: Konsortium för bevis på arbete för ethereum
-          href: ethereum-deployment-guide.md
-        - name: Konsortium för Hyperledger Fabric
-          href: hyperledger-fabric-single-member-blockchain.md
+      href: 'https://aka.ms/blockchainuservoice'
+- name: Konsortium för bevis på auktoritet för Ethereum
+  href: ethereum-poa-deployment.md
+- name: Lösningsmallar
+  items:
+    - name: Konsortium för bevis på arbete för Ethereum
+      href: ethereum-deployment-guide.md
+    - name: Konsortium för Hyperledger Fabric
+      href: hyperledger-fabric-single-member-blockchain.md

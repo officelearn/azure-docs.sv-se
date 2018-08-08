@@ -32,7 +32,7 @@ Innan du kan säkerhetskopiera en Azure-filresurs bör du kontrollera att den fi
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Begränsningar för säkerhetskopiering av Azure-filresurser i förhandsversionen
 Säkerhetskopiering för Azure-filresurser finns i förhandsversion. Följande säkerhetskopieringsscenarier stöds inte för Azure-filresurser:
-- Du kan inte skydda Azure-filresurser i lagringskonton med [RA-GRS-replikering* (geo-redundant lagring med läsbehörighet)](../storage/common/storage-redundancy-grs.md).
+- Du kan inte skydda Azure-filresurser i lagringskonton med RA-GRS-replikering* [geo-redundant lagring med läsbehörighet](../storage/common/storage-redundancy-grs.md).
 - Du kan inte skydda av Azure-filresurser i lagringskonton som har virtuella nätverk eller brandvägg aktiverade.
 - Det finns ingen tillgänglig PowerShell eller CLI som skyddar Azure Files med Azure Backup.
 - Det maximala antalet schemalagda säkerhetskopieringar per dag är en.

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 07/13/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: 20b549914daf71c0d23235b5c20ebb6f14367471
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: ce84498ab89891bd7b96cfcc6b0c7ac029c93cbd
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172042"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423087"
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Skapa en Docker Python- och PostgreSQL-webbapp i Azure
 
@@ -133,7 +133,7 @@ I det här steget skapar du en PostgreSQL-databas i Azure. När appen har distri
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>Skapa en Azure Database för PostgreSQL-server
 
-Skapa en PostgreSQL-server med kommandot [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create) i Cloud Shell.
+Skapa en PostgreSQL-server med kommandot [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create) i Cloud Shell.
 
 I följande exempelkommando ersätter du *\<postgresql_name>* med ett unikt servernamn och ersätter *\<admin_username>* och *\<admin_password>* med de önskade autentiseringsuppgifterna. Det här servernamnet används som en del av PostgreSQL-slutpunkten (`https://<postgresql_name>.postgres.database.azure.com`), så namnet måste vara unikt för alla servrar i Azure. Autentiseringsuppgifterna är för databasadministratörens användarkonto. 
 
@@ -339,7 +339,7 @@ I det här steget skapar du en app i Azure App Service och konfigurerar den att 
 
 ### <a name="create-a-web-app"></a>Skapa en webbapp
 
-I Cloud Shell skapar du en webbapp i App Service-planen *myAppServicePlan* med kommandot [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create).
+I Cloud Shell skapar du en webbapp i App Service-planen *myAppServicePlan* med kommandot [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create).
 
 I följande kommando ska du ersätta platshållaren *\<app_name>* med ett unikt appnamn. Det här namnet är en del av standard-DNS-webbplats för webbappen. Därför måste namnet vara unikt i förhållande till alla appar i Azure App Service.
 
@@ -368,7 +368,7 @@ När webbappen har skapats visar Azure CLI information liknande den i följande 
 
 Tidigare i den här självstudien definierade du miljövariabler för att ansluta till PostgreSQL-databasen.
 
-I App Service ställer du in miljövariabler som _appinställningar_ med kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set).
+I App Service ställer du in miljövariabler som _appinställningar_ med kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set).
 
 I följande exempel anges anslutningsinformation för databasen som appinställningar. Den använder även variabeln *WEBSITES_PORT* till containerporten 5000, vilket gör att containern tar emot HTTP-trafik på port 80.
 
@@ -378,7 +378,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 ### <a name="configure-custom-container-deployment"></a>Konfigurera distribution av anpassad container
 
-Trots att du redan har angett namnet på containeravbildningen behöver du fortfarande ange URL för det anpassade registret och autentiseringsuppgifterna. I Cloud Shell kör du kommandot [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set).
+Trots att du redan har angett namnet på containeravbildningen behöver du fortfarande ange URL för det anpassade registret och autentiseringsuppgifterna. I Cloud Shell kör du kommandot [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
 
 ```azurecli-interactive
 az webapp config container set --resource-group myResourceGroup --name <app_name> --docker-registry-server-user "<registry_name>" --docker-registry-server-password "<registry_password>" --docker-registry-server-url "https://<registry_name>.azurecr.io"

@@ -401,10 +401,10 @@
 ### [Hämta resultat för åtkomstgranskning](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## Skydda dina identiteter
-### [Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md)
-#### [Komma igång](active-directory-conditional-access-azure-portal-get-started.md)
+### Villkorlig åtkomst
+#### [Översikt](conditional-access/overview.md)
 #### Snabbstarter
-##### [Konfigurera MFA per app](conditional-access/app-based-mfa.md)
+##### [Kräva MFA för specifika appar](conditional-access/app-based-mfa.md)
 ##### [Kräv att användningsvillkoren godkänns](conditional-access/require-tou.md)
 ##### [Blockera åtkomst när en sessionsrisk identifieras](conditional-access/app-sign-in-risk.md)
 #### Självstudier
@@ -418,15 +418,16 @@
 ##### [Förstå enhetsprinciper för Office 365-tjänster](active-directory-conditional-access-device-policies.md)
 #### Instruktionsguider
 ##### [Bästa praxis](conditional-access/best-practices.md)
-##### [Konfigurera principer för villkorlig åtkomst för åtkomstförsök från ej betrodda nätverk](active-directory-conditional-access-untrusted-networks.md)
-##### [Konfigurera enhetsbaserad villkorlig åtkomst](active-directory-conditional-access-policy-connected-applications.md)
-##### [Konfigurera appbaserad villkorlig åtkomst](active-directory-conditional-access-mam.md)
-##### [Ange användningsvillkor för användare och appar](active-directory-tou.md)
+##### [Kräva MFA för åtkomstförsök från ej betrodda nätverk](conditional-access/untrusted-networks.md)
+##### [Kräva hanterade enheter](conditional-access/require-managed-devices.md)
+##### [Kräva godkända klientappar](conditional-access/app-based-conditional-access.md)
+##### [Kräva användningsvillkor för användare och appar](active-directory-tou.md)
 ##### [Migrera klassiska principer](conditional-access/policy-migration.md)
 ##### [Konfigurera VPN-anslutning](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [Konfigurera SharePoint och Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Reparation](active-directory-conditional-access-device-remediation.md)
-#### [Teknisk referens](active-directory-conditional-access-technical-reference.md)
+#### [Referens](conditional-access/technical-reference.md)
+##### [Teknisk referens](conditional-access/technical-reference.md)
 #### [Vanliga frågor och svar](conditional-access/faqs.md)
 
 ### Certifikatbaserad autentisering

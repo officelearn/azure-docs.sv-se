@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9c4032191738703b71319c05bce4f6bbbc61b44b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 85d58538e15881308ee1f645f7ddd12ec27c94de
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29847207"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423420"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-azure-cli"></a>Hämta resurser från en hanterad resursgrupp och ändra storleken på virtuella datorer med Azure CLI
 
@@ -39,12 +39,12 @@ Det här skriptet använder följande kommandon för att distribuera det hantera
 
 | Kommando | Anteckningar |
 |---|---|
-| [az managedapp list](https://docs.microsoft.com/cli/azure/managedapp#az_managedapp_list) | Visar en lista med hanterade program. Ange frågevärden om du vill förfina resultatvisningen. |
-| [az resource list](https://docs.microsoft.com/cli/azure/resource#az_resource_list) | Visar resurserna. Ange en resursgrupp och frågevärden om du vill förfina resultatvisningen. |
-| [az vm resize](https://docs.microsoft.com/cli/azure/vm#az_vm_resize) | Uppdatera storleken på en virtuell dator. |
+| [az managedapp list](https://docs.microsoft.com/cli/azure/managedapp#az-managedapp-list) | Visar en lista med hanterade program. Ange frågevärden om du vill förfina resultatvisningen. |
+| [az resource list](https://docs.microsoft.com/cli/azure/resource#az-resource-list) | Visar resurserna. Ange en resursgrupp och frågevärden om du vill förfina resultatvisningen. |
+| [az vm resize](https://docs.microsoft.com/cli/azure/vm#az-vm-resize) | Uppdatera storleken på en virtuell dator. |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till hanterade program finns i [Azure Managed Application overview](../overview.md) (Översikt över Azure Managed Application).
+* En introduktion till hanterade program finns i [översikten över Azure Managed Application](../overview.md).
 * Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).

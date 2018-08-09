@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 04/05/2018
-ms.openlocfilehash: 8c5a196afbcc607300dd69ada0a06a292a9c2c0c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 38ae923d86965e493501e8df64f7a064929c3cfb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635116"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422662"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mysql-server-using-azure-cli"></a>Övervaka och skala en Azure Database for MySQL-server med Azure CLI
 Det här CLI-exempelskriptet skalar en enda Azure Database for MySQL-servern till en annan prestandanivå när du har kört frågor mot måtten.
@@ -37,10 +37,10 @@ Det här skriptet använder de kommandon som beskrivs i följande tabell:
 
 | **Kommando** | **Anteckningar** |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
-| [az mysql server create](/cli/azure/mysql/server#az_mysql_server_create) | Skapar en MySQL-server som är värd för databaserna. |
-| [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) | Lista mätvärdet för resurserna. |
-| [az group delete](/cli/azure/group#az_group_delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az mysql server create](/cli/azure/mysql/server#az-mysql-server-create) | Skapar en MySQL-server som är värd för databaserna. |
+| [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) | Lista mätvärdet för resurserna. |
+| [az group delete](/cli/azure/group#az-group-delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om Azure CLI: [Azure CLI-dokumentation](/cli/azure).

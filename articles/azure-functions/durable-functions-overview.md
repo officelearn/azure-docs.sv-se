@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a760e66d40d7af7178ec9a2d5fc14afec2a55b10
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 25f7cf6de4f217219e510ae00ce21762e755d2e8
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115405"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627414"
 ---
 # <a name="durable-functions-overview"></a>Översikt över varaktiga funktioner
 
@@ -44,7 +44,7 @@ I första hand för varaktiga funktioner är förenkla komplexa, tillståndskän
 
 Varaktiga funktioner kan du implementera det här mönstret koncist i kod.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>C#-skript
 
 ```cs
 public static async Task<object> Run(DurableOrchestrationContext ctx)
@@ -62,6 +62,8 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
     }
 }
 ```
+> [!NOTE]
+> Det finns vissa skillnader vid skrivning till en förkompilerade varaktiga funktion i C# eller C# exempelskriptet visas innan. En C#-förkompilerad version-funktion kräver varaktiga parametrar som ska vara dekorerad med respektive attribut. Ett exempel är `[OrchestrationTrigger]` attributet för `DurableOrchestrationContext` parametern. Om parametrarna inte är korrekt dekorerad, körningen inte skulle kunna mata in variabler för funktionen och ger fel. Besök [exempel](https://github.com/Azure/azure-functions-durable-extension/blob/master/samples) fler exempel.
 
 #### <a name="javascript-functions-v2-only"></a>JavaScript (endast funktioner v2)
 
@@ -88,7 +90,7 @@ Den `ctx` parametern ([DurableOrchestrationContext](https://azure.github.io/azur
 
 Med normal funktion, fläkt kan du göra genom att använda funktionen Skicka flera meddelanden till en kö. Fläkt i är dock mycket mer utmanande. Du skulle behöva skriva kod för att spåra när de kö-utlösta funktionerna avslutas och lagra funktionen utdata. Tillägget varaktiga funktioner hanterar det här mönstret med relativt enkel kod.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>C#-skript
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -203,7 +205,7 @@ Ett exempel skulle återställa det tidigare async HTTP API-scenariot. I ställe
 
 Använder varaktiga funktioner, kan flera bildskärmar som använder godtyckliga slutpunkter skapas i några få kodrader. Övervakare kan avsluta körningen när vissa villkor uppfylls, eller avslutas med den [DurableOrchestrationClient](durable-functions-instance-management.md), och deras väntetidsintervallet kan ändras beroende på vissa villkor (d.v.s. exponentiell backoff.) Följande kod implementerar en grundläggande Övervakare.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>C#-skript
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -271,7 +273,7 @@ Ett exempel på en affärsprocess som inbegriper mänsklig interaktion är en go
 
 Det här mönstret kan implementeras med hjälp av en orchestrator-funktion. Orchestrator använder en [varaktiga timer](durable-functions-timers.md) att begära godkännande och eskalera vid timeout. Det skulle vänta tills en [extern händelse](durable-functions-external-events.md), vilket är det meddelande som genereras av vissa mänsklig interaktion.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>C#-skript
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -346,7 +348,7 @@ När en orchestration-funktion får mer arbete att göra (till exempel ett svars
 
 Beteendet repetitionsattacker skapar begränsningar på vilken typ av kod som kan skrivas i en orchestrator-funktion. Till exempel måste orchestrator-koden vara deterministisk, eftersom den ska återupprepas flera gånger och måste ge samma resultat varje gång. Den fullständiga listan över begränsningar finns i den [Orchestrator kod begränsningar](durable-functions-checkpointing-and-replay.md#orchestrator-code-constraints) delen av den **kontrollpunkter och starta om** artikeln.
 
-## <a name="language-support"></a>Stöd för språk
+## <a name="language-support"></a>Språkstöd
 
 För närvarande C# (Functions v1 och v2), F # och JavaScript (endast funktioner v2) är de enda språk som stöds för varaktiga funktioner. Detta inkluderar orchestrator och Aktivitetsfunktioner. Framöver kommer vi lägga till stöd för alla språk som stöds av Azure Functions. Se Azure-funktioner [GitHub-lagringsplatsen Problemlista](https://github.com/Azure/azure-functions-durable-extension/issues) att se senaste status för vår ytterligare språk stöder arbete.
 

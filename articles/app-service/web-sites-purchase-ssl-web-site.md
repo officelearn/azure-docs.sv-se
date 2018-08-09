@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: b7a0050791690e5157a4937df0d49a0f03f3df24
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 85d0c91a0b1cdf5703b394d6d232ab9cee72ee0c
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617606"
+ms.locfileid: "39627152"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Köp och konfigurera ett SSL-certifikat för din Azure Apptjänst
 
@@ -78,7 +78,7 @@ Från samma **Certifikatkonfigureringen** du använde i steg3, klickar du på **
 
 Välj önskad domän verifieringsmetod. 
 
-Det finns fyra typer av domänverifiering som stöds av App Service-certifikat: App Service, domän, e-post och manuell verifiering. Typerna verifiering beskrivs mer detaljerat i de [avancerade avsnitt](#advanced).
+Det finns fyra typer av domänverifiering som stöds av App Service-certifikat: App Service, domän och manuell verifiering. Typerna verifiering beskrivs mer detaljerat i de [avancerade avsnitt](#advanced).
 
 > [!NOTE]
 > **App Service-verifiering** är det enklaste alternativet när du vill verifiera domänen är redan mappad till en App Service-app i samma prenumeration. Den drar nytta av det faktum att App Service-appen har redan verifierats äger domänen.
@@ -131,20 +131,11 @@ Du ska nu kunna gå till din app med `HTTPS://` i stället för `HTTP://` att ve
 
 [!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
 
-## <a name="advanced"></a>Advanced
+## <a name="advanced"></a>Avancerat
 
 ### <a name="verifying-domain-ownership"></a>Verifiera Domänägarskap
 
-Det finns två fler typer av domänverifiering som stöds av App service-certifikat: e-post och manuell verifiering.
-
-#### <a name="mail-verification"></a>E-postverifiering
-
-Ett verifieringsmeddelande har redan skickats till e-postadresserna som är associerade med den här anpassade domänen.
-Öppna e-postmeddelandet och klicka på verifieringslänken för att slutföra verifieringssteg e-post.
-
-![Infoga bild av e-Postverifiering](./media/app-service-web-purchase-ssl-web-site/KVVerifyEmailSuccess.png)
-
-Om du vill skicka e-postbekräftelsen klickar du på den **skicka e-post** knappen.
+Det finns två typer av domänverifiering som stöds av App service-certifikat: domänverifiering och manuell verifiering.
 
 #### <a name="domain-verification"></a>Domänverifiering
 
@@ -216,7 +207,7 @@ Om SSL-certifikatet har konfigurerats för automatisk förnyelse, men den inte f
 - GoDaddy, vilket genererar App Service-certifikat, kräver domänkontroll vartannat år. Domänadministratören får ett e-postmeddelande när alla tre år för att verifiera domänen. Det gick inte att kontrollera e-postmeddelandet eller verifiera din domän förhindrar att App Service-certifikat förnyas automatiskt. 
 - På grund av en ändring i principen för GoDaddy måste alla App Service-certifikat som utfärdats före den 1 mars 2018 Omverifiering av domän vid tidpunkten för nästa förnyelse (även om den automatiska förnyelsen är aktiverat för certifikatet). Kontrollera din e-post och slutföra den här enstaka domänverifiering om du vill fortsätta den automatiska förnyelsen App Service certificate. 
 
-## <a name="more-resources"></a>Fler resurser
+## <a name="more-resources"></a>Flera resurser
 
 * [Använda HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
 * [Kräv TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-1112)

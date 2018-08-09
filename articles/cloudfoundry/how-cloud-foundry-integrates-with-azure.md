@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 0aac3eab8a60dc1e1e15b4656fad9ffea062c08e
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 689730edcc98a23c82373ae8d36c3b831b33c076
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968627"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627448"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Integrera Cloud Foundry med Azure
 
@@ -29,7 +29,7 @@ Det finns [6 delsystem i Cloud Foundry](https://docs.cloudfoundry.org/concepts/a
 
 ![Cloud Foundry på Azure-Integreringsarkitektur](media/CFOnAzureEcosystem-colored.png)
 
-## <a name="1-high-availability-and-scalability"></a>1. Hög tillgänglighet och skalbarhet
+## <a name="1-high-availability-and-scalability"></a>1 Hög tillgänglighet och skalbarhet
 ### <a name="managed-disk"></a>Hanterad Disk
 Bosh använder Azure CPI (Cloud Provider Interface) för att skapa för disken och ta bort rutiner. Som standard används ohanterade diskar. Det kräver att kunden att manuellt skapa storage-konton och sedan konfigurerar konton i CF manifestfiler. Detta beror på begränsningen av antalet diskar per lagringskonto.
 Nu [Managed Disk](https://azure.microsoft.com/services/managed-disks/) är tillgänglig, erbjuder hanterade diskar för säker och tillförlitlig lagring för virtuella datorer. Kunden behöver inte längre behöver bry dig om storage-konto för skalbarhet och hög tillgänglighet. Azure ordnar diskar automatiskt. Om det är en ny eller en befintlig distribution kan hanterar Azure-CPI generering och migrering av den hantera disken under en CF-distribution. Det går med PCF 1.11. Du kan även utforska öppen källkod Cloud Foundry [Managed Disk vägledning](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/managed-disks) referens. 
@@ -40,15 +40,15 @@ Azure Tillgänglighetszoner ger hög tillgänglighet genom att placera en uppsä
 > [!NOTE] 
 > Azure-Tillgänglighetszon erbjuds inte ännu för alla regioner, kontrollera senast [meddelande för listan över regioner som stöds](https://docs.microsoft.com/azure/availability-zones/az-overview). Öppna källa Cloud Foundry, kontrollera [Azure Tillgänglighetszon råd om öppen Cloud Foundry](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/availability-zone).
 
-## <a name="2-network-routing"></a>2. Nätverksroutning
+## <a name="2-network-routing"></a>2 Nätverksroutning
 Som standard används Azure belastningsutjämnare för inkommande CF API/apps-begäranden, vidarebefordrar dem till Gorouters. CF-komponenter som Diego hjärna, MySQL, ERT kan också använda belastningsutjämnaren för att belastningsutjämna trafiken för hög tillgänglighet. Azure tillhandahåller också en uppsättning med helt hanterad nätverkslösningar för belastningsutjämning. Om du behöver för TLS-avslutning (”SSL-avlastning”) eller per HTTP/HTTPS-begäran application layer bearbetning, kan du överväga att Application Gateway. Överväg att standardbelastningsutjämnare för hög tillgänglighet och skalbarhet för belastningsutjämning på layer 4.
 ### <a name="azure-application-gateway-"></a>Azure Application Gateway *
 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) erbjuder olika layer 7 belastningsutjämning, inklusive SSL-avlastning, från slutpunkt till slutpunkt SSL, Brandvägg för webbaserade program, Cookiebaserad sessionstillhörighet och mycket mer. Du kan [konfigurera Application Gateway i öppen källkod Cloud Foundry](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/application-gateway). PCF kan kontrollera den [PCF 2.1 viktig](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/opsmanager-rn.html#azure-application-gateway) för POC-test.
 
 ### <a name="azure-standard-load-balancer-"></a>Azure Standard Load Balancer *
-Azure Load Balancer är en Layer 4-belastningsutjämnare. Används för att distribuera trafik mellan instanser av tjänster i en belastningsutjämnad uppsättning. Standardversionen ger [avancerade funktioner](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) över grundläggande version. Till exempel 1. Maxgränsen för backend-poolen utlöses från 100 till 1000 virtuella datorer.  2. Slutpunkterna har nu stöd för flera tillgänglighetsuppsättningar i stället för en enskild tillgänglighetsuppsättning.  3. Ytterligare funktioner som högtillgänglighetsportar, rikare övervakningsdata osv. Om du flyttar till Azure-Tillgänglighetszon krävs standardbelastningsutjämnare. För en ny distribution rekommenderar vi att du börjar med Azure Standard Load Balancer. 
+Azure Load Balancer är en Layer 4-belastningsutjämnare. Används för att distribuera trafik mellan instanser av tjänster i en belastningsutjämnad uppsättning. Standardversionen ger [avancerade funktioner](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) över grundläggande version. Till exempel 1. Maxgränsen för backend-poolen utlöses från 100 till 1000 virtuella datorer.  2 Slutpunkterna har nu stöd för flera tillgänglighetsuppsättningar i stället för en enskild tillgänglighetsuppsättning.  3 Ytterligare funktioner som högtillgänglighetsportar, rikare övervakningsdata osv. Om du flyttar till Azure-Tillgänglighetszon krävs standardbelastningsutjämnare. För en ny distribution rekommenderar vi att du börjar med Azure Standard Load Balancer. 
 
-## <a name="3-authentication"></a>3. Autentisering 
+## <a name="3-authentication"></a>3 Autentisering 
 [Cloud Foundry-användarkonto och autentisering](https://docs.cloudfoundry.org/concepts/architecture/uaa.html) är centrala identity management-tjänsten för CF och dess olika komponenter. [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) är Microsofts flera innehavare, molnbaserad katalog- och identity management-tjänsten. Som standard används UAA för Cloud Foundry-autentisering. Som ett avancerat alternativ stöd UAA också för Azure AD som en extern användare butik. Azure AD-användare kan komma åt Cloud Foundry med sina LDAP-identitet, utan ett Cloud Foundry-konto. Följ dessa steg för att [konfigurera Azure AD för UAA i PCF](http://docs.pivotal.io/p-identity/1-6/azure/index.html).
 
 ## <a name="4-data-storage-for-cloud-foundry-runtime-system"></a>4. Datalagring för Cloud Foundry Runtime System
@@ -81,8 +81,8 @@ Klicka på [här](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms
 #### <a name="managed-standard-disk"></a>Hanterade standarddiskar: 
 Premium-diskar rekommenderades för pålitlig prestanda i produktion.  Med [Managed Disk](https://azure.microsoft.com/services/managed-disks/), standard-lagring kan också leverera liknande tillförlitlighet med olika prestanda. För arbetsbelastningar som inte är resultatdrivna, som utveckling och testning eller icke-kritiska miljö, erbjuder hanterade standarddiskar ett alternativ till lägre kostnad.  
 ### <a name="cost-saving-in-general"></a>Kostnadsbesparande i allmänhet 
-#### <a name="significant-vm-cost-saving-with-reserved-instances"></a>Betydande VM kostnaden sparas med reserverade instanser: 
-Idag alla CF virtuella datorer debiteras enligt ”på begäran” prissättning, även om miljöer vanligtvis vara igång på obestämd tid. Du kan nu reserverad kapacitet för virtuell dator på en term för 1 eller 3 år och få rabatter på 45-65%. Rabatter i faktureringssystem, utan ändringar i din miljö. Mer information finns i [hur reserverade instanser fungerar](https://azure.microsoft.com/pricing/reserved-vm-instances/). 
+#### <a name="significant-vm-cost-saving-with-azure-reservations"></a>Betydande VM kostnaden spara med Azure reservationer: 
+Idag alla CF virtuella datorer debiteras enligt ”på begäran” prissättning, även om miljöer vanligtvis vara igång på obestämd tid. Du kan nu reserverad kapacitet för virtuell dator på en term för 1 eller 3 år och få rabatter på 45-65%. Rabatter i faktureringssystem, utan ändringar i din miljö. Mer information finns i [hur Azure reservationer fungerar](https://azure.microsoft.com/pricing/reserved-vm-instances/). 
 #### <a name="managed-premium-disk-with-smaller-sizes"></a>Hanterade Premiumdiskar med mindre storlekar: 
 Hanterade diskar support mindre diskstorlekar, till exempel P4(32 GB) och P6(64 GB) för både premium och standard-diskar. Om du har liten arbetsbelastningar kan minska du kostnaderna när du migrerar från standard premium-diskar till hanterade premiumdiskar.
 #### <a name="utilizing-azure-first-party-services"></a>Använda Azure-tjänster som första part: 

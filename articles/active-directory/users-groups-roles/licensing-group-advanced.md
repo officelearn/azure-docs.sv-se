@@ -14,12 +14,12 @@ ms.component: users-groups-roles
 ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ecb0919b68516fdb886ea745d963349ff29f83b4
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 15b52920774a878cd386ced5966d507768a8af70
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867332"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627397"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenarier, begränsningar och kända problem med hjälp av grupper för att hantera licensiering i Azure Active Directory
 
@@ -146,13 +146,13 @@ Du kan använda ett PowerShell-skript för att kontrollera om användarna har en
 
 ## <a name="use-audit-logs-to-monitor-group-based-licensing-activity"></a>Använd granskningsloggarna för att övervaka gruppbaserad licensiering
 
-Du kan använda [Azure AD-granskningsloggar](./../active-directory-reporting-activity-audit-logs.md#audit-logs) att se alla aktiviteter relaterade till gruppbaserad licensiering, inklusive:
+Du kan använda [Azure AD-granskningsloggar](../reports-monitoring/concept-audit-logs.md#audit-logs) att se alla aktiviteter relaterade till gruppbaserad licensiering, inklusive:
 - vem som har ändrat licenser för grupper
 - När systemet startar bearbetning av en ändring av licens och när den slutförts
 - vilken licensändringar har gjorts till en användare på grund av en grupp licenstilldelning.
 
 >[!NOTE]
-> Granskningsloggarna är tillgängliga på de flesta blad i Azure Active Directory-avsnittet i portalen. Beroende på var du åt dem, kanske filter redan används till att bara visa aktivitet som är relevanta för kontexten på bladet. Om du inte ser de resultat du vill ha, granska [filtreringsalternativ](./../active-directory-reporting-activity-audit-logs.md#filtering-audit-logs) eller få åtkomst till de ofiltrerade granskningsloggarna under [ **Azure Active Directory > aktivitet > granskningsloggar** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit).
+> Granskningsloggarna är tillgängliga på de flesta blad i Azure Active Directory-avsnittet i portalen. Beroende på var du åt dem, kanske filter redan används till att bara visa aktivitet som är relevanta för kontexten på bladet. Om du inte ser de resultat du vill ha, granska [filtreringsalternativ](../reports-monitoring/concept-audit-logs.md#filtering-audit-logs) eller få åtkomst till de ofiltrerade granskningsloggarna under [ **Azure Active Directory > aktivitet > granskningsloggar** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit).
 
 ### <a name="find-out-who-modified-a-group-license"></a>Ta reda på vem som utförde en grupplicens
 
@@ -231,7 +231,7 @@ Om du använder gruppbaserad licensiering, är det en bra idé att bekanta dig m
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om övriga scenarier för hantering av programvarulicenser genom gruppbaserad licensiering finns:
+Mer information om andra scenarier för licenshantering via gruppbaserad licensiering finns här:
 
 * [Vad är gruppbaserad licensiering i Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
 * [Tilldela licenser till en grupp i Azure Active Directory](licensing-groups-assign.md)

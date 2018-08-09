@@ -8,7 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
-ms.component: protection
+ms.component: conditional-access
 ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: eac2211a643e6b297117788da90af6da6eaa1433
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: eee4d73042232aabd995a749b7848306be0ef655
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531156"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628264"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Snabbstart: Kräva MFA för specifika appar med villkorlig åtkomst i Azure Active Directory 
 
@@ -95,7 +95,7 @@ Ange i din princip:
 
 5. På den **New** sidan den **namn** textrutan typ **kräver MFA för Azure portalåtkomst**.
 
-    ![Namn](./media/app-based-mfa/05.png)
+    ![namn](./media/app-based-mfa/05.png)
 
 6. I den **tilldelning** klickar du på **användare och grupper**.
 
@@ -202,7 +202,7 @@ I det föregående avsnittet har du lärt dig hur att utvärdera en simulerad in
 
 Om du vill testa din princip, försöker logga in på din [Azure-portalen](https://portal.azure.com) med hjälp av din **Isabella Simonsen** testa konto. Du bör se en dialogruta som du måste ange ditt konto för ytterligare säkerhetsverifiering.
 
-![Multi-Factor Authentication](./media/app-based-mfa/22.png)
+![Multifaktorautentisering](./media/app-based-mfa/22.png)
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
@@ -213,7 +213,7 @@ När den inte längre behövs kan du ta bort testanvändaren och principen för 
 
 - Välj din princip för att ta bort principen, och klicka sedan på **ta bort** i verktygsfältet för snabb åtkomst.
 
-    ![Multi-Factor Authentication](./media/app-based-mfa/33.png)
+    ![Multifaktorautentisering](./media/app-based-mfa/33.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

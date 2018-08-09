@@ -1,5 +1,5 @@
 ---
-title: Skapa Azure Service Bus-resurser med hjälp av Resource Manager-mallar | Microsoft Docs
+title: Skapa Azure Service Bus-resurser med Resource Manager-mallar | Microsoft Docs
 description: Använd Azure Resource Manager-mallar för att automatisera skapandet av Service Bus-resurser
 services: service-bus-messaging
 documentationcenter: .net
@@ -14,55 +14,55 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 04/11/2018
 ms.author: sethm
-ms.openlocfilehash: c8d84de608ccf3d9a9293c20c07c10a00b73da68
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 64942d80a2b8477c395abf185a332f31709598c6
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598293"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627101"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Skapa Service Bus-resurser med hjälp av Azure Resource Manager-mallar
 
 Den här artikeln beskriver hur du skapar och distribuerar Service Bus-resurser med hjälp av Azure Resource Manager-mallar, PowerShell och Service Bus-resursprovidern.
 
-Azure Resource Manager-mallar hjälpa dig att definiera vilka resurser för att distribuera en lösning och ange parametrar och variabler som gör att du kan ange värden för olika miljöer. Mallen skrivs i JSON och består av uttryck som du kan använda för att skapa värden för din distribution. Detaljerad information om hur du skriver Azure Resource Manager-mallar och en beskrivning av mallen formatet finns [struktur och syntaxen för Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md).
+Azure Resource Manager-mallar hjälper dig att definiera resurserna som ska distribueras för en lösning och ange parametrar och variabler som gör att du kan ange värden för olika miljöer. Mallen är skriven i JSON och består av uttryck som du kan använda för att skapa värden för din distribution. Detaljerad information om hur du skriver Azure Resource Manager-mallar och en beskrivning av mallformat finns i [strukturen och syntaxen för Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md).
 
 > [!NOTE]
-> Exemplen i den här artikeln visar hur du använder Azure Resource Manager för att skapa ett namnområde för Service Bus och meddelandeentitet (kö). Andra mall-exempel finns i [Azure Quickstart mallgalleriet] [ Azure Quickstart Templates gallery] och Sök efter **Service Bus**.
+> Exemplen i den här artikeln visar hur du använder Azure Resource Manager för att skapa en Service Bus-namnområde och en meddelandeentitet (kö). Andra mallexempel finns den [Azure-Snabbstartsmallar galleriet] [ Azure Quickstart Templates gallery] och Sök efter **Service Bus**.
 >
 >
 
 ## <a name="service-bus-resource-manager-templates"></a>Service Bus Resource Manager-mallar
 
-Dessa Service Bus Azure Resource Manager-mallar är tillgängliga för hämtning och distribution. Klicka på länken nedan för mer information om var och en, med länkar till mallar på GitHub:
+De här Service Bus Azure Resource Manager-mallar är tillgängliga för hämtning och distribution. Klicka på följande länkar för ytterligare information om var och en med länkar till mallar på GitHub:
 
-* [Skapa ett namnområde för Service Bus](service-bus-resource-manager-namespace.md)
-* [Skapa ett namnområde för Service Bus med kön](service-bus-resource-manager-namespace-queue.md)
-* [Skapa ett namnområde för Service Bus med ämnet och prenumerationen](service-bus-resource-manager-namespace-topic.md)
-* [Skapa ett namnområde för Service Bus med kön och auktorisering regel](service-bus-resource-manager-namespace-auth-rule.md)
-* [Skapa ett namnområde för Service Bus med ämne, prenumeration och regel](service-bus-resource-manager-namespace-topic-with-rule.md)
+* [Skapa ett Service Bus-namnområde](service-bus-resource-manager-namespace.md)
+* [Skapa ett Service Bus-namnområde med kö](service-bus-resource-manager-namespace-queue.md)
+* [Skapa ett Service Bus-namnområde med ämne och en prenumeration](service-bus-resource-manager-namespace-topic.md)
+* [Skapa ett Service Bus-namnområde med kön och auktorisering](service-bus-resource-manager-namespace-auth-rule.md)
+* [Skapa ett Service Bus-namnområde med ämne, prenumeration och regel](service-bus-resource-manager-namespace-topic-with-rule.md)
 
 ## <a name="deploy-with-powershell"></a>Distribuera med PowerShell
 
-Följande procedur beskriver hur du använder PowerShell för att distribuera en Azure Resource Manager-mall som skapar en standardnivån Service Bus-namnrymd och en kö inom det här namnområdet. Det här exemplet är baserad på den [skapa ett namnområde för Service Bus med kön](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue) mall. Ungefärlig arbetsflödet är följande:
+Följande procedur beskriver hur du använder PowerShell för att distribuera en Azure Resource Manager-mall som skapar en Standard-nivån Service Bus-namnområde och en kö i namnområdet. Det här exemplet är baserad på den [skapa ett Service Bus-namnområde med kön](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue) mall. Ungefärlig arbetsflödet är följande:
 
 1. Installera PowerShell.
-2. Skapa mallen och (valfritt) en parameterfil.
+2. Skapa mallen och (frivilligt) en parameterfil.
 3. Logga in på ditt Azure-konto i PowerShell.
 4. Skapa en ny resursgrupp om det inte finns.
 5. Testa distributionen.
-6. Om du vill ange ett distribution-läge.
+6. Om du vill kan du ange Distributionsläge.
 7. Distribuera mallen.
 
-Fullständig information om hur du distribuerar Azure Resource Manager-mallar finns [distribuera resurser med Azure Resource Manager-mallar][Deploy resources with Azure Resource Manager templates].
+Fullständig information om hur du distribuerar Azure Resource Manager-mallar finns i [distribuera resurser med Azure Resource Manager-mallar][Deploy resources with Azure Resource Manager templates].
 
 ### <a name="install-powershell"></a>Installera PowerShell
 
-Installera Azure PowerShell genom att följa anvisningarna i [komma igång med Azure PowerShell](/powershell/azure/get-started-azureps).
+Installera Azure PowerShell genom att följa instruktionerna i [komma igång med Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ### <a name="create-a-template"></a>Skapa en mall
 
-Klona lagringsplatsen eller kopiera den [201-servicebus-skapa-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) mall från GitHub:
+Klona databasen eller kopiera den [201-servicebus-skapa-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) mall från GitHub:
 
 ```json
 {
@@ -137,7 +137,7 @@ Klona lagringsplatsen eller kopiera den [201-servicebus-skapa-queue](https://git
 
 ### <a name="create-a-parameters-file-optional"></a>Skapa en fil med parametrar (valfritt)
 
-Om du vill använda en fil för valfria parametrar, kopiera den [201-servicebus-skapa-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json) fil. Ersätt värdet för `serviceBusNamespaceName` med namnet på Service Bus-namnområde som du vill skapa i den här distributionen och Ersätt värdet för `serviceBusQueueName` med namnet på den kö som du vill skapa.
+Om du vill använda en fil med följande valfria parametrar, kopiera den [201-servicebus-skapa-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json) fil. Ersätt värdet för `serviceBusNamespaceName` med namnet på Service Bus-namnområde som du vill skapa i den här distributionen och Ersätt värdet för `serviceBusQueueName` med namnet på kön som du vill skapa.
 
 ```json
 {
@@ -157,7 +157,7 @@ Om du vill använda en fil för valfria parametrar, kopiera den [201-servicebus-
 }
 ```
 
-Mer information finns i [parametrar](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) artikel.
+Mer information finns i den [parametrar](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) artikeln.
 
 ### <a name="log-in-to-azure-and-set-the-azure-subscription"></a>Logga in på Azure och ange Azure-prenumeration
 
@@ -167,21 +167,21 @@ Kör följande kommando från en PowerShell-kommandotolk:
 Connect-AzureRmAccount
 ```
 
-Du uppmanas att logga in på ditt Azure-konto. Kör följande kommando för att visa tillgängliga prenumerationer efter inloggningen:
+Du uppmanas att logga in på ditt Azure-konto. Efter inloggningen, kör du följande kommando för att visa dina tillgängliga prenumerationer:
 
 ```powershell
 Get-AzureRMSubscription
 ```
 
-Det här kommandot returnerar en lista över tillgängliga Azure-prenumerationer. Välj en prenumeration för den aktuella sessionen genom att köra följande kommando. Ersätt `<YourSubscriptionId>` med GUID för Azure-prenumerationen du vill använda:
+Det här kommandot returnerar en lista över tillgängliga Azure-prenumerationer. Välj en prenumeration för den aktuella sessionen genom att köra följande kommando. Ersätt `<YourSubscriptionId>` med GUID för Azure-prenumeration du vill använda:
 
 ```powershell
 Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 ```
 
-### <a name="set-the-resource-group"></a>Ange resursgruppen.
+### <a name="set-the-resource-group"></a>Ange resursgruppens namn
 
-Om du inte har en befintlig resurs, skapa en ny resursgrupp med det ** New-AzureRmResourceGroup ** kommando. Ange namnet på den resursgrupp och plats som du vill använda. Exempel:
+Om du inte har en befintlig resurs, skapa en ny resursgrupp med det ** New-AzureRmResourceGroup ** kommando. Ange namnet på resursgruppen och den plats som du vill använda. Exempel:
 
 ```powershell
 New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"
@@ -199,17 +199,17 @@ ResourceId        : /subscriptions/<GUID>/resourceGroups/MyDemoRG
 
 ### <a name="test-the-deployment"></a>Testa distributionen
 
-Verifiera distributionen genom att köra den `Test-AzureRmResourceGroupDeployment` cmdlet. När du testar distributionen, ange parametrar precis som vid körning av distributionen.
+Verifiera distributionen genom att köra den `Test-AzureRmResourceGroupDeployment` cmdlet. När du testar distributionen kan du ange parametrar, precis som när du genomför distributionen.
 
 ```powershell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
-### <a name="create-the-deployment"></a>Skapa en distribution
+### <a name="create-the-deployment"></a>Skapa distributionen
 
-Om du vill skapa den nya distributionen, kör den `New-AzureRmResourceGroupDeployment` cmdlet, och ange nödvändiga parametrar när du tillfrågas. Parametrarna inkluderar ett namn för din distribution, namnet på din resursgrupp och sökväg eller URL till mallfilen. Om den **läge** parametern anges standardvärdet **stegvis** används. Mer information finns i [inkrementell och fullständig distributioner](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments).
+Du skapar den nya distributionen måste köra den `New-AzureRmResourceGroupDeployment` cmdlet, och ange nödvändiga parametrar när du tillfrågas. Parametrarna inkluderar ett namn för din distribution, namnet på resursgruppen, och sökvägen eller URL: en till mallfilen. Om den **läge** parametern inte anges standardvärdet för **stegvis** används. Mer information finns i [inkrementell och fullständig distributioner](../azure-resource-manager/deployment-modes.md).
 
-Följande kommando efterfrågar tre parametrar i PowerShell-fönstret:
+Kommandot frågar efter de tre parametrarna i PowerShell-fönstret:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
@@ -227,14 +227,14 @@ Du kan också använda infogade parametrar när du kör cmdlet för distribution
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
-Att köra en [fullständig](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) distribution, ange den **läge** parameter till **Slutför**:
+Att köra en [fullständig](../azure-resource-manager/deployment-modes.md) distributionen, den **läge** parameter **Slutför**:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
 ### <a name="verify-the-deployment"></a>Kontrollera distributionen
-Om resurserna som har distribuerats visas en sammanfattning av distributionen i PowerShell-fönstret:
+Om resurserna som har distribuerats, visas en sammanfattning av distributionen i PowerShell-fönstret:
 
 ```powershell
 DeploymentName    : MyDemoDeployment
@@ -253,7 +253,7 @@ Parameters        :
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Nu har du sett grundläggande arbetsflöde och kommandon för att distribuera en Azure Resource Manager-mall. Mer detaljerad information finns i följande länkar:
+Du har nu sett de grundläggande arbetsflöde och kommandon för att distribuera en Azure Resource Manager-mall. Mer detaljerad information finns i följande länkar:
 
 * [Översikt över Azure Resource Manager][Azure Resource Manager overview]
 * [Distribuera resurser med Resource Manager-mallar och Azure PowerShell][Deploy resources with Azure Resource Manager templates]

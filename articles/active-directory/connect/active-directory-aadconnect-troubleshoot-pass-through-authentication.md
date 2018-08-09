@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6cd6b139699b38a06a8e3f9fce5eb6e24fe24654
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 99f877a0002e9a631bcfdabdbea51fcf2ca1a2c1
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214183"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626600"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Felsöka Azure Active Directory-direktautentisering
 
@@ -43,7 +43,7 @@ Kontrollera att funktionen direktautentisering är fortfarande **aktiverad** på
 
 Om användaren inte kan logga in med hjälp av direktautentisering, kan de se något av följande användarinriktade fel på skärmen för Azure AD: 
 
-|Fel|Beskrivning|Lösning
+|Fel|Beskrivning|Matchning
 | --- | --- | ---
 |AADSTS80001|Det går inte att ansluta till Active Directory|Kontrollera att agentservrar är medlemmar i samma AD-skog som de användare vars lösenord behöver verifieras och kunna ansluta till Active Directory.  
 |AADSTS8002|En timeout inträffade vid anslutning till Active Directory|Kontrollera att Active Directory är tillgänglig och svarar på förfrågningar från agenter.
@@ -53,13 +53,13 @@ Om användaren inte kan logga in med hjälp av direktautentisering, kan de se n�
 
 ### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Orsaker till felet logga in på Azure Active Directory Administrationscenter (kräver Premium-licens)
 
-Om klienten har en associerad med den Azure AD Premium-licens, kan du också titta på den [inloggningsaktivitet rapporten](../active-directory-reporting-activity-sign-ins.md) på den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com/).
+Om klienten har en associerad med den Azure AD Premium-licens, kan du också titta på den [inloggningsaktivitet rapporten](../reports-monitoring/concept-sign-ins.md) på den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com/).
 
 ![Azure Active Directory Administrationscenter - rapporten inloggningar](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 
 Gå till **Azure Active Directory** -> **inloggningar** på den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com/) och klicka på en viss användares inloggningsaktivitet. Leta efter den **LOGGA IN FELKODEN** fält. Mappa fältets värde till en felorsak och en lösning med hjälp av följande tabell:
 
-|Felkod för inloggning|Logga in felorsak|Lösning
+|Felkod för inloggning|Logga in felorsak|Matchning
 | --- | --- | ---
 | 50144 | Användarens Active Directory-lösenord har upphört att gälla. | Återställa användarens lösenord i din lokala Active Directory.
 | 80001 | Ingen autentiseringsagent är tillgänglig. | Installera och registrera en Agent för autentisering.

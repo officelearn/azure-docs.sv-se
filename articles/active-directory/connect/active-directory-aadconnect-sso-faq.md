@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 08/07/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9c59db56ad78818d9b6165d27fd2e64f0bfd902c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 29ed96044ceaa914db3f8b7090a1be5f65827e54
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283231"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627482"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sömlös enkel inloggning: vanliga frågor och svar
 
@@ -40,19 +40,20 @@ Nej. Sömlös enkel inloggning är endast tillgängligt i den globala instansen 
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Vilka program utnyttja `domain_hint` eller `login_hint` parametern möjligheterna för sömlös enkel inloggning?
 
-Nedan följer en ofullständig lista över program som skickar dessa parametrar till Azure AD och därför ger användarna en tyst inloggningsupplevelse med sömlös enkel inloggning (t.ex, du behöver inte för användarna att ange sina användarnamn):
+Nedan följer en ofullständig lista över program som kan skicka dessa parametrar till Azure AD, och därför ger användarna en tyst inloggningsupplevelse med sömlös enkel inloggning (t.ex, du behöver inte för användarna att ange sina användarnamn eller lösenord):
 
 | Programnamn | Programmets URL som ska användas |
 | -- | -- |
-| Åtkomstpanelen | myapps.microsoft.com/contoso.com |
-| Outlook på webben | outlook.office365.com/contoso.com |
+| Åtkomstpanelen | https://myapps.microsoft.com/contoso.com |
+| Outlook på webben | https://outlook.office365.com/contoso.com |
+| Office 365-portalen | https://portal.office.com?domain_hint=contoso.com |
 
 Dessutom kan användare får en tyst inloggning om ett program skickar inloggningsförfrågningar till Azure AD: s klientslutpunkter – det vill säga https://login.microsoftonline.com/contoso.com/<..> eller https://login.microsoftonline.com/<tenant_ID>/<..> – i stället för Azure AD: s vanliga slutpunkt - det vill säga https://login.microsoftonline.com/common/<...>. Nedan följer en ofullständig lista över program som gör att dessa typer av inloggningsförfrågningar.
 
 | Programnamn | Programmets URL som ska användas |
 | -- | -- |
-| sharepoint online | Contoso.SharePoint.com |
-| Azure Portal | portal.azure.com/contoso.com |
+| SharePoint Online | https://contoso.sharepoint.com |
+| Azure Portal | https://portal.azure.com/contoso.com |
 
 I tabellerna ovan ersätter du ”contoso.com” med ditt domännamn för att hämta rätt program-URL: er för din klient.
 

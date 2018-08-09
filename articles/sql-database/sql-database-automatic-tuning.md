@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 6ed113d11a0c61620ae4a9d48eee957bb979dc11
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: dd6e8f5f46e9fdf6887cc2a0b0c7b15bbd00fabd
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526801"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626207"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Automatisk justering i Azure SQL Database
 
@@ -77,6 +77,6 @@ Konfigurera automatisk justering alternativ på en server och ärver inställnin
 
 - För att aktivera automatisk justering i Azure SQL Database för att hantera din arbetsbelastning, se [aktivera automatisk justering](sql-database-automatic-tuning-enable.md).
 - Om du vill granska och tillämpa automatiska justeringsrekommendationer manuellt finns i [hitta och tillämpa prestandarekommendationer](sql-database-advisor-portal.md).
-- Läs om hur du skapar e-postmeddelanden för automatiska justeringsrekommendationer i [e-postmeddelanden för automatisk justering](sql-database-automatic-tuning-email-notifications.md)
+- Läs om hur du skapar e-postmeddelanden för automatiska justeringsrekommendationer i [e-postmeddelanden för automatisk justering](sql-database-automatic-tuning-email-notifications.md).
 - Läs om inbyggd intelligens som används i automatisk justering i [artificiell intelligens justerar Azure SQL-databaser](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
 - Läs om hur automatisk justering fungerar i Azure SQL Database och SQL server 2017 i [automatisk justering i SQL Server](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).

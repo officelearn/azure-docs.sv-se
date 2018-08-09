@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: f139f9520b6bcb5f39fd4436a1ea2eee6fddf344
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d093aa6119b5ab316e5ffba77806e10cd067b032
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618979"
+ms.locfileid: "39626819"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory som bevis på koncept strategibok: komponenter
 
@@ -66,7 +66,7 @@ Ungefärlig tid att Slutför: en timme för mindre än 1 000 PoC-användare
 | Steg | Resurser |
 | --- | --- |
 | Hämta den senaste versionen av Azure AD Connect | [Ladda ned Microsoft Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) |
-| Installera Azure AD Connect med den enklaste sökvägen: Express <br/>1. Filtrera till mål-Organisationsenhet för att minimera tid som Synkroniseringscykel<br/>2. Välj Målet uppsättning användare i den lokala gruppen.<br/>3. Distribuera funktioner som krävs av den andra POC-teman | [Azure AD Connect: Anpassad installation: domän och Organisationsenhet filtrering](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect: Anpassad installation: Filtrering baserad på grupp](./connect/active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect: Integrera dina lokala identiteter med Azure Active Directory: Konfigurera synkroniseringsfunktioner](./connect/active-directory-aadconnect.md#configure-sync-features) |
+| Installera Azure AD Connect med den enklaste sökvägen: Express <br/>1 Filtrera till mål-Organisationsenhet för att minimera tid som Synkroniseringscykel<br/>2 Välj Målet uppsättning användare i den lokala gruppen.<br/>3 Distribuera funktioner som krävs av den andra POC-teman | [Azure AD Connect: Anpassad installation: domän och Organisationsenhet filtrering](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect: Anpassad installation: Filtrering baserad på grupp](./connect/active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect: Integrera dina lokala identiteter med Azure Active Directory: Konfigurera synkroniseringsfunktioner](./connect/active-directory-aadconnect.md#configure-sync-features) |
 | Öppna Azure AD Connect Användargränssnittet och se körs profiler slutförda (Import, synkronisering och export) | [Azure AD Connect sync: Scheduler](./connect/active-directory-aadconnectsync-feature-scheduler.md) |
 | Öppna den [Azure AD-hanteringsportalen](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/), går du till ”alla användare”-bladet, Lägg till kolumn ”auktoritetskälla” och se användarna visas markerad korrekt som kommer från ”Windows Server AD” | [Azure AD-hanteringsportalen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) |
 
@@ -159,7 +159,7 @@ Ungefärlig tid att Slutför: 60 minuter
 | Vänta några minuter medan etableringen har slutförts.  Under tiden kan kan du kontrollera etableringsrapporterna |  |
 | Logga in på https://myapps.microsoft.com/ som en användare som har åtkomst | [Vad är åtkomstpanelen?](user-help/active-directory-saas-access-panel-introduction.md) |
 | Klicka på ikonen för programmet som nyss skapades. Bekräfta åtkomst |  |
-| Alternativt kan du kontrollera användningsrapporter för programmet. Observera att det finns vissa svarstid, så du behöver vänta en stund att se att trafiken i rapporterna. | [Logga in aktivitetsrapporter i Azure Active Directory-portalen: användning av hanterade program](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Kvarhållningsprinciper för rapporter i Azure Active Directory](active-directory-reporting-retention.md) |
+| Alternativt kan du kontrollera användningsrapporter för programmet. Observera att det finns vissa svarstid, så du behöver vänta en stund att se att trafiken i rapporterna. | [Logga in aktivitetsrapporter i Azure Active Directory-portalen: användning av hanterade program](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Kvarhållningsprinciper för rapporter i Azure Active Directory](reports-monitoring/reference-reports-data-retention.md) |
 
 ### <a name="considerations"></a>Överväganden
 
@@ -191,7 +191,7 @@ Ungefärlig tid att Slutför: 15 minuter
 | Klicka på ikonen för programmet som nyss skapades. | [Vad är åtkomstpanelen?: lösenordsbaserad SSO utan att behöva etablera identitet](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Ange autentiseringsuppgifter för programmet | [Vad är åtkomstpanelen?: lösenordsbaserad SSO utan att behöva etablera identitet](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Stäng webbläsaren och upprepa inloggningen. Den här gången ska användaren få sömlös åtkomst till programmet. |  |
-| Alternativt kan du kontrollera användningsrapporter för programmet. Observera att det finns vissa svarstid, så du behöver vänta en stund att se att trafiken i rapporterna. | [Logga in aktivitetsrapporter i Azure Active Directory-portalen: användning av hanterade program](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Kvarhållningsprinciper för rapporter i Azure Active Directory](active-directory-reporting-retention.md) |
+| Alternativt kan du kontrollera användningsrapporter för programmet. Observera att det finns vissa svarstid, så du behöver vänta en stund att se att trafiken i rapporterna. | [Logga in aktivitetsrapporter i Azure Active Directory-portalen: användning av hanterade program](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Kvarhållningsprinciper för rapporter i Azure Active Directory](reports-monitoring/reference-reports-data-retention.md) |
 
 ### <a name="considerations"></a>Överväganden
 
@@ -223,7 +223,7 @@ Ungefärlig tid att Slutför: 30 minuter
 | Konfigurera enkel inloggning med lösenord | [Hantera enkel inloggning för företagsappar i nya Azure portal: lösenordsbaserad inloggning](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
 | Tilldela appen till den grupp som definieras i förutsättningarna vid tilldelning av autentiseringsuppgifter | [Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Logga in som olika användare åtkomst till appen som den **samma delade konto.**  |  |
-| Alternativt kan du kontrollera användningsrapporter för programmet. Observera att det finns vissa svarstid, så du behöver vänta en stund att se att trafiken i rapporterna. | [Logga in aktivitetsrapporter i Azure Active Directory-portalen: användning av hanterade program](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Kvarhållningsprinciper för rapporter i Azure Active Directory](active-directory-reporting-retention.md) |
+| Alternativt kan du kontrollera användningsrapporter för programmet. Observera att det finns vissa svarstid, så du behöver vänta en stund att se att trafiken i rapporterna. | [Logga in aktivitetsrapporter i Azure Active Directory-portalen: användning av hanterade program](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Kvarhållningsprinciper för rapporter i Azure Active Directory](reports-monitoring/reference-reports-data-retention.md) |
 
 
 ### <a name="considerations"></a>Överväganden
@@ -500,17 +500,17 @@ Ungefärlig tid att Slutför: 20 minuter
 | Förhandskrav | Resurser |
 | --- | --- |
 | Enhet med Tor webbläsare hämtas och installeras | [Hämta Tor webbläsare](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Åtkomst till POC användare göra inloggningen | [Azure Active Directory Identity Protection spelbok](active-directory-identityprotection-playbook.md) |
+| Åtkomst till POC användare göra inloggningen | [Azure Active Directory Identity Protection spelbok](identity-protection/playbook.md) |
 
 ### <a name="steps"></a>Steg
 
 | Steg | Resurser |
 | --- | --- |
 | Öppna tor webbläsare | [Hämta Tor webbläsare](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Logga in på https://myapps.microsoft.com med POC-användarkonto | [Azure Active Directory Identity Protection-strategibok: simulera riskhändelser](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| Logga in på https://myapps.microsoft.com med POC-användarkonto | [Azure Active Directory Identity Protection-strategibok: simulera riskhändelser](identity-protection/playbook.md#simulating-risk-events) |
 | Vänta 5 – 7 minuter |  |
 | Logga in som global administratör för att https://portal.azure.com och öppna bladet Identity Protection | https://aka.ms/aadipgetstarted |
-| Öppna bladet risk händelser. Du bör se en post under ”inloggningar från anonyma IP-adresser”  | [Azure Active Directory Identity Protection-strategibok: simulera riskhändelser](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| Öppna bladet risk händelser. Du bör se en post under ”inloggningar från anonyma IP-adresser”  | [Azure Active Directory Identity Protection-strategibok: simulera riskhändelser](identity-protection/playbook.md#simulating-risk-events) |
 
 ### <a name="considerations"></a>Överväganden
 
@@ -534,14 +534,14 @@ Ungefärlig tid att Slutför: 10 minuter
 | Steg | Resurser |
 | --- | --- |
 | Logga in som global administratör för att https://portal.azure.com och öppna bladet Identity Protection | https://aka.ms/aadipgetstarted |
-| Aktivera en princip för inloggningsrisk på följande sätt:<br/>-Tilldelade till: POC-användare<br/>-Villkor: Inloggningsrisk medelstora eller högre (inloggning från anonym plats anses som en Medelrisk-nivå)<br/>-Kontroller: Kräva MFA | [Azure Active Directory Identity Protection-strategibok: inloggningsrisk](active-directory-identityprotection-playbook.md) |
+| Aktivera en princip för inloggningsrisk på följande sätt:<br/>-Tilldelade till: POC-användare<br/>-Villkor: Inloggningsrisk medelstora eller högre (inloggning från anonym plats anses som en Medelrisk-nivå)<br/>-Kontroller: Kräva MFA | [Azure Active Directory Identity Protection-strategibok: inloggningsrisk](identity-protection/playbook.md) |
 | Öppna tor webbläsare | [Hämta Tor webbläsare](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | Logga in på https://myapps.microsoft.com med PoC-användarkonto |  |
-| Lägg märke till MFA-kontrollen | [Logga in som inträffar med Azure AD Identity Protection: riskfylld inloggning återställning](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
+| Lägg märke till MFA-kontrollen | [Logga in som inträffar med Azure AD Identity Protection: riskfylld inloggning återställning](identity-protection/flows.md#risky-sign-in-recovery)
 
 ### <a name="considerations"></a>Överväganden
 
-Den här funktionen är en del av Azure AD Premium P2 och/eller EMS E5. Läs mer om riskhändelser besök: [Azure Active Directory-riskhändelser](active-directory-reporting-risk-events.md)
+Den här funktionen är en del av Azure AD Premium P2 och/eller EMS E5. Läs mer om riskhändelser besök: [Azure Active Directory-riskhändelser](reports-monitoring/concept-risk-events.md)
 
 ## <a name="configuring-certificate-based-authentication"></a>Konfigurera certifikatbaserad autentisering
 

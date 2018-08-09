@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 65757abe13c45ce1a929c4648637f98360659030
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: def1bbd52e05666f380ab9d5a9295366798d5ae0
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284878"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626931"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Felsöka Azure Active Directory sömlös enkel inloggning
 
@@ -50,13 +50,13 @@ Klicka här för att se alla AD-skogar som har aktiverats för sömlös enkel in
 
 ## <a name="sign-in-failure-reasons-in-the-azure-active-directory-admin-center-needs-a-premium-license"></a>Logga in orsaker till Återställningsfel i Azure Active Directory Administrationscenter (måste ha en premiumlicens)
 
-Om klienten har en associerad med den Azure AD Premium-licens, kan du också titta på den [inloggningsaktivitet rapporten](../active-directory-reporting-activity-sign-ins.md) i den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com/).
+Om klienten har en associerad med den Azure AD Premium-licens, kan du också titta på den [inloggningsaktivitet rapporten](../reports-monitoring/concept-sign-ins.md) i den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com/).
 
 ![Azure Active Directory Administrationscenter: rapporten inloggningar](./media/active-directory-aadconnect-sso/sso9.png)
 
 Bläddra till **Azure Active Directory** > **inloggningar** i den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com/), och välj sedan en viss användares inloggningsaktivitet. Leta efter den **LOGGA IN FELKODEN** fält. Mappa fältets värde till en felorsak och en lösning med hjälp av följande tabell:
 
-|Felkod för inloggning|Logga in felorsak|Lösning
+|Felkod för inloggning|Logga in felorsak|Matchning
 | --- | --- | ---
 | 81001 | Användarens Kerberos-biljett är för stor. | Minska användarens gruppmedlemskap och försök igen.
 | 81002 | Det går inte att verifiera användarens Kerberos-biljett. | Se den [checklista för felsökning](#troubleshooting-checklist).

@@ -8,7 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
-ms.component: protection
+ms.component: conditional-access
 ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 877cec40590f7ab9c6c4fd2862ab875b26029cb7
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 2bd52486a78ca103e0070d94ea423c069f845587
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531377"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627516"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Snabbstart: Blockera åtkomst när en risk för session har identifierats med villkorlig åtkomst i Azure Active Directory  
 
@@ -42,9 +42,9 @@ Om du vill slutföra scenariot i den här självstudien behöver du:
 
 - **Åtkomst till en Azure AD Premium P2-versionen** -villkorlig åtkomst är en funktion i Azure AD Premium P1, du behöver en P2-versionen eftersom scenariot i den här snabbstarten kräver Identity Protection. 
 
-- **Identitetsskydd** -scenariot i den här snabbstarten kräver Identity Protection är aktiverat. Om du inte vet hur du aktiverar du Identity Protection, se [aktiverar Azure Active Directory Identity Protection](../active-directory-identityprotection-enable.md).
+- **Identitetsskydd** -scenariot i den här snabbstarten kräver Identity Protection är aktiverat. Om du inte vet hur du aktiverar du Identity Protection, se [aktiverar Azure Active Directory Identity Protection](../identity-protection/enable.md).
 
-- **Tor Browser** – [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) är utformat för att bevara sekretessen online. Identity Protection identifierar en inloggning från en Tor Browser som **inloggningar från anonyma IP-adresser**, som har en Medelrisk-nivå. Mer information finns i avsnittet om [Azure Active Directory-riskhändelser](../active-directory-reporting-risk-events.md).  
+- **Tor Browser** – [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) är utformat för att bevara sekretessen online. Identity Protection identifierar en inloggning från en Tor Browser som **inloggningar från anonyma IP-adresser**, som har en Medelrisk-nivå. Mer information finns i avsnittet om [Azure Active Directory-riskhändelser](../reports-monitoring/concept-risk-events.md).  
 
 - **Ett testkonto kallas Alain Charon** – om du inte vet hur du skapar ett testkonto finns [lägga till molnbaserade användare](../fundamentals/add-users-azure-active-directory.md#add-cloud-based-users).
 
@@ -70,7 +70,7 @@ Det här avsnittet visar hur du skapar principen för villkorlig åtkomst som kr
 |---     | --- |
 | Användare och grupper | Alain Charon  |
 | Molnappar | Alla molnappar |
-| Inloggningsrisk | Medel |
+| Inloggningsrisk | Medelhög |
 | Bevilja | Blockera åtkomst |
  
 
@@ -93,11 +93,11 @@ Det här avsnittet visar hur du skapar principen för villkorlig åtkomst som kr
  
 4. På den **villkorlig åtkomst** , i verktygsfältet högst upp, klickar du på **Lägg till**.
 
-    ![Namn](./media/app-sign-in-risk/108.png)
+    ![namn](./media/app-sign-in-risk/108.png)
 
 5. På den **New** sidan den **namn** textrutan typ **blockera åtkomst för medelstora risknivå**.
 
-    ![Namn](./media/app-sign-in-risk/104.png)
+    ![namn](./media/app-sign-in-risk/104.png)
 
 6. I den **tilldelning** klickar du på **användare och grupper**.
 
@@ -199,7 +199,7 @@ I det föregående avsnittet har du lärt dig hur att utvärdera en simulerad in
 
 Om du vill testa din princip, försöker logga in på din [Azure-portalen](https://portal.azure.com) som **Alan Charon** med Tor Browser. Dina inloggningsförsök ska blockeras av din princip för villkorlig åtkomst.
 
-![Multi-Factor Authentication](./media/app-sign-in-risk/118.png)
+![Multifaktorautentisering](./media/app-sign-in-risk/118.png)
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
@@ -210,7 +210,7 @@ När den inte längre behövs kan du ta bort testanvändaren, Tor Browser och pr
 
 - Välj din princip för att ta bort principen, och klicka sedan på **ta bort** i verktygsfältet för snabb åtkomst.
 
-    ![Multi-Factor Authentication](./media/app-sign-in-risk/33.png)
+    ![Multifaktorautentisering](./media/app-sign-in-risk/33.png)
 
 - Anvisningar för att ta bort Tor Browser finns i [avinstallerar](https://tb-manual.torproject.org/en-US/uninstalling.html).
 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 90cd9b4b29c0860355d318201df49262afd82de5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f870902e5bd5ef92d12d1e5e846696c4b26362a3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38472669"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425110"
 ---
 # <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Självstudie: Skapa en .NET Core- och SQL Database-webbapp i Azure App Service
 
@@ -97,7 +97,7 @@ För SQL Database används [Azure SQL Database](/azure/sql-database/) i den här
 
 ### <a name="create-a-sql-database-logical-server"></a>Skapa en logisk SQL Database-server
 
-Skapa en logisk SQL Database-server i Cloud Shell med kommandot [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create).
+Skapa en logisk SQL Database-server i Cloud Shell med kommandot [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create).
 
 Ersätt platshållaren *\<server_name>* med ett unikt namn för SQL Database. Det här namnet används som en del av SQL Database-slutpunkten `<server_name>.database.windows.net`, så namnet måste vara unikt för alla logiska servrar i Azure. Namnet får endast innehålla gemener, siffror och bindestreck och måste vara mellan 3 och 50 tecken långt. Dessutom måste du ersätta *\<db_username>* och *\<db_password>* med ett giltigt användarnamn och lösenord. 
 
@@ -128,7 +128,7 @@ När den logiska SQL Database-servern har skapats visar Azure CLI information so
 
 ### <a name="configure-a-server-firewall-rule"></a>Konfigurera en serverbrandväggsregel
 
-Skapa en [brandväggsregel på servernivå för Azure SQL Database](../sql-database/sql-database-firewall-configure.md) via kommandot[`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create). När både start-IP och slut-IP har angetts till 0.0.0.0 öppnas brandväggen endast för andra Azure-resurser. 
+Skapa en [brandväggsregel på servernivå för Azure SQL Database](../sql-database/sql-database-firewall-configure.md) via kommandot[`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create). När både start-IP och slut-IP har angetts till 0.0.0.0 öppnas brandväggen endast för andra Azure-resurser. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -140,7 +140,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 ### <a name="create-a-database"></a>Skapa en databas
 
-Skapa en databas med en [S0-prestandanivå](../sql-database/sql-database-service-tiers-dtu.md) på servern med kommandot [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create).
+Skapa en databas med en [S0-prestandanivå](../sql-database/sql-database-service-tiers-dtu.md) på servern med kommandot [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create).
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
@@ -174,7 +174,7 @@ I det här steget distribuerar du din SQL Database-anslutna .NET Core-app till A
 
 ### <a name="configure-an-environment-variable"></a>Konfigurera en miljövariabel
 
-Ange anslutningssträngar för din Azure-app med hjälp av kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) i Cloud Shell. I följande kommando ska du ersätta *\<app name>* och parametern *\<connection_string>* med den anslutningssträng du skapade tidigare.
+Ange anslutningssträngar för din Azure-app med hjälp av kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. I följande kommando ska du ersätta *\<app name>* och parametern *\<connection_string>* med den anslutningssträng du skapade tidigare.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer

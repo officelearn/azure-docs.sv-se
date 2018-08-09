@@ -2,24 +2,18 @@
 title: Hantera Azure-filresurser med Azure Portal
 description: Lär dig hur du använder Azure-portalen för att hantera Azure Files.
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: aungoo
-editor: tamram
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: 24996e80d2e75978a814bbf471176d4edcf22549
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: files
+ms.openlocfilehash: b2a95eeefcba96dd6cd081b05fa3f796713f998a
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38479180"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520972"
 ---
 # <a name="managing-azure-file-shares-with-the-azure-portal"></a>Hantera Azure-filresurser med Azure Portal 
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Windows, Linux och macOS. Den här guiden vägleder dig igenom grunderna i att arbeta med Azure-filresurser med [Azure Portal](https://portal.azure.com/). Lär dig att:
@@ -32,7 +26,7 @@ ms.locfileid: "38479180"
 > * Hämta en fil
 > * Skapa och använda en ögonblicksbild av en resurs
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 [!INCLUDE [storage-files-create-storage-account-portal](../../../includes/storage-files-create-storage-account-portal.md)]

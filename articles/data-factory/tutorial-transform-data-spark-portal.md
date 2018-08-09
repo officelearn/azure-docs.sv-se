@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: douglasl
-ms.openlocfilehash: e62953ddfcc3f6d08430c477efbd7efc23064e19
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 52b1ec9a1f69273723129050820bb3b4efd7f36d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085431"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441348"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformera data i molnet genom att använda Spark-aktivitet i Azure Data Factory
 I den här självstudien använder du Azure-portalen till att skapa Azure Data Factory-pipeline. Pipelinen transformerar data med en Spark-aktivitet och en länkad Azure HDInsight-tjänst på begäran. 
@@ -32,7 +32,7 @@ I den här självstudiekursen får du göra följande:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * **Azure Storage-konto**. Du skapar ett Python-skript och en indatafil, och laddar upp dem till Azure Storage. Utdata från Spark-programmet lagras på det här lagringskontot. Spark-klustret på begäran använder samma lagringskonto som den primära lagringen.  
 * **Azure PowerShell**. Följ instruktionerna i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
@@ -63,17 +63,17 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
     if __name__ == "__main__":
         main()
     ```
-2. Ersätt *&lt;storageAccountName&gt;* med namnet på ditt Azure Storage-konto. Spara sedan filen. 
-3. Skapa en behållare med namnet **adftutorial** i Azure Blob Storage om den inte redan finns. 
-4. Skapa en mapp med namnet **spark**.
-5. Skapa en undermapp med namnet **script** under mappen **spark**. 
-6. Överför filen **WordCount_Spark.py** till undermappen **script**. 
+1. Ersätt *&lt;storageAccountName&gt;* med namnet på ditt Azure Storage-konto. Spara sedan filen. 
+1. Skapa en container med namnet **adftutorial** i Azure Blob Storage om den inte redan finns. 
+1. Skapa en mapp med namnet **spark**.
+1. Skapa en undermapp med namnet **script** under mappen **spark**. 
+1. Överför filen **WordCount_Spark.py** till undermappen **script**. 
 
 
 ### <a name="upload-the-input-file"></a>Överför indatafilen
 1. Skapa en fil med namnet **minecraftstory.txt** med lite text. Spark-programmet räknar antalet ord i texten. 
-2. Skapa en undermapp med namnet **inputfiles** i mappen **spark**. 
-3. Ladda upp filen **minecraftstory.txt** till undermappen **inputfiles**. 
+1. Skapa en undermapp med namnet **inputfiles** i mappen **spark**. 
+1. Ladda upp filen **minecraftstory.txt** till undermappen **inputfiles**. 
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
@@ -81,30 +81,30 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 1. Välj **Nytt** på den vänstra menyn, välj **Data och analys** och välj sedan **Data Factory**. 
    
    ![Valet Data Factory i fönstret Nytt](./media/tutorial-transform-data-spark-portal/new-azure-data-factory-menu.png)
-2. I fönstret **Ny datafabrik** anger du **ADFTutorialDataFactory** under **Namn**. 
+1. I fönstret **Ny datafabrik** anger du **ADFTutorialDataFactory** under **Namn**. 
       
    ![Fönstret Ny datafabrik](./media/tutorial-transform-data-spark-portal/new-azure-data-factory.png)
  
    Namnet på Azure Data Factory måste vara *globalt unikt*. Om du ser följande fel ska du ändra namnet på datafabriken. (Använd till exempel **&lt;dittnamn&gt;ADFTutorialDataFactory**). Namngivningsregler för Data Factory-artefakter finns i artikeln [Data Factory – namnregler](naming-rules.md).
   
    ![Fel när ett namn inte är tillgängligt](./media/tutorial-transform-data-spark-portal/name-not-available-error.png)
-3. Välj den Azure-prenumeration där du vill skapa den nya datafabriken för **Prenumeration**. 
-4. Gör något av följande för **Resursgrupp**:
+1. Välj den Azure-prenumeration där du vill skapa den nya datafabriken för **Prenumeration**. 
+1. Gör något av följande för **Resursgrupp**:
      
    - Välj **Använd befintlig** och välj en befintlig resursgrupp i listrutan. 
    - Välj **Skapa ny** och ange namnet på en resursgrupp.   
          
    Vissa av stegen i den här snabbstarten förutsätter att du använder namnet **ADFTutorialResourceGroup** på resursgruppen. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
-5. För **Version** väljer du **V2**.
-6. För **Plats** väljer du en plats för datafabriken. 
+1. För **Version** väljer du **V2**.
+1. För **Plats** väljer du en plats för datafabriken. 
 
    Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). De datalager (som Azure Storage och Azure SQL Database) och beräkningar (som HDInsight) som används i Data Factory kan finnas i andra regioner.
-7. Välj **fäst till instrumentpanelen**.     
-8. Välj **Skapa**.
-9. Du ser följande panel på instrumentpanelen med statusen **Distribuerar datafabrik**: 
+1. Välj **fäst till instrumentpanelen**.     
+1. Välj **Skapa**.
+1. Du ser följande panel på instrumentpanelen med statusen **Distribuerar datafabrik**: 
 
    ![Panelen Distribuerar datafabrik](media//tutorial-transform-data-spark-portal/deploying-data-factory.png)
-10. När datafabriken har skapats visas sidan **Datafabrik**. Välj ikonen **Författare och övervakare** för att starta programmet Data Factory UI på en separat flik.
+1. När datafabriken har skapats visas sidan **Datafabrik**. Välj ikonen **Författare och övervakare** för att starta programmet Data Factory UI på en separat flik.
 
     ![Startsidan för datafabriken med panelen Författare och övervakare](./media/tutorial-transform-data-spark-portal/data-factory-home-page.png)
 
@@ -120,13 +120,13 @@ Du skapar två länkade tjänster i det här avsnittet:
 
    ![Sidan ”Nu sätter vi igång”](./media/tutorial-transform-data-spark-portal/get-started-page.png)
 
-2. Välj **Anslutningar** längst ned i fönstret och sedan **+Ny**. 
+1. Välj **Anslutningar** längst ned i fönstret och sedan **+Ny**. 
 
    ![Knappar för att skapa en ny anslutning](./media/tutorial-transform-data-spark-portal/new-connection.png)
-3. I fönstret **New Linked Service** (Ny länkad tjänst) väljer du **Data Store** > **Azure Blob Storage** och klickar på **Fortsätt**. 
+1. I fönstret **New Linked Service** (Ny länkad tjänst) väljer du **Data Store** > **Azure Blob Storage** och klickar på **Fortsätt**. 
 
    ![Välj panelen ”Azure Blob Storage”](./media/tutorial-transform-data-spark-portal/select-azure-storage.png)
-4. För **Lagringskontonamn** väljer du namnet i listan och väljer sedan **Spara**. 
+1. För **Lagringskontonamn** väljer du namnet i listan och väljer sedan **Spara**. 
 
    ![Fält för att ange namnet på lagringskontot](./media/tutorial-transform-data-spark-portal/new-azure-storage-linked-service.png)
 
@@ -134,10 +134,10 @@ Du skapar två länkade tjänster i det här avsnittet:
 ### <a name="create-an-on-demand-hdinsight-linked-service"></a>Skapa en på begäran länkad HDInsight-tjänst
 
 1. Välj knappen **+Ny** igen för att skapa ytterligare en länkad tjänst. 
-2. I fönstret **New Linked Service** (Ny länkad tjänst) väljer du **Compute** > **Azure HDInsight** och sedan **Fortsätt**. 
+1. I fönstret **New Linked Service** (Ny länkad tjänst) väljer du **Compute** > **Azure HDInsight** och sedan **Fortsätt**. 
 
    ![Välja fönstret ”Azure HDInsight”](./media/tutorial-transform-data-spark-portal/select-azure-hdinsight.png)
-2. Utför följande steg i fönstret **New Linked Service** (Ny länkad tjänst): 
+1. Utför följande steg i fönstret **New Linked Service** (Ny länkad tjänst): 
 
    a. Som **Namn** anger du **AzureHDInsightLinkedService**.
    
@@ -173,17 +173,17 @@ Du skapar två länkade tjänster i det här avsnittet:
 1. Välj knappen **+** (plus) och sedan **Pipeline** från menyn.
 
    ![Knappar för att skapa en ny pipeline](./media/tutorial-transform-data-spark-portal/new-pipeline-menu.png)
-2. Gå till verktygsfältet **Aktiviteter** och expandera **HDInsight**. Dra aktiviteten **Spark** från verktygsfältet **Aktiviteter** till pipelinedesignytan. 
+1. Gå till verktygsfältet **Aktiviteter** och expandera **HDInsight**. Dra aktiviteten **Spark** från verktygsfältet **Aktiviteter** till pipelinedesignytan. 
 
    ![Dra Spark-aktiviteten](./media/tutorial-transform-data-spark-portal/drag-drop-spark-activity.png)
-3. Utför följande steg i egenskaperna för **Spark**-aktivitetsfönstret längst ned: 
+1. Utför följande steg i egenskaperna för **Spark**-aktivitetsfönstret längst ned: 
 
    a. Växla till fliken **HDI-kluster**.
    
    b. Välj **AzureHDInsightLinkedService** (som du skapade i föregående procedur). 
         
    ![Ange den länkade HDInsight-tjänsten](./media/tutorial-transform-data-spark-portal/select-hdinsight-linked-service.png)
-4. Växla till fliken **Skript/Jar** och utför följande steg: 
+1. Växla till fliken **Skript/Jar** och utför följande steg: 
 
    a. För **Länkad jobbtjänst** väljer du **AzureStorage1**.
    
@@ -193,10 +193,10 @@ Du skapar två länkade tjänster i det här avsnittet:
    
    c. Bläddra till mappen **adftutorial/spark/script**, välj **WordCount_Spark.py** och välj sedan **Slutför**.      
 
-5. Verifiera pipelinen genom att välja knappen **Verifiera** i verktygsfältet. Klicka på knappen **>>** (högerpil) för att stänga verifieringsfönstret. 
+1. Verifiera pipelinen genom att välja knappen **Verifiera** i verktygsfältet. Klicka på knappen **>>** (högerpil) för att stänga verifieringsfönstret. 
     
    ![knappen Verifiera](./media/tutorial-transform-data-spark-portal/validate-button.png)
-6. Välj **Publicera alla**. Data Factory-gränssnittet publicerar entiteter (länkade tjänster och pipelines) till Azure Data Factory-tjänsten. 
+1. Välj **Publicera alla**. Data Factory-gränssnittet publicerar entiteter (länkade tjänster och pipelines) till Azure Data Factory-tjänsten. 
     
    ![knappen Publicera alla](./media/tutorial-transform-data-spark-portal/publish-button.png)
 
@@ -210,11 +210,11 @@ Välj **Utlös** i verktygsfältet och sedan **Trigger Now** (Utlös nu).
 
 1. Välj fliken **Övervaka**. Bekräfta att du ser en pipelinekörning. Det tar ungefär 20 minuter att skapa ett Spark-kluster. 
    
-2. Klicka på **Uppdatera** då och då så att du ser pipelinekörningens status. 
+1. Klicka på **Uppdatera** då och då så att du ser pipelinekörningens status. 
 
    ![Flik för att övervaka pipelinekörningar med knapp för att uppdatera](./media/tutorial-transform-data-spark-portal/monitor-tab.png)
 
-3. Om du vill visa aktivitetskörningar som är associerade med pipelinekörningarna väljer på länken **View activity runs** (Visa aktivitetskörningar) i kolumnen **Åtgärd**.
+1. Om du vill visa aktivitetskörningar som är associerade med pipelinekörningarna väljer på länken **View activity runs** (Visa aktivitetskörningar) i kolumnen **Åtgärd**.
 
    ![Status för pipelinekörning](./media/tutorial-transform-data-spark-portal/pipeline-run-succeeded.png) 
 
@@ -223,11 +223,11 @@ Välj **Utlös** i verktygsfältet och sedan **Trigger Now** (Utlös nu).
    ![vyn Aktivitetskörningar](./media/tutorial-transform-data-spark-portal/activity-runs.png)
 
 ## <a name="verify-the-output"></a>Verifiera utdata
-Verifiera att utdatafilen har skapats i mappen spark/otuputfiles/wordcount för behållaren adftutorial. 
+Verifiera att utdatafilen har skapats i mappen spark/otuputfiles/wordcount för containern adftutorial. 
 
 ![Plats för utdatafilen](./media/tutorial-transform-data-spark-portal/verity-output.png)
 
-Filen bör ha alla ord från indatafilen samma antal gånger som ordet förekommer i filen. Till exempel: 
+Filen bör ha alla ord från indatafilen samma antal gånger som ordet förekommer i filen. Exempel: 
 
 ```
 (u'This', 1)

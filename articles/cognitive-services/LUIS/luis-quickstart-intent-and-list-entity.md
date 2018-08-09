@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 4b842f9a00587e8a9771e6ca92806c09e711e6db
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: afad3fe725fddd0748cc206517a7274815cf1653
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345788"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495272"
 ---
 # <a name="tutorial-4-add-list-entity"></a>Självstudie: 4. Lägg till listentitet
 I den här självstudien skapar du en app som visar hur det går till att hämta data som matchar en fördefinierad lista. 
@@ -134,15 +134,8 @@ Avsikten **MoveEmployee** innehåller nu yttranden, och LUIS behöver förstå v
     |Amerikanskt socialförsäkringsnummer|234-56-7891|
 
 ## <a name="train-the-luis-app"></a>Träna LUIS-appen
-LUIS känner inte till ändringarna av avsikterna och entiteterna (modellen) förrän den tränas. 
 
-1. Längst uppe till höger på LUIS-webbplatsen väljer du knappen **Train** (Träna).
-
-    ![Träna appen](./media/luis-quickstart-intent-and-list-entity/train-button.png)
-
-2. Träningen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
-
-    ![Träningen är klar](./media/luis-quickstart-intent-and-list-entity/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicera appen för att få slutpunkts-URL
 
@@ -278,7 +271,8 @@ Din chattrobot har nu tillräckligt med information för att bestämma den prim�
 LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan använda topScoringIntent-resultatet och data från entiteten för att gå vidare. LUIS utför inte detta programmässiga arbete för roboten eller det anropande programmet. LUIS tar endast reda på vad användarens avsikt är. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort LUIS-appen när den inte längre behövs. Välj **My apps** (Mina appar) i menyn längst upp till vänster. Välj ellipsen (***...***) till höger om appnamnet i applistan och välj **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

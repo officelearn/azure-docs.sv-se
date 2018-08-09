@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 478c6dcaa6afd67742df91366021c6186fc1427e
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 792d9b1409b9571474f47da4940724df7a764d82
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098540"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429890"
 ---
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Skala ut Kubernetes-poddar och Kubernetes-infrastrukturen
 
@@ -35,7 +35,7 @@ I efterföljande självstudier uppdaterar du Azure Vote-programmet, och konfigur
 
 I tidigare självstudier paketerades ett program i en behållaravbildning, avbildningen laddades upp till Azure Container Registry och ett Kubernetes-kluster skapades. Programmet kördes därefter i Kubernetes-klustret. 
 
-Om du inte har gjort det här och vill följa med återgår du till [Självstudie 1 – Skapa behållaravbildningar](./container-service-tutorial-kubernetes-prepare-app.md). 
+Om du inte har gjort det här och vill följa med återgår du till [Självstudie 1 – Skapa containeravbildningar](./container-service-tutorial-kubernetes-prepare-app.md). 
 
 ## <a name="manually-scale-pods"></a>Skala poddar manuellt
 
@@ -81,7 +81,7 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 Kubernetes har stöd för [horisontell autoskalning av poddar](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) så att antalet poddar i en distribution justeras beroende på CPU-användningen eller något annat mått du väljer. 
 
-Om du vill använda autoskalning måste poddarna ha definierade CPU-krav och CPU-gränser. I `azure-vote-front`-distributionen begär klientdelsbehållaren 0,25 CPU med maxgränsen 0,5 CPU. Inställningarna ser ut så här:
+Om du vill använda autoskalning måste poddarna ha definierade CPU-krav och CPU-gränser. I `azure-vote-front`-distributionen begär klientdelscontainern 0,25 CPU med maxgränsen 0,5 CPU. Inställningarna ser ut så här:
 
 ```YAML
 resources:
@@ -115,7 +115,7 @@ Efter några minuter med minimal belastning på Azure Vote-appen minskar antalet
 
 ## <a name="scale-the-agents"></a>Skala agenterna
 
-Om du har skapat Kubernetes-klustret med standardkommandona i föregående självstudier har det tre agentnoder. Du kan justera antalet agenter manuellt om du planerar att ha fler eller färre arbetsbelastningar i klustret. Använd kommandot [az acs scale](/cli/azure/acs#az_acs_scale) och ange antalet agenter med parametern `--new-agent-count`.
+Om du har skapat Kubernetes-klustret med standardkommandona i föregående självstudier har det tre agentnoder. Du kan justera antalet agenter manuellt om du planerar att ha fler eller färre containerarbetsbelastningar i klustret. Använd kommandot [az acs scale](/cli/azure/acs#az-acs-scale) och ange antalet agenter med parametern `--new-agent-count`.
 
 I följande exempel ökas antalet agentnoder till 4 i Kubernetes-klustret med namn *myK8sCluster*. Det tar några minuter att slutföra kommandot.
 

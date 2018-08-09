@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 4/17/2018
 ms.author: markgal
 ms.custom: mvc
-ms.openlocfilehash: 47f0b43ae074314ffb1727508bb534fdd79c1f7d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4a122aebd149131e97be5c593a51871b1a943577
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607124"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427429"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Återställa en disk och skapa en återställd virtuell dator i Azure
 Med Azure Backup skapas återställningspunkter som lagras i geo-redundanta återställningsvalv. När du återställer från en återställningspunkt kan du återställa hela den virtuella datorn eller enskilda filer. Den här artikeln förklarar hur du återställer hela den virtuella datorn med CLI. I den här självstudiekursen får du lära du dig att:
@@ -47,7 +47,7 @@ När dataöverföringen har slutförts tas ögonblicksbilden bort och en återst
 ## <a name="list-available-recovery-points"></a>Visa lista över tillgängliga återställningspunkter
 Om du vill återställa en disk väljer du en återställningspunkt som källa för återställningsdata. Standardprincipen skapar en återställningspunkt varje dag och lagrar dem i 30 dagar, så du kan du behålla en uppsättning återställningspunkter och välja en viss tidpunkt för återställning. 
 
-Visa en lista över tillgängliga återställningspunkter kommandot [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list). Återställningspunktens **namn** används för att återställa diskar. I den här självstudiekursen vill vi ha den senaste återställningspunkten. Parametern `--query [0].name` väljer det senaste återställningsnamnet enligt följande:
+Visa en lista över tillgängliga återställningspunkter kommandot [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list). Återställningspunktens **namn** används för att återställa diskar. I den här självstudiekursen vill vi ha den senaste återställningspunkten. Parametern `--query [0].name` väljer det senaste återställningsnamnet enligt följande:
 
 ```azurecli-interactive
 az backup recoverypoint list \
@@ -63,7 +63,7 @@ az backup recoverypoint list \
 ## <a name="restore-a-vm-disk"></a>Återställa en disk från en virtuell dator
 Om du vill återställa disken från återställningspunkten måste du först skapa ett Azure-lagringskonto. Det här lagringskontot används för att lagra den återställda disken. I senare steg används den återställda disken för att skapa en virtuell dator.
 
-1. Skapa ett lagringskonto med [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create). Lagringskontonamnet måste vara med gemener endast och globalt unikt. Ersätt *mystorageaccount* med ditt eget unika namn:
+1. Skapa ett lagringskonto med [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). Lagringskontonamnet måste vara med gemener endast och globalt unikt. Ersätt *mystorageaccount* med ditt eget unika namn:
 
     ```azurecli-interactive
     az storage account create \
@@ -72,7 +72,7 @@ Om du vill återställa disken från återställningspunkten måste du först sk
         --sku Standard_LRS
     ```
 
-2. Återställ disken från återställningspunkten med [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az_backup_restore_restore_disks). Ersätt *mystorageaccount* med namnet på det lagringskonto du skapade i föregående kommando. Ersätt *myRecoveryPointName* med återställningspunktens namn som du fick i utdata från det tidigare kommandot [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list):
+2. Återställ disken från återställningspunkten med [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks). Ersätt *mystorageaccount* med namnet på det lagringskonto du skapade i föregående kommando. Ersätt *myRecoveryPointName* med återställningspunktens namn som du fick i utdata från det tidigare kommandot [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list):
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -86,7 +86,7 @@ Om du vill återställa disken från återställningspunkten måste du först sk
 
 
 ## <a name="monitor-the-restore-job"></a>Övervaka återställningsjobbet
-Om du vill övervaka status för återställningsjobbet använder du [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az_backup_job_list):
+Om du vill övervaka status för återställningsjobbet använder du [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list):
 
 ```azurecli-interactive 
 az backup job list \
@@ -111,7 +111,7 @@ När *Status* för återställningsjobbet är *Completed* (Slutfört) har disken
 ## <a name="convert-the-restored-disk-to-a-managed-disk"></a>Konvertera den återställda disken till en hanterad disk
 Återställningsjobbet skapar en ohanterad disk. För att skapa en virtuell dator från disken måste den först konverteras till en hanterad disk.
 
-1. Hämta anslutningsinformationen för ditt lagringskonto med [az storage account show-connection-string](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_show_connection_string). Ersätt *storageaccountname* med namnet på ditt lagringskonto enligt följande:
+1. Hämta anslutningsinformationen för ditt lagringskonto med [az storage account show-connection-string](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-show-connection-string). Ersätt *storageaccountname* med namnet på ditt lagringskonto enligt följande:
     
     ```azurecli-interactive
     export AZURE_STORAGE_CONNECTION_STRING=$( az storage account show-connection-string \
@@ -128,7 +128,7 @@ När *Status* för återställningsjobbet är *Completed* (Slutfört) har disken
     uri=$(az storage blob url --container-name $container --name $blob -o tsv)
     ```
 
-3. Nu kan du skapa en hanterad disk från den återställda disken med [az disk create](https://docs.microsoft.com/cli/azure/disk?view=azure-cli-latest#az_disk_create). Variabeln *uri* från det föregående steget används som källa för den hanterade disken.
+3. Nu kan du skapa en hanterad disk från den återställda disken med [az disk create](https://docs.microsoft.com/cli/azure/disk?view=azure-cli-latest#az-disk-create). Variabeln *uri* från det föregående steget används som källa för den hanterade disken.
 
     ```azurecli-interactive
     az disk create \
@@ -137,7 +137,7 @@ När *Status* för återställningsjobbet är *Completed* (Slutfört) har disken
         --source $uri
     ```
 
-4. Nu när du har en hanterad disk från den återställda disken kan du rensa den ohanterade disken och lagringskontot med [az storage account delete](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_delete). Ersätt *storageaccountname* med namnet på ditt lagringskonto enligt följande:
+4. Nu när du har en hanterad disk från den återställda disken kan du rensa den ohanterade disken och lagringskontot med [az storage account delete](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-delete). Ersätt *storageaccountname* med namnet på ditt lagringskonto enligt följande:
 
     ```azurecli-interactive
     az storage account delete \
@@ -149,7 +149,7 @@ När *Status* för återställningsjobbet är *Completed* (Slutfört) har disken
 ## <a name="create-a-vm-from-the-restored-disk"></a>Skapa en virtuell dator från den återställda disken
 Det sista steget är att skapa en virtuell dator från den hanterade disken.
 
-1. Skapa en virtuell dator från den hanterade disken med [az vm create](/cli/azure/vm?view=azure-cli-latest#az_vm_create) enligt följande:
+1. Skapa en virtuell dator från den hanterade disken med [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create) enligt följande:
 
     ```azurecli-interactive
     az vm create \
@@ -159,7 +159,7 @@ Det sista steget är att skapa en virtuell dator från den hanterade disken.
         --os-type linux
     ```
 
-2. Du kan bekräfta att den virtuella datorn har skapats från återställda disken genom att visa en lista över de virtuella datorerna i resursgruppen med [az vm list](/cli/azure/vm?view=azure-cli-latest#az_vm_list) enligt följande:
+2. Du kan bekräfta att den virtuella datorn har skapats från återställda disken genom att visa en lista över de virtuella datorerna i resursgruppen med [az vm list](/cli/azure/vm?view=azure-cli-latest#az-vm-list) enligt följande:
 
     ```azurecli-interactive
     az vm list --resource-group myResourceGroup --output table

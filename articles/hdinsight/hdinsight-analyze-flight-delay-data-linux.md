@@ -1,25 +1,20 @@
 ---
-title: 'Självstudie: Utföra åtgärder för att extrahera, transformera, läsa in (ETL) med Hive i HDInsight – Azure | Microsoft Docs'
-description: Lär dig att extrahera data från en rå CSV-datamängd, transformera dem med Hive på HDInsight och därefter läsa in de transformade data i Azure SQL Database med Sqoop.
+title: 'Självstudie: Utföra åtgärder för att extrahera, transformera, läsa in (ETL) med Hive i HDInsight – Azure '
+description: Lär dig att extrahera data från en rå CSV-datamängd, transformera dem med Hive på HDInsight och därefter läsa in de transformerade data i Azure SQL Database med Sqoop.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 0c23a079-981a-4079-b3f7-ad147b4609e5
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.author: larryfr
+ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: 1abc0a8ed9aec1082a4710647f6c03c87e1fd1d2
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 7a6868eb0df815562e4c9c6929876116a5dccbac
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098237"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599320"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Självstudie: Extrahera, transformera och läsa in data med Apache Hive på HDInsight
 
@@ -44,11 +39,11 @@ Följande bild visar ett typiskt ETL-programflöde.
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **Ett Linux-baserat Hadoop-kluster i HDInsight**. Läs [Kom igång med Hadoop i HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) för att få anvisningar om hur du skapar ett nytt Linux-baserat HDInsight-kluster.
 
-* **Azure SQL Database**. Du använder en Azure SQL-databas som måldatalager. Om du inte har någon SQL-databas kan du läsa [Skapa en Azure SQL-databas i Azure Portal](../sql-database/sql-database-get-started.md).
+* **Azure SQL Database**. Du använder en Azure SQL-databas som måldatalager. Om du inte har någon SQL-databas kan du läsa [Skapa en Azure SQL-databas i Azure-portalen](../sql-database/sql-database-get-started.md).
 
 * **Azure CLI 2.0**. Om du inte har installerat Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) för att få mer anvisningar.
 
@@ -211,9 +206,9 @@ Som en del av Hive-jobbet importerar du data från .csv-filen till en Hive-tabel
 
 ## <a name="create-a-sql-database-table"></a>Skapa en SQL-databastabell
 
-Det här avsnittet förutsätter att du redan har skapat en Azure SQL-databas. Om du inte redan har en SQL-databas använder du informationen i [Create an Azure SQL database in the Azure portal](../sql-database/sql-database-get-started.md) (Skapa en Azure SQL-databas i Azure Portal) för att skapa en.
+Det här avsnittet förutsätter att du redan har skapat en Azure SQL-databas. Om du inte redan har en SQL-databas använder du informationen i [Create an Azure SQL database in the Azure portal](../sql-database/sql-database-get-started.md) (Skapa en Azure SQL-databas i Azure-portalen) för att skapa en.
 
-Om du redan har en SQL-databas måste du hämta servernamnet. För att hitta servernamnet i [Azure Portal](https://portal.azure.com) väljer du **SQL-databaser** och filtrerar sedan på namnet på databasen du vill använda. Serverns namn finns i kolumnen **Servernamn**.
+Om du redan har en SQL-databas måste du hämta servernamnet. För att hitta servernamnet i [Azure-portalen](https://portal.azure.com) väljer du **SQL-databaser** och filtrerar sedan på namnet på databasen du vill använda. Serverns namn finns i kolumnen **Servernamn**.
 
 ![Hämta information om Azure SQL-server](./media/hdinsight-analyze-flight-delay-data-linux/get-azure-sql-server-details.png "Hämta information om Azure SQL-server")
 
@@ -307,7 +302,7 @@ I föregående avsnitt kopierade du omvandlade data på `/tutorials/flightdelays
     GO
     ```
 
-    Du ska se en lista över data i tabellen. Tabellen innehåller stadens namn och genomsnittlig flygförseingstid för den staden. 
+    Du ska se en lista över data i tabellen. Tabellen innehåller stadens namn och genomsnittlig flygförseningstid för den staden. 
 
     Skriv `exit` för att avsluta tsql-verktyget.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: c35d267acfd1778e80605cdfe9eec0edbb18a281
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: ba75c3448b4e8edb3851b97f076c0eaf64a2bce4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052852"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428676"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Läs in data stegvis från flera tabeller i SQL Server till en Azure SQL-databas
 I den här självstudiekursen kommer du att skapa en Azure-datafabrik med en pipeline som läser in deltadata från flera tabeller på en lokal SQL-server till en Azure SQL-databas.    
@@ -45,11 +45,11 @@ Här är några viktiga steg för att skapa den här lösningen:
     
     Markera en kolumn för varje tabell i källdatalagret som går att använda för att identifiera de nya eller uppdaterade posterna för varje körning. Vanligtvis ökar data i den markerade kolumnen (till exempel last_modify_time elle ID) när rader skapas eller uppdateras. Det maximala värdet i den här kolumnen används som vattenstämpel.
 
-2. **Förbered datalagringen för att lagra värdet för vattenstämpeln**.   
+1. **Förbered datalagringen för att lagra värdet för vattenstämpeln**.   
     
     I den här självstudien lagrar du storleksgränsen i en SQL-databas.
 
-3. **Skapa en pipeline med följande aktiviteter**: 
+1. **Skapa en pipeline med följande aktiviteter**: 
     
     a. Skapa en ForEach-aktivitet som upprepas över en lista med namn på källtabeller och som skickas som en parameter till pipelinen. För varje källtabell anropas följande aktiviteter som utför deltainläsningen för tabellen.
 
@@ -74,9 +74,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 1. Öppna SQL Server Management Studio och anslut till din lokala SQL-serverdatabas.
 
-2. I **Server Explorer** högerklickar du på databasen och väljer **Ny fråga**.
+1. I **Server Explorer** högerklickar du på databasen och väljer **Ny fråga**.
 
-3. Kör följande SQL-kommando mot databasen för att skapa tabeller med namnen `customer_table` och `project_table`:
+1. Kör följande SQL-kommando mot databasen för att skapa tabeller med namnen `customer_table` och `project_table`:
 
     ```sql
     create table customer_table
@@ -113,9 +113,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 ### <a name="create-destination-tables-in-your-azure-sql-database"></a>Skapa måltabeller i Azure SQL-databasen
 1. Öppna SQL Server Management Studio och anslut till din Azure SQL-databas.
 
-2. I **Server Explorer** högerklickar du på databasen och väljer **Ny fråga**.
+1. I **Server Explorer** högerklickar du på databasen och väljer **Ny fråga**.
 
-3. Kör följande SQL-kommando mot SQL-databasen för att skapa tabeller med namnen `customer_table` och `project_table`:  
+1. Kör följande SQL-kommando mot SQL-databasen för att skapa tabeller med namnen `customer_table` och `project_table`:  
     
     ```sql
     create table customer_table
@@ -144,7 +144,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
         WatermarkValue datetime,
     );
     ```
-2. Infoga inledande värden för högvattenmärket för båda källtabellerna i vattenmärkestabellen.
+1. Infoga inledande värden för högvattenmärket för båda källtabellerna i vattenmärkestabellen.
 
     ```sql
 
@@ -230,32 +230,32 @@ END
 1. Klicka på **Ny** på den vänstra menyn, klicka på **Data + Analys**, och klicka på **Data Factory**. 
    
    ![Nytt->DataFactory](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory-menu.png)
-2. På sidan **Ny datafabrik** anger du **ADFMultiIncCopyTutorialDF** som **namn**. 
+1. På sidan **Ny datafabrik** anger du **ADFMultiIncCopyTutorialDF** som **namn**. 
       
      ![Sida för ny datafabrik](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory.png)
  
    Namnet på Azure Data Factory måste vara **globalt unikt**. Om följande fel returneras ändrar du namnet på datafabriken (till exempel dittnamnADFMultiIncCopyTutorialDF) och försöker skapa fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
   
        `Data factory name ADFMultiIncCopyTutorialDF is not available`
-3. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i. 
-4. För **resursgruppen** utför du något av följande steg:
+1. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i. 
+1. För **resursgruppen** utför du något av följande steg:
      
       - Välj **Använd befintlig** och välj en befintlig resursgrupp i listrutan. 
       - Välj **Skapa ny** och ange namnet på en resursgrupp.   
          
         Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
-4. Välj **V2 (förhandsgranskning)** för **versionen**.
-5. Välj **plats** för datafabriken. Endast platser som stöds visas i listrutan. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
-6. Välj **fäst till instrumentpanelen**.     
-7. Klicka på **Skapa**.      
-8. På instrumentpanelen visas följande panel med statusen: **Distribuerar datafabrik**. 
+1. Välj **V2 (förhandsgranskning)** för **versionen**.
+1. Välj **plats** för datafabriken. Endast platser som stöds visas i listrutan. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
+1. Välj **fäst till instrumentpanelen**.     
+1. Klicka på **Skapa**.      
+1. På instrumentpanelen visas följande panel med statusen: **Distribuerar datafabrik**. 
 
     ![panelen distribuerar datafabrik](media/tutorial-incremental-copy-multiple-tables-portal/deploying-data-factory.png)
-9. När datafabriken har skapats visas sidan **Datafabrik** som på bilden.
+1. När datafabriken har skapats visas sidan **Datafabrik** som på bilden.
    
    ![Datafabrikens startsida](./media/tutorial-incremental-copy-multiple-tables-portal/data-factory-home-page.png)
-10. Klicka på panelen **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory på en separat flik.
-11. Klicka på sidan komma igång med Azure Data Factory UI **Skapa pipeline** eller byt till fliken **Redigera**. 
+1. Klicka på panelen **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory på en separat flik.
+1. Klicka på sidan komma igång med Azure Data Factory UI **Skapa pipeline** eller byt till fliken **Redigera**. 
 
    ![Sidan Kom igång](./media/tutorial-incremental-copy-multiple-tables-portal/get-started-page.png)
 
@@ -265,30 +265,30 @@ När du flyttar data från ett datalager i ett privat nätverk (lokalt) till ett
 1. Klicka på **Anslutningar** längst ned i det vänstra fönstret och växla till **Integration Runtimes** i fönstret **Anslutningar**. 
 
    ![Fliken Anslutningar](./media/tutorial-incremental-copy-multiple-tables-portal/connections-tab.png)
-2. På fliken **Integration Runtimes** klickar du på **+ Ny**. 
+1. På fliken **Integration Runtimes** klickar du på **+ Ny**. 
 
    ![Knappen Ny Integration Runtime](./media/tutorial-incremental-copy-multiple-tables-portal/new-integration-runtime-button.png)
-3. I fönstret för **Integration Runtime** väljer du **Perform data movement and dispatch activities to external computes** (Utför dataflytt och skicka aktiviteter till externa databearbetningstjänster) och klickar på **Nästa**. 
+1. I fönstret för **Integration Runtime** väljer du **Perform data movement and dispatch activities to external computes** (Utför dataflytt och skicka aktiviteter till externa databearbetningstjänster) och klickar på **Nästa**. 
 
    ![Välja typ av Integration Runtime](./media/tutorial-incremental-copy-multiple-tables-portal/select-integration-runtime-type.png)
-4. Välj ** Private Network** (Privat nätverk) och klicka på **Nästa**. 
+1. Välj ** Private Network** (Privat nätverk) och klicka på **Nästa**. 
 
    ![Välj privat nätverk](./media/tutorial-incremental-copy-multiple-tables-portal/select-private-network.png)
-5. Ange **MySelfHostedIR** som **namn** och klicka på **Nästa**. 
+1. Ange **MySelfHostedIR** som **namn** och klicka på **Nästa**. 
 
    ![Namn på IR med lokal installation](./media/tutorial-incremental-copy-multiple-tables-portal/self-hosted-ir-name.png)
-10. Klicka på **Click here to launch the express setup for this computer** (Klicka här för att starta expressinstallation för den här datorn) i avsnittet **Option 1: Express setup** (Alternativ 1: Expressinstallation). 
+1. Klicka på **Click here to launch the express setup for this computer** (Klicka här för att starta expressinstallation för den här datorn) i avsnittet **Option 1: Express setup** (Alternativ 1: Expressinstallation). 
 
    ![Klicka på länken för expressinstallation](./media/tutorial-incremental-copy-multiple-tables-portal/click-exress-setup.png)
-11. Klicka på **Stäng** i fönstret **Snabbinstallation av Integration Runtime (lokal installation)**. 
+1. Klicka på **Stäng** i fönstret **Snabbinstallation av Integration Runtime (lokal installation)**. 
 
    ![Integration Runtime har installerats](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtime-setup-successful.png)
-12. Klicka på **Slutför** i webbläsaren för att stänga installationsfönstret för **Integration Runtime**. 
+1. Klicka på **Slutför** i webbläsaren för att stänga installationsfönstret för **Integration Runtime**. 
 
    ![Installationen av Integration Runtime slutförs](./media/tutorial-incremental-copy-multiple-tables-portal/click-finish-integration-runtime-setup.png)
-17. Bekräfta att du ser **MySelfHostedIR** i listan över Integration Runtimes.
+1. Bekräfta att du ser **MySelfHostedIR** i listan över Integration Runtimes.
 
-       ![Integration Runtime – lista](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtimes-list.png)
+       ![Integration runtimes - list](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtimes-list.png)
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
 Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I det här avsnittet får du skapa länkade tjänster till din lokala SQL Server-databas och din SQL-databas. 
@@ -299,20 +299,20 @@ I det här steget länkar du din lokala SQL Serverdatabas till datafabriken.
 1. I fönstret **Anslutningar** växlar du från fliken **Integration Runtimes** till fliken med **länkade tjänster** och klickar på **+ Ny**.
 
     ![Knapp för ny länkad tjänst](./media/tutorial-incremental-copy-multiple-tables-portal/new-sql-server-linked-service-button.png)
-2. I fönstret **New Linked Service** (Ny länkad tjänst) väljer du **SQL Server** och klickar på **Fortsätt**. 
+1. I fönstret **New Linked Service** (Ny länkad tjänst) väljer du **SQL Server** och klickar på **Fortsätt**. 
 
     ![Välj SQL Server](./media/tutorial-incremental-copy-multiple-tables-portal/select-sql-server.png)
-3. Utför följande steg i fönstret **New Linked Service** (Ny länkad tjänst):
+1. Utför följande steg i fönstret **New Linked Service** (Ny länkad tjänst):
 
     1. Ange **SqlServerLinkedService** som **namn**. 
-    2. Välj **MySelfHostedIR** för **Connect via integration runtime** (Anslut via Integration Runtime). Det här är ett **viktigt** steg. Integration Runtime i standardversionen kan inte ansluta till ett lokalt datalager. Använda den lokalt installerade Integration Runtime som du skapade tidigare. 
-    3. För **Servernamn** anger du namnet på den dator som har SQL Server-databasen.
-    4. För **Databasnamn** anger du namnet på databasen i SQL Server som innehåller källdata. Du skapade en tabell och infogade data i den här databasen som en del av förberedelserna. 
-    5. För **Autentiseringstyp** väljer du vilken **typ av autentisering** du vill använda för att ansluta till databasen. 
-    6. För **Användarnamn** anger du namnet på en användare som har åtkomst till SQL Server-databasen. Om du behöver använda ett snedstreck (`\`) i ditt användarkonto eller användarnamn använder du escape-tecknet (`\`). Ett exempel är `mydomain\\myuser`.
-    7. För **Lösenord** anger du **lösenordet** för användaren. 
-    8. Om du vill testa om Data Factory kan ansluta till SQL Server-databasen, klickar du på **Testa anslutning**. Åtgärda eventuella fel tills anslutningen lyckas. 
-    9. Klicka på **Spara** för att spara den länkade tjänsten.
+    1. Välj **MySelfHostedIR** för **Connect via integration runtime** (Anslut via Integration Runtime). Det här är ett **viktigt** steg. Integration Runtime i standardversionen kan inte ansluta till ett lokalt datalager. Använda den lokalt installerade Integration Runtime som du skapade tidigare. 
+    1. För **Servernamn** anger du namnet på den dator som har SQL Server-databasen.
+    1. För **Databasnamn** anger du namnet på databasen i SQL Server som innehåller källdata. Du skapade en tabell och infogade data i den här databasen som en del av förberedelserna. 
+    1. För **Autentiseringstyp** väljer du vilken **typ av autentisering** du vill använda för att ansluta till databasen. 
+    1. För **Användarnamn** anger du namnet på en användare som har åtkomst till SQL Server-databasen. Om du behöver använda ett snedstreck (`\`) i ditt användarkonto eller användarnamn använder du escape-tecknet (`\`). Ett exempel är `mydomain\\myuser`.
+    1. För **Lösenord** anger du **lösenordet** för användaren. 
+    1. Om du vill testa om Data Factory kan ansluta till SQL Server-databasen, klickar du på **Testa anslutning**. Åtgärda eventuella fel tills anslutningen lyckas. 
+    1. Klicka på **Spara** för att spara den länkade tjänsten.
 
         ![Inställningar för länkad SQL Server-tjänst](./media/tutorial-incremental-copy-multiple-tables-portal/sql-server-linked-service-settings.png)
 
@@ -322,19 +322,19 @@ I det sista steget skapar du en länkad tjänst för att länka SQL Server-datab
 1. I fönstret **Anslutningar** växlar du från fliken **Integration Runtimes** till fliken med **länkade tjänster** och klickar på **+ Ny**.
 
     ![Knapp för ny länkad tjänst](./media/tutorial-incremental-copy-multiple-tables-portal/new-sql-server-linked-service-button.png)
-2. I fönstret **New Linked Service** (Ny länkad tjänst) väljer du **Azure SQL Database** och klickar på **Fortsätt**. 
-3. Utför följande steg i fönstret **New Linked Service** (Ny länkad tjänst):
+1. I fönstret **New Linked Service** (Ny länkad tjänst) väljer du **Azure SQL Database** och klickar på **Fortsätt**. 
+1. Utför följande steg i fönstret **New Linked Service** (Ny länkad tjänst):
 
     1. Ange **AzureSqlDatabaseLinkedService** som **namn**. 
-    3. För **Servernamn** väljer du namnet på din Azure SQL-server från den nedrullningsbara listan. 
-    4. För **Databasnamn** väljer du den Azure SQL-databas där du skapade customer_table och project_table som en del av förberedelserna. 
-    6. För **Användarnamn** anger du namnet på en användare som har åtkomst till Azure SQL-databasen. 
-    7. För **Lösenord** anger du **lösenordet** för användaren. 
-    8. Om du vill testa om Data Factory kan ansluta till SQL Server-databasen, klickar du på **Testa anslutning**. Åtgärda eventuella fel tills anslutningen lyckas. 
-    9. Klicka på **Spara** för att spara den länkade tjänsten.
+    1. För **Servernamn** väljer du namnet på din Azure SQL-server från den nedrullningsbara listan. 
+    1. För **Databasnamn** väljer du den Azure SQL-databas där du skapade customer_table och project_table som en del av förberedelserna. 
+    1. För **Användarnamn** anger du namnet på en användare som har åtkomst till Azure SQL-databasen. 
+    1. För **Lösenord** anger du **lösenordet** för användaren. 
+    1. Om du vill testa om Data Factory kan ansluta till SQL Server-databasen, klickar du på **Testa anslutning**. Åtgärda eventuella fel tills anslutningen lyckas. 
+    1. Klicka på **Spara** för att spara den länkade tjänsten.
 
         ![Länkad Azure SQL-tjänst – inställningar](./media/tutorial-incremental-copy-multiple-tables-portal/azure-sql-linked-service-settings.png)
-10. Bekräfta att du ser två länkade tjänster i listan. 
+1. Bekräfta att du ser två länkade tjänster i listan. 
    
     ![Två länkade tjänster](./media/tutorial-incremental-copy-multiple-tables-portal/two-linked-services.png) 
 
@@ -346,13 +346,13 @@ I det här steget skapar du datauppsättningar som representerar datakällan, da
 1. I den vänstra rutan klickar du på **+ (plus)** och sedan på **Datauppsättning**.
 
    ![Menyn Ny datauppsättning](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
-2. I fönstret **Ny datauppsättning** väljer du **SQL Server** och klickar på **Slutför**. 
+1. I fönstret **Ny datauppsättning** väljer du **SQL Server** och klickar på **Slutför**. 
 
    ![Välj SQL Server](./media/tutorial-incremental-copy-multiple-tables-portal/select-sql-server-for-dataset.png)
-3. Du ser en ny flik öppnas i webbläsaren för att konfigurera datauppsättningen. Du kan också se datauppsättningen i trädvyn. Längst ned på fliken **Allmänt** i fönstret Egenskaper skriver du **SourceDataset** som **namn**. 
+1. Du ser en ny flik öppnas i webbläsaren för att konfigurera datauppsättningen. Du kan också se datauppsättningen i trädvyn. Längst ned på fliken **Allmänt** i fönstret Egenskaper skriver du **SourceDataset** som **namn**. 
 
    ![Källdatauppsättning – namn](./media/tutorial-incremental-copy-multiple-tables-portal/source-dataset-general.png)
-4. Byt till fliken **Connection** (Anslutning) i fönstret Egenskaper och välj **SqlServerLinkedService** för **Linked service** (Länkad tjänst). Du väljer inte en tabell här. Kopieringsaktivitet i pipelinen använder en SQL-fråga till att läsa in data, snarare än att läsa in hela tabellen.
+1. Byt till fliken **Connection** (Anslutning) i fönstret Egenskaper och välj **SqlServerLinkedService** för **Linked service** (Länkad tjänst). Du väljer inte en tabell här. Kopieringsaktivitet i pipelinen använder en SQL-fråga till att läsa in data, snarare än att läsa in hela tabellen.
 
    ![Källdatauppsättning – anslutning](./media/tutorial-incremental-copy-multiple-tables-portal/source-dataset-connection.png)
 
@@ -361,29 +361,29 @@ I det här steget skapar du datauppsättningar som representerar datakällan, da
 1. I den vänstra rutan klickar du på **+ (plus)** och sedan på **Datauppsättning**.
 
    ![Menyn Ny datauppsättning](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
-2. Välj **Azure SQL Database** i fönstret **Ny datauppsättning** och klicka på **Slutför**. 
+1. Välj **Azure SQL Database** i fönstret **Ny datauppsättning** och klicka på **Slutför**. 
 
    ![Välja Azure SQL Database](./media/tutorial-incremental-copy-multiple-tables-portal/select-azure-sql-database.png)
-3. Du ser en ny flik öppnas i webbläsaren för att konfigurera datauppsättningen. Du kan också se datauppsättningen i trädvyn. Längst ned på fliken **Allmänt** i fönstret Egenskaper skriver du **SinkDataset** som **namn**.
+1. Du ser en ny flik öppnas i webbläsaren för att konfigurera datauppsättningen. Du kan också se datauppsättningen i trädvyn. Längst ned på fliken **Allmänt** i fönstret Egenskaper skriver du **SinkDataset** som **namn**.
 
    ![Datauppsättning för mottagare – allmänt](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-general.png)
-4. Växla till fliken **Parameters** (Parametrar) i fönstret Egenskaper och utför följande steg: 
+1. Växla till fliken **Parameters** (Parametrar) i fönstret Egenskaper och utför följande steg: 
 
     1. Klicka på **+ Ny** i avsnittet för att **skapa/uppdatera parametrar**. 
-    2. Ange **SinkTableName** som **namn**, och **String** som **typ**. Den här datauppsättningen tar **SinkTableName** som en parameter. Parametern SinkTableName anges dynamiskt vid körning av pipelinen. ForEach-aktiviteten i pipelinen upprepas över en lista med tabellnamn och skickar tabellnamnet till datamängden i varje iteration.
+    1. Ange **SinkTableName** som **namn**, och **String** som **typ**. Den här datauppsättningen tar **SinkTableName** som en parameter. Parametern SinkTableName anges dynamiskt vid körning av pipelinen. ForEach-aktiviteten i pipelinen upprepas över en lista med tabellnamn och skickar tabellnamnet till datamängden i varje iteration.
    
        ![Mottagardatauppsättning – egenskaper](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
-5. Byt till fliken **Connection** (Anslutning) i fönstret Egenskaper och välj **AzureSqlLinkedService** för **Linked service** (Länkad tjänst). För egenskapen **Table** (Tabell) klickar du på **Add dynamic content** (Lägg till dynamiskt innehåll). 
+1. Byt till fliken **Connection** (Anslutning) i fönstret Egenskaper och välj **AzureSqlLinkedService** för **Linked service** (Länkad tjänst). För egenskapen **Table** (Tabell) klickar du på **Add dynamic content** (Lägg till dynamiskt innehåll). 
 
    ![Datauppsättning för mottagare – anslutning](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection.png)
     
     
-6. Välj **SinkTableName** i avsnittet **Parameters** (Parametrar)
+1. Välj **SinkTableName** i avsnittet **Parameters** (Parametrar)
    
    ![Datauppsättning för mottagare – anslutning](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
 
    
- 7. När du klickar på **Finish** (Slutför) visas **@dataset().SinkTableName** som tabellens namn.
+ 1. När du klickar på **Finish** (Slutför) visas **@dataset().SinkTableName** som tabellens namn.
    
    ![Datauppsättning för mottagare – anslutning](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
@@ -393,14 +393,14 @@ I det här steget skapar du en datauppsättning för att lagra ett värde för e
 1. I den vänstra rutan klickar du på **+ (plus)** och sedan på **Datauppsättning**.
 
    ![Menyn Ny datauppsättning](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
-2. Välj **Azure SQL Database** i fönstret **Ny datauppsättning** och klicka på **Slutför**. 
+1. Välj **Azure SQL Database** i fönstret **Ny datauppsättning** och klicka på **Slutför**. 
 
    ![Välja Azure SQL Database](./media/tutorial-incremental-copy-multiple-tables-portal/select-azure-sql-database.png)
-3. Längst ned på fliken **Allmänt** i fönstret Egenskaper skriver du **WatermarkDataset** som **namn**.
-4. Växla till fliken **Anslutning** och gör följande: 
+1. Längst ned på fliken **Allmänt** i fönstret Egenskaper skriver du **WatermarkDataset** som **namn**.
+1. Växla till fliken **Anslutning** och gör följande: 
 
     1. Välj **AzureSqlDatabaseLinkedService** som **Länkad tjänst**.
-    2. Välj **[dbo].[watermarktable]** för **Tabell**.
+    1. Välj **[dbo].[watermarktable]** för **Tabell**.
 
        ![Vattenmärkesdatauppsättning – anslutning](./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png)
 
@@ -409,105 +409,105 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
 
 1. Använd sökningsaktiviteten till att hämta det gamla vattenmärkesvärdet (startvärdet eller det som användes i den senaste iterationen).
 
-2. Använd sökningsaktiviteten för att hämta det nya högvattenmärket (högsta värdet i kolumnen vattenmärke i källtabellen).
+1. Använd sökningsaktiviteten för att hämta det nya högvattenmärket (högsta värdet i kolumnen vattenmärke i källtabellen).
 
-3. Använd kopieringsaktiviteten till att kopiera data mellan de två vattenmärkesvärdena från källdatabasen till måldatabasen.
+1. Använd kopieringsaktiviteten till att kopiera data mellan de två vattenmärkesvärdena från källdatabasen till måldatabasen.
 
-4. Använd StoredProcedure-aktiviteten för att uppdatera det gamla vattenmärket som ska användas i det första steget i nästa iteration. 
+1. Använd StoredProcedure-aktiviteten för att uppdatera det gamla vattenmärket som ska användas i det första steget i nästa iteration. 
 
 ### <a name="create-the-pipeline"></a>Skapa pipelinen
 
 1. I den vänstra rutan klickar du på **+ (plus)** och sedan på **Pipeline**.
 
     ![Ny pipeline – meny](./media/tutorial-incremental-copy-multiple-tables-portal/new-pipeline-menu.png)
-2. På fliken **Allmänt** i fönstret **Egenskaper** skriver du **IncrementalCopyPipeline** som **namn**. 
+1. På fliken **Allmänt** i fönstret **Egenskaper** skriver du **IncrementalCopyPipeline** som **namn**. 
 
     ![Namn på pipeline](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-name.png)
-3. Gör följande i fönstret **Egenskaper**: 
+1. Gör följande i fönstret **Egenskaper**: 
 
     1. Klicka på **+ Ny**. 
-    2. Ange **tableList** som parameterns **namn**. 
-    3. Välj **Object** som parameterns **typ**.
+    1. Ange **tableList** som parameterns **namn**. 
+    1. Välj **Object** som parameterns **typ**.
 
     ![Pipeline-parametrar](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
-4. I verktygslådan **Aktiviteter** expanderar du **Iteration & Conditions** (Iteration och villkor) och drar och släpper aktiviteten **ForEach** till pipelinedesignytan. På fliken **Allmänt** i fönstret Egenskaper skriver du **IterateSQLTables** som **namn**. 
+1. I verktygslådan **Aktiviteter** expanderar du **Iteration & Conditions** (Iteration och villkor) och drar och släpper aktiviteten **ForEach** till pipelinedesignytan. På fliken **Allmänt** i fönstret Egenskaper skriver du **IterateSQLTables** som **namn**. 
 
     ![Aktiviteten ForEach – namn](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-name.png)
-5. Växla till fliken **Settings** (Inställningar) i fönstret **Egenskaper** och ange `@pipeline().parameters.tableList` för **Items** (objekt). Aktiviteten ForEach upprepas över listan med tabeller och utför följande inkrementella kopieringsåtgärd. 
+1. Växla till fliken **Settings** (Inställningar) i fönstret **Egenskaper** och ange `@pipeline().parameters.tableList` för **Items** (objekt). Aktiviteten ForEach upprepas över listan med tabeller och utför följande inkrementella kopieringsåtgärd. 
 
     ![Aktiviteten ForEach – inställningar](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-settings.png)
-6. Markera aktiviteten **ForEach** i pipelinen om det inte redan är markerat. Klicka på knappen **Redigera (pennikonen)**.
+1. Markera aktiviteten **ForEach** i pipelinen om det inte redan är markerat. Klicka på knappen **Redigera (pennikonen)**.
 
     ![Aktiviteten ForEach – redigera](./media/tutorial-incremental-copy-multiple-tables-portal/edit-foreach.png)
-7. I verktygslådan **Aktiviteter** expanderar du **Allmänt** och drar och släpper **sökningen** på pipelinedesignytan. Ange **LookupOldWaterMarkActivity** som **Namn**.
+1. I verktygslådan **Aktiviteter** expanderar du **Allmänt** och drar och släpper **sökningen** på pipelinedesignytan. Ange **LookupOldWaterMarkActivity** som **Namn**.
 
     ![Första Lookup-aktiviteten – namn](./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-name.png)
-8. Växla till fliken **Settings** (Inställningar) i fönstret **Egenskaper** och utför följande steg: 
+1. Växla till fliken **Settings** (Inställningar) i fönstret **Egenskaper** och utför följande steg: 
 
     1. Markera **WatermarkDataset** för **Källdatauppsättning**.
-    2. Välj **Fråga** för **Använd fråga**. 
-    3. Ange följande SQL-fråga för **Fråga**. 
+    1. Välj **Fråga** för **Använd fråga**. 
+    1. Ange följande SQL-fråga för **Fråga**. 
 
         ```sql
         select * from watermarktable where TableName  =  '@{item().TABLE_NAME}'
         ```
 
         ![Första Lookup-aktiviteten – inställningar](./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-settings.png)
-9. Dra och släpp aktiviteten **Lookup** från verktygslådan **Aktiviteter** och ange **LookupNewWaterMarkActivity** som **namn**.
+1. Dra och släpp aktiviteten **Lookup** från verktygslådan **Aktiviteter** och ange **LookupNewWaterMarkActivity** som **namn**.
         
     ![Andra Lookup-aktiviteten – namn](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-name.png)
-10. Växla till fliken **Settings** (Inställningar).
+1. Växla till fliken **Settings** (Inställningar).
 
     1. Markera **SourceDataset** för **Källdatauppsättning**. 
-    2. Välj **Fråga** för **Använd fråga**.
-    3. Ange följande SQL-fråga för **Fråga**.
+    1. Välj **Fråga** för **Använd fråga**.
+    1. Ange följande SQL-fråga för **Fråga**.
 
         ```sql    
         select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
         ```
     
         ![Andra Lookup-aktiviteten – inställningar](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
-11. Dra och släpp aktiviteten **Copy** (Kopiera) från verktygslådan **Aktiviteter** och ange **IncrementalCopyActivity** som **namn**. 
+1. Dra och släpp aktiviteten **Copy** (Kopiera) från verktygslådan **Aktiviteter** och ange **IncrementalCopyActivity** som **namn**. 
 
     ![Kopiera aktivitet – namn](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-name.png)
-12. Koppla aktiviteterna **Lookup** (Sökning) till aktiviteten **Copy** (Kopiering), en i taget. Koppla genom att börja dra den **gröna** rutan som hör till **Lookup**-aktiviteten och släpp den på **Copy**-aktiviteten. Släpp musknappen när du ser att kantlinjefärgen för kopieringsaktiviteten ändras till **blått**.
+1. Koppla aktiviteterna **Lookup** (Sökning) till aktiviteten **Copy** (Kopiering), en i taget. Koppla genom att börja dra den **gröna** rutan som hör till **Lookup**-aktiviteten och släpp den på **Copy**-aktiviteten. Släpp musknappen när du ser att kantlinjefärgen för kopieringsaktiviteten ändras till **blått**.
 
     ![Koppla sökningsaktiviteter till kopieringsaktivitet](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
-13. Markera **Copy**-aktiviteten i pipeline. Växla till fliken **Source** (Käll) i **egenskapsfönstret**. 
+1. Markera **Copy**-aktiviteten i pipeline. Växla till fliken **Source** (Käll) i **egenskapsfönstret**. 
 
     1. Markera **SourceDataset** för **Källdatauppsättning**. 
-    2. Välj **Fråga** för **Använd fråga**. 
-    3. Ange följande SQL-fråga för **Fråga**.
+    1. Välj **Fråga** för **Använd fråga**. 
+    1. Ange följande SQL-fråga för **Fråga**.
 
         ```sql
         select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
         ```
 
         ![Kopiera aktivitet – källinställningar](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
-14. Växla till fliken **Sink** (Mottagare) och markera **SinkDataset** för **Sink Dataset** (Datauppsättning för mottagare). 
+1. Växla till fliken **Sink** (Mottagare) och markera **SinkDataset** för **Sink Dataset** (Datauppsättning för mottagare). 
         
     ![Kopiera aktivitet – inställningar för mottagare](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
-15. Växla till fliken **Parametrar** och gör följande:
+1. Växla till fliken **Parametrar** och gör följande:
 
     1. För egenskapen **Sink Stored Procedure Name** (Lagrat procedurnamn för mottagare) anger du `@{item().StoredProcedureNameForMergeOperation}`.
-    2. För egenskapen **Sink Table Type** (Tabelltyp för mottagare) anger du `@{item().TableType}`.
-    3. I avsnittet **Sink Dataset** (Datauppsättning för mottagare), för parametern **SinkTableName** anger du `@{item().TABLE_NAME}`.
+    1. För egenskapen **Sink Table Type** (Tabelltyp för mottagare) anger du `@{item().TableType}`.
+    1. I avsnittet **Sink Dataset** (Datauppsättning för mottagare), för parametern **SinkTableName** anger du `@{item().TABLE_NAME}`.
 
         ![Kopieringsaktiviteten – parametrar](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
-16. Dra och släpp aktiviteten **Lagrad procedur** från verktygslådan **Aktiviteter** till pipelinedesignytan. Koppla aktiviteten **Copy** (Kopiera) till aktiviteten **Lagrad procedur**. 
+1. Dra och släpp aktiviteten **Lagrad procedur** från verktygslådan **Aktiviteter** till pipelinedesignytan. Koppla aktiviteten **Copy** (Kopiera) till aktiviteten **Lagrad procedur**. 
 
     ![Kopieringsaktiviteten – parametrar](./media/tutorial-incremental-copy-multiple-tables-portal/connect-copy-to-sproc.png)
-17. Välj aktiviteten **Lagrad procedur** i pipelinen och ange **StoredProceduretoWriteWatermarkActivity** för **namn** på fliken **Allmänt** i fönstret **Egenskaper**. 
+1. Välj aktiviteten **Lagrad procedur** i pipelinen och ange **StoredProceduretoWriteWatermarkActivity** för **namn** på fliken **Allmänt** i fönstret **Egenskaper**. 
 
     ![Lagrad proceduraktivitet – namn](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-name.png)
-18. Växla till fliken **SQL-konto** och välj **AzureSqlDatabaseLinkedService** som **Länkad tjänst**.
+1. Växla till fliken **SQL-konto** och välj **AzureSqlDatabaseLinkedService** som **Länkad tjänst**.
 
     ![Lagrad proceduraktivitet – SQL-konto](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
-19. Växla till fliken **Lagrad procedur** och gör följande:
+1. Växla till fliken **Lagrad procedur** och gör följande:
 
     1. Som **Namn på lagrad procedur** väljer du `sp_write_watermark`. 
-    2. Välj **Importera parameter**. 
-    3. Ange följande värden för parametrarna: 
+    1. Välj **Importera parameter**. 
+    1. Ange följande värden för parametrarna: 
 
         | Namn | Typ | Värde | 
         | ---- | ---- | ----- |
@@ -515,10 +515,10 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
         | TableName | Sträng | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![Lagrad proceduraktivitet – inställningar för lagrad procedur](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
-20. Klicka på **Publicera** i rutan till vänster. Den här åtgärden publicerar de enheter du skapade till Data Factory-tjänsten. 
+1. Klicka på **Publicera** i rutan till vänster. Den här åtgärden publicerar de enheter du skapade till Data Factory-tjänsten. 
 
     ![Knappen Publicera](./media/tutorial-incremental-copy-multiple-tables-portal/publish-button.png)
-21. Vänta tills du ser meddelandet om att entiteterna **har publicerats**. Klicka på länken **Visa meddelanden** om du vill se dem. Stäng meddelandefönstret genom att klicka på **X**.
+1. Vänta tills du ser meddelandet om att entiteterna **har publicerats**. Klicka på länken **Visa meddelanden** om du vill se dem. Stäng meddelandefönstret genom att klicka på **X**.
 
     ![Visa meddelanden](./media/tutorial-incremental-copy-multiple-tables-portal/notifications.png)
 
@@ -528,7 +528,7 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
 1. Klicka på **Trigger** (Utlösare) i verktygsfältet för pipelinen och klicka på **Trigger Now** (Utlös nu).     
 
     ![Utlös nu](./media/tutorial-incremental-copy-multiple-tables-portal/trigger-now.png)
-2. I fönstret **Pipelinekörning** anger du följande värde för parametern **tableList**. Klicka på **Slutför**. 
+1. I fönstret **Pipelinekörning** anger du följande värde för parametern **tableList**. Klicka på **Slutför**. 
 
     ```
     [
@@ -554,7 +554,7 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
 1. Växla till fliken **Övervaka** till vänster. Du kan se den pipelinekörning som utlöstes av den **manuella utlösaren**. Om du vill uppdatera listan klickar du på **Uppdatera**. Med länkarna i kolumnen **Action** (Åtgärd) kan du visa de aktivitetskörningar som är associerade med pipelinekörningar och köra pipelinen på nytt. 
 
     ![Pipelinekörningar](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-runs.png)
-2. Klicka på länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Åtgärder**. Du ser alla aktivitetskörningar som är associerade med den valda pipelinekörningen. 
+1. Klicka på länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Åtgärder**. Du ser alla aktivitetskörningar som är associerade med den valda pipelinekörningen. 
 
     ![Aktivitetskörningar](./media/tutorial-incremental-copy-multiple-tables-portal/activity-runs.png)
 
@@ -629,7 +629,7 @@ VALUES
 
 ## <a name="rerun-the-pipeline"></a>Kör pipelinen igen
 1. Växla till fliken **Redigera** till vänster i webbläsarfönstret. 
-2. Klicka på **Trigger** (Utlösare) i verktygsfältet för pipelinen och klicka på **Trigger Now** (Utlös nu).   
+1. Klicka på **Trigger** (Utlösare) i verktygsfältet för pipelinen och klicka på **Trigger Now** (Utlös nu).   
 
     ![Utlös nu](./media/tutorial-incremental-copy-multiple-tables-portal/trigger-now.png)
 1. I fönstret **Pipelinekörning** anger du följande värde för parametern **tableList**. Klicka på **Slutför**. 
@@ -656,7 +656,7 @@ VALUES
 1. Växla till fliken **Övervaka** till vänster. Du kan se den pipelinekörning som utlöstes av den **manuella utlösaren**. Om du vill uppdatera listan klickar du på **Uppdatera**. Med länkarna i kolumnen **Action** (Åtgärd) kan du visa de aktivitetskörningar som är associerade med pipelinekörningar och köra pipelinen på nytt. 
 
     ![Pipelinekörningar](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-runs.png)
-2. Klicka på länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Åtgärder**. Du ser alla aktivitetskörningar som är associerade med den valda pipelinekörningen. 
+1. Klicka på länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Åtgärder**. Du ser alla aktivitetskörningar som är associerade med den valda pipelinekörningen. 
 
     ![Aktivitetskörningar](./media/tutorial-incremental-copy-multiple-tables-portal/activity-runs.png) 
 

@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/18/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 233129a6ddb655483812fdd222b55a6c3623a9b4
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: dfaee72be883ee8902fe4550890d757f114ff932
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114959"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426117"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Skapa ett Batch-konto med Azure Portal
 
@@ -34,11 +34,11 @@ Bakgrundsinformation om Batch-konton och Batch-scenarier finns i [funktionsöver
 
 1. Logga in på [Azure Portal][azure_portal].
 
-2. Välj **Skapa en resurs** > **Beräkna** > **Batch-tjänst**.
+1. Välj **Skapa en resurs** > **Beräkna** > **Batch-tjänst**.
 
     ![Batch på Marketplace][marketplace_portal]
 
-3. Ange inställningar för **Nytt Batch-konto**. Se följande information.
+1. Ange inställningar för **Nytt Batch-konto**. Se följande information.
 
     ![Skapa ett Batch-konto][account_portal]
 
@@ -56,7 +56,7 @@ Bakgrundsinformation om Batch-konton och Batch-scenarier finns i [funktionsöver
 
     f. **Poolallokeringsläge**: För de flesta scenarier kan du acceptera standardinställningarna för **Batch-tjänsten**.
 
-4. Skapa kontot genom att klicka på **Skapa**.
+1. Skapa kontot genom att klicka på **Skapa**.
 
 
 
@@ -85,22 +85,22 @@ När du skapar ditt första Batch-konto i användarprenumerationsläge behöver 
 
 1. Logga in på [Azure Portal][azure_portal].
 
-2. Välj **Fler tjänster** > **Prenumerationer** och välj den prenumeration som du vill använda för Batch-kontot.
+1. Välj **Fler tjänster** > **Prenumerationer** och välj den prenumeration som du vill använda för Batch-kontot.
 
-3. På sidan **Prenumeration** väljer du **resursproviders** och sök efter **Microsoft.Batch**. Kontrollera att resursprovidern **Microsoft.Batch** har registrerats i prenumerationen. Om den inte är registrerad väljer du länken **Registrera**.
+1. På sidan **Prenumeration** väljer du **resursproviders** och sök efter **Microsoft.Batch**. Kontrollera att resursprovidern **Microsoft.Batch** har registrerats i prenumerationen. Om den inte är registrerad väljer du länken **Registrera**.
 
     ![Registrera providern Microsoft.Batch][register_provider]
 
-3. På sidan **Prenumeration** väljer du **Åtkomstkontroll (IAM)** > **Lägg till**.
+1. På sidan **Prenumeration** väljer du **Åtkomstkontroll (IAM)** > **Lägg till**.
 
     ![Åtkomstkontroll för prenumeration][subscription_access]
 
-4. På sidan **Lägg till behörigheter** väljer du rollen **Deltagare** och söker efter Batch-API:t. Sök efter var och en av de här strängarna tills du hittar API:t:
+1. På sidan **Lägg till behörigheter** väljer du rollen **Deltagare** och söker efter Batch-API:t. Sök efter var och en av de här strängarna tills du hittar API:t:
     1. **MicrosoftAzureBatch**.
-    2. **Microsoft Azure Batch**. Nyare Azure AD-klientorganisationer kan använda det här namnet.
-    3. **ddbf3205-c6bd-46ae-8127-60eb93363864** är id:t för API:t. 
+    1. **Microsoft Azure Batch**. Nyare Azure AD-klientorganisationer kan använda det här namnet.
+    1. **ddbf3205-c6bd-46ae-8127-60eb93363864** är id:t för API:t. 
 
-5. När du har hittat Batch-API:t markerar du det och klickar på **Spara**.
+1. När du har hittat Batch-API:t markerar du det och klickar på **Spara**.
 
     ![Lägg till Batch-behörigheter][add_permission]
 
@@ -109,7 +109,7 @@ I användarprenumerationsläge krävs ett Azure-nyckelvalv som tillhör samma re
 
 1. På [Azure Portal][azure_portal] väljer du **Nytt** > **Säkerhet** > **Key Vault**.
 
-2. På sidan **Skapa nyckelvalv** anger du ett namn för nyckelvalvet och skapar en resursgrupp i den region som du vill använda för ditt Batch-konto. Lämna standardvärdena för resten av inställningarna och väljer sedan **Skapa**.
+1. På sidan **Skapa nyckelvalv** anger du ett namn för nyckelvalvet och skapar en resursgrupp i den region som du vill använda för ditt Batch-konto. Lämna standardvärdena för resten av inställningarna och väljer sedan **Skapa**.
 
 När du skapar Batch-kontot i användarprenumerationsläge använder du resursgruppen för nyckelvalvet, anger **Användarprenumeration** som poolallokeringsläge och väljer nyckelvalvet.
 

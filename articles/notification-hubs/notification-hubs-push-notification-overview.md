@@ -15,12 +15,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 44086bc20966d9c01ff27dda68f837101c71a778
-ms.sourcegitcommit: 15bfce02b334b67aedd634fa864efb4849fc5ee2
+ms.openlocfilehash: ccf27748699a49c569a43f041cbc5e3625055852
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "33777937"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503425"
 ---
 # <a name="what-is-azure-notification-hubs"></a>Vad är Azure Notification Hubs?
 Azure Notification Hubs innehåller en lättanvänd och uppskalad push-motor som gör det möjligt för dig att skicka meddelanden till valfri plattform (iOS, Android, Windows, Kindle, Baidu osv) från valfri serverdel (molnet eller lokalt). Notification Hubs fungerar utmärkt för både företags- och konsumentscenarier. Här följer några exempel:
@@ -122,4 +122,39 @@ Här är några av de fördelar som utvecklarna får tack vare den här integrer
 - **Integrerad upplevelse i [Azure Portal](https://portal.azure.com)**: Push som en funktion är visuellt återgiven i Mobile Apps och utvecklarna kan enkelt arbeta med den associerade meddelandehubben via Mobile Apps.
 
 ## <a name="next-steps"></a>Nästa steg
-Kom igång med att skapa och använda en meddelandehubb genom att följa [Självstudier: Skicka meddelanden till mobila program](notification-hubs-android-push-notification-google-fcm-get-started.md). [0]: ./media/notification-hubs-overview/registration-diagram.png [1]: ./media/notification-hubs-overview/notification-hub-diagram.png [Hur kunder använder Notification Hubs]: http://azure.microsoft.com/services/notification-hubs [Notification Hubs-självstudier och guider]: http://azure.microsoft.com/documentation/services/notification-hubs [iOS]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started [Android]: http://azure.microsoft.com/documentation/articles/notification-hubs-android-get-started [Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started [Windows Phone]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-phone-get-started [Kindle]: http://azure.microsoft.com/documentation/articles/notification-hubs-kindle-get-started [Xamarin.iOS]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-ios-get-started [Xamarin.Android]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-android-get-started [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx [App Service Mobile Apps]: https://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop/ [templates]: notification-hubs-templates-cross-platform-push-messages.md [Azure Portal]: https://portal.azure.com [tags]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
+
+Kom igång med att skapa och använda en meddelandehubb genom att följa [Självstudier: Skicka meddelanden till mobila program](notification-hubs-android-push-notification-google-fcm-get-started.md). 
+
+[0]: ./media/notification-hubs-overview/registration-diagram.png
+
+[1]: ./media/notification-hubs-overview/notification-hub-diagram.png
+
+[How customers are using Notification Hubs]: http://azure.microsoft.com/services/notification-hubs
+
+[Notification Hubs tutorials and guides]: http://azure.microsoft.com/documentation/services/notification-hubs
+
+[iOS]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started
+
+[Android]: http://azure.microsoft.com/documentation/articles/notification-hubs-android-get-started
+
+[Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started
+
+[Windows Phone]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-phone-get-started
+
+[Kindle]: http://azure.microsoft.com/documentation/articles/notification-hubs-kindle-get-started
+
+[Xamarin.iOS]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-ios-get-started
+
+[Xamarin.Android]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-android-get-started
+
+[Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
+
+[Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
+
+[App Service Mobile Apps]: https://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop/
+
+[templates]: notification-hubs-templates-cross-platform-push-messages.md
+
+[Azure portal]: https://portal.azure.com
+
+[tags]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)

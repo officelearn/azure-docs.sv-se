@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 29a5cc67ab4d515809d00e5f0b4277f95bfb08e6
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 8403e5d8dd3bad07e412b08709dcb8c28201bcdf
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100187"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434432"
 ---
 # <a name="deploy-a-kubernetes-cluster-in-azure-container-service"></a>Distribuera ett Kubernetes-kluster i Azure Container Service
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-Kubernetes tillhandahåller en distribuerad plattform för behållarbaserade program. Med Azure Container Service kan du snabbt och enkelt etablera ett produktionsklart Kubernetes-kluster. I den här självstudiekursen, som är del 3 av 7, distribueras ett Azure Container Service Kubernetes-kluster. Det här är några av stegen:
+Kubernetes tillhandahåller en distribuerad plattform för containerbaserade program. Med Azure Container Service kan du snabbt och enkelt etablera ett produktionsklart Kubernetes-kluster. I den här självstudiekursen, som är del 3 av 7, distribueras ett Azure Container Service Kubernetes-kluster. Det här är några av stegen:
 
 > [!div class="checklist"]
 > * Distribuera ett Kubernetes ACS-kluster
@@ -31,11 +31,11 @@ I efterföljande självstudier distribuerar du programmet Azure Vote till klustr
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-I tidigare självstudier skapades en behållaravbildning som sedan överfördes till en Azure Container Registry-instans. Om du inte har gjort det här och vill följa med återgår du till [Självstudie 1 – Skapa behållaravbildningar](./container-service-tutorial-kubernetes-prepare-app.md).
+I tidigare självstudier skapades en behållaravbildning som sedan överfördes till en Azure Container Registry-instans. Om du inte har gjort det här och vill följa med återgår du till [Självstudie 1 – Skapa containeravbildningar](./container-service-tutorial-kubernetes-prepare-app.md).
 
 ## <a name="create-kubernetes-cluster"></a>Skapa Kubernetes-kluster
 
-Skapa ett Kubernetes-kluster i Azure Container Service med kommandot [az acs create](/cli/azure/acs#az_acs_create). 
+Skapa ett Kubernetes-kluster i Azure Container Service med kommandot [az acs create](/cli/azure/acs#az-acs-create). 
 
 I följande exempel skapas ett kluster med namnet `myK8sCluster` i en resursgrupp med namnet `myResourceGroup`. Den här resursgruppen skapades i [föregående självstudie](./container-service-tutorial-kubernetes-prepare-acr.md).
 
@@ -43,7 +43,7 @@ I följande exempel skapas ett kluster med namnet `myK8sCluster` i en resursgrup
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8SCluster --generate-ssh-keys 
 ```
 
-I vissa fall, som vid en begränsad utvärderingsversion, har en Azure-prenumeration begränsad åtkomst till Azure-resurser. Om distributionen misslyckas på grund av begränsade tillgängliga kärnor minskar du antalet standardagenter genom att lägga till `--agent-count 1` till kommandot [az acs create](/cli/azure/acs#az_acs_create). 
+I vissa fall, som vid en begränsad utvärderingsversion, har en Azure-prenumeration begränsad åtkomst till Azure-resurser. Om distributionen misslyckas på grund av begränsade tillgängliga kärnor minskar du antalet standardagenter genom att lägga till `--agent-count 1` till kommandot [az acs create](/cli/azure/acs#az-acs-create). 
 
 Efter några minuter slutförs distributionen och jdon-formaterad information om ACS-distributionen returneras.
 

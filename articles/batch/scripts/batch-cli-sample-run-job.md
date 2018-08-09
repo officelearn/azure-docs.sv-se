@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: danlep
-ms.openlocfilehash: d63854b213b33a3c26358df17761999f5270d7a2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d821a5b3f0df85928ca405c8520a86c9d2a0661f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38455143"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442045"
 ---
 # <a name="cli-example-run-a-job-and-tasks-with-azure-batch"></a>CLI-exempel: Köra ett jobb och uppgifter med Azure Batch
 
@@ -47,16 +47,16 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 | Kommando | Anteckningar |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
-| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Skapar Batch-kontot. |
-| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Autentiserar mot det angivna Batch-kontot för ytterligare CLI-interaktion.  |
-| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_create) | Skapar en pool med beräkningsnoder.  |
-| [az batch job create](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_create) | Skapar ett Batch-jobb.  |
-| [az batch task create](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_create) | Lägger till en aktivitet i angivet Batch-jobb.  |
-| [az batch job set](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_set) | Uppdaterar egenskaperna för ett Batch-jobb.  |
-| [az batch job show](https://docs.microsoft.com/cli/azure/batch/job#az_batch_job_show) | Hämtar information om ett angivet Batch-jobb.  |
-| [az batch task show](https://docs.microsoft.com/cli/azure/batch/task#az_batch_task_show) | Hämtar information om en uppgift från det angivna Batch-jobbet.  |
-| [az group delete](/cli/azure/group#az_group_delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Skapar Batch-kontot. |
+| [az batch account login](/cli/azure/batch/account#az-batch-account-login) | Autentiserar mot det angivna Batch-kontot för ytterligare CLI-interaktion.  |
+| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#az-batch-pool-create) | Skapar en pool med beräkningsnoder.  |
+| [az batch job create](https://docs.microsoft.com/cli/azure/batch/job#az-batch-job-create) | Skapar ett Batch-jobb.  |
+| [az batch task create](https://docs.microsoft.com/cli/azure/batch/task#az-batch-task-create) | Lägger till en aktivitet i angivet Batch-jobb.  |
+| [az batch job set](https://docs.microsoft.com/cli/azure/batch/job#az-batch-job-set) | Uppdaterar egenskaperna för ett Batch-jobb.  |
+| [az batch job show](https://docs.microsoft.com/cli/azure/batch/job#az-batch-job-show) | Hämtar information om ett angivet Batch-jobb.  |
+| [az batch task show](https://docs.microsoft.com/cli/azure/batch/task#az-batch-task-show) | Hämtar information om en uppgift från det angivna Batch-jobbet.  |
+| [az group delete](/cli/azure/group#az-group-delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
 

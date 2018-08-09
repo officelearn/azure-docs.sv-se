@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 497c3b54238c9e38144a5840b59cac38af581f39
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 62a55672a4326df585fc84699dfd72424be362dc
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525934"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627499"
 ---
 # <a name="configure-named-locations-in-azure-active-directory"></a>Konfigurera namngivna platser i Azure Active Directory
 
 Du kan använda namngivna platser för att sätta etiketter betrodda IP-adressintervall i din organisation. Azure Active Directory använder namngivna platser i samband med:
 
-- Identifieringen av [riskhändelser](active-directory-reporting-risk-events.md) att minska antalet rapporterade falska positiva identifieringar.  
+- Identifieringen av [riskhändelser](reports-monitoring/concept-risk-events.md) att minska antalet rapporterade falska positiva identifieringar.  
 
 - [Platsbaserad villkorlig åtkomst](conditional-access/location-condition.md).
 
@@ -99,6 +99,6 @@ Mer information finns i:
 
 - [Platsvillkor i Azure Active Directory villkorlig åtkomst](conditional-access/location-condition.md)
 
-- [Azure Active Directory-riskhändelser](active-directory-reporting-risk-events.md).
+- [Azure Active Directory-riskhändelser](reports-monitoring/concept-risk-events.md).
 
-- [Rapporten om riskfyllda inloggningar i Azure Active Directory-portalen](active-directory-reporting-security-risky-sign-ins.md).  
+- [Rapporten om riskfyllda inloggningar i Azure Active Directory-portalen](reports-monitoring/concept-risky-sign-ins.md).  

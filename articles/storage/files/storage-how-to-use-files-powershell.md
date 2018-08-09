@@ -2,23 +2,18 @@
 title: Hantera Azure-filresurser med Azure PowerShell
 description: Läs hur du hanterar Azure-filresurser med Azure PowerShell.
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: aungoo
-editor: tamram
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: 8fcc654b7f5068037ec0818e19d8dff09bc07537
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: files
+ms.openlocfilehash: a69e8946c050cc69411f843b07e907a119c6edea
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635096"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522937"
 ---
 # <a name="managing-azure-file-shares-with-azure-powershell"></a>Hantera Azure-filresurser med Azure PowerShell 
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Windows, Linux och macOS. Den här guiden går igenom grunderna med att arbeta med Azure-filresurser med PowerShell. I den här artikeln lär du dig hur du:
@@ -31,14 +26,14 @@ ms.locfileid: "38635096"
 > * Hämta en fil
 > * Skapa och använda en ögonblicksbild av en resurs
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
 Om du vill installera och använda PowerShell lokalt krävs Azure PowerShell-modul version 5.1.1 eller senare i den här självstudien. Om du vill ta reda på vilken version av Azure PowerShell-modulen som du kör, kör du `Get-Module -ListAvailable AzureRM`. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
-En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. Om du inte redan har en Azure-resursgrupp, kan du skapa en ny med cmdleten [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
+En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Om du inte redan har en Azure-resursgrupp, kan du skapa en ny med cmdleten [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
 
 Följande exempel skapar en resursgrupp med namnet *myResourceGroup* i regionen USA, östra:
 
@@ -139,7 +134,7 @@ Get-ChildItem -Path "C:\Users\ContainerAdministrator\CloudDrive"
 ``` 
 
 ### <a name="copy-files"></a>Kopiera filer
-En gemensam uppgift är att kopiera filer från en filresurs till en annan eller till/från en Azure Blob Storage-behållare. Om du vill demonstrera den här funktionen kan du skapa en ny resurs och kopiera filen du överförde till denna nya resurs med cmdleten [Start-AzureStorageFileCopy](/powershell/module/azure.storage/start-azurestoragefilecopy). 
+En gemensam uppgift är att kopiera filer från en filresurs till en annan eller till/från en Azure Blob Storage-container. Om du vill demonstrera den här funktionen kan du skapa en ny resurs och kopiera filen du överförde till denna nya resurs med cmdleten [Start-AzureStorageFileCopy](/powershell/module/azure.storage/start-azurestoragefilecopy). 
 
 ```azurepowershell-interactive
 New-AzureStorageShare `
@@ -166,7 +161,7 @@ Du bör nu se den kopierade filen om du visar filerna i den nya resursen.
 Get-AzureStorageFile -Context $storageAcct.Context -ShareName "myshare2" -Path "myDirectory2" 
 ```
 
-Även om cmdleten `Start-AzureStorageFileCopy` är praktiskt för ad hoc-filförflyttningar mellan Azure-filresurser och Azure Blob Storage-behållare så rekommenderar vi AzCopy för större flyttar (sett till antalet filer som flyttas eller hur stora filer som flyttas). Läs mer om [AzCopy för Windows](../common/storage-use-azcopy.md) och [AzCopy för Linux](../common/storage-use-azcopy-linux.md). AzCopy måste installeras lokalt – det är inte tillgängligt i Cloud Shell. 
+Även om cmdleten `Start-AzureStorageFileCopy` är användbar för ad hoc-filförflyttningar mellan Azure-filresurser och Azure Blob Storage-containrar så rekommenderar vi AzCopy för större flyttar (sett till antalet filer som flyttas eller hur stora filer som flyttas). Läs mer om [AzCopy för Windows](../common/storage-use-azcopy.md) och [AzCopy för Linux](../common/storage-use-azcopy-linux.md). AzCopy måste installeras lokalt – det är inte tillgängligt i Cloud Shell. 
 
 ## <a name="create-and-modify-share-snapshots"></a>Skapa och ändra resursögonblicksbilder
 Ytterligare en användbar uppgift som du kan göra med en Azure-filresurs är att skapa resursögonblicksbilder. En ögonblicksbild bevarar en tidpunkt för en Azure-filresurs. Ögonblicksbilder av resurser liknar de operativsystemtekniker som du kanske redan är bekant med såsom:
@@ -237,7 +232,7 @@ Get-AzureStorageShare -Context $storageAcct.Context | Where-Object { $_.IsSnapsh
 }
 ```
 
-- Ta bort själva lagringskontot (vilket medför att de Azure-filresurser som vi skapat liksom andra lagringsresurser som du kan ha skapat, t.ex. en Azure Blob Storage-behållare också tas bort).
+- Ta bort själva lagringskontot (vilket medför att de Azure-filresurser som vi skapat liksom andra lagringsresurser som du kan ha skapat, t.ex. en Azure Blob Storage-container, också tas bort).
 ```azurepowershell-interactive
 Remove-AzureRmStorageAccount -ResourceGroupName $storageAcct.ResourceGroupName -Name $storageAcct.StorageAccountName
 ```

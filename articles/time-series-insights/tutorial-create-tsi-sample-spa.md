@@ -5,13 +5,14 @@ author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 06/14/2018
-ms.author: bryanla
-ms.openlocfilehash: 4442a724cf3e37d5e7271d9c29f99138ab1faa5f
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.author: anshan
+manager: cshankar
+ms.openlocfilehash: 312e15f976a6782e3f39cfcc5ce0721ac6357a16
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295838"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626763"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Självstudier: Skapa en enkelsidig Azure Time Series Insights-webbapp
 
@@ -42,11 +43,11 @@ Den här självstudiekursen kommer också att använda data från det exempelpro
 Innan du skapar programmet måste du registrera det med Azure AD. Registreringen ger identitetskonfiguration för ett program så att det kan använda OAuth-stöd för enkel inloggning. OAuth kräver att SPA att använda ”underförstått” tillstånd, vilket ska du uppdatera i programmanifestet. Ett programmanifest är en JSON-representation av programmets identitetskonfiguration. 
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-prenumerationskonto.  
-2. Välj resursen **Azure Active Directory** i den vänstra rutan, sedan **App-registreringar**, sedan **+ Ny appregistrering**:  
+1. Välj resursen **Azure Active Directory** i den vänstra rutan, sedan **App-registreringar**, sedan **+ Ny appregistrering**:  
    
    ![Azure AD-appregistrering i Azure Portal](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png)
 
-3. På sidan **Skapa** fyller du i de nödvändiga parametrarna:
+1. På sidan **Skapa** fyller du i de nödvändiga parametrarna:
    
    Parameter|Beskrivning
    ---|---
@@ -58,27 +59,27 @@ Innan du skapar programmet måste du registrera det med Azure AD. Registreringen
 
    ![Azure AD-appregistrering i Azure Portal - skapa](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png)
 
-4. Resursprogram innehåller REST API:er för användning av andra program och också är registrerade med Azure AD. API:er ger detaljerad/skyddad åtkomst till klientprogram, genom att exponera ”omfång”. Eftersom ditt program anropar API:et ”Azure Time Series Insights” API, måste du ange API och omfång för behörigheten som ska beviljas/förfrågas vid körning. Välj **Inställningar**, sedan **Nödvändiga behörigheter**, sedan **+ Lägg till**:
+1. Resursprogram innehåller REST API:er för användning av andra program och också är registrerade med Azure AD. API:er ger detaljerad/skyddad åtkomst till klientprogram, genom att exponera ”omfång”. Eftersom ditt program anropar API:et ”Azure Time Series Insights” API, måste du ange API och omfång för behörigheten som ska beviljas/förfrågas vid körning. Välj **Inställningar**, sedan **Nödvändiga behörigheter**, sedan **+ Lägg till**:
 
    ![Azure Portal Azure AD lägga till behörigheter](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png)
 
-5. Från sidan **Lägg till API-åtkomst** klickar du på **1 Välj ett API** och ange TSD-API. På sidan **Välj ett API** anger du ”azure time” i sökfältet. Välj sedan API:et ”Azure Time Series Insights” i resultatlistan och klicka sedan på **Välj**: 
+1. Från sidan **Lägg till API-åtkomst** klickar du på **1 Välj ett API** och ange TSD-API. På sidan **Välj ett API** anger du ”azure time” i sökfältet. Välj sedan API:et ”Azure Time Series Insights” i resultatlistan och klicka sedan på **Välj**: 
 
    ![Azure-portalen Azure AD lägga till behörigheter - API](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png)
 
-6. Nu kan du ange ett omfång för API:et. Gå tillbaka till sidan **Lägg till API-åtkomst** och klicka på **2 Välj behörigheter**. På sidan **Aktivera åtkomst** markerar du omfånget ”Åtkomst till tjänsten Azure Time Series Insights”. Klickar på **Välj**, vilket återför dig till sidan **Lägg till API-åtkomst** där du klickar på **Klar**:
+1. Nu kan du ange ett omfång för API:et. Gå tillbaka till sidan **Lägg till API-åtkomst** och klicka på **2 Välj behörigheter**. På sidan **Aktivera åtkomst** markerar du omfånget ”Åtkomst till tjänsten Azure Time Series Insights”. Klickar på **Välj**, vilket återför dig till sidan **Lägg till API-åtkomst** där du klickar på **Klar**:
 
    ![Azure-portalen Azure AD lägga till behörigheter - omfång](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png)
 
-7. När du kommer tillbaka till sidan **Nödvändiga behörigheter**, lägg märke till att API:et ”Azure Time Series Insights” nu visas. Du måste också ge tillstånd i förväg till att programmet får åtkomst till API:et och omfånget för alla användare. Klicka på knappen **Bevilja behörigheter** överst och välj **Ja**:
+1. När du kommer tillbaka till sidan **Nödvändiga behörigheter**, lägg märke till att API:et ”Azure Time Series Insights” nu visas. Du måste också ge tillstånd i förväg till att programmet får åtkomst till API:et och omfånget för alla användare. Klicka på knappen **Bevilja behörigheter** överst och välj **Ja**:
 
    ![Azure-portalen Azure AD nödvändiga behörigheter - medgivande](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-required-permissions-consent.png)
 
-8. Som tidigare nämnts kan du också behöva uppdatera programmanifestet. Klicka på namnet på programmet i den dynamiska länken om du vill gå tillbaka till sidan **Registrerad app**. Välj **Manifest**, ändra egenskapen `oauth2AllowImplicitFlow` till `true` och klicka på **Spara**:
+1. Som tidigare nämnts kan du också behöva uppdatera programmanifestet. Klicka på namnet på programmet i den dynamiska länken om du vill gå tillbaka till sidan **Registrerad app**. Välj **Manifest**, ändra egenskapen `oauth2AllowImplicitFlow` till `true` och klicka på **Spara**:
 
    ![Uppdatera manifest för Azure AD i Azure Portal](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png)
 
-9. Klicka på den dynamiska länken för att gå tillbaka till sidan **Registrerad app** igen och kopiera egenskaperna URL för **Startsidan** och **Program-ID** för programmet. Du kommer att använda dessa egenskaper i ett senare steg:
+1. Klicka på den dynamiska länken för att gå tillbaka till sidan **Registrerad app** igen och kopiera egenskaperna URL för **Startsidan** och **Program-ID** för programmet. Du kommer att använda dessa egenskaper i ett senare steg:
 
    ![Egenskaper för Azure AD med Azure Portal](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-application.png)
 
@@ -92,15 +93,15 @@ Innan du skapar programmet måste du registrera det med Azure AD. Registreringen
    - **index.HTML** HTML och JavaScript för sidan https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html
    - **sampleStyles.css:** CSS-stilark: https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css
     
-2. Starta och logga in på Visual Studio och skapa ett projekt för webbappen. I menyn **Arkiv** väljer du alternativet **öppna**, **Webbplats**. I dialogrutan **Öppna webbplats** väljer du arbetskatalogen där du sparade HTML- och CSS-filerna och klickar sedan på **Öppna**:
+1. Starta och logga in på Visual Studio och skapa ett projekt för webbappen. I menyn **Arkiv** väljer du alternativet **öppna**, **Webbplats**. I dialogrutan **Öppna webbplats** väljer du arbetskatalogen där du sparade HTML- och CSS-filerna och klickar sedan på **Öppna**:
 
    ![VS - Arkiv öppna webbplats](media/tutorial-create-tsi-sample-spa/vs-file-open-web-site.png)
 
-3. I Visual Studio väljer du **Solution Explorer** på **Visa**-menyn. Du bör se den nya lösningen som innehåller ett webbplats-projekt (globikon) som innehåller HTML- och CSS-filer:
+1. I Visual Studio väljer du **Solution Explorer** på **Visa**-menyn. Du bör se den nya lösningen som innehåller ett webbplats-projekt (globikon) som innehåller HTML- och CSS-filer:
 
    ![VS - solution explorer ny lösning](media/tutorial-create-tsi-sample-spa/vs-solution-explorer.png)
 
-4. Innan du kan publicera programmet, måste du uppdatera delar av JavaScript-koden i **index.html**: 
+1. Innan du kan publicera programmet, måste du uppdatera delar av JavaScript-koden i **index.html**: 
 
    a. Först, ändra sökvägarna för JavaScript och formatbladfilreferenser i elementet `<head>`. Öppna filen **index.html** i Visual Studio-lösningeb och sök efter följande rader med JavaScript-kod. Ta bort kommentarerna från de tre raderna under ”PROD RESURSLÄNKAR” och kommentera ut de tre raderna under ”DEV RESURSLÄNKAR”:
    
@@ -133,7 +134,7 @@ Innan du skapar programmet måste du registrera det med Azure AD. Registreringen
 
    c. Spara **index.html** när du har redigerat klart.
 
-5. Nu kan du publicera webbappen på din Azure-prenumeration som Azure App Service:  
+1. Nu kan du publicera webbappen på din Azure-prenumeration som Azure App Service:  
 
    > [!NOTE]
    > Flera av fälten o följande dialogrutor fylls med data från din Azure-prenumeration. Därför kan det ta några sekunder för varje dialogruta att fullständigt läsa in innan det går att fortsätta.  
@@ -187,7 +188,7 @@ Den här självstudiekursen skapar flera körningar av Azure-tjänster. Om du in
 Klicka på den vänstra menyn i Azure Portal:
 
 1. Klicka på ikonen **Resursgrupper** välj sedan den resursgrupp som du skapade för TSI-miljön. Överst på sidan, klickar du på **Ta bort resursgrupp**, anger namnet på resursgruppen och klickar sedan på **Ta bort**. 
-2. Klicka på ikonen **Resursgrupper** välj sedan den resursgrupp som har skapats av enhetssimuleringens lösningsaccelerator. Överst på sidan, klickar du på **Ta bort resursgrupp**, anger namnet på resursgruppen och klickar sedan på **Ta bort**. 
+1. Klicka på ikonen **Resursgrupper** välj sedan den resursgrupp som har skapats av enhetssimuleringens lösningsaccelerator. Överst på sidan, klickar du på **Ta bort resursgrupp**, anger namnet på resursgruppen och klickar sedan på **Ta bort**. 
 
 ## <a name="next-steps"></a>Nästa steg
 

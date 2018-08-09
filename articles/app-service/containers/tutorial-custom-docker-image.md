@@ -16,24 +16,24 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 887ed316605ab423159ef0d2e07f0960c702ed8b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 161207b96deb2f7bd605d845a9207393f9f59c23
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38317965"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444750"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Använda du en anpassad Docker-avbildning för Web App for Containers
 
 [Web App for Containers](app-service-linux-intro.md) tillhandahåller fördefinierade Docker-avbildningar i Linux med stöd för specifika versioner, till exempel PHP 7.0 och Node.js 4.5. Web App for Containers använder teknik för Docker-behållare för att vara värd för inbyggda avbildningar och anpassade avbildningar som plattform som en tjänst. I den här självstudien lär du dig att skapa en anpassad Docker-avbildning och distribuera den till Web App for Containers. Det här mönstret är användbart när de inbyggda avbildningarna inte inkluderar ditt språkval eller när ditt program kräver en specifik konfiguration som inte ingår i de inbyggda avbildningarna.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Distribuera en anpassad Docker-avbildning till Azure
-> * Konfigurera miljövariabler för att köra behållaren
+> * Konfigurera miljövariabler för att köra containern
 > * Uppdatera Docker-avbildningen och distribuera om den
-> * Anslut till behållaren med SSH
+> * Anslut till containern med SSH
 > * Distribuera en privat Docker-avbildning till Azure
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
@@ -57,7 +57,7 @@ cd docker-django-webapp-linux
 
 ## <a name="build-the-image-from-the-docker-file"></a>Skapa avbildningen från Docker-filen
 
-På Git-lagringsplatsen tar du en titt på _Dockerfile_. Den här filen beskriver Python-miljön som krävs för att köra programmet. Dessutom konfigurerar avbildningen en [SSH](https://www.ssh.com/ssh/protocol/)-server för säker kommunikation mellan behållaren och värden.
+På Git-lagringsplatsen tar du en titt på _Dockerfile_. Den här filen beskriver Python-miljön som krävs för att köra programmet. Dessutom konfigurerar avbildningen en [SSH](https://www.ssh.com/ssh/protocol/)-server för säker kommunikation mellan containern och värden.
 
 ```docker
 FROM python:3.4
@@ -116,23 +116,23 @@ Successfully built e7cf08275692
 Successfully tagged cephalin/mydockerimage:v1.0.0
 ```
 
-Testa att versionen fungerar genom att köra Docker-behållaren. Utfärda kommandot [`docker run`](https://docs.docker.com/engine/reference/commandline/run/) och skicka avbildningens namn och tagg. Se till att ange porten som använder argumentet `-p`.
+Testa att versionen fungerar genom att köra Docker-containern. Utfärda kommandot [`docker run`](https://docs.docker.com/engine/reference/commandline/run/) och skicka avbildningens namn och tagg. Se till att ange porten som använder argumentet `-p`.
 
 ```bash
 docker run -p 2222:8000 <docker-ID>/mydockerimage:v1.0.0
 ```
 
-Verifiera att webbappen och behållaren fungerar som de ska genom att bläddra till `http://localhost:2222`.
+Verifiera att webbappen och containern fungerar som de ska genom att bläddra till `http://localhost:2222`.
 
 ![Testa webbappen lokalt](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
 
 > [!NOTE] 
-> Du kan också ansluta till appbehållaren direkt från din lokala utvecklingsdator med SSH, SFTP eller Visual Studio Code (för livefelsökning av Node.js-appar). Mer information finns i [Remote debugging and SSH in App Service on Linux](https://aka.ms/linux-debug) (Fjärrfelsökning och SSH i App Service på Linux).
+> Du kan också ansluta till appcontainern direkt från din lokala utvecklingsdator med SSH, SFTP eller Visual Studio Code (för livefelsökning av Node.js-appar). Mer information finns i [Remote debugging and SSH in App Service on Linux](https://aka.ms/linux-debug) (Fjärrfelsökning och SSH i App Service på Linux).
 >
 
 ## <a name="push-the-docker-image-to-docker-hub"></a>Push-överför Docker-avbildningen till Docker Hub
 
-Ett register är ett program som är värd för avbildningar och tillhandahåller tjänster för avbildningar och behållare. För att dela avbildningen måste du push-överföra den till ett register. 
+Ett register är ett program som är värd för avbildningar och tillhandahåller tjänster för avbildningar och containrar. För att dela avbildningen måste du push-överföra den till ett register. 
 
 <!-- Depending on your requirements, you may have your docker images in a Public Docker Registry, such as Docker Hub, or a Private Docker Registry such as Azure Container Registry. Select the appropriate tab for your scenario below (your selection will switch multiple tabs on this page). -->
 
@@ -205,7 +205,7 @@ Du kan vara värd för ursprungliga Linux-program i molnet med Azure Web Apps. O
 
 ### <a name="create-a-web-app"></a>Skapa en webbapp
 
-Skapa i Cloud Shell en [webbapp](app-service-linux-intro.md) i `myAppServicePlan` App Service-planen med kommandot [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Glöm inte att ersätta _<appname>_ med ett unikt appnamn och _\<docker-ID>_ med ditt Docker-ID.
+Skapa i Cloud Shell en [webbapp](app-service-linux-intro.md) i `myAppServicePlan` App Service-planen med kommandot [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Glöm inte att ersätta _<appname>_ med ett unikt appnamn och _\<docker-ID>_ med ditt Docker-ID.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --deployment-container-image-name <docker-ID>/mydockerimage:v1.0.0
@@ -232,7 +232,7 @@ När webbappen har skapats visar Azure CLI utdata liknande den i följande exemp
 
 De flesta Docker-avbildningar har miljövariabler som behöver konfigureras. Om du använder en befintlig Docker-avbildning som har skapats av någon annan kanske avbildningen använder en annan port än 80. Du kan informera Azure om vilken port avbildningen använder med `WEBSITES_PORT`-appinställningen. GitHub-sidan för [Python-exemplet i den här självstudien](https://github.com/Azure-Samples/docker-django-webapp-linux) visar att du behöver ställa in `WEBSITES_PORT` på _8000_.
 
-Om du vill konfigurera appinställningar använder du kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) i Cloud Shell. Appinställningar är skifteslägeskänsliga och avgränsas med blanksteg.
+Om du vill konfigurera appinställningar använder du kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. Appinställningar är skifteslägeskänsliga och avgränsas med blanksteg.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_PORT=8000
@@ -276,7 +276,7 @@ När du har ändrat Python-filen och sparat den måste du återskapa och push-ö
 
 ## <a name="connect-to-web-app-for-containers-using-ssh"></a>Ansluta till Web App for Containers med SSH
 
-SSH möjliggör säker kommunikation mellan en behållare och en klient. För att en anpassad Docker-avbildning ska stödja SSH måste du bygga den i en Dockerfile. Du aktiverar SSH i själva Docker-filen. SSH-instruktionerna har redan lagts till i exempel-dockerfilen, så du kan följa instruktionerna med din egen anpassade avbildning:
+SSH möjliggör säker kommunikation mellan en container och en klient. För att en anpassad Docker-avbildning ska stödja SSH måste du bygga den i en Dockerfile. Du aktiverar SSH i själva Docker-filen. SSH-instruktionerna har redan lagts till i exempel-dockerfilen, så du kan följa instruktionerna med din egen anpassade avbildning:
 
 * En [RUN](https://docs.docker.com/engine/reference/builder/#run)-instruction som anropar `apt-get` och sedan ställer in lösenordet för rotkontot på `"Docker!"`.
 
@@ -290,7 +290,7 @@ SSH möjliggör säker kommunikation mellan en behållare och en klient. För at
     ```
 
     > [!NOTE]
-    > Den här konfigurationen tillåter inga externa anslutningar till behållaren. SSH är endast tillgängligt via webbplatsen för Kudu/SCM. Kudu-/SCM-webbplatsen autentiseras med autentiseringsuppgifterna för publicering.
+    > Den här konfigurationen tillåter inga externa anslutningar till containern. SSH är endast tillgängligt via webbplatsen för Kudu/SCM. Kudu-/SCM-webbplatsen autentiseras med autentiseringsuppgifterna för publicering.
 
 * En [COPY](https://docs.docker.com/engine/reference/builder/#copy)-instruktion som instruerar Docker-motorn att kopiera filen [sshd_config](http://man.openbsd.org/sshd_config) till katalogen */etc/ssh/*. Konfigurationsfilen ska baseras på filen [sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
 
@@ -303,7 +303,7 @@ SSH möjliggör säker kommunikation mellan en behållare och en klient. För at
     > * `Ciphers`måste innehålla minst ett objekt i listan: `aes128-cbc,3des-cbc,aes256-cbc`.
     > * `MACs`måste innehålla minst ett objekt i listan: `hmac-sha1,hmac-sha1-96`.
 
-* En [EXPOSE](https://docs.docker.com/engine/reference/builder/#expose)-instruktion som exponerar port 2222 i behållaren. Trots att rotlösenordet är känt går det inte att nå port 2222 från internet. Det är en intern port som endast är åtkomlig via behållare inom ett privat virtuellt nätverks nätverksbrygga. Efter det kopierar kommandona SSH-konfigurationsinformationen och startar `ssh`-tjänsten.
+* En [EXPOSE](https://docs.docker.com/engine/reference/builder/#expose)-instruktion som exponerar port 2222 i containern. Trots att rotlösenordet är känt går det inte att nå port 2222 från internet. Det är en intern port som endast är åtkomlig via containrar inom ett privat virtuellt nätverks nätverksbrygga. Efter det kopierar kommandona SSH-konfigurationsinformationen och startar `ssh`-tjänsten.
 
     ```docker
     EXPOSE 8000 2222
@@ -316,7 +316,7 @@ SSH möjliggör säker kommunikation mellan en behållare och en klient. För at
     service ssh start
     ```
      
-### <a name="open-ssh-connection-to-container"></a>Öppna SSH-anslutning till behållare
+### <a name="open-ssh-connection-to-container"></a>Öppna SSH-anslutning till container
 
 Web App for Containers tillåter inga externa anslutningar till behållaren. SSH är endast tillgängligt via Kudu-webbplatsen som är tillgänglig på `https://<app_name>.scm.azurewebsites.net`.
 
@@ -324,13 +324,13 @@ Anslut genom att gå till `https://<app_name>.scm.azurewebsites.net/webssh/host`
 
 Du omdirigeras därefter till en sida som visar en interaktiv konsol. 
 
-Du kanske vill verifiera att vissa program körs i behållaren. Om du vill inspektera behållaren och verifiera körningsprocesserna utfärdar du kommandot `top` i kommandotolken.
+Du kanske vill verifiera att vissa program körs i containern. Om du vill inspektera containern och verifiera körningsprocesserna utfärdar du kommandot `top` i kommandotolken.
 
 ```bash
 top
 ```
 
-Kommandot `top` tillgängliggör alla körningsprocesser i en behållare.
+Kommandot `top` tillgängliggör alla körningsprocesser i en container.
 
 ```
 PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
@@ -353,7 +353,7 @@ Grattis! Du har konfigurerat en anpassad Docker-avbildning för Web App for Cont
 
 I [Skapa en webbapp](#create-a-web-app) angav du en avbildning på Docker Hub i kommandot `az webapp create`. Det är tillräckligt för en offentlig avbildning. Om du vill använda en privat avbildning behöver du konfigurera ditt Docker-konto-ID och -lösenord i din Azure-webbapp.
 
-I Cloud Shell följer du kommandot `az webapp create` med [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Ersätt *\<app_name>*, samt _\<docker-id>_ och _\<password>_ med ditt ID och lösenord för Docker.
+I Cloud Shell följer du kommandot `az webapp create` med [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set). Ersätt *\<app_name>*, samt _\<docker-id>_ och _\<password>_ med ditt ID och lösenord för Docker.
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-registry-server-user <docker-id> --docker-registry-server-password <password>
@@ -393,13 +393,13 @@ Azure Container Registry är en hanterad Docker-tjänst från Azure för att var
 
 ### <a name="create-an-azure-container-registry"></a>Skapa ett Azure Container Registry
 
-I Cloud Shell använder du kommandot [`az acr create`](/cli/azure/acr?view=azure-cli-latest#az_acr_create) för att skapa ett Azure Container Registry. Ange namn, resursgrupp och `Basic` för SKU:n. Tillgängliga SKU:er är `Classic`, `Basic`, `Standard` och `Premium`.
+I Cloud Shell använder du kommandot [`az acr create`](/cli/azure/acr?view=azure-cli-latest#az-acr-create) för att skapa ett Azure Container Registry. Ange namn, resursgrupp och `Basic` för SKU:n. Tillgängliga SKU:er är `Classic`, `Basic`, `Standard` och `Premium`.
 
 ```azurecli-interactive
 az acr create --name <azure-container-registry-name> --resource-group myResourceGroup --sku Basic --admin-enabled true
 ```
 
-När en behållare skapas produceras följande utdata:
+När en container skapas produceras följande utdata:
 
 ```
  - Finished ..
@@ -431,7 +431,7 @@ Use an existing service principal and assign access:
 
 ### <a name="log-in-to-azure-container-registry"></a>Logga in på Azure Container Registry
 
-För att push-överföra en avbildning till registret måste du ange autentiseringsuppgifter så att registret accepterar push-överföringen. Du kan hämta autentiseringsuppgifterna med kommandot [`az acr show`](/cli/azure/acr?view=azure-cli-latest#az_acr_show) i Cloud Shell. 
+För att push-överföra en avbildning till registret måste du ange autentiseringsuppgifter så att registret accepterar push-överföringen. Du kan hämta autentiseringsuppgifterna med kommandot [`az acr show`](/cli/azure/acr?view=azure-cli-latest#az-acr-show) i Cloud Shell. 
 
 ```azurecli-interactive
 az acr credential show --name <azure-container-registry-name>
@@ -477,7 +477,7 @@ Push-överför avbildningen med kommandot `docker push`. Tagga avbildningen med 
 docker push <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
 ```
 
-Verifiera att push-överföringen har lagt till en behållare till registret genom att ange ACR-lagringsplatserna. 
+Verifiera att push-överföringen har lagt till en container till registret genom att ange ACR-lagringsplatserna. 
 
 ```azurecli-interactive
 az acr repository list -n <azure-container-registry-name>
@@ -495,7 +495,7 @@ När avbildningarna i registret listas bekräftas att `mydockerimage` är i regi
 
 Du kan konfigurera Web App for Containers så att det kör en behållare som är lagrad i Azure Container Registry. Du använder Azure Container Registry precis som ett privat register, så om du måste använda ditt eget privata register är stegen för att slutföra en sådan uppgift ungefär desamma.
 
-I Cloud Shell kör du [`az acr credential show`](/cli/azure/acr/credential?view=azure-cli-latest#az_acr_credential_show) för att visa användarnamnet och lösenordet för Azure Container Registry. Kopiera användarnamnet och ett av lösenordet så att du kan använda det för att konfigurera webbappen i nästa steg.
+I Cloud Shell kör du [`az acr credential show`](/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show) för att visa användarnamnet och lösenordet för Azure Container Registry. Kopiera användarnamnet och ett av lösenordet så att du kan använda det för att konfigurera webbappen i nästa steg.
 
 ```bash
 az acr credential show --name <azure-container-registry-name>
@@ -517,7 +517,7 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-I Cloud Shell kör du kommandot [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) för att tilldela den anpassade Docker-avbildningen till webbappen. Ersätt *\<app_name>*, *\<docker-registry-server-url>*, _\<registry-username>_ och _\<password>_. För Azure Container Registry är *\<docker-registry-server-url>* i formatet `https://<azure-container-registry-name>.azurecr.io`. Om du använder något annat register än Docker Hub måste avbildningens namn börja med det helt kvalificerade domännamnet (FQDN) för registret. För Azure Container Registry ser de ut så här: `<azure-container-registry>.azurecr.io/mydockerimage`. 
+I Cloud Shell kör du kommandot [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) för att tilldela den anpassade Docker-avbildningen till webbappen. Ersätt *\<app_name>*, *\<docker-registry-server-url>*, _\<registry-username>_ och _\<password>_. För Azure Container Registry är *\<docker-registry-server-url>* i formatet `https://<azure-container-registry-name>.azurecr.io`. Om du använder något annat register än Docker Hub måste avbildningens namn börja med det helt kvalificerade domännamnet (FQDN) för registret. För Azure Container Registry ser de ut så här: `<azure-container-registry>.azurecr.io/mydockerimage`. 
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name <azure-container-registry-name>.azurecr.io/mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>

@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/30/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 9da2454afa130c4c2ccab458099a90d78354b3e2
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 994bd6f2a041e25d15c7e0b4a216952cec4101fa
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358312"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492831"
 ---
 # <a name="tutorial-3-add-regular-expression-entity"></a>Självstudie: 3. Lägg till entitet för reguljära uttryck
 I den här självstudien skapar du en app som visar hur det går till att extrahera konsekvent formaterade data från ett yttrande med hjälp av entiteten **Regular Expression** (Reguljärt uttryck).
@@ -110,15 +110,8 @@ Skapa en entitet för reguljära uttryck för att ange för LUIS vad ett HRF-num
     Eftersom entiteten inte är en maskininlärd entitet tillämpas etiketten på yttrandena och visas på LUIS-webbplatsen så snart den skapas.
 
 ## <a name="train-the-luis-app"></a>Träna LUIS-appen
-Entiteter för reguljära uttryck kräver inte träning, men det behöver dock den nya avsikten och de nya yttrandena. 
 
-1. Längst uppe till höger på LUIS-webbplatsen väljer du knappen **Train** (Träna).
-
-    ![Bild på knappen training (träning)](./media/luis-quickstart-intents-regex-entity/train-button.png)
-
-2. Träningen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
-
-    ![Bild på meddelandefält om att processen är klar](./media/luis-quickstart-intents-regex-entity/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicera appen för att få slutpunkts-URL
 
@@ -237,7 +230,8 @@ Din chattrobot har nu tillräckligt med information för att bestämma den prim�
 LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan använda topScoringIntent-resultatet och formulärnumren för att söka ett tredjeparts-API. LUIS utför inte det arbetet. LUIS tar endast reda på vad användarens avsikt är och extraherar data om den avsikten. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort LUIS-appen när den inte längre behövs. Välj **My apps** (Mina appar) på menyn längst upp till vänster. Välj ellipsen (***...***) till höger om appnamnet i applistan och välj **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

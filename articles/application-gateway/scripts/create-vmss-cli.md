@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 29c53232dc2ded5bce476111fd5b817d1574b008
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: a2046c6d4bbaf91db6a6c4de2023717eaf13fadb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753003"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442368"
 ---
 # <a name="manage-web-traffic-using-the-azure-cli"></a>Hantera webbtrafik med hjälp av Azure CLI
 
@@ -47,13 +47,13 @@ Det här skriptet använder följande kommandon för att skapa distributionen. V
 
 | Kommando | Anteckningar |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
-| [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#az_net) | Skapar ett virtuellt nätverk. |
-| [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Skapar ett undernät i ett virtuellt nätverk. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#az-net) | Skapar ett virtuellt nätverk. |
+| [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create) | Skapar ett undernät i ett virtuellt nätverk. |
 | [az network public-ip create](https://docs.microsoft.com/en-us/cli/azure/network/public-ip?view=azure-cli-latest) | Skapar den offentliga IP-adressen för programgatewayen. |
 | [az network application-gateway create](https://docs.microsoft.com/en-us/cli/azure/network/application-gateway?view=azure-cli-latest) | Skapar en programgateway. |
-| [az vmss create](https://docs.microsoft.com/cli/azure/vmss#az_vmss_create) | Skapar en VM-skalningsuppsättning. |
-| [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip#az_network_public_ip_show) | Hämtar programgatewayens offentliga IP-adress. |
+| [az vmss create](https://docs.microsoft.com/cli/azure/vmss#az-vmss-create) | Skapar en VM-skalningsuppsättning. |
+| [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip#az-network_public_ip_show) | Hämtar programgatewayens offentliga IP-adress. |
 
 ## <a name="next-steps"></a>Nästa steg
 

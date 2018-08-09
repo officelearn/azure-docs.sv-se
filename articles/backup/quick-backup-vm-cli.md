@@ -8,15 +8,15 @@ tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 2/14/2018
-ms.author: iainfou
+ms.date: 8/3/2018
+ms.author: markgal
 ms.custom: mvc
-ms.openlocfilehash: 68aeb6e96e7588696d31b7b03e0c639506e0c89b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9693c619b9723ed6dfd9da02bfdf41e93518f6f4
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38598381"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504642"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Säkerhetskopiera en virtuell dator i Azure med CLI
 Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Du kan skydda dina data genom att säkerhetskopiera med jämna mellanrum. Med Azure Backup skapas återställningspunkter som kan lagras i geo-redundanta återställningsvalv. Den här artikeln beskriver hur du säkerhetskopierar en virtuell dator i Azure med Azure CLI. Du kan också utföra de här stegen med [Azure PowerShell](quick-backup-vm-powershell.md) eller [Azure Portal](quick-backup-vm-portal.md).
@@ -29,9 +29,9 @@ Om du vill installera och använda CLI lokalt måste du köra Azure CLI version 
 
 
 ## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
-Recovery Services-valvet är en logisk behållare som lagrar säkerhetskopierade data för varje skyddad resurs, till exempel virtuella Azure-datorer. När säkerhetskopieringsjobbet för en skyddad resurs körs, skapas en återställningspunkt i Recovery Services-valvet. Du kan sedan använda någon av dessa återställningspunkter för att återställa data till en given tidpunkt.
+Recovery Services-valvet är en logisk container som lagrar säkerhetskopierade data för varje skyddad resurs, till exempel virtuella Azure-datorer. När säkerhetskopieringsjobbet för en skyddad resurs körs, skapas en återställningspunkt i Recovery Services-valvet. Du kan sedan använda någon av dessa återställningspunkter för att återställa data till en given tidpunkt.
 
-Skapa ett Recovery Services-valv med [az backup vault create](https://docs.microsoft.com/cli/azure/backup/vault#az_backup_vault_create). Ange samma resursgrupp och plats som den virtuella datorn som du vill skydda. Om du har använt [snabbstarten för virtuella datorer](../virtual-machines/linux/quick-create-cli.md) har du skapat:
+Skapa ett Recovery Services-valv med [az backup vault create](https://docs.microsoft.com/cli/azure/backup/vault#az-backup-vault-create). Ange samma resursgrupp och plats som den virtuella datorn som du vill skydda. Om du har använt [snabbstarten för virtuella datorer](../virtual-machines/linux/quick-create-cli.md) har du skapat:
 
 - en resursgrupp som heter *myResourceGroup*,
 - en virtuell dator med namnet *myVM*,
@@ -47,7 +47,7 @@ Recovery Services-valvet är som standard inställt på geo-redundant lagring. G
 
 
 ## <a name="enable-backup-for-an-azure-vm"></a>Aktivera säkerhetskopiering för en virtuell Azure-dator
-Skapa en skyddsprincip för att definiera: när ett säkerhetskopieringsjobb ska köras och hur länge återställningspunkterna ska sparas. Med standardskyddsprincipen körs ett säkerhetskopieringsjobb varje dag och återställningspunkterna sparas i 30 dagar. Du kan använda standardvärdena för att snabbt skydda din virtuella dator. Om du vill aktivera säkerhetskopieringsskyddet för en virtuell dator använder du [az backup protection enable-for-vm](https://docs.microsoft.com/cli/azure/backup/protection#az_backup_protection_enable_for_vm). Ange vilken resursgrupp och virtuell dator som ska skyddas och sedan vilken princip som ska användas:
+Skapa en skyddsprincip för att definiera: när ett säkerhetskopieringsjobb ska köras och hur länge återställningspunkterna ska sparas. Med standardskyddsprincipen körs ett säkerhetskopieringsjobb varje dag och återställningspunkterna sparas i 30 dagar. Du kan använda standardvärdena för att snabbt skydda din virtuella dator. Om du vill aktivera säkerhetskopieringsskyddet för en virtuell dator använder du [az backup protection enable-for-vm](https://docs.microsoft.com/cli/azure/backup/protection#az-backup-protection-enable-for-vm). Ange vilken resursgrupp och virtuell dator som ska skyddas och sedan vilken princip som ska användas:
 
 ```azurecli-interactive 
 az backup protection enable-for-vm \
@@ -69,7 +69,7 @@ az backup protection enable-for-vm \
 ```
 
 ## <a name="start-a-backup-job"></a>Starta ett säkerhetskopieringsjobb
-Du kan starta en säkerhetskopiering nu, i stället för att vänta tills jobbet körs vid standardprincipens schemalagda tidpunkt, med hjälp av [az backup protection backup-now](https://docs.microsoft.com/cli/azure/backup/protection#az_backup_protection_backup_now). När det första säkerhetskopieringsjobbet körs skapas en fullständig återställningspunkt. Vid varje säkerhetskopiering, efter den första säkerhetskopieringen, skapas inkrementella återställningspunkter. Inkrementella återställningspunkter är lagrings- och tidseffektiva eftersom de bara överför de ändringar som gjorts sedan den senaste säkerhetskopieringen.
+Du kan starta en säkerhetskopiering nu, i stället för att vänta tills jobbet körs vid standardprincipens schemalagda tidpunkt, med hjälp av [az backup protection backup-now](https://docs.microsoft.com/cli/azure/backup/protection#az-backup-protection-backup-now). När det första säkerhetskopieringsjobbet körs skapas en fullständig återställningspunkt. Vid varje säkerhetskopiering, efter den första säkerhetskopieringen, skapas inkrementella återställningspunkter. Inkrementella återställningspunkter är lagrings- och tidseffektiva eftersom de bara överför de ändringar som gjorts sedan den senaste säkerhetskopieringen.
 
 Följande parametrar används för att säkerhetskopiera den virtuella datorn:
 
@@ -90,7 +90,7 @@ az backup protection backup-now \
 
 
 ## <a name="monitor-the-backup-job"></a>Övervaka säkerhetskopieringen
-Om du vill övervaka status för säkerhetskopieringsjobb använder du [az backup job list](https://docs.microsoft.com/cli/azure/backup/job#az_backup_job_list):
+Om du vill övervaka status för säkerhetskopieringsjobb använder du [az backup job list](https://docs.microsoft.com/cli/azure/backup/job#az-backup-job-list):
 
 ```azurecli-interactive 
 az backup job list \
@@ -112,7 +112,7 @@ När *status* för säkerhetskopieringsjobbet är *Slutförd* skyddas din virtue
 
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
-När det inte längre behövs kan du inaktivera skyddet av den virtuella datorn, ta bort återställningspunkterna och Recovery Services-valvet och sedan ta bort resursgruppen och de relaterade virtuella datorresurserna. Om du använde en befintlig virtuell dator kan du hoppa över det sista [az group delete](/cli/azure/group?view=azure-cli-latest#az_group_delete)-kommandot och ha kvar resursgruppen och den virtuella datorn.
+När det inte längre behövs kan du inaktivera skyddet av den virtuella datorn, ta bort återställningspunkterna och Recovery Services-valvet och sedan ta bort resursgruppen och de relaterade virtuella datorresurserna. Om du använde en befintlig virtuell dator kan du hoppa över det sista [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete)-kommandot och ha kvar resursgruppen och den virtuella datorn.
 
 Om du vill prova en självstudie om säkerhetskopiering som förklarar hur man återställer data för en virtuell dator kan du gå till [Nästa steg](#next-steps). 
 

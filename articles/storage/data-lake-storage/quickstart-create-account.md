@@ -3,19 +3,18 @@ title: Skapa ett Azure Data Lake Storage Gen2-lagringskonto (förhandsversion) |
 description: Lär dig hur du snabbt skapar ett nytt lagringskonto med åtkomst till Data Lake Storage Gen2 (förhandsversion) med hjälp av Azure-portalen, Azure PowerShell eller Azure CLI
 services: storage
 author: jamesbak
-manager: twooley
 ms.component: data-lake-storage-gen2
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: cf98d3097128a0f8934fc114bc37a517df118234
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 9d60b85051ff6e24c64f074ccd4fad055ba47ae8
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085396"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523588"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>Snabbstart: Skapa ett Azure Data Lake Storage Gen2-lagringskonto (förhandsversion)
 
@@ -211,7 +210,7 @@ az storage account create \
     --location westus2 \
     --sku Standard_LRS \
     --kind StorageV2 \
-    --Enable-hierarchical-namespace true
+    --hierarchical-namespace true
 ```
 
 ### <a name="clean-up-resources"></a>Rensa resurser

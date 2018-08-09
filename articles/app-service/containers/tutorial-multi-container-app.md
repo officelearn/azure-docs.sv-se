@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 4b00f28d3a1183d5033d0655d8c3f244e3d108e7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e99d6e917df1bf3bbb4658524f1b3e249a01da72
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226000"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433892"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Självstudie: Skapa en app med flera containrar (förhandsversion) med Web App for Containers
 
@@ -68,7 +68,7 @@ cd multicontainerwordpress
 
 [!INCLUDE [resource group intro text](../../../includes/resource-group.md)]
 
-Skapa i Cloud Shell en resursgrupp med kommandot [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *South Central US* (Södra centrala USA). Om du vill se alla platser som stöds för App Service på Linux på **Standard**-nivån kör du kommandot [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations).
+Skapa i Cloud Shell en resursgrupp med kommandot [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *South Central US* (Södra centrala USA). Om du vill se alla platser som stöds för App Service på Linux på **Standard**-nivån kör du kommandot [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"
@@ -80,7 +80,7 @@ När kommandot har slutförts visar JSON-utdata resursgruppens egenskaper.
 
 ## <a name="create-an-azure-app-service-plan"></a>Skapa en Azure App Service-plan
 
-Skapa i Cloud Shell en App Service-plan i resursgruppen med kommandot [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create).
+Skapa i Cloud Shell en App Service-plan i resursgruppen med kommandot [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create).
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
@@ -141,7 +141,7 @@ Nedan visas vilka konfigurationsalternativ för Docker Compose som stöds och so
 
 ## <a name="create-a-docker-compose-app"></a>Skapa en Docker Compose-app
 
-I Cloud Shell skapar du en [webbapp](app-service-linux-intro.md) med flera containrar i `myAppServicePlan` App Service-planen med kommandot [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Glöm inte att ersätta _\<app_name>_ med ett unikt appnamn.
+I Cloud Shell skapar du en [webbapp](app-service-linux-intro.md) med flera containrar i `myAppServicePlan` App Service-planen med kommandot [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Glöm inte att ersätta _\<app_name>_ med ett unikt appnamn.
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
@@ -178,7 +178,7 @@ Det är inte rekommenderat att använda databascontainrar i en produktionsmiljö
 
 ### <a name="create-an-azure-database-for-mysql-server"></a>Skapa en Azure Database for MySQL-server
 
-Skapa en Azure Database for MySQL-server med kommandot [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
+Skapa en Azure Database for MySQL-server med kommandot [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create).
 
 I följande kommando ersätter du MySQL-servernamnet i platshållaren _&lt;mysql_server_name>_ (giltiga tecken är `a-z`, `0-9` och `-`). Det här namnet är en del av MySQL-serverns värdnamn (`<mysql_server_name>.database.windows.net`) och den måste vara globalt unik.
 
@@ -203,7 +203,7 @@ Det kan ta några minuter att skapa servern. När MySQL-servern skapas visar Clo
 
 ### <a name="configure-server-firewall"></a>Konfigurera serverbrandväggen
 
-Skapa en brandväggsregel för MySQL-servern för att tillåta klientanslutningar med hjälp av kommandot [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create). När både start-IP och slut-IP har angetts till 0.0.0.0 öppnas brandväggen endast för andra Azure-resurser.
+Skapa en brandväggsregel för MySQL-servern för att tillåta klientanslutningar med hjälp av kommandot [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az-mysql-server-firewall-rule-create). När både start-IP och slut-IP har angetts till 0.0.0.0 öppnas brandväggen endast för andra Azure-resurser.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -237,7 +237,7 @@ När databasen skapas visar Cloud Shell information som ser ut ungefär så här
 
 För att ansluta WordPress-appen till den nya MySQL-servern konfigurerar du ett par WordPress-specifika miljövariabler, inklusive sökvägen för certifikatutfärdare för SSL som definieras av `MYSQL_SSL_CA`. [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm) från [DigiCert](http://www.digicert.com/) tillhandahålls i den [anpassade avbildningen](https://docs.microsoft.com/en-us/azure/app-service/containers/tutorial-multi-container-app#use-a-custom-image-for-mysql-ssl-and-other-configurations) nedan.
 
-Du kan göra dessa ändringar med hjälp av kommandot [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) i Cloud Shell. Appinställningar är skifteslägeskänsliga och avgränsas med blanksteg.
+Du kan göra dessa ändringar med hjälp av kommandot [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. Appinställningar är skifteslägeskänsliga och avgränsas med blanksteg.
 
 ```bash
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WORDPRESS_DB_HOST="<mysql_server_name>.mysql.database.azure.com" WORDPRESS_DB_USER="adminuser@<mysql_server_name>" WORDPRESS_DB_PASSWORD="My5up3rStr0ngPaSw0rd!" WORDPRESS_DB_NAME="wordpress" MYSQL_SSL_CA="BaltimoreCyberTrustroot.crt.pem"
@@ -309,7 +309,7 @@ Spara dina ändringar och avsluta nano. Använd kommandot `^O` för att spara oc
 
 ### <a name="update-app-with-new-configuration"></a>Uppdatera appen med en ny konfiguration
 
-I Cloud Shell konfigurerar du om [webappen](app-service-linux-intro.md) med flera containrar med kommandot [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Glöm inte att ersätta _\<app_name>_ med namnet på webbappen som du skapade tidigare.
+I Cloud Shell konfigurerar du om [webappen](app-service-linux-intro.md) med flera containrar med kommandot [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set). Glöm inte att ersätta _\<app_name>_ med namnet på webbappen som du skapade tidigare.
 
 ```bash
 az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
@@ -338,7 +338,7 @@ Din app med flera containrar körs nu i Web App for Containers. Men om du instal
 
 ### <a name="configure-environment-variables"></a>Konfigurera miljövariabler
 
-För att kunna använda beständig lagring aktiverar du den inställningen i App Service. Du kan göra denna ändring med hjälp av kommandot [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) i Cloud Shell. Appinställningar är skifteslägeskänsliga och avgränsas med blanksteg.
+För att kunna använda beständig lagring aktiverar du den inställningen i App Service. Du kan göra denna ändring med hjälp av kommandot [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. Appinställningar är skifteslägeskänsliga och avgränsas med blanksteg.
 
 ```bash
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
@@ -385,7 +385,7 @@ services:
 
 ### <a name="update-app-with-new-configuration"></a>Uppdatera appen med en ny konfiguration
 
-I Cloud Shell konfigurerar du om [webappen](app-service-linux-intro.md) med flera containrar med kommandot [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Glöm inte att ersätta _\<app_name>_ med ett unikt appnamn.
+I Cloud Shell konfigurerar du om [webappen](app-service-linux-intro.md) med flera containrar med kommandot [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set). Glöm inte att ersätta _\<app_name>_ med ett unikt appnamn.
 
 ```bash
 az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
@@ -430,7 +430,7 @@ Lägg till Redis-containern i slutet av konfigurationsfilen som i följande exem
 
 ### <a name="configure-environment-variables"></a>Konfigurera miljövariabler
 
-Aktivera inställningen `WP_REDIS_HOST` i App Service så att du kan använda Redis. Det här är en *obligatorisk inställning* för att WordPress ska kunna kommunicera med Redis-värden. Du kan göra denna ändring med hjälp av kommandot [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) i Cloud Shell. Appinställningar är skifteslägeskänsliga och avgränsas med blanksteg.
+Aktivera inställningen `WP_REDIS_HOST` i App Service så att du kan använda Redis. Det här är en *obligatorisk inställning* för att WordPress ska kunna kommunicera med Redis-värden. Du kan göra denna ändring med hjälp av kommandot [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. Appinställningar är skifteslägeskänsliga och avgränsas med blanksteg.
 
 ```bash
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WP_REDIS_HOST="redis"
@@ -456,7 +456,7 @@ När appinställningen har skapats visar Cloud Shell information som ser ut unge
 
 ### <a name="update-app-with-new-configuration"></a>Uppdatera appen med en ny konfiguration
 
-I Cloud Shell konfigurerar du om [webappen](app-service-linux-intro.md) med flera containrar med kommandot [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Glöm inte att ersätta _\<app_name>_ med ett unikt appnamn.
+I Cloud Shell konfigurerar du om [webappen](app-service-linux-intro.md) med flera containrar med kommandot [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set). Glöm inte att ersätta _\<app_name>_ med ett unikt appnamn.
 
 ```bash
 az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -531,7 +531,7 @@ Du använder filen *kubernetes-wordpress.yml* för den här delen av självstudi
 
 ### <a name="create-an-azure-database-for-mysql-server"></a>Skapa en Azure Database for MySQL-server
 
-Skapa en server i Azure Database for MySQL med kommandot [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
+Skapa en server i Azure Database for MySQL med kommandot [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create).
 
 I följande kommando ersätter du MySQL-servernamnet i platshållaren _&lt;mysql_server_name>_ (giltiga tecken är `a-z`, `0-9` och `-`). Det här namnet är en del av MySQL-serverns värdnamn (`<mysql_server_name>.database.windows.net`) och den måste vara globalt unik.
 
@@ -556,7 +556,7 @@ När MySQL-servern skapas visar Cloud Shell information som ser ut ungefär så 
 
 ### <a name="configure-server-firewall"></a>Konfigurera serverbrandväggen
 
-Skapa en brandväggsregel för MySQL-servern för att tillåta klientanslutningar med hjälp av kommandot [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create). När både start-IP och slut-IP har angetts till 0.0.0.0 öppnas brandväggen endast för andra Azure-resurser.
+Skapa en brandväggsregel för MySQL-servern för att tillåta klientanslutningar med hjälp av kommandot [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az-mysql-server-firewall-rule-create). När både start-IP och slut-IP har angetts till 0.0.0.0 öppnas brandväggen endast för andra Azure-resurser.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -590,7 +590,7 @@ När databasen skapas visar Cloud Shell information som ser ut ungefär så här
 
 ### <a name="configure-database-variables-in-wordpress"></a>Konfigurera databasvariabler i WordPress
 
-För att ansluta WordPress-appen till den nya MySQL-servern konfigurerar du ett par WordPress-specifika miljövariabler. Du kan göra denna ändring med hjälp av kommandot [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) i Cloud Shell. Appinställningar är skifteslägeskänsliga och avgränsas med blanksteg.
+För att ansluta WordPress-appen till den nya MySQL-servern konfigurerar du ett par WordPress-specifika miljövariabler. Du kan göra denna ändring med hjälp av kommandot [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. Appinställningar är skifteslägeskänsliga och avgränsas med blanksteg.
 
 ```bash
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WORDPRESS_DB_HOST="<mysql_server_name>.mysql.database.azure.com" WORDPRESS_DB_USER="adminuser@<mysql_server_name>" WORDPRESS_DB_PASSWORD="My5up3rStr0ngPaSw0rd!" WORDPRESS_DB_NAME="wordpress" MYSQL_SSL_CA="BaltimoreCyberTrustroot.crt.pem"
@@ -629,7 +629,7 @@ Din app med flera containrar körs nu i Web App for Containers. Data raderas vid
 
 ### <a name="configure-environment-variables"></a>Konfigurera miljövariabler
 
-För att kunna använda beständig lagring aktiverar du den inställningen i App Service. Du kan göra denna ändring med hjälp av kommandot [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) i Cloud Shell. Appinställningar är skifteslägeskänsliga och avgränsas med blanksteg.
+För att kunna använda beständig lagring aktiverar du den inställningen i App Service. Du kan göra denna ändring med hjälp av kommandot [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. Appinställningar är skifteslägeskänsliga och avgränsas med blanksteg.
 
 ```bash
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
@@ -649,7 +649,7 @@ När appinställningen har skapats visar Cloud Shell information som ser ut unge
 
 ### <a name="create-a-multi-container-app-kubernetes"></a>Skapa en app för flera containrar (Kubernetes)
 
-I Cloud Shell skapar du en [webbapp](app-service-linux-intro.md) med flera containrar i resursgruppen `myResourceGroup` och App Service-planen `myAppServicePlan` med kommandot [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Glöm inte att ersätta _\<app_name>_ med ett unikt appnamn.
+I Cloud Shell skapar du en [webbapp](app-service-linux-intro.md) med flera containrar i resursgruppen `myResourceGroup` och App Service-planen `myAppServicePlan` med kommandot [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Glöm inte att ersätta _\<app_name>_ med ett unikt appnamn.
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type kube --multicontainer-config-file kubernetes-wordpress.yml

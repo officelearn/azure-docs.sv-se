@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: bwren
-ms.openlocfilehash: 262099bbe45e483efd269445aa8042b30668ebe3
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 48cbfac78b41b47419799584837e094d45757628
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036531"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627465"
 ---
 # <a name="sources-of-monitoring-data-in-azure"></a>Källor för övervakningsdata i Azure
 Den här artikeln beskriver data som kan övervaka hälsotillstånd och prestanda för dina Azure-resurser och program som körs på dem.  Samla in och analysera dessa data med verktygen som beskrivs i [samla in övervakningsdata i Azure](monitoring-data-collection.md)
@@ -42,7 +42,7 @@ Du kan visa aktivitetsloggen för en viss resurs på en sida i Azure portal elle
 
 
 ### <a name="azure-active-directory-audit-logs"></a>Azure Active Directory med granskningsloggar
-[Azure Active Directory-rapportering](../active-directory/active-directory-reporting-azure-portal.md) innehåller historik över inloggning aktivitet och granska spårning av ändringar som gjorts i en viss klient. Du kan inte för närvarande kombinera Azure Active Directory-granskningsdata med andra övervakningsdata som det är bara tillgängligt via Azure Active Directory och [Azure Active Directory reporting API](../active-directory/active-directory-reporting-api-getting-started-azure-portal.md).
+[Azure Active Directory-rapportering](../active-directory/reports-monitoring/overview-reports.md) innehåller historik över inloggning aktivitet och granska spårning av ändringar som gjorts i en viss klient. Du kan inte för närvarande kombinera Azure Active Directory-granskningsdata med andra övervakningsdata som det är bara tillgängligt via Azure Active Directory och [Azure Active Directory reporting API](../active-directory/reports-monitoring/concept-reporting-api.md).
 
 
 ## <a name="azure-services"></a>Azure-tjänster
@@ -78,7 +78,7 @@ Du kan installera Log Analytics-agenten på alla Windows- eller Linux-dator elle
 ### <a name="service-map"></a>Tjänstkarta
 [Tjänstkarta](../operations-management-suite/operations-management-suite-service-map.md) kräver en Beroendeagenten för Windows och Linux-datorer. Detta fungerar med Log Analytics som agenten samlar in information om processer som körs på den virtuella datorn och beroenden på externa processer. Den lagrar dessa data i Log Analytics och innehåller en konsol som visuellt visar data som samlas in utöver andra data som lagras i Log Analytics.
 
-## <a name="applications"></a>Program
+## <a name="applications"></a>Appar
 Förutom telemetri som ditt program kan skriva till gästoperativsystemet, detaljerad programövervakning görs med [Application Insights](https://docs.microsoft.com/azure/application-insights/). Application Insights kan samla in data från program som körs på en rad olika plattformar. Programmet kan köras i Azure, en annan molnet eller lokalt.
 
 ![Programdatainsamling](media/monitoring-data-sources/application-collection.png)

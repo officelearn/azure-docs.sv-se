@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 2/14/2018
 ms.author: markgal
 ms.custom: mvc
-ms.openlocfilehash: eff5a292138bca8f443b77ec8e3ce8e3ee15464e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2fd993960d8ae5d1f26939d333e546da760d8f43
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607585"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432590"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Återställa filer till en virtuell dator i Azure
 Med Azure Backup skapas återställningspunkter som lagras i geo-redundanta återställningsvalv. När du återställer från en återställningspunkt kan du återställa hela den virtuella datorn eller enskilda filer. Den här artikeln beskriver hur du återställer enskilda filer. I den här självstudiekursen får du lära du dig att:
@@ -45,7 +45,7 @@ När dataöverföringen har slutförts tas ögonblicksbilden bort och en återst
 ## <a name="delete-a-file-from-a-vm"></a>Ta bort en fil från en virtuell dator
 Om du av misstag tar bort eller gör ändringar i en fil kan du återställa enskilda filer från en återställningspunkt. Med den här processen kan du bläddra bland filerna som säkerhetskopierats i en återställningspunkt och sedan återställa endast de filer du behöver. I det här exemplet tar vi bort en fil från en webbserver för att demonstrera återställningsprocessen på filnivå.
 
-1. Anslut till den virtuella datorn genom att hämta dess IP-adress med [az vm show](/cli/azure/vm?view=azure-cli-latest#az_vm_show):
+1. Anslut till den virtuella datorn genom att hämta dess IP-adress med [az vm show](/cli/azure/vm?view=azure-cli-latest#az-vm-show):
 
      ```azurecli-interactive
      az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
@@ -81,7 +81,7 @@ Om du av misstag tar bort eller gör ändringar i en fil kan du återställa ens
 ## <a name="generate-file-recovery-script"></a>Generera filåterställningsskript
 För att återställa filerna tillhandahåller Azure Backup ett skript som ska köras på den virtuella datorn, som ansluter återställningspunkten som en lokal enhet. Du kan bläddra i den här lokala enheten, återställa filer till den virtuella datorn och sedan koppla bort återställningspunkten. Azure Backup fortsätter att säkerhetskopiera dina data baserat på den angivna principen för schema och kvarhållning.
 
-1. Visa en lista med återställningspunkterna för den virtuella datorn med [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list). I det här exemplet väljer vi den senaste återställningspunkten för den virtuella datorn med namnet *myVM* som är skyddad i *myRecoveryServicesVault*:
+1. Visa en lista med återställningspunkterna för den virtuella datorn med [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list). I det här exemplet väljer vi den senaste återställningspunkten för den virtuella datorn med namnet *myVM* som är skyddad i *myRecoveryServicesVault*:
 
     ```azurecli-interactive
     az backup recoverypoint list \
@@ -93,7 +93,7 @@ För att återställa filerna tillhandahåller Azure Backup ett skript som ska k
         --output tsv
     ```
 
-2. Hämta skriptet som ansluter, eller monterar, återställningspunkten till den virtuella datorn med [az backup restore files mount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_mount_rp). I följande exempel hämtas skriptet för en virtuell dator med namnet *myVM* som är skyddad i *myRecoveryServicesVault*.
+2. Hämta skriptet som ansluter, eller monterar, återställningspunkten till den virtuella datorn med [az backup restore files mount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-mount-rp). I följande exempel hämtas skriptet för en virtuell dator med namnet *myVM* som är skyddad i *myRecoveryServicesVault*.
 
     Ersätt *myRecoveryPointName* med namnet på den återställningspunkt som du fick med det tidigare kommandot:
 
@@ -140,7 +140,7 @@ När återställningsskriptet har kopierats till den virtuella datorn kan du nu 
     ./myVM_we_1571974050985163527.sh
     ```
 
-    När skriptet har körts uppmanas du att ange ett lösenord för att komma åt återställningspunkten. Ange lösenordet som visas i utdata från det tidigare kommandot [az backup restore files mount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_mount_rp) som genererade återställningsskriptet.
+    När skriptet har körts uppmanas du att ange ett lösenord för att komma åt återställningspunkten. Ange lösenordet som visas i utdata från det tidigare kommandot [az backup restore files mount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-mount-rp) som genererade återställningsskriptet.
 
     Utdata från skriptet ger dig sökvägen till återställningspunkten. Följande exempel visar att återställningspunkten är monterad på */home/azureuser/myVM-20170919213536/Volume1*:
 
@@ -180,7 +180,7 @@ När återställningsskriptet har kopierats till den virtuella datorn kan du nu 
     exit
     ```
 
-8. Demontera återställningspunkten från den virtuella datorn med [az backup restore files unmount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_unmount_rp). I följande exempel demonteras återställningspunkten från den virtuella datorn med namnet *myVM* i *myRecoveryServicesVault*.
+8. Demontera återställningspunkten från den virtuella datorn med [az backup restore files unmount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-unmount-rp). I följande exempel demonteras återställningspunkten från den virtuella datorn med namnet *myVM* i *myRecoveryServicesVault*.
 
     Ersätt *myRecoveryPointName* med namnet på din återställningspunkt som du fick i tidigare kommandon:
     

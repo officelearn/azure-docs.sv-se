@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: c8bcc2bf11ef4adbe9139635d3c24c240a46783c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 536092c1ee50045e6df4e2933c7d6eb0ee7a8b42
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525765"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429795"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Använd Storage Explorer med Azure File Storage
 
@@ -41,17 +41,17 @@ Följande steg visar hur du skapar en filresurs i Storage Explorer.
 
 1. Öppna Storage Explorer.
 
-2. Expandera lagringskontot som du vill skapa filresursen i från den vänstra rutan
+1. Expandera lagringskontot som du vill skapa filresursen i från den vänstra rutan
 
-3. Högerklicka på **Filresurser** och välj **Skapa filresurs** från snabbmenyn.
+1. Högerklicka på **Filresurser** och välj **Skapa filresurs** från snabbmenyn.
 
     ![Skapa en filresurs](media/vs-azure-tools-storage-explorer-files/image1.png)
 
-4. En textruta visas nedanför mappen **Filresurser**. Ange namnet på filresursen. Se avsnittet om [regler för namngivning av resurser](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs#create-a-container) där det finns en lista över regler och begränsningar för namngivning av filresurser.
+1. En textruta visas nedanför mappen **Filresurser**. Ange namnet på filresursen. Se avsnittet om [regler för namngivning av resurser](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs#create-a-container) där det finns en lista över regler och begränsningar för namngivning av filresurser.
 
     ![Namnge resursen](media/vs-azure-tools-storage-explorer-files/image2.png)
 
-5. Tryck på **Retur** när du är klar så att filresursen skapas eller på **Esc** om du vill avbryta. När en filresurs har skapats visas den i mappen **Filresurser** för det valda lagringskontot.
+1. Tryck på **Retur** när du är klar så att filresursen skapas eller på **Esc** om du vill avbryta. När en filresurs har skapats visas den i mappen **Filresurser** för det valda lagringskontot.
 
     ![Den nya resursen](media/vs-azure-tools-storage-explorer-files/image3.png)
 
@@ -63,15 +63,15 @@ Följande steg illustrerar hur du kan visa innehållet i en filresurs i Storage 
 
 1. Öppna Storage Explorer.
 
-2. Expandera lagringskontot som innehåller den filresurs som du vill visa i den vänstra rutan.
+1. Expandera lagringskontot som innehåller den filresurs som du vill visa i den vänstra rutan.
 
-3. Expandera lagringskontots **filresurser**.
+1. Expandera lagringskontots **filresurser**.
 
-4. Högerklicka på den filresurs som du vill visa och välj **Öppna** från snabbmenyn. Du kan även dubbelklicka på den filresurs som du vill visa.
+1. Högerklicka på den filresurs som du vill visa och välj **Öppna** från snabbmenyn. Du kan även dubbelklicka på den filresurs som du vill visa.
 
     ![Öppna resursen](media/vs-azure-tools-storage-explorer-files/image4.png)
 
-5. I huvudfönstret visas innehållet i filresursen.
+1. I huvudfönstret visas innehållet i filresursen.
     
     ![Resursens innehåll](media/vs-azure-tools-storage-explorer-files/image5.png)
 
@@ -83,15 +83,15 @@ Följande steg visar hur du raderar en filresurs i Storage Explorer:
 
 1. Öppna Storage Explorer.
 
-2. Expandera lagringskontot som innehåller den filresurs som du vill visa i den vänstra rutan.
+1. Expandera lagringskontot som innehåller den filresurs som du vill visa i den vänstra rutan.
 
-3. Expandera lagringskontots **filresurser**.
+1. Expandera lagringskontots **filresurser**.
 
-4. Högerklicka på den filresurs som du vill ta bort och välj **Ta bort** från snabbmenyn. Du kan även trycka **Ta bort** om du vill ta bort den markerade filresursen.
+1. Högerklicka på den filresurs som du vill ta bort och välj **Ta bort** från snabbmenyn. Du kan även trycka **Ta bort** om du vill ta bort den markerade filresursen.
 
     ![Ta bort](media/vs-azure-tools-storage-explorer-files/image6.png)
 
-5. Välj **Ja** i bekräftelsedialogen.
+1. Välj **Ja** i bekräftelsedialogen.
     
     ![Bekräftelsedialog](media/vs-azure-tools-storage-explorer-files/image7.png)
 
@@ -103,15 +103,15 @@ Följande steg illustrerar hur du kopierar en filresurs från ett lagringskonto 
 
 1. Öppna Storage Explorer.
 
-2. Expandera lagringskontot som innehåller den filresurs som du vill kopiera i den vänstra rutan.
+1. Expandera lagringskontot som innehåller den filresurs som du vill kopiera i den vänstra rutan.
 
-3. Expandera lagringskontots **filresurser**.
+1. Expandera lagringskontots **filresurser**.
 
-4. Högerklicka på den filresurs som du vill kopiera och välj **Kopiera filresurs** från snabbmenyn.
+1. Högerklicka på den filresurs som du vill kopiera och välj **Kopiera filresurs** från snabbmenyn.
 
     ![Kopiera filresurs](media/vs-azure-tools-storage-explorer-files/image8.png)
 
-5. Högerklicka på det önskade mållagringskonto där du vill klistra in filresursen och välj sedan **Paste File Share** (Klistra in filresurs) från snabbmenyn.
+1. Högerklicka på det önskade mållagringskonto där du vill klistra in filresursen och välj sedan **Paste File Share** (Klistra in filresurs) från snabbmenyn.
 
     ![Klistra in filresurs](media/vs-azure-tools-storage-explorer-files/image9.png)
 
@@ -123,25 +123,25 @@ Följande steg visar hur du skapar en SAS för en filresurs: +
 
 1. Öppna Storage Explorer.
 
-2. Gå till vänster ruta och expandera det lagringskonto som innehåller filresursen som du vill hämta en SAS för.
+1. Gå till vänster ruta och expandera det lagringskonto som innehåller filresursen som du vill hämta en SAS för.
 
-3. Expandera lagringskontots **filresurser**.
+1. Expandera lagringskontots **filresurser**.
 
-4. Högerklicka på den önskade filresursen och välj **Hämta signatur för delad åtkomst** på snabbmenyn.
+1. Högerklicka på den önskade filresursen och välj **Hämta signatur för delad åtkomst** på snabbmenyn.
 
     ![Hämta signatur för delad åtkomst](media/vs-azure-tools-storage-explorer-files/image10.png)
 
-5. I dialogrutan **Signatur för delad åtkomst** anger du princip, start- och förfallodatum, tidszon och åtkomstnivåer som du vill använda för resursen.
+1. I dialogrutan **Signatur för delad åtkomst** anger du princip, start- och förfallodatum, tidszon och åtkomstnivåer som du vill använda för resursen.
 
     ![SAS-dialog](media/vs-azure-tools-storage-explorer-files/image11.png)
 
-6. När du är klar med att ange SAS-alternativen väljer du **Skapa**.
+1. När du är klar med att ange SAS-alternativen väljer du **Skapa**.
 
-7. En andra dialog för **Signatur för delad åtkomst** visas sedan. Här finns en lista över filresursen tillsammans med URL:en och frågesträngar som du kan använda för att få åtkomst till lagringsresursen. Välj **Kopiera** bredvid den URL som du vill kopiera till Urklipp.
+1. En andra dialog för **Signatur för delad åtkomst** visas sedan. Här finns en lista över filresursen tillsammans med URL:en och frågesträngar som du kan använda för att få åtkomst till lagringsresursen. Välj **Kopiera** bredvid den URL som du vill kopiera till Urklipp.
     
     ![Andra SAS-dialog](media/vs-azure-tools-storage-explorer-files/image12.png)
 
-8. När du är klar väljer du **Stäng**.
+1. När du är klar väljer du **Stäng**.
 
 ## <a name="manage-access-policies-for-a-file-share"></a>Hantera åtkomstprinciper för en filresurs
 
@@ -149,19 +149,19 @@ Följande steg illustrerar hur du hanterar (lägger till och tar bort) åtkomstp
 
 1. Öppna Storage Explorer.
 
-2. Gå till vänster ruta och expandera det lagringskonto som innehåller den filresurs som du vill hantera åtkomstprinciper för.
+1. Gå till vänster ruta och expandera det lagringskonto som innehåller den filresurs som du vill hantera åtkomstprinciper för.
 
-3. Expandera lagringskontots **filresurser**.
+1. Expandera lagringskontots **filresurser**.
 
-4. Välj den önskade filresursen och **Hantera åtkomstprinciper** från snabbmenyn.
+1. Välj den önskade filresursen och **Hantera åtkomstprinciper** från snabbmenyn.
 
     ![Snabbmeny för hantering av åtkomstprinciper](media/vs-azure-tools-storage-explorer-files/image13.png)
 
-5. I dialogen **Åtkomstprinciper** visas en lista över alla åtkomstprinciper som redan har skapats för den valda filresursen.
+1. I dialogen **Åtkomstprinciper** visas en lista över alla åtkomstprinciper som redan har skapats för den valda filresursen.
     
     ![Åtkomstprinciper](media/vs-azure-tools-storage-explorer-files/image14.png)
 
-6. Gör följande beroende på åtkomstprincipens hanteringsuppgift:
+1. Gör följande beroende på åtkomstprincipens hanteringsuppgift:
     
     - **Lägg till en ny åtkomstprincip** – Välj **Lägg till**. När åtkomstprinciepn har skapats visas den som nyligen tillagd i dialogen **Åtkomstprinciper** (med standardinställningarna).
 
@@ -169,7 +169,7 @@ Följande steg illustrerar hur du hanterar (lägger till och tar bort) åtkomstp
 
     - **Ta bort en åtkomstprincip** – Välj **Ta bort** bredvid den åtkomstprincip som du vill ta bort.
 
-7. Skapa en ny SAS-URL med hjälp av den åtkomstprincip som du skapade tidigare:
+1. Skapa en ny SAS-URL med hjälp av den åtkomstprincip som du skapade tidigare:
     
     ![Hämta SAS](media/vs-azure-tools-storage-explorer-files/image15.png)
     
@@ -183,19 +183,19 @@ Följande steg illustrerar hur du hanterar filer (och mappar) i en filresurs.
 
 1.  Öppna Storage Explorer.
 
-2.  Expandera lagringskontot som innehåller den filresurs som du vill hantera i den vänstra rutan.
+1.  Expandera lagringskontot som innehåller den filresurs som du vill hantera i den vänstra rutan.
 
-3.  Expandera lagringskontots **filresurser**.
+1.  Expandera lagringskontots **filresurser**.
 
-4.  Dubbelklicka på den filresurs som du vill visa.
+1.  Dubbelklicka på den filresurs som du vill visa.
 
-5.  I huvudfönstret visas innehållet i filresursen.
+1.  I huvudfönstret visas innehållet i filresursen.
 
     ![Resursens innehåll](media/vs-azure-tools-storage-explorer-files/image17.png)
 
-6.  I huvudfönstret visas innehållet i filresursen.
+1.  I huvudfönstret visas innehållet i filresursen.
 
-7.  Gör följande beroende på vilken aktivitet du vill utföra:
+1.  Gör följande beroende på vilken aktivitet du vill utföra:
 
     - **Överföra filer till en filresurs**
 

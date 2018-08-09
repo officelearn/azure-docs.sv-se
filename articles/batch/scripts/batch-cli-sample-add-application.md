@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: danlep
-ms.openlocfilehash: 80b9cb749be942f72459180182e7d74a45f6a943
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 7c38ac560a4fd277e2b19999ab0ac81549a5fa2f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29843110"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445967"
 ---
 # <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>CLI-exempel: Lägga till ett program i ett Azure Batch-konto
 
@@ -48,14 +48,14 @@ Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Skapar ett lagringskonto. |
-| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Skapar Batch-kontot. |
-| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Autentiserar mot det angivna Batch-kontot för ytterligare CLI-interaktion.  |
-| [az batch application create](/cli/azure/batch/application#az_batch_application_create) | Skapar ett program.  |
-| [az batch application package create](/cli/azure/batch/application/package#az_batch_application_package_create) | Lägger till ett programpaket i det angivna programmet.  |
-| [az batch application set](/cli/azure/batch/application#az_batch_application_set) | Uppdaterar egenskaperna för ett program.  |
-| [az group delete](/cli/azure/group#az_group_delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Skapar ett lagringskonto. |
+| [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Skapar Batch-kontot. |
+| [az batch account login](/cli/azure/batch/account#az-batch-account-login) | Autentiserar mot det angivna Batch-kontot för ytterligare CLI-interaktion.  |
+| [az batch application create](/cli/azure/batch/application#az-batch-application-create) | Skapar ett program.  |
+| [az batch application package create](/cli/azure/batch/application/package#az-batch-application-package-create) | Lägger till ett programpaket i det angivna programmet.  |
+| [az batch application set](/cli/azure/batch/application#az-batch-application-set) | Uppdaterar egenskaperna för ett program.  |
+| [az group delete](/cli/azure/group#az-group-delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
 

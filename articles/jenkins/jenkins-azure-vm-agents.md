@@ -8,12 +8,12 @@ manager: jpconnock
 ms.service: devops
 ms.custom: jenkins
 ms.date: 07/31/2018
-ms.openlocfilehash: 7f3facbc1bca51061d49ca99778c60d58c525144
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 069c6df38f9caa73a30fbc25baafdf7efbd2f402
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391282"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429404"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Skala dina Jenkins-distributioner för att uppfylla behovet med Azure VM-agenter
 
@@ -44,13 +44,13 @@ I den här kursen ska du:
 > Om du distribuerade Jenkins på Azure med hjälp av [lösningsmallen](install-jenkins-solution-template.md), har plugin-programmet för Azure VM-agenter redan installerats.
 
 1. Från Jenkins-instrumentpanelen väljer du **Manage Jenkins** (Hantera Jenkins) och sedan **Manage Plugins** (Hantera plugin-program).
-2. Välj fliken **Tillgängligt** och söka sedan efter **Azure VM Agents** (Azure VM-agenter). Markera kryssrutan intill posten för plugin-programmet och välj **Install without restart** (Installera utan omstart) längst ned på instrumentpanelen.
+1. Välj fliken **Tillgängligt** och söka sedan efter **Azure VM Agents** (Azure VM-agenter). Markera kryssrutan intill posten för plugin-programmet och välj **Install without restart** (Installera utan omstart) längst ned på instrumentpanelen.
 
 ## <a name="configure-the-azure-vm-agents-plugin"></a>Konfigurera plugin-programmet för Azure VM-agenter
 
 1. På Jenkins-instrumentpanelen väljer du **Manage Jenkins** (Hantera Jenkins) och sedan **Configure System** (Konfigurera systemet).
-2. Rulla längst ned på sidan och leta rätt på avsnittet **Moln** med listrutan **Add new cloud** (Lägg till nytt moln) och välj **Microsoft Azure VM Agents** (Microsoft Azure VM-agenter).
-3. Välj ett befintligt tjänsthuvudnamn från listrutan **Lägg till** i avsnittet **Azure Credentials** (Azure-autentiseringsuppgifter). Om inget anges utför du följande steg för att [skapa ett tjänsthuvudnamn](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager) för ditt Azure-konto och lägga till det i din Jenkins-konfiguration:   
+1. Rulla längst ned på sidan och leta rätt på avsnittet **Moln** med listrutan **Add new cloud** (Lägg till nytt moln) och välj **Microsoft Azure VM Agents** (Microsoft Azure VM-agenter).
+1. Välj ett befintligt tjänsthuvudnamn från listrutan **Lägg till** i avsnittet **Azure Credentials** (Azure-autentiseringsuppgifter). Om inget anges utför du följande steg för att [skapa ett tjänsthuvudnamn](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager) för ditt Azure-konto och lägga till det i din Jenkins-konfiguration:   
 
     a. Välj **Lägg till** intill **Azure Credentials** (Azure-autentiseringsuppgifter) och välj **Jenkins**.   
     b. I dialogrutan **Add Credentials** (Lägg till autentiseringsuppgifter) väljer du **Microsoft Azure Service Principal** (Tjänstens huvudnamn för Microsoft Azure) från listrutan **Kind** (Variant).   
@@ -95,20 +95,20 @@ I den här kursen ska du:
 
     
 
-4. I avsnittet **Resource Group Name** (Resursgruppsnamn) lämnar du **Skapa nytt** markerat och anger `myJenkinsAgentGroup`.
-5. Välj **Verify configuration** (Verifiera konfiguration) för att ansluta till Azure för att testa profilinställningarna.
-6. Välj **Applicera** för att uppdatera konfigurationen av plugin-programmet.
+1. I avsnittet **Resource Group Name** (Resursgruppsnamn) lämnar du **Skapa nytt** markerat och anger `myJenkinsAgentGroup`.
+1. Välj **Verify configuration** (Verifiera konfiguration) för att ansluta till Azure för att testa profilinställningarna.
+1. Välj **Applicera** för att uppdatera konfigurationen av plugin-programmet.
 
 ## <a name="configure-agent-resources"></a>Konfigurera agentresurser
 
 Konfigurera en mall som ska användas för att definiera en Azure VM-agent. Den här mallen definierar de beräkningsresurser som varje agent har när de skapas.
 
 1. Välj **Lägg till** intill **Add Azure Virtual Machine Template** (Lägg till mall för virtuell Azure-dator).
-2. Ange `defaulttemplate` som **Namn**
-3. Ange `ubuntu` som **Etikett**
-4. Välj önskad [Azure-region](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) från kombinationsrutan.
-5. Välj en [VM-storlek](/azure/virtual-machines/linux/sizes) i listrutan i **Storlek för virtuell dator**. En allmän `Standard_DS1_v2`-storlek går bra för den här självstudien.   
-6. Lämna **kvarhållningstiden** på `60`. Den här inställningen anger hur många minuter Jenkins kan vänta innan det frigör inaktiva agent. Ange 0 om du inte vill att inaktiva agenter ska tas bort automatiskt.
+1. Ange `defaulttemplate` som **Namn**
+1. Ange `ubuntu` som **Etikett**
+1. Välj önskad [Azure-region](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) från kombinationsrutan.
+1. Välj en [VM-storlek](/azure/virtual-machines/linux/sizes) i listrutan i **Storlek för virtuell dator**. En allmän `Standard_DS1_v2`-storlek går bra för den här självstudien.   
+1. Lämna **kvarhållningstiden** på `60`. Den här inställningen anger hur många minuter Jenkins kan vänta innan det frigör inaktiva agent. Ange 0 om du inte vill att inaktiva agenter ska tas bort automatiskt.
 
    ![Allmän konfiguration av virtuella datorer](./media/jenkins-azure-vm-agents/general-config.png)
 
@@ -125,18 +125,18 @@ Välj **Verify Template** (Verifiera mall) för att kontrollera konfigurationen 
 ## <a name="create-a-job-in-jenkins"></a>Skapa ett jobb i Jenkins
 
 1. I instrumentpanelen för Jenkins klickar du på **Nytt objekt**. 
-2. Ange `demoproject1` som namn och välj **Freestyle-projekt**. Välj sedan **OK**.
-3. På fliken **Allmänt** väljer du **Begränsa var projekt kan köras** och typen `ubuntu` i **etikettuttrycket**. Du ser ett meddelande som bekräftar att etiketten hanteras av den molnkonfiguration som skapades i föregående steg. 
+1. Ange `demoproject1` som namn och välj **Freestyle-projekt**. Välj sedan **OK**.
+1. På fliken **Allmänt** väljer du **Begränsa var projekt kan köras** och typen `ubuntu` i **etikettuttrycket**. Du ser ett meddelande som bekräftar att etiketten hanteras av den molnkonfiguration som skapades i föregående steg. 
    ![Konfigurera jobb](./media/jenkins-azure-vm-agents/job-config.png)
-4. På fliken **Source Code Management** (Källkodshantering) väljer du **Git** och lägger till följande URL i fältet **Repository URL** (URL för lagringsplats): `https://github.com/spring-projects/spring-petclinic.git`
-5. På fliken **Build** (Bygg) väljer du **Add build step** (Lägg till byggsteg) och sedan **Invoke top-level Maven targets** (Anropa Maven-mål på toppnivå). Ange `package` i fältet **Mål**.
-6. Välj **Spara** för att spara jobbdefinitionen.
+1. På fliken **Source Code Management** (Källkodshantering) väljer du **Git** och lägger till följande URL i fältet **Repository URL** (URL för lagringsplats): `https://github.com/spring-projects/spring-petclinic.git`
+1. På fliken **Build** (Bygg) väljer du **Add build step** (Lägg till byggsteg) och sedan **Invoke top-level Maven targets** (Anropa Maven-mål på toppnivå). Ange `package` i fältet **Mål**.
+1. Välj **Spara** för att spara jobbdefinitionen.
 
 ## <a name="build-the-new-job-on-an-azure-vm-agent"></a>Bygg det nya jobbet på en Azure VM-agent
 
 1. Gå tillbaka till Jenkins-instrumentpanelen.
-2. Välj det jobb som du skapade i föregående steg och klicka sedan på **Build now** (Skapa nu). En ny version ställs i kö men startar inte förrän en VM-agent har skapats i din Azure-prenumeration.
-3. När versionen har slutförts, går du till **Konsolutdata**. Du ser att versionen skapades via en fjärranslutning på en Azure-agent.
+1. Välj det jobb som du skapade i föregående steg och klicka sedan på **Build now** (Skapa nu). En ny version ställs i kö men startar inte förrän en VM-agent har skapats i din Azure-prenumeration.
+1. När versionen har slutförts, går du till **Konsolutdata**. Du ser att versionen skapades via en fjärranslutning på en Azure-agent.
 
 ![Konsolutdata](./media/jenkins-azure-vm-agents/console-output.png)
 

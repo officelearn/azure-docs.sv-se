@@ -2,23 +2,18 @@
 title: Hantera Azure-filresurser med Azure CLI
 description: Lär dig hur du använder Azure CLI för att hantera Azure Files.
 services: storage
-documentationcenter: na
 author: wmgries
-manager: aungoo
-editor: tamram
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: 00fd984a6bed8691712df0d4c335d2b9d4fd3ffa
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: files
+ms.openlocfilehash: ebf8605a0f4686a69f89adf0c36d072f12d3c750
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38701826"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525264"
 ---
 # <a name="manage-azure-file-shares-using-azure-cli"></a>Hantera Azure-filresurser med Azure CLI
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Windows, Linux och macOS. Den här artikeln vägleder dig igenom grunderna i att arbeta med Azure-filresurser med Azure CLI. Lär dig att: 
@@ -40,7 +35,7 @@ Om du beslutar dig för att installera och använda Azure CLI lokalt måste du k
 Som standard returnerar Azure CLI-kommandon JavaScript Object Notation (JSON). JSON är standardmetoden för att skicka och ta emot meddelanden från REST API:er. För att underlätta arbetet med JSON-svaren, så använder vissa av exemplen i den här artikeln *frågeparametern* för Azure CLI-kommandona. Den här parametern använder [JMESPath-frågespråket](http://jmespath.org/) för JSON-parsning. Om du vill lära dig mer om hur man hanterar Azure CLI-kommandonas resultat genom att följa JMESPath-frågespråket kan du ta en titt på [JMESPath-självstudiekursen](http://jmespath.org/tutorial.html).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
-En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. Om du inte redan har en Azure-resursgrupp kan du skapa en ny med kommandot [az group create](/cli/azure/group#create). 
+En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Om du inte redan har en Azure-resursgrupp kan du skapa en ny med kommandot [az group create](/cli/azure/group#create). 
 
 I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *USA, östra*:
 
@@ -146,7 +141,7 @@ az storage file download \
 ```
 
 ### <a name="copy-files"></a>Kopiera filer
-En gemensam uppgift är att kopiera filer från en filresurs till en annan eller till eller från en Azure Blob Storage-behållare. Om du vill visa den här funktionen skapar du en ny resurs. Kopiera filen du laddade upp till den här nya resursen med kommandot [az storage file copy](/cli/azure/storage/file/copy): 
+En gemensam uppgift är att kopiera filer från en filresurs till en annan eller till eller från en Azure Blob Storage-container. Om du vill visa den här funktionen skapar du en ny resurs. Kopiera filen du laddade upp till den här nya resursen med kommandot [az storage file copy](/cli/azure/storage/file/copy): 
 
 ```azurecli-interactive
 az storage share create \
@@ -179,7 +174,7 @@ az storage file list \
     --output table
 ```
 
-Även om kommandot `az storage file copy start` är praktiskt för filförflyttningar mellan Azure-filresurser och Azure Blob Storage-behållare, så rekommenderar vi att du använder AzCopy för större flyttar. (Större när det gäller antal eller storleken på filerna som ska flyttas.) Lär dig mer om [AzCopy för Linux](../common/storage-use-azcopy-linux.md) och [AzCopy för Windows](../common/storage-use-azcopy.md). AzCopy måste installeras lokalt. AzCopy är inte tillgängligt i Cloud Shell. 
+Även om kommandot `az storage file copy start` är praktiskt för filförflyttningar mellan Azure-filresurser och Azure Blob Storage-containrar, så rekommenderar vi att du använder AzCopy för större flyttar. (Större när det gäller antal eller storleken på filerna som ska flyttas.) Lär dig mer om [AzCopy för Linux](../common/storage-use-azcopy-linux.md) och [AzCopy för Windows](../common/storage-use-azcopy.md). AzCopy måste installeras lokalt. AzCopy är inte tillgängligt i Cloud Shell. 
 
 ## <a name="create-and-modify-share-snapshots"></a>Skapa och ändra resursögonblicksbilder
 Ytterligare en användbar uppgift som du kan göra med en Azure-filresurs är att skapa resursögonblicksbilder. En ögonblicksbild bevarar en kopia vid en viss tidpunkt av en Azure-filresurs. Ögonblicksbilder av resurser liknar vissa av de operativsystemtekniker som du kanske redan är bekant med:
@@ -283,7 +278,7 @@ Du kan även ta bort resurser individuellt.
         --delete-snapshots include
     ```
 
-- Ta bort själva lagringskontot. (Detta tar implicit bort Azure-filresurserna du skapade, och eventuella andra lagringsresurser som du kan ha skapat, som en Azure Blob Storage-behållare.)
+- Ta bort själva lagringskontot. (Detta tar implicit bort Azure-filresurserna du skapade, och eventuella andra lagringsresurser som du kan ha skapat, som en Azure Blob Storage-container.)
 
     ```azurecli-interactive
     az storage account delete \

@@ -8,18 +8,18 @@ ms.author: tomfitz
 ms.date: 06/29/2018
 ms.topic: tutorial
 ms.service: event-grid
-ms.openlocfilehash: ee504f805c536ba9a6186514206546c3df1f0f1a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 544f5210adbea6791f9224a1e2be0743ce9995d5
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127721"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434154"
 ---
 # <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Dirigera anpassade händelser till Azure Relay hybridanslutning med Azure CLI och Event Grid
 
 Azure Event Grid är en händelsetjänst för molnet. Azure Relay hybridanslutningar är en av de händelsehanterare som stöds. Du kan använda hybridanslutningar som händelsehanterare när du behöver bearbeta händelser från program som inte har en offentlig slutpunkt. Dessa program kan finnas i ditt företagsnätverk. I den här artikeln använder du Azure CLI för att skapa ett anpassat ämne, prenumerera på ämnet och utlösa händelsen för att visa resultatet. Du skickar händelser till hybridanslutningen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här artikeln förutsätter att du redan har en hybridanslutning och ett lyssnarprogram. För att komma igång med hybridanslutningar, se [Kom igång med Relay hybridanslutningar – .NET](../service-bus-relay/relay-hybrid-connections-dotnet-get-started.md) eller [Kom igång med Relay hybridanslutningar – nod](../service-bus-relay/relay-hybrid-connections-node-get-started.md).
 
@@ -29,7 +29,7 @@ Den här artikeln förutsätter att du redan har en hybridanslutning och ett lys
 
 Event Grid-ämnen är Azure-resurser och måste placeras i en Azure-resursgrupp. Resursgruppen är en logisk samling där Azure-resurser distribueras och hanteras.
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). 
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az-group-create). 
 
 I följande exempel skapas en resursgrupp med namnet *gridResourceGroup* på platsen *westus2*.
 

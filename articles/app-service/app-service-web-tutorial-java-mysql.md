@@ -15,17 +15,17 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 46e222ffe40db186343250efc71e20d41adbc285
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 77cd4c1d5333f7f10e6caccee5011200bdb4ccca
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33203127"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424396"
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>Självstudie: Skapa en Java- och MySQL-webbapp i Azure
 
 > [!NOTE]
-> I den här artikeln distribueras en app till App Service i Windows. Om du vill distribuera till App Service på _Linux_, se artikeln om att [distribuera en Spring Boot-app i behållare till Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
+> I den här artikeln distribueras en app till App Service i Windows. Om du vill distribuera till App Service på _Linux_, se artikeln om att [distribuera en Spring Boot-app i containrar till Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
 >
 
 I den här självstudien visas hur du skapar en Java-webbapp i Azure och ansluter den till en MySQL-databas. När du är klar har du en [Spring Boot](https://projects.spring.io/spring-boot/)-app som lagrar data i [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview) och körs på [Azure App Service Web Apps](app-service-web-overview.md).
@@ -126,7 +126,7 @@ I det här steget skapar du en instans av [Azure Database for MySQL](../mysql/qu
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en [resursgrupp](../azure-resource-manager/resource-group-overview.md) med kommandot [`az group create`](/cli/azure/group#az_group_create). En Azure-resursgrupp är en logisk behållare där relaterade resurser som webbappar, databaser och lagringskonton distribueras och hanteras. 
+Skapa en [resursgrupp](../azure-resource-manager/resource-group-overview.md) med kommandot [`az group create`](/cli/azure/group#az-group-create). En Azure-resursgrupp är en logisk container där relaterade resurser som webbappar, databaser och lagringskonton distribueras och hanteras. 
 
 Följande exempel skapar en resursgrupp i regionen Europa, norra:
 
@@ -138,7 +138,7 @@ Du kan visa vilka möjliga värden du kan använda för `--location` med kommand
 
 ### <a name="create-a-mysql-server"></a>Skapa en MySQL-server
 
-I Cloud Shell skapar du en server i Azure Database for MySQL med kommandot [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
+I Cloud Shell skapar du en server i Azure Database for MySQL med kommandot [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create).
 
 I följande kommando byter du ut platshållaren *\<mysql_server_name>* mot ett unikt servernamn, platshållaren *\<admin_user>* mot ett användarnamn och platshållaren *\<admin_password>* mot ett lösenord. Det här servernamnet används som en del av PostgreSQL-slutpunkten (`https://<mysql_server_name>.mysql.database.azure.com`), så namnet måste vara unikt för alla servrar i Azure.
 
@@ -174,7 +174,7 @@ När MySQL-servern skapas visar Azure CLI information som ser ut ungefär så h�
 
 ### <a name="configure-server-firewall"></a>Konfigurera serverbrandväggen
 
-Skapa i Cloud Shell en brandväggsregel för MySQL-servern för att tillåta klientanslutningar med hjälp av kommandot [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create). När både start-IP och slut-IP har angetts till 0.0.0.0 öppnas brandväggen endast för andra Azure-resurser. 
+Skapa i Cloud Shell en brandväggsregel för MySQL-servern för att tillåta klientanslutningar med hjälp av kommandot [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-create). När både start-IP och slut-IP har angetts till 0.0.0.0 öppnas brandväggen endast för andra Azure-resurser. 
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -217,7 +217,7 @@ quit
 
 ## <a name="deploy-the-sample-to-azure-app-service"></a>Distribuera exemplet till Azure App Service
 
-Skapa en Azure App Service-plan med den **kostnadsfria** prisnivån med hjälp av CLI-kommandot [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create). App Service-planen definierar vilka fysiska resurser som används som värd för dina appar. Alla program som tilldelas till en App Service-plan delar dessa resurser. Det innebär att du kan minska kostnaderna när du har flera appar i en plan. 
+Skapa en Azure App Service-plan med den **kostnadsfria** prisnivån med hjälp av CLI-kommandot [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create). App Service-planen definierar vilka fysiska resurser som används som värd för dina appar. Alla program som tilldelas till en App Service-plan delar dessa resurser. Det innebär att du kan minska kostnaderna när du har flera appar i en plan. 
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
@@ -243,7 +243,7 @@ När planen är klar visar Azure CLI utdata som liknar följande exempel:
 
 ### <a name="create-an-azure-web-app"></a>Skapa en Azure-webbapp
 
-Använd CLI-kommandot [`az webapp create`](/cli/azure/appservice/web#az_appservice_web_create) i Cloud Shell för att skapa en webbappsdefinition i App Service-planen `myAppServicePlan`. Webbappsdefinitionen innehåller en URL för att få åtkomst till appen och konfigurerar flera alternativ för att distribuera koden till Azure. 
+Använd CLI-kommandot [`az webapp create`](/cli/azure/appservice/web#az-appservice-web-create) i Cloud Shell för att skapa en webbappsdefinition i App Service-planen `myAppServicePlan`. Webbappsdefinitionen innehåller en URL för att få åtkomst till appen och konfigurerar flera alternativ för att distribuera koden till Azure. 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
@@ -270,7 +270,7 @@ När webbappsdefinitionen är klar visar Azure CLI information liknande den i f�
 
 ### <a name="configure-java"></a>Konfigurera Java 
 
-Konfigurera i Cloud Shell den Java Runtime-konfiguration som appen behöver med kommandot [`az webapp config set`](/cli/azure/webapp/config#az_webapp_config_set).
+Konfigurera i Cloud Shell den Java Runtime-konfiguration som appen behöver med kommandot [`az webapp config set`](/cli/azure/webapp/config#az-webapp-config-set).
 
 Följande kommando konfigurerar webbappen att köra på en sen Java 8 JDK och [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 
@@ -299,7 +299,7 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_p
 ### <a name="get-ftp-deployment-credentials"></a>Hämta FTP-autentiseringsuppgifter för distribution 
 Du kan distribuera webbappen till Azure App Service på flera olika sätt, till exempel med FTP, lokal Git, GitHub, Visual Studio Team Services och Bitbucket. I det här exemplet används FTP för att distribuera WAR-filen som skapats tidigare på din lokala dator till Azure App Service.
 
-Fastställ vilka autentiseringsuppgifter som ska skickas i ett ftp-kommando till webbappen med hjälp av [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az_appservice_web_deployment_list_publishing_profiles)-kommandot i Cloud Shell: 
+Fastställ vilka autentiseringsuppgifter som ska skickas i ett ftp-kommando till webbappen med hjälp av [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az-appservice-web-deployment-list-publishing-profiles)-kommandot i Cloud Shell: 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --name <app_name> --resource-group myResourceGroup --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" --output json
@@ -413,7 +413,7 @@ När du uppdaterar appen visas kolumnen med **tidpunkt när objektet skapades**.
 
 När Java-appen körs i Azure App Service kan du skicka konsolloggarna direkt till din terminal. På så sätt kan du få samma diagnostikmeddelanden för att felsöka programfel.
 
-Starta loggströmningen genom att använda kommandot [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) i Cloud Shell.
+Starta loggströmningen genom att använda kommandot [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) i Cloud Shell.
 
 ```azurecli-interactive 
 az webapp log tail --name <app_name> --resource-group myResourceGroup 

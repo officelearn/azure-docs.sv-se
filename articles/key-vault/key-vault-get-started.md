@@ -1,6 +1,6 @@
 ---
 title: Komma igång med Azure Key Vault | Microsoft Docs
-description: Den här självstudiekursen hjälper dig att komma igång med Azure Key Vault för att skapa en säker behållare i Azure för lagring och hantering av krypteringsnycklar och hemligheter i Azure.
+description: Den här självstudiekursen hjälper dig att komma igång med Azure Key Vault för att skapa en säker container i Azure för lagring och hantering av krypteringsnycklar och hemligheter i Azure.
 services: key-vault
 documentationcenter: ''
 author: barclayn
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: 58a283f1ce5bd2fd78c4fa2038c3998aea1598c9
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 2d959eb9c4f55624d0d0915dd5dea4c62ba1f8e5
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070359"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505721"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Komma igång med Azure Key Vault
 Med den här artikeln får du hjälp med att komma igång med Azure Key Vault med PowerShell, och den går igenom följande aktiviteter:
-- Så här skapar du en förstärkt behållare (ett valv) i Azure.
+- Så här skapar du en förstärkt container (ett valv) i Azure.
 - Så här använder du KeyVault för att lagra och hantera kryptografiska nycklar och hemligheter i Azure.
 - Så här kan ett program använda den här nyckeln eller lösenordet.
 
@@ -69,7 +69,7 @@ Connect-AzureRmAccount
 ```
 
 >[!NOTE]
- Om du använder en specifik instans av Azure använder du parametern -Environment. Till exempel: 
+ Om du använder en specifik instans av Azure använder du parametern -Environment. Exempel: 
  ```powershell
  Connect-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
  ```
@@ -143,7 +143,7 @@ Du kan referera till nyckeln som du skapat eller överfört till Azure Key Vault
 
 ### <a name="importing-an-existing-pfx-file-into-azure-key-vault"></a>Importera en befintlig PFX-fil till Azure Key Vault
 
-När det gäller befintliga nycklar som lagras i en pfx-fil som du vill överföra till Azure Key Vault är stegen olika. Till exempel:
+När det gäller befintliga nycklar som lagras i en pfx-fil som du vill överföra till Azure Key Vault är stegen olika. Exempel:
 - Om du har en befintlig programvaruskyddad nyckel i en. PFX-fil
 - Pfx-filen heter softkey.pfx 
 - Filen lagras på C-enheten.
@@ -206,7 +206,7 @@ Så här visar du värdet som finns i hemligheten som oformaterad text:
 Nu är ditt nyckelvalv och din nyckel eller hemlighet redo att användas av program. Du måste ge programmen tillstånd att använda dem.  
 
 ## <a id="register"></a>Registrera ett program med Azure Active Directory
-Det här steget utförs normalt av en utvecklare, på en separat dator. Det är inte specifikt för Azure Key Vault. Detaljerade anvisningar om hur du registrerar ett program med Azure Active Directory ska du läsa artikeln [Integrera program med Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md) eller [använda portalen för att skapa ett Azure Active Directory-program och tjänstens huvudnamn som kan få åtkomst till resurser](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+Det här steget utförs normalt av en utvecklare, på en separat dator. Det är inte specifikt för Azure Key Vault. Detaljerade anvisningar om hur du registrerar ett program med Azure Active Directory ska du läsa artikeln [Integrera program med Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) eller [använda portalen för att skapa ett Azure Active Directory-program och tjänstens huvudnamn som kan få åtkomst till resurser](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 
 > [!IMPORTANT]
 > För att slutföra självstudiekursen måste ditt konto, valvet och det program som du ska registrera i det här steget finnas i samma Azure-katalog.

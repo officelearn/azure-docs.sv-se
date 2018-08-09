@@ -2,21 +2,19 @@
 title: 'Snabbstart: Skapa ett Spark-kluster i HDInsight med hjälp av Azure PowerShell'
 description: Den här snabbstarten visar hur du använder Azure PowerShell för att skapa ett Apache Spark-kluster i Azure HDInsight och köra en enkel Spark SQL-fråga.
 services: azure-hdinsight
-author: mumian
-manager: cgronlun
-editor: cgronlun
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: jgao
+ms.author: jasonh
 ms.custom: mvc
-ms.openlocfilehash: c9f923268e8ca137ceaf88a0c8daa44fdee75095
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 9ad282bcceeb297e41ed59f5ff2870bb408c053e
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097520"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620927"
 ---
 # <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-powershell"></a>Snabbstart: Skapa ett Spark-kluster i HDInsight med PowerShell
 Lär dig hur du skapar Apache Spark-kluster på Azure HDInsight och hur du kör Spark SQL-frågor mot Hive-tabeller. Apache Spark möjliggör snabb dataanalys och databehandling i kluster med hjälp av minnesintern bearbetning. Mer information om Spark på HDInsight finns i [Översikt: Apache Spark på Azure HDInsight](apache-spark-overview.md).
@@ -32,7 +30,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 Att skapa ett HDInsight-kluster innefattar att skapa följande Azure-objekt och -resurser:
 
-- En Azure-resursgrupp. En Azure-resursgrupp är en behållare för Azure-resurser. 
+- En Azure-resursgrupp. En Azure-resursgrupp är en container för Azure-resurser. 
 - Ett Azure-lagringskonto eller en Azure Data Lake Store.  Varje HDInsight-kluster kräver en beroende datalagring. I den här snabbstarten skapar du ett lagringskonto.
 - Ett HDInsight-kluster med olika klustertyper.  I den här snabbstarten skapar du ett Spark 2.3-kluster.
 

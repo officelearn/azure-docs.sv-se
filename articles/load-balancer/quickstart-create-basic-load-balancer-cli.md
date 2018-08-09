@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Skapa en offentlig belastningsutjämnare – Azure CLI | Microsoft Docs'
-description: Den här snabbstarten visar hur du skapar en offentlig belastningsutjämnare med Azure CLI
+title: 'Snabbstart: Skapa en offentlig lastbalanserare – Azure CLI | Microsoft Docs'
+description: Den här snabbstarten visar hur du skapar en offentlig lastbalanserare med Azure CLI
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -17,16 +17,16 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 6c7a9bd83af5d23bdc9e6dd8c910dbf64a6efd6f
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 7cca2475228155de6dc1f5c00a0d306e3a40c11a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304927"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441994"
 ---
-# <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Snabbstart: Skapa en offentlig belastningsutjämnare som belastningsutjämnar virtuella datorer med Azure CLI 2.0
+# <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Snabbstart: Skapa en offentlig lastbalanserare som lastbalanserar virtuella datorer med Azure CLI 2.0
 
-Den här snabbstartsguiden visar hur du skapar en Azure Load Balancer. Om du vill testa belastningsutjämnaren så distribuera två virtuella datorer (VM) som kör Ubuntu-servern och belastningsutjämna en webbapp mellan dem.
+Den här snabbstartsguiden visar hur du skapar en Azure Load Balancer. Om du vill testa lastbalanseraren så distribuera två virtuella datorer (VM) som kör Ubuntu-servern och lastbalansera en webbapp mellan dem.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
@@ -34,7 +34,7 @@ Om du väljer att installera och använda CLI lokalt så kräver den här själv
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med [az group create](https://docs.microsoft.com/cli/azure/group#create). En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras.
+Skapa en resursgrupp med [az group create](https://docs.microsoft.com/cli/azure/group#create). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
 
 I följande exempel skapas en resursgrupp med namnet *myResourceGroupLB* på platsen *eastus*:
 
@@ -46,7 +46,7 @@ I följande exempel skapas en resursgrupp med namnet *myResourceGroupLB* på pla
 
 ## <a name="create-a-public-ip-address"></a>Skapa en offentlig IP-adress
 
-För att du ska kunna komma åt din webbapp på Internet behöver du en offentlig IP-adress för belastningsutjämnaren. Använd [az nätverket offentliga IP-skapa](https://docs.microsoft.com/cli/azure/network/public-ip#create) när du ska skapa en offentlig IP-adress med namnet *myPublicIP* i *myResourceGroupLB*.
+För att du ska kunna komma åt din webbapp på Internet behöver du en offentlig IP-adress för lastbalanseraren. Använd [az nätverket offentliga IP-skapa](https://docs.microsoft.com/cli/azure/network/public-ip#create) när du ska skapa en offentlig IP-adress med namnet *myPublicIP* i *myResourceGroupLB*.
 
 ```azurecli-interactive
   az network public-ip create --resource-group myResourceGroupLB --name myPublicIP
@@ -54,13 +54,13 @@ För att du ska kunna komma åt din webbapp på Internet behöver du en offentli
 
 ## <a name="create-azure-load-balancer"></a>Skapa en Azure Load Balancer
 
-Det här avsnittet beskriver hur du gör för att skapa och konfigurera följande komponenter i belastningsutjämnaren:
-  - en klientdels-IP-pool som tar emot inkommande nätverkstrafik i belastningsutjämnaren.
+I det här avsnittet beskrivs hur du gör för att skapa och konfigurera följande komponenter i lastbalanseraren:
+  - en klientdels-IP-pool som tar emot inkommande nätverkstrafik i lastbalanseraren.
   - en serverdels-IP-pool om klientdelspoolen skickar den belastningsutjämnade nätverkstrafiken.
   - en hälsoavsökning som fastställer hälsan för serverdelens virtuella datorinstanser.
-  - en belastningsutjämningsregel som definierar hur trafiken ska distribueras till de virtuella datorerna.
+  - en lastbalanseringsregel som definierar hur trafiken ska distribueras till de virtuella datorerna.
 
-### <a name="create-the-load-balancer"></a>Skapa belastningsutjämnaren
+### <a name="create-the-load-balancer"></a>Skapa lastbalanseraren
 
 Skapa en offentlig Azure Load Balancer med [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) med namnet **myLoadBalancer** som innehåller en klientdelspool med namnet **myFrontEndPool**, och en serverdelspool med namnet **myBackEndPool** som är associerad med den offentliga IP-adressen **myPublicIP** som du skapade i föregående steg.
 
@@ -75,7 +75,7 @@ Skapa en offentlig Azure Load Balancer med [az network lb create](https://docs.m
 
 ### <a name="create-the-health-probe"></a>Skapar hälsoavsökningen
 
-En hälsoavsökning kontrollerar alla virtuella datorinstanser för att säkerställa att de kan skicka nätverkstrafik. Den virtuella datorinstansen med misslyckad hälsoavsökning tas bort från belastningsutjämnaren tills den är tillbaka online och en avsökningskontroll visar att den är felfri. Skapa en hälsoavsökning med [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create) så att du kan övervaka de virtuella datorernas hälsotillstånd. 
+En hälsoavsökning kontrollerar alla virtuella datorinstanser för att säkerställa att de kan skicka nätverkstrafik. Den virtuella datorinstansen med misslyckad hälsoavsökning tas bort från lastbalanseraren tills den är tillbaka online och en avsökningskontroll visar att den är felfri. Skapa en hälsoavsökning med [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create) så att du kan övervaka de virtuella datorernas hälsotillstånd. 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -86,9 +86,9 @@ En hälsoavsökning kontrollerar alla virtuella datorinstanser för att säkerst
     --port 80   
 ```
 
-### <a name="create-the-load-balancer-rule"></a>Skapa belastningsutjämningsregeln
+### <a name="create-the-load-balancer-rule"></a>Skapa lastbalanseringsregeln
 
-En belastningsutjämningsregel definierar klientdelens IP-konfiguration för inkommande trafik och serverdelens IP-pool för att ta emot trafiken, tillsammans med nödvändiga käll- och målportar. Skapa belastningsutjämningsregeln *myLoadBalancerRuleWeb* med [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) så att du kan lyssna på port 80 i klientdelspoolen *myFrontEndPool* och skicka belastningsutjämnad nätverkstrafik till serverdelsadresspoolen *myBackEndPool* som också använder port 80. 
+En lastbalanseringsregel definierar klientdelens IP-konfiguration för inkommande trafik och serverdelens IP-pool för att ta emot trafiken, tillsammans med nödvändiga käll- och målportar. Skapa lastbalanseringsregeln *myLoadBalancerRuleWeb* med [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) så att du kan lyssna på port 80 i klientdelspoolen *myFrontEndPool* och skicka lastbalanserad nätverkstrafik till serverdelsadresspoolen *myBackEndPool* som också använder port 80. 
 
 ```azurecli-interactive
   az network lb rule create \
@@ -105,7 +105,7 @@ En belastningsutjämningsregel definierar klientdelens IP-konfiguration för ink
 
 ## <a name="configure-virtual-network"></a>Konfigurera ett virtuellt nätverk
 
-Innan du distribuerar några virtuella datorer och testar din belastningsutjämnare, måste du skapa virtuella nätverksresurser som stöd.
+Innan du kan distribuera virtuella datorer och testa din lastbalanserare måste du skapa virtuella nätverksresurser.
 
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
@@ -147,7 +147,7 @@ Skapa en regel för nätverkssäkerhetsgrupp som tillåter inkommande anslutning
 ```
 ### <a name="create-nics"></a>Skapa nätverkskort
 
-Skapa tre nätverksgränssnitt med [az network nic create](/cli/azure/network/nic#az_network_nic_create) och koppla dem till den offentliga IP-adressen och nätverkssäkerhetsgruppen. 
+Skapa tre nätverksgränssnitt med [az network nic create](/cli/azure/network/nic#az-network-nic-create) och koppla dem till den offentliga IP-adressen och nätverkssäkerhetsgruppen. 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -165,11 +165,11 @@ done
 
 ## <a name="create-backend-servers"></a>Skapa serverdelsservrar
 
-I det här exemplet skapar du tre virtuella datorer som ska användas som serverdelsservrar för belastningsutjämnaren. Du kan kontrollera att belastningsutjämnaren har skapats genom att även installera NGINX på de virtuella datorerna.
+I det här exemplet skapar du tre virtuella datorer som ska användas som serverdelsservrar för lastbalanseraren. Du kan kontrollera att lastbalanseraren har skapats genom att även installera NGINX på de virtuella datorerna.
 
 ### <a name="create-an-availability-set"></a>Skapa en tillgänglighetsuppsättning
 
-Skapa en tillgänglighetsuppsättning med [az vm availabilityset create](/cli/azure/network/nic#az_network_availabilityset_create)
+Skapa en tillgänglighetsuppsättning med [az vm availabilityset create](/cli/azure/network/nic#az-network-availabilityset-create)
 
  ```azurecli-interactive
   az vm availability-set create \
@@ -223,7 +223,7 @@ runcmd:
   - nodejs index.js
 ``` 
  
-Skapa de virtuella datorerna med [az vm create](/cli/azure/vm#az_vm_create).
+Skapa de virtuella datorerna med [az vm create](/cli/azure/vm#az-vm-create).
 
  ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -240,9 +240,9 @@ for i in `seq 1 2`; do
 ```
 Det kan ta några minuter för de virtuella datorerna att distribueras.
 
-## <a name="test-the-load-balancer"></a>Testa belastningsutjämnaren
+## <a name="test-the-load-balancer"></a>Testa lastbalanseraren
 
-Hämta belastningsutjämnarens offentliga IP-adress med [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
+Hämta lastbalanserarens offentliga IP-adress med [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
 
 ```azurecli-interactive
   az network public-ip show \
@@ -251,11 +251,11 @@ Hämta belastningsutjämnarens offentliga IP-adress med [az network public-ip sh
     --query [ipAddress] \
     --output tsv
 ``` 
-![Testa belastningsutjämnaren](./media/load-balancer-get-started-internet-arm-cli/running-nodejs-app.png)
+![Testa lastbalanseraren](./media/load-balancer-get-started-internet-arm-cli/running-nodejs-app.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När de inte längre behövs kan du ta bort resursgruppen, belastningsutjämnaren och alla relaterade resurser med kommandot [az group delete](/cli/azure/group#az_group_delete).
+När de inte längre behövs kan du ta bort resursgruppen, lastbalanseraren och alla relaterade resurser med kommandot [az group delete](/cli/azure/group#az-group-delete).
 
 ```azurecli-interactive 
   az group delete --name myResourceGroupLB
@@ -263,7 +263,8 @@ När de inte längre behövs kan du ta bort resursgruppen, belastningsutjämnare
 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här snabbstarten har du skapat en grundläggande belastningsutjämnare, anslutit virtuella datorer till den, konfigurerat regeln för trafikbelastningsutjämning, konfigurerat hälsoavsökningen och sedan testat belastningsutjämnaren. Om du vill läsa mer om Azure Load Balancer fortsätter du till självstudierna för Azure Load Balancer.
+I den här snabbstarten har du skapat en grundläggande lastbalanserare, anslutit virtuella datorer till den, konfigurerat regeln för trafiklastbalansering, konfigurerat hälsoavsökningen och sedan testat lastbalanseraren. Om du vill läsa mer om Azure Load Balancer fortsätter du till självstudierna för Azure Load Balancer.
 
 > [!div class="nextstepaction"]
-> [Självstudier om Azure Load Balancer](tutorial-load-balancer-basic-internal-portal.md)
+> 
+  [Självstudier om Azure Load Balancer](tutorial-load-balancer-basic-internal-portal.md)

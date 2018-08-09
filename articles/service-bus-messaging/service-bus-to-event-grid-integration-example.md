@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: 5d0ab8cf9e87fc13b78b00dbe77ec6f9fb38c4b9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 72a9cc905adda5146cf943d8f0ed2789c3088422
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32189399"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447398"
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Exempel på integration av Azure Service Bus till Azure Event Grid
 
@@ -46,13 +46,13 @@ Du kan använda valfri metod för att skicka ett meddelande till ditt Service Bu
 
 1. Klona [GitHub-lagringsplatsen azure-service-bus](https://github.com/Azure/azure-service-bus/).
 
-2. Gå till mappen *\samples\DotNet\Microsoft.ServiceBus.Messaging\ServiceBusEventGridIntegration* i Visual Studio och öppna filen *SBEventGridIntegration.sln*.
+1. Gå till mappen *\samples\DotNet\Microsoft.ServiceBus.Messaging\ServiceBusEventGridIntegration* i Visual Studio och öppna filen *SBEventGridIntegration.sln*.
 
-3. Gå till projektet **MessageSender** och välj sedan **Program.cs**.
+1. Gå till projektet **MessageSender** och välj sedan **Program.cs**.
 
    ![8][]
 
-4. Fyll i avsnittets namn och anslutningssträng och kör sedan följande konsolprogramkod:
+1. Fyll i avsnittets namn och anslutningssträng och kör sedan följande konsolprogramkod:
 
     ```CSharp
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
@@ -65,7 +65,7 @@ Innan du går igenom hela scenariot skapar du minst en liten testfunktion, som d
 
 1. Skapa ett nytt Azure Functions-program i Azure Portal. Om du vill lära dig grunderna i Azure Functions kan du läsa [dokumentationen för Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
 
-2. Välj plustecknet (+) i din nya funktion om du vill lägga till en HTTP-utlösare:
+1. Välj plustecknet (+) i din nya funktion om du vill lägga till en HTTP-utlösare:
 
     ![2][]
     
@@ -73,9 +73,9 @@ Innan du går igenom hela scenariot skapar du minst en liten testfunktion, som d
 
     ![3][]
 
-3. Välj knappen **Webhook + API**, välj **CSharp** och välj sedan **Skapa den här funktionen**.
+1. Välj knappen **Webhook + API**, välj **CSharp** och välj sedan **Skapa den här funktionen**.
  
-4. Klistra in följande kod i funktionen:
+1. Klistra in följande kod i funktionen:
 
     ```CSharp
     #r "Newtonsoft.Json"
@@ -121,7 +121,7 @@ Innan du går igenom hela scenariot skapar du minst en liten testfunktion, som d
     }
     ```
 
-5. Välj **Spara och kör**.
+1. Välj **Spara och kör**.
 
 ## <a name="connect-the-function-and-namespace-via-event-grid"></a>Anslut funktionen och namnområdet via Event Grid
 
@@ -133,16 +133,16 @@ Så här skapar du en Azure Event Grid-prenumeration:
 
     ![20][]
 
-2. Välj **Händelseprenumeration**.  
+1. Välj **Händelseprenumeration**.  
     Fönstret **Händelseprenumeration** öppnas. På följande bild visas ett formulär för att prenumerera på en Azure-funktion eller en webhook utan att använda filter.
 
     ![21][]
 
-3. Fyll i formuläret som på bilden och kom ihåg att ange relevant filter i rutan **Suffixfilter**.
+1. Fyll i formuläret som på bilden och kom ihåg att ange relevant filter i rutan **Suffixfilter**.
 
-4. Välj **Skapa**.
+1. Välj **Skapa**.
 
-5. Skicka ett meddelande till ditt Service Bus-ämne enligt avsnittet Nödvändiga komponenter och kontrollera att händelser flödar in via övervakningsfunktionen i Azure Functions.
+1. Skicka ett meddelande till ditt Service Bus-ämne enligt avsnittet Nödvändiga komponenter och kontrollera att händelser flödar in via övervakningsfunktionen i Azure Functions.
 
 Nästa steg är att koppla ihop funktionen och Service Bus-namnområdet. I det här exemplet använder du Azure-portalen. Läs om hur du utför det här steget med PowerShell och Azure CLI i [Översikt över integration av Azure Service Bus till Azure Event Grid](service-bus-to-event-grid-integration-concept.md).
 
@@ -160,26 +160,26 @@ Du lägger till en Azure-funktion (se följande exempel) eftersom Service Bus-fu
 
     ![10][]
 
-2. Ange din anslutningssträng i följande kod:
+1. Ange din anslutningssträng i följande kod:
 
     ```Csharp
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
     ```
 
-3. I Azure Portal laddar du ned publiceringsprofilen för den Azure-funktion som du skapade i avsnittet Skapa en testfunktion.
+1. I Azure Portal laddar du ned publiceringsprofilen för den Azure-funktion som du skapade i avsnittet Skapa en testfunktion.
 
     ![11][]
 
-4. Högerklicka sedan på **SBEventGridIntegration** i Visual Studio och välj sedan **Publicera**. 
+1. Högerklicka sedan på **SBEventGridIntegration** i Visual Studio och välj sedan **Publicera**. 
 
-5. I fönstret **Publicera** för den publiceringsprofil som du laddade ned tidigare väljer du **Importera profil** och sedan **Publicera**.
+1. I fönstret **Publicera** för den publiceringsprofil som du laddade ned tidigare väljer du **Importera profil** och sedan **Publicera**.
 
     ![12][]
 
-6. När du har publicerat den nya Azure-funktionen skapar du en ny Azure Event Grid-prenumeration som pekar på den nya Azure-funktionen.  
+1. När du har publicerat den nya Azure-funktionen skapar du en ny Azure Event Grid-prenumeration som pekar på den nya Azure-funktionen.  
     Kontrollera att du använder rätt filter i rutan **Slutar med**, vilket ska vara ditt Service Bus-prenumerationsnamn.
 
-7. Skicka ett meddelande till det Azure Service Bus-ämne som du skapade tidigare. Kontrollera sedan i Azure Functions-loggen i Azure Portal att händelser flödar in och att meddelanden tas emot.
+1. Skicka ett meddelande till det Azure Service Bus-ämne som du skapade tidigare. Kontrollera sedan i Azure Functions-loggen i Azure Portal att händelser flödar in och att meddelanden tas emot.
 
     ![12-1][]
 
@@ -195,22 +195,22 @@ Anslut en logikapp med Azure Service Bus och Azure Event Grid på följande sät
 
     ![14][]
 
-2. Lägg till din information på följande sätt:
+1. Lägg till din information på följande sätt:
 
     a. Ange namnet på ditt namnområde i rutan **Resursnamn**. 
 
     b. Ange filter för din prenumeration i rutan **Suffixfilter** under **Avancerade alternativ**.
 
-3. Lägg till en Service Bus-mottagningsåtgärd för att ta emot meddelanden från en ämnesprenumeration.  
+1. Lägg till en Service Bus-mottagningsåtgärd för att ta emot meddelanden från en ämnesprenumeration.  
     Den sista åtgärden visas på följande bild:
 
     ![15][]
 
-4. Lägg till en fullständig händelse som på följande bild:
+1. Lägg till en fullständig händelse som på följande bild:
 
     ![16][]
 
-5. Spara logikappen och skicka ett meddelande till ditt Service Bus-ämne enligt avsnittet Nödvändiga komponenter.  
+1. Spara logikappen och skicka ett meddelande till ditt Service Bus-ämne enligt avsnittet Nödvändiga komponenter.  
     Iaktta logikappkörningen. Om du vill visa mer data för körningen väljer du **Översikt** och granskar data under **Körningshistorik**.
 
     ![17][]

@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 83cd90babaa5bcb396f792c7e933d38b3911cebb
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: cedc13cb18440eee32e333d395494043e2eca9d1
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970364"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442521"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>Snabbstart: Distribuera en Java Spring Boot-app till Service Fabric
 
-Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av mikrotjänster och behållare.
+Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av mikrotjänster och containrar.
 
 Den här snabbstarten visar hur du distribuerar ett Spring Boot-program till Service Fabric. I den här snabbstarten används exemplet [Komma igång](https://spring.io/guides/gs/spring-boot/) från Spring-webbplatsen. Med bekanta kommandoradsverktyg guidar den här snabbstarten igenom distribuering av Spring Boot-exemplet som ett Service Fabric-program. När du är klar fungerar exemplet Spring Boot Getting Started på Service Fabric.
 
@@ -48,13 +48,13 @@ För att slutföra den här snabbstarten behöver du:
     
     b. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 
-2. [Installera Git](https://git-scm.com/)
-3. Installera Yeoman
+1. [Installera Git](https://git-scm.com/)
+1. Installera Yeoman
 
     a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
 
     b. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
-4. Konfigurera Java-miljö
+1. Konfigurera Java-miljö
 
     a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
     
@@ -78,11 +78,11 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 ## <a name="package-the-spring-boot-application"></a>Paketera Spring Boot-programmet 
 1. I katalogen `gs-spring-boot` som klonades kör du kommandot `yo azuresfguest`. 
 
-2. Ange följande information för varje fråga.
+1. Ange följande information för varje fråga.
 
     ![Yeoman-poster](./media/service-fabric-quickstart-java-spring-boot/yeomanspringboot.png)
 
-3. I mappen `SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code` skapar du en fil med namnet `entryPoint.sh`. Lägg till följande i filen `entryPoint.sh`. 
+1. I mappen `SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code` skapar du en fil med namnet `entryPoint.sh`. Lägg till följande i filen `entryPoint.sh`. 
 
     ```bash
     #!/bin/bash
@@ -91,7 +91,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     java -jar gs-spring-boot-0.1.0.jar
     ```
 
-4. Lägg till resursen **Slutpunkter** i filen `gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml`
+1. Lägg till resursen **Slutpunkter** i filen `gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml`
 
     ```xml 
         <Resources>
@@ -150,19 +150,19 @@ I det här skedet har du skapat ett Service Fabric-program för exemplet Spring 
     
     ![Felfritt lokalt kluster](./media/service-fabric-quickstart-java-spring-boot/sfxlocalhost.png)
 
-2. Gå till mappen `gs-spring-boot/SpringServiceFabric`.
-3. Kör följande kommando för att ansluta till det lokala klustret.
+1. Gå till mappen `gs-spring-boot/SpringServiceFabric`.
+1. Kör följande kommando för att ansluta till det lokala klustret.
 
     ```bash
     sfctl cluster select --endpoint http://localhost:19080
     ```
-4. Kör skriptet `install.sh`.
+1. Kör skriptet `install.sh`.
 
     ```bash
     ./install.sh
     ```
 
-5. Öppna valfri webbläsare och öppna programmet genom att gå till **http://localhost:8080**.
+1. Öppna valfri webbläsare och öppna programmet genom att gå till **http://localhost:8080**.
 
     ![Programmets lokala klientdel](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
@@ -200,7 +200,7 @@ openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1
 
 Om du vill använda Service Fabric Explorer måste du importera certifikatets PFX-fil som du hämtade från partklustrets webbplats till certifikatarkivet (Windows eller Mac) eller till själva webbläsaren (Ubuntu). Du behöver lösenordet för den privata nyckeln i PFX, som du kan hämta på sidan **Viktigt**.
 
-Använd den metod som du är mest bekväm med till att importera certifikatet på datorn. Till exempel:
+Använd den metod som du är mest bekväm med till att importera certifikatet på datorn. Exempel:
 
 * I Windows: Dubbelklicka på PFX-filen och följ anvisningarna för att installera certifikatet i ditt personliga arkiv `Certificates - Current User\Personal\Certificates`. Du kan också använda PowerShell-kommandot i **Viktigt**-instruktionerna.
 * I Mac: Dubbelklicka på PFX-filen och följ anvisningarna för att installera certifikatet i din nyckelring.
@@ -213,18 +213,18 @@ Använd den metod som du är mest bekväm med till att importera certifikatet p�
 Nu när programmet och klustret är redo kan du distribuera programmet till klustret direkt från kommandoraden.
 
 1. Gå till mappen `gs-spring-boot/SpringServiceFabric`.
-2. Kör följande kommando för att ansluta till ett säkert Azure-kluster.
+1. Kör följande kommando för att ansluta till ett säkert Azure-kluster.
 
     ```bash
     sfctl cluster select --endpoint https://<ConnectionIPOrURL>:19080 --pem <path_to_certificate> --no-verify
     ```
-3. Kör skriptet `install.sh`.
+1. Kör skriptet `install.sh`.
 
     ```bash
     ./install.sh
     ```
 
-4. Öppna din webbläsare och sedan programmet genom att gå till: **http://\<ConnectionIPOrUrl>:8080**.
+1. Öppna din webbläsare och sedan programmet genom att gå till: **http://\<ConnectionIPOrUrl>:8080**.
 
     ![Programmets lokala klientdel](./media/service-fabric-quickstart-java-spring-boot/springbootsfazure.png)
 
@@ -239,13 +239,13 @@ Service Fabric Explorer körs i alla Service Fabric-kluster och kan nås från e
 Så här skalar du webbklienttjänsten:
 
 1. Öppna Service Fabric Explorer i ditt kluster, till exempel `http://localhost:19080`.
-2. Klicka på ellipsknappen (tre punkter) bredvid noden **fabric:/SpringServiceFabric/SpringGettingStarted** i trädvyn och välj **Scale Service** (Skala tjänst).
+1. Klicka på ellipsknappen (tre punkter) bredvid noden **fabric:/SpringServiceFabric/SpringGettingStarted** i trädvyn och välj **Scale Service** (Skala tjänst).
 
     ![Skalningstjänst i Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/sfxscaleservicehowto.png)
 
     Du kan nu välja att skala antalet instanser av tjänsten.
 
-3. Ändra antalet till **3** och klicka på **Scale Service** (Skala tjänst).
+1. Ändra antalet till **3** och klicka på **Scale Service** (Skala tjänst).
 
     Ett annat sätt att skala tjänsten med hjälp av kommandoraden är som följer.
 
@@ -257,7 +257,7 @@ Så här skalar du webbklienttjänsten:
     sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted' --instance-count 3 --stateless 
     ``` 
 
-4. Klicka på noden **fabric:/SpringServiceFabric/SpringGettingStarted** i trädvyn och utöka partitionsnoden (som representeras av en globalt unik identifierare).
+1. Klicka på noden **fabric:/SpringServiceFabric/SpringGettingStarted** i trädvyn och utöka partitionsnoden (som representeras av en globalt unik identifierare).
 
     ![Skalningstjänsten i Service Fabric Explorer har slutförts](./media/service-fabric-quickstart-java-spring-boot/sfxscaledservice.png)
 
@@ -270,10 +270,10 @@ Med den här enkla hanteringsåtgärden har du dubblerat tillgängliga resurser 
 För att demonstrera tjänstredundans simuleras en nodomstart med Service Fabric Explorer. Se till att endast en instans av din tjänst körs.
 
 1. Öppna Service Fabric Explorer i ditt kluster, till exempel `http://localhost:19080`.
-2. Klicka på ellipsknappen (tre punkter) bredvid noden som kör instansen av din tjänst och starta om noden.
+1. Klicka på ellipsknappen (tre punkter) bredvid noden som kör instansen av din tjänst och starta om noden.
 
     ![Omstartsnod för Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/sfxhowtofailover.png)
-3. Instansen av tjänsten flyttas till en annan nod och ditt program får inget avbrott.
+1. Instansen av tjänsten flyttas till en annan nod och ditt program får inget avbrott.
 
     ![Omstartsnod för Service Fabric Explorer lyckades](./media/service-fabric-quickstart-java-spring-boot/sfxfailedover.png)
 

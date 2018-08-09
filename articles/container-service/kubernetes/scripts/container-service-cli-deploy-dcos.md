@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: nepeters
-ms.openlocfilehash: 18ee5eb7f097d8d8738d72a29bcb73b8265b5416
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: db136fb1c68c243086d3e83424ed2c9864638c8f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32161964"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433393"
 ---
 # <a name="create-an-azure-container-service-dcos-cluster"></a>Skapa ett Azure Container Service DC/OS-kluster
 
@@ -57,8 +57,8 @@ Det här skriptet använder följande kommandon för att skapa distributionen. V
 
 | Kommando | Anteckningar |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
-| [az acs create](https://docs.microsoft.com/cli/azure/acs#az_acs_create) | Skapar ett ACS-kluster. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az acs create](https://docs.microsoft.com/cli/azure/acs#az-acs-create) | Skapar ett ACS-kluster. |
 
 ## <a name="next-steps"></a>Nästa steg
 

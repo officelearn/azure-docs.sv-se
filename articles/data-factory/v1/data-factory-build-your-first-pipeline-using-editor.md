@@ -15,12 +15,12 @@ ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e57a2e72479d36908ef1e9f537506bb67ae311fe
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d6d6282c3e997a41a27fb65ed7c06fd1bc7916f2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048415"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444668"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Självstudie: skapa din första datafabrik med Azure-portalen
 > [!div class="op_single_selector"]
@@ -56,11 +56,11 @@ Gör så här för att skapa en datafabrik:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-2. Välj **Nytt** > **Data och analys** > **Data Factory**.
+1. Välj **Nytt** > **Data och analys** > **Data Factory**.
 
    ![Bladet Skapa](./media/data-factory-build-your-first-pipeline-using-editor/create-blade.png)
 
-3. På bladet **Ny datafabrik**, under **Namn**, anger du **GetStartedDF**.
+1. På bladet **Ny datafabrik**, under **Namn**, anger du **GetStartedDF**.
 
    ![Bladet Ny datafabrik](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
@@ -70,25 +70,25 @@ Gör så här för att skapa en datafabrik:
    > Namnet på datafabriken kan registreras som ett DNS-namn i framtiden och kan då bli synligt offentligt.
    >
    >
-4. Under **Prenumeration** väljer du den Azure-prenumeration där du vill att datafabriken ska skapas.
+1. Under **Prenumeration** väljer du den Azure-prenumeration där du vill att datafabriken ska skapas.
 
-5. Välj en befintlig resursgrupp eller skapa en ny. Skapa en resursgrupp för självstudien med namnet: **ADFGetStartedRG**.
+1. Välj en befintlig resursgrupp eller skapa en ny. Skapa en resursgrupp för självstudien med namnet: **ADFGetStartedRG**.
 
-6. Under **Plats** väljer du en plats för datafabriken. Endast regioner som stöds av tjänsten Data Factory visas i listrutan.
+1. Under **Plats** väljer du en plats för datafabriken. Endast regioner som stöds av tjänsten Data Factory visas i listrutan.
 
-7. Markera kryssrutan **Fäst på instrumentpanelen**.
+1. Markera kryssrutan **Fäst på instrumentpanelen**.
 
-8. Välj **Skapa**.
+1. Välj **Skapa**.
 
    > [!IMPORTANT]
    > Om du vill skapa Data Factory-instanser måste du vara medlem i [rollen Deltagare för Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) på prenumerations-/resursgruppnivå.
    >
    >
-9. Du ser följande panel på instrumentpanelen med statusen **Distribuerar datafabrik**:    
+1. Du ser följande panel på instrumentpanelen med statusen **Distribuerar datafabrik**:    
 
    ![Status för Data Factory-distribuering](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 
-10. När datafabriken har skapats visas sidan **Datafabrik** med innehållet i datafabriken.     
+1. När datafabriken har skapats visas sidan **Datafabrik** med innehållet i datafabriken.     
 
     ![Bladet Datafabrik](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-blade.png)
 
@@ -104,17 +104,17 @@ I det här steget länkar du ditt lagringskonto till datafabriken. I den här sj
 
    ![Ikonen Författare och distribution](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-author-deploy.png)
 
-2. Välj **Nytt datalager** och välj **Azure Storage**.
+1. Välj **Nytt datalager** och välj **Azure Storage**.
 
    ![Bladet Nytt datalager](./media/data-factory-build-your-first-pipeline-using-editor/new-data-store-azure-storage-menu.png)
 
-3. Du ser JSON-skriptet för att skapa en länkad lagringstjänst i redigeraren.
+1. Du ser JSON-skriptet för att skapa en länkad lagringstjänst i redigeraren.
 
    ![Länkad lagringstjänst](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-4. Ersätt **account name** med namnet på ditt lagringskonto. Ersätt **account key** med åtkomstnyckeln för lagringskontot. Information om hur du hämtar lagringsåtkomstnyckeln finns i avsnitten om hur du visar, kopierar och återskapar lagringsåtkomstnycklar i [Manage your storage account](../../storage/common/storage-create-storage-account.md#manage-your-storage-account) (Hantera ditt lagringskonto).
+1. Ersätt **account name** med namnet på ditt lagringskonto. Ersätt **account key** med åtkomstnyckeln för lagringskontot. Information om hur du hämtar lagringsåtkomstnyckeln finns i avsnitten om hur du visar, kopierar och återskapar lagringsåtkomstnycklar i [Manage your storage account](../../storage/common/storage-create-storage-account.md#manage-your-storage-account) (Hantera ditt lagringskonto).
 
-5. Välj **Distribuera** i kommandofältet för att distribuera den länkade tjänsten.
+1. Välj **Distribuera** i kommandofältet för att distribuera den länkade tjänsten.
 
     ![Knappen Distribuera](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
@@ -129,7 +129,7 @@ I det här steget ska du länka ett HDInsight-kluster på begäran till datafabr
 
     ![Ny beräkning](./media/data-factory-build-your-first-pipeline-using-editor/new-compute-menu.png)
 
-2. Kopiera och klistra in följande kodfragment till fönstret Draft-1. JSON-kodfragmentet beskriver de egenskaper som används för att skapa HDInsight-klustret på begäran.
+1. Kopiera och klistra in följande kodfragment till fönstret Draft-1. JSON-kodfragmentet beskriver de egenskaper som används för att skapa HDInsight-klustret på begäran.
 
     ```JSON
     {
@@ -161,29 +161,29 @@ I det här steget ska du länka ett HDInsight-kluster på begäran till datafabr
 
      b. Du kan använda ett eget HDInsight-kluster i stället för ett HDInsight-kluster på begäran. Mer information finns i [Länkad HDInsight-tjänst](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
 
-     c. HDInsight-klustret skapar en standardbehållare i den bloblagring du angav i JSON-egenskapen (**linkedServiceName**). HDInsight tar inte bort den här behållaren när klustret tas bort. Det här beteendet är avsiktligt. Med den länkade HDInsight-tjänsten på begäran skapas ett HDInsight-kluster varje gång en sektor bearbetas, såvida det inte finns ett befintligt aktivt kluster (**timeToLive**). Klustret tas bort automatiskt när bearbetningen är klar.
+     c. HDInsight-klustret skapar en standardcontainer i den bloblagring du angav i JSON-egenskapen (**linkedServiceName**). HDInsight tar inte bort den här containern när klustret tas bort. Det här beteendet är avsiktligt. Med den länkade HDInsight-tjänsten på begäran skapas ett HDInsight-kluster varje gång en sektor bearbetas, såvida det inte finns ett befintligt aktivt kluster (**timeToLive**). Klustret tas bort automatiskt när bearbetningen är klar.
 
-     Allteftersom fler sektorer bearbetas kan du se många behållare i din bloblagring. Om du inte behöver dem för felsökning av jobben kan du ta bort dem för att minska lagringskostnaderna. Namnen på de här behållarna följer ett mönster: ”adf**datafabrikensnamn**-**denlänkadetjänstensnamn**-datumtidsstämpel”. Använd verktyg som [Azure Storage Explorer](http://storageexplorer.com/) till att ta bort behållare i din bloblagring.
+     Allteftersom fler sektorer bearbetas kan du se många containrar i din bloblagring. Om du inte behöver dem för felsökning av jobben kan du ta bort dem för att minska lagringskostnaderna. Namnen på de här containrarna följer ett mönster: ”adf**datafabrikensnamn**-**denlänkadetjänstensnamn**-datumtidsstämpel”. Använd verktyg som [Azure Storage Explorer](http://storageexplorer.com/) till att ta bort containrar i din bloblagring.
 
      Mer information finns i [Länkad HDInsight-tjänst på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
-3. Välj **Distribuera** i kommandofältet för att distribuera den länkade tjänsten.
+1. Välj **Distribuera** i kommandofältet för att distribuera den länkade tjänsten.
 
     ![Alternativet Distribuera](./media/data-factory-build-your-first-pipeline-using-editor/ondemand-hdinsight-deploy.png)
 
-4. Kontrollera att du ser både **AzureStorageLinkedService** och **HDInsightOnDemandLinkedService** i trädvyn till vänster.
+1. Kontrollera att du ser både **AzureStorageLinkedService** och **HDInsightOnDemandLinkedService** i trädvyn till vänster.
 
     ![Trädvy med länkade tjänster](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
 ## <a name="create-datasets"></a>Skapa datauppsättningar
-I det här steget skapar du datauppsättningar som ska representera in- och utdata för Hive-bearbetning. Dessa datauppsättningar avser den AzureStorageLinkedService du skapade tidigare i självstudien. Den länkade tjänsten pekar på ett lagringskonto. Datauppsättningarna anger behållare, mapp och filnamn i lagringen som innehåller indata och utdata.   
+I det här steget skapar du datauppsättningar som ska representera in- och utdata för Hive-bearbetning. Dessa datauppsättningar avser den AzureStorageLinkedService du skapade tidigare i självstudien. Den länkade tjänsten pekar på ett lagringskonto. Datauppsättningarna anger container, mapp och filnamn i lagringen som innehåller indata och utdata.   
 
 ### <a name="create-the-input-dataset"></a>Skapa indatauppsättningen
 1. Välj **Mer** > **Ny datauppsättning** > **Azure Blob Storage** i Data Factory Editor.
 
     ![Ny datauppsättning](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
 
-2. Kopiera och klistra in följande kodfragment till fönstret Draft-1. I JSON-kodfragmentet skapar du en datauppsättning med namnet **AzureBlobInput** som representerar indata för en aktivitet i pipelinen. Dessutom kan du ange att indata finns i blobbehållaren **adfgetstarted** och i mappen **inputdata**.
+1. Kopiera och klistra in följande kodfragment till fönstret Draft-1. I JSON-kodfragmentet skapar du en datauppsättning med namnet **AzureBlobInput** som representerar indata för en aktivitet i pipelinen. Dessutom kan du ange att indata finns i blobcontainern **adfgetstarted** och i mappen **inputdata**.
 
     ```JSON
     {
@@ -214,7 +214,7 @@ I det här steget skapar du datauppsättningar som ska representera in- och utda
    |:--- |:--- |
    | typ |Egenskapen type sätts till **AzureBlob** eftersom data finns i bloblagringen. |
    | linkedServiceName |Refererar till den AzureStorageLinkedService du skapade tidigare. |
-   | folderPath | Anger vilken blobbehållare och mapp som innehåller indatablobbar. | 
+   | folderPath | Anger vilken blobcontainer och mapp som innehåller indatablobar. | 
    | fileName |Den här egenskapen är valfri. Om du utelämnar den här egenskapen väljs alla filer från folderPath. I den här självstudien bearbetas bara filen input.log. |
    | typ |Loggfilerna är i textformat, så använd **TextFormat**. |
    | columnDelimiter |Kolumnerna i loggfilerna avgränsas med kommatecken (`,`). |
@@ -223,14 +223,14 @@ I det här steget skapar du datauppsättningar som ska representera in- och utda
 
     Mer information om de här JSON-egenskaperna finns i [Azure Blob-anslutningsapp](data-factory-azure-blob-connector.md#dataset-properties).
 
-3. Välj **Distribuera** i kommandofältet för att distribuera den nyskapade datauppsättningen. Du ser datauppsättningen i trädvyn till vänster.
+1. Välj **Distribuera** i kommandofältet för att distribuera den nyskapade datauppsättningen. Du ser datauppsättningen i trädvyn till vänster.
 
 ### <a name="create-the-output-dataset"></a>Skapa datauppsättningen för utdata
 Nu skapar du den utdatauppsättning som representerar de utdata som lagras i bloblagringen.
 
 1. Välj **Mer** > **Ny datauppsättning** > **Azure Blob Storage** i Data Factory Editor.
 
-2. Kopiera och klistra in följande kodfragment till fönstret Draft-1. I JSON-kodfragmentet skapar du en datauppsättning som kallas **AzureBlobOutput** och anger strukturen för de data som produceras av Hive-skriptet. Dessutom anger du att resultaten lagras i blobbehållaren **adfgetstarted** och i mappen **partitioneddata**. I avsnittet **availability** anges att utdatauppsättningen skapas månadsvis.
+1. Kopiera och klistra in följande kodfragment till fönstret Draft-1. I JSON-kodfragmentet skapar du en datauppsättning som kallas **AzureBlobOutput** och anger strukturen för de data som produceras av Hive-skriptet. Dessutom anger du att resultaten lagras i blobcontainern **adfgetstarted** och i mappen **partitioneddata**. I avsnittet **availability** anges att utdatauppsättningen skapas månadsvis.
 
     ```JSON
     {
@@ -254,9 +254,9 @@ Nu skapar du den utdatauppsättning som representerar de utdata som lagras i blo
     ```
     Mer information om de här egenskaperna finns i avsnittet Skapa datauppsättningen för indata. Du anger inte den egenskapen external för en utdatauppsättning, eftersom datauppsättningen produceras av Data Factory-tjänsten.
 
-3. Välj **Distribuera** i kommandofältet för att distribuera den nyskapade datauppsättningen.
+1. Välj **Distribuera** i kommandofältet för att distribuera den nyskapade datauppsättningen.
 
-4. Kontrollera att datauppsättningen har skapats.
+1. Kontrollera att datauppsättningen har skapats.
 
     ![Trädvy med länkade tjänster](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
 
@@ -267,7 +267,7 @@ I det här steget ska du skapa din första pipeline med en HDInsight Hive-aktivi
 
     ![Alternativet Ny pipeline](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 
-2. Kopiera och klistra in följande kodfragment till fönstret Draft-1.
+1. Kopiera och klistra in följande kodfragment till fönstret Draft-1.
 
    > [!IMPORTANT]
    > Ersätt **storageaccountname** med namnet på ditt lagringskonto i JSON-kodfragmentet.
@@ -321,7 +321,7 @@ I det här steget ska du skapa din första pipeline med en HDInsight Hive-aktivi
 
     I JSON-kodfragmentet skapar du en pipeline med en enda aktivitet, som använder Hive till att bearbeta data i ett HDInsight-kluster.
 
-    Hive-skriptfilen **partitionweblogs.hql** lagras i lagringskontot, som anges med en scriptLinkedService som heter **AzureStorageLinkedService1**. Du hittar den i mappen **script** i behållaren **adfgetstarted**.
+    Hive-skriptfilen **partitionweblogs.hql** lagras i lagringskontot, som anges med en scriptLinkedService som heter **AzureStorageLinkedService1**. Du hittar den i mappen **script** i containern **adfgetstarted**.
 
     Avsnittet **defines** används till att ange körningsinställningar som skickas till Hive-skriptet som Hive-konfigurationsvärden. Exempel är ${hiveconf:inputtable} och ${hiveconf:partitionedtable}.
 
@@ -333,17 +333,17 @@ I det här steget ska du skapa din första pipeline med en HDInsight Hive-aktivi
    > Mer information om de JSON-egenskaper som används i exemplet finns i avsnittet om Pipeline-JSON i [Pipelines and activities in Data Factory](data-factory-create-pipelines.md) (Pipeliner och aktiviteter i Data Factory).
    >
    >
-3. Kontrollera följande:
+1. Kontrollera följande:
 
-   a. Att filen **input.log**finns i mappen **inputdata** i behållaren **adfgetstarted** i bloblagringen.
+   a. Att filen **input.log**finns i mappen **inputdata** i containern **adfgetstarted** i bloblagringen.
 
-   b. Att filen **partitionweblogs.hql** finns i mappen **script** i behållaren **adfgetstarted** i bloblagringen. Om du inte ser de här filerna följer du stegen i avsnittet Nödvändiga komponenter i [Självstudie – översikt](data-factory-build-your-first-pipeline.md).
+   b. Att filen **partitionweblogs.hql** finns i mappen **script** i containern **adfgetstarted** i bloblagringen. Om du inte ser de här filerna följer du stegen i avsnittet Nödvändiga komponenter i [Självstudie – översikt](data-factory-build-your-first-pipeline.md).
 
    c. Att du ersatt **storageaccountname** med namnet på ditt lagringskonto i JSON-pipelinen.
 
-4. Välj **Distribuera** i kommandofältet för att distribuera pipelinen. Eftersom tiderna för **start** och **end** har angetts i dåtiden och **isPaused** har satts till **false** kommer pipelinen (aktiviteten i pipelinen) att köras omedelbart efter att du har distribuerat den.
+1. Välj **Distribuera** i kommandofältet för att distribuera pipelinen. Eftersom tiderna för **start** och **end** har angetts i dåtiden och **isPaused** har satts till **false** kommer pipelinen (aktiviteten i pipelinen) att köras omedelbart efter att du har distribuerat den.
 
-5. Kontrollera att du ser pipelinen i trädvyn.
+1. Kontrollera att du ser pipelinen i trädvyn.
 
     ![Trädvy med pipeline](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)
 
@@ -355,31 +355,31 @@ I det här steget ska du skapa din första pipeline med en HDInsight Hive-aktivi
 
     ![Ikonen Diagram](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
 
-2. I **diagramvyn** visas en översikt över de pipeliner och datauppsättningar som används i den här självstudien.
+1. I **diagramvyn** visas en översikt över de pipeliner och datauppsättningar som används i den här självstudien.
 
     ![Diagramvy](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png)
 
-3. Högerklicka på pipelinen i diagrammet om du vill visa alla aktiviteter i pipelinen. Välj sedan **Öppna pipeline**.
+1. Högerklicka på pipelinen i diagrammet om du vill visa alla aktiviteter i pipelinen. Välj sedan **Öppna pipeline**.
 
     ![Menyn Öppna pipeline](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-menu.png)
 
-4. Kontrollera att du ser **Hive-aktiviteten** i pipelinen.
+1. Kontrollera att du ser **Hive-aktiviteten** i pipelinen.
 
     ![Vyn Öppna pipeline](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-view.png)
 
     Om du vill gå tillbaka till den föregående vyn väljer du **Data Factory** i menyn längst upp.
 
-5. I **diagramvyn** dubbelklickar du på datauppsättningen **AzureBlobInput**. Kontrollera att sektorn har statusen **Klar**. Det kan ta några minuter innan sektorn visas med statusen **Klar**. Om det inte händer trots att du har väntat ett tag, kontrollerar du om du har indatafilen (**input.log**) placerad i rätt behållare (**adfgetstarted**) och mapp (**inputdata**).
+1. I **diagramvyn** dubbelklickar du på datauppsättningen **AzureBlobInput**. Kontrollera att sektorn har statusen **Klar**. Det kan ta några minuter innan sektorn visas med statusen **Klar**. Om det inte händer trots att du har väntat ett tag, kontrollerar du om du har indatafilen (**input.log**) placerad i rätt container (**adfgetstarted**) och mapp (**inputdata**).
 
    ![Indatasektor med statusen Klar](./media/data-factory-build-your-first-pipeline-using-editor/input-slice-ready.png)
 
-6. Stäng bladet **AzureBlobInput**.
+1. Stäng bladet **AzureBlobInput**.
 
-7. I vyn **Diagram** dubbelklickar du på datauppsättningen **AzureBlobOutput**. Du ser den sektor som bearbetas för närvarande.
+1. I vyn **Diagram** dubbelklickar du på datauppsättningen **AzureBlobOutput**. Du ser den sektor som bearbetas för närvarande.
 
    ![Datauppsättning bearbetas](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 
-8. När bearbetningen är klar ser du sektorn med tillståndet **Klar**.
+1. När bearbetningen är klar ser du sektorn med tillståndet **Klar**.
 
    ![Datauppsättning i tillståndet Klar](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)  
 
@@ -388,15 +388,15 @@ I det här steget ska du skapa din första pipeline med en HDInsight Hive-aktivi
    >
    >
 
-9. När sektorn har statusen **Klar** kontrollerar du att utdata finns i mappen **partitioneddata** i behållaren **adfgetstarted** i bloblagringen.  
+1. När sektorn har statusen **Klar** kontrollerar du att utdata finns i mappen **partitioneddata** i containern **adfgetstarted** i bloblagringen.  
 
    ![Utdata](./media/data-factory-build-your-first-pipeline-using-editor/three-ouptut-files.png)
 
-10. Välj sektorn om du vill se information om den på ett **Datasektor**-blad.
+1. Välj sektorn om du vill se information om den på ett **Datasektor**-blad.
 
     ![Information om datasektor](./media/data-factory-build-your-first-pipeline-using-editor/data-slice-details.png)
 
-11. Om du vill se mer information om en aktivitetskörning väljer du den i listan **Aktivitetskörningar**. (I det här scenariot är det en Hive-aktivitet.) Informationen visas på bladet **Aktivitetskörningsinformation**.   
+1. Om du vill se mer information om en aktivitetskörning väljer du den i listan **Aktivitetskörningar**. (I det här scenariot är det en Hive-aktivitet.) Informationen visas på bladet **Aktivitetskörningsinformation**.   
 
     ![Fönstret Aktivitetskörningsinformation](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-blade.png)    
 
@@ -404,7 +404,7 @@ I det här steget ska du skapa din första pipeline med en HDInsight Hive-aktivi
    Mer information finns i [Övervaka och hantera pipelines med Azure-portalblad](data-factory-monitor-manage-pipelines.md).
 
 > [!IMPORTANT]
-> Indatafilen tas bort när sektorn har bearbetats. Om du vill köra sektorn eller gå igenom självstudien igen ska du därför överföra indatafilen (**input.log**) till mappen **inputdata** i behållaren **adfgetstarted**.
+> Indatafilen tas bort när sektorn har bearbetats. Om du vill köra sektorn eller gå igenom självstudien igen ska du därför överföra indatafilen (**input.log**) till mappen **inputdata** i containern **adfgetstarted**.
 >
 >
 
@@ -415,11 +415,11 @@ Du kan också använda appen Övervaka och hantera till att övervaka dina pipel
 
     ![Ikonen Övervaka och hantera](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-tile.png)
 
-2. Ändra **Starttid** och **Sluttid** i appen Övervaka och hantera så att de matchar starttid och sluttid för pipelinen. Välj **Använd**.
+1. Ändra **Starttid** och **Sluttid** i appen Övervaka och hantera så att de matchar starttid och sluttid för pipelinen. Välj **Använd**.
 
     ![Appen Övervaka och hantera](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-app.png)
 
-3. Välj ett aktivitetsfönster i listan **Aktivitetsfönster** om du vill se information om det.
+1. Välj ett aktivitetsfönster i listan **Aktivitetsfönster** om du vill se information om det.
 
     ![Lista med aktivitetsfönster](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-details.png)
 

@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 99c3975c6ab2c7a20dfbab519dae575a2a61465f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 282f6d965ea85b25f1eada1a63897734c6c7b298
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32160366"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435272"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure CLI
 
 Med Azure Application Gateway kan du dirigera programwebbtrafiken till specifika resurser genom att tilldela lyssnare till portar, skapa regler och att lägga till resurser i en serverdelspool.
 
-Den här snabbstarten visar hur du använder Azure CLI för att snabbt skapa programgatewayen med två virtuella datorer i dess serverdelspool. Därefter testar du den och kontrollerar att den fungerar korrekt.
+Den här snabbstarten visar hur du använder Azure CLI för att snabbt skapa programgatewayen med två virtuella datorer i dess serverdelspool. Sedan testar du den och kontrollerar att den fungerar korrekt.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -34,7 +34,7 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Du måste alltid skapa resurser i en resursgrupp. Skapa en resursgrupp med [az group create](/cli/azure/group#az_group_create). 
+Du måste alltid skapa resurser i en resursgrupp. Skapa en resursgrupp med [az group create](/cli/azure/group#az-group-create). 
 
 I följande exempel skapas en resursgrupp med namnet *myResourceGroupAG* på platsen *eastus*.
 
@@ -44,9 +44,9 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Skapa nätverksresurser 
 
-Du måste skapa ett virtuellt nätverk för programgatewayen för att kunna kommunicera med andra resurser. Du kan skapa ett virtuellt nätverk samtidigt som du skapar programgatewayen. Två undernät skapas i det här exemplet: ett för programgatewayen och ett annat för virtuella datorer. 
+Du måste skapa ett virtuellt nätverk för att programgatewayen ska kunna kommunicera med andra resurser. Du kan skapa ett virtuellt nätverk samtidigt som du skapar programgatewayen. Två undernät skapas i det här exemplet: ett för programgatewayen och ett annat för virtuella datorer. 
 
-Skapa det virtuella nätverket och undernätet med [az network vnet create](/cli/azure/vnet#az_vnet_create). Skapa den offentliga IP-adressen med [az network public-ip create](/cli/azure/public-ip#az_public_ip_create).
+Skapa det virtuella nätverket och undernätet med [az network vnet create](/cli/azure/vnet#az-vnet-create). Skapa den offentliga IP-adressen med [az network public-ip create](/cli/azure/public-ip#az-public-ip-create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -118,7 +118,7 @@ runcmd:
   - nodejs index.js
 ```
 
-Skapa nätverksgränssnitten med [az network nic create](/cli/azure/network/nic#az_network_nic_create). Skapa de virtuella datorerna med [az vm create](/cli/azure/vm#az_vm_create).
+Skapa nätverksgränssnitten med [az network nic create](/cli/azure/network/nic#az-network-nic-create). Skapa de virtuella datorerna med [az vm create](/cli/azure/vm#az-vm-create).
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -140,7 +140,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>Skapa programgatewayen
 
-Skapa en programgateway med [az network application-gateway create](/cli/azure/application-gateway#az_application_gateway_create). När du skapar en programgateway med hjälp av Azure CLI anger du konfigurationsinformation, till exempel kapacitet, sku och HTTP-inställningar. De privata IP-adresserna för nätverksgränssnitten läggs till som servrar i serverdelspoolen för programgatewayen.
+Skapa en programgateway med [az network application-gateway create](/cli/azure/application-gateway#az-application-gateway-create). När du skapar en programgateway med hjälp av Azure CLI anger du konfigurationsinformation, till exempel kapacitet, sku och HTTP-inställningar. De privata IP-adresserna för nätverksgränssnitten läggs till som servrar i serverdelspoolen för programgatewayen.
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
@@ -162,13 +162,13 @@ Det kan ta upp till 30 minuter för programgateway att skapas. När programgatew
 
 - *appGatewayBackendPool* – en programgateway måste ha minst en serverdelsadresspool.
 - *appGatewayBackendHttpSettings* – anger att port 80 och ett HTTP-protokoll används för kommunikation.
-- *appGatewayHttpListener* – standardlyssnaren som är associerade med *appGatewayBackendPool*.
+- *appGatewayHttpListener* – standardlyssnaren som är associerad med *appGatewayBackendPool*.
 - *appGatewayFrontendIP* – tilldelar *myAGPublicIPAddress* till *appGatewayHttpListener*.
 - *regel 1* – standardroutningsregel som är associerad med *appGatewayHttpListener*.
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Du behöver inte installera NGINX för att skapa programgatewayen men du har installerat det i den här snabbstarten för att verifiera om programgatewayen har skapats. Hämta den offentliga IP-adressen för programgatewayen med [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
+Du behöver inte installera NGINX för att skapa programgatewayen men du har installerat det i den här snabbstarten för att verifiera om programgatewayen har skapats. Hämta den offentliga IP-adressen för programgatewayen med [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -178,13 +178,13 @@ az network public-ip show \
   --output tsv
 ``` 
 
-![Testa programgateway](./media/quick-create-cli/application-gateway-nginxtest.png)
+![Testa programgatewayen](./media/quick-create-cli/application-gateway-nginxtest.png)
 
-Du bör se namnet på den andra virtuella datorn visas när du uppdaterar webbläsaren.
+Du bör se namnet på den andra virtuella datorn när du uppdaterar webbläsaren.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Utforska först de resurser som har skapats med programgatewayen och sedan när den inte längre behövs kan du använda kommandot [az group delete](/cli/azure/group#az_group_delete) för att ta bort resursgruppen, programgatewayen och alla relaterade resurser.
+Utforska först de resurser som har skapats med programgatewayen och sedan när den inte längre behövs kan du använda kommandot [az group delete](/cli/azure/group#az-group-delete) för att ta bort resursgruppen, programgatewayen och alla relaterade resurser.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroupAG
@@ -193,5 +193,5 @@ az group delete --name myResourceGroupAG
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Hantera webbtrafik med en programgateway med hjälp av Azure CLI](./tutorial-manage-web-traffic-cli.md)
+> [Hantera webbtrafik med en programgateway som använder Azure CLI](./tutorial-manage-web-traffic-cli.md)
 

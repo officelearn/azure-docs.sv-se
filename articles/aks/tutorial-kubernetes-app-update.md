@@ -9,24 +9,24 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 97d8c4bd179edc59d97914f86e2aa139681e739a
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 2fcb2f5041b97b7e267f55340bf0cb0b8d2f457b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37101038"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449391"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Självstudie: Uppdatera ett program i Azure Kubernetes Service (AKS)
 
-När ett program har distribuerats i Kubernetes kan du uppdatera det genom att ange en ny behållaravbildning eller avbildningsversion. När du gör det mellanlagras uppdateringen så att endast en del av distributionen uppdateras samtidigt. Den här mellanlagrade uppdateringen gör att programmet kan fortsätta att köras under uppdateringen. Det ger också en mekanism för återställning om ett distributionsfel inträffar.
+När ett program har distribuerats i Kubernetes kan du uppdatera det genom att ange en ny containeravbildning eller avbildningsversion. När du gör det mellanlagras uppdateringen så att endast en del av distributionen uppdateras samtidigt. Den här mellanlagrade uppdateringen gör att programmet kan fortsätta att köras under uppdateringen. Det ger också en mekanism för återställning om ett distributionsfel inträffar.
 
 I den här självstudien, som är del sex av sju, uppdateras Azure Vote-exempelappen. Här är några av uppgifterna:
 
 > [!div class="checklist"]
 > * Uppdatera klientdelens programkod
-> * Skapa en uppdaterad behållaravbildning
+> * Skapa en uppdaterad containeravbildning
 > * Push-överföra behållaravbildningen till Azure Container Registry
-> * Distribuera den uppdaterade behållaravbildningen
+> * Distribuera den uppdaterade containeravbildningen
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -34,7 +34,7 @@ I tidigare självstudier paketerades ett program i en behållaravbildning, avbil
 
 En programlagringsplats klonades också, med programmets källkod och en färdig Docker Compose-fil som används i den här självstudien. Verifiera att du har skapat en klon av lagringsplatsen och att du har ändrat kataloger i den klonade katalogen. Inuti finns en katalog som heter `azure-vote` och en fil med namnet `docker-compose.yaml`.
 
-Om du inte har slutfört dessa steg och vill hänga med återgår du till [Självstudie 1 – Skapa behållaravbildningar][aks-tutorial-prepare-app].
+Om du inte har slutfört dessa steg och vill hänga med återgår du till [Självstudie 1 – Skapa containeravbildningar][aks-tutorial-prepare-app].
 
 ## <a name="update-application"></a>Uppdatera program
 
@@ -58,7 +58,7 @@ SHOWHOST = 'false'
 
 Spara och stäng filen.
 
-## <a name="update-container-image"></a>Uppdatera behållaravbildningen
+## <a name="update-container-image"></a>Uppdatera containeravbildningen
 
 Använd [docker-compose][docker-compose] för att skapa klientdelsavbildningen igen och kör det uppdaterade programmet. Argumentet `--build` används för att instruera Docker Compose att skapa programavbildningen på nytt.
 
@@ -74,9 +74,9 @@ Gå till http://localhost:8080 om du vill se det uppdaterade programmet.
 
 ## <a name="tag-and-push-images"></a>Tagga och push-överföra avbildningar
 
-Tagga avbildningen `azure-vote-front` med namnet på inloggningsservern för behållarregistret.
+Tagga avbildningen `azure-vote-front` med namnet på inloggningsservern för containerregistret.
 
-Hämta inloggningsserverns namn med kommandot [az acr list](/cli/azure/acr#az_acr_list).
+Hämta inloggningsserverns namn med kommandot [az acr list](/cli/azure/acr#az-acr-list).
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -119,13 +119,13 @@ Om du inte har flera poddar som kör avbildningen azure-vote-front skalar du ut 
 kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
-När du ska uppdatera programmet använder du kommandot [kubectl set][kubectl-set]. Uppdatera `<acrLoginServer>` med inloggningsservern eller värdnamnet på ditt behållarregister.
+När du ska uppdatera programmet använder du kommandot [kubectl set][kubectl-set]. Uppdatera `<acrLoginServer>` med inloggningsservern eller värdnamnet på ditt containerregister.
 
 ```azurecli
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:v2
 ```
 
-Du övervakar distributionen av kommandot [kubectl get pod][kubectl-get]. Eftersom det uppdaterade programmet är distribuerat avslutas dina poddar och återskapas med den nya behållaravbildningen.
+Du övervakar distributionen av kommandot [kubectl get pod][kubectl-get]. Eftersom det uppdaterade programmet är distribuerat avslutas dina poddar och återskapas med den nya containeravbildningen.
 
 ```azurecli
 kubectl get pod
@@ -159,7 +159,7 @@ I den här självstudien har du uppdaterat ett program och distribuerat uppdater
 
 > [!div class="checklist"]
 > * Uppdaterade klientdelens programkod
-> * Skapade en uppdaterad behållaravbildning
+> * Skapade en uppdaterad containeravbildning
 > * Push-överförde behållaravbildningen till Azure Container Registry
 > * Distribuerade det uppdaterade programmet
 
@@ -178,4 +178,4 @@ Gå vidare till nästa självstudie om du vill lära dig om att uppgradera Kuber
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
-[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login
+[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az-acr-login

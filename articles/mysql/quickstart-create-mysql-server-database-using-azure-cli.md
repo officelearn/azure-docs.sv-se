@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 8781a4fd7e3dde830a173d62025dbf59a0a3738e
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 43c9ee65b43bed7ac686edbf48ec670a85cf12cf
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031030"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426498"
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Skapa en Azure Database för MySQL-server med Azure CLI
 I den här snabbstarten beskrivs hur du använder Azure CLI till att skapa en Azure Database för MySQL-server i en Azure-resursgrupp på ungefär fem minuter. Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript.
@@ -27,13 +27,13 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-Om du har flera prenumerationer väljer du en lämplig prenumerationen där resursen ligger eller faktureras. Välj en specifik prenumerations-ID under ditt konto med hjälp av kommandot [az account set](/cli/azure/account#az_account_set).
+Om du har flera prenumerationer väljer du en lämplig prenumerationen där resursen ligger eller faktureras. Välj en specifik prenumerations-ID under ditt konto med hjälp av kommandot [az account set](/cli/azure/account#az-account-set).
 ```azurecli-interactive
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
-Skapa en [Azure-resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) med kommandot [az group create](/cli/azure/group#az_group_create). En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras som en grupp.
+Skapa en [Azure-resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) med kommandot [az group create](/cli/azure/group#az-group-create). En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras som en grupp.
 
 I följande exempel skapas en resursgrupp med namnet `myresourcegroup` på platsen `westus`.
 
@@ -41,8 +41,8 @@ I följande exempel skapas en resursgrupp med namnet `myresourcegroup` på plats
 az group create --name myresourcegroup --location westus
 ```
 
-## <a name="create-an-azure-database-for-mysql-server"></a>Skapa en Azure Database för MySQL-server
-Skapa en Azure Database för MySQL-server med kommandot **[az mysql server create](/cli/azure/mysql/server#az_mysql_server_create)**. En server kan hantera flera databaser. Normalt används en separat databas för varje projekt eller för varje användare.
+## <a name="create-an-azure-database-for-mysql-server"></a>Skapa en Azure Database for MySQL-server
+Skapa en Azure Database för MySQL-server med kommandot **[az mysql server create](/cli/azure/mysql/server#az-mysql-server-create)**. En server kan hantera flera databaser. Normalt används en separat databas för varje projekt eller för varje användare.
 
 I följande exempel skapas en server i USA, västra som heter `mydemoserver` i din resursgrupp `myresourcegroup` med serveradministratörsinloggningen `myadmin`. Det här är **4:e generationens** server för **generell användning** med 2 **virtuella kärnor**. Namnet på en server mappar till DNS-namnet och måste därför vara globalt unikt i Azure. Ersätt `<server_admin_password>` med ditt eget värde.
 ```azurecli-interactive
@@ -56,7 +56,7 @@ Parametervärdet för sku-namn följer namngivningskonventionen {prisnivå}\_{co
 Se dokumentationen om [prisnivåer](./concepts-pricing-tiers.md) för mer information om giltiga värden per region och nivå.
 
 ## <a name="configure-firewall-rule"></a>Konfigurera brandväggsregeln
-Skapa en Azure Database för MySQL-brandväggsregel på servernivå med kommandot **[az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create)**. En brandväggsregel på servernivå gör att externa program, som kommandoradsverktyget **mysql.exe** eller MySQL Workbench kan ansluta till servern via Azure MySQL-tjänstens brandvägg. 
+Skapa en Azure Database för MySQL-brandväggsregel på servernivå med kommandot **[az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-create)**. En brandväggsregel på servernivå gör att externa program, som kommandoradsverktyget **mysql.exe** eller MySQL Workbench kan ansluta till servern via Azure MySQL-tjänstens brandvägg. 
 
 I följande exempel skapas en brandväggsregel som kallas `AllowMyIP` som tillåter anslutningar från den specifika IP-adressen 192.168.0.1. Ersätt en IP-adress eller omfång av IP-adresser som motsvarar platsen som du kommer att ansluta från. 
 
@@ -201,7 +201,7 @@ Om du inte behöver de här resurserna för en annan snabbstart/självstudie kan
 az group delete --name myresourcegroup
 ```
 
-Om du endast vill ta bort den nyss skapade servern kan du köra kommandot **[az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete)**.
+Om du endast vill ta bort den nyss skapade servern kan du köra kommandot **[az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete)**.
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoserver
 ```

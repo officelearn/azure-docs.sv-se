@@ -16,12 +16,12 @@ ms.date: 07/30/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: d81a41a0012d4e0be4e812d48074e7af1e92213a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: c6c7b3f897e38fbd67098c9f881380bc073f13da
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391154"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432658"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Svara på händelser med Azure Monitor-aviseringar
 Loggsökningsregler skapas av Azure-aviseringar för att automatiskt köra angivna loggfrågor med jämna mellanrum.  Om resultatet av loggfrågan matchar särskilda villkor skapas en aviseringspost. Regeln kan sedan automatiskt köra en eller flera åtgärder med hjälp av [Åtgärdsgrupper](../monitoring-and-diagnostics/monitoring-action-groups.md).  Den här självstudien är en fortsättning på självstudien [Skapa och dela instrumentpaneler med Log Analytics-data](log-analytics-tutorial-dashboards.md).   
@@ -43,15 +43,15 @@ Aviseringar skapas av aviseringsregler i Azure Monitor och kan automatiskt köra
 I följande exempel skapar du ett måttaviseringsregel som baseras på frågan *Virtuella datorer i Azure – processoranvändning* som sparats i kursen [Visualisera data](log-analytics-tutorial-dashboards.md). En avisering skapas för varje virtuell dator som överskrider ett tröskelvärde på 90 %.
 
 1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Monitor**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Monitor**.
-2. Skapa en ny avisering genom att välja **Aviseringar** det vänstra fönstret och sedan klicka på **Ny aviseringsregel** högst upp på sidan.
+1. Skapa en ny avisering genom att välja **Aviseringar** det vänstra fönstret och sedan klicka på **Ny aviseringsregel** högst upp på sidan.
 
     ![Skapa en ny aviseringsregel](./media/log-analytics-tutorial-response/alert-rule-02.png)
 
-3. I det första steget ska du välja din Log Analytics-arbetsyta som resurs i avsnittet **Skapa avisering** eftersom detta är en loggbaserad aviseringssignal.  Filtrera resultaten genom att välja en specifik **prenumeration** från den nedrullningsbara listan, om du har mer än en prenumeration, som innehåller den virtuella datorn och Log Analytics-arbetsytan som du skapade tidigare.  Filtrera **resurstypen** genom att välja **Log Analytics** i den nedrullningsbara listan.  Välj slutligen **resursen** **DefaultLAWorkspace** och klicka spå **Klar**.
+1. I det första steget ska du välja din Log Analytics-arbetsyta som resurs i avsnittet **Skapa avisering** eftersom detta är en loggbaserad aviseringssignal.  Filtrera resultaten genom att välja en specifik **prenumeration** från den nedrullningsbara listan, om du har mer än en prenumeration, som innehåller den virtuella datorn och Log Analytics-arbetsytan som du skapade tidigare.  Filtrera **resurstypen** genom att välja **Log Analytics** i den nedrullningsbara listan.  Välj slutligen **resursen** **DefaultLAWorkspace** och klicka spå **Klar**.
 
     ![Skapa en aviseringssteg 1-uppgift](./media/log-analytics-tutorial-response/alert-rule-03.png)
 
-4. I avsnittet **Aviseringsvillkor** klickar du på **Lägg till villkor** för att definiera frågan och sedan ange logik som aviseringsregeln följer. I fönsterrutan **Konfigurera signallogiken** väljer du **Anpassad loggsökning** som signalnamn och anger din fråga i **Sökfråga**.
+1. I avsnittet **Aviseringsvillkor** klickar du på **Lägg till villkor** för att definiera frågan och sedan ange logik som aviseringsregeln följer. I fönsterrutan **Konfigurera signallogiken** väljer du **Anpassad loggsökning** som signalnamn och anger din fråga i **Sökfråga**.
 
     Exempel:
     ```
@@ -62,21 +62,21 @@ I följande exempel skapar du ett måttaviseringsregel som baseras på frågan *
 
     Fönstret uppdateras och visar aviseringens konfigurationsinställningar.  Högst upp visas resultaten för den valda signalens senaste 30 minuter.
 
-5. Konfigurera aviseringen med följande information:  
+1. Konfigurera aviseringen med följande information:  
    a. Välj **Metrisk måttenhet** i den nedrullningsbara listan **Baserat på*.  Ett metriskt mått skapar en avisering för varje objekt i frågan med ett värde som överstiger det angivna tröskelvärdet.  
    b. Välj **Större än** som **Villkor** och ange **90** som **Tröskelvärde**.  
    c. Välj **Efterföljande överträdelser** i avsnittet Utlös avisering baserat på och välj **Större än** i listrutan och ange värdet 3.  
    d. Godkänn standardinställningarna i avsnittet Utvärdering baserad på. Regeln körs var femte minut och returnera poster som har skapats i det här intervallet under den aktuella tiden.  
-6. Slutför aviseringsregeln genom att klicka på **Spara**.
+1. Slutför aviseringsregeln genom att klicka på **Spara**.
 
     ![Konfigurera aviseringssignal](./media/log-analytics-tutorial-response/alert-signal-logic-02.png)
 
-7. Nu när vi går vidare till nästa steg ska du ge aviseringen ett namn i fältet **Aviseringsregelns namn**, t.ex. **CPU % högre än 90**.  Ge en **beskrivning** med information om aviseringen och välj alternativet **Critical(Sev 0)** som **Allvarlighetsgrad**.
+1. Nu när vi går vidare till nästa steg ska du ge aviseringen ett namn i fältet **Aviseringsregelns namn**, t.ex. **CPU % högre än 90**.  Ge en **beskrivning** med information om aviseringen och välj alternativet **Critical(Sev 0)** som **Allvarlighetsgrad**.
 
     ![Konfigurera aviseringsinformation](./media/log-analytics-tutorial-response/alert-signal-logic-04.png)
 
-8. Du kan aktivera aviseringsregeln omedelbart genom att acceptera standardvärdet för **Aktivera regel när du skapar**.  
-9. I det tredje och sista steget anger du en **åtgärdsgrupp**, vilket säkerställer att samma åtgärder vidtas varje gång en avisering utlöses och kan användas för varje regel som du definierar.  Konfigurera en ny åtgärdsgrupp med följande information:  
+1. Du kan aktivera aviseringsregeln omedelbart genom att acceptera standardvärdet för **Aktivera regel när du skapar**.  
+1. I det tredje och sista steget anger du en **åtgärdsgrupp**, vilket säkerställer att samma åtgärder vidtas varje gång en avisering utlöses och kan användas för varje regel som du definierar.  Konfigurera en ny åtgärdsgrupp med följande information:  
    a. Välj **Ny åtgärdsgrupp** varvid fönstret **Lägg till grupp** visas.  
    b. Ange ett namn, t.ex. **IT-avdelningen – meddela** , i **Namn på åtgärdsgrupp** och ange ett **kortnamn**, t.ex. **it-avd-m**.  
    c. Kontrollera att standardvärdena för **Prenumeration** och **Resursgrupp** är korrekta. Om så inte skulle vara fallet väljer du korrekta värden från den nedrullningsbara listan.  
@@ -85,8 +85,8 @@ I följande exempel skapar du ett måttaviseringsregel som baseras på frågan *
    f. Spara ändringarna genom att klicka på **OK**.  
        ![Skapa ny åtgärdsgrupp](./media/log-analytics-tutorial-response/action-group-properties-01.png)
 
-10. Färdigställ åtgärdsgruppen genom att klicka på **OK**.
-11. Färdigställ aviseringsregeln genom att klicka på **Skapa aviseringsregel**. Den börjar köras omedelbart.
+1. Färdigställ åtgärdsgruppen genom att klicka på **OK**.
+1. Färdigställ aviseringsregeln genom att klicka på **Skapa aviseringsregel**. Den börjar köras omedelbart.
 
     ![Slutför skapandet av ny aviseringsregel](./media/log-analytics-tutorial-response/alert-rule-01.png)
 

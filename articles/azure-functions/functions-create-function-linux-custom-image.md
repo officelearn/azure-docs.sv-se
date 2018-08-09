@@ -11,26 +11,26 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: c5de0b1384958bc8553aa3722ad6a5829b69ab12
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fab67b503d060c8c01b5a3692c8a07b24c425c78
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488707"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39437414"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Skapa en funktion i Linux med en anpassad avbildning (förhandsversion)
 
-Med Azure Functions kan Linux användas som värd för funktionerna i en anpassad behållare. Du kan också använda [en standardbehållare i Azure App Service som värd](functions-create-first-azure-function-azure-cli-linux.md). Den här funktionen ges för närvarande i förhandsversion och kräver [Functions 2.0 runtime](functions-versions.md), som också finns som förhandsversion.
+Med Azure Functions kan Linux användas som värd för funktionerna i en anpassad container. Du kan också använda [en standardcontainer i Azure App Service som värd](functions-create-first-azure-function-azure-cli-linux.md). Den här funktionen ges för närvarande i förhandsversion och kräver [Functions 2.0 runtime](functions-versions.md), som också finns som förhandsversion.
 
-I den här självstudiekursen lär du dig att distribuera en funktionsapp som en anpassad Docker-avbildning. Det här mönstret är användbart när du behöver anpassa den inbyggda behållaravbildningen i App Service. Du kanske vill använda en anpassad avbildning när dina funktioner kräver en viss språkversion eller särskilda beroenden eller konfigurationer som inte är tillgängliga inom den inbyggda avbildningen.
+I den här självstudiekursen lär du dig att distribuera en funktionsapp som en anpassad Docker-avbildning. Det här mönstret är användbart när du behöver anpassa den inbyggda containeravbildningen i App Service. Du kanske vill använda en anpassad avbildning när dina funktioner kräver en viss språkversion eller särskilda beroenden eller konfigurationer som inte är tillgängliga inom den inbyggda avbildningen.
 
 Den här kursen förklarar hur du använder Azure Functions för att skapa och överföra en anpassad avbildning till Docker Hub. Sedan använder du avbildningen som distributionskälla för en funktionsapp som körs på Linux. Du använder Docker för att bygga och överföra avbildningen. Du använder Azure CLI för att skapa en funktionsapp och distribuera avbildningen från Docker Hub. 
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * skapa en anpassad avbildning med Docker
-> * publicera en anpassad avbildning till ett behållarregister 
+> * Publicera en anpassad avbildning till ett containerregister. 
 > * skapa ett Azure Storage-konto 
 > * skapa en Linux App Service-plan 
 > * distribuera en funktionsapp från Docker Hub
@@ -71,7 +71,7 @@ ENV AzureWebJobsScriptRoot=/home/site/wwwroot
 COPY . /home/site/wwwroot 
 ```
 >[!NOTE]
-> När ett privat behållarregister används som värd för en avbildning ska du lägga till anslutningsinställningarna i funktionsappen med **ENV**-variabler i Dockerfile. Eftersom den här kursen inte kan garantera att du använder ett privat register, läggs anslutningsinställningarna till [efter distributionen med hjälp av Azure CLI](#configure-the-function-app) som en säkerhetsåtgärd.   
+> När ett privat containerregister används som värd för en avbildning ska du lägga till anslutningsinställningarna i funktionsappen med **ENV**-variabler i Dockerfile. Eftersom den här kursen inte kan garantera att du använder ett privat register, läggs anslutningsinställningarna till [efter distributionen med hjälp av Azure CLI](#configure-the-function-app) som en säkerhetsåtgärd.   
 
 ### <a name="run-the-build-command"></a>Köra Build-kommandot
 Skapa Docker-avbildningen genom att köra kommandot `docker build` och ange ett namn, `mydockerimage`, och en tagg, `v1.0.0`. Ersätt `<docker-id>` med ditt konto-ID för Docker Hub.
@@ -103,21 +103,21 @@ Successfully tagged ggailey777/mydockerimage:v1.0.0
 ```
 
 ### <a name="test-the-image-locally"></a>Testa avbildningen lokalt
-Kontrollera att avbildningen fungerar genom att köra Docker-avbildningen i en lokal behållare. Utfärda kommandot [docker run](https://docs.docker.com/engine/reference/commandline/run/) och skicka avbildningens namn och tagg till det. Kom ihåg att ange porten med argumentet `-p`.
+Kontrollera att avbildningen fungerar genom att köra Docker-avbildningen i en lokal container. Utfärda kommandot [docker run](https://docs.docker.com/engine/reference/commandline/run/) och skicka avbildningens namn och tagg till det. Kom ihåg att ange porten med argumentet `-p`.
 
 ```bash
 docker run -p 8080:80 -it <docker-ID>/mydockerimage:v1.0.0
 ```
 
-Kontrollera medan den anpassade avbildningen körs i en lokal Docker-behållare att funktionsappen och behållaren fungerar som de ska genom att gå till <http://localhost:8080>.
+Kontrollera medan den anpassade avbildningen körs i en lokal Docker-container att funktionsappen och containern fungerar som de ska genom att gå till <http://localhost:8080>.
 
 ![Testa funktionsappen lokalt.](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
-Stoppa körningen när du har verifierat funktionsappen i behållaren. Nu kan överföra den anpassade avbildningen till ditt Docker Hub-konto.
+Stoppa körningen när du har verifierat funktionsappen i containern. Nu kan överföra den anpassade avbildningen till ditt Docker Hub-konto.
 
 ## <a name="push-the-custom-image-to-docker-hub"></a>Push-överför den anpassade avbildningen till Docker Hub
 
-Ett register är ett program som är värd för avbildningar och tillhandahåller tjänster för avbildningar och behållare. För att dela avbildningen måste du push-överföra den till ett register. Docker Hub är ett register för Docker-avbildningar som gör att du kan vara värd för dina egna lagringsplatser, antingen offentliga eller privata. 
+Ett register är ett program som är värd för avbildningar och tillhandahåller tjänster för avbildningar och containrar. För att dela avbildningen måste du push-överföra den till ett register. Docker Hub är ett register för Docker-avbildningar som gör att du kan vara värd för dina egna lagringsplatser, antingen offentliga eller privata. 
 
 Innan du kan push-överföra en avbildning måste du logga in på Docker Hub med kommandot [docker login](https://docs.docker.com/engine/reference/commandline/login/). Ersätt `<docker-id>` med ditt kontonamn och ange ditt lösenord i konsolen när det efterfrågas. För andra alternativ för Docker Hub-lösenord, se [kommandodokumentationen om dockerinloggning](https://docs.docker.com/engine/reference/commandline/login/).
 
@@ -161,7 +161,7 @@ Linux-värd för funktioner stöds för närvarande inte i förbrukningsplaner. 
 
 ## <a name="create-and-deploy-the-custom-image"></a>Skapa och distribuera den anpassade avbildningen
 
-Funktionsappen är värd för körningen av dina funktioner. Skapa en funktionsapp från en Docker Hub-avbildning med kommandot [az functionapp create](/cli/azure/functionapp#az_functionapp_create). 
+Funktionsappen är värd för körningen av dina funktioner. Skapa en funktionsapp från en Docker Hub-avbildning med kommandot [az functionapp create](/cli/azure/functionapp#az-functionapp-create). 
 
 I följande kommando infogar du ett unikt funktionsappnamn istället för platshållaren `<app_name>` och lagringskontonamnet istället för `<storage_name>`. `<app_name>` används som DNS-standarddomän för funktionsappen. Därför måste namnet vara unikt bland alla appar i Azure. Precis som tidigare är `<docker-id>` ditt Docker-kontonamn.
 
@@ -194,9 +194,9 @@ Parametern _deployment-container-image-name_ anger vilken avbildning på Docker 
 
 ## <a name="configure-the-function-app"></a>Konfigurera funktionsappen
 
-Funktionen behöver anslutningssträngen för att ansluta till standardlagringskontot. När du publicerar den anpassade avbildningen i ett privat behållarkonto bör du i stället använda dessa programinställningar som miljövariabler i Dockerfile med hjälp av [ENV-instruktionen](https://docs.docker.com/engine/reference/builder/#env) eller motsvarande. 
+Funktionen behöver anslutningssträngen för att ansluta till standardlagringskontot. När du publicerar den anpassade avbildningen i ett privat containerkonto bör du i stället använda dessa programinställningar som miljövariabler i Dockerfile med hjälp av [ENV-instruktionen](https://docs.docker.com/engine/reference/builder/#env) eller motsvarande. 
 
-I det här fallet är `<storage_account>` namnet på det lagringskonto du skapade. Visa anslutningssträngen med kommandot [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Lägg till dessa programinställningar i funktionsappen med kommandot [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set).
+I det här fallet är `<storage_account>` namnet på det lagringskonto du skapade. Visa anslutningssträngen med kommandot [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Lägg till dessa programinställningar i funktionsappen med kommandot [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \
@@ -221,13 +221,13 @@ I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
 > * skapa en anpassad avbildning med Docker
-> * publicera en anpassad avbildning till ett behållarregister 
+> * Publicera en anpassad avbildning till ett containerregister. 
 > * skapa ett Azure Storage-konto 
 > * skapa en Linux App Service-plan 
 > * distribuera en funktionsapp från Docker Hub
 > * lägga till programinställningar i funktionsappen.
 
-Lär dig hur du aktiverar kontinuerliga integrationsfunktioner i Apptjänst-kärnplattformen. Du kan konfigurera din funktionsapp så att behållaren omdistribueras när du uppdaterar avbildningen i Docker-hubben.
+Lär dig hur du aktiverar kontinuerliga integrationsfunktioner i Apptjänst-kärnplattformen. Du kan konfigurera din funktionsapp så att containern omdistribueras när du uppdaterar avbildningen i Docker-hubben.
 
 > [!div class="nextstepaction"] 
 > [Kontinuerlig distribution med Web App for Containers](../app-service/containers/app-service-linux-ci-cd.md)

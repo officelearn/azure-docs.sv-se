@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 59e36a2c8b719f2e8e3fd6aec20b91605221d8b2
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 925a1af53438e21282e65418edc9ea365ad6a653
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109451"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432447"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Självstudie: Konfigurera en Jenkins-miljö och aktivera CI/CD för en Java-app i Service Fabric
 
@@ -28,7 +28,7 @@ Den här självstudien är del fem i en serie. Den visar hur du använder Jenkin
 
 I del fem i serien lär du dig hur du:
 > [!div class="checklist"]
-> * Distribuerar Service Fabric Jenkins-behållaren på din dator
+> * Distribuerar Service Fabric Jenkins-containern på din dator
 > * Konfigurerar Jenkins-miljön för distribution till Service Fabric
 > * Uppgraderar tillämpningen
 
@@ -40,38 +40,38 @@ I den här självstudieserien får du lära du dig att:
 > * [konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-java-elk.md)
 > * Konfigurera CI/CD
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Installera Git på den lokala datorn från [sidan för hämtningsbara Git-filer](https://git-scm.com/downloads). Mer information om Git finns i [Git-dokumentationen](https://git-scm.com/docs).
 * Ha tidigare erfarenhet av [Jenkins](https://jenkins.io/).
 * Skapa ett [GitHub](https://github.com/)-konto och veta hur du använder GitHub.
 * Installera [Docker](https://www.docker.com/community-edition) på datorn.
 
-## <a name="pull-and-deploy-service-fabric-jenkins-container-image"></a>Hämta och distribuera Service Fabric Jenkins-behållaravbildningen
+## <a name="pull-and-deploy-service-fabric-jenkins-container-image"></a>Hämta och distribuera Service Fabric Jenkins-containeravbildningen
 
-Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. Följande instruktioner visar hur du konfigurerar det utanför ett kluster med en angiven Docker-avbildning. Det går också att använda en förkonfigurerad kompileringsmiljö för Jenkins. Följande behållaravbildning är förinstallerad i plugin-programmet för Service Fabric och är redo för användning med Service Fabric omedelbart.
+Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. Följande instruktioner visar hur du konfigurerar det utanför ett kluster med en angiven Docker-avbildning. Det går också att använda en förkonfigurerad kompileringsmiljö för Jenkins. Följande containeravbildning är förinstallerad i plugin-programmet för Service Fabric och är redo för användning med Service Fabric omedelbart.
 
-1. Hämta behållaravbildningen för Service Fabric Jenkins:``docker pull rapatchi/jenkins:v10``. Plugin-programmet för Service Fabric Jenkins är förinstallerat i avbildningen.
+1. Hämta containeravbildningen för Service Fabric Jenkins:``docker pull rapatchi/jenkins:v10``. Plugin-programmet för Service Fabric Jenkins är förinstallerat i avbildningen.
 
-2. Kör behållaravbildningen med platsen för certifikaten på den lokala datorn monterad
+1. Kör containeravbildningen med platsen för certifikaten på den lokala datorn monterad
 
     ```bash
     docker run -itd -p 8080:8080 -v /Users/suhuruli/Documents/Work/Samples/service-fabric-java-quickstart/AzureCluster:/tmp/myCerts rapatchi/jenkins:v10
     ```
 
-3. Hämta ID:t för behållaravbildningsinstansen. Du kan visa en lista med alla Docker-behållare med hjälp av kommandot ``docker ps –a``
+1. Hämta ID:t för containeravbildningsinstansen. Du kan visa en lista med alla Docker-containrar med hjälp av kommandot ``docker ps –a``
 
-4. Hämta lösenordet för din Jenkins-instans genom att köra följande kommando:
+1. Hämta lösenordet för din Jenkins-instans genom att köra följande kommando:
 
     ```sh
     docker exec [first-four-digits-of-container-ID] cat /var/jenkins_home/secrets/initialAdminPassword
     ```
 
-    Om behållar-ID:t är 2d24a73b5964 ska du använda 2d24.
+    Om container-ID:t är 2d24a73b5964 ska du använda 2d24.
     * Det här lösenordet krävs för att logga in på Jenkins-instrumentpanelen från portalen som är ``http://<HOST-IP>:8080``
     * När du loggar in för första gången skapar du ett eget användarkonto, eller så använder du administratörskontot.
 
-5. Konfigurera GitHub för Jenkins genom att utföra åtgärderna som nämns i [Generating a new SSH key and adding it to the SSH agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) (Generera en ny SSH-nyckel och lägga till den i SSH-agenten). Eftersom kommandona körs från en Docker-behållare följer du instruktionerna för Linux-miljön.
+1. Konfigurera GitHub för Jenkins genom att utföra åtgärderna som nämns i [Generating a new SSH key and adding it to the SSH agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) (Generera en ny SSH-nyckel och lägga till den i SSH-agenten). Eftersom kommandona körs från en Docker-container följer du instruktionerna för Linux-miljön.
     * Skapa SSH-nyckeln med hjälp av instruktionerna från GitHub. Lägg sedan till SSH-nyckeln till GitHub-kontot som är värd för databasen.
     * Kör de kommandon som nämns i länken ovan i Jenkins Docker-gränssnittet (och inte på värden).
     * Om du vill logga in till Jenkins-gränssnittet från värden ska du använda följande kommandon:
@@ -80,23 +80,23 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. Följand
     docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
     ```
 
-    Kontrollera att klustret eller datorn där Jenkins-behållaravbildningen finns har en offentlig IP-adress. Med en offentlig IP-adress kan Jenkins-instansen ta emot meddelanden från GitHub.
+    Kontrollera att klustret eller datorn där Jenkins-containeravbildningen finns har en offentlig IP-adress. Med en offentlig IP-adress kan Jenkins-instansen ta emot meddelanden från GitHub.
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Skapa och konfigurera ett Jenkins-jobb
 
 1. Om du inte har någon databas att använda som värd för röstningsprojektet på Github börjar du med att skapa en. Databasen kallas **dev_test** i återstoden av den här självstudien.
 
-2. Skapa ett **nytt objekt** på Jenkins-instrumentpanelen.
+1. Skapa ett **nytt objekt** på Jenkins-instrumentpanelen.
 
-3. Ange ett namn (till exempel **MyJob**). Välj **free-style project** (freestyle-projekt) och klicka på **OK**.
+1. Ange ett namn (till exempel **MyJob**). Välj **free-style project** (freestyle-projekt) och klicka på **OK**.
 
-4. Gå till jobbsidan och klicka sedan på **Konfigurera**.
+1. Gå till jobbsidan och klicka sedan på **Konfigurera**.
 
    a. Markera kryssrutan och ange URL:en för GitHub-projektet under **GitHub-projekt** i det allmänna avsnittet. Den här URL:en är värd för det Service Fabric Java-program som du vill integrera med Jenkins CI/CD-flödet (t.ex. ``https://github.com/testaccount/dev_test``).
 
    b. I avsnittet **Source Code Management** (Källkodshantering) väljer du **Git**. Ange URL för databasen som är värd för det Service Fabric Java-program som du vill integrera med Jenkins CI/CD-flödet (t.ex. *https://github.com/testaccount/dev_test.git*). Du kan också ange här vilken gren som ska byggas (t.ex. **/master**).
 
-5. Konfigurera din *GitHub* (som är värd för databasen) så att den kan kommunicera med Jenkins. Använd följande steg:
+1. Konfigurera din *GitHub* (som är värd för databasen) så att den kan kommunicera med Jenkins. Använd följande steg:
 
    a. Gå till GitHub-lagringsplatssidan. Gå till **Inställningar** > **Integrations and Services** (Integreringar och tjänster).
 
@@ -108,20 +108,20 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. Följand
 
    ![Service Fabric Jenkins-konfiguration](./media/service-fabric-tutorial-java-jenkins/jenkinsconfiguration.png)
 
-6. I avsnittet om **build-utlösare** väljer du önskat alternativ. I det här exemplet vill du utlösa en build när något skickas till databasen. Därför väljer du **GitHub hook trigger for GITScm polling** (GitHub-hookutlösare för GITScm-avsökning).
+1. I avsnittet om **build-utlösare** väljer du önskat alternativ. I det här exemplet vill du utlösa en build när något skickas till databasen. Därför väljer du **GitHub hook trigger for GITScm polling** (GitHub-hookutlösare för GITScm-avsökning).
 
-7. Under avsnittet **Build** (Bygg) i listrutan **Add build step** (Lägg till byggsteg) väljer du alternativet **Invoke Gradle Script** (Anropa Gradle-skript). I widgeten som visas öppnar du menyn för avancerade alternativ och anger sökvägen till **rotbuildskript** för ditt program. Då hämtas build.gradle från den angivna sökvägen och fungerar på motsvarande sätt.
+1. Under avsnittet **Build** (Bygg) i listrutan **Add build step** (Lägg till byggsteg) väljer du alternativet **Invoke Gradle Script** (Anropa Gradle-skript). I widgeten som visas öppnar du menyn för avancerade alternativ och anger sökvägen till **rotbuildskript** för ditt program. Då hämtas build.gradle från den angivna sökvägen och fungerar på motsvarande sätt.
 
     ![Service Fabric Jenkins Build-åtgärd](./media/service-fabric-tutorial-java-jenkins/jenkinsbuildscreenshot.png)
 
-8. I listrutan **Post-Build Actions** (Åtgärder efter skapandet) väljer du **Deploy Service Fabric Project** (Distribuera Service Fabric-projekt). Här måste du ange klusterinformation där Jenkins-kompilerade Service Fabric-programmet skulle distribueras. Sökvägen till certifikatet är platsen där volymen monterades (/ tmp/myCerts).
+1. I listrutan **Post-Build Actions** (Åtgärder efter skapandet) väljer du **Deploy Service Fabric Project** (Distribuera Service Fabric-projekt). Här måste du ange klusterinformation där Jenkins-kompilerade Service Fabric-programmet skulle distribueras. Sökvägen till certifikatet är platsen där volymen monterades (/ tmp/myCerts).
 
     Du kan även ange ytterligare information som används för att distribuera programmet. Följande skärmbild visar ett exempel på hur informationen om programmet kan se ut:
 
     ![Service Fabric Jenkins Build-åtgärd](./media/service-fabric-tutorial-java-jenkins/sfjenkins.png)
 
     > [!NOTE]
-    > Det här klustret kan vara detsamma som det kluster som är värd för Jenkins-behållarprogrammet om du använder Service Fabric för att distribuera Jenkins-behållaravbildningen.
+    > Det här klustret kan vara detsamma som det kluster som är värd för Jenkins-containerprogrammet om du använder Service Fabric för att distribuera Jenkins-containeravbildningen.
     >
 
 ## <a name="update-your-existing-application"></a>Distribuera ditt befintliga program
@@ -140,7 +140,7 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. Följand
     </div>
     ```
 
-2. Uppdatera versionen för **ApplicationTypeVersion** och **ServiceManifestVersion** till **2.0.0** i filen *Voting/VotingApplication/ApplicationManifest.xml*.
+1. Uppdatera versionen för **ApplicationTypeVersion** och **ServiceManifestVersion** till **2.0.0** i filen *Voting/VotingApplication/ApplicationManifest.xml*.
 
     ```xml
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
@@ -167,7 +167,7 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. Följand
     </ApplicationManifest>
     ```
 
-3. Uppdatera fältet **Version** i **ServiceManifest** och fältet **Version** i taggen **CodePackage** i filen *Voting/VotingApplication/VotingWebPkg/ServiceManifest.xml* till **2.0.0**.
+1. Uppdatera fältet **Version** i **ServiceManifest** och fältet **Version** i taggen **CodePackage** i filen *Voting/VotingApplication/VotingWebPkg/ServiceManifest.xml* till **2.0.0**.
 
     ```xml
     <CodePackage Name="Code" Version="2.0.0">
@@ -179,13 +179,13 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. Följand
     </CodePackage>
     ```
 
-4. Skicka dina nya ändringar till Github-databasen för att initiera ett Jenkins-jobb som utför en uppgradering av programmet.
+1. Skicka dina nya ändringar till Github-databasen för att initiera ett Jenkins-jobb som utför en uppgradering av programmet.
 
-5. I Service Fabric Explorer klickar du på listrutan **Program**. Om du vill visa status för uppgraderingen klickar du på fliken **Pågående uppgraderingar**.
+1. I Service Fabric Explorer klickar du på listrutan **Program**. Om du vill visa status för uppgraderingen klickar du på fliken **Pågående uppgraderingar**.
 
     ![Uppgradering pågår](./media/service-fabric-tutorial-create-java-app/upgradejava.png)
 
-6. Om du går till **http://\<Host-IP>:8080**  är röstningsprogrammet nu igång med alla funktioner.
+1. Om du går till **http://\<Host-IP>:8080**  är röstningsprogrammet nu igång med alla funktioner.
 
     ![Lokal röstningsapp](./media/service-fabric-tutorial-java-jenkins/votingv2.png)
 
@@ -194,7 +194,7 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. Följand
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Distribuerar Service Fabric Jenkins-behållaren på din dator
+> * Distribuerar Service Fabric Jenkins-containern på din dator
 > * Konfigurerar Jenkins-miljön för distribution till Service Fabric
 > * Uppgraderar tillämpningen
 

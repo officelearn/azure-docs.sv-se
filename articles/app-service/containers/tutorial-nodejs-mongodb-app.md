@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: ee7f37f83d6b3503df1af61509f6f85ca19bc13e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3380322286740e3b87df11107ac5ade62ffa535d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38472959"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432073"
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Skapa en Node.js- and MongoDB-webbapp i Azure App Service i Linux
 
@@ -131,7 +131,7 @@ För MongoDB använder den här självstudien [Azure Cosmos DB](/azure/documentd
 
 ### <a name="create-a-cosmos-db-account"></a>Skapa ett Cosmos DB-konto
 
-Skapa ett Cosmos DB-konto i Cloud Shell med kommandot [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create).
+Skapa ett Cosmos DB-konto i Cloud Shell med kommandot [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create).
 
 I följande kommando ersätter du platshållaren *\<cosmosdb_name>* med ett unikt Cosmos DB-namn. Det här namnet används som en del av Cosmos DB-slutpunkten `https://<cosmosdb_name>.documents.azure.com/`, så namnet måste vara unikt för alla Cosmos DB-konton i Azure. Namnet får endast innehålla gemener, siffror och bindestreck och måste vara mellan 3 och 50 tecken långt.
 
@@ -165,7 +165,7 @@ I det här steget, ansluter du ditt MEAN.js-exempelprogram till en Cosmos DB-dat
 
 ### <a name="retrieve-the-database-key"></a>Hämta databasnyckeln
 
-För att ansluta till en Cosmos DB-databas behöver du databasnyckeln. Använd kommandot [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) i Cloud Shell för att hämta primärnyckeln.
+För att ansluta till en Cosmos DB-databas behöver du databasnyckeln. Använd kommandot [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-keys) i Cloud Shell för att hämta primärnyckeln.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -259,7 +259,7 @@ I det här steget distribuerar du ditt MongoDB-anslutna Node.js-program till Azu
 
 Som standard håller MEAN.js-projektet _config/env/local-production.js_ utanför Git-lagringsplatsen. Så för Azure-webbappen använder du appinställningar för att definiera MongoDB-anslutningssträngen.
 
-Om du vill konfigurera appinställningar använder du kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) i Cloud Shell.
+Om du vill konfigurera appinställningar använder du kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell.
 
 I följande exempel konfigureras appinställningen `MONGODB_URI` i Azure-webbappen. Ersätt platshållarna *\<app_name>*, *\<cosmosdb_name>* och *\<primary_master_key>*.
 

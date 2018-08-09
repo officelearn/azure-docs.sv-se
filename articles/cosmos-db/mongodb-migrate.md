@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: bdaead6fe739d62340ca225aa1a6d8adf9e86cb9
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: a55727c58f8f9d4a05f547100875f18291328ea2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100304"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435330"
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: Importera MongoDB-data 
 
@@ -36,7 +36,7 @@ Den här självstudien omfattar följande uppgifter:
 > * Importera MongoDB-data med hjälp av mongoimport
 > * Importera MongoDB-data med hjälp av mongorestore
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Öka dataflödet: Hur lång tid datamigreringen tar beror på hur stort dataflöde du anger för en enskild samling eller en uppsättning samlingar. Du bör öka dataflödet för större datamigreringar. När du har slutfört migreringen minskar du dataflödet för att spara kostnader. Mer information om hur du ökar dataflödet på [Azure Portal](https://portal.azure.com) finns i avsnittet om [prestandanivåer och prisnivåer](performance-levels.md) i Azure Cosmos DB.
 
@@ -45,8 +45,8 @@ Den här självstudien omfattar följande uppgifter:
 ## <a name="find-your-connection-string-information-host-port-username-and-password"></a>Hitta information om din anslutningssträng (värd, port, användarnamn och lösenord)
 
 1. Klicka på posten **Azure Cosmos DB** i det vänstra fönstret på [Azure Portal](https://portal.azure.com).
-2. Välj namnet på ditt konto i fönstret **Prenumerationer**.
-3. Klicka på **Anslutningssträng** på bladet **Anslutningssträng**.
+1. Välj namnet på ditt konto i fönstret **Prenumerationer**.
+1. Klicka på **Anslutningssträng** på bladet **Anslutningssträng**.
 
    Den högra rutan innehåller all information som du behöver för att ansluta till ditt konto.
 
@@ -102,7 +102,7 @@ Exempel:
         }
         ```
 
-2. Beräkna den ungefärliga RU-kostnaden för en enskild dokumentskrivning:
+1. Beräkna den ungefärliga RU-kostnaden för en enskild dokumentskrivning:
 
     a. Anslut till Azure Cosmos DB MongoDB-databasen från MongoDB Shell. Anvisningar finns i [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md) (Ansluta ett MongoDB-program till Azure Cosmos DB).
     
@@ -125,7 +125,7 @@ Exempel:
         
     d. Notera kostnaden för begäran.
     
-3. Kontrollera svarstiden från din dator till Azure Cosmos DB-molntjänsten:
+1. Kontrollera svarstiden från din dator till Azure Cosmos DB-molntjänsten:
     
     a. Aktivera utförlig loggning från MongoDB Shell med hjälp av följande kommando: ```setVerboseShell(true)```
     
@@ -135,9 +135,9 @@ Exempel:
         Fetched 1 record(s) in 100(ms)
         ```
         
-4. Ta bort det infogade dokumentet innan migreringen för att undvika dubblettdokument. Du kan ta bort dokument genom att köra följande kommando: ```db.coll.remove({})```
+1. Ta bort det infogade dokumentet innan migreringen för att undvika dubblettdokument. Du kan ta bort dokument genom att köra följande kommando: ```db.coll.remove({})```
 
-5. Beräkna de ungefärliga *batchSize*- och *numInsertionWorkers*-värdena:
+1. Beräkna de ungefärliga *batchSize*- och *numInsertionWorkers*-värdena:
 
     * För *batchSize* dividerar du det totala antalet etablerade RU:er med antalet förbrukade RU:er från dokumentskrivningen i steg 3.
     
@@ -157,7 +157,7 @@ Exempel:
     
     *numInsertionWorkers = (10 000 RU:er × 0,1 s) / (24 × 10 RU:er) = 4,1666*
 
-6. Kör migreringskommandot:
+1. Kör migreringskommandot:
 
    ```
    mongoimport.exe --host comsosdb-mongodb-account.documents.azure.com:10255 -u comsosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24

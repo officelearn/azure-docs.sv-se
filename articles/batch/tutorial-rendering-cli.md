@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/19/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 5cd4ce6b04f9257de13aad6e59eb772fbe2fa558
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8dfec4c30a9610d8f30ceea131ebd7d2e1d64aa1
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31789307"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432736"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Självstudie: Rendera en scen med Azure Batch 
 
@@ -43,7 +43,7 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 Om du inte redan gjort det skapar du en resursgrupp, ett Batch-konto och ett länkat lagringskonto i din prenumeration. 
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus2*.
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az-group-create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus2*.
 
 ```azurecli-interactive 
 az group create \
@@ -51,7 +51,7 @@ az group create \
     --location eastus2
 ```
 
-Skapa ett Azure Storage-konto i resursgruppen med kommandot [az storage account create](/cli/azure/storage/account#az_storage_account_create). I den här självstudien använder du lagringskontot till att lagra indata i form av en 3ds Max-scen samt renderade utdata.
+Skapa ett Azure Storage-konto i resursgruppen med kommandot [az storage account create](/cli/azure/storage/account#az-storage-account-create). I den här självstudien använder du lagringskontot till att lagra indata i form av en 3ds Max-scen samt renderade utdata.
 
 ```azurecli-interactive
 az storage account create \
@@ -60,7 +60,7 @@ az storage account create \
     --location eastus2 \
     --sku Standard_LRS
 ```
-Skapa ett Batch-konto med kommandot [az batch account create](/cli/azure/batch/account#az_batch_account_create). I följande exempel skapas ett Batch-konto med namnet *mybatchaccount* i *myResourceGroup*, med en länk till det lagringskonto du skapade.  
+Skapa ett Batch-konto med kommandot [az batch account create](/cli/azure/batch/account#az-batch-account-create). I följande exempel skapas ett Batch-konto med namnet *mybatchaccount* i *myResourceGroup*, med en länk till det lagringskonto du skapade.  
 
 ```azurecli-interactive 
 az batch account create \
@@ -70,7 +70,7 @@ az batch account create \
     --location eastus2
 ```
 
-Du måste autentisera med Batch för att skapa och hantera beräkningspooler och jobb. Logga in på kontot med kommandot [az batch account login](/cli/azure/batch/account#az_batch_account_login). När du har loggat in använder dina `az batch`-kommandon den här kontokontexten. I följande exempel används autentisering med delad nyckel, baserat på kontonamn och nyckel för Batch. Batch har även stöd för autentisering via [Azure Active Directory](batch-aad-auth.md) när enskilda användare eller övervakade program ska autentiseras.
+Du måste autentisera med Batch för att skapa och hantera beräkningspooler och jobb. Logga in på kontot med kommandot [az batch account login](/cli/azure/batch/account#az-batch-account-login). När du har loggat in använder dina `az batch`-kommandon den här kontokontexten. I följande exempel används autentisering med delad nyckel, baserat på kontonamn och nyckel för Batch. Batch har även stöd för autentisering via [Azure Active Directory](batch-aad-auth.md) när enskilda användare eller övervakade program ska autentiseras.
 
 ```azurecli-interactive 
 az batch account login \
@@ -80,7 +80,7 @@ az batch account login \
 ```
 ## <a name="upload-a-scene-to-storage"></a>Ladda upp en scen till lagringen
 
-När du ska ladda upp indatascenen till lagringen måste du först komma åt lagringskontot och skapa en målbehållare för blobarna. Du kommer åt Azure Storage-kontot genom att exportera miljövariablerna `AZURE_STORAGE_KEY` och `AZURE_STORAGE_ACCOUNT`. I det första Bash-skalkommandot används kommandot [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) till att hämta den första kontonyckeln. När du ställer in de här miljövariablerna använder dina storage-kommandon den här kontokontexten.
+När du ska ladda upp indatascenen till lagringen måste du först komma åt lagringskontot och skapa en målcontainer för blobarna. Du kommer åt Azure Storage-kontot genom att exportera miljövariablerna `AZURE_STORAGE_KEY` och `AZURE_STORAGE_ACCOUNT`. I det första Bash-skalkommandot används kommandot [az storage account keys list](/cli/azure/storage/account/keys#az-storage-account-keys-list) till att hämta den första kontonyckeln. När du ställer in de här miljövariablerna använder dina storage-kommandon den här kontokontexten.
 
 ```azurecli-interactive
 export AZURE_STORAGE_KEY=$(az storage account keys list --account-name mystorageaccount --resource-group myResourceGroup -o tsv --query [0].value)
@@ -88,7 +88,7 @@ export AZURE_STORAGE_KEY=$(az storage account keys list --account-name mystorage
 export AZURE_STORAGE_ACCOUNT=mystorageaccount
 ```
 
-Skapa sedan en blob-behållare i lagringskontot för scenfilerna. I följande exempel används kommandot [az storage container create](/cli/azure/storage/container#az_storage_container_create) till att skapa en blobbehållare med namnet *scenefiles* som har offentlig läsbehörighet.
+Skapa sedan en blob-container i lagringskontot för scenfilerna. I följande exempel används kommandot [az storage container create](/cli/azure/storage/container#az-storage-container-create) till att skapa en blobbehållare med namnet *scenefiles* som har offentlig läsbehörighet.
 
 ```azurecli-interactive
 az storage container create \
@@ -96,13 +96,13 @@ az storage container create \
     --name scenefiles
 ```
 
-Ladda ned scenen `MotionBlur-Dragon-Flying.max` från [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max) till en lokal arbetskatalog. Till exempel:
+Ladda ned scenen `MotionBlur-Dragon-Flying.max` från [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max) till en lokal arbetskatalog. Exempel:
 
 ```azurecli-interactive
 wget -O MotionBlur-DragonFlying.max https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max
 ```
 
-Ladda upp scenfilen från din lokala arbetskatalog till blob-behållaren. I följande exempel används kommandot [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch) som kan överföra flera filer:
+Ladda upp scenfilen från din lokala arbetskatalog till blob-containern. I följande exempel används kommandot [az storage blob upload-batch](/cli/azure/storage/blob#az-storage-blob-upload-batch) som kan överföra flera filer:
 
 ```azurecli-interactive
 az storage blob upload-batch \
@@ -112,7 +112,7 @@ az storage blob upload-batch \
 
 ## <a name="create-a-rendering-pool"></a>Skapa en renderingspool
 
-Skapa en Batch-pool för rendering med kommandot [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create). I det här exemplet anger du inställningarna för poolen i en JSON-fil. Skapa en fil med namnet *mypool.json* i ditt nuvarande gränssnitt. Kopiera och klistra in följande innehåll. Se till att all text kopieras på rätt sätt. (Du kan ladda ned filen från [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/mypool.json).)
+Skapa en Batch-pool för rendering med kommandot [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create). I det här exemplet anger du inställningarna för poolen i en JSON-fil. Skapa en fil med namnet *mypool.json* i ditt nuvarande gränssnitt. Kopiera och klistra in följande innehåll. Se till att all text kopieras på rätt sätt. (Du kan ladda ned filen från [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/mypool.json).)
 
 
 ```json
@@ -148,7 +148,7 @@ Skapa poolen genom att skicka JSON-filen till kommandot `az batch pool create`:
 az batch pool create \
     --json-file mypool.json
 ``` 
-Det tar några minuter att etablera poolen. Om du vill se status för poolen kör du kommandot [az batch pool show](/cli/azure/batch/pool#az_batch_pool_show). Följande kommando hämtar allokeringstillståndet för poolen:
+Det tar några minuter att etablera poolen. Om du vill se status för poolen kör du kommandot [az batch pool show](/cli/azure/batch/pool#az-batch-pool-show). Följande kommando hämtar allokeringstillståndet för poolen:
 
 ```azurecli-interactive
 az batch pool show \
@@ -158,9 +158,9 @@ az batch pool show \
 
 Fortsätt med följande steg för att skapa ett jobb och aktiviteter medan pooltillståndet ändras. Poolen är helt etablerad när allokeringstillståndet är `steady` och noderna körs.  
 
-## <a name="create-a-blob-container-for-output"></a>Skapa en blob-behållare för utdata
+## <a name="create-a-blob-container-for-output"></a>Skapa en blob-container för utdata
 
-I exemplen i den här självstudiekursen skapas en utdatafil för varje uppgift i renderingsjobbet. Innan du schemalägger jobbet ska du skapa en blob-behållare i lagringskontot, som mål för utdatafilerna. I följande exempel används kommandot [az storage container create](/cli/azure/storage/container#az_storage_container_create) till att skapa behållaren *job-myrenderjob* som har offentlig läsbehörighet. 
+I exemplen i den här självstudiekursen skapas en utdatafil för varje uppgift i renderingsjobbet. Innan du schemalägger jobbet ska du skapa en blob-container i lagringskontot, som mål för utdatafilerna. I följande exempel används kommandot [az storage container create](/cli/azure/storage/container#az-storage-container-create) till att skapa behållaren *job-myrenderjob* som har offentlig läsbehörighet. 
 
 ```azurecli-interactive
 az storage container create \
@@ -168,7 +168,7 @@ az storage container create \
     --name job-myrenderjob
 ```
 
-Om du ska kunna skriva utdatafilerna till behållaren måste Batch använda en SAS-token. Skapa token med kommandot [az storage account generate-sas](/cli/azure/storage/account#az_storage_account_generate_sas). I det här exemplet skapas en token för skrivning till valfri blob-behållare i kontot, och token upphör att gälla den 15 november 2018:
+Om du ska kunna skriva utdatafilerna till containern måste Batch använda en SAS-token. Skapa token med kommandot [az storage account generate-sas](/cli/azure/storage/account#az-storage-account-generate-sas). I det här exemplet skapas en token för skrivning till valfri blob-container i kontot, och token upphör att gälla den 15 november 2018:
 
 ```azurecli-interactive
 az storage account generate-sas \
@@ -188,7 +188,7 @@ se=2018-11-15&sp=rw&sv=2017-04-17&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ### <a name="create-a-job"></a>Skapa ett jobb
 
-Skapa ett renderingsjobb som ska köras i poolen med hjälp av kommandot [az batch job create](/cli/azure/batch/job#az_batch_job_create). Från början har jobbet inga uppgifter.
+Skapa ett renderingsjobb som ska köras i poolen med hjälp av kommandot [az batch job create](/cli/azure/batch/job#az-batch-job-create). Från början har jobbet inga uppgifter.
 
 ```azurecli-interactive
 az batch job create \
@@ -198,7 +198,7 @@ az batch job create \
 
 ### <a name="create-a-task"></a>Skapa en uppgift
 
-Använd kommandot [az batch task create](/cli/azure/batch/task#az_batch_task_create) till att skapa en renderingsuppgift i jobbet. I det här exemplet anger du uppgiftsinställningarna i en JSON-fil. Skapa en fil med namnet *myrendertask.json* i ditt nuvarande gränssnitt. Kopiera och klistra in följande innehåll. Se till att all text kopieras på rätt sätt. (Du kan ladda ned filen från [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask.json).)
+Använd kommandot [az batch task create](/cli/azure/batch/task#az-batch-task-create) till att skapa en renderingsuppgift i jobbet. I det här exemplet anger du uppgiftsinställningarna i en JSON-fil. Skapa en fil med namnet *myrendertask.json* i ditt nuvarande gränssnitt. Kopiera och klistra in följande innehåll. Se till att all text kopieras på rätt sätt. (Du kan ladda ned filen från [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask.json).)
 
 Uppgiften anger ett 3ds Max-kommando för rendering av en enda bildruta från scenen *MotionBlur-DragonFlying.max*.
 
@@ -256,7 +256,7 @@ Batch schemalägger uppgiften och uppgiften körs så snart en nod i poolen är 
 
 ### <a name="view-task-output"></a>Visa utdata för uppgiften
 
-Det tar några minuter att köra uppgiften. Använd kommandot [az batch task show](/cli/azure/batch/task#az_batch_task_show) till att visa information om uppgiften.
+Det tar några minuter att köra uppgiften. Använd kommandot [az batch task show](/cli/azure/batch/task#az-batch-task-show) till att visa information om uppgiften.
 
 ```azurecli-interactive
 az batch task show \
@@ -264,7 +264,7 @@ az batch task show \
     --task-id myrendertask
 ```
 
-Uppgiften genererar *dragon0001.jpg* vid beräkningsnoden och laddar upp den till behållaren *job-myrenderjob* i lagringskontot. Om du vill visa utdata laddar du ned filen från lagringen till din lokala dator med kommandot [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download).
+Uppgiften genererar *dragon0001.jpg* vid beräkningsnoden och laddar upp den till containern *job-myrenderjob* i lagringskontot. Om du vill visa utdata laddar du ned filen från lagringen till din lokala dator med kommandot [az storage blob download](/cli/azure/storage/blob#az-storage-blob-download).
 
 ```azurecli-interactive
 az storage blob download \
@@ -281,7 +281,7 @@ az storage blob download \
 
 ## <a name="scale-the-pool"></a>Skala ut poolen
 
-Ändra nu poolen så att den är redo för ett större renderingsjobb med flera bildrutor. Batch har ett antal olika sätt att skala beräkningsresurser, till exempel [autoskalning](batch-automatic-scaling.md) där noder läggs till eller tas bort när uppgiftsbehoven ändras. I det här enkla exemplet används kommandot [az batch pool resize](/cli/azure/batch/pool#az_batch_pool_resize) till att öka antalet noder med låg prioritet i poolen till *6*:
+Ändra nu poolen så att den är redo för ett större renderingsjobb med flera bildrutor. Batch har ett antal olika sätt att skala beräkningsresurser, till exempel [autoskalning](batch-automatic-scaling.md) där noder läggs till eller tas bort när uppgiftsbehoven ändras. I det här enkla exemplet används kommandot [az batch pool resize](/cli/azure/batch/pool#az-batch-pool-resize) till att öka antalet noder med låg prioritet i poolen till *6*:
 
 ```azurecli-interactive
 az batch pool resize --pool-id myrenderpool --target-dedicated-nodes 0 --target-low-priority-nodes 6
@@ -291,7 +291,7 @@ Det tar några minuter att ändra storlek på poolen. Medan den här processen p
 
 ## <a name="render-a-multiframe-scene"></a>Rendera en scen med flera bildrutor
 
-Precis som i exemplet med en bildruta använder du kommandot [az batch task create](/cli/azure/batch/task#az_batch_task_create) till att skapa renderingsuppgifter i jobbet *myrenderjob*. Här anger du uppgiftsinställningarna i en JSON-fil med namnet *myrendertask_multi.json*. (Du kan ladda ned filen från [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json).) Var och en av de sex uppgifterna anger en Arnold-kommandorad för rendering av en bildruta från 3ds Max-scenen *MotionBlur-DragonFlying.max*.
+Precis som i exemplet med en bildruta använder du kommandot [az batch task create](/cli/azure/batch/task#az-batch-task-create) till att skapa renderingsuppgifter i jobbet *myrenderjob*. Här anger du uppgiftsinställningarna i en JSON-fil med namnet *myrendertask_multi.json*. (Du kan ladda ned filen från [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json).) Var och en av de sex uppgifterna anger en Arnold-kommandorad för rendering av en bildruta från 3ds Max-scenen *MotionBlur-DragonFlying.max*.
 
 Skapa en fil med namnet *myrendertask_multi.json* i ditt aktuella gränssnitt. Kopiera och klistra in innehållet från filen du hämtade. Ändra elementen `blobSource` och `containerURL` i JSON-filen så att de innehåller namnet på ditt lagringskonto och din SAS-token. Kom ihåg att ändra inställningarna för var och en av de sex uppgifterna. Spara filen och kör följande kommando för att placera uppgifterna i kö:
 
@@ -301,7 +301,7 @@ az batch task create --job-id myrenderjob --json-file myrendertask_multi.json
 
 ### <a name="view-task-output"></a>Visa utdata för uppgiften
 
-Det tar några minuter att köra uppgiften. Använd kommandot [az batch task list](/cli/azure/batch/task#az_batch_task_list) till att visa status för uppgifterna. Till exempel:
+Det tar några minuter att köra uppgiften. Använd kommandot [az batch task list](/cli/azure/batch/task#az-batch-task-list) till att visa status för uppgifterna. Exempel:
 
 ```azurecli-interactive
 az batch task list \
@@ -309,7 +309,7 @@ az batch task list \
     --output table
 ```
 
-Använd kommandot [az batch task show](/cli/azure/batch/task#az_batch_task_show) till att visa information om enskilda uppgifter. Till exempel:
+Använd kommandot [az batch task show](/cli/azure/batch/task#az-batch-task-show) till att visa information om enskilda uppgifter. Exempel:
 
 ```azurecli-interactive
 az batch task show \
@@ -317,7 +317,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-Uppgifterna genererar utdatafiler med namnen *dragon0002.jpg* - *dragon0007.jpg* på beräkningsnoderna och laddar upp dem till behållaren *job-myrenderjob* i lagringskontot. Om du vill visa utdata laddar du ned filen till en lokal mapp med kommandot [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download_batch). Till exempel:
+Uppgifterna genererar utdatafiler med namnen *dragon0002.jpg* - *dragon0007.jpg* på beräkningsnoderna och laddar upp dem till containern *job-myrenderjob* i lagringskontot. Om du vill visa utdata laddar du ned filen till en lokal mapp med kommandot [az storage blob download](/cli/azure/storage/blob#az-storage-blob-download_batch). Exempel:
 
 ```azurecli-interactive
 az storage blob download-batch \
@@ -332,7 +332,7 @@ az storage blob download-batch \
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När den inte längre behövs kan du använda kommandot [az group delete](/cli/azure/group#az_group_delete) för att ta bort resursgruppen, Batch-kontot, poolerna och alla relaterade resurser. Ta bort resurserna på följande sätt:
+När den inte längre behövs kan du använda kommandot [az group delete](/cli/azure/group#az-group-delete) för att ta bort resursgruppen, Batch-kontot, poolerna och alla relaterade resurser. Ta bort resurserna på följande sätt:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

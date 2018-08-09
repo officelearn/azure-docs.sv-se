@@ -11,18 +11,18 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 49931155339660fc7a0a39f5b60dc9443374b8b0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f4285b3e02176f6f734e6de4d02d3c9c26e5524c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38467789"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429721"
 ---
 # <a name="create-your-first-function-running-on-linux-using-the-azure-cli-preview"></a>Skapa din första funktion som körs på Linux med hjälp av Azure CLI (förhandsversion)
 
-Med hjälp av Azure Functions kan Linux användas som värd för funktionerna i en Azure App Service-standardbehållare. Du kan även [använda en egen anpassad behållare](functions-create-function-linux-custom-image.md). Den här funktionen ges för närvarande i förhandsversion och kräver [Functions 2.0 runtime](functions-versions.md), som också finns som förhandsversion.
+Med hjälp av Azure Functions kan Linux användas som värd för funktionerna i en Azure App Service-standardcontainer. Du kan även [använda en egen anpassad container](functions-create-function-linux-custom-image.md). Den här funktionen ges för närvarande i förhandsversion och kräver [Functions 2.0 runtime](functions-versions.md), som också finns som förhandsversion.
 
-Det här snabbstartsavsnittet visar dig hur du kan använda Azure Functions med Azure CLI för att skapa den första appen i Linux som ligger i App Service-standardbehållaren. Själva funktionskoden distribueras till avbildningen från en GitHub-exempellagringsplats.    
+Det här snabbstartsavsnittet visar dig hur du kan använda Azure Functions med Azure CLI för att skapa den första appen i Linux som ligger i App Service-standardcontainern. Själva funktionskoden distribueras till avbildningen från en GitHub-exempellagringsplats.    
 
 Följande steg kan användas på en Mac-, Windows- eller Linux-dator. 
 
@@ -50,7 +50,7 @@ Linux-värd för funktioner stöds för närvarande endast i en App Service-plan
 
 ## <a name="create-a-function-app-on-linux"></a>Skapa en funktionsapp i Linux
 
-Du måste ha en funktionsapp som värd för körning av dina funktioner i Linux. Funktionsappen är en miljö för körning av funktionskoden. Där kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser. Skapa en funktionsapp med kommandot [az functionapp create](/cli/azure/functionapp#az_functionapp_create) med en Linux App Service-plan. 
+Du måste ha en funktionsapp som värd för körning av dina funktioner i Linux. Funktionsappen är en miljö för körning av funktionskoden. Där kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser. Skapa en funktionsapp med kommandot [az functionapp create](/cli/azure/functionapp#az-functionapp-create) med en Linux App Service-plan. 
 
 I följande kommando infogar du ett unikt funktionsappnamn istället för platshållaren `<app_name>` och lagringskontonamnet istället för `<storage_name>`. `<app_name>` används som DNS-standarddomän för funktionsappen. Därför måste namnet vara unikt bland alla appar i Azure. Parametern _deployment-source-url_ är en exempellagringsplats i GitHub som innehåller en HTTP-utlöst ”Hello World”-funktion.
 
@@ -79,7 +79,7 @@ När funktionsappen har skapats och distribuerats visas information som liknar f
 }
 ```
 
-Eftersom `myAppServicePlan` är en Linux-plan används den inbyggda Docker-avbildningen för att skapa behållaren som kör funktionsappen i Linux. 
+Eftersom `myAppServicePlan` är en Linux-plan används den inbyggda Docker-avbildningen för att skapa containern som kör funktionsappen i Linux. 
 
 >[!NOTE]  
 >Exempellagringsplatsen omfattar för närvarande två skriptfiler, [deploy.sh](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/deploy.sh) och [.deployment](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/.deployment). Filen .deployment talar om för distributionsprocessen att den ska använda deploy.sh som [anpassat distributionsskript](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). I den nuvarande förhandsversionen krävs skript för att distribuera funktionsappen i en Linux-avbildning.  

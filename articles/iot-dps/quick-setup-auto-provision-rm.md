@@ -1,20 +1,20 @@
 ---
 title: Konfigurera enhetsetablering med en Azure Resource Manager-mall | Microsoft Docs
 description: Azure-snabbstart – Konfigurera tjänsten Azure IoT Hub Device Provisioning-tjänsten med en mall
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 06/18/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6bd1073012a68149d194e21e745604a43dfe92c0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e3aa2cf93e529fcc430162ac90be06a75690fb21
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219704"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523452"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Konfigurera tjänsten IoT Hub Device Provisioning med en Azure Resource Manager-mall
 
@@ -301,7 +301,7 @@ Mallen som du definierade i det sista steget använder parametrar för att ange 
 
 Använd följande Azure CLI-kommandon för att distribuera dina mallar och verifiera distributionen.
 
-1. För att distribuera din mall kör du följande [kommando för att starta en distribuering](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create):
+1. För att distribuera din mall kör du följande [kommando för att starta en distribuering](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
     
     ```azurecli
      az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
@@ -312,7 +312,7 @@ Använd följande Azure CLI-kommandon för att distribuera dina mallar och verif
    ![Etableringsutdata](./media/quick-setup-auto-provision-rm/output.png) 
 
 
-2. Om du vill verifiera din distribution kör du följande [kommando för att lista resurser](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az_resource_list) och hålla utkik efter den nya etableringstjänsten och IoT-hubben i utdata:
+2. Om du vill verifiera din distribution kör du följande [kommando för att lista resurser](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list) och hålla utkik efter den nya etableringstjänsten och IoT-hubben i utdata:
 
     ```azurecli
      az resource list -g {your resource group name}

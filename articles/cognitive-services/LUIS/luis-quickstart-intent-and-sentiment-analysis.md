@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/25/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 1fa27cf04e136033c51b951271a3d329a910a720
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: baa449bb9e78a5c6437b0a9528e5d1f10dfa519f
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223627"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520460"
 ---
 # <a name="tutorial-9--add-sentiment-analysis"></a>Självstudie: 9.  Lägga till attitydanalys
 I den här självstudien skapar du en app som visar hur det går till att extrahera positiva, negativa och neutrala sentiment från yttranden.
@@ -27,7 +27,7 @@ I den här självstudien skapar du en app som visar hur det går till att extrah
 > * Träna och publicera app
 > * Skicka en fråga till appens slutpunkt för att se LUIS JSON-svar 
 
-För den här artikeln behöver du ett kostnadsfritt [LUIS-konto](luis-reference-regions.md#luis-website) för att kunna redigera LUIS-programmet.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 Om du inte har appen Human Resources (Personalfrågor) från självstudien om [den fördefinierade keyPhrase-entiteten](luis-quickstart-intent-and-key-phrase.md) ska du [importera](luis-how-to-start-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website). Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json)-GitHub-lagringsplatsen.
@@ -79,15 +79,8 @@ Lägg till en ny avsikt för att samla in feedback om medarbetare från kollegor
     [ ![Skärmbild på LUIS-appen med exempelyttranden i avsikten EmployeeFeedback](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
 ## <a name="train-the-luis-app"></a>Träna LUIS-appen
-LUIS känner inte till den nya avsikten och dess exempelyttranden förrän den har tränats. 
 
-1. Längst uppe till höger på LUIS-webbplatsen väljer du knappen **Train** (Träna).
-
-    ![Skärmbild på markerad knapp Train (Träna)](./media/luis-quickstart-intent-and-sentiment-analysis/train-button.png)
-
-2. Träningen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
-
-    ![Skärmbild på meddelandefält om att Training (Träning) är klar ](./media/luis-quickstart-intent-and-sentiment-analysis/hr-trained-inline.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="configure-app-to-include-sentiment-analysis"></a>Konfigurera appen för att inkludera sentimentanalys
 Konfigurera attitydanalys på sidan **Publish** (Publicera). 
@@ -96,17 +89,15 @@ Konfigurera attitydanalys på sidan **Publish** (Publicera).
 
     ![Skärmbild på sidan Intent (Avsikt) med knappen Publish (Publicera) expanderad ](./media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-button-in-top-nav-highlighted.png)
 
-2. Välj **Enable Sentiment Analysis** (Aktivera sentimentanalys). Välj platsen Production (Produktionsplats) och knappen **Publish** (Publicera).
+2. Välj **Enable Sentiment Analysis** (Aktivera sentimentanalys). 
 
-    [![](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png "Skärmbild på sidan Publish (Publicera) med knappen Publish to production slot (Publicera till produktionsplats) markerad")](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png#lightbox)
+## <a name="publish-app-to-endpoint"></a>Publicera app till slutpunkt
 
-4. Publiceringen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-an-utterance"></a>Skicka fråga till slutpunkten med ett yttrande
 
-1. På sidan **Publish** (Publicera) väljer du länken **endpoint** (slutpunkt) längst ned på sidan. Den här åtgärden öppnar ett nytt webbläsarfönster med slutpunkts-URL i adressfältet. 
-
-    ![Skärmbild på sidan Publish (Publicera) med slutpunkts-URL markerad](media/luis-quickstart-intent-and-sentiment-analysis/hr-endpoint-url-inline.png)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Gå till slutet av URL:en i adressen och ange `Jill Jones work with the media team on the public portal was amazing`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `EmployeeFeedback` med sentimentanalysen extraherad.
 
@@ -212,7 +203,8 @@ Din chattrobot har nu tillräckligt med information för att avgöra nästa steg
 LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan använda topScoringIntent-resultatet och sentimentdata från yttrandet för att gå vidare. LUIS utför inte detta programmässiga arbete för roboten eller det anropande programmet. LUIS tar endast reda på vad användarens avsikt är. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort LUIS-appen när den inte längre behövs. Välj **My apps** (Mina appar) på menyn längst upp till vänster. Välj ellipsen (***...***) till höger om appnamnet i applistan och välj **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,21 +9,21 @@ ms.topic: get-started-article
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 84215daac950f602c815e1ffc5ae6dd5269d9bdf
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: efedb7cde06ed03ec330027a18b00bcc897919cf
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32167120"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576927"
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Konfigurera ett Azure AD-tjänstobjekt för ett Kubernetes-kluster i Container Service
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-I Azure Container Service kräver ett Kubernetes-kluster ett [Azure Active Directory-tjänstobjekt](../../active-directory/develop/active-directory-application-objects.md) för att kunna interagera med Azure-API:er. Tjänstens huvudnamn krävs för att dynamiskt hantera resurser som [användardefinierade vägar](../../virtual-network/virtual-networks-udr-overview.md) och [lager 4 för Azure Load Balancer](../../load-balancer/load-balancer-overview.md).
+I Azure Container Service kräver ett Kubernetes-kluster ett [Azure Active Directory-tjänstobjekt](../../active-directory/develop/app-objects-and-service-principals.md) för att kunna interagera med Azure-API:er. Tjänstens huvudnamn krävs för att dynamiskt hantera resurser som [användardefinierade vägar](../../virtual-network/virtual-networks-udr-overview.md) och [lager 4 för Azure Load Balancer](../../load-balancer/load-balancer-overview.md).
 
 
-Den här artikeln beskriver hur du konfigurerar ett tjänstobjekt för ett Kubernetes-kluster på olika sätt. Om du till exempel har installerat och konfigurerat [Azure CLI 2.0](/cli/azure/install-az-cli2) kan du köra kommandot [`az acs create`](/cli/azure/acs#az_acs_create) för att skapa Kubernetes-klustret och tjänstobjektet samtidigt.
+Den här artikeln beskriver hur du konfigurerar ett tjänstobjekt för ett Kubernetes-kluster på olika sätt. Om du till exempel har installerat och konfigurerat [Azure CLI 2.0](/cli/azure/install-az-cli2) kan du köra kommandot [`az acs create`](/cli/azure/acs#az-acs-create) för att skapa Kubernetes-klustret och tjänstobjektet samtidigt.
 
 
 ## <a name="requirements-for-the-service-principal"></a>Krav för tjänstens huvudnamn
@@ -96,7 +96,7 @@ Följande exempel beskriver ett sätt att överföra parametrarna med Azure CLI 
 
 ## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Alternativ 2: Generera ett tjänstobjekt när du skapar klustret med `az acs create`
 
-Om du kör kommandot [`az acs create`](/cli/azure/acs#az_acs_create) för att skapa Kubernetes-klustret kan du välja att generera ett tjänstobjekt automatiskt.
+Om du kör kommandot [`az acs create`](/cli/azure/acs#az-acs-create) för att skapa Kubernetes-klustret kan du välja att generera ett tjänstobjekt automatiskt.
 
 Som med andra alternativ för att skapa Kubernetes-kluster, kan du ange parametrar för en befintlig tjänsts huvudnamn när du kör `az acs create`. Om du utelämnar dessa parametrar skapar Azure CLI ett automatiskt för användning med Container Service. Detta sker transparent under distributionen.
 
@@ -124,7 +124,7 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 * Om du använder kommandot `az acs create` för att generera tjänstobjektet automatiskt skrivs autentiseringsuppgifterna för tjänstobjektet till filen `~/.azure/acsServicePrincipal.json` på den dator som används för att köra kommandot.
 
-* Om du använder kommandot `az acs create` för att generera tjänstobjektet automatiskt, kan tjänstobjektet även autentisera med ett [Azure-behållarregister](../../container-registry/container-registry-intro.md) som skapats i samma prenumeration.
+* Om du använder kommandot `az acs create` för att generera tjänstobjektet automatiskt, kan tjänstobjektet även autentisera med ett [Azure-containerregister](../../container-registry/container-registry-intro.md) som skapats i samma prenumeration.
 
 * Autentiseringsuppgifter för tjänstens huvudnamn kan upphöra att gälla, vilket sätter dina klusternoder i ett **NotReady**-tillstånd. Avsnittet [Utgångsdatum för autentiseringsuppgifter](#credential-expiration) innehåller åtgärdsinformation.
 
@@ -132,7 +132,7 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 Om du inte anger en anpassad giltighetsperiod med parametern `--years` när du skapar ett huvudnamn för tjänsten så är autentiseringsuppgifterna giltiga i ett år från skapandet. När autentiseringsuppgifterna upphör att gälla kan dina klusternoder hamna i ett **NotReady**-tillstånd.
 
-Om du vill kontrollera utgångsdatumet för ett huvudnamn för tjänsten kör du kommandot [az ad app show](/cli/azure/ad/app#az_ad_app_show) med parametern `--debug` och letar efter värdet `endDate` för `passwordCredentials` längst ned i dina utdata:
+Om du vill kontrollera utgångsdatumet för ett huvudnamn för tjänsten kör du kommandot [az ad app show](/cli/azure/ad/app#az-ad-app-show) med parametern `--debug` och letar efter värdet `endDate` för `passwordCredentials` längst ned i dina utdata:
 
 ```azurecli
 az ad app show --id <appId> --debug
@@ -146,7 +146,7 @@ Utdata (visas trunkerat):
 ...
 ```
 
-Om dina autentiseringsuppgifter har upphört att gälla använder du kommandot [az ad sp reset-credentials](/cli/azure/ad/sp#az_ad_sp_reset_credentials) för att uppdatera autentiseringsuppgifterna:
+Om dina autentiseringsuppgifter har upphört att gälla använder du kommandot [az ad sp reset-credentials](/cli/azure/ad/sp#az-ad-sp-reset-credentials) för att uppdatera autentiseringsuppgifterna:
 
 ```azurecli
 az ad sp reset-credentials --name <appId>
@@ -167,6 +167,7 @@ Uppdatera sedan `/etc/kubernetes/azure.json` med de nya autentiseringsuppgiftern
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Kom igång med Kubernetes](container-service-kubernetes-walkthrough.md) i behållaren för tjänsteklustret.
+* 
+  [Kom igång med Kubernetes](container-service-kubernetes-walkthrough.md) i containern för tjänsteklustret.
 
 * Information om hur du felsöker tjänstobjektet för Kubernetes finns i [ACS Engine-dokumentationen](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes.md#troubleshooting).

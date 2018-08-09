@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 2e100f2019c3bb99e3909e64305ebe641e2a637e
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 87d97b078927800e4e90c39a70e2acc7163a4c84
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308977"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493055"
 ---
 # <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>Självstudie: 7. Lägg till en enkel entitet och fraslista
 I den här självstudien skapar du en app som visar hur det går till att extrahera maskininlärningsdata från ett yttrande med hjälp av entiteten **Simple** (Enkel).
@@ -126,15 +126,8 @@ Den här LUIS-appen har jobbnamn i flera avsikter. Genom att märka orden i en a
     Det finns andra exempelyttranden som inte innehåller jobbrelaterade ord.
 
 ## <a name="train-the-luis-app"></a>Träna LUIS-appen
-LUIS känner inte till ändringarna av avsikterna och entiteterna (modellen) förrän den tränas. 
 
-1. Längst uppe till höger på LUIS-webbplatsen väljer du knappen **Train** (Träna).
-
-    ![Välj knappen train (träna)](./media/luis-quickstart-primary-and-secondary-data/train-button.png)
-
-2. Träningen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
-
-    ![Meddelande om att träning är klar](./media/luis-quickstart-primary-and-secondary-data/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicera appen för att få slutpunkts-URL
 
@@ -367,7 +360,8 @@ Din chattrobot har nu tillräckligt med information för att bestämma den prim�
 LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan använda topScoringIntent-resultatet och data från entiteten för att skicka jobbinformation till någon på personalavdelningen via ett tredjeparts-API. Om det finns andra programmässiga alternativ för roboten eller det anropande programmet utför inte LUIS det arbetet. LUIS tar endast reda på vad användarens avsikt är. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort LUIS-appen när den inte längre behövs. Välja **My apps** (Mina appar) på menyn längst upp till vänster. Välj ellipsen (***...***) till höger om appnamnet i applistan och välj **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

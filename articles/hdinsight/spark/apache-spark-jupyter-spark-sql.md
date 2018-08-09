@@ -2,22 +2,19 @@
 title: 'Snabbstart: Skapa ett Spark-kluster i HDInsight med hjälp av en mall'
 description: Den här snabbstarten visar hur du använder en Resource Manager-mall för att skapa ett Apache Spark-kluster i Azure HDInsight och köra en enkel Spark SQL-fråga.
 services: azure-hdinsight
-author: mumian
-manager: cgronlun
-editor: cgronlun
-ms.assetid: 91f41e6a-d463-4eb4-83ef-7bbb1f4556cc
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: jgao
+ms.author: jasonh
 ms.custom: mvc
-ms.openlocfilehash: 6774bd156e31bde0a933b942e4597ec46425d2a9
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: d8a56704afda30a0a9466cab9d78a31490b113de
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097836"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619455"
 ---
 # <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-template"></a>Snabbstart: Skapa ett Spark-kluster i HDInsight med hjälp av en mall
 
@@ -44,7 +41,7 @@ Skapa ett HDInsight Spark-kluster med hjälp av en Azure Resource Manager-mall. 
     |---|---|
     |**Prenumeration**|Välj den Azure-prenumeration som ska användas för att skapa klustret. Prenumerationen som används för den här snabbstarten är **&lt;Azure-prenumerationsnamn**. |
     | **Resursgrupp**|Skapa en resursgrupp eller välj en befintlig. Resursgrupp används för att hantera Azure-resurser till dina projekt. Den nya resursgruppens namn som används för den här snabbstarten är **myspark20180403rg**.|
-    | **Plats**|Välj en plats för resursgruppen. Mallen använder den här platsen för att skapa klustret samt standardklusterlagringen. Den plats som används för den här snabbstarten är **USA, östra 2**.|
+    | **Plats**|Välj en plats för resursgruppen. Mallen använder den här platsen för att skapa klustret samt standardklusterlagringen. Den plats som används för den här snabbstarten **USA, östra 2**.|
     | **ClusterName**|Ange ett namn på det HDInsight-kluster som du vill skapa. Det nya klusternamnet som används för den här snabbstarten är **myspark20180403**.|
     | **Inloggningsnamn och lösenord för klustret**|Standardinloggningsnamnet är admin. Välj ett lösenord för klusterinloggning. Inloggningsnamnet som används för den här snabbstarten är **admin**.|
     | **SSH-användarnamn och lösenord**|Välj ett lösenord för SSH-användaren. SSH-användarnamnet som används för den här snabbstarten är **sshuser**.|

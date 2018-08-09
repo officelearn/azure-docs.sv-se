@@ -1,27 +1,21 @@
 ---
-title: 'Självstudie: Attitydanalys på strömmad data med hjälp av Azure Databricks | Microsoft Docs'
+title: 'Självstudie: Attitydanalys på strömmad data med hjälp av Azure Databricks'
 description: Lär dig att använda Azure Databricks med Event Hubs och Cognitive Services API för att kunna köra attitydanalys på strömmande data nästan i realtid.
 services: azure-databricks
-documentationcenter: ''
 author: lenadroid
 manager: cgronlun
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: azure-databricks
 ms.custom: mvc
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 06/21/2018
+ms.date: 08/06/2018
 ms.author: alehall
-ms.openlocfilehash: 1d6087477a7d99314ced19f5fe29fe81b5acaef4
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: edd78b9b54e39a25aa3349f6ad27e61991ea91d2
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308099"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577821"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Självstudie: Attitydanalys på strömmad data med hjälp av Azure Databricks
 
@@ -80,7 +74,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
     |---------|---------|
     |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan        |
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
-    |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en behållare som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../azure-resource-manager/resource-group-overview.md). |
+    |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../azure-resource-manager/resource-group-overview.md). |
     |**Plats**     | Välj **USA, östra 2**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).        |
     |**Prisnivå**     |  Välj mellan **Standard** och **Premium**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
@@ -544,7 +538,7 @@ Lägg till en ny kodcell och klistra in kodfragmentet nedan. Kodfragmentet defin
       val docsWithLanguage = SentimentDetector.getLanguage(inputDocs)
       val docsWithSentiment = SentimentDetector.getSentiment(docsWithLanguage)
       if (docsWithLanguage.documents.isEmpty) {
-        // Placeholder value to display for no score returned by the sentiment API
+        // Placeholder value to display when unable to perform sentiment request for text in unknown language
         (-1).toDouble
       } else {
         docsWithSentiment.documents.get(0).sentiment.toDouble

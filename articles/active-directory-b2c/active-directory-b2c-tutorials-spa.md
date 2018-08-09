@@ -10,18 +10,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 1680ff136dfa2ccb2ca3fd92f5045d47190e75fc
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: fffffbf7ce654c263976378da01f032599145a94
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712529"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591575"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Självstudiekurs: Aktivera autentisering av app med en enda sida med konton med hjälp av Azure Active Directory B2C
 
 Den här självstudien lär dig använda Azure Active Directory (Azure AD) B2C för att logga in och registrera användare i en ensidesapp (SPA). Med Azure AD B2C kan appar autentisera med konton på sociala medier, företagskonton och Azure Active Directory-konton med öppna protokoll.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Registrera en exempelensides-applikation i Azure AD B2C-klienten.
@@ -39,7 +39,7 @@ I den här guiden får du lära dig hur man:
 
 ## <a name="register-single-page-app"></a>Registrera ensidesapp
 
-Program måste [registreras](../active-directory/develop/active-directory-dev-glossary.md#application-registration) i klientorganisationen innan de kan ta emot [åtkomsttoken](../active-directory/develop/active-directory-dev-glossary.md#access-token) från Azure Active Directory. Programregistrering skapar ett [program-ID](../active-directory/develop/active-directory-dev-glossary.md#application-id-client-id) för appen i din klientorganisation. 
+Program måste [registreras](../active-directory/develop/developer-glossary.md#application-registration) i klientorganisationen innan de kan ta emot [åtkomsttoken](../active-directory/develop/developer-glossary.md#access-token) från Azure Active Directory. Programregistrering skapar ett [program-ID](../active-directory/develop/developer-glossary.md#application-id-client-id) för appen i din klientorganisation. 
 
 Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för Azure AD B2C-klientorganisationen.
 
@@ -88,7 +88,7 @@ Skapa en **registrerings- eller inloggningsprincip** om du vill registrera anvä
     | **Namn** | SiUpIn | Ange ett **Namn** för principen. Principens namn har prefixet **B2C_1_**. Använd det fullständiga principnamnet **B2C_1_SiUpIn** i exempelkoden. | 
     | **Identitetsprovider** | E-postregistrering | Den identitetsprovider som används för att unikt identifiera användaren. |
     | **Registreringsattribut** | Visningsnamn och Postnummer | Välj vilka attribut som samlas in från användaren under registreringen. |
-    | **Programanspråk** | Visningsnamn, postnummer, användare är ny, användarens objekt-ID | Välj [anspråk](../active-directory/develop/active-directory-dev-glossary.md#claim) som ska tas med i [åtkomsttoken](../active-directory/develop/active-directory-dev-glossary.md#access-token). |
+    | **Programanspråk** | Visningsnamn, postnummer, användare är ny, användarens objekt-ID | Välj [anspråk](../active-directory/develop/developer-glossary.md#claim) som ska tas med i [åtkomsttoken](../active-directory/develop/developer-glossary.md#access-token). |
 
 2. Klicka på **Skapa** för att skapa principen. 
 
@@ -105,7 +105,7 @@ Om du vill att användarna själva ska kunna återställa informationen i sin an
     | **Namn** | SiPe | Ange ett **Namn** för principen. Principens namn har prefixet **B2C_1_**. Använd det fullständiga principnamnet **B2C_1_SiPe** i exempelkoden. | 
     | **Identitetsprovider** | Inloggning på lokalt konto | Den identitetsprovider som används för att unikt identifiera användaren. |
     | **Profilattribut** | Visningsnamn och Postnummer | Välj de attribut en användare kan ändra under profilredigering. |
-    | **Programanspråk** | Visningsnamn, postnummer, användarens objekt-ID | Välj de [anspråk](../active-directory/develop/active-directory-dev-glossary.md#claim) du vill ta med i [åtkomsttoken](../active-directory/develop/active-directory-dev-glossary.md#access-token) efter en lyckad profilredigering. |
+    | **Programanspråk** | Visningsnamn, postnummer, användarens objekt-ID | Välj de [anspråk](../active-directory/develop/developer-glossary.md#claim) du vill ta med i [åtkomsttoken](../active-directory/develop/developer-glossary.md#access-token) efter en lyckad profilredigering. |
 
 2. Klicka på **Skapa** för att skapa principen. 
 
@@ -121,7 +121,7 @@ Om du vill kunna aktivera lösenordsåterställning i programmet måste du skapa
     | ------------ | ------- | -------------------------------------------------- |
     | **Namn** | SSPR | Ange ett **Namn** för principen. Principens namn har prefixet **B2C_1_**. Använd det fullständiga principnamnet **B2C_1_SSPR** i exempelkoden. | 
     | **Identitetsprovider** | Återställ lösenord med e-postadress | Den identitetsprovider som används för att unikt identifiera användaren. |
-    | **Programanspråk** | Användarens objekt-ID | Välj de [anspråk](../active-directory/develop/active-directory-dev-glossary.md#claim) du vill ta med i [åtkomsttoken](../active-directory/develop/active-directory-dev-glossary.md#access-token) efter en lyckad lösenordsåterställning. |
+    | **Programanspråk** | Användarens objekt-ID | Välj de [anspråk](../active-directory/develop/developer-glossary.md#claim) du vill ta med i [åtkomsttoken](../active-directory/develop/developer-glossary.md#access-token) efter en lyckad lösenordsåterställning. |
 
 2. Klicka på **Skapa** för att skapa principen. 
 

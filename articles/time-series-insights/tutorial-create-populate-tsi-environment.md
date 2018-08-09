@@ -6,17 +6,18 @@ author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 06/04/2018
-ms.author: bryanla
-ms.openlocfilehash: b57e688b5f830c8c7d34315a68be94e4e4c99466
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.author: anshan
+manager: cshankar
+ms.openlocfilehash: 7faec1608845d218a738c70f147f79248a549dde
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295855"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626780"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Självstudier: Skapa en Azure Time Series Insights-miljö
 
-Den här självstudien vägleder dig genom processen att skapa en Time Series Insight-miljö (TSI) med data från simulerade enheter. I den här guiden får du lära dig hur man:
+Den här självstudien vägleder dig genom processen att skapa en Time Series Insight-miljö (TSI) med data från simulerade enheter. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en TSI-miljö 
@@ -54,8 +55,8 @@ Skapa först en TSI-miljö i din Azure-prenumeration:
    Parameter|Beskrivning
    ---|---
    **Miljönamn** | Välj ett unikt namn för TSI-miljön. Namnet används av TSI-utforskaren och fråge-API.
-   **Prenumeration** | Prenumerationer är behållare för Azure-resurser. Välj den prenumeration där du vill skapa TSI-miljön.
-   **Resursgrupp** | En resursgrupp är en behållare för Azure-resurser. Välj en befintlig resursgrupp eller skapa en ny för TSI-miljöresursen.
+   **Prenumeration** | Prenumerationer är containrar för Azure-resurser. Välj den prenumeration där du vill skapa TSI-miljön.
+   **Resursgrupp** | En resursgrupp är en container för Azure-resurser. Välj en befintlig resursgrupp eller skapa en ny för TSI-miljöresursen.
    **Plats** | Välj ett datacenterområde för TSI-miljön. För att undvika kostnader för tillagd bandbredd och fördröjning, är det bäst att hålla TSI-miljön i samma region som andra IoT-resurser.
    **Priser för SKU** | Välj det genomflöde som behövs. Välj S1 för lägst kostnad och startkapacitet.
    **Kapacitet** | Kapacitet är den multiplikator som appliceras på ingångshastigheten, lagringskapaciteten och de kostnader som är associerade med den valda SKU:n.  Du kan ändra kapacitet för en miljö när den har skapats. Välj en kapacitet på 1 för lägsta kostnad. 

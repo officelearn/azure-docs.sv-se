@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/17/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f1388843f2c5d3ea607b876ece288db1370329a2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 173588c0200666c52f3ac0a5d2e70d667cfe3294
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38461545"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445569"
 ---
 # <a name="tutorial-secure-sql-database-connection-with-managed-service-identity"></a>Självstudie: Säkra SQL Database-anslutningar med hanterade tjänstidentiteter
 
@@ -48,7 +48,7 @@ Den här artikeln fortsätter där du slutade i [Självstudie: Skapa en ASP.NET-
 
 ## <a name="enable-managed-service-identity"></a>Aktivera hanterade tjänstidentiteter
 
-När du ska aktivera en tjänstidentitet för din Azure-app använder du kommandot [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az_webapp_identity_assign) i Cloud Shell. Ersätt *\<app name>* i följande kommando.
+När du ska aktivera en tjänstidentitet för din Azure-app använder du kommandot [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) i Cloud Shell. Ersätt *\<app name>* i följande kommando.
 
 ```azurecli-interactive
 az webapp identity assign --resource-group myResourceGroup --name <app name>
@@ -73,7 +73,7 @@ az ad sp show --id <principalid>
 
 ## <a name="grant-database-access-to-identity"></a>Bevilja databasåtkomst till identiteten
 
-Nu ger du databasåtkomst till appens tjänstidentitet med hjälp av kommandot [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az_sql_server_ad-admin_create) i Cloud Shell. Ersätt *\<server_name>* och <principalid_from_last_step > i följande kommando. Skriv ett administratörsnamn för *\<admin_user>*.
+Nu ger du databasåtkomst till appens tjänstidentitet med hjälp av kommandot [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin_create) i Cloud Shell. Ersätt *\<server_name>* och <principalid_from_last_step > i följande kommando. Skriv ett administratörsnamn för *\<admin_user>*.
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server_name> --display-name <admin_user> --object-id <principalid_from_last_step>
@@ -83,7 +83,7 @@ Den hanterade tjänstidentiteten har nu åtkomst till din Azure SQL Database-ser
 
 ## <a name="modify-connection-string"></a>Ändra anslutningssträngen
 
-Ändra anslutningen du ställde in för appen tidigare med kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) i Cloud Shell. Ersätt *\<app name>* i följande kommando med namnet på din app, och ersätt *\<server_name>* och *\<db_name>* med värdena för din SQL-databas.
+Ändra anslutningen du ställde in för appen tidigare med kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. Ersätt *\<app name>* i följande kommando med namnet på din app, och ersätt *\<server_name>* och *\<db_name>* med värdena för din SQL-databas.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='Server=tcp:<server_name>.database.windows.net,1433;Database=<db_name>;' --connection-string-type SQLAzure

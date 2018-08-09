@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 2b40d5fdd2b21cc9ff82b4749e1f2b4fe2c38614
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 07dc1c2fa166be066df9bd8a663e08db830fe1af
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37028670"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446338"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Självstudie: Utforma Azure Database for MySQL med Azure CLI
 
@@ -37,13 +37,13 @@ Du kan använda Azure Cloud Shell i webbläsaren eller [installera Azure CLI 2.0
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-Om du har flera prenumerationer väljer du en lämplig prenumerationen där resursen ligger eller faktureras. Välj en specifik prenumerations-ID under ditt konto med hjälp av kommandot [az account set](/cli/azure/account#az_account_set).
+Om du har flera prenumerationer väljer du en lämplig prenumerationen där resursen ligger eller faktureras. Välj en specifik prenumerations-ID under ditt konto med hjälp av kommandot [az account set](/cli/azure/account#az-account-set).
 ```azurecli-interactive
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
-Skapa en [Azure-resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) med kommandot [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create). En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras som en grupp.
+Skapa en [Azure-resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) med kommandot [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create). En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras som en grupp.
 
 I följande exempel skapas en resursgrupp med namnet `myresourcegroup` på platsen `westus`.
 
@@ -51,7 +51,7 @@ I följande exempel skapas en resursgrupp med namnet `myresourcegroup` på plats
 az group create --name myresourcegroup --location westus
 ```
 
-## <a name="create-an-azure-database-for-mysql-server"></a>Skapa en Azure Database för MySQL-server
+## <a name="create-an-azure-database-for-mysql-server"></a>Skapa en Azure Database for MySQL-server
 Skapa en Azure Database for MySQL-server med kommandot az mysql server create. En server kan hantera flera databaser. Normalt används en separat databas för varje projekt eller för varje användare.
 
 I följande exempel skapas en Azure Database för MySQL-server i `westus` i resursgruppen `myresourcegroup` med namnet `mydemoserver`. Servern har en administratörsinloggning med namnet `myadmin`. Det här är 4:e generationens server för generell användning med 2 virtuella kärnor. Ersätt `<server_admin_password>` med ditt eget värde.
@@ -59,7 +59,7 @@ I följande exempel skapas en Azure Database för MySQL-server i `westus` i resu
 ```azurecli-interactive
 az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
 ```
-Parametervärdet för sku-name följer namngivningskonventionen {prisnivå}\_{compute-generering}\_{vCores} som i exemplen nedan:
+Parametervärdet för sku-namn följer namngivningskonventionen {prisnivå}\_{compute-generering}\_{vCores} som i exemplen nedan:
 + `--sku-name B_Gen4_4` mappar till Basic, Gen 4 och 4 vCores.
 + `--sku-name GP_Gen5_32` mappar till generell användning, Gen 5 och 32 vCores.
 + `--sku-name MO_Gen5_2` mappar till minnesoptimerad, Gen 5 och 2 vCores.
@@ -199,7 +199,7 @@ Kommandot är synkront och återgår när servern har återställts. När åters
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudien fick du lärda dig att:
 > [!div class="checklist"]
-> * Skapa en Azure Database för MySQL-server
+> * Skapa en Azure Database for MySQL-server
 > * Konfigurera serverbrandväggen
 > * Använda [kommandoradsverktyget mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) till att skapa en databas
 > * Läsa in exempeldata

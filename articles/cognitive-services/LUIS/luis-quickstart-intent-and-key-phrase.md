@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/27/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 53f8f9ea5b3fea20202dd5aaa001a789d66f5a11
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: d5b92681b9677db085b3c271c37490154d781d84
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282746"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494318"
 ---
 # <a name="tutorial-8-add-keyphrase-entity"></a>Självstudie: 8. Lägga till keyPhrase-entitet 
 I den här självstudien använder du en app som visar hur det går till att extrahera nyckelämnen från yttranden.
@@ -71,15 +71,8 @@ Lägg till den fördefinierade keyPhrase-entiteten för att extrahera ämnesinne
     [ ![Skärmbild på avsikten Utilities.Confirm med keyPhrases märkta i yttranden](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png)](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png#lightbox)
 
 ## <a name="train-the-luis-app"></a>Träna LUIS-appen
-Den nya `keyphrase`-versionen av appen behöver tränas.  
 
-1. Längst uppe till höger på LUIS-webbplatsen väljer du knappen **Train** (Träna).
-
-    ![Träna appen](./media/luis-quickstart-intent-and-key-phrase/train-button.png)
-
-2. Träningen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
-
-    ![Träningen är klar](./media/luis-quickstart-intent-and-key-phrase/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-app-to-endpoint"></a>Publicera app till slutpunkt
 
@@ -190,7 +183,8 @@ Din chattrobot har nu tillräckligt med information för att avgöra nästa steg
 LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan använda topScoringIntent-resultatet och keyPhrase-data från yttrandet för att gå vidare. LUIS utför inte detta programmässiga arbete för roboten eller det anropande programmet. LUIS tar endast reda på vad användarens avsikt är. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort LUIS-appen när den inte längre behövs. Välja **My apps** (Mina appar) på menyn längst upp till vänster. Välj ellipsknappen (***...***) till höger om appnamnet i applistan och väljer **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

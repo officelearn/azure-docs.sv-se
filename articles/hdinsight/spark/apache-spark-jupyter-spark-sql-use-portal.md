@@ -2,23 +2,19 @@
 title: 'Snabbstart: Skapa ett Spark-kluster i HDInsight med hjälp av Azure Portal'
 description: Snabbstarten visar hur du använder Azure Portal för att skapa ett Apache Spark-kluster i Azure HDInsight och köra ett Spark SQL.
 services: azure-hdinsight
-author: mumian
-manager: cgronlun
-editor: cgronlun
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: azure-hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: jgao
+ms.author: jasonh
 ms.custom: mvc
-ms.openlocfilehash: 3621b5b5034bd7d2f7465fd061620844fba814fe
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: d3883bb667a208d724586da185cb8a877a4f03d5
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096333"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619115"
 ---
 # <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-the-azure-portal"></a>Snabbstart: Skapa ett Spark-kluster i HDInsight med Azure Portal
 Lär dig hur du skapar Apache Spark-kluster på Azure HDInsight och hur du kör Spark SQL-frågor mot Hive-tabeller. Apache Spark möjliggör snabb dataanalys och databehandling i kluster med hjälp av minnesintern bearbetning. Mer information om Spark på HDInsight finns i [Översikt: Apache Spark på Azure HDInsight](apache-spark-overview.md).
@@ -45,8 +41,8 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
     |**Användarnamn för klusterinloggning**| Ange användarnamnet för kluster-inloggningen.  Standardnamnet är *admin*. Du kan använda det här kontot för att logga in i Jupyter Notebook senare i snabbstarten. |
     |**Lösenord för klusterinloggning**| Ange lösenordet för klusterinloggningen: |
     |**Secure Shell (SSH)-användarnamn**| Ange SSH-användarnamnet. SSH-användarnamnet som användes för den här snabbstarten är **sshuser**. Som standard delar här kontot samma lösenord som kontot *användarnamn för klusterinloggning*. |
-    |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en behållare som innehåller relaterade resurser för en Azure-lösning. Resursgruppens namn som används för den här snabbstarten är **myspark20180403rg**. |
-    |**Plats**     | Välj en plats för resursgruppen. Mallen använder den här platsen för att skapa klustret samt standardklusterlagringen. Den plats som används för den här snabbstarten är **USA, östra 2**. |
+    |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Resursgruppens namn som används för den här snabbstarten är **myspark20180403rg**. |
+    |**Plats**     | Välj en plats för resursgruppen. Mallen använder den här platsen för att skapa klustret samt standardklusterlagringen. Den plats som används för den här snabbstarten **USA, östra 2**. |
 
     ![Skapa grundläggande konfigurationer för HDInsight Spark-kluster](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-basic2.png "Skapa grundläggande konfigurationer för Spark-kluster i HDInsight")
 

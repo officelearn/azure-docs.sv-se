@@ -3,18 +3,18 @@ title: Azure-snabbstart – Skapa ett lagringskonto | Microsoft Docs
 description: Lär dig snabbt att skapa ett nytt lagringskonto med hjälp av Azure Portal, Azure PowerShell eller Azure CLI.
 services: storage
 author: tamram
-manager: twooley
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: tamram
-ms.openlocfilehash: 92215c759cd51ce429708ec54b17722c486b7ca6
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.component: common
+ms.openlocfilehash: 91e98f74fd6cd88533a5090a383897eaa0e60648
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856536"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524028"
 ---
 # <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
@@ -39,12 +39,12 @@ Den här snabbstarten kräver Azure PowerShell-modul version 3.6 eller senare. K
 
 Du kan logga in på Azure och köra Azure CLI-kommandon på något av två sätt:
 
-- Du kan köra CLI-kommandon från Azure Portal, i Azure Cloud Shell 
+- Du kan köra CLI-kommandon från Azure-portalen, i Azure Cloud Shell 
 - Du kan installera CLI och köra CLI-kommandon lokalt  
 
 ### <a name="use-azure-cloud-shell"></a>Använda Azure Cloud Shell
 
-Azure Cloud Shell är ett kostnadsfritt Bash-gränssnitt som du kan köra direkt i Azure Portal. Den har Azure CLI förinstallerat och har konfigurerats för användning med ditt konto. Klicka på knappen **Cloud Shell** på menyn längst upp till höger i Azure Portal:
+Azure Cloud Shell är ett kostnadsfritt Bash-gränssnitt som du kan köra direkt i Azure-portalen. Den har Azure CLI förinstallerat och har konfigurerats för användning med ditt konto. Klicka på knappen **Cloud Shell** på menyn längst upp till höger i Azure-portalen:
 
 [![Cloud Shell](./media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
 
@@ -74,7 +74,7 @@ Connect-AzureRmAccount
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Starta Azure Cloud Shell genom att logga in på [Azure Portal](https://portal.azure.com).
+Starta Azure Cloud Shell genom att logga in på [Azure-portalen](https://portal.azure.com).
 
 Logga in på den lokala installationen av CLI genom att köra inloggningskommandot:
 
@@ -86,20 +86,20 @@ az login
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
 
-Följ de här stegen för att skapa en resursgrupp i Azure Portal:
+Följ de här stegen för att skapa en resursgrupp i Azure-portalen:
 
-1. I Azure Portal expanderar du menyn på vänster sida för att öppna tjänstemenyn och väljer **Resursgrupper**.
+1. I Azure-portalen expanderar du menyn på vänster sida för att öppna tjänstemenyn och väljer **Resursgrupper**.
 2. Klicka på knappen **Lägg till** för att lägga till en ny resursgrupp.
 3. Ange ett namn för den nya resursgruppen.
 4. Välj den prenumeration där du vill skapa den nya resursgruppen.
 5. Välj platsen för resursgruppen.
 6. Klicka på knappen **Skapa**.  
 
-![Skärmbild som visar hur du skapar en resursgrupp i Azure Portal](./media/storage-quickstart-create-account/create-resource-group.png)
+![Skärmbild som visar hur du skapar en resursgrupp i Azure-portalen](./media/storage-quickstart-create-account/create-resource-group.png)
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
@@ -160,7 +160,7 @@ Tänk på dessa regler när du namnger lagringskontot:
 
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
 
-Följ de här stegen för att skapa ett GPv2-konto för generell användning i Azure Portal:
+Följ de här stegen för att skapa ett GPv2-konto för generell användning i Azure-portalen:
 
 1. I Azure-portalen expanderar du menyn på vänster sida för att öppna tjänstemenyn och välja **Alla tjänster**. Rulla ned till **lagring** och välj **lagringskonton**. På fönstret **lagringskonton** som visas, väljer du **lägg till**.
 2. Ange ett namn för lagringskontot.
@@ -172,7 +172,7 @@ Följ de här stegen för att skapa ett GPv2-konto för generell användning i A
 8. Välj platsen för det nya lagringskontot.
 9. Skapa lagringskontot genom att klicka på **Skapa**.      
 
-![Skärmbild som visar hur du skapar ett lagringskonto i Azure Portal](./media/storage-quickstart-create-account/create-account-portal.png)
+![Skärmbild som visar hur du skapar ett lagringskonto i Azure-portalen](./media/storage-quickstart-create-account/create-account-portal.png)
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
@@ -227,9 +227,9 @@ Om du vill rensa de resurser som har skapats med den här snabbstarten kan du he
 
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
 
-Ta bort en resursgrupp med Azure Portal:
+Ta bort en resursgrupp med Azure-portalen:
 
-1. I Azure Portal expanderar du menyn på vänster sida för att öppna tjänstemenyn och väljer **Resursgrupper** för att visa listan över dina resursgrupper.
+1. I Azure-portalen expanderar du menyn på vänster sida för att öppna tjänstemenyn och väljer **Resursgrupper** för att visa listan över dina resursgrupper.
 2. Leta reda på den resursgrupp du vill ta bort och högerklicka på knappen **Mer** (**...**) till höger om listan.
 3. Välj **Ta bort resursgrupp** och bekräfta.
 

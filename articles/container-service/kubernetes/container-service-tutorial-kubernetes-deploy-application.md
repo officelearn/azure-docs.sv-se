@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 49fd4a9407bd46963037b0f7078cfe257d841627
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 46b8aead2a217ab827731a6636d3527fd99ea753
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100270"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432114"
 ---
 # <a name="run-applications-in-kubernetes"></a>Köra program i Kubernetes
 
@@ -37,13 +37,13 @@ I tidigare självstudier paketerades ett program i en behållaravbildning, avbil
 
 I den här självstudien behöver du Kubernetes-manifestfilen `azure-vote-all-in-one-redis.yml` som skapats i förväg. Den här filen laddades ned med källkoden för programmet i en tidigare självstudie. Kontrollera att du har klonat lagringsplatsen och att du har ändrat katalogerna i den klonade lagringsplatsen.
 
-Om du inte har gjort det här och vill följa med återgår du till [Självstudie 1 – Skapa behållaravbildningar](./container-service-tutorial-kubernetes-prepare-app.md). 
+Om du inte har gjort det här och vill följa med återgår du till [Självstudie 1 – Skapa containeravbildningar](./container-service-tutorial-kubernetes-prepare-app.md). 
 
 ## <a name="update-manifest-file"></a>Uppdatera manifestfilen
 
 Azure Container Registry (ACR) har använts till att lagra en behållaravbildning i den här självstudien. Innan du kör programmet måste du uppdatera namnet på ACR-inloggningsservern i Kubernetes-manifestfilen.
 
-Du hämtar namnet på ACR-inloggningsservern med kommandot [az acr list](/cli/azure/acr#az_acr_list).
+Du hämtar namnet på ACR-inloggningsservern med kommandot [az acr list](/cli/azure/acr#az-acr-list).
 
 ```azurecli-interactive
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table

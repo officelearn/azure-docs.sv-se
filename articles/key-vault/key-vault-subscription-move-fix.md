@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: 91c042ebda9e7a2eba4835abc079568e1ed2e537
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 06cc3aa1b21b4d0ed0d4a6f0362ac1d95518a97c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725514"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576125"
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>Ändra nyckelvalvsklient-ID efter en prenumerationsflytt
 ### <a name="q-my-subscription-was-moved-from-tenant-a-to-tenant-b-how-do-i-change-the-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b"></a>F: Min prenumeration har flyttats från klient A till klient B. Hur ändrar jag klient-ID för mitt befintliga nyckelvalv och anger rätt åtkomstkontrollistor för säkerhetsobjekt i klient B?
@@ -42,7 +42,7 @@ Set-AzureRmResource -ResourceId $vaultResourceId -Properties $vault.Properties
 
 Eftersom det här valvet fanns på klient A innan flytten är ursprungsvärdet **$vault. Properties.TenantId** klient A, medan **(Get-AzureRmContext). Tenant.TenantId** är klient B.
 
-Nu när ditt valv är associerat med rätt klient-ID och gamla åtkomstprincipposter har tagits bort ska du ange nya åtkomstprincipposter med [Set AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/mt603625.aspx).
+Nu när ditt valv är associerat med rätt klient-ID och gamla åtkomstprincipposter har tagits bort ska du ange nya åtkomstprincipposter med [Set AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy).
 
 ## <a name="next-steps"></a>Nästa steg
 Om du har några frågor om Azure Key Vault kan du besöka [Azure Key Vault-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).

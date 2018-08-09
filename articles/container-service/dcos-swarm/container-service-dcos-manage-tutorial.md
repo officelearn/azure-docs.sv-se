@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 28c217430dcbc8ee17998742c31888e06dddf96f
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 5b7f2f1bd1872f78377a0d16567ca4df8f8d0968
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902154"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440685"
 ---
 # <a name="azure-container-service-tutorial---manage-dcos"></a>Självstudie för Azure Container Service – Hantera DC/OS
 
-DC/OS tillhandahåller en distribuerad plattform för att köra moderna och behållarbaserade program. Med Azure Container Service går det snabbt och enkelt att etablera ett produktionsklart DC/OS-kluster. I den här snabbstarten beskrivs de grundläggande stegen för att distribuera ett DC/OS-kluster och köra en grundläggande arbetsbelastning.
+DC/OS tillhandahåller en distribuerad plattform för att köra moderna och containerbaserade program. Med Azure Container Service går det snabbt och enkelt att etablera ett produktionsklart DC/OS-kluster. I den här snabbstarten beskrivs de grundläggande stegen för att distribuera ett DC/OS-kluster och köra en grundläggande arbetsbelastning.
 
 > [!div class="checklist"]
 > * Skapa ett ACS DC/OS-kluster
@@ -34,7 +34,7 @@ För den här självstudien krävs Azure CLI-version 2.0.4 eller senare. Kör `a
 
 ## <a name="create-dcos-cluster"></a>Skapa DC/OS-kluster
 
-Skapa först en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. 
+Skapa först en resursgrupp med kommandot [az group create](/cli/azure/group#az-group-create). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. 
 
 I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *westeurope*.
 
@@ -42,7 +42,7 @@ I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på plats
 az group create --name myResourceGroup --location westeurope
 ```
 
-Skapa sedan ett DC/OS-kluster med kommandot [az acs create](/cli/azure/acs#az_acs_create).
+Skapa sedan ett DC/OS-kluster med kommandot [az acs create](/cli/azure/acs#az-acs-create).
 
 Följande exempel skapar ett DC/OS-kluster som heter *myDCOSCluster* och SSH-nycklar om de inte redan finns. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.  
 
@@ -240,13 +240,13 @@ Om du bläddrar till den här adressen returneras NGINX-standardplatsen.
 
 I föregående exempel skalades ett program ut till flera instanser. DC/OS-infrastrukturen kan också skalas ut för att tillhandahålla mer eller mindre beräkningskapacitet. Det gör du med kommandot [az acs scale](). 
 
-Om du vill se aktuellt antal DC/OS-agenter använder du kommandot [az acs show](/cli/azure/acs#az_acs_show).
+Om du vill se aktuellt antal DC/OS-agenter använder du kommandot [az acs show](/cli/azure/acs#az-acs-show).
 
 ```azurecli
 az acs show --resource-group myResourceGroup --name myDCOSCluster --query "agentPoolProfiles[0].count"
 ```
 
-Om du vill öka antalet till 5 använder du kommandot [az acs scale](/cli/azure/acs#az_acs_scale). 
+Om du vill öka antalet till 5 använder du kommandot [az acs scale](/cli/azure/acs#az-acs-scale). 
 
 ```azurecli
 az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-count 5
@@ -254,7 +254,7 @@ az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-c
 
 ## <a name="delete-dcos-cluster"></a>Ta bort DC/OS-kluster
 
-När den inte längre behövs kan du använda kommandot [az group delete](/cli/azure/group#az_group_delete) för att ta bort resursgruppen, DC/OS-klustret och alla relaterade resurser.
+När den inte längre behövs kan du använda kommandot [az group delete](/cli/azure/group#az-group-delete) för att ta bort resursgruppen, DC/OS-klustret och alla relaterade resurser.
 
 ```azurecli 
 az group delete --name myResourceGroup --no-wait

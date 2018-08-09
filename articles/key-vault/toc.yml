@@ -44,30 +44,24 @@
       href: key-vault-ovw-throttling.md
 - name: Instruktionsguider
   items:
-    - name: Hantera
-      items:
-        - name: Azure Key Vault-loggning
-          href: key-vault-logging.md
-        - name: Åtkomst bakom brandväggar
-          href: key-vault-access-behind-firewall.md
-        - name: Tillgänglighet och redundans
-          href: key-vault-disaster-recovery-guidance.md
-        - name: Ändra klientorganisations-ID
-          href: key-vault-subscription-move-fix.md
-        - name: Skapa och hantera med Azure CLI
-          href: key-vault-manage-with-cli2.md
-        - name: Använda mjuk borttagning i Key Vault med CLI
-          href: key-vault-soft-delete-cli.md
-        - name: Använda mjuk borttagning i Key Vault med Azure PowerShell
-          href: key-vault-soft-delete-powershell.md
-        - name: Bevilja åtkomst med hjälp av grupper
-          href: key-vault-group-permissions-for-apps.md
-        - name: Säkra ditt nyckelvalv
-          href: key-vault-secure-your-key-vault.md
-    - name: Automatisera
-      items:
-        - name: Azure-automatisering
-          href: automation-manage-key-vault.md
+    - name: Azure Key Vault-loggning
+      href: key-vault-logging.md
+    - name: Åtkomst bakom brandväggar
+      href: key-vault-access-behind-firewall.md
+    - name: Tillgänglighet och redundans
+      href: key-vault-disaster-recovery-guidance.md
+    - name: Ändra klientorganisations-ID
+      href: key-vault-subscription-move-fix.md
+    - name: Skapa och hantera med Azure CLI
+      href: key-vault-manage-with-cli2.md
+    - name: Använda mjuk borttagning i Key Vault med CLI
+      href: key-vault-soft-delete-cli.md
+    - name: Använda mjuk borttagning i Key Vault med Azure PowerShell
+      href: key-vault-soft-delete-powershell.md
+    - name: Bevilja åtkomst med hjälp av grupper
+      href: key-vault-group-permissions-for-apps.md
+    - name: Säkra ditt nyckelvalv
+      href: key-vault-secure-your-key-vault.md
 - name: Referens
   items:
     - name: Azure PowerShell

@@ -1,25 +1,21 @@
 ---
-title: 'Snabbstart: Komma igång med Hadoop och Hive i Azure HDInsight med Resource Manager-mall | Microsoft Docs'
+title: 'Snabbstart: Komma igång med Hadoop och Hive i Azure HDInsight med Resource Manager-mall '
 description: Lär dig hur du skapar HDInsight-kluster och kör frågor mot data med Hive.
 keywords: hadoop komma igång, hadoop linux, hadoop Snabbstart, komma igång, hive hive-Snabbstart
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
-ms.assetid: 6a12ed4c-9d49-4990-abf5-0a79fdfca459
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive,hdiseo17may2017,mvc
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: jgao
-ms.openlocfilehash: c49371d194b3b6f94076cb00595ec9feaeb3fb44
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 4f41dd2fafb65c5fe4fa38cafb63d3d691a953d4
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096408"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595621"
 ---
 # <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-resource-manager-template"></a>Snabbstart: Komma igång med Hadoop och Hive i Azure HDInsight med Resource Manager-mall
 
@@ -54,7 +50,7 @@ I det här avsnittet skapar du ett Hadoop-kluster i HDInsight med en Azure Resou
     |Egenskap  |Beskrivning  |
     |---------|---------|
     |**Prenumeration**     |  Välj din Azure-prenumeration. |
-    |**Resursgrupp**     | Skapa en resursgrupp eller välj en befintlig resursgrupp.  En resursgrupp är en behållare med Azure-komponenter.  I det här fallet innehåller resursgruppen HDInsight-klustret och det beroende Azure Storage-kontot. |
+    |**Resursgrupp**     | Skapa en resursgrupp eller välj en befintlig resursgrupp.  En resursgrupp är en container med Azure-komponenter.  I det här fallet innehåller resursgruppen HDInsight-klustret och det beroende Azure Storage-kontot. |
     |**Plats**     | Välj en Azure-plats där du vill skapa klustret.  Välj en plats närmare så får du bättre prestanda. |
     |**Klustertyp**     | Välj **Hadoop**. |
     |**Klusternamn**     | Ange ett namn för Hadoop-klustret. Eftersom alla kluster i HDInsight delar samma DNS-namnområde måste namnet vara unikt. Namnet kan bestå av upp till 59 tecken, inklusive bokstäver, siffror och bindestreck. De första och sista tecknen i namnet får inte vara bindestreck. |

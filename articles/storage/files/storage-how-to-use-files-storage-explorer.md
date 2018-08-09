@@ -2,24 +2,18 @@
 title: Hantera Azure-filresurser med Azure Storage Explorer
 description: Lär dig att hantera Azure Files med Azure Storage Explorer.
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: aungoo
-editor: tamram
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: wgries
-ms.openlocfilehash: ea401099ce90248be0ecb99109b845ff9a91f70d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: files
+ms.openlocfilehash: e8989cadd331021a3e35fc559421bbdd08f0b4fb
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308505"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521202"
 ---
 # <a name="manage-azure-file-shares-with-azure-storage-explorer"></a>Hantera Azure-filresurser med Azure Storage Explorer 
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Den här artikeln vägleder dig igenom grunderna i att arbeta med Azure-filresurser med [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Storage Explorer är ett populärt klientverktyg som finns för Windows, macOS och Linux. Du kan använda Storage Explorer för att hantera Azure-filresurser och andra lagringsresurser.
@@ -36,7 +30,7 @@ I den här artikeln kan du se hur du:
 > * Hämta en fil
 > * Skapa och använda en ögonblicksbild av en resurs
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 Du kan inte skapa nya resurser med Storage Explorer. can't use Storage Explorer to create new resources. Skapa lagringskontot i [Azure-portalen](https://portal.azure.com/) för den här demon. 

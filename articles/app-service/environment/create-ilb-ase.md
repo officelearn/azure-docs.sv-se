@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 9fdbfd0338b1c4b6ac863f07e5808ce6ccd9a6c7
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: df4730078b890353c697b0e9213fb66cdb4e7f9b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347365"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436700"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Skapa och använda en intern lastbalanserare med en App Service-miljö #
 
@@ -58,17 +58,17 @@ Så här skapar du en intern belastningsutjämnare i apptjänstmiljö:
 
 1. I Azure-portalen väljer du **Skapa en resurs** > **Webb och mobilt** > **App Service Environment**.
 
-2. Välj din prenumeration.
+1. Välj din prenumeration.
 
-3. Välj eller skapa en Resursgrupp.
+1. Välj eller skapa en Resursgrupp.
 
-4. Välj eller skapa ett virtuellt nätverk (VNet).
+1. Välj eller skapa ett virtuellt nätverk (VNet).
 
-5. Om du väljer ett befintligt VNet måste du skapa ett undernät för att rymma ASE. Se till att undernätets storlek är tillräckligt stort för att rymma kommande ASE-tillväxt. Vi rekommenderar en storlek på `/24`, som har 256 adresser och kan hantera en ASE med maximal storlek och olika skalningsbehov. 
+1. Om du väljer ett befintligt VNet måste du skapa ett undernät för att rymma ASE. Se till att undernätets storlek är tillräckligt stort för att rymma kommande ASE-tillväxt. Vi rekommenderar en storlek på `/24`, som har 256 adresser och kan hantera en ASE med maximal storlek och olika skalningsbehov. 
 
-6. Välj **Virtuellt nätverk/plats** > **Konfiguration av virtuellt nätverk**  Ställ in **VIP-typ** på **Intern**.
+1. Välj **Virtuellt nätverk/plats** > **Konfiguration av virtuellt nätverk**  Ställ in **VIP-typ** på **Intern**.
 
-7. Ange ett domännamn. Den här domänen är den som används för appar som har skapats i denna ASE. Det finns vissa begränsningar. Det kan inte vara:
+1. Ange ett domännamn. Den här domänen är den som används för appar som har skapats i denna ASE. Det finns vissa begränsningar. Det kan inte vara:
 
     * net   
 
@@ -88,7 +88,7 @@ Så här skapar du en intern belastningsutjämnare i apptjänstmiljö:
 
    Om du känner till dina appars anpassade domännamn väljer du en domän för den ILB ASE som inte står i konflikt med dessa anpassade domännamn. I det här exemplet kan du använda något som *contoso-internal.com* som ASE-domän eftersom det inte står i konflikt med anpassade domännamn som slutar med *.contoso.com*.
 
-8. Välj **OK** och sedan **Skapa**.
+1. Välj **OK** och sedan **Skapa**.
 
     ![ASE-generering][1]
 
@@ -105,19 +105,19 @@ Du skapar en app i en ILB ASE på samma sätt som du skapar en app i en ASE vanl
 
 1. I Azure Portal väljer du **Skapa en resurs** > **Webb och mobilt** > **Webbapp**.
 
-2. Ange appens namn.
+1. Ange appens namn.
 
-3. Välj prenumerationen.
+1. Välj prenumerationen.
 
-4. Välj eller skapa en Resursgrupp.
+1. Välj eller skapa en Resursgrupp.
 
-5. Välj ditt operativsystem. 
+1. Välj ditt operativsystem. 
 
     * Du kan bara ta din egen container med anvisningarna [här][linuxapp] om du vill skapa en Linux-app med hjälp av en anpassad Docker-container. 
 
-6. Välj eller skapa en App Service plan. Om du vill skapa en ny App Service plan väljer du ASE som plats. Välj den arbetarpool där du vill att din App Service plan ska skapas. När du skapar din App Service plan ska du välja din ASE som plats och arbetarpoolen. När du anger namnet på appen ersätts domänen under ditt appnamn med ASE-domänen.
+1. Välj eller skapa en App Service plan. Om du vill skapa en ny App Service plan väljer du ASE som plats. Välj den arbetarpool där du vill att din App Service plan ska skapas. När du skapar din App Service plan ska du välja din ASE som plats och arbetarpoolen. När du anger namnet på appen ersätts domänen under ditt appnamn med ASE-domänen.
 
-7. Välj **Skapa**. Om du vill att appen ska visas på instrumentpanelen ska du markera kryssrutan **Fäst på instrumentpanelen**.
+1. Välj **Skapa**. Om du vill att appen ska visas på instrumentpanelen ska du markera kryssrutan **Fäst på instrumentpanelen**.
 
     ![Skapa App Service plan][2]
 
@@ -156,27 +156,27 @@ Så här laddar du upp egna certifikat och testar åtkomst:
 
 1. När ASE har skapats går du till ASE UI. Välj **ASE** > **Inställningar** > **ILB-certifikat**.
 
-2. Du anger ILB-certifikat genom att välja filen certificate .pfx och ange lösenordet. Det här steget tar tid att bearbeta. Det visas ett meddelande om att en överföring pågår.
+1. Du anger ILB-certifikat genom att välja filen certificate .pfx och ange lösenordet. Det här steget tar tid att bearbeta. Det visas ett meddelande om att en överföring pågår.
 
-3. Hämta ILB-adressen för din ASE. Välj **ASE** > **Egenskaper** > **Virtuell IP-adress**.
+1. Hämta ILB-adressen för din ASE. Välj **ASE** > **Egenskaper** > **Virtuell IP-adress**.
 
-4. Skapa en webbapp i din ASE när ASE har skapats.
+1. Skapa en webbapp i din ASE när ASE har skapats.
 
-5. Skapa en virtuell dator om du inte redan har en i detta VNet.
+1. Skapa en virtuell dator om du inte redan har en i detta VNet.
 
     > [!NOTE] 
     > Försök inte att skapa den här virtuella datorn i samma undernät som ASE eftersom den kommer att misslyckas eller orsaka problem.
     >
 
-6. Ange DNS för din ASE-domän. Du kan använda jokertecken med din domän i din DNS. Gör några enkla test genom att redigera värdfilerna på din virtuella dator för att ställa in namnet på webbappen till VIP IP-adressen:
+1. Ange DNS för din ASE-domän. Du kan använda jokertecken med din domän i din DNS. Gör några enkla test genom att redigera värdfilerna på din virtuella dator för att ställa in namnet på webbappen till VIP IP-adressen:
 
     a. Om din ASE har domännamnet _.ilbase.com_ och du skapar en webbapp med namnet _mytestapp_ hanteras den på _mytestapp.ilbase.com_. Sedan ställer du in _mytestapp.ilbase.com_ för att lösa ILB-adressen. (I Windows finns värdfilen på _C:\Windows\System32\drivers\etc\_.)
 
     b. Om du vill test webbdistributionens publicering eller åtkomst till den avancerade konsolen skapar du en post för _mytestapp.scm.ilbase.com_.
 
-7. Använd en webbläsare på den virtuella datorn och gå till http://mytestapp.ilbase.com. (Eller gå till ditt webbnamn i din domän.)
+1. Använd en webbläsare på den virtuella datorn och gå till http://mytestapp.ilbase.com. (Eller gå till ditt webbnamn i din domän.)
 
-8. Använd en webbläsare på den virtuella datorn och gå till https://mytestapp.ilbase.com. Om du använder ett självsignerat certifikat ska du acceptera bristen på säkerhet.
+1. Använd en webbläsare på den virtuella datorn och gå till https://mytestapp.ilbase.com. Om du använder ett självsignerat certifikat ska du acceptera bristen på säkerhet.
 
     IP-adressen för din ILB anges under **IP-adresser**. Den här listan innehåller även IP-adresserna som används av externa virtuella IP-adresser (VIP) och för inkommande hanteringstrafik.
 

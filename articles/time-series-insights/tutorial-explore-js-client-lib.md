@@ -2,18 +2,18 @@
 title: Utforska JavaScript-klientbiblioteket i Azure Time Series Insights
 description: Läs mer om JavaScript-klientbiblioteket i Azure Time Series Insights och dess relaterade programmeringsmodell.
 author: ashannon7
-manager: timlt
+manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
-ms.author: bryanla
-ms.openlocfilehash: 70e29b1a6b8a4443ae6545ec7960f1d2370218e3
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.author: anshan
+ms.openlocfilehash: 445584ef8f9a2534d7f183a4452df19ee87d0025
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969936"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627002"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Självstudie: Utforska JavaScript-klientbiblioteket i Azure Time Series Insights
 
@@ -65,7 +65,7 @@ Låt oss först se på HTML- och JavaScript-källkoden bakom sidan som renderade
      > Källkoden för JavaScript-biblioteket i ADAL är tillgänglig i [azure-activedirectory-library-for-js repository](https://github.com/AzureAD/azure-activedirectory-library-for-js).
      > Källkoden för TSI-klientens JavaScript-bibliotek är tillgänglig i [tsiclient repository](https://github.com/Microsoft/tsiclient).
 
-   - Under `<body>`-elementet finns `<div>` element som agerar som behållare för att definierar layouten för objekt på sidan, samt ett annat `<script>`-element:
+   - Under `<body>`-elementet finns `<div>`-element, som fungerar som containrar för att definierar layouten för objekt på sidan, samt ett annat `<script>`-element:
      - Det första `<div>`-elementet anger **Inloggnings**-dialogrutan (`id="loginModal"`).
      - Det andra `<div>`-elementet agerar som överordnat för:
        - Ett rubrik `<div>`-element som används för statusmeddelanden och inloggningsinformation längst upp på sidan (`class="header"`).

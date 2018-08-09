@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: f2ef53ee53eb2e95d84fc11f3190f62d0e3c2455
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: afbdf2171c1fc1eef95514526a509d171e262d4a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413883"
+ms.locfileid: "39435690"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Självstudie: Distribuera Azure Stream Analytics som en IoT Edge-modul (förhandsversion)
 
@@ -60,7 +60,7 @@ Ett Azure Storage-konto krävs för att Azure Stream Analytics-jobb ska fungera.
 
 1. Gå till **Skapa en resurs** i Azure Portal, ange **Lagringskonto** i sökrutan och välj sedan **Lagringskonto – blob, fil, tabell, kö**.
 
-2. Ange ett namn för ditt lagringskonto i fönstret **Skapa lagringskonto**, välj den plats där IoT Hub lagras, välj samma resursgrupp som din IoT Hub och sedan **Skapa**. Spara namnet för senare användning.
+1. Ange ett namn för ditt lagringskonto i fönstret **Skapa lagringskonto**, välj den plats där IoT Hub lagras, välj samma resursgrupp som din IoT Hub och sedan **Skapa**. Spara namnet för senare användning.
 
     ![skapar ett lagringskonto][1]
 
@@ -69,40 +69,40 @@ Ett Azure Storage-konto krävs för att Azure Stream Analytics-jobb ska fungera.
 
 1. Gå till **Skapa en resurs** > **Sakernas Internet** och välj sedan **Stream Analytics-jobb** i Azure Portal.
 
-2. Utför följande steg i fönstret **Nytt Stream Analytics-jobb**:
+1. Utför följande steg i fönstret **Nytt Stream Analytics-jobb**:
 
    1. Ange ett jobbnamn i rutan **jobbnamn**.
    
-   2. Använd samma **Resursgrupp** och **Plats** som används av IoT Hub. 
+   1. Använd samma **Resursgrupp** och **Plats** som används av IoT Hub. 
 
       > [!NOTE]
       > För närvarande stöds inte Azure Stream Analytics-jobb på IoT Edge i regionen USA, västra 2. 
 
-   3. Välj **Edge** under **Värdmiljö**.
+   1. Välj **Edge** under **Värdmiljö**.
     
-3. Välj **Skapa**.
+1. Välj **Skapa**.
 
-4. Öppna **Indata** under **Jobbtopologi** i det skapade jobbet.
+1. Öppna **Indata** under **Jobbtopologi** i det skapade jobbet.
 
    ![Azure Stream Analytics-indata](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
-5. Välj **Lägg till strömindata**och sedan **Edge Hub**.
+1. Välj **Lägg till strömindata**och sedan **Edge Hub**.
 
-6. Ange **temperatur** som inmatat alias i fönstret **Nya indata**. 
+1. Ange **temperatur** som inmatat alias i fönstret **Nya indata**. 
 
-7. Välj **Spara**.
+1. Välj **Spara**.
 
-8. Öppna **Utdata** under **Jobbtopologi**.
+1. Öppna **Utdata** under **Jobbtopologi**.
 
    ![Azure Stream Analytics-utdata](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
-9. Välj **Lägg till**och sedan **Edge Hub**.
+1. Välj **Lägg till**och sedan **Edge Hub**.
 
-10. I rutan **Nya utdata** anger du **avisering** som utdataalias. 
+1. I rutan **Nya utdata** anger du **avisering** som utdataalias. 
 
-11. Välj **Spara**.
+1. Välj **Spara**.
 
-12. Välj **Fråga** under **Jobbtopologi** och ersätt standardtexten med följande fråga som skapar en avisering om den genomsnittliga datortemperaturen når 70 grader inom en 30-sekundersperiod:
+1. Välj **Fråga** under **Jobbtopologi** och ersätt standardtexten med följande fråga som skapar en avisering om den genomsnittliga datortemperaturen når 70 grader inom en 30-sekundersperiod:
 
     ```sql
     SELECT  
@@ -115,15 +115,15 @@ Ett Azure Storage-konto krävs för att Azure Stream Analytics-jobb ska fungera.
     HAVING Avg(machine.temperature) > 70
     ```
 
-13. Välj **Spara**.
+1. Välj **Spara**.
 
-14. Under **Konfigurera** väljer du **inställningar för IoT Edge**.
+1. Under **Konfigurera** väljer du **inställningar för IoT Edge**.
 
-15. Välj ditt **Lagringskonto** från den nedrullningsbara menyn.
+1. Välj ditt **Lagringskonto** från den nedrullningsbara menyn.
 
-16. För fältet **Container** väljer du **Skapa ny** och anger ett namn för lagringscontainern. 
+1. För fältet **Container** väljer du **Skapa ny** och anger ett namn för lagringscontainern. 
 
-17. Välj **Spara**. 
+1. Välj **Spara**. 
 
 
 ## <a name="deploy-the-job"></a>Distribuera jobbet
@@ -132,25 +132,25 @@ Du kan nu distribuera Azure Stream Analytics-jobbet till din IoT Edge-enhet.
 
 1. I din IoT Hub i Azure Portal går du till **IoT Edge** och sedan öppnar du informationssidan för IoT Edge-enheter.
 
-2. Välj **Ange moduler**.  
+1. Välj **Ange moduler**.  
 
    Om du tidigare har distribuerat tempSensor-modulen på den här enheten kanske den fylls i automatiskt. Om inte så lägger du till modulen med följande steg:
 
    1. Klicka på **Lägg till** och välj **IoT Edge-modul**.
-   2. Ange **tempSensor** som namn.
-   3. Ange **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0** som URI för avbildning. 
-   4. Lämna de andra inställningarna oförändrade.
-   5. Välj **Spara**.
+   1. Ange **tempSensor** som namn.
+   1. Ange **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0** som URI för avbildning. 
+   1. Lämna de andra inställningarna oförändrade.
+   1. Välj **Spara**.
 
-3. Lägg till ditt Azure Stream Analytics Edge-jobb med följande steg:
+1. Lägg till ditt Azure Stream Analytics Edge-jobb med följande steg:
 
    1. Klicka på **Lägg till** och välj **Azure Stream Analytics-modul**.
-   2. Välj din prenumeration och Azure Stream Analytics Edge-jobbet som du skapade. 
-   3. Välj **Spara**.
+   1. Välj din prenumeration och Azure Stream Analytics Edge-jobbet som du skapade. 
+   1. Välj **Spara**.
 
-4. Välj **Nästa**.
+1. Välj **Nästa**.
 
-5. Ersätt standardvärdet i **Vägar** med följande kod. Uppdatera _{moduleName}_ med namnet på din Azure Stream Analytics-modul. Modulen ska ha samma namn som jobbet som det skapades från. 
+1. Ersätt standardvärdet i **Vägar** med följande kod. Uppdatera _{moduleName}_ med namnet på din Azure Stream Analytics-modul. Modulen ska ha samma namn som jobbet som det skapades från. 
 
     ```json
     {
@@ -163,11 +163,11 @@ Du kan nu distribuera Azure Stream Analytics-jobbet till din IoT Edge-enhet.
     }
     ```
 
-6. Välj **Nästa**.
+1. Välj **Nästa**.
 
-7. Välj **Skicka** i steget **Granska distribution**.
+1. Välj **Skicka** i steget **Granska distribution**.
 
-8. Återgå till informationssidan om enheten och välj sedan **Uppdatera**.  
+1. Återgå till informationssidan om enheten och välj sedan **Uppdatera**.  
 
     Du borde se att den nya Stream Analytics-modulen körs tillsammans med IoT Edge-agentmodulen och IoT Edge Hub.
 
@@ -185,7 +185,7 @@ Nu kan du gå till din IoT Edge-enhet för att se interaktionen mellan Azure Str
 <!--
    ![Docker output][8]
 -->
-2. Visa alla systemloggar och statistikdata. Använd Stream Analytics-modulnamnet:
+1. Visa alla systemloggar och statistikdata. Använd Stream Analytics-modulnamnet:
 
    ```cmd/sh
    iotedge logs -f {moduleName}  
@@ -210,7 +210,7 @@ Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som skap
 Om du endast vill ta bort körningen av IoT Hub kan du använda följande kommando med namnet på hubben och resursgruppens namn:
 
 ```azurecli-interactive
-az iot hub delete --name MyIoTHub --resource-group TestResources
+az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
 ```
 
 
@@ -218,14 +218,14 @@ Ta bort hela resursgruppen med namnet:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgrupper**.
 
-2. I textrutan **Filtrera efter namn ...** , skriver du namnet på resursgruppen som innehåller din IoT Hub. 
+1. I textrutan **Filtrera efter namn ...** , skriver du namnet på resursgruppen som innehåller din IoT Hub. 
 
-3. Till höger av din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
+1. Till höger av din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
 
 <!--
    ![Delete](./media/iot-edge-quickstarts-clean-up-resources/iot-edge-delete-resource-group.png)
 -->
-4. Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på din resursgrupp igen för att bekräfta och klicka sedan på **Ta bort**. Efter en liten stund tas resursgruppen och resurser som finns i den bort.
+1. Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på din resursgrupp igen för att bekräfta och klicka sedan på **Ta bort**. Efter en liten stund tas resursgruppen och resurser som finns i den bort.
 
 ## <a name="next-steps"></a>Nästa steg
 

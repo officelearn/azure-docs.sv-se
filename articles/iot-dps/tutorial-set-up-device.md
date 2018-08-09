@@ -1,20 +1,20 @@
 ---
 title: Konfigurera enheten för Azure IoT Hub Device Provisioning-tjänsten
 description: Konfigurera enheten för etablering via IoT Hub Device Provisioning-tjänsten under tillverkningsprocessen
-author: dsk-2015
-ms.author: dkshir
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/02/2018
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d589c0ece2b36970a31884aa72ee7ab87941a656
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 6e90d20053a8ccfcafc7648d81c61e9313ec57ab
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39146455"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523367"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Konfigurera enheten för etablering med Azure IoT Hub Device Provisioning-tjänsten
 
@@ -55,7 +55,7 @@ Klient-SDK:t för enhetsetableringstjänsten hjälper dig att implementera din p
 
     Det är viktigt att förutsättningarna för Visual Studio (Visual Studio och arbetsbelastningen ”Desktop development with C++” (Skrivbordsutveckling med C++)) är installerade på datorn **innan** installationen av `CMake` påbörjas. När förutsättningarna är uppfyllda och nedladdningen har verifierats installerar du CMake-byggesystemet.
 
-2. Öppna en kommandotolk eller Git Bash-gränssnittet. Kör följande kommando för att klona [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplatsen:
+1. Öppna en kommandotolk eller Git Bash-gränssnittet. Kör följande kommando för att klona [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplatsen:
     
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
@@ -63,7 +63,7 @@ Klient-SDK:t för enhetsetableringstjänsten hjälper dig att implementera din p
     Storleken på den här lagringsplatsen är för närvarande cirka 220 MB. Den här åtgärden kan förväntas ta flera minuter att slutföra.
 
 
-3. Skapa en `cmake`-underkatalog i rotkatalogen på git-lagringsplatsen och navigera till den mappen. 
+1. Skapa en `cmake`-underkatalog i rotkatalogen på git-lagringsplatsen och navigera till den mappen. 
 
     ```cmd/sh
     cd azure-iot-sdk-c
@@ -71,7 +71,7 @@ Klient-SDK:t för enhetsetableringstjänsten hjälper dig att implementera din p
     cd cmake
     ```
 
-4. Bygg SDK för din utvecklingsplattform baserat på de attesteringsmetoder som du kommer att använda. Använd något av följande kommandon (observera även de två efterföljande punkterna för varje kommando). När det är klart bygger CMake `/cmake`-underkatalogen med innehåll som är specifikt för din enhet:
+1. Bygg SDK för din utvecklingsplattform baserat på de attesteringsmetoder som du kommer att använda. Använd något av följande kommandon (observera även de två efterföljande punkterna för varje kommando). När det är klart bygger CMake `/cmake`-underkatalogen med innehåll som är specifikt för din enhet:
  
     - För enheter som använder TPM-simulatorn för attestering:
 
@@ -103,7 +103,7 @@ Beroende på om du har byggt SDK för att använda attestering för en fysisk TP
 - För en X.509-enhet måste du erhålla de certifikat som utfärdats till dina enheter. Etableringstjänsten visar två typer av registreringsposter som styr åtkomst för enheter med hjälp av X.509-attesteringsmetoden. Vilka certifikat som krävs beror på de registreringstyper som du kommer att använda.
 
     1. Enskilda registreringar: registrering för en specifik enskild enhet. Den här typen av registreringspost kräver [certifikat för slutentitet, "leaf"](concepts-security.md#end-entity-leaf-certificate).
-    2. Registreringsgrupper: Den här typen av registreringspost kräver mellanliggande certifikat eller rotcertifikat. Mer information finns på sidan om att [kontrollera enhetsåtkomst till etableringstjänsten med X.509-certifikat](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+    1. Registreringsgrupper: Den här typen av registreringspost kräver mellanliggande certifikat eller rotcertifikat. Mer information finns på sidan om att [kontrollera enhetsåtkomst till etableringstjänsten med X.509-certifikat](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ### <a name="simulated-devices"></a>Simulerade enheter
 
@@ -122,21 +122,21 @@ Beroende på om du har byggt SDK för att använda attestering för en simulerad
       > [!NOTE]
       > Om du använder Git Bash-kommandotolken för det här steget behöver du ändra de omvända snedstrecken till vanliga snedstreck, till exempel: `./provisioning_client/deps/utpm/tools/tpm_simulator/Simulator.exe`.
 
-   2. I Visual Studio öppnar du lösningen som genererats i *cmake*-mappen med namnet `azure_iot_sdks.sln`, och bygger den med kommandot "Build solution" (Bygg lösning) på menyn "Build" (Bygg).
+   1. I Visual Studio öppnar du lösningen som genererats i *cmake*-mappen med namnet `azure_iot_sdks.sln`, och bygger den med kommandot "Build solution" (Bygg lösning) på menyn "Build" (Bygg).
 
-   3. I rutan*Solution Explorer* i Visual Studio går du till mappen **Provision (Etablera)\_Verktyg**. Högerklicka på projektet **tpm_device_provision** och markera **Set as Startup Project** (Ange som startprojekt). 
+   1. I rutan*Solution Explorer* i Visual Studio går du till mappen **Provision (Etablera)\_Verktyg**. Högerklicka på projektet **tpm_device_provision** och markera **Set as Startup Project** (Ange som startprojekt). 
 
-   4. Kör lösningen med något av startkommandona på felsökningsmenyn. I utdatafönstret visas TPM-simulatorns **_registrerings-ID_** och **_bekräftelsenyckeln_** som behövs för enhetsregistrering och registrering. Kopiera dessa värden för senare bruk. Du kan stänga det här fönstret (med registrerings-ID och bekräftelsenyckeln), men lämna TPM-simulatorfönstret från steg 1 öppet.
+   1. Kör lösningen med något av startkommandona på felsökningsmenyn. I utdatafönstret visas TPM-simulatorns **_registrerings-ID_** och **_bekräftelsenyckeln_** som behövs för enhetsregistrering och registrering. Kopiera dessa värden för senare bruk. Du kan stänga det här fönstret (med registrerings-ID och bekräftelsenyckeln), men lämna TPM-simulatorfönstret från steg 1 öppet.
 
 - För en simulerad X.509-enhet:
 
   1. I Visual Studio öppnar du lösningen som genererats i *cmake*-mappen med namnet `azure_iot_sdks.sln`, och bygger den med kommandot "Build solution" (Bygg lösning) på menyn "Build" (Bygg).
 
-  2. I rutan*Solution Explorer* i Visual Studio går du till mappen **Provision (Etablera)\_Verktyg**. Högerklicka på projektet **dice\_device\_enrollment** (dice-enhetsregistrering) och markera **Set as Startup Project** (Ange som startprojekt). 
+  1. I rutan*Solution Explorer* i Visual Studio går du till mappen **Provision (Etablera)\_Verktyg**. Högerklicka på projektet **dice\_device\_enrollment** (dice-enhetsregistrering) och markera **Set as Startup Project** (Ange som startprojekt). 
   
-  3. Kör lösningen med något av startkommandona på felsökningsmenyn. I utdatafönstret anger du **i** för individuell registrering när du blir uppmanad till det. I utdatafönstret visas ett lokalt genererat X.509-certifikat för din simulerade enhet. Kopiera utdata till Urklipp som börjar på *-----BEGIN CERTIFICATE-----* och slutar på den första *-----END CERTIFICATE-----*, och se till att du får med båda raderna. Du behöver bara det första certifikatet från utmatningsfönstret.
+  1. Kör lösningen med något av startkommandona på felsökningsmenyn. I utdatafönstret anger du **i** för individuell registrering när du blir uppmanad till det. I utdatafönstret visas ett lokalt genererat X.509-certifikat för din simulerade enhet. Kopiera utdata till Urklipp som börjar på *-----BEGIN CERTIFICATE-----* och slutar på den första *-----END CERTIFICATE-----*, och se till att du får med båda raderna. Du behöver bara det första certifikatet från utmatningsfönstret.
  
-  4. Skapa en fil med namnet **_X509testcert.pem_**, öppna den i valfritt textredigeringsprogram och kopiera urklippsinnehållet till filen. Spara filen. Du kommer att använda den senare för enhetsregistrering. När din registreringsprogramvara körs använder den samma certifikat vid automatisk etablering.    
+  1. Skapa en fil med namnet **_X509testcert.pem_**, öppna den i valfritt textredigeringsprogram och kopiera urklippsinnehållet till filen. Spara filen. Du kommer att använda den senare för enhetsregistrering. När din registreringsprogramvara körs använder den samma certifikat vid automatisk etablering.    
 
 Dessa säkerhetsuppgifter krävs vid registrering av enheten till enhetsetableringstjänsten. Etableringstjänsten väntar tills enheten har startats och ansluter till den vid en senare tidpunkt. När enheten startar för första gången interagerar logiken hos klient-SDK:t med din krets (eller simulator) för att extrahera säkerhetsartefakterna från enheten och verifierar registreringen med enhetsetableringstjänsten. 
 
@@ -151,9 +151,9 @@ Det sista steget är att skriva ett registreringsprogram som använder klient-SD
 
     ![Extrahera DP-slutpunktsinformation från portalbladet](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
 
-2. I Visual Studio *Solution Explorer* på datorn går du till mappen **Provision (Etablera)\_Exempel**. Välj exempelprojektet med namnet **prov\_dev\_client\_sample** och öppna källfilen **prov\_dev\_client\_sample.c**.
+1. I Visual Studio *Solution Explorer* på datorn går du till mappen **Provision (Etablera)\_Exempel**. Välj exempelprojektet med namnet **prov\_dev\_client\_sample** och öppna källfilen **prov\_dev\_client\_sample.c**.
 
-3. Tilldela värdet för _ID-omfång_ som erhölls i steg 1 till variabeln `id_scope` (tar bort vänster /`[` och höger/`]` hakparentes): 
+1. Tilldela värdet för _ID-omfång_ som erhölls i steg 1 till variabeln `id_scope` (tar bort vänster /`[` och höger/`]` hakparentes): 
 
     ```c
     static const char* global_prov_uri = "global.azure-devices-provisioning.net";
@@ -162,16 +162,16 @@ Det sista steget är att skriva ett registreringsprogram som använder klient-SD
 
     `global_prov_uri`-variabeln gör att klientregistrerings-API:t för IoT-hubb `IoTHubClient_LL_CreateFromDeviceAuth` kan ansluta till den avsedda instansen för enhetsetableringstjänsten.
 
-4. I **main()**-funktionen i samma fil kommenterar/avkommenterar du `hsm_type`-variabeln som matchar den attesteringsmetod som används av enhetens registreringsprogramvara (TPM eller X.509): 
+1. I **main()**-funktionen i samma fil kommenterar/avkommenterar du `hsm_type`-variabeln som matchar den attesteringsmetod som används av enhetens registreringsprogramvara (TPM eller X.509): 
 
     ```c
     hsm_type = SECURE_DEVICE_TYPE_TPM;
     //hsm_type = SECURE_DEVICE_TYPE_X509;
     ```
 
-5. Spara dina ändringar och bygg om exemplet **prov\_dev\_client\_sample** genom att välja "Build solution" (Bygg lösning) på menyn"Build" (Bygg). 
+1. Spara dina ändringar och bygg om exemplet **prov\_dev\_client\_sample** genom att välja "Build solution" (Bygg lösning) på menyn"Build" (Bygg). 
 
-6. Högerklicka på projektet **prov\_dev\_client\_sample** i mappen **Provision\_Samples** och välj **Set as Startup Project** (Ange som startprojekt). Kör INTE exempelprogrammet ännu.
+1. Högerklicka på projektet **prov\_dev\_client\_sample** i mappen **Provision\_Samples** och välj **Set as Startup Project** (Ange som startprojekt). Kör INTE exempelprogrammet ännu.
 
 > [!IMPORTANT]
 > Kör/starta inte enheten ännu! Du måste slutföra processen genom att registrera enheten med enhetsetableringstjänsten innan du startar enheten. I avsnittet Nästa steg nedan vägleds du till nästa artikel.
@@ -204,7 +204,7 @@ Du kanske också behöver förfina klientregistreringsprogrammet för enhetsetab
 I det här läget kanske enhetsetablerings- och IoT-hubbtjänsterna körs i portalen. Om du vill avbryta enhetsetableringsinstallationen och/eller vänta med att slutföra den här kursserien rekommenderar vi att du stänger av dem för att undvika onödiga kostnader.
 
 1. Klicka på **Alla resurser** på menyn till vänster på Azure-portalen och välj din Device Provisioning-tjänst. Klicka på **Ta bort** överst på bladet **Alla resurser**.  
-2. Klicka på **Alla resurser** på menyn till vänster på Azure-portalen och välj din IoT-hubb. Klicka på **Ta bort** överst på bladet **Alla resurser**.  
+1. Klicka på **Alla resurser** på menyn till vänster på Azure-portalen och välj din IoT-hubb. Klicka på **Ta bort** överst på bladet **Alla resurser**.  
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudiekursen lärde du dig att:

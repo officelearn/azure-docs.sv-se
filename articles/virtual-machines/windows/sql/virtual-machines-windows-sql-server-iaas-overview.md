@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/12/2018
 ms.author: jroth
-ms.openlocfilehash: 6c7f2eb3e126bbcefefe47fa42231527004b2ac5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2d38e5d7902e0db2342bce19ae2022a9433bfcfe
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31423107"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617742"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Vad är SQL Server på Azure Virtual Machines? (Windows)
 
@@ -89,13 +89,13 @@ Om du har en befintlig databas vill du antagligen flytta den till den nyetablera
 Azure underhåller en avbildning av en virtuell dator för varje kombination av operativsystem, version och utgåva som stöds. Det betyder att avbildningar uppdateras med tiden och att äldre avbildningar tas bort. Mer information finns i avsnittet **Avbildningar** i [Virtuella SQL Server-datorer, vanliga frågor och svar](virtual-machines-windows-sql-server-iaas-faq.md#images).
 
 ## <a name="customer-experience-improvement-program-ceip"></a>CEIP (Customer Experience Improvement Program)
-CEIP (Customer Experience Improvement Program) är aktiverat som standard. Det skickar periodvisa rapporter till Microsoft för att hjälpa att förbättra SQL Server. Det krävs inga hanteringsaktiviteter för CEIP om du inte vill inaktivera den efter etablering. Du kan anpassa eller inaktivera CEIP genom att ansluta till den virtuella datorn med Fjärrskrivbord. Kör sedan verktyget **Fel- och användningsrapportering för SQL Server**. Inaktivera rapporteringen genom att följa anvisningarna. Mer information om datainsamling finns i [SQL Server-sekretesspolicyn](https://www.microsoft.com/EN-US/privacystatement/SQLServer/Default.aspx).
+CEIP (Customer Experience Improvement Program) är aktiverat som standard. Det skickar periodvisa rapporter till Microsoft för att hjälpa att förbättra SQL Server. Det krävs inga hanteringsaktiviteter för CEIP om du inte vill inaktivera den efter etablering. Du kan anpassa eller inaktivera CEIP genom att ansluta till den virtuella datorn med Fjärrskrivbord. Kör sedan verktyget **Fel- och användningsrapportering för SQL Server**. Inaktivera rapporteringen genom att följa anvisningarna. Mer information om datainsamling finns i [SQL Server-sekretesspolicyn](https://docs.microsoft.com/sql/getting-started/microsoft-sql-server-privacy-statement).
 
 ## <a name="related-products-and-services"></a>Relaterade produkter och tjänster
 ### <a name="windows-virtual-machines"></a>Virtuella Windows-datorer
 * [Översikt över virtuella datorer](../overview.md)
 
-### <a name="storage"></a>Lagring
+### <a name="storage"></a>Storage
 * [Introduktion till Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
 
 ### <a name="networking"></a>Nätverk

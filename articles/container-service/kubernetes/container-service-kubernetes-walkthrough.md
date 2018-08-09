@@ -9,20 +9,20 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 62c2ebcdd3c40fd5204e20e4e15b0af784804ff0
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: c592952c4e6ebff0db0833fd7b235fbb911909af
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100478"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423794"
 ---
-# <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Distribuera Kubernets-kluster för Linux-behållare
+# <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Distribuera Kubernets-kluster för Linux-containrar
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 I den här snabbstartsguiden ska vi distribuera ett Kubernetes-kluster med hjälp av Azure CLI. Därefter distribuerar vi och kör ett flerbehållarprogram som består av en webbklientdel och en Redis-instans i klustret. När vi har gjort det kan programmet nås via Internet. 
 
-Exempelprogrammet som används i det här dokumentet är skrivet i Python. Begreppen och anvisningarna här kan användas för att distribuera valfri behållaravbildning till ett Kubernetes-kluster. Koden, Dockerfile, och befintliga Kubernetes-manifestfiler som hör till projektet, finns på [GitHub](https://github.com/Azure-Samples/azure-voting-app-redis.git).
+Exempelprogrammet som används i det här dokumentet är skrivet i Python. Begreppen och anvisningarna här kan användas för att distribuera valfri containeravbildning till ett Kubernetes-kluster. Koden, Dockerfile, och befintliga Kubernetes-manifestfiler som hör till projektet, finns på [GitHub](https://github.com/Azure-Samples/azure-voting-app-redis.git).
 
 ![Bild som illustrerar hur du navigerar till Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
@@ -36,7 +36,7 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras. 
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az-group-create). En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras. 
 
 I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *westeurope*.
 
@@ -61,13 +61,13 @@ Resultat:
 
 ## <a name="create-kubernetes-cluster"></a>Skapa Kubernetes-kluster
 
-Skapa ett Kubernetes-kluster i Azure Container Service med kommandot [az acs create](/cli/azure/acs#az_acs_create). I följande exempel skapas ett kluster med namnet *myK8sCluster* med en Linux-huvudnod och tre Linux-agentnoder.
+Skapa ett Kubernetes-kluster i Azure Container Service med kommandot [az acs create](/cli/azure/acs#az-acs-create). I följande exempel skapas ett kluster med namnet *myK8sCluster* med en Linux-huvudnod och tre Linux-agentnoder.
 
 ```azurecli-interactive 
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys
 ```
 
-I vissa fall, som vid en begränsad utvärderingsversion, har en Azure-prenumeration begränsad åtkomst till Azure-resurser. Om distributionen misslyckas på grund av begränsade tillgängliga kärnor minskar du antalet standardagenter genom att lägga till `--agent-count 1` till kommandot [az acs create](/cli/azure/acs#az_acs_create). 
+I vissa fall, som vid en begränsad utvärderingsversion, har en Azure-prenumeration begränsad åtkomst till Azure-resurser. Om distributionen misslyckas på grund av begränsade tillgängliga kärnor minskar du antalet standardagenter genom att lägga till `--agent-count 1` till kommandot [az acs create](/cli/azure/acs#az-acs-create). 
 
 Efter en stund slutförs kommandot och returnerar json-formaterad information om klustret. 
 
@@ -101,7 +101,7 @@ k8s-master-14ad53a1-0   Ready,SchedulingDisabled   10m       v1.6.6
 
 ## <a name="run-the-application"></a>Köra programmet
 
-En Kubernetes-manifestfil definierar ett önskat tillstånd för klustret, till exempel vilka behållaravbildningar som ska köras. I det här exemplet används ett manifest för att skapa alla objekt som behövs för att köra Azure Vote-programmet. 
+En Kubernetes-manifestfil definierar ett önskat tillstånd för klustret, till exempel vilka containeravbildningar som ska köras. I det här exemplet används ett manifest för att skapa alla objekt som behövs för att köra Azure Vote-programmet. 
 
 Skapa en fil med namnet `azure-vote.yml` och kopiera följande YAML till den. Om du arbetar i Azure Cloud Shell, kan du skapa filen med vi eller Nano som i ett virtuellt eller fysiskt system.
 
@@ -203,7 +203,7 @@ Nu kan du bläddra till den externa IP-adressen för att se Azure Vote-appen.
 ![Bild som illustrerar hur du navigerar till Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)  
 
 ## <a name="delete-cluster"></a>Ta bort klustret
-När klustret inte längre behövs du använda kommandot [az group delete](/cli/azure/group#az_group_delete) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
+När klustret inte längre behövs du använda kommandot [az group delete](/cli/azure/group#az-group-delete) för att ta bort resursgruppen, containertjänsten och alla relaterade resurser.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes --no-wait
@@ -211,7 +211,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="get-the-code"></a>Hämta koden
 
-I den här snabbstartsguide har fördefinierade behållaravbildningar använts för att skapa en Kubernetes-distribution. Den tillhörande programkoden, Dockerfile och Kubernetes-manifestfilen finns på GitHub.
+I den här snabbstartsguiden har fördefinierade containeravbildningar använts för att skapa en Kubernetes-distribution. Den tillhörande programkoden, Dockerfile och Kubernetes-manifestfilen finns på GitHub.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 

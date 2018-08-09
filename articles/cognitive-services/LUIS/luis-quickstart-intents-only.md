@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 578fdb5593e75e3584e81d73d7643162f7af5cbc
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: de295a93d395cee4c4dfbea4f2e7f7338036feb8
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358146"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494381"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>Självstudie: 1. Skapa en app med en anpassad domän
 I den här självstudien skapar du en app som visar hur du använder **avsikter** för att ta reda på användarens _avsikt_ baserat på yttrandet (texten) de skickar till appen. När du är klar har du en LUIS-slutpunkt som körs i molnet.
@@ -84,19 +84,15 @@ Den här appen innehåller ett par avsikter. Den första avsikten, **`GetJobInfo
     I det LUIS-anropande programmet, till exempel en chattrobot, kan roboten, om LUIS returnerar avsikten **None** (Ingen) för ett yttrande, fråga om användaren vill avsluta konversationen. Chattroboten kan även ge fler anvisningar för att fortsätta konversationen om användaren inte vill avsluta den. 
 
 ## <a name="train-and-publish-the-app"></a>Träna och publicera appen
-1. Längst uppe till höger på LUIS-webbplatsen väljer du knappen **Train** (Träna). 
 
-    ![Knappen Train (Träna)](./media/luis-quickstart-intents-only/train-button.png)
-
-2. Träningen är klar när du ser det gröna statusfältet som bekräftar att det är klart längst upp på webbplatsen.
-
-    ![Statusfält för avslutad träning](./media/luis-quickstart-intents-only/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-app-to-endpoint"></a>Publicera app till slutpunkt
 
 [!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## <a name="query-endpoint-for-getjobinformation-intent"></a>Fråga slutpunkten om avsikten GetJobInformation
+
 1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Gå till slutet av URL:en i adressen och ange `I'm looking for a job with Natual Language Processing`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som något av exempelyttrandena i steg 4. Därför är det ett bra test och bör returnera avsikten `GetJobInformation` som den avsikt som har högst poäng. 
@@ -189,7 +185,8 @@ JSON-resultatet identifierar avsikten med högst poäng. Alla poäng är mellan 
 LUIS är klar med den här begäran. Det anropande programmet, till exempel en chattrobot, kan ta topScoringIntent-resultatet och antingen hitta information (som inte lagras i LUIS) för att besvara frågan eller avsluta konversationen. Det här är programmatiska alternativ för roboten eller det anropande programmet. LUIS utför inte det arbetet. LUIS tar endast reda på vad användarens avsikt är. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort LUIS-appen när den inte längre behövs. Det gör du genom att välja **My apps** (Mina appar) på menyn längst upp till vänster. Välj ellipsen (***...***) till höger om appnamnet i applistan och välj **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

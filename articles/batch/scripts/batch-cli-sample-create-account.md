@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: danlep
-ms.openlocfilehash: ced93032203c33dc4cda362d30192ee8eb37d944
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 86a04393761b79d76339c111d5c5c8b76dc983c2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38455119"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431216"
 ---
 # <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>CLI-exempel: Skapa ett Batch-konto i Batch-tjänstläge
 
@@ -47,14 +47,14 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 | Kommando | Anteckningar |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
-| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Skapar Batch-kontot. |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Skapar ett lagringskonto. |
-| [az batch account set](/cli/azure/batch/account#az_batch_account_set) | Uppdaterar egenskaperna för Batch-kontot.  |
-| [az batch account show](/cli/azure/batch/account#az_batch_account_show) | Hämtar information om det angivna Batch-kontot.  |
-| [az batch account keys list](/cli/azure/batch/account/keys#az_batch_account_keys_list) | Hämtar åtkomstnycklar för det angivna Batch-kontot.  |
-| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Autentiserar mot det angivna Batch-kontot för ytterligare CLI-interaktion.  |
-| [az group delete](/cli/azure/group#az_group_delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Skapar Batch-kontot. |
+| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Skapar ett lagringskonto. |
+| [az batch account set](/cli/azure/batch/account#az-batch-account-set) | Uppdaterar egenskaperna för Batch-kontot.  |
+| [az batch account show](/cli/azure/batch/account#az-batch-account-show) | Hämtar information om det angivna Batch-kontot.  |
+| [az batch account keys list](/cli/azure/batch/account/keys#az-batch-account-keys-list) | Hämtar åtkomstnycklar för det angivna Batch-kontot.  |
+| [az batch account login](/cli/azure/batch/account#az-batch-account-login) | Autentiserar mot det angivna Batch-kontot för ytterligare CLI-interaktion.  |
+| [az group delete](/cli/azure/group#az-group-delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
 

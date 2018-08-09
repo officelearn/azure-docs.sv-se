@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
-ms.openlocfilehash: 2b0420302bc74d4534d712de618959ef68c76514
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 133cc9d8fa52bb655e9baaad53ee157fdc7524f7
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126376"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429428"
 ---
 # <a name="process-emails-and-attachments-with-azure-logic-apps"></a>Bearbeta e-postmeddelanden och bilagor med Azure Logic Apps
 
@@ -82,7 +82,7 @@ Du kan spara inkommande e-postmeddelanden och blobar i en [Azure-lagringscontain
 
       ![Kopiera och spara lagringskontots namn och nyckel](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   När du hämtar lagringskontots åtkomstnyckel kan du också använda [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) och [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az_storage_account_keys_list). 
+   När du hämtar lagringskontots åtkomstnyckel kan du också använda [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) och [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list). 
 
 3. Skapa en bloblagringscontainer för e-postbilagor.
    
@@ -100,7 +100,7 @@ Du kan spara inkommande e-postmeddelanden och blobar i en [Azure-lagringscontain
 
       ![Klar lagringscontainer](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   När du skapar en lagringscontainer kan du också använda [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) och [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az_storage_container_create). 
+   När du skapar en lagringscontainer kan du också använda [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) och [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create). 
 
 Anslut sedan Storage Explorer till ditt lagringskonto.
 

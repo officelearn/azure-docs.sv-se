@@ -15,18 +15,18 @@ ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 4b5e432a9c553f5221f138b19a180f92420e6058
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b468240d1a9aaf0511358433a8beee7e6442e145
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38317757"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445029"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Självstudie: Vara värd för en RESTful-API med CORS i Azure App Service
 
 Med [Azure App Service](app-service-web-overview.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Dessutom har App Service ett inbyggt stöd för [CORS (Cross-Origin Resource Sharing)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) för RESTful-API:er. Den här självstudien visar hur du distribuerar en ASP.NET Core API-app till App Service med CORS-stöd. Du konfigurerar appen med hjälp av kommandoradsverktyg och distribuerar appen med Git. 
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa App Service-resurser med Azure CLI
@@ -168,7 +168,7 @@ Webbläsarappen bör ha en offentlig URL i stället för en localhost-URL i prod
 
 ### <a name="enable-cors"></a>Aktivera CORS 
 
-I Cloud Shell aktiverar du CORS till din klient-URL med kommandot [`az resource update`](/cli/azure/resource#az_resource_update). Ersätt platshållaren _&lt;appname>_.
+I Cloud Shell aktiverar du CORS till din klient-URL med kommandot [`az resource update`](/cli/azure/resource#az-resource-update). Ersätt platshållaren _&lt;appname>_.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.cors.allowedOrigins="['http://localhost:5000']" --api-version 2015-06-01

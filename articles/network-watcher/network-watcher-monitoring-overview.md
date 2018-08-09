@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 47b3ca20b32188f3cf102934c7f21d6418f3c2f6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 31a3a0618330b74c611afcdf70560ce47eeb85e3
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639351"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626363"
 ---
 # <a name="what-is-azure-network-watcher"></a>Vad är Azure Network Watcher?
 
@@ -35,7 +35,7 @@ Slutpunkterna kan vara en annan virtuell dator (VM), ett fullständigt domännam
 
 Om en slutpunkt inte kan nås, informerar anslutningens felsökning dig om orsaken. Möjliga orsaker är DNS-problem med namnmatchning, CPU, minne eller brandvägg i operativsystemet på en virtuell dator, hopptypen för en anpassad väg, eller en säkerhetsregel för den virtuella datorn eller undernätet i den utgående anslutningen. Läs mer om [säkerhetsregler](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules) och [hopptyper för vägar](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) i Azure.
 
-Anslutningsövervakaren visar också den minsta, genomsnittliga och högsta svarstid som observerats över tid. När du har sett vilken svarstid en anslutning har, kan du kanske minska svarstiden genom att flytta Azure-resurserna till olika Azure-regioner. Läs mer om hur du avgör [relativa svarstider mellan Azure-regioner och Internetleverantörer](#determine-relative-latencies-between-azure- regions-and-internet-service-providers), samt hur du övervakar kommunikationen mellan en virtuell dator och en slutpunkt med [anslutningsövervakaren](connection-monitor.md). Om du hellre vill testa en anslutning vid en specifik tidpunkt, i stället för att övervaka anslutningen över tid som du gör med anslutningsövervakaren, använder du [anslutningsfelsökning](#connection-troubleshoot).
+Anslutningsövervakaren visar också den minsta, genomsnittliga och högsta svarstid som observerats över tid. När du har sett vilken svarstid en anslutning har, kan du kanske minska svarstiden genom att flytta Azure-resurserna till olika Azure-regioner. Läs mer om hur du avgör [relativa svarstider mellan Azure-regioner och Internetleverantörer](#determine-relative-latencies-between-azure-regions-and-internet-service-providers), samt hur du övervakar kommunikationen mellan en virtuell dator och en slutpunkt med [anslutningsövervakaren](connection-monitor.md). Om du hellre vill testa en anslutning vid en specifik tidpunkt, i stället för att övervaka anslutningen över tid som du gör med anslutningsövervakaren, använder du [anslutningsfelsökning](#connection-troubleshoot).
 
 ### <a name="view-resources-in-a-virtual-network-and-their-relationships"></a>Visa resurser i ett virtuellt nätverk och deras relationer
 
@@ -95,7 +95,7 @@ Lär mer om NSG flödet loggarna genom att slutföra kursen [Logga nätverkstraf
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>Visa diagnostikloggar för nätverksresurser
 
-Du kan aktivera diagnostisk loggning för Azures nätverksresurser, till exempel nätverkssäkerhetsgrupper, offentliga IP-adresser, belastningsutjämnare, gatewayer för virtuella nätverk och programgatewayer. Funktionen *Diagnostikloggar* innehåller ett enda gränssnitt som aktiverar och inaktiverar nätverksresursens diagnostikloggar för alla befintliga nätverksresurser som genererar en diagnostiklogg. Du kan visa diagnostikloggar med hjälp av verktyg som Microsoft Power BI och Azure Log Analytics. Mer information om att analysera diagnostikloggar för Azure-nätverk finns [Azures nätverkslösningar i Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+Du kan aktivera diagnostisk loggning för Azures nätverksresurser, till exempel nätverkssäkerhetsgrupper, offentliga IP-adresser, lastbalanserare, gatewayer för virtuella nätverk och programgatewayer. Funktionen *Diagnostikloggar* innehåller ett enda gränssnitt som aktiverar och inaktiverar nätverksresursens diagnostikloggar för alla befintliga nätverksresurser som genererar en diagnostiklogg. Du kan visa diagnostikloggar med hjälp av verktyg som Microsoft Power BI och Azure Log Analytics. Mer information om att analysera diagnostikloggar för Azure-nätverk finns [Azures nätverkslösningar i Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 12a6e34db4134ffdb38428c0a38d94351747cc48
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: ccc0836a296bb392e60dd0c973516a7087ff6ea5
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900566"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429334"
 ---
 # <a name="deploy-a-dcos-cluster"></a>Distribuera ett DC/OS-kluster
 
-DC/OS tillhandahåller en distribuerad plattform för att köra moderna och behållarbaserade program. Med Azure Container Service går det snabbt och enkelt att etablera ett produktionsklart DC/OS-kluster. Den här snabbstarten beskriver de grundläggande stegen för att distribuera ett DC/OS-kluster och köra en grundläggande arbetsbelastning.
+DC/OS tillhandahåller en distribuerad plattform för att köra moderna och containerbaserade program. Med Azure Container Service går det snabbt och enkelt att etablera ett produktionsklart DC/OS-kluster. Den här snabbstarten beskriver de grundläggande stegen för att distribuera ett DC/OS-kluster och köra en grundläggande arbetsbelastning.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -26,7 +26,7 @@ För den här självstudien krävs Azure CLI-version 2.0.4 eller senare. Kör `a
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure 
 
-Logga in på Azure-prenumerationen med kommandot [az login](/cli/azure/reference-index#az_login) och följ anvisningarna på skärmen.
+Logga in på Azure-prenumerationen med kommandot [az login](/cli/azure/reference-index#az-login) och följ anvisningarna på skärmen.
 
 ```azurecli
 az login
@@ -34,7 +34,7 @@ az login
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. 
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az-group-create). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. 
 
 I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
 
@@ -44,7 +44,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-dcos-cluster"></a>Skapa DC/OS-kluster
 
-Skapa ett DC/OS-kluster med kommandot [az acs create](/cli/azure/acs#az_acs_create).
+Skapa ett DC/OS-kluster med kommandot [az acs create](/cli/azure/acs#az-acs-create).
 
 Följande exempel skapar ett DC/OS-kluster som heter *myDCOSCluster* och SSH-nycklar om de inte redan finns. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.  
 
@@ -52,7 +52,7 @@ Följande exempel skapar ett DC/OS-kluster som heter *myDCOSCluster* och SSH-nyc
 az acs create --orchestrator-type dcos --resource-group myResourceGroup --name myDCOSCluster --generate-ssh-keys
 ```
 
-I vissa fall, som vid en begränsad utvärderingsversion, har en Azure-prenumeration begränsad åtkomst till Azure-resurser. Om distributionen misslyckas på grund av begränsade tillgängliga kärnor minskar du antalet standardagenter genom att lägga till `--agent-count 1` till kommandot [az acs create](/cli/azure/acs#az_acs_create). 
+I vissa fall, som vid en begränsad utvärderingsversion, har en Azure-prenumeration begränsad åtkomst till Azure-resurser. Om distributionen misslyckas på grund av begränsade tillgängliga kärnor minskar du antalet standardagenter genom att lägga till `--agent-count 1` till kommandot [az acs create](/cli/azure/acs#az-acs-create). 
 
 Om några minuter har kommandot slutförts och returnerar information om distributionen.
 
@@ -157,7 +157,7 @@ Om du bläddrar till den här adressen returneras NGINX-standardplatsen.
 
 ## <a name="delete-dcos-cluster"></a>Ta bort DC/OS-kluster
 
-När den inte längre behövs kan du använda kommandot [az group delete](/cli/azure/group#az_group_delete) för att ta bort resursgruppen, DC/OS-klustret och alla relaterade resurser.
+När den inte längre behövs kan du använda kommandot [az group delete](/cli/azure/group#az-group-delete) för att ta bort resursgruppen, DC/OS-klustret och alla relaterade resurser.
 
 ```azurecli
 az group delete --name myResourceGroup --no-wait
@@ -165,7 +165,7 @@ az group delete --name myResourceGroup --no-wait
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du distribuerat ett DC/OS-kluster och har kört en enkel Docker-behållare i klustret. Om du vill veta mer om Azure Container Service kan du fortsätta till självstudiekurserna om ACS.
+I den här snabbstarten har du distribuerat ett DC/OS-kluster och har kört en enkel Docker-container i klustret. Om du vill veta mer om Azure Container Service kan du fortsätta till självstudiekurserna om ACS.
 
 > [!div class="nextstepaction"]
 > [Hantera ett ACS DC/OS-kluster](container-service-dcos-manage-tutorial.md)

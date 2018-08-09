@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 48f1a4950365c00b7bff8c804abd95fd7b7ab9b9
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: be6032d8c0ce7c20a080037fad216c4b540c90cb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069064"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435605"
 ---
 # <a name="tutorial-enable-web-application-firewall-using-the-azure-cli"></a>Självstudier: Aktivera brandvägg för webbaserade program med hjälp av Azure CLI
 
@@ -41,7 +41,7 @@ Om du väljer att installera och använda CLI lokalt kräver de här självstudi
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Skapa en resursgrupp i Azure med namnet *myResourceGroup* med [az group create](/cli/azure/group#az_group_create).
+En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Skapa en resursgrupp i Azure med namnet *myResourceGroup* med [az group create](/cli/azure/group#az-group-create).
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAG --location eastus
@@ -49,7 +49,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Skapa nätverksresurser
 
-Det virtuella nätverket och undernäten används till att ge programgatewayen och tillhörande resurser en nätverksanslutning. Skapa ett virtuellt nätverk med namnet *myVNet* och ett undernät med namnet *myAGSubnet* med [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) och [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Skapa en offentlig IP-adress med namnet *myAGPublicIPAddress* med [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create).
+Det virtuella nätverket och undernäten används till att ge programgatewayen och tillhörande resurser en nätverksanslutning. Skapa ett virtuellt nätverk med namnet *myVNet* och ett undernät med namnet *myAGSubnet* med [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) och [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). Skapa en offentlig IP-adress med namnet *myAGPublicIPAddress* med [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -73,7 +73,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway-with-a-waf"></a>Skapa en programgateway med en WAF
 
-Du kan använda [az network application-gateway create](/cli/azure/application-gateway#az_application_gateway_create) till att skapa en programgateway med namnet *myAppGateway*. När du skapar en programgateway med hjälp av Azure CLI anger du konfigurationsinformation som kapacitet, sku och HTTP-inställningar. Programgatewayen tilldelas till *myAGSubnet* och *myPublicIPAddress* som du skapade tidigare.
+Du kan använda [az network application-gateway create](/cli/azure/application-gateway#az-application-gateway-create) till att skapa en programgateway med namnet *myAppGateway*. När du skapar en programgateway med hjälp av Azure CLI anger du konfigurationsinformation som kapacitet, sku och HTTP-inställningar. Programgatewayen tilldelas till *myAGSubnet* och *myPublicIPAddress* som du skapade tidigare.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -108,7 +108,7 @@ Det kan ta flera minuter att skapa programgatewayen. När programgatewayen har s
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Skapa en VM-skalningsuppsättning
 
-I det här exemplet skapar du en VM-skalningsuppsättning som tillhandahåller två servrar till serverdelspoolen i programgatewayen. De virtuella datorerna i skalningsuppsättningen är associerade med undernätet *myBackendSubnet*. Du kan skapa skalningsuppsättningen med [az vmss create](/cli/azure/vmss#az_vmss_create).
+I det här exemplet skapar du en VM-skalningsuppsättning som tillhandahåller två servrar till serverdelspoolen i programgatewayen. De virtuella datorerna i skalningsuppsättningen är associerade med undernätet *myBackendSubnet*. Du kan skapa skalningsuppsättningen med [az vmss create](/cli/azure/vmss#az-vmss-create).
 
 ```azurecli-interactive
 az vmss create \
@@ -144,7 +144,7 @@ I den här självstudien används ett lagringskonto till att lagra data för ide
 
 ### <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Skapa ett lagringskonto med namnet *myagstore1* med [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create).
+Skapa ett lagringskonto med namnet *myagstore1* med [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create).
 
 ```azurecli-interactive
 az storage account create \
@@ -157,7 +157,7 @@ az storage account create \
 
 ### <a name="configure-diagnostics"></a>Konfigurera diagnostiken
 
-Konfigurera diagnostik för registrering av data i loggarna ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog och ApplicationGatewayFirewallLog. Ersätt `<subscriptionId>` med ditt prenumerations-id och konfigurera diagnostiken med [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az_monitor_diagnostic_settings_create).
+Konfigurera diagnostik för registrering av data i loggarna ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog och ApplicationGatewayFirewallLog. Ersätt `<subscriptionId>` med ditt prenumerations-id och konfigurera diagnostiken med [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create).
 
 ```azurecli-interactive
 appgwid=$(az network application-gateway show --name myAppGateway --resource-group myResourceGroupAG --query id -o tsv)
@@ -171,7 +171,7 @@ az monitor diagnostic-settings create --name appgwdiag --resource $appgwid \
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Hämta den offentliga IP-adressen för programgatewayen med [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
+Hämta den offentliga IP-adressen för programgatewayen med [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
 
 ```azurepowershell-interactive
 az network public-ip show \

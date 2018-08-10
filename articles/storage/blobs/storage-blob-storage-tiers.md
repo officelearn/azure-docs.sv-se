@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 5d12b9f04dc1cc5017ab4c9ff1bde9b84ac24cfe
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: b3279006d1ff947b76dd8fbba1438972e5f3ad8b
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400387"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630970"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: nivåer för frekvent lagring, lågfrekvent lagring och arkivlagring
 
@@ -71,6 +71,9 @@ Blobar i alla tre lagringsnivåer kan finnas tillsammans i samma konto. En blob 
 
 > [!NOTE]
 > Arkivlagring och blobnivåindelning stöder endast blockblobar. Du kan även ändra nivå för en blockblob som har ögonblicksbilder.
+
+### <a name="blob-lifecycle-management"></a>Livscykelhantering för BLOB
+Livscykelhantering för Blob Storage (förhandsversion) erbjuder en omfattande, regel-baserad princip som du kan använda för att överföra data till bästa åtkomstnivå och för att ta bort data i slutet av livscykeln. Se [hantering av Azure Blob storage-livscykeln](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts) vill veta mer.  
 
 ### <a name="blob-level-tiering-billing"></a>Fakturering för blobnivåindelning
 
@@ -187,6 +190,8 @@ Datalagringsbegränsningar och andra begränsningar anges på kontonivå, inte p
 ### <a name="evaluate-hot-cool-and-archive-in-gpv2-blob-storage-accounts"></a>Utvärdera frekvent/lågfrekvent lagring och arkivlagring i GPv2-/Blob Storage-konton
 
 [Kontrollera tillgängligheten för frekvent/lågfrekvent lagring och arkivlagring efter region](https://azure.microsoft.com/regions/#services)
+
+[Hantera livscykeln för Azure Blob-lagring](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts)
 
 [Utvärdera användningen av dina aktuella lagringskonton genom att aktivera mätvärden i Azure Storage.](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 

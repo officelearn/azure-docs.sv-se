@@ -1,52 +1,48 @@
 ---
-title: Ta emot händelser från Azure Event Hubs använder Java | Microsoft Docs
-description: Börja ta emot från Event Hubs använder Java
+title: Ta emot händelser från Azure Event Hubs med Java | Microsoft Docs
+description: Börja ta emot från Event Hubs med Java
 services: event-hubs
-documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: ''
-ms.assetid: 38e3be53-251c-488f-a856-9a500f41b6ca
 ms.service: event-hubs
 ms.workload: core
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
-ms.author: sethm
-ms.openlocfilehash: bf87bed80c142bce6229ad858a33a1c6ede63a23
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 06/12/2018
+ms.author: shvija
+ms.openlocfilehash: 1472dd6917b241ee60da316a7f7aeb09e5db646b
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40006633"
 ---
-# <a name="receive-events-from-azure-event-hubs-using-java"></a>Ta emot händelser från Azure Event Hubs använder Java
+# <a name="receive-events-from-azure-event-hubs-using-java"></a>Ta emot händelser från Azure Event Hubs med Java
 
-Händelsehubbar är en mycket skalbar införandet system som kan mata in miljontals händelser per sekund, aktivera ett program för att bearbeta och analysera de enorma mängder data som produceras av dina anslutna enheter och program. När uppgifterna väl samlats i Event Hubs, kan du omvandla och lagra data med hjälp av en leverantör av realtidsanalyser eller lagringskluster.
+Händelsehubbar är en mycket skalbar inmatning system som kan mata in miljontals händelser per sekund, aktivera ett program för att bearbeta och analysera de enorma mängder data som produceras av dina anslutna enheter och program. När uppgifterna väl samlats i Event Hubs, kan du omvandla och lagra data med hjälp av en leverantör av realtidsanalyser eller lagringskluster.
 
-Mer information finns i [översikt av Händelsehubbar][Event Hubs overview].
+Mer information finns i den [översikt av Händelsehubbar][Event Hubs overview].
 
-Den här kursen visar hur du tar emot händelser i en händelsehubb med hjälp av ett konsolprogram som skrivits i Java.
+Den här självstudien visar hur du tar emot händelser till en händelsehubb med ett konsolprogram som skrivits i Java.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att kunna slutföra den här kursen behöver du följande krav:
+För att kunna slutföra den här självstudien behöver du följande krav:
 
-* Java development environment. Den här självstudiekursen förutsätter vi att [Eclipse](https://www.eclipse.org/).
-* Ett aktivt Azure-konto. Om du inte har en Azure-prenumeration, skapa en [kostnadsfritt konto][] innan du börjar.
+* En Java-utvecklingsmiljön. I den här självstudiekursen förutsätter vi att [Eclipse](https://www.eclipse.org/).
+* Ett aktivt Azure-konto. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][] innan du börjar.
 
-Koden i den här kursen är baserad på den [EventProcessorSample kod på GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/EventProcessorSample), som du kan pröva för att se hela fungerande program.
+Koden i den här självstudien är baserad på den [EventProcessorSample kod på GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/EventProcessorSample), som du kan kontrollera för att se fullständiga fungerande program.
 
 ## <a name="receive-messages-with-eventprocessorhost-in-java"></a>Ta emot meddelanden med EventProcessorHost i Java
 
-**EventProcessorHost** är en javaklass som förenklar mottagandet av händelser från Event Hubs genom att hantera permanenta kontrollpunkter och parallella mottaganden från Event Hubs. Med EventProcessorHost kan dela du händelser på flera olika mottagare, även när de ligger på olika noder. Det här exemplet visas hur man använder EventProcessorHost för en enda mottagare.
+**EventProcessorHost** är en javaklass som förenklar mottagandet av händelser från Event Hubs genom att hantera permanenta kontrollpunkter och parallella mottaganden från Event Hubs. Med EventProcessorHost kan du dela upp händelser över flera olika mottagare, även när de ligger på olika noder. Det här exemplet visas hur man använder EventProcessorHost för en enda mottagare.
 
 ### <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Om du vill använda EventProcessorHost måste du ha en [Azure Storage-konto][Azure Storage account]:
+Om du vill använda EventProcessorHost, måste du ha en [Azure Storage-konto][Azure Storage account]:
 
 1. Logga in på den [Azure-portalen][Azure portal], och klicka på **+ skapa en resurs** på vänster sida av skärmen.
-2. Klicka på **Lagring** och sedan på **Lagringskonto**. I den **skapa lagringskonto** fönster, Skriv ett namn för lagringskontot. Slutför resten av fält, Välj önskad region och klicka sedan på **skapa**.
+2. Klicka på **Lagring** och sedan på **Lagringskonto**. I den **skapa lagringskonto** fönstret anger du ett namn för lagringskontot. Slutför resten av fälten, Välj önskad region och klicka sedan på **skapa**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
@@ -54,11 +50,11 @@ Om du vill använda EventProcessorHost måste du ha en [Azure Storage-konto][Azu
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
-    Kopiera key1-värdet till en tillfällig plats för senare användning i den här kursen.
+    Kopiera key1-värdet till en tillfällig plats att använda senare i den här självstudien.
 
 ### <a name="create-a-java-project-using-the-eventprocessor-host"></a>Skapa ett Java-projekt med EventProcessor-värden
 
-Java-klientbibliotek för Händelsehubbar är tillgänglig för användning i Maven-projekt från den [Maven centrallager][Maven Package], och kan refereras med hjälp av följande beroende deklarationen i din Maven projektfilen. Den aktuella versionen är 1.0.0:    
+Java-klientbibliotek för Event Hubs är tillgängliga för användning i Maven-projekt från den [Maven Central Repository][Maven Package], och kan refereras med följande beroendedeklaration i din Maven projektfilen. Den aktuella versionen är 1.0.0:    
 
 ```xml
 <dependency>
@@ -73,7 +69,7 @@ Java-klientbibliotek för Händelsehubbar är tillgänglig för användning i Ma
 </dependency>
 ```
 
-För olika typer av versionsmiljöer du explicit kan hämta de senaste utgivna JAR-filerna från de [Maven centrallager][Maven Package].  
+För olika typer av versionsmiljöer kan du uttryckligen hämta de senast utgivna JAR-filerna från den [Maven Central Repository][Maven Package].  
 
 1. För följande exempel skapar du först ett nytt Maven-projekt för ett konsol-/gränssnittsprogram i din favorit Java Development Environment. Klassen kallas `ErrorNotificationHandler`.     
    
@@ -90,7 +86,7 @@ För olika typer av versionsmiljöer du explicit kan hämta de senaste utgivna J
         }
     }
     ```
-2. Använd följande kod för att skapa en ny klass som kallas `EventProcessorSample`. Ersätt platshållarna med de värden som används när du har skapat kontot händelse NAV- och lagring:
+2. Använd följande kod för att skapa en ny klass som kallas `EventProcessorSample`. Ersätt platshållarna med värden som används när du har skapat kontot för event hub och lagring:
    
    ```java
    package com.microsoft.azure.eventhubs.samples.eventprocessorsample;
@@ -187,18 +183,14 @@ För olika typer av versionsmiljöer du explicit kan hämta de senaste utgivna J
     {
         private int checkpointBatchingCount = 0;
 
-        // OnOpen is called when a new event processor instance is created by the host. In a real implementation, this
-        // is the place to do initialization so that events can be processed when they arrive, such as opening a database
-        // connection.
+        // OnOpen is called when a new event processor instance is created by the host. 
         @Override
         public void onOpen(PartitionContext context) throws Exception
         {
             System.out.println("SAMPLE: Partition " + context.getPartitionId() + " is opening");
         }
 
-        // OnClose is called when an event processor instance is being shut down. The reason argument indicates whether the shut down
-        // is because another host has stolen the lease for this partition or due to error or host shutdown. In a real implementation,
-        // this is the place to do cleanup for resources that were opened in onOpen.
+        // OnClose is called when an event processor instance is being shut down. 
         @Override
         public void onClose(PartitionContext context, CloseReason reason) throws Exception
         {
@@ -206,18 +198,13 @@ För olika typer av versionsmiljöer du explicit kan hämta de senaste utgivna J
         }
         
         // onError is called when an error occurs in EventProcessorHost code that is tied to this partition, such as a receiver failure.
-        // It is NOT called for exceptions thrown out of onOpen/onClose/onEvents. EventProcessorHost is responsible for recovering from
-        // the error, if possible, or shutting the event processor down if not, in which case there will be a call to onClose. The
-        // notification provided to onError is primarily informational.
         @Override
         public void onError(PartitionContext context, Throwable error)
         {
             System.out.println("SAMPLE: Partition " + context.getPartitionId() + " onError: " + error.toString());
         }
 
-        // onEvents is called when events are received on this partition of the Event Hub. The maximum number of events in a batch
-        // can be controlled via EventProcessorOptions. Also, if the "invoke processor after receive timeout" option is set to true,
-        // this method will be called with null when a receive timeout occurs.
+        // onEvents is called when events are received on this partition of the Event Hub. 
         @Override
         public void onEvents(PartitionContext context, Iterable<EventData> events) throws Exception
         {
@@ -225,8 +212,6 @@ För olika typer av versionsmiljöer du explicit kan hämta de senaste utgivna J
             int eventCount = 0;
             for (EventData data : events)
             {
-                // It is important to have a try-catch around the processing of each event. Throwing out of onEvents deprives
-                // you of the chance to process any remaining events in the batch. 
                 try
                 {
                     System.out.println("SAMPLE (" + context.getPartitionId() + "," + data.getSystemProperties().getOffset() + "," +
@@ -235,10 +220,7 @@ För olika typer av versionsmiljöer du explicit kan hämta de senaste utgivna J
                     
                     // Checkpointing persists the current position in the event stream for this partition and means that the next
                     // time any host opens an event processor on this event hub+consumer group+partition combination, it will start
-                    // receiving at the event after this one. Checkpointing is usually not a fast operation, so there is a tradeoff
-                    // between checkpointing frequently (to minimize the number of events that will be reprocessed after a crash, or
-                    // if the partition lease is stolen) and checkpointing infrequently (to reduce the impact on event processing
-                    // performance). Checkpointing every five events is an arbitrary choice for this sample.
+                    // receiving at the event after this one. 
                     this.checkpointBatchingCount++;
                     if ((checkpointBatchingCount % 5) == 0)
                     {
@@ -259,12 +241,10 @@ För olika typer av versionsmiljöer du explicit kan hämta de senaste utgivna J
     }
     ```
 
-> [!NOTE]
-> Den här guiden använder en enda instans av EventProcessorHost. För att öka genomströmning rekommenderas att du kör flera instanser av EventProcessorHost, helst på separata datorer.  Detta ger redundans samt. I de fallen koordineras de olika instanserna automatiskt sinsemellan för att kunna belastningsutjämna de mottagna händelserna. Om du vill att flera mottagare bearbetar *alla* händelser, måste du använda konceptet **ConsumerGroup**. När du tar emot händelser från olika datorer, kan det vara praktiskt att ange namn för EventProcessorHost-instanser baserat på de datorer (eller roller) som de har distribuerats i.
-> 
-> 
+Den här guiden använder en enda instans av EventProcessorHost. För att öka genomströmning rekommenderas att du kör flera instanser av EventProcessorHost, helst på separata datorer.  Det ger även redundans. I de fallen koordineras de olika instanserna automatiskt sinsemellan för att kunna belastningsutjämna de mottagna händelserna. Om du vill att flera mottagare bearbetar *alla* händelser, måste du använda konceptet **ConsumerGroup**. När du tar emot händelser från olika datorer, kan det vara praktiskt att ange namn för EventProcessorHost-instanser baserat på de datorer (eller roller) som de har distribuerats i.
 
 ## <a name="next-steps"></a>Nästa steg
+
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
 * [Event Hubs-översikt](event-hubs-what-is-event-hubs.md)

@@ -1,76 +1,77 @@
 ---
-title: Hotidentifiering - Azure SQL Database | Microsoft Docs
+title: Hotidentifiering – Azure SQL Database | Microsoft Docs
 description: Hotidentifiering identifierar avvikande databasaktiviteter som indikerar potentiella säkerhetshot mot databasen.
 services: sql-database
 author: rmatchoro
 manager: craigg
 ms.service: sql-database
+ms.subservice: advanced-threat-protection
 ms.custom: security
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: ronmat
 ms.reviewer: carlrab
-ms.openlocfilehash: 09ba4b3b72d5c82dc42199f2f883cedee6609bd2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c82692525f06fda93f94a8d856eb65254e5fd211
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649551"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003951"
 ---
-# <a name="azure-sql-database-threat-detection"></a>Hotidentifiering för Azure SQL-databas
+# <a name="azure-sql-database-threat-detection"></a>Hotidentifiering för Azure SQL Database
 
-Azure SQL Database-Hotidentifiering identifierar avvikande aktiviteter som anger ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser.
+Azure SQL Database Threat Detection identifierar avvikande aktiviteter som visar onormala och potentiellt skadliga försök att komma åt eller utnyttja databaser.
 
-Hotidentifiering är en del av den [SQL avancerade Threat Protection](sql-advanced-threat-protection.md) (ATP) erbjudande, vilket är en enhetlig paketet för avancerade SQL-säkerhetsfunktioner. Hotidentifiering kan nås och hanteras via den centrala SQL ATP-portalen.
+Hotidentifiering är en del av den [SQL Avancerat skydd](sql-advanced-threat-protection.md) (ATP) erbjudande som en enhetlig paket för avancerade funktioner för SQL-säkerhet. Hotidentifiering kan nås och hanteras via den centrala SQL ATP-portalen.
 
-## <a name="what-is-threat-detection"></a>Vad är Hotidentifiering?
+## <a name="what-is-threat-detection"></a>Vad är identifiering av hot?
 
-SQL-Hotidentifiering ger ett nytt lager av säkerhet som ger kunder möjlighet att identifiera och svara på potentiella hot allteftersom de sker genom att tillhandahålla säkerhetsaviseringar på avvikande aktiviteter. Användarna får en avisering vid misstänkt databasaktiviteter, potentiella säkerhetsproblem och SQL injection attacker samt avvikande databasåtkomst och frågar mönster. SQL-Hotidentifiering integreras med [Azure Security Center](https://azure.microsoft.com/services/security-center/), som innehåller information om misstänkt aktivitet och rekommenderad åtgärd att undersöka och minska risken. SQL-Hotidentifiering gör det enkelt att adress potentiella hot mot databasen utan att behöva vara en expert säkerhet eller hantera övervakningssystem för avancerad säkerhet. 
+SQL-Hotidentifiering ger ett nytt lager av säkerhet som ger kunder möjlighet att upptäcka och svara på potentiella hot allteftersom de sker genom att tillhandahålla säkerhetsaviseringar om avvikande aktiviteter. Användare får en avisering när misstänkta databasaktiviteter, potentiella svagheter, och SQL-inmatning attacker, samt avvikande databasåtkomst och frågar mönster. SQL Threat Detection integrerar aviseringar med [Azure Security Center](https://azure.microsoft.com/services/security-center/), som innehåller information om misstänkt aktivitet och rekommenderar åtgärder att undersöka och åtgärda hot. SQL-Hotidentifiering gör det enkelt att hantera potentiella hot mot databasen utan att behöva vara säkerhetsexpert eller hantera övervakningssystem för avancerad säkerhet. 
 
-För en fullständig undersökning upplevelse, rekommenderas att aktivera [SQL Database Auditing](sql-database-auditing.md), vilka skriver databasen till en granskningslogg händelselogg i Azure storage-konto.  
+För en fullständig undersökning, rekommenderar vi att du aktiverar [SQL Database Auditing](sql-database-auditing.md), vilka skriver databashändelser till en granskningslogg logga i Azure storage-kontot.  
 
-## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Ställ in hotidentifiering för din databas i Azure-portalen
+## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Konfigurera hotidentifiering för databasen i Azure portal
 1. Starta Azure-portalen på [ https://portal.azure.com ](https://portal.azure.com).
-2. Gå till sidan för konfiguration av Azure SQL Database-server som du vill skydda. Välj i säkerhetsinställningar, **Advanced Threat Protection**.
+2. Gå till konfigurationssidan för Azure SQL Database-server som du vill skydda. Säkerhetsinställningar, Välj **Advanced Threat Protection**.
 3. På den **Advanced Threat Protection** konfigurationssidan:
 
-   - Aktivera Advanced Threat Protection på servern.
-   - I **hot identifieringsinställningar**i den **Skicka aviseringar till** text anger listan över e-postmeddelanden för att ta emot säkerhetsaviseringar vid identifiering av avvikande databasaktiviteter.
+   - Aktivera Avancerat skydd på servern.
+   - I **inställningarna för Hotidentifiering**i den **Skicka aviseringar till** text anger listan över e-postmeddelande till få säkerhetsaviseringar när avvikande databasaktiviteter.
   
-   ![Ställ in hotidentifiering](./media/sql-database-threat-detection/set_up_threat_detection.png)
+   ![Konfigurera identifiering av hot](./media/sql-database-threat-detection/set_up_threat_detection.png)
 
-## <a name="set-up-threat-detection-using-powershell"></a>Ställ in hotidentifiering med hjälp av PowerShell
+## <a name="set-up-threat-detection-using-powershell"></a>Konfigurera hotidentifiering med hjälp av PowerShell
 
-Ett exempel på skript finns [konfigurera granskning och hotidentifiering identifiering med hjälp av PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+Ett skript-exempel finns i [konfigurera granskning och hotidentifiering med hjälp av PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
 ## <a name="explore-anomalous-database-activities-upon-detection-of-a-suspicious-event"></a>Utforska avvikande databasaktiviteter vid identifiering av en misstänkt aktivitet
 
-Du får ett e-postmeddelande vid identifiering av avvikande databasaktiviteter. E-postmeddelandet innehåller information om händelsen misstänkta säkerhet inklusive uppbyggnad avvikande aktiviteter, databasens namn, servernamn, programnamn och tidpunkt för händelsen. Dessutom e-postmeddelandet innehåller information om möjliga orsaker och rekommenderade åtgärder för att undersöka och minska den potentiella risken till databasen.
+Du får ett e-postavisering när avvikande databasaktiviteter. E-postmeddelandet innehåller information om den misstänkta händelsen, inklusive typen av avvikande aktivitet, databasens namn, servernamn, programnamn och tidpunkt för händelsen. Dessutom kan e-postmeddelandet innehåller information om möjliga orsaker och rekommenderade åtgärder för att undersöka och minimera det potentiella hotet mot databasen.
 
 ![Avvikande Aktivitetsrapport](./media/sql-database-threat-detection/anomalous_activity_report.png)
      
-1. Klicka på den **visar nya varningar för SQL** länken i e-postmeddelandet att starta Azure-portalen och visa sidan Azure Security Center-aviseringar, som ger en översikt över aktiva hot som identifieras på SQL-databasen.
+1. Klicka på den **visar nya SQL-varningar** länken i e-postmeddelandet att starta Azure-portalen och visa sidan Azure Security Center-aviseringar, som innehåller en översikt över aktiva hot har identifierats på SQL-databasen.
 
    ![Activty hot](./media/sql-database-threat-detection/active_threats.png)
 
-2. Klicka på en specifik avisering om du vill ha ytterligare information och åtgärder för att undersöka det här hotet och uppdateringen framtida problem.
+2. Klicka på en specifik avisering om du vill ha ytterligare information och åtgärder för att undersöka det här hotet och åtgärda framtida hot.
 
-   Till exempel är SQL injection en av säkerhetsproblem för de vanligaste Web program på Internet som används för att attackera datadrivna program. Angripare dra nytta av programmet säkerhetsproblem att mata in skadlig SQL-instruktioner i programmet fält, brott mot eller ändra data i databasen. För SQL Injection aviseringar innehåller den aviseringsinformation sårbara SQL-instruktionen som har de utnyttjas.
+   Till exempel är SQL-inmatning en av de vanligaste säkerhetsproblemen för webbprogram på Internet som används för att attackera datadrivna program. Angripare utnyttja sårbarheter i program för att mata in skadliga SQL-instruktioner i programmets inmatningsfält tränga in eller ändra data i databasen. För SQL-inmatning aviseringar innehåller den aviseringsinformation sårbara SQL-instruktionen som har utnyttjat.
 
    ![Specifika aviseringen](./media/sql-database-threat-detection/specific_alert.png)
 
-## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Utforska hotidentifieringsaviseringar för din databas i Azure-portalen
+## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Utforska hotidentifieringsaviseringar för din databas i Azure portal
 
-SQL-databasen Hotidentifiering integrerar dess aviseringar med [Azure Security Center](https://azure.microsoft.com/services/security-center/). Identifiering av paneler för live SQL-hot i databasen och SQL ATP-blad i Azure portal spårar status för aktiva hot.
+Hotidentifieringen i SQL Database integrerar dess aviseringar med [Azure Security Center](https://azure.microsoft.com/services/security-center/). En SQL threat identifiering realtidspaneler i databasen och SQL ATP-blad i Azure-portalen spårar status för aktiva hot.
 
-Klicka på **Threat detection avisering** för att starta Azure Security Center aviseringar sidan och få en översikt över aktiva SQL hot upptäckts på databasen.
+Klicka på **Threat varning** för att starta Azure Security Center-aviseringar sidan och få en översikt över aktiva SQL-hot som upptäckts på databasen.
 
-   ![Avisering om hot identifiering](./media/sql-database-threat-detection/threat_detection_alert.png)
+   ![Varning för hot](./media/sql-database-threat-detection/threat_detection_alert.png)
    
-   ![Threat detection alert2](./media/sql-database-threat-detection/threat_detection_alert_atp.png)
+   ![Alert2 för identifiering av hot](./media/sql-database-threat-detection/threat_detection_alert_atp.png)
 
-## <a name="azure-sql-database-threat-detection-alerts"></a>Azure SQL Database Hotidentifiering aviseringar 
-Hotidentifiering för Azure SQL Database identifierar avvikande aktiviteter som anger ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser och den kan du aktivera följande aviseringar:
+## <a name="azure-sql-database-threat-detection-alerts"></a>Azure SQL Database Threat Detection-aviseringar 
+Hotidentifiering för Azure SQL Database identifierar avvikande aktiviteter som visar onormala och potentiellt skadliga försök att komma åt eller utnyttja databaser och det kan utlösa följande aviseringar:
 - **Sårbarhet mot SQL-inmatning**: Den här aviseringen utlöses när ett program genererar en felaktig SQL-instruktion i databasen. Det här kan tyda på en eventuell sårbarhet för SQL-inmatningsattacker. Det finns två möjliga orsaker till att en felaktig instruktion genereras:
    - Ett fel i programkoden konstruktioner den felaktiga SQL-instruktionen
    - Programkod eller lagrade procedurer rensar inte indata från användare när den felaktiga SQL-instruktionen skapas, och det här kan utnyttjas för SQL-inmatning
@@ -83,7 +84,7 @@ Hotidentifiering för Azure SQL Database identifierar avvikande aktiviteter som 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [SQL Advanced Threat Protection](sql-advanced-threat-protection.md). 
-* Lär dig mer om [Azure SQL Database Auditing](sql-database-auditing.md)
-* Lär dig mer om [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* Mer information om priser finns i [prissättning för SQL-databas](https://azure.microsoft.com/pricing/details/sql-database/)  
+* Läs mer om [SQL Advanced Threat Protection](sql-advanced-threat-protection.md). 
+* Läs mer om [Azure SQL Database Auditing](sql-database-auditing.md)
+* Läs mer om [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Mer information om priser finns i den [sidan med priser för SQL-databas](https://azure.microsoft.com/pricing/details/sql-database/)  

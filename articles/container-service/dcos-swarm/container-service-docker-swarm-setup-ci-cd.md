@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: b88fba4e04adb56742edf8023fde34e8ff6519c2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ac3133ac093d578c89d24bddd1cc0a7c9588c2fd
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437924"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715006"
 ---
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-visual-studio-team-services"></a>Fullständig CI/CD-pipeline för att distribuera program med flera behållare på Azure Container Service med Docker Swarm med Visual Studio Team Services
 
@@ -46,7 +46,7 @@ Innan du påbörjar den här självstudiekursen måste du utföra följande uppg
 - [Skapa ett Swarm-kluster i Azure Container Service](container-service-deployment.md)
 - [Anslut till Swarm-klustret i Azure Container Service](../container-service-connect.md)
 - [Skapa ett Azure container registry](../../container-registry/container-registry-get-started-portal.md)
-- [Har ett Visual Studio Team Services-konto och team-projekt skapas](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
+- [Har ett Visual Studio Team Services-konto och team-projekt skapas](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student)
 - [Gå till GitHub-databasen på GitHub-konto](https://github.com/jcorioland/MyShop/)
 
 [!INCLUDE [container-service-swarm-mode-note](../../../includes/container-service-swarm-mode-note.md)]

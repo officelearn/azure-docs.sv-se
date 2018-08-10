@@ -4,12 +4,12 @@ ms.author: manshuk
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 08-03-2018
-ms.openlocfilehash: d8e749d7c665bcaef9190bcc572e9552a307aa08
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 41216fe12e10f72f76043f1a8bc361b538259ac1
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39496211"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39720894"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>VM-storlek flexibilitet med reserverade VM-instanser
 
@@ -22,7 +22,7 @@ Med en reserverad VM-instans som har optimerats för instans storlek flexibilite
 
 Men den reservationsrabatten avser inte storlekar för virtuella datorer som listas i olika tabeller som vad som finns i tabellen DSv2-serien extra minne: Standard_DS11_v2, Standard_DS12_v2, och så vidare.
 
-Hur många virtuella datorer rabatten gäller för beror på VM-storlek som du väljer när du köper en reserverad instans i storleksgruppen för serien. Det beror också på storleken på de virtuella datorerna som du har som körs. Förhållandet mellan kolumnen som anges i tabellerna nedan jämförs relativa storleken för varje VM-storlek i gruppen. Använd förhållande värdet att beräkna hur rabatten gäller för de virtuella datorerna du har som körs.
+Hur många virtuella datorer rabatten gäller för beror på VM-storlek som du väljer när du köper en reservation i storleksgruppen för serien. Det beror också på storleken på de virtuella datorerna som du har som körs. Förhållandet mellan kolumnen som anges i tabellerna nedan jämförs relativa storleken för varje VM-storlek i gruppen. Använd förhållande värdet att beräkna hur rabatten gäller för de virtuella datorerna du har som körs.
 
 ## <a name="examples"></a>Exempel
 

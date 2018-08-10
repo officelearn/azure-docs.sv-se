@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 5b4a15204a934bf55810fcdccd48a7a15a48c5ed
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 9d4d7633428cd174a31214db2db6b6d9928230bd
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258192"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627924"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Stream, Azure-diagnostikloggar till en händelsehubb
-**[Azure diagnostikloggar](monitoring-overview-of-diagnostic-logs.md)**  kan strömmas i nära realtid för program med hjälp av alternativet inbyggda ”exportera till Event Hubs” i portalen eller genom att aktivera Event Hub auktorisering regel-ID i en diagnostikinställning via Azure PowerShell-cmdletar eller Azure CLI 2.0.
+**[Azure diagnostikloggar](monitoring-overview-of-diagnostic-logs.md) ** kan strömmas i nära realtid för program med hjälp av alternativet inbyggda ”exportera till Event Hubs” i portalen eller genom att aktivera Event Hub auktorisering regel-ID i en diagnostikinställning via Azure PowerShell-cmdletar eller Azure CLI 2.0.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>Vad du kan göra med diagnostikloggar och Event Hubs
 Här är några sätt som du kan använda den strömmande kapaciteten för diagnostikloggar:
@@ -195,6 +195,6 @@ Du kan också strömma diagnostikloggar från Compute-resurser med hjälp av Win
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Stream Azure Active Directory-loggar med Azure Monitor](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md)
+* [Stream Azure Active Directory-loggar med Azure Monitor](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
 * [Läs mer om Azure-diagnostikloggar](monitoring-overview-of-diagnostic-logs.md)
 * [Kom igång med Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)

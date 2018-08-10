@@ -9,15 +9,15 @@ editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: 77e150e56125d12cddfdbb2a34adb913a5ae9c78
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 73f7e523ed0abc7d0453096cf783761dd6a884ba
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595924"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628672"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Använda interaktiv fråga med HDInsight
-Interaktiv fråga (kallas även Hive-LLAP eller [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)) är ett Azure HDInsight [klustertyp](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Interaktiv fråga har stöd för cachelagring i minnet, vilket gör Hive-frågor snabbare och mycket mer interaktivt.
+Interaktiv fråga (kallas även Hive-LLAP eller [med låg latens Analytical Processing](https://cwiki.apache.org/confluence/display/Hive/LLAP)) är ett Azure HDInsight [klustertyp](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Interaktiv fråga har stöd för cachelagring i minnet, vilket gör Hive-frågor snabbare och mycket mer interaktivt.
 
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)] 
 

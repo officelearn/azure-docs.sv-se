@@ -1,26 +1,25 @@
 ---
-title: Om ohanterad (sidblobbar) och hanterade diskar lagring för virtuella datorer i Microsoft Azure Windows | Microsoft Docs
-description: Lär dig grunderna om ohanterad (sidblobbar) och hanterade diskar lagring för virtuella Windows-datorer i Azure.
-services: virtual-machines
+title: Om ohanterade (sidblob) och managed disks-lagring för Microsoft Azure Windows Virtual Machines | Microsoft Docs
+description: Lär dig grunderna i ohanterade (sidblob) och managed disks-lagring för Windows-datorer i Azure.
+services: virtual-machines-windows,storage
 author: roygara
-manager: jeconnoc
-ms.service: virtual-machines
-ms.workload: storage
+ms.service: virtual-machines-windows
 ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
-ms.openlocfilehash: 4323f4fd9b94c38d99557f1d4426682a8c16dd9b
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.component: disks
+ms.openlocfilehash: 4fa8341b4d1953e3c59d345f45853f4c9a4a2941
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267102"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715462"
 ---
-# <a name="about-disks-storage-for-azure-windows-vms"></a>Om diskar lagring för virtuella Azure Windows-datorer
-Precis som andra dator använder virtuella datorer i Azure diskar som en plats för att lagra ett operativsystem, program och data. Alla Azure virtuella datorer har minst två diskar – en disk i Windows-operativsystem och en tillfällig disk. Operativsystemdisken har skapats från en avbildning och både operativsystemdisken och image är virtuella hårddiskar (VHD) lagras i ett Azure storage-konto. Virtuella datorer kan också ha en eller flera datadiskar som lagras också som virtuella hårddiskar. 
+# <a name="about-disks-storage-for-azure-windows-vms"></a>Om disklagring för virtuella Azure Windows-datorer
+Precis som alla andra datorer Använd virtuella datorer i Azure diskar som en plats för att lagra ett operativsystem, program och data. Alla Azure virtuella datorer har minst två diskar – en operativsystemdisk för Windows och en tillfällig disk. Operativsystemdisken har skapats från en avbildning och både operativsystemdisken och avbildningen är virtuella hårddiskar (VHD) lagras i ett Azure storage-konto. Virtuella datorer kan också ha en eller flera datadiskar som lagras också som virtuella hårddiskar. 
 
-I den här artikeln ska vi pratar om olika användningsområden för diskar och beskrivs de olika typerna av diskar som du kan skapa och använda. Den här artikeln är också tillgängligt för [virtuella Linux-datorer](../linux/about-disks-and-vhds.md).
+I den här artikeln ska vi prata om olika användningsområden för diskarna och beskrivs de olika typerna av diskar som du kan skapa och använda. Den här artikeln är också tillgängligt för [Linux-datorer](../linux/about-disks-and-vhds.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -29,55 +28,55 @@ I den här artikeln ska vi pratar om olika användningsområden för diskar och 
 Låt oss ta en titt på hur diskarna som används av de virtuella datorerna.
 
 ### <a name="operating-system-disk"></a>Operativsystemdisk
-Varje virtuell dator har en ansluten operativsystemdisk. Den har registrerats som en SATA-enhet och märkta som enhet C: som standard. Den här disken har en maximal kapacitet på 2 048 gigabyte (GB). 
+Varje virtuell dator har en ansluten operativsystemdisk. Den har registrerats som en SATA-enhet och märkta som C:-enheten som standard. Den här disken har en maxkapacitet på 2 048 GB (Gigabyte). 
 
-### <a name="temporary-disk"></a>Diskutrymme
-Varje virtuell dator innehåller en tillfällig disk. Den tillfälliga disken tillhandahåller kortsiktig lagring för program och processer och är avsedd att bara lagra data, till exempel sida eller växla filer. Data på den tillfälliga disken kan gå förlorade under en [underhållshändelse](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) eller när du [distribuera en virtuell dator](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Vid en lyckad standard omstart av den virtuella datorn behålls data på den tillfälliga enheten. 
+### <a name="temporary-disk"></a>Temporär disk
+Varje virtuell dator innehåller en tillfällig disk. Den temporära disken tillhandahåller kortsiktig lagring för program och processer och är avsedd att endast lagra data, till exempel växlingsfiler. Data på den temporära disken kan gå förlorade under en [underhållshändelse](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) eller när du [distribuera om en virtuell dator](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Data på den temporära enheten behålls under en lyckad standard omstart av den virtuella datorn. 
 
-Den tillfälliga disken är märkt som D: enhet som standard och det används för att lagra pagefile.sys. Om du vill mappa om den här disken till en annan enhetsbeteckning finns [ändra enhetsbeteckningen för den tillfälliga disken i Windows](change-drive-letter.md). Storleken på den tillfälliga disken beror på storleken på den virtuella datorn. Mer information finns i [storlekar för Windows-datorer](sizes.md).
+Den temporära disken är märkta som enheten D: som standard och det används för att lagra pagefile.sys. Om du vill mappa om den här disken till en annan enhetsbeteckning, se [ändra enhetsbeteckningen för den temporära disken Windows](change-drive-letter.md). Storleken på den temporära disken varierar baserat på storleken på den virtuella datorn. Mer information finns i [storlekar för Windows-datorer](sizes.md).
 
-Mer information om hur Azure använder temporär disk finns [förstå den tillfälliga enheten på virtuella datorer i Microsoft Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+Läs mer om hur Azure använder den temporära disken [förstå den temporära enheten på Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
 
 ### <a name="data-disk"></a>Datadisk
-En datadisk är en virtuell Hårddisk som är kopplad till en virtuell dator kan lagra programdata och andra data som du behöver. Datadiskar registreras som SCSI-enheter och är märkta med en bokstav som du väljer. Varje datadisk har en maximal kapacitet för 4095 GB. Storleken på den virtuella datorn avgör hur många datadiskar som du kan ansluta till den och typen av lagring som du kan använda som värd för diskarna.
+En datadisk är en virtuell Hårddisk som är kopplad till en virtuell dator för att lagra programdata eller andra data som du behöver. Datadiskar är registrerade som SCSI-enheter och är märkta med en bokstav som du väljer. Varje datadisk har en maxkapacitet på 4 095 GB. Storleken på den virtuella datorn avgör hur många datadiskar som du kan koppla till det och vilken typ av lagring som du kan använda som värd för diskarna.
 
 > [!NOTE]
-> Mer information om kapacitet för virtuella datorer finns [storlekar för Windows-datorer](sizes.md).
+> Mer information om kapacitet för virtuella datorer finns i [storlekar för Windows-datorer](sizes.md).
 > 
 
-Azure skapar en operativsystemdisk när du skapar en virtuell dator från en avbildning. Om du använder en avbildning med datadiskar skapar Azure även datadiskar när den virtuella datorn skapas. Annars kan du lägga till datadiskar när du har skapat den virtuella datorn.
+När du skapar en virtuell dator från en avbildning skapar Azure en operativsystemdisk. Om du använder en avbildning som innehåller datadiskar, skapar Azure även på diskar när den virtuella datorn skapas. Annars kan du lägga till datadiskar när du har skapat den virtuella datorn.
 
-Du kan lägga till diskar till en virtuell dator när som helst av **kopplar** disken till den virtuella datorn. Du kan använda en virtuell Hårddisk som du har laddat upp eller kopieras till ditt lagringskonto eller använda en tom virtuell Hårddisk som Azure skapar åt dig. Koppla en datadisk associerar VHD-filen med den virtuella datorn genom att placera ett lån på den virtuella Hårddisken, så den inte kan tas bort från lagring när den är kopplad.
+Du kan lägga till datadiskar till en virtuell dator när som helst av **koppla** disken till den virtuella datorn. Du kan använda en virtuell Hårddisk som du har laddat upp eller kopieras till ditt storage-konto eller använda en tom virtuell Hårddisk som Azure skapar åt dig. Koppla en datadisk associerar VHD-filen med den virtuella datorn genom att placera ett lån på den virtuella Hårddisken så att den inte kan tas bort från lagring när den är fortfarande ansluten.
 
 
 [!INCLUDE [storage-about-vhds-and-disks-windows-and-linux](../../../includes/storage-about-vhds-and-disks-windows-and-linux.md)]
 
-## <a name="one-last-recommendation-use-trim-with-unmanaged-standard-disks"></a>En sista rekommendation: Använd TRIMNING med ohanterad standarddiskar 
+## <a name="one-last-recommendation-use-trim-with-unmanaged-standard-disks"></a>En senaste rekommendation: Använd TRIM med ohanterade standarddiskar 
 
-Om du använder ohanterade standarddiskar (HDD), bör du aktivera TRIMNING. TRIMNING ignorerar oanvända block på disken så att endast debiteras du för lagring som du faktiskt använder. Om du skapar stora filer och ta bort dem kan detta spara på kostnader. 
+Om du använder ohanterade standarddiskar (HDD), bör du aktivera TRIMNING. TRIM ignorerar oanvända block på disken så att du debiteras endast för lagring som du faktiskt använder. Detta kan sänka kostnaderna om du skapar stora filer och ta bort dem. 
 
-Du kan köra det här kommandot för att kontrollera TRIM inställningen. Öppna en kommandotolk på din Windows-VM och skriv:
+Du kan köra detta kommando för att kontrollera TRIM inställningen. Öppna en kommandotolk på din virtuella Windows-datorn och skriv:
 
 
 ```
 fsutil behavior query DisableDeleteNotify
 ```
 
-Om kommandot returnerar 0, är TRIMNING aktiverat på rätt sätt. Om den returnerar 1, kör du följande kommando för att aktivera TRIMNING:
+Om kommandot returnerar 0, är TRIMNING aktiverat på rätt sätt. Om den returnerar 1, kör du följande kommando för att aktivera TRIM:
 
 ```
 fsutil behavior set DisableDeleteNotify 0
 ```
 
 > [!NOTE]
-> Obs: Stöd för Trim börjar med Windows Server 2012 / Windows 8 och senare finns [nya API: et kan appar skicka ”rensa och ta bort mappning” tips till lagringsmedia](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints).
+> Obs: Stöd för Trim börjar med Windows Server 2012 / Windows 8 och senare, se [nytt API kan appar skicka ”TRIMMA och Avmappa” tips till lagringsmedia](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints).
 > 
 
 <!-- Might want to match next-steps from overview of managed disks -->
 ## <a name="next-steps"></a>Nästa steg
-* [Ansluta en disk](attach-disk-portal.md) att lägga till ytterligare lagringsutrymme för den virtuella datorn.
+* [Anslut en disk](attach-disk-portal.md) att lägga till ytterligare lagringsutrymme för din virtuella dator.
 * [Skapa en ögonblicksbild](snapshot-copy-managed-disk.md).
-* [Konvertera till hanterade diskar](convert-unmanaged-to-managed-disks.md).
+* [Konvertera till managed disks](convert-unmanaged-to-managed-disks.md).
 
 

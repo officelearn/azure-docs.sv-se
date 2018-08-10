@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/05/2018
+ms.date: 08/08/2018
 ms.author: rkarlin
-ms.openlocfilehash: 821a88f3627b19951c26677838bd2f86d0948ab9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4a934bd69e63605fd624d06533c4e411bc94b531
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526838"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630926"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Övervaka identitet och åtkomst i Azure Security Center (förhandsversion)
 Den här artikeln hjälper dig att använda Azure Security Center för att övervaka användarnas identitets- och åtkomstrelaterade aktiviteter.
@@ -33,9 +33,9 @@ Identiteten bör vara kontrollplanet för ditt företag, och din högsta priorit
 
 Genom att övervaka identitetsaktiviteter kan du vidta proaktiva åtgärder innan en incident inträffar eller reaktiva åtgärder för att stoppa ett angreppsförsök. Instrumentpanelen identitet och åtkomst ger dig rekommendationer som:
 
-- Aktivera MFA för privilegierade konton för din prenumeration
+- Aktivera MFA för privilegierade konton för prenumerationen
 - Ta bort externa konton med skrivbehörigheter från prenumerationen
-- Ta bort externa Privilegierade konton från prenumerationen
+- Ta bort externa privilegierade konton från prenumerationen
 
 > [!NOTE]
 > Om din prenumeration har mer än 600 konton kan kan Security Center inte köra identitet rekommendationer mot din prenumeration. Rekommendationer som inte körs visas under ”ej tillgängliga utvärderingar” som beskrivs nedan.
@@ -86,7 +86,7 @@ Under **prenumerationer**, det finns en lista över prenumerationer. Den första
 
   - **Rekommendationer**: baserat på har utförts av Security Center som misslyckades.
   - **Skickas utvärderingar**: lista över har utförts av Security Center som skickas.
-  - **Ej tillgängliga utvärderingar**: lista över utvärderingar som inte kunde köras på grund av ett fel eller eftersom prenumerationen har fler än 250 konton.
+  - **Ej tillgängliga utvärderingar**: lista över utvärderingar som inte kunde köras på grund av ett fel eller eftersom prenumerationen har mer än 600 konton.
 
   Under **rekommendationer** är en lista över rekommendationer för den valda prenumerationen och allvarlighetsgraden för varje rekommendation.
 

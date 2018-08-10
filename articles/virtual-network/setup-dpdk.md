@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
-ms.openlocfilehash: 18bdd27f1f18b9ca938a3c81c65e1905e4fbe5df
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: a03b72200f97c54bce188ec6a6ad8a06a43f26ae
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576482"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40002587"
 ---
 # <a name="setup-dpdk-in-a-linux-virtual-machine"></a>Konfigurera DPDK i en Linux-dator
 
@@ -62,7 +62,7 @@ Accelererat nätverk måste aktiveras på en Linux-dator. Den virtuella datorn b
 
 ## <a name="install-dpdk-dependencies"></a>Installera DPDK beroenden
 
-### <a name="ubuntu-1804"></a>Ubuntu 18.04
+### <a name="ubuntu-1604"></a>Ubuntu 16.04
 
 ```bash
 sudo add-apt-repository ppa:canonical-server/dpdk-azure -y
@@ -70,7 +70,7 @@ sudo apt-get update
 sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev
 ```
 
-### <a name="ubuntu-1604"></a>Ubuntu 16.04
+### <a name="ubuntu-1804"></a>Ubuntu 18.04
 
 ```bash
 sudo apt-get update
@@ -108,11 +108,10 @@ zypper \
 ## <a name="setup-virtual-machine-environment-once"></a>Konfigurationsmiljö för virtuell dator (en gång)
 
 1. [Ladda ned den senaste DPDK](https://core.dpdk.org/download). Version 18.02 eller senare krävs för Azure.
-2. Installera den *libnuma dev* paketera med `sudo apt-get install libnuma-dev`.
-3. Skapa först standard-konfigurationen med `make config T=x86_64-native-linuxapp-gcc`.
-4. Aktivera Mellanox PMDs in genererade konfigurationen med `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config`.
-5. Kompilera med `make`.
-6. Installera med `make install DESTDIR=<output folder>`.
+2. Skapa först standard-konfigurationen med `make config T=x86_64-native-linuxapp-gcc`.
+3. Aktivera Mellanox PMDs in genererade konfigurationen med `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config`.
+4. Kompilera med `make`.
+5. Installera med `make install DESTDIR=<output folder>`.
 
 # <a name="configure-runtime-environment"></a>Konfigurera körningsmiljö
 
@@ -134,14 +133,14 @@ Kör följande kommandon en gång, efter omstart:
      > [!NOTE]
      > Det går att ändra grub-filen så att stora sidor är reserverade vid start genom att följa den [instruktioner](http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) för DPDK. Instruktionen är längst ned på sidan. Vid körning i en virtuell Azure Linux-dator kan du ändra filer under /etc/config/grub.d i stället för att reservera hugepages mellan omstarter.
 
-2. MAC och IP-adresser: Använd `ifconfig –a` att visa MAC och IP-adressen för nätverksgränssnitten. Den *VF* nätverksgränssnitt och *NETVSC* nätverksgränssnitt har samma MAC-adress, men endast den *NETVSC* nätverksgränssnittet har en IP-adress.
+2. MAC och IP-adresser: Använd `ifconfig –a` att visa MAC och IP-adressen för nätverksgränssnitten. Den *VF* nätverksgränssnitt och *NETVSC* nätverksgränssnitt har samma MAC-adress, men endast den *NETVSC* nätverksgränssnittet har en IP-adress. Kör VF-gränssnitt som underordnad gränssnitt för NETVSC gränssnitt.
 
 3. PCI-adresser
 
    * Ta reda på vilka PCI-adressen för *VF* med `ethtool -i <vf interface name>`.
    * Se till att testpmd inte råkar ta över VF pci-enhet för *eth0*om *eth0* har accelererat nätverk aktiverat. Om DPDK program av misstag har tagit över nätverket hanteringsgränssnitt och förlorar din SSH-anslutning, använder du seriekonsolen att avsluta DPDK program, eller för att stoppa och starta den virtuella datorn.
 
-4. Läs in *ibuverbs* vid varje omstart med `modprobe -a ib_uverbs`. För SLES-15, laddar *mlx4_ib* med ”modprobe - a mlx4_ib'.
+4. Läs in *ibuverbs* vid varje omstart med `modprobe -a ib_uverbs`. För SLES-15, även läsa in *mlx4_ib* med `modprobe -a mlx4_ib`.
 
 ## <a name="failsafe-pmd"></a>Felsäker Kontrollpanelstillägget
 
@@ -153,23 +152,23 @@ Använd `sudo` innan den *testpmd* kommando körs med rot.
 
 ### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>Basic: Förstånd kontroll, felsäker att initiera nätverkskortets
 
-1. Kör följande kommandon för att starta en enskild port-programmet:
+1. Kör följande kommandon för att starta en enskild port testpmd programmet:
 
    ```bash
    testpmd -w <pci address from previous step> \
      --vdev="net_vdev_netvsc0,iface=eth1" \
-     -i \
+     -- -i \
      --port-topology=chained
     ```
 
-2. Kör följande kommandon för att starta ett program med dubbla portar:
+2. Kör följande kommandon för att starta en dubbel port testpmd programmet:
 
    ```bash
    testpmd -w <pci address nic1> \
    -w <pci address nic2> \
    --vdev="net_vdev_netvsc0,iface=eth1" \
    --vdev="net_vdev_netvsc1,iface=eth2" \
-   -i
+   -- -i
    ```
 
    Om kör med mer än 2 nätverkskort i `--vdev` argumentet följer detta mönster: `net_vdev_netvsc<id>,iface=<vf’s pairing eth>`.
@@ -186,30 +185,30 @@ Följande kommandon utskriftsserverns regelbundet paket per sekund-statistik:
 1. Kör följande kommando på TX-sida:
 
    ```bash
-   Testpmd \
-     –l <core-mask> \
+   testpmd \
+     -l <core-list> \
      -n <num of mem channels> \
      -w <pci address of the device intended to use> \
-     --vdev=”net_vdev_netvsc<id>,iface=<the iface to attach to>” \
-     --port-topology=chained \
+     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
+     -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
      --forward-mode=txonly \
-     –eth-peer=<port id>,<peer MAC address> \
+     --eth-peer=<port id>,<receiver peer MAC address> \
      --stats-period <display interval in seconds>
    ```
 
 2. Kör följande kommando på RX-sida:
 
    ```bash
-   Testpmd \
-     –l <core-mask> \
+   testpmd \
+     -l <core-list> \
      -n <num of mem channels> \
      -w <pci address of the device intended to use> \
-     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>” \
-     --port-topology=chained \
+     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
+     -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
      --forward-mode=rxonly \
-     –eth-peer=<port id>,<peer MAC address> \
+     --eth-peer=<port id>,<sender peer MAC address> \
      --stats-period <display interval in seconds>
    ```
 
@@ -221,31 +220,31 @@ Följande kommandon utskriftsserverns regelbundet paket per sekund-statistik:
 1. Kör följande kommando på TX-sida:
 
    ```bash
-   Testpmd \
-     –l <core-mask> \
+   testpmd \
+     -l <core-list> \
      -n <num of mem channels> \
      -w <pci address of the device intended to use> \
-     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>” \
-     --port-topology=chained \
+     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
+     -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
      --forward-mode=txonly \
-     –eth-peer=<port id>,<peer MAC address> \
+     --eth-peer=<port id>,<receiver peer MAC address> \
      --stats-period <display interval in seconds>
     ```
 
 2. Kör följande kommando på FWD-sida:
 
    ```bash
-   Testpmd \
-     –l <core-mask> \
+   testpmd \
+     -l <core-list> \
      -n <num of mem channels> \
      -w <pci address NIC1> \
      -w <pci address NIC2> \
-     --vdev=”net_vdev_netvsc<id>,iface=<the iface to attach to>” \
-     --vdev=”net_vdev_netvsc<2nd id>,iface=<2nd iface to attach to>” (you need as many --vdev arguments as the number of devices used by testpmd, in this case) \
-     --nb-cores <number of cores to use for test pmd> \
+     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
+     --vdev="net_vdev_netvsc<2nd id>,iface=<2nd iface to attach to>" (you need as many --vdev arguments as the number of devices used by testpmd, in this case) \
+     -- --nb-cores <number of cores to use for test pmd> \
      --forward-mode=io \
-     –eth-peer=<recv port id>,<peer MAC address> \
+     --eth-peer=<recv port id>,<sender peer MAC address> \
      --stats-period <display interval in seconds>
     ```
 

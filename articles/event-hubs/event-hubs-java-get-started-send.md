@@ -1,57 +1,57 @@
 ---
-title: Skicka händelser till Azure Event Hubs använder Java | Microsoft Docs
-description: Kom igång skickar till Händelsehubbar som använder Java
+title: Skicka händelser till Azure Event Hubs med Java | Microsoft Docs
+description: Kom igång med att skicka till Event Hubs med Java
 services: event-hubs
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
 ms.date: 05/30/2018
-ms.author: sethm
-ms.openlocfilehash: 6d3bf0b8ac5c5bdc7bf3deda21e800fe3cc6be2e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: shvija
+ms.openlocfilehash: 6217f507b83325acb9a5062aada150fa6f8bc5d2
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626419"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40006626"
 ---
-# <a name="send-events-to-azure-event-hubs-using-java"></a>Skicka händelser till Azure Event Hubs använder Java
+# <a name="send-events-to-azure-event-hubs-using-java"></a>Skicka händelser till Azure Event Hubs med Java
 
-Händelsehubbar är en mycket skalbar införandet system som kan mata in miljontals händelser per sekund, aktivera ett program för att bearbeta och analysera de enorma mängder data som produceras av dina anslutna enheter och program. När uppgifterna väl samlats i en händelsehubb kan du omvandla och lagra data med hjälp av en leverantör av realtidsanalys eller lagringskluster.
+Händelsehubbar är en mycket skalbar inmatning system som kan mata in miljontals händelser per sekund, aktivera ett program för att bearbeta och analysera de enorma mängder data som produceras av dina anslutna enheter och program. När samlats in i en händelsehubb, kan du omvandla och lagra dem med valfri leverantör av realtidsanalys eller lagringskluster.
 
-Mer information finns i [översikt av Händelsehubbar][Event Hubs overview].
+Mer information finns i den [översikt av Händelsehubbar][Event Hubs overview].
 
-Den här kursen visar hur du skickar händelser till en händelsehubb med hjälp av ett konsolprogram i Java. För att ta emot händelser med hjälp av värd för händelsebearbetning Java-bibliotek finns [i den här artikeln](event-hubs-java-get-started-receive-eph.md), eller klicka på det mottagande språket i den vänstra tabellen i innehållet.
+Den här självstudiekursen visar hur du skickar händelser till en händelsehubb med hjälp av ett konsolprogram i Java. Om du vill ta emot händelser med Java Event Processor Host-biblioteket, se [i den här artikeln](event-hubs-java-get-started-receive-eph.md), eller klicka på ditt mottagarspråk i den vänstra innehållsförteckningen.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att kunna slutföra den här kursen behöver du följande krav:
+För att kunna slutföra den här självstudien behöver du följande krav:
 
-* Java development environment. Den här kursen använder [Eclipse](https://www.eclipse.org/).
-* Ett aktivt Azure-konto. Om du inte har en Azure-prenumeration, skapa en [kostnadsfritt konto][] innan du börjar.
+* En Java-utvecklingsmiljön. Den här självstudien används [Eclipse](https://www.eclipse.org/).
+* Ett aktivt Azure-konto. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][] innan du börjar.
 
-Koden i den här kursen är baserad på den [SimpleSend GitHub exempel](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend), som du kan pröva för att se hela fungerande program.
+Koden i den här självstudien är baserad på den [SimpleSend GitHub-exempel](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend), som du kan kontrollera för att se fullständiga fungerande program.
 
-## <a name="send-events-to-event-hubs"></a>Skicka händelser till Händelsehubbar
+## <a name="send-events-to-event-hubs"></a>Skicka händelser till Event Hubs
 
-Java-klientbibliotek för Händelsehubbar är tillgänglig för användning i Maven-projekt från den [Maven centrallager](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22). Du kan referera till det här biblioteket med följande beroende deklarationen i projektfilen Maven. Den aktuella versionen är 1.0.0:    
+Java-klientbibliotek för Event Hubs är tillgängliga för användning i Maven-projekt från den [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22). Du kan referera till det här biblioteket med följande beroendedeklaration i Maven-projektfilen. Den aktuella versionen är 1.0.1:    
 
 ```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
-För olika typer av versionsmiljöer du explicit kan hämta de senaste utgivna JAR-filerna från de [Maven centrallager](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22).  
+För olika typer av versionsmiljöer kan du uttryckligen hämta de senast utgivna JAR-filerna från den [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22).  
 
-En enkel händelse utgivare och importera den *com.microsoft.azure.eventhubs* paketet för Händelsehubbar klientklasser och *com.microsoft.azure.servicebus* paketet för verktygsklasser som vanliga undantag som delas med Azure Service Bus-klientprogramvara. 
+För en enkel händelse utgivare och importera den *com.microsoft.azure.eventhubs* paketet för Event Hubs-klientklasser och *com.microsoft.azure.servicebus* Paketera för verktygsklasser som vanliga undantag som delas med Azure Service Bus meddelandeklient. 
 
-### <a name="declare-the-send-class"></a>Deklarera klassen skicka
+### <a name="declare-the-send-class"></a>Deklarera Send-klassen
 
-För följande exempel skapar du först ett nytt Maven-projekt för ett konsol-/gränssnittsprogram i din favorit Java Development Environment. Klassen namnet `Send`:     
+För följande exempel skapar du först ett nytt Maven-projekt för ett konsol-/gränssnittsprogram i din favorit Java Development Environment. Namnge klassen `SimpleSend`:     
 
 ```java
 package com.microsoft.azure.eventhubs.samples.send;
@@ -61,18 +61,16 @@ import com.google.gson.GsonBuilder;
 import com.microsoft.azure.eventhubs.ConnectionStringBuilder;
 import com.microsoft.azure.eventhubs.EventData;
 import com.microsoft.azure.eventhubs.EventHubClient;
-import com.microsoft.azure.eventhubs.PartitionSender;
 import com.microsoft.azure.eventhubs.EventHubException;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.time.Instant;
-import java.util.Random;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ExecutorService;
 
-public class Send {
+public class SimpleSend {
 
     public static void main(String[] args)
             throws EventHubException, ExecutionException, InterruptedException, IOException {
@@ -80,23 +78,24 @@ public class Send {
 
 ### <a name="construct-connection-string"></a>Skapa anslutningssträng
 
-Använd klassen ConnectionStringBuilder för att konstruera ett strängvärde för anslutning till skickar till Händelsehubbar klient-instans. Ersätt platshållarna med värdena som du fick när du skapade hubben namnområde och händelse:
+Använda klassen ConnectionStringBuilder för att konstruera ett Anslutningssträngens värde att skicka till Event Hubs klientinstans. Ersätt platshållarna med de värden du erhöll när du skapade namnområde och en händelsehubb:
 
 ```java
-   final ConnectionStringBuilder connStr = new ConnectionStringBuilder()
-      .setNamespaceName("----NamespaceName-----")
-      .setEventHubName("----EventHubName-----")
-      .setSasKeyName("-----SharedAccessSignatureKeyName-----")
-      .setSasKey("---SharedAccessSignatureKey----");
+final ConnectionStringBuilder connStr = new ConnectionStringBuilder()
+        .setNamespaceName("Your Event Hubs namespace name")
+        .setEventHubName("Your event hub")
+        .setSasKeyName("Your policy name")
+        .setSasKey("Your primary SAS key");
 ```
 
 ### <a name="send-events"></a>Skicka händelser
 
-Skapa en enkel händelse genom att omvandla en sträng i UTF-8 byte kodningen. Sedan skapar en ny instans av Händelsehubbar klienten från anslutningssträngen och skicka meddelandet:   
+Skapa en enda händelse genom att omvandla en sträng till UTF-8 byte kodningen. Sedan skapar en ny instans för Event Hubs-klienten från anslutningssträngen och skicka meddelandet:   
 
 ```java 
-byte[] payloadBytes = "Test AMQP message from JMS".getBytes("UTF-8");
-EventData sendEvent = new EventData(payloadBytes);
+String payload = "Message " + Integer.toString(i);
+byte[] payloadBytes = gson.toJson(payload).getBytes(Charset.defaultCharset());
+EventData sendEvent = EventData.create(payloadBytes);
 
 final EventHubClient ehClient = EventHubClient.createSync(connStr.toString(), executorService);
 ehClient.sendSync(sendEvent);
@@ -110,7 +109,7 @@ ehClient.closeSync();
 
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
-* [Ta emot händelser med hjälp av EventProcessorHost](event-hubs-java-get-started-receive-eph.md)
+* [Ta emot händelser med EventProcessorHost](event-hubs-java-get-started-receive-eph.md)
 * [Översikt av händelsehubbar][Event Hubs overview]
 * [Skapa en Event Hub](event-hubs-create.md)
 * [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)

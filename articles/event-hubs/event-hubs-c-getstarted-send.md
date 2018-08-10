@@ -1,9 +1,9 @@
 ---
-title: Skicka händelser till Händelsehubbar i Azure med hjälp av C | Microsoft Docs
-description: Skicka händelser till Händelsehubbar i Azure med hjälp av C
+title: Skicka händelser till Azure Event Hubs med C | Microsoft Docs
+description: Skicka händelser till Azure Event Hubs med hjälp av C
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,45 +13,45 @@ ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
 ms.date: 12/4/2017
-ms.author: sethm
-ms.openlocfilehash: e3267b54fa0c8593e0f9366c009656f36e4094ef
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.author: shvija
+ms.openlocfilehash: 25da8255af6a23a4f01db5a1ec4f1ddcd2eeb1bb
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807823"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40002465"
 ---
-# <a name="send-events-to-azure-event-hubs-using-c"></a>Skicka händelser till Händelsehubbar i Azure med hjälp av C
+# <a name="send-events-to-azure-event-hubs-using-c"></a>Skicka händelser till Azure Event Hubs med hjälp av C
 
 ## <a name="introduction"></a>Introduktion
-Händelsehubbar är en mycket skalbar införandet system som kan mata in miljontals händelser per sekund, aktivera ett program för att bearbeta och analysera de enorma mängder data som produceras av dina anslutna enheter och program. När uppgifterna väl samlats i en händelsehubb kan du omvandla och lagra data med hjälp av en leverantör av realtidsanalys eller lagringskluster.
+Händelsehubbar är en mycket skalbar inmatning system som kan mata in miljontals händelser per sekund, aktivera ett program för att bearbeta och analysera de enorma mängder data som produceras av dina anslutna enheter och program. När samlats in i en händelsehubb, kan du omvandla och lagra dem med valfri leverantör av realtidsanalys eller lagringskluster.
 
-Mer information finns i [översikt av Händelsehubbar](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview).
+Mer information finns i den [översikt av Händelsehubbar](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview).
 
-Den här självstudiekursen beskrivs hur du skickar händelser till en händelsehubb med hjälp av ett konsolprogram i C. Mer information om att ta emot händelser, klickar du på det mottagande språket i den vänstra tabellen i innehållet.
+Den här självstudien beskrivs hur du skickar händelser till en händelsehubb med ett konsolprogram i C. Mer information om att ta emot händelser, klickar du på ditt mottagarspråk i den vänstra innehållsförteckningen.
 
 För att kunna genomföra den här kursen behöver du följande:
 
-* En C-utvecklingsmiljö. Den här kursen förutsätter gcc stacken på en virtuell Azure Linux-dator med Ubuntu 14.04.
+* En C-utvecklingsmiljö. Den här självstudiekursen förutsätter gcc-stacken på en virtuell Linux-dator med Ubuntu 14.04.
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
 * Ett aktivt Azure-konto. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="send-messages-to-event-hubs"></a>Skicka meddelanden till Event Hubs
-I det här avsnittet visar hur du skriver en app C för att skicka händelser till din event hub. Koden använder Proton AMQP-bibliotek från den [Apache Qpid projekt](http://qpid.apache.org/). Detta är detsamma som använder Service Bus-köer och ämnen med AMQP från C enligt [i det här exemplet](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Mer information finns i [Qpid Proton dokumentationen](http://qpid.apache.org/proton/index.html).
+I det här avsnittet visar hur du skriver en app för C för att skicka händelser till din event hub. Koden använder Proton AMQP-biblioteket från den [Apache Qpid projekt](http://qpid.apache.org/). Detta motsvarar att använda Service Bus-köer och ämnen med AMQP från C enligt [i det här exemplet](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Mer information finns i den [Qpid Proton dokumentation](http://qpid.apache.org/proton/index.html).
 
 1. Från den [Qpid AMQP Messenger sidan](https://qpid.apache.org/proton/messenger.html), följ instruktionerna för att installera Qpid Proton, beroende på din miljö.
-2. Kompilera Proton-biblioteket genom att installera följande paket:
+2. Kompilera Proton biblioteket genom att installera följande paket:
    
     ```shell
     sudo apt-get install build-essential cmake uuid-dev openssl libssl-dev
     ```
-3. Hämta den [Qpid Proton biblioteket](http://qpid.apache.org/proton/index.html), och extrahera, t.ex.:
+3. Ladda ned den [Qpid Proton biblioteket](http://qpid.apache.org/proton/index.html), och extrahera det, t.ex.:
    
     ```shell
     wget http://archive.apache.org/dist/qpid/proton/0.7/qpid-proton-0.7.tar.gz
     tar xvfz qpid-proton-0.7.tar.gz
     ```
-4. Skapa ett build-katalog, kompilera och installera:
+4. Skapa en build-katalog, kompilera och installera:
    
     ```shell
     cd qpid-proton-0.7
@@ -60,7 +60,7 @@ I det här avsnittet visar hur du skriver en app C för att skicka händelser ti
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
     sudo make install
     ```
-5. Skapa en ny fil med namnet i arbetskatalogen **sender.c** med följande kod. Kom ihåg att ersätta värdena för din SAS-nyckel/namn, händelsehubbens namn och namnområde. Du måste också ersätta en URL-kodade version av nyckel för den **SendRule** skapade tidigare. Du kan URL-koda den [här](http://www.w3schools.com/tags/ref_urlencode.asp).
+5. Skapa en ny fil med namnet i arbetskatalogen **sender.c** med följande kod. Kom ihåg att ersätta värdena för din SAS-nyckel/name, event hub-namn och namnområde. Du måste också ersätta en URL-kodad version av nyckeln för den **SendRule** skapade tidigare. Du kan URL-koda den [här](http://www.w3schools.com/tags/ref_urlencode.asp).
    
     ```c
     #include "proton/message.h"
@@ -148,7 +148,7 @@ I det här avsnittet visar hur du skriver en app C för att skicka händelser ti
     ```
 
     > [!NOTE]
-    > Den här koden använder ett utgående fönster 1 för att tvinga meddelanden ut så snart som möjligt. Du rekommenderas att ditt program försöker batch-meddelanden för att öka genomflödet. Finns det [Qpid AMQP Messenger sidan](https://qpid.apache.org/proton/messenger.html) information om hur du använder Qpid Proton biblioteket i den här och andra miljöer och från plattformar som bindningar har angetts (för närvarande Perl, PHP, Python eller Ruby).
+    > Den här koden använder ett fönster med en utgående 1 för att tvinga meddelanden ut så snart som möjligt. Du rekommenderas att ditt program försöker att batch-meddelanden för att öka dataflödet. Se den [Qpid AMQP Messenger sidan](https://qpid.apache.org/proton/messenger.html) information om hur du använder Qpid Proton biblioteket på det här och andra miljöer och plattformar som bindningar tillhandahålls (för närvarande Perl, PHP, Python och Ruby).
 
 
 ## <a name="next-steps"></a>Nästa steg

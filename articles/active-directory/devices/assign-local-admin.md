@@ -13,21 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 08/09/2018
 ms.author: markvi
 ms.reviewer: ravenn
-ms.openlocfilehash: 2dfef8d0dbaf4d70559c966f1587764210d8b49c
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: b72cab6ce90f0cbb74afd3e00a9aec73fb2908f7
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39598338"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003788"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Hantera den lokala administratörsgruppen på Azure AD-anslutna enheter
 
 Du måste vara medlem i gruppen lokala administratörer för att hantera en Windows-enhet. Som en del av processen i Azure Active Directory (AD Azure) uppdaterar Azure AD medlemskap i den här gruppen på en enhet. Du kan anpassa medlemskap uppdateringen för att uppfylla dina affärsbehov. Uppdateringen av gruppmedlemskap är till exempel användbart om du vill aktivera supportpersonalen att utföra uppgifter som kräver administratörsbehörighet på en enhet.
 
-Den här artikeln förklarar hur medlemskap uppdateringen fungerar och hur du kan anpassa den.
+Den här artikeln förklarar hur medlemskap uppdateringen fungerar och hur du kan anpassa den under en Azure AD Join. Innehållet i den här artikeln gäller inte för en **hybrid** Azure AD-anslutning.
 
 
 ## <a name="how-it-works"></a>Hur det fungerar

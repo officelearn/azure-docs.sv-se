@@ -96,6 +96,8 @@
           href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
         - name: Övervaka jobb – Azure SDK för .Net
           href: stream-analytics-monitor-jobs.md
+        - name: Övervaka jobb – Visual Studio
+          href: stream-analytics-monitor-jobs-use-vs.md
     - name: Skala
       items:
         - name: Skala med direktuppspelningsenheter
@@ -117,8 +119,10 @@
       items:
         - name: Installera verktygen
           href: stream-analytics-tools-for-visual-studio-install.md
-        - name: Utveckla ett molnjobb
-          href: stream-analytics-tools-for-visual-studio.md
+        - name: Testa ett jobb lokalt
+          href: stream-analytics-vs-tools-local-run.md
+        - name: Visa jobb i Visual Studio
+          href: stream-analytics-vs-tools.md
         - name: Utveckla ett Edge-jobb
           href: stream-analytics-tools-for-visual-studio-edge-jobs.md
         - name: Konfigurera CI/CD-pipeliner

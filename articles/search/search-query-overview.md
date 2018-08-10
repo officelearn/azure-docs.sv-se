@@ -1,5 +1,5 @@
 ---
-title: Fråga grunderna i Azure Search | Microsoft Docs
+title: Fråga typer och sammansättning i Azure Search | Microsoft Docs
 description: Grunderna för att skapa en sökfråga i Azure Search, med parametrar för att filtrera, markera och sortera resultaten.
 author: HeidiSteen
 manager: cgronlun
@@ -8,14 +8,14 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.openlocfilehash: 7e34e5fdfc674804faaba5d1fc19d24b9f51c61e
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 098718293cda1699fb07e09fa81af94a95bbdeca
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503065"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715166"
 ---
-# <a name="query-fundamentals-in-azure-search"></a>Fråga grunderna i Azure Search
+# <a name="query-types-and-composition-in-azure-search"></a>Frågetyper och sammansättning i Azure Search
 
 Fråga sammansättning i Azure Search är en fullständig specifikation av en begäran: matchar villkoren, plus parametrar för att dirigera frågekörning och utforma svaret. En begäran anger vilka fält om du vill inkludera, vilka fält som ska returneras om det ska sortera eller filtrera, och så vidare. Angivet används körs en fråga mot alla sökbara fält som en fullständig text search-åtgärd returnerar en inte har poängsatts resultatuppsättningen i valfri ordning.
 
@@ -55,7 +55,7 @@ Andra parametrar i det här exemplet ska även gälla för resultatet av frågan
 
 **Aktivera åtgärder via indexattribut**
 
-Design för indexet och fråga design är nära sammanlänkade i Azure Search. Medan visas inte här, en kritisk tidpunkt veta direkt är att den *indexschema*, bestämmer vilken typ av fråga som du kan skapa med attribut på varje fält. Indexattribut på en vilka tillåtna åtgärder – om ett fält är *sökbara* i indexet, *hämtningsbar* i resultatet, *sorterbar*,  *filtrerbar*, och så vidare. I det här exemplet `"orderby": "listingId"` fungerar bara om listingId fältet är märkt som *sorterbar* i indexschemat. Läs mer om indexattribut [skapa Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Design för indexet och fråga design är nära sammanlänkade i Azure Search. Medan visas inte här, en kritisk tidpunkt veta direkt är att den *indexschema*, bestämmer vilken typ av fråga som du kan skapa med attribut på varje fält. Indexattribut på en vilka tillåtna åtgärder – om ett fält är *sökbara* i indexet, *hämtningsbar* i resultatet, *sorterbar*, * filtrerbar*, och så vidare. I det här exemplet `"orderby": "listingId"` fungerar bara om listingId fältet är märkt som *sorterbar* i indexschemat. Läs mer om indexattribut [skapa Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 Tillåtna åtgärder på basis av per fält är bara ett sätt att indexdefinitionen informerar Frågekörningen. Andra funktioner som aktiverats i indexet är följande:
 

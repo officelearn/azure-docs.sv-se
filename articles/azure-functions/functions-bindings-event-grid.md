@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/08/2018
 ms.author: glenga
-ms.openlocfilehash: 0875829a405cafcea755d47214903c6ccab4ff16
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 6afc54bfcbef4d0714e9a09d0aa27ea4829d4dd5
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521304"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715394"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Event Grid-utlösare för Azure Functions
 
@@ -440,12 +440,16 @@ Ngrok URL: en få inte särskild hantering av Event Grid, så att din funktion m
 
 ### <a name="create-a-subscription"></a>Skapa en prenumeration
 
-Skapa en Event Grid-prenumeration för vilken du vill testa och ge den ngrok slutpunkten, med hjälp av följande mönster:
+Skapa en Event Grid-prenumeration för vilken du vill testa och ge den ngrok slutpunkten.
 
+Använd det här mönstret för slutpunkten för Functions 1.x:
 ```
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
 ``` 
-
+Använd det här mönstret för slutpunkten för Functions 2.x:
+```
+https://{subdomain}.ngrok.io/runtime/webhooks/EventGridExtensionConfig?functionName={functionName}
+``` 
 Den `functionName` parametern måste vara namnet i den `FunctionName` attribut.
 
 Här är ett exempel som använder Azure CLI:

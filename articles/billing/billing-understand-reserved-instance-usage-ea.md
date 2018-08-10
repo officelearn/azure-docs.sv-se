@@ -1,6 +1,6 @@
 ---
-title: Förstå Azure reserverade instans användning för företag | Microsoft Docs
-description: Lär dig hur du läsa hur du använder för att förstå hur Azure reserverade VM-instansen för Enterprise-registrering används.
+title: Förstå användningen av Azure reservation för företag | Microsoft Docs
+description: Lär dig mer om att läsa din användning för att förstå hur Azure reservation för Enterprise-registreringen tillämpas.
 services: billing
 documentationcenter: ''
 author: manish-shukla01
@@ -12,22 +12,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2018
+ms.date: 08/08/2018
 ms.author: manshuk
-ms.openlocfilehash: d6e8b2544f919abeb7fde0e37fc12bd29f0171ef
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 5ce0103315f297996ed3f3bd88b5e53558e22e14
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064133"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628240"
 ---
-# <a name="understand-azure-reserved-instance-usage-for-your-enterprise-enrollment"></a>Förstå Azure reserverade instans användning för Enterprise-registrering
-Förstå användning av en reserverad instans med hjälp av den **ReservationId** från [reservationer sidan](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) och användning av filen från den [EA portal](https://ea.azure.com). Du kan också se reserverade användning i sammanfattningen för användning i [EA portal](https://ea.azure.com).
+# <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Förstå användningen av Azure reservation för din Enterprise-registrering
 
->[!NOTE]
->Om du har köpt den reserverade instansen i en betalning per användning fakturering kontext finns [förstå reserverade instans användning för din prenumeration med användningsbaserad betalning.](billing-understand-reserved-instance-usage.md)
+Använd den **ReservationId** från [reservationer sidan](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) och användningsfil från den [EA-portalen](https://ea.azure.com) att utvärdera din reservation användning. Du kan också se reservation-användning i sammanfattningen för användning i [EA-portalen](https://ea.azure.com).
 
-I följande avsnitt i förutsätter att du kör en Standard_D1_v2 Windows VM i östra USA region och dina reserverade information ser ut som i följande tabell:
+Om du har köpt reservationen i en användningsbaserad fakturering kontext [förstå användningen av reservation för prenumerationen med användningsbaserad betalning.](billing-understand-reserved-instance-usage.md)
+
+## <a name="usage-for-reserved-virtual-machines-instances"></a>Användningen av reserverade instanser för virtuella datorer
+
+Anta att du kör en Standard_D1_v2 Windows virtuell dator i östra USA och din reservation informationen ser ut som i följande tabell i följande avsnitt:
 
 | Fält | Värde |
 |---| --- |
@@ -36,38 +38,59 @@ I följande avsnitt i förutsätter att du kör en Standard_D1_v2 Windows VM i �
 |SKU | Standard_D1|
 |Region | usaöstra |
 
-## <a name="reserved-instance-application"></a>Reserverade program
+Maskinvara-delen av den virtuella datorn ingår eftersom den distribuerade virtuella datorn matchar reservationen-attribut. Om du vill se vilka Windows-program som inte omfattas av reservationen, se [Azure reserverade VM-instanser Windows programvarukostnader](billing-reserved-instance-windows-software-costs.md).
 
-Den maskinvara som del av den virtuella datorn omfattas eftersom den distribuerade virtuella datorn matchar reserverade-attribut. Om du vill se vilka Windows-program som inte omfattas av reserverade instansen, gå till Azure reserverade VM-instanser programvarukostnader, gå till [Azure reservera VM-instanser Windows programvarukostnader.](billing-reserved-instance-windows-software-costs.md)
+### <a name="usage-in-csv-file-for-reserved-vm-instances"></a>Användning i CSV-filen för reserverade VM-instanser
 
+Du kan hämta Enterprise användning CSV-fil från Enterprise portal. Filtrera efter i CSV-filen **ytterligare information** och skriver i din **ReservationID**. Följande skärmbild visar relaterade fält till reservationen:
 
-### <a name="reserved-instance-usage-in-csv"></a>Användning av reserverade i csv
-Du kan hämta EA användning csv från EA-portalen. Filtrera efter ytterligare information i hämtade csv-fil och skriva i dina **ReservationID**. Följande skärmbild visar relaterade fält till reserverade instans:
+![Enterprise Agreement (EA) csv för Azure reservation](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-csv.png)
 
-![Enterprise-avtal (EA) csv för reserverade för Azure-instansen](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-csv.png)
+1. **ReservationId** i **ytterligare information** fältet motsvarar reservationen som tillämpas på den virtuella datorn.
+2. **ConsumptionMeter** är mätnings-ID för den virtuella datorn.
+3. **Mäter ID** är mätning för reservation med $0 kostnaden. Kostnaden för virtuell dator som körs betalas av den reserverade VM-instansen.
+4. Standard_D1 är en virtuell processor virtuella datorn och den virtuella datorn har distribuerats utan Azure Hybrid-förmånen. Den här mätaren omfattar så visas extra kostnaden för Windows-programvara. Du hittar den mätning som motsvarar D-serien 1 kärna VM [Azure reserverade VM-instanser Windows programvarukostnader](billing-reserved-instance-windows-software-costs.md).  Om du har Azure Hybrid-förmånen används inte den här extra kostnad.
 
-1. **ReservationId** i ytterligare information om fältet motsvarar den reserverade instans som användes för att tillämpa fördelen att den virtuella datorn.
-2. ConsumptionMeter är MeterId för den virtuella datorn.
-3. Detta är Reservation mätaren med $0 kostnaden eftersom kostnaden för att köra VM har betalats av den reserverade instansen. 
-4. Standard_D1 är en vCPU Virtuella och den virtuella datorn distribueras utan stöd för Azure-Hybrid. Den här mätaren omfattar därför extra kostnad för Windows-program. Se [Azure reservera VM-instanser Windows programvarukostnader.](billing-reserved-instance-windows-software-costs.md) att hitta mätaren motsvarar D-serien 1 kärna VM. Om Azure Hybrid förmånen används, tillämpas inte den här extra kostnad.
+## <a name="usage-for-sql-database-reserved-capacity-reservations"></a>Användningen av SQL Database reserverad kapacitetsreservationer
 
-### <a name="reserved-instance-usage-in-usage-summary-page-in-ea-portal"></a>Användning av reserverade i sammanfattningssida för användning i EA-portalen
+Anta att du kör en SQL-databas Gen 4 i östra USA och din reservation informationen ser ut som i följande tabell i följande avsnitt:
 
-Reserverade användning även visas i sammanfattningen för användning i EA portal: ![Användningsöversikt för Enterprise-avtal (EA)](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png)
+| Fält | Värde |
+|---| --- |
+|ReservationId |8244e673-83e9-45ad-B54B-3f5295d37cae|
+|Antal |2|
+|Produkt| SQL Database Gen 4 (2 kärnor)|
+|Region | usaöstra |
 
-1. Du debiteras inte för maskinvarukomponent av den virtuella datorn som omfattas av reserverade instans. 
-2. Du debiteras för Windows-program som Azure Hybrid förmånen inte används. 
+### <a name="usage-in-csv-file-for-sql-database-reserved-capacity"></a>Användning i CSV-filen för SQL Database reserverad kapacitet
+
+Filtrera på **ytterligare information** och skriver i din **reservations-ID**. Följande skärmbild visar relaterade fält till reservationen.
+
+![Enterprise Agreement (EA) csv för SQL Database reserverad kapacitet](./media/billing-understand-reserved-instance-usage-ea/billing-ea-sql-db-reserved-capacity-csv.png)
+
+1. **ReservationId** i den **ytterligare information** fältet är reservationen som tillämpas på den SQL Database-resursen.
+2. **ConsumptionMeter** är mätnings-ID för SQL Database-resursen.
+3. **Mäter ID** är mätning för reservation med $0 kostnaden. En SQL Database-resurs som är kvalificerad för reservationen visar den här mätnings-ID i CSV-filen.
+
+## <a name="usage-summary-page-in-enterprise-portal"></a>Sammanfattningssida för användning i Enterprise portal
+
+Din användning av Azure reservation även visas i sammanfattningen för användning i Enterprise portal: ![Användningsöversikt för Enterprise Agreement (EA)](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png)
+
+1. Du debiteras inte för maskinvarukomponent för den virtuella datorn eftersom de omfattas av reservation. För en SQL Database-reservation, visas en rad med **tjänstnamn** reserverad kapacitet som Azure SQL Database.
+2. I det här exemplet kan har du inte Azure Hybrid-förmånen så debiteras du för den Windows-programvara som används med den virtuella datorn.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om Azure reserverade instanser finns i följande artiklar:
 
-- [Vad är Azure reserverade VM-instanser?](billing-save-compute-costs-reservations.md)
-- [Förskottsbetala virtuella datorer med Azure reserverade VM-instanser](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Hantera reserverade instanser i Azure](billing-manage-reserved-vm-instance.md)
-- [Förstå hur de reserverade rabatterna används](billing-understand-vm-reservation-charges.md)
-- [Förstå reserverade användning för din prenumeration med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
-- [Windows programvarukostnader ingår inte i reserverade instanser](billing-reserved-instance-windows-software-costs.md)
+Om du vill veta mer om Azure reservationer, finns i följande artiklar:
+
+- [Vad är Azure reservationer?](billing-save-compute-costs-reservations.md)
+- [Förskottsbetala för virtuella datorer med Azure reserverade VM-instanser](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Betala i förskott för beräkningsresurser för SQL-databas med Azure SQL Database reserverad kapacitet](../sql-database/sql-database-reserved-capacity.md) 
+- [Hantera Azure-reservationer](billing-manage-reserved-vm-instance.md)
+- [Förstå hur reservationsrabatten tillämpas](billing-understand-vm-reservation-charges.md)
+- [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
+- [Kostnader för Windows-programvara ingår inte i reservationer](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 
-Om du fortfarande har fler frågor, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) få snabbt lösa problemet.
+Om du har fler frågor, [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.

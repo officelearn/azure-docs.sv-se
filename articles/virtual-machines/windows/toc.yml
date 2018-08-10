@@ -216,9 +216,9 @@
           href: nested-virtualization.md
     - name: Hantera kostnader
       items:
-        - name: Förskottsbetala för virtuella datorer – reserverade instanser
+        - name: Förskottsbetala för virtuella datorer – Azure-reservationer
           href: prepay-reserved-vm-instances.md
-        - name: Vad är reserverade instanser?
+        - name: Vad är Azure-reservationer?
           href: ../../billing/billing-save-compute-costs-reservations.md
         - name: Flexibilitet för VM-instansstorlek
           href: reserved-vm-instance-size-flexibility.md

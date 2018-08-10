@@ -88,6 +88,8 @@
           href: iot-accelerators-time-series-insights.md
         - name: Analysera telemetri med Data Lake
           href: iot-accelerators-integrate-data-lake.md
+        - name: Konfigurera rollbaserad åtkomstkontroll
+          href: iot-accelerators-remote-monitoring-rbac.md
     - name: Fjärrövervakning (tidigare version)
       items:
         - name: Vilka är de förkonfigurerade lösningarna?

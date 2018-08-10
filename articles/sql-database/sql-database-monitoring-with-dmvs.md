@@ -7,41 +7,42 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 08/08/2018
 ms.author: carlrab
-ms.openlocfilehash: a1333680225923a4e27f96e61a5b6530f32a9329
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c4d1170bd2fe4acb135c88191b447f734e312723
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647892"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715965"
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Övervaka Azure SQL Database med dynamiska hanteringsvyer
-Microsoft Azure SQL Database gör det möjligt för en delmängd av dynamiska hanteringsvyer att diagnostisera prestandaproblem som orsakas av blockerade eller långvariga frågor, flaskhalsar för resurser, dåliga frågeplaner och så vidare. Det här avsnittet innehåller information om hur du identifierar vanliga prestandaproblem med dynamiska hanteringsvyer.
+Microsoft Azure SQL Database gör det möjligt för en delmängd av dynamiska hanteringsvyer att diagnostisera problem med prestanda, vilket kan orsakas av blockerade eller långvariga frågor, flaskhalsar för resurser, dålig frågeplaner och så vidare. Det här avsnittet innehåller information om hur du identifierar vanliga prestandaproblem med dynamiska hanteringsvyer.
 
 SQL Database stöder delvis tre kategorier av dynamiska hanteringsvyer:
 
 * Databasrelaterade dynamiska hanteringsvyer.
-* Körningen-relaterade dynamiska hanteringsvyer.
-* Relaterad dynamiska hanteringsvyer.
+* Körning-relaterade dynamiska hanteringsvyer.
+* Transaktionen att göra dynamiska hanteringsvyer.
 
-Detaljerad information om dynamiska hanteringsvyer finns [vyer för hantering av dynamiska och funktioner (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) i SQL Server Books Online.
+Detaljerad information om dynamiska hanteringsvyer finns [Dynamic Management Views och Functions (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) i SQL Server Books Online.
 
 ## <a name="permissions"></a>Behörigheter
-I SQL-databas, frågar en dynamisk hanteringsvy kräver **databasen VISNINGSSTATUS** behörigheter. Den **databasen VISNINGSSTATUS** behörighet returnerar information om alla objekt i den aktuella databasen.
-Att bevilja de **databasen VISNINGSSTATUS** för en viss databasanvändare kör följande fråga:
+I SQL-databas, frågar en dynamisk hanteringsvy kräver **visa DATABASTILLSTÅND** behörigheter. Den **visa DATABASTILLSTÅND** behörighet returnerar information om alla objekt i den aktuella databasen.
+Att bevilja de **visa DATABASTILLSTÅND** behörighet till en viss databasanvändare, kör följande fråga:
 
 ```GRANT VIEW DATABASE STATE TO database_user; ```
 
-Dynamiska hanteringsvyer returnera information om tillstånd i en lokal SQL Server-instans. De returnera information om logiska databasen bara i SQL-databas.
+I en instans av en lokal SQL Server returnera dynamiska hanteringsvyer server statusinformation. Returnerar information om din aktuella logiska databasen endast i SQL-databas.
 
 ## <a name="calculating-database-size"></a>Beräkning av databasens storlek
-Följande fråga returnerar storleken på databasen (i megabyte):
+Följande fråga returnerar storleken på din databas (i megabyte):
 
 ```
 -- Calculates the size of the database.
-SELECT SUM(reserved_page_count)*8.0/1024
-FROM sys.dm_db_partition_stats;
+SELECT SUM(CAST(FILEPROPERTY(name, 'SpaceUsed') AS bigint) * 8192.) / 1024 / 1024 AS DatabaseSizeInMB
+FROM sys.database_files
+WHERE type_desc = 'ROWS';
 GO
 ```
 
@@ -57,7 +58,7 @@ GO
 ```
 
 ## <a name="monitoring-connections"></a>Övervakar anslutningar
-Du kan använda den [sys.dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) vyn för att hämta information om anslutningar till en specifik Azure SQL Database-server och information om varje anslutning. Dessutom kan den [sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) vy är användbar när du hämtar information om alla aktiva användaranslutningar och interna aktiviteter.
+Du kan använda den [sys.dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) vy för att hämta information om anslutningar till en specifik Azure SQL Database-server och information om varje anslutning. Dessutom kan den [sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) vyn är användbar vid hämtning av information om alla aktiva användaranslutningar och interna aktiviteter.
 Följande fråga hämtar information om den aktuella anslutningen:
 
 ```
@@ -74,15 +75,15 @@ WHERE c.session_id = @@SPID;
 ```
 
 > [!NOTE]
-> När du kör den **sys.dm_exec_requests** och **sys.dm_exec_sessions vyer**, om du har **databasen VISNINGSSTATUS** behörighet på databasen, hittar du alla verkställande sessioner på databasen, annars kan du se endast den aktuella sessionen.
+> När du kör den **sys.dm_exec_requests** och **sys.dm_exec_sessions vyer**, om du har **visa DATABASTILLSTÅND** behörighet på databasen, visas alla körning sessioner på databasen. Annars ser du bara den aktuella sessionen.
 > 
 > 
 
 ## <a name="monitoring-query-performance"></a>Övervaka prestanda för frågor
-Långsamt eller länge kör frågor kan du använda betydande systemresurser. Det här avsnittet beskrivs hur du använder dynamiska hanteringsvyer för att identifiera några vanliga problem med frågeprestanda. En äldre men ändå bra referens för felsökning, är den [felsökning av problem med prestanda i SQL Server 2008](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) artikel på Microsoft TechNet.
+Långsamt eller länge körning av frågor kan du använda betydande systemresurser. Det här avsnittet visar hur du använder dynamiska hanteringsvyer för att identifiera några prestandaproblem för vanliga frågor. En äldre, men fortfarande användbart referens för felsökning, är den [Felsöka prestandaproblem i SQL Server 2008](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) artikel på Microsoft TechNet.
 
 ### <a name="finding-top-n-queries"></a>Hitta främsta frågor
-I följande exempel returnerar information om de översta fem frågor som rangordnas av Genomsnittlig CPU-tid. Det här exemplet aggregerar frågor enligt deras fråga-hash, så att logiskt motsvarande frågorna grupperas efter deras kumulativa resursförbrukning.
+I följande exempel returnerar information om de översta fem frågorna rangordnade med Genomsnittlig CPU-tid. Det här exemplet aggregerar frågor enligt deras fråge-hash, så att logiskt motsvarande frågor grupperas efter deras kumulativa resursförbrukningen.
 
 ```
 SELECT TOP 5 query_stats.query_hash AS "Query Hash",
@@ -102,10 +103,10 @@ ORDER BY 2 DESC;
 ```
 
 ### <a name="monitoring-blocked-queries"></a>Övervaka blockerade frågor
-Långsam eller långvariga frågor kan bidra till hög resursförbrukning och en följd av blockerade frågor. Orsak till spärr kan vara dålig programdesign, felaktig frågeplaner, bristande användbar index och så vidare. Du kan använda vyn sys.dm_tran_locks för att få information om den aktuella låsning aktiviteten i Azure SQL-databasen. Exempelkod finns i avsnittet [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) i SQL Server Books Online.
+Långsam eller långvariga frågor kan bidra till abnorm resursförbrukning och var en följd av blockerade frågor. Orsaken till att den blockerar kan vara dålig programdesign, felaktig frågeplaner, bristen på användbara index och så vidare. Du kan använda sys.dm_tran_locks vyn för att hämta information om den aktuella låsning aktiviteten i din Azure SQL Database. Exempelkod, se [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) i SQL Server Books Online.
 
-### <a name="monitoring-query-plans"></a>Övervakningsprogram för frågan
-En ineffektiv frågeplan kan också öka processoranvändningen. I följande exempel används den [sys.dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) vyn för att avgöra vilka frågan använder mest kumulativa Processorn.
+### <a name="monitoring-query-plans"></a>Övervakningsprogram för fråga
+En ineffektiv frågeplanen kan också minska CPU-förbrukning. I följande exempel används den [sys.dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) vyn för att avgöra vilken fråga använder mest kumulativa Processorn.
 
 ```
 SELECT
@@ -128,5 +129,5 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
 ## <a name="see-also"></a>Se också
-[Introduktion till SQL-databas](sql-database-technical-overview.md)
+[Introduktion till SQL Database](sql-database-technical-overview.md)
 

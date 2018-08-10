@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 08/08/2018
 ms.author: marsma
-ms.openlocfilehash: cfe034d6dcac48d7c9e4b2ce17e4926a81a27886
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 1d7855ff840fc1dd68effb19c43c3a691bd15d62
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216112"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714680"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Nätverkskonfigurationen i Azure Kubernetes Service (AKS)
 
@@ -97,15 +97,14 @@ När du skapar ett AKS-kluster, konfigureras följande parametrar för avancerad
 
 **Undernät**: undernätet i det virtuella nätverket där du vill distribuera klustret. Om du vill skapa ett nytt undernät i det virtuella nätverket för klustret, väljer *Skapa nytt* och följ stegen i den *skapa undernät* avsnittet.
 
-**Kubernetes-tjänst-adressintervall**: den *Kubernetes-tjänst-adressintervall* är IP-adressintervall som adresser tilldelas till Kubernetes-tjänster i klustret (Mer information om Kubernetes-tjänster finns i [ Services] [ services] i Kubernetes-dokumentationen).
-
-Kubernetes service IP-adressintervall:
+**Kubernetes-tjänst-adressintervall**: det här är en uppsättning virtuella IP-adresser som Kubernetes tilldelar [services] [ services] i klustret. Du kan använda alla privata adressintervall som uppfyller följande krav:
 
 * Får inte vara VNet IP-adressintervallet för ditt kluster
 * Får inte överlappa andra Vnet som som klustret VNet peer-datorer
 * Får inte överlappa eventuella lokala IP-adresser
+* Får inte vara inom intervallen `169.254.0.0/16`, `172.30.0.0/16`, eller `172.31.0.0/16`
 
-Oväntade funktionssätt kan bero på att överlappande IP-adressintervall som används. Till exempel om en pod försöker få åtkomst till en IP-adress utanför klustret, och som IP också råkar vara en IP-adress för tjänsten, kan du se oförutsägbart beteende och fel.
+Även om det är tekniskt möjligt att ange ett service-adressintervall inom samma virtuella nätverk som klustret rekommenderas detta så inte. Oväntade funktionssätt kan bero på att överlappande IP-adressintervall som används. Mer information finns i den [vanliga frågor och svar](#frequently-asked-questions) i den här artikeln. Mer information om Kubernetes-tjänster finns i [Services] [ services] i Kubernetes-dokumentationen.
 
 **IP-adress för Kubernetes DNS-tjänsten**: IP-adress för klustrets DNS-tjänsten. Den här adressen måste vara inom den *Kubernetes-tjänst-adressintervall*.
 
@@ -154,6 +153,10 @@ Följande frågor och svar gäller den **Avancerat** nätverkskonfiguration.
 * *Hur konfigurerar jag ytterligare egenskaper för det undernät som jag skapade när du skapar för AKS-klustret? Till exempel Tjänsteslutpunkter.*
 
   Den fullständiga listan med egenskaper för virtuellt nätverk och undernät som du skapar när du skapar för AKS-klustret kan konfigureras i standard VNet-konfigurationssidan i Azure-portalen.
+
+* *Kan jag använda ett annat undernät i mitt kluster virtuellt nätverk för den* **Kubernetes-tjänst-adressintervall**?
+
+  Det rekommenderas inte, men den här konfigurationen är möjligt. Service-adressintervall är en uppsättning virtuella IP-adresser (VIP) som Kubernetes tilldelar tjänster i ditt kluster. Azure-nätverk har inga insyn i Kubernetes-klustret service IP-adressintervall. På grund av bristen på insyn i klustrets service-adressintervall är det möjligt att senare skapar ett nytt undernät i virtuella nätverk som överlappar adressintervallet service-klustret. Om en sådan överlappning inträffar kan Kubernetes tilldela en tjänst en IP-adress som används redan av en annan resurs i undernätet orsaka oväntade funktionssätt eller fel. Genom att se till att du använder ett adressintervall utanför klustrets virtuella nätverk, kan du undvika detta överlappar varandra.
 
 ## <a name="next-steps"></a>Nästa steg
 

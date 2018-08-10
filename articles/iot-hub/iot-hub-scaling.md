@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 446fe139e3d1abe79b877d663842f7c7c6168f19
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 01aeaee03a4cfabbda3a29cddd17febdc8a16e45
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126702"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003540"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Välja rätt nivå för IoT Hub för din lösning
 
@@ -31,7 +31,7 @@ Varje nivå för IoT Hub är tillgänglig i tre storlekar som baserat dataflöde
 
 Standardnivån för IoT Hub kan du använda alla funktioner och är obligatoriskt för alla IoT-lösningar som vill göra användning av funktioner för dubbelriktad kommunikation. Basic-nivån kan en delmängd av funktionerna som är avsedd för IoT-lösningar som bara behöver enkelriktad kommunikation från enheter till molnet. Båda nivåerna har samma funktioner för säkerhet och autentisering.
 
-När du har skapat din IoT-hubb som du kan uppgradera från basic-nivån till standardnivån utan att avbryta din befintliga åtgärder. Mer information finns i [uppgradera din IoT-hubb](iot-hub-upgrade.md). Observera att partitionsgränsen för basic-nivån IoT Hub är 8. Den här gränsen kommer ändras inte när du migrerar från basic-nivån till standardnivån.
+När du har skapat din IoT-hubb som du kan uppgradera från basic-nivån till standardnivån utan att avbryta din befintliga åtgärder. Mer information finns i [uppgradera din IoT-hubb](iot-hub-upgrade.md). Observera att den maximala partitionsgränsen för basic-nivån IoT Hub är 8 och standard-nivån är 32. De flesta IoT-hubbar behöver bara 4 partitioner. Partitionsgränsen väljs när IoT-hubben har skapats och avser antalet samtidiga läsare av dessa meddelanden på meddelanden från enheten till molnet. Det här värdet ändras inte när du migrerar från basic-nivån till standardnivån. Tänk också på den enda typen av [edition](https://azure.microsoft.com/pricing/details/iot-hub/) inom en nivå kan väljas per IoT Hub. Du kan till exempel skapa en IoT-hubb med flera enheter av S1, men inte med en blandning av enheter från olika versioner, till exempel S1 och B3, eller S1 och S2.
 
 | Funktion | Basic-nivå | Standard-nivå |
 | ---------- | ---------- | ------------- |
@@ -106,6 +106,9 @@ Utöver den här dataflödesinformationen, se [IoT Hub-kvoter och begränsningar
 IoT Hub identitetsregisteråtgärder är inte ska vara körning åtgärder, eftersom de främst är relaterade till enhetsetablering.
 
 Specifika burst prestandasiffror Se [IoT Hub-kvoter och begränsningar][IoT Hub quotas and throttles].
+
+## <a name="auto-scale"></a>Autoskala
+Om du närmar gräns för antalet tillåtna meddelanden på din IoT-hubb, kan du använda dessa [steg för att automatiskt skala](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) att räkna upp en enhet, IoT Hub i samma nivå för IoT Hub.
 
 ## <a name="sharding"></a>Horisontell partitionering
 Även om en enda IoT-hubb kan skala till miljoner enheter, kräver ibland din lösning specifika prestandaegenskaper som en enda IoT-hubb inte kan garantera. I så fall kan du partitionera dina enheter över flera IoT-hubbar. Flera IoT-hubbar jämna trafikökningar och hämta nödvändiga dataflöde eller åtgärden avgifter som krävs.

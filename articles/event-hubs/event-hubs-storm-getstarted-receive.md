@@ -1,9 +1,9 @@
 ---
-title: Ta emot händelser från Azure Event Hubs använder Apache Storm | Microsoft Docs
-description: Börja ta emot från Event Hubs använder Apache Storm
+title: Ta emot händelser från Azure Event Hubs med Apache Storm | Microsoft Docs
+description: Börja ta emot från Event Hubs med Apache Storm
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,38 +13,38 @@ ms.tgt_pltfrm: java
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2018
-ms.author: sethm
-ms.openlocfilehash: 6f558ff0613937d17f2dd7c2c9db6eb2de31ab9e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: shvija
+ms.openlocfilehash: 3880ffe1b61b59e4d05e594a34e1119188177b56
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405678"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40002771"
 ---
-# <a name="receive-events-from-event-hubs-using-apache-storm"></a>Ta emot händelser från Event Hubs använder Apache Storm
+# <a name="receive-events-from-event-hubs-using-apache-storm"></a>Ta emot händelser från Event Hubs med Apache Storm
 
-[Apache Storm](https://storm.incubator.apache.org) är ett system för distribuerade beräkningar i realtid som förenklar tillförlitliga bearbetningen av unbounded dataströmmar. Det här avsnittet visar hur du använder en Azure Event Hubs Storm-kanal för att ta emot händelser från Event Hubs. Med Apache Storm kan du dela upp händelser över flera processer som ligger på olika noder. Händelsehubbar integrering med Storm förenklar händelsekonsumtion genom att transparent kontrollpunkter förloppet använder Storm's Zookeeper installation, hantera permanenta kontrollpunkter och parallella mottaganden från Event Hubs.
+[Apache Storm](https://storm.incubator.apache.org) är en distribuerad beräkningssystem i realtid som förenklar tillförlitliga bearbetningen av obundna dataströmmar. Det här avsnittet visar hur du använder en Azure Event Hubs Storm-kanal för att ta emot händelser från Event Hubs. Med Apache Storm kan du dela upp händelser över flera processer som ligger på olika noder. Event Hubs-integrering med Storm förenklar händelsekonsumtion genom att transparent kontrollpunkter förloppet använder Storm's Zookeeper-installation, hantera permanenta kontrollpunkter och parallella mottaganden från Event Hubs.
 
-Mer information om Händelsehubbar får mönster, finns det [översikt av Händelsehubbar][Event Hubs overview].
+Mer information om Händelsehubbar får mönster, finns i den [översikt av Händelsehubbar][Event Hubs overview].
 
 ## <a name="create-project-and-add-code"></a>Skapa projektet och Lägg till kod
 
-Den här kursen använder en [HDInsight Storm] [ HDInsight Storm] installation som medföljer den Händelsehubbar kanal som redan finns.
+Den här självstudien används en [HDInsight Storm] [ HDInsight Storm] installationen, som medföljer den Event Hubs-kanal som redan finns.
 
-1. Följ den [HDInsight Storm - komma igång](../hdinsight/storm/apache-storm-overview.md) proceduren för att skapa ett nytt HDInsight-kluster och ansluta till den via fjärrskrivbord.
+1. Följ den [HDInsight Storm – Kom igång](../hdinsight/storm/apache-storm-overview.md) procedur för att skapa ett nytt HDInsight-kluster och ansluta till den via fjärrskrivbord.
 2. Kopiera den `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` filen till din lokala utvecklingsmiljö. Innehåller händelser-storm-kanal.
-3. Använd följande kommando för att installera paketet i det lokala arkivet Maven. På så sätt kan du lägga till den som en referens i projektet Storm i ett senare steg.
+3. Använd följande kommando för att installera paketet till det lokala Maven-arkivet. På så sätt kan du lägga till den som en referens i Storm-projektet i ett senare steg.
 
     ```shell
     mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
     ```
-4. Skapa ett nytt Maven-projekt i Eclipse (klicka på **filen**, sedan **ny**, sedan **projekt**).
+4. Skapa ett nytt Maven-projekt i Eclipse (klicka på **filen**, sedan **New**, sedan **projekt**).
    
     ![][12]
-5. Välj **använda standardplatsen för arbetsytan**, klicka på **nästa**
-6. Välj den **maven-archetype-Snabbstart** archetype, klicka på **nästa**
-7. Infoga en **GroupId** och **artefakt-ID**, klicka på **Slutför**
-8. I **pom.xml**, Lägg till följande beroenden i den `<dependency>` nod.
+5. Välj **använda standardplatsen för arbetsytan**, klicka sedan på **nästa**
+6. Välj den **maven-archetype-quickstart** archetype, klicka sedan på **nästa**
+7. Infoga en **GroupId** och **ArtifactId**, klicka sedan på **Slutför**
+8. I **pom.xml**, Lägg till följande beroenden i den `<dependency>` noden.
 
     ```xml  
     <dependency>
@@ -76,7 +76,7 @@ Den här kursen använder en [HDInsight Storm] [ HDInsight Storm] installation s
     </dependency>
     ```
 
-9. I den **src** mapp, skapa en fil med namnet **Config.properties** och kopiera följande innehåll, ersätter den `receive rule key` och `event hub name` värden:
+9. I den **src** mapp, skapa en fil med namnet **Config.properties** och kopiera följande innehåll, och Ersätt den `receive rule key` och `event hub name` värden:
 
     ```java
     eventhubspout.username = ReceiveRule
@@ -91,7 +91,7 @@ Den här kursen använder en [HDInsight Storm] [ HDInsight Storm] installation s
     eventhubspout.checkpoint.interval = 10
     eventhub.receiver.credits = 10
     ```
-    Värdet för **eventhub.receiver.credits** avgör hur många händelser grupperas innan du lanserar Storm-pipeline. För enkelhetens skull anger det här exemplet du värdet till 10. I produktion sättas det vanligtvis till högre värden. till exempel 1024.
+    Värdet för **eventhub.receiver.credits** avgör hur många händelser grupperas innan du gör dem tillgängliga för Storm-pipeline. För enkelhetens skull anger det här exemplet du det här värdet till 10. I produktion, ska det vanligtvis vara inställd på högre värden. till exempel 1024.
 10. Skapa en ny klass med namnet **LoggerBolt** med följande kod:
     
     ```java
@@ -131,7 +131,7 @@ Den här kursen använder en [HDInsight Storm] [ HDInsight Storm] installation s
     }
     ```
     
-    Storm bulten loggar innehållet i de mottagna händelserna. Detta kan enkelt utökas för att lagra tupplar i en storage-tjänst. Den [HDInsight Storm med Event Hub exemplet] använder samma metod för att lagra data i Azure Storage och Power BI.
+    Bulten Storm loggar innehållet i de mottagna händelserna. Detta kan enkelt utökas för att lagra tupplar i en lagringstjänst. Den [HDInsight Storm med exempel för Event Hub] använder samma metod för att lagra data i Azure Storage och Power BI.
 11. Skapa en klass med namnet **LogTopology** med följande kod:
     
     ```java
@@ -236,7 +236,7 @@ Den här kursen använder en [HDInsight Storm] [ HDInsight Storm] installation s
     }
     ```
 
-    Den här klassen skapas en ny kanal för Händelsehubbar, med hjälp av egenskaperna i konfigurationsfilen för att skapa en instans av den. Det är viktigt att Observera att det här exemplet skapar så många aktiviteter för kanaler som antalet partitioner i händelsehubben, för att kunna använda maximala parallellitet tillåts av den händelsehubben.
+    Den här klassen skapar en ny kanal för Event Hubs, med hjälp av egenskaperna i konfigurationsfilen för att skapa en instans av den. Det är viktigt att Observera att det här exemplet skapar så många aktiviteter för kanaler som antalet partitioner i event hub för att kunna använda den maximala parallellitet som tillåts av den händelsehubben.
 
 ## <a name="next-steps"></a>Nästa steg
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
@@ -248,7 +248,7 @@ Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
-[HDInsight Storm med Event Hub exemplet]: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
+[HDInsight Storm med exempel för Event Hub]: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
 
 <!-- Images -->
 

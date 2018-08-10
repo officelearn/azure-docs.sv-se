@@ -110,9 +110,17 @@
     - name: Frågedata
       items:
         - name: Språkdokumentation
-          href: 'https://docs.loganalytics.io'
-        - name: Övergång från äldre språk
-          href: log-analytics-log-search-transition.md
+          items:
+            - name: Övergång från äldre språk
+              href: log-analytics-log-search-transition.md
+            - name: Kom igång med Analytics-portalen
+              href: query-language/get-started-analytics-portal.md
+            - name: Kom igång med frågor
+              href: query-language/get-started-queries.md
+            - name: Sökfrågor
+              href: query-language/search-queries.md
+            - name: Språkreferens
+              href: 'https://docs.loganalytics.io'
         - name: Sökningar mellan resurser
           href: log-analytics-cross-workspace-search.md
         - name: Utför åtgärder från sökresultat

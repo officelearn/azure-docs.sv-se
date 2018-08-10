@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 1d08518a23dfe4a9cc63bf3f35ee69ea1815595f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c8c0f4c3f99aa413531f54c1807883fcd73f039a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38239959"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627941"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegierad åtkomst för hybrid- och distributioner i Azure AD
 
@@ -380,7 +380,7 @@ Bestäm om du behöver [överföra ägarskap för en Azure-prenumeration till et
 
 4. Få hjälp från Microsoft av [att öppna en supportförfrågan för Azure](../../azure-supportability/how-to-create-azure-support-request.md).
 
-5. Titta på den [Azure AD-inloggningsrapporter](../active-directory-reporting-azure-portal.md). Det kan finnas en fördröjning mellan en händelse inträffar och när det ingår i rapporten.
+5. Titta på den [Azure AD-inloggningsrapporter](../reports-monitoring/overview-reports.md). Det kan finnas en fördröjning mellan en händelse inträffar och när det ingår i rapporten.
 
 6. För hybridmiljöer om externa och din AD FS-servern inte är tillgänglig kan du behöva växla tillfälligt från federerad autentisering du använder lösenordets hash-synkronisering. Detta återställer domän federation tillbaka till hanterad autentisering tills AD FS-servern blir tillgänglig.
 

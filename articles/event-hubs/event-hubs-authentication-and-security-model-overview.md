@@ -1,9 +1,9 @@
 ---
-title: Översikt över Azure Event Hubs autentisering och säkerhetsmodell | Microsoft Docs
+title: Översikt över Azure Event Hubs-autentisering och säkerhetsmodell | Microsoft Docs
 description: Autentisering och säkerhet modellen översikt över Event Hubs.
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: 93841e30-0c5c-4719-9dc1-57a4814342e7
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/30/2018
-ms.author: sethm
-ms.openlocfilehash: 5264930dcb802c2a58abc179bdd0041acc9f58d0
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: shvija
+ms.openlocfilehash: 484b5109678b04943e59b0e6bc516926f5d61838
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311377"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003163"
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>Autentisering och säkerhet modellen översikt över Event Hubs
 
-Händelsehubbar i Azure-säkerhetsmodellen uppfyller följande krav:
+Azure Event Hubs-säkerhetsmodellen uppfyller följande krav:
 
 * Endast klienter som presenterar giltiga autentiseringsuppgifter kan skicka data till en händelsehubb.
 * En klient kan personifiera en annan klient.
@@ -31,21 +31,21 @@ Händelsehubbar i Azure-säkerhetsmodellen uppfyller följande krav:
 
 ## <a name="client-authentication"></a>Klientautentisering
 
-Händelsehubbar-säkerhetsmodellen bygger på en kombination av [delade signatur åtkomst (SAS)](../service-bus-messaging/service-bus-sas.md) token och *händelseutfärdare*. En händelseutfärdare definierar en virtuell slutpunkt för en händelsehubb. Utgivaren kan bara användas för att skicka meddelanden till en händelsehubb. Det går inte att ta emot meddelanden från en utgivare.
+Event Hubs-säkerhetsmodellen bygger på en kombination av [signatur för delad åtkomst (SAS)](../service-bus-messaging/service-bus-sas.md) token och *händelseutfärdare*. En händelseutfärdare definierar en virtuell slutpunkt för en händelsehubb. Utgivaren kan bara användas för att skicka meddelanden till en händelsehubb. Det går inte att ta emot meddelanden från en utgivare.
 
-En händelsehubb använder normalt en utgivare per klient. Alla meddelanden som skickas till någon av utgivare i en händelsehubb är köas inom den händelsehubben. Utgivare Aktivera detaljerad åtkomstkontroll och begränsning.
+En händelsehubb använder vanligtvis en utgivare per klient. Alla meddelanden som skickas till någon av utgivare av en händelsehubb är i kön i den händelsehubben. Utgivare Aktivera detaljerad åtkomstkontroll och begränsning.
 
-Varje händelsehubbklient tilldelas ett unikt token som överförs till klienten. Token som tillverkas så att varje unik token ger tillgång till en annan unik utgivare. En klient som har en token kan bara skicka till en utgivare, men inga andra utgivare. Om flera klienter delar samma token, delar dem en utgivare.
+Varje Event Hubs-klient tilldelas en unik token som överförts till klienten. Token som tillverkas, så att varje unik token ger tillgång till en annan unik utgivare. En klient som har en token kan bara skicka till en utgivare, men inga andra utgivare. Om flera klienter delar samma token, delar var och en av dem en utgivare.
 
-Det är möjligt att förse enheter med token som ger direktåtkomst till en händelsehubb rekommenderas inte. Alla enheter som innehåller detta token kan skicka meddelanden direkt till den händelsehubben. Dessa enheter inte omfattas begränsning. Dessutom kan du övriga enheten från att skicka till den event hub.
+Även om det inte rekommenderas så är det möjligt att förse enheter med token som ger direktåtkomst till en händelsehubb. Vilken enhet som innehåller detta token kan skicka meddelanden direkt till den event hub. Sådana en enhet omfattas inte av begränsning. Dessutom kan du Svartlistad enheten från att skicka till den händelsehubben.
 
-Alla token är signerade med en SAS-nyckel. Alla token är vanligtvis signerade med samma nyckel. Klienter är inte medvetna om nyckeln. Detta förhindrar att andra klienter tillverkar token.
+Alla token är signerade med en SAS-nyckel. Vanligtvis signeras alla token med samma nyckel. Klienter är inte medvetna om registernyckeln. Detta förhindrar att andra klienter inom tillverkning token.
 
 ### <a name="create-the-sas-key"></a>Skapa SAS-nyckeln
 
-När du skapar ett namnområde för Händelsehubbar tjänsten automatiskt genererar en 256-bitars SAS-nyckel som heter **RootManageSharedAccessKey**. Den här regeln har en associerad par primära och sekundära nycklar som ger skicka lyssna och hantera rättigheter till i namnområdet. Du kan också skapa ytterligare nycklar. Vi rekommenderar att du ger en nyckel som ger skickar behörigheter till specifika händelsehubben. Under resten av det här avsnittet förutsätts att den här nyckeln med namnet **EventHubSendKey**.
+När du skapar ett namnområde för Event Hubs, genererar tjänsten automatiskt en 256-bitars SAS-nyckel med namnet **RootManageSharedAccessKey**. Den här regeln har ett kopplat par med primära och sekundära nycklarna som beviljar skicka, lyssna och hantera rättigheter till namnområdet. Du kan också skapa ytterligare nycklar. Vi rekommenderar att du skapar en nyckel som att skicka beviljar behörigheter till specifika event hub. Under resten av det här avsnittet förutsätts att du har gett den här nyckeln **EventHubSendKey**.
 
-I följande exempel skapas en endast send-nyckel när du skapar händelsehubben:
+I följande exempel skapas en endast skicka nyckel när du skapar händelsehubben:
 
 ```csharp
 // Create namespace manager.
@@ -67,13 +67,13 @@ nm.CreateEventHub(ed);
 
 ### <a name="generate-tokens"></a>Generera token
 
-Du kan generera token med SAS-nyckeln. Du måste skapa en enda token per klient. Token kan sedan produceras med följande metod. Alla token genereras med hjälp av den **EventHubSendKey** nyckel. Varje token tilldelas ett unikt URI.
+Du kan generera token med SAS-nyckeln. Du måste skapa bara en token per klient. Token kan sedan produceras med följande metod. Alla token genereras med hjälp av den **EventHubSendKey** nyckel. Varje token tilldelas ett unikt URI.
 
 ```csharp
 public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
 ```
 
-När du anropar den här metoden URI: N måste anges som `//<NAMESPACE>.servicebus.windows.net/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`. För alla token URI är identiska, med undantag av `PUBLISHER_NAME`, som ska vara olika för varje token. Vi rekommenderar `PUBLISHER_NAME` representerar ID för klienten som tar emot säkerhetstoken.
+När du anropar den här metoden, URI: N bör anges som `//<NAMESPACE>.servicebus.windows.net/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`. För alla token URI: N är identiska, med undantag för `PUBLISHER_NAME`, vilket ska vara olika för varje token. Vi rekommenderar `PUBLISHER_NAME` representerar ID: T för den klient som tar emot den token.
 
 Den här metoden skapar en token med följande struktur:
 
@@ -81,31 +81,31 @@ Den här metoden skapar en token med följande struktur:
 SharedAccessSignature sr={URI}&sig={HMAC_SHA256_SIGNATURE}&se={EXPIRATION_TIME}&skn={KEY_NAME}
 ```
 
-Förfallotid för token har angetts i sekunder från den 1 januari 1970. Följande är ett exempel på en token:
+Den token upphör att gälla har angetts i sekunder från den 1 januari 1970. Följande är ett exempel på en token:
 
 ```csharp
 SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFmBHG77A%3d&se=1403130337&skn=RootManageSharedAccessKey
 ```
 
-Token har vanligtvis en livslängd som liknar eller överskrider livslängden på klienten. Om klienten har möjlighet att få en ny token, kan token med en kortare livslängd användas.
+Token har vanligtvis en livslängd som liknar eller överskrider livslängden för klienten. Om klienten har möjlighet att skaffa en ny token, kan token med en kortare livslängd användas.
 
 ### <a name="sending-data"></a>Skicka data
 
-När token har skapats kan etableras varje klient med sin egen unika token.
+När token som har skapats kan etableras varje klient med sin egen unika token.
 
-När klienten skickar data till en händelsehubb, taggar skicka begäran till token. Kommunikationen mellan klienten och händelsehubben måste ske över en krypterad kanal för att hindra en angripare från avlyssning och stjäla token.
+När klienten skickar data till en händelsehubb, taggar skicka begäran med token. Om du vill hindra en angripare från avlyssning och stjäla token måste kommunikationen mellan klienten och händelsehubben ske över en krypterad kanal.
 
 ### <a name="blacklisting-clients"></a>Godkänna klienter
 
-Om en token blir stulen av en angripare kan angripare imitera klienten vars token stulna. Godkänna en klient återger den klienten inte kan användas tills det mottar en ny token som använder en annan utgivare.
+Om en token blir stulen av en angripare kan angriparen personifiera klienten vars token har blivit stulen. Godkänna en klient återger den klienten inte kan användas förrän den tagit emot en ny token som använder en annan utgivare.
 
 ## <a name="authentication-of-back-end-applications"></a>Autentisering av backend-program
 
-Händelsehubbar använder en säkerhetsmodell som liknar den modell som används för Service Bus-ämnen för att autentisera backend-program som använder data som genereras av Händelsehubbar klienter. En konsumentgrupp Händelsehubbar motsvarar en prenumeration på en Service Bus-ämne. En klient kan skapa en konsumentgrupp om begäran att skapa konsumentgruppen åtföljs av en token som beviljar hanterar behörighet för händelsehubben eller för det namnområde där händelsehubben tillhör. En klient är tillåtet att använda data från en konsumentgrupp receive-begäran åtföljs av en token som ger receive rättigheter på just den konsumentgruppen, händelsehubben eller det namnområde där händelsehubben tillhör.
+Event Hubs använder en säkerhetsmodell som liknar den modell som används för Service Bus-ämnen för att autentisera backend-program som använder data som genereras av Event Hubs-klienter. En konsumentgrupp för Event Hubs motsvarar en prenumeration på en Service Bus-ämne. En klient kan skapa en konsumentgrupp om begäran att skapa konsumentgruppen åtföljs av en token som beviljar hanterar behörigheter för event hub, eller för det namnområde där händelsehubben tillhör. En klient har tillåtelse att använda data från en konsumentgrupp receive-begäran åtföljs av en token som ger receive rättigheter på konsumentgruppen, event hub eller namnområdet som event hub tillhör.
 
-Den aktuella versionen av Service Bus stöder inte SAS regler för enskilda prenumerationer. Detsamma gäller för Händelsehubbar konsumentgrupper. Stöd för SAS läggs för båda funktionerna i framtiden.
+Den aktuella versionen av Service Bus stöder inte SAS regler för enskilda prenumerationer. Detsamma gäller för Event Hubs konsumentgrupper. Support för SAS läggs för båda funktionerna i framtiden.
 
-SAS-autentisering för enskilda konsumentgrupper saknas, kan du använda SAS-nycklar för att skydda alla konsumentgrupper med en gemensam nyckel. Den här metoden kan program använda data från någon av konsumentgrupper för en händelsehubb.
+Du kan använda SAS-nycklar om SAS-autentisering för enskilda konsumentgrupper, för att skydda alla konsumentgrupper med en gemensam nyckel. Den här metoden kan ett program för att använda data från någon av grupperna konsument av en händelsehubb.
 
 ## <a name="next-steps"></a>Nästa steg
 

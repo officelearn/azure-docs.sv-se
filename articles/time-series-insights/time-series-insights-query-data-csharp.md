@@ -1,36 +1,36 @@
 ---
-title: Fråga efter data från en Azure tid serien Insights-miljö med hjälp av C#-kod | Microsoft Docs
-description: Den här artikeln beskriver hur du frågar efter data från en Azure tid serien Insights-miljö genom att skriva en anpassad app som skrivits i C# (C-skarpa) .NET-språk.
+title: Fråga efter data från en Azure Time Series Insights-miljö med C#-kod | Microsoft Docs
+description: Den här artikeln beskriver hur du frågar efter data från en Azure Time Series Insights-miljö genom att skriva en anpassad app som skrivits i C# (C-sharp) .NET-språk.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: ankryach
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/23/2018
-ms.openlocfilehash: 19531fc5bde1f833021cf5bd781e4811b2c23155
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 6c4a99096efc95f439d6c9479cb9014957207ea6
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293612"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630865"
 ---
-# <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>Fråga efter data från Azure tid serien Insights-miljön med hjälp av C#
+# <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>Fråga efter data från Azure Time Series Insights-miljö med C#
 
-Den här C#-exempel visar hur du frågar efter data från Azure tid serien Insights-miljön.
+Det här C#-exemplet visar hur du fråga data från Azure Time Series Insights-miljö.
 Exemplet visar flera grundläggande exempel på användning av fråge-API:
-1. Hämta åtkomsttoken via Azure Active Directory-API som en förberedelse steg. Skicka detta token i den `Authorization` huvudet i varje fråga API-begäran. För att ställa in icke-interaktiva program, se [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md). Kontrollera också att alla konstanter som definierats i början av exemplet är rätt inställda.
-2. Hämta listan över miljöer som användaren har åtkomst till. En av miljöerna hämtas som miljön intressanta och ytterligare data efterfrågas för den här miljön.
+1. Hämta åtkomsttoken via Azure Active Directory-API som en förberedelse steg. Vidarebefordra denna token i den `Authorization` huvudet i varje fråge-API-begäran. För att konfigurera icke-interaktiva program, se [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md). Kontrollera också att alla konstanter som definierats i början av exemplet är korrekt inställda.
+2. I listan över miljöer som användaren har åtkomst till hämtas. En av miljöerna har hämtats som den intressanta miljön och ytterligare data krävs för den här miljön.
 3. Som ett exempel på en HTTPS-begäran begärs tillgänglighetsdata för den intressanta miljön.
 4. Som ett exempel på en webbsocket-begäran begärs händelsens aggregerade data för den intressanta miljön. Data krävs för hela tillgänglighetstidsintervallet.
 
-Den här exempelkod är också tillgänglig på [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights)
+Den här exempelkod är också tillgängliga på [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights)
 
 ## <a name="project-references"></a>Projektreferenser
-Lägg till NuGet-paket `Microsoft.IdentityModel.Clients.ActiveDirectory` och `Newtonsoft.Json` för det här exemplet. 
+Lägg till NuGet-paket `Microsoft.IdentityModel.Clients.ActiveDirectory` och `Newtonsoft.Json` i det här exemplet. 
 
 ## <a name="c-example"></a>C#-exempel
 
@@ -456,4 +456,4 @@ namespace TimeSeriesInsightsQuerySample
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
-> [Fråga API-referens för](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
+> [Fråga efter API-referens](/rest/api/time-series-insights/time-series-insights-reference-queryapi).

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8243f67dee231a896f8d7248f9582c333f797d52
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 15bc320bd82ea21ff608fcc834ba51b9bc7b6dea
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480633"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716152"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Hantera användarnas åtkomst i Azure Active Directory B2C
 
@@ -106,7 +106,7 @@ Följande steg beskriver hur du kan hantera användningsvillkor:
 Du kan avbilda användningsvillkor Använd godkännande under följande scenarier:
 
 - En ny användare loggar. Användningsvillkoren visas och godkännande resultatet lagras.
-- En användare loggar in som tidigare har accepterat villkoren i avtal senaste eller aktiv. Användningsvillkoren visas inte.
+- En användare loggar in som tidigare har accepterat användningsvillkoren för senaste eller aktiv. Användningsvillkoren visas inte.
 - En användare loggar in som inte har redan accepterat användningsvillkoren för senaste eller aktiv. Användningsvillkoren visas och godkännande resultatet lagras.
 - En användare loggar in som redan har godkänt en äldre version av villkoren, som nu har uppdaterats till den senaste versionen. Användningsvillkoren visas och godkännande resultatet lagras.
 

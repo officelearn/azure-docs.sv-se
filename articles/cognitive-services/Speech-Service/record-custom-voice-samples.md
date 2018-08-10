@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 80b65b8bc2e2947575004269f45922e2306dd32e
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: ebd9943ad7f54a329dee16d57ab980b882d508f3
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284174"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715115"
 ---
 # <a name="how-to-record-voice-samples-for-a-custom-voice"></a>Hur du registrerar voice-exempel för en anpassad röst
 
@@ -68,13 +68,13 @@ Startpunkten för alla anpassade röstinspelning sessionen är skript som inneh�
 
 Yttranden i skriptet kan komma från var som helst: fiction, icke-fiction, avskrifter av tal, nyheter och allt annat som finns i formulär för utskrift. Om du vill kontrollera att din röst när du har bra på specifika typer av ord (till exempel medicinsk terminologi eller programming jargong) kan du inkludera meningar från skolrelaterad undersökningar eller tekniska dokumentationen. (Men se [Legalities](#legalities) nedan.) Du kan också skriva din egen text.
 
-Din yttranden behöver inte komma från samma källa eller samma typ av datakälla. De behöver inte ens ha något att göra med varandra. Men om du ska använda Ange fraser (till exempel ”du har loggat in”) i ditt tal-program, se till att inkludera dem i ditt skript. Detta ger din anpassade röst större möjlighet att uttala dessa fraser bra. Och om du ska vill använda en inspelning i stället för syntetiskt tal du har redan det i samma form som din syntetiskt tal.
+Din yttranden behöver inte komma från samma källa eller samma typ av datakälla. De behöver inte ens ha något att göra med varandra. Men om du ska använda Ange fraser (till exempel ”du har loggat in”) i ditt tal-program, se till att inkludera dem i ditt skript. Detta ger din anpassade röst större möjlighet att uttala dessa fraser bra. Och om du vill ska använda en inspelning i stället för syntetiskt tal kan du har redan det i samma röst.
 
 Konsekvens är nyckeln när de väljer röst personal, är olika hallmark på ett bra skript. Skriptet bör innehålla många olika ord och meningar med en rad olika mening längder, strukturer och sinnesstämningar. Varje ljud på språket som ska vara representeras flera gånger och i flera sammanhang (kallas *fonetiska täckning).* 
 
 Texten bör dessutom införliva alla metoder för att ett visst ljud kan representeras skriftligen och placera varje ljud på olika platser i meningarna. Både deklarativa meningar och frågor bör ingår och läsa med lämpliga intonation.
 
-Det är svårt att skriva ett skript som innehåller *enough* data för att tillåta Custom Speech-portalen för att skapa en bra röst. I praktiken är det enklaste sättet att göra ett skript som uppnår robust fonetiska täckning att inkludera ett stort antal prover. Microsofts standard röster har skapats från tiotusentals yttranden. Du bör vara beredd på att registrera ett par till flera tusen yttranden om du vill skapa en anpassad röst hög kvalitet.
+Det är svårt att skriva ett skript som innehåller *enough* data för att tillåta Custom Speech-portalen för att skapa en bra röst. I praktiken är det enklaste sättet att göra ett skript som uppnår robust fonetiska täckning att inkludera ett stort antal prover. Microsofts standard röster har skapats från tiotusentals yttranden. Du bör vara beredd på att registrera ett par till flera tusen yttranden minimikrav för att skapa en anpassad röst hög kvalitet.
 
 Kontrollera skriptet noggrant för fel. Om det är möjligt att någon annan kolla för. När du kör igenom skriptet med din personal, kommer du antagligen se några fler fel.
 
@@ -85,7 +85,7 @@ Du kan skriva ditt skript i Microsoft Word. Skriptet är för användning under 
 Ett skript för grundläggande format innehåller tre kolumner:
 
 * Antalet uttryck, börjar på 1. Numrering gör det lättare för alla i studio för att referera till en viss uttryck (”vi försöker tal 356 igen”). Du kan använda Word punkt numrering funktionen för att numrera rader i tabellen automatiskt.
-* En tom kolumn där du ska skriva i take-nummer eller tid för varje uttryck för att hitta i klar inspelningen.)
+* En tom kolumn där du ska skriva i take-nummer eller tid för varje uttryck för att hitta i klar inspelningen.
 * Texten för uttryck själva.
 
 ![Exempelskript](media/custom-voice/script.png)
@@ -113,7 +113,7 @@ Som tur är kan går det att undvika de här problemen helt och hållet. Det fin
 
 ## <a name="recording-your-script"></a>Spela in skriptet
 
-Helst bör du anteckna dina skript vid professionella inspelning verktyg som specialiserar sig i röst arbete. De har en inspelning monter rätt utrustning och rätt personer att driva den. Det lönar sig inte för att spela in ändå.
+Registrera din skriptet i en professionell inspelning studio som specialiserar sig i röst arbete. De har en inspelning monter rätt utrustning och rätt personer att driva den. Det lönar sig inte för att spela in ändå.
 
 Diskutera dina projekt med i studio inspelning tekniker och lyssna på hans eller hennes råd. Inspelningen bör ha lite eller ingen dynamiskt omfång komprimering (högst 4:1). Det är viktigt att ljudet har konsekventa volym och signal brus högt förhållande, samtidigt som det är kostnadsfritt oönskade ljud.
 
@@ -142,7 +142,7 @@ Lyssna nära på en inspelning av tystnad i din ”monter”, ta reda på där a
 > [!TIP]
 > I vissa fall kan du använda en equalizer eller en bruset minskning programvara plugin-programmet för att ta bort brus från din inspelningar, även om det alltid är bäst att stoppa den vid dess källa.
 
-Nivåer ska ställas in så att det mesta av digital registrering tillgängliga dynamiska omfång används utan overdriving. Det innebär att högt, men inte så högt som förvränger ljudet. Nedan visas ett exempel på Wave för en bra inspelning.
+Ange nivåer så att det mesta av digital registrering tillgängliga dynamiska omfång används utan overdriving. Det innebär att högt, men inte så högt som förvränger ljudet. Nedan visas ett exempel på Wave för en bra inspelning.
 
 ![bra inspelning Wave](media/custom-voice/good-recording.png)
 
@@ -161,7 +161,7 @@ Undvik att ha lagt tid studio, kör du via skript med din röst personal före i
 > [!NOTE]
 > De flesta inspelning studios erbjuder elektronisk visning av skript i monter för inspelning. I det här fallet Skriv anteckningarna snabbgenomgång direkt i skriptets dokumentet. Papper för anteckningar under sessionen, men fortfarande vill. De flesta tekniker kan en papperskopia för. Och du fortfarande vill kopiera tredje ut som en säkerhetskopiering för personal om datorn inte är igång!
 
-Din röst-personal kan be vilka ord som du vill att framhållit i ett uttryck. Aktörer kallar detta ”avgörande ordet”. Berätta för dem du vill att en naturlig läsning med ingen särskild vikt. Fokus kan läggas till när tal syntetiskt; Det får inte vara en del av den ursprungliga inspelningen.
+Din röst-personal kan be vilka ord som du vill att framhållit i ett uttryck (”avgörande ordet”). Berätta för dem du vill att en naturlig läsning med ingen särskild vikt. Fokus kan läggas till när tal syntetiskt; Det får inte vara en del av den ursprungliga inspelningen.
 
 Dirigera personal att uttala orden tydligt. Varje ord i skriptet bör vara markant som skrivits. Ljud bör inte utelämnas eller slurred tillsammans, som är vanligt i avslappnat tal, *om de har skrivits på så sätt i skriptet.*
 
@@ -176,7 +176,7 @@ Personal bör *inte* lägga till distinkta pauser mellan ord. Meningen ska fortf
 
 ### <a name="the-recording-session"></a>Spela in sessionen
 
-Skapar en referens spela in, eller *matchar filen* i en typisk uttryck i början av sessionen. Be personal Upprepa den här raden alla sidor eller sidan och en halv. Varje gång jämför ny inspelning referensen. Den här metoden hjälper till att personal förblir konsekventa i volymen, tempo, försäljningsargument och intonation. Teknikern kan under tiden kan använda filen matchning som referens för nivåer och konsekventa ljud.
+Skapar en referens spela in, eller *matchar filen* i en typisk uttryck i början av sessionen. Be personal Upprepa den här raden varje sida eller så. Varje gång jämför ny inspelning referensen. Den här metoden hjälper till att personal förblir konsekventa i volymen, tempo, försäljningsargument och intonation. Teknikern kan under tiden kan använda filen matchning som referens för nivåer och konsekventa ljud.
 
 Filen matchar är särskilt viktigt när återupptar inspelning efter ett avbrott eller en annan dag. Du vill spela upp den några gånger under personal och de Upprepa det varje gång tills de kommer att matcha bra.
 
@@ -185,12 +185,12 @@ Träna din personal för att dra en djupgående hårt och pausa under en kort st
 Registrera en bra fem sekunder tystnad innan den första inspelningen för att samla in ”rummet tonen”. På så sätt kan anpassade röst portalen kompensera för eventuella återstående bruset i inspelningen.
 
 > [!TIP]
-> Allt du behöver är voice-personal rader så att du kan göra en monophonic (enskild kanal) inspelning bara sina rader. Men om du spelar in i stereo, du kan använda den andra kanalen för att registrera chatter i kontrollrummet för att samla in beskrivning av särskilda raderna eller tar. Ta bort den här spår från den version som överförts till den anpassade Voice-portalen.
+> Allt du behöver är voice-personal så att du kan göra en monophonic (enskild kanal) inspelning bara sina rader. Men om du spelar in i stereo, du kan använda den andra kanalen för att registrera chatter i kontrollrummet för att samla in beskrivning av särskilda raderna eller tar. Ta bort den här spår från den version som överförts till den anpassade Voice-portalen.
 
 Lyssna noggrant, använda hörlurar voice-personal-prestanda. Du letar efter bra men naturlig diction och uttalas brist på oönskade ljud. Tveka inte att ställa din personal nytt spela in ett uttryck som inte uppfyller dessa standarder. 
 
 > [!TIP] 
-> När du registrerar ett stort antal yttranden, kanske ett enda uttryck inte har en märkbar effekt på den resulterande anpassade rösten. Därför kan det vara mer lämpligt att Observera yttranden med problem, exkluderar dem från din datauppsättning och se hur din anpassade röst har visat sig helt enkelt. Du kan alltid gå tillbaka till studio och registrera missade exemplen senare.
+> Om du använder ett stort antal yttranden kanske inte en märkbar effekt på den resulterande anpassade rösten i en enda uttryck. Därför kan det vara mer lämpligt att Observera yttranden med problem, exkluderar dem från din datauppsättning och se hur din anpassade röst har visat sig helt enkelt. Du kan alltid gå tillbaka till studio och registrera missade exemplen senare.
 
 Anteckna take-nummer eller tid-kod på ditt skript för varje uttryck. Be teknikern om de kan markera varje uttryck i den inspelningen metadata eller låt dig ledas samt.
 

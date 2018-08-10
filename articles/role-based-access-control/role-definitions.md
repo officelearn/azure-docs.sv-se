@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 416565a248fc9ef0861b5309d71fdac3b8fccc22
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 3d88ac7adc950e2c216824f74586ff6ef4f70712
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116069"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715778"
 ---
 # <a name="understand-role-definitions"></a>Förstå rolldefinitioner
 
@@ -214,7 +214,7 @@ Den `NotDataActions` behörighet anger de åtgärder som är undantagna från de
 
 ## <a name="assignablescopes"></a>assignableScopes
 
-Den `AssignableScopes` egenskap anger scope (hanteringsgrupper (för närvarande i förhandsversion), prenumerationer, resursgrupper och resurser) att rollen är tillgänglig för tilldelning. Du kan göra rollen tilldelas i endast prenumerationer eller resursgrupper som kräver det, och inte oreda användarens upplevelse för resten av prenumerationer och resursgrupper. Du måste använda minst en grupp, prenumeration, resursgrupp eller resurs-ID.
+Den `AssignableScopes` egenskap anger scope (prenumerationer, resursgrupper och resurser) att rollen är tillgänglig för tilldelning. Du kan göra rollen tilldelas i endast prenumerationer eller resursgrupper som kräver det, och inte oreda användarens upplevelse för resten av prenumerationer och resursgrupper. Du måste använda minst en prenumeration, resursgrupp eller resurs-ID.
 
 Inbyggda roller har `AssignableScopes` inställd rotscopet (`"/"`). Rotscopet anger att rollen är tillgängliga för tilldelning i alla omfattningar. Exempel på giltiga tilldelningsbara omfång:
 

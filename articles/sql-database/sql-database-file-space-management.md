@@ -2,22 +2,21 @@
 title: Azure SQL Database utrymme filhantering | Microsoft Docs
 description: Den här sidan beskriver hur du hanterar filutrymme med Azure SQL Database och innehåller kodexempel att avgöra om du behöver krympa en databas samt hur du utför en databas för att minska åtgärden.
 services: sql-database
-author: CarlRabeler
+author: oslake
 manager: craigg
 ms.service: sql-database
 ms.custom: how-to
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: carlrab
-ms.openlocfilehash: 9d461c2b9b01ef269decbcae920cb4d2a1824f38
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.date: 08/08/2018
+ms.author: moslake
+ms.openlocfilehash: 5dce07996191af3df3a4bdf16b211c29d59a994f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620509"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003866"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Hantera utrymmet i Azure SQL Database
-
 Den här artikeln beskrivs olika typer av lagringsutrymme i Azure SQL Database och steg som kan utföras när utrymmet som allokerats för databaser och elastiska pooler måste hanteras uttryckligen.
 
 ## <a name="overview"></a>Översikt
@@ -33,7 +32,7 @@ Det finns arbetsbelastningmönster där allokeringen av underliggande datafiler 
 SQL DB-tjänsten Komprimera inte automatiskt filer för att frigöra oanvänt allokerade utrymme på grund av den möjliga inverkan på prestanda för databasen.  Kunder kan dock minska datafiler via självbetjäning i taget de önskar genom att följa stegen som beskrivs i [frigöra oanvänt allokerat utrymme](#reclaim-unused-allocated-space). 
 
 > [!NOTE]
-> Till skillnad från datafiler och SQL Database-tjänsten automatiskt minskar storleken på loggfiler eftersom åtgärden inte påverkar databasprestanda.
+> Till skillnad från datafiler och SQL Database-tjänsten automatiskt minskar storleken på loggfiler eftersom åtgärden inte påverkar databasprestanda. 
 
 ## <a name="understanding-types-of-storage-space-for-a-database"></a>Förstå typer av lagringsutrymme för en databas
 
@@ -49,7 +48,7 @@ Förstå följande storage utrymme kvantiteter är viktiga för att hantera filu
 
 Följande diagram illustrerar förhållandet mellan de olika typerna av lagringsutrymme för en databas.
 
-![utrymme lagringstyper och relationer](./media/sql-database-file-space-management/storage-types.png)
+![utrymme lagringstyper och relationer](./media/sql-database-file-space-management/storage-types.png) 
 
 ## <a name="query-a-database-for-storage-space-information"></a>Fråga en databas för information om diskutrymme
 

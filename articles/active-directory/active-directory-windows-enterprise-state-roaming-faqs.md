@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: ee03ed3159ad2fc1cd8da4a84fd1be34d0b656c8
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e6cb83eb6aaaea38686c63d0f3f70738efa4bcff
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224338"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630764"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Vanliga frågor och svar om inställningar och dataväxling
 Den här artikeln får du svar på några frågor som IT-administratörer kan ha om inställningar och data appsynkronisering.
@@ -99,7 +99,7 @@ Enterprise State Roaming lagrar alla synkroniserade data i Azure-molnet. UE-V er
 ## <a name="who-owns-the-data-thats-being-roamed"></a>Vem äger de data som är att flyttade?
 Företag egna data flyttade via Enterprise State Roaming. Data lagras i ett Azure-datacenter. Alla data krypteras både under överföring och i vila i molnet med Azure Rights Management-tjänsten från Azure Information Protection. Det här är en förbättring jämfört med Microsoft-konto-baserade inställningar sync, vilket endast vissa känsliga data, till exempel autentiseringsuppgifterna krypteras innan de lämnar enheten.
 
-Microsoft strävar efter att skydda kunddata. En enterprise-användarens inställningsdata krypteras automatiskt av Azure Rights Management-tjänsten innan de lämnar en Windows 10-enhet, så att ingen annan användare kan läsa dessa data. Om din organisation har en betald prenumeration för Azure Rights Management-tjänsten, du kan använda andra funktioner för skydd, till exempel spåra och återkalla dokument automatiskt skydda e-postmeddelanden som innehåller känslig information och hantera dina egna nycklar (det ”ta med din egen nyckel ”lösning, kallas även BYOK). Mer information om dessa funktioner och hur den här skyddstjänsten fungerar finns i [vad är Azure Rights Management](https://docs.microsoft.com/azure/information-protection/understand-explore/what-is-information-protection).
+Microsoft strävar efter att skydda kunddata. En enterprise-användarens inställningsdata krypteras automatiskt av Azure Rights Management-tjänsten innan de lämnar en Windows 10-enhet, så att ingen annan användare kan läsa dessa data. Om din organisation har en betald prenumeration för Azure Rights Management-tjänsten, du kan använda andra funktioner för skydd, till exempel spåra och återkalla dokument automatiskt skydda e-postmeddelanden som innehåller känslig information och hantera dina egna nycklar (det ”ta med din egen nyckel ”lösning, kallas även BYOK). Mer information om dessa funktioner och hur den här skyddstjänsten fungerar finns i [vad är Azure Rights Management](/azure/information-protection/what-is-information-protection).
 
 ## <a name="can-i-manage-sync-for-a-specific-app-or-setting"></a>Kan jag hantera synkronisering för en viss app eller inställningen?
 I Windows 10 finns det ingen inställning för MDM eller en Grupprincip att inaktivera för ett enskilt program. Innehavaradministratörer kan inaktivera synkronisering av appdata för alla appar på en hanterad enhet, men det finns ingen mer detaljerad kontroll på en per app- eller i appen.

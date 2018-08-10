@@ -84,6 +84,8 @@
           href: sql-database-service-tiers-dtu.md
         - name: Resursbegränsningar
           href: sql-database-resource-limits.md
+        - name: Förskottsbetalning för reserverad kapacitet
+          href: sql-database-reserved-capacity.md
     - name: Logiska servrar
       items:
         - name: Skapa och hantera

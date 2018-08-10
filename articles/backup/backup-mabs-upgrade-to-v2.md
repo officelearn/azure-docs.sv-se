@@ -8,23 +8,23 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: adigan
-ms.openlocfilehash: fdf69003566f704354a17335b1f46fc3077aedbc
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a458a46f3775a593f369d5acb967fc90d61efde8
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38598398"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628349"
 ---
 # <a name="install-azure-backup-server-v2"></a>Installera Azure Backup Server v2
 
-Azure Backup Server kan du skydda dina virtuella datorer (VM), arbetsbelastningar, filer och mappar och mycket mer. Azure Backup Server v2 bygger på Azure Backup Server v1 och ger dig nya funktioner som inte är tillgängliga i v1. En jämförelse av funktioner mellan v1 och v2 i [skyddsöversikt för Azure Backup Server](backup-mabs-protection-matrix.md). 
+Azure Backup Server kan du skydda dina virtuella datorer (VM), arbetsbelastningar, filer och mappar och mycket mer. Azure Backup Server v2 bygger på Azure Backup Server v1 och ger dig nya funktioner som inte är tillgängliga i v1. En jämförelse av v1 och v2-funktionerna i den [skyddsöversikt för Azure Backup Server](backup-mabs-protection-matrix.md). 
 
 Ytterligare funktioner i v2 Backup Server är en uppgradering från Backup Server v1. Backup Server v1 är dock inte ett krav för att installera Backup Server v2. Om du vill uppgradera från Backup Server v1 till v2 Backup Server installerar du Backup Server v2 på servern för Backup Server-skydd. Dina befintliga Backup Server-inställningar förblir intakta.
 
-Du kan installera Backup Server v2 på Windows Server 2012 R2 eller Windows Server 2016. Om du vill dra nytta av nya funktioner som System Center 2016 Data Protection Manager Modern Backup Storage, måste du installera Backup Server v2 på Windows Server 2016. Innan du uppgraderar till eller installera Backup Server v2, Läs om de [installationskrav](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites).
+Du kan installera Backup Server v2 på Windows Server 2016 eller Windows Server 2012 R2. Om du vill dra nytta av nya funktioner som System Center 2016 Data Protection Manager Modern Backup Storage, måste du installera Backup Server v2 på Windows Server 2016. Innan du uppgraderar till eller installera Backup Server v2, Läs om de [installationskrav](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites).
 
 > [!NOTE]
-> Azure Backup Server har samma kod som System Center Data Protection Manager. Backup Server v1 motsvarar Data Protection Manager 2012 R2 och Backup Server v2 är likvärdig med Data Protection Manager 2016. Den här artikeln är ibland refererar till Data Protection Manager-dokumentationen.
+> Azure Backup Server har samma kod som System Center Data Protection Manager. Backup Server v1 motsvarar Data Protection Manager 2012 R2. Backup Server v2 motsvarar Data Protection Manager 2016. Den här artikeln är ibland refererar till Data Protection Manager-dokumentationen.
 >
 >
 
@@ -43,19 +43,19 @@ Uppgradera från Backup Server v1 till v2 Backup Server kan du kontrollera att i
 
 2. När du har extraherat installationsguiden, se till att **köra setup.exe** är markerat och välj sedan **Slutför**.
 
-  ![Installationsprogram – kör installationsprogrammet](./media/backup-mabs-upgrade-to-v2/run-setup.png)
+  ![Konfigurera installer - körningen](./media/backup-mabs-upgrade-to-v2/run-setup.png)
 
 3. I guiden Microsoft Azure Backup Server under **installera**väljer **Microsoft Azure Backup Server**.
 
-   ![Konfigurera installer - Välj installera](./media/backup-mabs-upgrade-to-v2/mabs-installer-s1.png)
+  ![Konfigurera installer - Välj installera](./media/backup-mabs-upgrade-to-v2/mabs-installer-s1.png)
 
 4. På den **Välkommen** granskar varningar, och välj sedan **nästa**.
 
-   ![Konfigurera installer - välkomstsidan](./media/backup-mabs-upgrade-to-v2/mabs-installer-s2.png)
+  ![Konfigurera installer - välkomstsidan](./media/backup-mabs-upgrade-to-v2/mabs-installer-s2.png)
 
 5. Installationsguiden utför nödvändiga kontroller för att se till att uppgradera din miljö. På den **Kravkontroller** väljer **Kontrollera**.
 
-   ![Konfigurera installer - Kravkontroller sidan](./media/backup-mabs-upgrade-to-v2/mabs-installer-s3-perform-checks.png)
+  ![Konfigurera installer - Kravkontroller sidan](./media/backup-mabs-upgrade-to-v2/mabs-installer-s3-perform-checks.png)
 
 6. Din miljö måste klara de nödvändiga kontrollerna. Om din miljö inte skickar kontrollerna, Tänk på och åtgärda dem. Välj **kontrollen igen**. När du skickar de nödvändiga kontrollerna, väljer **nästa**.
 
@@ -63,11 +63,11 @@ Uppgradera från Backup Server v1 till v2 Backup Server kan du kontrollera att i
 
 7. På den **SQL-inställningar** , väljer du lämpligt alternativ för din SQL-installation och välj sedan **kontrollera och installera**.
 
-   ![Konfigurera installer - sidan SQL-inställningar](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5-sql-settings.png)
+  ![Konfigurera installer - sidan SQL-inställningar](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5-sql-settings.png)
 
   Kontrollerna kan ta några minuter. När kontrollerna är klar väljer du **nästa**.
 
-   ![Konfigurera installer - SQL-inställningar-kontrollera och installera knapp](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and-fix-settings.png)
+  ![Konfigurera installer - SQL-inställningar-kontrollera och installera knapp](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and-fix-settings.png)
 
 8. På den **installationsinställningar** sidan, göra önskade ändringar till den plats där Backup Server är installerat eller till tillfällig plats. Välj **Nästa**.
 
@@ -77,33 +77,33 @@ Uppgradera från Backup Server v1 till v2 Backup Server kan du kontrollera att i
 
   ![Installationsprogram – Slutför](./media/backup-mabs-upgrade-to-v2/run-setup.png)
 
-
-
 ## <a name="add-storage-for-modern-backup-storage"></a>Lägga till lagring för Modern Backup Storage
 
-Lägger till stöd för volymer för att förbättra effektiviteten för lagring av säkerhetskopior, säkerhetskopieringsserver v2. Som Backup Server v1 stöder v2 Backup Server diskar.
+Lägger till stöd för volymer för att förbättra effektiviteten för lagring av säkerhetskopior, säkerhetskopieringsserver v2. Backup Server v1 och v2 Backup Server stöd för diskar.
 
 ### <a name="add-volumes-and-disks"></a>Lägg till volymer och diskar
+
 Om du kör säkerhetskopieringsserver v2 på Windows Server 2016 kan använda du volymer för att lagra säkerhetskopierade data. Volymer ger lagringsbesparingar och snabbare säkerhetskopieringar. Eftersom volymerna är nya för Backup Server, måste du lägga till dem. 
 
-När du lägger till en volym Backup Server kan ge du volymen ett eget namn. Klicka på den **eget namn** kolumn på den volym som du vill att namnet. Du kan ändra namnet senare, om det behövs. Du kan också använda PowerShell för att lägga till eller ändra egna namn för volymer.
+När du lägger till en volym Backup Server kan ge du volymen ett eget namn. Välj den **eget namn** kolumn på den volym som du vill att namnet. Du kan ändra namnet senare, om det behövs. Du kan också använda PowerShell för att lägga till eller ändra egna namn för volymer.
 
 Lägga till en volym i administratörskonsolen:
 
 1. I Azure Backup Server-administratörskonsolen, Välj **Management** > **disklagring** > **Lägg till**.
 
-    ![Öppna guiden Lägg till disklagring](./media//backup-mabs-upgrade-to-v2/open-add-disk-storage-wizard.png)
+  ![Öppna guiden Lägg till disklagring](./media//backup-mabs-upgrade-to-v2/open-add-disk-storage-wizard.png)
 
-    Då öppnas guiden Lägg till disklagring.
+  Guiden Lägg till disklagring öppnas.
 
 2. På den **Lägg till disklagring** sidan den **tillgängliga volymer** väljer en volym, och välj sedan **Lägg till**.
+
 3. I den **valda volymer** rutan, ange ett eget namn för volymen och välj sedan **OK**.
 
-      ![Disklagring guiden Lägg till – Lägg till volym](./media/backup-mabs-upgrade-to-v2/add-volume.png)
+  ![Disklagring guiden Lägg till – Lägg till volym](./media/backup-mabs-upgrade-to-v2/add-volume.png)
 
-  Om du vill lägga till en disk måste disken tillhöra en skyddsgrupp med äldre lagring. Dessa diskar kan endast användas för dessa skyddsgrupper. Om Backup Server inte har källor som har äldre skydd, visas disken inte.
+  Om du vill lägga till en disk måste disken tillhöra en skyddsgrupp med äldre lagring. Du kan använda dessa diskar endast för dessa skyddsgrupper. Om Backup Server inte har källor som har äldre skydd, visas disken inte.
 
-  Läs mer om att lägga till diskar i [att lägga till diskar för att öka äldre lagring](http://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016#adding-disks-to-increase-legacy-storage). Du kan inte ge en disk ett eget namn.
+  Läs mer om att lägga till diskar i [lägga till diskar för att öka äldre lagring](http://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016#adding-disks-to-increase-legacy-storage). Du kan inte ge en disk ett eget namn.
 
 
 ### <a name="assign-workloads-to-volumes"></a>Tilldela arbetsbelastningar till volymer
@@ -112,14 +112,14 @@ I Backup-Server anger du vilka arbetsbelastningar som är tilldelade till vilka 
 
 #### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-Om du vill uppdatera egenskaperna för en volym i lagringspoolen i Backup Server, använder du PowerShell-cmdlet Update-DPMDiskStorage.
+Använd PowerShell-cmdlet för att uppdatera egenskaperna för en volym i lagringspoolen i Backup Server, **Update-DPMDiskStorage**.
 
 Syntax:
 
 `Parameter Set: Volume`
 
 ```
-Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-DatasourceType] <VolumeTag[]> ] [-Confirm] [-WhatIf] [ <CommonParameters>]
+Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-DatasourceType] <VolumeTag[]> ] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 Alla ändringar du gör med hjälp av PowerShell avspeglas i Användargränssnittet.
@@ -134,20 +134,21 @@ Skapa en skyddsgrupp:
 
 2. Välj på verktygsfliken **New**.
 
-    Då öppnas guiden Skapa ny Skyddsgrupp.
+  Då öppnas guiden Skapa ny Skyddsgrupp.
 
   ![Guiden Skapa ny Skyddsgrupp](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-1.png)
 
 3. På sidan **Välkommen** klickar du på **Nästa**.
+
 4. På den **Välj typ av Skyddsgrupp** väljer du typ av skyddsgrupp som du vill skapa och välj sedan **nästa**.
 
   ![Sidan Välj Skyddsgrupp](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-2.png)
 
-5. På den **Välj gruppmedlemmar** sidan den **tillgängliga medlemmar** fönstret, medlemmar med skydd som agenter visas. I det här exemplet väljer du volym D:\ och E:\ och lägga till dem i den **valda medlemmar** fönstret. Välj **Nästa**.
+5. På den **Välj gruppmedlemmar** sidan den **tillgängliga medlemmar** rutan medlemmar med skydd som agenter visas. I det här exemplet väljer du volym D:\ och E:\, och lägga till dem i **valda medlemmar**. Välj **Nästa**.
 
   ![Sidan Välj medlemmar](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-3.png)
 
-6. På den **Välj Dataskyddsmetod** anger en **skyddsgruppnamn**, Välj skyddsmetod och välj sedan **nästa**. Om du vill ha kortvarigt skydd måste du välja den **Disk** metod för säkerhetskopiering.
+6. På den **Välj Dataskyddsmetod** anger en **skyddsgruppnamn**, Välj skyddsmetod och välj sedan **nästa**. Om du vill ha kortvarigt skydd, väljer du den **Disk** metod för säkerhetskopiering.
 
   ![Välj Dataskyddsmetod sida](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-4.png)
 
@@ -155,28 +156,28 @@ Skapa en skyddsgrupp:
 
   ![Ange kortvariga mål-sida](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-5.png)
 
-8. På den **granska Disklagringstilldelning** sidan Granska information om datakällorna du har valt, deras storlek och värden för utrymme som ska etableras och lagring målvolymen.
+8. På den **granska Disklagringstilldelning** sidan Granska information om datakällor som du har valt, inklusive datakällans storlek, värden för utrymme som ska etableras och lagring målvolymen.
 
   ![Sidan för granska Disklagringstilldelning](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-6.png)
 
-  Lagringsvolymer baseras på arbetsbelastningens volymfördelning (anges med hjälp av PowerShell) och tillgängligt lagringsutrymme. Du kan ändra lagringsvolymer genom att välja andra volymer i den nedrullningsbara menyn. Om du ändrar värdet för **Mållagring**, värdet för **ledigt lagringsutrymme** dynamiskt ändras för att återspegla värden under **ledigt utrymme** och  **Underetablerat utrymme**.
+  Lagringsvolymer baseras på arbetsbelastningens volymfördelning (anges med hjälp av PowerShell) och tillgängligt lagringsutrymme. Du kan ändra lagringsvolymer genom att välja andra volymer i den nedrullningsbara menyn. Om du ändrar värdet för **Mållagring**, värdet för **ledigt lagringsutrymme** dynamiskt ändras för att återspegla värden under **ledigt utrymme** och ** Underetablerat utrymme**.
 
-  Om datakällorna växer som planerat värde för den **Underetablerat utrymme** kolumn i **ledigt lagringsutrymme** visar mängden ytterligare lagringsutrymme som behövs. Använd det här värdet för att planera lagringsbehoven för smidiga säkerhetskopieringar. Om värdet är noll, finns det inga potentiella problem med lagringen inom en snar framtid. Om värdet är ett annat tal än noll, du har inte tillräckligt med lagringsutrymme som allokerats (baserat på din skyddsprincip och datastorleken på dina skyddade medlemmar).
+  Om datakällorna växer som planerat värde för den **Underetablerat utrymme** kolumn i **ledigt lagringsutrymme** visar mängden ytterligare lagringsutrymme som behövs. Använd det här värdet för att planera lagringsbehoven för smidiga säkerhetskopieringar. Om värdet är noll, finns det inga potentiella problem med lagringen inom en snar framtid. Om värdet är ett annat tal än noll kan du inte har tillräckligt med lagringsutrymme som allokerats (baserat på din skyddsprincip och datastorleken på dina skyddade medlemmar).
 
   ![Undertilldelad disklagring](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-7.png)
 
-   Slutför guiden för att slutföra skapandet av skyddsgruppen.
+  Slutför guiden för att slutföra skapandet av skyddsgruppen.
 
 ## <a name="migrate-legacy-storage-to-modern-backup-storage"></a>Migrera äldre lagring till Modern Backup Storage
-När du uppgraderar eller installerar Backup Server v2 och uppgradera operativsystemet till Windows Server 2016 kan du uppdatera dina skyddsgrupper för att använda Modern Backup Storage. Som standard ändras skyddsgrupperna inte. De kan fortsätta att fungera som de ursprungligen har ställts in. 
+När du uppgraderar eller installerar Backup Server v2 och sedan uppgradera operativsystemet till Windows Server 2016 kan du uppdatera dina skyddsgrupper för att använda Modern Backup Storage. Som standard ändras skyddsgrupperna inte. De kan fortsätta att fungera som de ursprungligen har ställts in. 
 
 Uppdatering av skyddsgrupperna för att använda Modern Backup Storage är valfritt. Stoppa skyddet av alla datakällor med hjälp av alternativet Behåll data för att uppdatera skyddsgruppen. Lägg sedan till datakällorna i en ny skyddsgrupp.
 
-1. I administratörskonsolen, väljer den **Protection** funktionen. I den **Skyddsgruppsmedlem** listan, högerklickar du på medlemmen och välj sedan **stoppa skyddet av medlem**.
+1. I System Center 2016 DPM-administratörskonsolen, väljer du den **Protection** funktionen. I den **Skyddsgruppsmedlem** listan, högerklickar du på medlemmen och välj sedan **stoppa skyddet av medlem**.
 
   ![Stoppa skyddet av medlem](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
-2. I den **ta bort från grupp** dialogrutan granskar du använt diskutrymme och tillgängligt ledigt utrymme för lagringspoolen. Standardvärdet är att lämna återställningspunkterna på disken och låta dem upphöra per deras associerade bevarandeprincip. Klicka på **OK**.
+2. I den **ta bort från grupp** dialogrutan granskar du använt diskutrymme och tillgängligt ledigt utrymme för lagringspoolen. Standardvärdet är att lämna återställningspunkterna på disken och låta dem upphöra per deras associerade bevarandeprincip. Välj **OK**.
 
   Om du vill returnera använt diskutrymme direkt till den lediga lagringspoolen, väljer du den **ta bort replik på disk** kryssrutan för att ta bort säkerhetskopierade data (och återställningspunkter) som är associerade med medlemmen.
 
@@ -191,19 +192,19 @@ Om du vill använda äldre lagring med Backup Server kan du behöva lägga till 
 
 Lägg till disklagring:
 
-1. I administratörskonsolen, väljer **Management** > **disklagring** > **Lägg till**.
+1. I System Center 2016 DPM-administratörskonsolen, väljer **Management** > **disklagring** > **Lägg till**.
 
-    ![Lägg till disklagring dialogrutan](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
+  ![Lägg till disklagring dialogrutan](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
-4. I den **Lägg till disklagring** dialogrutan **lägga till diskar**.
+2. I den **Lägg till disklagring** dialogrutan **lägga till diskar**.
 
-5. Välj de diskar som du vill lägga till, Välj i listan över tillgängliga diskar, **Lägg till**, och välj sedan **OK**.
+3. Välj de diskar som du vill lägga till i listan över tillgängliga diskar. Välj **Lägg till**, och välj sedan **OK**.
 
 ## <a name="update-the-data-protection-manager-protection-agent"></a>Uppdatera Data Protection Manager protection agent
 
 Säkerhetskopieringsserver använder System Center Data Protection Manager protection-agenten för uppdateringar. Om du uppgraderar en skyddsagent som inte är ansluten till nätverket, kan du inte använda administratörskonsolen för Data Protection Manager för att slutföra en ansluten agent-uppgradering. Du måste uppgradera skyddsagenten i en inaktiv domänmiljö. Tills klientdatorn ansluts till nätverket, visar Data Protection Manager-administratörskonsolen att uppdateringen av skyddsagenten är väntande.
 
-I följande avsnitt beskrivs hur du uppdaterar skyddsagenter för klientdatorer som är anslutna och klientdatorer som inte är anslutna.
+I följande avsnitt beskrivs hur du uppdaterar skyddsagenter för klientdatorer som är anslutna och för klientdatorer som inte är anslutna.
 
 ### <a name="update-a-protection-agent-for-a-connected-client-computer"></a>Uppdatera en skyddsagent för en ansluten klientdator
 
@@ -213,8 +214,6 @@ I följande avsnitt beskrivs hur du uppdaterar skyddsagenter för klientdatorer 
 
   > [!NOTE]
   > Den **Agentuppdateringar** kolumnen visar när en uppdatering till skyddsagenten finns tillgänglig för varje skyddad dator. I den **åtgärder** fönstret den **uppdatering** åtgärden är tillgänglig endast när en skyddad dator är markerad och uppdateringar är tillgängliga.
-  >
-  >
 
 3. Installerar uppdaterade skyddsagenter på de valda datorerna i den **åtgärder** väljer **uppdatering**.
 
@@ -225,9 +224,7 @@ I följande avsnitt beskrivs hur du uppdaterar skyddsagenter för klientdatorer 
 2. I visningsfönstret väljer du de klientdatorer som du vill uppdatera skyddsagenten.
 
   > [!NOTE]
-   > Den **Agentuppdateringar** kolumnen visar när en uppdatering till skyddsagenten finns tillgänglig för varje skyddad dator. I den **åtgärder** fönstret den **uppdatering** åtgärden är inte tillgänglig när en skyddad dator markeras om det inte uppdateringar är tillgängliga.
-  >
-  >
+  > Den **Agentuppdateringar** kolumnen visar när en uppdatering till skyddsagenten finns tillgänglig för varje skyddad dator. I den **åtgärder** fönstret den **uppdatering** instruktionen är inte tillgänglig när en skyddad dator markeras om det inte uppdateringar är tillgängliga.
 
 3. Du installerar uppdaterade skyddsagenter på de valda datorerna genom att välja **uppdatering**.
 
@@ -235,40 +232,61 @@ I följande avsnitt beskrivs hur du uppdaterar skyddsagenter för klientdatorer 
 
   När en klientdator är ansluten till nätverket, den **Agentuppdateringar** kolumn för klientdatorn visar statusen **uppdaterar**.
   
-### <a name="move-legacy-protection-groups-from-old-version-and-sync-the-new-version-with-azure"></a>Flytta äldre skyddsgrupper från gammal version och synkronisera den nya versionen med Azure
+### <a name="move-legacy-protection-groups-from-the-old-version-and-sync-the-new-version-with-azure"></a>Flytta äldre skyddsgrupper från den gamla versionen och synkronisera den nya versionen med Azure
 
-När både Azure Backup Server och Operativsystemet uppdateras är du redo att skydda nya datakällor som använder Modern Backup Storage. Men redan skyddade datakällor fortsätter att skyddas i det äldre sättet som de var i Azure Backup Server men alla nya protection använder Modern Backup Storage.
+När både Azure Backup Server och Operativsystemet uppdateras är du redo att skydda nya datakällor med Modern Backup Storage. Datakällor som redan skyddas fortsätter att skyddas som de var i Azure Backup Server (äldre). Alla nya skyddsgrupper använda Modern Backup Storage.
 
-Nedanstående steg är att migrera datakällor från bakåtkompatibelt läge skydd till Modern backup storage.
+Migrera datakällor från bakåtkompatibelt läge skydd till Modern Backup Storage:
 
-• Lägg till nya volymer i DPM-lagringspoolen och tilldela eget namn och källkod om du vill.
-• För varje datakälla som är i äldre läge och avsluta skyddet av datakällor och ”Kvarhåll skyddade Data”.  Detta gör att återställning av den äldre återställningspunkter efter migreringen.
+1.  Lägga till nya volymer i lagringspoolen för Data Protection Manager. Du kan också tilldela ett eget namn och välja data källkod.
 
-• Skapa en ny PG och välj de datakällor som ska lagras med nya formatet.
-• DPM kommer att göra en kopia av replik från den äldre lagringen av säkerhetskopior i Modern Backup Storage volymen lokalt.
-Obs: Detta visas som en åtgärd efter återställning jobb • alla nya synkronisering och återställningspunkter sparas sedan i Modern Backup Storage.
-• Gamla återställningspunkterna rensas ut när de upphör att gälla och så småningom Frigör diskutrymmet.
-• När alla äldre volymer tas bort från den gamla lagringsenheter, disken kan tas bort från Azure backup och system.
-• Ta en säkerhetskopia av Azure-DPMDB.
+2. Stoppa skyddet av datakällor för varje datakälla som är i bakåtkompatibelt läge. Välj **Kvarhåll skyddade Data**.  Detta gör att återställning av den äldre återställningspunkter efter migreringen.
 
-Del 2:-viktiga saker som > den nya servern måste ha namnet samma som den ursprungliga Azure Backup-servern. Du kan inte ändra namnet på den nya Azure backup-servern om du vill använda gamla lagringspoolen och DPMDB för att behålla återställningspunkter - måste ha säkerhetskopiering av DPM-databasen eftersom den måste återställas
+3. Skapa en ny skyddsgrupp. Välj de datakällor som du vill lagra med hjälp av det nya formatet.
 
-1) Stäng av den ursprungliga Azure säkerhetskopiering server eller starta kabeln.
-2) Återställa datorkontot i active directory.
-3) Installera Server 2016 på den nya datorn och ge den namnet samma datornamn som den ursprungliga Azure Backup-servern.
-4) Ansluta till domänen
-5) Installera Azure Backup server V2 (flytta DPM-lagringspooldiskar från gamla servern och importera)
-6) Återställ DPM-databasen som kommer från slutet av del 2
-7) Bifoga lagringen från den ursprungliga backup-servern till den nya servern.
-8) Återställ DPMDB från SQL
-9) Från kommandoraden för administratör på den nya servern cd till Microsoft Azure Backup installerar du platsen och bin-mappen
+  Data Protection Manager lagrar en kopia för replik från den äldre lagringen av säkerhetskopior i Modern Backup Storage volymen lokalt.
+    > [!NOTE] 
+    > Skapar kopian visas som en åtgärd efter återställning-jobb.
 
-Sökväg till exempel: C:\windows\system32 > cd ”c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\
-Säkerhetskopiera till Azure kör DPMSYNC-SYNC
+  Alla nya synkronisering och återställningspunkter lagras sedan i Modern Backup Storage.
 
-10) Kör DPMSYNC-SYNC Obs Om du har lagt till nya diskar i DPM lagringspoolen i stället för att flytta gamla kör DPMSYNC - Reallocatereplica
+  Gamla återställningspunkterna rensas ut när de går ut. Eftersom gamla återställningspunkter tas bort frigjort utrymme.
 
-## <a name="new-powershell-cmdlets-in-v2"></a>Nya PowerShell-cmdlets i v2
+  När alla äldre volymer har tagits bort från den gamla lagringsenheter, kan du ta bort disken från Azure Backup. Du kan sedan ta bort disken från systemet.
+
+4. Skapa en säkerhetskopia av Data Protection Manager-databasen.
+
+  > [!IMPORTANT]
+  > - Det nya servernamnet måste vara samma namn som den ursprungliga Azure Backup Server-instansen. Du kan inte ändra namnet på den nya Azure Backup Server-instansen om du vill använda tidigare lagringspoolen och Data Protection Manager-databasen för att behålla återställningspunkter.
+  > - Du måste ha en säkerhetskopia av Data Protection Manager-databasen. Du måste återställa databasen.
+
+5. Stäng av den ursprungliga Azure Backup Server-instansen eller koppla från servern.
+
+6. Återställa datorkontot i Active Directory.
+
+7. Installera Windows Server 2016 på en ny dator. Använda samma datornamn som den ursprungliga Azure Backup Server-instansen för server-namn.
+
+8. Ansluta till domänen.
+
+9. Installera Azure Backup Server v2. (Ta bort Data Protection Manager-lagringspooldiskar från den gamla servern och importera dem till den nya servern.)
+
+10. Återställa Data Protection Manager-databasen som du skapade i steg 4.
+
+11. Bifoga lagringen från den ursprungliga backup-servern till den nya servern.
+
+12. Återställa Data Protection Manager-databasen i SQL Server.
+
+13. På kommandoraden för administratör på den nya servern, använda `cd` att gå till Microsoft Azure Backup plats och bin installationsmappen.  
+
+  Exempel:  
+  C:\Windows\System32 > cd ”c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\ till Azure Backup
+
+14. Kör `DPMSYNC -SYNC`.
+  
+  > [!NOTE]
+  > Om du har lagt till *nya* diskar i lagringspoolen för Data Protection Manager i stället för att flytta gamla kör `DPMSYNC -Reallocatereplica`.
+
+## <a name="new-powershell-cmdlets-in-backup-server-v2"></a>Nya PowerShell-cmdlets i Backup Server v2
 
 Två nya-cmdlets är tillgängliga när du installerar Azure Backup Server v2: 
 * [Mount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787159.aspx)

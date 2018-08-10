@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 1f60b7d30c073c49d5e0a7d35e7263c2181ed744
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: e1342ed574d84ed5b4edd5060c2d6d3ec8bca1a8
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903072"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003119"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>Uppgradera din IoT-hubb
 
@@ -27,7 +27,7 @@ När du har flera enheter, och du behöver fler funktioner, finns det tre sätt 
 
 Dessa ändringar kan inträffa utan att avbryta befintliga åtgärder.
 
-Om du vill nedgradera din IoT-hubb, kan du ta bort enheter och minska storleken på IoT-hubben. Men kan inte du Nedgradera till en lägre nivå. Du kan exempelvis flytta från på nivån S2 till S1-nivån, men inte från S2-nivån till B1-nivå. 
+Om du vill nedgradera din IoT-hubb, kan du ta bort enheter och minska storleken på IoT-hubben. Men kan inte du Nedgradera till en lägre nivå. Du kan exempelvis flytta från på nivån S2 till S1-nivån, men inte från S2-nivån till B1-nivå. Tänk också på den enda typen av [edition](https://azure.microsoft.com/pricing/details/iot-hub/) inom en nivå kan väljas per IoT Hub. Du kan till exempel skapa en IoT-hubb med flera enheter av S1, men inte med en blandning av enheter från olika versioner, till exempel S1 och B3, eller S1 och S2.
 
 De här exemplen är avsedda att hjälpa dig att förstå hur du ändrar din IoT-hubb som dina ändringar i lösningen. Detaljerad information om varje nivå funktioner du bör alltid använda [priser för Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/). 
 
@@ -45,7 +45,7 @@ De här exemplen är avsedda att hjälpa dig att förstå hur du ändrar din IoT
 4. Om du vill ändra antalet enheter i din hubb, ange ett nytt värde under **IoT Hub-enheter**. 
 5. Välj **spara** att spara dina ändringar. 
 
-IoT-hubben justeras nu och dina konfigurationer är oförändrade. Observera att partitionsgränsen för basic-nivån IoT Hub är 8. Den här gränsen kommer ändras inte när du migrerar från basic-nivån till standardnivån.
+IoT-hubben justeras nu och dina konfigurationer är oförändrade. Observera att den maximala partitionsgränsen för basic-nivån IoT Hub är 8 och standard-nivån är 32. De flesta IoT-hubbar behöver bara 4 partitioner. Partitionsgränsen väljs när IoT-hubben har skapats och avser antalet samtidiga läsare av dessa meddelanden på meddelanden från enheten till molnet. Det här värdet ändras inte när du migrerar från basic-nivån till standardnivån. 
 
 ## <a name="next-steps"></a>Nästa steg
 

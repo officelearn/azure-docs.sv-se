@@ -1,34 +1,34 @@
 ---
-title: Hur du skickar händelser till en Azure tid serien Insights miljö | Microsoft Docs
-description: Den här självstudiekursen beskrivs hur du skapa och konfigurera händelsehubb och köra exempelprogrammet push-händelser som ska visas i Azure tid serien insikter.
+title: Hur man skickar händelser till en Azure Time Series Insights-miljö | Microsoft Docs
+description: Den här självstudien beskrivs hur du skapar och konfigurerar event hub och kör ett exempelprogram för push-händelser som ska visas i Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: venkatja
-manager: jhubbard
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.author: anshan
+manager: cshankar
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: fb550942debf26691a0deac2a1ad8093128e4e63
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 30b83c54d314934f1de170955eec22e7b2a264b8
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294521"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629760"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Skicka händelser till en Time Series Insights-miljö med hjälp av Event Hub
-Den här artikeln beskriver hur du skapar och konfigurerar händelsehubb och kör ett exempelprogram push-händelser. Om du har en befintlig händelsehubb med händelser i JSON-format, hoppa över den här kursen och visa din miljö i [tid serien insikter](https://insights.timeseries.azure.com).
+Den här artikeln förklarar hur du skapar och konfigurerar event hub och kör ett exempelprogram för push-händelser. Om du har en befintlig händelsehubb med händelser i JSON-format, hoppa över den här självstudien och visa din miljö i [Time Series Insights](https://insights.timeseries.azure.com).
 
 ## <a name="configure-an-event-hub"></a>Skapa en Event Hub
 1. Om du vill skapa en Event Hub följer du instruktionerna från Event Hub[-dokumentationen](../event-hubs/event-hubs-create.md).
 
-2. Sök efter **händelsehubb** i sökfältet. Klicka på **Händelsehubbar** i listan returneras.
+2. Sök efter **händelsehubb** i sökfältet. Klicka på **Händelsehubbar** i den returnerade listan.
 
-3. Välj din händelsehubb genom att klicka på dess namn.
+3. Välj din event hub genom att klicka på dess namn.
 
-4. Under **entiteter** i mitten configuration-fönstret klickar du på **Händelsehubbar** igen.
+4. Under **entiteter** i fönstret i mitten konfiguration klickar du på **Händelsehubbar** igen.
 
 5. Välj namnet på händelsehubben för att konfigurera den.
 
@@ -39,37 +39,37 @@ Den här artikeln beskriver hur du skapar och konfigurerar händelsehubb och kö
 7. Se till att skapa en konsumentgrupp som enbart används av din Time Series Insights-händelsekälla.
 
    > [!IMPORTANT]
-   > Kontrollera att den här konsumentgruppen inte används av andra tjänster (t.ex Stream Analytics-jobb eller en annan Time Series Insights-miljö). Om konsumentgruppen används av andra påverkas negativt tjänster, Läsåtgärd för den här miljön och andra tjänster. Om du använder ”$Default” som konsumentgrupp kan det leda till eventuell återanvändning av andra läsare.
+   > Kontrollera att den här konsumentgruppen inte används av andra tjänster (t.ex Stream Analytics-jobb eller en annan Time Series Insights-miljö). Om konsumentgruppen används av andra påverkas tjänster, Läsåtgärd negativt för den här miljön och andra tjänster. Om du använder ”$Default” som konsumentgrupp kan det leda till eventuell återanvändning av andra läsare.
 
-8. Under den **inställningar** rubrik, Välj **resursen åtkomstprinciper**.
+8. Under den **inställningar** väljer **åtkomstprinciper för filresursen**.
 
-9. Skapa på händelsehubb, **MySendPolicy** som används för att skicka händelser i csharp-exemplet.
+9. Skapa på event hub **MySendPolicy** som används för att skicka händelser i c#-exemplet.
 
   ![Välj Policyer för delad åtkomst och klicka på knappen Lägg till](media/send-events/shared-access-policy.png)  
 
   ![Lägg till ny policy för delad åtkomst](media/send-events/shared-access-policy-2.png)  
 
-## <a name="add-time-series-insights-reference-data-set"></a>Lägg till tid serien insikter referens datauppsättning 
-Använda referensdata i TSD contextualizes telemetridata.  Den kontexten lägger till betydelse till dina data och gör det enklare att filtrera och aggregering.  TSD kopplingar referensdata ingång för närvarande och retroaktivt kan inte ansluta till dessa data.  Det är därför viktigt att lägga till referensdata innan du lägger till en händelsekälla med data.  Data som plats-eller sensor är användbar dimensioner som kanske du vill ansluta till en enhet/taggen/sensor-ID för att göra det enklare att segment och filter.  
+## <a name="add-time-series-insights-reference-data-set"></a>Lägg till Time Series Insights-referensdatauppsättningen 
+Med hjälp av referensdata i TSD beräkning telemetridata.  Den kontexten lägger till vilket innebär att dina data och gör det enklare att filtrera och aggregering.  TSI-kopplingar referensdata när ingress och retroaktivt kan inte ansluta till dessa data.  Det är därför viktigt att lägga till referensdata innan du lägger till en händelsekälla med data.  Data som typ av plats eller sensorn är användbara dimensioner som du kanske vill ansluta till en enhet/taggen/sensor ID att göra det enklare att sektorn och filter.  
 
 > [!IMPORTANT]
-> Det är viktigt att ha en referens datauppsättning som konfigurerats när du överför historiska data.
+> Det är viktigt att ha en referensdatauppsättning som konfigurerats när du överför historiska data.
 
-Se till att du har referensdata på plats när du massimportera överför historiska data till TSD.  Kom ihåg, TSD kommer omedelbart börja läsa från en domänansluten händelsekälla om den händelsekällan innehåller data.  Det är praktiskt att vänta med att ansluta till en händelsekälla till TSD tills du har din referensdata på plats, särskilt om den händelsekällan har data i den. Alternativt kan du vänta på att vidarebefordra data till den händelsekällan tills datamängden som referens är på plats.
+Kontrollera att du har referensdata på plats när du massimportera uppladdning historiska data till TSD.  Tänk på, TSI kommer omedelbart börja läsa från en domänansluten händelsekälla om den händelsekällan har data.  Det är bra att vänta med att ansluta till en händelsekälla till TSD förrän du har din referensdata på plats, särskilt om den händelsekällan har data i den. Du kan också vänta med att skicka data till den händelsekällan tills referensdatauppsättningen är på plats.
 
-Om du vill hantera referensdata finns webbaserade användargränssnittet i TSD Explorer och det finns en programmässiga C#-API. TSD Explorer har en visual användarmiljö Överför filer eller klistra in befintliga referens datauppsättningar som JSON- eller CSV-format. Med API, kan du skapa en anpassad app när det behövs.
+För att hantera referensdata, finns det webbaserade användargränssnittet i TSI-Utforskaren och det finns en programmatisk C#-API. TSI-Utforskaren har ett visual användarmiljö att ladda upp filer eller klistra in befintliga referens datauppsättningar som JSON- eller CSV-format. Med API: et, kan du skapa en anpassad app när det behövs.
 
-Mer information om hur du hanterar referensdata i tid serien insikter finns i [data referensartikeln](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
+Mer information om hur du hanterar referensdata i Time Series Insights finns i den [data referensartikeln](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 ## <a name="create-time-series-insights-event-source"></a>Skapa händelsekälla för Time Series Insights
 1. Om du inte har skapat en händelsekälla följer du [dessa instruktioner](time-series-insights-how-to-add-an-event-source-eventhub.md) för att skapa en händelsekälla.
 
-2. Ange **deviceTimestamp** som egenskapsnamn tidsstämpel – den här egenskapen används som den faktiska tidsstämpeln i C#-exempel. Egenskapsnamnet för tidsstämpeln är skiftlägeskänsligt och värdena måste ha formatet __åååå-MM-ddTHH:mm:ss.FFFFFFFK__ när de skickas som JSON till Event Hub. Om egenskapen inte finns i händelsen används den tid då händelsen stod i Event Hub-kön.
+2. Ange **deviceTimestamp** som egenskapsnamn för tidsstämpeln – den här egenskapen används som den faktiska tidsstämpeln i C#-exemplet. Egenskapsnamnet för tidsstämpeln är skiftlägeskänsligt och värdena måste ha formatet __åååå-MM-ddTHH:mm:ss.FFFFFFFK__ när de skickas som JSON till Event Hub. Om egenskapen inte finns i händelsen används den tid då händelsen stod i Event Hub-kön.
 
   ![Skapa händelsekälla](media/send-events/event-source-1.png)
 
 ## <a name="sample-code-to-push-events"></a>Exempelkod för push-händelser
-1. Gå till event hub-princip med namnet **MySendPolicy**. Kopiera den **anslutningssträngen** med nyckeln för principen.
+1. Gå till event hub-principen med namnet **MySendPolicy**. Kopiera den **anslutningssträngen** med principnyckeln.
 
   ![Kopiera anslutningssträngen MySendPolicy](media/send-events/sample-code-connection-string.png)
 
@@ -155,7 +155,7 @@ Ett enda JSON-objekt.
     "timestamp":"2016-01-08T01:08:00Z"
 }
 ```
-#### <a name="output---one-event"></a>Utdata - en händelse
+#### <a name="output---one-event"></a>Resultat – en händelse
 
 |id|tidsstämpel|
 |--------|---------------|
@@ -177,7 +177,7 @@ En JSON-matris med två JSON-objekt. Varje JSON-objekt konverteras till en händ
     }
 ]
 ```
-#### <a name="output---two-events"></a>Utdata - två händelser
+#### <a name="output---two-events"></a>Resultat – två händelser
 
 |id|tidsstämpel|
 |--------|---------------|
@@ -188,7 +188,7 @@ En JSON-matris med två JSON-objekt. Varje JSON-objekt konverteras till en händ
 
 #### <a name="input"></a>Indata
 
-Ett JSON-objekt med en kapslad JSON-matris som innehåller två JSON-objekt:
+En JSON-objekt med en kapslad JSON-matris som innehåller två JSON-objekt:
 ```json
 {
     "location":"WestUs",
@@ -205,8 +205,8 @@ Ett JSON-objekt med en kapslad JSON-matris som innehåller två JSON-objekt:
 }
 
 ```
-#### <a name="output---two-events"></a>Utdata - två händelser
-Observera att egenskapen ”plats” kopieras över till var och en av händelsen.
+#### <a name="output---two-events"></a>Resultat – två händelser
+Observera att egenskapen ”plats” kopieras till varje händelse.
 
 |location|events.id|events.timestamp|
 |--------|---------------|----------------------|
@@ -248,7 +248,7 @@ Ett JSON-objekt med en kapslad JSON-matris som innehåller två JSON-objekt. Den
     ]
 }
 ```
-#### <a name="output---two-events"></a>Utdata - två händelser
+#### <a name="output---two-events"></a>Resultat – två händelser
 
 |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
 |---|---|---|---|---|---|---|---|
@@ -259,4 +259,4 @@ Ett JSON-objekt med en kapslad JSON-matris som innehåller två JSON-objekt. Den
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
-> [Visa din miljö i tid serien insikter explorer](https://insights.timeseries.azure.com).
+> [Visa din miljö i Time Series Insights explorer](https://insights.timeseries.azure.com).

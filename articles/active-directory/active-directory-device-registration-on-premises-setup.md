@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: fb4ac675462cf9946a0667e2956c4c0c75b591bf
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: f0a6e164ed6b2269ec223a18f37d3475316d3e77
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390355"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629080"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory-enhetsregistrering
 När du behöver användare till arbetsplatsen på sina personliga enheter till Azure Active Directory (Azure AD) enhetsregistreringstjänsten kan sina enheter markeras som känner till din organisation. Följande är en stegvis guide för att aktivera villkorlig åtkomst till lokala program med hjälp av Active Directory Federation Services (AD FS) i Windows Server 2012 R2.
@@ -158,14 +158,14 @@ Det finns många olika sätt att förmedla denna URL till dina användare. Till 
 
 ### <a name="join-a-windows-81-device-by-using-azure-active-directory-device-registration"></a>Anslut en Windows 8.1-enhet med hjälp av Azure Active Directory-enhetsregistrering
 1. På din Windows 8.1-enhet, väljer **datorinställningar** > **nätverk** > **arbetsplats**.
-2. Ange ditt användarnamn i UPN-format. till exempel **dan@contoso.com**.
+2. Ange ditt användarnamn i UPN-format. till exempel ** dan@contoso.com **.
 3. Välj **ansluta**.
 4. När du uppmanas logga in med dina autentiseringsuppgifter. Enheten är nu ansluten.
 
 ### <a name="join-a-windows-7-device-by-using-azure-active-directory-device-registration"></a>Anslut en Windows 7-enhet med hjälp av Azure Active Directory-enhetsregistrering
 Om du vill registrera Windows 7-domänanslutna enheter, måste du distribuera den [programpaket för enhetsregistrering](https://www.microsoft.com/download/details.aspx?id=53554).
 
-Anvisningar om hur du använder paketet finns i [Windows Installer-paket för Windows 10-datorer](devices/hybrid-azuread-join-manual-steps.md#windows-installer-packages-for-non-windows-10-computers).
+Anvisningar om hur du använder paketet finns i [Windows Installer-paket för Windows 10-datorer](devices/hybrid-azuread-join-control.md#control-windows-down-level-devices).
 
 ## <a name="verify-that-registered-devices-are-written-back-to-active-directory"></a>Kontrollera att registrerade enheter skrivs tillbaka till Active Directory
 Du kan visa och verifiera att din enhetsobjekt har skrivits tillbaka till din Active Directory med hjälp av LDP.exe eller ADSI-redigering. Båda är tillgängliga med verktyg för Active Directory-administratör.

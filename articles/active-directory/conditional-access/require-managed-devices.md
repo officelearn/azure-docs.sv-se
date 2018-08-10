@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: a27862a6-d513-43ba-97c1-1c0d400bf243
 ms.service: active-directory
-ms.component: protection
+ms.component: conditional-access
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/14/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 7bcfb8d23b9f92db8c5ccae87fceef5fa96ed457
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: b59e4898f85de7ad93d9172cdb3c551a17799194
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39601999"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630491"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Så här: Kräv hanterade enheter för åtkomst till molnet appen med villkorlig åtkomst
 
@@ -34,9 +34,9 @@ Den här artikeln förklarar hur du kan konfigurera principer för villkorlig å
 
 Krav på hanterade enheter för cloud app åtkomst ties **Azure AD villkorsstyrd åtkomst** och **Azure AD-enhetshantering** tillsammans. Om du inte är bekant med någon av dessa områden ännu, bör du läsa följande avsnitt kommer först:
 
-- **[Villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access-azure-portal.md)**  -den här artikeln ger en översikt över villkorlig åtkomst och termer som är relaterade.
+- **[Villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access-azure-portal.md) ** -den här artikeln ger en översikt över villkorlig åtkomst och termer som är relaterade.
 
-- **[Introduktion till hantering av enheter i Azure Active Directory](../devices/overview.md)**  -den här artikeln får du en överblick över de olika alternativ som du behöver hämta enheter organisationens kontrolleras. 
+- **[Introduktion till hantering av enheter i Azure Active Directory](../devices/overview.md) ** -den här artikeln får du en överblick över de olika alternativ som du behöver hämta enheter organisationens kontrolleras. 
 
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -60,11 +60,11 @@ Enkelt uttryckt hanterade enheter är enheter som är under *någon typ* för or
 
 Om du vill ha en enhet har registrerats med Azure AD har du tre alternativ:
 
-- **[Azure AD-registrerade enheter](../devices/overview.md#azure-ad-registered-devices)**  – om du vill hämta en personlig enhet registrerad med Azure AD
+- **[Azure AD-registrerade enheter](../devices/overview.md#azure-ad-registered-devices) ** – om du vill hämta en personlig enhet registrerad med Azure AD
 
-- **[Azure AD-anslutna enheter](../devices/overview.md#azure-ad-joined-devices)**  – om du vill hämta en organisations Windows 10-enhet som inte är ansluten till en lokal AD-registrerade med Azure AD. 
+- **[Azure AD-anslutna enheter](../devices/overview.md#azure-ad-joined-devices) ** – om du vill hämta en organisations Windows 10-enhet som inte är ansluten till en lokal AD-registrerade med Azure AD. 
 
-- **[Azure AD-anslutna hybridenheter](../devices/overview.md#hybrid-azure-ad-joined-devices)**  – om du vill hämta en Windows 10 eller stöd äldre enheter som är ansluten till en lokal AD-registrerade med Azure AD.
+- **[Azure AD-anslutna hybridenheter](../devices/overview.md#hybrid-azure-ad-joined-devices) ** – om du vill hämta en Windows 10 eller stöd äldre enheter som är ansluten till en lokal AD-registrerade med Azure AD.
 
 Om du vill bli en hanterad enhet, en registrerad enhet måste vara antingen en **Hybrid Azure AD-ansluten enhet** eller en **enhet som har markerats som kompatibel**.  
 

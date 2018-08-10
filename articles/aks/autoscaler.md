@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: 8431181c1f3d5fbe31fa6c96303367ee71f83b17
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: d121f2744292ba64436f0722ae60cc3bc2b8dfa7
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480466"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714136"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Autoskalningen-kluster på Azure Kubernetes Service (AKS) – förhandsversion
 
@@ -313,7 +313,7 @@ Fyll sedan i fältet avbildningen under **behållare** med versionen av autoskal
 Distribuera kluster – autoskalningen genom att köra
 
 ```console
-kubectl create -f cluster-autoscaler-containerservice.yaml
+kubectl create -f aks-cluster-autoscaler.yaml
 ```
 
 Om du vill kontrollera om klustret autoskalningen körs, använder du följande kommando och kontrollera listan över poddar. Det bör finnas en pod prefixet ”kluster-autoskalningen” som körs. Om du ser det här har klustret-autoskalningen distribuerats.

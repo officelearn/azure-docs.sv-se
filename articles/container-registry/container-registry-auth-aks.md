@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 08/08/2018
 ms.author: marsma
-ms.openlocfilehash: b56f2a8b2ae8cf04b8c27ab657be3f4d77ee7402
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: d2f7769469c9f3ebdbef5fc6ee1f09b1acd573ef
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205399"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715837"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autentisera med Azure Container Registry från Azure Kubernetes Service
 
@@ -72,7 +72,7 @@ echo "Service principal password: $SP_PASSWD"
 
 Nu kan du lagra autentiseringsuppgifter för tjänstens huvudnamn i ett Kubernetes [bild pull hemlighet][image-pull-secret], som sedan hänvisar till AKS-klustret när behållare som körs.
 
-Använd följande **kubectl** kommando för att skapa Kubernetes-hemlighet. Ersätt `<acr-login-server>` med fullständigt kvalificerade namnet på Azure container registry (det är i formatet ”acrname.azurecr.io”). Ersätt `<service-principal-ID>` och `<service-principal-password>` med de värden du erhöll genom att köra föregående skript.
+Använd följande **kubectl** kommando för att skapa Kubernetes-hemlighet. Ersätt `<acr-login-server>` med fullständigt kvalificerade namnet på Azure container registry (det är i formatet ”acrname.azurecr.io”). Ersätt `<service-principal-ID>` och `<service-principal-password>` med de värden du erhöll genom att köra föregående skript. Ersätt `<email-address>` med valfri giltig e-postadress.
 
 ```bash
 kubectl create secret docker-registry acr-auth --docker-server <acr-login-server> --docker-username <service-principal-ID> --docker-password <service-principal-password> --docker-email <email-address>

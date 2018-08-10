@@ -13,15 +13,15 @@ ms.component: pim
 ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: af3ba66bbc0be3aca3999abc6a0de5ec0e0aae95
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 922658f75a0d00998072c7bd8f2160e9db27f318
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621444"
+ms.locfileid: "39627798"
 ---
 # <a name="using-the-audit-log-in-pim"></a>Använda granskningsloggen i PIM
-Du kan använda granskningsloggen Privileged Identity Management (PIM) för att se alla användartilldelningar och aktiveringar inom en viss tidsperiod. Om du vill visa fullständig granskningshistorik för aktiviteten i din klient, inklusive administratören, slutanvändare och synkroniseringsåtgärden, kan du använda den [rapporter för åtkomst och användning av Azure Active Directory.](../active-directory-reporting-azure-portal.md)
+Du kan använda granskningsloggen Privileged Identity Management (PIM) för att se alla användartilldelningar och aktiveringar inom en viss tidsperiod. Om du vill visa fullständig granskningshistorik för aktiviteten i din klient, inklusive administratören, slutanvändare och synkroniseringsåtgärden, kan du använda den [rapporter för åtkomst och användning av Azure Active Directory.](../reports-monitoring/overview-reports.md)
 
 ## <a name="navigate-to-the-audit-log"></a>Gå in i spårningsloggen
 Från den [Azure-portalen](https://portal.azure.com) instrumentpanelen, väljer den **Azure AD Privileged Identity Management** app. Därifrån kan du komma åt granskningsloggen genom att klicka på **hantera Privilegierade roller** > **granskningshistorik** i PIM-instrumentpanelen.

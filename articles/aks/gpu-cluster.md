@@ -1,6 +1,6 @@
 ---
-title: GPU-kort i Azure Kubernetes-tjänster (AKS)
-description: Använda GPU-kort på Azure Kubernetes-tjänsten (AKS)
+title: 'GPU: er på Azure Kubernetes Service (AKS)'
+description: Använda grafikprocessorer på Azure Kubernetes Service (AKS)
 services: container-service
 author: lachie83
 manager: jeconnoc
@@ -9,27 +9,27 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: laevenso
 ms.custom: mvc
-ms.openlocfilehash: 7ee5198b070fee6b6ce04d9fc2639ba23ae93296
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 7fb60f3c440b4804ad8c5e6c013ecfa454358833
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070574"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716125"
 ---
 # <a name="using-gpus-on-aks"></a>Använda grafikprocessorer på AKS
 
-AKS stöder skapandet av GPU aktiverat nod pooler. Azure tillhandahåller för närvarande enda eller flera GPU aktiverade virtuella datorer. GPU aktiverat virtuella datorer är utformade för beräkningsintensiva, grafik och visualisering arbetsbelastningar. En lista över GPU aktiverat virtuella datorer kan hittas [här](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu).
+AKS stöder skapandet av GPU-aktiverade nodpooler. Azure tillhandahåller för närvarande enskilda eller flera GPU-aktiverade virtuella datorer. GPU-aktiverade virtuella datorer är utformade för beräkningsintensiva, grafikintensiva och visualiseringar av arbetsbelastningar. En lista med GPU-aktiverade virtuella datorer finns [här](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu).
 
 ## <a name="create-an-aks-cluster"></a>Skapa ett AKS-kluster
 
-GPU-kort behövs oftast för beräknings-intensiva arbetsbelastningar som till exempel grafik och visualisering arbetsbelastningar. Referera till följande [dokument](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu) att fastställa rätt VM-storlek för din arbetsbelastning.
+GPU: er krävs vanligtvis för beräkningsintensiva arbetsbelastningar som till exempel grafikintensiva och visualisering arbetsbelastningar. Referera till följande [dokumentet](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu) att fastställa rätt VM-storlek för din arbetsbelastning.
 Vi rekommenderar en minsta storlek på `Standard_NC6` för Azure Kubernetes Service (AKS)-noder.
 
 > [!NOTE]
-> GPU aktiverat virtuella datorer innehåller speciell maskinvara som är tillgänglig för högre prisnivå och region. Mer information finns i [priser](https://azure.microsoft.com/pricing/) verktyget och [regional tillgänglighet](https://azure.microsoft.com/global-infrastructure/services/) webbplats för mer information.
+> Grafikprocessoraktiverade virtuella datorer innehåller specialiserad maskinvara som omfattas av högre priser och regional tillgänglighet. Mer information finns i den [priser](https://azure.microsoft.com/pricing/) verktyget och [regiontillgänglighet](https://azure.microsoft.com/global-infrastructure/services/) plats för mer information.
 
 
-Om du behöver ett AKS kluster som uppfyller den här rekommendationen om minsta, kör du följande kommandon.
+Om du behöver ett AKS-kluster som uppfyller den här minsta rekommendationen, kör du följande kommandon.
 
 Skapa en resursgrupp för klustret.
 
@@ -37,21 +37,21 @@ Skapa en resursgrupp för klustret.
 az group create --name myGPUCluster --location eastus
 ```
 
-Skapa AKS-kluster med noder som har storlek `Standard_NC6`.
+Skapa AKS-kluster med noder som är av storleken `Standard_NC6`.
 
 ```azurecli
 az aks create --resource-group myGPUCluster --name myGPUCluster --node-vm-size Standard_NC6
 ```
 
-Ansluta till AKS-kluster.
+Ansluta till AKS-klustret.
 
 ```azurecli
 az aks get-credentials --resource-group myGPUCluster --name myGPUCluster
 ```
 
-## <a name="confirm-gpus-are-schedulable"></a>Bekräfta schemaläggningsbar GPU-kort
+## <a name="confirm-gpus-are-schedulable"></a>Bekräfta GPU: er är avtalad
 
-Kör följande kommandon för att bekräfta GPU är schemaläggningsbar via Kubernetes.
+Kör följande kommandon för att bekräfta de GPU: er är avtalad via Kubernetes.
 
 Hämta den aktuella listan över noder.
 
@@ -63,7 +63,7 @@ aks-nodepool1-22139053-1   Ready     agent     10h       v1.9.6
 aks-nodepool1-22139053-2   Ready     agent     10h       v1.9.6
 ```
 
-Beskriv en av noderna att bekräfta GPU är schemaläggningsbar. Det finns under den `Capacity` avsnitt. Till exempel `alpha.kubernetes.io/nvidia-gpu:  1`.
+Beskriv en av noderna att bekräfta de GPU: er är avtalad. Det finns under den `Capacity` avsnittet. Till exempel `alpha.kubernetes.io/nvidia-gpu:  1`.
 
 ```
 $ kubectl describe node aks-nodepool1-22139053-0
@@ -131,11 +131,11 @@ Allocated resources:
 Events:         <none>
 ```
 
-## <a name="run-a-gpu-enabled-workload"></a>Kör en GPU aktiverat arbetsbelastning
+## <a name="run-a-gpu-enabled-workload"></a>Köra en arbetsbelastning för Grafikprocessoraktiverad
 
-För att kunna visa GPU faktiskt fungerar, aktivera schema en GPU arbetsbelastning med rätt resurs-begäran. Det här exemplet körs en [Tensorflow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) jobbet mot den [MNIST dataset](http://yann.lecun.com/exdb/mnist/).
+För att kunna visa de GPU: er verkligen fungerar, aktivera schema en GPU arbetsbelastning med rätt resurs-begäran. Det här exemplet körs en [Tensorflow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) jobb mot den [MNIST datauppsättning](http://yann.lecun.com/exdb/mnist/).
 
-Följande jobb Manifestet innehåller en resursgräns av `alpha.kubernetes.io/nvidia-gpu: 1`. Rätt CUDA bibliotek och verktyg för felsökning blir tillgängliga på noden på `/usr/local/nvidia` och måste monteras i baljor med hjälp av lämplig volym-specifikation som visas nedan.
+Följande jobbet Manifestet innehåller en resursgräns av `alpha.kubernetes.io/nvidia-gpu: 1`. Lämplig CUDA-bibliotek och verktyg för felsökning blir tillgängliga på noden på `/usr/local/nvidia` och måste monteras i en pod med lämplig volym-specifikationen som visas nedan.
 
 Kopiera manifestet och spara som **exempel-tf-mnist-demo.yaml**.
 ```
@@ -175,7 +175,7 @@ $ kubectl apply -f samples-tf-mnist-demo.yaml
 job "samples-tf-mnist-demo" created
 ```
 
-Övervaka förloppet för jobbet tills lyckades med hjälp av den [kubectl hämta jobb] [ kubectl-get] kommandot med de `--watch` argumentet.
+Övervaka förloppet för jobbet tills slutförs med hjälp av den [kubectl hämta jobb] [ kubectl-get] med den `--watch` argumentet.
 ```
 $ kubectl get jobs samples-tf-mnist-demo --watch
 NAME                    DESIRED   SUCCESSFUL   AGE
@@ -183,14 +183,14 @@ samples-tf-mnist-demo   1         0            8s
 samples-tf-mnist-demo   1         1            35s
 ```
 
-Ange ett namn för baljor att visa loggfilerna som visar slutförd skida.
+Fastställa pod-namnet för att visa loggar av poddar som visar har slutförts.
 ```
 $ kubectl get pods --selector app=samples-tf-mnist-demo --show-all
 NAME                          READY     STATUS      RESTARTS   AGE
 samples-tf-mnist-demo-smnr6   0/1       Completed   0          4m
 ```
 
-Med hjälp av baljor namnet från utdata från kommandot ovan, referera till baljor loggfilerna för att bekräfta att lämpliga GPU-enheten har identifierats i det här fallet `Tesla K80`.
+Med hjälp av pod-namnet från utdata från kommandot ovan, referera till pod-loggarna för att bekräfta att lämpliga GPU-enheten har identifierats i det här fallet `Tesla K80`.
 ```
 $ kubectl logs samples-tf-mnist-demo-smnr6
 2018-04-13 04:11:08.710863: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
@@ -266,15 +266,73 @@ Adding run metadata for 499
 ```
 
 ## <a name="cleanup"></a>Rensa
-Ta bort de associerade Kubernetes-objekt som skapas i det här steget.
+Ta bort de associerade Kubernetes-objekten som skapats i det här steget.
 ```
 $ kubectl delete jobs samples-tf-mnist-demo
 job "samples-tf-mnist-demo" deleted
 ```
 
+## <a name="troubleshoot"></a>Felsöka
+
+I vissa situationer kan du inte ser GPU resurser under kapacitet. Till exempel: efter uppgradering av ett kluster till Kubernetes version 1.10 eller skapa ett nytt Kubernetes version 1.10 kluster, den förväntade `nvidia.com/gpu` resursen saknas `Capacity` när du kör `kubectl describe node <node-name>`. 
+
+Om du vill lösa det här gäller följande daemonset post etablera eller uppgradering, kan du se `nvidia.com/gpu` som en avtalad resurs. 
+
+Kopiera manifestet och spara som **nvidia-enhet-plugin-programmet-ds.yaml**. För bildtagg av `image: nvidia/k8s-device-plugin:1.10` nedan, uppdatera taggen så att den matchar ditt Kubernetes-version. Till exempel använda taggen `1.11` för Kubernetes version 1.11.
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  labels:
+    kubernetes.io/cluster-service: "true"
+  name: nvidia-device-plugin
+  namespace: kube-system
+spec:
+  template:
+    metadata:
+      # Mark this pod as a critical add-on; when enabled, the critical add-on scheduler
+      # reserves resources for critical add-on pods so that they can be rescheduled after
+      # a failure.  This annotation works in tandem with the toleration below.
+      annotations:
+        scheduler.alpha.kubernetes.io/critical-pod: ""
+      labels:
+        name: nvidia-device-plugin-ds
+    spec:
+      tolerations:
+      # Allow this pod to be rescheduled while the node is in "critical add-ons only" mode.
+      # This, along with the annotation above marks this pod as a critical add-on.
+      - key: CriticalAddonsOnly
+        operator: Exists
+      containers:
+      - image: nvidia/k8s-device-plugin:1.10 # Update this tag to match your Kubernetes version
+        name: nvidia-device-plugin-ctr
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: ["ALL"]
+        volumeMounts:
+          - name: device-plugin
+            mountPath: /var/lib/kubelet/device-plugins
+      volumes:
+        - name: device-plugin
+          hostPath:
+            path: /var/lib/kubelet/device-plugins
+      nodeSelector:
+        beta.kubernetes.io/os: linux
+        accelerator: nvidia
+```
+
+Använd den [kubectl gäller] [ kubectl-apply] kommando för att skapa ett daemonset.
+
+```
+$ kubectl apply -f nvidia-device-plugin-ds.yaml
+daemonset "nvidia-device-plugin" created
+```
+
 ## <a name="next-steps"></a>Nästa steg
 
-Är du intresserad av att Machine Learning arbetsbelastningar som körs på Kubernetes? Referera till Kubeflow labs för mer information.
+Är du intresserad av att Machine Learning-arbetsbelastningar på Kubernetes? Avse Kubeflow labs för mer information.
 
 > [!div class="nextstepaction"]
 > [Kubeflow Labs][kubeflow-labs]

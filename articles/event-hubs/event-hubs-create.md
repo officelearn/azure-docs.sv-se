@@ -1,51 +1,51 @@
 ---
 title: Skapa en Azure-händelsehubb | Microsoft Docs
-description: Skapa ett namnområde för Azure Event Hubs och en händelsehubb med hjälp av Azure portal
+description: Skapa ett Azure Event Hubs-namnområde och en event hub med Azure-portalen
 services: event-hubs
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
-ms.author: sethm
-ms.openlocfilehash: 9b466d4e727c1511ca2318c0da3ec2807a965a5d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: shvija
+ms.openlocfilehash: fb2020f7bfc8521e141adb4eefbc227e8123a269
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625550"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40002628"
 ---
-# <a name="create-an-event-hubs-namespace-and-an-event-hub-using-the-azure-portal"></a>Skapa ett namnområde för Händelsehubbar och en händelsehubb med hjälp av Azure portal
+# <a name="create-an-event-hubs-namespace-and-an-event-hub-using-the-azure-portal"></a>Skapa ett Event Hubs-namnområde och en event hub med Azure-portalen
 
-## <a name="create-an-event-hubs-namespace"></a>Skapa ett namnområde för Händelsehubbar
+## <a name="create-an-event-hubs-namespace"></a>Skapa ett Event Hubs-namnområde
 
-1. Logga in på den [Azure-portalen][Azure portal], och klicka på **skapar du en resurs** på upp till vänster på skärmen.
-2. Klicka på **Sakernas Internet**, och klicka sedan på **Händelsehubbar**.
+1. Logga in på den [Azure-portalen][Azure portal], och klicka på **skapa en resurs** på upp till vänster på skärmen.
+2. Klicka på **Sakernas Internet** och sedan på **Event Hubs**.
    
     ![](./media/event-hubs-create/create-event-hub9.png)
 
-3. I **skapa namnområdet**, ange ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.  
+3. Under **Skapa namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.  
 
-4. När du har kontrollerat att namnet för namnområdet är tillgängligt, väljer du prisnivå (Basic eller Standard). Välj även en Azure-prenumeration, resursgrupp och plats där du vill skapa resursen.
+4. När du har kontrollerat att namnområdet är tillgängligt väljer du prisnivå (Basic eller Standard). Välj även en Azure-prenumeration, resursgrupp och plats där du vill skapa resursen.
  
-5. Klicka på **Skapa** för att skapa namnområdet. Du kan behöva vänta några minuter på att systemet blir klar med att etablera resurserna.
+5. Klicka på **Skapa** för att skapa namnområdet. Du kan behöva vänta några minuter på att systemet ska bli klart med att etablera resurserna.
 
     ![](./media/event-hubs-create/create-event-hub1.png)
 
-6. Klicka på det nyligen skapade namnområden i portalen listan över namnområden.
+6. Klicka på det nyligen skapade namnområdet i listan med namnområden i Portal.
 
-7. Klicka på **principer för delad åtkomst**, och klicka sedan på **RootManageSharedAccessKey**.
+7. Klicka på **Principer för delad åtkomst** och sedan på **RootManageSharedAccessKey**.
     
     ![](./media/event-hubs-create/create-event-hub7.png)
 
-8. Klicka på kopieringsknappen för att kopiera anslutningssträngen **RootManageSharedAccessKey** till Urklipp. Spara den här anslutningssträngen i en tillfällig plats, till exempel Anteckningar för senare användning.
+8. Klicka på kopieringsknappen för att kopiera anslutningssträngen **RootManageSharedAccessKey** till Urklipp. Spara den här anslutningssträngen på en tillfällig plats, till exempel i Anteckningar, för senare användning.
     
     ![](./media/event-hubs-create/create-event-hub8.png)
 
 ## <a name="create-an-event-hub"></a>Skapa en händelsehubb
 
-1. Klicka på det nya namnområdet i listan Händelsehubbar namnområde.      
+1. I listan över händelsehubbarnas namnområden klickar du på det nyligen skapade namnområdet.      
    
     ![](./media/event-hubs-create/create-event-hub2.png) 
 
@@ -56,7 +56,7 @@ ms.locfileid: "34625550"
 3. Överst på bladet klickar du på **+ Event Hub**.
    
     ![](./media/event-hubs-create/create-event-hub4.png)
-4. Skriv ett namn för din händelsehubb, och klicka sedan på **skapa**. 
+4. Skriv ett namn för din händelsehubb och klicka sedan på **Skapa**. 
 
 Din händelsehubb har nu skapats och du har anslutningssträngar för måste du skicka och ta emot händelser.
 

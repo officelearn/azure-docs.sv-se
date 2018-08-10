@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 11/05/2017
-ms.openlocfilehash: a58b5c315b9f1baa3a0c3fe55917e94a47006f62
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 85f80ef1ea776d48d9c2f8091568d40dbf46db46
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258539"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716482"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Handelssimulering med hög frekvens med Stream Analytics
 Kombinationen av SQL-språket och JavaScript-användardefinierade funktion (UDF) och användardefinierade aggregeringar (UDA) i Azure Stream Analytics gör det möjligt för användare att utföra avancerade analyser. Avancerade analyser kan innehålla onlineutbildning för maskininlärning och bedömningar samt tillståndskänslig processimulering. I den här artikeln finns en beskrivning av hur du utför linjär regression i ett Azure Stream Analytics-jobb som kör kontinuerlig träning och bedömning i ett scenario med högfrekvent handel.
@@ -444,7 +444,7 @@ Slutligen skickas utdata till Power BI-instrumentpanelen för visualisering.
 ## <a name="summary"></a>Sammanfattning
 Vi implementerar en realistisk handelsmodell med hög frekvens med en ganska komplex fråga i Azure Stream Analytics. Då det inte finns någon inbyggd linjär regressionsfunktion måste vi förenkla modellen från fem indatavariabler till två. Men om du är riktigt ambitiös kan du använda algoritmer med högre dimensioner och mer avancerad uppbyggnad för att sedan implementera dessa som JavaScript UDA. 
 
-Observera att större delen av frågan (det som inte är JavaScript UDA) kan testas och felsökas i Visual Studio med hjälp av [Azure Stream Analytics-verktyget för Visual Studio](stream-analytics-tools-for-visual-studio.md). När den första frågan skrevs lade författaren ner mindre än 30 minuter på testning och felsökning av frågan i Visual Studio. 
+Observera att större delen av frågan (det som inte är JavaScript UDA) kan testas och felsökas i Visual Studio med hjälp av [Azure Stream Analytics-verktyget för Visual Studio](stream-analytics-tools-for-visual-studio-install.md). När den första frågan skrevs lade författaren ner mindre än 30 minuter på testning och felsökning av frågan i Visual Studio. 
 
 För närvarande går det inte att felsöka UDA i Visual Studio. Vi jobbar på att aktivera detta med tilläggsfunktionen att kunna stega igenom JavaScript-koden. Fält som når fram till UDA får fältnamn med gemena bokstäver. Detta var inget uppenbart beteende under testningen av frågefunktionerna. Från och med Azure Stream Analytics kompatibilitetsnivå 1.1 kan du dock bevara skiftläget för namnet, så att beteendet blir mer naturligt.
 

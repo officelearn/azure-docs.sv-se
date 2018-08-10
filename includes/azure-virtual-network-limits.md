@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 06/20/2018
+ms.date: 08/03/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 9ba9bc993832350f6b6ce1c642e2dc852731b6f0
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 60f1b133bdd6acdb25717c2b98f81b57b751d505
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39029980"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39720750"
 ---
 <a name="virtual-networking-limits-classic"></a>Följande begränsningar gäller endast för nätverksresurser som hanteras via den klassiska distributionsmodellen per prenumeration. Lär dig hur du [visa din aktuella användning mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md).
 
@@ -37,31 +37,37 @@ ms.locfileid: "39029980"
 #### <a name="azure-resource-manager-virtual-networking-limits"></a>Nätverksgränser – Azure Resource Manager
 Följande begränsningar gäller endast för nätverksresurser som hanteras via Azure Resource Manager per region per prenumeration. Lär dig hur du [visa din aktuella användning mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md).
 
+> [!NOTE]
+> Vi har nyligen ökat alla standardgränser till deras högsta gränser. Om det finns inga **maxgränsen** kolumnen och sedan resursen saknar justerbara gränser. Om du har har dessa gränser ökat med stöd för tidigare och ser inte uppdaterade gränser enligt nedan, kan du [öppna en kundsupportärende utan kostnad](../articles/azure-resource-manager/resource-manager-quota-errors.md)
+
+| Resurs | Standardgräns | 
+| --- | --- |
+| Virtuella nätverk |1000 |
+| Undernät per virtuellt nätverk |3000 |
+| Vnet-peering per virtuellt nätverk |100 |
+| DNS-servrar per virtuellt nätverk |25 |
+| Privata IP-adresser per virtuellt nätverk |65536 |
+| Privata IP-adresser per nätverksgränssnitt |256 |
+| Samtidiga TCP eller UDP flöden per nätverkskort för en virtuell dator eller rollinstans |500 000 |
+| Nätverksgränssnitt (NIC) |24000 |
+| Nätverkssäkerhetsgrupper (NSG) |5000 |
+| NSG-regler per NSG |1000 |
+| IP-adresser och intervall som angetts för källa eller mål i en säkerhetsgrupp |4000 |
+| Programsäkerhetsgrupper |3000 |
+| Programsäkerhetsgrupper per IP-konfiguration, per nätverkskort |20 |
+| IP-konfigurationer per programsäkerhetsgruppen |4000 |
+| Programsäkerhetsgrupper som kan anges i alla säkerhetsregler för en grupp |100 |
+| Användardefinierade vägtabeller |200 |
+| Användardefinierade vägar vägtabell |400 |
+| Punkt-till-plats-rotcertifikat per VPN Gateway |20 |
+
+#### <a name="publicip-address"></a>Offentliga IP-adress gränser
+
 | Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
-| Virtuella nätverk |50 |1000 |
-| Undernät per virtuellt nätverk |1000 |10000 |
-| Vnet-peering per virtuellt nätverk |50 ** |100 |
-| DNS-servrar per virtuellt nätverk |9 |25 |
-| Privata IP-adresser per virtuellt nätverk |16384 ** |16384 |
-| Privata IP-adresser per nätverksgränssnitt |256 |256 |
-| Samtidiga TCP eller UDP flöden per nätverkskort för en virtuell dator eller rollinstans |500 000 |500 000 |
-| Nätverksgränssnitt (NIC) |24000 ** |24000 |
-| Nätverkssäkerhetsgrupper (NSG) |100 |5000 |
-| NSG-regler per NSG |1000 ** |1000 |
-| IP-adresser och intervall som angetts för källa eller mål i en säkerhetsgrupp |2000 |4000 |
-| Programsäkerhetsgrupper |500 |3000 |
-| Programsäkerhetsgrupper per IP-konfiguration, per nätverkskort |10 |20 |
-| IP-konfigurationer per programsäkerhetsgruppen |1000 |4000 |
-| Programsäkerhetsgrupper som kan anges i alla säkerhetsregler för en grupp |50 |100 |
-| Användardefinierade vägtabeller |100 |200 |
-| Användardefinierade vägar vägtabell |400 ** |400 |
-| Offentliga IP-adresser – dynamisk |60 (grundläggande) |kontakta supporten |
-| Offentliga IP-adresser – statiska |20 (grundläggande) |kontakta supporten |
-| Offentliga IP-adresser – statiska |20 (standard) |kontakta supporten |
-| Punkt-till-plats-rotcertifikat per VPN Gateway |20 |20 |
-
-** De uppdateras standard begränsningar gäller för prenumerationer som inte tidigare har gränserna ökar med support. Om du har har dessa gränser ökat med stöd för tidigare och vill få uppdateringar till nya standardvärden [öppna en kundsupportärende utan kostnad](../articles/azure-resource-manager/resource-manager-quota-errors.md)
+| Offentliga IP-adresser – dynamisk |200 (grundläggande) |kontakta supporten |
+| Offentliga IP-adresser – statiska |200 (grundläggande) |kontakta supporten |
+| Offentliga IP-adresser – statiska |200 (standard) |kontakta supporten |
 
 #### <a name="load-balancer"></a>Belastningsutjämnaren begränsar
 Följande begränsningar gäller endast för nätverksresurser som hanteras via Azure Resource Manager per region per prenumeration. Lär dig hur du [visa din aktuella användning mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md)

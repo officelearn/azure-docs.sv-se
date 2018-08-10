@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 266404a69c691cfbbfabc49e4d78deb11db74b52
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 17b03ee9521ddf1980e27ee9a63d2ba74ea6e6b7
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249163"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629692"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arkivera Azure diagnostikloggar
 
@@ -74,7 +74,7 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 
 | Egenskap  | Krävs | Beskrivning |
 | --- | --- | --- |
-| Resurs-ID |Ja |Resurs-ID för den resurs som du vill ange en diagnostikinställning. |
+| ResourceId |Ja |Resurs-ID för den resurs som du vill ange en diagnostikinställning. |
 | StorageAccountId |Nej |Resurs-ID för det Lagringskonto där diagnostikloggar ska sparas. |
 | Kategorier |Nej |Kommaavgränsad lista över loggkategorier för att aktivera. |
 | Enabled |Ja |Booleskt värde som anger om diagnostik är aktiverade eller inaktiverade på den här resursen. |
@@ -163,5 +163,5 @@ Varje händelse som lagras i filen pt1h.JSON i matrisen ”poster” efter det h
 
 * [Ladda ned blobar för analys](../storage/storage-dotnet-how-to-use-blobs.md)
 * [Stream diagnostikloggar till Event Hubs-namnområdet](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-* [Arkivera loggar för Azure Active Directory med Azure Monitor](../active-directory/reporting-azure-monitor-diagnostics-azure-storage-account.md)
+* [Arkivera loggar för Azure Active Directory med Azure Monitor](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [Läs mer om diagnostikloggar](monitoring-overview-of-diagnostic-logs.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 7/31/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: a43b70d2ce7a8205903fb877ea056dea88ac8bb5
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 2990ba290dfdaf45d8a341138ea515bad16d5b30
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389617"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628179"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stream Azure-övervakningsdata till en händelsehubb för användning av något externt verktyg
 
@@ -50,11 +50,11 @@ Se även de [Azure Event Hubs vanliga frågor och svar](../event-hubs/event-hubs
 
 ## <a name="how-do-i-set-up-azure-tenant-monitoring-data-to-be-streamed-to-an-event-hub"></a>Hur ställer jag in Azure-klient övervakningsdata strömmas till en event hub?
 
-Azure-klient övervakningsdata är för närvarande endast tillgängliga för Azure Active Directory. Du kan använda data från [Azure Active Directory-rapportering](../active-directory/active-directory-reporting-azure-portal.md), som innehåller historik över inloggning aktivitet och granska spårning av ändringar som gjorts i en viss klient.
+Azure-klient övervakningsdata är för närvarande endast tillgängliga för Azure Active Directory. Du kan använda data från [Azure Active Directory-rapportering](../active-directory/reports-monitoring/overview-reports.md), som innehåller historik över inloggning aktivitet och granska spårning av ändringar som gjorts i en viss klient.
 
 ### <a name="stream-azure-active-directory-data-into-an-event-hub"></a>Stream Azure Active Directory-data i en händelsehubb
 
-Om du vill skicka data från Azure Active Directory-loggen i ett Event Hubs-namnområde måste konfigurera du en diagnostikinställning för klient på din AAD-klient. [Den här guiden](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md) att ställa in en diagnostikinställning för klienten.
+Om du vill skicka data från Azure Active Directory-loggen i ett Event Hubs-namnområde måste konfigurera du en diagnostikinställning för klient på din AAD-klient. [Den här guiden](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md) att ställa in en diagnostikinställning för klienten.
 
 ## <a name="how-do-i-set-up-azure-subscription-monitoring-data-to-be-streamed-to-an-event-hub"></a>Hur ställer jag in Azure-prenumeration övervakningsdata strömmas till en event hub?
 

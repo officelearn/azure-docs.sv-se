@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 546717330a08b348800ea9c4c9cd7784f54595eb
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: ba47223f86005809189214f26a63b75b21449e3a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618531"
+ms.locfileid: "39630627"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Självstudie: Konfigurera hybrid Azure Active Directory-anslutna enheter manuellt 
 
@@ -35,40 +35,18 @@ Om du har en lokal Active Directory-miljö och du vill ansluta till dina domäna
 > Om med Azure AD Connect är ett alternativ för dig, se [väljer ditt scenario](hybrid-azuread-join-plan.md#select-your-scenario). Med hjälp av Azure AD Connect kan förenkla du konfigurationen av hybrid Azure AD-anslutning avsevärt.
 
 
-## <a name="before-you-begin"></a>Innan du börjar
-
-Innan du börjar konfigurera hybrid Azure AD-anslutna enheter i din miljö, bör du bekanta dig med scenarierna som stöds och begränsningar.  
-
-Om du lita på den [systemförberedelseverktyget (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), kontrollera att du skapar bilder från en installation av Windows som har ännu inte registrerats med Azure AD.
-
-Alla domänanslutna enheter som kör Windows 10 Anniversary Update och Windows Server 2016 registreras automatiskt med Azure AD vid omstart av enheten eller användaren logga in när de konfigurationssteg som anges nedan är uppfyllda. **Om problemet automatiskt registrera inte rekommenderas, eller om en kontrollerad distribution är det önskade**, genom att följa anvisningarna i avsnittet ”steg 4: Kontrollera distributionen och distribution” nedan först för att selektivt aktivera eller inaktivera automatisk distribution innan efter de andra konfigurationssteg.  
-
-För att förbättra läsbarheten beskrivningar, använder den här artikeln följande villkor: 
-
-- **Befintliga Windows-enheter** – den här termen avser domänanslutna enheter som kör Windows 10 eller Windows Server 2016.
-- **Windows äldre enheter** -den här termen avser alla **stöds** domänanslutna Windows-enheter som är varken som kör Windows 10 eller Windows Server 2016.  
-
-### <a name="windows-current-devices"></a>Befintliga Windows-enheter
-
-- För enheter som kör Windows operativsystem, versionen som stöds är Windows 10 Anniversary Update (version 1607) eller senare. 
-- Registreringen av befintliga Windows-enheter **är** i icke-federerade miljöer, till exempel lösenordshash-synkronisering konfigurationer som stöds.  
-
-
-### <a name="windows-down-level-devices"></a>Windows äldre enheter
-
-- Följande Windows äldre enheter stöds:
-    - Windows 8.1
-    - Windows 7
-    - Windows Server 2012 R2
-    - Windows Server 2012
-    - Windows Server 2008 R2
-- Registreringen av Windows äldre enheter **är** stöd i icke-federerade miljöer via sömlös enkel inloggning [Azure Active Directory sömlös enkel inloggning](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
-- Registreringen av Windows äldre enheter **är inte** stöds när du använder Azure AD-direktautentisering utan sömlös enkel inloggning.
-- Registreringen av Windows äldre enheter **är inte** stöds för enheter med hjälp av centrala profiler. Om du lita på centrala profiler eller inställningar, använder du Windows 10.
-
 
 
 ## <a name="prerequisites"></a>Förutsättningar
+
+Den här självstudien förutsätter att du är bekant med:
+    
+-  [Introduktion till hantering av enheter i Azure Active Directory](../device-management-introduction.md)
+    
+-  [Så här planerar du Azure Active Directory Join-hybridimplementeringen](hybrid-azuread-join-plan.md)
+
+-  [Så här kontrollerar du Azure Active Directory Join-hybriden för dina enheter](hybrid-azuread-join-control.md)
+
 
 Innan du börjar att aktivera hybrid Azure AD-anslutna enheter i din organisation, måste du se till att:
 
@@ -117,7 +95,6 @@ Använd tabellen nedan för att få en översikt över de steg som krävs för d
 | Konfigurera tjänstanslutningspunkt | ![Markera][1]                            | ![Markera][1]                    | ![Markera][1]        |
 | Konfigurera utfärdande av anspråk           |                                        | ![Markera][1]                    | ![Markera][1]        |
 | Aktivera Windows 10-enheter      |                                        |                                | ![Markera][1]        |
-| Kontrollera distributionen     | ![Markera][1]                            | ![Markera][1]                    | ![Markera][1]        |
 | Kontrollera domänanslutna enheter          | ![Markera][1]                            | ![Markera][1]                    | ![Markera][1]        |
 
 
@@ -562,59 +539,6 @@ Uppmanar när användare i registrera enheter autentiserar till Azure AD som du 
 
 `https://device.login.microsoftonline.com`
 
-## <a name="control-deployment-and-rollout"></a>Kontrollera distributionen
-
-När du har slutfört steg som krävs, är du redo att automatiskt ansluta till Azure AD-domänanslutna enheter:
-
-- Alla domänanslutna enheter som kör Windows 10 Anniversary Update och Windows Server 2016 register med Azure AD på enheten startas om automatiskt eller användarinloggning. 
-
-- Nya enheter registreras med Azure AD när enheten startas om efter domän join-åtgärd har slutförts.
-
-- Enheter som var tidigare Azure AD registrerade (till exempel för Intune) övergång till ”*ansluten till domänen, AAD registrerad*”; men det tar lite tid för den här processen skulle slutföras på alla enheter på grund av det normala flödet av domän och användaraktivitet.
-
-### <a name="remarks"></a>Kommentarer
-
-- Du kan använda ett grupprincipobjekt eller System Center Configuration Manager-klienten inställning för att styra distributionen av automatisk registrering av Windows 10 och Windows Server 2016 domänanslutna datorer. **Om du inte vill att dessa enheter att automatiskt registrera med Azure AD eller om du vill styra registreringen**, och du måste distribuera en grupprincip som inaktiverar automatisk registrering i alla dessa enheter först eller om du använder konfigurationen Manager måste du konfigurera klientinställning under Cloud Services > Registrera automatiskt nya Windows 10 domänanslutna enheter med Azure Active Directory som ”Nej” innan du börjar med några av konfigurationsstegen. 
-
-> [!Important]
-> Eftersom det inte finns en potentiell fördröjning vid tillämpningen av grupprincipobjektet på nyligen domänanslutna datorer då försöket automatisk registrering av Windows 10-enheter kan ske, måste du skapa en ny sysprep-avbildning från en Windows 10-enhet som har aldrig tidigare registreras automatiskt och som redan har GPO-inaktiverar automatisk registrering av Windows 10-enheter och använda den sysprep-bilden för att etablera nya datorer som ansluter till organisationens domän.
-
-När du är klar konfigurerar, och när du är redo att testa, måste du distribuera grupprinciper för att aktivera automatisk registrering till testenheter och sedan till alla andra enheter som du väljer.
-
-- Distribution av Windows äldre datorer, du kan distribuera en [Windows Installer-paketet](#windows-installer-packages-for-non-windows-10-computers) till datorer som du väljer.
-
-- Om du har överfört grupprincipobjektet till Windows 8.1-domänanslutna enheter som en koppling provas. men det rekommenderas att du använder den [Windows Installer-paketet](#windows-installer-packages-for-non-windows-10-computers) att ansluta till alla dina Windows äldre enheter. 
-
-### <a name="create-a-group-policy-object"></a>Skapa ett grupprincipobjekt 
-
-Om du vill styra distributionen av aktuella Windows-datorer, bör du distribuera den **registrera domänanslutna datorer som enheter** grupprincipobjekt till de enheter som du vill registrera. Du kan till exempel distribuera principen till en organisationsenhet eller i en säkerhetsgrupp.
-
-**Att ställa in principen:**
-
-1. Öppna **Serverhanteraren**, gå sedan till `Tools > Group Policy Management`.
-2. Gå till domännoden som motsvarar den domän där du vill aktivera automatisk registrering av aktuella Windows-datorer.
-3. Högerklicka på **grupprincipobjekt**, och välj sedan **New**.
-4. Skriv ett namn för gruppolicy-objekt. Till exempel * Hybrid Azure AD-anslutning. 
-5. Klicka på **OK**.
-6. Högerklicka på din nya grupprincipobjekt och välj sedan **redigera**.
-7. Gå till **Datorkonfiguration** > **principer** > **Administrationsmallar** > **Windows Komponenter** > **Enhetsregistrering**. 
-8. Högerklicka på **registrera domänanslutna datorer som enheter**, och välj sedan **redigera**.
-   
-   > [!NOTE]
-   > Den här mallen har ändrats från tidigare versioner av konsolen Grupprinciphantering. Om du använder en tidigare version av konsolen går du till `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
-
-7. Välj **aktiverad**, och klicka sedan på **tillämpa**. Du måste välja **inaktiverad** om du vill att principen för att blockera enheter som styrs av den här grupprincipen från att automatiskt registrera med Azure AD.
-
-8. Klicka på **OK**.
-9. Länka grupprincipobjektet till en valfri plats. Du kan till exempel länka den till en viss organisationsenhet. Också kan du länka den till en specifik säkerhetsgrupp för datorer som automatiskt ansluter till med Azure AD. Länka grupprincipobjektet till domänen för att ställa in principen för alla domänanslutna Windows 10 och Windows Server 2016-datorer i din organisation.
-
-### <a name="windows-installer-packages-for-non-windows-10-computers"></a>Windows Installer-paket för Windows 10-datorer
-
-För att ansluta till domänanslutna Windows äldre datorer i en federerad miljö kan du hämta och installera de här Windows Installer-paketet (.msi) från Download Center på den [Microsoft Workplace Join för Windows 10-datorer](https://www.microsoft.com/en-us/download/details.aspx?id=53554) sidan.
-
-Du kan distribuera paketet med hjälp av ett system för programvarudistribution som System Center Configuration Manager. Paketet stöder alternativ för standard tyst installation med den *tyst* parametern. System Center Configuration Manager Current Branch ger ytterligare fördelar jämfört med tidigare versioner, som möjligheten att spåra slutförda registreringar. Mer information finns i [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager).
-
-Installationsprogrammet skapar en schemalagd aktivitet på system som körs i användarens kontext. Aktiviteten utlöses när användaren loggar in på Windows. Uppgiften kopplar tyst enhet med Azure AD med autentiseringsuppgifterna för användaren när de har autentiserat med integrerad Windows-autentisering. Om du vill se den schemalagda aktiviteten, i enheten, går du till **Microsoft** > **Arbetsplatsanslutning**, och gå sedan till Schemaläggaren-biblioteket.
 
 ## <a name="verify-joined-devices"></a>Kontrollera domänanslutna enheter
 

@@ -37,4 +37,4 @@ Beroende på vilken VPN-enhet du har kan du eventuellt hämta ett skript för VP
 
 - I [Konfigurera IPsec/IKE-principer för S2S VPN- eller VNet-till-VNet-anslutningar](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md) finns mer information om konfigurationssteg för IPsex/IKE-principer.
 
-- Information om hur du ansluter flera principbaserade VPN-enheter finns i [Connect Azure VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) (Ansluta Azure VPN-gatewayer till flera lokala principbaserade VPN-enheter med hjälp av PowerShell).
+- Information om hur du ansluter flera principbaserade VPN-enheter finns i [Ansluta Azure VPN-gatewayer till flera lokala principbaserade VPN-enheter med hjälp av PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).

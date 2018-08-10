@@ -2,19 +2,19 @@
 title: Skicka händelser till Azure Event Hubs med hjälp av Go | Microsoft Docs
 description: Kom igång med att skicka händelser till Event Hubs med hjälp av Go
 services: event-hubs
-author: joshgav
+author: ShubhaVijayasarathy
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
 ms.date: 07/23/2018
-ms.author: joshgav
-ms.openlocfilehash: de454e7c94cb89a44f681fa1301bb5109ced03fd
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.author: shvija
+ms.openlocfilehash: 40b3aa82c3e9e8ab9a30362c0a41998877655725
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39717029"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005605"
 ---
 # <a name="send-events-to-event-hubs-using-go"></a>Skicka händelser till Event Hubs med hjälp av Go
 

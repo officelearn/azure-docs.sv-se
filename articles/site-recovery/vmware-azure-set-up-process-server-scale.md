@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 6d3fe519729bd56dafd11720a3662eb00b916a98
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 478b678f514959b8ae9f6492d4920faf894c321d
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056617"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004189"
 ---
 # <a name="set-up-additional-process-servers-for-scalability"></a>Konfigurera ytterligare processervrar för skalbarhet
 
@@ -31,9 +31,11 @@ Kontrollera storlekskraven sammanfattas i tabellen. Om du behöver skala distrib
 
 | **Kompletterande processervern** | **Cachestorleken för disk** | **Dataändringshastigheten** | **Skyddade datorer** |
 | --- | --- | --- | --- |
-|4 virtuella processorer (2 platser * 2 kärnor \@ 2,5 GHz), 8 GB minne |300 GB |250 GB eller mindre |Replikera datorer 85 eller mindre. |
+|4 virtuella processorer (2 platser * 2 kärnor \@ 2,5 GHz), 8 GB minne |300 GB |250 GB eller mindre |Replikera datorer 85 eller mindre. |
 |8 virtuella processorer (2 platser * 4 kärnor \@ 2,5 GHz), 12 GB minne |600 GB |250 GB till 1 TB |Replikera mellan 85 150 datorer. |
 |12 virtuella processorer (2 platser * 6 kärnor \@ 2,5 GHz) 24 GB minne |1 TB |1 TB till 2 TB |Replikera mellan 150 225 datorer. |
+
+Där varje skyddad källdatorn är konfigurerad med 3 diskar på 100 GB vardera.
 
 ### <a name="prerequisites"></a>Förutsättningar
 

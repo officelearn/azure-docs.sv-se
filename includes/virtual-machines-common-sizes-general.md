@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 0cd31a6acaa248b53fbe90684894b3bb3e7ebf86
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 1606b5e38b79cb535108ca747783a05de1fbc982
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37907051"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40027165"
 ---
 VM-storlekar för generell användning ger balanserat förhållande mellan processor och minne. Utmärkt för tester och utveckling, små till mellanstora databaser och webbservrar med låg till medelhög trafik. Den här artikeln innehåller information om hur många virtuella processorer, diskar och nätverkskort samt genomflödet för storlekar i den här grupperingen. 
 
@@ -21,7 +21,7 @@ VM-storlekar för generell användning ger balanserat förhållande mellan proce
 
 - Dv2-serien, en uppföljare till den ursprungliga D-serien, har en kraftfullare processor. Processorn i Dv2-serien är cirka 35 % snabbare än den i D-serien. Den är baserad på den senaste generationens Intel Xeon® E5-2673 v3 (Haswell) 2,4 GHz- eller E5-2673 v4 (Broadwell) 2,3 GHz-processorer och kan gå upp till 3,1 GHz med Intel Turbo Boost Technology 2.0. Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
 
-- Dv3-serien funktioner samma processor(er) som Dv2-serien, men i en hyper-threaded konfiguration, vilket ger ett mer prisvärt för de flesta allmänt syfte arbetsbelastningar och föra Dv3 justeras mot allmänna virtuella datorer i de flesta andra moln.  Minne har expanderats (från ~3.5 GiB/Vcpu(:er) för 4 GiB/vCPU) medan disk- och gränser har justerats på basis av per kärna för att anpassas till flytten till hypertrådning.  Dv3 inte längre har extra minne VM-storlekar av D/Dv2-familjer, de som har flyttats till nya Ev3-familjen.
+- Dv3-serien har 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell)-processor eller senaste 2,3 GHz Intel XEON® E5-2673 v4-processorn processorn (Broadwell) i en hyper-threaded konfiguration som ger ett mer prisvärt för arbetsbelastningar för de flesta allmänt syfte.  Minne har expanderats (från ~3.5 GiB/Vcpu(:er) för 4 GiB/vCPU) medan disk- och gränser har justerats på basis av per kärna för att anpassas till flytten till hypertrådning.  Dv3 inte längre har extra minne VM-storlekar av D/Dv2-familjer, de som har flyttats till nya Ev3-familjen.
 
 
 ## <a name="b-series"></a>B-serien

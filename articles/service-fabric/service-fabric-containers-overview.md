@@ -1,6 +1,6 @@
 ---
 title: Översikt över Service Fabric och behållare | Microsoft Docs
-description: En översikt över Service Fabric och användning av behållare för att distribuera mikrotjänster program. Den här artikeln innehåller en översikt över hur behållare kan användas och de tillgängliga funktionerna i Service Fabric.
+description: En översikt över Service Fabric och användningen av behållare för att distribuera mikrotjänstprogram. Den här artikeln innehåller en översikt över hur du kan använda behållare och de tillgängliga funktionerna i Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -12,78 +12,104 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 5/21/2018
+ms.date: 8/8/2018
 ms.author: msfussell
-ms.openlocfilehash: fe6db569c0f70362676251a9413fa859f27f5046
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6715142be7f40955861afa634bf6e2472c9f7294
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641922"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005783"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric och behållare
 
 ## <a name="introduction"></a>Introduktion
-Azure Service Fabric är en [orchestrator](service-fabric-cluster-resource-manager-introduction.md) av tjänster i ett kluster på datorer med års användnings- och optimering i massiv skala tjänster på Microsoft. Tjänster kan utvecklas på många sätt, från att använda den [Service Fabric programmeringsmodeller](service-fabric-choose-framework.md) till att distribuera [gäst körbara filer](service-fabric-guest-executables-introduction.md). Som standard Service Fabric distribuerar och aktiverar de här tjänsterna som processer. Processer ger snabbast aktivering och den högsta densitet användning av resurser i ett kluster. Service Fabric kan också distribuera tjänster i behållaren bilder. Allt kan du blanda tjänster i processer och tjänster i behållare i samma program.   
 
-## <a name="what-are-containers"></a>Vad är behållare?
-Behållare är inkapslade, individuellt distribuerbara komponenter som körs som testisolerade instanser på samma kerneln för att dra nytta av virtualisering som innehåller ett operativsystem. Därför körs varje program och dess runtime, beroenden och systemets bibliotek i en behållare med fullständig, privat åtkomst till vyn behållarens egna isolerade för konstruktionerna för operativsystemet. Den här grad av säkerhets- och isolering är den största fördelen för användning av behållare med Service Fabric som annars kör tjänster i processer tillsammans med mobilitet och.
+Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster och containrar.
 
-Behållare är en virtualiseringsteknik som virtualiserar det underliggande operativsystemet från program. Behållare tillhandahålla en miljö som inte ändras för program att köras med olika typer av isolering. Behållare körs direkt ovanpå kerneln och har en isolerad vy av filsystemet och andra resurser. Behållare har jämfört med virtuella datorer följande fördelar:
+Service Fabric är Microsofts [behållarinitierare](service-fabric-cluster-resource-manager-introduction.md) för att distribuera mikrotjänster i ett kluster med datorer. Service Fabric-förmåner på erfarenheter under dess år kör tjänsterna på Microsoft i massiv skala.
 
-* **Liten**: behållare använder ett enda lagringsutrymme och layer-versioner och uppdateringar för att öka effektiviteten.
-* **Snabb**: behållare behöver inte starta en hela operativsystemet så att de kan börja mycket snabbare vanligtvis i sekunder.
-* **Överföring av**: en avbildning av programmet kan överföras för att köras i molnet och lokalt i virtuella datorer eller direkt på fysiska datorer.
-* **Resurs-styrning**: en behållare kan begränsa de fysiska resurser som den kan använda på värden.
+Mikrotjänster kan utvecklas på många sätt, t.ex. genom att använda [programmeringsmodeller för Service Fabric](service-fabric-choose-framework.md), [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) eller distribuera [valfri kod](service-fabric-guest-executables-introduction.md). Eller, om du bara vill [distribuera och hantera behållare](service-fabric-containers-overview.md), Service Fabric är också ett bra alternativ.
 
-## <a name="container-types-and-supported-environments"></a>Behållartyper av och miljöer som stöds
-Service Fabric stöder behållare på Linux- och Windows och stöder även Hyper-V-isoleringsläge på denna. 
+Som standard, Service Fabric distribuerar och aktiverar de här tjänsterna som processer. Processer ger snabbast aktivering och högsta densitet användning av resurser i ett kluster. Service Fabric kan också distribuera tjänster i behållaravbildningar. Du kan även blanda tjänster i processer och tjänster i behållare i samma program.
 
-### <a name="docker-containers-on-linux"></a>Docker behållare på Linux
-Docker ger avancerade API: er för att skapa och hantera behållare ovanpå Linux kernel-behållare. Docker-Hubbnamnrymd är en central databas för att lagra och hämta avbildningar för behållaren.
-En självstudiekurs finns [distribuera en dockerbehållare till Service Fabric](service-fabric-get-started-containers-linux.md).
+Prova Snabbstart, självstudier och exempel för att sätta och prova att använda behållare i Service Fabric:  
 
-### <a name="windows-server-containers"></a>Windows Server-behållare
-Windows Server 2016 innehåller två olika typer av behållare som skiljer sig i nivån av angivna isolering. Windows Server-behållare och Docker-behållare är lika eftersom båda har namnområdet och filen system isolering som delar kernel med värden som de körs på. På Linux för, denna isolering traditionellt har angetts av `cgroups` och `namespaces`, och Windows Server-behållare fungerar på samma sätt.
+[Snabbstart: Distribuera ett program för Linux-behållare till Service Fabric](service-fabric-quickstart-containers-linux.md)  
+[Snabbstart: Distribuera ett program för Windows-behållare till Service Fabric](service-fabric-quickstart-containers.md)  
+[Använd en befintlig .NET-app i behållare](service-fabric-host-app-in-a-container.md)  
 
-Windows-behållare med stöd för Hyper ger mer isolering och säkerhet, eftersom varje behållare inte delar operativsystemets kärna med andra behållare eller värden. Med den här högre, säkerhetsisolering riktas Hyper-V aktiverat behållare mot skadliga, flera scenarier.
-En självstudiekurs finns [distribuera en Windows-behållare till Service Fabric](service-fabric-get-started-containers.md).
+  [Exempel på container för Service Fabric](https://azure.microsoft.com/resources/samples/service-fabric-containers/)  
 
-Följande bild visar de olika typerna av virtualisering och isolering som finns i operativsystemet.
+## <a name="what-are-containers"></a>Vad är behållare
+
+Behållare problemet program som körs på ett tillförlitligt sätt i olika datormiljöer genom att tillhandahålla en miljö som inte kan ändras för att programmet ska köras. Behållare omsluta ett program och alla dess beroenden, till exempel bibliotek och konfigurationsfiler, i sin egen isolerad ”ruta” som innehåller allt som behövs för att köra programvara i behållaren. Oavsett var att behållaren körs har programmet i den alltid allt som behövs, till exempel rätt versioner av dess beroende bibliotek, alla konfigurationsfiler och allt annat det måste köras.
+
+Behållare körs direkt ovanpå kernel och har en isolerad vy av filsystemet och andra resurser. Ett program i en behållare har ingen information om andra program eller processer utanför dess behållare. Varje program och dess runtime, beroenden och system bibliotek kör du i en behållare med fullständig, privat åtkomst till vyn behållarens egna isolerade av operativsystemet. Förutom att göra det enkelt att ge alla ditt programs beroenden som måste köras i olika datormiljöer, säkerhet och resursisolering är viktiga fördelar med att använda behållare med Service Fabric – som annars körs services i en processen.
+
+Jämfört med virtuella datorer, har behållare följande fördelar:
+
+* **Små**: behållare använder ett enda lagringsutrymme och layer-versioner och uppdateringar för att öka effektiviteten.
+* **Snabb**: behållare behöver inte starta ett helt operativsystem, så att de kan börja mycket snabbare – vanligtvis på några sekunder.
+* **Portabilitet**: en avbildning av program i behållare kan överföras för att köras i molnet, lokalt, i virtuella datorer eller direkt på fysiska datorer.
+* **Resursstyrning**: en behållare kan begränsa de fysiska resurser som den kan använda på dess värd.
+
+### <a name="container-types-and-supported-environments"></a>Behållartyper av och miljöer som stöds
+
+Service Fabric har stöd för behållare på både Linux och Windows och har stöd för Hyper-V-isoleringsläget på Windows.
+
+#### <a name="docker-containers-on-linux"></a>Docker-behållare på Linux
+
+Docker innehåller API: er för att skapa och hantera behållare på Linux-kernel-behållare. Docker Hub ger en central databas för att lagra och hämta behållaravbildningarna.
+Se en självstudie som Linux-baserade [skapa din första Service Fabric-behållarapp i Linux](service-fabric-get-started-containers-linux.md).
+
+#### <a name="windows-server-containers"></a>Windows Server-behållare
+
+Windows Server 2016 innehåller två olika typer av behållare som skiljer sig av nivå av isolering. Windows Server-behållare och Docker-behållare liknar eftersom har båda namnområde och filen system isolering, samtidigt som de delar kernel med värden som de körs på. Denna isolering traditionellt har angetts av cgroups och namnområden på Linux och Windows Server-behållare fungerar på liknande sätt.
+
+Windows-behållare med Hyper-V-stöd ger mer isolering och säkerhet eftersom någon behållare delar operativsystemets kernel andra behållare eller med värden. Med den här högre nivån säkerhetsisolering riktas aktiverat Hyper-V-behållare mot potentiellt fientlig scenarion med flera innehavare.
+En självstudiekurs om Windows-baserade finns i [skapa ditt första Service Fabric-behållarprogram på Windows](service-fabric-get-started-containers.md).
+
+Följande bild visar de olika typerna av virtualisering och isolering nivåer som är tillgängliga.
 ![Service Fabric-plattformen][Image1]
 
 ## <a name="scenarios-for-using-containers"></a>Scenarier för användning av behållare
-Här följer vanliga exempel där en behållare är ett bra alternativ:
 
-* **IIS lyfta och flytta**: Om du har befintliga [ASP.NET MVC](https://www.asp.net/mvc) appar som du vill fortsätta att använda, placera dem i en behållare i stället för att migrera dem till ASP.NET Core. Apparna ASP.NET MVC beror på Internet Information Services (IIS). Du kan paketera programmen i behållaren bilder från precreated IIS-avbildning och distribuera dem med Service Fabric. Se [behållare bilder på Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) information om Windows-behållare.
-* **Blanda behållare och Service Fabric mikrotjänster**: Använd en befintlig behållare avbildning för en del av ditt program. Du kan till exempel använda den [NGINX-behållaren](https://hub.docker.com/_/nginx/) för webbklientservern för programmet och tillståndskänsliga tjänster för mer intensiva backend-beräkningen.
-* **Minska påverkan av ”störningar grannar” services**: du kan använda resursen styrning möjligheten för behållare för att begränsa de resurser som en tjänst används på en värd. Om services kan använda många resurser och påverka prestanda för andra (till exempel en tidskrävande, fråga-liknande åtgärd) kan du placera dessa tjänster i behållare som har resurs styrning.
+Här följer exempel där en behållare är ett bra alternativ:
+
+* **IIS lyfta och flytta**: du kan placera en befintlig [ASP.NET MVC](https://www.asp.net/mvc) app i en behållare i stället för att migrera den till ASP.NET Core. Apparna ASP.NET MVC beror på Internet Information Services (IIS). Du kan paketera dessa program i behållaravbildningar från införande IIS-avbildningen och distribuera dem med Service Fabric. Se [Behållaravbildningar på Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) information om Windows-behållare.
+
+* **Blanda behållare och mikrotjänster för Service Fabric**: använda en befintlig behållaravbildning för en del av ditt program. Du kan till exempel använda den [NGINX-behållaren](https://hub.docker.com/_/nginx/) för klientdelen av ditt program och tillståndskänsliga tjänster för intensivare backend-beräkningen.
+
+* **Minska effekten av ”bort störande grannar” services**: du kan använda möjligheten för resurs-styrning av behållare för att begränsa de resurser som en tjänst används på en värd. Om services kan använda många resurser och påverka prestanda för andra (till exempel en tidskrävande, fråga-liknande åtgärd) kan du överväga att placera dessa tjänster i behållare som har resursstyrning.
 
 ## <a name="service-fabric-support-for-containers"></a>Service Fabric-stöd för behållare
-Service Fabric stöder distribution av Docker-behållare i Linux och Windows Server-behållare på Windows Server 2016 tillsammans med stöd för Hyper-V-isoleringsläge. 
 
-I Service Fabric [programmodell](service-fabric-application-model.md), en behållare representerar en programvärd i vilken flera tjänst repliker placeras. Service Fabric kan köra behållare och scenariot liknar den [gäst körbara scenariot](service-fabric-guest-executables-introduction.md), där du paketerar ett befintligt program i en behållare. Det här scenariot är vanligt användningsfall för behållare och exempel kör ett program som skrivits med valfritt språk och ramverk, men inte använder inbyggda programmeringsmodeller för Service Fabric.
+Service Fabric stöder distribution av Docker-behållare på Linux och Windows Server-behållare på Windows Server 2016, tillsammans med stöd för Hyper-V-isoleringsläget. 
 
-Dessutom kan du köra [Service Fabric-tjänster i behållare](service-fabric-services-inside-containers.md) samt. Stöd för Service Fabric-tjänster som körs i behållare är för närvarande begränsad och att förbättras i kommande versioner.
+Service Fabric tillhandahåller en [programmodell](service-fabric-application-model.md) i som en behållare som representerar en programvärd i vilken flera tjänst repliker placeras. Service Fabric stöder också en [gäst körbara scenariot](service-fabric-guest-executables-introduction.md) i som du inte använder den inbyggda Service Fabrics programmeringsmodeller men i stället paketera ett befintligt program som skrivits med valfritt språk eller ramverk, inuti en behållaren. Det här scenariot är vanligt användningsfall för behållare.
 
-Service Fabric har flera behållare funktioner som hjälper dig skapa program som består av mikrotjänster som är behållare. Service Fabric innehåller följande funktioner för container tjänster:
+Du kan också köra [Service Fabric-tjänster i en behållare](service-fabric-services-inside-containers.md). Stöd för Service Fabric-tjänster som körs i behållare är för närvarande begränsad.
 
-* Distribution av avbildningar för behållaren och aktivering.
-* Resurs-styrning inklusive inställningsvärden resursen som standard i Azure-kluster.
-* Autentisering för databasen.
-* Behållaren port till portmappning för värden.
+Service Fabric tillhandahåller flera behållare-funktioner som hjälper dig att bygga program som består av behållaranpassade mikrotjänster som:
+
+* Distribution av behållare och aktivering.
+* Resursstyrning inklusive inställningsvärden resursen som standard i Azure-kluster.
+* Databasautentisering.
+* Behållaren port till värd portmappning.
 * Identifiering av behållare till en annan och kommunikation.
 * Möjlighet att konfigurera och ange miljövariabler.
-* Möjlighet att ange autentiseringsuppgifterna för behållaren.
-* Välja mellan olika nätverk lägen för behållare.
+* Möjlighet att ange dina inloggningsuppgifter för behållaren.
+* Ett urval av olika nätverkslägen för behållare.
+
+En heltäckande översikt över behållare support på Azure, till exempel hur du skapar ett Kubernetes-kluster med Azure Kubernetes Service, hur du skapar ett privat Docker-register i Azure Container Registry och mycket mer, se [Azure for Containers](https://docs.microsoft.com/azure/containers/).
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har du lärt dig om behållare, Service Fabric är en behållare för orchestrator, och den Service Fabric har funktioner som stöder behållare. Vi ska gå över exempel på var och en av funktionerna som visar hur du använder dem som ett nästa steg.
 
-[Skapa din första Service Fabric-behållarprogram i Windows](service-fabric-get-started-containers.md)
+I den här artikeln har du lärt dig om support Service Fabric tillhandahåller för att köra behållare. Nu ska gå vi över exempel på var och en av funktionerna som visar hur du använder dem.
 
-[Skapa din första Service Fabric-behållarprogram på Linux](service-fabric-get-started-containers-linux.md)
-
+[Skapa din första Service Fabric-behållarapp i Linux](service-fabric-get-started-containers-linux.md)  
+[Skapa ditt första Service Fabric-behållarprogram på Windows](service-fabric-get-started-containers.md)  
 [Mer information om Windows-behållare](https://docs.microsoft.com/virtualization/windowscontainers/about/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png

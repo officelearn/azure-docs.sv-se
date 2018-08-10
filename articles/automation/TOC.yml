@@ -131,13 +131,13 @@
           href: automation-linux-hrw-install.md
         - name: Köra runbook-flöden på Hybrid Runbook Worker
           href: automation-hrw-run-runbooks.md
-    - name: Distribuera konfigurationshantering (DSC)
+    - name: Statuskonfiguration
       items:
-        - name: Översikt över önskad tillståndskonfiguration (DSC)
+        - name: Översikt över statuskonfiguration
           href: automation-dsc-overview.md
         - name: Komma igång
           href: automation-dsc-getting-started.md
-        - name: Konfigurera servrar till önskade tillstånd och hantera drift med Azure Automation
+        - name: Konfigurera servrar till önskad status och hantera drift med Statuskonfiguration
           href: tutorial-configure-servers-desired-state.md
         - name: Konfigurera datorer för hantering
           href: automation-dsc-onboarding.md
@@ -145,7 +145,7 @@
           href: automation-dsc-compile.md
         - name: Kontinuerlig distribution med Chocolatey
           href: automation-dsc-cd-chocolatey.md
-        - name: Vidarebefordra Azure Automation DSC-rapportdata till OMS Log Analytics
+        - name: Vidarebefordra rapportdata från Statuskonfiguration till Log Analytics
           href: automation-dsc-diagnostics.md
     - name: Hantera delade resurser
       items:

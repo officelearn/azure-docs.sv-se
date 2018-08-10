@@ -171,6 +171,8 @@
           href: functions-how-to-use-azure-function-app-settings.md
         - name: Ange körningsversion
           href: set-runtime-version.md
+        - name: Inaktivera en funktion
+          href: disable-function.md
     - name: Övervaka
       href: functions-monitoring.md
     - name: Integrera

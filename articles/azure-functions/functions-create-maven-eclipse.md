@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 373a35ea7b93c7717cd251e276be60b14df0920f
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 4da8ec3bb20f2af2b8172731bbf9f43c302ffa94
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400429"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004757"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse-preview"></a>Skapa din första funktion med Java och Eclipse (förhandsversion)
 
@@ -73,7 +73,7 @@ Avsluta körningen på konsolfönstret när du är klar testa din funktion. Enda
 
 ### <a name="debug-the-function-in-eclipse"></a>Felsöka funktionen i Eclipse
 
-I konfigurationen kör som angetts i föregående steg, ändra `azure-functions:run` till `mvn azure-functions:run -DenableDebug` och kör den uppdaterade konfigurationen för att starta appen i felsökningsläge.
+I din **kör som** konfiguration som angetts i föregående steg, ändra `azure-functions:run` till `mvn azure-functions:run -DenableDebug` och kör den uppdaterade konfigurationen för att starta appen i felsökningsläge.
 
 Välj den **kör** menyn och öppna **felsöka konfigurationer**. Välj **fjärranslutna Java-program** och skapa en ny. Namnge din konfiguration och Fyll i inställningarna. Porten bör överensstämma med debug-port som öppnas av funktionen värden, vilket som standard är `5005`. Efter installationen klickar du på `Debug` att starta felsökningen.
 

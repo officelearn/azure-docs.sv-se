@@ -1,42 +1,40 @@
 ---
 title: Konfigurera servrar till önskade tillstånd och hantera drift med Azure Automation
-description: Självstudiekurs – hantera serverkonfigurationer med Azure Automation DSC
+description: Självstudie – hantera serverkonfigurationer med Azure Automation State Configuration
 services: automation
 ms.service: automation
 ms.component: dsc
-author: georgewallace
-ms.author: gwallace
+author: DCtheGeek
+ms.author: dacoulte
 manager: carmonm
 ms.topic: conceptual
-ms.date: 09/25/2017
-ms.openlocfilehash: 6203cc8679561fa342a2e15a3819dd5513774dde
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.date: 08/08/2018
+ms.openlocfilehash: 3b4ecc7596af52312785ea7acaad18a7af8a5087
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195217"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005965"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Konfigurera servrar till önskade tillstånd och hantera drift
 
-Azure Automation önskat tillståndskonfigurationen (DSC) kan du ange konfigurationer för servrarna och se till att dessa servrar finns i det angivna tillståndet över tid.
-
-
+Tillståndskonfiguration för Azure Automation kan du ange konfigurationer för dina servrar och se till att dessa servrar är i det angivna tillståndet över tid.
 
 > [!div class="checklist"]
-> * Publicera en virtuell dator som ska hanteras av Azure Automation DSC
-> * Ladda upp en konfiguration till Azure Automation
-> * Kompilera en konfiguration till en konfiguration av noden
-> * Tilldela en nodkonfiguration till en hanterad nod
-> * Kontrollera efterlevnadsstatus för för en hanterad nod
+> - Publicera en virtuell dator som ska hanteras av Azure Automation DSC
+> - Ladda upp en konfiguration till Azure Automation
+> - Kompilera en konfiguration till en nodkonfiguration
+> - Tilldela en nodkonfiguration till en hanterad nod
+> - Kontrollera kompatibilitetsstatusen för en hanterad nod
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här kursen behöver du:
+För att kunna genomföra den här kursen behöver du följande:
 
-* Ett Azure Automation-konto. Instruktioner om hur du skapar ett Kör som-konto för Azure Automation finns i [Azure Kör som-konto](automation-sec-configure-azure-runas-account.md).
-* En Azure Resource Manager VM (inte klassiskt) kör Windows Server 2008 R2 eller senare. Instruktioner om hur du skapar en virtuell dator finns i [Skapa din första virtuella Windows-dator i Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
-* Azure PowerShell module 3,6 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
-* Om du är bekant med DSC. Information om DSC finns [Windows PowerShell Desired Configuration översikt över](https://docs.microsoft.com/powershell/dsc/overview)
+- Ett Azure Automation-konto. Instruktioner om hur du skapar ett Kör som-konto för Azure Automation finns i [Azure Kör som-konto](automation-sec-configure-azure-runas-account.md).
+- En Azure Resource Manager-VM (inte klassisk) som kör Windows Server 2008 R2 eller senare. Instruktioner om hur du skapar en virtuell dator finns i [Skapa din första virtuella Windows-dator i Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+- Azure PowerShell-Modulversion 3.6 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
+- Liknar processen med Desired State Configuration (DSC). Läs om hur DSC [Windows PowerShell Desired State Configuration-översikt](https://docs.microsoft.com/powershell/dsc/overview)
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -46,19 +44,17 @@ Logga in på Azure-prenumerationen med kommandot `Connect-AzureRmAccount` och f�
 Connect-AzureRmAccount
 ```
 
-## <a name="create-and-upload-a-configuration-to-azure-automation"></a>Skapa och ladda upp en konfiguration till Azure Automation
+## <a name="create-and-upload-a-configuration-to-azure-automation"></a>Skapa och ladda upp en konfiguration i Azure Automation
 
-Den här självstudiekursen kommer använder vi en enkel DSC-konfiguration som garanterar att IIS installeras på den virtuella datorn.
+Den här självstudien använder vi en enkel DSC-konfiguration som ser till att IIS är installerat på den virtuella datorn.
 
-Information om DSC-konfigurationer finns i [DSC-konfigurationer](https://docs.microsoft.com/powershell/dsc/configurations).
+Information om DSC-konfigurationer finns i [DSC-konfigurationer](/powershell/dsc/configurations).
 
 I en textredigerare skriver du följande och sparar lokalt som `TestConfig.ps1`.
 
 ```powershell
 configuration TestConfig {
-
    Node WebServer {
-
       WindowsFeature IIS {
          Ensure               = 'Present'
          Name                 = 'Web-Server'
@@ -68,58 +64,56 @@ configuration TestConfig {
 }
 ```
 
-Anropa den `Import-AzureRmAutomationDscConfiguration` för att ladda upp konfigurationen i ditt Automation-konto:
+Anropa den `Import-AzureRmAutomationDscConfiguration` cmdlet för att ladda upp konfigurationen i ditt Automation-konto:
 
 ```powershell
  Import-AzureRmAutomationDscConfiguration -SourcePath 'C:\DscConfigs\TestConfig.ps1' -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Published
 ```
 
-## <a name="compile-a-configuration-into-a-node-configuration"></a>Kompilera en konfiguration till en konfiguration av noden
+## <a name="compile-a-configuration-into-a-node-configuration"></a>Kompilera en konfiguration till en nodkonfiguration
 
-DSC-konfigurationen måste kompileras till ett nodkonfiguration innan den kan tilldelas till en nod.
+En DSC-konfiguration måste kompileras till en nodkonfiguration innan den kan tilldelas till en nod.
 
-Information om kompilering konfigurationer finns [DSC-konfigurationer](https://docs.microsoft.com/powershell/dsc/configurations).
+Läs om hur kompilera konfigurationer [DSC-konfigurationer](/powershell/dsc/configurations).
 
-Anropa den `Start-AzureRmAutomationDscCompilationJob` för att kompilera den `TestConfig` konfiguration till en konfiguration av noden:
+Anropa den `Start-AzureRmAutomationDscCompilationJob` cmdlet för att kompilera den `TestConfig` konfiguration till en nodkonfiguration:
 
 ```powershell
 Start-AzureRmAutomationDscCompilationJob -ConfigurationName 'TestConfig' -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount'
 ```
 
-Detta skapar en konfiguration av noden med namnet `TestConfig.WebServer` i Automation-kontot.
+Detta skapar en nodkonfiguration med namnet `TestConfig.WebServer` i ditt Automation-konto.
 
-## <a name="register-a-vm-to-be-managed-by-dsc"></a>Registrera en virtuell dator som ska hanteras av DSC
+## <a name="register-a-vm-to-be-managed-by-state-configuration"></a>Registrera en virtuell dator som ska hanteras av State Configuration
 
-Du kan använda Azure Automation DSC för att hantera virtuella Azure-datorer (både klassiska och hanteraren för filserverresurser), lokala virtuella datorer, Linux-datorer, AWS virtuella datorer och lokala fysiska datorer. I det här avsnittet upp vi hur du registrerar endast Azure Resource Manager virtuella datorer.
-Information om hur du registrerar andra typer av datorer finns i [Onboarding datorer för hantering av Azure Automation DSC](automation-dsc-onboarding.md).
+Du kan använda Azure Automation State Configuration för att hantera virtuella Azure-datorer (både klassiska och Resource Manager), lokala virtuella datorer, Linux-datorer, virtuella datorer i AWS och lokala fysiska datorer. I det här avsnittet beskriver vi hur du registrerar endast Azure Resource Manager-VM. Information om hur du registrerar andra typer av datorer finns i [konfigurera datorer för hantering av Azure Automation-Tillståndskonfiguration](automation-dsc-onboarding.md).
 
-Anropa den `Register-AzureRmAutomationDscNode` cmdleten för att registrera den virtuella datorn med Azure Automation DSC.
+Anropa den `Register-AzureRmAutomationDscNode` cmdlet för att registrera den virtuella datorn med Azure Automation State Configuration.
 
 ```powershell
-Register-AzureRmAutomationDscNode -ResourceGroupName "MyResourceGroup" -AutomationAccountName "myAutomationAccount" -AzureVMName "DscVm"
+Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName 'DscVm'
 ```
 
-Detta registrerar den angivna virtuella datorn som en DSC-nod i Azure Automation-konto.
+Detta registrerar den angivna virtuella datorn som en hanterad nod i State Configuration.
 
 ### <a name="specify-configuration-mode-settings"></a>Ange konfigurationsinställningar för läge
 
-Du kan också ange egenskaper för konfiguration när du registrerar en virtuell dator som en hanterad nod.
-Du kan till exempel ange att tillståndet för datorn är tillämpas bara en gång (DSC försöker inte att tillämpa konfigurationen efter den inledande kontrollen) genom att ange `ApplyOnly` som värde för den **ConfigurationMode** egenskapen :
+När du registrerar en virtuell dator som en hanterad nod kan du också ange egenskaperna för konfigurationen. Du kan till exempel ange att tillståndet för datorn är tillämpas bara en gång (DSC försöker inte att tillämpa konfigurationen efter den inledande kontrollen) genom att ange `ApplyOnly` som värde för den **ConfigurationMode** egenskap :
 
 ```powershell
-Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName "DscVm" -ConfigurationMode 'ApplyOnly'
+Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName 'DscVm' -ConfigurationMode 'ApplyOnly'
 ```
 
-Du kan även ange hur ofta DSC kontrollerar konfigurationen med hjälp av den **ConfigurationModeFrequencyMins** egenskapen:
+Du kan också ange hur ofta DSC kontrollerar konfigurationstillståndet med hjälp av den **ConfigurationModeFrequencyMins** egenskapen:
 
 ```powershell
 # Run a DSC check every 60 minutes
-Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName "DscVm" -ConfigurationModeFrequencyMins 60
+Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName 'DscVm' -ConfigurationModeFrequencyMins 60
 ```
 
-Läs mer om hur du anger konfigurationsegenskaper för en hanterad nod [registrera AzureRmAutomationDscNode](https://docs.microsoft.com/powershell/module/azurerm.automation/register-azurermautomationdscnode?view=azurermps-4.3.1&viewFallbackFrom=azurermps-4.2.0).
+Läs mer om hur du anger konfigurationsegenskaper för en hanterad nod [registrera AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode).
 
-Läs mer om DSC-konfigurationsinställningar, [konfigurera den lokala Configuration Manager](https://docs.microsoft.com/powershell/dsc/metaconfig).
+Läs mer om DSC-konfigurationsinställningar, [konfigurerar den lokala Konfigurationshanteraren](/powershell/dsc/metaconfig).
 
 ## <a name="assign-a-node-configuration-to-a-managed-node"></a>Tilldela en nodkonfiguration till en hanterad nod
 
@@ -133,13 +127,13 @@ $node = Get-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -Autom
 Set-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -NodeConfigurationName 'TestConfig.WebServer' -Id $node.Id
 ```
 
-Den här tilldelas nodkonfiguration med namnet `TestConfig.WebServer` till den registrerade DSC-noden med namnet `DscVm`.
-Som standard kontrolleras DSC-noden för att uppfylla nodkonfiguration var 30: e minut.
-Information om hur du ändrar intervallet för att kontrollera finns [konfigurera den lokala Configuration Manager](https://docs.microsoft.com/PowerShell/DSC/metaConfig)
+Den här koden tilldelar nodkonfiguration med namnet `TestConfig.WebServer` till den registrerade DSC-noden med namnet `DscVm`.
+Som standard kontrolleras DSC-nod för kompatibilitet med nodkonfiguration var 30: e minut.
+Information om hur du ändrar intervallet för kontroll av efterlevnad finns i [konfigurerar den lokala Konfigurationshanteraren](/PowerShell/DSC/metaConfig).
 
-## <a name="check-the-compliance-status-of-a-managed-node"></a>Kontrollera efterlevnadsstatus för för en hanterad nod
+## <a name="check-the-compliance-status-of-a-managed-node"></a>Kontrollera kompatibilitetsstatusen för en hanterad nod
 
-Du kan hämta rapporter om kompatibilitetsstatusen för DSC-nod genom att anropa den `Get-AzureRmAutomationDscNodeReport` cmdlet:
+Du kan få rapporter om kompatibilitetsstatusen för en hanterad nod genom att anropa den `Get-AzureRmAutomationDscNodeReport` cmdlet:
 
 ```powershell
 # Get the ID of the DSC node
@@ -154,9 +148,9 @@ $reports[0]
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Att lära dig hur du vill publicera noder som ska hanteras med Azure Automation DSC finns [Onboarding datorer för hantering av Azure Automation DSC](automation-dsc-onboarding.md)
-* Information om hur du använder Azure-portalen för att använda Automation DSC finns [komma igång med Azure Automation DSC](automation-dsc-getting-started.md)
-* Läs om kompilering av DSC-konfigurationer så att du kan tilldela dem till målnoder i [kompilering konfigurationer i Azure Automation DSC](automation-dsc-compile.md)
-* PowerShell-cmdlet-referens för Azure Automation DSC, se [Azure Automation DSC-cmdlets](/powershell/module/azurerm.automation/#automation)
-* Information om priser finns [priser för Azure Automation DSC](https://azure.microsoft.com/pricing/details/automation/)
-* Ett exempel på hur Azure Automation DSC i en pipeline för kontinuerlig distribution finns [kontinuerlig distribution IaaS virtuella datorer med hjälp av Azure Automation DSC och Chocolatey](automation-dsc-cd-chocolatey.md)
+- Kom igång genom att se [komma igång med Azure Automation State Configuration](automation-dsc-getting-started.md)
+- Läs hur för att publicera noder i [konfigurera datorer för hantering av Azure Automation State Configuration](automation-dsc-onboarding.md)
+- Läs om hur du kompilera DSC-konfigurationer så att du kan tilldela dem till målnoder i [kompilera konfigurationer i Azure Automation State Configuration](automation-dsc-compile.md)
+- PowerShell-cmdlet-referens, se [tillståndskonfigurationen för Azure Automation-cmdletar](/powershell/module/azurerm.automation/#automation)
+- Information om priser finns i [priser för Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/)
+- Om du vill se ett exempel på hur du använder Azure Automation-Tillståndskonfiguration i en pipeline för kontinuerlig distribution, se [kontinuerlig distribution med hjälp av Azure Automation Tillståndskonfiguration och Chocolatey](automation-dsc-cd-chocolatey.md)

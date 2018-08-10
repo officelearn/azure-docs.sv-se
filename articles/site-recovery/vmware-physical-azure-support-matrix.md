@@ -6,18 +6,20 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/09/2018
 ms.author: raynew
-ms.openlocfilehash: fc45b9e4a568842b5a935d7c28de5ef0a57e1b86
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d19aa4c3765beecc853a1b800a7ba1d3ebd74e9c
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442538"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004335"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Supportmatris för VMware och fysisk serverreplikering till Azure
 
 Den här artikeln sammanfattar komponenter som stöds och inställningar för haveriberedskap för virtuella VMware-datorer till Azure med hjälp av [Azure Site Recovery](site-recovery-overview.md).
+
+Om du vill börja använda Azure Site Recovery med det enklaste distributionsscenariot som genom att gå till vår [självstudier](tutorial-prepare-azure.md). Du kan läsa mer om Azure Site Recovery-arkitekturen [här](vmware-azure-architecture.md).
 
 ## <a name="replication-scenario"></a>Replikeringsscenario
 
@@ -241,12 +243,15 @@ Flytta valv mellan resursgrupper<br/><br/> Inom och mellan prenumerationer | Nej
 Flytta lagring, nätverk, virtuella Azure-datorer mellan resursgrupper<br/><br/> Inom och mellan prenumerationer | Nej
 
 
-## <a name="mobility-service"></a>Mobilitetstjänsten
+## <a name="download-latest-azure-site-recovery-components"></a>Hämta senaste Azure Site Recovery-komponenter
 
-**Namn** | **Beskrivning** | **Senaste versionen** | **Detaljer**
+**Namn** | **Beskrivning** | **Senaste version Hämtningsinstruktioner** 
 --- | --- | --- | --- | ---
-Azure Site Recovery ett enhetligt installationsprogram | Samordnar kommunikationen mellan lokala VMware-servrar och Azure <br/><br/> Installerad på den lokala VMware-servrar | 9.12.4653.1 (tillgängligt från portalen) | [Senaste funktionerna och korrigeringarna](https://aka.ms/latest_asr_updates)
-Mobilitetstjänsten | Samordnar replikering mellan lokala VMware-servrar/fysiska servrar och Azure/sekundär plats<br/><br/> Installerad på VMware VM eller fysiska servrar som du vill replikera | 9.12.4653.1 (tillgängligt från portalen) | [Senaste funktionerna och korrigeringarna](https://aka.ms/latest_asr_updates)
+Konfigurationsservern | Samordnar kommunikationen mellan lokala VMware-servrar och Azure <br/><br/> Installerad på den lokala VMware-servrar | Ny installation klickar du på [här](vmware-azure-deploy-configuration-server.md). För att uppgradera befintliga komponenten till senaste versionen, klickar du på [här](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+Processervern|Installeras som standard på konfigurationsservern. Den tar emot replikeringsdata; optimerar dem med cachelagring, komprimering och kryptering och skickar dem till Azure Storage. Allt eftersom distributionen växer kan du lägga till ytterligare, separat processervrar för att hantera större mängder replikeringstrafik.| Ny installation klickar du på [här](vmware-azure-set-up-process-server-scale.md). För att uppgradera befintliga komponenten till senaste versionen, klickar du på [här](vmware-azure-manage-process-server.md#upgrade-a-process-server).
+Mobilitetstjänsten | Samordnar replikering mellan lokala VMware-servrar/fysiska servrar och Azure/sekundär plats<br/><br/> Installerad på VMware VM eller fysiska servrar som du vill replikera | Ny installation klickar du på [här](vmware-azure-install-mobility-service.md). För att uppgradera befintliga komponenten till senaste versionen, klickar du på [här](vmware-azure-install-mobility-service.md#update-mobility-service).
+
+Mer information om de senaste funktionerna och korrigeringar, klickar du på [här](https://aka.ms/latest_asr_updates).
 
 
 ## <a name="next-steps"></a>Nästa steg

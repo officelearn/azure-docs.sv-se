@@ -5,20 +5,20 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/03/2018
+ms.date: 08/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 189484291dd337535fe6988f919326b6e997b290
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: b34386a7b416d6f7d8b008a9cb5ef142948a370f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506292"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005403"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid meddelandeleverans och försök igen 
 
-Den här artikeln beskriver hur Azure Event Grid hanterar händelser när leverans inte bekräftas.
+Den här artikeln beskriver hur Azure Event Grid hanterar händelser när leveransen inte är bekräftas.
 
-Event Grid förser varaktiga. Du får varje meddelande minst en gång för varje prenumeration. Händelser skickas direkt till registrerade webhooken till varje prenumeration. Om en webhook inte igen mottagande av en händelse inom 60 sekunder från den första leveransförsök försöker Event Grid leverans av händelsen. 
+Event Grid förser varaktiga. Du får varje meddelande minst en gång för varje prenumeration. Händelser skickas direkt till registrerade webhooken till varje prenumeration. Om en webhook inte bekräfta mottagandet av en händelse inom 60 sekunder det första försökets leverans, försöker Event Grid leverans av händelsen. 
 
 För närvarande skickar Event Grid varje händelse individuellt till prenumeranter. Prenumeranten tar emot en matris med en enda händelse.
 
@@ -42,11 +42,12 @@ Följande HTTP-svarskoder tyda på att en händelse leveransförsök misslyckade
 - 404 Hittades inte
 - 408 timeout för begäran
 - 414 URI för lång
+- 429 för många begäranden
 - 500 Internt serverfel
 - 503 Tjänsten är inte tillgänglig
 - 504 Gateway-timeout
 
-Om Event Grid tar emot ett fel som anger slutpunkten är inte tillgänglig för tillfället, försöker den igen skicka händelsen. Om Event Grid tar emot ett fel som anger leveransen aldrig lyckas och [förlorade slutpunkten har konfigurerats](manage-event-delivery.md), skickas händelsen till slutpunkten för obeställbara meddelanden. 
+Om Event Grid tar emot ett fel som anger slutpunkten är tillfälligt otillgänglig eller en begäran om framtida kan lyckas, försök igen att skicka händelsen. Om Event Grid tar emot ett fel som anger leveransen aldrig lyckas och [förlorade slutpunkten har konfigurerats](manage-event-delivery.md), skickas händelsen till slutpunkten för obeställbara meddelanden. 
 
 ## <a name="retry-intervals-and-duration"></a>Intervall för återförsök och varaktighet
 

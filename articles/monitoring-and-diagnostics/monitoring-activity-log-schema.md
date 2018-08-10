@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
 ms.component: activitylog
-ms.openlocfilehash: 123ae27310d70812918f3c81ac3b9a71959a6c2c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 9c1f4699f067ece3108813d28ff834c68f44316d
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917235"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003839"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure Händelseschema för aktivitetslogg
 Den **Azure-aktivitetsloggen** är en logg som ger insikt i alla händelser på prenumerationsnivå som har inträffat i Azure. Den här artikeln beskriver Händelseschema per kategori av data. Schemat för data skiljer sig beroende på om du läser data i portalen, PowerShell, CLI, eller direkt via REST API jämfört med [strömmande data till lagring eller Event Hubs med en Loggprofil](./monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). Exemplen nedan visar schemat som gjorts tillgängliga via portalen, PowerShell, CLI och REST API. En mappning av dessa egenskaper så att den [Azure diagnostisk loggar schemat](./monitoring-diagnostic-logs-schema.md) tillhandahålls i slutet av artikeln.
@@ -120,7 +120,7 @@ Den här kategorin innehåller en post för alla skapa, uppdatera och ta bort å
 | beskrivning |Statisk textbeskrivning av en händelse. |
 | eventDataId |Unik identifierare för en händelse. |
 | httpRequest |BLOB-objekt som beskriver Http-begäran. Vanligtvis innehåller ”clientRequestId”, ”clientIpAddress” och ”method” (HTTP-metoden. Till exempel PLACERA). |
-| nivå |Nivån på händelsen. Något av följande värden: ”kritisk”, ”fel”, ”varning”, ”information” och ”utförlig” |
+| nivå |Nivån på händelsen. Något av följande värden: ”kritisk”, ”Error”, ”varning” och ”information” |
 | resourceGroupName |Namnet på resursgruppen för resursen som påverkas. |
 | resourceprovidername får |Namnet på resursprovidern för resursen som påverkas |
 | resourceId |Resurs-ID för resursen som påverkas. |
@@ -266,7 +266,7 @@ Den här kategorin innehåller en post för alla Azure-aviseringar-aktiveringar.
 | correlationId | Ett GUID i formatet för strängen. |
 | beskrivning |Statisk textbeskrivning av händelsen avisering. |
 | eventDataId |Unik identifierare för händelsen avisering. |
-| nivå |Nivån på händelsen. Något av följande värden: ”kritisk”, ”fel”, ”varning”, ”information” och ”utförlig” |
+| nivå |Nivån på händelsen. Något av följande värden: ”kritisk”, ”Error”, ”varning” och ”information” |
 | resourceGroupName |Namnet på resursgruppen för resursen som påverkas om det är en metrisk varning. För andra aviseringstyper kan är det här namnet på resursgruppen som innehåller aviseringen själva. |
 | resourceprovidername får |Namnet på resursprovidern för resursen som påverkas om det är en metrisk varning. För andra aviseringstyper kan är det här namnet på resursprovidern för aviseringen själva. |
 | resourceId | Namn på resurs-ID för resursen som påverkas om det är en metrisk varning. För andra aviseringstyper kan är det här resurs-ID för själva avisering resursen. |
@@ -375,7 +375,7 @@ Den här kategorin innehåller en post för alla händelser relaterade till drif
 | correlationId | Ett GUID i formatet för strängen. |
 | beskrivning |Statisk textbeskrivning av händelsen automatisk skalning. |
 | eventDataId |Unik identifierare för händelsen automatisk skalning. |
-| nivå |Nivån på händelsen. Något av följande värden: ”kritisk”, ”fel”, ”varning”, ”information” och ”utförlig” |
+| nivå |Nivån på händelsen. Något av följande värden: ”kritisk”, ”Error”, ”varning” och ”information” |
 | resourceGroupName |Namnet på resursgruppen för autoskalningsinställningen. |
 | resourceprovidername får |Namnet på resursprovidern för autoskalningsinställningen. |
 | resourceId |Resurs-ID för autoskalningsinställningen. |
@@ -465,10 +465,10 @@ Den här kategorin innehåller posten några aviseringar som genereras av Azure 
 | eventDataId |Unik identifierare för säkerhetshändelsen. |
 | EventName |Eget namn på säkerhetshändelsen. |
 | id |Unikt resurs-ID för säkerhetshändelsen. |
-| nivå |Nivån på händelsen. Något av följande värden: ”kritisk”, ”fel”, ”varning”, ”information” eller ”utförlig” |
+| nivå |Nivån på händelsen. Något av följande värden: ”kritisk”, ”Error”, ”varning” eller ”information” |
 | resourceGroupName |Namnet på resursgruppen för resursen. |
 | resourceprovidername får |Namnet på resursprovidern för Azure Security Center. Alltid ”Microsoft.Security”. |
-| resourceType |Typ av resurs som genererade säkerhetshändelser, till exempel ”Microsoft.Security/locations/alerts” |
+| ResourceType |Typ av resurs som genererade säkerhetshändelser, till exempel ”Microsoft.Security/locations/alerts” |
 | resourceId |Resurs-ID för säkerhetsaviseringen. |
 | operationId |Ett GUID som delas mellan de händelser som motsvarar en enda åtgärd. |
 | operationName |Åtgärdens namn. |
@@ -545,11 +545,11 @@ Den här kategorin innehåller en post för alla nya rekommendationer som har ge
 | eventDataId | Unik identifierare för händelsen rekommendation. |
 | category | Alltid ”Recommendation” |
 | id |Unikt resurs-ID för händelsen rekommendation. |
-| nivå |Nivån på händelsen. Något av följande värden: ”kritisk”, ”fel”, ”varning”, ”information” eller ”utförlig” |
+| nivå |Nivån på händelsen. Något av följande värden: ”kritisk”, ”Error”, ”varning” eller ”information” |
 | operationName |Åtgärdens namn.  Alltid ”Microsoft.Advisor/generateRecommendations/action”|
 | resourceGroupName |Namnet på resursgruppen för resursen. |
 | resourceprovidername får |Namnet på resursprovidern för den resurs som den här rekommendationen gäller, till exempel ”MICROSOFT.COMPUTE” |
-| resourceType |Namnet på resurstypen för den resurs som den här rekommendationen gäller, till exempel ”MICROSOFT.COMPUTE/virtualmachines” |
+| ResourceType |Namnet på resurstypen för den resurs som den här rekommendationen gäller, till exempel ”MICROSOFT.COMPUTE/virtualmachines” |
 | resourceId |Resurs-ID för den resurs som rekommendationen gäller för |
 | status | Alltid ”aktiv” |
 | submissionTimestamp |Tidsstämpel när händelsen blev tillgängliga för frågor. |

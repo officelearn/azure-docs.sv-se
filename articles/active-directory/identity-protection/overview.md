@@ -8,7 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
-ms.component: protection
+ms.component: conditional-access
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: e7524321e5e48d549438075a9867559b640bc753
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 06e3a596b60bf96319071fff68b0bf1655869559
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39717119"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003805"
 ---
 # <a name="azure-active-directory-identity-protection"></a>Identitetsskydd för Azure Active Directory
 
@@ -34,7 +34,7 @@ Azure Active Directory Identity Protection är en funktion i Azure AD Premium P2
 - Undersöka misstänkta incidenter och vidta lämpliga åtgärder för att lösa dem   
 
 
-## <a name="getting-started"></a>Komma i gång
+## <a name="getting-started"></a>Komma igång
 
 Microsoft har skyddat molnbaserade identiteter för fler än tio. Med Azure Active Directory Identity Protection använda i din miljö kan du samma skyddssystem som Microsoft använder för att skydda identiteter.
 
@@ -92,7 +92,7 @@ Mer information finns i [Tilldela administratörsroller i Azure Active Directory
 
 
 
-## <a name="detection"></a>Identifiering
+## <a name="detection"></a>Detection (Identifiering)
 
 ### <a name="vulnerabilities"></a>Sårbarheter
 
@@ -173,7 +173,7 @@ Som bästa praxis, om du vill kräva multifaktorautentisering för riskfyllda in
 
 Gör så här säkerställer att multifaktorautentisering krävs för en riskfylld inloggning.
 
-#### <a name="best-practices"></a>Regelverk
+#### <a name="best-practices"></a>Bästa praxis
 Välja en **hög** tröskelvärdet minskar antalet gånger som en princip har utlösts och minimerar påverkan för användare.  
 
 Men det omfattar inte **låg** och **medel** inloggningar som har flaggats för risk från principen som inte blockerar en angripare utnyttjar en komprometterad identitet.

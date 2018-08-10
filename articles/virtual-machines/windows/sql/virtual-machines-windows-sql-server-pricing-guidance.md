@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/02/2018
+ms.date: 08/09/2018
 ms.author: jroth
-ms.openlocfilehash: e9033724f62b383ce70488b98a3a8919e3cb198a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: a748532de7e8b8e910e335b67a693c4470861bf1
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345285"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003567"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Priser för SQL Server Azure-datorer
 
@@ -90,9 +90,12 @@ Om du vill skapa en SQL Server 2017 Azure VM med en av avbildningarna betala per
 >
 >Det inkluderar inte ytterligare SQL Server-licenskostnaden för Web, Standard eller Enterprise Edition. För att få den mest korrekta priser uppfattning, Välj ditt operativsystem och version av SQL Server på sidan med priser för [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) eller [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-## <a name="bring-your-own-license-byol"></a>Bring-your-own-license (BYOL)
+## <a id="byol"></a> Använd din egen licens (BYOL)
 
 **Ta din egen SQL Server-licens via License Mobility**, vilket även kallas **BYOL**, innebär att använda en befintlig volymlicens för SQL Server med Software Assurance i en Azure VM. En SQL Server VM med BYOL endast avgifter för kostnaden för att köra den virtuella datorn, inte för SQL Server-licensiering, med hänsyn till att du har redan har köpt licenser med Software Assurance via volymlicensiering program.
+
+> [!IMPORTANT]
+> BYOL-avbildningar kräver ett Enterprise-avtal med Software Assurance. De är inte tillgängliga som en del av Azure Cloud Solution Partner (CSP) just nu.
 
 > [!NOTE]
 > BYOL-avbildningar är för närvarande endast tillgängliga för Windows-datorer. Du kan manuellt installera SQL Server på en endast Linux virtuell dator. Finns i riktlinjerna i den [Linux SQL VM vanliga frågor och svar](../../linux/sql/sql-server-linux-faq.md).

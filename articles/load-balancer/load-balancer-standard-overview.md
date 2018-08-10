@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2018
+ms.date: 08/08/2018
 ms.author: kumud
-ms.openlocfilehash: f8779af725346a456efe8e718cfc8ff3a91c72fc
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: dad76ab9f2a1a621fb513a4d411792fe2f88a557
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325259"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005883"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Översikt över Azure Load Balancer Standard
 
@@ -64,7 +64,15 @@ Serverdelspoolen kan innehålla fristående virtuella datorer, tillgänglighetsu
 
 När du överväger hur du utformar backend-pool, kan du utforma för minsta möjliga antal enskilda backend-poolresurser för att ytterligare optimera varaktigheten för hanteringsåtgärder.  Det finns ingen skillnad i data plan prestanda eller skala.
 
-## <a name="az"></a>Tillgänglighetszoner
+### <a name="probes"></a>Hälsoavsökningar
+  
+Standard Load Balancer lägger till stöd för [HTTPS hälsoavsökningar](load-balancer-custom-probe-overview.md#httpprobe) (HTTP-avsökning med Transport Layer Security (TLS) omslutning) korrekt övervaka dina HTTPS-program.  
+
+Dessutom, när hela serverdelspoolen [avsökningar ned](load-balancer-custom-probe-overview.md#probedown), Standard Load Balancer kan alla etablerade TCP-anslutningar att fortsätta. (Basic Load Balancer avslutas alla TCP-anslutningar till alla instanser).
+
+Granska [hälsoavsökningar för belastningsutjämnaren](load-balancer-custom-probe-overview.md) mer information.
+
+### <a name="az"></a>Tillgänglighetszoner
 
 Standard Load Balancer stöder ytterligare funktioner i regioner där Availability Zones är tillgängligt.  Dessa funktioner är inkrementell säkerhetskopiering mot alla Standard Load Balancer tillhandahåller.  Tillgänglighetszoner konfigurationer är tillgängliga för offentliga och interna Standard Load Balancer.
 
@@ -167,7 +175,7 @@ SKU: er är inte föränderliga. Följ stegen i det här avsnittet för att flyt
 
 ### <a name="migrate-from-basic-to-standard-sku"></a>Migrera från Basic till Standard-SKU
 
-1. Skapa en ny Standard resurs (belastningsutjämnare och offentliga IP-adresser, vid behov). Återskapa dina regler och avsökning definitioner.
+1. Skapa en ny Standard resurs (belastningsutjämnare och offentliga IP-adresser, vid behov). Återskapa dina regler och avsökning definitioner.  Om du använder en TCP-avsökning till 443/tcp tidigare, Överväg att ändra den här avsökningen-protokollet till en HTTPS-avsökning och lägga till en sökväg.
 
 2. Skapa en ny eller uppdatera befintliga NSG på nätverkskortet eller undernätet till listan över godkända belastningsutjämnade trafik, avsökning, samt annan trafik som du vill tillåta.
 
@@ -177,7 +185,7 @@ SKU: er är inte föränderliga. Följ stegen i det här avsnittet för att flyt
 
 ### <a name="migrate-from-standard-to-basic-sku"></a>Migrera från Standard till grundläggande SKU
 
-1. Skapa en ny grundläggande resurs (belastningsutjämnare och offentliga IP-adresser, vid behov). Återskapa dina regler och avsökning definitioner. 
+1. Skapa en ny grundläggande resurs (belastningsutjämnare och offentliga IP-adresser, vid behov). Återskapa dina regler och avsökning definitioner.  Ändra en HTTPS-avsökning till en TCP-avsökning till 443/tcp. 
 
 2. Ta bort resurserna som Standard-SKU (belastningsutjämnare och offentliga IP-adresser, så är tillämpligt) från alla VM-instanser. Måste du också ta bort alla VM-instanser i en tillgänglighetsuppsättning.
 
@@ -218,15 +226,16 @@ Standard Load Balancer är en produkt som debiteras baserat på antalet konfigur
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs om hur du använder [Standard Load Balancer och Tillgänglighetszoner](load-balancer-standard-availability-zones.md)
+- Läs om hur du använder [Standard Load Balancer och Tillgänglighetszoner](load-balancer-standard-availability-zones.md).
+- Lär dig mer om [Hälsoavsökningar](load-balancer-custom-probe-overview.md).
 - Läs mer om [Tillgänglighetszoner](../availability-zones/az-overview.md).
 - Lär dig mer om [diagnostik för Standard Load Balancer](load-balancer-standard-diagnostics.md).
 - Lär dig mer om [stöd för flerdimensionella mått](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) för diagnostik i [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
-- Läs om hur du använder [belastningsutjämnare för utgående anslutningar](load-balancer-outbound-connections.md)
-- Lär dig mer om [Standard Load Balancer med HA Ports regler för belastningsutjämning](load-balancer-ha-ports-overview.md)
-- Läs om hur du använder [belastningsutjämnaren med flera klienter](load-balancer-multivip-overview.md)
+- Läs om hur du använder [belastningsutjämnare för utgående anslutningar](load-balancer-outbound-connections.md).
+- Lär dig mer om [Standard Load Balancer med HA Ports belastningsutjämningsregler](load-balancer-ha-ports-overview.md).
+- Läs om hur du använder [belastningsutjämnaren med flera klienter](load-balancer-multivip-overview.md).
 - Lär dig mer om [virtuella nätverk](../virtual-network/virtual-networks-overview.md).
 - Läs mer om [Nätverkssäkerhetsgrupper](../virtual-network/security-overview.md).
-- Lär dig mer om [tjänstslutpunkter för virtuellt nätverk](../virtual-network/virtual-network-service-endpoints-overview.md)
+- Lär dig mer om [VNet-tjänstslutpunkter](../virtual-network/virtual-network-service-endpoints-overview.md).
 - Lär dig mer om den andra nyckeln [nätverksfunktionerna](../networking/networking-overview.md) i Azure.
 - Läs mer om [belastningsutjämnaren](load-balancer-overview.md).

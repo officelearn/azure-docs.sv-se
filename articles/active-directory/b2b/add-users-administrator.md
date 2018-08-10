@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: f654aaa6d44011a089008558849d37bf6cdfa6f6
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 6dfa1f247a079bf801f28d1083c86d36a74117c5
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39037265"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004206"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Lägg till användare i Azure Active Directory B2B-samarbetet i Azure portal
 
@@ -40,6 +40,9 @@ Följ dessa steg om du vill lägga till användare i B2B-samarbetet i katalogen:
 5. Under **användarnamn**, ange den externa användaren e-postadress. Du kan också inkludera ett välkomstmeddelande. Exempel:
 
    ![Visar där ny gästanvändare är i Användargränssnittet](./media/add-users-administrator/InviteGuest.png) 
+
+    > [!NOTE]
+    > Vissa e-postleverantörer Tillåt användare att lägga till ett plustecken symbolen (+) och ytterligare text till sina e-postadresser som hjälper med sådant som inkorg filtrering. Dock Azure AD stöder för närvarande inte plustecken i e-postadresser. Om du vill undvika problem med leverans, utelämnar du på plustecknet och eventuella tecknen efter det upp till den @-tecknet.
 
 6. Välj **bjuda in** att skicka inbjudan till gästanvändaren automatiskt. 
  

@@ -2,25 +2,25 @@
 title: ta med fil
 description: ta med fil
 services: iot-edge
-author: wesmc7777
+author: kgremban
 ms.service: iot-edge
 ms.topic: include
 ms.date: 06/26/2018
-ms.author: wesmc
+ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: 657006360105ac26091c54fe2e0deb523d1e6dea
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: 6502ea1733e37e06172833c944c58101b3c049f2
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008509"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "40043999"
 ---
-Om du tänker fortsätta till nästa rekommenderade artikel kan du behålla de resurser och konfigurationer du har skapat och använda dem igen.
+Om du planerar att fortsätta med nästa rekommenderade artikel kan du behålla de resurser och konfigurationer som du skapat och använda dem igen.
 
-Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser du har skapat i den här artikeln för att undvika kostnader. 
+Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som du har skapat i den här artikeln för att därigenom undvika kostnader. 
 
 > [!IMPORTANT]
-> Det går inte att ångra borttagningen av Azure-resurser och resursgrupper. När dessa objekt tas bort tas resursgruppen och alla resurser som finns i den bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat IoT-hubben i en befintlig resursgrupp som innehåller resurser som du vill behålla tar du bara bort själva IoT-hubbresursen i stället för att ta bort resursgruppen.
+> Det går inte att ångra borttagningen av Azure-resurser och resursgrupper. När dessa objekt tas bort tas resursgruppen och alla resurser som finns i den bort permanent. Var noga så att du inte tar bort fel resursgrupp eller resurser av misstag. Om du har skapat IoT-hubben i en befintlig resursgrupp som innehåller resurser som du vill behålla tar du bara bort själva IoT-hubbresursen i stället för att ta bort resursgruppen.
 >
 
 Om du endast vill ta bort IoT-hubben kör du följande kommando. Ersätt \<YourIoTHub> med namnet på din IoT-hubb och \<TestResources> med namnet på din resursgrupp:

@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: liamca
-ms.openlocfilehash: d90a7b2d12a147b8020abbd51ef055f0e70471fb
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 7da1f5d54a9dd5b6119b81ef801b674263a98bae
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365436"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716424"
 ---
 # <a name="lucene-syntax-query-examples-for-building-advanced-queries-in-azure-search"></a>Exempel på Lucene-syntaxfråga för att skapa avancerade frågor i Azure Search
 När frågor för Azure Search, du kan ersätta standard [enklare frågeparsern](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) med alternativt [frågeparser (Lucene) i Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) formulera specialiserade och avancerad fråga definitioner. 
@@ -27,7 +27,7 @@ Den frågeparser (Lucene) stöder mer komplex fråga konstruktioner som fältbeg
 
 ## <a name="formulate-requests-in-postman"></a>Formulera begäranden i Postman
 
-I följande exempel utnyttja NYC Jobs sökindex som består av jobben tillgängliga baserat på en datauppsättning som tillhandahålls av den [stad New York OpenData](https://nycopendata.socrata.com/) initiativ. Dessa data ska inte betraktas aktuella eller klar. Indexet ligger på en sandbox-tjänst som tillhandahålls av Microsoft, vilket innebär att du inte behöver en Azure-prenumeration eller ett Azure Search för att prova de här frågorna.
+I följande exempel utnyttja NYC Jobs sökindex som består av jobben tillgängliga baserat på en datauppsättning som tillhandahålls av den [stad New York OpenData](https://opendata.cityofnewyork.us/) initiativ. Dessa data ska inte betraktas aktuella eller klar. Indexet ligger på en sandbox-tjänst som tillhandahålls av Microsoft, vilket innebär att du inte behöver en Azure-prenumeration eller ett Azure Search för att prova de här frågorna.
 
 Vad du behöver är Postman eller ett motsvarande verktyg för att utfärda HTTP-begäranden på GET. Mer information finns i [Test med REST-klienter](search-fiddler.md).
 
@@ -63,9 +63,9 @@ Klistra in följande begäran i GET som ett verifieringssteg och klicka på **sk
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=*
   ```
 
-Frågesträngen **`search=*`**, motsvarar en ospecificerad sökning null eller tom sökning. Det är inte särskilt användbart, men det är den enklaste sökningen som du kan göra.
+Frågesträngen ** `search=*` **, motsvarar en ospecificerad sökning null eller tom sökning. Det är inte särskilt användbart, men det är den enklaste sökningen som du kan göra.
 
-Du kan också lägga till **`$count=true`** i URL: en för att returnera en uppräkning av dokument som matchar sökkriterierna. Det här är alla dokument i indexet (2802 när det gäller NYC Jobs) på en tom sökning-sträng.
+Du kan också lägga till ** `$count=true` ** i URL: en för att returnera en uppräkning av dokument som matchar sökkriterierna. Det här är alla dokument i indexet (2802 när det gäller NYC Jobs) på en tom sökning-sträng.
 
 ## <a name="how-to-invoke-full-lucene-parsing"></a>Hur du anropar fullständig Lucene parsning
 
@@ -144,7 +144,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 ## <a name="example-5-term-boosting"></a>Exempel 5: Termförstärkning
 Termförstärkning avser rangordning ett dokument som är högre om den innehåller förbättrat termen, i förhållande till dokument som inte innehåller termen. Om du vill öka en term använder du cirkumflex ”^”, symbol med en faktor boost (ett tal) i slutet av perioden som du söker. 
 
-I den här frågan ”före” Sök efter jobb med termen *datorn analytiker* och Observera att det finns inga resultat med båda orden *datorn* och *analytiker*, ännu  *datorn* jobben är högst upp på resultaten.
+I den här frågan ”före” Sök efter jobb med termen *datorn analytiker* och Observera att det finns inga resultat med båda orden *datorn* och *analytiker*, ännu * datorn* jobben är högst upp på resultaten.
 
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:computer%20analyst

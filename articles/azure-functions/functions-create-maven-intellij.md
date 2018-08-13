@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e926bfb023fe3edfd564aa6389e21f6594bec169
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 5e265543e2ce5feeed095d89cdb47ede9817bad1
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117506"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40002686"
 ---
 # <a name="create-your-first-function-with-java-and-intellij-preview"></a>Skapa din första funktion med Java och IntelliJ (förhandsversion)
 
@@ -74,8 +74,15 @@ Maven skapar projektfiler i en ny mapp med namnet från _artifactId_. Den genere
 Stäng dialogrutan Kör när du är klar testa din funktion. Enda funktion värden kan vara aktiv och körs lokalt i taget.
 
 ### <a name="debug-the-function-in-intellij"></a>Felsöka funktionen i IntelliJ
+Starta funktionen värden i felsökningsläge genom att lägga till **- DenableDebug** som argumentet när du kör din funktion. Du kan köra nedan kommandoraden i terminal eller konfigurera den i [maven mål](https://www.jetbrains.com/help/idea/maven-support.html#run_goal). Funktionen värden öppna sedan en felsökningsport vid 5005. 
 
-Du kan felsöka funktioner i IntelliJ genom att koppla till funktionen värden efter start.  Kör Azure-funktion lokalt med hjälp av stegen ovan och sedan i den **kör** väljer du menyn **ansluta till lokal process**.  Du bör se en process på port 5005 som är tillgängliga.  När du kopplar har du brytpunkter nå och felsöka i din funktionsapp.
+```
+mvn azure-functions:run -DenableDebug
+```
+
+Felsöka i IntelliJ, i den **kör** väljer du menyn **redigera konfigurationer**. Klicka på ** + ** att lägga till en **Remote**. Fyll i **namn** och **inställningar**, och klicka sedan på **OK** att spara konfigurationen. Efter installationen klickar du på **felsöka** ”din fjärranslutna Configuration namn” eller trycker på **SKIFT + F9** att starta felsökningen.
+
+![Felsökningsfunktioner i IntelliJ](media/functions-create-first-java-intellij/debug-configuration-intellij.PNG)
 
 När du är klar stoppa felsökningen och processen. Enda funktion värden kan vara aktiv och körs lokalt på tidpunkt.
 

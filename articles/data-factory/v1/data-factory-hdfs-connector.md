@@ -1,6 +1,6 @@
 ---
-title: Flytta data från lokala HDFS | Microsoft Docs
-description: Läs mer om hur du flyttar data från lokala HDFS med hjälp av Azure Data Factory.
+title: Flytta data från den lokala HDFS | Microsoft Docs
+description: Läs mer om hur du flyttar data från lokala HDFS med Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -14,65 +14,65 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f6577b8b2c99773887ecdac865684f6cb4c9d3b9
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: ac9ba682079f735aa2fdd416070c5d206d526ad4
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051584"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629709"
 ---
-# <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Flytta data från lokala HDFS med hjälp av Azure Data Factory
+# <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Flytta data från den lokala HDFS med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-hdfs-connector.md)
 > * [Version 2 (aktuell version)](../connector-hdfs.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [HDFS-anslutningen i V2](../connector-hdfs.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [HDFS-anslutning i V2](../connector-hdfs.md).
 
-Den här artikeln förklarar hur du använder aktiviteten kopiera i Azure Data Factory för att flytta data från en lokal HDFS. Den bygger på den [Data Movement aktiviteter](data-factory-data-movement-activities.md) artikel som presenterar en allmän översikt över dataflyttning med copy-aktivitet.
+Den här artikeln förklarar hur du använder Kopieringsaktivitet i Azure Data Factory för att flytta data från ett lokalt HDFS. Den bygger på den [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikel som anger en allmän översikt över dataförflyttning med kopieringsaktiviteten.
 
-Du kan kopiera data från HDFS till alla stöds sink-datalagret. En lista över datakällor som stöds som sänkor av kopieringsaktiviteten, finns det [stöds datalager](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. Data factory stöder för närvarande endast flytta data från en lokal HDFS till andra databaser, men inte för att flytta data från andra datalager till en lokal HDFS.
+Du kan kopiera data från HDFS till alla datalager för mottagare som stöds. En lista över datalager som stöds som mottagare av Kopieringsaktivitet finns i den [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. Data factory stöder för närvarande endast flyttar data från ett lokalt HDFS till datalager, men inte för att flytta data från andra datalager till ett lokalt HDFS.
 
 > [!NOTE]
-> Kopieringsaktiviteten tar inte bort källfilen när den har kopierats till målet. Om du vill ta bort källfilen efter en lyckad kopiering kan du skapa en anpassad aktivitet för att ta bort filen och använda aktiviteten i pipelinen. 
+> Kopieringsaktivitet tar inte bort källfilen efter att den har kopierats till målet. Om du vill ta bort källfilen efter en lyckad kopiering kan du skapa en anpassad aktivitet för att ta bort filen och använda aktiviteten i pipelinen. 
 
 ## <a name="enabling-connectivity"></a>Aktivera anslutning
-Data Factory-tjänsten stöder anslutning till lokala HDFS med Data Management Gateway. Se [flytta data mellan lokala platser och moln](data-factory-move-data-between-onprem-and-cloud.md) artikeln innehåller information om Data Management Gateway och stegvisa instruktioner om hur du konfigurerar en gateway. Använd en gateway för att ansluta till HDFS även om den finns i en Azure IaaS-VM.
+Data Factory-tjänsten stöder anslutning till den lokala HDFS med hjälp av Data Management Gateway. Se [flytta data mellan lokala platser och molnet](data-factory-move-data-between-onprem-and-cloud.md) du lär dig om Data Management Gateway och stegvisa instruktioner om hur du konfigurerar gatewayen. Använda gateway för att ansluta till HDFS, även om den finns i en Azure IaaS-VM.
 
 > [!NOTE]
-> Se till att Data Management Gateway har åtkomst till **alla** [nod namnservern]: [name nod port] och [nod dataservrar]: [data nod port] i Hadoop-kluster. Standard [namn på noden port] är 50070 och standardvärdet [data nod port] är 50075.
+> Kontrollera att Data Management Gateway har åtkomst till **alla** [nod namnservern]: [name noden port] och [data nodservrar]: [nod dataporten] av Hadoop-kluster. Standard [namn noden port] är 50070 och standardvärdet [data noden port] är 50075.
 
-Medan du kan installera gatewayen på samma lokala dator eller virtuell Azure-dator som HDFS, rekommenderar vi att du installerar en gateway på en separat dator/Azure IaaS-VM. Med gatewayen på en separat dator minskar resurskonflikter och förbättrar prestandan. När du installerar en gateway på en separat dator ska datorn kunna få åtkomst till datorn med HDFS.
+Medan du kan installera gatewayen på samma lokala dator eller virtuell Azure-dator som med HDFS, rekommenderar vi att du installerar gatewayen på en separat dator/Azure IaaS VM. Att ha gatewayen på en separat dator minskar resurskonkurrens och förbättrar prestandan. När du installerar gatewayen på en separat dator kan ska datorn kunna få åtkomst till datorn med med HDFS.
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med en kopia-aktivitet som flyttar data från en källa för HDFS med hjälp av olika verktyg/API: er.
+Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data från en källa för HDFS med hjälp av olika verktyg/API: er.
 
-Det enklaste sättet att skapa en pipeline är att använda den **guiden Kopiera**. Finns [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data.
+Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. Se [självstudie: skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall** , **.NET API**, och **REST API**. Se [kopiera aktivitet kursen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall **, **.NET API**, och **REST-API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
 
-Om du använder verktyg eller API: er, kan du utföra följande steg för att skapa en pipeline som flyttar data från ett dataarkiv som källa till ett dataarkiv som mottagare:
+Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager:
 
-1. Skapa **länkade tjänster** att länka inkommande och utgående data lagras till din data factory.
-2. Skapa **datauppsättningar** att representera inkommande och utgående data för kopieringen.
-3. Skapa en **pipeline** med en kopia-aktivitet som tar en datamängd som indata och en dataset som utdata.
+1. Skapa **länkade tjänster** länka inkommande och utgående data du lagrar till din datafabrik.
+2. Skapa **datauppsättningar** som representerar inkommande och utgående data för kopieringen.
+3. Skapa en **pipeline** med en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata.
 
-När du använder guiden skapas JSON definitioner för dessa Data Factory-enheter (länkade tjänster, datauppsättningar och pipelinen) automatiskt för dig. När du använder Verktyg/API: er (utom .NET API), kan du definiera dessa Data Factory-enheter med hjälp av JSON-format.  Ett exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data från ett HDFS-datalager finns [JSON-exempel: kopiera data från lokala HDFS till Azure Blob](#json-example-copy-data-from-on-premises-hdfs-to-azure-blob) i den här artikeln.
+När du använder guiden skapas JSON-definitioner för dessa Data Factory-entiteter (länkade tjänster, datauppsättningar och pipeline) automatiskt åt dig. När du använder Verktyg/API: er (med undantag för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format.  Ett exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data från ett HDFS-datalager, se [JSON-exempel: kopiera data från lokala HDFS till Azure Blob](#json-example-copy-data-from-on-premises-hdfs-to-azure-blob) i den här artikeln.
 
-Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory entiteter till HDFS:
+Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory-entiteter som är specifika för HDFS:
 
-## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
-En länkad tjänst länkar ett datalager till en data factory. Du skapar en länkad tjänst av typen **Hdfs** att länka en lokala HDFS till din data factory. Följande tabell innehåller beskrivning för JSON-element som är specifika för HDFS länkade tjänsten.
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
+En länkad tjänst länkar ett datalager till en data factory. Du skapar en länkad tjänst av typen **Hdfs** att länka ett lokalt HDFS till din datafabrik. Följande tabell innehåller beskrivning för JSON-element som är specifika för HDFS-länkade tjänst.
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Egenskapen type måste anges till: **Hdfs** |Ja |
-| URL |URL till HDFS |Ja |
-| authenticationType |Anonym, eller Windows. <br><br> Att använda **Kerberos-autentisering** HDFS-anslutningen finns i [i det här avsnittet](#use-kerberos-authentication-for-hdfs-connector) därefter konfigurera din lokala miljö. |Ja |
+| typ |Type-egenskapen måste anges till: **Hdfs** |Ja |
+| URL |URL: en med HDFS |Ja |
+| authenticationType |Anonym, eller Windows. <br><br> Att använda **Kerberos-autentisering** HDFS-anslutningstjänsten finns i [i det här avsnittet](#use-kerberos-authentication-for-hdfs-connector) att ställa in din lokala miljö på lämpligt sätt. |Ja |
 | Användarnamn |Användarnamn för Windows-autentisering. Kerberos-autentisering, ange `<username>@<domain>.com`. |Ja (för Windows-autentisering) |
 | lösenord |Lösenordet för Windows-autentisering. |Ja (för Windows-autentisering) |
-| gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till HDFS. |Ja |
-| encryptedCredential |[Nya AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) utdata för autentiseringsuppgifterna för åtkomst. |Nej |
+| gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till med HDFS. |Ja |
+| encryptedCredential |[Ny AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) utdata för åtkomst-autentiseringsuppgift. |Nej |
 
 ### <a name="using-anonymous-authentication"></a>Använder anonym autentisering
 
@@ -93,7 +93,7 @@ En länkad tjänst länkar ett datalager till en data factory. Du skapar en län
 }
 ```
 
-### <a name="using-windows-authentication"></a>Med Windows-autentisering
+### <a name="using-windows-authentication"></a>Med hjälp av Windows-autentisering
 
 ```JSON
 {
@@ -113,25 +113,25 @@ En länkad tjänst länkar ett datalager till en data factory. Du skapar en län
 }
 ```
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
-En fullständig lista över egenskaper som är tillgängliga för att definiera datauppsättningarna & avsnitt finns i [skapa datauppsättningar](data-factory-create-datasets.md) artikel. Avsnitt som struktur, tillgänglighet och princip på en datamängd JSON är liknande för alla typer av dataset (Azure SQL Azure blob, Azure-tabellen, osv.).
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [skapar datauppsättningar](data-factory-create-datasets.md) artikeln. Avsnitt som struktur, tillgänglighet och princip av en datauppsättnings-JSON är liknande för alla datauppsättningstyper av (Azure SQL, Azure-blob, Azure-tabell osv.).
 
-Den **typeProperties** avsnitt är olika för varje typ av dataset och innehåller information om placeringen av data i datalagret. TypeProperties avsnittet för dataset av typen **filresursen** (som omfattar HDFS dataset) har följande egenskaper
+Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information om platsen för data i datalagret. TypeProperties avsnittet för datauppsättningen av typen **filresursen** (som innehåller HDFS datauppsättning) har följande egenskaper
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| folderPath |Sökvägen till mappen. Exempel: `myfolder`<br/><br/>Använda escape-tecknet ' \ ' för specialtecken i strängen. Till exempel: Ange mapp för folder\subfolder,\\\\undermapp och ange d: för d:\samplefolder,\\\\Exempelmapp.<br/><br/>Du kan kombinera den här egenskapen med **partitionBy** ha mappen sökvägar baserat på sektorn börja/sluta datum gånger. |Ja |
-| fileName |Ange namnet på filen i den **folderPath** om du vill att referera till en viss fil i mappen. Om du inte anger något värde för den här egenskapen tabellen pekar på alla filer i mappen.<br/><br/>Om filnamnet inte anges för en datamängd för utdata är namnet på den genererade filen i följande det här formatet: <br/><br/>Data. <Guid>.txt (till exempel:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nej |
-| partitionedBy |partitionedBy kan användas för att ange en dynamisk folderPath filnamn för tid series-data. Exempel: folderPath parametriserade varje timme av data. |Nej |
-| Format | Följande format stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ange den **typen** egenskap under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [parkettgolv Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som-är** mellan filbaserade butiker (binär kopia), hoppa över avsnittet format i både inkommande och utgående dataset-definitioner. |Nej |
-| komprimering | Ange typ och kompression för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
+| folderPath |Sökvägen till mappen. Exempel: `myfolder`<br/><br/>Använd escape-tecknet ”\” för specialtecken i strängen. Till exempel: Ange mapp för folder\subfolder,\\\\undermapp och d:\samplefolder, ange d:\\\\Exempelmapp.<br/><br/>Du kan kombinera den här egenskapen med **partitionBy** ha mappen sökvägarna baserat på sektorn start/slut datum / tid. |Ja |
+| fileName |Ange namnet på filen i den **folderPath** om du vill att tabellen för att referera till en viss fil i mappen. Om du inte anger något värde för den här egenskapen, tabellen pekar på alla filer i mappen.<br/><br/>När filnamn har angetts för en utdatauppsättning, namnet på den genererade filen vara i följande det här formatet: <br/><br/>Data. <Guid>.txt (exempel:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nej |
+| partitionedBy |partitionedBy kan användas för att ange en dynamisk folderPath filnamn för time series-data. Exempel: folderPath innehåller parametrar för varje timme som data. |Nej |
+| Format | Följande formattyper av som stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, ** ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Nej |
+| Komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 
 > [!NOTE]
-> filnamnet och fileFilter kan inte användas samtidigt.
+> filnamn och fileFilter kan inte användas samtidigt.
 
-### <a name="using-partionedby-property"></a>Med hjälp av egenskapen partionedBy
-Som nämnts ovan, du kan ange en dynamisk folderPath och ett filnamn för tid series-data med den **partitionedBy** egenskapen [Data Factory-funktioner och systemvariablerna](data-factory-functions-variables.md).
+### <a name="using-partionedby-property"></a>Använda partionedBy-egenskapen
+Som tidigare nämnts ovan kan du ange en dynamisk folderPath och ett filnamn för time series-data med den **partitionedBy** egenskapen [Data Factory-funktioner och systemvariablerna](data-factory-functions-variables.md).
 
-Läs mer om tid serien datauppsättningar, schemaläggning och segment i [skapa datauppsättningar](data-factory-create-datasets.md), [schemaläggning och utförande](data-factory-scheduling-and-execution.md), och [skapar Pipelines](data-factory-create-pipelines.md) artiklar.
+Läs mer om time series datauppsättningar, schemaläggning och segment i [skapar datauppsättningar](data-factory-create-datasets.md), [schemaläggning och utförande](data-factory-scheduling-and-execution.md), och [skapa Pipelines](data-factory-create-pipelines.md) artiklar.
 
 #### <a name="sample-1"></a>Exempel 1:
 
@@ -142,7 +142,7 @@ Läs mer om tid serien datauppsättningar, schemaläggning och segment i [skapa 
     { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
 ],
 ```
-I det här exemplet {segment} ersättas med det angivna värdet för Data Factory systemvariabel SliceStart i formatet (YYYYMMDDHH). SliceStart refererar till starttid av sektorn. FolderPath är olika för varje segment. Till exempel: 2014100103-wikidatagateway/wikisampledataout eller 2014100104-wikidatagateway/wikisampledataout.
+I det här exemplet {sektorn} ersätts med det angivna värdet av Data Factory systemvariabeln SliceStart i formatet (YYYYMMDDHH). SliceStart refererar starttid för sektorn. FolderPath är olika för varje segment. Till exempel: wikidatagateway/wikisampledataout/2014100103 eller wikidatagateway/wikisampledataout/2014100104.
 
 #### <a name="sample-2"></a>Exempel 2:
 
@@ -157,40 +157,40 @@ I det här exemplet {segment} ersättas med det angivna värdet för Data Factor
     { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
 ],
 ```
-I det här exemplet extraheras år, månad, dag och tidpunkt för SliceStart till olika variabler som används av egenskaperna folderPath och filnamn.
+I det här exemplet extraheras år, månad, dag och tid för SliceStart till olika variabler som används av egenskaper för folderPath och filnamn.
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
-En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera aktiviteter finns i [skapar Pipelines](data-factory-create-pipelines.md) artikel. Egenskaper som namn, beskrivning, ingående och utgående tabeller och principer är tillgängliga för alla typer av aktiviteter.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [skapa Pipelines](data-factory-create-pipelines.md) artikeln. Egenskaper, till exempel namn, beskrivning, indata och utdata tabeller och principer är tillgängliga för alla typer av aktiviteter.
 
-De egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten varierar beroende på varje aktivitetstyp. För Kopieringsaktivitet kan variera de beroende på vilka typer av datakällor och sänkor.
+Medan egenskaper som är tillgängliga i avsnittet typeProperties aktivitetens varierar med varje aktivitetstyp av. För kopieringsaktiviteten variera de beroende på vilka typer av källor och mottagare.
 
-För Kopieringsaktiviteten när datakällan är av typen **FileSystemSource** följande egenskaper finns i avsnittet typeProperties:
+För Kopieringsaktiviteten, när källan är av typen **FileSystemSource** följande egenskaper är tillgängliga i avsnittet typeProperties:
 
-**FileSystemSource** stöder följande egenskaper:
+**FileSystemSource** har stöd för följande egenskaper:
 
 | Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| rekursiva |Anger om data läses rekursivt från undermappar eller endast från den angivna mappen. |SANT, FALSKT (standard) |Nej |
+| rekursiv |Anger om data läses rekursivt från undermappar eller endast från den angivna mappen. |SANT, FALSKT (standard) |Nej |
 
-## <a name="supported-file-and-compression-formats"></a>Fil- och komprimering format som stöds
-Se [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artikeln för information.
+## <a name="supported-file-and-compression-formats"></a>Fil- och komprimeringsformat de format som stöds
+Se [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artikeln på information.
 
-## <a name="json-example-copy-data-from-on-premises-hdfs-to-azure-blob"></a>JSON-exempel: kopiera data från lokala HDFS till Azure-Blob
-Det här exemplet visas hur du kopierar data från en lokal HDFS till Azure Blob Storage. Dock datan kan kopieras **direkt** till någon av sänkor anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av aktiviteten kopiera i Azure Data Factory.  
+## <a name="json-example-copy-data-from-on-premises-hdfs-to-azure-blob"></a>JSON-exempel: kopiera data från lokala HDFS till Azure Blob
+Detta exempel visar hur du kopierar data från ett lokalt HDFS till Azure Blob Storage. Men du kan kopiera data **direkt** till någon av de mottagare som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) använda Kopieringsaktivitet i Azure Data Factory.  
 
-Exemplet innehåller JSON definitioner för följande Data Factory-enheter. Du kan använda dessa definitioner för att skapa en pipeline för att kopiera data från HDFS till Azure Blob Storage med hjälp av [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md) eller [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).
+Det innehåller JSON-definitioner för följande Data Factory-entiteter. Du kan använda dessa definitioner för att skapa en pipeline för att kopiera data från HDFS till Azure Blob Storage med hjälp av [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md) eller [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).
 
 1. En länkad tjänst av typen [OnPremisesHdfs](#linked-service-properties).
 2. En länkad tjänst av typen [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-3. Indata [dataset](data-factory-create-datasets.md) av typen [filresursen](#dataset-properties).
-4. Utdata [dataset](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-5. En [pipeline](data-factory-create-pipelines.md) med Kopieringsaktiviteten som använder [FileSystemSource](#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+3. Indata [datauppsättning](data-factory-create-datasets.md) av typen [filresursen](#dataset-properties).
+4. Utdata [datauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. En [pipeline](data-factory-create-pipelines.md) med en Kopieringsaktivitet som använder [FileSystemSource](#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-Exemplet kopierar data från en lokal HDFS till en Azure blob varje timme. JSON-egenskaper som används i exemplen beskrivs i exemplen i följande avsnitt.
+Exemplet kopierar data från ett lokalt HDFS till en Azure-blob varje timme. JSON-egenskaper som används i exemplen beskrivs i exemplen i följande avsnitt.
 
-Som ett första steg bör du ställa in data management gateway. Anvisningarna i den [flytta data mellan lokala platser och moln](data-factory-move-data-between-onprem-and-cloud.md) artikel.
+Som ett första steg att konfigurera data management gateway. Anvisningarna i den [flytta data mellan lokala platser och molnet](data-factory-move-data-between-onprem-and-cloud.md) artikeln.
 
-**HDFS länkade tjänsten:** det här exemplet använder Windows-autentisering. Se [HDFS länkade tjänsten](#linked-service-properties) avsnittet för olika typer av autentisering som du kan använda.
+**HDFS länkad tjänst:** det här exemplet används Windows-autentisering. Se [HDFS länkad tjänst](#linked-service-properties) för olika typer av autentisering som du kan använda.
 
 ```JSON
 {
@@ -210,7 +210,7 @@ Som ett första steg bör du ställa in data management gateway. Anvisningarna i
 }
 ```
 
-**Azure Storage länkade tjänsten:**
+**Länkad Azure Storage-tjänst:**
 
 ```JSON
 {
@@ -224,9 +224,9 @@ Som ett första steg bör du ställa in data management gateway. Anvisningarna i
 }
 ```
 
-**HDFS indatauppsättning:** den här datamängden refererar till mappen HDFS DataTransfer/UnitTest /. Pipelinen kopierar alla filer i den här mappen till målet.
+**HDFS indatauppsättning:** denna datauppsättning refererar till mappen HDFS DataTransfer/UnitTest /. Pipelinen kopierar alla filer i den här mappen till målet.
 
-Inställningen ”externa”: ”true” informerar Data Factory-tjänsten att datamängden är extern till data factory och inte tillverkas av en aktivitet i datafabriken.
+Ange ”external”: ”true” informerar Data Factory-tjänsten att datauppsättningen är extern till datafabriken och inte kommer från en aktivitet i data factory.
 
 ```JSON
 {
@@ -246,9 +246,9 @@ Inställningen ”externa”: ”true” informerar Data Factory-tjänsten att d
 }
 ```
 
-**Azure Blob utdatauppsättningen:**
+**Utdatauppsättning för Azure Blob:**
 
-Data skrivs till en ny blob varje timme (frekvens: timme, intervall: 1). Sökvägen till mappen för blobben utvärderas dynamiskt baserat på starttiden för den sektor som bearbetas. Mappsökvägen använder år, månad, dag och timmar delar av starttiden.
+Data skrivs till en ny blob varje timme (frequency: timme, intervall: 1). Sökvägen till mappen för bloben utvärderas dynamiskt baserat på starttiden för den sektor som bearbetas. Sökvägen till mappen använder år, månad, dag och timmar delar av starttiden.
 
 ```JSON
 {
@@ -306,9 +306,9 @@ Data skrivs till en ny blob varje timme (frekvens: timme, intervall: 1). Sökvä
 }
 ```
 
-**Kopieringsaktiviteten i en pipeline med filsystemet källa och mottagare för Blob:**
+**En Kopieringsaktivitet i en pipeline med filsystemet käll- och Blob-mottagare:**
 
-Pipelinen innehåller en kopia-aktivitet som är konfigurerad för att använda dessa indata och utdata-datauppsättningar och är schemalagd att köras varje timme. I pipeline-JSON-definitionen av **källa** är inställd på **FileSystemSource** och **sink** är inställd på **BlobSink**. SQL-frågan som angetts för den **frågan** egenskapen väljer vilka data under den senaste timmen att kopiera.
+Pipelinen innehåller en Kopieringsaktivitet som är konfigurerad för att använda dessa in- och utdatauppsättningar och är schemalagd att köras varje timme. I pipeline-JSON-definitionen i **källa** är **FileSystemSource** och **mottagare** är **BlobSink**. SQL-frågan som angetts för den **fråga** egenskapen väljer vilka data under den senaste timmen att kopiera.
 
 ```JSON
 {
@@ -348,8 +348,8 @@ Pipelinen innehåller en kopia-aktivitet som är konfigurerad för att använda 
 }
 ```
 
-## <a name="use-kerberos-authentication-for-hdfs-connector"></a>Använda Kerberos-autentisering för HDFS-anslutningen
-Det finns två alternativ för att konfigurera den lokala miljön för att använda Kerberos-autentisering i HDFS-koppling. Du kan välja den bättre passar ditt ärende.
+## <a name="use-kerberos-authentication-for-hdfs-connector"></a>Använda Kerberos-autentisering för HDFS-anslutningstjänsten
+Det finns två alternativ för att konfigurera den lokala miljön för att använda Kerberos-autentisering i HDFS-anslutningsappen. Du kan välja som passar bättre ditt ärende.
 * Alternativ 1: [anslutning till gateway-datorn i Kerberos-sfär](#kerberos-join-realm)
 * Alternativ 2: [aktivera ömsesidigt förtroende mellan Windows-domän och Kerberos-sfär](#kerberos-mutual-trust)
 
@@ -357,22 +357,22 @@ Det finns två alternativ för att konfigurera den lokala miljön för att anvä
 
 #### <a name="requirement"></a>Krav:
 
-* Gateway-datorn måste ansluta till Kerberos-sfären och kan inte ansluta till en Windows-domän.
+* Gateway-datorn måste ansluta till Kerberos-sfären och det går inte att ansluta till en Windows-domän.
 
 #### <a name="how-to-configure"></a>Så här konfigurerar du:
 
 **På gateway-datorn:**
 
-1.  Kör den **Ksetup** verktyg för att konfigurera Kerberos KDC-servern och sfären.
+1.  Kör den **Ksetup** verktyg för att konfigurera Kerberos KDC-servern och sfär.
 
-    Datorn måste konfigureras som en medlem i en arbetsgrupp, eftersom en Kerberos-sfär skiljer sig från en Windows-domän. Detta kan uppnås genom att Kerberos-sfären och lägga till en KDC-server på följande sätt. Ersätt *REALM.COM* med din egen respektive sfär efter behov.
+    Datorn måste konfigureras som en medlem i en arbetsgrupp, eftersom en Kerberos-sfär skiljer sig från en Windows-domän. Detta kan uppnås genom att Kerberos-sfären och lägga till en KDC-server på följande sätt. Ersätt *REALM.COM* med din egen respektive sfär vid behov.
 
             C:> Ksetup /setdomain REALM.COM
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
 
-    **Starta om** datorn efter körning kommandona 2.
+    **Starta om** datorn när du kör kommandona 2.
 
-2.  Verifiera konfigurationen med **Ksetup** kommando. Utdata ska vara som:
+2.  Verifiera konfigurationen med **Ksetup** kommando. Resultatet bör se ut som:
 
             C:> Ksetup
             default realm = REALM.COM (external)
@@ -381,22 +381,22 @@ Det finns två alternativ för att konfigurera den lokala miljön för att anvä
 
 **I Azure Data Factory:**
 
-* Konfigurera anslutningen HDFS med **Windows-autentisering** tillsammans med dina Kerberos-huvudnamn och ett lösenord för att ansluta till HDFS-datakälla. Kontrollera [HDFS länkade tjänstegenskaper](#linked-service-properties) avsnittet konfigurationsinformation.
+* Konfigurera HDFS anslutningsapp med **Windows-autentisering** tillsammans med dina Kerberos-huvudnamn och lösenord för att ansluta till HDFS-datakälla. Kontrollera [HDFS länkade tjänstegenskaper](#linked-service-properties) avsnittet på konfigurationsinformation.
 
 ### <a name="kerberos-mutual-trust"></a>Alternativ 2: Aktivera ömsesidigt förtroende mellan Windows-domän och Kerberos-sfär
 
 #### <a name="requirement"></a>Krav:
 *   Gateway-datorn måste ansluta till en Windows-domän.
-*   Du behöver behörighet att uppdatera inställningarna för domänkontrollanten.
+*   Du behöver behörighet att uppdatera inställningarna för den domänkontrollanten.
 
 #### <a name="how-to-configure"></a>Så här konfigurerar du:
 
 > [!NOTE]
-> Ersätt REALM.COM och AD.COM i följande självstudier med respektive sfär och domänkontrollern efter behov.
+> Ersätt REALM.COM och AD.COM i följande självstudie med dina egna respektive sfär och domänkontrollern efter behov.
 
-**På KDC-server:**
+**På KDC-servern:**
 
-1.  Redigera KDC-konfigurationen i **krb5.conf** filen så att KDC litar på Windows-domän som refererar till följande konfigurationsmall. Som standard konfigurationen finns på **/etc/krb5.conf**.
+1.  Redigera KDC-konfigurationen i **krb5.conf** filen så att KDC förtroende för Windows-domänen för följande konfiguration. Som standard konfigurationen finns i **/etc/krb5.conf**.
 
             [logging]
              default = FILE:/var/log/krb5libs.log
@@ -434,11 +434,11 @@ Det finns två alternativ för att konfigurera den lokala miljön för att anvä
 
   **Starta om** KDC-tjänsten efter konfigurationen.
 
-2.  Förbereda en huvudansvarig med namnet **krbtgt/REALM.COM@AD.COM** i KDC-server med följande kommando:
+2.  Förbereda ett huvudnamn med namnet ** krbtgt/REALM.COM@AD.COM ** i KDC-server med följande kommando:
 
             Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
-3.  I **hadoop.security.auth_to_local** HDFS tjänstkonfiguration lägger du till `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
+3.  I **hadoop.security.auth_to_local** HDFS-tjänstkonfigurationen Lägg till `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
 
 **På domänkontrollanten:**
 
@@ -447,50 +447,50 @@ Det finns två alternativ för att konfigurera den lokala miljön för att anvä
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.  Upprätta förtroende från Windows-domän till Kerberos-sfär. [lösenord] är lösenordet för objektet **krbtgt/REALM.COM@AD.COM**.
+2.  Upprätta förtroende från Windows-domän att Kerberos-sfär. [lösenord] är lösenordet för huvudnamn ** krbtgt/REALM.COM@AD.COM **.
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 
-3.  Välj krypteringsalgoritm som används i Kerberos.
+3.  Välj krypteringsalgoritmen som används i Kerberos.
 
-    1. Gå till Serverhanteraren > hantering av Grupprincip > domän > grupprincipobjekt > standard eller aktiva domänprincip och redigera.
+    1. Gå till Server Manager > hantering av Grupprincip > domän > grupprincipobjekt > standard eller aktiva domänprincip och redigera.
 
-    2. I den **Redigeraren för Grupprinciphantering** popup-fönster, gå till Datorkonfiguration > Principer > Windows-inställningar > säkerhetsinställningar > lokala principer > säkerhetsalternativ, och konfigurera **nätverk säkerhet: Konfigurera krypteringstyper som tillåts för Kerberos**.
+    2. I den **Redigeraren för Grupprinciphantering** popup-fönster, går du till Datorkonfiguration > Principer > Windows-inställningar > säkerhetsinställningar > lokala principer > säkerhetsalternativ, och konfigurera **nätverk säkerhet: Konfigurera krypteringstyper som tillåts för Kerberos**.
 
-    3. Välj den krypteringsalgoritm som du vill använda när du ansluter till KDC. Ofta, kan du bara välja alla alternativ.
+    3. Välj den krypteringsalgoritm som du vill använda när du ansluter till KDC. Ofta, kan du helt enkelt välja alla alternativ.
 
-        ![Config krypteringstyper för Kerberos](media/data-factory-hdfs-connector/config-encryption-types-for-kerberos.png)
+        ![Config-krypteringstyperna för Kerberos](media/data-factory-hdfs-connector/config-encryption-types-for-kerberos.png)
 
-    4. Använd **Ksetup** kommando för att ange krypteringsalgoritmen som ska användas på den specifika SFÄREN.
+    4. Använd **Ksetup** kommando för att ange krypteringsalgoritmen som ska användas på specifika området.
 
                 C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
 
-4.  Skapa mappning mellan domänkontot och Kerberos-huvudnamn för att kunna använda Kerberos-huvudnamn i Windows-domän.
+4.  Skapa mappningen mellan domänkontot och Kerberos-huvudnamn för att kunna använda Kerberos-huvudnamn i Windows-domän.
 
     1. Starta administrativa verktyg > **Active Directory-användare och datorer**.
 
     2. Konfigurera avancerade funktioner genom att klicka på **visa** > **avancerade funktioner**.
 
-    3. Leta upp det konto som du vill skapa mappningar och högerklicka om du vill visa **namnmappningar** > klickar du på **Kerberos-namn** fliken.
+    3. Leta upp det konto som du vill skapa mappningar och högerklicka för att visa **namnmappningar** > klickar du på **Kerberos-namn** fliken.
 
-    4. Lägga till en huvudansvarig från domänen.
+    4. Lägg till ett huvudnamn för från området.
 
         ![Mappa säkerhetsidentitet](media/data-factory-hdfs-connector/map-security-identity.png)
 
 **På gateway-datorn:**
 
-* Kör följande **Ksetup** kommandon för att lägga till en domän-post.
+* Kör följande **Ksetup** kommandon för att lägga till en sfär-post.
 
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
 **I Azure Data Factory:**
 
-* Konfigurera anslutningen HDFS med **Windows-autentisering** tillsammans med din domänkonto eller Kerberos-huvudnamn att ansluta till HDFS-datakälla. Kontrollera [HDFS länkade tjänstegenskaper](#linked-service-properties) avsnittet konfigurationsinformation.
+* Konfigurera HDFS anslutningsapp med **Windows-autentisering** tillsammans med dina domänkonto eller Kerberos-huvudnamn att ansluta till HDFS-datakälla. Kontrollera [HDFS länkade tjänstegenskaper](#linked-service-properties) avsnittet på konfigurationsinformation.
 
 > [!NOTE]
-> Om du vill mappa kolumner från källan dataset till kolumner från sink dataset finns [mappa dataset kolumner i Azure Data Factory](data-factory-map-columns.md).
+> Om du vill mappa kolumner från datauppsättningen för källan till kolumner från en datauppsättning för mottagare, se [mappning av kolumner för datauppsättningar i Azure Data Factory](data-factory-map-columns.md).
 
 
-## <a name="performance-and-tuning"></a>Prestanda och finjustering
-Se [kopiera aktivitet prestanda och justera guiden](data-factory-copy-activity-performance.md) vill veta mer om viktiga faktorer som påverkan prestanda för flytt av data (Kopieringsaktiviteten) i Azure Data Factory och olika sätt att optimera den.
+## <a name="performance-and-tuning"></a>Prestanda- och justering
+Se [kopiera aktivitet prestanda- och Justeringsguide](data-factory-copy-activity-performance.md) att lära dig om viktiga faktorer att påverka prestandan för dataförflyttning (Kopieringsaktiviteten) i Azure Data Factory och olika sätt att optimera den.

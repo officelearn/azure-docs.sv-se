@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: f61f0649900c27a6aa3a873f60dc60b4985f5d4f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 55818bf3c6997925fbac32f913d573d630bc20f4
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424195"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004386"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Självstudie: Konfigurera hybrid Azure Active Directory-anslutning för hanterade domäner
 
@@ -49,6 +49,9 @@ Den här självstudien förutsätter att du är bekant med:
 -  [Introduktion till hantering av enheter i Azure Active Directory](../device-management-introduction.md)
     
 -  [Så här planerar du Azure Active Directory Join-hybridimplementeringen](hybrid-azuread-join-plan.md)
+
+-  [Så här kontrollerar du Azure Active Directory Join-hybriden för dina enheter](hybrid-azuread-join-control.md)
+  
 
 Om du vill konfigurera scenariot i den här artikeln, måste den [senaste versionen av Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 eller högre) som ska installeras. 
  
@@ -101,7 +104,7 @@ Om du vill konfigurera en hybrid Azure AD-anslutning med Azure AD Connect, behö
 
     ![Enhetsalternativ](./media/hybrid-azuread-join-managed-domains/15.png)
 
-6. På den **SCP** för varje skog som du vill att Azure AD Connect för SCP: N, utför följande steg och klicka sedan på **nästa**: 
+6. På den **SCP** för varje skog som du vill att Azure AD Connect för att konfigurera SCP: N, utför följande steg och klicka sedan på **nästa**: 
 
     ![Tjänstanslutningspunkt](./media/hybrid-azuread-join-managed-domains/16.png)
 
@@ -156,15 +159,13 @@ Slutförd hybrid Azure AD join för dina äldre Windows-enheter och för att und
 
 - `https://device.login.microsoftonline.com`
 
-- `https://device.login.microsoftonline.com`
-
 - `https://autologon.microsoftazuread-sso.com`.
 
 Dessutom kan du behöva aktivera **tillåta uppdateringar till statusfältet via skript** i användarens lokala intranätzonen.
 
 ## <a name="verify-the-registration"></a>Kontrollera registreringen
 
-Du kan använda för att verifiera enheten registreringstillståndet i din Azure-klient, den **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** cmdlet i den  **[Azure Active Directory PowerShell-modulen](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
+Du kan använda för att verifiera enheten registreringstillståndet i din Azure-klient, den ** [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) ** cmdlet i den ** [Azure Active Directory PowerShell-modulen](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
 
 När du använder den **Get-MSolDevice** cmdlet för att kontrollera service:
 

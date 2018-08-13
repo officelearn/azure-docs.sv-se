@@ -9,19 +9,19 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: fa4005d1f09a2e0abca1e0083603d4335fb023c9
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 37edf60ed0b63b4ff97094a496a08a592cb46fc0
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902929"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715428"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 Den här artikeln beskrivs de olika typerna av utdata som är tillgängliga för Azure Stream Analytics-jobb. Utdata kan du lagra och spara resultatet av Stream Analytics-jobb. Med utdata kan du göra ytterligare affärsanalys och datalager för dina data. 
 
 När du utformar din Stream Analytics-fråga, referera till namnet på den utdata med hjälp av den [INTO-sats](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). Du kan använda ett enda utflöde per jobb eller flera utdata per direktuppspelningsjobbet om du behöver genom att tillhandahålla flera INTO-satser i fråga.
 
-Skapa, redigera och testa Stream Analytics-jobbet matar ut, du kan använda den [Azure-portalen](stream-analytics-quick-create-portal.md#configure-output-to-the-job), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output), och [Visual Studio](stream-analytics-tools-for-visual-studio.md).
+Skapa, redigera och testa Stream Analytics-jobbet matar ut, du kan använda den [Azure-portalen](stream-analytics-quick-create-portal.md#configure-output-to-the-job), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), och [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Vissa typer av stöd för utdata [partitionering](#partitioning), och [utdata batch storlekar](#output-batch-size) variera för att optimera genomflödet.
 
@@ -58,7 +58,7 @@ Azure Data Lake Store-utdata från Stream Analytics är för närvarande inte ti
 ### <a name="renew-data-lake-store-authorization"></a>Förnya auktoriseringen för Data Lake Store
 Du måste autentiseras på nytt Data Lake Store-konto om lösenordet har ändrats sedan jobbet skapades eller senast autentiserade. Om du inte återautentisera jobbet producerar inte utdata resultatet och visar ett felmeddelande om att behovet av omauktorisering i loggarna för åtgärden. För närvarande finns en begränsning där autentiseringstoken behöver uppdateras manuellt efter 90 dagar för alla jobb med Data Lake Store-utdata. 
 
-Förnya auktorisering, **stoppa** jobbet > Gå till ditt Data Lake Store-utdata > klickar du på den **förnya auktoriseringen** länka och under en kort tid en sida kommer att visas som anger **omdirigering till auktorisering...** . Sidan stängs automatiskt och om det lyckas anger **auktoriseringen har förnyats**. Du måste sedan klicka på **spara** längst ned på sidan och kan gå vidare genom att starta om jobbet från den **senast stoppad** att undvika dataförlust.
+Förnya auktorisering, **stoppa** jobbet > Gå till ditt Data Lake Store-utdata > klickar du på den **förnya auktoriseringen** länka och under en kort tid en sida kommer att visas som anger **omdirigering till auktorisering... **. Sidan stängs automatiskt och om det lyckas anger **auktoriseringen har förnyats**. Du måste sedan klicka på **spara** längst ned på sidan och kan gå vidare genom att starta om jobbet från den **senast stoppad** att undvika dataförlust.
 
 ![Auktorisera Data Lake Store](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 

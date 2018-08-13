@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/02/2018
+ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: f0bfc494894a31a1ee61a4f23d702df38b13c4e7
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 856673d2a5465f9646172a1436ed75c0d73692cb
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626506"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003180"
 ---
 # <a name="what-is-baseline-protection-preview"></a>Vad är skydd vid baslinjen (förhandsversion)?  
 
@@ -51,7 +51,7 @@ Användare med åtkomst till behöriga konton har obegränsad åtkomst till din 
 
 ![Azure Active Directory](./media/baseline-protection/01.png)
 
-Den här baslinjeprincip ger dig möjlighet att exkludera användare och grupper. Du kanske vill utesluta ett *[nödfall åtkomst administratörskonto](../users-groups-roles/directory-emergency-access.md)* att se till att du inte har låsts ute från klienten.
+Den här baslinjeprincip ger dig möjlighet att exkludera användare och grupper. Du kanske vill utesluta ett * [nödfall åtkomst administratörskonto](../users-groups-roles/directory-emergency-access.md) * att se till att du inte har låsts ute från klienten.
 
 
 ## <a name="enable-a-baseline-policy"></a>Aktivera en baslinjeprincip 
@@ -95,6 +95,9 @@ Grundläggande principer gäller för äldre autentiseringsflöden som POP, IMAP
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta hur du konfigurerar principer för villkorlig åtkomst finns i [kräver MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](app-based-mfa.md).
+Mer information finns i:
 
-Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö kan du läsa den [bästa praxis för villkorlig åtkomst i Azure Active Directory](best-practices.md). 
+- [Fem steg för att skydda din infrastruktur för Identitetshantering](https://docs.microsoft.com/azure/security/azure-ad-secure-steps)
+
+- [Vad är villkorlig åtkomst i Azure Active Directory?](overview.md) 
+

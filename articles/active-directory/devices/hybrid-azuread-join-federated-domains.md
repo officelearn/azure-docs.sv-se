@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b5cd03098f4b4698c40966ceb79d5263b456a979
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: cc6d08de74097ba7566037664fd33d9be85ac390
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430315"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628996"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Självstudie: Konfigurera hybrid Azure Active Directory-anslutning för federerade domäner
 
@@ -50,6 +50,7 @@ Den här självstudien förutsätter att du är bekant med:
 
 -  [Så här planerar du Azure Active Directory Join-hybridimplementeringen](hybrid-azuread-join-plan.md)
 
+-  [Så här kontrollerar du Azure Active Directory Join-hybriden för dina enheter](hybrid-azuread-join-control.md)
 
 
 Om du vill konfigurera scenariot i den här självstudien behöver du:
@@ -149,12 +150,12 @@ Om du vill konfigurera en hybrid Azure AD-anslutning med Azure AD Connect, behö
 
 Om några av dina domänanslutna enheter är Windows äldre enheter, måste du:
 
-- Uppdatera enhetsinställningarna
+- Uppdatera enhetsinställninga
  
 - Konfigurera inställningar för lokalt intranät för registrering av enheten
 
 
-### <a name="update-device-settings"></a>Uppdatera enhetsinställningarna 
+### <a name="update-device-settings"></a>Uppdatera enhetsinställninga 
 
 Om du vill registrera Windows äldre enheter, måste du se till att enhetsinställningarna så att användarna kan registrera enheter i Azure AD är inställda. Du kan hitta den här inställningen under Azure-portalen:
 
@@ -185,7 +186,7 @@ Dessutom kan du behöva aktivera **tillåta uppdateringar till statusfältet via
 
 ## <a name="verify-the-registration"></a>Kontrollera registreringen
 
-Du kan använda för att verifiera enheten registreringstillståndet i din Azure-klient, den **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** cmdlet i den  **[Azure Active Directory PowerShell-modulen](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
+Du kan använda för att verifiera enheten registreringstillståndet i din Azure-klient, den ** [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) ** cmdlet i den ** [Azure Active Directory PowerShell-modulen](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
 
 När du använder den **Get-MSolDevice** cmdlet för att kontrollera service:
 

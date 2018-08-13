@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
-ms.openlocfilehash: 990fe50cefabed7b63eee177b19ec6d74c9929ab
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: eb2b26333647d464a3a18cd07bf1576251fb3830
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494529"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715411"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure Virtual Machines-distribution för SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -177,7 +177,7 @@ ms.locfileid: "39494529"
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 
-[msdn-set-azurermvmaemextension]:https://msdn.microsoft.com/library/azure/mt670598.aspx
+[msdn-set-azurermvmaemextension]:https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmaemextension
 
 [planning-guide]:planning-guide.md (Azure virtuella datorer, planering och implementering av SAP)
 [planning-guide-1.2]:planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff (Resurser)
@@ -835,7 +835,7 @@ Vilka steg du utför för att konfigurera proxyn i Windows skiljer sig från hur
 Proxyinställningar måste ställas in korrekt för det lokala systemkontot för åtkomst till Internet. Om proxyinställningarna inte har angetts av en Grupprincip kan du konfigurera inställningarna för det lokala systemkontot.
 
 1. Gå till **starta**, ange **gpedit.msc**, och välj sedan **RETUR**.
-1. Välj **Datorkonfiguration** > **Administrationsmallar** > **Windows-komponenter**  >   **Internet Explorer**. Se till att inställningen **Kontrollera proxy inställningar per dator (snarare än per användare)** är inaktiverad eller inte konfigurerad.
+1. Välj **Datorkonfiguration** > **Administrationsmallar** > **Windows-komponenter**  >  ** Internet Explorer**. Se till att inställningen **Kontrollera proxy inställningar per dator (snarare än per användare)** är inaktiverad eller inte konfigurerad.
 1. I **Kontrollpanelen**går du till **nätverks- och delningscenter** > **Internetalternativ**.
 1. På den **anslutningar** fliken den **LAN-inställningar** knappen.
 1. Rensa den **automatisk identifiering av inställningar** markerar du kryssrutan.

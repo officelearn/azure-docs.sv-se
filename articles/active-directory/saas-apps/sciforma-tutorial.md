@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jeedes
-ms.openlocfilehash: e0c570ea5f77e74448116c453c316a965ac18197
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4dc7c9c9c702db7c0a10b89d33169a97541f3b30
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448520"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716448"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciforma"></a>Självstudier: Azure Active Directory-integration med Sciforma
 
@@ -59,7 +59,7 @@ För att konfigurera integrering av Sciforma i Azure AD, som du behöver lägga 
 
 **Utför följande steg för att lägga till Sciforma från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den ** [Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
@@ -88,11 +88,11 @@ I Sciforma, tilldela värdet för den **användarnamn** i Azure AD som värde f�
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Sciforma, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare Sciforma](#creating-a-sciforma-test-user)**  – du har en motsvarighet för Britta Simon i Sciforma som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on) ** – om du vill ge användarna använda den här funktionen.
+1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user) ** – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare Sciforma](#creating-a-sciforma-test-user) ** – du har en motsvarighet för Britta Simon i Sciforma som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user) ** – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#testing-single-sign-on) ** – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -117,7 +117,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.sciforma.net/sciforma/saml`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [Sciforma klienten supportteamet](http://www.sciforma.com/company/contact_us) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [Sciforma klienten supportteamet](https://www.sciforma.com/about/contact) att hämta dessa värden. 
  
 
 
@@ -129,10 +129,10 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/sciforma-tutorial/tutorial_general_400.png)
 
-1. Att konfigurera enkel inloggning på **Sciforma** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Sciforma supportteamet](http://www.sciforma.com/company/contact_us).
+1. Att konfigurera enkel inloggning på **Sciforma** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Sciforma supportteamet](https://www.sciforma.com/about/contact).
 
 > [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den ** Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning

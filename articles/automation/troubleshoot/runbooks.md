@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 48b2aab9d2a3937fb53a2e63efa26efc18a894f8
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 53b35fbdc469639b1fdc09293e05247bcc5d8c31
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413866"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714493"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med runbooks
 
@@ -38,18 +38,42 @@ Det här felet uppstår om Tillgångsnamn autentiseringsuppgifter inte är gilti
 
 För att avgöra vad som är fel, gör du följande:  
 
-1. Se till att det inte finns några specialtecken, inklusive den **@** tecknet i Automation namn på autentiseringsuppgift tillgång som du använder för att ansluta till Azure.  
+1. Se till att det inte finns några specialtecken, inklusive den ** @ ** tecknet i Automation namn på autentiseringsuppgift tillgång som du använder för att ansluta till Azure.  
 2. Kontrollera att du kan använda användarnamn och lösenord som lagras i Azure Automation-autentiseringsuppgift i din lokala PowerShell ISE-redigerare. Du kan göra detta genom att köra följande cmdlets i PowerShell ISE:  
 
    ```powershell
    $Cred = Get-Credential  
-   #Using Azure Service Management   
+   #Using Azure Service Management
    Add-AzureAccount –Credential $Cred  
    #Using Azure Resource Manager  
    Connect-AzureRmAccount –Credential $Cred
    ```
 
 3. Om autentiseringen misslyckas lokalt, innebär det att du inte har konfigurerat dina autentiseringsuppgifter för Azure Active Directory korrekt. Referera till [autentisering i Azure med Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blogginlägg för att skaffa Azure Active Directory-konto som har ställts in korrekt.  
+
+4. Om det verkar vara ett tillfälligt fel, försök att lägga till logik för omprövning i en autentisering vana att göra autentisering mer robust.
+
+   ```powershell
+   # Get the connection "AzureRunAsConnection"
+   $connectionName = "AzureRunAsConnection"
+   $servicePrincipalConnection = Get-AutomationConnection -Name $connectionName
+
+   $logonAttempt = 0
+   $logonResult = $False
+
+   while(!($connectionResult) -And ($logonAttempt -le 10))
+   {
+   $LogonAttempt++
+   # Logging in to Azure...
+   $connectionResult = Connect-AzureRmAccount `
+      -ServicePrincipal `
+      -TenantId $servicePrincipalConnection.TenantId `
+      -ApplicationId $servicePrincipalConnection.ApplicationId `
+      -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint
+
+   Start-Sleep -Seconds 30
+   }
+   ```
 
 ### <a name="unable-to-find-subscription"></a>Scenario: Det gick inte att hitta Azure-prenumeration
 
@@ -285,7 +309,7 @@ Några vanliga orsaker som en modul inte kan importera till Azure Automation är
 
 Någon av följande lösningar problemet på:
 
-* Kontrollera att modulen följer följande format: ModuleName.Zip **->** ModuleName eller versionsnummer **->** (ModuleName.psm1, ModuleName.psd1)
+* Kontrollera att modulen följer följande format: ModuleName.Zip ** -> ** ModuleName eller versionsnummer ** -> ** (ModuleName.psm1, ModuleName.psd1)
 * Öppna filen .psd1 och om modulen har några beroenden. I annat fall kan du ladda upp dessa moduler till Automation-kontot.
 * Se till att alla refererade DLL-filer finns i modulmappen.
 

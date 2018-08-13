@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: b0e078e3e7f18e3370ff1bcd90935e7fece265f0
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 1a4b970b07514619b2d81a0483546ac64d07927f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391188"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005483"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Utvecklarguide för Azure Functions JavaScript
 
@@ -94,7 +94,9 @@ context.bindings.myOutput = {
 context.done([err],[propertyBag])
 ```
 
-Informerar den runtime som koden har slutförts. Du måste anropa `context.done`, eller annan körningen aldrig känner att funktionen har slutförts och körningen når tidsgränsen. 
+Informerar den runtime som koden har slutförts. Om din funktion använder den `async function` deklarationen (tillgängligt med hjälp av Node 8 + i Functions version 2.x), du behöver inte använda `context.done()`. Den `context.done` anropas implicit återanrop.
+
+Om funktionen inte är en async-funktion, **måste du anropa `context.done` ** att informera körningen att funktionen har slutförts. Körningen når tidsgränsen om den saknas.
 
 Den `context.done` metoden kan du ange både en användardefinierad fel att körningen och en egenskapsuppsättning av egenskaperna som skriver över egenskaperna på den `context.bindings` objekt.
 

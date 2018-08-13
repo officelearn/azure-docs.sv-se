@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: junhan
-ms.openlocfilehash: 71b188443ee48d742b14753cd5526edac493d9e3
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: af31f9375d6a41e13a9122e9730ba9532d3d52c5
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369137"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003077"
 ---
 # <a name="create-an-iot-hub-using-the-azure-iot-toolkit-for-visual-studio-code"></a>Skapa en IoT hub med Azure IoT Toolkit för Visual Studio Code
 
@@ -34,7 +34,7 @@ För att slutföra den här artikeln behöver du följande:
 
    ![Expandera Azure IoT Hub-enheter](./media/iot-hub-create-use-iot-toolkit/azure-iot-hub-devices.png)
 
-3. Klicka på den **...**  i den **Azure IoT Hub-enheter** avsnittsrubrik. Om du inte ser de tre punkterna, hovrar du över rubriken. 
+3. Klicka på den **... ** i den **Azure IoT Hub-enheter** avsnittsrubrik. Om du inte ser de tre punkterna, hovrar du över rubriken. 
 
 4. Välj **skapa IoT-hubb**.
 
@@ -57,4 +57,5 @@ För att slutföra den här artikeln behöver du följande:
 Nu du har distribuerat en IoT hub med Azure IoT Toolkit för Visual Studio Code, kanske du vill utforska ytterligare:
 
 * [Använd Azure IoT Toolkit-tillägget för Visual Studio Code för att skicka och ta emot meddelanden mellan enheten och IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+* [Använd Azure IoT Toolkit-tillägget för Visual Studio Code för Azure IoT Hub-enhetshantering](iot-hub-device-management-iot-toolkit.md)
 * [Wiki-sida](https://github.com/microsoft/vscode-azure-iot-toolkit/wiki) för Azure IoT Toolkit.

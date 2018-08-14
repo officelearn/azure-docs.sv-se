@@ -7,15 +7,15 @@ manager: carmonm
 keywords: säkerhetskopiering och återställning, återställningstjänster, lösningar för säkerhetskopiering
 ms.service: backup
 ms.topic: overview
-ms.date: 3/1/2018
+ms.date: 8/2/2018
 ms.author: markgal
 ms.custom: mvc
-ms.openlocfilehash: bbcb05fcc17b958711b704c75a53cf4af4d41bd0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0a5b9e6cdb5329705cb3c6d4676dfc8d987119e4
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607107"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480981"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Översikt över funktionerna i Azure Backup
 Azure Backup är en Azure-baserad tjänst som du använder för att säkerhetskopiera (eller skydda) och återställa data i Microsoft-molnet. Azure Backup ersätter din befintliga lokala eller externa säkerhetskopieringslösning med en tillförlitlig och säker molnbaserad lösning med ett konkurrenskraftigt pris. Azure Backup erbjuder flera komponenter som du kan ladda ned och distribuera på den aktuella datorn, servern eller i molnet. Komponenten eller agenten som du distribuerar beror på vad du vill skydda. Alla Azure Backup-komponenter (oavsett om du skyddar data lokalt eller i molnet) kan användas för att säkerhetskopiera data till ett Recovery Services-valv i Azure. I [tabellen med Azure Backup-komponenter](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (längre ned i den här artikeln) finns information om vilken komponent du ska använda för att skydda specifika data, program eller arbetsbelastningar.
@@ -157,8 +157,8 @@ Med **fullständig säkerhetskopiering** innehåller varje säkerhetskopia hela 
 ### <a name="security"></a>Säkerhet
 | Funktion | Azure Backup-agent | System Center DPM | Azure Backup Server | Säkerhetskopiering av virtuella IaaS-datorer i Azure |
 | --- | --- | --- | --- | --- |
-| Nätverkssäkerhet<br/> (för Azure) |![Ja][green] |![Ja][green] |![Ja][green] |![Delvis][yellow] |
-| Datasäkerhet<br/> (i Azure) |![Ja][green] |![Ja][green] |![Ja][green] |![Delvis][yellow] |
+| Nätverkssäkerhet<br/> (för Azure) |![Ja][green] |![Ja][green] |![Ja][green] |![Ja][green] |
+| Datasäkerhet<br/> (i Azure) |![Ja][green] |![Ja][green] |![Ja][green] |![Ja][green] |
 
 ![tabellförklaring](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -171,7 +171,7 @@ All säkerhetskopieringstrafik från dina servrar till Recovery Services-valvet 
 >
 
 #### <a name="data-security"></a>Datasäkerhet
-Säkerhetskopieringen av virtuella datorer i Azure kräver krypteringsinställningar *på* den virtuella datorn. Använd BitLocker på virtuella Windows-datorer och **dm crypt** på virtuella Linux-datorer. Azure Backup krypterar inte automatiskt säkerhetskopieringsdata som finns på den här sökvägen.
+Säkerhetskopieringen av virtuella datorer i Azure kräver krypteringsinställningar *på* den virtuella datorn. Azure Backup stöder Azure Disk Encryption, som använder BitLocker på virtuella Windows-datorer och **dm-crypt** på virtuella Linux-datorer. På serverdelen använder Azure Backup [Azure Storage Service-kryptering](../storage/common/storage-service-encryption.md), som skyddar vilande data.
 
 ### <a name="network"></a>Nätverk
 | Funktion | Azure Backup-agent | System Center DPM | Azure Backup Server | Säkerhetskopiering av virtuella IaaS-datorer i Azure |
@@ -206,7 +206,7 @@ Azure Backup har en gräns på 9 999 återställningspunkter (även kallade s�
 
 ## <a name="what-is-a-protected-instance"></a>Vad är en skyddad instans?
 En skyddad instans är en generisk referens till en Windows-dator, en server (fysisk eller virtuell) eller en SQL-databas som har konfigurerats för att säkerhetskopiera till Azure. En instans är skyddad när du har konfigurerat en säkerhetskopieringsprincip för datorn, servern eller databasen och skapar en säkerhetskopia av data. Efterföljande kopior av säkerhetskopierade data för den skyddade instansen (kallade återställningspunkter) ökar mängden lagringsutrymme som förbrukas. Du kan skapa upp till 9 999 återställningspunkter för en skyddad instans. Om du tar bort en återställningspunkt från lagring räknas den inte mot det sammanlagda antalet på 9 999 återställningspunkter.
-Några vanliga exempel på skyddade instanser är virtuella datorer, programservrar, databaser och personliga datorer som kör Windows-operativsystemet. Till exempel:
+Några vanliga exempel på skyddade instanser är virtuella datorer, programservrar, databaser och personliga datorer som kör Windows-operativsystemet. Exempel:
 
 * En virtuell dator som kör Hyper-V- eller Azure IaaS-hypervisorinfrastrukturen. Gästoperativsystemen för den virtuella datorn kan vara Windows Server eller Linux.
 * En programserver: Programservern kan vara en fysisk eller virtuell dator som kör Windows Server och arbetsbelastningar med data som behöver säkerhetskopieras. Vanliga arbetsbelastningar är Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server och filserverrollen i Windows Server. Om du vill säkerhetskopiera dessa arbetsbelastningar behöver du System Center Data Protection Manager (DPM) eller Azure Backup Server.

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: be11ea2195705b344638b93ea2657481897d6ef7
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 84696b4135570168f8093b15f9a2deb4790eeebe
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358954"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480891"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal
 
@@ -166,7 +166,7 @@ Använd informationen i följande tabell och konfigurera **inställningarna** f�
    |Resursgrupp     |**Använd befintlig**: Test-FW-RG |
    |Plats     |Välj samma plats som tidigare|
    |Välj ett virtuellt nätverk     |**Använd befintligt**: Test-FW-VN|
-   |Offentlig IP-adress     |Skapa ny|
+   |Offentlig IP-adress     |**Skapa ny**. Den offentliga IP-adressen måste vara Standard SKU-typen.|
 
 2. Klicka på **Granska + skapa**.
 3. Granska sammanfattningen och klicka sedan på **Skapa** för att skapa brandväggen.
@@ -175,12 +175,8 @@ Använd informationen i följande tabell och konfigurera **inställningarna** f�
 4. När distributionen är färdig öppnar du resursgruppen **Test-FW-RG** och klickar på brandväggen **Test FW01**.
 6. Skriv ned den privata IP-adressen. Du kommer att använda den senare när du skapar standardvägen.
 
-> [!NOTE]
-> Den offentliga IP-adressen måste vara Standard SKU-typen.
 
-[//]: # (Kom ihåg att skriva ned brandväggens privata IP-adress.)
-
-## <a name="create-a-default-route"></a>skapa en standardväg
+## <a name="create-a-default-route"></a>Skapa en standardväg
 
 För undernätet **Workload-SN** ställer du in att den utgående standardvägen ska gå via brandväggen.
 
@@ -279,7 +275,7 @@ Nu har du verifierat att brandväggsreglerna fungerar:
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du inte behöver den längre tar du bort resursgruppen **Test-FW-RG** så att du tar bort alla brandväggsrelaterade resurser.
+Du kan behålla dina brandväggsresurser för nästa självstudie eller, om de inte längre behövs, så tar du bort resursgruppen **Test-FW-RG** för att ta bort alla brandväggsrelaterade resurser.
 
 
 ## <a name="next-steps"></a>Nästa steg

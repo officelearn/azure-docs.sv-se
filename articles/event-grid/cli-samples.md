@@ -8,14 +8,14 @@ ms.service: event-grid
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
-ms.date: 04/05/2018
+ms.date: 08/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 82baa50d9610e49075a8fdcdec6391c38c2edc49
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 059dc81fd5b8ef2573a228dafc0bab30d0e2037b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31426019"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526046"
 ---
 # <a name="azure-cli-samples-for-event-grid"></a>Azure CLI-exempel för Event Grid
 
@@ -28,6 +28,7 @@ Följande tabell innehåller länkar till Azure CLI-exempel för Event Grid.
 | [Prenumerera på Blob Storage](scripts/event-grid-cli-blob.md)| Prenumerera på händelser för ett Blob Storage-konto. |
 | [Prenumerera på anpassat ämne](scripts/event-grid-cli-subscribe-custom-topic.md)| Prenumererar på händelser för ett anpassat ämne. |
 | [Prenumerera på en resursgrupp](scripts/event-grid-cli-resource-group.md)| Prenumererar på händelser för en resursgrupp. |
+| [Prenumerera på resursgrupp och filter för en resurs](scripts/event-grid-cli-resource-group-filter.md)| Prenumererar på händelser för en resursgrupp och filterhändelser för en resurs. |
 |**Event Grid-ämnen**||
-| [Skapa anpassat ämne](scripts/event-grid-cli-create-custom-topic.md) | Skapar en hanterad disk från en specialiserad virtuell hårddisk (VHD) som en OS-disk eller från en data-VHD som datadisk.  |
+| [Skapa anpassat ämne](scripts/event-grid-cli-create-custom-topic.md) | Skapar ett anpassat Event Grid-ämne och returnerar slutpunkten och nyckeln.  |
 | | |

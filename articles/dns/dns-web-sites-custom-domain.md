@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 7/20/2018
 ms.author: victorh
-ms.openlocfilehash: 9ebbc955bcb426738db598491266c2a1bcb9dd33
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: b39c2c672869bb446e58134a85130d10491fe047
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39204950"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621121"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Självstudie: Skapa DNS-poster i en anpassad domän för en webbapp 
 
@@ -56,7 +56,7 @@ När du har skapat en zon och delegerat den till Azure DNS kan du sedan skapa po
 
 ## <a name="create-an-a-record-and-txt-record"></a>Skapa en A-post och en TXT-post
 
-En A-post används för att mappa ett namn till dess IP-adress. I följande exempel tilldelar du ”@” som en A-post med hjälp ad webbappens IPv4-adress. @ representerar vanligtvis rotdomänen.
+En A-post används för att mappa ett namn till dess IP-adress. I följande exempel tilldelar du ”\@” som en A-post med hjälp ad webbappens IPv4-adress. \@ representerar vanligtvis rotdomänen.
 
 ### <a name="get-the-ipv4-address"></a>Hämta IPv4-adressen
 

@@ -8,15 +8,15 @@ author: ghogen
 ms.author: ghogen
 ms.date: 07/09/2018
 ms.topic: tutorial
-description: Snabb Kubernetes-utveckling med behållare och mikrotjänster i Azure
+description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 76efbbb000635589af8e060bd30d62d021cee89c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: bf9b0262e52c4f956082b00faae1b6bb1c31d8d9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38623489"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526257"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Komma igång med Azure Dev Spaces med Node.js
 
@@ -29,7 +29,9 @@ Nu är du redo att skapa en Kubernetes-baserad utvecklingsmiljö i Azure.
 [!INCLUDE[](includes/portal-aks-cluster.md)]
 
 ## <a name="install-the-azure-cli"></a>Installera Azure CLI
-Azure Dev Spaces kräver minimal konfiguration av den lokala datorn. Merparten av utvecklingsmiljöns konfiguration lagras i molnet och kan delas med andra användare. Börja genom att ladda ned och köra [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Azure Dev Spaces kräver minimal konfiguration av den lokala datorn. Merparten av utvecklarmiljöns konfiguration lagras i molnet och kan delas med andra användare. Den lokala datorn kan köra Windows, Mac eller Linux. För Linux stöds följande distributioner: Ubuntu (18.04, 16.04 och 14.04), Debian 8 och 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2 samt SLES 12.
+
+Börja genom att ladda ned och köra [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
 > [!IMPORTANT]
 > Om du redan har installerat Azure CLI kontrollerar du att du använder version 2.0.38 eller senare.
@@ -42,9 +44,9 @@ Azure Dev Spaces kräver minimal konfiguration av den lokala datorn. Merparten a
 
 Du kan börja skriva kod medan du väntar på att klustret skapas.
 
-## <a name="create-a-nodejs-container-in-kubernetes"></a>Skapa en Node.js-behållare i Kubernetes
+## <a name="create-a-nodejs-container-in-kubernetes"></a>Skapa en Node.js-container i Kubernetes
 
-I det här avsnittet ska du skapa en Node.js-webbapp och köra den i en behållare i Kubernetes.
+I det här avsnittet ska du skapa en Node.js-webbapp och köra den i en container i Kubernetes.
 
 ### <a name="create-a-nodejs-web-app"></a>Skapa en Node.js-webbapp
 Ladda ned koden från GitHub genom att gå till https://github.com/Azure/dev-spaces och välja **Klona eller Ladda ned** för att ladda ned GitHub-databasen till den lokala miljön. Koden för den här guiden finns i `samples/nodejs/getting-started/webfrontend`.
@@ -62,10 +64,10 @@ Azure Dev Spaces handlar om mer än att bara få kod att köra i Kubernetes – 
     <body style="background-color: #95B9C7; margin-left:10px; margin-right:10px;">
     ```
 
-2. Spara filen. Efter en liten stund visas ett meddelande i terminalfönstret som meddelar att en fil i den aktiva behållaren har uppdaterats.
+2. Spara filen. Efter en liten stund visas ett meddelande i terminalfönstret som meddelar att en fil i den aktiva containern har uppdaterats.
 1. Gå till webbläsaren och uppdatera sidan. Nu bör du se färguppdateringen som du gjorde.
 
-Vad hände? Ändringar av innehållsfiler som HTML och CSS kräver inte att Node.js-processen startas om. Ett aktivt `azds up`-kommando synkroniserar i stället automatiskt modifierade innehållsfiler direkt i den aktiva behållaren i Azure, så att du snabbt ser dina innehållsändringar.
+Vad hände? Ändringar av innehållsfiler som HTML och CSS kräver inte att Node.js-processen startas om. Ett aktivt `azds up`-kommando synkroniserar i stället automatiskt modifierade innehållsfiler direkt i den aktiva containern i Azure, så att du snabbt ser dina innehållsändringar.
 
 ### <a name="test-from-a-mobile-device"></a>Testa från en mobil enhet
 Öppna webbappen på en mobil enhet med hjälp av den offentliga URL:en för webfrontend. Du vill kanske kopiera och skicka URL: en från skrivbordet till din enhet för att inte behöva ange den långa adressen. När webbappen läsas in på den mobila enheten ser du att användargränssnittet inte visas korrekt på en liten enhet.
@@ -99,11 +101,11 @@ Uppdateringar av kodfiler på serversidan kräver lite mer arbete eftersom en No
 3. Spara filen.
 1. Kör `azds up` i terminalfönstret. 
 
-När du gör det återskapas behållaravbildningen och Helm-diagrammet distribueras på nytt. Bekräfta att kodändringarna har tillämpats genom att läsa in sidan i webbläsaren igen.
+När du gör det återskapas containeravbildningen och Helm-diagrammet distribueras på nytt. Bekräfta att kodändringarna har tillämpats genom att läsa in sidan i webbläsaren igen.
 
 Det finns dock en ännu *snabbare kodutvecklingsmetod*, som vi ska titta närmare på i nästa avsnitt. 
 
-## <a name="debug-a-container-in-kubernetes"></a>Felsöka en behållare i Kubernetes
+## <a name="debug-a-container-in-kubernetes"></a>Felsöka en container i Kubernetes
 
 [!INCLUDE[](includes/debug-intro.md)]
 
@@ -118,10 +120,10 @@ Det finns dock en ännu *snabbare kodutvecklingsmetod*, som vi ska titta närmar
 > [!Note]
 > Om du inte ser några Azure Dev Spaces-kommandon på kommandopaletten kontrollerar du att du har [installerat VS Code-tillägget för Azure Dev Spaces](get-started-nodejs.md#get-kubernetes-debugging-for-vs-code).
 
-### <a name="debug-the-container-in-kubernetes"></a>Felsöka behållaren i Kubernetes
+### <a name="debug-the-container-in-kubernetes"></a>Felsöka containern i Kubernetes
 Tryck på **F5** för att felsöka koden i Kubernetes.
 
-På liknande sätt som med `up`-kommandot synkroniseras koden med utvecklingsmiljön när du startar felsökningen, och en behållare skapas och distribueras till Kubernetes. Den här gången är felsökaren kopplad till fjärrbehållaren.
+På liknande sätt som med `up`-kommandot synkroniseras koden med utvecklingsmiljön när du startar felsökningen, och en container skapas och distribueras till Kubernetes. Den här gången är felsökaren kopplad till fjärrcontainern.
 
 [!INCLUDE[](includes/tip-vscode-status-bar-url.md)]
 
@@ -142,7 +144,7 @@ Spara filen och klicka på knappen **Uppdatera** i **fönstret Felsökningsåtg�
 
 ![](media/get-started-node/debug-action-refresh-nodejs.png)
 
-I stället för att skapa och distribuera om en ny behållaravbildning varje gång koden ändras, vilket ofta tar lång tid, startar Azure Dev Spaces om Node.js-processen mellan felsökningssessioner för att snabba upp redigerings- och felsökningsförloppet.
+I stället för att skapa och distribuera om en ny containeravbildning varje gång koden ändras, vilket ofta tar lång tid, startar Azure Dev Spaces om Node.js-processen mellan felsökningssessioner för att snabba upp redigerings- och felsökningsförloppet.
 
 Uppdatera webbappen i webbläsaren eller tryck på knappen *Say It Again* (Säg det igen). Nu bör ditt anpassade meddelande visas i användargränssnittet.
 
@@ -157,11 +159,11 @@ Prova följande steg:
 1. Välj **Attach (AZDS)** (Koppla (AZDS)) som aktiv felsökningskonfiguration.
 1. Tryck på F5.
 
-I den här konfigurationen konfigureras behållaren att starta *nodemon*. När kodredigeringar görs på servern startar *nodemon* automatiskt om Node-processen, precis som när du utvecklar lokalt. 
+I den här konfigurationen konfigureras containern att starta *nodemon*. När kodredigeringar görs på servern startar *nodemon* automatiskt om Node-processen, precis som när du utvecklar lokalt. 
 1. Redigera hello-meddelande igen i `server.js` och spara filen.
 1. Bekräfta att ändringarna har tillämpats genom att uppdatera webbläsaren eller genom att klicka på knappen *Say It Again* (Säg det igen).
 
-**Nu vet du hur du snabbt kan arbeta med kod och felsöka direkt i Kubernetes!** Nu ska vi gå vidare och se hur du kan skapa och anropa en andra behållare.
+**Nu vet du hur du snabbt kan arbeta med kod och felsöka direkt i Kubernetes!** Nu ska vi gå vidare och se hur du kan skapa och anropa en andra container.
 
 ## <a name="next-steps"></a>Nästa steg
 

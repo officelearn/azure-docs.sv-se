@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: sample
 ms.date: 05/23/2017
 ms.author: moderakh
-ms.openlocfilehash: a4bda45f9a620d70c78b7b4142cd5f152bd5436d
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 8ee5add72845a0540c05bb8353f8d7d4a40cac71
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960397"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600588"
 ---
 # <a name="azure-cosmos-db-nodejs-examples"></a>Azure Cosmos DB Node.js-exempel
 > [!div class="op_single_selector"]
@@ -25,6 +25,7 @@ ms.locfileid: "36960397"
 > * [Java-exempel](sql-api-java-samples.md)
 > * [Async Java-exempel](sql-api-async-java-samples.md)
 > * [Node.js-exempel](sql-api-nodejs-samples.md)
+> * [Node.js-exempel – v2.0-förhandsversion](sql-api-nodejs-samples-preview.md)
 > * [Python-exempel](sql-api-python-samples.md)
 > * [Azure-kodexempelgalleri](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 

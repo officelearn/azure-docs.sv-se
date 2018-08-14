@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8ee43a1e3b448faae79a7e3086e2e1d639c341f2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: dfbe931bbe5887e9c0545558c4d2b2565718dd0a
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611935"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578498"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Snabbstart: Distribuera din första IoT Edge-modul till en Linux x64-enhet
 
@@ -84,9 +84,9 @@ Stegen i det här avsnittet gäller enheter som kör **Ubuntu 16.04**. För att 
    sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
    ```
 
-### <a name="install-a-container-runtime"></a>Installera en körmiljö för behållare
+### <a name="install-a-container-runtime"></a>Installera en körmiljö för containrar
 
-IoT Edge-körning är en uppsättning behållare, och den logik som du distribuerar till IoT Edge-enheten är paketerad som behållare. Förbered din enhet för dessa komponenter genom att installera en körmiljö för behållare.
+IoT Edge-körning är en uppsättning containrar, och den logik som du distribuerar till IoT Edge-enheten är paketerad som containrar. Förbered din enhet för dessa komponenter genom att installera en körmiljö för containrar.
 
 Uppdatera **apt-get**.
 
@@ -192,7 +192,7 @@ Efter en utloggning och inloggning krävs inte *sudo* för kommandot ovan.
 
 Temperatursensormodulen kanske väntar på att ansluta till Edge Hub om den sista raden i loggen är `Using transport Mqtt_Tcp_Only`. Avbryt modulen och låt Edge-agenten starta om den. Du kan avsluta den med kommandot `sudo docker stop tempSensor`.
 
-Du kan visa telemetri som enheten skickar med hjälp av [verktyget IoT Hub Explorer][lnk-iothub-explorer] eller [Azure IoT Toolkit-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+Du kan visa telemetri som enheten skickar med hjälp av [Azure IoT Toolkit-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -233,7 +233,7 @@ Ta bort de containrar som skapades på enheten av IoT Edge-körningen. Ändra na
    sudo docker rm -f edgeAgent
    ```
 
-Ta bort körmiljön för behållaren.
+Ta bort körmiljön för containern.
 
    ```bash
    sudo apt-get remove --purge moby
@@ -263,4 +263,3 @@ Den här snabbstarten är en förutsättning för alla andra IoT Edge-självstud
 <!-- Links -->
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer

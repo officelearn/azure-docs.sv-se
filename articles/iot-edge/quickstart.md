@@ -4,17 +4,17 @@ description: Testa Azure IoT Edge genom att köra analys på en simulerad Edge-e
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/24/2018
+ms.date: 08/02/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1437c3552a7af5d5474cf3bdaabe95d5415af603
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 3b54a326fc648a443897a6e39c823d9c097cf1d3
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414219"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626390"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Snabbstart: Distribuera din första IoT Edge-modul från Azure Portal till en Windows.enhet – förhandsgranskning
 
@@ -56,18 +56,17 @@ Molnresurser:
    az group create --name IoTEdgeResources --location westus
    ```
 
-En Windows-dator eller virtuell dator som fungerar som din IoT Edge-enhet: 
+IoT Edge-enhet: 
 
-* Använd en version av Windows som stöds:
+* En Windows-dator eller en virtuell dator som fungerar som din IoT Edge-enhet. Använd en version av Windows som stöds:
    * Windows 10 eller senare
    * Windows Server 2016 eller senare
 * Om det är en virtuell dator aktiverar du [kapslad virtualisering][lnk-nested] och allokerar minst 2 GB minne. 
 * Installera [Docker för Windows][lnk-docker] och kontrollera att den körs.
-* Konfigurera Docker för att använda [Linux-containrar](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
-Starta snabbstarten genom att skapa din IoT Hub med Azure CLI. 
+Starta snabbstarten genom att skapa din IoT-hubb med Azure CLI. 
 
 ![Skapa IoT Hub][3]
 
@@ -86,7 +85,9 @@ Följande kod skapar en kostnadsfri **F1**-hubb i resursgruppen **IoTEdgeResourc
 Registrera en IoT Edge-enhet med den IoT Hub som du nyss skapade.
 ![Registrera en enhet][4]
 
-Skapa en enhetsidentitet för den simulerade enheten så att den kan kommunicera med din IoT Hub. Eftersom IoT Edge-enheterna fungerar och kan hanteras annorlunda än vanliga IoT-enheter, kan du ange att detta ska vara en IoT Edge-enhet från början. 
+Skapa en enhetsidentitet för den simulerade enheten så att den kan kommunicera med din IoT Hub. Enhetsidentiteten finns i molnet, och du använder en unik enhetsanslutningssträng för att associera en fysisk enhet med en enhetsidentitet. 
+
+Eftersom IoT Edge-enheter fungerar och kan hanteras på annat sätt än typiska IoT-enheter, kan du ange denna som en IoT Edge-enhet från början. 
 
 1. Ange följande kommando i Azure Cloud Shell för att skapa en enhet med namnet **myEdgeDevice** i din hubb.
 
@@ -104,129 +105,31 @@ Skapa en enhetsidentitet för den simulerade enheten så att den kan kommunicera
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>Installera och starta IoT Edge-körningen
 
-Installera och starta Azure IoT Edge-körningen på din IoT Edge-enhet. 
+Installera Azure IoT Edge-körningen på IoT Edge-enheten och konfigurera den med en enhetsanslutningssträng. 
 ![Registrera en enhet][5]
 
 IoT Edge-körningen distribueras på alla IoT Edge-enheter. Den har tre komponenter. **IoT Edge säkerhetsdaemon** startas varje gång en Edge-enhet startar. Enheten startas genom att IoT Edge-agenten startas. **IoT Edge-agenten** underlättar distribution och övervakning av moduler på IoT Edge-enheten, inklusive IoT Edge-hubb. **IoT Edge-hubben** hanterar kommunikationen mellan moduler på IoT Edge-enheten, samt mellan enheten och IoT Hub. 
 
->[!NOTE]
->Installationsstegen i det här avsnittet görs manuellt under tiden ett installationsskript utvecklas. 
+Under körningsinstallationen tillfrågas du om en enhetsanslutningssträng. Använd den sträng som du hämtade från Azure CLI. Den här strängen associerar den fysiska enheten med IoT Edge-enhetsidentiteten i Azure. 
 
 Anvisningarna i det här avsnittet konfigurerar IoT Edge-körningen med Linux-containrar. Om du vill använda Windows-containrar, se informationen i avsnittet om att [installera Azure IoT Edge-körning i Windows för användning med Windows-containrar](how-to-install-iot-edge-windows-with-windows.md).
 
+Slutför följande steg på den Windows-dator eller den virtuella dator som du har förberett för att fungera som en IoT Edge-enhet. 
+
 ### <a name="download-and-install-the-iot-edge-service"></a>Ladda ned och installera IoT Edge-tjänsten
+
+Använd PowerShell för att ladda ned och installera IoT Edge-körningen. Använd den enhetsanslutningssträng som du hämtade från IoT Hub för att konfigurera din enhet. 
 
 1. Kör PowerShell som administratör på din IoT Edge-enhet.
 
-2. Ladda ned IoT Edge service pack.
+2. Ladda ned och installera IoT Edge-tjänsten på din enhet. 
 
    ```powershell
-   Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
-   Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
-   Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
-   rmdir C:\ProgramData\iotedge\iotedged-windows
-   $sysenv = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
-   $path = (Get-ItemProperty -Path $sysenv -Name Path).Path + ";C:\ProgramData\iotedge"
-   Set-ItemProperty -Path $sysenv -Name Path -Value $path
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   Install-SecurityDaemon -Manual -ContainerOs Linux
    ```
 
-3. Installera vcruntime.
-
-  ```powershell
-  Invoke-WebRequest -useb https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe -o vc_redist.exe
-  .\vc_redist.exe /quiet /norestart
-  ```
-
-4. Skapa och starta IoT Edge-tjänsten.
-
-   ```powershell
-   New-Service -Name "iotedge" -BinaryPathName "C:\ProgramData\iotedge\iotedged.exe -c C:\ProgramData\iotedge\config.yaml"
-   Start-Service iotedge
-   ```
-
-5. Lägg till brandväggsundantag för de portar som används av IoT Edge-tjänsten.
-
-   ```powershell
-   New-NetFirewallRule -DisplayName "iotedged allow inbound 15580,15581" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 15580-15581 -Program "C:\programdata\iotedge\iotedged.exe" -InterfaceType Any
-   ```
-
-6. Skapa en ny fil med namnet **iotedge.reg** och öppna den i en textredigerare. 
-
-7. Lägg till följande innehåll i filen och spara. 
-
-   ```input
-   Windows Registry Editor Version 5.00
-   [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\iotedged]
-   "CustomSource"=dword:00000001
-   "EventMessageFile"="C:\\ProgramData\\iotedge\\iotedged.exe"
-   "TypesSupported"=dword:00000007
-   ```
-
-8. Navigera till filen i Utforskaren och dubbelklicka på den för att importera ändringarna i Windows-registret. 
-
-### <a name="configure-the-iot-edge-runtime"></a>Konfigurera IoT Edge-körningen 
-
-Konfigurera körningen med anslutningssträngen för IoT Edge-enheten som du kopierade när du registrerat en ny enhet. Konfigurera sedan runtime-nätverket. 
-
-1. Öppna konfigurationsfilen för IoT Edge som finns på `C:\ProgramData\iotedge\config.yaml`. Filen är skyddad, så kör en textredigerare som t.ex. Notepad som administratör och öppna filen i redigeraren. 
-
-2. Leta upp avsnittet om **etablering** och uppdatera värdet för **device_connection_string** med strängen som du kopierade från informationen om din IoT Edge-enhet. 
-
-3. Hämta värdnamnet för din IoT Edge-enhet i administratörsfönstret för PowerShell och kopiera utdata. 
-
-   ```powershell
-   hostname
-   ```
-
-4. Leta upp avsnittet för **värddatornamn för Edge-enheten** i konfigurationsfilen. Uppdatera värdet för **värddatornamn** med värdnamnet som du kopierade från PowerShell.
-
-3. Hämta IP-adressen för din IoT Edge-enhet i administratörsfönstret för PowerShell. 
-
-   ```powershell
-   ipconfig
-   ```
-
-4. Kopiera värdet för **IPv4-adressen** i avsnittet **vEthernet (DockerNAT)** för utdata. 
-
-5. Skapa en miljövariabel med namnet **IOTEDGE_HOST**, ersätt *\<ip_address\>* med IP-adressen för din IoT Edge-enhet. 
-
-   ```powershell
-   [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
-   ```
-
-6. Leta upp avsnittet för **anslutningsinställningar** i filen `config.yaml`. Uppdatera värdena för **management_uri** och **workload_uri** med de IP-adresser och portar som du öppnade i föregående avsnitt. Ersätt **\<GATEWAY_ADDRESS\>** med IP-adressen för DockerNAT du kopierade. 
-
-   ```yaml
-   connect: 
-     management_uri: "http://<GATEWAY_ADDRESS>:15580"
-     workload_uri: "http://<GATEWAY_ADDRESS>:15581"
-   ```
-
-7. Leta upp avsnittet med **inställningar för lyssnande** och lägg till samma värden för **management_uri** och **workload_uri**. 
-
-   ```yaml
-   listen:
-     management_uri: "http://<GATEWAY_ADDRESS>:15580"
-     workload_uri: "http://<GATEWAY_ADDRESS>:15581"
-   ```
-
-8. Leta upp avsnittet med **inställningar för Moby-containrar** och kontrollera att värdet för **nätverk** är avkommenterat och inställt på **azure iot edge**
-
-   ```yaml
-   moby_runtime:
-     docker_uri: "npipe://./pipe/docker_engine"
-     network: "azure-iot-edge"
-   ```
-
-9. Spara konfigurationsfilen. 
-
-10. Starta om IoT Edge-tjänsten i PowerShell.
-
-   ```powershell
-   Stop-Service iotedge -NoWait
-   sleep 5
-   Start-Service iotedge
-   ```
+3. När du tillfrågas om en **DeviceConnectionString** (enhetsanslutningssträng) anger den sträng som du kopierade i föregående avsnitt. Använd inte citattecknen runt anslutningssträngen. 
 
 ### <a name="view-the-iot-edge-runtime-status"></a>Visa status för IoT Edge-körningen
 
@@ -259,6 +162,8 @@ Kontrollera att körningen har installerats och konfigurerats korrekt.
 
    ![Visa en modul på din enhet](./media/quickstart/iotedge-list-1.png)
 
+Din IoT Edge-enhet har nu konfigurerats. Den är redo att köra molndistribuerade moduler. 
+
 ## <a name="deploy-a-module"></a>Distribuera en modul
 
 Hantera din Azure IoT Edge-enhet från molnet för att distribuera en modul som ska skicka telemetridata till IoT Hub.
@@ -286,7 +191,7 @@ iotedge logs tempSensor -f
 
   ![Visa data från modulen](./media/quickstart/iotedge-logs.png)
 
-Du kan visa meddelanden som tas emot av din IoT Hub med [verktyget IoT Hub Explorer][lnk-iothub-explorer] eller [Azure IoT Toolkit-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+Du kan även visa meddelanden som tas emot av din IoT Hub med [Azure IoT Toolkit-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -321,8 +226,8 @@ Om du vill ta bort installationerna från din enhet kan du använda följande ko
 Ta bort IoT Edge-körningen.
 
    ```powershell
-   cmd /c sc delete iotedge
-   rm -r c:\programdata\iotedge
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   Uninstall-SecurityDaemon
    ```
 
 När IoT Edge-körningen tas bort stoppas de containrar som den skapade, men de finns fortfarande kvar på enheten. Visa alla containrar.
@@ -360,11 +265,8 @@ Du kan nu fortsätta med någon av de andra självstudierna om du vill lära dig
 
 <!-- Links -->
 [lnk-docker]: https://docs.docker.com/docker-for-windows/install/ 
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-portal]: https://portal.azure.com
 [lnk-nested]: https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization
-[lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az_iot_hub_delete
+[lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-delete
 
-<!-- Anchor links -->
-[anchor-register]: #register-an-iot-edge-device

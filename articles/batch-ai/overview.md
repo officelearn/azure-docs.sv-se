@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 10/13/2017
 ms.author: asutton
 ms.custom: ''
-ms.openlocfilehash: 9834dbbc2232fc286451bcdcd19dfc639f49d3bf
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 504504f278907536e89055cd5c912d2d1f280931
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30903483"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627210"
 ---
 # <a name="what-is-batch-ai-in-azure"></a>Vad är Batch AI i Azure?
 Batch AI är en hanterad tjänst som gör att dataanalytiker och AI-forskare kan träna AI och andra maskininlärningsmodeller på kluster med virtuella Azure-datorer, inklusive virtuella datorer med GPU-stöd. Du beskriver ditt jobbs krav, var indata finns att hitta och var utdata ska lagras, och så hanterar Batch AI resten.  
@@ -30,7 +30,7 @@ Att utveckla kraftfulla AI-algoritmer är en beräkningsintensiv och iterativ pr
  
 ![Batch AI-processen](media/overview/batchai-context.png)
 
-Dataanalytiker och AI forskare är experter i sina respektive fält, men att hantera infrastrukturen i stor skala kan vara en störande faktor. Att utveckla AI i stor skala kräver många infrastruktursuppgifter: etablera kluster av virtuella datorer, installera programvaran och behållare, ställa arbeten i kö, prioritera och schemalägga jobb, hantera fel, distribuera data, dela resultat, skala resurser för att hantera kostnader och integrera med verktyg och arbetsflöden. Batch AI hanterar dessa uppgifter. 
+Dataanalytiker och AI forskare är experter i sina respektive fält, men att hantera infrastrukturen i stor skala kan vara en störande faktor. Att utveckla AI i stor skala kräver många infrastruktursuppgifter: etablera kluster av virtuella datorer, installera programvaran och containrar, ställa arbeten i kö, prioritera och schemalägga jobb, hantera fel, distribuera data, dela resultat, skala resurser för att hantera kostnader och integrera med verktyg och arbetsflöden. Batch AI hanterar dessa uppgifter. 
  
 ## <a name="what-is-batch-ai"></a>Vad är Batch AI? 
 
@@ -40,9 +40,9 @@ Batch AI tillhandahåller resurshantering och schemaläggning av jobb specialise
 * Skala kluster av virtuella datorer automatiskt eller manuellt med hjälp av GPU:er eller CPU:er 
 * Konfigurera SSH-kommunikation mellan virtuella datorer och för fjärråtkomst 
 * Stöd för ramverk för djupinlärning eller maskininlärning, med optimerad konfiguration för populära verktyg som [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK) (CNTK) [TensorFlow](https://www.tensorflow.org/) och [Chainer](https://chainer.org/) 
-* Prioritetsbaserad jobbkö för att dela kluster och utnyttja fördelarna med virtuella datorer med låg prioritet och reserverade instanser  
+* Prioritetsbaserad jobbkö för att dela kluster och utnyttja fördelarna med virtuella datorer med låg prioritet och Azure-reservationer  
 * Flexibla lagringsalternativ, inklusive Azure Files och en hanterad NFS-server 
-* Montera fjärrfilsresurser i den virtuella datorn och valfria behållare 
+* Montera fjärrfilsresurser i den virtuella datorn och valfria container 
 * Tillhandahålla jobbstatus och starta om i händelse av fel i virtuella datorer 
 * Åtkomst till utdataloggar, stdout, stderr och modeller, inklusive direktuppspelning från Azure Storage 
 * Azures [kommandoradsgränssnitt](/cli/azure) (CLI), SDK:er för [Python](https://github.com/Azure/azure-sdk-for-python), [C#](https://www.nuget.org/packages/Microsoft.Azure.Management.BatchAI/1.0.0-preview) och Java, övervakning i Azure Portal och integrering med Microsoft AI-verktyg 
@@ -70,7 +70,7 @@ Om du vill använda Batch AI måste du definiera och hantera *kluster* och *jobb
 * Det kluster och den region som ska användas 
 * Antalet virtuella datorer för jobbet 
 * Inkommande och utgående kataloger som ska skickas till jobbet vid start. För detta används vanligtvis det delade filsystem som monterades under klusterkonfigurationen 
-* En valfri behållare för att köra ditt program eller installationsskript 
+* En valfri container för att köra ditt program eller installationsskript 
 * AI-ramverksspecifik konfiguration eller den kommandorad och parametrar som krävs för att starta jobbet 
  
 

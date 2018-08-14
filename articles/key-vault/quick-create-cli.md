@@ -1,6 +1,6 @@
 ---
-title: Azure-snabbstart – Skapa ett nyckelvalv via CLI | Microsoft Docs
-description: Snabbstart som visar hur du skapar ett Azure-nyckelvalv med hjälp av CLI:t
+title: Azure-snabbstart – Ställ in och hämta en hemlighet från Key Vault med hjälp av Azure CLI | Microsoft Docs
+description: Snabbstart som visar hur du ställer in och hämtar en hemlighet från Azure Key Vault med hjälp av Azure CLI
 services: key-vault
 author: barclayn
 manager: mbaldwin
@@ -14,14 +14,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: ae8957e5bf87fc190076db87d4eaca0e7a757c5e
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: dc69d472e38bcc39de35204c26068a98e0549601
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067664"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480926"
 ---
-# <a name="quickstart-create-an-azure-key-vault-using-the-cli"></a>Snabbstart: Skapa ett nyckelvalv med hjälp av CLI:t
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Snabbstart: Ställ in och hämta en hemlighet från Azure Key Vault med hjälp av Azure CLI
 
 Azure Key Vault är en molntjänst som fungerar som säkert lager för hemligheter. Du kan på ett säkert sätt lagra nycklar, lösenord, certifikat och andra hemligheter. Mer information om Key Vault finns i [översikten](key-vault-overview.md). Med Azure-CLI:t kan du skapa och hantera Azure-resurser med hjälp av kommandon eller skript. I den här snabbstarten skapar du ett nyckelvalv. När du har gjort det kommer du att lagra en hemlighet.
 
@@ -41,7 +41,7 @@ Mer information om inloggningsalternativen via CLI finns i [Logga in med Azure C
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. I följande exempel skapas en resursgrupp med namnet *ContosoResourceGroup* på platsen *eastus*.
+En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. I följande exempel skapas en resursgrupp med namnet *ContosoResourceGroup* på platsen *eastus*.
 
 ```azurecli
 az group create --name 'ContosoResourceGroup' --location eastus

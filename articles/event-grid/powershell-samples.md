@@ -8,14 +8,14 @@ ms.service: event-grid
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
-ms.date: 04/05/2018
+ms.date: 08/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: f320821baadc9ba14b1140ae474538ffd35f8292
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1bf0d2c5da6cad2b451e21d7d926b6cea0c3b961
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31426083"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521354"
 ---
 # <a name="azure-powershell-samples-for-event-grid"></a>Azure PowerShell-exempel för Event Grid
 
@@ -28,6 +28,7 @@ Följande tabell innehåller länkar till Azure PowerShell-exempel för Event Gr
 | [Prenumerera på Blob Storage](scripts/event-grid-powershell-blob.md)| Prenumerera på händelser för ett Blob Storage-konto. |
 | [Prenumerera på anpassat ämne](scripts/event-grid-powershell-subscribe-custom-topic.md)| Prenumererar på händelser för ett anpassat ämne. |
 | [Prenumerera på en resursgrupp](scripts/event-grid-powershell-resource-group.md)| Prenumererar på händelser för en resursgrupp. |
+| [Prenumerera på resursgrupp och filter för en resurs](scripts/event-grid-powershell-resource-group-filter.md)| Prenumererar på händelser för en resursgrupp och filterhändelser för en resurs. |
 |**Event Grid-ämnen**||
-| [Skapa anpassat ämne](scripts/event-grid-powershell-create-custom-topic.md) | Skapar en hanterad disk från en specialiserad virtuell hårddisk (VHD) som en OS-disk eller från en data-VHD som datadisk.  |
+| [Skapa anpassat ämne](scripts/event-grid-powershell-create-custom-topic.md) | Skapar ett anpassat Event Grid-ämne och returnerar slutpunkten och nyckeln.  |
 | | |

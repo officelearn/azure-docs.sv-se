@@ -1,6 +1,6 @@
 ---
-title: Azure-snabbstart – Konfigurera ett Azure-webbprogram att läsa en hemlighet från Key Vault | Microsoft Docs
-description: Snabbstart som beskriver hur du konfigurerar ett ASP.Net Core-program att läsa en hemlighet från Key Vault
+title: Azure-snabbstart – Konfigurera ett Azure-webbprogram att ställa in och hämta en hemlighet från Key Vault | Microsoft Docs
+description: Snabbstart som beskriver hur du konfigurerar ett ASP.Net Core-program för att ställa in och hämta en hemlighet från Key Vault
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 07/24/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 07a7bc5713f093e34a775aacab27094780ac6c7e
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 8b5624ae3083d92213b4ee919dc0860bf5ff4ab7
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247833"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480210"
 ---
-# <a name="quickstart-set-and-read-a-secret-from-key-vault-in-a-net-web-app"></a>Snabbstart: Ange och läs en hemlighet från Key Vault i en .NET-webbapp
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-net-web-app"></a>Snabbstart: Ställ in och hämta en hemlighet från Azure Key Vault med hjälp av en .NET-webbapp
 
 I den här självstudien går du igenom de steg som behövs för att ett Azure-webbprogram ska läsa information från Key Vault med hjälp av hanterade tjänstidentiteter. Lär dig att:
 
@@ -56,7 +56,7 @@ az login
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az-group-create). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
 
 Välj ett resursgruppnamn och fyll i platshållaren.
 I följande exempel skapas en resursgrupp med namnet *<YourResourceGroupName>* på platsen *eastus*.

@@ -1,31 +1,26 @@
 ---
-title: 'Självstudie: Apache Kafka med Storm i HDInsight – Azure | Microsoft Docs'
+title: 'Självstudie: Apache Kafka med Storm i HDInsight – Azure '
 description: Lär dig att skapa en direktuppspelnings-pipeline med Apache Storm och Apache Kafka i HDInsight. I den här självstudien använder du KafkaBolt- och KafkaSpout-komponenter till att strömma data från Kafka.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/21/2018
-ms.author: larryfr
-ms.openlocfilehash: b973890caddf598d5ba4e96a04a18df46cdb5cf8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: jasonh
+ms.openlocfilehash: a20cf616b119d208c9b2baa0f2cf608aa44c21ad
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626298"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595169"
 ---
 # <a name="tutorial-use-apache-storm-with-kafka-on-hdinsight"></a>Självstudie: Använda Apache Storm med Kafka i HDInsight
 
 Den här självstudien visar hur du använder en Apache Storm-topologi till att läsa och skriva data med Apache Kafka i HDInsight. Självstudien visar även hur du bevarar data i den HDFS-kompatibla lagringen på Storm-klustret.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Storm och Kafka

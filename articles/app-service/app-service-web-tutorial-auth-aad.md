@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/03/2018
+ms.date: 08/07/2018
 ms.author: cephalin
-ms.openlocfilehash: 4bdb182d93b842bf94e75672b1d7b4cf4f6da253
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e597ba5236fb2d7fea8649f423c4a952b01f87ee
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31589160"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599638"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Självstudie: Autentisera och auktorisera användare från slutpunkt till slutpunkt i Azure App Service
 
@@ -241,7 +241,7 @@ På hanteringssidan för AD-programmet kopierar du **program-ID** till Antecknin
 
 Följ samma steg för klientdelsappen, men hoppa över det sista steget. Du behöver inte **program-ID:t** för klientdelsappen. Håll sidan **Azure Active Directory-inställningar** öppen.
 
-Om du vill kan du navigera till `http://<front_end_app_name>.azurewebsites.net`. Du bör nu dirigeras till en inloggningssida. När du har loggat in kan du fortfarande inte komma åt data från serverdelsappen. Du behöver fortfarande göra tre saker:
+Om du vill kan du navigera till `http://<front_end_app_name>.azurewebsites.net`. Du bör nu dirigeras till en säker inloggningssida. När du har loggat in kan du fortfarande inte komma åt data från serverdelsappen. Du behöver fortfarande göra tre saker:
 
 - Ge klientsidan åtkomst till serversidan
 - Konfigurera App Service för att returnera en användbar token
@@ -322,7 +322,7 @@ git commit -m "add authorization header for server code"
 git push frontend master
 ```
 
-Logga in på `http://<front_end_app_name>.azurewebsites.net` igen. På sidan med dataanvändningsavtalet klickar du på **acceptera**.
+Logga in på `https://<front_end_app_name>.azurewebsites.net` igen. På sidan med dataanvändningsavtalet klickar du på **acceptera**.
 
 Du bör nu kunna skapa, läsa, uppdatera och ta bort data från serverdelsappen, precis som innan. Den enda skillnaden är att båda apparna är nu skyddade med App Service-autentisering och -auktorisering, inklusive tjänst-till-tjänst-anrop.
 
@@ -340,7 +340,7 @@ Medan serverkoden har åtkomst till begäranderubriker kan klientkoden komma åt
 
 ### <a name="configure-cors"></a>Konfigurera CORS
 
-I Cloud Shell aktiverar du CORS till din klient-URL med kommandot [`az resource update`](/cli/azure/resource#az_resource_update). Ersätt platshållarna _\<back\_end\_app\_name>_ och _\<front\_end\_app\_name>_ (namn på serverdelsapp och namn på klientdelsapp).
+I Cloud Shell aktiverar du CORS till din klient-URL med kommandot [`az resource update`](/cli/azure/resource#az-resource-update). Ersätt platshållarna _\<back\_end\_app\_name>_ och _\<front\_end\_app\_name>_ (namn på serverdelsapp och namn på klientdelsapp).
 
 ```azurecli-interactive
 az resource update --name web --resource-group myAuthResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<back_end_app_name> --set properties.cors.allowedOrigins="['https://<front_end_app_name>.azurewebsites.net']" --api-version 2015-06-01
@@ -352,7 +352,7 @@ Det här steget är inte kopplat till autentisering och auktorisering. Du behöv
 
 Öppna _wwwroot/index.html_ på den lokala lagringsplatsen.
 
-På rad 51 ställer du in `apiEndpoint`-variabeln till URL:en för serverdelsappen (`http://<back_end_app_name>.azurewebsites.net`). Ersätt _\<back\_end\_app\_name> (namnet på serverdelsappen)_ med ditt appnamn i App Service.
+På rad 51 ställer du in `apiEndpoint`-variabeln till URL:en för serverdelsappen (`https://<back_end_app_name>.azurewebsites.net`). Ersätt _\<back\_end\_app\_name> (namnet på serverdelsappen)_ med ditt appnamn i App Service.
 
 På den lokala lagringsplatsen öppnar du _wwwroot/app/scripts/todoListSvc.js_ och ser till att `apiEndpoint` är tillagt för alla API-anrop. Nu anropar Angular.js-appen serverdels-API:erna. 
 
@@ -406,9 +406,13 @@ git commit -m "add authorization header for Angular"
 git push frontend master
 ```
 
-Navigera till `http://<front_end_app_name>.azurewebsites.net` igen. Du bör nu kunna skapa, läsa, uppdatera och ta bort data från serverdelsappen, direkt i Angular.js-appen.
+Navigera till `https://<front_end_app_name>.azurewebsites.net` igen. Du bör nu kunna skapa, läsa, uppdatera och ta bort data från serverdelsappen, direkt i Angular.js-appen.
 
 Grattis! Klientkoden har nu åtkomst till serverdelsdata å den autentiserade användarens vägnar.
+
+## <a name="when-access-tokens-expire"></a>När åtkomsttoken upphör att gälla
+
+Ditt åtkomsttoken upphör att gälla efter ett tag. Information om hur du uppdaterar dina åtkomsttoken utan att användarna måste autentiseras på nytt med din app finns på sidan om att [uppdatera åtkomsttoken](app-service-authentication-how-to.md#refresh-access-tokens).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

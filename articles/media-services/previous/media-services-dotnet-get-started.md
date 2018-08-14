@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: a685043f0bc9841d2cc86f2c49469e8287a03b78
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 12a6f731dfb1c106c28d18caa95710751736629c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952271"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434592"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Kom igång med att leverera innehåll på begäran med hjälp av .NET SDK
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -155,7 +155,7 @@ I Media Services överför du (eller för in) dina digitala filer till en tillg�
 
 Den **UploadFile**-metod som definieras nedan kallas **CreateFromFile** (definieras i .NET SDK-tillägg). **CreateFromFile** skapar en ny tillgång som den angivna källfilen överförs till.
 
-**CreateFromFile**-metoden tar \*\*AssetCreationOptions, vilket gör att du kan ange något av följande alternativ för att skapa tillgångar:
+**CreateFromFile**-metoden tar **AssetCreationOptions**, vilket gör att du kan ange något av följande alternativ för att skapa tillgångar:
 
 * **Ingen** – Ingen kryptering används. Detta är standardvärdet. Observera att när du använder det här alternativet skyddas inte innehållet under överföring eller i vila i lagringsutrymmet.
   Om du planerar att leverera en MP4 med progressivt nedladdning ska du använda det här alternativet.
@@ -258,7 +258,7 @@ När du har skapat positionerna kan du skapa de URL:er som skulle användas för
 
 #### <a name="a-sas-url-used-to-download-files-has-the-following-format"></a>En SAS-URL som används för att hämta filer har följande format:
 
-{blob-behållarnamn}/{tillgångsnamn}/{filnamn}/{SAS-signatur}
+{blob-containernamn}/{tillgångsnamn}/{filnamn}/{SAS-signatur}
 
 Media Services .NET SDK-tillägg ger praktiska hjälpmetoder som returnerar formaterade URL:er för den publicerade tillgången.
 

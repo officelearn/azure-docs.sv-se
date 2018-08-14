@@ -10,18 +10,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 729bd9f83c288cc5a326ddef8fff553c6d7700fb
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ed34dcfb2aa488f4e7e34294b46de68624811afd
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711621"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39609046"
 ---
 # <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>Självstudie:Aktivera en webbapp för autentisering med konton med hjälp av Azure Active Directory B2C
 
 Den här självstudien lär dig använda Azure Active Directory (Azure AD) B2C för att logga in och registrera användare i en ASP.NET webbapp. Med Azure AD B2C kan appar autentisera med konton på sociala medier, företagskonton och Azure Active Directory-konton med öppna protokoll.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Registrera en ASP.NET exempelwebbapp i en Azure AD B2C-klientorganisation.
@@ -37,13 +37,13 @@ I den här guiden får du lära dig hur man:
 
 ## <a name="register-web-app"></a>Registrera webbappen
 
-Program måste [registreras](../active-directory/develop/active-directory-dev-glossary.md#application-registration) i klientorganisationen innan de kan ta emot [åtkomsttoken](../active-directory/develop/active-directory-dev-glossary.md#access-token) från Azure Active Directory. Programregistrering skapar ett [program-ID](../active-directory/develop/active-directory-dev-glossary.md#application-id-client-id) för appen i din klientorganisation. 
+Program måste [registreras](../active-directory/develop/developer-glossary.md#application-registration) i klientorganisationen innan de kan ta emot [åtkomsttoken](../active-directory/develop/developer-glossary.md#access-token) från Azure Active Directory. Programregistrering skapar ett [program-ID](../active-directory/develop/developer-glossary.md#application-id-client-id) för appen i din klientorganisation. 
 
 Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för Azure AD B2C-klientorganisationen.
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-1. Välj **Azure AD B2C** i listan över tjänster i Azure Portal. 
+1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**. Du bör nu använda den klient som du skapade i den föregående självstudien. 
 
 2. I B2C-inställningarna klickar du på **Program** och sedan på **Lägg till**. 
 
@@ -65,11 +65,11 @@ Registrerade appar visas i programlistan för Azure AD B2C-klientorganisationen.
 
 ![Webbappegenskaper](./media/active-directory-b2c-tutorials-web-app/b2c-web-app-properties.png)
 
-Anteckna det **Programklients-id** som visas. Detta ID identifierar appen och behövs när appen konfigureras senare under självstudierna.
+Anteckna **Program-ID**. Detta ID identifierar appen och behövs när appen konfigureras senare under självstudierna.
 
 ### <a name="create-a-client-password"></a>Skapa ett klientlösenord
 
-Azure AD B2C använder OAuth2-auktorisering för [klientprogram](../active-directory/develop/active-directory-dev-glossary.md#client-application). Webbappar är [konfidentiella klienter](../active-directory/develop/active-directory-dev-glossary.md#web-client) och kräver ett klient-ID eller program-ID och en klienthemlighet, ett klientlösenord eller en programnyckel.
+Azure AD B2C använder OAuth2-auktorisering för [klientprogram](../active-directory/develop/developer-glossary.md#client-application). Webbappar är [konfidentiella klienter](../active-directory/develop/developer-glossary.md#web-client) och kräver ett klient-ID eller program-ID och en klienthemlighet, ett klientlösenord eller en programnyckel.
 
 1. Välj sidan Nycklar för den registrerade webbappen och klicka på **Generera nyckel**.
 
@@ -98,7 +98,7 @@ Skapa en **registrerings- eller inloggningsprincip** om du vill registrera anvä
     | **Namn** | SiUpIn | Ange ett **Namn** för principen. Principens namn har prefixet **b2c_1_**. Använd det fullständiga principnamnet **b2c_1_SiUpIn** i exempelkoden. | 
     | **Identitetsprovider** | E-postregistrering | Den identitetsprovider som används för att unikt identifiera användaren. |
     | **Registreringsattribut** | Visningsnamn och Postnummer | Välj vilka attribut som samlas in från användaren under registreringen. |
-    | **Programanspråk** | Visningsnamn, postnummer, användare är ny, användarens objekt-ID | Välj [anspråk](../active-directory/develop/active-directory-dev-glossary.md#claim) som ska tas med i [åtkomsttoken](../active-directory/develop/active-directory-dev-glossary.md#access-token). |
+    | **Programanspråk** | Visningsnamn, postnummer, användare är ny, användarens objekt-ID | Välj [anspråk](../active-directory/develop/developer-glossary.md#claim) som ska tas med i [åtkomsttoken](../active-directory/develop/developer-glossary.md#access-token). |
 
 2. Klicka på **Skapa** för att skapa principen. 
 
@@ -115,7 +115,7 @@ Om du vill att användarna själva ska kunna återställa informationen i sin an
     | **Namn** | SiPe | Ange ett **Namn** för principen. Principens namn har prefixet **b2c_1_**. Använd det fullständiga principnamnet **b2c_1_SiPe** i exempelkoden. | 
     | **Identitetsprovider** | Inloggning på lokalt konto | Den identitetsprovider som används för att unikt identifiera användaren. |
     | **Profilattribut** | Visningsnamn och Postnummer | Välj de attribut en användare kan ändra under profilredigering. |
-    | **Programanspråk** | Visningsnamn, postnummer, användarens objekt-ID | Välj de [anspråk](../active-directory/develop/active-directory-dev-glossary.md#claim) du vill ta med i [åtkomsttoken](../active-directory/develop/active-directory-dev-glossary.md#access-token) efter en lyckad profilredigering. |
+    | **Programanspråk** | Visningsnamn, postnummer, användarens objekt-ID | Välj de [anspråk](../active-directory/develop/developer-glossary.md#claim) du vill ta med i [åtkomsttoken](../active-directory/develop/developer-glossary.md#access-token) efter en lyckad profilredigering. |
 
 2. Klicka på **Skapa** för att skapa principen. 
 
@@ -131,7 +131,7 @@ Om du vill kunna aktivera lösenordsåterställning i programmet måste du skapa
     | ------------ | ------- | -------------------------------------------------- |
     | **Namn** | SSPR | Ange ett **Namn** för principen. Principens namn har prefixet **b2c_1_**. Använd det fullständiga principnamnet **b2c_1_SSPR** i exempelkoden. | 
     | **Identitetsprovider** | Återställ lösenord med e-postadress | Den identitetsprovider som används för att unikt identifiera användaren. |
-    | **Programanspråk** | Användarens objekt-ID | Välj de [anspråk](../active-directory/develop/active-directory-dev-glossary.md#claim) du vill ta med i [åtkomsttoken](../active-directory/develop/active-directory-dev-glossary.md#access-token) efter en lyckad lösenordsåterställning. |
+    | **Programanspråk** | Användarens objekt-ID | Välj de [anspråk](../active-directory/develop/developer-glossary.md#claim) du vill ta med i [åtkomsttoken](../active-directory/develop/developer-glossary.md#access-token) efter en lyckad lösenordsåterställning. |
 
 2. Klicka på **Skapa** för att skapa principen. 
 
@@ -139,7 +139,7 @@ Om du vill kunna aktivera lösenordsåterställning i programmet måste du skapa
 
 När du nu registrerat en webbapp och skapat principer måste du konfigurera appen så att den använder din Azure AD B2C-klientorganisation. I den här självstudien får konfigurera en exempelwebbapp som du kan ladda ned från GitHub. 
 
-[Ladda ned en zip-fil](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) eller klona exempelwebbappen från GitHub.
+[Ladda ned en zip-fil](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) eller klona exempelwebbappen från GitHub. Se till att extrahera exempelfilen i en mapp där sökvägens totala teckenlängd är mindre än 260.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
@@ -153,26 +153,13 @@ Exempellösningen innehåller två projekt:
 
 **Webb-API-exempelapp (TaskService):** Webb-API med stöd för att skapa, läsa, uppdatera och ta bort en uppgiftslista. Webb-API:n skyddas av Azure AD B2C och anropas av webbappen.
 
-Du måste ändra appen om du vill använda appregistreringen i din klient, som innehåller klient-ID:t eller program-ID:t och klientlösenordet eller programnyckeln. Du måste även konfigurera de principer du ställde in. Exempelwebbappen definierar konfigurationsvärdena som appinställningar i Web.config-filen. Så här ändrar du appinställningarna:
+Du måste ändra appen om du vill använda appregistreringen i din klientorganisation, som innehåller det program-ID och den nyckel som du tidigare registrerade. Du måste även konfigurera de principer du ställde in. Exempelwebbappen definierar konfigurationsvärdena som appinställningar i Web.config-filen. Så här ändrar du appinställningarna:
 
 1. Öppna **B2C-WebAPI-DotNet**-lösningen i Visual Studio.
 
-2. I webbapprojektet **TaskWebApp** öppnar du **Web.config**-filen och gör följande uppdateringar av befintliga nycklar:
+2. I webbapprojektet **TaskWebApp** öppnar du **Web.config**-filen. Ersätt värdet för `ida:Tenant` med namnet på den klientorganisation som du skapade. Ersätt värdet för `ida:ClientId` med det program-ID som du registrerade. Ersätt värdet för `ida:ClientSecret` med den nyckel som du registrerade.
 
-    ```C#
-    <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
-    
-    <add key="ida:ClientId" value="The Application ID for your web app registered in your tenant" />
-    
-    <add key="ida:ClientSecret" value="Client password (client secret or app key)" />
-    ```
-3. Uppdatera de befintliga nycklarna med värdena för de principnamn du skapade i föregående steg. Kom ihåg att ta med prefixet *b2c_1_*.
-
-    ```C#
-    <add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />
-    <add key="ida:EditProfilePolicyId" value="b2c_1_SiPe" />
-    <add key="ida:ResetPasswordPolicyId" value="b2c_1_SSPR" />
-    ```
+3. I filen **Web.config** ersätter du värdet för `ida:SignUpSignInPolicyId` med `b2c_1_SiUpIn`. Ersätt värdet för `ida:EditProfilePolicyId` med `b2c_1_SiPe`. Ersätt värdet för `ida:ResetPasswordPolicyId` med `b2c_1_SSPR`.
 
 ## <a name="run-the-sample-web-app"></a>Kör exempelwebbappen
 

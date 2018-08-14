@@ -1,25 +1,20 @@
 ---
-title: Kom igång med Apache Kafka – Azure HDInsight Snabbstart | Microsoft Docs
+title: Snabbstart för Apache Kafka – Azure HDInsight
 description: I den här snabbstarten lär du dig hur du skapar ett Apache Kafka-kluster på Azure HDInsight med hjälp av Azure PowerShell. Du lär dig också om Kafka-ämnen, -prenumeranter och -konsumenter.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: mvc,hdinsightactive
-ms.devlang: ''
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/16/2018
-ms.author: larryfr
-ms.openlocfilehash: a9853bb8a298daab265b70b99db68de276c77048
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 25064873b830a8f323a8ee2287a3d69cf9c4013f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018080"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621523"
 ---
 # <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Snabbstart: Skapa ett Kafka-kluster på HDInsight
 
@@ -63,7 +58,7 @@ Login-AzureRmAccount
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
-Skapa en Azure-resursgrupp med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. I följande exempel uppmanas du att ange namn och plats, och därefter skapas en ny resursgrupp:
+Skapa en Azure-resursgrupp med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. I följande exempel uppmanas du att ange namn och plats, och därefter skapas en ny resursgrupp:
 
 ```powershell
 $resourceGroup = Read-Input -Prompt "Enter the resource group name"
@@ -86,7 +81,7 @@ New-AzureRmStorageAccount `
         -Location $location
 ```
 
-HDInsight lagrar data i lagringskontot i en blobbehållare. Skapa en ny behållare med [New-AzureStorageContainer](/powershell/module/Azure.Storage/New-AzureStorageContainer).
+HDInsight lagrar data i lagringskontot i en blobcontainer. Skapa en ny behållare med [New-AzureStorageContainer](/powershell/module/Azure.Storage/New-AzureStorageContainer).
 
 ```powershell
 $containerName = Read-Host -Prompt "Enter the container name"

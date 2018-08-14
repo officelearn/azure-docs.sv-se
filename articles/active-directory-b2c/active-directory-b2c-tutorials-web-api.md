@@ -4,17 +4,18 @@ description: Självstudiekurs som visar hur du använder Active Directory B2C f�
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
 ms.author: davidmu
 ms.date: 01/23/2018
 ms.custom: mvc
 ms.topic: tutorial
-ms.service: active-directory-b2c
-ms.openlocfilehash: f61a3b103d8738e1b86fb64aff99dab9c6986fdf
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.service: active-directory
+ms.component: B2C
+ms.openlocfilehash: 469a3662b5bc4db467dde3285d557ac8bbae368e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39609097"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Självstudier: Bevilja åtkomst till ett ASP.NET webb-API från en webbapp med Azure Active Directory B2C
 
@@ -37,19 +38,25 @@ I den här guiden får du lära dig att:
 
 ## <a name="register-web-api"></a>Registrera webb-API
 
-Webb-API-resurser måste vara registrerade i klientorganisationen innan de kan godkänna och svara på en [begäran från en skyddad resurs](../active-directory/develop/active-directory-dev-glossary.md#resource-server) från [klientprogram](../active-directory/develop/active-directory-dev-glossary.md#client-application) som använder en [åtkomsttoken](../active-directory/develop/active-directory-dev-glossary.md#access-token) från Azure Active Directory. Registrering skapar [programmet och tjänstens huvudnamnsobjekt](../active-directory/develop/active-directory-dev-glossary.md#application-object) i klientorganisationen. 
+Webb-API-resurser måste vara registrerade i klientorganisationen innan de kan godkänna och svara på en [begäran från en skyddad resurs](../active-directory/develop/developer-glossary.md#resource-server) från [klientprogram](../active-directory/develop/developer-glossary.md#client-application) som använder en [åtkomsttoken](../active-directory/develop/developer-glossary.md#access-token) från Azure Active Directory. Registrering skapar [programmet och tjänstens huvudnamnsobjekt](../active-directory/develop/developer-glossary.md#application-object) i klientorganisationen. 
 
-Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för Azure AD B2C-klientorganisationen.
+1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för Azure AD B2C-klientorganisationen.
 
-[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
+2. Kontrollera att du använder katalogen som innehåller din Azure AD B2C-klient genom att växla till den i det övre högra hörnet i Azure-portalen. Välj din prenumerationsinformation och välj därefter **Växla katalog**.
 
-1. Välj **Azure AD B2C** i listan över tjänster i Azure Portal.
+    ![Växla kataloger](./media/active-directory-b2c-tutorials-web-api/switch-directories.png)
 
-2. I B2C-inställningarna klickar du på **Program** och sedan på **Lägg till**.
+3. Välj den katalog som innehåller din klient.
+
+    ![Välj katalog](./media/active-directory-b2c-tutorials-web-api/select-directory.png)
+
+4. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**. Du bör nu använda den klient som du skapade i den föregående självstudien.
+
+5. Välj **Program** och välj sedan **Lägg till**.
 
     Registrera webb-API-exemplet i klientorganisationen med följande inställningar.
     
-    ![Lägga till ett nytt API](media/active-directory-b2c-tutorials-web-api/web-api-registration.png)
+    ![Lägga till ett nytt API](./media/active-directory-b2c-tutorials-web-api/web-api-registration.png)
     
     | Inställning      | Föreslaget värde  | Beskrivning                                        |
     | ------------ | ------- | -------------------------------------------------- |
@@ -57,10 +64,10 @@ Logga in på [Azure Portal](https://portal.azure.com/) som global administratör
     | **Ta med webbapp/webb-API** | Ja | Välj **Ja** om det är ett webb-API. |
     | **Tillåt implicit flöde** | Ja | Välj **Ja** eftersom API:et använder [OpenID Connect-inloggning](active-directory-b2c-reference-oidc.md). |
     | **Svarswebbadress** | `https://localhost:44332` | Svarswebbadresser är slutpunkter där Azure AD B2C returnerar de token som API:et begär. I den här självstudien körs webb-API-exemplet lokalt (lokal värd) och lyssnar på port 44332. |
-    | **URI för app-id** | myAPISample | URI:n identifierar API:et i klientorganisationen. Det gör att flera API:er kan registreras per klientorganisation. [Omfång](../active-directory/develop/active-directory-dev-glossary.md#scopes) styr åtkomsten till den skyddade API-resursen och definieras med URI:n för app-ID. |
+    | **URI för app-id** | myAPISample | URI:n identifierar API:et i klientorganisationen. Det gör att flera API:er kan registreras per klientorganisation. [Omfång](../active-directory/develop/developer-glossary.md#scopes) styr åtkomsten till den skyddade API-resursen och definieras med URI:n för app-ID. |
     | **Inbyggd klient** | Nej | Eftersom det här är ett webb-API och inte en intern klient väljer du Nej. |
     
-3. Klicka på **Skapa** för att registrera API:et.
+6. Klicka på **Skapa** för att registrera API:et.
 
 Registrerade API visas i programlistan för Azure AD B2C-klientorganisationen. Välj webb-API i listan. Webb-API:ets egenskapsruta visas.
 
@@ -72,7 +79,7 @@ När webb-API:et registreras i Azure AD B2C skapas ett förtroende. Eftersom API
 
 ## <a name="define-and-configure-scopes"></a>Definiera och konfigurera omfång
 
-[Omfång](../active-directory/develop/active-directory-dev-glossary.md#scopes) är ett sätt att styra åtkomst till skyddade resurser. Omfång används av webb-API för att implementera omfångsbaserad åtkomststyrning. Vissa användare kan till exempel ha både läs- och skrivåtkomst medan andra bara har skrivskyddad åtkomst. I den här självstudiekursen definierar du läs- och skrivrättigheter för webb-API.
+[Omfång](../active-directory/develop/developer-glossary.md#scopes) är ett sätt att styra åtkomst till skyddade resurser. Omfång används av webb-API för att implementera omfångsbaserad åtkomststyrning. Till exempel kan användare av webb-API:et ha både läs- och skrivbehörighet, eller så har användare av webb-API:et kanske bara läsbehörighet. I den här självstudiekursen använder du omfång för att definiera läs- och skrivrättigheter för webb-API.
 
 ### <a name="define-scopes-for-the-web-api"></a>Definiera omfång för webb-API
 
@@ -109,7 +116,7 @@ Om du vill anropa ett skyddat webb-API från en app måste du ge appen åtkomst 
 
 5. Klicka på **OK**.
 
-**My Sample Web App** är registrerad för att anropa den skyddade **My Sample Web API**. En användare [autentiserar](../active-directory/develop/active-directory-dev-glossary.md#authentication) med Azure AD B2C för att använda appen. Webbappen får ett [auktoriseringsbeviljande](../active-directory/develop/active-directory-dev-glossary.md#authorization-grant) från Azure AD B2C som ger tillgång till det skyddade webb-API:et.
+**My Sample Web App** är registrerad för att anropa den skyddade **My Sample Web API**. En användare [autentiserar](../active-directory/develop/developer-glossary.md#authentication) med Azure AD B2C för att använda appen. Webbappen får ett [auktoriseringsbeviljande](../active-directory/develop/developer-glossary.md#authorization-grant) från Azure AD B2C som ger tillgång till det skyddade webb-API:et.
 
 ## <a name="update-code"></a>Uppdatera kod
 

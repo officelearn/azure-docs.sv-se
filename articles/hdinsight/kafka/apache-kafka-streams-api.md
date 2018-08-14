@@ -1,24 +1,20 @@
 ---
-title: 'Självstudie: Använda Apache Kafka Streams-API:er – Azure HDInsight | Microsoft Docs'
+title: 'Självstudie: Använda Apache Kafka Streams-API:er – Azure HDInsight '
 description: Lär dig hur du använder Apache Kafka Streams-API med Kafka på HDInsight. Detta API kan du utföra för att strömma bearbetningen mellan ämnen i Kafka.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/17/2018
-ms.author: larryfr
-ms.openlocfilehash: 5391d6ae101a97e9b62215621267e591b2a995f5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d285575802dd830247533420154f6f5e868272a2
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626402"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621053"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Självstudie: Apache Kafka Streams-API
 
@@ -31,7 +27,7 @@ Programmet som används i den här självstudien är en strömmande ordräkning.
 >
 > Mer information om Kafka Streams finns i dokumentationen [Intro to Streams](https://kafka.apache.org/10/documentation/streams/) (Introduktion till Streams) på Apache.org.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Ställ in din utvecklingsmiljö
@@ -225,7 +221,7 @@ För att skapa och distribuera projektet till Kafka p HDInsight-klustret utför 
 2. För att skicka poster till ämnet `test` använder du följande kommando för att starta producentprogrammet:
 
     ```bash
-    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS
+    java -jar kafka-producer-consumer.jar producer test $KAFKABROKERS
     ```
 
 3. När producenten är klar använder du följande kommando för att visa informationen som är lagrad i ämnet `wordcounts`:

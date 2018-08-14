@@ -8,22 +8,22 @@ ms.component: azds-kubernetes
 ms.author: ghogen
 ms.date: 07/09/2018
 ms.topic: quickstart
-description: Snabb Kubernetes-utveckling med behållare och mikrotjänster i Azure
+description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 3bb190570cbdf795668dd6e9f9d36630b6f3201b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 2a13a326aee29d002be18a3f40c4be9b4f2da4f1
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37949874"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523343"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>Snabbstart: Skapa ett Kubernetes dev-utrymme med Azure Dev Spaces (.NET Core och VS Code)
 
 I den här guiden får du lära dig hur du:
 
 - Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
-- Utveckla kod iterativt i behållare med VS Code och kommandoraden.
+- Utveckla kod iterativt i containrar med VS Code och kommandoraden.
 - Felsök koden i ditt dev-utrymme från VS Code
 
 > [!Note]
@@ -39,6 +39,10 @@ I den här guiden får du lära dig hur du:
 - [Visual Studio Code](https://code.visualstudio.com/download).
 
 ## <a name="set-up-azure-dev-spaces"></a>Konfigurera Azure Dev Spaces
+
+Azure CLI- och Azure Dev Spaces-tillägget kan installeras och köras på Windows-, Mac- och Linux-datorer. För Linux stöds följande distributioner: Ubuntu (18.04, 16.04 och 14.04), Debian 8 och 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2 samt SLES 12.
+
+Följ de här stegen för att konfigurera Azure Dev Spaces:
 
 1. Installera [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.0.38 eller högre).
 1. Ställ in Dev Spaces på ditt AKS-kluster: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
@@ -57,15 +61,15 @@ I den här guiden får du lära dig hur du:
    Öppna webbadressen i ett webbläsarfönster. Du bör nu se hur webbappen läses in. 
    
    > [!Note]
-   > Första gången det körs kan det ta några minuter innan DNS är redo. Om den offentliga URL:en inte fungerar kan du använda den alternativa http://localhost:<portnumber>-URL:en som visas i konsolens utdata. Om du använder localhost-URL:en kan det verka som om behållaren körs lokalt, men i själva verket körs den i AKS. För enkelhetens skull och för att underlätta interaktionen med tjänsten från den lokala datorn skapar Azure Dev Spaces en tillfällig SSH-tunnel för behållaren som körs i Azure. Du kan komma tillbaka och testa den offentliga URL:en senare när DNS-posten är färdig.
+   > Första gången det körs kan det ta några minuter innan DNS är redo. Om den offentliga URL:en inte fungerar kan du använda den alternativa http://localhost:<portnumber>-URL:en som visas i konsolens utdata. Om du använder localhost-URL:en kan det verka som om containern körs lokalt, men i själva verket körs den i AKS. För enkelhetens skull och för att underlätta interaktionen med tjänsten från den lokala datorn skapar Azure Dev Spaces en tillfällig SSH-tunnel för containern som körs i Azure. Du kan komma tillbaka och testa den offentliga URL:en senare när DNS-posten är färdig.
 
 ### <a name="update-a-content-file"></a>Uppdatera en innehållsfil
 
 1. Leta upp en fil som `./Views/Home/Index.cshtml` och gör en ändring i HTML-koden. Ändra till exempel rad 70, `<h2>Application uses</h2>`, till något som: `<h2>Hello k8s in Azure!</h2>`
-1. Spara filen. Efter en liten stund visas ett meddelande i terminalfönstret som meddelar att en fil i den aktiva behållaren har uppdaterats.
+1. Spara filen. Efter en liten stund visas ett meddelande i terminalfönstret som meddelar att en fil i den aktiva containern har uppdaterats.
 1. Gå till webbläsaren och uppdatera sidan. Den uppdaterade HTML-koden bör visas på webbsidan.
 
-Vad hände? Redigering av innehållsfiler som HTML och CSS kräver inte omkompilering i en .NET Core-webbapp. Ett aktivt `azds up`-kommando synkroniserar automatiskt ändrade innehållsfiler i behållaren som körs i Azure, så att du genast kan se dina innehållsändringar.
+Vad hände? Redigering av innehållsfiler som HTML och CSS kräver inte omkompilering i en .NET Core-webbapp. Ett aktivt `azds up`-kommando synkroniserar automatiskt ändrade innehållsfiler i containern som körs i Azure, så att du genast kan se dina innehållsändringar.
 
 ### <a name="update-a-code-file"></a>Uppdatera en kodfil
 Uppdateringar av kodfiler kräver lite mer arbete eftersom .NET Core-appar måste återskapas och skapa uppdaterade binärfiler för programmet.
@@ -75,13 +79,13 @@ Uppdateringar av kodfiler kräver lite mer arbete eftersom .NET Core-appar måst
 1. Spara filen.
 1. Kör `azds up` i terminalfönstret. 
 
-Det här kommandot återskapar behållaravbildningen och distribuerar Helm-diagrammet på nytt. Bekräfta kodändringarna i det aktiva programmet genom att gå till menyn Om i webbappen.
+Det här kommandot återskapar containeravbildningen och distribuerar Helm-diagrammet på nytt. Bekräfta kodändringarna i det aktiva programmet genom att gå till menyn Om i webbappen.
 
 Det finns dock en ännu *snabbare kodutvecklingsmetod*, som vi ska titta närmare på i nästa avsnitt. 
 
-## <a name="debug-a-container-in-kubernetes"></a>Felsöka en behållare i Kubernetes
+## <a name="debug-a-container-in-kubernetes"></a>Felsöka en container i Kubernetes
 
-I det här avsnittet ska du använda VS Code för att direkt felsöka din behållare som körs i Azure. Du får också lära dig hur du kan få en snabbare redigera-kör-test-loop.
+I det här avsnittet ska du använda VS Code för att direkt felsöka din container som körs i Azure. Du får också lära dig hur du kan få en snabbare redigera-kör-test-loop.
 
 ![](./media/common/edit-refresh-see.png)
 
@@ -104,10 +108,10 @@ Då läggs felsökningskonfigurationen för Azure Dev Spaces till under mappen `
 > Om du inte ser några Azure Dev Spaces-kommandon på kommandopaletten kontrollerar du att du har installerat VS Code-tillägget för Azure Dev Spaces. Kontrollera att arbetsytan som du öppnade i VS Code är mappen som innehåller azds.yaml.
 
 
-### <a name="debug-the-container-in-kubernetes"></a>Felsöka behållaren i Kubernetes
+### <a name="debug-the-container-in-kubernetes"></a>Felsöka containern i Kubernetes
 Tryck på **F5** för att felsöka koden i Kubernetes.
 
-Precis som med `up`-kommandot, synkroniseras koden med utvecklarmiljön och en behållare skapas och distribueras till Kubernetes. Men den här gången är felsökaren kopplad till fjärrbehållaren.
+Precis som med `up`-kommandot, synkroniseras koden med utvecklarmiljön och en container skapas och distribueras till Kubernetes. Men den här gången är felsökaren kopplad till fjärrcontainern.
 
 > [!Tip]
 > Statusfältet i VS Code innehåller en klickbar URL.
@@ -131,7 +135,7 @@ Spara filen och klicka på knappen **Uppdatera** i **fönstret Felsökningsåtg�
 
 ![](media/get-started-netcore/debug-action-refresh.png)
 
-I stället för att återskapa och distribuera om en ny behållaravbildning varje gång koden ändras, vilket ofta tar lång tid, kompilerar Azure Dev Spaces om koden inkrementellt i befintliga behållaren för snabbare redigerings- och felsökningsförlopp.
+I stället för att återskapa och distribuera om en ny containeravbildning varje gång koden ändras, vilket ofta tar lång tid, kompilerar Azure Dev Spaces om koden inkrementellt i den befintliga containern för snabbare redigerings- och felsökningsförlopp.
 
 Uppdatera webbappen i webbläsaren och gå till sidan Om. Nu bör ditt anpassade meddelande visas i användargränssnittet.
 
@@ -139,7 +143,8 @@ Uppdatera webbappen i webbläsaren och gå till sidan Om. Nu bör ditt anpassade
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur Azure Dev Spaces hjälper dig utveckla mer komplexa appar över flera behållare och hur du kan förenkla utveckling i samarbete genom att arbeta med olika versioner eller grenar av kod i olika utrymmen. 
+Lär dig hur Azure Dev Spaces hjälper dig utveckla mer komplexa appar över flera containrar och hur du kan förenkla utveckling i samarbete genom att arbeta med olika versioner eller grenar av kod i olika utrymmen. 
 
 > [!div class="nextstepaction"]
-> [Arbeta med flera behållare och utveckling i team](team-development-netcore.md)
+> 
+  [Arbeta med flera containrar och utveckling i team](team-development-netcore.md)

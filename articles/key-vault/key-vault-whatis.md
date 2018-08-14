@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: barclayn
-ms.openlocfilehash: cd9dd4d400177e511f23c2677b77198a50420a35
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 08331a399044eba17060d15f24af1863df38caf5
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283004"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480261"
 ---
 # <a name="what-is-azure-key-vault"></a>Vad är Azure Key Vault?
 
@@ -33,6 +33,8 @@ Azure Key Vault är ett verktyg för att lagra och komma åt hemligheter på ett
 Här följer några viktiga begrepp:
 - **Klientorganisation** – en klientorganisation är den organisation som äger och hanterar en specifik instans av Microsoft-molntjänster. Den används oftast på ett exakt sätt för att referera till uppsättningen med Azure- och Office 365-tjänster för en organisation
 - **Valvägare** – kan skapa ett nyckelvalv och får fullständig åtkomst och kontroll över det. Valvägaren kan även konfigurera granskning för att logga vem som kommer åt hemligheter och nycklar. Administratörer kan styra nyckelns livscykel. De kan distribuera till en ny version av nyckeln, säkerhetskopiera den osv.
+- **Resurs** – ett hanterbart objekt som är tillgängligt via Azure. Exempel på vanliga resurser är virtuella datorer, lagringskonton, webbappar, databaser och virtuella nätverk, men det finns många fler.
+- **Resursgrupp** – en container som innehåller relaterade resurser för en Azure-lösning. Resursgruppen kan innehålla alla resurser för lösningen, eller endast de resurser som du vill hantera som en grupp. Du bestämmer hur du vill allokera resurser till resursgrupper baserat på vad som är lämpligast för din organisation. Mer information finns i Resursgrupper.
 - **Valvkonsument** – kan utföra åtgärder på tillgångarna i nyckelvalvet när valvägaren ger personen åtkomst som är beroende av de behörigheter som beviljas.
 - **[Azure Active Directory](../active-directory/active-directory-whatis.md)** är Azure AD-tjänsten för en viss klientorganisation. Varje katalog har en eller flera domäner. En katalog kan ha många prenumerationer som är associerade med den, men endast en klientorganisation. 
 - **Azure-klientorganisations-ID** – detta är ett unikt sätt att identifiera en Azure Active Directory inom en Azure-prenumeration. 

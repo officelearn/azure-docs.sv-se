@@ -14,12 +14,12 @@ ms.date: 07/20/2018
 ms.author: lizross
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 7804d6b0d4a100997fb545e678458424dac6ceed
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 45637122af3df1906a8c3b4b16233f6361eecca3
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39227288"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528334"
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Snabbstart: Varumärkesanpassa inloggningssidan i Azure AD till ditt företag
 För att undvika förvirring vill många företag använda ett enhetligt utseende på alla webbplatser och tjänster som de hanterar. Azure Active Directory (Azure AD) erbjuder den här möjligheten genom att låta dig anpassa utseendet på inloggningssidan med företagets logotyp och egna färgscheman. Inloggningssidan visas när du loggar in på webbaserade program, till exempel Office 365, som använder Azure AD som identitetsprovider. Du kan interagera med den här sidan för att ange dina autentiseringsuppgifter.
@@ -71,7 +71,7 @@ Den här färgen används i stället för bakgrundsbilden för anslutningar med 
 ### <a name="square-logo-image"></a>Fyrkantig logotypbild
 Beskrivning | Villkor | Rekommendationer
 ------- | ------- | ----------
-Den här bilden visas under installationen för nya Enterprise Windows 10-datorer. Den ger kontext till de anställda när de konfigurerar sina nya arbetsdatorer. Bilden visas för klientorganisationer som använder [Windows AutoPilot](https://blogs.windows.com/business/2017/06/29/delivering-modern-promise-windows-10/?utm_source=dlvr.it&utm_medium=twitter#gDTp1u6q35bvDWIS.97) för att distribuera sina arbetsenheter samt på lösenordsinmatningssidor i andra Windows 10-miljöer. | Transparent PNG (föredras) eller JPG<br>Bilddimensioner: 240 x 240 pixlar<br>Filstorlek: &lt; 10 KB | Använd organisationens logotyp här.<br> Använd en transparent bild.<br>Förutsätt inte att bakgrunden är vit.<br>Lägg inte till utfyllnad till logotypen i bilden; annars ser logotypen oproportionerligt liten ut.
+Den här bilden visas under installationen för nya Enterprise Windows 10-datorer. Den ger kontext till de anställda när de konfigurerar sina nya arbetsdatorer. Bilden visas för klientorganisationer som använder [Windows AutoPilot](https://blogs.windows.com/business/2017/06/29/delivering-modern-promise-windows-10/?utm_source=dlvr.it&utm_medium=twitter#gDTp1u6q35bvDWIS.97) för att distribuera sina arbetsenheter samt på lösenordsinmatningssidor i andra Windows 10-miljöer.<br>Den fyrkantiga logotypen används endast i Windows-autentisering. Versionen med mörkt tema är inaktuell och används inte längre någonstans. | Transparent PNG (föredras) eller JPG<br>Bilddimensioner: 240 x 240 pixlar<br>Filstorlek: &lt; 10 KB | Använd organisationens logotyp här.<br> Använd en transparent bild.<br>Förutsätt inte att bakgrunden är vit.<br>Lägg inte till utfyllnad till logotypen i bilden; annars ser logotypen oproportionerligt liten ut.
 
 ### <a name="show-option-to-remain-signed-in"></a>Visa alternativet för att förbli inloggad
 Beskrivning | Villkor | Rekommendationer

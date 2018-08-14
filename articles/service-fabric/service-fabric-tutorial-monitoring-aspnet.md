@@ -246,7 +246,7 @@ public async Task<IActionResult> Delete(string name)
 }
 ```
 
-När du har gjort dessa ändringar **startar** du programmet så att den senaste versionen skapas och distribueras. När programmet har distribuerats går du till [localhost:8080](localhost:8080). Där lägger du till och tar bort vissa röstningsalternativ. Gå sedan tillbaka till Application Insights-resursen för att se spårningarna för den senaste körningen (det kan som sagt ta 1–2 minuter innan spårningar visas i Application Insights). För alla röster som du har lagt till och tagit bort, bör du nu se en ”Anpassad händelse” samt all svarstelemetri.
+När du har gjort dessa ändringar **startar** du programmet så att den senaste versionen skapas och distribueras. När programmet har distribuerats går du till [localhost:8080](localhost:8080). Där lägger du till och tar bort vissa röstningsalternativ. Gå sedan tillbaka till Application Insights-resursen för att se spårningarna för den senaste körningen (det kan som sagt ta 1–2 minuter innan spårningar visas i Application Insights). För alla röster som du har lagt till och tagit bort, bör du nu se en ”Anpassad händelse”\* samt all svarstelemetri.
 
 ![anpassade händelser](./media/service-fabric-tutorial-monitoring-aspnet/custom-events.png)
 

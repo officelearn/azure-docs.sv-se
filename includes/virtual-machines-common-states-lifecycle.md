@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
-ms.openlocfilehash: 798bf5f2b2a408798539c2e30076c2eca15c214a
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 603e7c3a0c30eb42cb75d6a6ff87a96d847b7c9f
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043963"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "40100068"
 ---
 Azure-datorer (VM) som går igenom olika tillstånd kan grupperas i *etablering* och *power* tillstånd. Syftet med den här artikeln är att beskriva tillståndet och markera specifikt när kunder faktureras till exempel användning. 
 
@@ -44,13 +44,13 @@ Fakturering för användning av instans
 </td>
 <td>
 <p>Virtuell dator startas.</p>
-<code>"statuses": [</br>
-   {</br>
-      "code": "PowerState/starting",</br>
-       "level": "Info",</br>
-        "displayStatus": "VM starting"</br>
-    }</br>
-    ]</code></br>
+<code>"statuses": [<br>
+   {<br>
+      "code": "PowerState/starting",<br>
+       "level": "Info",<br>
+        "displayStatus": "VM starting"<br>
+    }<br>
+    ]</code><br>
 </td>
 <td>
 <p><b>Inte faktureras</b></p>
@@ -62,13 +62,13 @@ Fakturering för användning av instans
 </td>
 <td>
 <p>Normal fungerande tillstånd för en virtuell dator</p>
-<code>"statuses": [</br>
- {</br>
- "code": "PowerState/running",</br>
- "level": "Info",</br>
- "displayStatus": "VM running"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "PowerState/running",<br>
+ "level": "Info",<br>
+ "displayStatus": "VM running"<br>
+ }<br>
+ ]</code><br>
 </td>
 <td>
 <p><b>Faktureras</b></p>
@@ -80,13 +80,13 @@ Fakturering för användning av instans
 </td>
 <td>
 <p>Det här är ett övergående tillstånd. När du är klar visas den som **stoppad**.</p>
-<code>"statuses": [</br>
- {</br>
- "code": "PowerState/stopping",</br>
- "level": "Info",</br>
- "displayStatus": "VM stopping"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "PowerState/stopping",<br>
+ "level": "Info",<br>
+ "displayStatus": "VM stopping"<br>
+ }<br>
+ ]</code><br>
 </td>
 <td>
 <p><b>Faktureras</b></p>
@@ -99,13 +99,13 @@ Fakturering för användning av instans
 <td>
 <p>Den virtuella datorn har stängts ned från i gästoperativsystemet eller med hjälp av the PowerOff APIs.</p>
 <p>Maskinvara fortfarande är tilldelad till den virtuella datorn och den kvar på värden. </p>
-<code>"statuses": [</br>
- {</br>
- "code": "PowerState/stopped",</br>
- "level": "Info",</br>
- "displayStatus": "VM stopped"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "PowerState/stopped",<br>
+ "level": "Info",<br>
+ "displayStatus": "VM stopped"<br>
+ }<br>
+ ]</code><br>
 </td>
 <td>
 <p><b>Inte faktureras&#42;</b></p>
@@ -117,13 +117,13 @@ Fakturering för användning av instans
 </td>
 <td>
 <p>Övergångsstadium. När du är klar visas den virtuella datorn som **frigjord**.</p>
-<code>"statuses": [</br>
- {</br>
- "code": "PowerState/deallocating",</br>
- "level": "Info",</br>
- "displayStatus": "VM deallocating"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "PowerState/deallocating",<br>
+ "level": "Info",<br>
+ "displayStatus": "VM deallocating"<br>
+ }<br>
+ ]</code><br>
 </td>
 <td>
 <p><b>Inte faktureras&#42;</b></p>
@@ -135,13 +135,13 @@ Fakturering för användning av instans
 </td>
 <td>
 <p>Den virtuella datorn har stoppats och tas bort från värden. </p>
-<code>"statuses": [</br>
- {</br>
- "code": "PowerState/deallocated",</br>
- "level": "Info",</br>
- "displayStatus": "VM deallocated"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "PowerState/deallocated",<br>
+ "level": "Info",<br>
+ "displayStatus": "VM deallocated"<br>
+ }<br>
+ ]</code><br>
 </td>
 <td>
 <p><b>Inte faktureras</b></p>
@@ -186,12 +186,12 @@ Här är övergående åtgärden tillstånd när plattformen har godkänt en åt
 <p><b>Skapa</b></p>
 </td>
 <td width="366">
-<code>"statuses": [</br>
- {</br>
- "code": "ProvisioningState/creating",</br>
- "level": "Info",</br>
- "displayStatus": "Creating"</br>
- }</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "ProvisioningState/creating",<br>
+ "level": "Info",<br>
+ "displayStatus": "Creating"<br>
+ }</code><br>
 </td>
 </tr>
 <tr>
@@ -199,13 +199,13 @@ Här är övergående åtgärden tillstånd när plattformen har godkänt en åt
 <p><b>Uppdaterar</b></p>
 </td>
 <td width="366">
-<code>"statuses": [</br>
- {</br>
- "code": "ProvisioningState/updating",</br>
- "level": "Info",</br>
- "displayStatus": "Updating"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "ProvisioningState/updating",<br>
+ "level": "Info",<br>
+ "displayStatus": "Updating"<br>
+ }<br>
+ ]</code><br>
 </td>
 </tr>
 <tr>
@@ -213,13 +213,13 @@ Här är övergående åtgärden tillstånd när plattformen har godkänt en åt
 <p><b>Tar bort</b></p>
 </td>
 <td width="366">
-<code>"statuses": [</br>
- {</br>
- "code": "ProvisioningState/deleting",</br>
- "level": "Info",</br>
- "displayStatus": "Deleting"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "ProvisioningState/deleting",<br>
+ "level": "Info",<br>
+ "displayStatus": "Deleting"<br>
+ }<br>
+ ]</code><br>
 </td>
 </tr>
 <tr>
@@ -229,21 +229,21 @@ Här är övergående åtgärden tillstånd när plattformen har godkänt en åt
 <td width="366">
 <p>Om en virtuell dator har skapats med en OS-avbildning och inte med en specialiserad avbildning, kan följande deltillstånd observeras:</p>
 <p>1. <b>OSProvisioningInprogress</b> &ndash; den virtuella datorn körs och installationen av gäst-OS pågår. <p /> 
-<code> "statuses": [</br>
- {</br>
- "code": "ProvisioningState/creating/OSProvisioningInprogress",</br>
- "level": "Info",</br>
- "displayStatus": "OS Provisioning In progress"</br>
- }</br>
-]</code></br>
+<code> "statuses": [<br>
+ {<br>
+ "code": "ProvisioningState/creating/OSProvisioningInprogress",<br>
+ "level": "Info",<br>
+ "displayStatus": "OS Provisioning In progress"<br>
+ }<br>
+]</code><br>
 <p>2. <b>OSProvisioningComplete</b> &ndash; tillfällig tillstånd. Den virtuella datorn övergår snabbt till **lyckades** såvida inte några tillägg måste vara installerade. Installera tillägg kan ta tid. <br />
-<code> "statuses": [</br>
- {</br>
- "code": "ProvisioningState/creating/OSProvisioningComplete",</br>
- "level": "Info",</br>
- "displayStatus": "OS Provisioning Complete"</br>
- }</br>
-]</code></br>
+<code> "statuses": [<br>
+ {<br>
+ "code": "ProvisioningState/creating/OSProvisioningComplete",<br>
+ "level": "Info",<br>
+ "displayStatus": "OS Provisioning Complete"<br>
+ }<br>
+]</code><br>
 <p><b>Obs</b>: OS-etableringen kan övergå till **misslyckades** om det uppstår ett OS-fel eller Operativsystemet inte installeras i tid. Kunder kommer att faktureras för den distribuerade virtuella datorn på infrastrukturen.</p>
 </td>
 </tr>
@@ -255,14 +255,14 @@ När åtgärden har slutförts, övergår den virtuella datorn i något av följ
 - **Lyckades** – de användarinitierade åtgärderna har slutförts.
 
     ```
- "statuses": \[ 
+ "statuses": [ 
  {
      "code": "ProvisioningState/succeeded",
      "level": "Info",
      "displayStatus": "Provisioning succeeded",
      "time": "time"
  }
- \]
+ ]
     ```
 
  
@@ -278,6 +278,7 @@ När åtgärden har slutförts, övergår den virtuella datorn i något av följ
       "message": "Operation abandoned due to internal error. Please try again later.",
       "time": "time"
     }
+    ]
     ```
 
 

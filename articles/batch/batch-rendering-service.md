@@ -1,276 +1,104 @@
 ---
-title: Azure Batch Rendering – rendering i molnskala | Microsoft Docs
-description: Rendera jobb på virtuella datorer i Azure direkt från Maya med betalning per användning.
+title: Azure Batch rendering-översikt
+description: Med hjälp av Azure för rendering och en översikt över Azure Batch renderingsfunktioner
 services: batch
-author: dlepow
-manager: jeconnoc
-ms.service: batch
-ms.topic: hero-article
-ms.date: 05/10/2018
-ms.author: danlep
-ms.openlocfilehash: cdec9c29d7f4f2832e175153ec50e400a735211a
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
-ms.translationtype: HT
+author: mscurrell
+ms.author: markscu
+ms.date: 08/02/2018
+ms.topic: conceptual
+ms.openlocfilehash: 4101f6819dff81376dcab47adb57e4b8ef35e094
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172280"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40034793"
 ---
-# <a name="get-started-with-batch-rendering"></a>Kom igång med Batch Rendering 
+# <a name="rendering-using-azure"></a>Rendering med hjälp av Azure
 
-Med Azure Batch Rendering får du renderingsfunktioner i molnskala med betalning per användning. Batch Rendering hanterar jobbschemaläggning och jobbköer, med funktioner för felhantering, omförsök och automatisk skalning för renderingsjobb. Batch Rendering har stöd för renderingsappar som [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview) och [V-Ray](https://www.chaosgroup.com/vray/maya). Med Batch-plugin-programmet för Maya 2017 kan du enkelt starta ett renderingsjobb i Azure direkt från skrivbordet.
+Rendering är processen för att utföra 3D-modeller och konvertera dem till 2D-bilder. 3D-scenfilerna är skrivna i program, till exempel Autodesk 3ds Max, Autodesk Maya och Blender.  Renderingsprogram som Autodesk Maya, Autodesk Arnold, Chaos Group V-Ray och Blender cykler producerar 2D-bilder.  Ibland enda avbildningar skapas från scenfilerna. Dock är det vanligt att modellera och återge flera bilder och sedan kombinera dem i en animering.
 
-Med Maya och 3ds Max kan du köra jobb med skrivbordsprogrammet [Batch Explorer](https://github.com/Azure/BatchExplorer) eller [CLI för Batch-mallar](batch-cli-templates.md). Med Azure Batch CLI kan du köra Batch-jobb utan att skriva kod. Istället kan du använda mallfilerna för att skapa Batch-pooler, -jobb och -uppgifter. Mer information finns i [Använda Azure Batch CLI-mallar och filöverföring](batch-cli-templates.md).
+Arbetsbelastningen rendering används kraftigt för effekter (VFX) i branschen Media och underhållning. Rendering används också i många andra industires, till exempel reklam, detaljhandel, olja och gas och tillverkning.
 
+Processen för rendering är beräkningsmässigt intensivt; Det kan finnas många bildrutor/bilder för att producera och varje avbildning kan ta flera timmar att återge.  Rendering används därför en perfekt batch-bearbetning som kan använda Azure och Azure Batch för att köra många renderingar parallellt.
 
-## <a name="supported-applications"></a>Program som stöds
+## <a name="why-use-azure-for-rendering"></a>Varför använda Azure för rendering?
 
-Batch Rendering har för närvarande stöd för följande program:
+Av flera orsaker är återgivningen en arbetsbelastning som passar perfekt för Azure och Azure Batch:
 
-På CentOS 7 återgivningsnoder:
-- Autodesk Maya I/O 2017 uppdatering 5 (version 201708032230)
-- Autodesk Maya I/O 2018 uppdatering 2 version 201711281015
-- Autodesk Arnold för Maya 2017 (Arnold version 5.0.1.1) MtoA-2.0.1.1-2017
-- Autodesk Arnold för Maya 2018 (Arnold version 5.0.1.4) MtoA-2.1.0.3-2018
-- Chaos Group V-Ray för Maya 2017 (version 3.60.04) 
-- Chaos Group V-Ray för Maya 2018 (version 3.60.04) 
-- Blender (2.68)
+* Rendering jobb kan delas upp i många delar som kan köras parallellt med flera virtuella datorer:
+  * Animeringar består av många bildrutor och varje ram kan återges parallellt.  Flera virtuella datorer tillgängliga för processen för varje bildruta, desto snabbare alla ramar och animeringen kan framställas.
+  * Vissa rendering program kan enda bildrutor delas i flera delar, till exempel paneler eller segment.  Varje del kan återges separat och sedan kombinera till den slutliga avbildningen när alla delar är klar.  Fler virtuella datorer som är tillgängliga, desto snabbare en ram kan återges.
+* Rendering projekt kan kräva enorm skala:
+  * Enskilda ramar kan vara komplexa och ta flera timmar att rendera, även på avancerad maskinvara; animeringar kan bestå av bildrutor hundratusentals.  En enorm mängd beräkning krävs för att rendera högkvalitativa animeringar inom en rimlig tid.  I vissa fall använts över 100 000 kärnor för att rendera tusentals bildrutor parallellt.
+* Rendering projekt är projektbaserade och kräver olika mängder beräkning:
+  * Allokera kapacitet för beräkning och lagring vid behov, skala upp eller ned enligt belastning under ett projekt och ta bort den när ett projekt är klar.
+  * Betala för kapacitet vid, men inte betala för det när det finns ingen belastning, till exempel mellan projekt.
+  * Serva både för ökningar på grund av oväntade ändringar; skala senare om det finns oväntade ändringar sent i ett projekt och dessa ändringar behöver bearbetas på ett strikt schema.
+* Välj bland ett brett urval av maskinvaran i enlighet med program, arbetsbelastning och tidsintervall:
+  * Det finns ett brett urval av maskinvara som är tillgänglig i Azure som kan allokeras och hanteras med Batch.
+  * Beroende på projektet vara kravet för bästa pris/prestanda eller bästa prestanda.  Olika scener och/eller renderingsprogram har olika minneskrav.  Vissa rendering program kan använda GPU: er för bästa prestanda och vissa funktioner. 
+* Lågprioriterade virtuella datorer minskade kostnader:
+  * Lågprioriterade virtuella datorer är tillgängliga för stora rabatter jämfört med vanliga virtuella datorer på begäran och lämpar sig för vissa typer av jobb.
+  * Lågprioriterade virtuella datorer kan allokeras av Azure Batch med Batch ger stor flexibilitet i hur de används för att serva för en rad olika krav.  Batch-pooler kan bestå av både dedikerade och lågprioriterade virtuella datorer, med det är möjligt att ändra olika typer av virtuella datorer när som helst.
 
-På Windows Server 2016 återgivningsnoder:
-- Autodesk Maya I/O 2017 uppdatering 5 (version 17.4.5459) 
-- Autodesk Maya I/O 2018 uppdatering 2 (version 18.2.0.6476) 
-- Autodesk Maya 3ds I/O 2018 uppdatering 4 (version 20.4.0.4254) 
-- Autodesk Arnold för Maya (Arnold version 5.0.1.1) MtoA-2.0.1.1-2017
-- Autodesk Arnold för Maya (Arnold version 5.0.1.4) MtoA-2.0.2.3-2018
-- Autodesk Arnold för 3ds Max (Arnold version 5.0.2.4 )(version 1.2.926) 
-- Chaos Group V-Ray för Maya (version 3.52.03) 
-- Chaos Group V-Ray för 3ds Max (version 3.60.02)
-- Blender (2.79)
+## <a name="options-for-rendering-on-azure"></a>Alternativ för återgivning på Azure
 
+Det finns en rad Azure-funktioner som kan användas för arbetsbelastningar.  Vilka funktioner du använder beror på alla befintliga miljö och krav.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="existing-on-premises-rendering-environment-using-a-render-management-application"></a>Befintliga lokala återgivning-miljö med ett hanteringsprogram för rendering
 
-Om du vill använda Batch Rendering behöver du:
+I de flesta fall är för det för att återge en befintlig lokal grupp som hanteras av en rendering hanteringsprogram som PipelineFX Qube, Royal återge eller Thinkbox tidsgräns.  Kravet är att utöka lokalt rendering servergruppen kapacitet med hjälp av virtuella Azure-datorer.
 
-- [Azure-konto](https://azure.microsoft.com/free/).
-- **Azure Batch-konto.** Anvisningar för hur du skapar ett Batch-konto på Azure-portalen finns i [Skapa ett Batch-konto med Azure-portalen](batch-account-create-portal.md).
-- **Azure Storage-konto.** De resurser som används för dina återgivningsjobb lagras vanligtvis i Azure Storage. Du kan skapa ett lagringskonto automatiskt när du skapar ditt Batch-konto. Du kan också använda ett befintligt lagringskonto. För olika alternativ för lagringskonton, se [Översikt över Batch-funktionen](batch-api-basics.md#azure-storage-account).
-- **Miljövariabler.** Om din lösning ändrar miljövariabler kontrollerar du att värdena för `AZ_BATCH_ACCOUNT_URL` och `AZ_BATCH_SOFTWARE_ENTITLEMENT_TOKEN` hålls intakta och tillgängliga när något av ovanstående licensierade program anropas. Annars är det troligt att det uppstår aktiveringsproblem med programvaran.
-- **Batch Explorer** (valfritt). [Batch Explorer](https://azure.github.io/BatchExplorer) (hette förut BatchLabs) är ett kostnadsfritt, fristående klientverktyg med omfattande funktioner för att skapa, felsöka och övervaka Azure Batch-program. Även om det inte krävs för att använda renderingstjänsten så är det användbart för att utveckla och felsöka dina Batch-lösningar.
+Hanteringsprogramvara för rendering är inbyggda i Azure-support och vi göra tillgängliga plugin-program som lägger till stöd för Azure. För mer information om den stöds rendera chefer och funktioner som aktiverats ska du läsa artikeln om [med rendera chefer](https://docs.microsoft.com/azure/batch/batch-rendering-render-managers).
 
-För att använda Batch-plugin-programmet för Maya behöver du:
+### <a name="custom-rendering-workflow"></a>Anpassade rendering arbetsflöde
 
-- [Autodesk Maya 2017](https://www.autodesk.com/products/maya/overview).
-- Ett renderingsprogram som stöds som Arnold för Maya eller V-Ray för Maya.
+Det krävs för virtuella datorer att utöka ett befintligt renderingsgrupp.  Azure Batch-pooler kan allokera stort antal virtuella datorer, kan lågprioriterade virtuella datorer som ska användas och dynamiskt automatiskt skalade med virtuella datorer med fullständig pris och tillhandahåller betala för det du använder licensiering för populära renderingsprogram.
 
-## <a name="basic-batch-concepts"></a>Grundläggande begrepp för Batch
+### <a name="no-existing-render-farm"></a>Inga befintliga renderingsservergrupp
 
-Innan du börjar använda Batch Rendering är det bra att känna till några viktiga Batch-begrepp, som beräkningsnoder, pooler och jobb. Mer allmän information om Azure Batch finns i [Köra parallella arbetsbelastningar med Batch](batch-technical-overview.md).
+Klientdatorer som kan utföra rendering, men rendering arbetsbelastningen ökar och det tar för lång tid att endast använda arbetsstation kapacitet.  Azure Batch kan användas på både allokera rendering servergruppen databearbetning på begäran, samt schemalägga Renderingsjobb till Azure renderingsgrupp.
 
-### <a name="pools"></a>Pooler
+## <a name="azure-batch-rendering-capabilities"></a>Azure Batch rendering-funktioner
 
-Batch är en plattformstjänst för att köra beräkningsintensivt arbete, t.ex. rendering, i en **pool** med **beräkningsnoder**. Varje beräkningsnod i poolen är en virtuell Azure-dator (VM) som kör Linux eller Windows. 
+Azure Batch kan parallella arbetsbelastningar som ska köras i Azure.  Det möjliggör skapandet och hanteringen av stora mängder virtuella datorer där program installeras och körs.  Den innehåller också omfattande funktioner för att köra instanser av dessa program och ger tilldelningen av uppgifter till virtuella datorer, köer, program, och så vidare för jobbschemaläggning.
 
-Mer information om Batch-pooler och beräkningsnoder finns i avsnitten [Pool](batch-api-basics.md#pool) och [Beräkningsnod](batch-api-basics.md#compute-node) i [Utveckla storskaliga parallella beräkningslösningar med Batch](batch-api-basics.md).
+Azure Batch används för många arbetsbelastningar, men följande funktioner är tillgängliga för väljer att göra det enklare och snabbare att köra Renderingsjobb.
 
-### <a name="jobs"></a>Jobb
+* Avbildningar av Virtuella datorer med förinstallerade grafik- och renderingsprogram:
+  * Azure Marketplace-VM-avbildningar är tillgängliga som innehåller populära grafik- och renderingsprogram, inte behöver installera program som dig själv eller skapa dina egna anpassade avbildningar med program som har installerats. 
+* Betala per användning licensiering för renderingsprogram:
+  * Du kan välja att betala för program per minut, förutom att betala för databearbetning virtuella datorer, vilket innebär att du behöver köpa licenser och potentiellt konfigurera en server för programmen.  Betala för användning innebär också att det är möjligt att serva för olika och oväntat eftersom det är inte ett fast antal licenser.
+  * Det är också möjligt att använda de förinstallerade programmen med dina egna licenser och inte använda licensieringen där du betalar per användning.
+* Plugin-program för klienten utformning och modellapplikationer:
+  * Plugin-program att slutanvändarna ska kunna använda Azure Batch direkt från klientprogrammet, som Autodesk Maya, så att de kan skapa pooler, skicka in jobb och göra användning på mer beräkningskapacitet för att utföra snabbare renderingar.
+* Rendera manager-integrering:
+  * Azure Batch är integrerad i rendering hanteringsprogram eller plugin-program är tillgängliga för att tillhandahålla Azure Batch-integrering.
 
-Ett Batch-**jobb** är en samling uppgifter som körs på beräkningsnoderna i en pool. När du skickar ett renderingsjobb delar Batch upp jobbet i olika uppgifter och distribuerar uppgifterna till beräkningsnoderna i poolen som ska köra dem.
+Det finns flera sätt att använda Azure Batch, som gäller även för Azure Batch rendering.
 
-Från [Azure Portal](https://ms.portal.azure.com/) kan du övervaka jobb och diagnostisera uppgifter som misslyckats genom att hämta programloggarna och genom att fjärransluta till enskilda virtuella datorer med RDP eller SSH. Du kan även hantera, övervaka och felsöka med hjälp av [Batch Explorer-verktyget](https://azure.github.io/BatchExplorer).
+* API: er:
+  * Skriva kod med hjälp av den [REST](https://docs.microsoft.com/rest/api/batchservice), [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/batch), [Python](https://docs.microsoft.com/python/api/overview/azure/batch), [Java](https://docs.microsoft.com/java/api/overview/azure/batch), eller andra API: er som stöds.  Utvecklare kan integrera Azure Batch-funktioner i deras befintliga program eller ett arbetsflöde, om molnet eller baserat på plats.  Till exempel den [Autodesk Maya-plugin-programmet](https://github.com/Azure/azure-batch-maya) använder Batch Python-API för att anropa Batch, skapa och hantera pooler, skickar in jobb och aktiviteter och övervaka status.
+* Verktyg för kommandoraden:
+  * Den [Azure-kommandorad](https://docs.microsoft.com/cli/azure/) eller [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) kan användas för att skriva Batch användning.
+  * I synnerhet gör CLI för Batch-mallstöd det mycket enklare att skapa pooler och skicka jobb.
+* Användargränssnitt:
+  * [Batch Explorer](https://github.com/Azure/BatchExplorer) är ett plattformsoberoende klientverktyg som också kan Batch-konton kan hanteras och övervakas, men innehåller vissa förbättrade funktioner jämfört med Azure-portalens användargränssnitt.  En uppsättning mallar för poolen och jobbet är förutsatt att är skräddarsydda för varje program som stöds och kan användas för att enkelt skapa pooler och skicka jobb.
+  * Azure-portalen kan användas för att hantera och övervaka Azure Batch.
+* Klienten programmet plugin-modulens:
+  * Plugin-program är tillgängliga som gör det Batch rendering att användas direkt i klient-design och modellapplikationer. Plugin-programmen anropa främst Batch Explorer-program med detaljerad information om den aktuella 3D-modellen.
+  * Följande plugin-programmen är tillgängliga:
+    * [Azure Batch för Maya](https://github.com/Azure/azure-batch-maya)
+    * [3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
+    * [Blender](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
 
-Mer information om Batch-jobb finns i avsnittet [Jobb](batch-api-basics.md#job) i [Utveckla storskaliga parallella beräkningslösningar med Batch](batch-api-basics.md).
+## <a name="getting-started-with-azure-batch-rendering"></a>Komma igång med Azure Batch rendering
 
-## <a name="options-for-provisioning-required-applications"></a>Alternativ för att etablera nödvändiga program
+Se följande grundläggande självstudierna för att prova Azure Batch rendering:
 
-Flera program kan krävas för att återge ett jobb, t.ex. en kombination av Maya och Arnold eller 3ds Max och V-Ray samt andra tredjeparts-plugin-program, om det behövs. Vissa kunder kan dessutom kräva specifika versioner av dessa program. Därför finns det flera metoder för att etablera nödvändiga program:
-
-### <a name="pre-configured-vm-images"></a>Förkonfigurerade VM-avbildningar
-
-Azure tillhandahåller Windows- och Linux-avbildningar med en förinstallerad version av Maya 3ds Max och Arnold V-Ray som är klar att användas. Du kan välja de här avbildningarna på [Azure-portalen](https://portal.azure.com), Maya-plugin-programmet eller [Batch Explorer](https://azure.github.io/BatchExplorer) när du skapar en pool.
-
-På Azure Portal och i Batch Explorer kan du installera någon av VM-avbildningarna med de förinstallerade programmen enligt följande: I avsnittet Pooler i dit Batch-konto väljer du **Nytt**, och i **Lägg till pool** väljer du **Grafik och återgivning (Linux/Windows)** från listrutan **Avbildningstyp**:
-
-![Välj avbildningstyp för Batch-kontot](./media/batch-rendering-service/add-pool.png)
-
-Bläddra nedåt och under **Licensiering grafik och återgivning** klickar du på **Välj program och prissättning**. Välj en eller flera av programvarulicenserna:
-
-![Välj grafik- och renderingslicens för poolen](./media/batch-rendering-service/graphics-licensing.png)
-
-Specifika licensversioner som tillhandahålls med versionerna i avsnittet ”Program som stöds” ovan.
-
-### <a name="custom-images"></a>Anpassade avbildningar
-
-Med Azure Batch kan du tillhandahålla en egen anpassad avbildning. Med det här alternativet kan du konfigurera din virtuella dator med de exakta program och specifika versioner du behöver. Mer information finns i [Use a custom image to create a pool of virtual machines](https://docs.microsoft.com/azure/batch/batch-custom-images) (Använda en anpassad avbildning för att skapa en pool med virtuella datorer). Observera att Autodesk och Chaos Group har ändrat Arnold respektive V-Ray för att verifiera mot vår egen licensieringstjänst. Du måste kontrollera att du har versionerna av dessa program som har det här stödet, annars fungerar inte licensieringen där du betalar utifrån hur mycket du använder. Licensverifieringen krävs inte för Maya eller 3ds Max eftersom de publicerade versionerna inte kräver någon licensserver när de körs med fjärradministrering (i batch/kommandoradsläge). Kontakta Azure-supporten om du inte vet hur du fortsätter med det här alternativet.
-
-## <a name="options-for-submitting-a-render-job"></a>Alternativ för att skicka ett renderingsjobb
-
-Beroende på vilket 3D-program du använder finns det olika alternativ för att skicka renderingsjobb:
-
-### <a name="maya"></a>Maya
-
-Med Maya kan du använda:
-
-- [Batch-plugin-programmet för Maya](https://docs.microsoft.com/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
-- Skrivbordsprogrammet [Batch Explorer](https://azure.github.io/BatchExplorer)
-- [CLI för Batch-mallar](batch-cli-templates.md)
-
-### <a name="3ds-max"></a>3ds Max
-
-Med 3ds Max kan du använda:
-
-- Skrivbordsprogrammet [Batch Explorer](https://azure.github.io/BatchExplorer) (se [BatchExplorer-data](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/3dsmax) för hjälp med att använda 3ds Max-mallar)
-- [CLI för Batch-mallar](batch-cli-templates.md)
-
-Med 3ds Max Batch Labs-mallar kan du återge VRay- och Arnold-bakgrunder med Batch Rendering. Det finns två varianter av mallen för VRay och Arnold, en för standardbakgrunder och en för mer komplexa bakgrunder som kräver en 3ds Max-sökvägsfil till tillgångar och strukturer (.mxp-fil). Mer information om 3ds Max-mallar finns i lagringsplatsen [BatchExplorer-data](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/3dsmax) på GitHub.
-
-Du kan också använda [Batch Python SDK](/python/api/overview/azure/batch) för att integrera renderingen med din befintliga pipeline.
-
-
-## <a name="use-the-batch-plug-in-for-maya-to-submit-a-render-job"></a>Skicka ett renderingsjobb med Batch-plugin-programmet för Maya
-
-Med Batch-plugin-programmet för Maya kan du skicka ett jobb till Batch Rendering direkt från Maya. Följande avsnitt beskriver hur du konfigurerar jobbet från plugin-programmet och hur du sedan skickar det. 
-
-### <a name="load-the-batch-plug-in-for-maya"></a>Läsa in Batch-plugin-programmet för Maya
-
-Batch-plugin-programmet är tillgängligt på [GitHub](https://github.com/Azure/azure-batch-maya/releases). Packa upp arkivet till valfri katalog. Du kan läsa in plugin-programmet direkt från katalogen *azure_batch_maya*.
-
-Så här läser du in plugin-programmet i Maya:
-
-1. Kör Maya.
-2. Öppna **Window** (Fönster)  > **Settings/Preferences** (Inställningar)  > **Plug-in Manager** (Plugin-hanteraren).
-3. Klicka på **Browse** (Bläddra).
-4. Navigera till och välj *azure_batch_maya/plug-in/AzureBatch.py*.
-
-### <a name="authenticate-access-to-your-batch-and-storage-accounts"></a>Autentisera åtkomsten till dina Batch- och Storage-konton
-
-Du måste autentisera med dina Azure Batch- och Azure Storage-kontonycklar för att kunna använda plugin-programmet. Så här hämtar du dina kontonycklar:
-
-1. Visa plugin-programmet i Maya och välj fliken **Config** (Konfiguration).
-2. Navigera till [Azure-portalen](https://portal.azure.com).
-3. Välj **Batch-konton** på menyn till vänster. Om det behövs klickar du på **Fler tjänster** och filtrerar på _Batch_.
-4. Leta upp Batch-kontot i listan.
-5. Välj menyalternativet **Nycklar** för att visa kontonamnet, kontots URL-adress och åtkomstnycklarna:
-    - Klistra in URL:en för Batch-kontot i fältet **Tjänst** i Batch-plugin-programmet.
-    - Klistra in kontonamnet i fältet **Batch-konto**.
-    - Klistra in den primära kontonyckeln i fältet **Batch Key** (Batch-nyckel).
-7. Välj Lagringskonton på menyn till vänster. Om det behövs klickar du på **Fler tjänster** och filtrerar på _Storage_.
-8. Leta upp önskat lagringskonto i listan.
-9. Välj menyalternativet **Åtkomstnycklar** för att visa lagringskontots namn och nycklar.
-    - Klistra in lagringskontots namn i fältet **Lagringskonto** i Batch-plugin-programmet.
-    - Klistra in den primära kontonyckeln i fältet **Lagringsnyckel**.
-10. Kontrollera att plugin-programmet kan komma åt båda kontona genom att klicka på **Autentisera**.
-
-När autentiseringen har lyckats ändras statusfältet i plugin-programmet till **Autentiserad**: 
-
-![Autentisera dina Batch- och Storage-konton](./media/batch-rendering-service/authentication.png)
-
-### <a name="configure-a-pool-for-a-render-job"></a>Konfigurera en pool för ett renderingsjobb
-
-När du har autentiserat dina Batch- och Storage-konton skapar du en pool för renderingsjobbet. Plugin-programmet sparar dina val mellan sessioner. När du har skapat konfigurationen behöver du inte modifiera den såvida den inte ändras.
-
-Följande avsnitt beskriver de tillgängliga alternativen på fliken **Skicka**:
-
-#### <a name="specify-a-new-or-existing-pool"></a>Ange en ny eller befintlig pool
-
-Du anger vilken pool som renderingsjobbet ska köras i genom att först välja fliken **Skicka**. På den här fliken kan du välja mellan att skapa en ny pool eller använda en befintlig:
-
-- Du kan **etablera en pool automatiskt för det här jobbet** (standardalternativet). Om du väljer det här alternativet skapar Batch poolen exklusivt för det aktuella jobbet och tar automatiskt bort poolen när renderingsjobbet har slutförts. Det här alternativet är bäst när du ska köra ett enskilt renderingsjobb.
-- Du kan **återanvända en befintlig beständig pool**. Om du har en befintlig pool som är inaktiv kan du välja den poolen för att köra renderingsjobbet genom att välja poolen i listrutan. Du sparar tid genom att återanvända en befintlig beständig pool eftersom du inte behöver etablera poolen.  
-- Du kan **skapa en ny beständiga pool**. Om du väljer det här alternativet skapas en ny pool för att köra jobbet. Poolen tas inte bort när jobbet har slutförts, så att du kan återanvända den för framtida jobb. Välj det här alternativet om du behöver köra renderingsjobb regelbundet. För efterföljande jobb kan du välja att **återanvända en befintlig beständig pool** om du vill använda den beständiga poolen som du skapade för det första jobbet.
-
-![Ange pool, OS-avbildning, VM-storlek och licens](./media/batch-rendering-service/submit.png)
-
-Mer information om hur kostnader påförs för virtuella Azure-datorer finns i avsnittet med [vanliga frågor och svar om priser för Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#faq) och avsnittet med [vanliga frågor och svar om priser för Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/#faq).
-
-#### <a name="specify-the-os-image-to-provision"></a>Ange den operativsystemsavbildning som ska etableras
-
-Du kan ange vilken typ av operativsystemsavbildning som du vill använda för att etablera beräkningsnoder i poolen på fliken **Env** (Miljö). För närvarande stöder Batch följande avbildningsalternativ för renderingsjobb:
-
-|Operativsystem  |Bild  |
-|---------|---------|
-|Linux     |Batch CentOS |
-|Windows     |Batch Windows |
-
-#### <a name="choose-a-vm-size"></a>Välja storlek för virtuella datorer
-
-Du kan ange storleken för virtuella datorer på fliken **Env** (Miljö). Mer information om tillgängliga storlekar för virtuella datorer finns i [Linux VM sizes in Azure](../virtual-machines/linux/sizes.md) (Storlekar för virtuella Linux-datorer i Azure) och [Windows VM sizes in Azure](../virtual-machines/windows/sizes.md) (Storlekar för virtuella Windows-datorer i Azure). 
-
-![Ange operativsystemsavbildning och storlek för virtuella datorer på fliken Env (Miljö)](./media/batch-rendering-service/environment.png)
-
-#### <a name="specify-licensing-options"></a>Ange licensieringsalternativ
-
-Du kan ange vilka licenser du vill använda på fliken **Env** (Miljö). Alternativen är:
-
-- **Maya**, som är aktiverat som standard.
-- **Arnold**, som är aktiverat om Arnold har identifierats som den aktiva renderingsmotorn i Maya.
-
- Om du vill använda en egen licens för renderingen kan du konfigurera slutpunkten för din licens genom att lägga till lämpliga miljövariablerna i tabellen. Avmarkera standardlicensalternativen om du gör det.
-
-> [!IMPORTANT]
-> Du debiteras för användning av licenserna när virtuella datorer körs i poolen, även om de virtuella datorerna inte används för rendering för tillfället. Du kan undvika extra kostnader genom att gå till fliken **Pooler** och ändra storleken på poolen till 0 noder tills det är dags att köra nästa renderingsjobb. 
->
->
-
-#### <a name="manage-persistent-pools"></a>Hantera beständiga pooler
-
-Du kan hantera en befintlig beständiga pool på fliken **Pooler**. Om du väljer en pool i listan visas poolens aktuella status.
-
-Från fliken **Pooler** kan du även ta bort poolen och ändra antalet virtuella datorer i poolen. Du kan ändra storlek på poolen till 0 noder för att undvika kostnader mellan arbetsbelastningar.
-
-![Visa, ändra storlek på och ta bort pooler](./media/batch-rendering-service/pools.png)
-
-### <a name="configure-a-render-job-for-submission"></a>Konfigurera ett renderingsjobb för att skicka det
-
-När du har angett parametrarna för poolen som ska köra renderingsjobbet, konfigurerar du själva jobbet. 
-
-#### <a name="specify-scene-parameters"></a>Ange scenparametrar
-
-Batch-plugin-programmet identifierar vilken renderingsmotor som du för närvarande använder i Maya och visar lämpliga renderingsinställningar på fliken **Submit** (Skicka). Du kan bland annat ange inställningar för första bildruta, sista bildruta, utdataprefix och bildrutesteg. Du kan åsidosätta renderingsinställningarna för scenfilen genom att ange olika inställningar i plugin-programmet. De ändringar du gör i plugin-programmets inställningar är inte beständiga i scenfilens renderingsinställningar. Det betyder att du kan göra ändringar för varje enskilt jobb utan att behöva ladda upp scenfilen.
-
-Plugin-programmet varnar dig om den renderingsmotor som du valt i Maya inte stöds.
-
-Om du läser in en ny scen när plugin-programmet är öppet klickar du på knappen **Uppdatera** för att se till att inställningarna uppdateras.
-
-#### <a name="resolve-asset-paths"></a>Matcha sökvägar för resurser
-
-När du läser in plugin-programmet genomsöks scenfilen efter eventuella externa filreferenser. Dessa referenser visas på fliken **Assets** (Resurser). Om det inte går att matcha en refererad sökväg försöker plugin-programmet hitta filen på ett antal standardplatser, inklusive:
-
-- platsen för scenfilen 
-- det aktuella projektets _sourceimages_-katalog
-- den aktuella arbetskatalogen. 
-
-Om det fortfarande inte går att hitta resursen visas den med en varningsikon:
-
-![Resurser som saknas visas med en varningsikon](./media/batch-rendering-service/missing_assets.png)
-
-Om du känner till platsen för en filreferens som inte kan matchas, kan du klicka på varningsikonen så uppmanas du att lägga till sökvägen. I så fall använder plugin-programmet den här sökvägen för att försöka matcha resurser som saknas. Du kan lägga till valfritt antal ytterligare sökvägar.
-
-När en referens har matchats visas den med en grön knappikon:
-
-![Matchade resurser visas med en grön knappikon](./media/batch-rendering-service/found_assets.png)
-
-Om din scen kräver andra filer som plugin-programmet inte har identifierat kan du lägga till ytterligare filer eller kataloger. Använd knapparna **Lägg till filer** och **Lägg till katalog**. Om du läser in en ny scen när plugin-programmet är öppet klickar du på **Uppdatera** så att scenens referenser uppdateras.
-
-#### <a name="upload-assets-to-an-asset-project"></a>Ladda upp resurser till ett resursprojekt
-
-När du skickar ett renderingsjobb överförs automatiskt de refererade filerna som visas på fliken **Assets** (Resurser) till Azure Storage som ett resursprojekt. Du kan också ladda upp resursfiler oberoende av ett renderingsjobb genom att använda knappen **Överför** på fliken **Assets** (Resurser). Resursprojektets namn anges i fältet **Projekt**. Projektet namnges som standard baserat på det aktuella Maya-projektet. Den lokala filstrukturen bevaras när resursfilerna laddas upp. 
-
-När resurserna har laddats upp kan ett obegränsat antal renderingsjobb referera till dem. Alla överförda resurser är tillgängliga för alla jobb som refererar till resursprojektet, oavsett om de finns med i scenen eller inte. Om du vill ändra resursprojektet som ditt nästa jobb refererar till ändrar du namnet i fältet **Projekt** på fliken **Assets** (Resurser). Om det finns refererade filer som du vill utesluta från uppladdningen avmarkerar du dem genom att klicka på den gröna knappen bredvid posten i listan.
-
-#### <a name="submit-and-monitor-the-render-job"></a>Skicka och övervaka renderingsjobbet
-
-När du har konfigurerat renderingsjobbet i plugin-programmet klickar du på knappen **Skicka jobb** på fliken **Skicka** för att skicka jobbet till Batch:
-
-![Skicka renderingsjobbet](./media/batch-rendering-service/submit_job.png)
-
-Du kan övervaka ett pågående jobb från fliken **Jobb** i plugin-programmet. Välj ett jobb i listan för att visa jobbets aktuella status. Du kan också använda den här fliken för att avbryta och ta bort jobb, samt för att hämta utdata och renderingsloggar. 
-
-Om du vill hämta utdata ändrar du fältet **Utdata** till önskad målkatalog. Klicka på kugghjulsikonen om du vill starta en bakgrundsprocess som bevakar jobbet och hämtar utdata i takt med att jobbet fortskrider: 
-
-![Visa jobbstatus och hämta utdata](./media/batch-rendering-service/jobs.png)
-
-Du kan stänga Maya utan att hämtningsprocessen avbryts.
+* [Använda Batch Explorer för att rendera en scen Blender](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
+* [Använda Batch-CLI för att återge en Autodesk 3ds Max-scen](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Batch finns i [Köra parallella arbetsbelastningar med Batch](batch-technical-overview.md).
+Fastställa listan med renderingsprogram och versioner på Azure Marketplace-VM-avbildningarna i [i den här artikeln](https://docs.microsoft.com/azure/batch/batch-rendering-applications).

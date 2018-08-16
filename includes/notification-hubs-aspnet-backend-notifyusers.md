@@ -378,7 +378,7 @@ Därefter distribuerar du appen till en Azure-webbplats så att den är tillgän
 
 1. Högerklicka på **AppBackend**-projektet och välj sedan **Publicera**.
 
-2. Välj **Microsoft Azure App Service** som publiceringsmål och välj sedan **Publicera. Fönstret Skapa App Service öppnas. Här kan du skapa alla nödvändiga Azure-resurser för att köra ASP.NET-webbapp i Azure.
+2. Välj **Microsoft Azure App Service** som publiceringsmål och välj sedan \*\*Publicera. Fönstret Skapa App Service öppnas. Här kan du skapa alla nödvändiga Azure-resurser för att köra ASP.NET-webbapp i Azure.
 
     ![Panelen Microsoft Azure App Service][B15]
 

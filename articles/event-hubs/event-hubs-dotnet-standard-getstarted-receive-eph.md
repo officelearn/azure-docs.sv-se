@@ -3,7 +3,7 @@ title: Ta emot händelser från Azure Event Hubs med .NET Standard-bibliotek | M
 description: Börja ta emot meddelanden med EventProcessorHost i .NET Standard
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
-ms.author: sethm
-ms.openlocfilehash: fd74405c8ca95ca1a5880ab26bf87705bde217de
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: shvija
+ms.openlocfilehash: 40e81058b539b0ad6d642a6f7b22d75304fe5cdf
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127541"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40002723"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Börja ta emot meddelanden med EventProcessorHost i .NET Standard
 
@@ -28,7 +28,7 @@ ms.locfileid: "37127541"
 
 I den här självstudien får du lära dig att skriva ett .NET Core-konsolprogram som tar emot meddelanden från en Event Hub med biblioteket **Värd för händelsebearbetning**. Du kan köra [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver)-lösningen i befintligt skick och ersätta strängarna med värdena för din händelsehubb och lagringskonto. Eller så kan du följa stegen i den här självstudiekursen och skapa ett eget.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * [Microsoft Visual Studio 2015 eller 2017](http://www.visualstudio.com). I exemplen i självstudien används Visual Studio 2017, men Visual Studio 2015 stöds också.
 * [.NET Core Visual Studio 2015- eller 2017-verktyg](http://www.microsoft.com/net/core).
@@ -48,8 +48,8 @@ Det första steget är att använda [Azure Portal](https://portal.azure.com) til
 
     ![Skapa lagringskonto][1]
 
-4. När du ser meddelandet **Distributionen är klar** klickar du på det nya lagringskontots namn. I fönstret **Essentials** klickar du på **Blobbar**. När dialogrutan **Blob service** öppnas klickar du på **Behållare** högst upp. Ge behållaren ett namn och stäng **Blob service**.  
-5. Klicka på **Åtkomstnycklar** i fönstret till vänster och kopiera lagringsbehållarens namn, lagringskontot och värdet för **key1**. Spara det här värdet i Anteckningar eller på någon annan tillfällig plats.  
+4. När du ser meddelandet **Distributionen är klar** klickar du på det nya lagringskontots namn. I fönstret **Essentials** klickar du på **Blobbar**. När dialogrutan **Blob service** öppnas klickar du på **Container** högst upp. Ge containern ett namn och stäng **Blob service**.  
+5. Klicka på **Åtkomstnycklar** i fönstret till vänster och kopiera lagringscontainerns namn, lagringskontot och värdet för **key1**. Spara det här värdet i Anteckningar eller på någon annan tillfällig plats.  
 
 ## <a name="create-a-console-application"></a>Skapa ett konsolprogram
 
@@ -123,7 +123,7 @@ Lägg till [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Micros
     using System.Threading.Tasks;
     ```
 
-2. Lägg till konstanter till `Program`-klassen för händelsehubbens anslutningssträng, händelsehubbens namn, namn på lagringskontobehållaren, lagringskontots namn och lagringskontonyckeln. Lägg till följande kod och ersätt platshållarna med motsvarande värden:
+2. Lägg till konstanter till `Program`-klassen för händelsehubbens anslutningssträng, händelsehubbens namn, namn på lagringskontocontainern, lagringskontots namn och lagringskontonyckeln. Lägg till följande kod och ersätt platshållarna med motsvarande värden:
 
     ```csharp
     private const string EventHubConnectionString = "{Event Hubs connection string}";

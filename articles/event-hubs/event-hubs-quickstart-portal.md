@@ -3,19 +3,19 @@ title: Azure-snabbstart – Bearbeta händelseströmmar med Azure Portal | Micro
 description: I den här snabbstarten får du lära dig hur att bearbeta händelseströmmar med hjälp av Azure-portalen.
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
-ms.author: sethm
-ms.openlocfilehash: da48294962dc5af5f9d623c84f9bbff1d49be03e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: shvija
+ms.openlocfilehash: 1938f7a8400587f8f0405cb576bfbdfe8bf1dddd
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132441"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004318"
 ---
 # <a name="quickstart-process-event-streams-using-the-azure-portal-and-net"></a>Snabbstart: Bearbeta händelseströmmar med Azure-portalen och .NET
 
@@ -168,10 +168,10 @@ Du kan använda portalen för att ta bort lagringskontot, namnområdet och händ
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln skapade du ett Event Hubs-namnområde och andra resurser som krävs för att skicka och ta emot meddelanden från din händelsehubb. Fortsätt med följande självstudie om du vill veta mer:
+I den här artikeln skapade du ett Event Hubs-namnområde och de andra resurserna som krävs för att skicka och ta emot meddelanden från din händelsehubb. Fortsätt med följande självstudie om du vill veta mer:
 
 > [!div class="nextstepaction"]
-> [Visualisera dataavvikelser på Event Hubs-dataströmmar](event-hubs-tutorial-visualize-anomalies.md)
+> [Visualisera dataavvikelser i Event Hubs-dataströmmar](event-hubs-tutorial-visualize-anomalies.md)
 
 [Skapa ett kostnadsfritt konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Azure-portalen]: https://portal.azure.com/

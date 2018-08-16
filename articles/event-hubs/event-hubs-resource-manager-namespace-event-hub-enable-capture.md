@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/30/2018
-ms.author: sethm
-ms.openlocfilehash: c241b8c38aab355729cd1bea318e70e85cf4ff1f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: shvija
+ms.openlocfilehash: d133ce2cb7bb8f17f4d6e342fd6b7b22e1403539
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38578869"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005639"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Skapa en namnrymd med händelsehubb och aktivera avbildning med hjälp av en mall
 
@@ -224,7 +224,7 @@ För avbildningsfunktionen krävs ett resurs-ID för ett Azure Storage-konto fö
 
 ### <a name="blobcontainername"></a>blobContainerName
 
-Blob-behållaren dit du kan avbilda dina händelsedata.
+Blobcontainern dit du kan avbilda dina händelsedata.
 
 ```json
  "blobContainerName":{

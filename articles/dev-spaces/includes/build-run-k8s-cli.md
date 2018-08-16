@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: fbbd66dea73747acaf1c267f7d3ba7b1bb17baa2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b18cfce173da562aa7cffa48f336ff623c868f21
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38728896"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "40129328"
 ---
 ## <a name="build-and-run-code-in-kubernetes"></a>Skapa och köra kod i Kubernetes
 Nu kör vi vår kod! Kör det här kommandot från webbklientdelen **rotmappen för kod** i terminalfönstret:
@@ -26,10 +26,10 @@ azds up
 
 Håll ett öga på kommandots utdata – du kommer att se flera saker under förloppet:
 - Källkoden synkroniseras till utvecklarmiljön i Azure.
-- En behållaravbildning skapas i Azure, enligt Docker-tillgångarna i kodmappen.
-- Kubernetes-objekt som använder behållaravbildningen enligt Helm-diagrammet i kodmappen skapas.
-- Information om behållarens slutpunkt(er) visas. I det här fallet förväntar vi oss en offentlig HTTP-URL.
-- Förutsatt att ovanstående steg slutförs ordentligt kan du börja se `stdout`- (och `stderr`-) utdata när behållaren startas.
+- En containeravbildning skapas i Azure, enligt Docker-tillgångarna i kodmappen.
+- Kubernetes-objekt som använder containeravbildningen enligt Helm-diagrammet i kodmappen skapas.
+- Information om containerns slutpunkt(er) visas. I det här fallet förväntar vi oss en offentlig HTTP-URL.
+- Förutsatt att ovanstående steg slutförs ordentligt kan du börja se `stdout`- (och `stderr`-) utdata när containern startas.
 
 > [!Note]
 > De här stegen tar längre tid första gången kommandot `up` körs, men efterföljande körningar bör gå snabbare.
@@ -39,7 +39,7 @@ Skanna konsolens utdata för information om den offentliga webbadressen som skap
 
 `Service 'webfrontend' port 'http' is available at <url>` 
 
-Öppna webbadressen i ett webbläsarfönster. Du bör nu se hur webbappen läses in. När behållaren körs strömmas `stdout`- och `stderr`-utdata till terminalfönstret.
+Öppna webbadressen i ett webbläsarfönster. Du bör nu se hur webbappen läses in. När containern körs strömmas `stdout`- och `stderr`-utdata till terminalfönstret.
 
 > [!Note]
-> Första gången det körs kan det ta några minuter innan DNS är redo. Om den offentliga URL:en inte fungerar kan du använda den alternativa http://localhost:<portnumber>-URL:en som visas i konsolens utdata. Om du använder localhost-URL:en kan det verka som om behållaren körs lokalt, men i själva verket körs den i AKS. För enkelhetens skull och för att underlätta interaktionen med tjänsten från den lokala datorn skapar Azure Dev Spaces en tillfällig SSH-tunnel för behållaren som körs i Azure. Du kan komma tillbaka och testa den offentliga URL:en senare när DNS-posten är färdig.
+> Första gången det körs kan det ta några minuter innan DNS är redo. Om den offentliga URL:en inte fungerar kan du använda den alternativa http://localhost:<portnumber>-URL:en som visas i konsolens utdata. Om du använder localhost-URL:en kan det verka som om containern körs lokalt, men i själva verket körs den i AKS. För enkelhetens skull och för att underlätta interaktionen med tjänsten från den lokala datorn skapar Azure Dev Spaces en tillfällig SSH-tunnel för containern som körs i Azure. Du kan komma tillbaka och testa den offentliga URL:en senare när DNS-posten är färdig.

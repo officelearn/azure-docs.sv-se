@@ -3,7 +3,7 @@ title: Skicka händelser till Azure Event Hubs med .NET Standard| Microsoft Docs
 description: Komma igång med att skicka händelser till Event Hubs med .NET Standard
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2018
-ms.author: sethm
-ms.openlocfilehash: 3dba92467dfaf377236a25f48899a8a53c587a82
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: shvija
+ms.openlocfilehash: 0f18ed663eff9199aa32597566db905cef912a71
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130984"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004719"
 ---
 # <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>Komma igång med att skicka meddelanden till Azure Event Hubs med .NET Standard
 
@@ -28,7 +28,7 @@ ms.locfileid: "37130984"
 
 I den här självstudien får du lära dig att skriva ett .NET Core-konsolprogram som skickar en uppsättning meddelanden till en händelsehubb. Du kan köra [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender)-lösningen i befintligt skick och ersätta strängarna `EhConnectionString` och `EhEntityPath` med värdena för din händelsehubb. Eller så kan du följa stegen i den här självstudiekursen och skapa ett eget.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * [Microsoft Visual Studio 2015 eller 2017](http://www.visualstudio.com). I exemplen i självstudien används Visual Studio 2017, men Visual Studio 2015 stöds också.
 * [.NET Core Visual Studio 2015- eller 2017-verktyg](http://www.microsoft.com/net/core).

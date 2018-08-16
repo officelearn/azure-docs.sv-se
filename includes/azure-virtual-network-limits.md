@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/03/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 60f1b133bdd6acdb25717c2b98f81b57b751d505
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 9dbd230e431b2bc3041cfc854c0161ce8d453870
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39720750"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "40133807"
 ---
 <a name="virtual-networking-limits-classic"></a>Följande begränsningar gäller endast för nätverksresurser som hanteras via den klassiska distributionsmodellen per prenumeration. Lär dig hur du [visa din aktuella användning mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md).
 
@@ -38,7 +38,7 @@ ms.locfileid: "39720750"
 Följande begränsningar gäller endast för nätverksresurser som hanteras via Azure Resource Manager per region per prenumeration. Lär dig hur du [visa din aktuella användning mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
-> Vi har nyligen ökat alla standardgränser till deras högsta gränser. Om det finns inga **maxgränsen** kolumnen och sedan resursen saknar justerbara gränser. Om du har har dessa gränser ökat med stöd för tidigare och ser inte uppdaterade gränser enligt nedan, kan du [öppna en kundsupportärende utan kostnad](../articles/azure-resource-manager/resource-manager-quota-errors.md)
+> Vi har nyligen ökat alla standardgränser till deras högsta gränser. Om det finns inga **maxgränsen** kolumnen och sedan resursen saknar justerbara gränser. Om du har haft gränserna ökat med stöd för tidigare och ser inte uppdaterade gränser enligt nedan, kan du [öppna en kundsupportärende utan kostnad](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
 | Resurs | Standardgräns | 
 | --- | --- |

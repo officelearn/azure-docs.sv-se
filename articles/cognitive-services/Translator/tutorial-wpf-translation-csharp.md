@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: nolachar
-ms.openlocfilehash: 5dc9478516f4e9850543a6ee129fef0f1d3ee4f7
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 353c1d91b7925a84667ef1bb7c38ab87c6a89cc1
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214925"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716380"
 ---
 # <a name="tutorial-write-a-wpf-application-for-translator-text-using-c35"></a>Självstudier: Skriva en WPF-app för Translator Text med C#&#35;
 
@@ -666,9 +666,9 @@ Skicka sedan texten till API:et `Translate` i en serialiserad JSON-matris i text
 HTTP-huvudet med namnet `X-ClientTraceId` är valfritt. Värdet ska vara ett GUID. Det klientangivna spårnings-ID:t är användbart för att spåra begäranden när saker inte fungerar som förväntat. Men för att vara användbart måste dock värdet för X-ClientTraceID registreras av klienten. Ett klientspårnings-ID och datumet för begäranden kan hjälpa Microsoft att diagnostisera problem som kan uppstå.
 
 > [!NOTE]
-> Den här självstudiekursen fokuserar på Microsoft Translator-tjänsten, så metoderna `DetectLanguage()` och `CorrectSpelling()` beskrivs inte i detalj. Tjänsterna Textanalys och Stavningskontroll i Bing ger svar i JSON i stället för XML och Textanalys kräver även att begäran formateras som JSON. Dessa egenskaper utgör de flesta kodskillnaderna i de metoder som beskrivs här.
+> Den här självstudiekursen fokuserar på Microsoft Translator-tjänsten, så metoderna `DetectLanguage()` och `CorrectSpelling()` beskrivs inte i detalj.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Referens för Microsoft Translator Text API](http://docs.microsofttranslator.com/text-translate.html)
+> [Referens för Microsoft Translator Text API](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)

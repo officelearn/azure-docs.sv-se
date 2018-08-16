@@ -11,17 +11,18 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 03/23/2018
 ms.author: sngun
-ms.openlocfilehash: d18e6dd9464ef103157a8532215fa797ab282437
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cdf3edf5bfd8d13f71c25b8bf0bbf0ea3d992a5d
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38543862"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628162"
 ---
 # <a name="_Toc395783175"></a>Skapa ett Node.js-webbprogram med Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
+> * [Node.js – v2.0, förhandsversion](sql-api-nodejs-application-preview.md)
 > * [Java](sql-api-java-application.md)
 > * [Python](sql-api-python-application.md)
 > 
@@ -62,15 +63,21 @@ Nu ska vi skapa ett grundläggande Hello World Node.js-projekt med [Express](htt
 1. Öppna din favoritterminal, till exempel Node.js-kommandotolken.
 2. Navigera till den katalog där du vill lagra det nya programmet.
 3. Skapa ett nytt program kallat **todo** med hjälp av Express Generator.
-   
-        express todo
+
+   ```bash
+   express todo
+   ```
 4. Öppna din nya **todo**-katalog och installera beroenden.
-   
-        cd todo
-        npm install
+
+   ```bash
+    cd todo
+    npm install
+   ```
 5. Kör det nya programmet.
-   
-        npm start
+
+   ```bash
+   npm start
+   ```
 6. Du kan visa det nya programmet genom att öppna [http://localhost:3000](http://localhost:3000) i webbläsaren.
    
     ![Lär dig använda Node.js – Skärmdump av programmet Hello World i ett webbläsarfönster](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
@@ -81,11 +88,15 @@ Nu ska vi skapa ett grundläggande Hello World Node.js-projekt med [Express](htt
 Filen **package.json** är en av filerna som skapas i projektets rot. Den här filen innehåller en lista över ytterligare moduler som krävs för Node.js-programmet. Senare, när du distribuerar programmet till Azure Websites, används den här filen för att avgöra vilka moduler som behöver installeras på Azure som stöd för ditt program. Vi behöver installera två paket till för den här självstudien.
 
 1. Gå tillbaka till terminalen och installera modulen **async** via npm.
-   
-        npm install async --save
+
+   ```bash
+   npm install async --save
+   ```
 2. Installera modulen **documentdb** via npm. Det här är modulen där Azure Cosmos DB-magin händer.
-   
-        npm install documentdb --save
+
+   ```bash
+   npm install documentdb --save
+   ```
 
 ## <a name="_Toc395783180"></a>Steg 4: Använda Azure Cosmos DB-tjänsten i ett nodprogram
 Nu när vi har slutfört den första installationen och konfigurationen är det dags att ta itu med vårt verkliga syfte: att skriva kod med Azure Cosmos DB.
@@ -377,7 +388,7 @@ Nu när vi har slutfört den första installationen och konfigurationen är det 
     var DocumentDBClient = require('documentdb').DocumentClient;
     var config = require('./config');
     var TaskList = require('./routes/tasklist');
-    var TaskModel = require('./models/taskModel');
+    var TaskModel = require('./models/task-model');
     ```
 3. Den här koden definierar vilken konfigurationsfil som ska användas och läser sedan värden från denna fil till några variabler som vi snart ska använda.
 4. Ersätt följande två rader i filen **app.js**:

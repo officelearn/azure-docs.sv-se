@@ -5,18 +5,18 @@ ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
 ms.author: anshan
-manager: jhubbard
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc
 ms.date: 11/15/2017
-ms.openlocfilehash: 45eb469fdbd3603d1ebdcb558485ff0f93822f6b
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 6d1e5951ed8cdd9542463ffc57be81e55e4b9194
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293868"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629641"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Snabbstart: Utforska Azure Time Series Insights
 Denna snabbstart visar hur du kommer igång med Azure Time Series Insights-utforskaren i en gratis demonstrationsmiljö. Du lär dig hur du kan använda webbläsaren för att visualisera stora volymer med IoT-data, och du får se huvudfunktionerna i Time Series Insights-utforskaren. 

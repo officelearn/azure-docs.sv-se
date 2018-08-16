@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/14/2017
 ms.author: sngun
-ms.openlocfilehash: 6a98d3b477a3cb06c1454a79b77dffa685853a35
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8eba0f70141fe28a478e842523023a22c2db50fe
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38668132"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628757"
 ---
 # <a name="nodejs-tutorial-use-the-sql-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Node.js-självstudie: Använd SQL API i Azure Cosmos DB för att skapa ett Node.js-konsolprogram
 
@@ -26,6 +26,7 @@ ms.locfileid: "38668132"
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
 > * [Node.js för MongoDB](mongodb-samples.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
+> * [Node.js – v2.0, förhandsversion](sql-api-nodejs-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 
 
@@ -209,7 +210,7 @@ Kopiera och klistra in koden nedan för att ange HTTP-status för Kunde inte hit
     var databaseId = config.database.id;
     var collectionId = config.collection.id;
 
-Du kan skapa en [databas](sql-api-resources.md#databases) med funktionen [createDatabase](/javascript/api/documentdb/documentclient) för klassen **DocumentClient**. En databas är en logisk behållare för dokumentlagring, partitionerad över samlingarna.
+Du kan skapa en [databas](sql-api-resources.md#databases) med funktionen [createDatabase](/javascript/api/documentdb/documentclient) för klassen **DocumentClient**. En databas är en logisk container för dokumentlagring, partitionerad över samlingarna.
 
 Kopiera och klistra in funktionen **getDatabase** för att skapa den nya databasen i filen app.js med ```databaseId``` som anges från objektet ```config```. Funktionen kommer att kontrollera om en databas med samma ```FamilyRegistry```-id redan finns. Om den finns returnerar vi den databasen istället för att skapa en ny.
 
@@ -266,7 +267,7 @@ Grattis! Du har skapat en Azure Cosmos DB-databas.
 > [!WARNING]
 > **createCollection** skapar en ny samling, vilket får konsekvenser för priset. Mer information finns på vår [sida med priser](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
-En [samling](sql-api-resources.md#collections) kan skapas med funktionen [createCollection](/javascript/api/documentdb/documentclient) för klassen **DocumentClient**. En samling är en behållare för JSON-dokument och associerad JavaScript-applogik.
+En [samling](sql-api-resources.md#collections) kan skapas med funktionen [createCollection](/javascript/api/documentdb/documentclient) för klassen **DocumentClient**. En samling är en container för JSON-dokument och associerad JavaScript-applogik.
 
 Kopiera och klistra in funktionen **getCollection** under funktionen **getDatabase** i app.js-filen för att skapa den nya samlingen med ```collectionId``` som anges från objektet ```config```. Vi kontrollerar igen att det inte redan finns en samling med samma ```FamilyCollection```-id. Om det gör det returnerar vi den samlingen istället för att skapa en ny.
 

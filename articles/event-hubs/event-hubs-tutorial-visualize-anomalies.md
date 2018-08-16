@@ -2,19 +2,19 @@
 title: Visualisera dataavvikelser i realtidshändelser som skickats till Azure Event Hubs | Microsoft Docs
 description: Självstudie – Visualisera dataavvikelser i realtidshändelser som skickats till Microsoft Azure Event Hubs
 services: event-hubs
-author: robinsh
+author: ShubhaVijayasarathy
 manager: timlt
-ms.author: robinsh
-ms.date: 06/26/2018
+ms.author: shvija
+ms.date: 08/08/2018
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: mvc
-ms.openlocfilehash: 28c03d12954b172388a92dd0c3f6aed2266ffaf7
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 04a9a3b3df44814d680f01595d70ced08a946591
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132775"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004121"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Självstudie: Visualisera dataavvikelser i realtidshändelser som skickats till Azure Event Hubs
 

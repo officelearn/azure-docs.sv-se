@@ -83,11 +83,11 @@ Det bästa sättet att mäta prestandakrav för ditt program är att använda ö
 
 Prestandaräknarna är tillgängliga för processor, minne, och varje logisk disk och fysisk disk för din server. När du använder premium storage-diskar med en virtuell dator, fysisk disk är för varje premium storage disk och logisk diskräknare anges för varje volym som skapats på premium-lagringsdiskar. Måste du samla in värden för de diskar som värd för din arbetsbelastning. Om det finns en en-till-en-mappning mellan logiska och fysiska diskar, kan du referera till fysisk diskräknare; Annars finns de logiska disk-räknarna. På Linux genererar kommandot iostat en processor- och diskresurser rapport över minnesanvändning. Diskanvändningsrapporten innehåller statistik per fysisk enhet eller partition. Om du har en databasserver med dess data och loggfiler på separata diskar kan du samla in dessa data för båda diskarna. Tabellen nedan beskrivs räknare för diskar, processor och minne:
 
-| Räknaren | Beskrivning | PerfMon | iostat |
+| Räknare | Beskrivning | PerfMon | iostat |
 | --- | --- | --- | --- |
 | **IOPS eller transaktioner per sekund** |Antal i/o-begäranden som utfärdats till Lagringsdisken per sekund. |Diskläsningar/sek <br> Diskskrivningar/sek |tps <br> r/s <br> w/s |
 | **Diskläsningar och skrivningar** |% Läsningar- och skrivåtgärder utföras på disken. |Läs Disktid i procent <br> Skriv Disktid i procent |r/s <br> w/s |
-| **Dataflöde** |Mängden data som läses från eller skrivs till disken per sekund. |Disk-lästa byte/sek <br> Disk-skrivna byte/s |kB_read/s <br> kB_wrtn/s |
+| **Dataflöde** |Mängden data som läses från eller skrivs till disken per sekund. |Disk – lästa byte/sek <br> Disk – skrivna byte/sek |kB_read/s <br> kB_wrtn/s |
 | **Svarstid** |Total tid för att slutföra en disk-i/o-begäran. |Medel s/diskläsning <br> Medel s/diskskrivning |await <br> svctm |
 | **I/o-storlek** |Storleken på i/o-begäranden att diskar med lagringsutrymme. |Genomsnittlig byte/diskläsning <br> Genomsnittlig Disk byte/skrivning |avgrq sz |
 | **Ködjup** |Antalet utestående i/o-begäranden att vänta på att läsa från eller skrivs till Lagringsdisken. |Aktuell diskkölängd |avgqu sz |
@@ -143,7 +143,7 @@ Här är ett exempel på hur du kan beräkna IOPS och dataflöde/bandbredd för 
 
 | Programkrav | I/o-storlek | IOPS | Dataflöde/bandbredd |
 | --- | --- | --- | --- |
-| Maximalt antal IOPS |8 kB |5 000 |40 MB per sekund |
+| Max IOPS |8 kB |5 000 |40 MB per sekund |
 | Högsta dataflöde |1 024 kB |200 |200 MB per sekund |
 | Max Throughput + hög IOPS |64 kB |3,200 |200 MB per sekund |
 | Maximal IOPS och dataflöden |32 KB |5 000 |160 MB per sekund |
@@ -196,13 +196,13 @@ Med Azure Premium Storage får du samma nivå av prestanda för virtuella datore
 När du kör Linux med Premium Storage kan du kontrollera de senaste uppdateringarna om nödvändiga drivrutiner för att försäkra hög prestanda.
 
 ## <a name="premium-storage-disk-sizes"></a>Premiumlagringsdiskar med storlekarna
-Azure Premium Storage erbjuder sju diskar som är för närvarande. Varje diskstorleken har en annan skala gräns för IOPS, bandbredd och lagring. Välja rätt storlek på Premium-lagringsdisk beroende på kraven för programmet och storskaliga VM-storlek. Tabellen nedan visar sju diskar för storlekar och deras funktioner. P4 och P6-storlekar är för närvarande endast stöd för Managed Disks.
+Azure Premium Storage erbjuder åtta diskar som är för närvarande. Varje diskstorleken har en annan skala gräns för IOPS, bandbredd och lagring. Välja rätt storlek på Premium-lagringsdisk beroende på kraven för programmet och storskaliga VM-storlek. Tabellen nedan visar åtta diskar storlekar och deras funktioner. P4 och P6 P15-storlekar är för närvarande endast stöd för Managed Disks.
 
-| Typen för Premium-diskar  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
-|---------------------|-------|-------|-------|-------|-------|-------|-------|
-| Diskstorlek           | 32 GB | 64 GB | 128 GB| 512 GB            | 1 024 GB (1 TB)    | 2 048 GB (2 TB)    | 4 095 GB (4 TB)    | 
-| IOPS per disk       | 120   | 240   | 500   | 2 300              | 5000              | 7500              | 7500              | 
-| Dataflöde per disk | 25 MB per sekund  | 50 MB per sekund  | 100 MB per sekund | 150 MB per sekund | 200 MB per sekund | 250 MB per sekund | 250 MB per sekund | 
+| Typen för Premium-diskar  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
+| Diskstorlek           | 32 GB | 64 GB | 128 GB| 256 GB| 512 GB            | 1 024 GB (1 TB)    | 2 048 GB (2 TB)    | 4 095 GB (4 TB)    | 
+| IOPS per disk       | 120   | 240   | 500   | 1100 | 2 300              | 5000              | 7500              | 7500              | 
+| Dataflöde per disk | 25 MB per sekund  | 50 MB per sekund  | 100 MB per sekund |125 MB per sekund | 150 MB per sekund | 200 MB per sekund | 250 MB per sekund | 250 MB per sekund | 
 
 
 Hur många diskar som du väljer beror på disken storlek väljs. Du kan använda en enda P50-disk eller flera P10-diskar för att uppfylla dina behov. Väg in överväganden för användarkonton som anges nedan när du gör valet.
@@ -238,7 +238,7 @@ Det är viktigt att aktivera cachen på rätt uppsättning diskar. Om du ska akt
 
 | **Disktyp** | **Standardinställning för Cache** |
 | --- | --- |
-| OS-disk |ReadWrite |
+| OS-disk |Läs/skriv |
 | Datadisk |Skrivskyddad |
 
 Följande är rekommenderade disk cacheinställningarna för datadiskar
@@ -247,7 +247,7 @@ Följande är rekommenderade disk cacheinställningarna för datadiskar
 | --- | --- |
 | Ingen |Konfigurera värd-cache som None för lässkyddad och skrivintensiv diskar. |
 | Skrivskyddad |Konfigurera värd-cache som skrivskyddad för skrivskyddade och läs-och diskar. |
-| ReadWrite |Konfigurera värd-cache som ReadWrite endast om ditt program hanterar korrekt skriva cachelagrade data till beständiga diskar vid behov. |
+| Läs/skriv |Konfigurera värd-cache som ReadWrite endast om ditt program hanterar korrekt skriva cachelagrade data till beständiga diskar vid behov. |
 
 *Skrivskyddad*  
 Genom att konfigurera skrivskyddad cachelagring i Premium Storage-data diskar kan du uppnå Läs svarstider och få mycket hög Läs IOPS och dataflöden för ditt program. Detta är på grund av två skäl

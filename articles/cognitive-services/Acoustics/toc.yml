@@ -1,0 +1,32 @@
+items:
+- name: Dokumentation till Project Acoustics
+- name: Översikt
+  items:
+  - name: Vad är Project Acoustics?
+    href: what-is-acoustics.md
+- name: Snabbstarter
+  items:
+  - name: Komma igång
+    href: getting-started.md
+- name: Instruktioner
+  items:
+  - name: Skapa ett Azure Batch-konto
+    href: create-azure-account.md
+  - name: Bake Acoustics
+    href: bake-ui-walkthrough.md
+  - name: Design Acoustics
+    href: design-process.md
+- name: Resurser
+  items:
+  - name: Acoustics-exempel
+    href: sample-walkthrough.md
+  - name: Vanliga frågor och svar
+    href: faq.md
+  - name: Kända problem
+    href: known-issues.md
+ms.openlocfilehash: 225d620cddfd68f3d5fb6d6d841c8f33254f1309
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "40181850"

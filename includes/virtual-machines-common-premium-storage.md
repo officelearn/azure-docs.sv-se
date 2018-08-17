@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 4c14bfbad58849acefdc8c3a5513f681aba84ab8
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 2223c1ed95675a5091ce91a38a7901d6b61ac8d4
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37910010"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40166526"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Högpresterande Premium Storage och hanterade diskar för virtuella datorer
 Azure Premium Storage tillhandahåller högpresterande och låg latens disksupport för virtuella datorer (VM) med indata/utdata (I/O)-intensiva arbetsbelastningar. VM-diskar som använder Premium Storage lagra data på SSD (solid-state drive). Om du vill dra nytta av hastighet och prestanda för premium-lagringsdiskar, kan du migrera befintliga VM-diskar till Premium Storage.
@@ -150,7 +150,7 @@ Mer information finns i [skalbarhets- och prestandamål i Azure Storage](../arti
 Om du använder premium storage-konton för ohanterade diskar och programmet överskrider det för skalbarhetsmål för ett enda lagringskonto, kanske du vill migrera till managed disks. Om du inte vill migrera till managed disks kan du skapa programmet så att flera lagringskonton. Sedan kan partitionera dina data på dessa lagringskonton. Till exempel om du vill koppla 51 TB diskar mellan flera virtuella datorer fördelade dem på två lagringskonton. 35 TB är gränsen för en enda premium storage-konto. Se till att ett enda lagringskonto aldrig har mer än 35 TB etablerade diskar.
 
 ### <a name="premium-storage-disk-limits"></a>Gränser för Premium Storage disk
-När du etablerar en premium-lagringsdisk anger storleken på disken högsta IOPS och dataflöde (bandbredd). Azure erbjuder sju typer av premium-lagringsdiskar: P4 (hanterade diskar endast), P6 (hanterade diskar endast), P10, P20, P30, P40 och P50. Varje typ av premiumlagring har specifika gränser för IOPS och dataflöde. Begränsningar för disktyper beskrivs i följande tabell:
+När du etablerar en premium-lagringsdisk anger storleken på disken högsta IOPS och dataflöde (bandbredd). Azure erbjuder åtta typer av premium-lagringsdiskar: P4 (hanterade diskar endast), P6 (hanterade diskar endast), P10, P15, P20, P30, P40 och P50. Varje typ av premiumlagring har specifika gränser för IOPS och dataflöde. Begränsningar för disktyper beskrivs i följande tabell:
 
 | Typen för Premium-diskar  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: cynthn;davberg
 ms.custom: include file
-ms.openlocfilehash: 8f2cc3ce7e19a71422d3087bd78f8176bbff7364
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 61119097668fca147c2d20fd50de80fc106b24fe
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "36338313"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "40185293"
 ---
 Konceptet för Azure Compute beräkningsenhet (ACU) är ett sätt för att jämföra prestanda för databearbetning (CPU) mellan Azure SKU: er. På så sätt blir det lättare att identifiera vilken SKU som bäst uppfyller dina behov.  ACU är för närvarande standardiserat på en liten virtuell dator (Standard_A1) och är 100, och alla andra SKU:er representerar ungefär hur mycket snabbare den SKU:n kan köra ett benchmark-standardtest. 
 
@@ -51,4 +51,4 @@ Konceptet för Azure Compute beräkningsenhet (ACU) är ett sätt för att jämf
 
 ACU:er som visas med * använder Intel® Turbo-teknik för att öka processorfrekvensen och prestanda.  Prestandaökningens storlek kan variera beroende på storleken på den virtuella datorn, arbetsbelastningen och andra arbetsbelastningar som körs på samma värd.
 
-\*\*Hypertrådad. 
+** Hyper-threaded och kan köra kapslad virtualisering

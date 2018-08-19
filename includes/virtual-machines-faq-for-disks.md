@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 336e6e163178cd6d244460dbf9bee2a5bc9d714e
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: fabb734d5e21015f7cc3022993f01809daec0648
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37935805"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "40210953"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om virtuella Azure IaaS-datorer och hanterade och ohanterade premiumdiskar
 
@@ -67,7 +67,7 @@ Nej. De virtuella datorerna i en tillgänglighetsuppsättning måste använda al
 
 **Är Managed Disks standardalternativet i Azure-portalen?**
 
-Ja. 
+Ja.
 
 **Kan jag skapa en tom hanterade disk?**
 
@@ -101,7 +101,6 @@ Kunder kan ta en ögonblicksbild av deras hanterade diskar och sedan använda ö
 
 Ja, både ohanterade och hanterade diskar stöds. Vi rekommenderar att du använder hanterade diskar för nya arbetsbelastningar och migrera dina aktuella arbetsbelastningar till hanterade diskar.
 
-
 **Om jag skapar en 128 GB-disk och sedan öka storleken till 130 GB, debiteras jag för nästa diskstorleken (256 GB)?**
 
 Ja.
@@ -130,6 +129,14 @@ Nej. Du kan inte uppdatera egenskapen name för datorn. Den nya virtuella datorn
 
 Nej.
 
+**När du skapar en disk från en blob finns det någon kontinuerligt befintlig relation med den källbloben?**
+
+Nej, när den nya disken skapas det är en fullständig fristående kopia av blobben vid den tidpunkten och det finns ingen anslutning mellan de två. Om du vill, när du har skapat disken kan källbloben tas bort utan att påverka den nyligen skapade disken på något sätt.
+
+**Kan jag byta namn på en hanterad eller ohanterad disk när den har skapats?**
+
+För hanterade diskar du kan inte byta namn på dem. Du kan dock byta namn på en ohanterad disk så länge den inte är för närvarande ansluten till en virtuell Hårddisk eller virtuell dator.
+
 ## <a name="standard-ssd-disks-preview"></a>Standard SSD-diskar (förhandsversion)
 
 **Vad är Azure Standard SSD-diskar?**
@@ -138,11 +145,11 @@ Standard SSD-diskar är standarddiskar som backas upp av solid-state media, opti
 <a id="standard-ssds-azure-regions"></a>**Vilka är de regioner som stöds för närvarande för Standard SSD-diskar (förhandsversion)?**
 * Norra Europa
 * Frankrike, centrala
-* Östra USA 2
+* USA, östra 2
 * Centrala USA
 * Centrala Kanada
 * Östasien
-* Sydkorea
+* Sydkorea, södra
 * Östra Australien
 
 **Hur gör jag för att skapa Standard SSD-diskar?**
@@ -177,11 +184,11 @@ Standard SSD-diskar är Nej, endast tillgängliga som Managed Disks.
 **Standard SSD-diskar som har stöd för ”instans VM SLA”?**
 Standard SSD-enheter har Nej, inte instans VM SLA. Använd Premium SSD-diskar för enskild instans VM SLA.
 
-## <a name="migrate-to-managed-disks"></a>Migrera till Managed Disks 
+## <a name="migrate-to-managed-disks"></a>Migrera till Managed Disks
 
 **Vilka ändringar krävs i en befintlig Azure Backup service configuration före och efter migrering till Managed Disks?**
 
-Inga ändringar krävs. 
+Inga ändringar krävs.
 
 **Kommer min VM-säkerhetskopior som har skapats via Azure Backup-tjänsten före migreringen fortsätta att fungera?**
 
@@ -189,15 +196,15 @@ Ja, säkerhetskopieringen fungerar smidigt.
 
 **Vilka ändringar krävs i en befintlig Azure diskar Encryption configuration före och efter migrering till Managed Disks?**
 
-Inga ändringar krävs. 
+Inga ändringar krävs.
 
 **Är automatisk migrering av en befintlig VM-skalningsuppsättning uppsättningar från ohanterade diskar till Managed Disks stöds?**
 
-Nej. Du kan skapa en ny skalningsuppsättning med hanterade diskar med hjälp av avbildningen från din gamla skalningsuppsättning med ohanterade diskar. 
+Nej. Du kan skapa en ny skalningsuppsättning med hanterade diskar med hjälp av avbildningen från din gamla skalningsuppsättning med ohanterade diskar.
 
 **Kan jag skapa en hanterad Disk från en sida blob-ögonblicksbild vidtas innan du migrerar till Managed Disks?**
 
-Nej. Du kan exportera en sida blob-ögonblicksbild som en sidblobb och sedan skapa en hanterad Disk från den exporterade sidblob. 
+Nej. Du kan exportera en sida blob-ögonblicksbild som en sidblobb och sedan skapa en hanterad Disk från den exporterade sidblob.
 
 **Kan jag växla över min lokala datorer som skyddas av Azure Site Recovery till en virtuell dator med Managed Disks?**
 
@@ -211,7 +218,7 @@ Ja. Azure Site Recovery Azure till Azure-skydd för virtuella datorer med Manage
 
 Ja
 
-## <a name="managed-disks-and-storage-service-encryption"></a>Hanterade diskar och kryptering av lagringstjänst 
+## <a name="managed-disks-and-storage-service-encryption"></a>Hanterade diskar och kryptering av lagringstjänst
 
 **Är Azure Storage Service Encryption aktiverat som standard när jag skapar en hanterad disk**
 

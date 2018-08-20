@@ -4,19 +4,19 @@ description: Ger en översikt över tjänsten Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 07/05/2018
+ms.date: 08/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 753a21638745870941ac77e340b5e6aa713c7ffe
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 8371a160d129586f63b2f14946ed34a8d0637f6c
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920730"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714248"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
-Azure Migrate-tjänsten utvärderar lokala arbetsbelastningar för migrering till Azure. Tjänsten utvärderar lokala datorers migreringslämplighet, prestandabaserad storleksanpassning och tillhandahåller uppskattningar av vad det kostar att köra dina lokala datorer i Azure. Om du överväger Lift and Shift-migreringar eller om du är i ett tidigt skede av migreringen är den här tjänsten något för dig. Efter utvärderingen kan du använda tjänster som [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) och [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) för att migrera datorerna till Azure.
+Azure Migrate-tjänsten utvärderar lokala arbetsbelastningar för migrering till Azure. Tjänsten utvärderar lokala datorers migreringslämplighet, utför prestandabaserad storleksanpassning och tillhandahåller uppskattningar av vad det kostar att köra lokala datorer i Azure. Om du överväger Lift and Shift-migreringar eller om du är i ett tidigt skede av migreringen är den här tjänsten något för dig. Efter utvärderingen kan du använda tjänster som [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) och [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) för att migrera datorerna till Azure.
 
 ## <a name="why-use-azure-migrate"></a>Varför ska jag använda Azure Migrate?
 
@@ -30,37 +30,34 @@ Med Azure Migrate får du hjälp med att:
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
 - För närvarande kan du endast utvärdera lokala virtuella VMware-datorer (VM) för migrering till virtuella Azure-datorer. De virtuella VMware-datorerna måste hanteras av en vCenter Server (version 5.5, 6.0 eller 6.5).
-
-> [!NOTE]
-> Stöd för Hyper-V och fysiska servrar finns i vår översikt. Under tiden rekommenderar vi att du använder [distributionshanteraren för Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc) för att planera migreringen av Hyper-V-arbetsbelastningar och våra [partnerverktyg](https://azure.microsoft.com/migration/partners/) för att planera migreringen av fysiska arbetsbelastningar.
-
-
-- Du kan identifiera upp till 1 500 virtuella datorer i en enda identifiering och upp till 1 500 virtuella datorer i ett enda projekt. Dessutom kan du utvärdera upp till 1 500 virtuella datorer i en enda utvärdering. Om du vill identifiera en större miljö kan du dela identifieringen och skapa flera projekt. Läs [mer](how-to-scale-assessment.md). Azure Migrate stöder upp till 20 projekt per prenumeration.
-- Du kan endast skapa ett Azure Migrate-projekt i regionen USA, västra eller USA, östra. Men detta påverkar inte din möjlighet att planera migrering för en annan Azure-plats. Platsen för ett migreringsprojekt används endast för att lagra metadata som identifieras från den lokala miljön.
+- Om du vill utvärdera virtuella Hyper-datorer och fysiska servrar kan du använda [Distributionshanteraren för Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc) för Hyper-V och våra [partnerverktyg](https://azure.microsoft.com/migration/partners/) för fysiska datorer.
+- Du kan identifiera upp till 1 500 virtuella datorer i en enda identifiering och upp till 1 500 virtuella datorer i ett enda projekt. Dessutom kan du utvärdera upp till 1 500 virtuella datorer i en enda utvärdering.
+- Om du vill identifiera en större miljö kan du dela identifieringen och skapa flera projekt. [Läs mer](how-to-scale-assessment.md). Azure Migrate stöder upp till 20 projekt per prenumeration.
+- Du kan endast skapa ett Azure Migrate-projekt i regionen USA, västra eller USA, östra. Detta påverkar inte din möjlighet att planera migrering till valfri Azure-målplats. Platsen för ett migreringsprojekt används endast för att lagra metadata som identifieras från den lokala miljön.
 - Azure Migrate stöder endast hanterade diskar för migreringsutvärdering.
 
 
 ## <a name="what-do-i-need-to-pay-for"></a>Vad måste jag betala för?
 
-Mer information om priser för Azure Migrate finns [här](https://azure.microsoft.com/en-in/pricing/details/azure-migrate/).
+[Läs mer](https://azure.microsoft.com/pricing/details/azure-migrate/) om priser för Azure Migrate.
 
 
 ## <a name="whats-in-an-assessment"></a>Vad ingår i en utvärdering?
 
-En utvärdering hjälper dig att identifiera Azure-lämpligheten för lokala virtuella datorer och få rätt storleksrekommendationer och kostnadsbedömningar för de virtuella datorer som körs i Azure. Du kan anpassa utvärderingar utifrån dina behov genom att ändra egenskaperna för utvärderingen. Nedan visas de egenskaper som vägs in när du skapar en utvärdering.
+Utvärderingsinställningarna kan anpassas efter dina behov. Utvärderingsegenskaperna sammanfattas i tabellen nedan.
 
 **Egenskap** | **Detaljer**
 --- | ---
-**Målplats** | Azure-platsen du vill migrera till.<br/><br/>För närvarande stöder Azure Migrate 30 regioner, bland andra: Australien – östra, Australien – sydöstra, Brasilien – södra, Kanada – centrala, Kanada – östra, Indien – centrala, USA – centrala, Kina – östra, Kina – norra, Asien – östra (Asien och stillahavsområdet), USA – östra, Tyskland – centrala, Tyskland – nordöstra, USA – östra 2, Japan – östra, Japan – västra, Korea – centrala, Korea – södra, USA – norra centrala, Europa – norra, USA – södra centrala, Asien – sydost, Indien – södra, Storbritannien – södra, Storbritannien – västra, USA – US Gov Arizona – US Gov Texas – US Gov Virginia – västra centrala, USA – västra centrala, Europa – västra, Indien – västra, USA – västra och USA – västra 2. Målplatsen är som standard angiven som USA, västra 2.
-**Lagringstyp** | Du kan ange vilken typ av diskar som du vill tilldela i Azure. Den här egenskapen gäller när storlekskriterierna är samma som de lokala. Du kan ange måldisktypen som premiumhanterade diskar eller standardhanterade diskar. Standardvärdet är premiumhanterade diskar. För prestandabaserat storleksval sker diskrekommendationen automatiskt baserat på de virtuella datorernas prestanda. Observera att Azure Migrate endast stöder hanterade diskar för migreringsutvärdering.
-**Ändra storlek på kriterium** | Kriteriet som ska användas av Azure Migrate för att ställa in rätt storlek på virtuella datorer för Azure. Du kan storleksanpassa antingen baserat på *prestandahistorik* för de lokala virtuella datorerna eller storleksanpassa de virtuella datorerna *som lokala* för Azure utan att räkna in prestandahistorik. Standardvärdet är samma som det lokala storleksvärdet.
-**Azure-erbjudande** | Du kan ange det [Azure-erbjudande](https://azure.microsoft.com/support/legal/offer-details/) du har registrerat dig för och därefter beräknar Azure Migrate kostnaden.
-**Azure Hybrid-förmån** | Ange om du har Software Assurance och är berättigad [Azure Hybrid-förmånen](https://azure.microsoft.com/pricing/hybrid-use-benefit/) för att få rabatter.
-**Reserverade instanser** |  Du kan också ange om du har [reserverade instanser](https://azure.microsoft.com/pricing/reserved-vm-instances/) i Azure så beräknar Azure Migrate kostnaden därefter.
-**VM-drifttid** | Om din virtuella dator inte längre kommer att köra dygnet runt i Azure, kan du ange hur länge som de kommer att köras i Azure och så sker kostnadsuppskattningen i enlighet med detta.
-**prisnivå** | Du kan ange [prisnivå (Basic/Standard)](../virtual-machines/windows/sizes-general.md) för Azure-måldatorerna. Om du exempelvis planerar att migrera en produktionsmiljö bör du överväga standardnivån, som tillhandahåller virtuella datorer med låg svarstid men kan kosta mer. Om du å andra sidan har en miljö för utveckling och testning kanske du vill överväga Basic-nivån som har virtuella datorer med högre svarstider och lägre kostnader. Som standard används [standardnivån](../virtual-machines/windows/sizes-general.md).
-**Prestandahistorik** | Som standard utvärderar Azure Migrate prestanda för lokala datorer med prestandahistoriken för den sista dagen, med ett percentilvärde på 95 %. Du kan ändra dessa värden i egenskaperna för utvärdering.
-**VM-serie** | Du kan ange den VM-serie som du vill överväga vid storleksberäkningen. Om du till exempel har en produktionsmiljö som du inte planerar att migrera till A-serien av virtuella datorer i Azure, kan du utesluta A-serien från listan eller serien, så fastställs storleken endast baserat på de valda serierna.  
+**Målplats** | Azure-platsen du vill migrera till.<br/><br/>Azure Migrate stöder för närvarande 30 regioner. [Se regioner](https://azure.microsoft.com/global-infrastructure/services/). Målregionen är som standard angiven som USA, västra 2.
+**Lagringstyp** | den typ av diskar som du vill tilldela i Azure. Detta gäller när storlekskriteriet är **som lokalt**. Du anger premium (standardinställd) eller standard för hanterad disk som måldisktyp. För prestandabaserat storleksval sker diskstorleksrekommendationen automatiskt baserat på de virtuella datorernas prestanda. 
+**Ändra storlek på kriterium** | Storleken kan baseras på **prestandahistorik** för lokala virtuella datorer eller **som lokalt** (standard), utan att ta hänsyn till prestandahistorik. 
+**Azure-erbjudande** | Det [Azure-erbjudande](https://azure.microsoft.com/support/legal/offer-details/) du har registrerat dig för. Azure Migrate beräknar kostnaden enligt detta.
+**Azure Hybrid-förmån** | Om du har Software Assurance och är berättigad till [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-use-benefit/) med rabatterade kostnader.
+**Reserverade instanser** |  Om du har [reserverade instanser](https://azure.microsoft.com/pricing/reserved-vm-instances/) i Azure. Azure Migrate beräknar kostnaden enligt detta.
+**VM-drifttid** | Den tid som virtuella datorer körs i Azure. Kostnadsberäkningar görs enligt detta.
+**prisnivå** | [Prisnivå (Basic/Standard)](../virtual-machines/windows/sizes-general.md) för Azure-måldatorerna. Om du exempelvis planerar att migrera en produktionsmiljö kan du överväga standardnivån, som tillhandahåller virtuella datorer med låg svarstid men kan kosta mer. Å andra sidan kan du i en testmiljö använda Basic-nivån med längre svarstider och lägre kostnader. Som standard används [standardnivån](../virtual-machines/windows/sizes-general.md).
+**Prestandahistorik** | Som standard utvärderar Azure Migrate prestanda för lokala datorer med prestandahistoriken för den sista dagen, med ett percentilvärde på 95 %. 
+**VM-serie** | Den virtuell dator-serie som används för storleksuppskattningar. Om du till exempel har en produktionsmiljö som du inte planerar att migrera till A-seriens virtuella datorer i Azure kan du utesluta A-serien från listan eller serien. Storleken baseras bara på den valda serien.   
 **Komfortfaktor** | Azure Migrate överväger en buffert (komfortfaktor) under utvärderingen. Bufferten tillämpas utöver datorns användningsdata för virtuella datorer (CPU, minne, disk och nätverk). Komfortfaktorn väger in problem som säsongsbaserad användning, kort prestandahistorik och troliga ökningar i kommande användning.<br/><br/> Till exempel resulterar en virtuell dator med 10 kärnor med 20 % användning vanligen i en virtuell dator med 2 kärnor. Med en komfortfaktor på 2.0x blir resultatet istället en virtuell dator med 4 kärnor. Standardkomfortinställningen är 1,3x.
 
 
@@ -68,45 +65,36 @@ En utvärdering hjälper dig att identifiera Azure-lämpligheten för lokala vir
 
 1.  Du skapar ett Azure Migrate-projekt.
 2.  Azure Migrate använder en lokal virtuell dator som kallas för insamlingsprogram för att upptäcka information om dina lokala datorer. För att skapa programmet laddar du ned en installationsfil i formatet Open Virtualization Appliance (.ova) och importerar den som en virtuell dator på din lokala vCenter-server.
-3.  Du ansluter till den virtuella datorn med hjälp av konsolanslutningen i vCenter Server. Sedan anger du ett nytt lösenord för den virtuella datorn när du ansluter och kör insamlingsprogrammet i den virtuella datorn för att inleda identifieringen.
-4.  Insamlaren samlar in VM-metadata med cmdletar för VMware PowerCLI. Identifierng är agentfri och installerar inte något på VMware-värdar eller virtuella datorer. Insamlade metadata innefattar VM-information (kärnor, minne, diskar, diskstorlekar och nätverksadaptrar). De samlar även in prestandadata för virtuella datorer, däribland CPU- och minnesanvändning, disk-IOPS, diskgenomflöde (Mbit/s) och nätverksutdata (Mbit/s).
+3. Du ansluter till den virtuella datorn via vCenter Server och anger ett nytt lösenord för den vid anslutning.
+4. Du kör insamlaren på den virtuella datorn för att inleda identifieringen.
+5. Insamlaren samlar in VM-metadata med cmdletar för VMware PowerCLI. Identifierng är agentfri och installerar inte något på VMware-värdar eller virtuella datorer. Insamlade metadata innefattar VM-information (kärnor, minne, diskar, diskstorlekar och nätverksadaptrar). De samlar även in prestandadata för virtuella datorer, däribland CPU- och minnesanvändning, disk-IOPS, diskgenomflöde (Mbit/s) och nätverksutdata (Mbit/s).
 5.  Metadata skickas till Azure Migrate-projektet. Du kan visa dem i Azure Portal.
 6.  I utvärderingssyfte samlar du de identifierade virtuella datorerna i olika grupper. Du kan exempelvis gruppera virtuella datorer som kör samma program. För mer exakt gruppering kan du använda visualisering av beroenden för att se beroenden för en specifik dator eller för alla datorer i en grupp och sedan ändra gruppen.
-7.  När gruppen har bildats så skapar du en utvärdering för gruppen.
+7.  När en grupp har definierats kan skapa du en utvärdering för den.
 8.  När utvärderingen är klar kan du visa den i portalen eller ladda ned den i Excel-format.
 
-
-
-  ![Azure Planner-arkitektur](./media/migration-planner-overview/overview-1.png)
+  ![Azure Migrate-arkitektur](./media/migration-planner-overview/overview-1.png)
 
 ## <a name="what-are-the-port-requirements"></a>Vilka är portkraven?
 
 I tabellen sammanfattas de portar som behövs för Azure Migrate-kommunikation.
 
-|Komponent          |För att kommunicera med     |Port som krävs  |Orsak   |
-|-------------------|------------------------|---------------|---------|
-|Insamlare          |Tjänsten Azure Migrate   |TCP 443        |Insamlaren ansluter till tjänsten via SSL-port 443|
-|Insamlare          |vCenter Server          |Standard 443   | Som standard ansluter insamlaren till vCenter-servern på port 443. Om servrarna lyssnar på en annan port ska den konfigureras som en utgående port på VM-insamlaren. |
-|Lokala virtuella datorer     | Log Analytics Workspace          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |MMA-agenten använder TCP 443 för att ansluta till Log Analytics. Du behöver bara den här porten om du använder funktionen beroendevisualisering och installerar MMA (Microsoft Monitoring Agent). |
-
+Komponent | Kommunicerar med |  Information
+--- | --- |--- 
+Insamlare  | Tjänsten Azure Migrate | Insamlaren ansluter till tjänsten via SSL-port 443.
+Insamlare | vCenter Server | Som standard ansluter insamlaren till vCenter-servern på port 443. Om servrarna lyssnar på en annan port konfigurerar du den som en utgående port på VM-insamlaren. 
+Lokala virtuella datorer | Log Analytics Workspace | [TCP 443] | [Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md) använder TCP-port 443 för att ansluta till Log Analytics. Du behöver bara den här porten om du använder beroendevisualisering, som kräver MMA-agenten. 
 
 
 ## <a name="what-happens-after-assessment"></a>Vad händer efter utvärderingen?
 
-När du har utvärderat lokala datorer för migrering med tjänsten Azure Migrate kan du använda ett par verktyg för att utföra migreringen:
+När du har utvärderat lokala datorer kan du använda några olika verktyg för att utföra migreringen:
 
-- **Azure Site Recovery**: Du kan använda Azure Site Recovery för att migrera till Azure enligt följande:
-  - Förbered Azure-resurser, inklusive en Azure-prenumeration, Azure-nätverk och ett lagringskonto.
-  - Förbered dina lokala VMware-servrar för migrering. Du ska kontrollera kraven för VMware-stöd för Site Recovery, förbereda VMware-servrarna för identifiering och förbereda för att installera Site Recovery-mobilitetstjänsten på virtuella datorer du vill migrera.
-  - Ställ in migreringen. Du konfigurerar ett Recovery Services-valv, konfigurerar migreringsinställningar för källa och mål, konfigurerar en replikeringsprincip och aktiverar replikering. Du kan köra ett programåterställningstest för att kontrollera att migreringen av den virtuella datorn till Azure fungerar som den ska.
-  - Köra en redundans för att migrera lokala datorer till Azure.
-  - [Läs mer](../site-recovery/tutorial-migrate-on-premises-to-azure.md) i självstudierna för Site Recovery-migrering.
-
-- **Azure Database Migration**: Om dina lokala datorer använder en databas som SQL Server, MySQL eller Oracle kan du använda Azure Database Migration Service för att migrera dem till Azure. [Läs mer](https://azure.microsoft.com/campaigns/database-migration/).
-
+- **Azure Site Recovery**: Du kan använda Azure Site Recovery för att migrera till Azure. Det kan du göra genom att [förbereda Azure-komponenterna](../site-recovery/tutorial-prepare-azure.md) du behöver, bland annat ett lagringskonto och ett virtuellt nätverk. Lokalt [förbereder du VMware-miljön](../site-recovery/vmware-azure-tutorial-prepare-on-premises.md). När allt är förberett konfigurerar och aktiverar du replikering till Azure och migrerar de virtuella datorerna. [Läs mer](../site-recovery/vmware-azure-tutorial.md).
+- **Azure Database Migration**: Om de lokala datorerna använder en databas som SQL Server, MySQL eller Oracle kan du använda [Azure Database Migration Service](../dms/dms-overview.md) för att migrera dem till Azure. 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Följ en självstudie](tutorial-assessment-vmware.md) för att skapa en utvärdering för en lokal VMware VM.
-- [Läs mer](resources-faq.md) om vanliga frågor och svar för Azure Migrate
+- [Följ självstudien](tutorial-assessment-vmware.md) för att skapa en utvärdering för en lokal VMware VM.
+- [Läs vanliga frågor och svar](resources-faq.md) om Azure Migrate.

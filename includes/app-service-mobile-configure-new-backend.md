@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 05/25/2018
 ms.author: crdun
 ms.custom: include file
-ms.openlocfilehash: 4da469ac31c3ee50d601c87b4d7487ae5bb7bc3a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1d3bfb7bc8a5432392dba3b0c5019902b3e59773
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34664024"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39513800"
 ---
 1. Klicka på knappen **App Services**, välj din Mobile Apps-serverdel, välj **Snabbstart** och sedan din klientplattform (iOS, Android, Xamarin, Cordova).
 
     ![Azure Portal med snabbstarten för Mobile Apps markerad][quickstart]
 
-2. Om en databasanslutning inte konfigureras skapar du en genom att göra följande:
+1. Om en databasanslutning inte konfigureras skapar du en genom att göra följande:
 
     ![Azure Portal med Mobile Apps Connect till databas][connect]
 
-    a. Skapa en ny SQL-databas och server.
+    a. Skapa en ny SQL-databas och server. Du kanske måste lämna anslutningssträngens namnfält på standardvärdet MS_TableConnectionString för att kunna slutföra steg 3 nedan.
 
     ![Azure Portal med Mobile Apps skapa ny databas och server][server]
 
@@ -35,9 +35,9 @@ ms.locfileid: "34664024"
 
     ![Azure Portal-meddelande, "Du har redan en dataanslutning"][already-connection]
 
-3. Under **2. Skapa ett tabell-API**, Välj Node.js för **Språk för serverdel**.
+1. Under **2. Skapa ett tabell-API**, Välj Node.js för **Språk för serverdel**.
 
-4. Godkänn bekräftelsen och välj **Skapa TodoItem-tabell**.
+1. Godkänn bekräftelsen och välj **Skapa TodoItem-tabell**.
     En ny att göra-post-tabell skapas i din databas.
 
     >[!IMPORTANT]

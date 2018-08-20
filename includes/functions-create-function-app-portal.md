@@ -1,3 +1,20 @@
+---
+title: ta med fil
+description: ta med fil
+services: functions
+author: ggailey777
+ms.service: functions
+ms.topic: include
+ms.date: 07/17/2018
+ms.author: glenga
+ms.custom: include file
+ms.openlocfilehash: 75ff9ec8cdf4cd2747ab00f2c23de509607a5429
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "40100908"
+---
 1. Välj knappen **Nytt** längst upp till vänster i Azure Portal, välj sedan **Compute** > **Funktionsapp**. 
 
     ![Skapa en funktionsapp i Azure Portal](./media/functions-create-function-app-portal/function-app-create-flow.png)
@@ -12,18 +29,17 @@
     | **Prenumeration** | Din prenumeration | Prenumerationen som den nya funktionsappen skapas under. | 
     | **[Resursgrupp](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Namnet på den nya resursgrupp där du vill skapa funktionsappen. | 
     | **OS** | Windows | Serverlösa värdtjänster är för närvarande endast tillgängliga om du kör Windows. För värdtjänster i Linux, se [Skapa din första funktion som körs på Linux med hjälp av Azure CLI](../articles/azure-functions/functions-create-first-azure-function-azure-cli-linux.md). |
-    | **[Värdplan](../articles/azure-functions/functions-scale.md)** |   Förbrukningsplan | Värdplan som definierar hur resurser allokeras till din funktionsapp. I **standardförbrukningsplanen** läggs resurser till dynamiskt när de behövs i funktionerna. För den här typen av [serverlösa](https://azure.microsoft.com/overview/serverless-computing/) värdtjänster betalar du bara för den tid som dina funktioner körs.   |
+    | **[Värdplan](../articles/azure-functions/functions-scale.md)** | Förbrukningsplan | Värdplan som definierar hur resurser allokeras till din funktionsapp. I **standardförbrukningsplanen** läggs resurser till dynamiskt när de behövs i funktionerna. För den här typen av [serverlösa](https://azure.microsoft.com/overview/serverless-computing/) värdtjänster betalar du bara för den tid som dina funktioner körs. När du använder en App Service-plan måste du hantera [funktionsappens skalning](../articles/azure-functions/functions-scale.md).  |
     | **Plats** | Västra Europa | Välj en [plats](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som kommer att användas i dina funktioner. |
-    | **[Lagringskonto](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** |  Globalt unikt namn |  Namnet på det nya lagringskonto som ska användas av funktionsappen. Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener. Du kan också använda ett befintligt konto. |
+    | **[Lagringskonto](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** |  Globalt unikt namn |  Namnet på det nya lagringskonto som ska användas av funktionsappen. Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener. Du kan också använda ett befintligt konto, som måste uppfylla [kraven för ett lagringskonto](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
 
-3. Välj **Skapa** för att etablera och distribuera funktionsappen. 
+3. Välj **Skapa** för att etablera och distribuera funktionsappen.
 
 4. Välj meddelandeikonen i det övre högra hörnet av portalen och titta efter meddelandet **Distribueringen lyckades**. 
 
     ![Definiera nya funktionsappinställningar](./media/functions-create-function-app-portal/function-app-create-notification.png)
 
-4. Välj **Gå till resurs** att visa den nya funktionsappen.
+5. Välj **Gå till resurs** att visa den nya funktionsappen.
 
->[!TIP]
->Är det svårt att hitta dina funktionsappar i portalen kan du prova att [lägga till funktionsappar till dina favoriter i Azure-portalen](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md#favorite).   
-
+> [!TIP]
+> Är det svårt att hitta dina funktionsappar i portalen kan du prova att [lägga till funktionsappar till dina favoriter i Azure-portalen](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md#favorite).   

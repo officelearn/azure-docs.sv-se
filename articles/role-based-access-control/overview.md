@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/30/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a2e0bf35f73a355197f821f7cce12294f7b35576
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: d0d140a1656719b406567fee431d8e48a51852c5
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344757"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714459"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>Vad är rollbaserad åtkomstkontroll (Role-based access control, RBAC)?
 
@@ -79,16 +79,15 @@ Azure har infört dataåtgärder (för närvarande i förhandsversion) som gör 
 
 *Omfång* är den gräns som åtkomsten som gäller för. När du tilldelar en roll kan du ytterligare begränsa de åtgärder som tillåts genom att definiera ett omfång. Det här är användbart om du vill göra någon till en [Webbplatsdeltagare](built-in-roles.md#website-contributor) men endast för en resursgrupp.
 
-I Azure kan du ange ett omfång på flera nivåer: prenumeration, resursgrupp eller resurs. Omfång är strukturerade i en överordnad-underordnad-relation där varje underordnad endast har en överordnad.
+I Azure kan du ange ett omfång på flera nivåer: [hanteringsgrupp](../azure-resource-manager/management-groups-overview.md), prenumeration, resursgrupp eller resurs. Omfång är strukturerade i en överordnad/underordnad-relation.
 
 ![Omfång för en rolltilldelning](./media/overview/rbac-scope.png)
 
-Åtkomst som du tilldelar på ett överordnad omfång ärvs av det underordnade omfånget. Exempel:
+När du beviljar åtkomst i ett överordnat omfång ärvs dessa behörigheter av underordnade omfång. Exempel:
 
+- Om du tilldelar rollen [Ägare](built-in-roles.md#owner) till en användare i hanteringsgruppsomfånget kan den användaren hantera allt i alla prenumerationer i hanteringsgruppen.
 - Om du tilldelar rollen [Läsare](built-in-roles.md#reader) till en grupp i prenumerationsomfånget kan medlemmarna i den gruppen visa alla resursgrupper och resurser i prenumerationen.
 - Om du tilldelar rollen [Deltagare](built-in-roles.md#contributor) till ett program i resursgruppomfånget kan den hantera resurser av alla typer i den resursgruppen, men inte i andra resursgrupper i prenumerationen.
-
-Azure innehåller även ett omfång över prenumerationer som kallas [hanteringsgrupper](../azure-resource-manager/management-groups-overview.md), vilket är i förhandsversion. Hanteringsgrupper är ett sätt att hantera flera prenumerationer. När du anger omfång för RBAC kan du antingen ange en hanteringsgrupp eller ange en prenumeration, resursgrupp eller resurshierarki.
 
 ### <a name="role-assignment"></a>Rolltilldelning
 

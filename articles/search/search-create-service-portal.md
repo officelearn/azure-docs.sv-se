@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: heidist
-ms.openlocfilehash: 0c7f9807605236a8250d75623d0885730c9945a0
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 83e34f926ec3133f89ccb90979fc3e6708613a80
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950690"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39713935"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Skapa en Azure Search-tjänst i portalen
 
@@ -60,7 +60,7 @@ Azure Search är en Azure-tjänst som kan finnas i datacenter över hela världe
 ## <a name="select-a-pricing-tier-sku"></a>Välj en prisnivå (SKU)
 [Azure Search finns för närvarande med flera olika prisnivåer](https://azure.microsoft.com/pricing/details/search/): Kostnadsfritt, Basic eller Standard. Nivåerna har olika [kapacitet och begränsningar](search-limits-quotas-capacity.md). Mer information finns i [Välj en prisnivå nivå eller SKU](search-sku-tier.md).
 
-I den här genomgången har vi valt standardnivån för vår tjänst.
+Standard väljs normalt för produktionsarbetsbelastningar men de flesta kunderna börjar med den kostnadsfria tjänsten.
 
 När tjänsten väl har skapats går det inte att ändra prisnivå. Om du senare behöver en högre eller lägre nivå måste du skapa tjänsten på nytt.
 

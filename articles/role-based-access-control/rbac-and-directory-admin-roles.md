@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/02/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 68127a38e28524b5f093cf0aafb0d0b7bb9ae1b6
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 8c00476078d4e16b649296be42795b92ebbfd9c4
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445458"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714102"
 ---
 # <a name="classic-subscription-administrator-roles-vs-azure-rbac-roles-vs-azure-ad-administrator-roles"></a>Administratörsroller för klassiska prenumerationer jämfört med Azure RBAC-roller jämfört med Azure AD-administratörsroller
 
@@ -63,7 +63,7 @@ Azure-prenumerationer hjälper dig att organisera åtkomst till Azure-resurser. 
 Konton och prenumerationer hanteras i [Azure-kontocentret](https://account.azure.com/Subscriptions).
 ## <a name="azure-rbac-roles"></a>Azure RBAC-roller
 
-Azure RBAC är ett auktoriseringssystem som bygger på [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) som ger detaljerad åtkomsthantering till Azure-resurser såsom beräkning och lagring. Azure RBAC innefattar över 60 inbyggda roller. Det finns fyra grundläggande RBAC-roller. De första tre gäller för alla resurstyper:
+Azure RBAC är ett auktoriseringssystem som bygger på [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) som ger detaljerad åtkomsthantering till Azure-resurser såsom beräkning och lagring. Azure RBAC har över 70 inbyggda roller. Det finns fyra grundläggande RBAC-roller. De första tre gäller för alla resurstyper:
 
 | Azure RBAC-roll | Behörigheter | Anteckningar |
 | --- | --- | --- |

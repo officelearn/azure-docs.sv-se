@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 07/03/2018
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: a110998505ed49c36e1ec722b1dfbf0969def060
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6fb9b5cd1379f39796f984f0436900f629c66436
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449566"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "40209712"
 ---
-För att komma igång med Service Bus-meddelandeentiteter i Azure måste du först skapa ett namnområde med ett namn som är unikt i Azure. Ett namnområde innehåller en omfattningsbehållare för adressering av Service Bus-resurser i ditt program.
+För att komma igång med Service Bus-meddelandeentiteter i Azure måste du först skapa ett namnområde med ett namn som är unikt i Azure. Ett namnområde innehåller en omfattningscontainer för adressering av Service Bus-resurser i ditt program.
 
 Så här skapar du ett namnområde:
 
@@ -39,7 +39,7 @@ Om du skapar ett nytt namnområde så genereras en automatiskt en ursprunglig re
 3. I fönstret **Principer för delad åtkomst**, klickar du på **RootManageSharedAccessKey**.
    
     ![connection-info][connection-info]
-4. I fönstret **Princip: RootManageSharedAccessKey** klickar du på kopieringsknappen bredvid **Anslutningssträng – Primärnyckel** för att kopiera anslutningssträngen till Urklipp för senare användning. Klistra in det här värdet i Anteckningar eller på en tillfällig plats.
+4. I fönstret **Princip: RootManageSharedAccessKey** klickar du på knappen Kopiera bredvid **Primär anslutningssträng** för att kopiera anslutningssträngen till dina urklipp för senare användning. Klistra in det här värdet i Anteckningar eller på en tillfällig plats.
    
     ![connection-string][connection-string]
 

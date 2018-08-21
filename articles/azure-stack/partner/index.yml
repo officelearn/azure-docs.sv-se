@@ -1,0 +1,57 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 749dc6c2d329ae7055ee0a6adc429c378de51871
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "40235467"
+documentType: LandingData
+title: Dokumentation för Azure Stack-partner
+metadata:
+  document_id: 
+  title: Azure Stack-partner D\documentation – självstudier, API-R\reference
+  description: Lär dig mer om att verifiera maskinvara för att värden Azure Stack. Verifiering som en tjänst är en intern Azure-tjänst som utformats för användning med lösningspartners som gemensam tekniska erbjudanden för Azure Stack med Microsoft.
+  services: azure-stack
+  author: mattbriggs
+  manager: femila
+  ms.service: azure-stack
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/25/2018
+  ms.author: mabrigg
+  ms.reviewer: John.Haskin
+abstract:
+  description: Du kan använda verifieringen som en tjänst för att verifiera maskinvaran för användning med Azure Stack. Tjänsten är en intern Azure-tjänst som utformats för användning av lösningspartners som gemensam tekniska erbjudanden för Azure Stack med Microsoft.
+sections:
+- title: Snabbstarten på 5 minuter
+  items:
+  - type: paragraph
+    text: Lär dig att integrera virtuella datorer och datorer till Security Center och ansluta dina säkerhetslösningar.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/i_account-management.svg
+      text: Använda verifieringen som en tjänst-portal för att schemalägga första testet
+      href: /azure/azure-stack/partner/azure-stack-vaas-schedule-your-first-test
+- title: Stegvisa självstudier
+  items:
+  - type: paragraph
+    text: Lär dig hur du verifierar din Azure Stack-maskinvara.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-test-vm">Distribuera de lokala virtuella datorerna för agenten och testning</a>
+    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-automate-with-powershell">Automatisera Azure Stack-verifiering med PowerShell</a>
+    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-validate-solution-new">Verifiera en ny Azure Stack-lösning</a>
+    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-validate-oem-package">Verifiera OEM-paket</a>
+    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-validate-microsoft-updates">Verifiera programuppdateringar från Microsoft</a>
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Verifiering som en tjänst
+      html: <a href="/azure/azure-stack/partner/azure-stack-vaas-parameters">Konfigurationsfilen för verifiering</a>

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 2223c1ed95675a5091ce91a38a7901d6b61ac8d4
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: e6a2493b0bc9e2b4c9695e29ae0c175dac9814fe
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40166526"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "40238334"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Högpresterande Premium Storage och hanterade diskar för virtuella datorer
 Azure Premium Storage tillhandahåller högpresterande och låg latens disksupport för virtuella datorer (VM) med indata/utdata (I/O)-intensiva arbetsbelastningar. VM-diskar som använder Premium Storage lagra data på SSD (solid-state drive). Om du vill dra nytta av hastighet och prestanda för premium-lagringsdiskar, kan du migrera befintliga VM-diskar till Premium Storage.
@@ -52,7 +52,7 @@ Här följer några av funktionerna i Premium Storage:
 
 * **Premium storage-diskar**
 
-    Premium Storage stöder VM-diskar som kan kopplas till specifika storlek-serien för virtuella datorer. Premium Storage stöder en mängd olika virtuella Azure-datorer. Du har möjlighet att välja sju diskstorlekar: P4 (32 GB), P6 (64 GB) P10 (128 GB), P20 (512 GB), P30 (1 024 GB), P40 (2 048 GB), P50 (4 095 GB). P4 och P6 diskstorlekar stöds ännu endast för Managed Disks. Varje diskstorleken har sin egen prestandakrav. Du kan koppla en eller flera diskar till din virtuella dator beroende på dina programkrav. Vi beskriver specifikationer i detalj i [skalbarhets- och prestandamål för Premium Storage](#scalability-and-performance-targets).
+    Premium Storage stöder VM-diskar som kan kopplas till specifika storlek-serien för virtuella datorer. Premium Storage stöder en mängd olika virtuella Azure-datorer. Du har möjlighet att välja sju diskstorlekar: P4 (32 GB) P6 (64 GB) P10 (128 GB), P15 (256 GB), P20 (512 GB), P30 (1 024 GB), P40 (2 048 GB), P50 (4 095 GB). P4 och P6 diskstorlekar stöds ännu endast för Managed Disks. Varje diskstorleken har sin egen prestandakrav. Du kan koppla en eller flera diskar till din virtuella dator beroende på dina programkrav. Vi beskriver specifikationer i detalj i [skalbarhets- och prestandamål för Premium Storage](#scalability-and-performance-targets).
 
 * **Premium-sidblobar**
 

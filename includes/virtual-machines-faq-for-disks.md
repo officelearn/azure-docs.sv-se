@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: fabb734d5e21015f7cc3022993f01809daec0648
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: e8005da056c08b21bf0b91dc71b3dafac281de1f
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "40210953"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "40236963"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om virtuella Azure IaaS-datorer och hanterade och ohanterade premiumdiskar
 
@@ -142,18 +142,11 @@ För hanterade diskar du kan inte byta namn på dem. Du kan dock byta namn på e
 **Vad är Azure Standard SSD-diskar?**
 Standard SSD-diskar är standarddiskar som backas upp av solid-state media, optimerad som kostnadseffektiv lagring för arbetsbelastningar som behöver konsekvent prestanda på lägre nivåer av IOPS. I förhandsversion är de tillgängliga i ett begränsat antal regioner med begränsad hantering (tillgängligt via Resource Manager-mallar).
 
-<a id="standard-ssds-azure-regions"></a>**Vilka är de regioner som stöds för närvarande för Standard SSD-diskar (förhandsversion)?**
-* Norra Europa
-* Frankrike, centrala
-* USA, östra 2
-* Centrala USA
-* Centrala Kanada
-* Östasien
-* Sydkorea, södra
-* Östra Australien
+<a id="standard-ssds-azure-regions"></a>**Vilka är de regioner som stöds för närvarande för Standard SSD-diskar?**
+Alla Azure-regioner har nu stöd för Standard SSD-diskar.
 
 **Hur gör jag för att skapa Standard SSD-diskar?**
-För närvarande kan du skapa Standard SSD-diskar med hjälp av Azure Resource Manager-mallar. Nedan visas de parametrar som behövs i Resource Manager-mallen för att skapa Standard SSD-diskar:
+Du kan skapa Standard SSD-diskar med hjälp av Azure Resource Manager-mallar, SDK, PowerShell eller CLI. Nedan visas de parametrar som behövs i Resource Manager-mallen för att skapa Standard SSD-diskar:
 
 * *apiVersion* för Microsoft.Compute måste anges som `2018-04-01` (eller senare)
 * Ange *managedDisk.storageAccountType* som `StandardSSD_LRS`
@@ -177,6 +170,9 @@ En fullständig mall exempel på hur du skapar en Standard SSD-disk med en mall 
 **Kan jag omvandla mitt befintliga diskar till Standard SSD?**
 Ja, det kan du. Referera till [konvertera Azure managed disks-lagring från standard till premium, och vice versa](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/convert-disk-storage) för allmänna riktlinjer för att konvertera Managed Disks. Och Använd följande värde för att uppdatera disktypen till SSD som Standard.
 -AccountType StandardSSD_LRS
+
+**Vad är fördelen med att använda Standard SSD-diskar i stället för HDD?**
+Standard SSD-diskar leverera bättre svarstid, konsekvens, tillgänglighet och tillförlitlighet jämfört med HDD-diskar. Arbetsbelastningar för program körs mycket smidigare på Standard SSD på grund av detta. Observera att Premium SSD-diskar är den rekommenderade lösningen för de flesta i/o-intensiva produktionsarbetsbelastningar. 
 
 **Kan jag använda Standard SSD-enheter som ohanterade diskar?**
 Standard SSD-diskar är Nej, endast tillgängliga som Managed Disks.

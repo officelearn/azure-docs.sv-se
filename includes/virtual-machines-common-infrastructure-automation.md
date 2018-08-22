@@ -19,8 +19,8 @@ Om du vill skapa och hantera virtuella Azure-datorer (VM) på ett konsekvent sä
 Lär dig att:
 
 - [Installera och konfigurera Ansible på Linux för användning med Azure](../articles/virtual-machines/linux/ansible-install-configure.md).
-- [Skapa en grundläggande virtuell dator](../articles/virtual-machines/linux/ansible-create-vm.md).
-- [Skapa en fullständig VM-miljö, inklusive stödresurser](../articles/virtual-machines/linux/ansible-create-complete-vm.md).
+- [Skapa en Linux-dator](../articles/virtual-machines/linux/ansible-create-vm.md).
+- [Hantera en Linux-dator](../articles/virtual-machines/linux/ansible-manage-linux-vm.md).
 
 
 ## <a name="chef"></a>Chef

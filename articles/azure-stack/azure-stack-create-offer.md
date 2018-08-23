@@ -6,20 +6,20 @@ documentationcenter: ''
 author: brenduns
 manager: femila
 editor: ''
-ms.assetid: 96b080a4-a9a5-407c-ba54-111de2413d59
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/2/2018
+ms.date: 08/20/2018
 ms.author: brenduns
-ms.openlocfilehash: eed715a7c2cb967f6c9ea0b7d4442a4f9976bd17
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.reviewer: efemmano
+ms.openlocfilehash: 66a89c3cb14dd642ae993cbf3c45885635f59759
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345897"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42139551"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Skapa ett erbjudande i Azure Stack
 
@@ -46,20 +46,16 @@ ms.locfileid: "37345897"
    > [!TIP]  
    > Ändringar i erbjudandet är inte omedelbart synliga för användaren. Om du vill se ändringarna måste behöva användare logga ut och logga in igen på användarportalen att se det nya erbjudandet.
 
-   Ändra tillståndet för erbjudandet:
-
-   - **Version 1803 och senare**:  
-     Översikt för erbjudandet, Välj **tillstånd för hjälpmedel**. Välj stat som du vill använda (till exempel *offentliga*) och välj sedan **spara**.
+   Översikt för erbjudandet, Välj **tillstånd för hjälpmedel**. Välj stat som du vill använda (till exempel **offentliga**) och välj sedan **spara**.
  
-     ![Välj tillstånd för hjälpmedel](media/azure-stack-create-offer/change-state.png)
+     ![Välj stat](media/azure-stack-create-offer/change-stage-1807.png)
 
-     Som ett alternativ när du har åtkomst till ett erbjudande går du till **Erbjudandeinställningar**. Välj **tillstånd för hjälpmedel** att ändra tillståndet.
+     Alternativt kan du välja **ändra tillståndet** och välj sedan ett tillstånd.
 
-   - **Före version 1803**:  
-     Välj **alla resurser**, Sök efter nya erbjudandet och välj sedan det nya erbjudandet. Välj **ändra tillstånd**, och välj sedan **offentliga**.
+    ![Välj tillstånd för hjälpmedel](media/azure-stack-create-offer/change-stage-select-1807.png)
 
    > [!NOTE]
-   > Du kan också använda PowerShell för att skapa standarderbjudanden, planer och kvoter. Mer information finns i [Azure Stack PowerShell-modulen 1.3.0](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0).
+   > Du kan också använda PowerShell för att skapa standarderbjudanden, planer och kvoter. Mer information finns i [Azure Stack PowerShell-modulen 1.4.0](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0).
 
 ## <a name="next-steps"></a>Nästa steg
 

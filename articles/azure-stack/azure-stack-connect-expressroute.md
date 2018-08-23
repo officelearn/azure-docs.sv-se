@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/14/2018
+ms.date: 08/14/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 9322c364832a12e711ee7e1b6ad9722ec82d8468
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 878b7952938c7ec534bc09e27ee8b859c1aaeefb
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449974"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139716"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Ansluta Azure Stack till Azure med Azure ExpressRoute
 
@@ -180,7 +180,7 @@ Du kan hämta gatewayens offentliga IP-adressen när du har skapat den virtuella
 
 1. Välj i användarportalen för Azure Stack **alla resurser**.
 1. Under **alla resurser**, Välj den virtuella nätverksgatewayen, vilket är **GW1** i det här exemplet.
-1. Under **virtuell nätverksgateway**väljer **översikt**. i listan över resurser. Du kan även välja **egenskaper**.
+1. Under **virtuell nätverksgateway**väljer **översikt** från listan över resurser. Du kan även välja **egenskaper**.
 1. IP-adressen som du vill Observera anges under **offentliga IP-adressen**. Den här adressen är 192.68.102.1 för exempel-konfigurationen.
 
 #### <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
@@ -360,7 +360,7 @@ Upprepa dessa steg för alla ytterligare klient virtuella nätverk som du vill a
 
 ## <a name="configure-the-router"></a>Konfigurera routern
 
-Du kan använda följande *ExpressRoute routerkonfiguration* diagram som en vägledning för att konfigurera din ExpressRoute-Router. Det här diagrammet visar två klientorganisationer (klient 1 och 2 för klient) med sina respektive Expressroute-kretsar. Varje klient är länkad till sina egna VRF (virtuella Routning och vidarebefordran) i LAN och WAN-sida av ExpressRoute-router. Den här konfigurationen garanterar slutpunkt till slutpunkt isolering mellan de två innehavarna. Anteckna IP-adresser som används i router-gränssnitt du följer konfigurationsexemplet.
+Du kan använda följande *ExpressRoute routerkonfiguration* diagram som en vägledning för att konfigurera din ExpressRoute-Router. Det här diagrammet visar två klientorganisationer (klient 1 och 2 för klient) med deras respektive ExpressRoute-kretsar. Varje klient är länkad till sina egna VRF (virtuella Routning och vidarebefordran) i LAN och WAN-sida av ExpressRoute-router. Den här konfigurationen garanterar slutpunkt till slutpunkt isolering mellan de två innehavarna. Anteckna IP-adresser som används i router-gränssnitt du följer konfigurationsexemplet.
 
 *Bild 4. Konfiguration av ExpressRoute-router*
 
@@ -368,7 +368,7 @@ Du kan använda följande *ExpressRoute routerkonfiguration* diagram som en väg
 
 Du kan använda en router som har stöd för IKEv2 VPN och BGP om du vill avsluta plats-till-plats VPN-anslutning från Azure Stack. Samma router används för att ansluta till Azure med en ExpressRoute-krets.
 
-Följande Konfigurationsexempel för Cisco Azure Site Recovery 1000 stöder nätverksinfrastruktur som visas i den *ExpressRoute routerkonfiguration* diagram.
+Följande Konfigurationsexempel för Cisco ASR 1000 Series aggregering tjänster Router stöder nätverksinfrastruktur som visas i den *ExpressRoute routerkonfiguration* diagram.
 
 **Konfigurationsexempel för Cisco ASR 1000**
 
@@ -457,7 +457,7 @@ description S2S VPN Tunnel for Tenant 2
  tunnel protection ipsec profile V4-PROFILE
 !
 interface GigabitEthernet0/0/1
- description PRIMARY Express Route Link to AZURE over Equinix
+ description PRIMARY ExpressRoute Link to AZURE over Equinix
  no ip address
  negotiation auto
 !
@@ -476,7 +476,7 @@ description Primary WAN interface of Tenant 2
  ip address 192.168.1.17 255.255.255.252
 !
 interface GigabitEthernet0/0/2
- description BACKUP Express Route Link to AZURE over Equinix
+ description BACKUP ExpressRoute Link to AZURE over Equinix
  no ip address
  negotiation auto
 !

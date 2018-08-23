@@ -1,20 +1,8 @@
+---Data rubrik: byta Appvärd en Contoso lokalt genom att migrera till Azure virtuella datorer och Azure SQL Database Managed Instance | Microsoft Docs beskrivning: Lär dig hur Contoso namnkonflikt en lokal app på Azure Virtual Machines och genom att använda Azure SQL Database Managed Instance.
+tjänster: site recovery författare: rayne wiselman manager: carmonm ms.service: site recovery ms.topic: Konceptuell ms.date: 08/13/2018 ms.author: raynew
+
 ---
-title: Ange ny värd för en lokal Contoso-app genom att migrera till Azure virtuella datorer och Azure SQL Database Managed Instance | Microsoft Docs
-description: Lär dig hur Contoso namnkonflikt en lokal app på Azure Virtual Machines och genom att använda Azure SQL Database Managed Instance.
-services: site-recovery
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 07/12/2018
-ms.author: raynew
-ms.openlocfilehash: 3e3f8dffbaa7109423aacdbfbaa658bada8bb84a
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
-ms.translationtype: MT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215347"
----
+
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Contoso-migrering: byta Appvärd ett lokalt på en virtuell dator i Azure och SQL Database Managed Instance
 
 I den här artikeln Contoso migrerar dess SmartHotel app klientdelens VM till en Azure virtuell dator med hjälp av Azure Site Recovery-tjänsten. Contoso migrerar också app-databas till Azure SQL Database Managed Instance.
@@ -94,7 +82,7 @@ I det här scenariot:
 
 Tjänst | Beskrivning | Kostnad
 --- | --- | ---
-[Database Management-tjänsten](https://docs.microsoft.com/azure/dms/dms-overview) | Database Management-tjänsten gör det möjligt för sömlös migrering från flera databaskällor till Azure-Dataplattformar med minimal avbrottstid. | Lär dig mer om [regioner som stöds](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability) och [Database Management-tjänsten priser](https://azure.microsoft.com/pricing/details/database-migration/).
+[Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) | Database Migration Service gör det möjligt för sömlös migrering från flera databaskällor till Azure-Dataplattformar med minimal avbrottstid. | Lär dig mer om [regioner som stöds](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability) och [Database Migration Service priser](https://azure.microsoft.com/pricing/details/database-migration/).
 [Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) | Managed Instance är en hanterad databastjänst som representerar en fullständigt hanterad SQL Server-instans i Azure-molnet. Den använder samma kod som den senaste versionen av SQL Server Database Engine och har de senaste funktionerna, prestandaförbättringar och säkerhetsuppdateringar. | Med hjälp av en SQL Database Managed Instance som körs i Azure debiteras avgifter baserat på kapacitet. Läs mer om [Managed Instance priser](https://azure.microsoft.com/pricing/details/sql-database/managed/). 
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | Tjänsten Site Recovery dirigerar och hanterar migrering och haveriberedskap för virtuella datorer i Azure och lokala datorer och fysiska servrar.  | Azure Storage-avgifter tillkommer under replikering till Azure.  Virtuella Azure-datorer skapas och betalar avgifter vid redundans. Läs mer om [Site Recovery-avgifter och priser](https://azure.microsoft.com/pricing/details/site-recovery/).
 
@@ -117,7 +105,7 @@ Krav | Information
 **Registrera dig i förhandsversionen av Managed Instance** | Du måste vara registrerade i den begränsade offentliga förhandsversionen för SQL Database Managed Instance. Du behöver en Azure-prenumeration till [registrera](https://portal.azure.com#create/Microsoft.SQLManagedInstance). Registreringen kan ta ett par dagar att slutföra, så se till att registrera dig innan du börjar distribuera det här scenariot.
 **Azure-prenumeration** | Du bör redan har skapat en prenumeration när du utför utvärderingen i den första artikeln i den här serien. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).<br/><br/> Om du skapar ett kostnadsfritt konto är du administratör för din prenumeration och kan utföra alla åtgärder.<br/><br/> Om du använder en befintlig prenumeration och du inte är administratör för prenumerationen, måste du be administratören tilldela dig ägar-eller deltagare.<br/><br/> Om du behöver mer detaljerade behörigheter kan se [använda rollbaserad åtkomstkontroll för att hantera Site Recovery åtkomst](../site-recovery/site-recovery-role-based-linked-access-control.md). 
 **Site Recovery (lokalt)** | Din lokala vCenter Server-instansen bör köra version 5.5, 6.0 eller 6.5<br/><br/> En ESXi-värd som kör version 5.5, 6.0 eller 6.5<br/><br/> En eller flera virtuella VMware-datorer som körs på ESXi-värden.<br/><br/> Virtuella datorer måste uppfylla [krav för Azure](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements).<br/><br/> Stöds [nätverk](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) och [storage](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) konfiguration.
-**Database Management-tjänsten** | För den Database Management-tjänsten behöver du en [kompatibla lokala VPN-enheten](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).<br/><br/> Du måste kunna konfigurera den lokala VPN-enhet. Den måste ha en offentlig IPv4-adress för utåtriktade. Adressen får inte finnas bakom en NAT-enhet.<br/><br/> Kontrollera att du har åtkomst till din lokala SQL Server-databas.<br/><br/> Windows-brandväggen ska kunna komma åt käll-databasmotorn. Lär dig hur du [konfigurerar Windows-brandväggen för access Database Engine](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).<br/><br/> Om det finns en brandvägg framför din databasdator, lägger du till regler för att tillåta åtkomst till databasen och filer via SMB-port 445.<br/><br/> Autentiseringsuppgifterna som används för att ansluta till SQL Server-källinstansen och som mål Managed Instance måste vara medlemmar i rollen sysadmin.<br/><br/> Du behöver ett nätverk delar i din lokala databas som Database Management-tjänsten kan använda för att säkerhetskopiera källdatabasen.<br/><br/> Se till att tjänstkontot som kör SQL Server-källinstansen har skrivbehörigheter på nätverksresursen.<br/><br/> Anteckna en Windows-användare och lösenord som har fullständig behörighet på nätverksresursen. Database Management Service personifierar dessa autentiseringsuppgifter för att ladda upp filer för säkerhetskopiering till Azure Storage-behållare.<br/><br/> SQL Server Express-installationen anger TCP/IP-protokollet till **inaktiverad** som standard. Kontrollera att den är aktiverad.
+**Database Migration Service** | För Database Migration Service, behöver du en [kompatibla lokala VPN-enheten](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).<br/><br/> Du måste kunna konfigurera den lokala VPN-enhet. Den måste ha en offentlig IPv4-adress för utåtriktade. Adressen får inte finnas bakom en NAT-enhet.<br/><br/> Kontrollera att du har åtkomst till din lokala SQL Server-databas.<br/><br/> Windows-brandväggen ska kunna komma åt käll-databasmotorn. Lär dig hur du [konfigurerar Windows-brandväggen för access Database Engine](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).<br/><br/> Om det finns en brandvägg framför din databasdator, lägger du till regler för att tillåta åtkomst till databasen och filer via SMB-port 445.<br/><br/> Autentiseringsuppgifterna som används för att ansluta till SQL Server-källinstansen och som mål Managed Instance måste vara medlemmar i rollen sysadmin.<br/><br/> Du behöver ett nätverk delar i din lokala databas som Database Migration Service kan använda för att säkerhetskopiera källdatabasen.<br/><br/> Se till att tjänstkontot som kör SQL Server-källinstansen har skrivbehörigheter på nätverksresursen.<br/><br/> Anteckna en Windows-användare och lösenord som har fullständig behörighet på nätverksresursen. Database Migration Service personifierar dessa autentiseringsuppgifter för att ladda upp filer för säkerhetskopiering till Azure Storage-behållare.<br/><br/> SQL Server Express-installationen anger TCP/IP-protokollet till **inaktiverad** som standard. Kontrollera att den är aktiverad.
 
 ## <a name="scenario-steps"></a>Scenarioanvisningar
 
@@ -125,11 +113,11 @@ Här är hur Contoso planerar att konfigurera distributionen:
 
 > [!div class="checklist"]
 > * **Steg 1: Konfigurera en SQL Database Managed Instance**: Contoso behöver en förskapad hanterad instans som en lokal SQL Server-databasen ska migreras.
-> * **Steg 2: Förbereda Database Management-tjänsten**: Contoso måste registrera databasprovider för migrering, skapa en instans och sedan skapa ett projekt för Database Management-tjänsten. Contoso måste ställa in en signatur för delad åtkomst (SAS) identifierare URI (Uniform Resource) för Database Management-tjänsten. En SAS-URI ger delegerad åtkomst till resurser i Contosos storage-konto, så Contoso kan ge begränsade behörigheter till storage-objekt. Contoso ställer in en SAS-URI så Database Management-tjänsten kan komma åt den lagringskontobehållare som tjänsten Överför säkerhetskopieringsfilerna för SQL Server.
+> * **Steg 2: Förbereda Database Migration Service**: Contoso måste registrera databasprovider för migrering, skapa en instans och sedan skapa ett projekt med Database Migration Service. Contoso måste ställa in en signatur för delad åtkomst (SAS) identifierare URI (Uniform Resource) för Database Migration Service. En SAS-URI ger delegerad åtkomst till resurser i Contosos storage-konto, så Contoso kan ge begränsade behörigheter till storage-objekt. Contoso ställer in en SAS-URI så Database Migration Service kan komma åt den lagringskontobehållare som tjänsten Överför säkerhetskopieringsfilerna för SQL Server.
 > * **Steg 3: Förbereda Azure Site Recovery**: Contoso måste skapa ett lagringskonto för att lagra replikerade data för Site Recovery. Det måste också skapa ett Azure Recovery Services-valv.
 > * **Steg 4: Förbereda lokala VMware för Site Recovery**: Contoso förbereder konton för VM-identifiering och agentinstallation installationen ska ansluta till virtuella Azure-datorer efter redundans.
 > * **Steg 5: Replikera datorer**: Om du vill konfigurera replikering Contoso konfigurera Site Recovery-miljöer för källa och mål, ställer in en replikeringsprincip och börjar replikera datorer till Azure Storage.
-> * **Steg 6: Migrera databasen med hjälp av hanteringstjänsten databasen**: Contoso migrerar databasen.
+> * **Steg 6: Migrera databasen med hjälp av Database Migration Service**: Contoso migrerar databasen.
 > * **Steg 7: Migrera de virtuella datorerna med Site Recovery**: Contoso kör ett redundanstest för att kontrollera att allt fungerar. Contoso körs sedan en fullständig redundans för att migrera de virtuella datorerna till Azure.
 
 ## <a name="step-1-prepare-a-sql-database-managed-instance"></a>Steg 1: Förbered en SQL Database Managed Instance
@@ -229,36 +217,36 @@ Contoso kan nu etablera en SQL Database Managed Instance:
 
 Lär dig hur du [etablera en hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal).
 
-## <a name="step-2-prepare-the-database-management-service"></a>Steg 2: Förbereda Database Management-tjänsten
+## <a name="step-2-prepare-the-database-migration-service"></a>Steg 2: Förbereda Database Migration Service
 
-För att förbereda Database Management-tjänsten, behöver Contoso göra några saker:
+För att förbereda Database Migration Service, behöver Contoso göra några saker:
 
-- Registrera providern Database Management-tjänsten i Azure.
-- Ange Database Management-tjänsten med åtkomst till Azure Storage för att ladda upp de säkerhetskopiera filerna som används för att migrera en databas. För att ge åtkomst till Azure Storage, skapar en Azure Blob storage-behållare i Contoso. Contoso genererar en SAS-URI för Blob storage-behållare. 
-- Skapa ett projekt för Database Management-tjänsten.
+- Registrera Database Migration Service-providern i Azure.
+- Ge Database Migration Service åtkomst till Azure Storage för att ladda upp de säkerhetskopiera filerna som används för att migrera en databas. För att ge åtkomst till Azure Storage, skapar en Azure Blob storage-behållare i Contoso. Contoso genererar en SAS-URI för Blob storage-behållare. 
+- Skapa ett projekt med Database Migration Service.
 
 Sedan utföra Contoso följande steg:
 
 1. Contoso registrerar migrering databasprovider under prenumerationen.
-    ![Database Management-tjänsten – registrera dig](media/contoso-migration-rehost-vm-sql-managed-instance/dms-subscription.png)
+    ![Database Migration Service - Register](media/contoso-migration-rehost-vm-sql-managed-instance/dms-subscription.png)
 
-2. Contoso skapar ett Blob storage-behållare. Contoso genererar en SAS-URI så att databasen Management-tjänsten kan komma åt den.
+2. Contoso skapar ett Blob storage-behållare. Contoso genererar en SAS-URI så att Database Migration Service kan komma åt den.
 
-    ![Databasen Management-tjänsten – Generera en SAS-URI](media/contoso-migration-rehost-vm-sql-managed-instance/dms-sas.png)
+    ![Database Migration Service – Generera en SAS-URI](media/contoso-migration-rehost-vm-sql-managed-instance/dms-sas.png)
 
-3. Contoso skapar en instans av Database Management-tjänsten. 
+3. Contoso skapar en instans av Database Migration Service. 
 
-    ![Databasen Management-tjänsten – skapa instans](media/contoso-migration-rehost-vm-sql-managed-instance/dms-instance.png)
+    ![Database Migration Service – skapa instans](media/contoso-migration-rehost-vm-sql-managed-instance/dms-instance.png)
 
-4. Contoso placerar Database Management Service-instans i den **PROD-DC-EUS2** undernät för den **VNET-PROD-DC-EUS2** virtuellt nätverk.
-    - Contoso placerar det Database Management-tjänsten eftersom tjänsten måste vara i ett virtuellt nätverk som har åtkomst till en lokal SQL Server-dator via en VPN-gateway.
-    - Den **VNET-PROD-EUS2** är peer-kopplas till **VNET-HUB-EUS2** och får inte Använd fjärrgateway. Den **Använd fjärrgateway** alternativet säkerställer att Database Management-tjänsten kan kommunicera efter behov.
+4. Contoso placerar Database Migration Service-instans i den **PROD-DC-EUS2** undernät för den **VNET-PROD-DC-EUS2** virtuellt nätverk.
+    - Contoso placerar det Database Migration Service eftersom tjänsten måste vara i ett virtuellt nätverk som har åtkomst till en lokal SQL Server-dator via en VPN-gateway.
+    - Den **VNET-PROD-EUS2** är peer-kopplas till **VNET-HUB-EUS2** och får inte Använd fjärrgateway. Den **Använd fjärrgateway** alternativet säkerställer att Database Migration Service kan kommunicera efter behov.
 
-        ![Databasen Management-tjänsten – konfigurera nätverket](media/contoso-migration-rehost-vm-sql-managed-instance/dms-network.png)
+        ![Database Migration Service – konfigurera nätverket](media/contoso-migration-rehost-vm-sql-managed-instance/dms-network.png)
 
 *Behöver du mer hjälp?*
 
-- Lär dig hur du [konfigurera Database Management-tjänsten](https://docs.microsoft.com/azure/dms/quickstart-create-data-migration-service-portal).
+- Lär dig hur du [konfigurera Database Migration Service](https://docs.microsoft.com/azure/dms/quickstart-create-data-migration-service-portal).
 - Lär dig hur du [skapar och använder SAS](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
 
@@ -451,15 +439,15 @@ Contoso kan nu börja replikera WebVM.
 
 Du kan läsa en genomgång av de här stegen i [Aktivera replikering](https://docs.microsoft.com/azure/site-recovery/vmware-azure-enable-replication).
 
-## <a name="step-6-migrate-the-database-by-using-the-database-management-service"></a>Steg 6: Migrera databasen med hjälp av Database Management-tjänsten
+## <a name="step-6-migrate-the-database-by-using-the-database-migration-service"></a>Steg 6: Migrera databasen med hjälp av Database Migration Service
 
-Contoso behöver skapa ett Database Management Service-projekt och migrera sedan databasen.
+Contoso behöver skapa ett Database Migration Service-projekt och migrera sedan databasen.
 
-### <a name="create-a-database-management-service-project"></a>Skapa ett projekt för Database Management-tjänsten
+### <a name="create-a-database-migration-service-project"></a>Skapa ett projekt med Database Migration Service
 
-1. Contoso skapas ett Database Management Service-projekt. Contoso väljer den **SQL Server** typ av källserver. Contoso väljer **Azure SQL Database Managed Instance** som mål.
+1. Contoso skapas ett Database Migration Service-projekt. Contoso väljer den **SQL Server** typ av källserver. Contoso väljer **Azure SQL Database Managed Instance** som mål.
 
-     ![Database Management-tjänsten – nytt migreringsprojekt](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-project.png)
+     ![Database Migration Service – nytt migreringsprojekt](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-project.png)
 
 2. Guiden öppnas.
 
@@ -467,34 +455,34 @@ Contoso behöver skapa ett Database Management Service-projekt och migrera sedan
 
 1. I guiden Migrera anger Contoso du den Virtuella där den lokala databasen finns. Contoso anger autentiseringsuppgifter för att få åtkomst till databasen.
 
-    ![Database Management-tjänsten – källinformation](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-source.png)
+    ![Database Migration Service - källinformation](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-source.png)
 
 2. Contoso väljer databasen för att migrera (**SmartHotel.Registration**):
 
-    ![Database Management-tjänsten – Välj källdatabaser](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-sourcedb.png)
+    ![Database Migration Service – Välj källdatabaser](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-sourcedb.png)
 
 3. För målet anger Contoso du namnet på den hanterade instansen i Azure. Contoso anger autentiseringsuppgifter för den hanterade instansen.
 
-    ![Database Management-tjänsten – målinformation](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-target-details.png)
+    ![Database Migration Service - målinformation](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-target-details.png)
 
 4. I **ny aktivitet** > **kör migreringen**, Contoso anger inställningar för att köra migreringen:
     - Autentiseringsuppgifter för källa och mål.
     - Databasen som ska migreras.
-    - Nätverksresurs som Contoso som skapats på den lokala virtuella datorn. Database Management-tjänsten tar källa säkerhetskopior till den här resursen. 
+    - Nätverksresurs som Contoso som skapats på den lokala virtuella datorn. Database Migration Service kommer källa säkerhetskopior till den här resursen. 
         - Kontot som kör SQL Server-källinstansen måste ha skrivbehörighet på den här resursen.
         - FQDN-sökvägen till resursen måste användas.
-    - SAS-URI som ger tillgång till den lagringskontobehållare som tjänsten Överför säkerhetskopieringsfilerna för migrering av Database Management-tjänsten.
+    - SAS-URI som ger tillgång till den lagringskontobehållare som tjänsten Överför säkerhetskopieringsfilerna för migrering Database Migration Service.
 
-        ![Databasen Management-tjänsten – konfigurera migreringsinställningar för](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-migration-settings.png)
+        ![Database Migration Service – konfigurera migreringsinställningar för](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-migration-settings.png)
 
 5. Contoso sparar migreringen och kör den.
 6. I **översikt**, Contoso övervakar statusen för migrering.
 
-    ![Database Management-tjänsten - Övervakare](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor1.png)
+    ![Database Migration Service - Övervakare](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor1.png)
 
 7. När migreringen är klar, kontrollerar Contoso att måldatabaserna finns på den hanterade instansen.
 
-    ![Databasen Management-tjänsten – verifiera Databasmigrering](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor2.png)
+    ![Database Migration Service – verifiera Databasmigrering](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor2.png)
 
 ## <a name="step-7-migrate-the-vm-by-using-site-recovery"></a>Steg 7: Migrera den virtuella datorn med hjälp av Site Recovery
 
@@ -592,7 +580,7 @@ Contoso säkerhetskopierar data på WEBVM med hjälp av Azure Backup-tjänsten. 
 
 ## <a name="conclusion"></a>Sammanfattning
 
-I den här artikeln Contoso namnkonflikt SmartHotel-app i Azure genom att migrera appen klientdelens VM till Azure med hjälp av Site Recovery-tjänsten. Contoso migrerar en lokal databas till en Azure SQL Database Managed Instance med Azure Database Management-tjänsten.
+I den här artikeln Contoso namnkonflikt SmartHotel-app i Azure genom att migrera appen klientdelens VM till Azure med hjälp av Site Recovery-tjänsten. Contoso migrerar en lokal databas till en Azure SQL Database Managed Instance med Azure Database Migration Service.
 
 ## <a name="next-steps"></a>Nästa steg
 

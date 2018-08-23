@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 9eb58f41ec89d084cc388eeadb335046fb587bc3
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: e62d2ff1fdd6bc94244511a2de95c4268a58d6f9
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581895"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42055584"
 ---
 # <a name="how-to-view-the-azure-maps-api-usage"></a>Så här visar du Azure Maps-API-användning
 Den här artikeln visar hur du visar användningsstatistik för API för Azure Maps-konto i den [portal](https://portal.azure.com). Mått som visas i praktiskt diagramformat längs en anpassningsbar varaktighet. 
@@ -59,10 +59,6 @@ Fortsätta till nästa avsnitt om du vill anpassa dessa diagram för din specifi
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig att spåra användningen av Azure Maps, kan du fortsätta att lära dig mer avancerade funktioner, till exempel:
+Nu när du har lärt dig att spåra användningen av Azure Maps, du kan fortsätta att läsa mer om API: er som du använder med den:
 
-* [Vehicle förbrukning](consumption-model.md), eller
-* [Utöka GeoJSON](extend-geojson.md)
-
-Slutligen kan läsa mer om API: er som du använder med den:
 * [Azure Maps REST API-dokumentation](https://docs.microsoft.com/rest/api/maps)

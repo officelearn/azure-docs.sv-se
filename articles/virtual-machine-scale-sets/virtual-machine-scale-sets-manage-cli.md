@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: a9e01039f1fbf46739ff8dbafea411aad2c3f4f2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 512dd7c3318022106b721d8f215bff17de51e51d
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308061"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42056745"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Hantera en VM-skalningsuppsättning med Azure CLI 2.0
 Under livscykeln för en VM-skalningsuppsättning kan du behöva köra en eller flera hanteringsuppgifter. Dessutom kanske du vill skapa skript som automatiserar olika livscykeluppgifter. Den här artikeln beskriver några av de vanliga Azure CLI 2.0-kommandon som kan du utföra följande uppgifter.
@@ -92,7 +92,7 @@ Det tar några minuter att uppdatera kapaciteten för din skalningsuppsättning.
 
 
 ## <a name="stop-and-start-vms-in-a-scale-set"></a>Stoppa och starta virtuella datorer i en skalningsuppsättning
-Om du vill stoppa en eller flera virtuella datorer i en skalningsuppsättning, använder [az vmss stop](/cli/azure/vmss/stop). Parametern `--instance-ids` låter dig ange en eller flera virtuella datorer att stoppa. Om du inte anger ett instans-ID, stoppas alla virtuella datorer i skalningsuppsättningen. Stoppa flera virtuella datorer genom att avgränsa varje instans-ID med ett blanksteg.
+Om du vill stoppa en eller flera virtuella datorer i en skalningsuppsättning, använder [az vmss stop](/cli/azure/vmss#az-vmss-stop). Parametern `--instance-ids` låter dig ange en eller flera virtuella datorer att stoppa. Om du inte anger ett instans-ID, stoppas alla virtuella datorer i skalningsuppsättningen. Stoppa flera virtuella datorer genom att avgränsa varje instans-ID med ett blanksteg.
 
 I följande exempel stoppar instansen *0* i skalningsuppsättningen *myScaleSet* och *myResourceGroup* resursgrupp. Ange egna värden enligt följande:
 

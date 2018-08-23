@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: jasonh
-ms.openlocfilehash: 2e5cddc03b522471cf7eea1f1e45b15c6f73f81d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 0837029cbe22ba7f659efefb113ed47ae1cf2dfe
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595706"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42055770"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Anpassa Linux-baserade HDInsight-kluster med skriptåtgärder
 
@@ -224,7 +224,7 @@ Information om hur du distribuerar en mall finns i följande dokument:
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Använda en skriptåtgärd när klustret skapas från Azure PowerShell
 
-I det här avsnittet ska du använda den [Lägg till AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) cmdlet för att anropa-skript för att anpassa ett kluster. Innan du fortsätter, kontrollera att du har installerat och konfigurerat Azure PowerShell. Information om hur du konfigurerar en arbetsstation för att köra HDInsight PowerShell cmdlets finns i [installera och konfigurera Azure PowerShell](/powershell/azure/overview).
+I det här avsnittet ska du använda den [Lägg till AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) cmdlet för att anropa-skript för att anpassa ett kluster. Innan du fortsätter, kontrollera att du har installerat och konfigurerat Azure PowerShell. Information om hur du konfigurerar en arbetsstation för att köra HDInsight PowerShell cmdlets finns i [installera och konfigurera Azure PowerShell](/powershell/azure/overview).
 
 Följande skript visar hur du använder en skriptåtgärd när du skapar ett kluster med hjälp av PowerShell:
 

@@ -8,12 +8,12 @@ ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 261c26290a4a7c4b8bb22ada7f97470a6efa7a91
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 9064e0da6dde6c4b30235adf771f06a4f25d709a
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576329"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42059205"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Förstå Azure IoT Edge-moduler
 
@@ -33,7 +33,11 @@ Varje gång en avbildning av en modul har distribuerats till en enhet och starta
 
 ![Modulen bilder i molnet – modulen instanser på enheter][1]
 
-Moduler bilder finns som behållaravbildningar i en databas i implementering och modulen instanser är behållare på enheter. Eftersom användningsfall för Azure IoT Edge växer, kommer att skapas nya typer av modulen avbildningar och instanser. Resursen begränsad enheter inte kan till exempel köra behållare så kan kräva modulen avbildningar som finns som dynamiska länkbibliotek och instanser som körbara. 
+Moduler bilder finns som behållaravbildningar i en databas i implementering och modulen instanser är behållare på enheter. 
+
+<!--
+As use cases for Azure IoT Edge grow, new types of module images and instances will be created. For example, resource constrained devices cannot run containers so may require module images that exist as dynamic link libraries and instances that are executables. 
+-->
 
 ## <a name="module-identities"></a>Modulen identiteter
 

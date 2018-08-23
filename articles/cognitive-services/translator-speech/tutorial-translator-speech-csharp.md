@@ -1,7 +1,7 @@
 ---
-title: Översättare tal kursen (C#) | Microsoft Docs
+title: Translator Speech självstudien (C#) | Microsoft Docs
 titleSuffix: Cognitive Services
-description: Lär dig hur du använder tjänsten översättare tal för att översätta text i realtid.
+description: Lär dig hur du använder Translator speech-tjänsten för att översätta text i realtid.
 services: cognitive-services
 author: v-jerkin
 manager: chriswendt1
@@ -11,68 +11,68 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: e82c5c5ccfa6b7de8a9ec111140dad1a40ad44f6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 010ad8b5ceeaf046c8d361ff352e6058154a482d
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352287"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41987539"
 ---
-# <a name="tutorial-microsoft-translator-wpf-application-in-c"></a>Självstudier: Microsoft Translator WPF-program i C#
+# <a name="tutorial-microsoft-translator-wpf-application-in-c"></a>Självstudie: Microsoft Translator WPF-program i C#
 
-Den här kursen är en genomgång av en interaktiv tal översättning verktyg som använder tjänsten Microsoft översättare Speech översättning, en del av kognitiva Microsoft-tjänster i Azure. Lär dig att:
+Den här självstudien är en genomgång av en interaktiva speech translation-verktyg som använder tjänsten Microsoft Translator Speech translation, en del av Microsoft Cognitive Services i Azure. Lär dig att:
 
 > [!div class="checklist"]
 > * Begära en lista över de språk som stöds av tjänsten
-> * Kopiera ljud och överför den till tjänsten
-> * Ta emot och visa översättningar av tal som text
-> * Du kan också spela en talade (text till tal-) version översättningens
+> * Spela in ljud och överföra dem till tjänsten
+> * Ta emot och visa översättningar av talet som text
+> * Om du vill spela upp en talat (text-till-tal) version av översättningen
 
-En fil med Visual Studio-lösning för det här programmet är [finns på GitHub](https://github.com/MicrosoftTranslator/SpeechTranslator).
+En Visual Studio-lösningsfil för det här programmet är [finns på GitHub](https://github.com/MicrosoftTranslator/SpeechTranslator).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För den här kursen behöver du en utgåva av Visual Studio-2017, inklusive Community Edition. 
+Den här självstudien behöver du en utgåva av Visual Studio 2017, inklusive Community-utgåvan av. 
 
-Visual Studio-lösning skapar också ett installationsprogram för programmet. Du behöver den [WiX Toolset](http://wixtoolset.org/) och [WiX Toolset Visual Studio-tillägget](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension) att stödja den här funktionen.
+Visual Studio-lösningen skapar också ett installationsprogram för programmet. Du behöver den [WiX Toolset](http://wixtoolset.org/) och [WiX Toolset Visual Studio-tillägget](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension) att stödja den här funktionen.
 
-Du måste också en prenumeration nyckel för tjänsten översättare tal som du kan hämta från Microsoft Azure-instrumentpanelen. Kostnadsfria prisnivån är tillgänglig som gör det möjligt att översätta upp till 10 timmar tal per månad utan kostnad. Det här skiktet är tillräcklig för den här kursen.
+Du behöver också en prenumerationsnyckel för Translator Speech-tjänsten, som du kan hämta från Microsoft Azure-instrumentpanelen. En kostnadsfri prisnivå är tillgänglig som gör det möjligt att översätta upp till 10 timmar tal per månad utan kostnad. Den här nivån är tillräcklig för den här självstudien.
 
-Tredjeparts- [JSON.Net biblioteket](https://www.newtonsoft.com/json) (från Newtonsoft) krävs också. Den här sammansättningen installeras automatiskt av NuGet om båda Paketåterställning kryssrutorna är aktiverade i Visual Studio-alternativ.
+Tredje parts [JSON.Net biblioteket](https://www.newtonsoft.com/json) (från Newtonsoft) krävs också. Den här sammansättningen installeras automatiskt som NuGet om båda Paketåterställning kryssrutorna är aktiverade i Visual Studio-alternativ.
 
-## <a name="trying-the-translation-app"></a>Försök översättning appen
+## <a name="trying-the-translation-app"></a>Provar translation-app
 
-När du har öppnat Microsoft tal Translator-lösning (`SpeechTranslator.sln`) i Visual STudio trycker du på F5 för att skapa och starta programmet.  Programmets huvudsakliga fönster visas.
+När du har öppnat Talöversättning för Microsoft-lösning (`SpeechTranslator.sln`) i Visual STudio trycker du på F5 för att skapa och starta programmet.  Programmets huvudsakliga fönster visas.
 
-![[Tal översättare huvudfönstret]](media/speech-translator-main-window.png)
+![[Tal Translator huvudfönstret]](media/speech-translator-main-window.png)
 
-Första gången du kör, Välj **kontoinställningar** från den **inställningar** menyn för att öppna fönstret som visas här.
+På den första körningen väljer **kontoinställningar** från den **inställningar** menyn för att öppna fönstret som visas här.
 
-![[Tal översättare huvudfönstret]](media/speech-translator-settings-window.png)
+![[Tal Translator huvudfönstret]](media/speech-translator-settings-window.png)
 
-Klistra in Microsoft översättare Speech prenumeration nyckeln i det här fönstret och klicka sedan på **spara.** Nyckeln sparas mellan körs.
+Klistra in din prenumerationsnyckel för Microsoft Translator Speech i det här fönstret och klicka sedan på **spara.** Nyckeln sparas mellan körningar.
 
-Välj tillbaka i huvudfönstret ljudinsignal och utdataenheter som du vill använda och från och till andra språk. Om du vill höra ljud översättningens kontrollerar du att den **TTS** (text-till-tal) alternativet är markerat. Om du vill se spekulativ partiella översättningar som du talar, aktivera den **ofullständiga resultat** alternativet.
+Tillbaka i huvudfönstret väljer du ljud indata och utdataenheter som du vill ska användas och från och till andra språk. Om du vill höra ljudet från översättningen kontrollerar den **text till tal** (text-till-tal) alternativet är markerat. Om du vill se spekulativ partiella översättningar som du talar, aktivera den **delresultat** alternativet.
 
-Klicka slutligen på **starta** ska börja översättning. Anta att något du vill ha översättas och titta på den tolkade texten och översättningen visas i fönstret. Om du har aktiverat alternativet TTS höra du även översättningen.
+Klicka slutligen på **starta** att börja översättning. Anta att något du vill ha översatta och titta på den tolkade texten och översättningen visas i fönstret. Om du har aktiverat alternativet text till tal kan hör du också översättningen.
 
-## <a name="obtaining-supported-languages"></a>Hämta de språk som stöds
+## <a name="obtaining-supported-languages"></a>Hämta språk som stöds
 
-När detta skrivs stöder tjänsten Microsoft Translator mer än fem 12 språk för textöversättning. Ett mindre antal språk stöds för översättning för tal. Dessa språk kräver stöd för både skrivfel (Taligenkänning) och för sammanfattande-text till tal-utdata.
+När detta skrivs stöder tjänsten Microsoft Translator mer än fem dussin språk för textöversättning. Ett mindre antal språk stöds för talöversättning. Sådana språk kräver stöd för både taltranskription (Taligenkänning) och för text till tal-utdata syntes.
 
-Med andra ord för taligenkänning översättning måste källa språket vara en stöds för skrivfel. Utdata-språket kan vara någon av de språk som stöds för textöversättning, förutsatt att du vill använda ett text-resultat. Om du vill tal-utdata, kan du endast översätta till ett språk som stöds för text till tal.
+Med andra ord för talöversättning, måste källspråket vara något stöd för avskrift. Utdata-språket kan vara något av de språk som stöds för textöversättning, förutsatt att du vill att ett text-resultat. Om du vill tal-utdata, kan du endast översätta till ett språk som stöds för text till tal.
 
-Microsoft kan lägga till stöd för nya språk då. Därför bör du inte hårdkoda kännedom om språk som stöds i ditt program. I stället översättare tal-API som tillhandahåller en slutpunkt för språk som gör att du kan hämta språk som stöds vid körning. Du kan välja att ta emot en eller flera listor språk: 
+Microsoft kan lägga till stöd för nya språk från tid till annan. Därför bör du inte hårdkoda någon kunskap om språk som stöds i ditt program. I stället innehåller Translator Speech API en slutpunkt för språk som gör att du kan hämta språk som stöds vid körning. Du kan välja att få en eller flera listor över språk: 
 
 | | |
 |-|-|
-|`speech`|De språk som stöds för tal skrivfel. Kan vara källan språk för översättning för tal.|
-|`text`|De språk som stöds för översättning till text. Kan vara mål språk för taligenkänning översättning när du använder text-utdata.|
-|`tts`|Röster som stöds för tal sammanfattande, var och en associerad med ett visst språk. Kan vara mål språk för taligenkänning översättning när text till tal används. Ett visst språk kan stödjas av mer än en röst.|
+|`speech`|De språk som stöds för taltranskription. Kan vara språk för talöversättning.|
+|`text`|De språk som stöds för text-till-text. Kan vara mål språk för talöversättning när textutdata används.|
+|`tts`|Röster som stöds för talsyntes, var och en som är associerade med ett visst språk. Kan vara mål språk för talöversättning när text till tal används. Ett visst språk kan stödjas av mer än en röst.|
 
-Språk slutpunkten kräver inte en nyckel för prenumeration och dess användning räknas inte mot din kvot. URI är `https://dev.microsofttranslator.com/languages` och returnerar resultaten i JSON-format.
+Språk-slutpunkten kräver inte en prenumerationsnyckel och användningen räknas inte mot din kvot. Dess URI: N är `https://dev.microsofttranslator.com/languages` och resultaten returneras i JSON-format.
 
-Metoden `UpdateLanguageSettingsAsync()` i `MainWindow.xaml.cs`, visas här, anropar språk slutpunkten för att hämta en lista över språk som stöds. 
+Metoden `UpdateLanguageSettingsAsync()` i `MainWindow.xaml.cs`visas här, anropar språk-slutpunkt för att hämta listan över språk som stöds. 
 
 ```csharp
 private async Task UpdateLanguageSettingsAsync()
@@ -190,50 +190,50 @@ private async Task UpdateLanguageSettingsAsync()
 
 Den här metoden skapar först en HTTP-begäran till slutpunkten språk, begär alla tre listor över språk (`text`, `speech`, och `tts`).
 
-Språk-slutpunkten använder begäran `Accept-Languages` huvudet för att avgöra vilket språk som namnen på språk som representeras. Till exempel visar det språk som är kända för engelskspråkiga användare som ”tyska” kallas ”tyska” i tyska och ”Alemán” på spanska och en lista med språk skillnaderna. Systemets standardspråk används för det här sidhuvudet.
+Språk-slutpunkten använder begärandets `Accept-Languages` rubrik för att bestämma vilket språk som namnen på språk som representeras. Till exempel visar det språk som är kända för engelskspråkiga användare som ”tyska” kallas ”Deutsch” på tyska och ”Alemán” på spanska och listan över språk som dessa skillnader. Standardspråk för systemets används för den här rubriken.
 
-När begäran har skickats och de JSON-svar togs emot, svaret parsas till interna datastrukturer. Dessa strukturer används sedan för att konstruera menyerna från språk och till språk. 
+När begäran har skickats och JSON-svar emot svaret parsas till interna datastrukturer. Dessa strukturer används sedan för att konstruera menyerna från språk och att språk. 
 
-Eftersom de tillgängliga rösterna beror på att språk som valts av användaren, det går inte att ställa in menyn röst ännu. I stället lagras rösterna för varje språk för senare användning. Den `ToLanguage_SelectionChanged` hanterare (i samma källfil) senare uppdaterar röst-menyn genom att anropa `UpdateVoiceComboBox()` när användaren väljer att språk. 
+Eftersom röster som är tillgängliga beror på att språket som valts av användaren, är det inte går att ställa in röst-menyn ännu. I stället lagras rösterna för varje språk för senare användning. Den `ToLanguage_SelectionChanged` hanterare (i samma källfil) senare uppdaterar Voice-menyn genom att anropa `UpdateVoiceComboBox()` när användaren väljer ett till språk. 
 
-För skojs skull väljs slumpmässigt till språk som användaren inte har kört programmet innan. (Menyn inställningar lagras mellan sessioner.)
+För skojs skull väljs slumpmässigt ett till språk som användaren inte har kört programmet före. (Menyn inställningar lagras mellan sessioner.)
 
 ## <a name="authenticating-requests"></a>Autentisera förfrågningar
 
-Att autentisera till tjänsten Microsoft översättare tal som du måste skicka din nyckel för Azure-prenumeration i huvudet som värde för `Ocp-Apim-Subscription-Key` i anslutningsbegäran.
+Att autentisera till tjänsten Microsoft Translator Speech du behöver skicka din nyckel för Azure-prenumeration i rubriken som värde för `Ocp-Apim-Subscription-Key` i begäran.
 
-## <a name="translation-overview"></a>Översättning: översikt
+## <a name="translation-overview"></a>Översikt över översättning
 
-Översätta-API (WebSockets endpoint `wss://dev.microsofttranslator.com/speech/translate`) accepterar ljud översättas i monophonic, 16 kHz, 16-bitars signerade WAVE-format. Tjänsten returnerar en eller flera JSON-svar som innehåller både tolkade och översatt text. Om text till tal har begärts, skickas en ljudfil.
+Översätt-API (WebSockets endpoint `wss://dev.microsofttranslator.com/speech/translate`) accepterar ljud översättas i monophonic, 16 kHz, 16-bitars signerade WAVE-format. Tjänsten returnerar en eller flera JSON-svaren som innehåller både välkända och översatta texten. Om text till tal har begärts, skickas en ljudfil.
 
-Användaren väljer den ljud datakälla med hjälp av menyn mikrofon/filen indata. Ljuduppspelningen kan komma från en ljudenhet (till exempel en mikrofon) eller från en `.WAV` fil.
+Användaren väljer den ljudkälla med hjälp av menyn mikrofon/fil som indata. Ljudet kan komma från en ljudenhet (till exempel en mikrofon) eller från en `.WAV` fil.
 
-Metoden `StartListening_Click` anropas när användaren klickar på Start. Den här händelsehanteraren anropar i sin tur `Connect()` att starta processen med att skicka ljud till API-tjänsteslutpunkt. Den `Connect()` metoden utför följande uppgifter:
+Metoden `StartListening_Click` anropas när användaren klickar på Start-knappen. Den här händelsehanteraren i sin tur anropar `Connect()` att starta processen för att skicka ljud service API-slutpunkten. Den `Connect()` metoden utför följande uppgifter:
 
-
-> [!div class="checklist"]
-> * Hämtning av användarinställningar från huvudfönstret och validera dem.
-> * Initierar ljud indata- och utdataströmmar
-> * Anropar `ConnectAsync()` sköta resten av arbetet
-
-`ConnectAsync()`, i sin tur hanterar följande rutiner:
 
 > [!div class="checklist"]
-> * Autentisera med Azure-prenumeration nyckel i huvudet `Ocp-Apim-Subscription-Key`
-> * Skapa en `SpeechClient` instansen (finns i `SpeechClient.cs`) kan kommunicera med tjänsten
-> * Initierar `TextMessageDecoder` och `BinaryMessageDecoder` instanser (se `SpeechResponseDecoder.cs`) ska hantera svar
-> * Skicka ljud via den `SpeechClient` instans till tjänsten översättare tal
+> * Hämta användarinställningar i huvudfönstret och validera dem.
+> * Initierar ljudindata och utdataströmmar
+> * Anropa `ConnectAsync()` till hand om resten av arbetet
+
+`ConnectAsync()`, i sin tur hanterar sysslor som följande:
+
+> [!div class="checklist"]
+> * Autentisering med Azure-prenumeration nyckeln i rubriken `Ocp-Apim-Subscription-Key`
+> * Skapa en `SpeechClient` instans (finns i `SpeechClient.cs`) att kommunicera med tjänsten
+> * Initierar `TextMessageDecoder` och `BinaryMessageDecoder` instanser (se `SpeechResponseDecoder.cs`) att hantera svar
+> * Skicka ljud via den `SpeechClient` instans till Translator Speech-tjänsten
 > * Ta emot och bearbeta resultaten av översättningen
 
 Ansvaret för `SpeechClient` är färre:
 
 > [!div class="checklist"]
-> * Upprätta en WebSocket-anslutning till tjänsten översättare tal
+> * Upprätta en WebSocket-anslutning till Translator Speech-tjänsten
 > * Skicka ljuddata och ta emot svar via socket
 
 ## <a name="a-closer-look"></a>En närmare titt
 
-Det bör vara tydligare nu hur delar av programmet arbetar tillsammans för att utföra begäran om översättning. Låt oss ta en titt på kod, fokuserar på de relevanta delarna.
+Det bör vara tydligare nu hur delar av programmet fungerar tillsammans för att utföra begäran om översättning. Låt oss ta en titt på kod, fokusera på de relevanta delarna.
 
 Här är en partiell version av `Connect()` som visas i ljudströmmar inställningen:
 
@@ -357,11 +357,11 @@ private void Connect()
 }
 ```
 
-En betydande del av `Connect()` skapa en `SpeechClientOptions` instans (se `SpeechClientOptions.cs`) ska innehålla alternativ för översättning. Till exempel information som behövs för att ansluta till tjänsten (till exempel autentiseringsnyckeln och värdnamn) och funktionerna för översättning. De här fälten mappas till huvudfält och HTTP-parametrar som exponeras av [översättare Speech API](http://docs.microsofttranslator.com/speech-translate.html).
+En betydande del av `Connect()` omfattar att skapa en `SpeechClientOptions` instans (se `SpeechClientOptions.cs`) för alternativ för översättning. Till exempel information som behövs för att ansluta till tjänsten (till exempel autentiseringsnyckeln och värdnamn) och de funktioner som används för översättningen. De här fälten mappas till huvudfält-HTTP-parametrarna exponerade av [Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference).
 
-`Connect()` Dessutom skapar och initierar enhet för ljudinspelning (variabeln `sampleProvider`) som fungerar som källa för tal översättas. Den här enheten är antingen en inkommande maskinvaruenhet, till exempel en mikrofon eller en fil som innehåller WAVE ljuddata.
+`Connect()` skapar även och initierar enheten för ljudinspelning (variabeln `sampleProvider`) som fungerar som källa för tal till att översätta. Den här enheten är antingen en inkommande maskinvaruenhet som en mikrofon eller en fil som innehåller WAVE ljuddata.
 
-Här är den `ConnectAsync()` metod som instantierar den `speechClient` klass och hook in anonyma funktioner för att hantera text och binära svar från tjänsten.
+Här är den `ConnectAsync()` metod som skapar en instans av den `speechClient` klass och krokar in anonyma funktioner för hantering av text och binära svar från tjänsten.
 
 ```csharp
 private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAudioDuringTTS)
@@ -422,13 +422,13 @@ private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAu
 }
 ```
 
-Efter autentisering, metoden skapar den `SpeechClient` instans. Den `SpeechClient` klass (i `SpeechClient.cs`) anropar händelsehanterare på data för binära och text. Ytterligare hanterare anropas när anslutningen misslyckas eller kopplas från.
+När de har autentiserat, metoden skapar den `SpeechClient` instans. Den `SpeechClient` klass (i `SpeechClient.cs`) anropar händelsehanterare vid mottagande binär data och textdata. Ytterligare hanterare anropas när anslutningen misslyckas eller kopplas från.
 
-Binära data är ljud (text till tal-utdata) som skickas av tjänsten när TTS är aktiverad. Textdata är en partiell eller fullständig översättning av talade texten. Så efter att, metoden skapar in funktioner för att hantera dessa meddelanden: ljud genom att lagra det senare spelas upp och text som visas i fönstret.
+Binära data är ljud (text till tal utdata) som skickas av tjänsten när text till tal är aktiverad. Textdata är antingen en partiell eller en fullständig översättning av talade texten. Så efter att, metoden skapar in funktioner för att hantera dessa meddelanden: ljud genom att lagra den för senare uppspelning och text genom att visa i fönstret.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Det här kodexemplet är ett program för funktioner som beskriver användning av översättare tal-API. Det finns därför ett verkligt antal rörliga delar att förstå. Du har gått igenom de viktigaste bitarna. För övriga, kan det vara nyttigt att ange några brytpunkter i Visual Studio och går igenom processen översättning. När du förstår exempelprogrammet använder du utrustade att använda tjänsten översättare tal i dina program.
+Det här kodexemplet är en funktionsrik-program som beskriver användning av Translator Speech API. Det finns därför ett verkligt antal rörliga delar att förstå. Du har gått igenom de viktigaste delarna. För rest, kan det vara nyttigt att ange några brytpunkter i Visual Studio och gå igenom process för översättning. När du förstår exempelprogrammet, är du utrustade för att använda tjänsten Talöversättning i dina egna program.
 
 > [!div class="nextstepaction"]
-> [Microsoft översättare tal-API-referens](http://docs.microsofttranslator.com/speech-translate.html)
+> [Microsoft Translator Speech API-referens](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

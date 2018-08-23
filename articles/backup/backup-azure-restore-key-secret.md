@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 52024dc414b7f1d420b8196792eeb91bb9a4be6f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6ac3c3d8f2a5ae37f1d32f9781f0cdbec0b293e8
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441122"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42057616"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Återställa Key Vault-nyckel och hemlighet för krypterade virtuella datorer med Azure Backup
 Den här artikeln berättar om hur du använder Azure VM Backup för att utföra återställning av krypterade virtuella Azure-datorer om din nyckel och hemlighet inte finns i nyckelvalvet. De här stegen kan också användas om du vill upprätthålla en separat kopia av nyckel (Nyckelkrypteringsnyckel) och en hemlighet (BitLocker-krypteringsnyckel) för den återställda virtuella datorn.
@@ -113,7 +113,7 @@ PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secr
 > [!NOTE]
 > 1. Värdet för $secretname kan hämtas genom att referera till utdata för $rp1. KeyAndSecretDetails.SecretUrl och använda text efter hemligheter / t.ex. utdata hemlighet URL: en är https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 och hemliga namn är B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
 > 2. Värdet för taggen DiskEncryptionKeyFileName är samma som namn på hemlighet.
-> 3. Värdet för DiskEncryptionKeyEncryptionKeyURL kan hämtas från key vault efter återställning av nycklar tillbaka och använder [Get-AzureKeyVaultKey](https://msdn.microsoft.com/library/dn868053.aspx) cmdlet
+> 3. Värdet för DiskEncryptionKeyEncryptionKeyURL kan hämtas från key vault efter återställning av nycklar tillbaka och använder [Get-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultkey) cmdlet
 >
 >
 

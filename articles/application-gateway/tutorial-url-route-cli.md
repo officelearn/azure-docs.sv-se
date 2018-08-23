@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a774d491de4ca1dfdb96181ff13fa644a061cd65
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7a0eb5a979972a5e6c0ab1c29c2353b1016cfacb
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434222"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41919433"
 ---
 # <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Självstudie: Dirigera webbtrafik baserat på webbadressen med Azure CLI
 
@@ -53,7 +53,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Skapa nätverksresurser 
 
-Skapa ett virtuellt nätverk med namnet *myVNet* och ett undernät med namnet *myAGSubnet* med [az network vnet create](/cli/azure/network/vnet#az-net). Lägg sedan till ett undernät med namnet *myBackendSubnet* som servrarna i serverdelen behöver med [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Skapa den offentliga IP-adressen med namnet *myAGPublicIPAddress* med [az network public-ip create](/cli/azure/public-ip#az-network_public_ip_create).
+Skapa ett virtuellt nätverk med namnet *myVNet* och ett undernät med namnet *myAGSubnet* med [az network vnet create](/cli/azure/network/vnet#az-net). Lägg sedan till ett undernät med namnet *myBackendSubnet* som servrarna i serverdelen behöver med [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Skapa den offentliga IP-adressen med namnet *myAGPublicIPAddress* med [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -77,7 +77,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway-with-url-map"></a>Skapa programgatewayen med webbadressmappning
 
-Använd [az network application-gateway create](/cli/azure/application-gateway#create) till att skapa en programgateway med namnet *myAppGateway*. När du skapar en programgateway med hjälp av Azure CLI anger du konfigurationsinformation som kapacitet, sku och HTTP-inställningar. Programgatewayen tilldelas till *myAGSubnet* och *myAGPublicIPAddress* som du skapade tidigare. 
+Använd [az network application-gateway create](/cli/azure/network/application-gateway#create) till att skapa en programgateway med namnet *myAppGateway*. När du skapar en programgateway med hjälp av Azure CLI anger du konfigurationsinformation som kapacitet, sku och HTTP-inställningar. Programgatewayen tilldelas till *myAGSubnet* och *myAGPublicIPAddress* som du skapade tidigare. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -106,7 +106,7 @@ az network application-gateway create \
 
 ### <a name="add-image-and-video-backend-pools-and-port"></a>Lägga till serverdelspooler och portar för bilder och video
 
-Lägg till serverdelspoolerna *imagesBackendPool* och *videoBackendPool* för programgatewayen med [az network application-gateway address-pool create](/cli/azure/application-gateway#az-network_application_gateway_address-pool_create). Du lägger till klientdelsporten för poolerna med [az network application-gateway frontend-port create](/cli/azure/application-gateway#az-network_application_gateway_frontend_port_create). 
+Lägg till serverdelspoolerna *imagesBackendPool* och *videoBackendPool* för programgatewayen med [az network application-gateway address-pool create](/cli/azure/network/application-gateway#az-network_application_gateway_address-pool_create). Du lägger till klientdelsporten för poolerna med [az network application-gateway frontend-port create](/cli/azure/network/application-gateway#az-network_application_gateway_frontend_port_create). 
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -128,7 +128,7 @@ az network application-gateway frontend-port create \
 
 ### <a name="add-backend-listener"></a>Lägga till serverdelslyssnare
 
-Lägg till serverdelslyssnaren *backendListener* som ska dirigera trafiken med [az network application-gateway http-listener create](/cli/azure/application-gateway#az-network_application_gateway_http_listener_create).
+Lägg till serverdelslyssnaren *backendListener* som ska dirigera trafiken med [az network application-gateway http-listener create](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create).
 
 
 ```azurecli-interactive
@@ -142,7 +142,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-url-path-map"></a>Lägga till webbadressmappningar
 
-Med adressmappningar ser du till att specifika webbadresser dirigeras till specifika serverdelspooler. Skapa webbadressmappningarna *imagePathRule* och *videoPathRule* med [az network application-gateway url-path-map create](/cli/azure/application-gateway#az-network_application_gateway_url_path_map_create) och [az network application-gateway url-path-map rule create](/cli/azure/application-gateway#az-network_application_gateway_url_path_map_rule_create)
+Med adressmappningar ser du till att specifika webbadresser dirigeras till specifika serverdelspooler. Skapa webbadressmappningarna *imagePathRule* och *videoPathRule* med [az network application-gateway url-path-map create](/cli/azure/network/application-gateway#az-network_application_gateway_url_path_map_create) och [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway#az-network_application_gateway_url_path_map_rule_create)
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -167,7 +167,7 @@ az network application-gateway url-path-map rule create \
 
 ### <a name="add-routing-rule"></a>Lägga till routningsregeln
 
-Routningsregeln associerar adressmappningarna med den lyssnare du skapade. Lägg till en regel med namnet *rule2* med [az network application-gateway rule create](/cli/azure/application-gateway#az-network_application_gateway_rule_create).
+Routningsregeln associerar adressmappningarna med den lyssnare du skapade. Lägg till en regel med namnet *rule2* med [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create).
 
 ```azurecli-interactive
 az network application-gateway rule create \

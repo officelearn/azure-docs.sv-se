@@ -2,19 +2,19 @@
 title: Utvecklarguide för Azure Key Vault
 description: Utvecklare kan använda Azure Key Vault för att hantera kryptografiska nycklar i Microsoft Azure-miljön.
 services: key-vault
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 ms.date: 10/12/2017
-ms.author: alleonar
-ms.openlocfilehash: 3a2ab6bbe2470fa12113ca4367316cf7a21190b8
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.author: bryanla
+ms.openlocfilehash: d8554d235fdfeb5b192ddf1268e60b7bc32aabe7
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626736"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42060225"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Utvecklarguide för Azure Key Vault
 
@@ -23,7 +23,7 @@ Key Vault kan du få säker åtkomst till känslig information i dina program:
 - Nycklar och hemligheter skyddas utan att behöva skriva koden själv och du kan enkelt använda dem från dina program.
 - Du kan ha dina egna kunder och hantera sina egna nycklar så att du kan koncentrera dig på att erbjuda grundläggande funktioner. På så sätt kommer dina program inte äger det ansvaret för dina kunders klientnycklar och hemligheter.
 - Ditt program kan använda nycklar för signering och kryptering än håller nyckelhantering som externa från ditt program, vilket gör att din lösning för att passa som geografiskt distribuerade app.
-- Från och med September 2016-versionen av Key Vault kan dina program nu använda Key Vault [certifikat](https://docs.microsoft.com/rest/api/keyvault/certificate-operations). Mer information finns i [om nycklar, hemligheter och certifikat](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates).
+- Från och med September 2016-versionen av Key Vault kan dina program nu hantera Key Vault-certifikat. Mer information finns i [om nycklar, hemligheter och certifikat](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates).
 
 Mer allmän information om Azure Key Vault finns i [vad är Key Vault](key-vault-whatis.md).
 
@@ -40,7 +40,7 @@ Den här förhandsversionen innehåller vår nya Lagringskontonycklar funktion t
 
 Läs mer på den nya funktionen för Lagringskontonycklar [nycklar för Azure Key Vault-lagringskontoöversikten](key-vault-ovw-storage-keys.md).
 
-## <a name="videos"></a>Videor
+## <a name="videos"></a>Videoklipp
 
 Den här videon visar hur du skapar ditt eget nyckelvalv och hur du använder den från ”Hello Key Vault-exempelprogrammet.
 
@@ -151,7 +151,7 @@ Dessa artiklar handlar om andra scenarier och tjänster som använder eller inte
 - [Nycklar för Key Vault-lagringskontoöversikten](key-vault-ovw-storage-keys.md) beskriver tangenterna Key Vault-integrering Azure Storage-konton.
 - [Key Vault-säkerhetsvärldar](key-vault-ovw-security-worlds.md) beskrivningar av relationerna mellan regioner och säkerhetsområden.
 
-## <a name="social"></a>Socialt
+## <a name="social"></a>Sociala medier
 
 - [Key Vault-bloggen](http://aka.ms/kvblog)
 - [Key Vault-forumet](http://aka.ms/kvforum)

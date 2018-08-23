@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: 53c993b6c7ad868c4781ced374b0c1b227a43e6d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: ce4fd27c89f529b9c12999689152c3025648d2ce
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595101"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42055361"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrera API Management i ett internt virtuellt nätverk med Application Gateway
 
@@ -45,7 +45,7 @@ Om du vill följa stegen som beskrivs i den här artikeln, måste du ha:
 
 ##<a name="scenario"> </a> Scenario
 
-Den här artikeln beskriver hur du använder ett enda API Management-tjänsten för både interna och externa konsumenter och gör det fungerar som en enda klientdel för både lokala och molnbaserade API: er. Du kan även se hur du kan exponera endast en delmängd av dina API: er (i exemplet som de är markerade i grönt) för extern användning med hjälp av PathBasedRouting funktionerna som är tillgängliga i Application Gateway.
+Den här artikeln beskriver hur du använder ett enda API Management-tjänsten för både interna och externa konsumenter och gör det fungerar som en enda klientdel för både lokala och molnbaserade API: er. Du kan även se hur du kan exponera endast en delmängd av dina API: er (i exemplet som de är markerade i grönt) för extern användning med hjälp av Routning funktioner som är tillgängliga i Application Gateway.
 
 I det första exemplet installationen hanteras alla API: er endast från inom ditt virtuella nätverk. Interna konsumenter (markerade i orange) kan komma åt alla dina interna och externa API: er. Trafiken överförs aldrig till Internet en högpresterande levereras via Expressroute-kretsar.
 
@@ -80,7 +80,7 @@ I det första exemplet installationen hanteras alla API: er endast från inom di
 I den här handboken vi kommer också att innehålla den **utvecklarportalen** till externa publik via Application Gateway. Det krävs ytterligare steg för att skapa developer-portalen lyssnare, avsökning, inställningar och regler. All information finns i respektive steg.
 
 > [!WARNING]
-> Det kan uppstå problem med AAD- och Facebook-autentisering i developer-portalen som nås via Application Gateway beskrivs-installationen.
+> Det kan uppstå problem med AAD och tredjeparts-autentisering i developer-portalen som nås via Application Gateway beskrivs-installationen.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Skapa en resursgrupp för Resource Manager
 

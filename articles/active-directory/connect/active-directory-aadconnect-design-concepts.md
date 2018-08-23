@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 05/30/2018
+ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d8d911acf3e3eff2cf3340972b9b77a10be0a5f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 79bdab4c7a867117f6473864f1654f77603f7b26
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "35649347"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42057619"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Designbegrepp för
 Syftet med det här dokumentet är att beskriva områden som måste betraktas under genomförandet utformningen av Azure AD Connect. Det här dokumentet är en djupdykning i vissa områden och dessa koncept beskrivs kortfattat i andra dokument.
@@ -72,20 +72,20 @@ Därför gäller följande begränsningar för Azure AD Connect:
 * Om du installerar en annan Azure AD Connect-servern, måste du välja samma sourceAnchor-attribut som tidigare använt. Om du tidigare har använt DirSync och flytta till Azure AD Connect, så du måste använda **objectGUID** eftersom det är det attribut som används av DirSync.
 * Om värdet för sourceAnchor har ändrats efter har objektet exporterats till Azure AD och sedan Azure AD Connect sync genererar ett fel och tillåter inte några ytterligare ändringar på objektet innan problemet har åtgärdats och sourceAnchor ändras tillbaka i källan director y.
 
-## <a name="using-msds-consistencyguid-as-sourceanchor"></a>Med msDS-ConsistencyGuid som sourceAnchor
-Som standard, Azure AD Connect (version 1.1.486.0 och äldre) använder objectGUID som sourceAnchor-attribut. Systemgenererade är ObjectGUID. Du kan inte ange värdet när du skapar en lokal AD-objekt. Enligt beskrivningen i avsnittet [sourceAnchor](#sourceanchor), det finns scenarier där du måste ange sourceAnchor-värde. Om scenarierna som är tillämpliga för dig, måste du använda en konfigurerbar AD-attribut (till exempel msDS-ConsistencyGuid) som sourceAnchor-attribut.
+## <a name="using-ms-ds-consistencyguid-as-sourceanchor"></a>Med hjälp av ms-DS-ConsistencyGuid som sourceAnchor
+Som standard, Azure AD Connect (version 1.1.486.0 och äldre) använder objectGUID som sourceAnchor-attribut. Systemgenererade är ObjectGUID. Du kan inte ange värdet när du skapar en lokal AD-objekt. Enligt beskrivningen i avsnittet [sourceAnchor](#sourceanchor), det finns scenarier där du måste ange sourceAnchor-värde. Om scenarierna som är tillämpliga för dig, måste du använda ett konfigurerbart AD-attribut (till exempel ms-DS-ConsistencyGuid) som sourceAnchor-attribut.
 
-Azure AD Connect (version 1.1.524.0 och efter) nu underlättar användningen av msDS-ConsistencyGuid som sourceAnchor-attribut. När du använder den här funktionen konfigurerar Synkroniseringsregler till automatiskt i Azure AD Connect:
+Azure AD Connect (version 1.1.524.0 och efter) nu underlättar användningen av ms-DS-ConsistencyGuid som sourceAnchor-attribut. När du använder den här funktionen konfigurerar Synkroniseringsregler till automatiskt i Azure AD Connect:
 
-1. Använd msDS-ConsistencyGuid som sourceAnchor-attribut för användarobjekt. ObjectGUID används för andra objekttyper.
+1. Använd ms-DS-ConsistencyGuid som sourceAnchor-attribut för användarobjekt. ObjectGUID används för andra objekttyper.
 
-2. För alla angivna lokala AD-användare vars msDS-ConsistencyGuid-attributet inte är ifylld, Azure AD Connect-skrivningar objectGUID värdet tillbaka till attributet msDS-ConsistencyGuid i lokala Active Directory-objekt. När attributet msDS-ConsistencyGuid är ifylld, exporterar Azure AD Connect sedan objektet till Azure AD.
+2. För alla angivna lokala AD-användare vars ms-DS-ConsistencyGuid-attributet inte är ifylld, Azure AD Connect-skrivningar objectGUID värdet tillbaka till attributet ms-DS-ConsistencyGuid i lokala Active Directory-objekt. När attributet ms-DS-ConsistencyGuid är ifylld, exporterar Azure AD Connect sedan objektet till Azure AD.
 
 >[!NOTE]
-> När en lokal AD-objekt har importerats till Azure AD Connect (som är kan importeras till AD-Anslutarplatsen och projiceras in i metaversum), du kan inte ändra dess sourceAnchor värde längre. Ange sourceAnchor-värdet för ett givet lokala AD objekt, konfigurera dess attributet msDS-ConsistencyGuid innan den har importerats till Azure AD Connect.
+> När en lokal AD-objekt har importerats till Azure AD Connect (som är kan importeras till AD-Anslutarplatsen och projiceras in i metaversum), du kan inte ändra dess sourceAnchor värde längre. Ange sourceAnchor-värdet för ett givet lokala AD objekt, konfigurera dess ms-DS-ConsistencyGuid attributet innan den har importerats till Azure AD Connect.
 
 ### <a name="permission-required"></a>Behörighet krävs
-AD DS-kontot som används för att synkronisera med lokala Active Directory måste beviljas behörighet att skriva till attributet msDS-ConsistencyGuid i den lokala Active Directory för för den här funktionen ska fungera.
+AD DS-kontot som används för att synkronisera med lokala Active Directory måste beviljas behörighet att skriva till attributet ms-DS-ConsistencyGuid i den lokala Active Directory för för den här funktionen ska fungera.
 
 ### <a name="how-to-enable-the-consistencyguid-feature---new-installation"></a>Så här aktiverar du funktionen ConsistencyGuid - nyinstallation
 Du kan aktivera användningen av ConsistencyGuid som sourceAnchor under installationen av nya. Det här avsnittet beskriver både Express och anpassad installation i information.
@@ -104,7 +104,7 @@ När du installerar Azure AD Connect med Express-läge, avgör Azure AD Connect-
   >[!NOTE]
   > Endast nyare versioner av Azure AD Connect (1.1.524.0 och efter) lagras information i Azure AD-klienten om sourceAnchor-attribut som används under installationen. Äldre versioner av Azure AD Connect inte.
 
-* Om information om sourceAnchor-attribut används inte är tillgänglig kontrollerar i guiden status för attributet msDS-ConsistencyGuid i din lokala Active Directory. Om attributet inte är konfigurerat på valfritt objekt i katalogen, använder guiden msDS-ConsistencyGuid som sourceAnchor-attribut. Om attributet har konfigurerats på ett eller flera objekt i katalogen, avslutar guiden attributet som används av andra applikationer och är inte lämplig som sourceAnchor-attribut...
+* Om information om sourceAnchor-attribut används inte är tillgänglig kontrollerar i guiden status för attributet ms-DS-ConsistencyGuid i din lokala Active Directory. Om attributet inte är konfigurerat på valfritt objekt i katalogen, används ms-DS-ConsistencyGuid som sourceAnchor-attribut. Om attributet har konfigurerats på ett eller flera objekt i katalogen, avslutar guiden attributet som används av andra applikationer och är inte lämplig som sourceAnchor-attribut...
 
 * I så fall guiden använder till med hjälp av objectGUID som sourceAnchor-attribut.
 
@@ -140,7 +140,7 @@ Växla från objectGUID till ConsistencyGuid som källfästpunktsattribut:
 
 3. Ange dina autentiseringsuppgifter för Azure AD-administratör och klicka på **nästa**.
 
-4. Azure AD Connect-guiden analyserar tillståndet för attributet msDS-ConsistencyGuid i din lokala Active Directory. Om attributet inte är konfigurerat på valfritt objekt i katalogen, avslutar Azure AD Connect att inget annat program för närvarande använder attributet och är säkert att använda den som källfästpunktsattribut. Klicka på **nästa** att fortsätta.
+4. Azure AD Connect-guiden analyserar tillståndet för attributet ms-DS-ConsistencyGuid i din lokala Active Directory. Om attributet inte är konfigurerat på valfritt objekt i katalogen, avslutar Azure AD Connect att inget annat program för närvarande använder attributet och är säkert att använda den som källfästpunktsattribut. Klicka på **nästa** att fortsätta.
 
    ![Aktivera ConsistencyGuid för befintliga distribution – steg 4](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment02.png)
 
@@ -148,7 +148,7 @@ Växla från objectGUID till ConsistencyGuid som källfästpunktsattribut:
 
    ![Aktivera ConsistencyGuid för befintliga distribution – steg 5](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment03.png)
 
-6. När konfigurationen är klar visar guiden den msDS-ConsistencyGuid används nu som källfästpunktsattribut.
+6. När konfigurationen är klar visar guiden som ms-DS-ConsistencyGuid används nu som källfästpunktsattribut.
 
    ![Aktivera ConsistencyGuid för befintliga distribution – steg 6](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment04.png)
 
@@ -170,11 +170,11 @@ Om du hanterar AD FS utanför Azure AD Connect eller om du använder federations
 ![Tredjeparts-federation-konfiguration](./media/active-directory-aadconnect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>Lägga till nya kataloger till befintlig distribution
-Anta att du har distribuerat Azure AD Connect med funktionen ConsistencyGuid aktiverad och nu du vill lägga till en annan katalog i distributionen. När du försöker lägga till katalogen kontrollerar Azure AD Connect-guiden status för attributet mSDS-ConsistencyGuid i katalogen. Om attributet har konfigurerats på ett eller flera objekt i katalogen, avslutar guiden attributet som används av andra applikationer och returnerar ett fel som visas i diagrammet nedan. Om du är säker på att attributet inte är används av befintliga program som du behöver kontakta supporten för information om hur du ignorera felet.
+Anta att du har distribuerat Azure AD Connect med funktionen ConsistencyGuid aktiverad och nu du vill lägga till en annan katalog i distributionen. När du försöker lägga till katalogen kontrollerar Azure AD Connect-guiden status för attributet ms-DS-ConsistencyGuid i katalogen. Om attributet har konfigurerats på ett eller flera objekt i katalogen, avslutar guiden attributet som används av andra applikationer och returnerar ett fel som visas i diagrammet nedan. Om du är säker på att attributet inte är används av befintliga program som du behöver kontakta supporten för information om hur du ignorera felet.
 
 ![Lägga till nya kataloger till befintlig distribution](./media/active-directory-aadconnect-design-concepts/consistencyGuid-04.png)
 
-## <a name="azure-ad-sign-in"></a>Azure AD-inloggningen
+## <a name="azure-ad-sign-in"></a>Azure AD-inloggning
 När du integrerar din lokala katalog med Azure AD, är det viktigt att förstå hur synkroniseringsinställningarna kan påverka hur användaren autentiseras. Azure AD använder userPrincipalName (UPN) för att autentisera användaren. När du synkroniserar dina användare, måste du välja attribut som ska användas för värdet för userPrincipalName noggrant.
 
 ### <a name="choosing-the-attribute-for-userprincipalname"></a>Välja attributet för userPrincipalName

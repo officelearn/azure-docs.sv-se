@@ -1,38 +1,38 @@
 ---
-title: Återge täckning i Azure Maps | Microsoft Docs
-description: Lär dig mer om rendera-täckning i Azure Maps
-author: jinzh-azureiot
+title: Rendera täckning i Azure Maps | Microsoft Docs
+description: Lär dig mer om rendering täckning i Azure Maps
+author: jingjing-z
 ms.author: jinzh
 ms.date: 03/07/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: c973897015df978f31d267ec6f2a20812d9d541c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6e4ebd5bfd7225537046d34dd885d04e8a94878f
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600586"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42055165"
 ---
-# <a name="azure-maps-render-coverage"></a>Azure Maps återge täckning
+# <a name="azure-maps-render-coverage"></a>Azure Maps rendera täckning
 
-Azure Maps använder både raster paneler och vector paneler för att skapa mappningar. På den lägsta möjliga upplösningen i hela världen får plats på en enda sida vid sida. På den högsta upplösningen representerar en bricka 38 kvadratisk mätare. När du zooma in på en karta se du därför allt mer information om kontinenter, regioner, orter och enskilda streets. Mer information finns i [Zooma nivåer och panelen rutnätet](zoom-levels-and-tile-grid.md).
+Azure Maps använder både raster paneler och vektorkartbilder för att skapa kartor. Med dess lägsta upplösning som är i hela världen som får plats på en panel. På den högsta upplösningen representerar en enskild panel 38 kvadratmeter. När du zoomar in på en karta se du därför allt mer information om kontinenter, regioner, orter och enskilda gator. Mer information finns i [zoomningsnivåer och rutnät](zoom-levels-and-tile-grid.md).
 
-Maps har dock inte samma grad av information och noggrannhet för alla regioner. Följande tabeller innehåller information om vilken detaljnivå renderade som ingår i varje region.
+Maps har dock inte samma grad av information och Precision för alla regioner. Följande tabeller innehåller information om vilken detaljnivå återgivna som ingår i varje region.
 
 ## <a name="legend"></a>Teckenförklaring
 
 | Symbol | Betydelse |
 |--------|---------|
-| ✓ | Region representeras med detaljerad information.   |
+| ✓ | Region representeras med detaljerade data.   |
 | Ø | Region representeras med förenklad data. |
 
 
 ## <a name="africa"></a>Afrika 
 
 
-| Region | Raster paneler enhetlig | Vektorn paneler enhetlig |
+| Region | Raster paneler Unified | Vektorkartbilder Unified |
 | ------ | :------------------: | :------------------: |
 | Algeriet                          | ✓ | ✓ |
 | Angola                           | ✓ | ✓ |
@@ -93,7 +93,7 @@ Maps har dock inte samma grad av information och noggrannhet för alla regioner.
 
 ## <a name="americas"></a>Nord- och Sydamerika
 
-| Region | Raster paneler enhetlig | Vektorn paneler enhetlig |
+| Region | Raster paneler Unified | Vektorkartbilder Unified |
 | ------ | :------------------: | :------------------: |
 | Anguilla                  | ✓ | ✓ |
 | Antigua och Barbuda       | ✓ | ✓ |
@@ -140,10 +140,10 @@ Maps har dock inte samma grad av information och noggrannhet för alla regioner.
 | Saint Barthélemy          | ✓ | ✓ |
 | Saint Kitts och Nevis     | ✓ | ✓ |
 | Saint Lucia               | ✓ | ✓ |
-| Saint ek (franska)     | ✓ | ✓ |
+| Saint Martin (franska)     | ✓ | ✓ |
 | Saint Pierre och Miquelon |   | ✓ |
 | Saint Vincent och Grenadinerna | ✓ | ✓ |
-| Sint Maarten (holländska)      | ✓ | ✓ |
+| Sint Maarten (nederländska)      | ✓ | ✓ |
 | Sydgeorgien och Sydsandwichöarna |   | ✓ |
 | Surinam                  |   | ✓ |
 | Trinidad och Tobago       | ✓ | ✓ |
@@ -156,7 +156,7 @@ Maps har dock inte samma grad av information och noggrannhet för alla regioner.
 
 ## <a name="asia"></a>Asien 
 
-| Region | Raster paneler enhetlig | Vektorn paneler enhetlig |
+| Region | Raster paneler Unified | Vektorkartbilder Unified |
 | ------ | :------------------: | :------------------: |
 | Afghanistan               |   | Ø |
 | Bahrain                   | ✓ | ✓ |
@@ -210,7 +210,7 @@ Maps har dock inte samma grad av information och noggrannhet för alla regioner.
 
 ## <a name="oceania"></a>Oceanien
 
-| Region | Raster paneler enhetlig | Vektorn paneler enhetlig |
+| Region | Raster paneler Unified | Vektorkartbilder Unified |
 | ------ | :------------------: | :------------------: |
 | Amerikanska Samoa            |   | ✓ |
 | Australien                 | ✓ | ✓ |
@@ -240,7 +240,7 @@ Maps har dock inte samma grad av information och noggrannhet för alla regioner.
 
 ## <a name="europe"></a>Europa
 
-| Region | Raster paneler enhetlig | Vektorn paneler enhetlig |
+| Region | Raster paneler Unified | Vektorkartbilder Unified |
 | ------ | :------------------: | :------------------: |
 | Albanien                   | ✓ | ✓ |
 | Andorra                   | ✓ | ✓ |
@@ -266,7 +266,7 @@ Maps har dock inte samma grad av information och noggrannhet för alla regioner.
 | Guernsey                  |   | ✓ |
 | Ungern                   | ✓ | ✓ |
 | Island                   | ✓ | ✓ |
-| Irland (Republiken)     | ✓ | ✓ |
+| Irland (republiken Makedonien)     | ✓ | ✓ |
 | Isle of Man               |   | ✓ |
 | Italien                     | ✓ | ✓ |
 | Jan Mayen                 |   | ✓ |
@@ -302,6 +302,6 @@ Maps har dock inte samma grad av information och noggrannhet för alla regioner.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Azure Maps återgivning [Zooma nivåer och panelen rutnätet](zoom-levels-and-tile-grid.md).
+Läs mer om Azure Maps rendering [zoomningsnivåer och rutnät](zoom-levels-and-tile-grid.md).
 
-Lär dig mer om den [täckningsområden för Maps routing service](routing-coverage.md). 
+Lär dig mer om den [täckningsområden för Maps routning service](routing-coverage.md). 

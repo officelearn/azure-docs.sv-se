@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 07/12/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 4db70fa93914ba0544d9beb8e523241513a2e5ce
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 358f81498d8caad7c0a67519bbb776efa153249f
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009303"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42055579"
 ---
 # <a name="azure-data-box-disk-limits-preview"></a>Azure Data Box-Disk-begränsningar (förhandsgranskning)
 
@@ -38,7 +38,7 @@ ms.locfileid: "39009303"
 
 ## <a name="data-box-disk-performance"></a>Prestanda för data Box-Disk
 
-När testas med diskar som är anslutna via USB 3.0, var diskprestandan upp till 430 MB/s. De faktiska nummer varierar beroende på filstorleken som används. För mindre filer kan du se lägre prestanda.
+Vid tester med diskar ansluta via USB 3.0 var diskprestandan upp till 430 MB/s. De faktiska hastigheterna varierar beroende på filstorleken. För mindre filer kan du se lägre prestanda.
 
 ## <a name="azure-storage-limits"></a>Azure storage-begränsningar
 
@@ -64,7 +64,7 @@ Gå till den senaste informationen på tjänstbegränsningar för Azure storage 
 
 ## <a name="azure-storage-account-size-limits"></a>Storleksgränser för Azure storage-konto
 
-Här finns gränserna på mängden data som kopieras till storage-konto. Kontrollera att datan överensstämmer med de här gränserna. Gå till den senaste informationen om dessa begränsningar [prestandamål i Azure blob storage skala](https://docs.microsoft.com/en-us/azure/storage/cstorage-scalability-targets#azure-blob-storage-scale-targets) och [Azure Files skala mål](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
+Här finns gränserna på mängden data som kopieras till storage-konto. Kontrollera att datan överensstämmer med de här gränserna. Gå till den senaste informationen om dessa begränsningar [prestandamål i Azure blob storage skala](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) och [Azure Files skala mål](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
 
 | Storleken på data som kopieras till Azure storage-konto                      | Standardgräns          |
 |---------------------------------------------------------------------|------------------------|
@@ -85,5 +85,5 @@ Här följer storlekarna på de Azure-objekt som kan skrivas. Se till att alla f
 
 | Entitet                                       | Konventioner                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Namn på behållare för blockblob och page blob | Måste vara ett giltigt DNS-namn som är 3 till 63 tecken långt. <br>  Måste börja med en bokstav eller en siffra. <br> Kan innehålla endast gemener, siffror och bindestreck (-). <br> Varje bindestreck (-) måste föregås och följs av en bokstav eller siffra. <br> Flera bindestreck i rad tillåts inte i namn. |
-| Blobnamn för blockblob och page blob      | Blobbnamnen är skiftlägeskänsliga och kan innehålla vilken kombination av tecken. <br> Ett blobbnamn måste vara mellan 1 till 1 024 tecken. <br> Reserverade URL-tecken måste undantas korrekt. <br>Antal sökvägssegment består av blob-namnet får inte överskrida 254. Ett segment är en sträng mellan på varandra följande avgränsartecken (till exempel snedstreck ”/”) som motsvarar namnet på en virtuell katalog. |
+| Namn på behållare för blockblob och page blob | Måste vara ett giltigt DNS-namn som är 3 till 63 tecken långt. <br>  Måste börja med en bokstav eller en siffra. <br> Kan innehålla endast gemener, siffror och bindestreck (-). <br> Varje bindestreck (-) måste föregås och följas av en bokstav eller siffra. <br> Flera bindestreck i rad tillåts inte i namn. |
+| Blobnamn för blockblobar och sidblobar      | Blobnamn är skiftlägeskänsliga och kan innehålla valfri kombination av tecken. <br> Ett blobnamn måste vara mellan 1 och 1 024 tecken långt. <br> Reserverade URL-tecken måste undantas korrekt. <br>Antalet sökvägssegment som blobnamnet består av får inte överskrida 254. Ett segment är strängen mellan avgränsningstecken (till exempel snedstreck ”/”) som motsvarar namnet på en virtuell katalog. |

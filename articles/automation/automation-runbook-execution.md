@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3dfe16cc09f0453aef8adf8bf87a00aebd2054bc
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: eb6516400d362fe60adc05590353ec003c70e059
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214643"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42061480"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Runbook-körning i Azure Automation
 
@@ -88,7 +88,7 @@ Du kan använda följande steg för att visa jobb för en runbook.
 
 ## <a name="retrieving-job-status-using-windows-powershell"></a>Hämta jobbstatus med Windows PowerShell
 
-Du kan använda den [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx) att hämta jobb som skapats för en runbook och detaljerna för ett specifikt jobb. Om du startar en runbook med Windows PowerShell med [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx), och sedan den returnerar det resulterande jobbet. Använd [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx)utdata för att få ett jobbs effekt.
+Du kan använda den [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) att hämta jobb som skapats för en runbook och detaljerna för ett specifikt jobb. Om du startar en runbook med Windows PowerShell med [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook), och sedan den returnerar det resulterande jobbet. Använd [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) att få ett jobbs effekt.
 
 Följande exempelkommandon hämtar det senaste jobbet för en exempel-runbook och visa dess status, de angivna värdena för runbook-parametrar och utdata från jobbet.
 
@@ -145,7 +145,7 @@ Detta är att skydda tjänsten från runbooks som körs på obestämd tid utan a
 
 Om runbooken har inga kontrollpunkter eller jobbet hade inte nå den första kontrollpunkten innan tas bort från minnet, startas sedan om från början.
 
-För att långa köra aktiviteter, rekommenderar vi att du använder en [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Worker begränsas inte av rättmätiga del och inte har en begränsning på hur lång tid en runbook kan köra.
+För tidskrävande aktiviteter rekommenderar vi att du använder en [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Worker begränsas inte av tidsfördelningsgränser och en runbook kan köras under obegränsad tid.
 
 Om du använder en PowerShell Workflow-runbook i Azure, när du skapar en runbook, bör du kontrollera att tiden för att köra alla aktiviteter mellan två kontrollpunkter inte överskrider tre timmar. Du kan behöva lägga till kontrollpunkter till din runbook så att den inte uppnår sin gräns för den här tre timmar eller dela upp långa åtgärder. Din runbook kan till exempel utföra en reindex på en stor SQL-databas. Om den här enda åtgärden inte slutförs inom gränsen på rättmätiga del, tas bort från minnet jobbet och startas om från början. I det här fallet bör du dela upp reindex åtgärden i flera steg, t.ex omindexering en tabell i taget, och infoga en kontrollpunkt efter varje åtgärd så att jobbet återupptas efter den senaste åtgärden har slutförts.
 

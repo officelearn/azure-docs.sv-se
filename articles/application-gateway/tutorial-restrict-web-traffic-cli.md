@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: be6032d8c0ce7c20a080037fad216c4b540c90cb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 20a15f5062780e0a9fb687b5f35bb214d16119f0
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435605"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41919428"
 ---
 # <a name="tutorial-enable-web-application-firewall-using-the-azure-cli"></a>Självstudier: Aktivera brandvägg för webbaserade program med hjälp av Azure CLI
 
@@ -73,7 +73,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway-with-a-waf"></a>Skapa en programgateway med en WAF
 
-Du kan använda [az network application-gateway create](/cli/azure/application-gateway#az-application-gateway-create) till att skapa en programgateway med namnet *myAppGateway*. När du skapar en programgateway med hjälp av Azure CLI anger du konfigurationsinformation som kapacitet, sku och HTTP-inställningar. Programgatewayen tilldelas till *myAGSubnet* och *myPublicIPAddress* som du skapade tidigare.
+Du kan använda [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create) till att skapa en programgateway med namnet *myAppGateway*. När du skapar en programgateway med hjälp av Azure CLI anger du konfigurationsinformation som kapacitet, sku och HTTP-inställningar. Programgatewayen tilldelas till *myAGSubnet* och *myPublicIPAddress* som du skapade tidigare.
 
 ```azurecli-interactive
 az network application-gateway create \

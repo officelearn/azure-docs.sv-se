@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 6ed8265a0b1a014ad15a6bb42fabb6003fb6a775
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 12b5c013a0704eb2d3f7df58011571b902955c75
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343033"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42059551"
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Installera tillägget varaktiga funktioner och exempel (Azure Functions)
 
@@ -146,14 +146,14 @@ Visual Studio Code är en lokal utveckling som täcker alla större plattformar 
 
 ## <a name="azure-portal"></a>Azure Portal
 
-Om du vill kan använda du Azure-portalen för utveckling av varaktiga funktioner.
+Om du vill kan du använda den [Azure-portalen](https://portal.azure.com) för utveckling av varaktiga funktioner.
 
    > [!NOTE]
    > Varaktiga funktioner i JavaScript är ännu inte tillgängliga i portalen.
 
 ### <a name="create-an-orchestrator-function"></a>Skapa en orchestrator-funktion
 
-1. Skapa en ny funktionsapp på [functions.azure.com](https://functions.azure.com/signin).
+1. Skapa en ny funktionsapp i portalen, enligt den [Functions snabbstartsartikel](functions-create-first-azure-function.md#create-a-function-app).
 
 2. Konfigurera appen att [använda version 2.0 runtime](set-runtime-version.md).
 

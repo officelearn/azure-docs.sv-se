@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 880632a39332f7d9ad24b0f7aa2301660eb2f9b8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 849253dd4a2e66acc6a509a0515a22309c90e081
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528581"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42061464"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Storage-mått i Azure Monitor
 
@@ -332,14 +332,14 @@ Azure Storage tillhandahåller följande kapacitet i Azure Monitor.
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-| UsedCapacity | Mängden lagringsutrymme som används av storage-konto. För standardlagringskonton är det summan av kapacitet som används av blob-, tabell-, fil- och kö. Det är samma som BlobCapacity för premium storage-konton och Blob storage-konton. <br/><br/> Enhet: byte <br/> Sammansättningstyp: genomsnittlig <br/> Värdeexempel: 1024 |
+| UsedCapacity | Mängden lagringsutrymme som används av storage-konto. För standardlagringskonton är det summan av kapacitet som används av blob-, tabell-, fil- och kö. Det är samma som BlobCapacity för premium storage-konton och Blob storage-konton. <br/><br/> Enhet: byte <br/> Sammansättningstyp: Totalt antal <br/> Värdeexempel: 1024 |
 
 ### <a name="blob-storage"></a>Blob Storage
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-| BlobCapacity | Summan av Blob-lagring som används i lagringskontot. <br/><br/> Enhet: byte <br/> Sammansättningstyp: genomsnittlig <br/> Värdeexempel: 1024 <br/> Dimensionen: BlobType ([Definition](#metrics-dimensions)) |
-| BlobCount    | Antal blob-objekt som lagras i lagringskontot. <br/><br/> Enhet: antal <br/> Sammansättningstyp: genomsnittlig <br/> Värdeexempel: 1024 <br/> Dimensionen: BlobType ([Definition](#metrics-dimensions)) |
+| BlobCapacity | Summan av Blob-lagring som används i lagringskontot. <br/><br/> Enhet: byte <br/> Sammansättningstyp: Totalt antal <br/> Värdeexempel: 1024 <br/> Dimensionen: BlobType ([Definition](#metrics-dimensions)) |
+| BlobCount    | Antal blob-objekt som lagras i lagringskontot. <br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Värdeexempel: 1024 <br/> Dimensionen: BlobType ([Definition](#metrics-dimensions)) |
 | ContainerCount    | Antalet behållare i lagringskontot. <br/><br/> Enhet: antal <br/> Sammansättningstyp: genomsnittlig <br/> Värdeexempel: 1024 |
 
 ### <a name="table-storage"></a>Table Storage

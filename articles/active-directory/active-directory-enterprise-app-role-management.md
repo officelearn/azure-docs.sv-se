@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 08/10/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 8bf7f18f8051f1647a86bbe9c0be638045781a72
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: cb4c9f91c7a116e6171a8e94030b6bb40fdb38ea
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989919"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42054571"
 ---
 # <a name="configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Konfigurera rollanspråk som utfärdats i SAML-token för företagsprogram i Azure Active Directory
 
@@ -67,6 +67,9 @@ Om ditt program förväntar sig anpassade roller som ska skickas som en SAML-sva
     c. Välj följande behörigheter i listan (om du inte har dessa redan) och välj **behörighet att ändra**.
 
       ![Lista över behörigheter och knappen ”Ändra behörigheter”](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
+
+    > [!Note]
+    > Rollen Administratör för moln-App och administratören fungerar inte i det här scenariot som vi behöver de globala administratörsbehörigheter för Directory läsning och skrivning.
 
     d. Acceptera samtycke. Du är inloggad i systemet igen.
 
@@ -165,7 +168,7 @@ Om ditt program förväntar sig anpassade roller som ska skickas som en SAML-sva
 
     d. Lämna den **Namespace** lämnas omarkerad.
 
-    e. Välj **Ok**.
+    e. Välj **OK**.
 
 10. Om du vill testa ditt program i en enkel inloggning som initieras av en identitetsprovider, logga in på den [åtkomstpanelen](https://myapps.microsoft.com) och välj din program-panel. Du bör se alla tilldelade roller för användaren med namnet på anspråk som du har gett i SAML-token.
 

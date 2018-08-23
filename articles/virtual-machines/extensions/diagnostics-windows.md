@@ -1,8 +1,8 @@
 ---
-title: Aktivera diagnostik på en virtuell Windows-dator med hjälp av Azure PowerShell | Microsoft Docs
+title: Använda Azure PowerShell för att aktivera diagnostik på en virtuell Windows-dator | Microsoft Docs
 services: virtual-machines-windows
 documentationcenter: ''
-description: Lär dig hur du kan aktivera Azure-diagnostik i en virtuell dator som kör Windows PowerShell
+description: Lär dig hur du använder PowerShell för att aktivera Azure Diagnostics i en virtuell dator som kör Windows
 author: sbtron
 manager: jeconnoc
 editor: ''
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: 17f4e26b732b27e4c6969ea1182676f8d58bda68
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2a4f55ea15c933094befb8855185c4b7e353dee3
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942713"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42054140"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Använd PowerShell för att aktivera Azure Diagnostics i en virtuell dator som kör Windows
 
-Azure-diagnostik är funktion i Azure som möjliggör insamling av diagnostikdata på ett distribuerat program. Du kan använda tillägget diagnostik för att samla in diagnostikdata som programloggarna eller prestandaräknare från en Azure-dator (VM) som kör Windows. Den här artikeln beskriver hur du använder Windows PowerShell för att aktivera tillägget diagnostik för en virtuell dator. Se [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) för kraven för den här artikeln.
+Azure-diagnostik är funktion inom Azure som aktiverar insamlingen av diagnostikdata på ett distribuerat program. Du kan använda diagnostics-tillägg för att samla in diagnostikdata som programloggar eller prestandaräknare från en Azure-dator (VM) som kör Windows. Den här artikeln beskriver hur du använder Windows PowerShell för att aktivera diagnostiktillägget för en virtuell dator. Se [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) för kraven för den här artikeln.
 
-## <a name="enable-the-diagnostics-extension-if-you-use-the-resource-manager-deployment-model"></a>Aktivera diagnostik tillägget om du använder Resource Manager-distributionsmodellen
-När du skapar en virtuell Windows-dator via Azure Resource Manager-distributionsmodellen genom att lägga till tillägget konfigurationen Resource Manager-mall kan du aktivera tillägget diagnostik. Se [skapa en virtuell Windows-dator med övervakning och diagnostik med hjälp av Azure Resource Manager-mallen](diagnostics-template.md).
+## <a name="enable-the-diagnostics-extension-if-you-use-the-resource-manager-deployment-model"></a>Aktivera diagnostiktillägget om du använder Resource Manager-distributionsmodellen
+Du kan aktivera diagnostiktillägget när du skapar en virtuell Windows-dator via Azure Resource Manager-distributionsmodellen genom att lägga till tilläggskonfigurationen Resource Manager-mallen. Se [skapa en virtuell Windows-dator med övervakning och diagnostik med hjälp av Azure Resource Manager-mallen](diagnostics-template.md).
 
-Om du vill aktivera tillägget diagnostik på en befintlig virtuell dator som har skapats via Resource Manager-distributionsmodellen, kan du använda den [Set AzureRMVMDiagnosticsExtension](/powershell/module/azurerm.compute/set-azurermvmdiagnosticsextension) PowerShell-cmdlet enligt nedan.
+Om du vill aktivera diagnostiktillägg i en befintlig virtuell dator som har skapats via Resource Manager-distributionsmodellen, kan du använda den [Set-AzureRMVMDiagnosticsExtension](/powershell/module/azurerm.compute/set-azurermvmdiagnosticsextension) PowerShell-cmdlet som visas nedan.
 
     $vm_resourcegroup = "myvmresourcegroup"
     $vm_name = "myvm"
@@ -37,58 +37,58 @@ Om du vill aktivera tillägget diagnostik på en befintlig virtuell dator som ha
     Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path
 
 
-*$diagnosticsconfig_path* är sökvägen till filen som innehåller konfiguration för diagnostik i XML, som beskrivs i den [exempel](#sample-diagnostics-configuration) nedan.  
+*$diagnosticsconfig_path* är sökvägen till den fil som innehåller diagnostikkonfigurationen i XML, enligt beskrivningen i den [exempel](#sample-diagnostics-configuration) nedan.  
 
-Om konfigurationsfilen diagnostik anger en **StorageAccount** element med namnet på ett lagringskonto, sedan *Set AzureRMVMDiagnosticsExtension* skript automatiskt in diagnostiken tillägget till skicka diagnostikdata till detta lagringskonto. Lagringskontot måste vara i samma prenumeration som den virtuella datorn för det här ska fungera.
+Om konfigurationsfilen diagnostik anger en **StorageAccount** element med ett lagringskontonamn och sedan den *Set-AzureRMVMDiagnosticsExtension* skript automatiskt in diagnostiken tillägg för att skicka diagnostikdata till det lagringskontot. Lagringskontot måste finnas i samma prenumeration som den virtuella datorn för detta ska fungera.
 
-Om inget **StorageAccount** har angetts i diagnostik-konfigurationen måste du skicka in den *StorageAccountName* parameter för cmdlet. Om den *StorageAccountName* parametern anges, kommer cmdleten använder alltid storage-konto som har angetts i parametern och inte det som har angetts i konfigurationsfilen diagnostik.
+Om ingen **StorageAccount** har angetts i diagnostikkonfigurationen måste du skicka in den *StorageAccountName* parameter till cmdleten. Om den *StorageAccountName* parametern anges, kommer cmdleten använder alltid det lagringskonto som anges i parametern och inte det som har angetts i konfigurationsfilen för diagnostik.
 
-Om diagnostik storage-konto finns i en annan prenumeration från den virtuella datorn, måste du uttryckligen skicka in den *StorageAccountName* och *StorageAccountKey* parametrar för cmdleten. Den *StorageAccountKey* parametern behövs inte när diagnostiklagringskonto är i samma prenumeration som cmdleten automatiskt kan fråga och ange värdet för nyckeln när du aktiverar tillägget diagnostik. Om lagringskontot för gatewaydiagnostik är i en annan prenumeration sedan cmdleten kanske inte går att hämta nyckeln automatiskt och måste du uttryckligen ange nyckel via den *StorageAccountKey* parameter.  
+Om lagringskonto för startdiagnostik finns i en annan prenumeration från den virtuella datorn, måste du explicit skicka i den *StorageAccountName* och *StorageAccountKey* parametrar för cmdleten. Den *StorageAccountKey* parametern behövs inte när diagnostiklagringskonto är i samma prenumeration, vilket cmdleten automatiskt kan fråga efter och ange nyckelvärdet när du aktiverar diagnostics-tillägg. Men om lagringskonto för startdiagnostik finns i en annan prenumeration och sedan cmdlet: en kanske inte kan hämta nyckel automatiskt och du måste uttryckligen ange nyckel via den *StorageAccountKey* parametern.  
 
     Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
 
-När tillägget diagnostik är aktiverat på en virtuell dator, du kan hämta de aktuella inställningarna med hjälp av den [Get-AzureRMVmDiagnosticsExtension](/powershell/module/azurerm.compute/get-azurermvmdiagnosticsextension) cmdlet.
+När diagnostiktillägget är aktiverat på en virtuell dator kan du kan hämta de aktuella inställningarna med hjälp av den [Get-AzureRMVmDiagnosticsExtension](/powershell/module/azurerm.compute/get-azurermvmdiagnosticsextension) cmdlet.
 
     Get-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name
 
-Returnerar cmdleten *PublicSettings*, som innehåller diagnostik-konfigurationen. Det finns två typer av konfiguration som stöds, WadCfg och xmlCfg. WadCfg är JSON-konfiguration och xmlCfg är XML-konfiguration i en Base64-kodat format. Om du vill läsa XML-filen måste du avkoda den.
+Cmdleten returnerar *PublicSettings*, som innehåller diagnostikkonfigurationen. Det finns två typer av konfiguration som stöds, WadCfg och xmlCfg. WadCfg är JSON-konfiguration och xmlCfg är XML-konfiguration i en Base64-kodat format. Om du vill läsa XML-filen, måste du avkoda den.
 
     $publicsettings = (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name).PublicSettings
     $encodedconfig = (ConvertFrom-Json -InputObject $publicsettings).xmlCfg
     $xmlconfig = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encodedconfig))
     Write-Host $xmlconfig
 
-Den [ta bort AzureRMVmDiagnosticsExtension](/powershell/module/azurerm.compute/remove-azurermvmdiagnosticsextension) cmdlet kan användas för diagnostik-tillägget tas bort från den virtuella datorn.  
+Den [Remove-AzureRMVmDiagnosticsExtension](/powershell/module/azurerm.compute/remove-azurermvmdiagnosticsextension) cmdlet kan användas för att ta bort diagnostiktillägget från den virtuella datorn.  
 
-## <a name="enable-the-diagnostics-extension-if-you-use-the-classic-deployment-model"></a>Aktivera diagnostik tillägget om du använder den klassiska distributionsmodellen
-Du kan använda den [Set AzureVMDiagnosticsExtension](/powershell/module/azure/set-azurevmdiagnosticsextension) cmdlet för att aktivera tillägget diagnostik på en virtuell dator som du skapar med den klassiska distributionsmodellen. I följande exempel visas hur du skapar en ny virtuell dator via den klassiska distributionsmodellen med filnamnstillägget diagnostik aktiverad.
+## <a name="enable-the-diagnostics-extension-if-you-use-the-classic-deployment-model"></a>Aktivera diagnostiktillägget om du använder den klassiska distributionsmodellen
+Du kan använda den [Set-AzureVMDiagnosticsExtension](/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) cmdlet för att aktivera en diagnostiktillägget på en virtuell dator som du skapar via den klassiska distributionsmodellen. I följande exempel visas hur du skapar en ny virtuell dator via den klassiska distributionsmodellen med diagnostiktillägget aktiverat.
 
     $VM = New-AzureVMConfig -Name $VM -InstanceSize Small -ImageName $VMImage
     $VM = Add-AzureProvisioningConfig -VM $VM -AdminUsername $Username -Password $Password -Windows
     $VM = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
     New-AzureVM -Location $Location -ServiceName $Service_Name -VM $VM
 
-Aktivera diagnostik tillägg på en befintlig virtuell dator som har skapats via den klassiska distributionsmodellen först med den [Get-AzureVM](/powershell/module/azure/get-azurevm) för att hämta VM-konfiguration. Uppdatera VM-konfiguration med diagnostik-tillägget med hjälp av [Set AzureVMDiagnosticsExtension](/powershell/module/azure/set-azurevmdiagnosticsextension) cmdlet. Slutligen använder den uppdaterade konfigurationen på den virtuella datorn med [uppdatering AzureVM](/powershell/module/azure/update-azurevm).
+Om du vill aktivera diagnostiktillägg i en befintlig virtuell dator som har skapats via den klassiska distributionsmodellen, använder du först den [Get-AzureVM](/powershell/module/servicemanagement/azure/get-azurevm) cmdlet för att hämta VM-konfigurationen. Uppdatera VM-konfigurationen för att inkludera diagnostics-tillägget med hjälp av den [Set-AzureVMDiagnosticsExtension](/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) cmdlet. Slutligen, tillämpa den uppdaterade konfigurationen till den virtuella datorn med hjälp av [Update-AzureVM](/powershell/module/servicemanagement/azure/update-azurevm).
 
     $VM = Get-AzureVM -ServiceName $Service_Name -Name $VM_Name
     $VM_Update = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
     Update-AzureVM -ServiceName $Service_Name -Name $VM_Name -VM $VM_Update.VM
 
-## <a name="sample-diagnostics-configuration"></a>Diagnostik exempelkonfiguration
-Följande XML-filen kan användas för diagnostik offentliga konfiguration med skript som ovan. Den här exempelkonfiguration överför olika prestandaräknare till diagnostiklagringskonto tillsammans med fel från program-, säkerhets- och systemkanaler i händelseloggarna i Windows och eventuella fel från diagnostik infrastruktur loggar.
+## <a name="sample-diagnostics-configuration"></a>Exempelkonfiguration för diagnostik
+Följande XML-filen kan användas för diagnostik offentliga konfigurationen med ovanstående skript. Den här exempelkonfigurationen överför olika prestandaräknare till diagnostiklagringskonto tillsammans med fel från program-, säkerhets- och systemkanaler i Windows-händelseloggar och eventuella fel från diagnostikinfrastrukturloggar.
 
 Konfigurationen måste uppdateras för att inkludera följande:
 
-* Den *resourceID* attribut för den **mått** element måste uppdateras med resurs-ID för den virtuella datorn.
+* Den *resourceID* attributet för den **mått** elementet måste uppdateras med resurs-ID för den virtuella datorn.
   
-  * Resurs-ID kan konstrueras med hjälp av följande mönster ”: /subscriptions/ {*prenumerations-ID för prenumerationen med den virtuella datorn*} /resourceGroups/ {*resourcegroup namnet för den virtuella datorn*} / providers/Microsoft.Compute/virtualMachines/ {*på det Virtuella datornamnet*} ”.
-  * Till exempel om prenumerationen ID för prenumerationen där den virtuella datorn körs är **11111111-1111-1111-1111-111111111111**, resursgruppens namn för resursgruppen är **MyResourceGroup**, och Namn på virtuell dator är **MyWindowsVM**, så är värdet för *resourceID* skulle vara:
+  * Resurs-ID kan konstrueras med hjälp av följande mönster ”: / subscriptions / {*prenumerations-ID för prenumerationen med den virtuella datorn*} /resourceGroups/ {*resourcegroup-namnet för den virtuella datorn*} / providers/Microsoft.Compute/virtualMachines/ {*VM-namnet*} ”.
+  * Om prenumerationen ID: T för den prenumeration där Virtuellt datorn körs till exempel är **11111111-1111-1111-1111-111111111111**, resursgruppens namn för resursgruppen är **MyResourceGroup**, och Namn på virtuell dator är **MyWindowsVM**, så är värdet för *resourceID* skulle bli:
     
       ```
       <Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >
       ```
-  * Mer information om hur mått genereras baserat på prestanda räknare och mått konfiguration, se [Azure Diagnostics mått tabellen i lagring](diagnostics-template.md#wadmetrics-tables-in-storage).
-* Den **StorageAccount** element måste uppdateras med namnet på lagringskontot för gatewaydiagnostik.
+  * Mer information om hur mått genereras baserat på prestandakonfiguration räknare och mått, se [Azure Diagnostics mått tabellen i storage](diagnostics-template.md#wadmetrics-tables-in-storage).
+* Den **StorageAccount** elementet måste uppdateras med namnet på lagringskontot för gatewaydiagnostik.
   
     ```
     <?xml version="1.0" encoding="utf-8"?>
@@ -195,6 +195,6 @@ Konfigurationen måste uppdateras för att inkludera följande:
     ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Mer information om hur du använder Azure Diagnostics-funktionen och andra tekniker för att felsöka problem finns [aktiverar diagnostik i Azure-molntjänster och virtuella datorer](../../cloud-services/cloud-services-dotnet-diagnostics.md).
-* [Diagnostik konfigurationer schemat](https://msdn.microsoft.com/library/azure/mt634524.aspx) förklarar alternativen olika XML-konfigurationer för diagnostik-tillägg.
+* Mer information om hur du använder Azure Diagnostics-funktionen och andra tekniker för att felsöka problem finns i [hur du aktiverar diagnostik i Azure Cloud Services och virtuella datorer](../../cloud-services/cloud-services-dotnet-diagnostics.md).
+* [Schema för Diagnostics konfigurationer](https://msdn.microsoft.com/library/azure/mt634524.aspx) beskriver de olika alternativen för diagnostiktillägget gäller XML-konfigurationer.
 

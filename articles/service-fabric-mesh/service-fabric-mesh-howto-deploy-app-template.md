@@ -9,27 +9,27 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
 ms.devlang: azure-cli
-ms.topic: conceputal
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/12/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8d813669f2f44fd64db669e9750e3bc064c7f916
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 356e8019f9a4a64cb1c1c113d0f44990aa4e0f95
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090351"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42056727"
 ---
 # <a name="deploy-a-service-fabric-mesh-application-to-service-fabric-mesh-using-a-template"></a>Distribuera ett Service Fabric-nät program till Service Fabric nät med hjälp av en mall
 Den här artikeln visar hur du distribuerar en .NET Core-program till Service Fabric-nät med hjälp av en mall. När du är klar har du ett röstningsprogram med en ASP.NET-kärnans webbklient som sparar röstningsresultat i en serverdelstjänst i klustret. Klient använder DNS för att matcha adressen för backend-tjänst.
 
-## <a name="set-up-service-fabric-mesh-cli"></a>Konfigurera Service Fabric nät CLI 
-Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att slutföra den här uppgiften. Installera Azure Service Fabric nät CLI-tillägg-modulen genom att följa dessa [instruktioner](service-fabric-mesh-howto-setup-cli.md).
+## <a name="set-up-service-fabric-mesh-cli"></a>Konfigurera Service Fabric Mesh CLI 
+Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att slutföra den här uppgiften. Installera Azure Service Fabric Mesh CLI-tilläggsmodulen genom att följa de här [instruktionerna](service-fabric-mesh-howto-setup-cli.md).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
-Logga in på Azure och ange din prenumeration.
+Logga in på Azure och konfigurera din prenumeration.
 
 ```azurecli-interactive
 az login
@@ -37,7 +37,7 @@ az account set --subscription "<subscriptionID>"
 ```
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
-Skapa en resursgrupp för att distribuera programmet till. Du kan använda en befintlig resursgrupp och hoppa över detta steg. 
+Skapa en resursgrupp som programmet ska distribueras till. Du kan använda en befintlig resursgrupp och hoppa över det här steget. 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus 
@@ -50,7 +50,7 @@ Skapa ditt program i en resurs-grupp med den `deployment create` kommando.
 az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/voting/mesh_rp.windows.json --parameters "{\"location\": {\"value\": \"eastus\"}}"
 ```
 
-Föregående kommando distribuerar ett Windows-program med [mesh_rp.windows.json mallen](https://sfmeshsamples.blob.core.windows.net/templates/voting/mesh_rp.windows.json). Om du vill distribuera ett program för Linux, använda [mesh_rp.linux.json mallen](https://sfmeshsamples.blob.core.windows.net/templates/voting/mesh_rp.linux.json). Windows-behållaravbildningar är större än Linux-behållaravbildningar och kan ta längre tid att distribuera.
+Föregående kommando distribuerar ett Windows-program med [mesh_rp.windows.json mallen](https://sfmeshsamples.blob.core.windows.net/templates/voting/mesh_rp.windows.json). Om du vill distribuera ett program för Linux, använda [mesh_rp.linux.json mallen](https://sfmeshsamples.blob.core.windows.net/templates/voting/mesh_rp.linux.json). Windows-containeravbildningar är större än Linux-containeravbildningar och kan ta längre tid att distribuera.
 
 Om några minuter bör kommandot returnerar med:
 
@@ -71,15 +71,15 @@ Resursnamnet nätverk för det här programmet är `VotingAppNetwork`, hämta in
 az mesh network show --resource-group myResourceGroup --name VotingAppNetwork
 ```
 
-## <a name="check-the-application-details"></a>Kontrollera programinformation
-Du kan kontrollera programmets status med hjälp av den `app show` kommando. Programnamn för det distribuerade programmet är ”VotingApp”, så hämta information om den. 
+## <a name="check-the-application-details"></a>Kontrollera programinformationen
+Du kan kontrollera programmets status med kommandot `app show`. Programnamn för det distribuerade programmet är ”VotingApp”, så hämta information om den. 
 
 ```azurecli-interactive
 az mesh app show --resource-group myResourceGroup --name VotingApp
 ```
 
 ## <a name="list-the-deployed-applications"></a>Lista över distribuerade program
-Du kan använda kommandot ”applista” för att hämta en lista över program som har distribuerats till din prenumeration. 
+Med kommandot "app list" kan du hämta en lista över program som du har distribuerat till prenumerationen. 
 
 ```azurecli-interactive
 az mesh app list -o table

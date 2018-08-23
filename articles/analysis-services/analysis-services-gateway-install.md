@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/13/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 59dc2dad103de60cb7d4b6a44a6d6f7271368391
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 10bcf54da9660da1edcc8358f10289e9678be5cb
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444947"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42061503"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installera och konfigurera en lokal datagateway
 En lokal datagateway krävs när en eller flera Azure Analysis Services-servrar i samma region som ansluter till lokala datakällor. Läs mer om gatewayen i [lokal datagateway](analysis-services-gateway.md).
@@ -38,6 +38,7 @@ En lokal datagateway krävs när en eller flera Azure Analysis Services-servrar 
 * Installera gatewayen på en dator som finns kvar och går inte i viloläge.
 * Installera inte gatewayen på en dator som trådlöst anslutna till nätverket. Prestanda kan minskas.
 * Logga in på Azure med ett konto i Azure AD för samma [klient](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) som prenumerationen som du registrerar gatewayen på den. Azure B2B (Gäst)-konton stöds inte när du installerar och registrerar en gateway.
+* Om datakällor finns på Azure Virtual Network (VNet), måste du konfigurera den [AlwaysUseGateway](analysis-services-vnet-gateway.md) serveregenskap.
 * (Enhetlig) gatewayen beskrivs här stöds inte i Azure Government, Azure Tyskland och Azure Kina landsbaserade regioner. Använd **dedikerad lokal gateway för Azure Analysis Services**, installerad från serverns **Snabbstart** i portalen. 
 
 
@@ -114,4 +115,5 @@ Det var allt. Om du behöver öppna portar eller göra en felsökning kan du kol
 
 ## <a name="next-steps"></a>Nästa steg
 * [Hantera Analysis Services](analysis-services-manage.md)   
-* [Hämta data från Azure Analysis Services](analysis-services-connect.md)
+* [Hämta data från Azure Analysis Services](analysis-services-connect.md)   
+* [Använda gateway för datakällor på Azure Virtual Network](analysis-services-vnet-gateway.md)

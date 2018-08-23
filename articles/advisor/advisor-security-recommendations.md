@@ -1,11 +1,10 @@
 ---
-title: Säkerhetsrekommendationer i Azure Advisor | Microsoft Docs
-description: Använda Azure Advisor för att förbättra säkerheten för din Azure-distributioner.
+title: Säkerhetsrekommendationer för Azure Advisor | Microsoft Docs
+description: Använd Azure Advisor för att förbättra säkerheten för dina Azure-distributioner.
 services: advisor
 documentationcenter: NA
-author: KumudD
-manager: carmonm
-editor: ''
+author: manbeenkohli
+manager: ''
 ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
@@ -13,34 +12,34 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: kumud
-ms.openlocfilehash: e8a2350744e7b967cc19d0e73686f32edf980eac
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: makohli
+ms.openlocfilehash: f96a9f3ea069f38768284876e27affd57677de87
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151050"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42055150"
 ---
 # <a name="advisor-security-recommendations"></a>Advisor säkerhetsrekommendationer
 
-Azure Advisor ger en konsekvent konsoliderad vy över rekommendationer för alla dina Azure-resurser. Den kan integreras med Azure Security Center så att du säkerhetsrekommendationer. Du kan hämta säkerhetsrekommendationer från den **säkerhet** på Advisor-instrumentpanelen.
+Azure Advisor ger dig en konsekvent konsoliderad vy över rekommendationer för alla dina Azure-resurser. Det integreras med Azure Security Center för att få säkerhetsrekommendationer. Du kan få säkerhetsrekommendationer från den **Security** på Advisor-instrumentpanelen.
 
-Med hjälp av Security Center kan du förebygga, upptäcka och åtgärda hot med bättre överblick och kontroll över säkerheten för dina resurser i Azure. Funktionen analyserar regelbundet säkerhetstillståndet hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer. Rekommendationerna som leder dig genom processen att konfigurera kontroller som du behöver. 
+Med hjälp av Security Center kan du förebygga, upptäcka och åtgärda hot med bättre överblick och kontroll över säkerheten för dina resurser i Azure. Den analyserar regelbundet säkerhetstillståndet hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer. Via rekommendationerna får du genom processen att konfigurera kontroller som du behöver. 
 
-Mer information om säkerhetsrekommendationer finns [hantera säkerhetsrekommendationer i Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-recommendations/).
+Läs mer om säkerhetsrekommendationer [hantera säkerhetsrekommendationer i Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-recommendations/).
 
 ## <a name="how-to-access-security-recommendations-in-azure-advisor"></a>Hur du kommer åt säkerhetsrekommendationer i Azure Advisor
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och sedan öppna [Advisor](https://aka.ms/azureadvisordashboard).
+1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna sedan [Advisor](https://aka.ms/azureadvisordashboard).
 
-2.  Advisor-instrumentpanelen, klicka på den **säkerhet** fliken.
+2.  På Advisor-instrumentpanelen klickar du på den **Security** fliken.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Advisor-rekommendationer finns:
 * [Introduktion till Advisor](advisor-overview.md)
 * [Kom igång med Advisor](advisor-get-started.md)
-* [Kostnad Advisor-rekommendationer](advisor-performance-recommendations.md)
+* [Advisor kostnadsrekommendationer](advisor-performance-recommendations.md)
 * [Advisor-rekommendationer](advisor-performance-recommendations.md)
 * [Advisor-rekommendationer för hög tillgänglighet](advisor-high-availability-recommendations.md)
 

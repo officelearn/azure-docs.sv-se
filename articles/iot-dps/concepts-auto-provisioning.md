@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9a45f8269e0ca2bc4188016af0ace06831c762b6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 025e447995d302c24ab2a7d1c8668857cb47ffdd
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521286"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42058792"
 ---
 # <a name="auto-provisioning-concepts"></a>Automatisk etablering
 
@@ -62,7 +62,7 @@ Följande diagram sammanfattar de roller och Sekvenseringen av åtgärder vid en
 [![Automatisk etablering sekvens för en enhet](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png)](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png#lightbox) 
 
 > [!NOTE]
-> Du kan också tillverkaren kan också utföra åtgärden ”registrera enhetsidentitet” med hjälp av Device Provisioning Service API: er (i stället för via operatorn). En detaljerad beskrivning av den här ordningsföljd och mycket mer, finns det [noll touch-enhetsregistrering med Azure IoT-video](https://myignite.microsoft.com/sessions/55087) (med början vid markörens 41:00)
+> Du kan också tillverkaren kan också utföra åtgärden ”registrera enhetsidentitet” med hjälp av Device Provisioning Service API: er (i stället för via operatorn). En detaljerad beskrivning av den här ordningsföljd och mycket mer, finns det [noll touch-enhetsregistrering med Azure IoT-video](https://youtu.be/cSbDRNg72cU?t=2460) (med början vid markörens 41:00)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,6 +1,6 @@
 ---
-title: Bild Sök SDK Python quickstart | Microsoft Docs
-description: Installationsprogrammet för avbildningen Sök SDK-konsolprogram.
+title: 'Snabbstart: Begär och filtrera bilder med hjälp av SDK: N i Python'
+description: I den här snabbstarten du begär och filtrera bilder som returneras av bildsökning i Bing, med hjälp av Python.
 titleSuffix: Azure Image Search SDK Python quickstart
 services: cognitive-services
 author: mikedodaro
@@ -10,33 +10,33 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: v-gedod
-ms.openlocfilehash: e30852439ad8ec2d5ddc667b75167e8b5d35be33
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4729f103bb9b50d4ff039907db8eb677f3dc290a
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355248"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41987647"
 ---
-# <a name="image-search-sdk-python-quickstart"></a>Bild Sök SDK Python Snabbstart
+ # <a name="quickstart-request-and-filter-images-using-the-sdk-and-python"></a>Snabbstart: Begär och filtrera bilder med hjälp av SDK och Python
 
-Bing avbildningen Sök SDK innehåller funktionerna i REST API för webb-frågor och tolkning resultat. 
+Sök SDK för Bing-bild innehåller funktionerna i REST-API för webbfrågor och parsa resultat. 
 
-Den [källkoden för Python Bing avbildningen Sök SDK-exempel](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image_search_samples.py) är tillgänglig på Git-hubben.
+Den [källkoden för Search-SDK för Python Bing-bild exempel](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image_search_samples.py) är tillgänglig på Git Hub.
 
 ## <a name="application-dependencies"></a>Programberoenden
-Om du inte redan har det installera Python. SDK är kompatibelt med Python 2.7, 3.3, 3.4, 3.5 och 3,6.
+Om du inte redan har det kan du installera Python. SDK: N är kompatibel med Python 2.7, 3.3, 3.4, 3.5 och 3.6.
 
-Allmänna rekommendationer för utveckling av Python är att använda en [virtuell miljö](https://docs.python.org/3/tutorial/venv.html). Installera och starta den virtuella miljön med den [venv modulen](https://pypi.python.org/pypi/virtualenv). Du måste installera virtuell miljö för Python 2.7.
+Allmän rekommendation för Python-utveckling är att använda en [virtuell miljö](https://docs.python.org/3/tutorial/venv.html). Installera och initiera den virtuella miljön med den [venv modulen](https://pypi.python.org/pypi/virtualenv). Du måste installera virtuell miljö för Python 2.7.
 ```
 python -m venv mytestenv
 ```
-Installera Bing avbildningen Sök SDK beroenden:
+Installera SDK för Bing Search-avbildningen beroenden:
 ```
 cd mytestenv
 python -m pip install azure-cognitiveservices-search-imagesearch
 ```
-## <a name="image-search-client"></a>Klienten för avbildning sökning
-Hämta en [kognitiva åtkomstnyckeln](https://azure.microsoft.com/try/cognitive-services/) under *Sök*. Lägg till importen:
+## <a name="image-search-client"></a>Sök-klienten för avbildning
+Hämta en [Cognitive Services-åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/) under *Search*. Lägg till import:
 ```
 from azure.cognitiveservices.search.imagesearch import ImageSearchAPI
 from azure.cognitiveservices.search.imagesearch.models import ImageType, ImageAspect, ImageInsightModule
@@ -48,7 +48,7 @@ Skapa en instans av den `CognitiveServicesCredentials`, och skapa en instans av 
 ```
 client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key))
 ```
-Söka bilder på frågan (Yosemite), filtreras för animerad GIF-filer och hela. Kontrollera antalet resultat och skriva ut insightsToken miniatyrbildens URL och web Webbadressen till första resultat.
+Sök efter bilder på frågan (Yosemite), filtreras för animerade GIF-filer och hela. Kontrollera antalet resultat och skriva ut insightsToken, miniatyr-URL och Webb-URL: en för första resultatet.
 ```
 image_results = client.images.search(
         query="Yosemite",
@@ -67,7 +67,7 @@ image_results = client.images.search(
         print("Couldn't find image results!")
 
 ```
-Sök avbildningar för (Yosemite), filtreras för animerad GIF-filer och hela.  Kontrollera antalet resultat.  Skriva ut `insightsToken`, `thumbnail url` och `web url` första resultat.
+Sök avbildningar för (Yosemite), filtreras för animerade GIF-filer och hela.  Kontrollera antalet resultat.  Skriv ut `insightsToken`, `thumbnail url` och `web url` första resultatet.
 ```
 image_results = client.images.search(
     query="Yosemite",
@@ -87,7 +87,7 @@ else:
 
 ```
 
-Ger trender resultat:
+Få populära resultat:
 ```
 trending_result = client.images.trending()
 print("\r\nSearch trending images")
@@ -111,6 +111,6 @@ if trending_result.categories:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Kognitiva Services Python SDK-exempel](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+[Cognitive Services SDK för Python-exempel](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
 

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 172747032990bb16d19ecf9d53adbd3da2f5887c
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 65495209714c37e5e166545ed7ed029e36c258c0
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592065"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42055367"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-preview-using-azure-data-factory-preview"></a>Kopiera data till och från Azure Data Lake Storage Gen2 förhandsversion med Azure Data Factory (förhandsversion)
 
@@ -33,7 +33,7 @@ Mer specifikt stöder den här anslutningen:
 - Kopiering av filer som- eller parsning eller generera filer med [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md).
 
 >[!TIP]
->Om du aktiverar hierarkiskt namnområde, finns det för närvarande inga samverkan mellan åtgärder mellan Blob och ADLS Gen2 API: er. Om du stöter på fel i ”ErrorCode = FilesystemNotFound” med detaljerat meddelande som ”det angivna filsystemet finns inte”., beror det på den angivna mottagaren filsystemet har skapats via Blob-API: et i stället för ADLS Gen2 API någon annanstans. Om du vill åtgärda problemet Använd en icke-fanns filsystemets namn och ADF kommer att kopiera data korrekt.
+>Om du aktiverar hierarkiskt namnområde, finns det för närvarande inga samverkan mellan åtgärder mellan Blob och ADLS Gen2 API: er. Om du stöter på fel i ”ErrorCode = FilesystemNotFound” med detaljerat meddelande som ”det angivna filsystemet finns inte”., beror det på den angivna mottagaren filsystemet har skapats via Blob-API: et i stället för ADLS Gen2 API någon annanstans. Om du vill åtgärda problemet ange ett nytt filsystem med ett namn som inte finns som namnet på en blobbehållare och ADF skapar automatiskt det filsystemet under Datakopieringen.
 
 ## <a name="get-started"></a>Kom igång
 
@@ -48,7 +48,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för Data Lake Storage Gen2 länkade tjänsten:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen måste anges till **AzureBlobFS**. |Ja |
 | url | Slutpunkt för Data Lake Storage Gen2 med mönstret för `https://<accountname>.dfs.core.windows.net`. | Ja | 
@@ -81,7 +81,7 @@ Följande egenskaper har stöd för Data Lake Storage Gen2 länkade tjänsten:
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Följande egenskaper har stöd för Azure Data Lake Storage datauppsättning:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för datauppsättningen måste anges till **AzureBlobFSFile**. |Ja |
 | folderPath | Sökvägen till mappen i Data Lake Storage Gen2. Jokerteckenfilter stöds inte. Exempel: rootfolder/undermappen /. |Ja |
@@ -128,7 +128,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till **AzureBlobFSSource**. |Ja |
 | rekursiv | Anger om data läses rekursivt från undermapparna eller endast från den angivna mappen. Observera att när rekursiv har angetts till true och mottagaren är en filbaserad store, en tom mapp eller undermapp inte kopieras eller skapat i mottagaren.<br/>Tillåtna värden är **SANT** (standard) och **FALSKT**. | Nej |
@@ -169,7 +169,7 @@ Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
 Följande egenskaper stöds i kopieringsaktiviteten **mottagare** avsnittet:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till **AzureBlobFSSink**. |Ja |
 | copyBehavior | Definierar kopieringsbeteendet när källan är filer från ett filbaserat datalager.<br/><br/>Tillåtna värden är:<br/><b>-PreserveHierarchy (standard)</b>: bevarar filen hierarkin i målmappen. Den relativa sökvägen för källfilen för källmappen är identisk med den relativa sökvägen för målfilen till målmappen.<br/><b>-FlattenHierarchy</b>: alla filer från källmappen finns i den första nivån i målmappen. Målfiler har automatiskt genererade unika namn. <br/><b>-MergeFiles</b>: slår samman alla filer från källmappen till en fil. Om filnamnet har angetts är namnet på sammanfogade filen det angivna namnet. Annars är det en automatiskt skapade filnamnet. | Nej |

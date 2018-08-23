@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9dda6d45caf69734eb135779c8bac00fea721efd
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 17029f51be9fed8fc36c5f919ece84acbf0461d9
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901066"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42055166"
 ---
 # <a name="dcos-agent-pools-for-azure-container-service"></a>DC/OS-agentpooler för Azure Container Service
 DC/OS-kluster i Azure Container Service innehåller agentnoder i två pooler, poolen offentliga och privata poolen. Ett program kan bara distribueras till antingen poolen, påverkar tillgängligheten mellan datorer i container service. Datorerna kan exponerade mot internet (offentlig) eller behöll intern (privat). Den här artikeln ger en kort översikt över varför det är offentliga och privata pooler.
@@ -24,7 +24,7 @@ DC/OS-kluster i Azure Container Service innehåller agentnoder i två pooler, po
 
 * **Offentliga agenter**: offentliga agentnoder kör DC/OS-appar och tjänster via ett allmänt tillgängligt nätverk. 
 
-Mer information om DC/OS-nätverkssäkerhet finns i den [DC/OS-dokumentationen](https://dcos.io/docs/1.7/administration/securing-your-cluster/).
+Mer information om DC/OS-nätverkssäkerhet finns i den [DC/OS-dokumentationen](https://dcos.io/docs/1.8/administration/securing-your-cluster/).
 
 ## <a name="deploy-agent-pools"></a>Distribuera agentpooler
 

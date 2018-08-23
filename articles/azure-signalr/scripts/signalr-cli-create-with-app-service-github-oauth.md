@@ -15,12 +15,12 @@ ms.workload: signalr
 ms.date: 04/22/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: ec095572dc8fe20c913d543ffcf926355b5715df
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 76094a816fc7698994b77507c2a3dcf3dcf9880b
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38600136"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41919602"
 ---
 # <a name="create-a-web-app-that-uses-signalr-service-and-github-authentication"></a>Skapa en webbapp som använder SignalR Service- och GitHub-autentisering
 
@@ -53,8 +53,8 @@ Varje kommando i tabellen länkar till kommandospecifik dokumentation. I det hä
 | Kommando | Anteckningar |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
-| [az signalr create](/cli/azure/signalr#az-signalr-create) | Skapar en Azure SignalR-tjänstresurs. |
-| [az signalr key list](/cli/azure/signalr/key#az-signalr-key-list) | Listar nycklarna som kommer att användas av programmet när det skickar uppdateringar av innehåll i realtid med SignalR. |
+| [az signalr create](/cli/azure/ext/signalr/signalr#ext-signalr-az-signalr-create) | Skapar en Azure SignalR-tjänstresurs. |
+| [az signalr key list](/cli/azure/ext/signalr/signalr/key#ext-signalr-az-signalr-key-list) | Listar nycklarna som kommer att användas av programmet när det skickar uppdateringar av innehåll i realtid med SignalR. |
 | [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) | Skapar en Azure App Service-Plan som värd för webbprogram. |
 | [az webapp create](/cli/azure/webapp#az-webapp-create) | Skapar en Azure-webbapp med hjälp av App Service som värd för planen. |
 | [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | Lägger till nya appinställningar för webbappen. De här appinställningarna används för att lagra SignalR-anslutningssträngen och GitHub OAuth-apphemligheterna. |

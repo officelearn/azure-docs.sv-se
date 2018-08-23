@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: dfeacb266d6aa6a43e49a39bd19c9699ef65ce82
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 1ad499e2703ff8376c063d933c0cc1f03765fc23
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162022"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42056738"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminera felaktiga lösenord i din organisation
 
@@ -28,7 +28,7 @@ Branschledare berättar inte ska använda samma lösenord på flera platser, så
 
 ## <a name="global-banned-password-list"></a>Lista med globala förbjudna lösenord
 
-Microsoft arbetar alltid ligga steget före cyberbrottslingarna. Azure AD Identity Protection-teamet letar därför kontinuerligt efter vanligt förekommande och komprometterade lösenord. De kan sedan blockera dessa lösenord som bedöms för vanligt i något som kallas listan globala förbjudna lösenord. Cyberbrottslingar använder också liknande strategier i sina attacker, därför Microsoft publicerar inte innehållet i den här listan offentligt. Dessa sårbara lösenord blockeras innan de blir ett verkligt hot för Microsofts kunder. Mer information om säkerhetsarbete finns i den [Microsoft Security Intelligence Report](https://www.microsoft.com/security/intelligence-report).
+Microsoft försöker alltid ligga steget före cyberbrottslingarna. Azure AD Identity Protection-teamet letar därför kontinuerligt efter vanligt förekommande och komprometterade lösenord. De kan sedan blockera dessa lösenord som bedöms för vanligt i något som kallas listan globala förbjudna lösenord. Cyberbrottslingar använder också liknande strategier i sina attacker, därför Microsoft publicerar inte innehållet i den här listan offentligt. Dessa sårbara lösenord blockeras innan de blir ett verkligt hot för Microsofts kunder. Mer information om säkerhetsarbete finns i den [Microsoft Security Intelligence Report](https://www.microsoft.com/security/intelligence-report).
 
 ## <a name="preview-custom-banned-password-list"></a>Förhandsversion: Anpassad förbjuden lista med lösenord
 
@@ -54,11 +54,10 @@ Varje gång en användare återställer eller ändrar deras Azure AD-lösenord s
 
 ## <a name="license-requirements"></a>Licenskrav
 
-Fördelarna med listan över globala förbjudna lösenord gäller för alla användare av Azure Active Directory (AD Azure).
-
-Lista med anpassade förbjudna lösenord kräver Azure AD Basic-licenser.
-
-Azure AD-lösenordsskydd för Windows Server Active Directory kräver Azure AD Premium-licenser. 
+|   | Azure AD-lösenordsskydd med globala förbjudna lösenordslista | Azure AD-lösenordsskydd med anpassade förbjudna lösenordslista|
+| --- | --- | --- |
+| Molnexklusiva användare | Azure AD Kostnadsfri | Azure AD Basic |
+| Användare som synkroniseras från den lokala Windows Server Active Directory | Azure AD Premium P1 eller P2 | Azure AD Premium P1 eller P2 |
 
 Ytterligare information om licenser går inklusive kostnader, kan hittas på den [priser platsen för Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 

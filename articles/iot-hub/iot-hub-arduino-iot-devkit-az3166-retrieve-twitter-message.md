@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 33d7c7f7f2e127647b43a62541fbc29c8417743c
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 722f350c4f11648753465e302e84949fc340e281
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596002"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42058469"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Skaka, skaka efter en Tweet – hämta ett Twitter-meddelande med Azure Functions
 
@@ -163,7 +163,7 @@ Det här exempelprojektet använder en förkonfigurerad Twitter-ägartoken i tes
 
 1. Gå till [Twitter utvecklarportalen](https://dev.twitter.com/) att registrera en ny Twitter-app.
 
-2. [Få använda nyckeln och konsumenten hemligheter](https://support.yapsody.com/hc/en-us/articles/203068116-How-do-I-get-a-Twitter-Consumer-Key-and-Consumer-Secret-key-) för din app.
+2. [Få använda nyckeln och konsumenten hemligheter](https://support.yapsody.com/hc/en-us/articles/360003291573-How-do-I-get-a-Twitter-Consumer-Key-and-Consumer-Secret-key-) för din app.
 
 3. Använd [vissa verktyget](https://gearside.com/nebula/utilities/twitter-bearer-token-generator/) att skapa en Twitter ägar-token från dessa två nycklar.
 

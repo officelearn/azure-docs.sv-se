@@ -3,19 +3,19 @@ title: Online-säkerhetskopiering och återställning med Azure Cosmos DB | Micr
 description: Lär dig mer om att utföra automatisk säkerhetskopiering och återställning på en Azure Cosmos DB-databas.
 keywords: säkerhetskopiering och återställning, säkerhetskopiering online
 services: cosmos-db
-author: SnehaGunda
+author: kanshiG
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.author: sngun
-ms.openlocfilehash: 66b4f63e75773aa0c1857dfcc19e22b48a0c3537
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.author: govindk
+ms.openlocfilehash: 613c61d9b881b7d736a50cadbf313c1f9aac57c9
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343170"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42061477"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Automatisk online säkerhetskopiering och återställning med Azure Cosmos DB
 Azure Cosmos DB tar automatiskt säkerhetskopior av dina data med jämna mellanrum. Automatisk säkerhetskopiering är hämtade utan att påverka prestanda eller tillgänglighet för dina databasåtgärder. Alla säkerhetskopior lagras separat i en annan lagringstjänst och säkerhetskopieringarna replikeras globalt för återhämtning mot regionala problem. Automatisk säkerhetskopiering är avsett för scenarion med när du av misstag tar bort din Cosmos DB-behållare och senare kräver återställning av data eller en lösning för haveriberedskap.  

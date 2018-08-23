@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 08/07/2018
 ms.author: brenduns
 ms.reviewer: harik
-ms.openlocfilehash: b1e162b9ae151ee947559d40f02909aea4010e5b
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: a76cf1394dc2c4900b370b52f3479dc03d1d8afe
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242928"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42054948"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack som hanteringsprincip
 Den här artikeln beskriver Underhåll principen för integrerade Azure Stack-system och vad du måste göra för att behålla ditt system i ett läge som stöds. 
@@ -38,6 +38,7 @@ Det finns två typer av uppdateringspaket för integrerade system:
 Microsoft förväntar sig att frigöra programuppdateringspaket på en månatlig takt. Det är dock möjligt att ha flera och update-versioner under en månad. OEM-maskinvaruleverantörer publicera sina uppdateringar som det behövs. 
 
 Hitta dokumentation om hur du planerar för och hantera uppdateringar och hur du fastställer din nuvarande version i [hantera uppdaterar översikt](azure-stack-updates.md). Information om uppdateringen inklusive hur du hämtar det, finns i viktig information för att uppdatera: 
+- [Uppdatering av Azure Stack 1807](azure-stack-update-1807.md)
 - [Uppdatering av Azure Stack 1805](azure-stack-update-1805.md)
 - [Uppdatering av Azure Stack 1804](azure-stack-update-1804.md)
 

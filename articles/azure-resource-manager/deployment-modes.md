@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 00800cb233776878e1fa330ce72cb067b8c698f3
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: c8c6c5499e1cea04bc5bdffbb5c07b53b96182e2
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39635128"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42054356"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager-distributionslägen
 När du distribuerar dina resurser kan ange du att distributionen är en inkrementell uppdatering eller en fullständig uppdatering.  Den viktigaste skillnaden mellan dessa två lägena är hur Resource Manager hanterar befintliga resurser i resursgruppen som inte är i mallen.
@@ -82,7 +82,7 @@ az group deployment create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-Ange Distributionsläge i en [länkade eller kapslad mall](resource-group-linked-templates.md), använda den `mode` egenskapen.
+När du använder en [länkade eller kapslad mall](resource-group-linked-templates.md), måste du ställa in den `mode` egenskap `Incremental`. Endast på rotnivå mallar stöder fullständig Distributionsläge.
 
 ```json
 "resources": [

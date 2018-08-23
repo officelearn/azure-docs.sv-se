@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/13/2018
 ms.author: raynew
-ms.openlocfilehash: 0cfb583f9d16039249aaffe18f71039e91dc3705
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: cd7a5832faf0fbb15349edee8ed504c1f94d1aa9
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39359214"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42054967"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Contoso-migrering: Appvärd på virtuella datorer i Azure och SQL Server AlwaysOn Availability Group på plats
 
@@ -76,8 +76,8 @@ I det här scenariot:
 
 **Tjänst** | **Beskrivning** | **Kostnad**
 --- | --- | ---
-[Database Management-tjänsten](https://docs.microsoft.com/azure/dms/dms-overview) | Contoso kommer att migrera app-datanivå med DMS. DMS ska ansluta till den lokala SQLVM datorn via en plats-till-plats-VPN och migrera DMS möjliggör sömlös migrering från flera databaskällor till azures plattformar, med minimal avbrottstid. | Lär dig mer om [regioner som stöds](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability) för DMS och få [prisinformation](https://azure.microsoft.com/pricing/details/database-migration/).
-[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | Contoso använder Site Recovery för en lift and shift-migrering av app-klientdelens VM. Site Recovery dirigerar och hanterar migrering och haveriberedskap för virtuella datorer i Azure och lokala datorer och fysiska servrar.  | Azure Storage-avgifter tillkommer under replikering till Azure.  Virtuella Azure-datorer skapas och betala, vid redundans. [Läs mer](https://azure.microsoft.com/pricing/details/site-recovery/) om kostnader och priser.
+[Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) | DMS gör det möjligt för sömlös migrering från flera databaskällor till azures plattformar, med minimal avbrottstid. | Lär dig mer om [regioner som stöds](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability) för DMS och få [prisinformation](https://azure.microsoft.com/pricing/details/database-migration/).
+[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | Site Recovery dirigerar och hanterar migrering och haveriberedskap för virtuella datorer i Azure och lokala datorer och fysiska servrar.  | Azure Storage-avgifter tillkommer under replikering till Azure.  Virtuella Azure-datorer skapas och betala, vid redundans. [Läs mer](https://azure.microsoft.com/pricing/details/site-recovery/) om kostnader och priser.
 
  
 
@@ -114,7 +114,7 @@ Här är hur Contoso kommer att köras migreringen:
 > [!div class="checklist"]
 > * **Steg 1: Skapa SQL Server-datorer i Azure**: Contoso vill distribuera en klustrad databas i Azure för hög tillgänglighet. De distribuera två SQL Server-datorer och en Azure intern belastningsutjämnare.
 > * **Steg 2: Distribuera klustret**: när du har distribuerat SQL Server-datorer, de förbereder ett Azure SQL Server-kluster.  De ska migrera sin databas i förväg skapade klustret.
-> * **Steg 3: Förbered DMS**: för att förbereda DMS de registrera providern Databasmigrering, skapa en instans med DMS och ett projekt. De har konfigurerat en signatur för delad åtkomst (SAS) identifierare URI (Uniform Resource). DMS använder SA-URI för att komma åt den lagringskontobehållare som tjänsten laddar upp filer för SQL Server-säkerhetskopiering.
+> * **Steg 3: Förbered DMS**: för att förbereda DMS de registrera providern Databasmigrering, skapa en instans med DMS och ett projekt. De har konfigurerat en signatur för delad åtkomst (SAS) identifierare URI (Uniform Resource). DMS använder SAS-URI för att komma åt den lagringskontobehållare som tjänsten laddar upp filer för SQL Server-säkerhetskopiering.
 > * **Steg 4: Förbereda Azure Site Recovery**: de skapar ett Azure storage-konto för att lagra replikerade data och Recovery Services-valvet.
 > * **Steg 5: Förbereda lokala VMware för Site Recovery**: de förbereda konton för installation av VM-identifiering och agentinstallation och förbereda lokala virtuella datorer så att de kan ansluta till virtuella Azure-datorer efter redundansväxling.
 > * **Steg 6: Replikera datorer**: de konfigurera replikeringsinställningar och aktivera replikering av virtuella datorer.

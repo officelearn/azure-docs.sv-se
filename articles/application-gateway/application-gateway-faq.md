@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 6/20/2018
+ms.date: 8/10/2018
 ms.author: victorh
-ms.openlocfilehash: b8b5b1da902a854dacea7e3019e3fa1116f04212
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 858427bfd2a9b4c40ddf7054e09d98bcf5c1a992
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399155"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42055569"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Vanliga frågor om Application Gateway
 
@@ -122,6 +122,12 @@ Nätverkssäkerhetsgrupper kan användas i Application Gateway-undernät med fö
 * Det går inte att blockera utgående internet-anslutning.
 
 * Trafik från taggen AzureLoadBalancer måste tillåtas.
+
+**FRÅGOR OCH. Användardefinierade vägar stöds på application gateway-undernät?**
+
+Användardefinierade vägar (Udr) stöds i application gateway-undernätet, så länge de inte ändrar slutpunkt till slutpunkt begäran/svar-kommunikation.
+
+Exempel: du kan ställa in en UDR i application gateway-undernätet så att den pekar till en brandväggsinstallation för paketinspektion, men måste du kontrollera att paketet kan nå den avsedda mål post granskar. I annat fall kan leda till felaktig hälsotillstånd avsökning eller SNMP-trafiken routning beteende. Detta inkluderar inlärda eller 0.0.0.0/0 standardvägar sprids av ExpressRoute eller VPN-gatewayer i det virtuella nätverket.
 
 **FRÅGOR OCH. Vilka är gränserna på Application Gateway? Kan jag öka gränserna?**
 

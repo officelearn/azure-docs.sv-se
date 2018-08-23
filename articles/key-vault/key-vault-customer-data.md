@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 05/22/2018
 ms.author: barclayn
-ms.openlocfilehash: 1ddc74b1960095509a77d4b3072017847df42d90
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 359648a843375477ea56ab791533208c11af9c81
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38235541"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42059559"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault-funktioner som kundens data
 
@@ -48,11 +48,11 @@ Mjuk borttagning kan du återställa borttagna data i 90 dagar efter borttagning
 
 ## <a name="exporting-customer-data"></a>Exportera kunddata
 
-Samma REST API: er, portalen, och SDK: er som används för att skapa valv, nycklar, hemligheter, certifikat och hanterade storage-konton är också kan du visa och exportera de här objekten.
+Samma REST API: er, portalen och SDK: er som används för att skapa valv, nycklar, hemligheter, certifikat och hanteras storage-konton också kan du visa och exportera de här objekten.
 
 Azure Key Vault åtkomst loggning är en valfri funktion som kan aktiveras på att generera loggar för varje REST API-anrop. Dessa loggar överförs till ett lagringskonto i din prenumeration där du kan använda bevarandeprincip som uppfyller organisationens krav.
 
-Azure Key Vault-diagnostikloggar som som innehåller personliga data kan hämtas genom att göra en exportbegäran i portalen användarnas integritet. Den här begäran måste göras av klientadministratören.
+Azure Key Vault diagnostikloggar som innehåller personliga data kan hämtas genom att göra en exportbegäran i portalen användarnas integritet. Den här begäran måste göras av klientadministratören.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -60,14 +60,10 @@ Azure Key Vault-diagnostikloggar som som innehåller personliga data kan hämtas
 
 - [Översikt över mjuk borttagning i Azure Key Vault](key-vault-soft-delete-cli.md)
 
-- [Valv](https://docs.microsoft.com/rest/api/keyvault/vaults)
-
 - [Azure Key Vault-nyckelåtgärder](https://docs.microsoft.com/rest/api/keyvault/key-operations)
 
 - [Azure Key Vault-hemlighetsåtgärder](https://docs.microsoft.com/rest/api/keyvault/secret-operations)
 
 - [Azure Key Vault-certifikat och principer](https://docs.microsoft.com/rest/api/keyvault/certificates-and-policies)
-
-- [Certifikatutfärdare](https://docs.microsoft.com/rest/api/keyvault/certificate-issuers)
 
 - [Azure Key Vault-konto lagringsåtgärder](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations)

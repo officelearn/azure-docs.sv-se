@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: e4e3d331665ddb6c45e47ce8b2cf8170ca622690
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 43552ae2d7601a63156ac74104b85a90326ff473
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089799"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42054156"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Konfigurera Network Security Group Flow loggar med Azure CLI
 
 > [!div class="op_single_selector"]
-> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
+> - [Azure-portalen](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
@@ -51,7 +51,9 @@ Kommando för att aktivera flödesloggar visas i följande exempel:
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
 ```
 
-Det lagringskonto som du anger inte får ha konfigurerat för den Nätverksregler som begränsar nätverksåtkomst till endast Microsoft-tjänster eller specifika virtuella nätverk. Lagringskontot kan vara i samma eller en annan Azure-prenumeration, än NSG: N som du aktiverar det flöde du vill ha. Om du använder olika prenumerationer kan vara de båda kopplade till samma Azure Active Directory-klient. Det konto som används för varje prenumeration måste ha den [behörighet](required-rbac-permissions.md).
+Det lagringskonto som du anger inte får ha konfigurerat för den Nätverksregler som begränsar nätverksåtkomst till endast Microsoft-tjänster eller specifika virtuella nätverk. Lagringskontot kan vara i samma eller en annan Azure-prenumeration, än NSG: N som du aktiverar det flöde du vill ha. Om du använder olika prenumerationer kan vara de båda kopplade till samma Azure Active Directory-klient. Det konto som används för varje prenumeration måste ha den [behörighet](required-rbac-permissions.md). 
+
+Om lagringskontot tillhör en annan resursgrupp eller prenumeration, än nätverkssäkerhetsgruppen, ange fullständig ID för storage-konto i stället för dess namn. Exempel: om lagringskontot är i en resursgrupp med namnet *RG-Storage*, i stället för att ange *storageAccountName* i föregående kommando, anger du   */subscriptions / { SubscriptionID}/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/storageAccountName*.
 
 ## <a name="disable-network-security-group-flow-logs"></a>Inaktivera Nätverkssäkerhetsgrupp flödesloggar
 

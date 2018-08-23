@@ -1,7 +1,7 @@
 ---
-title: Testa ett Azure Stream Analytics-jobb med exempeldata
+title: Testa Azure Stream Analytics-jobb med exempeldata
 description: Hur du testar dina frågor i Stream Analytics-jobb.
-keywords: Den här artikeln beskriver hur du använder Azure-portalen för att testa en Azure Stream Analytics-jobb, Exempelindata och ladda upp exempeldata.
+keywords: Den här artikeln beskriver hur du använder Azure-portalen för att testa ett Azure Stream Analytics-jobb, Exempelindata och ladda upp exempeldata.
 services: stream-analytics
 author: jasonwhowell
 ms.author: jasonh
@@ -10,44 +10,42 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 3dc9091934f3db8ededc13f74d2f302eccace4d6
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: d699d69362b2d28c205aab14a4bfb26570a68a4e
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312998"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42054780"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>Testa en Stream Analytics-fråga med exempeldata
 
-Du kan överföra data och testa exempelfrågor i Azure portal utan att starta eller stoppa ett jobb med hjälp av Azure Stream Analytics.
+Du kan överföra data och test exempelfrågor i Azure portal utan att starta eller stoppa ett jobb med hjälp av Azure Stream Analytics.
 
 ## <a name="upload-sample-data-and-test-the-query"></a>Ladda upp exempeldata och testa frågan
 
 1. Logga in på Azure Portal. 
 
-2. Leta upp din befintliga Stream Analytics-jobbet och välja den.
+2. Leta upp ditt befintliga Stream Analytics-jobb och markera den.
 
-3. På Stream Analytics-jobbet sidan under den **jobbet topologi** rubrik, Välj **frågan** att öppna frågeredigerarens fönster. 
+3. På Stream Analytics-jobbet kan under den **Jobbtopologi** väljer **fråga** att öppna Query editor-fönstret. 
 
-4. Högerklicka på någon av dina inmatningar för att testa frågan med indata exempeldata.  Välj sedan **ladda upp exempeldata från filen**.
+4. Testa din fråga med exempel på inmatade data genom att högerklicka på någon av dina indata.  Välj sedan **överför exempeldata från filen**. Data måste serialiseras i JSON, CSV eller AVRO.
 
-   Data måste vara endast JSON-formaterade data. Om dina data är i ett annat format, till exempel CSV, bör du konvertera den till JSON innan du laddar upp. Du kan använda alla opensource konverteringsverktyget som [CSV-fil för JSON-konverteraren](http://www.convertcsv.com/csv-to-json.htm) konvertera data till JSON.
+    ![test för Stream analytics fråga frågeredigeraren](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 
-    ![Stream analytics query editor Testa fråga](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
+5. När överföringen är klar, väljer **testa** att testa den här frågan mot exempeldata som du har angett.
 
-5. När överföringen är klar väljer du **testa** att testa den här frågan mot exempeldata som du har angett.
+    ![Stream analytics-fråga exempeldata för Redigeraren för testning](media/stream-analytics-test-query/stream-analytics-test-query-editor-test.png)
 
-    ![Stream analytics fråga editor test exempeldata](media/stream-analytics-test-query/stream-analytics-test-query-editor-test.png)
+6. Om du behöver testa utdata för senare användning kan visas utdata från frågan i webbläsaren med en länk till nedladdningsresultaten. 
 
-6. Om du behöver testa utdata för senare användning visas utdata från frågan i webbläsaren med en länk till nedladdningsresultaten. 
-
-7. Upprepade gånger ändra din fråga och testa den igen för att se hur utdata ändras.
+7. Upprepade gånger ändra din fråga och testa det igen för att se hur detta ändrar utdatan.
 
    ![Stream Analytics query editor exempel på utdata](media/stream-analytics-test-query/stream-analytics-test-query-editor-samples-output.png)
 
-   När du använder flera utdata i en fråga visas resultaten på separata flikar och du kan enkelt växla mellan dem.
+   När du använder flera utdata i en fråga visas resultatet på en separat flik och du kan enkelt växla mellan dem.
 
-8. När du har kontrollerat resultatet ska visas i webbläsaren, **spara** frågan. Sedan **starta** jobbet, och låt den bearbeta inkommande händelser.
+8. När du har kontrollerat de resultat som visas i webbläsaren, **spara** din fråga. Sedan **starta** jobbet, och låt den bearbeta inkommande händelser.
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]

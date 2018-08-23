@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: 7b7f9c079a1fc9d74fed4cc4d94d37f336ca5dc7
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: aed804a257376308c668ce0c2f3e8ce652ee9b3f
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916748"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42058155"
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Mappa virtuella nätverk i olika Azure-regioner
 
@@ -88,16 +88,36 @@ Om den virtuella källdatorn nätverksgränssnitt använder DHCP, ange nätverks
 ### <a name="static-ip-address"></a>Statisk IP-adress
 Om den virtuella källdatorn nätverksgränssnitt använder statisk IP-adress, ange nätverksgränssnitt för den virtuella måldatorn också att använda en statisk IP-adress. I följande avsnitt beskrivs hur en statisk IP-adress har angetts.
 
-#### <a name="same-address-space"></a>Samma adressutrymme
+### <a name="ip-assignment-behavior-during-failover"></a>IP-tilldelning beteende under redundans
+#### <a name="1-same-address-space"></a>1. Samma adressutrymme
 
 Om käll-undernätet och målundernätet har samma-adressutrymme, har IP-adressen för nätverksgränssnittet för den virtuella källdatorn angetts som mål-IP. Om samma IP-adress inte är tillgänglig, har nästa tillgängliga IP-adress angetts som mål-IP.
 
-#### <a name="different-address-spaces"></a>Olika adressutrymmen
+#### <a name="2-different-address-spaces"></a>2. Olika adressutrymmen
 
 Om käll-undernätet och målundernätet har olika adressutrymmen, har nästa tillgängliga IP-adress i målundernätet angetts som mål-IP.
 
-Om du vill ändra mål-IP för varje gränssnitt, går du till den **beräkning och nätverk** inställningar för den virtuella datorn.
 
+### <a name="ip-assignment-behavior-during-test-failover"></a>IP-tilldelning beteende under Redundanstest
+#### <a name="1-if-the-target-network-chosen-is-the-production-vnet"></a>1. Om målnätverket valt är vNet för produktion
+- Recovery IP (mål-IP) är en statisk IP-adress men den **kan inte samma IP-adress** som är reserverat för redundans.
+- Den tilldelade IP-adressen kommer att nästa tillgängliga IP-Adressen från slutet av adressintervall för undernätet.
+- För t.ex. Om Virtuella statisk IP-adress som är konfigurerad för att vara: 10.0.0.19 och testa redundans gjordes med konfigurerade produktionsnätverket: ***dr-PROD-NV***, med undernätsintervall som 10.0.0.0/24. </br>
+Den redundansväxlade virtuella datorn tilldelas med – nästa tillgängliga IP-Adressen från slutet av adressintervall för undernätet är: 10.0.0.254 </br>
+
+**Obs:** termer som **produktion vNet** hänvisar vi till ”målnätverket' mappade under katastrofberedskapskonfigurationen.
+####<a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Om målnätverket valt är inte produktion vNet men har samma undernätsintervall som produktionsnätverket 
+
+- Recovery IP (mål-IP) är en statisk IP-adress med det **samma IP-adress** (d.v.s. konfigurerat statisk IP-adress) som är reserverat för redundans. Den angivna samma IP-adress är tillgänglig.
+- Om den angivna statiska IP-Adressen har redan tilldelats en annan virtuell dator/enhet, kommer recovery IP-Adressen att nästa tillgängliga IP-Adressen från slutet av adressintervall för undernätet.
+- För t.ex. Om Virtuella statisk IP-adress som är konfigurerad för att vara: 10.0.0.19 och testa redundans gjordes med ett testnätverk: ***dr-icke-PROD-NV***, med samma undernätsintervall som produktionsnätverket - 10.0.0.0/24. </br>
+  Den redundansväxlade virtuella datorn tilldelas med följande statisk IP-adress </br>
+    - konfigurerad statisk IP-adress: 10.0.0.19 om IP-Adressen är tillgänglig.
+    - Nästa tillgängliga IP: 10.0.0.254 om IP-adressen 10.0.0.19 finns redan i använda.
+
+
+Om du vill ändra mål-IP för varje gränssnitt, går du till den **beräkning och nätverk** inställningar för den virtuella datorn.</br>
+Vi rekommenderar rekommenderas alltid för att välja ett testnätverk att utföra Redundanstestning.
 ## <a name="next-steps"></a>Nästa steg
 
 * Granska [nätverk vägledning för att replikera virtuella Azure-datorer](site-recovery-azure-to-azure-networking-guidance.md).

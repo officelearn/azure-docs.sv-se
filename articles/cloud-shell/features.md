@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: juluk
-ms.openlocfilehash: 09c3ca23aafc8519b9e3ad57d030f066bb153e26
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 1321645d97e7f6ff2faed1e61ddb608afcb7b413
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056199"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42058157"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funktioner och verktyg för Azure Cloud Shell
 
@@ -64,19 +64,19 @@ Cloudshell innehåller förkonfigurerade autentisering för open source-verktyg 
 |Textredigerare           |VIM<br> nano<br> emacs       |
 |Källkontroll         |git                    |
 |Skapa verktyg            |Kontrollera<br> Maven<br> npm<br> PIP         |
-|Behållare             |[Docker CLI](https://github.com/docker/cli)/[Docker Machine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
+|Containrar             |[Docker CLI](https://github.com/docker/cli)/[Docker Machine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
 |Databaser              |MySQL-klienten<br> PostgreSql-klient<br> [SQLCMD-verktyget](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Övrigt                  |iPython klienten<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)| 
+|Annat                  |iPython klienten<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)| 
 
-## <a name="language-support"></a>Språkstöd
+## <a name="language-support"></a>Stöd för språk
 
 |Språk   |Version   |
 |---|---|
 |.NET Core  |2.0.0       |
-|Gå till         |1.9        |
+|Go         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.9.4      |
-|PowerShell |[6.0.2](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[6.1.0-Preview.4](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 och 3.5 (standard)|
 
 ## <a name="next-steps"></a>Nästa steg

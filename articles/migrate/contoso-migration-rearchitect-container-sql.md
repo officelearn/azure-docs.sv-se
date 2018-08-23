@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 08/13/2018
 ms.author: raynew
-ms.openlocfilehash: 7146865270accb73981b09be6409180c4ef1440f
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 733a93d0fc80d86d28f13a9e1d32108b58893bf0
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003205"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42060890"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Contoso-migrering: omforma en lokal app till en Azure container och Azure SQL Database
 
@@ -32,8 +32,8 @@ Det här dokumentet är i en serie av artiklar som visar hur det fiktiva företa
 [Artikel 8: Rehost en Linux-app till Azure virtuella datorer och Azure MySQL-Server](contoso-migration-rehost-linux-vm-mysql.md) | Visar hur Contoso migrerar Linux osTicket-app till Azure virtuella datorer med Site Recovery och migrerar app-databasen till en Azure MySQL-Server-instans med MySQL Workbench. | Tillgängligt
 [Artikel 9: Omstrukturera en app till en Azure Web App och Azure SQL-databas](contoso-migration-refactor-web-app-sql.md) | Visar hur Contoso migrerar SmartHotel-app till ett Azure Web Apps och app-databasen har migrerats till Azure SQL Server-instans | Tillgängligt
 [Artikel 10: Omstrukturera en Linux-app till Azure Web Apps och Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Visar hur Contoso migrerar Linux osTicket-app till Azure Web Apps på flera platser, integrerad med GitHub för kontinuerlig leverans. De migrera app-databasen till en Azure MySQL-instans. | Tillgängligt
-Artikel 11: Omforma en app på Azure-behållare och Azure SQL Database | Visar hur Contoso migrerar och rearchitects SmartHotel appen till Azure. De Omforma webbnivån appen som en Windows-behållare och app-databasen i en Azure SQL Database. | Den här artikeln.
-[Artikel 12: Omforma en app på Azure-behållare och Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Visar hur Contoso migrerar och rearchitects SmartHotel appen till Azure. De Omforma webbnivån appen som en Windows-behållare och app-databasen i en Azure SQL Database. | Tillgängligt
+[Artikel 11: Omstrukturera TFS på VSTS](contoso-migration-tfs-vsts.md) | Visar hur Contoso migrerar sina lokala Team Foundation Server (TFS)-distributionen genom att migrera den till Visual Studio Team Services (VSTS) i Azure.
+Artikel 12: Omforma en app på Azure-behållare och Azure SQL Database | Visar hur Contoso migrerar och rearchitects SmartHotel appen till Azure. De Omforma webbnivån appen som en Windows-behållare och app-databasen i en Azure SQL Database. | Den här artikeln
 [Artikel 13: Återskapa en app i Azure](contoso-migration-rebuild.md) | Visar hur Contoso återskapa SmartHotel appen med hjälp av en mängd Azure-funktioner och tjänster, inklusive App Services, Azure Kubernetes, Azure Functions, Cognitive services och Cosmos DB. | Tillgängligt
 
 I den här artikeln migrerar Contoso tvålagers-Windows. NET SmartHotel app som körs på virtuella VMware-datorer till Azure. Om du vill använda den här appen tillhandahålls som öppen källkod och du kan ladda ned det från [GitHub](https://github.com/Microsoft/SmartHotel360).
@@ -323,17 +323,17 @@ Contoso konverterar appen till en behållare med projektplats Studio och SDK-ver
 
     **Git-klonen https://github.com/Microsoft/SmartHotel360-internal-booking-apps.git**
 
-    ![Behållare](./media/contoso-migration-rearchitect-container-sql/container1.png)
+    ![Container](./media/contoso-migration-rearchitect-container-sql/container1.png)
 
 2. Med Visual Studio kan de öppna lösningsfilen (SmartHotel.Registration.sln) i den **SmartHotel360-interna-bokning-apps\src\Registration** katalogen i den lokala lagringsplatsen.  Två appar visas. Webbservergrupp SmartHotel.Registration.Web nad WCF service-app SmartHotel.Registration.WCF.
 
-    ![Behållare](./media/contoso-migration-rearchitect-container-sql/container2.png)
+    ![Container](./media/contoso-migration-rearchitect-container-sql/container2.png)
 
 
 3. De högerklickar du på webbappen > **Lägg till** > **Behållarstödet i Orchestrator**.
 4. I **lägga till stöd för behållare orkester**, de väljer **Service Fabric**.
 
-    ![Behållare](./media/contoso-migration-rearchitect-container-sql/container3.png)
+    ![Container](./media/contoso-migration-rearchitect-container-sql/container3.png)
 
 5. Contoso upprepar processen för SmartHotel.Registration.WCF app.
 6. Nu kan kontrollerar Contoso hur lösningen har ändrats.
@@ -341,19 +341,19 @@ Contoso konverterar appen till en behållare med projektplats Studio och SDK-ver
     - Den nya appen är **SmartHotel.RegistrationApplication/**
     - Den innehåller två tjänster: **SmartHotel.Registration.WCF** och **SmartHotel.Registration.Web**.
 
-    ![Behållare](./media/contoso-migration-rearchitect-container-sql/container4.png)
+    ![Container](./media/contoso-migration-rearchitect-container-sql/container4.png)
 
 7. Visual Studio skapade Docker-filen och hämtade bilderna som krävs lokalt till datorn för utvecklare.
 
-    ![Behållare](./media/contoso-migration-rearchitect-container-sql/container5.png)
+    ![Container](./media/contoso-migration-rearchitect-container-sql/container5.png)
 
 8. En manifestfil (**ServiceManifest.xml**) skapas och öppnas av Visual Studio. Den här filen talar om för Service Fabric så här konfigurerar du behållaren när det distribueras till Azure.
 
-    ![Behållare](./media/contoso-migration-rearchitect-container-sql/container6.png)
+    ![Container](./media/contoso-migration-rearchitect-container-sql/container6.png)
 
 9. En annan manifestfilen (** ApplicationManifest.xml) innehåller program som konfiguration för behållarna.
 
-    ![Behållare](./media/contoso-migration-rearchitect-container-sql/container7.png)
+    ![Container](./media/contoso-migration-rearchitect-container-sql/container7.png)
 
 ## <a name="step-5-publish-the-app"></a>Steg 5: Publicera appen
 

@@ -1,44 +1,44 @@
 ---
-title: Utföra flera regioner skrivningar och läsningar genom att välja rätt partitionering nyckel | Microsoft Docs
-description: Läs mer om hur du utformar programarkitekturer med lokala läsningar och skrivningar över flera geografiska områden med Azure Cosmos DB genom att välja en partitionsnyckel.
+title: Utföra flera regioner skrivningar och läsningar genom att välja rätt Partitioneringsnyckel | Microsoft Docs
+description: Läs mer om hur du utformar arkitekturer för program med lokala läsningar och skrivningar över flera geografiska områden med Azure Cosmos DB genom att välja en partitionsnyckel.
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 06/6/2018
-ms.author: sngun
+ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18f036a259bbec98382927ad1d9e8f654b56850b
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 3d38b7cd7d1f28f706e94782602926abc8fc11e3
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850369"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42060667"
 ---
-# <a name="perform-multi-region-writes-and-reads-by-choosing-the-right-partitioning-key"></a>Utföra flera regioner skrivningar och läsningar genom att välja rätt partitionering nyckel
+# <a name="perform-multi-region-writes-and-reads-by-choosing-the-right-partitioning-key"></a>Utföra flera regioner skrivningar och läsningar genom att välja rätt Partitioneringsnyckel
 
-Azure Cosmos-DB stöder NYCKELFÄRDIGT [globala replikering](distribute-data-globally.md), där du kan distribuera data till flera regioner med låg latens åtkomst var som helst i arbetsbelastningen. Den här modellen används ofta för utgivaren/konsumenten arbetsbelastningar där det finns en skrivare i en geografisk region och globalt distribuerade läsare i andra (skrivskyddad) regioner. 
+Azure Cosmos DB stöder NYCKELFÄRDIGT [global replikering](distribute-data-globally.md), där du kan distribuera data till flera regioner med låg latens var som helst i arbetsbelastningen. Den här modellen används ofta för utgivare/konsument arbetsbelastningar där det finns en skrivare i en enda geografisk region och globalt distribuerade läsare i andra regioner för (skrivskyddad). 
 
-Du kan också använda Azure Cosmos DB globala replication stöd för att bygga program som skrivare och läsare globalt distribueras. Det här dokumentet beskrivs ett mönster som gör det möjligt att uppnå lokala Skriv- och lokala läsbehörighet för distribuerade skrivare med hjälp av Azure Cosmos DB.
+Du kan också använda Azure Cosmos DB global Replikeringsstöd för att bygga program som skrivare och läsare distribueras globalt. Det här dokumentet beskriver ett mönster som gör det möjligt att uppnå lokala Skriv- och lokala läsbehörighet för distribuerade skrivare med hjälp av Azure Cosmos DB.
 
-## <a id="ExampleScenario"></a>Publiceringen av innehållet - exempel
-Nu ska vi titta på ett verkligt scenario som beskriver hur du kan använda global flera-region/flera-master läsa skriva mönster med Azure Cosmos DB. Överväg att en innehåll publishing plattform som bygger på Azure Cosmos DB. Här följer några krav som den här plattformen måste uppfylla för en bra användarupplevelse för både utgivare och konsumenter.
+## <a id="ExampleScenario"></a>Publiceringen av innehållet – ett exempelscenario
+Låt oss titta på ett verkligt scenario som beskriver hur du kan använda globalt distribuerade Multi-Factor-region/Multi-Factor-master skrivskyddad mönster med Azure Cosmos DB. Överväg en publishing innehållsplattform som bygger på Azure Cosmos DB. Här följer några krav som den här plattformen måste uppfylla för en bättre användarupplevelse för både utgivare och konsumenter.
 
-* Både författare och prenumeranter kan sträcka sig över hela världen 
-* Författare måste publicera (skriva) artiklar på sin lokala (närmaste) region
-* Författare har läsare-/ prenumeranter sina artiklar som distribueras över hela världen. 
+* Både redigerare och prenumeranter kan sträcka sig över hela världen 
+* Författare måste publicera artiklar (skriva) till deras lokala (närmaste) region
+* Författare har läsare-/ prenumeranter av artiklarna som distribueras över hela världen. 
 * Prenumeranter bör få ett meddelande när nya artiklar publiceras.
-* Prenumeranter måste kunna läsa artiklar från sin lokala region. De bör också kunna lägga till granskningar till dessa artiklar. 
-* Alla inklusive författaren av artiklarna ska kunna visa alla omdömen anslutna till artiklar från region med en lokal. 
+* Prenumeranter måste kunna läsa artiklarna från deras lokala region. De bör också att kunna lägga till recensioner i dessa artiklar. 
+* Vem som helst, inklusive författaren av artiklarna ska kunna visa alla granskningar som är anslutna till artiklar från en lokal region. 
 
-Under förutsättning att miljontals användare och utgivare med miljarder artiklar, snart vi behöver ta itu med problem för skala tillsammans med garanterar ort åtkomst. Precis som med de flesta skalbarhetsproblem med, är lösningen en bra strategi för partitionering. Nu ska vi titta på hur modellen artiklar, granska och meddelanden som dokument, konfigurera Azure Cosmos DB konton och implementera en dataåtkomstnivå. 
+Om vi antar att miljoner konsumenter och utgivare med flera miljarder artiklar, snart måste vi ta itu med problemen med skalas tillsammans, vilket ger ort av åtkomst. Precis som med de flesta skalbarhetsproblem ligger lösningen i en bra partitioneringsstrategi. Nu ska vi titta på hur du modellera artiklar, granskning och aviseringar som dokument, konfigurera Azure Cosmos DB-konton och implementera en dataåtkomstlagret. 
 
-Om du vill veta mer om partitionering och partitionsnycklar [partitionering och skalning i Azure Cosmos DB](partition-data.md).
+Om du vill ha mer information om partitionering och partitionsnycklar finns i [partitionering och skalning i Azure Cosmos DB](partition-data.md).
 
-## <a id="ModelingNotifications"></a>Modeling meddelanden
-Meddelanden är datafeeds specifika för en användare. Därför är åtkomstmönster för meddelanden dokument alltid i samband med en enskild användare. Du kan till exempel ”skicka ett meddelande till en användare” eller ”hämta alla meddelanden för en viss användare”. Därför föredra partitionering nyckel för den här typen är `UserId`.
+## <a id="ModelingNotifications"></a>Modellering meddelanden
+Meddelanden är data matas specifika till en användare. Åtkomstmönster för meddelanden dokument är därför alltid i samband med enskild användare. Du kan till exempel ”publicera ett meddelande till en användare” eller ”hämta alla meddelanden för en viss användare”. Så att föredra att partitionera nyckeln för den här typen skulle vara `UserId`.
 
     class Notification 
     { 
@@ -64,8 +64,8 @@ Meddelanden är datafeeds specifika för en användare. Därför är åtkomstmö
         public string ArticleId { get; set; } 
     }
 
-## <a id="ModelingSubscriptions"></a>Modeling prenumerationer
-Prenumerationer kan skapas för olika kriterier som en viss kategori med artiklar för specifika intresseområden eller en specifik utgivare. Därför det `SubscriptionFilter` är ett bra alternativ för partitionsnyckel.
+## <a id="ModelingSubscriptions"></a>Modellering prenumerationer
+Prenumerationer kan skapas för olika kriterier som en särskild kategori av artiklar olika områden eller en viss utgivare. Därför den `SubscriptionFilter` är ett bra val för partitionsnyckel.
 
     class Subscriptions 
     { 
@@ -87,8 +87,8 @@ Prenumerationer kan skapas för olika kriterier som en viss kategori med artikla
         } 
     }
 
-## <a id="ModelingArticles"></a>Modeling artiklar
-När en artikel identifieras via meddelanden efterföljande frågor vanligtvis baserat på den `Article.Id`. Att välja `Article.Id` som partition nyckeln därför ger bästa distributionen för att lagra artiklar i en samling Azure Cosmos DB. 
+## <a id="ModelingArticles"></a>Modellering artiklar
+När en artikel har identifierats via meddelanden, efterföljande frågor baseras vanligtvis på den `Article.Id`. Välja `Article.Id` som partition nyckeln därför ger bästa distributionen för att lagra artiklar i en Azure Cosmos DB-samling. 
 
     class Article 
     { 
@@ -118,8 +118,8 @@ När en artikel identifieras via meddelanden efterföljande frågor vanligtvis b
         //... 
     }
 
-## <a id="ModelingReviews"></a>Modellering granskar
-Som artiklar, granskningar främst skrivs och läses i kontexten för artikeln. Att välja `ArticleId` som en partition nyckel ger bästa distribution och effektiv åtkomst av granskningar som är kopplad till artikeln. 
+## <a id="ModelingReviews"></a>Modellering granskningar
+Som artiklar, granskningar huvudsakligen skrivs och läsa i kontexten för artikeln. Välja `ArticleId` som en partition nyckel ger bästa distribution och effektiv åtkomst till granskningar som är associerade med artikeln. 
 
     class Review 
     { 
@@ -144,8 +144,8 @@ Som artiklar, granskningar främst skrivs och läses i kontexten för artikeln. 
         public int Rating { get; set; } }
     }
 
-## <a id="DataAccessMethods"></a>Metoder för dataåtkomst lager
-Nu ska vi titta på viktigaste data åtkomstmetoder vi behöver implementera. Här är listan över metoder som den `ContentPublishDatabase` måste:
+## <a id="DataAccessMethods"></a>Data access layer-metoder
+Nu ska vi titta på de viktigaste data åtkomstmetoder som vi behöver för att implementera. Här är listan över metoder som de `ContentPublishDatabase` måste:
 
     class ContentPublishDatabase 
     { 
@@ -160,17 +160,17 @@ Nu ska vi titta på viktigaste data åtkomstmetoder vi behöver implementera. H�
         public async Task<IEnumerable<Review>> ReadReviewsAsync(string articleId); 
     }
 
-## <a id="Architecture"></a>Konfigurationen av Azure DB Cosmos-konto
-Om du vill garantera lokala läser och skriver vi måste partitionera bara data inte på partition nyckel, men även baserat på geografisk åtkomstmönstret i regioner. Modellen är beroende av att ha ett geo-replikerade Azure Cosmos DB databaskonto för varje region. Till exempel med två regioner är här en konfiguration för flera regioner skrivningar:
+## <a id="Architecture"></a>Azure Cosmos DB-kontokonfigurationen
+För att garantera lokal läsningar och skrivningar, vi måste partitionera bara data inte på partitionen nyckel, men även baserat på geografisk åtkomstmönstret till regioner. Modellen är beroende av att ha en geo-replikerat Azure Cosmos DB-databaskonto för varje region. Till exempel med två regioner är här en konfiguration för flera regioner skrivningar:
 
 | Kontonamn | Skrivregion | Läsregion |
 | --- | --- | --- |
 | `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |
 | `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |
 
-Följande diagram visar hur läsning och skrivning utförs i en typisk program med den här installationen:
+Följande diagram visar hur läsningar och skrivningar utförs i ett typiskt program med de här inställningarna:
 
-![Azure multimaster Cosmos-DB-arkitektur](./media/multi-master-workaround/multi-master.png)
+![Azure Cosmos DB multimaster-arkitektur](./media/multi-master-workaround/multi-master.png)
 
 Här är ett kodfragment som visar hur du initierar klienter i en DAL som körs i den `West US` region.
     
@@ -192,21 +192,21 @@ Här är ett kodfragment som visar hur du initierar klienter i en DAL som körs 
         readRegionAuthKey,
         readClientPolicy);
 
-Med den föregående installationen kan dataåtkomstnivå vidarebefordra alla skrivningar till det lokala kontot utifrån där den distribueras. Läser utförs av läsning från båda kontona att hämta globala vyn av data. Den här metoden kan utökas till så många regioner som krävs. Här är till exempel en installation med tre geografiska områden:
+Dataåtkomstlagret kan vidarebefordra alla skrivningar till det lokala kontot utifrån där det har distribuerats med den föregående installationen. Läsningar som utförs av läsning från båda konton för att få global vy över data. Den här metoden kan utökas till så många regioner som krävs. Här är till exempel en installation med tre geografiska områden:
 
-| Kontonamn | Skrivregion | Läs Region 1 | Läs Region 2 |
+| Kontonamn | Skrivregion | Läsregion 1 | Läsregion 2 |
 | --- | --- | --- | --- |
 | `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |`Southeast Asia` |
 | `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |`Southeast Asia` |
 | `contentpubdatabase-asia.documents.azure.com` | `Southeast Asia` |`North Europe` |`West US` |
 
 ## <a id="DataAccessImplementation"></a>Data access layer implementering
-Nu ska vi titta på implementering av dataåtkomstlagret (DAL) för ett program med två skrivbar regioner. DAL måste implementera följande steg:
+Nu ska vi titta på implementeringen av dataåtkomstlagret (DAL) för ett program med två skrivbar regioner. DAL måste implementera följande steg:
 
-* Skapa flera instanser av `DocumentClient` för varje konto. Med två regioner varje DAL-instans har en `writeClient` och ett `readClient`. 
-* Baserat på den distribuerade regionen för programmet, konfigurera slutpunkter för `writeclient` och `readClient`. Till exempel DAL distribuerats i `West US` använder `contentpubdatabase-usa.documents.azure.com` för att utföra skrivningar. DAL distribuerats i `NorthEurope` använder `contentpubdatabase-europ.documents.azure.com` för skrivningar.
+* Skapa flera instanser av `DocumentClient` för varje konto. Med två regioner varje DAL-instans har en `writeClient` och en `readClient`. 
+* Baserat på den distribuerade regionen av programmet, konfigurera slutpunkter för `writeclient` och `readClient`. Till exempel DAL distribueras i `West US` använder `contentpubdatabase-usa.documents.azure.com` för att utföra skrivåtgärder. DAL distribueras i `NorthEurope` använder `contentpubdatabase-europ.documents.azure.com` för skrivningar.
 
-Metoder för dataåtkomst kan implementeras med föregående installation. Skriva operations vidarebefordra skriva till motsvarande `writeClient`.
+Metoder för dataåtkomst kan implementeras med den föregående installationen. Skriva operations vidarebefordra skriva till motsvarande `writeClient`.
 
     public async Task CreateSubscriptionAsync(string userId, string category)
     {
@@ -228,7 +228,7 @@ Metoder för dataåtkomst kan implementeras med föregående installation. Skriv
         });
     }
 
-För att läsa meddelanden och granskningar, måste du läsa från både regioner och union resultaten som visas i följande utdrag:
+För att läsa meddelanden och granskningar, måste du läsa från både regioner och union resultaten som visas i följande kodavsnitt:
 
     public async Task<IEnumerable<Notification>> ReadNotificationFeedAsync(string userId)
     {
@@ -307,14 +307,14 @@ För att läsa meddelanden och granskningar, måste du läsa från både regione
         return reviews;
     }
 
-Genom att välja en bra partitionsnyckel och statiska konto-baserade partitionering, kan du därför uppnå flera regioner lokala skrivningar och läsningar med hjälp av Azure Cosmos DB.
+Du kan därför få flera regioner lokala skrivningar och läsningar med Azure Cosmos DB i genom att välja en bra partitionsnyckel och statiska baserade partitionering.
 
 ## <a id="NextSteps"></a>Nästa steg
-I den här artikeln beskrivs hur du kan använda global flera regioner läsa skriva mönster med Azure Cosmos-databasen med publiceringen av innehållet som ett exempelscenario.
+I den här artikeln beskrivs hur du kan använda mönster för globalt distribuerade skrivskyddad i flera regioner med Azure Cosmos DB med publiceringen av innehållet som en Exempelscenario.
 
-* Lär dig mer om hur Azure Cosmos DB stöder [global distributionsplatsen](distribute-data-globally.md)
-* Lär dig mer om [automatisk och manuell växling vid fel i Azure Cosmos DB](regional-failover.md)
+* Lär dig mer om hur Azure Cosmos DB stöder [global distribution](distribute-data-globally.md)
+* Lär dig mer om [automatisk och manuell redundans i Azure Cosmos DB](regional-failover.md)
 * Lär dig mer om [global konsekvens med Azure Cosmos DB](consistency-levels.md)
-* Utveckla med flera regioner med hjälp av den [Azure Cosmos DB - SQL-API](tutorial-global-distribution-sql-api.md)
-* Utveckla med flera regioner med hjälp av den [Azure DB Cosmos - MongoDB-API](tutorial-global-distribution-MongoDB.md)
-* Utveckla med flera regioner med hjälp av den [Azure DB Cosmos - tabellen API](tutorial-global-distribution-table.md)
+* Utveckla med flera regioner med den [Azure Cosmos DB - SQL-API](tutorial-global-distribution-sql-api.md)
+* Utveckla med flera regioner med den [Azure Cosmos DB - MongoDB API](tutorial-global-distribution-MongoDB.md)
+* Utveckla med flera regioner med den [Azure Cosmos DB - tabell-API](tutorial-global-distribution-table.md)

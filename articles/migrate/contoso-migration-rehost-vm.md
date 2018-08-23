@@ -1,19 +1,19 @@
 ---
 title: Ange ny värd för en Contoso-app med migrering till Azure virtuella datorer med Azure Site Recovery | Microsoft Docs
-description: Lär dig hur appvärd både lokalt och med en lift and shift-migrering till Azure för migrering av lokala datorer med Azure Site Recovery-tjänsten.
+description: Lär dig hur rehost en lokal app med en lift and shift-migrering av lokala datorer till Azure med Azure Site Recovery-tjänsten.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 08/13/2018
 ms.author: raynew
-ms.openlocfilehash: e152a95a392fd503e027591a4930fbeef744d6f4
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 11859beb3d7bf0d0b0b801328c6570d274f1ea68
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009422"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42054773"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Contoso-migrering: Appvärd till virtuella Azure-datorer på plats
 

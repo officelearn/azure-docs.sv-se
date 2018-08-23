@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 2a447931ea850c4ccbe618270de5fbbc9b9eaea7
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 95ab06685452f647884bf92f110e3ab56f3c2714
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366604"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42054758"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack-registrering
 Du kan registrera din Azure Stack Development Kit (ASDK)-installation med Azure kan du hämta marketplace från Azure och du ställer in handelsdata rapporterar tillbaka till Microsoft. Registrering krävs för att stödja fullständig Azure Stack-funktioner, inklusive marketplace syndikering. Registrering rekommenderas eftersom det gör att du kan testa viktiga Azure Stack-funktioner som marketplace-syndikering och användningsrapportering. När du har registrerat Azure Stack rapporteras användning till Azure commerce. Du kan se den prenumeration som du använde för registrering. ASDK användare debiteras dock inte för eventuell användning av rapporterar.
@@ -47,23 +47,26 @@ Följ dessa steg för att registrera ASDK med Azure.
 
 2. Kör följande PowerShell-kommandon för att registrera din ASDK-installation med Azure. Du behöver att logga in på både Azure-prenumerationen och den lokala ASDK-installationen. Om du inte har en Azure-prenumeration än kan du [skapa ett kostnadsfritt konto här](https://azure.microsoft.com/free/?b=17.06). Registrera Azure Stack medför utan kostnad på din Azure-prenumeration.  
 
+Om du kör skriptet registrering på fler än en instans av Azure Stack med samma Azure-prenumerationens ID, ange ett unikt namn för registrering när du kör den **Set-AzsRegistration** cmdlet. Den **RegistrationName** parametern har ett standardvärde på **AzureStackRegistration**. Om du använder samma namn på fler än en instans av Azure Stack kan misslyckas skriptet.
+
   ```PowerShell  
-  # Add the Azure cloud subscription environment name. Supported environment names are AzureCloud or, if using a China Azure Subscription, AzureChinaCloud.
-  Add-AzureRmAccount -EnvironmentName "AzureCloud"
+    # Add the Azure cloud subscription environment name. Supported environment names are AzureCloud or, if using a China Azure Subscription, AzureChinaCloud.
+    Add-AzureRmAccount -EnvironmentName "AzureCloud"
 
-  # Register the Azure Stack resource provider in your Azure subscription
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+    # Register the Azure Stack resource provider in your Azure subscription
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 
-  #Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+    #Import the registration module that was downloaded with the GitHub tools
+    Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
-  #Register Azure Stack
-  $AzureContext = Get-AzureRmContext
-  $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
-  Set-AzsRegistration `
-      -PrivilegedEndpointCredential $CloudAdminCred `
-      -PrivilegedEndpoint AzS-ERCS01 `
-      -BillingModel Development
+    #Register Azure Stack
+    $AzureContext = Get-AzureRmContext
+    $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+    Set-AzsRegistration `
+    -PrivilegedEndpointCredential $CloudAdminCred `
+    -PrivilegedEndpoint AzS-ERCS01 `
+    -BillingModel Development `
+    -RegistrationName "<Unique-name>"
   ```
 3. När skriptet har slutförts bör du se det här meddelandet: **miljön är nu registrerad och aktiverad med hjälp av de angivna parametrarna.**
 

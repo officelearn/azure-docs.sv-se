@@ -1,72 +1,78 @@
 ---
 title: Översikt över Recovery Services-valv
-description: En översikt och jämförelse mellan Recovery Services-valv och Azure Backup-valv.
+description: En översikt och jämförelse av Recovery Services-valv och Azure Backup-valv.
 services: backup
 author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/15/2017
+ms.date: 8/10/2018
 ms.author: markgal
-ms.openlocfilehash: b6195feb25a7206d7c453e31f0ac312e070b3113
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 04b755d7ca1ec72b075ecaa4b32a35f5009a938b
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606179"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42055772"
 ---
 # <a name="recovery-services-vaults-overview"></a>Översikt över Recovery Services-valv
 
-Den här artikeln beskriver funktionerna i Recovery Services-valvet. Recovery Services-valvet är en enhet för lagring i Azure som innehåller data. Data är vanligtvis kopior av data eller konfigurationsinformation för virtuella datorer (VM), arbetsbelastningar, servrar eller arbetsstationer. Du kan använda Recovery Services-valv för att lagra säkerhetskopierade data för olika Azure-tjänster, till exempel virtuella IaaS-datorer (Linux eller Windows) och Azure SQL-databaser. Recovery Services valv stöd för System Center DPM, Windows Server, Azure Backup Server och mer. Med Recovery Services-valv är det enkelt att organisera dina säkerhetskopierade data samtidigt som du minimerar hanteringskostnaden. 
+Den här artikeln beskriver funktionerna i Recovery Services-valvet. Ett Recovery Services-valv är en enhet för lagring i Azure som innehåller data. Data är vanligtvis kopior av data eller konfigurationsinformation för virtuella datorer (VM), arbetsbelastningar, servrar eller arbetsstationer. Du kan använda Recovery Services-valv för att lagra säkerhetskopierade data för olika Azure-tjänster, till exempel virtuella IaaS-datorer (Linux eller Windows) och Azure SQL-databaser. Recovery Services-valv stöd för System Center DPM, Windows Server, Azure Backup Server och mer. Med Recovery Services-valv är det enkelt att organisera dina säkerhetskopierade data samtidigt som du minimerar hanteringskostnaden. 
 
 Du kan skapa upp till 500 Recovery Services-valv per prenumeration per region i en Azure-prenumeration.
 
-## <a name="comparing-recovery-services-vaults-and-backup-vaults"></a>Jämför Recovery Services-valv och säkerhetskopieringsvalv
+## <a name="comparing-recovery-services-vaults-and-backup-vaults"></a>Jämförelse Recovery Services-valv och Backup-valv
 
-Om du fortfarande har säkerhetskopieringsvalv som de ska automatiskt uppgraderas till Recovery Services-valv. Med November 2017 har alla säkerhetskopieringsvalv uppgraderats till Recovery Services-valv. 
+Om du fortfarande har Backup-valv som de ska uppgraderas automatiskt till Recovery Services-valv. Från November 2017 kommer alla säkerhetskopieringsvalv har uppgraderats till Recovery Services-valv. 
 
 Recovery Services-valv baseras på Azure Resource Manager-modellen i Azure, medan säkerhetskopieringsvalv baserades på Azure Service Manager-modellen. När du uppgraderar ett säkerhetskopieringsvalv till Recovery Services-valvet bevaras säkerhetskopierade data under och efter uppgraderingen. Recovery Services-valv innehåller funktioner som är inte tillgängligt för säkerhetskopieringsvalv, som:
 
-- **Förbättrade funktioner för att säkra säkerhetskopierade data**: med Recovery Services-valv, Azure Backup tillhandahåller säkerhetsfunktioner för att skydda molnet säkerhetskopieringar. Säkerhetsfunktioner Kontrollera kan du skydda dina säkerhetskopieringar och på ett säkert sätt återställa data, även om produktions- och backup-servrar som har angripits. [Läs mer](backup-azure-security-feature.md)
+- **Förbättrade funktioner för att säkra säkerhetskopieringsdata**: med Recovery Services-valv, Azure Backup tillhandahåller funktioner för säkerhet att skydda säkerhetskopior i molnet. Säkerhetsfunktionerna Kontrollera kan du skydda dina säkerhetskopior och på ett säkert sätt återställa data, även om produktions- och backup-servrar har komprometterats. [Läs mer](backup-azure-security-feature.md)
 
-- **Central övervakning av din IT-miljö för hybrid**: med Recovery Services-valv kan du övervaka inte bara din [Azure IaaS-VM](backup-azure-manage-vms.md) utan även din [lokala tillgångar](backup-azure-manage-windows-server.md#manage-backup-items) från en central portal. [Läs mer](http://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
+- **Central övervakning av din IT-hybridmiljöer**: med Recovery Services-valv kan du övervaka inte bara din [Azure IaaS-VM](backup-azure-manage-vms.md) utan även din [lokala tillgångar](backup-azure-manage-windows-server.md#manage-backup-items) från en central portal. [Läs mer](http://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
 
-- **Rollbaserad åtkomstkontroll (RBAC)**: RBAC ger detaljerade management åtkomstkontroll i Azure. [Azure tillhandahåller olika inbyggda roller](../role-based-access-control/built-in-roles.md), och Azure Backup har tre [inbyggda roller för att hantera återställningspunkter](backup-rbac-rs-vault.md). Recovery Services-valv är kompatibla med RBAC som begränsar säkerhetskopia och återställa åtkomst till en definierad uppsättning användarroller. [Läs mer](backup-rbac-rs-vault.md)
+- **Rollbaserad åtkomstkontroll (RBAC)**: RBAC ger detaljerad hantering av åtkomstkontroll i Azure. [Azure erbjuder olika inbyggda roller](../role-based-access-control/built-in-roles.md), och Azure Backup har tre [inbyggda roller för att hantera återställningspunkter](backup-rbac-rs-vault.md). Recovery Services-valv är kompatibla med RBAC, vilket begränsar säkerhetskopiering utan att återställa åtkomst till en definierad uppsättning användarroller. [Läs mer](backup-rbac-rs-vault.md)
 
-- **Skydda alla konfigurationer av virtuella datorer i Azure**: Recovery Services-valv skydda Resource Manager-baserade virtuella datorer inklusive Premiumdiskar, hanterade diskar och krypterade virtuella datorer. Uppgradera ett säkerhetskopieringsvalv till Recovery Services-valvet ger dig möjlighet att uppgradera din Service Manager-baserade virtuella datorer till Resource Manager-baserade virtuella datorer. Du kan behålla dina återställningspunkter för Service Manager-baserade Virtuella och konfigurera skydd för uppgraderade (Resource Manager-aktiverat) virtuella datorer under uppgraderingen valvet. [Läs mer](http://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
+- **Skydda alla konfigurationer av virtuella datorer i Azure**: Recovery Services-valv skyddar Resource Manager-baserade virtuella datorer, inklusive Premium Disks Managed Disks och krypterade virtuella datorer. Uppgradera ett säkerhetskopieringsvalv till Recovery Services-valvet ger dig möjlighet att uppgradera din Service Manager-baserade virtuella datorer till Resource Manager-baserade virtuella datorer. När du uppgraderar valvet, kan du behålla dina återställningspunkter för Service Manager-baserad virtuell dator och konfigurera skydd för uppgraderade (Resource Manager-aktiverade) virtuella datorer. [Läs mer](http://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
 
-- **Omedelbar återställning för IaaS-VM**: med Recovery Services-valv kan du återställa filer och mappar från en IaaS-VM utan att återställa hela den virtuella datorn, vilket möjliggör snabbare återställning. Omedelbar återställning för IaaS-VM är tillgänglig för både Windows- och Linux virtuella datorer. [Läs mer](http://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
+- **Omedelbar återställning för virtuella IaaS-datorer**: med Recovery Services-valv kan du återställa filer och mappar från en IaaS-VM utan att återställa hela VM, vilket gör att återställningen går snabbare. Omedelbar återställning för virtuella IaaS-datorer är tillgänglig för både Windows och Linux-datorer. [Läs mer](http://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
 
-## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>Hantera din Recovery Services-valv i portalen
-Skapande och hantering av Recovery Services-valv i Azure-portalen är enkelt eftersom Backup-tjänsten är integrerad i inställningarna för Azure-menyn. Den här integreringen innebär att du kan skapa eller hantera ett Recovery Services-valv *i samband med Måltjänsten*. Till exempel om du vill visa återställningspunkter för en virtuell dator, markerar du den och klickar på **säkerhetskopiering** på menyn Inställningar. Säkerhetskopierad information som är specifika för den virtuella datorn visas. I följande exempel **ContosoVM** är namnet på den virtuella datorn. **ContosoVM demovault** är namnet på Recovery Services-valvet. Du behöver inte ihåg namnet på Recovery Services-valvet som lagrar återställningspunkterna, du kan komma åt den här informationen från den virtuella datorn.  
+## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>Hantera dina Recovery Services-valv i portalen
+Skapa och hantera Recovery Services-valv i Azure-portalen är enkelt eftersom Backup-tjänsten integreras i andra Azure-tjänster. Den här integrationen innebär att du kan skapa eller hantera ett Recovery Services-valv *i samband med Måltjänsten*. Till exempel om du vill visa återställningspunkter för en virtuell dator, Välj den virtuella datorn och på **Backup** på menyn åtgärder. 
 
-![Recovery services-valvet information VM](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context.png)
+![Recovery services-valvinformationen VM](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context-vm.png)
 
-Om flera servrar skyddas med hjälp av samma Recovery Services-valvet, kan det vara flera logiska titta på Recovery Services-valvet. Du kan söka efter alla Recovery Services-valv i prenumerationen och välj en från listan.
+Om den virtuella datorn inte har säkerhetskopiering har konfigurerats, och sedan uppmanas du att konfigurera säkerhetskopiering. Om säkerhetskopieringen har konfigurerats visas säkerhetskopierad information om den virtuella datorn, inklusive en lista över återställningspunkter.  
 
-Följande avsnitt innehåller länkar till artiklar som förklarar hur du använder ett Recovery Services-valv i varje typ av aktivitet.
+![Recovery services-valvinformationen VM](./media/backup-azure-recovery-services-vault-overview/vm-recovery-point-list.png)
+
+I exemplet ovan **ContosoVM** är namnet på den virtuella datorn. **ContosoVM-demovault** är namnet på Recovery Services-valvet. Du behöver inte kommer ihåg namnet på Recovery Services-valvet som lagrar återställningspunkterna kan du komma åt den här informationen från den virtuella datorn.  
+
+Om ett Recovery Services-valv skyddar flera servrar kan vara det mer logiskt att titta på Recovery Services-valvet. Du kan söka efter alla Recovery Services-valv i prenumerationen och väljer ett i listan.
+
+Följande avsnitt innehåller länkar till artiklar som beskriver hur du använder ett Recovery Services-valv i varje typ av aktivitet.
 
 ### <a name="back-up-data"></a>Säkerhetskopiera data
-- [Säkerhetskopiera en Azure VM](backup-azure-vms-first-look-arm.md)
+- [Säkerhetskopiera en virtuell Azure-dator](backup-azure-vms-first-look-arm.md)
 - [Säkerhetskopiera Windows Server eller Windows-arbetsstation](backup-try-azure-backup-in-10-mins.md)
 - [Säkerhetskopiera DPM-arbetsbelastningar till Azure](backup-azure-dpm-introduction.md)
-- [Förbereda för att säkerhetskopiera arbetsbelastningar med Azure Backup Server](backup-azure-microsoft-azure-backup.md)
+- [Förbereda säkerhetskopiering av arbetsbelastningar med Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 
 ### <a name="manage-recovery-points"></a>Hantera återställningspunkter
-- [Hantera Virtuella Azure-säkerhetskopiering](backup-azure-manage-vms.md)
+- [Hantera Virtuella Azure-säkerhetskopieringar](backup-azure-manage-vms.md)
 - [Hantera filer och mappar](backup-azure-manage-windows-server.md)
 
 ### <a name="restore-data-from-the-vault"></a>Återställa data från valvet
-- [Återställa enskilda filer från en Azure VM](backup-azure-restore-files-from-vm.md)
-- [Återställa en virtuell dator i Azure](backup-azure-arm-restore-vms.md)
+- [Återställa enskilda filer från en Azure-dator](backup-azure-restore-files-from-vm.md)
+- [Återställa en Azure virtuell dator](backup-azure-arm-restore-vms.md)
 
 ### <a name="secure-the-vault"></a>Skydda valvet
-- [Skydda säkerhetskopierade data från molnet i Recovery Services-valv](backup-azure-security-feature.md)
+- [Skydda molnet säkerhetskopierade data i Recovery Services-valv](backup-azure-security-feature.md)
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 Använd följande artiklar för att:</br>
 [Säkerhetskopiera en IaaS VM](backup-azure-arm-vms-prepare.md)</br>
-[Säkerhetskopiera en Azure Backup-Server](backup-azure-microsoft-azure-backup.md)</br>
-[Säkerhetskopiera Windows Server](backup-configure-vault.md)
+[Säkerhetskopiera en Azure Backup Server](backup-azure-microsoft-azure-backup.md)</br>
+[Säkerhetskopiera en Windows-Server](backup-configure-vault.md)

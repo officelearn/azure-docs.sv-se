@@ -7,14 +7,14 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 08/09/2018
 ms.author: sujayt
-ms.openlocfilehash: a41cd658060ef92efb0fc21a98ca616276378c5e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 86d6c77dab817cf755c34bdd699ee1158e852f37
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113862"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42057293"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Felsöka problem med Azure till Azure VM-replikering
 
@@ -120,20 +120,20 @@ Eftersom SuSE Linux använder symlinks för att underhålla en lista över certi
       ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
       -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
 
-11. Om provisioningState är misslyckades, kontakta supporten med information om hur du felsöker.
+11. Skapa en kopia av filen VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem med filename b204d74a.0
 
     ``# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
 
-12. Om provisioningState är uppdaterar, ytterligare ett tillägg kunde komma distribueras.
+12. Skapa en kopia av filen Baltimore_CyberTrust_Root.pem med filename 653b494a.0
 
     ``# cp Baltimore_CyberTrust_Root.pem 653b494a.0``
 
-13. Kontrollera om det finns några pågående åtgärder på den virtuella datorn, vänta tills de slutförts och försök misslyckade Site Recovery Aktivera replikering jobbet.
+13. Skapa en kopia av filen DigiCert_Global_Root_CA.pem med filename 3513523f.0
 
     ``# cp DigiCert_Global_Root_CA.pem 3513523f.0``  
 
 
-14. COM +/ fel i tjänsten Volume Shadow Copy (felkod 151025)  
+14. Kontrollera om filerna finns.  
 
     - Kommando
 
@@ -146,14 +146,46 @@ Eftersom SuSE Linux använder symlinks för att underhålla en lista över certi
       -rw-r--r-- 1 root root 1774 Jan  8 09:52 b204d74a.0``
 
 
-## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>151025
+## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Utgående anslutning för Site Recovery-webbadresser eller IP-intervall (felkod: 151037 eller 151072)
 
-Meddelandet: Det gick inte att installera Site recovery-tillägget -, COM + System Application-tjänsten är inaktiverad.
+För Site Recovery-replikering till arbete, utgående anslutning till specifika URL: er eller IP-intervall krävs från den virtuella datorn. Om den virtuella datorn finns bakom en brandvägg eller använder regler för nätverkssäkerhetsgrupper (NSG) för att styra utgående anslutningar, kan du står inför ett av de här problemen.
 
-**Felkoder** | **Möjliga orsaker** | **Rekommendationer**
---- | --- | ---
-151037<br></br>**-'Volume Shadow Copy-tjänsten är inaktiverad. | Ange ”COM + System Application” och ”Volume Shadow Copy-tjänster till automatiskt eller manuellt startläge.</br></br>Du kan öppna ”tjänster”-konsolen och se till att den ”COM + System Application” och ”Volume Shadow Copy” har angetts inte till ”Disabled” för ”starttyp”.</br>| COM-fel Mer information finns i [proxy vägledning i brandväggen](https://aka.ms/a2a-firewall-proxy-guidance).</br></br>– Om du använder NSG-regler för att styra utgående nätverksanslutning på den virtuella datorn, se till att datacentrets IP-intervall är godkänd. Mer information finns i [network grupp säkerhetsvägledning](https://aka.ms/a2a-nsg-guidance).
-151072<br></br>**Meddelandet**: Site Recovery-konfigurationen misslyckades. | Att går inte ansluta till Site Recovery-Tjänsteslutpunkter. | COM-fel Mer information finns i [proxy vägledning i brandväggen](https://aka.ms/a2a-firewall-proxy-guidance).</br></br>– Om du använder NSG-regler för att styra utgående nätverksanslutning på den virtuella datorn, se till att datacentrets IP-intervall är godkänd. Mer information finns i [network grupp säkerhetsvägledning](https://aka.ms/a2a-nsg-guidance).
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151037-br"></a>Problem 1: Det gick inte att registrera Azure-dator med Site Recovery (151037) </br>
+- **Möjlig orsak** </br>
+  - Du använder NSG för att styra utgående åtkomst på den virtuella datorn och de obligatoriska IP-adressintervall inte godkänd för utgående åtkomst.
+  - Du använder brandväggsverktyg från tredje part och nödvändiga IP-intervallen/webbadresserna är inte godkänd.
+
+
+- **Lösning**
+   - Om du använder brandväggsproxy för att styra utgående nätverksanslutning på den virtuella datorn, kan du kontrollera att nödvändiga webbadresser eller datacentrets IP-intervall är godkänd. Mer information finns i [proxy vägledning i brandväggen](https://aka.ms/a2a-firewall-proxy-guidance).
+   - Om du använder NSG-regler för att styra utgående nätverksanslutning på den virtuella datorn, se till att datacentrets IP-intervall är godkänd. Mer information finns i [network grupp säkerhetsvägledning](https://aka.ms/a2a-nsg-guidance).
+   - Godkänna [de URL: erna](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) eller [krävs för IP-intervall](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), följer du stegen i den [vägledningsdokumentet nätverk om](site-recovery-azure-to-azure-networking-guidance.md).
+
+### <a name="issue-2-site-recovery-configuration-failed-151072"></a>Problem 2: Site Recovery-konfigurationen misslyckades (151072)
+- **Möjlig orsak** </br>
+  - Att går inte ansluta till Site Recovery-Tjänsteslutpunkter
+
+
+- **Lösning**
+   - Om du använder brandväggsproxy för att styra utgående nätverksanslutning på den virtuella datorn, kan du kontrollera att nödvändiga webbadresser eller datacentrets IP-intervall är godkänd. Mer information finns i [proxy vägledning i brandväggen](https://aka.ms/a2a-firewall-proxy-guidance).
+   - Om du använder NSG-regler för att styra utgående nätverksanslutning på den virtuella datorn, se till att datacentrets IP-intervall är godkänd. Mer information finns i [network grupp säkerhetsvägledning](https://aka.ms/a2a-nsg-guidance).
+   - Godkänna [de URL: erna](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) eller [krävs för IP-intervall](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), följer du stegen i den [vägledningsdokumentet nätverk om](site-recovery-azure-to-azure-networking-guidance.md).
+
+### <a name="issue-3-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>Problem 3: A2A-replikeringen misslyckades när nätverkstrafiken som går via en lokal proxyserver (151072)
+ - **Möjlig orsak** </br>
+   - De anpassade proxyinställningarna är ogiltiga och mobilitetstjänstagenten för ASR identifieras inte automatiskt proxyinställningar från Internet Explorer
+
+
+ - **Lösning**
+  1.    Mobilitetstjänstagenten identifierar proxyinställningar från Internet Explorer på Windows och /etc/environment i Linux.
+  2.  Om du föredrar att ställa in proxy endast för ASR-Mobilitetstjänsten kan ange du proxyinformationen i ProxyInfo.conf som finns på:</br>
+      - ``/usr/local/InMage/config/`` på ***Linux***
+      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` på ***Windows***
+  3.    ProxyInfo.conf ska ha rätt proxyinställningar har följande INI-format. </br>
+                   *[proxy]*</br>
+                   *Adress =http://1.2.3.4*</br>
+                   *Port = 567*</br>
+  4. ASR mobilitetstjänstagenten stöder endast ***oautentiserade proxyservrar***.
 
 ### <a name="fix-the-problem"></a>Åtgärda problemet
 Godkänna [de URL: erna](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) eller [krävs för IP-intervall](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), följer du stegen i den [vägledningsdokumentet nätverk om](site-recovery-azure-to-azure-networking-guidance.md).
@@ -213,6 +245,20 @@ Om du vill aktivera replikering på den virtuella datorn, Etableringsstatus mås
 - Om **provisioningState** är **misslyckades**, kontakta supporten med information om hur du felsöker.
 - Om **provisioningState** är **uppdaterar**, ytterligare ett tillägg kunde komma distribueras. Kontrollera om det finns några pågående åtgärder på den virtuella datorn, vänta tills de slutförts och försök misslyckade Site Recovery **Aktivera replikering** jobbet.
 
+## <a name="unable-to-select-target-virtual-network---network-selection-tab-is-grayed-out"></a>Det går inte att välja mål virtuellt nätverk – fliken för val av nätverk är nedtonat.
+
+**Orsak 1: Om den virtuella datorn är ansluten till ett nätverk som har redan mappats till ett Målnätverk.**
+- Om den Virtuella källdatorn är en del av ett virtuellt nätverk och en annan virtuell dator från samma virtuella nätverk har redan mappats till ett nätverk i målresursgruppen, kommer sedan av nätverket standardvalet nedrullningsbara att inaktiveras.
+
+![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png)
+
+**Orsak 2: Om du tidigare har skyddat den virtuella datorn med hjälp av Azure Site Recovery och inaktiverat replikeringen.**
+ - Inaktivera replikering för en virtuell dator tas inte bort mappning av nätverket. Det måste tas bort från det recovery service-valv där den virtuella datorn har skyddats. </br>
+ Gå till recovery service-valv > Site Recovery-infrastruktur > nätverksmappning. </br>
+ ![Delete_NW_Mapping](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
+ - Målnätverket som konfigurerades vid installationen för disaster recovery kan ändras efter det första konfigurera när den virtuella datorn är skyddad. </br>
+ ![Modify_NW_mapping](./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png)
+ - Observera att om du ändrar nätverksmappning påverkas alla skyddade virtuella datorer som använder den specifika nätverksmappningen.
 
 
 ## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>COM +/ fel i tjänsten Volume Shadow Copy (felkod 151025)

@@ -10,12 +10,12 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: PowerShell, runbook, json, azure automation
-ms.openlocfilehash: 9fa60a56ecbff802e69e01e038bb45c7a6639873
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 1bdeef02621924bbb7af1e676d2b275229761081
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435774"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42054761"
 ---
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>Skicka ett JSON-objekt till en Azure Automation-runbook
 
@@ -23,7 +23,7 @@ Det kan vara praktiskt att lagra data som du vill skicka till en runbook i en JS
 Du kan till exempel skapa en JSON-fil som innehåller alla parametrar som du vill skicka till en runbook.
 Detta gör måste du konvertera JSON till en sträng och sedan konvertera strängen till ett PowerShell-objekt innan innehållet i runbooken.
 
-I det här exemplet ska vi skapa ett PowerShell-skript som anropar [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) att starta en PowerShell-runbook, skicka innehållet i JSON till runbook.
+I det här exemplet ska vi skapa ett PowerShell-skript som anropar [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) att starta en PowerShell-runbook, skicka innehållet i JSON till runbook.
 PowerShell-runbook startar en Azure-dator, hämtar parametrarna för den virtuella datorn från JSON som skickades in.
 
 ## <a name="prerequisites"></a>Förutsättningar

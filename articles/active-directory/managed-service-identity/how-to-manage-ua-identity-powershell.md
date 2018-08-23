@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: 31a632138a4946accfcab858b7b61782fb4e7d72
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 3c4aa6d91d5f8c1e28cb52f6846f6ac9feeb4edd
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005379"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42058783"
 ---
 # <a name="create-list-or-delete-a-user-assigned-identity-using-azure-powershell"></a>Skapa, visa eller ta bort en Användartilldelad identitet med hjälp av Azure PowerShell
 
@@ -34,16 +34,15 @@ I den här artikeln får du lära dig skapa, visa och ta bort en Användartillde
 - Om du är bekant med hanterad tjänstidentitet kan ta en titt på [översiktsavsnittet](overview.md). **Se till att granska den [skillnaden mellan en systemtilldelad och Användartilldelad identitet](overview.md#how-does-it-work)**.
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
 - Installera [den senaste versionen av Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) om du inte redan har gjort.
-- Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-Modulversion 5.7.0-installationsprogram eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+- Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-Modulversion 5.7.0-installationsprogram eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). 
+- Om du kör PowerShell lokalt måste behöva du också: 
+    - Kör `Login-AzureRmAccount` för att skapa en anslutning med Azure.
+    - Installera den [senaste versionen av PowerShellGet](/powershell/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
+    - Kör `Install-Module -Name PowerShellGet -AllowPrerelease` att hämta förhandsversionen av den `PowerShellGet` modulen (du kan behöva `Exit` utanför den aktuella PowerShell-sessionen när du har kört det här kommandot för att installera den `AzureRM.ManagedServiceIdentity` modul).
+    - Kör `Install-Module -Name AzureRM.ManagedServiceIdentity -AllowPrerelease` du installerar förhandsversionen av den `AzureRM.ManagedServiceIdentity` modulen för att utföra användaren tilldelas identitet åtgärder i den här artikeln.
 - Ditt konto måste följande rolltilldelningar för att utföra vilka hanteringsåtgärder i den här artikeln:
     - [Hanterad Identitetsdeltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rollen kan skapa, läsa (lista), uppdatera och ta bort en Användartilldelad identitet.
     - [Hanterade Identitetsoperatör](/azure/role-based-access-control/built-in-roles#managed-identity-operator) roll att läsa (lista) egenskaperna för en Användartilldelad identitet.
-
-> [!NOTE]
-> Medan användartilldelade är identiteter fortfarande i förhandsversion måste du manuellt installera modulen AzureRM.ManagedServiceIdentity med följande kommando. 
-```azurepowershell-interactive
-Install-Module -Name AzureRM.ManagedServiceIdentity -AllowPrerelease
-```
 
 ## <a name="create-a-user-assigned-identity"></a>Skapa en användartilldelad identitet
 

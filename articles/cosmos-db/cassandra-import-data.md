@@ -2,7 +2,7 @@
 title: Importera Cassandra-data till Azure Cosmos DB | Microsoft Docs
 description: Lär dig hur du kopierar Cassandra-data till Azure Cosmos DB med hjälp av Copy-kommandot i CQL.
 services: cosmos-db
-author: govindk
+author: kanshiG
 manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
-ms.openlocfilehash: 73c9f1fc26f5cb36cc475a66b67705c6177bebf8
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: b53328875f2242faba369dea0df655bc78117009
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37095680"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41918106"
 ---
 # <a name="azure-cosmos-db-import-cassandra-data"></a>Azure Cosmos DB: Importera Cassandra-data
 
@@ -29,7 +29,7 @@ Den här självstudien omfattar följande uppgifter:
 > * Importera data med hjälp av COPY-kommandot i cqlsh
 > * Importera med Apache Spark-anslutningsappen 
 
-# <a name="prerequisites"></a>Förutsättningar
+# <a name="prerequisites"></a>Nödvändiga komponenter
 
 * Installera [Apache Cassandra](http://cassandra.apache.org/download/) och kontrollera särskilt att du ser *cqlsh*.
 * Öka dataflödet: Hur lång tid migreringen tar beror på hur stort dataflöde du har etablerat för dina tabeller. Vi rekommenderar att du ökar dataflödet för större datamigreringar. När du har slutfört migreringen minskar du dataflödet för att spara kostnader. Mer information om hur du ökar dataflödet på [Azure Portal](https://portal.azure.com) finns i [Set throughput for Azure Cosmos DB containers](set-throughput.md) (Ange dataflöde för Azure Cosmos DB-behållare).

@@ -14,18 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: jeconnoc
-ms.openlocfilehash: c46c0665eefd7615bf90aeca7b918ddf9195237f
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 4c4b5491bba072ba22ec20e164b7315691877a22
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004871"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42059198"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>Aktivera diagnostik i Azure Cloud Services med hjälp av PowerShell
 Du kan samla in diagnostikdata som Programloggar, prestandaräknare osv från en molntjänst med Azure Diagnostics-tillägget. Den här artikeln beskriver hur du aktiverar Azure Diagnostics-tillägget för en molntjänst med hjälp av PowerShell.  Se [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) för kraven för den här artikeln.
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>Aktivera diagnostiktillägget som en del av distributionen av en molntjänst
-Den här metoden kan användas för kontinuerlig integrering typ av scenarier, där du kan aktivera diagnostiktillägget som en del av distributionen av Molntjänsten. När du skapar en ny molntjänst-distribution kan du aktivera diagnostics-tillägg genom att skicka in den *ExtensionConfiguration* parametern till den [New AzureDeployment](/powershell/module/azure/new-azuredeployment?view=azuresmps-3.7.0) cmdlet. Den *ExtensionConfiguration* parametern tar en rad diagnostikkonfigurationer som kan skapas med hjälp av den [New AzureServiceDiagnosticsExtensionConfig](/powershell/module/azure/new-azureservicediagnosticsextensionconfig?view=azuresmps-3.7.0) cmdlet.
+Den här metoden kan användas för kontinuerlig integrering typ av scenarier, där du kan aktivera diagnostiktillägget som en del av distributionen av Molntjänsten. När du skapar en ny molntjänst-distribution kan du aktivera diagnostics-tillägg genom att skicka in den *ExtensionConfiguration* parametern till den [New AzureDeployment](/powershell/module/servicemanagement/azure/new-azuredeployment?view=azuresmps-3.7.0) cmdlet. Den *ExtensionConfiguration* parametern tar en rad diagnostikkonfigurationer som kan skapas med hjälp av den [New AzureServiceDiagnosticsExtensionConfig](/powershell/module/servicemanagement/azure/new-azureservicediagnosticsextensionconfig?view=azuresmps-3.7.0) cmdlet.
 
 I följande exempel visas hur du kan aktivera diagnostik för en molntjänst med en WebRole och WorkerRole, var och en med en annan diagnostik-konfiguration.
 
@@ -97,7 +97,7 @@ $workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "Worke
 ```
 
 ## <a name="enable-diagnostics-extension-on-an-existing-cloud-service"></a>Aktivera diagnostiktillägg i en befintlig molntjänst
-Du kan använda den [Set-AzureServiceDiagnosticsExtension](/powershell/module/azure/set-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet för att aktivera eller uppdatera konfigurationen för diagnostik på en molnbaserad tjänst som körs redan.
+Du kan använda den [Set-AzureServiceDiagnosticsExtension](/powershell/module/servicemanagement/azure/set-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet för att aktivera eller uppdatera konfigurationen för diagnostik på en molnbaserad tjänst som körs redan.
 
 [!INCLUDE [cloud-services-wad-warning](../../includes/cloud-services-wad-warning.md)]
 
@@ -113,14 +113,14 @@ Set-AzureServiceDiagnosticsExtension -DiagnosticsConfiguration @($webrole_diagco
 ```
 
 ## <a name="get-current-diagnostics-extension-configuration"></a>Hämta den aktuella konfigurationen för diagnostiktillägg
-Använd den [Get-AzureServiceDiagnosticsExtension](/powershell/module/azure/get-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet för att hämta den aktuella diagnostikkonfigurationen för en tjänst i molnet.
+Använd den [Get-AzureServiceDiagnosticsExtension](/powershell/module/servicemanagement/azure/get-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet för att hämta den aktuella diagnostikkonfigurationen för en tjänst i molnet.
 
 ```powershell
 Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
 ## <a name="remove-diagnostics-extension"></a>Ta bort diagnostiktillägg
-Inaktivera diagnostik på en molnbaserad tjänst som du kan använda den [Remove-AzureServiceDiagnosticsExtension](/powershell/module/azure/remove-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet.
+Inaktivera diagnostik på en molnbaserad tjänst som du kan använda den [Remove-AzureServiceDiagnosticsExtension](/powershell/module/servicemanagement/azure/remove-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet.
 
 ```powershell
 Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"

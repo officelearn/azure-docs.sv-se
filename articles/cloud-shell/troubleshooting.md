@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: f954e726aabb34f74d81580e3afc08f2b0b9914b
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 0056364883d5a4a350e5b35374e1fc3abd0c7bea
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619414"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42054781"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Felsökning av & begränsningar i Azure Cloud Shell
 
@@ -31,6 +31,11 @@ Kända lösningar för att felsöka problem i Azure Cloud Shell omfattar:
 
 - **Information om**: Cloud Shell använder en öppen websocket att skicka indata/utdata till din webbläsare. FireFox har förinställda principer som kan stänga websocket tidigt orsakar tidig tidsgränser i Cloud Shell.
 - **Lösning**: öppna FireFox och navigera till ”om: config” i dialogrutan. Sök efter ”network.websocket.timeout.ping.request” och ändra värdet från 0 till 10.
+
+### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>Inaktivera Cloud Shell i ett låst nätverk miljö
+
+- **Information om**: Administratörer kan inaktivera åtkomst till Cloud Shell för sina användare. Cloudshell använder åtkomst till den `ux.console.azure.com` domäner som kan nekas, stoppas alla åtkomst till Cloud Shell entrypoints inklusive portal.azure.com, shell.azure.com, Visual Studio Code Azure-kontotillägg och docs.microsoft.com.
+- **Lösning**: begränsa åtkomst till `ux.console.azure.com` via nätverksinställningar för din miljö. Cloud Shell-ikonen finns kvar i portal.azure.com, men ansluta inte till tjänsten.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Storage-dialogruta - fel: 403 RequestDisallowedByPolicy
 

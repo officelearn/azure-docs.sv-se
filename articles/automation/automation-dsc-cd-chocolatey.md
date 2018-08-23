@@ -9,12 +9,12 @@ ms.author: dacoulte
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8f3c008ad58ed7e274ffe0e9f670b4303d057182
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: dc0e49f2857468338f6e1f16462ed814893ea6e7
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003995"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42054554"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Användningsexempel: Kontinuerlig distribution till virtuella datorer med Automation-Tillståndskonfiguration och Chocolatey
 
@@ -194,6 +194,11 @@ Du behöver använda Resource Manager-mall och VM-tillägget för att använda d
 Naturligtvis när du uppdaterar ett paket på en virtuell dator som är i produktion, måste du koppla den virtuella datorn bort från roteringen medan uppdateringen är installerad. Så här gör du varierar mycket. Till exempel med en virtuell dator bakom en belastningsutjämnare för Azure, du kan lägga till en anpassad avsökning. Vid uppdatering av den virtuella datorn, har du avsökningen slutpunkten returnerar en 400. Justering krävs för att göra den här ändringen kan ingå i din konfiguration kan justera om du vill växla tillbaka till returnerar 200 när uppdateringen är klar.
 
 Fullständig källan för det här exemplet användningen är i [Visual Studio-projekt](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) på GitHub.
+
+## <a name="related-articles"></a>Relaterade artiklar
+* [Översikt över Azure Automation DSC](automation-dsc-overview.md)
+* [Azure Automation DSC-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.automation#automation)
+* [Konfigurera datorer för hantering av Azure Automation DSC](automation-dsc-onboarding.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

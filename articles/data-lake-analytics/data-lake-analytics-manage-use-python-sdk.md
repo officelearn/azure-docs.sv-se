@@ -1,5 +1,5 @@
 ---
-title: Hantera Azure Data Lake Analytics använder Python
+title: Hantera Azure Data Lake Analytics med hjälp av Python
 description: Den här artikeln beskriver hur du använder Python för att hantera Data Lake Analytics-konton, datakällor, användare och jobb.
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -10,14 +10,14 @@ editor: jasonwhowell
 ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: 2f3912069b54b3ad761493f02336d8d58866f53a
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: c6f97f7bad6eada962623e7efc5d7ed010dc9ebe
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261468"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42060228"
 ---
-# <a name="manage-azure-data-lake-analytics-using-python"></a>Hantera Azure Data Lake Analytics använder Python
+# <a name="manage-azure-data-lake-analytics-using-python"></a>Hantera Azure Data Lake Analytics med hjälp av Python
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Den här artikeln beskriver hur du hanterar Azure Data Lake Analytics-konton, datakällor, användare och jobb med hjälp av Python.
@@ -26,16 +26,16 @@ Den här artikeln beskriver hur du hanterar Azure Data Lake Analytics-konton, da
 
 * Använda en 64-bitars version av Python.
 * Du kan använda standard Python-distribution finns på  **[Python.org hämtar](https://www.python.org/downloads/)**. 
-* Många utvecklare praktiskt att använda den  **[Anaconda Python-distribution](https://www.continuum.io/downloads)**.  
-* Den här artikeln skrevs med Python version 3,6 från standard Python-distribution
+* Många utvecklare tycker att det är praktiskt att använda den  **[Anaconda Python-distribution](https://www.anaconda.com/download/)**.  
+* Den här artikeln skrevs med hjälp av Python version 3.6 från standard Python-distribution
 
 ## <a name="install-azure-python-sdk"></a>Installera Azure Python SDK
 
 Installera följande moduler:
 
-* Den **azure-mgmt-resurs** modulen innehåller andra Azure-moduler för Active Directory, osv.
-* Den **azure datalake store** modulen innehåller filsystemsåtgärder Azure Data Lake Store. 
-* Den **azure-mgmt-datalake-store** modulen innehåller hanteringsåtgärder för Azure Data Lake Store-konto.
+* Den **azure-mgmt-resource** modulen innehåller andra Azure-moduler för Active Directory osv.
+* Den **azure-datalake-store** modulen innehåller Azure Data Lake Store-filsystemsåtgärder. 
+* Den **azure-mgmt-datalake-store** modulen innehåller Azure Data Lake Store-kontohanteringsåtgärder.
 * Den **azure-mgmt-datalake-analytics** modulen innehåller Azure Data Lake Analytics-åtgärder. 
 
 Kontrollera först att du har senast `pip` genom att köra följande kommando:
@@ -44,7 +44,7 @@ Kontrollera först att du har senast `pip` genom att köra följande kommando:
 python -m pip install --upgrade pip
 ```
 
-Det här dokumentet har skrivits `pip version 9.0.1`.
+Det här dokumentet skrevs med `pip version 9.0.1`.
 
 Använd följande `pip` kommandon för att installera modulerna från kommandoraden:
 
@@ -55,7 +55,7 @@ pip install azure-mgmt-datalake-store
 pip install azure-mgmt-datalake-analytics
 ```
 
-## <a name="create-a-new-python-script"></a>Skapa ett nytt Python-skript
+## <a name="create-a-new-python-script"></a>Skapa ett nytt pythonskript
 
 Klistra in följande kod i skriptet:
 
@@ -100,7 +100,7 @@ Kör skriptet för att kontrollera att modulerna som kan importeras.
 
 Den här metoden stöds inte.
 
-### <a name="interactive-user-authentication-with-a-device-code"></a>Interaktiv användarautentisering med en kod för enheten
+### <a name="interactive-user-authentication-with-a-device-code"></a>Interaktiv användarautentisering med en kod för enhet
 
 ```python
 user = input('Enter the user to authenticate with that has permission to subscription: ')
@@ -130,7 +130,7 @@ adls = '<Azure Data Lake Store Account Name>'
 adla = '<Azure Data Lake Analytics Account Name>'
 ```
 
-## <a name="create-the-clients"></a>Skapa klienterna
+## <a name="create-the-clients"></a>Skapa klienter
 
 ```python
 resourceClient = ResourceManagementClient(credentials, subid)
@@ -146,7 +146,7 @@ armGroupResult = resourceClient.resource_groups.create_or_update( rg, ResourceGr
 
 ## <a name="create-data-lake-analytics-account"></a>Skapa ett Data Lake Analytics-konto
 
-Skapa först en store-konto.
+Skapa först ett store-konto.
 
 ```python
 adlsAcctResult = adlsAcctClient.account.create(
@@ -157,7 +157,7 @@ adlsAcctResult = adlsAcctClient.account.create(
     )
 ).wait()
 ```
-Skapa sedan en ADLA-konto som använder detta Arkiv.
+Skapa sedan ett ADLA-konto som använder det arkivet.
 
 ```python
 adlaAcctResult = adlaAcctClient.account.create(
@@ -211,8 +211,8 @@ while(jobResult.state != JobState.ended):
 print ('Job finished with result: ' + jobResult.result.value)
 ```
 
-## <a name="list-pipelines-and-recurrences"></a>Lista pipelines och repetitioner
-Beroende på om dina jobb har pipeline eller återkommande metadata kopplade kan visa du pipelines och repetitioner.
+## <a name="list-pipelines-and-recurrences"></a>Lista över pipelines och upprepningar
+Beroende på om dina jobb har pipelinen eller en återkommande metadata som är ansluten kan visa du pipelines och upprepningar.
 
 ```python
 pipelines = adlaJobClient.pipeline.list(adla)
@@ -228,9 +228,9 @@ for r in recurrences:
 
 Objektet DataLakeAnalyticsAccountManagementClient ger metoder för att hantera principer för beräkning för ett Data Lake Analytics-konto.
 
-### <a name="list-compute-policies"></a>Lista principer för beräkning
+### <a name="list-compute-policies"></a>Lista beräkning principer
 
-Följande kod hämtar en lista över beräkning principer för ett Data Lake Analytics-konto.
+Följande kod hämtar en lista över principer för beräkning för ett Data Lake Analytics-konto.
 
 ```python
 policies = adlaAccountClient.computePolicies.listByAccount(rg, adla)
@@ -240,7 +240,7 @@ for p in policies:
 
 ### <a name="create-a-new-compute-policy"></a>Skapa en ny princip för beräkning
 
-Följande kod skapar en ny princip för beräkning för ett Data Lake Analytics-konto, ange de maximala Australien som är tillgängliga till den angivna användaren till 50 och minsta jobbets prioritet 250.
+Följande kod skapar en ny princip för beräkning för ett Data Lake Analytics-konto, ange de maximala AU: er tillgängliga till den angivna användaren till mellan 50 och den minsta prioriteten till 250.
 
 ```python
 userAadObjectId = "3b097601-4912-4d41-b9d2-78672fc2acde"

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: victorh
-ms.openlocfilehash: b19f3f52340501076d896d1f9f7cc6cb755bdc69
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ea4fd94a00e1d22021417373da0b3fcffea4d120
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432675"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42057305"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Skapa en Programgateway med extern omdirigering med Azure CLI
 
@@ -48,7 +48,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Skapa nätverksresurser 
 
-Skapa ett virtuellt nätverk med namnet *myVNet* och ett undernät med namnet *myAGSubnet* med [az network vnet create](/cli/azure/network/vnet#az-net). Skapa den offentliga IP-adressen med namnet *myAGPublicIPAddress* med [az network public-ip create](/cli/azure/public-ip#az-network_public_ip_create). De här resurserna används för att ge nätverksanslutning till programgatewayen och tillhörande resurser.
+Skapa ett virtuellt nätverk med namnet *myVNet* och ett undernät med namnet *myAGSubnet* med [az network vnet create](/cli/azure/network/vnet#az-net). Skapa den offentliga IP-adressen med namnet *myAGPublicIPAddress* med [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create). De här resurserna används för att ge nätverksanslutning till programgatewayen och tillhörande resurser.
 
 ```azurecli-interactive
 az network vnet create \
@@ -65,7 +65,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
-Du kan använda [az network application-gateway create](/cli/azure/application-gateway#create) till att skapa en programgateway med namnet *myAppGateway*. När du skapar en programgateway med hjälp av Azure CLI anger du konfigurationsinformation som kapacitet, sku och HTTP-inställningar. Programgatewayen tilldelas till *myAGSubnet* och *myPublicIPAddress* som du skapade tidigare. 
+Du kan använda [az network application-gateway create](/cli/azure/network/application-gateway#create) till att skapa en programgateway med namnet *myAppGateway*. När du skapar en programgateway med hjälp av Azure CLI anger du konfigurationsinformation som kapacitet, sku och HTTP-inställningar. Programgatewayen tilldelas till *myAGSubnet* och *myPublicIPAddress* som du skapade tidigare. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -106,7 +106,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-a-listener-and-routing-rule"></a>Lägg till en lyssnare och en regel för vidarebefordran
 
-En lyssnare krävs för att aktivera application-gateway för att dirigera trafik på rätt sätt. Skapa lyssnaren med [az network application-gateway http-listener skapa](/cli/azure/application-gateway#az-network_application_gateway_http_listener_create) med frontend-port som skapats med [az network application-gateway frontend-port skapar](/cli/azure/application-gateway#az-network_application_gateway_frontend_port_create). En regel måste anges för lyssnaren veta vart du ska skicka inkommande trafik. Skapa en grundläggande regel med namnet *redirectRule* med [az network application-gateway rule skapa](/cli/azure/application-gateway#az-network_application_gateway_rule_create).
+En lyssnare krävs för att aktivera application-gateway för att dirigera trafik på rätt sätt. Skapa lyssnaren med [az network application-gateway http-listener skapa](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create) med frontend-port som skapats med [az network application-gateway frontend-port skapar](/cli/azure/network/application-gateway#az-network_application_gateway_frontend_port_create). En regel måste anges för lyssnaren veta vart du ska skicka inkommande trafik. Skapa en grundläggande regel med namnet *redirectRule* med [az network application-gateway rule skapa](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create).
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \

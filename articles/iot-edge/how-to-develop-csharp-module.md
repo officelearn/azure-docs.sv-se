@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 06/27/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a895f21bc061763b1d5d45b2bedb44fc932190dc
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 212de83a88f5a8114454761121ee3f22830d2448
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345233"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42057312"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka C#-moduler för Azure IoT Edge
 
@@ -72,7 +72,7 @@ Det finns fyra objekt inne i lösningen:
 
 * En **deployment.template.json** filen visar en lista över dina nya modulen tillsammans med ett exempel **tempSensor** modul som simulerar data som du kan använda för testning. Mer information om hur distribution manifest work finns i [Lär dig hur du använder distribution manifest för att distribuera moduler och upprätta vägar](module-composition.md). 
 
-## <a name="devlop-your-module"></a>Devlop din modul
+## <a name="develop-your-module"></a>Utveckla din modell
 
 Standard Azure Function-koden som medföljer lösningen finns i **moduler** > **\<din Modulnamn\>**   >   **Program.CS**. Modulen och filen deployment.template.json ställs in så att du kan skapa lösningen, push-överföra den till behållarregistret och distribuera den till en enhet för att börja testa utan att röra kod. Modulen är utformat för att helt enkelt ta indata från en källa (i det här fallet modulen tempSensor som simulerar data) och skicka det till IoT Hub. 
 

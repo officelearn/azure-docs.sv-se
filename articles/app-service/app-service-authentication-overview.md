@@ -1,6 +1,6 @@
 ---
 title: Autentisering och auktorisering i Azure App Service | Microsoft Docs
-description: Konceptuell referens- och översikt över autentisering / auktorisering funktion för Azure App Service
+description: Konceptuell referens och översikt över autentisering / auktorisering funktion för Azure App Service
 services: app-service
 documentationcenter: ''
 author: mattchenderson
@@ -14,28 +14,28 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
-ms.openlocfilehash: 6b536ba7792e66fe09ba2cc8a631dc5e934faaea
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 0b682b369bf0e0238b3930d89087db535faa8c53
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937984"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42060879"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autentisering och auktorisering i Azure App Service
 
-Azure Apptjänst innehåller inbyggda autentisering och auktorisering stöder, så att du kan logga in användare och få åtkomst till data genom att skriva minimal eller någon kod i ditt webbprogram, API och mobila serverdel och även [Azure Functions](../azure-functions/functions-overview.md). Den här artikeln beskriver hur Apptjänst hjälper till att förenkla autentisering och auktorisering för din app. 
+Azure App Service tillhandahåller inbyggd autentisering och autentisering stöder, så att du kan logga in användare och få åtkomst till data genom att skriva minimal eller ingen kod i din webbapp, API och mobil serverdel, och även [Azure Functions](../azure-functions/functions-overview.md). Den här artikeln beskrivs hur App Service hjälper dig att förenkla autentisering och auktorisering för din app. 
 
-Säker autentisering och auktorisering kräver djupgående förståelse för säkerhet, inklusive federation, kryptering, [JSON web token (JWT)](https://wikipedia.org/wiki/JSON_Web_Token) hantering, [bevilja typer](https://oauth.net/2/grant-types/)och så vidare. App Service tillhandahåller dessa verktyg så att du kan spendera mer tid och energi på att tillhandahålla business-värde till kunden.
+Säker autentisering och auktorisering kräver djup förståelse för säkerhet, inklusive federation, kryptering, [JSON web token (JWT)](https://wikipedia.org/wiki/JSON_Web_Token) hantering, [beviljandetyper](https://oauth.net/2/grant-types/)och så vidare. App Service tillhandahåller dessa verktyg så att du kan lägga mer tid och energi på att tillhandahålla affärsvärde till kunden.
 
 > [!NOTE]
-> Du inte behöver använda Apptjänst för autentisering och auktorisering. Ramverk för många webbserver är paketerade med säkerhetsfunktioner och du kan använda dem om du vill. Du kan också skriva egna verktyg om du behöver mer flexibilitet än App Service tillhandahåller.  
+> Du är inte krävs för att använda App Service för autentisering och auktorisering. Många webbramverk paketeras med säkerhetsfunktioner och du kan använda dem om du vill. Om du behöver mer flexibilitet än App Service tillhandahåller kan kan du också skriva egna verktyg.  
 >
 
-Information som är specifika för inbyggda mobila appar finns i [användarautentisering och auktorisering för mobila appar med Azure App Service](../app-service-mobile/app-service-mobile-auth.md).
+Information som är specifika för inbyggda mobilappar finns i [användarautentisering och auktorisering för mobila appar med Azure App Service](../app-service-mobile/app-service-mobile-auth.md).
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
-Autentisering och auktorisering modulen körs i samma sandbox som din programkod. När den är aktiverad passerar varje inkommande HTTP-begäran innan hanteras av din programkod.
+Autentisering och auktorisering modulen körs i samma sandlåda som din programkod. När den är aktiverad skickas varje inkommande HTTP-begäran via den innan du hanteras av din programkod.
 
 ![](media/app-service-authentication-overview/architecture.png)
 
@@ -44,38 +44,38 @@ Den här modulen hanterar flera saker för din app:
 - Autentiserar användare med den angivna providern
 - Verifierar, lagrar och uppdaterar token
 - Hanterar autentiserad session
-- Lägger in identitetsinformation i huvuden för begäran
+- Lägger in identitetsinformation i begärandehuvuden
 
-Modulen körs separat från din programkod och konfigureras med hjälp av app-inställningar. Det krävs inga SDK: er, specifika språk eller ändringar av programkoden. 
+Modulen körs avskilt från din programkod och konfigureras med hjälp av appinställningarna. Det krävs inga SDK: er, vissa språk eller ändringar i din programkod. 
 
 ### <a name="user-claims"></a>Användaranspråk
 
-För alla språkramverken tillgängliggör Apptjänst användarens anspråk till din kod genom att placera dem i huvuden för begäran. För ASP.NET 4.6 appar Apptjänst fylls [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) med den autentiserade användarens anspråk, så att du kan följa standardmönster för .NET-kod, inklusive den `[Authorize]` attribut. På samma sätt för PHP-appar Apptjänst fylls den `_SERVER['REMOTE_USER']` variabeln.
+För alla språkramverken tillgängliggör App Service användarens anspråk i koden genom att placera dem i de begärda rubrikerna. För ASP.NET 4.6 appar fyller på App Service [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) med den autentiserade användarens anspråk, så att du kan följa Standardmönstret för .NET-kod, inklusive den `[Authorize]` attribut. På samma sätt för PHP-appar, App Service fyller den `_SERVER['REMOTE_USER']` variabeln.
 
-För [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` inte ur för .NET-kod, men du fortfarande kan hitta användaranspråk i huvuden för begäran.
+För [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` inte är hydrerat för .NET-kod, men du kan fortfarande hitta användaranspråk i huvudena för begäran.
 
-Mer information finns i [åtkomst till användaranspråk](app-service-authentication-how-to.md#access-user-claims).
+Mer information finns i [komma åt användaranspråk](app-service-authentication-how-to.md#access-user-claims).
 
 ### <a name="token-store"></a>Tokenarkiv
 
-Apptjänst innehåller en inbyggd tokenarkiv som är en lagringsplats för token som är kopplade till användare av ditt webbprogram, API: er eller inbyggda mobila appar. När du aktiverar autentisering med valfri provider som är den här token store omedelbart tillgängliga för din app. Om din programkod som behöver åtkomst till data från dessa providers för användarens räkning som: 
+App Service tillhandahåller en inbyggd token store, som är en lagringsplats i de token som är kopplade till användare av dina webbappar, API: er och inbyggda mobilappar. När du aktiverar autentisering med valfri provider som är den här token store omedelbart tillgängliga för din app. Om din programkod behöver komma åt data från dessa providers för användarens räkning, till exempel: 
 
-- efter att den autentiserade användaren Facebook tidslinjen
-- läsa användarens företagets data från Azure Active Directory Graph API och även Microsoft Graph
+- Publicera till den autentiserade användarens Facebook-tidslinje
+- läsa användarens företagsdata från Azure Active Directory Graph API eller även Microsoft Graph
 
-Id-token, åtkomst-token och uppdateringstoken cachelagras för autentiserad session och de är endast kan nås av den associerade användaren.  
+Id-token, åtkomsttoken och uppdateringstoken cachelagras för den autentiserade sessionen och de är endast kan nås av den associerade användaren.  
 
-Vanligtvis måste du skriva kod för att samla in, lagra och uppdatera dessa token i ditt program. Med arkivet token som du precis [hämta token](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) när du behöver och [berätta Apptjänst att uppdatera dem](app-service-authentication-how-to.md#refresh-access-tokens) när de blir ogiltig. 
+Vanligtvis måste du skriva kod för att samla in, lagra och uppdatera dessa token i ditt program. Med token store, som du precis [hämta token](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) när du behöver dem och [berätta för App Service för att uppdatera dem](app-service-authentication-how-to.md#refresh-access-tokens) när de blir ogiltig. 
 
-Om du inte behöver arbeta med token i din app kan du inaktivera av tokenarkiv.
+Om du inte behöver arbeta med token i din app kan inaktivera du av tokenarkiv.
 
 ### <a name="logging-and-tracing"></a>Loggning och spårning
 
-Om du [aktivera programloggning](web-sites-enable-diagnostic-log.md), autentisering och auktorisering spårningar visas direkt i loggfilerna. Om du ser ett autentiseringsfel som du inte förväntar dig hittar du lätt allt genom att titta i din befintliga programloggar. Om du aktiverar [spårning av misslyckade begäranden](web-sites-enable-diagnostic-log.md), du kan se exakt vilken roll autentisering och auktorisering modulen kanske har spelat i en misslyckad begäran. Sök efter referenser till en modul med namnet i spårningsloggar, `EasyAuthModule_32/64`. 
+Om du [aktivera programloggning](web-sites-enable-diagnostic-log.md), autentisering och auktorisering spårningar visas direkt i loggfilerna. Om du ser ett autentiseringsfel som du inte förväntade dig kan hittar du smidigt all information genom att titta i din befintliga programloggar. Om du aktiverar [spårning av misslyckade begäranden](web-sites-enable-diagnostic-log.md), kan du se exakt vilken roll autentisering och auktorisering modulen kanske har spelat i en misslyckad begäran. Sök efter referenser till en modul med namnet i spårningsloggar, `EasyAuthModule_32/64`. 
 
 ## <a name="identity-providers"></a>Identitetsprovidrar
 
-Apptjänst använder [federerad identitet](https://en.wikipedia.org/wiki/Federated_identity), där en tredjeparts identitetsprovider hanterar användaridentiteter och autentiseringsflödet för dig. Det finns fem identitetsleverantörer som standard: 
+App Service använder [federerad identitet](https://en.wikipedia.org/wiki/Federated_identity), där en tredjeparts identitetsprovider hanterar användaridentiteter och autentiseringsflödet åt dig. Det finns fem identitetsleverantörer som standard: 
 
 | Leverantör | Logga in slutpunkt |
 | - | - |
@@ -85,39 +85,39 @@ Apptjänst använder [federerad identitet](https://en.wikipedia.org/wiki/Federat
 | [Google](https://developers.google.com/+/web/api/rest/oauth) | `/.auth/login/google` |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
 
-När du aktiverar autentisering och auktorisering med något av dessa providers är inloggning slutpunkten tillgänglig för autentisering och för verifiering av autentiseringstoken från leverantören. Du kan ge användarna med valfritt antal dessa inloggningsalternativ enkel. Du kan också integrera en annan identitetsleverantör eller [egna anpassade identitetslösning][custom-auth].
+När du aktiverar autentisering och auktorisering med någon av dessa providers kan är logga in som slutpunkt tillgänglig för användarautentisering och för verifiering av autentiseringstoken från providern. Du kan ange dina användare med valfritt antal dessa inloggningsalternativ enkelt. Du kan också integrera någon annan identitetsprovider eller [dina egna anpassade identitetslösning][custom-auth].
 
-## <a name="authentication-flow"></a>Autentiseringsflöde
+## <a name="authentication-flow"></a>Autentiseringsflödet
 
-Autentiseringsflödet är samma för alla leverantörer, men skiljer sig åt beroende på om du vill logga in med leverantörens SDK:
+Autentiseringsflödet är densamma för alla leverantörer, men skiljer sig beroende på om du vill logga in med leverantörens SDK:
 
-- Utan providern SDK: programmet delegerar federerad inloggning till App Service. Detta är vanligtvis fallet med webbläsarbaserade appar som kan medföra leverantörens inloggningssidan för användaren. Serverkoden hanterar processen inloggning så kallas även _server-riktade flödet_ eller _server flödet_. Det här fallet gäller för web apps. Det gäller även för interna appar som loggar in användare med Mobile Apps klient-SDK eftersom SDK öppnar en webbvy för att du loggar in användare med App Service-autentisering. 
-- Med SDK-provider: programmet loggar användaren manuellt och skickar sedan autentiseringstoken till App Service för verifiering. Detta är vanligtvis fallet med webbläsare mindre appar som inte finns leverantörens inloggningssidan för användaren. Programkoden hanterar processen inloggning så kallas även _klienten dirigeras flödet_ eller _flödet_. Det här fallet gäller för REST-API: er, [Azure Functions](../azure-functions/functions-overview.md), och JavaScript-webbläsarklienter, samt webbprogram som behöver mer flexibilitet i processen för inloggning. Det gäller även för inbyggda mobila appar som loggar in användare med leverantörens SDK.
+- Utan provider-SDK: programmet delegerar sammansluten inloggning till App Service. Detta är vanligtvis fallet med webbläsarbaserade appar som kan ge leverantörens inloggningssidan för användaren. Serverkoden hanterar inloggningsprocessen, det kallas även _server-riktade flow_ eller _server flow_. Det här fallet gäller till web apps. Det gäller även för interna appar som loggar in användare med SDK för Mobile Apps-klient eftersom SDK: N öppnar en webbvy för att du loggar in användare med App Service-autentisering. 
+- Med SDK-provider: programmet loggar användaren in manuellt och skickar sedan autentiseringstoken till App Service för verifiering. Detta är vanligtvis fallet med webbläsare utan appar som det går inte att presentera leverantörens på inloggningssidan för användaren. Programkoden hanterar inloggningsprocessen, det kallas även _klienten dirigeras flödet_ eller _klientflödet_. Det här fallet gäller för REST API: er, [Azure Functions](../azure-functions/functions-overview.md), JavaScript-webbläsarklienter, samt och web apps som behöver mer flexibilitet i processen för inloggning. Det gäller även för inbyggda mobilappar som loggar in användare i med hjälp av leverantörens SDK.
 
 > [!NOTE]
-> Anrop från en betrodd browser-appen i App Service anropar en annan REST-API i App Service eller [Azure Functions](../azure-functions/functions-overview.md) kan autentiseras med hjälp av server-riktade flödet. Mer information finns i [autentisera användare med Azure App Service]().
+> Anrop från en betrodd browser-appen i App Service anropar en annan REST-API i App Service eller [Azure Functions](../azure-functions/functions-overview.md) kan autentiseras med hjälp av server-riktade flödet. Mer information finns i [anpassa autentisering och auktorisering i Apptjänst](app-service-authentication-how-to.md).
 >
 
 Tabellen nedan visar stegen för autentiseringsflödet.
 
-| Steg | Utan providern SDK | Med SDK-provider |
+| Steg | Utan provider-SDK | Med SDK-provider |
 | - | - | - |
-| 1. Logga användare i | Dirigerar klienten att `/.auth/login/<provider>`. | Klientkod signerar användaren direkt med leverantörens SDK och tar emot en token för autentisering. Information finns i leverantörens dokumentation. |
-| 2. Efterautentisering | Providern dirigerar klienten att `/.auth/login/<provider>/callback`. | Klientkod anslår token från providern till `/.auth/login/<provider>` för verifiering. |
-| 3. Upprätta en autentiserad session | Apptjänst lägger till autentiserade cookie svar. | Apptjänst returnerar egna autentiseringstoken till klientkod. |
-| 4. Hantera autentiserade innehåll | Klienten inkluderar autentiseringscookien i efterföljande förfrågningar (hanteras automatiskt av webbläsare). | Klientkod är autentiseringstoken i `X-ZUMO-AUTH` huvud (hanteras automatiskt av Mobile Apps klienten SDK: er). |
+| 1. Registrera användare i | Omdirigerar klienten `/.auth/login/<provider>`. | Klientkoden loggar användaren in direkt med leverantörens SDK och får en autentiseringstoken. Information finns i leverantörens dokumentation. |
+| 2. Efterautentisering | Providern omdirigerar klienten `/.auth/login/<provider>/callback`. | Klientkoden inlägg token från providern `/.auth/login/<provider>` för verifiering. |
+| 3. Upprätta autentiserad session | App Service lägger till autentiserade cookie svar. | App Service returnerar egna autentiseringstoken till klientkod. |
+| 4. Hantera autentiserade innehåll | Klienten inkluderar autentiseringscookie i efterföljande förfrågningar (hanteras automatiskt av webbläsare). | Klientkoden presenterar autentiseringstoken i `X-ZUMO-AUTH` rubrik (hanteras automatiskt av Mobile Apps-klient SDK: er). |
 
-För klientens webbläsare Apptjänst automatiskt dirigera alla icke autentiserade användare till `/.auth/login/<provider>`. Du kan också visa användare med en eller flera `/.auth/login/<provider>` länkar för att logga in i appen med hjälp av providerns val.
+För klientens webbläsare, App Service kan dirigera alla oautentiserade användare till `/.auth/login/<provider>`. Du kan också visa användare med en eller flera `/.auth/login/<provider>` länkar för att logga in på din app med sina leverantörer föredrar.
 
 <a name="authorization"></a>
 
-## <a name="authorization-behavior"></a>Auktorisering beteende
+## <a name="authorization-behavior"></a>Beteende för auktorisering
 
-I den [Azure-portalen](https://portal.azure.com), kan du konfigurera App Service-auktorisering med ett antal beteenden.
+I den [Azure-portalen](https://portal.azure.com), du kan konfigurera App Service-auktorisering med ett antal beteenden.
 
 ![](media/app-service-authentication-overview/authorization-flow.png)
 
-Följande rubriker beskrivs alternativen.
+Följande rubriker beskrivs alternativ.
 
 ### <a name="allow-all-requests-default"></a>Tillåt alla förfrågningar (standard)
 
@@ -127,29 +127,29 @@ Välj det här alternativet om du inte behöver autentisering och auktorisering,
 
 ### <a name="allow-only-authenticated-requests"></a>Tillåt endast autentiserade begäranden
 
-Alternativet är **logga in med \<providern >**. Apptjänst dirigerar alla anonyma begäranden till `/.auth/login/<provider>` för providern som du väljer. Om anonym begäran kommer från en intern mobilapp, returnerade svaret är ett `HTTP 401 Unauthorized`.
+Alternativet är **logga in med \<providern >**. App Service omdirigerar alla anonyma förfrågningar till `/.auth/login/<provider>` för providern som du väljer. Om anonym begäran kommer från en intern mobilapp, returnerade svaret är ett `HTTP 401 Unauthorized`.
 
-Med det här alternativet behöver du inte skriva någon Autentiseringskod i appen. Ökad auktorisering, till exempel rollspecifika auktorisering, kan hanteras genom att kontrollera användarens anspråk (se [åtkomst till användaranspråk](app-service-authentication-how-to.md#access-user-claims)).
+Med det här alternativet behöver du inte skriva någon Autentiseringskod i din app. Mer detaljerad auktorisering, till exempel rollspecifika auktorisering, kan hanteras genom att kontrollera användarens anspråk (se [komma åt användaranspråk](app-service-authentication-how-to.md#access-user-claims)).
 
 ### <a name="allow-all-requests-but-validate-authenticated-requests"></a>Tillåt alla begäranden, men Validera autentiserade begäranden
 
-Alternativet är **Tillåt anonyma begäranden**. Det här alternativet aktiverar autentisering och auktorisering i Apptjänst, men skiljer sig auktoriseringsbeslut av programkoden. För autentiserade begäranden skickar också Apptjänst längs autentiseringsinformation i HTTP-rubriker. 
+Alternativet är **Tillåt anonyma förfrågningar**. Det här alternativet aktiverar autentisering och auktorisering i App Service, men skjuter upp auktoriseringsbeslut programkoden. För autentiserade begäranden skickar också App Service med autentiseringsinformation i HTTP-huvuden. 
 
-Det här alternativet ger bättre flexibilitet vid anonyma begäranden. Till exempel gör det möjligt att [presentera flera inloggningsalternativ](app-service-authentication-how-to.md#configure-multiple-sign-in-options) till användarna. Du måste dock skriva kod. 
+Det här alternativet ger bättre flexibilitet vid hantering av anonyma begäranden. Exempelvis kan du [presentera flera inloggningsalternativ](app-service-authentication-how-to.md#configure-multiple-sign-in-options) till dina användare. Du kan dock skriva kod. 
 
 ## <a name="more-resources"></a>Fler resurser
 
-[Självstudier: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)  
-[Självstudier: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service för Linux](containers/tutorial-auth-aad.md)  
-[Anpassa autentisering och auktorisering i Apptjänst](app-service-authentication-how-to.md)
+[Självstudie: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)  
+[Självstudie: Autentisera och auktorisera användare slutpunkt till slutpunkt i Azure App Service för Linux](containers/tutorial-auth-aad.md)  
+[Anpassa autentisering och auktorisering i App Service](app-service-authentication-how-to.md)
 
-Provider-specifik guider:
+Provider-specifik instruktionsguider:
 
-* [Så här konfigurerar du appen för att använda Azure Active Directory-inloggning][AAD]
-* [Så här konfigurerar du appen för att använda Facebook-inloggning][Facebook]
-* [Så här konfigurerar du appen för att använda Google-inloggning][Google]
-* [Så här konfigurerar du appen för att använda Account inloggning][MSA]
-* [Så här konfigurerar du appen för att använda Twitter-inloggning][Twitter]
+* [Så här konfigurerar du din app för att använda Azure Active Directory-inloggning][AAD]
+* [Så här konfigurerar du din app för att använda Facebook-inloggning][Facebook]
+* [Så här konfigurerar du din app för att använda Google-inloggning][Google]
+* [Så här konfigurerar du din app om du vill använda Microsoft Account login][MSA]
+* [Så här konfigurerar du din app för att använda Twitter-inloggning][Twitter]
 * [Så här: Använd anpassad autentisering för ditt program][custom-auth]
 
 [AAD]: app-service-mobile-how-to-configure-active-directory-authentication.md

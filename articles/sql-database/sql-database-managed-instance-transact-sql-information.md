@@ -7,15 +7,15 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 0813/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 89544ea72a4356fb8d4f3a192e6fc546eb6b3cff
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: f05f6f785ec8466fc6d0ae2c94c975312ef37fa2
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092018"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42060895"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL skillnader från SQL Server 
 
@@ -267,7 +267,7 @@ Externa tabeller som refererar till filer i HDFS- eller Azure blob storage stöd
 
 ### <a name="replication"></a>Replikering 
  
-Replikering stöds på hanterad instans. Information om replikering finns i [SQL Server-replikering](http://review.docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+Replikering stöds på hanterad instans. Information om replikering finns i [SQL Server-replikering](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
  
 ### <a name="restore-statement"></a>ÅTERSTÄLLA instruktionen 
  

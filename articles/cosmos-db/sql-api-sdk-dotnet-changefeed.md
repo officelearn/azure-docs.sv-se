@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: e8a8edd22fe66df12e9e7327a25e82aa5f07bd1b
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 443cb2786c12bddd87535a7267d66c0332473b1b
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627635"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42055379"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET change Feed Processor SDK: Ladda ned och viktig information
 > [!div class="op_single_selector"]
@@ -42,6 +42,9 @@ ms.locfileid: "39627635"
 ## <a name="release-notes"></a>Viktig information
 
 ### <a name="v2-builds"></a>v2-versioner
+
+### <a name="a-name206206"></a><a name="2.0.6"/>2.0.6
+* Har lagts till ChangeFeedEventHost.HostName offentlig egenskap för compativility med v1.
 
 ### <a name="a-name205205"></a><a name="2.0.5"/>2.0.5
 * Fasta ett konkurrenstillstånd som uppstår under partition split. Konkurrenstillstånd kan leda till hämtar lånet och omedelbart att förlora den under partition split och orsakar konkurrens. RAS villkor problemet är löst med den här versionen.
@@ -136,7 +139,7 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 | [1.0.0](#1.0.0) |07 juli 2017 |--- |
 
 
-## <a name="faq"></a>Vanliga frågor och svar
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Se också

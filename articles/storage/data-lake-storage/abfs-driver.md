@@ -9,12 +9,12 @@ ms.author: jamesbak
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 8be6df5f4098b8a97e41c73edc5664799fd3edbe
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: dedf398064dd0a49e5691e952ea7c9b6d16e34fd
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520827"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42055556"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob-filsystem-drivrutinen (ABFS): en dedikerad Azure Storage-drivrutin för Hadoop
 
@@ -45,7 +45,11 @@ Internt ABFS drivrutinen översätter resurserna som anges i URI: N till filer o
 
 ### <a name="authentication"></a>Autentisering
 
-ABFS-drivrutinen stöder för närvarande autentisering med delad nyckel så att Hadoop-program på ett säkert sätt kan komma åt resurser som ingår i Data Lake Storage Gen2. Nyckeln krypteras och lagras i Hadoop-konfiguration.
+ABFS-drivrutinen stöder två typer av autentisering så att Hadoop-program kan få säker åtkomst till resurser som ingår i ett kompatibelt Gen2 för Data Lake Storage-konto. Fullständig information om tillgängliga autentiseringsmetoder finns i den [säkerhetsguiden för Azure Storage](../common/storage-security-guide.md). De är:
+
+- **Delad nyckel:** detta ger användare åtkomst till alla resurser i kontot. Nyckeln krypteras och lagras i Hadoop-konfiguration.
+
+- **Azure Active Directory OAuth-Ägartoken:** Azure AD-ägartoken förvärvas och uppdateras av drivrutinen med hjälp av antingen identiteten för användaren eller ett konfigurerat huvudnamn för tjänsten. Med den här autentiseringsmodellen, har alla behörighet på basis av per anrop med det identitet som är associerade med den angivna token och utvärderas mot den tilldelade POSIX åtkomstkontrollistan (ACL).
 
 ### <a name="configuration"></a>Konfiguration
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 3e4520df5c1ca8477abf5a9c4b4e7e124bb38282
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e9f4153c68f0a2a4ce83f900ff63152311163ff6
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005765"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42054550"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Hantera molntjänster i Azure portal
 I den **molntjänster** område i Azure-portalen kan du:
@@ -83,7 +83,7 @@ Det finns två viktiga förutsättningar för en lyckad distribution växling:
 
 - Om du vill använda en statisk IP-adress för din produktionsplatsen kan reservera du en för din mellanlagringsplatsen. Annars misslyckas växlingen.
 
-- Alla instanser av dina roller måste köras innan du kan utföra växlingen. Du kan kontrollera status för dina instanser på den **översikt** -bladet i Azure-portalen. Du kan också använda den [Get-AzureRole](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0) i Windows PowerShell.
+- Alla instanser av dina roller måste köras innan du kan utföra växlingen. Du kan kontrollera status för dina instanser på den **översikt** -bladet i Azure-portalen. Du kan också använda den [Get-AzureRole](/powershell/module/servicemanagement/azure/get-azurerole?view=azuresmps-3.7.0) i Windows PowerShell.
 
 Observera att uppdateringar av gäst-OS och tjänsten återställning operations också orsaka distribution växlingar misslyckas. Mer information finns i [Felsök distributionsproblem med cloud service](cloud-services-troubleshoot-deployment-problems.md).
 

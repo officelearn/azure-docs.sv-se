@@ -1,5 +1,5 @@
 ---
-title: Distribuera en Azure Resource Manager-mall i Azure Automation-runbook
+title: Distribuera en Azure Resource Manager-mall i en Azure Automation-runbook
 description: Så här distribuerar du en Azure Resource Manager-mall som lagras i Azure Storage från en runbook
 services: automation
 ms.service: automation
@@ -10,20 +10,20 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: PowerShell, runbook, json, azure automation
-ms.openlocfilehash: 489676736e0a3dcff463fae954f0250d90ba3d0f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 6bc860e328d6968dedda5090bb9a817b9bba6b69
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195445"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42057628"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Distribuera en Azure Resource Manager-mall i en Azure Automation PowerShell- runbook
 
-Du kan skriva en [PowerShell för Azure Automation-runbook](automation-first-runbook-textual-powershell.md) som distribuerar en Azure-resurs med hjälp av en [Azure Resource Manager-mallen](../azure-resource-manager/resource-manager-create-first-template.md).
+Du kan skriva en [Azure Automation PowerShell-runbook](automation-first-runbook-textual-powershell.md) som distribuerar en Azure-resurs med hjälp av en [Azure Resource Manager-mall](../azure-resource-manager/resource-manager-create-first-template.md).
 
-På så sätt kan du automatisera distributionen av Azure-resurser. Du kan underhålla Resource Manager-mallar på en central, säker plats, till exempel Azure Storage.
+På så sätt kan du automatisera distributionen av Azure-resurser. Du kan underhålla dina Resource Manager-mallar på en central och säker plats som Azure Storage.
 
-I det här avsnittet skapar vi en PowerShell-runbook som använder en Resource Manager-mall som lagras i [Azure Storage](../storage/common/storage-introduction.md) att distribuera ett nytt Azure Storage-konto.
+I det här avsnittet ska vi skapa en PowerShell-runbook som använder en Resource Manager-mall som lagras i [Azure Storage](../storage/common/storage-introduction.md) att distribuera ett nytt Azure Storage-konto.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -31,8 +31,8 @@ För att kunna genomföra den här kursen behöver du följande:
 
 * En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller <a href="/pricing/free-account/" target="_blank">[registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/).
 * Ett [Automation-konto för Azure](automation-sec-configure-azure-runas-account.md) som runbooken ska ligga under och som ska användas för autentisering mot Azure-resurser.  Det här kontot måste ha behörighet att starta och stoppa den virtuella datorn.
-* [Azure Storage-konto](../storage/common/storage-create-storage-account.md) där du kan lagra Resource Manager-mall
-* Azure Powershell installeras på en lokal dator. Se [installera och konfigurera Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0) information om hur du hämtar Azure PowerShell.
+* [Azure Storage-konto](../storage/common/storage-create-storage-account.md) där du vill lagra Resource Manager-mall
+* Azure Powershell installerad på en lokal dator. Se [installera och konfigurera Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0) information om hur du hämtar Azure PowerShell.
 
 ## <a name="create-the-resource-manager-template"></a>Skapa Resource Manager-mallen
 
@@ -57,6 +57,13 @@ Kopiera följande text i en textredigerare:
       "metadata": {
         "description": "Storage Account type"
       }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
     }
   },
   "variables": {
@@ -66,8 +73,8 @@ Kopiera följande text i en textredigerare:
     {
       "type": "Microsoft.Storage/storageAccounts",
       "name": "[variables('storageAccountName')]",
-      "apiVersion": "2016-01-01",
-      "location": "[resourceGroup().location]",
+      "apiVersion": "2018-02-01",
+      "location": "[parameters('location')]",
       "sku": {
           "name": "[parameters('storageAccountType')]"
       },
@@ -89,10 +96,10 @@ Spara filen lokalt som `TemplateTest.json`.
 
 ## <a name="save-the-resource-manager-template-in-azure-storage"></a>Spara Resource Manager-mall i Azure Storage
 
-Vi använder PowerShell för att skapa en filresurs i Azure Storage och ladda upp den `TemplateTest.json` filen.
-Instruktioner om hur du skapar en fil dela och överföra en fil i Azure portal finns [Kom igång med Azure File storage i Windows](../storage/files/storage-dotnet-how-to-use-files.md).
+Vi använder PowerShell för att skapa en filresurs i Azure Storage och överföra den `TemplateTest.json` filen.
+Instruktioner om hur du skapar en fil dela och ladda upp en fil i Azure-portalen finns i [Kom igång med Azure File storage i Windows](../storage/files/storage-dotnet-how-to-use-files.md).
 
-Starta PowerShell på den lokala datorn och kör följande kommandon för att skapa en filresurs och ladda upp Resource Manager-mallen till att filresursen.
+Starta PowerShell på den lokala datorn och kör följande kommandon för att skapa en filresurs och ladda upp Resource Manager-mallen till filresursen.
 
 ```powershell
 # Login to Azure
@@ -113,9 +120,9 @@ $templateFile = 'C:\TemplatePath'
 Set-AzureStorageFileContent -ShareName $fileShare.Name -Context $context -Source $templateFile
 ```
 
-## <a name="create-the-powershell-runbook-script"></a>Skapa skript för PowerShell-runbook
+## <a name="create-the-powershell-runbook-script"></a>Skapa PowerShell-runbook-skript
 
-Nu skapar vi ett PowerShell-skript som hämtar den `TemplateTest.json` från Azure Storage och distribuerar mallen om du vill skapa ett nytt Azure Storage-konto.
+Nu skapar vi ett PowerShell-skript som hämtar den `TemplateTest.json` från Azure Storage och distribuerar mallen för att skapa ett nytt Azure Storage-konto.
 
 Klistra in följande text i en textredigerare:
 
@@ -168,10 +175,10 @@ Spara filen lokalt som `DeployTemplate.ps1`.
 
 ## <a name="import-and-publish-the-runbook-into-your-azure-automation-account"></a>Importera och publicera en runbook i Azure Automation-konto
 
-Nu vi använda PowerShell för att importera runbook till ditt Azure Automation-konto och publicera en runbook.
-Information om hur du importerar och publicera en runbook i Azure portal finns [skapa eller importera en runbook i Azure Automation](automation-creating-importing-runbook.md).
+Nu vi använda PowerShell för att importera runbooken till ditt Azure Automation-konto och sedan publicera en runbook.
+Information om hur du importerar och publicerar en runbook i Azure-portalen finns i [skapa eller importera en runbook i Azure Automation](automation-creating-importing-runbook.md).
 
-Så här importerar du `DeployTemplate.ps1` i ditt Automation-konto som en PowerShell-runbook, kör du följande PowerShell-kommandon:
+Importera `DeployTemplate.ps1` i ditt Automation-konto som en PowerShell-runbook, kör du följande PowerShell-kommandon:
 
 ```powershell
 # MyPath is the path where you saved DeployTemplate.ps1
@@ -196,9 +203,9 @@ Publish-AzureRmAutomationRunbook @publishParams
 
 ## <a name="start-the-runbook"></a>Starta runbook
 
-Nu vi starta runbook genom att anropa den [Start AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook?view=azurermps-4.1.0) cmdlet.
+Nu börjar vi runbook genom att anropa den [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook?view=azurermps-4.1.0) cmdlet.
 
-Information om hur du startar en runbook i Azure portal finns [starta en runbook i Azure Automation](automation-starting-a-runbook.md).
+Information om hur du startar en runbook i Azure-portalen finns i [starta en runbook i Azure Automation](automation-starting-a-runbook.md).
 
 Kör följande kommandon i PowerShell-konsolen:
 
@@ -223,7 +230,7 @@ $startParams = @{
 $job = Start-AzureRmAutomationRunbook @startParams
 ```
 
-En runbook körs, och du kan kontrollera statusen genom att köra `$job.Status`.
+Runbook körs, och du kan kontrollera statusen genom att köra `$job.Status`.
 
 Runbook hämtar Resource Manager-mallen och används för att distribuera ett nytt Azure Storage-konto.
 Du kan se att det nya lagringskontot har skapats genom att köra följande kommando:
@@ -233,12 +240,12 @@ Get-AzureRmStorageAccount
 
 ## <a name="summary"></a>Sammanfattning
 
-Klart! Nu kan du använda mallar för Azure Automation och Azure Storage och Resource Manager för att distribuera alla dina Azure-resurser.
+Klart! Nu kan du använda Azure Automation och Azure Storage och Resource Manager-mallar för att distribuera alla dina Azure-resurser.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om Resource Manager-mallar i [översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
-* Om du vill komma igång med Azure Storage finns [introduktion till Azure Storage](../storage/common/storage-introduction.md).
-* Du hittar andra användbara Azure Automation-runbooks [Azure Automation Runbook- och stänga](automation-runbook-gallery.md).
-* Andra användbara Resource Manager-mallar finns [Azure Quickstart-mallar](https://azure.microsoft.com/resources/templates/)
+* Kom igång med Azure Storage, se [introduktion till Azure Storage](../storage/common/storage-introduction.md).
+* Du hittar andra användbara Azure Automation-runbooks [Runbook- och gallerier för Azure Automation](automation-runbook-gallery.md).
+* Andra användbara Resource Manager-mallar finns i [Azure-Snabbstartsmallar](https://azure.microsoft.com/resources/templates/)
 

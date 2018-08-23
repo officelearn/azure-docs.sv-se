@@ -1,25 +1,25 @@
 ---
 title: Exempel på Lucene-syntaxfråga för Azure Search | Microsoft Docs
 description: Lucene-frågesyntax för fuzzy-sökning, närhetssökning, termförstärkning, sökning med reguljära uttryck och jokertecken i en Azure Search-tjänst.
-author: LiamCa
-manager: pablocas
+author: HeidiSteen
+manager: cgronlun
 tags: Lucene query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/16/2018
-ms.author: liamca
-ms.openlocfilehash: 7da1f5d54a9dd5b6119b81ef801b674263a98bae
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.date: 08/09/2018
+ms.author: heidist
+ms.openlocfilehash: b5a3e2eac218ba2aa6958ffc56bd59f5b513cf48
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716424"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42054770"
 ---
 # <a name="lucene-syntax-query-examples-for-building-advanced-queries-in-azure-search"></a>Exempel på Lucene-syntaxfråga för att skapa avancerade frågor i Azure Search
-När frågor för Azure Search, du kan ersätta standard [enklare frågeparsern](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) med alternativt [frågeparser (Lucene) i Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) formulera specialiserade och avancerad fråga definitioner. 
+När frågor för Azure Search, du kan ersätta standard [enklare frågeparsern](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) med mer omfattande [frågeparser (Lucene) i Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) formulera specialiserade och avancerad fråga definitioner. 
 
-Den frågeparser (Lucene) stöder mer komplex fråga konstruktioner som fältbegränsade frågor fuzzy och sökning med jokertecken, närhetssökning, termförstärkning och sökning med reguljära uttryck. Mer kraft levereras med ytterligare bearbetning-krav. I den här artikeln kan du gå igenom exempel som visar frågeåtgärder som är tillgängliga när du använder den fullständiga syntaxen.
+Den frågeparser (Lucene) stöder komplex fråga konstruktioner som fältbegränsade frågor fuzzy och sökning med jokertecken för prefix, närhetssökning, termförstärkning och sökning med reguljära uttryck. Mer kraft levereras med ytterligare bearbetning-krav, så du kan förvänta dig en något längre körningstid. I den här artikeln kan du gå igenom exempel som visar frågeåtgärder som är tillgängliga när du använder den fullständiga syntaxen.
 
 > [!Note]
 > Många av specialiserade fråga-konstruktioner som aktiveras via fullständig Lucene-frågesyntaxen är inte [text analyseras](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis), vilket kan vara så konstigt om du förväntar dig ordstamsigenkänning eller lemmatisering. Lexikal analys utförs endast på fullständiga villkor (en term fråga eller en frasfråga). Frågetyper med ofullständiga villkor (prefix fråga, jokerteckenfråga, regex-fråga, fuzzy-fråga) läggs till direkt i trädet fråga kringgår analysis-steg. Endast transformeringen utförs på ofullständig sökord platsargumentet. 
@@ -29,7 +29,7 @@ Den frågeparser (Lucene) stöder mer komplex fråga konstruktioner som fältbeg
 
 I följande exempel utnyttja NYC Jobs sökindex som består av jobben tillgängliga baserat på en datauppsättning som tillhandahålls av den [stad New York OpenData](https://opendata.cityofnewyork.us/) initiativ. Dessa data ska inte betraktas aktuella eller klar. Indexet ligger på en sandbox-tjänst som tillhandahålls av Microsoft, vilket innebär att du inte behöver en Azure-prenumeration eller ett Azure Search för att prova de här frågorna.
 
-Vad du behöver är Postman eller ett motsvarande verktyg för att utfärda HTTP-begäranden på GET. Mer information finns i [Test med REST-klienter](search-fiddler.md).
+Vad du behöver är Postman eller ett motsvarande verktyg för att utfärda HTTP-begäranden på GET. Mer information finns i [utforska med REST-klienter](search-fiddler.md).
 
 ### <a name="set-the-request-header"></a>Ange huvudet för begäran
 
@@ -60,12 +60,12 @@ Webbadressen har följande element:
 Klistra in följande begäran i GET som ett verifieringssteg och klicka på **skicka**. Resultaten returneras som utförlig JSON-dokument. Du kan kopiera och klistra in URL: en i första exemplet nedan.
 
   ```http
-  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=*
+  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=*
   ```
 
-Frågesträngen ** `search=*` **, motsvarar en ospecificerad sökning null eller tom sökning. Det är inte särskilt användbart, men det är den enklaste sökningen som du kan göra.
+Frågesträngen **`search=*`**, motsvarar en ospecificerad sökning null eller tom sökning. Det är inte särskilt användbart, men det är den enklaste sökningen som du kan göra.
 
-Du kan också lägga till ** `$count=true` ** i URL: en för att returnera en uppräkning av dokument som matchar sökkriterierna. Det här är alla dokument i indexet (2802 när det gäller NYC Jobs) på en tom sökning-sträng.
+Du kan också lägga till **`$count=true`** i URL: en för att returnera en uppräkning av dokument som matchar sökkriterierna. Det här är alla dokument i indexet (cirka 2800 när det gäller NYC Jobs) på en tom sökning-sträng.
 
 ## <a name="how-to-invoke-full-lucene-parsing"></a>Hur du anropar fullständig Lucene parsning
 
@@ -79,27 +79,29 @@ Alla exemplen i den här artikeln anger de **queryType = full** sökparametern, 
 
 ## <a name="example-1-field-scoped-query"></a>Exempel 1: Fältbegränsade frågor
 
-Den första frågan är inte en demonstration av fullständig Lucene-syntax (den fungerar för både enkla och fullständig syntax), men vi leda med det här exemplet att introducera ett baslinje fråga koncept som producerar ett rimligt läsbara JSON-svar. Av utrymmesskäl, frågan riktar sig till endast de *business_title* fältet och anger endast företag rubriker som returneras. 
+Det här första exemplet är inte parser-specifika, men vi leda med den till introducerar begreppet första grundläggande fråga: inneslutning. Det här exemplet anger omfattningen för frågekörning och svaret på bara några specifika fält. Det är viktigt att att känna till hur du ska strukturera ett läsbara JSON-svar när ditt verktyg är Postman eller Search explorer. 
 
-```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=*
+Av utrymmesskäl, frågan riktar sig till endast de *business_title* fältet och anger endast företag rubriker som returneras. Syntaxen är **searchFields** att begränsa Frågekörningen bara till business_title fältet, och **Välj** att ange vilka fält som ska ingå i svaret.
+
+```http
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&search=*
 ```
-
-Den **searchFields** parametern begränsar sökningen till bara rubrikfältet för företag. Den **Välj** parametern anger vilka fält som ingår i resultatet.
 
 Svar för den här frågan bör likna följande skärmbild.
 
   ![Postman exempelsvar](media/search-query-lucene-examples/postman-sample-results.png)
 
-Du kanske har märkt att sökpoängen returneras också för varje dokument även om sökpoäng inte har angetts. Det beror på att sökpoäng är metadata, med det värde som anger rangordnas efter resultat. Enhetlig poäng 1 inträffa när det finns inga rankning, antingen eftersom sökningen inte var fulltextsökning, eller eftersom det inte finns några villkor tillämpas. För null search, det finns inga kriterier och rader kommer tillbaka är i valfri ordning. Sökvillkoren tar på flera definition, ser du search poäng utvecklas till meningsfulla värden.
+Du kanske har märkt sökpoängen i svaret. Enhetlig poäng 1 inträffa när det finns inga rankning, antingen eftersom sökningen inte var fulltextsökning, eller eftersom inga kriterier har tillämpats. För null search med några villkor gå rader tillbaka i valfri ordning. När du inkluderar aktuella visas search poäng utvecklas till meningsfulla värden.
 
-## <a name="example-2-in-field-filtering"></a>Exempel 2: Filtrering i fältet
+## <a name="example-2-intra-field-filtering"></a>Exempel 2: Trafik fältet filtrering
 
 Fullständig Lucene-syntax stöder uttryck i ett fält. Den här frågan söker efter företag titlar med termen senior i dem, men inte unga:
 
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:senior+NOT+junior
 ```
+
+  ![Postman exempelsvar](media/search-query-lucene-examples/intrafieldfilter.png)
 
 Genom att ange en **fieldname:searchterm** konstruktion, kan du definiera en fielded frågeåtgärden där fältet är ett enstaka ord och söktermen är också ett enstaka ord eller en fras, eventuellt med booleska operatorer. Följande är några exempel:
 
@@ -119,6 +121,7 @@ Den här frågan söker efter jobb med termen ”associera” (avsiktligt felsta
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:asosiate~
 ```
+  ![Fuzzy-sökning svar](media/search-query-lucene-examples/fuzzysearch.png)
 
 Per [Lucene dokumentation](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), fuzzy sökningar baseras på [Damerau Levenshtein avståndet](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
 
@@ -134,6 +137,7 @@ I den här frågan för jobb med termen ”senior analytiker” där den avgrän
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:%22senior%20analyst%22~1
 ```
+  ![Närhet fråga](media/search-query-lucene-examples/proximity-before.png)
 
 Prova igen tar du bort ord mellan termen ”senior analytiker”. Observera att returneras 8 dokument för den här frågan till skillnad från 10 för den föregående frågan.
 
@@ -144,11 +148,12 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 ## <a name="example-5-term-boosting"></a>Exempel 5: Termförstärkning
 Termförstärkning avser rangordning ett dokument som är högre om den innehåller förbättrat termen, i förhållande till dokument som inte innehåller termen. Om du vill öka en term använder du cirkumflex ”^”, symbol med en faktor boost (ett tal) i slutet av perioden som du söker. 
 
-I den här frågan ”före” Sök efter jobb med termen *datorn analytiker* och Observera att det finns inga resultat med båda orden *datorn* och *analytiker*, ännu * datorn* jobben är högst upp på resultaten.
+I den här frågan ”före” Sök efter jobb med termen *datorn analytiker* och Observera att det finns inga resultat med båda orden *datorn* och *analytiker*, ännu  *datorn* jobben är högst upp på resultaten.
 
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:computer%20analyst
 ```
+  ![Termförstärkning innan](media/search-query-lucene-examples/termboostingbefore.png)
 
 Upprepa sökningen nu öka resultat med termen i frågan ”efter” *analytiker* på sikt *datorn* om båda ord som inte finns. 
 
@@ -156,6 +161,8 @@ Upprepa sökningen nu öka resultat med termen i frågan ”efter” *analytiker
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:computer%20analyst%5e2
 ```
 En mänskligare läsbara version av ovanstående fråga `search=business_title:computer analyst^2`. För en fungerande fråga `^2` kodas som `%5E2`, som är svårare att se.
+
+  ![Termförstärkning efter](media/search-query-lucene-examples/termboostingafter.png)
 
 Termförstärkning skiljer sig från poängprofiler i att bedömningsprofiler öka vissa fält i stället för på specifika villkor. I följande exempel hjälper visar skillnaderna.
 
@@ -173,6 +180,9 @@ I den här frågan söker du efter jobb med termen Senior eller sitt första år
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:/(Sen|Jun)ior/
 ```
+
+  ![Regex-fråga](media/search-query-lucene-examples/regex.png)
+
 > [!Note]
 > Regex-frågor är inte [analyseras](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). Endast transformeringen utförs på ofullständig sökord platsargumentet.
 >
@@ -180,12 +190,12 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 ## <a name="example-7-wildcard-search"></a>Exempel 7: Sökning med jokertecken
 Du kan använda allmänt erkända syntax för flera (\*) eller enstaka (?) tecken jokertecken. Observera den frågeparser (Lucene) stöder användning av dessa symboler med en enda term och inte en fras.
 
-Sök efter jobb som innehåller prefixet ”prog' som skulle inkludera rubriker för företag med villkor programming programmerare i den i den här frågan.
+Sök efter jobb som innehåller prefixet ”prog' som skulle inkludera rubriker för företag med villkor programming programmerare i den i den här frågan. Du kan inte använda en * eller? symbol som det första tecknet i en sökning.
 
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:prog*
 ```
-Du kan inte använda en * eller? symbol som det första tecknet i en sökning.
+  ![Jokerteckenfråga](media/search-query-lucene-examples/wildcard.png)
 
 > [!Note]
 > Jokertecken frågor är inte [analyseras](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). Endast transformeringen utförs på ofullständig sökord platsargumentet.

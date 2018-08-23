@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/07/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: c22831ae781239f2474720ee9cd1b58f6e14fe41
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 9bbe55e08d7a005d38c5608df39f9285d79eb203
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412873"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42055766"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrering med Azure Stack datacenter - identitet
 Du kan distribuera Azure Stack med Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) som identitetsleverantör man. Du måste göra valet innan du distribuerar Azure Stack. Distributionen med hjälp av AD FS är kallas även distribuera Azure Stack i frånkopplat läge.
@@ -151,7 +151,7 @@ I den här proceduren Använd en dator som kan kommunicera med privilegierad slu
 
 ## <a name="setting-up-ad-fs-integration-by-providing-federation-metadata-file"></a>Om du konfigurerar AD FS-integrationen genom att tillhandahålla metadatafil för federation
 
-Använd den här metoden om något av följande villkor är uppfyllda:
+Från och med version 1807 kan använda den här metoden om något av följande villkor är uppfyllda:
 
 - Certifikatkedjan är olika för AD FS jämfört med andra slutpunkter i Azure Stack.
 - Det finns ingen nätverksanslutning till den befintliga AD FS-servern från Azure Stack AD FS-instans.
@@ -163,6 +163,8 @@ Följande information måste anges som indata för automation-parametrar:
 |---------|---------|---------|
 |CustomAdfsName|Namnet på anspråksprovidern. Den visas på så sätt på landningssidan för AD FS.|Contoso|
 |CustomADFSFederationMetadataFileContent|Metadata för innehåll|$using: federationMetadataFileContent|
+
+
 
 ### <a name="create-federation-metadata-file"></a>Skapa federation metadata-fil
 

@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: 14e365d90942a09db8bbd2f3eeb4c72a8be3819b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 391e3126fe3f4e02083e609b7e5f9bbe5f33605d
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38631800"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41919437"
 ---
 # <a name="restore-an-azure-database-for-postgresql-server-using-azure-cli"></a>Återställ en Azure Database for PostgreSQL-server med hjälp av Azure CLI
 Det här CLI-exempelskriptet återställer en enda Azure Database for PostgreSQL-server till en tidigare tidpunkt.
@@ -39,8 +39,8 @@ Det här skriptet använder de kommandon som beskrivs i följande tabell:
 | **Kommando** | **Anteckningar** |
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
-| [az postgresql server create](/cli/azure/postgresql/server#az_msql_server_create) | Skapar en PostgreSQL-server som är värd för databaserna. |
-| [az postgresql server restore](/cli/azure/postgresql/server#az_msql_server_restore) | Återställ en server från en säkerhetskopia. |
+| [az postgresql server create](/cli/azure/postgres/server#az-postgres-server-create) | Skapar en PostgreSQL-server som är värd för databaserna. |
+| [az postgresql server restore](/cli/azure/postgres/server#az-postgres-server-restore) | Återställ en server från en säkerhetskopia. |
 | [az group delete](/cli/azure/group#az_group_delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg

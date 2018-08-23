@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 8c0810c4a1b92f14e510d005eaf1b6945a058dd7
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 54e6b4f5804e7390b7574aa60b4d3a76df15da11
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413111"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42054561"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: återställning av lösenord för självbetjäning i Azure AD
 
@@ -94,6 +94,9 @@ När du använder en mobilapp som Microsoft Authenticator-appen som en metod fö
 | Mobilapp-funktioner som är tillgängliga | Kod | Kod- eller Meddelandeinställningar |
 
 Användarna behöver inte alternativet för att registrera sina mobila app när du registrerar dig för lösenordsåterställning via självbetjäning från [ https://aka.ms/ssprsetup ](https://aka.ms/ssprsetup). Användare kan registrera sina mobila appar på [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup), eller i den nya förhandsversionen vid registrering för information av security [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo).
+
+> [!WARNING]
+> Du måste aktivera den [konvergerat registrering för lösenordsåterställning via självbetjäning och Azure Multi-Factor Authentication (förhandsversion)](concept-registration-mfa-sspr-converged.md) innan användare kan komma åt den nya upplevelsen på [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo).
 
 ### <a name="change-authentication-methods"></a>Ändra autentiseringsmetoder
 

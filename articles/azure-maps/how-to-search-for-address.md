@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 8b7d2119e1eef8532c30b0a45ae2684493462277
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: fe3bb3a778a42696cd15f9e4265448479bf043a1
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990021"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42059203"
 ---
 # <a name="how-to-find-an-address-using-the-azure-maps-search-service"></a>Så här hittar du en adress med hjälp av Azure Maps search-tjänst
 
@@ -164,19 +164,11 @@ Du kan skicka en fullständig eller partiell gatuadress till search-adress API o
 
     | Nyckel | Värde |
     |-----|------------|
-    | spatialKeys | true |
-
-    När den [spatialKeys](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) Frågeparametern är inställt, svaret innehåller upphovsrättsskyddad geospatial viktig information för en angiven plats.
-
-6. Lägg till följande nyckel / värde-par för den **Params** och klicka **skicka**:
-
-    | Nyckel | Värde |
-    |-----|------------|
     | returnSpeedLimit | true |
     
     När den [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) Frågeparametern anges svaret som returneras av bokförda hastighet gränsen.
 
-7. Lägg till följande nyckel / värde-par för den **Params** och klicka **skicka**:
+6. Lägg till följande nyckel / värde-par för den **Params** och klicka **skicka**:
 
     | Nyckel | Värde |
     |-----|------------|
@@ -184,7 +176,7 @@ Du kan skicka en fullständig eller partiell gatuadress till search-adress API o
 
     När den [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) Frågeparametern är inställt, svaret returnerar väg Använd matris för reversegeocodes på nivån för gata.
 
-8. Lägg till följande nyckel / värde-par för den **Params** och klicka **skicka**:
+7. Lägg till följande nyckel / värde-par för den **Params** och klicka **skicka**:
 
     | Nyckel | Värde |
     |-----|------------|

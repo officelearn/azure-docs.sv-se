@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: d093aa6119b5ab316e5ffba77806e10cd067b032
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 3ae2e883e3e27adc167b7e831ca53d3cd1572257
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626819"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42059202"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory som bevis på koncept strategibok: komponenter
 
@@ -66,7 +66,7 @@ Ungefärlig tid att Slutför: en timme för mindre än 1 000 PoC-användare
 | Steg | Resurser |
 | --- | --- |
 | Hämta den senaste versionen av Azure AD Connect | [Ladda ned Microsoft Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) |
-| Installera Azure AD Connect med den enklaste sökvägen: Express <br/>1 Filtrera till mål-Organisationsenhet för att minimera tid som Synkroniseringscykel<br/>2 Välj Målet uppsättning användare i den lokala gruppen.<br/>3 Distribuera funktioner som krävs av den andra POC-teman | [Azure AD Connect: Anpassad installation: domän och Organisationsenhet filtrering](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect: Anpassad installation: Filtrering baserad på grupp](./connect/active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect: Integrera dina lokala identiteter med Azure Active Directory: Konfigurera synkroniseringsfunktioner](./connect/active-directory-aadconnect.md#configure-sync-features) |
+| Installera Azure AD Connect med den enklaste sökvägen: Express <br/>1. Filtrera till mål-Organisationsenhet för att minimera tid som Synkroniseringscykel<br/>2. Välj Målet uppsättning användare i den lokala gruppen.<br/>3. Distribuera funktioner som krävs av den andra POC-teman | [Azure AD Connect: Anpassad installation: domän och Organisationsenhet filtrering](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect: Anpassad installation: Filtrering baserad på grupp](./connect/active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect: Integrera dina lokala identiteter med Azure Active Directory: Konfigurera synkroniseringsfunktioner](./connect/active-directory-aadconnect.md#configure-sync-features) |
 | Öppna Azure AD Connect Användargränssnittet och se körs profiler slutförda (Import, synkronisering och export) | [Azure AD Connect sync: Scheduler](./connect/active-directory-aadconnectsync-feature-scheduler.md) |
 | Öppna den [Azure AD-hanteringsportalen](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/), går du till ”alla användare”-bladet, Lägg till kolumn ”auktoritetskälla” och se användarna visas markerad korrekt som kommer från ”Windows Server AD” | [Azure AD-hanteringsportalen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) |
 
@@ -185,7 +185,7 @@ Ungefärlig tid att Slutför: 15 minuter
 | --- | --- |
 | Installera webbläsartillägget för | [Access Panel-tillägg för Internet Explorer](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Access Panel-tillägg för Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Access Panel-tillägg för Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Konfigurera program från galleriet | [Vad är nytt i Enterprise-programhantering i Azure Active Directory: nya och förbättrade programgalleriet](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Konfigurera enkel inloggning med lösenord | [Hantera enkel inloggning för företagsappar i nya Azure portal: lösenordsbaserad inloggning](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Konfigurera enkel inloggning med lösenord | [Hantera enkel inloggning för företagsappar i nya Azure portal: lösenordsbaserad inloggning](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).|
 | Tilldela appen till den grupp som definieras i förutsättningarna | [Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Logga in på https://myapps.microsoft.com/ som en användare som har åtkomst |  |
 | Klicka på ikonen för programmet som nyss skapades. | [Vad är åtkomstpanelen?: lösenordsbaserad SSO utan att behöva etablera identitet](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
@@ -220,7 +220,7 @@ Ungefärlig tid att Slutför: 30 minuter
 | --- | --- |
 | Installera webbläsartillägget för | [Access Panel-tillägg för Internet Explorer](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Access Panel-tillägg för Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Access Panel-tillägg för Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Konfigurera program från galleriet | [Vad är nytt i Enterprise-programhantering i Azure Active Directory: nya och förbättrade programgalleriet](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Konfigurera enkel inloggning med lösenord | [Hantera enkel inloggning för företagsappar i nya Azure portal: lösenordsbaserad inloggning](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Konfigurera enkel inloggning med lösenord | [Hantera enkel inloggning för företagsappar i nya Azure portal: lösenordsbaserad inloggning](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).|
 | Tilldela appen till den grupp som definieras i förutsättningarna vid tilldelning av autentiseringsuppgifter | [Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Logga in som olika användare åtkomst till appen som den **samma delade konto.**  |  |
 | Alternativt kan du kontrollera användningsrapporter för programmet. Observera att det finns vissa svarstid, så du behöver vänta en stund att se att trafiken i rapporterna. | [Logga in aktivitetsrapporter i Azure Active Directory-portalen: användning av hanterade program](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Kvarhållningsprinciper för rapporter i Azure Active Directory](reports-monitoring/reference-reports-data-retention.md) |

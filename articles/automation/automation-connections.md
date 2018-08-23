@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d5b31529c9ccfdc5d7871ec860a97d964ece69f8
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 5c865ff5c83626f13bb4fb9df7c1533371733540
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435704"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42061470"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Anslutningstillgångar i Azure Automation
 
@@ -42,7 +42,7 @@ Aktiviteterna i följande tabell används för att komma åt anslutningar i en r
 
 |Aktiviteter|Beskrivning|
 |---|---|
-|[Get-AutomationConnection](/powershell/module/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|Hämtar en anslutning som ska användas. Returnerar en hash-tabell med egenskaperna för anslutningen.|
+|[Get-AutomationConnection](/powershell/module/servicemanagement/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|Hämtar en anslutning som ska användas. Returnerar en hash-tabell med egenskaperna för anslutningen.|
 
 >[!NOTE] 
 >Du bör undvika att använda variabler med – Name-parametern i **Get - AutomationConnection** eftersom detta kan göra det svårare att hitta beroenden mellan runbooks eller DSC-konfigurationer och anslutningstillgångar vid designtillfället.

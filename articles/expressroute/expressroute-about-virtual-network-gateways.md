@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: a27200803ff13ed04a194fcbe45cf5edfe62ea50
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: d89463826cb05bf4cafd36cf4a38e60852d93094
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161731"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42057289"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>Om virtuella nätverksgatewayer för ExpressRoute
 En virtuell nätverksgateway används för att skicka nätverkstrafik mellan Azure-nätverk och lokala platser. Du kan använda en virtuell nätverksgateway kan användas för trafik för ExpressRoute eller VPN-trafik. Den här artikeln handlar om virtuella nätverksgatewayer för ExpressRoute.
@@ -62,7 +62,7 @@ Ytterligare tekniska resurser och specifik syntax krav när du använder REST AP
 
 | **Klassisk** | **Resource Manager** |
 | --- | --- |
-| [PowerShell](https://msdn.microsoft.com/library/mt270335.aspx) |[PowerShell](https://msdn.microsoft.com/library/mt163510.aspx) |
+| [PowerShell](https://msdn.microsoft.com/library/mt270335.aspx) |[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network#networking) |
 | [REST API](https://msdn.microsoft.com/library/jj154113.aspx) |[REST API](https://msdn.microsoft.com/library/mt163859.aspx) |
 
 ## <a name="next-steps"></a>Nästa steg

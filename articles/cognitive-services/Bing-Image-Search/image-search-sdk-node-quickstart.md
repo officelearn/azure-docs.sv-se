@@ -1,6 +1,6 @@
 ---
-title: Image-sökning SDK nod quickstart | Microsoft Docs
-description: Installationsprogrammet för Image-sökning SDK-konsolprogram.
+title: 'Snabbstart: Begär och filtrera bilder med hjälp av SDK: N i Node.js'
+description: I den här snabbstarten du begär och filtrera bilder som returneras av bildsökning i Bing, med hjälp av Node.js.
 titleSuffix: Azure cognitive services
 services: cognitive-services
 author: mikedodaro
@@ -10,35 +10,35 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: e4c8303e39accbb7caec15c0ef47d701971ce632
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e88c045b220192a617e6b8caf5d8d53f70a25b5e
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355254"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41987516"
 ---
-# <a name="image-search-sdk-node-quickstart"></a>Bild Sök SDK nod Snabbstart
+# <a name="quickstart-request-and-filter-images-using-the-sdk-and-nodejs"></a>Snabbstart: Begär och filtrera bilder med hjälp av SDK och Node.js
 
-Bing avbildningen Sök SDK innehåller funktionerna i REST-API för avbildningen frågor och resultaten för tolkning. 
+Sök SDK för Bing-bild innehåller funktionerna i REST-API för bild-frågor och parsa resultat. 
 
-Den [källkoden för noden Bing avbildningen Sök SDK-exempel](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/imageSearch.js) är tillgänglig på Git-hubben.
+Den [källkoden för noden Bing bild Search SDK-exempel](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/imageSearch.js) är tillgänglig på Git Hub.
 
 ## <a name="application-dependencies"></a>Programberoenden
 
-Om du vill konfigurera ett konsolprogram med Bing avbildningen Sök SDK kör `npm install azure-cognitiveservices-imagesearch` i din utvecklingsmiljö.
+Om du vill konfigurera ett konsolprogram med Search SDK för Bing-avbildningen kör `npm install azure-cognitiveservices-imagesearch` i din utvecklingsmiljö.
 
-## <a name="image-search-client"></a>Klienten för avbildning sökning
-Hämta en [kognitiva åtkomstnyckeln](https://azure.microsoft.com/try/cognitive-services/) under *Sök*. Skapa en instans av den `CognitiveServicesCredentials`:
+## <a name="image-search-client"></a>Sök-klienten för avbildning
+Hämta en [Cognitive Services-åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/) under *Search*. Skapa en instans av den `CognitiveServicesCredentials`:
 ```
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
 let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
 ```
-Sedan skapa en instans av klienten:
+Sedan kan skapa en instans av klienten:
 ```
 const ImageSearchAPIClient = require('azure-cognitiveservices-imagesearch');
 let client = new ImageSearchAPIClient(credentials);
 ```
-Använd klienten för att söka med en frågetext, i det här fallet ”El Capitan':
+Du kan använda klienten för att söka med en frågetext, i det här fallet ”El Capitan”:
 ```
 client.imagesOperations.search('El Capitan', function (err, result, request, response) {
     if (err) throw err;
@@ -55,4 +55,4 @@ The code prints `result.value` items to the console without parsing any text. Th
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Kognitiva services SDK för Node.js-exempel](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+[Cognitive services SDK för Node.js-exempel](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)

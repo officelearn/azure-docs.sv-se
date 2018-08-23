@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: aec79655dde48a18891776f40c51aa5a5c859ef8
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: df1cf093a154b4f7adf59fae93f90fbc70459788
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577272"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42054753"
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten med certifikat
 
@@ -186,7 +186,7 @@ Om du behöver hämta app-ID, använd:
 
 ## <a name="change-credentials"></a>Ändra autentiseringsuppgifter
 
-Om du vill ändra autentiseringsuppgifterna för en AD-app, antingen på grund av ett säkerhetsintrång eller för att en autentiseringsuppgift upphört att gälla, kan du använda cmdletarna [Remove-AzureRmADAppCredential](/powershell/resourcemanager/azurerm.resources/v3.3.0/remove-azurermadappcredential) och [New-AzureRmADAppCredential](/powershell/module/azurerm.resources/new-azurermadappcredential).
+Om du vill ändra autentiseringsuppgifterna för en AD-app, antingen på grund av ett säkerhetsintrång eller för att en autentiseringsuppgift upphört att gälla, kan du använda cmdletarna [Remove-AzureRmADAppCredential](/powershell/module/azurerm.resources/remove-azurermadappcredential) och [New-AzureRmADAppCredential](/powershell/module/azurerm.resources/new-azurermadappcredential).
 
 För att ta bort alla autentiseringsuppgifter för en app, använd:
 

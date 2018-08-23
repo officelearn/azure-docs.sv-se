@@ -12,18 +12,20 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 08/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8c828bb49548adfdb02ed6fb1611eb405ebf4ff2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: df9c218c275367852885e67ac2649926ba1d31d3
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38466268"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42059545"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Använd taggar för att organisera Azure-resurser
 
 [!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
+
+Om du vill lägga till taggar i resurser, måste användaren ha skrivbehörighet till den resurstypen. Om du vill lägga till taggar i alla typer av resurser, använder den [deltagare](../role-based-access-control/built-in-roles.md#contributor) roll. Om du vill lägga till taggar i endast en resurstyp, använder du deltagarrollen för den resursen. Till exempel om du vill lägga till taggar till virtuella datorer, använda den [virtuell Datordeltagare](../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 

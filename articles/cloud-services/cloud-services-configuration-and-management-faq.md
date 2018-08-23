@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 5b8c7e8880f7e467b1b5a305cc7381e6499571f5
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 30a23010f326189ffd5886407d70e357abb9c53e
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238629"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42058459"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problem med konfiguration och hantering för Azure Cloud Services: vanliga frågor (FAQ)
 
@@ -126,7 +126,7 @@ $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLoc
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
-Möjlighet att välja blob eller lokal för dina csdef och cscfg överför plats kommer snart. Med hjälp av [New-AzureDeployment](/powershell/module/azure/new-azuredeployment?view=azuresmps-4.0.0), du kan ange ett värde för varje plats.
+Möjlighet att välja blob eller lokal för dina csdef och cscfg överför plats kommer snart. Med hjälp av [New-AzureDeployment](/powershell/module/servicemanagement/azure/new-azuredeployment?view=azuresmps-4.0.0), du kan ange ett värde för varje plats.
 
 Du kan övervaka mått på instansnivå. Ytterligare övervakningsfunktionerna som är tillgängliga i [så övervaka Cloud Services](cloud-services-how-to-monitor.md).
 
@@ -295,7 +295,7 @@ Journal-inställningar är icke konfigurerbara, så du inte kan inaktivera den.
 Du kan aktivera tillägget mot skadlig kod med hjälp av PowerShell-skript i startåtgärden. Följ stegen i de här artiklarna du implementerar den: 
  
 - [Skapa en startåtgärd för PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
-- [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/Azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
+- [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
 
 Mer information om distributionsscenarier för program mot skadlig kod och hur du aktiverar det från portalen finns i [distributionsscenarier för program mot skadlig kod](../security/azure-security-antimalware.md#antimalware-deployment-scenarios).
 

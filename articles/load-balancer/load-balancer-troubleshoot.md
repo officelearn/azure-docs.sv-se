@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/06/2018
+ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 6777842f3ca336eb4ae0d134cbc7ffd062bc6f29
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 1a4be7b5caba751f0f90e865d8ef23e5e9c899d6
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37889671"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42058467"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Felsök Azure Load Balancer
 
@@ -87,7 +87,7 @@ Om en serverdelspool VM som felfri och svarar på hälsoavsökningar, men fortfa
 * Belastningsutjämnarens serverdelspool VM inte lyssnar på dataporten 
 * Nätverkssäkerhetsgrupp blockerar port på belastningsutjämnaren serverdelspoolen VM  
 * Åtkomst till belastningsutjämnaren från samma VM och NIC 
-* Komma åt VIP för den Internet belastningsutjämnaren från deltagande belastningsutjämnaren serverdelspoolen VM 
+* Åtkomst till Internet-belastningsutjämnare klientdelen från deltagande belastningsutjämnaren serverdelspoolen VM 
 
 ### <a name="cause-1-load-balancer-backend-pool-vm-is-not-listening-on-the-data-port"></a>Orsak 1: Serverdelspool för belastningsutjämnaren VM inte lyssnar på dataporten 
 Om en virtuell dator inte svarar på data-trafik, det kan vara eftersom målporten inte är öppen på den deltagande virtuell datorn eller den virtuella datorn inte lyssnar på porten. 
@@ -119,10 +119,11 @@ Om ditt program på den virtuella datorn av en belastningsutjämnare på servers
 * Konfigurera separata serverdelspoolen virtuella datorer per program. 
 * Konfigurera programmet i virtuella datorer med dubbla nätverkskort så att varje program med sin egen nätverksgränssnitt och IP-adress. 
 
-### <a name="cause-4-accessing-the-internal-load-balancer-vip-from-the-participating-load-balancer-backend-pool-vm"></a>Orsak 4: Komma åt VIP för den interna belastningsutjämnaren från deltagande belastningsutjämnaren serverdelspoolen VM
+### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>Orsak 4: Åtkomst till interna belastningsutjämnare klientdelen från deltagande belastningsutjämnaren serverdelspoolen VM
 
-Om en ILB-VIP har konfigurerats i ett virtuellt nätverk och en av de virtuella datorerna som deltagare serverdel försöker komma åt VIP för den interna belastningsutjämnaren, som leder till fel. Det här är ett scenario som inte stöds.
-**Lösning** utvärdera Application-Gateway eller andra proxyservrar (till exempel nginx eller haproxy) för att stödja den typen av scenario. Läs mer om Application Gateway, [översikt över Application Gateway](../application-gateway/application-gateway-introduction.md)
+Om en intern belastningsutjämnare konfigureras i ett virtuellt nätverk och en av de virtuella datorerna som deltagare serverdel försöker komma åt den interna belastningsutjämnaren klientdelen, kan fel inträffa när flödet är mappad till den ursprungliga virtuella datorn. Det här scenariot stöds inte. Granska [begränsningar](load-balancer-overview.md#limitations) detaljerad information.
+
+**Lösning** det finns flera sätt att avblockera det här scenariot, inklusive en proxy. Utvärdera Application Gateway eller andra 3 part proxyservrar (till exempel nginx eller haproxy). Läs mer om Application Gateway, [översikt över Application Gateway](../application-gateway/application-gateway-introduction.md)
 
 ## <a name="additional-network-captures"></a>Ytterligare nätverksinsamlingar
 Samla in följande information för en snabbare lösning om du vill öppna ett supportärende. Välj en enda serverdel virtuell dator för att utföra följande test:

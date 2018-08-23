@@ -9,16 +9,16 @@ ms.author: xshi
 ms.date: 06/26/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a5ab49beed79a8ea3a7ded0848c09acad27a5fb1
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 78e952b5b1eedc1757cfe636eb13e411044dce54
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390545"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42054970"
 ---
 # <a name="develop-and-debug-nodejs-modules-with-azure-iot-edge-for-visual-studio-code"></a>Utveckla och Felsök Node.js-moduler med Azure IoT Edge för Visual Studio Code
 
-Du kan skicka din affärslogik som ska användas vid gränsen genom att aktivera det i moduler för Azure IoT Edge. Den här artikeln innehåller detaljerade anvisningar för att använda Visual Studio Code (VS Code) som det huvudsakliga utvecklingsverktyg för att utveckla C#-moduler.
+Du kan skicka din affärslogik som ska användas vid gränsen genom att aktivera det i moduler för Azure IoT Edge. Den här artikeln innehåller detaljerade anvisningar för att använda Visual Studio Code (VS Code) som det huvudsakliga utvecklingsverktyg för att utveckla Node.js-moduler.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du använder en dator eller virtuell dator som kör Windows eller Linux som din utvecklingsdator. Din IoT-Edge-enhet kan vara en annan fysisk enhet eller så kan du simulera en IoT Edge-enhet på utvecklingsdato.
@@ -43,7 +43,7 @@ Testa din modul på en enhet, behöver du en aktiv IoT-hubb med minst en IoT Edg
 
 ## <a name="create-a-new-solution-template"></a>Skapa en ny lösningsmall
 
-Följande steg visar hur du skapar en IoT Edge-modul som baseras på .NET Core 2.0 med hjälp av Visual Studio Code och Azure IoT Edge-tillägget. Du startar genom att skapa en lösning och sedan skapa den första modulen i lösningen. Varje lösning kan innehålla flera moduler. 
+Följande steg visar hur du skapar en IoT Edge-modul baserat på Node.js med hjälp av Visual Studio Code och Azure IoT Edge-tillägget. Du startar genom att skapa en lösning och sedan skapa den första modulen i lösningen. Varje lösning kan innehålla flera moduler. 
 
 1. I Visual Studio Code, Välj **visa** > **integrerade terminalen**.
 2. I den integrerade terminalen anger du följande kommando för att installera (eller uppdatera) den senaste versionen av mallen för Azure IoT Edge-modul för Node.js:
@@ -67,22 +67,22 @@ VS Code tar den information du tillhandahålls, skapar en IoT Edge-lösning och 
 I lösningen har du tre objekt: 
 * En **.vscode** mappen innehåller konfigurationer för felsökning.
 * En **moduler** mappen innehåller undermappar för varje modul. Just nu du bara har en, men du kan lägga till fler i kommandopaletten med kommandot **Azure IoT Edge: Lägg till IoT Edge-modul**. 
-* En **.env** filen visar en lista över dina miljövariabler. Om du är ACR som registret, just nu har ACR användarnamn och lösenord i den. 
+* En **.env** filen visar en lista över dina miljövariabler. Om Azure Container Registry är ditt register, har du ett Azure Container Registry användarnamn och lösenord i den.
 
    >[!NOTE]
    >Miljö-filen skapas endast om du anger en avbildningslagringsplatsen för modulen. Om du har godkänt localhost för att testa och felsöka lokalt, behöver du inte deklarera miljövariabler. 
 
 * En **deployment.template.json** filen visar en lista över dina nya modulen tillsammans med ett exempel **tempSensor** modul som simulerar data som du kan använda för testning. Mer information om hur distribution manifest work finns i [förstå hur IoT Edge-moduler kan användas, konfigurerats och återanvändas](module-composition.md).
 
-## <a name="devlop-your-module"></a>Devlop din modul
+## <a name="develop-your-module"></a>Utveckla din modell
 
-Standard Azure Function-koden som medföljer lösningen finns i **moduler** > **\<din Modulnamn\>**   >   **App.js**. Modulen och filen deployment.template.json ställs in så att du kan skapa lösningen, push-överföra den till behållarregistret och distribuera den till en enhet för att börja testa utan att röra kod. Modulen är utformat för att helt enkelt ta indata från en källa (i det här fallet modulen tempSensor som simulerar data) och skicka det till IoT Hub. 
+Standard Node.js-kod som medföljer lösningen finns i **moduler** > **\<din Modulnamn\>** > **app.js** . Modulen och filen deployment.template.json ställs in så att du kan skapa lösningen, push-överföra den till behållarregistret och distribuera den till en enhet för att börja testa utan att röra kod. Modulen är utformat för att helt enkelt ta indata från en källa (i det här fallet modulen tempSensor som simulerar data) och skicka det till IoT Hub. 
 
 När du är redo att anpassa mallen Node.js med din egen kod kan använda den [Azure IoT Hub SDK: er](../iot-hub/iot-hub-devguide-sdks.md) att skapa moduler adressen nyckeln måste för IoT-lösningar som säkerhet, hantering av enheter och tillförlitlighet. 
 
 ## <a name="build-and-deploy-your-module-for-debugging"></a>Skapa och distribuera din modul för felsökning
 
-Det finns flera Docker-filer för olika behållartyper i varje modul-mapp. Du kan använda någon av dessa filer som slutar med tillägget **.debug** att skapa din modul för testning. C#-moduler stöder för närvarande endast felsökning i linux-amd64 behållare.
+Det finns flera Docker-filer för olika behållartyper i varje modul-mapp. Du kan använda någon av dessa filer som slutar med tillägget **.debug** att skapa din modul för testning. Node.js-moduler stöder för närvarande endast felsökning i linux-amd64-, windows amd64- och linux-arm32v7 behållare.
 
 1. I VS Code, navigerar du till den `deployment.template.json` filen. Uppdatera din modulen bild-URL genom att lägga till **.debug** i slutet.
 2. Ersätt createOptions för Node.js-modulen i **deployment.template.json** med nedan innehåll och spara den här filen: 
@@ -99,7 +99,7 @@ Du kan sedan se distributionen har skapats med en distribution som ID i VS Code-
 
 Du kan kontrollera din status för container i VS Code Docker-Utforskaren eller genom att köra den `docker ps` i terminalen.
 
-## <a name="start-debugging-nodejs-module-in-vs-code"></a>Starta felsökning Node.Js-modulen i VS Code
+## <a name="start-debugging-nodejs-module-in-vs-code"></a>Starta felsökning Node.js-modulen i VS Code
 
 VS Code håller felsökning konfigurationsinformationen i en `launch.json` finns i en `.vscode` mapp i din arbetsyta. Detta `launch.json` filen genererades när du skapade en ny IoT Edge-lösning. Uppdateras varje gång du lägger till en ny modul som har stöd för felsökning. 
 

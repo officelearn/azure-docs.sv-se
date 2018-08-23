@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/30/2018
 ms.author: mstewart
-ms.openlocfilehash: 19fe03a6d06b0f058a90e8bdc40d862601db4f7e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 5421858fd7f31f18c2e6a1e3693b67b3c47a6945
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399906"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42057309"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Krav för Azure Disk Encryption 
  Den här artikeln krävs för Azure Disk Encryption, förklarar objekt som måste vara uppfyllda innan du kan använda Azure Disk Encryption. Tillsammans med allmänna krav Azure Disk Encryption är integrerad med [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) och använder en Azure AD-program för autentisering för att hantera krypteringsnycklar i nyckelvalvet. Du kan också använda [Azure PowerShell](/powershell/azure/overview) eller [Azure CLI](/cli/azure/) att ställa in eller konfigurera Key Vault och Azure AD-programmet.
@@ -109,7 +109,7 @@ Ett exempel på kommandon som kan användas för att montera datadiskarna och sk
 
 ## <a name="bkmk_CLI"></a> Azure CLI
 
-Den [Azure CLI 2.0](/cli/azure) är ett kommandoradsverktyg för att hantera Azure-resurser. CLI är utformat för att fråga efter data, stöd för långvariga åtgärder som icke-blockerande processer och göra skript enkelt flexibelt. Du kan använda det i webbläsaren med [Azure Cloud Shell](/cloud-shell/overview.md) eller installera det på din lokala dator och använda det i PowerShell-sessioner.
+Den [Azure CLI 2.0](/cli/azure) är ett kommandoradsverktyg för att hantera Azure-resurser. CLI är utformat för att fråga efter data, stöd för långvariga åtgärder som icke-blockerande processer och göra skript enkelt flexibelt. Du kan använda det i webbläsaren med [Azure Cloud Shell](../cloud-shell/overview.md) eller installera det på din lokala dator och använda det i PowerShell-sessioner.
 
 1. [Installera Azure CLI](/cli/azure/install-azure-cli) för användning på den lokala datorn (valfritt):
 
@@ -174,7 +174,7 @@ Du kan skapa ett nyckelvalv med Azure PowerShell med hjälp av den [New-AzureRmK
 Du kan hantera ditt nyckelvalv med Azure CLI med hjälp av den [az keyvault](/cli/azure/keyvault#commands) kommandon. Du kan skapa ett nyckelvalv med [az keyvault skapa](/cli/azure/keyvault#az-keyvault-create).
 
 1. Om det behövs [ansluta till din Azure-prenumeration](azure-security-disk-encryption-appendix.md#bkmk_ConnectCLI).
-2. Skapa en ny resursgrupp, om det behövs, med [az gruppen skapa](/cli/azure/groupt#az-group-create). Använd om du vill visa en lista över platser [az konto list-locations](/cli/azure/account#az-account-list) 
+2. Skapa en ny resursgrupp, om det behövs, med [az gruppen skapa](/cli/azure/group#az-group-create). Använd om du vill visa en lista över platser [az konto list-locations](/cli/azure/account#az-account-list) 
      
      ```azurecli-interactive
      # To list locations: az account list-locations --output table
@@ -260,7 +260,7 @@ Azure AD-program behöver behörighet att komma åt nycklar eller hemligheter i 
      ```
 
 ### <a name="bkmk_KVAPCLI"></a> Ange nyckelvalvets åtkomstprincip för Azure AD-app med Azure CLI
-Använd [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault.md#az-keyvault-set-policy) att ställa in åtkomstprincipen. Mer information finns i [hantera Key Vault med CLI 2.0](../key-vault/key-vault-manage-with-cli2.md#authorize-the-application-to-use-the-key-or-secret).
+Använd [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-set-policy) att ställa in åtkomstprincipen. Mer information finns i [hantera Key Vault med CLI 2.0](../key-vault/key-vault-manage-with-cli2.md#authorize-the-application-to-use-the-key-or-secret).
 
 1. Om det behövs [ansluta till din Azure-prenumeration](azure-security-disk-encryption-appendix.md#bkmk_ConnectCLI).
 2. Ge tjänstens huvudnamn som du skapade via Azure CLI-åtkomst att hämta hemligheter och radbyte nycklar med följande kommando:

@@ -1,6 +1,6 @@
 ---
-title: Översikt över hög tillgänglighet konfigurationer med Azure VPN-gatewayer | Microsoft Docs
-description: Den här artikeln ger en översikt över konfigurationsalternativen för hög tillgänglighet med Azure VPN-gateways.
+title: Översikt över konfigurationer med hög tillgänglighet med Azure VPN gateway | Microsoft Docs
+description: Den här artikeln ger en översikt över konfigurationsalternativen för hög tillgänglighet med Azure VPN Gateway.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2016
 ms.author: yushwang
-ms.openlocfilehash: 3708a2f7c445a161f02416cf8427b1707e1db8f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c510bb060d5c0dc866c3802fab751c1cbeff3745
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23928946"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42058766"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Anslutning med hög tillgänglighet på flera platser och VNet-till-VNet-anslutning
 Den här artikeln ger en översikt över konfigurationsalternativen för anslutning på flera platser och VNet-till-VNet-anslutning med Azure VPN-gateways.
@@ -34,7 +34,7 @@ Varje Azure VPN-gateway består av två instanser i en aktiv-standby-konfigurati
 Det finns ett par alternativ för att få bättre tillgänglighet för anslutningar på flera platser:
 
 * Flera lokala VPN-enheter
-* Aktiv-aktiv Azure VPN-gateway
+* Aktiv-aktiv Azure VPN gateway
 * En kombination av båda
 
 ### <a name = "activeactiveonprem"></a>Flera lokala VPN-enheter
@@ -44,7 +44,7 @@ Du kan använda flera VPN-enheter från ditt lokala nätverk för att ansluta ti
 
 Med den här konfigurationen får du flera aktiva tunnlar från samma Azure VPN-gateway till dina lokala enheter på samma plats. Det finns vissa krav och begränsningar:
 
-1. Du måste skapa flera S2S VPN-anslutningar från dina VPN-enheter till Azure. När du ansluter flera VPN-enheter från samma lokala nätverk till Azure måste du skapa en lokal nätverksgateway för varje VPN-enhet och en anslutning från din Azure VPN-gateway till den lokala nätverkgatewayen.
+1. Du måste skapa flera S2S VPN-anslutningar från dina VPN-enheter till Azure. När du ansluter flera VPN-enheter från samma lokala nätverk till Azure, måste du skapa en lokal nätverksgateway för varje VPN-enhet och en anslutning från din Azure VPN-gateway för varje lokal nätverksgateway.
 2. De lokala nätverkgateways som motsvarar dina VPN-enheter måste ha unika offentliga IP-adresser i GatewayIpAddress-egenskapen.
 3. BGP krävs för den här konfigurationen. Varje lokal nätverksgateway som representerar en VPN-enhet måste ha en unik IP-adress för BGP-peer angiven i BgpPeerIpAddress-egenskapen.
 4. AddressPrefix-egenskapsfältet i varje lokal nätverksgateway får inte överlappa varandra. Du måste ange "BgpPeerIpAddress" i /32 CIDR-format i fältet AddressPrefix, till exempel 10.200.200.254/32.
@@ -53,7 +53,7 @@ Med den här konfigurationen får du flera aktiva tunnlar från samma Azure VPN-
 
 I den här konfigurationen är Azure VPN-gatewayen fortfarande i aktiv-standby-läge, vilket innebär att det redundansbeteende och korta avbrott som beskrivs [ovan](#activestandby) fortfarande gäller. Men konfigurationen skyddar mot fel och avbrott i ditt lokala nätverk och dina VPN-enheter.
 
-### <a name="active-active-azure-vpn-gateway"></a>Aktiv-aktiv Azure VPN-gateway
+### <a name="active-active-azure-vpn-gateway"></a>Aktiv-aktiv Azure VPN gateway
 Nu kan du skapa en Azure VPN-gateway i en aktiv-aktiv-konfiguration, där båda instanserna av de virtuella datorernas gateway etablerar S2S VPN-tunnlar till din lokala VPN-enhet enligt följande diagram:
 
 ![Aktiv-aktiv](./media/vpn-gateway-highlyavailable/active-active.png)
@@ -75,7 +75,7 @@ Alla gateways och tunnlar är aktiva från Azure-sidan, vilket gör att trafiken
 
 För den här topologin krävs två lokala nätverksgateways och två anslutningar för de två lokala VPN-enheterna, och BGP krävs för att kunna använda dessa två anslutningar till samma lokala nätverk. Kraven är desamma som de som anges [ovan](#activeactiveonprem). 
 
-## <a name="highly-available-vnet-to-vnet-connectivity-through-azure-vpn-gateways"></a>VNet-till-VNet-anslutningar med hög tillgänglighet via Azure VPN-gateways
+## <a name="highly-available-vnet-to-vnet-connectivity-through-azure-vpn-gateways"></a>Anslutningar mellan virtuella nätverk med hög tillgänglighet via Azure VPN Gateway
 Samma aktiv-aktiv-konfiguration gäller även för Azure VNet-till-VNet-anslutningar. Du kan skapa aktiv-aktiv VPN-gateways för de båda virtuella nätverken och koppla samman dem för att skapa samma anslutningar med ett helt nät med 4 tunnlar mellan två VNets, enligt diagrammet nedan:
 
 ![VNet-till-VNet](./media/vpn-gateway-highlyavailable/vnet-to-vnet.png)
@@ -83,5 +83,5 @@ Samma aktiv-aktiv-konfiguration gäller även för Azure VNet-till-VNet-anslutni
 Detta garanterar att det alltid finns ett tunnelpar mellan de två virtuella nätverken för planerade underhållshändelser, och det ger också ökad tillgänglighet. Trots att samma topologi för anslutning på flera platser kräver två anslutningar behöver VNet-till-VNet-topologin ovan bara en anslutning för varje gateway. Dessutom är BGP valfritt, om det inte krävs överföringsroutning över VNet-till-VNet-anslutningen.
 
 ## <a name="next-steps"></a>Nästa steg
-Anvisningar om hur du konfigurerar aktiv-aktiv VPN-gateways för flera platser och VNet-till-VNet-anslutningar finns i [Konfigurera aktiv-aktiv VPN-gateways för flera platser och VNet-till-VNet-anslutningar](vpn-gateway-activeactive-rm-powershell.md).
+Anvisningar om hur du konfigurerar aktiv-aktiv VPN Gateway för flera platser och anslutningar mellan virtuella nätverk finns i [Konfigurera aktiv-aktiv VPN Gateway för flera platser och anslutningar mellan virtuella nätverk](vpn-gateway-activeactive-rm-powershell.md).
 

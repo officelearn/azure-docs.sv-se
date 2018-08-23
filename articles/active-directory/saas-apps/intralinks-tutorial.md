@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: b3c74631515301498aedcb035fae32b0a451e308
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 44cae95cfd01f8d6fbd6ddb4a11e9af290042ffa
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424785"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42057301"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intralinks"></a>Självstudier: Azure Active Directory-integration med Intralinks
 
@@ -59,7 +59,7 @@ För att konfigurera integrering av Intralinks i Azure AD, som du behöver lägg
 
 **Utför följande steg för att lägga till Intralinks från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
@@ -115,7 +115,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster:  `https://<company name>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<AzureADTenantID>`
 
     > [!NOTE] 
-    > Det här värdet är inte verkliga. Uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [Intralinks klienten supportteamet](https://www.intralinks.com/contact-1) att hämta det här värdet. 
+    > Det här värdet är inte verkliga. Uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [Intralinks klienten supportteamet](https://www.intralinks.com/contact) att hämta det här värdet. 
  
 1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
@@ -125,7 +125,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/intralinks-tutorial/tutorial_general_400.png)
 
-1. Att konfigurera enkel inloggning på **Intralinks** sida, som du behöver skicka de hämtade **XML-Metadata för** [Intralinks supportteam](https://www.intralinks.com/contact-1). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på **Intralinks** sida, som du behöver skicka de hämtade **XML-Metadata för** [Intralinks supportteam](https://www.intralinks.com/contact). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 > [!TIP]
 > Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -163,7 +163,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="creating-an-intralinks-test-user"></a>Skapa en Intralinks testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Intralinks. Kontakta [Intralinks supportteam](https://www.intralinks.com/contact-1) att lägga till användare i Intralinks-plattformen.
+I det här avsnittet skapar du en användare som kallas Britta Simon i Intralinks. Kontakta [Intralinks supportteam](https://www.intralinks.com/contact) att lägga till användare i Intralinks-plattformen.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
@@ -204,7 +204,7 @@ Därefter kan du följa den nedan hur du lägger till ett annat Intralinks progr
 >[!NOTE]
 >Den här funktionen är endast tillgängligt för kunder för Azure AD Premium-SKU och inte tillgängligt för kunder med kostnadsfria eller grundläggande SKU.
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
@@ -237,7 +237,7 @@ Därefter kan du följa den nedan hur du lägger till ett annat Intralinks progr
  
     ![Konfigurera enkel inloggning](./media/intralinks-tutorial/tutorial_intralinks_linkedsignon.png)
 
-1. Hämta SP initierad SSO URL från [Intralinks team](https://www.intralinks.com/contact-1) för andra Intralinks programmet och ange den i **konfigurera inloggnings-URL** enligt nedan. 
+1. Hämta SP initierad SSO URL från [Intralinks team](https://www.intralinks.com/contact) för andra Intralinks programmet och ange den i **konfigurera inloggnings-URL** enligt nedan. 
     
      ![Konfigurera enkel inloggning](./media/intralinks-tutorial/tutorial_intralinks_customappurl.png)
     

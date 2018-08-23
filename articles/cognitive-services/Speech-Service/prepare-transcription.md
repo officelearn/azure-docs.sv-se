@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: a219db14d659348ef3ed4de1dffa640a948f1954
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: db324b6c5444955debdc6a3e09906a0de47ff819
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283348"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41987620"
 ---
 # <a name="transcription-guidelines-for-using-speech-service"></a>Transkription riktlinjer för att använda Speech service
 
@@ -154,7 +154,7 @@ Gäller följande normalisering texten innan du importerar den.
 *   Decimaltecknet ska vara ”,” och inte ””.
 *   Tidsavgränsare mellan många timmar och minuter som ska vara ”:” och inte ””.: 12:00 Uhr
 *   Förkortningar exempelvis certifikatutfärdare. ersätts inte. Vi rekommenderar att du använder den fullständiga formen.
-*   De fem viktigaste matematiska operatörerna tas bort: +, -, \*, /. Vi rekommenderar att ersätta dem med deras literal form: plus minus skadlig geteilt.
+*   De fyra huvudsakliga matematiska operatörerna tas bort: +, -, \*, /. Vi rekommenderar att ersätta dem med deras literal form: plus minus skadlig geteilt.
 *   Detsamma gäller för jämförelseoperatorer (=, <>,) - gleich kleiner sensorn, grösser sensorn
 *   Använd delar, till exempel 3 och 4 i word-format (till exempel ”drei viertel” i stället för ¾)
 *   Ersätt € symbolen med ordform ”Europa”

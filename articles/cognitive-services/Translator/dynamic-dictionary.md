@@ -1,6 +1,6 @@
 ---
-title: Microsoft Translator Text API dynamiska ordlistan | Microsoft Docs
-description: Hur du använder funktionen dynamiskt ordlista i Microsoft översättare Text API.
+title: Microsoft Translator Text API dynamisk ordlista | Microsoft Docs
+description: Hur du använder funktionen dynamiskt ordlista i Microsoft Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
 manager: chriswendt1
@@ -9,28 +9,28 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: a18348c9786669ac41c4e149577d97cd631d5531
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: dbc754093827730b8709d67f314e5b327518ef50
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355650"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41987645"
 ---
-# <a name="how-to-use-the-dynamic-dictionary-feature-of-the-microsoft-translator-text-api"></a>Hur du använder funktionen dynamiskt ordlista i Microsoft översättare Text-API
+# <a name="how-to-use-the-dynamic-dictionary-feature-of-the-microsoft-translator-text-api"></a>Hur du använder funktionen dynamiskt ordlista i Microsoft Translator Text API
 
-Om du redan vet översättning som du vill tillämpa på ett ord eller en fras kan du ange den som markeringar i begäran. Dynamisk ordlistan är endast säkra för sammansatta substantiv som namn och produktnamn. 
+Om du redan vet översättning som du vill använda på ett ord eller en fras kan ange du den som markup i begäran. Dynamisk ordlistan är endast säkra för sammansatt substantiv som egennamn och produktnamn. 
 
 **Syntax:** 
 
-< mstrans:dictionary översättning = ”översättning av frasen” > fras < / mstrans:dictionary >
+< mstrans:dictionary translation = ”översättning av frasen” > frasen < / mstrans:dictionary >
 
-**Exempel: SV-de:**
+**Exempel: en-de:**
 
-Datakällan indata: ordet < mstrans:dictionary översättning =\"wordomatic\"> ord eller en fras < / mstrans:dictionary > är en ordlista.
+Käll-indata: ordet < mstrans:dictionary translation =\"wordomatic\"> ord eller fraser < / mstrans:dictionary > är en ordlista-post.
 
 Rikta utdata: Das med en ”wordomatic” ist ein Wörterbucheintrag.
 
 Den här funktionen fungerar på samma sätt med och utan HTML-läge. 
 
-Funktionen bör användas sparsamt. Lämpliga och mycket bättre sätt för att anpassa översättningen är med hjälp av Microsoft översättare Hub. Hubben blir full användning av kontexten och statistiska sannolikhet. Om du har eller har råd att skapa träningsdata som visar ditt arbete eller en fras i kontexten får mycket bättre resultat. Du hittar mer information om navet på [ http://hub.microsofttranslator.com ](http://hub.microsofttranslator.com).
+Funktionen bör användas sparsamt. Det lämpliga och mycket bättre sättet att anpassa translation är med hjälp av anpassade Translator. Anpassade Translator blir fullt ut utnyttja kontext och statistiska sannolikhet. Om du har eller kan skapa träningsdata som visar ditt arbete eller en fras i sammanhanget, får mycket bättre resultat. Du hittar mer information om anpassade Translator på [ http://aka.ms/CustomTranslator ](http://aka.ms/CustomTranslator).
 

@@ -6,14 +6,14 @@ keywords: ansible, azure, devops, bash, cloudshell, dynamisk lager
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
-ms.date: 01/14/2018
+ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: 35033f7a6a0340be4dff5fa0051fd3c5ddb3c0eb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5f4793759bfba68c8a01d682b6b13de5cb96a8f6
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449425"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42059533"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Använd Ansible för att hantera dina Azure dynamiska lager
 Ansible kan användas för att hämta inventeringsinformation från olika källor (inklusive molnkällor, till exempel Azure) i en *dynamisk lager*. I den här artikeln använder du den [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) tagga en av de virtuella datorerna för att konfigurera en Ansible Azure dynamisk lager där du skapar två virtuella datorer och installera Nginx på de taggade virtuella datorn.
@@ -31,6 +31,9 @@ Ansible kan användas för att hämta inventeringsinformation från olika källo
 1. Öppna [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 1. Skapa en Azure-resursgrupp för att lagra de virtuella datorerna för den här självstudien.
+
+    > [!IMPORTANT]  
+    > Azure-resursgrupp som du skapar i det här steget måste ha ett namn som är helt och hållet gemener. I annat fall misslyckas generering av dynamisk lager.
 
     ```azurecli-interactive
     az group create --resource-group ansible-inventory-test-rg --location eastus
@@ -183,7 +186,7 @@ Det här avsnittet illustrerar en metod för att testa att Nginx är installerat
     --query [0].virtualMachine.network.publicIpAddresses[0].ipAddress -o tsv`
     ```
 
-1. Den [nginx - v](https://nginx.org/en/docs/switches.html) allmänt används för att skriva ut den Nginx-versionen. Det kan dock också användas om Nginx är installerat. Ange den när du är ansluten till den `ansible-inventory-test-vm1` virtuell dator.
+1. När du är ansluten till den `ansible-inventory-test-vm1` virtuell dator, kör den [nginx - v](https://nginx.org/en/docs/switches.html) kommando för att avgöra om Nginx har installerats.
 
     ```azurecli-interactive
     nginx -v

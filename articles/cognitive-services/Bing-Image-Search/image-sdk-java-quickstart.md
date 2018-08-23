@@ -1,6 +1,6 @@
 ---
-title: Bing avbildningen Sök SDK Java quickstart | Microsoft Docs
-description: Lär dig hur du ställer in konsolprogram Bing avbildningen Sök SDK.
+title: 'Snabbstart: Begär och filtrera bilder med hjälp av Java SDK'
+description: I den här snabbstarten du begär och filtrera bilder som returneras av bildsökning i Bing, med hjälp av Java.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
@@ -10,21 +10,21 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: 0c44bb313328081167a419f3b7d5ce17e49d2c99
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 280a4b67d81b0734ea983c1d7fe1389e59651ccd
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355260"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41988143"
 ---
-# <a name="bing-image-search-sdk-java-quickstart"></a>Bing avbildningen Sök SDK Java-Snabbstart
+# <a name="quickstart-request-and-filter-images-using-the-sdk-and-java"></a>Snabbstart: Begär och filtrera bilder med hjälp av SDK och Java
 
-Bing avbildningen Sök SDK tillhandahåller REST API-funktioner för avbildningen frågor och resultaten för tolkning. 
+Search SDK för Bing-bild innehåller REST API-funktioner för avbildning frågor och parsa resultat. 
 
-Den [källkoden för Java Bing avbildningen Sök SDK-exempel](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingImageSearch) är tillgänglig på Git-hubben. 
+Den [källkoden för Search-SDK för Java Bing-bild exempel](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingImageSearch) är tillgänglig på Git Hub. 
 
 ## <a name="application-dependencies"></a>Programberoenden
-Hämta en [kognitiva åtkomstnyckeln](https://azure.microsoft.com/try/cognitive-services/) under **Sök**. Installera Bing avbildningen Sök SDK-beroenden via Maven, Gradle eller ett annat hanteringssystem för beroendet. Filen Maven POM kräver deklarationen:
+Hämta en [Cognitive Services-åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/) under **Search**. Installera SDK för Bing Search-bild-beroenden med hjälp av Maven eller Gradle en annan beroendehanteringssystem. Maven POM-filen kräver deklarationen:
 ```
  <dependencies>
     <dependency>
@@ -34,8 +34,8 @@ Hämta en [kognitiva åtkomstnyckeln](https://azure.microsoft.com/try/cognitive-
     </dependency>
  </dependencies> 
 ```
-## <a name="image-search-client"></a>Klienten för avbildning sökning
-Lägg till import till klassen implementeringen.
+## <a name="image-search-client"></a>Sök-klienten för avbildning
+Lägg till importen i implementeringen av klassen.
 ```
 import com.microsoft.azure.cognitiveservices.imagesearch.*;
 import com.microsoft.azure.cognitiveservices.imagesearch.ImageObject;
@@ -54,7 +54,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 ```
-Implementera den **ImageSearchAPIImpl** klienten, vilket kräver en instans av den **ServiceClientCredentials** klass.
+Implementera de **ImageSearchAPIImpl** klienten, vilket kräver en instans av den **ServiceClientCredentials** klass.
 ```
 public static ImageSearchAPIImpl getClient(final String subscriptionKey) {
     return new ImageSearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
@@ -79,7 +79,7 @@ public static ImageSearchAPIImpl getClient(final String subscriptionKey) {
 }
 
 ```
-Söka efter bilder om de ”kanadensiska Rockies”. Kontrollera antalet resultat. Skriva ut värden för den **firstImageResult**, **pivotSuggestions**, och **queryExpansions** parametrar.
+Sök efter bilder om de ”kanadensiska Rockies”. Kontrollera hur många resultat. Skriva ut värdena för den **firstImageResult**, **pivotSuggestions**, och **queryExpansions** parametrar.
 ```
 public static void imageSearch(String subscriptionKey)
 {
@@ -164,7 +164,7 @@ public static void imageSearch(String subscriptionKey)
 }
 
 ```
-Sök efter bilder om ”Gibraltar” och filter för animerad GIF och en bred proportionerna. Kontrollera antalet resultat. Skriva ut värden för den **insightsToken**, **thumbnailUrl**, och **webUrl** parametrar för det första resultatet.
+Sök efter bilder om ”Gibraltar” och filter för animerade GIF-filer och ett brett proportionerna. Kontrollera hur många resultat. Skriva ut värdena för den **insightsToken**, **thumbnailUrl**, och **webUrl** parametrar för det första resultatet.
 ```
 public static void imageSearchWithFilters(String subscriptionKey)
 {
@@ -208,7 +208,7 @@ public static void imageSearchWithFilters(String subscriptionKey)
 }
 
 ```
-Sök efter trender bilder. Kontrollera den **kategorier** och **paneler** parametrar.
+Sök efter populära bilder. Kontrollera den **kategorier** och **paneler** parametrar.
 ```
 public static void imageTrending(String subscriptionKey)
 {
@@ -260,7 +260,7 @@ public static void imageTrending(String subscriptionKey)
 }
 
 ```
-Sök efter bilder med frågan ”Degas” och sedan söker du efter information om det första resultatet av avbildningen. 
+Sök efter bilder med frågan ”Degas” och sedan söker du efter information om det första resultatet i avbildningen. 
 ```
 public static void imageDetail(String subscriptionKey)
 {
@@ -396,7 +396,7 @@ public static void imageDetail(String subscriptionKey)
     }
 }
 ```
-Lägg till de metoder som beskrivs i den här artikeln till en klass med en huvudsakliga funktion för att köra koden.
+Lägg till de metoder som beskrivs i den här artikeln för att en klass med en huvudsakliga funktion för att köra koden.
 ```
 package ImageSDK;
 import com.microsoft.azure.cognitiveservices.imagesearch.*;
@@ -416,4 +416,4 @@ public class ImageSrchSDK {
 ```
 ## <a name="next-steps"></a>Nästa steg
 
-[Kognitiva Services SDK för Java-exempel](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+[Cognitive Services Java SDK-exempel](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)

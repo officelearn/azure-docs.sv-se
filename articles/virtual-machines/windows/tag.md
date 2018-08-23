@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: 5044bda855b6ac88eb5784f257686bf8a1838222
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6c461fe06e1a869d0495551ab014452c03dc60b2
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38531328"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42059536"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Tagga en virtuell Windows-dator i Azure
 Den här artikeln beskrivs olika sätt att tagga en virtuell Windows-dator i Azure via Resource Manager-distributionsmodellen. Taggar är en användardefinierad nyckel/värde-par som kan placeras direkt på en resurs eller resursgrupp. Azure stöder för närvarande upp till 15 taggar per resurs och resursgruppen. Taggar kan placeras på en resurs när den skapas eller lagts till i en befintlig resurs. Observera att taggar stöds för resurser som har skapats via Resource Manager-distributionsmodellen endast. Om du vill tagga en virtuell Linux-dator, se [tagga en virtuell Linux-dator i Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -98,7 +98,7 @@ Om du vill veta mer om taggning via PowerShell kan ta en titt på [Cmdlets för 
 * Om du vill se hur taggar kan hjälpa dig att hantera din användning av Azure-resurser, se [förstå din Azure-faktura] [ Understanding your Azure Bill] och [insyn i din Microsoft Azure-resursförbrukning] [Gain insights into your Microsoft Azure resource consumption].
 
 [PowerShell environment with Azure Resource Manager]: ../../azure-resource-manager/powershell-azure-resource-manager.md
-[Azure Resource Cmdlets]: https://msdn.microsoft.com/library/azure/dn757692.aspx
+[Azure Resource Cmdlets]: https://docs.microsoft.com/powershell/module/azurerm.resources/
 [Azure Resource Manager Overview]: ../../azure-resource-manager/resource-group-overview.md
 [Using Tags to organize your Azure Resources]: ../../azure-resource-manager/resource-group-using-tags.md
 [Understanding your Azure Bill]: ../../billing/billing-understand-your-bill.md

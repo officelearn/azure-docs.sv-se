@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: 2d959eb9c4f55624d0d0915dd5dea4c62ba1f8e5
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: fcf3c7d47e43adc94d2de933430f16d64ec987a2
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505721"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41918371"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Komma igång med Azure Key Vault
 Med den här artikeln får du hjälp med att komma igång med Azure Key Vault med PowerShell, och den går igenom följande aktiviteter:
@@ -28,9 +28,6 @@ Med den här artikeln får du hjälp med att komma igång med Azure Key Vault me
 - Så här kan ett program använda den här nyckeln eller lösenordet.
 
 Azure Key Vault är tillgängligt i de flesta regioner. Mer information finns på sidan med [Key Vault-priser](https://azure.microsoft.com/pricing/details/key-vault/).
-
-> [!NOTE]
-> Den här artikeln innehåller inte instruktioner om hur du skriver ett Azure-program. Du kan använda [Azure Key Vault-exempelprogrammet](https://www.microsoft.com/download/details.aspx?id=45343) för de här stegen.
 
 Anvisningar för plattformsoberoende kommandoradsgränssnitt finns i [den här självstudiekursen](key-vault-manage-with-cli2.md).
 
@@ -269,7 +266,7 @@ För att ändra programmets behörighet att använda nycklar och hemligheter:
 ## <a id="HSM"></a>Arbeta med en maskinvarusäkerhetsmodul (HSM)
 Om du vill öka säkerheten ytterligare kan du importera och generera nycklar i maskinvarusäkerhetsmoduler (HSM) som aldrig lämnar HSM-gränsen. HSM-modulerna är FIPS 140-2 Level 2-verifierade. Om detta krav inte är nödvändigt för dig hoppar du över det här avsnittet och går vidare till [Ta bort nyckelvalvet och associerade nycklar och hemligheter](#delete).
 
-För att skapa dessa HSM-skyddade nycklar måste du använda [premiumnivån av Azure Key Vault för att stödja HSM-skyddade nycklar](https://azure.microsoft.com/pricing/free-trial/). Observera även att den här funktionen inte är tillgänglig för Azure i Kina.
+För att skapa dessa HSM-skyddade nycklar måste du använda [premiumnivån av Azure Key Vault för att stödja HSM-skyddade nycklar](https://azure.microsoft.com/pricing/details/key-vault/). Observera även att den här funktionen inte är tillgänglig för Azure i Kina.
 
 När du skapar nyckelvalvet lägger du till parametern **-SKU**:
 

@@ -9,12 +9,12 @@ ms.component: translator-speech
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 4f12d74aedbcadc311cd9c5ccd12dc1ad3501dbf
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 0a6d3775238512cacc21fb3e47f395e37c3fd29b
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205110"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41987471"
 ---
 # <a name="quickstart-for-microsoft-translator-speech-api-with-c"></a>Snabbstart för Microsoft Translator Speech API med C# 
 <a name="HOLTop"></a>
@@ -23,7 +23,7 @@ Den här artikeln visar hur du använder Microsoft Translator Speech API för at
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver [Visual Studio 2017](https://www.visualstudio.com/downloads/) att köra den här koden på Windows. (Den kostnadsfria versionen av communityn fungerar).
+Du behöver [Visual Studio 2017](https://www.visualstudio.com/downloads/) att köra den här koden på Windows. (Den kostnadsfria Community Edition fungerar.)
 
 Du behöver en WAV-fil med namnet ”speak.wav” i samma mapp som den körbara filen som du kompilera från koden nedan. Den här .wav-filen ska vara i standard PCM, 16-bitars, 16kHz mono format. Du kan hämta sådan .wav fil från den [Text till tal-API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
@@ -156,4 +156,4 @@ En lyckad resultatet är att skapa en fil med namnet ”speak2.wav”. Filen inn
 ## <a name="see-also"></a>Se också 
 
 [Översikt över Translator Speech](../overview.md)
-[API-referens](http://docs.microsofttranslator.com/speech-translate.html)
+[API-referens](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.openlocfilehash: 252e4f9fe5ed6b4ff9997fc41c691636e6d002b3
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: bb9e30489aa8870fe1c71c8c9a8bd557a2dcf2b1
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413546"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42058767"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Använd Azure Premium Storage med SQL Server på virtuella datorer
 ## <a name="overview"></a>Översikt
@@ -645,7 +645,7 @@ Koden nedan minnesdumpar ut VNN-inställningar och anger det åt dig. För att �
 
 I ett senare migreringssteg måste du uppdatera Always On-lyssnaren med uppdaterade IP-adressen som refererar till en belastningsutjämnare, detta innebär att en IP-adress resource borttagning och tillägg. När IP-uppdateringen måste du se till att den nya IP-adressen har uppdaterats i DNS-zon och att klienterna uppdaterar sin lokala DNS-cachen.
 
-Om klienterna finns i olika nätverkssegment och referera till en annan DNS-server, måste du tänka på vad som händer om DNS-zonöverföring under migreringen, eftersom programmet återansluta tiden är begränsad av zonen överför tiden för alla nya IP-adresser adresser för lyssnaren. Om du är under tiden begränsningen här du ska diskutera och testa tvinga en inkrementell zonöverföring med dina Windows-team, och även placera DNS-värdpost till en lägre Time To Live (TTL), så uppdateras. Mer information finns i [inkrementella zonöverföringar](https://technet.microsoft.com/library/cc958973.aspx) och [Start DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx).
+Om klienterna finns i olika nätverkssegment och referera till en annan DNS-server, måste du tänka på vad som händer om DNS-zonöverföring under migreringen, eftersom programmet återansluta tiden är begränsad av zonen överför tiden för alla nya IP-adresser adresser för lyssnaren. Om du är under tiden begränsningen här du ska diskutera och testa tvinga en inkrementell zonöverföring med dina Windows-team, och även placera DNS-värdpost till en lägre Time To Live (TTL), så uppdateras. Mer information finns i [inkrementella zonöverföringar](https://technet.microsoft.com/library/cc958973.aspx) och [Start DnsServerZoneTransfer](https://docs.microsoft.com/powershell/module/dnsserver/start-dnsserverzonetransfer).
 
 Som standard-TTL för DNS-post som är associerad med lyssnaren i Always On i Azure är 1200 sekunder. Du kan välja att minska det här om du är under tiden som begränsning under migreringen att se till att klienterna uppdatera sina DNS med den uppdaterade IP-adressen för lyssnaren. Du kan se och ändra konfigurationen av dumpning ut konfigurationen av VNN:
 

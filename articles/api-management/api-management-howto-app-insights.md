@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 8546b1228c8d8f213cb87692144e8d1d31a949d8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a660b36f383eaf1fd0e868200ad7f59aba0f8225
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001811"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42055392"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Hur du integrerar Azure API Management med Azure Application Insights
 
@@ -111,9 +111,15 @@ En misslyckad begäran är en begäran som:
 
 Baserat på interna tester kan orsakade den här funktionen aktiveras en 40-50% av dataflöde när förfrågningar har överskridits 1 000 begäranden per sekund. Azure Application Insights har utformats för att använda statistiska analyser för att utvärdera prestanda för programmet. Det är inte avsedd att vara en granskning system och är inte lämpligt för loggning av varje enskild begäran för API: er för stora volymer.
 
-Du kan ändra antalet begäranden som du loggar in genom att justera den **Sampling** inställning (se ovan). Värdet 100% innebär att alla förfrågningar loggas, medan 0% är medräknad ingen loggning alls. **Sampling** hjälper till att minska mängden telemetri som effektivt förhindrar betydande prestandaförsämring fortfarande sin fördelarna med loggning.
+Du kan ändra antalet begäranden som du loggar in genom att justera den **Sampling** inställning (se ovan). Värdet 100% innebär att alla förfrågningar loggas, medan 0% är medräknad ingen loggning alls. **Sampling** hjälper till att minska mängden telemetri som effektivt förhindrar märkbar försämring av prestanda, fortfarande sin fördelarna med loggning.
 
 Hoppar över loggning av rubriker och brödtext för begäranden och svar har också positiv inverkan på lindra prestandaproblem.
+
+## <a name="video"></a>Video
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2pkXv]
+>
+>
 
 ## <a name="next-steps"></a>Nästa steg
 

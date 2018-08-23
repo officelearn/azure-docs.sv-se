@@ -1,6 +1,6 @@
 ---
-title: Hur du använder PerfInsights i Microsoft Azure | Microsoft Docs
-description: Veta hur du använder PerfInsights för att felsöka Windows VM prestandaproblem.
+title: Använda PerfInsights i Microsoft Azure | Microsoft Docs
+description: Lär sig hur du använder PerfInsights för att felsöka prestandaproblem för Windows-VM.
 services: virtual-machines-windows'
 documentationcenter: ''
 author: anandhms
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 2f496f906eef416b35e2e59b2db93481ce65acb1
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: 16d023a2f3abf0feb1f1c0478edb3de7a157d5a4
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36946539"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42058178"
 ---
 # <a name="how-to-use-perfinsights"></a>Hur du använder PerfInsights
 
-[PerfInsights](http://aka.ms/perfinsightsdownload) är ett verktyg för självhjälp diagnostik som samlar in & analyserar diagnostiska data, och ger en rapport för att felsöka problem med Windows virtuella prestanda i Azure. PerfInsights kan köras på virtuella datorer som ett fristående verktyg eller direkt från portalen genom att installera [Azure prestanda diagnostik VM-tillägget](performance-diagnostics-vm-extension.md).
+[PerfInsights](http://aka.ms/perfinsightsdownload) är ett verktyg för självhjälp diagnostik som samlar in och analyserar diagnostiska data och ger en rapport för att felsöka prestandaproblem för Windows-dator i Azure. PerfInsights kan köras på virtuella datorer som ett fristående verktyg eller direkt från portalen genom att installera [Diagnostiktillägget för virtuell dator på Azure prestanda](performance-diagnostics-vm-extension.md).
 
-Kör det här verktyget om du får prestandaproblem med virtuella datorer innan du kontaktar supporten.
+Om du har problem med prestanda för virtuella datorer, innan du kontaktar support kan du köra det här verktyget.
 
 ## <a name="supported-troubleshooting-scenarios"></a>Felsökning scenarier som stöds
 
-PerfInsights kan samla in och analysera flera typer av information. Följande avsnitt beskriver vanliga scenarier.
+PerfInsights kan samla in och analysera flera olika typer av information. Följande avsnitt beskriver vanliga scenarier.
 
 ### <a name="quick-performance-analysis"></a>Snabb prestandaanalys
 
@@ -37,127 +37,127 @@ Det här scenariot samlar in diskkonfigurationen och annan viktig information, i
 
 -   Händelseloggar
 
--   Nätverkets status för alla inkommande och utgående anslutningar
+-   Nätverksstatus för alla inkommande och utgående anslutningar
 
--   Inställningarna för nätverk och brandvägg
+-   Inställningar för nätverk och brandvägg
 
 -   Uppgiftslista för alla program som körs på systemet
 
--   Microsoft SQL Server-databasen-konfigurationsinställningarna (om den virtuella datorn identifieras som en server som kör SQL Server)
+-   Microsoft SQL Server-databas-konfigurationsinställningar (om den virtuella datorn har identifierats som en server som kör SQL Server)
 
--   Lagring tillförlitlighet räknare
+-   Storage tillförlitlighet räknare
 
 -   Viktiga snabbkorrigeringar för Windows
 
 -   Installerade filterdrivrutiner
 
-Detta är en passiv insamling av information som inte bör påverka systemet. 
+Det här är en passiv insamling av information som inte ska påverka systemet. 
 
 >[!Note]
 >Det här scenariot ingår automatiskt i var och en av följande scenarier:
 
-### <a name="benchmarking"></a>Prestandamätningar
+### <a name="benchmarking"></a>Prestandatest
 
 Det här scenariot körs den [Diskspd](https://github.com/Microsoft/diskspd) benchmark-test (IOPS och Mbit/s) för alla enheter som är kopplade till den virtuella datorn. 
 
 > [!Note]
-> Det här scenariot kan påverka systemet och bör inte köras på ett levande produktionssystem. Kör det här scenariot i en dedikerad underhållsfönstret för att undvika problem vid behov. En ökad belastning som orsakas av ett spårningen eller prestandamått test kan försämra prestanda på den virtuella datorn.
+> Det här scenariot kan påverka systemet och bör inte köras på ett levande produktionssystem. Om det behövs kör du det här scenariot i en dedikerad underhållsperiod för att undvika eventuella problem. En ökad belastning som orsakas av ett spårningen eller benchmark-test kan försämra prestanda för den virtuella datorn.
 >
 
-### <a name="slow-vm-analysis"></a>Långsam VM analys
+### <a name="performance-analysis"></a>Prestandaanalys
 
 Det här scenariot körs en [prestandaräknaren](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) spårningen med hjälp av de räknare som anges i filen RuleEngineConfig.json. Om den virtuella datorn identifieras som en server som kör SQL Server, kör en räknare spårning av prestanda. Detta sker med hjälp av de räknare som finns i filen RuleEngineConfig.json. Det här scenariot omfattar också diagnostik prestandadata.
 
-### <a name="azure-files-analysis"></a>Azure Files analys
+### <a name="azure-files-analysis"></a>Azure Files-analys
 
-Det här scenariot körs en särskild prestandaräknaren avbildning tillsammans med en spårning i nätverket. Avbildningen innehåller alla Server Message Block (SMB) klienten resurser räknare. Här följer några viktiga SMB-resursen prestandaräknare i klient som ingår i avbildningen:
+Det här scenariot körs en särskild prestandaräknaren avbildning tillsammans med en nätverksspårning. Avbildningen innehåller alla Server Message Block (SMB) klienten resurser räknare. Här följer några viktiga SMB-resurs prestandaräknare i klient som ingår i avbildningen:
 
 | **Typ**     | **SMB-klienten resurser räknare** |
 |--------------|-------------------------------|
-| IOPS         | Data-begäranden per sekund             |
-|              | Läs begäranden per sekund             |
-|              | Skriva begäranden per sekund            |
-| Svarstid      | Medel s/begäran         |
+| IOPS         | Begäranden om data per sekund             |
+|              | Läs begäranden/sek             |
+|              | Skriva begäranden/sek            |
+| Svarstid      | Medel s/databegäran         |
 |              | Medel s/diskläsning                 |
 |              | Medel s/diskskrivning                |
-| I/o-storlek      | Genomsn. Begäran om byte-Data       |
-|              | Genomsn. Lästa byte /               |
+| I/o-storlek      | Genomsn. Byte/begäran       |
+|              | Genomsn. Byte/diskläsning               |
 |              | Genomsn. Byte/skrivning              |
-| Dataflöde   | Byte/sek                |
+| Dataflöde   | Data byte/sek                |
 |              | Lästa byte/sek                |
 |              | Skrivna byte/s               |
 | Kölängd | Genomsn. Läs Kölängd        |
 |              | Genomsn. Skriva Kölängd       |
 |              | Genomsn. Kölängd för data        |
 
-### <a name="advanced-slow-vm-analysis"></a>Avancerad analys långsam VM
+### <a name="advanced-performance-analysis"></a>Avancerade prestandaanalys
 
-När du kör en avancerad analys för långsam VM markerar spårningar som körs parallellt. Om du vill kan köra du dem alla (prestandaräknaren Xperf, nätverk och StorPort).  
+När du kör en avancerad analys, väljer du spårningar som körs parallellt. Om du vill kan köra du dem alla (prestandaräknare, Xperf, nätverk och StorPort).  
 
 > [!Note]
-> Det här scenariot kan påverka systemet och bör inte köras på ett levande produktionssystem. Kör det här scenariot i en dedikerad underhållsfönstret för att undvika problem vid behov. En ökad belastning som orsakas av ett spårningen eller prestandamått test kan försämra prestanda på den virtuella datorn.
+> Det här scenariot kan påverka systemet och bör inte köras på ett levande produktionssystem. Om det behövs kör du det här scenariot i en dedikerad underhållsperiod för att undvika eventuella problem. En ökad belastning som orsakas av ett spårningen eller benchmark-test kan försämra prestanda för den virtuella datorn.
 >
 
 ## <a name="what-kind-of-information-is-collected-by-perfinsights"></a>Vilken typ av information som samlas in av PerfInsights?
 
-Information om Windows VM, diskar eller pooler lagringskonfiguration, prestandaräknare, loggar och olika spårningssessioner samlas in. Det beror på prestanda-scenario som du använder. Följande tabell innehåller information:
+Information om Windows-VM, diskar eller pooler lagringskonfiguration, prestandaräknare, loggar och olika spårningssessioner samlas in. Det beror på vilket scenario för prestanda som du använder. I följande tabell innehåller information:
 
-|Data som samlas in                              |  |  | Scenarier för prestanda |  |  | |
+|Data som samlas in                              |  |  | Prestanda-scenarier |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Snabb prestandaanalys | Prestandamätningar | Långsam VM analys | Azure Files analys | Avancerad analys långsam VM |
+|                               | Snabb prestandaanalys | Prestandatest | Prestandaanalys | Azure Files-analys | Avancerade prestandaanalys |
 | Information från händelseloggar       | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Systeminformation                | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Volymen karta                        | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Disk-karta                          | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Aktiviteter som körs                     | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
-| Lagring tillförlitlighet räknare      | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
-| Storage-informationen               | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
+| Storage tillförlitlighet räknare      | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
+| Lagringsinformation               | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Fsutil utdata                     | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Drivrutinen filterinformationen                | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Netstat-utdata                    | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Nätverkskonfiguration             | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Brandväggskonfiguration            | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Konfiguration av SQL Server          | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
-| Prestanda diagnostik spårningar *  | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
+| Diagnostik prestandaspårningar *  | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Prestandaräknaren trace **      |                            |                                    | Ja                      |                      | Ja                  |
 | SMB-räknaren trace **              |                            |                                    |                          | Ja                  |                      |
-| SQL Server räknaren trace **       |                            |                                    | Ja                      |                      | Ja                  |
+| Spårning av SQL Server-räknaren **       |                            |                                    | Ja                      |                      | Ja                  |
 | XPerf spårning                       |                            |                                    |                          |                      | Ja                  |
 | StorPort-spårning                    |                            |                                    |                          |                      | Ja                  |
-| Spårning i nätverket                     |                            |                                    |                          | Ja                  | Ja                  |
+| Nätverksspårning                     |                            |                                    |                          | Ja                  | Ja                  |
 | Diskspd benchmark trace ***       |                            | Ja                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
-### <a name="performance-diagnostics-trace-"></a>Prestanda diagnostik trace (*)
+### <a name="performance-diagnostics-trace-"></a>Prestandadiagnostik spåra (*)
 
-Kör en regelbaserad motor i bakgrunden för att samla in data och diagnostisera pågående prestandaproblem. Följande regler stöds:
+Kör en regelbaserad motor i bakgrunden för att samla in data och diagnostisera problem med pågående prestanda. För närvarande stöds följande regler:
 
-- HighCpuUsage regel: identifierar perioder med hög CPU-användning och visar de högsta CPU användning konsumenterna under dessa punkter.
-- HighDiskUsage regel: identifierar ett högt användning punkter på fysiska diskar och visar högsta disk användning konsumenter under dessa punkter.
-- HighResolutionDiskMetric regel: Visar IOPS, genomflöde och i/o-svarstid mått per 50 tid i millisekunder för varje fysisk disk. Det hjälper till att snabbt identifiera disken begränsning punkter.
-- HighMemoryUsage regel: identifierar höga minnesområdet användning punkter och visar det översta minnet användning konsumenter under dessa punkter.
+- HighCpuUsage regel: identifierar perioder med hög CPU-användning och visar översta CPU-användning konsumenterna under de här perioderna.
+- HighDiskUsage regel: identifierar ett högt användning punkter på fysiska diskar och visar den högsta disken konsumenter för användning under de här perioderna.
+- HighResolutionDiskMetric regel: Visar IOPS, dataflöde och i/o mått för datainmatningssvarstider per 50 tid i millisekunder för varje fysisk disk. Det hjälper dig att snabbt identifiera disken begränsning perioder.
+- HighMemoryUsage regel: identifierar perioder för användning av extra minne och visar det översta minnet konsumenter för användning under de här perioderna.
 
 > [!NOTE] 
-> För närvarande stöds Windows-versioner med .NET Framework 3.5 eller senare versioner.
+> Windows-versioner med .NET Framework 4.5 eller senare versioner är för närvarande.
 
-### <a name="performance-counter-trace-"></a>Prestandaräknaren trace (*)
+### <a name="performance-counter-trace-"></a>Prestandaräknaren spårning (*)
 
 Samlar in följande prestandaräknare:
 
 - \Process, \Processor, \Memory, \Thread, \PhysicalDisk och \LogicalDisk
-- \Cache\Dirty sidor, \Cache\Lazy tömningar/s, \Server\Pool växlingsbart systemminne, fel och \Server\Pool växlingsbart systemminne-fel
-- Valda räknare under \Network gränssnitt, \IPv4\Datagrams, \IPv6\Datagrams, \TCPv4\Segments, \TCPv6\Segments, \Network nätverkskort, \WFPv4\Packets, \WFPv6\Packets, \UDPv4\Datagrams, \UDPv6\Datagrams, \TCPv4\Connection, \TCPv6\Connection, \ Nätverket QoS Policy\Packets \Per Network Interface Card processoraktivitet och \Microsoft Winsock BSP
+- \Cache\Dirty sidor, \Cache\Lazy skrivna rensar/sek, \Server\Pool växlingsbart systemminne, fel och \Server\Pool systemminne-fel
+- Valda räknare under \Network gränssnitt, \IPv4\Datagrams, \IPv6\Datagrams, \TCPv4\Segments, \TCPv6\Segments, \Network nätverkskort, \WFPv4\Packets, \WFPv6\Packets, \UDPv4\Datagrams, \UDPv6\Datagrams, \TCPv4\Connection, \TCPv6\Connection, \ QoS-Policy\Packets, \Per Network Interface Card processoraktivitet och \Microsoft Winsock NSP
 
 #### <a name="for-sql-server-instances"></a>För SQL Server-instanser
-- \SQL server: bufferthanteraren \SQLServer:Resource Pool statistik och \SQLServer:SQL Statistics\
-- \SQLServer:locks \SQLServer:General statistik
+- \SQL server: bufferten Manager, \SQLServer:Resource Pool statistik och \SQLServer:SQL Statistics\
+- \SQLServer:locks, \SQLServer:General, statistik
 - \SQLServer:Access metoder
 
-#### <a name="for-azure-files"></a>För Azure-filer
+#### <a name="for-azure-files"></a>För Azure Files
 \SMB Klientresurser
 
 ### <a name="diskspd-benchmark-trace-"></a>Diskspd benchmark-spårning (*)
-I/o för Diskspd arbetsbelastning prov (OS-Disk [Skriv] och pool enheter [läsning/skrivning])
+I/o för Diskspd arbetsbelastning tester (OS-Disk [Skriv] och poolen enheter [Läs/Skriv])
 
 ## <a name="run-the-perfinsights-tool-on-your-vm"></a>Kör verktyget PerfInsights på den virtuella datorn
 
@@ -167,36 +167,36 @@ I/o för Diskspd arbetsbelastning prov (OS-Disk [Skriv] och pool enheter [läsni
 
 -  Det här verktyget måste köras på den virtuella datorn som har prestandaproblem. 
 
--  Har stöd för följande operativsystem: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 och Windows Server 2016; Windows 8.1 och Windows 10.
+-  Följande operativsystem stöds: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 och Windows Server 2016; Windows 8.1 och Windows 10.
 
-#### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Möjliga problem när du kör verktyget på produktion virtuella datorer
+#### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Möjliga problem när du kör verktyget på virtuella produktionsdatorer
 
--  För benchmarking scenariot eller ”avancerad långsam VM analys” scenariot som är konfigurerad för att använda Xperf eller Diskspd kan verktyget påverka prestanda negativt för den virtuella datorn. Dessa scenarier ska inte köras i en verklig produktionsmiljö.
+-  För benchmarking scenariot eller ”Advanced prestandaanalys”-scenario som är konfigurerad för att använda Xperf eller Diskspd kan verktyget påverka prestanda negativt för den virtuella datorn. Dessa scenarier bör inte köras i en aktiv produktionsmiljö.
 
--  Se till att inga andra bakgrundsaktivitet stör i/o-arbetsbelastning för benchmarking scenariot eller ”avancerad långsam VM analys”-scenario som är konfigurerad för att använda Diskspd.
+-  Se till att inga andra bakgrundsaktiviteten stör arbetsbelastningen i/o för benchmarking scenariot eller ”Advanced prestandaanalys”-scenario som är konfigurerad för att använda Diskspd.
 
--  Som standard använder verktyget enhetens tillfällig lagring för att samla in data. Om spårning förblir aktiverad under en längre tid, vara mängden data som samlas in relevanta. Detta kan minska tillgängligheten för utrymmet på den tillfälliga disken och kan därför påverka alla program som förlitar sig på den här enheten.
+-  Som standard använder verktyget en tillfällig lagringsenhet för att samla in data. Om spårning är kvar aktiverad under en längre tid, kan det vara relevanta mängden data som samlas in. Detta kan minska tillgängligheten för utrymme på den temporära disken och kan därför påverka alla program som förlitar sig på den här enheten.
 
-### <a name="how-do-i-run-perfinsights"></a>Hur kör PerfInsights? 
+### <a name="how-do-i-run-perfinsights"></a>Hur kör jag PerfInsights? 
 
-Du kan köra PerfInsights på en virtuell dator genom att installera [Azure prestanda diagnostik VM-tillägget](performance-diagnostics-vm-extension.md). Du kan också köras som ett fristående verktyg. 
+Du kan köra PerfInsights på en virtuell dator genom att installera [Diagnostiktillägget för virtuell dator på Azure prestanda](performance-diagnostics-vm-extension.md). Du kan också köras som ett fristående verktyg. 
 
-**Installera och köra PerfInsights från Azure-portalen**
+**Installera och köra PerfInsights från Azure portal**
 
-Mer information om det här alternativet finns [installera Azure prestanda diagnostik VM-tillägget](performance-diagnostics-vm-extension.md#install-the-extension).  
+Mer information om det här alternativet finns i [installera Azure prestanda VM-Diagnostiktillägget](performance-diagnostics-vm-extension.md#install-the-extension).  
 
 **Kör PerfInsights i fristående läge**
 
 Följ dessa steg om du vill köra verktyget PerfInsights:
 
 
-1. Hämta [PerfInsights.zip](http://aka.ms/perfinsightsdownload).
+1. Ladda ned [PerfInsights.zip](http://aka.ms/perfinsightsdownload).
 
-2. Avblockera PerfInsights.zip-filen. Gör du genom att högerklicka på filen PerfInsights.zip och välj **egenskaper**. I den **allmänna** väljer **avblockera**, och välj sedan **OK**. Detta säkerställer att verktyget körs utan några ytterligare säkerhetsmeddelanden.  
+2. Avblockera PerfInsights.zip-filen. Gör detta genom att högerklicka på filen PerfInsights.zip och välj **egenskaper**. I den **Allmänt** fliken **avblockera**, och välj sedan **OK**. Detta säkerställer att verktyget körs utan någon ytterligare säkerhetsmeddelanden.  
 
     ![Skärmbild av PerfInsights egenskaper, med avblockera markerat](media/how-to-use-perfInsights/unlock-file.png)
 
-3.  Expandera den komprimerade filen PerfInsights.zip i tillfälliga enheten (som standard, detta är vanligtvis enhet D). 
+3.  Expandera den komprimerade filen PerfInsights.zip i tillfälliga enheten (som standard, detta är vanligtvis D-hårddisken). 
 
 4.  Öppna Windows kommandotolk som administratör och kör sedan PerfInsights.exe om du vill visa tillgängliga commandline-parametrar.
 
@@ -204,15 +204,15 @@ Följ dessa steg om du vill köra verktyget PerfInsights:
     cd <the path of PerfInsights folder>
     PerfInsights
     ```
-    ![Skärmbild av PerfInsights kommandorad för utdata](media/how-to-use-perfInsights/PerfInsightsCommandline.png)
+    ![Skärmbild av PerfInsights commandline utdata](media/how-to-use-perfInsights/PerfInsightsCommandline.png)
     
-    Den grundläggande syntaxen för att köra PerfInsights scenarier är:
+    Grundläggande syntax för att köra PerfInsights scenarier är:
     
     ```
     PerfInsights /run <ScenarioName> [AdditionalOptions]
     ```
 
-    Du kan använda den under exempel för att köra långsam VM scenario för 5 minuter:
+    Du kan använda i exemplet för att köra prestanda dataanalysscenario för 5 minuter nedan:
     
     ```
     PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics
@@ -224,81 +224,81 @@ Följ dessa steg om du vill köra verktyget PerfInsights:
     PerfInsights /run advanced xp /d 300 /AcceptDisclaimerAndShareDiagnostics
     ```
 
-    Du kan använda det exemplet körs långsamt VM scenario för 5 minuter och ladda upp zip-resultatfilen till lagringskontot nedan:
+    Du kan använda det exemplet kör prestanda dataanalysscenario för 5 minuter och ladda upp zip-resultatfilen till lagringskontot nedan:
     
     ```
     PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics /sa <StorageAccountName> /sk <StorageAccountKey>
     ```
 
-    Du kan söka efter alla tillgängliga scenarier och alternativ med hjälp av den **/list** kommando:
+    Du kan söka efter alla tillgängliga scenarier och alternativ med hjälp av den **/lista** kommando:
     
     ```
     PerfInsights /list
     ```
 
     >[!Note]
-    >Innan du kör ett scenario uppmanas PerfInsights användaren att godkänna att dela diagnostikinformation och om du accepterar LICENSVILLKOREN. Använd **/AcceptDisclaimerAndShareDiagnostics** möjlighet att hoppa över de här anvisningarna. 
+    >Innan du kör ett scenario uppmanar PerfInsights användaren att samtycker till att dela diagnostikinformation och för att godkänna LICENSAVTALET. Använd **/AcceptDisclaimerAndShareDiagnostics** möjlighet att hoppa över de här anvisningarna. 
     >
-    >Om du har en aktiv supportärende hos Microsoft och körs PerfInsights per begäran av du arbetar med supportteknikern, se till att ange den stöd biljett tal med den **/sr** alternativet.
+    >Om du har en aktiv supportärende hos Microsoft och som körs PerfInsights per begäran av supportteknikern du arbetar med, se till att tillhandahålla en support biljett nummer med hjälp av den **/sr** alternativet.
     >
-    >Som standard försöker PerfInsights uppdatera sig själv till den senaste versionen om de är tillgängliga. Använd **/SkipAutoUpdate** eller **/sau** parametern för att hoppa över automatisk uppdatering.  
+    >Som standard försöker PerfInsights uppdaterar sig själv till den senaste versionen om de är tillgängliga. Använd **/SkipAutoUpdate** eller **/sau** parametern för att hoppa över automatisk uppdatering.  
     >
-    >Om varaktigheten växlar **/d** anges PerfInsights uppmanas du att reproducera problemet när du kör vmslow azurefiles och avancerade scenarier. 
+    >Om hela växlar **/d** inte anges PerfInsights uppmanas du att reproducera problemet när du kör vmslow azurefiles och avancerade scenarier. 
 
-När spårningssessioner eller åtgärder har slutförts, visas en ny fil i samma mapp som PerfInsights. Namnet på filen är **CollectedData\_åååå-MM-dd\_hh-mm-ss-fff.zip.** Du kan skicka filen till supportpersonalen för analys eller öppna rapporten i zip-filen för att granska resultaten och rekommendationerna.
+När spårningar eller åtgärder har slutförts, visas en ny fil i samma mapp som PerfInsights. Namnet på filen är **CollectedData\_åååå-MM-dd\_hh-mm-ss-fff.zip.** Du kan skicka den här filen till support-agenten för analys eller öppna rapporten i zip-filen till att granska resultaten och rekommendationerna.
 
 ## <a name="review-the-diagnostics-report"></a>Granska rapporten diagnostik
 
-I den **CollectedData\_åååå-MM-dd\_hh-mm-ss-fff.zip** fil, du kan söka efter en HTML-rapport som beskriver resultaten av PerfInsights. För att granska rapporten, expandera den **CollectedData\_åååå-MM-dd\_hh-mm-ss-fff.zip** filen och öppna den **PerfInsights Report.html** fil.
+I den **CollectedData\_åååå-MM-dd\_hh-mm-ss-fff.zip** -fil som du kan hitta en HTML-rapport som beskriver resultaten av PerfInsights. För att granska rapporten, expandera den **CollectedData\_åååå-MM-dd\_hh-mm-ss-fff.zip** filen och öppna sedan den **PerfInsights Report.html** fil.
 
-Välj den **resultaten** fliken.
+Välj den **resultat** fliken.
 
 ![Skärmbild av PerfInsights rapporten](media/how-to-use-perfInsights/findingtab.png)
 ![Skärmbild av PerfInsights rapport](media/how-to-use-perfInsights/findings.PNG)
 
 > [!NOTE] 
-> Resultaten kategoriseras som hög kända problem som kan orsaka prestandaproblem. Resultaten kategoriserat som medel representerar icke-optimal konfigurationer som inte nödvändigtvis orsakar prestandaproblem. Resultaten kategoriserade som låg är informativa instruktioner.
+> Resultat som kategoriseras som hög är kända problem som kan orsaka prestandaproblem. Resultat kategoriserat som medel representerar bristfälliga konfigurationer som inte nödvändigtvis orsakar prestandaproblem. Resultat som kategoriserats som låg är informativa instruktionerna.
 
-Granska rekommendationer och länkar till alla hög eller medelhög resultaten. Lär dig mer om hur de kan påverka prestanda och även om bästa praxis för prestanda-optimerad konfigurationer.
+Granska rekommendationer och länkar till alla hög och medelhög resultat. Lär dig om hur de kan påverka prestanda och även om bästa praxis för prestandaoptimerad konfigurationer.
 
 ### <a name="storage-tab"></a>Fliken lagring
 
-Den **resultaten** avsnittet visas olika resultat och rekommendationer om lagring.
+Den **resultat** avsnittet visar olika resultat och rekommendationer relaterade till lagring.
 
-Den **Disk kartan** och **volym kartan** avsnitt beskrivs hur logiska volymer och fysiska diskar som är relaterade till varandra.
+Den **Disk kartan** och **volym kartan** avsnitt beskrivs logiska volymer och fysiska diskar som är relaterade till varandra.
 
-Tabellen visar alla logiska volymer som körs på disken i perspektivet fysisk disk (Disk mappar). I följande exempel **PhysicalDrive2** körs två logiska volymer som har skapats på flera partitioner (J och H):
+I perspektivet fysisk disk (Disk Map) visas i tabell alla logiska volymer som körs på disken. I följande exempel **PhysicalDrive2** körs två logiska volymer som har skapats på flera partitioner (J och H):
 
 ![Skärmbild av fliken](media/how-to-use-perfInsights/disktab.png)
 
-Tabeller visar alla fysiska diskar under varje logiska volym i perspektivet volym (volym mappar). Observera att för RAID/dynamiska diskar, kan du köra en logisk volym på flera fysiska diskar. I följande exempel *C:\\montera* konfigureras en monteringspunkt som *SpannedDisk* på fysiska diskar 2 och 3:
+I volym-perspektiv (volym Map) visar tabellerna alla fysiska diskar under varje logisk volym. Observera att för RAID/dynamiska diskar, kan du köra en logisk volym på flera fysiska diskar. I följande exempel *C:\\montera* konfigureras en monteringspunkt som *SpannedDisk* på fysiska diskar med 2 och 3:
 
 ![Skärmbild av fliken volym](media/how-to-use-perfInsights/volumetab.png)
 
-### <a name="sql-tab"></a>SQL-fliken
+### <a name="sql-tab"></a>SQL-flik
 
-Om målet VM är värd för SQL Server-instanser måste du se ytterligare en flik i rapporten med namnet **SQL**:
+Om den Virtuella måldatorn är värd för alla SQL Server-instanser måste du se ytterligare en flik i rapporten med namnet **SQL**:
 
-![Skärmbild av SQL-fliken](media/how-to-use-perfInsights/sqltab.png)
+![Skärmbild av SQL-flik](media/how-to-use-perfInsights/sqltab.png)
 
-Det här avsnittet innehåller en **resultaten** fliken och ytterligare flikarna för var och en av SQL Server-instanser som finns på den virtuella datorn.
+Det här avsnittet innehåller en **resultat** fliken och ytterligare flikarna för var och en av SQL Server-instanserna på den virtuella datorn.
 
-Den **resultaten** fliken innehåller en lista över alla SQL relaterade prestandaproblem hittas, tillsammans med rekommendationer.
+Den **resultat** fliken innehåller en lista över alla SQL relaterade prestandaproblem som hittas, tillsammans med rekommendationer.
 
-I följande exempel **PhysicalDrive0** (som kör enhet C) visas. Detta beror på att både den **modeldev** och **modellog** filerna finns på enhet C och de är av olika typer (till exempel data fil- och transaction log respektive).
+I följande exempel **PhysicalDrive0** (körs C-enheten) visas. Detta beror på både den **modeldev** och **modellog** filerna finns på enhet C och de är av olika typer (till exempel data fil- och transaktionen loggen, respektive).
 
 ![Skärmbild av logginformation](media/how-to-use-perfInsights/loginfo.png)
 
-Flikar för specifika instanser av SQL Server innehåller ett allmänt avsnitt som innehåller grundläggande information om den valda instansen. Flikarna också innehålla ytterligare avsnitt avancerad information, inklusive inställningar, konfigurationer och användaralternativ.
+Flikarna för specifika instanser av SQL Server innehåller ett allmänt avsnitt som visar grundläggande information om den valda instansen. Flikarna också innehålla ytterligare avsnitt avancerad information, inklusive inställningar, konfigurationer och alternativ.
 
 ### <a name="diagnostic-tab"></a>Fliken diagnostik
-Den **diagnostiska** fliken innehåller information om högsta CPU, disk och minne konsumenter på datorn under körning av PerfInsights. Du kan också hitta information om viktiga korrigeringsfiler att systemet kanske saknas, uppgiftslista och viktiga systemhändelser. 
+Den **diagnostiska** fliken innehåller information om främsta konsumenter av CPU, disk och minne på datorn under löpande PerfInsights. Du kan också hitta information om kritiska korrigeringar att systemet kanske saknas, uppgiftslista och viktiga händelser. 
 
-## <a name="references-to-the-external-tools-used"></a>Referenser till externa verktyg som används
+## <a name="references-to-the-external-tools-used"></a>Referenser till de externa verktyg som används
 
 ### <a name="diskspd"></a>Diskspd
 
-Diskspd är ett lagring belastningen generator och prestanda test från Microsoft. Mer information finns i [Diskspd](https://github.com/Microsoft/diskspd).
+Diskspd är ett storage belastningen generator och prestanda test verktyg från Microsoft. Mer information finns i [Diskspd](https://github.com/Microsoft/diskspd).
 
 ### <a name="xperf"></a>XPerf
 
@@ -306,12 +306,12 @@ XPerf är ett kommandoradsverktyg för att fånga in spårningar från Windows P
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan överföra diagnostik loggar och rapporter till Microsoft Support för ytterligare granskning. Support kan begära att du överför de utdata som genereras av PerfInsights för att underlätta felsökningen.
+Du kan överföra diagnostikloggar och rapporter till Microsoft Support och granska dem vidare. Support begära att du överför de utdata som genereras av PerfInsights som hjälper till med felsökningen.
 
-Följande skärmbild visar ett meddelande som liknar kan du få:
+Följande skärmbild visar ett meddelande som liknar vad du kan få:
 
 ![Skärmbild av exempelmeddelande från Microsoft Support](media/how-to-use-perfInsights/supportemail.png)
 
-Följ instruktionerna i meddelandet för att komma åt filen överföring arbetsytan. För ytterligare säkerhet som du behöver ändra ditt lösenord vid första användningen.
+Följ instruktionerna i meddelandet för att få åtkomst till arbetsytan för överföring av filen. För ytterligare säkerhet måste du ändra ditt lösenord vid första användningen.
 
-När du har loggat in hittar du en dialogruta för att överföra den **CollectedData\_åååå-MM-dd\_hh-mm-ss-fff.zip** filen som samlats in av PerfInsights.
+När du har loggat in hittar du en dialogruta för att ladda upp den **CollectedData\_åååå-MM-dd\_hh-mm-ss-fff.zip** -fil som har samlats in av PerfInsights.

@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 08/13/2018
 ms.author: babanisa
-ms.openlocfilehash: 3fe717cb60791d24637ccd5b9a3c08fd34801524
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: ce0e766a07fd19f523f1f35b9a3cbc865cfb8c71
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617949"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42054972"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid säkerhet och autentisering 
 
@@ -35,9 +35,9 @@ Liksom många andra tjänster som stöder webhooks måste EventGrid du bevisa �
 
 Om du använder någon annan typ av slutpunkt, t.ex. en HTTP-utlösare baserade Azure-funktion, måste din slutpunkt kod att delta i en verifiering handskakning med EventGrid. EventGrid stöder två olika verifiering handskakning modeller:
 
-1. ValidationCode baserat handskakning: vid tidpunkten för händelsen prenumeration har skapats, EventGrid publicerar en ”prenumeration verifiering händelse” till slutpunkten. Schemat för den här händelsen är ungefär som andra EventGridEvent och datamängden i den här händelsen innehåller en ”validationCode”-egenskap. När ditt program har verifierat att begäran om verifiering är för en förväntad händelse-prenumeration, måste din programkod ska svara på eko tillbaka verifieringskoden till EventGrid. Den här mekanismen för handskakning stöds i alla EventGrid-versioner.
+1. **ValidationCode handskakning**: vid tidpunkten för händelsen prenumeration har skapats, EventGrid publicerar en ”prenumeration verifiering händelse” till slutpunkten. Schemat för den här händelsen är ungefär som andra EventGridEvent och datamängden i den här händelsen innehåller en `validationCode` egenskapen. När ditt program har verifierat att begäran om verifiering är för en förväntad händelse-prenumeration, måste din programkod ska svara på eko tillbaka verifieringskoden till EventGrid. Den här mekanismen för handskakning stöds i alla EventGrid-versioner.
 
-2. ValidationURL baserat handskakning (manuell handskakning): I vissa fall kan du kanske inte har kontroll över källkoden för slutpunkten för att kunna implementera ValidationCode baserat-handskakningen. Exempel: Om du använder en tjänst från tredje part (t.ex. [Zapier](https://zapier.com) eller [IFTTT](https://ifttt.com/)), kan du inte kunna programmässigt svarar med verifieringskoden. Därför stöder från och med versionen 2018-05-01-preview, EventGrid nu en manuell verifiering-handskakning. Om du skapar en händelseprenumeration med hjälp av SDK/verktyg som använder den här nya API-versionen (2018-05-01-preview), EventGrid skickar en ”validationUrl”-egenskap (utöver egenskapen ”validationCode”) som en del av datamängden i valideringen av prenumeration händelsen. För att slutföra handskakningen bara en hämtning begära på URL: en, antingen via en REST-klient eller med hjälp av webbläsaren. Den angivna validationUrl är endast giltig för ungefär 10 minuter, så om du inte slutföra manuell verifiering inom den här tiden, provisioningState händelseprenumerationen övergår till ”misslyckades” och du behöver ett nytt försök att skapa händelsen prenumerationen innan du försöker utföra manuell verifiering igen.
+2. **ValidationURL handskakning (manuell handskakning)**: I vissa fall kan du kanske inte har kontroll över källkoden för slutpunkten för att kunna implementera ValidationCode baserat-handskakningen. Exempel: Om du använder en tjänst från tredje part (t.ex. [Zapier](https://zapier.com) eller [IFTTT](https://ifttt.com/)), kan du inte kunna programmässigt svarar med verifieringskoden. Därför stöder från och med versionen 2018-05-01-preview, EventGrid nu en manuell verifiering-handskakning. Om du skapar en händelseprenumeration med hjälp av SDK/verktyg som använder den här nya API-version (2018-05-01-preview), EventGrid skickar en `validationUrl` egenskapen (förutom de `validationCode` egenskapen) som en del av datadelen händelsens prenumeration verifiering. För att slutföra handskakningen bara en hämtning begära på URL: en, antingen via en REST-klient eller med hjälp av webbläsaren. Validering av angivna URL: en är giltig endast i cirka 10 minuter. Under denna tid har tillståndet för etablering av händelseprenumerationen är `AwaitingManualAction`. Om du inte har slutfört manuell verifiering inom 10 minuter, Etableringsstatus är inställd på `Failed`. Du behöver ett nytt försök att skapa händelseprenumerationen innan du försöker utföra manuell verifiering igen.
 
 Den här mekanismen för manuell validering är i förhandsversion. Om du vill använda den måste du installera [Event Grid-tillägget](/cli/azure/azure-cli-extensions-list) för [AZ CLI 2.0](/cli/azure/install-azure-cli). Du kan installera det med `az extension add --name eventgrid`. Om du använder REST API måste du använda `api-version=2018-05-01-preview`.
 
@@ -48,7 +48,7 @@ Den här mekanismen för manuell validering är i förhandsversion. Om du vill a
 * Händelsemeddelandet har samma schema som andra Event Grid-händelser.
 * Händelsetyp-egenskapen för händelsen är ”Microsoft.EventGrid.SubscriptionValidationEvent”.
 * Dataegenskapen för händelsen innehåller en ”validationCode”-egenskap med en slumpmässigt genererad sträng. Till exempel ”validationCode: acb13...”.
-* Om du använder API-versionen 2018-05-01-preview inkluderar händelsedata även en ”validationUrl”-egenskap med en URL för manuell verifiering av prenumerationen.
+* Om du använder API-versionen 2018-05-01-preview händelsedata innehåller också en `validationUrl` egenskap med en URL för manuell verifiering av prenumerationen.
 * Matrisen innehåller endast händelsen verifiering. Andra händelser skickas i en separat begäran när du tillbaka echo verifieringskoden.
 * SDK: er för EventGrid dataplanen har klasser som motsvarar prenumerationen verifiering händelsedata och verifieringssvaret för prenumerationen.
 

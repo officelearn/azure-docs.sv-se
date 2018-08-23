@@ -2,19 +2,19 @@
 title: Tips för att använda Hadoop på Linux-baserade HDInsight - Azure
 description: Få implementering tips för att använda kluster för Linux-baserat HDInsight (Hadoop) på en välbekant miljö för Linux som körs i Azure-molnet.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/27/2018
-ms.author: jasonh
-ms.openlocfilehash: 5a896edd87b2e7741ade2f9d475049086fb86833
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.date: 08/09/2018
+ms.openlocfilehash: 85741e91ab074ca45fef79e7e946a74824a1734f
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39598525"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42056726"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Information om hur du använder HDInsight på Linux
 
@@ -98,18 +98,21 @@ Exempeldata och JAR-filerna finns på Hadoop Distributed File System på `/examp
 
 ## <a name="hdfs-azure-storage-and-data-lake-store"></a>HDFS, Azure Storage och Data Lake Store
 
-I de flesta Hadoop-distributioner ger HDFS lokal lagring på datorerna i klustret. Använda lokal lagring kan vara kostsamma för en molnbaserad lösning där du debiteras per timme eller minut för beräkningsresurser.
+I de flesta Hadoop-distributioner kan lagras data i HDFS som backas upp av lokal lagring på datorerna i klustret. Använda lokal lagring kan vara kostsamma för en molnbaserad lösning där du debiteras per timme eller minut för beräkningsresurser.
 
-HDInsight använder sig blobar i Azure Storage eller Azure Data Lake Store som standard store. De här tjänsterna ger följande fördelar:
+När du använder HDInsight lagras datafiler i ett skalbart och återhämtningsbart sätt i molnet med Azure Blob Storage och eventuellt Azure Data Lake Store. De här tjänsterna ger följande fördelar:
 
 * Billiga långsiktig lagring
 * Åtkomst från externa tjänster som websites, filen uppladdning/nedladdning verktyg, SDK: er med olika språk och webbläsare
+* Stor filkapacitet och stora skalbar lagring
 
-Ett Azure Storage-konto kan innehålla upp till 4,75 TB, även om enskilda blobar (eller filer från ett HDInsight-perspektiv) kan bara gå upp till 195 GB. Azure Data Lake Store kan växa dynamiskt för att lagra biljoner filer med enskilda filer som är större än en petabyte. Mer information finns i [förstå blobar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) och [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
+Mer information finns i [förstå blobar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) och [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
 
 När du använder Azure Storage eller Data Lake Store kan behöver du inte göra något speciellt från HDInsight för att komma åt data. Till exempel följande kommando visar filer i den `/example/data` mappen oavsett om den är lagrad på Azure Storage eller Data Lake Store:
 
     hdfs dfs -ls /example/data
+
+I HDInsight, är lagringsresurser (Azure Blob Storage och Azure Data Lake Store) fristående från beräkningsresurser. Därför kan du skapa HDInsight-kluster för att göra beräkningar som du behöver och tar bort klustret när arbetet är klart, under tiden att hålla dina filer sparas på ett säkert sätt i molnet minnet så länge du behöver.
 
 ### <a name="uri-and-scheme"></a>URI: N och schema
 

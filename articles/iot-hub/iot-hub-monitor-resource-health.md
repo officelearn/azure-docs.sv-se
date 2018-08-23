@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/09/2017
+ms.date: 08/09/2018
 ms.author: kgremban
-ms.openlocfilehash: 39171f7d7a7b27ec54f67b592e184e90134a1a52
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c7d8631a8e7b99cca8f84ea1011c361db01e399e
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611379"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42061501"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Övervaka hälsotillståndet för Azure IoT Hub och diagnostisera problem snabbt
 
@@ -58,7 +58,7 @@ Anslutningar kategorin spårar enheten ansluta och koppla bort händelser från 
 }
 ```
 
-#### <a name="cloud-to-device-commands"></a>Kommandon för moln-till-enhet
+#### <a name="cloud-to-device-commands"></a>Moln till enhet-kommandon
 
 Moln till enhet kommandon kategorin spårar fel som inträffar på IoT-hubben och som är relaterade till moln till enhet meddelandepipeline. Den här kategorin innehåller fel som uppstår när du skickar meddelanden från molnet till enheten (till exempel obehöriga avsändare), ta emot meddelanden från molnet till enheten (till exempel leveransantalet har överskridits) och mottagande moln till enhet-meddelande (t ex feedback har gått ut). Den här kategorin fånga inte fel från en enhet som hanterar ett moln-till-enhet-meddelande felaktigt om moln till enhet meddelandet levererades har.
 
@@ -155,7 +155,7 @@ Den här kategorin identifierar inte fel som sker under tiden enheten laddar upp
 
 #### <a name="cloud-to-device-twin-operations"></a>Moln till enhet twin åtgärder
 
-Moln till enhet twin åtgärdskategori spårar tjänstinitierade händelser på enhetstvillingar. De här åtgärderna kan inkludera get twin, uppdatera rapporterade egenskaper och prenumerera på önskade egenskaper
+Moln till enhet twin åtgärdskategori spårar tjänstinitierade händelser på enhetstvillingar. De här åtgärderna kan inkludera get twin, uppdatera eller ersätta taggar, och uppdatera eller ersätta önskade egenskaper. 
 
 ```json
 {
@@ -172,7 +172,7 @@ Moln till enhet twin åtgärdskategori spårar tjänstinitierade händelser på 
 
 #### <a name="device-to-cloud-twin-operations"></a>Enhet-till-moln-twin-åtgärder
 
-Enhet-till-moln twin åtgärdskategori spårar enhet-initierad händelser på enhetstvillingar. De här åtgärderna kan inkludera get twin, uppdatera eller ersätta taggar, och uppdatera eller ersätta önskade egenskaper. 
+Enhet-till-moln twin åtgärdskategori spårar enhet-initierad händelser på enhetstvillingar. De här åtgärderna kan inkludera get twin, uppdatera rapporterade egenskaper och prenumerera på önskade egenskaper.
 
 ```json
 {
@@ -223,7 +223,7 @@ Jobb åtgärdskategori rapporterar om jobbförfrågningar uppdatera enhetstvilli
 
 #### <a name="direct-methods"></a>Direkta metoder
 
-Direkta metoder kategorin spårar begäran respons interaktioner som skickas till enskilda enheter. Dessa begäranden initieras i molnet. 
+Direkta metoder kategorin spårar begäranden och svar-interaktioner som skickas till enskilda enheter. Dessa begäranden initieras i molnet. 
 
 ```json
 {

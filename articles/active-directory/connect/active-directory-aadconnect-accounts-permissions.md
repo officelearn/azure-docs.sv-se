@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cfb6fb512ecb7d57cf411a31b2e04726bfc4b743
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: a628e28e9e6bd603fb2a3789c3281bc2181c91fe
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263410"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42061485"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konton och behörigheter
 
@@ -121,7 +121,7 @@ Vilka behörigheter som du behöver beror på de valfria funktionerna aktivera d
 
 | Funktion | Behörigheter |
 | --- | --- |
-| msDS-ConsistencyGuid funktion |Skrivbehörighet till attributet msDS-ConsistencyGuid som beskrivs i [designbegrepp - med msDS-ConsistencyGuid som sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
+| MS-DS-ConsistencyGuid funktion |Skrivbehörighet till attributet ms-DS-ConsistencyGuid som beskrivs i [designbegrepp – med ms-DS-ConsistencyGuid som sourceAnchor](active-directory-aadconnect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
 | Lösenordets hash-synkronisering |<li>Replikera katalogändringar</li>  <li>Replikera katalogen ändras alla |
 | Exchange-hybridinstallation |Skrivbehörighet till de attribut som beskrivs i [tillbakaskrivning av Exchange-hybrid](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) för användare, grupper och kontakter. |
 | Offentlig mapp för Exchange-e-post |Läsbehörighet till de attribut som beskrivs i [offentlig mapp för Exchange-e-post](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) för gemensamma mappar. | 

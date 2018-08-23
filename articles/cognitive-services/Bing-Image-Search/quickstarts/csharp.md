@@ -1,43 +1,43 @@
 ---
-title: Anropet och svar - C# Snabbstartsguide för Azure kognitiva tjänster, Bing avbildningen Sök API | Microsoft Docs
-description: Hämta information och exempel på kod för att snabbt komma igång med Bing avbildningen Sök-API i kognitiva Microsoft-tjänster i Azure.
+title: 'Snabbstart: Skicka sökfrågor med hjälp av REST-API för sökning i Bing med C#'
+description: I den här snabbstarten har skickar du sökfrågor till Bing Search API att hämta en lista över relevanta avbildningar med C#.
 services: cognitive-services
 documentationcenter: ''
-author: v-jerkin
+author: aahill
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
-ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: e5a506b9a25e94c827815323d209bf7c175bac4e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 8/9/2018
+ms.author: aahi
+ms.openlocfilehash: 7a5ef36f02d82ee17698af9c647f043792280fbc
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354582"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41988623"
 ---
-# <a name="call-and-response-your-first-bing-image-search-query-in-c"></a>Anropet och svar: första Bing avbildningen sökfrågan i C#
+# <a name="quickstart-send-search-queries-using-the-rest-api-and-c"></a>Snabbstart: Skicka sökfrågor med hjälp av REST API och C#
 
-Bing avbildningen Sök API ger en upplevelse som liknar Bing.com/Images genom att låta dig skicka en sökfråga användaren till Bing och få tillbaka en lista över relevanta bilder.
+Sökning i Bing ger en upplevelse som liknar Bing.com/Images genom att låta dig skicka en sökfråga för användaren till Bing och få tillbaka en lista över relevanta avbildningar.
 
-Den här artikeln innehåller ett enkelt konsolprogram som utför en Bing avbildningen Sök API-fråga och visar returneras oformaterade sökresultatet, som är i JSON-format. När det här programmet är skrivna i C#, är API: et en RESTful webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON. 
+Den här artikeln innehåller ett enkelt konsolprogram som utför en fråga för bildsökning i Bing och visar de returnerade raw sökresultat, som är i JSON-format. Det här programmet är skriven i C# är API: et en RESTful-webb-tjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON. 
 
-Exempel används .NET Core-klasser och körs på Windows med hjälp av .NET CLR eller i Linux eller macOS med [Mono](http://www.mono-project.com/).
+Exemplet används .NET Core-klasser och körs på Windows med hjälp av .NET CLR eller på Linux eller macOS med hjälp av [Mono](http://www.mono-project.com/).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver [Visual Studio 2017](https://www.visualstudio.com/downloads/) ska skicka koden körs på Windows. (Ledigt Community Edition fungerar).
+Du behöver [Visual Studio 2017](https://www.visualstudio.com/downloads/) att hämta den här koden som körs på Windows. (Den kostnadsfria Community Edition fungerar.)
 
-Du måste ha en [kognitiva Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API: er för Bing Search**. Den [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) är tillräcklig för den här snabbstarten. Du måste åtkomstnyckel som tillhandahållits när du aktiverar din kostnadsfria utvärderingsversion eller du kan använda en betald prenumeration nyckel från instrumentpanelen i Azure.
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="running-the-application"></a>Köra programmet
 
 Följ dessa steg om du vill köra det här programmet.
 
-1. Skapa en ny konsol lösning i Visual Studio.
-1. Ersätt `Program.cs` med den angivna koden.
-2. Ersätt den `accessKey` värde med en giltig snabbtangent för din prenumeration.
-3. Kör programmet.
+1. Skapa en ny konsol-lösning i Visual Studio.
+2. Ersätt `Program.cs` med den angivna koden.
+3. Ersätt den `accessKey` värde med en giltig åtkomstnyckel för din prenumeration.
+4. Kör programmet.
 
 ```csharp
 using System;
@@ -208,7 +208,7 @@ namespace BingSearchApisQuickstart
 
 ## <a name="json-response"></a>JSON-svar
 
-En exempelsvar följer. Om du vill begränsa storleken på JSON endast ett enskilt resultat visas och andra delar av svaret har trunkerats. 
+Ett svar i exemplet nedan. Om du vill begränsa storleken på JSON, visas bara ett enskilt resultat och andra delar av svaret har trunkerats. 
 
 ```json
 {
@@ -297,11 +297,11 @@ En exempelsvar följer. Om du vill begränsa storleken på JSON endast ett enski
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Bing Image-sökning sida app självstudiekursen](../tutorial-bing-image-search-single-page-app.md)
+> [Bildsökning i Bing ensidesapp självstudien](../tutorial-bing-image-search-single-page-app.md)
 
 ## <a name="see-also"></a>Se också 
 
-[Översikt över Bing Image-sökning](../overview.md)  
+[Bildsökning i Bing-översikt](../overview.md)  
 [Prova](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-[Hämta en kostnadsfri utvärderingsversion snabbtangent](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-[Bing avbildningen Sök API-referens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+[Hämta en kostnadsfri utvärderingsversion åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+[Referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

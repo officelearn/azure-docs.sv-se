@@ -4,16 +4,15 @@ description: Listor med tredje parts migreringspartner med lösningar som stöde
 services: mysql
 author: HJToland3
 ms.author: jtoland
-manager: craigg
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 4fba09c7d655fa835fffc324826e5dba93e647b0
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: e50cd285d904830bd7332f39d51aaa149f38b82a
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39631035"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42055365"
 ---
 # <a name="azure-database-for-mysql-migration-partners"></a>Azure Database for MySQL-migreringspartner
 Du kan välja från ett brett utbud av branschledande partners och verktyg för att stödja brett din Azure Database för MySQL-lösningen. Den här artikeln visar Microsoft-partner med lösningar som stöder Azure Database for MySQL.

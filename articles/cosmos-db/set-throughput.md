@@ -2,19 +2,19 @@
 title: Etablera dataflöde för Azure Cosmos DB | Microsoft Docs
 description: Lär dig hur du ställer in dataflöde för Azure Cosmos DB containsers, samlingar, diagram och tabeller.
 services: cosmos-db
-author: SnehaGunda
+author: aliuy
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
-ms.author: sngun
-ms.openlocfilehash: a454bfc06cf119d43e545a5a911a2f6686fb755b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.author: andrl
+ms.openlocfilehash: 2c3e4806aef506ef9016699b46eadd5f8a187224
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600167"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42059529"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Ange och hämta dataflöde för Azure Cosmos DB-behållare och databasen
 
@@ -262,20 +262,6 @@ En metod för att uppskatta hur mycket reserverat dataflöde som krävs för pro
 > Om du har objekttyper som skiljer sig avsevärt beroende på storleken och antalet indexerade egenskaper kan sedan registrera gäller åtgärden begäran kostnaden för den enhet som hör till var *typ* för vanliga objekt.
 > 
 > 
-
-## <a id="RequestchargeGraphAPI"></a>Hämta kostnad för begäran för Gremlin-API-konton 
-
-Här är ett exempel på hur du hämtar kostnad för begäran för Gremlin-API-konton med hjälp av Gremlin.Net-biblioteket. 
-
-```csharp
-
-var response = await gremlinClient.SubmitAsync<int>(requestMsg, bindings);
-                var resultSet = response.AsResultSet();
-                var statusAttributes= resultSet.StatusAttributes;
-```
-
-Du kan också använda ”x-ms-total-begäran-avgift” rubrik för Begäransenheter beräkningar förutom metoden ovan.
-
 
 ## <a name="throughput-faq"></a>Dataflöde vanliga frågor och svar
 

@@ -11,29 +11,28 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 08/09/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 1fb7716ff1b5ce661dff55c3a8dac90a062fad53
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: f6a2b3f242e5989d0c72083eef4faad9c4798cfe
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630790"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42056918"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Distribuera ett Kubernetes-kluster i Azure Stack
 
 *Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
 > [!Note]  
-> Azure Container Services (ACS) Kubernetes på Azure Stack är i privat förhandsversion. Azure Stack-operator måste begära åtkomst till Kubernetes marknadsplats-objektet som behövs för att göra det som beskrivs i den här artikeln.
-<!-- Should "Azure Container Services" be replaced globally with Azure Kubernetes Services? It seems the Azure container page is now redirectin to Azure Kubernetes https://azure.microsoft.com/en-us/services/container-service -->
+> Azure Kubernetes Services (AKS) Kubernetes på Azure Stack är i privat förhandsversion. Azure Stack-operator måste begära åtkomst till Kubernetes marknadsplats-objektet som behövs för att göra det som beskrivs i den här artikeln.
 
 I följande artikel tittar på med hjälp av en lösningsmall för Azure Resource Manager-för att distribuera och etablera resurserna för Kubernetes i en enda, samordnad åtgärd. Du behöver samla in nödvändig information om installationen av Azure Stack, generera mallen, och sedan distribuera till molnet.
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes och behållare
 
-Du kan installera Kubernetes med Azure Resource Manager-mallar som genereras av Azure Container Services (ACS)-motorn på Azure Stack. [Kubernetes](https://kubernetes.io) är ett system med öppen källkod för att automatisera distribution, skalning och hantering av program i behållare. En [behållare](https://www.docker.com/what-container) finns i en avbildning, som en virtuell dator. Till skillnad från en virtuell dator innehåller behållaravbildningen endast de resurser den behöver för att köra ett program, till exempel kod, runtime för att köra koden, specifika bibliotek och inställningar.
+Du kan installera Kubernetes med Azure Resource Manager-mallar som skapas av motorn för Azure Kubernetes Services (AKS) på Azure Stack. [Kubernetes](https://kubernetes.io) är ett system med öppen källkod för att automatisera distribution, skalning och hantering av program i behållare. En [behållare](https://www.docker.com/what-container) finns i en avbildning, som en virtuell dator. Till skillnad från en virtuell dator innehåller behållaravbildningen endast de resurser den behöver för att köra ett program, till exempel kod, runtime för att köra koden, specifika bibliotek och inställningar.
 
 Du kan använda Kubernetes:
 
@@ -73,7 +72,7 @@ Kom igång genom att kontrollera att du har rätt behörigheter och att Azure St
 
     c. Klicka på **Skapa**.
 
-1. Anteckna den **program-ID**. Du behöver det ID: T när du skapar klustret. ID: T är refereras till som **klient-ID för tjänstens huvudnamn**.
+1. Anteckna **Program-ID**. Du behöver det ID: T när du skapar klustret. ID: T är refereras till som **klient-ID för tjänstens huvudnamn**.
 
 1. Välj **inställningar** > **nycklar**.
 

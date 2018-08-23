@@ -3,20 +3,20 @@ title: Azure Cosmos DB-brandväggsstöd & IP-åtkomstkontroll | Microsoft Docs
 description: Lär dig hur du använder principer för IP-åtkomstkontroll för brandväggen support för Azure Cosmos DB-databaskonton.
 keywords: IP-åtkomstkontroll, brandväggsstöd
 services: cosmos-db
-author: SnehaGunda
+author: kanshiG
 manager: kfile
 tags: azure-resource-manager
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2018
-ms.author: sngun
-ms.openlocfilehash: e67fc5e00a638f116a69dbb36c60cf183cbde808
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.author: govindk
+ms.openlocfilehash: 7c9367cccf8d59d60dfa474f02567d59b9c8c8c2
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857838"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42058777"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Azure Cosmos DB-brandväggsstöd
 Om du vill skydda data som lagras i ett Azure Cosmos DB-databaskonto Azure Cosmos DB har lagt till stöd för en hemlighet baserat [auktoriseringsmodellen](https://msdn.microsoft.com/library/azure/dn783368.aspx) som använder sig av en stark hashbaserad meddelandeautentiseringskod (HMAC). Förutom den hemliga baserat auktoriseringsmodellen stöder nu Azure Cosmos DB-princip driven IP-baserade åtkomstkontroller för Brandvägg för inkommande trafik support. Den här modellen liknar brandväggsreglerna för traditionella databassystem och ger en extra nivå av säkerhet för Azure Cosmos DB-databaskonto. Med den här modellen kan du nu konfigurera ett Azure Cosmos DB-databaskonto för att endast vara tillgängliga från en godkänd uppsättning datorer och/eller molntjänster. Åtkomst till Azure Cosmos DB-resurser från dessa godkända uppsättningar av datorer och tjänster kräver fortfarande anroparen att presentera en giltig auktoriseringstoken.

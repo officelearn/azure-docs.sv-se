@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 08/09/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: ed2d55b8346acb79563a882bbaf2f46110dcf1bb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bff0140d173fc3393ac56ec3d709c3c067842a2a
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442725"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42057597"
 ---
 # <a name="add-a-kubernetes-cluster-to-the-azure-stack-marketplace"></a>Lägg till ett Kubernetes-kluster i Azure Stack Marketplace
 
 *Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
 > [!note]  
-> Azure Container Services (ACS) Kubernetes på Azure Stack är i privat förhandsversion. Att begära åtkomst till Kubernetes marknadsplats-objektet som behövs för att göra det som beskrivs i den här artikeln [ansöka om att få åtkomst](https://aka.ms/azsk8).
+> Azure Kubernetes Services (AKS) Kubernetes på Azure Stack är i privat förhandsversion. Att begära åtkomst till Kubernetes marknadsplats-objektet som behövs för att göra det som beskrivs i den här artikeln [ansöka om att få åtkomst](https://aka.ms/azsk8).
 
 Du kan erbjuda ett Kubernetes-kluster som ett Marketplace-objekt till dina användare. Användarna kan distribuera Kubernetes i en enda, samordnad åtgärd.
 

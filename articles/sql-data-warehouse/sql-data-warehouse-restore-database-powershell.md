@@ -1,6 +1,6 @@
 ---
 title: Återställa en Azure SQL Data Warehouse (PowerShell) | Microsoft Docs
-description: PowerShell-uppgifter för att återställa en Azure SQL Data Warehouse.
+description: PowerShell-åtgärder för att återställa en Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 332b80d5c6dbe0b46a6fb793d3c0c04574744b19
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: dbf86bfc82706586dfb438b167d13b32b6a4b968
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31600044"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42056740"
 ---
 # <a name="restore-an-azure-sql-data-warehouse-powershell"></a>Återställa en Azure SQL Data Warehouse (PowerShell)
 > [!div class="op_single_selector"]
@@ -29,20 +29,20 @@ ms.locfileid: "31600044"
 I den här artikeln får du lära dig hur du återställer en Azure SQL Data Warehouse med hjälp av PowerShell.
 
 ## <a name="before-you-begin"></a>Innan du börjar
-**Kontrollera DTU-kapacitet.** Varje SQL Data Warehouse finns på en SQLServer (t.ex. myserver.database.windows.net) som har en standard DTU-kvot.  Innan du kan återställa en SQL Data Warehouse, kontrollera att den SQL-servern har tillräckligt med återstående DTU-kvot för databasen som återställs. Information om hur du beräkna DTU behövs eller begära mer DTU finns [begär en ändring för DTU-kvot][Request a DTU quota change].
+**Kontrollera din DTU-kapacitet.** Varje SQL Data Warehouse finns på en SQLServer (t.ex. myserver.database.windows.net) som har en standard DTU-kvot.  Innan du kan återställa en SQL Data Warehouse, kontrollerar du att den SQLServer har tillräckligt med återstående DTU-kvot för den databas som återställs. Läs hur du beräkna DTU behövs eller begära mer DTU i [begära en DTU-kvot ändring][Request a DTU quota change].
 
 ### <a name="install-powershell"></a>Installera PowerShell
-För att kunna använda Azure PowerShell med SQL Data Warehouse, behöver du installera Azure PowerShell version 1.0 eller senare.  Du kan kontrollera din version genom att köra **Get-Module - ListAvailable-Name AzureRM**.  Den senaste versionen kan installeras från [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  Mer information om hur du installerar den senaste versionen finns i [Installera och konfigurera Azure PowerShell][How to install and configure Azure PowerShell].
+För att kunna använda Azure PowerShell med SQL Data Warehouse, kommer du behöva installera Azure PowerShell version 1.0 eller senare.  Du kan kontrollera din version genom att köra **Get-Module - ListAvailable-Name AzureRM**.  Den senaste versionen kan installeras från [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  Mer information om hur du installerar den senaste versionen finns i [Installera och konfigurera Azure PowerShell][How to install and configure Azure PowerShell].
 
-## <a name="restore-an-active-or-paused-database"></a>Återställa en databas för aktiva eller pausats
-Att återställa en databas från en ögonblicksbild används den [Restore-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] PowerShell-cmdlet.
+## <a name="restore-an-active-or-paused-database"></a>Återställ en databas med aktiv eller pausad
+Att återställa en databas från en ögonblicksbild använder det [Restore-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] PowerShell-cmdlet.
 
 1. Öppna Windows PowerShell.
-2. Lista över alla prenumerationer som är kopplade till ditt konto och ansluta till ditt Azure-konto.
-3. Välj den prenumeration som innehåller databasen som ska återställas.
-4. Ange återställningspunkter för databasen.
-5. Välj önskad återställningspunkt med hjälp av RestorePointCreationDate.
-6. Återställa databasen till önskad återställningspunkt.
+2. Anslut till ditt Azure-konto och lista över alla prenumerationer som är associerat med ditt konto.
+3. Välj den prenumeration som innehåller databasen som skulle återställas.
+4. Lista över återställningspunkter för databasen.
+5. Välj önskad återställningspunkten med hjälp av RestorePointCreationDate.
+6. Återställa databasen till den önskade återställningspunkten.
 7. Kontrollera att den återställda databasen är online.
 
 ```Powershell
@@ -83,13 +83,13 @@ $RestoredDatabase.status
 > 
 
 ## <a name="restore-a-deleted-database"></a>Återställa en borttagen databas
-Använd för att återställa en borttagen databas i [Restore-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] cmdlet.
+Återställ en borttagen databas med den [Restore-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] cmdlet.
 
 1. Öppna Windows PowerShell.
-2. Lista över alla prenumerationer som är kopplade till ditt konto och ansluta till ditt Azure-konto.
+2. Anslut till ditt Azure-konto och lista över alla prenumerationer som är associerat med ditt konto.
 3. Välj den prenumeration som innehåller den borttagna databasen återställs.
-4. Hämta specifika borttagen databas.
-5. Återställa borttagna databasen.
+4. Få viss borttagen databas.
+5. Återställa den borttagna databasen.
 6. Kontrollera att den återställda databasen är online.
 
 ```Powershell
@@ -122,16 +122,16 @@ $RestoredDatabase.status
 Om du vill återställa en databas kan använda den [Restore-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] cmdlet.
 
 > [!NOTE]
-> Du kan utföra en geo-återställning till optimerade för beräkning prestandanivån! Gör du genom att ange en optimerad för Compute ServiceObjectiveName som en valfri parameter. 
+> Du kan utföra en geo-återställning till optimerad för beräkning! Om du vill göra det anger du en optimerad för beräkning ServiceObjectiveName som en valfri parameter. 
 >
 > 
 
 1. Öppna Windows PowerShell.
-2. Lista över alla prenumerationer som är kopplade till ditt konto och ansluta till ditt Azure-konto.
-3. Välj den prenumeration som innehåller databasen som ska återställas.
-4. Hämta databasen som du vill återställa.
-5. Skapa återställningspunkt-begäran för databasen.
-6. Kontrollera statusen för geo-återställa databasen.
+2. Anslut till ditt Azure-konto och lista över alla prenumerationer som är associerat med ditt konto.
+3. Välj den prenumeration som innehåller databasen som skulle återställas.
+4. Hämta den databas som du vill återställa.
+5. Skapa recovery-begäran för databasen.
+6. Kontrollera status för geo-återställa databasen.
 
 ```Powershell
 Connect-AzureRmAccount
@@ -156,7 +156,7 @@ $GeoRestoredDatabase.status
 Den återställda databasen kommer att TDE-aktiverade om källdatabasen är TDE-aktiverad.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om funktionerna för verksamhetskontinuitet Azure SQL Database version, Läs den [översikt över verksamhetskontinuitet i Azure SQL Database][Azure SQL Database business continuity overview].
+Läs om funktionerna för affärskontinuitet för Azure SQL Database-versionerna, den [översikt över Azure SQL Database affärskontinuitet][Azure SQL Database business continuity overview].
 
 <!--Image references-->
 
@@ -172,7 +172,7 @@ Mer information om funktionerna för verksamhetskontinuitet Azure SQL Database v
 [Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
 
 <!--MSDN references-->
-[Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
+[Restore-AzureRmSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase
 
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.com/

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: jeedes
-ms.openlocfilehash: c3a91509238534bed37cfd169c66f37732546bfb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 06cccaeaea3ff43bd5a4100ef0d4628e8cc77254
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425127"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42055391"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envoy"></a>Självstudier: Azure Active Directory-integration med Envoy
 
@@ -60,7 +60,7 @@ För att konfigurera integrering av Envoy i Azure AD, som du behöver lägga til
 
 **Utför följande steg för att lägga till Envoy från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -110,7 +110,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Envoy domän och URL: er med enkel inloggning för information](./media/envoy-tutorial/tutorial_envoy_url.png)
 
-    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<tenant-name>.Envoy.com`
+    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://app.envoy.com/a/saml/auth/<company-ID-from-Envoy>`
     
     > [!NOTE] 
     > Det här värdet är inte verkliga. Uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [Envoy klienten supportteamet](https://envoy.com/contact/) att hämta det här värdet.

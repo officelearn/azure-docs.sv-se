@@ -1,19 +1,19 @@
 ---
-title: Routning täckning i Azure Maps | Microsoft Docs
-description: Lär dig mer om routning täckning i Azure Maps
-author: jinzh-azureiot
+title: Routningstäckning i Azure Maps | Microsoft Docs
+description: Lär dig mer om routningstäckning i Azure Maps
+author: jingjing-z
 ms.author: jinzh
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: aa611b1cc406cd16ffdecb244c3010a7e0318519
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 80d98fd8108d0b64f9c25b82d6d79f60fcdd771e
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599957"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42054145"
 ---
 # <a name="azure-maps-routing-coverage"></a>Azure Maps routning täckning
 
@@ -21,15 +21,15 @@ Den här artikeln innehåller information om täckning för Azure Maps routning.
 
 Kolla in täckning för [ **Geokodning**](geocoding-coverage.md).       
 Kolla in täckning för [ **trafik**](traffic-coverage.md).  
-Kolla in täckning för [ **återge**](render-coverage.md).
+Kolla in täckning för [ **rendera**](render-coverage.md).
 <br>  
 **Förklaring**
 
 | Symbol             | Betydelse                                |
 |--------------------|----------------------------------------|
-| ✓                  | Land med detaljerad information.   |
-| Ø                  | Land med förenklad data. |
-| Land saknas | Land data anges inte.          |
+| ✓                  | Land som medföljer detaljerade data.   |
+| Ø                  | Land som medföljer förenklad data. |
+| Land saknas | Landsspecifika data anges inte.          |
 
 <br>  
 
@@ -73,10 +73,10 @@ Följande tabell innehåller information om täckning för Azure Maps routning.
 | Zambia                         |        ✓       |
 | Zimbabwe                       |        ✓       |
 |                                |                |
-| **Nord**                       |                |
+| **Amerikanska**                       |                |
 | Argentina                      |        ✓       |
 | Brasilien                         |        ✓       |
-| Västindien i Oceanien och Västindien              |        ✓       |
+| Karibien-öarna              |        ✓       |
 | Kanada                         |        ✓       |
 | Chile                          |        ✓       |
 | Colombia                       |        ✓       |
@@ -124,7 +124,7 @@ Följande tabell innehåller information om täckning för Azure Maps routning.
 | Grekland                         |        ✓       |
 | Ungern                        |        ✓       |
 | Island                        |        ✓       |
-| Irland (Republiken)          |        ✓       |
+| Irland (republiken Makedonien)          |        ✓       |
 | Italien                          |        ✓       |
 | Lettland                         |        ✓       |
 | Liechtenstein                  |        ✓       |

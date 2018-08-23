@@ -9,12 +9,12 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: c6d33de70fd5b7c03b7af6b85e8ebc567dd2f925
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 7d4f6a12c94620f447b5d6df4d7715d32eac2d98
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502516"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "41987470"
 ---
 # <a name="anomaly-detection-c-application"></a>Avvikelseidentifiering identifiering av C#-program
 
@@ -77,7 +77,8 @@ Granska hur Restful API: et hämtar används i exempelprogrammet kan vi titta p�
             // ----------------------------------------------------------------------
 
 ```
-**Request(...)**  Under kodfragment visar hur du använder HttlClient skicka in din prenumeration nyckeln och data pekar på slutpunkten för API: T för Avvikelseidentifiering identifiering.
+### <a name="request"></a>**Förfrågan**
+Kodfragmentet nedan visar hur du använder HttpClient för att skicka din prenumeration nyckeln och data pekar på slutpunkten för API: T för Avvikelseidentifiering identifiering.
 
 ```csharp
     public async Task<string> Request(string baseAddress, string endpoint, string subscriptionKey, string requestData)

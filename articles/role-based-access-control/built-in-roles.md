@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 08/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 5a373c397df09653395eea7996b19262aee75c7a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 537777d2e379959d427c025036652a87ecc4a1fe
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619057"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617166"
 ---
 # <a name="built-in-roles-in-azure"></a>Inbyggda roller i Azure
 [Rollbaserad åtkomstkontroll (RBAC)](overview.md) har flera inbyggda rolldefinitioner som du kan tilldela till användare, grupper och tjänstens huvudnamn. Rolltilldelningar är det sätt som du styr åtkomst till resurser i Azure. Om de inbyggda rollerna inte uppfyller organisationens specifika krav kan du skapa egna, [anpassade roller](custom-roles.md).
@@ -47,6 +47,8 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 | [Automation-Jobboperator](#automation-job-operator) | Skapa och hantera jobb med Automation Runbooks. |
 | [Automation-operatör](#automation-operator) | Automation-operatörer kan starta, stoppa, göra uppehåll i och återuppta jobb |
 | [Automation Runbook-Operator](#automation-runbook-operator) | Läs runbook-egenskaperna för att kunna skapa jobb av den runbooken. |
+| [Administratörsroll för Azure Kubernetes Service-kluster](#azure-kubernetes-service-cluster-admin-role) | Lista över kluster administratörsåtgärd autentiseringsuppgifter. |
+| [Användarrollen för Azure Kubernetes Service-kluster](#azure-kubernetes-service-cluster-user-role) | Lista över autentiseringsuppgifter för kluster användaråtgärd. |
 | [Azure Stack-registrering ägare](#azure-stack-registration-owner) | Låter dig hantera Azure Stack-registreringar. |
 | [Säkerhetskopieringsmedarbetare](#backup-contributor) | Låter dig hantera säkerhetskopieringstjänsten, men låter dig inte skapa valv eller ge åtkomst till andra |
 | [Ansvarig för säkerhetskopiering](#backup-operator) | Låter dig hantera säkerhetskopieringstjänster, med undantag för att ta bort säkerhetskopior, skapa valv eller ge åtkomst till andra |
@@ -60,8 +62,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 | [Klassisk nätverksdeltagare](#classic-network-contributor) | Låter dig hantera klassiska nätverk, men ger dig inte tillgång till dem. |
 | [Klassisk Lagringskontodeltagare](#classic-storage-account-contributor) | Låter dig hantera klassiska lagringskonton, men ger dig inte åtkomst att hantera dem. |
 | [Tjänstroll som operatör av Lagringskontonyckel konto klassisk lagring](#classic-storage-account-key-operator-service-role) | Operatörer av klassiska lagringskontonycklar får lista och återskapa nycklar till klassiska lagringskonton |
-| [Klassisk virtuell Datordeltagare](#classic-virtual-machine-contributor) | Låter dig hantera klassiska virtuella datorer, men ger dig inte tillgång till dem eller till det virtuella nätverk eller lagringskonto som de är anslutna till. |
-| [ClearDB MySQL DB-deltagare](#cleardb-mysql-db-contributor) | Låter dig hantera ClearDB MySQL-databaser, men ger dig inte tillgång till dem. |
+| [Klassisk virtuell Datordeltagare](#classic-virtual-machine-contributor) | Låter dig hantera klassiska virtuella datorer, men ger dig inte tillgång till dem eller till det virtuella nätverk eller lagringskonto som de är anslutna till.|
 | [Läsarroll för cosmos DB-konto](#cosmos-db-account-reader-role) | Kan läsa data i Azure Cosmos DB-konto. Se [DocumentDB-Kontodeltagare](#documentdb-account-contributor) för att hantera Azure Cosmos DB-konton. |
 | [Data Box-deltagare](#data-box-contributor) | Låter dig hantera allt under Data Box-tjänsten förutom att ge åtkomst till andra. |
 | [Data Box-Operator](#data-box-operator) | Låter dig hantera Data Box-tjänsten förutom att skapas eller redigera orderinformationen och ge åtkomst till andra. |
@@ -84,6 +85,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 | [Hanteringsgrupp-deltagare](#management-group-contributor) | Rollen hanteringsgrupp-deltagare |
 | [Hanteringsgruppen läsare](#management-group-reader) | Rollen hanteringsgrupp-läsare |
 | [Övervaka deltagare](#monitoring-contributor) | Kan läsa alla övervakningsdata och redigera övervakningsinställningarna. Se även [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
+| [Övervaka mått utgivare](#monitoring-metrics-publisher) | Aktiverar publicering av måtten mot Azure-resurser |
 | [Övervaka läsare](#monitoring-reader) | Kan läsa alla övervakningsdata (mått, loggar osv.). Se även [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
 | [Nätverksdeltagare](#network-contributor) | Låter dig hantera nätverk, men ger dig inte tillgång till dem. |
 | [Nya Relic APM-Kontodeltagare](#new-relic-apm-account-contributor) | Låter dig hantera New Relic Application Performance Management-konton och program, men ger dig inte tillgång till dem. |
@@ -275,13 +277,14 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | **Id** | 4fe576fe-1146-4730-92eb-48519fa6bf9f |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
+> | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Läser Hybrid Runbook Worker-resurser |
 > | Microsoft.Automation/automationAccounts/jobs/read | Hämtar en Azure Automation-jobb |
 > | Microsoft.Automation/automationAccounts/jobs/resume/action | Återupptar ett Azure Automation-jobb |
 > | Microsoft.Automation/automationAccounts/jobs/stop/action | Stoppar ett Azure Automation-jobb |
-> | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Läser Hybrid Runbook Worker-resurser |
 > | Microsoft.Automation/automationAccounts/jobs/streams/read | Hämtar en Azure Automation-jobbström |
 > | Microsoft.Automation/automationAccounts/jobs/suspend/action | Pausar ett Azure Automation-jobb |
 > | Microsoft.Automation/automationAccounts/jobs/write | Skapar ett Azure Automation-jobb |
+> | Microsoft.Automation/automationAccounts/jobs/output/read | Hämtar utdata för ett jobb |
 > | Microsoft.Insights/alertRules/* | Skapa och hantera Insights Varningsregler |
 > | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
@@ -329,6 +332,24 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
+
+## <a name="azure-kubernetes-service-cluster-admin-role"></a>Administratörsroll för Azure Kubernetes Service-kluster
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Lista över kluster administratörsåtgärd autentiseringsuppgifter. |
+> | **Id** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
+> | **Åtgärder** |  |
+> | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Lista över clusterAdmin autentiseringsuppgifterna för ett hanterat kluster |
+
+## <a name="azure-kubernetes-service-cluster-user-role"></a>Användarrollen för Azure Kubernetes Service-kluster
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Lista över autentiseringsuppgifter för kluster användaråtgärd. |
+> | **Id** | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
+> | **Åtgärder** |  |
+> | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Lista över clusterUser autentiseringsuppgifterna för ett hanterat kluster |
 
 ## <a name="azure-stack-registration-owner"></a>Ägare för Azure Stack-registrering
 > [!div class="mx-tableFixed"]
@@ -631,21 +652,6 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
-
-## <a name="cleardb-mysql-db-contributor"></a>ClearDB MySQL DB-deltagare
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **Beskrivning** | Låter dig hantera ClearDB MySQL-databaser, men ger dig inte tillgång till dem. |
-> | **Id** | 9106cda0-8a86-4E81-b686-29a22c54effe |
-> | **Åtgärder** |  |
-> | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
-> | Microsoft.Insights/alertRules/* | Skapa och hantera aviseringsregler |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighetsstatusarna för alla resurser i det angivna området |
-> | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
-> | Microsoft.Support/* | Skapa och hantera supportärenden |
-> | successbricks.cleardb/Databases/* | Skapa och hantera ClearDB MySQL-databaser |
 
 ## <a name="cosmos-db-account-reader-role"></a>Läsarroll för Cosmos DB-konto
 > [!div class="mx-tableFixed"]
@@ -1041,6 +1047,19 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | Microsoft.WorkloadMonitor/workloads/* |  |
 > | Microsoft.WorkloadMonitor/workloadInsights/* |  |
+
+## <a name="monitoring-metrics-publisher"></a>Övervaka mått utgivare
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Aktiverar publicering av måtten mot Azure-resurser |
+> | **Id** | 3913510d-42f4-4e42-8a64-420c390055eb |
+> | **Åtgärder** |  |
+> | Microsoft.Insights/Register/Action | Registrera Microsoft Insights-providern |
+> | Microsoft.Support/* | Skapa och hantera supportärenden |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
+> | **DataActions** |  |
+> | Microsoft.Insights/Metrics/Write | Skrivning av mått |
 
 ## <a name="monitoring-reader"></a>Övervaka läsare
 > [!div class="mx-tableFixed"]

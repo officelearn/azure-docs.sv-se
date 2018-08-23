@@ -1,6 +1,6 @@
 ---
 title: Hur du använder Notification Hubs med Java
-description: Lär dig hur du använder Azure Notification Hubs från Java backend.
+description: Lär dig hur du använder Azure Notification Hubs från en Java-serverdel.
 services: notification-hubs
 documentationcenter: ''
 author: dimazaid
@@ -14,34 +14,34 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 88e3ab3cc03cc1e760672120bc5c484af1ba4722
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fe20cf9c9137dc1ca41d3b8e2445bac079fb33fc
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778383"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42055784"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Hur du använder Notification Hubs från Java
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-Det här avsnittet beskrivs viktiga funktioner i den nya stöds fullt ut officiella Azure Notification Hub Java SDK. Det här projektet är ett projekt med öppen källkod och du kan visa hela SDK-koden i [Java SDK]. 
+Det här avsnittet beskriver de viktigaste funktionerna i den nya stöds fullt ut officiella Azure Notification Hub Java SDK. Det här projektet är ett projekt med öppen källkod och du kan visa hela SDK-koden på [Java SDK]. 
 
-I allmänhet kan du har åtkomst till alla funktioner i Notification Hubs från en Java/PHP/Python/Ruby serverdel med Notification Hub REST-gränssnitt som beskrivs i avsnittet MSDN [Notification Hub REST API: er](http://msdn.microsoft.com/library/dn223264.aspx). Den här Java SDK ger en tunn omslutning över dessa REST-gränssnitt i Java. 
+I allmänhet du kan komma åt alla funktioner i Meddelandehubbar från en Java/PHP/Python/Ruby-serverdel med Notification Hub REST-gränssnittet enligt beskrivningen i avsnittet om MSDN [Notification Hubs REST API: er](http://msdn.microsoft.com/library/dn223264.aspx). Den här Java SDK tillhandahåller en tunn omslutning över dessa REST-gränssnitt i Java. 
 
 SDK stöder för närvarande:
 
-* CRUD på Notification hub 
-* CRUD på registreringar
+* CRUD på Meddelandehubbar 
+* CRUD för registreringar
 * Hantering av installation
-* Importera och exportera registreringar
+* Import/Export-registreringar
 * Vanliga skickar
 * Schemalagda skickar
 * Asynkrona åtgärder via Java NIO
-* Plattformar som stöds: APN (iOS), GCM (Android), WNS (Windows Store-appar), MPNS (Windows Phone), ADM (Amazon Kindle brand), Baidu (Android utan Google services) 
+* Plattformar som stöds: APNS (iOS), GCM (Android), WNS (Windows Store-appar), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android utan Google-tjänster) 
 
 ## <a name="sdk-usage"></a>SDK-användning
 ### <a name="compile-and-build"></a>Kompilera och bygga
-Använd [Maven]
+Använd [Maven 3.]
 
 Att skapa:
 
@@ -53,7 +53,7 @@ Att skapa:
 
     NamespaceManager namespaceManager = new NamespaceManager("connection string")
 
-**Skapa Notification Hub:**
+**Skapa Meddelandehub:**
 
     NotificationHubDescription hub = new NotificationHubDescription("hubname");
     hub.setWindowsCredential(new WindowsCredential("sid","key"));
@@ -63,16 +63,16 @@ Att skapa:
 
     hub = new NotificationHub("connection string", "hubname");
 
-**Hämta Meddelandehubben:**
+**Hämta Notification Hub:**
 
     hub = namespaceManager.getNotificationHub("hubname");
 
-**Uppdatera Meddelandehubben:**
+**Uppdatera Notification Hub:**
 
     hub.setMpnsCredential(new MpnsCredential("mpnscert", "mpnskey"));
     hub = namespaceManager.updateNotificationHub(hub);
 
-**Ta bort Meddelandehubben:**
+**Ta bort Notification Hub:**
 
     namespaceManager.deleteNotificationHub("hubname");
 
@@ -95,9 +95,9 @@ Att skapa:
     reg.getTags().add("myOtherTag");
     hub.createRegistration(reg);
 
-På liknande sätt kan du skapa registreringar för Android (GCM), Windows Phone (MPNS) och Kindle brand (ADM).
+På samma sätt kan du skapa registreringar för Android (GCM), Windows Phone (MPNS) och Kindle Fire (ADM).
 
-**Skapa mallen registreringar:**
+**Skapa mallregistreringar:**
 
     WindowsTemplateRegistration reg = new WindowsTemplateRegistration(new URI(CHANNELURI), WNSBODYTEMPLATE);
     reg.getHeaders().put("X-WNS-Type", "wns/toast");
@@ -105,7 +105,7 @@ På liknande sätt kan du skapa registreringar för Android (GCM), Windows Phone
 
 **Skapa registreringar med skapa registrerings-ID + upsert mönster**
 
-Tar bort dubbletter på grund av eventuella förlorade svar om registrering ID: N som lagras på enheten:
+Tar bort dubbletter på grund av eventuella förlorad svar om lagra registrerings-ID på enheten:
 
     String id = hub.createRegistrationId();
     WindowsRegistration reg = new WindowsRegistration(id, new URI(CHANNELURI));
@@ -119,13 +119,13 @@ Tar bort dubbletter på grund av eventuella förlorade svar om registrering ID: 
 
     hub.deleteRegistration(regid);
 
-**Fråga registreringar:**
+**Fråga efter registreringar:**
 
-* **Hämta enkel registrering:**
+* **Få enkel registrering:**
   
         hub.getRegistration(regid);
 
-* **Visa alla registreringar hubb:**
+* **Hämta alla registreringar i hubben:**
   
         hub.getRegistrations();
 
@@ -141,9 +141,9 @@ Tar bort dubbletter på grund av eventuella förlorade svar om registrering ID: 
 Alla samlingsfrågor stöder $top och fortsättning token.
 
 ### <a name="installation-api-usage"></a>Installation av API-användning
-API-installationen är en alternativ metod för hantering av registreringen. I stället för att underhålla flera registreringar som inte är trivial och enkelt kan göras felaktigt eller ineffektiv går nu att använda en enda Installation-objekt. Installationen innehåller allt du behöver: push-kanal (enhetstoken), taggar, mallar, sekundära paneler (för WNS och APN). Behöver du inte att anropa tjänsten för att hämta ID längre – bara generera GUID eller andra identifierare, hålla på enheten och skicka till din serverdel tillsammans med push-kanal (enhetstoken). På serverdelen, bör du bara göra en enda anrop: CreateOrUpdateInstallation, är det fullständigt idempotent, så passa på att försöka igen om det behövs.
+API-installationen är en alternativ mekanism för registreringshantering av. I stället för att underhålla flera registreringar som inte är enkelt och kan enkelt utföras felaktigt eller ineffektiv, är det nu möjligt att använda en enda Installation-objektet. Installationen innehåller allt du behöver: push-kanal (enhetstoken), taggar, mallar, sekundära paneler (för WNS och APN). Du behöver inte anropa tjänsten för att hämta ID längre – bara generera GUID eller andra identifierare, förvara den på enheten och skicka till din serverdel tillsammans med push-kanal (enhetstoken). På servern, bör du endast göra ett enda anrop: CreateOrUpdateInstallation, det är helt idempotenta, så passa på att försöka igen om det behövs.
 
-Som exempel Amazon Kindle brand:
+Som exempel Amazon Kindle Fire:
 
     Installation installation = new Installation("installation-id", NotificationPlatform.Adm, "adm-push-channel");
     hub.createOrUpdateInstallation(installation);
@@ -155,7 +155,7 @@ Om du vill uppdatera den:
     installation.addTemplate("template2", new InstallationTemplate("{\"data\":{\"key2\":\"$(value2)\"}}","tag-for-template2"));
     hub.createOrUpdateInstallation(installation);
 
-Använd deluppdatering funktion, vilket gör för att ändra endast särskilda egenskaper i objektet installation för avancerade scenarier. Deluppdatering är en delmängd av JSON-korrigering åtgärder du kan köra mot objektet för Installation.
+Använd funktionen för deluppdatering, vilket gör för att ändra specifika egenskaper för objektet installation för avancerade scenarier. Deluppdatering är delmängd av JSON-korrigeringen åtgärder du kan köra mot objektet för Installation.
 
     PartialUpdateOperation addChannel = new PartialUpdateOperation(UpdateOperationType.Add, "/pushChannel", "adm-push-channel2");
     PartialUpdateOperation addTag = new PartialUpdateOperation(UpdateOperationType.Add, "/tags", "bar");
@@ -166,9 +166,9 @@ Ta bort installationen:
 
     hub.deleteInstallation(installation.getInstallationId());
 
-CreateOrUpdate, korrigeringsfil och ta bort är överensstämmelse med Get. Den begärda åtgärden kan bara flyttas till kön systemet under anropet och körs i bakgrunden. Get är inte avsedd för huvudsakliga runtime scenariot men bara för felsökning och felsökning kan den nära begränsas av tjänsten.
+CreateOrUpdate, Patch och Delete är konsekvent med Get. Den begärda åtgärden leder till kön system under samtalet bara och körs i bakgrunden. Hämta är inte avsedd för huvudsakliga runtime-scenario, men bara för felsökning och felsökning, den är nära begränsad av tjänsten.
 
-Skicka flödet för installationer är desamma som för registreringar. Att rikta meddelande till viss installationen - bara använda taggen ”InstallationId: {desired-id}”. För det här fallet är koden:
+Skicka flödet för installationer är desamma som för registreringar. Mål-meddelande till viss installationen – Använd bara tagg ”InstallationId: {desired-id}”. För det här fallet är koden:
 
     Notification n = Notification.createWindowsNotification("WNS body");
     hub.sendNotification(n, "InstallationId:{installation-id}");
@@ -180,20 +180,20 @@ För en av flera mallar:
     Notification n = Notification.createTemplateNotification(prop);
     hub.sendNotification(n, "InstallationId:{installation-id} && tag-for-template1");
 
-### <a name="schedule-notifications-available-for-standard-tier"></a>Schemalägga meddelanden (tillgängligt för standardnivån)
-Samma som regelbundet skicka men med en ytterligare parameter - scheduledTime som säger när meddelanden ska levereras. Tjänsten accepterar helst mellan nu + 5 minuter och nu + 7 dagar.
+### <a name="schedule-notifications-available-for-standard-tier"></a>Schemalägg meddelanden (tillgängligt för nivån STANDARD)
+Samma som vanlig skicka men med en extra parameter - scheduledTime som innehåller texten när meddelandet ska levereras. Tjänsten accepterar helst mellan nu + 5 minuter och nu + 7 dagar.
 
-**Schemalägg en intern Windows-avisering:**
+**Schemalägg en intern Windows-meddelande:**
 
     Calendar c = Calendar.getInstance();
     c.add(Calendar.DATE, 1);    
     Notification n = Notification.createWindowsNotification("WNS body");
     hub.scheduleNotification(n, c.getTime());
 
-### <a name="importexport-available-for-standard-tier"></a>Importera och exportera (tillgängligt för standardnivån)
-Ibland är det krävs för att utföra massredigering mot registreringar. Vanligtvis är den för integrering med en annan dator eller en omfattande lösning att säga uppdatera taggarna. Det rekommenderas inte att använda Get/uppdatera flödet om tusentals registreringar ingår. Import/Export-funktionen är avsedd att täcka scenariot. I praktiken ger en åtkomst till vissa blob-behållare under ditt lagringskonto som en källa för inkommande data och plats för utdata.
+### <a name="importexport-available-for-standard-tier"></a>Import/Export (tillgängligt för nivån STANDARD)
+Ibland är det krävs för att utföra bulkåtgärd mot registreringar. Vanligtvis är det för integrering med ett annat system eller bara en omfattande lösning för att anta att uppdatera taggar. Det rekommenderas inte att använda hämta/uppdatera flöde om tusentals registreringar ingår. Import/Export-funktionen har utformats för att täcka scenariot. I praktiken ger en åtkomst till vissa blob-behållare under ditt storage-konto som en källa för inkommande data och plats för utdata.
 
-**Skicka exportjobb:**
+**Skicka export-jobbet:**
 
     NotificationHubJob job = new NotificationHubJob();
     job.setJobType(NotificationHubJobType.ExportRegistrations);
@@ -201,7 +201,7 @@ Ibland är det krävs för att utföra massredigering mot registreringar. Vanlig
     job = hub.submitNotificationHubJob(job);
 
 
-**Skicka importjobbet:**
+**Skicka importjobb:**
 
     NotificationHubJob job = new NotificationHubJob();
     job.setJobType(NotificationHubJobType.ImportCreateRegistrations);
@@ -209,7 +209,7 @@ Ibland är det krävs för att utföra massredigering mot registreringar. Vanlig
     job.setOutputContainerUri("container uri with SAS signature");
     job = hub.submitNotificationHubJob(job);
 
-**Vänta tills jobbet är klar:**
+**Vänta tills jobbet är klart:**
 
     while(true){
         Thread.sleep(1000);
@@ -222,10 +222,10 @@ Ibland är det krävs för att utföra massredigering mot registreringar. Vanlig
 
     List<NotificationHubJob> jobs = hub.getAllNotificationHubJobs();
 
-**URI: N med SAS-signatur:** Webbadressen är Webbadressen till vissa blob-fil eller blob-behållaren plus uppsättning parametrar som behörigheter och förfallotid plus signaturen för dessa saker som skapats med hjälp av kontots SAS-nyckel. Azure Storage Java SDK: N har omfattande funktioner inklusive skapandet av denna typ av URI: er. Du kan ta en titt på ImportExportE2E TestKlass (från platsen som github) som har en grundläggande och compact implementering av Signeringsalgoritm som enkelt alternativ.
+**URI: N med SAS-signaturen:** URL: en är URL: en för vissa blob-fil eller en blob-behållare plus uppsättning parametrar som behörigheter och förfallotid samt signaturen för alla dessa saker som gjordes med kontots SAS-nyckel. Azure Storage-Java-SDK har omfattande funktioner inklusive skapandet av sådana typer av URI: er. Du kan ta en titt på ImportExportE2E TestKlass (från platsen som github) som har en basic- och compact implementering av Signeringsalgoritm som enkelt alternativ.
 
 ### <a name="send-notifications"></a>Skicka meddelanden
-Meddelande-objekt är helt enkelt en brödtext med rubriker, vissa metoder att skapa objekt för intern och mallen för meddelanden.
+Meddelande-objektet är helt enkelt en brödtext med rubriker, vissa verktygsmetoderna hjälp med att skapa objekt för interna och mallen meddelanden.
 
 * **Windows Store och Windows Phone 8.1 (utan Silverlight)**
   
@@ -252,7 +252,7 @@ Meddelande-objekt är helt enkelt en brödtext med rubriker, vissa metoder att s
                     "</wp:Notification>";
         Notification n = Notification.createMpnsNotification(toast);
         hub.sendNotification(n);
-* **Kindle brand**
+* **Kindle Fire**
   
         String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";
         Notification n = Notification.createAdmNotification(message);
@@ -263,10 +263,10 @@ Meddelande-objekt är helt enkelt en brödtext med rubriker, vissa metoder att s
         tags.add("boo");
         tags.add("foo");
         hub.sendNotification(n, tags);
-* **Skicka etikettuttrycket**       
+* **Skicka till Tagguttryck**       
   
         hub.sendNotification(n, "foo && ! bar");
-* **Skicka meddelande för mallen**
+* **Skicka**
   
         Map<String, String> prop =  new HashMap<String, String>();
         prop.put("prop1", "v1");
@@ -274,25 +274,25 @@ Meddelande-objekt är helt enkelt en brödtext med rubriker, vissa metoder att s
         Notification n = Notification.createTemplateNotification(prop);
         hub.sendNotification(n);
 
-Kör Java-kod ska nu skapa ett meddelande som visas på målenheten.
+Köra Java-kod ska nu skapa ett meddelande som visas på din målenhet.
 
 ## <a name="next-steps"></a>Nästa steg
-Det här avsnittet visar dig hur du skapar en enkel RESTEN av Java-klient för Meddelandehubbar. Härifrån kan du:
+Det här avsnittet såg du hur du skapar en enkel Java REST-klient för Meddelandehubbar. Härifrån kan du:
 
-* Hämta fullständigt [Java SDK], som innehåller hela SDK-koden. 
-* Spela upp med exemplen:
+* Ladda ned hela [Java SDK], som innehåller hela SDK-koden. 
+* Experimentera med exemplen:
   * [Kom igång med Notification Hubs]
   * [Skicka de senaste nyheterna]
-  * [Skicka lokaliserade senaste nyheterna]
+  * [Skicka lokaliserade de senaste nyheterna]
   * [Skicka meddelanden till autentiserade användare]
   * [Skicka plattformsoberoende meddelanden till autentiserade användare]
 
 [Java SDK]: https://github.com/Azure/azure-notificationhubs-java-backend
-[Get started tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Kom igång med Notification Hubs]: http://www.windowsazure.com/manage/services/notification-hubs/getting-started-windows-dotnet/
-[Skicka de senaste nyheterna]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-dotnet/
-[Skicka lokaliserade senaste nyheterna]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
-[Skicka meddelanden till autentiserade användare]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users/
-[Skicka plattformsoberoende meddelanden till autentiserade användare]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
-[Maven]: http://maven.apache.org/
+[Get started tutorial]: notification-hubs-ios-apple-push-notification-apns-get-started.md
+[Kom igång med Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+[Skicka de senaste nyheterna]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+[Skicka lokaliserade de senaste nyheterna]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
+[Skicka meddelanden till autentiserade användare]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Skicka plattformsoberoende meddelanden till autentiserade användare]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Maven 3.]: http://maven.apache.org/
 

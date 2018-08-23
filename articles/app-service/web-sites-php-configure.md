@@ -13,12 +13,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 6e7de0a7b580c0028982895487117ab98d0cd612
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 028a8f35b6ffc4b429725e91045e70112f2bdabd
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503459"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42054983"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Konfigurera PHP i Azure App Service Web Apps
 
@@ -189,7 +189,7 @@ Som standard göra App Service inte något med composer.json, om du har en i PHP
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns i den [PHP Developer Center](/develop/php/).
+Mer information finns i den [PHP Developer Center](https://azure.microsoft.com/develop/php/).
 
 > [!NOTE]
 > Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](https://azure.microsoft.com/try/app-service/). Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inga kreditkort krävs. Inga åtaganden.

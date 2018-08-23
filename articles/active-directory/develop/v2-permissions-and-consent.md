@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 08/21/2018
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: b38d90251ab59e537e7d637f45f04c4db87a94ae
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 6d3847f547646ae7c62f98b4cee716af5c6ba5e9
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39582000"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42055880"
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Omfattningar, behörigheter och godkännande i Azure Active Directory v2.0-slutpunkten
 Appar som integreras med Azure Active Directory (Azure AD) följer en modell för auktorisering som ger användare kontroll över hur en app kan komma åt sina data. V2.0-implementeringen av auktoriseringsmodellen som har uppdaterats, och den ändras hur en app måste interagera med Azure AD. Den här artikeln beskriver de grundläggande principerna för den här auktoriseringsmodellen, inklusive omfattningar, behörigheter och godkännande.
@@ -73,6 +73,19 @@ Den [ `offline_access` omfång](http://openid.net/specs/openid-connect-core-1_0.
 Om din app inte begär det `offline_access` omfattning, det inte tar emot uppdateringstoken. Detta innebär att när du har löst in en auktoriseringskod i den [OAuth 2.0-auktoriseringskodflödet](active-directory-v2-protocols.md), får du endast en åtkomsttoken från den `/token` slutpunkt. Åtkomsttoken är giltig för en kort tid. Åtkomsttoken upphör vanligtvis i en timme. AT att punkt, din app måste därefter skickas användarna tillbaka till den `/authorize` slutpunkten för att få en ny auktoriseringskod. Under den här omdirigering, beroende på typen av app måste behöva användaren ange sina autentiseringsuppgifter igen eller godkänna igen behörigheter.
 
 Mer information om hur du hämtar och använder uppdateringstoken finns i den [protokollreferens för v2.0](active-directory-v2-protocols.md).
+
+## <a name="accessing-v10-resources"></a>Åtkomst till v1.0 resurser
+v2.0-program kan begära token och medgivande för v1.0 program (till exempel Power BI-API: et `https://analysis.windows.net/powerbi/api` eller Sharepoint API `https://{tenant}.sharepoint.com`).  För att göra det, kan du referera till appen URI och omfång strängen i den `scope` parametern.  Till exempel `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All` skulle begär PowerBI `View all Datasets` behörighet för ditt program. 
+
+Om du vill begära flera behörigheter att lägga till hela URI: N med ett blanksteg eller `+`, t.ex. `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://analysis.windows.net/powerbi/api/Report.Read.All`.  Detta begär både den `View all Datasets` och `View all Reports` behörigheter.  Observera att precis som med alla Azure AD-scope och behörigheter för program kan bara göra en begäran till en resurs i taget – det begäran `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://api.skypeforbusiness.com/Conversations.Initiate`, som begär både Power BI `View all Datasets` behörighet och Skype för företag `Initiate conversations` behörighet, avvisas på grund av begär behörigheter på två olika resurser.  
+
+### <a name="v10-resources-and-tenancy"></a>V1.0 resurser och innehavare
+Både v1.0 och v2.0 Azure AD-protokoll använder sig av en `{tenant}` parametern bäddas in i URI: N (`https://login.microsoftonline.com/{tenant}/oauth2/`).  När du använder v2.0-slutpunkten för att komma åt en resurs med v1.0 organisationens den `common` och `consumers` klienter kan inte användas eftersom de här resurserna kan bara kommas åt med organisationens (Azure AD) konton.  Därför vid åtkomst till dessa resurser, endast klienten GUID eller `organizations` kan användas som den `{tenant}` parametern.  
+
+Om ett program försöker komma åt en organisations v1.0-resurs med hjälp av en felaktig klient, returneras ett fel som liknar den nedan. 
+
+`AADSTS90124: Resource 'https://analysis.windows.net/powerbi/api' (Microsoft.Azure.AnalysisServices) is not supported over the /common or /consumers endpoints. Please use the /organizations or tenant-specific endpoint.`
+
 
 ## <a name="requesting-individual-user-consent"></a>Begär användargodkännande för enskilda
 I en [OpenID Connect eller OAuth 2.0](active-directory-v2-protocols.md) auktorisering begär att en app kan begära de behörigheter som krävs med hjälp av den `scope` frågeparameter. Till exempel när en användare loggar in på en app, appen skickar en begäran som i följande exempel (med radbrytningar har lagts till för läsbarhet):

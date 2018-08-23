@@ -9,19 +9,19 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: fmegen
-ms.openlocfilehash: ad1bf15f198529487dbed92d8f8639704b0c5fc7
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: bbf10d9bd0912dab22c81e2bb850ede52a3bd9e3
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325133"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41987593"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i Java på Android med hjälp av tal-SDK
 
 [!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 I den här artikeln lär du dig att skapa ett Java-program för Android med hjälp av Cognitive Services tal SDK för att transkribera tal till text.
-Programmet är baserad på Microsoft Cognitive Services tal SDK Maven-paketet, version 0.5.0 och Android Studio 3.1.
+Programmet är baserad på Microsoft Cognitive Services tal SDK Maven-paketet, version 0.6.0 och Android Studio 3.1.
 
 > [!NOTE]
 > Tal Devices SDK Roobo-enhet, finns det [tal Devices SDK](speech-devices-sdk.md) sidan.
@@ -63,7 +63,7 @@ Efter att ha kört ett tag, bör det nyskapade projektet i Android Studio kommer
 
 [!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Den aktuella versionen av Cognitive Services tal SDK är `0.5.0`.
+Den aktuella versionen av Cognitive Services tal SDK är `0.6.0`.
 
 Tal-SDK för Android kommer som ett [AAR (Android-biblioteket)](https://developer.android.com/studio/projects/android-library), som innehåller nödvändiga bibliotek samt Android behörigheter som krävs för att använda den.
 Den finns i ett Maven-centrallager på https://csspeechstorage.blob.core.windows.net/maven/.
@@ -81,7 +81,7 @@ I fönstret som visas gör följande ändringar (klicka på **OK** bara när du 
 
   ![](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. I fönstret som visas anger du namnet och versionen av vår tal-SDK för Android, `com.microsoft.cognitiveservices.speech:client-sdk:0.5.0`, klicka sedan på **OK**.
+1. I fönstret som visas anger du namnet och versionen av vår tal-SDK för Android, `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0`, klicka sedan på **OK**.
    Tal-SDK ska läggas till i listan över beroenden nu enligt nedan:
 
   ![](media/sdk/qs-java-android-08-dependency-added.png)

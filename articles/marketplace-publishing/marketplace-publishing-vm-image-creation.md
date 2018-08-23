@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 9199c9fc9a46e6b09eb066be5125c74420ad6cd6
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: bf2ba6d31c170715a52b84439276c45665293c35
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715343"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056074"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guiden för att skapa en avbildning av virtuell dator för Azure Marketplace
 Den här artikeln **steg 2**, beskriver hur du förbereder de virtuella hårddiskarna (VHD) som du distribuerar på Azure Marketplace. De virtuella hårddiskarna är grunden för din SKU. Processen skiljer sig beroende på om du erbjuder en Linux- eller Windows-baserad SKU. Den här artikeln tas båda scenarier upp. Den här processen kan utföras parallellt med [skapande och registrering][link-acct-creation].
@@ -69,9 +69,9 @@ Operativsystemet VHD för din avbildning måste baseras på en Azure-godkänd K�
 
 Om du vill börja skapa en virtuell dator från någon av följande avbildningar som finns på den [Microsoft Azure-portalen][link-azure-portal]:
 
-* Windows Server ([2012 R2 Datacenter][link-datactr-2012-r2], [2012 Datacenter][link-datactr-2012], [2008 R2 SP1] [link-datactr-2008-r2])
-* SQLServer 2014 ([Enterprise][link-sql-2014-ent], [Standard][link-sql-2014-std], [Web] [ link-sql-2014-web])
-* SQL Server 2012 SP2 ([Enterprise][link-sql-2012-ent], [Standard][link-sql-2012-std], [Web] [ link-sql-2012-web])
+* Windows Server ([2012 R2 Datacenter] [länk-datactr-2012-r2], [2012 Datacenter] [länk-datactr-2012], [2008 R2 SP1][link-datactr-2008-r2])
+* SQL Server 2014 
+* SQL Server 2012 SP2 
 
 Du hittar även dessa länkar i publiceringsportalen på SKU-sidan.
 
@@ -431,7 +431,7 @@ Nedan följer stegen för att generera SAS-Webbadressen genom att använda Micro
 
 Nedan följer stegen för att generera SAS-Webbadressen genom att använda Azure CLI
 
-1.  Ladda ned Microsoft Azure-CLI från [här](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Du kan också hitta olika länkar för ** [Windows](http://aka.ms/webpi-azure-cli) ** och ** [MAC OS](http://aka.ms/mac-azure-cli)**.
+1.  Ladda ned Microsoft Azure-CLI från [här](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Du kan också hitta olika länkar för **[Windows](http://aka.ms/webpi-azure-cli)** och  **[MAC OS](http://aka.ms/mac-azure-cli)**.
 
 2.  När det har laddats ned, installera
 
@@ -515,11 +515,11 @@ När du har skapat ett erbjudande och SKU, bör du ange avbildningsdetaljerna so
 
 |Problem|Meddelande om anslutningsfel|Korrigera|Länk till dokumentation|
 |---|---|---|---|
-|Det gick inte att kopiera avbildningar - ””? hittades inte i SAS-url|Fel: Kopiera avbildningar. Det går inte att hämta blob med hjälp av angivna SAS-Uri.|Uppdatera SAS-Url med rekommenderade verktyg|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Det gick inte att kopiera avbildningar - ”a” och ”se” parametrar inte i SAS-url|Fel: Kopiera avbildningar. Det går inte att hämta blob med hjälp av angivna SAS-Uri.|Uppdatera SAS-webbadressen med Start- och slutdatumen på den|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Det gick inte att kopiera avbildningar - ”sp = rl” inte i SAS-url|Fel: Kopiera avbildningar. Kunde inte hämta blob med hjälp av angivna SAS-Uri|Uppdatera SAS-webbadressen med behörigheterna inställda som ”läsa” och ”-lista|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Det gick inte att kopiera avbildningar - SAS-webbadress har blanksteg i namn på virtuell hårddisk|Fel: Kopiera avbildningar. Det går inte att hämta blob med hjälp av angivna SAS-Uri.|Uppdatera SAS-URL: en utan blanksteg|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Det gick inte att kopiera avbildningar – Url-auktorisering i SAS-fel|Fel: Kopiera avbildningar. Det går inte att ladda ned blob på grund av auktoriseringsfel|Återskapa SAS-Url|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Det gick inte att kopiera avbildningar - ””? hittades inte i SAS-url|Fel: Kopiera avbildningar. Det går inte att hämta blob med hjälp av angivna SAS-Uri.|Uppdatera SAS-Url med rekommenderade verktyg|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Det gick inte att kopiera avbildningar - ”a” och ”se” parametrar inte i SAS-url|Fel: Kopiera avbildningar. Det går inte att hämta blob med hjälp av angivna SAS-Uri.|Uppdatera SAS-webbadressen med Start- och slutdatumen på den|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Det gick inte att kopiera avbildningar - ”sp = rl” inte i SAS-url|Fel: Kopiera avbildningar. Kunde inte hämta blob med hjälp av angivna SAS-Uri|Uppdatera SAS-webbadressen med behörigheterna inställda som ”läsa” och ”-lista|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Det gick inte att kopiera avbildningar - SAS-webbadress har blanksteg i namn på virtuell hårddisk|Fel: Kopiera avbildningar. Det går inte att hämta blob med hjälp av angivna SAS-Uri.|Uppdatera SAS-URL: en utan blanksteg|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Det gick inte att kopiera avbildningar – Url-auktorisering i SAS-fel|Fel: Kopiera avbildningar. Det går inte att ladda ned blob på grund av auktoriseringsfel|Återskapa SAS-Url|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Det gick inte att kopiera avbildningar – SAS-Url ”a” och ”se” parametrar har inte fullständig datum / tid-specifikation|Fel: Kopiera avbildningar. Det går inte att ladda ned blob på grund av felaktiga SAS-Url |SAS URL: en Start- och slutdatum parametrar (”a”, ”se”) måste ha fullständig datum / tid-specifikationen, till exempel 11-02-2017T00:00:00Z, och inte bara det eller de förkortade versioner för tiden. Det är möjligt att stöta på det här scenariot med Azure CLI 2.0 (az kommandot). Var noga med att tillhandahålla fullständig datum / tid-specifikationen och återskapa SAS-webbadressen.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Nästa steg
@@ -557,15 +557,6 @@ När du är klar med SKU-information kan du gå vidare och den [marketing conten
 [link-technet-2]:https://msdn.microsoft.com/library/dn495261.aspx
 [link-azure-portal]:https://portal.azure.com
 [link-pubportal]:https://publish.windowsazure.com
-[link-sql-2014-ent]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014enterprisewindowsserver2012r2/
-[link-sql-2014-std]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014standardwindowsserver2012r2/
-[link-sql-2014-web]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014webwindowsserver2012r2/
-[link-sql-2012-ent]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012/
-[link-sql-2012-std]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012/
-[link-sql-2012-web]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012/
-[link-datactr-2012-r2]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012r2datacenter/
-[link-datactr-2012]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/
-[link-datactr-2008-r2]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
 [link-technet-1]:https://technet.microsoft.com/library/hh848454.aspx
 [link-azure-vm-2]:./virtual-machines-linux-agent-user-guide/

@@ -1,129 +1,149 @@
 ---
-title: Azure Functions skala och vara värd för | Microsoft Docs
-description: Lär dig mer om att välja mellan Azure Functions förbrukning plan och App Service-plan.
+title: Azure Functions skalning och värdtjänster | Microsoft Docs
+description: Lär dig hur du väljer mellan Azure Functions-förbrukningsplanen och App Service-plan.
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
-keywords: Azure funktioner, funktioner, förbrukning plan, apptjänstplan, händelsebearbetning, webhooks, dynamiska beräkning, serverlösa arkitektur
+keywords: Azure functions, funktion, förbrukningsplan, app service-plan, händelsebearbetning, webhooks, dynamisk beräkning, serverlös arkitektur
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/05/2018
+ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b6d85fbfdde463352ae80cc8922025a7dcc03f3
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 341756c91693bf9e53538aa8e284c79d289da293
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807541"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42058474"
 ---
-# <a name="azure-functions-scale-and-hosting"></a>Azure Functions skala och vara värd för
+# <a name="azure-functions-scale-and-hosting"></a>Azure Functions skalar och som är värd för
 
-Du kan köra Azure Functions i två olika lägen: förbrukning planerings- och Azure App Service-plan. Förbrukning planen tilldelar automatiskt datorkraft när koden körs skalas ut som behövs för att hantera belastningen och skalas när koden inte körs. Du behöver inte betala för inaktiv virtuella datorer och behöver inte reserverad kapacitet i förväg. Den här artikeln fokuserar på förbrukning-plan en [serverlösa](https://azure.microsoft.com/overview/serverless-computing/) appmodell. Mer information om hur programtjänstplanen fungerar finns i [Azure App Service-planer djupgående översikt över](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+Azure Functions som körs i två olika lägen: förbrukningsplanen och Azure App Service-plan. Med förbrukningsplanen beräkningskraften automatiskt när koden körs. Din app är skalade ut vid behov för att hantera belastningen och skalades när koden inte körs. Du behöver inte betala för virtuella datorer eller reserverad kapacitet i förväg. Den här artikeln fokuserar på förbrukningsplan kan en [serverlös](https://azure.microsoft.com/overview/serverless-computing/) appmodell. Mer information om hur dedikerade App Service-planen fungerar finns i den [Azure App Service-planer djupgående översikt över](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
->[!NOTE]  
-> [Linux-värd](functions-create-first-azure-function-azure-cli-linux.md) finns för närvarande endast i en apptjänstplan.
+> [!NOTE]  
+> [Linux-värd](functions-create-first-azure-function-azure-cli-linux.md) är för närvarande bara tillgängligt på en App Service plan.
 
-Om du inte är bekant med Azure Functions finns i [översikt över Azure Functions](functions-overview.md).
+Om du inte är bekant med Azure Functions finns i den [översikt över Azure Functions](functions-overview.md).
 
-När du skapar en funktionsapp, måste du konfigurera en värd plan för funktioner som innehåller appen. I båda lägena, en instans av den *Azure Functions värden* kör funktionerna. Typ av planen kontroller:
+När du skapar en funktionsapp kan välja du värdplanen för funktioner i appen. I antingen plan, en instans av den *Azure Functions värden* körs funktionerna. Typ av plan kontroller:
 
-* Hur värdinstanser skalas ut.
-* De resurser som är tillgängliga för varje värd.
+* Hur ha instanser skalas ut.
+* Resurser som är tillgängliga för varje värd.
 
-För närvarande måste du välja vilken typ av värd plan under genereringen av funktionen appen. Du kan inte ändra efteråt. 
+> [!IMPORTANT]
+> Du måste välja vilken typ av värdplan under genereringen av funktionsappen. Du kan inte ändra efteråt.
 
-Du kan skala mellan nivåer att tilldela olika mängden resurser på en App Service-plan. Planen förbrukning hanterar Azure Functions automatiskt alla resursallokering.
+Du kan skala mellan nivåerna för att allokera olika mängd resurser på en App Service-plan. I förbrukningsplanen hanterar Azure Functions automatiskt alla resursallokering. 
 
 ## <a name="consumption-plan"></a>Förbrukningsplan
 
-När du använder en plan för förbrukning läggs instanser av Azure Functions värden dynamiskt och tas bort baserat på antalet inkommande händelser. Den här planen skalar automatiskt och du debiteras för beräkningsresurser bara när din funktion körs. På en plan för förbrukning, en funktion körningen på grund av timeout efter en konfigurerbar tidsperiod. 
+När du använder en förbrukningsplan är dynamiskt instanser av Azure Functions-värden har lagts till och tas bort baserat på antalet inkommande händelser. Den här serverlösa planen skalas automatiskt och du debiteras för beräkningsresurser bara när dina funktioner körs. I en förbrukningsplan gör körning av en funktion timeout när en konfigurerbar tidsperiod.
 
 > [!NOTE]
-> Standardvärdet för timeout för funktioner på en plan för förbrukning är 5 minuter. Kan du öka värdet för Funktionsapp högst 10 minuter genom att ändra egenskapen `functionTimeout` i den [host.json](functions-host-json.md#functiontimeout) projektfilen.
+> Standardvärdet för timeout för funktioner i en förbrukningsplan är 5 minuter. Det kan du öka värdet för Funktionsappen upp till 10 minuter genom att ändra egenskapen `functionTimeout` i den [host.json](functions-host-json.md#functiontimeout) projektfilen.
 
-Fakturering baseras på antalet körningar, körningstid och minne som används. Fakturering sammanställs över alla funktioner i en funktionsapp. Mer information finns i [Azure Functions sida med priser].
+Fakturering baseras på antalet körningar, körningstid och minne som används. Fakturering slås samman över alla funktioner i en funktionsapp. Mer information finns i den [Azure Functions-priserna sidan].
 
-Förbrukning planen är standard värd plan och har följande fördelar:
-- Betala endast när din funktion körs.
-- Skala ut automatiskt, även under perioder med hög att läsa in.
+Med förbrukningsplanen är standard värdplan och har följande fördelar:
+
+* Betala endast när dina funktioner körs.
+* Skala ut automatiskt, även under perioder med hög att läsa in.
 
 ## <a name="app-service-plan"></a>App Service-plan
 
-I App Service-plan körs funktionen apparna på dedikerade virtuella datorer på Basic, Standard, Premium och isolerade SKU: er, liknande Web Apps, API Apps och Mobilappar. Dedikerade virtuella datorer är allokerade till din Apptjänst-appar, vilket innebär att funktioner värden körs alltid. Programtjänstplaner stöd för Linux.
+I den dedikerade App Service-planen kör dina funktionsappar på dedikerade virtuella datorer på Basic, Standard, Premium och isolerade SKU: er, vilket är samma som andra App Service-appar. Dedikerade virtuella datorer allokeras till din funktionsapp, vilket innebär att functions-värden kan vara [alltid körs](#always-on). App Service-planer har stöd för Linux.
 
-Överväg att en apptjänstplan i följande fall:
-- Du har befintliga, underutnyttjade virtuella datorer som redan kör andra Apptjänst-instanser.
-- Du förväntar dig att dina appar funktionen kör kontinuerligt eller nästan kontinuerligt. I det här fallet blir en Apptjänstplan mer kostnadseffektiv.
-- Du behöver fler alternativ för CPU eller minne än vad som tillhandahålls av förbrukning planen.
-- Du behöver köra längre än den maximala körningstiden tillåtna förbrukning planen (i 10 minuter).
-- Du behöver funktioner som bara är tillgängligt på en apptjänstplan, till exempel stöd för Apptjänst-miljön, VNET/VPN-anslutning och större VM-storlekar. 
-- Du vill köra appen funktionen i Linux eller vill du ange en anpassad avbildning som ska köra dina funktioner.
+Överväg en App Service-plan i följande fall:
 
-En virtuell dator frikopplar kostnaden från antal körningar, körningstid och minne som används. Därför kan betalar du inte mer än kostnaden för VM-instans som du allokera. Mer information om hur programtjänstplanen fungerar finns i [Azure App Service-planer djupgående översikt över](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+* Du har befintliga, underutnyttjade virtuella datorer som redan kör andra App Service-instanser.
+* Dina funktionsappar kör kontinuerligt eller nästan kontinuerligt. I det här fallet kan en App Service Plan vara mer kostnadseffektivt.
+* Du behöver fler alternativ än vad som tillhandahålls på förbrukningsplanen som CPU eller minne.
+* Din kod måste köras längre än den högsta körningstiden som tillåts i förbrukningsplan som är upp till 10 minuter.
+* Du behöver funktioner som endast är tillgängliga i en App Service-plan, till exempel stöd för App Service Environment, virtuellt nätverk/VPN-anslutning och större storlekar för Virtuella datorer.
+* Du vill köra funktionsappen på Linux eller vill du ange en anpassad avbildning som du vill köra dina funktioner.
 
-Du kan skala ut manuellt genom att lägga till flera VM-instanser med en App Service-plan eller du kan aktivera Autoskala. Mer information finns i [skala instansantalet manuellt eller automatiskt](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json). Du kan även skala upp genom att välja en annan programtjänstplan. Mer information finns i [skala upp en app i Azure](../app-service/web-sites-scale.md). 
+En virtuell dator frikopplar kostnaden från antalet körningar, körningstid och minne som används. Därför kan betalar du inte mer än kostnaden för den VM-instans som du tilldelar. Mer information om hur App Service-planen fungerar finns i den [Azure App Service-planer djupgående översikt över](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
-Om du planerar att köra JavaScript-funktioner på en apptjänstplan, bör du välja en plan som har färre vCPUs. Mer information finns i [Välj enkel kärna programtjänstplaner](functions-reference-node.md#considerations-for-javascript-functions).  
+Du kan skala ut manuellt genom att lägga till flera VM-instanser med en App Service-plan eller du kan aktivera automatisk skalning. Mer information finns i [skala instansantalet manuellt eller automatiskt](../monitoring-and-diagnostics/monitoring-autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Du kan även skala upp genom att välja en annan App Service-plan. Mer information finns i [skala upp en app i Azure](../app-service/web-sites-scale.md). 
+
+När du kör JavaScript-funktioner i en App Service-plan, bör du välja en plan med färre virtuella processorer. Mer information finns i den [väljer App Service-planer med enkel kärna](functions-reference-node.md#considerations-for-javascript-functions).  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 <a name="always-on"></a>
-### Always On
+### <a name="always-on"></a>Alltid på
 
-Om du kör på en apptjänstplan, bör du aktivera den **alltid på** inställningen så att funktionen appen körs korrekt. På en apptjänstplan går functions-runtime inaktiv efter några minuter av inaktivitet, så att endast HTTP-utlösare kommer ”väcka” dina funktioner. Detta liknar hur WebJobs måste ha alltid aktiverat. 
+Om du kör i en App Service-plan, bör du aktivera den **alltid på** så att din funktionsapp körs korrekt. I en App Service-plan går att funktionskörningen inaktiv efter ett par minuter av inaktivitet, så att endast HTTP-utlösare ska ”aktivera” dina funktioner. Alltid är på endast tillgänglig på en App Service plan. I en förbrukningsplan aktiverar plattformen funktionsappar automatiskt.
 
-Always On är bara tillgängliga på en App Service-plan. På en plan för förbrukning aktiverar plattformen funktionen appar automatiskt.
+## <a name="what-is-my-hosting-plan"></a>Vad är min värdplanen
+
+Information om värdplanen som används av funktionsappen finns **App Service-plan / prisnivå** i den **översikt** fliken för funktionsappen i den [Azure-portalen](https://portal.azure.com). För App Service-planer anges också prisnivån. 
+
+![Visa skalning plan i portalen](./media/functions-scale/function-app-overview-portal.png)
+
+Du kan också använda Azure CLI för att fastställa planen, enligt följande:
+
+```azurecli-interactive
+appServicePlanId=$(az functionapp show --name <my_function_app_name> --resource-group <my_resource_group> --query appServicePlanId --output tsv)
+az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output tsv
+```  
+
+När utdata från det här kommandot är `dynamic`, funktionsappen är i förbrukningsplanen. Alla andra värden ange nivån för en App Service plan.
+
+Även med alltid aktiverad, tidsgränsen för körningar för enskilda funktioner styrs av den `functionTimeout` i den [host.json](functions-host-json.md#functiontimeout) projektfilen.
 
 ## <a name="storage-account-requirements"></a>Krav för lagringskonto
 
-På en plan för användning eller i en apptjänstplan kräver en funktionsapp en allmän Azure Storage-konto som stöder Azure Blob, köer, filer och tabellen lagring. Azure Functions används internt, Azure Storage för åtgärder som hanterar utlösare och loggning funktionen körningar. Vissa storage-konton stöder inte köer och tabeller, t.ex endast blob storage-konton (inklusive premium-lagring) och allmänna lagringskonton med zonredundant lagringsreplikering. De här kontona filtrerat från den **Lagringskonto** bladet när du skapar en funktionsapp.
+En funktionsapp kräver ett allmänt Azure Storage-konto som har stöd för Azure Blob, kö, filer och tabell för lagring på en förbrukningsplan eller en App Service plan. Detta beror på funktioner som förlitar sig på Azure Storage för åtgärder som att hantera utlösare och logga funktionskörningar, men vissa lagringskonton stöder inte köer och tabeller. Dessa konton, bland annat endast blob storage-konton (inklusive premiumlagring) och lagringskonton med replikering för zonredundant lagring, är filtrerat ut från din befintliga **Lagringskonto** val när du skapar en funktionsapp.
 
-<!-- JH: Does using a PRemium Storage account improve perf? -->
+<!-- JH: Does using a Premium Storage account improve perf? -->
 
-Läs mer om lagringskontotyper i [introduktion till Azure Storage-tjänster](../storage/common/storage-introduction.md#azure-storage-services).
+Mer information om lagringskontotyper finns [introduktion till Azure Storage-tjänsterna](../storage/common/storage-introduction.md#azure-storage-services).
 
-## <a name="how-the-consumption-plan-works"></a>Så här fungerar förbrukning planen
+## <a name="how-the-consumption-plan-works"></a>Hur förbrukningsplanen fungerar
 
-I planen förbrukning skalas skala domänkontrollant automatiskt Processortid och minnesresurser genom att lägga till ytterligare instanser av funktioner värden baserat på antalet händelser som utlöses på dess funktioner. Varje instans av funktioner värden är begränsad till 1,5 GB minne.  En instans av värden är funktionen appen, vilket innebär alla funktioner i en funktion app dela resurser i en annan instans och skala på samma gång. Funktionen appar som delar samma förbrukning plan skalas oberoende av varandra.  
+I förbrukningsplan kan skalas kontrollanten skala automatiskt Processorn och minnesresurser genom att lägga till ytterligare instanser för Functions-värden, baserat på antalet händelser som utlöses på dess funktioner. Varje instans av Functions-värden är begränsad till 1,5 GB minne.  En instans av värden är funktionsappen, vilket innebär att alla funktioner i en funktionen app-resurs i en instans och skala på samma gång. Funktionsappar som delar samma förbrukningsplan skalas oberoende av varandra.  
 
-När du använder förbrukningen värd plan som funktionen kodfiler lagras på Azure-filresurser för den funktionen main storage-konto. När du tar bort huvudsakliga lagringskontot för funktionen appen kodfiler funktionen tas bort och kan inte återställas.
+När du använder Förbrukningsvärdplanen lagras funktionen kodfiler på Azure-filresurser på funktionens huvudlagringskontot. När du tar bort huvudlagringskontot av funktionsappen kodfiler funktionen tas bort och kan inte återställas.
 
 > [!NOTE]
-> När du använder en blob-utlösare på en plan för förbrukning, kan det finnas upp till en 10 minuters fördröjning vid bearbetningen av nya blobbar om en funktionsapp är inaktiv. När funktionen appen körs bearbetas blobbar omedelbart. Använd en apptjänstplan med alltid på aktiverat för att undvika fördröjningen kall-start, eller Använd händelse rutnätet utlösaren. Mer information finns i [blob utlösaren bindning referensartikeln](functions-bindings-storage-blob.md#trigger).
+> När du använder en blob-utlösare i en förbrukningsplan, kan det vara upp till en 10 minuters fördröjning vid bearbetningen av nya blobbar. Den här fördröjningen uppstår när en funktionsapp är inaktiv. När appen körs behandlas BLOB-objekt direkt. För att undvika den här kallstart fördröjningen kan använda en App Service-plan med **Always On** aktiverad, eller använda Event Grid-utlösaren. Mer information finns i [referensartikeln för blob-utlösare bindning](functions-bindings-storage-blob.md#trigger).
 
 ### <a name="runtime-scaling"></a>Runtime skalning
 
-Azure Functions använder en komponent som kallas den *skala controller* att övervaka antalet händelser och avgöra om du vill skala upp eller skala. Skala domänkontrollanten använder heuristik för varje typ av utlösare. Till exempel när du använder en Azure Queue storage-utlösare skalningen utifrån kölängden och ålder äldsta meddelandet i kön.
+Azure Functions använder en komponent som kallas den *skala controller* att övervaka frekvensen för händelser och avgöra om du vill skala ut eller skala in. Skala controller använder heuristisk sökning för varje Utlösartyp av. Till exempel när du använder en Azure Queue storage-utlösare, skalas utifrån kölängden och åldern på äldsta kömeddelandet.
 
-Skala är funktionen appen. När appen funktionen skalas ut resurser ytterligare för att köra flera instanser av Azure Functions-värden. Däremot bort skala controller funktionen värddatorinstanser som compute begäran minskas. Antalet instanser skalas till slut ned till noll när inga funktioner som körs inom en funktionsapp.
+Skala är funktionsappen. När funktionsappen har skalats ut, tilldelas ytterligare resurser för att köra flera instanser av Azure Functions-värden. Eftersom beräknings-efterfrågan minskar, tar däremot funktionen ha instanser bort av kontrollanten skala. Antalet instanser så småningom att skalas ned till noll när inga funktioner som körs inom en funktionsapp.
 
-![Skala controller händelseövervakning och skapa instanser](./media/functions-scale/central-listener.png)
+![Skala controller tjänsthändelser och skapa instanser](./media/functions-scale/central-listener.png)
 
-### <a name="understanding-scaling-behaviors"></a>Förstå skalningen beteenden
+### <a name="understanding-scaling-behaviors"></a>Förstå skalningsbeteenden
 
-Skalning kan variera på ett antal faktorer och skala på olika sätt beroende på utlösare och språket som valts. Men det finns några aspekter av skalning som finns i systemet idag:
-* En enda funktionsapp skalar endast till högst 200 instanser. En enda instans kan bearbeta mer än ett meddelande eller begäran i taget, så att det inte finns en uppsättning gränsen för antalet samtidiga körningar.
-* Nya instanser allokeras endast högst en gång var 10: e sekund.
+Skalning kan variera på ett antal faktorer och skala på olika sätt beroende på utlösaren och den valda språket. Det finns dock några aspekter av skalning som finns i systemet idag:
 
-Olika utlösare kan också ha olika skala gränser som dokumenterade nedan:
+* En enda funktionsapp skalar bara upp till högst 200 instanser. En enda instans kan bearbeta flera meddelande eller begäran i taget dock så det finns en set-gränsen för antalet samtidiga körningar.
+* Nya instanser allokeras endast högst en gång var tionde sekund.
+
+Olika utlösare kan också ha olika skalningsgränser samt dokumenterade nedan:
 
 * [Händelsehubb](functions-bindings-event-hubs.md#trigger---scaling)
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Bästa praxis och mönster för skalbara appar
 
-Det finns många aspekter av en funktionsapp som påverkar hur väl den skalar, inklusive Värdkonfiguration, runtime storleken och effektiviteten för resursen.  Visa den [skalbarhet avsnitt i artikeln prestanda överväganden](functions-best-practices.md#scalability-best-practices) för mer information.
+Det finns många aspekter av en funktionsapp som påverkar hur väl den skalas, inklusive konfiguration av värdserver, runtime fotavtryck och Resursanvändning.  Mer information finns i den [skalbarhet i prestanda överväganden artikeln](functions-best-practices.md#scalability-best-practices). Du bör också känna till hur anslutningar ska fungera med ditt funktionen app. Mer information finns i [hur du hanterar anslutningar i Azure Functions](manage-connections.md).
 
 ### <a name="billing-model"></a>Faktureringsmodell
 
-Faktureringen för förbrukning planen beskrivs i detalj på den [Azure Functions sida med priser]. Användning sammanställs på funktionen app-nivå och räknar den tid som funktionskod körs. Följande är enheter för fakturering: 
-* **Resursförbrukning i GB-sekunder (GB-s)**. Beräknad som en kombination av minnesstorlek och körningstiden för alla funktioner i en funktionsapp. 
+Faktureringen för förbrukningsplanen beskrivs i detalj på den [Azure Functions-priserna sidan]. Användning sammanställs på funktionen app-nivå och räknar bara den tid som Funktionskoden körs. Här följer några enheter för fakturering:
+
+* **Resursförbrukning i gigabyte-sekunder (GB-s)**. Beräknad som en kombination av minnesstorlek och körningstid för alla funktioner i en funktionsapp. 
 * **Körningar**. Räknas varje gång en funktion körs som svar på en händelseutlösare.
 
-[Azure Functions sida med priser]: https://azure.microsoft.com/pricing/details/functions
+[Azure Functions-priserna sidan]: https://azure.microsoft.com/pricing/details/functions

@@ -1,6 +1,6 @@
 ---
-title: Hur du använder Notification Hubs med PHP
-description: Lär dig hur du använder Azure Notification Hubs från PHP backend.
+title: Hur du använder Meddelandehubbar med PHP
+description: Lär dig hur du använder Azure Notification Hubs från en PHP-serverdel.
 services: notification-hubs
 documentationcenter: ''
 author: dimazaid
@@ -14,49 +14,49 @@ ms.devlang: php
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 930da7cca312ac6233b337dd7ddac478c3bbee7b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b812d60363ffebf1f4374b6fd44dff5e67497e08
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776047"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42057637"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Hur du använder Notification Hubs från PHP
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-Du kan använda alla funktioner i Notification Hubs från en Java/PHP/Ruby serverdel med Notification Hub REST-gränssnitt som beskrivs i avsnittet MSDN [Notification Hub REST API: er](http://msdn.microsoft.com/library/dn223264.aspx).
+Du kan komma åt alla funktioner i Meddelandehubbar från en Ruby-Java/PHP-serverdel med Notification Hub REST-gränssnittet enligt beskrivningen i avsnittet om MSDN [Notification Hubs REST API: er](http://msdn.microsoft.com/library/dn223264.aspx).
 
 I det här avsnittet visar vi hur du:
 
-* Skapa ett REST-klient för Notification Hubs funktionerna i PHP;
-* Följ den [Get igång-kursen](notification-hubs-ios-apple-push-notification-apns-get-started.md) för din mobila plattform väljer implementera backend-delen i PHP.
+* Skapa en REST-klient för Notification Hubs-funktioner i PHP;
+* Följ den [komma igång-självstudiekurs](notification-hubs-ios-apple-push-notification-apns-get-started.md) för din mobil plattform, implementera backend-delen i PHP.
 
 ## <a name="client-interface"></a>Klientgränssnitt
-Det huvudsakliga klientgränssnittet kan ge samma metoder som är tillgängliga i den [.NET Notification Hubs SDK](http://msdn.microsoft.com/library/jj933431.aspx), som kan du direkt översätta alla självstudier och exempel som är tillgängliga på den här platsen och tillhandahålls av den Community på internet.
+Viktigaste användargränssnittet kan tillhandahålla samma metoder som är tillgängliga i den [.NET Notification Hubs SDK](http://msdn.microsoft.com/library/jj933431.aspx), kan du direkt översätta alla självstudier och exempel som är för närvarande tillgängligt på den här webbplatsen vilket som tillförts av den Community på internet.
 
-Du hittar kod som är tillgängliga i den [PHP REST wrapper exempel].
+Du kan hitta all kod som är tillgängliga i den [Exempel för PHP-REST-omslutning].
 
-Till exempel att skapa en klient:
+Till exempel vill skapa en klient:
 
     $hub = new NotificationHub("connection string", "hubname");    
 
-Att skicka en iOS interna avisering:
+Så här skickar en iOS systemspecifika meddelanden:
 
     $notification = new Notification("apple", '{"aps":{"alert": "Hello!"}}');
     $hub->sendNotification($notification, null);
 
 ## <a name="implementation"></a>Implementering
-Om du inte redan gjort det, följer du de [Get igång-kursen] upp till den senaste avsnitt där du måste implementera serverdel.
-Om du vill att du kan också använda koden från den [PHP REST wrapper exempel] och gå direkt till den [slutföra kursen](#complete-tutorial) avsnitt.
+Om du inte redan gjort det, följ den [Självstudier för att komma igång] upp till den senaste avsnitt där du måste implementera backend-server.
+Om du vill att du kan också använda koden från den [Exempel för PHP-REST-omslutning] och gå direkt till den [i självstudiekursen](#complete-tutorial) avsnittet.
 
-All information du implementerar en fullständig REST-omslutning finns på [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). I det här avsnittet beskriver vi PHP-implementeringen av huvudsakliga steg för att komma åt Notification Hub REST-slutpunkter:
+All information du implementerar en fullständig REST-omslutning kan hittas på [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). I det här avsnittet beskriver vi PHP-implementeringen av de huvudsakliga steg som krävs för att få åtkomst till Notification Hubs REST-slutpunkter:
 
 1. Parsa anslutningssträngen
 2. Generera autentiseringstoken
 3. Utföra HTTP-anrop
 
 ### <a name="parse-the-connection-string"></a>Parsa anslutningssträngen
-Här är den viktigaste klass som implementerar klienten, vars konstruktor som Parsar anslutningssträngen:
+Här är den viktigaste klass som implementerar klienten, vars konstruktorn som Parsar anslutningssträngen:
 
     class NotificationHub {
         const API_VERSION = "?api-version=2013-10";
@@ -92,8 +92,8 @@ Här är den viktigaste klass som implementerar klienten, vars konstruktor som P
 
 
 ### <a name="create-security-token"></a>Skapa säkerhetstoken
-Information om säkerhet token skapa finns [här](http://msdn.microsoft.com/library/dn495627.aspx).
-Följande metod måste läggas till i **NotificationHub** klassen för att skapa token baserat på URI: N för den aktuella begäranden och de autentiseringsuppgifter som har extraherats från anslutningssträngen.
+Information om säkerhet token skapas finns [här](http://msdn.microsoft.com/library/dn495627.aspx).
+Följande metod måste läggas till i **NotificationHub** klassen för att skapa en token baserat på URI: N för den aktuella begäran och de autentiseringsuppgifter som extraheras från anslutningssträngen.
 
     private function generateSasToken($uri) {
         $targetUri = strtolower(rawurlencode(strtolower($uri)));
@@ -133,11 +133,11 @@ Låt oss först definiera en klass som representerar ett meddelande.
         }
     }
 
-Den här klassen är en behållare för en intern notification text eller en uppsättning egenskaper i fallet med ett meddelande om mallen och en uppsättning sidhuvud, som innehåller plattformsspecifika egenskaper (till exempel Apple giltighetstid egenskap och WNS och format (intern plattform eller mall) rubriker).
+Den här klassen är en behållare för en systemspecifika meddelanden text eller en uppsättning egenskaper i fallet med ett mall-meddelande och en uppsättning rubriker, som innehåller format (interna plattform eller mall) och plattformsspecifika egenskaper (till exempel Apple förfalloegenskapen och WNS rubriker).
 
-Referera till den [Notification Hub REST API: er dokumentationen](http://msdn.microsoft.com/library/dn495827.aspx) och specifika meddelanden plattformar format för alla tillgängliga alternativ.
+Referera till den [dokumentation för Notification Hubs REST API: er](http://msdn.microsoft.com/library/dn495827.aspx) och specifika meddelande plattformar format för alla tillgängliga alternativ.
 
-Tillsammans med den här klassen, vi kan nu skriva skicka Meddelandemetoder inuti den **NotificationHub** klass.
+Som enda verktyg med den här klassen, vi skriva skicka Meddelandemetoder inuti den **NotificationHub** klass.
 
     public function sendNotification($notification, $tagsOrTagExpression="") {
         if (is_array($tagsOrTagExpression)) {
@@ -196,16 +196,16 @@ Tillsammans med den här klassen, vi kan nu skriva skicka Meddelandemetoder inut
         }
     } 
 
-Ovanstående metoder skicka en HTTP POST-begäran till slutpunkten /messages för meddelandehubben med rätt brödtext och rubriker för att skicka meddelandet.
+Metoderna ovan kan du skicka en HTTP POST-begäran till /messages slutpunkten för din meddelandehubb, med rätt brödtext och rubriker för att skicka meddelandet.
 
-## <a name="complete-tutorial"></a>Slutför guiden
-Du kan nu slutföra kursen Kom igång genom att skicka meddelandet från PHP backend.
+## <a name="complete-tutorial"></a>I självstudiekursen
+Du kan nu slutföra Kom igång-självstudien genom att skicka meddelandet från en PHP-serverdel.
 
-Initiera Notification Hubs-klienten (Ersätt strängen och hubb anslutningsnamn som finns beskrivet i den [Get igång-kursen]):
+Initiera Notification Hubs-klienten (Ersätt strängen och hub anslutningsnamn som finns beskrivet i de [Självstudier för att komma igång]):
 
     $hub = new NotificationHub("connection string", "hubname");    
 
-Lägg sedan till skicka kod beroende på din mobila målplattform.
+Lägg sedan till skicka koden beroende på din mobila målplattform.
 
 ### <a name="windows-store-and-windows-phone-81-non-silverlight"></a>Windows Store och Windows Phone 8.1 (utan Silverlight)
     $toast = '<toast><visual><binding template="ToastText01"><text id="1">Hello from PHP!</text></binding></visual></toast>';
@@ -241,17 +241,17 @@ Lägg sedan till skicka kod beroende på din mobila målplattform.
     $notification = new Notification("adm", $message);
     $hub->sendNotification($notification, null);
 
-Köra koden PHP ska producera nu ett meddelande som visas på målenheten.
+Kör PHP-kod ska generera nu ett meddelande som visas på din målenhet.
 
 ## <a name="next-steps"></a>Nästa steg
-Vi visar hur du skapar en enkel RESTEN av Java-klient för Meddelandehubbar i det här avsnittet. Härifrån kan du:
+I det här avsnittet visade vi hur du skapar en enkel Java REST-klient för Meddelandehubbar. Härifrån kan du:
 
-* Hämta fullständigt [PHP REST wrapper exempel], som innehåller alla koden ovan.
-* Fortsätta lära dig mer om Notification Hubs taggning funktionen i [bryta nyheter självstudiekursen]
-* Lär dig mer om push-meddelanden till enskilda användare i [meddela användare självstudiekursen]
+* Ladda ned hela [Exempel för PHP-REST-omslutning], som innehåller all kod som ovan.
+* Lära dig mer om Notification Hubs taggningsfunktion i [större nyheter självstudien]
+* Lär dig mer om push-meddelanden till enskilda användare i [meddela användare självstudien]
 
-Mer information finns också i [PHP Developer Center](/develop/php/).
+Mer information finns också i [PHP Developer Center](https://azure.microsoft.com/develop/php/).
 
-[PHP REST wrapper exempel]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
-[Get igång-kursen]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Exempel för PHP-REST-omslutning]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
+[Självstudier för att komma igång]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 

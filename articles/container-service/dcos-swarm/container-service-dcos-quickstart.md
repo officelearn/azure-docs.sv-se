@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ccc0836a296bb392e60dd0c973516a7087ff6ea5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c2c1ef83ade7040e16f54b87f63f6eb27714bf2a
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429334"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42024254"
 ---
 # <a name="deploy-a-dcos-cluster"></a>Distribuera ett DC/OS-kluster
 
@@ -78,7 +78,7 @@ DC/OS-portalen returneras om SSH-tunneln har skapats.
 
 ## <a name="install-dcos-cli"></a>Installera DC/OS CLI
 
-DC/OS-kommandoradsgränssnittet används för att hantera ett DC/OS-kluster från kommandoraden. Installera DC/OS cli med kommandot [az acs dcos install-cli](/azure/acs/dcos#install-cli). Om du använder Azure CloudShell är DC/OS CLI redan installerat. 
+DC/OS-kommandoradsgränssnittet används för att hantera ett DC/OS-kluster från kommandoraden. Installera DC/OS cli med kommandot [az acs dcos install-cli](/cli/azure/acs/dcos#az-acs-dcos-install-cli). Om du använder Azure CloudShell är DC/OS CLI redan installerat. 
 
 Om du använder Azure CLI på macOS eller Linux kan du behöva köra kommandot med sudo.
 

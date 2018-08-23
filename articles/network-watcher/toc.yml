@@ -1,180 +1,187 @@
+items:
 - name: Dokumentation om Network Watcher
   href: index.yml
 - name: Översikt
   items:
-    - name: Om Network Watcher
-      href: network-watcher-monitoring-overview.md
+  - name: Om Network Watcher
+    href: network-watcher-monitoring-overview.md
 - name: Snabbstarter
-  expanded: true
   items:
-    - name: Diagnostisera problem med VM-trafikfilter – Portal
-      href: diagnose-vm-network-traffic-filtering-problem.md
-    - name: Diagnostisera problem med VM-trafikfilter – PowerShell
-      href: diagnose-vm-network-traffic-filtering-problem-powershell.md
-    - name: Diagnostisera problem med VM-trafikfilter – Azure CLI
-      href: diagnose-vm-network-traffic-filtering-problem-cli.md
+  - name: Diagnostisera problem med VM-trafikfilter – Portal
+    href: diagnose-vm-network-traffic-filtering-problem.md
+  - name: Diagnostisera problem med VM-trafikfilter – PowerShell
+    href: diagnose-vm-network-traffic-filtering-problem-powershell.md
+  - name: Diagnostisera problem med VM-trafikfilter – Azure CLI
+    href: diagnose-vm-network-traffic-filtering-problem-cli.md
+  expanded: true
 - name: Självstudier
   items:
-    - name: Diagnostisera ett problem med VM-routning
-      href: diagnose-vm-network-routing-problem.md
-    - name: Övervaka kommunikation mellan virtuella datorer
-      href: connection-monitor.md
-    - name: Diagnostisera ett kommunikationsproblem mellan nätverk
-      href: diagnose-communication-problem-between-networks.md
-    - name: Logga VM-nätverkstrafik
-      href: network-watcher-nsg-flow-logging-portal.md
+  - name: Diagnostisera ett problem med VM-routning
+    href: diagnose-vm-network-routing-problem.md
+  - name: Övervaka kommunikation mellan virtuella datorer
+    href: connection-monitor.md
+  - name: Diagnostisera ett kommunikationsproblem mellan nätverk
+    href: diagnose-communication-problem-between-networks.md
+  - name: Logga VM-nätverkstrafik
+    href: network-watcher-nsg-flow-logging-portal.md
 - name: Begrepp
   items:
-    - name: Diagnostisera problem med VM-nätverkstrafikfilter
-      href: network-watcher-ip-flow-verify-overview.md
-    - name: Diagnostisera problem med VM-routning
-      href: network-watcher-next-hop-overview.md
-    - name: Diagnostisera problem med utgående VM-kommunikation
-      href: network-watcher-connectivity-overview.md
-    - name: Felsöka problem med VPN-anslutning
-      href: network-watcher-troubleshoot-overview.md
-    - name: Variabla infångade paket
-      href: network-watcher-packet-capture-overview.md
-    - name: Flödesloggar för nätverkssäkerhetsgrupper
-      href: network-watcher-nsg-flow-logging-overview.md
-    - name: Vy för nätverkssäkerhetsgrupp
-      href: network-watcher-security-group-view-overview.md
-    - name: Behörigheter för rollbaserad åtkomstkontroll
-      href: required-rbac-permissions.md
+  - name: Diagnostisera problem med VM-nätverkstrafikfilter
+    href: network-watcher-ip-flow-verify-overview.md
+  - name: Diagnostisera problem med VM-routning
+    href: network-watcher-next-hop-overview.md
+  - name: Diagnostisera problem med utgående VM-kommunikation
+    href: network-watcher-connectivity-overview.md
+  - name: Felsöka problem med VPN-anslutning
+    href: network-watcher-troubleshoot-overview.md
+  - name: Variabla infångade paket
+    href: network-watcher-packet-capture-overview.md
+  - name: Flödesloggar för nätverkssäkerhetsgrupper
+    href: network-watcher-nsg-flow-logging-overview.md
+  - name: Vy för nätverkssäkerhetsgrupp
+    href: network-watcher-security-group-view-overview.md
+  - name: Behörigheter för rollbaserad åtkomstkontroll
+    href: required-rbac-permissions.md
 - name: Instruktionsguider
   items:
-    - name: Konfigurera Network Watcher
-      href: network-watcher-create.md
-    - name: Diagnostisera problem med VM-nätverk
+  - name: Konfigurera Network Watcher
+    href: network-watcher-create.md
+  - name: Diagnostisera problem med VM-nätverk
+    items:
+    - name: Installera VM-tillägg
       items:
-        - name: Installera VM-tillägg
-          items:
-            - name: Windows
-              href: ../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
-            - name: Linux
-              href: ../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
-        - name: Diagnostisera ett problem med routning
-          items:
-            - name: Azure PowerShell
-              href: diagnose-vm-network-routing-problem-powershell.md
-            - name: Azure CLI
-              href: diagnose-vm-network-routing-problem-cli.md
-        - name: Diagnosticera problem med utgående anslutningar
-          items:
-            - name: Azure Portal
-              href: network-watcher-connectivity-portal.md
-            - name: Azure PowerShell
-              href: network-watcher-connectivity-powershell.md
-            - name: Azure CLI
-              href: network-watcher-connectivity-cli.md
-            - name: REST
-              href: network-watcher-connectivity-rest.md
-        - name: Samla in och analysera paket
-          items:
-            - name: Hantera ett infångat paket
-              items:
-                - name: Azure Portal
-                  href: network-watcher-packet-capture-manage-portal.md
-                - name: Azure PowerShell
-                  href: network-watcher-packet-capture-manage-powershell.md
-                - name: Azure CLI
-                  href: network-watcher-packet-capture-manage-cli.md
-                - name: REST
-                  href: network-watcher-packet-capture-manage-rest.md
-            - name: Analysera ett infångat paket
-              items:
-                - name: Identifiera avvikelser
-                  href: network-watcher-deep-packet-inspection.md
-                - name: Proaktiv nätverksövervakning med Azure Functions
-                  href: network-watcher-alert-triggered-packet-capture.md
-                - name: Utföra intrångsidentifiering med hjälp av verktyg för öppen källkod
-                  href: network-watcher-intrusion-detection-open-source-tools.md
-                - name: Visualisera nätverkstrafikmönster med verktyg för öppen källkod
-                  href: network-watcher-using-open-source-tools.md
-    - name: Arbeta med nätverkssäkerhetsgrupper
+      - name: Windows
+        href: ../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+      - name: Linux
+        href: ../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+    - name: Diagnostisera ett problem med routning
       items:
-        - name: Konfigurera NSG-flödesloggar
-          items:
-            - name: Azure PowerShell
-              href: network-watcher-nsg-flow-logging-powershell.md
-            - name: Azure CLI
-              href: network-watcher-nsg-flow-logging-cli.md
-            - name: REST
-              href: network-watcher-nsg-flow-logging-rest.md
-        - name: Analysera NSG-flödesloggar
-          items:
-            - name: Läs NSG-flödesloggar
-              href: network-watcher-read-nsg-flow-logs.md
-            - name: Använda trafikanalys
-              href: traffic-analytics.md
-              items:
-                - name: Vanliga frågor och svar
-                  href: traffic-analytics-faq.md
-            - name: Använda Power BI
-              href: network-watcher-visualize-nsg-flow-logs-power-bi.md
-            - name: Använda Elastic Stack
-              href: network-watcher-visualize-nsg-flow-logs-open-source-tools.md
-            - name: Använda Grafana
-              href: network-watcher-nsg-grafana.md
-            - name: Använda Graylog
-              href: network-watcher-analyze-nsg-flow-logs-graylog.md
-        - name: Visa nätverkssäkerhetsgrupper
-          items:
-            - name: Azure PowerShell
-              href: network-watcher-security-group-view-powershell.md
-            - name: Azure CLI
-              href: network-watcher-security-group-view-cli.md
-            - name: REST
-              href: network-watcher-security-group-view-rest.md
-        - name: Utföra efterlevnad och granskning på nätverket
-          href: network-watcher-nsg-auditing-powershell.md
-    - name: Diagnostisera VPN Gateway och anslutningar
+      - name: Azure PowerShell
+        href: diagnose-vm-network-routing-problem-powershell.md
+      - name: Azure CLI
+        href: diagnose-vm-network-routing-problem-cli.md
+    - name: Diagnosticera problem med utgående anslutningar
       items:
-        - name: Felsöka
-          items:
-            - name: Azure PowerShell
-              href: network-watcher-troubleshoot-manage-powershell.md
-            - name: Azure CLI
-              href: network-watcher-troubleshoot-manage-cli.md
-            - name: REST
-              href: network-watcher-troubleshoot-manage-rest.md
-        - name: Övervaka VPN Gateway med Azure Automation
-          href: network-watcher-monitor-with-azure-automation.md
-        - name: Diagnostisera lokal anslutning via VPN Gateway
-          href: network-watcher-diagnose-on-premises-connectivity.md
-    - name: Visa nätverkstopologi
-      href: view-network-topology.md
-    - name: Fastställa relativ svarstid mellan en plats och en Azure-region
-      href: view-relative-latencies.md
+      - name: Azure Portal
+        href: network-watcher-connectivity-portal.md
+      - name: Azure PowerShell
+        href: network-watcher-connectivity-powershell.md
+      - name: Azure CLI
+        href: network-watcher-connectivity-cli.md
+      - name: REST
+        href: network-watcher-connectivity-rest.md
+    - name: Samla in och analysera paket
+      items:
+      - name: Hantera ett infångat paket
+        items:
+        - name: Azure Portal
+          href: network-watcher-packet-capture-manage-portal.md
+        - name: Azure PowerShell
+          href: network-watcher-packet-capture-manage-powershell.md
+        - name: Azure CLI
+          href: network-watcher-packet-capture-manage-cli.md
+        - name: REST
+          href: network-watcher-packet-capture-manage-rest.md
+      - name: Analysera ett infångat paket
+        items:
+        - name: Identifiera avvikelser
+          href: network-watcher-deep-packet-inspection.md
+        - name: Proaktiv nätverksövervakning med Azure Functions
+          href: network-watcher-alert-triggered-packet-capture.md
+        - name: Utföra intrångsidentifiering med hjälp av verktyg för öppen källkod
+          href: network-watcher-intrusion-detection-open-source-tools.md
+        - name: Visualisera nätverkstrafikmönster med verktyg för öppen källkod
+          href: network-watcher-using-open-source-tools.md
+  - name: Arbeta med nätverkssäkerhetsgrupper
+    items:
+    - name: Konfigurera NSG-flödesloggar
+      items:
+      - name: Azure PowerShell
+        href: network-watcher-nsg-flow-logging-powershell.md
+      - name: Azure CLI
+        href: network-watcher-nsg-flow-logging-cli.md
+      - name: REST
+        href: network-watcher-nsg-flow-logging-rest.md
+    - name: Analysera NSG-flödesloggar
+      items:
+      - name: Läs NSG-flödesloggar
+        href: network-watcher-read-nsg-flow-logs.md
+      - name: Använda trafikanalys
+        href: traffic-analytics.md
+        items:
+        - name: Vanliga frågor och svar
+          href: traffic-analytics-faq.md
+      - name: Använda Power BI
+        href: network-watcher-visualize-nsg-flow-logs-power-bi.md
+      - name: Använda Elastic Stack
+        href: network-watcher-visualize-nsg-flow-logs-open-source-tools.md
+      - name: Använda Grafana
+        href: network-watcher-nsg-grafana.md
+      - name: Använda Graylog
+        href: network-watcher-analyze-nsg-flow-logs-graylog.md
+    - name: Visa nätverkssäkerhetsgrupper
+      items:
+      - name: Azure PowerShell
+        href: network-watcher-security-group-view-powershell.md
+      - name: Azure CLI
+        href: network-watcher-security-group-view-cli.md
+      - name: REST
+        href: network-watcher-security-group-view-rest.md
+    - name: Utföra efterlevnad och granskning på nätverket
+      href: network-watcher-nsg-auditing-powershell.md
+  - name: Diagnostisera VPN Gateway och anslutningar
+    items:
+    - name: Felsöka
+      items:
+      - name: Azure PowerShell
+        href: network-watcher-troubleshoot-manage-powershell.md
+      - name: Azure CLI
+        href: network-watcher-troubleshoot-manage-cli.md
+      - name: REST
+        href: network-watcher-troubleshoot-manage-rest.md
+    - name: Övervaka VPN Gateway med Azure Automation
+      href: network-watcher-monitor-with-azure-automation.md
+    - name: Diagnostisera lokal anslutning via VPN Gateway
+      href: network-watcher-diagnose-on-premises-connectivity.md
+  - name: Visa nätverkstopologi
+    href: view-network-topology.md
+  - name: Fastställa relativ svarstid mellan en plats och en Azure-region
+    href: view-relative-latencies.md
 - name: Referens
   items:
-    - name: Azure CLI
-      href: /cli/azure/network/watcher
-    - name: Azure PowerShell
-      href: '/powershell/module/azurerm.network/#network_watcher'
-    - name: Java
-      href: /java/api/com.microsoft.azure.management.network
-    - name: Ruby
-      href: 'http://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2016_09_01/Models/NetworkWatcher'
-    - name: Python
-      href: /python/api/overview/azure/network
-    - name: .NET
-      href: /dotnet/api/overview/azure/virtual-network
-    - name: Node.js
-      href: /javascript/api/azure-arm-network
-    - name: REST
-      href: /rest/api/network-watcher/
+  - name: Azure CLI
+    href: /cli/azure/network/watcher
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.network/#network_watcher
+  - name: Java
+    href: /java/api/com.microsoft.azure.management.network
+  - name: Ruby
+    href: http://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2016_09_01/Models/NetworkWatcher
+  - name: Python
+    href: /python/api/overview/azure/network
+  - name: .NET
+    href: /dotnet/api/overview/azure/virtual-network
+  - name: Node.js
+    href: /javascript/api/azure-arm-network
+  - name: REST
+    href: /rest/api/network-watcher/
 - name: Resurser
   items:
-    - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=WAVirtualMachinesVirtualNetwork'
-    - name: Prissättning
-      href: 'https://azure.microsoft.com/pricing/details/network-watcher/'
-    - name: Tjänstuppdateringar
-      href: 'https://azure.microsoft.com/updates/?product=network-watcher'
-    - name: SLA
-      href: 'https://azure.microsoft.com/support/legal/sla/'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/network-watcher'
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/
+  - name: MSDN-forum
+    href: https://social.msdn.microsoft.com/Forums/home?forum=WAVirtualMachinesVirtualNetwork
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/network-watcher/
+  - name: Tjänstuppdateringar
+    href: https://azure.microsoft.com/updates/?product=network-watcher
+  - name: SLA
+    href: https://azure.microsoft.com/support/legal/sla/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/network-watcher
+ms.openlocfilehash: 16908298ec3ede9cc1bb29b5c05afa3c6c447ad9
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41929078"

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: d017c0d9940288cb5eeaa45694b324f93b9bb144
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 6bb757fe072f0fc3ecbda5ae125aa2bf928479fb
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736256"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41920791"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Få åtkomst till Azure Key Vault bakom en brandvägg
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>F: Mitt key vault-klientprogram måste ligga bakom en brandvägg. Vilka portar, värdar eller IP-adresser ska jag öppna om för att möjliggöra åtkomst till ett nyckelvalv?
@@ -43,7 +43,7 @@ Nyckelvalv-klientprogram behöver åtkomst till Azure Active Directory-slutpunkt
 | Användarens eller tjänstens huvudkonto med ett arbets- eller skolkonto med Azure AD (t.ex. user@contoso.com) |**Globalt:**<br> login.microsoftonline.com:443<br><br> **Azure i Kina:**<br> login.chinacloudapi.cn:443<br><br>**Azure för amerikanska myndigheter:**<br> login.microsoftonline.us:443<br><br>**Azure i Tyskland:**<br> login.microsoftonline.de:443 |
 | Användarens eller tjänstens huvudkonto med ett arbets- eller skolkonto, plus Active Directory Federation Services (AD FS) eller annan federerad slutpunkt (t.ex. user@contoso.com) |Alla slutpunkter för ett arbets- eller skolkonto, plus AD FS eller andra federerade slutpunkter |
 
-Det finns andra möjliga avancerade scenarier. Se [Azure Active Directory Authentication Flow](/documentation/articles/active-directory-authentication-scenarios/), [Integrera program med Azure Active Directory](/documentation/articles/active-directory-integrating-applications/) och [Active Directory-autentiseringsprotokoll](https://msdn.microsoft.com/library/azure/dn151124.aspx) för mer information.  
+Det finns andra möjliga avancerade scenarier. Se [Azure Active Directory Authentication Flow](../active-directory/develop/authentication-scenarios.md), [Integrera program med Azure Active Directory](../active-directory/develop/active-directory-how-to-integrate.md) och [Active Directory-autentiseringsprotokoll](https://msdn.microsoft.com/library/azure/dn151124.aspx) för mer information.  
 
 ## <a name="key-vault-management"></a>Hantering av Nyckelvalv
 För hantering av Nyckelvalv (CRUD och inställning av åtkomstprincip) måste klientprogrammet för nyckelvalv ha åtkomst till Azure Resource Manager-slutpunkten.  

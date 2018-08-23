@@ -1,19 +1,19 @@
 ---
 title: Övervaka Azure-program och resurser
 description: Översikt över Microsoft-tjänster och funktioner som bidrar till en fullständig övervakningsstrategi för dina Azure-tjänster och program.
-author: rboucher
+author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: overview
 ms.date: 03/05/2018
-ms.author: robb,bwren
+ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: e6adcc136c273210cc40d23ed2cb177287654005
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 9a1c57b54c198e8f0ed85f470e99d5b0469c0c0c
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265140"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42023786"
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Övervaka Azure-program och resurser
 
@@ -102,7 +102,8 @@ Application Insights och Azure Security Center lagrar sina data i Log Analytics-
 [Hanteringslösningar](../log-analytics/log-analytics-add-solutions.md) är paketerade uppsättningar av logik som tillhandhåller insikter för vissa program och tjänster. De förlitar sig på Log Analytics när det gäller att lagra och analysera de övervakningsdata som de samlar in.
 
 Hanteringslösningar är tillgängliga från Microsoft och partners och tillhandahåller övervakning för olika Azure-tjänster och tjänster från tredje part. Exempel på övervakningslösningar:
-* [Behållarövervakning](../log-analytics/log-analytics-containers.md), som hjälper dig att visa och hantera behållarvärdar.
+* 
+  [Containerövervakning](../log-analytics/log-analytics-containers.md), som hjälper dig att visa och hantera containervärdar.
 * [Azure SQL-analys](../log-analytics/log-analytics-azure-sql.md), som samlar in och visualiserar prestandamått för Azure SQL-databaser.
 
 Du kan visa alla tillgängliga hanteringslösningar i Azure Portal på skärmen *Övervakare*.

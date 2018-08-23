@@ -7,18 +7,18 @@ author: ghogen
 ms.author: ghogen
 ms.date: 06/01/2018
 ms.topic: tutorial
-description: Snabb Kubernetes-utveckling med behållare och mikrotjänster i Azure
+description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 93440b8a1c9fd1b386931e5998c70133071a079e
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 14b51cc2ad2e8e0f294e5e73e542001e30d21c9d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823052"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41920379"
 ---
 # <a name="azure-dev-spaces"></a>Azure Dev Spaces
-Azure Dev Spaces ger en snabb, iterativ Kubernetes-utvecklingsupplevelse för team. Med minimal konfiguration av utvecklingsdatorer kan du iterativt köra och felsöka behållare direkt i Azure Kubernetes Service (AKS). Utveckla på Windows, Mac eller Linux med välbekanta verktyg som Visual Studio, Visual Studio Code eller kommandoraden.
+Azure Dev Spaces ger en snabb, iterativ Kubernetes-utvecklingsupplevelse för team. Med minimal konfiguration av utvecklingsdatorer kan du iterativt köra och felsöka containrar direkt i Azure Kubernetes Service (AKS). Utveckla på Windows, Mac eller Linux med välbekanta verktyg som Visual Studio, Visual Studio Code eller kommandoraden.
 
 [!INCLUDE[](includes/dev-spaces-preview.md)]
 

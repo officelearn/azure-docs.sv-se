@@ -1,6 +1,6 @@
 ---
 title: Självstudier – Skapa en pipeline för utveckling i Azure med Jenkins | Microsoft Docs
-description: Självstudier – I den här självstudiekursen lär du dig hur du skapar en virtuell Jenkins-dator i Azure som hämtar data från GitHub vid varje kodincheckning och skapar en ny Docker-behållare för att köra din app.
+description: Självstudier – I den här självstudiekursen lär du dig hur du skapar en virtuell Jenkins-dator i Azure som hämtar data från GitHub vid varje kodincheckning och skapar en ny Docker-container för att köra din app.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b19d02e7d2bcbd696a7256c06b067f976fd36161
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 05ec147e705da4951735616881ad19ad265b403d
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931736"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41920102"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Självstudier: Skapa en infrastruktur för utveckling på en virtuell Linux-dator i Azure med Jenkins, GitHub och Docker
 
@@ -151,7 +151,7 @@ På Jenkins-webbplatsens startsida väljer du **Skapa nya jobb**:
 - I avsnittet **Allmänt** väljer du **GitHub-projekt** och anger URL:en till din förgrenade lagringsplats, som *https://github.com/cynthn/nodejs-docs-hello-world*
 - I avsnittet **Källkodshantering** väljer du **Git** och anger *.git*-URL:en till din förgrenade lagringsplats, som *https://github.com/cynthn/nodejs-docs-hello-world.git*
 - I avsnittet **Build Triggers** (Bygg utlösare) väljer du **GitHub hook trigger for GITscm polling** (GitHub-hookutlösare för GITScm-avsökning).
-- I avsnittet **Skapa** väljer du **Add build step** (Lägg till byggsteg). Välj **Execute shell** (Kör gränssnitt) och ange `echo "Testing"` i kommandofönstret.
+- I avsnittet **Skapa** väljer du **Add build step** (Lägg till byggsteg). Välj **Execute shell** (Kör gränssnitt) och ange `echo "Test"` i kommandofönstret.
 - Välj **Spara** längst ned i jobbfönstret.
 
 
@@ -170,7 +170,7 @@ I Jenkins startar en ny version i avsnittet med **versionshistorik** längst ned
 
 
 ## <a name="define-docker-build-image"></a>Definiera Docker-avbildning
-För att du ska kunna se när Node.js-appen körs baserat på dina GitHub-genomföranden ska vi skapa en Docker-avbildning för att köra appen. Avbildningen skapas från en Dockerfile som definierar hur du ska konfigurera behållaren som kör appen. 
+För att du ska kunna se när Node.js-appen körs baserat på dina GitHub-genomföranden ska vi skapa en Docker-avbildning för att köra appen. Avbildningen skapas från en Dockerfile som definierar hur du ska konfigurera containern som kör appen. 
 
 Från SSH-anslutningen till din virtuella dator ändrar du till Jenkins-arbetsytans katalog som är uppkallad efter jobbet du skapade i föregående steg. I det här exemplet var namnet *HelloWorld*.
 
@@ -209,11 +209,11 @@ Välj det jobb som du skapade i föregående steg när du är tillbaka i din Jen
   docker run --name helloworld -p 1337:1337 helloworld:$BUILD_NUMBER node /var/www/index.js &
   ```
 
-Docker-byggstegen skapar en avbildning och taggar den med Jenkins-versionsnumret så du kan underhålla en historik för avbildningarna. Eventuella behållare som kör appen stoppas och tas sedan bort. En ny behållare startas sedan med avbildningen och kör Node.js-appen baserat på de senaste genomförandena i GitHub.
+Docker-byggstegen skapar en avbildning och taggar den med Jenkins-versionsnumret så du kan underhålla en historik för avbildningarna. Eventuella befintliga containrar som kör appen stoppas och tas sedan bort. En ny container startas sedan med avbildningen och kör Node.js-appen baserat på de senaste genomförandena i GitHub.
 
 
 ## <a name="test-your-pipeline"></a>Testa din pipeline
-Om du vill se hela pipelinen när den är igång redigerar du filen *index.js* på den förgrenade GitHub-lagringsplatsen igen och väljer alternativet för att **spara ändringen**. Ett nytt jobb startar i Jenkins baserat på webhooken för GitHub. Det tar några sekunder att skapa Docker-avbildningen och starta appen i en ny behållare.
+Om du vill se hela pipelinen när den är igång redigerar du filen *index.js* på den förgrenade GitHub-lagringsplatsen igen och väljer alternativet för att **spara ändringen**. Ett nytt jobb startar i Jenkins baserat på webhooken för GitHub. Det tar några sekunder att skapa Docker-avbildningen och starta appen i en ny container.
 
 Om det behövs hämtar du den offentliga IP-adressen för den virtuella datorn på nytt:
 
@@ -225,13 +225,13 @@ az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publi
 
 ![Köra Node.js-app](media/tutorial-jenkins-github-docker-cicd/running_nodejs_app.png)
 
-Nu ska du göra ytterligare en redigering i filen *index.js* i GitHub och genomföra ändringen. Vänta några sekunder för att jobbet ska slutföras i Jenkins. Uppdatera sedan webbläsaren för att se den uppdaterade versionen av din app som körs i en ny behållare så här:
+Nu ska du göra ytterligare en redigering i filen *index.js* i GitHub och genomföra ändringen. Vänta några sekunder för att jobbet ska slutföras i Jenkins. Uppdatera sedan webbläsaren för att se den uppdaterade versionen av din app som körs i en ny container så här:
 
 ![Köra Node.js-app efter ytterligare ett GitHub-genomförande](media/tutorial-jenkins-github-docker-cicd/another_running_nodejs_app.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien har du konfigurerat GitHub för att köra ett Jenkins-byggjobb på varje kodgenomförande och sedan distribuerat en Docker-behållare för att testa appen. Du har lärt dig att:
+I den här självstudien har du konfigurerat GitHub för att köra ett Jenkins-byggjobb på varje kodgenomförande och sedan distribuerat en Docker-container för att testa appen. Du har lärt dig att:
 
 > [!div class="checklist"]
 > * Skapa en virtuell dator i Jenkins

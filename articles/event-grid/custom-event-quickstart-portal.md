@@ -8,12 +8,12 @@ ms.author: tomfitz
 ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 4fef565dbd78cf3559cd47ed6c59800c8e6f9c9d
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: ec85a866279412232aa23fad8f975d1642525772
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869151"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42022723"
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Skapa och dirigera anpassade händelser med Azure Portal och Event Grid
 
@@ -41,7 +41,7 @@ Ett event grid-ämne tillhandahåller en användardefinierad slutpunkt där du p
 
    ![Startsteg](./media/custom-event-quickstart-portal/select-create.png)
 
-1. Ge det anpassade ämnet ett unikt namn. Ämnesnamnet måste vara unikt eftersom det representeras av en DNS-post. Använd inte det namn som visas på bilden. Skapa ett eget namn istället. Välj en av de [regioner som stöds](overview.md). Ge resursgruppen ett namn. Välj **Skapa**.
+1. Ge det anpassade ämnet ett unikt namn. Ämnesnamnet måste vara unikt eftersom det representeras av en DNS-post. Använd inte det namn som visas på bilden. Skapa ett eget namn istället. Ge resursgruppen ett namn. Välj **Skapa**.
 
    ![Ange värden för event grid-ämnet](./media/custom-event-quickstart-portal/create-custom-topic.png)
 

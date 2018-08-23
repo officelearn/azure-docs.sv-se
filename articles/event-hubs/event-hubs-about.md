@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 08/01/2018
 ms.author: shvija
-ms.openlocfilehash: c5cec92094a2e76d02487adff43abf040aedfe0e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8437b1c10facc28c5fd71b70dd7acf01b7d39e8e
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425817"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42022793"
 ---
 # <a name="what-is-azure-event-hubs"></a>Vad är Azure Event Hubs?
 
@@ -81,7 +81,8 @@ Följande bild visar strömhanteringsarkitekturen i Event Hubs:
 
 Om du vill komma igång med Event Hubs kan du läsa följande artiklar:
 
-* [Mata in till Event Hubs](event-hubs-quickstart-powershell.md)
+* [Mata in till Event Hubs](event-hubs-quickstart-portal.md)
 * [Översikt över Event Hubs-funktioner](event-hubs-features.md)
+* [Vanliga frågor och svar](event-hubs-faq.md)
 
 

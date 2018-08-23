@@ -3,9 +3,8 @@ title: Jämförelse av Azure App Service, Virtual Machines, Service Fabric och C
 description: Lär dig hur du väljer mellan Azure App Service, Virtual Machines, Service Fabric och Cloud Services som värd för webbappar.
 services: app-service\web, virtual-machines, cloud-services
 documentationcenter: ''
-author: ggailey777
-manager: erikre
-editor: jimbe
+author: cephalin
+manager: jeconnoc
 ms.assetid: 7d346a23-532a-42a9-98a8-23b7286d32a8
 ms.service: app-service-web
 ms.workload: web
@@ -13,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 07/07/2016
-ms.author: glenga
+ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 016427e6cfbb8bbb4910e5deffb3ab68d423fb90
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3b1fb14fbb21876d0b3f7d98327353d54bb1cfb2
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224963"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42022358"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Jämförelse mellan Azure App Service, Virtual Machines, Service Fabric och Cloud Services
-## <a name="overview"></a>Översikt
+
 Azure erbjuder flera värdalternativ för webbplatser: [Azure App Service][Azure App Service], [Virtual Machines][Virtual Machines], [Service Fabric][Service Fabric] och [Cloud Services][Cloud Services]. Den här artikeln hjälper dig att förstå alternativen och fatta rätt beslut för din webbapp.
 
 Azure App Service är det bästa alternativet för de flesta webbapparna. Distribution och hantering finns integrerat i plattformen, platser kan skalas snabbt för att hantera hög trafikbelastning och inbyggd belastningsutjämning och Traffic Manager ger hög tillgänglighet. Du kan enkelt flytta befintliga webbplatser till Azure App Service med ett [onlinemigreringsverktyg][migrate-tool], använda en app baserad på öppen källkod från webbappgalleriet eller skapa en ny webbplats med hjälp av ramverket och verktyg som du väljer själv. Med funktionen [WebJobs][WebJobs] kan du enkelt lägga till bearbetning av bakgrundsjobb i din App Service-webbapp.

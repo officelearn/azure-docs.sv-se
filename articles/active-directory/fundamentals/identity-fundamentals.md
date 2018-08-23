@@ -14,12 +14,12 @@ ms.component: fundamentals
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 797c35bad03c063203e3616740af633b71835a9c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 327cecd129befb56c33d7fcf2d59ee5b58a18549
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39640283"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42022869"
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Grunderna i Azures identitetshantering
 
@@ -27,7 +27,7 @@ Då allt fler digitala företagsresurser finns utanför företagets nätverk, i 
 
 Microsoft har skyddat molnbaserade identiteter i mer än ett årtionde och nu är dessa skyddssystem tillgängliga för dig, med [Azure Active Directory (AD)](active-directory-whatis.md). Med Azure AD kan företagsadministratörer enkelt garantera användar- och administratörsansvar med bättre säkerhet och styrning än någonsin.
 
-Azure AD Premium är en molnbaserad identitets- och åtkomsthanteringslösning med avancerade skyddsfunktioner som möjliggör en säker identitet för alla appar, identitetsskydd (förbättrad med [Microsoft Intelligence Security Graph](https://www.microsoft.com/en-us/security/intelligence)), och Privileged Identity Management. Azure AD Premium är inte bara ett övervaknings- eller rapporteringsverktyg, utan kan även skydda användarnas identiteter i realtid och gör att du kan skapa riskbaserade, anpassningsbara åtkomstprinciper för att skydda organisationens data.
+Azure AD Premium är en molnbaserad identitets- och åtkomsthanteringslösning med avancerade skyddsfunktioner som möjliggör en säker identitet för alla appar, identitetsskydd (förbättrad med [Microsoft Intelligence Security Graph](https://www.microsoft.com/security/intelligence)), och Privileged Identity Management. Azure AD Premium är inte bara ett övervaknings- eller rapporteringsverktyg, utan kan även skydda användarnas identiteter i realtid och gör att du kan skapa riskbaserade, anpassningsbara åtkomstprinciper för att skydda organisationens data.
 
 Titta på den här korta videon för en snabb översikt över identitetshantering och skydd i Azure AD:
 >[!VIDEO https://www.youtube.com/embed/9LGIJ2-FKIM]

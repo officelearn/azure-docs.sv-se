@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: a302c0c6c4ecbaff2d11d852caf9e1e1500931b8
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: cd6a3b768077880d47462d1db559a4884cceb84a
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225354"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42022503"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure Portal
 
@@ -95,7 +95,7 @@ Ladda ned en JSON-exempeldatafil och spara den i Azure-bloblagring.
    - Välj **Typ av konto**: **Blob-lagring**
    - Välj ett namn på **Resursgrupp**. Använd samma resursgrupp där du skapade Databricks-arbetsytan.
    
-   Mer information finns i [Skapa ett Azure Blob Storage-konto](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
+   Mer information finns i [Skapa ett Azure Blob Storage-konto](../storage/common/storage-quickstart-create-account.md). 
 
 3. Skapa en lagringscontainer i Blob Storage-kontot och ladda upp json-exempelfilen till containern. Du kan använda Azure-portalen eller [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) för att ladda upp filen.
 

@@ -1,1168 +1,1182 @@
+items:
 - name: AKS
   items:
-    - name: Hanterade kluster
-      href: /azure/templates/Microsoft.ContainerService/managedClusters
-      maintainContext: true
+  - name: Hanterade kluster
+    href: /azure/templates/Microsoft.ContainerService/managedClusters
+    maintainContext: true
 - name: Analysis Services
   items:
-    - name: Servrar
-      href: /azure/templates/Microsoft.AnalysisServices/servers
-      maintainContext: true
+  - name: Servrar
+    href: /azure/templates/Microsoft.AnalysisServices/servers
+    maintainContext: true
 - name: API Management
   items:
-    - name: Tjänst
-      href: /azure/templates/Microsoft.ApiManagement/service
-      maintainContext: true
+  - name: Tjänst
+    href: /azure/templates/Microsoft.ApiManagement/service
+    items:
+    - name: API:er
+      href: /azure/templates/Microsoft.ApiManagement/service/apis
       items:
-        - name: 'API:er'
-          href: /azure/templates/Microsoft.ApiManagement/service/apis
-          maintainContext: true
-          items:
-            - name: Diagnostik
-              href: /azure/templates/Microsoft.ApiManagement/service/apis/diagnostics
-              maintainContext: true
-              items:
-                - name: Loggare
-                  href: /azure/templates/Microsoft.ApiManagement/service/apis/diagnostics/loggers
-                  maintainContext: true
-            - name: Problem
-              href: /azure/templates/Microsoft.ApiManagement/service/apis/issues
-              maintainContext: true
-              items:
-                - name: Bilagor
-                  href: /azure/templates/Microsoft.ApiManagement/service/apis/issues/attachments
-                  maintainContext: true
-                - name: Kommentarer
-                  href: /azure/templates/Microsoft.ApiManagement/service/apis/issues/comments
-                  maintainContext: true
-            - name: Åtgärder
-              href: /azure/templates/Microsoft.ApiManagement/service/apis/operations
-              maintainContext: true
-              items:
-                - name: Principer
-                  href: /azure/templates/Microsoft.ApiManagement/service/apis/operations/policies
-                  maintainContext: true
-                - name: Taggar
-                  href: /azure/templates/Microsoft.ApiManagement/service/apis/operations/tags
-                  maintainContext: true
-            - name: Principer
-              href: /azure/templates/Microsoft.ApiManagement/service/apis/policies
-              maintainContext: true
-            - name: Versioner
-              href: /azure/templates/Microsoft.ApiManagement/service/apis/releases
-              maintainContext: true
-            - name: Scheman
-              href: /azure/templates/Microsoft.ApiManagement/service/apis/schemas
-              maintainContext: true
-            - name: Taggbeskrivningar
-              href: /azure/templates/Microsoft.ApiManagement/service/apis/tagDescriptions
-              maintainContext: true
-            - name: Taggar
-              href: /azure/templates/Microsoft.ApiManagement/service/apis/tags
-              maintainContext: true
-        - name: API-versionsuppsättningar
-          href: /azure/templates/Microsoft.ApiManagement/service/api-version-sets
-          maintainContext: true
-        - name: Auktoriseringsservrar
-          href: /azure/templates/Microsoft.ApiManagement/service/authorizationServers
-          maintainContext: true
-        - name: Serverdelar
-          href: /azure/templates/Microsoft.ApiManagement/service/backends
-          maintainContext: true
-        - name: Certifikat
-          href: /azure/templates/Microsoft.ApiManagement/service/certificates
-          maintainContext: true
-        - name: Diagnostik
-          href: /azure/templates/Microsoft.ApiManagement/service/diagnostics
-          maintainContext: true
-          items:
-            - name: Loggare
-              href: /azure/templates/Microsoft.ApiManagement/service/diagnostics/loggers
-              maintainContext: true
-        - name: Grupper
-          href: /azure/templates/Microsoft.ApiManagement/service/groups
-          maintainContext: true
-          items:
-            - name: Användare
-              href: /azure/templates/Microsoft.ApiManagement/service/groups/users
-              maintainContext: true
-        - name: Identitetsprovidrar
-          href: /azure/templates/Microsoft.ApiManagement/service/identityProviders
-          maintainContext: true
+      - name: Diagnostik
+        href: /azure/templates/Microsoft.ApiManagement/service/apis/diagnostics
+        items:
         - name: Loggare
-          href: /azure/templates/Microsoft.ApiManagement/service/loggers
+          href: /azure/templates/Microsoft.ApiManagement/service/apis/diagnostics/loggers
           maintainContext: true
-        - name: Meddelanden
-          href: /azure/templates/Microsoft.ApiManagement/service/notifications
+        maintainContext: true
+      - name: Problem
+        href: /azure/templates/Microsoft.ApiManagement/service/apis/issues
+        items:
+        - name: Bilagor
+          href: /azure/templates/Microsoft.ApiManagement/service/apis/issues/attachments
           maintainContext: true
-          items:
-            - name: Mottagarens e-post
-              href: /azure/templates/Microsoft.ApiManagement/service/notifications/recipientEmails
-              maintainContext: true
-            - name: Mottagarens användare
-              href: /azure/templates/Microsoft.ApiManagement/service/notifications/recipientUsers
-              maintainContext: true
-        - name: OpenID Connect-providrar
-          href: /azure/templates/Microsoft.ApiManagement/service/openidConnectProviders
+        - name: Kommentarer
+          href: /azure/templates/Microsoft.ApiManagement/service/apis/issues/comments
           maintainContext: true
+        maintainContext: true
+      - name: Åtgärder
+        href: /azure/templates/Microsoft.ApiManagement/service/apis/operations
+        items:
         - name: Principer
-          href: /azure/templates/Microsoft.ApiManagement/service/policies
-          maintainContext: true
-        - name: Produkter
-          href: /azure/templates/Microsoft.ApiManagement/service/products
-          maintainContext: true
-          items:
-            - name: 'API:er'
-              href: /azure/templates/Microsoft.ApiManagement/service/products/apis
-              maintainContext: true
-            - name: Grupper
-              href: /azure/templates/Microsoft.ApiManagement/service/products/groups
-              maintainContext: true
-            - name: Principer
-              href: /azure/templates/Microsoft.ApiManagement/service/products/policies
-              maintainContext: true
-            - name: Taggar
-              href: /azure/templates/Microsoft.ApiManagement/service/products/tags
-              maintainContext: true
-        - name: Egenskaper
-          href: /azure/templates/Microsoft.ApiManagement/service/properties
-          maintainContext: true
-        - name: Prenumerationer
-          href: /azure/templates/Microsoft.ApiManagement/service/subscriptions
+          href: /azure/templates/Microsoft.ApiManagement/service/apis/operations/policies
           maintainContext: true
         - name: Taggar
-          href: /azure/templates/Microsoft.ApiManagement/service/tags
+          href: /azure/templates/Microsoft.ApiManagement/service/apis/operations/tags
           maintainContext: true
-        - name: Mallar
-          href: /azure/templates/Microsoft.ApiManagement/service/templates
-          maintainContext: true
-        - name: Användare
-          href: /azure/templates/Microsoft.ApiManagement/service/users
-          maintainContext: true
+        maintainContext: true
+      - name: Principer
+        href: /azure/templates/Microsoft.ApiManagement/service/apis/policies
+        maintainContext: true
+      - name: Versioner
+        href: /azure/templates/Microsoft.ApiManagement/service/apis/releases
+        maintainContext: true
+      - name: Scheman
+        href: /azure/templates/Microsoft.ApiManagement/service/apis/schemas
+        maintainContext: true
+      - name: Taggbeskrivningar
+        href: /azure/templates/Microsoft.ApiManagement/service/apis/tagDescriptions
+        maintainContext: true
+      - name: Taggar
+        href: /azure/templates/Microsoft.ApiManagement/service/apis/tags
+        maintainContext: true
+      maintainContext: true
+    - name: API-versionsuppsättningar
+      href: /azure/templates/Microsoft.ApiManagement/service/api-version-sets
+      maintainContext: true
+    - name: Auktoriseringsservrar
+      href: /azure/templates/Microsoft.ApiManagement/service/authorizationServers
+      maintainContext: true
+    - name: Serverdelar
+      href: /azure/templates/Microsoft.ApiManagement/service/backends
+      maintainContext: true
+    - name: Certifikat
+      href: /azure/templates/Microsoft.ApiManagement/service/certificates
+      maintainContext: true
+    - name: Diagnostik
+      href: /azure/templates/Microsoft.ApiManagement/service/diagnostics
+      items:
+      - name: Loggare
+        href: /azure/templates/Microsoft.ApiManagement/service/diagnostics/loggers
+        maintainContext: true
+      maintainContext: true
+    - name: Grupper
+      href: /azure/templates/Microsoft.ApiManagement/service/groups
+      items:
+      - name: Användare
+        href: /azure/templates/Microsoft.ApiManagement/service/groups/users
+        maintainContext: true
+      maintainContext: true
+    - name: Identitetsprovidrar
+      href: /azure/templates/Microsoft.ApiManagement/service/identityProviders
+      maintainContext: true
+    - name: Loggare
+      href: /azure/templates/Microsoft.ApiManagement/service/loggers
+      maintainContext: true
+    - name: Meddelanden
+      href: /azure/templates/Microsoft.ApiManagement/service/notifications
+      items:
+      - name: Mottagarens e-post
+        href: /azure/templates/Microsoft.ApiManagement/service/notifications/recipientEmails
+        maintainContext: true
+      - name: Mottagarens användare
+        href: /azure/templates/Microsoft.ApiManagement/service/notifications/recipientUsers
+        maintainContext: true
+      maintainContext: true
+    - name: OpenID Connect-providrar
+      href: /azure/templates/Microsoft.ApiManagement/service/openidConnectProviders
+      maintainContext: true
+    - name: Principer
+      href: /azure/templates/Microsoft.ApiManagement/service/policies
+      maintainContext: true
+    - name: Produkter
+      href: /azure/templates/Microsoft.ApiManagement/service/products
+      items:
+      - name: API:er
+        href: /azure/templates/Microsoft.ApiManagement/service/products/apis
+        maintainContext: true
+      - name: Grupper
+        href: /azure/templates/Microsoft.ApiManagement/service/products/groups
+        maintainContext: true
+      - name: Principer
+        href: /azure/templates/Microsoft.ApiManagement/service/products/policies
+        maintainContext: true
+      - name: Taggar
+        href: /azure/templates/Microsoft.ApiManagement/service/products/tags
+        maintainContext: true
+      maintainContext: true
+    - name: Egenskaper
+      href: /azure/templates/Microsoft.ApiManagement/service/properties
+      maintainContext: true
+    - name: Prenumerationer
+      href: /azure/templates/Microsoft.ApiManagement/service/subscriptions
+      maintainContext: true
+    - name: Taggar
+      href: /azure/templates/Microsoft.ApiManagement/service/tags
+      maintainContext: true
+    - name: Mallar
+      href: /azure/templates/Microsoft.ApiManagement/service/templates
+      maintainContext: true
+    - name: Användare
+      href: /azure/templates/Microsoft.ApiManagement/service/users
+      maintainContext: true
+    maintainContext: true
 - name: Auktorisering
   items:
-    - name: Lås
-      href: /azure/templates/Microsoft.Authorization/locks
-      maintainContext: true
+  - name: Lås
+    href: /azure/templates/Microsoft.Authorization/locks
+    maintainContext: true
 - name: Automation
   items:
-    - name: Automation-konton
-      href: /azure/templates/Microsoft.Automation/automationAccounts
+  - name: Automation-konton
+    href: /azure/templates/Microsoft.Automation/automationAccounts
+    items:
+    - name: Certifikat
+      href: /azure/templates/Microsoft.Automation/automationAccounts/certificates
       maintainContext: true
+    - name: Kompileringsjobb
+      href: /azure/templates/Microsoft.Automation/automationAccounts/compilationjobs
+      maintainContext: true
+    - name: Konfigurationer
+      href: /azure/templates/Microsoft.Automation/automationAccounts/configurations
+      maintainContext: true
+    - name: Anslutningar
+      href: /azure/templates/Microsoft.Automation/automationAccounts/connections
+      maintainContext: true
+    - name: Anslutningstyper
+      href: /azure/templates/Microsoft.Automation/automationAccounts/connectionTypes
+      maintainContext: true
+    - name: Autentiseringsuppgifter
+      href: /azure/templates/Microsoft.Automation/automationAccounts/credentials
+      maintainContext: true
+    - name: Jobb
+      href: /azure/templates/Microsoft.Automation/automationAccounts/jobs
+      maintainContext: true
+    - name: Jobbscheman
+      href: /azure/templates/Microsoft.Automation/automationAccounts/jobSchedules
+      maintainContext: true
+    - name: Moduler
+      href: /azure/templates/Microsoft.Automation/automationAccounts/modules
+      maintainContext: true
+    - name: Nodkonfigurationer
+      href: /azure/templates/Microsoft.Automation/automationAccounts/nodeConfigurations
+      maintainContext: true
+    - name: Runbooks
+      href: /azure/templates/Microsoft.Automation/automationAccounts/runbooks
+      maintainContext: true
+    - name: Scheman
+      href: /azure/templates/Microsoft.Automation/automationAccounts/schedules
+      maintainContext: true
+    - name: Konfigurationer av programvaruuppdateringar
+      href: /azure/templates/Microsoft.Automation/automationAccounts/softwareUpdateConfigurations
+      maintainContext: true
+    - name: Källkontroller
+      href: /azure/templates/Microsoft.Automation/automationAccounts/sourceControls
       items:
-        - name: Certifikat
-          href: /azure/templates/Microsoft.Automation/automationAccounts/certificates
-          maintainContext: true
-        - name: Kompileringsjobb
-          href: /azure/templates/Microsoft.Automation/automationAccounts/compilationjobs
-          maintainContext: true
-        - name: Konfigurationer
-          href: /azure/templates/Microsoft.Automation/automationAccounts/configurations
-          maintainContext: true
-        - name: Anslutningar
-          href: /azure/templates/Microsoft.Automation/automationAccounts/connections
-          maintainContext: true
-        - name: Anslutningstyper
-          href: /azure/templates/Microsoft.Automation/automationAccounts/connectionTypes
-          maintainContext: true
-        - name: Autentiseringsuppgifter
-          href: /azure/templates/Microsoft.Automation/automationAccounts/credentials
-          maintainContext: true
-        - name: Jobb
-          href: /azure/templates/Microsoft.Automation/automationAccounts/jobs
-          maintainContext: true
-        - name: Jobbscheman
-          href: /azure/templates/Microsoft.Automation/automationAccounts/jobSchedules
-          maintainContext: true
-        - name: Moduler
-          href: /azure/templates/Microsoft.Automation/automationAccounts/modules
-          maintainContext: true
-        - name: Nodkonfigurationer
-          href: /azure/templates/Microsoft.Automation/automationAccounts/nodeConfigurations
-          maintainContext: true
-        - name: Runbooks
-          href: /azure/templates/Microsoft.Automation/automationAccounts/runbooks
-          maintainContext: true
-        - name: Scheman
-          href: /azure/templates/Microsoft.Automation/automationAccounts/schedules
-          maintainContext: true
-        - name: Konfigurationer av programvaruuppdateringar
-          href: /azure/templates/Microsoft.Automation/automationAccounts/softwareUpdateConfigurations
-          maintainContext: true
-        - name: Källkontroller
-          href: /azure/templates/Microsoft.Automation/automationAccounts/sourceControls
-          maintainContext: true
-          items:
-            - name: Synkroniseringsjobb för källkontroller
-              href: /azure/templates/Microsoft.Automation/automationAccounts/sourceControls/sourceControlSyncJobs
-              maintainContext: true
-        - name: Variabler
-          href: /azure/templates/Microsoft.Automation/automationAccounts/variables
-          maintainContext: true
-        - name: Webhooks
-          href: /azure/templates/Microsoft.Automation/automationAccounts/webhooks
-          maintainContext: true
+      - name: Synkroniseringsjobb för källkontroller
+        href: /azure/templates/Microsoft.Automation/automationAccounts/sourceControls/sourceControlSyncJobs
+        maintainContext: true
+      maintainContext: true
+    - name: Variabler
+      href: /azure/templates/Microsoft.Automation/automationAccounts/variables
+      maintainContext: true
+    - name: Webhooks
+      href: /azure/templates/Microsoft.Automation/automationAccounts/webhooks
+      maintainContext: true
+    maintainContext: true
 - name: Batch
   items:
-    - name: Batch-konton
-      href: /azure/templates/Microsoft.Batch/batchAccounts
+  - name: Batch-konton
+    href: /azure/templates/Microsoft.Batch/batchAccounts
+    items:
+    - name: Certifikat
+      href: /azure/templates/Microsoft.Batch/batchAccounts/certificates
       maintainContext: true
-      items:
-        - name: Certifikat
-          href: /azure/templates/Microsoft.Batch/batchAccounts/certificates
-          maintainContext: true
-        - name: Pooler
-          href: /azure/templates/Microsoft.Batch/batchAccounts/pools
-          maintainContext: true
+    - name: Pooler
+      href: /azure/templates/Microsoft.Batch/batchAccounts/pools
+      maintainContext: true
+    maintainContext: true
 - name: Batch AI
   items:
-    - name: Kluster
-      href: /azure/templates/Microsoft.BatchAI/clusters
-      maintainContext: true
-    - name: Filservrar
-      href: /azure/templates/Microsoft.BatchAI/fileServers
-      maintainContext: true
-    - name: Jobb
-      href: /azure/templates/Microsoft.BatchAI/jobs
-      maintainContext: true
+  - name: Kluster
+    href: /azure/templates/Microsoft.BatchAI/clusters
+    maintainContext: true
+  - name: Filservrar
+    href: /azure/templates/Microsoft.BatchAI/fileServers
+    maintainContext: true
+  - name: Jobb
+    href: /azure/templates/Microsoft.BatchAI/jobs
+    maintainContext: true
 - name: Cache
   items:
-    - name: Redis
-      href: /azure/templates/Microsoft.Cache/Redis
+  - name: Redis
+    href: /azure/templates/Microsoft.Cache/Redis
+    items:
+    - name: Brandväggsregler
+      href: /azure/templates/Microsoft.Cache/redis/firewallRules
       maintainContext: true
-      items:
-        - name: Brandväggsregler
-          href: /azure/templates/Microsoft.Cache/redis/firewallRules
-          maintainContext: true
-        - name: Länkade servrar
-          href: /azure/templates/Microsoft.Cache/redis/linkedServers
-          maintainContext: true
+    - name: Länkade servrar
+      href: /azure/templates/Microsoft.Cache/redis/linkedServers
+      maintainContext: true
+    maintainContext: true
 - name: CDN
   items:
-    - name: Profiler
-      href: /azure/templates/Microsoft.Cdn/profiles
-      maintainContext: true
+  - name: Profiler
+    href: /azure/templates/Microsoft.Cdn/profiles
+    items:
+    - name: Slutpunkter
+      href: /azure/templates/Microsoft.Cdn/profiles/endpoints
       items:
-        - name: Slutpunkter
-          href: /azure/templates/Microsoft.Cdn/profiles/endpoints
-          maintainContext: true
-          items:
-            - name: Anpassade domäner
-              href: /azure/templates/Microsoft.Cdn/profiles/endpoints/customDomains
-              maintainContext: true
+      - name: Anpassade domäner
+        href: /azure/templates/Microsoft.Cdn/profiles/endpoints/customDomains
+        maintainContext: true
+      maintainContext: true
+    maintainContext: true
 - name: Certifikatregistrering
   items:
-    - name: Certifikatbeställningar
-      href: /azure/templates/Microsoft.CertificateRegistration/certificateOrders
+  - name: Certifikatbeställningar
+    href: /azure/templates/Microsoft.CertificateRegistration/certificateOrders
+    items:
+    - name: Certifikat
+      href: /azure/templates/Microsoft.CertificateRegistration/certificateOrders/certificates
       maintainContext: true
-      items:
-        - name: Certifikat
-          href: /azure/templates/Microsoft.CertificateRegistration/certificateOrders/certificates
-          maintainContext: true
+    maintainContext: true
 - name: Cognitive Services
   items:
-    - name: Konton
-      href: /azure/templates/Microsoft.CognitiveServices/accounts
-      maintainContext: true
+  - name: Konton
+    href: /azure/templates/Microsoft.CognitiveServices/accounts
+    maintainContext: true
 - name: Compute
   items:
-    - name: Tillgänglighetsuppsättningar
-      href: /azure/templates/Microsoft.Compute/availabilitySets
-      maintainContext: true
-    - name: Diskar
-      href: /azure/templates/Microsoft.Compute/disks
-      maintainContext: true
-    - name: Gallerier
-      href: /azure/templates/Microsoft.Compute/galleries
-      maintainContext: true
-      items:
-        - name: Avbildningar
-          href: /azure/templates/Microsoft.Compute/galleries/images
-          maintainContext: true
-          items:
-            - name: Versioner
-              href: /azure/templates/Microsoft.Compute/galleries/images/versions
-              maintainContext: true
+  - name: Tillgänglighetsuppsättningar
+    href: /azure/templates/Microsoft.Compute/availabilitySets
+    maintainContext: true
+  - name: Diskar
+    href: /azure/templates/Microsoft.Compute/disks
+    maintainContext: true
+  - name: Gallerier
+    href: /azure/templates/Microsoft.Compute/galleries
+    items:
     - name: Avbildningar
-      href: /azure/templates/Microsoft.Compute/images
+      href: /azure/templates/Microsoft.Compute/galleries/images
+      items:
+      - name: Versioner
+        href: /azure/templates/Microsoft.Compute/galleries/images/versions
+        maintainContext: true
       maintainContext: true
-    - name: Ögonblicksbilder
-      href: /azure/templates/Microsoft.Compute/snapshots
+    maintainContext: true
+  - name: Avbildningar
+    href: /azure/templates/Microsoft.Compute/images
+    maintainContext: true
+  - name: Ögonblicksbilder
+    href: /azure/templates/Microsoft.Compute/snapshots
+    maintainContext: true
+  - name: Virtuella datorer
+    href: /azure/templates/Microsoft.Compute/virtualMachines
+    items:
+    - name: Tillägg
+      href: /azure/templates/Microsoft.Compute/virtualMachines/extensions
+      maintainContext: true
+    maintainContext: true
+  - name: Virtual Machine Scale Sets
+    href: /azure/templates/Microsoft.Compute/virtualMachineScaleSets
+    items:
+    - name: Tillägg
+      href: /azure/templates/Microsoft.Compute/virtualMachineScaleSets/extensions
       maintainContext: true
     - name: Virtuella datorer
-      href: /azure/templates/Microsoft.Compute/virtualMachines
+      href: /azure/templates/Microsoft.Compute/virtualMachineScaleSets/virtualmachines
       maintainContext: true
-      items:
-        - name: Tillägg
-          href: /azure/templates/Microsoft.Compute/virtualMachines/extensions
-          maintainContext: true
-    - name: Virtual Machine Scale Sets
-      href: /azure/templates/Microsoft.Compute/virtualMachineScaleSets
-      maintainContext: true
-      items:
-        - name: Tillägg
-          href: /azure/templates/Microsoft.Compute/virtualMachineScaleSets/extensions
-          maintainContext: true
-        - name: Virtuella datorer
-          href: /azure/templates/Microsoft.Compute/virtualMachineScaleSets/virtualmachines
-          maintainContext: true
+    maintainContext: true
 - name: Containerinstans
   items:
-    - name: Containergrupper
-      href: /azure/templates/Microsoft.ContainerInstance/containerGroups
-      maintainContext: true
+  - name: Containergrupper
+    href: /azure/templates/Microsoft.ContainerInstance/containerGroups
+    maintainContext: true
 - name: Container Registry
   items:
-    - name: Register
-      href: /azure/templates/Microsoft.ContainerRegistry/registries
+  - name: Register
+    href: /azure/templates/Microsoft.ContainerRegistry/registries
+    items:
+    - name: Replikeringar
+      href: /azure/templates/Microsoft.ContainerRegistry/registries/replications
       maintainContext: true
-      items:
-        - name: Replikeringar
-          href: /azure/templates/Microsoft.ContainerRegistry/registries/replications
-          maintainContext: true
-        - name: WebHooks
-          href: /azure/templates/Microsoft.ContainerRegistry/registries/webhooks
-          maintainContext: true
+    - name: WebHooks
+      href: /azure/templates/Microsoft.ContainerRegistry/registries/webhooks
+      maintainContext: true
+    maintainContext: true
 - name: Container Service
   items:
-    - name: Container Services
-      href: /azure/templates/Microsoft.ContainerService/containerServices
-      maintainContext: true
+  - name: Container Services
+    href: /azure/templates/Microsoft.ContainerService/containerServices
+    maintainContext: true
 - name: Cosmos DB
   items:
-    - name: Databaskonton
-      href: /azure/templates/Microsoft.DocumentDB/databaseAccounts
-      maintainContext: true
+  - name: Databaskonton
+    href: /azure/templates/Microsoft.DocumentDB/databaseAccounts
+    maintainContext: true
 - name: Customer Insights
   items:
-    - name: Hubbar
-      href: /azure/templates/Microsoft.CustomerInsights/hubs
+  - name: Hubbar
+    href: /azure/templates/Microsoft.CustomerInsights/hubs
+    items:
+    - name: Auktoriseringsprinciper
+      href: /azure/templates/Microsoft.CustomerInsights/hubs/authorizationPolicies
       maintainContext: true
+    - name: Anslutningar
+      href: /azure/templates/Microsoft.CustomerInsights/hubs/connectors
       items:
-        - name: Auktoriseringsprinciper
-          href: /azure/templates/Microsoft.CustomerInsights/hubs/authorizationPolicies
-          maintainContext: true
-        - name: Anslutningar
-          href: /azure/templates/Microsoft.CustomerInsights/hubs/connectors
-          maintainContext: true
-          items:
-            - name: Mappningar
-              href: /azure/templates/Microsoft.CustomerInsights/hubs/connectors/mappings
-              maintainContext: true
-        - name: Interaktioner
-          href: /azure/templates/Microsoft.CustomerInsights/hubs/interactions
-          maintainContext: true
-        - name: KPI
-          href: /azure/templates/Microsoft.CustomerInsights/hubs/kpi
-          maintainContext: true
-        - name: Länkar
-          href: /azure/templates/Microsoft.CustomerInsights/hubs/links
-          maintainContext: true
-        - name: Förutsägelser
-          href: /azure/templates/Microsoft.CustomerInsights/hubs/predictions
-          maintainContext: true
-        - name: Profiler
-          href: /azure/templates/Microsoft.CustomerInsights/hubs/profiles
-          maintainContext: true
-        - name: Relationslänkar
-          href: /azure/templates/Microsoft.CustomerInsights/hubs/relationshipLinks
-          maintainContext: true
-        - name: Relationer
-          href: /azure/templates/Microsoft.CustomerInsights/hubs/relationships
-          maintainContext: true
-        - name: Rolltilldelningar
-          href: /azure/templates/Microsoft.CustomerInsights/hubs/roleAssignments
-          maintainContext: true
-        - name: Vyer
-          href: /azure/templates/Microsoft.CustomerInsights/hubs/views
-          maintainContext: true
+      - name: Mappningar
+        href: /azure/templates/Microsoft.CustomerInsights/hubs/connectors/mappings
+        maintainContext: true
+      maintainContext: true
+    - name: Interaktioner
+      href: /azure/templates/Microsoft.CustomerInsights/hubs/interactions
+      maintainContext: true
+    - name: KPI
+      href: /azure/templates/Microsoft.CustomerInsights/hubs/kpi
+      maintainContext: true
+    - name: Länkar
+      href: /azure/templates/Microsoft.CustomerInsights/hubs/links
+      maintainContext: true
+    - name: Förutsägelser
+      href: /azure/templates/Microsoft.CustomerInsights/hubs/predictions
+      maintainContext: true
+    - name: Profiler
+      href: /azure/templates/Microsoft.CustomerInsights/hubs/profiles
+      maintainContext: true
+    - name: Relationslänkar
+      href: /azure/templates/Microsoft.CustomerInsights/hubs/relationshipLinks
+      maintainContext: true
+    - name: Relationer
+      href: /azure/templates/Microsoft.CustomerInsights/hubs/relationships
+      maintainContext: true
+    - name: Rolltilldelningar
+      href: /azure/templates/Microsoft.CustomerInsights/hubs/roleAssignments
+      maintainContext: true
+    - name: Vyer
+      href: /azure/templates/Microsoft.CustomerInsights/hubs/views
+      maintainContext: true
+    maintainContext: true
 - name: Data Catalog
   items:
-    - name: Kataloger
-      href: /azure/templates/Microsoft.DataCatalog/catalogs
-      maintainContext: true
+  - name: Kataloger
+    href: /azure/templates/Microsoft.DataCatalog/catalogs
+    maintainContext: true
 - name: Data Factory
   items:
-    - name: Fabriker
-      href: /azure/templates/Microsoft.DataFactory/factories
+  - name: Fabriker
+    href: /azure/templates/Microsoft.DataFactory/factories
+    items:
+    - name: Datauppsättningar
+      href: /azure/templates/Microsoft.DataFactory/factories/datasets
       maintainContext: true
-      items:
-        - name: Datauppsättningar
-          href: /azure/templates/Microsoft.DataFactory/factories/datasets
-          maintainContext: true
-        - name: Integreringskörningar
-          href: /azure/templates/Microsoft.DataFactory/factories/integrationRuntimes
-          maintainContext: true
-        - name: Länkade tjänster
-          href: /azure/templates/Microsoft.DataFactory/factories/linkedservices
-          maintainContext: true
-        - name: Pipelines
-          href: /azure/templates/Microsoft.DataFactory/factories/pipelines
-          maintainContext: true
-        - name: Utlösare
-          href: /azure/templates/Microsoft.DataFactory/factories/triggers
-          maintainContext: true
+    - name: Integreringskörningar
+      href: /azure/templates/Microsoft.DataFactory/factories/integrationRuntimes
+      maintainContext: true
+    - name: Länkade tjänster
+      href: /azure/templates/Microsoft.DataFactory/factories/linkedservices
+      maintainContext: true
+    - name: Pipelines
+      href: /azure/templates/Microsoft.DataFactory/factories/pipelines
+      maintainContext: true
+    - name: Utlösare
+      href: /azure/templates/Microsoft.DataFactory/factories/triggers
+      maintainContext: true
+    maintainContext: true
 - name: Data Lake Analytics
   items:
-    - name: Konton
-      href: /azure/templates/Microsoft.DataLakeAnalytics/accounts
+  - name: Konton
+    href: /azure/templates/Microsoft.DataLakeAnalytics/accounts
+    items:
+    - name: Compute-principer
+      href: /azure/templates/Microsoft.DataLakeAnalytics/accounts/computePolicies
       maintainContext: true
-      items:
-        - name: Compute-principer
-          href: /azure/templates/Microsoft.DataLakeAnalytics/accounts/computePolicies
-          maintainContext: true
-        - name: Data Lake Store-konton
-          href: /azure/templates/Microsoft.DataLakeAnalytics/accounts/DataLakeStoreAccounts
-          maintainContext: true
-        - name: Brandväggsregler
-          href: /azure/templates/Microsoft.DataLakeAnalytics/accounts/firewallRules
-          maintainContext: true
-        - name: Lagringskonton
-          href: /azure/templates/Microsoft.DataLakeAnalytics/accounts/StorageAccounts
-          maintainContext: true
+    - name: Data Lake Store-konton
+      href: /azure/templates/Microsoft.DataLakeAnalytics/accounts/DataLakeStoreAccounts
+      maintainContext: true
+    - name: Brandväggsregler
+      href: /azure/templates/Microsoft.DataLakeAnalytics/accounts/firewallRules
+      maintainContext: true
+    - name: Lagringskonton
+      href: /azure/templates/Microsoft.DataLakeAnalytics/accounts/StorageAccounts
+      maintainContext: true
+    maintainContext: true
 - name: Data Lake Store
   items:
-    - name: Konton
-      href: /azure/templates/Microsoft.DataLakeStore/accounts
+  - name: Konton
+    href: /azure/templates/Microsoft.DataLakeStore/accounts
+    items:
+    - name: Brandväggsregler
+      href: /azure/templates/Microsoft.DataLakeStore/accounts/firewallRules
       maintainContext: true
-      items:
-        - name: Brandväggsregler
-          href: /azure/templates/Microsoft.DataLakeStore/accounts/firewallRules
-          maintainContext: true
-        - name: TrustedID-providrar
-          href: /azure/templates/Microsoft.DataLakeStore/accounts/trustedIdProviders
-          maintainContext: true
+    - name: TrustedID-providrar
+      href: /azure/templates/Microsoft.DataLakeStore/accounts/trustedIdProviders
+      maintainContext: true
+    maintainContext: true
 - name: Enheter
   items:
-    - name: IoT-hubbar
-      href: /azure/templates/Microsoft.Devices/IotHubs
+  - name: IoT-hubbar
+    href: /azure/templates/Microsoft.Devices/IotHubs
+    items:
+    - name: Certifikat
+      href: /azure/templates/Microsoft.Devices/IotHubs/certificates
       maintainContext: true
-      items:
-        - name: Certifikat
-          href: /azure/templates/Microsoft.Devices/IotHubs/certificates
-          maintainContext: true
-        - name: Konsumentgrupper
-          href: /azure/templates/Microsoft.Devices/IotHubs/eventHubEndpoints/ConsumerGroups
-          maintainContext: true
-    - name: Etableringstjänster
-      href: /azure/templates/Microsoft.Devices/provisioningServices
+    - name: Konsumentgrupper
+      href: /azure/templates/Microsoft.Devices/IotHubs/eventHubEndpoints/ConsumerGroups
       maintainContext: true
-      items:
-        - name: Certifikat
-          href: /azure/templates/Microsoft.Devices/provisioningServices/certificates
-          maintainContext: true
+    maintainContext: true
+  - name: Etableringstjänster
+    href: /azure/templates/Microsoft.Devices/provisioningServices
+    items:
+    - name: Certifikat
+      href: /azure/templates/Microsoft.Devices/provisioningServices/certificates
+      maintainContext: true
+    maintainContext: true
 - name: DevTest Labs
   items:
-    - name: Labbar
-      href: /azure/templates/Microsoft.DevTestLab/labs
+  - name: Labbar
+    href: /azure/templates/Microsoft.DevTestLab/labs
+    items:
+    - name: Artefaktkällor
+      href: /azure/templates/Microsoft.DevTestLab/labs/artifactsources
       maintainContext: true
-      items:
-        - name: Artefaktkällor
-          href: /azure/templates/Microsoft.DevTestLab/labs/artifactsources
-          maintainContext: true
-        - name: Kostnader
-          href: /azure/templates/Microsoft.DevTestLab/labs/costs
-          maintainContext: true
-        - name: Anpassade avbildningar
-          href: /azure/templates/Microsoft.DevTestLab/labs/customimages
-          maintainContext: true
-        - name: Formler
-          href: /azure/templates/Microsoft.DevTestLab/labs/formulas
-          maintainContext: true
-        - name: Meddelandekanaler
-          href: /azure/templates/Microsoft.DevTestLab/labs/notificationchannels
-          maintainContext: true
-        - name: Principer
-          href: /azure/templates/Microsoft.DevTestLab/labs/policysets/policies
-          maintainContext: true
-        - name: Scheman
-          href: /azure/templates/Microsoft.DevTestLab/labs/schedules
-          maintainContext: true
-        - name: Tjänstkörningar
-          href: /azure/templates/Microsoft.DevTestLab/labs/servicerunners
-          maintainContext: true
-        - name: Användare
-          href: /azure/templates/Microsoft.DevTestLab/labs/users
-          maintainContext: true
-          items:
-            - name: Diskar
-              href: /azure/templates/Microsoft.DevTestLab/labs/users/disks
-              maintainContext: true
-            - name: Miljöer
-              href: /azure/templates/Microsoft.DevTestLab/labs/users/environments
-              maintainContext: true
-            - name: Hemligheter
-              href: /azure/templates/Microsoft.DevTestLab/labs/users/secrets
-              maintainContext: true
-        - name: Virtuella datorer
-          href: /azure/templates/Microsoft.DevTestLab/labs/virtualmachines
-          maintainContext: true
-          items:
-            - name: Scheman
-              href: /azure/templates/Microsoft.DevTestLab/labs/virtualmachines/schedules
-              maintainContext: true
-        - name: Virtuella nätverk
-          href: /azure/templates/Microsoft.DevTestLab/labs/virtualnetworks
-          maintainContext: true
+    - name: Kostnader
+      href: /azure/templates/Microsoft.DevTestLab/labs/costs
+      maintainContext: true
+    - name: Anpassade avbildningar
+      href: /azure/templates/Microsoft.DevTestLab/labs/customimages
+      maintainContext: true
+    - name: Formler
+      href: /azure/templates/Microsoft.DevTestLab/labs/formulas
+      maintainContext: true
+    - name: Meddelandekanaler
+      href: /azure/templates/Microsoft.DevTestLab/labs/notificationchannels
+      maintainContext: true
+    - name: Principer
+      href: /azure/templates/Microsoft.DevTestLab/labs/policysets/policies
+      maintainContext: true
     - name: Scheman
-      href: /azure/templates/Microsoft.DevTestLab/schedules
+      href: /azure/templates/Microsoft.DevTestLab/labs/schedules
       maintainContext: true
-- name: Domänregistrering
-  items:
-    - name: Domäner
-      href: /azure/templates/Microsoft.DomainRegistration/domains
+    - name: Tjänstkörningar
+      href: /azure/templates/Microsoft.DevTestLab/labs/servicerunners
       maintainContext: true
+    - name: Användare
+      href: /azure/templates/Microsoft.DevTestLab/labs/users
       items:
-        - name: Identifierare av domänägarskap
-          href: /azure/templates/Microsoft.DomainRegistration/domains/domainOwnershipIdentifiers
-          maintainContext: true
-- name: Event Grid
-  items:
-    - name: Händelseprenumerationer
-      href: /azure/templates/Microsoft.EventGrid/eventSubscriptions
+      - name: Diskar
+        href: /azure/templates/Microsoft.DevTestLab/labs/users/disks
+        maintainContext: true
+      - name: Miljöer
+        href: /azure/templates/Microsoft.DevTestLab/labs/users/environments
+        maintainContext: true
+      - name: Hemligheter
+        href: /azure/templates/Microsoft.DevTestLab/labs/users/secrets
+        maintainContext: true
       maintainContext: true
-    - name: Ämnen
-      href: /azure/templates/Microsoft.EventGrid/topics
-      maintainContext: true
-- name: Händelsehubb
-  items:
-    - name: Namnområden
-      href: /azure/templates/Microsoft.EventHub/namespaces
-      maintainContext: true
+    - name: Virtuella datorer
+      href: /azure/templates/Microsoft.DevTestLab/labs/virtualmachines
       items:
-        - name: Auktoriseringsregler
-          href: /azure/templates/Microsoft.EventHub/namespaces/AuthorizationRules
-          maintainContext: true
-        - name: Konfigurationer av haveriberedskap
-          href: /azure/templates/Microsoft.EventHub/namespaces/disasterRecoveryConfigs
-          maintainContext: true
-        - name: Event Hubs
-          href: /azure/templates/Microsoft.EventHub/namespaces/eventhubs
-          maintainContext: true
-          items:
-            - name: Auktoriseringsregler
-              href: /azure/templates/Microsoft.EventHub/namespaces/eventhubs/authorizationRules
-              maintainContext: true
-            - name: Konsumentgrupper
-              href: /azure/templates/Microsoft.EventHub/namespaces/eventhubs/consumergroups
-              maintainContext: true
-- name: HDInsight
-  items:
-    - name: Kluster
-      href: /azure/templates/Microsoft.HDInsight/clusters
-      maintainContext: true
-      items:
-        - name: Program
-          href: /azure/templates/Microsoft.HDInsight/clusters/applications
-          maintainContext: true
-        - name: Tillägg
-          href: /azure/templates/Microsoft.HDInsight/clusters/extensions
-          maintainContext: true
-- name: Import/Export
-  items:
-    - name: Jobb
-      href: /azure/templates/Microsoft.ImportExport/jobs
-      maintainContext: true
-- name: Insikter
-  items:
-    - name: Åtgärdsgrupper
-      href: /azure/templates/Microsoft.insights/actionGroups
-      maintainContext: true
-    - name: Aktivitetsloggaviseringar
-      href: /azure/templates/Microsoft.insights/activityLogAlerts
-      maintainContext: true
-    - name: Varningsregler
-      href: /azure/templates/Microsoft.insights/alertrules
-      maintainContext: true
-    - name: Autoskalningsinställningar
-      href: /azure/templates/Microsoft.insights/autoscalesettings
-      maintainContext: true
-    - name: Komponenter
-      href: /azure/templates/Microsoft.insights/components
-      maintainContext: true
-    - name: Webbtester
-      href: /azure/templates/Microsoft.insights/webtests
-      maintainContext: true
-- name: Key Vault
-  items:
-    - name: Valv
-      href: /azure/templates/Microsoft.KeyVault/vaults
-      maintainContext: true
-- name: Platsbaserade tjänster
-  items:
-    - name: Konton
-      href: /azure/templates/Microsoft.LocationBasedServices/accounts
-      maintainContext: true
-- name: Logik
-  items:
-    - name: Integrationskonton
-      href: /azure/templates/Microsoft.Logic/integrationAccounts
-      maintainContext: true
-      items:
-        - name: Avtal
-          href: /azure/templates/Microsoft.Logic/integrationAccounts/agreements
-          maintainContext: true
-        - name: Certifikat
-          href: /azure/templates/Microsoft.Logic/integrationAccounts/certificates
-          maintainContext: true
-        - name: Kartor
-          href: /azure/templates/Microsoft.Logic/integrationAccounts/maps
-          maintainContext: true
-        - name: Partner
-          href: /azure/templates/Microsoft.Logic/integrationAccounts/partners
-          maintainContext: true
-        - name: Scheman
-          href: /azure/templates/Microsoft.Logic/integrationAccounts/schemas
-          maintainContext: true
-    - name: Arbetsflöden
-      href: /azure/templates/Microsoft.Logic/workflows
-      maintainContext: true
-- name: Machine Learning
-  items:
-    - name: Åtagandeabonnemang
-      href: /azure/templates/Microsoft.MachineLearning/commitmentPlans
-      maintainContext: true
-    - name: Webbtjänster
-      href: /azure/templates/Microsoft.MachineLearning/webServices
-      maintainContext: true
-- name: Media
-  items:
-    - name: Media Services
-      href: /azure/templates/Microsoft.Media/mediaservices
-      maintainContext: true
-- name: MySQL
-  items:
-    - name: Servrar
-      href: /azure/templates/Microsoft.DBforMySQL/servers
-      maintainContext: true
-      items:
-        - name: Konfigurationer
-          href: /azure/templates/Microsoft.DBforMySQL/servers/configurations
-          maintainContext: true
-        - name: Databaser
-          href: /azure/templates/Microsoft.DBforMySQL/servers/databases
-          maintainContext: true
-        - name: Brandväggsregler
-          href: /azure/templates/Microsoft.DBforMySQL/servers/firewallRules
-          maintainContext: true
-- name: Nätverk
-  items:
-    - name: Programgateways
-      href: /azure/templates/Microsoft.Network/applicationGateways
-      maintainContext: true
-    - name: Programsäkerhetsgrupper
-      href: /azure/templates/Microsoft.Network/applicationSecurityGroups
-      maintainContext: true
-    - name: Anslutningar
-      href: /azure/templates/Microsoft.Network/connections
-      maintainContext: true
-    - name: DNS-zoner
-      href: /azure/templates/Microsoft.Network/dnsZones
-      maintainContext: true
-      items:
-        - name: A
-          href: /azure/templates/Microsoft.Network/dnsZones/A
-          maintainContext: true
-        - name: AAAA
-          href: /azure/templates/Microsoft.Network/dnsZones/AAAA
-          maintainContext: true
-        - name: CAA
-          href: /azure/templates/Microsoft.Network/dnsZones/CAA
-          maintainContext: true
-        - name: CNAME
-          href: /azure/templates/Microsoft.Network/dnsZones/CNAME
-          maintainContext: true
-        - name: MX
-          href: /azure/templates/Microsoft.Network/dnsZones/MX
-          maintainContext: true
-        - name: NS
-          href: /azure/templates/Microsoft.Network/dnsZones/NS
-          maintainContext: true
-        - name: PTR
-          href: /azure/templates/Microsoft.Network/dnsZones/PTR
-          maintainContext: true
-        - name: SOA
-          href: /azure/templates/Microsoft.Network/dnsZones/SOA
-          maintainContext: true
-        - name: SRV
-          href: /azure/templates/Microsoft.Network/dnsZones/SRV
-          maintainContext: true
-        - name: TXT
-          href: /azure/templates/Microsoft.Network/dnsZones/TXT
-          maintainContext: true
-    - name: ExpressRoute-kretsar
-      href: /azure/templates/Microsoft.Network/expressRouteCircuits
-      maintainContext: true
-      items:
-        - name: Auktoriseringar
-          href: /azure/templates/Microsoft.Network/expressRouteCircuits/authorizations
-          maintainContext: true
-        - name: Peering-sessioner
-          href: /azure/templates/Microsoft.Network/expressRouteCircuits/peerings
-          maintainContext: true
-    - name: Lastbalanserare
-      href: /azure/templates/Microsoft.Network/loadBalancers
-      maintainContext: true
-      items:
-        - name: Regler för ingående NAT
-          href: /azure/templates/Microsoft.Network/loadBalancers/inboundNatRules
-          maintainContext: true
-    - name: Lokala nätverksgatewayer
-      href: /azure/templates/Microsoft.Network/localNetworkGateways
-      maintainContext: true
-    - name: Nätverksgränssnitt
-      href: /azure/templates/Microsoft.Network/networkInterfaces
-      maintainContext: true
-    - name: Nätverkssäkerhetsgrupper
-      href: /azure/templates/Microsoft.Network/networkSecurityGroups
-      maintainContext: true
-      items:
-        - name: Säkerhetsregler
-          href: /azure/templates/Microsoft.Network/networkSecurityGroups/securityRules
-          maintainContext: true
-    - name: Nätverksbevakare
-      href: /azure/templates/Microsoft.Network/networkWatchers
-      maintainContext: true
-      items:
-        - name: Paketinsamlingar
-          href: /azure/templates/Microsoft.Network/networkWatchers/packetCaptures
-          maintainContext: true
-    - name: Offentliga IP-adresser
-      href: /azure/templates/Microsoft.Network/publicIPAddresses
-      maintainContext: true
-    - name: Flödesfilter
-      href: /azure/templates/Microsoft.Network/routeFilters
-      maintainContext: true
-      items:
-        - name: Regler för flödesfilter
-          href: /azure/templates/Microsoft.Network/routeFilters/routeFilterRules
-          maintainContext: true
-    - name: Routningstabeller
-      href: /azure/templates/Microsoft.Network/routeTables
-      maintainContext: true
-      items:
-        - name: Vägar
-          href: /azure/templates/Microsoft.Network/routeTables/routes
-          maintainContext: true
-    - name: Traffic Manager-profiler
-      href: /azure/templates/Microsoft.Network/trafficmanagerprofiles
-      maintainContext: true
-    - name: Virtuella nätverksgatewayer
-      href: /azure/templates/Microsoft.Network/virtualNetworkGateways
+      - name: Scheman
+        href: /azure/templates/Microsoft.DevTestLab/labs/virtualmachines/schedules
+        maintainContext: true
       maintainContext: true
     - name: Virtuella nätverk
-      href: /azure/templates/Microsoft.Network/virtualNetworks
+      href: /azure/templates/Microsoft.DevTestLab/labs/virtualnetworks
       maintainContext: true
+    maintainContext: true
+  - name: Scheman
+    href: /azure/templates/Microsoft.DevTestLab/schedules
+    maintainContext: true
+- name: Domänregistrering
+  items:
+  - name: Domäner
+    href: /azure/templates/Microsoft.DomainRegistration/domains
+    items:
+    - name: Identifierare av domänägarskap
+      href: /azure/templates/Microsoft.DomainRegistration/domains/domainOwnershipIdentifiers
+      maintainContext: true
+    maintainContext: true
+- name: Event Grid
+  items:
+  - name: Händelseprenumerationer
+    href: /azure/templates/Microsoft.EventGrid/eventSubscriptions
+    maintainContext: true
+  - name: Ämnen
+    href: /azure/templates/Microsoft.EventGrid/topics
+    maintainContext: true
+- name: Händelsehubb
+  items:
+  - name: Namnområden
+    href: /azure/templates/Microsoft.EventHub/namespaces
+    items:
+    - name: Auktoriseringsregler
+      href: /azure/templates/Microsoft.EventHub/namespaces/AuthorizationRules
+      maintainContext: true
+    - name: Konfigurationer av haveriberedskap
+      href: /azure/templates/Microsoft.EventHub/namespaces/disasterRecoveryConfigs
+      maintainContext: true
+    - name: Event Hubs
+      href: /azure/templates/Microsoft.EventHub/namespaces/eventhubs
       items:
-        - name: Undernät
-          href: /azure/templates/Microsoft.Network/virtualNetworks/subnets
-          maintainContext: true
-        - name: Peering för virtuella nätverk
-          href: /azure/templates/Microsoft.Network/virtualNetworks/virtualNetworkPeerings
-          maintainContext: true
+      - name: Auktoriseringsregler
+        href: /azure/templates/Microsoft.EventHub/namespaces/eventhubs/authorizationRules
+        maintainContext: true
+      - name: Konsumentgrupper
+        href: /azure/templates/Microsoft.EventHub/namespaces/eventhubs/consumergroups
+        maintainContext: true
+      maintainContext: true
+    maintainContext: true
+- name: HDInsight
+  items:
+  - name: Kluster
+    href: /azure/templates/Microsoft.HDInsight/clusters
+    items:
+    - name: Program
+      href: /azure/templates/Microsoft.HDInsight/clusters/applications
+      maintainContext: true
+    - name: Tillägg
+      href: /azure/templates/Microsoft.HDInsight/clusters/extensions
+      maintainContext: true
+    maintainContext: true
+- name: Import/Export
+  items:
+  - name: Jobb
+    href: /azure/templates/Microsoft.ImportExport/jobs
+    maintainContext: true
+- name: Insikter
+  items:
+  - name: Åtgärdsgrupper
+    href: /azure/templates/Microsoft.insights/actionGroups
+    maintainContext: true
+  - name: Aktivitetsloggaviseringar
+    href: /azure/templates/Microsoft.insights/activityLogAlerts
+    maintainContext: true
+  - name: Varningsregler
+    href: /azure/templates/Microsoft.insights/alertrules
+    maintainContext: true
+  - name: Autoskalningsinställningar
+    href: /azure/templates/Microsoft.insights/autoscalesettings
+    maintainContext: true
+  - name: Komponenter
+    href: /azure/templates/Microsoft.insights/components
+    maintainContext: true
+  - name: Webbtester
+    href: /azure/templates/Microsoft.insights/webtests
+    maintainContext: true
+- name: Key Vault
+  items:
+  - name: Valv
+    href: /azure/templates/Microsoft.KeyVault/vaults
+    items:
+    - name: Åtkomstprinciper
+      href: /azure/templates/Microsoft.KeyVault/vaults/accessPolicies
+      maintainContext: true
+    - name: Hemligheter
+      href: /azure/templates/Microsoft.KeyVault/vaults/secrets
+      maintainContext: true
+    maintainContext: true
+- name: Platsbaserade tjänster
+  items:
+  - name: Konton
+    href: /azure/templates/Microsoft.LocationBasedServices/accounts
+    maintainContext: true
+- name: Logik
+  items:
+  - name: Integrationskonton
+    href: /azure/templates/Microsoft.Logic/integrationAccounts
+    items:
+    - name: Avtal
+      href: /azure/templates/Microsoft.Logic/integrationAccounts/agreements
+      maintainContext: true
+    - name: Certifikat
+      href: /azure/templates/Microsoft.Logic/integrationAccounts/certificates
+      maintainContext: true
+    - name: Kartor
+      href: /azure/templates/Microsoft.Logic/integrationAccounts/maps
+      maintainContext: true
+    - name: Partner
+      href: /azure/templates/Microsoft.Logic/integrationAccounts/partners
+      maintainContext: true
+    - name: Scheman
+      href: /azure/templates/Microsoft.Logic/integrationAccounts/schemas
+      maintainContext: true
+    maintainContext: true
+  - name: Arbetsflöden
+    href: /azure/templates/Microsoft.Logic/workflows
+    maintainContext: true
+- name: Machine Learning
+  items:
+  - name: Åtagandeabonnemang
+    href: /azure/templates/Microsoft.MachineLearning/commitmentPlans
+    maintainContext: true
+  - name: Webbtjänster
+    href: /azure/templates/Microsoft.MachineLearning/webServices
+    maintainContext: true
+- name: Media
+  items:
+  - name: Media Services
+    href: /azure/templates/Microsoft.Media/mediaservices
+    maintainContext: true
+- name: MySQL
+  items:
+  - name: Servrar
+    href: /azure/templates/Microsoft.DBforMySQL/servers
+    items:
+    - name: Konfigurationer
+      href: /azure/templates/Microsoft.DBforMySQL/servers/configurations
+      maintainContext: true
+    - name: Databaser
+      href: /azure/templates/Microsoft.DBforMySQL/servers/databases
+      maintainContext: true
+    - name: Brandväggsregler
+      href: /azure/templates/Microsoft.DBforMySQL/servers/firewallRules
+      maintainContext: true
+    maintainContext: true
+- name: Nätverk
+  items:
+  - name: Programgateways
+    href: /azure/templates/Microsoft.Network/applicationGateways
+    maintainContext: true
+  - name: Programsäkerhetsgrupper
+    href: /azure/templates/Microsoft.Network/applicationSecurityGroups
+    maintainContext: true
+  - name: Anslutningar
+    href: /azure/templates/Microsoft.Network/connections
+    maintainContext: true
+  - name: DNS-zoner
+    href: /azure/templates/Microsoft.Network/dnsZones
+    items:
+    - name: A
+      href: /azure/templates/Microsoft.Network/dnsZones/A
+      maintainContext: true
+    - name: AAAA
+      href: /azure/templates/Microsoft.Network/dnsZones/AAAA
+      maintainContext: true
+    - name: CAA
+      href: /azure/templates/Microsoft.Network/dnsZones/CAA
+      maintainContext: true
+    - name: CNAME
+      href: /azure/templates/Microsoft.Network/dnsZones/CNAME
+      maintainContext: true
+    - name: MX
+      href: /azure/templates/Microsoft.Network/dnsZones/MX
+      maintainContext: true
+    - name: NS
+      href: /azure/templates/Microsoft.Network/dnsZones/NS
+      maintainContext: true
+    - name: PTR
+      href: /azure/templates/Microsoft.Network/dnsZones/PTR
+      maintainContext: true
+    - name: SOA
+      href: /azure/templates/Microsoft.Network/dnsZones/SOA
+      maintainContext: true
+    - name: SRV
+      href: /azure/templates/Microsoft.Network/dnsZones/SRV
+      maintainContext: true
+    - name: TXT
+      href: /azure/templates/Microsoft.Network/dnsZones/TXT
+      maintainContext: true
+    maintainContext: true
+  - name: ExpressRoute-kretsar
+    href: /azure/templates/Microsoft.Network/expressRouteCircuits
+    items:
+    - name: Auktoriseringar
+      href: /azure/templates/Microsoft.Network/expressRouteCircuits/authorizations
+      maintainContext: true
+    - name: Peering-sessioner
+      href: /azure/templates/Microsoft.Network/expressRouteCircuits/peerings
+      maintainContext: true
+    maintainContext: true
+  - name: Lastbalanserare
+    href: /azure/templates/Microsoft.Network/loadBalancers
+    items:
+    - name: Regler för ingående NAT
+      href: /azure/templates/Microsoft.Network/loadBalancers/inboundNatRules
+      maintainContext: true
+    maintainContext: true
+  - name: Lokala nätverksgatewayer
+    href: /azure/templates/Microsoft.Network/localNetworkGateways
+    maintainContext: true
+  - name: Nätverksgränssnitt
+    href: /azure/templates/Microsoft.Network/networkInterfaces
+    maintainContext: true
+  - name: Nätverkssäkerhetsgrupper
+    href: /azure/templates/Microsoft.Network/networkSecurityGroups
+    items:
+    - name: Säkerhetsregler
+      href: /azure/templates/Microsoft.Network/networkSecurityGroups/securityRules
+      maintainContext: true
+    maintainContext: true
+  - name: Nätverksbevakare
+    href: /azure/templates/Microsoft.Network/networkWatchers
+    items:
+    - name: Paketinsamlingar
+      href: /azure/templates/Microsoft.Network/networkWatchers/packetCaptures
+      maintainContext: true
+    maintainContext: true
+  - name: Offentliga IP-adresser
+    href: /azure/templates/Microsoft.Network/publicIPAddresses
+    maintainContext: true
+  - name: Flödesfilter
+    href: /azure/templates/Microsoft.Network/routeFilters
+    items:
+    - name: Regler för flödesfilter
+      href: /azure/templates/Microsoft.Network/routeFilters/routeFilterRules
+      maintainContext: true
+    maintainContext: true
+  - name: Routningstabeller
+    href: /azure/templates/Microsoft.Network/routeTables
+    items:
+    - name: Vägar
+      href: /azure/templates/Microsoft.Network/routeTables/routes
+      maintainContext: true
+    maintainContext: true
+  - name: Traffic Manager-profiler
+    href: /azure/templates/Microsoft.Network/trafficmanagerprofiles
+    maintainContext: true
+  - name: Virtuella nätverksgatewayer
+    href: /azure/templates/Microsoft.Network/virtualNetworkGateways
+    maintainContext: true
+  - name: Virtuella nätverk
+    href: /azure/templates/Microsoft.Network/virtualNetworks
+    items:
+    - name: Undernät
+      href: /azure/templates/Microsoft.Network/virtualNetworks/subnets
+      maintainContext: true
+    - name: Peering för virtuella nätverk
+      href: /azure/templates/Microsoft.Network/virtualNetworks/virtualNetworkPeerings
+      maintainContext: true
+    maintainContext: true
 - name: Notification Hubs
   items:
-    - name: Namnområden
-      href: /azure/templates/Microsoft.NotificationHubs/namespaces
+  - name: Namnområden
+    href: /azure/templates/Microsoft.NotificationHubs/namespaces
+    items:
+    - name: Auktoriseringsregler
+      href: /azure/templates/Microsoft.NotificationHubs/namespaces/AuthorizationRules
       maintainContext: true
+    - name: Notification Hubs
+      href: /azure/templates/Microsoft.NotificationHubs/namespaces/notificationHubs
       items:
-        - name: Auktoriseringsregler
-          href: /azure/templates/Microsoft.NotificationHubs/namespaces/AuthorizationRules
-          maintainContext: true
-        - name: Notification Hubs
-          href: /azure/templates/Microsoft.NotificationHubs/namespaces/notificationHubs
-          maintainContext: true
-          items:
-            - name: Auktoriseringsregler
-              href: /azure/templates/Microsoft.NotificationHubs/namespaces/notificationHubs/AuthorizationRules
-              maintainContext: true
+      - name: Auktoriseringsregler
+        href: /azure/templates/Microsoft.NotificationHubs/namespaces/notificationHubs/AuthorizationRules
+        maintainContext: true
+      maintainContext: true
+    maintainContext: true
 - name: Operational Insights
   items:
-    - name: Arbetsytor
-      href: /azure/templates/Microsoft.OperationalInsights/workspaces
+  - name: Arbetsytor
+    href: /azure/templates/Microsoft.OperationalInsights/workspaces
+    items:
+    - name: Datakällor
+      href: /azure/templates/Microsoft.OperationalInsights/workspaces/dataSources
       maintainContext: true
-      items:
-        - name: Datakällor
-          href: /azure/templates/Microsoft.OperationalInsights/workspaces/dataSources
-          maintainContext: true
-        - name: Länkade tjänster
-          href: /azure/templates/Microsoft.OperationalInsights/workspaces/linkedServices
-          maintainContext: true
-        - name: Datorgrupper
-          href: /azure/templates/Microsoft.OperationalInsights/workspaces/features/machineGroups
-          maintainContext: true
-        - name: Sparade sökningar
-          href: /azure/templates/Microsoft.OperationalInsights/workspaces/savedSearches
-          maintainContext: true
-        - name: Lagringsinsikter
-          href: /azure/templates/Microsoft.OperationalInsights/workspaces/storageInsightConfigs
-          maintainContext: true
+    - name: Länkade tjänster
+      href: /azure/templates/Microsoft.OperationalInsights/workspaces/linkedServices
+      maintainContext: true
+    - name: Datorgrupper
+      href: /azure/templates/Microsoft.OperationalInsights/workspaces/features/machineGroups
+      maintainContext: true
+    - name: Sparade sökningar
+      href: /azure/templates/Microsoft.OperationalInsights/workspaces/savedSearches
+      maintainContext: true
+    - name: Lagringsinsikter
+      href: /azure/templates/Microsoft.OperationalInsights/workspaces/storageInsightConfigs
+      maintainContext: true
+    maintainContext: true
 - name: PostgreSQL
   items:
-    - name: Servrar
-      href: /azure/templates/Microsoft.DBforPostgreSQL/servers
+  - name: Servrar
+    href: /azure/templates/Microsoft.DBforPostgreSQL/servers
+    items:
+    - name: Konfigurationer
+      href: /azure/templates/Microsoft.DBforPostgreSQL/servers/configurations
       maintainContext: true
-      items:
-        - name: Konfigurationer
-          href: /azure/templates/Microsoft.DBforPostgreSQL/servers/configurations
-          maintainContext: true
-        - name: Databaser
-          href: /azure/templates/Microsoft.DBforPostgreSQL/servers/databases
-          maintainContext: true
-        - name: Brandväggsregler
-          href: /azure/templates/Microsoft.DBforPostgreSQL/servers/firewallRules
-          maintainContext: true
+    - name: Databaser
+      href: /azure/templates/Microsoft.DBforPostgreSQL/servers/databases
+      maintainContext: true
+    - name: Brandväggsregler
+      href: /azure/templates/Microsoft.DBforPostgreSQL/servers/firewallRules
+      maintainContext: true
+    maintainContext: true
 - name: Power BI
   items:
-    - name: Arbetsytesamlingar
-      href: /azure/templates/Microsoft.PowerBI/workspaceCollections
-      maintainContext: true
+  - name: Arbetsytesamlingar
+    href: /azure/templates/Microsoft.PowerBI/workspaceCollections
+    maintainContext: true
 - name: Dedikerad Power BI
   items:
-    - name: Kapaciteter
-      href: /azure/templates/Microsoft.PowerBIDedicated/capacities
-      maintainContext: true
+  - name: Kapaciteter
+    href: /azure/templates/Microsoft.PowerBIDedicated/capacities
+    maintainContext: true
 - name: Recovery Services
   items:
-    - name: Valv
-      href: /azure/templates/Microsoft.RecoveryServices/vaults
+  - name: Valv
+    href: /azure/templates/Microsoft.RecoveryServices/vaults
+    items:
+    - name: Certifikat
+      href: /azure/templates/Microsoft.RecoveryServices/vaults/certificates
       maintainContext: true
+    - name: Säkerhetskopiera skyddsavsikt
+      href: /azure/templates/Microsoft.RecoveryServices/vaults/backupFabrics/backupProtectionIntent
+      maintainContext: true
+    - name: Inställningar för replikeringsaviseringar
+      href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationAlertSettings
+      maintainContext: true
+    - name: Infrastrukturer för replikering
+      href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationFabrics
       items:
-        - name: Certifikat
-          href: /azure/templates/Microsoft.RecoveryServices/vaults/certificates
+      - name: Nätverksmappningar för replikering
+        href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings
+        maintainContext: true
+      - name: Containrar för replikeringsskydd
+        href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers
+        items:
+        - name: Skyddade objekt för replikering
+          href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems
           maintainContext: true
-        - name: Säkerhetskopiera skyddsavsikt
-          href: /azure/templates/Microsoft.RecoveryServices/vaults/backupFabrics/backupProtectionIntent
+        - name: Skyddade containermappningar för replikering
+          href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings
           maintainContext: true
-        - name: Inställningar för replikeringsaviseringar
-          href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationAlertSettings
-          maintainContext: true
-        - name: Infrastrukturer för replikering
-          href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationFabrics
-          maintainContext: true
-          items:
-            - name: Nätverksmappningar för replikering
-              href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings
-              maintainContext: true
-            - name: Containrar för replikeringsskydd
-              href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers
-              maintainContext: true
-              items:
-                - name: Skyddade objekt för replikering
-                  href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems
-                  maintainContext: true
-                - name: Skyddade containermappningar för replikering
-                  href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings
-                  maintainContext: true
-            - name: Lagringsklassificeringsmappningar för replikering
-              href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings
-              maintainContext: true
-            - name: vCenters för replikering
-              href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters
-              maintainContext: true
-        - name: Replikeringsprinciper
-          href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationPolicies
-          maintainContext: true
-        - name: Återställningsplaner för replikering
-          href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationRecoveryPlans
-          maintainContext: true
+        maintainContext: true
+      - name: Lagringsklassificeringsmappningar för replikering
+        href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings
+        maintainContext: true
+      - name: vCenters för replikering
+        href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters
+        maintainContext: true
+      maintainContext: true
+    - name: Replikeringsprinciper
+      href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationPolicies
+      maintainContext: true
+    - name: Återställningsplaner för replikering
+      href: /azure/templates/Microsoft.RecoveryServices/vaults/replicationRecoveryPlans
+      maintainContext: true
+    maintainContext: true
 - name: Resurser
   items:
-    - name: Distributioner
-      href: /azure/templates/Microsoft.Resources/deployments
-      maintainContext: true
+  - name: Distributioner
+    href: /azure/templates/Microsoft.Resources/deployments
+    maintainContext: true
 - name: Relä
   items:
-    - name: Namnområden
-      href: /azure/templates/Microsoft.Relay/namespaces
+  - name: Namnområden
+    href: /azure/templates/Microsoft.Relay/namespaces
+    items:
+    - name: Auktoriseringsregler
+      href: /azure/templates/Microsoft.Relay/namespaces/AuthorizationRules
       maintainContext: true
+    - name: Hybridanslutningar
+      href: /azure/templates/Microsoft.Relay/namespaces/HybridConnections
       items:
-        - name: Auktoriseringsregler
-          href: /azure/templates/Microsoft.Relay/namespaces/AuthorizationRules
-          maintainContext: true
-        - name: Hybridanslutningar
-          href: /azure/templates/Microsoft.Relay/namespaces/HybridConnections
-          maintainContext: true
-          items:
-            - name: Auktoriseringsregler
-              href: /azure/templates/Microsoft.Relay/namespaces/HybridConnections/authorizationRules
-              maintainContext: true
-        - name: WCF-reläer
-          href: /azure/templates/Microsoft.Relay/namespaces/WcfRelays
-          maintainContext: true
-          items:
-            - name: Auktoriseringsregler
-              href: /azure/templates/Microsoft.Relay/namespaces/WcfRelays/authorizationRules
-              maintainContext: true
+      - name: Auktoriseringsregler
+        href: /azure/templates/Microsoft.Relay/namespaces/HybridConnections/authorizationRules
+        maintainContext: true
+      maintainContext: true
+    - name: WCF-reläer
+      href: /azure/templates/Microsoft.Relay/namespaces/WcfRelays
+      items:
+      - name: Auktoriseringsregler
+        href: /azure/templates/Microsoft.Relay/namespaces/WcfRelays/authorizationRules
+        maintainContext: true
+      maintainContext: true
+    maintainContext: true
 - name: Scheduler
   items:
-    - name: Jobbsamlingar
-      href: /azure/templates/Microsoft.Scheduler/jobCollections
+  - name: Jobbsamlingar
+    href: /azure/templates/Microsoft.Scheduler/jobCollections
+    items:
+    - name: Jobb
+      href: /azure/templates/Microsoft.Scheduler/jobCollections/jobs
       maintainContext: true
-      items:
-        - name: Jobb
-          href: /azure/templates/Microsoft.Scheduler/jobCollections/jobs
-          maintainContext: true
+    maintainContext: true
 - name: Search
   items:
-    - name: Söktjänster
-      href: /azure/templates/Microsoft.Search/searchServices
-      maintainContext: true
+  - name: Söktjänster
+    href: /azure/templates/Microsoft.Search/searchServices
+    maintainContext: true
 - name: Serverhantering
   items:
-    - name: Gateways
-      href: /azure/templates/Microsoft.ServerManagement/gateways
-      maintainContext: true
-    - name: Noder
-      href: /azure/templates/Microsoft.ServerManagement/nodes
-      maintainContext: true
+  - name: Gateways
+    href: /azure/templates/Microsoft.ServerManagement/gateways
+    maintainContext: true
+  - name: Noder
+    href: /azure/templates/Microsoft.ServerManagement/nodes
+    items:
+    - name: Sessioner
+      href: /azure/templates/Microsoft.ServerManagement/nodes/sessions
       items:
-        - name: Sessioner
-          href: /azure/templates/Microsoft.ServerManagement/nodes/sessions
-          maintainContext: true
-          items:
-            - name: PS-sessioner
-              href: /azure/templates/Microsoft.ServerManagement/nodes/sessions/features/pssessions
-              maintainContext: true
+      - name: PS-sessioner
+        href: /azure/templates/Microsoft.ServerManagement/nodes/sessions/features/pssessions
+        maintainContext: true
+      maintainContext: true
+    maintainContext: true
 - name: Service Bus
   items:
-    - name: Namnområden
-      href: /azure/templates/Microsoft.ServiceBus/namespaces
+  - name: Namnområden
+    href: /azure/templates/Microsoft.ServiceBus/namespaces
+    items:
+    - name: Auktoriseringsregler
+      href: /azure/templates/Microsoft.ServiceBus/namespaces/AuthorizationRules
       maintainContext: true
+    - name: Konfigurationer av haveriberedskap
+      href: /azure/templates/Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs
+      maintainContext: true
+    - name: Köer
+      href: /azure/templates/Microsoft.ServiceBus/namespaces/queues
       items:
-        - name: Auktoriseringsregler
-          href: /azure/templates/Microsoft.ServiceBus/namespaces/AuthorizationRules
+      - name: Auktoriseringsregler
+        href: /azure/templates/Microsoft.ServiceBus/namespaces/queues/authorizationRules
+        maintainContext: true
+      maintainContext: true
+    - name: Ämnen
+      href: /azure/templates/Microsoft.ServiceBus/namespaces/topics
+      items:
+      - name: Auktoriseringsregler
+        href: /azure/templates/Microsoft.ServiceBus/namespaces/topics/authorizationRules
+        maintainContext: true
+      - name: Prenumerationer
+        href: /azure/templates/Microsoft.ServiceBus/namespaces/topics/subscriptions
+        items:
+        - name: Regler
+          href: /azure/templates/Microsoft.ServiceBus/namespaces/topics/subscriptions/rules
           maintainContext: true
-        - name: Konfigurationer av haveriberedskap
-          href: /azure/templates/Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs
-          maintainContext: true
-        - name: Köer
-          href: /azure/templates/Microsoft.ServiceBus/namespaces/queues
-          maintainContext: true
-          items:
-            - name: Auktoriseringsregler
-              href: /azure/templates/Microsoft.ServiceBus/namespaces/queues/authorizationRules
-              maintainContext: true
-        - name: Ämnen
-          href: /azure/templates/Microsoft.ServiceBus/namespaces/topics
-          maintainContext: true
-          items:
-            - name: Auktoriseringsregler
-              href: /azure/templates/Microsoft.ServiceBus/namespaces/topics/authorizationRules
-              maintainContext: true
-            - name: Prenumerationer
-              href: /azure/templates/Microsoft.ServiceBus/namespaces/topics/subscriptions
-              maintainContext: true
-              items:
-                - name: Regler
-                  href: /azure/templates/Microsoft.ServiceBus/namespaces/topics/subscriptions/rules
-                  maintainContext: true
+        maintainContext: true
+      maintainContext: true
+    maintainContext: true
 - name: Service Fabric
   items:
-    - name: Kluster
-      href: /azure/templates/Microsoft.ServiceFabric/clusters
-      maintainContext: true
+  - name: Kluster
+    href: /azure/templates/Microsoft.ServiceFabric/clusters
+    maintainContext: true
 - name: SQL
   items:
-    - name: Hanterade instanser
-      href: /azure/templates/Microsoft.Sql/managedInstances
+  - name: Hanterade instanser
+    href: /azure/templates/Microsoft.Sql/managedInstances
+    items:
+    - name: Databaser
+      href: /azure/templates/Microsoft.Sql/managedInstances/databases
       maintainContext: true
+    maintainContext: true
+  - name: Servrar
+    href: /azure/templates/Microsoft.Sql/servers
+    items:
+    - name: Databaser
+      href: /azure/templates/Microsoft.Sql/servers/databases
       items:
-        - name: Databaser
-          href: /azure/templates/Microsoft.Sql/managedInstances/databases
-          maintainContext: true
-    - name: Servrar
-      href: /azure/templates/Microsoft.Sql/servers
+      - name: Granskningsinställningar
+        href: /azure/templates/Microsoft.Sql/servers/databases/auditingSettings
+        maintainContext: true
+      - name: Principer för säkerhetskopiering och långsiktig kvarhållning
+        href: /azure/templates/Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies
+        maintainContext: true
+      - name: Transparent datakryptering
+        href: /azure/templates/Microsoft.Sql/servers/databases/transparentDataEncryption
+        maintainContext: true
       maintainContext: true
-      items:
-        - name: Databaser
-          href: /azure/templates/Microsoft.Sql/servers/databases
-          maintainContext: true
-          items:
-            - name: Granskningsinställningar
-              href: /azure/templates/Microsoft.Sql/servers/databases/auditingSettings
-              maintainContext: true
-            - name: Principer för säkerhetskopiering och långsiktig kvarhållning
-              href: /azure/templates/Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies
-              maintainContext: true
-            - name: Transparent datakryptering
-              href: /azure/templates/Microsoft.Sql/servers/databases/transparentDataEncryption
-              maintainContext: true
-        - name: Elastiska pooler
-          href: /azure/templates/Microsoft.Sql/servers/elasticPools
-          maintainContext: true
-        - name: Krypteringsskydd
-          href: /azure/templates/Microsoft.Sql/servers/encryptionProtector
-          maintainContext: true
-        - name: Redundansgrupper
-          href: /azure/templates/Microsoft.Sql/servers/failoverGroups
-          maintainContext: true
-        - name: Brandväggsregler
-          href: /azure/templates/Microsoft.Sql/servers/firewallRules
-          maintainContext: true
-        - name: Nycklar
-          href: /azure/templates/Microsoft.Sql/servers/keys
-          maintainContext: true
-        - name: Regler för virtuellt nätverk
-          href: /azure/templates/Microsoft.Sql/servers/virtualNetworkRules
-          maintainContext: true
+    - name: Elastiska pooler
+      href: /azure/templates/Microsoft.Sql/servers/elasticPools
+      maintainContext: true
+    - name: Krypteringsskydd
+      href: /azure/templates/Microsoft.Sql/servers/encryptionProtector
+      maintainContext: true
+    - name: Redundansgrupper
+      href: /azure/templates/Microsoft.Sql/servers/failoverGroups
+      maintainContext: true
+    - name: Brandväggsregler
+      href: /azure/templates/Microsoft.Sql/servers/firewallRules
+      maintainContext: true
+    - name: Nycklar
+      href: /azure/templates/Microsoft.Sql/servers/keys
+      maintainContext: true
+    - name: Regler för virtuellt nätverk
+      href: /azure/templates/Microsoft.Sql/servers/virtualNetworkRules
+      maintainContext: true
+    maintainContext: true
 - name: Storage
   items:
-    - name: Lagringskonton
-      href: /azure/templates/Microsoft.Storage/storageAccounts
-      maintainContext: true
+  - name: Lagringskonton
+    href: /azure/templates/Microsoft.Storage/storageAccounts
+    maintainContext: true
 - name: StorSimple
   items:
-    - name: Chefer
-      href: /azure/templates/Microsoft.StorSimple/managers
+  - name: Chefer
+    href: /azure/templates/Microsoft.StorSimple/managers
+    items:
+    - name: Åtkomstkontrollposter
+      href: /azure/templates/Microsoft.StorSimple/managers/accessControlRecords
       maintainContext: true
+    - name: Bandbreddsinställningar
+      href: /azure/templates/Microsoft.StorSimple/managers/bandwidthSettings
+      maintainContext: true
+    - name: Autentiseringsuppgifter för lagringskonto
+      href: /azure/templates/Microsoft.StorSimple/managers/storageAccountCredentials
+      maintainContext: true
+    - name: Enheter
       items:
-        - name: Åtkomstkontrollposter
-          href: /azure/templates/Microsoft.StorSimple/managers/accessControlRecords
+      - name: Principer för säkerhetskopiering
+        href: /azure/templates/Microsoft.StorSimple/managers/devices/backupPolicies
+        items:
+        - name: Scheman
+          href: /azure/templates/Microsoft.StorSimple/managers/devices/backupPolicies/schedules
           maintainContext: true
-        - name: Bandbreddsinställningar
-          href: /azure/templates/Microsoft.StorSimple/managers/bandwidthSettings
+        maintainContext: true
+      - name: Volymcontainrar
+        href: /azure/templates/Microsoft.StorSimple/managers/devices/volumeContainers
+        items:
+        - name: Volymer
+          href: /azure/templates/Microsoft.StorSimple/managers/devices/volumeContainers/volumes
           maintainContext: true
-        - name: Autentiseringsuppgifter för lagringskonto
-          href: /azure/templates/Microsoft.StorSimple/managers/storageAccountCredentials
-          maintainContext: true
-        - name: Enheter
-          items:
-            - name: Principer för säkerhetskopiering
-              href: /azure/templates/Microsoft.StorSimple/managers/devices/backupPolicies
-              maintainContext: true
-              items:
-                - name: Scheman
-                  href: /azure/templates/Microsoft.StorSimple/managers/devices/backupPolicies/schedules
-                  maintainContext: true
-            - name: Volymcontainrar
-              href: /azure/templates/Microsoft.StorSimple/managers/devices/volumeContainers
-              maintainContext: true
-              items:
-                - name: Volymer
-                  href: /azure/templates/Microsoft.StorSimple/managers/devices/volumeContainers/volumes
-                  maintainContext: true
+        maintainContext: true
+    maintainContext: true
 - name: Stream Analytics
   items:
-    - name: Direktuppspelningsjobb
-      href: /azure/templates/Microsoft.StreamAnalytics/streamingJobs
+  - name: Direktuppspelningsjobb
+    href: /azure/templates/Microsoft.StreamAnalytics/streamingJobs
+    items:
+    - name: Functions
+      href: /azure/templates/Microsoft.StreamAnalytics/streamingjobs/functions
       maintainContext: true
-      items:
-        - name: Functions
-          href: /azure/templates/Microsoft.StreamAnalytics/streamingjobs/functions
-          maintainContext: true
-        - name: Indata
-          href: /azure/templates/Microsoft.StreamAnalytics/streamingjobs/inputs
-          maintainContext: true
-        - name: Utdata
-          href: /azure/templates/Microsoft.StreamAnalytics/streamingjobs/outputs
-          maintainContext: true
-        - name: Transformationer
-          href: /azure/templates/Microsoft.StreamAnalytics/streamingjobs/transformations
-          maintainContext: true
+    - name: Indata
+      href: /azure/templates/Microsoft.StreamAnalytics/streamingjobs/inputs
+      maintainContext: true
+    - name: Utdata
+      href: /azure/templates/Microsoft.StreamAnalytics/streamingjobs/outputs
+      maintainContext: true
+    - name: Transformationer
+      href: /azure/templates/Microsoft.StreamAnalytics/streamingjobs/transformations
+      maintainContext: true
+    maintainContext: true
 - name: Webb
   items:
-    - name: Certifikat
-      href: /azure/templates/Microsoft.Web/certificates
+  - name: Certifikat
+    href: /azure/templates/Microsoft.Web/certificates
+    maintainContext: true
+  - name: Anslutningsgatewayer
+    href: /azure/templates/Microsoft.Web/connectionGateways
+    maintainContext: true
+  - name: Anslutningar
+    href: /azure/templates/Microsoft.Web/connections
+    maintainContext: true
+  - name: Anpassade API:er
+    href: /azure/templates/Microsoft.Web/customApis
+    maintainContext: true
+  - name: Värdmiljöer
+    href: /azure/templates/Microsoft.Web/hostingEnvironments
+    items:
+    - name: Arbetarpooler
+      href: /azure/templates/Microsoft.Web/hostingEnvironments/workerPools
       maintainContext: true
-    - name: Anslutningsgatewayer
-      href: /azure/templates/Microsoft.Web/connectionGateways
+    maintainContext: true
+  - name: Servergrupper
+    href: /azure/templates/Microsoft.Web/serverfarms
+    maintainContext: true
+  - name: Gateways
+    href: /azure/templates/Microsoft.Web/serverfarms/virtualNetworkConnections/gateways
+    maintainContext: true
+  - name: Vägar
+    href: /azure/templates/Microsoft.Web/serverfarms/virtualNetworkConnections/routes
+    maintainContext: true
+  - name: Webbplatser
+    href: /azure/templates/Microsoft.Web/sites
+    items:
+    - name: Distributioner
+      href: /azure/templates/Microsoft.Web/sites/deployments
       maintainContext: true
-    - name: Anslutningar
-      href: /azure/templates/Microsoft.Web/connections
+    - name: Identifierare av domänägarskap
+      href: /azure/templates/Microsoft.Web/sites/domainOwnershipIdentifiers
       maintainContext: true
-    - name: 'Anpassade API:er'
-      href: /azure/templates/Microsoft.Web/customApis
+    - name: Functions
+      href: /azure/templates/Microsoft.Web/sites/functions
       maintainContext: true
-    - name: Värdmiljöer
-      href: /azure/templates/Microsoft.Web/hostingEnvironments
+    - name: Bindningar för värdnamn
+      href: /azure/templates/Microsoft.Web/sites/hostNameBindings
       maintainContext: true
+    - name: Hybridanslutning
+      href: /azure/templates/Microsoft.Web/sites/hybridconnection
+      maintainContext: true
+    - name: Reläer för hybridanslutning i namnområden
+      href: /azure/templates/Microsoft.Web/sites/hybridConnectionNamespaces/relays
+      maintainContext: true
+    - name: Premier-tillägg
+      href: /azure/templates/Microsoft.Web/sites/premieraddons
+      maintainContext: true
+    - name: Offentliga certifikat
+      href: /azure/templates/Microsoft.Web/sites/publicCertificates
+      maintainContext: true
+    - name: Platstillägg
+      href: /azure/templates/Microsoft.Web/sites/siteextensions
+      maintainContext: true
+    - name: Platser
+      href: /azure/templates/Microsoft.Web/sites/slots
       items:
-        - name: Arbetarpooler
-          href: /azure/templates/Microsoft.Web/hostingEnvironments/workerPools
+      - name: Distributioner
+        href: /azure/templates/Microsoft.Web/sites/slots/deployments
+        maintainContext: true
+      - name: Identifierare av domänägarskap
+        href: /azure/templates/Microsoft.Web/sites/slots/domainOwnershipIdentifiers
+        maintainContext: true
+      - name: Functions
+        href: /azure/templates/Microsoft.Web/sites/slots/functions
+        maintainContext: true
+      - name: Bindningar för värdnamn
+        href: /azure/templates/Microsoft.Web/sites/slots/hostNameBindings
+        maintainContext: true
+      - name: Hybridanslutning
+        href: /azure/templates/Microsoft.Web/sites/slots/hybridconnection
+        maintainContext: true
+      - name: Reläer för hybridanslutning i namnområden
+        href: /azure/templates/Microsoft.Web/sites/slots/hybridConnectionNamespaces/relays
+        maintainContext: true
+      - name: Premier-tillägg
+        href: /azure/templates/Microsoft.Web/sites/slots/premieraddons
+        maintainContext: true
+      - name: Offentliga certifikat
+        href: /azure/templates/Microsoft.Web/sites/slots/publicCertificates
+        maintainContext: true
+      - name: Platstillägg
+        href: /azure/templates/Microsoft.Web/sites/slots/siteextensions
+        maintainContext: true
+      - name: Anslutningar till virtuellt nätverk
+        href: /azure/templates/Microsoft.Web/sites/slots/virtualNetworkConnections
+        items:
+        - name: Gateways
+          href: /azure/templates/Microsoft.Web/sites/slots/virtualNetworkConnections/gateways
           maintainContext: true
-    - name: Servergrupper
-      href: /azure/templates/Microsoft.Web/serverfarms
+        maintainContext: true
       maintainContext: true
-    - name: Gateways
-      href: /azure/templates/Microsoft.Web/serverfarms/virtualNetworkConnections/gateways
-      maintainContext: true
-    - name: Vägar
-      href: /azure/templates/Microsoft.Web/serverfarms/virtualNetworkConnections/routes
-      maintainContext: true
-    - name: Webbplatser
-      href: /azure/templates/Microsoft.Web/sites
-      maintainContext: true
+    - name: Anslutningar till virtuellt nätverk
+      href: /azure/templates/Microsoft.Web/sites/virtualNetworkConnections
       items:
-        - name: Distributioner
-          href: /azure/templates/Microsoft.Web/sites/deployments
-          maintainContext: true
-        - name: Identifierare av domänägarskap
-          href: /azure/templates/Microsoft.Web/sites/domainOwnershipIdentifiers
-          maintainContext: true
-        - name: Functions
-          href: /azure/templates/Microsoft.Web/sites/functions
-          maintainContext: true
-        - name: Bindningar för värdnamn
-          href: /azure/templates/Microsoft.Web/sites/hostNameBindings
-          maintainContext: true
-        - name: Hybridanslutning
-          href: /azure/templates/Microsoft.Web/sites/hybridconnection
-          maintainContext: true
-        - name: Reläer för hybridanslutning i namnområden
-          href: /azure/templates/Microsoft.Web/sites/hybridConnectionNamespaces/relays
-          maintainContext: true
-        - name: Premier-tillägg
-          href: /azure/templates/Microsoft.Web/sites/premieraddons
-          maintainContext: true
-        - name: Offentliga certifikat
-          href: /azure/templates/Microsoft.Web/sites/publicCertificates
-          maintainContext: true
-        - name: Platstillägg
-          href: /azure/templates/Microsoft.Web/sites/siteextensions
-          maintainContext: true
-        - name: Platser
-          href: /azure/templates/Microsoft.Web/sites/slots
-          maintainContext: true
-          items:
-            - name: Distributioner
-              href: /azure/templates/Microsoft.Web/sites/slots/deployments
-              maintainContext: true
-            - name: Identifierare av domänägarskap
-              href: /azure/templates/Microsoft.Web/sites/slots/domainOwnershipIdentifiers
-              maintainContext: true
-            - name: Functions
-              href: /azure/templates/Microsoft.Web/sites/slots/functions
-              maintainContext: true
-            - name: Bindningar för värdnamn
-              href: /azure/templates/Microsoft.Web/sites/slots/hostNameBindings
-              maintainContext: true
-            - name: Hybridanslutning
-              href: /azure/templates/Microsoft.Web/sites/slots/hybridconnection
-              maintainContext: true
-            - name: Reläer för hybridanslutning i namnområden
-              href: /azure/templates/Microsoft.Web/sites/slots/hybridConnectionNamespaces/relays
-              maintainContext: true
-            - name: Premier-tillägg
-              href: /azure/templates/Microsoft.Web/sites/slots/premieraddons
-              maintainContext: true
-            - name: Offentliga certifikat
-              href: /azure/templates/Microsoft.Web/sites/slots/publicCertificates
-              maintainContext: true
-            - name: Platstillägg
-              href: /azure/templates/Microsoft.Web/sites/slots/siteextensions
-              maintainContext: true
-            - name: Anslutningar till virtuellt nätverk
-              href: /azure/templates/Microsoft.Web/sites/slots/virtualNetworkConnections
-              maintainContext: true
-              items:
-                - name: Gateways
-                  href: /azure/templates/Microsoft.Web/sites/slots/virtualNetworkConnections/gateways
-                  maintainContext: true
-        - name: Anslutningar till virtuellt nätverk
-          href: /azure/templates/Microsoft.Web/sites/virtualNetworkConnections
-          maintainContext: true
-          items:
-            - name: Gateways
-              href: /azure/templates/Microsoft.Web/sites/virtualNetworkConnections/gateways
-              maintainContext: true
+      - name: Gateways
+        href: /azure/templates/Microsoft.Web/sites/virtualNetworkConnections/gateways
+        maintainContext: true
+      maintainContext: true
+    maintainContext: true
+ms.openlocfilehash: d4d1828eff777d27fe750906c1bee0d436d89ce5
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41929235"

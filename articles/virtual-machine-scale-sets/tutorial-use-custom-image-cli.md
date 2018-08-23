@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8024033c8eb059fd0c7cc8d226a630f2bc47f01b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d5ee37b8ab79e29efcb4d12f36e927b2ed9e9e71
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38618333"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41921075"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli-20"></a>Självstudie: Skapa och använd en anpassad avbildning för VM-skalningsuppsättningar med Azure CLI 2.0
 När du skapar en skalningsuppsättning, kan du ange en avbildning som ska användas när de virtuella datorinstanserna distribueras. Om du vill minska antalet uppgifter när de virtuella datorinstanserna distribueras, kan du använda en anpassad virtuell datoravbildning. Den här anpassade virtuella datoravbildningen inkluderar alla nödvändiga programinstallationer eller konfigurationer. Alla virtuella datorinstanser som skapats i skalningsuppsättningen använder den anpassade virtuella datoravbildningen och är redo att hantera din programtrafik. I den här självstudiekursen får du lära du dig att:
@@ -107,7 +107,7 @@ az image create \
 
 
 ## <a name="create-a-scale-set-from-the-custom-vm-image"></a>Skapa en skalningsuppsättning från den anpassad virtuella datoravbildningen
-Skapa en skalningsuppsättning med [az vmss create](/cli/az/vmss#az_vmss_create). Istället för en plattformsavbildning som *UbuntuLTS* eller *CentOS*, anger du namnet på din anpassade virtuella datoravbildning. Följande exempel skapar en skalningsuppsättning med namnet *myScaleSet* som använder den anpassade avbildningen med namnet *myImage* från föregående steg:
+Skapa en skalningsuppsättning med [az vmss create](/cli/azure/vmss#az-vmss-create). Istället för en plattformsavbildning som *UbuntuLTS* eller *CentOS*, anger du namnet på din anpassade virtuella datoravbildning. Följande exempel skapar en skalningsuppsättning med namnet *myScaleSet* som använder den anpassade avbildningen med namnet *myImage* från föregående steg:
 
 ```azurecli-interactive
 az vmss create \
@@ -122,7 +122,7 @@ Det tar några minuter att skapa och konfigurera alla skalningsuppsättningsresu
 
 
 ## <a name="test-your-scale-set"></a>Testa din skalningsuppsättning
-Om vill låta trafik nå din skalningsuppsättning och verifiera att webbservern fungerar som den ska, skapar du en belastningsutjämningsregel med [az network lb rule create](/cli/azure/network/lb/rule#create). Följande exempel skapar en regel med namnet *myLoadBalancerRuleWeb* som tillåter trafik på *TCP* port *80*:
+Om vill låta trafik nå din skalningsuppsättning och verifiera att webbservern fungerar som den ska, skapar du en lastbalanseringsregel med [az network lb rule create](/cli/azure/network/lb/rule#create). Följande exempel skapar en regel med namnet *myLoadBalancerRuleWeb* som tillåter trafik på *TCP* port *80*:
 
 ```azurecli-interactive
 az network lb rule create \
@@ -136,7 +136,7 @@ az network lb rule create \
   --protocol tcp
 ```
 
-Om du vill se din skalningsuppsättning fungera, hämtar du den offentliga IP-adressen på din belastningsutjämnare med [az network public-ip show](/cli/azure/network/public-ip#show). Följande exempel hämtar IP-adressen för *myScaleSetLBPublicIP* som skapas som en del av skalningsuppsättningen:
+Om du vill se din skalningsuppsättning fungera, hämtar du den offentliga IP-adressen på din lastbalanserare med [az network public-ip show](/cli/azure/network/public-ip#show). Följande exempel hämtar IP-adressen för *myScaleSetLBPublicIP* som skapas som en del av skalningsuppsättningen:
 
 ```azurecli-interactive
 az network public-ip show \

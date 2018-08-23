@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 07/02/2018
 ms.author: rogarana
-ms.openlocfilehash: 6e15f31ed0e9f6bfcbc41277fcf90e9444bac661
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 76b4cf2a8c16aa207b51faf3cc5252e47a368123
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397055"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42024002"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10-preview"></a>Snabbstart: Ladda upp, ladda ned och visa blobar med Java Storage SDK V10 (förhandsversion)
 
@@ -290,5 +290,5 @@ I den här snabbstarten har du lärt dig hur du överför filer mellan en lokal 
 
 > [!div class="nextstepaction"]
 > [Storage SDK V10 för Java-källkod](https://github.com/Azure/azure-storage-java/tree/New-Storage-SDK-V10-Preview)
-> [API-referens](https://docs.microsoft.com/en-us/java/api/storage/client?view=azure-java-preview)
+> [API-referens](https://docs.microsoft.com/en-us/java/api/overview/azure/storage/client?view=azure-java-preview)
 > [Läs mer om RxJava](https://github.com/ReactiveX/RxJava)

@@ -18,11 +18,11 @@ ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
 ms.openlocfilehash: f010bebcf1130b3061c60987ffbd4e706a030773
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776558"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41920918"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Självstudier: Logga nätverkstrafik till och från en virtuell dator med hjälp av Azure Portal
 
@@ -62,7 +62,7 @@ Det tar några minuter att skapa den virtuella datorn. Fortsätt inte med stegen
 
 Om du redan har aktiverat en nätverksbevakare i östra USA går du vidare till [Registrera Insights-providern](#register-insights-provider).
 
-1. Välj **Alla tjänster** på portalen. Skriv *Network Watcher*i **filterrutan**. Välj **Network Watcher** i sökresultatet.
+1. Välj **Alla tjänster** på portalen. I **filterrutan** skriver du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
 2. Välj **Regioner** för att expandera avsnittet och välj sedan **...** till höger om **USA, östra**, som du ser i följande bild:
 
     ![Aktivera Network Watcher](./media/network-watcher-nsg-flow-logging-portal/enable-network-watcher.png)
@@ -111,9 +111,9 @@ Providern **Microsoft.Insights** krävs för NSG-flödesloggning. Registrera pro
   ![Ladda ned flödesloggar](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. Välj lagringskontot som du konfigurerade i steg 2 i [Aktivera NSG-flödesloggar](#enable-nsg-flow-log).
-4. Välj **Behållare** under **BLOB SERVICE** och välj sedan behållaren **insights-logs-networksecuritygroupflowevent**, som du ser i följande bilden:
+4. Välj **Container** under **BLOB SERVICE** och välj sedan containern **insights-logs-networksecuritygroupflowevent**, som du ser i följande bild:
 
-    ![Välj behållare](./media/network-watcher-nsg-flow-logging-portal/select-container.png)
+    ![Välj container](./media/network-watcher-nsg-flow-logging-portal/select-container.png)
 5. Navigera i mapphierarkin tills du kommer till en PT1H.json-fil, som du ser i följande bild:
 
     ![Loggfil](./media/network-watcher-nsg-flow-logging-portal/log-file.png)

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: e00af59c39219cf6efd14a1c6b2d831fc8addf5a
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 405f69ae1c37e478758d984ddf7dc0e267910fef
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364436"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42023106"
 ---
 # <a name="what-is-azure-policy"></a>Vad är Azure Policy?
 
@@ -119,19 +119,7 @@ Du kan till exempel skapa en lista med värdealternativ i en initiativdefinition
 
 ## <a name="maximum-count-of-policy-objects"></a>Maximalt antal principobjekt
 
-Det finns ett maxantal för varje objekttyp för Azure Policy. En post av typen _Omfång_ betyder antingen prenumerationen eller hanteringsgruppen.
-
-| Var | Vad | Maximalt antal |
-|---|---|---|
-| Omfång | Principdefinitioner | 250 |
-| Omfång | Initiativdefinitioner | 100 |
-| Klientorganisation | Initiativdefinitioner | 1000 |
-| Omfång | Princip-/initiativtilldelningar | 100 |
-| Principdefinition | Parametrar | 20 |
-| Initiativdefinition | Principer | 100 |
-| Initiativdefinition | Parametrar | 100 |
-| Princip-/initiativtilldelningar | Undantag (notScopes) | 100 |
-| Principregel | Kapslade villkor | 512 |
+[!INCLUDE [policy-limits](../../includes/azure-policy-limits.md)]
 
 ## <a name="recommendations-for-managing-policies"></a>Rekommendationer för principhantering
 

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: d5858ba7d10093264e1565d88ae518055b814d34
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 3d1d77e585ae8d608a8f9a4e3de0943315d897af
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085750"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41920387"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Skapa en datafabrik och pipeline med .NET SDK
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,7 +32,7 @@ Den här snabbstarten beskriver hur du använder .NET SDK till att skapa en Azur
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ### <a name="azure-subscription"></a>Azure-prenumeration
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
@@ -41,7 +41,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara medlem av rollerna **deltagare** eller **ägare**, eller vara **administratör** för Azure-prenumerationen. I Azure-portalen klickar du på ditt **användarnamn** i det övre högra hörnet och väljer **Behörigheter** för att visa de behörigheter du har i prenumerationen. Om du har åtkomst till flera prenumerationer väljer du rätt prenumeration. För exempel på instruktioner om hur du lägger till en användare till en roll läser du artikeln [Lägg till roller](../billing/billing-add-change-azure-subscription-administrator.md).
 
 ### <a name="azure-storage-account"></a>Azure Storage-konto
-I den här snabbstarten använder du ett allmänt Azure Storage-konto (Blob Storage, för att vara specifik) som datalager för både **källa** och **destination**. Om du inte har något allmänt Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
+I den här snabbstarten använder du ett allmänt Azure Storage-konto (Blob Storage, för att vara specifik) som datalager för både **källa** och **destination**. Om du inte har något allmänt Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md). 
 
 #### <a name="get-storage-account-name-and-account-key"></a>Hämta lagringskontots namn och åtkomstnyckel
 Du använder namnet och nyckeln för Azure Storage-kontot i den här snabbstarten. Följande procedur innehåller steg för att få fram namnet och nyckeln för ditt lagringskonto. 
@@ -57,21 +57,21 @@ Du använder namnet och nyckeln för Azure Storage-kontot i den här snabbstarte
 5. Kopiera värdena från fälten med **lagringskontots namn** och **nyckel 1** till Urklipp. Klistra in dem i Anteckningar eller något annat redigeringsprogram och spara.  
 
 #### <a name="create-input-folder-and-files"></a>Skapa indatamapp och filer
-Det här avsnittet förutsätter att du har en blobbehållare med namnet **adftutorial** i Azure Blob Storage. Skapa en mapp med namnet **input** i behållaren och ladda upp en exempelfil i indatamappen. 
+Det här avsnittet förutsätter att du har en blobcontainer med namnet **adftutorial** i Azure Blob Storage. Skapa en mapp med namnet **input** i containern och ladda upp en exempelfil i indatamappen. 
 
 1. På sidan **Lagringskonto** växlar du till **Översikt** och klickar på **Blobbar**. 
 
     ![Alternativet Välj blobar](media/quickstart-create-data-factory-dot-net/select-blobs.png)
-2. På sidan **Blob Service** klickar du på **+ Behållare** i verktygsfältet. 
+2. På sidan **Blob Service** klickar du på **+ Container** i verktygsfältet. 
 
-    ![Lägga till behållarknapp](media/quickstart-create-data-factory-dot-net/add-container-button.png)    
-3. I dialogrutan **Ny behållare** anger du **adftutorial** som namn och klickar på **OK**. 
+    ![Lägga till containerknapp](media/quickstart-create-data-factory-dot-net/add-container-button.png)    
+3. I dialogrutan **Ny container** anger du **adftutorial** som namn och klickar på **OK**. 
 
-    ![Ange namn på behållare](media/quickstart-create-data-factory-dot-net/new-container-dialog.png)
-4. Klicka på **adftutorial** i listan över behållare. 
+    ![Ange namn på container](media/quickstart-create-data-factory-dot-net/new-container-dialog.png)
+4. Klicka på **adftutorial** i listan över containrar. 
 
-    ![Välja behållaren](media/quickstart-create-data-factory-dot-net/select-adftutorial-container.png)
-1. På sidan **Behållare** klickar du på **Ladda upp** i verktygsfältet.  
+    ![Välja containern](media/quickstart-create-data-factory-dot-net/select-adftutorial-container.png)
+1. På sidan **Container** klickar du på **Ladda upp** i verktygsfältet.  
 
     ![Knappen för överföring](media/quickstart-create-data-factory-dot-net/upload-toolbar-button.png)
 6. På sidan **Ladda upp blob** klickar du på **Avancerat**.
@@ -92,7 +92,7 @@ Det här avsnittet förutsätter att du har en blobbehållare med namnet **adftu
 12. Stäng sidan **Ladda upp blob** genom att klicka på **X** i hörnet. 
 
     ![Stänga sidan Ladda upp blob](media/quickstart-create-data-factory-dot-net/close-upload-blob.png)
-1. Låt **behållarsidan** vara öppen. Du kommer att använda den för att bekräfta utdata i slutet av snabbstarten.
+1. Låt **containersidan** vara öppen. Du kommer att använda den för att bekräfta utdata i slutet av snabbstarten.
 
 ### <a name="visual-studio"></a>Visual Studio
 I den här artikeln används Visual Studio 2017. Du kan också använda Visual Studio 2013 eller 2015.
@@ -314,7 +314,7 @@ Dictionary<string, object> parameters = new Dictionary<string, object>
     { "inputPath", inputBlobPath },
     { "outputPath", outputBlobPath }
 };
-CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters).Result.Body;
+CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters: parameters).Result.Body;
 Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
 
@@ -467,9 +467,9 @@ Press any key to exit...
 ```
 
 ## <a name="verify-the-output"></a>Verifiera utdata
-Pipelinen skapar automatiskt utdatamappen i blobbehållaren adftutorial. Filen emp.txt kopieras från indatamappen till utdatamappen. 
+Pipelinen skapar automatiskt utdatamappen i blobcontainern adftutorial. Filen emp.txt kopieras från indatamappen till utdatamappen. 
 
-1. På behållarsidan **adftutorial** i Azure-portalen klickar du på **Uppdatera** för att se utdatamappen. 
+1. På containersidan **adftutorial** i Azure-portalen klickar du på **Uppdatera** för att se utdatamappen. 
     
     ![Uppdatera](media/quickstart-create-data-factory-dot-net/output-refresh.png)
 2. Klicka på **output** i mapplistan. 

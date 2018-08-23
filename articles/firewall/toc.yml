@@ -1,54 +1,62 @@
+items:
 - name: Dokumentation om Azure Firewall
   href: index.yml
 - name: Översikt
   items:
-    - name: Vad är Azure Firewall?
-      href: overview.md
+  - name: Vad är Azure Firewall?
+    href: overview.md
 - name: Självstudier
   items:
-    - name: 1. Distribuera och konfigurera
-      href: tutorial-firewall-deploy-portal.md
-    - name: 2. Övervaka diagnostikloggar
-      href: tutorial-diagnostics.md
+  - name: 1. Distribuera och konfigurera
+    href: tutorial-firewall-deploy-portal.md
+  - name: 2. Övervaka diagnostikloggar
+    href: tutorial-diagnostics.md
+  expanded: true
 - name: Exempel
   items:
-    - name: Azure PowerShell
-      href: sample-powershell.md
+  - name: Azure PowerShell
+    href: sample-powershell.md
 - name: Instruktionsguider
   items:
-    - name: Registrera dig för förhandsversion
-      href: public-preview.md
-    - name: Distribuera med hjälp av en mall
-      href: deploy-template.md
+  - name: Registrera dig för förhandsversion
+    href: public-preview.md
+  - name: Distribuera med hjälp av en mall
+    href: deploy-template.md
 - name: Referens
   items:
-    - name: Azure CLI
-      href: /cli/azure/network
-    - name: Azure PowerShell
-      href: /powershell/azure/overview
-    - name: .NET
-      href: /dotnet/api
-    - name: Java
-      href: /java/api
-    - name: Node.js
-      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
-    - name: Python
-      href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST
-      href: /rest/api/firewall
-    - name: Azure Resource Manager
-      href: ../azure-resource-manager/resource-group-overview.md
+  - name: Azure CLI
+    href: /cli/azure/network
+  - name: Azure PowerShell
+    href: /powershell/azure/overview
+  - name: .NET
+    href: /dotnet/api
+  - name: Java
+    href: /java/api
+  - name: Node.js
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
+  - name: Python
+    href: https://azure.microsoft.com/develop/python/
+  - name: REST
+    href: /rest/api/firewall
+  - name: Azure Resource Manager
+    href: ../azure-resource-manager/resource-group-overview.md
 - name: Resurser
   items:
-    - name: VANLIGA FRÅGOR OCH SVAR
-      href: firewall-faq.md
-    - name: Skapa mallar
-      href: ../azure-resource-manager/resource-group-authoring-templates.md
-    - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Community-mallar
-      href: 'https://azure.microsoft.com/documentation/templates'
-    - name: Prissättning
-      href: 'https://azure.microsoft.com/pricing/details/#Linux'
-    - name: Regional tillgänglighet
-      href: 'https://azure.microsoft.com/regions/services/'
+  - name: VANLIGA FRÅGOR OCH SVAR
+    href: firewall-faq.md
+  - name: Skapa mallar
+    href: ../azure-resource-manager/resource-group-authoring-templates.md
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/
+  - name: Community-mallar
+    href: https://azure.microsoft.com/documentation/templates
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/#Linux
+  - name: Regional tillgänglighet
+    href: https://azure.microsoft.com/regions/services/
+ms.openlocfilehash: 5b4ec962353e1d948725839dfd3b7ef72f883ee1
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41927275"

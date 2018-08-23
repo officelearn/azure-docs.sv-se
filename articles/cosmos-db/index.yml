@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: c2f70e5404f50f1ea6d4b83e34e6c8ea1d4d8de5
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: d73048c9941ff3f0684effba6b913e04ade5c930
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308787"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41928673"
 documentType: LandingData
 title: Dokumentation om Azure Cosmos DB
 metadata:
@@ -12,14 +12,14 @@ metadata:
   title: Dokumentation om Azure Cosmos DB – självstudier, API-referens
   description: Lär dig att använda Azure Cosmos DB för att skapa globalt distribuerade databaser för flera datamodeller. I självstudierna lär du dig att bygga upp databaser för datamodeller av typen frågedokument, nyckel/värde och graf.
   services: cosmos-db
-  author: mimig1
+  author: SnehaGunda
   manager: kfile
   ms.service: cosmos-db
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 04/26/2018
-  ms.author: mimig
+  ms.author: sngun
 abstract:
   description: Azure Cosmos DB är en globalt distribuerad databas för flera datamodeller. Använd dessa snabbstarter, självstudier och exempel för att utveckla dokument, nyckelvärden, breda kolumner och diagramdatabaser genom att använda populära API:er och programmeringsmodeller. Lär dig sedan att replikera data över flera Azure-regioner och skala dataflödet oberoende av lagringen, samtidigt som du drar nytta av omfattande serviceavtal.
   aside:
@@ -101,7 +101,7 @@ sections:
       values:
       - href: /azure/cosmos-db/create-sql-api-java
       - href: /azure/cosmos-db/create-sql-api-dotnet
-      - href: /azure/cosmos-db/create-sql-api-nodejs
+      - href: /azure/cosmos-db/create-sql-api-nodejs-preview
       - href: /azure/cosmos-db/create-sql-api-python
       - href: 
       - href: 

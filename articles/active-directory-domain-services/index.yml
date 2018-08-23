@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 840e4a7cb70d32927d4d11e0364826231ac73841
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41928074"
 documentType: LandingData
 title: Dokumentation om Azure AD Domain Services
 metadata:
@@ -13,12 +19,6 @@ metadata:
   ms.devlang: na
   ms.service: active-directory
   ms.component: domain-services
-  ms.openlocfilehash: be65bd568bc631af3d199678631bad6c7525dcd6
-  ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 06/19/2018
-  ms.locfileid: "36219646"
 sections:
 - items:
   - type: markdown
@@ -32,22 +32,22 @@ sections:
     - href: active-directory-ds-overview.md
       html: <p>Läs om vad Azure AD Domain Services kan göra för dig.</p>
       image:
-        src: https://docs.microsoft.com/en-us/media/common/i_investigate.svg
+        src: https://docs.microsoft.com/media/common/i_investigate.svg
       title: Vad är Azure AD Domain Services?
     - href: active-directory-ds-getting-started.md
       html: <p>Skapa en egen hanterad domän med hjälp av den här enkla genomgången.</p>
       image:
-        src: https://docs.microsoft.com/en-us/media/common/i_deploy.svg
+        src: https://docs.microsoft.com/media/common/i_deploy.svg
       title: Kom igång
     - href: active-directory-ds-contact-us.md
       html: <p>Få hjälp när du behöver.</p>
       image:
-        src: https://docs.microsoft.com/en-us/media/common/i_support.svg
+        src: https://docs.microsoft.com/media/common/i_support.svg
       title: Få support
-    - href: https://azure.microsoft.com/en-us/updates/?product=active-directory-ds
+    - href: https://azure.microsoft.com/updates/?product=active-directory-ds
       html: <p>Se nya funktioner i Azure AD Domain Services.</p>
       image:
-        src: https://docs.microsoft.com/en-us/media/common/i_whats-new.svg
+        src: https://docs.microsoft.com/media/common/i_whats-new.svg
       title: Nyheter
 - title: Videoklipp
   items:
@@ -62,7 +62,7 @@ sections:
     - html: <a href="active-directory-ds-features.md">Funktioner i Azure AD Domain Services</a>
     - html: <a href="active-directory-ds-scenarios.md">Hur kan du använda tjänsten?</a>
     - html: <a href="active-directory-ds-synchronization.md">Förstå hur synkroniseringen fungerar i Azure AD Domain Services</a>
-    - html: <a href="https://azure.microsoft.com/en-us/pricing/details/active-directory-ds/">Prissättning i Azure AD Domain Services</a>
+    - html: <a href="https://azure.microsoft.com/pricing/details/active-directory-ds/">Prissättning i Azure AD Domain Services</a>
 - title: Program och Azure AD Domain Services
   items:
   - type: list
@@ -91,12 +91,12 @@ sections:
     - html: <a href="active-directory-ds-troubleshooting.md">Felsökningsguide</a>
     - html: <a href="active-directory-ds-troubleshoot-alerts.md">Felsöka aviseringar på en hanterad domän</a>
     - html: <a href="active-directory-ds-faqs.md">Vanliga frågor och svar</a>
-    - html: <a href="https://azure.microsoft.com/en-us/support/options/">Få support</a>
+    - html: <a href="https://azure.microsoft.com/support/options/">Få support</a>
 - title: Andra resurser
   items:
   - type: list
     style: unordered
     items:
     - html: <a href="https://feedback.azure.com/forums/169401-azure-active-directory/">Ge feedback om Azure AD Domain Services på UserVoice</a>
-    - html: <a href="https://azure.microsoft.com/en-us/roadmap/?category=security-identity">Azure-översikt</a>
-    - html: <a href="https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-contact-us">Kontakta oss</a>
+    - html: <a href="https://azure.microsoft.com/roadmap/?category=security-identity">Azure-översikt</a>
+    - html: <a href="https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-contact-us">Kontakta oss</a>

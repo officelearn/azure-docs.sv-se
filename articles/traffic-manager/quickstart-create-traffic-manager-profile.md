@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2018
 ms.author: kumud
-ms.openlocfilehash: b3a9bbe8b88df4ac7dcb96903341e92261a2649b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c969dbc347f0463f6f675a11f69776948d45a9e2
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39532005"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42022432"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application"></a>Snabbstart: Skapa en Traffic Manager-profil för en webbapp med hög tillgänglighet
 
@@ -128,7 +128,7 @@ Ta bort resursgrupperna, webbapparna och alla relaterade resurser när de inte l
 I den här snabbstarten skapade du en Traffic Manager-profil som gjorde att du kunde dirigera användartrafik för en webbapp med hög tillgänglighet. Om du vill veta mer om att dirigera trafik kan du gå vidare till självstudierna för Traffic Manager.
 
 > [!div class="nextstepaction"]
-> [Självstudier för Traffic Manager](traffic-manager-configure-performance-routing-method.md)
+> [Självstudier för Traffic Manager](tutorial-traffic-manager-improve-website-response.md)
 
 
 

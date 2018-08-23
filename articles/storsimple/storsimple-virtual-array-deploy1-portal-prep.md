@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6685c5ab7768176a0c8e7084c8512d5345732d9a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2126ff7ffd503e1d7b30997f3f32f30429cffefb
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38477932"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42059936"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Distribuera StorSimple Virtual Array – förbereda Azure-portalen
 
@@ -144,7 +144,7 @@ Utför följande steg i den [Azure-portalen](https://portal.azure.com/).
 
 Det här steget är valfritt och bör utföras endast om du inte har aktiverat automatiskt skapande av ett lagringskonto med din tjänst.
 
-Om du vill skapa ett Azure storage-konto i en annan region finns i [hur du skapar ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account) stegvisa instruktioner.
+Om du vill skapa ett Azure storage-konto i en annan region finns i [hur du skapar ett lagringskonto](../storage/common/storage-quickstart-create-account.md) stegvisa instruktioner.
 
 Utför följande steg i den [Azure-portalen](https://ms.portal.azure.com/) på tjänstsidan StorSimple Device Manager för att lägga till ett befintligt Microsoft Azure-lagringskonto.
 

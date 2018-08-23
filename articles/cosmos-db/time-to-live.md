@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 49f6d6ee65ffae71cba8c73301355bfe2bdcd1d6
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 020f9c8753b2b91b3336b304a1c92590f62be003
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480564"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42055412"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Ta bort data från Azure Cosmos DB-samlingarna automatiskt med TTL-värde
 Program kan skapa och lagra stora mängder data. Vissa av dessa data som genererats händelse data, loggar och användaren datorsession informationen kan bara användas under en begränsad tidsperiod. När data blir överskott i förhållande till programmet, är det säkert att rensa dessa data och minska lagringsbehov för ett program.
@@ -41,11 +41,11 @@ När dokumentet har upphört att gälla (`ttl`  +  `_ts` < = aktuella servertide
 
 Logiken som ovan kan visas i följande matrisen:
 
-|  | DefaultTTL ange saknas/inte för samlingen | DefaultTTL = -1 i samling | DefaultTTL = ”n” i samling |
+|  | DefaultTTL ange saknas/inte för samlingen | DefaultTTL = -1 i samling | DefaultTTL = n ”i samling |
 | --- |:--- |:--- |:--- |
-| TTL-värde saknas på dokumentet |Inget att åsidosätta på dokumentnivå eftersom både dokumentet och samling har inga begreppet TTL-värde. |Inga dokument i den här samlingen upphör att gälla. |Dokument i samlingen går ut efter intervall n tiden. |
-| TTL-värde = 1 på dokumentet |Inget att åsidosätta på dokumentnivå eftersom samlingen inte definierar egenskapen DefaultTTL som ett dokument kan åsidosätta. TTL-värdet från ett dokument feltolkade av systemet. |Inga dokument i den här samlingen upphör att gälla. |Dokumentet har TTL =-1 i den här samlingen upphör aldrig att gälla. Alla andra dokument upphör att gälla efter ”n” intervall. |
-| TTL = n på dokumentet |Inget att åsidosätta på dokumentnivå. TTL-värdet från ett dokument feltolkade av systemet. |Dokumentet har TTL = n upphör att gälla efter intervall n, i sekunder. Andra dokument som ska ärva intervallet-1 och upphör aldrig att gälla. |Dokumentet har TTL = n upphör att gälla efter intervall n, i sekunder. Andra dokument ärver ”n” intervall från samlingen. |
+| TTL-värde saknas på dokumentet |Inget att åsidosätta på dokumentnivå eftersom både dokumentet och samling har inga begreppet TTL-värde. |Inga dokument i den här samlingen upphör att gälla. |Dokument i samlingen upphör att gälla när intervall n' nätverksförbindelse. |
+| TTL-värde = 1 på dokumentet |Inget att åsidosätta på dokumentnivå eftersom samlingen inte definierar egenskapen DefaultTTL som ett dokument kan åsidosätta. TTL-värdet från ett dokument feltolkade av systemet. |Inga dokument i den här samlingen upphör att gälla. |Dokumentet har TTL =-1 i den här samlingen upphör aldrig att gälla. Alla andra dokument upphör att gälla efter n' intervall. |
+| TTL = n på dokumentet |Inget att åsidosätta på dokumentnivå. TTL-värdet från ett dokument feltolkade av systemet. |Dokumentet har TTL = n upphör att gälla efter intervall n, i sekunder. Andra dokument som ska ärva intervallet-1 och upphör aldrig att gälla. |Dokumentet har TTL = n upphör att gälla efter intervall n, i sekunder. Andra dokument ärver n' intervall från samlingen. |
 
 ## <a name="configuring-ttl"></a>Konfigurera TTL-värde
 Som standard är TTL-värde inaktiverad som standard i alla Cosmos DB-samlingar och på alla dokument. TTL-värdet kan anges via programmering eller med hjälp av Azure-portalen. Använd följande steg för att konfigurera TTL-värde från Azure-portalen:

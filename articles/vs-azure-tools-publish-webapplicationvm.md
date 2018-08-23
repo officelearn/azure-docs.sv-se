@@ -1,25 +1,26 @@
 ---
 title: Publicera WebApplicationVM | Microsoft Docs
-description: Lär dig hur du distribuerar ett webbprogram till en virtuell dator. Det här skriptet skapar resurserna som krävs i din Azure-prenumeration om de inte redan finns.
+description: Lär dig hur du distribuerar ett webbprogram till en virtuell dator. Det här skriptet skapar resurserna som krävs i din Azure-prenumeration om de inte finns.
 services: visual-studio-online
 author: ghogen
 manager: douge
 assetId: de4cec95-f73f-44d9-babd-9f47f2633cdb
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/11/2016
 ms.author: ghogen
-ms.openlocfilehash: 3fdd11387096d95359fb5f578ca64720f2182c45
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: c2dc6057eeb4eba1306309785e13192674bc43c6
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795919"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42057684"
 ---
 # <a name="publish-webapplicationvm-windows-powershell-script"></a>Publicera-WebApplicationVM (Windows PowerShell-skript)
-Distribuerar ett webbprogram till en virtuell dator. Skriptet skapar resurserna som krävs i din Azure-prenumeration om de inte redan finns.
+Distribuerar ett webbprogram till en virtuell dator. Skriptet skapar resurserna som krävs i Azure-prenumerationen om de inte finns.
 
 ```
 Publish-WebApplicationVM
@@ -35,21 +36,21 @@ Publish-WebApplicationVM
 ### <a name="configuration"></a>Konfiguration
 Sökvägen till JSON-konfigurationsfil som innehåller information om distributionen.
 
-| Alias | ingen |
+| Alias | inga |
 | --- | --- |
 | Krävs? |true |
-| Position |Med namnet |
-| Standardvärde |ingen |
+| Position |med namnet |
+| Standardvärde |inga |
 | Acceptera indata från pipeline? |false |
 | Acceptera jokertecken? |false |
 
 ### <a name="subscriptionname"></a>Prenumerationsnamn
-Namnet på den Azure-prenumeration som du vill skapa den virtuella datorn.
+Namnet på den Azure-prenumeration där du vill skapa den virtuella datorn.
 
-| Alias | ingen |
+| Alias | inga |
 | --- | --- |
 | Krävs? |false |
-| Position |Med namnet |
+| Position |med namnet |
 | Standardvärde |Använder den första prenumerationen i prenumerationsfilen |
 | Acceptera indata från pipeline? |false |
 | Acceptera jokertecken? |false |
@@ -57,62 +58,62 @@ Namnet på den Azure-prenumeration som du vill skapa den virtuella datorn.
 ### <a name="webdeploypackage"></a>WebDeployPackage
 Sökvägen till distributionspaketets att publicera till den virtuella datorn. Du kan skapa det här paketet med hjälp av guiden Publicera webbplats i Visual Studio. Se [så här: skapa ett Webbdistributionspaket i Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx).
 
-| Alias | ingen |
+| Alias | inga |
 | --- | --- |
 | Krävs? |false |
-| Position |Med namnet |
-| Standardvärde |ingen |
+| Position |med namnet |
+| Standardvärde |inga |
 | Acceptera indata från pipeline? |false |
 | Acceptera jokertecken? |false |
 
 ### <a name="allowuntrusted"></a>AllowUntrusted
 Tillåt användning av certifikat som inte är signerat av en betrodd rotcertifikatutfärdare om värdet är true.
 
-| Alias | ingen |
+| Alias | inga |
 | --- | --- |
 | Krävs? |false |
-| Position |Med namnet |
+| Position |med namnet |
 | Standardvärde |false |
 | Acceptera indata från pipeline? |false |
 | Acceptera jokertecken? |false |
 
 ### <a name="vmpassword"></a>VMPassword
-Autentiseringsuppgifterna för kontot för virtuell dator. Exempel: - VMPassword @{Name = ”admin”; Lösenord = ”password”}
+Autentiseringsuppgifterna för VM-kontot. Exempel: - VMPassword @{Name = ”admin”; Lösenord = ”password”}
 
-| Alias | ingen |
+| Alias | inga |
 | --- | --- |
 | Krävs? |false |
-| Position |Med namnet |
-| Standardvärde |ingen |
+| Position |med namnet |
+| Standardvärde |inga |
 | Acceptera indata från pipeline? |false |
 | Acceptera jokertecken? |false |
 
 ### <a name="databaseserverpassword"></a>DatabaseServerPassword
-Autentiseringsuppgifterna för SQL-databas i Azure. Exempel: - DatabaseServerPassword @{Name = ”admin”; Lösenord = ”password”}
+Autentiseringsuppgifter för SQL-databas i Azure. Exempel: - DatabaseServerPassword @{Name = ”admin”; Lösenord = ”password”}
 
-| Alias | ingen |
+| Alias | inga |
 | --- | --- |
 | Krävs? |false |
-| Position |Med namnet |
-| Standardvärde |ingen |
+| Position |med namnet |
+| Standardvärde |inga |
 | Acceptera indata från pipeline? |false |
 | Acceptera jokertecken? |false |
 
 ### <a name="sendhostmessagestooutput"></a>SendHostMessagesToOutput
 Om värdet är true, Skriv ut meddelanden från skriptet till utdataströmmen.
 
-| Alias | ingen |
+| Alias | inga |
 | --- | --- |
 | Krävs? |false |
-| Position |Med namnet |
+| Position |med namnet |
 | Standardvärde |false |
 | Acceptera indata från pipeline? |false |
 | Acceptera jokertecken? |false |
 
 ## <a name="remarks"></a>Kommentarer
-En fullständig förklaring av hur du använder skriptet för att skapa utvecklings- och testmiljöer finns [med hjälp av Windows PowerShell-skript för publicera utvecklings-och testmiljöer](vs-azure-tools-publishing-using-powershell-scripts.md).
+En fullständig förklaring på hur du använder skriptet för att skapa utvecklings- och testmiljöer, finns i [med hjälp av Windows PowerShell-skript för publicera på utvecklings- och testmiljöer](vs-azure-tools-publishing-using-powershell-scripts.md).
 
-JSON-konfigurationsfil anger information om vad som distribueras. Den innehåller den information som du angav när du har skapat projektet, till exempel namn, tillhörighetsgrupp, VHD-avbildningen och storleken på den virtuella datorn. Dessutom innehåller slutpunkter på den virtuella datorn, databaser att etablera, om sådana finns, och web distributionsparametrarna. Följande kod visar ett exempel JSON-konfigurationsfil:
+JSON-konfigurationsfil anger information om nyheter som ska distribueras. Den innehåller den information som du angav när du har skapat projektet, till exempel namn, tillhörighetsgrupp, VHD-avbildningen och storleken på den virtuella datorn. Dessutom innehåller slutpunkter på den virtuella datorn, databaser att etablera, om några, och web distributionsparametrarna. Följande kod visar ett exempel JSON-konfigurationsfil:
 
 ```
 {
@@ -181,5 +182,5 @@ JSON-konfigurationsfil anger information om vad som distribueras. Den innehålle
 }
 ```
 
-Du kan redigera JSON-konfigurationsfil om du vill ändra vilka etableras. En virtuell dator och en molnbaserad tjänst som krävs, men databasen-avsnittet är valfritt.
+Du kan redigera JSON-konfigurationsfil om du vill ändra vad som har etablerats. En virtuell dator och en tjänst i molnet krävs, men databasen-avsnittet är valfritt.
 

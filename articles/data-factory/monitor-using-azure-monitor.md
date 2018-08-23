@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2018
+ms.date: 08/22/2018
 ms.author: shlo
-ms.openlocfilehash: 25bb455ea46fdc96e32e34d434dd844779b0b650
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 1023eadbf4b799cd8b0c761c1689b9249cee450a
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495306"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616852"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Varna och övervaka datafabriker med hjälp av Azure Monitor
 Molnprogram är komplexa med alla rörliga delar. Övervakning ger data så att ditt program fungerar och körs i ett felfritt tillstånd. Det hjälper dig också att stave potentiella problem eller felsöka tidigare sådana. Du kan dessutom använda övervakningsdata för att få djupa insikter om ditt program. Den här kunskapen kan hjälpa dig att förbättra programmets prestanda och underhåll eller automatisera åtgärder som annars skulle kräva manuella åtgärder.
@@ -26,7 +26,7 @@ Molnprogram är komplexa med alla rörliga delar. Övervakning ger data så att 
 Azure Monitor innehåller basnivå infrastruktur mått och loggar för de flesta tjänster i Microsoft Azure. Mer information finns i [Övervakningsöversikt](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Azure diagnostikloggar är loggar som genereras av en resurs som tillhandahåller omfattande, frekventa data om användningen av den här resursen. Data Factory matar ut diagnostikloggar i Azure Monitor.
 
 ## <a name="persist-data-factory-data"></a>Bevara Data Factory-Data
-Data Factory lagrar bara data för pipelinekörning 45 dagar. Om du vill bevara pipelinekörning data i mer än 45 dagar med Azure Monitor kan du kan inte bara vidarebefordra diagnostikloggar för analys, du kan även spara dem till ett lagringskonto så att du har factory information för hela din chossing.
+Data Factory lagrar bara data för pipelinekörning 45 dagar. Om du vill bevara pipelinekörning data i mer än 45 dagar med Azure Monitor, du kan inte bara vidarebefordra diagnostikloggar för analys, du kan även spara dem till ett lagringskonto så att du har factory information för hela valfritt.
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 
@@ -398,6 +398,70 @@ ADFV2 genererar följande mått
 | TriggerFailedRuns    | Det gick inte utlösaren körs mått     | Antal    | Totalt                | Totalt antal utlösaren körs misslyckade inom ett      |
 
 För att komma åt mätvärden, följer du anvisningarna i artikeln- https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics
+
+## <a name="monitor-data-factory-metrics-with-azure-monitor"></a>Övervaka Data Factory mått med Azure Monitor
+
+Du kan använda Azure Data Factory-integrering med Azure Monitor för att vidarebefordra data till Azure Monitor. Den här integreringen är användbart i följande scenarier:
+
+1.  Vill du skriva komplexa frågor på en omfattande uppsättning mått som publiceras av Data Factory till Azure Monitor. Du kan också skapa anpassade varningar på dessa frågor via Azure Monitor.
+
+2.  Du vill övervaka i datafabriker. Du kan dirigera data från flera olika datafabriker för till en enda Azure Monitor-arbetsyta.
+
+Titta på följande videoklipp för en sju minuters introduktion och demonstration av den här funktionen:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Monitor-Data-Factory-pipelines-using-Operations-Management-Suite-OMS/player]
+
+### <a name="configure-diagnostic-settings-and-workspace"></a>Konfigurera diagnostikinställningar och arbetsyta
+
+Aktivera diagnostikinställningar för din datafabrik.
+
+1.  Välj **Azure Monitor** -> **diagnostikinställningar** -> Välj data factory -> Aktivera diagnostik.
+
+    ![Övervakare-oms-image1.png](media/data-factory-monitor-oms/monitor-oms-image1.png)
+
+2.  Ange diagnostikinställningar inklusive konfiguration av arbetsytan.
+
+    ![Övervakare-oms-image2.png](media/data-factory-monitor-oms/monitor-oms-image2.png)
+
+### <a name="install-azure-data-factory-analytics-from-azure-marketplace"></a>Installera Azure Data Factory Analytics från Azure Marketplace
+
+![Övervakare-oms-image3.png](media/data-factory-monitor-oms/monitor-oms-image3.png)
+
+![Övervakare-oms-image4.png](media/data-factory-monitor-oms/monitor-oms-image4.png)
+
+Klicka på **skapa** och välj arbetsyta och arbetsytan inställningar.
+
+![Övervakare-oms-image5.png](media/data-factory-monitor-oms/monitor-oms-image5.png)
+
+### <a name="monitor-data-factory-metrics"></a>Övervaka Datafabriksmått
+
+Installera **Azure Data Factory Analytics** skapar en standarduppsättning med vyer som möjliggör följande mått:
+
+- ADF körningar-1) Pipeline-körningar av Data Factory
+
+- Aktivitetskörningar för ADF körningar-2) av Data Factory
+
+- ADF körningar – 3) Trigger Runs av Data Factory
+
+- ADF fel-1) översta 10 Pipeline-fel i Data Factory
+
+- ADF fel-2) översta 10 Aktivitetskörningar av Data Factory
+
+- ADF fel – 3) översta 10 utlösaren fel av Data Factory
+
+- ADF statistik-1) Aktivitetskörningar efter typ
+
+- ADF statistik-2) Trigger Runs efter typ
+
+- ADF statistik – 3) Pipelinekörningar Max varaktighet
+
+![Övervakare-oms-image6.png](media/data-factory-monitor-oms/monitor-oms-image6.png)
+
+![Övervakare-oms-image7.png](media/data-factory-monitor-oms/monitor-oms-image7.png)
+
+Du kan visualisera måtten som ovan, titta på frågorna som bakom de här måtten, redigera frågor, skapa aviseringar och så vidare.
+
+![Övervakare-oms-image8.png](media/data-factory-monitor-oms/monitor-oms-image8.png)
 
 ## <a name="alerts"></a>Aviseringar
 

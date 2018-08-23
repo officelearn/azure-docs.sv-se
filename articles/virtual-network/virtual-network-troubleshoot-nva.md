@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2018
 ms.author: genli
-ms.openlocfilehash: 5f11129e562ec47f4c81790cf21c9a390cc697b8
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d16f106fa1776b0d11a97f71ffe16cf89fb9584a
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621413"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057696"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Virtuell installation nätverksproblem i Azure
 
@@ -132,5 +132,5 @@ Avbilda en samtidig nätverksspårning på den Virtuella källdatorn och NVA må
 
 Om du inte ser inkommande paket i serverdelens VM spårningen det troligen en NSG eller UDR-störningar eller NVA routningstabeller är felaktiga.
 
-Om du ser att paket, men inget svar, kommer in kan du behöva åtgärda problem med ett program på den virtuella datorn eller med brandväggen. För någon av dessa frågor [kontakta NVA-leverantören för att få hjälp för](Let's link customer to 3rd party vendor again here: https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+Om du ser att paket, men inget svar, kommer in kan du behöva åtgärda problem med ett program på den virtuella datorn eller med brandväggen. För någon av dessa frågor [kontakta NVA-leverantören för att få hjälp för](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
 

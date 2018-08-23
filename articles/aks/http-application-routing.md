@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 9c26a85a50bf4e7272b229bac8a8b9aa8c1ae364
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 93b9075831db356607438288a7c153dde2f8b210
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238530"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42060957"
 ---
 # <a name="http-application-routing"></a>Routning av HTTP-program
 
@@ -33,13 +33,19 @@ Tillägget distribuerar två komponenter: en [Kubernetes Ingress-kontrollant] [ 
 Tillägg till routning för HTTP-program kan aktiveras med Azure CLI när du distribuerar ett AKS-kluster. Du gör detta genom att använda den [az aks skapa] [ az-aks-create] med den `--enable-addons` argumentet.
 
 ```azurecli
-az aks create --resource-group myAKSCluster --name myAKSCluster --enable-addons http_application_routing
+az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
 ```
 
-När klustret distribueras kan du använda den [az aks show] [ az-aks-show] kommando för att hämta DNS-zonens namn. Det här namnet behövs för att distribuera program till AKS-klustret.
+Du kan också aktivera HTTP-routning på en befintlig AKS-kluster med den [az aks enable-tillägg] [ az-aks-enable-addons] kommando. Om du vill aktivera HTTP-routning i ett befintligt kluster, lägger du till den `--addons` parametern och ange *http_application_routing* som visas i följande exempel:
 
 ```azurecli
-$ az aks show --resource-group myAKSCluster --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
+az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
+```
+
+När klustret distribueras eller uppdaterats, använda den [az aks show] [ az-aks-show] kommando för att hämta DNS-zonens namn. Det här namnet behövs för att distribuera program till AKS-klustret.
+
+```azurecli
+$ az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
 
 Result
 -----------------------------------------------------
@@ -155,7 +161,7 @@ $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 HTTP-routning lösningen kan tas bort med hjälp av Azure CLI. För att göra det kör du följande kommando, och ersätt dina AKS-kluster och resurs gruppnamn.
 
 ```azurecli
-az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myAKSCluster --no-wait
+az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
 ## <a name="troubleshoot"></a>Felsöka
@@ -232,6 +238,7 @@ Information om hur du installerar en HTTPS-skyddad Ingress-kontrollant i AKS fin
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az-aks-show
 [ingress-https]: ./ingress.md
+[az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
 
 
 <!-- LINKS - external -->

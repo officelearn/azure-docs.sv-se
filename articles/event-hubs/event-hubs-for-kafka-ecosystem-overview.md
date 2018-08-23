@@ -3,26 +3,28 @@ title: Azure Event Hubs för Apache Kafka | Microsoft Docs
 description: Översikt och introduktion till Kafka aktiverat Azure Event Hubs
 services: event-hubs
 documentationcenter: .net
-author: djrosanova
+author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: darosa
-ms.openlocfilehash: 51f2ad736ccbf27cafb05b8f68653f5effdecbf0
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.date: 08/16/2018
+ms.author: bahariri
+ms.openlocfilehash: 16c101068be48ba1435ef230b29c679fcef17d08
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503510"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42061697"
 ---
 # <a name="azure-event-hubs-for-apache-kafka-preview"></a>Händelsehubbar i Azure för Apache Kafka (förhandsgranskning)
 
-Event Hubs ger en Kafka-slutpunkt som kan användas av din befintliga Kafka-baserade program som ett alternativ till att köra dina egna Kafka-kluster. Har stöd för Händelsehubbar [Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) och nyare-klientversioner och fungerar med dina befintliga Kafka-program, inklusive MirrorMaker. Ändra anslutningssträngen och starta direktuppspelning av händelser från dina program som använder Kafka-protokollet till Event Hubs.
+Event Hubs ger en Kafka-slutpunkt som kan användas av din befintliga Kafka-baserade program som ett alternativ till att köra dina egna Kafka-kluster. Har stöd för Händelsehubbar [Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) och nyare-klientversioner och fungerar med dina befintliga Kafka-program, inklusive MirrorMaker. 
 
 ## <a name="what-does-event-hubs-for-kafka-provide"></a>Vad tillhandahåller Händelsehubbar för Kafka?
 
-Event Hubs för Kafka-funktionen innehåller en protokollet head ovanpå Azure Event Hubs som är binär kompatibel med Kafka versioner 1.0 och senare för att både läsa från och skriva till Kafka-avsnitt. Begreppsmässigt Kafka och Event Hubs är nästan identiska: de är båda partitionerade loggar som skapats för strömmande data. I följande tabell visas begrepp mellan Kafka och Händelsehubbar.
+Event Hubs för Kafka-funktionen innehåller en protokollet head ovanpå Azure Event Hubs som är binär kompatibel med Kafka versioner 1.0 och senare för att både läsa från och skriva till Kafka-avsnitt. Du kan börja använda Kafka-slutpunkten från dina program med några ändringar i koden, men en minimal konfigurationsändring. Du kan uppdatera anslutningssträngen i konfigurationer för att peka på Kafka-slutpunkt som exponeras av din händelsehubb i stället för att peka på Kafka-kluster. Du kan sedan starta direktuppspelning av händelser från dina program som använder Kafka-protokollet till Event Hubs. 
+
+Begreppsmässigt Kafka och Event Hubs är nästan identiska: de är båda partitionerade loggar som skapats för strömmande data. I följande tabell visas begrepp mellan Kafka och Händelsehubbar.
 
 ### <a name="kafka-and-event-hub-conceptual-mapping"></a>Kafka och Event Hub konceptuella mappning
 
@@ -36,7 +38,7 @@ Event Hubs för Kafka-funktionen innehåller en protokollet head ovanpå Azure E
 
 ### <a name="key-differences-between-kafka-and-event-hubs"></a>Viktiga skillnader mellan Kafka och Event Hubs
 
-Medan [Apache Kafka](https://kafka.apache.org/) är programvara som du kan köra oavsett var du väljer, Event Hubs är en molntjänst som liknar Azure Blob Storage. Det finns inga servrar eller nätverk för att hantera och inga asynkrona meddelandeköer för att konfigurera. Du skapar ett namnområde som är ett FQDN som där dina ämnen bor. och sedan skapa Event Hubs och ämnen inom namnområdet. Läs mer om Event Hubs och namnområden [vad är Event Hubs](event-hubs-what-is-event-hubs.md). Som en molntjänst använder Händelsehubbar en stabil virtuella IP-adress som slutpunkt, så att klienter inte behöver veta om mäklare eller datorer inom ett kluster. 
+Medan [Apache Kafka](https://kafka.apache.org/) är programvara som du kan köra oavsett var du väljer, Event Hubs är en molntjänst som liknar Azure Blob Storage. Det finns inga servrar eller nätverk för att hantera och inga asynkrona meddelandeköer för att konfigurera. Du skapar ett namnområde som är ett FQDN som där dina ämnen bor. och sedan skapa Event Hubs och ämnen inom namnområdet. Läs mer om Event Hubs och namnområden [Event Hubs-funktioner](event-hubs-features.md#namespace). Som en molntjänst använder Händelsehubbar en stabil virtuella IP-adress som slutpunkt, så att klienter inte behöver veta om mäklare eller datorer inom ett kluster. 
 
 Skala i Händelsehubbar styrs av hur många genomflödesenheter du har köpt får med varje throughput unit ger rätt till 1 MB per sekund eller 1000 händelser per sekund för ingångshändelser. Som standard Event Hubs kan skalas upp genomflödesenheter när du når gränsen med den [automatisk ökning](event-hubs-auto-inflate.md) funktionen; detta även funktionen fungerar med Event Hubs för Kafka-funktionen. 
 

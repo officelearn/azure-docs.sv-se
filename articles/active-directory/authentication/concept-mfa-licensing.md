@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 92be187a1c593742feb90409f2b8cc305bf9a6c8
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 8ecb2008b85bb6a7ac35b5f95deaf0fb321ce155
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161659"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42057378"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Så här hämtar du Azure Multi-Factor Authentication
 
@@ -63,7 +63,7 @@ Följande tabell innehåller en lista över de funktioner som är tillgängliga 
 
 ## <a name="how-to-turn-on-azure-multi-factor-authentication-for-azure-ad-administrators"></a>Aktivera Azure Multi-Factor Authentication för Azure AD-administratörer
 
-Användare som har tilldelats rollen Global administratör i Azure AD-klienter kan aktivera tvåstegsverifiering för sina Azure AD globala administratörskonton utan extra kostnad. Om du använder ett Account kan du registrera dig för multifaktorautentisering med hjälp av vägledningen i Microsoft-konto support-artikeln [om tvåstegsverifiering](https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification). Om du inte använder ett Account, aktivera multifaktorautentisering för globala administratörer med hjälp av vägledningen som finns i artikeln [kräva tvåstegsverifiering för en användare eller grupp](howto-mfa-userstates.md).
+Användare som har tilldelats rollen Global administratör i Azure AD-klienter kan aktivera tvåstegsverifiering för sina Azure AD globala administratörskonton utan extra kostnad. Om du använder ett Account kan du registrera dig för multifaktorautentisering med hjälp av vägledningen i Microsoft-konto support-artikeln [om tvåstegsverifiering](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification). Om du inte använder ett Account, aktivera multifaktorautentisering för globala administratörer med hjälp av vägledningen som finns i artikeln [kräva tvåstegsverifiering för en användare eller grupp](howto-mfa-userstates.md).
 
 ## <a name="how-to-get-azure-multi-factor-authentication"></a>Så här hämtar du Azure Multi-Factor Authentication
 

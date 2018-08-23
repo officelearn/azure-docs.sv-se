@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 08/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 7cf41a10f13e2edeb4ab1944c0d38cc7064c02bb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 88a4bcf018387ac83b485ec9e2efac11f85ba97c
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40161485"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42432297"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>App Service i Azure Stack uppdatering 3 viktig information
 
@@ -70,6 +70,10 @@ Azure App Service i Azure Stack Update 3 innehåller följande förbättringar o
   - Har lagts till Wincache 2.0.0.8
   - Uppdaterade Git för Windows till v 2.17.1.2
   - Uppdaterade Kudu till 74.10611.3437
+  
+- **Uppdateringar av underliggande operativsystemet för alla roller**:
+  - [Servicing stack-uppdatering för Windows Server 2016 för x64-baserade system (KB4132216)](https://support.microsoft.com/help/4132216/servicing-stack-update-for-windows-10-1607-may-17-2018)
+  - [2018-07 kumulativ uppdatering för Windows Server 2016 för x64-baserade system (KB4338822)](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822)
 
 ### <a name="post-update-steps-optional"></a>Uppdatera steg efter (valfritt)
 
@@ -80,7 +84,7 @@ För kunder som vill migrera till innesluten databas för befintliga Azure App S
 >
 >
 
-1. Lägg till [databasen till en tillgänglighetsgrupp](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)
+1. Lägg till [AppService-databaser (appservice_hosting och appservice_metering) till en tillgänglighetsgrupp](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)
 
 1. Aktivera innehåller databas
     ```sql

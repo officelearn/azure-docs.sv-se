@@ -17,12 +17,12 @@ ms.date: 07/26/2018
 ms.author: celested
 ms.reviewer: jmprieur, andret, nacanuma, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: dda0d8e9496eb310f6d2a2791977e9de0eea6503
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: fc6c97906525b2f575a18ce5357eb3e10bfb4887
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578532"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42055632"
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Autentiseringsscenarier för Azure AD
 
@@ -52,7 +52,7 @@ Diagrammet ovan i åtanke är här vad du behöver veta om dess olika komponente
 * Azure AD är identitetsprovidern, och ansvarar för att verifiera identiteten för användare och program som finns i en organisations katalog och slutligen utfärda säkerhetstoken efter lyckad autentisering för dessa användare och program.
 * Ett program som vill flytta över autentisering till Azure AD måste vara registrerad i Azure AD, som registrerar och som unikt identifierar appen i katalogen.
 * Utvecklare kan använda open source-Azure AD-autentiseringsbibliotek för att göra autentisering enkelt genom att hantera protocol-information för dig. Mer information finns i [Azure Active Directory Authentication Libraries](active-directory-authentication-libraries.md).
-* När en användare har autentiserats måste måste programmet Validera användarens säkerhetstoken för att säkerställa att autentiseringen har lyckats. Vi har några exempel på vad programmet måste göra på en mängd olika språk och ramverk på [GitHub](https://github.com/Azure-Samples?q=active-directory). Om du skapar en webbapp i ASP.NET, finns i den [Lägg till inloggning för ett ASP.NET web app för](https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp). Om du skapar ett web API-resursen i ASP.NET, finns i den [webb-API: Kom igång med](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-webapi-dotnet).
+* När en användare har autentiserats måste måste programmet Validera användarens säkerhetstoken för att säkerställa att autentiseringen har lyckats. Vi har några exempel på vad programmet måste göra på en mängd olika språk och ramverk på [GitHub](https://github.com/Azure-Samples?q=active-directory). Om du skapar en webbapp i ASP.NET, finns i den [Lägg till inloggning för ett ASP.NET web app för](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp). Om du skapar ett web API-resursen i ASP.NET, finns i den [webb-API: Kom igång med](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-webapi-dotnet).
 * Flödet av begäranden och svar för autentiseringsprocessen bestäms av autentiseringsprotokollet som användes, till exempel OAuth 2.0, OpenID Connect, WS-Federation eller SAML 2.0. Dessa protokoll beskrivs mer ingående i den [Azure Active Directory-autentiseringsprotokoll](active-directory-authentication-protocols.md) artikeln och i avsnitten nedan.
 
 > [!NOTE]

@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 08/20/2018
 ms.author: danlep
-ms.openlocfilehash: d0762f80267fa927681344a3e0de78b0800c8306
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fc245d38af90e0c395389e24b14d061fcfe0c10c
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630219"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42057718"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Hur du använder SSH-nycklar med Windows på Azure
 
@@ -33,9 +33,9 @@ Den här artikeln beskrivs hur du skapar och använder secure shell (SSH)-nyckla
 ## <a name="windows-packages-and-ssh-clients"></a>Windows-paket och SSH-klienter
 Du ansluter till och hantera virtuella Linux-datorer i Azure med hjälp av en *SSH-klient*. Datorer som kör Linux eller macOS vanligtvis har en uppsättning SSH kommandon för att skapa och hantera en SSH-nycklar och att skapa SSH-anslutningar. 
 
-Windows-datorer har inte alltid likvärdig SSH-kommandon som är installerad. Windows 10-versioner som innehåller den [Windows-undersystem for Linux](https://docs.microsoft.com/windows/wsl/about) gör att du kan köra och få åtkomst till verktyg, till exempel en SSH-klient internt i ett Bash-gränssnitt. 
+Windows-datorer har inte alltid likvärdig SSH-kommandon som är installerad. De senaste versionerna av Windows 10 ger [OpenSSH-klientkommandon](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) att skapa och hantera SSH-nycklar och göra SSH-anslutningar från en kommandotolk. De senaste Windows 10-versioner kan även innehålla den [Windows-undersystem for Linux](https://docs.microsoft.com/windows/wsl/about) att köra och få åtkomst till verktyg, till exempel en SSH-klient internt i ett Bash-gränssnitt. 
 
-Om du vill använda något annat än Bash för Windows ingår vanliga Windows SSH-klienter kan du installera lokalt i följande paket:
+Om du vill använda en annan SSH-verktyg för Windows ingår vanliga Windows SSH-klienter kan du installera lokalt i följande paket:
 
 * [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
 * [Git för Windows](https://git-for-windows.github.io/)
@@ -52,7 +52,7 @@ Det här avsnittet visas två alternativ för att skapa en SSH-nyckelpar i Windo
 
 ### <a name="create-ssh-keys-with-ssh-keygen"></a>Skapa SSH-nycklar med ssh-keygen
 
-Om du kan köra en kommandotolk, till exempel Bash för Windows eller GitBash (eller Bash i Azure Cloud Shell) måste du skapa en SSH-nyckelpar med hjälp av den `ssh-keygen` kommando. Skriv följande kommando och svara på frågorna. Om en SSH-nyckelpar finns i den aktuella platsen, kommer dessa filer skrivs över. 
+Om du kör en kommandotolk i Windows som har stöd för SSH-klientverktyg (eller du använder Azure Cloud Shell), skapa en SSH-nyckelpar med hjälp av den `ssh-keygen` kommando. Skriv följande kommando och svara på frågorna. Om en SSH-nyckelpar finns i den aktuella platsen, kommer dessa filer skrivs över. 
 
 ```bash
 ssh-keygen -t rsa -b 2048

@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: dbb95c8aadc66e7ece93fa800055a0f6be81f015
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 7e7952a327134197f1e8492931d7ada871789395
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161420"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056040"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Uppgradera till den senaste Azure Multi-Factor Authentication Server
 
 Den här artikeln vägleder dig genom uppgraderingsprocessen Azure Multi-Factor Authentication (MFA) Server version 6.0 eller senare. Om du vill uppgradera en äldre version av PhoneFactor Agent kan se [uppgradera PhoneFactor Agent till Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade-pf.md).
 
-Om du uppgraderar från version 6.x eller senare till v7.x eller senare, ändra alla komponenter från .NET 2.0 till .NET 4.5. Alla komponenter kräver även Microsoft Visual C++ 2015 Redistributable uppdatering 1 eller senare. MFA Server-installationsprogrammet installerar x86 och x64 versioner av dessa komponenter om de inte redan är installerade. Om Användarportalen och webbtjänsten Mobile App körs på separata servrar, måste du installera dessa paket innan du uppgraderar komponenterna. Du kan söka efter den senaste uppdateringen av Microsoft Visual C++ 2015 Redistributable på den [Microsoft Download Center](https://www.microsoft.com/en-us/download/). 
+Om du uppgraderar från version 6.x eller senare till v7.x eller senare, ändra alla komponenter från .NET 2.0 till .NET 4.5. Alla komponenter kräver även Microsoft Visual C++ 2015 Redistributable uppdatering 1 eller senare. MFA Server-installationsprogrammet installerar x86 och x64 versioner av dessa komponenter om de inte redan är installerade. Om Användarportalen och webbtjänsten Mobile App körs på separata servrar, måste du installera dessa paket innan du uppgraderar komponenterna. Du kan söka efter den senaste uppdateringen av Microsoft Visual C++ 2015 Redistributable på den [Microsoft Download Center](https://www.microsoft.com/download/). 
 
 ## <a name="install-the-latest-version-of-azure-mfa-server"></a>Installera den senaste versionen av Azure MFA Server
 

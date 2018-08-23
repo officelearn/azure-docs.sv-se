@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: 0f6a0e2fe3aa632137392efe806aaab265eedf10
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f461a9a7cc900ce5f8fdba7b255417b1790d3f4d
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435550"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42055011"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokal Git-distribution till Azure Apptjänst
 
@@ -124,7 +124,7 @@ I den **konfigurera** sidan, konfigurera ett nytt VSTS-konto eller ange ett befi
 
 I den **Test** väljer du om du vill aktivera belastningstester och klicka sedan på **Fortsätt**.
 
-Beroende på den [prisnivån](/pricing/details/app-service/plans/) för din App Service-plan kan du också se en **distribuera till mellanlagring** sidan. Välj om du vill aktivera distributionsplatser och klicka sedan på **Fortsätt**.
+Beroende på den [prisnivån](https://azure.microsoft.com/pricing/details/app-service/plans/) för din App Service-plan kan du också se en **distribuera till mellanlagring** sidan. Välj om du vill aktivera distributionsplatser och klicka sedan på **Fortsätt**.
 
 I den **sammanfattning** kontrollerar du dina alternativ och klickar på **Slutför**.
 
@@ -138,7 +138,7 @@ I det _lokala terminalfönstret_ kan du lägga till en Azure-fjärrdatabas till 
 git remote add vsts <url>
 ```
 
-Skicka till Azure-fjärrdatabasen för att distribuera appen med följande kommando. När du uppmanas av Git Credential Manager, logga in med din visualstudio.com-användare. Ytterligare autentiseringsmetoder finns [VSTS så översikt](/vsts/git/auth-overview?view=vsts).
+Skicka till Azure-fjärrdatabasen för att distribuera appen med följande kommando. När du uppmanas av Git Credential Manager, logga in med din visualstudio.com-användare. Ytterligare autentiseringsmetoder finns [översikt över autentisering VSTS](/vsts/git/auth-overview?view=vsts).
 
 ```bash
 git push vsts master

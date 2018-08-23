@@ -1,32 +1,287 @@
 ---
 title: Fungerar referens för Definitionsspråk för arbetsflödet – Azure Logic Apps | Microsoft Docs
-description: Lär dig mer om funktioner för att skapa logikappar med Definitionsspråk för arbetsflödet
+description: Läs mer om Definitionsspråk för arbetsflödesfunktioner för Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
 ms.topic: reference
-ms.date: 04/25/2018
+ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 46ccf9484b76ec5f24dba470a194b5b83c32f013
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 6292ea4ccd3780e1da86252b7ec9c09c2eea3982
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263784"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056488"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Funktionsreferens för Definitionsspråk för arbetsflödet i Azure Logic Apps
 
-Den här artikeln beskriver de funktioner som du kan använda när Skapa automatiserade arbetsflöden med [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Läs mer om funktioner i logic app-definitioner i [Definitionsspråk för arbetsflödet för Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md#functions). 
+Vissa [uttryck](../logic-apps/logic-apps-workflow-definition-language.md#expressions) i [Azure Logic Apps](../logic-apps/logic-apps-overview.md) hämta sina värden från runtime-åtgärder som inte kanske finns ännu när ditt arbetsflöde för logikappsdefinitionen börjar köras. Du kan använda för att referera till eller arbeta med dessa värden i uttryck, *functions* tillhandahålls av den [Definitionsspråk för arbetsflödet](../logic-apps/logic-apps-workflow-definition-language.md). Exempel: du kan använda matematiska funktioner för beräkningar, till exempel den [Add ()](../logic-apps/workflow-definition-language-functions-reference.md#add) som returnerar summan från heltal eller flyttal. Här följer några fler exempel på uppgifter du kan utföra med functions:
+
+| Aktivitet | Funktionens syntax | Resultat | 
+| ---- | --------------- | ------ | 
+| Returnera en sträng i gemener format. | toLower ('<*text*> ”) <p>Till exempel: toLower('Hello') | ”hello” | 
+| Returnera en globalt unik identifierare (GUID). | GUID() |”c2ecc88d-88c8-4096-912c-d6f2e2b138ce” | 
+|||| 
+
+Den här artikeln beskriver de funktioner du kan använda när du skapar dina logic app-definitioner.
+Funktionerna [baserat på deras allmänna](#ordered-by-purpose), fortsätter du med följande tabeller. Eller, detaljerad information om varje funktion finns i den [lista i bokstavsordning](#alphabetical-list). 
 
 > [!NOTE]
 > Ett frågetecken (?) som visas när en parameter innebär att parametern är valfri i syntaxen för parameterdefinitioner. Se exempelvis [getFutureTime()](#getFutureTime).
 
+## <a name="functions-in-expressions"></a>Funktioner i uttryck
+
+För att visa hur du använder en funktion i ett uttryck, det här exemplet visar hur du kan hämta värdet från den `customerName` parametern och tilldela värdet i `accountName` egenskapen med hjälp av den [parameters()](#parameters) funktion i ett uttryck:
+
+```json
+"accountName": "@parameters('customerName')"
+```
+
+Följande är några andra allmänna metoder som du kan använda funktioner i uttryck:
+
+| Aktivitet | Funktionens syntax i ett uttryck | 
+| ---- | -------------------------------- | 
+| Utföra arbete till ett objekt genom att skicka objekt till en funktion. | ”\@<*functionName*> (<*objekt*>)” | 
+| 1. Hämta den *parameterName*'s värde med hjälp av den kapslade `parameters()` funktion. </br>2. Utföra arbete med resultatet genom att skicka detta värde till *functionName*. | ”\@<*functionName*> (parametrar (” <*parameterName*> ”))” | 
+| 1. Hämta resultatet från den kapslade inre funktionen *functionName*. </br>2. Skicka resultatet till funktionen yttre *functionName2*. | ”\@<*functionName2*> (<*functionName*> (<*objekt*>))” | 
+| 1. Få resultat från *functionName*. </br>2. Med hänsyn till att resultatet är ett objekt med egenskapen *propertyName*, hämta egenskapens värde. | ”\@<*functionName*>(<*item*>). <*propertyName*>” | 
+||| 
+
+Till exempel den `concat()` funktionen kan ta minst två strängvärden som parametrar. Den här funktionen kombinerar dessa strängar till en sträng. Du kan antingen skicka i stränglitteraler, till exempel ”Sophia” och ”Owen” så att du får en kombinerad sträng, ”SophiaOwen”:
+
+```json
+"customerName": "@concat('Sophia', 'Owen')"
+```
+
+Eller så kan du få strängvärden från parametrar. Det här exemplet används den `parameters()` funktion i varje `concat()` parametern och `firstName` och `lastName` parametrar. Du sedan skicka resulterande strängar till den `concat()` så att du får en kombinerad sträng, till exempel ”SophiaOwen”:
+
+```json
+"customerName": "@concat(parameters('firstName'), parameters('lastName'))"
+```
+
+I båda fallen båda exemplen tilldela resultat som ska den `customerName` egenskapen. 
+
+Här är de tillgängliga funktionerna sorterade efter deras generell användning, eller så kan du bläddra funktioner baserat på [alfabetisk ordning](#alphabetical-list).
+
+<a name="ordered-by-purpose"></a>
+<a name="string-functions"></a>
+
+## <a name="string-functions"></a>Strängfunktioner
+
+Om du vill arbeta med strängar, du kan använda dessa strängfunktioner och även vissa [samling funktioner](#collection-functions). Strängfunktioner fungerar endast för strängar. 
+
+| Strängfunktion | Aktivitet | 
+| --------------- | ---- | 
+| [concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | Kombinera två eller flera strängar och returnera den kombinerade strängen. | 
+| [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Kontrollera om en sträng som slutar med den angivna delsträngen. | 
+| [GUID](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Generera en globalt unik identifierare (GUID) som en sträng. | 
+| [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Returnera startpositionen för en delsträng. | 
+| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Returnera slutpositionen efter en delsträng. | 
+| [Ersätt](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Ersätta en understräng med den angivna strängen och returnerar den uppdaterade strängen. | 
+| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Returnera en matris som innehåller alla tecken från en sträng, och mellan varje tecken med specifika avgränsningstecken. | 
+| [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Kontrollera om en sträng som börjar med en viss delsträng. | 
+| [delsträngen](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Returnera tecken från en sträng, med början från den angivna positionen. | 
+| [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Returnera en sträng i gemener format. | 
+| [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | Returnera en sträng i versaler format. | 
+| [trim](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Ta bort inledande och avslutande blanksteg från en sträng och returnera den uppdaterade strängen. | 
+||| 
+
+<a name="collection-functions"></a>
+
+## <a name="collection-functions"></a>Samling funktioner
+
+Du kan använda dessa funktioner för samlingen om du vill arbeta med samlingar, vanligtvis matriser, strängar och ibland ordlistor. 
+
+| Funktionen för samlingen | Aktivitet | 
+| ------------------- | ---- | 
+| [innehåller](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Kontrollera om en samling har ett specifikt objekt. |
+| [tom](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Kontrollera om en samling är tom. | 
+| [första](../logic-apps/workflow-definition-language-functions-reference.md#first) | Returnera det första objektet från en samling. | 
+| [skärningspunkten](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Returnerar en samling som har *endast* vanliga objekt mellan de angivna samlingarna. | 
+| [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | Returnerar en sträng som har *alla* objekt från en matris, avgränsade med det angivna tecknet. | 
+| [senaste](../logic-apps/workflow-definition-language-functions-reference.md#last) | Returnera det sista objektet från en samling. | 
+| [Längd](../logic-apps/workflow-definition-language-functions-reference.md#length) | Returnera antalet objekt i en sträng eller en matris. | 
+| [skip](../logic-apps/workflow-definition-language-functions-reference.md#skip) | Ta bort objekt från början av en samling och returnerar *alla andra* objekt. | 
+| [ta](../logic-apps/workflow-definition-language-functions-reference.md#take) | Returnera objekt från början av en samling. | 
+| [Union](../logic-apps/workflow-definition-language-functions-reference.md#union) | Returnerar en samling som har *alla* objekt från de angivna samlingarna. | 
+||| 
+
+<a name="comparison-functions"></a>
+
+## <a name="logical-comparison-functions"></a>Logisk jämförelsefunktioner
+
+Du kan använda dessa logiska jämförelse av funktioner för att arbeta med villkor, jämför värden och uttryck resultat eller utvärdera olika typer av logik. Fullständig referens om varje funktion finns i [lista i bokstavsordning](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Logisk Jämförelsefunktion | Aktivitet | 
+| --------------------------- | ---- | 
+| [och](../logic-apps/workflow-definition-language-functions-reference.md#and) | Kontrollera om alla uttryck utvärderas som true. | 
+| [är lika med](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Kontrollera om båda värdena är likvärdiga. | 
+| [större](../logic-apps/workflow-definition-language-functions-reference.md#greater) | Kontrollera om det första värdet är större än det andra värdet. | 
+| [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | Kontrollera om det första värdet är större än eller lika med det andra värdet. | 
+| [Om](../logic-apps/workflow-definition-language-functions-reference.md#if) | Kontrollera om ett uttryck är SANT eller FALSKT. Baserat på resultatet kan returnera ett angivet värde. | 
+| [mindre](../logic-apps/workflow-definition-language-functions-reference.md#less) | Kontrollera om det första värdet är mindre än det andra värdet. | 
+| [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | Kontrollera om det första värdet är mindre än eller lika med det andra värdet. | 
+| [inte](../logic-apps/workflow-definition-language-functions-reference.md#not) | Kontrollera om ett uttryck är FALSKT. | 
+| [eller](../logic-apps/workflow-definition-language-functions-reference.md#or) | Kontrollera om minst en uttrycket är sant. |
+||| 
+
+<a name="conversion-functions"></a>
+
+## <a name="conversion-functions"></a>Konverteringsfunktioner
+
+Om du vill ändra ett värde svarstyp eller, kan du använda dessa konverteringsfunktioner. Du kan till exempel ändra ett värde från ett booleskt värde till ett heltal. Läs hur Logikappar hanterar innehållstyper vid konvertering i [hantera innehållstyper](../logic-apps/logic-apps-content-type.md). Fullständig referens om varje funktion finns i [lista i bokstavsordning](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Konverteringsfunktion | Aktivitet | 
+| ------------------- | ---- | 
+| [Matris](../logic-apps/workflow-definition-language-functions-reference.md#array) | Returnera en matris från en enda som angetts som indata. Flera inmatningar Se [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray). | 
+| [Base64](../logic-apps/workflow-definition-language-functions-reference.md#base64) | Returnera den base64-kodad versionen efter en sträng. | 
+| [base64ToBinary](../logic-apps/workflow-definition-language-functions-reference.md#base64ToBinary) | Returnera den binära versionen för en base64-kodad sträng. | 
+| [base64ToString](../logic-apps/workflow-definition-language-functions-reference.md#base64ToString) | Returnera sträng för en base64-kodad sträng. | 
+| [binär](../logic-apps/workflow-definition-language-functions-reference.md#binary) | Returnera den binära versionen för ett indatavärde. | 
+| [Bool](../logic-apps/workflow-definition-language-functions-reference.md#bool) | Returnera booleskt för ett indatavärde. | 
+| [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray) | Returnera en matris från flera inmatningar. | 
+| [dataUri](../logic-apps/workflow-definition-language-functions-reference.md#dataUri) | Returnera data-URI för ett indatavärde. | 
+| [dataUriToBinary](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToBinary) | Returnera den binära versionen för en data-URI. | 
+| [dataUriToString](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToString) | Returnera sträng för en data-URI. | 
+| [decodeBase64](../logic-apps/workflow-definition-language-functions-reference.md#decodeBase64) | Returnera sträng för en base64-kodad sträng. | 
+| [decodeDataUri](../logic-apps/workflow-definition-language-functions-reference.md#decodeDataUri) | Returnera den binära versionen för en data-URI. | 
+| [decodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#decodeUriComponent) | Returnerar en sträng som ersätter escape-tecken med avkodade versioner. | 
+| [encodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#encodeUriComponent) | Returnera en sträng som ersätter URL-osäkra tecknen med escape-tecken. | 
+| [flyttal](../logic-apps/workflow-definition-language-functions-reference.md#float) | Returnerar en flytande peka nummer för ett indatavärde. | 
+| [int](../logic-apps/workflow-definition-language-functions-reference.md#int) | Returnera heltal för en sträng. | 
+| [JSON](../logic-apps/workflow-definition-language-functions-reference.md#json) | Returnera TYPVÄRDE för JavaScript Object Notation (JSON) eller objekt för en sträng eller XML. | 
+| [sträng](../logic-apps/workflow-definition-language-functions-reference.md#string) | Returnera sträng för ett indatavärde. | 
+| [uriComponent](../logic-apps/workflow-definition-language-functions-reference.md#uriComponent) | Returnera den URI-kodad versionen för ett indatavärde genom att ersätta URL-osäkra tecknen med escape-tecken. | 
+| [uriComponentToBinary](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToBinary) | Returnera den binära versionen för en URI-kodad sträng. | 
+| [uriComponentToString](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToString) | Returnera sträng för en URI-kodad sträng. | 
+| [xml](../logic-apps/workflow-definition-language-functions-reference.md#xml) | Returnera XML-versionen för en sträng. | 
+||| 
+
+<a name="math-functions"></a>
+
+## <a name="math-functions"></a>Matematikfunktioner
+
+Du kan använda dessa matematiska funktioner för att fungera med heltal och flyttal. Fullständig referens om varje funktion finns i [lista i bokstavsordning](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Matematiska funktion | Aktivitet | 
+| ------------- | ---- | 
+| [Lägg till](../logic-apps/workflow-definition-language-functions-reference.md#add) | Returnera resultatet från att lägga till två tal. | 
+| [div](../logic-apps/workflow-definition-language-functions-reference.md#div) | Returnera resultatet från divisionen av två tal. | 
+| [max](../logic-apps/workflow-definition-language-functions-reference.md#max) | Returnera det högsta värdet från en uppsättning siffror eller en matris. | 
+| [Min](../logic-apps/workflow-definition-language-functions-reference.md#min) | Returnera det lägsta värdet från en uppsättning siffror eller en matris. | 
+| [MOD](../logic-apps/workflow-definition-language-functions-reference.md#mod) | Returnera återstoden av att dividera två tal. | 
+| [mul](../logic-apps/workflow-definition-language-functions-reference.md#mul) | Returnera produkten från multiplicera två tal. | 
+| [rand](../logic-apps/workflow-definition-language-functions-reference.md#rand) | Returnera ett slumpvist heltal från ett visst intervall. | 
+| [Adressintervall](../logic-apps/workflow-definition-language-functions-reference.md#range) | Returnera en heltalsmatris som startar från en angiven heltal. | 
+| [Sub](../logic-apps/workflow-definition-language-functions-reference.md#sub) | Returnera resultatet från att subtrahera den andra siffran från den första siffran. | 
+||| 
+
+<a name="date-time-functions"></a>
+
+## <a name="date-and-time-functions"></a>Datum- och tidsfunktioner
+
+Du kan använda dessa funktioner för datum och tid om du vill arbeta med datum och tid.
+Fullständig referens om varje funktion finns i [lista i bokstavsordning](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Funktionen för datum och tid | Aktivitet | 
+| --------------------- | ---- | 
+| [addDays](../logic-apps/workflow-definition-language-functions-reference.md#addDays) | Lägga till ett antal dagar till en tidsstämpel. | 
+| [addHours](../logic-apps/workflow-definition-language-functions-reference.md#addHours) | Lägga till ett antal timmar till en tidsstämpel. | 
+| [addMinutes](../logic-apps/workflow-definition-language-functions-reference.md#addMinutes) | Lägga till ett antal minuter till en tidsstämpel. | 
+| [Lägg_till_sekunder](../logic-apps/workflow-definition-language-functions-reference.md#addSeconds) | Lägga till ett antal sekunder till en tidsstämpel. |  
+| [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime) | Lägga till ett antal tidsenheter till en tidsstämpel. Se även [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime). | 
+| [convertFromUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertFromUtc) | Konvertera en tidsstämpel från Universal Coordinated för tid (UTC) till måltidszon. | 
+| [convertTimeZone](../logic-apps/workflow-definition-language-functions-reference.md#convertTimeZone) | Konvertera en tidsstämpel från källtidszonen tidszon mål. | 
+| [convertToUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertToUtc) | Konvertera en tidsstämpel från källtidszonen till Coordinated för Universal Time (UTC). | 
+| [dag i månaden](../logic-apps/workflow-definition-language-functions-reference.md#dayOfMonth) | Returnera dagen på månadskomponenten från en tidsstämpel. | 
+| [dayOfWeek](../logic-apps/workflow-definition-language-functions-reference.md#dayOfWeek) | Returnera dagen i veckodagskomponenten från en tidsstämpel. | 
+| [dayOfYear](../logic-apps/workflow-definition-language-functions-reference.md#dayOfYear) | Returnera dagen på årskomponenten från en tidsstämpel. | 
+| [formatDateTime](../logic-apps/workflow-definition-language-functions-reference.md#formatDateTime) | Returnera datumet från en tidsstämpel. | 
+| [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime) | Returnera den aktuella tidsstämpeln plus de angivna tidsenheterna. Se även [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime). | 
+| [getPastTime](../logic-apps/workflow-definition-language-functions-reference.md#getPastTime) | Returnera den aktuella tidsstämpeln minus de angivna tidsenheterna. Se även [subtractFromTime](../logic-apps/workflow-definition-language-functions-reference.md#subtractFromTime). | 
+| [startOfDay](../logic-apps/workflow-definition-language-functions-reference.md#startOfDay) | Returnera början på dagen för en tidsstämpel. | 
+| [startOfHour](../logic-apps/workflow-definition-language-functions-reference.md#startOfHour) | Returnera början på timmen för en tidsstämpel. | 
+| [startOfMonth](../logic-apps/workflow-definition-language-functions-reference.md#startOfMonth) | Returnera början på månaden för en tidsstämpel. | 
+| [subtractFromTime](../logic-apps/workflow-definition-language-functions-reference.md#subtractFromTime) | Ta bort ett antal tidsenheter från en tidsstämpel. Se även [getPastTime](../logic-apps/workflow-definition-language-functions-reference.md#getPastTime). | 
+| [ticken](../logic-apps/workflow-definition-language-functions-reference.md#ticks) | Returnera den `ticks` egenskapsvärdet för en angiven tidsstämpel. | 
+| [utcNow](../logic-apps/workflow-definition-language-functions-reference.md#utcNow) | Returnera den aktuella tidsstämpeln som en sträng. | 
+||| 
+
+<a name="workflow-functions"></a>
+
+## <a name="workflow-functions"></a>Arbetsflödesfunktioner
+
+Med hjälp av dessa arbetsflödesfunktioner kan du:
+
+* Få information om en arbetsflödesinstans vid körning. 
+* Arbeta med de indata som används för kontrollanten logikappar.
+* Referera till utdatan från utlösare och åtgärder.
+
+Du kan till exempel refererar till utdatan från en åtgärd och använda dessa data i en senare åtgärd. Fullständig referens om varje funktion finns i [lista i bokstavsordning](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Arbetsflödesfunktion | Aktivitet | 
+| ----------------- | ---- | 
+| [Åtgärd](../logic-apps/workflow-definition-language-functions-reference.md#action) | Returnera den aktuella åtgärden utdata vid körning, eller värden från andra JSON-namn och värde-par. Se även [åtgärder](../logic-apps/workflow-definition-language-functions-reference.md#actions). | 
+| [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody) | Returnerar en åtgärd `body` utdata vid körning. Se även [brödtext](../logic-apps/workflow-definition-language-functions-reference.md#body). | 
+| [actionOutputs](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs) | Returnera en åtgärd utdata vid körning. Se [åtgärder](../logic-apps/workflow-definition-language-functions-reference.md#actions). | 
+| [Åtgärder](../logic-apps/workflow-definition-language-functions-reference.md#actions) | Returnera en åtgärd utdata vid körning, eller värden från andra JSON-namn och värde-par. Se även [åtgärd](../logic-apps/workflow-definition-language-functions-reference.md#action).  | 
+| [Brödtext](#body) | Returnerar en åtgärd `body` utdata vid körning. Se även [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody). | 
+| [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Skapa en matris med värden som matchar ett nyckelnamn i *formulärdata* eller *formulärkodade* åtgärd utdata. | 
+| [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | Returnera ett enstaka värde som matchar ett nyckelnamn i en åtgärd *formulärdata* eller *formulärkodade utdata*. | 
+| [Objekt](../logic-apps/workflow-definition-language-functions-reference.md#item) | Returnera det aktuella objektet i matrisen under åtgärdens aktuella iteration när inuti en upprepningsåtgärd över en matris. | 
+| [objekt](../logic-apps/workflow-definition-language-functions-reference.md#items) | När du är i ett för varje eller gör tills loop, returnerar det aktuella objektet från den angivna loopen.| 
+| [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | Returnera ”Motringnings-URL” som anropar en utlösare eller åtgärder. | 
+| [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Returnera brödtexten för en viss del i utdata för en åtgärd som har flera delar. | 
+| [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Returnera värdet för en parameter som beskrivs i sina logikapp-definitioner. | 
+| [Utlösare](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Returnera en utlösare utdata vid körning, eller från andra JSON-namn och värde-par. Se även [triggerOutputs](#triggerOutputs) och [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). | 
+| [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Returnerar en utlösare `body` utdata vid körning. Se [utlösaren](../logic-apps/workflow-definition-language-functions-reference.md#trigger). | 
+| [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Returnera ett enstaka värde som matchar ett nyckelnamn i *formulärdata* eller *formulärkodade* utlösa utdata. | 
+| [triggerMultipartBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerMultipartBody) | Returnera brödtexten för en viss del i en utlösarens multipart-utdata. | 
+| [triggerFormDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataMultiValues) | Skapa en matris vars värden matchar ett nyckelnamn i *formulärdata* eller *formulärkodade* utlösa utdata. | 
+| [triggerOutputs](../logic-apps/workflow-definition-language-functions-reference.md#triggerOutputs) | Returnera en utlösare utdata vid körning, eller värden från andra JSON-namn och värde-par. Se [utlösaren](../logic-apps/workflow-definition-language-functions-reference.md#trigger). | 
+| [Variabler](../logic-apps/workflow-definition-language-functions-reference.md#variables) | Returnera värdet för en specifik variabel. | 
+| [Arbetsflöde](../logic-apps/workflow-definition-language-functions-reference.md#workflow) | Returnera all information om själva arbetsflödet under körningen. | 
+||| 
+
+<a name="uri-parsing-functions"></a>
+
+## <a name="uri-parsing-functions"></a>URI-parsningsfunktioner
+
+Om du vill arbeta med uniform resource Identifier (URI: er) och få olika värden för dessa URI: er, kan du använda dessa URI-parsningsfunktioner. Fullständig referens om varje funktion finns i [lista i bokstavsordning](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| URI: N parsning av funktionen | Aktivitet | 
+| -------------------- | ---- | 
+| [uriHost](../logic-apps/workflow-definition-language-functions-reference.md#uriHost) | Returnera den `host` värde för en uniform resource identifier (URI). | 
+| [uriPath](../logic-apps/workflow-definition-language-functions-reference.md#uriPath) | Returnera den `path` värde för en uniform resource identifier (URI). | 
+| [uriPathAndQuery](../logic-apps/workflow-definition-language-functions-reference.md#uriPathAndQuery) | Returnera den `path` och `query` värden för en uniform resource identifier (URI). | 
+| [uriPort](../logic-apps/workflow-definition-language-functions-reference.md#uriPort) | Returnera den `port` värde för en uniform resource identifier (URI). | 
+| [uriQuery](../logic-apps/workflow-definition-language-functions-reference.md#uriQuery) | Returnera den `query` värde för en uniform resource identifier (URI). | 
+| [uriScheme](../logic-apps/workflow-definition-language-functions-reference.md#uriScheme) | Returnera den `scheme` värde för en uniform resource identifier (URI). | 
+||| 
+
+<a name="manipulation-functions"></a>
+
+## <a name="manipulation-functions-json--xml"></a>Funktioner för strängmanipulering: JSON och XML
+
+Om du vill arbeta med JSON-objekt och XML-noder måste använda du dessa funktioner för datahantering. Fullständig referens om varje funktion finns i [lista i bokstavsordning](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Datahanteringsfunktion | Aktivitet | 
+| --------------------- | ---- | 
+| [addProperty](../logic-apps/workflow-definition-language-functions-reference.md#addProperty) | Lägg till en egenskap och dess värde eller namn / värde-par, ett JSON-objekt och returnera det uppdaterade objektet. | 
+| [Slå samman](../logic-apps/workflow-definition-language-functions-reference.md#coalesce) | Returnera det första icke-null-värdet från en eller flera parametrar. | 
+| [removeProperty](../logic-apps/workflow-definition-language-functions-reference.md#removeProperty) | Ta bort en egenskap från ett JSON-objekt och returnera det uppdaterade objektet. | 
+| [setProperty](../logic-apps/workflow-definition-language-functions-reference.md#setProperty) | Ange värdet för egenskapen för ett JSON-objekt och returnera det uppdaterade objektet. | 
+| [XPath](../logic-apps/workflow-definition-language-functions-reference.md#xpath) | Kontrollera XML för noder eller värden som matchar ett XPath (XML Path Language)-uttryck och returnerar matchande noder eller värden. | 
+||| 
+
+<a name="alphabetical-list"></a>
 <a name="action"></a>
 
-## <a name="action"></a>åtgärd
+### <a name="action"></a>åtgärd
 
 Returnera den *aktuella* åtgärd jobbs effekt vid körning, eller värden från andra JSON namn och värde par som du kan tilldela till ett uttryck. Den här funktionen refererar till åtgärdsobjektet hela som standard, men du kan du ange en egenskap vars värde du vill. Se även [actions()](../logic-apps/workflow-definition-language-functions-reference.md#actions).
 
@@ -53,7 +308,7 @@ action().outputs.body.<property>
 
 <a name="actionBody"></a>
 
-## <a name="actionbody"></a>actionBody
+### <a name="actionbody"></a>actionBody
 
 Returnerar en åtgärd `body` utdata vid körning. Snabbformat för `actions('<actionName>').outputs.body`. Se [body()](#body) och [actions()](#actions).
 
@@ -98,7 +353,7 @@ Och returnerar resultatet:
 
 <a name="actionOutputs"></a>
 
-## <a name="actionoutputs"></a>actionOutputs
+### <a name="actionoutputs"></a>actionOutputs
 
 Returnera en åtgärd utdata vid körning. Snabbformat för `actions('<actionName>').outputs`. Se [actions()](#actions).
 
@@ -161,7 +416,7 @@ Och returnerar resultatet:
 
 <a name="actions"></a>
 
-## <a name="actions"></a>Åtgärder
+### <a name="actions"></a>Åtgärder
 
 Returnera en åtgärd utdata vid körning, eller värden från andra JSON namn och värde par som du kan tilldela till ett uttryck. Som standard funktionen refererar till åtgärdsobjektet hela, men du kan du ange en egenskap vars värde som du vill. Snabbformat versioner, se [actionBody()](#actionBody), [actionOutputs()](#actionOutputs), och [body()](#body). Den aktuella åtgärden Se [action()](#action).
 
@@ -196,7 +451,7 @@ Och returnerar resultatet: `"Succeeded"`
 
 <a name="add"></a>
 
-## <a name="add"></a>lägg till
+### <a name="add"></a>lägg till
 
 Returnera resultatet från att lägga till två tal.
 
@@ -226,7 +481,7 @@ Och returnerar resultatet: `2.5`
 
 <a name="addDays"></a>
 
-## <a name="adddays"></a>addDays
+### <a name="adddays"></a>addDays
 
 Lägga till ett antal dagar till en tidsstämpel.
 
@@ -268,7 +523,7 @@ Och returnerar resultatet: `"2018-03-10T00:00:0000000Z"`
 
 <a name="addHours"></a>
 
-## <a name="addhours"></a>addHours
+### <a name="addhours"></a>addHours
 
 Lägga till ett antal timmar till en tidsstämpel.
 
@@ -310,7 +565,7 @@ Och returnerar resultatet: `"2018-03-15T10:00:0000000Z"`
 
 <a name="addMinutes"></a>
 
-## <a name="addminutes"></a>addMinutes
+### <a name="addminutes"></a>addMinutes
 
 Lägga till ett antal minuter till en tidsstämpel.
 
@@ -352,7 +607,7 @@ Och returnerar resultatet: `"2018-03-15T00:15:00.0000000Z"`
 
 <a name="addProperty"></a>
 
-## <a name="addproperty"></a>addProperty
+### <a name="addproperty"></a>addProperty
 
 Lägg till en egenskap och dess värde eller namn / värde-par, ett JSON-objekt och returnera det uppdaterade objektet. Om objektet finns redan vid körning, genereras ett fel.
 
@@ -382,7 +637,7 @@ addProperty(json('customerProfile'), 'accountNumber', guid())
 
 <a name="addSeconds"></a>
 
-## <a name="addseconds"></a>Lägg_till_sekunder
+### <a name="addseconds"></a>Lägg_till_sekunder
 
 Lägga till ett antal sekunder till en tidsstämpel.
 
@@ -393,7 +648,7 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 | Parameter | Krävs | Typ | Beskrivning | 
 | --------- | -------- | ---- | ----------- | 
 | <*Tidsstämpel*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln | 
-| <*Sekunder*> | Ja | Integer | Positiv eller negativ antalet sekunder att lägga till | 
+| <*sekunder*> | Ja | Integer | Positiv eller negativ antalet sekunder att lägga till | 
 | <*Format*> | Nej | Sträng | Antingen en [enskild formatspecifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller en [anpassat](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är [”o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (åååå-MM-ddT:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 ||||| 
 
@@ -424,7 +679,7 @@ Och returnerar resultatet: `"2018-03-15T00:00:25.0000000Z"`
 
 <a name="addToTime"></a>
 
-## <a name="addtotime"></a>addToTime
+### <a name="addtotime"></a>addToTime
 
 Lägga till ett antal tidsenheter till en tidsstämpel. Se även [getFutureTime()](#getFutureTime).
 
@@ -467,7 +722,7 @@ Och returnerar resultatet i valfritt ”D”-format: `"Tuesday, January 2, 2018"
 
 <a name="and"></a>
 
-## <a name="and"></a>och
+### <a name="and"></a>och
 
 Kontrollera om alla uttryck utvärderas som true. Returnerar värdet true när alla uttryck utvärderas som true och returnerar false när minst en uttrycket är FALSKT.
 
@@ -519,7 +774,7 @@ Och returnerar följande resultat:
 
 <a name="array"></a>
 
-## <a name="array"></a>matris
+### <a name="array"></a>matris
 
 Returnera en matris från en enda som angetts som indata. Flera inmatningar Se [createArray()](#createArray). 
 
@@ -549,7 +804,7 @@ Och returnerar resultatet: `["hello"]`
 
 <a name="base64"></a>
 
-## <a name="base64"></a>Base64
+### <a name="base64"></a>Base64
 
 Returnera den base64-kodad versionen efter en sträng.
 
@@ -579,7 +834,7 @@ Och returnerar resultatet: `"aGVsbG8="`
 
 <a name="base64ToBinary"></a>
 
-## <a name="base64tobinary"></a>base64ToBinary
+### <a name="base64tobinary"></a>base64ToBinary
 
 Returnera den binära versionen för en base64-kodad sträng.
 
@@ -611,7 +866,7 @@ Och returnerar resultatet:
 
 <a name="base64ToString"></a>
 
-## <a name="base64tostring"></a>base64ToString
+### <a name="base64tostring"></a>base64ToString
 
 Returnera sträng för en base64-kodad sträng effektivt avkodning base64-sträng. Använd den här funktionen snarare än [decodeBase64()](#decodeBase64). Även om båda funktionerna fungerar på samma sätt `base64ToString()` är att föredra.
 
@@ -641,7 +896,7 @@ Och returnerar resultatet: `"hello"`
 
 <a name="binary"></a>
 
-## <a name="binary"></a>binär 
+### <a name="binary"></a>binär 
 
 Returnera den binära versionen för en sträng.
 
@@ -673,7 +928,7 @@ Och returnerar resultatet:
 
 <a name="body"></a>
 
-## <a name="body"></a>brödtext
+### <a name="body"></a>brödtext
 
 Returnerar en åtgärd `body` utdata vid körning. Snabbformat för `actions('<actionName>').outputs.body`. Se [actionBody()](#actionBody) och [actions()](#actions).
 
@@ -718,7 +973,7 @@ Och returnerar resultatet:
 
 <a name="bool"></a>
 
-## <a name="bool"></a>Bool
+### <a name="bool"></a>Bool
 
 Returnera booleskt efter ett värde.
 
@@ -752,7 +1007,7 @@ Och returnerar följande resultat:
 
 <a name="coalesce"></a>
 
-## <a name="coalesce"></a>Slå samman
+### <a name="coalesce"></a>Slå samman
 
 Returnera det första icke-null-värdet från en eller flera parametrar. Tomma strängar, tomma matriser och tomma objekt är inte null.
 
@@ -788,7 +1043,7 @@ Och returnerar följande resultat:
 
 <a name="concat"></a>
 
-## <a name="concat"></a>concat
+### <a name="concat"></a>concat
 
 Kombinera två eller flera strängar och returnera den kombinerade strängen. 
 
@@ -818,7 +1073,7 @@ Och returnerar resultatet: `"HelloWorld"`
 
 <a name="contains"></a>
 
-## <a name="contains"></a>innehåller
+### <a name="contains"></a>innehåller
 
 Kontrollera om en samling har ett specifikt objekt. Returnerar värdet true när hitta objektet, eller returnera false när hittades inte. Den här funktionen är skiftlägeskänslig.
 
@@ -862,7 +1117,7 @@ contains('hello world', 'universe')
 
 <a name="convertFromUtc"></a>
 
-## <a name="convertfromutc"></a>convertFromUtc
+### <a name="convertfromutc"></a>convertFromUtc
 
 Konvertera en tidsstämpel från Universal Coordinated för tid (UTC) till måltidszon.
 
@@ -904,7 +1159,7 @@ Och returnerar resultatet: `"Monday, January 1, 2018"`
 
 <a name="convertTimeZone"></a>
 
-## <a name="converttimezone"></a>convertTimeZone
+### <a name="converttimezone"></a>convertTimeZone
 
 Konvertera en tidsstämpel från källtidszonen tidszon mål.
 
@@ -947,7 +1202,7 @@ Och returnerar resultatet: `"Monday, January 1, 2018"`
 
 <a name="convertToUtc"></a>
 
-## <a name="converttoutc"></a>convertToUtc
+### <a name="converttoutc"></a>convertToUtc
 
 Konvertera en tidsstämpel från källtidszonen till Coordinated för Universal Time (UTC).
 
@@ -989,7 +1244,7 @@ Och returnerar resultatet: `"Monday, January 1, 2018"`
 
 <a name="createArray"></a>
 
-## <a name="createarray"></a>createArray
+### <a name="createarray"></a>createArray
 
 Returnera en matris från flera inmatningar. Matriser med en inkommande, se [array()](#array).
 
@@ -1019,7 +1274,7 @@ Och returnerar resultatet: `["h", "e", "l", "l", "o"]`
 
 <a name="dataUri"></a>
 
-## <a name="datauri"></a>dataUri
+### <a name="datauri"></a>dataUri
 
 Returnera en data uniform resource identifier (URI) efter en sträng. 
 
@@ -1049,7 +1304,7 @@ Och returnerar resultatet: `"data:text/plain;charset=utf-8;base64,aGVsbG8="`
 
 <a name="dataUriToBinary"></a>
 
-## <a name="datauritobinary"></a>dataUriToBinary
+### <a name="datauritobinary"></a>dataUriToBinary
 
 Returnera den binära versionen för en data uniform resource identifier (URI). Använd den här funktionen snarare än [decodeDataUri()](#decodeDataUri). Även om båda funktionerna fungerar på samma sätt `decodeDataUri()` är att föredra.
 
@@ -1084,7 +1339,7 @@ Och returnerar resultatet:
 
 <a name="dataUriToString"></a>
 
-## <a name="datauritostring"></a>dataUriToString
+### <a name="datauritostring"></a>dataUriToString
 
 Returnera sträng för en data uniform resource identifier (URI).
 
@@ -1114,7 +1369,7 @@ Och returnerar resultatet: `"hello"`
 
 <a name="dayOfMonth"></a>
 
-## <a name="dayofmonth"></a>dag i månaden
+### <a name="dayofmonth"></a>dag i månaden
 
 Returnera dagen i månaden från en tidsstämpel. 
 
@@ -1144,7 +1399,7 @@ Och returnerar resultatet: `15`
 
 <a name="dayOfWeek"></a>
 
-## <a name="dayofweek"></a>dayOfWeek
+### <a name="dayofweek"></a>dayOfWeek
 
 Returnera dagen i veckan från en tidsstämpel.  
 
@@ -1174,7 +1429,7 @@ Och returnerar resultatet: `3`
 
 <a name="dayOfYear"></a>
 
-## <a name="dayofyear"></a>dayOfYear
+### <a name="dayofyear"></a>dayOfYear
 
 Returnera dagen på året från en tidsstämpel. 
 
@@ -1204,7 +1459,7 @@ Och returnerar resultatet: `74`
 
 <a name="decodeBase64"></a>
 
-## <a name="decodebase64"></a>decodeBase64
+### <a name="decodebase64"></a>decodeBase64
 
 Returnera sträng för en base64-kodad sträng effektivt avkodning base64-sträng. Överväg att använda [base64ToString()](#base64ToString) snarare än `decodeBase64()`. Även om båda funktionerna fungerar på samma sätt `base64ToString()` är att föredra.
 
@@ -1234,7 +1489,7 @@ Och returnerar resultatet: `"hello"`
 
 <a name="decodeDataUri"></a>
 
-## <a name="decodedatauri"></a>decodeDataUri
+### <a name="decodedatauri"></a>decodeDataUri
 
 Returnera den binära versionen för en data uniform resource identifier (URI). Överväg att använda [dataUriToBinary()](#dataUriToBinary), snarare än `decodeDataUri()`. Även om båda funktionerna fungerar på samma sätt `dataUriToBinary()` är att föredra.
 
@@ -1269,7 +1524,7 @@ Och returnerar resultatet:
 
 <a name="decodeUriComponent"></a>
 
-## <a name="decodeuricomponent"></a>decodeUriComponent
+### <a name="decodeuricomponent"></a>decodeUriComponent
 
 Returnerar en sträng som ersätter escape-tecken med avkodade versioner. 
 
@@ -1299,7 +1554,7 @@ Och returnerar resultatet: `"https://contoso.com"`
 
 <a name="div"></a>
 
-## <a name="div"></a>div
+### <a name="div"></a>div
 
 Returnera heltal resultatet från divisionen av två tal. Om du vill få resten resultat, se [mod()](#mod).
 
@@ -1331,7 +1586,7 @@ Och returnera resultatet: `2`
 
 <a name="encodeUriComponent"></a>
 
-## <a name="encodeuricomponent"></a>encodeUriComponent
+### <a name="encodeuricomponent"></a>encodeUriComponent
 
 Returnera en uniform resource identifier (URI)-kodad version för en sträng genom att ersätta URL-osäkra tecknen med escape-tecken. Överväg att använda [uriComponent()](#uriComponent), snarare än `encodeUriComponent()`. Även om båda funktionerna fungerar på samma sätt `uriComponent()` är att föredra.
 
@@ -1361,7 +1616,7 @@ Och returnerar resultatet: `"http%3A%2F%2Fcontoso.com"`
 
 <a name="empty"></a>
 
-## <a name="empty"></a>tom
+### <a name="empty"></a>tom
 
 Kontrollera om en samling är tom. Returnerar värdet true när samlingen är tom eller returnera värdet false när det är inte tom.
 
@@ -1396,7 +1651,7 @@ Och returnerar följande resultat:
 
 <a name="endswith"></a>
 
-## <a name="endswith"></a>endsWith
+### <a name="endswith"></a>endsWith
 
 Kontrollera om en sträng som slutar med en viss delsträng. Returnerar värdet true när delsträngen hittas, eller returnera false när hittades inte. Den här funktionen är inte skiftlägeskänsligt.
 
@@ -1437,7 +1692,7 @@ Och returnerar resultatet: `false`
 
 <a name="equals"></a>
 
-## <a name="equals"></a>lika med
+### <a name="equals"></a>lika med
 
 Kontrollera om värden, uttryck eller objekt är likvärdiga. Returnera sant när båda är likvärdiga eller returnerar false när de inte är likvärdiga.
 
@@ -1471,7 +1726,7 @@ Och returnerar följande resultat:
 
 <a name="first"></a>
 
-## <a name="first"></a>första
+### <a name="first"></a>första
 
 Returnera den första posten från en sträng eller en matris.
 
@@ -1506,7 +1761,7 @@ Och returnera följande resultat:
 
 <a name="float"></a>
 
-## <a name="float"></a>flyt
+### <a name="float"></a>flyt
 
 Konvertera en strängversion för ett Flyttalsnummer till en faktiska Flyttalsnummer. Du kan använda den här funktionen endast när skicka anpassade parametrar till en app, till exempel en logikapp.
 
@@ -1536,7 +1791,7 @@ Och returnerar resultatet: `10.333`
 
 <a name="formatDateTime"></a>
 
-## <a name="formatdatetime"></a>formatDateTime
+### <a name="formatdatetime"></a>formatDateTime
 
 Returnera en tidsstämpel i formatet som anges.
 
@@ -1567,7 +1822,7 @@ Och returnerar resultatet: `"2018-03-15T12:00:00"`
 
 <a name="formDataMultiValues"></a>
 
-## <a name="formdatamultivalues"></a>formDataMultiValues
+### <a name="formdatamultivalues"></a>formDataMultiValues
 
 Returnerar en matris med värden som matchar ett nyckelnamn i en åtgärd *formulärdata* eller *formulärkodade* utdata. 
 
@@ -1598,7 +1853,7 @@ Och returnerar ämnestexten i en matris, till exempel: `["Hello world"]`
 
 <a name="formDataValue"></a>
 
-## <a name="formdatavalue"></a>formDataValue
+### <a name="formdatavalue"></a>formDataValue
 
 Returnera ett enstaka värde som matchar ett nyckelnamn i en åtgärd *formulärdata* eller *formulärkodade* utdata. Om funktionen hittar fler än en matchning, genereras ett fel.
 
@@ -1629,7 +1884,7 @@ Och returnerar ämnestexten som en sträng, till exempel: `"Hello world"`
 
 <a name="getFutureTime"></a>
 
-## <a name="getfuturetime"></a>getFutureTime
+### <a name="getfuturetime"></a>getFutureTime
 
 Returnera den aktuella tidsstämpeln plus de angivna tidsenheterna.
 
@@ -1671,7 +1926,7 @@ Och returnerar resultatet: `"Tuesday, March 6, 2018"`
 
 <a name="getPastTime"></a>
 
-## <a name="getpasttime"></a>getPastTime
+### <a name="getpasttime"></a>getPastTime
 
 Returnera den aktuella tidsstämpeln minus de angivna tidsenheterna.
 
@@ -1713,7 +1968,7 @@ Och returnerar resultatet: `"Saturday, January 27, 2018"`
 
 <a name="greater"></a>
 
-## <a name="greater"></a>större
+### <a name="greater"></a>större
 
 Kontrollera om det första värdet är större än det andra värdet. Returnerar värdet true när det första värdet är mer eller returnerar false när mindre.
 
@@ -1749,7 +2004,7 @@ Och returnera följande resultat:
 
 <a name="greaterOrEquals"></a>
 
-## <a name="greaterorequals"></a>greaterOrEquals
+### <a name="greaterorequals"></a>greaterOrEquals
 
 Kontrollera om det första värdet är större än eller lika med det andra värdet.
 Returnerar värdet true när det första värdet är större eller lika med, eller returnera false när det första värdet är mindre.
@@ -1786,7 +2041,7 @@ Och returnera följande resultat:
 
 <a name="guid"></a>
 
-## <a name="guid"></a>GUID
+### <a name="guid"></a>GUID
 
 Generera en globalt unik identifierare (GUID) som en sträng, till exempel ”c2ecc88d-88c8-4096-912c-d6f2e2b138ce”: 
 
@@ -1822,7 +2077,7 @@ Och returnerar resultatet: `"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
 
 <a name="if"></a>
 
-## <a name="if"></a>Om
+### <a name="if"></a>Om
 
 Kontrollera om ett uttryck är SANT eller FALSKT. Baserat på resultatet kan returnera ett angivet värde.
 
@@ -1852,7 +2107,7 @@ if(equals(1, 1), 'yes', 'no')
 
 <a name="indexof"></a>
 
-## <a name="indexof"></a>indexOf
+### <a name="indexof"></a>indexOf
 
 Returnera startpositionen eller indexvärde efter en delsträng. Den här funktionen är inte skiftlägeskänsligt och index som börjar med 0. 
 
@@ -1883,7 +2138,7 @@ Och returnerar resultatet: `6`
 
 <a name="int"></a>
 
-## <a name="int"></a>int
+### <a name="int"></a>int
 
 Returnera heltal för en sträng.
 
@@ -1913,7 +2168,7 @@ Och returnerar resultatet: `10`
 
 <a name="item"></a>
 
-## <a name="item"></a>Objekt
+### <a name="item"></a>Objekt
 
 När den används inuti en upprepningsåtgärd över en matris, returnera det aktuella objektet i matrisen under åtgärdens aktuella iteration. Du kan också få värdena från egenskaperna för det objektet. 
 
@@ -1936,7 +2191,7 @@ item().body
 
 <a name="items"></a>
 
-## <a name="items"></a>objekt
+### <a name="items"></a>objekt
 
 Returnera det aktuella objektet från varje cykel i en för varje loop. Använd den här funktionen i för-each-loop.
 
@@ -1964,7 +2219,7 @@ items('myForEachLoopName')
 
 <a name="json"></a>
 
-## <a name="json"></a>JSON
+### <a name="json"></a>JSON
 
 Returnera TYPVÄRDE för JavaScript Object Notation (JSON) eller objekt för en sträng eller XML.
 
@@ -2033,7 +2288,7 @@ Och returnerar resultatet:
 
 <a name="intersection"></a>
 
-## <a name="intersection"></a>skärningspunkten
+### <a name="intersection"></a>skärningspunkten
 
 Returnerar en samling som har *endast* vanliga objekt mellan de angivna samlingarna. Om du vill visas i resultatet, måste ett objekt visas i alla samlingar som skickas till den här funktionen. Om ett eller flera objekt har samma namn, visas det sista objektet med det namnet i resultatet.
 
@@ -2064,7 +2319,7 @@ Och returnerar en matris med *endast* dessa objekt: `[1, 2]`
 
 <a name="join"></a>
 
-## <a name="join"></a>join
+### <a name="join"></a>join
 
 Returnerar en sträng som har alla objekt från en matris och har varje tecken avgränsade med ett *avgränsare*.
 
@@ -2095,7 +2350,7 @@ Och returnerar resultatet: `"a.b.c"`
 
 <a name="last"></a>
 
-## <a name="last"></a>senaste
+### <a name="last"></a>senaste
 
 Returnera det sista objektet från en samling.
 
@@ -2130,7 +2385,7 @@ Och returnerar följande resultat:
 
 <a name="lastindexof"></a>
 
-## <a name="lastindexof"></a>lastIndexOf
+### <a name="lastindexof"></a>lastIndexOf
 
 Returnera slutvärde för positionen eller index för en delsträng. Den här funktionen är inte skiftlägeskänsligt och index som börjar med 0.
 
@@ -2161,7 +2416,7 @@ Och returnerar resultatet: `10`
 
 <a name="length"></a>
 
-## <a name="length"></a>Längd
+### <a name="length"></a>Längd
 
 Returnera antalet objekt i en samling.
 
@@ -2193,7 +2448,7 @@ Och returnera resultatet: `4`
 
 <a name="less"></a>
 
-## <a name="less"></a>mindre
+### <a name="less"></a>mindre
 
 Kontrollera om det första värdet är mindre än det andra värdet.
 Returnerar värdet true när det första värdet är mindre eller returneras false när det första värdet är mer.
@@ -2230,7 +2485,7 @@ Och returnera följande resultat:
 
 <a name="lessOrEquals"></a>
 
-## <a name="lessorequals"></a>lessOrEquals
+### <a name="lessorequals"></a>lessOrEquals
 
 Kontrollera om det första värdet är mindre än eller lika med det andra värdet.
 Returnerar värdet true när det första värdet är mindre än eller lika med eller returneras false när det första värdet är mer.
@@ -2267,7 +2522,7 @@ Och returnera följande resultat:
 
 <a name="listCallbackUrl"></a>
 
-## <a name="listcallbackurl"></a>listCallbackUrl
+### <a name="listcallbackurl"></a>listCallbackUrl
 
 Returnera ”Motringnings-URL” som anropar en utlösare eller åtgärder. Den här funktionen fungerar bara med utlösare och åtgärder för den **HttpWebhook** och **ApiConnectionWebhook** connector typer, men inte den **manuell**,  **Upprepning**, **HTTP**, och **APIConnection** typer. 
 
@@ -2288,7 +2543,7 @@ Det här exemplet visar ett exempel Motringnings-URL att den här funktionen kan
 
 <a name="max"></a>
 
-## <a name="max"></a>max
+### <a name="max"></a>max
 
 Returnera det högsta värdet från en lista eller en matris med tal som är inkluderande i båda ändar. 
 
@@ -2321,7 +2576,7 @@ Och returnera resultatet: `3`
 
 <a name="min"></a>
 
-## <a name="min"></a>min.
+### <a name="min"></a>min.
 
 Returnera det lägsta värdet från en uppsättning siffror eller en matris.
 
@@ -2354,7 +2609,7 @@ Och returnera resultatet: `1`
 
 <a name="mod"></a>
 
-## <a name="mod"></a>MOD
+### <a name="mod"></a>MOD
 
 Returnera återstoden av att dividera två tal. För att få heltalsresultat, se [div()](#div).
 
@@ -2385,7 +2640,7 @@ Och returnera resultatet: `1`
 
 <a name="mul"></a>
 
-## <a name="mul"></a>mul
+### <a name="mul"></a>mul
 
 Returnera produkten från multiplicera två tal.
 
@@ -2420,7 +2675,7 @@ Och returnera följande resultat:
 
 <a name="multipartBody"></a>
 
-## <a name="multipartbody"></a>multipartBody
+### <a name="multipartbody"></a>multipartBody
 
 Returnera brödtexten för en viss del i utdata för en åtgärd som har flera delar.
 
@@ -2441,7 +2696,7 @@ multipartBody('<actionName>', <index>)
 
 <a name="not"></a>
 
-## <a name="not"></a>inte
+### <a name="not"></a>inte
 
 Kontrollera om ett uttryck är FALSKT. Returnerar värdet true när uttrycket är FALSKT, eller returnera värdet false när det är sant.
 
@@ -2489,7 +2744,7 @@ Och returnera följande resultat:
 
 <a name="or"></a>
 
-## <a name="or"></a>eller
+### <a name="or"></a>eller
 
 Kontrollera om minst en uttrycket är sant. Returnerar värdet true när minst en uttrycket är SANT och returnerar false när alla är FALSKT.
 
@@ -2537,7 +2792,7 @@ Och returnera följande resultat:
 
 <a name="parameters"></a>
 
-## <a name="parameters"></a>parameters
+### <a name="parameters"></a>parameters
 
 Returnera värdet för en parameter som beskrivs i sina logikapp-definitioner. 
 
@@ -2575,7 +2830,7 @@ Och returnerar resultatet: `"Sophia Owen"`
 
 <a name="rand"></a>
 
-## <a name="rand"></a>rand
+### <a name="rand"></a>rand
 
 Returnera ett slumpvist heltal från ett visst intervall är inkluderande endast i från slutet.
 
@@ -2606,7 +2861,7 @@ Och returnerar ett av dessa siffror som ett resultat: `1`, `2`, `3`, eller `4`
 
 <a name="range"></a>
 
-## <a name="range"></a>Adressintervall
+### <a name="range"></a>Adressintervall
 
 Returnera en heltalsmatris som startar från en angiven heltal.
 
@@ -2637,7 +2892,7 @@ Och returnerar resultatet: `[1, 2, 3, 4]`
 
 <a name="replace"></a>
 
-## <a name="replace"></a>Ersätt
+### <a name="replace"></a>Ersätt
 
 Ersätta en understräng med den angivna strängen och returnera resultatsträngen. Den här funktionen är skiftlägeskänslig.
 
@@ -2669,7 +2924,7 @@ Och returnerar resultatet: `"the new string"`
 
 <a name="removeProperty"></a>
 
-## <a name="removeproperty"></a>removeProperty
+### <a name="removeproperty"></a>removeProperty
 
 Ta bort en egenskap från ett-objekt och returnera det uppdaterade objektet.
 
@@ -2698,7 +2953,7 @@ removeProperty(json('customerProfile'), 'accountLocation')
 
 <a name="setProperty"></a>
 
-## <a name="setproperty"></a>setProperty
+### <a name="setproperty"></a>setProperty
 
 Ange värdet för egenskapen för ett objekt och returnera det uppdaterade objektet. Du kan använda den här funktionen för att lägga till en ny egenskap eller [addProperty()](#addProperty) funktion.
 
@@ -2728,7 +2983,7 @@ setProperty(json('customerProfile'), 'accountNumber', guid())
 
 <a name="skip"></a>
 
-## <a name="skip"></a>hoppa över
+### <a name="skip"></a>hoppa över
 
 Ta bort objekt från början av en samling och returnerar *alla andra* objekt.
 
@@ -2759,7 +3014,7 @@ Och returnerar den här matrisen med de återstående objekt: `[1,2,3]`
 
 <a name="split"></a>
 
-## <a name="split"></a>split
+### <a name="split"></a>split
 
 Returnerar en matris som har alla tecken från en sträng och har varje tecken avgränsade med ett *avgränsare*.
 
@@ -2790,7 +3045,7 @@ Och returnerar resultatet: `[a, b, c]`
 
 <a name="startOfDay"></a>
 
-## <a name="startofday"></a>startOfDay
+### <a name="startofday"></a>startOfDay
 
 Returnera början på dagen för en tidsstämpel. 
 
@@ -2821,7 +3076,7 @@ Och returnerar resultatet: `"2018-03-15T00:00:00.0000000Z"`
 
 <a name="startOfHour"></a>
 
-## <a name="startofhour"></a>startOfHour
+### <a name="startofhour"></a>startOfHour
 
 Returnera början på timmen för en tidsstämpel. 
 
@@ -2852,7 +3107,7 @@ Och returnerar resultatet: `"2018-03-15T13:00:00.0000000Z"`
 
 <a name="startOfMonth"></a>
 
-## <a name="startofmonth"></a>startOfMonth
+### <a name="startofmonth"></a>startOfMonth
 
 Returnera början på månaden för en tidsstämpel. 
 
@@ -2883,7 +3138,7 @@ Och returnerar resultatet: `"2018-03-01T00:00:00.0000000Z"`
 
 <a name="startswith"></a>
 
-## <a name="startswith"></a>startsWith
+### <a name="startswith"></a>startsWith
 
 Kontrollera om en sträng som börjar med en viss delsträng. Returnerar värdet true när delsträngen hittas, eller returnera false när hittades inte. Den här funktionen är inte skiftlägeskänsligt.
 
@@ -2924,7 +3179,7 @@ Och returnerar resultatet: `false`
 
 <a name="string"></a>
 
-## <a name="string"></a>sträng
+### <a name="string"></a>sträng
 
 Returnera sträng för ett värde.
 
@@ -2964,7 +3219,7 @@ Och returnerar resultatet: `"{ \\"name\\": \\"Sophie Owen\\" }"`
 
 <a name="sub"></a>
 
-## <a name="sub"></a>Sub
+### <a name="sub"></a>Sub
 
 Returnera resultatet från att subtrahera den andra siffran från den första siffran.
 
@@ -2995,7 +3250,7 @@ Och returnerar resultatet: `10`
 
 <a name="substring"></a>
 
-## <a name="substring"></a>delsträngen
+### <a name="substring"></a>delsträngen
 
 Returnera tecken från en sträng, med början från den angivna positionen eller index. Indexera värden start med siffran 0. 
 
@@ -3027,7 +3282,7 @@ Och returnerar resultatet: `"world"`
 
 <a name="subtractFromTime"></a>
 
-## <a name="subtractfromtime"></a>subtractFromTime
+### <a name="subtractfromtime"></a>subtractFromTime
 
 Ta bort ett antal tidsenheter från en tidsstämpel. Se även [getPastTime](#getPastTime).
 
@@ -3070,7 +3325,7 @@ Och returnerar resultatet i valfritt ”D”-format: `"Monday, January, 1, 2018"
 
 <a name="take"></a>
 
-## <a name="take"></a>ta
+### <a name="take"></a>ta
 
 Returnera objekt från början av en samling. 
 
@@ -3106,7 +3361,7 @@ Och returnera följande resultat:
 
 <a name="ticks"></a>
 
-## <a name="ticks"></a>ticken
+### <a name="ticks"></a>tick
 
 Returnera den `ticks` egenskapsvärdet för en angiven tidsstämpel. En *skalstreck* är ett intervall om 100 nanosekunder.
 
@@ -3126,7 +3381,7 @@ ticks('<timestamp>')
 
 <a name="toLower"></a>
 
-## <a name="tolower"></a>toLower
+### <a name="tolower"></a>toLower
 
 Returnera en sträng i gemener format. Om ett tecken i strängen inte har en gemen version, förblir tecknet oförändrat i den returnerade strängen.
 
@@ -3156,7 +3411,7 @@ Och returnerar resultatet: `"hello world"`
 
 <a name="toUpper"></a>
 
-## <a name="toupper"></a>toUpper
+### <a name="toupper"></a>toUpper
 
 Returnera en sträng i versaler format. Om ett tecken i strängen inte har en versal version, förblir tecknet oförändrat i den returnerade strängen.
 
@@ -3186,7 +3441,7 @@ Och returnerar resultatet: `"HELLO WORLD"`
 
 <a name="trigger"></a>
 
-## <a name="trigger"></a>Utlösare
+### <a name="trigger"></a>Utlösare
 
 Returnera en utlösare utdata vid körning, eller värden från andra JSON namn och värde par som du kan tilldela till ett uttryck. 
 
@@ -3207,7 +3462,7 @@ trigger()
 
 <a name="triggerBody"></a>
 
-## <a name="triggerbody"></a>triggerBody
+### <a name="triggerbody"></a>triggerBody
 
 Returnerar en utlösare `body` utdata vid körning. Snabbformat för `trigger().outputs.body`. Se [trigger()](#trigger). 
 
@@ -3222,7 +3477,7 @@ triggerBody()
 
 <a name="triggerFormDataMultiValues"></a>
 
-## <a name="triggerformdatamultivalues"></a>triggerFormDataMultiValues
+### <a name="triggerformdatamultivalues"></a>triggerFormDataMultiValues
 
 Returnerar en matris med värden som matchar ett nyckelnamn i en utlösare *formulärdata* eller *formulärkodade* utdata. 
 
@@ -3252,7 +3507,7 @@ Och returnerar den här matrisen som en exempelresultat: `["http://feeds.reuters
 
 <a name="triggerFormDataValue"></a>
 
-## <a name="triggerformdatavalue"></a>triggerFormDataValue
+### <a name="triggerformdatavalue"></a>triggerFormDataValue
 
 Returnerar en sträng med ett enda värde som matchar ett nyckelnamn i en utlösare *formulärdata* eller *formulärkodade* utdata. Om funktionen hittar fler än en matchning, genereras ett fel.
 
@@ -3300,7 +3555,7 @@ triggerMultipartBody(<index>)
 
 <a name="triggerOutputs"></a>
 
-## <a name="triggeroutputs"></a>triggerOutputs
+### <a name="triggeroutputs"></a>triggerOutputs
 
 Returnera en utlösare utdata vid körning, eller värden från andra JSON-namn och värde-par. Snabbformat för `trigger().outputs`. Se [trigger()](#trigger). 
 
@@ -3315,7 +3570,7 @@ triggerOutputs()
 
 <a name="trim"></a>
 
-## <a name="trim"></a>trim
+### <a name="trim"></a>trim
 
 Ta bort inledande och avslutande blanksteg från en sträng och returnera den uppdaterade strängen.
 
@@ -3345,7 +3600,7 @@ Och returnerar resultatet: `"Hello World"`
 
 <a name="union"></a>
 
-## <a name="union"></a>Union
+### <a name="union"></a>Union
 
 Returnerar en samling som har *alla* objekt från de angivna samlingarna. Om du vill visas i resultatet, kan ett objekt visas i en samling som skickas till den här funktionen. Om ett eller flera objekt har samma namn, visas det sista objektet med det namnet i resultatet. 
 
@@ -3376,7 +3631,7 @@ Och returnerar resultatet: `[1, 2, 3, 10, 101]`
 
 <a name="uriComponent"></a>
 
-## <a name="uricomponent"></a>uriComponent
+### <a name="uricomponent"></a>uriComponent
 
 Returnera en uniform resource identifier (URI)-kodad version för en sträng genom att ersätta URL-osäkra tecknen med escape-tecken. Använd den här funktionen snarare än [encodeUriComponent()](#encodeUriComponent). Även om båda funktionerna fungerar på samma sätt `uriComponent()` är att föredra.
 
@@ -3406,7 +3661,7 @@ Och returnerar resultatet: `"http%3A%2F%2Fcontoso.com"`
 
 <a name="uriComponentToBinary"></a>
 
-## <a name="uricomponenttobinary"></a>uriComponentToBinary
+### <a name="uricomponenttobinary"></a>uriComponentToBinary
 
 Returnera den binära versionen för en komponent för uniform resource identifier (URI).
 
@@ -3441,7 +3696,7 @@ Och returnerar resultatet:
 
 <a name="uriComponentToString"></a>
 
-## <a name="uricomponenttostring"></a>uriComponentToString
+### <a name="uricomponenttostring"></a>uriComponentToString
 
 Returnera den strängversionen för en uniform resource identifier (URI)-kodad sträng, effektivt avkodning URI-kodad sträng.
 
@@ -3471,7 +3726,7 @@ Och returnerar resultatet: `"https://contoso.com"`
 
 <a name="uriHost"></a>
 
-## <a name="urihost"></a>uriHost
+### <a name="urihost"></a>uriHost
 
 Returnera den `host` värde för en uniform resource identifier (URI).
 
@@ -3501,7 +3756,7 @@ Och returnerar resultatet: `"www.localhost.com"`
 
 <a name="uriPath"></a>
 
-## <a name="uripath"></a>uriPath
+### <a name="uripath"></a>uriPath
 
 Returnera den `path` värde för en uniform resource identifier (URI). 
 
@@ -3531,7 +3786,7 @@ Och returnerar resultatet: `"/catalog/shownew.htm"`
 
 <a name="uriPathAndQuery"></a>
 
-## <a name="uripathandquery"></a>uriPathAndQuery
+### <a name="uripathandquery"></a>uriPathAndQuery
 
 Returnera den `path` och `query` värden för en uniform resource identifier (URI).
 
@@ -3561,7 +3816,7 @@ Och returnerar resultatet: `"/catalog/shownew.htm?date=today"`
 
 <a name="uriPort"></a>
 
-## <a name="uriport"></a>uriPort
+### <a name="uriport"></a>uriPort
 
 Returnera den `port` värde för en uniform resource identifier (URI).
 
@@ -3591,7 +3846,7 @@ Och returnerar resultatet: `8080`
 
 <a name="uriQuery"></a>
 
-## <a name="uriquery"></a>uriQuery
+### <a name="uriquery"></a>uriQuery
 
 Returnera den `query` värde för en uniform resource identifier (URI).
 
@@ -3621,7 +3876,7 @@ Och returnerar resultatet: `"?date=today"`
 
 <a name="uriScheme"></a>
 
-## <a name="urischeme"></a>uriScheme
+### <a name="urischeme"></a>uriScheme
 
 Returnera den `scheme` värde för en uniform resource identifier (URI).
 
@@ -3651,7 +3906,7 @@ Och returnerar resultatet: `"http"`
 
 <a name="utcNow"></a>
 
-## <a name="utcnow"></a>utcNow
+### <a name="utcnow"></a>utcNow
 
 Returnera den aktuella tidsstämpeln. 
 
@@ -3694,7 +3949,7 @@ Och returnerar resultatet: `"Sunday, April 15, 2018"`
 
 <a name="variables"></a>
 
-## <a name="variables"></a>Variabler
+### <a name="variables"></a>Variabler
 
 Returnera värdet för en specifik variabel. 
 
@@ -3724,7 +3979,7 @@ Och returnerar resultatet: `20`
 
 <a name="workflow"></a>
 
-## <a name="workflow"></a>arbetsflöde
+### <a name="workflow"></a>arbetsflöde
 
 Returnera all information om själva arbetsflödet under körningen. 
 
@@ -3747,7 +4002,7 @@ workflow().run.name
 
 <a name="xml"></a>
 
-## <a name="xml"></a>xml
+### <a name="xml"></a>xml
 
 Returnera XML-versionen för en sträng som innehåller ett JSON-objekt. 
 
@@ -3805,7 +4060,7 @@ Och returnerar resultatet för den här XML:
 
 <a name="xpath"></a>
 
-## <a name="xpath"></a>XPath
+### <a name="xpath"></a>XPath
 
 Kontrollera XML för noder eller värden som matchar ett XPath (XML Path Language)-uttryck och returnerar matchande noder eller värden. En XPath-uttryck, eller bara ”XPath”, hjälper dig att gå en XML-dokumentstruktur så att du kan välja noder eller beräkning värden i XML-innehåll.
 

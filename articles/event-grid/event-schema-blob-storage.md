@@ -1,27 +1,28 @@
 ---
-title: Azure händelse rutnätet blob storage Händelseschema
-description: Beskriver de egenskaper som har angetts för blob storage-händelser med Azure händelse rutnätet
+title: Azure Event Grid blob storage Händelseschema
+description: Beskriver de egenskaper som har angetts för blob storage-händelser med Azure Event Grid
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/30/2018
+ms.date: 08/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: a4d3f5d50df49851437cfd3bcec16ad217220eca
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 11524f8868a0102e30b06f3385a26b1bd06aae6e
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34301397"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42054202"
 ---
-# <a name="azure-event-grid-event-schema-for-blob-storage"></a>Azure händelse rutnätet Händelseschema för Blob storage
+# <a name="azure-event-grid-event-schema-for-blob-storage"></a>Azure Event Grid-Händelseschema för Blob storage
 
-Den här artikeln innehåller egenskaperna och schemat för blob storage-händelser. En introduktion till händelse scheman, se [Azure händelse rutnätet Händelseschema](event-schema.md).
+Den här artikeln innehåller egenskaperna och schemat för blob storage-händelser. En introduktion till Händelsescheman i [Azure Event Grid Händelseschema](event-schema.md).
+
+En lista över exempel på skript och självstudier finns i [Storage händelsekälla](event-sources.md#storage).
 
 ## <a name="available-event-types"></a>Tillgängliga händelsetyper
 
-BLOB storage genererar följande händelse:
+BLOB-lagring genererar följande händelsetyper:
 
 | Händelsetyp | Beskrivning |
 | ---------- | ----------- |
@@ -30,7 +31,7 @@ BLOB storage genererar följande händelse:
 
 ## <a name="example-event"></a>Exempel-händelse
 
-I följande exempel visas schemat för en blob som skapats i händelsen: 
+I följande exempel visar schemat för en blob som skapats av händelse: 
 
 ```json
 [{
@@ -58,7 +59,7 @@ I följande exempel visas schemat för en blob som skapats i händelsen:
 }]
 ```
 
-Schemat för en blob bort händelse är ungefär: 
+Schemat för en blob tas bort händelsen liknar: 
 
 ```json
 [{
@@ -89,32 +90,32 @@ En händelse har följande översta data:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| Avsnittet | sträng | Fullständigt labbresurs sökvägen till händelsekällan. Det här fältet är skrivskyddat. Händelsen rutnätet innehåller det här värdet. |
-| Ämne | sträng | Publisher-definierade sökvägen till ämnet för händelsen. |
-| Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekälla. |
-| EventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
+| ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
+| Ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
+| Händelsetyp | sträng | En av typerna som registrerade händelsen för den här händelsekällan. |
+| eventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | id | sträng | Unik identifierare för händelsen. |
-| data | objekt | BLOB storage händelsedata. |
-| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversionen. |
-| metadataVersion | sträng | Schemaversion för händelsemetadata. Händelsen rutnätet definierar schemat för egenskaperna på den översta nivån. Händelsen rutnätet innehåller det här värdet. |
+| data | objekt | Händelsedata för BLOB storage. |
+| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
+| metadataVersion | sträng | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
 Dataobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | api | sträng | Åtgärden som utlöste händelsen. |
-| ClientRequestId | sträng | Klienten genererade, täckande värde med en 1 KB tecken. När du har aktiverat storage analytics loggning registreras den i analytics-loggarna. |
-| begärande-ID | sträng | Den unika identifieraren för begäran. Använda det för felsökning av begäran. |
-| ETag | sträng | Det värde som du kan använda för att utföra åtgärder enligt villkor. |
-| ContentType | sträng | Innehållstyp som angetts för blob. |
+| clientRequestId | sträng | Ett klientgenererade, täckande värde med en teckengräns på 1 KB. När du har aktiverat lagringsanalys, loggning, registreras den i analytics-loggarna. |
+| begärande-ID | sträng | Den unika identifieraren för begäran. Använd det för felsökning av begäran. |
+| eTag | sträng | Det värde som du kan använda för att utföra åtgärder villkorligt. |
+| contentType | sträng | Innehållstyp som angetts för blobben. |
 | contentLength | heltal | Storleken på blobben i byte. |
 | BlobType | sträng | Typ av blob. Giltiga värden är ”BlockBlob” eller ”PageBlob”. |
-| url | sträng | Sökvägen till blob. |
-| sequencer | sträng | Ett användar-kontrollerade värde som du kan använda för att spåra förfrågningar. |
-| storageDiagnostics | objekt | Information om lagring diagnostik. |
+| url | sträng | Sökvägen till blobben. |
+| sekvenseraren | sträng | Ett användarstyrd värde som du kan använda för att spåra begäranden. |
+| storageDiagnostics | objekt | Information om storage-diagnostik. |
  
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till Azure händelse rutnätet finns [vad är händelsen rutnätet?](overview.md)
-* Mer information om hur du skapar en prenumeration på Azure händelse rutnätet finns [händelse rutnätet prenumeration schemat](subscription-creation-schema.md).
-* En introduktion till blob storage-händelser finns [väg Blob storage-händelser - Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json). 
+* En introduktion till Azure Event Grid finns i [vad är Event Grid?](overview.md)
+* Läs mer om hur du skapar en Azure Event Grid-prenumeration, [Event Grid prenumerationsschema](subscription-creation-schema.md).
+* En introduktion till arbeta med blob storage-händelser finns i [dirigera Blob storage-händelser – Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json). 

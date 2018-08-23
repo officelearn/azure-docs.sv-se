@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/04/2018
+ms.date: 08/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 582513e7e556859e70c1af9c4f6179e1d60e0139
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 2060239b27ef05c34ea6f5b388b4c4086a44a826
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216528"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42058184"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Underordnade runbooks i Azure Automation
 
@@ -24,7 +24,7 @@ Det är bästa praxis i Azure Automation för att skriva återanvändningsbara, 
 
 Om du vill aktivera en infogad runbook från en annan runbook, Använd namnet på runbooken och ange värden för parametrarna exakt samma sätt som du använder en aktivitet eller cmdlet.  Alla runbooks i samma Automation-kontot är tillgängliga för alla andra som ska användas i det här sättet. Den överordnade runbooken väntar på att den underordnade runbooken ska slutföras innan du går till nästa rad och eventuella utdata returneras direkt till överordnat.
 
-När du anropar en infogad runbook körs i samma jobb som den överordnade runbooken. Det kommer inte att visa jobbets historik för underordnad runbook som kördes. Eventuella undantag och strömmad utdata från den underordnade runbooken kommer att associeras med överordnat. Detta innebär färre jobb och gör dem enklare att spåra och felsöka, eftersom alla undantag från den underordnade runbooken och all strömmad utdata är associerade med det överordnade jobbet.
+När du anropar en infogad runbook körs i samma jobb som den överordnade runbooken. Det kommer inte att visa jobbets historik för underordnad runbook som kördes. Eventuella undantag och strömmad utdata från den underordnade runbooken kommer att associeras med överordnat. Detta innebär färre jobb och gör det enklare att spåra och felsöka eftersom alla undantag från den underordnade runbooken och någon av dess stream-utdata är associerade med det överordnade jobbet.
 
 När en runbook publiceras måste alla underordnade runbooks som anropas redan publiceras. Det beror på att Azure Automation bygger en association med någon av underordnade runbooks när en runbook kompileras. Om de inte är den överordnade runbooken kommer att visas publicerar korrekt, men genererar ett undantag när den startas. Om det händer kan du publicera om den överordnade runbooken för att korrekt referens till underordnade runbooks. Du behöver inte att publicera den överordnade runbooken om någon av underordnade runbooks ändras eftersom associationen kommer redan har skapats.
 
@@ -42,7 +42,7 @@ När du publicera ordning bara:
 
 * Publicera ordningen för runbooks är bara viktig för PowerShell-arbetsflödet och grafiska PowerShell Workflow-runbooks.
 
-När du anropar en grafisk eller PowerShell-arbetsflöde underordnad runbook med infogad körning, använder du bara namnet på runbooken.  När du anropar en underordnad runbook som PowerShell, du måste föregås dess namn med *.\\*  att ange att skriptet finns i den lokala katalogen. 
+När du anropar en grafisk eller PowerShell-arbetsflöde underordnad runbook med infogad körning, använder du bara namnet på runbooken.  När du anropar en underordnad runbook som PowerShell, måste du starta dess namn med *.\\*  att ange att skriptet finns i den lokala katalogen.
 
 ### <a name="example"></a>Exempel
 
@@ -72,25 +72,36 @@ Om du inte vill att den överordnade runbooken blockeras på att vänta, du kan 
 
 Parametrar för en underordnad runbook som startas med en cmdlet tillhandahålls som en hash-tabell enligt beskrivningen i [Runbookparametrar](automation-starting-a-runbook.md#runbook-parameters). Endast enkla datatyper kan användas. Om runbooken har en parameter med en komplex datatyp, det måste den anropas infogad.
 
+Om du arbetar med flera prenumerationer prenumerationskontexten kan gå förlorade vid underordnade runbooks. För att säkerställa att prenumerationskontexten överförs till underordnade runbooks, lägger du till den `DefaultProfile` parameter till cmdleten och pass kontexten till den.
+
 ### <a name="example"></a>Exempel
 
-I följande exempel startar en underordnad runbook med parametrar och väntar sedan tills den är klar med Start-AzureRmAutomationRunbook-vänta parametern. När slutförd samlas utdata från den underordnade runbooken. Att använda `Start-AzureRmAutomationRunbook` du måste autentisera till Azure-prenumerationen.
+I följande exempel startar en underordnad runbook med parametrar och väntar sedan tills den är klar med Start-AzureRmAutomationRunbook-vänta parametern. När slutförd samlas utdata från den underordnade runbooken. Att använda `Start-AzureRmAutomationRunbook`, du måste autentisera till Azure-prenumerationen.
 
 ```azurepowershell-interactive
 # Connect to Azure with RunAs account
-$conn = Get-AutomationConnection -Name "AzureRunAsConnection"
+$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
-$null = Add-AzureRmAccount `
-  -ServicePrincipal `
-  -TenantId $conn.TenantId `
-  -ApplicationId $conn.ApplicationId `
-  -CertificateThumbprint $conn.CertificateThumbprint
+Add-AzureRmAccount `
+    -ServicePrincipal `
+    -TenantId $ServicePrincipalConnection.TenantId `
+    -ApplicationId $ServicePrincipalConnection.ApplicationId `
+    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+
+$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
 
 $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
-$joboutput = Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" -ResourceGroupName "LabRG" –Parameters $params –wait
+
+Start-AzureRmAutomationRunbook `
+    –AutomationAccountName 'MyAutomationAccount' `
+    –Name 'Test-ChildRunbook' `
+    -ResourceGroupName 'LabRG' `
+    -DefaultProfile $AzureContext `
+    –Parameters $params –wait
 ```
 
 ## <a name="comparison-of-methods-for-calling-a-child-runbook"></a>Jämförelse av metoder för att anropa en underordnad runbook
+
 I följande tabell sammanfattas skillnaderna mellan de två metoderna för att anropa en runbook från en annan runbook.
 
 |  | Infogad | Cmdlet |

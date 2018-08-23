@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 806ae38f614c44ce25b8fcc159b74f1bda3f00f3
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 79a44e3f5303aaf0d337333b482c2df670e0b3da
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343125"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42060962"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Ansluta MXChip IoT DevKit till Azure IoT lösningsacceleratorn för fjärrövervakning
 
@@ -120,7 +120,7 @@ När exempelappen körs, skickar DevKit sensordata via Wi-Fi till din Azure IoT 
 
 ## <a name="change-device-id"></a>Ändra enhets-ID
 
-Du kan ändra enhets-ID i IoT Hub genom att följa den [anpassa enhets-ID för](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/). Om du vill ändra hårdkodat **AZ3166** till en anpassad enhets-ID i koden, ändrar du raden i koden som visas oi den [fjärransluten övervakning exempel](https://github.com/Microsoft/devkit-sdk/blob/master/AZ3166/src/libraries/AzureIoT/examples/RemoteMonitoring/RemoteMonitoring.ino#L23).
+Om du vill ändra hårdkodat **AZ3166** till en anpassad enhets-ID i koden, ändrar du raden i koden som visas i den [fjärransluten övervakning exempel](https://github.com/Microsoft/devkit-sdk/blob/master/AZ3166/src/libraries/AzureIoT/examples/RemoteMonitoring/RemoteMonitoring.ino#L23).
 
 ## <a name="problems-and-feedback"></a>Problem och feedback
 
@@ -136,3 +136,5 @@ Nu när du har lärt dig hur du ansluter en DevKit enhet till din Azure IoT lös
 * [Azure IoT acceleratorer lösningsöversikt](https://docs.microsoft.com/azure/iot-suite/)
 
 * [Anslut en enhet för MXChip IoT DevKit till programmet Azure IoT Central](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+
+* [IoT developer kit](https://microsoft.github.io/azure-iot-developer-kit/) 

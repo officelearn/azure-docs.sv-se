@@ -11,16 +11,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/10/2018
+ms.date: 08/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 4dc4ddb2d11cf792bfa6288eadce8eb03470ae1d
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 6a52db27491ef707b813a7645d275b371b11368c
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40099968"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42054375"
 ---
-# <a name="migrate-data-from-storsimple-5000-7000-series"></a>Migrera data från StorSimple 5000-7000-serien 
+# <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Migrera data från StorSimple 5000-7000-serien till Azure File Sync
 
 Migrering av data är processen att flytta data från en lagringsplats till en annan. Detta innebär att göra en exakt kopia av en organisations aktuella data från en enhet till en annan enhet, helst utan att störa eller inaktivera aktiva program – och sedan omdirigera alla indata/utdata (I/O) aktiviteten till den nya enheten. 
 
@@ -67,17 +67,17 @@ Migrera data från StorSimple är 5000-7000 till AFS en tvåstegsprocess:
 
 Utför följande steg för att migrera Windows-filresurs som konfigurerats på StorSimple-volymer till en Azure File Sync-resurs. 
 1.  Utföra dessa steg på samma Windows Server-värd där StorSimple-volymer är monterade eller Använd ett annat system. 
-    - [Förbereda Windows Server som ska användas med Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal).
-    - [Installera Azure File Sync-agenten](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal).
-    - [Distribuera tjänsten för synkronisering av lagring](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). 
-    - [Registrera Windows Server med tjänsten för synkronisering av lagring](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). 
-    - [Skapa en synkroniseringsgrupp och en molnslutpunkt] (https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal. Synkroniseringsgrupper måste göras för varje Windows-filresurs som måste migreras från värden.
-    - [Skapa en serverslutpunkt](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). Ange sökvägen som sökväg för StorSimple-volym som innehåller din filresurs-data. Exempel: om StorSimple-volym är enhet `J`, och dina data finns i `J:/<myafsshare>`, lägger sedan till den här sökvägen som en serverslutpunkt. Lämna den **lagringsnivåer** som **inaktiverad**.
+    - [Förbereda Windows Server som ska användas med Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#prepare-windows-server-to-use-with-azure-file-sync).
+    - [Installera Azure File Sync-agenten](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#install-the-azure-file-sync-agent).
+    - [Distribuera tjänsten för synkronisering av lagring](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#deploy-the-storage-sync-service). 
+    - [Registrera Windows Server med tjänsten för synkronisering av lagring](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#register-windows-server-with-storage-sync-service). 
+    - [Skapa en synkroniseringsgrupp och en molnslutpunkt](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#create-a-sync-group-and-a-cloud-endpoint). Synkroniseringsgrupper måste göras för varje Windows-filresurs som måste migreras från värden.
+    - [Skapa en serverslutpunkt](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal#create-a-server-endpoint). Ange sökvägen som sökväg för StorSimple-volym som innehåller din filresurs-data. Exempel: om StorSimple-volym är enhet `J`, och dina data finns i `J:/<myafsshare>`, lägger sedan till den här sökvägen som en serverslutpunkt. Lämna den **lagringsnivåer** som **inaktiverad**.
 2.  Vänta tills den fil server-synkroniseringen har slutförts. Kontrollera att för varje server i en viss synkroniseringsgrupp:
     - Tidsstämplar för den senaste försök synkroniseringen för både överföring och hämtning är de senaste.
     - Statusen är grön för både överföring och hämtning.
-    - Aktiviteten synkronisering visar mycket få eller inga filer återstår att synkronisera.
-    - De filer som inte synkroniserar är 0 för både överföring och hämtning.
+    - Den **synkroniseringsaktivitet** visar mycket få eller inga filer återstår att synkronisera.
+    - Den **filer inte synkroniserar** är 0 för både överföring och hämtning.
     Mer information om när servern synkroniseringen är klar går du till [felsöka Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#how-do-i-know-if-my-servers-are-in-sync-with-each-other). Synkroniseringen kan ta flera timmar och dagar, beroende på datastorlek och bandbredd. När synkroniseringen är klar, är alla dina data på ett säkert sätt i Azure-filresursen. 
 3.  Gå till filresurser på StorSimple-volymer. Välj en resurs, högerklicka och välj **egenskaper**. Observera resursbehörigheter under **Security**. Behörigheterna måste tillämpas manuellt på den nya resursen i senare steg.
 4.  Beroende på om du använder samma Windows Server-värd eller en annan, är nästa steg olika.

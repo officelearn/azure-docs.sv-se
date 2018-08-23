@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: b2cdb88ba71b4a3d3005ec9d64b6e94cdb1d1c55
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 8c4ae9c7b8be8cf390ad4ad6d99cd1ec41cd3d08
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857539"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42055400"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Spara och konfigurera din API Management-tjänstkonfigurationen med Git
 
@@ -107,7 +107,7 @@ Använda det kodade lösenordet tillsammans med din Användarplats för namn och
 git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 ```
 
-När databasen är klonad kan du visa och arbeta med dem i ditt lokala filsystem. Mer information finns i [fil- och strukturera referens för lokal Git-lagringsplats](#file-and-folder-structure-reference-of-local-git-repository).
+När databasen är klonad, kan du visa och arbeta med dem i ditt lokala filsystem. Mer information finns i [fil- och strukturera referens för lokal Git-lagringsplats](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Uppdatera din lokala lagringsplats med den senaste instansen tjänstkonfigurationen
 
@@ -166,7 +166,7 @@ Varje mapp kan innehålla en eller flera filer och i vissa fall en eller flera m
 | xml |Principrapporter |
 | CSS |Formatmallar för anpassning av utvecklare |
 
-Dessa filer kan skapas, tas bort, redigeras, och hanteras på det lokala filsystemet och ändringarna distribueras tillbaka till den din API Management-tjänstinstans.
+Dessa filer kan skapas, tas bort, redigera och hanteras på det lokala filsystemet och ändringarna distribueras tillbaka till din API Management-tjänstinstans.
 
 > [!NOTE]
 > Följande entiteter finns inte i Git-lagringsplats och kan inte konfigureras med Git.
@@ -177,7 +177,7 @@ Dessa filer kan skapas, tas bort, redigeras, och hanteras på det lokala filsyst
 > * Developer portal enheter än format
 > 
 
-### <a name="root-api-management-folder"></a>Rotmapp för api-hantering
+### <a name="root-api-management-folder"></a>rotmapp för api-hantering
 Roten `api-management` mappen innehåller en `configuration.json` -fil som innehåller översta information om tjänstinstansen i följande format.
 
 ```json
@@ -217,11 +217,11 @@ Följande fyra inställningar (`DelegationEnabled`, `DelegationUrl`, `DelegatedS
 Den slutliga inställningen `$ref-policy`, mappar till den globala principfilen instruktioner för tjänstinstansen.
 
 ### <a name="apis-folder"></a>API: er för mappen
-Den `apis` mappen innehåller en mapp för varje API i tjänstinstansen som innehåller följande objekt.
+Den `apis` mappen innehåller en mapp för varje API i tjänstinstansen, som innehåller följande objekt.
 
 * `apis\<api name>\configuration.json` -Detta är konfigurationen för API: et och innehåller information om URL: en för backend-tjänsten och åtgärderna. Det här är samma information som skulle returneras om du anropar [hämta ett visst API](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get) med `export=true` i `application/json` format.
 * `apis\<api name>\api.description.html` -Detta är beskrivningen av API: et och motsvarar den `description` egenskapen för den [API-entiteten](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property).
-* `apis\<api name>\operations\` – den här mappen innehåller `<operation name>.description.html` filer som mappar till åtgärder i API: et. Varje fil innehåller en beskrivning av en enda åtgärd i API: et som mappar till den `description` egenskapen för den [åtgärden entitet](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) i REST-API.
+* `apis\<api name>\operations\` – den här mappen innehåller `<operation name>.description.html` filer som mappar till åtgärder i API: et. Varje fil innehåller en beskrivning av en enda åtgärd i API: T, som mappar till den `description` egenskapen för den [åtgärden entitet](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) i REST-API.
 
 ### <a name="groups-folder"></a>mappen grupper
 Den `groups` mappen innehåller en mapp för varje grupp som definierats i tjänstinstansen.
@@ -259,8 +259,8 @@ Den `templates` mappen innehåller konfigurationen för den [e-postmallar](api-m
 Information om andra sätt att hantera din tjänstinstans finns i:
 
 * Hantera din tjänstinstans med följande PowerShell-cmdletar
-  * [Tjänstdistributionen PowerShell cmdlet-referens](https://msdn.microsoft.com/library/azure/mt619282.aspx)
-  * [Service management PowerShell cmdlet-referens](https://msdn.microsoft.com/library/azure/mt613507.aspx)
+  * [Tjänstdistributionen PowerShell cmdlet-referens](https://docs.microsoft.com/powershell/module/wds)
+  * [Service management PowerShell cmdlet-referens](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
 * Hantera din tjänstinstans med hjälp av REST-API
   * [API Management REST API-referens](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 

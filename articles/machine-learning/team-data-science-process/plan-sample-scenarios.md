@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 62e035c0d28a797ae08480b982598d8265b18767
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bf5ee52c98c173dbdde0a00c5657b8694b363279
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423852"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42059940"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Scenarier för avancerade analyser i Azure Machine Learning
 Den här artikeln beskrivs olika exempel datakällor och målscenarier som kan hanteras av den [Team Data Science Process (TDSP)](overview.md). TDSP erbjuder en systematisk metod för team att samarbeta med att skapa intelligenta program. De scenarier som presenteras här visar alternativ som är tillgängliga i bearbetning av arbetsflödet som beror på den dataegenskaper, datakällor och mål-databaser i Azure.
@@ -37,7 +37,7 @@ Var och en av de följande avsnitten presenterar ett exempelscenario. För varje
 > **För alla av följande scenarier måste du:**
 > <br/>
 > 
-> * [Skapa ett lagringskonto](../../storage/common/storage-create-storage-account.md)
+> * [Skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md)
 >   <br/>
 > * [Skapa en Azure Machine Learning-arbetsyta](../studio/create-workspace.md)
 > 

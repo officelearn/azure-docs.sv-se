@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: maheshu
-ms.openlocfilehash: 41a06846e914eb79e15aa47c7203b17166731ae0
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: fa4d40786fdc61183c119a17b6e36bd853a6fd64
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502336"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42059689"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services - felsökningsguide
 Den här artikeln innehåller tips för felsökning för problem som kan uppstå när du konfigurerar eller administrera domäntjänster för Azure Active Directory (AD).
@@ -139,7 +139,7 @@ Om en eller flera användare i Azure AD-klienten inte kan logga in på den nylig
 * **Externa konton:** se till att det berörda användarkontot inte är ett externt konto i Azure AD-klient. Exempel på externa konton är Microsoft-konton (till exempel ”joe@live.com”) eller användarkonton från en extern Azure AD-katalog. Eftersom Azure AD Domain Services inte har autentiseringsuppgifter för sådana användarkonton kan kan inte dessa användare logga in till den hanterade domänen.
 * **Konton har synkroniserats:** om de berörda användarkontona synkroniseras från en lokal katalog, kontrollerar du att:
 
-  * Du har distribuerat eller uppdaterats till den [senaste rekommenderade versionen av Azure AD Connect](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+  * Du har distribuerat eller uppdaterats till den [senaste rekommenderade versionen av Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
   * Du har konfigurerat Azure AD Connect för [utför en fullständig synkronisering](active-directory-ds-getting-started-password-sync.md).
   * Beroende på storleken på din katalog kan det ta en stund för användarkonton och autentiseringshasher ska vara tillgängliga i Azure AD Domain Services. Se till att du vänta tillräckligt länge innan du försöker utföra autentisering.
   * Om problemet kvarstår efter verifiering av föregående steg, försök att starta om tjänsten Microsoft Azure AD Sync. Starta en kommandotolk och kör följande kommandon från synkroniseringsdatorn:

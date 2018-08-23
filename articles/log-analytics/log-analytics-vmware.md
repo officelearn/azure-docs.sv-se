@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 6ba37a026a3c8f50fa47b0775a2ad49ee75f2769
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b6078ac326fe51f4198137eec2de728b6036c271
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424658"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42058192"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware Monitoring (förhandsversion) lösningen i Log Analytics
 
@@ -36,7 +36,7 @@ Lösningen använder inbyggda syslog-funktioner för ESXi-värd att skicka data 
 ## <a name="install-and-configure-the-solution"></a>Installera och konfigurera lösningen
 Använd följande information för att installera och konfigurera lösningen.
 
-* Lägga till VMware Monitoring-lösning för din prenumeration med hjälp av metoden som beskrivs i [lägga till en lösning för](log-analytics-add-solutions.md#add-a-management-solution).
+* Lägga till VMware Monitoring-lösning för din prenumeration med hjälp av metoden som beskrivs i [installera en lösning för](../monitoring/monitoring-solutions.md#install-a-management-solution).
 
 #### <a name="supported-vmware-esxi-hosts"></a>VMware ESXi-värdar som stöds
 vSphere ESXi-värd 5.5, 6.0 och 6.5
@@ -88,7 +88,7 @@ I följande tabell visas data samlingsmetoder och annan information om hur data 
 
 I följande tabell visas exempel på datafält som samlas in av VMware Monitoring-lösningen:
 
-| Fältnamn | beskrivning |
+| fältnamn | beskrivning |
 | --- | --- |
 | Device_s |VMware-lagringsenheter |
 | ESXIFailure_s |typer av fel |

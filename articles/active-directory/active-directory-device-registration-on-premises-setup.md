@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: f0a6e164ed6b2269ec223a18f37d3475316d3e77
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 38d024de0fd2490d33f7c06498d3ff8d0d06e503
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629080"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056112"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory-enhetsregistrering
 När du behöver användare till arbetsplatsen på sina personliga enheter till Azure Active Directory (Azure AD) enhetsregistreringstjänsten kan sina enheter markeras som känner till din organisation. Följande är en stegvis guide för att aktivera villkorlig åtkomst till lokala program med hjälp av Active Directory Federation Services (AD FS) i Windows Server 2012 R2.
@@ -48,7 +48,7 @@ Dessa funktioner är tillgängliga för kunder som köper en Azure Active Direct
 * Licens för Azure Active Directory Premium
 * Windows Server 2012 R2 Federation Services, konfigurerats för enkel inloggning till Azure AD
 * Windows Server 2012 R2 Web Application Proxy 
-* Microsoft Azure Active Directory Connect (Azure AD Connect) [(ladda ned Azure AD Connect)](http://www.microsoft.com/en-us/download/details.aspx?id=47594)
+* Microsoft Azure Active Directory Connect (Azure AD Connect) [(ladda ned Azure AD Connect)](http://www.microsoft.com/download/details.aspx?id=47594)
 * Verifierad domän
 
 ## <a name="known-issues-in-this-release"></a>Kända problem i den här versionen
@@ -158,7 +158,7 @@ Det finns många olika sätt att förmedla denna URL till dina användare. Till 
 
 ### <a name="join-a-windows-81-device-by-using-azure-active-directory-device-registration"></a>Anslut en Windows 8.1-enhet med hjälp av Azure Active Directory-enhetsregistrering
 1. På din Windows 8.1-enhet, väljer **datorinställningar** > **nätverk** > **arbetsplats**.
-2. Ange ditt användarnamn i UPN-format. till exempel ** dan@contoso.com **.
+2. Ange ditt användarnamn i UPN-format. till exempel **dan@contoso.com**.
 3. Välj **ansluta**.
 4. När du uppmanas logga in med dina autentiseringsuppgifter. Enheten är nu ansluten.
 

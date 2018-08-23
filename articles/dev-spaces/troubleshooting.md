@@ -11,12 +11,12 @@ ms.topic: article
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: b2ef450a429b26843cf770a6243c6f4de932de43
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 001d58aa22d4fc52acebfc88ba07d2467c1be08e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247337"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42055408"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -63,6 +63,27 @@ I Visual Studio:
 2. Ändra inställningarna för **MSBuild projekt build utdata utförlighet** till **detaljerat** eller **diagnostiska**.
 
     ![Skärmbild av alternativ för dialogrutan](media/common/VerbositySetting.PNG)
+    
+## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>DNS-namnmatchningen misslyckas för en offentlig URL som är associerade med en tjänst för utveckling blanksteg
+
+När detta inträffar kan det hända att ett ”sidan kan inte visas” eller ”den här platsen kan inte nås” fel i webbläsaren när du försöker ansluta till en offentlig URL som är associerade med en tjänst för utveckling blanksteg.
+
+### <a name="try"></a>Prova:
+
+Du kan använda följande kommando för att lista ut alla URL: er som är associerade med dina Dev blanksteg tjänster:
+
+```cmd
+azds list-uris
+```
+
+Om en Webbadress finns i den *väntande* tillstånd, som innebär att Dev blanksteg väntar fortfarande för DNS-registrering att slutföra. Ibland kan tar det några minuter innan detta ske. Dev blanksteg öppnas även en localhost-tunnel för varje tjänst, som du kan använda under väntan på DNS-registrering.
+
+Om en URL som finns kvar i den *väntande* tillstånd under mer än 5 minuter, det kan bero på problem med den externa DNS-pod som skapar den offentliga slutpunkten och/eller nginx ingående controller pod som hämtar den offentliga slutpunkten. Du kan använda följande kommandon för att ta bort dessa poddar. De kommer att återskapas automatiskt.
+
+```cmd
+kubectl delete pod -n kube-system -l app=addon-http-application-routing-external-dns
+kubectl delete pod -n kube-system -l app=addon-http-application-routing-nginx-ingress
+```
 
 ## <a name="error-required-tools-and-configurations-are-missing"></a>Fel krävs verktyg och konfigurationer som saknas
 
@@ -119,6 +140,14 @@ Starta VS Code-felsökare kan ibland resultera i det här felet. Det här är et
 1. Stäng och öppna VS Code.
 2. Tryck på F5 igen.
 
+## <a name="debugging-error-failed-to-find-debugger-extension-for-typecoreclr"></a>Felmeddelandet ”Det gick inte att hitta felsökare tillägg för typen: coreclr'-felsökning
+Köra felsökaren för VS Code rapporterar felet: `Failed to find debugger extension for type:coreclr.`
+
+### <a name="reason"></a>Orsak
+Du har inte det VS Code-tillägget för C#-installerat på utvecklingsdatorn som innehåller felsökning för .net Core (CoreCLR).
+
+### <a name="try"></a>Prova:
+Installera den [VS Code-tillägg för C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 
 ## <a name="debugging-error-configured-debug-type-coreclr-is-not-supported"></a>Felsöka fel 'konfigurerad debug typen 'coreclr' stöds inte ”
 Köra felsökaren för VS Code rapporterar felet: `Configured debug type 'coreclr' is not supported.`

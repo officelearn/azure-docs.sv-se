@@ -3,19 +3,19 @@ title: Skapa Apache Kafka aktiverat Azure Event Hubs | Microsoft Docs
 description: Skapa en Kafka aktiverat Event Hubs-namnområde med Azure portal
 services: event-hubs
 documentationcenter: .net
-author: ShubhaVijayasarathy
+author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: shvija
-ms.openlocfilehash: 79b6b879bd2332c044ce871e2c9a938c6b9c900c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.date: 08/16/2018
+ms.author: bahariri
+ms.openlocfilehash: 7ce12f9dcaa15ade95274419f99c13d5915dbaaa
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285096"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42062087"
 ---
 # <a name="create-apache-kafka-enabled-event-hubs"></a>Skapa Apache Kafka aktiverat händelsehubbar
 
@@ -29,29 +29,29 @@ Den här artikeln beskriver hur du skapar ett namnområde för Event Hubs och h�
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
-## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Skapa en Kafka aktiverat Event Hubs-namnområdet
+## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Skapa ett Kafka-aktiverat Event Hubs-namnområde
 
 1. Logga in på den [Azure-portalen][Azure portal], och klicka på **skapa en resurs** på upp till vänster på skärmen.
 
 2. Sök efter Event Hubs och välj de alternativ som visas här:
     
-    ![Söka efter Event Hubs i portalen](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
+    ![Sök efter Event Hubs på portalen](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
  
-3. Ange ett unikt namn och möjliggör Kafka för namnområdet. Klicka på **Skapa**.
+3. Ange ett unikt namn och aktivera Kafka för namnområdet. Klicka på **Skapa**.
     
     ![Skapa ett namnområde](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.png)
  
-4. När namnområdet har skapats på den **inställningar** klickar du på fliken **principer för delad åtkomst** att hämta anslutningssträngen.
+4. När namnområdet har skapats går du till fliken **Inställningar** och klickar på **Policyer för delad åtkomst** för att hämta anslutningssträngen.
 
-    ![Klicka på principer för delad åtkomst](./media/event-hubs-create/create-event-hub7.png)
+    ![Klicka på Policyer för delad åtkomst](./media/event-hubs-create/create-event-hub7.png)
 
-5. Du kan välja standard **RootManageSharedAccessKey**, eller lägga till en ny princip. Klicka på namnet på principen och kopiera anslutningssträngen. 
+5. Du kan välja standardprincipen **RootManageSharedAccessKey** eller lägga till en ny princip. Klicka på principnamnet och kopiera anslutningssträngen. 
     
     ![Välj en princip](./media/event-hubs-create/create-event-hub8.png)
  
-6. Lägga till den här anslutningssträngen i konfigurationen för Kafka-programmet.
+6. Lägg till den här anslutningssträngen i Kafka-programkonfigurationen.
 
-Du kan nu strömma händelser från dina program som använder Kafka-protokollet till Event Hubs.
+Nu kan du strömma händelser från program som använder Kafka-protokollet till Event Hubs.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 7a9adc8e9b7bcf69cce6b8ecf00e44477c1b0da3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3c447a37b1dfbdac2c6e2a4eaa61d0e0e08a2176
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430747"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442247"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med hjälp av Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -71,6 +71,9 @@ För olika typer av autentisering, se följande avsnitt om krav och JSON-exempel
 - [SQL-autentisering](#sql-authentication)
 - Azure AD-token-autentisering: [tjänstens huvudnamn](#service-principal-authentication)
 - Azure AD-token-autentisering: [hanterad tjänstidentitet](#managed-service-identity-authentication)
+
+>[!TIP]
+>Om du når fel med felkod som ”UserErrorFailedToConnectToSqlServer” och visas som ”sessionens tidsgräns för databasen är XXX och har uppnåtts”., lägga till `Pooling=false` till din anslutningssträng och försök igen.
 
 ### <a name="sql-authentication"></a>SQL-autentisering
 
@@ -397,7 +400,7 @@ SQL Data Warehouse PolyBase stöder direkt Azure Blob och Azure Data Lake Store.
 
 Om kraven inte uppfylls, Azure Data Factory kontrollerar du inställningarna och faller automatiskt tillbaka till BULKINSERT mekanism för dataförflyttning.
 
-1. Den **källa länkad tjänst** typen är **AzureStorage** eller **AzureDataLakeStore** med autentisering av tjänstens huvudnamn.
+1. Den **källa länkad tjänst** typen är Azure Blob storage (**AzureBLobStorage**/**AzureStorage**) med kontot nyckelautentisering eller Azure Data Lake Storage Gen1 (**AzureDataLakeStore**) med autentisering av tjänstens huvudnamn.
 1. Den **indatauppsättningen** typen är **AzureBlob** eller **AzureDataLakeStoreFile**. Formattyp under `type` egenskaper är **OrcFormat**, **ParquetFormat**, eller **TextFormat**, med följande konfigurationer:
 
    1. `rowDelimiter` måste vara **\n**.
@@ -558,7 +561,7 @@ När du kopierar data från eller till Azure SQL Data Warehouse, används följa
 | DateTimeOffset | DateTimeOffset |
 | decimaltal | decimaltal |
 | FILESTREAM-attributet (varbinary(max)) | Byte] |
-| flyttal | Double-värde |
+| Flyttal | Double-värde |
 | image | Byte] |
 | int | Int32 |
 | pengar | decimaltal |
@@ -575,7 +578,7 @@ När du kopierar data från eller till Azure SQL Data Warehouse, används följa
 | text | Sträng, Char] |
 | time | Tidsintervall |
 | tidsstämpel | Byte] |
-| tinyint | Mottagna byte |
+| tinyint | Byte |
 | uniqueidentifier | GUID |
 | varbinary | Byte] |
 | varchar | Sträng, Char] |

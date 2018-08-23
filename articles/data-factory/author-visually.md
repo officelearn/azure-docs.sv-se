@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 08/14/2018
 ms.author: shlo
-ms.openlocfilehash: 7f186a819e2142bef6e736c7f7b5d0c733413fd5
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: b457d1ae01e523ac99c6171fa8d2123023ebcd2c
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716339"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42060238"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visuell redigering i Azure Data Factory
 Azure Data Factory användargränssnittet användarupplevelsen (UX) kan du visuellt skapa och distribuera resurser för din datafabrik utan att behöva skriva någon kod. Du kan dra aktiviteter till en rityta för pipelinen, utför testkörningar, felsöker stegvis och distribuerar och övervakar dina pipelinekörningar. Det finns två metoder för att utföra visuell redigering med UX-Gränssnittet:
@@ -42,10 +42,10 @@ När du använder UX **Redigeringsyta** skriva direkt med Data Factory-tjänsten
 Visuell redigering med VSTS Git-integrering har stöd för källkontroll och samarbete for work på din data factory-pipelines. Du kan associera en datafabrik med en VSTS Git-lagringsplats för kontot för källkontroll, samarbete, versionshantering och så vidare. Ett enda VSTS Git-konto kan ha flera databaser, men en VSTS Git-lagringsplats kan associeras med endast en data factory. Om du inte har en VSTS-konto eller följer [instruktionerna](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) att skapa dina resurser.
 
 > [!NOTE]
-> Du kan lagra och datafilerna i VSTS GIT-lagringsplats. Du kan dock överföra filerna manuellt till Azure Storage. Data Factory-pipeline överför inte skript eller datafiler som lagras i en VSTS GIT-databas till Azure Storage automatiskt.
+> Du kan lagra och datafilerna i VSTS Git-lagringsplats. Du kan dock överföra filerna manuellt till Azure Storage. Data Factory-pipeline överför inte skript eller datafiler som lagras i en VSTS Git-databas till Azure Storage automatiskt.
 
 ### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Konfigurera en VSTS Git-lagringsplats med Azure Data Factory
-Du kan konfigurera en VSTS GIT-lagringsplats med en datafabrik med två metoder.
+Du kan konfigurera en VSTS Git-lagringsplats med en datafabrik med två metoder.
 
 #### <a name="method1"></a> Metod 1 (VSTS Git-lagringsplats): vi sidan Kom igång
 
@@ -77,13 +77,17 @@ En konfigurationsruta visas. Mer information om inställningarna se beskrivninga
 
 ![Konfigurera inställningar för kod lagringsplats för redigering av UX](media/author-visually/configure-repo-2.png)
 
+## <a name="use-a-different-azure-active-directory-tenant"></a>Använd en annan Azure Active Directory-klient
+
+Du kan skapa en VSTS Git-lagringsplats i en annan Azure Active Directory-klient. Ange en annan Azure AD-klient du måste ha administratörsbehörighet för den prenumeration som du använder.
+
 ## <a name="switch-to-a-different-git-repo"></a>Växla till en annan Git-lagringsplats
 
 Du växlar till en annan Git-lagringsplats genom att leta upp ikonen i det övre högra hörnet av sidan för Data Factory-översikt, enligt följande skärmbild. Om du inte ser ikonen, rensa webbläsarens lokala cacheminnet. Välj ikonen Ta bort kopplingen till den aktuella lagringsplatsen.
 
 När du tar bort kopplingen till den aktuella lagringsplatsen kan konfigurera du inställningarna Git om du vill använda en annan lagringsplats. Du kan sedan importera befintliga Data Factory-resurser till den nya lagringsplatsen.
 
-![Ta bort kopplingen till den aktuella Git-lagringsplatsen.](media/author-visually/remove-repo.png)
+![Ta bort kopplingen till den aktuella Git-lagringsplatsen](media/author-visually/remove-repo.png)
 
 ## <a name="use-version-control"></a>Använda versionskontroll
 Versionskontrollsystem (även kallat _källkontroll_) möjligt för utvecklare att samarbeta med kod och spåra ändringar som görs i koden grundläggande. Källkontroll är ett viktigt verktyg för flera utvecklare projekt.
@@ -92,7 +96,7 @@ Varje VSTS Git-lagringsplats som är associerat med en data factory har en gren 
 
 ![Ändra koden genom att synkronisera eller publicera](media/author-visually/sync-publish.png)
 
-När du är klar med utvecklingen nya funktioner i din gren med funktionen kan du klicka på **skapa pull-begäran**. Den här åtgärden tar du VSTS GIT där du kan öka pull-begäranden gör code granskningar och slå samman ändringar i din gren för samarbete. (`master` är standard). Du kan bara publicera till Data Factory-tjänsten från din gren för samarbete. 
+När du är klar med utvecklingen nya funktioner i din gren med funktionen kan du klicka på **skapa pull-begäran**. Den här åtgärden tar du VSTS Git där du kan öka pull-begäranden gör code granskningar och slå samman ändringar i din gren för samarbete. (`master` är standard). Du kan bara publicera till Data Factory-tjänsten från din gren för samarbete. 
 
 ![Skapa en ny pullbegäran](media/author-visually/create-pull-request.png)
 
@@ -106,10 +110,21 @@ När du har en sammanfogad ändringar i grenen samarbete (`master` är standard)
 
 ## <a name="author-with-github-integration"></a>Redigera med GitHub-integrering
 
-Visuell redigering med GitHub-integreringen har stöd för källkontroll och samarbete for work på din data factory-pipelines. Du kan associera en datafabrik med en GitHub-lagringsplats för kontot för källkontroll, samarbete, versionskontroll. Ett enda GitHub-konto kan ha flera databaser, men en GitHub-lagringsplats kan associeras med endast en data factory. Om du inte har aGitHub konto eller databasen, följer du [instruktionerna](https://github.com/join) att skapa dina resurser. GitHub-integreringen med Data Factory har stöd för såväl offentliga GitHub som GitHub Enterprise.
+Visuell redigering med GitHub-integreringen har stöd för källkontroll och samarbete for work på din data factory-pipelines. Du kan associera en datafabrik med en GitHub-lagringsplats för kontot för källkontroll, samarbete, versionskontroll. Ett enda GitHub-konto kan ha flera databaser, men en GitHub-lagringsplats kan associeras med endast en data factory. Om du inte har en GitHub-konto eller följer [instruktionerna](https://github.com/join) att skapa dina resurser. GitHub-integreringen med Data Factory har stöd för såväl offentliga GitHub som GitHub Enterprise.
 
-> [!NOTE]
-> Du kan lagra aktivitetsskript och datafiler i en GitHub-lagringsplats. Du kan dock överföra filerna manuellt till Azure Storage. Data Factory-pipeline överför inte skript eller datafiler som lagras i en GitHub-databas till Azure Storage automatiskt.
+Du måste ha administratörsbehörighet för den prenumeration som du använder för att konfigurera en GitHub-lagringsplatsen.
+
+Titta på följande videoklipp för en nio minuters introduktion och demonstration av den här funktionen:
+
+> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Azure-Data-Factory-visual-tools-now-integrated-with-GitHub/player]
+
+### <a name="limitations"></a>Begränsningar
+
+- Du kan lagra aktivitetsskript och datafiler i en GitHub-lagringsplats. Du kan dock överföra filerna manuellt till Azure Storage. Data Factory-pipeline överför inte skript eller datafiler som lagras i en GitHub-databas till Azure Storage automatiskt.
+
+- GitHub Enterprise med en version som är äldre än 2.14.0 fungerar inte i Microsoft Edge-webbläsaren.
+
+- GitHub-integreringen med Data faktor visuella redigering verktyg fungerar bara i den allmänt tillgängliga versionen av Data Factory.
 
 ### <a name="configure-a-public-github-repository-with-azure-data-factory"></a>Konfigurera en offentlig GitHub-lagringsplats med Azure Data Factory
 

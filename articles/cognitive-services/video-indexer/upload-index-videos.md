@@ -7,14 +7,14 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 08/17/2018
 ms.author: juliako
-ms.openlocfilehash: c4a755d0c13516ce3cb0177cea2ea17e4a3abcbb
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 8a9409c46cac8397bc449c586374729a4d864036
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390977"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41987609"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
@@ -47,15 +47,15 @@ En POST-URL för att meddela när indexering har slutförts. Video Indexer lägg
 
 Du kan också lägga till fler parametrar i URL: en innan du publicerar anropet till Video Indexer och dessa parametrar kommer att inkluderas i motringningen. Senare i koden kan du parsa frågesträngen och få tillbaka alla angivna parametrar i frågesträngen (data som du ursprungligen hade läggas till URL: en plus informationen som Video Indexer som tillhandahålls.) 
 
-### <a name="streamingpereset"></a>streamingPereset
+### <a name="streamingpreset"></a>streamingPreset
 
 När din video har laddats upp, kodar Video Indexer kan du kan också videon. Fortsätter sedan att indexering och analysera videon. När Video Indexer är klar analysera, kommer du få ett meddelande med video-ID.  
 
-När du använder den [ladda upp video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) eller [indexera Video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API, en av följande valfria parametrar är `streamingPreset`. Om du ställer in `streamingPereset` till `Default`, `SingleBitrate`, eller `AdaptiveBitrate`, kodning processen utlöses. När indexering och kodningsjobb är klar har videon publicerats så att du kan också strömma videon. Slutpunkt för direktuppspelning som du vill att strömma videon måste finnas i den **kör** tillstånd.
+När du använder den [ladda upp video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) eller [indexera Video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API, en av följande valfria parametrar är `streamingPreset`. Om du ställer in `streamingPreset` till `Default`, `SingleBitrate`, eller `AdaptiveBitrate`, kodning processen utlöses. När indexering och kodningsjobb är klar har videon publicerats så att du kan också strömma videon. Slutpunkt för direktuppspelning som du vill att strömma videon måste finnas i den **kör** tillstånd.
 
 För att kunna köra indexering och kodningsjobb den [Azure Media Services-konto som är anslutna till ditt konto för Video Indexer](connect-to-azure.md), kräver reserverade enheter. Mer information finns i [skala bearbetning av Media](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview). Eftersom dessa är beräkningsintensiva Beräkningsjobb rekommenderas starkt S3 enhetstyp. Antalet mediereserverade enheter definierar det maximala antalet jobb som kan köras parallellt. Baslinje-rekommendationen är 10 mediereserverade S3-enheter. 
 
-Om du bara vill indexerar videon men inte koda den `streamingPereset`till `NoStreaming`.
+Om du bara vill indexerar videon men inte koda den `streamingPreset`till `NoStreaming`.
 
 ## <a name="code-sample"></a>Kodexempel
 

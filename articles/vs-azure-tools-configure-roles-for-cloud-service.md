@@ -1,104 +1,105 @@
 ---
 title: Konfigurera roller för en Azure-molntjänst med Visual Studio | Microsoft Docs
-description: Lär dig hur du skapar och konfigurerar roller för Azure-molntjänster med Visual Studio.
+description: Lär dig mer om att installera och konfigurera roller för Azure cloud services med hjälp av Visual Studio.
 services: visual-studio-online
 author: ghogen
 manager: douge
 assetId: d397ef87-64e5-401a-aad5-7f83f1022e16
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/21/2017
 ms.author: ghogen
-ms.openlocfilehash: 09e6c3a9c27342ef27d49674d62ccf74d70d2e0f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 010a345d0bc756855b9a85660afcd647d111db75
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798734"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42057002"
 ---
-# <a name="configure-azure-cloud-service-roles-with-visual-studio"></a>Konfigurera roller för Azure cloud service med Visual Studio
-En Azure-molntjänst kan ha en eller flera worker webbroller. För varje roll måste du definiera hur rollen har ställts in och även konfigurera hur rollen körs. Mer information om roller i molntjänster finns videon [introduktion till Azure Cloud Services](https://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Introduction-to-Windows-Azure-Cloud-Services). 
+# <a name="configure-azure-cloud-service-roles-with-visual-studio"></a>Konfigurera Azure molntjänstroller med Visual Studio
+En Azure-molntjänst kan ha en eller flera worker eller web-roller. För varje roll måste du definiera hur rollen ställs in och även konfigurera hur rollen körs. Mer information om roller i cloud services, se videon [introduktion till Azure Cloud Services](https://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Introduction-to-Windows-Azure-Cloud-Services). 
 
-Information för din molntjänst lagras i följande filer:
+Informationen för din molntjänst lagras i följande filer:
 
-- **ServiceDefinition.csdef** -tjänstdefinitionsfilen definierar körningsinställningar för Molntjänsten, inklusive vilka roller är obligatoriska, slutpunkter och storlek på virtuell dator. Ingen av de data som lagras i `ServiceDefinition.csdef` kan ändras när den körs.
-- **ServiceConfiguration.cscfg** - tjänstkonfigurationsfilen konfigurerar hur många instanser av en roll körs och värden för inställningarna som har definierats för en roll. Data som lagras i `ServiceConfiguration.cscfg` kan ändras när din roll körs.
+- **ServiceDefinition.csdef** -tjänstdefinitionsfilen definierar körningsinställningar för din molntjänst, inklusive vilka roller är obligatoriska, slutpunkter och VM-storlek. Ingen av de data som lagras i `ServiceDefinition.csdef` kan ändras när du kör din roll.
+- **ServiceConfiguration.cscfg** – tjänstkonfigurationsfilen anger hur många instanser av en roll körs och värdena för inställningarna som definierats för en roll. Data som lagras i `ServiceConfiguration.cscfg` kan ändras när din roll körs.
 
-Du kan definiera flera konfigurationer för att lagra olika värden för de inställningar som styr hur en roll körs. Du kan använda en annan tjänstkonfiguration för varje distributionsmiljö. Du kan till exempel ange anslutningssträngen för lagring kontot du använder lokala Azure storage-emulatorn i en lokal tjänst-konfiguration och skapa en annan tjänstkonfiguration om du vill använda Azure storage i molnet.
+Du kan definiera flera konfigurationer för att lagra olika värden för de inställningar som styr hur en roll körs. Du kan använda en annan tjänstkonfiguration för varje distributionsmiljö. Du kan till exempel ange din anslutningssträng för lagringskonto att använda lokala Azure storage-emulatorn i en lokal tjänst-konfiguration och skapa en annan tjänstkonfiguration för att använda Azure storage i molnet.
 
-När du skapar en Azure-molntjänst i Visual Studio, skapas och läggs till din Azure-projekt automatiskt två konfigurationer:
+När du skapar en Azure cloud Services i Visual Studio kan skapas och läggs till din Azure-projekt automatiskt två konfigurationer:
 
 - `ServiceConfiguration.Cloud.cscfg`
 - `ServiceConfiguration.Local.cscfg`
 
 ## <a name="configure-an-azure-cloud-service"></a>Konfigurera en Azure-molntjänst
-Du kan konfigurera en Azure-molntjänst från Solution Explorer i Visual Studio enligt följande steg:
+Du kan konfigurera en Azure-molntjänst från Solution Explorer i Visual Studio som du ser i följande steg:
 
 1. Skapa eller öppna ett Azure cloud service-projekt i Visual Studio.
 
-1. I **Solution Explorer**, högerklicka på projektet och, från snabbmenyn, Välj **egenskaper**.
+1. I **Solution Explorer**, högerklicka på projektet och, från snabbmenyn väljer **egenskaper**.
    
-    ![Snabbmenyn för Solution Explorer-projekt](./media/vs-azure-tools-configure-roles-for-cloud-service/solution-explorer-project-context-menu.png)
+    ![Snabbmenyn för projektet i Solution Explorer](./media/vs-azure-tools-configure-roles-for-cloud-service/solution-explorer-project-context-menu.png)
 
-1. Välj i projektets egenskapssida i **Development** fliken. 
+1. Egenskapssidan för projektet, Välj den **utveckling** fliken. 
 
-    ![Projektet egenskapssidan - utveckling fliken](./media/vs-azure-tools-configure-roles-for-cloud-service/project-properties-development-tab.png)
+    ![Projektet egenskapssidan - utveckling-fliken](./media/vs-azure-tools-configure-roles-for-cloud-service/project-properties-development-tab.png)
 
-1. I den **tjänstkonfiguration** väljer du namnet på tjänstkonfigurationen som du vill redigera. (Om du vill göra ändringar i alla tjänstkonfiguration för den här rollen, välja **alla konfigurationer av**.)
+1. I den **tjänstkonfiguration** väljer du namnet på tjänstens konfiguration som du vill redigera. (Om du vill göra ändringar i alla tjänstkonfiguration för den här rollen, Välj **alla konfigurationer**.)
    
     > [!IMPORTANT]
-    > Om du väljer en specifik tjänstkonfiguration har vissa egenskaper inaktiverats eftersom de kan bara anges för alla konfigurationer. Om du vill redigera dessa egenskaper, måste du välja **alla konfigurationer av**.
+    > Om du väljer en specifik tjänst-konfiguration kan har vissa egenskaper inaktiverats eftersom de kan bara anges för alla konfigurationer. Om du vill redigera dessa egenskaper, måste du välja **alla konfigurationer**.
     > 
     > 
    
-    ![Tjänstkonfigurationen listan för en Azure-molntjänst](./media/vs-azure-tools-configure-roles-for-cloud-service/cloud-service-service-configuration-property.png)
+    ![Tjänstkonfigurationen listan för en Azure cloud Services](./media/vs-azure-tools-configure-roles-for-cloud-service/cloud-service-service-configuration-property.png)
 
 ## <a name="change-the-number-of-role-instances"></a>Ändra antalet rollinstanser
-Du kan ändra antalet instanser av en roll som körs, baserat på antalet användare eller belastning som förväntas för en viss roll för att förbättra prestandan för din tjänst i molnet. En separat virtuell dator skapas för varje instans av rollen när Molntjänsten som körs i Azure. Detta påverkar fakturering för distribution av den här Molntjänsten. Mer information om fakturering finns [förstå fakturan för Microsoft Azure](billing/billing-understand-your-bill.md).
+Du kan ändra antalet instanser av en roll som körs, baserat på antalet användare eller belastningen som förväntat för en viss roll för att förbättra prestanda för din molntjänst. En separat virtuell dator skapas för varje instans av en roll när Molntjänsten som körs i Azure. Detta påverkar faktureringen för distributionen av den här Molntjänsten. Läs mer om fakturering, [förstå fakturan för Microsoft Azure](billing/billing-understand-your-bill.md).
 
 1. Skapa eller öppna ett Azure cloud service-projekt i Visual Studio.
 
-1. I **Solution Explorer**, expandera projektnoden. Under den **roller** nod, högerklicka på rollen du vill uppdatera och på snabbmenyn Välj **egenskaper**.
+1. I **Solution Explorer**, expandera projektnoden. Under den **roller** nod, högerklicka på den roll som du vill uppdatera och på snabbmenyn väljer **egenskaper**.
 
-    ![Snabbmenyn för Solution Explorer Azure roll](./media/vs-azure-tools-configure-roles-for-cloud-service/solution-explorer-azure-role-context-menu.png)
+    ![Solution Explorer Azure rollen snabbmenyn](./media/vs-azure-tools-configure-roles-for-cloud-service/solution-explorer-azure-role-context-menu.png)
 
 1. Välj den **Configuration** fliken.
 
     ![Konfigurationsfliken](./media/vs-azure-tools-configure-roles-for-cloud-service/role-configuration-properties-page.png)
 
-1. I den **tjänstkonfiguration** väljer du konfigurationen för tjänsten som du vill uppdatera.
+1. I den **tjänstkonfiguration** väljer du konfigurationen av som du vill uppdatera.
    
     ![Tjänstkonfigurationen lista](./media/vs-azure-tools-configure-roles-for-cloud-service/role-configuration-properties-page-select-configuration.png)
 
-1. I den **instansen antal** text anger antalet instanser som du vill starta för den här rollen. Varje instans som körs på en separat virtuell dator när du publicerar Molntjänsten på Azure.
+1. I den **antal instanser** text anger antalet instanser som du vill börja för den här rollen. Varje instans som körs på en separat virtuell dator när du publicerar Molntjänsten till Azure.
 
-    ![Uppdatera Instansantalet](./media/vs-azure-tools-configure-roles-for-cloud-service/role-configuration-properties-page-instance-count.png)
+    ![Uppdatering av antalet instanser](./media/vs-azure-tools-configure-roles-for-cloud-service/role-configuration-properties-page-instance-count.png)
 
-1. Från Visual Studio i verktygsfältet väljer **spara**.
+1. Från Visual Studio, verktygsfältet och väljer **spara**.
 
 ## <a name="manage-connection-strings-for-storage-accounts"></a>Hantera anslutningssträngar för storage-konton
-Du kan lägga till, ta bort eller ändra anslutningssträngar för service-konfigurationer. Du kan exempelvis lokala anslutningssträngen för en lokal tjänst-konfiguration som har värdet `UseDevelopmentStorage=true`. Du kan också konfigurera en tjänst molnkonfiguration som använder ett lagringskonto i Azure.
+Du kan lägga till, ta bort eller ändra anslutningssträngar för din tjänstkonfiguration. Exempelvis kan du vilja ha en lokal anslutningssträng för en lokal tjänst-konfiguration som har värdet `UseDevelopmentStorage=true`. Du kanske också vill konfigurera en molntjänstkonfiguration som använder ett lagringskonto i Azure.
 
 > [!WARNING]
-> När du registrerar Azure storage-konto viktig information för en anslutningssträng för storage-konto, lagras informationen lokalt i tjänstekonfigurationsfilen. Men den här informationen lagras för närvarande inte som krypterad text.
+> När du anger Azure storage-konto viktig information för en anslutningssträng för lagringskonto, lagras den här informationen lokalt i tjänstekonfigurationsfilen. Men den här informationen lagras för närvarande inte som krypterade text.
 > 
 > 
 
-Med hjälp av ett annat värde för varje tjänstkonfiguration behöver du inte använda olika anslutningssträngar i din tjänst i molnet eller ändra koden när du publicerar din tjänst i molnet till Azure. Du kan använda samma namn för anslutningssträngen i koden och värdet är olika, baserat på konfigurationen av tjänsten som du väljer när du skapar din molntjänst eller när du publicerar den.
+Med ett annat värde för varje tjänstkonfigurationen kan behöver du inte använda olika anslutningssträngar i din molntjänst eller ändra koden när du publicerar din molntjänst till Azure. Du kan använda samma namn för anslutningssträngen i din kod och värdet är olika, baserat på konfigurationen av som du väljer när du skapar din molntjänst eller när du publicerar den.
 
 1. Skapa eller öppna ett Azure cloud service-projekt i Visual Studio.
 
-1. I **Solution Explorer**, expandera projektnoden. Under den **roller** nod, högerklicka på rollen du vill uppdatera och på snabbmenyn Välj **egenskaper**.
+1. I **Solution Explorer**, expandera projektnoden. Under den **roller** nod, högerklicka på den roll som du vill uppdatera och på snabbmenyn väljer **egenskaper**.
 
-    ![Snabbmenyn för Solution Explorer Azure roll](./media/vs-azure-tools-configure-roles-for-cloud-service/solution-explorer-azure-role-context-menu.png)
+    ![Solution Explorer Azure rollen snabbmenyn](./media/vs-azure-tools-configure-roles-for-cloud-service/solution-explorer-azure-role-context-menu.png)
 
 1. Välj den **inställningar** fliken.
 
-    ![Fliken Inställningar](./media/vs-azure-tools-configure-roles-for-cloud-service/project-properties-settings-tab.png)
+    ![Inställningsfliken](./media/vs-azure-tools-configure-roles-for-cloud-service/project-properties-settings-tab.png)
 
-1. I den **tjänstkonfiguration** väljer du konfigurationen för tjänsten som du vill uppdatera.
+1. I den **tjänstkonfiguration** väljer du konfigurationen av som du vill uppdatera.
 
     ![Tjänstkonfiguration](./media/vs-azure-tools-configure-roles-for-cloud-service/project-properties-settings-tab-select-configuration.png)
 
@@ -110,25 +111,25 @@ Med hjälp av ett annat värde för varje tjänstkonfiguration behöver du inte 
 
     ![Ny anslutningssträng](./media/vs-azure-tools-configure-roles-for-cloud-service/project-properties-settings-tab-add-setting-new-setting.png)
 
-    - **Namnet** – ange namnet som du vill använda för anslutningssträngen.
-    - **Typen** – Välj **anslutningssträngen** från den nedrullningsbara listan.
-    - **Värdet** -kan du antingen ange anslutningssträngen direkt i den **värdet** celler eller välj ellips (...) att arbeta i den **skapa Lagringsanslutningssträng** dialogrutan.  
+    - **Namn på** -ange det namn som du vill använda för anslutningssträngen.
+    - **Typ** – Välj **Connection String** från den nedrullningsbara listan.
+    - **Värdet** -du kan antingen ange anslutningssträngen direkt till den **värdet** cell, eller välj ellipsen (...) i den **skapa Lagringsanslutningssträng** dialogrutan.  
 
-1. I den **skapa Lagringsanslutningssträng** väljer ett alternativ för **ansluta med**. Följ sedan anvisningarna för det alternativ du väljer:
+1. I den **skapa Lagringsanslutningssträng** dialogrutan väljer du ett alternativ för **ansluta med hjälp av**. Följ anvisningarna för vilket alternativ du väljer:
 
-    - **Microsoft Azure storage-emulatorn** -om du väljer det här alternativet om de återstående inställningarna i dialogrutan har inaktiverats eftersom de tillämpas endast för Azure. Välj **OK**.
-    - **Din prenumeration** - om du väljer det här alternativet använder den nedrullningsbara listan för att antingen välja och logga in på ett Microsoft-konto eller Lägg till ett Microsoft-konto. Välj ett Azure-prenumeration och storage-konto. Välj **OK**.
-    - **Autentiseringsuppgifterna anges manuellt** -ange lagringskontonamn och den primära eller den andra nyckeln. Välj ett alternativ för **anslutning** (HTTPS rekommenderas för de flesta fall.) Välj **OK**.
+    - **Microsoft Azure storage-emulatorn** -om du väljer det här alternativet om de återstående inställningarna i dialogrutan har inaktiverats eftersom de endast tillämpas på Azure. Välj **OK**.
+    - **Din prenumeration** – om du väljer det här alternativet använder den nedrullningsbara listan att antingen välja och logga in på ett Microsoft-konto eller Lägg till ett Microsoft-konto. Välj ett Azure-prenumeration och storage-konto. Välj **OK**.
+    - **Angett autentiseringsuppgifterna manuellt** -ange lagringskontonamnet och den primära eller andra nyckeln. Välj ett alternativ för **anslutning** (HTTPS rekommenderas för de flesta scenarier.) Välj **OK**.
 
-1. Välj anslutningssträngen för att ta bort en anslutningssträng och välj sedan **ta bort inställningen**.
+1. Välj anslutningssträngen för att ta bort en anslutningssträng, och därefter **ta bort inställningen**.
 
-1. Från Visual Studio i verktygsfältet väljer **spara**.
+1. Från Visual Studio, verktygsfältet och väljer **spara**.
 
-## <a name="programmatically-access-a-connection-string"></a>Komma åt en anslutningssträng
+## <a name="programmatically-access-a-connection-string"></a>Via programmering komma åt en anslutningssträng
 
 Följande steg visar hur programmatisk åtkomst till en anslutningssträng med C#.
 
-1. Lägg till följande med hjälp av direktiven till en C#-fil där du ska använda inställningen:
+1. Lägg till följande med hjälp av direktiv till en C#-fil där du tänker använda inställningen:
 
     ```csharp
     using Microsoft.WindowsAzure;
@@ -143,24 +144,24 @@ Följande steg visar hur programmatisk åtkomst till en anslutningssträng med C
     var storageAccount = CloudStorageAccount.Parse(RoleEnvironment.GetConfigurationSettingValue("<ConnectionStringName>"));
     ```
 
-## <a name="add-custom-settings-to-use-in-your-azure-cloud-service"></a>Lägg till anpassade inställningar som ska användas i Azure-molntjänst
-Anpassade inställningar i tjänstkonfigurationsfilen kan du lägga till ett namn och värde för en sträng för en specifik tjänst-konfiguration. Du kan välja att använda den här inställningen för att konfigurera en funktion i din molntjänst genom att läsa värdet för inställningen och använder det här värdet för att styra logiken i din kod. Du kan ändra dessa värden för konfiguration av tjänsten utan att behöva återskapa ditt abonnemang eller när Molntjänsten körs. Koden kan söka efter meddelanden om ändringar i en inställning. Se [RoleEnvironment.Changing händelse](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx).
+## <a name="add-custom-settings-to-use-in-your-azure-cloud-service"></a>Lägga till anpassade inställningar ska användas i din Azure-molntjänst
+Anpassade inställningar i tjänstekonfigurationsfilen kan du lägga till ett namn och värde för en sträng för en specifik tjänst-konfiguration. Du kan välja att använda den här inställningen för att konfigurera en funktion i din molntjänst genom att läsa av värdet för inställningen och använder det här värdet för att styra logiken i din kod. Du kan ändra dessa värden för konfiguration av tjänsten utan att behöva återskapa ditt abonnemang eller när du kör din molntjänst. Din kod kan söka efter meddelanden om när en inställningen ändras. Se [RoleEnvironment.Changing händelse](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx).
 
 Du kan lägga till, ta bort eller ändra anpassade inställningar för din tjänstkonfiguration. Du kanske vill olika värden för de här strängarna för olika konfigurationer.
 
-Med hjälp av ett annat värde för varje tjänstkonfiguration behöver du inte använda olika strängar i din tjänst i molnet eller ändra koden när du publicerar din tjänst i molnet till Azure. Du kan använda samma namn för strängen i koden och värdet är olika, baserat på konfigurationen av tjänsten som du väljer när du skapar din molntjänst eller när du publicerar den.
+Med ett annat värde för varje tjänstkonfigurationen kan behöver du inte använda olika strängar i din molntjänst eller ändra koden när du publicerar din molntjänst till Azure. Du kan använda samma namn för strängen i din kod och värdet är olika, baserat på konfigurationen av som du väljer när du skapar din molntjänst eller när du publicerar den.
 
 1. Skapa eller öppna ett Azure cloud service-projekt i Visual Studio.
 
-1. I **Solution Explorer**, expandera projektnoden. Under den **roller** nod, högerklicka på rollen du vill uppdatera och på snabbmenyn Välj **egenskaper**.
+1. I **Solution Explorer**, expandera projektnoden. Under den **roller** nod, högerklicka på den roll som du vill uppdatera och på snabbmenyn väljer **egenskaper**.
 
-    ![Snabbmenyn för Solution Explorer Azure roll](./media/vs-azure-tools-configure-roles-for-cloud-service/solution-explorer-azure-role-context-menu.png)
+    ![Solution Explorer Azure rollen snabbmenyn](./media/vs-azure-tools-configure-roles-for-cloud-service/solution-explorer-azure-role-context-menu.png)
 
 1. Välj den **inställningar** fliken.
 
-    ![Fliken Inställningar](./media/vs-azure-tools-configure-roles-for-cloud-service/project-properties-settings-tab.png)
+    ![Inställningsfliken](./media/vs-azure-tools-configure-roles-for-cloud-service/project-properties-settings-tab.png)
 
-1. I den **tjänstkonfiguration** väljer du konfigurationen för tjänsten som du vill uppdatera.
+1. I den **tjänstkonfiguration** väljer du konfigurationen av som du vill uppdatera.
 
     ![Tjänstkonfigurationen lista](./media/vs-azure-tools-configure-roles-for-cloud-service/project-properties-settings-tab-select-configuration.png)
 
@@ -172,19 +173,19 @@ Med hjälp av ett annat värde för varje tjänstkonfiguration behöver du inte 
 
     ![Ny anpassad inställning](./media/vs-azure-tools-configure-roles-for-cloud-service/project-properties-settings-tab-add-setting-new-setting.png)
 
-    - **Namnet** – ange namnet på inställningen.
-    - **Typen** – Välj **sträng** från den nedrullningsbara listan.
-    - **Värdet** -ange värdet för inställningen. Du kan antingen ange värde direkt i den **värdet** cell eller markera ellips (...) för att ange värdet i den **Redigera sträng** dialogrutan.  
+    - **Namn på** – ange namnet på inställningen.
+    - **Typ** – Välj **sträng** från den nedrullningsbara listan.
+    - **Värdet** – ange värdet för inställningen. Du kan antingen ange värde direkt i den **värdet** celler eller välj ellipsen (...) för att ange värdet i den **Redigera sträng** dialogrutan.  
 
-1. Välj inställning för att ta bort en anpassad inställning, och välj sedan **ta bort inställningen**.
+1. Om du vill ta bort en anpassad inställning, Välj inställningen och därefter **ta bort inställningen**.
 
-1. Från Visual Studio i verktygsfältet väljer **spara**.
+1. Från Visual Studio, verktygsfältet och väljer **spara**.
 
-## <a name="programmatically-access-a-custom-settings-value"></a>Komma åt en inställningens värde
+## <a name="programmatically-access-a-custom-settings-value"></a>Programmässigt få åtkomst till en anpassad inställningens värde
  
 Följande steg visar hur programmatisk åtkomst till en anpassad inställning med C#.
 
-1. Lägg till följande med hjälp av direktiven till en C#-fil där du ska använda inställningen:
+1. Lägg till följande med hjälp av direktiv till en C#-fil där du tänker använda inställningen:
 
     ```csharp
     using Microsoft.WindowsAzure;
@@ -199,19 +200,19 @@ Följande steg visar hur programmatisk åtkomst till en anpassad inställning me
     ```
 
 ## <a name="manage-local-storage-for-each-role-instance"></a>Hantera lokal lagring för varje rollinstans
-Du kan lägga till lokala system fillagring för varje instans av en roll. De data som lagras i denna lagring inte är tillgänglig i andra instanser av rollen för vilket data lagras eller av andra roller.  
+Du kan lägga till lagringsutrymme för lokala filsystem för varje instans av en roll. Data som lagras i denna lagring inte kan nås av andra instanser av rollen för vilket data lagras eller genom att andra roller.  
 
 1. Skapa eller öppna ett Azure cloud service-projekt i Visual Studio.
 
-1. I **Solution Explorer**, expandera projektnoden. Under den **roller** nod, högerklicka på rollen du vill uppdatera och på snabbmenyn Välj **egenskaper**.
+1. I **Solution Explorer**, expandera projektnoden. Under den **roller** nod, högerklicka på den roll som du vill uppdatera och på snabbmenyn väljer **egenskaper**.
 
-    ![Snabbmenyn för Solution Explorer Azure roll](./media/vs-azure-tools-configure-roles-for-cloud-service/solution-explorer-azure-role-context-menu.png)
+    ![Solution Explorer Azure rollen snabbmenyn](./media/vs-azure-tools-configure-roles-for-cloud-service/solution-explorer-azure-role-context-menu.png)
 
 1. Välj den **lokal lagring** fliken.
 
     ![Fliken lokal lagring](./media/vs-azure-tools-configure-roles-for-cloud-service/role-local-storage-tab.png)
 
-1. I den **tjänstkonfiguration** lista, se till att **alla konfigurationer av** är markerad som lokal Lagringsinställningar gäller för alla konfigurationer. Ett annat värde resulterar i indatafält på sidan håller på att inaktiveras. 
+1. I den **tjänstkonfiguration** Kontrollera att **alla konfigurationer** är markerad som lokal lagring-inställningar gäller för alla tjänstkonfigurationer av. Ett annat värde resulterar i inmatningsfält på sidan håller på att inaktiveras. 
 
     ![Tjänstkonfigurationen lista](./media/vs-azure-tools-configure-roles-for-cloud-service/role-local-storage-tab-service-configuration.png)
 
@@ -223,17 +224,17 @@ Du kan lägga till lokala system fillagring för varje instans av en roll. De da
 
     ![Ny post för lokal lagring](./media/vs-azure-tools-configure-roles-for-cloud-service/role-local-storage-tab-new-local-storage.png)
 
-    - **Namnet** – ange namnet som du vill använda för den nya lokal lagringen.
-    - **Storlek (MB)** -ange en storlek i MB som du behöver för den nya lagringsplatsen.
-    - **Rensa på rollen återvinning** -Välj detta alternativ för att ta bort data i den nya lokal lagringen när den virtuella datorn för rollen återanvänds.
+    - **Namn på** -ange det namn som du vill använda för det nya lokala lagringsutrymmet.
+    - **Storlek (MB)** -Ange storlek i MB som ska användas för den nya lokal lagringen.
+    - **Rensa på återanvändning av roll** – Välj det här alternativet för att ta bort data i den nya lokal lagringen när den virtuella datorn för rollen återanvänds.
 
 1. Om du vill ta bort en post för lokal lagring, Välj posten och välj sedan **ta bort lokal lagring**.
 
-1. Från Visual Studio i verktygsfältet väljer **spara**.
+1. Från Visual Studio, verktygsfältet och väljer **spara**.
 
-## <a name="programmatically-accessing-local-storage"></a>Att komma åt lokal lagring
+## <a name="programmatically-accessing-local-storage"></a>Programmässigt få åtkomst till lokal lagring
 
-Det här avsnittet visar hur programmatisk åtkomst till lokal lagring med hjälp av C# genom att skriva en test-textfil `MyLocalStorageTest.txt`.  
+Det här avsnittet illustrerar hur programmatisk åtkomst till lokal lagring med C# genom att skriva en test-textfil `MyLocalStorageTest.txt`.  
 
 ### <a name="write-a-text-file-to-local-storage"></a>Skriv en textfil till lokal lagring
 
@@ -259,20 +260,20 @@ Följande kod visar ett exempel på hur du skriver en textfil till lokal lagring
 
 Följ dessa steg om du vill visa filen som skapas av koden i föregående avsnitt:
     
-1.  I meddelandefältet i Windows högerklickar du på ikonen för Azure och på snabbmenyn Välj **visa Compute Emulator UI**. 
+1.  I meddelandefältet Windows högerklickar du på ikonen för Azure, och, från snabbmenyn väljer **visa Compute Emulator UI**. 
 
     ![Visa Azure-beräkningsemulatorn](./media/vs-azure-tools-configure-roles-for-cloud-service/show-compute-emulator.png)
 
-1. Välj rollen webbserver.
+1. Välj webbrollen.
 
     ![Azure-beräkningsemulatorn](./media/vs-azure-tools-configure-roles-for-cloud-service/compute-emulator.png)
 
-1. På den **Microsoft Azure Compute Emulator** väljer du **verktyg** > **öppna lokalt Arkiv**.
+1. På den **Microsoft Azure Compute Emulator** menyn och välj **verktyg** > **öppna lokala arkivet**.
 
-    ![Öppna lokalt Arkiv menyobjekt](./media/vs-azure-tools-configure-roles-for-cloud-service/compute-emulator-open-local-store-menu.png)
+    ![Öppna lokala arkivet menyalternativ](./media/vs-azure-tools-configure-roles-for-cloud-service/compute-emulator-open-local-store-menu.png)
 
-1. När fönstret Utforskaren öppnas, ange ' MyLocalStorageTest.txt'' i den **Sök** text och markera **RETUR** sökningen ska startas. 
+1. När Windows Explorer-fönster öppnas, anger du ”MyLocalStorageTest.txt'' i den **Search** textrutan och välj **RETUR** sökningen ska startas. 
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig mer om Azure-projekt i Visual Studio genom att läsa [konfigurera ett Azure-projekt](vs-azure-tools-configuring-an-azure-project.md). Mer information om cloud service schemat genom att läsa [Schemareferens](https://msdn.microsoft.com/library/azure/dd179398).
+Läs mer om Azure-projekt i Visual Studio genom att läsa [konfigurerar ett Azure-projekt](vs-azure-tools-configuring-an-azure-project.md). Läs mer om cloud service-schemat genom att läsa [Schemareferens](https://msdn.microsoft.com/library/azure/dd179398).
 

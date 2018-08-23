@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/05/2016
 ms.author: mlearned
-ms.openlocfilehash: 2764d8a17d50f1589d413c2343badfded6adb66e
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: db3cc8bb546758402e4f0b3fe91449e597e754fa
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216350"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42055790"
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>Självstudiekurs: DevOps med Azure-portalen
 Azure-plattformen är full av flexibla DevOps-arbetsflöden. I den här självstudien får du lära dig hur du utnyttjar funktionerna i Azure portal för att utveckla, testa, distribuera, felsöka, övervaka och hantera program som körs. Den här självstudiekursen fokuserar på följande:
@@ -125,7 +125,7 @@ Nu ska du göra några ändringar i kodbasen och snabbt distribuera dina ändrin
 12. Gå tillbaka till verktygsbladet och klicka på Prestandatest under kategorin Utveckla.
     
     ![image28][image28]
-13. Du måste ange ett Team Services-konto. Mer information finns här: [Skapa ett Team Services-konto](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
+13. Du måste ange ett Team Services-konto. Mer information finns här: [skapa ett Team Services-konto](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student).
 14. Klicka på Nytt för att skapa ett prestandatest.
     
     ![image29][image29]

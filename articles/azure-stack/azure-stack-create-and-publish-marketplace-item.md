@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/14/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 101686149c0e3faaf442c58f4002cbbfe0e72eaa
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: da1619c5dc536ee143a8cc5ed17e995bc2d1eab7
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "35647225"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42060358"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Skapa och publicera ett Marketplace-objekt
 
@@ -102,7 +102,7 @@ ms.locfileid: "35647225"
 
 6. Du kan ta bort ett Marketplace-objekt med hjälp av den **Remove-AzureRMGalleryItem** cmdlet. Exempel:
    
-        Remove-AzureRMGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
+        Remove-AzsGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
    
    > [!NOTE]
    > Marketplace-Användargränssnittet kan indikera ett fel när du har tagit bort ett objekt. Åtgärda felet genom att klicka på **inställningar** i portalen. Välj **ta bort ändringar** under **Portal anpassning**.

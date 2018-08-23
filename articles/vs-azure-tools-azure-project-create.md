@@ -1,34 +1,35 @@
 ---
-title: Skapa ett Azure cloud service-projekt i Visual Studio | Microsoft Docs
-description: Lär dig att skapa ett Azure cloud service-projekt i Visual Studio
+title: Skapa ett Azure cloud service-projekt med Visual Studio | Microsoft Docs
+description: Lär dig att skapa ett Azure cloud service-projekt med Visual Studio
 services: visual-studio-online
 author: ghogen
 manager: douge
 assetId: ec580df7-3dcc-45a9-a1d9-8c110678dfb5
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/21/2017
 ms.author: ghogen
-ms.openlocfilehash: 06213ecabf3669bf3b8cf2b8d73a4e8def359536
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f41628c29f40443cc213892a0cc457eda110ebca
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31791570"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42061680"
 ---
-# <a name="creating-an-azure-cloud-service-project-with-visual-studio"></a>Skapa ett Azure cloud service-projekt i Visual Studio
-Azure-verktyg för Visual Studio tillhandahåller en projektmall som låter dig skapa ett Azure-molntjänst. När projektet har skapats kan du konfigurera, felsöka och distribuera Molntjänsten till Azure i Visual Studio.
+# <a name="creating-an-azure-cloud-service-project-with-visual-studio"></a>Skapa ett Azure cloud service-projekt med Visual Studio
+Azure Tools för Visual Studio tillhandahåller en projektmall där du kan skapa en Azure-molntjänst. När projektet har skapats, kan du konfigurera, felsöka och distribuera Molntjänsten till Azure i Visual Studio.
 
 ## <a name="steps-to-create-an-azure-cloud-service-project-in-visual-studio"></a>Steg för att skapa ett Azure cloud service-projekt i Visual Studio
-Det här avsnittet vägleder dig genom att skapa ett Azure cloud service-projekt i Visual Studio med en eller flera webbroller.  
+Det här avsnittet visar hur du skapar ett Azure cloud service-projekt i Visual Studio med en eller flera web-roller.  
 
 1. Starta Visual Studio som administratör.
 
-1. På huvudmenyn, Välj **filen** > **ny** > **projekt**.
+1. På huvudmenyn väljer **filen** > **New** > **projekt**.
 
-1. Välj **moln** projektet mallen noder från Visual C# eller Visual Basic och välj **Azure Cloud Service** från listan över mallar.
+1. Välj **molnet** från Visual C# eller Visual Basic mall noder, och välj **Azure Cloud Service** i listan med mallar.
 
     ![Nya Azure-molntjänst](./media/vs-azure-tools-azure-project-create/new-project-wizard-for-cloud-service.png)
 
@@ -38,20 +39,20 @@ Det här avsnittet vägleder dig genom att skapa ett Azure cloud service-projekt
 
 1. Välj **OK**.
 
-1. I den **nya Microsoft Azure Cloud Service** dialogrutan Välj roller som du vill lägga till och klicka på högerpilen för att lägga till dem i din lösning.
+1. I den **nya Microsoft Azure Cloud Service** dialogrutan, Välj de roller som du vill lägga till och klicka på högerpilen för att lägga till dem i din lösning.
 
     ![Välj Azure cloud service-roller](./media/vs-azure-tools-azure-project-create/new-cloud-service.png)
 
-1. Byt namn på en roll som du har lagt till genom hovra över rollen i den **nya Microsoft Azure Cloud Service** dialogrutan, och på snabbmenyn Välj **Byt namn på**. Du kan också byta namn på en roll i din lösning (i det **Solution Explorer**) när den har lagts till.
+1. Byt namn på en roll som du har lagt till genom att hovra över rollen i den **nya Microsoft Azure Cloud Service** dialogrutan och välj sedan från snabbmenyn **Byt namn på**. Du kan också byta namn på en roll i din lösning (i den **Solution Explorer**) när den har lagts till.
 
-    ![Byt namn på Azure-molnet rolltjänst](./media/vs-azure-tools-azure-project-create/new-cloud-service-rename.png)
+    ![Byt namn på Azure cloud service-roll](./media/vs-azure-tools-azure-project-create/new-cloud-service-rename.png)
 
-Azure för Visual Studio-projekt har kopplingar till rollen projekt i lösningen. Projektet innehåller också den *tjänstdefinitionsfilen* och *tjänstkonfigurationsfilen*:
+Visual Studio Azure-projekt har kopplingar till rollen-projekt i lösningen. Projektet innehåller också de *tjänstdefinitionsfilen* och *tjänstkonfigurationsfilen*:
 
-- **Tjänstdefinitionsfilen** -definierar körningsinställningar för programmet, inklusive vilka roller är obligatoriska, slutpunkter och storlek på virtuell dator. 
-- **Tjänstkonfigurationsfilen** -konfigurerar hur många instanser av en roll är körningen och värdena för inställningarna för en roll. 
+- **Tjänstdefinitionsfilen** -definierar körningsinställningar för dina program, inklusive vilka roller är obligatoriska, slutpunkter och VM-storlek. 
+- **Tjänstkonfigurationsfilen** -konfigurerar hur många instanser av en roll är körnings- och värdena för inställningarna för en roll. 
 
-Mer information om dessa filer finns [Konfigurera roller för en Azure-molntjänst med Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
+Mer information om dessa filer finns i [Konfigurera roller för en Azure-molntjänst med Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
 
 ## <a name="next-steps"></a>Nästa steg
-- [Hantera roller i Azure cloud service-projekt i Visual Studio](./vs-azure-tools-cloud-service-project-managing-roles.md)
+- [Hantera roller i Azure cloud service-projekt med Visual Studio](./vs-azure-tools-cloud-service-project-managing-roles.md)

@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 08/21/2018
 ms.author: carlrab
-ms.openlocfilehash: 6c43a52309a6f41d73ead19fc5f5b7df2f06d6f6
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 03e24679ea01dabb78a0d7028d49b624b2e3bf64
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308821"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42058267"
 ---
 # <a name="sql-database-faq"></a>Vanliga frågor om SQL Database
 
@@ -46,7 +46,6 @@ Den [Azure Hybrid-förmånen för SQL Server](../virtual-machines/windows/hybrid
 
 ## <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>Finns det dubbla användningsrättigheter med Azure Hybrid-förmånen för SQL Server?
 Du har dubbel användningsrättigheter för att säkerställa migreringar kör smidigt 180 dagar. Efter den 180 dagar, SQL Server-licens kan bara användas i molnet i SQL-databas och inte har dubbel användning rights lokalt och i molnet.
-
 
 ## <a name="how-does-azure-hybrid-benefit-for-sql-server-differ-from-license-mobility"></a>Hur skiljer sig Azure Hybrid-förmånen för SQL Server från licensmobilitet?
 Idag erbjuder vi license mobility-förmånerna för SQL Server-kunder med Software Assurance som tillåter ny tilldelning av sina licenser för delade-servrar från tredje part. Den här förmånen kan användas på Azure IaaS och AWS EC2.
@@ -168,7 +167,10 @@ Granskning är inbyggd i tjänsten SQL Database utan extra kostnad och finns til
 I den [Azure-portalen](https://portal.azure.com), klickar du på **SQL-servrar**, Välj servern i listan och klicka sedan på **Återställ lösenord**.
 
 ## <a name="how-do-i-manage-databases-and-logins"></a>Hur hanterar jag databaser och inloggningar?
-Se [hantera databaser och inloggningar](sql-database-manage-logins.md).
+Se [hantera databaser och inloggningar](sql-database-manage-logins.md). 
+
+> [!NOTE]
+> Du kan inte ändra namnet på serveradministratörskontot när den har skapats.
 
 ## <a name="how-do-i-make-sure-only-authorized-ip-addresses-are-allowed-to-access-a-server"></a>Hur kan jag vara säker på att endast auktoriserade IP-adresser får tillgång till en server?
 Se [så här: konfigurera brandväggsinställningar på SQL Database](sql-database-configure-firewall-settings.md).

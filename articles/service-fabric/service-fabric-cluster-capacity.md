@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: 0a5c73728f939fc239f4af79f5f084867856581a
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: dc70a20667db7e59f0fe77ec4d84831cfb7e75a5
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494216"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617226"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric-kluster kapacitetsplanering
 För alla Produktionsdistribution är kapacitetsplanering ett viktigt steg. Här är några av de objekt som du måste väga in som en del av den här processen.
@@ -82,7 +82,8 @@ Hållbarhetsnivån används för att ange de behörigheter som dina virtuella da
 
 > [!WARNING]
 > Nodtyper som körs med Brons hållbarhet hämta _saknad behörighet_. Det innebär att infrastruktur för jobb som påverkar din tillståndslösa arbetsbelastningar inte kommer stoppas eller fördröjd, vilket kan påverka dina arbetsbelastningar. Använd endast Brons för nodtyper som kör endast tillståndslösa arbetsbelastningar. Kör Silver eller ovan rekommenderas för produktionsarbetsbelastningar. 
->
+
+> Oavsett eventuella hållbarhetsnivå [frigörs](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/deallocate) åtgärden på den Virtuella Datorskalningsuppsättningen förstör klustret
 
 **Fördelarna med att använda Silver eller Gold hållbarhet nivåer**
  
@@ -150,7 +151,7 @@ Här är rekommendationen om att välja tillförlitlighetsnivån.
 
 Här följer riktlinjer för planering av kapacitet för primära noden typ:
 
-- **Antalet Virtuella datorinstanser att köra alla produktionsarbetsbelastningar i Azure:** måste du ange en minsta primära noden typ storlek på 5. 
+- **Antalet Virtuella datorinstanser att köra alla produktionsarbetsbelastningar i Azure:** måste du ange en minsta primära noden typ storlek på 5 och en tillförlitlighet nivå av Silver.  
 - **Antalet Virtuella datorinstanser att köra arbetsbelastningar för testning i Azure** du kan ange en minsta primära noden teckenstorlek på 1 eller 3. En nod-klustret körs med en särskild konfiguration och, skalning av klustret stöds inte. En nod-klustret har inga tillförlitlighet och i Resource Manager-mallen, du måste ta bort/inte ange denna konfiguration (inte ställa in Konfigurationsvärdet är inte tillräckligt). Om du har konfigurerat en nod klustret konfigureras via portalen är automatiskt konfigurationen tar hand om. Kluster med en och tre noder stöds inte för arbetsbelastningar under produktion. 
 - **VM-SKU:** primära nodtypen är där systemtjänster körs, så att VM-SKU du väljer för den, måste ta hänsyn den övergripande högsta laddar du planerar att placera i klustret. Så om hjärnan inte får tillräckligt med oxygen, meddelandetexten drabbas här är en också illustrerar vad menar jag att här – Tänk på den primära nodtypen som din ”lungor”, det är vad tillhandahåller oxygen till dig och ut. 
 
@@ -166,8 +167,7 @@ För produktionsarbetsbelastningar:
 - Standard A1-SKU stöds inte för produktionsarbetsbelastningar av prestandaskäl.
 
 > [!WARNING]
-> För närvarande kan stöds ändra den primära noden VM SKU-storlek på ett aktivt kluster inte. Så du Välj den primära nodtypen VM SKU noggrant, med hänsyn till din framtida kapacitetsbehov. För närvarande det enda sättet att flytta den primära nodtypen till en ny VM-SKU (mindre eller större) är att skapa ett nytt kluster med rätt kapacitet, distribuera program till det och sedan återställa programtillståndet (om tillämpligt) från den [ senaste service säkerhetskopior](service-fabric-reliable-services-backup-restore.md) du har vidtagit från det gamla klustret. Du behöver inte återställa alla systemtillstånd för tjänsten, de återskapas när du distribuerar program till det nya klustret. Om du bara köra tillståndslösa program i klustret och sedan behöver du bara distribuera program till det nya klustret, du har inget att återställa.
-> 
+> Ändra den primära noden VM SKU-storlek på ett aktivt kluster är en åtgärd för skalning och dokumenteras i [Virtual Machine Scale Sets skala ut](virtual-machine-scale-set-scale-node-type-scale-out.md) dokumentation.
 
 ## <a name="non-primary-node-type---capacity-guidance-for-stateful-workloads"></a>Icke-primära nodtypen - kapacitet vägledning för tillståndskänsliga arbetsbelastningar
 

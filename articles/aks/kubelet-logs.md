@@ -1,40 +1,38 @@
 ---
-title: Hämta kubelet loggar från Azure-Kubernetes (AKS)
-description: Hämta kubelet loggar från noder i Azure Kubernetes Service (AKS)
+title: Visa kubelet-loggar i Azure Kubernetes Service (AKS)
+description: Så här visar du information om felsökning i kubelet-loggar från Azure Kubernetes Service (AKS) noder
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 08/21/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: 6fadc502812ea0d983b86c94914d86fcb21a54cd
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: aeab24685f3663ba2c50205344d33db3d34676c2
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100184"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42441956"
 ---
-# <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Hämta kubelet loggar från noder i Azure Kubernetes Service (AKS)
+# <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Hämta kubelet-loggar från noder i Azure Kubernetes Service (AKS)
 
-Ibland kan behöva du hämta kubelet loggar från en Azure Kubernetes Service (AKS) nod i felsökningssyfte. Det här dokumentet beskriver ett alternativ för att ta emot loggarna.
+Ibland kan du behöva hämta *kubelet* loggar från en Azure Kubernetes Service (AKS)-noden i felsökningssyfte. Den här artikeln visar hur du kan använda `journalctl` att visa den *kubelet* loggar.
 
 ## <a name="create-an-ssh-connection"></a>Skapa en SSH-anslutning
 
-Skapa först en SSH-anslutning till den nod som du behöver ta emot kubelet loggar. Den här åtgärden beskrivs i den [SSH till noder i Azure Kubernetes Service (AKS)] [ aks-ssh] dokumentet.
+Börja med att skapa en SSH-anslutning till den nod som du behöver visa *kubelet* loggar. Den här åtgärden beskrivs i den [SSH till noder i Azure Kubernetes Service (AKS)] [ aks-ssh] dokumentet.
 
 ## <a name="get-kubelet-logs"></a>Hämta kubelet-loggar
 
-När du har anslutit till den noden, kör följande kommando för att hämta loggarna kubelet.
-
-```azurecli-interactive
-journalctl -u kubelet -o cat
-```
-
-Exempel på utdata:
+När du har anslutit till noden, kör du följande kommando för att hämta den *kubelet* loggar:
 
 ```console
+sudo journalctl -u kubelet -o cat
+```
+
+I följande exempel utdata visar den *kubelet* logga data:
+
+```
 I0508 12:26:17.905042    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
 I0508 12:26:27.943494    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
 I0508 12:26:28.920125    8672 server.go:796] GET /stats/summary: (10.370874ms) 200 [[Ruby] 10.244.0.2:52292]
@@ -58,5 +56,10 @@ I0508 12:28:48.321952    8672 kubelet_node_status.go:497] Using Node Hostname fr
 I0508 12:28:58.344656    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
 ```
 
+## <a name="next-steps"></a>Nästa steg
+
+Om du behöver ytterligare information från Kubernetes originalet kan se [visa Kubernetes-huvudnod loggar i AKS][aks-master-logs].
+
 <!-- LINKS - internal -->
-[aks-ssh]: aks-ssh.md
+[aks-ssh]: ssh.md
+[aks-master-logs]: view-master-logs.md

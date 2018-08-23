@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: a86c4c4227795a712dd51ace1fbefe9d2b96518a
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 9eef382ea264bcf9e59dcc408d14a59355b0369b
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116120"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42445685"
 ---
 # <a name="reference-architecture-enterprise-integration-with-queues-and-events"></a>Referensarkitektur: Enterprise-integration med köer och händelser
 
@@ -42,7 +42,7 @@ Arkitekturen har följande komponenter:
 - **Kopplingar**. Logic Apps använder [kopplingar](https://docs.microsoft.com/azure/connectors/apis-list) att ansluta till ofta används för tjänster. Logic Apps har redan hundratals olika anslutningar, men du kan också skapa en anpassad anslutningsapp.
 - **Azure Service Bus**. [Service Bus](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview) erbjuder säker och tillförlitlig meddelandehantering. Meddelanden kan användas för att frikoppla program och integrera med andra meddelande-baserade system.
 - **Azure Event Grid**. [Event Grid](https://docs.microsoft.com/azure/event-grid/overview) är en plattform utan server som används för att publicera och leverera programhändelser.
-- **IP-adress**. Azure API Management-tjänsten har en fast offentlig [IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) och ett domännamn. Domännamnet är en underdomän till azure-api.net, till exempel contoso.azure-api.net. Logic Apps och Service Bus även ha en offentlig IP-adress. I den här arkitekturen kan vi dock begränsa åtkomsten för att anropa Logic Apps-slutpunkter som endast IP-adressen för API Management (för säkerhet). Anrop till Service Bus skyddas av en signatur för delad åtkomst (SAS).
+- **IP-adress**. Azure API Management-tjänsten har en fast offentlig [IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) och ett domännamn. Standarddomännamnet är en underdomän till azure-api.net, till exempel contoso.azure-api.net, men [anpassade domäner](https://docs.microsoft.com/azure/api-management/configure-custom-domain) kan också konfigureras. Logic Apps och Service Bus även ha en offentlig IP-adress. I den här arkitekturen kan vi dock begränsa åtkomsten för att anropa Logic Apps-slutpunkter som endast IP-adressen för API Management (för säkerhet). Anrop till Service Bus skyddas av en signatur för delad åtkomst (SAS).
 - **Azure DNS**. [Azure DNS](https://docs.microsoft.com/azure/dns/) är en värdtjänst för DNS-domäner. Azure DNS ger namnmatchning med hjälp av Microsoft Azure-infrastrukturen. Du kan hantera dina DNS-poster genom att använda samma autentiseringsuppgifter, API: er, verktyg och fakturering att du använder för dina andra Azure-tjänster genom som värd för domäner i Azure. Skapa DNS-poster som mappar det anpassade domännamnet till IP-adressen om du vill använda ett anpassat domännamn (t.ex. contoso.com). Mer information finns i [konfigurera ett anpassat domännamn i API Management](https://docs.microsoft.com/en-us/azure/api-management/configure-custom-domain).
 - **Azure Active Directory (Azure AD)**. Använd [Azure AD](https://docs.microsoft.com/azure/active-directory/) eller en annan identitetsleverantör för autentisering. Azure AD tillhandahåller autentisering för att komma åt API-slutpunkter genom att skicka en [JSON Web Token för API Management](https://docs.microsoft.com/azure/api-management/policies/authorize-request-based-on-jwt-claims) att verifiera. Azure AD kan skydda åtkomst till API Management Developer-portalen (endast Standard och Premium-nivåer).
 

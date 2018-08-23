@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 1b7ce6078fcaedee3d9ed4151063816df937ac0f
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1bb7a73213589b09d591e1c8297d9deaec7e075a
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055191"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41917760"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Branchning och kedjesammansättning av aktiviteter i en Data Factory-pipeline
-I den här självstudiekursen skapar du en Data Factory-pipeline som visar några av funktionerna för att styra flödet. Den här pipelinen skapar en enkel kopia från en behållare i Azure Blob Storage till en annan behållare i samma lagringskonto. Om kopieringen lyckas skickar pipelinen information om den lyckade kopieringsåtgärden (till exempel hur mycket data som har skrivits) i ett e-postmeddelande. Om kopieringen misslyckas skickar pipelinen information om att kopieringen misslyckades (till exempel ett felmeddelande) i ett e-postmeddelande. I självstudiekursen visas olika exempel på hur du skickar parametrar.
+I den här självstudiekursen skapar du en Data Factory-pipeline som visar några av funktionerna för att styra flödet. Den här pipelinen skapar en enkel kopia från en container i Azure Blob Storage till en annan container i samma lagringskonto. Om kopieringen lyckas skickar pipelinen information om den lyckade kopieringsåtgärden (till exempel hur mycket data som har skrivits) i ett e-postmeddelande. Om kopieringen misslyckas skickar pipelinen information om att kopieringen misslyckades (till exempel ett felmeddelande) i ett e-postmeddelande. I självstudiekursen visas olika exempel på hur du skickar parametrar.
 
 En översikt på hög nivå över scenariot: ![Översikt](media/tutorial-control-flow-portal/overview.png)
 
@@ -42,7 +42,7 @@ I den här självstudien används Azure Portal. Du kan använda andra metoder f�
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
-* **Azure Storage-konto**. Du kan använda blob-lagringen som **källa** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account) .
+* **Azure Storage-konto**. Du kan använda blob-lagringen som **källa** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md) .
 * **Azure SQL Database**. Du använder databasen som **mottagare** för datalagringen. Om du inte har någon Azure SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL Database](../sql-database/sql-database-get-started-portal.md).
 
 ### <a name="create-blob-table"></a>Skapa blob-tabell
@@ -54,9 +54,9 @@ I den här självstudien används Azure Portal. Du kan använda andra metoder f�
     Jane,Doe
     ```
 2. Gör följande med verktyg som [Azure Storage Explorer](http://storageexplorer.com/): 
-    1. Skapa behållaren **adfv2branch**.
-    2. Skapa mappen **input** i behållaren **adfv2branch**.
-    3. Överför filen **input.txt** till behållaren.
+    1. Skapa containern **adfv2branch**.
+    2. Skapa mappen **input** i containern **adfv2branch**.
+    3. Överför filen **input.txt** till containern.
 
 ## <a name="create-email-workflow-endpoints"></a>Skapa slutpunkter för e-postarbetsflödet
 För att utlösa utskicket av ett e-postmeddelande från pipelinen använder du [Logic Apps](../logic-apps/logic-apps-overview.md) för att definiera arbetsflödet. Mer information om hur du skapar ett Logic App-arbetsflöde finns i [Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
@@ -306,7 +306,7 @@ I det här steget kan du skapa en pipeline med en kopieringsaktivitet och två w
 2. För att **utlösa** en pipelinekörning klickar du på **Utlösare** i verktygsfältet och på **Trigger Now** (Utlös nu). 
 3. Gör följande i fönstret **Pipeline Run** (Pipelinekörning): 
 
-    1. Ange **adftutorial/dummy/input** för parametern **sourceBlobContainer**. Se till att mappen dummy inte finns i behållaren adftutorial. 
+    1. Ange **adftutorial/dummy/input** för parametern **sourceBlobContainer**. Se till att mappen dummy inte finns i containern adftutorial. 
     2. Ange **adftutorial/dummy/output** för parametern **sinkBlobContainer**. 
     3. Ange en **e-postadress** för **mottagaren**. 
     4. Klicka på **Slutför**.

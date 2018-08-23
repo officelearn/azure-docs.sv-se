@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 06/20/2018
+ms.date: 08/16/2018
 ms.author: sngun
-ms.openlocfilehash: 97c7051252ecc8a29cf487f74a68055cd2b3e163
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 9852edfca26e78ad1b373418970dfe9c7ab477d8
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990284"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42055958"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ SQL API Async Java SDK skiljer sig från SQL API Java-SDK: N genom att tillhanda
 
 <tr><td>**Hämta SDK**</td><td>[Maven 3.](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)</td></tr>
 
-<tr><td>**API-dokumentation**</td><td>[Java API-referensdokumentation](https://docs.microsoft.com/java/api/cosmosdb/client/async?view=azure-java-stable)</td></tr>
+<tr><td>**API-dokumentation**</td><td>[Java API-referensdokumentation](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client?view=azure-java-stable)</td></tr>
 
 <tr><td>**Bidra till SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java)</td></tr>
 
@@ -52,6 +52,10 @@ SQL API Async Java SDK skiljer sig från SQL API Java-SDK: N genom att tillhanda
 </table></br>
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="a-name201201"></a><a name="2.0.1"/>2.0.1
+* En bugg för andra språk än engelska ([github #51](https://github.com/Azure/azure-cosmosdb-java/issues/51)).
+* Har lagts till hjälpmetoder i konflikt resurs.
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
 * Ersatts org.json beroende av jackson på grund av prestandaskäl och licensiering ([github #29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
@@ -99,6 +103,7 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [2.0.1](#2.0.1) |16 augusti 2018|--- |
 | [2.0.0](#2.0.0) |Den 20 juni 2018|--- |
 | [1.0.2](#1.0.2) |Den 18 maj 2018|--- |
 | [1.0.1](#1.0.1) |Den 20 april 2018|--- |

@@ -1,6 +1,6 @@
 ---
-title: Kopiera data från Blob Storage till SQL Database - Azure | Microsoft Docs
-description: Den här kursen visar hur du använder Kopieringsaktiviteten i ett Azure Data Factory-pipelinen för att kopiera data från Blob storage till SQL-databas.
+title: Kopiera data från Blob Storage till SQL-databas – Azure | Microsoft Docs
+description: Den här självstudien visar hur du använder Kopieringsaktivitet i en Azure Data Factory-pipeline för att kopiera data från Blob storage till SQL-databas.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4538e5b49b161f22ba6d5979234786a58cae5783
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: a9f76b38139cccedb97c6026f0e0efa14d0dbc8c
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047734"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42061712"
 ---
-# <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Självstudier: Kopiera data från Blob Storage till SQL-databas med hjälp av Data Factory
+# <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Självstudier: Kopiera data från Blob Storage till SQL Database med Data Factory
 > [!div class="op_single_selector"]
 > * [Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
@@ -34,59 +34,59 @@ ms.locfileid: "37047734"
 > * [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns [kopiera aktivitet kursen](../quickstart-create-data-factory-dot-net.md). 
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten bör du gå igenom [självstudien för kopieringsaktiviteter](../quickstart-create-data-factory-dot-net.md). 
 
-I kursen får skapa du en datafabrik med en rörledning för att kopiera data från Blob storage till SQL-databas.
+I den här självstudien skapar du en datafabrik med en pipeline för att kopiera data från Blob storage till SQL-databas.
 
 Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten drivs av en globalt tillgänglig tjänst som kan kopiera data mellan olika datalager på ett säkert, tillförlitligt och skalbart sätt. Se artikeln [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) för information om kopieringsaktiviteten.  
 
 > [!NOTE]
-> En detaljerad översikt över Data Factory-tjänsten finns i [introduktion till Azure Data Factory](data-factory-introduction.md) artikel.
+> En detaljerad översikt över Data Factory-tjänsten finns i den [introduktion till Azure Data Factory](data-factory-introduction.md) artikeln.
 >
 >
 
-## <a name="prerequisites-for-the-tutorial"></a>Förutsättningar för självstudiekursen
+## <a name="prerequisites-for-the-tutorial"></a>Förutsättningar för självstudien
 Innan du påbörjar den här självstudien måste du ha följande krav:
 
-* **Azure-prenumeration**.  Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto på ett par minuter. Finns det [kostnadsfri utvärderingsversion](http://azure.microsoft.com/pricing/free-trial/) artikeln för information.
-* **Azure Storage-konto**. Du använder blobblagring som en **källa** datalager i den här självstudiekursen. om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
-* **Azure SQL Database**. Du använder en Azure SQL-databas som en **mål** datalager i den här självstudiekursen. Om du inte har en Azure SQL-databas som du kan använda i kursen, se [hur du skapar och konfigurerar en Azure SQL Database](../../sql-database/sql-database-get-started.md) att skapa en.
-* **2014-SQL Server 2012 eller Visual Studio 2013**. Du använder SQL Server Management Studio eller Visual Studio för att skapa en exempeldatabas och visa resulterande data i databasen.  
+* **Azure-prenumeration**.  Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto på ett par minuter. Se den [kostnadsfri utvärderingsversion](http://azure.microsoft.com/pricing/free-trial/) nedan för information.
+* **Azure Storage-konto**. Du kan använda bloblagringen som en **källa** i den här självstudien. om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md).
+* **Azure SQL Database**. Du använder en Azure SQL-databas som en **mål** i den här självstudien. Om du inte har en Azure SQL-databas som du kan använda i självstudien Se [hur du skapar och konfigurerar en Azure SQL Database](../../sql-database/sql-database-get-started.md) att skapa en.
+* **SQL Server 2012/2014 eller Visual Studio 2013**. Du använder SQL Server Management Studio eller Visual Studio för att skapa en exempeldatabas och att visa Resultatdata i databasen.  
 
-## <a name="collect-blob-storage-account-name-and-key"></a>Samla in blob storage-kontonamnet och nyckeln
-Du behöver kontonamnet och kontonyckel av Azure storage-konto för att göra den här kursen. Notera **kontonamn** och **kontonyckel** för Azure storage-konto.
+## <a name="collect-blob-storage-account-name-and-key"></a>Samla in blob storage-kontonamn och nyckel
+Du behöver kontonamnet och kontonyckeln för Azure storage-kontot att göra den här självstudien. Anteckna **kontonamn** och **kontonyckel** för ditt Azure storage-konto.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Klicka på **alla tjänster** på den vänstra menyn och välj **Lagringskonton**.
 
     ![Bläddra - Storage-konton](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
-3. I den **Lagringskonton** bladet väljer den **Azure storage-konto** som du vill använda i den här självstudiekursen.
-4. Välj **åtkomstnycklar** länken under **inställningar**.
-5. Klicka på **kopiera** (bild)-knappen bredvid **lagringskontonamnet** text rutan och spara och klistra in den någonstans (till exempel: i en textfil).
-6. Upprepa det föregående steget för att kopiera eller Skriv ned den **key1**.
+3. I den **Lagringskonton** bladet och välja den **Azure storage-konto** som du vill använda i den här självstudien.
+4. Välj **åtkomstnycklar** länka **inställningar**.
+5. Klicka på **kopia** (bild)-knappen bredvid **lagringskontonamn** text rutan och spara och klistra in den någonstans (till exempel: i en textfil).
+6. Upprepa föregående steg om du vill kopiera eller anteckna den **key1**.
 
     ![Lagringsåtkomstnyckel](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
-7. Stäng alla blad genom att klicka på **X**.
+7. Stänga alla blad genom att klicka på **X**.
 
 ## <a name="collect-sql-server-database-user-names"></a>Samla in SQLServer, databas, användarnamn
-Du måste namnen på Azure SQL server-databasen och användaren att göra den här kursen. Skriv ner namnen på **server**, **databasen**, och **användaren** för din Azure SQL-databas.
+Du måste namnen på Azure SQL server, databas och användaren att göra den här självstudien. Anteckna namnen på **server**, **databasen**, och **användaren** för Azure SQL-databasen.
 
 1. I den **Azure-portalen**, klickar du på **alla tjänster** till vänster och välj **SQL-databaser**.
-2. I den **SQL-databaser bladet**, Välj den **databasen** som du vill använda i den här självstudiekursen. Notera den **databasnamnet**.  
-3. I den **SQL-databas** bladet, klickar du på **egenskaper** under **inställningar**.
-4. Skriv ner värdena för **servernamn** och **inloggning för SERVERADMINISTRATÖR**.
-5. Stäng alla blad genom att klicka på **X**.
+2. I den **SQL-databaser bladet**väljer den **databasen** som du vill använda i den här självstudien. Anteckna den **databasnamn**.  
+3. I den **SQL-databas** bladet klickar du på **egenskaper** under **inställningar**.
+4. Anteckna värdena för **servernamn** och **SERVERADMINISTRATÖR**.
+5. Stänga alla blad genom att klicka på **X**.
 
 ## <a name="allow-azure-services-to-access-sql-server"></a>Ge Azure-tjänster åtkomst till SQLServer
-Se till att **Tillåt åtkomst till Azure-tjänster** inställningen aktiverade **på** för Azure SQL-servern så att Data Factory-tjänsten har åtkomst till Azure SQL-servern. Gör så här för att kontrollera och aktivera den här inställningen:
+Se till att **Tillåt åtkomst till Azure-tjänster** inställningen aktiverade **på** för Azure SQL-servern så att Data Factory-tjänsten kan komma åt Azure SQL-servern. Gör så här för att kontrollera och aktivera den här inställningen:
 
-1. Klicka på **alla tjänster** hubb till vänster och klicka på **SQL-servrar**.
+1. Klicka på **alla tjänster** hub till vänster och klicka på **SQL-servrar**.
 2. Välj din server och klicka på **Brandvägg** under **INSTÄLLNINGAR**.
 3. På bladet **Brandväggsinställningar** klickar du på **På** för **Tillåt åtkomst till Azure-tjänster**.
-4. Stäng alla blad genom att klicka på **X**.
+4. Stänga alla blad genom att klicka på **X**.
 
-## <a name="prepare-blob-storage-and-sql-database"></a>Förbereda Blob Storage och SQL-databas
-Nu kan förbereda Azure blob storage och Azure SQL-databas för kursen genom att utföra följande steg:  
+## <a name="prepare-blob-storage-and-sql-database"></a>Förbered Blob Storage och SQL-databas
+Förbered nu Azure blob storage och Azure SQL-databas för självstudien genom att utföra följande steg:  
 
 1. Öppna Anteckningar. Kopiera följande text och spara den som **emp.txt** till **C:\ADFGetStarted** mapp på hårddisken.
 
@@ -94,9 +94,9 @@ Nu kan förbereda Azure blob storage och Azure SQL-databas för kursen genom att
     John, Doe
     Jane, Doe
     ```
-2. Använd verktyg som t.ex. [Azure Lagringsutforskaren](http://storageexplorer.com/) till att skapa behållaren **adftutorial** och för att ladda upp filen **emp.txt** till behållaren.
+2. Använd verktyg som t.ex. [Azure Lagringsutforskaren](http://storageexplorer.com/) till att skapa containern **adftutorial** och för att ladda upp filen **emp.txt** till containern.
 
-    ![Azure Lagringsutforskaren. Kopiera data från Blob storage till SQL-databas](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
+    ![Azure Storage Explorer. Kopiera data från Blob storage till SQL-databas](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
 3. Använd följande SQL-skript för att skapa tabellen **emp** i din Azure SQL Database.  
 
     ```SQL
@@ -111,12 +111,12 @@ Nu kan förbereda Azure blob storage och Azure SQL-databas för kursen genom att
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-    **Om du har SQL Server 2012 2014 installerad på datorn:** följer du anvisningarna från [hantera Azure SQL Database med SQL Server Management Studio](../../sql-database/sql-database-manage-azure-ssms.md) att ansluta till din Azure SQL-server och köra SQL-skript. 
+    **Om du har SQL Server 2012/2014 är installerat på datorn:** följer du anvisningarna i [hantera Azure SQL Database med SQL Server Management Studio](../../sql-database/sql-database-manage-azure-ssms.md) att ansluta till Azure SQL-servern och köra SQL-skript. 
 
     Om klienten inte har åtkomst till Azure SQL-servern måste du konfigurera brandväggen för din Azure SQL-server och tillåta åtkomst från din dator (IP-adress). Anvisningar för hur du konfigurerar brandväggen för Azure SQL-servern finns i [den här artikeln](../../sql-database/sql-database-configure-firewall-settings.md).
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
-Du har slutfört de nödvändiga förutsättningarna. Du kan skapa en datafabrik som använder något av följande sätt. Klicka på något av alternativen i listrutan längst upp eller följande länkar för att genomföra kursen.     
+Du har slutfört förutsättningarna. Du kan skapa en datafabrik med hjälp av något av följande sätt. Klicka på något av alternativen i listrutan längst upp eller följande länkar för att genomföra kursen.     
 
 * [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
 * [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)

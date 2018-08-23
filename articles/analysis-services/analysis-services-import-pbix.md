@@ -5,24 +5,28 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/16/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3dd90fc862e64812c0ba17bef74818d18788f4b5
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: a2855ca5dbb76d3fcc30c4b1007c20bb48c91c9b
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440999"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42057362"
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Importera en Power BI Desktop-fil
 
 Du kan importera en datamodell i Power BI Desktop-fil (pbix) till Azure Analysis Services. Modeller metadata, cachelagrade data och anslutningar till datakälla importeras. Rapporter och visualiseringar importeras inte. Importerade data modeller från Power BI Desktop är på kompatibilitetsnivå 1400.
 
 **Begränsningar**   
-- Pbix-modellen kan ansluta till **Azure SQL Database** och **Azure SQL Data Warehouse** datakällor endast. 
+
+- Importera från en pbix-fil använder webbdesignerfunktionen i portalen, som är **förhandsversion**. Funktionerna är begränsade. För mer avancerade modellen utveckling och testning är det bäst att använda Visual Studio (SSDT) och SQL Server Management Studio (SSMS).
+- Du måste ha administratörsbehörighet för servern för att importera från en pbix-fil.
+- Pbix-modellen kan ansluta till **Azure SQL Database** och **Azure SQL Data Warehouse** datakällor endast.
 - Pbix-modellen kan inte ha live eller DirectQuery-anslutningar. 
 - Importen misslyckas om datamodellen pbix innehåller metadata som inte stöds i Analysis Services.
+
 
 ## <a name="to-import-from-pbix"></a>Importera från pbix
 
@@ -41,6 +45,27 @@ Du kan importera en datamodell i Power BI Desktop-fil (pbix) till Azure Analysis
 4. I **Import**letar du upp och välj din fil.
 
      ![Ansluta dialogrutan i Azure-portalen](./media/analysis-services-import-pbix/aas-import-pbix-select-file.png)
+
+## <a name="change-credentials"></a>Ändra autentiseringsuppgifter
+
+När du importerar en datamodell från en pbix-fil som standard konfigureras de autentiseringsuppgifter som används för att ansluta till en datakälla till tjänstkonto. När en modell har importerats från en pbix, kan du ändra autentiseringsuppgifterna med hjälp av följande metoder:
+
+- Använd juli 2018 (version 17.8.1) eller senare version av SSMS för att redigera autentiseringsuppgifter. Det här är det enklaste sättet.
+- Använd TMSL [Alter kommandot](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/alter-command-tmsl) på den [datakällor objektet](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-objects/datasources-object-tmsl) att ändra egenskapen för anslutningssträngen. 
+- Öppna modellen i Visual Studio, redigera autentiseringsuppgifter för anslutningen för datakällan och sedan distribuera modellen.
+
+Ändra autentiseringsuppgifter med hjälp av SSMS. 
+
+1. I SSMS, expanderar du databasen > **anslutningar**. 
+2. Högerklicka på anslutningen till databasen och klicka sedan på **uppdatera autentiseringsuppgifterna**. 
+
+    ![Uppdatera autentiseringsuppgifter](./media/analysis-services-import-pbix/aas-import-pbix-creds.png)
+
+3. Välj en typ av autentiseringsuppgifter i dialogrutan autentiseringsuppgifter och anger autentiseringsuppgifter. Välj databas för SQL-autentisering. Välj Microsoft-konto för organisationskonto (OAuth).
+    ![Redigera autentiseringsuppgifter](./media/analysis-services-import-pbix/aas-import-pbix-edit-creds.png)
+
+Juli 2018-versionen av Power BI Desktop innehåller en ny funktion för att ändra behörigheter för datakällan. På den **Start** fliken **redigera frågor**  > **datakällsinställningar**. Välj datasource-anslutning och klicka sedan på **Redigera behörigheter**.
+
 
 ## <a name="see-also"></a>Se också
 

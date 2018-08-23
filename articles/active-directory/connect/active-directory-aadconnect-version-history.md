@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/26/2018
+ms.date: 08/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a82cae05bfd11145a1415494908679748870f680
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 6c080d44aed7c2b3db54a34f4b711db66681cbe9
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494497"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42058277"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg gäller för alla målgrupper.
@@ -41,7 +41,7 @@ Ladda ned | [Hämta Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615
 
 ### <a name="release-status"></a>Versionsstatus
 
-7/20/2018: publicerat om hämtning och automatisk uppgradering. Automatisk uppgraderingsprocessen pågår fortfarande.
+8/21/2018: publicerat om hämtning och automatisk uppgradering. 
 
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
 
@@ -67,7 +67,7 @@ Ladda ned | [Hämta Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615
 - En bugg som skapade problem när användaren går framåt/tillbaka i guiden
 - Ett fel för att förhindra att ett fel som sker på grund av felaktig multi tråd vid i guiden har åtgärdats
 - När gruppen Synkroniseringsfiltrering sidan påträffar ett LDAP-fel när löses säkerhetsgrupper, returnerar undantag med fullständig exakthet nu i Azure AD Connect.  Den grundläggande orsaken för hänvisning undantaget är fortfarande okänd och kommer att åtgärdas av ett annat fel.
--  Ett fel har åtgärdats där behörigheter för STK och NGC nycklar (msDS-KeyCredentialLink attribut för användare/enhet objekt för WHfB) har inte ställts in korrekt.     
+-  Ett fel har åtgärdats där behörigheter för STK och NGC nycklar (ms-DS-KeyCredentialLink attribut för användare/enhet objekt för WHfB) har inte ställts in korrekt.     
 - Ett fel har åtgärdats där ”Set-ADSyncRestrictedPermissions' anropades inte korrekt
 -  Lägger till stöd för beviljar på tillbakaskrivning av grupp i installationsguiden för Aadconnects behörighet
 - När du ändrar inloggningen metod från Lösenordshashsynkronisering till AD FS, har lösenordets Hash-synkronisering inte inaktiverats.
@@ -362,7 +362,7 @@ Status: Oktober 19-2017
 
 ### <a name="ad-fs-management"></a>AD FS-hantering
 #### <a name="fixed-issue"></a>Problem har åtgärdats
-* Ett problem som rör användningen av har åtgärdats [msDS-ConsistencyGuid som Källankare](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) funktionen. Det här problemet påverkar kunder som har konfigurerat *Federation med AD FS* som inloggningsmetod för användare. När du kör *konfigurera Källankare* uppgift i guiden, Azure AD Connect växlar till med hjälp av * ms-DS-ConsistencyGuid som källattributet för immutableId. Som en del av den här ändringen försöker Azure AD Connect uppdaterar anspråksreglerna för ImmutableId i AD FS. Men detta steg misslyckades eftersom Azure AD Connect inte har administratörsbehörighet krävs för att konfigurera AD FS. Med den här snabbkorrigeringen Azure AD Connect nu uppmanas du att ange administratörsautentiseringsuppgifter för för AD FS när du kör den *konfigurera Källankare* uppgift.
+* Ett problem som rör användningen av har åtgärdats [ms-DS-ConsistencyGuid som Källankare](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) funktionen. Det här problemet påverkar kunder som har konfigurerat *Federation med AD FS* som inloggningsmetod för användare. När du kör *konfigurera Källankare* uppgift i guiden, Azure AD Connect växlar till med hjälp av * ms-DS-ConsistencyGuid som källattributet för immutableId. Som en del av den här ändringen försöker Azure AD Connect uppdaterar anspråksreglerna för ImmutableId i AD FS. Men detta steg misslyckades eftersom Azure AD Connect inte har administratörsbehörighet krävs för att konfigurera AD FS. Med den här snabbkorrigeringen Azure AD Connect nu uppmanas du att ange administratörsautentiseringsuppgifter för för AD FS när du kör den *konfigurera Källankare* uppgift.
 
 
 
@@ -377,7 +377,7 @@ Status: September 05 2017
 * Det finns ett känt problem med Azure AD Connect uppgradera som påverkar kunder som har aktiverat [sömlös enkel inloggning](active-directory-aadconnect-sso.md). När Azure AD Connect har uppgraderats visas funktionen som inaktiverad i guiden, även om funktionen hålls aktiverad. En korrigering för det här problemet ska anges i framtiden att släppa. Kunder som är orolig för problemet kan manuellt åtgärda det genom att aktivera sömlös enkel inloggning i guiden.
 
 #### <a name="fixed-issues"></a>Åtgärdade problem
-* Åtgärdat ett problem som förhindrade att Azure AD Connect uppdaterar anspråksregler i lokala AD FS samtidigt som den [msDS-ConsistencyGuid som Källankare](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) funktionen. Problemet uppstår om du försöker aktivera funktionen för en befintlig Azure AD Connect-distribution som har AD FS som konfigurerats som metod för inloggning. Problemet uppstår eftersom guiden inte frågar om AD FS-autentiseringsuppgifter innan du försöker uppdatera anspråksregler i AD FS.
+* Åtgärdat ett problem som förhindrade att Azure AD Connect uppdaterar anspråksregler i lokala AD FS samtidigt som den [ms-DS-ConsistencyGuid som Källankare](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) funktionen. Problemet uppstår om du försöker aktivera funktionen för en befintlig Azure AD Connect-distribution som har AD FS som konfigurerats som metod för inloggning. Problemet uppstår eftersom guiden inte frågar om AD FS-autentiseringsuppgifter innan du försöker uppdatera anspråksregler i AD FS.
 * Åtgärdat ett problem som orsakas av Azure AD Connect misslyckas installationen om lokalt AD-skogen har NTLM har inaktiverats. Problemet beror på att Azure AD Connect-guiden inte ge fullständiga autentiseringsuppgifter när du skapar security-kontexter som krävs för Kerberos-autentisering. Detta leder till Azure AD Connect-guiden till återgår till att använda NTLM och Kerberos-autentiseringen misslyckas.
 
 ### <a name="azure-ad-connect-sync"></a>Azure AD Connect Sync
@@ -427,7 +427,7 @@ Status: Juli 23 2017
 
   * Problemet uppstår när Azure AD Connect har uppgraderats, eller när aktivitet *uppdatera synkroniseringskonfigurationen* i Azure AD Connect guiden som används för att uppdatera konfigurationen för Azure AD Connect-synkronisering.
   
-  * Den här synkroniseringsregeln kan användas för kunder som har aktiverat den [msDS-ConsistencyGuid som Källankare funktion](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). Den här funktionen introducerades i version 1.1.524.0 och när. När synkroniseringsregeln tas bort, Azure AD Connect inte längre kan fylla i en lokal AD ms-DS-ConsistencyGuid attributet med värdet för attributet ObjectGuid. Den förhindrar inte att nya användare håller på att etableras i Azure AD.
+  * Den här synkroniseringsregeln kan användas för kunder som har aktiverat den [ms-DS-ConsistencyGuid som Källankare funktion](active-directory-aadconnect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). Den här funktionen introducerades i version 1.1.524.0 och när. När synkroniseringsregeln tas bort, Azure AD Connect inte längre kan fylla i en lokal AD ms-DS-ConsistencyGuid attributet med värdet för attributet ObjectGuid. Den förhindrar inte att nya användare håller på att etableras i Azure AD.
   
   * Korrigeringen säkerställer att synkroniseringsregeln inte längre tas bort under uppgraderingen, eller under konfigurationsändring, förutsatt att funktionen är aktiverad. För befintliga kunder som har drabbats av det här problemet, korrigeringen ser också till att synkroniseringsregeln har lagts till igen när du har uppgraderat till den här versionen av Azure AD Connect.
 
@@ -463,7 +463,7 @@ Status: Släpps inte. Ändringar i den här versionen ingår i versionen 1.1.561
 
 #### <a name="fixed-issue"></a>Problem har åtgärdats
 
-* Ett problem som orsakade synkroniseringsregel för out of box ”ut till AD - användare ImmutableId” har åtgärdats som ska tas bort när OU-baserad filtrering konfiguration har uppdaterats. Den här synkroniseringsregeln krävs för den [msDS-ConsistencyGuid som Källankare funktion](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).
+* Ett problem som orsakade synkroniseringsregel för out of box ”ut till AD - användare ImmutableId” har åtgärdats som ska tas bort när OU-baserad filtrering konfiguration har uppdaterats. Den här synkroniseringsregeln krävs för den [ms-DS-ConsistencyGuid som Källankare funktion](active-directory-aadconnect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor).
 
 * Ett problem har åtgärdats där den [domän- och OU-filtrering skärmen](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) i Azure AD Connect guiden visar *synkronisera alla domäner och organisationsenheter* alternativ som markerats, även om OU-baserad filtrering är aktiverat.
 
@@ -529,14 +529,14 @@ Det problem som uppstår är att den **synkronisera alla domäner och organisati
 
 * Ett problem har åtgärdats med tillbakaskrivning av lösenord som gör att en Azure AD-administratör att återställa lösenordet för en lokal AD privilegierad användarkonto. Problemet uppstår när Azure AD Connect beviljas behörighet för återställning av lösenord via det privilegierade kontot. Problemet åtgärdas i den här versionen av Azure AD Connect genom att inte tillåta en Azure AD-administratör att återställa lösenordet för ett godtyckligt lokalt AD privilegierad användarkonto om inte administratören är ägaren av det kontot. Mer information finns i [Security Advisory 4033453](https://technet.microsoft.com/library/security/4033453).
 
-* Ett problem som rör har åtgärdats i [msDS-ConsistencyGuid som Källankare](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) funktion där Azure AD Connect har inte tillbakaskrivning till lokala AD-attribut msDS-ConsistencyGuid. Problemet uppstår när det finns flera lokala AD-skogar som lagts till i Azure AD Connect och *användaridentiteter finns i flera kataloger alternativet* har valts. När sådan konfiguration används, de resulterande synkroniseringsreglerna inte att uppdatera attributet sourceAnchorBinary i metaversum. SourceAnchorBinary attributet används som källattributet för attributet msDS-ConsistencyGuid. Därför uppstår inte tillbakaskrivning till attributet ms-DSConsistencyGuid. Följande Synkroniseringsregler har uppdaterats för att säkerställa att attributet sourceAnchorBinary i metaversum fylls alltid för att åtgärda problemet:
+* Ett problem som rör har åtgärdats i [ms-DS-ConsistencyGuid som Källankare](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) funktion där Azure AD Connect har inte tillbakaskrivning till lokala AD-ms-DS-ConsistencyGuid attribut. Problemet uppstår när det finns flera lokala AD-skogar som lagts till i Azure AD Connect och *användaridentiteter finns i flera kataloger alternativet* har valts. När sådan konfiguration används, de resulterande synkroniseringsreglerna inte att uppdatera attributet sourceAnchorBinary i metaversum. SourceAnchorBinary attributet används som källattributet för ms-DS-ConsistencyGuid attributet. Därför uppstår inte tillbakaskrivning till attributet ms-DSConsistencyGuid. Följande Synkroniseringsregler har uppdaterats för att säkerställa att attributet sourceAnchorBinary i metaversum fylls alltid för att åtgärda problemet:
   * I från AD - InetOrgPerson AccountEnabled.xml
   * I från AD - InetOrgPerson Common.xml
   * I från AD - användare AccountEnabled.xml
   * I från AD - användare Common.xml
   * I från AD - användare ansluta-SOAInAAD.xml
 
-* Tidigare, även om den [msDS-ConsistencyGuid som Källankare](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) funktionen inte är aktiverad synkroniseringsregeln ”ut till AD – ImmutableId för användaren” fortfarande läggs till i Azure AD Connect. Effekten är ofarliga och orsakar inte tillbakaskrivning av attributet msDS-ConsistencyGuid ska ske. För att undvika förvirring har logic lagts till till att synkronisera regeln läggs endast när funktionen är aktiverad.
+* Tidigare, även om den [ms-DS-ConsistencyGuid som Källankare](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) funktionen inte är aktiverad synkroniseringsregeln ”ut till AD – ImmutableId för användaren” fortfarande läggs till i Azure AD Connect. Effekten är ofarliga och orsakar inte tillbakaskrivning av ms-DS-ConsistencyGuid attributet ska ske. För att undvika förvirring har logic lagts till till att synkronisera regeln läggs endast när funktionen är aktiverad.
 
 * Ett problem som orsakade synkronisering av lösenordshash misslyckas med felhändelse 611 har åtgärdats. Det här problemet uppstår när du har en eller flera domain domänkontrollanter har tagits bort från den lokala AD. I slutet av varje cykel för synkronisering av lösenord synkronisering cookien utfärdat av en lokal AD innehåller anrops-ID för de borttagna domänkontrollanterna med USN (Update Sequence Number) värdet 0. Synkroniseringshanteraren för lösenord går inte att spara synkronisering cookie som innehåller USN-värde på 0 och misslyckas med felhändelse 611. Under nästa synkroniseringscykel återanvänder Lösenordshanteraren för synkronisering av senaste beständiga synkronisering cookien som inte innehåller USN-värde på 0. Detta leder till samma lösenordsändringar synkroniseras om. Med den här snabbkorrigeringen kvarstår synkronisering Lösenordshanteraren synkronisering cookien korrekt.
 
@@ -544,10 +544,10 @@ Det problem som uppstår är att den **synkronisera alla domäner och organisati
 
 #### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
 
-* Tidigare den [msDS-ConsistencyGuid som Källankare](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) funktionen är tillgänglig för nya distributioner. Det är nu tillgängliga för befintliga distributioner. Mer specifikt:
+* Tidigare den [ms-DS-ConsistencyGuid som Källankare](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) funktionen är tillgänglig för nya distributioner. Det är nu tillgängliga för befintliga distributioner. Mer specifikt:
   * Starta Azure AD Connect-guiden för att komma åt funktionen och välj den *uppdatering Källfästpunkt* alternativet.
   * Det här alternativet är bara synliga för befintliga distributioner som använder objectGuid som sourceAnchor-attribut.
-  * När du konfigurerar alternativet, verifierar guiden tillståndet för attributet msDS-ConsistencyGuid i din lokala Active Directory. Om attributet inte är konfigurerat för alla användarobjekt i katalogen, använder guiden msDS-ConsistencyGuid som sourceAnchor-attribut. Om attributet har konfigurerats för en eller flera objekt i katalogen, avslutar guiden attributet som används av andra applikationer och är inte lämplig som sourceAnchor-attribut och tillåter inte ändringen Källfästpunkt att fortsätta. Om du är säker på att attributet inte är används av befintliga program som du behöver kontakta supporten för information om hur du ignorera felet.
+  * När du konfigurerar alternativet, verifierar guiden tillståndet för attributet ms-DS-ConsistencyGuid i din lokala Active Directory. Om attributet inte är konfigurerat för alla användarobjekt i katalogen, används ms-DS-ConsistencyGuid som sourceAnchor-attribut. Om attributet har konfigurerats för en eller flera objekt i katalogen, avslutar guiden attributet som används av andra applikationer och är inte lämplig som sourceAnchor-attribut och tillåter inte ändringen Källfästpunkt att fortsätta. Om du är säker på att attributet inte är används av befintliga program som du behöver kontakta supporten för information om hur du ignorera felet.
 
 * Specifika för **userCertificate** attributet enhetsobjekt, Azure AD Connect nu söker efter certifikat värden som krävs för [ansluta domänanslutna enheter till Azure AD för Windows 10-upplevelse](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy) och filtrerar bort resten innan du synkroniserar till Azure AD. Om du vill aktivera det här beteendet synkroniseringsregel för out of box ”ut till AAD – enhet ansluta SOAInAD” har uppdaterats.
 
@@ -667,7 +667,7 @@ Azure AD Connect-synkronisering
   * Lagt till **preferredDataLocation** metaversumschema och AAD-koppling schemat. Kunder som vill uppdatera antingen attribut i Azure AD kan implementera av anpassade Synkroniseringsregler för att göra detta. 
   * Lagt till **userType** metaversumschema och AAD-koppling schemat. Kunder som vill uppdatera antingen attribut i Azure AD kan implementera av anpassade Synkroniseringsregler för att göra detta.
 
-* Azure AD Connect nu automatiskt kan du använda ConsistencyGuid attribut som källfästpunktsattribut för lokal AD-objekt. Ytterligare, Azure AD Connect fyller ConsistencyGuid attributet med värdet för attributet objectGuid om den är tom. Den här funktionen gäller för ny distribution. Om du vill veta mer om den här funktionen, läser du avsnittet [Azure AD Connect: Designbegreppen - med msDS-ConsistencyGuid som sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).
+* Azure AD Connect nu automatiskt kan du använda ConsistencyGuid attribut som källfästpunktsattribut för lokal AD-objekt. Ytterligare, Azure AD Connect fyller ConsistencyGuid attributet med värdet för attributet objectGuid om den är tom. Den här funktionen gäller för ny distribution. Om du vill veta mer om den här funktionen, läser du avsnittet [Azure AD Connect: Designbegreppen – med ms-DS-ConsistencyGuid som sourceAnchor](active-directory-aadconnect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor).
 * Nya felsökningsvyer cmdlet har Invoke-ADSyncDiagnostics lagts till för att diagnosticera synkronisering av Lösenordshash-relaterade problem. Information om cmdleten finns i artikeln [felsöka lösenordshashsynkronisering med Azure AD Connect-synkronisering](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md).
 * Azure AD Connect nu stöder synkronisering brevlåda offentlig mapp objekt från en lokal AD till Azure AD. Du kan aktivera funktionen med hjälp av Azure AD Connect-guiden under valfria funktioner. Om du vill veta mer om den här funktionen finns i artikeln [Office 365 Directory baserad Edge Blocking stöd för lokala mappar e-post aktiverad offentliga](https://blogs.technet.microsoft.com/exchange/2017/05/19/office-365-directory-based-edge-blocking-support-for-on-premises-mail-enabled-public-folders).
 * Azure AD Connect kräver en AD DS-konto synkroniseras från lokala AD. Tidigare, om du har installerat Azure AD Connect med Express-läge kan du ange autentiseringsuppgifterna för ett Enterprise-administratör-konto och Azure AD Connect skapar AD DS-konto krävs. Men för en anpassad installation och att lägga till skogar i en befintlig distribution kan tvungen du att i stället ange AD DS-kontot. Nu kan möjlighet du också att ange autentiseringsuppgifterna för ett Enterprise-administratör-konto under en anpassad installation och låta Azure AD Connect skapa AD DS-kontot som krävs.
@@ -1070,7 +1070,7 @@ Utgiven: December 2014
 **Nya funktioner:**
 
 * Lösenordssynkronisering med attributet-baserad filtrering stöds nu. Mer information finns i [Lösenordssynkronisering med filtrering](active-directory-aadconnectsync-configure-filtering.md).
-* Attributet msDS-ExternalDirectoryObjectID skrivs tillbaka till Active Directory. Den här funktionen lägger till stöd för Office 365-program. OAuth2 används för att komma åt Online och On-Premises postlådor på en Exchange-Hybridinstallation.
+* Attributet ms-DS-ExternalDirectoryObjectID skrivs tillbaka till Active Directory. Den här funktionen lägger till stöd för Office 365-program. OAuth2 används för att komma åt Online och On-Premises postlådor på en Exchange-Hybridinstallation.
 
 **Fast uppgraderingsproblem:**
 

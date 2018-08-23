@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: d00a6d3c476e10b13d00ff1738cb54c2eeea104c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: a98c8ac65de930eabcedea2a009769ed6d245216
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521830"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617200"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -151,7 +151,7 @@ Eftersom antivirus fungerar genom att skanna filer för känd skadlig kod, kan e
 Följande lösningar är kända för att stödja hoppar över offline-filer:
 
 - [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
-    - Windows Defender hoppar automatiskt över läsning av sådana filer. Vi har testat Defender och identifierat en mindre problem: när du lägger till en server i en befintlig synkroniseringsgrupp filer mindre än 800 byte hämtas (hämtas) på den nya servern. Dessa filer finns kvar på den nya servern och kommer inte att vara nivåindelad eftersom de inte uppfyller kravet på lagringsnivåer storlek (> 64kb).
+    - Windows Defender hoppar automatiskt över läsning av filer offline-attributet ange. Vi har testat Defender och identifierat en mindre problem: när du lägger till en server i en befintlig synkroniseringsgrupp filer mindre än 800 byte hämtas (hämtas) på den nya servern. Dessa filer finns kvar på den nya servern och kommer inte att vara nivåindelad eftersom de inte uppfyller kravet på lagringsnivåer storlek (> 64kb).
 - [System Center Endpoint Protection (SCEP)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
     - SCEP fungerar på samma sätt som Defender; se ovan
 - [Symantec Endpoint Protection](https://support.symantec.com/en_US/article.tech173752.html)
@@ -192,11 +192,13 @@ Azure File Sync är tillgänglig i följande regioner:
 | Sydöstra Australien | Victoria |
 | Centrala Kanada | Toronto |
 | Östra Kanada | Quebec City |
+| Indien, centrala | Pune |
 | Centrala USA | Iowa |
 | Östasien | Hongkong SAR |
 | Östra USA | Virginia |
 | USA, östra 2 | Virginia |
 | Norra Europa | Irland |
+| Södra Indien | Chennai |
 | Sydostasien | Singapore |
 | Storbritannien, södra | London |
 | Storbritannien, västra | Cardiff |
@@ -212,15 +214,17 @@ Stöd för redundans-integrering mellan geo-redundant lagring och Azure File Syn
 
 | Primär region      | Länkad region      |
 |---------------------|--------------------|
-| Östra Australien      | Australien Southest |
+| Östra Australien      | Sydöstra Australien |
 | Sydöstra Australien | Östra Australien     |
 | Centrala Kanada      | Östra Kanada        |
 | Östra Kanada         | Centrala Kanada     |
+| Indien, centrala       | Södra Indien        |
 | Centrala USA          | USA, östra 2          |
 | Östasien           | Sydostasien     |
 | Östra USA             | Västra USA            |
 | USA, östra 2           | Centrala USA         |
 | Norra Europa        | Västra Europa        |
+| Södra Indien         | Indien, centrala      |
 | Sydostasien      | Östasien          |
 | Storbritannien, södra            | Storbritannien, västra            |
 | Storbritannien, västra             | Storbritannien, södra           |

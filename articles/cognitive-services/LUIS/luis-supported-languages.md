@@ -1,24 +1,24 @@
 ---
-title: Stöd för lokalisering med LUIS-appar i Azure | Microsoft Docs
-description: Läs mer om de språk som har stöd för LUIS.
+title: Stöd för lokalisering - Språkförståelse (LUIS) – Azure Cognitive Services | Microsoft Docs
+description: LUIS har olika funktioner i tjänsten. Alla funktioner är inte på samma språkparitet. Kontrollera att de funktioner som du är intresserad av stöds i kulturen för språk som du arbetar med. En LUIS-app är kultur-specifika och kan inte ändras när den är inställd.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/04/2017
+ms.date: 08/17/2017
 ms.author: diberry
-ms.openlocfilehash: d2c479445aabe05013470724c623978402abeb9d
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 4fa58843f7e888a8fc1cfbbf76a8131bba6c488a
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248425"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41988479"
 ---
 # <a name="culture-specific-understanding-in-luis-apps"></a>Kultur-specifika kunskaper i LUIS-appar
 
-En LUIS-app är kultur-specifika och kan inte ändras när den är inställd. 
+LUIS har olika funktioner i tjänsten. Alla funktioner är inte på samma språkparitet. Kontrollera att de funktioner som du är intresserad av stöds i kulturen för språk som du arbetar med. En LUIS-app är kultur-specifika och kan inte ändras när den är inställd. 
 
 ## <a name="multi-language-luis-apps"></a>Flera language Understanding Intelligent Service-appar
 Om du behöver ett klientprogram för flera språk LUIS som en chattrobot finns ett par alternativ. Om LUIS har stöd för alla språk, kan du utveckla en LUIS-app för varje språk. Varje LUIS-app har ett unikt app-ID och slutpunkten log. Om du måste ange språkförståelse för ett språk som LUIS inte stöder, du kan använda [Microsoft Translator API](../Translator/translator-info-overview.md) skicka uttryck till LUIS-slutpunkten för att översätta uttryck till ett språk som stöds, och ta emot den resulterande poäng.
@@ -27,7 +27,7 @@ Om du behöver ett klientprogram för flera språk LUIS som en chattrobot finns 
 LUIS förstår yttranden på följande språk:
 
 
-| Språk |Nationella inställningar  |  Fördefinierade domän | Fördefinierade entitet | Fras förslag | **[Textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) | 
+| Språk |Nationella inställningar  |  Fördefinierade domän | Fördefinierade entitet | Fras förslag | **[Textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Känsla och<br>Nyckelord)| 
 |--|--|:--:|:--:|:--:|:--:|
 | Amerikansk engelska |`en-US` | ✔ | ✔  |✔|✔|
 | Kanadensisk franska |`fr-CA` |-|   -   |-|✔|

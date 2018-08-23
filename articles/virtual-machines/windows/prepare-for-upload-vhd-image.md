@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/01/2018
 ms.author: genli
-ms.openlocfilehash: 48037bc92d26cd01086451fdc778651df5b6bf67
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 0f7b19b0848886c7a906e79d63a814fddf5ef5a6
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398979"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42061144"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Förbereda en Windows-VHD eller VHDX för att överföra till Azure
 Innan du överför en Windows-dator (VM) från en lokal plats till Microsoft Azure, måste du förbereda den virtuella hårddisken (VHD eller VHDX). Azure stöder **endast 1 virtuella datorer i generation** som är i VHD-format och har en fast storlek disk. Den maximala storleken som tillåts för den virtuella Hårddisken är 1,023 GB. Du kan konvertera en generation 1 VM från VHDX filsystemet till virtuell Hårddisk och från en dynamiskt expanderande disk till fast storlek. Men du kan inte ändra en virtuell dator generation. Mer information finns i [bör jag skapa en generation 1 eller 2 virtuella datorer i Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -67,7 +67,7 @@ På den virtuella datorn som du planerar att ladda upp till Azure, köra alla ko
 1. Ta bort alla permanent statisk väg i routningstabellen:
    
    * Om du vill visa routningstabellen kör `route print` i Kommandotolken.
-   * Kontrollera den **Persistence vägar** avsnitt. Om det finns en beständig väg, använda [route delete](https://technet.microsoft.com/library/cc739598.apx) du tar bort den.
+   * Kontrollera den **Persistence vägar** avsnitt. Om det finns en beständig väg, använda den **route delete** kommando för att ta bort den.
 2. Ta bort WinHTTP-proxyservern:
    
     ```PowerShell
@@ -90,7 +90,7 @@ På den virtuella datorn som du planerar att ladda upp till Azure, köra alla ko
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation' -name "RealTimeIsUniversal" 1 -Type DWord
 
-    Set-Service -Name w32time -StartupType Auto
+    Set-Service -Name w32time -StartupType Automatic
     ```
 5. Ange power-profil den **högpresterande**:
 
@@ -102,17 +102,17 @@ På den virtuella datorn som du planerar att ladda upp till Azure, köra alla ko
 Se till att var och en av följande Windows-tjänster har angetts till den **Windows standardvärdena**. Det här är det minsta antalet tjänster som måste ställas in för att se till att den virtuella datorn är ansluten. Om du vill återställa inställningar för Start, kör du följande kommandon:
    
 ```PowerShell
-Set-Service -Name bfe -StartupType Auto
-Set-Service -Name dhcp -StartupType Auto
-Set-Service -Name dnscache -StartupType Auto
-Set-Service -Name IKEEXT -StartupType Auto
-Set-Service -Name iphlpsvc -StartupType Auto
+Set-Service -Name bfe -StartupType Automatic
+Set-Service -Name dhcp -StartupType Automatic
+Set-Service -Name dnscache -StartupType Automatic
+Set-Service -Name IKEEXT -StartupType Automatic
+Set-Service -Name iphlpsvc -StartupType Automatic
 Set-Service -Name netlogon -StartupType Manual
 Set-Service -Name netman -StartupType Manual
-Set-Service -Name nsi -StartupType Auto
+Set-Service -Name nsi -StartupType Automatic
 Set-Service -Name termService -StartupType Manual
-Set-Service -Name MpsSvc -StartupType Auto
-Set-Service -Name RemoteRegistry -StartupType Auto
+Set-Service -Name MpsSvc -StartupType Automatic
+Set-Service -Name RemoteRegistry -StartupType Automatic
 ```
 
 ## <a name="update-remote-desktop-registry-settings"></a>Uppdatera registerinställningar för fjärrskrivbord
@@ -307,11 +307,22 @@ Kontrollera att följande inställningar är korrekt konfigurerade för anslutni
     - Datorn Datorkonfiguration\Windows inställningar\Säkerhetsinställningar\Lokala Principer\tilldelning av användarrättigheter\neka inloggning genom Fjärrskrivbordstjänster
 
 
-9. Starta om den virtuella datorn och kontrollera att Windows är fortfarande felfri kan nås med hjälp av RDP-anslutning. Nu kan du skapa en virtuell dator i din lokala Hyper-V att kontrollera att den virtuella datorn startar helt och sedan testa om det är RDP kan nås.
+9. Kontrollera följande AD-princip för att se till att du inte tar bort någon av följande obligatoriska åtkomstkonton:
 
-10. Ta bort några extra Transport Driver Interface-filter, t.ex programvara som analyserar TCP-paket eller extra brandväggar. Du kan också använda detta i ett senare skede när den virtuella datorn har distribuerats i Azure om det behövs.
+    - Datorn Datorkonfiguration\Windows Settings\Security Settings\Local av rättigheter Assignment\Access den här beräkningen från nätverket
 
-11. Avinstallera någon annan programvara från tredje part eller drivrutin som är relaterat till fysiska komponenter eller någon annan virtualiseringsteknik används.
+    Följande grupper bör visas på den här principen:
+
+    - Administratörer
+    - Ansvariga för säkerhetskopiering
+    - Alla
+    - Användare
+
+10. Starta om den virtuella datorn och kontrollera att Windows är fortfarande felfri kan nås med hjälp av RDP-anslutning. Nu kan du skapa en virtuell dator i din lokala Hyper-V att kontrollera att den virtuella datorn startar helt och sedan testa om det är RDP kan nås.
+
+11. Ta bort några extra Transport Driver Interface-filter, t.ex programvara som analyserar TCP-paket eller extra brandväggar. Du kan också använda detta i ett senare skede när den virtuella datorn har distribuerats i Azure om det behövs.
+
+12. Avinstallera någon annan programvara från tredje part eller drivrutin som är relaterat till fysiska komponenter eller någon annan virtualiseringsteknik används.
 
 ### <a name="install-windows-updates"></a>Installera Windows-uppdateringar
 Konfigurationen som är bäst är att **har korrigeringsnivån för datorn senast**. Om det inte är möjligt, kontrollerar du att följande uppdateringar är installerade:

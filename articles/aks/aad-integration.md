@@ -1,34 +1,34 @@
 ---
 title: Integrera Azure Active Directory med Azure Kubernetes Service
-description: Hur du skapar Azure Active Directory-aktiverade Azure Kubernetes Service-kluster.
+description: Så här att skapa kluster i Azure Active Directory-aktiverade Azure Kubernetes Service (AKS).
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 6/17/2018
+ms.date: 8/9/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2c4e0f8c31299644c912a70fc91bbdfa6da6795b
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 9bbf7ad201a70a315b75ed5e1f35671e4a5604fc
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579035"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42057377"
 ---
-# <a name="integrate-azure-active-directory-with-aks---preview"></a>Integrera Azure Active Directory med AKS - förhandsversion
+# <a name="integrate-azure-active-directory-with-aks"></a>Integrera Azure Active Directory med AKS
 
-Azure Kubernetes Service (AKS) kan konfigureras för att använda Azure Active Directory för autentisering av användare. I den här konfigurationen måste du logga in på ett Azure Kubernetes Service-kluster med din Azure Active Directory-autentiseringstoken. Dessutom är klusteradministratörer kan konfigurera Kubernetes rollbaserad åtkomstkontroll utifrån en identitet eller directory medlemskap i användargrupper.
+Azure Kubernetes Service (AKS) kan konfigureras för att använda Azure Active Directory (AD) för autentisering av användare. I den här konfigurationen måste du logga in på ett AKS-kluster med hjälp av din Azure Active Directory-autentiseringstoken. Dessutom är klusteradministratörer kan konfigurera Kubernetes rollbaserad åtkomstkontroll (RBAC) baserat på en identitet eller directory medlemskap i användargrupper.
 
-Det här dokumentet beskriver skapa alla nödvändiga krav för AKS och Azure AD, distribuerar ett Azure AD-aktiverade-kluster och skapa en enkel RBAC-roll i AKS-kluster. Observera att befintliga icke-RBAC aktiverat AKS-kluster för närvarande inte kan uppdateras för att använda RBAC.
+Den här artikeln visar hur du distribuerar förutsättningarna för AKS och Azure AD och sedan hur du distribuerar ett Azure AD-aktiverade-kluster och skapa en enkel RBAC-roll i AKS-klustret.
 
-> [!IMPORTANT]
-> Azure Kubernetes Service (AKS) RBAC och Azure AD-integrering är för närvarande i **förhandsversion**. Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
->
+Följande begränsningar gäller:
+
+- Befintliga icke-RBAC aktiverat AKS-kluster kan för närvarande inte uppdateras för att använda RBAC.
+- *Gästen* användare i Azure AD, till exempel som om du använder en federerad inloggning från en annan katalog stöds inte.
 
 ## <a name="authentication-details"></a>Autentisering-information
 
-Azure AD-autentisering har angetts för Azure Kubernetes-kluster med OpenID Connect. OpenID Connect är en Identitetslagret som bygger på OAuth 2.0-protokollet. Mer information om OpenID Connect finns i den [öppna ID connect dokumentation][open-id-connect].
+Azure AD-autentisering har angetts för AKS-kluster med OpenID Connect. OpenID Connect är en Identitetslagret som bygger på OAuth 2.0-protokollet. Mer information om OpenID Connect finns i den [öppna ID connect dokumentation][open-id-connect].
 
 Från inuti Kubernetes-klustret används Webhook Tokenautentisering för att verifiera autentiseringstoken. Webhook-tokenautentisering konfigureras och hanteras som en del av AKS-klustret. Mer information om Webhook-tokenautentisering finns i den [webhook authentication dokumentation][kubernetes-webhook].
 
@@ -72,6 +72,10 @@ Första Azure AD-programmet används för att hämta en Azure AD medlemskap i an
 7. Välj **klar**, Välj *Microsoft Graph* från listan över API: er, Välj **bevilja behörigheter**. Det här steget misslyckas om det aktuella kontot inte är en administratör.
 
   ![Ange program graph-behörigheter](media/aad-integration/grant-permissions.png)
+
+  När behörigheterna har beviljats har, visas följande meddelande i portalen:
+
+  ![Meddelande om lyckad behörigheter](media/aad-integration/permissions-granted.png)
 
 8. Gå tillbaka till programmet och anteckna den **program-ID**. När du distribuerar ett Azure AD-aktiverade AKS-kluster kan det här värdet kallas den `Server application ID`.
 
@@ -131,7 +135,7 @@ az aks create --resource-group myAKSCluster --name myAKSCluster --generate-ssh-k
 
 ## <a name="create-rbac-binding"></a>Skapa RBAC-bindning
 
-Innan ett Azure Active Directory-konto kan användas med AKS-kluster, måste en bindning för rollen eller kluster roll-koppling som ska skapas.
+Innan ett Azure Active Directory-konto kan användas med AKS-kluster, måste en bindning för rollen eller kluster roll-koppling som ska skapas. *Roller* definierar behörigheterna som ska tilldelas, och *bindningar* tillämpa dem till önskade användare. Dessa uppgifter kan tillämpas till ett visst namnområde eller över hela klustret. Mer information finns i [med RBAC-auktorisering][rbac-authorization].
 
 Använd först den [aaz aks get-credentials] [ az-aks-get-credentials] med den `--admin` argumentet för inloggning till klustret med administratörsåtkomst.
 
@@ -139,7 +143,7 @@ Använd först den [aaz aks get-credentials] [ az-aks-get-credentials] med den `
 az aks get-credentials --resource-group myAKSCluster --name myAKSCluster --admin
 ```
 
-Använd följande manifestet för att skapa en ClusterRoleBinding för ett Azure AD-konto. Uppdatera användarnamnet med en från Azure AD-klienten. Det här exemplet ger konto fullständig åtkomst till alla namnområden i klustret.
+Använd följande manifestet för att skapa en ClusterRoleBinding för ett Azure AD-konto. Uppdatera användarnamnet med en från Azure AD-klienten. Det här exemplet ger konto fullständig åtkomst till alla namnområden i klustret:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -156,7 +160,7 @@ subjects:
   name: "user@contoso.com"
 ```
 
-En bindning för rollen kan även skapas för alla medlemmar i en Azure AD-grupp. Azure AD-grupper har angetts med grupp-objekt-ID.
+En bindning för rollen kan även skapas för alla medlemmar i en Azure AD-grupp. Azure AD-grupper har angetts med grupp-ID för objekt som visas i följande exempel:
 
  ```yaml
 apiVersion: rbac.authorization.k8s.io/v1

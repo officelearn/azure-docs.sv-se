@@ -2,25 +2,22 @@
 title: Publicera appar med Azure AD Application Proxy | Microsoft Docs
 description: Publicera lokala program till molnet med Azure AD Application Proxy på Azure-portalen.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 08/20/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 1224642bb7e6fc0c51b3f839a78449132db5b4bb
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 973a6201a227e6c2e295e6e5ea2f40c302572504
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364265"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056480"
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publicera program med Azure AD Application Proxy
 
@@ -72,6 +69,7 @@ Följ dessa steg om du vill publicera dina appar med Application Proxy. Om du in
    ![Konfigurera ditt program](./media/application-proxy-publish-azure-portal/configure-app.png)
 5. Om det behövs kan du konfigurera ytterligare inställningar. De flesta fall bör du behålla de här inställningarna i sina standardtillstånd. 
    - **Tidsgräns för backend-programmet**: det här värdet till **lång** endast om ditt program är långsamt att autentisera och ansluta. 
+   - **Använd HTTP-Only Cookie**: det här värdet till **Ja** ha Application Proxy cookies innehåller flaggan HTTPOnly i HTTP-Svarsrubrik.
    - **Översätt URL: er i rubriker**: behålla det här värdet som **Ja** såvida inte programmet ursprungliga värdhuvudet i autentiseringsbegäran.
    - **Översätt URL: er i brödtexten för programmet**: behålla det här värdet som **nr** förutsatt att du har hårdkodad HTML länkar till andra lokala program och Använd inte anpassade domäner. Mer information finns i [länka translation med Application Proxy](application-proxy-configure-hard-coded-link-translation.md).
    

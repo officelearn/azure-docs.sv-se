@@ -1,6 +1,6 @@
 ---
-title: Med hjälp av loggen Sök-portal i Azure Log Analytics | Microsoft Docs
-description: Den här artikeln innehåller en genomgång som beskriver hur du skapar loggen sökningar och analysera data som lagras i logganalys-arbetsytan med hjälp av loggen Sök-portalen.  Självstudien innehåller körning av några enkla frågor för att returnera olika typer av data och för att analysera resultatet.
+title: Med hjälp av loggsökningsportalen i Azure Log Analytics | Microsoft Docs
+description: Den här artikeln innehåller en självstudie som beskriver hur du skapar loggsökningar och analyserar data som lagras i Log Analytics-arbetsytan med hjälp av loggsökningsportalen.  Självstudien innehåller körning av några enkla frågor för att returnera olika typer av data och för att analysera resultatet.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,41 +11,36 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 08/15/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 8468186d545d7aae484b037f3962b01b0ed4cd2e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: e97bab36a9a1a18cab1d45abfa451139323b2320
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127558"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057089"
 ---
-# <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Skapa loggen sökningar i Azure Log Analytics med hjälp av loggen Sök-portalen
+# <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Skapa sökningar i loggen i Azure Log Analytics med hjälp av loggsökningsportalen
 
-> [!NOTE]
-> Den här artikeln beskriver loggen Sök-portal i Azure Log Analytics med hjälp av det nya språket i fråga.  Du lär dig mer om det nya språket och få proceduren för att uppgradera din arbetsyta på [uppgradera Azure logganalys-arbetsytan till ny logg sökning](log-analytics-log-search-upgrade.md).  
->
-> Om ditt arbetsområde inte har uppgraderats till det nya språket i fråga, bör du gå till [söka efter data med hjälp av loggen sökningar i logganalys](log-analytics-log-searches.md) information om den aktuella versionen av loggen Sök-portalen.
+Den här artikeln innehåller en självstudie som beskriver hur du skapar loggsökningar och analyserar data som lagras i Log Analytics-arbetsytan med hjälp av loggsökningsportalen.  Självstudien innehåller körning av några enkla frågor för att returnera olika typer av data och för att analysera resultatet.  Den fokuserar på funktioner i loggsökningsportalen för ändra frågan i stället för att ändra den direkt.  Mer information om Redigera frågan direkt finns det [frågespråksreferens](https://go.microsoft.com/fwlink/?linkid=856079).
 
-Den här artikeln innehåller en genomgång som beskriver hur du skapar loggen sökningar och analysera data som lagras i logganalys-arbetsytan med hjälp av loggen Sök-portalen.  Självstudien innehåller körning av några enkla frågor för att returnera olika typer av data och för att analysera resultatet.  Den fokuserar på funktioner i loggen Sök portal för att ändra frågan i stället för att ändra direkt.  Mer information om hur du redigerar frågan direkt finns det [Query Language referens](https://go.microsoft.com/fwlink/?linkid=856079).
-
-För att skapa sökningar i Advanced Analytics-portalen i stället för att logga Sök-portalen, se [komma igång med Analytics-portalen](https://go.microsoft.com/fwlink/?linkid=856587).  Båda portaler använda samma frågespråket tillgång till samma data i logganalys-arbetsytan.
+Om du vill skapa sökningar i Advanced Analytics-portalen i stället för loggsökningsportalen [komma igång med Analytics-portalen](https://go.microsoft.com/fwlink/?linkid=856587).  Båda portalerna Använd samma frågespråk för att komma åt samma data i Log Analytics-arbetsytan.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Den här kursen förutsätter att du redan har en logganalys-arbetsytan med minst en ansluten datakälla som genererar data för frågor för att analysera.  
+Den här självstudien förutsätter att du redan har en Log Analytics-arbetsyta med minst en ansluten källa som genererar data för förfrågningar för att analysera.  
 
-- Om du inte har en arbetsyta, du kan skapa en kostnadsfri med hjälp av proceduren på [komma igång med en logganalys-arbetsytan](log-analytics-get-started.md).
-- Ansluta minst ett [Windows-agenten](log-analytics-windows-agent.md) eller en [Linux-agenten](log-analytics-linux-agents.md) till arbetsytan.  
+- Om du inte har en arbetsyta kan du skapa en kostnadsfritt med hjälp av proceduren på [Kom igång med Log Analytics-arbetsytan](log-analytics-get-started.md).
+- Ansluta minst ett [Windows-agenten](log-analytics-windows-agent.md) eller en [linuxagenten](log-analytics-linux-agents.md) till arbetsytan.  
 
 ## <a name="open-the-log-search-portal"></a>Öppna loggsökningsportalen
 Börja med att öppna loggsökningsportalen. 
 
 1. Öppna Azure Portal.
-2. Navigera till logganalys och markera arbetsytan.
-3. Välj **logga Sök**.
+2. Gå till Log Analytics och välj din arbetsyta.
+3. Välj **Loggsöknings**.
 
-![Logga sökknappen](media/log-analytics-log-search-log-search-portal/log-search-button.png)
+![Loggsökningsknapp](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 
 ## <a name="create-a-simple-search"></a>Skapa en enkel sökning
 Det snabbaste sättet att hämta vissa data att arbeta med är en enkel fråga som returnerar alla poster i en tabell.  Om du har några Windows- eller Linux-klienter anslutna till din arbetsyta har du data i antingen tabellen Händelse (Windows) eller Syslog (Linux).
@@ -67,17 +62,17 @@ Endast de första egenskaperna för varje post visas.  Klicka på alternativet f
 
 ![Information om granskningspost](media/log-analytics-log-search-log-search-portal/log-search-portal-02.png)
 
-## <a name="set-the-time-scope"></a>Ange omfånget tid
-Alla poster som samlas in av logganalys har en **TimeGenerated** egenskap som innehåller datum och tid då posten skapades.  En fråga i loggen Sök portal returnerar bara poster med en **TimeGenerated** omfattas tid som visas på vänster sida av skärmen.  
+## <a name="set-the-time-scope"></a>Ange tidsomfattningen
+Varje post som samlas in av Log Analytics har en **TimeGenerated** egenskap som innehåller datum och tid då posten skapades.  En fråga i loggsökningsportalen bara returnerar poster med en **TimeGenerated** inom den tid som visas till vänster på skärmen.  
 
-Du kan ändra tidsfiltret genom att välja i listrutan eller genom att ändra skjutreglaget.  Skjutreglaget visar ett stapeldiagram som visar relativa antalet poster för varje gång segment inom intervallet.  Det här segmentet varierar beroende på intervallet.
+Du kan ändra tidsfiltret genom att välja listrutan eller genom att ändra skjutreglaget.  Skjutreglaget visar ett stapeldiagram som visar relativa antalet poster för varje gång segment inom intervallet.  Det här segmentet varierar beroende på intervallet.
 
-Standard tid omfånget är **1 dag**.  Ändra värdet till **7 dagar**, och det totala antalet poster ska öka.
+Standardomfattning för tid är **1 dag**.  Ändra det här värdet till **7 dagar**, och det totala antalet poster ska öka.
 
 ![Datum tid omfång](media/log-analytics-log-search-log-search-portal/log-search-portal-03.png)
 
 ## <a name="filter-results-of-the-query"></a>Filtrera frågans resultat
-På vänster sida på skärmen finns filtreringsfönstret där du kan lägga till filtrering till frågan utan att ändra den direkt.  Med de tio främsta värdena med antal poster visas flera egenskaper poster returneras.
+På vänster sida på skärmen finns filtreringsfönstret där du kan lägga till filtrering till frågan utan att ändra den direkt.  Flera egenskaper för poster som returneras visas med deras värden för de tio främsta med sina antal poster.
 
 Om du arbetar med **Händelse** markerar du kryssrutan bredvid **Fel** under **EVENTLEVELNAME**.   Om du arbetar med **Syslog** markerar du kryssrutan bredvid **Fel** under **SEVERITYLEVEL**.  Det ändrar frågan till något av följande för att begränsa resultatet för felhändelserna.
 
@@ -96,11 +91,11 @@ Lägg till egenskaper till filtreringsfönstret genom att välja **Lägg till i 
 
 Du kan ställa in samma filter genom att välja **Filter** på egenskapsmenyn för en post med det värdet du vill filtrera.  
 
-Du har bara den **Filter** alternativ för egenskaper med deras namn i blått.  Dessa är *sökbara* fält som indexeras för sökvillkor.  Fält i grått är *fritextsökbara* fält som endast har alternativet **Visa referenser**.  Det här alternativet returnerar poster som har det värdet i en egenskap.
+Du behöver bara den **Filter** för egenskaper med namnet i blått.  Dessa är *sökbara* fält som indexeras för sökvillkor.  Fält i grått är *fritextsökbara* fält som endast har alternativet **Visa referenser**.  Det här alternativet returnerar poster som har det värdet i en egenskap.
 
 ![Filter-menyn](media/log-analytics-log-search-log-search-portal/log-search-portal-01a.png)
 
-Du kan gruppera resultatet för en enda egenskap genom att välja alternativet **Gruppera efter** på postmenyn.  Då läggs en [sammanfattningsoperator](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) till för frågan som visar resultatet i ett diagram.  Du kan gruppera efter mer än en egenskap, men då måste du redigera frågan direkt.  Välj menyn post bredvid den **datorn** egenskapen och välj **Gruppera efter ”dator”**.  
+Du kan gruppera resultatet för en enda egenskap genom att välja alternativet **Gruppera efter** på postmenyn.  Då läggs en [sammanfattningsoperator](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) till för frågan som visar resultatet i ett diagram.  Du kan gruppera efter mer än en egenskap, men då måste du redigera frågan direkt.  Välj postmenyn bredvid egenskapen **Dator** och välj **Gruppera efter ”dator”**.  
 
 ![Gruppera efter dator](media/log-analytics-log-search-log-search-portal/log-search-portal-10.png)
 
@@ -130,7 +125,7 @@ Gruppera efter en kolumn genom att dra dess kolumnrubrik överst bland resultate
 
 
 ## <a name="work-with-performance-data"></a>Arbeta med prestandadata
-Prestandadata för både Windows- och Linux-agenter lagras i Log Analytics-arbetsytan i tabellen **Perf**.  Uppgifter som ser ut precis som andra poster och vi kan skriva en enkel fråga som returnerar alla uppgifter på samma sätt som med händelser.
+Prestandadata för både Windows- och Linux-agenter lagras i Log Analytics-arbetsytan i tabellen **Perf**.  Prestandaposter ser ut precis som andra poster, och vi kan skriva en enkel fråga som returnerar alla prestandaposter precis som med händelser.
 
 ```
 Perf
@@ -164,5 +159,5 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om Log Analytics-frågespråket i [komma igång med Analytics-portalen](https://go.microsoft.com/fwlink/?linkid=856079).
-- Gå igenom en självstudiekurs om att använda den [Advanced Analytics portal](https://go.microsoft.com/fwlink/?linkid=856587) där du kan köra samma frågor och få åtkomst till samma data som loggen Sök-portalen.
+- Läs mer om Log Analytics-frågespråket på [komma igång med Analytics-portalen](https://go.microsoft.com/fwlink/?linkid=856079).
+- Gå igenom självstudien med den [Advanced Analytics-portalen](https://go.microsoft.com/fwlink/?linkid=856587) där du kan köra samma frågor och få åtkomst till samma data som loggsökningsportalen.

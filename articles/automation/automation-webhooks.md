@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f8ee8a2a4aae61e2edc275527d80a162c9bb4dc0
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 241fd1f9168ce6bfb8a4dfe97bbb1ef45ddf3f74
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345727"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42055787"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Börja använda en Azure Automation-runbook med en webhook
 
@@ -110,21 +110,21 @@ Klienten får något av följande returkoder från POST-begäran.
 | Kod | Text | Beskrivning |
 |:--- |:--- |:--- |
 | 202 |Accepterad |Begäran accepterades och runbook har i kö. |
-| 400 |Felaktig förfrågan |Begäran godkändes inte av något av följande skäl: <ul> <li>Webhooken har gått ut.</li> <li>Webhooken har inaktiverats.</li> <li>Token i URL: en är ogiltig.</li>  </ul> |
+| 400 |Felaktig begäran |Begäran godkändes inte av något av följande skäl: <ul> <li>Webhooken har gått ut.</li> <li>Webhooken har inaktiverats.</li> <li>Token i URL: en är ogiltig.</li>  </ul> |
 | 404 |Kunde inte hittas |Begäran godkändes inte av något av följande skäl: <ul> <li>Webhook hittades inte.</li> <li>Runbook hittades inte.</li> <li>Kontot hittades inte.</li>  </ul> |
 | 500 |Internt serverfel |URL: en är giltig, men ett fel uppstod. Skicka begäran igen. |
 
-Förutsatt att begäran har lyckats, webhook svaret innehåller jobb-id i JSON-format på följande sätt. Det innehåller ett enskilt jobb-id, men JSON-format som tillåter för eventuella framtida förbättringar.
+Förutsatt att begäran har lyckats, webhook svaret innehåller jobb-ID i JSON-format på följande sätt. Det innehåller ett enskilt jobb-ID, men JSON-format som tillåter för eventuella framtida förbättringar.
 
 ```json
 {"JobIds":["<JobId>"]}
 ```
 
-Klienten kan inte fastställa när runbook-jobbet har slutförts eller deras slutförandestatus från webhooken. Det kan ta reda på den här informationen med jobb-id med en annan metod som [Windows PowerShell](http://msdn.microsoft.com/library/azure/dn690263.aspx) eller [Azure Automation API](/rest/api/automation/job).
+Klienten kan inte fastställa när runbook-jobbet har slutförts eller deras slutförandestatus från webhooken. Det kan ta reda på den här informationen med jobb-ID med en annan metod som [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) eller [Azure Automation API](/rest/api/automation/job).
 
 ## <a name="sample-runbook"></a>Exempel-runbook
 
-Följande exempel-runbook som accepterar den accepterar webhookdata och startar de virtuella datorerna som anges i begärandetexten. Testa denna runbook i ditt Automation-konto under **Runbooks**, klickar du på **+ Lägg till en runbook**. Om du inte vet hur du skapar en runbook, se [skapa en runbook](automation-quickstart-create-runbook.md).
+Följande exempel-runbook accepterar webhookdata och startar de virtuella datorerna som anges i begärandetexten. Testa denna runbook i ditt Automation-konto under **Runbooks**, klickar du på **+ Lägg till en runbook**. Om du inte vet hur du skapar en runbook, se [skapa en runbook](automation-quickstart-create-runbook.md).
 
 ```powershell
 param
@@ -201,7 +201,7 @@ I följande exempel visas brödtexten i begäran som är tillgänglig för runbo
 ]
 ```
 
-Följande bild visar den begäran som skickas från Windows PowerShell och det resulterande svaret. Jobb-id är extraheras från svaret och konverteras till en sträng.
+Följande bild visar den begäran som skickas från Windows PowerShell och det resulterande svaret. Jobb-ID är extraheras från svaret och konverteras till en sträng.
 
 ![Webhooks-knappen](media/automation-webhooks/webhook-request-response.png)
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: 056716e243980f0a8aadc1ff7e9b8776809ad88e
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 660080a629e00884dd61a49bc0950ebe25b6a0c5
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036405"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42059236"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anteckningar på måttdiagram i Application Insights
 Anteckningar på [Metrics Explorer](app-insights-metrics-explorer.md) diagrammen visas där du har distribuerat en ny version eller betydande händelse. De gör det enkelt att se om ändringarna hade någon effekt på prestanda för ditt program. De kan skapas automatiskt av den [Visual Studio Team Services-buildsystemet](https://docs.microsoft.com/vsts/pipelines/tasks/). Du kan också skapa anteckningar för att flagga en händelse om du vill genom att [skapa dem från PowerShell](#create-annotations-from-powershell).
@@ -34,7 +34,7 @@ Versionsanteckningar är en funktion i den molnbaserade versionen och release-tj
 ### <a name="install-the-annotations-extension-one-time"></a>Installera tillägget anteckningar (en gång)
 Om du vill kunna skapa Versionsanteckningar måste du installera en av de många Team Service-tillägg som är tillgängliga i Visual Studio Marketplace.
 
-1. Logga in på din [Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online) projekt.
+1. Logga in på din [Visual Studio Team Services](https://visualstudio.microsoft.com/vso/) projekt.
 2. I Visual Studio Marketplace [hämta tillägg för Versionsanteckningar](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations), och lägga till den i ditt Team Services-konto.
 
 ![AT överst till höger i Team Services-webbsidan, öppna Marketplace. Välj Visual Team Services och sedan välja se mer under Skapa och släpp.](./media/app-insights-annotations/10.png)

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 77bb891dd8e7d6a3cb6363b06eaf361d09db594c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6ad3b4c1f59f5c46fd31aa24d6d2ceb4d7411abd
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422426"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42057040"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Bearbeta datauppsättningar i stor skala med hjälp av Data Factory och Batch
 > [!NOTE]
@@ -91,10 +91,10 @@ Exempellösningen är avsiktligt enkelt. Det är utformat för att visa dig hur 
 Om du inte har en Azure-prenumeration kan du snabbt skapa ett kostnadsfritt konto. Mer information finns i [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
 
 #### <a name="azure-storage-account"></a>Azure Storage-konto
-Du kan använda ett lagringskonto för att lagra data i den här självstudien. Om du inte har ett lagringskonto kan du läsa [skapa ett lagringskonto](../../storage/common/storage-create-storage-account.md#create-a-storage-account). Exempellösningen använder blob storage.
+Du kan använda ett lagringskonto för att lagra data i den här självstudien. Om du inte har ett lagringskonto kan du läsa [skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md). Exempellösningen använder blob storage.
 
 #### <a name="azure-batch-account"></a>Azure Batch-konto
-Skapa ett Batch-konto med hjälp av den [Azure-portalen](http://portal.azure.com/). Mer information finns i [skapa och hantera ett Batch-konto](../../batch/batch-account-create-portal.md). Observera Batch-konto och kontonyckeln. Du kan också använda den [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) cmdlet för att skapa ett Batch-konto. Anvisningar för hur du använder den här cmdleten finns i [Kom igång med Batch PowerShell-cmdlets](../../batch/batch-powershell-cmdlets-get-started.md).
+Skapa ett Batch-konto med hjälp av den [Azure-portalen](http://portal.azure.com/). Mer information finns i [skapa och hantera ett Batch-konto](../../batch/batch-account-create-portal.md). Observera Batch-konto och kontonyckeln. Du kan också använda den [New-AzureRmBatchAccount](https://docs.microsoft.com/powershell/module/azurerm.batch/new-azurermbatchaccount) cmdlet för att skapa ett Batch-konto. Anvisningar för hur du använder den här cmdleten finns i [Kom igång med Batch PowerShell-cmdlets](../../batch/batch-powershell-cmdlets-get-started.md).
 
 Exempellösningen använder Batch (indirekt via en data factory-pipeline) att bearbeta data i en parallell sätt i en pool med beräkningsnoder (en hanterad samling virtuella datorer).
 

@@ -3,20 +3,20 @@ title: Konsekvensnivåer i Azure Cosmos DB | Microsoft Docs
 description: Azure Cosmos DB har fem konsekvensnivåer för att belastningsutjämna slutlig konsekvens, tillgänglighet och svarstid med de.
 keywords: slutlig konsekvens, azure cosmos db, azure, Microsoft azure
 services: cosmos-db
-author: SnehaGunda
+author: aliuy
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2018
-ms.author: sngun
+ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 20edcd5e8e3ec3a9d3d294f7a81a2e97b4958f50
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 8d95790dc09f6d26c6ae749ed0cd386053c5cb35
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857192"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42055782"
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Data justerbara konsekvensnivåer i Azure Cosmos DB
 Azure Cosmos DB har utformats från grunden upp med global distribution i åtanke för varje datamodellen. Den är utformad att erbjuda garantier för förutsägbar med låg latens och flera väldefinierade Avslappnad konsekvensmodeller. För närvarande kan Azure Cosmos DB innehåller fem konsekvensnivåer: stark, bunden utgång, session, enhetligt prefix och slutlig. Bunden utgång, session, konsekventa prefix och slutlig är kallas ”Avslappnad konsekvensmodeller” eftersom de tillhandahåller mindre konsekvent än stark, vilket är i de flesta mycket konsekvent modell som är tillgänglig. 
@@ -132,7 +132,7 @@ Om du vill göra mer information om konsekvensnivåer och kompromisser rekommend
 * [Replikerade datakonsekvens baseboll (video) av Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)
 * [Replikerade datakonsekvens baseboll (White Paper) av Doug Terry](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 * [Sessionen garantier för svagt konsekvent replikerade Data](http://dl.acm.org/citation.cfm?id=383631)
-* [Konsekvens kompromisser i moderna distribuerade system databasdesign: Fästpunkten är bara en del av artikeln](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+* [Konsekvens kompromisser i moderna distribuerade system databasdesign: Fästpunkten är bara en del av artikeln](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
 * [Avsnittet om sannolikhetsbunden begränsad föråldring (PBS) för praktiska partiella beslutsförhet](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 * [Slutlig konsekvent – Revisited](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 * [Den belastning, kapacitet och tillgängligheten för kvorum system, SIAM journalen på databehandling](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)

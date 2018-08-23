@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 4e6600d81fedd884cf415d055aedd29d163b3365
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: fbc40d0768a7cf1cb83a3e78dd524fac26254bea
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629658"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056773"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Hur du planerar din hybrid Azure Active Directory join-implementering
 
@@ -97,7 +97,7 @@ Om du lita på en virtuell dator (VM)-ögonblicksbild för att skapa ytterligare
 
 Registreringen av Windows äldre enheter stöds inte för enheter som har konfigurerats för centrala för användarens profil eller autentiseringsuppgifter. Om du lita på centrala profiler eller inställningar, använder du Windows 10.
 
-- Registreringen av Windows äldre enheter **är** stöd i icke-federerade miljöer via sömlös enkel inloggning [Azure Active Directory sömlös enkel inloggning](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
+- Registreringen av Windows äldre enheter **är** stöd i icke-federerade miljöer via sömlös enkel inloggning [Azure Active Directory sömlös enkel inloggning](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
  
 - Registreringen av Windows äldre enheter **är inte** stöds när du använder Azure AD-direktautentisering utan sömlös enkel inloggning.
 

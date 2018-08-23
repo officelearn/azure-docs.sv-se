@@ -9,12 +9,12 @@ ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: sashan
-ms.openlocfilehash: 7ca033be8a27802db55aec827509b46fed8e471e
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 2fe27f93bb48e0581902fd380813c878a4883a5c
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090072"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057695"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Använd skrivskyddade repliker för att läsa in balansera skrivskyddad frågearbetsbelastningar (förhandsversion)
 
@@ -22,7 +22,11 @@ ms.locfileid: "39090072"
 
 ## <a name="overview-of-read-scale-out"></a>Översikt över Lässkalning
 
-Varje databas i Premium-nivån ([DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md)) eller i nivån affärskritisk ([vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md)) etableras automatiskt med flera AlwaysON-repliker till stöd för serviceavtal för tillgänglighet. De här replikeringarna etableras med samma prestandanivå som används av de vanliga databasanslutningarna skrivskyddade replik. Den **Lässkalning** funktionen kan du belastningsutjämna SQL Database skrivskyddade arbetsbelastningar med hjälp av kapaciteten för en av de skrivskyddade replikerna istället för att dela Läs-och repliken. Det här sättet skrivskyddad arbetsbelastning isoleras från den huvudsakliga skrivskyddad arbetsbelastningen och påverkar inte dess prestanda. Funktionen är avsedd för de program som är logiskt avgränsade skrivskyddade arbetsbelastningar, till exempel analyser, och därför kan få prestandafördelarna med hjälp av den här ytterligare kapacitet utan extra kostnad.
+Varje databas i Premium-nivån ([DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md)) eller i nivån affärskritisk ([vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md)) etableras automatiskt med flera AlwaysON-repliker till stöd för serviceavtal för tillgänglighet.
+
+![Skrivskyddade repliker](media/sql-database-managed-instance/business-critical-service-tier.png)
+
+De här replikeringarna etableras med samma prestandanivå som används av de vanliga databasanslutningarna skrivskyddade replik. Den **Lässkalning** funktionen kan du belastningsutjämna SQL Database skrivskyddade arbetsbelastningar med hjälp av kapaciteten för en av de skrivskyddade replikerna istället för att dela Läs-och repliken. Det här sättet skrivskyddad arbetsbelastning isoleras från den huvudsakliga skrivskyddad arbetsbelastningen och påverkar inte dess prestanda. Funktionen är avsedd för de program som är logiskt avgränsade skrivskyddade arbetsbelastningar, till exempel analyser, och därför kan få prestandafördelarna med hjälp av den här ytterligare kapacitet utan extra kostnad.
 
 Om du vill använda funktionen Lässkalning med en viss databas, måste du uttryckligen aktivera det när du skapar databasen eller efteråt genom att ändra konfigurationen med hjälp av PowerShell genom att aktivera den [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) eller [ Ny-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdletar eller Azure Resource Manager REST API med hjälp av den [databaser – skapa eller uppdatera](/rest/api/sql/databases/createorupdate) metod. 
 
@@ -112,7 +116,7 @@ Mer information finns i [databaser – skapa eller uppdatera](/rest/api/sql/data
 
 ## <a name="using-read-scale-out-with-geo-replicated-databases"></a>Med geo-replikerade databaser Lässkalning
 
-Om du med hjälp av skrivskyddade skalbar att läsa in saldo skrivskyddade arbetsbelastningar för en databas som är geo-replikerade (t.ex. som en medlem i en redundansgrupp), se till att det skrivskyddade skalbarhet är aktiverat på både primär och sekundär geo-replikerade databaser. Det garanterar samma belastningsutjämning effekt när ditt program som ansluter till den nya primärt efter en redundansväxling. Om du ansluter till geo-replikerad sekundär databas med lässkala aktiverad sessioner till `ApplicationIntent=ReadOnly` kommer att dirigeras till en av replikerna på samma sätt som vi dirigera anslutningar på den primära databasen.  Sessioner utan `ApplicationIntent=ReadOnly` kommer att dirigeras till den primära repliken för den georeplikerade sekundärt, vilket också är skrivskyddad. Eftersom geo-replikerad sekundär databas har en annan slutpunkt än den primära databasen, historiskt att få åtkomst till sekundärt det inte krävs för att ange `ApplicationIntent=ReadOnly`. Att säkerställa bakåtkompatibilitet, `sys.geo_replication_links` DMV visar `secondary_allow_connections=2` (alla klientanslutning tillåts).
+Om du använder lässkalbarhet att läsa in saldo skrivskyddade arbetsbelastningar för en databas som är geo-replikerade (t.ex. som en medlem i en redundansgrupp), se till att läsa skalbara är aktiverad på både primär och sekundär geo-replikerade databaser. Det garanterar samma belastningsutjämning effekt när ditt program som ansluter till den nya primärt efter en redundansväxling. Om du ansluter till geo-replikerad sekundär databas med lässkala aktiverad sessioner till `ApplicationIntent=ReadOnly` kommer att dirigeras till en av replikerna på samma sätt som vi dirigera anslutningar på den primära databasen.  Sessioner utan `ApplicationIntent=ReadOnly` kommer att dirigeras till den primära repliken för den georeplikerade sekundärt, vilket också är skrivskyddad. Eftersom geo-replikerad sekundär databas har en annan slutpunkt än den primära databasen, historiskt att få åtkomst till sekundärt det inte krävs för att ange `ApplicationIntent=ReadOnly`. Att säkerställa bakåtkompatibilitet, `sys.geo_replication_links` DMV visar `secondary_allow_connections=2` (alla klientanslutning tillåts).
 
 > [!NOTE]
 > Vi kommer inte att utföra resursallokering förhandsversionen eller några andra belastningsutjämnade routning mellan lokala repliker av den sekundära databasen. 

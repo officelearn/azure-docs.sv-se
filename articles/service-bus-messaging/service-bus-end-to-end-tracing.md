@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus-slutpunkt till slutpunkt-spårning och diagnostik | Microsoft Docs
-description: Översikt över Service Bus klientdiagnostik och spårning för slutpunkt till slutpunkt
+description: Översikt över Service Bus klientdiagnostik och slutpunkt till slutpunkt-spårning
 services: service-bus-messaging
 documentationcenter: ''
 author: lmolkova
@@ -13,43 +13,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: lmolkova
-ms.openlocfilehash: 847056acd2d97391782dcac1874a2739b7f5825c
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 5489fa999f3427345c3ee9f07f904296de224e31
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27741337"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42061100"
 ---
-# <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Distribuerade spårning och korrelation via Service Bus-meddelanden
+# <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Distribuerad spårning och korrelation via Service Bus-meddelanden
 
-Vanliga problem i mikrotjänster utveckling är möjligheten att spåra åtgärden från en klient via alla tjänster som ingår i bearbetningen. Det är användbart för felsökning prestandaanalys för A / B-testning och andra vanliga diagnostik-scenarier.
-En del av det här problemet är att spåra logiska arbeten. Den innehåller resultatet och svarstid och externa beroendeanrop för meddelandebehandling. En annan del är korrelation av händelserna diagnostik utanför processgränser.
+En av de vanligaste problemen i utveckling av mikrotjänster är möjligheten att spåra åtgärd från en klient via alla tjänster som är inblandade i bearbetningen. Det är användbart för felsökning, prestandaanalys, A / B-testning och andra vanliga diagnostik-scenarier.
+En del av det här problemet för att spåra logiska arbeten. Den innehåller meddelandebehandling resultat och svarstider och externa beroendeanrop. En annan del är korrelation av dessa diagnostikhändelser utanför processgränser.
 
-När en producent skickar ett meddelande via en kö, sker det vanligtvis i omfånget för en annan logisk åtgärd, initieras av vissa klienten eller tjänsten. Konsumenten fortsätter samma åtgärd när den tar emot ett meddelande. Både tillverkare och konsumenter (och andra tjänster som bearbetar åtgärden), förmodligen genererar telemetriska händelser för att spåra åtgärden flödet och resultat. För att korrelera sådana händelser och spåra åtgärden slutpunkt till slutpunkt, måste varje tjänst som rapporterar telemetri stämpel varje händelse med en trace-kontext.
+När en producent skickar ett meddelande i en kö, sker det vanligtvis i omfånget för en annan logisk åtgärd, initieras av några andra klienten eller tjänst. På samma gång är fortsatt av konsument när den får ett meddelande. Både producent och konsument (och andra tjänster som bearbetar åtgärden) antas vara generera telemetrihändelser för att spåra flödet för åtgärden och resultatet. För att korrelera sådana händelser och spår åtgärden slutpunkt till slutpunkt, måste varje tjänst som rapporterar telemetri stämpel varje händelse med en trace-kontext.
 
-Microsoft Azure Service Bus-meddelanden har definierats nyttolast egenskaper som producenter och konsumenter ska använda för att skicka sådana trace-kontexten.
-Protokollet är baserat på den [korrelation HTTP-protokollet](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md).
+Microsoft Azure Service Bus-meddelanden har definierat nyttolast-egenskaper som producenter och konsumenter som ska använda för att skicka sådana spår kontext.
+Protokollet som baseras på den [korrelation av HTTP-protokollet](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md).
 
 | Egenskapsnamn        | Beskrivning                                                 |
 |----------------------|-------------------------------------------------------------|
-|  Diagnostik-Id       | Unik identifierare för ett externt anrop från producenten till kön. Referera till [Request-Id i HTTP-protokollet](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) för motiveringen, överväganden och format |
-|  Korrelations-kontexten | Åtgärden kontext som sprids över alla tjänster som ingår i åtgärden bearbetning. Mer information finns i [Korrelations-kontexten i HTTP-protokoll](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) |
+|  Diagnostik-Id       | Unik identifierare för ett externt anrop från producent till kön. Referera till [Request-Id i HTTP-protokollet](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) för sker, överväganden och format |
+|  Korrelations-kontexten | Åtgärden kontext som sprids över alla tjänster som ingår i åtgärden utförs. Mer information finns i [Korrelations-kontexten i HTTP-protokollet](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) |
 
-## <a name="service-bus-net-client-auto-tracing"></a>Service Bus .NET klienten automatiskt-spårning
+## <a name="service-bus-net-client-auto-tracing"></a>Service Bus .NET-klient automatiskt-spårning
 
-Från och med version 3.0.0 [Microsoft Azure ServiceBus-klient för .NET](/dotnet/api/microsoft.azure.servicebus.queueclient) tillhandahåller spårning instrumentation punkter som kan ansluta genom spårning system eller typ av klientkod.
-Instrumentationen kan spåra alla anrop till Service Bus meddelandetjänsten från klienten. Om meddelandet bearbetas med den [meddelandet hanterare mönster](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler), meddelandebehandling också instrumenterats
+Från och med version 3.0.0 [Microsoft Azure ServiceBus-klienten för .NET](/dotnet/api/microsoft.azure.servicebus.queueclient) tillhandahåller spårning instrumentationspunkter som kan vara låst av spårning system eller typ av klientkod.
+Instrumentationen kan spåra alla anrop till Service Bus messaging-tjänsten från klientsidan. Om meddelandet bearbetningen är klar med den [hanteraren meddelandemönstret](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler), meddelandebehandling också har instrumenterats
 
-### <a name="tracking-with-azure-application-insights"></a>Spårning med Azure Application Insights
+### <a name="tracking-with-azure-application-insights"></a>Spåra med Azure Application Insights
 
-[Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) ger omfattande funktioner inklusive automagical begäran och beroende spårning för prestandaövervakning.
+[Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) tillhandahåller omfattande funktioner, inklusive automagical begäran och beroendespårning för prestandaövervakning.
 
-Installera Application Insights SDK beroende på ditt projekttyp:
-- [ASP.NET](../application-insights/app-insights-asp-net.md) version 2.5-beta2 eller högre
-- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md) version 2.2.0-beta2 eller högre.
-Dessa länkar innehåller information om att installera SDK, skapa resurser och konfigurera SDK (vid behov). För icke-ASP.NET-program, se [Azure Application Insights för konsolprogram](../application-insights/application-insights-console.md) artikel.
+Beroende på din projekttyp installerar du Application Insights SDK:
+- [ASP.NET](../application-insights/app-insights-asp-net.md) – installera version 2.5-beta2 eller högre
+- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md) – installera version 2.2.0-beta2 eller högre.
+Dessa länkar innehåller detaljerad information om att installera SDK: N, skapa resurser och konfigurera SDK (vid behov). Icke-ASP.NET-program finns i [Azure Application Insights för konsolprogram](../application-insights/application-insights-console.md) artikeln.
 
-Om du använder [meddelandet hanterare mönster](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) för att bearbeta meddelanden du är klar: alla Service Bus-anrop utfördes av tjänsten automatiskt spåras och samverkar med andra telemetri-objekt. Annars finns i följande exempel för manuell meddelandebehandling spårning.
+Om du använder [hanteraren meddelandemönstret](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) för att bearbeta meddelanden du är klar: alla Service Bus-anrop som görs av din tjänst spåras automatiskt och med andra telemetri-objekt. Annars finns i följande exempel för manuell meddelandebehandling spårning.
 
 #### <a name="trace-message-processing"></a>Spåra meddelandebehandling
 
@@ -80,27 +80,27 @@ async Task ProcessAsync(Message message)
 }
 ```
 
-I det här exemplet `RequestTelemetry` rapporteras för varje bearbetade meddelande med en tidsstämpel, varaktighet och resultatet (klart). Telemetrin har också en uppsättning egenskaper för korrelation.
-Kapslade spårningar och undantag som rapporterats vid behandlingen av meddelandet också stämplad med korrelation egenskaper som representerar dem som underordnade om du till den `RequestTelemetry`.
+I det här exemplet `RequestTelemetry` rapporteras för varje bearbetade meddelande med en tidsstämpel, varaktighet och resultatet (lyckades). Telemetri har också en uppsättning korrelation egenskaper.
+Kapslade spårningar och undantag som har rapporterat under meddelandebehandling också stämplad med Korrelations-egenskaper som representerar dem som underordnade om du till den `RequestTelemetry`.
 
-Om du gör anrop till stöds externa komponenter vid behandlingen av meddelandet, men de är också automagically spåras och korrelerade. Referera till [spåra anpassade åtgärder med Application Insights SDK för .NET](../application-insights/application-insights-custom-operations-tracking.md) för manuell spårning och korrelation.
+Om du gör anrop till externa komponenter som stöds under behandlingen av meddelandet, men de är också automagically spåras och korrelerade. Referera till [spåra anpassade åtgärder med Application Insights SDK för .NET](../application-insights/application-insights-custom-operations-tracking.md) för manuell spårning och korrelation.
 
 ### <a name="tracking-without-tracing-system"></a>Spåra utan spårningssystemet
-Om spårningssystemet inte stöder automagical Service Bus-anrop spårning söker du kanske till att lägga till stödet i ett spårningssystem eller i ditt program. Det här avsnittet beskrivs diagnostikhändelser skickas av Service Bus .NET-klienten.  
+Om spårning av systemet inte har stöd för spårning automagical Service Bus-anrop kan till exempel se till att lägga till stödet till ett spårningssystem eller till ditt program. Det här avsnittet beskrivs diagnostikhändelser som skickas av Service Bus .NET-klient.  
 
-Service Bus .NET klienten är instrumenterats med hjälp av .NET spårning primitiver [System.Diagnostics.Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) och [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md).
+Service Bus .NET-klient är utrustade med hjälp av .NET spårning primitiver [System.Diagnostics.Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) och [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md).
 
-`Activity`fungerar som en trace kontext när `DiagnosticSource` är en mekanism för meddelande. 
+`Activity` fungerar som en spårning kontext när `DiagnosticSource` är ett sätt. 
 
-Om det finns ingen lyssnare för DiagnosticSource händelser, är instrumentation inaktiverat, som noll instrumentation kostnaderna hålls. DiagnosticSource ger alla kontroll till lyssnaren:
-- lyssnare styr vilka datakällor och händelser för att lyssna på
-- lyssnare händelsehastighet för kontroller och provtagning
-- händelser skickas med en nyttolast som ger fullständig kontext så att du kan komma åt och ändra meddelandeobjektet under händelsen
+Om det finns ingen lyssnare för DiagnosticSource-händelser, är instrumentation inaktiverat, håller noll instrumentation kostnaderna. DiagnosticSource ger alla kontroll till lyssnaren:
+- lyssnaren styr vilka datakällor och händelser för att lyssna på
+- takten för lyssnare kontroller och sampling
+- händelser skickas med en nyttolast som tillhandahåller fullständigt sammanhang så att du kan komma åt och ändra meddelandeobjekt under händelsen
 
-Bekanta dig med [DiagnosticSource användarhandboken](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) innan du fortsätter med implementeringen.
+Bekanta dig med [DiagnosticSource användarhandboken](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) innan du fortsätter med implementering.
 
 Nu ska vi skapa en lyssnare för Service Bus-händelser i ASP.NET Core-app som skriver loggar med Microsoft.Extension.Logger.
-Den använder [System.Reactive.Core](https://www.nuget.org/packages/System.Reactive.Core) biblioteket för att prenumerera på DiagnosticSource (det är också lätt att prenumerera på DiagnosticSource utan den)
+Den använder [System.Reactive.Core](https://www.nuget.org/packages/System.Reactive.Core) -biblioteket för att prenumerera på DiagnosticSource (det är också enkelt att prenumerera på DiagnosticSource utan det)
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory factory, IApplicationLifetime applicationLifetime)
@@ -137,57 +137,57 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
-I det här exemplet loggar lyssnare varaktighet, resultat, unik identifierare och starttiden för varje Service Bus-åtgärd.
+I det här exemplet loggar lyssnare varaktighet, resultatet, unik identifierare och starttid för varje Service Bus-åtgärd.
 
 #### <a name="events"></a>Händelser
 
-För varje åtgärd två händelser skickas: 'Start' och 'Stop'. Du är mest förmodligen bara intresserad 'Stop-händelser. De ger resultatet av åtgärden, samt starttid och varaktighet som Aktivitetsegenskaper för en.
+För varje åtgärd, två händelser skickas: ”Start” och ”stoppa”. Du är mest förmodligen bara intresserad ”stoppa” händelser. De ger resultatet av åtgärden, samt starttid och varaktighet som Aktivitetsegenskaper för en.
 
-Händelsenyttolast innehåller en lyssnare med kontexten för åtgärden, den replikerar API inkommande parametrar och returnera värdet. 'Stop-händelsenyttolast har alla egenskaper av 'Start' händelsenyttolast så att du kan ignorera 'Start' händelse helt.
+Händelsenyttolast innehåller en lyssnare med kontexten för åtgärden, den replikerar inkommande parametrar för API: et och returnerar värdet. ”Stoppa” händelsenyttolast har alla egenskaper för ”Start” händelsenyttolast så att du kan ignorera ”Start” händelse helt.
 
-Alla händelser har också 'Entity' och 'slutpunkt-egenskaper, de har uteslutits i tabellen nedan
-  * `string Entity`– Namnet på entiteten (kö, ämne, osv.)
-  * `Uri Endpoint`-Service Bus slutpunkts-URL
+Alla händelser har också 'Entity' och 'Slutpunkt' egenskaper, de används i tabellen nedan
+  * `string Entity` – Namnet på entiteten (kön, ämnet, osv.)
+  * `Uri Endpoint` -Service Bus slutpunkts-URL
 
-Varje 'Stop-händelse har `Status` egenskap med `TaskStatus` asynkrona åtgärden slutfördes, som också tas bort i tabellen nedan för enkelhetens skull.
+Varje händelse som ”stoppa” har `Status` egenskap med `TaskStatus` async-åtgärden slutfördes med, som också tas bort i tabellen nedan för enkelhetens skull.
 
 Här är en fullständig lista över instrumenterade åtgärder:
 
 | Åtgärdsnamn | Spårade API | Egenskaper för specifika nyttolast|
 |----------------|-------------|---------|
-| Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | IList<Message> meddelanden - listan över meddelanden som skickas |
-| Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | Meddelandet meddelande - meddelandet som bearbetas<br/>DateTimeOffset ScheduleEnqueueTimeUtc - schemalagda meddelandet förskjutning<br/>lång SequenceNumber - sekvensnumret för schemalagda meddelande ('Stop-händelsenyttolast) |
-| Microsoft.Azure.ServiceBus.Cancel | [MessageSender.CancelScheduledMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.cancelscheduledmessageasync) | lång SequenceNumber - sekvensnumret för te meddelandet avbrytas | 
-| Microsoft.Azure.ServiceBus.Receive | [MessageReceiver.ReceiveAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receiveasync) |int RequestedMessageCount - det maximala antalet meddelanden som kan tas emot.<br/>IList<Message> meddelanden - lista över mottagna meddelanden ('Stop-händelsenyttolast) |
-| Microsoft.Azure.ServiceBus.Peek | [MessageReceiver.PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync) | int FromSequenceNumber - startpunkt som du vill bläddra i en grupp med meddelanden.<br/>int RequestedMessageCount - antal meddelanden som ska hämtas.<br/>IList<Message> meddelanden - lista över mottagna meddelanden ('Stop-händelsenyttolast) |
-| Microsoft.Azure.ServiceBus.ReceiveDeferred | [MessageReceiver.ReceiveDeferredMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receivedeferredmessageasync) | IEnumerable<long> SequenceNumbers - listan som innehåller sekvensnummer att ta emot.<br/>IList<Message> meddelanden - lista över mottagna meddelanden ('Stop-händelsenyttolast) |
-| Microsoft.Azure.ServiceBus.Complete | [MessageReceiver.CompleteAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.completeasync) | IList<string> LockTokens - listan som innehåller lock-token av motsvarande meddelanden ska slutföras.|
-| Microsoft.Azure.ServiceBus.Abandon | [MessageReceiver.AbandonAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.abandonasync) | strängen LockToken - Lås token av motsvarande meddelande om du vill avbryta. |
-| Microsoft.Azure.ServiceBus.Defer | [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) | strängen LockToken - Lås token av motsvarande meddelandet ska skjutas upp. | 
-| Microsoft.Azure.ServiceBus.DeadLetter | [MessageReceiver.DeadLetterAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deadletterasync) | strängen LockToken - lock-token för obeställbara motsvarande meddelandet. | 
-| Microsoft.Azure.ServiceBus.RenewLock | [MessageReceiver.RenewLockAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync) | strängen LockToken - lock-token för den motsvarande meddelande om att förnya lås på.<br/>DateTime LockedUntilUtc - nya Lås token upphör att gälla datum och tid i UTC-format. ('Stop-händelsenyttolast)|
-| Microsoft.Azure.ServiceBus.Process | Meddelandet hanterare lambda funktion i [IReceiverClient.RegisterMessageHandler](/dotnet/api/microsoft.azure.servicebus.core.ireceiverclient.registermessagehandler) | Meddelandet meddelande - meddelandet som bearbetas. |
-| Microsoft.Azure.ServiceBus.ProcessSession | Meddelandet Session hanterare lambda funktion i [IQueueClient.RegisterSessionHandler](/dotnet/api/microsoft.azure.servicebus.iqueueclient.registersessionhandler) | Meddelandet meddelande - meddelandet som bearbetas.<br/>IMessageSession Session - Session som bearbetas |
+| Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | IList<Message> meddelanden - lista med meddelanden som skickas |
+| Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | Meddelandet meddelandet - meddelande som bearbetas<br/>DateTimeOffset ScheduleEnqueueTimeUtc - schemalagt meddelande förskjutning<br/>lång SequenceNumber - sekvensnumret för schemalagt meddelande (”stoppa” händelsenyttolast) |
+| Microsoft.Azure.ServiceBus.Cancel | [MessageSender.CancelScheduledMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.cancelscheduledmessageasync) | lång SequenceNumber - meddelandesekvensnummer te så avbryts | 
+| Microsoft.Azure.ServiceBus.Receive | [MessageReceiver.ReceiveAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receiveasync) |int RequestedMessageCount – det maximala antalet meddelanden som kan tas emot.<br/>IList<Message> meddelanden - lista över mottagna meddelanden (”stoppa” händelsenyttolast) |
+| Microsoft.Azure.ServiceBus.Peek | [MessageReceiver.PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync) | int FromSequenceNumber - startpunkt som att bläddra i en grupp med meddelanden.<br/>int RequestedMessageCount - antalet meddelanden som ska hämtas.<br/>IList<Message> meddelanden - lista över mottagna meddelanden (”stoppa” händelsenyttolast) |
+| Microsoft.Azure.ServiceBus.ReceiveDeferred | [MessageReceiver.ReceiveDeferredMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receivedeferredmessageasync) | IEnumerable<long> SequenceNumbers - listan som innehåller sekvensnummer att ta emot.<br/>IList<Message> meddelanden - lista över mottagna meddelanden (”stoppa” händelsenyttolast) |
+| Microsoft.Azure.ServiceBus.Complete | [MessageReceiver.CompleteAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.completeasync) | IList<string> LockTokens - listan som innehåller Lås token motsvarande meddelanden att slutföra.|
+| Microsoft.Azure.ServiceBus.Abandon | [MessageReceiver.AbandonAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.abandonasync) | sträng LockToken - låstoken för meddelandet att lämna motsvarande. |
+| Microsoft.Azure.ServiceBus.Defer | [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) | sträng LockToken - låstoken för motsvarande meddelandet som ska skjutas upp. | 
+| Microsoft.Azure.ServiceBus.DeadLetter | [MessageReceiver.DeadLetterAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deadletterasync) | sträng LockToken - låstoken för motsvarande meddelandet att obeställbara meddelanden. | 
+| Microsoft.Azure.ServiceBus.RenewLock | [MessageReceiver.RenewLockAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync) | sträng LockToken - låstoken för motsvarande meddelandet att förnya låset.<br/>DateTime LockedUntilUtc - nya Lås token förfallodatum och tid i UTC-format. (”Stoppa” händelsenyttolast)|
+| Microsoft.Azure.ServiceBus.Process | Meddelandet hanteraren lambda funktion i [IReceiverClient.RegisterMessageHandler](/dotnet/api/microsoft.azure.servicebus.core.ireceiverclient.registermessagehandler) | Meddelandet meddelande - meddelande som bearbetas. |
+| Microsoft.Azure.ServiceBus.ProcessSession | Meddelandet Session hanteraren lambda funktion i [IQueueClient.RegisterSessionHandler](/dotnet/api/microsoft.azure.servicebus.iqueueclient.registersessionhandler) | Meddelandet meddelande - meddelande som bearbetas.<br/>IMessageSession Session - Session som bearbetas |
 | Microsoft.Azure.ServiceBus.AddRule | [SubscriptionClient.AddRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.addruleasync) | RuleDescription regel - regelbeskrivningen som innehåller regeln för att lägga till. |
-| Microsoft.Azure.ServiceBus.RemoveRule | [SubscriptionClient.RemoveRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.removeruleasync) | sträng RuleName - namnet för regeln som ska tas bort. |
-| Microsoft.Azure.ServiceBus.GetRules | [SubscriptionClient.GetRulesAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.getrulesasync) | IEnumerable<RuleDescription> regler för alla regler som är associerade med prenumerationen. (Endast 'stop-nyttolasten) |
-| Microsoft.Azure.ServiceBus.AcceptMessageSession | [ISessionClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.azure.servicebus.isessionclient.acceptmessagesessionasync) | sträng SessionId - sessionId finns i meddelanden. |
-| Microsoft.Azure.ServiceBus.GetSessionState | [IMessageSession.GetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.getstateasync) | sträng SessionId - sessionId finns i meddelanden.<br/>byte [] tillstånd - sessionstillstånd ('Stop-händelsenyttolast) |
-| Microsoft.Azure.ServiceBus.SetSessionState | [IMessageSession.SetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.setstateasync) | sträng SessionId - sessionId finns i meddelanden.<br/>byte [] tillstånd - sessionens tillstånd |
-| Microsoft.Azure.ServiceBus.RenewSessionLock | [IMessageSession.RenewSessionLockAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.renewsessionlockasync) | sträng SessionId - sessionId finns i meddelanden. |
-| Microsoft.Azure.ServiceBus.Exception | någon instrumenterats API| Undantag undantag - undantag instans |
+| Microsoft.Azure.ServiceBus.RemoveRule | [SubscriptionClient.RemoveRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.removeruleasync) | sträng Regelnamn – namnet på regeln för att ta bort. |
+| Microsoft.Azure.ServiceBus.GetRules | [SubscriptionClient.GetRulesAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.getrulesasync) | IEnumerable<RuleDescription> regler för alla regler som är associerade med prenumerationen. (Endast ”stoppa” nyttolast) |
+| Microsoft.Azure.ServiceBus.AcceptMessageSession | [ISessionClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.azure.servicebus.isessionclient.acceptmessagesessionasync) | sträng sessions-ID - sessionId finns i meddelandena. |
+| Microsoft.Azure.ServiceBus.GetSessionState | [IMessageSession.GetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.getstateasync) | sträng sessions-ID - sessionId finns i meddelandena.<br/>byte [] tillstånd - sessionens tillstånd (”stoppa” händelsenyttolast) |
+| Microsoft.Azure.ServiceBus.SetSessionState | [IMessageSession.SetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.setstateasync) | sträng sessions-ID - sessionId finns i meddelandena.<br/>byte [] tillstånd - sessionstillstånd |
+| Microsoft.Azure.ServiceBus.RenewSessionLock | [IMessageSession.RenewSessionLockAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.renewsessionlockasync) | sträng sessions-ID - sessionId finns i meddelandena. |
+| Microsoft.Azure.ServiceBus.Exception | instrumenterade API: er| Undantag undantag - instans för undantag |
 
-I varje händelse, kan du komma åt `Activity.Current` som innehåller den aktuella åtgärden kontexten.
+I varje händelse kan du komma åt `Activity.Current` som innehåller den aktuella åtgärdskontexten.
 
 #### <a name="logging-additional-properties"></a>Ytterligare egenskaper för loggning
 
-`Activty.Current`ger detaljerad kontexten för den aktuella åtgärden och dess överordnade klasser. Mer information finns i [aktivitet dokumentationen](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) för mer information.
-Service Bus instrumentation tillhandahåller ytterligare information i den `Activity.Current.Tags` -de håller `MessageId` och `SessionId` när de är tillgängliga.
+`Activty.Current` tillhandahåller detaljerad kontexten för den aktuella åtgärden och dess överordnade klasser. Mer information finns i [aktivitet dokumentation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) för mer information.
+Service Bus instrumentation tillhandahåller ytterligare information i den `Activity.Current.Tags` – de har `MessageId` och `SessionId` när de är tillgängliga.
 
-Aktiviteter som spårar 'Får', 'Titt' och 'ReceiveDeferred' händelse kan också ha `RelatedTo` tagg. Den innehåller olika lista över `Diagnostic-Id`(s) för meddelanden som tagits emot som ett resultat.
-Detta kan resultera i flera orelaterade meddelanden som ska tas emot. Dessutom den `Diagnostic-Id` är inte känt när åtgärden startar så 'Receive-åtgärder kan korreleras till ”Process” åtgärder med hjälp av den här taggen endast. Det är användbart när du analyserar prestandaproblem för att kontrollera hur lång tid det tog att ta emot meddelandet.
+Aktiviteter som spårar 'Får', 'Peek' och 'ReceiveDeferred' händelse kan också ha `RelatedTo` tagg. Den innehåller distinkta lista över `Diagnostic-Id`(s) av meddelandena som tagits emot som ett resultat.
+Detta kan resultera i flera orelaterade meddelanden som ska tas emot. Dessutom den `Diagnostic-Id` är inte känd när åtgärden startar så 'Receive-åtgärder kan korreleras till 'Process' åtgärder med hjälp av den här taggen endast. Det är användbart när du analyserar prestandaproblem för att kontrollera hur lång tid det tog att ta emot meddelandet.
 
-Effektivt sätt att logga taggar är att iterera över dem, så att lägga till taggar i föregående exempel ser ut som 
+Effektiva sättet att logga taggar är att iterera över dem, så att lägga till taggar i föregående exempel ser ut som 
 
 ```csharp
 Activity currentActivity = Activity.Current;
@@ -202,32 +202,32 @@ foreach (var tags in currentActivity.Tags)
 serviceBusLogger.LogInformation($"{currentActivity.OperationName} is finished, Duration={currentActivity.Duration}, Status={status}, Id={currentActivity.Id}, StartTime={currentActivity.StartTimeUtc}{tagsList}");
 ```
 
-#### <a name="filtering-and-sampling"></a>Filtrering och provtagning
+#### <a name="filtering-and-sampling"></a>Filtrering och sampling
 
-I vissa fall är det klokt att logga endast en del av händelserna som ska minska prestanda kostnader eller lagring. Du kan logga 'Stop-händelser endast (som i föregående exempel) eller exempel procent av händelser. 
-`DiagnosticSource`Ange sättet att uppnå den med `IsEnabled` predikat. Mer information finns i [sammanhangsberoende filtrering i DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md#context-based-filtering).
+I vissa fall är det klokt att logga endast en del av händelserna om du vill minska prestanda omkostnader eller lagring. Du kan logga ”stoppa” händelser endast (som i föregående exempel) eller exempel procentandel av händelserna. 
+`DiagnosticSource` sätt att uppnå den med `IsEnabled` predikat. Mer information finns i [kontext-baserad filtrering i DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md#context-based-filtering).
 
-`IsEnabled`kan anropas flera gånger för en enda åtgärd att minimera inverkan på prestanda.
+`IsEnabled` kan anropas flera gånger för en enda åtgärd att minimera prestandainverkan.
 
-`IsEnabled`anropas i följande ordning:
+`IsEnabled` kallas i följande ordning:
 
-1. `IsEnabled(<OperationName>, string entity, null)`till exempel `IsEnabled("Microsoft.Azure.ServiceBus.Send", "MyQueue1")`. Observera att det finns ingen 'Start' eller 'Avbryt' i slutet. Du kan använda den för att filtrera bort särskilt åtgärder eller köer. Om motringning returnerar `false`, skickas inte händelser för åtgärden
+1. `IsEnabled(<OperationName>, string entity, null)` till exempel `IsEnabled("Microsoft.Azure.ServiceBus.Send", "MyQueue1")`. Observera att det finns ingen ”Start” eller ”sluta” i slutet. Du kan använda den för att filtrera bort vissa åtgärder eller köer. Om motringning returnerar `false`, skickas inte händelser för åtgärden
 
-  * Åtgärderna 'Processen' och 'ProcessSession' om du även får `IsEnabled(<OperationName>, string entity, Activity activity)` återanrop. Filtrera händelser utifrån `activity.Id` eller taggar egenskaper.
+  * För de 'Process' och 'ProcessSession', du får också `IsEnabled(<OperationName>, string entity, Activity activity)` återanrop. Använda den för att filtrera händelser utifrån `activity.Id` eller taggar egenskaper.
   
-2. `IsEnabled(<OperationName>.Start)`till exempel `IsEnabled("Microsoft.Azure.ServiceBus.Send.Start")`. Kontrollerar om 'Start' händelse att utlösa. Resultatet påverkar endast 'Start' händelse, men ytterligare instrumentation är inte beroende av den.
+2. `IsEnabled(<OperationName>.Start)` till exempel `IsEnabled("Microsoft.Azure.ServiceBus.Send.Start")`. Kontrollerar om ”Start” händelse bör vara aktiverade. Resultatet påverkar endast ”Start” händelse, men ytterligare instrumentation är inte beroende av den.
 
-Det finns ingen `IsEnabled` för 'Stop-händelse.
+Det finns inga `IsEnabled` för ”stoppa” händelse.
 
-Om vissa resultat är undantag, `IsEnabled("Microsoft.Azure.ServiceBus.Exception")` anropas. Du kan bara prenumerera på ' undantagshändelser ' och förhindra att resten av instrumentationen. I det här fallet har du fortfarande hantera sådana undantag. Spåra kontext för att flöda med meddelanden från klienten till producenten förvänta inte eftersom andra instrumentation är inaktiverad.
+Om vissa Åtgärdsresultat är undantag, `IsEnabled("Microsoft.Azure.ServiceBus.Exception")` anropas. Du kan bara prenumerera på händelser för ”undantag” och förhindra att resten av instrumentationen. I det här fallet har du fortfarande hantera sådana undantag. Eftersom andra instrumentation har inaktiverats kan förvänta dig inte spårningen kontext till flöde med meddelanden från konsumenten till producenten.
 
-Du kan använda `IsEnabled` även genomföra provtagning strategier. Sampling baserat på de `Activity.Id` eller `Activity.RootId` säkerställer konsekvent provtagning över alla kolla (så länge det sprids genom spårningssystemet eller egen kod).
+Du kan använda `IsEnabled` även implementera sampling strategier. Sampling baserat på den `Activity.Id` eller `Activity.RootId` säkerställer konsekvent sampling över alla däck (förutsatt att det sprids genom spårningssystemet eller genom din egen kod).
 
-I förekomsten av flera `DiagnosticSource` -lyssnare för samma källa det räcker för en lyssnare för att acceptera händelsen, så `IsEnabled` är inte säkert att anropas,
+I förekomsten av flera `DiagnosticSource` lyssnare för samma källa, det är bara en lyssnare att acceptera händelsen, så `IsEnabled` är inte säkert att anropa
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Service Bus-grunder](service-bus-fundamentals-hybrid-solutions.md)
 * [Application Insights korrelation](../application-insights/application-insights-correlation.md)
-* [Programberoenden insikter övervakaren](../application-insights/app-insights-asp-net-dependencies.md) att se om REST, SQL eller andra externa resurser saktar ner dig.
+* [Application Insights övervaka beroenden](../application-insights/app-insights-asp-net-dependencies.md) att se om REST, SQL eller andra externa resurser gör systemet långsammare.
 * [Spåra anpassade åtgärder med Application Insights SDK för .NET](../application-insights/application-insights-custom-operations-tracking.md)

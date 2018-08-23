@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: 787178b2c1582729249fcf549356fa7445f5ecbe
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 419b5d480ebd1f978eb2a870231d151b549b25ea
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494972"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42061702"
 ---
 # <a name="azure-active-directory-faq"></a>Vanliga frågor och svar om Azure Active Directory
 Azure Active Directory (Azure AD) är en omfattande IDaaS-lösning (Identity as a Service) som omfattar alla aspekter relaterade till identiteter, åtkomsthantering och säkerhet.
@@ -213,4 +213,4 @@ Mer information finns i [Automatisera användaretablering och avetablering för 
 - - -
 **F: Kan jag skapa en säker LDAP-anslutning med Azure AD?**
 
-**S:** Nej. Azure AD stöder inte LDAP-protokollet.
+**S:** Nej. Azure AD stöder inte LDAP-protokollet. Du kan dock konfigurera säkert LDAP med Azure AD Domain Services.

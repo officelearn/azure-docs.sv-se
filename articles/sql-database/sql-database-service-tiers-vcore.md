@@ -6,33 +6,43 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/15/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 68343f3fcdd2275012207d7ac5a5f3bcdc71d1b8
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: e833cb0e7f98933fd106a92a9aac6c4c2677d50d
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414382"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42443590"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Välja tjänstnivå vCore beräkning, minne, lagring och IO-resurser
 
-Tjänstnivåer åtskiljs av flera olika prestandanivåer, design för hög tillgänglighet, felisolering, typer av lagring och i/o-intervallet. Kunden måste separat konfigurera nödvändiga lagring och kvarhållning för säkerhetskopior. Med den vCore-modellen, enkla databaser och elastiska pooler är berättigade till upp till 30 procent med den [Azure Hybrid-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+Den vCore-baserade inköpsmodellen kan du oberoende skala beräknings- och lagringsresurser, matcha lokala prestanda och optimera pris. Du kan också välja maskinvarusystem:
+- Gen 4 – upp till 24 logiska processorer bygger på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer, vCore = 1 sidor (fysiska kärnor), 7 GB per kärna, anslutna SSD
+- Gen 5 – upp till 80 logiska processorer som baseras på Intel E5-2673 v4 (Broadwell) 2,3 GHz-processorer, vCore = 1 LP (hyper-tråd), 5.5. GB per kärna, snabb eNVM SSD
+
+vCore-modellen kan du använda [Azure Hybrid Use-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) att få kostnadsbesparingar.
+
+## <a name="service-tier-characteristics"></a>Tjänstens nivån egenskaper
+
+VCore-modellen innehåller två tjänstnivåer generell användning och affärskritisk. Tjänstnivåer åtskiljs av flera olika prestandanivåer, design för hög tillgänglighet, felisolering, typer av lagring och i/o-intervallet. Kunden måste separat konfigurera nödvändiga lagring och kvarhållning för säkerhetskopior.
 
 Tabellen nedan hjälper dig att förstå skillnaderna mellan dessa två nivåer:
 
 ||**Generell användning**|**Affärskritisk**|
 |---|---|---|
 |Bäst för|De flesta företags arbetsbelastningar. Erbjudanden budgetera objektorienterad balanserade och skalbara beräknings- och lagringsalternativ.|Affärsprogram med höga I/O-krav. Erbjuder den högsta uthålligheten mot fel tack vare flera isolerade repliker.|
-|Compute|1-80 vCore Gen4 och Gen5 |1-80 vCore Gen4 och Gen5|
+|Compute|Gen4: 1-24 vCore<br/>Gen5: 1-80 vCore|Gen4: 1-24 vCore<br/>Gen5: 1-80 vCore|
 |Minne|Gen4: 7 GB per kärna<br>Gen5: 5.5 GB per kärna | Gen4: 7 GB per kärna<br>Gen5: 5.5 GB per kärna |
-|Storage|Premium Fjärrlagring, 5 GB – 4 TB|Lokal SSD-lagring, 5 GB – 4 TB|
-|I/o-genomströmning (ungefärlig)|500 IOPS per vCore med 7000 högsta IOPS|5000 IOPS per kärna med 200000 högsta IOPS|
-|Tillgänglighet|1 repliken, inga lässkala|3 repliker, 1 [lässkala](sql-database-read-scale-out.md), zone redundant hög tillgänglighet|
-|Säkerhetskopior|RA-GRS 7-35 dagar (7 dagar som standard)|RA-GRS 7-35 dagar (7 dagar som standard)|
+|Storage|[Premium Fjärrlagring](../virtual-machines/windows/premium-storage.md),<br/>Singleton-databas: 5 GB – 4 TB<br/>Hanterad instans: 32 GB 8 TB |Lokal SSD-lagring<br/>Databas: 5 GB – 4 TB<br/>Hanterad instans: 32 GB 4 TB |
+|I/o-genomströmning (ungefärlig)|Singleton-databas: 500 IOPS per vCore med 7000 högsta IOPS</br>Hanterad instans: Beror på [storleken på filen](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS per kärna med 200000 högsta IOPS|
+|Tillgänglighet|1 repliken, inga lässkala|3 repliker, 1 [lässkala repliken](sql-database-read-scale-out.md),<br/>zonen redundant hög tillgänglighet|
+|Säkerhetskopior|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|
 |I minnet|Gäller inte|Stöds|
 |||
+
+Mer information finns i [vCore resursbegränsningar i databasen för Singelton](sql-database-vcore-resource-limits-single-databases.md) och [vCore resursbegränsningar i Managed Instance](sql-database-managed-instance.md#vcore-based-purchasing-model). 
 
 > [!IMPORTANT]
 > Om du behöver mindre än 1 vCore för beräkningskapacitet kan använda den DTU-baserade inköpsmodellen.
@@ -43,9 +53,10 @@ Se [SQL Database vanliga frågor och svar](sql-database-faq.md) svar på vanliga
 
 Tänk också på följande:
 - Allokerat lagringsutrymme används av datafiler (MDF) och loggfiler för filer (LDF).
-- Varje prestandanivå har stöd för den maximala databasstorleken med en maximal standardstorlek på 32 GB.
-- När du konfigurerar den nödvändiga databasstorleken (storleken på MDF), läggs 30% av ytterligare lagringsutrymme automatiskt till stöd för LDF
-- Du kan välja valfri databasstorlek på mellan 10 GB och högsta som stöds
+- Varje prestandanivå för Singleton-databasen stöder den maximala databasstorleken med en maximal standardstorlek på 32 GB.
+- När du konfigurerar den nödvändiga Singleton-databasstorleken (storleken på MDF), läggs 30% av ytterligare lagringsutrymme automatiskt till stöd för LDF
+- Lagringsstorlek i Managed Instance måste anges i multipler av 32 GB.
+- Du kan välja alla Singleton databasstorlek på mellan 10 GB och högsta som stöds
  - För standardlagring, öka eller minska storleken i steg om 10 GB
  - För Premium storage kan öka eller minska storleken i steg om 250 GB
 - På tjänstnivån generella `tempdb` använder anslutna SSD-disk och den här lagringskostnad ingår i priset för vCore.
@@ -61,9 +72,9 @@ Du övervakar den aktuella totala storleken på MDF-filen och IDF med [sp_spaceu
 
 ## <a name="backups-and-storage"></a>Säkerhetskopiering och lagring
 
-Lagring för säkerhetskopior av databasen har allokerats för att stödja punkten i tiden återställa (PITR) och lång sikt Retention (LTR) funktioner i SQL Database. Den här lagringen är tilldelat separat för varje databas och faktureras som två separata per databas avgifter. 
+Lagring för säkerhetskopior av databasen har allokerats för att stödja punkten i tiden återställa (PITR) och [Long Term Retention (LTR)](sql-database-long-term-retention.md) funktionerna i SQL-databas. Den här lagringen är tilldelat separat för varje databas och faktureras som två separata per databas avgifter. 
 
-- **PITR**: individuell databas säkerhetskopiorna kopieras till RA-GRS-lagring är automatiskt. Storlek ökar dynamiskt när nya säkerhetskopior har skapats.  Lagringsutrymmet används av veckovisa, fullständiga säkerhetskopior, dagliga differentiella säkerhetskopior och säkerhetskopior av transaktionsloggar var femte minut. Lagringsanvändningen beror på ändringsfrekvensen i databasen och kvarhållningsperioden. Du kan konfigurera en separat kvarhållningsperiod för varje databas mellan 7 och 35 dagar. En minimimängd lagringsutrymme som är lika med 1 x av storleken på data tillhandahålls utan extra kostnad. För de flesta databaser är beloppet tillräckligt för att lagra säkerhetskopiorna i 7 dagar.
+- **PITR**: säkerhetskopiering av enskilda databaser kopieras till [RA-GRS-lagring](../storage/common/storage-designing-ha-apps-with-ragrs.md) automatiskt. Storlek ökar dynamiskt när nya säkerhetskopior har skapats.  Lagringsutrymmet används av veckovisa, fullständiga säkerhetskopior, dagliga differentiella säkerhetskopior och säkerhetskopior av transaktionsloggar var femte minut. Lagringsanvändningen beror på ändringsfrekvensen i databasen och kvarhållningsperioden. Du kan konfigurera en separat kvarhållningsperiod för varje databas mellan 7 och 35 dagar. En minimimängd lagringsutrymme som är lika med 1 x av storleken på data tillhandahålls utan extra kostnad. För de flesta databaser är beloppet tillräckligt för att lagra säkerhetskopiorna i 7 dagar.
 - **LTR**: SQL Database erbjuder alternativet att konfigurera långsiktig kvarhållning av fullständiga säkerhetskopior för upp till 10 år. Om LTR principen är aktiverad, dessa säkerhetskopior lagras i RA-GRS-lagring automatiskt, men du kan styra hur ofta säkerhetskopiorna kopieras. Du kan välja olika kvarhållningsperioder för veckovisa, månatliga och årliga säkerhetskopior för att uppfylla olika krav. Den här konfigurationen definierar hur mycket lagringsutrymme som ska användas för LTR-säkerhetskopieringar. Du kan använda LTR priskalkylatorn för att beräkna kostnaden för LTR-lagring. Mer information finns i avsnittet om [långsiktig kvarhållning](sql-database-long-term-retention.md).
 
 ## <a name="azure-hybrid-use-benefit"></a>Azure Hybrid-förmånen
@@ -72,7 +83,9 @@ I den vCore-baserade inköpsmodellen, kan du byta dina befintliga licenser för 
 
 ![prissättning](./media/sql-database-service-tiers/pricing.png)
 
-## <a name="migration-of-single-databases-with-geo-replication-links"></a>Migrering av enskilda databaser med geo-replikeringslänkar
+## <a name="migration-from-dtu-model-to-vcore-model"></a>Migrering från DTU-modellen till vCore-modellen
+
+### <a name="migration-of-single-databases-with-geo-replication-links"></a>Migrering av enskilda databaser med geo-replikeringslänkar
 
 Migrera till från DTU-baserade modellen till vCore-baserade modellen liknar att uppgradera eller nedgradera geo-replikering relationerna mellan Standard och Premium-databaser. Det kräver inte avslutar geo-replikering, men användaren måste följa reglerna ordningsföljd. När du uppgraderar, måste du uppgradera den sekundära databasen först och sedan uppgradera primärt. När du nedgraderar, i omvänd ordning: du nedgradera den primära databasen först och sedan nedgraderar sekundär. 
 
@@ -94,15 +107,15 @@ I följande tabell innehåller riktlinjer för specifika Migreringsscenarier:
 
 \* Varje 100 dtu: er i Standard-nivån kräver minst 1 virtuell kärna och varje 125 DTU på premiumnivån kräver minst 1 virtuell kärna
 
-## <a name="migration-of-failover-groups"></a>Migrering av redundansgrupper 
+### <a name="migration-of-failover-groups"></a>Migrering av redundansgrupper 
 
 Migrering av redundansgrupper med flera databaser kräver enskilda migreringen av de primära och sekundära databaserna. Samma överväganden och sekvensering regler gäller vid den här processen. När databaserna som har konverterats till den vCore-baserade modellen, redundansgruppen kommer att gälla med samma principinställningar. 
 
-## <a name="creation-of-a-geo-replication-secondary"></a>Skapandet av en sekundär geo-replikering
+### <a name="creation-of-a-geo-replication-secondary"></a>Skapandet av en sekundär geo-replikering
 
 Du kan bara skapa en geo-secondary baserat på samma tjänstenivå som primär. För databasen med hög log generation hastighet vi rekommenderar att sekundärt skapas med samma prestandanivå som primärt. Om du skapar en geo-secondary i den elastiska poolen för en enskild primär databas, är det bäst att poolen har de `maxVCore` inställning som matchar den primära databas prestandanivån. Om du skapar en geo-secondary i den elastiska poolen för en primär i en annan elastisk pool, är det bäst att poolerna har samma `maxVCore` inställningar
 
-## <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Använda databaskopian och konvertera en DTU-baserad databas till en vCore-baserad databas.
+### <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Använda databaskopian och konvertera en DTU-baserad databas till en vCore-baserad databas.
 
 Du kan kopiera en databas med den DTU-baserade prestandanivån till en databas med en vCore-baserade prestanda på utan begränsningar eller särskilda ordningsföljd så länge prestandanivå målet har stöd för den maximala databasstorleken av källdatabasen. Detta är eftersom databaskopian skapar en ögonblicksbild av data från och med starttiden för kopieringen och utför inte synkronisera data mellan källan och målet. 
 

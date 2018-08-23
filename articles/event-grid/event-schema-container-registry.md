@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/20/2018
+ms.date: 08/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9ed918a7402abcbe79e302421f3b2ac725857464
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: d18a6718e4c29f3d04639644dc752b0733f15ba8
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188787"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42054784"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Azure Event Grid-Händelseschema för Container Registry
 
@@ -117,8 +117,6 @@ Dataobjektet har följande egenskaper:
 | åtgärd | sträng | Den åtgärd som omfattar den angivna händelsen. |
 | mål | objekt | Målet för händelsen. |
 | begäran | objekt | Den begäran som skapade händelsen. |
-| aktör | objekt | Agent som initierade händelsen. Det här värdet kan vara från autentiseringskontexten för begäran för de flesta situationer. |
-| källa | objekt | Noden register som genererade händelsen. Placera på olika sätt, medan aktören initierar händelsen, genererar källan den. |
 
 Målobjektet har följande egenskaper:
 
@@ -129,7 +127,6 @@ Målobjektet har följande egenskaper:
 | Sammanfattad | sträng | Samling av innehållet, enligt definitionen i registret V2 HTTP API-specifikationen. |
 | Längd | heltal | Antal byte av innehållet. Samma som fältet. |
 | Lagringsplats | sträng | Namnet på lagringsplatsen. |
-| url | sträng | Innehållet direkt URL. |
 | tagg | sträng | Taggnamnet. |
 
 Begäranobjektet har följande egenskaper:
@@ -141,19 +138,6 @@ Begäranobjektet har följande egenskaper:
 | värd | sträng | Externt tillgängliga värdnamnet för registry-instans som den anges av http-rubriken på inkommande begäranden. |
 | metod | sträng | Metoden för begäran som genererade händelsen. |
 | USERAGENT | sträng | Användaren agent huvudet för begäran. |
-
-Objektet aktören har följande egenskaper:
-
-| Egenskap  | Typ | Beskrivning |
-| -------- | ---- | ----------- |
-| namn | sträng | Ämnet eller användarnamn som är associerade med begärandekontexten som genererade händelsen. |
-
-Källobjektet har följande egenskaper:
-
-| Egenskap  | Typ | Beskrivning |
-| -------- | ---- | ----------- |
-| ADR | sträng | IP-Adressen eller värdnamnet och porten för noden register som genererade händelsen. I allmänhet kommer det här värdet att lösas av operativsystemet. Hostname() tillsammans med porten som körs. |
-| instanceID | sträng | Instansen som körs av ett program. Ändringar efter varje omstart. |
 
 ## <a name="next-steps"></a>Nästa steg
 

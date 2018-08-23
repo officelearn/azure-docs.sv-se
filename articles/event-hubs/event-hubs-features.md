@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/08/2018
+ms.date: 09/08/2018
 ms.author: shvija
-ms.openlocfilehash: abc85c322f7b8ee63c06639ae8845a5f07266b50
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: c41612b46102dc8fef67887c164ff6e48a8cf6c6
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40006638"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42061693"
 ---
 # <a name="event-hubs-features-overview"></a>Översikt över Event Hubs-funktioner
 
@@ -94,7 +94,10 @@ En enhet som läser händelsedata från en händelsehubb är en *händelsekonsum
 
 Publicerings-/prenumerationsmekanismen för Event Hubs aktiveras via *konsumentgrupper*. En konsumentgrupp är en vy (tillstånd, position eller offset) av en hel händelsehubb. Konsumentgrupper gör det möjligt för flera användningsprogram att vart och ett ha en separat vy över händelseströmmen och att oberoende läsa strömmen i egen takt och med sina egna offset.
 
-Inom en arkitektur för strömbearbetning utgör varje nedströms program en konsumentgrupp. Om du vill skriva händelsedata till långsiktig lagring utgör programmet för att skriva data till lagring en konsumentgrupp. Komplex händelsebearbetning kan sedan utföras av en annan, separat konsumentgrupp. Du får bara åtkomst till en partition via en konsumentgrupp. Det får vara högst 5 samtidiga läsare på en partition per konsumentgrupp; men **rekommenderar vi att det finns endast en aktiv mottagare på en partition per konsumentgrupp**. Det finns alltid en förinställd konsumentgrupp i en händelsehubb, och du kan skapa upp till 20 konsumentgrupper för en händelsehubb på standardnivå.
+Inom en arkitektur för strömbearbetning utgör varje nedströms program en konsumentgrupp. Om du vill skriva händelsedata till långsiktig lagring utgör programmet för att skriva data till lagring en konsumentgrupp. Komplex händelsebearbetning kan sedan utföras av en annan, separat konsumentgrupp. Du får bara åtkomst till en partition via en konsumentgrupp. Det finns alltid en förinställd konsumentgrupp i en händelsehubb, och du kan skapa upp till 20 konsumentgrupper för en händelsehubb på standardnivå.
+
+Det får vara högst 5 samtidiga läsare på en partition per konsumentgrupp; men **rekommenderar vi att det finns endast en aktiv mottagare på en partition per konsumentgrupp**. Inom en enda partition får varje läsare alla meddelanden. Om du har flera läsare på samma partition kan bearbeta du dubbletter av meddelanden. Du måste hantera det i din kod, vilket inte kanske är enkelt. Men är det en giltig metod i vissa situationer.
+
 
 Följande är exempel på URI-konventionen för konsumentgrupper:
 

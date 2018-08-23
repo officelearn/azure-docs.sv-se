@@ -1,74 +1,74 @@
 ---
-title: Med hjälp av API-version profiler med gå i Azure-stacken | Microsoft Docs
-description: Lär dig mer om att använda profiler för API-version med gå i Azure-stacken.
+title: Med hjälp av API-versionsprofiler med GO i Azure Stack | Microsoft Docs
+description: Lär dig mer om hur du använder API-versionsprofiler med GO i Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
-ms.author: mabrigg
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: dd2d0c46c0829a73d32c96b506b9f2111eda3c84
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 9ad4402098e938f72cf4b8c61cce8d0d46b5a147
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010072"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42055200"
 ---
-# <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Använda profiler för API-version med gå i Azure-stacken
+# <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Använd API-versionsprofiler med Go i Azure Stack
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-## <a name="go-and-version-profiles"></a>Gå och version profiler
+## <a name="go-and-version-profiles"></a>Profiler för go och version
 
-En profil är en kombination av olika resurstyper med olika versioner från olika tjänster. Använder en profil kan du blanda och matcha mellan olika resurstyper. Profiler kan ange:
+En profil är en kombination av olika resurstyper med olika versioner från olika tjänster. Genom att använda en profil kan du blanda och matcha mellan olika resurstyper. Profiler kan ange:
 
- - Stabiliteten för ditt program genom att låsa till särskilda API-versioner.
- - Kompatibilitet för ditt program med Azure-stacken och regionala Azure-datacenter.
+ - Stabiliteten för ditt program genom att låsa till specifika API-versioner.
+ - Kompatibilitet för ditt program med Azure Stack och regionala Azure-datacenter.
 
-I SDK gå profiler är tillgängliga under profilerna / sökväg med deras version i den **åååå-MM-DD** format. Just nu den senaste Azure stacken profilversionen är **2017-03-09**. Om du vill importera en viss tjänst från en profil måste du importera den motsvarande modulen från profilen. Till exempel för att importera **Compute** från **2017-03-09** profil:
+I Go-SDK profiler är tillgängliga under profilerna / sökväg med versionerna i den **åååå-MM-DD** format. Just nu den senaste Azure Stack är profilversionen **2017-03-09**. Om du vill importera en viss tjänst från en profil, måste du importera den motsvarande modulen från profilen. Till exempel för att importera **Compute** tjänsten från **2017-03-09** profil:
 
 ````go
 import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compute" 
 ````
 
-## <a name="install-azure-sdk-for-go"></a>Installera Azure SDK för gå
+## <a name="install-azure-sdk-for-go"></a>Installera Azure SDK för Go
 
-  1. Installera Git. Instruktioner finns i [komma igång - installerar Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-  2. Installera den [gå programmeringsspråk](https://golang.org/dl).  
-  API-profiler för Azure kräver gå version 1,9 eller nyare.
-  3. Installera Azure SDK gå och dess beroenden genom att köra följande kommando för bash:
+  1. Installera Git. Anvisningar finns i [komma igång - installerar Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+  2. Installera den [programmering språket Go](https://golang.org/dl).  
+  API-profiler för Azure kräver Go version 1.9 eller senare.
+  3. Installera Go Azure SDK och dess beroenden genom att köra följande bash-kommando:
   ```
     go get -u -d github.com/Azure/azure-sdk-for-go/...
   ```
 
-### <a name="the-go-sdk"></a>Gå SDK
+### <a name="the-go-sdk"></a>GO-SDK
 
-Du hittar mer information om Azure gå SDK på:
-- Azure gå SDK på [installera Azure SDK för Gå](https://docs.microsoft.com/go/azure/azure-sdk-go-install).
-- Azure gå SDK är allmänt tillgänglig på GitHub på [azure sdk för Gå](https://github.com/Azure/azure-sdk-for-go).
+Du hittar mer information om Azure GO SDK på:
+- Azure går SDK på [installera Azure SDK för Go](https://docs.microsoft.com/go/azure/azure-sdk-go-install).
+- Azure Go SDK finns på GitHub på [azure sdk för go](https://github.com/Azure/azure-sdk-for-go).
 
-### <a name="go-autorest-dependencies"></a>Gå AutoRest beroenden
+### <a name="go-autorest-dependencies"></a>Go-AutoRest-beroenden
 
-SDK gå beror på Azure gå-AutoRest-moduler att skicka REST-begäranden till Azure Resource Manager-slutpunkter. Du måste importera Azure gå-AutoRest modulen beroenden från [Azure gå-AutoRest på GitHub](https://github.com/Azure/go-autorest). Du kan hitta installera bash kommandon i den **installera** avsnitt.
+GO SDK är beroende av Azure Go-AutoRest-moduler för att skicka REST-begäranden till Azure Resource Manager-slutpunkter. Du måste importera Azure Go-AutoRest modulberoenden från [Azure Go-AutoRest på GitHub](https://github.com/Azure/go-autorest). Du kan hitta install bash-kommandon i den **installera** avsnittet.
 
-## <a name="how-to-use-go-sdk-profiles-on-azure-stack"></a>Hur du använder gå SDK profiler på Azure-stacken
+## <a name="how-to-use-go-sdk-profiles-on-azure-stack"></a>Använd profiler för GO SDK på Azure Stack
 
-Att köra ett exempel gå kod på Azure Stack:
-  1. Installera Azure SDK för gå och dess beroenden. Anvisningar finns i föregående avsnitt, [installera Azure SDK för Gå](#install-azure-sdk-for-go).
-  2. Hämta metadata-information från Resource Manager-slutpunkten. Slutpunkten returnerar en JSON-fil med den information som krävs för att köra koden gå.
+Så här kör du ett exempel på Go-koden på Azure Stack:
+  1. Installera Azure SDK för Go och dess beroenden. Anvisningar finns i avsnittet ovan [installera Azure SDK för Go](#install-azure-sdk-for-go).
+  2. Hämta metadata-information från Resource Manager-slutpunkten. Slutpunkten som returnerar en JSON-fil med den information som krävs för att köra Go-kod.
 
   > [!Note]  
   > Den **ResourceManagerUrl** i Azure Stack Development Kit (ASDK) är: `https://management.local.azurestack.external/`  
-  > Den **ResourceManagerUrl** i integrerade system är: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
+  > Den **ResourceManagerUrl** integrerade system är: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
   > Att hämta de metadata som krävs: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
-  JSON-exempelfil:
+  JSON-exempelfilen:
 
   ```json
   { "galleryEndpoint": "https://portal.local.azurestack.external:30015/",  
@@ -81,16 +81,16 @@ Att köra ett exempel gå kod på Azure Stack:
   }
   ```
 
-  3. Om det inte finns kan du skapa en prenumeration och spara prenumerations-ID som ska användas senare. Information om hur du skapar en prenumeration finns [skapa prenumerationer erbjudanden i Azure-stacken](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm). 
-  4. Skapa ett huvudnamn för tjänsten med ”prenumeration” scope och **ägare** roll. Spara tjänstens huvudnamn ID och hemlighet. Information om hur du skapar ett huvudnamn för tjänsten för Azure-Stack finns [skapa tjänstens huvudnamn](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-azure-ad). Din Azure Stack-miljö har ställts in.
-  5. Importera en modul för tjänsten från gå SDK-profil i din kod. Den aktuella versionen av Azure-stacken profil är **2017-03-09**. Till exempel för att importera modulen Utjämning från **2017-03-09** Profiltyp: 
+  3. Om det inte finns skapar du en prenumeration och spara prenumerations-ID som ska användas senare. Information om hur du skapar en prenumeration finns i [skapa prenumerationer för erbjudanden i Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm). 
+  4. Skapa ett huvudnamn för tjänsten med ”prenumeration” omfattning och **ägare** roll. Spara tjänstens huvudnamn-ID och hemlighet. Information om hur du skapar ett huvudnamn för tjänsten för Azure Stack finns i [skapa tjänstens huvudnamn](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-azure-ad). Azure Stack-miljön har ställts in.
+  5. Importera en service-modul från Go SDK-profil i din kod. Den aktuella versionen av Azure Stack-profil är **2017-03-09**. Till exempel för att importera modulen Utjämning från **2017-03-09** Profiltyp: 
 
   ````go
     package main 
     import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
   ````
   
-  6. Skapa i din funktion och autentisera en klient med en **ny** klienten funktionsanrop. Du kan använda följande kod för att skapa ett virtuellt nätverk-klienten:  
+  6. Skapa i din funktion och autentisera en klient med en **New** klienten funktionsanrop. Du kan använda följande kod för att skapa en vnet-klient:  
 
   ````go
   package main 
@@ -103,10 +103,10 @@ Att köra ett exempel gå kod på Azure Stack:
   ````
 
   Ange `<baseURI>` till den **ResourceManagerUrl** värde som används i steg två.
-  Ange `<subscriptionID>` till den **SubscriptionID** värdet som sparats i steg tre.
-  Om du vill skapa token finns autentisering nedan.  
+  Ange `<subscriptionID>` till den **SubscriptionID** värdet sparades steg tre.
+  För att skapa token, se autentisering nedan.  
 
-  7. Anropa API-metoder med klienten som du skapade i föregående steg. Till exempel skapa ett virtuellt nätverk med hjälp av vår klienten från föregående steg: 
+  7. Anropa API-metoder med hjälp av klienten som du skapade i föregående steg. Till exempel vill skapa ett virtuellt nätverk med hjälp av våra klient från föregående steg: 
   
 ````go
 package main
@@ -119,26 +119,26 @@ func main() {
   vnetClient .CreateOrUpdate( ) 
 ````
   
-  En fullständig exempel för att skapa ett virtuellt nätverk på Azure-stacken genom att använda gå SDK-profilen finns [exempel](#example).
+  Ett komplett exempel för att skapa ett virtuellt nätverk för Azure Stack med hjälp av Go SDK-profil, se [exempel](#example).
 
 ## <a name="authentication"></a>Autentisering
 
-Installera gå AutoRest-moduler för att hämta egenskapen Authorizer från Azure Active Directory med hjälp av gå SDK. Dessa moduler bör har redan installerats med ”gå SDK”-installation. Om inte, installerar du den [autentiseringspaket på GitHub](https://github.com/Azure/go-autorest/tree/master/autorest/adal).
+Installera Go-AutoRest-moduler för att få Authorizer-egenskapen från Azure Active Directory med hjälp av Go SDK. Dessa moduler bör har redan installerats med ”Go SDK”-installation. Om inte, installerar den [autentiseringspaket på GitHub](https://github.com/Azure/go-autorest/tree/master/autorest/adal).
 
-Authorizer måste anges som authorizer för resurs-klienten. Det finns olika metoder för att hämta en Authorizer; en fullständig lista finns här.
+Authorizer måste anges som authorizer för resurs-klienten. Det finns olika metoder för att få en Authorizer; en fullständig lista finns här.
 
-Det här avsnittet presenteras ett vanligt sätt att hämta authorizer token på Azure-stacken genom att använda klientens autentiseringsuppgifter:
+Det här avsnittet presenteras ett vanligt sätt att hämta authorizer-token i Azure Stack med klientens autentiseringsuppgifter:
 
-  1. Om det finns ett huvudnamn för tjänsten med ägarrollen på prenumerationen kan du hoppa över detta steg. Annars skapar ett huvudnamn för tjänsten [instruktioner]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals) och tilldela den en ”ägare”-roll som är begränsade till din prenumeration [instruktioner]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). Spara tjänstens huvudnamn program-ID och hemlighet. 
+  1. Om ett huvudnamn för tjänsten med ägarrollen för prenumerationen är tillgänglig kan du hoppa över det här steget. Annars skapar ett huvudnamn för tjänsten [instruktioner]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals) och tilldela den en ”ägare”-roll som är begränsade till din prenumeration [instruktioner]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). Spara service principal program-ID och hemlighet. 
 
-  2. Importera **adal** paket från gå AutoRest i koden. 
+  2. Importera **adal** paket från Go-AutoRest i din kod. 
   
   ````go
   package main
   import "github.com/Azure/go-autorest/autorest/adal" 
   ````
 
-  3. Skapa en oauthConfig med metoden NewOAuthConfig från **adal** modul. 
+  3. Skapa en oauthConfig med NewOAuthConfig metod från **adal** modulen. 
   
   ````go
   package main 
@@ -150,10 +150,10 @@ Det här avsnittet presenteras ett vanligt sätt att hämta authorizer token på
       oauthConfig, err := adal.NewOAuthConfig(activeDirectoryEndpoint, tenantID)
   ````
    
-  Ange `<activeDirectoryEndpoint>` till värdet för ”loginEndpoint” egenskap från ResourceManagerUrl metadata hämtades i föregående avsnitt i det här dokumentet.
-  Ange `<tenantID>` värde till din Azure-stacken klient-ID. 
+  Ange `<activeDirectoryEndpoint>` till värdet för ”loginEndpoint” egenskap från ResourceManagerUrl metadata som hämtades i föregående avsnitt i det här dokumentet.
+  Ange `<tenantID>` värde till din Azure Stack-klient-ID. 
 
-  4. Skapa slutligen en service principal token med metoden NewServicePrincipalToken från adal-modulen. 
+  4. Skapa slutligen en service principal-token med metoden NewServicePrincipalToken från adal-modulen. 
 
   ````go
   package main 
@@ -171,18 +171,18 @@ Det här avsnittet presenteras ett vanligt sätt att hämta authorizer token på
       return token, err
   ````
   
-  Ange `<activeDirectoryResourceID>` till något av värdena i ”målgruppen” hämta listan från ResourceManagerUrl metadata i föregående avsnitt i det här dokumentet.  
-  Ange `<clientID>` till UPN-tjänstprogrammet ID sparas när tjänstens huvudnamn skapades i föregående avsnitt i det här dokumentet.  
-  Ange `<clientSecret>` till UPN-tjänstprogrammet hemlighet sparas när tjänstens huvudnamn skapades i föregående avsnitt i det här dokumentet.  
+  Ange `<activeDirectoryResourceID>` till något av värdena i ”målgruppen” hämta listan från ResourceManagerUrl metadata på den första delen av det här dokumentet.  
+  Ange `<clientID>` till tjänstens huvudnamn programmet ID sparas när tjänstens huvudnamn har skapats i föregående avsnitt i det här dokumentet.  
+  Ange `<clientSecret>` hemlighet till tjänstens huvudnamn programmet sparas när tjänstens huvudnamn har skapats i föregående avsnitt i det här dokumentet.  
 
 ## <a name="example"></a>Exempel
 
-Det här avsnittet visas ett exempel gå kod för att skapa virtuella nätverk på Azure-stacken. Mer komplett exempel på Gå SDK finns [Azure gå SDk-exempel databasen](https://github.com/Azure-Samples/azure-sdk-for-go-samples). Azure Stack-exempel finns under hybrid / sökväg inuti tjänstemapparna av databasen.
+Det här avsnittet visas ett exempel på Go-kod för att skapa virtuellt nätverk i Azure Stack. Mer komplett exempel på Go SDK finns i [Go SDk för Azure-lagringsplats med exempel](https://github.com/Azure-Samples/azure-sdk-for-go-samples). Azure Stack-exempel finns under hybrid / sökväg inuti tjänstemapparna av databasen.
 
 > [!Note]  
-> Om du vill köra koden i det här exemplet, kontrollera att prenumerationen används **nätverk** resursprovidern som **registrerade**. För att verifiera den ser ut för prenumerationen på Azure Stack-portalen och klicka på **resursleverantörer.**
+> Om du vill köra koden i det här exemplet kontrollerar du att den prenumeration som används har **nätverk** resursprovidern som listas som **registrerad**. Verifiera det se ut för prenumerationen på Azure Stack-portalen och klicka på **resursprovidrar.**
 
-1. Importera nödvändiga paketen i koden. Du bör använda den senaste profilen på Azure-stacken för att importera nätverksmodulen. 
+1. Importera paket som krävs i din kod. Importera nätverksmodulen bör du använda den senaste tillgängliga profilen på Azure Stack. 
   
   ````go
   package main
@@ -197,7 +197,7 @@ Det här avsnittet visas ett exempel gå kod för att skapa virtuella nätverk p
   )
   ````
 
-2. Definiera din miljövariabler. Om du vill skapa ett virtuellt nätverk som du behöver ha en resursgrupp. 
+2. Definiera miljövariabler för din. Du måste ha en resursgrupp för att skapa ett virtuellt nätverk. 
 
   ````go
   var (
@@ -212,7 +212,7 @@ Det här avsnittet visas ett exempel gå kod för att skapa virtuella nätverk p
   )
   ````
 
-3. Nu när du har definierat din miljövariabler, lägger du till en metod för att skapa token för autentisering med hjälp av **adal** paketet. Se information om autentisering i föregående avsnitt.
+3. Nu när du har definierat dina miljövariabler, lägger du till en metod för att skapa token för autentisering med hjälp av **adal** paketet. Se information om autentisering i föregående avsnitt.
   
   ````go
   //CreateToken creates a service principal token
@@ -228,7 +228,7 @@ Det här avsnittet visas ett exempel gå kod för att skapa virtuella nätverk p
   }
   ````
 
-4. Lägg till main-metoden. Main-metoden får först en token genom att använda den metod som har definierats i föregående steg. Sedan skapar den en klient med hjälp av nätverket modul från profilen. Slutligen skapas ett virtuellt nätverk. 
+4. Lägg till main-metoden. Main-metoden får först en token genom att använda den metod som har definierats i föregående steg. Sedan skapas en klient med hjälp av modulen Utjämning från profilen. Dessutom skapas ett virtuellt nätverk. 
   
 ````go
 package main
@@ -300,4 +300,4 @@ func main() {
 
 ## <a name="next-steps"></a>Nästa steg
 * [Installera PowerShell för Azure Stack](azure-stack-powershell-install.md)
-* [Konfigurera Azure Stack användarens PowerShell-miljö](azure-stack-powershell-configure-user.md)  
+* [Konfigurera PowerShell-miljö för Azure Stack-användare](azure-stack-powershell-configure-user.md)  

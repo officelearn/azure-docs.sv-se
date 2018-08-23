@@ -8,29 +8,27 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: reference
-ms.date: 10/18/2017
+ms.date: 08/19/2018
 ms.author: laviswa
-ms.openlocfilehash: 4e9bdfab3abf9545218e80bf79d1b9b5df0cf2ff
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 33614628926e53354db14886530d7ca44da61f0a
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042018"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42060335"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Referens för Azure Cosmos DB SQL-syntax
 
-Azure Cosmos DB stöder Frågedokument med hjälp av en välbekant SQL (Structured Query Language) som grammatik över hierarkisk JSON-dokument utan uttryckliga scheman eller att sekundära index. Det här avsnittet innehåller referensdokumentation för det SQL-frågespråket som är kompatibla med SQL API-konton.
-
-En genomgång av SQL-frågespråket finns i [SQL-frågor för Azure Cosmos DB](sql-api-sql-query.md).  
+Azure Cosmos DB stöder Frågedokument med hjälp av en välbekant SQL (Structured Query Language) som grammatik över hierarkisk JSON-dokument utan uttryckliga scheman eller att sekundära index. Den här artikeln innehåller dokumentation referens och syntax för SQL query-språk som är kompatibel med SQL API-konton. En genomgång av SQL-frågor med exempeldata finns i [fråga Azure Cosmos DB data](sql-api-sql-query.md).  
   
-Vi inbjuder dig också att gå till den [Frågespelplan](http://www.documentdb.com/sql/demo) där du kan prova Azure Cosmos DB och köra SQL-frågor mot vår datauppsättning.  
+Gå till den [Frågespelplan](http://www.documentdb.com/sql/demo) där du kan prova Azure Cosmos DB och köra SQL-frågor mot vår datauppsättning.  
   
 ## <a name="select-query"></a>SELECT-fråga  
-Hämtar JSON-dokument från databasen. Har stöd för uttrycksutvärdering, projektioner, filtrering och ansluter till.  Konventioner som används för att beskriva SELECT-uttryck i tabellen i avsnittet Syntax konventioner.  
+Varje fråga består av en SELECT-satsen och valfria FROM och WHERE-satserna per ANSI SQL-standarder. Vanligtvis för varje fråga räknas källan i FROM-satsen. Sedan tillämpas filtret i WHERE-satsen på källan för att hämta en delmängd av JSON-dokument. Slutligen används SELECT-satsen för att beräkna de begärda JSON-värden i select-listan. Konventioner som används för att beskriva SELECT-uttryck i tabellen i avsnittet Syntax konventioner. Exempel finns i [urvalsfråga exempel](sql-api-sql-query.md#SelectClause)
   
 **Syntax**  
   
-```
+```sql
 <select_query> ::=  
 SELECT <select_specification>   
     [ FROM <from_specification>]   
@@ -42,17 +40,14 @@ SELECT <select_specification>
   
  Se följande avsnitt för information på varje sats:  
   
--   [SELECT-satsen](#bk_select_query)  
-  
--   [FROM-satsen](#bk_from_clause)  
-  
--   [WHERE-satsen](#bk_where_clause)  
-  
+-   [SELECT-satsen](#bk_select_query)    
+-   [FROM-satsen](#bk_from_clause)    
+-   [WHERE-satsen](#bk_where_clause)    
 -   [ORDER BY-sats](#bk_orderby_clause)  
   
 Satser i SELECT-instruktionen måste sorteras enligt ovan. En av de valfria satserna kan utelämnas. Men när valfria satser används, måste de visas i rätt ordning.  
   
-**Logiska behandlingsordning av SELECT-satsen**  
+### <a name="logical-processing-order-of-the-select-statement"></a>Logiska behandlingsordning av SELECT-satsen  
   
 Ordningen som satser bearbetas är:  
 
@@ -63,7 +58,7 @@ Ordningen som satser bearbetas är:
 
 Observera att detta skiljer sig från den ordning som de visas i syntax. Sorteringen är så att alla nya symboler som introducerades av en bearbetade-sats är synliga och kan användas i satser som bearbetas senare. Exempelvis alias som deklarerats i en FROM-sats är tillgängliga i var och SELECT-satser.  
 
-**Tecken som blanksteg och kommentarer**  
+### <a name="whitespace-characters-and-comments"></a>Tecken som blanksteg och kommentarer  
 
 Alla tomma utrymmen tecken som inte är en del av en sträng inom citattecken eller citattecken identifierare ingår inte i grammatik språk och ignoreras under parsning.  
 
@@ -74,10 +69,11 @@ T-SQL style kommentarer som har stöd för frågespråket
 Medan tecken som blanksteg och kommentarer som du inte har någon betydelse i grammatik, måste de användas för att avgränsa token. Exempel: `-1e5` är ett enda tal token, tag`: – 1 e5` är en minus token följt av nummer 1 och identifierare e5.  
 
 ##  <a name="bk_select_query"></a> SELECT-satsen  
-Satser i SELECT-instruktionen måste sorteras enligt ovan. En av de valfria satserna kan utelämnas. Men när valfria satser används, måste de visas i rätt ordning.  
+Satser i SELECT-instruktionen måste sorteras enligt ovan. En av de valfria satserna kan utelämnas. Men när valfria satser används, måste de visas i rätt ordning. Exempel finns i [urvalsfråga exempel](sql-api-sql-query.md#SelectClause)
 
 **Syntax**  
-```  
+
+```sql
 SELECT <select_specification>  
 
 <select_specification> ::=   
@@ -92,25 +88,25 @@ SELECT <select_specification>
   
  **Argument**  
   
- `<select_specification>`  
+- `<select_specification>`  
+
+  Egenskaper för eller -värde som ska väljas för resultatuppsättningen.  
   
- Egenskaper för eller -värde som ska väljas för resultatuppsättningen.  
+- `'*'`  
+
+  Anger att värdet ska hämtas utan några ändringar. Mer specifikt om bearbetade värdet är ett objekt, hämtas alla egenskaper.  
   
- `'*'`  
+- `<object_property_list>`  
   
-Anger att värdet ska hämtas utan några ändringar. Mer specifikt om bearbetade värdet är ett objekt, hämtas alla egenskaper.  
+  Anger listan över egenskaper som ska hämtas. Varje returnerade värdet ska vara ett objekt med egenskaper som anges.  
   
- `<object_property_list>`  
+- `VALUE`  
+
+  Anger att JSON-värde ska hämtas i stället för det fullständiga JSON-objektet. Detta, till skillnad från `<property_list>` radbryts inte det beräknade värdet i ett objekt.  
   
-Anger listan över egenskaper som ska hämtas. Varje returnerade värdet ska vara ett objekt med egenskaper som anges.  
-  
-`VALUE`  
-  
-Anger att JSON-värde ska hämtas i stället för det fullständiga JSON-objektet. Detta, till skillnad från `<property_list>` radbryts inte det beräknade värdet i ett objekt.  
-  
-`<scalar_expression>`  
-  
-Uttryck som representerar värdet som ska beräknas. Se [skaläruttryck](#bk_scalar_expressions) information.  
+- `<scalar_expression>`  
+
+  Uttryck som representerar värdet som ska beräknas. Se [skaläruttryck](#bk_scalar_expressions) information.  
   
 **Kommentarer**  
   
@@ -118,17 +114,17 @@ Den `SELECT *` syntax är bara giltigt om FROM-satsen har deklarerats exakt ett 
   
 Observera att `SELECT <select_list>` och `SELECT *` är ”syntaktiska socker” och du kan också kan uttryckas med hjälp av enkla SELECT-instruktioner som visas nedan.  
   
-1.  `SELECT * FROM ... AS from_alias ...`  
+1. `SELECT * FROM ... AS from_alias ...`  
   
-     motsvarar att:  
+   motsvarar att:  
   
-     `SELECT from_alias FROM ... AS from_alias ...`  
+   `SELECT from_alias FROM ... AS from_alias ...`  
   
-2.  `SELECT <expr1> AS p1, <expr2> AS p2,..., <exprN> AS pN [other clauses...]`  
+2. `SELECT <expr1> AS p1, <expr2> AS p2,..., <exprN> AS pN [other clauses...]`  
   
-     motsvarar att:  
+   motsvarar att:  
   
-     `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
+   `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
   
 **Se även**  
   
@@ -136,11 +132,11 @@ Observera att `SELECT <select_list>` och `SELECT *` är ”syntaktiska socker”
 [SELECT-satsen](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a> FROM-satsen  
-Anger källan eller anslutna källor. FROM-satsen är valfritt. Om inte angivna, andra satser körs fortfarande som om FROM-satsen tillhandahålls ett enskilt dokument.  
+Anger källan eller anslutna källor. FROM-satsen är valfri såvida inte källan filtreras eller projected senare i frågan. Syftet med den här satsen är att ange den datakälla som frågan måste fungera. På hela samlingen är ofta källan, men en kan ange en delmängd av samlingen i stället. Om den här satsen inte anges körs andra satser fortfarande som om FROM-satsen tillhandahålls ett enskilt dokument. Exempel finns i [från satsen exempel](sql-api-sql-query.md#FromClause)
   
 **Syntax**  
   
-```  
+```sql  
 FROM <from_specification>  
   
 <from_specification> ::=   
@@ -160,55 +156,55 @@ FROM <from_specification>
   
 **Argument**  
   
-`<from_source>`  
+- `<from_source>`  
   
-Anger en datakälla, med eller utan ett alias. Om alias inte har angetts, kommer den härledas från den `<collection_expression>` med hjälp av följande regler:  
+  Anger en datakälla, med eller utan ett alias. Om alias inte har angetts, kommer den härledas från den `<collection_expression>` med hjälp av följande regler:  
   
--   Om uttrycket är ett samlingsnamn, kommer samlingsnamn att användas som ett alias.  
+  -  Om uttrycket är ett samlingsnamn, kommer samlingsnamn att användas som ett alias.  
   
--   Om uttrycket är `<collection_expression>`, %{Property_Name/ och %{Property_Name/ används som ett alias. Om uttrycket är ett samlingsnamn, kommer samlingsnamn att användas som ett alias.  
+  -  Om uttrycket är `<collection_expression>`, %{Property_Name/ och %{Property_Name/ används som ett alias. Om uttrycket är ett samlingsnamn, kommer samlingsnamn att användas som ett alias.  
   
-PRECIS SOM `input_alias`  
+- PRECIS SOM `input_alias`  
   
-Anger att den `input_alias` är en uppsättning värden som returneras av det underliggande samling uttrycket.  
+  Anger att den `input_alias` är en uppsättning värden som returneras av det underliggande samling uttrycket.  
  
-`input_alias` INDIEN  
+- `input_alias` INDIEN  
   
-Anger att den `input_alias` bör representerar uppsättningen med värden som hämtas av iterera över alla matriselement av varje matrisen som returneras av det underliggande samling-uttrycket. Ett värde som returneras av underliggande samling-uttryck som inte är en matris ignoreras.  
+  Anger att den `input_alias` bör representerar uppsättningen med värden som hämtas av iterera över alla matriselement av varje matrisen som returneras av det underliggande samling-uttrycket. Ett värde som returneras av underliggande samling-uttryck som inte är en matris ignoreras.  
   
-`<collection_expression>`  
+- `<collection_expression>`  
   
-Anger samlingen uttrycket som används för att hämta dokument.  
+  Anger samlingen uttrycket som används för att hämta dokument.  
   
-`ROOT`  
+- `ROOT`  
   
-Anger det dokumentet ska hämtas från standardvärdet, anslutna samling.  
+  Anger det dokumentet ska hämtas från standardvärdet, anslutna samling.  
   
-`collection_name`  
+- `collection_name`  
   
-Anger det dokumentet ska hämtas från den angivna samlingen. Samlingens namn måste matcha namnet på den samling som är anslutna till.  
+  Anger det dokumentet ska hämtas från den angivna samlingen. Samlingens namn måste matcha namnet på den samling som är anslutna till.  
   
-`input_alias`  
+- `input_alias`  
   
-Anger det dokumentet ska hämtas från den källa som definieras av det angivna aliaset.  
+  Anger det dokumentet ska hämtas från den källa som definieras av det angivna aliaset.  
   
-`<collection_expression> '.' property_`  
+- `<collection_expression> '.' property_`  
   
-Anger det dokumentet ska hämtas genom att öppna den `property_name` egenskap eller array_index matriselement för alla dokument som hämtas av angivna samling uttryck.  
+  Anger det dokumentet ska hämtas genom att öppna den `property_name` egenskap eller array_index matriselement för alla dokument som hämtas av angivna samling uttryck.  
   
-`<collection_expression> '[' "property_name" | array_index ']'`  
+- `<collection_expression> '[' "property_name" | array_index ']'`  
   
-Anger det dokumentet ska hämtas genom att öppna den `property_name` egenskap eller array_index matriselement för alla dokument som hämtas av angivna samling uttryck.  
+  Anger det dokumentet ska hämtas genom att öppna den `property_name` egenskap eller array_index matriselement för alla dokument som hämtas av angivna samling uttryck.  
   
 **Kommentarer**  
   
 Alla alias har angetts eller härledd i den `<from_source>(`s) måste vara unikt. Syntaxen `<collection_expression>.`%{Property_Name/ är samma som `<collection_expression>' ['"property_name"']'`. Denna syntax kan dock användas om ett egenskapsnamn innehåller en icke-ID-tecken.  
   
-**Saknade egenskaper, saknas matriselement, Odefinierad hantering av värden**  
+### <a name="handling-missing-properties-missing-array-elements-and-undefined-values"></a>hantera saknade egenskaper, matriselement och odefinierad värden som saknas
   
 Om ett uttryck som samlingen har åtkomst till egenskaper eller matriselement och att värdet inte finns, ignoreras värdet och inte fortsätta bearbetningen.  
   
-**Samling uttryck kontext omfång**  
+### <a name="collection-expression-context-scoping"></a>Samling uttryck kontext omfång  
   
 En samling uttryck kan vara omfattar av samlingen eller dokumentet omfattar:  
   
@@ -216,11 +212,11 @@ En samling uttryck kan vara omfattar av samlingen eller dokumentet omfattar:
   
 -   Ett uttryck är dokumentet-omfattande, om den underliggande källan för samlingen uttryck är `input_alias` introducerade tidigare i frågan. Sådana ett uttryck representerar en uppsättning dokument som hämtas av utvärderingen av samling uttryck i omfånget för varje dokument som hör till den uppsättning som är associerade med samlingen ett alias.  Den resulterande uppsättningen blir en union av uppsättningar som erhålls av utvärderingen av samling-uttryck för varje dokument i den underliggande uppsättningen.  
   
-**Kopplingar**  
+### <a name="joins"></a>Kopplingar 
   
-I den aktuella versionen stöder Azure Cosmos DB inre kopplingar. Ytterligare join-funktioner är kommande.
+I den aktuella versionen stöder Azure Cosmos DB inre kopplingar. Ytterligare join-funktioner är kommande. 
 
-Inre kopplingar resultera i en fullständig kryssprodukten av de mängder som deltar i kopplingen. Resultatet av en N-vägs-koppling är en uppsättning element N tupplar, där varje värde i tuppeln är associerad med alias som deltar i kopplingen och kan nås genom att referera till som alias i andra-satser.  
+Inre kopplingar resultera i en fullständig kryssprodukten av de mängder som deltar i kopplingen. Resultatet av en N-vägs-koppling är en uppsättning element N tupplar, där varje värde i tuppeln är associerad med alias som deltar i kopplingen och kan nås genom att referera till som alias i andra-satser. Exempel finns i [nyckelordet exempel](sql-api-sql-query.md#Joins)
   
 Utvärderingen av kopplingen beror på kontexten omfånget för deltagande uppsättningar:  
   
@@ -230,13 +226,13 @@ Utvärderingen av kopplingen beror på kontexten omfånget för deltagande upps�
   
  Högst en samling-omfattande uttryck stöds i den aktuella versionen av frågeprocessorn.  
   
-**Exempel på kopplingar:**  
+### <a name="examples-of-joins"></a>Exempel på kopplingar  
   
 Låt oss titta på följande FROM-satsen: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
  Låt varje källa som definierar `input_alias1, input_alias2, …, input_aliasN`. Den här FROM-satsen returnerar en mängd av N-tupplar (tuppel med N värden). Varje tuppel har värden som produceras av iterera alla alias för samlingen över sina respektive uppsättningar.  
   
-*Anslut till exempel 1, med 2 källor:*  
+**Exempel 1** -2 källor  
   
 - Låt `<from_source1>` samling-begränsas och som representerar uppsättningen {A, B, C}.  
   
@@ -254,7 +250,7 @@ Låt oss titta på följande FROM-satsen: `<from_source1> JOIN <from_source2> JO
   
     `(A, 1), (A, 2), (B, 3), (C, 4), (C, 5)`  
   
-*Anslut till exempel 2, med 3 källor:*  
+**Exempel 2** -3 källor  
   
 - Låt `<from_source1>` samling-begränsas och som representerar uppsättningen {A, B, C}.  
   
@@ -278,10 +274,10 @@ Låt oss titta på följande FROM-satsen: `<from_source1> JOIN <from_source2> JO
   
     (A, 1, 100), (A, 1, 200), (B, 3, 300)  
   
-> [!NOTE]
-> Brist på tupplar för andra värden på `input_alias1`, `input_alias2`, som den `<from_source3>` returnerade inte några värden.  
+  > [!NOTE]
+  > Brist på tupplar för andra värden på `input_alias1`, `input_alias2`, som den `<from_source3>` returnerade inte några värden.  
   
-*Anslut till exempel 3, med 3 källor:*  
+**Exempel 3** -3 källor  
   
 - Låt < from_source1 > vara begränsad till samlingen och som representerar uppsättningen {A, B, C}.  
   
@@ -307,19 +303,19 @@ Låt oss titta på följande FROM-satsen: `<from_source1> JOIN <from_source2> JO
   
     (A, 1, 100), (A, 1, 200), (A, 2, 100), (A, 2, 200), C, 4, 300, (C, 5, 300)  
   
-> [!NOTE]
-> Detta resulterade i kryssprodukten mellan `<from_source2>` och `<from_source3>` eftersom båda är begränsade till samma `<from_source1>`.  Detta resulterade i 4 (2 × 2) tupplar som har värdet A, 0 tupplar som har värdet B (1 x 0) och 2 (2 x 1) tupplar som har värdet C.  
+  > [!NOTE]
+  > Detta resulterade i kryssprodukten mellan `<from_source2>` och `<from_source3>` eftersom båda är begränsade till samma `<from_source1>`.  Detta resulterade i 4 (2 × 2) tupplar som har värdet A, 0 tupplar som har värdet B (1 x 0) och 2 (2 x 1) tupplar som har värdet C.  
   
 **Se även**  
   
  [SELECT-satsen](#bk_select_query)  
   
 ##  <a name="bk_where_clause"></a> WHERE-satsen  
- Anger sökvillkor för dokument som returneras av frågan.  
+ Anger sökvillkor för dokument som returneras av frågan. Exempel finns i [WHERE-satsen exempel](sql-api-sql-query.md#WhereClause)
   
  **Syntax**  
   
-```  
+```sql  
 WHERE <filter_condition>  
 <filter_condition> ::= <scalar_expression>  
   
@@ -340,11 +336,11 @@ WHERE <filter_condition>
  Villkoret måste utvärderas till SANT för dokumentet som ska returneras ett uttryck har angetts som filter. Endast booleska värdet true kommer uppfyller villkoren, ett annat värde: Odefinierad, null, false, tal, matris eller ett objekt kommer inte uppfyller villkoret.  
   
 ##  <a name="bk_orderby_clause"></a> ORDER BY-sats  
- Anger sorteringsordning för resultaten som returnerades av frågan.  
+ Anger sorteringsordning för resultaten som returnerades av frågan. Exempel finns i [ORDER BY-sats-exempel](sql-api-sql-query.md#OrderByClause)
   
  **Syntax**  
   
-```  
+```sql  
 ORDER BY <sort_specification>  
 <sort_specification> ::= <sort_expression> [, <sort_expression>]  
 <sort_expression> ::= <scalar_expression> [ASC | DESC]  
@@ -378,13 +374,13 @@ ORDER BY <sort_specification>
  Medan frågegrammatik har stöd för flera ordning av egenskaperna, stöder Azure Cosmos DB-fråga runtime sortering endast mot en enskild egenskap och endast mot egenskapsnamn, t.ex, inte mot beräknade egenskaper. Sortera kräver också att indexprincip innehåller ett intervallsindex för egenskapen och den angivna typen, med den maximala precisionen. I indexering princip-dokumentationen för mer information.  
   
 ##  <a name="bk_scalar_expressions"></a> Skaläruttryck  
- Ett skalärt uttryck som är en kombination av symboler och operatörer som kan utvärderas för att få ett enskilt värde. Enkla uttryck kan vara konstanter, egenskapen referenser, matris referenser, alias referenser eller funktionsanrop. Enkla uttryck kan kombineras till komplexa uttryck med hjälp av operatörer.  
+ Ett skalärt uttryck som är en kombination av symboler och operatörer som kan utvärderas för att få ett enskilt värde. Enkla uttryck kan vara konstanter, egenskapen referenser, matris referenser, alias referenser eller funktionsanrop. Enkla uttryck kan kombineras till komplexa uttryck med hjälp av operatörer. Exempel finns i [skaläruttryck exempel](sql-api-sql-query.md#scalar-expressions)
   
  Mer information om vilka skalärt uttryck som kan ha värden finns [konstanter](#bk_constants) avsnittet.  
   
  **Syntax**  
   
-```  
+```sql  
 <scalar_expression> ::=  
        <constant>   
      | input_alias   
@@ -550,7 +546,7 @@ ORDER BY <sort_specification>
   
  **Syntax**  
   
-```  
+```sql  
 <constant> ::=  
    <undefined_constant>  
      | <null_constant>   
@@ -580,45 +576,45 @@ ORDER BY <sort_specification>
   
  **Argument**  
   
-1.  `<undefined_constant>; undefined`  
+* `<undefined_constant>; undefined`  
   
-     Representerar en odefinierad värde av typen odefinierad.  
+  Representerar en odefinierad värde av typen odefinierad.  
   
-2.  `<null_constant>; null`  
+* `<null_constant>; null`  
   
-     Representerar **null** värde av typen **Null**.  
+  Representerar **null** värde av typen **Null**.  
   
-3.  `<boolean_constant>`  
+* `<boolean_constant>`  
   
-     Representerar konstant av typen Boolean.  
+  Representerar konstant av typen Boolean.  
   
-4.  `false`  
+* `false`  
   
-     Representerar **FALSKT** värde av typen Boolean.  
+  Representerar **FALSKT** värde av typen Boolean.  
   
-5.  `true`  
+* `true`  
   
-     Representerar **SANT** värde av typen Boolean.  
+  Representerar **SANT** värde av typen Boolean.  
   
-6.  `<number_constant>`  
+* `<number_constant>`  
   
-     Representerar en konstant.  
+  Representerar en konstant.  
   
-7.  `decimal_literal`  
+* `decimal_literal`  
   
-     Decimal litteraler är värden som representeras med hjälp av decimalform eller matematisk notation.  
+  Decimal litteraler är värden som representeras med hjälp av decimalform eller matematisk notation.  
   
-8.  `hexadecimal_literal`  
+* `hexadecimal_literal`  
   
-     Hexadecimala strängar är värden som representeras med prefixet ”0 x” följt av en eller flera hexadecimala siffror.  
+  Hexadecimala strängar är värden som representeras med prefixet ”0 x” följt av en eller flera hexadecimala siffror.  
   
-9. `<string_constant>`  
+* `<string_constant>`  
   
-     Representerar en konstant av typen String.  
+  Representerar en konstant av typen String.  
   
-10. `string _literal`  
+* `string _literal`  
   
-     Stränglitteraler är Unicode-strängar som representeras av en sekvens med noll eller flera Unicode-tecken eller escape-sekvenser. Stränglitteraler är inom enkla citattecken (apostrof ”:) eller dubbla citattecken (citattecken”:).  
+  Stränglitteraler är Unicode-strängar som representeras av en sekvens med noll eller flera Unicode-tecken eller escape-sekvenser. Stränglitteraler är inom enkla citattecken (apostrof ”:) eller dubbla citattecken (citattecken”:).  
   
  Följande escape-sekvenser tillåts:  
   
@@ -1854,7 +1850,7 @@ SELECT
 |[LÄGRE](#bk_lower)|[LTRIM](#bk_ltrim)|[ERSÄTT](#bk_replace)|  
 |[Replikera](#bk_replicate)|[OMVÄND](#bk_reverse)|[HÖGER](#bk_right)|  
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[DELSTRÄNGEN](#bk_substring)|  
-|[ToString](#bk_tostring)|[ÖVRE](#bk_upper)|||  
+|[ToString](#bk_tostring)|[TRIM](#bk_trim)|[ÖVRE](#bk_upper)||| 
   
 ####  <a name="bk_concat"></a> CONCAT  
  Returnerar en sträng som är resultatet av att sammanfoga två eller flera strängvärden.  
@@ -2440,7 +2436,40 @@ JOIN n IN food.nutrients
 {"nutrientID":"307","nutritionVal":"912"},
 {"nutrientID":"308","nutritionVal":"90"},
 {"nutrientID":"309","nutritionVal":"null"}]
- ```  
+ ``` 
+ 
+####  <a name="bk_trim"></a> TRIM  
+ Returnerar ett stränguttryck efter att det tar bort inledande och avslutande blanksteg.  
+  
+ **Syntax**  
+  
+```  
+TRIM(<str_expr>)  
+```  
+  
+ **Argument**  
+  
+-   `str_expr`  
+  
+     Är ett stränguttryck.  
+  
+ **Returnera typer**  
+  
+ Returnerar ett stränguttryck.  
+  
+ **Exempel**  
+  
+ I följande exempel visar hur du använder TRIMNING inuti en fråga.  
+  
+```  
+SELECT TRIM("   abc"), TRIM("   abc   "), TRIM("abc   "), TRIM("abc")   
+```  
+  
+ Här är resultatuppsättningen.  
+  
+```  
+[{"$1": "abc", "$2": "abc", "$3": "abc", "$4": "abc"}]  
+``` 
 ####  <a name="bk_upper"></a> ÖVRE  
  Returnerar ett stränguttryck efter konvertera gemen data till versaler.  
   

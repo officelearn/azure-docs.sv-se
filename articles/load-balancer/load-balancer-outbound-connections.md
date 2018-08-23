@@ -1,6 +1,6 @@
 ---
 title: Utgående anslutningar i Azure | Microsoft Docs
-description: Den här artikeln förklarar hur Azure kan användas för virtuella datorer att kommunicera med offentliga internet-tjänster.
+description: Den här artikeln förklarar hur Azure kan virtuella datorer kommunicera med offentliga internet-tjänster.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -12,91 +12,91 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/08/2018
+ms.date: 08/15/2018
 ms.author: kumud
-ms.openlocfilehash: 2e6b8dd5e0ec0ae73fff4a25ad79045e3414e9cc
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e9249f3a5787da9ad54945195b47cf9af0f45fb1
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825007"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42054387"
 ---
 # <a name="outbound-connections-in-azure"></a>Utgående anslutningar i Azure
 
-Azure tillhandahåller utgående anslutning för kunddistributioner med flera olika mekanismer. Den här artikeln beskriver vad de är, när de använder, hur de fungerar och hur de hanteras.
+Azure ger utgående anslutning för distributioner med flera olika sätt. Den här artikeln beskrivs vad de är, när de använder, hur de fungerar och hur du hanterar dem.
 
 >[!NOTE] 
->Den här artikeln beskriver Resource Manager-distributioner. Granska [utgående anslutningar (klassisk)](load-balancer-outbound-connections-classic.md) för alla distributionsscenarier för klassisk i Azure.
+>Den här artikeln beskriver Resource Manager-distributioner. Granska [utgående anslutningar (klassiska)](load-balancer-outbound-connections-classic.md) för alla distributionsscenarier för klassisk i Azure.
 
-En distribution i Azure kan kommunicera med slutpunkter utanför Azure i det offentliga IP-adressutrymmet. När en instans initierar ett utgående flöde till ett mål i det offentliga IP-adressutrymmet, matchar Azure dynamiskt den privata IP-adressen till en offentlig IP-adress. När du har skapat den här mappningen kan returnerade trafik för den här utgående har sitt ursprung flöde också nå den privata IP-adressen som flödet kom från.
+En distribution i Azure kan kommunicera med slutpunkter utanför Azure i det offentliga IP-adressutrymmet. När en instans initierar en utgående flöde till ett mål i det offentliga IP-adressutrymmet kan matchar Azure dynamiskt den privata IP-adressen till en offentlig IP-adress. När du har skapat den här mappningen kan Returtrafiken för det här utgående Start flödet också nå privata IP-adress som flödet kom från.
 
-Azure använder källa nätverksadresser (SNAT) för att utföra den här funktionen. När flera privata IP-adresser utger sig bakom en offentlig IP-adress, använder Azure [port nätverksadresser (PATRIK)](#pat) till maskeras privata IP-adresser. Tillfälliga portar används för PATRIK och är [förallokerade](#preallocatedports) baserat på poolstorleken.
+Översättning av källnätverksadresser (SNAT) använder Azure för att utföra den här funktionen. När flera privata IP-adresser låtsas bakom en enda offentlig IP-adress, använder Azure [port adressöversättning (PAT)](#pat) att maskeras privata IP-adresser. Tillfälliga portar används för PATRIK och är [förallokerade](#preallocatedports) baserat på poolstorlek.
 
-Det finns flera [utgående scenarier](#scenarios). Du kan kombinera dessa scenarier efter behov. Läs dem noga för att förstå funktioner, begränsningar och mönster som de gäller för din distributionsmodell och program. Granska vägledning för [hantera dessa scenarier](#snatexhaust).
+Det finns flera [utgående scenarier](#scenarios). Du kan kombinera dessa scenarier efter behov. Granska dem noggrant för att förstå de funktioner, begränsningar och mönster som de gäller för din distributionsmodell och programscenariot. Granska vägledning för [hantera dessa scenarier](#snatexhaust).
 
 >[!IMPORTANT] 
->Standard belastningsutjämnaren introduceras nya funktioner och olika beteenden till utgående anslutning.   Till exempel [scenario 3](#defaultsnat) finns inte när en intern Standard belastningsutjämnare och olika steg som krävs.   Granska noggrant hela dokumentet för att förstå den övergripande begrepp och skillnader mellan SKU: er.
+>Standard Load Balancer introducerar nya funktioner och på olika sätt att utgående anslutning.   Till exempel [scenario 3](#defaultsnat) finns inte när en intern Standard Load Balancer och olika steg måste utföras.   Noga igenom hela dokumentet för att förstå den övergripande begrepp och skillnader mellan SKU: er.
 
-## <a name="scenarios"></a>Scenario-översikt
+## <a name="scenarios"></a>Scenarioöversikt
 
-Azure belastningsutjämnare och relaterade resurser definieras explicit när du använder [Azure Resource Manager](#arm).  Azure tillhandahåller tre olika metoder för att uppnå utgående anslutning för Azure Resource Manager-resurser för närvarande. 
+Azure Load Balancer och relaterade resurser definieras uttryckligen när du använder [Azure Resource Manager](#arm).  Azure tillhandahåller för närvarande tre olika metoder för att uppnå utgående anslutning för Azure Resource Manager-resurser. 
 
 | Scenario | Metod | IP-protokoll | Beskrivning |
 | --- | --- | --- | --- |
-| [1. Virtuell dator med en offentlig IP på instansnivå adress (med eller utan belastningsutjämnare)](#ilpip) | SNAT, utger sig för porten inte används | TCP, UDP, ICMP, ESP | Azure använder offentlig IP-adress som tilldelats IP-adresskonfigurationen för nätverkskortet för den instansen. Instansen har alla tillfälliga portar som är tillgängliga. |
-| [2. Offentliga belastningsutjämnare som är kopplad till en virtuell dator (ingen offentlig IP på instansnivå adress på instansen)](#lb) | SNAT med port låtsas (PAT) med hjälp av belastningsutjämnaren frontends | TCP OCH UDP |Azure delar offentliga IP-adressen för den offentliga belastningsutjämnare frontends med flera privata IP-adresser. Azure använder tillfälliga portarna frontends att TILLDELNINGEN. |
-| [3. Standalone VM (någon belastningsutjämnare, ingen offentlig IP på instansnivå adress)](#defaultsnat) | SNAT med port låtsas (PAT) | TCP OCH UDP | Azure automatiskt utser en offentlig IP-adress för SNAT delar den här offentliga IP-adressen med flera privata IP-adresser för tillgänglighetsuppsättningen och använder tillfälliga portar för den här offentliga IP-adressen. Det här är en återställningsplats scenario för föregående scenarier. Vi rekommenderar inte den om du behöver synlighet och kontroll. |
+| [1. Virtuell dator med en offentlig IP på instansnivå-adress (med eller utan belastningsutjämnaren)](#ilpip) | SNAT, port låtsas inte används | TCP, UDP, ICMP, ESP | Azure använder offentlig IP-adress som tilldelats IP-adresskonfigurationen för nätverkskortet för den instansen. Instansen har alla tillfälliga portar som är tillgängliga. |
+| [2. Offentlig Load Balancer som är associerade med en virtuell dator (ingen offentlig IP på instansnivå adress på-instansen)](#lb) | SNAT med port låtsas (PAT) med Load Balancer-klienter | TCP, UDP |Azure delar offentliga IP-adressen för den offentliga belastningsutjämnare klienter med flera privata IP-adresser. Azure använder tillfälliga portar för klienter att TILLDELNINGEN. |
+| [3. Standalone VM (någon belastningsutjämnare, ingen offentlig IP på instansnivå adress)](#defaultsnat) | SNAT med port låtsas (PAT) | TCP, UDP | Azure automatiskt utser en offentlig IP-adress för SNAT, delar den här offentliga IP-adressen med flera privata IP-adresser för tillgänglighetsuppsättningen och använder tillfälliga portar för den här offentliga IP-adressen. Detta är en återställningsplats scenariot för föregående scenarier. Det rekommenderas inte om du behöver synlighet och kontroll. |
 
-Du kan använda nätverkssäkerhetsgrupper (NSG: er) för att blockera åtkomst efter behov om du inte vill att en virtuell dator för att kommunicera med slutpunkter utanför Azure i offentliga IP-adressutrymme. Avsnittet [förhindrar en utgående anslutning](#preventoutbound) NSG: er beskrivs i detalj. Anvisningar om hur man designar, implementera och hantera ett virtuellt nätverk utan utgående åtkomst är utanför omfånget för den här artikeln.
+Om du inte vill att en virtuell dator för att kommunicera med slutpunkter utanför Azure i offentliga IP-adressutrymme, kan du använda nätverkssäkerhetsgrupper (NSG) för att blockera åtkomst efter behov. Avsnittet [förhindrar utgående anslutning](#preventoutbound) beskriver NSG: er i mer detalj. Vägledning för designa, implementera och hantera ett virtuellt nätverk utan någon utgående åtkomst är utanför omfånget för den här artikeln.
 
-### <a name="ilpip"></a>Scenario 1: Virtuell dator med en offentlig IP på instansnivå adress
+### <a name="ilpip"></a>Scenario 1: Virtuell dator med en offentlig IP på instansnivå-adress
 
-Den virtuella datorn har en instans nivå offentliga IP-går kopplade till den i det här scenariot. Utgående anslutningar är fråga det spelar ingen roll om den virtuella datorn är belastningsutjämnad eller inte. Det här scenariot har företräde framför andra. När en går används för den virtuella datorn använder går för alla utgående flöden.  
+Den virtuella datorn har en instans på offentliga IP (ILPIP) tilldelade till den i det här scenariot. Utgående anslutningar är fråga det spelar ingen roll om den virtuella datorn är belastningsutjämnad eller inte. Det här scenariot har företräde framför de andra. När du använder en ILPIP, använder den virtuella datorn ILPIP för alla utgående flöden.  
 
-En offentlig IP som tilldelats till en virtuell dator är en 1:1 relation (inte 1:many) och implementeras som en tillståndslös 1:1-NAT.  Port imiterade (PATRIK) används inte och den virtuella datorn har alla tillfälliga portar som är tillgängliga för användning.
+En offentlig IP som tilldelats till en virtuell dator är en 1:1-relation (snarare än 1:many) och implementeras som en tillståndslös 1:1-NAT.  Port maskering (PAT) används inte och den virtuella datorn har alla tillfälliga portar som är tillgängliga för användning.
 
-Om ditt program initierar många utgående flöden och SNAT port resursöverbelastning uppstår, kan du överväga att tilldela en [går att minimera SNAT begränsningar](#assignilpip). Granska [hantera SNAT resursuttömning](#snatexhaust) i sin helhet.
+Om ditt program initierar många utgående flöden och du får använda SNAT portöverbelastning kan vara bra att tilldela en [ILPIP minimera SNAT begränsningar](#assignilpip). Granska [hantera SNAT överbelastning](#snatexhaust) i sin helhet.
 
-### <a name="lb"></a>Scenario 2: Belastningsutjämnade virtuella datorn utan en offentlig IP på instansnivå adress
+### <a name="lb"></a>Scenario 2: Belastningsutjämnad virtuell dator utan en offentlig IP på instansnivå adress
 
-I det här scenariot är en del av en offentlig belastningsutjämnare serverdelspool i den virtuella datorn. Den virtuella datorn har inte en offentlig IP-adress som tilldelats. Resursen belastningsutjämnare måste konfigureras med en regel för belastningsutjämnare för att skapa en länk mellan den offentliga IP-klientdelen med serverdelspoolen.
+Den virtuella datorn är en del av en offentlig Load Balancer-backend-adresspool i det här scenariot. Den virtuella datorn har inte en offentlig IP-adress som tilldelats. Load Balancer-resursen måste konfigureras med en regel för belastningsutjämnaren för att skapa en länk mellan den offentliga IP-klientdelen till backend-poolen.
 
 Om du inte slutföra den här regelkonfigurationen, beteendet är enligt beskrivningen i scenariot för [Standalone VM med ingen offentlig IP på instansnivå](#defaultsnat). Det är inte nödvändigt för att regeln ska ha en fungerande lyssnare i serverdelspoolen för hälsoavsökningen ska lyckas.
 
-När den belastningsutjämnade virtuella datorn skapar ett utgående flöde, översätter Azure privata källans IP-adress för utgående offentliga belastningsutjämnare klientdel offentliga IP-adressen. Azure använder SNAT för att utföra den här funktionen. Azure använder också [klappa lätt](#pat) ska maskeras flera privata IP-adresser bakom en offentlig IP-adress. 
+När den belastningsutjämnade virtuella datorn skapar en flöde för utgående, omvandlar Azure privata IP-källadressen för utgående flödet till offentliga IP-adressen för offentlig Load Balancer klientdelen. Azure använder SNAT för att utföra den här funktionen. Azure använder också [känna dig NÖJD](#pat) att maskeras flera privata IP-adresser bakom en offentlig IP-adress. 
 
-Tillfälliga portar för belastningsutjämnarens offentliga IP-adress klientdel används för att särskilja enskilda flöden av den virtuella datorn har sitt ursprung. SNAT dynamiskt använder [förallokerade tillfälliga portar](#preallocatedports) när utgående flöden skapas. I den här kontexten kallas tillfälliga portarna som används för SNAT SNAT portar.
+Tillfälliga belastningsutjämnarens offentliga IP-adress frontend-portar används för att särskilja enskilda flöden som har sitt ursprung av den virtuella datorn. SNAT använder dynamiskt [förallokerade tillfälliga portar](#preallocatedports) när utgående flöden skapas. I det här sammanhanget kallas tillfälliga portarna som används för SNAT SNAT portar.
 
-SNAT portar är förallokerade enligt beskrivningen i den [förstå SNAT och PATRIK](#snat) avsnitt. Det är en begränsad resurs som kan vara slut. Det är viktigt att förstå hur de är [används](#pat). För att förstå hur du designar för denna förbrukning och minska efter behov, granska [hantera SNAT resursuttömning](#snatexhaust).
+SNAT portar är förallokerade enligt beskrivningen i den [förstå SNAT och PAT](#snat) avsnittet. Det är en begränsad resurs som kan vara förbrukat. Det är viktigt att förstå hur de är [förbrukas](#pat). Om du vill lära dig mer om att utforma för den här förbrukning och minimera efter behov, granska [hantera SNAT överbelastning](#snatexhaust).
 
-När [flera (offentliga) IP-adresser som är associerade med Load Balancer grundläggande](load-balancer-multivip-overview.md), någon av dessa offentliga IP-adresser är en [kandidat för utgående flöden](#multivipsnat), och en har valts.  
+När [flera (offentliga) IP-adresser som är associerade med Load Balancer grundläggande](load-balancer-multivip-overview.md), några av de här offentliga IP-adresser är en [kandidat för utgående flöden](#multivipsnat), och en har valts.  
 
-Du kan använda för att övervaka hälsotillståndet för utgående anslutningar med Load Balancer grundläggande [Log Analytics för belastningsutjämnaren](load-balancer-monitor-log.md) och [Varna händelseloggar](load-balancer-monitor-log.md#alert-event-log) att övervaka SNAT port uttömning meddelanden.
+Du kan använda för att övervaka hälsotillståndet för utgående anslutningar med Load Balancer grundläggande [Log Analytics för Load Balancer](load-balancer-monitor-log.md) och [Avisera händelseloggar](load-balancer-monitor-log.md#alert-event-log) att övervaka SNAT port överbelastning meddelanden.
 
-### <a name="defaultsnat"></a>Scenario 3: Standalone VM utan en offentlig IP på instansnivå adress
+### <a name="defaultsnat"></a>Scenario 3: Standalone VM utan en offentlig IP på instansnivå-adress
 
-I det här scenariot den virtuella datorn är inte en del av offentliga belastningsutjämnare pool (och inte en del av en intern Standard belastningsutjämnaren pool) och har inte tilldelats går adress. När den virtuella datorn skapar ett utgående flöde, översätter Azure privata källans IP-adress för utgående begränsas till en offentlig IP-källadress. Den offentliga IP-adressen som används för detta utgående flöde kan inte konfigureras och räknas inte mot prenumerationens offentliga IP-resursgräns.
+I det här scenariot den virtuella datorn är inte en del av en offentlig belastningsutjämnare pool (och inte en del av en intern Standard Load Balancer-pool) och har inte tilldelats en ILPIP-adress. När den virtuella datorn skapar en flöde för utgående, omvandlar Azure privata IP-källadressen för utgående flödet till en offentlig IP-källadressen. Offentliga IP-adress som används för det här utgående flödet kan inte konfigureras och räknas inte mot prenumerationens gräns för offentlig IP.
 
 >[!IMPORTANT] 
->Det här scenariot gäller när __endast__ en enkel intern belastningsutjämnare är ansluten. Scenario 3 är __inte tillgänglig__ när en intern Standard belastningsutjämnare är kopplad till en virtuell dator.  Du måste uttryckligen skapa [scenario 1](#ilpip) eller [scenario 2](#lb) förutom att använda en intern Standard belastningsutjämnare.
+>Det här scenariot gäller även när __endast__ en intern belastningsutjämnare är ansluten. Scenario 3 är __inte tillgänglig__ när en intern Standard Load Balancer är kopplad till en virtuell dator.  Du måste uttryckligen skapa [scenario 1](#ilpip) eller [scenario 2](#lb) förutom att använda en intern Standard Load Balancer.
 
-Azure använder SNAT med utger sig för port ([klappa lätt](#pat)) att utföra den här funktionen. Det här scenariot liknar [scenario 2](#lb), förutom att det finns ingen kontroll över IP-adress som används. Det här är en återställningsplats scenario för när scenarier 1 och 2 finns inte. Vi rekommenderar inte det här scenariot om du vill ha kontroll över utgående adressen. Om utgående anslutningar är en viktig del av ditt program, bör du har valt ett annat scenario.
+Azure använder SNAT med port låtsas ([känna dig NÖJD](#pat)) att utföra den här funktionen. Det här scenariot liknar [scenario 2](#lb), förutom att det finns ingen kontroll över IP-adress som används. Detta är en återställningsplats scenariot för när scenarier 1 och 2 finns inte. Vi rekommenderar inte det här scenariot om du vill ha kontroll över den utgående adressen. Om utgående anslutningar är en viktig del av ditt program, bör du välja ett annat scenario.
 
-SNAT portar är förallokerade enligt beskrivningen i den [förstå SNAT och PATRIK](#snat) avsnitt.  Antalet virtuella datorer som delar en Tillgänglighetsuppsättning avgör vilken Förallokering nivå gäller.  En fristående virtuell dator utan en Tillgänglighetsuppsättning är en pool 1 för att fastställa Förallokering (1024 SNAT portar). Det finns en begränsad resurs som kan vara förbrukat SNAT portar. Det är viktigt att förstå hur de är [används](#pat). För att förstå hur du designar för denna förbrukning och minska efter behov, granska [hantera SNAT resursuttömning](#snatexhaust).
+SNAT portar är förallokerade enligt beskrivningen i den [förstå SNAT och PAT](#snat) avsnittet.  Hur många virtuella datorer delar en Tillgänglighetsuppsättning avgör vilken Förallokering nivå gäller.  En fristående virtuell dator utan en Tillgänglighetsuppsättning är en pool 1 för att fastställa Förallokering (1024 SNAT portar). Det finns en begränsad resurs som kan vara förbrukat SNAT portar. Det är viktigt att förstå hur de är [förbrukas](#pat). Om du vill lära dig mer om att utforma för den här förbrukning och minimera efter behov, granska [hantera SNAT överbelastning](#snatexhaust).
 
-### <a name="combinations"></a>Flera kombinerade scenarier
+### <a name="combinations"></a>Scenarier med flera, kombinerade
 
-Du kan kombinera scenarier som beskrivs i föregående avsnitt för att uppnå ett visst resultat. När det finns flera scenarier, gäller en prioritetsordning: [scenario 1](#ilpip) företräde framför [scenario 2](#lb) och [3](#defaultsnat). [Scenario 2](#lb) åsidosätter [scenario 3](#defaultsnat).
+Du kan kombinera de scenarier som beskrivs i föregående avsnitt för att uppnå ett visst resultat. När det finns flera scenarier, gäller en prioritetsordning: [scenario 1](#ilpip) har företräde framför [scenario 2](#lb) och [3](#defaultsnat). [Scenario 2](#lb) åsidosätter [scenario 3](#defaultsnat).
 
-Ett exempel är en Azure Resource Manager distribution där programmet kraftigt beroende av utgående anslutningar till ett begränsat antal mål men också tar emot inkommande flöden via en klientdel på belastningsutjämnaren. I det här fallet kan du kombinera scenarier 1 och 2 för befrielse. Ytterligare mönster, granska [hantera SNAT resursuttömning](#snatexhaust).
+Ett exempel är en Azure Resource Manager-distribution där programmet kraftigt beroende av utgående anslutningar till ett begränsat antal mål men också tar emot inkommande flöden via en klientdel för belastningsutjämnare. I det här fallet kan du kombinera scenarier 1 och 2 för befrielse. För ytterligare mönster över [hantera SNAT överbelastning](#snatexhaust).
 
-### <a name="multife"></a> Flera frontends för utgående flöden
+### <a name="multife"></a> Flera klienter för utgående flöden
 
 #### <a name="load-balancer-standard"></a>Load Balancer Standard
 
-Load Balancer Standard använder alla kandidater för utgående flöden vid samma tidpunkt då [flera (offentliga) IP-frontends](load-balancer-multivip-overview.md) finns. Varje frontend multiplicerar antalet tillgängliga portar för förallokerade SNAT om en belastningsutjämningsregel har aktiverats för utgående anslutningar.
+Load Balancer Standard använder alla kandidater för utgående flöden på samma tid då [flera (offentliga) IP-klienter](load-balancer-multivip-overview.md) finns. Varje klientdel multiplicerar antalet tillgängliga portar för förallokerade SNAT om en belastningsutjämningsregel har aktiverats för utgående anslutningar.
 
-Du kan välja att ignorera en IP-adress för klientdel används för utgående anslutningar med en ny belastningen belastningsutjämning regelalternativ:
+Du kan välja att ignorera en frontend IP-adress används för utgående anslutningar med ett nytt belastningen belastningsutjämning regelalternativ:
 
 ```json    
       "loadBalancingRules": [
@@ -106,149 +106,149 @@ Du kan välja att ignorera en IP-adress för klientdel används för utgående a
       ]
 ```
 
-Normalt sett det här alternativet som standard _FALSKT_ och innebär att den här regeln program utgående SNAT för de associerade virtuella datorerna i serverdelspoolen av regeln för belastningsutjämning.  Detta kan ändras till _SANT_ att förhindra belastningsutjämnare använder associerade klientdelens IP-adress för utgående anslutningar för den virtuella datorn är i serverdelspoolen av den här regeln för belastningsutjämning.  Och du kan också ange en specifik IP-adress för utgående flöden enligt beskrivningen i [flera kombineras scenarier](#combinations) samt.
+Normalt sett det här alternativet som standard _FALSKT_ och innebär det att du som den här regeln program utgående SNAT för de associera virtuella datorerna i serverdelspoolen för regel för belastningsutjämning.  Detta kan ändras till _SANT_ att förhindra att Load Balancer med associerade klientdelens IP-adress för utgående anslutningar för den virtuella datorn är i serverdelspoolen för den här regeln för belastningsutjämning.  Och du kan fortfarande också ange en specifik IP-adress för utgående flöden enligt beskrivningen i [flera kombineras scenarier](#combinations) samt.
 
-#### <a name="load-balancer-basic"></a>Läsa in belastningsutjämning Basic
+#### <a name="load-balancer-basic"></a>Load Balancer Basic
 
-Load Balancer grundläggande väljer en enda klientdel som ska användas för utgående flöden när [flera (offentliga) IP-frontends](load-balancer-multivip-overview.md) lämpar sig för utgående flöden. Det går inte att konfigurera det här alternativet och bör du val-algoritmen för att vara slumpmässigt. Du kan ange en specifik IP-adress för utgående flöden enligt beskrivningen i [flera kombineras scenarier](#combinations).
+Load Balancer grundläggande väljer en enda klientdel som ska användas för utgående flöden när [flera (offentliga) IP-klienter](load-balancer-multivip-overview.md) lämpar sig för utgående flöden. Det går inte att konfigurera det här alternativet, och du bör överväga val av algoritmen är slumpmässig. Du kan ange en specifik IP-adress för utgående flöden enligt beskrivningen i [flera kombineras scenarier](#combinations).
 
-### <a name="az"></a> Tillgänglighet zoner
+### <a name="az"></a> Tillgänglighetszoner
 
-När du använder [Standard belastningsutjämnare med tillgänglighet zoner](load-balancer-standard-availability-zones.md)zonredundant frontends kan ge zonredundant utgående SNAT anslutningar och SNAT programmering FRISKRIVNINGEN zon fel.  När zonal frontends används dela utgående SNAT anslutningar omvandling med zonen som de tillhör.
+När du använder [Standardbelastningsutjämnare med Tillgänglighetszoner](load-balancer-standard-availability-zones.md), zonredundanta klientdelar kan ge zonredundant utgående SNAT-anslutningar och SNAT programmering överlever nedgångar zon fel.  När zonindelad klienter används, dela utgående SNAT-anslutningar öde med zonen som de tillhör.
 
-## <a name="snat"></a>Förstå SNAT och PATRIK
+## <a name="snat"></a>Förstå SNAT och PAT
 
-### <a name="pat"></a>Port imiterade SNAT (PATRIK)
+### <a name="pat"></a>Port maskering SNAT (PAT)
 
-När en offentlig belastningsutjämnare resurs associeras med VM-instanser, om varje utgående anslutningskälla. Källan om från det virtuella privata IP-adressutrymmet till klientdel offentliga IP-adressen för belastningsutjämnaren. 5-tuppel i flöde (källans IP-adress, källport, IP-transportprotokoll, mål-IP-adress, målport) måste vara unikt i det offentliga IP-adressutrymmet.  Port imiterade SNAT kan användas med TCP eller UDP IP-protokoll.
+När en offentlig belastningsutjämnare resurs är associerad med VM-instanser, skrivs om varje utgående anslutningskälla. Källan är har skrivits från virtuellt nätverk privat IP-adressutrymme klientdelen offentliga IP-adressen för belastningsutjämnaren. 5-tuppel av flödet (källans IP-adress, källport, IP-transportprotokollet, målets IP-adress, målport) måste vara unikt i det offentliga IP-adressutrymmet.  Port maskering SNAT kan användas med antingen TCP eller UDP IP-protokoll.
 
-Tillfälliga portar SNAT används för att uppnå detta efter att skriva om privata källans IP-adress, eftersom flera flöden kommer från en offentlig IP-adress. 
+Tillfälliga portar (SNAT) används för att uppnå detta efter att skriva om privata källans IP-adress, eftersom flera flöden kommer från en offentlig IP-adress. 
 
-En SNAT port används per flöde till en enda IP-adress, port och protokoll. För flera flödar till samma mål-IP-adress, port och protokoll använder varje flöde en enda SNAT port. Detta säkerställer att flödena är unika när de kommer från samma offentliga IP-adress och gå till samma mål-IP-adress, port och protokoll. 
+En SNAT port förbrukas per flöde till en enda målets IP-adress, port och protokoll. Varje flöde förbrukar en enskild port SNAT för flera flöden till samma målets IP-adress, port och protokoll. Detta säkerställer att flöden är unika när de kommer från samma offentliga IP-adress och går till samma mål-IP-adress, port och protokoll. 
 
-Flera flöden, till en annan IP-adress, port och protokoll, dela en enda SNAT port. Mål-IP-adress, port och protokoll gör flöden unikt utan att behöva ytterligare källa portar för att skilja flödena i det offentliga IP-adressutrymmet.
+Flera flöden, var och en till en annan målets IP-adress, port och protokoll, dela en enda SNAT-port. Den målets IP-adress, port och protokoll göra flöden unikt utan att behöva ytterligare källa portar för att skilja flöden i det offentliga IP-adressutrymmet.
 
-När SNAT port resurserna är uttömda misslyckas utgående flöden tills befintliga flöden släpper SNAT portar. Belastningsutjämnaren återtar SNAT portar när flödet stängs och använder en [4-minuters timeout för inaktivitet](#idletimeout) frigöra SNAT portar från inaktiv flödena.
+När SNAT port resurser tömts misslyckas utgående flöden tills befintliga flöden släpper SNAT portar. Belastningsutjämnaren återtar SNAT portar när flödet stängs och använder en [4-minuters timeout för inaktivitet](#idletimeout) Frigör SNAT portar från inaktiv flöden.
 
-Mönster för att minimera villkor som vanligtvis leda till uttömning av SNAT port, granska den [hantera SNAT](#snatexhaust) avsnitt.
+Mönster att minimera villkor som ofta leder till att använda SNAT portöverbelastning, granska de [hantera SNAT](#snatexhaust) avsnittet.
 
-### <a name="preallocatedports"></a>Tillfälliga Förallokering för porten som utger sig för SNAT (PATRIK)
+### <a name="preallocatedports"></a>Tillfällig port Förallokering för port låtsas SNAT (PAT)
 
-Azure använder en algoritm och fastställa antalet förallokerade SNAT tillgängliga portar baserat på storleken på serverdelspoolen när du använder port imiterade SNAT ([klappa lätt](#pat)). SNAT portar är tillfälliga portar som är tillgängliga för en viss offentlig IP-källadress.
+Azure använder en algoritm och fastställa antalet förallokerade SNAT portar som är tillgängliga baserat på storleken på backend-poolen när du använder port maskering SNAT ([känna dig NÖJD](#pat)). Det finns tillfälliga portar som är tillgängliga för en viss offentliga IP-källadress SNAT portar.
 
-Samma antal SNAT portar förallokerade för UDP och TCP respektive och konsumeras oberoende per IP-transportprotokollet. 
+Samma antal SNAT portar förallokerade för UDP och TCP respektive och förbrukas separat per IP-transport-protokoll. 
 
 >[!IMPORTANT]
->Standard-SKU SNAT programmering per IP-transportprotokoll och härleds från belastningsutjämningsregel.  Om det bara finns en TCP-belastningsutjämningsregel är SNAT endast tillgängligt för TCP. Om du har bara en TCP regel för belastningsutjämning och behöver utgående SNAT för UDP, skapa en regel från samma klient till samma serverdelspoolen för UDP av belastningsutjämning.  Detta utlöser SNAT programmering för UDP.  En fungerande regeln eller hälsa avsökning krävs inte.  Grundläggande SKU SNAT program alltid SNAT för båda IP-transportprotokollet oavsett transportprotokoll som angetts i regeln för belastningsutjämning.
+>Standard-SKU SNAT programming per IP-transportprotokollet och härleds från belastningsutjämningsregel.  Om det bara finns en TCP-belastningsutjämningsregel är SNAT endast tillgängligt för TCP. Om du har endast en TCP regel för belastningsutjämning och behöver utgående SNAT för UDP, skapar du en UDP belastningsutjämningsregel från samma klientdelen i samma backend-poolen.  Detta utlöser SNAT programmera för UDP.  En fungerande regel eller hälsotillstånd avsökning krävs inte.  Grundläggande SKU SNAT program alltid SNAT för båda IP-transport-protokoll, oavsett vilken transportprotokoll som anges i regeln för belastningsutjämning.
 
-Azure preallocates SNAT portar till IP-konfigurationen för nätverkskort på varje virtuell dator. När en IP-konfiguration läggs till i poolen, förallokerade SNAT portar för den här IP-konfigurationen som baseras på backend-poolstorleken. När utgående flöden skapas [klappa lätt](#pat) dynamiskt förbrukar (högst förallokerade) och släpper de här portarna när flödet stängs eller [timeout vid inaktivitet](#idletimeout) inträffa.
+Azure preallocates SNAT portar till IP-konfigurationen för nätverkskortet för varje virtuell dator. När en IP-konfiguration läggs till i poolen, förallokerade SNAT-portar för den här IP-konfigurationen baserat på backend-pool-storlek. När utgående flöden har skapats, [känna dig NÖJD](#pat) dynamiskt förbrukar (högst förallokerade) och släpper dessa portar när flödet stängs eller [inaktiv tidsgränser](#idletimeout) inträffa.
 
-I följande tabell visas SNAT port preallocations för nivåerna för backend-pool storlekar:
+I följande tabell visas SNAT port preallocations för nivåerna för backend-poolstorlekar:
 
-| Poolstorleken (VM-instanser) | Förallokerade SNAT portar per IP-konfiguration|
+| Poolstorlek (VM-instanser) | Den förallokerade SNAT portar per IP-konfiguration|
 | --- | --- |
 | 1-50 | 1,024 |
-| 51-100 | 512 |
-| 101 200 | 256 |
-| 201 400 | 128 |
+| 51 – 100 | 512 |
+| 101-200 | 256 |
+| 201-400 | 128 |
 | 401-800 | 64 |
 | 801-1 000 | 32 |
 
 >[!NOTE]
-> När du använder Standard belastningsutjämnare med [flera frontends](load-balancer-multivip-overview.md), [varje IP-adress för klientdel multiplicerar antalet tillgängliga portar för SNAT](#multivipsnat) i föregående tabell. Till exempel använder en serverdelspool av 50 VM med 2 belastningsutjämningsregler, var och en med en separat klientdelens IP-adresser, 2048 (2 x 1 024) SNAT portar per IP-konfiguration. Visa detaljer för [flera frontends](#multife).
+> När du använder Standard Load Balancer med [flera klienter](load-balancer-multivip-overview.md), [varje frontend IP-adress multiplicerar antalet tillgängliga portar för SNAT](#multivipsnat) i föregående tabell. Till exempel använder en serverdelspool med 50 Virtuella datorer med 2 belastningsutjämningsregler, var och en med en separat frontend IP-adresser, 2048 (2 x 1 024) SNAT portar per IP-konfiguration. Visa detaljer för [flera klienter](#multife).
 
-Kom ihåg att antalet tillgängliga portar för SNAT inte översätta direkt till antal flöden. En enskild port SNAT kan återanvändas för flera unika mål. Portar förbrukas endast om det är nödvändigt att göra flöden unika. Design och minskning instruktioner finns i avsnittet om [hantera icke förnybara resursen](#snatexhaust) och det avsnitt som beskriver [klappa lätt](#pat).
+Kom ihåg att antalet tillgängliga portar för SNAT inte översätter direkt till antal flöden. En enskild SNAT-port kan återanvändas för flera unika mål. Portar används endast om det är nödvändigt att göra flöden som är unikt. Riktlinjer för design och problemlösning, finns i avsnittet om [hur du hanterar icke förnybara resursen](#snatexhaust) och de avsnitt som beskriver [känna dig NÖJD](#pat).
 
-Ändra storlek på din serverdelspool kan påverka vissa av dina etablerade flöden. Om poolstorleken backend ökar och övergår till nästa nivå, är hälften av din förallokerade SNAT portar frigöras under övergången till nästa större backend poolen nivå. Flöden som är associerade med en återvunnet SNAT port gör timeout och måste återskapas. Om ett nytt flöde görs lyckas flödet omedelbart som finns tillgängliga förallokerade portar.
+Ändra storlek på backend-pool kan påverka vissa av dina etablerade flöden. Om backend-pool-storlek ökar och övergår till nästa nivå, är hälften av din förallokerade SNAT portar frigöras under övergången till nästa större serverdelen pool nivå. Flöden som är associerade med en återvunnet SNAT port når tidsgränsen och måste återskapas. Om ett nytt flöde utförs lyckas flödet omedelbart så länge det finns tillgängliga förallokerade portar.
 
-Om backend-poolstorleken minskar och övergår till en lägre nivå, ökar antalet tillgängliga SNAT portar. I det här fallet befintliga tilldelade SNAT portar och deras respektive flöden påverkas inte.
+Om backend-pool-storlek minskas och övergår till en lägre nivå, ökar antalet tillgängliga SNAT-portar. I det här fallet befintliga tilldelade SNAT portar och deras respektive flöden påverkas inte.
 
-SNAT portar allokeringar är IP-transportprotokollet specifika (TCP och UDP underhålls separat) och publiceras på följande villkor:
+SNAT portar allokeringar är IP-transportprotokollet specifika (TCP och UDP underhålls separat) och frigörs under följande förhållanden:
 
 ### <a name="tcp-snat-port-release"></a>Versionen för SNAT TCP-port
 
-- Om både servern eller-klienten skickar Finland-ACK, släpps SNAT port efter 240 sekunder.
-- Om en RST visas släpps SNAT port efter 15 sekunder.
-- Tidsgränsen för inaktivitet har nåtts
+- Om både servern/klienten skickar FIN/ACK, kommer SNAT port att släppas efter 240 sekunder.
+- Om en RSTA visas kommer SNAT port att släppas efter 15 sekunder.
+- timeout för inaktivitet har uppnåtts
 
 ### <a name="udp-snat-port-release"></a>Versionen för SNAT UDP-port
 
-- Tidsgränsen för inaktivitet har nåtts
+- timeout för inaktivitet har uppnåtts
 
 ## <a name="problemsolving"></a> Problemlösning 
 
-Det här avsnittet är avsedd för att minska SNAT resursuttömning och andra scenarier som kan uppstå med utgående anslutningar i Azure.
+Det här avsnittet är avsedd att hjälpa dig att undvika överbelastning av SNAT och andra scenarier som kan uppstå med utgående anslutningar i Azure.
 
-### <a name="snatexhaust"></a> Hantera SNAT (PATRIK) port resursuttömning
-[Tillfälliga portar](#preallocatedports) används för [klappa lätt](#pat) är en icke förnybara resurs, enligt beskrivningen i [Standalone VM utan en offentlig IP på instansnivå adress](#defaultsnat) och [belastningsutjämnade virtuella datorn utan en Instansen nivå offentliga IP-adressen](#lb).
+### <a name="snatexhaust"></a> Hantera portöverbelastning SNAT (PAT)
+[Tillfälliga portar](#preallocatedports) används för [känna dig NÖJD](#pat) är en icke förnybara resurs, enligt beskrivningen i [Standalone VM utan en offentlig IP på instansnivå adress](#defaultsnat) och [belastningsutjämnad virtuell dator utan en Instans på offentlig IP-adress](#lb).
 
-Om du vet att du initiera många utgående TCP eller UDP-anslutningar till samma mål-IP-adress och port och du Observera misslyckas utgående anslutningar eller bör av support att du är lång körningstid förbrukar SNAT portar (förallokerade [tillfälliga portar](#preallocatedports) används av [klappa lätt](#pat)), har du flera alternativ för Allmänt skydd. Granska alternativen och bestämma vad som är tillgängliga och bäst för ditt scenario. Det är möjligt att en eller flera kan hantera det här scenariot.
+Om du vet att du initierar många utgående TCP eller UDP-anslutningar till samma IP-måladress och port och du se misslyckade utgående anslutningar eller bör av support som du är förbrukar SNAT-portar (förallokerade [tillfälliga portar](#preallocatedports) används av [känna dig NÖJD](#pat)), har du flera alternativ för Allmänt skydd. Granska alternativen och bestämma vad som är tillgängliga och bäst för ditt scenario. Det är möjligt att en eller flera kan hantera det här scenariot.
 
-Om du har svårt att förstå beteendet utgående anslutning kan använda du IP-stack-statistik (netstat). Eller så kan vara bra att se anslutningen beteenden med hjälp av paket insamlingar. Du kan utföra dessa paket insamlingar i gästoperativsystemet för din instans eller använda [Nätverksbevakaren för paketinsamling](../network-watcher/network-watcher-packet-capture-manage-portal.md).
+Om du har problem med att förstå beteendet för utgående anslutningar kan använda du IP-stack-statistik (netstat). Eller det kan vara bra att Observera anslutningslägen genom att använda infångade paket. Du kan utföra dessa infångade paket i gästoperativsystemet för din instans eller använda [Network Watcher för paketfångsten](../network-watcher/network-watcher-packet-capture-manage-portal.md).
 
-#### <a name="connectionreuse"></a>Ändra programmet att återanvända anslutningar 
-Du kan minska behovet av tillfälliga portar som används för SNAT genom att återanvända anslutningar i ditt program. Detta gäller särskilt för protokoll som HTTP/1.1, där återanvändning av anslutningar är standard. Och andra protokoll som använder HTTP transport (till exempel REST) kan dra i sin tur. 
+#### <a name="connectionreuse"></a>Ändra programmet så att återanvända anslutningar 
+Du kan minska behovet av tillfälliga portar som används för SNAT genom att återanvända anslutningar i ditt program. Detta gäller särskilt för protokoll som HTTP/1.1, där återanvändning av anslutningar är standard. Och andra protokoll som använder HTTP för transport (till exempel REST) kan i sin tur. 
 
-Återanvändning är alltid bättre än enskilda, atomiska TCP-anslutningar för varje begäran. Återanvända resulterar i flera performant, mycket effektivt TCP transaktioner.
+Återanvändning är alltid bättre än enskilda, atomiska TCP-anslutningar för varje begäran. Återanvända resulterar i bättre, på ett mycket effektivt TCP-transaktioner.
 
-#### <a name="connection pooling"></a>Ändra program att använda anslutningspooler
-Du kan använda en anslutningspoolen schema i ditt program där förfrågningar internt är fördelade på en fast uppsättning anslutningar (varje återanvända där det är möjligt). Det här schemat begränsar antalet tillfälliga portar används och skapar en mer förutsägbar miljö. Det här schemat kan också öka genomflödet av begäranden genom att låta flera samtidiga åtgärder när en anslutning blockerar i svar för en åtgärd.  
+#### <a name="connection pooling"></a>Ändra programmet till att använda anslutningspooler
+Du kan använda en anslutningspoolning schema i ditt program, där internt begäranden distribueras till en fast uppsättning anslutningar (varje återanvända där det är möjligt). Det här schemat begränsar antalet tillfälliga portar används och skapar en mer förutsägbar miljö. Det här schemat kan också öka genomflödet av begäranden genom att tillåta flera samtidiga åtgärder när en enda anslutning blockerar på svaret för en åtgärd.  
 
-Anslutningspooler kanske redan finns inom ramen som du använder för att utveckla ditt program eller konfigurationsinställningarna för tillämpningsprogrammet. Du kan kombinera anslutningspooler med återanvändning av anslutningar. Din flera begäranden sedan använda en fast, förutsägbar antalet portar till samma mål-IP-adress och port. Begäranden kan också dra nytta av effektiv användning av TCP-transaktioner som minskar svarstiden och Resursanvändning. UDP-transaktioner kan också dra eftersom hantera antal UDP flöden kan i sin tur undvika avgaser villkor och hantera hur SNAT port.
+Anslutningspooler kanske redan finns inom ramen för som du använder för att utveckla ditt program eller konfigurationsinställningarna för ditt program. Du kan kombinera anslutningspooler med återanvändning av anslutningar. Dina flera begäranden kan sedan använda ett fast, förutsebart antal portar till samma mål-IP-adress och port. Begäranden kan också dra nytta av effektiv användning av TCP-transaktioner som minskar svarstiden och Resursanvändning. UDP-transaktioner kan också dra eftersom hantera antal UDP flöden kan i sin tur undvika avgaser villkor och hantera hur SNAT port.
 
-#### <a name="retry logic"></a>Ändra program att använda mindre aggressivt logik
-När [förallokerade tillfälliga portar](#preallocatedports) används för [klappa lätt](#pat) är slut eller ett program fel uppstår, aggressivt eller brute force återförsök utan decay och backoff logik orsaka resursuttömning sker eller spara. Du kan minska behovet av tillfälliga portar med hjälp av en mindre aggressivt logik. 
+#### <a name="retry logic"></a>Ändra att programmet använder mindre aggressiva logik för omprövning
+När [förallokerade tillfälliga portar](#preallocatedports) används för [känna dig NÖJD](#pat) är slut eller ett program fel uppstår aggressivt eller brute force försöker utan decay och backoff logic orsakar överbelastning att inträffa eller kvar. Du kan minska behovet av tillfälliga portar genom att använda en mindre aggressiva logik för omprövning. 
 
-Tillfälliga portar har ett 4-minuters timeout vid inaktivitet (inte justerbara). Om de nya försök för Aggressivt, har stoppas någon möjlighet att rensa på sin egen. Därför är överväger hur – och hur ofta--programmet försöker transaktioner en viktig del av designen.
+Tillfälliga portar har en 4-minuters timeout för inaktivitet (ej justerbar). Om nya försök för aggressiva, har stoppas någon möjlighet att rensa på egen hand. Därför är överväger hur – och hur ofta – ditt program försöker transaktioner en viktig del av designen.
 
-#### <a name="assignilpip"></a>Tilldela en nivå offentliga IP-instans på varje virtuell dator
-Tilldela en går ändras ditt scenario till [offentlig IP på instansnivå till en virtuell dator](#ilpip). Alla tillfälliga portar för den offentliga IP-Adressen som används för varje virtuell dator är tillgängliga för den virtuella datorn. (I stället för scenarier där tillfälliga portar på en offentlig IP-adress som delas med alla virtuella datorer som är associerade med respektive serverdelspoolen.) Det finns avvägningarna att tänka på, till exempel den extra kostnaden för offentliga IP-adresser och den potentiella effekten av vitlistning av ett stort antal enskilda IP-adresser.
+#### <a name="assignilpip"></a>Tilldela en instans på offentlig IP-adress till varje virtuell dator
+Tilldela en ILPIP ändras ditt scenario till [offentlig IP på instansnivå till en virtuell dator](#ilpip). Alla tillfälliga portar för den offentliga IP-Adressen som används för varje virtuell dator är tillgängliga för den virtuella datorn. (Till skillnad från scenarier där tillfälliga portar på en offentlig IP-adress som delas med alla virtuella datorer som är associerade med respektive serverdelspoolen.) Det finns avvägningarna att tänka på, till exempel den extra kostnaden för offentliga IP-adresser och den potentiella effekten av ett stort antal enskilda IP-adresser för listan över tillåtna program.
 
 >[!NOTE] 
->Det här alternativet är inte tillgängligt för web arbetsroller.
+>Det här alternativet är inte tillgänglig för web worker-roller.
 
-#### <a name="multifesnat"></a>Använda flera frontends
+#### <a name="multifesnat"></a>Använd flera klienter
 
-När du använder offentliga belastningsutjämnare som Standard kan du tilldela [flera klientdelens IP-adresser för utgående anslutningar](#multife) och [multiplicera antalet tillgängliga portar för SNAT](#preallocatedports).  Du behöver skapa en klientdelens IP-konfiguration och regeln serverdelspool som utlöser programmeringen av SNAT till offentliga IP-Adressen för klientdelen.  Regeln behöver inte fungerar och en hälsoavsökningen behöver inte lyckas.  Om du använder flera frontends för inkommande samt (i stället för bara för utgående), bör du använda anpassade hälsoavsökning bra för att försäkra dig om tillförlitlighet.
+När du använder offentlig Standard Load Balancer kan du tilldela [flera frontend-IP-adresser för utgående anslutningar](#multife) och [multiplicera antalet SNAT-portar som är tillgängliga](#preallocatedports).  Du måste skapa en klientdelens IP-konfiguration, regel och backend-pool för att utlösa programmeringen av SNAT till offentliga IP-Adressen för klientdelen.  Regeln behöver inte funktionen och en hälsoavsökning behöver inte lyckas.  Om du använder flera klienter för inkommande samt (i stället för bara för utgående), bör du använda anpassade hälsotillståndsavsökningar bra för att försäkra dig om tillförlitlighet.
 
 >[!NOTE]
->I de flesta fall är förbrukat SNAT portar för ett tecken på designen.  Kontrollera att du förstår varför du är lång körningstid förbrukar portar innan du använder flera frontends att lägga till SNAT portar.  Du kan maskning problem som kan orsaka fel senare.
+>I de flesta fall är överbelastning av SNAT portar ett tecken på designen.  Kontrollera att du förstår varför du finns förbrukar portar innan du använder flera klienter för att lägga till SNAT portar.  Du kan maskera problem som kan leda till fel senare.
 
 #### <a name="scaleout"></a>Skala ut
 
-[Förallokerade portar](#preallocatedports) tilldelas baserat på backend-poolstorleken och grupperade i nivåer för att minimera störningar när några av portarna måste allokeras om för att hantera de med nästa större backend pool storlek nivå.  Du kan ha ett alternativ för att öka intensiteten på SNAT port användningen för en given klientdel genom att skala din serverdelspool till maximal storlek för en viss nivå.  Detta krävs för programmet för att skala ut effektivt.
+[Förallokerade portar](#preallocatedports) tilldelas baserat på storleken för backend-poolen och grupperade i nivåerna för att minimera störningar om några av portarna måste allokeras om för att tillgodose nästa större serverdelen pool storlek nivå.  Du kan ha ett alternativ för att öka intensiteten av SNAT port belastning för en given frontend genom att skala poolen till maximal storlek för en viss nivå.  Detta kräver att programmet effektivt skala ut.
 
-Till exempel skulle 2 virtuella datorer i serverdelspoolen ha 1024 SNAT portar som är tillgängliga per IP-konfiguration, så att summan av 2048 SNAT portar för distributionen.  Om distributionen ökas till 50 virtuella kan datorer, även om antalet förallokerade portar är konstant per virtuell dator, totalt 51,200 (50 x 1 024) SNAT portar användas i distributionen.  Om du vill skala upp distributionen kontrollera antalet [förallokerade portar](#preallocatedports) per nivån för att se till att du formar din skala ut till den maximala storleken för respektive nivå.  I föregående exempel om du har valt att skala ut till 51 i stället för 50 instanser, din skulle gå vidare till nästa nivå och slutet av med mindre SNAT portar per virtuell dator samt som totalt.
+2 virtuella datorer i serverdelspoolen skulle till exempel ha 1024 SNAT-portar som är tillgängliga per IP-konfiguration, vilket gör att totalt 2048 SNAT portar för distributionen.  Om distributionen ökas till 50 virtuella kan datorer, även om antalet förallokerade portar är konstant per virtuell dator, totalt 51,200 (50 x 1 024) SNAT portar användas för distributionen.  Om du vill skala upp distributionen kontrollera antalet [förallokerade portar](#preallocatedports) per nivå för att kontrollera att du formar din skala ut till den maximala storleken för respektive nivå.  I föregående exempel om du har valt att skala ut till 51 i stället för 50 instanser din skulle vidare till nästa nivå och slutar upp med mindre SNAT portar per virtuell dator samt som totalt.
 
-Skala ut till nästa större backend poolen storlek nivå potentiellt utgående anslutningar om tilldelade portar måste däremot allokeras.  Om du inte vill att detta ska ske, måste du formar distributionen till nivån storlek.  Eller kontrollera att programmet kan identifiera och försök igen efter behov.  TCP keepalive-överföringar kan hjälpa i identifiera när SNAT portarna längre funktion på grund av att omfördelats.
+Om du skala ut till nästa större serverdelen pool storlek nivå finns potentiella för några av dina utgående anslutningar till timeout om allokerade portar måste allokeras.  Om du bara använder vissa av dina SNAT-portar, har skala ut över nästa större serverdelen poolstorleken ingen betydelse.  Halva befintliga portar allokeras till varje gång som du flyttar till nästa nivå för backend-poolen.  Om du inte vill att äga rum, måste du utformar din distribution till nivån storlek.  Eller kontrollera att ditt program kan identifiera och försök igen efter behov.  TCP keepalive-överföringar kan hjälpa dig i identifiera när SNAT portar inte längre funktion på grund av att tilldelas på nytt.
 
 ### <a name="idletimeout"></a>Använda keepalive-överföringar för att återställa utgående tidsgränsen för inaktivitet
 
-Utgående anslutningar har ett 4-minuters timeout för inaktivitet. Det här kan inte ställas in. Du kan dock använda transport (exempelvis TCP keepalive-överföringar)- eller programnivå keepalive-överföringar för att uppdatera en inaktiv flödet och Återställ den här tidsgränsen för inaktivitet om det behövs.  
+Utgående anslutningar har ett 4-minuters timeout för inaktivitet. Den här timeouten kan inte ställas in. Du kan dock använda transport (till exempel TCP keepalive-överföringar) eller programnivå keepalive-överföringar för att uppdatera ett flöde för inaktiva och återställer den här tidsgränsen för inaktivitet om det behövs.  
 
-När du använder TCP keepalive-överföringar, räcker det att ge dem på ena sidan av anslutningen. Till exempel det räcker att ge dem på serversidan bara för att återställa timern i flöde och det är inte nödvändigt för båda sidorna till initierat TCP keepalive-överföringar.  Det finns liknande koncept för programnivå, inklusive databas klient / server-konfigurationer.  Kontrollera server-side för vilka alternativ som finns för programmet specifika keepalive-överföringar.
+När du använder TCP keepalive-överföringar, räcker det att aktivera dem på ena sidan av anslutningen. Till exempel räcker det att aktivera dem på serversidan endast att återställa timern för flödet och det är inte nödvändigt för båda sidorna att initierad TCP keepalive-överföringar.  Det finns liknande koncept för programnivån, inklusive konfigurationer för klient-server.  Kontrollera serversidan för vilka alternativ finns för programmet specifika keepalive-överföringar.
 
-## <a name="discoveroutbound"></a>Identifiering av offentliga IP-Adressen som använder en virtuell dator
-Det finns många sätt att avgöra den offentliga IP-källadressen för en utgående anslutning. OpenDNS är en tjänst som kan visa den offentliga IP-adressen på den virtuella datorn. 
+## <a name="discoveroutbound"></a>Identifiera den offentliga IP-Adressen som använder en virtuell dator
+Det finns många sätt att avgöra offentliga IP-källadressen för en utgående anslutning. OpenDNS är en tjänst som kan visa offentliga IP-adressen för den virtuella datorn. 
 
-Du kan skicka en DNS-fråga för namnet myip.opendns.com till OpenDNS matcharen med hjälp av nslookup-kommando. Källans IP-adress som används för att skicka frågan returnerar tjänsten. När du kör följande fråga från den virtuella datorn är svaret offentliga IP-Adressen som används för den virtuella datorn:
+Du kan skicka en DNS-fråga för namnet myip.opendns.com till OpenDNS matcharen genom att använda nslookup-kommando. Tjänsten returnerar källans IP-adress som används för att skicka frågan. När du kör följande fråga från den virtuella datorn är svaret offentlig IP-adress som används för den virtuella datorn:
 
     nslookup myip.opendns.com resolver1.opendns.com
 
-## <a name="preventoutbound"></a>Förhindrar en utgående anslutning
-Ibland kan det vara önskvärt en virtuell dator för att kunna skapa ett utgående flöde. Det kan finnas ett krav för att hantera vilka destinationer kan nås med utgående flöden eller vilka destinationer kan börja inkommande flöden. I det här fallet kan du använda [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) att hantera mål som den virtuella datorn kan nå. Du kan också använda NSG: er för att hantera vilka offentliga mål kan initiera inkommande flöden.
+## <a name="preventoutbound"></a>Det gick inte att utgående anslutning
+Ibland är det oönskade för en virtuell dator för att kunna skapa en flöde för utgående. Det kan finnas ett krav att hantera vilka mål som kan nås med utgående flöden eller vilka mål kan börja inkommande flöden. I det här fallet kan du använda [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) att hantera de mål som kan nå ut till den virtuella datorn. Du kan också använda NSG: er för att hantera vilka offentliga mål kan initiera inkommande flöden.
 
-När du kopplar en NSG till en belastningsutjämnad VM ta hänsyn till den [tjänsten taggar](../virtual-network/security-overview.md#service-tags) och [standard säkerhetsregler](../virtual-network/security-overview.md#default-security-rules). Du måste se till att den virtuella datorn kan ta emot hälsa avsökningen begäranden från Azure-belastningsutjämnaren. 
+När du använder en NSG till en belastningsutjämnad virtuell dator så kan du vara uppmärksam på den [tjänsttaggar](../virtual-network/security-overview.md#service-tags) och [standardsäkerhetsregler](../virtual-network/security-overview.md#default-security-rules). Du måste se till att den virtuella datorn kan ta emot hälsotillstånd avsökningen begäranden från Azure-belastningsutjämnaren. 
 
-Om en NSG blockerar hälsa avsökningen begäranden från Standardetiketten AZURE_LOADBALANCER, din VM hälsoavsökningen misslyckas och den virtuella datorn markeras. Belastningsutjämnaren slutar att skicka nya flödar till den virtuella datorn.
+Om en Nätverkssäkerhetsgrupp blockerar hälsotillstånd avsökningen begäranden från Standardetiketten AZURE_LOADBALANCER, dina VM-hälsoavsökning misslyckas och den virtuella datorn markeras. Slutar belastningsutjämnaren om du vill att skicka nya flöden till den virtuella datorn.
 
 ## <a name="limitations"></a>Begränsningar
-- DisableOutboundSnat är inte tillgängligt som ett alternativ när du konfigurerar en regel i portalen för belastningsutjämning.  Använd REST, mall eller klienten verktyg i stället.
-- Web arbetsroller utan ett VNet och andra Microsoft-tjänster för plattformen kan vara tillgänglig när bara en intern Standard belastningsutjämnare används på grund av en sidoeffekt från hur pre-VNet-tjänster och andra platform services-funktionen. Du måste inte förlita sig på detta som respektive tjänst sig själv eller den underliggande plattformen kan ändras utan föregående meddelande. Du måste alltid anta att du behöver skapa utgående anslutning uttryckligen om du vill när du använder en intern Standard belastningsutjämnare endast. Den [standard SNAT](#defaultsnat) scenario 3 som beskrivs i den här artikeln är inte tillgänglig.
+- DisableOutboundSnat är inte tillgänglig som ett alternativ när du konfigurerar en belastningsutjämningsregel i portalen.  Använd REST, mallen eller klienten verktyg i stället.
+- Webbarbetsroller utan ett virtuellt nätverk och andra Microsoft-plattformstjänster kan vara tillgängliga när bara en intern Standardbelastningsutjämnare används på grund av en sidoeffekt från hur pre-VNet-tjänster och andra plattformar tjänster funktion. Du måste inte förlita dig på detta när de hanterar själva eller den underliggande plattformen kan ändras utan föregående meddelande. Du måste alltid anta att du behöver skapa utgående anslutning uttryckligen om du vill när du använder en intern Standard Load Balancer endast. Den [standard SNAT](#defaultsnat) scenario 3 i den här artikeln är inte tillgänglig.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [belastningsutjämnaren](load-balancer-overview.md).
-- Mer information finns i [Standardbelastningsutjämnare](load-balancer-standard-overview.md).
-- Lär dig mer om [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md).
-- Lär dig mer om den andra nyckeln [nätverk](../networking/networking-overview.md) i Azure.
+- Läs mer om [belastningsutjämnaren](load-balancer-overview.md).
+- Mer information finns i [Standard Load Balancer](load-balancer-standard-overview.md).
+- Läs mer om [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md).
+- Lär dig mer om den andra nyckeln [nätverksfunktionerna](../networking/networking-overview.md) i Azure.

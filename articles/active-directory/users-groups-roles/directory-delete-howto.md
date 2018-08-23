@@ -13,12 +13,12 @@ ms.date: 06/13/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 44781c976afa94ebe3c8df8c7fd70c3e16956916
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: b1d3439412e324c71687c43aa9e47c520cb72262
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37872394"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42057379"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Ta bort en Azure Active Directory-klient
 När en klient tas bort så raderas även alla resurser som finns i klienten. Du måste förbereda klienten genom att minimera dess kopplade resurser innan du tar bort. Endast en global administratör för Azure Active Directory (Azure AD) kan ta bort en Azure AD-klient från portalen.
@@ -63,7 +63,7 @@ Inaktiveringen (30 dagar efter inaktiverad) | Data som tas bort (bort automatisk
 
 Du kan placera en prenumeration till en **Deprovisoned** tillstånd och kan inte tas bort inom 3 dagar med Microsoft Store för företag-administrationscentret. Den här funktionen kommer snart att Office 365 Administrationscenter.
 
-1. Logga in på den [Microsoft Store för företag-administrationscentret](https://businessstore.microsoft.com/en-us/manage/) med ett konto som är en Global administratör i klienten. Om du vill ta bort ”Contoso”-klient som har den initiala domänen contoso.onmicrosoft.com, logga in med ett UPN som admin@contoso.onmicrosoft.com.
+1. Logga in på den [Microsoft Store för företag-administrationscentret](https://businessstore.microsoft.com/manage/) med ett konto som är en Global administratör i klienten. Om du vill ta bort ”Contoso”-klient som har den initiala domänen contoso.onmicrosoft.com, logga in med ett UPN som admin@contoso.onmicrosoft.com.
 
 2. Gå till den **hantera** fliken och markera **produkter och tjänster**, Välj den prenumeration som du vill avbryta. När du klickar på **Avbryt**, uppdatera sidan.
   

@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 08/15/2018
 ms.author: jeffgo
-ms.openlocfilehash: 5af8380accc23a62baf04b842430e692fdff3692
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d24902b894a632e9fe8c57f2fb2b652b44ab128c
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443560"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42060729"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Förbered en Red Hat-baserad virtuell dator för Azure Stack
 
@@ -40,7 +40,7 @@ Det här avsnittet förutsätter att du redan har en ISO-fil från Red Hat-webbp
 * När du installerar Linux-operativsystem rekommenderar vi att du använder standard partitioner i stället för logiska Volume Manager (LVM), vilket ofta är standard för många installationer. Denna praxis undviker LVM namnet står i konflikt med den klonade virtuella datorer, särskilt om du behöver att koppla en operativsystemdisk till en annan identisk virtuell dator för felsökning.
 * Kernel-stöd för att montera filsystem för Universal Disk (UDF) krävs. Vid första start skickar UDF-formaterad mediet som är kopplad till gästen etablering konfigurationen till Linux-datorn. Azure Linux Agent måste montera UDF-filsystemet för att läsa konfigurationen och etablera den virtuella datorn.
 * Konfigurera inte swap-partition på operativsystemdisken. Linux-agenten kan konfigureras för att skapa en växlingsfil på temporär disk. Mer information finns i följande steg.
-* Alla virtuella hårddiskar på Azure måste ha en virtuell storlek justeras till 1 MB. Vid konvertering från en rå disk till virtuell Hårddisk måste du kontrollera att rådata diskens storlek är en multipel av 1 MB före omvandlingen. Mer information finns i stegen nedan.
+* Alla virtuella hårddiskar på Azure måste ha en virtuell storlek justeras till 1 MB. Vid konvertering från en rå disk till virtuell Hårddisk, måste du kontrollera att rådata diskens storlek är en multipel av 1 MB före omvandlingen. Mer information finns i stegen nedan.
 * Azure Stack stöder inte cloud-init. Den virtuella datorn måste konfigureras med en version som stöds av Windows Azure Linux Agent (WALA).
 
 ### <a name="prepare-a-rhel-7-virtual-machine-from-hyper-v-manager"></a>Förbered en virtuell RHEL 7-dator från Hyper-V Manager
@@ -71,14 +71,14 @@ Det här avsnittet förutsätter att du redan har en ISO-fil från Red Hat-webbp
 
 1. Se till att nätverkstjänsten startar när datorn startas genom att köra följande kommando:
 
-    ```sh
-    # sudo systemctl enable network
+    ```bash
+    sudo systemctl enable network
     ```
 
 1. Registrera din Red Hat-prenumeration för att aktivera installationen av paket från RHEL-lagringsplatsen genom att köra följande kommando:
 
-    ```sh
-    # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
+    ```bash
+    sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
 1. Ändra i kernel boot line i din grub konfiguration och omfattar ytterligare kernel parametrar för Azure. Om du vill göra den här ändringen, öppna `/etc/default/grub` i en textredigerare och ändra den `GRUB_CMDLINE_LINUX` parametern. Exempel:
@@ -87,7 +87,7 @@ Det här avsnittet förutsätter att du redan har en ISO-fil från Red Hat-webbp
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
     ```
 
-   Detta säkerställer att alla konsolmeddelanden skickas till den första seriella porten som kan hjälpa Azure support med felsökning av problem. Den här konfigurationen ger också inaktiverar de nya namnkonventionerna för RHEL 7 för nätverkskort. 
+   Detta säkerställer att alla konsolmeddelanden skickas till den första seriella porten som kan hjälpa Azure support med felsökning av problem. Den här konfigurationen ger också inaktiverar de nya namnkonventionerna för RHEL 7 för nätverkskort.
 
    Grafiska och tyst start är inte användbart i en molnmiljö där vi vill att alla loggar som ska skickas till den seriella porten. Du kan lämna den `crashkernel` alternativet konfigureras om så önskas. Observera att den här parametern minskar mängden tillgängligt minne på den virtuella datorn med 128 MB eller mer, vilket kan vara problematiskt på mindre storlekar för virtuella datorer. Vi rekommenderar att du tar bort följande parametrar:
 
@@ -97,8 +97,8 @@ Det här avsnittet förutsätter att du redan har en ISO-fil från Red Hat-webbp
 
 1. När du är klar redigering `/etc/default/grub`, kör följande kommando för att återskapa grub-konfigurationen:
 
-    ```sh
-    # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+    ```bash
+    sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
 1. Kontrollera att SSH-servern är installerad och konfigurerad för att starta när datorn startas, som vanligtvis är standard. Ändra `/etc/ssh/sshd_config` att inkludera följande rad:
@@ -109,15 +109,15 @@ Det här avsnittet förutsätter att du redan har en ISO-fil från Red Hat-webbp
 
 1. Paketets WALinuxAgent `WALinuxAgent-<version>`, har överförts till lagringsplatsen för Red Hat-tillägg. Aktivera tillägg databasen genom att köra följande kommando:
 
-    ```sh
-    # subscription-manager repos --enable=rhel-7-server-extras-rpms
+    ```bash
+    subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
 1. Installera Azure Linux Agent genom att köra följande kommando:
 
-    ```sh
-    # sudo yum install WALinuxAgent
-    # sudo systemctl enable waagent.service
+    ```bash
+    sudo yum install WALinuxAgent
+    sudo systemctl enable waagent.service
     ```
 
 1. Skapa inte växlingsutrymme på operativsystemdisken.
@@ -129,23 +129,23 @@ Det här avsnittet förutsätter att du redan har en ISO-fil från Red Hat-webbp
     ResourceDisk.Filesystem=ext4
     ResourceDisk.MountPoint=/mnt/resource
     ResourceDisk.EnableSwap=y
-    ResourceDisk.SwapSizeMB=2048    # NOTE: set this to whatever you need it to be.
+    ResourceDisk.SwapSizeMB=2048    #NOTE: set this to whatever you need it to be.
     ```
 
 1. Om du vill avregistrera prenumerationen, kör du följande kommando:
 
-    ```sh
-    # sudo subscription-manager unregister
+    ```bash
+    sudo subscription-manager unregister
     ```
 
 1. Om du använder ett system som har distribuerats med hjälp av en företagscertifikatutfärdare, den virtuella RHEL-datorn inte litar på rotcertifikatet för Azure Stack. Du måste placera som i arkivet Betrodda rotcertifikatutfärdare. Se [att lägga till betrodda rotcertifikat till servern](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 1. Kör följande kommandon för att avetablera den virtuella datorn och förbereda den för etablering i Azure:
 
-    ```sh
-    # sudo waagent -force -deprovision
-    # export HISTSIZE=0
-    # logout
+    ```bash
+    sudo waagent -force -deprovision
+    export HISTSIZE=0
+    logout
     ```
 
 1. Klicka på **åtgärd** > **stänga** i Hyper-V Manager.
@@ -160,14 +160,14 @@ Det här avsnittet förutsätter att du redan har en ISO-fil från Red Hat-webbp
 
     Generera ett krypterat lösenord och kopiera kommandots utdata:
 
-    ```sh
-    # openssl passwd -1 changeme
+    ```bash
+    openssl passwd -1 changeme
     ```
 
    Ange ett rotlösenord med guestfish:
 
     ```sh
-    # guestfish --rw -a <image-name>
+    guestfish --rw -a <image-name>
     > <fs> run
     > <fs> list-filesystems
     > <fs> mount /dev/sda1 /
@@ -201,14 +201,14 @@ Det här avsnittet förutsätter att du redan har en ISO-fil från Red Hat-webbp
 
 1. Se till att nätverkstjänsten startar när datorn startas genom att köra följande kommando:
 
-    ```sh
-    # sudo systemctl enable network
+    ```bash
+    sudo systemctl enable network
     ```
 
 1. Registrera din Red Hat-prenumeration för att aktivera installation av paket från RHEL-lagringsplatsen genom att köra följande kommando:
 
-    ```sh
-    # subscription-manager register --auto-attach --username=XXX --password=XXX
+    ```bash
+    subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
 1. Ändra i kernel boot line i din grub konfiguration och omfattar ytterligare kernel parametrar för Azure. Om du vill göra den här konfigurationen, öppna `/etc/default/grub` i en textredigerare och ändra den `GRUB_CMDLINE_LINUX` parametern. Exempel:
@@ -227,8 +227,8 @@ Det här avsnittet förutsätter att du redan har en ISO-fil från Red Hat-webbp
 
 1. När du är klar redigering `/etc/default/grub`, kör följande kommando för att återskapa grub-konfigurationen:
 
-    ```sh
-    # grub2-mkconfig -o /boot/grub2/grub.cfg
+    ```bash
+    grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
 1. Lägg till Hyper-V-modulerna i initramfs.
@@ -241,20 +241,20 @@ Det här avsnittet förutsätter att du redan har en ISO-fil från Red Hat-webbp
 
     Återskapa initramfs:
 
-    ```sh
-    # dracut -f -v
+    ```bash
+    dracut -f -v
     ```
 
 1. Avinstallera cloud-init:
 
-    ```sh
-    # yum remove cloud-init
+    ```bash
+    yum remove cloud-init
     ```
 
 1. Kontrollera att SSH-servern är installerad och konfigurerad för att starta när datorn startas:
 
-    ```sh
-    # systemctl enable sshd
+    ```bash
+    systemctl enable sshd
     ```
 
     Ändra /etc/ssh/sshd_config för att inkludera följande rader:
@@ -266,20 +266,20 @@ Det här avsnittet förutsätter att du redan har en ISO-fil från Red Hat-webbp
 
 1. Paketets WALinuxAgent `WALinuxAgent-<version>`, har överförts till lagringsplatsen för Red Hat-tillägg. Aktivera tillägg databasen genom att köra följande kommando:
 
-    ```sh
-    # subscription-manager repos --enable=rhel-7-server-extras-rpms
+    ```bash
+    subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
 1. Installera Azure Linux Agent genom att köra följande kommando:
 
-    ```sh
-    # yum install WALinuxAgent
+    ```bash
+    yum install WALinuxAgent
     ```
 
     Aktivera tjänsten waagent:
 
-    ```sh
-    # systemctl enable waagent.service
+    ```bash
+    systemctl enable waagent.service
     ```
 
 1. Skapa inte växlingsutrymme på operativsystemdisken.
@@ -291,23 +291,23 @@ Det här avsnittet förutsätter att du redan har en ISO-fil från Red Hat-webbp
     ResourceDisk.Filesystem=ext4
     ResourceDisk.MountPoint=/mnt/resource
     ResourceDisk.EnableSwap=y
-    ResourceDisk.SwapSizeMB=2048    # NOTE: set this to whatever you need it to be.
+    ResourceDisk.SwapSizeMB=2048    #NOTE: set this to whatever you need it to be.
     ```
 
 1. Avregistrera prenumerationen (vid behov) genom att köra följande kommando:
 
-    ```sh
-    # subscription-manager unregister
+    ```bash
+    subscription-manager unregister
     ```
 
 1. Om du använder ett system som har distribuerats med hjälp av en företagscertifikatutfärdare, den virtuella RHEL-datorn inte litar på rotcertifikatet för Azure Stack. Du måste placera som i arkivet Betrodda rotcertifikatutfärdare. Se [att lägga till betrodda rotcertifikat till servern](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 1. Kör följande kommandon för att avetablera den virtuella datorn och förbereda den för etablering i Azure:
 
-    ```sh
-    # sudo waagent -force -deprovision
-    # export HISTSIZE=0
-    # logout
+    ```bash
+    sudo waagent -force -deprovision
+    export HISTSIZE=0
+    logout
     ```
 
 1. Stäng av den virtuella datorn i KVM.
@@ -319,30 +319,30 @@ Det här avsnittet förutsätter att du redan har en ISO-fil från Red Hat-webbp
 
     Först konvertera avbildningen till obearbetat format:
 
-    ```sh
-    # qemu-img convert -f qcow2 -O raw rhel-7.4.qcow2 rhel-7.4.raw
+    ```bash
+    qemu-img convert -f qcow2 -O raw rhel-7.4.qcow2 rhel-7.4.raw
     ```
 
     Se till att storleken på raw-bild stämmer överens med 1 MB. I annat fall avrunda uppåt storlek för att anpassas till 1 MB:
 
-    ```sh
-    # MB=$((1024*1024))
-    # size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
+    ```bash
+    MB=$((1024*1024))
+    size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
     gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-    # rounded_size=$((($size/$MB + 1)*$MB))
-    # qemu-img resize rhel-7.4.raw $rounded_size
+    rounded_size=$((($size/$MB + 1)*$MB))
+    qemu-img resize rhel-7.4.raw $rounded_size
     ```
 
     Konvertera den råa disken till en fast storlek på virtuell Hårddisk:
 
-    ```sh
-    # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
+    ```bash
+    qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
     Eller, med qemu version **2.6 +** inkluderar den `force_size` alternativet:
 
-    ```sh
-    # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
+    ```bash
+    qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>Förbered en Red Hat-baserad virtuell dator från VMware
@@ -377,14 +377,14 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL-dator i VM
 
 1. Se till att nätverkstjänsten startar när datorn startas genom att köra följande kommando:
 
-    ```sh
-    # sudo chkconfig network on
+    ```bash
+    sudo chkconfig network on
     ```
 
 1. Registrera din Red Hat-prenumeration för att aktivera installationen av paket från RHEL-lagringsplatsen genom att köra följande kommando:
 
-    ```sh
-    # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
+    ```bash
+    sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
 1. Ändra i kernel boot line i din grub konfiguration och omfattar ytterligare kernel parametrar för Azure. Om du vill göra den här ändringen, öppna `/etc/default/grub` i en textredigerare och ändra den `GRUB_CMDLINE_LINUX` parametern. Exempel:
@@ -403,8 +403,8 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL-dator i VM
 
 1. När du är klar redigering `/etc/default/grub`, kör följande kommando för att återskapa grub-konfigurationen:
 
-    ```sh
-    # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+    ```bash
+    sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
 1. Lägga till Hyper-V-modulerna i initramfs.
@@ -417,8 +417,8 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL-dator i VM
 
     Återskapa initramfs:
 
-    ```sh
-    # dracut -f -v
+    ```bash
+    dracut -f -v
     ```
 
 1. Kontrollera att SSH-servern är installerad och konfigurerad för att starta när datorn startas. Den här inställningen är vanligtvis standard. Ändra `/etc/ssh/sshd_config` att inkludera följande rad:
@@ -429,15 +429,15 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL-dator i VM
 
 1. Paketets WALinuxAgent `WALinuxAgent-<version>`, har överförts till lagringsplatsen för Red Hat-tillägg. Aktivera tillägg databasen genom att köra följande kommando:
 
-    ```sh
-    # subscription-manager repos --enable=rhel-7-server-extras-rpms
+    ```bash
+    subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
 1. Installera Azure Linux Agent genom att köra följande kommando:
 
-    ```sh
-    # sudo yum install WALinuxAgent
-    # sudo systemctl enable waagent.service
+    ```bash
+    sudo yum install WALinuxAgent
+    sudo systemctl enable waagent.service
     ```
 
 1. Skapa inte växlingsutrymme på operativsystemdisken.
@@ -449,56 +449,56 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL-dator i VM
     ResourceDisk.Filesystem=ext4
     ResourceDisk.MountPoint=/mnt/resource
     ResourceDisk.EnableSwap=y
-    ResourceDisk.SwapSizeMB=2048    # NOTE: set this to whatever you need it to be.
+    ResourceDisk.SwapSizeMB=2048    NOTE: set this to whatever you need it to be.
     ```
 
 1. Om du vill avregistrera prenumerationen, kör du följande kommando:
 
-    ```sh
-    # sudo subscription-manager unregister
+    ```bash
+    sudo subscription-manager unregister
     ```
 
 1. Om du använder ett system som har distribuerats med hjälp av en företagscertifikatutfärdare, den virtuella RHEL-datorn inte litar på rotcertifikatet för Azure Stack. Du måste placera som i arkivet Betrodda rotcertifikatutfärdare. Se [att lägga till betrodda rotcertifikat till servern](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 1. Kör följande kommandon för att avetablera den virtuella datorn och förbereda den för etablering i Azure:
 
-    ```sh
-    # sudo waagent -force -deprovision
-    # export HISTSIZE=0
-    # logout
+    ```bash
+    sudo waagent -force -deprovision
+    export HISTSIZE=0
+    logout
     ```
 
 1. Stäng av den virtuella datorn och konvertera filen VMDK till VHD-format.
 
     > [!NOTE]
-    > Det finns ett känt fel i qemu img versioner > = 2.2.1 som resulterar i en felaktigt formaterad virtuell Hårddisk. Problemet har åtgärdats i QEMU 2.6. Det rekommenderas att använda qemu img 2.2.0 eller lägre eller uppdatera 2.6 eller högre. Referens: <https://bugs.launchpad.net/qemu/+bug/1490611.>
+    > Det finns ett känt fel i qemu img versioner > = 2.2.1 som resulterar i en felaktigt formaterad virtuell Hårddisk. Problemet har åtgärdats i QEMU 2.6. Det rekommenderas att använda qemu img 2.2.0 eller lägre eller uppdatera 2.6 eller högre. Referens: <https://bugs.launchpad.net/qemu/+bug/1490611>.
 
     Först konvertera avbildningen till obearbetat format:
 
-    ```sh
-    # qemu-img convert -f qcow2 -O raw rhel-7.4.qcow2 rhel-7.4.raw
+    ```bash
+    qemu-img convert -f qcow2 -O raw rhel-7.4.qcow2 rhel-7.4.raw
     ```
 
     Se till att storleken på raw-bild stämmer överens med 1 MB. I annat fall avrunda uppåt storlek för att anpassas till 1 MB:
 
-    ```sh
-    # MB=$((1024*1024))
-    # size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
+    ```bash
+    MB=$((1024*1024))
+    size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
     gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-    # rounded_size=$((($size/$MB + 1)*$MB))
-    # qemu-img resize rhel-7.4.raw $rounded_size
+    rounded_size=$((($size/$MB + 1)*$MB))
+    qemu-img resize rhel-7.4.raw $rounded_size
     ```
 
     Konvertera den råa disken till en fast storlek på virtuell Hårddisk:
 
-    ```sh
-    # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
+    ```bash
+    qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
     Eller, med qemu version **2.6 +** inkluderar den `force_size` alternativet:
 
-    ```sh
-    # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
+    ```bash
+    qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-an-iso-by-using-a-kickstart-file-automatically"></a>Förbered en Red Hat-baserad virtuell dator från en ISO med hjälp av en kickstart-fil automatiskt
@@ -506,58 +506,58 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL-dator i VM
 1. Skapa en kickstart-fil som innehåller följande innehåll och spara filen. Mer information om kickstart installation finns den [Kickstart installationsguide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
     ```sh
-    # Kickstart for provisioning a RHEL 7 Azure VM
+    Kickstart for provisioning a RHEL 7 Azure VM
 
-    # System authorization information
+    System authorization information
     auth --enableshadow --passalgo=sha512
 
-    # Use graphical install
+    Use graphical install
     text
 
-    # Do not run the Setup Agent on first boot
+    Do not run the Setup Agent on first boot
     firstboot --disable
 
-    # Keyboard layouts
+    Keyboard layouts
     keyboard --vckeymap=us --xlayouts='us'
 
-    # System language
+    System language
     lang en_US.UTF-8
 
-    # Network information
+    Network information
     network  --bootproto=dhcp
 
-    # Root password
+    Root password
     rootpw --plaintext "to_be_disabled"
 
-    # System services
+    System services
     services --enabled="sshd,waagent,NetworkManager"
 
-    # System timezone
+    System timezone
     timezone Etc/UTC --isUtc --ntpservers 0.rhel.pool.ntp.org,1.rhel.pool.ntp.org,2.rhel.pool.ntp.org,3.rhel.pool.ntp.org
 
-    # Partition clearing information
+    Partition clearing information
     clearpart --all --initlabel
 
-    # Clear the MBR
+    Clear the MBR
     zerombr
 
-    # Disk partitioning information
+    Disk partitioning information
     part /boot --fstype="xfs" --size=500
     part / --fstyp="xfs" --size=1 --grow --asprimary
 
-    # System bootloader configuration
+    System bootloader configuration
     bootloader --location=mbr
 
-    # Firewall configuration
+    Firewall configuration
     firewall --disabled
 
-    # Enable SELinux
+    Enable SELinux
     selinux --enforcing
 
-    # Don't configure X
+    Don't configure X
     skipx
 
-    # Power down the machine after install
+    Power down the machine after install
     poweroff
 
     %packages
@@ -574,41 +574,41 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL-dator i VM
 
     #!/bin/bash
 
-    # Register Red Hat Subscription
+    Register Red Hat Subscription
     subscription-manager register --username=XXX --password=XXX --auto-attach --force
 
-    # Install latest repo update
+    Install latest repo update
     yum update -y
 
-    # Enable extras repo
+    Enable extras repo
     subscription-manager repos --enable=rhel-7-server-extras-rpms
 
-    # Install WALinuxAgent
+    Install WALinuxAgent
     yum install -y WALinuxAgent
 
-    # Unregister Red Hat subscription
+    Unregister Red Hat subscription
     subscription-manager unregister
 
-    # Enable waaagent at boot-up
+    Enable waaagent at boot-up
     systemctl enable waagent
 
-    # Disable the root account
+    Disable the root account
     usermod root -p '!!'
 
-    # Configure swap in WALinuxAgent
+    Configure swap in WALinuxAgent
     sed -i 's/^\(ResourceDisk\.EnableSwap\)=[Nn]$/\1=y/g' /etc/waagent.conf
     sed -i 's/^\(ResourceDisk\.SwapSizeMB\)=[0-9]*$/\1=2048/g' /etc/waagent.conf
 
-    # Set the cmdline
+    Set the cmdline
     sed -i 's/^\(GRUB_CMDLINE_LINUX\)=".*"$/\1="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"/g' /etc/default/grub
 
-    # Enable SSH keepalive
+    Enable SSH keepalive
     sed -i 's/^#\(ClientAliveInterval\).*$/\1 180/g' /etc/ssh/sshd_config
 
-    # Build the grub cfg
+    Build the grub cfg
     grub2-mkconfig -o /boot/grub2/grub.cfg
 
-    # Configure network
+    Configure network
     cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eth0
     DEVICE=eth0
     ONBOOT=yes
@@ -620,7 +620,7 @@ Det här avsnittet förutsätter att du redan har installerat en RHEL-dator i VM
     NM_CONTROLLED=no
     EOF
 
-    # Deprovision and prepare for Azure
+    Deprovision and prepare for Azure
     waagent -force -deprovision
 
     %end
@@ -656,15 +656,15 @@ Lägg till Hyper-V-modulerna i initramfs och återskapa den för att lösa probl
 
 Redigera `/etc/dracut.conf`, och Lägg till följande innehåll:
 
-```sh
-add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
-```
+    ```sh
+    add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+    ```
 
 Återskapa initramfs:
 
-```sh
-# dracut -f -v
-```
+    ```bash
+    dracut -f -v
+    ```
 
 Mer information finns i [återskapa initramfs](https://access.redhat.com/solutions/1958).
 

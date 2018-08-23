@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 03/26/2018
+ms.date: 08/17/2018
 ms.author: rnagpal
-ms.openlocfilehash: 2fba67b247ad0b53e11ca012969163a68013e82f
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: d0bd7dba5d50445cb681c16d9575b1bd69167e2f
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126719"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42058251"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB-tabell .NET API: Ladda ned och viktig information
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ ms.locfileid: "39126719"
 ## <a name="release-notes"></a>Viktig information
 
 ### <a name="a-name113113"></a><a name="1.1.3"/>1.1.3
-* Fast Nuget-paketberoenden på Microsoft.Azure.Storage.Common och Microsoft.Azure.DocumentDB.
+* Fast NuGet-paketberoenden på Microsoft.Azure.Storage.Common och Microsoft.Azure.DocumentDB.
 * Felkorrigeringar på tabellen serialisering när JsonConvert.DefaultSettings konfigureras.
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
@@ -48,7 +48,7 @@ ms.locfileid: "39126719"
 * Synkron API: er kan nu köra på trådpoolen med SynchronizationContext.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
-* Lägga till TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism och TableQueryContinuationTokenLimitInKb TableRequestOptions
+* Lägga till TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism och TableQueryContinuationTokenLimitInKb i TableRequestOptions
 * Felkorrigeringar
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
@@ -60,7 +60,7 @@ ms.locfileid: "39126719"
 ## <a name="release-and-retirement-dates"></a>Versionen och dras tillbaka datum
 Microsoft meddelar minst **12 månader** förväg dra tillbaka en SDK för att utjämna övergången till en nyare/stöds version.
 
-Den [WindowsAzure.Storage PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) förhandsversion paketet har inaktuell och ersatts med den [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) paketet. WindowsAzure.Storage-PremiumTable SDK kommer att dras tillbaka den 15 November 2018, vid vilken tid förfrågningar om att dras tillbaka SDK: N tillåts inte.
+Den [WindowsAzure.Storage PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) förhandsversion paketet har inaktuell och ersatts med den [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) paketet. WindowsAzure.Storage-PremiumTable SDK kommer att dras tillbaka den 15 November 2018, vid vilken tid förfrågningar om att dras tillbaka SDK: N tillåts inte. Den `Microsoft.Azure.CosmosDB.Table` bibliotek är för närvarande tillgängligt för .NET Standard endast, den ännu inte är tillgängliga för .NET Core.
 
 Nya funktioner och funktionalitet och optimeringar läggs endast till den aktuella SDK, så vi rekommenderar att du alltid uppgraderar till den senaste SDK-versionen så tidigt som möjligt. 
 
@@ -91,7 +91,7 @@ När du försöker använda Microsoft.Azure.CosmosDB.Table NuGet-paketet har du 
     Install-Package Microsoft.Azure.CosmosDB.Table -IncludePrerelease
     ```
     
-* Använder din önskade hanteringsverktyg för Nuget-paketet, installera Microsoft.Azure.Storage.Common Nuget-paketet innan du installerar Microsoft.Azure.CosmosDB.Table.
+* Använder din önskade hanteringsverktyg för NuGet-paketet, installera Microsoft.Azure.Storage.Common NuGet-paketet innan du installerar Microsoft.Azure.CosmosDB.Table.
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 

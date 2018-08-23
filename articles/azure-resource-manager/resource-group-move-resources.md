@@ -4,22 +4,20 @@ description: Använd Azure Resource Manager för att flytta resurser till en ny 
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/02/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 69614fe84941ea2003d39de165c692b812d10785
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 7ddab3717626df14f491662849d01cb85658791c
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503588"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617298"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -57,7 +55,7 @@ Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel 
   Om klient-ID: N för käll- och målprenumerationer inte är samma, kan du använda följande metoder för att stämma av klient-ID: N:
 
   * [Överföra ägarskap för en Azure-prenumeration till ett annat konto](../billing/billing-subscription-transfer.md)
-  * [Hur du associerar eller lägga till en Azure-prenumeration i Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+  * [Så här associerar du eller lägger till en prenumeration i din Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 2. Tjänsten måste göra det möjligt att flytta resurser. Den här artikeln visas vilka tjänster kan flytta resurser och vilka tjänster inte kan flytta resurser.
 3. Målprenumerationen måste vara registrerad för resursprovidern för den resurs som flyttas. Om inte, du får ett felmeddelande om att den **prenumerationen har inte registrerats för en resurstyp**. Du kan stöta på detta problem när en resurs flyttas till en ny prenumeration, men prenumerationen aldrig har använts med den resurstypen.
@@ -113,11 +111,11 @@ Kontakta [stöder](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpA
 
 Tjänster som gör det möjligt att flytta till en ny resursgrupp och en prenumeration är:
 
+* Analysis Services
 * API Management
 * App Service-appar (webbappar) – Se [begränsningar för App Service](#app-service-limitations)
 * App Service Certificate
 * Application Insights
-* Analysis Services
 * Automation
 * Azure Active Directory B2C
 * Azure Cosmos DB
@@ -133,6 +131,8 @@ Tjänster som gör det möjligt att flytta till en ny resursgrupp och en prenume
 * Cognitive Services
 * Container Registry
 * Content Moderator
+* Cost Management
+* Customer Insights
 * Data Catalog
 * Data Factory
 * Data Lake Analytics
@@ -141,12 +141,14 @@ Tjänster som gör det möjligt att flytta till en ny resursgrupp och en prenume
 * Event Grid
 * Event Hubs
 * HDInsight-kluster – Se [HDInsight begränsningar](#hdinsight-limitations)
+* IOT Central
 * IoT-hubbar
 * Key Vault
 * Belastningsutjämnare – Se [belastningsutjämnaren begränsningar](#lb-limitations)
 * Log Analytics
 * Logic Apps
 * Maskininlärning – Machine Learning Studio-webbtjänster kan flyttas till en resursgrupp i samma prenumeration, men inte en annan prenumeration. Andra Machine Learning-resurser kan flyttas mellan prenumerationer.
+* Hanterad identitet - användartilldelade
 * Media Services
 * Mobile Engagement
 * Notification Hubs
@@ -160,6 +162,7 @@ Tjänster som gör det möjligt att flytta till en ny resursgrupp och en prenume
 * Search
 * Service Bus
 * Service Fabric
+* Service Fabric-nät
 * SignalR Service
 * Storage
 * Storage (klassisk) – Se [begränsningar för klassisk distribution](#classic-deployment-limitations)
@@ -187,15 +190,19 @@ De tjänster som för närvarande inte aktiverar en resurs flyttas är:
 * Azure Databricks
 * Batch AI
 * Certifikat - App Service-certifikat kan flyttas, men uppladdade certifikat har [begränsningar](#app-service-limitations).
+* Container Instances
 * Container Service
+* Data Box
+* Dev blanksteg
 * Dynamics LCS
 * Express Route
-* Kubernetes-tjänst
+* Kubernetes Service
 * Lab Services – flytta till ny resursgrupp i samma prenumeration har aktiverats, men flytta över prenumerationer har inte aktiverats.
 * Belastningsutjämnare – Se [belastningsutjämnaren begränsningar](#lb-limitations)
 * Managed Applications
 * Managed Disks – Se [begränsningar för virtuella datorer](#virtual-machines-limitations)
 * Microsoft Genomics
+* NetApp
 * Offentliga IP - Se [offentliga IP-begränsningar](#pip-limitations)
 * Recovery Services-valv – även inte flytta resurserna beräkning, nätverk och lagring som är associerade med Recovery Services-valvet, se [begränsningar för Recovery Services](#recovery-services-limitations).
 * SAP HANA på Azure
@@ -225,7 +232,7 @@ Virtuella datorer med certifikat som lagras i Key Vault kan flyttas till en ny r
 
 ## <a name="virtual-networks-limitations"></a>Begränsningar för virtuellt nätverk
 
-När du flyttar ett virtuellt nätverk, måste du även flytta beroende resurser. Till exempel måste du flytta gateways med det virtuella nätverket.
+När du flyttar ett virtuellt nätverk, måste du även flytta beroende resurser. För VPN-gatewayer måste du flytta IP-adresser, virtuella nätverksgatewayer och alla associerade anslutningsresurser. Lokala nätverksgatewayer kan finnas i en annan resursgrupp.
 
 Om du vill flytta en peer-kopplade virtuella nätverket måste du först inaktivera virtuell nätverkspeering. Du kan flytta det virtuella nätverket när inaktiverat. Återaktivera virtuell nätverkspeering efter överflyttningen.
 

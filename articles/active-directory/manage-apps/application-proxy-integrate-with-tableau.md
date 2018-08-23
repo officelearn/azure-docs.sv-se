@@ -1,26 +1,23 @@
 ---
 title: Azure Active Directory Application Proxy och Tableau | Microsoft Docs
-description: Lär dig hur du använder Azure Active Directory (Azure AD) Application Proxy för att tillhandahålla fjärråtkomst för distributionen av bland annat Tableau.  .
+description: Lär dig hur du använder Azure Active Directory (Azure AD) Application Proxy för att tillhandahålla fjärråtkomst för distributionen av bland annat Tableau.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 08/20/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 7cace1af527c1c7c80bf0e23f7a88aa9ac9f9d03
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: a68b0465acdb416cd953e22d7f024eb399c94493
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365030"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42062100"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory Application Proxy och Tableau 
 
@@ -35,19 +32,10 @@ Scenariot i den här artikeln förutsätter att du har:
 - En [Application Proxy connector](application-proxy-enable.md) installerad. 
 
  
-
 ## <a name="enabling-application-proxy-for-tableau"></a>Aktiverar programproxy för Tableau 
 
-Om du vill använda programproxy för Tableau, måste du skicka ett e- [ aadapfeedback@microsoft.com ](mailto:aadapfeedback@microsoft.com) att hämta det här scenariot aktiverat.
-I din e-post:
+Programproxyn har stöd för den OAuth 2.0 ge Flow, vilket krävs för Tableau ska fungera korrekt. Det innebär att det inte längre några särskilda åtgärder som krävs för att aktivera det här programmet än konfigurationen av den genom att följa publishing stegen nedan.
 
--   Använd aktivera Application Proxy för Tableau som ämne
--   Ta med ditt klient-ID i brödtexten    
-
-Du får en bekräftelse när du är redo att använda programmet. Du kan slutföra konfigurationerna under väntan på bekräftelse.
-
-
- 
 
 ## <a name="publish-your-applications-in-azure"></a>Publicera dina program i Azure 
 

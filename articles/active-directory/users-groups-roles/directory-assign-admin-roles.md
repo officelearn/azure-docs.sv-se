@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 08/21/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: c6c388bb98d189d91703c0ce82971b3ec4da4150
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 6c97d7c2f901110421f9fc5d0a1d4468d832c472
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505519"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42057118"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Tilldela administratörsroller i Azure Active Directory
 
@@ -59,7 +59,7 @@ Följande administratörsroller är tillgängliga:
 
 * **[Katalogskrivare](#directory-writers)**: det här är en äldre roll som ska tilldelas till program som inte stöder den [godkänna Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Det ska inte tilldelas alla användare.
 
-* **[Dynamics 365-tjänstadministratör / CRM-tjänstadministratör](#dynamics-365-service-administrator)**: användare med den här rollen har globala behörigheter inom Microsoft Dynamics 365 Online när tjänsten finns närvarande, liksom möjlighet att hantera supportbegäranden och Kontrollera tjänstens hälsotillstånd. Mer information på [använda administratörsrollen för att hantera din klient](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
+* **[Dynamics 365-tjänstadministratör / CRM-tjänstadministratör](#dynamics-365-service-administrator)**: användare med den här rollen har globala behörigheter inom Microsoft Dynamics 365 Online när tjänsten finns närvarande, liksom möjlighet att hantera supportbegäranden och Kontrollera tjänstens hälsotillstånd. Mer information på [använda administratörsrollen för att hantera din klient](https://docs.microsoft.com/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
 * **[Exchange-tjänstadministratör](#exchange-service-administrator)**: användare med den här rollen har globala behörigheter inom Microsoft Exchange Online när tjänsten finns. Mer information på [om Office 365-administratörsroller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -74,7 +74,7 @@ Följande administratörsroller är tillgängliga:
 
 * **[Information Protection-administratör](#information-protection-administrator)**: användare med den här rollen har alla behörigheter i Azure Information Protection-tjänsten. Den här rollen kan konfigurera etiketter för Azure Information Protection-principen, hantera skyddsmallar och aktivera skydd. Den här rollen ger inte några behörigheter i Identity Protection Center, Privileged Identity Management, övervaka Office 365 Service Health eller Office 365 säkerhets- och Efterlevnadscenter.
 
-* **[Intune-tjänstadministratör](#intune-service-administrator)**: användare med den här rollen har globala behörigheter inom Microsoft Intune Online när tjänsten finns. Dessutom innehåller den här rollen möjlighet att hantera användare och enheter för att associera principer, samt skapa och hantera grupper. Mer information på [rollbaserad administrationskontroll (RBAC) med Microsoft Intune](https://docs.microsoft.com/en-us/intune/role-based-access-control)
+* **[Intune-tjänstadministratör](#intune-service-administrator)**: användare med den här rollen har globala behörigheter inom Microsoft Intune Online när tjänsten finns. Dessutom innehåller den här rollen möjlighet att hantera användare och enheter för att associera principer, samt skapa och hantera grupper. Mer information på [rollbaserad administrationskontroll (RBAC) med Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)
 
 * **[Message Center läsare](#message-center-reader)**: användare i den här rollen kan övervaka meddelanden och rådgivande hälsotillstånd uppdateringar i [Office 365-meddelandecentret](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) för organisationen på konfigurerade tjänster, till exempel Exchange, Intune och Microsoft Teams. Meddelandecenter läsarna få veckovis e-sammandrag av inlägg, uppdateringar, och kan dela center meddelandeposter i Office 365. I Azure AD har användare som tilldelats den här rollen endast läsåtkomst på Azure AD-tjänster, till exempel användare och grupper. 
 
@@ -89,7 +89,7 @@ Följande administratörsroller är tillgängliga:
   >
   >
   
-* **[Power BI-tjänstadministratör](#power-bi-service-administrator)**: användare med den här rollen har globala behörigheter inom Microsoft Power BI när tjänsten finns närvarande, liksom möjlighet att hantera supportbegäranden och kontrollera tjänstens hälsotillstånd. Mer information på [förstå administratörsrollen för Power BI](https://docs.microsoft.com/en-us/power-bi/service-admin-role).
+* **[Power BI-tjänstadministratör](#power-bi-service-administrator)**: användare med den här rollen har globala behörigheter inom Microsoft Power BI när tjänsten finns närvarande, liksom möjlighet att hantera supportbegäranden och kontrollera tjänstens hälsotillstånd. Mer information på [förstå administratörsrollen för Power BI](https://docs.microsoft.com/power-bi/service-admin-role).
 
 * **[Privilegierad Rolladministratör](#privileged-role-administrator)**: användare med den här rollen kan hantera rolltilldelningar i Azure Active Directory, liksom i Azure AD Privileged Identity Management. Den här rollen kan dessutom hantera alla aspekter av Privileged Identity Management.
 
@@ -163,7 +163,7 @@ I följande tabeller beskrivs de särskilda behörigheterna i Azure Active Direc
 Kan skapa och hantera alla aspekter av appregistreringar och enterprise-appar.
 
   > [!NOTE]
-  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -198,7 +198,7 @@ Kan skapa och hantera alla aspekter av appregistreringar och enterprise-appar.
 Kan skapa programregistreringar oberoende av den **användare kan registrera program** inställningen.
 
   > [!NOTE]
-  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -213,7 +213,7 @@ Kan skapa programregistreringar oberoende av den **användare kan registrera pro
 Kan utföra vanliga faktureringsrelaterade uppgifter som uppdatering av betalningsinformation.
 
   > [!NOTE]
-  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -235,7 +235,7 @@ Kan utföra vanliga faktureringsrelaterade uppgifter som uppdatering av betalnin
 Kan skapa och hantera alla aspekter av appregistreringar och enterprise-appar förutom App Proxy.
 
   > [!NOTE]
-  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -318,7 +318,7 @@ Kan hantera alla aspekter av Azure AD och Microsoft-tjänster som använde Azure
 Kan läsa och hantera efterlevnadskonfiguration och rapporter i Azure AD och Office 365.
 
   > [!NOTE]
-  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -341,7 +341,7 @@ Kan läsa och hantera efterlevnadskonfiguration och rapporter i Azure AD och Off
 Kan hantera funktioner för villkorsstyrd åtkomst.
 
   > [!NOTE]
-  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -360,7 +360,7 @@ Kan hantera funktioner för villkorsstyrd åtkomst.
 Användare med den här rollen blir administratörer för den lokala datorn på alla Windows 10-enheter som är anslutna till Azure Active Directory. De har inte behörighet att hantera enhetsobjekt i Azure Active Directory.
 
   > [!NOTE]
-  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -472,7 +472,7 @@ Kan läsa och skriva grundläggande kataloginformation. För att bevilja åtkoms
 Kan hantera alla aspekter av Dynamics 365-produkten.
 
   > [!NOTE]
-  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -493,7 +493,7 @@ Kan hantera alla aspekter av Dynamics 365-produkten.
 Kan hantera alla aspekter av Exchange-produkten.
 
   > [!NOTE]
-  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -536,7 +536,7 @@ Kan bjuda in gästanvändare oberoende av den **medlemmar kan bjuda in gäster**
 Kan återställa lösenord för icke-administratörer och Helpdeks-administratörer.
 
   > [!NOTE]
-  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -553,7 +553,7 @@ Kan återställa lösenord för icke-administratörer och Helpdeks-administratö
 Kan hantera alla aspekter av Azure Information Protection-produkten.
 
   > [!NOTE]
-  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -574,7 +574,7 @@ Kan hantera alla aspekter av Azure Information Protection-produkten.
 Kan hantera alla aspekter av Intune-produkten.
 
   > [!NOTE]
-  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -615,7 +615,7 @@ Kan hantera alla aspekter av Intune-produkten.
 Kan hantera alla aspekter av Skype för Business-produkten.
 
   > [!NOTE]
-  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -654,7 +654,7 @@ Kan endast läsa meddelanden och uppdateringar avseende sin organisation i medde
 Använd inte – inte avsett för allmänt bruk.
 
   > [!NOTE]
-  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -690,7 +690,7 @@ Använd inte – inte avsett för allmänt bruk.
 Använd inte – inte avsett för allmänt bruk.
 
   > [!NOTE]
-  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -729,7 +729,7 @@ Använd inte – inte avsett för allmänt bruk.
 Kan hantera alla aspekter av Power BI-produkten.
 
   > [!NOTE]
-  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -750,7 +750,7 @@ Kan hantera alla aspekter av Power BI-produkten.
 Kan hantera rolltilldelningar i Azure AD
 
   > [!NOTE]
-  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -787,7 +787,7 @@ Kan läsa inloggnings- och granskningsrapporter.
 Kan läsa säkerhetsinformation och rapporter
 
   > [!NOTE]
-  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -836,7 +836,7 @@ Kan läsa säkerhetsinformation och rapporter i Azure AD och Office 365.
 Kan läsa information om Service Health och hantera supportärenden.
 
   > [!NOTE]
-  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -856,7 +856,7 @@ Kan läsa information om Service Health och hantera supportärenden.
 Kan hantera alla aspekter av SharePoint-tjänsten.
 
   > [!NOTE]
-  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -876,7 +876,7 @@ Kan hantera alla aspekter av SharePoint-tjänsten.
 Kan hantera alla aspekter av användare och grupper
 
   > [!NOTE]
-  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Den här rollen ärver ytterligare behörigheter från den [användarrollen](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 

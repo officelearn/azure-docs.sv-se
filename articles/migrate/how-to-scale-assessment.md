@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: 4bcb6734c33d70e4045860a2c0f0acfedfa06eff
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 06905a2f16a23e5a7c4612f4b567aaf86322924d
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215187"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42054377"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Upptäck och utvärdera en stor VMware-miljö
 
@@ -93,8 +93,8 @@ Du kan sedan starta identifiering av lokala virtuella datorer när du är klar m
 
 Skapa ett Azure Migrate-projekt utifrån dina behov:
 
-1. I Azure-portalen väljer du **skapa en resurs**.
-2. Sök efter **Azure Migrate** och välj tjänsten **Azure Migrate (förhandsversion)** i sökresultaten. Välj sedan **Skapa**.
+1. I Azure-portalen väljer du **Skapa en resurs**.
+2. Sök efter **Azure Migrate** och välj tjänsten **Azure Migrate** i sökresultaten. Välj sedan **Skapa**.
 3. Ange ett projektnamn och Azure-prenumerationen för projektet.
 4. Skapa en ny resursgrupp.
 5. Ange platsen där du vill skapa projektet och välj sedan **skapa**. Observera att du kan fortfarande utvärdera dina virtuella datorer för en annan målplats. Den angivna platsen för projektet används för att lagra de metadata som samlats in från lokala virtuella datorer.
@@ -197,7 +197,7 @@ Vi rekommenderar att du ställer in vanliga filegenskaper (3) för statistik niv
 
 I följande tabell visas även utvärderingsresultat som kommer att påverkas om en särskild räknare inte har samlats in.
 
-| Räknaren                                 | Nivå | Nivå per enhet | Utvärdering av påverkan                    |
+| Räknare                                 | Nivå | Nivå per enhet | Utvärdering av påverkan                    |
 | --------------------------------------- | ----- | ---------------- | ------------------------------------ |
 | CPU.Usage.Average                       | 1     | Ej tillämpligt               | Rekommenderad storlek och kostnad         |
 | Mem.Usage.Average                       | 1     | Ej tillämpligt               | Rekommenderad storlek och kostnad         |

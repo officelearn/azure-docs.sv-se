@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: sujayt
-ms.openlocfilehash: c2892d51c6eb5e71c0b1af400b78e993742fede0
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 32bdf1080aa6e7c5884747eeecad3f42c7334c3a
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173058"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444834"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Stöd matrix för replikering från en Azure-region till en annan
 
@@ -34,11 +34,11 @@ Den här artikeln sammanfattar konfigurationer som stöds och komponenter när d
 
 ## <a name="resource-support"></a>Resursstöd för
 
-**Flytta resurstypen** | **Detaljer** 
+**Flytta resurstypen** | **Detaljer**
 --- | --- | ---
 **Flytta valv mellan resursgrupper** | Stöds inte<br/><br/> Du kan inte flytta ett Recovery services-valv mellan resursgrupper.
 **Flytta resurser för beräkning/lagringsnätverk mellan resursgrupper** | Stöds ej.<br/><br/> Om du flyttar en virtuell dator eller tillhörande komponenter, till exempel lagringsnätverk/när den replikerar, måste du inaktivera replikering och återaktivera replikering för den virtuella datorn.
-**Replikera virtuella Azure-datorer från en prenumeration till en annan för katastrofåterställning** | Stöds ej.
+**Replikera virtuella Azure-datorer från en prenumeration till en annan för katastrofåterställning** | Stöd för inom samma Azure Active Directory-klientorganisation.
 **Migrera virtuella datorer mellan prenumerationer** | Stöds ej.
 **Migrera virtuella datorer i samma region** | Stöds ej.
 

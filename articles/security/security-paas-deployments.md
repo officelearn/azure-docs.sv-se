@@ -1,6 +1,6 @@
 ---
 title: Skydda PaaS-distributioner | Microsoft Docs
-description: " Förstå fördelarna med PaaS jämfört med andra molnet tjänstmodeller och Läs rekommenderade metoder för att säkra din Azure PaaS-distribution. "
+description: " Förstå fördelarna med PaaS jämfört med andra tjänstmodeller i molnet och lär dig rekommenderade metoder för att skydda din Azure PaaS-distribution. "
 services: security
 documentationcenter: na
 author: techlake
@@ -14,97 +14,97 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: f19c52629a997687692eef9bce2e13b2b7894052
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: da5d59aaaea8e6186609eb5f3419fba5e67d4279
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31794743"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42061508"
 ---
 # <a name="securing-paas-deployments"></a>Skydda PaaS-distributioner
 
 Den här artikeln innehåller information som hjälper dig att:
 
-- Förstå fördelarna med värd för program i molnet
-- Utvärdera fördelarna med plattform som en tjänst (PaaS) jämfört med andra molntjänster tjänstmodeller
-- Ändra din säkerhet fokus från ett nätverk till Central till en identitet till Central perimeter säkerhet metod
-- Implementera Allmänt PaaS säkerhetsrekommendationer om bästa praxis
+- Förstå av fördelarna med som är värd för program i molnet
+- Utvärdera fördelarna med plattform som en tjänst (PaaS) jämfört med andra cloud service-modeller
+- Ändra fokus säkerhet från en nätverks-centric till en identity-centric perimeter security-metod
+- Implementera allmänna PaaS security rekommendationer om bästa praxis
 
-## <a name="cloud-security-advantages"></a>Fördelarna med molnet
-Det finns säkerhetsfördelar med att den finns i molnet. I en lokal miljö organisationer troligen har unmet ansvar och begränsade resurser som är tillgängliga att investera i säkerhet, som skapar en miljö där angripare kan utnyttja sårbarheter i alla skikt.
+## <a name="cloud-security-advantages"></a>Cloud security fördelar
+Det finns säkerhetsfördelar med att vara i molnet. I en lokal miljö organisationer sannolikt har motsvarar hittills ouppfyllda ansvarsområden och begränsade resurser som är tillgängliga att investera i säkerhet, vilket skapar en miljö där angripare kan utnyttja sårbarheter på alla nivåer.
 
-![Fördelarna med molnet era][1]
+![Fördelarna med molnet][1]
 
-Organisationer kan förbättra sina hotidentifiering och svarstider med hjälp av en provider molnbaserade säkerhetsfunktioner och moln för tillgångsinformation.  Genom att ändra ansvarsområden till molnleverantören kan organisationer få mer säkerhet täckning, vilket gör det enkelt att allokera säkerhetsresurser och budget till andra företag prioriteringar.
+Organisationer kan förbättra sin hotidentifiering och svarstider med hjälp av en provider molnbaserade säkerhetsfunktioner och intelligenta molntjänster.  Organisationer kan få mer säkerhetstäckning, vilket gör det möjligt för dem att allokera säkerhetsresurser och budget med andra affärsbehov genom att ändra ansvarsområden till molnleverantören.
 
-## <a name="division-of-responsibility"></a>Uppdelning av ansvar
-Det är viktigt att förstå divisionen av ansvar mellan dig och Microsoft. Lokal du äger hela stacken men när du flyttar till molnet några ansvarsområden Överför till Microsoft. Följande ansvar matrisen visar områden för stacken i en SaaS-PaaS och IaaS-distribution som du är ansvarig för och Microsoft ansvarar för.
+## <a name="division-of-responsibility"></a>Divisionen av ansvar
+Det är viktigt att förstå divisionen av ansvar mellan dig och Microsoft. Lokalt, du äger i hela stacken men när du migrerar till molnet några ansvarsområden Överför till Microsoft. Följande ansvar matrisen visar områdena av stacken i en SaaS, PaaS och IaaS-distribution som du är ansvarig för och Microsoft ansvarar för.
 
 ![Ansvar zoner][2]
 
-För alla moln distributionstyper äger du dina data och identiteter. Du ansvarar för att skydda dina data och identiteter, lokala resurser och moln-komponenter du kontrollen (varierar beroende på typ av tjänst).
+För alla moln-distributionstyper som du äger dina data och identiteter. Du ansvarar för att skydda säkerheten för dina data och identiteter, lokala resurser och molnbaserade komponenterna du kontrollen (som varierar beroende på typ av tjänst).
 
-Ansvarsområden som behålls alltid av du, oavsett vilken typ av distribution är:
+Ansvarsområden som behålls alltid av dig, oavsett vilken typ av distribution, är:
 
 - Data
 - Slutpunkter
 - Konto
 - Åtkomsthantering
 
-## <a name="security-advantages-of-a-paas-cloud-service-model"></a>Fördelarna med en PaaS molnet tjänstmodell
-Med samma ansvar matris ska vi titta på av fördelarna med en Azure PaaS-distribution jämfört med lokalt.
+## <a name="security-advantages-of-a-paas-cloud-service-model"></a>Fördelarna med en PaaS modell i molnet
+Med samma ansvar matris kan vi titta på fördelarna med en Azure PaaS-distribution eller lokalt.
 
 ![Fördelarna med PaaS][3]
 
-Starta längst ned i stacken, den fysiska infrastrukturen minskar Microsoft vanliga risker och ansvarsområden. Eftersom Microsoft cloud övervakas kontinuerligt av Microsoft, är det svårt för angrepp. Den passar inte för en angripare att driva Microsoft-molntjänster som mål. Om inte angriparen har många pengar och resurser, angripare kommer troligen att gå vidare till ett annat mål.  
+Startar längst ned i stacken, den fysiska infrastrukturen Microsoft minskar risken för vanliga risker och ansvarsområden. Eftersom Microsoft-molnet övervakas kontinuerligt av Microsoft, är det svårt att angrepp. Det meningsfullt inte för en angripare att nå Microsoft-molnet som mål. Om angriparen har mycket pengar och resurser, angriparen är troligt att gå vidare till ett annat mål.  
 
-Det finns ingen skillnad mellan en PaaS-distribution och lokala mitt i stacken. När programlager och lagringshanteringslager konto och komma åt har liknande risker. Under nästa steg i den här artikeln hjälper vi dig till bästa praxis för att eliminera eller minska riskerna.
+Mitt stacken finns det ingen skillnad mellan en PaaS-distribution och lokalt. När programnivån och lagringshanteringslager konton och komma åt har liknande risker. Under nästa steg i den här artikeln vägleder vi dig till bästa praxis för att ta bort eller minimera riskerna.
 
-Överst i stacken, datastyrning och rights management ta på en risk att kan begränsas med nyckelhantering. (Key management ingår i metodtips.) Hantering av nycklar är en ytterligare ansvar, har områden i en PaaS-distribution som du inte längre behöver hantera så att du kan ändra resurser till nyckelhantering.
+Överst i stacken, datastyrning och rights management ta på en risk för angrepp som kan undvikas genom nyckelhantering. (Hantering av nycklar beskrivs bästa praxis.) Nyckelhantering är ett ytterligare ansvar, har du områden i en PaaS-distribution som du behöver inte längre hantera så att du kan ändra resurser till nyckelhantering.
 
-Azure-plattformen ger dig också starkt DDoS-skydd genom att använda olika nätverksbaserade tekniker. Men har alla typer av nätverksbaserade DDoS skyddsmetod sina begränsningar på grundval av per länk och per datacenter. För att undvika påverkan av den stora DDoS-attacker kan dra du nytta av Azures core molnkapacitet för att aktivera du att snabbt och automatiskt skala ut för att skydda mot DDoS-attacker. Vi ska gå in mer i detalj på hur du kan göra detta i rekommendationer artiklar.
+Azure-plattformen ger också starkt DDoS-skydd genom att använda olika nätverksbaserade tekniker. Men har alla typer av nätverksbaserade DDoS protection metoder sina begränsningar på basis av per länk och per datacenter. För att undvika effekten av stora DDoS-attacker kan dra du nytta av Azures grundläggande molnet funktion av så att du snabbt och automatiskt skala ut för att skydda mot DDoS-attacker. Vi ska gå in mer i detalj på hur du kan göra detta i artiklar rekommenderade metoder.
 
-## <a name="modernizing-the-defenders-mindset"></a>Modernizing i defender tänkesätt
-Distributioner medför en SKIFT i din övergripande metoden PaaS säkerhet. Du växlar från behöva styra allt själv för att dela ansvar med Microsoft.
+## <a name="modernizing-the-defenders-mindset"></a>Modernisera i defender tänkesätt
+Med PaaS kommer distributioner en förändring i din övergripande metoden säkerhet. Du vill ändra inte behöver att styra allt själv om du vill dela ansvar med Microsoft.
 
-En annan betydande skillnaden mellan PaaS och traditionella lokala distributioner är en ny vy över vad definierar säkerhetsinformation perimeternätverket. Tidigare primär lokal säkerhet perimeternätverket var ditt nätverk och de flesta lokal säkerhet Designer använder nätverket som dess primära säkerhet pivot. För PaaS-distributioner Service du bättre genom att beakta identitet ska säkerhetsinformation perimeternätverket.
+En annan viktig skillnad mellan PaaS och traditionella lokala distributioner, är en ny vy av primär säkerhetsperimeter definieras. Historiskt sett säkerhetsperimeter primära lokala var ditt nätverk och de flesta lokala security-Designer använder nätverket som sin primära security pivot. För PaaS-distributioner betjänas du bättre av överväger identitet för att vara primär säkerhetsperimeter.
 
-## <a name="identity-as-the-primary-security-perimeter"></a>Identitet som säkerhetsinformation perimeternätverket
-En av fem grundläggande egenskaper för cloud computing-lösningar är bred nätverksåtkomst, vilket gör nätverket till Central tänker mindre relevant. Målet för mycket av cloud computing-lösningar är att ge användare åtkomst till nätverksresurser oavsett plats. För de flesta användare kommer deras plats att vara någonstans på Internet.
+## <a name="identity-as-the-primary-security-perimeter"></a>Identitet som primär säkerhetsperimeter
+En av fem grundläggande egenskaper för molnbaserad databehandling är bred nätverksåtkomst, vilket gör nätverks-centric tänker mindre relevanta. Målet med mycket av molnbaserad databehandling är att ge användare åtkomst till resurser, oavsett plats. För de flesta användare ska var vara någonstans på Internet.
 
-Följande bild visar hur säkerhet perimeternätverket har utvecklats från ett perimeternätverk i nätverket till en identitet perimeternätverk. Säkerheten blir mer eller mindre om försvara nätverket om samtidigt skyddar dina data, samt hantera säkerheten för dina appar och användare. Den viktigaste skillnaden är att du vill skicka säkerhet närmare till vad som är viktigt för ditt företag.
+Följande bild visar hur säkerhetsperimeter har utvecklats från en nätverksperimeter en perimeter-identitet. Säkerheten blir mindre om försvar ditt nätverk och mer information om försvar dina data, samt hanterar säkerheten för dina appar och användare. Den viktigaste skillnaden är att du vill skicka security närmare till viktig information för ditt företag.
 
-![Identitet som den nya säkerhet perimeternätverk][4]
+![Identitet som nya säkerhetsperimeter][4]
 
-Azure PaaS-tjänster (till exempel webbroller och Azure SQL) anges inledningsvis lite eller ingen traditionellt nätverk perimeter försvar. Det gick att tolka att elementets syftet var att exponeras mot Internet (webbroll) och att autentisering ger nya perimeternätverk (till exempel BLOB eller Azure SQL).
+Azure PaaS-tjänster (till exempel web-roller och Azure SQL) anges först har lite eller ingen traditionellt nätverk perimeter försvar. Det har förstått att elementets syfte var att exponeras för Internet (web-roll) och att autentisering ger den nya perimetern (till exempel BLOB eller Azure SQL).
 
-Moderna säkerhetspraxis förutsätter att angriparen har utsatts för intrång nätverket perimeternätverket. Därför har moderna defense praxis flyttats till identitet. Organisationer måste upprätta en identitetsbaserade säkerhet perimeternätverket med stark autentisering och auktorisering hygien (bästa metoder).
+Moderna säkerhetsrutiner förutsätter att angriparen har brutit mot perimeternätverket. Därför har moderna defense praxis flyttat till identitet. Organisationer måste upprätta en identitetsbaserad säkerhetsperimeter med stark autentisering och auktorisering hygien (metodtips).
 
 ## <a name="recommendations-for-managing-the-identity-perimeter"></a>Rekommendationer för att hantera identitet perimeternätverket
 
-Principer och mönster för nätverket perimeternätverket har funnits i åren. Däremot har bransch relativt mindre erfarenhet av att använda identitet som säkerhetsinformation perimeternätverket. Med som säger har vi ackumulerade så mycket erfarenhet för att tillhandahålla vissa allmänna rekommendationer som visat i fältet och gäller för nästan alla PaaS-tjänster.
+Principer och mönster för perimeternätverket har varit tillgängliga för flera decennier. Däremot har branschen relativt mindre erfarenhet av att använda identitet som primär säkerhetsperimeter. Därmed SA har vi ackumulerade så mycket erfarenhet för att tillhandahålla vissa allmänna rekommendationer som har varit i fältet och gäller för nästan alla PaaS-tjänster.
 
-Följande sammanfattar en allmän praxis att hantera din identitet perimeternätverk.
+Följande sammanfattar en allmän praxis för att hantera din identitet perimeternätverket.
 
-- **Förlora dina nycklar eller autentiseringsuppgifter** säkra nycklar och autentiseringsuppgifter är mycket viktigt att skydda PaaS-distributioner. Att förlora nycklar och autentiseringsuppgifter är ett vanligt problem. En bra lösning är att använda en central lösning där nycklar och hemligheter kan lagras i maskinvarusäkerhetsmoduler (HSM). Azure tillhandahåller en HSM i molnet med [Azure Key Vault](../key-vault/key-vault-whatis.md).
-- **Placera inte autentiseringsuppgifter och andra hemligheter i källkoden eller GitHub** enda värre än att förlora dina nycklar och autentiseringsuppgifter har obehöriga personer få tillgång till dem. Angripare kan utnyttja bot tekniker för att hitta nycklar och hemligheter som lagras i koden databaser, till exempel GitHub. Placera inte nyckeln och hemligheter i dessa offentliga källkodslager.
-- **Skydda din VM hanteringsgränssnitt på hybrid PaaS- och IaaS** IaaS och PaaS-tjänster körs på virtuella datorer (VM). Beroende på vilken typ av tjänst flera hanteringsgränssnitt är tillgängliga att aktivera du remote hantera dessa virtuella datorer direkt. Protokoll för fjärrhantering som [protokollet SSH (Secure Shell)](https://en.wikipedia.org/wiki/Secure_Shell), [Remote Desktop Protocol (RDP)](https://support.microsoft.com/kb/186607), och [fjärr-PowerShell](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting) kan användas. I allmänhet rekommenderar vi att du inte aktiverar direkt fjärråtkomst till virtuella datorer från Internet. Om de är tillgängliga, bör du använda alternativa metoder, till exempel med ett virtuellt privat nätverk till Azure-nätverk. Om alternativa metoder är inte tillgängliga, och sedan kontrollera att du använder komplexa lösenfraser och i förekommande fall, tvåfaktorsautentisering (exempelvis [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)).
-- **Använd stark autentisering och auktorisering plattformar**
+- **Förlora inte dina nycklar eller autentiseringsuppgifter** att skydda nycklar och autentiseringsuppgifter är mycket viktigt att skydda PaaS-distributioner. Att förlora nycklar och autentiseringsuppgifter är ett vanligt problem. En bra lösning är att använda en centraliserad lösning där nycklar och hemligheter kan lagras i maskinvarusäkerhetsmoduler (HSM). Azure ger dig en HSM i molnet med [Azure Key Vault](../key-vault/key-vault-whatis.md).
+- **Placera inte autentiseringsuppgifter och andra hemligheter i källkoden eller GitHub** enda värre än att förlora dina nycklar och autentiseringsuppgifter har obehöriga personer få tillgång till dem. Angripare kan utnyttja fördelarna med bot tekniker för att hitta nycklar och hemligheter som lagras i koddatabaser, till exempel GitHub. Placera inte nyckeln och hemligheter i de här offentliga källkodslager.
+- **Skydda dina VM-hanteringsgränssnitt på hybrid PaaS och IaaS** IaaS och PaaS-tjänster som körs på virtuella datorer (VM). Beroende på vilken typ av tjänst flera hanteringsgränssnitt är tillgängliga att aktivera du remote hantera dessa virtuella datorer direkt. Fjärrhantering protokoll som [SSH (Secure Shell Protocol)](https://en.wikipedia.org/wiki/Secure_Shell), [Remote Desktop Protocol (RDP)](https://support.microsoft.com/kb/186607), och [fjärr-PowerShell](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting) kan användas. I allmänhet rekommenderar vi att du inte aktiverar direkt fjärråtkomst till virtuella datorer från Internet. Om det är tillgängligt, bör du använda alternativa metoder, till exempel med ett virtuellt privat nätverk till ett Azure-nätverk. Om alternativa metoder är inte tillgängliga och sedan kontrollera att du använder komplexa lösenfraser och i förekommande fall, tvåfaktorsautentisering (till exempel [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)).
+- **Använda stark autentisering och auktorisering plattformar**
 
-  - Använd federerade identiteter i Azure AD i stället för anpassad användare lagrar. När du använder federerade identiteter kan du dra nytta av en synsätt, plattform och du delegera hanteringen av auktoriserade identiteter till dina partners. En metod för federerad identitet är särskilt viktigt i situationer när anställda avslutas och information behöver återspeglas via flera identitet och auktorisering system.
-  - Använd mekanismer för autentisering och auktorisering av plattform som anges i stället för anpassad kod. Anledningen är att utveckla anpassade Autentiseringskod kan vara tillförlitligt. De flesta av utvecklarna inte säkerhetsexperter och kommer troligen inte att vara medveten om de detaljerad och nyansrik och den senaste utvecklingen inom autentisering och auktorisering. Extern kod (till exempel från Microsoft) är ofta mycket säkerhet ses över.
-  - Använda multifaktorautentisering. Multifaktorautentisering är aktuell standard för autentisering och auktorisering eftersom den förhindrar security-svagheter med användarnamn och lösenord typer av autentisering. Åtkomst till både i Azure (portal/fjärråtkomst PowerShell) hanteringsgränssnitt och kundinriktade tjänster ska utformas och konfigurerats för att använda [Azure Multi-Factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md).
-  - Använd standard autentiseringsprotokoll, till exempel OAuth2 och Kerberos. Dessa protokoll har omfattande peer granskat och troligtvis implementeras som en del av din plattformsbibliotek för autentisering och auktorisering.
+  - Använda federerade identiteter i Azure AD i stället för anpassade användarlager. När du använder federerade identiteter kan du dra nytta av en plattformbaserade metod och du delegera hanteringen av auktoriserade identiteter till dina partner. En metod för federerad identitet är särskilt viktigt i fall när anställda avslutas och information behöver återspeglas via flera system för identitet och auktorisering.
+  - Använd plattformslista mekanismer för autentisering och auktorisering istället för anpassad kod. Anledningen är att utveckla anpassade Autentiseringskod kan vara felbenägna. De flesta av dina utvecklare är inte säkerhetsexperter och är inte troligt att känna till nyanser och den senaste utvecklingen i autentisering och auktorisering. Kommersiella kod (till exempel från Microsoft) är ofta omfattande säkerhet granskas.
+  - Använd Multi-Factor authentication. Multi-Factor authentication är den aktuella standarden för autentisering och auktorisering eftersom de undviker de security svagheterna i användarnamnet och lösenordet typer av autentisering. Åtkomst till både Azure-hantering (portal/fjärråtkomst PowerShell) gränssnitten och kundorienterade tjänster bör utformade och konfigurerade för att använda [Azure Multi-Factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md).
+  - Använd standard autentiseringsprotokoll, till exempel OAuth2- och Kerberos. Dessa protokoll har stor utsträckning peer granskas och förmodligen implementeras som en del av din plattformsbibliotek för autentisering och auktorisering.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln fokuserar vi på fördelarna med en Azure PaaS-distribution. Lär dig sedan rekommenderade metoder för att säkra din PaaS webb- och mobile-lösningar. Vi börjar med Azure App Service, Azure SQL Database och Azure SQL Data Warehouse. Artiklar om rekommenderade metoder för andra Azure-tjänster blir tillgängliga ges länkar i följande lista:
+I den här artikeln fokuserar vi på fördelarna med en Azure PaaS-distribution. Lär dig sedan rekommenderade metoder för att skydda dina PaaS webb- och mobila lösningar. Vi börjar med Azure App Service, Azure SQL Database och Azure SQL Data Warehouse. När artiklar om rekommenderade metoder för andra Azure-tjänster blir tillgängliga, ges länkar i listan nedan:
 
 - [Azure App Service](security-paas-applications-using-app-services.md)
 - [Azure SQL Database och Azure SQL Data Warehouse](security-paas-applications-using-sql.md)
-- Azure Storage
-- Azure REDIS-Cache
+- [Azure Storage](security-paas-applications-using-storage.md)
+- Azure REDIS Cache
 - Azure Service Bus
-- Web Application brandväggar
+- Brandväggar för webbprogram
 
 <!--Image references-->
 [1]: ./media/security-paas-deployments/advantages-of-cloud.png

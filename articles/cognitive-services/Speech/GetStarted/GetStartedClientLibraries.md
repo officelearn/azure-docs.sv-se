@@ -1,6 +1,6 @@
 ---
-title: Kom igång med Microsoft Speech Recognition API med hjälp av klientbibliotek | Microsoft Docs
-description: Använd Microsoft tal Service klientbibliotek i Microsoft kognitiva Services för att utveckla program som tal konverteras till text.
+title: Kom igång med Microsoft för Taligenkänning med hjälp av klientbibliotek för Bing-taligenkänning | Microsoft Docs
+description: Använd Microsoft Speech Service klientbibliotek i Microsoft Cognitive Services för att utveckla program som omvandla talat ljud till text.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
@@ -9,22 +9,22 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
-ms.openlocfilehash: 5abe5bc48c2bd73d0facf33e41a8076df2972153
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f4b6a97260c6dc176600af8844001e4de819ff7c
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352179"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42357518"
 ---
-# <a name="get-started-with-speech-service-client-libraries"></a>Kom igång med tal Service-klientbibliotek
+# <a name="get-started-with-bing-speech-service-client-libraries"></a>Kom igång med Bing Speech Service-klientbibliotek
 
-Förutom att göra direkt HTTP-förfrågningar via ett REST-API, ger tal tjänsten utvecklare med tal klientbibliotek på olika språk. Klientbibliotek tal:
+Förutom att direkt HTTP-förfrågningar via ett REST-API, ger Bing Speech Service utvecklarna tal klientbibliotek på olika språk. Klientbibliotek för tal:
 
-- Stöd mer avancerade funktioner i taligenkänning, till exempel mellanresultat i realtid, länge ljudström (upp till 10 minuter) och kontinuerlig igenkänning.
-- Tillhandahåller en enkel och idiomatiska API på önskat språk.
+- Stöd mer avancerade funktioner för taligenkänning, till exempel mellanliggande resultat i realtid, länge ljudström (upp till 10 minuter) och kontinuerlig erkännande.
+- Tillhandahåller en enkel och idiomatiskt API i språket du föredrar.
 - Dölj information på låg nivå kommunikation.
 
-Följande tal-klientbibliotek för närvarande tillgängliga:
+För närvarande finns följande klientbibliotek för Bing-taligenkänning:
 
 - [C# skrivbord bibliotek](GetStartedCSharpDesktop.md)
 - [C#-tjänstbibliotek](GetStartedCSharpServiceLibrary.md)
@@ -32,11 +32,14 @@ Följande tal-klientbibliotek för närvarande tillgängliga:
 - [Java-bibliotek för Android](GetStartedJavaAndroid.md)
 - [Objective-C-biblioteket för iOS](Get-Started-ObjectiveC-iOS.md)
 
+> [!NOTE] 
+I maj 2018 vi också släppt den nya [Speech Service](/speech-service/overview.md) i offentlig förhandsversion. Vi rekommenderar att du [prova det kostnadsfritt](/speech-service/get-started.md). 
+
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- Den [exempel](../samples.md) innehåller komplett exempel om du vill använda klientbibliotek för tal.
-- Du kan skapa egna SDK om du behöver ett klientbiblioteket som ännu inte stöds. Implementera den [tal WebSocket-protokollet](../API-Reference-REST/websocketprotocol.md) på plattformen och Använd önskat språk.
+- Den [exempel](../samples.md) sidan finns fullständiga exempel om du vill använda tal-klientbibliotek.
+- Om du behöver ett klientbibliotek som ännu inte stöds kan skapa du ditt eget SDK. Implementera de [tal WebSocket-protokoll](../API-Reference-REST/websocketprotocol.md) på plattformen och Använd valfritt språk.
 
 ## <a name="license"></a>Licens
 
-Alla kognitiva Services SDK: er och prover licensieras med MIT-licensen. Mer information finns i [licens](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).
+Alla kognitiva tjänster SDK: er och exempel har en licens för MIT-licensen. Mer information finns i [licens](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).

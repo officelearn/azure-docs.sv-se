@@ -14,16 +14,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 522bc9e757abeae930e47eaf53bb6da4bd9d0531
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 1c56f705c07e2001e1ef8f5f9f05c264c33c2c3f
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224117"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42054174"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Felsöka en webbapp i Azure App Service med Visual Studio
 ## <a name="overview"></a>Översikt
-Den här självstudien visar hur du använder Visual Studio-verktyg för att felsöka en webbapp i [Apptjänst](http://go.microsoft.com/fwlink/?LinkId=529714), genom att köra i [felsökningsläge](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) via fjärranslutning eller genom att visa programloggar och webbserverloggar.
+Den här självstudien visar hur du använder Visual Studio-verktyg för att felsöka en webbapp i [Apptjänst](http://go.microsoft.com/fwlink/?LinkId=529714), genom att köra i [felsökningsläge](https://docs.microsoft.com/visualstudio/debugger/) via fjärranslutning eller genom att visa programloggar och webbserverloggar.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -134,7 +134,8 @@ public ActionResult About()
     return View();
 }
 ```
-4. [Konfigurera en brytpunkt](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) på den `ViewBag.Message` rad.
+
+4. [Konfigurera en brytpunkt](https://docs.microsoft.com/visualstudio/debugger/) på den `ViewBag.Message` rad.
 
 5. I **Solution Explorer**, högerklicka på projektet och klicka på **publicera**.
 
@@ -185,7 +186,7 @@ Fjärrfelsökning fungerar bara med kontinuerliga WebJobs. Schemalagda och på b
 
 2. Öppna i projektet ContosoAdsWebJob *Functions.cs*.
 
-3. [Konfigurera en brytpunkt](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) på den första instruktionen i det `GnerateThumbnail` metod.
+3. [Konfigurera en brytpunkt](https://docs.microsoft.com/visualstudio/debugger/) på den första instruktionen i det `GnerateThumbnail` metod.
 
     ![Ange brytpunkt](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
@@ -250,7 +251,7 @@ Om din funktion [skrev loggar](https://github.com/Azure/azure-webjobs-sdk/wiki),
   <httpRuntime targetFramework="4.5" />
 </system.web>
 ```
-* Om du upptäcker att felsökningsprogrammet inte Stega in koden som du vill felsöka, kan du behöva ändra inställningen bara min kod.  Mer information finns i [begränsa Stega dig bara min kod](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code).
+* Om du upptäcker att felsökningsprogrammet inte Stega in koden som du vill felsöka, kan du behöva ändra inställningen bara min kod.  Mer information finns i [ange om du vill felsöka endast användarkod med bara min kod i Visual Studio](https://docs.microsoft.com/visualstudio/debugger/just-my-code).
 * En timer börjar på servern när du aktiverar funktionen felsökning och efter 48 timmar funktionen inaktiveras automatiskt. Den här gränsen 48 timmar görs skäl för säkerhet och prestanda. Du kan enkelt aktivera funktionen igen så många gånger som helst. Vi rekommenderar dock inaktiveras när du inte aktivt felsöker.
 * Du kan manuellt koppla felsökaren till en process, inte bara web app processen (w3wp.exe). Mer information om hur du använder felsökningsläge i Visual Studio finns i [felsökning i Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
 

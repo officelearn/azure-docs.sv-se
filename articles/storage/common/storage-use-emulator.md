@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 08/10/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 4f4c5870bb1bdd804aa4b2da8c46c0698b897798
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 543f581659d54bd14ccb2a818fd74e379bcc8cfe
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526189"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42058196"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Använd Azure storage-emulatorn för utveckling och testning
 
@@ -204,6 +204,12 @@ Följande skillnader gäller för tabellagring i emulatorn:
 Det finns inga skillnader som är specifika för kölagring i emulatorn.
 
 ## <a name="storage-emulator-release-notes"></a>Storage-emulatorn viktig information
+
+### <a name="version-57"></a>Version 5.7
+Ett fel som skulle orsaka en krasch om loggning har aktiverats har åtgärdats.
+
+### <a name="version-56"></a>Version 5.6
+* Storage-emulatorn har nu stöd för versionen 2018-03-28 storage-tjänster på Blob, Queue och Table service-slutpunkter.
 
 ### <a name="version-55"></a>Version 5.5
 * Storage-emulatorn har nu stöd för version 2017-11-09 storage-tjänster på Blob, Queue och Table service-slutpunkter.

@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: isacabe
-ms.openlocfilehash: e900b952ab9bb2054b9e4174670894027cdd2618
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 88ce34125009665d346cf034f5d02ba7e21f48fc
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969460"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42061131"
 ---
 # <a name="connect-mxchip-iot-devkit-az3166-to-the-iot-remote-monitoring-solution-accelerator"></a>Ansluta MXChip IoT DevKit AZ3166 till IoT-Remote Monitoring solution accelerator
 
@@ -139,12 +139,6 @@ Några sekunder bör din fysiska MX-Chip ändra färg på RGB ledde (nedan av A 
 
 ![Lampa MX-Chip](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-devkit-led.png)
 
-
-## <a name="change-device-id"></a>Ändra enhets-ID
-
-Du kan ändra enhets-ID i IoT Hub genom att följa [den här guiden](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/).
-
-
 ## <a name="problems-and-feedback"></a>Problem och feedback
 
 Om du får problem kan se [vanliga frågor och svar](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) eller kontakta oss från följande kanaler:
@@ -158,3 +152,4 @@ Nu när du har lärt dig hur du ansluter en enhet för DevKit till IoT-Lösnings
 
 * [Översikt över IoT-Lösningsacceleratorer](https://docs.microsoft.com/azure/iot-suite/)
 * [Anslut en enhet för MXChip IoT DevKit till programmet Microsoft IoT Central](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [IoT developer kit](https://microsoft.github.io/azure-iot-developer-kit/)

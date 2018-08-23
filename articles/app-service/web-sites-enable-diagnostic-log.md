@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 0eefb8ecb7c9641b3e025054f54e2b7cf97b94bd
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 37b11eea5c37103c0bc296a5f466658fbc77ed24
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39206011"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42054990"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för webbappar i Azure App Service
 ## <a name="overview"></a>Översikt
@@ -171,7 +171,7 @@ För att filtrera specifika loggtyper, till exempel HTTP, använder den **-sökv
 Använd parametern - ListPath om du vill se en lista över tillgängliga sökvägar.
 
 > [!NOTE]
-> Om du inte har installerat Azure PowerShell eller inte har konfigurerat den att använda din Azure-prenumeration, se [hur du använder Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Om du inte har installerat Azure PowerShell eller inte har konfigurerat den att använda din Azure-prenumeration, se [hur du använder Azure PowerShell](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 >
 >
 

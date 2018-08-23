@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 5d8fae7412bece631e6961fb92b7d87e308cc857
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 8bde1e8846dbaee957e2498ea4fae0c5cf79a913
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599222"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42057646"
 ---
 # <a name="os-patching-for-hdinsight"></a>OS-korrigering för HDInsight 
 Som en hanterad tjänst i Hadoop hand HDInsight tar om uppdatering av Operativsystemet för de underliggande virtuella datorer som används av HDInsight-kluster. Från och med 1 augusti 2016, har vi ändrat guest OS uppdatering principen för Linux-baserade HDInsight-kluster (version 3.4 och senare). Målet med den nya principen är att avsevärt minska antalet omstarter på grund av korrigeringar. Den nya principen fortsätter att korrigera virtuella datorer (VM) i Linux-kluster varje måndag eller torsdag kl. 12: 00 UTC på ett successiva sätt över noder i alla kluster. En viss virtuell dator startas dock endast högst en gång var 30: e dag på grund av guest OS-korrigering. Dessutom kan sker den första omstarten för ett nyskapat kluster inte tidigare än 30 dagar från det datum då skapa klustret. Korrigeringar börjar gälla när de virtuella datorerna startas om.
@@ -59,7 +59,7 @@ Om du använder skriptet som en del av klustret skapas, bevaras det automatiskt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-För vissa anvisningar om hur du använder skriptåtgärd, finns i följande avsnitt i den [anpassa Linuz-baserade HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md):
+För vissa anvisningar om hur du använder skriptåtgärd, finns i följande avsnitt i den [anpassa Linux-baserade HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md):
 
 * [Använda en skriptåtgärd när klustret skapas](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
 * [Använda en skriptåtgärd till ett kluster som körs](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)

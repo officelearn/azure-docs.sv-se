@@ -1,6 +1,6 @@
 ---
-title: Anropa slutpunkten med hjälp av C# - Bing anpassad sökning - Microsoft kognitiva Services
-description: Den här snabbstarten visar hur du begär sökresultatet från anpassad sökning-instans med C# för att anropa Bing anpassad sökning slutpunkten.
+title: Anropa slutpunkten med C# - Bing Custom Search - Microsoft Cognitive Services
+description: Den här snabbstarten visar hur du begär sökresultat från din anpassade Sökinstans med C# för att anropa anpassad sökning i Bing-slutpunkten.
 services: cognitive-services
 author: brapel
 manager: ehansen
@@ -9,32 +9,32 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: be4cc79d16b9a22124f16878b11ca04a916f98ae
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 87970e1c5e8487f9afca2acc680bdfeb610dc89f
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352857"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41987974"
 ---
-# <a name="call-bing-custom-search-endpoint-c"></a>Anropa Bing anpassad sökning slutpunkt (C#)
+# <a name="call-bing-custom-search-endpoint-c"></a>Anropa anpassad sökning i Bing slutpunkt (C#)
 
-Den här snabbstarten visar hur du begär sökresultatet från anpassad sökning-instans med C# för att anropa Bing anpassad sökning slutpunkten. 
+Den här snabbstarten visar hur du begär sökresultat från din anpassade Sökinstans med C# för att anropa anpassad sökning i Bing-slutpunkten. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
--  En instans av färdiga att använda anpassad sökning. Se [skapa din första Bing anpassad sökning instans](quick-start.md).
+-  En färdiga att använda anpassad Sökinstans. Se [skapar din första Bing Custom Search-instans](quick-start.md).
 -  [.NET core](https://www.microsoft.com/net/download/core) installerad.
-- En [kognitiva Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API: er för Bing Search**. Den [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) är tillräcklig för den här snabbstarten. Du måste åtkomstnyckel som tillhandahållits när du aktiverar din kostnadsfria utvärderingsversion eller du kan använda en betald prenumeration nyckel från instrumentpanelen i Azure.  
+- En [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API: er för Bing-sökresultat**. Den [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) är tillräcklig för den här snabbstarten. Du behöver åtkomstnyckel som tillhandahållits när du aktiverar din kostnadsfria utvärderingsversion eller du kan använda en betald prenumerationsnyckel från instrumentpanelen i Azure.  
 
   >[!NOTE]  
-  >Befintliga Bing anpassad sökning-kunder som har en preview-nyckel som etablerats på eller före den 15 oktober 2017 kommer att kunna använda sina nycklar tills 30 November 2017 eller tills de har förbrukat det maximala antalet frågor tillåts. Därefter kan behöver de för att migrera till den allmänt tillgängliga versionen på Azure. 
+  >Befintliga Bing Custom Search-kunder som har en förhandsversion av nyckel som etablerats på eller före den 15 oktober 2017 kommer att kunna använda sina nycklar till den 30 November 2017 eller tills de har förbrukat det maximala antalet frågor tillåts. Därefter måste de migrera till den allmänt tillgängliga versionen på Azure. 
  
 ## <a name="run-the-code"></a>Kör koden
 
 Följ dessa steg om du vill köra det här exemplet:
 
 1. Skapa en mapp för din kod.
-2. Navigera till mappen som du skapade från en kommandotolk eller terminal.
+2. Navigera till mappen som du nyss skapade från en kommandotolk eller terminal.
 3. Kör följande kommandon:
     ```
     dotnet new console -o BingCustomSearch
@@ -44,7 +44,7 @@ Följ dessa steg om du vill köra det här exemplet:
    ```
 
 4. Kopiera följande kod till Program.cs.
-5. Ersätt **din PRENUMERATION nyckel** och **din-anpassad-CONFIG-ID** med din nyckel och konfiguration-ID.
+5. Ersätt **YOUR-SUBSCRIPTION-KEY** och **YOUR-anpassad-CONFIG-ID** med din nyckel och configuration-ID.
 
     ``` CSharp
     using System;
@@ -119,15 +119,17 @@ Följ dessa steg om du vill köra det här exemplet:
     }
     ```
 6. Skapa programmet med följande kommando. Observera dll-sökväg som refereras av kommandoutdata.
+
     <pre>
     dotnet build 
     </pre>
-7. Kör programmet med hjälp av följande kommando ersätter **sökväg till utdata** med sökvägen refererar till build-steget.
+7. Kör programmet med följande kommando ersätter **SÖKVÄGEN till utdata** med sökvägen refererar till ett byggsteg.
+
     <pre>    
     dotnet **PATH TO OUTPUT**
     </pre>
 
 ## <a name="next-steps"></a>Nästa steg
 - [Konfigurera din värdbaserade användargränssnitt](./hosted-ui.md)
-- [Markera text med hjälp av decoration markörer](./hit-highlighting.md)
+- [Använda decoration markörer för att markera text](./hit-highlighting.md)
 - [Sidan webbsidor](./page-webpages.md)

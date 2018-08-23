@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/22/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: f54849b9fef8ff09aa9b5b6254c92fc3c452ef4a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 48e2f85488adfb776da5f52c154028f8aafb167a
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414433"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617029"
 ---
 # <a name="network-connectivity"></a>Nätverksanslutning
 Den här artikeln innehåller information om hur du bestämmer hur du integrerar Azure Stack bäst i din befintliga nätverksmiljö för Azure Stack nätverk infrastruktur. 
@@ -41,7 +41,7 @@ I följande tabell visas de logiska nätverken och associerade IPv4-undernät-in
 
 | Logiskt nätverk | Beskrivning | Storlek | 
 | -------- | ------------- | ------------ | 
-| Offentlig VIP | Azure Stack använder Totalt 32 adresser från det här nätverket. Åtta offentliga IP-adresser som används för en liten uppsättning Azure Stack-tjänster och resten som används av virtuella datorer. Om du planerar att använda App Service och SQL-resursprovidrar används 7 fler adresser. | / 26 (62 värdar) - /22 (1022 värdar)<br><br>Rekommenderade = /24 (254 värdar) | 
+| Offentlig VIP | Azure Stack använder Totalt 31 adresser från det här nätverket. Åtta offentliga IP-adresser som används för en liten uppsättning Azure Stack-tjänster och resten som används av virtuella datorer. Om du planerar att använda App Service och SQL-resursprovidrar används 7 fler adresser. Återstående 15 IP-adresserna är reserverade för framtida Azure-tjänster. | / 26 (62 värdar) - /22 (1022 värdar)<br><br>Rekommenderade = /24 (254 värdar) | 
 | Växeln infrastruktur | Point-to-Point IP-adresser för routningen, dedikerad växla hanteringsgränssnitt och loopback-adresser tilldelade till växeln. | /26 | 
 | Infrastruktur | Används för Azure Stack interna komponenter för att kommunicera. | /24 |
 | Privat | Används för nätverkslagring och privata virtuella IP-adresser. | /24 | 

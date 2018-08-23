@@ -1,6 +1,6 @@
 ---
-title: Kom igång med Analytics-portalen i Azure Log Analytics | Microsoft Docs
-description: Den här artikeln innehåller en självstudie för att skriva frågor i Log Analytics Analytics-portalen.
+title: Kom igång med Log Analytics-sidan i Azure portal | Microsoft Docs
+description: Den här artikeln innehåller en självstudie för att skriva frågor med Log Analytics-sidan.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 08/20/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 6f6916b27aa251bc0a0c25be060378c11faab607
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 493497476fdfe7d96d6f2dde735bab0147e547a7
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39635144"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42059686"
 ---
-# <a name="get-started-with-the-analytics-portal"></a>Kom igång med Analytics-portalen
+# <a name="get-started-with-the-log-analytics-page-in-the-azure-portal"></a>Kom igång med Log Analytics-sidan i Azure portal
 
-I den här självstudiekursen kommer du lära dig hur du använder Analytics-portalen för att skriva Azure Log Analytics-frågor. Det får du lära dig hur du:
+I den här självstudien kommer du lära dig hur du använder Log Analytics-sidan i Azure-portalen (för närvarande i förhandsversion) att skriva Log Analytics-frågor. Det får du lära dig hur du:
 
 - Skriva enkla frågor
 - Förstå schemat för dina data
@@ -35,12 +35,12 @@ I den här självstudiekursen kommer du lära dig hur du använder Analytics-por
 - Exportera och dela frågor
 
 
-## <a name="meet-the-analytics-portal"></a>Uppfyll Analytics-portalen
-Analytics-portalen är ett webbverktyg som används för att skriva och köra Azure Log Analytics-frågor. 
+## <a name="meet-the-log-analytics-page"></a>Uppfyll sidan Log Analytics 
+Sidan Log Analytics är ett webbverktyg som används för att skriva och köra Azure Log Analytics-frågor. Öppna den genom att välja **loggar (förhandsversion)** i Log Analytics-menyn. Det börjar med en ny tom fråga.
 
 ![Startsida](media/get-started-analytics-portal/homepage.png)
 
-Startsidan erbjuder enkel åtkomst till användbara resurser, till exempel senaste och sparade frågor och exempel. Öppna en ny flik för att börja skriva egna frågor.
+
 
 ## <a name="basic-queries"></a>Grundläggande frågor
 Frågor kan användas för att söka villkoren, identifiera trender, analysera mönster och ger många andra insikter utifrån dina data. Börja med en grundläggande fråga:
@@ -83,7 +83,7 @@ Börja med att hämta allt den _händelse_ tabell.
 Event
 ```
 
-Analytics-portalen scope automatiskt resultaten efter:
+Log Analytics-sidan scope automatiskt resultaten efter:
 
 - Tidsintervall: som standard frågorna är begränsade till den senaste 24 timmarna.
 - Antal resultat: resultatet är begränsad till högst 10 000 poster.
@@ -121,7 +121,7 @@ Resultattabellen innehåller ofta många kolumner. Du kanske upptäcker att viss
 
 
 ## <a name="select-a-time-range"></a>Välj ett tidsintervall
-Som standard analysportalen tillämpar den _senaste 24 timmarna_ tidsintervall. Om du vill använda ett annat intervall, Välj ett annat värde via tidsväljare och klicka på **kör**. Utöver de förinställda värdena kan du använda den _anpassat tidsintervall_ möjlighet att välja ett absolut adressintervall för din fråga.
+Som standard Log Analytics-sidan gäller den _senaste 24 timmarna_ tidsintervall. Om du vill använda ett annat intervall, Välj ett annat värde via tidsväljare och klicka på **kör**. Utöver de förinställda värdena kan du använda den _anpassat tidsintervall_ möjlighet att välja ett absolut adressintervall för din fråga.
 
 ![Tidsväljare](media/get-started-analytics-portal/time-picker.png)
 
@@ -131,7 +131,7 @@ Om frågan uttryckligen innehåller ett filter för _TimeGenerated_tidpunkten v�
 
 
 ## <a name="charts"></a>Diagram
-Dessutom returnerar resultat i en tabell, kan frågeresultat presenteras i visual format. Använd följande fråga som ett exempel:
+Förutom att returnera resultat i en tabell, kan frågeresultat presenteras i visual format. Använd följande fråga som ett exempel:
 
 ```OQL
 Event 
@@ -183,7 +183,7 @@ Query Explorer-ikonen visas i området längst upp till höger. Här visas alla 
 ![Frågeutforskaren](media/get-started-analytics-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>Exportera och dela som länk
-Analytics-portalen stöder flera exporterar metoder:
+Sidan Log Analytics har stöd för flera exporterar metoder:
 
 - Excel: Spara resultatet som en CSV-fil.
 - Powerbi: Exportera resultaten till power BI. Se [importera Azure Log Analytics-data till Power BI](../log-analytics-powerbi.md) mer information.

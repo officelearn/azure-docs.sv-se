@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bda1c4074db123294ffde39e5c4cd5494474ca38
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 2daa624dd7912d09f01e5bab5dc6de9cc14a771c
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076551"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42058188"
 ---
 # <a name="oracle-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Distribution av Oracle-DBMS i Azure virtuella datorer för SAP-arbetsbelastningar
 
@@ -311,7 +311,7 @@ ms.locfileid: "39076551"
 
 
 ## <a name="specifics-to-oracle-database"></a>Specifik information skrivs till Oracle-databas
-Oracle-programvara som stöds av Oracle ska köras på Microsoft Azure. Mer information om allmänna support från Windows Hyper-V och Azure kontrollerar du: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+Oracle-programvara som stöds av Oracle ska köras på Microsoft Azure. Mer information om allmänna support från Windows Hyper-V och Azure kontrollerar du: <http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html> 
 
 Följande allmänna support, den särskilda situationen av SAP-program att använda Oracle-databaser finns även stöd för. Information om namnges i dokumentet. Som en pr-läsning för det här dokumentet, bör du ha läsa dokumentet [överväganden för distribution av Azure virtuella datorer DBMS för SAP-arbetsbelastningar](dbms_guide_general.md) samt de andra guiderna i den [SAP-arbetsbelastningar på Azure-dokumentation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
 
@@ -384,7 +384,7 @@ För distribution av Oracle på Windows, rekommenderas att använda Azure-funkti
 Andra allmänna områden som Azure-Tillgänglighetsuppsättningar eller SAP övervakning gäller enligt beskrivningen i dokumentet [överväganden för distribution av Azure virtuella datorer DBMS för SAP-arbetsbelastningar](dbms_guide_general.md) för distributioner av virtuella datorer med Oracle-databasen som bra.
 
 ## <a name="specifics-to-oracle-database-on-oracle-linux"></a>Specifik information skrivs till Oracle-databas i Oracle Linux
-Oracle-programvara som stöds av Oracle ska köras på Microsoft Azure med Oracle Linux som gästoperativsystem. Mer information om allmänna support från Windows Hyper-V och Azure kontrollerar du: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+Oracle-programvara som stöds av Oracle ska köras på Microsoft Azure med Oracle Linux som gästoperativsystem. Mer information om allmänna support från Windows Hyper-V och Azure kontrollerar du: <http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html> 
 
 Följande allmänna support, den särskilda situationen av SAP-program att använda Oracle-databaser finns även stöd för. Information om namnges i den här delen av dokumentet.
 

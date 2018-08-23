@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 22751d7ab38717fefdebe107e7a7d6fc10dda4c4
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 39ae4573b4c447253c4c90a3845a087434dcd77a
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39326198"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056465"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Förhandskrav för Azure AD Connect
 Det här avsnittet beskriver kraven och maskinvarukrav för Azure AD Connect.
@@ -33,7 +33,7 @@ Innan du installerar Azure AD Connect, finns det några saker som du behöver.
   * Du kan också använda den [Azure-portalen](https://portal.azure.com). Den här portalen kräver inte en Azure AD-licens.
 * [Lägga till och verifiera domänen](../active-directory-domains-add-azure-portal.md) du planerar att använda i Azure AD. Om du planerar att använda contoso.com för dina användare och sedan kontrollera att den här domänen har verifierats och du bara använder inte standarddomän contoso.onmicrosoft.com.
 * En Azure AD-klient kan som 50k-standardobjekt. När du verifierar din domän, ökat gränsen på 300 kB-objekt. Om du behöver ännu fler objekt i Azure AD, måste du öppna ett supportärende om du vill att den har höjts ytterligare. Om du behöver fler än 500 k-objekt kan behöver du en licens, till exempel Office 365, Azure AD Basic, Azure AD Premium eller Enterprise Mobility and Security.
-* ADSyncPrep är en modul för PowerShell-skript som innehåller funktioner som används för att förbereda Active Directory-miljön för Azure AD Connect.  ADSyncPrep kräver den [Azure AD Microsoft Online v1.1 PowerShell-modulen](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).  Version 2 fungerar inte.  Du kan installera modulen med hjälp av den `Install-Module` cmdlet.  Mer information finns i länken.
+* ADSyncPrep är en modul för PowerShell-skript som innehåller funktioner som används för att förbereda Active Directory-miljön för Azure AD Connect.  ADSyncPrep kräver den [Azure AD Microsoft Online v1.1 PowerShell-modulen](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).  Version 2 fungerar inte. Du kan installera modulen med hjälp av den `Install-Module` cmdlet.  Mer information finns i länken.
 
 ### <a name="prepare-your-on-premises-data"></a>Förbereda dina lokala data
 * Använd [reparationsverktyg](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) identifiera fel, till exempel dubbletter och formateringsproblem i katalogen innan du synkroniserar till Azure AD och Office 365.

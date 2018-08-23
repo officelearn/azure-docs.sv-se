@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: c1e6e67ba7a1321ce58fbd58c173fa63dfa385e0
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: d86f60c3d7ed28f435c2514e1ab77594079b399a
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715819"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42061104"
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Utveckla en avbildning av en lokal virtuell dator för Azure Marketplace
 Vi rekommenderar starkt att du utvecklar Azure virtuella hårddiskar (VHD) direkt i molnet genom att använda Remote Desktop Protocol. Om du måste går det att ladda ned en virtuell Hårddisk och utveckla med hjälp av den lokala infrastrukturen.  
@@ -113,11 +113,11 @@ Om du vill skapa ett lagringskonto som du kan använda den [Microsoft Azure-port
   ![Rita](media/marketplace-publishing-vm-image-creation-on-premise/img10.png)
 
 ### <a name="create-a-storage-account-by-using-powershell"></a>Skapa ett lagringskonto med hjälp av PowerShell
-Med hjälp av PowerShell, skapa ett lagringskonto med hjälp av den [New-AzureStorageAccount](http://msdn.microsoft.com/library/dn495115.aspx) cmdlet.
+Med hjälp av PowerShell, skapa ett lagringskonto med hjälp av den [New-AzureStorageAccount](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure/new-azurestorageaccount) cmdlet.
 
         New-AzureStorageAccount -StorageAccountName “mystorageaccount” -Location “West US”
 
-Därefter kan du skapa en behållare i det lagringskontot med hjälp av den [NewAzureStorageContainer](http://msdn.microsoft.com/library/dn495291.aspx) cmdlet.
+Därefter kan du skapa en behållare i det lagringskontot med hjälp av den [New-AzureStorageContainer](https://docs.microsoft.com/en-us/powershell/module/azure.storage/new-azurestoragecontainer) cmdlet.
 
         New-AzureStorageContainer -Name “containername” -Permission “Off”
 

@@ -4,7 +4,7 @@ description: Den här dokumentet beskriver post konfigurationsuppgifter som beh�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: samueld
+manager: mtillman
 editor: billmath
 ms.assetid: ''
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9949275b18206ca66f38bab036337a00fdde6ee5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 05cb6d10a7e4269cbe5f9c97ef70cd9eb5a4d68e
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916555"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056777"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Publicera konfigurationsuppgifter för Hybrid Azure AD-anslutning
 
@@ -62,7 +62,7 @@ Om din organisation använder en federationstjänst för att logga in på Azure 
 
 ## <a name="6-enable-azure-ad-seamless-sso-for-windows-down-level-devices"></a>6. Aktivera Azure AD sömlös enkel inloggning för Windows äldre enheter
 
-Om din organisation använder Hashsynkronisering för lösenord eller direktautentisering för att logga in på Azure AD, Aktivera sömlös enkel inloggning för den Azure AD med den metoden för autentisering av Windows äldre enheter: https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso. 
+Om din organisation använder Hashsynkronisering för lösenord eller direktautentisering för att logga in på Azure AD, Aktivera sömlös enkel inloggning för den Azure AD med den metoden för autentisering av Windows äldre enheter: https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso. 
 
 ## <a name="7-set-azure-ad-policy-for-windows-down-level-devices"></a>7. Skapa Azure AD-princip för Windows äldre enheter
 
@@ -81,7 +81,7 @@ Om du använder [sömlös SSO](https://aka.ms/hybrid/sso), samt aktivera ”Till
 
 ## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9. Installera Microsoft Workplace Join på Windows äldre enheter
 
-Det här installationsprogrammet skapar en schemalagd aktivitet på enhetssystemet som körs i användarens kontext. Aktiviteten utlöses när användaren loggar in på Windows. Uppgiften kopplar tyst enhet med Azure AD med autentiseringsuppgifterna för användaren när de har autentiserat med integrerad Windows-autentisering. Download center finns på https://www.microsoft.com/en-us/download/details.aspx?id=53554. 
+Det här installationsprogrammet skapar en schemalagd aktivitet på enhetssystemet som körs i användarens kontext. Aktiviteten utlöses när användaren loggar in på Windows. Uppgiften kopplar tyst enhet med Azure AD med autentiseringsuppgifterna för användaren när de har autentiserat med integrerad Windows-autentisering. Download center finns på https://www.microsoft.com/download/details.aspx?id=53554. 
 
 ## <a name="10-configure-group-policy-to-allow-device-registration"></a>10. Konfigurera en grupprincip för att tillåta registrering av enheten
 

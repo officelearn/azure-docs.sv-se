@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/14/2018
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: edf0b52e5889fe8fa875de65fcaa8c2a22df1a7f
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 9245e85781482a3aa1e45333d8e8a748983675b6
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590757"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42055981"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Ska jag använda v2.0-slutpunkten?
 
@@ -101,6 +101,7 @@ Stöd för v2.0-slutpunkten är för närvarande begränsad. Om du vill använda
 * Om du skapar ett skrivbord eller mobila program kan använda du en av förhandsversionen av Microsoft Authentication Libraries (MSAL). Dessa bibliotek finns i en förhandsversion av produktion som stöds, så det är säkert att använda dem i produktionsprogram. Du kan läsa mer om villkoren för förhandsversionen och tillgängliga bibliotek i [autentisering bibliotek referens](reference-v2-libraries.md).
 * För plattformar som inte omfattas av Microsoft-bibliotek, kan du integrera med v2.0-slutpunkten genom att skicka och ta emot protokollmeddelanden i din programkod direkt. Protokollen v2.0 OpenID Connect och OAuth [dokumenteras uttryckligen](active-directory-v2-protocols.md) för att utföra en sådan integration.
 * Slutligen kan du använda öppna ID Connect och OAuth bibliotek med öppen källkod för integrering med v2.0-slutpunkten. V2.0-protokollet ska vara kompatibel med många bibliotek för öppen källkod-protokollet utan större ändringar. Dessa typer av bibliotek varierar efter språk och plattform. Den [öppna ID Connect](http://openid.net/connect/) och [OAuth 2.0](http://oauth.net/2/) webbplatser underhålla en lista över populära implementeringar. Mer information finns i [Azure Active Directory v2.0 och autentisering bibliotek](reference-v2-libraries.md), och en lista över klientbibliotek med öppen källkod och exempel som har testats med v2.0-slutpunkten.
+  * För referens anger den `.well-known` slutpunkten för vanliga v2.0-slutpunkten är `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` .  Ersätt `common` med klient-ID för att hämta data som är specifika för din klient.  
 
 ## <a name="restrictions-on-protocols"></a>Begränsningar för protokoll
 
@@ -109,7 +110,6 @@ V2.0-slutpunkten har inte stöd för SAML eller WS-Federation Det stöder bara �
 Följande protokoll-funktionerna och egenskaperna för närvarande är *inte tillgänglig* i v2.0-slutpunkten:
 
 * För närvarande den `email` anspråk returneras bara om ett valfritt anspråk har konfigurerats och är omfånget = e-post har angetts i begäran. Det här beteendet ändras när v2.0-slutpunkten uppdateras för att uppfylla ytterligare öppna ID Connect och OAuth2.0-standarder.
-* OpenID Connect användarinformationen slutpunkten har inte implementerats på v2.0-slutpunkten. Men alla data för användarprofiler som potentiellt skulle visas i den här slutpunkten är tillgänglig från Microsoft Graph `/me` slutpunkt.
 * V2.0-slutpunkten har inte stöd för utfärdande roll eller grupp anspråk i ID-token.
 * Den [OAuth 2.0 Resource ägare lösenord klientautentiseringsuppgifter](https://tools.ietf.org/html/rfc6749#section-4.3) stöds inte av v2.0-slutpunkten.
 

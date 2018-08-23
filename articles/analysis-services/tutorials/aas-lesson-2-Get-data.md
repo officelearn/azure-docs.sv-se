@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e10f6cdb60a2c03bfb42e46f179546b623d625dd
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5803bf2c71b2cf3fe7bb145b4d3d664c60642294
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443774"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42058517"
 ---
 # <a name="get-data"></a>Hämta data
 
@@ -52,11 +52,11 @@ Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör s
   
 5.  I navigatören markerar du databasen **AdventureWorksDW2014** och klickar sedan på **OK**. Då skapas en anslutning till databasen. 
   
-6.  I navigatören markerar du kryssrutorna för följande tabeller: **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory** och **FactInternetSales**.  
+6.  I Navigatören markerar du kryssrutan för följande tabeller: **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**,  **DimProductCategory**, **DimProductSubcategory**, och **FactInternetSales**, och klicka sedan på **redigera**.
 
     ![aas-lesson2-select-tables](../tutorials/media/aas-lesson2-select-tables.png)
   
-När du klickar på OK öppnas frågeredigeraren. I nästa avsnitt väljer du endast de data som du vill importera.
+    Frågeredigeraren öppnas. I nästa avsnitt väljer du endast de data som du vill importera.
 
   
 ## <a name="filter-the-table-data"></a>Filtrera tabelldata  

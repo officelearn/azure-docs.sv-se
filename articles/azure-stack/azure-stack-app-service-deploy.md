@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 08/15/2018
 ms.author: anwestg
-ms.openlocfilehash: 22593fc470325fbfb74cfb432207abeea7d96ac2
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 9173dfcbb5f73c2292bce7d28c2dae5dbece79cd
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342792"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42059573"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Lägga till en App Service-resursprovider i Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "37342792"
 Använd informationen i den här artikeln för att distribuera App Service i Azure Stack.
 
 >[!IMPORTANT]  
->Uppdateringen är 1804 integrerade Azure Stack-system eller distribuera den senaste Azure Stack Development Kit (ASDK) innan du distribuerar Azure App Service 1.2.
+>Uppdateringen är 1807 integrerade Azure Stack-system eller distribuera den senaste Azure Stack Development Kit (ASDK) innan du distribuerar Azure App Service 1.3.
 
 Du kan ge användarna möjlighet att skapa webbprogram och API: et. Om du vill låta användarna skapa dessa program, måste du:
 
@@ -131,6 +131,18 @@ Distribuera App Service-resursprovider genom att följa dessa steg:
 
     > [!NOTE]
     > Ett försök görs att testa anslutningen till SQL Server innan du fortsätter. Men om du distribuerar till ett befintligt virtuellt nätverk, du kan rapportera det här anslutningstestet. Du får en varning och en fråga för att fortsätta. Om SQL Server-information är korrekt kan du fortsätta med distributionen.
+    >
+    > Installationsprogrammet kommer från Azure App Service i Azure Stack-1.3 och senare kontrollera att SQL Server har databas inneslutning aktiverad på SQL Server-nivå.  Om det inte är det, uppmanas du att följande undantag:
+    > ```sql
+    >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
+    >    ***********************************************************
+    >    sp_configure 'contained database authentication', 1;  
+    >    GO  
+    >    RECONFIGURE;  
+    >    GO
+    >    ***********************************************************
+    > ```
+    > Referera till den [viktig information för Azure App Service i Azure Stack 1.3](azure-stack-app-service-release-notes-update-three.md) för mer information.
 
     ![App Service-installationsprogrammet][11]
 

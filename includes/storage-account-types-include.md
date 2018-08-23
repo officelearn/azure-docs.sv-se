@@ -1,3 +1,20 @@
+---
+title: ta med fil
+description: ta med fil
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 08/20/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: f60c23e34962396d4ea6e030912d1ca3f3e4571b
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40260452"
+---
 Det finns två typer av lagringskonton:
 
 ### <a name="general-purpose-storage-accounts"></a>Allmänna lagringskonton
@@ -25,5 +42,5 @@ Mer information om Blob-lagringskonton finns i [Azure Blob Storage: frekvent och
 
 Innan du kan skapa ett lagringskonto, måste du ha en Azure-prenumeration, som är en plan vilken ger dig tillgång till en mängd olika Azure-tjänster. Du kan komma igång med Azure med ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/). När du väl bestämt dig att köpa ett prenumerationsavtal, kan du välja från en rad olika [köpalternativ](https://azure.microsoft.com/pricing/purchase-options/). Om du är en [MSDN-prenumerant](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), får du kostnadsfria, månatliga krediter som kan användas med Azure-tjänster, inklusive Azure Storage. Se [Azure Storage-priser ](https://azure.microsoft.com/pricing/details/storage/) för information om volympriser.
 
-Se [Skapa ett lagringskonto](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account) för mer information om hur du skapar ett lagringskonto. Du kan skapa upp till 200 unikt namngivna lagringskonton med en enda prenumeration. Se [Skalbarhets- och prestandamål för Azure Storage](../articles/storage/common/storage-scalability-targets.md) för information om begränsningar för lagringskonton.
+Se [Skapa ett lagringskonto](../articles/storage/common/storage-quickstart-create-account.md) för mer information om hur du skapar ett lagringskonto. Du kan skapa upp till 200 unikt namngivna lagringskonton med en enda prenumeration. Se [Skalbarhets- och prestandamål för Azure Storage](../articles/storage/common/storage-scalability-targets.md) för information om begränsningar för lagringskonton.
 

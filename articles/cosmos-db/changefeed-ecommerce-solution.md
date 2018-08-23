@@ -9,18 +9,18 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 21f63ebcca4b766f8df8c7b2390c4f44ff4dc7b1
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: d2c4c890e1a1599e68fba1a0728061ec244f382f
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40099963"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42054801"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Använd Azure Cosmos DB-ändringsflödet att visualisera analyser av realtidsdata
 
 Azure Cosmos DB-ändringsflödet är en mekanism för att hämta en kontinuerlig och inkrementella feed med poster från en Azure Cosmos DB-behållare som de posterna som ska skapas eller ändras. Ändra feed support fungerar genom att lyssna på behållare efter ändringar. Sedan returnerar den sorterade listan över dokument som har ändrats i den ordning som de har ändrats. Läs mer om ändringsfeed i [arbeta med ändringsflödet](change-feed.md) artikeln. 
 
-Den här artikeln beskrivs hur ändringsfeed kan användas av en retail-företag att förstå användarmönster, utföra dataanalys i realtid och visualisering. Du kan analysera händelser, t.ex en användare visa ett objekt, att lägga till ett objekt i deras kundvagn eller köpa ett objekt. När något av dessa händelser inträffar, en ny post skapas och ändringsfeed loggar som registrerar. Ändringsfeed sedan utlösare en serie steg, vilket resulterar i visualisering av mått som analyserar företagets prestanda och aktivitet. Som du kan visualisera måttexempel intäkter, unika besökare, mest populära objekt och genomsnittspriset för de objekt som visas och lagts till i kundvagnen och har köpt. De här måtten exempel kan ett e-handel företag utvärdera dess plats popularitet, utveckla dess reklam och priser strategier och fatta beslut rörande vilka lager ni ska investera i.
+Den här artikeln beskrivs hur ändringsfeed kan användas av en e-handel företag att förstå användarmönster, utföra dataanalys i realtid och visualisering. Du kan analysera händelser, t.ex en användare visa ett objekt, att lägga till ett objekt i deras kundvagn eller köpa ett objekt. När något av dessa händelser inträffar, en ny post skapas och ändringsfeed loggar som registrerar. Ändringsfeed sedan utlösare en serie steg, vilket resulterar i visualisering av mått som analyserar företagets prestanda och aktivitet. Som du kan visualisera måttexempel intäkter, unika besökare, mest populära objekt och genomsnittspriset för de objekt som visas och lagts till i kundvagnen och har köpt. De här måtten exempel kan ett e-handel företag utvärdera dess plats popularitet, utveckla dess reklam och priser strategier och fatta beslut rörande vilka lager ni ska investera i.
 
 Intresserad av att titta på en video om lösningen innan du börjar, se följande video:
 
@@ -315,7 +315,7 @@ Powerbi är en uppsättning verktyg för Företagsanalys att analysera data och 
    * För intäkter, skulle det vara klokt att göra ett linjediagram med tiden som axeln och summan av priserna som värde. Tidsfönster att visa bör vara det största möjligt för att kunna leverera så mycket information som möjligt.  
    * Det skulle vara klokt att göra en kortvisualisering med antalet unika besökare som värde för unika besökare.
 
-   Detta är hur vår instrumentpanel ser ut med dessa diagram:
+   Det här är utseendet för ett exempel på en instrumentpanel med dessa diagram:
 
    ![visualiseringar](./media/changefeed-ecommerce-solution/visualizations.png)
 

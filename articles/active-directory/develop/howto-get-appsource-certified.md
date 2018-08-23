@@ -13,46 +13,51 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/03/2017
+ms.date: 08/21/2018
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 83436fe7f47c156f70995d66922e9fc0564ef872
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: a2876ccdfe073a3c642304a1381faf77ae4a7d90
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39601950"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42060356"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Så här hämtar du AppSource-certifierat för Azure Active Directory
+
 [Microsoft AppSource](https://appsource.microsoft.com/) är ett mål för företagsanvändare att identifiera, testa och hantera line-of-business SaaS-program (fristående SaaS och tillägg till befintliga Microsoft SaaS-produkter).
 
-Om du vill visa en fristående SaaS-program på AppSource, måste programmet godkänna enkel inloggning från arbetskonton från alla företag eller organisation som har Azure Active Directory. Logga in igen måste använda den [OpenID Connect](v1-protocols-openid-connect-code.md) eller [OAuth 2.0](v1-protocols-oauth-code.md) protokoll. SAML-integrering är inte godkänd för AppSource-certifiering.
+Om du vill visa en fristående SaaS-program på AppSource, måste programmet godkänna enkel inloggning från arbetskonton från alla företag eller organisation som har Azure Active Directory (AD Azure). Logga in igen måste använda den [OpenID Connect](v1-protocols-openid-connect-code.md) eller [OAuth 2.0](v1-protocols-oauth-code.md) protokoll. SAML-integrering är inte godkänd för AppSource-certifiering.
 
 ## <a name="guides-and-code-samples"></a>Guider och kodexempel
-Om du vill lära dig om hur du integrerar ditt program med Azure Active Directory med öppna ID connect, följa våra guider och kodexempel i den [Utvecklarhandbok för Azure Active Directory](azure-ad-developers-guide.md#get-started "Kom igång med Azure AD för utvecklare").
+
+Om du vill lära dig om hur du integrerar ditt program med Azure AD med öppna ID connect, följa våra guider och kodexempel i den [Utvecklarhandbok för Azure Active Directory](azure-ad-developers-guide.md#get-started "Kom igång med Azure AD för utvecklare").
 
 ## <a name="multi-tenant-applications"></a>Program för flera innehavare
 
-Ett program som stöder inloggningar från användare från alla företag eller din organisation som har Azure Active Directory utan en separat instans, konfiguration eller distribution kallas en *program med flera innehavare*. AppSource rekommenderar att implementera program med flera innehavare för att aktivera den *klickar du på* kostnadsfria utvärderingsversionen.
+En *program med flera innehavare* är ett program som accepterar inloggningar från användare från alla företag eller din organisation som har Azure AD utan att kräva en separat instans, konfiguration och distribution. AppSource rekommenderar att implementera program med flera innehavare för att aktivera den *klickar du på* kostnadsfria utvärderingsversionen.
 
-För att aktivera flera innehavare för ditt program:
-- Ange `Multi-Tenanted` egenskap `Yes` på din programregistrering informationen i den [Azure-portalen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) (som standard konfigureras program som har skapats i Azure Portal som *enda klient*)
-- Uppdatera koden för att skicka begäranden till den '`common`' slutpunkt (uppdatera slutpunkten från *https://login.microsoftonline.com/{yourtenant}* till *https://login.microsoftonline.com/common*)
-- För vissa plattformar, t.ex. ASP.NET, måste du också uppdatera koden för att godkänna flera certifikatutfärdare
+Följ dessa steg om du vill aktivera flera innehavare för ditt program:
+1. Ange `Multi-Tenanted` egenskap `Yes` på din programregistrering informationen i den [Azure-portalen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). Som standard konfigureras program som har skapats i Azure-portalen som  *[enda klient](#single-tenant-applications)*.
+1. Uppdatera koden för att skicka begäranden till den `common` slutpunkt. Gör detta genom att uppdatera slutpunkten från `https://login.microsoftonline.com/{yourtenant}` till `https://login.microsoftonline.com/common*`.
+1. För vissa plattformar som ASP .NET, måste du också att uppdatera koden för att godkänna flera utfärdare.
 
-Läs mer om flera innehavare: [så här loggar du in alla Azure Active Directory (AD)-användare med programmönstret för flera innehavare](howto-convert-app-to-be-multi-tenant.md).
+Läs mer om flera innehavare, [så här loggar du in alla Azure Active Directory (Azure AD)-användare med programmönstret för flera innehavare](howto-convert-app-to-be-multi-tenant.md).
 
 ### <a name="single-tenant-applications"></a>Enda klient program
-Program som bara godkänna inloggningar från användare av en definierad Azure Active Directory-instans kallas *enda klient programmet*. Externa användare (inklusive arbete eller skola konton från andra organisationer eller personligt konto) kan logga in i en enda klient program när du lägger till varje användare som *gästkontot* till Azure Active Directory-instans som den programmet har registrerats. Du kan lägga till användare som gästkonton till en Azure Active Directory via den [ *Azure AD B2B-samarbete* ](../b2b/what-is-b2b.md) - och det kan göras [programmässigt](../../active-directory-b2c/code-samples.md). När du lägger till en användare som gästkontot till en Azure Active Directory, skickas ett e-postinbjudan till den användare som har att tacka ja till inbjudan genom att klicka på länken i e-postinbjudan. Inbjudningar som skickas till en ytterligare användare i en organisationen som bjuder in som också är medlem i partnerorganisationen behöver inte acceptera inbjudan för att logga in.
 
-Enda klient program kan du aktivera den *kontakta mig* upplevelse, men om du vill aktivera enkelklickning / kostnadsfria utvärderingen som AppSource rekommenderar aktivera flera innehavare för ditt program i stället.
+En *enda klient programmet* är ett program som accepterar endast inloggningar från användare av en definierad Azure AD-instans. Externa användare (inklusive arbets- eller skolkonton från andra organisationer eller personliga konton) kan logga in på en enda klient programmet när du lägger till varje användare som ett gästkonto i Azure AD-instans att programmet har registrerats. 
 
+Du kan lägga till användare som gästkonton till Azure AD via den [Azure AD B2B-samarbete](../b2b/what-is-b2b.md) och du kan göra detta [programmässigt](../../active-directory-b2c/code-samples.md). När du använder B2B, kan användare skapa en självbetjäningsportal som inte kräver en inbjudan att logga in. Mer information finns i [självbetjäningsportalen för Azure AD B2B-samarbete registrering](https://docs.microsoft.com/azure/active-directory/b2b/self-service-portal).
+
+Enda klient program kan du aktivera den *kontakta mig* upplevelse, men om du vill aktivera den enda Klicka/kostnadsfria utvärderingsversionen som AppSource rekommenderar aktivera flera innehavare för ditt program i stället.
 
 ## <a name="appsource-trial-experiences"></a>AppSource utvärderingsversion upplevelser
 
 ### <a name="free-trial-customer-led-trial-experience"></a>Kostnadsfri utvärderingsversion (kund-ledda utvärderingsversionen) 
-Den *ledda av kunden utvärderingsversion* är den upplevelse som AppSource rekommenderar som den erbjuder ett enda musklick åtkomst till programmet. Under en illustration av hur den här upplevelsen ser ut:<br/><br/>
+
+Utvärderingsversionen av ledda av kunden är den upplevelse som AppSource rekommenderar som den erbjuder ett enda musklick åtkomst till programmet. Under en illustration av hur den här upplevelsen ser ut:<br/><br/>
 
 <table >
 <tr>
@@ -68,7 +73,8 @@ Den *ledda av kunden utvärderingsversion* är den upplevelse som AppSource reko
 </table>
 
 ### <a name="contact-me-partner-led-trial-experience"></a>Kontakta mig (partnerledd utvärderingsversion experience)
-Den *partner utvärderingsversionen* kan användas när en manuell eller en långsiktig åtgärd som ska hända att etablera användaren / företaget: till exempel programmet behöver för att etablera virtuella datorer, databasinstanser eller åtgärder som tar lång tid att slutföra. I det här fallet när användaren väljer den *begär utvärderingsversion* knappen och fyller i ett formulär, skickar AppSource användarens kontaktinformation. Vid mottagning av den här informationen kan du sedan etablera miljön och skicka instruktionerna för användaren på hur du kommer åt utvärderingen:<br/><br/>
+
+Du kan använda utvärderingsversionen för partner när en manuell eller en långsiktig åtgärd som ska hända att etablera användare/företaget – till exempel ditt program behöver etablera virtuella datorer, databasinstanser eller åtgärder som tar lång tid att slutföra. I det här fallet när användaren väljer den **begär utvärderingsversion** knappen och fyller i ett formulär, skickar AppSource användarens kontaktinformation. När du får den här informationen kan du sedan etablera miljön och skicka instruktionerna för användaren på hur du kommer åt utvärderingen:<br/><br/>
 
 <table valign="top">
 <tr>
@@ -101,17 +107,18 @@ Den *partner utvärderingsversionen* kan användas när en manuell eller en lån
 </table>
 
 ### <a name="more-information"></a>Mer information
+
 Läs mer om AppSource utvärderingen [videon](https://aka.ms/trialexperienceforwebapps). 
  
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om hur du skapar program som stöder Azure Active Directory-inloggningar finns i [Autentiseringsscenarier för Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios) 
-
+- Mer information om hur du skapar program som stöder Azure AD-inloggningar finns i [autentiseringsscenarier för Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 - Information om hur du lista dina SaaS-program i AppSource, gå finns i [AppSource partnerinformation](https://appsource.microsoft.com/partners)
 
 
-## <a name="get-support"></a>Support
-Azure Active Directory-integrering, använder vi [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource) till communityn för att tillhandahålla stöd för. 
+## <a name="get-support"></a>Få support
+
+Azure AD-integrering, använder vi [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource) till communityn för att tillhandahålla stöd för. 
 
 Vi rekommenderar starkt att du först ställa dina frågor i Stack Overflow och bläddra bland befintliga problem om du vill se om någon har bett din fråga innan. Se till att dina frågor eller kommentarer är märkta med [ `[azure-active-directory]` och `[appsource]` ](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 

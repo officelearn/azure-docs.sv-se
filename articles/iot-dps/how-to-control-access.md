@@ -8,20 +8,20 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: wesmc
-ms.openlocfilehash: b4776ef3589d994fff692e450d252c491c20f7b2
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4751a76c39060f48d3b816ecee0de5b58e29bdaa
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522874"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42058214"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Kontrollera åtkomst till Azure IoT Hub Device Provisioning-tjänsten
 
-Den här artikeln beskrivs alternativ för att skydda din IoT device provisioning-tjänsten. Provisioning-tjänsten använder *behörigheter* att bevilja åtkomst till varje slutpunkt. Användarbehörigheter begränsar åtkomsten till en tjänstinstans som baseras på funktionen.
+Den här artikeln beskrivs alternativ för att skydda IoT Device Provisioning-tjänsten. Provisioning-tjänsten använder *behörigheter* att bevilja åtkomst till varje slutpunkt. Användarbehörigheter begränsar åtkomsten till en tjänstinstans som baseras på funktionen.
 
 Den här artikeln beskrivs:
 
-* De olika behörigheter som du kan bevilja en backend-appen får åtkomst till din etableringstjänst.
+* De olika behörigheter som du kan bevilja en backend-app för att få åtkomst till din etableringstjänst.
 * Autentiseringen och token som används för att kontrollera behörigheterna.
 
 ### <a name="when-to-use"></a>När du ska använda detta
@@ -34,7 +34,7 @@ Du kan bevilja [behörigheter](#device-provisioning-service-permissions) på fö
 
 * **Delad åtkomst auktoriseringsprinciper**. Principer för delad åtkomst kan ge olika kombinationer av [behörigheter](#device-provisioning-service-permissions). Du kan definiera principer i den [Azure-portalen][lnk-management-portal], eller via programmering med hjälp av den [Device Provisioning Service REST API: er][lnk-resource-provider-apis]. En nyligen skapade etableringstjänst har standardprincipen för följande:
 
-  * **provisioningserviceowner**: princip med alla behörigheter.
+   **provisioningserviceowner**: princip med alla behörigheter.
 
 > [!NOTE]
 > Se [behörigheter](#device-provisioning-service-permissions) detaljerad information.
@@ -51,12 +51,16 @@ Mer information om hur du skapar och använder säkerhetstoken finns i nästa av
 HTTP är det enda protokollet som stöds och den implementerar autentisering genom att inkludera en giltig token i den **auktorisering** huvudet i begäran.
 
 #### <a name="example"></a>Exempel
-`SharedAccessSignature sr=mydps.azure-devices-provisioning.net&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501&skn=provisioningserviceowner`
+```csharp
+SharedAccessSignature sr = 
+   mydps.azure-devices-provisioning.net&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501&skn=provisioningserviceowner`\
+```
 
 > [!NOTE]
 > Den [Azure IoT Device Provisioning Service SDK] [ lnk-sdks] automatiskt generera token när du ansluter till tjänsten.
 
 ## <a name="security-tokens"></a>Säkerhetstoken
+
 Device Provisioning-tjänsten använder säkerhetstoken för att autentisera tjänster för att undvika att skicka nycklarna för anslutningen. Dessutom begränsas säkerhetstoken i giltighetstid och omfång. [Azure IoT Device Provisioning Service SDKs] [ lnk-sdks] automatiskt generera token utan någon specialkonfiguration. Vissa scenarier kräver att du kan skapa och använda säkerhetstoken direkt. Sådana scenarier är direkt användning av HTTP-angrepp.
 
 ### <a name="security-token-structure"></a>Token säkerhetsstruktur
@@ -131,7 +135,6 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 > [!NOTE]
 > Eftersom token giltighetstid har verifierats på IoT Device Provisioning Service-datorer kan måste drift på klockan på den dator som genererar token vara minimal.
 
-
 ### <a name="use-security-tokens-from-service-components"></a>Använda säkerhetstoken från tjänstkomponenter
 
 Tjänstkomponenter kan bara generera säkerhetstoken med hjälp av principer för delad åtkomst som beviljar behörighet enligt beskrivningen ovan.
@@ -150,9 +153,9 @@ Exempelvis en tjänst som genereras med hjälp av en skapats i förväg delad å
 * resurs-URI: `{mydps}.azure-devices-provisioning.net`,
 * nyckel för signeringscertifikatet: en av nycklarna för den `enrollmentread` principen
 * Principnamn: `enrollmentread`,
-* helst upphör att gälla.
+* alla time.backn upphör att gälla
 
-![Skapa en princip för delad åtkomst för DPS-instansen i portalen][img-add-shared-access-policy]
+![Skapa en princip för delad åtkomst för Device Provisioning-tjänstinstans i portalen][img-add-shared-access-policy]
 
 ```nodejs
 var endpoint ="mydps.azure-devices-provisioning.net";
@@ -170,7 +173,7 @@ Resultatet, vilket skulle ge åtkomst för att läsa alla registreringsposter, s
 
 Följande referens ger dig mer information om hur du styr åtkomst till din IoT Device Provisioning-tjänsten.
 
-## <a name="device-provisioning-service-permissions"></a>Behörigheter för Device Provisioning-tjänsten
+### <a name="device-provisioning-service-permissions"></a>Behörigheter för Device Provisioning-tjänsten
 
 I följande tabell visas de behörigheter som du kan använda för att styra åtkomsten till IoT Device Provisioning-tjänsten.
 

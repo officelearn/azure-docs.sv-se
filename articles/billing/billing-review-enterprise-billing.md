@@ -1,5 +1,5 @@
 ---
-title: Granska Azure enterprise-registrering fakturering data med REST API | Microsoft Docs
+title: Granska Azure enterprise-registrering faktureringsdata med REST API | Microsoft Docs
 description: 'Lär dig hur du använder Azure REST API: er för att granska faktureringsinformation för enterprise-registrering.'
 services: billing
 documentationcenter: na
@@ -14,91 +14,182 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: alleonar
-ms.openlocfilehash: 046b2e31aaefa5916a42b3652f9e6a8fdceff367
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 71143549916fc7440d5f21bcb03f1f795ddc73ac
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064114"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42059231"
 ---
-# <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Granska enterprise registrering fakturering med hjälp av REST API: er
+# <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Granska enterprise enrollment fakturering med hjälp av REST API: er
 
-Azure Reporting API: er hjälper dig att granska och hantera dina Azure kostnader.
+Azure Reporting API: er hjälper dig att granska och hantera dina Azure-kostnader.
 
-Här kan du lära dig att hämta aktuella faktura som är associerad med ett konto enterprise-registrering.
+I den här artikeln får du lära dig att hämta debiteringsinformation som som är associerade med fakturering konton, avdelning eller enterprtise avtal (EA) registreringskonton med hjälp av REST-API: er för Azure. 
 
-Att hämta den aktuella fakturan:
-``` http
-GET https://consumption.azure.com/v2/enrollments/{enrollmentID}/usagedetails
+## <a name="individual-account-billing"></a>Fakturering för enskilda
+
+Hämta information för konton i en avdelning:
+
+```http
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.Consumption/usageDetails?api-version=2018-06-30
 Content-Type: application/json   
 Authorization: Bearer
 ```
 
-## <a name="build-the-request"></a>Skapa begäran  
-
-Den `{enrollmentID}` parametern krävs och måste innehålla registrering-ID för Enterprise konto (EA).
+Den `{billingAccountId}` parametern krävs och bör innehålla ID för kontot.
 
 Följande huvuden krävs: 
 
-|Huvudet i begäran|Beskrivning|  
+|Begärandehuvud|Beskrivning|  
 |--------------------|-----------------|  
-|*Content-Type:*|Krävs. Ange till `application/json`.|  
-|*Auktorisering:*|Krävs. Ange att en giltig `Bearer` [API-nyckeln](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
+|*Content-Type:*|Krävs. Ange `application/json`.|  
+|*Auktorisering:*|Krävs. Ange att ett giltigt `Bearer` [API-nyckel](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
 
-Det här exemplet illustrerar ett synkrona anrop som returnerar information för den aktuella faktureringsperioden. Av prestandaskäl returnera synkrona anrop information för den senaste månaden.  Du kan också anropa den [API asynkront](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) att returnera data för 36 månader.
+Det här exemplet visar en synkron anrop som returnerar information för den aktuella faktureringsperioden. Av prestandaskäl returnera synkrona anrop information för den senaste månaden.  Du kan också anropa den [API asynkront](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) att returnera data för 36 månader.
 
 
 ## <a name="response"></a>Svar  
 
-Statuskoden 200 returneras (OK) för ett lyckat svar, som innehåller en lista med detaljerade kostnader för ditt konto.
+Statuskod 200 returneras (OK) för ett lyckat svar som innehåller en lista med detaljerade kostnader för kontot.
 
-``` json
+```json
 {
-    "id": "${id}",
-    "data": [
-        {
-            "cost": ${cost}, 
-            "departmentId": ${departmentID},
-            "subscriptionGuid" : ${subscriptionGuid} 
-            "date": "${date}",
-            "tags": "${tags}",
-            "resourceGroup": "${resourceGroup}"
-        } // ...
-    ],
-    "nextLink": "${nextLinkURL}"
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/BillingAccounts/1234/providers/Microsoft.Billing/billingPeriods/201702/providers/Microsoft.Consumption/usageDetails/usageDetailsId1",
+      "name": "usageDetailsId1",
+      "type": "Microsoft.Consumption/usageDetails",
+      "properties": {
+        ...
+        "usageStart": "2017-02-13T00:00:00Z",
+        "usageEnd": "2017-02-13T23:59:59Z",
+        "instanceName": "shared1",
+        "instanceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Default-Web-eastasia/providers/Microsoft.Web/sites/shared1",
+        "currency": "USD",
+        "usageQuantity": 0.00328,
+        "billableQuantity": 0.00328,
+        "pretaxCost": 0.67,
+        "isEstimated": false,
+        ...
+      }
+    }
+  ]
 }
 ```  
 
-Varje objekt i **data** representerar en avgift:
+Det här exemplet är förkortas; Se [hämta kostnadsinformation för något faktureringskonto](/rest/api/consumption/usagedetails/listbybillingaccount) för en fullständig beskrivning av varje svarsfält och felhantering.
 
-|Egenskapen svar|Beskrivning|
-|----------------|----------|
-|**Kostnad** | Hur mycket använts i en valuta som är lämpliga för platsen för datacenter. |
-|**subscriptionGuid** | Globalt unikt ID för prenumerationen. | 
-|**departmentId** | ID för avdelning, om sådana finns. |
-|**Datum** | Tillägget har debiteras datum. |
-|**tagg** | JSON-sträng som innehåller taggar som är associerade med prenumerationen. |
-|**resourceGroup**|Namnet på resursgruppen som innehåller det objekt som kostnaden. |
-|**nextLink**| När värdet anger en URL för nästa ”sida” i information. Tom när sidan är den sista. |  
-||
-  
-Avdelning-ID: N, resursgrupper, taggar och relaterade fält har definierats av EA-administratör.  
+## <a name="department-billing"></a>Avdelning fakturering 
 
-Det här exemplet är förkortas; Se [få information om användning](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) för en fullständig beskrivning av varje svarsfält. 
+Få användningsinformation som sammanställs för alla konton i en avdelning. 
 
-Andra statuskoder indikerar fel. I dessa fall response-objektet som förklarar varför begäran misslyckades.
+```http
+GET https://management.azure.com/providers/Microsoft.Billing/departments/{departmentId}/providers/Microsoft.Consumption/usageDetails?api-version=2018-06-30
+Content-Type: application/json   
+Authorization: Bearer
+```
 
-``` json
-{  
-  "error": [  
-    { "code": "Error type." 
-      "message": "Error response describing why the operation failed."  
-    }  
-  ]  
-}  
+Den `{departmentId}` parametern krävs och bör innehålla ID för avdelningen registreringskontot.
+
+Följande huvuden krävs: 
+
+|Begärandehuvud|Beskrivning|  
+|--------------------|-----------------|  
+|*Content-Type:*|Krävs. Ange `application/json`.|  
+|*Auktorisering:*|Krävs. Ange att ett giltigt `Bearer` [API-nyckel](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
+
+Det här exemplet visar en synkron anrop som returnerar information för den aktuella faktureringsperioden. Av prestandaskäl returnera synkrona anrop information för den senaste månaden.  Du kan också anropa den [API asynkront](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) att returnera data för 36 månader.
+
+### <a name="response"></a>Svar  
+
+Statuskod 200 returneras (OK) för ett lyckat svar som innehåller en lista över detaljerad användningsinformation och kostnader för en viss faktureringsperiod period och faktura-ID för avdelningen.
+
+
+I följande exempel visas resultatet av REST-API för avdelning `1234`.
+
+```json
+{
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/Departments/1234/providers/Microsoft.Billing/billingPeriods/201702/providers/Microsoft.Consumption/usageDetails/usageDetailsId1",
+      "name": "usageDetailsId1",
+      "type": "Microsoft.Consumption/usageDetails",
+      "properties": {
+        "billingPeriodId": "/providers/Microsoft.Billing/Departments/1234/providers/Microsoft.Billing/billingPeriods/201702",
+        "invoiceId": "/providers/Microsoft.Billing/Departments/1234/providers/Microsoft.Billing/invoices/201703-123456789",
+        "usageStart": "2017-02-13T00:00:00Z",
+        "usageEnd": "2017-02-13T23:59:59Z",
+        "instanceName": "shared1",
+        "instanceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Default-Web-eastasia/providers/Microsoft.Web/sites/shared1",
+        "instanceLocation": "eastasia",
+        "currency": "USD",
+        "usageQuantity": 0.00328,
+        "billableQuantity": 0.00328,
+        "pretaxCost": 0.67,
+        ...
+      }
+    }
+  ]
+}
 ```  
 
+Det här exemplet är förkortas; Se [hämta kostnadsinformation för en avdelning](/rest/api/consumption/usagedetails/listbydepartment) för en fullständig beskrivning av varje svarsfält och felhantering.
+
+## <a name="enrollment-account-billing"></a>Fakturering för registrering
+
+Få användningsinformation som sammanställs för registreringskontot.
+
+```http
+GET GET https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/{enrollmentAccountId}/providers/Microsoft.Consumption/usageDetails?api-version=2018-06-30
+Content-Type: application/json   
+Authorization: Bearer
+```
+
+Den `{enrollmentAccountId}` parametern krävs och bör innehålla ID för registreringskontot.
+
+Följande huvuden krävs: 
+
+|Begärandehuvud|Beskrivning|  
+|--------------------|-----------------|  
+|*Content-Type:*|Krävs. Ange `application/json`.|  
+|*Auktorisering:*|Krävs. Ange att ett giltigt `Bearer` [API-nyckel](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
+
+Det här exemplet visar en synkron anrop som returnerar information för den aktuella faktureringsperioden. Av prestandaskäl returnera synkrona anrop information för den senaste månaden.  Du kan också anropa den [API asynkront](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) att returnera data för 36 månader.
+
+### <a name="response"></a>Svar  
+
+Statuskod 200 returneras (OK) för ett lyckat svar som innehåller en lista över detaljerad användningsinformation och kostnader för en viss faktureringsperiod period och faktura-ID för avdelningen.
+
+I följande exempel visas resultatet av REST-API för företagsregistrering `1234`.
+
+```json
+{
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/EnrollmentAccounts/1234/providers/Microsoft.Billing/billingPeriods/201702/providers/Microsoft.Consumption/usageDetails/usageDetailsId1",
+      "name": "usageDetailsId1",
+      "type": "Microsoft.Consumption/usageDetails",
+      "properties": {
+        "billingPeriodId": "/providers/Microsoft.Billing/EnrollmentAccounts/1234/providers/Microsoft.Billing/billingPeriods/201702",
+        "invoiceId": "/providers/Microsoft.Billing/EnrollmentAccounts/1234/providers/Microsoft.Billing/invoices/201703-123456789",
+        "usageStart": "2017-02-13T00:00:00Z",
+        "usageEnd": "2017-02-13T23:59:59Z",
+        ....
+        "currency": "USD",
+        "usageQuantity": 0.00328,
+        "billableQuantity": 0.00328,
+        "pretaxCost": 0.67,
+        ...
+      }
+    }
+  ]
+}
+``` 
+
+Det här exemplet är förkortas; Se [hämta kostnadsinformation för ett konto för enhetsregistreringshanterare](/rest/api/consumption/usagedetails/listbyenrollmentaccount) för en fullständig beskrivning av varje svarsfält och felhantering.
+
 ## <a name="next-steps"></a>Nästa steg 
-- Granska [Enterprise översikt över rapportering](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
+- Granska [Enterprise rapporteringsöversikt](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
 - Undersöka [Enterprise fakturering REST-API](https://docs.microsoft.com/rest/api/billing/)   
 - [Kom igång med Azure REST API](https://docs.microsoft.com/rest/api/azure/)   

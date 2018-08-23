@@ -1,6 +1,6 @@
 ---
-title: Azure-databas för MySQL Server vnet services endpoint översikt | Microsoft Docs
-description: Beskriver hur vnet Tjänsteslutpunkter fungerar för din Azure-databas för MySQL-servern.
+title: Azure Database för MySQL Server VNet endpoint tjänstöversikt | Microsoft Docs
+description: Beskriver hur tjänstslutpunkter för virtuellt nätverk ska fungera för din Azure Database for MySQL-server.
 services: mysql
 author: mbolz
 ms.author: mbolz
@@ -8,38 +8,38 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 5/29/2018
-ms.openlocfilehash: 652657c8891f2320c026251ffa32e4787028ee18
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 08/20/2018
+ms.openlocfilehash: f18f52fc409df769d164607a128caaf02ead5e4b
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655655"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057084"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Använda slutpunkter för virtuellt nätverk och regler för Azure-databas för MySQL
+# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Använda tjänstslutpunkter i virtuella nätverk och regler för Azure Database för MySQL
 
-*Virtuellt Nätverksregler* är en säkerhetsfunktion i brandväggen som styr om din Azure-databas för MySQL servern accepterar kommunikation som skickas från särskilt undernät i virtuella nätverk. Den här artikeln förklarar varför funktionen virtuellt nätverk regeln ibland är det bästa alternativet för att tillåta kommunikation till din Azure-databas för MySQL-server på ett säkert sätt.
+*Virtuella Nätverksregler* är en säkerhetsfunktion för brandväggen som styr om din Azure Database for MySQL-servern accepterar kommunikation som skickas från specifika undernät i virtuella nätverk. Den här artikeln förklarar varför funktionen virtuellt nätverk regeln ibland är det bästa alternativet för att tillåta kommunikation till Azure Database for MySQL-server på ett säkert sätt.
 
-Att skapa en regel för virtuellt nätverk, det måste först vara en [virtuellt nätverk] [ vm-virtual-network-overview] (VNet) och en [virtuellt nätverk tjänstslutpunkten] [ vm-virtual-network-service-endpoints-overview-649d] för den regeln till referens. Följande bild illustrerar hur en tjänstslutpunkt för virtuellt nätverk fungerar med Azure-databas för MySQL:
+Skapa en virtuell nätverksregel det måste du först ta en [virtuellt nätverk] [ vm-virtual-network-overview] (VNet) och en [tjänstslutpunkt för virtuellt nätverk] [ vm-virtual-network-service-endpoints-overview-649d] för den regel-referensen. Följande bild illustrerar hur en tjänstslutpunkt för virtuellt nätverk fungerar med Azure Database för MySQL:
 
-![Exempel på hur en tjänstslutpunkt VNet fungerar](media/concepts-data-access-and-security-vnet/vnet-concept.png)
+![Exempel på hur en tjänstslutpunkt för virtuellt nätverk fungerar](media/concepts-data-access-and-security-vnet/vnet-concept.png)
 
 > [!NOTE]
-> Den här funktionen är tillgänglig som förhandsversion i alla områden av offentliga Azure-molnet där Azure för MySQL-databas har distribuerats för Azure-databas för MySQL.
+> Den här funktionen är tillgänglig i alla regioner där Azure där Azure Database for MySQL distribueras för generell användning och Minnesoptimerad servrar.
 
 <a name="anch-terminology-and-description-82f" />
 
 ## <a name="terminology-and-description"></a>Terminologi och beskrivning
 
-**Virtuellt nätverk:** du kan ha virtuella nätverk som är associerade med din Azure-prenumeration.
+**Virtuellt nätverk:** kan du ha virtuella nätverk som är associerade med din Azure-prenumeration.
 
-**Undernät:** ett virtuellt nätverk innehåller **undernät**. Alla virtuella Azure-datorer (VM) som du har har tilldelats till undernät. Ett undernät kan innehålla flera virtuella datorer eller andra compute-noder. Compute-noder som är utanför det virtuella nätverket inte kan komma åt ditt virtuella nätverk såvida du inte konfigurerar din säkerhet för att tillåta åtkomst.
+**Undernät:** ett virtuellt nätverk innehåller **undernät**. Alla Azure virtuella datorer (VM) som du har har tilldelats till undernät. Ett undernät kan innehålla flera virtuella datorer eller andra compute-noder. Compute-noder som är utanför ditt virtuella nätverk inte kan komma åt det virtuella nätverket om du inte konfigurerar din säkerhet för att tillåta åtkomst.
 
-**Virtuella nätverk tjänstslutpunkten:** A [virtuellt nätverk tjänstslutpunkten] [ vm-virtual-network-service-endpoints-overview-649d] är ett undernät vars egenskapsvärden innehåller en eller flera formella Azure-tjänst-typnamn. I den här artikeln vi vill ange namnet på **Microsoft.Sql**, som refererar till Azure-tjänsten med namnet SQL-databas. Den här tjänsten taggen gäller även för Azure-databasen för MySQL och PostgreSQL-tjänster. Det är viktigt att känna till när du använder den **Microsoft.Sql** tjänsten taggen till VNet-tjänsteslutpunkt konfigurerar den tjänstens slutpunkt trafik för alla Azure SQL Database, Azure-databas för MySQL och Azure-databas för PostgreSQL-servrar i undernätet. 
+**Tjänstslutpunkt för virtuellt nätverk:** A [tjänstslutpunkt för virtuellt nätverk] [ vm-virtual-network-service-endpoints-overview-649d] är ett undernät som egenskaper innehåller en eller flera formella Azure-tjänst-typnamn. I den här artikeln vi vill att ange namnet på **Microsoft.Sql**, som refererar till Azure-tjänsten med namnet SQL-databas. Den här tjänsttaggen gäller även för Azure Database för MySQL och PostgreSQL-tjänster. Det är viktigt att tänka på när du använder den **Microsoft.Sql** servicetagg till en VNet-tjänstslutpunkt konfigureras tjänstens slutpunkt trafik för alla Azure SQL Database, Azure Database för MySQL och Azure Database for PostgreSQL-servrar i undernätet. 
 
-**Virtuellt nätverk regel:** en regel för virtuellt nätverk för din Azure-databas för MySQL-server är ett undernät som anges i åtkomstkontrollistan (ACL) för din Azure-databas för MySQL-servern. Om du i Åtkomstkontrollistan för din Azure-databas för MySQL-servern måste undernätet måste innehålla den **Microsoft.Sql** typnamn.
+**Regel för virtuella nätverk:** en virtuell nätverksregel för din Azure Database for MySQL-server är ett undernät som anges i åtkomstkontrollistan (ACL) för din Azure Database for MySQL-server. För att i Åtkomstkontrollistan för din Azure Database for MySQL-server måste undernätet måste innehålla den **Microsoft.Sql** typnamn.
 
-En regel för virtuellt nätverk talar om för din Azure-databas för MySQL-servern att acceptera kommunikation från varje nod i undernätet.
+En virtuell nätverksregel talar om för Azure Database for MySQL-server för att acceptera kommunikation från varje nod i undernätet.
 
 
 
@@ -49,96 +49,100 @@ En regel för virtuellt nätverk talar om för din Azure-databas för MySQL-serv
 
 <a name="anch-benefits-of-a-vnet-rule-68b" />
 
-## <a name="benefits-of-a-virtual-network-rule"></a>Fördelarna med en regel för virtuellt nätverk
+## <a name="benefits-of-a-virtual-network-rule"></a>Fördelarna med en regel för virtuella nätverk
 
-Tills du vidta åtgärder kommunicera de virtuella datorerna på dina undernät inte med din Azure-databas för MySQL-servern. En åtgärd som upprättar kommunikation är att skapa en regel för virtuellt nätverk. Grund för att välja metod för VNet-regeln kräver en Jämför och kontrast diskussion som involverar konkurrerande säkerhetsalternativ som erbjuds av brandväggen.
+Tills du vidta åtgärder kan inte de virtuella datorerna på dina undernät kommunicera med Azure Database för MySQL-server. En åtgärd som upprättar kommunikation är att skapa en regel för virtuella nätverk. Anledningen till att välja metod för VNet-regeln kräver Jämför och kontrast diskussioner som involverar konkurrerande säkerhetsalternativ som erbjuds av brandväggen.
 
 ### <a name="a-allow-access-to-azure-services"></a>A. Tillåt åtkomst till Azure-tjänster
 
-Fönstret anslutning säkerhet har en **på/av** knapp med etiketten **Tillåt åtkomst till Azure-tjänster**. Den **ON** inställningen tillåter kommunikation från alla Azure-IP-adresser och undernät för alla Azure. Dessa Azure IP-adresser eller undernät kan inte ägas av du. Detta **ON** inställningen är förmodligen mer öppna än du vill att din Azure-databas för MySQL-databas ska vara. Funktionen virtuellt nätverk regeln erbjuder mycket avancerat hjälpmedel granulär kontroll.
+Fönstret anslutning security har en **på/av** knapp med etiketten **Tillåt åtkomst till Azure-tjänster**. Den **på** inställningen tillåter kommunikation från alla Azure-IP-adresser och undernät för alla Azure. De här Azure IP-adresser eller undernät kan inte ägas av dig. Detta **på** är förmodligen mer öppet än vad du vill att din Azure Database for MySQL-databasen ska vara. Virtuellt nätverk regeln funktionen erbjuder mycket använda detaljerad styrning.
 
 ### <a name="b-ip-rules"></a>B. IP-regler
 
-Azure-databasen för MySQL-brandväggen kan du ange IP-adressintervall som accepteras kommunikation till Azure-databas för MySQL-databas. Den här metoden fungerar bra för stabil IP-adresser som ligger utanför Azure privata nätverk. Men många noder i Azure privata nätverk har konfigurerats med *dynamiska* IP-adresser. Dynamiska IP-adresser kan ändras, till exempel när den virtuella datorn startas om. Det vore fluga att ange en dynamisk IP-adress i en brandväggsregel i en produktionsmiljö.
+Azure Database for MySQL-brandväggen kan du ange IP-adressintervall som accepteras kommunikation till Azure Database for MySQL-databas. Den här metoden är bra för stabil IP-adresser som ligger utanför Azure privat nätverk. Men många noder i Azure privat nätverk har konfigurerats med *dynamisk* IP-adresser. Dynamiska IP-adresser ändras, till exempel när den virtuella datorn startas. Det vore fluga att ange en dynamisk IP-adress i en brandväggsregel i en produktionsmiljö.
 
-Du kan rädda IP-alternativet genom att hämta en *Statiska* IP-adress för den virtuella datorn. Mer information finns i [Konfigurera privat IP-adresser för en virtuell dator med hjälp av Azure portal][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w].
+Du kan rädda IP-alternativet genom att hämta en *Statiska* IP-adress för den virtuella datorn. Mer information finns i [konfigurera privata IP-adresser för en virtuell dator med hjälp av Azure-portalen][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w].
 
-Men den statiska IP-metoden kan bli svårt att hantera och det är kostsamma när du är klar i större skala. Virtuella nätverk är enklare att skapa och hantera.
+Dock kan det vara svårt att hantera den statiska IP-metoden och det är kostsamt om det görs i stor skala. Virtual network-regler är lättare att upprätta och hantera.
 
-### <a name="c-cannot-yet-have-azure-database-for-mysql-on-a-subnet-without-defining-a-service-endpoint"></a>C. Kan inte ännu har Azure-databas för MySQL i ett undernät utan att definiera en tjänstslutpunkt
+### <a name="c-cannot-yet-have-azure-database-for-mysql-on-a-subnet-without-defining-a-service-endpoint"></a>C. Inte ännu har Azure Database för MySQL i ett undernät utan att definiera en tjänstslutpunkt
 
-Om din **Microsoft.Sql** servern var en nod i ett undernät i det virtuella nätverket, alla noder i det virtuella nätverket kan kommunicera med din Azure-databas för MySQL-servern. I det här fallet kan dina virtuella datorer kommunicera med Azure-databas för MySQL utan några regler för virtuellt nätverk eller IP-regler.
+Om din **Microsoft.Sql** servern var en nod i ett undernät i det virtuella nätverket, alla noder i det virtuella nätverket kan kommunicera med Azure Database för MySQL-server. I det här fallet kan dina virtuella datorer kommunicera med Azure Database för MySQL utan några regler för virtuellt nätverk eller en IP-regler.
 
-Men från och med kan 2018 Azure-databas för MySQL-tjänst är ännu inte bland de tjänster som kan tilldelas direkt till ett undernät.
+Men från och med augusti 2018, Azure Database for MySQL-tjänsten är ännu inte mellan tjänster som kan tilldelas direkt till ett undernät.
 
 <a name="anch-details-about-vnet-rules-38q" />
 
-## <a name="details-about-virtual-network-rules"></a>Information om regler för virtuellt nätverk
+## <a name="details-about-virtual-network-rules"></a>Information om virtual network-regler
 
 Det här avsnittet beskrivs flera detaljer om regler för virtuellt nätverk.
 
 ### <a name="only-one-geographic-region"></a>Endast en geografisk region
 
-Varje virtuellt nätverk tjänstslutpunkten gäller endast en Azure-region. Slutpunkten kan inte andra regioner att godta kommunikation från undernätet.
+Varje tjänstslutpunkt för virtuellt nätverk gäller endast en Azure-region. Slutpunkten kan inte andra regioner att godta kommunikation från undernätet.
 
-Alla virtuella nätverk regeln är begränsad till den region som sin underliggande slutpunkt gäller.
+Regel för virtuella nätverk är begränsad till den region som dess underliggande slutpunkten som gäller för.
 
-### <a name="server-level-not-database-level"></a>Servernivå kan inte databasnivå
+### <a name="server-level-not-database-level"></a>På servernivå, inte på databasnivå
 
-Varje virtuellt nätverk regel tillämpas på Azure hela databasen för MySQL-servern, inte bara en viss databas på servern. Med andra ord regeln virtuellt nätverk på servernivå inte på databas-nivå.
+Varje virtuellt nätverk regeln gäller för hela Azure Database för MySQL-server, inte bara till en viss databas på servern. Med andra ord gäller virtuell nätverksregel på servernivå inte på databasnivå.
 
-### <a name="security-administration-roles"></a>Säkerhetsroller för administration
+### <a name="security-administration-roles"></a>Administration säkerhetsroller
 
-Det finns en uppdelning av säkerhetsroller i administrationen av slutpunkter för virtuellt nätverk. Åtgärd krävs från var och en av följande roller:
+Det finns en uppdelning av säkerhetsroller i administrationen av tjänstslutpunkter i virtuella nätverk. Åtgärd krävs från var och en av följande roller:
 
-- **Nätverket Admin:** &nbsp; aktivera slutpunkten.
-- **Databasen Admin:** &nbsp; uppdatera åtkomstkontrollistan (ACL) för att lägga till det angivna undernätet Azure-databasen för MySQL-servern.
+- **Administratör för nätverk:** &nbsp; aktivera slutpunkten.
+- **Administratör för databasen:** &nbsp; uppdatera åtkomstkontrollistan (ACL) för att lägga till det angivna undernätet till Azure Database for MySQL-server.
 
-*RBAC alternativ:*
+*RBAC-alternativ:*
 
-Roller i nätverket Admin och databasen Admin har mer än vad som behövs för att hantera virtuella Nätverksregler. Endast en del av deras funktioner krävs.
+Rollerna för nätverk och databas delad Admin har fler funktioner än vad som behövs för att hantera virtuella Nätverksregler. Endast en delmängd av deras funktioner krävs.
 
-Du har möjlighet att använda [rollbaserad åtkomstkontroll (RBAC)] [ rbac-what-is-813s] i Azure för att skapa en anpassad roll som har den nödvändiga delmängden av funktioner. Den anpassade rollen som kan användas i stället för som omfattar nätverk Admin eller administratören för databasen. Ytan på din sårbart är lägre om du lägger till en användare till en anpassad roll, jämfört med att lägga till användaren i de andra två huvudsakliga administratörsroller.
+Har du möjlighet att använda [rollbaserad åtkomstkontroll (RBAC)] [ rbac-what-is-813s] i Azure för att skapa en enda anpassad roll som har endast nödvändiga delmängd av funktionerna. Den anpassade rollen som kan användas i stället för som involverar nätverk administratören eller administratören för databasen. Ytan på exponeringen säkerhet är lägre om du lägger till en användare till en anpassad roll, jämfört med att lägga till användaren i de andra två större administratörsroller.
 
 > [!NOTE]
-> I vissa fall är Azure-databasen för MySQL och VNet-undernät för olika prenumerationer. I dessa fall måste du kontrollera följande konfigurationer:
-> - Båda prenumerationer måste vara i samma Azure Active Directory-klienten.
-> - Användaren har behörigheterna som krävs för att initiera åtgärder, till exempel aktivera slutpunkter och lägga till ett VNet-undernät i den angivna servern.
+> I vissa fall är Azure Database för MySQL och VNet-undernät i olika prenumerationer. I dessa fall måste du kontrollera att följande konfigurationer:
+> - Båda prenumerationerna måste finnas i samma Azure Active Directory-klient.
+> - Användaren har behörigheterna som krävs för att initiera åtgärder, till exempel aktiverar Tjänsteslutpunkter och lägga till ett VNet-undernät i den angivna servern.
 
 ## <a name="limitations"></a>Begränsningar
 
-Azure-databas för MySQL har funktionen virtuellt nätverk regler följande begränsningar:
+För Azure Database for MySQL har funktionen för regler för virtuellt nätverk följande begränsningar:
 
-- Refererar till ett undernät i brandväggen för din Azure-databas för MySQL varje regel för virtuellt nätverk. Dessa refererade undernät måste finnas i samma geografiska region där den Azure-databas för MySQL.
+- Refererar till ett undernät i brandväggen för din Azure Database for MySQL varje regel för virtuella nätverk. Alla dessa refererade undernät måste finnas i samma geografiska region som är värd för Azure Database för MySQL.
 
-- Varje Azure-databas för MySQL-server kan ha upp till 128 ACL-posterna för alla angivna virtuella nätverket.
+- Varje Azure Database for MySQL-server kan ha upp till 128 ACL-posterna för alla angivna virtuella nätverket.
 
-- Virtuellt Nätverksregler gäller bara för Azure Resource Manager virtuella nätverk. och inte [klassiska distributionsmodellen] [ arm-deployment-model-568f] nätverk.
+- Virtual network-regler gäller endast för Azure Resource Manager-nätverk; och inte till [klassiska distributionsmodellen] [ arm-deployment-model-568f] nätverk.
 
-- Aktivering av virtuella nätverksslutpunkter till Azure-databas för att använda MySQL den **Microsoft.Sql** service taggen gör det också möjligt för slutpunkter för alla Azure-databastjänster: Azure-databas för MySQL, Azure-databas för PostgreSQL, Azure SQL Database och Azure SQL Data Warehouse.
+- Att aktivera på virtuella nätverksslutpunkter till Azure Database för MySQL med hjälp av den **Microsoft.Sql** tjänsttagg gör det också möjligt för slutpunkterna för alla Azure-databastjänster: Azure Database for MySQL, Azure Database för PostgreSQL Azure SQL Database och Azure SQL Data Warehouse.
 
-- Vid tidpunkten för förhandsversion finns det inget stöd för virtuella nätverk flytta åtgärder. Om du vill flytta en regel för virtuellt nätverk, släppa och återskapa den.
+- Stöd för VNet-tjänstslutpunkter är endast för generell användning och Minnesoptimerad servrar.
 
-- Stöd för VNet slutpunkter stöds endast för generella och Minnesoptimerade servrar.
-
-- IP-adressintervall gäller följande nätverk i brandväggen, men gör inte det virtuella Nätverksregler:
+- IP-adressintervall gäller följande nätverk i brandväggen, men inte av virtuella Nätverksregler:
     - [Plats-till-plats (S2S) virtuellt privat nätverk (VPN)][vpn-gateway-indexmd-608y]
-    - Lokalt [ExpressRoute][expressroute-indexmd-744v]
+    - Lokalt via [ExpressRoute][expressroute-indexmd-744v]
 
 ## <a name="expressroute"></a>ExpressRoute
 
-Om nätverket är anslutet till Azure-nätverk med hjälp av [ExpressRoute][expressroute-indexmd-744v], varje kretsen har konfigurerats med två offentliga IP-adresser i Microsoft Edge. Två IP-adresser används för att ansluta till Microsoft Services, som till Azure Storage med hjälp av Azure offentlig Peering.
+Om nätverket är anslutet till det Azure-nätverket med hjälp av [ExpressRoute][expressroute-indexmd-744v], varje krets har konfigurerats med två offentliga IP-adresser i Microsoft Edge. Två IP-adresser används för att ansluta till Microsoft Services, till exempel till Azure Storage, med hjälp av Azure offentlig Peering.
 
-Om du vill tillåta kommunikation från kretsen till Azure-databas för MySQL, måste du skapa IP-Nätverksregler för offentliga IP-adresserna för dina kretsar. Öppna ett supportärende för att hitta de offentliga IP-adresserna för ExpressRoute-kretsen med ExpressRoute med hjälp av Azure portal.
+Om du vill tillåta kommunikation från din krets till Azure Database för MySQL, måste du skapa IP-Nätverksregler för offentliga IP-adresserna för dina kretsar. För att kunna hitta ExpressRoute-kretsen offentliga IP-adresser, öppnar du ett supportärende hos ExpressRoute med hjälp av Azure portal.
+
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Att lägga till en brandväggsregel för virtuellt nätverk till din server utan att slå på VNET-tjänstslutpunkter
+
+Endast ställa en brandväggsregel inte att skydda servern till det virtuella nätverket. Du måste också aktivera tjänstslutpunkter i virtuella nätverk **på** för att skydda ska börja gälla. När du aktiverar Tjänsteslutpunkter **på**, avbrott inträffar i ditt VNet-undernät förrän processen är klar övergången från **av** till **på**. Detta gäller särskilt i samband med stora virtuella nätverk. Du kan använda den **IgnoreMissingServiceEndpoint** flagga för att minska eller eliminera nedtiden under övergång.
+
+Du kan ange den **IgnoreMissingServiceEndpoint** flaggan med hjälp av Azure CLI eller portalen.
 
 ## <a name="related-articles"></a>Relaterade artiklar
-- [Virtuella Azure-nätverk][vm-virtual-network-overview]
-- [Slutpunkter för virtuella Azure-nätverket][vm-virtual-network-service-endpoints-overview-649d]
+- [Azure-nätverk][vm-virtual-network-overview]
+- [Tjänstslutpunkter i virtuella Azure-nätverket][vm-virtual-network-service-endpoints-overview-649d]
 
 ## <a name="next-steps"></a>Nästa steg
-Artiklar om hur du skapar virtuella nätverk regler finns:
-- [Skapa och hantera Azure-databas för MySQL VNet-regler med hjälp av Azure portal](howto-manage-vnet-using-portal.md)
-- [Skapa och hantera Azure-databas för MySQL VNet-regler med hjälp av Azure CLI](howto-manage-vnet-using-cli.md)
+Artiklar om hur du skapar regler för virtuellt nätverk, finns här:
+- [Skapa och hantera Azure Database för MySQL-VNet-regler med hjälp av Azure portal](howto-manage-vnet-using-portal.md)
+- [Skapa och hantera Azure Database för MySQL-VNet-regler med hjälp av Azure CLI](howto-manage-vnet-using-cli.md)
 
 <!-- Link references, to text, Within this same Github repo. -->
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md

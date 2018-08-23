@@ -1,19 +1,19 @@
 ---
-title: Vanliga frågor om Azure Kubernetes Service
-description: Innehåller svar på några vanliga frågor om Azure Kubernetes Service.
+title: Vanliga frågor för Azure Kubernetes Service (AKS)
+description: Innehåller svar på några vanliga frågor om Azure Kubernetes Service (AKS).
 services: container-service
 author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 08/17/2018
 ms.author: iainfou
-ms.openlocfilehash: b64c770bca84fba8cbed98e420abf649897f7a17
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: b910b6cdf55ae7c2a220543bdb555d8e9bff59a0
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345862"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056063"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor och svar om Azure Kubernetes Service (AKS)
 
@@ -21,73 +21,87 @@ Den här artikeln adresser oftare frågor om Azure Kubernetes Service (AKS).
 
 ## <a name="which-azure-regions-provide-the-azure-kubernetes-service-aks-today"></a>Vilka Azure-regioner tillhandahåller Azure Kubernetes Service (AKS) i dag?
 
-Se Azure Kubernetes Service [regioner och tillgänglighet] [ aks-regions] dokumentationen för en fullständig lista.
-
-## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Är säkerhetsuppdateringar som tillämpas på AKS agentnoder?
-
-Azure tillämpar automatiskt säkerhetsuppdateringar på noderna i klustret enligt ett schema som varje natt. Men du är ansvarig för att säkerställa att noderna startas om efter behov. Har du flera alternativ för att utföra omstarter av noden:
-
-- Manuellt via Azure portal eller Azure CLI.
-- Genom att uppgradera AKS-klustret. Uppgradering av kluster automatiskt [här och tömmer noderna](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), anpassa dem säkerhetskopiera med den senaste Ubuntu-avbildningen. Uppdatera operativsystemavbildning på noderna utan att ändra Kubernetes-versioner genom att ange den aktuella versionen för klustret i `az aks upgrade`.
-- Med hjälp av [Kured](https://github.com/weaveworks/kured), en omstart för öppen källkod-daemon för Kubernetes. Kured körs som en [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) och övervakar varje nod för förekomsten av en fil som anger att en omstart krävs. Den hanterar sedan OS omstarter i klustret, följa samma cordon och drain processen som beskrivs tidigare.
+En fullständig lista över tillgängliga regioner finns i [AKS regioner och tillgänglighet][aks-regions].
 
 ## <a name="does-aks-support-node-autoscaling"></a>AKS som har stöd för automatisk skalning nod?
 
-Ja, automatisk skalning är tillgängligt via den [Kubernetes autoskalningen] [ auto-scaler] från och med Kubernetes 1.10.
+Ja, automatisk skalning är tillgängligt via den [Kubernetes autoskalningen] [ auto-scaler] från och med Kubernetes 1.10. Läs mer om hur du konfigurerar och använder klustret autoskalningen [autoskalning av kluster i AKS][aks-cluster-autoscale].
 
 ## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>Stöder AKS Kubernetes rollbaserad åtkomstkontroll (RBAC)?
 
-Ja, RBAC kan vara aktiverad när [distribuerar ett AKS-kluster från Azure CLI eller Azure Resource Manager-mall](https://docs.microsoft.com/en-us/azure/aks/aad-integration). Den här funktionen kommer snart att Azure-portalen.
+Ja, Kubernetes RBAC är aktiverad som standard när kluster skapas med Azure CLI. RBAC kan aktiveras för kluster som skapas med hjälp av Azure portal eller mallar.
+
+## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Kan jag distribuera AKS till min befintliga virtuellt nätverk?
+
+Ja, du kan distribuera ett AKS-kluster till ett befintligt virtuellt nätverk med hjälp av den [avancerade funktionen][aks-advanced-networking].
+
+## <a name="can-i-restrict-the-kubernetes-api-server-to-only-be-accessible-within-my-virtual-network"></a>Kan jag begränsa Kubernetes API-servern för att endast nås i mitt virtuella nätverk?
+
+Inte just nu. Kubernetes API-servern visas som en offentlig fullständigt kvalificerade domännamnet (FQDN). Du kan kontrollera åtkomsten till ditt kluster med hjälp av [Kubernetes rollbaserad åtkomst till kontroll (RBAC) och Azure Active Directory (AAD)][aks-rbac-aad]
+
+## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Är säkerhetsuppdateringar som tillämpas på AKS agentnoder?
+
+Ja, Azure automatiskt tillämpar säkerhetsuppdateringar på noderna i klustret enligt ett schema som varje natt. Men du är ansvarig för att säkerställa att noderna startas om efter behov. Har du flera alternativ för att utföra omstarter av noden:
+
+- Manuellt via Azure portal eller Azure CLI.
+- Genom att uppgradera AKS-klustret. Uppgradering av kluster automatiskt [här och tömmer noderna][cordon-drain], ansluta varje nod säkerhetskopiera med den senaste Ubuntu-avbildningen och en ny Uppdateringsversion eller en mindre Kubernetes-version. Mer information finns i [uppgradera ett AKS-kluster][aks-upgrade].
+- Med hjälp av [Kured](https://github.com/weaveworks/kured), en omstart för öppen källkod-daemon för Kubernetes. Kured körs som en [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) och övervakar varje nod för förekomsten av en fil som anger att en omstart krävs. OS-omstarter hanteras i klustret med samma [här och tömma processen] [ cordon-drain] som en uppgradering av klustret.
+
+## <a name="why-are-two-resource-groups-created-with-aks"></a>Varför skapas två resursgrupper med AKS?
+
+Varje AKS-distributionen omfattar två resursgrupper:
+
+- Första resursgrupp skapas av dig och innehåller endast tjänstresurs Kubernetes. AKS-resursprovidern skapar automatiskt den andra mallen under distributionen, till exempel *MC_myResourceGroup_myAKSCluster_eastus*.
+- Den här andra resursgrupp, till exempel *MC_myResourceGroup_myAKSCluster_eastus*, innehåller alla de infrastrukturresurser som är kopplat till klustret. Dessa resurser inkluderar den Kubernetes noden virtuella datorer, virtuella nätverk och lagring. Den här separat resursgrupp skapas för att förenkla rensning av resurser.
+
+Om du skapar resurser som ska användas med AKS-klustret, till exempel lagringskonton eller reserverade offentliga IP-adresser kan du placera dem i resursgruppen skapas automatiskt.
+
+## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>Kan jag ändra taggar och andra egenskaper för AKS-resurser i resursgruppen MC_ *?
+
+Ändra och ta bort taggar och andra egenskaper för resurser i den *MC_** resursgrupp kan leda till oväntade resultat, till exempel skalning och uppgradera fel. Ändra resurser under den *MC_** i AKS kluster delar på SLO.
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Vilka Kubernetes åtkomst domänkontrollanter stöder AKS? Kan åtkomst domänkontrollanter läggs till eller tas bort?
 
 AKS har stöd för följande [åtkomst domänkontrollanter][admission-controllers]:
 
-* NamespaceLifecycle
-* LimitRanger
-* Tjänstkonto
-* DefaultStorageClass
-* DefaultTolerationSeconds
-* MutatingAdmissionWebhook
-* ValidatingAdmissionWebhook
-* ResourceQuota
-* DenyEscalatingExec
-* AlwaysPullImages
+- *NamespaceLifecycle*
+- *LimitRanger*
+- *Tjänstkonto*
+- *DefaultStorageClass*
+- *DefaultTolerationSeconds*
+- *MutatingAdmissionWebhook*
+- *ValidatingAdmissionWebhook*
+- *ResourceQuota*
+- *DenyEscalatingExec*
+- *AlwaysPullImages*
 
 Det går för närvarande inte att ändra listan över åtkomst domänkontrollanter i AKS.
 
-## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Kan jag distribuera AKS till min befintliga virtuellt nätverk?
-
-Ja, du kan distribuera ett AKS-kluster till ett befintligt virtuellt nätverk med hjälp av den [avancerade funktionen](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md).
-
-## <a name="can-i-restrict-the-kubernetes-api-server-to-only-be-accessible-within-my-virtual-network"></a>Kan jag begränsa Kubernetes API-servern för att endast nås i mitt virtuella nätverk?
-
-Inte just nu. Kubernetes API-servern visas som en offentlig fullständigt kvalificerade domännamnet (FQDN). Du bör kontrollera åtkomsten till ditt kluster med hjälp av [Kubernetes rollbaserad åtkomst till kontroll (RBAC) och Azure Active Directory (AAD)](https://docs.microsoft.com/en-us/azure/aks/aad-integration).
-
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault är integrerad med AKS?
 
-AKS är inte internt integrerat med Azure Key Vault just nu. Men den [KeyVault Flex volym projekt](https://github.com/Azure/kubernetes-keyvault-flexvol) aktiverar direkta integrering från Kubernetes-poddar till KeyVault-hemligheter.
+AKS är inte för närvarande internt integrerad med Azure Key Vault. Men den [Azure Key Vault FlexVolume för Kubernetes-projektet] [ keyvault-flexvolume] aktiverar direkta integrering från Kubernetes-poddar till KeyVault-hemligheter.
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Kan jag köra Windows Server-behållare i AKS?
 
 Du måste köra Windows Server-baserade noder för att köra Windows Server-behållare. Windows Server-baserade noder är inte tillgängliga i AKS just nu. Du kan dock använda Virtual Kubelet för att schemalägga Windows-behållare i Azure Container Instances och hantera dem som en del av AKS-klustret. Mer information finns i [använda Virtual Kubelet med AKS][virtual-kubelet].
 
-## <a name="why-are-two-resource-groups-created-with-aks"></a>Varför skapas två resursgrupper med AKS?
-
-Varje AKS-distributionen omfattar två resursgrupper. Först har skapats av dig och innehåller endast Kubernetes service-resurs. AKS-resursprovidern skapar automatiskt den andra mallen under distributionen med ett namn som liknar *MC_myResourceGroup_myAKSCluster_eastus*. Andra resursgruppen innehåller alla de infrastrukturresurser som är kopplat till klustret, till exempel virtuella datorer, nätverk och lagring. Den har skapats för att förenkla rensning av resurser.
-
-Om du skapar resurser som ska användas med AKS-klustret, till exempel lagringskonton eller reserverade offentliga IP-adresser, bör du placera dem i resursgruppen skapas automatiskt.
-
 ## <a name="does-aks-offer-a-service-level-agreement"></a>Erbjuder ett servicenivåavtal i AKS?
 
-I ett servicenivåavtal (SLA) samtycker providern till att ersätta kunden för kostnaden för tjänsten publicerade servicenivån inte vara uppfyllda. Eftersom AKS själva är kostnadsfria, är utan kostnad som är tillgängliga för att betala tillbaka och därför inget formella serviceavtal. Dock AKS strävar efter att upprätthålla tillgänglighet på minst 99,5% för Kubernetes API-servern.
+I ett servicenivåavtal (SLA) samtycker providern till att ersätta kunden för kostnaden för tjänsten om den publicerade servicenivån inte uppfylls. Eftersom AKS själva är kostnadsfria, är utan kostnad som är tillgängliga för att betala tillbaka och därför inget formella serviceavtal. Dock AKS strävar efter att upprätthålla tillgänglighet på minst 99,5% för Kubernetes API-servern.
 
 <!-- LINKS - internal -->
 
-[aks-regions]: ./container-service-quotas.md
+[aks-regions]: ./container-service-quotas.md#region-availability
+[aks-upgrade]: ./upgrade-cluster.md
+[aks-cluster-autoscale]: ./autoscaler.md
 [virtual-kubelet]: virtual-kubelet.md
+[aks-advanced-networking]: ./networking-overview.md#advanced-networking
+[aks-rbac-aad]: ./aad-integration.md
 
 <!-- LINKS - external -->
+
 [auto-scaler]: https://github.com/kubernetes/autoscaler
+[cordon-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
+[keyvault-flexvolume]: https://github.com/Azure/kubernetes-keyvault-flexvol

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b9ec9867e9abd188142067e593c925e3c8acdd0b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 58f612906af55575e9d42307af924ea0a8501ca1
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37113348"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42060706"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - hög tillgänglighet och skalbarhet (förhandsversion)
 > [!NOTE]
@@ -169,7 +169,7 @@ Här följer kraven för TLS/SSL-certifikatet som används för att säkra kommu
 - Certifikat med jokertecken stöds. Om din FQDN-namn är **node1.domain.contoso.com**, du kan använda ***. domain.contoso.com** som ämnesnamnet för certifikatet.
 - SAN-certifikat rekommenderas inte eftersom det sista objektet i Alternativt ämnesnamn används och alla andra kommer att ignoreras på grund av aktuell begränsning. T.ex. du har ett SAN-certifikat vars SAN är **node1.domain.contoso.com** och **node2.domain.contoso.com**, du kan bara använda det här certifikatet på datorn vars FQDN är **node2.domain.contoso.com**.
 - Stöder alla nyckelstorlek som stöds av Windows Server 2012 R2 för SSL-certifikat.
-- Certifikat med CNG-nycklar stöds inte. Doesrted DoesDoes har inte stöd för certifikat med CNG-nycklar.
+- Certifikat med CNG-nycklar stöds inte.
 
 #### <a name="faq-when-would-i-not-enable-this-encryption"></a>Vanliga frågor och svar: När ska jag inte aktivera den här kryptering?
 Aktivera kryptering kan lägga till vissa kostnad för din infrastruktur (ägande offentliga certifikat) därför kan du hoppa över aktivering av kryptering i den nedan fall:

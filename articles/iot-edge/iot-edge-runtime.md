@@ -4,16 +4,16 @@ description: Läs mer om Azure IoT Edge-körningen och hur den hjälper dina gr�
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/05/2018
+ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 36750a4d907da1d4fa029aca0ecc503db7e82d81
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f832b05969c028880f6e375ff4a2ee8dc7a7eaf4
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526100"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42057325"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Förstå Azure IoT Edge-körningen och dess arkitektur
 
@@ -23,9 +23,9 @@ IoT Edge-körningen utför följande funktioner på IoT Edge-enheter:
 
 * Installerar och uppdaterar arbetsbelastningar på enheten.
 * Underhåller Azure IoT Edge-säkerhetsstandarder på enheten.
-* Säkerställer att [IoT Edge-moduler][lnk-moduler] alltid körs.
+* Säkerställer att [IoT Edge-moduler] [ lnk-modules] alltid körs.
 * Rapporterar modulens hälsa till molnet för fjärrövervakning.
-* Underlättar kommunikationen mellan nedströms lövenheter och IoT Edge-enheten.
+* Underlättar kommunikationen mellan nedströms lövenheter och IoT Edge-enheter.
 * Underlättar kommunikationen mellan moduler på IoT Edge-enheten.
 * Underlättar kommunikationen mellan IoT Edge-enheten och molnet.
 
@@ -33,7 +33,7 @@ IoT Edge-körningen utför följande funktioner på IoT Edge-enheter:
 
 Ansvaret för IoT Edge-körningen är indelade i två kategorier: modulhantering och kommunikation. Dessa två roller som utförs av två komponenter som utgör IoT Edge-körningen. IoT Edge hub ansvarar för kommunikation, medan IoT Edge-agenten hanterar distribution och övervakning av moduler. 
 
-Både Edge-agenten och Edge hub är moduler, precis som andra moduler som körs på en IoT Edge-enhet. Mer information om hur moduler fungerar finns i [lnk-moduler]. 
+Både Edge-agenten och Edge hub är moduler, precis som andra moduler som körs på en IoT Edge-enhet. 
 
 ## <a name="iot-edge-hub"></a>IoT Edge hub
 
@@ -52,9 +52,6 @@ För att minska bandbredden som din IoT Edge-lösning använder, Edge hub optime
 ![Edge hub fungerar som en gateway mellan flera fysiska enheter och molnet][2]
 
 Edge hub kan avgöra om den är ansluten till IoT Hub. Om anslutningen bryts, sparar Edge hub meddelanden eller twin uppdateringar lokalt. När en anslutningen återupprättas synkroniserar alla data. Platsen som används för den här tillfälliga cachen bestäms av en egenskap för Edge hub modultvilling. Storleken på cacheminnet är inte begränsat och kommer att växa så länge enheten har lagringskapacitet. 
-
->[!NOTE]
->Att lägga till kontroll över extra cachelagring parametrar läggs till produkten innan den blir allmänt tillgängligt.
 
 ### <a name="module-communication"></a>Modulen kommunikation
 
@@ -86,11 +83,11 @@ Lösningsutvecklaren är ansvarig för att ange reglerna som bestämmer hur Edge
 
 IoT Edge-agenten är den modul som utgör Azure IoT Edge-körningen. Den är ansvarig för kontrollanten moduler, se till att de fortsätter att köras och rapporterar status för moduler tillbaka till IoT Hub. Precis som andra moduler använder dess modultvilling i Edge-agenten för att spara konfigurationsinformationen. 
 
-Starta körning av Edge-agenten genom att köra startkommandot azure-iot-edge-körning-ctl.py. Agenten hämtar dess modultvilling från IoT Hub och inspekterar moduler ordlistan. Ordlista för moduler är en samling av moduler som startas. 
+Den [IoT Edge security daemon](iot-edge-security-manager.md) startar Edge-agenten vid start av enheten. Agenten hämtar dess modultvilling från IoT Hub och inspekterar distribution manifestet. Manifestet distribution är en JSON-fil som deklarerar de moduler som startas. 
 
-Varje objekt i ordlistan moduler innehåller specifik information om en modul och används av Edge-agenten för att styra modulens livscykel. Vissa av egenskaperna mer intressant är: 
+Varje objekt i manifestet distribution innehåller specifik information om en modul och används av Edge-agenten för att styra modulens livscykel. Vissa av egenskaperna mer intressant är: 
 
-* **Settings.Image** – den behållaravbildning som Edge-agenten använder för att starta modulen. Edge-agenten måste konfigureras med autentiseringsuppgifterna för behållarregistret om avbildningen skyddas av ett lösenord. Om du vill konfigurera Edge-agenten att uppdatera den `config.yaml` filen. I Linux, använder du följande kommando: `sudo nano /etc/iotedge/config.yaml`
+* **Settings.Image** – den behållaravbildning som Edge-agenten använder för att starta modulen. Edge-agenten måste konfigureras med autentiseringsuppgifterna för behållarregistret om avbildningen skyddas av ett lösenord. Autentiseringsuppgifter för container registry kan konfigureras via en fjärranslutning med hjälp av manifestet distribution eller på själva Edge-enheten genom att uppdatera den `config.yaml` filen i mappen IoT Edge-programmet.
 * **settings.createOptions** – en sträng som skickas direkt till Docker-daemon när du startar en modul behållare. Om du lägger till Docker-alternativ i den här egenskapen får för avancerade alternativ som port vidarebefordran eller montering av volymer i en modul behållare.  
 * **status för** – tillståndet som Edge-agenten placerar modulen. Det här värdet anges vanligtvis till *kör* de flesta vill Edge-agenten att starta alla moduler direkt på enheten. Du kan dock ange det ursprungliga tillståndet för en modul för att stoppas och vänta tills ett senare tillfälle som talar om att Edge-agent ska starta en modul. Edge-agenten rapporterar status för varje modul tillbaka till molnet i rapporterade egenskaper. Någon skillnad mellan önskad egenskap och rapporterad egenskap är ett tecken på en skadad enhet. Den stödda statusen är:
    * Laddas ned
@@ -114,13 +111,13 @@ IoT Edge-agenten skickar körningssvar till IoT Hub. Här är en lista över mö
 
 ### <a name="security"></a>Säkerhet
 
-IoT Edge-agenten spelar en viktig roll i säkerheten för en IoT Edge-enhet. Till exempel utförs åtgärder som att verifiera en moduls avbildning innan du startar den. Dessa funktioner läggs vid allmän tillgänglighet. 
+IoT Edge-agenten spelar en viktig roll i säkerheten för en IoT Edge-enhet. Till exempel utförs åtgärder som att verifiera en moduls avbildning innan du startar den. 
 
-<!-- For more information about the Azure IoT Edge security framework, see []. -->
+Mer information om Azure IoT Edge security framework Läs mer om den [IoT Edge-säkerhetshanteraren](iot-edge-security-manager.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Förstå Azure IoT Edge-moduler][lnk-moduler]
+[Förstå Azure IoT Edge-moduler][lnk-modules]
 
 <!-- Images -->
 [1]: ./media/iot-edge-runtime/Pipeline.png
@@ -129,4 +126,4 @@ IoT Edge-agenten spelar en viktig roll i säkerheten för en IoT Edge-enhet. Til
 [4]: ./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png
 
 <!-- Links -->
-[lnk-moduler]: iot-edge-modules.md
+[lnk-modules]: iot-edge-modules.md

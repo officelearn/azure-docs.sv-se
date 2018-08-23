@@ -13,19 +13,19 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: c8c0f4c3f99aa413531f54c1807883fcd73f039a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: b52a447bf643510528e1bd8c6d473bf5d77731fe
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627941"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42055948"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegierad åtkomst för hybrid- och distributioner i Azure AD
 
 Säkerheten för de flesta eller samtliga företagstillgångar i modern organisation beror på integriteten hos de Privilegierade konton som administrerar och hanterar IT-system. Skadliga aktörer ofta inklusive cyberangripare riktar sig mot administratörskonton och andra element för privilegierad åtkomst att snabbt få tillgång till känsliga data och system med hjälp av stöldattacker av autentiseringsuppgifter. Cloud finns services, skydd och svar i gemensamma ansvaret för molntjänstleverantören och kunden. Mer information om de senaste hoten till slutpunkter och molnet finns i den [Microsoft Security Intelligence Report](https://www.microsoft.com/security/sir/default.aspx). Den här artikeln kan hjälpa dig att utveckla en handlingsplan mot kunskapsluckor mellan dina aktuella planer och de riktlinjer som beskrivs här.
 
 > [!NOTE] 
-> Microsoft strävar efter att de högsta nivåerna av förtroende, transparens, standardefterlevnad och regelefterlevnad. Läs mer om hur Microsofts team för global incidenthantering minimera effekterna av att attacker mot molntjänster och hur säkerhet är inbyggt i Microsoft-produkter och molntjänster på [Microsoft Trust Center - Security](https://www.microsoft.com/en-us/trustcenter/security)och mål för Microsoft-efterlevnad på [Microsoft Trust Center - efterlevnad](https://www.microsoft.com/en-us/trustcenter/compliance).
+> Microsoft strävar efter att de högsta nivåerna av förtroende, transparens, standardefterlevnad och regelefterlevnad. Läs mer om hur Microsofts team för global incidenthantering minimera effekterna av att attacker mot molntjänster och hur säkerhet är inbyggt i Microsoft-produkter och molntjänster på [Microsoft Trust Center - Security](https://www.microsoft.com/trustcenter/security)och mål för Microsoft-efterlevnad på [Microsoft Trust Center - efterlevnad](https://www.microsoft.com/trustcenter/compliance).
 
 <!--## Risk management, incident response, and recovery preparation
 
@@ -337,7 +337,7 @@ Utöver att hantera dina konton för privilegierad åtkomst, rekommenderar vi at
 * Endast beviljar privilegierad åtkomst vid behov och ta bort den efteråt (just-in-time).
 * Behålla och granska aktivitetsrapporter som är relaterade till Privilegierade konton.
 
-Mer information om hur du bygger en översikt för fullständig säkerhet finns i [Microsoft IT arkitektur molnresurser](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Mer information om Microsoft-tjänster som hjälper till med något av dessa ämnen Kontakta din Microsoft-representant eller gå [skapa kritiska cyberhot försvar för att skydda ditt företag](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
+Mer information om hur du bygger en översikt för fullständig säkerhet finns i [Microsoft IT arkitektur molnresurser](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Mer information om Microsoft-tjänster som hjälper till med något av dessa ämnen Kontakta din Microsoft-representant eller gå [skapa kritiska cyberhot försvar för att skydda ditt företag](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 Den här pågående slutfasen i översikten säker privilegierad åtkomst innehåller följande komponenter.
 
@@ -440,16 +440,16 @@ Läs mer om hur Microsoft Office 365 hanterar säkerhetsincidenter [Security Inc
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Microsoft Trust Center för produkten säkerhet](https://www.microsoft.com/en-us/trustcenter/security) – säkerhetsfunktionerna i Microsoft cloud produkter och tjänster
+* [Microsoft Trust Center för produkten säkerhet](https://www.microsoft.com/trustcenter/security) – säkerhetsfunktionerna i Microsoft cloud produkter och tjänster
 
-* [Microsoft Trust Center - efterlevnad](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) – Microsofts omfattande uppsättningen efterlevnadserbjudanden för cloud services
+* [Microsoft Trust Center - efterlevnad](https://www.microsoft.com/trustcenter/compliance/complianceofferings) – Microsofts omfattande uppsättningen efterlevnadserbjudanden för cloud services
 
-* [Vägledning om hur du utför en riskbedömning](https://www.microsoft.com/en-us/trustcenter/guidance/risk-assessment) – Hantera säkerhet och efterlevnad kraven för Microsofts molntjänster
+* [Vägledning om hur du utför en riskbedömning](https://www.microsoft.com/trustcenter/guidance/risk-assessment) – Hantera säkerhet och efterlevnad kraven för Microsofts molntjänster
 
 ### <a name="other-ms-online-services"></a>Andra onlinetjänster för MS 
 
-* [Microsoft Intune Security](https://www.microsoft.com/en-us/trustcenter/security/intune-security) – Intune ger hantering av mobila enheter, hantering av mobila program och funktioner för Datorhantering från molnet.
+* [Microsoft Intune Security](https://www.microsoft.com/trustcenter/security/intune-security) – Intune ger hantering av mobila enheter, hantering av mobila program och funktioner för Datorhantering från molnet.
 
-* [Microsoft Dynamics 365-säkerhet](https://www.microsoft.com/en-us/trustcenter/security/dynamics365-security) – Dynamics 365 är Microsofts molnbaserade lösning som förenar customer relationship management (CRM) och Företagsresursplanering (Företagsresursplanering)-funktioner.
+* [Microsoft Dynamics 365-säkerhet](https://www.microsoft.com/trustcenter/security/dynamics365-security) – Dynamics 365 är Microsofts molnbaserade lösning som förenar customer relationship management (CRM) och Företagsresursplanering (Företagsresursplanering)-funktioner.
 
  

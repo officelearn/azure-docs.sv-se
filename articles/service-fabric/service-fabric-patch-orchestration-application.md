@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: a74eab546eefd765b89aae6f12fcff554d9937c4
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: bc9fbf56b37cb8c6690bd036db704532cb8b0437
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036946"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42055923"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Uppdatera Windows-operativsystemet i Service Fabric-klustret
 
@@ -282,7 +282,7 @@ Om tjänsten reparera manager inte kan hittas på klustret, genereras en varning
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-FRÅGOR OCH. **Varför ser jag mitt kluster i ett feltillstånd när patch orchestration-appen körs?**
+F. **Varför ser jag mitt kluster i ett feltillstånd när patch orchestration-appen körs?**
 
 A. Under installationen, patch orchestration appen inaktiverar eller startar om noderna, vilket kan tillfälligt resultera i hälsotillståndet för klustret slutar fungera.
 
@@ -296,15 +296,15 @@ I följande exempel klustret gick in i ett feltillstånd tillfälligt eftersom t
 
 Om problemet kvarstår, finns i avsnittet Felsökning.
 
-FRÅGOR OCH. **Patch orchestration-appen är i varningstillstånd**
+F. **Patch orchestration-appen är i varningstillstånd**
 
 A. Kontrollera om en hälsorapport som publicerats i programmet är den grundläggande orsaken. Varningen innehåller vanligtvis information om problemet. Om problemet är tillfälligt, förväntas programmet återskapa automatiskt från det här läget.
 
-FRÅGOR OCH. **Vad kan jag göra om mitt kluster är i feltillstånd och jag behöver du en brådskande operativsystemuppdateringen?**
+F. **Vad kan jag göra om mitt kluster är i feltillstånd och jag behöver du en brådskande operativsystemuppdateringen?**
 
 A. Patch orchestration appen installeras inte uppdateringar medan klustret är i feltillstånd. Försök att ta med ditt kluster till ett felfritt tillstånd att avblockera patch orchestration app-arbetsflöde.
 
-FRÅGOR OCH. **Bör ange i TaskApprovalPolicy som 'NodeWise' eller 'UpgradeDomainWise' för mitt kluster?**
+F. **Bör ange i TaskApprovalPolicy som 'NodeWise' eller 'UpgradeDomainWise' för mitt kluster?**
 
 A. 'UpgradeDomainWise' gör övergripande klustret korrigeringar snabbare genom att åtgärda alla noder som tillhör en uppgraderingsdomän parallellt. Det innebär att noder som tillhör en hela uppgraderingsdomän skulle vara otillgänglig (i [inaktiverad](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) tillstånd) under korrigeringsprocessen.
 
@@ -312,7 +312,7 @@ Däremot NodeWise' princip korrigeringar bara en nod åt gången, detta innebär
 
 Om klustret kan tolerera som körs på N-1 antal uppgraderingsdomäner under uppdatering cykel (där N är det totala antalet uppgraderingsdomäner i ditt kluster), kan du ställa in principen som ”UpgradeDomainWise”, annars ange den till ”NodeWise”.
 
-FRÅGOR OCH. **Hur mycket tid gör det gör att korrigera en nod?**
+F. **Hur mycket tid gör det gör att korrigera en nod?**
 
 A. Uppdatering av en nod kan ta några minuter (till exempel: [Windows Defenders definitionsuppdateringar](https://www.microsoft.com/wdsi/definitions)) till timmar (till exempel: [Windows kumulativa uppdateringar](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Tid som krävs för att korrigera en nod beror oftast på 
  - Storleken på uppdateringar
@@ -320,7 +320,7 @@ A. Uppdatering av en nod kan ta några minuter (till exempel: [Windows Defenders
  - Tiden det tar att installera uppdateringarna, starta om noden (vid behov) och slutför installationsstegen utförs efter omstart.
  - Prestanda för virtuell dator/dator och nätverk.
 
-FRÅGOR OCH. **Hur lång tid tar det för att korrigera ett helt kluster?**
+F. **Hur lång tid tar det för att korrigera ett helt kluster?**
 
 A. Den tid som behövs för att korrigera ett helt kluster beror på följande faktorer:
 
@@ -331,11 +331,11 @@ A. Den tid som behövs för att korrigera ett helt kluster beror på följande f
 - Klustret Läs in – varje uppdatering åtgärden kräver att flytta arbetsbelastningen kunden till andra tillgängliga noder i klustret. Noden som för tillfället patch stå i [inaktiveras](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) tillstånd under den här tiden. Om klustret körs nära hög belastning, tar Inaktivera processen längre tid. Därför verkar övergripande korrigeringsprocessen vara långsam under under belastning förhållanden.
 - Alla kluster hälsofel under uppdatering - [försämring](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error) i [för klustrets hälsotillstånd](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction) skulle avbryta korrigeringsprocessen. Detta lägger till i den totala tid som krävs för att korrigera hela klustret.
 
-FRÅGOR OCH. **Varför ser jag vissa uppdateringar i Windows Update resultaten via REST-API, men inte under Windows Update-historiken på datorn?**
+F. **Varför ser jag vissa uppdateringar i Windows Update resultaten via REST-API, men inte under Windows Update-historiken på datorn?**
 
 A. Vissa produktuppdateringar endast visas i deras respektive uppdateringar/korrigeringar historiken. Uppdateringar för Windows Defender kan eller inte kan visas i Windows Update-historiken på Windows Server 2016.
 
-FRÅGOR OCH. **Dirigering app användas för att korrigera mitt dev-kluster (kluster med en nod)?**
+F. **Dirigering app användas för att korrigera mitt dev-kluster (kluster med en nod)?**
 
 A. Nej, Patch orchestration appen kan inte användas till patch kluster med en nod. Den här begränsningen är avsiktligt, som [service fabric-systemtjänster](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) eller kundappar kommer att stöta på avbrott och reparation jobb för uppdatering skulle därför aldrig godkännas av reparationshanteraren.
 
@@ -391,6 +391,10 @@ En administratör måste ingripa och avgöra varför programmet eller kluster fi
 - Felkorrigering i skapandet av RM uppgifter på grund av vilka hälsotillstånd Kontrollera under förberedelserna reparera uppgifter inte händer som förväntat.
 - Ändra startmetoden för windows-tjänsten POANodeSvc från automatisk fördröjd Auto.
 
-### <a name="version-121-latest"></a>Version 1.2.1 (senaste)
+### <a name="version-121"></a>Version 1.2.1
 
 - Felkorrigering i klustret skala ned arbetsflöde. Introducerade skräpinsamling samling logik för POA reparera uppgifter som hör till icke-existerande noder.
+
+### <a name="version-122-latest"></a>Version 1.2.2 (senaste)
+
+- Diverse felkorrigeringar.

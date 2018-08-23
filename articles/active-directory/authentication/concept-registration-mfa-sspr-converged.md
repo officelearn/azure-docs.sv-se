@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: d6915ce659d96021d4185be3818919fcfb9d4371
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: af57faddcc1413747b4bb847e27287ba86562175
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492900"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42055835"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Konvergerade registrering för lösenordsåterställning via självbetjäning och Azure Multi-Factor Authentication (förhandsversion)
 
@@ -55,6 +55,9 @@ Användare uppmanas att registrera när du loggar in visas följande upplevelse:
 > Den här endast visas när en användare uppmanas att registrera när du loggar in. Användare som går direkt till den nya upplevelsen på aka.ms/setupsecurityinfo visas en annan version av den upplevelsen, som beskrivs senare i den här artikeln.
 
 De autentiseringsmetoder som visas kommer att ändras baserat på de metoder som är aktiverad i din MFA- eller SSPR-principer. Användaren uppmanas att registrera det minsta antalet autentiseringsmetoder som behövs för att vara kompatibel med principen för MFA, SSPR principen eller båda. Om det finns flexibilitet i vilka autentiseringsmetoder användaren kan registrera, kan de välja **väljer säkerhetsinformation** välja andra autentiseringsmetoder.  
+
+> [!NOTE]
+> Om du aktiverar användningen av både mobilapp och kod för mobilapp kan användare som registrerar Microsoft Authenticator-appen med hjälp av ett meddelande om du använder både meddelande och kod för att verifiera sin identitet.
 
 Till skillnad från tidigare MFA-registrering används uppmanas användarna inte att registrera ett applösenord när du går via den nya upplevelsen för registrering. De bör i stället följa stegen i våra självstudier för lösenord att registrera applösenord i den nya upplevelsen.  
 

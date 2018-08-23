@@ -1,6 +1,6 @@
 ---
-title: Azure händelse rutnätet schemat för IoT-hubb | Microsoft Docs
-description: Referenssida för händelsen schemaformat och egenskaperna för IoT-hubb
+title: Schema för Azure Event Grid för IoT Hub | Microsoft Docs
+description: Referenssidan för händelse schemaformat och egenskaperna för IoT Hub
 services: iot-hub
 documentationcenter: ''
 author: kgremban
@@ -8,31 +8,33 @@ manager: timlt
 editor: ''
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/30/2018
+ms.date: 08/17/2018
 ms.author: kgremban
-ms.openlocfilehash: 812ca3ba546112f54a76319fda853d441ce34f1b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4bb33eae53d31701b66d13cb4e810b1a0b8a4b0b
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34303546"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42055619"
 ---
-# <a name="azure-event-grid-event-schema-for-iot-hub"></a>Azure händelse rutnätet Händelseschema för IoT-hubb
+# <a name="azure-event-grid-event-schema-for-iot-hub"></a>Azure Event Grid-Händelseschema för IoT Hub
 
-Den här artikeln innehåller egenskaperna och schemat för Azure IoT Hub-händelser. En introduktion till händelse scheman, se [Azure händelse rutnätet Händelseschema](event-schema.md). 
+Den här artikeln innehåller egenskaperna och schema för Azure IoT Hub-händelser. En introduktion till Händelsescheman i [Azure Event Grid Händelseschema](event-schema.md). 
+
+En lista över exempel på skript och självstudier finns i [IoT Hub-händelsekälla](event-sources.md#iot-hub).
 
 ## <a name="available-event-types"></a>Tillgängliga händelsetyper
 
-Azure IoT-hubb genererar följande händelse:
+Azure IoT Hub genererar följande händelsetyper:
 
 | Händelsetyp | Beskrivning |
 | ---------- | ----------- |
-| Microsoft.Devices.DeviceCreated | Publicerade när en enhet är registrerad på en IoT-hubb. |
+| Microsoft.Devices.DeviceCreated | Publicerade när en enhet registreras till en IoT hub. |
 | Microsoft.Devices.DeviceDeleted | Publicerade när en enhet tas bort från en IoT-hubb. | 
 
 ## <a name="example-event"></a>Exempel-händelse
 
-Schemat för DeviceCreated och DeviceDeleted händelser har samma struktur. Det här exemplet händelse visas schemat för en händelse som aktiveras när en enhet är registrerad på en IoT-hubb:
+Schemat för DeviceCreated och DeviceDeleted händelser har samma struktur. Den här exempelhändelse visar schemat för en händelse som aktiveras när en enhet har registrerats till en IoT hub:
 
 ```json
 [{
@@ -88,40 +90,40 @@ Alla händelser som innehåller samma översta data:
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | id | sträng | Unik identifierare för händelsen. |
-| Avsnittet | sträng | Fullständigt labbresurs sökvägen till händelsekällan. Det här fältet är skrivskyddat. Händelsen rutnätet innehåller det här värdet. |
-| Ämne | sträng | Publisher-definierade sökvägen till ämnet för händelsen. |
-| Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekälla. |
-| EventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| data | objekt | IoT-hubb händelsedata.  |
-| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversionen. |
-| metadataVersion | sträng | Schemaversion för händelsemetadata. Händelsen rutnätet definierar schemat för egenskaperna på den översta nivån. Händelsen rutnätet innehåller det här värdet. |
+| ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
+| Ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
+| Händelsetyp | sträng | En av typerna som registrerade händelsen för den här händelsekällan. |
+| eventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
+| data | objekt | IoT Hub händelsedata.  |
+| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
+| metadataVersion | sträng | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
-Innehållet i dataobjektet är olika för varje händelse utgivare. Dataobjekt som innehåller följande egenskaper för IoT-hubb händelser:
+Innehållet i dataobjektet är olika för varje händelse-utgivare. För IoT Hub-händelser innehåller dataobjektet följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| hubName | sträng | Namnet på IoT-hubben där enheten skapas eller tas bort. |
-| deviceId | sträng | Unik identifierare för enheten. Den här skiftlägeskänsliga strängen kan vara upp till 128 tecken långt och har stöd för ASCII-7-bitars alfanumeriska tecken och följande specialtecken: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
-| operationTimestamp | sträng | ISO8601 tidsstämpel för åtgärden. |
-| opType | sträng | Händelsetypen som angetts för den här åtgärden med IoT-hubb: antingen `DeviceCreated` eller `DeviceDeleted`.
-| dubbla | objekt | Information om enheten dubbla, som är moln represenation programmetadata för enheten. | 
-| deviceID | sträng | Unik identifierare för enheten dubbla. | 
-| ETag | sträng | En typ av information som beskriver innehållet i dubbla för enheten. Varje etag är säkert att vara unikt för varje enhet dubbla. | 
-| status | sträng | Om enheten dubbla aktiveras eller inaktiveras. | 
-| statusUpdateTime | sträng | Uppdatera ISO8601 tidsstämpel för senaste enhetens dubbla status. |
+| HubName | sträng | Namnet på IoT Hub där enheten skapas eller tas bort. |
+| deviceId | sträng | Unik identifierare för enheten. Den här skiftlägeskänsliga strängar kan innehålla upp till 128 tecken och har stöd för ASCII 7 bitar alfanumeriska tecken och följande specialtecken: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| operationTimestamp | sträng | ISO8601-tidsstämpel för åtgärden. |
+| opType | sträng | Vilken typ av händelse som angetts för den här åtgärden av IoT Hub: antingen `DeviceCreated` eller `DeviceDeleted`.
+| enhetstvilling | objekt | Information om enhetstvillingen, vilket är molnet represenation programmetadata för enheten. | 
+| deviceID | sträng | Den unika identifieraren för enhetstvillingen. | 
+| ETag | sträng | En del av informationen som beskriver innehållet i enhetstvillingen. Varje etag garanteras vara unikt per enhetstvillingen. | 
+| status | sträng | Om enhetstvillingen är aktiverat eller inaktiverat. | 
+| statusUpdateTime | sträng | Uppdatera ISO8601-tidsstämpel för senaste enhetens twin status. |
 | connectionState | sträng | Om enheten är ansluten eller frånkopplad. | 
-| lastActivityTime | sträng | ISO8601 tidsstämpel för den senaste aktiviteten. | 
-| cloudToDeviceMessageCount | heltal | Antal moln till enhet meddelanden som skickas till den här enheten. | 
-| AuthenticationType | sträng | Autentiseringstypen som används för den här enheten: antingen `SAS`, `SelfSigned`, eller `CertificateAuthority`. |
-| X509Thumbprint | sträng | Certifikatets tumavtryck är ett unikt värde för x509 certifikat, används vanligtvis för att hitta ett visst certifikat i ett certifikatarkiv. Certifikatets tumavtryck genereras dynamiskt med hjälp av algoritmen SHA1 och fysiskt finns inte i certifikatet. | 
-| primaryThumbprint | sträng | Primär tumavtrycket för x509 certifikat. |
-| secondaryThumbprint | sträng | Sekundär tumavtrycket för x509 certifikat. | 
-| version | heltal | Ett heltal som ökar varje gång enheten dubbla uppdateras. |
-| önskad | objekt | En del av de egenskaper som kan skrivs bara av programmet backend- och läses av enheten. | 
-| rapporterat | objekt | En del av de egenskaper som kan skrivs endast av enheten och läses av programmet serverdel. |
-| lastUpdated | sträng | Uppdatera ISO8601 tidsstämpel för den senaste dubbla enhetsegenskap. | 
+| lastActivityTime | sträng | ISO8601-tidsstämpel för senaste aktivitet. | 
+| cloudToDeviceMessageCount | heltal | Antal moln till enhetsmeddelanden som skickas till den här enheten. | 
+| authenticationType | sträng | Autentiseringstypen som används för den här enheten: antingen `SAS`, `SelfSigned`, eller `CertificateAuthority`. |
+| x509Thumbprint | sträng | Tumavtrycket är ett unikt värde för x509 certifikat, som ofta används för att hitta ett visst certifikat i ett certifikatarkiv. Tumavtrycket genereras dynamiskt med hjälp av algoritmen SHA1 och fysiskt finns inte i certifikatet. | 
+| primaryThumbprint | sträng | Primära tumavtrycket för x509 certifikat. |
+| secondaryThumbprint | sträng | Sekundära tumavtrycket för x509 certifikat. | 
+| version | heltal | Ett heltal som ökas med 1 varje gång enheten twin uppdateras. |
+| önskad | objekt | En del av de egenskaper som kan skrivas endast med program backend- och läsas av enheten. | 
+| rapporterat | objekt | En del av de egenskaper som kan skrivs endast av enheten och läses av programmet backend-server. |
+| lastUpdated | sträng | Uppdatera ISO8601-tidsstämpel för den senaste twin enhetsegenskapen. | 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till Azure händelse rutnätet finns [vad är händelsen rutnätet?](overview.md)
-* Mer information om hur IoT-hubb och händelsen rutnätet tillsammans, se [ta hänsyn till IoT-hubb händelser med händelse rutnätet för att utlösaråtgärder](../iot-hub/iot-hub-event-grid.md).
+* En introduktion till Azure Event Grid finns i [vad är Event Grid?](overview.md)
+* Mer information om hur IoT Hub och Event Grid fungerar tillsammans, se [reagera på IoT Hub-händelser med Event Grid för att utlösaråtgärder](../iot-hub/iot-hub-event-grid.md).

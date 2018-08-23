@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 08/16/2018
 ms.author: douglasl
-ms.openlocfilehash: c3aeb57bf9c613da3edb8c5dda0e88aa308a4b6e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8bbc64a34b5ae95e044b95f921770adc9045574c
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448449"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42059680"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Kontinuerlig integrering och distribution i Azure Data Factory
 
@@ -47,6 +47,10 @@ Den här åtgärden tar dig till Azure-portalen där du kan importera den export
 Välj **Läs in fil** och markerar den exporterade Resource Manager-mallen som du kan få alla konfigurationsvärden (t.ex, länkade tjänster).
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
+
+**Anslutningssträngar**. Du hittar den information som krävs för att skapa anslutningssträngar i artiklarna om enskilda anslutningsappar. Till exempel Azure SQL Database finns i [kopiera data till och från Azure SQL Database med hjälp av Azure Data Factory](connector-azure-sql-database.md). För att kontrollera rätt anslutningssträng – för en länkad tjänst, till exempel – kan du också öppna kodvyn för resursen i Användargränssnittet för Data Factory. I kodvyn, men tas lösenord eller konto nyckeldel av anslutningssträngen bort. Välj markerad i följande skärmbild för att öppna kodvyn.
+
+![Öppna kodvyn för att se anslutningssträngen](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
 ## <a name="continuous-integration-lifecycle"></a>Livscykel för kontinuerlig integrering
 Här är hela livscykeln för kontinuerlig integration och distribution som du kan använda när du har aktiverat VSTS GIT-integrering i Användargränssnittet för Data Factory:
@@ -174,11 +178,7 @@ Distributionen kan misslyckas om du försöker uppdatera active utlösare. För 
 
 Du kan följa liknande steg och använda liknande kod (med den `Start-AzureRmDataFactoryV2Trigger` funktionen) starta om utlösarna efter distributionen.
 
-## <a name="sample-template-and-script"></a>Exempel på en mall och skript
-Här följer två exempel som du kan använda för att komma igång med kontinuerlig integrering och distribution för Data Factory:
-
--   En exempel-Distributionsmall som du kan importera i VSTS.
--   Ett exempelskript som du vill sluta utlösare före distributionen och starta om utlöser efteråt. Skriptet innehåller också koden för att ta bort resurser som har tagits bort.
+## <a name="sample-deployment-template"></a>Exempelmall för distribution
 
 Här är en exempelmall för distribution som du kan importera i VSTS.
 
@@ -718,7 +718,9 @@ Här är en exempelmall för distribution som du kan importera i VSTS.
 }
 ```
 
-Här är ett exempelskript som du vill sluta utlösare före distributionen och därefter starta om utlösare:
+## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>Exempel på skript att stoppa och starta om utlösare och rensa
+
+Här är ett exempelskript som du vill sluta utlösare före distributionen och starta om utlösare efteråt. Skriptet innehåller också kod för att ta bort resurser som har tagits bort.
 
 ```powershell
 param

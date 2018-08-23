@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 08/14/2018
 ms.author: kgremban
-ms.openlocfilehash: be8fb801acfb625685604a302051d813bfd97939
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 5cd12d4fab97f295cad1e0ea06112fc53e376b12
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325310"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42055415"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Installera Azure IoT Edge-körningen på Linux (x64)
 
@@ -128,6 +128,9 @@ Starta om daemon när du har angett etableringsinformationen i konfigurationen:
 ```cmd/sh
 sudo systemctl restart iotedge
 ```
+
+>[!TIP]
+>Du behöver ha förhöjd behörighet att köra `iotedge` kommandon. När du logga ut från datorn och logga in första gången när du har installerat IoT Edge-körningen kan uppdateras automatiskt dina behörigheter. Tills dess kan du använda **sudo** framför kommandona. 
 
 ## <a name="verify-successful-installation"></a>Verifiera installationen
 

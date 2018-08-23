@@ -1,6 +1,6 @@
 ---
-title: Microsoft Translator tecken API räknar | Microsoft Docs
-description: Hur Microsoft översättare Text API räknar tecken.
+title: 'Microsoft Translator Text API: et-tecknet räknar | Microsoft Docs'
+description: Microsoft Translator Text API Räknar hur tecken.
 services: cognitive-services
 author: Jann-Skotdal
 manager: chriswendt1
@@ -9,19 +9,17 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: v-jansko
-ms.openlocfilehash: ebe3e3606a0413730e1fbfd704a6403f77275f89
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1b4987509c17e4064d7c54608395e272efa8de3b
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352584"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41988626"
 ---
-# <a name="how-the-microsoft-translator-text-api-counts-characters"></a>Hur Microsoft översättare Text API antal tecken
+# <a name="how-the-microsoft-translator-text-api-counts-characters"></a>Hur Microsoft Translator Text API räknar tecken
 
-Microsoft Translator räknar alla tecken i indata. Tecken i Unicode-mening, inte byte. Unicode surrogat antal två tecken. Tomt utrymme och markup räknas som tecken. Längden på svaret spelar ingen roll.
+Microsoft Translator räknar varje tecken av indata. Tecken i Unicode-mening, inte byte. Unicode surrogat antal som två tecken. Tomt utrymme och kodtyp räknas som tecken. Längden på svaret spelar ingen roll.
 
-Anrop till metoder för att identifiera och BreakSentence räknas inte i förbrukningen tecken. Men förväntar vi sig att anrop för att identifiera och BreakSentence metoder är i en rimlig proportion till användning av andra funktioner som ska räknas. Microsoft förbehåller sig rätten att starta inventering identifiera och BreakSentence. 
+Anrop till metoder för identifiering och BreakSentence räknas inte tecknet förbrukningen. Men förväntar vi sig att anropen för att identifiera och BreakSentence metoder är i en rimlig proportion till användningen av andra funktioner som räknas. Microsoft förbehåller sig rätten att utgår identifierings- och BreakSentence. 
 
-Översätta erbjudanden automatisk identifiering om du utelämnar parametern från språk. 
-
-Mer information om antal tecken är i den [Microsoft översättare FAQ](https://www.microsoft.com/en-us/translator/faq.aspx).
+Mer information om antalet tecken som tillhör den [Microsoft Translator FAQ](https://www.microsoft.com/en-us/translator/faq.aspx).

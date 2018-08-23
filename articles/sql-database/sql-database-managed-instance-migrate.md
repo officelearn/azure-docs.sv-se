@@ -11,20 +11,18 @@ ms.custom: managed instance
 ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: bonova
-ms.openlocfilehash: a9a02f9007c174024028305746682f9ac07dab22
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: e152fa4bb439f1881dc9974bfdf1b3e8c77c434a
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247218"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42060701"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migrering av SQL Server-instans till Azure SQL Database Managed Instance
 
-I den här artikeln får du lära dig om metoder för att migrera en SQL Server 2005 eller senare version-instans till Azure SQL Database Managed Instance (förhandsversion). 
+I den här artikeln får du lära dig om metoder för att migrera en SQL Server 2005 eller senare version instans till [Azure SQL Database Managed Instance](sql-database-managed-instance.md) (förhandsversion).
 
-SQL Database Managed Instance är en utökning av den befintliga SQL Database-tjänsten som tillhandahåller ett tredje distributionsalternativ utöver enskilda databaser och elastiska pooler.  Den är satt så att databasen – flytta till en helt hanterad PaaS, utan att göra om programmet. SQL Database Managed Instance tillhandahåller hög kompatibilitet med programmeringsmodellen för lokalt installerad SQL Server och direkt stöd för en majoritet av SQL Server-funktionerna och medföljande verktyg och tjänster.
-
-På en hög nivå migreringsprocessen program ser ut som:
+Migreringen av databasen ut som på en hög nivå:
 
 ![Migreringsprocessen](./media/sql-database-managed-instance-migration/migration-process.png)
 
@@ -41,9 +39,9 @@ På en hög nivå migreringsprocessen program ser ut som:
 
 Börja med att kontrollera om Managed Instance är kompatibelt med databaskrav av ditt program. Hanterad instans är utformad att ge enkel lift and shift-migrering för flesta av befintliga program som använder SQL Server lokalt eller på virtuella datorer. Men du kan ibland behöva funktioner eller funktioner som ännu inte stöds och kostnaden för att implementera en lösning är för höga. 
 
-Använd [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) för att identifiera potentiella kompatibilitetsproblem påverkar databasfunktionaliteten på Azure SQL Database. DMA har stöd inte för hanterad instans som mål för migrering, men det rekommenderas att köra utvärderingen mot Azure SQL Database och noga igenom listan över rapporterade funktionsparitet och kompatibilitetsproblem mot produktdokumentationen. De flesta av blockeringsproblem som hindrar en migrering till Azure SQL Database har tagits bort med Managed Instance. För instans, funktioner som databasöverskridande frågor och transaktioner över flera databaser inom samma instans länkad server för att andra SQL källor, CLR, globala temporära tabeller, är instans på vyer, Service Broker och liknande tillgängliga i hanterade instanser. 
+Använd [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) för att identifiera potentiella kompatibilitetsproblem påverkar databasfunktionaliteten på Azure SQL Database. DMA har stöd inte för hanterad instans som mål för migrering, men det rekommenderas att köra utvärderingen mot Azure SQL Database och noga igenom listan över rapporterade funktionsparitet och kompatibilitetsproblem mot produktdokumentationen. Se den [skillnader mellan Azure SQL Database Singleton och hanterad instans](sql-database-features.md) att kontrollera finns det vissa rapporterade allvarliga problem som inte blockeringar i Managed Instance eftersom de flesta av de blockerar problem hindrar en migrering till Azure SQL Database har tagits bort med Managed Instance. För instans, funktioner som databasöverskridande frågor och transaktioner över flera databaser inom samma instans länkad server för att andra SQL källor, CLR, globala temporära tabeller, är instans på vyer, Service Broker och liknande tillgängliga i hanterade instanser. 
 
-Det finns dock tillfällen när du behöver tänka på ett alternativ, till exempel [SQL Server på virtuella datorer i Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Här följer några exempel:
+Om det finns några rapporterade allvarliga problem som inte tas bort i Azure SQL Managed Instance kan du behöva tänka på ett alternativ, till exempel [SQL Server på virtuella datorer i Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Här följer några exempel:
 
 - Om du kräver direkt åtkomst till operativsystemet eller filsystem, till exempel att installera från tredje part eller anpassade agenter på samma virtuella dator med SQL Server.
 - Om du har strikta beroende på funktioner som fortfarande inte stöds, till exempel FileStream / filetable-objekt, PolyBase och transaktioner över flera instanser.
@@ -52,13 +50,13 @@ Det finns dock tillfällen när du behöver tänka på ett alternativ, till exem
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Distribuera till en optimal storlek hanterad instans
 
-Hanterad instans skräddarsys för lokala arbetsbelastningar som planerar att flytta till molnet. Det inför en ny inköpsmodell som ger större flexibilitet att välja rätt nivå av resurser för dina arbetsbelastningar. I den lokala miljön är du antagligen van vid att ändra storlek på dessa arbetsbelastningar med hjälp av fysiska kärnor. Den nya inköpsmodellen för hanterad instans baseras på virtuella kärnor, eller ”vCores”, med ytterligare lagringsutrymme och I/O som är tillgängliga separat. VCore-modellen är ett enklare sätt att förstå dina beräkningskrav i molnet eller det du använder en lokal idag. Den nya modellen kan du justera storleken din mål-miljö i molnet.
+Hanterad instans skräddarsys för lokala arbetsbelastningar som planerar att flytta till molnet. Det inför en [nya inköpsmodell](sql-database-service-tiers-vcore.md) som ger större flexibilitet att välja rätt nivå av resurser för dina arbetsbelastningar. I den lokala miljön är du antagligen van vid att ändra storlek på dessa arbetsbelastningar med hjälp av fysiska kärnor och i/o-bandbredd. Den nya inköpsmodellen för hanterad instans baseras på virtuella kärnor, eller ”vCores”, med ytterligare lagringsutrymme och I/O som är tillgängliga separat. VCore-modellen är ett enklare sätt att förstå dina beräkningskrav i molnet eller det du använder en lokal idag. Den nya modellen kan du justera storleken din mål-miljö i molnet.
 
-Du kan välja beräknings- och lagringsresurser vid distributionen tid och ändra den senare utan att avbrott för ditt program.
+Du kan välja beräknings- och lagringsresurser vid distributionen tid och ändra den senare utan att driftstopp för dina program med hjälp av den [Azure-portalen](sql-database-scale-resources.md):
 
 ![hanterad instans-storlek](./media/sql-database-managed-instance-migration/managed-instance-sizing.png)
 
-Läs hur du skapar infrastrukturen som virtuellt nätverk och en hanterad instans i [skapar en hanterad instans](sql-database-managed-instance-create-tutorial-portal.md).
+Läs hur du skapar infrastrukturen som virtuellt nätverk och en hanterad instans i [skapar en hanterad instans](sql-database-managed-instance-get-started.md).
 
 > [!IMPORTANT]
 > Det är viktigt att hålla dina mål VNet och undernät alltid enligt [hanterad instans-VNET-krav](sql-database-managed-instance-vnet-configuration.md#requirements). All inkompatibilitet kan hindra dig från att skapa nya instanser eller använda dem som du redan har skapat.
@@ -77,7 +75,7 @@ Managed Instance är en fullständigt hanterad tjänst som gör att du kan deleg
 Hanterad instans stöder följande databas-migreringsalternativ (för närvarande dessa är de enda migreringsstorleken metoderna):
 
 - Azure Database Migration Service - migrering med nästan obefintlig nedtid
-- Intern återställning från URL - använder interna säkerhetskopieringar från SQL Server och kräver vissa avbrott
+- Interna `RESTORE DATABASE FROM URL` – använder interna säkerhetskopieringar från SQL Server och kräver vissa avbrott.
 
 ### <a name="azure-database-migration-service"></a>Azure Database Migration Service
 
@@ -105,7 +103,7 @@ Följande tabell innehåller mer information om de metoder som du kan använda b
 |Återställa från Azure Storage till hanterad instans|[ÅTERSTÄLLA från URL: en med SAS-AUTENTISERINGSUPPGIFTER](sql-database-managed-instance-restore-from-backup-tutorial.md)|
 
 > [!IMPORTANT]
-> - När du migrerar en databas som skyddas av [transparent datakryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) till Azure SQL-hanterad instans med hjälp av det inbyggda återställningsalternativet måste det motsvarande certifikatet från en lokal server eller IaaS-SQL-server migreras före databasåterställningen. Detaljerade anvisningar finns i [migrera TDE-certifikat till hanterad instans](sql-database-managed-instance-migrate-tde-certificate.md)
+> - När du migrerar en databas som skyddas av [transparent datakryptering](transparent-data-encryption-azure-sql.md) till Azure SQL-hanterad instans med hjälp av det inbyggda återställningsalternativet måste det motsvarande certifikatet från en lokal server eller IaaS-SQL-server migreras före databasåterställningen. Detaljerade anvisningar finns i [migrera TDE-certifikat till hanterad instans](sql-database-managed-instance-migrate-tde-certificate.md)
 > - Återställning av systemdatabaser stöds inte. Om du vill migrera nivå instansobjekt (lagras i master- eller msdb-databaser), rekommenderar vi att skriva ut dem och köra T-SQL-skript på mål-instans.
 
 En fullständig genomgång som innehåller återställer en säkerhetskopia av databasen till en hanterad instans med hjälp av SAS-autentiseringsuppgifter kan se [återställa från en säkerhetskopia till en hanterad instans](sql-database-managed-instance-restore-from-backup-tutorial.md).
@@ -121,11 +119,10 @@ Dessutom kan du inte behöver bekymra dig om hur du konfigurerar hög tillgängl
 
 Överväg att använda några av de funktioner som är tillgängliga för att stärka säkerheten:
 - Azure Active Directory-autentisering på databasnivå
-- Granskning och Hotidentifiering för att övervaka aktiviteter
-- Kontrollera åtkomsten till känsliga och Privilegierade data ([säkerhet på radnivå](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) och [dynamisk Datamaskning](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)).
+- Använd [avancerade säkerhetsfunktioner](sql-database-security-overview.md) som [granskning](sql-database-managed-instance-auditing.md), [Hotidentifiering](sql-advanced-threat-protection.md), [säkerhet på radnivå](https://docs.microsoft.com/sql/relational-databases/security/row-level-security), och [dynamisk Datamaskning](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) ) att skydda din instans.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Information om hanterade instanser finns i [vad är en hanterad instans?](sql-database-managed-instance.md).
-- Se en självstudie som innehåller en återställning från en säkerhetskopia, [skapar en hanterad instans](sql-database-managed-instance-create-tutorial-portal.md).
+- Se en självstudie som innehåller en återställning från en säkerhetskopia, [skapar en hanterad instans](sql-database-managed-instance-get-started.md).
 - Självstudie som visar migrering med DMS, se [migrera dina lokala databaser till Managed Instance med DMS](../dms/tutorial-sql-server-to-managed-instance.md).  

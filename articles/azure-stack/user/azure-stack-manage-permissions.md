@@ -1,9 +1,9 @@
 ---
-title: Hantera behörigheter till resurser per användare i Azure-stacken | Microsoft Docs
-description: Lär dig hur du hantera RBAC behörigheter som en tjänstadministratör eller innehavare.
+title: Hantera behörigheter till resurser per användare i Azure Stack | Microsoft Docs
+description: Lär dig hantera RBAC-behörigheter som en tjänstadministratör eller klient.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: PatAltimore
 manager: femila
 editor: ''
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
@@ -12,91 +12,91 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: patricka
 ms.reviewer: ''
-ms.openlocfilehash: 026c686b1d5654aa50dd63b9addd619dd5322da0
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 2e36f52568d349aeecd47f90bf9431f096cc4fdc
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808153"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42058201"
 ---
-# <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Hantera åtkomst till resurser med Azure Stack Role-Based åtkomstkontroll
+# <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Hantera åtkomst till resurser med Azure Stack Role-Based Access Control
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Azure stacken stöder rollbaserad åtkomstkontroll (RBAC), samma [säkerhetsmodell för access management](https://docs.microsoft.com/azure/role-based-access-control/overview) som använder Microsoft Azure. Du kan använda RBAC för att hantera användare, grupp eller programåtkomst för prenumerationer, resurser och tjänster.
+Azure Stack stöd för rollbaserad åtkomstkontroll (RBAC), samma [säkerhetsmodell för åtkomsthantering](https://docs.microsoft.com/azure/role-based-access-control/overview) som använder Microsoft Azure. Du kan använda RBAC för att hantera användare, grupp eller programåtkomst för prenumerationer, resurser och tjänster.
 
-## <a name="basics-of-access-management"></a>Grunderna i åtkomsthantering
+## <a name="basics-of-access-management"></a>Grunderna för åtkomsthantering
 
-Rollbaserad åtkomstkontroll ger detaljerad åtkomstkontroll som du kan använda för att skydda din miljö. Ge användare behörigheterna exakt som de behöver genom att tilldela rollen RBAC för ett visst område. Omfånget för rolltilldelningen kan vara en prenumeration, resursgrupp eller en enskild resurs. Läs den [rollbaserad åtkomstkontroll i Azure portal](https://docs.microsoft.com/azure/role-based-access-control/overview) artikeln för att få mer detaljerad information om åtkomsthantering av.
+Rollbaserad åtkomstkontroll ger detaljerad åtkomstkontroll som du kan använda för att skydda din miljö. Du ger användarna de exakta behörigheter de behöver genom att tilldela RBAC-roll för ett visst omfång. Omfånget för rolltilldelningen kan vara en prenumeration, en resursgrupp eller en enskild resurs. Läs den [rollbaserad åtkomstkontroll i Azure-portalen](https://docs.microsoft.com/azure/role-based-access-control/overview) artikeln för att få mer detaljerad information om åtkomsthantering.
 
 ### <a name="built-in-roles"></a>Inbyggda roller
 
-Azure-stacken har tre grundläggande roller som du kan använda för alla typer av resurser:
+Azure Stack har tre grundläggande roller som du kan använda för alla typer av resurser:
 
 * **Ägare** kan hantera allt, inklusive åtkomst till resurser.
-* **Deltagare** kan hantera allt utom åtkomst till resurser.
-* **Läsaren** kan visa allt, men inte göra några ändringar.
+* **Deltagare** kan hantera allt förutom åtkomst till resurser.
+* **Läsare** kan visa allt, men inte göra några ändringar.
 
 ### <a name="resource-hierarchy-and-inheritance"></a>Resurs-hierarkin och arv
 
-Azure-stacken har följande resurs-hierarki:
+Azure Stack har följande resurs hierarki:
 
-* Varje prenumeration som hör till en katalog.
-* Varje resursgrupp som hör till en prenumeration.
+* Varje prenumeration hör till en katalog.
+* Varje resursgrupp tillhör en prenumeration.
 * Varje resurs tillhör en resursgrupp.
 
-Åtkomst som du har gett på en överordnad omfattning ärvs på underordnade omfattningar. Exempel:
+Åtkomst som du beviljar på en överordnad omfattning ärvs på underordnade omfång. Exempel:
 
-* Du kan tilldela rollen Läsare för en Azure AD-gruppen på prenumerationsomfattningen. Medlemmar i gruppen kan visa varje resursgrupp och resurser i prenumerationen.
-* Du tilldelar deltagarrollen till ett program på resursen Gruppomfång. Programmet kan hantera resurser av alla typer i resursgruppen, men inte andra resursgrupper i prenumerationen.
+* Du tilldelar rollen läsare till en Azure AD-grupp prenumerationsområde. Medlemmar i gruppen kan visa varje resursgrupp och resurser i prenumerationen.
+* Du kan tilldela rollen som deltagare till ett program i resursgruppomfånget. Programmet kan hantera resurser av alla typer i resursgruppen, men inte andra resursgrupper i prenumerationen.
 
-### <a name="assigning-roles"></a>tilldela roller
+### <a name="assigning-roles"></a>Tilldela roller
 
-Du kan tilldela fler än en roll till en användare och varje roll kan vara associerat med ett annat omfång. Exempel:
+Du kan tilldela mer än en roll till en användare och varje roll kan associeras med ett annat omfång. Exempel:
 
-* Du tilldelar rollen TestUser-A i läsare prenumeration-1.
+* Du kan tilldela TestUser-A läsarrollen till prenumeration 1.
 * Du tilldelar TestUser-A ägarrollen TestVM-1.
 
-Azure [rolltilldelningar](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) artikeln innehåller detaljerad information om Visa, tilldela och ta bort roller.
+Azure [rolltilldelningar](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) artikeln innehåller detaljerad information om att visa, tilldela och ta bort roller.
 
 ### <a name="resource-hierarchy-and-inheritance"></a>Resurs-hierarkin och arv
 
-Azure-stacken har följande resurs-hierarki:
+Azure Stack har följande resurs hierarki:
 
-* Varje prenumeration som hör till en katalog.
-* Varje resursgrupp som hör till en prenumeration.
+* Varje prenumeration hör till en katalog.
+* Varje resursgrupp tillhör en prenumeration.
 * Varje resurs tillhör en resursgrupp.
 
-Åtkomst som du har gett på en överordnad omfattning ärvs på underordnade omfattningar. Exempel:
+Åtkomst som du beviljar på en överordnad omfattning ärvs på underordnade omfång. Exempel:
 
-* Du tilldelar den **Reader** rollen till en Azure AD-grupp i omfånget för prenumerationen. Medlemmar i gruppen kan visa varje resursgrupp och resurser i prenumerationen.
-* Du tilldelar den **deltagare** roll till ett program på resursen Gruppomfång. Programmet kan hantera resurser av alla typer i resursgruppen, men inte andra resursgrupper i prenumerationen.
+* Du tilldelar den **läsare** rollen till en Azure AD-grupp prenumerationsområde. Medlemmar i gruppen kan visa varje resursgrupp och resurser i prenumerationen.
+* Du tilldelar den **deltagare** rollen till ett program i resursgruppomfånget. Programmet kan hantera resurser av alla typer i resursgruppen, men inte andra resursgrupper i prenumerationen.
 
-### <a name="assigning-roles"></a>tilldela roller
+### <a name="assigning-roles"></a>Tilldela roller
 
-Du kan tilldela fler än en roll till en användare och varje roll kan vara associerat med ett annat omfång. Exempel:
+Du kan tilldela mer än en roll till en användare och varje roll kan associeras med ett annat omfång. Exempel:
 
-* Du tilldelar rollen TestUser-A i läsare prenumeration-1.
+* Du kan tilldela TestUser-A läsarrollen till prenumeration 1.
 * Du tilldelar TestUser-A ägarrollen TestVM-1.
 
-Azure [rolltilldelningar](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) artikeln innehåller detaljerad information om Visa, tilldela och ta bort roller.
+Azure [rolltilldelningar](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) artikeln innehåller detaljerad information om att visa, tilldela och ta bort roller.
 
 ## <a name="set-access-permissions-for-a-user"></a>Ange åtkomstbehörighet för en användare
 
 Följande steg beskriver hur du konfigurerar behörigheter för en användare.
 
-1. Logga in med ett konto som har ägarbehörighet för till resursen som du vill hantera.
+1. Logga in med ett konto som har ägarbehörighet för den resurs du vill hantera.
 2. Välj **Resursgrupper** i det vänstra navigeringsfönstret.
 3. Välj namnet på resursgruppen som du vill ange behörigheter för.
-4. I navigeringsfönstret resurs grupp väljer **åtkomstkontroll (IAM)**. Den **åtkomstkontroll** vyn visar de objekt som har åtkomst till resursgruppen. Du kan filtrera resultaten och använder en menyrad att lägga till eller ta bort behörigheter.
-5. På den **åtkomstkontroll** menyn menyraden, Välj **+ Lägg till**.
-6. På **lägga till behörigheter**:
+4. I navigeringsfönstret resource group välja **åtkomstkontroll (IAM)**. Den **åtkomstkontroll** vyn visar de objekt som har åtkomst till resursgruppen. Du kan filtrera resultaten och använda en menyraden för att lägga till eller ta bort behörigheter.
+5. På den **åtkomstkontroll** menyn stapeln, Välj **+ Lägg till**.
+6. På **Lägg till behörigheter**:
 
    * Välj den roll som du vill tilldela från den **rollen** listrutan.
-   * Välj den resurs som du vill tilldela från den **bevilja åtkomst till** listrutan.
+   * Välj den resurs som du vill tilldela från den **tilldela åtkomst till** listrutan.
    * Välj den användare, den grupp eller det program i katalogen som du vill bevilja åtkomst till. Du kan söka i katalogen med visningsnamn, e-postadresser och objektidentifierare.
 
 7. Välj **Spara**.

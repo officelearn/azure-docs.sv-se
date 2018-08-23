@@ -1,57 +1,57 @@
 ---
-title: Då FPGA paketet för maskinvaruacceleration för Azure Machine Learning
-description: Läs mer om de python-paket som är tillgängliga för användare i Azure Machine Learning.
+title: FPGA-paketet för maskinvaruacceleration för Azure Machine Learning
+description: Läs mer om de python-paket som är tillgängliga för Azure Machine Learning-användare.
 ms.service: machine-learning
-ms.component: studio
+ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-ms.author: routlaw
-author: rloutlaw
+ms.author: tedway
+author: tedway
 ms.date: 05/07/2018
-ms.openlocfilehash: e680ef34be1d5dae2942c432de5e81fe620bbdc4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a81f5f811058f3c7940da79419b9801225716e6b
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832986"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42060351"
 ---
-# <a name="azure-machine-learning-hardware-acceleration-package"></a>Azure Machine Learning maskinvaruacceleration-paketet
+# <a name="azure-machine-learning-hardware-acceleration-package"></a>Azure Machine Learning-maskinvaruacceleration-paketet
 
-Azure Machine Learning maskinvaruacceleration paketet är ett pip-installeras Python-tillägg för Azure Machine Learning som möjliggör dataanalytiker och utvecklare av AI snabbt:
+Maskinvaruacceleration för Azure Machine Learning-paket är ett Python-pip-installation tillägg för Azure Machine Learning som gör att dataanalytiker och AI-utvecklare att snabbt:
 
-+ Featurize bilder med en quantized version ResNet 50
++ Funktionalisera bilder med en quantized version av ResNet-50
 
-+ Träna klassificerare baserat på dessa funktioner
++ Träna klassificerare som baseras på de här funktionerna
 
-+ Distribuera modeller till [fältet programmable gate matriser (då FPGA)](concept-accelerate-with-fpgas.md) i Azure för mycket låg latens inferencing
++ Distribuera modeller till [fältet programmable gate matriser (FPGA)](concept-accelerate-with-fpgas.md) på Azure för extremt låg latens inferensjobb
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 1. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-1. Du måste skapa ett konto i Azure Machine Learning modellen Management. Mer information om hur du skapar kontot finns i [installationen av Azure Machine Learning Quickstart och arbetsstationen](../service/quickstart-installation.md) dokumentet. 
+1. Du måste skapa ett konto i Azure Machine Learning-modellhantering. Mer information om hur du skapar kontot finns i den [installationen av Azure Machine Learning-Quickstart och Workbench](../service/quickstart-installation.md) dokumentet. 
 
-1. Paketet måste vara installerad. 
+1. Paketet måste installeras. 
 
  
 ## <a name="how-to-install-the-package"></a>Så här installerar du paketet
 
-1. Hämta och installera den senaste versionen av [Git](https://git-scm.com/downloads).
+1. Ladda ned och installera den senaste versionen av [Git](https://git-scm.com/downloads).
 
-2. Installera [Anaconda (Python 3,6)](https://conda.io/miniconda.html)
+2. Installera [Anaconda (Python 3.6)](https://conda.io/miniconda.html)
 
-3. Om du vill hämta en förkonfigurerad Anaconda-miljö, använder du följande kommando från Git-prompten:
+   För att hämta en förinställd Anaconda-miljö, använder du följande kommando i Git-Kommandotolken:
 
     ```
     git clone https://aka.ms/aml-real-time-ai
     ```
-5. För att skapa miljön, öppna ett **Anaconda fråga** och använder du följande kommando:
+1. För att skapa miljön, öppna en **Anaconda fråga** och använder du följande kommando:
 
     ```
     conda env create -f aml-real-time-ai/environment.yml
     ```
 
-6. Om du vill aktivera miljön, använder du följande kommando:
+1. Om du vill aktivera miljön, använder du följande kommando:
 
     ```
     conda activate amlrealtimeai
@@ -59,7 +59,7 @@ Azure Machine Learning maskinvaruacceleration paketet är ett pip-installeras Py
 
 ## <a name="sample-code"></a>Exempelkod
 
-Den här exempelkoden vägleder dig genom använder SDK för att distribuera en modell till en då FPGA.
+Den här exempelkoden vägleder dig genom att använda SDK: N för att distribuera en modell till en FPGA.
 
 1. Importera paketet:
    ```python
@@ -75,7 +75,7 @@ Den här exempelkoden vägleder dig genom använder SDK för att distribuera en 
    print(model.version)
    ```
 
-1. Featurize avbildningar:
+1. Funktionalisera avbildningarna:
    ```python 
    from amlrealtimeai.resnet50.model import LocalQuantizedResNet50
    model_path = os.path.expanduser('~/models')
@@ -90,7 +90,7 @@ Den här exempelkoden vägleder dig genom använder SDK för att distribuera en 
    print(model.classifier_output)
    ```
 
-1. Skapa tjänstdefinitionen:
+1. Skapa tjänstdefinitionen för:
    ```python
    from amlrealtimeai.pipeline import ServiceDefinition, TensorflowStage, BrainWaveStage
    save_path = os.path.expanduser('~/models/save')
@@ -104,7 +104,7 @@ Den här exempelkoden vägleder dig genom använder SDK för att distribuera en 
    print(service_def_path)
    ```
  
-1. Förbered modellen ska köras på en då FPGA:
+1. Förbered modellen ska köras på en FPGA:
    ```python
    from amlrealtimeai import DeploymentClient
 
@@ -118,7 +118,7 @@ Den här exempelkoden vägleder dig genom använder SDK för att distribuera en 
    deployment_client = DeploymentClient(subscription_id, resource_group, model_management_account)
    ```
 
-1. Distribuera modellen ska köras på en då FPGA:
+1. Distribuera modellen ska köras på en FPGA:
    ```python
    service = deployment_client.get_service_by_name(service_name)
    model_id = deployment_client.register_model(model_name, service_def_path)
@@ -135,16 +135,16 @@ Den här exempelkoden vägleder dig genom använder SDK för att distribuera en 
    client = PredictionClient(service.ipAddress, service.port)  
    ```
 
-1. Anropa API: et:
+1. Anropa API:
    ```python
    image_file = R'C:\path_to_file\image.jpg'
    results = client.score_image(image_file)
    ```
 
-## <a name="reporting-issues"></a>Rapportera problem
+## <a name="reporting-issues"></a>Rapporteringsproblem
 
-Använd den [forum](https://aka.ms/aml-forum) rapportera eventuella problem uppstå med paketet.
+Använd den [forum](https://aka.ms/aml-forum) rapportera eventuella problem du stöter på med paketet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Distribuera en modell som en webbtjänst på en då FPGA](how-to-deploy-fpga-web-service.md)
+[Distribuera en modell som en webbtjänst på en FPGA](how-to-deploy-fpga-web-service.md)

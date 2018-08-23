@@ -10,18 +10,18 @@ ms.custom: develop apps
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: sstein
-ms.openlocfilehash: 2194293d23e5db277f2ff7aa207c298533f74571
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 4236372370858e940d7e3a1671c0e8a8278796fb
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308874"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42057654"
 ---
-# <a name="sql-database-application-development-overview"></a>SQL Database development Programöversikt
+# <a name="sql-database-application-development-overview"></a>Översikt över SQL Database-programutveckling
 Den här artikeln beskriver grundläggande överväganden som utvecklare bör tänka på då de skriver kod för att ansluta till Azure SQL Database.
 
 > [!TIP]
-> En genomgång som visar hur du skapar en server, en server-baserade brandvägg, Visa serveregenskaper, ansluta med SQL Server Management Studio, fråga master-databasen, skapa en exempeldatabas och en tom databas kan fråga efter Databasegenskaper, ansluta med SQL Server Management Studio och fråga exempeldatabasen, se [komma igång-Självstudier](sql-database-get-started-portal.md).
+> En självstudiekurs som visar hur du skapar en server, skapar en serverbaserad brandvägg, visa egenskaperna för servern, ansluta med hjälp av SQL Server Management Studio, frågar huvuddatabasen, skapa en exempeldatabas och en tom databas, frågar om Databasegenskaper, ansluter med SQL Server Management Studio och fråga exempeldatabasen, se [komma igång-Självstudier](sql-database-get-started-portal.md).
 >
 
 ## <a name="language-and-platform"></a>Språk och plattform
@@ -30,20 +30,20 @@ Det finns kodexempel för olika programmeringsspråk och plattformar. Du hittar 
 * Mer information: [anslutningsbibliotek för SQL Database och SQL Server](sql-database-libraries.md).
 
 ## <a name="tools"></a>Verktyg 
-Du kan utnyttja öppen källkod verktyg som [gepard](https://github.com/wunderlist/cheetah), [sql cli](https://www.npmjs.com/package/sql-cli), [VS koden](https://code.visualstudio.com/). Azure SQL Database fungerar dessutom med Microsoft-verktyg som [Visual Studio](https://www.visualstudio.com/downloads/) och [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  Du kan också använda Azure-hanteringsportalen, PowerShell och REST API: er för att ytterligare höja produktiviteten.
+Du kan använda verktyg för öppen källkod som [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/). Azure SQL Database fungerar dessutom med Microsoft-verktyg som [Visual Studio](https://www.visualstudio.com/downloads/) och [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  Du kan också använda Azure-hanteringsportalen, PowerShell och REST API: er för att ytterligare höja produktiviteten.
 
 ## <a name="resource-limitations"></a>Resursbegränsningar
-Azure SQL Database hanterar resurser som är tillgängliga för en databas på två olika sätt: resurser styrning och efterlevnad av gränser. Mer information finns i:
+Azure SQL Database hanterar resurserna som är tillgängliga för en databas på två olika sätt: resursstyrning och verkställandet av gränser. Mer information finns i:
 
-- [DTU-baserade modellen gränserna - databas](sql-database-dtu-resource-limits-elastic-pools.md)
-- [DTU-baserade modellen gränserna - databas](sql-database-dtu-resource-limits-elastic-pools.md)
-- [vCore-baserade gränserna - enskilda databaser](sql-database-vcore-resource-limits-single-databases.md)
-- [vCore-baserade gränserna - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md)
+- [DTU-baserade modellen resursbegränsningar - databas](sql-database-dtu-resource-limits-single-databases.md)
+- [DTU-baserade modellen resursbegränsningar - elastiska pooler](sql-database-dtu-resource-limits-elastic-pools.md)
+- [vCore-baserade resursbegränsningar - enskilda databaser](sql-database-vcore-resource-limits-single-databases.md)
+- [vCore-baserade resursbegränsningar - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md)
 
 ## <a name="security"></a>Säkerhet
 Azure SQL Database innehåller resurser för att begränsa åtkomst, skydda data och övervaka aktiviteter på en SQL Database.
 
-* Mer information: [skydda SQL-databasen](sql-database-security-overview.md).
+* Mer information: [säkra din SQL Database](sql-database-security-overview.md).
 
 ## <a name="authentication"></a>Autentisering
 * Azure SQL Database stöder både användare och inloggningar för SQL Server-autentisering samt användare och inloggningar för [Azure Active Directory-autentisering](sql-database-aad-authentication.md).
@@ -54,7 +54,7 @@ Azure SQL Database innehåller resurser för att begränsa åtkomst, skydda data
 ## <a name="resiliency"></a>Återhämtning
 När ett tillfälligt fel uppstår vid anslutning till SQL Database, bör din kod göra om anropet.  Vi rekommenderar att logik för omprövning använder begränsningslogik så att den inte överbelastar SQL Database med flera klienter som försöker samtidigt.
 
-* Kodexempel: kodexempel som visar försök logik, se exempel för språket i ditt val på: [anslutningsbibliotek för SQL Database och SQL Server](sql-database-libraries.md).
+* Kodexempel: för kodexempel som illustrerar logik för omprövning, se exempel för valfritt på språk: [anslutningsbibliotek för SQL Database och SQL Server](sql-database-libraries.md).
 * Mer information: [felmeddelanden för SQL Database-klientprogram](sql-database-develop-error-messages.md).
 
 ## <a name="managing-connections"></a>Hantera anslutningar
@@ -63,15 +63,15 @@ När ett tillfälligt fel uppstår vid anslutning till SQL Database, bör din ko
 
 ## <a name="network-considerations"></a>Nätverksöverväganden
 * På den dator som är värd för ditt klientprogram, ska du se till att brandväggen tillåter utgående TCP-kommunikation på port 1433.  Mer information: [konfigurera en Azure SQL Database-brandvägg](sql-database-configure-firewall-settings.md).
-* Om klientprogrammet ansluter till SQL-databas när klienten körs på en Azure-dator (VM), måste du öppna vissa portintervall på den virtuella datorn. Mer information: [portar utöver 1433 för ADO.NET 4.5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
-* Klientanslutningar till Azure SQL Database ibland kringgå proxyn och interagera direkt med databasen. Andra portar än 1433 blir viktiga. Mer information [Azure SQL Database connectivity arkitektur](sql-database-connectivity-architecture.md) och [portar utöver 1433 för ADO.NET 4.5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
+* Om klientprogrammet ansluter till SQL Database medan klienten körs på en Azure-dator (VM), måste du öppna vissa portintervall på den virtuella datorn. Mer information: [portar utöver 1433 för ADO.NET 4.5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
+* Klientanslutningar till Azure SQL Database ibland kringgå proxyn och interagera direkt med databasen. Andra portar än 1433 blir viktiga. Mer information [Azure SQL Database anslutningsarkitektur](sql-database-connectivity-architecture.md) och [portar utöver 1433 för ADO.NET 4.5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
 
-## <a name="data-sharding-with-elastic-scale"></a>Delning av data med elastisk skalbarhet
-Elastisk utskalning gör enklare att skala ut (och i). 
+## <a name="data-sharding-with-elastic-scale"></a>Horisontell Datapartitionering med elastisk skalning
+Elastisk skalning gör enklare att skala ut (och in). 
 
 * [Designmönster för flera innehavare SaaS-program med Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
-* [Data beroende routning](sql-database-elastic-scale-data-dependent-routing.md).
-* [Komma igång med Azure SQL Database elastisk skalbarhet Preview](sql-database-elastic-scale-get-started.md).
+* [Databeroende routning](sql-database-elastic-scale-data-dependent-routing.md).
+* [Kom igång med förhandsversionen av Azure SQL Database Elastic Scale](sql-database-elastic-scale-get-started.md).
 
 ## <a name="next-steps"></a>Nästa steg
 Utforska alla [funktionerna i SQL Database](sql-database-technical-overview.md).

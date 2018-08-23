@@ -5,15 +5,15 @@ services: service-bus-relay
 author: clemensv
 ms.service: service-bus-relay
 ms.topic: include
-ms.date: 05/02/2018
+ms.date: 08/16/2018
 ms.author: clemensv
 ms.custom: include file
-ms.openlocfilehash: 4a3f38e1423db0755d8c76f8850e41173d250f43
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e07d82b8a3aea4f0db0f5a071d78ea360cd611ab
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33905002"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40177261"
 ---
 ### <a name="create-a-console-application"></a>Skapa ett konsolprogram
 
@@ -36,6 +36,7 @@ Skapa ett nytt projekt för **Konsolprogram (.NET Framework)** i Visual Studio.
     using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
+    using System.Net.Http;
     using Microsoft.Azure.Relay;
     ```
 2. Lägg till konstanter i klassen `Program` för hybridanslutningsinformationen. Ersätt platshållarna inom hakparentes med de värden du erhöll när du skapade hybridanslutningen. Se till att du använder det fullständiga namnområdesnamnet.
@@ -63,7 +64,7 @@ Skapa ett nytt projekt för **Konsolprogram (.NET Framework)** i Visual Studio.
         };
         request.Headers.Add("ServiceBusAuthorization", token);
         var response = await client.SendAsync(request);
-        Console.WriteLine(await response.Content.ReadAsStringAsync());
+        Console.WriteLine(await response.Content.ReadAsStringAsync());        Console.ReadLine();
     }
     ```
 4. Lägg till följande kodrad till `Main`-metoden i `Program`-klassen.

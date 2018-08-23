@@ -1,6 +1,6 @@
 ---
-title: 'Hur du använder API: et för Avvikelseidentifiering Finder med Ruby - kognitiva Microsoft-tjänster | Microsoft Docs'
-description: Hämta information och exempel på kod för att snabbt komma igång med Ruby och Avvikelseidentifiering Finder API i kognitiva tjänster.
+title: 'Hur du använder API: T för Avvikelseidentifiering Finder med Ruby - Microsoft Cognitive Services | Microsoft Docs'
+description: 'Hämta information och exempel på kod som hjälper dig att snabbt komma igång med Ruby- och API: T för Avvikelseidentifiering Finder i Cognitive Services.'
 services: cognitive-services
 author: chliang
 manager: bix
@@ -9,36 +9,38 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: ca4754514ba5012f7e9e28981d0869d174561fb3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6eb559f8971583afe9619fb41fe331bd3013bb69
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353325"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41988773"
 ---
-# <a name="use-the-anomaly-finder-api-with-ruby"></a>Använda Avvikelseidentifiering Finder API med Ruby
+# <a name="use-the-anomaly-finder-api-with-ruby"></a>Använda Avvikelsesökare API med Ruby
 
-Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med API: et för Avvikelseidentifiering Finder med Ruby för att utföra uppgiften för att få resultat av identifiering av avvikelseidentifiering tid serie data.
+Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med API: T för Avvikelseidentifiering Finder med Ruby för att utföra uppgiften för att få Identifieringsresultat för avvikelseidentifiering av time series-data.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="getting-anomaly-points-with-anomaly-finder-api-using-ruby"></a>Hämta avvikelseidentifiering punkter med Avvikelseidentifiering Finder API: et med Ruby 
+## <a name="getting-anomaly-points-with-anomaly-finder-api-using-ruby"></a>Hämta avvikelseidentifiering punkter med Avvikelseidentifiering Finder API med hjälp av Ruby 
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
-### <a name="example-of-time-series-data"></a>Exempel på tid series-data
-Exempel på den tid som datapunkter i serien är enligt följande [!INCLUDE [Request](../includes/request.md)]
+### <a name="example-of-time-series-data"></a>Exempel på time series-data
+Exempel på den tid som datapunkter i serien är enligt följande
+
+[!INCLUDE [Request](../includes/request.md)]
 
 ### <a name="analyze-data-and-get-anomaly-points-ruby-example"></a>Analysera data och få avvikelseidentifiering punkter Ruby exempel
 
-Stegen i exemplet är som följer.
+Steg för att använda exemplet är som följer.
 
-1. Installera [rest-klient](https://github.com/rest-client/rest-client) genom att köra 'gem installera rest-klient'.
-2. Spara under koden som en .rb.
-3. Ersätt den `[YOUR_SUBSCRIPTION_KEY]` värde med en giltig prenumeration nyckel.
-4. Ersätt den `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` med exemplet eller egna datapunkter.
-5. Köra och kontrollera svaret.
+1. Installera [rest-klient](https://github.com/rest-client/rest-client) genom att köra 'gem installera rest-klient ”.
+2. Spara under koden som en .rb-fil.
+3. Ersätt den `[YOUR_SUBSCRIPTION_KEY]` värde med giltig prenumeration-nyckel.
+4. Ersätt den `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` med exemplet eller dina egna datapunkter.
+5. Kör och kontrollera svaret.
 
 ```ruby
 # https://github.com/rest-client/rest-client

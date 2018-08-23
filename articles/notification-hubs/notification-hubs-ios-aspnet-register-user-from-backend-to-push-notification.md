@@ -1,6 +1,6 @@
 ---
-title: Registrera den aktuella användaren för push-meddelanden med hjälp av Web API | Microsoft Docs
-description: Lär dig mer om att begära registreringen av push-meddelanden i en iOS-app med Azure Notification Hubs vid registrering utförs av ASP.NET Web API.
+title: Registrera den aktuella användaren för push-meddelanden med hjälp av webb-API | Microsoft Docs
+description: Lär dig mer om att begära registrering av push-meddelanden i en iOS-app med Azure Notification Hubs vid registrering utförs av ASP.NET Web API.
 services: notification-hubs
 documentationcenter: ios
 author: dimazaid
@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c43c15131afb5fbf346b0137dac566f5331c65a2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f89c97f1220c0e949912a3002021eca20f91441d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776380"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42060234"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Registrera den aktuella användaren för push-meddelanden med hjälp av ASP.NET
 > [!div class="op_single_selector"]
@@ -28,23 +28,23 @@ ms.locfileid: "33776380"
 > 
 
 ## <a name="overview"></a>Översikt
-Det här avsnittet visar hur du begär registreringen av push-meddelanden med Azure Notification Hubs när registreringen utförs av ASP.NET Web API. Det här avsnittet utökar kursen [meddela användare med Notification Hubs]. Du måste redan har slutfört nödvändiga steg i att kursen hjälper dig att skapa autentiserade mobiltjänsten. Läs mer på meddela användare scenario [meddela användare med Notification Hubs].
+Det här avsnittet visar hur du begär push-meddelande registrering med Azure Notification Hubs när registreringen utförs av ASP.NET Web API. Det här ämnet utvidgar självstudien [meddela användare med Meddelandehubbar]. Du måste redan har slutfört de nödvändiga stegen i självstudien att skapa den autentiserade mobiltjänsten. Läs mer på meddela användare scenariot [meddela användare med Meddelandehubbar].
 
-## <a name="update-your-app"></a>Uppdatera ditt program
+## <a name="update-your-app"></a>Uppdatera din app
 1. Lägg till följande komponenter från objektbiblioteket i din MainStoryboard_iPhone.storyboard:
    
-   * **Etiketten**: ”Push till användare med Notification Hubs”
+   * **Etiketten**: ”Push till användare med Meddelandehubbar”
    * **Etiketten**: ”InstallationId”
    * **Etiketten**: ”användare”
    * **Textfält**: ”användare”
-   * **Etiketten**: ”Password”
-   * **Textfält**: ”Password”
+   * **Etiketten**: ”lösenord”
+   * **Textfält**: ”lösenord”
    * **Knappen**: ”inloggning”
      
-     Nu storyboard ser ut ungefär så här:
+     Din storyboard nu ser ut som följande:
      
       ![][0]
-2. I Redigeraren för Installationsassistenten skapa uttag av avstängda kontrollerna och anropa dem ansluta textfält med View-Controller (ombud) och skapa en **åtgärd** för den **inloggning** knappen.
+2. Skapa kanaler för alla växlade kontroller i assistant-redigeraren och anropa dem, ansluta textfält med View-Controller (ombud) och skapa en **åtgärd** för den **inloggning** knappen.
    
        ![][1]
    
@@ -55,7 +55,7 @@ Det här avsnittet visar hur du begär registreringen av push-meddelanden med Az
         @property (weak, nonatomic) IBOutlet UITextField *Password;
    
         - (IBAction)login:(id)sender;
-3. Skapa en klass som heter **DeviceInfo**, och kopiera följande kod i avsnittet gränssnitt i filen DeviceInfo.h:
+3. Skapa en klass med namnet **DeviceInfo**, och kopiera följande kod till gränssnittet i DeviceInfo.h-fil:
    
         @property (readonly, nonatomic) NSString* installationId;
         @property (nonatomic) NSData* deviceToken;
@@ -90,31 +90,31 @@ Det här avsnittet visar hur du begär registreringen av push-meddelanden med Az
                                       ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
                 return hexToken;
             }
-5. Lägg till följande egenskapen singleton PushToUserAppDelegate.h:
+5. Lägg till följande egenskap singleton i PushToUserAppDelegate.h:
    
         @property (strong, nonatomic) DeviceInfo* deviceInfo;
-6. I den **didFinishLaunchingWithOptions** metod i PushToUserAppDelegate.m, Lägg till följande kod:
+6. I den **didFinishLaunchingWithOptions** -metod i PushToUserAppDelegate.m, Lägg till följande kod:
    
         self.deviceInfo = [[DeviceInfo alloc] init];
    
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
    
-    Den första raden initierar den **DeviceInfo** singleton. Den andra raden börjar registreringen av push-meddelanden som redan finns om du redan har slutfört den [Kom igång med Notification Hubs] kursen.
-7. I PushToUserAppDelegate.m, implementerar du metoden **didRegisterForRemoteNotificationsWithDeviceToken** i din AppDelegate och Lägg till följande kod:
+    Den första raden initierar den **DeviceInfo** singleton. Den andra raden startar registreringen av push-meddelanden som redan finns om du redan har slutfört den [Kom igång med Notification Hubs] självstudien.
+7. Implementera metoden i PushToUserAppDelegate.m, **didRegisterForRemoteNotificationsWithDeviceToken** i AppDelegate och Lägg till följande kod:
    
         self.deviceInfo.deviceToken = deviceToken;
    
-    Detta anger enhetens token för begäran.
+    Detta anger enhetstoken för begäran.
    
    > [!NOTE]
-   > Nu är får det inte vara någon annan kod i den här metoden. Om du redan har ett anrop till den **registerNativeWithDeviceToken** metod som har lagts till när du slutfört den [Kom igång med Notification Hubs](/manage/services/notification-hubs/get-started-notification-hubs-ios/) självstudier, måste du kommenterar ut eller ta bort detta anrop.
+   > Då får det inte vara all annan kod i den här metoden. Om du redan har ett anrop till den **registerNativeWithDeviceToken** metod som lades till när du har slutfört den [Kom igång med Notification Hubs](notification-hubs-ios-apple-push-notification-apns-get-started.md) självstudier, måste du kommentera eller ta bort anropet.
    > 
    > 
-8. Lägg till följande hanterarmetoden i filen PushToUserAppDelegate.m:
+8. Lägg till följande metod som hanteraren i filen PushToUserAppDelegate.m:
    
-   * (void) programmet:(UIApplication *) program didReceiveRemoteNotification:(NSDictionary *) användarinformationen {NSLog (@ ”% @”, användarinformationen);   UIAlertView * avisering = [[UIAlertView allokeringsenhets] initWithTitle:@"Notification" meddelande: [användarinformationen objectForKey:@"inAppMessage"] ombud: nil cancelButtonTitle: @"OK" otherButtonTitles:nil, nil];   [varning visa]; }
+   * (void) program:(UIApplication *) programmet didReceiveRemoteNotification:(NSDictionary *) användarinformationen {NSLog (@ ”% @”, användarinformationen);   UIAlertView * avisering = [[UIAlertView allokeringsenhets] initWithTitle:@"Notification" meddelande: [användarinformationen objectForKey:@"inAppMessage"] ombud: nil cancelButtonTitle: @"OK" otherButtonTitles:nil, noll];   [alert show]; }
    
-   Den här metoden visas ett varningsmeddelande i Användargränssnittet när appen tar emot meddelanden när den körs.
+   Den här metoden visar ett meddelande i Användargränssnittet när appen tar emot meddelanden när den körs.
 9. Öppna filen PushToUserViewController.m och returnera tangentbordet i följande implementering:
    
         - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
@@ -123,7 +123,7 @@ Det här avsnittet visar hur du begär registreringen av push-meddelanden med Az
             }
             return YES;
         }
-10. I den **viewDidLoad** metod i filen PushToUserViewController.m initiera installationId etiketten på följande sätt:
+10. I den **viewDidLoad** -metod i filen PushToUserViewController.m initiera installationId etiketten på följande sätt:
     
          DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
          Self.installationId.text = deviceInfo.installationId;
@@ -174,7 +174,7 @@ Det här avsnittet visar hur du begär registreringen av push-meddelanden med Az
     
                 return [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
             }
-13. Kopiera följande kod i den **inloggning** hanterarmetoden som skapats av XCode:
+13. Kopiera följande kod till den **inloggning** hanteraren metod som skapats av XCode:
     
             DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
     
@@ -207,9 +207,9 @@ Det här avsnittet visar hur du begär registreringen av push-meddelanden med Az
                 }
             }];
     
-    Den här metoden hämtar ett installations-ID och ett kanal för push-meddelanden och skickar den, tillsammans med typ av enhet på den autentiserade Web API-metod som skapar en registrering i Notification Hubs. Webb-API har definierats i [meddela användare med Notification Hubs].
+    Den här metoden hämtar både ett installations-ID och kanal för push-meddelanden och skickar den, tillsammans med typ av enhet, till den autentiserade webb-API-metoden som skapar en registrering i Meddelandehubbar. Den här webb-API har definierats i [meddela användare med Meddelandehubbar].
 
-Nu när klientappen har uppdaterats, gå tillbaka till den [meddela användare med Notification Hubs] och uppdatera mobiltjänsten för att skicka meddelanden med Notification Hubs.
+Nu när klientappen har uppdaterats, gå tillbaka till den [meddela användare med Meddelandehubbar] och uppdatera den mobila tjänsten för att skicka meddelanden med hjälp av Meddelandehubbar.
 
 <!-- Anchors. -->
 
@@ -218,6 +218,6 @@ Nu när klientappen har uppdaterats, gå tillbaka till den [meddela användare m
 [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
 
 <!-- URLs. -->
-[meddela användare med Notification Hubs]: /manage/services/notification-hubs/notify-users-aspnet
+[Meddela användare med Meddelandehubbar]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 
-[Kom igång med Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios
+[Kom igång med Notification Hubs]: notification-hubs-ios-apple-push-notification-apns-get-started.md

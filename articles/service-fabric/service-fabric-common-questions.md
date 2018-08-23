@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: d864a663604794a249b08a7c7be471c3abba32af
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0b731e94675992e59f79b61a2f3a15fa20bdf8a7
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971544"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056486"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Vanliga frågor och svar om Service Fabric
 
@@ -27,11 +27,11 @@ Det finns många vanliga frågor om vad Service Fabric kan göra och hur den ska
 
 ## <a name="cluster-setup-and-management"></a>Konfigurera och hantera kluster
 
-### <a name="how-do-i-rollback-my-service-fabric-cluster-certificate"></a>Hur kan jag återställa mitt certifikat för Service Fabric-kluster?
+### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>Hur jag återställa mitt certifikat för Service Fabric-kluster?
 
 Återställa kräver alla uppgradering till ditt program hälsotillstånd felidentifiering innan dina Service Fabric-klusterkvorum genomför ändringen. allokerade ändringar kan bara återställas framåt. Eskalering engineer via kundsupport, eventuellt krävs återställa klustret, om en oövervakade stora certifikat ändringen har introducerats.  [Service Fabric-Programuppgradering](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master) gäller [programuppgraderingsparametrar](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master), och levererar noll avbrottstid uppgradera löftet.  Efter vårt rekommenderade program Uppgraderingsläge övervakade, automatisk förloppet via uppdateringsdomäner baseras på hälsokontroller skickar, löpande tillbaka automatiskt vid uppdatering av standardtjänst misslyckas.
  
-Om klustret fortfarande använder egenskapen klassiska certifikatets tumavtryck i Resource Manager-mallen, dess rekommenderade du [ändra kluster från tumavtrycket för certifikatet till nätverksnamn](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), för att utnyttja moderna hemligheter hanteringsfunktioner.
+Om klustret är fortfarande att använda egenskapen klassiska certifikatets tumavtryck i Resource Manager-mallen, rekommenderar vi du [ändra kluster från tumavtrycket för certifikatet till nätverksnamn](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), för att utnyttja moderna hemligheter hanteringsfunktioner.
 
 ### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>Kan jag skapa ett kluster som sträcker sig över flera Azure-regioner eller mitt eget Datacenter?
 
@@ -119,6 +119,12 @@ Ja.  Mer information finns i [skapa ett kluster med anslutna datadiskar](../virt
 | FabricRM.exe |
 | FileStoreService.exe |
  
+### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>Hur kan mitt program ska autentiseras mot KeyVault för att hämta hemligheter?
+Här följer innebär för ditt program att hämta autentiseringsuppgifter för att autentisera till KeyVault:
+
+A. Under dina program build/förpackning jobb, kan du hämta ett certifikat till din SF-app-paket för data och används för att autentisera till KeyVault.
+B. För VM-skalningsuppsättningen MSI aktiverat värdar, kan du utveckla en enkel PowerShell SetupEntryPoint för din SF-app att hämta [en åtkomsttoken från MSI-slutpunkten](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/how-to-use-vm-token), och sedan [hämta dina hemligheter från KeyVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret?view=azurermps-6.5.0)
+
 ## <a name="application-design"></a>Programmets Design
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>Vad är det bästa sättet att köra frågor mot data över partitioner i en tillförlitlig samling?

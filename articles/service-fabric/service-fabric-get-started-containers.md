@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: e76ffa3256da5acecf55ad37ea3d927510565ffe
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 41246e434f8adade65f39b3471417888f62d7528
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577296"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42061694"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Skapa din första Service Fabric-containerapp i Windows
 > [!div class="op_single_selector"]
@@ -205,6 +205,8 @@ Containertjänsten behöver en slutpunkt för kommunikation. Lägg till ett `End
   </Endpoints>
 </Resources>
 ```
+> [!NOTE]
+> Ytterligare slutpunkter för en tjänst kan läggas till med att deklarera ytterligare EndPoint-element med tillämpliga egenskapsvärden. Varje Port kan endast deklarera ett protokollvärde.
 
 Genom att definiera en slutpunkt publicerar Service Fabric slutpunkten i namngivningstjänsten. Andra tjänster som körs i klustret kan lösa den här containern. Du kan också utföra kommunikation mellan containrar med hjälp av den [omvända proxyn](service-fabric-reverseproxy.md). Du utför kommunikation genom att tillhandahålla HTTP-lyssningsporten för den omvända proxyn och namnet på de tjänster som du vill kommunicera med som miljövariabler.
 
@@ -248,6 +250,8 @@ Konfigurera en värdport som används för att kommunicera med containern. Portb
     ...
 </ServiceManifestImport>
 ```
+> [!NOTE]
+> Ytterligare PortBindings för en tjänst kan läggas till med att deklarera ytterligare PortBinding element med tillämpliga egenskapsvärden.
 
 ## <a name="configure-container-registry-authentication"></a>Konfigurera autentisering av containerregister
 Konfigurera autentisering av containerregister genom att lägga till `RepositoryCredentials` i `ContainerHostPolicies` filen ApplicationManifest.xml. Lägg till kontot och lösenordet för containerregistret myregistry.azurecr.io, så att tjänsten kan ladda ned containeravbildningen från centrallagret.
@@ -599,13 +603,13 @@ Service Fabric-körningen tilldelar 20 minuter för att ladda ned och extrahera 
 
 ```json
 {
-"name": "Hosting",
+        "name": "Hosting",
         "parameters": [
           {
               "name": "ContainerImageDownloadTimeout",
               "value": "1200"
           }
-]
+        ]
 }
 ```
 
@@ -627,7 +631,7 @@ Du kan starta Docker-daemon med anpassade argument med version 6.2 eller högre 
 
 ```json
 { 
-   "name": "Hosting", 
+        "name": "Hosting", 
         "parameters": [ 
           { 
             "name": "ContainerServiceArguments", 

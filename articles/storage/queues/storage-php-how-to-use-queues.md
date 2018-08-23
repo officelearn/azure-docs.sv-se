@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: rogarana
 ms.component: queues
-ms.openlocfilehash: 7ab755972760d5f262e00ca4aaf284c8d2847460
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 70efdf1fb2c1b8411e922f16fdf401d1bf428d08
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528290"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42058492"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Använda Queue Storage från PHP
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -416,7 +416,7 @@ Nu när du har lärt dig grunderna i Azure Queue storage kan du följa dessa lä
 * Gå till den [API-referens för Azure Storage-klientbibliotek för PHP](http://azure.github.io/azure-storage-php/)
 * Se den [avancerade kö exempel](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php).
 
-Mer information finns också i [PHP Developer Center](/develop/php/).
+Mer information finns också i [PHP Developer Center](https://azure.microsoft.com/develop/php/).
 
 [download]: https://github.com/Azure/azure-storage-php
 [require_once]: http://www.php.net/manual/en/function.require-once.php

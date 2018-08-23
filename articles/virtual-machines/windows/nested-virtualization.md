@@ -11,22 +11,24 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 3b606fc78327035e135e0f037288a817171385dd
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 0d47b89a468aade8cec51ec04709ed99bfd4684c
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857952"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42055614"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Hur du aktiverar kapslad virtualisering i en Azure VM
 
-Kapslad virtualisering stöds i Dv3 och Ev3-serien av virtuella Azure-datorer. Den här funktionen ger stor flexibilitet i stöd för scenarier, till exempel miljöer för utveckling, testning, utbildning och demonstration. 
+Kapslad virtualisering stöds i flera Azure VM-familjer. Den här funktionen ger stor flexibilitet i stöd för scenarier, till exempel miljöer för utveckling, testning, utbildning och demonstration.   
 
-Alla Dv3 och Ev3-serien virtuella datorer stöder kapslad virtualisering utan extra konfiguration.  Den här artikeln visar aktivera Hyper-V på en Azure virtuell dator och konfigurera Internet-anslutning till den virtuella gästdatorn.
+Den här artikeln visar aktivera Hyper-V på en Azure virtuell dator och konfigurera Internet-anslutning till den virtuella gästdatorn.
 
-## <a name="create-a-dv3-or-ev3-series-azure-vm"></a>Skapa en Dv3 och Ev3-serien virtuella Azure-datorer
+## <a name="create-a-nesting-capable-azure-vm"></a>Skapa en kapslade kompatibla Azure VM
 
-Skapa en ny Windows Server 2016 Azure VM och välj en storlek från Dv3 och Ev3-serien. Kontrollera att du väljer en storlek som är tillräckligt stor för att stödja kraven för en virtuell gästdator. I det här exemplet använder vi en D3_v3-storlek virtuella Azure-datorer. 
+Skapa en ny Windows Server 2016 Azure VM.  För snabb refernce stöder alla v3 virtuella datorer kapslad virtualisering. En fullständig lista över virtuella datorer storlekar som stöd för kapsling, kan du ta en titt på [Azure-beräkningsenhet artikeln](acu.md).
+
+Kom ihåg att välja en VM-storlek som är tillräckligt stor för att stödja kraven för en virtuell gästdator. I det här exemplet använder vi en D3_v3-storlek virtuella Azure-datorer. 
 
 Du kan visa regional tillgänglighet för Dv3 och Ev3-serien virtuella datorer [här](https://azure.microsoft.com/regions/services/).
 

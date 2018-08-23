@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 08/20/2018
 ms.author: terrylan
-ms.openlocfilehash: 181e1e00716987732ee809df6171c2f71087f3e1
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 3d4c9c79ff90ee816719f0179fbb5096b0035854
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
-ms.locfileid: "23891029"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056315"
 ---
 # <a name="managing-connected-partner-solutions-with-azure-security-center"></a>Hantera anslutna partnerlösningar med Azure Security Center
-Den här artikeln får du hjälp att hantera och övervaka anslutna säkerhetslösningar i Azure Security Center.
+Den här artikeln får du veta hur att hantera och övervaka anslutna säkerhetslösningar i Azure Security Center.
 
 ## <a name="monitoring-partner-solutions"></a>Övervaka partnerlösningar
-Att övervaka hälsotillståndet för anslutna säkerhetslösningar och utföra grundläggande hantering:
+Övervaka hälsotillståndet för anslutna säkerhetslösningar och utföra grundläggande hanteringsåtgärder:
 
-1. Under **Security Center - översikt**väljer **säkerhetslösningar**.
+1. Under **Security Center – översikt**väljer **säkerhetslösningar**.
 
   ![Välj säkerhetslösningar][1]
 
-  Den **anslutna lösningar** beskrivs säkerhetslösningar som är anslutna till Security Center och information om hälsostatus för varje lösning.
+  Den **anslutna lösningar** innehåller säkerhetslösningar som är anslutna till Security Center och information om hälsostatus för varje lösning.
 
   ![Partnerlösningar][2]
 
@@ -39,30 +39,30 @@ Att övervaka hälsotillståndet för anslutna säkerhetslösningar och utföra 
 
    * Felfritt (grönt) - det finns inga problem.
    * Inte väl skyddad (röd): Det finns säkerhetsproblem som måste åtgärdas omedelbart.
-   * Problem (orange): lösningen har slutat rapportera dess hälsa.
-   * Inga rapporter (grå) - lösningen har inte rapporterat något ännu, status för en lösning kan vara orapporterad om det nyligen har anslutits och fortfarande distribuera eller finns inga tillgängliga hälsotillståndsdata.
+   * Problem med hälsotillstånd (orange) - lösningen har slutat rapportera dess hälsa.
+   * Inga rapporter (grå) - lösningen har inte rapporterat något ännu, status för en lösning kan vara orapporterad om den nyligen har anslutits och fortfarande pågår eller inga health-data är tillgängliga.
 
    > [!NOTE]
-   > Om hälsa statusdata inte är tillgänglig visar Security Center datum och tid för senaste händelsen togs emot som anger om lösningen reporting eller inte. Om inga hälsa data är tillgängliga och inga aviseringar tas emot under de senaste 14 dagarna, anger Security Center att lösningen är ogiltigt eller inte reporting.
+   > Om hälsodata status inte är tillgänglig visar Security Center datum och tid för senaste händelsen togs emot för att indikera om lösningen rapporterar eller inte. Om inga health-data är tillgängliga och inga aviseringar tas emot inom de senaste 14 dagarna, anger Security Center att lösningen är defekt eller inte reporting.
    >
    >
 
 2. Välj **visa** för ytterligare information och alternativ, vilket inkluderar:
 
-  - **Lösning konsolen**. Öppnar hanteringen av den här lösningen.
-  - **Länka VM**. Öppnar bladet länken program. Här kan du ansluta resurser till partnerlösningen.
-  - **Ta bort lösning**.
+  - **Lösningskonsol**. Öppnar hanteringsupplevelse för den här lösningen.
+  - **Länka VM**. Öppnas bladet länka program. Här kan du ansluta resurser till partnerlösningen.
+  - **Ta bort lösningen**.
   - **Konfigurera**.
 
    ![Partnerlösningsinformation][3]
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln beskrivs hur du hantera och övervaka anslutna säkerhetslösningar i Security Center. I följande avsnitt kan du lära dig mer om Security Center:
+I den här artikeln lärde du dig att hantera och övervaka anslutna säkerhetslösningar i Security Center. I följande avsnitt kan du lära dig mer om Security Center:
 
-* [Översikt över lösningar med säkerhet](security-center-partner-integration.md) – Lär dig att ansluta och hantera lösningar för informationssäkerhet.
+* [Översikt över lösningar med säkerhet](security-center-partner-integration.md) – Lär dig att ansluta och hantera säkerhetslösningar.
 * [Ansluta Microsoft Advanced Threat Analytics (ATA)](security-center-ata-integration.md) – Lär dig hur du ansluter aviseringar från ATA.
-* [Ansluta Azure Active Directory (AD) identitetsskydd ](security-center-aadip-integration.md) – Lär dig hur du ansluter aviseringar från Azure AD Identity Protection.
-* [Integrering med partner och lösningar](security-center-partner-integration.md) -få en översikt över integrering av andra lösningar för informationssäkerhet.
+* [Ansluta Azure Active Directory (AD) Identity Protection ](security-center-aadip-integration.md) – Lär dig hur du ansluter aviseringar från Azure AD Identity Protection.
+* [Partnerintegrering](security-center-partner-integration.md) – få en översikt över integrering av andra säkerhetslösningar.
 * [Hantera och åtgärda säkerhetsaviseringar](security-center-managing-and-responding-alerts.md) – Lär dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
 * [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.

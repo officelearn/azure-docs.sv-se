@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 15bc320bd82ea21ff608fcc834ba51b9bc7b6dea
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 6709fb8ae328f749b367c58f95b8a9ef8da9bc65
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716152"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42055629"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Hantera användarnas åtkomst i Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Beroende på program förordning behöva medgivandenivå beviljas av en använda
 
 Följande är ett exempel på ett användarflöde för att samla in föräldrars tillstånd:
 
-1. En [Azure Active Directory Graph API](https://msdn.microsoft.com/en-us/library/azure/ad/graph/api/api-catalog) åtgärden identifierar användaren som minderårig och returnerar användarens data till programmet i form av en osignerad JSON-token.
+1. En [Azure Active Directory Graph API](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog) åtgärden identifierar användaren som minderårig och returnerar användarens data till programmet i form av en osignerad JSON-token.
 
 2. Programmet bearbetar JSON-token och visar en skärm till mindre, meddela honom eller henne att föräldrars tillstånd krävs och begära medgivande från en överordnad online. 
 
@@ -56,7 +56,7 @@ Följande är ett exempel på ett användarflöde för att samla in föräldrars
 
 5. När mindre eller vuxen återkallar ditt medgivande, Azure AD Graph API kan användas för att ändra **consentProvidedForMinor** till **nekas**. Programmet kan också välja att ta bort minderårig vars godkännande har återkallats. Det är också möjligt att anpassa användarflödet så att den autentiserade mindre (eller överordnade som använder den mindre konto) kan återkalla medgivande. Azure AD B2C-poster **consentProvidedForMinor** som **nekas**.
 
-Mer information om **legalAgeGroupClassification**, **consentProvidedForMinor**, och **ageGroup**, se [användarresurstyp](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/user). Läs mer om anpassade attribut, [Använd anpassade attribut för att samla in information om dina användare](active-directory-b2c-reference-custom-attr.md). När du har gått utökade attribut med hjälp av Azure AD Graph-API måste du använda den långa versionen av attributet, som *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
+Mer information om **legalAgeGroupClassification**, **consentProvidedForMinor**, och **ageGroup**, se [användarresurstyp](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). Läs mer om anpassade attribut, [Använd anpassade attribut för att samla in information om dina användare](active-directory-b2c-reference-custom-attr.md). När du har gått utökade attribut med hjälp av Azure AD Graph-API måste du använda den långa versionen av attributet, som *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
 
 ## <a name="gather-date-of-birth-and-country-data"></a>Samla in datumet för födelsedatum och land
 

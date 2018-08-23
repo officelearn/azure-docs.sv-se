@@ -1,6 +1,6 @@
 ---
 title: Hantera dina Azure Servic Fabric-program i Visual Studio | Microsoft Docs
-description: Du kan använda Visual Studio för att skapa, utveckla, paketera, distribuera och felsöka dina Azure Service Fabric-program och tjänster.
+description: Använd Visual Studio för att skapa, utveckla, paketera, distribuera och felsöka Azure Service Fabric-program och tjänster.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -11,81 +11,82 @@ ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.workload: na
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
-ms.openlocfilehash: 25c7f0e8d6ebc31121e29870026a735495ef7900
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 2e7b7d9b0a194b13de9bdf759f4f3be645ed7c2e
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206507"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442177"
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Använd Visual Studio för att förenkla skriva och hantera dina Service Fabric-program
-Du kan hantera dina Azure Service Fabric-program och tjänster via Visual Studio. När du har [ställa in din utvecklingsmiljö](service-fabric-get-started.md), du kan använda Visual Studio skapar Service Fabric-program, lägga till tjänster eller paket, registrera och distribuera program i klustret för lokal utveckling.
+Du kan hantera dina Azure Service Fabric-program och tjänster via Visual Studio. När du har [ställa in din utvecklingsmiljö](service-fabric-get-started.md), du kan använda Visual Studio för att skapa Service Fabric-program, lägga till tjänster eller ett paket, registrera och distribuera program i det lokala utvecklingsklustret.
 
-## <a name="deploy-your-service-fabric-application"></a>Distribuera Service Fabric-program
+## <a name="deploy-your-service-fabric-application"></a>Distribuera Service Fabric-programmet
 Som standard kombinerar följande steg i en enkel åtgärd när du distribuerar ett program:
 
 1. Skapa programpaketet
-2. Ladda upp programpaketet image store
-3. Registrerar programtyp
-4. Att ta bort alla instanser av programmet körs
-5. Skapa en instans av programmet
+2. Ladda upp programpaketet till avbildningsarkivet
+3. Registrera programtypen
+4. Ta bort alla instanser av programmet körs
+5. Skapa en programinstans
 
-I Visual Studio, trycka på **F5** distribuerar ditt program och koppla felsökaren till alla instanser av programmet. Du kan använda **Ctrl + F5** du distribuerar ett program utan felsökning eller du kan publicera till en lokal eller fjärransluten kluster med hjälp av profilen.
+I Visual Studio att trycka på **F5** distribuerar ditt program och bifoga felsökningsprogrammet till alla instanser av programmet. Du kan använda **Ctrl + F5** att distribuera ett program utan felsökning eller du kan publicera till en lokal eller fjärransluten kluster med hjälp av profilen.
 
 ### <a name="application-debug-mode"></a>Programmet felsökningsläge
-Visual Studio tillhandahåller en egenskap som kallas **programmet felsökningsläge**, som styr hur du vill att Visual Studios att hantera programdistribution som en del av felsökning.
+Visual Studio tillhandahåller en egenskap som kallas **programmets felsökningsläge**, som styr du hur Visual Studios att hantera distribution av program som en del av felsökning.
 
-#### <a name="to-set-the-application-debug-mode-property"></a>Att ange egenskapen Debug programläge
-1. På Service Fabric application projektets (*.sfproj) snabbmenyn väljer **egenskaper** (eller trycker på den **F4** nyckel).
-2. I den **egenskaper** fönstret kan du ange den **programmet felsökningsläge** egenskapen.
+#### <a name="to-set-the-application-debug-mode-property"></a>Ange egenskapen programmets felsökningsläge
+1. På Service Fabric-program projektets (*.sfproj) snabbmenyn och välj **egenskaper** (eller tryck på den **F4** nyckel).
+2. I den **egenskaper** ställer den **programmets felsökningsläge** egenskapen.
 
-![Egenskapen programmet Debug-läge][debugmodeproperty]
+![Ange program Debug-frågeläge][debugmodeproperty]
 
-#### <a name="application-debug-modes"></a>Programmet felsökningslägen
+#### <a name="application-debug-modes"></a>Lägen för felsökning av program
 
-1. **Uppdatera program** detta läge kan du snabbt ändra och felsöka din kod och stöd för redigering av statiska filer vid felsökning. Det här läget fungerar bara om lokal utveckling klustret är i [1-nod läge]. Detta är standardvärdet felsökningsläge för programmet. (/ service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode).
-2. **Ta bort programmet** gör att programmet ska tas bort när debug-sessionen avslutas.
-3. **Automatisk uppgradering** programmet fortsätter att köras när debug-sessionen avslutas. Nästa felsökningssessionen behandlar distributionen som en uppgradering. Uppgraderingsprocessen behåller alla data som du angav i föregående felsökningssessionen.
-4. **Hålla program** programmet körs i klustret när debug-sessionen avslutas. I början av nästa felsökningssessionen tas programmet bort.
+1. **Uppdatera programmet** det här läget kan du snabbt ändra och felsöka din kod och stöd för redigering av statiska webbfiler när du felsöker. Det här läget fungerar bara om det lokala utvecklingsklustret finns i [1 nod läge]. Detta är standardinställningen programmets felsökningsläge. (/ service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode).
+2. **Ta bort programmet** gör så att programmet ska tas bort när debug-sessionen avslutas.
+3. **Automatisk uppgradering** programmet fortsätter att köras när debug-sessionen avslutas. Nästa felsökningssessionen hanterar distributionen som en uppgradering. Uppgraderingsprocessen bevarar alla data som du angav i föregående felsökningssessionen.
+4. **Zachovat Aplikaci** programmet köras i klustret när debug-sessionen avslutas. I början av nästa felsökningssessionen tas programmet bort.
 
-För **automatiskt uppgradera** bevaras data genom att använda programfunktioner för uppgradering av Service Fabric. Mer information om hur du uppgraderar program och hur du kan utföra en uppgradering i en verklig miljö finns [uppgradering av Service Fabric-programmet](service-fabric-application-upgrade.md).
+För **automatisk uppgradering** bevaras data genom att använda programfunktioner för uppgradering av Service Fabric. Mer information om hur du uppgraderar program och hur du kan utföra en uppgradering i en verklig miljö finns i [Service Fabric-Programuppgradering](service-fabric-application-upgrade.md).
 
-## <a name="add-a-service-to-your-service-fabric-application"></a>Lägga till en tjänst till Service Fabric-program
-Du kan lägga till nya tjänster i programmet för att utöka dess funktionalitet. För att säkerställa att tjänsten ingår i ditt programpaket, lägger du till tjänsten via den **nya Fabric-tjänsten...**  menyalternativ.
+## <a name="add-a-service-to-your-service-fabric-application"></a>Lägga till en tjänst till ditt Service Fabric-program
+Du kan lägga till nya tjänster i ditt program för att utöka dess funktioner. För att säkerställa att tjänsten ingår i programpaketet, lägger du till tjänsten via den **ny Fabric-tjänst...**  menyalternativ.
 
 ![Lägg till en ny Service Fabric-tjänst][newservice]
 
-Välj en typ av Service Fabric-projekt att lägga till i ditt program och ange ett namn för tjänsten.  Se [att välja ett ramverk för din tjänst](service-fabric-choose-framework.md) för att avgöra vilken tjänsttyp som ska använda.
+Välj en typ av Service Fabric-projekt som du lägger till i ditt program och ange ett namn för tjänsten.  Se [välja ett ramverk för din tjänst](service-fabric-choose-framework.md) för att avgöra vilken typ av tjänst du använder.
 
-![Välj en projekttyp för Service Fabric-tjänsten att lägga till i ditt program][addserviceproject]
+![Välj en Service Fabric-projekt tjänsttyp för att lägga till i ditt program][addserviceproject]
 
-Den nya tjänsten har lagts till i din lösning och befintliga programpaket. Referenser för och en standard tjänstinstans läggs till applikationsmanifestet orsakar tjänsten kan skapas och startas nästa gång du distribuerar programmet.
+Den nya tjänsten har lagts till din lösning och befintligt programpaket. Servicereferenser och en standard-tjänstinstans läggs till i programmanifestet orsakar tjänsten skapas och startas nästa gång du distribuerar programmet.
 
 ![Den nya tjänsten har lagts till i programmanifestet][newserviceapplicationmanifest]
 
-## <a name="package-your-service-fabric-application"></a>Paketera Service Fabric-program
-Om du vill distribuera programmet och dess tjänster till ett kluster, måste du skapa ett programpaket.  Paketet organiserar programmanifestet service manifest och andra nödvändiga filer i en viss layout.  Visual Studio konfigurerar och hanterar paket i programprojektet-mappen i katalogen 'pkg'.  Klicka på **paketet** från den **programmet** snabbmenyn skapar eller uppdaterar programpaketet.
+## <a name="package-your-service-fabric-application"></a>Paketera ditt Service Fabric-program
+Om du vill distribuera programmet och dess tjänster till ett kluster, måste du skapa ett programpaket.  Paketet organiserar applikationsmanifestet, tjänstmanifest och andra nödvändiga filer i en viss layout.  Visual Studio konfigurerar och hanterar paketet i programprojektet-mappen i katalogen 'pkg.  Klicka på **paketet** från den **program** snabbmenyn skapar eller uppdaterar programpaketet.
 
 ## <a name="remove-applications-and-application-types-using-cloud-explorer"></a>Ta bort program och programtyper med Cloud Explorer
-Du kan utföra grundläggande klusterhanteringsåtgärder inifrån Visual Studio med Cloud Explorer som du kan starta från den **visa** menyn. Du kan till exempel ta bort program och avetablera programtyper på lokala eller fjärranslutna kluster.
+Du kan utföra grundläggande klusterhanteringsåtgärder inifrån Visual Studio med Cloud Explorer, som du kan starta från den **visa** menyn. Du kan till exempel ta bort program och avetablera programtyper i lokala eller fjärranslutna kluster.
 
 ![Ta bort ett program][removeapplication]
 
 > [!TIP]
-> En bättre hantering av klusterfunktionaliteten, se [visualisera ditt kluster med Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+> En mer omfattande kluster-hanteringsfunktioner, se [visualisera klustret med Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 >
 >
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Nästa steg
-* [Service Fabric programmodell](service-fabric-application-model.md)
-* [Distribution av Service Fabric](service-fabric-deploy-remove-applications.md)
-* [Hantera programparametrar för miljöer med flera](service-fabric-manage-multiple-environment-app-configuration.md)
+* [Service Fabric-programmodellen](service-fabric-application-model.md)
+* [Distribution av Service Fabric-program](service-fabric-deploy-remove-applications.md)
+* [Hantera programparametrar för flera miljöer](service-fabric-manage-multiple-environment-app-configuration.md)
 * [Felsöka ditt Service Fabric-program](service-fabric-debugging-your-application.md)
-* [Visualisera ditt kluster med hjälp av Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+* [Visualisera klustret med hjälp av Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 
 <!--Image references-->
 [addserviceproject]:./media/service-fabric-manage-application-in-visual-studio/addserviceproject.png

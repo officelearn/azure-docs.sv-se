@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 08/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a4e062b1bc56eada2fa2c27797151e265271022e
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 86a2fba7730a653a254a2fd996f9e45ed322fbe3
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621165"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42061704"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager åtgärder för resursprovider
 
@@ -391,8 +391,12 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | --- | --- | --- |
 > | Åtgärd | Microsoft.Authorization/checkAccess/action | Kontrollerar att anroparen har behörighet att utföra en viss åtgärd |
 > | Åtgärd | Microsoft.Authorization/classicAdministrators/delete | Tar bort administratören från prenumerationen. |
+> | Åtgärd | Microsoft.Authorization/classicAdministrators/operationstatuses/read | Hämtar statusar för prenumerationens administratörsåtgärder. |
 > | Åtgärd | Microsoft.Authorization/classicAdministrators/read | Läser in prenumerationens administratörer. |
 > | Åtgärd | Microsoft.Authorization/classicAdministrators/write | Lägg till eller ta bort en administratör för en prenumeration. |
+> | Åtgärd | Microsoft.Authorization/denyAssignments/delete | Ta bort ett tilldelningsnekande för det angivna reservationsomfånget. |
+> | Åtgärd | Microsoft.Authorization/denyAssignments/read | Hämta information om ett tilldelningsnekande. |
+> | Åtgärd | Microsoft.Authorization/denyAssignments/write | Skapa ett tilldelningsnekande för det definierade reservationsomfånget. |
 > | Åtgärd | Microsoft.Authorization/elevateAccess/action | Ger anroparen åtkomst till administratör för användaråtkomst i klientomfattningen |
 > | Åtgärd | Microsoft.Authorization/locks/delete | Ta bort lås i det specificerade omfånget. |
 > | Åtgärd | Microsoft.Authorization/locks/read | Hämtar lås i det specificerade omfånget. |
@@ -1165,6 +1169,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/instanceView/read | Hämtar instansvyn för VM-skalningsuppsättningen |
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/manualUpgrade/action | Uppdaterar manuellt instanser av den senaste modellen av VM-skalningsuppsättningen |
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/networkInterfaces/read | Hämta egenskaper för alla nätverksgränssnitt för en VM-skalningsuppsättning |
+> | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/osRollingUpgrade/action | Startar en löpande uppgradering för att flytta alla instanser för Virtual Machine Scale Sets till den senaste tillgängliga versionen plattform bild OS. |
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/osUpgradeHistory/read | Hämtar historiken för operativsystemuppgraderingar för en VM-skalningsuppsättning |
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/performMaintenance/action | Utför planerat underhåll på VM-skalningsuppsättningens instanser |
 > | Åtgärd | Microsoft.Compute/virtualMachineScaleSets/powerOff/action | Stänger av VM-skalningsuppsättningens instanser |
@@ -1244,10 +1249,23 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.ContainerRegistry/locations/operationResults/read | Hämtar en asynkron resultat |
 > | Åtgärd | Microsoft.ContainerRegistry/operations/read | Visar en lista över alla tillgängliga Azure Container Registry REST API-åtgärder |
 > | Åtgärd | Microsoft.ContainerRegistry/register/action | Registrerar prenumerationen för container registry-resursprovidern och gör möljligt behållarregister. |
+> | Åtgärd | Microsoft.ContainerRegistry/registries/builds/cancel/action | Avbryter en version. |
+> | Åtgärd | Microsoft.ContainerRegistry/registries/builds/getLogLink/action | Hämtar en länk för att hämta build-loggarna. |
+> | Åtgärd | Microsoft.ContainerRegistry/registries/builds/read | Hämtar egenskaperna för den angivna versionen eller listar alla versioner för angivna container registry. |
+> | Åtgärd | Microsoft.ContainerRegistry/registries/builds/write | Uppdaterar en version för ett container registry med de angivna parametrarna. |
+> | Åtgärd | Microsoft.ContainerRegistry/registries/buildTasks/delete | Tar bort en build-uppgift från ett behållarregister. |
+> | Åtgärd | Microsoft.ContainerRegistry/registries/buildTasks/listSourceRepositoryProperties/action | Visar en lista över egenskaper för datakälla-kontroll för en build-aktivitet. |
+> | Åtgärd | Microsoft.ContainerRegistry/registries/buildTasks/read | Hämtar egenskaperna för denna angivna build task eller listar alla build-uppgifter för det angivna container registret. |
+> | Åtgärd | Microsoft.ContainerRegistry/registries/buildTasks/steps/delete | Tar bort ett byggsteg från en build-aktivitet. |
+> | Åtgärd | Microsoft.ContainerRegistry/registries/buildTasks/steps/listBuildArguments/action | Visar en lista över build-argumenten för ett byggsteg inklusive hemliga argument. |
+> | Åtgärd | Microsoft.ContainerRegistry/registries/buildTasks/steps/read | Hämtar egenskaperna för den angivna byggsteg eller listar alla byggsteg för den angivna build-uppgiften. |
+> | Åtgärd | Microsoft.ContainerRegistry/registries/buildTasks/steps/write | Skapar eller uppdaterar ett byggsteg för en build-aktivitet med de angivna parametrarna. |
+> | Åtgärd | Microsoft.ContainerRegistry/registries/buildTasks/write | Skapar eller uppdaterar en build-uppgift för ett container registry med de angivna parametrarna. |
 > | Åtgärd | Microsoft.ContainerRegistry/registries/delete | Tar bort ett behållarregister. |
 > | Åtgärd | Microsoft.ContainerRegistry/registries/eventGridFilters/delete | Tar bort en event grid-filtret från ett behållarregister. |
 > | Åtgärd | Microsoft.ContainerRegistry/registries/eventGridFilters/read | Hämtar egenskaperna för den angivna event grid-filtret eller listar alla event grid filter för det angivna container registret. |
 > | Åtgärd | Microsoft.ContainerRegistry/registries/eventGridFilters/write | Skapar eller uppdaterar en event grid-filtret för ett container registry med de angivna parametrarna. |
+> | Åtgärd | Microsoft.ContainerRegistry/registries/getBuildSourceUploadUrl/action | Hämtar överföringsplatsen för användaren ska kunna ladda upp källan. |
 > | Åtgärd | Microsoft.ContainerRegistry/registries/importImage/action | Importera avbildningen till behållarregistret med de angivna parametrarna. |
 > | Åtgärd | Microsoft.ContainerRegistry/registries/listCredentials/action | Visar en lista över inloggningsuppgifterna för angivna container registry. |
 > | Åtgärd | Microsoft.ContainerRegistry/registries/listPolicies/read | Visar en lista över principerna för det angivna container registret |
@@ -1256,12 +1274,18 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/read | Hämtar den diagnostiska inställningen för resursen |
 > | Åtgärd | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar den diagnostiska inställningen för resursen |
 > | Åtgärd | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/metricDefinitions/read | Hämtar tillgängliga mått för Microsoft ContainerRegistry |
+> | Åtgärd | Microsoft.ContainerRegistry/registries/pull/read | Hämta eller hämta avbildningar från ett behållarregister. |
+> | Åtgärd | Microsoft.ContainerRegistry/registries/push/write | Push- eller skriva avbildningar till ett behållarregister. |
+> | Åtgärd | Microsoft.ContainerRegistry/registries/quarantineRead/read | Hämta eller hämta har satts i karantän bilder från container registry |
+> | Åtgärd | Microsoft.ContainerRegistry/registries/quarantineWrite/write | Skriva/ändra karantän tillstånd har satts i karantän avbildningar |
+> | Åtgärd | Microsoft.ContainerRegistry/registries/queueBuild/action | Skapar en ny version baserat på parametrarna och lägger till den i build-kön. |
 > | Åtgärd | Microsoft.ContainerRegistry/registries/read | Hämtar egenskaperna för det angivna behållarregistret eller listar alla behållarregister under den angivna resursgruppen eller prenumerationen. |
 > | Åtgärd | Microsoft.ContainerRegistry/registries/regenerateCredential/action | Återskapar en av autentiseringsuppgifterna för det angivna container registret. |
 > | Åtgärd | Microsoft.ContainerRegistry/registries/replications/delete | Tar bort en replikering från ett behållarregister. |
 > | Åtgärd | Microsoft.ContainerRegistry/registries/replications/operationStatuses/read | Hämtar en replikeringsstatus asynkrona åtgärden |
 > | Åtgärd | Microsoft.ContainerRegistry/registries/replications/read | Hämtar egenskaperna för den angivna replikeringen eller listar alla replikeringar för det angivna container registret. |
 > | Åtgärd | Microsoft.ContainerRegistry/registries/replications/write | Skapar eller uppdaterar en replikering för ett container registry med de angivna parametrarna. |
+> | Åtgärd | Microsoft.ContainerRegistry/registries/sign/write | Flyttningar innehåll förtroende metadata för ett behållarregister. |
 > | Åtgärd | Microsoft.ContainerRegistry/registries/updatePolicies/write | Uppdaterar inställningen för det angivna container registret |
 > | Åtgärd | Microsoft.ContainerRegistry/registries/webhooks/delete | Tar bort en webhook från ett behållarregister. |
 > | Åtgärd | Microsoft.ContainerRegistry/registries/webhooks/getCallbackConfig/action | Hämtar konfigurationen av tjänstens URI och anpassade huvuden för webhooken. |
@@ -1524,9 +1548,11 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.DataFactory/factories/pipelineruns/activityruns/read | Läser aktivitetskörningar för den angivna pipelinekörnings-ID. |
 > | Åtgärd | Microsoft.DataFactory/factories/pipelineruns/cancel/action | Avbryter pipelinekörningen som anges av körnings-ID. |
 > | Åtgärd | Microsoft.DataFactory/factories/pipelineruns/queryactivityruns/action | Frågor som aktiviteten körs för angivna pipelinen körs ID. |
+> | Åtgärd | Microsoft.DataFactory/factories/pipelineruns/queryactivityruns/read | Läser resultatet av frågeaktivitet körs i den angivna pipelinekörnings-ID. |
 > | Åtgärd | Microsoft.DataFactory/factories/pipelineruns/read | Läser Pipeline-körningar. |
 > | Åtgärd | Microsoft.DataFactory/factories/pipelines/createrun/action | Skapar en körning för pipelinen. |
 > | Åtgärd | Microsoft.DataFactory/factories/pipelines/delete | Tar bort Pipeline. |
+> | Åtgärd | Microsoft.DataFactory/factories/pipelines/pipelineruns/activityruns/progress/read | Hämtar förloppet för Aktivitetskörningar. |
 > | Åtgärd | Microsoft.DataFactory/factories/pipelines/pipelineruns/read | Läser Pipeline-körning. |
 > | Åtgärd | Microsoft.DataFactory/factories/pipelines/read | Läser Pipeline. |
 > | Åtgärd | Microsoft.DataFactory/factories/pipelines/write | Skapa eller uppdatera pipelinen |
@@ -1535,7 +1561,9 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.DataFactory/factories/providers/Microsoft.Insights/logDefinitions/read | Hämtar tillgängliga loggar för fabriker |
 > | Åtgärd | Microsoft.DataFactory/factories/providers/Microsoft.Insights/metricDefinitions/read | Hämtar tillgängliga mått för fabriker |
 > | Åtgärd | Microsoft.DataFactory/factories/querypipelineruns/action | Frågar Pipeline-körningar. |
+> | Åtgärd | Microsoft.DataFactory/factories/querypipelineruns/read | Läser resultatet av frågan Pipelinekörningar. |
 > | Åtgärd | Microsoft.DataFactory/factories/querytriggerruns/action | Frågar Trigger Runs. |
+> | Åtgärd | Microsoft.DataFactory/factories/querytriggerruns/read | Läser resultatet av utlösaren körs. |
 > | Åtgärd | Microsoft.DataFactory/factories/read | Läser Data Factory. |
 > | Åtgärd | Microsoft.DataFactory/factories/triggerruns/read | Läser Trigger Runs. |
 > | Åtgärd | Microsoft.DataFactory/factories/triggers/delete | Tar bort alla utlösare. |
@@ -1546,6 +1574,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.DataFactory/factories/triggers/write | Skapar eller uppdaterar en utlösare. |
 > | Åtgärd | Microsoft.DataFactory/factories/write | Skapa eller uppdatera Data Factory |
 > | Åtgärd | Microsoft.DataFactory/locations/configureFactoryRepo/action | Konfigurerar lagringsplatsen för fabriken. |
+> | Åtgärd | Microsoft.DataFactory/operations/read | Läser alla åtgärder i Microsoft Data Factory-providern. |
 > | Åtgärd | Microsoft.DataFactory/register/action | Registrerar prenumerationen för Data Factory-Resursprovidern. |
 > | Åtgärd | Microsoft.DataFactory/unregister/action | Avregistrerar prenumerationen för Data Factory-Resursprovidern. |
 
@@ -2071,6 +2100,14 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Features/providers/features/unregister/action | Avregistrerar funktionen för en prenumeration hos en viss resursprovider. |
 > | Åtgärd | Microsoft.Features/register/action | Registrerar funktionen för en prenumeration. |
 
+## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Åtgärdstyp | Åtgärd | Beskrivning |
+> | --- | --- | --- |
+> | Åtgärd | Microsoft.GuestConfiguration/guestConfigurationAssignments/read | Hämta gäst configuration tilldelning. |
+> | Åtgärd | Microsoft.GuestConfiguration/guestConfigurationAssignments/write | Skapa ny tilldelning för gäst-konfiguration. |
+
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -2356,155 +2393,156 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
-> | DataAction | Microsoft.LogAnalytics/logs/ADAssessmentRecommendation/read | Läsa data från tabellen ADAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/ADReplicationResult/read | Läsa data från tabellen ADReplicationResult |
-> | DataAction | Microsoft.LogAnalytics/logs/ADSecurityAssessmentRecommendation/read | Läsa data från tabellen ADSecurityAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/Alert/read | Läsa data från tabellen avisering |
-> | DataAction | Microsoft.LogAnalytics/logs/AlertHistory/read | Läsa data från tabellen AlertHistory |
-> | DataAction | Microsoft.LogAnalytics/logs/ApplicationInsights/read | Läsa data från tabellen ApplicationInsights |
-> | DataAction | Microsoft.LogAnalytics/logs/AzureActivity/read | Läsa data från tabellen AzureActivity |
-> | DataAction | Microsoft.LogAnalytics/logs/AzureMetrics/read | Läsa data från tabellen AzureMetrics |
-> | DataAction | Microsoft.LogAnalytics/logs/BoundPort/read | Läsa data från tabellen BoundPort |
-> | DataAction | Microsoft.LogAnalytics/logs/CommonSecurityLog/read | Läsa data från tabellen CommonSecurityLog |
-> | DataAction | Microsoft.LogAnalytics/logs/ComputerGroup/read | Läsa data från tabellen ComputerGroup |
-> | DataAction | Microsoft.LogAnalytics/logs/ConfigurationChange/read | Läsa data från tabellen ConfigurationChange |
-> | DataAction | Microsoft.LogAnalytics/logs/ConfigurationData/read | Läsa data från tabellen ConfigurationData |
-> | DataAction | Microsoft.LogAnalytics/logs/ContainerImageInventory/read | Läsa data från tabellen ContainerImageInventory |
-> | DataAction | Microsoft.LogAnalytics/logs/ContainerInventory/read | Läsa data från tabellen ContainerInventory |
-> | DataAction | Microsoft.LogAnalytics/logs/ContainerLog/read | Läsa data från tabellen ContainerLog |
-> | DataAction | Microsoft.LogAnalytics/logs/ContainerServiceLog/read | Läsa data från tabellen ContainerServiceLog |
-> | DataAction | Microsoft.LogAnalytics/logs/CustomLogs/read | Läsa data från någon annan anpassad logg |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceAppCrash/read | Läsa data från tabellen DeviceAppCrash |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceAppLaunch/read | Läsa data från tabellen DeviceAppLaunch |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceCalendar/read | Läsa data från tabellen DeviceCalendar |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceCleanup/read | Läsa data från tabellen DeviceCleanup |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceConnectSession/read | Läsa data från tabellen DeviceConnectSession |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceEtw/read | Läsa data från tabellen DeviceEtw |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceHardwareHealth/read | Läsa data från tabellen DeviceHardwareHealth |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceHealth/read | Läsa data från tabellen devicehealth koppla |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceHeartbeat/read | Läsa data från tabellen DeviceHeartbeat |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceSkypeHeartbeat/read | Läsa data från tabellen DeviceSkypeHeartbeat |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceSkypeSignIn/read | Läsa data från tabellen DeviceSkypeSignIn |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceSleepState/read | Läsa data från tabellen DeviceSleepState |
-> | DataAction | Microsoft.LogAnalytics/logs/DHAppFailure/read | Läsa data från tabellen DHAppFailure |
-> | DataAction | Microsoft.LogAnalytics/logs/DHAppReliability/read | Läsa data från tabellen DHAppReliability |
-> | DataAction | Microsoft.LogAnalytics/logs/DHDriverReliability/read | Läsa data från tabellen DHDriverReliability |
-> | DataAction | Microsoft.LogAnalytics/logs/DHLogonFailures/read | Läsa data från tabellen DHLogonFailures |
-> | DataAction | Microsoft.LogAnalytics/logs/DHLogonMetrics/read | Läsa data från tabellen DHLogonMetrics |
-> | DataAction | Microsoft.LogAnalytics/logs/DHOSCrashData/read | Läsa data från tabellen DHOSCrashData |
-> | DataAction | Microsoft.LogAnalytics/logs/DHOSReliability/read | Läsa data från tabellen DHOSReliability |
-> | DataAction | Microsoft.LogAnalytics/logs/DHWipAppLearning/read | Läsa data från tabellen DHWipAppLearning |
-> | DataAction | Microsoft.LogAnalytics/logs/DnsEvents/read | Läsa data från tabellen DnsEvents |
-> | DataAction | Microsoft.LogAnalytics/logs/DnsInventory/read | Läsa data från tabellen DnsInventory |
-> | DataAction | Microsoft.LogAnalytics/logs/ETWEvent/read | Läsa data från tabellen ETWEvent |
-> | DataAction | Microsoft.LogAnalytics/logs/Event/read | Läsa data från tabellen händelse |
-> | DataAction | Microsoft.LogAnalytics/logs/ExchangeAssessmentRecommendation/read | Läsa data från tabellen ExchangeAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/ExchangeOnlineAssessmentRecommendation/read | Läsa data från tabellen ExchangeOnlineAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/Heartbeat/read | Läsa data från tabellen pulsslag |
-> | DataAction | Microsoft.LogAnalytics/logs/IISAssessmentRecommendation/read | Läsa data från tabellen IISAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/InboundConnection/read | Läsa data från tabellen InboundConnection |
-> | DataAction | Microsoft.LogAnalytics/logs/KubeNodeInventory/read | Läsa data från tabellen KubeNodeInventory |
-> | DataAction | Microsoft.LogAnalytics/logs/KubePodInventory/read | Läsa data från tabellen KubePodInventory |
-> | DataAction | Microsoft.LogAnalytics/logs/LinuxAuditLog/read | Läsa data från tabellen LinuxAuditLog |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplication/read | Läsa data från tabellen MAApplication |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationHealth/read | Läsa data från tabellen MAApplicationHealth |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationHealthAlternativeVersions/read | Läsa data från tabellen MAApplicationHealthAlternativeVersions |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationHealthIssues/read | Läsa data från tabellen MAApplicationHealthIssues |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationInstance/read | Läsa data från tabellen MAApplicationInstance |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationInstanceReadiness/read | Läsa data från tabellen MAApplicationInstanceReadiness |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationReadiness/read | Läsa data från tabellen MAApplicationReadiness |
-> | DataAction | Microsoft.LogAnalytics/logs/MADeploymentPlan/read | Läsa data från tabellen MADeploymentPlan |
-> | DataAction | Microsoft.LogAnalytics/logs/MADevice/read | Läsa data från tabellen MADevice |
-> | DataAction | Microsoft.LogAnalytics/logs/MADevicePnPHealth/read | Läsa data från tabellen MADevicePnPHealth |
-> | DataAction | Microsoft.LogAnalytics/logs/MADevicePnPHealthAlternativeVersions/read | Läsa data från tabellen MADevicePnPHealthAlternativeVersions |
-> | DataAction | Microsoft.LogAnalytics/logs/MADevicePnPHealthIssues/read | Läsa data från tabellen MADevicePnPHealthIssues |
-> | DataAction | Microsoft.LogAnalytics/logs/MADeviceReadiness/read | Läsa data från tabellen MADeviceReadiness |
-> | DataAction | Microsoft.LogAnalytics/logs/MADriverInstanceReadiness/read | Läsa data från tabellen MADriverInstanceReadiness |
-> | DataAction | Microsoft.LogAnalytics/logs/MADriverReadiness/read | Läsa data från tabellen MADriverReadiness |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddin/read | Läsa data från tabellen MAOfficeAddin |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinHealth/read | Läsa data från tabellen MAOfficeAddinHealth |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinHealthIssues/read | Läsa data från tabellen MAOfficeAddinHealthIssues |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinInstance/read | Läsa data från tabellen MAOfficeAddinInstance |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinInstanceReadiness/read | Läsa data från tabellen MAOfficeAddinInstanceReadiness |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinReadiness/read | Läsa data från tabellen MAOfficeAddinReadiness |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeApp/read | Läsa data från tabellen MAOfficeApp |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAppHealth/read | Läsa data från tabellen MAOfficeAppHealth |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAppInstance/read | Läsa data från tabellen MAOfficeAppInstance |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAppReadiness/read | Läsa data från tabellen MAOfficeAppReadiness |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeBuildInfo/read | Läsa data från tabellen MAOfficeBuildInfo |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeCurrencyAssessment/read | Läsa data från tabellen MAOfficeCurrencyAssessment |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeCurrencyAssessmentDailyCounts/read | Läsa data från tabellen MAOfficeCurrencyAssessmentDailyCounts |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeDeploymentStatus/read | Läsa data från tabellen MAOfficeDeploymentStatus |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroHealth/read | Läsa data från tabellen MAOfficeMacroHealth |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroHealthIssues/read | Läsa data från tabellen MAOfficeMacroHealthIssues |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroIssueInstanceReadiness/read | Läsa data från tabellen MAOfficeMacroIssueInstanceReadiness |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroIssueReadiness/read | Läsa data från tabellen MAOfficeMacroIssueReadiness |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroSummary/read | Läsa data från tabellen MAOfficeMacroSummary |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeSuite/read | Läsa data från tabellen MAOfficeSuite |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeSuiteInstance/read | Läsa data från tabellen MAOfficeSuiteInstance |
-> | DataAction | Microsoft.LogAnalytics/logs/MAProposedPilotDevices/read | Läsa data från tabellen MAProposedPilotDevices |
-> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsBuildInfo/read | Läsa data från tabellen MAWindowsBuildInfo |
-> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsCurrencyAssessment/read | Läsa data från tabellen MAWindowsCurrencyAssessment |
-> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsCurrencyAssessmentDailyCounts/read | Läsa data från tabellen MAWindowsCurrencyAssessmentDailyCounts |
-> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsDeploymentStatus/read | Läsa data från tabellen MAWindowsDeploymentStatus |
-> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsSysReqInstanceReadiness/read | Läsa data från tabellen MAWindowsSysReqInstanceReadiness |
-> | DataAction | Microsoft.LogAnalytics/logs/NetworkMonitoring/read | Läsa data från tabellen NetworkMonitoring |
-> | DataAction | Microsoft.LogAnalytics/logs/OfficeActivity/read | Läsa data från tabellen OfficeActivity |
-> | DataAction | Microsoft.LogAnalytics/logs/Operation/read | Läsa data från tabellen åtgärden |
-> | DataAction | Microsoft.LogAnalytics/logs/OutboundConnection/read | Läsa data från tabellen OutboundConnection |
-> | DataAction | Microsoft.LogAnalytics/logs/Perf/read | Läsa data från tabellen Perf |
-> | DataAction | Microsoft.LogAnalytics/logs/ProtectionStatus/read | Läsa data från tabellen ProtectionStatus |
-> | Åtgärd | Microsoft.LogAnalytics/logs/read | Läsa data från alla loggar |
-> | DataAction | Microsoft.LogAnalytics/logs/ReservedAzureCommonFields/read | Läsa data från tabellen ReservedAzureCommonFields |
-> | DataAction | Microsoft.LogAnalytics/logs/ReservedCommonFields/read | Läsa data från tabellen ReservedCommonFields |
-> | DataAction | Microsoft.LogAnalytics/logs/SCCMAssessmentRecommendation/read | Läsa data från tabellen SCCMAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/SCOMAssessmentRecommendation/read | Läsa data från tabellen SCOMAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/SecurityAlert/read | Läsa data från tabellen SecurityAlert |
-> | DataAction | Microsoft.LogAnalytics/logs/SecurityBaseline/read | Läsa data från tabellen SecurityBaseline |
-> | DataAction | Microsoft.LogAnalytics/logs/SecurityBaselineSummary/read | Läsa data från tabellen SecurityBaselineSummary |
-> | DataAction | Microsoft.LogAnalytics/logs/SecurityDetection/read | Läsa data från tabellen SecurityDetection |
-> | DataAction | Microsoft.LogAnalytics/logs/SecurityEvent/read | Läsa data från tabellen SecurityEvent |
-> | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricOperationalEvent/read | Läsa data från tabellen ServiceFabricOperationalEvent |
-> | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricReliableActorEvent/read | Läsa data från tabellen ServiceFabricReliableActorEvent |
-> | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricReliableServiceEvent/read | Läsa data från tabellen ServiceFabricReliableServiceEvent |
-> | DataAction | Microsoft.LogAnalytics/logs/SfBAssessmentRecommendation/read | Läsa data från tabellen SfBAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/SfBOnlineAssessmentRecommendation/read | Läsa data från tabellen SfBOnlineAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/SharePointOnlineAssessmentRecommendation/read | Läsa data från tabellen SharePointOnlineAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/SPAssessmentRecommendation/read | Läsa data från tabellen SPAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/SQLAssessmentRecommendation/read | Läsa data från tabellen SQLAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/SQLQueryPerformance/read | Läsa data från tabellen SQLQueryPerformance |
-> | DataAction | Microsoft.LogAnalytics/logs/Syslog/read | Läsa data från tabellen Syslog |
-> | DataAction | Microsoft.LogAnalytics/logs/SysmonEvent/read | Läsa data från tabellen SysmonEvent |
-> | DataAction | Microsoft.LogAnalytics/logs/UAApp/read | Läsa data från tabellen UAApp |
-> | DataAction | Microsoft.LogAnalytics/logs/UAComputer/read | Läsa data från tabellen UAComputer |
-> | DataAction | Microsoft.LogAnalytics/logs/UAComputerRank/read | Läsa data från tabellen UAComputerRank |
-> | DataAction | Microsoft.LogAnalytics/logs/UADriver/read | Läsa data från tabellen UADriver |
-> | DataAction | Microsoft.LogAnalytics/logs/UADriverProblemCodes/read | Läsa data från tabellen UADriverProblemCodes |
-> | DataAction | Microsoft.LogAnalytics/logs/UAFeedback/read | Läsa data från tabellen UAFeedback |
-> | DataAction | Microsoft.LogAnalytics/logs/UAHardwareSecurity/read | Läsa data från tabellen UAHardwareSecurity |
-> | DataAction | Microsoft.LogAnalytics/logs/UAIESiteDiscovery/read | Läsa data från tabellen UAIESiteDiscovery |
-> | DataAction | Microsoft.LogAnalytics/logs/UAOfficeAddIn/read | Läsa data från tabellen UAOfficeAddIn |
-> | DataAction | Microsoft.LogAnalytics/logs/UAProposedActionPlan/read | Läsa data från tabellen UAProposedActionPlan |
-> | DataAction | Microsoft.LogAnalytics/logs/UASysReqIssue/read | Läsa data från tabellen UASysReqIssue |
-> | DataAction | Microsoft.LogAnalytics/logs/UAUpgradedComputer/read | Läsa data från tabellen UAUpgradedComputer |
-> | DataAction | Microsoft.LogAnalytics/logs/Update/read | Läsa data från tabellen Update |
-> | DataAction | Microsoft.LogAnalytics/logs/UpdateRunProgress/read | Läsa data från tabellen UpdateRunProgress |
-> | DataAction | Microsoft.LogAnalytics/logs/UpdateSummary/read | Läsa data från tabellen UpdateSummary |
-> | DataAction | Microsoft.LogAnalytics/logs/Usage/read | Läsa data från tabellen användning |
+> | DataAction | Microsoft.LogAnalytics/logs/ADAssessmentRecommendation/read | Läs data från ADAssessmentRecommendation-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/ADReplicationResult/read | Läs data från ADReplicationResult-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/ADSecurityAssessmentRecommendation/read | Läs data från ADSecurityAssessmentRecommendation-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/Alert/read | Läs data från Alert-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/AlertHistory/read | Läs data från AlertHistory-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/ApplicationInsights/read | Läs data från ApplicationInsights-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/AzureActivity/read | Läs data från AzureActivity-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/AzureMetrics/read | Läs data från AzureMetrics-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/BoundPort/read | Läs data från BoundPort-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/CommonSecurityLog/read | Läs data från CommonSecurityLog-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/ComputerGroup/read | Läs data från ComputerGroup-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/ConfigurationChange/read | Läs data från ConfigurationChange-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/ConfigurationData/read | Läs data från ConfigurationData-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/ContainerImageInventory/read | Läs data från ContainerImageInventory-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/ContainerInventory/read | Läs data från ContainerInventory-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/ContainerLog/read | Läs data från ContainerLog-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/ContainerServiceLog/read | Läs data från ContainerServiceLog-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/CustomLogs/read | Läser data från valfri anpassad logg |
+> | DataAction | Microsoft.LogAnalytics/logs/DeviceAppCrash/read | Läs data från DeviceAppCrash-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/DeviceAppLaunch/read | Läs data från DeviceAppLaunch-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/DeviceCalendar/read | Läs data från DeviceCalendar-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/DeviceCleanup/read | Läs data från DeviceCleanup-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/DeviceConnectSession/read | Läs data från DeviceConnectSession-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/DeviceEtw/read | Läs data från DeviceEtw-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/DeviceHardwareHealth/read | Läs data från DeviceHardwareHealth-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/DeviceHealth/read | Läs data från DeviceHealth-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/DeviceHeartbeat/read | Läs data från DeviceHeartbeat-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/DeviceSkypeHeartbeat/read | Läs data från DeviceSkypeHeartbeat-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/DeviceSkypeSignIn/read | Läs data från DeviceSkypeSignIn-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/DeviceSleepState/read | Läs data från DeviceSleepState-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/DHAppFailure/read | Läs data från DHAppFailure-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/DHAppReliability/read | Läs data från DHAppReliability-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/DHDriverReliability/read | Läs data från DHDriverReliability-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/DHLogonFailures/read | Läs data från DHLogonFailures-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/DHLogonMetrics/read | Läs data från DHLogonMetrics-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/DHOSCrashData/read | Läs data från DHOSCrashData-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/DHOSReliability/read | Läs data från DHOSReliability-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/DHWipAppLearning/read | Läs data från DHWipAppLearning-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/DnsEvents/read | Läs data från DnsEvents-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/DnsInventory/read | Läs data från DnsInventory-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/ETWEvent/read | Läs data från ETWEvent-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/Event/read | Läs data från Event-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/ExchangeAssessmentRecommendation/read | Läs data från ExchangeAssessmentRecommendation-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/ExchangeOnlineAssessmentRecommendation/read | Läs data från ExchangeOnlineAssessmentRecommendation-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/Heartbeat/read | Läs data från Hearbeat-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/IISAssessmentRecommendation/read | Läs data från IISAssessmentRecommendation-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/InboundConnection/read | Läs data från InboundConnection-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/KubeNodeInventory/read | Läs data från KubeNodeInventory-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/KubePodInventory/read | Läs data från KubePodInventory-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/LinuxAuditLog/read | Läs data från LinuxAuditLog-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAApplication/read | Läs data från MAApplication-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationHealth/read | Läs data från MAApplicationHealth-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationHealthAlternativeVersions/read | Läs data från MAApplicationHealthAlternativeVersions-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationHealthIssues/read | Läs data från MAApplicationHealthIssues-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationInstance/read | Läs data från MAApplicationInstance-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationInstanceReadiness/read | Läs data från MAApplicationInstanceReadiness-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationReadiness/read | Läs data från MAApplicationReadiness-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MADeploymentPlan/read | Läs data från MADeploymentPlan-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MADevice/read | Läs data från MADevice-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MADevicePnPHealth/read | Läs data från MADevicePnPHealth-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MADevicePnPHealthAlternativeVersions/read | Läs data från MADevicePnPHealthAlternativeVersions-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MADevicePnPHealthIssues/read | Läs data från MADevicePnPHealthIssues-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MADeviceReadiness/read | Läs data från MADeviceReadiness-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MADriverInstanceReadiness/read | Läs data från MADriverInstanceReadiness-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MADriverReadiness/read | Läs data från MADriverReadiness-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddin/read | Läs data från MAOfficeAddin-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinHealth/read | Läs data från MAOfficeAddinHealth-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinHealthIssues/read | Läs data från MAOfficeAddinHealthIssues-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinInstance/read | Läs data från MAOfficeAddinInstance-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinInstanceReadiness/read | Läs data från MAOfficeAddinInstanceReadiness-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinReadiness/read | Läs data från MAOfficeAddinReadiness-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeApp/read | Läs data från MAOfficeApp-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAppHealth/read | Läs data från MAOfficeAppHealth-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAppInstance/read | Läs data från MAOfficeAppInstance-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAppReadiness/read | Läs data från MAOfficeAppReadiness-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeBuildInfo/read | Läs data från MAOfficeBuildInfo-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeCurrencyAssessment/read | Läs data från MAOfficeCurrencyAssessment-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeCurrencyAssessmentDailyCounts/read | Läs data från MAOfficeCurrencyAssessmentDailyCounts-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeDeploymentStatus/read | Läs data från MAOfficeDeploymentStatus-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroHealth/read | Läs data från MAOfficeMacroHealth-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroHealthIssues/read | Läs data från MAOfficeMacroHealthIssues-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroIssueInstanceReadiness/read | Läs data från MAOfficeMacroIssueInstanceReadiness-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroIssueReadiness/read | Läs data från MAOfficeMacroIssueReadiness-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroSummary/read | Läs data från MAOfficeMacroSummary-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeSuite/read | Läs data från MAOfficeSuite-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeSuiteInstance/read | Läs data från MAOfficeSuiteInstance-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAProposedPilotDevices/read | Läs data från MAProposedPilotDevices-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsBuildInfo/read | Läs data från MAWindowsBuildInfo-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsCurrencyAssessment/read | Läs data från MAWindowsCurrencyAssessment-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsCurrencyAssessmentDailyCounts/read | Läs data från MAWindowsCurrencyAssessmentDailyCounts-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsDeploymentStatus/read | Läs data från MAWindowsDeploymentStatus-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsSysReqInstanceReadiness/read | Läs data från MAWindowsSysReqInstanceReadiness-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/NetworkMonitoring/read | Läs data från NetworkMonitoring-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/OfficeActivity/read | Läs data från OfficeActivity-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/Operation/read | Läs data från Operation-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/OutboundConnection/read | Läs data från OutboundConnection-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/Perf/read | Läs data från Perf-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/ProtectionStatus/read | Läs data från ProtectionStatus-tabellen |
+> | Åtgärd | Microsoft.LogAnalytics/logs/read | Läser data från alla dina loggar |
+> | DataAction | Microsoft.LogAnalytics/logs/ReservedAzureCommonFields/read | Läs data från ReservedAzureCommonFields-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/ReservedCommonFields/read | Läs data från ReservedCommonFields-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/SCCMAssessmentRecommendation/read | Läs data från SCCMAssessmentRecommendation-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/SCOMAssessmentRecommendation/read | Läs data från SCOMAssessmentRecommendation-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/SecurityAlert/read | Läs data från SecurityAlert-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/SecurityBaseline/read | Läs data från SecurityBaseline-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/SecurityBaselineSummary/read | Läs data från SecurityBaselineSummary-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/SecurityDetection/read | Läs data från SecurityDetection-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/SecurityEvent/read | Läs data från SecurityEvent-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricOperationalEvent/read | Läs data från ServiceFabricOperationalEvent-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricReliableActorEvent/read | Läs data från ServiceFabricReliableActorEvent-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricReliableServiceEvent/read | Läs data från ServiceFabricReliableServiceEvent-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/SfBAssessmentRecommendation/read | Läs data från SfBAssessmentRecommendation-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/SfBOnlineAssessmentRecommendation/read | Läs data från SfBOnlineAssessmentRecommendation-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/SharePointOnlineAssessmentRecommendation/read | Läs data från SharePointOnlineAssessmentRecommendation-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/SPAssessmentRecommendation/read | Läs data från SPAssessmentRecommendation-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/SQLAssessmentRecommendation/read | Läs data från SQLAssessmentRecommendation-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/SQLQueryPerformance/read | Läs data från SQLQueryPerformance-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/Syslog/read | Läs data från Syslog-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/SysmonEvent/read | Läs data från SysmonEvent-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/UAApp/read | Läs data från UAApp-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/UAComputer/read | Läs data från UAComputer-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/UAComputerRank/read | Läs data från UAComputerRank-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/UADriver/read | Läs data från UADriver-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/UADriverProblemCodes/read | Läs data från UADriverProblemCodes-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/UAFeedback/read | Läs data från UAFeedback-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/UAHardwareSecurity/read | Läs data från UAHardwareSecurity-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/UAIESiteDiscovery/read | Läs data från UAIESiteDiscovery-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/UAOfficeAddIn/read | Läs data från UAOfficeAddIn-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/UAProposedActionPlan/read | Läs data från UAProposedActionPlan-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/UASysReqIssue/read | Läs data från UASysReqIssue-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/UAUpgradedComputer/read | Läs data från UAUpgradedComputer-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/Update/read | Läs data från Update-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/UpdateRunProgress/read | Läs data från UpdateRunProgress-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/UpdateSummary/read | Läs data från UpdateSummary-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/Usage/read | Läs data från Usage-tabellen |
 > | DataAction | Microsoft.LogAnalytics/logs/VMBoundPort/read | Läsa data från tabellen VMBoundPort |
 > | DataAction | Microsoft.LogAnalytics/logs/VMConnection/read | Läsa data från tabellen VMConnection |
-> | DataAction | Microsoft.LogAnalytics/logs/W3CIISLog/read | Läsa data från tabellen W3CIISLog |
-> | DataAction | Microsoft.LogAnalytics/logs/WaaSDeploymentStatus/read | Läsa data från tabellen WaaSDeploymentStatus |
-> | DataAction | Microsoft.LogAnalytics/logs/WaaSInsiderStatus/read | Läsa data från tabellen WaaSInsiderStatus |
-> | DataAction | Microsoft.LogAnalytics/logs/WaaSUpdateStatus/read | Läsa data från tabellen WaaSUpdateStatus |
-> | DataAction | Microsoft.LogAnalytics/logs/WDAVStatus/read | Läsa data från tabellen WDAVStatus |
-> | DataAction | Microsoft.LogAnalytics/logs/WDAVThreat/read | Läsa data från tabellen WDAVThreat |
-> | DataAction | Microsoft.LogAnalytics/logs/WindowsClientAssessmentRecommendation/read | Läsa data från tabellen WindowsClientAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/WindowsFirewall/read | Läsa data från tabellen WindowsFirewall |
-> | DataAction | Microsoft.LogAnalytics/logs/WindowsServerAssessmentRecommendation/read | Läsa data från tabellen WindowsServerAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/WireData/read | Läsa data från tabellen WireData |
-> | DataAction | Microsoft.LogAnalytics/logs/WUDOAggregatedStatus/read | Läsa data från tabellen WUDOAggregatedStatus |
-> | DataAction | Microsoft.LogAnalytics/logs/WUDOStatus/read | Läsa data från tabellen WUDOStatus |
+> | DataAction | Microsoft.LogAnalytics/logs/W3CIISLog/read | Läs data från W3CIISLog-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/WaaSDeploymentStatus/read | Läs data från WaaSDeploymentStatus-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/WaaSInsiderStatus/read | Läs data från WaaSInsiderStatus-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/WaaSUpdateStatus/read | Läs data från WaaSUpdateStatus-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/WDAVStatus/read | Läs data från WDAVStatus-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/WDAVThreat/read | Läs data från WDAVThreat-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/WindowsClientAssessmentRecommendation/read | Läs data från WindowsClientAssessmentRecommendation-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/WindowsFirewall/read | Läs data från WindowsFirewall-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/WindowsServerAssessmentRecommendation/read | Läs data från WindowsServerAssessmentRecommendation-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/WireData/read | Läs data från WireData-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/WorkloadMonitoringPerf/read | Läsa data från tabellen WorkloadMonitoringPerf |
+> | DataAction | Microsoft.LogAnalytics/logs/WUDOAggregatedStatus/read | Läs data från WUDOAggregatedStatus-tabellen |
+> | DataAction | Microsoft.LogAnalytics/logs/WUDOStatus/read | Läs data från WUDOStatus-tabellen |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
@@ -2715,6 +2753,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
+> | DataAction | Microsoft.Maps/accounts/data/read | Ger tillgång till data läsåtkomst till en maps-konto. |
 > | Åtgärd | Microsoft.Maps/accounts/delete | Ta bort en Maps-konto. |
 > | Åtgärd | Microsoft.Maps/accounts/listKeys/action | Lista över nycklar för Maps-konto |
 > | Åtgärd | Microsoft.Maps/accounts/providers/Microsoft.Insights/diagnosticSettings/read | Hämtar den diagnostiska inställningen för resursen |
@@ -3449,8 +3488,11 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | --- | --- | --- |
 > | Åtgärd | Microsoft.PolicyInsights/asyncOperationResults/read | Hämtar resultat för asynkron åtgärd. |
 > | Åtgärd | Microsoft.PolicyInsights/policyEvents/queryResults/action | Fråga efter information om principhändelser. |
+> | Åtgärd | Microsoft.PolicyInsights/policyEvents/queryResults/read | Fråga efter information om principhändelser. |
 > | Åtgärd | Microsoft.PolicyInsights/policyStates/queryResults/action | Fråga efter information om principtillstånd. |
+> | Åtgärd | Microsoft.PolicyInsights/policyStates/queryResults/read | Fråga efter information om principtillstånd. |
 > | Åtgärd | Microsoft.PolicyInsights/policyStates/summarize/action | Fråga efter sammanfattning av senaste principtillstånd. |
+> | Åtgärd | Microsoft.PolicyInsights/policyStates/summarize/read | Fråga efter sammanfattning av senaste principtillstånd. |
 > | Åtgärd | Microsoft.PolicyInsights/policyStates/triggerEvaluation/action | Aktiverar en kompatibilitetsutvärdering för det valda omfånget. |
 > | Åtgärd | Microsoft.PolicyInsights/register/action | Registrerar Policy Insights-resursprovidern och aktiverar åtgärder på den. |
 
@@ -4809,6 +4851,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Web/Sites/config/delete | Ta bort appar Webbkonfiguration. |
 > | Åtgärd | Microsoft.Web/sites/config/list/Action | Lista över Web App säkerhet känsliga inställningar, till exempel publicering av autentiseringsuppgifter, appinställningar och anslutningssträngar |
 > | Åtgärd | Microsoft.Web/sites/config/Read | Hämta inställningar för Web App |
+> | Åtgärd | Microsoft.Web/Sites/config/Snapshots/Read | Hämta ögonblicksbilder för Web Apps-konfiguration. |
 > | Åtgärd | Microsoft.Web/sites/config/Write | Uppdatera inställningar för Web App |
 > | Åtgärd | Microsoft.Web/Sites/containerlogs/Action | Hämta zippade Behållarloggarna för Webbapp. |
 > | Åtgärd | Microsoft.Web/Sites/continuouswebjobs/delete | Ta bort Webbjobb för Web Apps kontinuerlig. |
@@ -4857,6 +4900,8 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Web/Sites/hostnamebindings/delete | Ta bort Värdnamnsbindningar för Web Apps. |
 > | Åtgärd | Microsoft.Web/Sites/hostnamebindings/Read | Hämta Värdnamnsbindningar för Web Apps. |
 > | Åtgärd | Microsoft.Web/Sites/hostnamebindings/Write | Uppdatera Värdnamnsbindningar för Web Apps. |
+> | Åtgärd | Microsoft.Web/sites/hostruntime/host/_master/read | Hämta Funktionsappens huvudnyckeln för administratörsåtgärder |
+> | Åtgärd | Microsoft.Web/sites/hostruntime/host/action | Utföra Funktionsapp runtime åtgärd som synkronisera utlösare, Lägg till funktioner, anropa funktioner, ta bort funktioner osv. |
 > | Åtgärd | Microsoft.Web/Sites/hybridconnection/delete | Ta bort Hybridanslutningen för Web Apps. |
 > | Åtgärd | Microsoft.Web/Sites/hybridconnection/Read | Hämta Hybridanslutning för Web Apps. |
 > | Åtgärd | Microsoft.Web/Sites/hybridconnection/Write | Uppdatera Hybridanslutning för Web Apps. |
@@ -4871,6 +4916,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Web/Sites/instances/Extensions/Read | Hämta tillägg för Web Apps instanser. |
 > | Åtgärd | Microsoft.Web/Sites/instances/processes/delete | Ta bort Web Apps instanser processer. |
 > | Åtgärd | Microsoft.Web/Sites/instances/processes/Read | Hämta Web Apps instanser processer. |
+> | Åtgärd | Microsoft.Web/Sites/instances/processes/threads/Read | Hämta Web Apps instanser processer trådar. |
 > | Åtgärd | Microsoft.Web/Sites/instances/Read | Hämta instanser för Web Apps. |
 > | Åtgärd | Microsoft.Web/Sites/listsyncfunctiontriggerstatus/Action | Lista synkronisering funktionen utlösaren Status Web Apps. |
 > | Åtgärd | Microsoft.Web/Sites/metricdefinitions/Read | Hämta Måttdefinitioner för Web Apps. |
@@ -4886,6 +4932,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Web/Sites/premieraddons/delete | Ta bort Premier-tillägg för Web Apps. |
 > | Åtgärd | Microsoft.Web/Sites/premieraddons/Read | Hämta Web Apps Premier-tillägg. |
 > | Åtgärd | Microsoft.Web/Sites/premieraddons/Write | Uppdatera webb Apps Premier-tillägg. |
+> | Åtgärd | Microsoft.Web/Sites/privateaccess/Read | Hämta data om privat plats åtkomst aktivering och auktoriserade virtuella nätverk som har åtkomst till webbplatsen. |
 > | Åtgärd | Microsoft.Web/Sites/processes/Read | Hämta processer för Web Apps. |
 > | Åtgärd | microsoft.web/sites/providers/Microsoft.Insights/diagnosticSettings/read | Hämtar den diagnostiska inställningen för resursen |
 > | Åtgärd | microsoft.web/sites/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar den diagnostiska inställningen för resursen |
@@ -4907,6 +4954,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Web/sites/restart/Action | Starta om en Webbapp |
 > | Åtgärd | Microsoft.Web/Sites/Restore/Read | Hämta Web Apps återställning. |
 > | Åtgärd | Microsoft.Web/Sites/Restore/Write | Återställa Web Apps. |
+> | Åtgärd | Microsoft.Web/Sites/restorefrombackupblob/Action | Återställa Webbapp från säkerhetskopia av Blob. |
 > | Åtgärd | Microsoft.Web/Sites/restorefromdeletedwebapp/Action | Återställa Webbappar från borttagna App. |
 > | Åtgärd | Microsoft.Web/Sites/restoresnapshot/Action | Återställa Web Apps ögonblicksbilder. |
 > | Åtgärd | Microsoft.Web/Sites/siteextensions/delete | Ta bort Webbplatstillägg för Web Apps. |
@@ -4917,6 +4965,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Web/sites/slots/backup/Action | Skapa ny Web App Slot säkerhetskopia. |
 > | Åtgärd | Microsoft.Web/Sites/slots/Backup/Read | Hämta säkerhetskopiering av Webbappar platser. |
 > | Åtgärd | Microsoft.Web/Sites/slots/Backup/Write | Uppdatera platser säkerhetskopiering av Webbappar. |
+> | Åtgärd | Microsoft.Web/Sites/slots/Backups/Action | Upptäck fack säkerhetskopierade Webbappar. |
 > | Åtgärd | Microsoft.Web/Sites/slots/Backups/delete | Ta bort säkerhetskopierade Webbappar platser. |
 > | Åtgärd | Microsoft.Web/Sites/slots/Backups/List/Action | Lista över platser säkerhetskopierade Webbappar. |
 > | Åtgärd | Microsoft.Web/sites/slots/backups/Read | Hämta egenskaperna för en webbappsplatser-säkerhetskopiering |
@@ -4925,6 +4974,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Web/sites/slots/config/list/Action | Lista över Web App Slot security känsliga inställningar, till exempel publicering av autentiseringsuppgifter, appinställningar och anslutningssträngar |
 > | Åtgärd | Microsoft.Web/sites/slots/config/Read | Hämta inställningar för Web App Slot |
 > | Åtgärd | Microsoft.Web/sites/slots/config/Write | Uppdatera inställningar för Web App Slot |
+> | Åtgärd | Microsoft.Web/Sites/slots/containerlogs/Action | Hämta zippade Behållarloggarna för Web App facket. |
 > | Åtgärd | Microsoft.Web/Sites/slots/continuouswebjobs/delete | Ta bort kontinuerlig Webbjobb för Web Apps-platser. |
 > | Åtgärd | Microsoft.Web/Sites/slots/continuouswebjobs/Read | Få kontinuerlig Webbjobb för Web Apps-platser. |
 > | Åtgärd | Microsoft.Web/Sites/slots/continuouswebjobs/Start/Action | Starta kontinuerlig Webbjobb för Web Apps-platser. |
@@ -4934,6 +4984,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Web/Sites/slots/Deployments/log/Read | Hämta Web Apps fack distributioner Log. |
 > | Åtgärd | Microsoft.Web/Sites/slots/Deployments/Read | Hämta Web Apps fack distributioner. |
 > | Åtgärd | Microsoft.Web/Sites/slots/Deployments/Write | Web Apps fack distributioner av uppdatering. |
+> | Åtgärd | Microsoft.Web/Sites/slots/detectors/Read | Hämta Web Apps fack detektorerna. |
 > | Åtgärd | microsoft.web/sites/slots/diagnostics/analyses/execute/Action | Kör Web Apps fack diagnostik analys. |
 > | Åtgärd | Microsoft.Web/Sites/slots/Diagnostics/analyses/Read | Hämta Web Apps fack diagnostik analys. |
 > | Åtgärd | Microsoft.Web/Sites/slots/Diagnostics/aspnetcore/Read | Hämta Web Apps fack diagnostik för ASP.NET Core-app. |
@@ -4958,6 +5009,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Web/Sites/slots/Diagnostics/workeravailability/Read | Hämta Web Apps fack diagnostik Workeravailability. |
 > | Åtgärd | Microsoft.Web/Sites/slots/Diagnostics/workerprocessrecycle/Read | Hämta omarbetning av Web Apps fack diagnostik Worker processen. |
 > | Åtgärd | Microsoft.Web/Sites/slots/domainownershipidentifiers/Read | Hämta Web Apps fack domän ägarskap identifierare. |
+> | Åtgärd | Microsoft.Web/Sites/slots/Functions/Read | Hämta Web Apps fack funktioner. |
 > | Åtgärd | Microsoft.Web/Sites/slots/hostnamebindings/delete | Ta bort Web Apps fack Hostname-bindningar. |
 > | Åtgärd | Microsoft.Web/Sites/slots/hostnamebindings/Read | Hämta Web Apps fack Hostname-bindningar. |
 > | Åtgärd | Microsoft.Web/Sites/slots/hostnamebindings/Write | Uppdatera webb Apps fack Hostname-bindningar. |
@@ -4999,6 +5051,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Web/sites/slots/restart/Action | Starta om ett fack för Web App |
 > | Åtgärd | Microsoft.Web/Sites/slots/Restore/Read | Hämta Web Apps fack återställning. |
 > | Åtgärd | Microsoft.Web/Sites/slots/Restore/Write | Återställa Web Apps-platser. |
+> | Åtgärd | Microsoft.Web/Sites/slots/restorefrombackupblob/Action | Återställa Web Apps plats från säkerhetskopia av Blob. |
 > | Åtgärd | Microsoft.Web/Sites/slots/restorefromdeletedwebapp/Action | Återställa Webbappsplatser från borttagna App. |
 > | Åtgärd | Microsoft.Web/Sites/slots/restoresnapshot/Action | Återställa Web Apps fack ögonblicksbilder. |
 > | Åtgärd | Microsoft.Web/Sites/slots/siteextensions/delete | Ta bort Webbplatstillägg för Web Apps platser. |
@@ -5057,21 +5110,15 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
-> | Åtgärd | Microsoft.WorkloadMonitor/components/read | Läs åtgärder resurser |
-> | Åtgärd | Microsoft.WorkloadMonitor/healthInstances/read | Läs åtgärder resurser |
-> | Åtgärd | Microsoft.WorkloadMonitor/Operations/read | Läs åtgärder resurser |
-> | Åtgärd | Microsoft.WorkloadMonitor/workloadInsights/delete | Tar bort en workloadInsights-resurs |
-> | Åtgärd | Microsoft.WorkloadMonitor/workloadInsights/delete | Tar bort en workloadInsights-resurs |
-> | Åtgärd | Microsoft.WorkloadMonitor/workloadInsights/read | Läser en workloadInsights-resurs |
-> | Åtgärd | Microsoft.WorkloadMonitor/workloadInsights/read | Läser en workloadInsights-resurs |
-> | Åtgärd | Microsoft.WorkloadMonitor/workloadInsights/write | Skriver en workloadInsights-resurs |
-> | Åtgärd | Microsoft.WorkloadMonitor/workloadInsights/write | Skriver en workloadInsights-resurs |
-> | Åtgärd | Microsoft.WorkloadMonitor/workloads/delete |  |
-> | Åtgärd | Microsoft.WorkloadMonitor/workloads/delete |  |
-> | Åtgärd | Microsoft.WorkloadMonitor/workloads/read | Läser en arbetsbelastning-resurs |
-> | Åtgärd | Microsoft.WorkloadMonitor/workloads/read | Läser en arbetsbelastning-resurs |
-> | Åtgärd | Microsoft.WorkloadMonitor/workloads/write | Skriver en arbetsbelastning-resurs |
-> | Åtgärd | Microsoft.WorkloadMonitor/workloads/write | Skriver en arbetsbelastning-resurs |
+> | Åtgärd | Microsoft.WorkloadMonitor/components/read | Hämtar komponenter för resursen |
+> | Åtgärd | Microsoft.WorkloadMonitor/componentsSummary/read | Hämtar sammanfattning av komponenter |
+> | Åtgärd | Microsoft.WorkloadMonitor/monitorInstances/read | Hämtar instanser av Övervakare för resursen |
+> | Åtgärd | Microsoft.WorkloadMonitor/monitorInstancesSummary/read | Hämtar sammanfattning av övervakaren instanser |
+> | Åtgärd | Microsoft.WorkloadMonitor/monitors/read | Hämtar Övervakare för resursen |
+> | Åtgärd | Microsoft.WorkloadMonitor/monitors/write | Konfigurera Övervakare för resursen |
+> | Åtgärd | Microsoft.WorkloadMonitor/notificationSettings/read | Hämtar meddelandeinställningar för resursen |
+> | Åtgärd | Microsoft.WorkloadMonitor/notificationSettings/write | Konfigurera inställningar för meddelanden för resursen |
+> | Åtgärd | Microsoft.WorkloadMonitor/operations/read | Hämtar åtgärderna som stöds |
 
 ## <a name="next-steps"></a>Nästa steg
 

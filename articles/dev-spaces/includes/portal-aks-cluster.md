@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 0f64bcecadf5979e9983028354c41457771020bd
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: aeb4ff26b05a5542fd77ac32589c8f8efb622798
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40129351"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40166488"
 ---
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Skapa ett Kubernetes-kluster som är aktiverat för Azure Dev Spaces
 
@@ -28,7 +28,7 @@ ms.locfileid: "40129351"
     - **KLUSTERINFORMATION**: ange namn, region (för närvarande måste du välja USA, östra, Europa, västra, USA, västra 2, Kanada, centrala eller Kanada, östra), version och DNS-prefix för AKS-klustret.
     - **SKALNING**: välj en VM-storlek för AKS-agentnoderna och sedan antalet noder. Om du håller på att komma igång med Azure Dev Spaces är en nod tillräckligt för att utforska alla funktioner. Antalet noder kan enkelt justeras när som helst efter att klustret har distribuerats. Observera att VM-storleken inte kan ändras efter att ett AKS-kluster har skapats. Men när ett AKS-kluster har distribuerats kan du enkelt skapa ett nytt AKS-kluster med större virtuella datorer och använda Dev Spaces för att distribuera till större kluster igen om du behöver skala upp.
 
-   Se till att välja Kubernetes version 1.10.3 eller senare.
+   Se till att välja Kubernetes version 1.9.6 eller senare.
 
    ![Konfigurationsinställningar för Kubernetes](../media/common/Kubernetes-Create-Cluster-2.PNG)
 

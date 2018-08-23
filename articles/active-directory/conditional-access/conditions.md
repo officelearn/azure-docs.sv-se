@@ -2,7 +2,7 @@
 title: Vad är villkor i Azure Active Directory villkorlig åtkomst? | Microsoft Docs
 description: Lär dig hur villkor används i Azure Active Directory villkorlig åtkomst för att utlösa en princip.
 services: active-directory
-keywords: villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
+keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -17,16 +17,16 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 5f5e2051f9c67fa4e37ce0e1213e14e197222f05
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 9feb6ef5b708813c2f73a70a930cabfd69dff114
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627550"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056461"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Vad är villkor i Azure Active Directory villkorlig åtkomst? 
 
-Du kan styra hur behöriga användare åtkomst till dina appar i molnet med hjälp av [villkorlig åtkomst i Azure Active Directory (Azure AD)](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal). I en princip för villkorlig åtkomst definierar du svaret till orsaken för att utlösa din princip. Ett exempel på ett svar är **gör detta**. Ett exempel beror **om det här händer**.
+Du kan styra hur behöriga användare åtkomst till dina appar i molnet med hjälp av [villkorlig åtkomst i Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). I en princip för villkorlig åtkomst definierar du svaret (”sedan gör du”) att orsaken för att utlösa principen (”när detta sker”). 
 
 ![Orsak och svar](./media/conditions/10.png)
 
@@ -64,15 +64,17 @@ Det är användbart för distributionen av en ny princip riktar in sig på speci
 
 ## <a name="cloud-apps"></a>Molnappar 
 
-En molnapp är en webbplats eller tjänst. Webbplatser som skyddas av Azure AD Application Proxy är också molnappar. En detaljerad beskrivning av stöds molnappar finns i [molnbaserade appar tilldelningar](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments). 
+En molnapp är en webbplats eller tjänst. Webbplatser som skyddas av Azure AD Application Proxy är också molnappar. En detaljerad beskrivning av stöds molnappar finns i [molnbaserade appar tilldelningar](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments). 
 
 Den **molnappar** villkor är obligatoriskt i en princip för villkorlig åtkomst. I din princip kan du antingen välja **alla molnappar** eller Välj specifika appar.
 
 ![Inkludera molnappar](./media/conditions/03.png)
 
-- Välj **alla molnappar** till baslinje-principerna ska gälla för hela organisationen. Använd detta alternativ för principer som kräver multifaktorautentisering när inloggningsrisk har identifierats för alla appar i molnet. En princip som tillämpas på **alla molnappar** gäller för åtkomst till alla webbplatser och tjänster. Den här inställningen är inte begränsat till de molnappar som visas på den **Välj appar** lista. 
+Välj:
 
-- Välj enskilda molnappar till målet specifika tjänster av en princip. Du kan till exempel kräva att användarna ha en [kompatibel enhet](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) åtkomst till SharePoint Online. Den här principen tillämpas också till andra tjänster när de ansluter till SharePoint-innehåll. Ett exempel är Microsoft Teams. 
+- **Alla molnappar** till baslinje-principerna ska gälla för hela organisationen. Använd detta alternativ för principer som kräver multifaktorautentisering när inloggningsrisk har identifierats för alla appar i molnet. En princip som tillämpas på **alla molnappar** gäller för åtkomst till alla webbplatser och tjänster. Den här inställningen är inte begränsat till de molnappar som visas på den **Välj appar** lista. 
+
+- Enskilda molnappar till målet specifika tjänster av en princip. Du kan till exempel kräva att användarna ha en [kompatibel enhet](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) åtkomst till SharePoint Online. Den här principen tillämpas också till andra tjänster när de ansluter till SharePoint-innehåll. Ett exempel är Microsoft Teams. 
 
 Du kan utesluta specifika appar från en princip. De här apparna är dock fortfarande omfattas av principer som tillämpas på de tjänster som de har åtkomst till. 
 
@@ -80,18 +82,18 @@ Du kan utesluta specifika appar från en princip. De här apparna är dock fortf
 
 ## <a name="sign-in-risk"></a>Inloggningsrisk
 
-En inloggningsrisk är en indikator för hög, medel eller låg sannolikheten att en inloggningsförsök inte har gjorts av är tillförlitligt ägare för ett användarkonto. Azure AD beräknar inloggningsrisk nivå under en användare användarens inloggning. Den beräknade inloggning risknivån kan vara ett villkor i en princip för villkorlig åtkomst. 
+En inloggningsrisk är en indikator för sannolikheten (hög, medel eller låg) som en inloggningsförsök inte har gjorts av är tillförlitligt ägare för ett användarkonto. Azure AD beräknar inloggningsrisk nivå under en användare användarens inloggning. Du kan använda den beräknade inloggning risknivån som villkor i en princip för villkorlig åtkomst.
 
 ![Risknivåer för inloggning](./media/conditions/22.png)
 
-Om du vill använda det här villkoret måste du ha [Azure Active Directory Identity Protection](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection-enable) aktiverat.
+Om du vill använda det här villkoret måste du ha [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-enable) aktiverat.
  
 Vanliga användningsområden för det här villkoret är principer som har följande skydd: 
 
 - Blockera användare med hög risk. Det här skyddet förhindrar potentiellt icke oskadliga användare från att komma åt dina appar i molnet. 
 - Kräv multifaktorautentisering för användare med en medelstor inloggningsrisk. Du kan ange ytterligare säker på att inloggningen är klar med är tillförlitligt ägare för ett konto genom att framtvinga multifaktorautentisering.
 
-Mer information finns i avsnittet om [riskfyllda inloggningar](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-security-risky-sign-ins).  
+Mer information finns i avsnittet om [riskfyllda inloggningar](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-security-risky-sign-ins).  
 
 ## <a name="device-platforms"></a>Enhetsplattformar
 
@@ -114,7 +116,7 @@ Enhetstillståndsvillkor utesluter hybrid Azure AD-anslutna enheter och enheter 
 
 ![Konfigurera enhetens tillstånd](./media/conditions/112.png)
 
-Om du vill blockera åtkomst för ohanterade enheter kan implementera [enhetsbaserad villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
+Om du vill blockera åtkomst för ohanterade enheter kan implementera [enhetsbaserad villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
 
 
 ## <a name="locations"></a>Platser
@@ -148,7 +150,7 @@ En lista över klientappar som du kan använda i din princip för villkorlig åt
 
 Vanliga användningsområden för det här villkoret är principer med de följande skydd: 
 
-- Kräver en [kompatibel enhet](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) för mobila och skrivbordsprogram som laddar ned stora mängder data till enheten. Tillåt webbläsaråtkomst från alla enheter på samma gång.
+- Kräver en [kompatibel enhet](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) för mobila och skrivbordsprogram som laddar ned stora mängder data till enheten. Tillåt webbläsaråtkomst från alla enheter på samma gång.
 
 - Blockera åtkomst från webbprogram men tillåta åtkomst från mobila och skrivbordsprogram.
 
@@ -163,7 +165,7 @@ Att välja **Exchange ActiveSync** som en klient apps villkor stöds endast om d
  
 ![Tillämpa bara principen på plattformar som stöds](./media/conditions/33.png)
 
-Problemet endast gäller för plattformar som stöds är lika med alla enhetsplattformar i en [enheten plattform villkor](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
+Problemet endast gäller för plattformar som stöds är lika med alla enhetsplattformar i en [enheten plattform villkor](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
 
 ![Konfigurera enhetsplattformar](./media/conditions/34.png)
 
@@ -172,7 +174,7 @@ Problemet endast gäller för plattformar som stöds är lika med alla enhetspla
 
 - [Konfigurera SharePoint Online och Exchange Online för villkorlig åtkomst i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
  
-- [Azure Active Directory appbaserad villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam). 
+- [Azure Active Directory appbaserad villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). 
 
 
 ### <a name="legacy-authentication"></a>Äldre autentisering  
@@ -190,7 +192,7 @@ Villkorlig åtkomst används nu för äldre Microsoft Office-klienter som inte s
 - Det kan ta upp till 24 timmar innan principen ska träda i kraft. 
 
 
-#### <a name="frequently-asked-questions"></a>Vanliga frågor
+#### <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 **F:** blockerar den här autentiseringen Microsoft Exchange Web Services?
 

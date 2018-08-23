@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 08/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 69e3e308fb5af98dd5763c56503cc28bd4ecfa9e
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 19ba4a97b93c01a049f921904d0f5aba4b8c0617
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125256"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442062"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Kopiera data från och till Salesforce med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -184,7 +184,7 @@ För att kopiera data från Salesforce, ange typ av datakälla i kopieringsaktiv
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till **SalesforceSource**. | Ja |
-| DocumentDB |Använd anpassad fråga för att läsa data. Du kan använda en SQL-92-fråga eller [Salesforce objektet Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) fråga. Ett exempel är `select * from MyTable__c`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| DocumentDB |Använd anpassad fråga för att läsa data. Du kan använda [Salesforce objektet Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) fråge- eller SQL-92 fråga. Se fler tips i [fråga tips](#query-tips) avsnittet. | Nej (om ”tableName” i datauppsättningen har angetts) |
 | readBehavior | Anger om du vill fråga efter befintliga poster eller fråga efter alla poster, inklusive de har tagits bort. Om inte anges är standardbeteendet för den tidigare versionen. <br>Tillåtna värden: **fråga** (standard), **queryAll**.  | Nej |
 
 > [!IMPORTANT]
@@ -282,10 +282,20 @@ Du kan hämta data från Salesforce-rapporter genom att ange en fråga som `{cal
 
 ### <a name="retrieve-deleted-records-from-the-salesforce-recycle-bin"></a>Hämta borttagna poster från Salesforce-Papperskorgen
 
-Om du vill fråga de ej permanent borttagna posterna från Salesforce-Papperskorgen, kan du ange **”IsDeleted = 1”** i frågan. Exempel:
+Om du vill fråga de ej permanent borttagna posterna från Salesforce-Papperskorgen, kan du ange `readBehavior` som `queryAll`. 
 
-* Om du vill fråga bara de borttagna posterna, ange ”Välj * från MyTable__c **där IsDeleted = 1**”.
-* Om du vill fråga efter alla poster, inklusive den befintliga och den har tagits bort, ange ”Välj * från MyTable__c **där IsDeleted = 0 eller IsDeleted = 1**”.
+### <a name="difference-between-soql-and-sql-query-syntax"></a>Skillnaden mellan SOQL och SQL-frågesyntaxen
+
+När du kopierar data från Salesforce, kan du använda antingen SOQL frågan eller SQL-fråga. Observera att dessa två har olika syntax och stöd för funktioner, inte blanda. Du rekommenderas för att använda SOQL frågan som stöds internt av Salesforce. I följande tabell visas de viktigaste skillnaderna:
+
+| Syntax | SOQL läge | SQL-läge |
+|:--- |:--- |:--- |
+| Kolumnurval | Måste du ange de fält som ska kopieras i frågan, t.ex. `SELECT field1, filed2 FROM objectname` | `SELECT *` stöds både kolumnen. |
+| Citattecken | Arkiverat/objektnamn kan inte innehålla citattecken. | Fältet/objektnamn kan innehålla citattecken, t.ex. `SELECT "id" FROM "Account"` |
+| DateTime-format |  Finns [här](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) och exempel i nästa avsnitt. | Finns [här](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) och exempel i nästa avsnitt. |
+| Booleska värden | Visas som `False` och `Ture`, t.ex. `SELECT … WHERE IsDeleted=True`. | Visas som 0 eller 1, t.ex. `SELECT … WHERE IsDeleted=1`. |
+| Byta namn på kolumn | Stöds ej. | Stöds, t.ex.: `SELECT a AS b FROM …`. |
+| Relation | Stöds, t.ex. `Account_vod__r.nvs_Country__c`. | Stöds ej. |
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Hämta data med hjälp av en where-sats i DateTime-kolumn
 

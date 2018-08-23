@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 85d0c91a0b1cdf5703b394d6d232ab9cee72ee0c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 21dde5b0199345e9e8faffc6feac4854a3aa7350
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627152"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42057357"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Köp och konfigurera ett SSL-certifikat för din Azure Apptjänst
 
@@ -131,7 +131,7 @@ Du ska nu kunna gå till din app med `HTTPS://` i stället för `HTTP://` att ve
 
 [!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
 
-## <a name="advanced"></a>Avancerat
+## <a name="advanced"></a>Advanced
 
 ### <a name="verifying-domain-ownership"></a>Verifiera Domänägarskap
 
@@ -205,9 +205,9 @@ Om du vill manuellt förnya certifikatet i stället, klickar du på **förnya ma
 Om SSL-certifikatet har konfigurerats för automatisk förnyelse, men den inte förnyas automatiskt, kan du ha en väntar på verifiering. Tänk på följande: 
 
 - GoDaddy, vilket genererar App Service-certifikat, kräver domänkontroll vartannat år. Domänadministratören får ett e-postmeddelande när alla tre år för att verifiera domänen. Det gick inte att kontrollera e-postmeddelandet eller verifiera din domän förhindrar att App Service-certifikat förnyas automatiskt. 
-- På grund av en ändring i principen för GoDaddy måste alla App Service-certifikat som utfärdats före den 1 mars 2018 Omverifiering av domän vid tidpunkten för nästa förnyelse (även om den automatiska förnyelsen är aktiverat för certifikatet). Kontrollera din e-post och slutföra den här enstaka domänverifiering om du vill fortsätta den automatiska förnyelsen App Service certificate. 
+- På grund av en ändring i principen för GoDaddy måste alla App Service-certifikat som utfärdats före den 1 mars 2017 Omverifiering av domän vid tidpunkten för nästa förnyelse (även om den automatiska förnyelsen är aktiverat för certifikatet). Kontrollera din e-post och slutföra den här enstaka domänverifiering om du vill fortsätta den automatiska förnyelsen App Service certificate. 
 
-## <a name="more-resources"></a>Flera resurser
+## <a name="more-resources"></a>Fler resurser
 
 * [Använda HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
 * [Kräv TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-1112)

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: a2aab89bcd550cc2b1dcc4f980f09b5c1e0e9464
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 3c4c2d8f49fbddc4875d7a4abf5d7629bc8f942e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436387"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42058817"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Skicka data till Log Analytics med HTTP Data Collector API (förhandsversion)
 Den här artikeln visar hur du använder HTTP Data Collector API för att skicka data till Log Analytics från en REST API-klient.  Den beskriver hur du formatera data som samlas in från dina skript eller ett program, inkludera den i en begäran och få den begäran som auktoriserats av Log Analytics.  Exempel tillhandahålls för PowerShell, C# och Python.
@@ -38,7 +38,7 @@ Alla data i Log Analytics-databasen lagras som en post med en viss posttyp.  Du 
 
 
 
-## <a name="create-a-request"></a>Skapa en begäran
+## <a name="create-a-request"></a>Skapa en förfrågan
 Om du vill använda HTTP Data Collector API måste skapa du en POST-begäran som innehåller data som skickas i JavaScript Object Notation (JSON).  I följande tre tabeller anges de attribut som krävs för varje begäran. Vi beskriver varje attribut i detalj senare i artikeln.
 
 ### <a name="request-uri"></a>Förfrågans URI
@@ -471,3 +471,5 @@ post_data(customer_id, shared_key, body, log_type)
 
 ## <a name="next-steps"></a>Nästa steg
 - Använd den [Loggsöknings-API](log-analytics-log-search-api.md) att hämta data från Log Analytics-databasen.
+
+- Läs mer om hur [skapa en datapipeline med Data Collector API](log-analytics-create-pipeline-datacollector-api.md) med Logic Apps-arbetsflöde till Log Analytics.

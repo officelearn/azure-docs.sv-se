@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 79585195cf95e2074a1c455c82faa500af20218a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d7cbeebff42bddd93cac35a0205d031a90bb4715
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618775"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056210"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Hur fungerar dataindexeringen i Azure Cosmos DB?
 
@@ -36,6 +36,22 @@ När du har läst den här artikeln kommer du att kunna besvara följande frågo
 * Hur kan jag konfigurera indexering för att utföra ORDER BY- eller intervall frågor?
 * Hur jag för att göra ändringar i en samling indexeringsprincip?
 * Hur jag jämfört med lagring och prestanda för olika indexering principer?
+
+## <a id="Indexing"></a> Cosmos DB-indexering
+
+Syftet med databasindex är att leverera frågor i olika former och former med minsta resursförbrukning (t.ex. processor och indata/utdata) samtidigt som det ger bra dataflöde och låg fördröjning. Valet av rätt index för att fråga en databas kräver ofta mycket planerings- och experimentering. Den här metoden innebär en utmaning för schemalösa databaser där data stämmer inte överens med en strikt schema och utvecklas snabbt. 
+
+När vi utformade undersystemet Cosmos DB för indexering, ange vi därför följande mål:
+
+* Indexera dokument utan schema: undersystemet indexering inte kräver någon schemainformation eller göra några antaganden om schemat dokument.  
+
+* Stöd för effektiv och omfattande hierarki- och relationella frågor: indexet har stöd för Cosmos DB-frågespråket effektivt, inklusive stöd för hierarkisk och relationsdata projektioner.  
+
+* Stöd för konsekventa frågor in face of en fast mängd skrivningar: för hög skrivning dataflöde arbetsbelastningar med konsekventa frågor, indexet uppdateras stegvis, effektivt och online om en fast mängd skrivningar. Konsekvent indexuppdatering är avgörande för att leverera frågor på konsekvensnivå som du konfigurerade dokumenttjänsten.  
+
+* Stöd för flera innehavare: den reserverade-baserade modellen för resursstyrning angivna över klienter, indexet uppdateringarna utförs inom budget systemresurser (processor, minne och indata/utdataåtgärder per sekund) allokera per replik.  
+
+* Lagringseffektivitet: för kostnadseffektivitet, på disklagring arbetet med att indexet är begränsad och förutsägbara. Detta är viktigt eftersom Cosmos DB kan utvecklare göra kostnadsbaserad kompromisser mellan index arbetet i förhållande till frågeprestandan.  
 
 ## Anpassa indexeringsprincip i en samling <a id="CustomizingIndexingPolicy"></a>  
 Du kan anpassa avvägningarna mellan lagring, skriva och frågeprestanda och frågekonsekvens genom att åsidosätta standardinställningen indexeringspolicy på en Azure Cosmos DB-samling. Du kan konfigurera följande aspekter:

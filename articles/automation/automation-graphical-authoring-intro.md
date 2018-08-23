@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b0517af9f8066d2d5849b0ffe3d4a0d00afdad44
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: afc1ec8e171bc602f2698b4a36f249bc454cbed9
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437883"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42057337"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafisk redigering i Azure Automation
 
@@ -332,7 +332,7 @@ Varje indataparameter definieras av egenskaperna i följande tabell:
 
 ### <a name="runbook-output"></a>Utdata från Runbooks
 
-Data som skapats av alla aktiviteter som inte har en utgående anslutning har sparats till den [utdata från runbooken](http://msdn.microsoft.com/library/azure/dn879148.aspx). Utdata sparas med runbook-jobbet och är tillgänglig för en överordnad runbook när runbook används som en underordnad.
+Data som skapats av alla aktiviteter som inte har en utgående anslutning har sparats till den [utdata från runbooken](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages). Utdata sparas med runbook-jobbet och är tillgänglig för en överordnad runbook när runbook används som en underordnad.
 
 ## <a name="powershell-expressions"></a>PowerShell-uttryck
 

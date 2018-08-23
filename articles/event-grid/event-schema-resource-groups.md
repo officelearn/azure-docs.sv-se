@@ -3,17 +3,16 @@ title: Azure Event Grid resource group Händelseschema
 description: Beskriver de egenskaper som har angetts för resursen gruppera händelser med Azure Event Grid
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/02/2018
+ms.date: 08/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 407d9fd5b6f4d554af37b60edf12422f8816ac00
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 22629ba553cc58435f99ed0fed97be252b24b409
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495330"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42055211"
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Azure Event Grid-Händelseschema för resursgrupper
 
@@ -27,7 +26,9 @@ När du prenumererar på händelser för en resursgrupp får din slutpunkt alla 
 
 För att programmässigt hantera händelser, kan du sortera händelser genom att titta på den `operationName` värde. Till exempel händelse slutpunkten endast bearbeta händelser för åtgärder som är lika med `Microsoft.Compute/virtualMachines/write` eller `Microsoft.Storage/storageAccounts/write`.
 
-Ämne för händelsen är resurs-ID för den resurs som är mål för åtgärden. Om du vill filtrera händelser för en resurs, anger du den resursen-ID: T när du skapar händelseprenumerationen. Exempel på skript, se [prenumerera och filter för resursgrupp – PowerShell](scripts/event-grid-powershell-resource-group-filter.md) eller [prenumerera och filter för resursgrupp – Azure CLI](scripts/event-grid-cli-resource-group-filter.md). Om du vill filtrera efter en resurstyp, använder du ett värde i följande format: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+Ämne för händelsen är resurs-ID för den resurs som är mål för åtgärden. Om du vill filtrera händelser för en resurs, anger du den resursen-ID: T när du skapar händelseprenumerationen.  Om du vill filtrera efter en resurstyp, använder du ett värde i följande format: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+
+En lista över exempel på skript och självstudier finns i [Resource group händelsekälla](event-sources.md#resource-groups).
 
 ## <a name="available-event-types"></a>Tillgängliga händelsetyper
 

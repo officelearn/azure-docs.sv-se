@@ -1,6 +1,6 @@
 ---
 title: Hur du ska distribuera X.509-certifikat i Azure IoT Hub Device Provisioning-tjänsten | Microsoft Docs
-description: Hur du ska distribuera X.509-certifikat med din device provisioning-tjänstinstans
+description: Hur du ska distribuera X.509-certifikat med Device Provisioning-tjänstinstans
 author: wesmc7777
 ms.author: wesmc
 ms.date: 08/06/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9c73ce159ae7cf5778210e0fb587135f37c73f57
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: a8ba667e6af316620d7a8530f29a6640edada13d
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40025158"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42056763"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Hur du ska distribuera X.509-enhetscertifikat
 
@@ -46,7 +46,7 @@ Om du hanterar din egen enhetscertifikat, måste du skapa din egen pipeline för
 
 ## <a name="roll-the-certificate-in-the-iot-hub"></a>Distribuera certifikatet i IoT hub
 
-Enhetens certifikat kan läggas till manuellt till en IoT hub. Certifikatet kan också automatiseras med hjälp av en instans av Device Provisioning-tjänsten. I den här artikeln förutsätter vi får en provisioning service-instans som används för automatisk etablering.
+Enhetens certifikat kan läggas till manuellt till en IoT hub. Certifikatet kan också automatiseras med hjälp av en Device Provisioning-tjänstinstans. I den här artikeln förutsätter vi att en Device Provisioning-tjänstinstans som används för automatisk etablering.
 
 När en enhet har etablerats via automatisk etablering, den startas upp och kontaktar etableringstjänsten. Etableringstjänsten svarar genom att utföra identitetskontroll innan du skapar en enhetsidentitet i en IoT hub med enhetens lövcertifikatet som autentiseringsuppgifter. Etableringstjänsten meddelar sedan enheten vilken IoT-hubb tilldelas och enheten sedan dess lövcertifikatet använder för att autentisera och ansluta till IoT hub. 
 
@@ -104,7 +104,7 @@ Om du vill uppdatera en gruppregistrering som svar på en säkerhetsöverträdel
 
 #### <a name="update-compromised-root-ca-certificates"></a>Uppdatera komprometterade rot-CA-certifikat
 
-1. Klicka på den **certifikat** fliken för din etablering tjänstinstans.
+1. Klicka på den **certifikat** fliken för Device Provisioning-tjänstinstans.
 
 2. Klicka på det komprometterade certifikatet i listan och klicka sedan på den **ta bort** knappen. Bekräfta borttagningen genom att ange certifikatets namn och klicka på **OK**. Upprepa proceduren för alla komprometterade certifikat.
 
@@ -112,7 +112,7 @@ Om du vill uppdatera en gruppregistrering som svar på en säkerhetsöverträdel
 
 3. Följ stegen som beskrivs i [konfigurera verifierat certifikat](how-to-verify-certificates.md) att lägga till och verifiera nya rot-CA-certifikat.
 
-4. Klicka på den **hantera registreringar** för din etablering tjänstinstans och på den **Registreringsgrupper** lista. Klicka på registrering namn i listan.
+4. Klicka på den **hantera registreringar** för Device Provisioning-tjänstinstans och på den **Registreringsgrupper** lista. Klicka på registrering namn i listan.
 
 5. Klicka på **certifikatutfärdarcertifikat**, och välj det nya rot-CA-certifikatet. Klicka sedan på **Spara**. 
 
@@ -149,13 +149,13 @@ Senare när sekundärt certifikat också närmar sig förfallodatum och behöver
 
 1. Följ stegen som beskrivs i [konfigurera verifierat certifikat](how-to-verify-certificates.md) att lägga till och verifiera nya rot-CA-certifikat.
 
-2. Klicka på den **hantera registreringar** för din etablering tjänstinstans och på den **Registreringsgrupper** lista. Klicka på registrering namn i listan.
+2. Klicka på den **hantera registreringar** för Device Provisioning-tjänstinstans och på den **Registreringsgrupper** lista. Klicka på registrering namn i listan.
 
 3. Klicka på **CA-certifikat**, och välj det nya rot-CA-certifikatet under den **sekundärt certifikat** konfiguration. Klicka sedan på **Spara**. 
 
     ![Välj det nya rotcertifikatet för Certifikatutfärdaren](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 
-4. Senare när det primära certifikatet har upphört att gälla, klickar du på den **certifikat** fliken för din etablering tjänstinstans. Klicka på det utgångna certifikatet i listan och klicka sedan på den **ta bort** knappen. Bekräfta borttagningen genom att ange certifikatets namn och klickar på **OK**.
+4. Senare när det primära certifikatet har upphört att gälla, klickar du på den **certifikat** fliken för Device Provisioning-tjänstinstans. Klicka på det utgångna certifikatet i listan och klicka sedan på den **ta bort** knappen. Bekräfta borttagningen genom att ange certifikatets namn och klickar på **OK**.
 
     ![Ta bort rot-CA-certifikat](./media/how-to-roll-certificates/delete-root-cert.png)
 

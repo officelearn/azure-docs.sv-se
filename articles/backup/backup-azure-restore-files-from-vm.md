@@ -7,14 +7,14 @@ manager: shivamg
 keywords: återställning på objektnivå; filåterställning från virtuell Azure-säkerhetskopiering; återställa filer från virtuella Azure-datorer
 ms.service: backup
 ms.topic: conceptual
-ms.date: 12/20/2017
+ms.date: 8/22/2018
 ms.author: pullabhk
-ms.openlocfilehash: fecdb54af58faaf601ab74f89039a47e0d32e650
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 1f3b81c31dc566e5e3011167eee00145f6791cb1
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493389"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616917"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhetskopiering av Azure virtuella datorer
 
@@ -33,9 +33,13 @@ Om du vill återställa filer och mappar från återställningspunkten, gå till
 
 2. Klicka på den virtuella datorns menyn **Backup** att öppna instrumentpanelen för säkerhetskopiering.
 
-    ![Öppna Recovery Services-valv säkerhetskopieringsobjekt](./media/backup-azure-restore-files-from-vm/open-vault-from-vm.png)
+    ![Öppna Recovery Services-valv säkerhetskopieringsobjekt](./media/backup-azure-restore-files-from-vm/open-vault-for-vm.png)
 
-3. I menyn Backup instrumentpanelen klickar du på **filåterställning** menyn öppnas.
+3. I menyn Backup instrumentpanelen klickar du på **filåterställning**.
+
+    ![Knappen för återställning av fil](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
+
+    Den **filåterställning** menyn öppnas.
 
     ![Arkiv-menyn för återställning](./media/backup-azure-restore-files-from-vm/file-recovery-blade.png)
 
@@ -95,7 +99,7 @@ Ta bort (eller demontera) på ytterligare enheter när du identifierar filerna o
 
 ![Demontera diskar](./media/backup-azure-restore-files-from-vm/unmount-disks3.png)
 
-När diskarna har demonterats, får du ett meddelande som du kan se det lyckades. Det kan ta några minuter innan anslutningen att uppdatera så att du kan ta bort diskarna.
+När diskarna har demonterats, får du ett meddelande. Det kan ta några minuter innan anslutningen att uppdatera så att du kan ta bort diskarna.
 
 I Linux, när anslutningen till återställningspunkten är avskiljes Operativsystemet tar inte bort motsvarande monteringssökvägar automatiskt. Monteringssökvägar finns som ”överblivna” volymer och de är synliga men returnerade ett fel när du åtkomst/Skriv-filerna. De kan tas bort manuellt. Skriptet när den körs identifierar dessa volymer som befintlig från alla tidigare återställningspunkterna och rensar dem vid godkännande.
 
@@ -213,7 +217,7 @@ Om du har problem vid återställning av filer från de virtuella datorerna, kon
 | Exe-utdata: *undantag som ansluter till mål* |Skriptet kan inte komma åt återställningspunkten    | Kontrollera om datorn uppfyller de tidigare åtkomstkraven. |  
 | Exe-utdata: *målet har redan loggats in via en iSCSI-session.* | Skriptet har redan gjorts på samma dator och enheterna som har bifogats | Volymer för återställningspunkten har redan bifogats. De kan inte monteras med samma enhetsbeteckningar för den ursprungliga virtuella datorn. Bläddra igenom alla tillgängliga volymer i Utforskaren-filen |
 | Exe-utdata: *det här skriptet är ogiltig eftersom diskarna har demonterats via portalen/överskred 12-hr gränsen. Hämta ett nytt skript från portalen.* |    Diskarna har demonterats från portalen eller den 12 – hr har överskridits | Den här specifika exe nu är ogiltig och kan inte köras. Om du vill komma åt den recovery point-in-time-filer, gå till portalen för en ny exe-fil|
-| På den dator där den exe-filen kör: nya volymer är inte demonteras när du klickar på knappen dismount | ISCSI-initieraren på datorn inte svarar/uppdatera sin anslutning till målet och underhålla cachen |    Vänta några minuter efter att demontera knappen trycks. Om de nya volymerna inte är fortfarande demonteras, bläddra igenom alla volymer. Detta gör att initieraren att uppdatera anslutningen och volymen demonteras med ett felmeddelande att disken inte är tillgänglig|
+| På den dator där den exe-filen kör: nya volymer är inte demonteras när du klickar på knappen dismount | ISCSI-initieraren på datorn inte svarar/uppdatera sin anslutning till målet och underhålla cachen. |  När du klickar på **demontera**, Vänta några minuter. Om de nya volymerna inte är demonteras, bläddra igenom alla volymer. Bläddra alla volymer tvingar initieraren att uppdatera anslutningen och volymen demonteras med ett felmeddelande att disken inte är tillgänglig.|
 | Exe-utdata: skript köras men ”nya volymer ansluten” visas inte på utdata från skriptet |    Det här är ett tillfälligt fel    | Volymerna skulle har redan bifogats. Öppna Utforskaren och Bläddra. Om du använder samma dator för att köra skript varje gång, Överväg att starta om datorn och listan ska visas i efterföljande exe-körningar. |
 | Linux specifikt: går inte att visa de önskade volymerna | Operativsystemet där skriptet körs kanske inte kan identifiera det underliggande filsystemet för skyddad virtuell dator | Kontrollera om krascher konsekvent eller filkonsekvent återställningspunkten. Om filen konsekvent, kör skriptet på en annan dator vars operativsystem kan du identifierar den skyddade Virtuella datorns filsystem |
 | Windows-specifika: går inte att visa de önskade volymerna | Diskarna har bifogats men volymerna har inte konfigurerats | Identifiera ytterligare diskar rör återställningspunkten från hanteringsskärmen disk. Om något av dessa diskar är offline tillstånd försök att göra dem online genom att högerklicka på disken och klicka på ”Online”|

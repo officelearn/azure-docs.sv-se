@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: f42948f0f3acf1bacf6c80010489890f4b8d122b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 28a6082718080314a769b59c81cf51a20ff7e120
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523673"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42055901"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage-bindningar för Azure Functions
 
@@ -58,6 +58,7 @@ Se exempel språkspecifika:
 * [C#-skript-bindningar till CloudTable](#input---c-script-example---cloudtable)
 * [F#](#input---f-example)
 * [JavaScript](#input---javascript-example)
+* [Java](#input---java-example)
 
 ### <a name="input---c-example---one-entity"></a>Indata - C#-exempel – en entitet
 
@@ -414,6 +415,25 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
+### <a name="input---java-example"></a>Indata - Java-exemplet
+
+I följande exempel visas en HTTP-utlöst funktion som returnerar det totala antalet objekt i en angiven partition i Table storage.
+
+```java
+@FunctionName("getallcount")
+public int run(
+   @HttpTrigger(name = "req",
+                 methods = {"get"},
+                 authLevel = AuthorizationLevel.ANONYMOUS) Object dummyShouldNotBeUsed,
+   @TableInput(name = "items",
+                tableName = "mytablename",  partitionKey = "myparkey",
+                connection = "myconnvarname") MyItem[] items
+) {
+    return items.length;
+}
+```
+
+
 ## <a name="input---attributes"></a>Indata - attribut
  
 I [C#-klassbibliotek](functions-dotnet-class-library.md), Använd följande attribut för att konfigurera en indatabindning för tabellen:
@@ -471,6 +491,10 @@ Storage-konto du använder bestäms i följande ordning:
 * Den `StorageAccount` attribut som används i funktionen.
 * Den `StorageAccount` attribut som tillämpas på klassen.
 * Standardkontot för lagring för funktionsappen (”AzureWebJobsStorage” app-inställning).
+
+## <a name="input---java-annotations"></a>Indata - Java-anteckningar
+
+I den [Java functions runtime-biblioteket](/java/api/overview/azure/functions/runtime), använda den `@TableInput` anteckning om parametrar vars värde skulle hämtas från Table storage.  Den här anteckningen kan användas med interna Java-typer, Pojo eller kan ha värdet null-värden med hjälp av valfritt<T>. 
 
 ## <a name="input---configuration"></a>Indata - konfiguration
 

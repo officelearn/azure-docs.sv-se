@@ -1,9 +1,9 @@
 ---
-title: Använd Azure Resource Manager-mallar i Azure-stacken | Microsoft Docs
-description: Lär dig hur du använder Azure Resource Manager-mallar i Azure-stacken att etablera resurser.
+title: Använda Azure Resource Manager-mallar i Azure Stack | Microsoft Docs
+description: Lär dig hur du använder Azure Resource Manager-mallar i Azure Stack för att etablera resurser.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 2022dbe5-47fd-457d-9af3-6c01688171d7
@@ -12,40 +12,40 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
-ms.author: brenduns
-ms.reviewer: ''
-ms.openlocfilehash: 9c4d538f77ae056163fd17aa547162a4ad3eff63
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.date: 08/15/2018
+ms.author: sethm
+ms.reviewer: jeffgo
+ms.openlocfilehash: 456f27b97ee644aef34f9bb9e2c0525bd61c1c84
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34301686"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056996"
 ---
-# <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Använd Azure Resource Manager-mallar i Azure-stacken
+# <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Använda Azure Resource Manager-mallar i Azure Stack
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Du kan använda Azure Resource Manager-mallar för att distribuera och Tillhandahåll alla resurser i programmet i en enda, samordnad åtgärd. Du kan också distribuera mallar för att göra ändringar i resurser i en resursgrupp.
+Du kan använda Azure Resource Manager-mallar för att distribuera och etablera alla resurser för ditt program i en enda, samordnad åtgärd. Du kan också distribuera om mallar för att göra ändringar i resurser i en resursgrupp.
 
-De här mallarna kan distribueras med Microsoft Azure Stack-portalen, PowerShell, kommandorad och Visual Studio.
+Dessa mallar kan distribueras med Microsoft Azure Stack-portalen, PowerShell, kommandorad och Visual Studio.
 
 Följande snabbstartsmallar är tillgängliga på [GitHub](http://aka.ms/azurestackgithub).
 
-## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>Distribuera SharePoint Server (distribution med hög tillgänglighet)
+## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>Distribuera SharePoint-Server (distribution med hög tillgänglighet)
 
-Använd PowerShell DSC-tillägg för att skapa en SharePoint Server 2013-grupp som innehåller följande resurser:
+Använd PowerShell DSC-tillägget för att skapa en SharePoint Server 2013-servergrupp som innehåller följande resurser:
 
 * Ett virtuellt nätverk
-* Tre storage-konton
+* Tre lagringskonton
 * Två externa belastningsutjämnare
 * En virtuell dator (VM) som konfigurerats som en domänkontrollant för en ny skog med en enda domän
 * En virtuell dator som konfigurerats som en fristående server för SQL Server 2014
-* En virtuell dator konfigurerad som en SharePoint Server 2013-grupp för en dator
+* En dator som en SharePoint Server 2013-servergrupp med en dator
 
 ## <a name="deploy-ad-non-high-availability-deployment"></a>Distribuera AD (icke-hög-tillgänglighet-distribution)
 
-Använd PowerShell DSC-tillägg för att skapa en hanterarserver för AD-domän som innehåller följande resurser:
+Använd PowerShell DSC-tillägget för att skapa en AD domain controller-servern som innehåller följande resurser:
 
 * Ett virtuellt nätverk
 * Ett lagringskonto
@@ -54,29 +54,29 @@ Använd PowerShell DSC-tillägg för att skapa en hanterarserver för AD-domän 
 
 ## <a name="deploy-adsql-non-high-availability-deployment"></a>Distribuera AD/SQL (icke-hög-tillgänglighet-distribution)
 
-Använd PowerShell DSC-tillägg för att skapa en fristående server för SQL Server 2014 som innehåller följande resurser:
+Använd PowerShell DSC-tillägget för att skapa en fristående server för SQL Server 2014 som innehåller följande resurser:
 
 * Ett virtuellt nätverk
-* Två storage-konton
+* Två lagringskonton
 * En extern belastningsutjämnare
 * En virtuell dator (VM) som konfigurerats som en domänkontrollant för en ny skog med en enda domän
 * En virtuell dator som konfigurerats som en fristående server för SQL Server 2014
 
 ## <a name="vm-dsc-extension-azure-automation-pull-server"></a>VM-DSC-Extension-Azure-Automation-Pull-Server
 
-Använd PowerShell DSC-tillägg för att konfigurera en befintlig virtuell dator lokala Configuration Manager (MGM) och registrera en Azure Automation-konto DSC Pull-Server.
+Använda tillägget PowerShell DSC för att konfigurera en befintlig virtuell dator lokala Configuration Manager (LCM) och registrera den till en Azure Automation-konto DSC-Hämtningsserver.
 
-## <a name="create-a-virtual-machine-from-a-user-image"></a>Skapa en virtuell dator från en användaravbildning av
+## <a name="create-a-virtual-machine-from-a-user-image"></a>Skapa en virtuell dator från en användaravbildning
 
-Skapa en virtuell dator från en egen avbildning. Den här mallen distribuerar också ett virtuellt nätverk (med DNS), offentlig IP-adress och ett nätverksgränssnitt.
+Skapa en virtuell dator från en anpassad användaravbildning. Den här mallen distribuerar också ett virtuellt nätverk (med DNS), offentlig IP-adress och ett nätverksgränssnitt.
 
 ## <a name="basic-virtual-machine"></a>Grundläggande virtuell dator
 
-Distribuera en virtuell Windows-dator som innehåller ett virtuellt nätverk (med DNS), offentlig IP-adress och ett nätverksgränssnitt.
+Distribuera en Windows VM som innehåller ett virtuellt nätverk (med DNS), offentlig IP-adress och ett nätverksgränssnitt.
 
-## <a name="cancel-a-running-template-deployment"></a>Avbryta en pågående malldistribution
+## <a name="cancel-a-running-template-deployment"></a>Avbryt en malldistribution som körs
 
-Om du vill avbryta en pågående malldistribution använder den `Stop-AzureRmResourceGroupDeployment` PowerShell-cmdlet.
+Om du vill avbryta en malldistribution som körs använder den `Stop-AzureRmResourceGroupDeployment` PowerShell-cmdlet.
 
 ## <a name="next-steps"></a>Nästa steg
 

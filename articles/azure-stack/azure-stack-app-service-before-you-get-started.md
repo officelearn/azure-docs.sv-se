@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 08/20/2018
 ms.author: anwestg
-ms.openlocfilehash: 22901374988f6654bc1fb282315db81bb17c815f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e5fc6b5d396a45d15548cfdd8f445158147ad12f
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857873"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42055860"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Innan du sätter igång med App Service i Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "37857873"
 Innan du distribuerar Azure App Service i Azure Stack, måste du slutföra de nödvändiga stegen i den här artikeln.
 
 > [!IMPORTANT]
-> Uppdateringen är 1804 integrerade Azure Stack-system eller distribuera den senaste Azure Stack Development Kit (ASDK) innan du distribuerar Azure App Service 1.2.
+> Uppdateringen är 1807 integrerade Azure Stack-system eller distribuera den senaste Azure Stack Development Kit (ASDK) innan du distribuerar Azure App Service 1.3.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Ladda ned installationsprogrammet och helper-skript
 
@@ -241,27 +241,6 @@ net share %WEBSITES_SHARE% /delete
 net share %WEBSITES_SHARE%=%WEBSITES_FOLDER% /grant:Everyone,full
 ```
 
-### <a name="add-the-fileshareowners-group-to-the-local-administrators-group"></a>Lägg till gruppen FileShareOwners till den lokala gruppen Administratörer
-
-För Windows Remote Management ska fungera korrekt, måste du lägga till gruppen FileShareOwners till den lokala gruppen Administratörer.
-
-#### <a name="active-directory"></a>Active Directory
-
-Kör följande kommandon i en upphöjd kommandotolk på servern eller på varje server som fungerar som noder i redundansklustret. Ersätt värdet för `<DOMAIN>` med det domännamn som du vill använda.
-
-```DOS
-set DOMAIN=<DOMAIN>
-net localgroup Administrators %DOMAIN%\FileShareOwners /add
-```
-
-#### <a name="workgroup"></a>Arbetsgrupp
-
-Kör följande kommando i en upphöjd kommandotolk på filservern:
-
-```DOS
-net localgroup Administrators FileShareOwners /add
-```
-
 ### <a name="configure-access-control-to-the-shares"></a>Konfigurera åtkomstkontroll till resurser
 
 Kör följande kommandon i en upphöjd kommandotolk på servern eller på redundansklusternoden som är aktuella resursägaren för klustret. Ersätt värdena i kursiv stil med värden som är specifika för din miljö.
@@ -353,6 +332,7 @@ Följ de här stegen:
 | AzureStackAdminCredential | Krävs | Null | Azure AD-tjänstens administrativa autentiseringsuppgifter. |
 | CertificateFilePath | Krävs | Null | **Fullständig sökväg** till den certifikatfil för identitetsprogram genereras tidigare. |
 | CertificatePassword | Krävs | Null | Lösenordet som hjälper dig skydda certifikatets privata nyckel. |
+| Miljö | Valfri | AzureCloud | Namnet på den miljö som stöds av molnet där målet Azure Active Directory Graph-tjänsten är tillgänglig.  Tillåtna värden: 'AzureCloud', 'AzureChinaCloud', 'Azureusgovernment eller', 'AzureGermanCloud'.|
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Skapa ett Active Directory Federation Services-program
 

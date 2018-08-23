@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c61a6efaa4a56636400acfe5a212cddad47f4f0c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fb408765a1185ac64a664cee458432bfce061c91
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38652753"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41919985"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>Självstudier: Skicka meddelanden till specifika Windows Phone-enheter med hjälp av Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -32,7 +32,7 @@ Du aktiverar det här scenariot genom att inkludera en eller flera *taggar* när
 > [!NOTE]
 > SDK:erna för Windows Phone på Notification Hubs stöder inte användning av Windows Push Notification Service (WNS) med Silverlight-appar för Windows Phone 8.1. Om du vill använda WNS (istället för MPNS) med Silverlight-appar för Windows Phone 8.1, ska du följa anvisningarna i Notification Hubs – självstudiekurs för Windows Phone Silverlight. Där används istället REST-API:er.
 
-I den här guiden får du lära dig hur man: 
+I den här guiden får du lära dig att: 
 
 > [!div class="checklist"]
 > * Lägga till kategorival i mobilappen
@@ -245,7 +245,7 @@ De här stegen registreras med meddelandehubben vid start med hjälp av de kateg
 > [!NOTE]
 > Eftersom den kanal-URI som tilldelats av Microsoft Push Notification Service (MPNS) kan ändras när som helst bör du ofta registrera dig för meddelanden för att undvika meddelandefel. Det här exemplet registrerar för meddelanden varje gång som appen startas. För appar som körs ofta, mer än en gång om dagen, kan du förmodligen hoppa över registreringen och spara bandbredd om mindre än en dag har gått sedan den tidigare registreringen.
 
-1. Öppna filen App.xaml.cs och lägg till modifieraren **async** till metoden **Application_Launching** och ersätt Notification Hubs-registreringskoden som du lade till i [Kom igång med Notification Hub] med följande kod:
+1. Öppna filen App.xaml.cs och lägg till modifieraren **async** till metoden **Application_Launching** och ersätt Notification Hubs-registreringskoden som du lade till i [Kom igång med Notification Hubs] med följande kod:
    
     ```csharp
     private async void Application_Launching(object sender, LaunchingEventArgs e)
@@ -321,9 +321,9 @@ I den här självstudien har du lärt dig mer om push-meddelanden till specifika
 
 
 <!-- URLs.-->
-[Kom igång med Notification Hub]: /manage/services/notification-hubs/get-started-notification-hubs-wp8/
-[Use Notification Hubs to broadcast localized breaking news]: ../breakingnews-localized-wp8.md
-[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users/
+[Kom igång med Notification Hubs]: notification-hubs-windows-mobile-push-notifications-mpns.md
+[Use Notification Hubs to broadcast localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
+[Notify users with Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Phone]: ??

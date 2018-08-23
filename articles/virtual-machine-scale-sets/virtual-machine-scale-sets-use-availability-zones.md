@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: e19130c5ee418ebaa41f9ee42e217c52cdeec6cb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7297633b5a8954eb39e0a40bfd45b02d3838a734
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697950"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42055620"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Skapa en skalningsuppsättning för virtuella datorer som använder Tillgänglighetszoner
 
@@ -45,10 +45,10 @@ När du distribuerar en skalningsuppsättning kan du också möjlighet att distr
 
 ### <a name="zone-balancing"></a>Zon för belastningsutjämning
 
-Slutligen för skalningsuppsättningar distribueras över flera zoner, har du också du möjlighet att välja ”zonbalans bästa prestanda” eller ”strikt zonbalans”. En skalningsuppsättning anses ”belastningsutjämnade” om hur många virtuella datorer i varje zon ligger inom något av hur många virtuella datorer i andra zoner för skalningsuppsättningen. Exempel:
+Slutligen för skalningsuppsättningar distribueras över flera zoner, har du också du möjlighet att välja ”zonbalans bästa prestanda” eller ”strikt zonbalans”. En skalningsuppsättning betraktas som ”belastningsutjämnade” om var och en zon samma antal virtuella datorer eller +\\-1 virtuell dator i andra zoner för skalningsuppsättningen. Exempel:
 
-- En skalningsuppsättning med 2 virtuella datorer i zon 1, 3 virtuella datorer i zon 2 och 3 virtuella datorer i zon 3 anses vara belastningsutjämnad.
-- En skalningsuppsättning med 1 virtuell dator i zon 1, 3 virtuella datorer i zon 2 och 3 virtuella datorer i zon 3 anses obalanserade.
+- En skalningsuppsättning med 2 virtuella datorer i zon 1, 3 virtuella datorer i zon 2 och 3 virtuella datorer i zon 3 anses vara belastningsutjämnad. Det finns endast en zon med ett annat antal virtuella datorer och det är endast 1 som är mindre än de andra zonerna. 
+- En skalningsuppsättning med 1 virtuell dator i zon 1, 3 virtuella datorer i zon 2 och 3 virtuella datorer i zon 3 anses obalanserade. Zon 1 har 2 färre virtuella datorer än zon 2 och 3.
 
 Det är möjligt att virtuella datorer i skalningsuppsättningen har skapats, men inte det gick att distribuera tillägg på de virtuella datorerna. Dessa virtuella datorer med datortillägg räknas fortfarande när du bestämmer om en skalningsuppsättning fördelas. Exempelvis kan en skalningsuppsättning med 3 virtuella datorer i zon 1, 3 virtuella datorer i zon 2 och 3 virtuella datorer i zon 3 anses belastningsutjämnade även om alla tillägg misslyckades i zon 1 och alla tillägg har uppdaterats i zoner 2 och 3.
 
@@ -64,7 +64,7 @@ När du skapar en skalningsuppsättning i en enskild zon, du bestämmer vilken z
 
 Om du vill använda Tillgänglighetszoner, måste din skalningsuppsättning skapas i en [stöds Azure-region](../availability-zones/az-overview.md#regions-that-support-availability-zones). Du kan skapa en skalningsuppsättning som använder Tillgänglighetszoner med någon av följande metoder:
 
-- [Azure Portal](#use-the-azure-portal)
+- [Azure-portalen](#use-the-azure-portal)
 - [Azure CLI 2.0](#use-the-azure-cli-20)
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure Resource Manager-mallar](#use-azure-resource-manager-templates)
@@ -98,7 +98,7 @@ För en komplett exempel på en zon skala och nätverksresurser, se [CLI-Skripte
 
 ### <a name="zone-redundant-scale-set"></a>Zonredundant skalningsuppsättning
 
-Att skapa en zonredundant skalningsuppsättning kan du använda en *Standard* SKU offentlig IP-adress och load balancer. För förbättrad redundans i *Standard* SKU skapar zonredundant nätverksresurser. Mer information finns i [Azure Load Balancer Standard översikt](../load-balancer/load-balancer-standard-overview.md).
+Att skapa en zonredundant skalningsuppsättning kan du använda en *Standard* SKU offentlig IP-adress och load balancer. För förbättrad redundans i *Standard* SKU skapar zonredundant nätverksresurser. Mer information finns i [Azure Load Balancer Standard översikt](../load-balancer/load-balancer-standard-overview.md) och [Standard Load Balancer och Tillgänglighetszoner](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Skapa en zonredundant skalningsuppsättning genom att ange flera zoner med den `--zones` parametern. I följande exempel skapas en zonredundant skalningsuppsättning med namnet *myScaleSet* i flera zoner *1,2,3*:
 
@@ -119,7 +119,7 @@ Det tar några minuter att skapa och konfigurera alla skalningsuppsättningen re
 
 Om du vill använda Tillgänglighetszoner, måste du skapa din skalningsuppsättning i en Azure-region. Lägg till den `-Zone` parameter ska den [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) kommandot och ange vilken zon som ska användas (till exempel zon *1*, *2*, eller *3*).
 
-I följande exempel skapas en zon skalningsuppsättning med namnet *myScaleSet* i *östra USA 2* zon *1*. Azure-nätverksresurser för virtuellt nätverk, offentlig IP-adress och belastningsutjämnare skapas automatiskt. När du uppmanas, anger du dina egna önskade administrativa autentiseringsuppgifter för de virtuella datorinstanserna i skalningsuppsättning:
+I följande exempel skapas en zon skalningsuppsättning med namnet *myScaleSet* i *östra USA 2* zon *1*. Azure-nätverksresurser för virtuellt nätverk, offentlig IP-adress och lastbalanserare skapas automatiskt. När du uppmanas, anger du dina egna önskade administrativa autentiseringsuppgifter för de virtuella datorinstanserna i skalningsuppsättning:
 
 ```powershell
 New-AzureRmVmss `
@@ -215,7 +215,7 @@ Skapa en zonredundant skalningsuppsättning genom att ange flera värden i den `
 }
 ```
 
-Om du skapar en offentlig IP-adress eller en belastningsutjämnare, ange den *”sku”: {”name”: ”Standard”} ”* egenskapen att skapa zonredundant nätverksresurser. Du måste också skapa en Nätverkssäkerhetsgrupp och regler för att tillåta all trafik. Mer information finns i [Azure Load Balancer Standard översikt](../load-balancer/load-balancer-standard-overview.md).
+Om du skapar en offentlig IP-adress eller en belastningsutjämnare, ange den *”sku”: {”name”: ”Standard”} ”* egenskapen att skapa zonredundant nätverksresurser. Du måste också skapa en Nätverkssäkerhetsgrupp och regler för att tillåta all trafik. Mer information finns i [Azure Load Balancer Standard översikt](../load-balancer/load-balancer-standard-overview.md) och [Standard Load Balancer och Tillgänglighetszoner](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Exempel på en zonredundant skalningsuppsättning ange och nätverksresurser, se [det här exemplet Resource Manager-mall](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
 

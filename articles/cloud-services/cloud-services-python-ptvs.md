@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 10ade991b77b90f31309dbe6a105744dbc02df40
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: d9871b399ff06fb08d817c0d892b667b4ef0242d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003650"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41919177"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Webb- och arbetsroller för Python med Python Tools för Visual Studio
 
@@ -42,7 +42,7 @@ Mer information finns i [Vad är en molntjänst?].
 
 > [!NOTE]
 > *Vill du skapa en enkel webbplats?*
-> Om ditt scenario bara är en enkel webbplats bör du överväga att använda den förenklade funktionen Web Apps i Azure App Service. Det är lätt att uppgradera till en molntjänst efter hand som webbplatsen växer och dina behov förändras. På <a href="/develop/python/">Python Developer Center</a> hittar du artiklar om utvecklingen av funktionen Web Apps i Azure App Service.
+> Om ditt scenario bara är en enkel webbplats bör du överväga att använda den förenklade funktionen Web Apps i Azure App Service. Det är lätt att uppgradera till en molntjänst efter hand som webbplatsen växer och dina behov förändras. På [Python Developer Center](https://azure.microsoft.com/develop/python/) hittar du artiklar om utvecklingen av funktionen Web Apps i Azure App Service.
 > <br />
 > 
 > 

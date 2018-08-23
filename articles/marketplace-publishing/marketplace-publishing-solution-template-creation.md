@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 675316b97e821a81ca4946d57a76d7bce978361b
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 0e1c049596b5231ad72590fc17a73cd5aa457e4d
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714554"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056317"
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Guiden för att skapa en lösningsmall för Azure Marketplace
 När du har slutfört steg 1, [skapande och registrering][link-acct-creation], vi vägleds du vid skapandet av en mall för Azure-kompatibel lösning på [tekniska krav för att skapa en lösningsmallen](marketplace-publishing-solution-template-creation-prerequisites.md). Nu vi vägleder dig genom stegen för att skapa en lösningsmall för flera virtuella datorer på den [Publiceringsportalen] [ link-pubportal] för Azure Marketplace.
@@ -60,7 +60,7 @@ Nu när du har skapat din mall och överfört zip-filen Följ anvisningarna i de
 Du kanske också är intresserad av dessa relaterade artiklar:
 
 * Avbildningar av Virtuella datorer: [om avbildningar av virtuella datorer i Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
-* VM-tillägg: [VM-agenten och översikt över VM-tillägg](https://msdn.microsoft.com/library/azure/dn832621.aspx) och [Azure VM-tillägg och funktioner](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+* VM-tillägg: [Azure VM-tillägg och funktioner](../virtual-machines/extensions/features-windows.md)
 * Med Azure Resource Manager: [skapa Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md) och [enkel mall-exempel](https://github.com/rjmax/ArmExamples)
 * Storage-konto begränsar: [övervaka för begränsning av Storage-konto](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) och [Premium storage](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)
 

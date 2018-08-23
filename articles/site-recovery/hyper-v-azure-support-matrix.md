@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/14/2018
 ms.author: raynew
-ms.openlocfilehash: 3fdaaf4bc671996350b8138fb0f7fc3d7adaf567
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e363885afb77a60bfc0229a872fdb4e519d5979d
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442776"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42054364"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Stödmatris för Hyper-V-replikering till Azure
 
@@ -25,7 +25,7 @@ Den här artikeln sammanfattas de komponenter som stöds och inställningar för
 
 **Scenario** | **Detaljer**
 --- | ---
-Hyper-V med Virtual Machine Manager | Du kan utföra katastrofåterställning till Azure för virtuella datorer som körs på Hyper-V-värdar som hanteras i System Center Virtual Machine Manager-infrastrukturen.<br/><br/> Du kan distribuera det här scenariot i Azure portal eller med hjälp av PowerShell.<br/><br/> När Hyper-V-värdar hanteras av Virtual Machine Manager kan utföra du också haveriberedskap till en sekundär lokal plats. Mer information om det här scenariot [den här självstudien](tutorial-vmm-to-vmm.md).
+Hyper-V med Virtual Machine Manager | Du kan utföra katastrofåterställning till Azure för virtuella datorer som körs på Hyper-V-värdar som hanteras i System Center Virtual Machine Manager-infrastrukturen.<br/><br/> Du kan distribuera det här scenariot i Azure portal eller med hjälp av PowerShell.<br/><br/> När Hyper-V-värdar hanteras av Virtual Machine Manager kan utföra du också haveriberedskap till en sekundär lokal plats. Mer information om det här scenariot [den här självstudien](hyper-v-vmm-disaster-recovery.md).
 Hyper-V utan att Virtual Machine Manager | Du kan utföra katastrofåterställning till Azure för virtuella datorer som körs på Hyper-V-värdar som inte hanteras av Virtual Machine Manager.<br/><br/> Du kan distribuera det här scenariot i Azure portal eller med hjälp av PowerShell.
 
 
@@ -44,8 +44,8 @@ I följande tabell sammanfattas support för virtuella datorer. Site Recovery st
 
  **Komponent** | **Detaljer**
 --- | ---
-Konfiguration av virtuell dator | Virtuella datorer som replikerar till Azure måste uppfylla [krav för Azure](#failed-over-azure-vm-requirements).
-Gästoperativsystem | Alla gäst-OS som stöds av Azure.<br/><br/> Windows Server 2016 Nano Server stöds inte.
+Konfiguration av virtuell dator | Virtuella datorer som replikerar till Azure måste uppfylla [krav för Azure](#azure-vm-requirements).
+Gästoperativsystem | Alla gästoperativsystem [stöds för Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases)...<br/><br/> Windows Server 2016 Nano Server stöds inte.
 
 
 ## <a name="vmdisk-management"></a>VM/Diskhantering

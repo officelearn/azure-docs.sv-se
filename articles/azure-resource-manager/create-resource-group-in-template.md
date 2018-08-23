@@ -9,20 +9,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 90d21ac817f6fd4730ff4a7e98500a80af10ac70
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 003f5d114a233738783d265a18ee7d2ccbfaba10
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623293"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617274"
 ---
 # <a name="create-resource-groups-in-azure-resource-manager-templates"></a>Skapa resursgrupper i Azure Resource Manager-mallar
 
-Om du vill skapa en resursgrupp i en Azure Resource Manager-mall definierar en **Microsoft.Resources/resourceGroups** resurs med ett namn och plats för resursgruppen. Distribuera mallen till din Azure-prenumeration. Du kan också distribuera resurser till resursgruppen i samma mall.
+Om du vill skapa en resursgrupp i en Azure Resource Manager-mall definierar en **Microsoft.Resources/resourceGroups** resurs med ett namn och plats för resursgruppen. Distribuera mallen till din Azure-prenumeration. Mer information om prenumerationen på distribution finns i [distribuera resurser till en Azure-prenumeration](deploy-to-subscription.md).
 
-Den här artikeln använder Azure CLI för att distribuera mallarna. För närvarande stöder PowerShell inte distribuerar en mall till en prenumeration.
+Du kan också distribuera resurser till resursgruppen i samma mall.
+
+Den här artikeln använder Azure CLI och PowerShell för att distribuera mallarna.
 
 ## <a name="create-empty-resource-group"></a>Skapa tom resursgrupp
 
@@ -62,6 +64,17 @@ az deployment create \
   -l southcentralus \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json \
   --parameters rgName=demoRG rgLocation=northcentralus
+```
+
+Om du vill distribuera den här mallen med PowerShell använder du:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoEmptyRG `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
+  -rgName demogroup `
+  -rgLocation northcentralus
 ```
 
 ## <a name="create-several-resource-groups"></a>Skapa flera resursgrupper
@@ -109,6 +122,18 @@ az deployment create \
   -l southcentralus \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json \
   --parameters rgNamePrefix=demoRG rgLocation=northcentralus instanceCount=3
+```
+
+Om du vill distribuera den här mallen med PowerShell använder du:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoCopyRG `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json `
+  -rgName demogroup `
+  -rgLocation northcentralus `
+  -instanceCount 3
 ```
 
 ## <a name="create-resource-group-and-deploy-resource"></a>Skapa resursgrupp och distribuera resurser
@@ -190,7 +215,20 @@ az deployment create \
   --parameters rgName=rgStorage rgLocation=northcentralus storagePrefix=storage
 ```
 
+Om du vill distribuera den här mallen med PowerShell använder du:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoRGStorage `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/newRGWithStorage.json `
+  -rgName rgStorage `
+  -rgLocation northcentralus `
+  -storagePrefix storage
+```
+
 ## <a name="next-steps"></a>Nästa steg
+* Läs om prenumerationen på distributioner i [distribuera resurser till en Azure-prenumeration](deploy-to-subscription.md).
 * Läs om hur du felsöker beroenden under distributionen i [felsöka vanliga Azure-distributionsfel med Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Läs om hur du skapar Azure Resource Manager-mallar i [Webbsidemallar](resource-group-authoring-templates.md). 
 * En lista över tillgängliga funktioner i en mall finns i [Mallfunktioner](resource-group-template-functions.md).

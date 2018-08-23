@@ -1,24 +1,24 @@
 ---
-title: Integrera LUIS med en bot med Bot Builder-SDK för C# i Azure | Microsoft Docs
-description: Skapa en robot som är integrerad med en LUIS-App med Bot Framework.
+title: Med C#, integrera LUIS med en bot med Bot Builder SDK - Azure Cognitive Services | Microsoft Docs
+description: Genom att använda C#, skapa en chattrobot som är integrerad med språkförståelse (LUIS). Den här chattrobot använder fördefinierade HomeAutomation domänen för att snabbt implementera en bot-lösning.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 08/13/2018
 ms.author: diberry
-ms.openlocfilehash: ca893dadfed04c90a4d89087299bf1cc2bf55eb9
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: d0010ccf51fc688fa66e1be82c735ae38455509b
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225966"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41988625"
 ---
 # <a name="web-app-bot-using-the-luis-template-for-c"></a>Web App-robot med LUIS-mall för C#
 
-Skapa en chattrobot med integrerade tjänster för språkförståelse.
+Genom att använda C#, skapa en chattrobot som är integrerad med språkförståelse (LUIS). Den här chattrobot använder fördefinierade HomeAutomation domänen för att snabbt implementera en bot-lösning. 
 
 ## <a name="prerequisite"></a>Krav
 
@@ -148,7 +148,7 @@ I Azure-portalen klickar du på **testa i Web Chat** att testa roboten. Skriv me
 > Du kan kvarhålla LUIS-app utan några ändringar till din robot kod. Se [lägger du till exempel yttranden](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) och [träna och testa LUIS-appen](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test). 
 
 ## <a name="download-the-bot-to-debug"></a>Ladda ned roboten att felsöka
-Om din robot inte fungerar kan ladda ned projektet till den lokala datorn och fortsätta [felsökning](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-an-azure-app-service-web-app-c-bot). 
+Om din robot inte fungerar kan ladda ned projektet till den lokala datorn och fortsätta [felsökning](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-a-c-bot). 
 
 ## <a name="learn-more-about-bot-framework"></a>Läs mer om Bot Framework
 Läs mer om [Bot Framework](https://dev.botframework.com/) och [3.x](https://github.com/Microsoft/BotBuilder) och [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDK: er.

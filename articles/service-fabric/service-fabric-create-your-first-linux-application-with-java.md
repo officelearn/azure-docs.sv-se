@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 07f739243b80230fbf4914535ea65183c3590937
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 61b804b876c91b5fcd12ce15bd7e2438f5d897a0
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020449"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617425"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Skapa ditt första Java Service Fabric Reliable Actors-program på Linux
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Installera också [Service Fabric CLI](service-fabric-cli.md).
 Service Fabric tillhandahåller ramverktyg som hjälper dig att skapa ett Service Fabric Java-program från terminalen med en Yeoman-mallgenerator.  Om Yeoman inte har installerats än kan du läsa informationen i [Service Fabric getting started with Linux](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables) (Service Fabric – komma igång med Linux) om hur du konfigurerar Yeoman. Kör följande kommando för att installera Service Fabric Yeoman-mallgeneratorn för Java.
 
   ```bash
-  sudo npm install -g generator-azuresfjava
+  npm install -g generator-azuresfjava
   ```
 
 ## <a name="basic-concepts"></a>Grundläggande begrepp
@@ -220,18 +220,18 @@ När programmet har distribuerats öppnar du en webbläsare och går till [Servi
 Expandera sedan noden **Program** och observera att det nu finns en post för din programtyp och en post för den första instansen av den typen.
 
 > [!IMPORTANT]
-> Om du vill distribuera programmet till en säker Linux-kluster i Azure måste du konfigurera ett certifikat för att verifiera ditt program med Service Fabric-körning. På så sätt kan din Reliable Actors tjänster kan kommunicera med den underliggande Service Fabric runtime API: er. Läs mer i [konfigurera en Reliable Services app att köras på Linux-kluster](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+> Om du vill distribuera programmet till ett säkert Linux-kluster i Azure måste du konfigurera ett certifikat för att verifiera ditt program med Service Fabric-körningen. På så sätt kan dina Reliable Actors-tjänster att kommunicera med underliggande Service Fabric-körningen API: er. Mer information finns i [konfigurera en Reliable Services-app som körs i Linux-kluster](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
 >
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Starta testklienten och utför en redundansväxling
 Aktörer gör ingenting på egen hand, det behövs en annan tjänst eller klient för att skicka meddelanden till dem. Aktörsmallen innehåller ett enkelt testskript som du kan använda för att interagera med aktörstjänsten.
 
 > [!Note]
-> Testklienten använder klassen ActorProxy för att kommunicera med aktörer, som måste köras i samma kluster som tjänsten aktören eller dela samma IP-adressutrymme.  Du kan köra Testklient på samma dator som kluster med lokal utveckling.  För att kommunicera med aktörer i ett kluster måste du distribuera en gateway på det kluster som hanterar extern kommunikation med aktörerna.
+> Testklienten använder ActorProxy-klassen för att kommunicera med aktörer, som måste köras i samma kluster som aktörstjänsten eller dela samma IP-adressutrymme.  Du kan köra testklienten på samma dator som det lokala utvecklingsklustret.  För att kommunicera med aktörerna i ett fjärrkluster, måste du distribuera en gateway på klustret som hanterar externa kommunikation med aktörer.
 
 1. Kör skriptet med övervakningsverktyget för att se resultatet av aktörstjänsten.  Testskriptet anropar metoden `setCountAsync()` hos aktören för att öka en räknare, anropar metoden `getCountAsync()` hos aktören för att hämta det nya räknarvärdet och visar värdet på konsolen.
 
-   Vid MAC OS X måste du kopiera mappen HelloWorldTestClient till en plats i behållaren genom att köra följande ytterligare kommandon.    
+   När det gäller MAC OS X måste du kopiera mappen HelloWorldTestClient till en plats i behållaren genom att köra följande kommandon för ytterligare.    
     
     ```bash
      docker cp HelloWorldTestClient [first-four-digits-of-container-ID]:/home

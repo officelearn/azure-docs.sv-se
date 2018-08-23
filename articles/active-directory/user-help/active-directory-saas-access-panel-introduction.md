@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/11/18
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: a5b96279993c35aad4cc49c52950576f12dd15ce
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: f69830deb4d2c74b5fe1c85ad8c9452097dd2a1e
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345951"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056999"
 ---
 # <a name="what-is-the-access-panel"></a>Vad är åtkomstpanelen?
 
@@ -79,7 +79,7 @@ Om du vill logga in på lösenordsbaserad enkel inloggning, måste du använda t
 - Du kan logga in på en app direkt med hjälp av appens **inloggnings-URL**. När du använder appens Webbadress tillägget åtgärden identifieras och ger dig alternativet att logga in från tillägget.
 - Du kan starta en av dina appar från åtkomstpanelen med hjälp av den *Snabbsökning* funktion i tillägget. 
 - Tillägget visar de senaste tre program som du startade i **nyligen använda** avsnittet.
-- Du kan använda interna företagets URL: er samtidigt remote via [Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started)
+- Du kan använda interna företagets URL: er samtidigt remote via [Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)
 
 > [!NOTE]
 > Ytterligare funktioner är endast tillgängligt för Edge, Chrome och Firefox.
@@ -97,8 +97,8 @@ Om du använder en Mina appar-URL än `https://myapps.microsoft.com`, konfigurer
 5. Välj **logga in att komma igång**.
 
 För att använda företagets interna URL: er samtidigt remote med hjälp av tillägget måste du göra följande:
-1. [Konfigurera programproxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) på din klient.
-2. [Publicera programmet](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) och URL: en via programproxy.
+1. [Konfigurera programproxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) på din klient.
+2. [Publicera programmet](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) och URL: en via programproxy.
 3. Installera tillägget och logga in till den genom att välja inloggning att komma igång.
 4. Nu kan du bläddra till interna företagets URL även under remote.
 

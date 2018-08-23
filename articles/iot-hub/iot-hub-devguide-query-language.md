@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 321d70a04e3c524e578a01e8531d63733d088c3f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7704e08246798108aa251c19a4ab0c3baaaad570
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444192"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42054178"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub-frågespråk för tvillingar för enheten och modulen, jobb och meddelanderoutning
 
@@ -309,7 +309,7 @@ För närvarande frågar på **devices.jobs** har inte stöd för:
 
 Med hjälp av [enhet till moln vägar][lnk-devguide-messaging-routes], du kan konfigurera IoT Hub för att skicka meddelanden från enheten till molnet till olika slutpunkter. Skicka är baserad på uttryck som utvärderas mot enskilda meddelanden.
 
-Vägen [villkor] [ lnk-query-expressions] använder samma IoT Hub-frågespråk som villkor i frågor mot enhetstvillingar och jobb. Väg villkoren utvärderas på meddelanderubriker och brödtext. Din routning frågeuttryck kan omfatta endast meddelandehuvudena, endast meddelandetexten eller båda. IoT Hub förutsätter att ett visst schema för rubriker och brödtext för att dirigera meddelanden. I följande avsnitt beskrivs vad som krävs för IoT Hub för att dirigera korrekt.
+Vägen [villkor] [ lnk-query-expressions] använder IoT Hub-frågesyntax för språk som villkor i frågor mot enhetstvillingar och jobb, men endast en delmängd av funktionerna är tillgängliga. Väg villkoren utvärderas på meddelanderubriker och brödtext. Din routning frågeuttryck kan omfatta endast meddelandehuvudena, endast brödtext, eller båda meddelande rubriker och meddelandetext. IoT Hub förutsätter att ett visst schema för rubriker och brödtext för att dirigera meddelanden och i följande avsnitt beskrivs vad som krävs för IoT Hub för att dirigera korrekt.
 
 ### <a name="routing-on-message-headers"></a>Routning på meddelandehuvudena
 

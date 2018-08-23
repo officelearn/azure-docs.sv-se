@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: b4fc67acae83573db772923a94cdbb6b1c4a301f
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: b6f1185a94f865578d9a6514fb6841f8811b2230
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159849"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056113"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Vanliga frågor och svar om Azure Multi-Factor Authentication
 
@@ -218,7 +218,7 @@ En lösning för det här felet är att ha en separat användare konton för adm
 
 Om din fråga inte besvaras här, lämna den i kommentarer längst ned på sidan. Alternativt kan du här finns ett par ytterligare alternativ för att få hjälp:
 
-* Sök efter den [Microsoft Support Knowledge Base](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) efter lösningar på vanliga tekniska problem.
+* Sök efter den [Microsoft Support Knowledge Base](https://www.microsoft.com/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) efter lösningar på vanliga tekniska problem.
 * Söka efter och bläddra tekniska frågor och svar från diskussionsgruppen eller din egen fråga i den [Azure Active Directory-forum](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 * Om du är en äldre PhoneFactor-kund och du har frågor eller behöver hjälp med att återställa ett lösenord, Använd den [lösenordsåterställning](mailto:phonefactorsupport@microsoft.com) länk för att öppna ett supportärende.
 * Kontakta en supporttekniker via [support för Azure Multi-Factor Authentication Server (PhoneFactor)](https://support.microsoft.com/oas/default.aspx?prid=14947). När du kontaktar oss, är det bra om du kan inkludera så mycket information om problemet som möjligt. Information som du kan ange innehåller sidan där du såg felet, felkod, specifika sessions-ID och ID för den användare som såg felet.

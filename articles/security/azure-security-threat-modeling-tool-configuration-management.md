@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 5b9ef9691d3d9b9aaced3ad2aaa54e6cfc03fa14
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 254c68c45a06022588ade6ab6f005989205ff405
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857454"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42059218"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Security ram: Konfigurationshantering | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -606,7 +606,7 @@ Inaktivera CORS för en domänkontrollant eller en åtgärd med attributet [Disa
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | .NET framework 3 |
 | **Attribut**              | Gäller inte  |
-| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [spikning Nordirland](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [spikning Nordirland](https://vulncat.fortify.com) |
 | **Steg** | <p>Placera inte en gräns på användningen av systemresurser kan resultera i resursuttömning och i slutänden DOS-attacker.</p><ul><li>**Förklaring:** Windows Communication Foundation (WCF) ger dig möjlighet att begränsa tjänstbegäranden. För många klientbegäranden kan översvämma ett system och använt dess resurser. Å andra sidan, så att endast ett litet antal begäranden till en tjänst kan förhindra att behöriga användare att använda tjänsten. Varje tjänst ska ställas in och konfigurerad för att tillåta lämplig mängd resurser individuellt.</li><li>**REKOMMENDATIONER** aktivera WCF service begränsning funktionen och ange gränser som är lämpliga för ditt program.</li></ul>|
 
 ### <a name="example"></a>Exempel
@@ -629,7 +629,7 @@ Följande är ett exempel på en konfiguration med begränsning aktiverat:
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | .NET framework 3 |
 | **Attribut**              | Gäller inte  |
-| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [spikning Nordirland](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [spikning Nordirland](https://vulncat.fortify.com) |
 | **Steg** | Metadata kan angripare Lär dig mer om systemet och planera en typ av angrepp. WCF-tjänster kan konfigureras för att visa metadata. Metadata ger information om detaljerade tjänstens beskrivning och inte skickas ut i produktionsmiljöer. Den `HttpGetEnabled`  /  `HttpsGetEnabled` egenskaper i klassen ServiceMetaData definierar om en tjänst ska exponera metadata | 
 
 ### <a name="example"></a>Exempel

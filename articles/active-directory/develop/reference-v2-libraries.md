@@ -17,12 +17,12 @@ ms.date: 04/13/2018
 ms.author: celested
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 1450cffca7a4cfa57856c75cdcc9e106958ea043
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: f3ac6050ca73f96facd621823dc4bad413b139c7
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39601677"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056111"
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Azure Active Directory v2.0-autentiseringsbibliotek
 
@@ -44,7 +44,7 @@ Azure AD v2.0-slutpunkten fungerar med två typer av bibliotek:
 
 ## <a name="library-support"></a>Klientbiblioteksstöd
 
-Eftersom du kan välja alla bibliotek med standardkompatibel när du använder v2.0-slutpunkten, är det viktigt att veta var du hittar support. Kontakta ägaren biblioteket problem och funktionsförfrågningar i biblioteket kod. Kontakta Microsoft om problem och funktionsförfrågningar på tjänstsidan protokollimplementering. [Filen en funktionsbegäran](https://feedback.azure.com/forums/169401-azure-active-directory) för ytterligare funktioner som du skulle vilja se i protokollet. [Skapa en supportbegäran](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request) om du upptäcker ett problem där Azure AD v2.0-slutpunkten inte är kompatibel med OAuth 2.0 eller OpenID Connect 1.0.
+Eftersom du kan välja alla bibliotek med standardkompatibel när du använder v2.0-slutpunkten, är det viktigt att veta var du hittar support. Kontakta ägaren biblioteket problem och funktionsförfrågningar i biblioteket kod. Kontakta Microsoft om problem och funktionsförfrågningar på tjänstsidan protokollimplementering. [Filen en funktionsbegäran](https://feedback.azure.com/forums/169401-azure-active-directory) för ytterligare funktioner som du skulle vilja se i protokollet. [Skapa en supportbegäran](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) om du upptäcker ett problem där Azure AD v2.0-slutpunkten inte är kompatibel med OAuth 2.0 eller OpenID Connect 1.0.
 
 Bibliotek levereras i två kategorier för support:
 

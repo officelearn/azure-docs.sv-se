@@ -1,22 +1,49 @@
 ---
-title: Cognitive Services tal SDK-dokumentation
+title: Cognitive Services tal SDK-dokumentation | Microsoft Docs
 description: Viktig information – vad som har ändrats i de senaste versionerna
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: wolfma61
+manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 08/16/2018
 ms.author: wolfma
-ms.openlocfilehash: f346241e1d10d16eae08e389296f4be9149ec086
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 0900588f818855d72e415678338c96fb6505318d
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502466"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41987592"
 ---
 # <a name="release-notes"></a>Viktig information
+
+## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Cognitive Services tal SDK 0.6.0: augusti 2018 versionen
+
+**Nya funktioner**
+
+* UWP-appar som skapats med tal SDK kan nu skicka Windows App Certification Kit (WACK).
+  Kolla in våra [UWP snabbstarten](quickstart-csharp-uwp.md).
+* Stöd för .NET Standard 2.0 på Linux (Ubuntu 16.04 x 64).
+* Experimentella: Stöd för Java 8 i Windows (64-bitars) och Linux (Ubuntu 16.04 x 64).
+  Kolla in den [Java-körningsmiljön Snabbstart](quickstart-java-jre.md)
+
+**Funktionella ändringar**
+
+* Exponera ytterligare detaljerad information om hur anslutningsfel.
+
+**Större ändringar**
+
+* Java (Android), den `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` funktionen kräver inte längre en sökvägsparameter. Sökvägen nu identifieras automatiskt på alla plattformar som stöds.
+* Läsaccessor för egenskapen `EndpointUrl` i Java och C# har tagits bort.
+
+**Felkorrigeringar**
+
+* I Java implementeras nu ljud syntes resultatet på translation Igenkännande.
+* Ett fel som kan orsaka inaktiva trådar och ett ökat antal öppna och oanvända sockets har åtgärdats.
+* Åtgärdat problem, där en tidskrävande Taligenkänning kunde avslutas i mitten överföringen.
+* Fast ett konkurrenstillstånd i Igenkännande avstängning.
 
 ## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>Cognitive Services tal SDK 0.5.0: 2018-juliversionen
 

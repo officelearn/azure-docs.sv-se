@@ -7,21 +7,27 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 08/09/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 3007227808fd7fc4ec185b87a8a44c4497c66597
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 08179ae21465a57161cc6f18c12a3d9a21449359
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579511"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42057113"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Översikt: Active geo-replikering och automatisk redundans-grupper
+
+Aktiv geo-replikering är Azure SQL Database-funktion som låter dig skapa läsbara repliker av databasen i samma eller olika datacenter (region).
+
+![Geo-replikering](./media/sql-database-geo-replication-failover-portal/geo-replication.png )
+
 Aktiv geo-replikering är utformad som en företagslösning för affärskontinuitet som kan utföra snabb katastrofåterställning vid avbrott på datacentret skala programmet. Om geo-replikering är aktiverad, kan programmet initiera redundans till en sekundär databas i en annan Azure-region. Upp till fyra sekundära databaser stöds i samma eller olika regioner och de sekundära databaser kan också användas för skrivskyddad åtkomst frågor. Redundansväxlingen måste initieras manuellt av programmet eller användaren. Efter redundansväxlingen har den nya primärt slutpunkt för en annan anslutning. 
 
 > [!NOTE]
 > Aktiv geo-replikering är tillgänglig för alla databaser på alla tjänstnivåer i alla regioner.
+> Aktiv Geo-replikering är inte tillgänglig i hanterade instanser.
 >  
 
 Automatisk redundans grupper är en utökning av aktiv geo-replikering. Det är utformat för att hantera redundans för flera geo-replikerade databaser sumultaneously med hjälp av ett program som initierade växling vid fel eller genom att delegera redundansväxling görs av tjänsten SQL Database som baseras på ett villkor som definierats. Det senare kan du återställa flera relaterade databaser i en sekundär region automatiskt efter ett oåterkalleligt fel eller oplanerad händelse som leder till fullständig eller partiell förlust av tillgänglighet för SQL Database-tjänsten i den primära regionen. Du kan dessutom använda läsbara sekundära databaser för att avlasta skrivskyddad frågearbetsbelastningar. Eftersom automatisk redundans grupper omfatta flera databaser, måste databaserna konfigureras på den primära servern. Både primära och sekundära servrar för databaser i redundansgruppen måste vara i samma prenumeration. Automatisk redundans grupper stöd för replikering av alla databaser i gruppen att endast en sekundär server i en annan region.
@@ -75,7 +81,7 @@ Aktiv geo-replikering-funktionen ger följande viktiga funktioner:
 >
 
 * **Stöd för elastisk pool databaser**: varje replik kan separat delta i en elastisk Pool eller inte är i en elastisk pool alls. Pool-alternativ för varje replik är separat och är inte beroende av konfigurationen för andra replikeringar (antingen primär eller sekundär). Varje elastisk Pool ingår i en enda region, flera repliker i samma topologi kan därför aldrig dela en elastisk Pool.
-* **Konfigurerbara prestandanivå för den sekundära databasen**: både primära och sekundära databaser måste ha samma tjänstenivå. Du kan skapa en sekundär databas med lägre prestandanivå (dtu: er) än primärt. Det här alternativet rekommenderas inte för program med hög skrivning Databasaktivitet eftersom den ökade replikeringsfördröjning ökar risken för avsevärd dataförlust efter en redundansväxling. Efter en redundansväxling påverkas programmets prestanda dessutom tills den nya primärt uppgraderas till en högre prestandanivå. Logg-i/o procent diagrammet i Azure-portalen ger en bra sätt att beräkna minimal prestandanivå för den sekundära som krävs för att upprätthålla belastningen för replikering. Exempel: om din primära databas är P6 (1000 DTU) och dess loggen IO-procent är 50% sekundär måste vara minst P4 (500 DTU). Du kan också hämta log-i/o-data med hjälp av [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) eller [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) databasen vyer.  Mer information om SQL Database-prestandanivåer finns [vad är SQL Database-servicenivåerna](sql-database-service-tiers.md). 
+* **Konfigurerbara prestandanivå för den sekundära databasen**: både primära och sekundära databaser måste ha samma tjänstenivå. Det rekommenderas också starkt den sekundära databasen skapas med samma prestandanivå (dtu: er eller v-kärnor) som primärt. En sekundär med lägre prestandanivå finns det risk för en ökad replikeringsfördröjning potentiella otillgängliga för sekundärt och därmed riskerar betydande dataförlust efter en redundansväxling. Resultatet blir publicerade Återställningspunktmålet = 5 SEK kan inte garanteras. Andra risken är att efter en redundansväxling programmets prestanda påverkas på grund av otillräcklig beräkningskapaciteten för den nya primärt förrän den har uppgraderats till en högre prestandanivå. Tiden för uppgraderingen beror på databasens storlek. Om du vill skapa sekundärt med lägre prestandanivå ger på logg-i/o procent diagrammet i Azure-portalen en bra sätt att beräkna minimal prestandanivå för den sekundära som krävs för att upprätthålla belastningen för replikering. Exempel: om din primära databas är P6 (1000 DTU) och dess loggen IO-procent är 50% sekundär måste vara minst P4 (500 DTU). Du kan också hämta log-i/o-data med hjälp av [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) eller [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) databasen vyer.  Mer information om SQL Database-prestandanivåer finns [vad är SQL Database-servicenivåerna](sql-database-service-tiers.md). 
 * **Användarstyrd redundans och återställning efter fel**: en sekundär databas kan uttryckligen växlas till den primära rollen när som helst av programmet eller användaren. Under ett avbrott på verkliga ska alternativet ”oplanerad” användas som främjar omedelbart en sekundär ska vara primärt. När den misslyckade primärt återställs och är tillgänglig igen, markerar den återställda primärt som en sekundär automatiskt i systemet och ta med det uppdaterade med den nya primärt. På grund av den asynkrona natur replikering, kan en liten mängd data förloras under oplanerad redundans om en primär misslyckas innan de senaste ändringarna replikeras till sekundärt. När en primär med flera sekundära databaser växlar, konfigurerar om replikeringens relationer automatiskt i systemet och länkar de återstående sekundära databaser till den nyligen uppgraderade primärt utan användarens ingripande. När avbrott som orsakade redundansen har mildras, kan det vara önskvärt att återställa programmet till den primära regionen. Om du vill göra det, bör redundanskommandot anropas med alternativet ”planerad”. 
 * **Synkronisera autentiseringsuppgifterna och brandväggsregler**: Vi rekommenderar att du använder [databasen brandväggsregler](sql-database-firewall-configure.md) för geo-replikerade databaser så att de här reglerna kan replikeras med databasen för att se till att alla sekundära databaser har den samma brandväggsregler som primär. Den här metoden eliminerar behovet av att manuellt konfigurera och underhålla brandväggsregler på servrar som är värd för både de primära och sekundära databaserna. På samma sätt med hjälp av [innehöll databasanvändare](sql-database-manage-logins.md) för data access ser du till både primära och sekundära databaser har alltid samma autentiseringsuppgifter så att det finns inga avbrott på grund av överensstämmer inte med inloggningsnamn och lösenord under en redundansväxling. Med hjälp av [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), kunder kan hantera användarnas åtkomst till både primära och sekundära databaser och vilket eliminerar behovet av hantering av autentiseringsuppgifter i databaser helt och hållet.
 

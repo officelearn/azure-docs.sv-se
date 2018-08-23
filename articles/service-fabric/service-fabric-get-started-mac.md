@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 87721428e1cd8a5360dcecc5f29225f813705a4f
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 2ea120ed1c43db5cf843bdd64c32a6c8d9c02bb1
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344764"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42059687"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Konfigurera din utvecklingsmiljö i Mac OS X
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "37344764"
 Du kan skapa Azure Service Fabric-program som körs i Linux-kluster i Mac OS X. Det här dokumentet visar hur du konfigurerar din utvecklingsmiljö i Mac.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Azure Service Fabric kan inte köras internt i Mac OS X. För att du ska kunna köra ett lokalt Service Fabric-kluster tillhandahåller vi en förkonfigurerad Docker-behållaravbildning. Innan du börjar behöver du:
+Azure Service Fabric kan inte köras internt i Mac OS X. För att du ska kunna köra ett lokalt Service Fabric-kluster tillhandahåller vi en förkonfigurerad Docker-containeravbildning. Innan du börjar behöver du:
 
 * Minst 4 GB RAM-minne.
 * Senaste versionen av [Docker](https://www.docker.com/).
@@ -42,8 +42,8 @@ Azure Service Fabric kan inte köras internt i Mac OS X. För att du ska kunna k
 >Följ anvisningarna i [Docker-dokumentationen](https://docs.docker.com/docker-for-mac/install/#what-to-know-before-you-install) när du ska installera Docker på din Mac. [Verifiera installationen](https://docs.docker.com/docker-for-mac/#check-versions-of-docker-engine-compose-and-machine) när du är färdig.
 >
 
-## <a name="create-a-local-container-and-set-up-service-fabric"></a>Skapa en lokal behållare och konfigurera Service Fabric
-Utför följande steg för att konfigurera en lokal Docker-behållare och köra ett Service Fabric-kluster på den:
+## <a name="create-a-local-container-and-set-up-service-fabric"></a>Skapa en lokal container och konfigurera Service Fabric
+Utför följande steg för att konfigurera en lokal Docker-container och köra ett Service Fabric-kluster på den:
 
 1. Uppdatera konfigurationen av Docker-daemon på värden med följande inställningar och starta om Docker-daemon: 
 
@@ -81,7 +81,7 @@ Utför följande steg för att konfigurera en lokal Docker-behållare och köra 
     ```
 
     >[!NOTE]
-    >Du kan anpassa den här filen genom att lägga till fler program eller beroenden i din behållare.
+    >Du kan anpassa den här filen genom att lägga till fler program eller beroenden i din container.
     >Om du t.ex. lägger till `RUN apt-get install nodejs -y` tillåter du stöd för `nodejs`-program som körbara gästfiler.
     
     >[!TIP]
@@ -103,7 +103,7 @@ Utför följande steg för att konfigurera en lokal Docker-behållare och köra 
     ```
 
     >[!TIP]
-    >Ange ett namn för din behållarinstans så att du kan hantera den enklare. 
+    >Ange ett namn för din containerinstans så att du kan hantera den enklare. 
     >
     >Om programmet lyssnar på vissa portar måste du ange portarna med hjälp av ytterligare `-p`-taggar. Om programmet till exempel lyssnar på port 8080 lägger du till följande `-p`-tagg:
     >
@@ -118,7 +118,7 @@ Utför följande steg för att konfigurera en lokal Docker-behållare och köra 
 
 
 
-6. När du är klar kan du stoppa och rensa behållaren med följande kommando:
+6. När du är klar, stoppa och rensa behållaren med det här kommandot:
 
     ```bash 
     docker rm -f sftestcluster
@@ -126,7 +126,7 @@ Utför följande steg för att konfigurera en lokal Docker-behållare och köra 
 
 ### <a name="known-limitations"></a>Kända begränsningar 
  
- Följande begränsningar är kända begränsningar i lokala kluster som körs i en behållare för Mac: 
+ Följande begränsningar är kända begränsningar i lokala kluster som körs i en container för Mac: 
  
  * DNS-tjänsten körs inte och stöds inte [Problem 132](https://github.com/Microsoft/service-fabric/issues/132)
 
@@ -178,7 +178,7 @@ Service Fabric har ramverktyg som hjälper dig att skapa ett Service Fabric-prog
 
 När du har skapat ett Service Fabric-program så kan du distribuera det med [CLI:t för Service Fabric](service-fabric-cli.md#cli-mac):
 
-1. Anslut till Service Fabric-klustret som körs i behållarinstansen på din Mac:
+1. Anslut till Service Fabric-klustret som körs i containerinstansen på din Mac:
 
     ```bash
     sfctl cluster select --endpoint http://localhost:19080
@@ -199,7 +199,7 @@ Installera [.NET Core 2.0 SDK för Mac](https://www.microsoft.com/net/core#macos
 
 Azure Service Fabric har ett plugin-program för Eclipse Neon (eller senare) för Java IDE. Med det här plugin-programmet blir det enklare att skapa och distribuera Java-tjänster. Gör [så här](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse) om du vill installera eller uppdatera Service Fabric plugin-programmet för Eclipse till den senaste versionen. De andra stegen i [Service Fabric för Eclipse-dokumentationen](service-fabric-get-started-eclipse.md) är också relevanta: skapa ett program, lägga till en tjänst i ett program, avinstallera ett program och så vidare.
 
-Det sista steget är att skapa en instans av behållaren med en sökväg som delas med värden. Den här typen av instansiering krävs för att plugin-programmet ska fungera med Docker-behållaren på din Mac. Exempel:
+Det sista steget är att skapa en instans av containern med en sökväg som delas med värden. Den här typen av instansiering krävs för att plugin-programmet ska fungera med Docker-containern på din Mac. Exempel:
 
 ```bash
 docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox microsoft/service-fabric-onebox
@@ -207,13 +207,14 @@ docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:
 
 Attributen har följande definitioner:
 * `/Users/sayantan/work/workspaces/mySFWorkspace` är den fullständiga sökvägen till arbetsytan på din Mac.
-* `/tmp/mySFWorkspace` är sökvägen inuti behållaren som arbetsytan ska mappas till.
+* 
+  `/tmp/mySFWorkspace` är sökvägen inuti containern som arbetsytan ska mappas till.
 
 >[!NOTE]
 > 
 >Om du har ett annat namn/en annan sökväg för din arbetsyta uppdaterar du de här värdena i `docker run`-kommandot.
 > 
->Om du startar behållaren med ett annat namn än `sfonebox` så bör du uppdatera namnvärdet i filen testclient.sh i Java-programmet som är Service Fabric-aktör.
+>Om du startar containern med ett annat namn än `sfonebox` så bör du uppdatera namnvärdet i filen testclient.sh i Java-programmet som är Service Fabric-aktör.
 >
 
 ## <a name="next-steps"></a>Nästa steg

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: e0b5978f1c0254cdd4c0216a4188e84f67eb4263
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 059cb0cbc7e62af16dbf95693be421feebcc1ee0
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177660"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42061727"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Använd Seriekonsol för att komma åt GRUB och enanvändarläge
 Enanvändarläge är en minimal miljö med minimal funktioner. Det kan vara användbara för att undersöka problem eller nätverksproblem som färre tjänsterna kan köras i bakgrunden och, beroende på är ett filsystem kan inte ens att automatiskt montera. Detta är användbart att undersöka situationer, till exempel ett skadat filsystem, en bruten fstab eller nätverksanslutning (felaktig iptables-konfiguration).
@@ -64,7 +64,7 @@ Om du har ställt in GRUB nätverksenheter och rotcertifikatutfärdarcertifikat 
 1. Tryck på Ctrl + X om du vill avbryta och starta om med inställningarna som används
 1. Du uppmanas att administratörslösenordet innan du kan ange enanvändarläge – detta är samma lösenord som du skapade i anvisningarna ovan    
 
-    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-systemd-unit-rescue-target.png)
+    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
 ### <a name="enter-single-user-mode-without-root-account-enabled-in-rhel"></a>Ange enanvändarläge utan rotkontot aktiverat i RHEL
 Om du inte går igenom stegen ovan för att aktivera rotanvändaren kan återställa du fortfarande rotlösenordet. Använd följande instruktioner:
@@ -81,7 +81,7 @@ Om du inte går igenom stegen ovan för att aktivera rotanvändaren kan återst�
 1. När du startar i enanvändarläge, skriva i `chroot /sysroot` byter du till den `sysroot` upplåsta
 1. Du kan nu rot. Du kan återställa rotlösenordet med `passwd` och använder anvisningarna ovan för att ange enanvändarläge. Typ `reboot -f` ska startas om när du är klar.
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-rd-break.png)
+![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
 > Obs: Kör via anvisningarna ovan förlorar du i nödfall shell, så du kan också utföra uppgifter som att redigera `fstab`. Allmänt vedertagna förslag är dock att återställa rotlösenordet och använda den för att ange enanvändarläge. 
 
@@ -136,7 +136,7 @@ GRUB-åtkomst i SLES kräver startprogrammet konfiguration via YaST. Om du vill 
 1. Om du vill ange GRUB, starta om den virtuella datorn och tryck på valfri tangent startsekvens att göra GRUB stanna kvar på skärmen
     - Standardvärdet för timeout för GRUB är 1s. Du kan ändra detta genom att ändra den `GRUB_TIMEOUT` variabel i `/etc/default/grub`
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-bootloader.png)
+![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-grub-config.gif)
 
 ### <a name="single-user-mode-in-suse-sles"></a>Enanvändarläge i SUSE SLES
 Du tas automatiskt bort i nödfall shell om SLES inte kan starta på vanligt sätt. Om du vill ange manuellt i nödfall gränssnittet, Använd följande instruktioner:

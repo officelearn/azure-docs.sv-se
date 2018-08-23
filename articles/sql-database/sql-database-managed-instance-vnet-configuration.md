@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 08/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 0fea91fb067a6d78ef25cb0ff8014b65a8b6a916
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: f634167f24c221e702696174ea86a212c535695b
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258108"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42062103"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Konfigurera ett virtuellt nätverk för Azure SQL Database Managed Instance
 
@@ -29,7 +29,7 @@ Azure SQL Database Managed Instance (förhandsversion) måste distribueras i en 
 Planera hur du distribuerar en hanterad instans i virtuellt nätverk med dina svar på följande frågor: 
 - Planerar du att distribuera en eller flera hanterade instanser? 
 
-  Antalet instanser som hanteras av anger den minsta storleken på undernätet för att allokera för dina hanterade instanser. Mer information finns i [avgör storleken på undernätet för hanterad instans](#create-a-new-virtual-network-for-managed-instances). 
+  Antalet instanser som hanteras av anger den minsta storleken på undernätet för att allokera för dina hanterade instanser. Mer information finns i [avgör storleken på undernätet för hanterad instans](#determine-the-size-of-subnet-for-managed-instances). 
 - Behöver du distribuera din hanterade instans i ett befintligt virtuellt nätverk eller du skapar ett nytt nätverk? 
 
    Om du planerar att använda ett befintligt virtuellt nätverk måste du ändra den nätverkskonfigurationen för att hantera din hanterade instans. Mer information finns i [ändra befintligt virtuellt nätverk för hanterad instans](#modify-an-existing-virtual-network-for-managed-instances). 
@@ -38,7 +38,7 @@ Planera hur du distribuerar en hanterad instans i virtuellt nätverk med dina sv
 
 ## <a name="requirements"></a>Krav
 
-För att skapa en hanterad instans måste du anger undernät i det virtuella nätverket som uppfyller följande krav:
+För att skapa en hanterad instans måste du anger ett undernät i det virtuella nätverket som uppfyller följande krav:
 - **Vara tom**: undernätet får inte innehålla andra molntjänst som är associerade med den och det får inte vara Gateway-undernätet. Du kan inte skapa Managed Instance i undernät som innehåller resurser än hanterad instans eller lägga till andra resurser i undernätet senare.
 - **Inga Nätverkssäkerhetsgrupper är**: undernätet får inte ha en Nätverkssäkerhetsgrupp som är kopplade till den.
 - **Har specifika routningstabellen**: undernätet måste ha en användare väg tabell (UDR) med 0.0.0.0/0 nästa hopp till Internet som den enda vägen tilldelade till den. Mer information finns i [skapar nödvändiga routningstabell och associerar den](#create-the-required-route-table-and-associate-it)
@@ -63,7 +63,28 @@ Om du planerar att distribuera flera hanterade instanser i undernätet och behö
 
 **Exempel**: du planerar att ha tre generella och två företag kritiska hanterade instanser. Att innebär att du behöver 5 + 3 * 2 + 2 * 4 = 19 IP-adresser. När IP-intervall är definierade i potensen 2, måste IP-adressintervall 32 (2 ^ 5) IP-adresser. Du måste därför reservera undernätet med nätmask på/27. 
 
-## <a name="create-a-new-virtual-network-for-managed-instances"></a>Skapa ett nytt virtuellt nätverk för hanterade instanser 
+## <a name="create-a-new-virtual-network-for-managed-instance-using-azure-resource-manager-deployment"></a>Skapa ett nytt virtuellt nätverk för hanterad instans med Azure Resource Manager-distribution
+
+Det enklaste sättet att skapa och konfigurera ett virtuellt nätverk är att använda Azure Resource Manager-mall för distribution.
+
+1. Logga in på Azure Portal.
+
+2. Använd **distribuera till Azure** knappen för att distribuera virtuella nätverk i Azure-molnet:
+
+  <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="http://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
+
+  Den här knappen öppnas ett formulär som du kan använda för att konfigurera nätverket där du kan distribuera Managed Instance.
+
+  > [!Note]
+  > Azure Resource Manager-mallen distribuerar virtuellt nätverk med två undernät. Ett undernät som kallas **ManagedInstances** är reserverad för hanterade instanser och har förkonfigurerade routningstabellen, medan andra undernätet kallas **standard** används för andra resurser som ska få åtkomst till hanterad Instans (till exempel Azure virtuella datorer). Du kan ta bort **standard** undernät om du inte behöver den.
+
+3. Konfigurera nätverksmiljön. Du kan konfigurera parametrar för din nätverksmiljö på följande format:
+
+![Konfigurera azure-nätverk](./media/sql-database-managed-instance-get-started/create-mi-network-arm.png)
+
+Du kan ändra namnen på VNet och undernät och justera IP-adressintervall som är kopplade till dina nätverksresurser. När du trycker på ”Köp”-knappen, kommer det här formuläret Skapa och konfigurera din miljö. Om du inte behöver två undernät kan du ta bort standardvärdet. 
+
+## <a name="create-a-new-virtual-network-for-managed-instances-using-portal"></a>Skapa ett nytt virtuellt nätverk för hanterade instanser med hjälp av portalen
 
 Skapa ett Azure-nätverk är en förutsättning för att skapa en hanterad instans. Du kan använda Azure-portalen [PowerShell](../virtual-network/quick-create-powershell.md), eller [Azure CLI](../virtual-network/quick-create-cli.md). Följande avsnitt visar stegen med Azure portal. De information som beskrivs här gäller för var och en av dessa metoder.
 
@@ -92,7 +113,7 @@ Skapa ett Azure-nätverk är en förutsättning för att skapa en hanterad insta
 
    ![virtual network create form](./media/sql-database-managed-instance-tutorial/service-endpoint-disabled.png)
 
-## <a name="create-the-required-route-table-and-associate-it"></a>Skapa nödvändiga routningstabell och koppla den
+### <a name="create-the-required-route-table-and-associate-it"></a>Skapa nödvändiga routningstabell och koppla den
 
 1. Logga in på Azure Portal  
 2. Leta upp och klicka på **Routningstabell** och klicka sedan på **Skapa** på sidan Routningstabell.

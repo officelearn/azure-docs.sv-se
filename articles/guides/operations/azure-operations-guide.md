@@ -1,6 +1,6 @@
 ---
-title: Kom igång-guide för Azure IT-operatörer | Microsoft Docs
-description: Startguide för Azure IT-operatörer
+title: Startguide för Azure IT-operatörer | Microsoft Docs
+description: Kom igång-guide för Azure IT-operatörer
 services: ''
 documentationcenter: ''
 author: themichaelbender-ms
@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 06/12/2017
+ms.date: 08/21/2018
 ms.author: mibender
-ms.openlocfilehash: 86f11e7c2d5503a0c474a6c15501a6b872c564e3
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 286b9b133bfbe633ad1fe69f66aa11b9e4c4fc1d
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072342"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056582"
 ---
-# <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introduktion till molnbaserad databehandling och Microsoft Azure
+# <a name="get-started-for-azure-it-operators"></a>Kom igång för Azure IT-operatörer
 
 Den här guiden beskriver grundläggande begrepp för distribution och hantering av en Microsoft Azure-infrastrukturen. Om du är nybörjare till molnet, eller på Azure, den här guiden hjälper dig att snabbt komma igång med begrepp, distribution och av hanteringsinformation. Många avsnitt i den här guiden beskrivs en åtgärd, till exempel distribuerar en virtuell dator och ange sedan en länk för mer detaljerad teknisk information.
 
@@ -53,27 +53,33 @@ För små företag kan Azure för en låg kostnad startpunkt möjlighet att skal
 
 Mer information om tillgängliga Azure-regioner finns i [Azure-regioner](https://azure.microsoft.com/regions/).
 
-### <a name="cloud-computing-is-classified-into-three-categories-saas-paas-and-iaas"></a>Molnbaserad databehandling klassificeras i tre kategorier: SaaS, PaaS och IaaS.
+### <a name="cloud-computing-model"></a>Datamodell för molnet
 
-#### <a name="saas-software-as-a-service"></a>SaaS: Programvara som en tjänst
-
-SaaS är programvara som är hyst och hanterad centralt. Det är vanligtvis baserat på en arkitektur med flera innehavare, en version av programmet används för alla kunder. Det kan skaländras ut till flera instanser säkerställa bästa prestanda på alla platser. SaaS-programvaran licensieras vanligtvis via en månatligt eller årligt betalning.
-
-Microsoft Office 365 är ett bra exempel på en SaaS erbjuder. Prenumeranter betala en prenumerationsavgift för månatligt eller årligt och de får Microsoft Exchange, Microsoft OneDrive och resten av Microsoft Office-paket som en tjänst. Prenumeranter får alltid den senaste versionen och Exchange-servern hanteras åt dig. Installera och uppgradera Office varje år jämfört med, detta är billigare och kräver mindre arbete.
-
-#### <a name="paas-platform-as-a-service"></a>PaaS: Plattform som en tjänst
-
-Med PaaS kan distribuera du programmet till en miljö som cloud service-leverantör har. Leverantören har alla hantering av infrastrukturen så att du kan fokusera på programutveckling.
-
-Azure tillhandahåller flera PaaS-beräkning erbjudanden, inklusive Web Apps-funktionen i Azure App Service och Azure Cloud Services (webb- och worker-roller). I båda fallen har utvecklare flera sätt att distribuera sina program utan att veta något om på detaljerna som stöder den. Utvecklare behöver inte skapa virtuella datorer (VM), Använd Remote Desktop Protocol (RDP) för att logga in på var och en eller installera programmet. De bara trycker på en knapp (eller Stäng till den) och de verktyg som tillhandahålls av Microsoft etablera de virtuella datorerna och distribuerar sedan och installera programmet på dem.
+Azure använder en modell som baseras på kategorier av tjänsten som tillhandahålls till kunder för molntjänster. Tre kategorier av tjänsten innehåller infrastruktur som en tjänst (IaaS), plattform som en tjänst (PaaS) och programvara som en tjänst (SaaS). Leverantörer delar vissa eller alla ansvaret för komponenterna i stapeln databehandling i var och en av dessa kategorier. Låt oss ta en titt på var och en av olika kategorier av cloud computing.
+![Molnbaserad databehandling Stack jämförelse](./media/cloud-computing-comparison.png)
 
 #### <a name="iaas-infrastructure-as-a-service"></a>IaaS: Infrastruktur som en tjänst
 
-En IaaS-leverantör för molnet kör och hanterar alla fysiska beräkningsresurser och programvaran som krävs för att aktivera datorvirtualisering. En kund för den här tjänsten distribuerar virtuella datorer i de här värdbaserade datacenter. Även om de virtuella datorerna finns i ett datacenter på annan plats, har IaaS-användare kontroll över konfiguration och hantering av dem.
+En IaaS-leverantör för molnet kör och hanterar alla fysiska beräkningsresurser och programvaran som krävs för att aktivera datorvirtualisering. En kund för den här tjänsten distribuerar virtuella datorer i de här värdbaserade datacenter. Även om de virtuella datorerna finns i ett datacenter på annan plats, har IaaS-användare kontroll över konfiguration och hantering av operativsystemet som lämnar den underliggande infrastrukturen till molnet-leverantören.
 
 Azure innehåller flera IaaS-lösningar inklusive virtuella datorer, skalningsuppsättningar för virtuella datorer och relaterade nätverksinfrastrukturen. Virtuella datorer är ett populärt alternativ för att migrera inledningsvis tjänster till Azure eftersom det gör det möjligt för en ”lift and shift” migration-modellen. Du kan konfigurera en virtuell dator som den infrastruktur som för närvarande körs dina tjänster i ditt datacenter och migrera sedan programvaran till den nya virtuella datorn. Du kan behöva göra uppdateringar, till exempel URL: er till andra tjänster eller lagring, men du kan migrera många program i det här sättet.
 
 VM-skalningsuppsättningar är byggda ovanpå Azure Virtual Machines och ger ett enkelt sätt att distribuera kluster av identiska virtuella datorer. VM-skalningsuppsättningar stöder även automatisk skalning så att nya virtuella datorer kan distribueras automatiskt vid behov. Detta gör VM-skalningsuppsättningar en utmärkt plattform för att på högre nivå mikrotjänst beräkning värdkluster, till exempel Azure Service Fabric och Azure Container Service.
+
+#### <a name="paas-platform-as-a-service"></a>PaaS: Plattform som en tjänst
+
+Med PaaS kan distribuera du programmet till en miljö som cloud service-leverantör har. Leverantören har alla infrastrukturhantering så att du kan fokusera på programutveckling och datahantering.
+
+Azure tillhandahåller flera PaaS-beräkning erbjudanden, inklusive Web Apps-funktionen i Azure App Service och Azure Cloud Services (webb- och worker-roller). I båda fallen har utvecklare flera sätt att distribuera sina program utan att veta något om på detaljerna som stöder den. Utvecklare behöver inte skapa virtuella datorer (VM), Använd Remote Desktop Protocol (RDP) för att logga in på var och en eller installera programmet. De bara trycker på en knapp (eller Stäng till den) och de verktyg som tillhandahålls av Microsoft etablera de virtuella datorerna och distribuerar sedan och installera programmet på dem.
+
+#### <a name="saas-software-as-a-service"></a>SaaS: Programvara som en tjänst
+
+SaaS är programvara som är hyst och hanterad centralt. Det är vanligtvis baserat på en arkitektur med flera innehavare, en version av programmet används för alla kunder. Det kan skaländras ut till flera instanser säkerställa bästa prestanda på alla platser. SaaS-programvaran licensieras vanligtvis via en månatligt eller årligt betalning. SaaS-programvaran licensieras vanligtvis via en månatligt eller årligt betalning. SaaS-programvaruleverantörer ansvarar för alla komponenter i programvara-stacken, så allt du hanterar är de tjänster som tillhandahålls.
+
+Microsoft Office 365 är ett bra exempel på en SaaS erbjuder. Prenumeranter betala en prenumerationsavgift för månatligt eller årligt och de får Microsoft Exchange, Microsoft OneDrive och resten av Microsoft Office-paket som en tjänst. Prenumeranter får alltid den senaste versionen och Exchange-servern hanteras åt dig. Installera och uppgradera Office varje år jämfört med, detta är billigare och kräver mindre arbete.
+
+
+
 
 ## <a name="azure-services"></a>Azure-tjänster
 
@@ -111,7 +117,7 @@ Tjänster för att lagra och hantera data:
 
 Tjänster för att bygga och driva program:
 
--   Azure Active Directory (AD Azure)
+-   Azure Active Directory (Azure AD)
 
 -   Azure Service Bus för att ansluta distribuerade system
 
@@ -175,6 +181,9 @@ Azure-kommandoradsgränssnittet är ett verktyg som du kan använda för att ska
 
 **REST API: er** Azure bygger på en uppsättning REST API: er som har stöd för Azure-portalens användargränssnitt. De flesta av de här REST-API: er stöds även om du vill kan du etablera och hantera dina Azure-resurser och appar från valfri Internet-aktiverad enhet programmässigt. Mer information finns i den [Azure REST SDK-referens](https://docs.microsoft.com/rest/api/index).
 
+### <a name="azure-cloud-shell"></a>Azure Cloud Shell
+
+Administratörer kan använda Azure PowerShell och Azure CLI via en webbläsare-tillgänglig upplevelse som kallas Azure Cloud Shell. Det här interaktiva gränssnittet ger ett flexibelt verktyg för Linux och Windows-administratörer använda sina kommandoradsgränssnittet föredrar, Bash eller PowerShell. Azure Cloud Shell kan vara åtkomst via portalen, som ett fristående webbgränssnitt på [shell.azure.com](https://shell.azure.com), eller från ett antal andra åtkomstpunkter. Mer information finns i [översikt av Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
 ## <a name="azure-subscriptions"></a>Azure-prenumerationer
 
 En prenumeration är en logisk gruppering av Azure-tjänster som är länkad till ett Azure-konto. Ett enskilt Azure-konto kan innehålla flera prenumerationer. Fakturering för Azure-tjänster som görs på basis av per prenumeration. Azure-prenumerationer har en kontoadministratör som har fullständig kontroll över prenumerationen och en tjänstadministratör kan vem som har kontroll över alla tjänster i prenumerationen. Förutom administratörer, enskilda konton kan få detaljerad kontroll över Azure-resurser via RBAC.
@@ -355,6 +364,7 @@ På samma sätt kan du använda Azure CLI för att distribuera en Azure Resource
 
 Du kan hantera åtkomst till den virtuella datorn över offentliga IP-adress med hjälp av en nätverksresurs security nätverkssäkerhetsgrupper (NSG). En NSG fungerar som en brandvägg och tillåter eller nekar trafik över nätverksgränssnitt eller undernät på en uppsättning definierade portar. Till exempel för att skapa en fjärrskrivbordssession med en Azure-dator, måste du konfigurera NSG tillåter inkommande trafik på port 3389. Mer information finns i [öppna portar till en virtuell dator i Azure med Azure portal](../../virtual-machines/windows/nsg-quickstart-portal.md).
 
+
 Slutligen precis som med hanteringen av alla datorsystem, bör du ge säkerhet för virtuella Azure-datorer i operativsystemet med hjälp av autentiseringsuppgifter och program.
 
 ## <a name="azure-storage"></a>Azure Storage
@@ -415,7 +425,7 @@ Det finns flera alternativ för att distribuera ett lagringskonto.
 
 **Portal**
 
-Distribuera ett lagringskonto med hjälp av Azure-portalen kräver en aktiv Azure-prenumeration och åtkomst till en webbläsare. Du kan distribuera ett nytt lagringskonto i en ny eller befintlig resursgrupp. När du har skapat lagringskontot kan skapa du en blob-behållare eller filresurs med hjälp av portalen. Du kan skapa tabell och kö lagringsentiteter programmässigt. Mer information finns i [skapa ett lagringskonto](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
+Distribuera ett lagringskonto med hjälp av Azure-portalen kräver en aktiv Azure-prenumeration och åtkomst till en webbläsare. Du kan distribuera ett nytt lagringskonto i en ny eller befintlig resursgrupp. När du har skapat lagringskontot kan skapa du en blob-behållare eller filresurs med hjälp av portalen. Du kan skapa tabell och kö lagringsentiteter programmässigt. Mer information finns i [skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md).
 
 Förutom att distribuera ett lagringskonto från Azure-portalen kan distribuera du en Azure Resource Manager-mall från portalen. Detta distribuerar och konfigurerar alla resurser som definierats i mallen, inklusive eventuella lagringskonton. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure-portalen](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 

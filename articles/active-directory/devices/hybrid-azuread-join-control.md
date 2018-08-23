@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 9ffc84009adfca60e9ae6b188b65b15e874e7d9c
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d49b5404f1a2b4ac7fa4cc170ccc010a28bf98a2
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622178"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056462"
 ---
 # <a name="how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Så här kontrollerar du hybrid Azure AD-anslutning av dina enheter
 
@@ -116,7 +116,7 @@ Du måste länka den här klientinställningen till en valfri plats. Till exempe
 
 ## <a name="control-windows-down-level-devices"></a>Styra Windows äldre enheter
 
-Om du vill registrera Windows äldre enheter, som du behöver hämta och installera Windows Installer-paketet (.msi) från Download Center på den [Microsoft Workplace Join för Windows 10-datorer](https://www.microsoft.com/en-us/download/details.aspx?id=53554) sidan.
+Om du vill registrera Windows äldre enheter, som du behöver hämta och installera Windows Installer-paketet (.msi) från Download Center på den [Microsoft Workplace Join för Windows 10-datorer](https://www.microsoft.com/download/details.aspx?id=53554) sidan.
 
 Du kan distribuera paketet med hjälp av ett system för programvarudistribution som System Center Configuration Manager. Paketet stöder alternativ för standard tyst installation med parametern tyst. [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager) Current Branch ger ytterligare fördelar jämfört med tidigare versioner, som möjligheten att spåra slutförda registreringar.
 

@@ -12,12 +12,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: c6340133971a226002ce11ae1521bdc88e3e7975
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 86cc98721681750617e374679c38ad29cf5a2362
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343296"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056292"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Hantera lösenord för tvåstegsverifiering
 
@@ -38,7 +38,7 @@ När du använder lösenord, är det viktigt att komma ihåg:
 
 Du får ett applösenord under inledande tvåstegsverifiering verifiering registreringen. Om du behöver fler än en lösenordet kan skapa du ytterligare lösenord, baserat på hur du använder tvåstegsverifiering:
 
-- **Du kan använda tvåstegsverifiering med Microsoft Azure-kontot.** Skapa och ta bort ditt lösenord med hjälp av den [Azure-portalen](https://portal.azure.com). Mer information finns i den [applösenord och tvåstegsverifiering](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) artikeln.
+- **Du kan använda tvåstegsverifiering med Microsoft Azure-kontot.** Skapa och ta bort ditt lösenord med hjälp av den [Azure-portalen](https://portal.azure.com). Mer information finns i den [applösenord och tvåstegsverifiering](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) artikeln.
 
 - **Du kan använda tvåstegsverifiering med ditt personliga Microsoft-konto.** Skapa och ta bort ditt lösenord med hjälp av den [Säkerhetsgrunder](https://account.microsoft.com/account/) sida med ditt Microsoft-konto. Mer information finns i den [applösenord och tvåstegsverifiering](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) artikeln.
 

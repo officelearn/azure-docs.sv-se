@@ -8,14 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 08/16/2018
 ms.author: byvinyal
-ms.openlocfilehash: 570eee6cc849c474cfeacf5a9ba1798f64f27183
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6b6e713c0da11a3d2c8cfbf388b84940a4542e95
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188088"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42060927"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 Det här dokumentet innehåller några av de vanligaste Microsoft Azure-gränserna, som kallas ibland också kvoter. Det här dokumentet täcker inte för närvarande alla Azure-tjänster. Med tiden, kommer listan utökats och uppdaterats så att den täcker flera av plattformen.
@@ -35,7 +35,8 @@ En ny tabell har lagts till återspeglar eventuella skillnader i begränsningar 
 
 > [!NOTE]
 > Det är viktigt att betona att kvoter för resurser i Azure-resursgrupper är per region tillgänglig för din prenumeration och är inte per prenumeration som kvoter för service management. Nu ska vi använda vCPU-kvoter som ett exempel. Om du vill öka kvoten med stöd för virtuella processorer, måste du bestämma hur många virtuella processorer som du vill använda i vilka regioner och gör sedan en specifik begäran för Azure-resursgrupp vCPU-kvoter för belopp och regioner som du vill. Om du behöver för att köra ditt program det med 30 virtuella processorer i Europa, västra, bör du därför uttryckligen begära 30 virtuella processorer i Västeuropa. Men du behöver inte en vCPU-kvot som ökar med alla andra regioner – endast Västeuropa har 30 vCPU-kvoten.
-> <!-- --> Du kan därför vara bra att tänka på följande beslutar vad dina Azure-resursgrupp kvoter måste vara för din arbetsbelastning i valfri en region och begära det beloppet i varje region där du funderar på att distributionen. Se [felsöka distributionsproblem](resource-manager-common-deployment-errors.md) mer hjälp för att identifiera dina aktuella kvoter för vissa regioner.
+> <!-- -->
+> Du kan därför vara bra att tänka på följande beslutar vad dina Azure-resursgrupp kvoter måste vara för din arbetsbelastning i valfri en region och begära det beloppet i varje region där du funderar på att distributionen. Se [felsöka distributionsproblem](resource-manager-common-deployment-errors.md) mer hjälp för att identifiera dina aktuella kvoter för vissa regioner.
 >
 >
 
@@ -51,6 +52,7 @@ En ny tabell har lagts till återspeglar eventuella skillnader i begränsningar 
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
 * [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Maps](#azure-maps-limits)
+* [Azure Policy](#azure-policy-limits)
 * [Azure Redis Cache](#azure-redis-cache-limits)
 * [Säkerhetskopiering](#backup-limits)
 * [Batch](#batch-limits)
@@ -293,6 +295,9 @@ Mer information om gränser för en mer detaljerad nivå, till exempel dokuments
 
 ### <a name="azure-maps-limits"></a>Azure Maps-gränser
 [!INCLUDE [maps-limits](../includes/maps-limits.md)]
+
+### <a name="azure-policy-limits"></a>Azure Policy-gränser
+[!INCLUDE [policy-limits](../includes/azure-policy-limits.md)]
 
 ### <a name="storsimple-system-limits"></a>StorSimple-systemet gränser
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]

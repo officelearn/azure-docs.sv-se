@@ -1,6 +1,6 @@
 ---
-title: Felsöka ditt program i Visual Studio | Microsoft Docs
-description: Förbättra tillförlitligheten och prestandan hos dina tjänster genom att utveckla och felsökning i Visual Studio dem på ett kluster för lokal utveckling.
+title: Felsöka programmet i Visual Studio | Microsoft Docs
+description: Förbättra tillförlitlighet och prestanda för dina tjänster genom att utveckla och felsöka dem i Visual Studio på ett lokalt utvecklingskluster.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -11,15 +11,16 @@ ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.workload: na
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 4582fd16d08ae8d51460dc8cabfd282e1f2cd43e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 30e432b34cc586e1671c9ffdf7b48c3997e9eb23
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206568"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442394"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Felsöka Service Fabric-program med hjälp av Visual Studio
 > [!div class="op_single_selector"]
@@ -28,43 +29,43 @@ ms.locfileid: "34206568"
 >
 
 
-## <a name="debug-a-local-service-fabric-application"></a>Felsöka ett lokala Service Fabric-program
-Du kan spara tid och pengar genom att distribuera och felsöka ditt Azure Service Fabric-program i ett kluster för utveckling av lokal dator. Visual Studio 2017 eller Visual Studio 2015 kan distribuera programmet till det lokala klustret och felsökningsprogrammet ansluta automatiskt till alla instanser av programmet.
+## <a name="debug-a-local-service-fabric-application"></a>Felsöka ett lokalt Service Fabric-program
+Du kan spara tid och pengar genom att distribuera och felsöka ditt Azure Service Fabric-program i ett kluster för utveckling av lokala datorn. Visual Studio 2017 eller Visual Studio 2015 kan distribuera programmet till det lokala klustret och ansluter automatiskt felsökningsprogrammet till alla instanser av programmet.
 
-1. Starta en lokal utveckling klustret genom att följa stegen i [ställa in din utvecklingsmiljö för Service Fabric](service-fabric-get-started.md).
-2. Tryck på **F5** eller klicka på **felsöka** > **Start Debugging**.
+1. Starta ett lokalt utvecklingskluster genom att följa stegen i [ställa in din utvecklingsmiljö för Service Fabric](service-fabric-get-started.md).
+2. Tryck på **F5** eller klicka på **felsöka** > **Starta felsökning**.
    
-    ![Starta felsökning av ett program][startdebugging]
-3. Ange brytpunkter i koden och stega igenom programmet genom att klicka på kommandon i den **felsöka** menyn.
+    ![Starta felsökning av program][startdebugging]
+3. Ange brytpunkter i din kod och gå igenom programmet genom att klicka på kommandon i den **felsöka** menyn.
    
    > [!NOTE]
-   > Visual Studio bifogar till alla instanser av programmet. När du stega igenom koden hämta brytpunkter nådde av flera processer som resulterar i samtidiga sessioner. Prova att inaktivera brytpunkter när de träffar, genom att göra varje brytpunkt villkorlig på tråd-ID eller med hjälp av diagnostiska händelser.
+   > Visual Studio kopplar till alla instanser av programmet. Medan du Stega dig igenom koden, kan du hämta träffa brytpunkter av flera processer, vilket resulterar i samtidiga sessioner. Prova att inaktivera brytpunkterna när de träffar, genom att göra varje brytpunkt villkorlig, baserat på tråd-ID eller genom att använda diagnostikhändelser.
    > 
    > 
-4. Den **diagnostiska händelser** öppnas automatiskt så att du kan visa diagnostik händelser i realtid.
+4. Den **diagnostikhändelser** fönster öppnas automatiskt så att du kan visa diagnostikhändelser i realtid.
    
-    ![Visa diagnostik händelser i realtid][diagnosticevents]
-5. Du kan också öppna den **diagnostiska händelser** fönster i Cloud Explorer.  Under **Service Fabric**, högerklicka på en nod och välj **visa strömning spårningar**.
+    ![Visa diagnostiska händelser i realtid][diagnosticevents]
+5. Du kan också öppna den **diagnostikhändelser** fönster i Cloud Explorer.  Under **Service Fabric**, högerklicka på varje nod och välj **View Streaming spårningar**.
    
-    ![Öppna fönstret diagnostiska händelser][viewdiagnosticevents]
+    ![Öppna fönstret diagnostikhändelser][viewdiagnosticevents]
    
-    Om du vill filtrera dina spår till en specifik tjänst eller ett program kan bara aktivera strömmande spårningar på den specifika tjänsten eller programmet.
-6. Diagnostiska händelser kan ses i den automatiskt genererade **ServiceEventSource.cs** filen och anropas från programkod.
+    Om du vill filtrera dina spårningar till en viss tjänst eller program kan du bara aktivera strömmande spår på den specifika tjänsten eller programmet.
+6. De diagnostiska händelserna kan ses i den automatiskt genererade **ServiceEventSource.cs** filen och anropas från programkod.
    
     ```csharp
     ServiceEventSource.Current.ServiceMessage(this, "My ServiceMessage with a parameter {0}", result.Value.ToString());
     ```
-7. Den **diagnostiska händelser** fönstret stöder filtrering, pausa och undersökning av händelser i realtid.  Filtret är en sträng sökning i händelsemeddelandet, inklusive dess innehåll.
+7. Den **diagnostikhändelser** fönster stöder filtrering, pausar och granska händelser i realtid.  Filtret är en enkel sträng-sökning i händelsemeddelandet, inklusive dess innehåll.
    
     ![Filtrera, pausa och återuppta eller granska händelser i realtid][diagnosticeventsactions]
-8. Tjänster-felsökning är precis som du felsöker andra program. Du kommer normalt ange brytpunkter via Visual Studio för enkelt felsökning. Även om tillförlitliga samlingar replikeras över flera noder, implementerar de fortfarande IEnumerable. Detta innebär att du kan använda vyn resultat i Visual Studio när du felsöker för att se vad du har lagrat i. Ange en brytpunkt bara, var som helst i koden.
+8. Felsökning av tjänster som är som felsökning alla andra program. Du kommer normalt ange brytpunkter via Visual Studio för enkel felsökning. Även om Reliable Collections replikeras över flera noder, implementerar de fortfarande IEnumerable. Detta innebär att du kan använda vyn resultat i Visual Studio när du felsöker för att se vad du har lagrat i. Konfigurera en brytpunkt helt enkelt, var som helst i din kod.
    
-    ![Starta felsökning av ett program][breakpoint]
+    ![Starta felsökning av program][breakpoint]
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-## <a name="debug-a-remote-service-fabric-application"></a>Felsöka fjärrprogram Service Fabric
-Om Service Fabric-program körs på ett Service Fabric-kluster i Azure, kan du felsöka de direkt från Visual Studio.
+## <a name="debug-a-remote-service-fabric-application"></a>Felsök en fjärransluten Service Fabric-program
+Om Service Fabric-program körs på ett Service Fabric-kluster i Azure kan kan du felsöka de direkt från Visual Studio.
 
 > [!NOTE]
 > Funktionen kräver [Service Fabric SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) och [Azure SDK för .NET 2.9](https://azure.microsoft.com/downloads/).    
@@ -73,77 +74,77 @@ Om Service Fabric-program körs på ett Service Fabric-kluster i Azure, kan du f
 
 <!-- -->
 > [!WARNING]
-> Fjärrfelsökning är avsedd för utveckling och testning scenarier och inte ska användas i produktionsmiljöer, på grund av påverkan på program som körs.
+> Fjärrfelsökning är avsedd för utveckling och testning och inte ska användas i produktionsmiljöer, på grund av effekten på program som körs.
 > 
 > 
 
-1. Navigera till klustret i **Cloud Explorer**, högerklicka och välj **aktivera felsökning**
+1. Navigera till ditt kluster i **Cloud Explorer**, högerklicka och välj **aktivera felsökning**
    
     ![Aktivera fjärrfelsökning][enableremotedebugging]
    
-    Detta kommer startar processen för att aktivera tillägget för fjärranslutna felsökning på klusternoder, samt nödvändiga nätverkskonfigurationer.
-2. Högerklicka på noden i klustret i **Cloud Explorer**, och välj **koppla felsökare**
+    Det här startar processen för att aktivera tillägget för fjärranslutna felsökning på klusternoder, samt nödvändiga konfigurationer.
+2. Högerklicka på noden i klustret i **Cloud Explorer**, och välj **bifoga felsökningsprogrammet**
    
     ![Koppla felsökare][attachdebugger]
-3. I den **koppla till process** dialogrutan, Välj den process som du vill felsöka och klicka på **bifoga**
+3. I den **koppla till process** dialogrutan, Välj den process som du vill felsöka och klicka på **Attach**
    
     ![Välj process][chooseprocess]
    
-    Namnet på processen du vill koppla till, lika med namnet på sammansättningen för tjänsten projektnamn.
+    Namnet på processen som du vill koppla till, är lika med namnet på sammansättningen för tjänsten projektnamn.
    
     Felsökningsprogrammet ska kopplas till alla noder som kör processen.
    
-   * I de fall där du felsöker en tillståndslös service, tillhör alla instanser av tjänsten på alla noder felsökningssessionen.
-   * Om du felsöker en tillståndskänslig service blir den primära repliken av någon partition active och därför fångats av felsökningsprogrammet. Om den primära repliken flyttas under felsökningssessionen, bearbetning av repliken fortfarande att vara en del av felsökningssessionen.
-   * För att fånga endast relevanta partitioner eller instanser av en viss tjänst kan använda du villkorlig brytpunkter bryta endast en specifik partition eller instansen.
+   * I fall där du felsöker en tillståndslös tjänst ingår alla instanser av tjänsten på alla noder i felsökningssessionen.
+   * Om du felsöker en tillståndskänslig tjänst, blir den primära repliken av någon partition active och därför fångats av felsökningsprogrammet. Om den primära repliken flyttar under felsökningssessionen, kan fortfarande en del av felsökningssessionen bearbetningen av den repliken.
+   * För att fånga endast relevanta partitioner eller instanser av en viss tjänst kan använda du villkorlig brytpunkter bara dela en specifik partition eller instans.
      
      ![Villkorlig brytpunkt][conditionalbreakpoint]
      
      > [!NOTE]
-     > Vi stöder för närvarande inte felsökning ett Service Fabric-kluster med flera instanser av samma körbara namn.
+     > Vi stöder för närvarande inte felsökning Service Fabric-kluster med flera instanser av samma körbara namn.
      > 
      > 
 4. När du är klar med att felsöka ditt program kan du inaktivera fjärråtkomst felsökning tillägget genom att högerklicka på klustret i **Cloud Explorer** och välj **inaktivera felsökning**
    
     ![Inaktivera fjärrfelsökning][disableremotedebugging]
 
-## <a name="streaming-traces-from-a-remote-cluster-node"></a>Strömning spår från en fjärransluten klusternod
-Du kan också att dataströmmen spårningar direkt från en fjärransluten klusternod till Visual Studio. Den här funktionen kan du dataströmmen ETW spåra händelser som genereras på en klusternod för Service Fabric.
+## <a name="streaming-traces-from-a-remote-cluster-node"></a>Strömmande spårningar från en fjärransluten klusternod
+Du kan också till stream spårningar direkt från en fjärransluten klusternod i Visual Studio. Den här funktionen kan du stream ETW spåra händelser som genereras på en Service Fabric-klusternod.
 
 > [!NOTE]
 > Den här funktionen kräver [Service Fabric SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) och [Azure SDK för .NET 2.9](https://azure.microsoft.com/downloads/).
-> Den här funktionen har endast stöd för kluster som körs i Azure.
+> Den här funktionen stöder bara kluster som körs i Azure.
 > 
 > 
 
 <!-- -->
 > [!WARNING]
-> Strömning spårningar är avsedd för utveckling och testning scenarier och inte ska användas i produktionsmiljöer, på grund av påverkan på program som körs.
-> I ett produktionsscenario ska lita på vidarebefordran av händelser med hjälp av Azure-diagnostik.
+> Strömning spårningar är avsedd för utveckling och testning och inte ska användas i produktionsmiljöer, på grund av effekten på program som körs.
+> I ett produktionsscenario lita på vidarebefordran av händelser med hjälp av Azure Diagnostics.
 > 
 > 
 
-1. Navigera till klustret i **Cloud Explorer**, högerklicka och välj **aktivera strömning spårningar**
+1. Navigera till ditt kluster i **Cloud Explorer**, högerklicka och välj **aktivera strömning spårningar**
    
     ![Aktivera remote strömmande spårningar][enablestreamingtraces]
    
-    Detta kommer startar processen för att aktivera tillägget strömmande spårningar på klusternoder, samt nödvändiga nätverkskonfigurationer.
-2. Expandera den **noder** element i **Cloud Explorer**, högerklicka på den nod som du vill strömma spår från och välj **visa strömning spårningar**
+    Det här startar processen för att aktivera tillägget strömmande spår på klusternoder, samt nödvändiga konfigurationer.
+2. Expandera den **noder** element i **Cloud Explorer**, högerklicka på noden som du vill strömma spårningar från och välj **View Streaming spårningar**
    
-    ![Visa remote strömning spårningar][viewremotestreamingtraces]
+    ![Visa remote streaming spårningar][viewremotestreamingtraces]
    
-    Upprepa steg 2 för så många noder som du vill visa spårningsinformation från. Varje noder dataström kommer att visas i ett dedikerat fönster.
+    Upprepa steg 2 för så många noder som du vill se spårningar från. Varje noder stream visas i ett dedikerat fönster.
    
-    Du är nu kunna se spårningen sänds av Service Fabric och dina tjänster. Om du vill filtrera händelser så att endast ett visst program bara ange namnet på programmet i filtret.
+    Du kan nu att se spårningarna orsakats av Service Fabric och dina tjänster. Om du vill filtrera händelser för att endast visa ett visst program bara ange namnet på programmet i filtret.
    
-    ![Visa strömning spårar][viewingstreamingtraces]
-3. När du är klar strömmande spår från klustret, du kan inaktivera fjärråtkomst strömmande spårning, genom att högerklicka på klustret i **Cloud Explorer** och välj **inaktivera strömning spårningar**
+    ![Visa spår för direktuppspelning][viewingstreamingtraces]
+3. När du är klar strömmande spårningar från ditt kluster, du kan inaktivera fjärråtkomst strömmande spårningar, genom att högerklicka på klustret i **Cloud Explorer** och välj **inaktivera direktuppspelning spårningar**
    
     ![Inaktivera fjärråtkomst strömmande spårningar][disablestreamingtraces]
 
 ## <a name="next-steps"></a>Nästa steg
-* [Testa en tjänst för Service Fabric](service-fabric-testability-overview.md).
-* [Hantera Service Fabric-program i Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+* [Testa en Service Fabric-tjänst](service-fabric-testability-overview.md).
+* [Hantera dina Service Fabric-program i Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 
 <!--Image references-->
 [startdebugging]: ./media/service-fabric-debugging-your-application/startdebugging.png

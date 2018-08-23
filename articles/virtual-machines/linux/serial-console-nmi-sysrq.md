@@ -1,6 +1,6 @@
 ---
-title: Azure Seriekonsol för GRUB och enanvändarläge | Microsoft Docs
-description: Med hjälp av Seriekonsol för grub på Azure virtuella datorer.
+title: Azure Seriekonsol för SysRq och NMI samtal | Microsoft Docs
+description: Använda Seriekonsol för för SysRq och NMI anropar i Azure virtual machines.
 services: virtual-machines-linux
 documentationcenter: ''
 author: alsin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 54b5fb4ace64cc304a8eb8ce6d762d33ae18619a
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 14bf68355550d756bd3f4da1a367133d83ddbf07
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177668"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42054197"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Använd Seriekonsol för SysRq och NMI anrop
 

@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: Felsöka anslutningsproblem för SQL | Microsoft Docs'
-description: Beskriver hur du felsöker problem med nätverksanslutningen SQL som sker med Azure AD Connect.
+description: Beskriver hur du kan felsöka anslutningsproblem för SQL som inträffar med Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 05/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ad1e5d176caff6553159c5f35fe2b199ba50769f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9a9b22d3b0c6a4bad594b7fb238360207dd25e1f
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592389"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42055956"
 ---
-# <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>Felsökning av problem med Azure AD Connect SQL-anslutningen
+# <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>Felsöka SQL anslutningsproblem med Azure AD Connect
 Den här artikeln förklarar hur du felsöker problem med nätverksanslutningen mellan Azure AD Connect och SQL Server. 
 
-Följande skärmbild visar ett vanliga fel, om SQL Server inte kan hittas.
+Följande skärmbild visar ett typiskt fel, om SQL Server inte kan hittas.
 
 ![SQL-fel](media/active-directory-aadconnect-tshoot-sql-connectivity/sql1.png)
 
@@ -35,17 +35,17 @@ Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\A
 ```
 
 >[!NOTE]
->Installera modulen behöver uppdateras till [PowerShell 5.0 (WMF 5.0)](https://www.microsoft.com/download/details.aspx?id=50395) eller senare.  
-Eller installera [PackageManagement PowerShell-moduler Preview - mars 2016 för PowerShell 3.0/4.0](https://www.microsoft.com/en-us/download/details.aspx?id=51451) 
+>Install-Module behöver uppdateras till [PowerShell 5.0 (WMF 5.0)](https://www.microsoft.com/download/details.aspx?id=50395) eller senare.  
+Eller installera [PackageManagement PowerShell-moduler Preview – mars 2016 för PowerShell 3.0/4.0](https://www.microsoft.com/download/details.aspx?id=51451) 
 
 - **Visa alla kommandon**: `Get-Command -Module AdSyncTools` 
 - **Köra powershell-funktionen**: `Connect-ADSyncDatabase` med följande parametrar
     - Server. Namnet på SQL Server.
-    - instans. (Valfritt) SQL Server-instans namn och eventuellt portnummer som du vill använda. Ange inte den här parametern om du vill använda standardinstansen.
-    - Användarnamnet. (Valfritt) Användarkonto att ansluta till. Om värdet är tomt används den för tillfället inloggade användaren. Om du ansluter till en fjärransluten SQL Server ska den vara anpassade tjänstkontot du har skapat för Azure ADConnect SQL-anslutning. Azure AD Connect använder Azure AD Connect synkroniseringstjänstkontot att autentisera till en fjärransluten SQLServer.
+    - Instans. (Valfritt) SQL Server-instans namn och eventuellt portnummer som du vill använda. Ange inte den här parametern om du vill använda standardinstansen.
+    - Användarnamnet. (Valfritt) Användarkontot kan ansluta till. Om det lämnas tomt används den inloggade användaren. Om du ansluter till en fjärransluten SQL Server som det bör vara anpassade service-konto som du har skapat för Azure ADConnect SQL-anslutning. Azure AD Connect använder Azure AD Connect-synkroniseringstjänstkontot att autentisera till en fjärransluten SQLServer.
     - Lösenordet. (Valfritt) Lösenordet för det tillhandahållna användarnamnet.
 
-Den här funktionen powershell kommer försök att binda till den angivna SQL Server och instans med de autentiseringsuppgifter som angavs i eller Använd autentiseringsuppgifter för den aktuella användaren. Om SQL Server inte kan hittas skriptet ska försöka ansluta till SQL Browser-tjänsten för att fastställa aktiverade protokoll och portar.
+Den här powershell-funktionen ska försöker binda till den angivna SQL Server och instans med de autentiseringsuppgifter som angavs i eller Använd autentiseringsuppgifter för den aktuella användaren. Om SQL Server inte går att hitta skriptet ska försöka ansluta till SQL Browser-tjänsten för att fastställa aktiverade protokoll och portar.
 
 Exempel med bara ett servernamn:
 ```
@@ -84,7 +84,7 @@ Container                        :
 PS C:\Program Files\Microsoft Azure Active Directory Connect\Tools> 
 ```
 
-Hjälp av en instans och Port som inte finns några exempel:
+Exempel med en instans och Port nummer som inte finns:
 
 ```
 PS C:\Program Files\Microsoft Azure Active Directory Connect\tools> Connect-AdSyncDatabase -Server SQL1 -Instance "INSTANCE1"

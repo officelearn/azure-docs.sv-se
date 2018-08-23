@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: df6224208e93f4a332247440933b3a4d11c1bb43
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 65ff0e47cf7a53d519bfd0c50ea4c3ebd09a5766
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283039"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41987662"
 ---
 # <a name="shipping-an-application"></a>Skicka ett program
 
@@ -31,7 +31,7 @@ Cognitive Services tal SDK kräver den [Microsoft Visual C++ Redistributable fö
 - [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
 - [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)
 
-Om ditt program använder förvaltad kod i `.Net Framework 4.6.1` eller senare krävs på måldatorn.
+Om ditt program använder förvaltad kod i `.NET Framework 4.6.1` eller senare krävs på måldatorn.
 
 Media Foundation-bibliotek måste installeras för mikrofon indata. Dessa bibliotek är en del av Windows 10 och Windows Server 2016. Det är möjligt att använda SDK: N för tal utan dessa bibliotek så länge mikrofon inte används som enheten för ljudinspelning.
 

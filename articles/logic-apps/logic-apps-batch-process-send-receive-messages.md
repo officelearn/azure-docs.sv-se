@@ -1,208 +1,222 @@
 ---
-title: Batch-bearbeta meddelanden som en grupp eller samling - Azure Logic Apps | Microsoft Docs
-description: Skicka och ta emot meddelanden för batchbearbetning i logikappar
-keywords: batch batchprocess
-author: jonfancey
-manager: jeconnoc
-editor: ''
+title: Batch bearbetar meddelanden som en grupp eller samling – Azure Logic Apps | Microsoft Docs
+description: Skicka och ta emot meddelanden som batchar i Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: divyaswarnkar
+ms.author: divswa
+manager: jeconnoc
 ms.topic: article
-ms.date: 08/7/2017
-ms.author: LADocs; estfan; jonfan
-ms.openlocfilehash: 2815ce7fe0e10aadb60eaa77b58e5395fb5c98d8
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.date: 08/19/2018
+ms.reviewer: estfan, LADocs
+ms.suite: integration
+ms.openlocfilehash: 5190e5d4191cb4d07b000920dd1be1b53e679350
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298023"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056227"
 ---
-# <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>Skicka, ta emot och batch-bearbeta meddelanden i logikappar
+# <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Skicka, ta emot och bearbetar meddelanden i Azure Logic Apps för batch
 
-Om du vill bearbeta meddelanden tillsammans i grupper du kan skicka dataobjekt eller meddelanden, till en *batch*, och sedan bearbeta de objekt som en batch. Den här metoden är användbar när du vill kontrollera dataobjekt grupperas på ett visst sätt och behandlas tillsammans. 
+För att skicka och bearbeta meddelanden tillsammans på ett visst sätt som grupper, kan du skapa en batchbearbetningen lösning som samlar in meddelanden i en *batch* tills villkor är uppfyllda för att lansera och bearbeta batch meddelanden. Batchbearbetning kan minska hur ofta logikappen bearbetar meddelanden. Den här artikeln visar hur du skapar en batchbearbetningen lösning genom att skapa två logikappar i samma Azure-prenumeration, Azure-region och följa den här ordningen: 
 
-Du kan skapa logikappar som tar emot objekt som en batch med hjälp av den **Batch** utlösare. Du kan sedan skapa logikappar som skickar objekt till en batch med hjälp av den **Batch** åtgärd.
+* Den [”batch mottagare”](#batch-receiver) logikapp som accepterar och samlar in meddelanden i en batch tills villkor har uppfyllts för lanserar och bearbetar dessa meddelanden.
 
-Det här avsnittet visar hur du kan skapa en lösning för batching genom att utföra dessa uppgifter: 
+  Kontrollera att du först skapa batch-mottagaren så du kan senare välja batch målet när du skapar batch-avsändaren.
 
-* [Skapa en logikapp som tar emot och samlar in objekt som en batch](#batch-receiver). Den här ”batch mottagare” logikapp anger batch namn och version villkor att uppfylla innan logikappen mottagare släpper och behandlar objekt. 
+* En eller flera [”batch avsändare”](#batch-sender) logic apps, som skickar meddelanden till den tidigare skapade batch-mottagaren. 
 
-* [Skapa en logikapp som skickar objekt till en batch](#batch-sender). Den här ”batch avsändaren” logikapp anger var att skicka objekt som måste vara en befintlig logikapp för batch-mottagare. Du kan också ange en unik nyckel som ett kundnummer ”partition” eller dela upp mål batch i delmängder baserat på nyckeln. På så sätt kan alla artiklar med nyckeln samlas in och bearbetas tillsammans. 
+   Du kan också ange en unik nyckel, till exempel ett kundnummer som *partitioner* eller delar batch mål i logiska delmängder baserat på nyckeln. På så sätt kan kan appen mottagare samla in alla objekt med samma nyckel och bearbeta dem tillsammans.
 
-## <a name="requirements"></a>Krav
+Kontrollera att din batch-mottagare och avsändare för batch delar samma Azure-prenumeration *och* Azure-region. Om inte, kan inte du välja batch-mottagare när du skapar batch-avsändaren eftersom de inte är synliga för varandra.
 
-Om du vill följa det här exemplet är vad du behöver:
+## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte har en prenumeration kan du [börja med ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Annars kan du [registrera dig för en prenumeration enligt principen Betala per användning](https://azure.microsoft.com/pricing/purchase-options/).
+Om du vill följa det här exemplet behöver du följande objekt:
 
-* Grundläggande kunskaper om [skapa logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
+* En Azure-prenumeration. Om du inte har en prenumeration kan du [börja med ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Eller, [registrera dig för en prenumeration med användningsbaserad betalning](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Ett e-postkonto med alla [e-providern stöds av Azure Logic Apps](../connectors/apis-list.md)
+* Ett e-postkonto med alla [e-postleverantör som stöds av Azure Logic Apps](../connectors/apis-list.md)
+
+* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
+
+* Om du vill använda Visual Studio i stället för Azure-portalen, se till att du [ställa in Visual Studio för att arbeta med Logic Apps](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 <a name="batch-receiver"></a>
 
-## <a name="create-logic-apps-that-receive-messages-as-a-batch"></a>Skapa logikappar som tar emot meddelanden som en batch
+## <a name="create-batch-receiver"></a>Skapa batch-mottagare
 
-Innan du kan skicka meddelanden till en grupp, måste du först skapa en logikapp för ”batch mottagare” med den **Batch** utlösare. På så sätt kan du välja den här mottagaren logikappen när du skapar avsändaren logikappen. För mottagaren anger du batch-namn, version villkor och andra inställningar. 
+Innan du kan skicka meddelanden till en batch, måste den batch först finnas som målet dit du skickar dessa meddelanden. Så först måste du skapa logikapp ”batch mottagare”, som börjar med den **Batch** utlösaren. På så sätt kan när du skapar logikapp ”batch avsändare” du kan välja logikapp för batch-mottagare. Batch-mottagaren fortsätter att samla in meddelanden tills villkor uppfylls för att lansera och bearbetar dessa meddelanden. Även om batch-mottagare inte behöver veta något om batch avsändare, måste batch avsändare veta mål där de kan skicka meddelanden. 
 
-Avsändaren logikappar måste veta var att skicka objekt när mottagaren logic apps inte behöver känna till något om avsändare.
+1. I den [Azure-portalen](https://portal.azure.com) eller Visual Studio, skapa en logikapp med detta namn: ”BatchReceiver” 
 
-1. I den [Azure-portalen](https://portal.azure.com), skapa en logikapp med detta namn: ”BatchReceiver” 
+2. I Logic Apps Designer, lägger du till den **Batch** utlösaren som startar logikappens arbetsflöde. I sökrutan anger du ”batch” som filter. Välj den här utlösaren: **Batch-meddelanden**
 
-2. Lägg till i Logic Apps Designer i **Batch** utlösaren som startar arbetsflödet logik app. I sökrutan anger du ”batch” som filter. Välj den här utlösaren: **Batch – Batch-meddelanden**
+   ![Lägg till ”Batch-meddelanden” utlösare](./media/logic-apps-batch-process-send-receive-messages/add-batch-receiver-trigger.png)
 
-   ![Lägga till Batch-utlösare](./media/logic-apps-batch-process-send-receive-messages/add-batch-receiver-trigger.png)
+3. Ställ in batchen mottagare egenskaper: 
 
-3. Ange ett namn för gruppen och ange villkor för att frisläppa batchen, till exempel:
-
-   * **Batch-namnet**: namnet som används för att identifiera gruppen, som är ”TestBatch” i det här exemplet.
-   * **Släpp kriterier**: batch release villkor kan baseras på antalet meddelanden, schema eller båda.
+   | Egenskap  | Beskrivning | 
+   |----------|-------------|
+   | **Batch-läge** | - **Infogad**: för att definiera versionskriterierna i batchutlösare <br>- **Integrationskontot**: för att definiera flera versionen kriterier konfigurationer via en [integrationskontot](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Du kan underhålla konfigurationerna alla på samma plats i stället för i separata logic apps med ett integrationskonto. | 
+   | **Batch-namn** | Namn för ditt batch, som är ”TestBatch” i det här exemplet och gäller endast **infogade** batch-läge |  
+   | **Versionsvillkor** | Gäller endast **infogade** batchläge och anger villkoren för att uppfylla innan bearbetning av varje batch: <p>- **Meddelande baserat på antal**: antalet meddelanden att samla in i batchen, till exempel 10 meddelanden <br>- **Storleksbaserad**: max batchstorlek i byte, till exempel 100 MB <br>- **Schemabaserat**: intervall och frekvens mellan batch versioner, till exempel 10 minuter. Du kan också ange ett startdatum och starttid. <br>- **Markera alla**: använda de angivna kriterierna. | 
+   ||| 
    
-     ![Ange information för Batch-utlösare](./media/logic-apps-batch-process-send-receive-messages/receive-batch-release-criteria.png)
+   Det här exemplet väljer alla villkor:
 
-   * **Antalet meddelanden**: antal meddelanden till håller som en batch innan du släpper för bearbetning, vilket är ”5” i det här exemplet.
+   ![Ange information för utlösare av Batch](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-criteria.png)
 
-     ![Ange information för Batch-utlösare](./media/logic-apps-batch-process-send-receive-messages/receive-batch-count-based.png)
+4. Nu ska du lägga till en eller flera åtgärder som bearbetar varje batch. 
 
-   * **Schemat**: versionsschema batch för bearbetning, vilket är ”var femte minut” i det här exemplet.
+   I det här exemplet lägger du till en åtgärd som skickar ett e-postmeddelande när batch-utlösaren utlöses. 
+   Utlösaren körs och skickar ett e-postmeddelande när batchen antingen har 10 meddelandena når 10 MB eller efter 10 minuter skicka.
 
-     ![Ange information för Batch-utlösare](./media/logic-apps-batch-process-send-receive-messages/receive-batch-schedule-based.png)
+   1. Under batch-utlösaren väljer **nytt steg**.
 
+   2. I sökrutan anger du "send email" (skicka e-post) som filter.
+   Beroende på din e-postleverantör kan välja en e-post-koppling.
+      
+      Om du har ett personligt konto, som till exempel @outlook.com eller @hotmail.com, väljer du anslutningsappen Outlook.com. 
+      Om du har en Gmail-konto väljer du Gmail-anslutningsappen. 
+      Det här exemplet används Office 365 Outlook. 
 
-4. Lägg till en annan åtgärd som skickar ett e-postmeddelande när batch-utlösaren utlöses. Varje gång som gruppen har fem objekt eller dess senaste 5 minuter skickar logikappen ett e-postmeddelande.
-
-   1. Välj under batch-utlösaren **+ nytt steg** > **lägga till en åtgärd**.
-
-   2. Skriv ”email” (e-post) som filter i sökrutan.
-   Baserat på din e-leverantör, Välj en e-anslutning.
-   
-      Om du har ett arbets- eller skolkonto konto väljer du exempelvis Office 365 Outlook connector. 
-      Om du har en Gmail-konto, Välj den Gmail-anslutningen.
-
-   3. Väljer den här åtgärden för din connector: **{*e-providern*} – skicka ett e-postmeddelande**
+   3. Välj den här åtgärden: **skicka ett e-postmeddelande - <*e-postleverantör*>**
 
       Exempel:
 
-      ![Välj ”Skicka ett e-postmeddelande” åtgärd för din e-provider](./media/logic-apps-batch-process-send-receive-messages/add-send-email-action.png)
+      ![Välj åtgärden ”Skicka ett e-postmeddelande” för din e-postleverantör](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-send-email-action.png)
 
-5. Om du inte tidigare skapade en anslutning för e-post-providern, ange din e-post-autentiseringsuppgifter för autentisering när du uppmanas. Lär dig mer om [autentisera dina autentiseringsuppgifter för e-](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+5. Logga in på ditt e-postkonto om du uppmanas att göra det. 
 
-6. Ange egenskaper för den åtgärd som du just lagt till.
+6. Ange egenskaper för den åtgärd som du har lagt till.
 
    * Ange mottagarens e-postadress i fältet **Till**. 
    I testsyfte kan du använda din egen e-postadress.
 
-   * I den **ämne** rutan när den **dynamiskt innehåll** lista visas, väljer du den **partitionsnamnet** fältet.
+   * I den **ämne** rutan när den dynamiska innehållslistan visas, Välj den **partitionsnamnet** fält.
 
-     ![Välj i listan ”dynamiskt innehåll” ”partitionsnamnet”](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details.png)
+     ![Från den dynamiska innehållslistan, väljer du ”partitionsnamnet”](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details.png)
 
-     Du kan ange en unik partitionsnyckel som dividerar mål batch i logiska grupper där du kan skicka meddelanden i ett senare avsnitt. 
-     Varje uppsättning har ett unikt nummer som genereras av avsändaren logikappen. 
-     Den här funktionen kan du använda en enda grupp med flera delar och definiera varje uppsättning med det namn som du anger.
+     Du kan ange en unik partitionsnyckel som delar batch mål i logiska undergrupper där du kan skicka meddelanden i ett senare avsnitt. 
+     Varje uppsättning har ett unikt nummer som genereras av batch avsändaren logikappen. 
+     Den här funktionen kan du använda en enskild batch med flera delmängder och definiera varje undergrupp med det namn som du anger.
 
-   * I den **brödtext** rutan när den **dynamiskt innehåll** lista visas, väljer du den **meddelande-Id** fältet.
+     > [!IMPORTANT]
+     > En partition har en gräns på 5 000 meddelanden eller 80 MB. Om villkoren är uppfyllt, kan Logic Apps frigöra batch, även när definierade versionen villkoret inte uppfylls.
 
-     ![Välj för ”text”, ”meddelande-Id”](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details-for-each.png)
+   * I den **brödtext** rutan när den dynamiska innehållslistan visas, Välj den **meddelande-Id** fält. 
 
-     Eftersom indata för åtgärden Skicka e-post är en matris med designer lägger automatiskt till en **för varje** Slinga runt den **skickar ett e-** åtgärd. 
-     Denna loop utför åtgärden inre på varje objekt i gruppen. 
-     Så med batch-utlösare är inställd på fem artiklar får du gång fem e-post varje utlösare utlöses.
+     Logic Apps Designer lägger automatiskt till en ”för var och en” loopen omkring åtgärden Skicka e-postmeddelandet eftersom åtgärden accepterar en matris som indata. 
+     Den här loopen skickar ett e-postmeddelande för varje meddelande i batchen. 
+     Så när batch-utlösaren har angetts till 10 meddelanden du får gång 10 e-postmeddelanden varje utlösaren.
 
-7.  Nu när du har skapat en batch mottagaren logikapp spara din logikapp.
+     ![Välj ”meddelande-Id” för ”Body”](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details-for-each.png)
+
+7.  Spara din logikapp. Nu har du skapat en batch-mottagare.
 
     ![Spara din logikapp](./media/logic-apps-batch-process-send-receive-messages/save-batch-receiver-logic-app.png)
 
-    > [!IMPORTANT]
-    > En partition har en gräns på 5 000 meddelanden eller 80 MB. Om antingen är uppfyllt, kan batchen frigöras, även när den användardefinierade inte är uppfyllt.
-
+8. Om du använder Visual Studio, se till att du [distribuera logikappen batch mottagare till Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure). Du kan inte annars väljer du batch-mottagare när du skapar batch-avsändaren.
 
 <a name="batch-sender"></a>
 
-## <a name="create-logic-apps-that-send-messages-to-a-batch"></a>Skapa logikappar som skickar meddelanden till en grupp
+## <a name="create-batch-sender"></a>Skapa batch-avsändare
 
-Nu ska du skapa en eller flera logikappar som skickar objekt i gruppen som definieras av logikappen mottagare. För avsändaren anger du logikappen mottagare och batch-namn, meddelandeinnehåll och andra inställningar. Alternativt kan du ange en unik partitionsnyckel om du vill dela upp gruppen i delmängder att samla in objekt med nyckeln.
+Nu ska du skapa en eller flera batch avsändaren logikappar som skickar meddelanden till logikappen batch mottagare. I varje batch-avsändaren anger du batch-mottagaren och batchnamn meddelandeinnehåll och eventuella andra inställningar. Du kan också ange en unik partitionsnyckel för att dela upp gruppen i logiska underuppsättningar för att samla in meddelanden med nyckeln. 
 
-Avsändaren logikappar måste veta var att skicka objekt när mottagaren logic apps inte behöver känna till något om avsändare.
+* Kontrollera att du har redan [skapade mottagaren som batch](#batch-receiver) så när du skapar batch-avsändaren, du kan välja befintliga batch mottagaren som mål. Även om batch-mottagare inte behöver veta något om batch avsändare, måste batch avsändare veta var du vill skicka meddelanden. 
+
+* Kontrollera att din batch-mottagare och avsändare för batch delar samma Azure-region *och* Azure-prenumeration. Om inte, kan inte du välja batch-mottagare när du skapar batch-avsändaren eftersom de inte är synliga för varandra.
 
 1. Skapa en annan logikapp med detta namn: ”BatchSender”
 
    1. I sökrutan anger du ”återkommande” som filter. 
-   Välj den här utlösaren: **Schema – återkommande**
+   Välj den här utlösaren: **upprepning - schema**
 
-      ![Lägga till ”Schemalägg återkommande”-utlösare](./media/logic-apps-batch-process-send-receive-messages/add-schedule-trigger-batch-receiver.png)
+      ![Lägg till ”--upprepningsschemat”-utlösare](./media/logic-apps-batch-process-send-receive-messages/add-schedule-trigger-batch-sender.png)
 
-   2. Ange frekvensen och intervall för att köra avsändaren logikapp varje minut.
+   2. Anger du frekvens och intervall för att köra avsändaren logikapp varje minut.
 
-      ![Ange frekvensen och intervall för upprepning utlösare](./media/logic-apps-batch-process-send-receive-messages/recurrence-trigger-batch-receiver-details.png)
+      ![Ange frekvens och intervall för utlösare för upprepning](./media/logic-apps-batch-process-send-receive-messages/recurrence-trigger-batch-sender-details.png)
 
-2. Lägg till ett nytt steg för att skicka meddelanden till en batch.
+2. Lägg till en ny åtgärd för att skicka meddelanden till en batch.
 
-   1. Välj under utlösaren återkommande **+ nytt steg** > **lägga till en åtgärd**.
+   1. Välj under upprepningsutlösaren, **nytt steg**.
 
    2. I sökrutan anger du ”batch” som filter. 
+   Välj den **åtgärder** och sedan välja den här åtgärden: **Välj ett Logic Apps-arbetsflöde med en batchutlösare - skicka meddelanden till batchen**
 
-   3. Välj den här åtgärden: **skicka meddelanden till batch – Välj ett arbetsflöde för Logic Apps med batch-utlösare**
+      ![Välj ”Välj ett Logic Apps-arbetsflöde med en batchutlösare”](./media/logic-apps-batch-process-send-receive-messages/send-messages-batch-action.png)
 
-      ![Välj ”Skicka meddelanden till batch”](./media/logic-apps-batch-process-send-receive-messages/send-messages-batch-action.png)
+   3. Välj din logikapp för batch-mottagare som du skapade tidigare.
 
-   4. Nu välja ”BatchReceiver” logikappen som du skapade tidigare, som nu visas som en åtgärd.
-
-      ![Välj ”batch mottagare” logikapp](./media/logic-apps-batch-process-send-receive-messages/send-batch-select-batch-receiver.png)
+      ![Välj ”batch mottagare” logikapp](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch-receiver.png)
 
       > [!NOTE]
-      > I listan visas också andra logikappar som har batch-utlösare.
+      > I listan visas också andra logikappar som har batchutlösare. 
+      > 
+      > Om du använder Visual Studio, och du inte ser alla batch-mottagare du vill välja, kontrollerar du att du har distribuerat mottagaren som batch till Azure. Om du inte gjort det, lär du dig hur du [distribuera logikappen batch mottagare till Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure). 
 
-3. Ange Batchegenskaper.
+   4. Välj den här åtgärden: **Batch_messages - <*your-batch-mottagare*>**
 
-   * **Batch-namnet**: batch-namn som definierats av logikappen mottagare som är ”TestBatch” i det här exemplet och verifieras vid körning.
+      ![Välj den här åtgärden ”: Batch_messages - < your-logic-app >”](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
 
-     > [!IMPORTANT]
-     > Kontrollera att du inte ändra namnet, vilket måste matcha namnet som anges av logikappen mottagare.
-     > Ändra namnet på batch gör att avsändaren logikapp misslyckas.
+3. Ställ in batchen avsändarens egenskaper:
 
-   * **Meddelande innehåll**: meddelandeinnehåll som du vill skicka. 
-   I det här exemplet lägger du till det här uttrycket som infogar aktuellt datum och tid i meddelandeinnehåll som du skickar till gruppen:
+   | Egenskap  | Beskrivning | 
+   |----------|-------------| 
+   | **Batch-namn** | Batchnamn som definierats av logikappen mottagare som är ”TestBatch” i det här exemplet <p>**Viktiga**: batch-namn hämtar verifieras vid körning och måste matcha namnet som angetts av logikappen mottagare. Ändrar namnet på batch gör att avsändaren batch misslyckas. | 
+   | **Meddelandeinnehåll** | Innehållet för det meddelande du vill skicka | 
+   ||| 
 
-     1. När den **dynamiskt innehåll** lista visas, väljer **uttryck**. 
-     2. Anger uttrycket **utcnow()**, och välj **OK**. 
+   I det här exemplet lägger du till det här uttrycket som infogar aktuellt datum och tid i meddelandeinnehåll som du skickar till batch:
 
-        ![Välj ”uttryck” i ”meddelande innehåll”. Ange ”utcnow()”.](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-details.png)
+   1. Klicka i den **meddelandeinnehållet** box. 
 
-4. Nu ställa in en partition för gruppen. I ”BatchReceiver”-åtgärd väljer **visa avancerade alternativ**.
+   2. När den dynamiska innehållslistan visas väljer du **uttryck**. 
 
-   * **Partitionera namnet**: ett valfritt unikt partitionsnyckel ska användas för att dela mål batch. Lägg till ett uttryck som genererar ett slumptal mellan en och fem i det här exemplet.
+   3. Ange uttrycket `utcnow()`, och välj sedan **OK**. 
+
+      ![Välj ”uttryck” i ”meddelandeinnehåll”, ange ”utcnow()” och välj ”OK”.](./media/logic-apps-batch-process-send-receive-messages/batch-sender-details.png)
+
+4. Konfigurera nu en partition för batch. I ”BatchReceiver”-åtgärd väljer **visa avancerade alternativ** och ange dessa egenskaper:
+
+   | Egenskap  | Beskrivning | 
+   |----------|-------------| 
+   | **Partitionsnamn** | En valfri unik partitionsnyckel ska användas för att dela upp batch mål i logiska delmängder och samla in meddelanden baserat på nyckeln | 
+   | **Meddelande-Id** | Ett valfritt meddelande-ID som är en genererad globalt unik identifierare (GUID) när den är tom | 
+   ||| 
+
+   I det här exemplet i den **partitionsnamnet** lägger du till ett uttryck som genererar ett slumptal mellan en och fem. Lämna den **meddelande-Id** tom.
    
-     1. När den **dynamiskt innehåll** lista visas, väljer **uttryck**.
-     2. Ange det här uttrycket: **rand(1,6)**
+   1. Klicka i den **partitionsnamnet** så att den dynamiska innehållslistan visas. 
 
-        ![Skapa en partition för mål-batch](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-partition-advanced-options.png)
+   2. Välj **Expression** (Uttryck) i listan med dynamiskt innehåll.
+   
+   3. Ange uttrycket `rand(1,6)`, och välj sedan **OK**.
 
-        Detta **SLUMP** funktionen genererar ett tal mellan en och fem. 
-        Du är så att dela den här batchen i fem numrerade partitioner, som det här uttrycket anger dynamiskt.
+      ![Konfigurera en partition för mål-batch](./media/logic-apps-batch-process-send-receive-messages/batch-sender-partition-advanced-options.png)
 
-   * **Meddelande-Id**: ett valfritt meddelande-ID och ett GUID som genererats när den är tom. 
-   I det här exemplet lämnar du rutan tom.
+      Detta **rand** funktionen genererar ett tal mellan en och fem. 
+      Du är så att dela den här batchen i fem numrerade partitioner, som det här uttrycket anger dynamiskt.
 
-5. Spara din logikapp. Logikappen avsändaren nu ser ut ungefär så här:
+5. Spara din logikapp. Logikappen avsändare ser nu ut ungefär så det här exemplet:
 
-   ![Spara logikappen avsändaren](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-details-finished.png)
+   ![Spara logikappen avsändaren](./media/logic-apps-batch-process-send-receive-messages/batch-sender-finished.png)
 
-## <a name="test-your-logic-apps"></a>Testa dina logic apps
+## <a name="test-your-logic-apps"></a>Testa dina logikappar
 
-Lämna dina logic apps kör några minuter för att testa din batching lösning. Du startar snart få e-post i grupper med fem, alla med samma partitionsnyckel.
+Testa din batchbearbetningen lösning genom att lämna dina logikappar som körs under ett par minuter. Du börjar snart emot e-postmeddelanden i grupper med fem, allt med samma partitionsnyckel.
 
-Logikappen BatchSender körs varje minut, genererar ett slumptal mellan en och fem och använder den här genererat nummer som partitionsnyckel för mål-batch där meddelanden skickas. Varje gång som gruppen har fem objekt med samma partitionsnyckel logikappen BatchReceiver utlöses och skickar e-post för varje meddelande.
+Logikappen batch avsändaren körs varje minut, genererar ett slumptal mellan en och fem och använder den här genererat nummer som partitionsnyckel för batch-mål där meddelanden skickas. Varje gång som batch har fem objekt med samma partitionsnyckel logikappen batch mottagare utlöses och skickar e-post för varje meddelande.
 
 > [!IMPORTANT]
-> När du är klar testning, se till att du inaktiverar BatchSender logikappen så att stoppa meddelanden och undvika överbelastning av din inkorg.
+> När du är klar testning, se till att du inaktiverar BatchSender logic app för att sluta skicka meddelanden och undvika överbelastning av din inkorg.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa på definitioner för logic appen med hjälp av JSON](../logic-apps/logic-apps-author-definitions.md)
-* [Skapa en serverlösa app i Visual Studio med Azure Logikappar och funktioner](../logic-apps/logic-apps-serverless-get-started-vs.md)
+* [Skapa logikappsdefinitioner med hjälp av JSON](../logic-apps/logic-apps-author-definitions.md)
+* [Skapa en app utan server i Visual Studio med Azure Logic Apps och Functions](../logic-apps/logic-apps-serverless-get-started-vs.md)
 * [Undantagshantering och felloggning för logic apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)

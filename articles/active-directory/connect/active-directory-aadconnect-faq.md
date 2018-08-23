@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1897f2c5d532c030b2711a35eabeefd889f560c8
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 4f3ffb3c769adeabd1edc10ce064653f7b336330
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265003"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056786"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect – vanliga frågor och svar
 
@@ -65,7 +65,7 @@ För att göra det enkelt, rekommenderar vi att användare som installerar Azure
 Alla nätverksprogramvara, fysiska enheter eller något annat som begränsar den maximala tid som anslutningar ska vara aktiva bör använda ett tröskelvärde för minst fem minuter (300 sekunder) för anslutning mellan den server där Azure AD Connect-klienten är installerad och Azure Active Directory. Den här rekommendationen gäller även för alla utgivna Microsoft Identity-synkroniseringsverktyg.
 
 **F: är enkla domännamn utan toppdomän (SLDs) stöds?**  
-Medan vi rekommenderar inte att den här konfigurationen ([finns i artikeln](https://support.microsoft.com/en-us/help/2269810/microsoft-support-for-single-label-domains)), med hjälp av Azure AD Connect-synkronisering med en enkel domän utan toppdomän stöds, så länge nätverkskonfigurationen för den enda nivå domänen fungerar korrekt.
+Medan vi rekommenderar inte att den här konfigurationen ([finns i artikeln](https://support.microsoft.com/help/2269810/microsoft-support-for-single-label-domains)), med hjälp av Azure AD Connect-synkronisering med en enkel domän utan toppdomän stöds, så länge nätverkskonfigurationen för den enda nivå domänen fungerar korrekt.
 
 **F: är skogar med åtskilt AD-domäner som stöds?**  
 Nej, Azure AD Connect har inte stöd för lokala skogar som innehåller åtskilda namnområden.
@@ -91,8 +91,8 @@ Nej. Ändra servernamnet återger Synkroniseringsmotorn inte ansluta till SQL-da
 **F: Varför matchar inte den lokala UPN i attributet userPrincipalName (UPN) i Azure AD?**  
 Information finns i följande artiklar:
 
-* [Användarnamn i Office 365, Azure eller Intune matchar inte den lokala UPN eller alternativa inloggnings-ID](https://support.microsoft.com/en-us/kb/2523192)
-* [Ändringarna synkroniserats inte av verktyget Azure Active Directory-synkronisering när du har ändrat UPN-namnet för ett användarkonto om du vill använda en annan federerad domän](https://support.microsoft.com/en-us/kb/2669550)
+* [Användarnamn i Office 365, Azure eller Intune matchar inte den lokala UPN eller alternativa inloggnings-ID](https://support.microsoft.com/kb/2523192)
+* [Ändringarna synkroniserats inte av verktyget Azure Active Directory-synkronisering när du har ändrat UPN-namnet för ett användarkonto om du vill använda en annan federerad domän](https://support.microsoft.com/kb/2669550)
 
 Du kan också konfigurera Azure AD för att tillåta Synkroniseringsmotorn att uppdatera UPN-namnet, enligt beskrivningen i [funktioner i Azure AD Connect sync service](active-directory-aadconnectsyncservice-features.md).
 
@@ -134,11 +134,11 @@ Att köra PowerShell-skriptet [ladda ned skriptet](https://aka.ms/repairaadconne
 
 Om du vill uppgradera manuellt, måste du hämta och kör den senaste versionen av filen AADConnect.msi.
  
--  Om din nuvarande version är äldre än 1.1.750.0, [ladda ned och uppgradera till den senaste versionen](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+-  Om din nuvarande version är äldre än 1.1.750.0, [ladda ned och uppgradera till den senaste versionen](https://www.microsoft.com/download/details.aspx?id=47594).
 - Om din Azure AD Connect-version är 1.1.750.0 eller senare, ingen ytterligare åtgärd krävs. Du använder redan den version som innehåller automatisk Klientuppgradering korrigeringen. 
 
 **F: Jag har fått ett e-postmeddelande som talar om att uppgradera till den senaste versionen för att aktivera automatisk uppgradering. Jag använder version 1.1.654.0. Behöver jag uppgradera?**  
-Ja, du måste uppgradera till version 1.1.750.0 eller senare för att aktivera automatisk uppgradering. [Ladda ned och uppgradera till den senaste versionen](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+Ja, du måste uppgradera till version 1.1.750.0 eller senare för att aktivera automatisk uppgradering. [Ladda ned och uppgradera till den senaste versionen](https://www.microsoft.com/download/details.aspx?id=47594).
 
 **F: Jag har fått ett e-postmeddelande som talar om att uppgradera till den senaste versionen för att aktivera automatisk uppgradering. Om jag har använt PowerShell för att aktivera automatisk uppgradering, fortfarande behöver jag installera den senaste versionen?**  
 Ja, du behöver uppgradera till version 1.1.750.0 eller senare. Automatisk Klientuppgradering problemet finns i versioner innan 1.1.750.0 minimera inte när du aktiverar tjänsten Automatiska uppgraderingar med PowerShell.
@@ -190,7 +190,7 @@ Om du behöver för att uppgradera till en nyare version av Azure AD Connect, ö
 ## <a name="troubleshooting"></a>Felsökning
 **F: hur kan jag få hjälp med Azure AD Connect?**
 
-[Söka i Microsoft Knowledge Base (KB)](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
+[Söka i Microsoft Knowledge Base (KB)](https://www.microsoft.com/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
 
 * Sök KB för tekniska lösningar på vanliga problem för reparation om support för Azure AD Connect.
 

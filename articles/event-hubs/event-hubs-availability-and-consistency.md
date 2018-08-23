@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2017
+ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 67a7a701eb7700fab9aa9d0ec22354cc1618f856
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 9b4d992d690bb3237f8c92e44020c0ac83978d7e
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004702"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42060929"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Tillgänglighet och konsekvens i Event Hubs
 
@@ -37,7 +37,7 @@ Brewers satsen definierar konsekvens och tillgänglighet på följande sätt:
 Händelsehubbar är byggt på en modell med partitionerade data. Du kan konfigurera antalet partitioner i din event hub under installationen, men du kan inte ändra det här värdet senare. Eftersom du måste använda partitioner med Event Hubs, måste du fatta ett beslut om tillgänglighet och konsekvens för ditt program.
 
 ## <a name="availability"></a>Tillgänglighet
-Det enklaste sättet att komma igång med Event Hubs är att använda standardbeteendet. Om du skapar en ny ** [EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) ** objektet och använda den ** [skicka](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_) ** metod, distribueras automatiskt dina händelser mellan partitioner i event hub. Det här beteendet kan störst drifttid.
+Det enklaste sättet att komma igång med Event Hubs är att använda standardbeteendet. Om du skapar en ny **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** objektet och använda den **[skicka](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** metod, distribueras automatiskt dina händelser mellan partitioner i event hub. Det här beteendet kan störst drifttid.
 
 Den här modellen är prioriterade för användningsfall som kräver högsta drifttid.
 

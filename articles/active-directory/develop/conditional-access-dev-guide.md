@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: 7b41d3af5fbbbef90676fe37056b69d89c4f6c48
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: ab6936d62aac5502d70239bacfbfd15bd6b793ab
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581850"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42059924"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Vägledning för utvecklare för villkorlig åtkomst i Azure Active Directory
 
@@ -78,7 +78,7 @@ Utvecklare kan dra denna utmaning och lägger till dem till en ny begäran till 
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-Azure AD villkorlig åtkomst är en funktion som ingår i [Azure AD Premium](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis#choose-an-edition). Du kan lära dig mer om Licensieringskrav i den [olicensierad användningsrapporten](../active-directory-conditional-access-unlicensed-usage-report.md). Utvecklare kan ansluta till den [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), vilket omfattar en kostnadsfri prenumeration på Enterprise Mobility Suite, som innehåller Azure AD Premium.
+Azure AD villkorlig åtkomst är en funktion som ingår i [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis#choose-an-edition). Du kan lära dig mer om Licensieringskrav i den [olicensierad användningsrapporten](../active-directory-conditional-access-unlicensed-usage-report.md). Utvecklare kan ansluta till den [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), vilket omfattar en kostnadsfri prenumeration på Enterprise Mobility Suite, som innehåller Azure AD Premium.
 
 ### <a name="considerations-for-specific-scenarios"></a>Överväganden för specifika scenarier
 

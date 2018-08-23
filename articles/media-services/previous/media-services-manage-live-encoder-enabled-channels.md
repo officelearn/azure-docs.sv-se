@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 08/20/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: f4b57241085381f4b975c07038b41133b8a4319b
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 008fac84eedfd58cbcfe563504a50bc19d519382
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436199"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056141"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Liveuppspelning med Azure Media Services för att skapa dataströmmar med flera bithastigheter
 
@@ -130,7 +130,7 @@ Om den **typ av kodare** är inställd på **Standard**, giltiga alternativ är:
 * Enkel bithastighet **fragmenterad MP4** (Smooth Streaming)
 
 #### <a id="single_bitrate_RTMP"></a>RTMP med enkel bithastighet
-Att tänka på:
+Överväganden:
 
 * Den inkommande dataströmmen får inte innehålla flera bithastigheter video
 * Videoströmmen bör ha ett genomsnittligt bithastighet under 15 Mbit/s
@@ -153,7 +153,7 @@ Vanligt användningsfall:
 
 Använd en lokal livekodare från leverantörer som Elemental tekniker, Ericsson, Ateme, Envivio skickar Indataströmmen via det öppna internet i närheten Azure-datacenter.
 
-Att tänka på:
+Överväganden:
 
 Samma som för [RTMP med enkel bithastighet](media-services-manage-live-encoder-enabled-channels.md#single_bitrate_RTMP).
 
@@ -228,7 +228,8 @@ Observera att om du behöver anpassade förinställningar, bör du kontakta amsl
 | 200 |340 |192 |30 |Baslinje |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Utdata ljud Stream
-Ljud kodas till stereo AAC-LC med 64 kbit/s, samplingsfrekvensen 44,1 kHz.
+
+Ljud kodas till stereo AAC-LC på 128 kbit/s, samplingsfrekvensen 48 kHz.
 
 ## <a name="signaling-advertisements"></a>Annonser-signalering
 När din kanal har Live Encoding aktiverad, du har en komponent i din pipeline som är bearbetningen video och kan ändra den. Du kan signalera kanalen att infoga pekdatorer och/eller reklam i den utgående dataströmmen med anpassningsbar bithastighet. Bakgrundsbilder är stillbilder som du kan använda för att täcka den inkommande direktsändningen i vissa fall (exempelvis under en reklampaus). Annonserar signaler är tiden synkroniserad signaler du bädda in i den utgående dataströmmen som talar om videospelaren vidta några särskilda åtgärder – till exempel för att växla till ett meddelande vid rätt tidpunkt. Se den här [blogg](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/) en översikt över SCTE 35 signaling mekanismen som används för detta ändamål. Nedan visas ett typiskt scenario kan du implementera i live-händelsen.
@@ -244,7 +245,7 @@ Följande är de egenskaper som du kan ange när signalering annonser.
 Varaktighet i sekunder, för reklampaus. Detta måste vara ett positivt värde inte är noll för att starta reklampaus. När en reklampaus pågår och varaktigheten nollställs med CueId matchar pågående reklampaus, och sedan den break har avbrutits.
 
 ### <a name="cueid"></a>CueId
-Ett unikt ID för reklampaus, som ska användas av nedströms program för att vidta lämpliga åtgärder. Måste vara ett positivt heltal. Du kan ange ett värde och ett slumpmässigt positivt heltal eller använda en överordnad system för att spåra stack-ID: N. Kontrollera att normalisera eventuella ID: n till positiva heltal innan du skickar via API: et.
+Ett unikt ID för reklampaus, som ska användas av nedströms program för att vidta lämpliga åtgärder. Måste vara ett positivt heltal. Du kan ange ett värde och ett slumpmässigt positivt heltal eller använda en överordnad system för att spåra stack-ID: N. Kontrollera att normalisera eventuella ID: N till positiva heltal innan du skickar via API: et.
 
 ### <a name="show-slate"></a>Visa bakgrundsbild
 Valfri. Signalerar livekodaren att växla till den [standard bakgrundsbild](media-services-manage-live-encoder-enabled-channels.md#default_slate) avbildningen under en reklampaus och dölja den inkommande Videoupptagning. Ljudet är också avstängt under bakgrundsbild. Standardvärdet är **FALSKT**. 
@@ -281,7 +282,7 @@ Om den **standard reservera tillgångs-Id** inte anges och **Infoga bakgrundsbil
 ## <a name="channels-programs"></a>Kanalens program
 En kanal är associerad till program som gör att du kan styra publicering och lagring av segment i en direktsänd dataström. Kanaler hanterar program. Relationen mellan kanal och Program liknar traditionella media där en kanal har en konstant ström av innehåll och ett program är begränsat till viss tidsinställd händelse på kanalen.
 
-Du kan ange det antal timmar som du vill behålla inspelat innehåll för programmet genom att ställa in längden för **Arkivfönster**. Det här värdet kan anges från minst 5 minuter till högst 25 timmar. Även arkivfönstrets längd påverkar den maximala tid som klienter kan söka bakåt i tiden från den aktuella direktsända positionen. Program kan köras under den angivna tidsperioden men innehåll som understiger fönsterlängden ignoreras kontinuerligt. Värdet för den här egenskapen avgör också hur länge klientmanifesten kan växa.
+Du kan ange det antal timmar som du vill behålla inspelat innehåll för programmet genom att ställa in längden för **Arkivfönster**. Det här värdet kan anges från minst 5 minuter till högst 25 timmar. Arkiveringsfönstret avgör också det maximala antalet klienter kan söka bakåt i tiden från den aktuella direktsända positionen. Program kan köras under den angivna tidsperioden men innehåll som understiger fönsterlängden ignoreras kontinuerligt. Värdet för den här egenskapen avgör också hur länge klientmanifesten kan växa.
 
 Varje program som är associerad med en tillgång som lagrar strömmas innehållet. En tillgång är mappad till en block blob-behållare i Azure Storage-kontot och filerna i tillgången lagras som blobar i behållaren. Om du vill publicera programmet så att dina kunder kan visa dataströmmen måste du skapa en OnDemand-positionerare för den associerade tillgången. Med den här lokaliseraren kan du skapa en strömnings-URL som du kan tillhandahålla till dina klienter.
 
@@ -338,7 +339,7 @@ Följande tabell visar hur kanaltillstånd mappas till faktureringsläge.
 
 ## <a name="known-issues"></a>Kända problem
 * Kanalen starttider har förbättrats till ett medelvärde för 2 minuter, men ibland med ökad efterfrågan kan fortfarande ta upp till 20 + minuter.
-* Statiska bilder ska följa begränsningar beskrivs [här](media-services-manage-live-encoder-enabled-channels.md#default_slate). Om du försöker skapa en kanal med en standard bakgrundsbild som är större än 1920 x 1080, begäran kommer så småningom avbryts.
+* Statiska bilder ska följa begränsningar beskrivs [här](media-services-manage-live-encoder-enabled-channels.md#default_slate). Om du försöker skapa en kanal med en standard bakgrundsbild som är större än 1920 x 1080, kommer så småningom begäran avbryts.
 * Återigen... Glöm inte att stoppa din kanaler när du är klar direktuppspelning. Om du inte, fakturering kommer att fortsätta.
 
 ## <a name="next-step"></a>Nästa steg

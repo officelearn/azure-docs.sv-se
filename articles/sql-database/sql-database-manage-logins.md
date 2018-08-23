@@ -1,34 +1,32 @@
 ---
 title: 'Azure SQL: inloggningar och användare | Microsoft Docs'
-description: Lär dig mer om SQL Database säkerhetshantering, särskilt hur du hanterar säkerheten för databasåtkomst och inloggning via huvudnamnkonto på servernivå.
+description: Lär dig mer om SQL Database och SQL Data Warehouse säkerhetshantering, särskilt hur du hanterar och inloggningssäkerhet databassäkerhet via på servernivå huvudkonto.
 keywords: sql database-säkerhet, hantering av databassäkerhet, inloggningssäkerhet, databassäkerhet, databasåtkomst
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
+ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 08/15/2018
 ms.author: carlrab
-ms.openlocfilehash: 8529256313d8e3cb3b7155bb1b79764c17274397
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7dbd2585628c64f5baf7df6083e38217d00953be
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649813"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42058200"
 ---
-# <a name="controlling-and-granting-database-access"></a>Kontrollera och att bevilja åtkomst till databasen
+# <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Kontrollera och att bevilja åtkomst till databasen till SQL Database och SQL Data Warehouse
 
-När brandväggsregler har konfigurerats, kan personer ansluta till en SQL-databas som ett administratörskontot, databasens ägare eller en databasanvändare i databasen.  
+Efter konfigurationen av brandvägg regler kan du ansluta till Azure [SQL Database](sql-database-technical-overview.md) och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) som ett av administratörskontona, som databasägaren eller som en databasanvändare i databasen.  
 
 >  [!NOTE]  
->  Det här avsnittet gäller för Azure SQL-servern, och för både SQL Database- och SQL Data Warehouse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse. 
->
+>  Det här avsnittet gäller för Azure SQL-server och SQL Database och SQL Data Warehouse-databaser som skapats på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse. 
 
 > [!TIP]
-> En självstudiekurs finns [skydda din Azure SQL Database](sql-database-security-tutorial.md).
->
-
+> En självstudiekurs finns i [skydda din Azure SQL Database](sql-database-security-tutorial.md).
 
 ## <a name="unrestricted-administrative-accounts"></a>Obegränsade administrativa konton
 Det finns två administrativa konton (**Serveradministratör** och **Active Directory-administratör**) som fungerar som administratörer. För att identifiera dessa administratörskonton för SQL-servern öppnar du Azure-portalen och går till egenskaperna för SQL-servern.
@@ -38,17 +36,17 @@ Det finns två administrativa konton (**Serveradministratör** och **Active Dire
 - **Serveradministratör**   
 När du skapar en Azure SQL-server måste du ange en **Inloggning för serveradministratör**. SQL Server skapar kontot som en inloggning i huvuddatabasen. Det här kontot ansluter med hjälp av SQL Server-autentisering (användarnamn och lösenord). Endast ett av dessa konton kan finnas.   
 - **Azure Active Directory-administratör**   
-Ett Azure Active Directory-konto, antingen ett enskilt eller säkerhetsgruppkonto, kan också konfigureras som en administratör. Det är valfritt att konfigurera en Azure AD-administratör, men en Azure AD-administratör måste konfigureras om du vill använda Azure AD-konton för att ansluta till SQL Database. Mer information om hur du konfigurerar åtkomst till Azure Active Directory finns i [Ansluta till SQL Database eller SQL Data Warehouse med Azure Active Directory-autentisering](sql-database-aad-authentication.md) och [SSMS-stöd för Azure AD MFA med SQL Database och SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
+Ett Azure Active Directory-konto, antingen ett enskilt eller säkerhetsgruppkonto, kan också konfigureras som en administratör. Det är valfritt att konfigurera en Azure AD-administratör, men en Azure AD-administratör **måste** konfigureras om du vill använda Azure AD-konton för att ansluta till SQL-databas. Mer information om hur du konfigurerar åtkomst till Azure Active Directory finns i [Ansluta till SQL Database eller SQL Data Warehouse med Azure Active Directory-autentisering](sql-database-aad-authentication.md) och [SSMS-stöd för Azure AD MFA med SQL Database och SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
  
 
 Kontona **Serveradministratör** och **Azure AD-administratör** har följande egenskaper:
-- De är de enda kontona som kan ansluta automatiskt till valfri SQL-databas på servern. (För att kunna ansluta till en användardatabas måste andra konton antingen vara ägare till databasen eller ha ett användarkonto i databasen.)
+- Är de enda kontona som kan ansluta automatiskt till valfri SQL-databas på servern. (För att kunna ansluta till en användardatabas måste andra konton antingen vara ägare till databasen eller ha ett användarkonto i databasen.)
 - Dessa konton går in i användardatabaser som användaren `dbo` och de har alla behörigheter i användardatabaserna. (Ägaren till en användardatabas går också in i databasen som användaren `dbo`.) 
-- Dessa konton går inte in i `master`-databasen som användaren `dbo` och de har begränsad behörighet i huvuddatabasen. 
-- Dessa konton är inte medlemmar i den fasta serverrollen `sysadmin` i standard-SQL Server, som inte är tillgänglig i SQL Database.  
-- Dessa konton kan skapa, ändra och ta bort databaser, inloggningar, användare i huvuddatabasen och brandväggsregler på servernivå.
-- Dessa konton kan lägga till och ta bort medlemmar i rollerna `dbmanager` och `loginmanager`.
-- Dessa konton kan visa systemtabellen `sys.sql_logins`.
+- Ange inte den `master` databas som den `dbo` användaren, och har begränsad behörighet i huvuddatabasen. 
+- Är **inte** medlemmar i standard-SQL-Server `sysadmin` fasta serverrollen som inte är tillgänglig i SQL-databas.  
+- Skapa, ändra och ta bort databaser, inloggningar, användare i huvuddatabasen och servernivå brandväggsregler.
+- Lägga till och ta bort medlemmar till den `dbmanager` och `loginmanager` roller.
+- Kan visa den `sys.sql_logins` systemtabellen.
 
 ### <a name="configuring-the-firewall"></a>Konfigurering av brandväggen
 När brandväggen på servernivå är konfigurerad för en enskild IP-adress eller ett intervall kan **SQL-serveradministratören** och **Azure Active Directory-administratören** ansluta till huvuddatabasen och alla användardatabaser. Den första brandväggen på servernivå kan konfigureras via [Azure-portalen](sql-database-get-started-portal.md)med hjälp av [PowerShell](sql-database-get-started-powershell.md) eller med [REST API:t](https://msdn.microsoft.com/library/azure/dn505712.aspx). När en anslutning upprättats, kan även ytterligare brandväggsregler på servernivå konfigureras med hjälp av [Transact-SQL](sql-database-configure-firewall-settings.md).
@@ -89,7 +87,7 @@ En av dessa administrativa roller är **dbmanager**-rollen. Medlemmar i den här
    
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
-   CREATE USER Tran WITH PASSWORD = '<strong_password>'; -- To create a SQL Database contained database user
+   CREATE USER Ann WITH PASSWORD = '<strong_password>'; -- To create a SQL Database contained database user
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
@@ -133,7 +131,7 @@ ALTER ROLE db_owner ADD MEMBER Mary;
 ```
 
 > [!NOTE]
-> Det är en vanlig orsak till att skapa en databasanvändare baserat på en logisk server-inloggning för användare som behöver åtkomst till flera databaser. Eftersom finns databasanvändare enskilda enheter, varje databas behåller sin egen användar- och eget lösenord. Detta kan orsaka kostnader som användaren sedan komma ihåg varje lösenord för varje databas, och den kan bli ohållbara när behöva ändra flera lösenord för många databaser. Men när du använder SQL Server-inloggningar och hög tillgänglighet (aktiv geo-replikering och redundans grupper), måste SQL Server-inloggningar anges manuellt på varje server. Annars kommer databasanvändaren inte längre att mappas till server-inloggning efter en växling vid fel inträffar och kommer inte att komma åt databasen efter växling vid fel. Mer information om hur du konfigurerar inloggningar för geo-replikering finns [konfigurera och hantera Azure SQL Database-säkerhet för geo-återställning eller failover](sql-database-geo-replication-security-config.md).
+> Det är en vanlig orsak till att skapa en databasanvändare baserat på en logisk server-inloggning för användare som behöver åtkomst till flera databaser. Eftersom innehöll databasanvändare är enskilda enheter, varje databas upprätthåller sin egen användar- och ett eget lösenord. Detta kan orsaka omkostnader som användaren måste du komma ihåg varje lösenord för varje databas, och det kan bli ohållbara när behöva ändra flera lösenord för många databaser. Men när du använder SQL Server-inloggningar och hög tillgänglighet (aktiv geo-replikering och redundansgrupper), måste SQL Server-inloggningar anges manuellt på varje server. I annat fall kommer databasanvändaren inte längre att mappas till server-inloggning efter en redundans inträffar och kan inte komma åt databasen efter redundans. Mer information om hur du konfigurerar inloggningar för geo-replikering finns i [konfigurera och hantera Azure SQL Database-säkerhet för geo-återställning eller redundans](sql-database-geo-replication-security-config.md).
 
 ### <a name="configuring-the-database-level-firewall"></a>Konfigurera brandvägg på databasnivå
 Bästa praxis är att icke-administratörer bara har åtkomst genom brandväggen till de databaser som de använder. Istället för att auktorisera deras IP-adresser genom brandväggen på servernivå och ge dem åtkomst till alla databaser, använd instruktionen [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) för att konfigurera brandväggen på databasnivå. Brandväggen på databasnivå kan inte konfigureras via portalen.
@@ -187,6 +185,6 @@ När du hanterar inloggningar och användare i SQL Database, bör du överväga 
 
 - Om du vill veta mer om brandväggsregler, se [Azure SQL Database-brandväggen](sql-database-firewall-configure.md).
 - En översikt över alla säkerhetsfunktioner i SQL Database finns i [SQL Säkerhetsöversikt](sql-database-security-overview.md).
-- En självstudiekurs finns [skydda din Azure SQL Database](sql-database-security-tutorial.md).
+- En självstudiekurs finns i [skydda din Azure SQL Database](sql-database-security-tutorial.md).
 - Information om vyer och lagrade procedurer finns i [Skapa vyer och lagrade procedurer](https://msdn.microsoft.com/library/ms365311.aspx)
 - Information om hur du beviljar åtkomst till ett databasobjekt finns i [Bevilja åtkomst till ett databasobjekt](https://msdn.microsoft.com/library/ms365327.aspx)

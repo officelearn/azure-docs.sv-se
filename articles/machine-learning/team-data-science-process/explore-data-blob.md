@@ -1,6 +1,6 @@
 ---
 title: Utforska data i Azure blob storage med Pandas | Microsoft Docs
-description: Så här utforska data som lagras i Azure blob-behållaren med hjälp av Pandas.
+description: Så här att utforska data som lagras i Azure blob-behållare med Pandas.
 services: machine-learning,storage
 documentationcenter: ''
 author: deguhath
@@ -15,30 +15,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: c727df985f3285f5def9bfdc249ee27b4d748a01
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 61943da154483d8e815fa135fba30b136724b011
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837056"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42057702"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Utforska data i Azure Blob Storage med Pandas
-Det här dokumentet innehåller information om hur att utforska data som lagras i Azure blob-behållaren med [Pandas](http://pandas.pydata.org/) Python-paketet.
+Det här dokumentet beskriver hur du utforska data som lagras i Azure blob-behållaren med [Pandas](http://pandas.pydata.org/) Python-paketet.
 
-Följande **menyn** länkar till avsnitt som beskriver hur du använder Verktyg för att utforska data från olika miljöer för lagring. Den här uppgiften är ett steg i den [datavetenskap Process]().
+Följande **menyn** länkar till avsnitt som beskriver hur du använder Verktyg för att utforska data från olika lagringsmiljöer. Den här uppgiften är ett steg i den [Data Science Process](overview.md).
 
 [!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du har:
 
-* Skapa ett Azure storage-konto. Om du behöver mer information, se [skapa ett Azure Storage-konto](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
-* Lagra data i ett Azure blob storage-konto. Om du behöver mer information, se [flytta data till och från Azure Storage](../../storage/common/storage-moving-data.md)
+* Skapa ett Azure storage-konto. Om du behöver anvisningar läser [skapa ett Azure Storage-konto](../../storage/common/storage-quickstart-create-account.md)
+* Lagras dina data i ett Azure blob storage-konto. Om du behöver anvisningar läser [flytta data till och från Azure Storage](../../storage/common/storage-moving-data.md)
 
-## <a name="load-the-data-into-a-pandas-dataframe"></a>Läsa in data i en Pandas DataFrame
-Om du vill utforska och ändra en datamängd, måste den först hämtas från blob-källan till en lokal fil som sedan kan läsas in i en Pandas DataFrame. Här följer de steg för den här proceduren:
+## <a name="load-the-data-into-a-pandas-dataframe"></a>Läsa in data till en Pandas-DataFrame
+För att utforska och ändra en datauppsättning, måste den först ned från blob-källan till en lokal fil som sedan kan läsas in i en Pandas-DataFrame till. Här följer stegen för den här proceduren:
 
-1. Hämta data från Azure blob med följande Python-kodexempel med blob-tjänsten. Ersätt variabeln i följande kod med din specifika värden: 
+1. Hämta data från Azure-blob med följande Python-kodexempel som använder blob-tjänsten. Ersätt variabeln i följande kod med din specifika värden: 
    
         from azure.storage.blob import BlobService
         import tables
@@ -55,17 +55,17 @@ Om du vill utforska och ändra en datamängd, måste den först hämtas från bl
         blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
         t2=time.time()
         print(("It takes %s seconds to download "+blobname) % (t2 - t1))
-2. Läsa data i en Pandas data-ram från den hämta filen.
+2. Läsa in datan i en Pandas-dataram från den hämta filen.
    
         #LOCALFILE is the file path    
         dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-Du är nu redo att utforska data och generera funktioner på denna dataset.
+Nu är du redo att utforska data och generera funktioner för den här datauppsättningen.
 
-## <a name="blob-dataexploration"></a>Exempel på undersökning av data med hjälp av Pandas
+## <a name="blob-dataexploration"></a>Exempel på datagranskning med Pandas
 Här följer några exempel på hur du kan utforska data med hjälp av Pandas:
 
-1. Granska de **antal rader och kolumner** 
+1. Granska den **antal rader och kolumner** 
    
         print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
 2. **Inspektera** de första eller sista få **rader** i följande datauppsättningen:
@@ -73,17 +73,17 @@ Här följer några exempel på hur du kan utforska data med hjälp av Pandas:
         dataframe_blobdata.head(10)
    
         dataframe_blobdata.tail(10)
-3. Kontrollera den **datatyp** varje kolumn har importerats som använder följande exempelkod
+3. Kontrollera den **datatypen** varje kolumn har importerats som med hjälp av följande exempelkod
    
         for col in dataframe_blobdata.columns:
             print dataframe_blobdata[col].name, ':\t', dataframe_blobdata[col].dtype
 4. Kontrollera den **grundläggande statistik** för kolumnerna i följande data
    
         dataframe_blobdata.describe()
-5. Titta på hur många poster för varje värde i kolumnen enligt följande
+5. Titta på antalet poster för varje kolumnvärde enligt följande
    
         dataframe_blobdata['<column_name>'].value_counts()
-6. **Antal saknade värden** jämfört med det faktiska antalet poster i varje kolumn med hjälp av följande exempelkod
+6. **Räkna värden som saknas** jämfört med det faktiska antalet poster i varje kolumn med hjälp av följande exempelkod
    
         miss_num = dataframe_blobdata.shape[0] - dataframe_blobdata.count()
         print miss_num
@@ -91,15 +91,15 @@ Här följer några exempel på hur du kan utforska data med hjälp av Pandas:
    
      dataframe_blobdata_noNA = dataframe_blobdata.dropna() dataframe_blobdata_noNA.shape
    
-   Ett annat sätt att ersätta saknade värden är med funktionen läge:
+   Ett annat sätt att ersätta värden som saknas är med funktionen läge:
    
-     dataframe_blobdata_mode = dataframe_blobdata.fillna ({< kolumnnamn >: .mode()[0]}) dataframe_blobdata ['< kolumnnamn >']        
-8. Skapa en **histogram** ritas med hjälp av variabeln antal lagerplatser ska ritas distribution av en variabel    
+     dataframe_blobdata_mode = dataframe_blobdata.fillna ({< kolumnnamn >: dataframe_blobdata ['< kolumnnamn >'] .mode()[0]})        
+8. Skapa en **histogram** rita med hjälp av variabeln antal lagerplatser ska ritas distributionen av en variabel    
    
         dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
    
         np.log(dataframe_blobdata['<column_name>']+1).hist(bins=50)
-9. Titta på **korrelationer** mellan variabler med hjälp av en scatterplot eller inbyggda korrelationen
+9. Titta på **korrelationer** mellan variabler med hjälp av en spridningsdiagrammet eller inbyggda korrelationen
    
         #relationship between column_a and column_b using scatter plot
         plt.scatter(dataframe_blobdata['<column_a>'], dataframe_blobdata['<column_b>'])

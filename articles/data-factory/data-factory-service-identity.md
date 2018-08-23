@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory tjänstidentiteten | Microsoft Docs
-description: Mer information om data factory tjänstidentiteten i Azure Data Factory.
+title: Azure Data Factory-tjänstidentitet | Microsoft Docs
+description: Läs mer om tjänstidentitet för datafabrik i Azure Data Factory.
 services: data-factory
 author: linda33wj
 manager: craigg
@@ -10,50 +10,50 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: ba965b0610525f66c24dd6d5bad3fd113a6b6758
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: ffe7337282d06dd9a7e22d6750ac98b3a56964bd
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050873"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42061698"
 ---
-# <a name="azure-data-factory-service-identity"></a>Azure Data Factory tjänstidentitet
+# <a name="azure-data-factory-service-identity"></a>Azure Data Factory-tjänstidentitet
 
-Den här artikeln hjälper dig att förstå vad är data factory-tjänstidentitet och hur det fungerar.
+Den här artikeln hjälper dig att förstå vad är tjänstidentiteten för data factory och hur det fungerar.
 
 ## <a name="overview"></a>Översikt
 
-När du skapar en datafabrik, kan du skapa en tjänstidentitet tillsammans med generering. Tjänstidentiteten är ett hanterat program som är registrerad på Azure aktivitet Directory och representerar den här specifika data factory.
+När du skapar en datafabrik, kan du skapa en tjänstidentitet tillsammans med generering av. Tjänstidentiteten är ett hanterat program som är registrerad på Azure Activity Directory och representerar den här specifika data factory.
 
-Data factory tjänstidentiteten fördelar följande två funktioner:
+Tjänstidentitet för datafabrik fördelar följande funktioner:
 
-- [Spara autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md), i vilket fall data factory tjänstidentiteten används för Azure Key Vault-autentisering.
-- [Kopiera data från/till Azure Data Lake Store](connector-azure-data-lake-store.md), i vilket fall data factory tjänstidentiteten kan användas som en av typerna som stöds Data Lake Store-autentisering.
+- [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md), i vilket fall tjänstidentitet för datafabrik används för Azure Key Vault-autentisering.
+- Anslutningsappar, som [Azure Blob storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure SQL Database](connector-azure-sql-database.md), och [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md).
 
 ## <a name="generate-service-identity"></a>Generera tjänstidentitet
 
-Data factory tjänstidentiteten skapas på följande sätt:
+Tjänstidentitet för datafabrik skapas på följande sätt:
 
-- När du skapar datafabriken via **Azure-portalen eller PowerShell**, tjänstidentiteten skapas alltid automatiskt.
-- När du skapar datafabriken via **SDK**, tjänstidentiteten skapas bara om du anger ”identitet = ny FactoryIdentity()” i fabriken objektet för att skapa. Se exemplet i [Snabbstart för .NET - skapa datafabriken](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
-- När du skapar datafabriken via **REST API**, tjänstidentiteten skapas bara om du anger ”identitetsavsnittet” i begärandetexten. Se exemplet i [REST-Snabbstart - skapa datafabriken](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
+- När du skapar data factory via **Azure portal eller PowerShell**, tjänstidentitet skapas alltid automatiskt.
+- När du skapar data factory via **SDK**, tjänstidentitet skapas endast om du anger ”Identity = ny FactoryIdentity()” i objektet för att skapa fabriken. Se exemplet i [.NET-Snabbstart – skapa data factory](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
+- När du skapar data factory via **REST API**, tjänstidentitet skapas endast om du anger ”identitet”-avsnittet i begärandetexten. Se exemplet i [REST-Snabbstart – skapa data factory](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
 
-Om du hittar din data factory inte har en tjänstidentitet associerade följande [hämta tjänstidentiteten](#retrieve-service-identity) anvisning, kan uttryckligen genereras genom att uppdatera data factory med identity initieraren programmässigt:
+Om du hitta din datafabrik inte har en tjänstidentitet associerade följa [hämta tjänstidentitet](#retrieve-service-identity) instruktioner, du kan uttryckligen Generera en genom att uppdatera data factory programmässigt med identity initieraren:
 
-- [Generera tjänstidentiteten med hjälp av PowerShell](#generate-service-identity-using-powershell)
-- [Generera tjänstidentiteten med hjälp av REST API](#generate-service-identity-using-rest-api)
-- [Generera tjänstidentiteten med SDK](#generate-service-identity-using-sdk)
+- [Generera tjänstidentitet med hjälp av PowerShell](#generate-service-identity-using-powershell)
+- [Generera tjänstidentitet med hjälp av REST API](#generate-service-identity-using-rest-api)
+- [Generera tjänstidentitet med hjälp av SDK](#generate-service-identity-using-sdk)
 
 >[!NOTE]
->- Tjänstidentiteten kan inte ändras. Uppdatera en datafabrik som redan har en tjänstidentitet inte har någon effekt, tjänstidentiteten hålls oförändrade.
->- Om du uppdaterar en datafabrik som redan har en tjänstidentitet utan att ange ”ID”-parametern i objektet fabriken eller utan att ange ”identitetsavsnittet” i REST-begärandetexten får du ett fel.
->- När du tar bort en datafabrik tas associerade tjänstidentiteten bort tillsammans.
+>- Tjänstidentitet kan inte ändras. Uppdaterar en data factory som redan har en tjänstidentitet inte har någon effekt, tjänstidentiteten förblir oförändrade.
+>- Om du uppdaterar en data factory som redan har en tjänstidentitet utan att ange ”identitet”-parametern i objektet factory eller utan att ange ”identitet”-avsnittet i REST-begärandetexten får du ett fel.
+>- När du tar bort en data factory tas den associera tjänstidentiteten bort tillsammans.
 
-### <a name="generate-service-identity-using-powershell"></a>Generera tjänstidentiteten med hjälp av PowerShell
+### <a name="generate-service-identity-using-powershell"></a>Generera tjänstidentitet med hjälp av PowerShell
 
-Anropa **Set AzureRmDataFactoryV2** kommandot på nytt, och sedan ”identitet” fält som nyligen genereras:
+Anropa **Set-AzureRmDataFactoryV2** kommandot en gång, kan du se ”identitet” fält som nyligen genereras:
 
 ```powershell
 PS C:\WINDOWS\system32> Set-AzureRmDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName> -Location <region>
@@ -67,15 +67,15 @@ Identity          : Microsoft.Azure.Management.DataFactory.Models.FactoryIdentit
 ProvisioningState : Succeeded
 ```
 
-### <a name="generate-service-identity-using-rest-api"></a>Generera tjänstidentiteten med hjälp av REST API
+### <a name="generate-service-identity-using-rest-api"></a>Generera tjänstidentitet med hjälp av REST API
 
-Anropa nedan API med ”identitetsavsnittet” i frågans brödtext:
+Anropa nedan API med ”identitet”-avsnittet i begärandetexten:
 
 ```
 PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2017-09-01-preview
 ```
 
-**Begäran**: Lägg till ”identitet”: {”typ”: ”SystemAssigned”}.
+**Brödtext i begäran**: Lägg till ”identitet”: {”type”: ”SystemAssigned”}.
 
 ```json
 {
@@ -88,7 +88,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-**Svaret**: tjänstidentiteten skapas automatiskt och fylls ”identitetsavsnittet” därefter.
+**Svaret**: tjänstidentitet skapas automatiskt och ”identitet” avsnittet har fyllts i enlighet med detta.
 
 ```json
 {
@@ -111,9 +111,9 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-### <a name="generate-service-identity-using-sdk"></a>Generera tjänstidentiteten med SDK
+### <a name="generate-service-identity-using-sdk"></a>Generera tjänstidentitet med hjälp av SDK
 
-Anropa funktionen data factory create_or_update med ID = ny FactoryIdentity(). Exempelkod med hjälp av .NET:
+Anropa data factory create_or_update funktion med ID = ny FactoryIdentity(). Exempelkod med hjälp av .NET:
 
 ```csharp
 Factory dataFactory = new Factory
@@ -126,22 +126,22 @@ client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
 
 ## <a name="retrieve-service-identity"></a>Hämta tjänstidentitet
 
-Du kan hämta tjänstidentiteten från Azure-portalen eller programmässigt. Följande avsnitt visar några exempel.
+Du kan hämta tjänstidentiteten från Azure-portalen eller via programmering. I följande avsnitt visas några exempel.
 
 >[!TIP]
-> Om du inte ser tjänstidentiteten, [generera tjänstidentiteten](#generate-service-identity) genom att uppdatera din factory.
+> Om du inte ser tjänstidentiteten [generera tjänstidentitet](#generate-service-identity) genom att uppdatera din datafabrik.
 
-### <a name="retrieve-service-identity-using-azure-portal"></a>Hämta service med hjälp av Azure portal
+### <a name="retrieve-service-identity-using-azure-portal"></a>Hämta tjänstidentitet med hjälp av Azure portal
 
-Du kan hitta identitetsinformation tjänsten från Azure portal -> din data factory -> Inställningar -> Egenskaper:
+Du hittar ID-information för tjänsten från Azure portal -> din data factory -> Inställningar -> Egenskaper:
 
-- ID FÖR IDENTITET
-- SERVICE IDENTITY-KLIENT
-- **IDENTITY-ID för programmet** > Kopiera det här värdet
+- TJÄNSTIDENTITETS-ID
+- TJÄNSTIDENTITETSKLIENT
+- **IDENTITETS-ID för programmet** > Kopiera detta värde
 
 ![Hämta tjänstidentitet](media/data-factory-service-identity/retrieve-service-identity-portal.png)
 
-### <a name="retrieve-service-identity-using-powershell"></a>Hämta service med hjälp av PowerShell
+### <a name="retrieve-service-identity-using-powershell"></a>Hämta tjänstidentitet med hjälp av PowerShell
 
 Tjänstidentiteten ägar-ID och klient-ID returneras när du får en specifik datafabrik på följande sätt:
 
@@ -153,7 +153,7 @@ PrincipalId                          TenantId
 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc 72f988bf-XXXX-XXXX-XXXX-2d7cd011db47
 ```
 
-Kopiera ägar-ID och sedan köra under Azure Active Directory-kommando med ägar-ID som parameter för att hämta den **ApplicationId**, som du använder för att bevilja åtkomst:
+Kopiera ägar-ID och sedan köra Azure Active Directory-kommandot nedan med ägar-ID som parameter för att hämta den **ApplicationId**, som du använder för att bevilja åtkomst:
 
 ```powershell
 PS C:\WINDOWS\system32> Get-AzureRmADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -166,9 +166,9 @@ Type                  : ServicePrincipal
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Finns i följande avsnitt som inför när och hur du använder data factory tjänstidentiteten:
+Finns i följande avsnitt som introducerar när och hur du använder tjänstidentitet för datafabrik:
 
-- [Spara autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md)
-- [Kopiera data från/till Azure Data Lake Store med hjälp av hanteringstjänster identitetsverifiering](connector-azure-data-lake-store.md)
+- [Store-autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md)
+- [Kopieringsdata från/till Azure Data Lake Store med hjälp av hanterad tjänst identitetsautentisering](connector-azure-data-lake-store.md)
 
-Se [MSI översikt](~/articles/active-directory/msi-overview.md) för mer bakgrundsinformation om hanterade tjänstidentiteten som data factory tjänstidentiteten baseras på. 
+Se [MSI översikt](~/articles/active-directory/msi-overview.md) Mer bakgrundsinformation om hanterad tjänstidentitet vilka tjänstidentitet för datafabrik baseras på. 

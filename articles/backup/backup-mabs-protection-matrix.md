@@ -5,16 +5,16 @@ services: backup
 author: markgalioto
 ms.service: backup
 keywords: ''
-ms.date: 7/14/2018
+ms.date: 08/17/2018
 ms.topic: conceptual
 ms.author: markgal
 manager: carmonm
-ms.openlocfilehash: 4167e8214674527039fd838f81c3489840e6ef68
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: ff12428027225c62bec03b05da8e43d60cae9739
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284921"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42059729"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Skyddsöversikt för Azure Backup Server
 
@@ -80,7 +80,7 @@ Den här artikeln visar de olika servrar och arbetsbelastningar som du kan skydd
 |Hyper-V-värd - DPM-skyddsagenten på Hyper-V-värdserver, kluster eller VM|Windows Server 2012 – Datacenter och Standard|Fysisk server<br /><br />En lokal Hyper-V-dator|Y|Y|Skydda: Hyper-V-datorer, klusterdelade volymer (CSV)<br /><br />Återställ: virtuell dator, återställning av filer och mappen, volymer, virtuella hårddiskar|
 |Hyper-V-värd - DPM-skyddsagenten på Hyper-V-värdserver, kluster eller VM|Windows Server 2008 R2 SP1 – Enterprise och Standard|Fysisk server<br /><br />En lokal Hyper-V-dator|Y|Y|Skydda: Hyper-V-datorer, klusterdelade volymer (CSV)<br /><br />Återställ: virtuell dator, återställning av filer och mappen, volymer, virtuella hårddiskar|
 |Hyper-V-värd - DPM-skyddsagenten på Hyper-V-värdserver, kluster eller VM|Windows Server 2008 SP2|Fysisk server<br /><br />En lokal Hyper-V-dator|N|N|Skydda: Hyper-V-datorer, klusterdelade volymer (CSV)<br /><br />Återställ: virtuell dator, återställning av filer och mappen, volymer, virtuella hårddiskar|
-|VMwares virtuella datorer|VMware-server 5.5 eller 6.0 eller 6.5 |Fysisk server <br/>En lokal Hyper-V-dator <br/> Windows-dator i VMWare|Y|Y (med UR1)|Virtuella VMware-datorer på klusterdelade volymer (CSV), NFS, och SAN-lagring<br /> Återställning av filer och mappar som är endast tillgänglig för Windows<br /> VMware vApps stöds inte|
+|VMwares virtuella datorer|VMware vCenter/vSphere ESX/ESXi licensierad version 5.5/6.0/6.5 |Fysisk server <br/>En lokal Hyper-V-dator <br/> Windows-dator i VMWare|Y|Y (med UR1)|Virtuella VMware-datorer på klusterdelade volymer (CSV), NFS, och SAN-lagring<br /> Återställning av filer och mappar är endast tillgänglig för Windows-datorer, VMware vApps stöds inte.|
 |Linux|Linux körs som Hyper-V eller VMware-gäst|Fysisk server <br/>En lokal Hyper-V-dator <br/> Windows-dator i VMWare|Y|Y|Hyper-V måste köras på Windows Server 2012 R2 eller Windows Server 2016. Skydda: Hela den virtuella datorn<br /><br />Återställ: Hela den virtuella datorn <br/><br/> En fullständig lista över Linux-distributioner som stöds och versioner finns i artikeln [Linux på distributioner som godkänts av Azure](../virtual-machines/linux/endorsed-distros.md).|
 
 ## <a name="cluster-support"></a>Stöd för kluster

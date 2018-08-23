@@ -13,123 +13,123 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: d83d1ad74d04356f73f18a744c2d1509b5efc280
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 4d3f1c66c6403720bf02c80af1d6833dc3cee3f1
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233852"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42056959"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Kontinuerlig distribution till Azure App Service
-Den här artikeln visar hur du konfigurerar kontinuerlig distribution för [Azure App Service](app-service-web-overview.md). Apptjänst kan kontinuerlig distribution från BitBucket, GitHub och [Visual Studio Team Services VSTS ()](https://www.visualstudio.com/team-services/) genom att dra i de senaste uppdateringarna från din befintliga databas i någon av dessa tjänster.
+Den här artikeln visar hur du konfigurerar kontinuerlig distribution för [Azure App Service](app-service-web-overview.md). App Service möjliggör kontinuerlig distribution från BitBucket, GitHub, och [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/team-services/) genom att dra i de senaste uppdateringarna från din befintliga lagringsplats i någon av dessa tjänster.
 
-Ta reda på hur du konfigurerar kontinuerlig distribution manuellt från en moln-databas som inte finns med i Azure Portal (t.ex [GitLab](https://gitlab.com/)), se [ställa in kontinuerlig distribution med manuella steg](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
+Att ta reda på hur du konfigurerar kontinuerlig distribution manuellt från en molnlagringsplats som inte visas i Azure Portal (till exempel [GitLab](https://gitlab.com/)), se [ställa in kontinuerlig distribution med manuella steg](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
-Publicera förberedda databasen till en av tjänsterna som stöds. Mer information om hur du publicerar projektet till dessa tjänster finns i avsnitten [Skapa en repo (GitHub)], [Skapa en repo (BitBucket)] samt [Kom igång med VSTS].
+Publicera din förberedda lagringsplats till en av tjänsterna som stöds. Mer information om hur du publicerar projektet till dessa tjänster finns i avsnitten [Skapa en repo (GitHub)], [Skapa en repo (BitBucket)] samt [Kom igång med VSTS].
 
 ## <a name="deploy-continuously-from-github"></a>Distribuera kontinuerligt från GitHub
 
-Om du vill aktivera kontinuerlig distribution med GitHub, navigera till din Apptjänst appsida i den [Azure-portalen](https://portal.azure.com).
+Om du vill aktivera kontinuerlig distribution med GitHub, navigera till din App Service-appsida i den [Azure-portalen](https://portal.azure.com).
 
 I den vänstra menyn klickar du på **Deployment Center** > **GitHub** > **auktorisera**. Följ anvisningarna för auktorisering. 
 
 ![](media/app-service-continuous-deployment/github-choose-source.png)
 
-Du behöver bara godkänna med GitHub en gång. Om du redan är behörig bara på **Fortsätt**. Du kan ändra behöriga GitHub-konto genom att klicka på **ändra konto**.
+Du behöver bara en gång auktorisera med GitHub. Om du redan har auktoriserats kommer du bara på **Fortsätt**. Du kan ändra det auktoriserade GitHub-kontot genom att klicka på **ändra konto**.
 
 ![](media/app-service-continuous-deployment/github-continue.png)
 
-I den **Build-provider** , Välj build-providern och klickar på > **Fortsätt**.
+I den **Build-provider** , Välj build-provider och klicka på > **Fortsätt**.
 
-### <a name="option-1-use-app-service-kudu-build-server"></a>Alternativ 1: Använd App Service Kudu build-server
+### <a name="option-1-use-app-service-kudu-build-server"></a>Alternativ 1: Använd App Service Kudu-versionsserver
 
-I den **konfigurera** väljer organisationen, databasen och avdelningskontor där du vill distribuera kontinuerligt. När du är klar klickar du på **Fortsätt**.
+I den **konfigurera** väljer organisation, lagringsplatsen och grenen från vilken du vill distribuera kontinuerligt. När du är klar klickar du på **Fortsätt**.
 
-### <a name="option-2-use-vsts-continuous-delivery"></a>Alternativ 2: Använd VSTS kontinuerlig leverans
+### <a name="option-2-use-vsts-continuous-delivery"></a>Alternativ 2: Använd kontinuerlig leverans i VSTS
 
 > [!NOTE]
-> För App Service att skapa den nödvändiga versionen och frigöra definitioner i VSTS kontot är ditt Azure-konto måste ha rollen för **ägare** i din Azure-prenumeration.
+> För App Service för att skapa den nödvändiga versionen och versionsdefinitioner i VSTS-kontot, Azure-kontot måste ha rollen **ägare** i Azure-prenumerationen.
 >
 
-I den **konfigurera** sidan den **kod** väljer organisationen, databasen och avdelningskontor där du vill distribuera kontinuerligt. När du är klar klickar du på **Fortsätt**.
+I den **konfigurera** sidan den **kod** väljer organisation, lagringsplatsen och grenen från vilken du vill distribuera kontinuerligt. När du är klar klickar du på **Fortsätt**.
 
-I den **konfigurera** sidan den **skapa** avsnittet, konfigurera ett nytt konto i VSTS eller ange ett befintligt konto. När du är klar klickar du på **Fortsätt**.
+I den **konfigurera** sidan den **skapa** avsnittet, konfigurera ett nytt VSTS-konto eller ange ett befintligt konto. När du är klar klickar du på **Fortsätt**.
 
 > [!NOTE]
-> Om du vill använda ett befintligt VSTS-konto som inte visas måste du [länka VSTS-konto till din Azure-prenumeration](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Om du vill använda ett befintligt VSTS-konto som inte visas kan du behöva [länka VSTS-konto till din Azure-prenumeration](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 I den **Test** väljer du om du vill aktivera belastningstester och klicka sedan på **Fortsätt**.
 
-Beroende på den [prisnivån](/pricing/details/app-service/plans/) av din programtjänstplan kan du också se en **till mellanlagring** sidan. Välj om du vill [aktivera distributionsplatser](web-sites-staged-publishing.md), klicka på **Fortsätt**.
+Beroende på den [prisnivån](https://azure.microsoft.com/pricing/details/app-service/plans/) för din App Service-plan kan du också se en **distribuera till mellanlagring** sidan. Välj om du vill [aktivera distributionsplatser](web-sites-staged-publishing.md), klicka sedan på **Fortsätt**.
 
 ### <a name="finish-configuration"></a>Slut konfiguration
 
-I den **sammanfattning** , kontrollera alternativen och klickar på **Slutför**.
+I den **sammanfattning** kontrollerar du dina alternativ och klickar på **Slutför**.
 
-När konfigurationen är klar distribueras nya incheckningar i den valda databasen kontinuerligt i din Apptjänst-app.
+När konfigurationen är klar distribueras nya allokeringarna i den valda databasen kontinuerligt i din App Service-app.
 
 ![](media/app-service-continuous-deployment/github-finished.png)
 
 ## <a name="deploy-continuously-from-bitbucket"></a>Distribuera kontinuerligt från BitBucket
 
-Om du vill aktivera kontinuerlig distribution med BitBucket, gå till sidan Apptjänst-app i den [Azure-portalen](https://portal.azure.com).
+Om du vill aktivera kontinuerlig distribution med BitBucket, navigera till din App Service-appsida i den [Azure-portalen](https://portal.azure.com).
 
 I den vänstra menyn klickar du på **Deployment Center** > **BitBucket** > **auktorisera**. Följ anvisningarna för auktorisering. 
 
 ![](media/app-service-continuous-deployment/bitbucket-choose-source.png)
 
-Du behöver bara godkänna med BitBucket en gång. Om du redan är behörig bara på **Fortsätt**. Du kan ändra kontot behöriga BitBucket genom att klicka på **ändra konto**.
+Du behöver bara godkänna med BitBucket en gång. Om du redan har auktoriserats kommer du bara på **Fortsätt**. Du kan ändra det auktoriserade BitBucket-kontot genom att klicka på **ändra konto**.
 
 ![](media/app-service-continuous-deployment/bitbucket-continue.png)
 
-I den **konfigurera** markerar du databasen och grenen som du vill distribuera kontinuerligt. När du är klar klickar du på **Fortsätt**.
+I den **konfigurera** väljer lagringsplatsen och grenen från vilken du vill distribuera kontinuerligt. När du är klar klickar du på **Fortsätt**.
 
-I den **sammanfattning** , kontrollera alternativen och klickar på **Slutför**.
+I den **sammanfattning** kontrollerar du dina alternativ och klickar på **Slutför**.
 
-När konfigurationen är klar distribueras nya incheckningar i den valda databasen kontinuerligt i din Apptjänst-app.
+När konfigurationen är klar distribueras nya allokeringarna i den valda databasen kontinuerligt i din App Service-app.
 
 ## <a name="deploy-continuously-from-vsts"></a>Distribuera kontinuerligt från VSTS
 
-Om du vill aktivera kontinuerlig distribution med VSTS navigerar du till sidan Apptjänst-app i den [Azure-portalen](https://portal.azure.com).
+Om du vill aktivera kontinuerlig distribution med VSTS, navigera till din App Service-appsida i den [Azure-portalen](https://portal.azure.com).
 
 I den vänstra menyn klickar du på **Deployment Center** > **VSTS** > **Fortsätt**. 
 
 ![](media/app-service-continuous-deployment/vsts-choose-source.png)
 
-I den **Build-provider** , Välj build-providern och klickar på > **Fortsätt**.
+I den **Build-provider** , Välj build-provider och klicka på > **Fortsätt**.
 
-### <a name="option-1-use-app-service-kudu-build-server"></a>Alternativ 1: Använd App Service Kudu build-server
+### <a name="option-1-use-app-service-kudu-build-server"></a>Alternativ 1: Använd App Service Kudu-versionsserver
 
-I den **konfigurera** väljer VSTS konto, projekt, databasen och grenen du vill distribuera kontinuerligt. När du är klar klickar du på **Fortsätt**.
+I den **konfigurera** väljer VSTS-konto, projekt, lagringsplatsen och grenen från vilken du vill distribuera kontinuerligt. När du är klar klickar du på **Fortsätt**.
 
-### <a name="option-2-use-vsts-continuous-delivery"></a>Alternativ 2: Använd VSTS kontinuerlig leverans
+### <a name="option-2-use-vsts-continuous-delivery"></a>Alternativ 2: Använd kontinuerlig leverans i VSTS
 
 > [!NOTE]
-> För App Service att skapa den nödvändiga versionen och frigöra definitioner i VSTS kontot är ditt Azure-konto måste ha rollen för **ägare** i din Azure-prenumeration.
+> För App Service för att skapa den nödvändiga versionen och versionsdefinitioner i VSTS-kontot, Azure-kontot måste ha rollen **ägare** i Azure-prenumerationen.
 >
 
-I den **konfigurera** sidan den **kod** väljer VSTS konto, projekt, databasen och grenen du vill distribuera kontinuerligt. När du är klar klickar du på **Fortsätt**.
+I den **konfigurera** sidan den **kod** väljer VSTS-konto, projekt, lagringsplatsen och grenen från vilken du vill distribuera kontinuerligt. När du är klar klickar du på **Fortsätt**.
 
 > [!NOTE]
-> Om du vill använda ett befintligt VSTS-konto som inte visas måste du [länka VSTS-konto till din Azure-prenumeration](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Om du vill använda ett befintligt VSTS-konto som inte visas kan du behöva [länka VSTS-konto till din Azure-prenumeration](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
-I den **konfigurera** sidan den **skapa** ange språkramverket VSTS ska använda för att köra build-uppgifter för din valda databas. När du är klar klickar du på **Fortsätt**.
+I den **konfigurera** sidan den **skapa** anger ramverk för anspråksregelspråket som VSTS ska använda för att köra build-uppgifter för valda lagringsplatsen. När du är klar klickar du på **Fortsätt**.
 
 I den **Test** väljer du om du vill aktivera belastningstester och klicka sedan på **Fortsätt**.
 
-Beroende på den [prisnivån](/pricing/details/app-service/plans/) av din programtjänstplan kan du också se en **till mellanlagring** sidan. Välj om du vill [aktivera distributionsplatser](web-sites-staged-publishing.md), klicka på **Fortsätt**. 
+Beroende på den [prisnivån](https://azure.microsoft.com/pricing/details/app-service/plans/) för din App Service-plan kan du också se en **distribuera till mellanlagring** sidan. Välj om du vill [aktivera distributionsplatser](web-sites-staged-publishing.md), klicka sedan på **Fortsätt**. 
 
 ### <a name="finish-configuration"></a>Slut konfiguration
 
-I den **sammanfattning** , kontrollera alternativen och klickar på **Slutför**.
+I den **sammanfattning** kontrollerar du dina alternativ och klickar på **Slutför**.
 
-När konfigurationen är klar distribueras nya incheckningar i den valda databasen kontinuerligt i din Apptjänst-app.
+När konfigurationen är klar distribueras nya allokeringarna i den valda databasen kontinuerligt i din App Service-app.
 
 ## <a name="disable-continuous-deployment"></a>Inaktivera kontinuerlig distribution
 
-För att inaktivera kontinuerlig distribution, gå till sidan Apptjänst-app i den [Azure-portalen](https://portal.azure.com).
+Om du vill inaktivera kontinuerlig distribution, navigera till din App Service-appsida i den [Azure-portalen](https://portal.azure.com).
 
 I den vänstra menyn klickar du på **Deployment Center** > **GitHub** eller **VSTS** eller **BitBucket**  >  **Koppla från**.
 
@@ -143,7 +143,7 @@ I den vänstra menyn klickar du på **Deployment Center** > **GitHub** eller **V
 * [Använda PowerShell för Azure]
 * [Git-dokumentation]
 * [Kudu-projektet](https://github.com/projectkudu/kudu/wiki)
-* [Använda Azure att automatiskt generera en CI/CD-pipeline för att distribuera en app för ASP.NET 4](https://www.visualstudio.com/docs/build/get-started/aspnet-4-ci-cd-azure-automatic)
+* [Använd Azure för att automatiskt generera en CI/CD-pipeline för att distribuera en ASP.NET 4-app](https://www.visualstudio.com/docs/build/get-started/aspnet-4-ci-cd-azure-automatic)
 
 [Azure portal]: https://portal.azure.com
 [VSTS Portal]: https://www.visualstudio.com/en-us/products/visual-studio-team-services-vs.aspx

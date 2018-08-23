@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: efd1c1eafbff8bf56b16131e44cff6b03ce7338a
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: bb46881425398618df54288a9d2e6d65bb03dad4
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264818"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42061511"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Hantera klienten registrering i Azure Stack
 
@@ -86,10 +86,10 @@ Hämta en lista över alla klienter som har lagts till en registrering.
 
 ### <a name="powershell"></a>PowerShell
 
-Använd cmdleten Get-AzureRmResovurce att lista alla registrerade klienter. Logga in på Azure (`Add-AzureRmAccount`) med hjälp av det konto du använde för den första registreringen. Här är ett exempel på hur du lägger till en klient:
+Använd cmdleten Get-AzureRmResource att lista alla registrerade klienter. Logga in på Azure (`Add-AzureRmAccount`) med hjälp av det konto du använde för den första registreringen. Här är ett exempel på hur du lägger till en klient:
 
 ```powershell
-  Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
+  Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
 ```
 
 ### <a name="api-call"></a>API-anrop

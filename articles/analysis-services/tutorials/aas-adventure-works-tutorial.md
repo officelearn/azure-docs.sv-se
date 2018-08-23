@@ -8,22 +8,21 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4b6e642c86c5e618cae2d46aad84a61b3f4866ae
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: a53bcbe90f39999a838c84807ca834a1e6cd1813
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446154"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42057670"
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services – Självstudiekurs för Adventure Works
 
-Den här självstudien tillhandahåller lektioner om hur du skapar och distribuerar en tabellmodell på kompatibilitetsnivån 1400 genom att använda Visual Studio med [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
-
+Den här självstudien tillhandahåller lektioner om hur du skapar och distribuerar en tabellmodell på kompatibilitetsnivån 1400 genom att använda Visual Studio [Analysis Services-projekt](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects) eller [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 Om du inte har använt Analysis Services eller tabellmodellering tidigare är den här självstudien det snabbaste sättet att lära dig hur du skapar och distribuerar en grundläggande tabellmodell med Visual Studio. Om du uppfyller förhandskraven bör det ta mellan två och tre timmar att slutföra självstudien.  
   
 ## <a name="what-you-learn"></a>Detta får du får lära dig   
   
--   Hur du skapar ett nytt projekt för tabellmodeller på **kompatibilitetsnivån 1400** i Visual Studio med SSDT.
+-   Så här skapar du ett nytt projekt för tabellmodeller på den **kompatibilitetsnivån 1400** i Visual Studio.
   
 -   Så här importerar du data från en relationsdatabas till arbetsytedatabasen i ett tabellmodellprojekt.  
   
@@ -37,7 +36,7 @@ Om du inte har använt Analysis Services eller tabellmodellering tidigare är de
   
 -   Hur du skyddar modellobjekt och data genom att skapa roller med användarmedlemmar.  
   
--   Hur du distribuerar en tabellmodell till en **Azure Analysis Services**-server eller en **SQL Server 2017 Analysis Services**-server med hjälp av SSDT.  
+-   Så här distribuerar du en tabellmodell till en **Azure Analysis Services** server eller **SQL Server 2017 Analysis Services** servern med hjälp av Visual Studio.  
   
 ## <a name="prerequisites"></a>Förutsättningar  
 För att slutföra den här kursen behöver du:  

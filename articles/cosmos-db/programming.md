@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 6374fcf1477d56b9803b63476f3fef38fc12def1
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 6296eb423f24762ed32a21ef40852dc1a9dd8f36
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618904"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42055975"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB från serversidan programmering: lagrade procedurer, databasutlösare och UDF: er
 
@@ -98,7 +98,7 @@ client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld'
     });
 ```
 
-Context-objektet ger åtkomst till alla åtgärder som kan utföras på Cosmos DB-lagring, samt åtkomst till begäranden och svar-objekt. I det här fallet kan du använda svarsobjekt för att ange brödtexten i svaret som skickades tillbaka till klienten. Mer information finns i den [Azure Cosmos DB JavaScript server SDK-dokumentation](http://azure.github.io/azure-documentdb-js-server/).  
+Context-objektet ger åtkomst till alla åtgärder som kan utföras på Cosmos DB-lagring, samt åtkomst till begäranden och svar-objekt. I det här fallet kan du använda svarsobjekt för att ange brödtexten i svaret som skickades tillbaka till klienten. Mer information finns i den [Azure Cosmos DB JavaScript server SDK-dokumentation](https://azure.github.io/azure-cosmosdb-js-server/).  
 
 Låt oss Expandera på det här exemplet och lägga till fler funktioner för databas-relaterade till den lagrade proceduren. Lagrade procedurer kan skapa, uppdatera, läsa, fråga och ta bort dokument och bifogade filer i samlingen.    
 
@@ -591,7 +591,7 @@ Följande JavaScript-konstruktioner inte hämta har optimerats för Azure Cosmos
 * Kontrollera flödet (till exempel om efter, medan)
 * Funktionsanrop
 
-Mer information finns i den [serversidan JSDocs](http://azure.github.io/azure-documentdb-js-server/).
+Mer information finns i den [serversidan JSDocs](https://azure.github.io/azure-cosmosdb-js-server/).
 
 ### <a name="example-write-a-stored-procedure-using-the-javascript-query-api"></a>Exempel: Skriva en lagrad procedur med fråga JavaScript API
 Följande kodexempel är ett exempel på hur JavaScript fråge-API kan användas i kontexten för en lagrad procedur. Den lagrade proceduren infogar ett dokument som anges av en indataparameter och en programuppdateringsmetadata dokument, med hjälp av den `__.filter()` metoden med minstorlek, maxSize och totalSize baserat på egenskapen för inkommande dokumentet.
@@ -674,7 +674,7 @@ Med följande förklarar varje fråga i tabellen ovan.
 
 
 ## <a name="runtime-support"></a>Runtime-stöd
-Azure Cosmos DB [JavaScript server sida API](http://azure.github.io/azure-documentdb-js-server/) har stöd för de flesta av vanlig JavaScript-språkfunktioner som standardiserad av [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+Azure Cosmos DB [JavaScript server sida API](https://azure.github.io/azure-cosmosdb-js-server/) har stöd för de flesta av vanlig JavaScript-språkfunktioner som standardiserad av [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### <a name="security"></a>Säkerhet
 JavaScript-lagrade procedurer och utlösare är i begränsat läge så att effekterna av ett skript inte läckts till en annan utan att gå via transaktionsisoleringen ögonblicksbild på databasnivå. Runtime-miljöer i pooler men rensas av kontexten efter varje körning. Därför garanterat de är säker för eventuella oväntade sidoeffekter från varandra.
@@ -683,7 +683,7 @@ JavaScript-lagrade procedurer och utlösare är i begränsat läge så att effek
 Lagrade procedurer, utlösare och UDF: er är implicit förkompilerade till formatet byte-kod för att undvika kompilering kostnaden vid tidpunkten för varje skript-anrop. Före kompileringen anrop av lagrade procedurer går snabbt och har en små utrymmeskrav.
 
 ## <a name="client-sdk-support"></a>Stöd för klient-SDK
-Förutom att Azure Cosmos DB [Node.js](sql-api-sdk-node.md) API, Azure Cosmos DB har [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript ](http://azure.github.io/azure-documentdb-js/), och [Python SDK: er](sql-api-sdk-python.md) för SQL-API. Lagrade procedurer, utlösare och UDF: er kan skapas och körs med någon av dessa SDK: er samt. I följande exempel visas hur du skapar och kör en lagrad procedur med hjälp av .NET-klienten. Observera hur .NET-typerna skickas till den lagrade proceduren som JSON och spela upp.
+Förutom att Azure Cosmos DB [Node.js](sql-api-sdk-node.md) API, Azure Cosmos DB har [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript ](sql-api-sdk-node.md), och [Python SDK: er](sql-api-sdk-python.md) för SQL-API. Lagrade procedurer, utlösare och UDF: er kan skapas och körs med någon av dessa SDK: er samt. I följande exempel visas hur du skapar och kör en lagrad procedur med hjälp av .NET-klienten. Observera hur .NET-typerna skickas till den lagrade proceduren som JSON och spela upp.
 
 ```javascript
 var markAntiquesSproc = new StoredProcedure
@@ -828,7 +828,7 @@ Utlösare, till skillnad från lagrade procedurer kan inte köras direkt. I stä
 Här anges före utlösaren ska köras med förfrågan i rubriken x-ms-documentdb-pre-trigger-include. På motsvarande sätt ges efter utlösare i rubriken x-ms-documentdb-post-trigger-include. Både före och efter utlösare kan anges för en viss begäran.
 
 ## <a name="sample-code"></a>Exempelkod
-Du hittar fler serverkod exempel (inklusive [massborttagning](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js), och [uppdatera](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) i den [GitHub-lagringsplatsen](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
+Du hittar fler serverkod exempel (inklusive [massborttagning](https://github.com/Azure/azure-cosmosdb-js-server/blob/master/samples/stored-procedures/bulkDelete.js), och [uppdatera](https://github.com/Azure/azure-cosmosdb-js-server/blob/master/samples/stored-procedures/update.js)) i den [GitHub-lagringsplatsen](https://github.com/Azure/azure-cosmosdb-js-server/tree/master/samples).
 
 Om du vill dela dina fantastiska lagrad procedur? bidra till databasen och skapa en pull-begäran! 
 

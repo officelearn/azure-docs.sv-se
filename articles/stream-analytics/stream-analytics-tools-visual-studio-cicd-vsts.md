@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 7/10/2018
-ms.openlocfilehash: 303c1cfaf2b91712f706c5b78e027bb02739c770
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: d4f1e188a1a145ba3be5fb45d2b0ea4d0bfd57a7
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39074602"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41919443"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-vsts"></a>Självstudie: Distribuera ett Azure Stream Analytics-jobb med CI/CD med hjälp av VSTS
 Den här artikeln beskriver hur du konfigurerar kontinuerlig integrering och distribution för ett Azure Stream Analytics-jobb med hjälp av Visual Studio Team Services. 
@@ -32,8 +32,8 @@ Se till att du har följande innan du börjar:
 
 * Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Installera [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) och arbetsbelastningen **Azure development** (Azure-utveckling) eller **Data Storage and Processing** (Datalagring och bearbetning).
-* Skapa ett [Stream Analytics-projekt i Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-vs).
-* Skapa ett [Visual Studio Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)-konto.
+* Skapa ett [Stream Analytics-projekt i Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs).
+* Skapa ett [Visual Studio Team Services](https://visualstudio.microsoft.com/team-services/)-konto.
 
 ## <a name="configure-nuget-package-dependency"></a>Konfigurera NuGet-paketberoende
 För att kunna utföra automatiskt skapande och automatisk distribution på en valfri virtuell dator måste du använda NuGet-paketet `Microsoft.Azure.StreamAnalytics.CICD`. Den ger verktygen för MSBuild, lokal körning och distribution som stöder processerna för kontinuerlig integrering och distribution av Stream Analytics Visual Studio-projekt. Mer information finns i [Stream Analytics CI/CD-verktyg](stream-analytics-tools-for-visual-studio-cicd.md).

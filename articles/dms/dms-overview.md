@@ -1,35 +1,33 @@
 ---
-title: Översikt över migreringen Azure-databas | Microsoft Docs
-description: Översikt över Azure migrering databastjänsten, som ger sömlös migrering från flera databaskällor till Azure Data plattformar.
+title: Översikt över Azure Database Migration Service | Microsoft Docs
+description: Översikt över Azure Database Migration Service, som ger sömlös migrering från många databaskällor till Azure-Dataplattformar.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
 manager: ''
-ms.reviewer: ''
+ms.reviewer: douglasl
 ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
-ms.date: 05/08/2018
-ms.openlocfilehash: f771e70cf4991479f70dff84fd85029bdc936520
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.date: 08/20/2018
+ms.openlocfilehash: 4bfa6ef778f51446146de4c10575ac7a287c68dc
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33884923"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42059723"
 ---
-# <a name="what-is-the-azure-database-migration-service"></a>Vad är Azure migrering databastjänsten?
-Tjänsten Azure Database migrering är en helt hanterad tjänst som utformats för att aktivera sömlös migrering från flera databaskällor till Azure Data plattformar med minimal avbrottstid.
+# <a name="what-is-the-azure-database-migration-service"></a>Vad är Azure Database Migration Service?
+Azure Database Migration Service är en fullständigt hanterad tjänst som utformats för att aktivera sömlös migrering från flera databaskällor till Azure-Dataplattformar med minimal avbrottstid.
 
-## <a name="use-familiar-tools"></a>Använd välbekanta verktyg
-Tjänsten Azure Database migrering integrerar några av funktionerna i vår befintliga verktyg och tjänster. Det ger kunder med en omfattande lösning för hög tillgänglighet. Tjänsten använder den [Data Migration Assistant](http://aka.ms/dma) som genererar assessment rapporter som ger rekommendationer och vägleder dig genom de ändringar som krävs innan du utför en migrering. Det är att du kan utföra alla åtgärder som krävs. När du är redo att påbörja migreringsprocessen, utför tjänsten Azure Database migrering alla associerade steg. Du kan brand och glömmer migrering projekt med sinnesro, om du vet att processen drar nytta av bästa praxis enligt Microsofts.
+## <a name="migrate-databases-to-azure-with-familiar-tools"></a>Migrera databaser till Azure med välbekanta verktyg
+Azure Database Migration Service integrerar några av funktionerna i vår befintliga verktyg och tjänster. Tjänsten ger kunderna med en omfattande lösning med hög tillgänglighet. Tjänsten använder den [Data Migration Assistant](http://aka.ms/dma) att generera bedömningsrapporter som ger rekommendationer att guida dig genom de ändringar som krävs innan du utför en migrering. Det är upp till du kan utföra alla åtgärder som krävs. När du är redo att påbörja migreringen, utför alla nödvändiga steg i Azure Database Migration Service. Du kan utlöses och Glöm ditt migreringsprojekt med tryggheten att veta att processen drar nytta av bästa praxis enligt Microsofts bedömning.
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
-Tjänsten Azure Database migrering är tillgängliga i följande områden:
-
-![GA regional tillgänglighet](media/overview/service_availability_by_region.png)
+Uppdaterad information om vilka regioner där Database Migration Service är tillgängligt finns i [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/).
 
 ## <a name="next-steps"></a>Nästa steg
-- [Skapa en instans av tjänsten Azure Database migrering med hjälp av Azure portal](quickstart-create-data-migration-service-portal.md).
+- [Skapa en instans av Azure Database Migration Service med hjälp av Azure portal](quickstart-create-data-migration-service-portal.md).
 - [Migrera SQLServer till Azure SQL Database](tutorial-sql-server-to-azure-sql.md).
-- [Översikt över krav för att använda tjänsten Azure Database migrering](pre-reqs.md).
-- [Vanliga frågor och svar om hur du använder tjänsten Azure Database migrering](faq.md).
+- [Översikt över krav för att använda Azure Database Migration Service](pre-reqs.md).
+- [Vanliga frågor och svar om hur du använder Azure Database Migration Service](faq.md).

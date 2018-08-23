@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f2283125aff705aae87b6260b48deee01aa12f0d
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: bd3eeb5ebb9b30ac315fee1597348f3bd34f3bb6
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343560"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056136"
 ---
 # <a name="getting-compliance-data"></a>Hämta Data för kompatibilitetsinställningar
 
@@ -26,6 +26,9 @@ Det finns flera sätt att komma åt kompatibilitetsinformationen som genereras a
 - Via [kommandoraden](#command_line) skript
 
 Innan du tittar på metoder för att rapportera om efterlevnad, låt oss titta på när kompatibilitetsinformation uppdateras och frekvens och händelser som utlöser en utvärderingscykel för datorprincip.
+
+> [!WARNING]
+> Om kompatibilitetsstatusen rapporteras som **”ej tillämpligt”**, kontrollerar du att den **Microsoft.PolicyInsights** Resource Provider är registrerad och att användaren har den lämpliga rollbaserad åtkomstkontrollen (RBAC) behörighet enligt [här](azure-policy-introduction.md#rbac-permissions-in-azure-policy).
 
 ## <a name="evaluation-triggers"></a>Utvärderingen utlösare
 

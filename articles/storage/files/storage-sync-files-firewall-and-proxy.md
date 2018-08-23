@@ -5,15 +5,15 @@ services: storage
 author: fauhse
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 08/08/2018
 ms.author: fauhse
 ms.component: files
-ms.openlocfilehash: 44bfdd192f846b710e378b1f00799eda304cec1e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f5fa68488fa8130ad49da37c91b7f4c04376edb3
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522772"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42440687"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Inställningar för Azure File Sync-proxy och brandväggar
 Azure File Sync ansluter dina lokala servrar till Azure Files, aktivering av multisite synkronisering och molnlagringsnivåer funktioner. Därför måste måste en lokal server vara ansluten till internet. IT-administratör måste avgöra den bästa vägen för att servern ska få åtkomst till Azure-molntjänster.
@@ -46,15 +46,47 @@ Azure File Sync fungerar på alla sätt att nå Azure automatiskt om anpassning 
 ## <a name="proxy"></a>Proxy
 Azure File Sync stöder appspecifika och datoromfattande proxy-inställningar.
 
-Datoromfattande proxy-inställningar är transparent för Azure File Sync-agenten på servern hela trafiken dirigeras via proxy.
-
-Appspecifika proxyinställningarna för att konfigurera proxy specifikt för Azure File Sync-trafik. Appspecifika proxyinställningar stöds på agentversion 3.0.12.0 eller senare och kan konfigureras under agentinstallationen av eller med hjälp av cmdleten Set-StorageSyncProxyConfiguration PowerShell.
+**Appspecifika proxyinställningar** tillåter konfiguration av proxy specifikt för Azure File Sync-trafik. Appspecifika proxyinställningar stöds på agentversion 3.0.12.0 eller senare och kan konfigureras under agentinstallationen av eller med hjälp av cmdleten Set-StorageSyncProxyConfiguration PowerShell.
 
 PowerShell-kommandon för att konfigurera proxyinställningar för appspecifika:
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
 ```
+**Datoromfattande proxy-inställningar** är transparent för Azure File Sync-agenten som hela trafiken på servern dirigeras via proxy.
+
+Följ stegen nedan om du vill konfigurera datoromfattande proxy-inställningar: 
+
+1. Konfigurera proxyinställningar för .NET-program 
+
+  - Redigera dessa två filer:  
+    C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
+    C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
+
+  - Lägg till avsnittet < system.net > i machine.config-filer (under avsnittet < system.serviceModel >).  Ändra 127.0.01:8888 till IP-adressen och porten för proxyservern. 
+  ```
+      <system.net>
+        <defaultProxy enabled="true" useDefaultCredentials="true">
+          <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
+        </defaultProxy>
+      </system.net>
+  ```
+
+2. Ange WinHTTP-proxyinställningar 
+
+  - Kör följande kommando från en upphöjd kommandotolk eller PowerShell för att visa befintliga Proxyinställningen:   
+
+    Netsh winhttp show proxy
+
+  - Kör följande kommando från en upphöjd kommandotolk eller PowerShell för att ange Proxyinställningen (ändra 127.0.01:8888 till IP-adressen och porten för proxyservern):  
+
+    Netsh winhttp ange proxy 127.0.0.1:8888
+
+3. Starta om tjänsten Storage Sync-agenten genom att köra följande kommando från en upphöjd kommandotolk eller PowerShell: 
+
+      net stop filesyncsvc
+
+      Obs: Tjänsten Storage Sync-agenten (filesyncsvc) ska starta automatiskt när den stoppats.
 
 ## <a name="firewall"></a>Brandvägg
 Port 443 måste vara öppna utgående som nämns i föregående avsnitt. Baserat på principer i ditt datacenter, gren eller din region kan kan ytterligare begränsa trafik via den här porten till vissa domäner vara önskade eller krävs.
@@ -76,7 +108,22 @@ Om &ast;. one.microsoft.com är för breda, du kan begränsa serverns kommunikat
 
 För affärskontinuitet och disaster recovery (BCDR) orsaker har du angett din Azure-filresurser i ett globalt redundant lagringskonto (GRS). Om så är fallet, kommer sedan Azure-filresurser växlar över till den parade regionen i händelse av ett bestående regionalt strömavbrott. Azure File Sync använder samma regionala par som lagring. Så om du använder GRS-lagringskonton kan behöva du aktivera ytterligare URL: er så att din server kan kommunicera med den parade regionen för Azure File Sync. Tabellen nedan anropar den här ”Paired region”. Det finns också en traffic manager-URL som måste aktiveras också. Detta garanterar nätverkstrafik sömlöst igen dirigeras till den parade regionen i händelse av en redundansväxling och kallas ”identifiering URL” i tabellen nedan.
 
-| Region | Primär slutpunkts-URL | Länkad region | Identifierings-URL | |---|---|| --------|| ---------------------------------------| | Östra Australien | https://kailani-aue.one.microsoft.com | Australien Souteast | https://kailani-aue.one.microsoft.com | | Australien, sydöstra | https://kailani-aus.one.microsoft.com | Östra Australien | https://tm-kailani-aus.one.microsoft.com | | Kanada, centrala | https://kailani-cac.one.microsoft.com | Kanada, östra | https://tm-kailani-cac.one.microsoft.com | | Kanada, östra | https://kailani-cae.one.microsoft.com | Kanada, centrala | https://tm-kailani.cae.one.microsoft.com | | USA, centrala | https://kailani-cus.one.microsoft.com | Östra USA 2 | https://tm-kailani-cus.one.microsoft.com | | Östasien | https://kailani11.one.microsoft.com | Sydostasien | https://tm-kailani11.one.microsoft.com | | Östra USA | https://kailani1.one.microsoft.com | Västra USA | https://tm-kailani1.one.microsoft.com | | Östra USA 2 | https://kailani-ess.one.microsoft.com | USA, centrala | https://tm-kailani-ess.one.microsoft.com | | Nordeuropa | https://kailani7.one.microsoft.com | Västeuropa | https://tm-kailani7.one.microsoft.com | | Sydostasien | https://kailani10.one.microsoft.com | Östasien | https://tm-kailani10.one.microsoft.com | | Storbritannien, södra | https://kailani-uks.one.microsoft.com | Storbritannien, västra | https://tm-kailani-uks.one.microsoft.com | | Storbritannien, västra | https://kailani-ukw.one.microsoft.com | Storbritannien, södra | https://tm-kailani-ukw.one.microsoft.com | | Västeuropa | https://kailani6.one.microsoft.com | Nordeuropa | https://tm-kailani6.one.microsoft.com | | Västra USA | https://kailani.one.microsoft.com | Östra USA | https://tm-kailani.one.microsoft.com |
+| Region | Primär slutpunkts-URL | Länkad region | Identifierings-URL |
+|--------|---------------------------------------|--------|---------------------------------------|
+| Östra Australien | https://kailani-aue.one.microsoft.com | Australien Souteast | https://kailani-aue.one.microsoft.com |
+| Sydöstra Australien | https://kailani-aus.one.microsoft.com | Östra Australien | https://tm-kailani-aus.one.microsoft.com |
+| Centrala Kanada | https://kailani-cac.one.microsoft.com | Östra Kanada | https://tm-kailani-cac.one.microsoft.com |
+| Östra Kanada | https://kailani-cae.one.microsoft.com | Centrala Kanada | https://tm-kailani.cae.one.microsoft.com |
+| Centrala USA | https://kailani-cus.one.microsoft.com | USA, östra 2 | https://tm-kailani-cus.one.microsoft.com |
+| Östasien | https://kailani11.one.microsoft.com | Sydostasien | https://tm-kailani11.one.microsoft.com |
+| Östra USA | https://kailani1.one.microsoft.com | Västra USA | https://tm-kailani1.one.microsoft.com |
+| USA, östra 2 | https://kailani-ess.one.microsoft.com | Centrala USA | https://tm-kailani-ess.one.microsoft.com |
+| Norra Europa | https://kailani7.one.microsoft.com | Västra Europa | https://tm-kailani7.one.microsoft.com |
+| Sydostasien | https://kailani10.one.microsoft.com | Östasien | https://tm-kailani10.one.microsoft.com |
+| Storbritannien, södra | https://kailani-uks.one.microsoft.com | Storbritannien, västra | https://tm-kailani-uks.one.microsoft.com |
+| Storbritannien, västra | https://kailani-ukw.one.microsoft.com | Storbritannien, södra | https://tm-kailani-ukw.one.microsoft.com |
+| Västra Europa | https://kailani6.one.microsoft.com | Norra Europa | https://tm-kailani6.one.microsoft.com |
+| Västra USA | https://kailani.one.microsoft.com | Östra USA | https://tm-kailani.one.microsoft.com |
 
 - Om du använder lokalt redundant (LRS) eller zonen redundant (ZRS)-lagringskonton, behöver du bara aktivera den URL som visas under ”primär slutpunkts-URL”.
 

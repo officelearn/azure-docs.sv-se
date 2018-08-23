@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: a4b63c9d184f58fe13c1271f9a425919a42fd897
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 8e107c1721d5623239a694eba39b32e8a2a6089d
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216529"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42060985"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Konfigurera SQL serverinstansen för Failover-kluster på Azure Virtual Machines
 
@@ -368,7 +368,7 @@ Skapa belastningsutjämnaren:
    - **Virtuellt nätverk**: samma nätverk som de virtuella datorerna.
    - **Undernät**: samma undernät som de virtuella datorerna.
    - **Privat IP-adress**: samma IP-adress som tilldelats nätverksresurs för FCI för SQL Server-kluster.
-   - **prenumeration**: din Azure-prenumeration.
+   - **Prenumeration**: din Azure-prenumeration.
    - **Resursgrupp**: Använd samma resursgrupp som dina virtuella datorer.
    - **Plats**: Använd samma Azure-plats som dina virtuella datorer.
    Se följande bild:
@@ -481,7 +481,13 @@ Om du vill testa anslutningen för att logga in på en annan virtuell dator i sa
 >Om nödvändigt, kan du [ladda ned SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
 
 ## <a name="limitations"></a>Begränsningar
-På Azure-datorer stöds inte Microsoft Distributed Transaction Coordinator (DTC) på FCIs eftersom RPC-porten inte stöds av belastningsutjämnaren.
+
+Azure-datorer stöder Microsoft Distributed Transaction Coordinator (MSDTC) på Windows Server 2019 med lagring på klusterdelade volymer (CSV) och en [standardbelastningsutjämnare](../../../load-balancer/load-balancer-standard-overview.md).
+
+På Azure virtual machines stöds MSDTC inte på Windows Server 2016 och tidigare eftersom:
+
+- Klustrade MSDTC-resursen kan inte konfigureras om du vill använda delad lagring. Med Windows Server 2016 om du skapar en MSDTC-resurs visas den inte eventuell delad lagring som är tillgängliga för användning, även om lagringen finns där. Det här problemet har åtgärdats i Windows Server 2019.
+- Med basic load balancer hanteras inte RPC-portar.
 
 ## <a name="see-also"></a>Se även
 

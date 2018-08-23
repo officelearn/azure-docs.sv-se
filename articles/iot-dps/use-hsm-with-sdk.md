@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: 2d5bc3d0167c08c41b38bb324d55c239041f1fba
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: c94b5d4800f5776b51247c6ec2f6662a6ab26abc
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "34630433"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42056990"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Använda olika attesteringsmetoder för maskinvara med klient-SDK för enhetsetableringstjänsten för C
 
@@ -147,7 +147,7 @@ Om du använder TPM, följer du anvisningarna i ["Create and provision a simulat
       ```
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
-2. Logga in på Azure-portalen, klicka på knappen **Alla resurser** i den vänstra menyn och öppna DPS-tjänsten.
+2. Logga in på Azure-portalen, klicka på knappen **Alla resurser** i den vänstra menyn och öppna Device Provisioning-tjänsten.
    - Enskild X **.** 509-registrering: välj **Hantera registreringar** på etableringstjänstens sammanfattningsblad. Välj fliken **Individual Enrollments** (Enskilda registreringar) och klicka på knappen **Lägg till** längst upp. Välj **X**.**509** som *mekanism* för styrkande av identitet och överför det lövcertifikat som krävs av bladet. Klicka på knappen **Spara** när det är klart. 
    - X **.** 509-gruppregistrering: välj **Hantera registreringar** på etableringstjänstens sammanfattningsblad. Välj fliken **Group Enrollments** (gruppregistreringar) och klicka på knappen **Lägg till** längst upp. Välj **X**.**509** som *metod* för styrkande av identitet, ange ett gruppnamn och ett certifikatnamn, ladda upp det CA-/mellanliggande certifikat som krävs av bladet. Klicka på knappen **Spara** när det är klart. 
 

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2018
+ms.date: 08/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: b6547bee13d039dcd34377565eb518eeb6739a38
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 47509cd0a9208f41a52bf1a07c460bcdda2cb479
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480909"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057456"
 ---
 # <a name="what-is-azure-load-balancer"></a>Vad är Azure Load Balancer?
 
@@ -44,7 +44,7 @@ Du kan använda Azure Load Balancer för att:
 
 
 >[!NOTE]
-> Azure tillhandahåller en uppsättning fullständigt hanterade lösningar för belastningsutjämning för dina scenarier. Om du letar efter Transport Layer Security (TLS) protokollet avslutning (”SSL-avlastning”) eller per-HTTP/HTTPS-begäran, programnivå bearbetning, granska [Application Gateway](../application-gateway/application-gateway-introduction.md). Om du behöver för globala DNS belastningsutjämning, granska [Traffic Manager](../traffic-manager/traffic-manager-overview.md). Slutpunkt till slutpunkt-scenarier kan dra nytta av att kombinera dessa lösningar efter behov.
+> Med Azure har du tillgång till en uppsättning fullständigt hanterade belastningsutjämningslösningar för dina scenarier. Om du är intresserad av TLS-avslut (Transport Layer Security) (”SSL-avlastning”) eller bearbetning på programnivå för enskilda HTTP/HTTPS-begäranden läser du avsnittet om [Application Gateway](../application-gateway/application-gateway-introduction.md). Om du behöver för globala DNS belastningsutjämning, granska [Traffic Manager](../traffic-manager/traffic-manager-overview.md). Du kan med fördel kombinera dessa lösningar efter behov för dina slutpunkts-till-slutpunkts-scenarier.
 
 ## <a name="what-are-load-balancer-resources"></a>Vad är resurser för belastningsutjämning?
 
@@ -86,15 +86,11 @@ Belastningsutjämnaren innehåller följande grundläggande funktioner för TCP 
 
 * **Hälsoavsökningar**
 
-     Belastningsutjämnaren använder hälsoavsökningar som du definierar för att fastställa hälsotillståndet för instanser i serverdelspoolen. När en avsökning inte svarar slutar belastningsutjämnaren att skicka nya anslutningar till felaktiga instanser. Befintliga anslutningar påverkas inte och de fortsätter tills programmet avslutas flödet, en timeout för inaktivitet inträffar, eller Virtuellt datorn stängs av.
+    Belastningsutjämnaren använder hälsoavsökningar som du definierar för att fastställa hälsotillståndet för instanser i serverdelspoolen. När en avsökning inte svarar slutar belastningsutjämnaren att skicka nya anslutningar till felaktiga instanser. Befintliga anslutningar påverkas inte och de fortsätter tills programmet avslutas flödet, en timeout för inaktivitet inträffar, eller Virtuellt datorn stängs av.
+     
+    Belastningsutjämnare ger [avsökning för olika hälsotyper](load-balancer-custom-probe-overview.md#types) för TCP, HTTP och HTTPS-slutpunkter.
 
-    Tre typer av avsökningar stöds:
-
-    - **Anpassade HTTP-avsökning**: du kan använda den här avsökningen för att skapa en egen anpassad logik för att fastställa hälsotillståndet för en serverdels-serverpoolinstans. Belastningsutjämnaren kontrollerar regelbundet slutpunkten (var 15 sekunder, som standard). Instansen anses vara felfritt även om svarar den med en HTTP 200 inom tidsgränsen (standard 31 sekunder). Vilken status som helst än 200 HTTP gör den här avsökningen misslyckas. Den här avsökningen är också användbart för att implementera en egen logik för att ta bort instanser från belastningsutjämnarens rotation. Du kan till exempel konfigurerar en instans för att returnera statusen icke-200 om-instansen är större än 90 procent CPU.  Den här avsökningen åsidosätter standard gäst agenten avsökningen.
-
-    - **Anpassade TCP-avsökning**: den här avsökningen förlitar sig på att upprätta en lyckad TCP-session till en definierad avsökningsporten. Den här avsökningen lyckas så länge som den angivna lyssnaren på den virtuella datorn finns. Avsökningen misslyckas om anslutningen nekas. Den här avsökningen åsidosätter standard gäst agenten avsökningen.
-
-    - **Gästen agenten avsökningen**: belastningsutjämnaren kan också använda gästagenten på den virtuella datorn. Gästagenten lyssnar och svarar med ett HTTP 200 OK-svar endast när instansen är i tillståndet klar. Om agenten inte svarar med en HTTP 200 OK, markerar instansen som inte svarar belastningsutjämnaren och stoppar skickar trafik till den instansen. Belastningsutjämnaren fortsätter att försöka att nå instansen. Om gästagenten svarar med ett 200 HTTP, skickar belastningsutjämnaren trafik till den instansen igen. Avsökningar för gäst-agenten är en _sista utväg och rekommenderas inte_ när HTTP eller TCP anpassad avsökningskonfigurationer är möjligt. 
+    Dessutom när du använder molntjänster för klassisk, ytterligare en typ tillåts: [gästagenten](load-balancer-custom-probe-overview.md#guestagent).  Detta bör vara anser vara en hälsoavsökning av sista utväg och rekommenderas inte när andra alternativ är genomförbart.
     
 * **Utgående anslutningar (SNAT)**
 
@@ -170,7 +166,7 @@ Information om Standard Load Balancer serviceavtal finns på den [Load Balancer 
 ## <a name="limitations"></a>Begränsningar
 
 - Belastningsutjämnare är en TCP eller UDP-produkt för belastningsutjämning och portvidarebefordran för dessa specifika IP-protokoll.  Regler för belastningsutjämning och inkommande NAT-regler stöds för TCP och UDP och stöds inte för andra IP-protokoll, inklusive ICMP. Belastningsutjämnaren inte avslutar, svara eller annars interagera med nyttolasten för ett flöde för UDP eller TCP. Det är inte en proxy. Lyckad validering av anslutning till en klientdel måste vidta plats i band med samma protokoll som används i en belastning belastningsutjämning eller inkommande NAT-regel (TCP eller UDP) _och_ minst en av dina virtuella datorer måste generera ett svar för en klient för se ett svar från en klientdel.  Inte får en in-band-svar från belastningsutjämnaren klientdelen anger att inga virtuella datorer kunde svara.  Det går inte att interagera med en klientdel för belastningsutjämnare utan en virtuell dator kan svara.  Detta gäller även för utgående anslutningar där [port maskerade SNAT](load-balancer-outbound-connections.md#snat) är stöds endast för TCP och UDP; alla andra IP-protokoll, inklusive ICMP också misslyckas.  Tilldela en offentlig IP-adress för på instansnivå att minska.
-- Till skillnad från offentliga belastningsutjämnare som ger [utgående anslutningar](load-balancer-outbound-connections.md) när övergången från privata IP-adresser i virtuella nätverk till offentliga IP-adresser, interna belastningsutjämnare inte översätta utgående har sitt ursprung anslutningar till klientdelen av en intern belastningsutjämnare som båda är i privat IP-adressutrymme.  På så sätt undviker du risken för SNAT överbelastning i unika interna IP-adressutrymmet som där translation inte krävs.  Effekten på klientsidan är att om ett utgående flöde från en virtuell dator i serverdelspoolen försöker ett flöde till klientdel för den interna belastningsutjämnaren vilken pool finns _och_ mappas till sig själv, både ben av flödet inte matchar och flödet kommer att misslyckas.  Om flödet inte mappade till samma virtuella dator i serverdelspoolen som skapade flödet till klientdelen, lyckas flödet.   När flödet mappar tillbaka till själva utgående flödet verkar kommer från den virtuella datorn till klientdelen och motsvarande inkommande flödet visas som kommer från den virtuella datorn till sig själv. Från gäst-OS synsätt matchar inte de inkommande och utgående delarna av samma flöde inuti den virtuella datorn. TCP-stacken känner inte igen de här delarna av samma flöde som en del av samma flöde som källa och mål inte matchar.  När flödet mappar till andra virtuella datorer i serverdelspoolen, delarna av flödet kommer att matcha och den virtuella datorn har kan svara på flödet.  Symtom för det här scenariot är tillfälliga timeout. Det finns flera vanliga lösningar för att uppnå det här scenariot (med ursprung flöden från en serverdelspool till backend-pooler respektive interna belastningsutjämnare klientdelen) på ett tillförlitligt sätt bland annat antingen inmatningen av en tredjeparts-proxy bakom den interna belastningen Belastningsutjämnare eller [med DSR formatreglerna](load-balancer-multivip-overview.md).  Medan du kan använda en offentlig belastningsutjämnare för att minska, det resulterande scenariot är lätt att göra [SNAT resursuttömning](load-balancer-outbound-connections.md#snat) och bör inte användas om inte noggrant hanteras.
+- Till skillnad från offentliga belastningsutjämnare som ger [utgående anslutningar](load-balancer-outbound-connections.md) när övergången från privata IP-adresser i virtuella nätverk till offentliga IP-adresser, interna belastningsutjämnare inte översätta utgående har sitt ursprung anslutningar till klientdelen av en intern belastningsutjämnare som båda är i privat IP-adressutrymme.  På så sätt undviker du risken för SNAT portöverbelastning inuti unika interna IP-adressutrymmet som där translation inte krävs.  Effekten på klientsidan är att om ett utgående flöde från en virtuell dator i serverdelspoolen försöker ett flöde till klientdel för den interna belastningsutjämnaren vilken pool finns _och_ mappas till sig själv, både ben av flödet inte matchar och flödet kommer att misslyckas.  Om flödet inte mappade till samma virtuella dator i serverdelspoolen som skapade flödet till klientdelen, lyckas flödet.   När flödet mappar tillbaka till själva utgående flödet verkar kommer från den virtuella datorn till klientdelen och motsvarande inkommande flödet visas som kommer från den virtuella datorn till sig själv. Från gäst-OS synsätt matchar inte de inkommande och utgående delarna av samma flöde inuti den virtuella datorn. TCP-stacken känner inte igen de här delarna av samma flöde som en del av samma flöde som källa och mål inte matchar.  När flödet mappar till andra virtuella datorer i serverdelspoolen, delarna av flödet kommer att matcha och den virtuella datorn har kan svara på flödet.  Symtom för det här scenariot är tillfälliga timeout när flödet återgår till samma serverdel som kommer från flödet. Det finns flera vanliga lösningar för att uppnå det här scenariot (med ursprung flöden från en serverdelspool till backend-pooler respektive interna belastningsutjämnare klientdelen) på ett tillförlitligt sätt bland annat antingen inmatningen av en proxy-lager bakom den interna belastningsutjämnaren eller [med DSR formatreglerna](load-balancer-multivip-overview.md).  Kunder kan kombinera en intern belastningsutjämnare med 3 part proxy eller Ersätt interna [Application Gateway](../application-gateway/application-gateway-introduction.md) för proxy-scenarier som är begränsad till HTTP/HTTPS. Medan du kan använda en offentlig belastningsutjämnare för att minska, det resulterande scenariot är lätt att göra [SNAT resursuttömning](load-balancer-outbound-connections.md#snat) och bör inte användas om inte noggrant hanteras.
 
 ## <a name="next-steps"></a>Nästa steg
 

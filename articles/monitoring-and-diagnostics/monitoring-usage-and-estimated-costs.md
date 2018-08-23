@@ -1,114 +1,120 @@
 ---
-title: Övervakning av användning och de uppskattade kostnaderna i Azure-Monitor
-description: Översikt över processen med att använda Azure-Monitor användning och uppskattade kostnaderna sida
+title: Övervaka användning och uppskattade kostnader i Azure Monitor
+description: Översikt över processen med att använda Azure Monitor-användning och uppskattade kostnader
 author: dalekoetke
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/31/2018
+ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.component: ''
-ms.openlocfilehash: edfcc244105403ae33251777c560d4cc21dfe5cb
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 35e7d36043defd236252f86facf4b9e2ed945d67
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264290"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42058505"
 ---
-# <a name="monitoring-usage-and-estimated-costs"></a>Övervakning av användning och de uppskattade kostnaderna
+# <a name="monitoring-usage-and-estimated-costs"></a>Övervaka användning och uppskattade kostnader
 
-I övervakaren hubb för Azure-portalen på **användning och de uppskattade kostnaderna** sidan beskriver användningen av grundläggande övervakningsfunktioner som [avisering, mått, meddelanden](https://azure.microsoft.com/pricing/details/monitor/), [Azure logganalys ](https://azure.microsoft.com/pricing/details/log-analytics/), och [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). Detta omfattar även logganalys användning som köpts via insikter för kunder på prisnivå planerna som är tillgängliga innan April 2018 och Analytics erbjuder.
+> [!NOTE]
+> Den här artikeln beskriver hur du visar användning och uppskattade kostnader över flera Azure övervakningsfunktioner för olika prissättningsmodeller.  Finns i följande artiklar för relaterad information.
+> - [Hantera kostnader genom att kontrollera datavolymer och kvarhållning i Log Analytics](../log-analytics/log-analytics-manage-cost-storage.md) beskrivs hur du kontrollerar dina kostnader genom att ändra kvarhållningsperioden för data.
+> - [Analysera dataanvändning i Log Analytics](../log-analytics/log-analytics-usage.md) beskriver hur du analyserar och Avisera om din dataanvändning.
+> - [Hantera priser och datavolymer i Application Insights](../application-insights/app-insights-pricing.md) beskriver hur du analysera dataanvändning i Application Insights.
 
-På den här sidan kan användare visa sina resursanvändningen under de senaste 31 dagarna samman per prenumeration. Ökad-moduler Visa användningstrender över 31 dagar. Stora mängder data samlas för denna beräkning, så måste du ha tålamod när sidan läses in.
+I övervakaren hub i Azure Portal i **användning och uppskattade kostnader** sidan förklaras användningen av grundläggande övervakningsfunktioner som [aviseringar, mått, meddelanden](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics ](https://azure.microsoft.com/pricing/details/log-analytics/), och [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). För kunder på priser avtal innan April 2018, omfattar detta även logganalys-användning som köpts via insikterna och Analytics erbjuder.
 
-Det här exemplet visar användning av övervakning och en uppskattning av kostnaderna för resulterande:
+På den här sidan kan användare visa sina resursanvändningen för de senaste 31 dagarna, aggregerade per prenumeration. Drill-moduler visar trender för användning under perioden på 31 dagar. Stora mängder data behöver samlas för den här beräkningen så ha tålamod när sidan läses in.
 
-![Användnings- och uppskattade kostnaderna portal skärmbild](./media/monitoring-usage-and-estimated-costs/001.png)
+Det här exemplet visar övervakad användning och en uppskattning av de resulterande kostnaderna:
 
-Välj länken i kolumnen månatliga användningsdata för att öppna ett diagram som visar användningstrender över de senaste 31 dagarna:
+![Användning och uppskattade kostnader portal skärmbild](./media/monitoring-usage-and-estimated-costs/001.png)
+
+Välj länken i kolumnen månatlig användning för att öppna ett diagram som visar trender för användning under de senaste 31 dagarna:
 
 ![Ingår per nod liggande diagram skärmbild](./media/monitoring-usage-and-estimated-costs/002.png)
 
-Här är en annan liknande användning och kostnader sammanfattning. Det här exemplet visar en prenumeration i nya April 2018 förbrukningsbaserad priserna. Observera bristen på någon nod-baserade fakturering. Datapåfyllning och lagring för Log Analytics och Application Insights rapporteras på en ny vanliga mätaren.
+Här är en annan liknande användning och kostnadssammanfattning. Det här exemplet visar en prenumeration i den nya prissättningsmodellen från April 2018 förbrukningsbaserad. Observera bristen på valfri nod-baserade fakturering. Datainmatning och kvarhållning för Log Analytics och Application Insights rapporteras nu på en ny mätare som vanligt.
 
-![Användnings- och uppskattade kostnaderna portal skärmbild - April 2018 priser](./media/monitoring-usage-and-estimated-costs/003.png)
+![Användning och uppskattade kostnader portal skärmbild – April 2018 priser](./media/monitoring-usage-and-estimated-costs/003.png)
 
-## <a name="new-pricing-model"></a>Ny prissättningsmodell
+## <a name="new-pricing-model"></a>Ny Prismodell
 
-I April 2018, en [nya övervakning prismodellen släpptes](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/).  Detta funktioner molnet eget, förbrukningsbaserad priser. Du betalar bara för det du använder, utan åtaganden baserat på noden. Information om nya priserna är tillgängliga för [avisering, mått, meddelanden](https://azure.microsoft.com/pricing/details/monitor/), [logganalys](https://azure.microsoft.com/pricing/details/log-analytics/) och [Programinsikter](https://azure.microsoft.com/pricing/details/application-insights/). 
+I April 2018 en [nya övervakning prismodellen släpptes](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/).  Detta omfattar molnvänliga, förbrukningsbaserad prissättning. Du betalar bara för det du använder, utan åtaganden för nod-baserade. Mer information om den nya prismodellen finns tillgängliga för [aviseringar, mått, meddelanden](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) och [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). 
 
-För kunder att logganalys eller Application Insights efter den 2 April 2018 är nya priserna det enda alternativet. För kunder som redan använder dessa tjänster, flyttar till nya priserna är valfritt.
+För kunder Kom igång med Log Analytics eller Application Insights efter 2 April 2018 är det enda alternativet i den nya prismodellen. För kunder som redan använder dessa tjänster kan flyttas till den nya prismodellen är valfritt.
 
-## <a name="assessing-the-impact-of-the-new-pricing-model"></a>Utvärdera effekten av nya priserna
-Ny prissättningsmodell har olika påverkan på varje kund baserat på deras övervakning användningsmönster. För kunder som använder logganalys eller Application Insights innan den 2 April 2018 den **användnings- och uppskattade kostnaden** sida i Azure-övervakaren beräknar ändringar i kostnaderna om de flyttar till nya priserna. Det ger sätt att flytta en prenumeration till den nya modellen. För de flesta kunder blir de nya priserna fördelaktigt. För kunder med särskilt stor data användningsmönster eller högre kostnad regioner, kan detta inte är fallet.
+## <a name="assessing-the-impact-of-the-new-pricing-model"></a>Utvärdera effekten av den nya prismodellen
+Den nya prismodellen har olika påverkan på varje kund baserat på deras övervakning användningsmönster. För kunder som använder Log Analytics eller Application Insights innan den 2 April 2018 den **användning och uppskattade kostnader** sida i Azure Monitor beräknar ändringar i kostnaderna om de flyttar till den nya prismodellen. Det ger sätt att flytta en prenumeration till den nya modellen. De flesta kunder är den nya prismodellen för stora fördelar. Det kanske inte är fallet för kunder med särskilt hög användningsmönster eller regioner för högre kostnad.
 
-Få en uppskattning av kostnaderna för prenumerationerna som du valde på den **användning och de uppskattade kostnaderna** väljer blå listen längst upp på sidan. Det är bäst att göra detta en prenumeration samtidigt, eftersom det är den nivå där nya priserna kan antas.
+Se en uppskattning av dina kostnader för prenumerationerna som du har valt på den **användning och uppskattade kostnader** väljer du den blå banderollen längst upp på sidan. Det är bäst att göra det här en prenumeration i taget, eftersom det är den nivå där den nya prissättningsmodellen kan antas.
 
-![Övervaka användning och de uppskattade kostnaderna i nya prisnivå modellen skärmbild](./media/monitoring-usage-and-estimated-costs/004.png)
+![Övervaka användning och uppskattade kostnader i nya prissättning modell-skärmbild](./media/monitoring-usage-and-estimated-costs/004.png)
 
-Den nya sidan visas en liknande version av föregående sida med en grön banderoll:
+Den nya sidan visar en liknande version av den föregående sidan med en grön banderoll:
 
-![Övervaka användning och de uppskattade kostnaderna i aktuell prisnivå modellen skärmbild](./media/monitoring-usage-and-estimated-costs/005.png)
+![Övervaka användning och uppskattade kostnader i aktuell prissättning modell-skärmbild](./media/monitoring-usage-and-estimated-costs/005.png)
 
-Sidan visar också en annan uppsättning mätare som motsvarar nya priserna. Den här listan är ett exempel:
+På sidan visas även en annan uppsättning mätare som motsvarar den nya prismodellen. Den här listan är ett exempel:
 
-- Insikt och Analytics\Overage per nod
-- Insikt och Analytics\Included per nod
-- Överförbrukning programdata för Insights\Basic
+- Insight and Analytics\Overage per nod
+- Insight and Analytics\Included per nod
+- Programmet Insights\Basic Överförbrukade Data
 - Insights\Included programdata
 
-Ny prissättningsmodell saknar nod-baserade inkluderade data allokeringar. Därför kan dessa data införandet mätare kombineras till en ny gemensamma data införandet mätare kallas **delade Services\Data införandet**. 
+Den nya prismodellen har inte nod-baserade inkluderade data-allokeringar. Därför mätarnas datainmatning kombineras till en ny vanliga datainmatning mätare som kallas **delade Services\Data inmatning**. 
 
-Det finns en annan ändring av data som inhämtas i logganalys- eller Application Insights i områden med högre kostnader. Data för regionerna hög kostnad visas med de nya nationella mätare. Ett exempel är **Datapåfyllning (oss Väst Central)**.
+Det finns en annan ändring som matas in i Log Analytics eller Application Insights i regioner med högre kostnader. Data för dessa regioner för hög kostnad visas med de nya regionala mätarna. Ett exempel är **datainmatning (USA, västra centrala)**.
 
 > [!NOTE]
-> Den uppskattade kostnaderna inte factor i kontonivå per nod rättigheter för prenumerationen Operations Management Suite (OMS) per prenumeration. Kontakta din kontorepresentant för en mer detaljerad beskrivning av nya priserna i det här fallet.
+> Den uppskattade kostnader inte ta med i kontonivå per nod rättigheter för Operations Management Suite (OMS)-prenumeration per prenumeration. Kontakta representanten för ditt konto för en mer detaljerad beskrivning av den nya prissättningsmodellen i det här fallet.
 
-## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>Nya priser modell och rättigheter för Operations Management Suite-prenumeration
+## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>Ny prisnivå modell och Operations Management Suite-prenumerationens rättigheter
 
-Kunder som har köpt Microsoft Operations Management Suite E1 och E2 är berättigad till per nod data införandet rättigheter för [logganalys](https://www.microsoft.com/cloud-platform/operations-management-suite) och [Programinsikter](https://docs.microsoft.com/azure/application-insights/app-insights-pricing#the-price-plans). Ta emot dessa rättigheter för Log Analytics arbetsytor eller Application Insights-resurser i en viss prenumeration: 
+Kunder som har köpt Microsoft Operations Management Suite E1 och E2 är berättigade till per nod datainmatning rättigheter för [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) och [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing#the-price-plans). Att ta emot dessa rättigheter för Log Analytics-arbetsytor och Application Insights-resurser i en viss prenumeration: 
 
-- Prenumerationens prismodellen måste vara i pre-April 2018 modellen.
-- Log Analytics arbetsytorna bör använda den ”Per nod (OMS)” prisnivån.
-- Application Insights-resurser ska använda ”Enterprise”-priser plan.
+- Prenumerationens prismodellen måste vara i pre-April 2018-modellen.
+- Log Analytics-arbetsytor bör använda den ”Per nod (OMS)” prisnivå.
+- Application Insights-resurser bör använda ”företaget”-prisplan.
 
-Beroende på antalet noder i sviten som din organisation har köpt flytta några prenumerationer nya priserna kan vara fördelaktigt, men detta kräver noggrant övervägande. I allmänhet rekommenderas bara för att hålla pre-April 2018 modellen enligt beskrivningen ovan.
-
-> [!WARNING]
-> Om din organisation har köpt Microsoft Operations Management Suite E1 och E2, är det oftast bäst att hålla dina prenumerationer i pre-April 2018 priserna. 
->
-
-## <a name="changes-when-youre-moving-to-the-new-pricing-model"></a>Ändras när du flyttar till en ny prissättningsmodell
-
-Ny prissättningsmodell förenklar logganalys och Application Insights priser alternativ för att bara en enda nivå (eller planerar). Flytta en prenumeration till den nya prisnivå modellen skapar:
-
-- Ändra prisnivån för varje logganalys till en ny Per GB-nivå (kallas ”pergb2018” i Azure Resource Manager)
-- Application Insights resurser i Enterprise-planen har ändrats till den grundläggande planen.
-
-Uppskattningen se effekten av ändringarna.
+Beroende på antalet noder i sviten som din organisation har köpt flytta några prenumerationer på den nya prissättningsmodellen kan vara fördelaktigt, men det kräver noggrann beräkningen. I allmänhet rekommenderas bara för att hålla dig i förväg April 2018 modellen enligt beskrivningen ovan.
 
 > [!WARNING]
-> Här viktigt om du använder Azure Resource Manager eller PowerShell för att distribuera [logganalys](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) eller [Programinsikter](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) för en prenumeration som du har flyttat till den nya prismodell. Om du anger en nivå/prisavtal än ”pergb2018” för Log Analytics eller ”Basic” för Application Insights i stället misslyckas distributionen på grund av att ange ett ogiltigt priser nivå/planen om det lyckas **men använder den enda giltiga priser för nivån /-planen** (Detta gäller inte till Log Analytics kostnadsfria nivån var ett ogiltigt meddelande för prisnivå nivån skapas).
+> Om din organisation har köpt Microsoft Operations Management Suite E1 och E2, är det oftast bäst att hålla dina prenumerationer i prissättningsmodellen för pre-April 2018. 
 >
 
-## <a name="moving-to-the-new-pricing-model"></a>Flytta till ny prissättningsmodell
+## <a name="changes-when-youre-moving-to-the-new-pricing-model"></a>Ändringar när du flyttar till den nya prismodellen
 
-Om du har valt att införa nya priserna för en prenumeration väljer du den **priser vald modell** alternativet överst i den **användning och de uppskattade kostnaderna** sidan:
+Den nya prismodellen förenklar Log Analytics och Application Insights prisalternativ till endast en enda nivå (eller plan). Flyttar en prenumeration till den nya prissättningen modellen kommer:
 
-![Övervaka användning och de uppskattade kostnaderna i nya prisnivå modellen skärmbild](./media/monitoring-usage-and-estimated-costs/006.png)
+- Ändra prisnivån för varje Log Analytics till en ny Per GB-nivå (kallas ”pergb2018” i Azure Resource Manager)
+- Alla Application Insights-resurser i företagsplanen ändras till Basic-avtal.
 
-Den **priser vald modell** öppnas. Den visar en lista över alla prenumerationer som du har visat på föregående sida:
+En översikt visar effekterna av dessa ändringar.
+
+> [!WARNING]
+> Här viktigt om du använder Azure Resource Manager eller PowerShell för att distribuera [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) eller [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) i en prenumeration som du har flyttat till den nya prismodellen. Om du anger en nivå/prisplanen än ”pergb2018” för Log Analytics eller ”grundläggande” för Application Insights, snarare än misslyckas distributionen på grund av att ange ett ogiltigt priser nivå /-planen, kommer att kunna **men använder den enda giltiga prisavtalnivå/** (Detta gäller inte för den Log Analytics kostnadsfria nivån där ett ogiltigt prisnivå nivå meddelande genereras).
+>
+
+## <a name="moving-to-the-new-pricing-model"></a>Flytta till den nya prismodellen
+
+Om du har valt att införa den nya prismodellen för en prenumeration, Välj den **val av Prissättningsmodell** alternativet överst i den **användning och uppskattade kostnader** sidan:
+
+![Övervaka användning och uppskattade kostnader i nya prissättning modell-skärmbild](./media/monitoring-usage-and-estimated-costs/006.png)
+
+Den **val av Prissättningsmodell** öppnas. Den visar en lista över alla prenumerationer som du visade på föregående sida:
 
 ![Priser för modellen val av skärmbild](./media/monitoring-usage-and-estimated-costs/007.png)
 
-Om du vill flytta en prenumeration till nya priserna, markera kryssrutan och välj sedan **spara**. Du kan flytta tillbaka till äldre priserna på samma sätt. Tänk på att prenumerationsägaren eller deltagarbehörighet krävs för att ändra prisnivå modellen.
+Om du vill flytta en prenumeration till den nya prismodellen, markera kryssrutan och välj sedan **spara**. Du kan flytta tillbaka till den gamla prissättningsmodellen på samma sätt. Tänk på att Prenumerationens ägare eller deltagare behörigheter som krävs för att ändra prissättningsmodellen.
 
-## <a name="automate-moving-to-the-new-pricing-model"></a>Automatisera flyttar till en ny prissättningsmodell
+## <a name="automate-moving-to-the-new-pricing-model"></a>Automatisera flyttas till den nya prismodellen
 
-Skripten nedan kräver Azure PowerShell-modulen. Kontrollera om du har den senaste versionen finns [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.1.0).
+Skripten nedan kräver Azure PowerShell-modulen. Kontrollera om du har den senaste versionen finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.1.0).
 
-När du har den senaste versionen av Azure PowerShell kan du först behöver köra ``Connect-AzureRmAccount``.
+När du har den senaste versionen av Azure PowerShell kan du först behöva köra ``Connect-AzureRmAccount``.
 
 ``` PowerShell
 # To check if your subscription is eligible to adjust pricing models.
@@ -120,7 +126,7 @@ Invoke-AzureRmResourceAction `
  -Force
 ```
 
-Ett resultat av True under isGrandFatherableSubscription anger att den här prenumerationen prismodellen kan flyttas mellan prissättningsmodeller. Saknas ett värde under optedInDate innebär den här prenumerationen är inställd på att gamla priserna.
+Ett resultat av True under isGrandFatherableSubscription anger att den här prenumerationen prismodellen kan flyttas mellan prismodeller. Bristen på ett värde under optedInDate innebär att den här prenumerationen är för närvarande inställd på den gamla prismodellen.
 
 ```
 isGrandFatherableSubscription optedInDate
@@ -128,7 +134,7 @@ isGrandFatherableSubscription optedInDate
                          True            
 ```
 
-Om du vill migrera den här prenumerationen till nya priserna kör:
+Om du vill migrera prenumerationen till den nya prismodellen kör:
 
 ```PowerShell
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
@@ -139,7 +145,7 @@ Invoke-AzureRmResourceAction `
  -Force
 ```
 
-Bekräfta att ändringen har lyckats kör:
+Kontrollera att ändringen har lyckats kör:
 
 ```PowerShell
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
@@ -150,7 +156,7 @@ Invoke-AzureRmResourceAction `
  -Force
 ```
 
-Om migreringen lyckades, bör resultatet nu se ut som:
+Om migreringen lyckades, ditt resultat bör nu se ut:
 
 ```
 isGrandFatherableSubscription optedInDate                      
@@ -158,9 +164,9 @@ isGrandFatherableSubscription optedInDate
                          True 2018-05-31T13:52:43.3592081+00:00
 ```
 
-OptInDate innehåller nu en tidsstämpel när den här prenumerationen valts i nya priserna.
+OptInDate innehåller nu en tidsstämpel för när den här prenumerationen har valt att den nya prismodellen.
 
-Om du behöver återgå till den gamla prismodellen kör du:
+Om du vill återgå till den gamla prismodellen kör du:
 
 ```PowerShell
  $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
@@ -171,9 +177,9 @@ Invoke-AzureRmResourceAction `
  -Force
 ```
 
-Om du kör sedan det föregående skript som har ``-Action listmigrationdate``, bör nu visas en tom optedInDate värde som anger din prenumeration har returnerats till äldre prismodell.
+Om du kör sedan föregående skript som har ``-Action listmigrationdate``, du bör nu se en tom optedInDate värde som anger din prenumeration har returnerats till den äldre prismodellen.
 
-Om du har flera prenumerationer som du vill migrera som finns under samma klient kan du skapa egna variant med delar av följande skript:
+Om du har flera prenumerationer som du vill migrera som finns under samma klient kan du skapa en egen variant med hjälp av delar av följande skript:
 
 ```PowerShell
 #Query tenant and create an array comprised of all of your tenants subscription ids
@@ -182,7 +188,7 @@ $Tenant =Get-AzureRMSubscription -TenantId $TenantId
 $Subscriptions = $Tenant.Id
 ```
 
-Om du vill kontrollera om alla prenumerationer i din klient är berättigad till nya priserna, kan du köra:
+Om du vill kontrollera om alla prenumerationer i din klient är berättigad till den nya prismodellen, kan du köra:
 
 ```PowerShell
 Foreach ($id in $Subscriptions)
@@ -196,7 +202,7 @@ Invoke-AzureRmResourceAction `
 }
 ```
 
-Skriptet kan anpassas ytterligare genom att skapa ett skript som genererar tre matriser. En matris består av alla prenumerations-id's som har ```isGrandFatherableSubscription``` anges till True och optedInDate inte har ett värde. En andra matris med några prenumerationer för närvarande på nya priserna. Och en tredje matris endast med prenumerations-ID: n i din klient som inte är tillämplig för nya priserna:
+Skriptet kan anpassas ytterligare genom att skapa ett skript som genererar tre matriser. En matris som består av alla prenumerations-id som har ```isGrandFatherableSubscription``` SANT och optedInDate inte har ett värde. En andra uppsättning några prenumerationer för närvarande på den nya prismodellen. Och en tredje matris som innehåller bara prenumerations-ID: n i din klient som inte är berättigade till den nya prismodellen:
 
 ```PowerShell
 [System.Collections.ArrayList]$Eligible= @{}
@@ -230,9 +236,9 @@ $Result= Invoke-AzureRmResourceAction `
 ```
 
 > [!NOTE]
-> Skriptet ovan kan ta lite tid att köra beroende på antalet prenumerationer. Användning av metoden .add() echo PowerShell-fönstret ökar värdena som objekt läggs till varje matris.
+> Beroende på antalet prenumerationer kan skriptet ovan ta lite tid att köra. På grund av användningen av metoden .add() echo PowerShell-fönstret stegvis ökande värden när objekt läggs till varje matris.
 
-Nu när du har dina prenumerationer uppdelat i tre matriser bör du granska resultatet noggrant. Du kanske vill göra en säkerhetskopia av innehållet i matriserna så att du kan enkelt återställa dina ändringar om det behövs i framtiden. Om du valt som du vill konvertera alla berättigade prenumerationer som för närvarande på gamla priserna till den nya Prismodell den här uppgiften kan nu uppnås med:
+Nu när du har dina prenumerationer som är uppdelad i tre matriser bör du noggrant granska dina resultat. Du kanske vill göra en säkerhetskopia av innehållet i matriser så att du kan enkelt återställa ändringarna skulle du behöva i framtiden. Om du valt som du vill konvertera alla berättigade prenumerationer som för närvarande på den gamla prismodellen till den nya prismodellen den här uppgiften kan nu uppnås med:
 
 ```PowerShell
 Foreach ($id in $Eligible)

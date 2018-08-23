@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 53b35fbdc469639b1fdc09293e05247bcc5d8c31
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 78f9ba817008a28e63ec167c4e2ccc7f3859be16
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714493"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42059930"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med runbooks
 
@@ -38,7 +38,7 @@ Det här felet uppstår om Tillgångsnamn autentiseringsuppgifter inte är gilti
 
 För att avgöra vad som är fel, gör du följande:  
 
-1. Se till att det inte finns några specialtecken, inklusive den ** @ ** tecknet i Automation namn på autentiseringsuppgift tillgång som du använder för att ansluta till Azure.  
+1. Se till att det inte finns några specialtecken, inklusive den **@** tecknet i Automation namn på autentiseringsuppgift tillgång som du använder för att ansluta till Azure.  
 2. Kontrollera att du kan använda användarnamn och lösenord som lagras i Azure Automation-autentiseringsuppgift i din lokala PowerShell ISE-redigerare. Du kan göra detta genom att köra följande cmdlets i PowerShell ISE:  
 
    ```powershell
@@ -137,7 +137,43 @@ Det här felet kan orsakas av med inaktuella Azure-moduler.
 
 Det här felet kan lösas genom att uppdatera din Azure-moduler till den senaste versionen.
 
-I ditt Automation-konto klickar du på **moduler**, och klicka på **uppdatera Azure-moduler**. Uppdateringen tar ungefär 15 minuter, en gång fullständig kör den runbook som misslyckades kontrollerades.
+I ditt Automation-konto klickar du på **moduler**, och klicka på **uppdatera Azure-moduler**. Uppdateringen tar ungefär 15 minuter, en gång fullständig kör den runbook som misslyckades kontrollerades. Mer information om hur du uppdaterar dina moduler finns [uppdatera Azure-moduler i Azure Automation](../automation-update-azure-modules.md).
+
+### <a name="child-runbook-auth-failure"></a>Scenario: Underordnade runbook misslyckas när du hanterar flera prenumerationer
+
+#### <a name="issue"></a>Problem
+
+När du kör underordnade runbooks med `Start-AzureRmRunbook`, underordnade runbook misslyckas att hantera Azure-resurser.
+
+#### <a name="cause"></a>Orsak
+
+Den underordnade runbooken använder inte rätt sammanhang när du kör.
+
+#### <a name="resolution"></a>Lösning
+
+När du arbetar med flera prenumerationer prenumerationskontexten kan gå förlorade vid underordnade runbooks. För att säkerställa att prenumerationskontexten överförs till underordnade runbooks, lägger du till den `DefaultProfile` parameter till cmdleten och pass kontexten till den.
+
+```azurepowershell-interactive
+# Connect to Azure with RunAs account
+$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
+
+Add-AzureRmAccount `
+    -ServicePrincipal `
+    -TenantId $ServicePrincipalConnection.TenantId `
+    -ApplicationId $ServicePrincipalConnection.ApplicationId `
+    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+
+$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+
+$params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
+
+Start-AzureRmAutomationRunbook `
+    –AutomationAccountName 'MyAutomationAccount' `
+    –Name 'Test-ChildRunbook' `
+    -ResourceGroupName 'LabRG' `
+    -DefaultProfile $AzureContext `
+    –Parameters $params –wait
+```
 
 ### <a name="not-recognized-as-cmdlet"></a>Scenario: Runbook misslyckas på grund av en cmdlet som saknas
 
@@ -189,6 +225,8 @@ Någon av följande lösningar problemet på:
 * Föreslagna metoder för att fungera inom minnesgränsen är att dela upp arbetsbelastningen mellan flera runbooks, inte bearbeta så mycket data i minnet, inte att skriva onödiga utdata från runbooks, eller överväga hur många kontrollpunkter som du skriver till PowerShell-arbetsflöde runbooks.  
 
 * Uppdatera din Azure-moduler genom att följa stegen [så här uppdaterar du Azure PowerShell-moduler i Azure Automation](../automation-update-azure-modules.md).  
+
+* En annan lösning är att köra runbook på en [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Worker-arbeten begränsas inte av den [rättmätiga del](../automation-runbook-execution.md#fair-share) begränsar att Azure sandbox-miljöer är.
 
 ### <a name="fails-deserialized-object"></a>Scenario: Runbook misslyckas på grund av avserialiserat objekt
 
@@ -309,7 +347,7 @@ Några vanliga orsaker som en modul inte kan importera till Azure Automation är
 
 Någon av följande lösningar problemet på:
 
-* Kontrollera att modulen följer följande format: ModuleName.Zip ** -> ** ModuleName eller versionsnummer ** -> ** (ModuleName.psm1, ModuleName.psd1)
+* Kontrollera att modulen följer följande format: ModuleName.Zip **->** ModuleName eller versionsnummer **->** (ModuleName.psm1, ModuleName.psd1)
 * Öppna filen .psd1 och om modulen har några beroenden. I annat fall kan du ladda upp dessa moduler till Automation-kontot.
 * Se till att alla refererade DLL-filer finns i modulmappen.
 

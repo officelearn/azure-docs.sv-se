@@ -1,6 +1,6 @@
 ---
 title: Kopiera data från DB2 med Azure Data Factory | Microsoft Docs
-description: Lär dig hur du kopierar data från DB2 till stöds sink datalager med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen.
+description: Lär dig hur du kopierar data från DB2 till mottagarens datalager genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,64 +11,64 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/28/2018
+ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 11647c231db3ff7beb2fed641dc72ff339b2b45a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f9d1d2181649cf24784dc7ad11638946c9ee4406
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046249"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42057355"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Kopiera data från DB2 med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-onprem-db2-connector.md)
 > * [Aktuell version](connector-db2.md)
 
-Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från en DB2-databas. Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
+Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från en DB2-databas. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från DB2-databas till alla stöds sink-datalagret. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten, finns det [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från DB2-databas till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
-Mer specifikt DB2-koppling har stöd för följande IBM DB2-plattformar och versioner med distribuerade relationella Database Architecture (DRDA) SQL åtkomst Manager (SQLAM) version 9, 10 och 11:
+Mer specifikt stöder den här DB2-anslutningsapp följande IBM DB2-plattformar och versioner med distribuerade Relational Database Architecture (DRDA) SQL Access Manager (SQLAM) version 9, 10 och 11:
 
-* IBM DB2 för z/OS 11,1
+* IBM DB2 för z/OS 11.1
 * IBM DB2 för z/OS 10.1
 * IBM DB2 för i 7.2
 * IBM DB2 för i 7.1
 * IBM DB2 för LUW 11
-* IBM DB2 för LUW 10.5
+* IBM DB2 för LUW 10,5
 * IBM DB2 för LUW 10.1
 
 > [!TIP]
-> Om du får ett felmeddelande som säger ”paketet som motsvarar en SQL-instruktionen Körningsbegäran inte hittades. SQLSTATE = 51002 SQLCODE =-805 ”, beror nödvändiga paketet inte skapas för normal användare på dessa operativsystem. Följ dessa instruktioner enligt servertyp DB2:
-> - DB2 för i (AS400): låta användare skapa samling för användarens inloggning innan du använder kopieringsaktiviteten. Kommandot: `create collection <username>`
-> - DB2 för z/OS eller LUW: Använd ett konto för privilegierade - privilegierad användare eller administratör med paketet myndigheter och BIND BINDADD, BEVILJA EXECUTE till offentliga behörigheter - för att köra kopieringsaktiviteten en gång och sedan nödvändiga paketet skapas automatiskt under kopia. Därefter kan du växla tillbaka till normal användare för efterföljande kopia-körs.
+> Om du får ett felmeddelande som säger ”den paket som motsvarar en SQL-instruktionsförfrågan inte hittades. SQLSTATE = 51002 SQLCODE =-805 ”, orsaken är ett nödvändiga paket inte skapas för normal användare på sådana OS. Följ de här instruktionerna enligt din DB2 servertyp:
+> - DB2 för i (AS400): Låt privilegierad användare skapa samling för användarens inloggning innan du använder Kopieringsaktivitet. Kommandot: `create collection <username>`
+> - DB2 för z/OS eller LUW: Använd ett Privilegierade konto - privilegierad användare eller administratör med paketet myndigheter och BIND BINDADD, BEVILJA köra till offentliga behörigheter - för att köra kopieringsaktiviteten en gång och sedan det nödvändiga paketet skapas automatiskt vid kopiering. Därefter kan du gå tillbaka till normal användare för efterföljande kopia-körningar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill använda data från en DB2-databas som inte är offentligt tillgänglig, måste du ställer in en Self-hosted integrering Runtime. Mer information om automatisk värdbaserade integration körningar, se [Self-hosted integrering Runtime](create-self-hosted-integration-runtime.md) artikel. Integration Runtime innehåller en inbyggd DB2-drivrutin, därför behöver du inte installera en drivrutin manuellt när du kopierar data från DB2.
+Om du vill använda data från en DB2-databas som inte är allmänt tillgänglig, måste du konfigurera en lokal Integration Runtime. Mer information om IR-körningar, se [lokal Integration Runtime](create-self-hosted-integration-runtime.md) artikeln. Integreringskörningen innehåller en inbyggd DB2-drivrutin, måste du därför inte installera några drivrutinen manuellt när du kopierar data från DB2.
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till DB2-koppling.
+Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för DB2-koppling.
 
-## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper stöds för DB2 länkade tjänsten:
+Följande egenskaper har stöd för DB2 länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type måste anges till: **Db2** | Ja |
-| server |Namnet på DB2-server. |Ja |
-| databas |Namnet på DB2-databasen. |Ja |
+| typ | Type-egenskapen måste anges till: **Db2** | Ja |
+| server |Namn på DB2-servern. Du kan ange det portnummer som följer servernamnet avgränsat med kolon t.ex. `server:port`. |Ja |
+| databas |Namn på DB2-databas. |Ja |
 | authenticationType |Typ av autentisering som används för att ansluta till DB2-databasen.<br/>Tillåtna värde är: **grundläggande**. |Ja |
-| användarnamn |Ange användarnamn för att ansluta till DB2-databasen. |Ja |
-| lösenord |Ange lösenordet för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Self-hosted integrering Runtime eller Azure Integration Runtime (om datalager är offentligt tillgänglig). Om inget anges används standard-Azure Integration Runtime. |Nej |
+| användarnamn |Ange användarnamn för att ansluta till DB2-databas. |Ja |
+| lösenord |Ange lösenord för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 **Exempel:**
 
@@ -78,7 +78,7 @@ Följande egenskaper stöds för DB2 länkade tjänsten:
     "properties": {
         "type": "Db2",
         "typeProperties": {
-            "server": "<servername>",
+            "server": "<servername:port>",
             "database": "<dbname>",
             "authenticationType": "Basic",
             "username": "<username>",
@@ -97,14 +97,14 @@ Följande egenskaper stöds för DB2 länkade tjänsten:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln datauppsättningar. Det här avsnittet innehåller en lista över egenskaper som stöds av DB2 dataset.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln datauppsättningar. Det här avsnittet innehåller en lista över egenskaper som stöds av DB2-datauppsättningen.
 
-Ange typegenskapen för dataset för att kopiera data från DB2, **RelationalTable**. Följande egenskaper stöds:
+Kopiera data från DB2 genom att ange typegenskapen på datauppsättningen till **RelationalTable**. Följande egenskaper stöds:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type för dataset måste anges till: **RelationalTable** | Ja |
-| tableName | Namnet på tabellen i DB2-databasen. | Nej (om ”fråga” i aktivitetskälla har angetts) |
+| typ | Type-egenskapen för datauppsättningen måste anges till: **RelationalTable** | Ja |
+| tableName | Namnet på tabellen i DB2-databas. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
 
@@ -125,16 +125,16 @@ Ange typegenskapen för dataset för att kopiera data från DB2, **RelationalTab
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md) artikel. Det här avsnittet innehåller en lista över egenskaper som stöds av DB2 källa.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av DB2 källa.
 
 ### <a name="db2-as-source"></a>DB2 som källa
 
-Om du vill kopiera data från DB2, anger du källa i kopieringsaktiviteten till **RelationalSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
+För att kopiera data från DB2, ange typ av datakälla i kopieringsaktiviteten till **RelationalSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **RelationalSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Nej (om ”tabellnamn” i datamängden har angetts) |
+| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **RelationalSource** | Ja |
+| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**
 
@@ -170,7 +170,7 @@ Om du vill kopiera data från DB2, anger du källa i kopieringsaktiviteten till 
 
 ## <a name="data-type-mapping-for-db2"></a>Datatypen mappning för DB2
 
-När du kopierar data från DB2, används följande mappningar från DB2-datatyper till Azure Data Factory tillfälliga datatyper. Se [Schema- och Skriv mappningar](copy-activity-schema-and-type-mapping.md) att lära dig hur kopieringsaktiviteten mappar källtypen schema och data till sink.
+När du kopierar data från DB2, används följande mappningar från DB2-datatyper till Azure Data Factory tillfälliga-datatyper. Se [Schema och data skriver mappningar](copy-activity-schema-and-type-mapping.md) vill veta mer om hur kopieringsaktiviteten mappar källtypen schema och data till mottagaren.
 
 | Typ av DB2-databas | Data factory tillfälliga datatyp |
 |:--- |:--- |
@@ -182,19 +182,19 @@ När du kopierar data från DB2, används följande mappningar från DB2-datatyp
 | Date |DateTime |
 | DB2DynArray |Sträng |
 | DbClob |Sträng |
-| Decimal |Decimal |
-| DecimalFloat |Decimal |
-| Dubbel |Dubbel |
-| Flyttal |Dubbel |
+| decimaltal |decimaltal |
+| DecimalFloat |decimaltal |
+| Double-värde |Double-värde |
+| Flyttal |Double-värde |
 | Bild |Sträng |
 | Integer |Int32 |
 | LongVarBinary |Byte] |
 | LongVarChar |Sträng |
 | LongVarGraphic |Sträng |
-| Numerisk |Decimal |
+| Numerisk |decimaltal |
 | Real |Enkel |
 | SmallInt |Int16 |
-| Tid |TimeSpan |
+| Tid |Tidsintervall |
 | Tidsstämpel |DateTime |
 | VarBinary |Byte] |
 | VarChar |Sträng |
@@ -203,4 +203,4 @@ När du kopierar data från DB2, används följande mappningar från DB2-datatyp
 
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datakällor som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns [stöds datalager](copy-activity-overview.md##supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md##supported-data-stores-and-formats).

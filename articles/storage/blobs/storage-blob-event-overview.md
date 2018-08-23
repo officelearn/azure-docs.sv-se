@@ -8,12 +8,12 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: 6f3afa22a50728070c42cd6e2eff0cc148815fbc
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: d38ab71ed2d2ebff04004f02589cfccca4199318
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262692"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42060329"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagera på Blob storage-händelser
 
@@ -21,7 +21,7 @@ Azure Storage-händelser tillåta program att reagera på skapandet och borttagn
 
 Vanliga händelse scenarier för Blob storage är bild eller video bearbetning, sökindexering eller något arbetsflöde för filen indatavärdena.  Asynkrona filöverföringar är passade bra för händelser.  När ändringarna är ovanliga, men din situation kräver omedelbar svarstider, kan händelsebaserad arkitektur vara särskilt effektivt.
 
-Lagringshändelsernas tillgänglighet är kopplad till Event Grid-tjänstens [tillgänglighet](../../event-grid/overview.md) och blir tillgängliga i andra regioner i takt med att Event Grid blir det. Ta en titt på [dirigera Blob storage-händelser till en anpassad webb-endpoint - CLI](storage-blob-event-quickstart.md) eller [dirigera Blob storage-händelser till en anpassad webb-endpoint - PowerShell](storage-blob-event-quickstart-powershell.md) för ett enkelt exempel. 
+Ta en titt på [dirigera Blob storage-händelser till en anpassad webb-endpoint - CLI](storage-blob-event-quickstart.md) eller [dirigera Blob storage-händelser till en anpassad webb-endpoint - PowerShell](storage-blob-event-quickstart-powershell.md) för ett enkelt exempel. 
 
 ![Event Grid-modell](./media/storage-blob-event-overview/event-grid-functional-model.png)
 

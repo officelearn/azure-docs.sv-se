@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/06/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: 1d8db471a3f8ebf9dbcce77b101a2688f2570fd6
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 5dd8b1f662f1ae6d6502743c6d976db4b58e962f
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37949892"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41918121"
 ---
 # <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Återställa en databassäkerhetskopia till en hanterad Azure SQL Database-instans
 
@@ -29,7 +29,7 @@ Den här självstudien visar hur du återställer en säkerhetskopia av en datab
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-I den här självstudien används som startpunkt resurser som skapades i självstudien: [Create an Azure SQL Database Managed Instance](sql-database-managed-instance-create-tutorial-portal.md) (Skapa en hanterad Azure SQL Database-instans).
+I den här självstudien används som startpunkt resurser som skapades i självstudien: [Create an Azure SQL Database Managed Instance](sql-database-managed-instance-get-started.md) (Skapa en hanterad Azure SQL Database-instans).
 
 ## <a name="download-the-wide-world-importers---standard-backup-file"></a>Ladda ned Wide World Importers – standardsäkerhetskopian
 
@@ -79,12 +79,12 @@ Logga in på [Azure-portalen](https://portal.azure.com/#create/Microsoft.SQLMana
    ![sas form completed](./media/sql-database-managed-instance-tutorial/sas-generate.png)
 
 9. Kopiera och spara **SAS-token** och **SAS-URL:en för blobservern**.
-10. Under **Inställningar** klickar du på **Behållare**.
+10. Under **Inställningar** klickar du på **Containrar**.
 
-    ![behållare](./media/sql-database-managed-instance-tutorial/containers.png)
+    ![containrar](./media/sql-database-managed-instance-tutorial/containers.png)
 
-11. Klicka på **+ Behållare** för att skapa en behållare för att lagra säkerhetskopian.
-12. Fyll i formuläret för behållaren med den begärda informationen, med hjälp av informationen i följande tabell:
+11. Klicka på **+ Container** för att skapa en container för att lagra säkerhetskopian.
+12. Fyll i formuläret för containern med den begärda informationen, med hjälp av informationen i följande tabell:
 
     | Inställning| Föreslaget värde | Beskrivning |
    | ------ | --------------- | ----------- |
@@ -94,11 +94,11 @@ Logga in på [Azure-portalen](https://portal.azure.com/#create/Microsoft.SQLMana
     ![container detail](./media/sql-database-managed-instance-tutorial/container-detail.png)
 
 13. Klicka på **OK**.
-14. När behållaren har skapats öppnar du behållaren.
+14. När containern har skapats öppnar du containern.
 
     ![container](./media/sql-database-managed-instance-tutorial/container.png)
 
-15. Klicka på **Egenskaper för behållare** och kopiera URL:en till behållaren.
+15. Klicka på **Egenskaper för container** och kopiera URL:en till containern.
 
     ![container URL](./media/sql-database-managed-instance-tutorial/container-url.png)
 
@@ -121,7 +121,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/#create/Microsoft.SQLMana
 Med SSMS utför du följande steg för att återställa databasen Wide World Importers till din hanterade instans från säkerhetskopian.
 
 1. Öppna ett nytt frågefönster i SSMS.
-2. Använd följande skript för att skapa SAS-autentiseringsuppgifter – ange URL:en för behållaren för lagringskontot och SAS-nyckeln enligt anvisningarna.
+2. Använd följande skript för att skapa SAS-autentiseringsuppgifter – ange URL:en för containern för lagringskontot och SAS-nyckeln enligt anvisningarna.
 
    ```sql
    CREATE CREDENTIAL [https://<storage_account_name>.blob.core.windows.net/<container>] 
@@ -131,7 +131,7 @@ Med SSMS utför du följande steg för att återställa databasen Wide World Imp
 
     ![credential](./media/sql-database-managed-instance-tutorial/credential.png)
 
-3. Använd följande skript för att skapa och kontrollera SAS-autentiseringsuppgifter och giltigheten för säkerhetskopian – ange URL:en för behållaren med säkerhetskopian:
+3. Använd följande skript för att skapa och kontrollera SAS-autentiseringsuppgifter och giltigheten för säkerhetskopian – ange URL:en för containern med säkerhetskopian:
 
    ```sql
    RESTORE FILELISTONLY FROM URL = 

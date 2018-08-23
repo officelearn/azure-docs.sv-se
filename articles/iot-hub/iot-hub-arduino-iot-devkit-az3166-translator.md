@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/28/2018
 ms.author: liydu
-ms.openlocfilehash: acfff95afacfa1e5c75a799ba84d64cfa0579f66
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: cd67e612dd020ba600e33ac8baf77bc094d8afd3
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592099"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42055907"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>Använda IoT DevKit AZ3166 med Azure Functions och Cognitive Services för att göra en språköversättaren
 
@@ -122,10 +122,6 @@ På skärmen translation resultatet kan du:
 ![Mini-Solution-Voice-to-tweet-diagram](media/iot-hub-arduino-iot-devkit-az3166-translator/diagram.png)
 
 Din röst när du sedan skickar en HTTP Arduino skiss posterna begära för att utlösa en Azure-funktion. Azure Function anropar talöversättning cognitive service API för att göra översättningen. När Azure Function hämtar Översättningstext, skickar den ett C2D (moln till enhet)-meddelande till enheten. Översättningen visas på skärmen.
-
-## <a name="change-device-id"></a>Ändra enhets-ID
-
-Standard-enhets-ID som registrerats i Azure IoT Hub är **AZ3166**. Om du vill ändra enhets-ID, se hur du [anpassa IoT enhets-ID för DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/).
 
 ## <a name="problems-and-feedback"></a>Problem och feedback
 

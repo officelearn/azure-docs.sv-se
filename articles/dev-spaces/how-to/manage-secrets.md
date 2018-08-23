@@ -1,5 +1,5 @@
 ---
-title: Så här hanterar du hemligheter när du arbetar med ett Azure Dev utrymme | Microsoft Docs
+title: Hantera hemligheter när du arbetar med ett Azure Dev adressutrymme | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -9,25 +9,25 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: article
 ms.technology: azds-kubernetes
-description: Snabb utveckling av Kubernetes med behållare och mikrotjänster på Azure
+description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare
 manager: douge
-ms.openlocfilehash: b77d862f578ddc374dbb58117b4ea58eb973e5fe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 352e43633ea1464eb7e28fa698d1ae77d5ac52bd
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198321"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42054982"
 ---
-# <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Så här hanterar du hemligheter när du arbetar med ett utrymme för Azure-utveckling
+# <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Hantera hemligheter när du arbetar med ett adressutrymme för Azure-utveckling
 
-Dina tjänster kan kräva vissa lösenord, anslutningssträngar och andra hemligheter, t.ex för databaser eller andra säker Azure-tjänster. Genom att ange värden för dessa hemligheter i konfigurationsfilerna, kan du göra dem tillgängliga i koden som miljövariabler.  Dessa måste vara försiktig med att undvika att kompromettera säkerheten för hemligheterna.
+Dina tjänster kan kräva viss lösenord, anslutningssträngar och andra hemligheter som för databaser eller andra säkra Azure-tjänster. Genom att ange värdena för dessa hemligheter i konfigurationsfiler, kan du göra dem tillgängliga i din kod som miljövariabler.  Dessa måste vara försiktig med att undvika att kompromettera säkerheten för hemligheterna.
 
-Azure Dev blanksteg innehåller två rekommenderat alternativ för lagring av hemligheter: i values.dev.yaml fil- och infogade direkt i azds.yaml. Vi rekommenderar inte för att lagra hemligheter i values.yaml.
+Azure Dev blanksteg innehåller två rekommenderade alternativ för att lagra hemligheter: i values.dev.yaml fil- och infogade direkt i azds.yaml. Vi rekommenderar inte för att lagra hemligheter i values.yaml.
  
 ## <a name="method-1-valuesdevyaml"></a>Metod 1: values.dev.yaml
-1. Öppna VS kod med ditt projekt som är aktiverad för Azure Dev blanksteg.
-2. Lägg till en fil med namnet _values.dev.yaml_ i samma mapp som befintliga _values.yaml_ och definiera din hemliga nyckeln och värden, som i följande exempel:
+1. Öppna VS Code med ditt projekt som är aktiverad för Azure Dev blanksteg.
+2. Lägg till en fil med namnet _values.dev.yaml_ i samma mapp som befintliga _values.yaml_ och definiera hemlig nyckel och värden, som i följande exempel:
 
     ```yaml
     secrets:
@@ -37,7 +37,7 @@ Azure Dev blanksteg innehåller två rekommenderat alternativ för lagring av he
         key: "secretkeyhere"
     ```
      
-3. Uppdatera _azds.yaml_ som talar om Azure Dev blanksteg till den nya _values.dev.yaml_ fil. Om du vill göra det lägger du till den här konfigurationen under avsnittet configurations.develop.container:
+3. Uppdatera _azds.yaml_ som talar om Azure Dev blanksteg till den nya _values.dev.yaml_ fil. Gör detta genom att lägga till den här konfigurationen under avsnittet configurations.develop.container:
 
     ```yaml
            container:
@@ -45,7 +45,7 @@ Azure Dev blanksteg innehåller två rekommenderat alternativ för lagring av he
              - "charts/webfrontend/values.dev.yaml"
     ```
  
-4. Ändra koden för tjänsten att referera till dessa hemligheter som miljövariabler som i följande exempel:
+4. Ändra koden för tjänsten att referera till dessa hemligheter som miljövariabler, som i följande exempel:
 
     ```
     var redisPort = process.env.REDIS_PORT
@@ -65,11 +65,11 @@ Azure Dev blanksteg innehåller två rekommenderat alternativ för lagring av he
       kubectl get secret --namespace default -o yaml 
       ```
 
-7. Kontrollera att du lägger till _values.dev.yaml_ till den _.gitignore_ filen för att undvika genomför hemligheter i källkontroll.
+7. Se till att du lägger till _values.dev.yaml_ till den _.gitignore_ fil för att undvika transaktionen hemligheter i källkontrollen.
  
  
 ## <a name="method-2-inline-directly-in-azdsyaml"></a>Metod 2: Infogade direkt i azds.yaml
-1.  I _azds.yaml_, ange hemligheter under yaml avsnittet konfigurationer/utveckla/installationen. Även om du kan ange hemlighet värden direkt, inte rekommenderas eftersom _azds.yaml_ checkas in källkontroll. Lägg till platshållarna med syntaxen ”$PLACEHOLDER” i stället.
+1.  I _azds.yaml_, ange hemligheter under yaml avsnittet konfigurationer/utveckla/installationen. Men du kan ange hemlighet värden direkt där det inte rekommenderas eftersom _azds.yaml_ kontrolleras i källkontrollen. Lägg till platshållare med hjälp av ”$PLACEHOLDER”-syntax i stället.
 
     ```yaml
     configurations:
@@ -84,14 +84,14 @@ Azure Dev blanksteg innehåller två rekommenderat alternativ för lagring av he
                 key: "$REDIS_KEY_DEV"
     ```
      
-2.  Skapa en _.env_ fil i samma mapp som _azds.yaml_. Ange hemligheter med hjälp av standard nyckel = värde-notering. Inte genomföra den _.env_ filen till källkontroll. (Om du vill utesluta från källkontroll i git-baserad version system, lägger du till den i den _.gitignore_ filen.) Följande exempel visar en _.env_ fil:
+2.  Skapa en _.env_ fil i samma mapp som _azds.yaml_. Ange hemligheter med hjälp av standard nyckel = värde-notering. Inte genomföra den _.env_ filen till källkontroll. (Om du vill utelämna från källkontroll i git-baserade versionskontrollsystem, lägger du till den i den _.gitignore_ fil.) I följande exempel visas en _.env_ fil:
 
     ```
     REDIS_PORT_DEV=3333
     REDIS_HOST_DEV=myredishost
     REDIS_KEY_DEV=myrediskey
     ```
-2.  Ändringar i källkoden för tjänsten för att referera till dessa hemligheter i koden, som i följande exempel:
+2.  Ändra service källkoden för att referera till dessa hemligheter i kod, som i följande exempel:
 
     ```
     var redisPort = process.env.REDIS_PORT
@@ -113,5 +113,5 @@ Azure Dev blanksteg innehåller två rekommenderat alternativ för lagring av he
 
 ## <a name="next-steps"></a>Nästa steg
 
-Med dessa metoder kan du nu på ett säkert sätt ansluta till en databas, ett Redis-cache eller åtkomst säker Azure-tjänster.
+Med dessa metoder kan du nu på ett säkert sätt ansluta till en databas, en Redis-cache eller åtkomst säkra Azure-tjänster.
  

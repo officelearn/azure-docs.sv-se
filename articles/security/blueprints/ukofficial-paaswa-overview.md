@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: b4b37a073f41295bf800d4e6c34681e0a06799c7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f465a6e6cb0642f64670a8d2727c939f91bad134
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449780"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617257"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure-säkerhet och efterlevnad skiss: PaaS Web program som är värd för Storbritannien officiella arbetsbelastningar
 
@@ -23,7 +23,7 @@ Azure skisser bestå av vägledning dokument och automation-mallar som distribue
 
 ## <a name="overview"></a>Översikt
 
-Den här Azure Blueprint för säkerhet och efterlevnad ger vägledning och automation-skript för att leverera en Microsoft Azure [plattform som en tjänst (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) webbprogramarkitektur som är lämpliga för att hantera arbetsbelastningar som klassificeras som värd som [UK-OFFICIAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/251480/Government-Security-Classifications-April-2014.pdf). Den här säkerhetsklassificering omfattar merparten av information skapas eller bearbetas av den offentliga sektorn. Detta inkluderar rutinmässig verksamheten och tjänster, vilka om tappas bort, blir stulen eller publicerats i mediet, vilket kan ha skadas. Vanliga hot profilen för den officiella klassificeringen är ungefär samma sätt som ett privat företag som ger värdefull information och tjänster. Storbritannien officiella förutse behovet av att försvara Brittiska myndigheterna data eller tjänster mot hot eller kompromettering av angripare med bunden funktioner och resurser som (men inte begränsat till) hactivists single-issue tryck grupper, undersökande journalister behöriga enskilda hackare och flesta av straffrättsliga personer och grupper.
+Den här Azure Blueprint för säkerhet och efterlevnad ger vägledning och automation-skript för att leverera en Microsoft Azure [plattform som en tjänst (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) webbprogramarkitektur som är lämpliga för att hantera arbetsbelastningar som klassificeras som värd som [UK-OFFICIAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/715778/May-2018_Government-Security-Classifications-2.pdf). Den här säkerhetsklassificering omfattar merparten av information skapas eller bearbetas av den offentliga sektorn. Detta inkluderar rutinmässig verksamheten och tjänster, vilka om tappas bort, blir stulen eller publicerats i mediet, vilket kan ha skadas. Vanliga hot profilen för den officiella klassificeringen är ungefär samma sätt som ett privat företag som ger värdefull information och tjänster. Storbritannien officiella förutse behovet av att försvara Brittiska myndigheterna data eller tjänster mot hot eller kompromettering av angripare med bunden funktioner och resurser som (men inte begränsat till) hactivists single-issue tryck grupper, undersökande journalister behöriga enskilda hackare och flesta av straffrättsliga personer och grupper.
 
 Den här skissen har granskats av den Storbritannien nationella Cyberhot Security Center (NCSC) och stämmer överens med Molnsäkerhetsprinciper för NCSC 14.
 

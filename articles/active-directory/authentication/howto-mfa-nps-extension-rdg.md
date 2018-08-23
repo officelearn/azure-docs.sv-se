@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: e22fedda4861e68f2318aff89bc3fe5a15cb6ede
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 6348a6d003aa3efcd1b9c45e61438e0ac4b4c8d5
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160111"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42059941"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrera fjärrskrivbordsgateway infrastruktur med Network Policy Server (NPS)-tillägget och Azure AD
 
@@ -175,12 +175,12 @@ Auktoriseringsprinciper för fjärrskrivbordsanslutning (RD cap) ange kraven fö
 
   ![Fjärrskrivbordstjänster](./media/howto-mfa-nps-extension-rdg/image8.png)
 
-3. I RD Gateway Manager, högerklickar du på  **\[servernamn\] (lokal)**, och klicka på **egenskaper**.
+3. I den hanteraren för Fjärrskrivbordsgateway, högerklicka på  **\[servernamn\] (lokal)**, och klicka på **egenskaper**.
 
   ![Servernamn](./media/howto-mfa-nps-extension-rdg/image9.png)
 
 4. I dialogrutan Egenskaper väljer du den **RD CAP Store** fliken.
-5. På fliken RD CAP Store väljer **Central Server som kör NPS**. 
+5. På fliken RD CAP Store väljer **Central server som kör NPS**. 
 6. I den **ange namn eller IP-adressen för servern som kör NPS** skriver IP-adress eller namnet på den server där du installerade NPS-tillägget.
 
   ![Ange namn eller IP-adress](./media/howto-mfa-nps-extension-rdg/image10.png)
@@ -226,7 +226,7 @@ För att säkerställa att det finns tid att verifiera användarnas autentiserin
 Som standard när du konfigurerar Fjärrskrivbordsgatewayen att använda en central principarkiv för auktoriseringsprinciper för anslutning, har RD Gateway konfigurerats för att vidarebefordra CAP-begäranden till NPS-servern. NPS-server med Azure MFA-tillägget installerat, bearbetar RADIUS-åtkomstbegäran. Följande steg visar hur du verifierar standardprincipen. 
 
 1. Fjärrskrivbordsgateway i NPS (lokal)-konsolen, expandera **principer**, och välj **principer för anslutningsbegäran**.
-2. Högerklicka på **ansluta principer för anslutningsbegäran**, och dubbelklicka på **TS GATEWAY AUTHORIZATION POLICY**.
+2. Dubbelklicka på **TS GATEWAY AUTHORIZATION POLICY**.
 3. I den **TS GATEWAY AUTHORIZATION POLICY egenskaper** dialogrutan klickar du på den **inställningar** fliken.
 4. På **inställningar** klickar du på fliken, under Vidarebefordra anslutningsbegäran **autentisering**. RADIUS-klienten har konfigurerats att vidarebefordra begäranden för autentisering.
 
@@ -266,7 +266,7 @@ Fjärrskrivbordsgateway måste konfigureras som en RADIUS-klient till NPS-server
 ### <a name="configure-network-policy"></a>Konfigurera principen för nätverk
 Kom ihåg att NPS-server med Azure MFA-tillägget är avsedda centrala principarkivet för anslutning auktorisering princip (CAP). Därför måste du implementera ett tak på NPS-servern att godkänna giltiga anslutningar begäranden.  
 
-1. I NPS (lokal)-konsolen expanderar **principer**, och klicka på **nätverksprinciper**.
+1. Öppna konsolen NPS (lokal) på NPS-servern, expandera **principer**, och klicka på **nätverksprinciper**.
 2. Högerklicka på **anslutningar till andra klientåtkomstservrar**, och klicka på **duplicera princip**. 
 
  ![Dubbla](./media/howto-mfa-nps-extension-rdg/image19.png)

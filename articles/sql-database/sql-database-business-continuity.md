@@ -12,43 +12,60 @@ ms.workload: On Demand
 ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 46ab4a177cc7d86e5d967ff8e219dae96f82a0dc
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: ce0684f9ab06b5362ccdf25aeaff15ea668ce96c
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263154"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444156"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Översikt över affärskontinuitet med Azure SQL Database
+
+Azure SQL Database är en implementering av den senaste stabila SQL Server Database Engine konfigureras och optimerad för Azure-molnmiljö som ger [hög tillgänglighet](sql-database-high-availability.md) och återställning vid fel som kan påverka din affärsprocess. **Affärskontinuitet** refererar till de mekanismer, principer och procedurer som gör det möjligt för ett företag som även körs vid störningar, särskilt i sin infrastruktur för databehandling i Azure SQL Database.  I de flesta fall hanterar Azure SQL Database de störande händelser som kan inträffa i molnmiljön och hålla dina affärsprocesser som körs. Det finns dock vissa störande händelser som inte kan hanteras av SQL-databas som:
+ - Användaren har tagits bort av misstag eller uppdatera en rad i en tabell.
+ - Angripare är klar att ta bort data eller ta bort en databas.
+ - Jordbävning orsakade ett strömavbrott och tillfälligt inaktiverad datacenter.
+ 
+Dessa fall kan inte styras av Azure SQL Database, så du behöver du använda funktionerna för affärskontinuitet i SQL-databas som hjälper dig att återställa dina data och hålla igång dina program.
 
 Den här översikten beskriver de funktioner som Azure SQL Database tillhandahåller för affärskontinuitet och haveriberedskap. Läs mer om alternativ, rekommendationer och självstudier för att återställa avbrottshändelser som kan leda till dataförlust eller göra databasen och programmet otillgängliga. Lär dig vad du ska göra när en användare eller ett program fel påverkar dataintegriteten, uppstår ett avbrott i en Azure-region eller ditt program kräver underhåll.
 
 ## <a name="sql-database-features-that-you-can-use-to-provide-business-continuity"></a>SQL Database-funktioner som du kan använda för att upprätthålla affärskontinuitet
 
-SQL Database tillhandahåller flera funktioner för affärskontinuitet, inklusive automatiserade säkerhetskopieringar och valfri databasreplikering. Den uppskattade återställningstiden (ERT) och den potentiella dataförlusten för de senaste transaktionerna skiljer sig mellan de olika metoderna. Om du förstår de olika alternativen blir det enklare att välja mellan dem, och i de flesta fall kan du använda dem tillsammans för olika scenarier. När du utvecklar din affärskontinuitetsplan är det viktigt att du tittar på den högsta acceptabla tiden innan programmet är helt återställt efter en avbrottshändelse – detta är ditt mål för återställningstid (RTO). Du måste också att förstå längsta senaste data uppdateringar (tidsintervall) som programmet kan tolerera att förlora när det återställs efter en avbrottshändelse – detta är ditt mål för återställningspunkt (RPO).
+Databas ur finns det fyra viktiga potentiella avbrott scenarier:
+- **Lokala maskinvaru- eller fel** påverkar databasnoden, till exempel en diskenhet fel.
+- **Skadade data eller borttagning** – vanligtvis orsakats av en bugg i programmet eller mänskliga fel.  Sådana fel är är programspecifika och kan inte som en regel att har identifierats eller minskas automatiskt av infrastruktur.
+- **Datacenter-avbrott**, troligtvis orsakats av en naturkatastrof.  Det här scenariot kräver någon form av geo-redundans med programmet redundans till ett alternativt datacenter.
+- **Uppgradering eller underhåll fel** – oförutsedda problem som uppstår under planerade uppgraderingar eller Underhåll ett program eller en databas kan kräva snabb återställning till en tidigare databastillstånd.
+
+SQL Database tillhandahåller flera funktioner för affärskontinuitet, inklusive automatiserade säkerhetskopieringar och valfri databasreplikering som kan minska dessa scenarier. Först måste du förstå hur SQL-databas [arkitektur med hög tillgänglighet](sql-database-high-availability.md) ger 99,99% tillgänglighet och återhämtning till vissa störande händelser som kan påverka dina affärsprocesser.
+Sedan kan du lära dig om de ytterligare mekanismer som du kan använda för att återställa avbrottshändelser som inte kan hanteras av arkitektur för SQL-databas med hög tillgänglighet, till exempel:
+ - [Temporala tabeller](sql-database-temporal-tables.md) gör det möjligt att återställa radversioner från valfri punkt i tiden.
+ - [Inbyggda automatiska säkerhetskopior](sql-database-automated-backups.md) och [tidpunkt för återställning till tidpunkt](sql-database-recovery-using-backups.md#point-in-time-restore) gör det möjligt att återställa fullständig till någon gång under de senaste 35 dagarna.
+ - Du kan [återställa en borttagen databas](sql-database-recovery-using-backups.md#deleted-database-restore) till den tidpunkt då den togs bort om den **logisk server inte har tagits bort**.
+ - [Långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-retention.md) gör det möjligt för dig att hålla säkerhetskopior till 10 år.
+ - [GEO-replikering](sql-database-geo-replication-overview.md) kan programmet utföra snabb katastrofåterställning vid avbrott på datacentret skala.
+
+Den uppskattade återställningstiden (ERT) och den potentiella dataförlusten för de senaste transaktionerna skiljer sig mellan de olika metoderna. Om du förstår de olika alternativen blir det enklare att välja mellan dem, och i de flesta fall kan du använda dem tillsammans för olika scenarier. När du utvecklar din affärskontinuitetsplan måste du förstå den högsta acceptabla tiden innan programmet är helt återställt efter en avbrottshändelse. Den tid som krävs för programmet för att återställa kallas återställningstid (RTO). Du måste också att förstå den längsta tid för senaste datauppdateringar (tidsintervall) som programmet kan tolerera att förlora när det återställs efter en avbrottshändelse. Tid då uppdateringar som du kanske har råd att förlora kallas mål för återställningspunkt (RPO).
 
 I följande tabell jämförs ERT och RPO för varje tjänstnivå för de tre vanligaste scenarierna.
 
 | Funktion | Basic | Standard | Premium  | Generellt syfte | Affärskritisk
 | --- | --- | --- | --- |--- |--- |
-| Återställning till tidpunkt från säkerhetskopia |En återställningspunkt inom 7 dagar |En återställningspunkt inom 35 dagar |En återställningspunkt inom 35 dagar |En återställningspunkt inom konfigurerade period (upp till 35 dagar)|En återställningspunkt inom konfigurerade period (upp till 35 dagar)|
-| GEO-återställning från geo-replikerade säkerhetskopior |ERT < 12 timme, RPO < 1 timme |ERT < 12 timme, RPO < 1 timme |ERT < 12 timme, RPO < 1 timme |ERT < 12 timme, RPO < 1 timme|ERT < 12 timme, RPO < 1 timme|
-| Återställa från långsiktig kvarhållning i SQL |ERT < 12 timme, RPO < 1 vecka |ERT < 12 timme, RPO < 1 vecka |ERT < 12 timme, RPO < 1 vecka |ERT < 12 timme, RPO < 1 vecka|ERT < 12 timme, RPO < 1 vecka|
-| Aktiv geo-replikering |ERT < 30 sekunder, RPO < 5 sekunder |ERT < 30 sekunder, RPO < 5 sekunder |ERT < 30 sekunder, RPO < 5 sekunder |ERT < 30 sekunder, RPO < 5 sekunder|ERT < 30 sekunder, RPO < 5 sekunder|
+| Återställning till tidpunkt från säkerhetskopia |En återställningspunkt inom sju dagar |En återställningspunkt inom 35 dagar |En återställningspunkt inom 35 dagar |En återställningspunkt inom konfigurerade period (upp till 35 dagar)|En återställningspunkt inom konfigurerade period (upp till 35 dagar)|
+| GEO-återställning från geo-replikerade säkerhetskopior |ERT < 12 timme, RPO < 1 timme |ERT < 12 timme, RPO < 1 timme |ERT < 12 timme, RPO < 1 timme |ERT < 12 timme, RPO < 1 timme|ERT < 12 timme, RPO < 1 timme|
+| Återställa från långsiktig kvarhållning i SQL |ERT < 12 timme, RPO < 1 vecka |ERT < 12 timme, RPO < 1 vecka |ERT < 12 timme, RPO < 1 vecka |ERT < 12 timme, RPO < 1 vecka|ERT < 12 timme, RPO < 1 vecka|
+| Aktiv geo-replikering |ERT < 30 sekunder, RPO < 5 sekunder |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s|ERT < 30 s, RPO < 5 s|
 
-### <a name="use-point-in-time-restore-to-recover-a-database"></a>Använd point-in-time-återställning för att återställa en databas
+## <a name="recover-a-database-to-the-existing-server"></a>Återställa en databas på den befintliga servern
 
-SQL Database utför automatiskt en kombination av fullständiga databassäkerhetskopieringar varje vecka, differentiella säkerhetskopieringar varje timme och transaktionen loggsäkerhetskopior var femte - tio minuter för att skydda ditt företag mot dataförlust. Om du använder den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md), och sedan dessa säkerhetskopior lagras i RA-GRS-lagring i 35 dagar för databaser på Standard och Premium-servicenivåerna och 7 dagar för databaser på Basic-tjänstnivån. Om kvarhållningsperioden för din tjänstenivå inte uppfyller dina verksamhetskrav kan du öka kvarhållningsperioden genom att [byta tjänstnivå](sql-database-single-database-scale.md). Om du använder den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md), kvarhållning för säkerhetskopior är Konfigurerbart upp till 35 dagar i generell användning och företag kritiska nivåer. De fullständiga och differentiella säkerhetskopieringarna replikeras också till ett [kopplat datacenter](../best-practices-availability-paired-regions.md) för skydd mot avbrott på datacentret. Mer information finns i [automatiska databassäkerhetskopieringar](sql-database-automated-backups.md).
+SQL Database utför automatiskt en kombination av fullständiga databassäkerhetskopieringar varje vecka, differentiella säkerhetskopieringar varje timme och transaktionen loggsäkerhetskopior var 5 – 10 minuter för att skydda ditt företag mot dataförlust. Säkerhetskopiorna lagras i RA-GRS-lagring i 35 dagar för alla tjänstnivåer förutom grundläggande DTU tjänstnivåerna där säkerhetskopiorna lagras i 7 dagar. Mer information finns i [automatiska databassäkerhetskopieringar](sql-database-automated-backups.md). Du kan återställa ett befintligt databasformulär automatiska säkerhetskopior till en tidigare tidpunkt som en ny databas på samma logiska server med hjälp av Azure portal, PowerShell eller REST API. Mer information finns i [Point-in-time-återställning](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-Om den maximala stöds point-in-time-återställning (PITR) kvarhållningsperioden är inte tillräcklig för ditt program, kan du utöka den genom att konfigurera en långsiktig kvarhållning av säkerhetskopior (LTR)-princip för databaserna. Mer information finns i [automatiserade säkerhetskopieringar](sql-database-automated-backups.md) och [långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-retention.md).
+Om den maximala stöds point-in-time-återställning (PITR) kvarhållningsperioden är inte tillräcklig för ditt program, kan du utöka den genom att konfigurera en långsiktig kvarhållning av säkerhetskopior (LTR)-princip för databaserna. Mer information finns i [långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-retention.md).
 
 Du kan använda dessa automatiska databassäkerhetskopior för att återställa en databas från olika avbrottshändelser, både i ditt datacenter och till ett annat datacenter. Om du använder automatiska databassäkerhetskopieringar beror den beräknade återställningstiden på flera faktorer, inklusive det totala antalet databaser som återställs i samma region vid samma tidpunkt, databasens storlek, transaktionsloggarnas storlek och nätverksbandbredden. Tiden för återställning är vanligtvis mindre än 12 timmar. Det kan ta längre tid att återställa en databas med mycket stora eller active. Mer information om tiden för återställning finns i [databasen återställningstid](sql-database-recovery-using-backups.md#recovery-time). När du återställer till en annan dataregion är den potentiella dataförlusten begränsad till 1 timme med geo-redundant lagring med differentiella säkerhetskopieringar varje timme.
 
-> [!IMPORTANT]
-> Om du återställer med hjälp av automatisk säkerhetskopior måste du vara medlem i SQL Server-rollen Deltagare eller vara prenumerationsägaren. Mer information finns i [RBAC: Built-in roles](../role-based-access-control/built-in-roles.md) (Rollbaserad åtkomstkontroll: Inbyggda roller). Du kan återställa med hjälp av Azure Portal, PowerShell eller REST-API:et. Du kan inte använda Transact-SQL.
->
-
-Använd automatiska säkerhetskopieringar som din affärskontinuitets- och återställningsmetod om ditt program:
+Använd automatiska säkerhetskopieringar och [point-in-time-återställning](sql-database-recovery-using-backups.md#point-in-time-restore) som ditt företag affärskontinuitets- och återställningsmetod om ditt program:
 
 * Inte betraktas som verksamhetskritiskt.
 * Har ett bindande SLA - ett driftavbrott på 24 timmar eller inte resulterar längre i ekonomiska ansvarsskyldigheter.
@@ -57,60 +74,32 @@ Använd automatiska säkerhetskopieringar som din affärskontinuitets- och åter
 
 Om du behöver snabbare återställning använder [aktiv geo-replikering](sql-database-geo-replication-overview.md) (beskrivs nedan). Om du behöver för att kunna återställa data från en period som är äldre än 35 dagar eller använda [långsiktig kvarhållning](sql-database-long-term-retention.md). 
 
-### <a name="use-active-geo-replication-and-auto-failover-groups-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>Använda aktiv geo-replikering och automatisk redundans grupper för att minska återställningstiden och begränsa dataförlusten som är associerad med en återställning
+## <a name="recover-a-database-to-another-region"></a>Återställa en databas till en annan region
+<!-- Explain this scenario -->
 
-Förutom att använda databassäkerhetskopior för databasåterställning om det uppstår ett verksamhetsavbrott kan du använda [aktiv geo-replikering](sql-database-geo-replication-overview.md) du konfigurerar en databas om du vill ha upp till fyra läsbara sekundära databaser i regionerna som du önskar. Dessa sekundära databaser synkroniseras med den primära databasen med hjälp av en asynkron replikeringsmekanism. Den här funktionen används för att skydda mot verksamhetsavbrott om det uppstår ett avbrott på datacentret eller under en uppgradering av programmet. Aktiv geo-replikering kan också användas för att ge bättre frågeprestanda för skrivskyddade frågor till geografiskt spridda användare.
+Även om det är ovanligt finns risken för ett avbrott på ett Azure-datacenter. När ett avbrott uppstår orsakar det ett verksamhetsavbrott som kan vara några få minuter eller flera timmar.
 
-Aktivera automatisk och transparent redundans bör du organisera dina geo-replikerade databaser i grupper med hjälp av den [automatisk redundans grupp](sql-database-geo-replication-overview.md) funktionen i SQL Database.
+* Ett alternativ är att vänta tills databasen är tillbaka online när avbrottet på datadatacentret är över. Det här fungerar för program som har råd att ha databasen offline. Till exempel ett utvecklingsprojekt eller en kostnadsfri utvärderingsversion som du inte behöver arbeta med hela tiden. När det uppstår ett avbrott i ett datacenter, vet inte du hur länge driftstörningarna kan vara, så det här alternativet fungerar bara om du inte behöver databasen på ett tag.
+* Ett annat alternativ är att återställa en databas på en server i alla Azure-region med [geo-redundanta databassäkerhetskopior](sql-database-recovery-using-backups.md#geo-restore) (geo-återställning). GEO-återställning använder en geo-redundant säkerhetskopia som källa och kan användas för att återställa en databas, även om databasen eller datacenter är otillgängligt på grund av ett avbrott.
+* Slutligen kan du snabbt uppgradera en sekundär på en annan dataregion att bli den primära (även kallat redundansväxling) och konfigurera program ska ansluta till det uppgraderade primärt om du använder aktiv geo-replikering. Det kan finnas en mindre mängd data gå förlorade för de senaste transaktionerna på grund av asynkron replikering. Med automatisk redundans grupper kan anpassa du princip för redundansväxling för att minimera potentiell dataförlust. I samtliga fall upplever användarna ett kort avbrott och måste återansluta. Redundansväxlingar tar bara några sekunder medan databasåterställning från säkerhetskopior tar timmar.
 
-Om den primära databasen oväntat kopplas från eller om du behöver ta den offline för underhållsaktiviteter, kan du snabbt uppgradera en sekundär för att bli den primära (även kallat redundansväxling) och konfigurera program ska ansluta till det uppgraderade primärt. Om programmet ansluter till databaser med hjälp av lyssnare för växling vid fel, behöver du inte ändra SQL-sträng konfigurationen efter en redundansväxling. Vid en planerad redundansväxling förekommer ingen dataförlust. Vid en oplanerad redundansväxling kan en mindre mängd data gå förlorade för de senaste transaktionerna på grund av hur den asynkrona replikeringen fungerar. Med automatisk redundans grupper kan anpassa du princip för redundansväxling för att minimera potentiell dataförlust. Efter en redundansväxling kan du senare växla tillbaka igen, antingen enligt en plan eller när datacentret är online igen. I samtliga fall upplever användarna ett kort avbrott och måste återansluta.
+Du kan använda för att växla över till en annan region, [aktiv geo-replikering](sql-database-geo-replication-overview.md) du konfigurerar en databas om du vill ha upp till fyra läsbara sekundära databaser i regionerna som du önskar. Dessa sekundära databaser synkroniseras med den primära databasen med hjälp av en asynkron replikeringsmekanism. 
+
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
+>
+
 
 > [!IMPORTANT]
 > Om du vill använda aktiv geo-replikering och automatisk redundans grupper, måste du vara prenumerationsägaren eller ha administrativ behörighet i SQL Server. Du kan konfigurera och redundansväxla med Azure portal, PowerShell eller REST-API med hjälp av Azure-Prenumerationsbehörigheter eller med hjälp av Transact-SQL med SQL Server-behörigheter.
 > 
 
-Använda aktiv geo-replikering och automatisk redundans grupper om programmet uppfyller något av dessa villkor:
+Den här funktionen används för att skydda mot verksamhetsavbrott om det uppstår ett avbrott på datacentret eller under en uppgradering av programmet. Aktivera automatisk och transparent redundans bör du organisera dina geo-replikerade databaser i grupper med hjälp av den [automatisk redundans grupp](sql-database-geo-replication-overview.md) funktionen i SQL Database. Använda aktiv geo-replikering och automatisk redundans grupper om programmet uppfyller något av dessa villkor:
 
 * Är verksamhetskritiskt.
 * Har ett serviceavtal (SLA) som inte tillåter driftavbrott på 24 timmar eller mer.
 * Avbrott kan resultera i ekonomiska ansvarsskyldigheter.
 * Har en hög frekvens av dataändringar och en timmes dataförlust är inte acceptabelt.
 * Den extra kostnaden för aktiv geo-replikering är lägre än de potentiella ekonomiska skyldigheterna och den associerade affärsförlusten.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
->
-
-## <a name="recover-a-database-after-a-user-or-application-error"></a>Återställa en databas efter ett användar- eller programfel
-
-Ingen är perfekt! En användare kan oavsiktligt ta bort vissa data eller av misstag radera en viktig tabell eller till och med en hel databas. Och ett program kan av misstag skriva över värdefulla data med felaktiga data på grund av ett fel i programmet.
-
-I det här scenariot har du följande återställningsalternativ.
-
-### <a name="perform-a-point-in-time-restore"></a>Utföra en återställning till en viss tidpunkt
-Du kan använda automatiska säkerhetskopior för att återställa en kopia av databasen till en tidigare tidpunkt, förutsatt att tiden ligger inom databasens kvarhållningsperiod. När databasen har återställts kan du antingen ersätta den ursprungliga databasen med den återställda databasen eller kopiera nödvändiga data från den återställda informationen till den ursprungliga databasen. Om databasen använder aktiv geo-replikering, rekommenderar vi att du kopierar nödvändiga data från den återställda kopian till den ursprungliga databasen. Om du ersätter den ursprungliga databasen med den återställda databasen måste du konfigurera om och omsynkronisera aktiv geo-replikering (vilket kan ta ganska lite tid innan en stor databas). Medan detta återställer en databas till den senaste stöds tillgängliga tidpunkt, återställa geo-secondary till valfri punkt i tiden för närvarande inte.
-
-Mer information och detaljerade anvisningar som beskriver hur du återställer en databas till en viss tidpunkt med hjälp av Azure Portal eller PowerShell finns i avsnittet om [återställning till tidpunkt](sql-database-recovery-using-backups.md#point-in-time-restore). Du kan inte återställa med hjälp av Transact-SQL.
-
-### <a name="restore-a-deleted-database"></a>Återställa en borttagen databas
-Om databasen tas bort, men den logiska servern inte har tagits bort, kan du återställa den borttagna databasen till den tidpunkt då den togs bort. Om du gör det återställs en säkerhetskopia av databasen till samma logiska SQL-server som den togs bort från. Du kan återställa den genom att använda det ursprungliga namnet eller ange ett nytt namn eller den återställda databasen.
-
-Mer information och detaljerade anvisningar som beskriver hur du återställer en borttagen databas med hjälp av Azure Portal eller PowerShell finns i avsnittet om hur du [återställer en borttagen databas](sql-database-recovery-using-backups.md#deleted-database-restore). Du kan inte återställa med hjälp av Transact-SQL.
-
-> [!IMPORTANT]
-> Om den logiska servern tas bort kan du inte återställa en borttagen databas.
-
-
-### <a name="restore-backups-from-long-term-retention"></a>Återställa säkerhetskopior från långsiktig kvarhållning
-
-Om dataförlusten inträffade utanför den aktuella kvarhållningsperioden för automatiska säkerhetskopior och databasen har konfigurerats för långsiktig kvarhållning av säkerhetskopior med Azure blob-lagring, kan du återställa från en fullständig säkerhetskopiering i Azure blob storage till en ny databas. I detta läge kan du antingen ersätta den ursprungliga databasen med den återställda databasen eller kopiera nödvändiga data från den återställda databasen till den ursprungliga databasen. Om du vill hämta en äldre version av databasen innan en stor uppgradering, uppfylla en begäran från revisorer eller juridiska krav, kan du skapa en databas med en fullständig säkerhetskopia som sparats i Azure blob storage.  Mer information finns i avsnittet om [långsiktig kvarhållning](sql-database-long-term-retention.md).
-
-## <a name="recover-a-database-to-another-region-from-an-azure-regional-data-center-outage"></a>Återställa en databas till en annan region från ett avbrott på ett regionalt Azure-datacenter
-<!-- Explain this scenario -->
-
-Även om det är ovanligt finns risken för ett avbrott på ett Azure-datacenter. När ett avbrott uppstår orsakar det ett verksamhetsavbrott som kan vara några få minuter eller flera timmar.
-
-* Ett alternativ är att vänta tills databasen är tillbaka online när avbrottet på datadatacentret är över. Det här fungerar för program som har råd att ha databasen offline. Till exempel ett utvecklingsprojekt eller en kostnadsfri utvärderingsversion som du inte behöver arbeta med hela tiden. När det uppstår ett avbrott i ett datacenter, vet inte du hur länge driftstörningarna kan vara, så det här alternativet fungerar bara om du inte behöver databasen på ett tag.
-* Ett annat alternativ är att antingen misslyckas över till en annan dataregion om du använder aktiv geo-replikering eller att återställa en databas med geo-redundanta databassäkerhetskopior (geo-återställning). Redundansväxlingar tar bara några sekunder medan databasåterställning från säkerhetskopior tar timmar.
 
 När du utför en åtgärd, hur lång tid det tar att återställa och hur mycket data går förlorade beror på hur du väljer att använda dessa funktioner för affärskontinuitet i ditt program. Verkligen, kan du välja att använda en kombination av databassäkerhetskopior och aktiv geo-replikering beroende på dina programkrav. Information om designöverväganden för fristående databaser och för elastiska pooler när dessa funktioner för affärskontinuitet används finns i [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md) (Utforma ett program för haveriberedskap i molnet) och [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md) (Haveriberedskapsstrategier med en elastisk pool).
 

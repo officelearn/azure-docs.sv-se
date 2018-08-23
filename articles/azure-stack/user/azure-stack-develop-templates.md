@@ -1,9 +1,9 @@
 ---
-title: Skapa mallar för Azure-stacken | Microsoft Docs
-description: Läs Azure Stack mallen bästa praxis
+title: Utveckla mallar för Azure Stack | Microsoft Docs
+description: Lär dig Metodtips för Azure Stack-mall
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 8a5bc713-6f51-49c8-aeed-6ced0145e07b
@@ -12,29 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 046866d9ed7ce65e3b46be1c67b4ab2058cefa4d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: d09dec2f327d8b5911a4e55832ba106838c7ebc3
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34304155"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42055837"
 ---
-# <a name="azure-resource-manager-template-considerations"></a>Överväganden för Azure Resource Manager
+# <a name="azure-resource-manager-template-considerations"></a>Överväganden för Azure Resource Manager-mall
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-När du utvecklar programmet är det viktigt att se till att mallen rörlighet mellan Azure och Azure-stacken. Den här artikeln innehåller överväganden för att utveckla Azure Resource Manager [mallar](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), så att du kan prototyp programmet och testa distributionen i Azure utan åtkomst till en Azure-Stack-miljö.
+När du utvecklar dina program är det viktigt att se till att mallen portabilitet mellan Azure och Azure Stack. Den här artikeln innehåller överväganden vid utveckling av Azure Resource Manager [mallar](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), så att du kan skapa prototyper program och testa distributionen i Azure utan åtkomst till en Azure Stack-miljö.
 
 ## <a name="resource-provider-availability"></a>Providern resurstillgänglighet
 
-Den mall som du planerar att distribuera måste bara använda Microsoft Azure-tjänster som redan är tillgängliga eller i Förhandsgranska i Azure-stacken.
+Den mall som du planerar att distribuera måste bara använda Microsoft Azure-tjänster som redan är tillgängligt eller i en förhandsversion i Azure Stack.
 
 ## <a name="public-namespaces"></a>Offentliga namnområden
 
-Eftersom Azure Stack finns i ditt datacenter, har olika service endpoint namnområden än det offentliga Azure-molnet. Därför misslyckas hårdkodad offentliga slutpunkter i Azure Resource Manager-mallar när du försöker distribuera dem till Azure-stacken. Du kan dynamiskt skapa slutpunkter med hjälp av den *referens* och *sammanfoga* funktioner för att hämta värden från resursprovidern under distributionen. Till exempel i stället för hardcoding *blob.core.windows.net* i mallen, hämta den [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) med den *osDisk.URI* slutpunkt:
+Eftersom Azure Stack finns i ditt datacenter, har olika service endpoint namnområden än i Azures offentliga moln. Därför misslyckas hårdkodad offentliga slutpunkter i Azure Resource Manager-mallar när du försöker distribuera dem till Azure Stack. Du kan dynamiskt skapa tjänstslutpunkter med den *referens* och *sammanfoga* funktioner för att hämta värden från resursprovidern under distributionen. Till exempel i stället för hardcoding *blob.core.windows.net* i mallen, hämta den [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) med den *osDisk.URI* slutpunkt:
 
      "osDisk": {"name": "osdisk","vhd": {"uri":
      "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, variables('vmStorageAccountContainerName'),
@@ -42,7 +42,7 @@ Eftersom Azure Stack finns i ditt datacenter, har olika service endpoint namnomr
 
 ## <a name="api-versioning"></a>API-versionshantering
 
-Azure service-versioner kan variera mellan Azure och Azure-stacken. Varje resurs kräver den **apiVersion** attribut som definierar de funktioner som erbjuds. För att säkerställa kompatibilitet för API-version i Azure-stacken, gäller följande API-versioner för varje Resursprovider:
+Azure tjänstversioner kan variera mellan Azure och Azure Stack. Varje resurs kräver den **apiVersion** attribut, som definierar de funktioner som erbjuds. För att säkerställa kompatibilitet för API-version i Azure Stack, gäller följande API-versioner för varje Resursprovider:
 
 | Resursprovider | apiVersion |
 | --- | --- |
@@ -54,11 +54,11 @@ Azure service-versioner kan variera mellan Azure och Azure-stacken. Varje resurs
 
 ## <a name="template-functions"></a>Mallfunktioner
 
-Azure Resource Manager [funktioner](../../azure-resource-manager/resource-group-template-functions.md) innehåller funktioner som krävs för att skapa dynamiska mallar. Du kan använda funktioner för uppgifter som exempelvis:
+Azure Resource Manager [functions](../../azure-resource-manager/resource-group-template-functions.md) innehåller funktioner som krävs för att skapa dynamiska mallar. Du kan använda funktioner för uppgifter som till exempel:
 
-* Sammanfoga eller trimning strängar.
+* Sammanfoga eller ta strängar.
 * Refererar till värden från andra resurser.
-* Iteration av resurser för att distribuera flera instanser.
+* Iterera på resurser för att distribuera flera instanser.
 
 Dessa funktioner är inte tillgängliga i Azure Stack:
 
@@ -67,7 +67,7 @@ Dessa funktioner är inte tillgängliga i Azure Stack:
 
 ## <a name="resource-location"></a>Resursplats
 
-Azure Resource Manager-mallar kan du använda ett platsattribut för att placera resurser under distributionen. I Azure referera platser till ett område som västra USA eller Sydamerika. Platser är olika i Azure-stacken eftersom Azure-stacken är i ditt datacenter. För att säkerställa mallar är överföringsbar mellan Azure och Azure-stacken, bör referera resursgruppens plats när du distribuerar enskilda resurser. Du kan göra detta med hjälp av `[resourceGroup().Location]` att se till att alla resurser ärver resursgruppens plats. Följande utdrag är ett exempel på hur du använder den här funktionen vid distribution av ett lagringskonto:
+Azure Resource Manager-mallar kan du använda ett platsattribut för att placera resurser under distributionen. I Azure avser platser en region som USA, västra eller Sydamerika. Platser är olika i Azure Stack, eftersom Azure Stack är i ditt datacenter. För att säkerställa mallar är överföra mellan Azure och Azure Stack, bör du referera till resursgruppens plats när du distribuerar enskilda resurser. Du kan göra detta med hjälp av `[resourceGroup().Location]` att se till att alla resurser ärver plats för resursgruppen. Följande utdrag är ett exempel på hur du använder den här funktionen när du distribuerar ett storage-konto:
 
     "resources": [
     {

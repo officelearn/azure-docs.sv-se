@@ -1,10 +1,10 @@
 ---
-title: Hantera nätverket grupp flöda säkerhetsloggar med Nätverksbevakaren och Grafana | Microsoft Docs
-description: Hantera och analysera nätverket grupp flöda säkerhetsloggar i Azure med hjälp av Nätverksbevakaren och Grafana.
+title: Hantera Flow loggar för Nätverkssäkerhetsgrupper med Network Watcher och Grafana | Microsoft Docs
+description: Hantera och analysera Flow loggar för Nätverkssäkerhetsgrupper i Azure med Network Watcher och Grafana.
 services: network-watcher
 documentationcenter: na
-author: kumudD
-manager: timlt
+author: mattreatMSFT
+manager: vitinnan
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,56 +14,56 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
-ms.author: kumud
-ms.openlocfilehash: 44cf074223c88b8fa539144c0d948e68ae6cbd13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mareat
+ms.openlocfilehash: e375476536e7fe150e3aabcae7cee942deac02d5
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23864093"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42060338"
 ---
-# <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Hantera och analysera Nätverkssäkerhetsgruppen flöde loggar med Nätverksbevakaren och Grafana
+# <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Hantera och analysera flödesloggar för Nätverkssäkerhetsgruppen med Network Watcher och Grafana
 
-[Network Security Group (NSG) flöde loggar](network-watcher-nsg-flow-logging-overview.md) innehåller information som kan användas för att förstå ingående och utgående IP-trafik på nätverksgränssnitt. Loggarna Flöde Visa utgående och inkommande flöden på en per NSG regeln bas NIC flödet gäller, till 5-tuppel information om flödet (källan/målet IP-källan/målet Port Protocol), och om trafiken tillåts eller nekas.
+[Network Security Group (NSG) flödesloggar](network-watcher-nsg-flow-logging-overview.md) innehåller information som kan användas för att förstå ingående och utgående IP-trafik på nätverksgränssnitt. Dessa flödesloggar Visa utgående och inkommande flöden på en per NSG-regel-basis nätverkskortet flödet gäller, 5-tuppel information om flödet (källa/mål-IP, källa/mål-Port, Protocol), och om trafik tillåts eller nekas.
 
-Du kan ha många NSG: er i nätverket med flödet loggning aktiverad. Den här mängden loggningsdata är det krånglig att tolka och få insikter från dina loggar. Den här artikeln innehåller en lösning för att centralt hantera dessa loggar för flödet av NSG med Grafana, en öppen källkod rita in verktyget, ElasticSearch, en distribuerad sökning och analytics-motorn och Logstash, vilket är en öppen källkod serversidan databearbetning pipeline.  
+Du kan ha många NSG: er i nätverket med flow-loggning är aktiverat. Den här mängden loggningsdata är det besvärligt att tolka och få insikter från dina loggar. Den här artikeln innehåller en lösning för att centralt hantera dessa NSG-flödesloggar med Grafana, ett rita in verktyget, ElasticSearch, en distribuerad sökning och Analysmotorn och Logstash, vilket är en öppen källkod från serversidan databearbetningspipeline med öppen källkod.  
 
 ## <a name="scenario"></a>Scenario
 
-NSG-flöde loggar aktiveras med hjälp av Nätverksbevakaren och lagras i Azure blob storage. Ett Logstash plugin-program används för att ansluta och bearbeta flödet loggar från blob storage och skicka dem till ElasticSearch.  När loggarna flödet lagras i ElasticSearch, de analyseras och visualiseras i anpassade instrumentpaneler i Grafana.
+NSG-flödesloggar aktiveras med hjälp av Network Watcher och lagras i Azure blob storage. En Logstash plugin-programmet används för att ansluta och bearbeta flödesloggar från blob storage och skicka dem till ElasticSearch.  När flödesloggar lagras i ElasticSearch, kan de analyseras och visualiseras med anpassade instrumentpaneler i Grafana.
 
-![NSG nätverket Watcher Grafana](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig1.png)
+![NSG Network Watcher Grafana](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig1.png)
 
 ## <a name="installation-steps"></a>Installationssteg
 
-### <a name="enable-network-security-group-flow-logging"></a>Aktivera Nätverkssäkerhetsgruppen flöde loggning
+### <a name="enable-network-security-group-flow-logging"></a>Aktivera Nätverkssäkerhetsgrupp flödesloggar
 
-I det här scenariot måste du ha nätverket grupp flöda säkerhetsloggning aktiverat på minst en säkerhetsgrupp för nätverk i ditt konto. Instruktioner om hur du aktiverar Network säkerhetsloggar flödet finns i följande artikel [introduktion till flödet loggning för Nätverkssäkerhetsgrupper](network-watcher-nsg-flow-logging-overview.md).
+Det här scenariot måste du ha nätverk grupp Flow säkerhetsloggning aktiverat på minst en Nätverkssäkerhetsgrupp i ditt konto. Instruktioner om hur du aktiverar Network Security Flödesloggar finns i följande artikel [introduktion till flödesloggar för Nätverkssäkerhetsgrupper](network-watcher-nsg-flow-logging-overview.md).
 
-### <a name="setup-considerations"></a>Konfigurera överväganden
+### <a name="setup-considerations"></a>Tänka på vid konfiguration
 
-I det här exemplet konfigureras Grafana och ElasticSearch Logstash på en Ubuntu 16.04 LTS-Server som distribueras i Azure. Den här minimal installation används för att köra alla tre komponenter – de körs på samma virtuella dator. Den här installationen ska bara användas för testning och icke-kritiska arbetsbelastningar. Logstash och Elasticsearch Grafana kan alla vara konstruerad för att skala oberoende av varandra mellan många instanser. Mer information finns i dokumentationen för var och en av dessa komponenter.
+I det här exemplet konfigureras Grafana, ElasticSearch och Logstash på en Ubuntu 16.04 LTS-Server som distribueras i Azure. Den här minimal installation används för att köra alla tre komponenter – de körs på samma virtuella dator. Den här konfigurationen rekommenderas endast för testning och icke-kritiska arbetsbelastningar. Logstash, Elasticsearch och Grafana kan alla vara byggts för att skala oberoende av varandra över många instanser. Mer information finns i dokumentationen för var och en av dessa komponenter.
 
 ### <a name="install-logstash"></a>Installera Logstash
 
-Du kan använda Logstash för att förenkla JSON-formaterade flödet loggar till en tuppel flödet-nivå.
+Du kan använda Logstash för att platta ut JSON-formaterade flödesloggar till en flow-tuppel-nivå.
 
-1. Om du vill installera Logstash, kör du följande kommandon:
+1. För att installera Logstash, kör du följande kommandon:
 
     ```bash
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
 
-2. Konfigurera Logstash för att parsa flödet loggarna och skicka dem till ElasticSearch. Skapa filen Logstash.conf med:
+2. Konfigurera Logstash för att parsa flödesloggar och skicka dem till ElasticSearch. Skapa en Logstash.conf filen med:
 
     ```bash
     sudo touch /etc/logstash/conf.d/logstash.conf
     ```
 
-3. Lägg till följande innehåll i filen. Ändra lagringskontots namn och åtkomstnyckel för att återspegla information om ditt lagringskonto:
+3. Lägg till följande innehåll i filen. Ändra namn och lagringskontonyckeln för att återspegla din kontoinformation för lagring:
 
-    ```bash
+   ```bash
     input {
       azureblob
       {
@@ -133,28 +133,29 @@ Du kan använda Logstash för att förenkla JSON-formaterade flödet loggar till
         index => "nsg-flow-logs"
       }
     }
-    ```
+   ```
 
-Konfigurationsfilen Logstash som består av tre delar: indata, filter och utdata. Avsnittet inkommande anger Indatakällan för de loggar som bearbetar Logstash – i det här fallet vi ska använda en ”azureblob” inkommande plugin-program (installerad i nästa steg) som gör att vi kan komma åt NSG flödet JSON loggfilerna lagras i blob storage. 
+Logstash config-fil som består av tre delar: indata, filter och utdata.
+Avsnittet inkommande betyder Indatakällan för loggarna som bearbetar Logstash – i det här fallet vi ska använda en ”azureblob” indata-plugin-programmet (installerad i nästa steg) som gör det möjligt för oss att få åtkomst till NSG flow JSON loggfilerna lagras i blob storage. 
 
-Avsnittet filter förenklar sedan varje flöde loggfil så att varje enskild flödet tuppel och dess associerade egenskaper blir en separat Logstash-händelse.
+Avsnittet filter förenklar sedan loggfilerna flöde så att varje tuppel enskilda flödet och dess associerade egenskaper blir en separat Logstash-händelse.
 
-Slutligen vidarebefordrar utdata varje Logstash-händelsen till ElasticSearch-servern. Du kan ändra Logstash config-filen så att de passar dina behov.
+Slutligen vidarebefordrar utdata varje Logstash-händelse till ElasticSearch-servern. Passa på att ändra Logstash config-fil så att den passar dina behov.
 
 ### <a name="install-the-logstash-input-plugin-for-azure-blob-storage"></a>Installera Logstash inkommande plugin-programmet för Azure Blob storage
 
-Den här Logstash plugin-program kan du få direkt åtkomst till flödet loggar från deras avsedda blob storage-konto. Installera den här plugin, från Logstash Standardinstallationskatalogen (i det här fallet /usr/share/logstash/bin) kör kommandot:
+Den här Logstash plugin-programmet kan du direkt åtkomst till flow-loggar från deras avsedda blob storage-konto. Kör kommandot för att installera det här plugin-programmet, från Logstash standardinstallationen katalogen (i det här fallet /usr/share/logstash/bin):
 
 ```bash
 cd /usr/share/logstash/bin
 sudo ./logstash-plugin install logstash-input-azureblob
 ```
 
-Läs mer om den här plugin i [Logstash inkommande plugin för Azure Storage Blobs](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob).
+Mer information om det här plugin-programmet finns i [Logstash inkommande plugin-program för Azure Storage-Blobbar](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob).
 
 ### <a name="install-elasticsearch"></a>Installera ElasticSearch
 
-Du kan använda följande skript för att installera ElasticSearch. Information om hur du installerar ElasticSearch finns [elastisk Stack](https://www.elastic.co/guide/en/elastic-stack/current/index.html).
+Du kan använda följande skript för att installera ElasticSearch. Information om hur du installerar ElasticSearch finns i [Elastic Stack](https://www.elastic.co/guide/en/elastic-stack/current/index.html).
 
 ```bash
 apt-get install apt-transport-https openjdk-8-jre-headless uuid-runtime pwgen -y
@@ -182,25 +183,25 @@ Av ytterligare installationsinformation finns i [installerar på Debian / Ubuntu
 
 #### <a name="add-the-elasticsearch-server-as-a-data-source"></a>Lägg till ElasticSearch-servern som en datakälla
 
-Du måste sedan lägga till ElasticSearch indexet som innehåller flödet loggarna som en datakälla. Du kan lägga till en datakälla genom att välja **Lägg till datakälla** och fyller i formuläret med relevant information. Ett exempel på den här konfigurationen finns i följande skärmbild:
+Du måste sedan lägga till ElasticSearch indexet som innehåller flödesloggar som en datakälla. Du kan lägga till en datakälla genom att välja **Lägg till datakälla** och fyller i formuläret med relevant information. Ett exempel på den här konfigurationen finns i följande skärmbild:
 
 ![Lägg till datakälla](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig2.png)
 
 #### <a name="create-a-dashboard"></a>Skapa en instrumentpanel
 
-Nu när du har konfigurerat Grafana att läsa från ElasticSearch indexet som innehåller NSG flödet loggar, kan du skapa och anpassa instrumentpaneler. Om du vill skapa en ny instrumentpanel **skapar instrumentpanelen första**. Följande exempel diagrammet konfiguration visar flöden segmenterade av NSG regel:
+Nu när du har konfigurerat Grafana att läsa från ElasticSearch indexet som innehåller NSG-flödesloggar kan du skapa och anpassa instrumentpaneler. Om du vill skapa en ny instrumentpanel, Välj **skapa din första instrumentpanel**. Följande exempelkonfiguration för diagrammet visar flöden uppdelat efter NSG-regel:
 
-![Instrumentpanel för diagram](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig3.png)
+![Instrumentpanelen graph](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig3.png)
 
-Följande skärmbild visar ett diagram och diagram som visar de översta flödena och hur ofta. Flöden visas även av NSG regeln och flöden av beslut. Grafana är mycket anpassningsbara så är det lämpligt att du skapar instrumentpaneler så att de passar dina specifika behov för övervakning. I följande exempel visas en typisk instrumentpanel:
+Följande skärmbild visar ett diagram och diagram som visar de översta flödena och ofta. Flöden visas även av NSG-regel och flöden per beslut. Grafana är mycket anpassningsbara så du rekommenderas att du skapar instrumentpaneler så att den passar dina specifika övervakningsbehov. I följande exempel visas en typisk instrumentpanel:
 
-![Instrumentpanel för diagram](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
+![Instrumentpanelen graph](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 
-Genom att integrera Nätverksbevakaren med ElasticSearch och Grafana nu har du ett bekvämt och centraliserat sätt att hantera och visualisera NSG flödet loggar samt andra data. Grafana har ett antal andra kraftfulla diagramfunktionerna kan också användas för att hantera ytterligare flödet loggar och bättre förstå trafik på nätverket. Nu när du har en Grafana instans ställa in och ansluten till Azure kan passa på att fortsätta att utforska de funktioner som den erbjuder.
+Genom att integrera Network Watcher med ElasticSearch och Grafana, nu har du ett praktiskt och centraliserad sätt att hantera och visualisera NSG-flödesloggar samt andra data. Grafana har ett antal andra kraftfulla diagramfunktionerna som också kan användas för att hantera ytterligare flödesloggar och bättre förstå din nätverkstrafik. Passa på att fortsätta att utforska andra funktioner som den erbjuder nu när du har en Grafana-instans ställa in och anslutit till Azure.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om hur du använder [Nätverksbevakaren](network-watcher-monitoring-overview.md).
+- Läs mer om hur du använder [Network Watcher](network-watcher-monitoring-overview.md).
 

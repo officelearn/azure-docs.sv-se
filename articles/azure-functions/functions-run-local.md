@@ -4,7 +4,7 @@ description: Lär dig mer om att koda och testa Azure functions från Kommandoto
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: functions
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 08/14/2018
 ms.author: glenga
-ms.openlocfilehash: 57011e1f7633688e00a4639ba36fd4442073161d
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: cb336d6742aab10e1fd8305fd52f1376bb4f2598
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618622"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42055881"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -131,13 +131,13 @@ I terminalfönstret eller från en kommandotolk, kör du följande kommando för
 func init MyFunctionProj
 ```
 
+När du anger ett projektnamn, skapas en ny mapp med det namnet och initierats. Annars initieras den aktuella mappen.  
 I version 2.x, när du kör kommandot du måste välja en runtime för ditt projekt. Om du planerar att utveckla JavaScript-funktioner, välja **noden**:
 
 ```output
 Select a worker runtime:
 dotnet
 node
-java
 ```
 
 Använd upp/ned piltangenterna för att välja ett språk, och tryck sedan på RETUR. Utdata ser ut som i följande exempel för en JavaScript-projektet:
@@ -298,19 +298,24 @@ För att köra Functions-projekt, kör du Functions-värden. Värden kan utlösa
 ```bash
 func host start
 ```
+Den `host` kommando krävs endast i version 1.x.
 
 `func host start` stöder följande alternativ:
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
-|**`--port -p`** | Lokal port att lyssna på. Standardvärde: 7071. |
-| **`--debug <type>`** | Värden med debug-port öppnas så att du kan koppla till den **func.exe** bearbeta från [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) eller [Visual Studio 2017](functions-dotnet-class-library.md). Den *\<typ\>* alternativ är `VSCode` och `VS`.  |
 | **`--cors`** | En kommaavgränsad lista över CORS-ursprung, utan blanksteg. |
-| **`--nodeDebugPort -n`** | Porten för nod-felsökare att använda. Standard: Ett värde från launch.json eller 5858. |
-| **`--debugLevel -d`** | Konsolen spårningsnivån (av, utförlig, info, varning eller fel). Standard: information.|
+| **`--debug <type>`** | Värden med debug-port öppnas så att du kan koppla till den **func.exe** bearbeta från [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) eller [Visual Studio 2017](functions-dotnet-class-library.md). Den *\<typ\>* alternativ är `VSCode` och `VS`.  |
+| **`--port -p`** | Lokal port att lyssna på. Standardvärde: 7071. |
 | **`--timeout -t`** | Tidsgränsen för Functions värden startas, i sekunder. Standard: 20 sekunder.|
 | **`--useHttps`** | Binda till `https://localhost:{port}` snarare än till `http://localhost:{port}`. Det här alternativet skapar som standard ett betrott certifikat på datorn.|
-| **`--pause-on-error`** | Pausa för ytterligare indata innan du avslutar processen. Används när du startar Core Tools från Visual Studio eller VS Code.|
+| **`--build`** | Skapa aktuella projektet innan du kör. Version 2.x och C#-projekt endast. |
+| **`--cert`** | Sökvägen till en .pfx-fil som innehåller en privat nyckel. Bara används med `--useHttps`. Version 2.x endast. | 
+| **`--password`** | Lösenordet eller en fil som innehåller lösenordet för en .pfx-fil. Bara används med `--cert`. Version 2.x endast. |
+| **`--language-worker`** | Argument konfigurera språk worker. Version 2.x endast. |
+| **`--nodeDebugPort -n`** | Porten för nod-felsökare att använda. Standard: Ett värde från launch.json eller 5858. Version 1.x endast. |
+
+För en C# klassbiblioteksprojektet (.csproj), måste du inkludera den `--build` alternativet för att generera DLL-filen för biblioteket.
 
 När funktioner värden startas, returnerar de URL: en för HTTP-utlösta funktionerna:
 

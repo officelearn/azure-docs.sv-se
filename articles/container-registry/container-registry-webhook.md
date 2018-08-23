@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/02/2017
+ms.date: 08/20/2017
 ms.author: marsma
-ms.openlocfilehash: e85b69e452f4d76dfdf974698fa7d3b5cdbc0c30
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c424e81b13c3c60e975d3721693b1f80e00cfdd7
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426096"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057397"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Med Azure Container Registry-webhookar
 
@@ -95,4 +95,14 @@ az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 
 ## <a name="next-steps"></a>Nästa steg
 
+### <a name="webhook-schema-reference"></a>Schemareferens för Webhook
+
+Information om format och egenskaper i JSON-event-nyttolaster som orsakats av Azure Container Registry finns i webhook-Schemareferens:
+
 [Schemareferens i Azure Container Registry webhook](container-registry-webhook-reference.md)
+
+### <a name="event-grid-events"></a>Event Grid-händelser
+
+Förutom inbyggda registret webhook händelserna som beskrivs i den här artikeln, kan Azure Container Registry Generera händelser till Event Grid:
+
+[Snabbstart: Skicka container registerhändelser till Event Grid](container-registry-event-grid-quickstart.md)

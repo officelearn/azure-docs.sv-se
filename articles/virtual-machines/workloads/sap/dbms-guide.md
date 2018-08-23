@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2caa9a5137edd4e012adf704c01dc5c470e1bb51
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: f6b0ea7479910f7026974e37f8c05099453c0b26
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972452"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42059734"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Azure Virtual Machines DBMS-distribution för SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -1161,7 +1161,7 @@ Installationen och driften av SRS fungerar även samma funktioner i en virtuell 
 ASE HADR via SAP replikering Server stöds inte vid denna tidpunkt. Den kan testas med och är i framtiden för Microsoft Azure-plattformar.
 
 ## <a name="specifics-to-oracle-database-on-windows"></a>Specifik information skrivs till Oracle-databas på Windows
-Oracle-programvara som stöds av Oracle ska köras på Microsoft Windows Hyper-V och Azure. Mer information om allmänna support från Windows Hyper-V och Azure kontrollerar du: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+Oracle-programvara som stöds av Oracle ska köras på Microsoft Windows Hyper-V och Azure. 
 
 Följande allmänna support, den särskilda situationen av SAP-program att använda Oracle-databaser finns även stöd för. Information om namnges i den här delen av dokumentet.
 
@@ -1199,7 +1199,7 @@ Oracle Data Guard har stöd för hög tillgänglighet och katastrofåterställni
 Andra allmänna områden som Azure-Tillgänglighetsuppsättningar eller SAP övervakning gäller enligt beskrivningen i de första tre kapitlen i det här dokumentet för distributioner av virtuella datorer med Oracle-databasen.
 
 ## <a name="specifics-to-oracle-database-on-oracle-linux"></a>Specifik information skrivs till Oracle-databas i Oracle Linux
-Oracle-programvara som stöds av Oracle ska köras på Microsoft Windows Hyper-V och Azure. Mer information om allmänna support från Windows Hyper-V och Azure kontrollerar du: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+Oracle-programvara som stöds av Oracle ska köras på Microsoft Windows Hyper-V och Azure. 
 
 Följande allmänna support, den särskilda situationen av SAP-program att använda Oracle-databaser finns även stöd för. Information om namnges i den här delen av dokumentet.
 

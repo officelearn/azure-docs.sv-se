@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/27/2016
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7957fdf245090cbca3726cb1e4788ec34f63faca
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1801fe9695aa15850d600300b957df2c7d7cd9ef
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440427"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42060954"
 ---
 # <a name="azure-active-directory-b2c-threat-management"></a>Azure Active Directory B2C: Hothantering
 
@@ -29,4 +29,4 @@ Azure AD B2C använder identifiering och skyddsteknik tekniker som SYN cookies o
 
 Azure AD B2C har också minskning tekniker för lösenord attacker. Minskning omfattar lösenord brute force-attacker och ordlisteattacker för lösenord. Lösenord som anges av användare krävs för att vara förhållandevis komplexa. Med hjälp av olika signaler analyserar Azure AD B2C integriteten för begäranden. Azure AD B2C har utformats för att skilja smart avsedda användarna från hackare och botnät. Azure AD B2C tillhandahåller en avancerad strategi för att låsa konton baserat på det lösenord som anges i sannolikheten för en attack.
 
-Mer information finns i [Microsoft Trust Center](https://www.microsoft.com/en-us/trustcenter/default.aspx).
+Mer information finns i [Microsoft Trust Center](https://www.microsoft.com/trustcenter/default.aspx).

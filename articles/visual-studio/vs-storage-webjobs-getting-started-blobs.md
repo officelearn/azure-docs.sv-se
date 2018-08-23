@@ -1,36 +1,37 @@
 ---
-title: Kom igång med blob storage och Visual Studio anslutna tjänster (Webbjobb projekt) | Microsoft Docs
-description: Hur du kommer igång med Blob storage i ett Webbjobb projekt efter anslutning till en Azure storage med hjälp av Visual Studio anslutna tjänster.
+title: Kom igång med blob storage och Visual Studio-anslutna tjänster (WebJob-projekt) | Microsoft Docs
+description: Hur du kommer igång med Blob storage i ett WebJob-projekt när du har anslutit till Azure storage med hjälp av Visual Studio-anslutna tjänster.
 services: storage
 author: ghogen
 manager: douge
 ms.assetid: 324c9376-0225-4092-9825-5d1bd5550058
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 4800d6ad0482462b9eccb72de34de56e4f7c370c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 798073d5510e50ead35ed118b03e981d133cd32a
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31797000"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42059913"
 ---
-# <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Kom igång med Azure Blob storage och Visual Studio anslutna tjänster (Webbjobb projekt)
+# <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Kom igång med Azure Blob storage och Visual Studio-anslutna tjänster (WebJob-projekt)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Översikt
-Den här artikeln innehåller C#-kodexempel som visar hur du utlöser en process när ett Azure BLOB-objekt skapas eller uppdateras. Koden exempel användning av [WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) version 1.x. När du lägger till ett lagringskonto till ett Webbjobb-projekt med hjälp av Visual Studio **Lägg till anslutna tjänster** dialogrutan lämplig Azure Storage NuGet-paketet har installerats, lämpliga .NET referenserna har lagts till i projektet, och anslutningssträngar för storage-konto har uppdaterats i filen App.config.
+Den här artikeln innehåller C#-kodexempel som visar hur du utlöser en process när en Azure-blob skapas eller uppdateras. Använd kodexempel i [WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) version 1.x. När du lägger till ett lagringskonto till ett WebJob-projekt med hjälp av Visual Studio **Lägg till Connected Services** dialogrutan lämplig Azure Storage NuGet-paketet har installerats, lämplig .NET-referenser läggs till i projektet, och anslutningssträngar för storage-konto har uppdaterats i filen App.config.
 
 ## <a name="how-to-trigger-a-function-when-a-blob-is-created-or-updated"></a>Hur du utlöser en funktion när en blob skapas eller uppdateras
 Det här avsnittet visar hur du använder den **BlobTrigger** attribut.
 
- **Obs:** WebJobs SDK igenom loggfiler kan du titta på för nya eller ändrade BLOB. Den här processen är långsam natur; en funktion kan hämta aktiveras inte förrän flera minuter eller längre efter blob skapas.  Om ditt program måste bearbeta blobbar omedelbart, den rekommenderade metoden är att skapa ett kömeddelande när du skapar blob och använder den **QueueTrigger** attribut i stället för den **BlobTrigger** attributet för den funktion som behandlar blob.
+ **Obs:** WebJobs SDK igenom loggfiler för att se upp för nya eller ändrade blobar. Den här processen är sin natur långsamma; en funktion kan hämta aktiveras inte förrän flera minuter eller längre när bloben har skapats.  Om programmet behöver för att bearbeta blobar omedelbart, den rekommenderade metoden är att skapa ett kömeddelande när du skapar bloben och använder den **QueueTrigger** attribut i stället för den **BlobTrigger** den funktion som bearbetar blob-attributet.
 
-### <a name="single-placeholder-for-blob-name-with-extension"></a>Enskild platshållare för blob-namn med filtillägg
-Följande kodexempel kopierar text blobbar som visas i den *inkommande* behållare för att den *utdata* behållare:
+### <a name="single-placeholder-for-blob-name-with-extension"></a>Enkel platshållare för blobnamn med filtillägg
+Följande kodexempel kopierar text BLOB-objekt som visas i den *inkommande* behållaren till den *utdata* behållare:
 
         public static void CopyBlob([BlobTrigger("input/{name}")] TextReader input,
             [Blob("output/{name}")] out string output)
@@ -38,9 +39,9 @@ Följande kodexempel kopierar text blobbar som visas i den *inkommande* behålla
             output = input.ReadToEnd();
         }
 
-Attributkonstruktorn använder en strängparameter som anger behållarens namn och en platshållare för blob-namnet. I det här exemplet, om en blob med namnet *Blob1.txt* skapas i den *inkommande* -behållaren i funktionen skapas en blob med namnet *Blob1.txt* i den *utdata* behållare.
+Attributkonstruktorn använder en strängparameter som anger behållarens namn och en platshållare för blob-namnet. I det här exemplet, om en blob med namnet *Blob1.txt* skapas i den *inkommande* behållare, funktionen skapar en blob med namnet *Blob1.txt* i den *utdata* behållare.
 
-Du kan ange ett mönster med platshållaren för blob-namnet som visas i följande kodexempel:
+Du kan ange ett namnmönster med platshållaren för blob-namnet som visas i följande kodexempel:
 
         public static void CopyBlob([BlobTrigger("input/original-{name}")] TextReader input,
             [Blob("output/copy-{name}")] out string output)
@@ -48,20 +49,20 @@ Du kan ange ett mönster med platshållaren för blob-namnet som visas i följan
             output = input.ReadToEnd();
         }
 
-Den här koden kopieras endast blob som har namn som börjar med ”ursprungliga-”. Till exempel *ursprungliga Blob1.txt* i den *inkommande* behållare kopieras till *kopiera Blob1.txt* i den *utdata* behållare.
+Den här koden kopierar endast blobar som har namn som börjar med ”ursprungliga-”. Till exempel *ursprungliga Blob1.txt* i den *inkommande* behållare har kopierats till *kopia Blob1.txt* i den *utdata* behållare.
 
-Om du behöver ange ett på namnmönster för blob-namn som innehåller klammerparenteser i namnet dubbla klammerparenteser. Om du vill söka efter blobbar i till exempel den *bilder* behållare som har namn så här:
+Om du vill ange ett namnmönster för blobnamn som innehåller klammerparenteser i namnet dubbelklicka av klammerparenteser. Exempel: Om du vill hitta blobbar i den *avbildningar* behållare som har namn så här:
 
         {20140101}-soundfile.mp3
 
-Använd detta för dina mönster:
+Använd detta för mönstret:
 
         images/{{20140101}}-{name}
 
-I det här exemplet kan den *namn* platshållare värdet *soundfile.mp3*.
+I det här exemplet på *namn* platshållarvärdet skulle vara *soundfile.mp3*.
 
 ### <a name="separate-blob-name-and-extension-placeholders"></a>Separat blob namn och filnamnstillägg för platshållare
-Följande kodexempel ändras filnamnstillägget när den kopierar blobar som visas i den *inkommande* behållare för att den *utdata* behållare. Koden loggar tillägget för den *inkommande* blob och anger filnamnstillägget för den *utdata* blob till *.txt*.
+Följande kodexempel ändras filnamnstillägget när den kopierar blobar som visas i den *inkommande* behållaren till den *utdata* behållare. Koden loggar utökning av den *inkommande* blob och ställer in tillägg till den *utdata* -blob till *.txt*.
 
         public static void CopyBlobToTxtFile([BlobTrigger("input/{name}.{ext}")] TextReader input,
             [Blob("output/{name}.txt")] out string output,
@@ -74,21 +75,21 @@ Följande kodexempel ändras filnamnstillägget när den kopierar blobar som vis
             output = input.ReadToEnd();
         }
 
-## <a name="types-that-you-can-bind-to-blobs"></a>Typer som du kan binda till blobbar
+## <a name="types-that-you-can-bind-to-blobs"></a>Typer av som du kan binda till BLOB
 Du kan använda den **BlobTrigger** attribut för följande typer:
 
-* **Sträng**
+* **sträng**
 * **TextReader**
-* **Dataströmmen**
+* **Stream**
 * **ICloudBlob**
 * **CloudBlockBlob**
 * **CloudPageBlob**
-* Andra typer som avserialiseras av [ICloudBlobStreamBinder](#getting-serialized-blob-content-by-using-icloudblobstreambinder)
+* Andra typer av avserialiseras av [ICloudBlobStreamBinder](#getting-serialized-blob-content-by-using-icloudblobstreambinder)
 
 Om du vill arbeta direkt med Azure storage-konto, du kan också lägga till en **CloudStorageAccount** parameter till Metodsignaturen.
 
-## <a name="getting-text-blob-content-by-binding-to-string"></a>Hämtar blob textinnehåll av bindning till en sträng
-Om texten blobbar förväntas **BlobTrigger** kan tillämpas på en **sträng** parameter. Följande kodexempel Binder en text blobb till en **sträng** parameter med namnet **logMessage**. Parametern använder funktionen för att skriva innehållet i blob till WebJobs-SDK-instrumentpanelen.
+## <a name="getting-text-blob-content-by-binding-to-string"></a>Hämta blob textinnehåll av bindning till en sträng
+Om texten blobar förväntas, **BlobTrigger** kan tillämpas på en **sträng** parametern. Följande kodexempel Binder en text-blob till en **sträng** parameter med namnet **logMessage**. Funktionen använder parametern för att skriva innehållet i blobben till WebJobs-SDK-instrumentpanelen.
 
         public static void WriteLog([BlobTrigger("input/{name}")] string logMessage,
             string name,
@@ -99,8 +100,8 @@ Om texten blobbar förväntas **BlobTrigger** kan tillämpas på en **sträng** 
              logger.WriteLine(logMessage);
         }
 
-## <a name="getting-serialized-blob-content-by-using-icloudblobstreambinder"></a>Hämta serialiserad blob-innehåll med hjälp av ICloudBlobStreamBinder
-Följande kodexempel används en klass som implementerar **ICloudBlobStreamBinder** att aktivera den **BlobTrigger** attribut för att binda en blobb till den **WebImage** typen.
+## <a name="getting-serialized-blob-content-by-using-icloudblobstreambinder"></a>Hämta serialiserade blobbinnehåll med hjälp av ICloudBlobStreamBinder
+Följande kodexempel används en klass som implementerar **ICloudBlobStreamBinder** att aktivera den **BlobTrigger** attribut för att binda en blob till den **WebImage** typen.
 
         public static void WaterMark(
             [BlobTrigger("images3/{name}")] WebImage input,
@@ -136,12 +137,12 @@ Den **WebImage** bindning kod har angetts i en **WebImageBinder** klass som här
             }
         }
 
-## <a name="how-to-handle-poison-blobs"></a>Hur du hanterar skadligt blobbar
-När en **BlobTrigger** funktionen misslyckas SDK anropar den igen, om felet orsakades av ett tillfälligt fel. Om felet orsakas av innehållet för blob, misslyckas åtgärden varje gång den försöker bearbeta blob. Som standard anropar SDK en funktion upp till 5 gånger för en given blob. Om femte misslyckas, SDK lägger till ett meddelande till en kö med namnet *webjobs-blobtrigger-poison*.
+## <a name="how-to-handle-poison-blobs"></a>Hur du hanterar skadliga blobar
+När en **BlobTrigger** funktionen misslyckas, SDK: N anropar den igen, om felet orsakades av ett tillfälligt fel. Om felet orsakas av innehållet i blobben, misslyckas åtgärden varje gång den försöker bearbeta blob. Som standard anropar SDK en funktion upp till 5 gånger för en viss blob. Om femte misslyckas, SDK: N lägger till ett meddelande till en kö med namnet *webjobs-blobtrigger-poison*.
 
-Det maximala antalet nya försök kan konfigureras. Samma **MaxDequeueCount** inställningen används för hantering av skadligt blob och hantering av skadligt kön meddelandet.
+Det maximala antalet återförsök kan konfigureras. Samma **MaxDequeueCount** inställningen används för hantering av skadliga blob och skadliga kö meddelandehantering.
 
-Kömeddelande för skadligt BLOB är en JSON-objekt som innehåller följande egenskaper:
+Kömeddelande för skadliga BLOB är ett JSON-objekt som innehåller följande egenskaper:
 
 * FunctionId (i formatet *{webbjobbsnamnet}*. Funktioner. *{Funktionsnamn}*, till exempel: WebJob1.Functions.CopyBlob)
 * BlobType (”BlockBlob” eller ”PageBlob”)
@@ -149,7 +150,7 @@ Kömeddelande för skadligt BLOB är en JSON-objekt som innehåller följande eg
 * BlobName
 * ETag (en blob versions-ID, till exempel: ”0x8D1DC6E70A277EF”)
 
-I följande kodexempel i **CopyBlob** funktionen har kod som gör att den misslyckas varje gång den anropas. När SDK-anrop den för det maximala antalet nya försök kan skapa ett meddelande i kön skadligt blob och meddelandet bearbetas av den **LogPoisonBlob** funktion.
+I följande kodexempel i **CopyBlob** funktionen har kod som gör att den misslyckas varje gång den anropas. När SDK anropar den för det maximala antalet återförsök, ett meddelande har skapats för skadliga blob-kön och meddelandet bearbetas av den **LogPoisonBlob** funktion.
 
         public static void CopyBlob([BlobTrigger("input/{name}")] TextReader input,
             [Blob("textblobs/output-{name}")] out string output)
@@ -169,7 +170,7 @@ I följande kodexempel i **CopyBlob** funktionen har kod som gör att den missly
             logger.WriteLine("ETag: {0}", message.ETag);
         }
 
-SDK deserializes automatiskt JSON-meddelandet. Här är den **PoisonBlobMessage** klass:
+SDK: N deserializes automatiskt JSON-meddelande. Här är den **PoisonBlobMessage** klass:
 
         public class PoisonBlobMessage
         {
@@ -181,40 +182,40 @@ SDK deserializes automatiskt JSON-meddelandet. Här är den **PoisonBlobMessage*
         }
 
 ### <a name="blob-polling-algorithm"></a>Algoritmen för BLOB-avsökning
-WebJobs SDK söker igenom alla behållare som anges av **BlobTrigger** attribut vid programstart. I ett stort lagringskonto skanningen kan ta lite tid, så det kan vara en stund innan nya blobbar finns och **BlobTrigger** funktioner utförs.
+WebJobs SDK söker igenom alla behållare som anges av **BlobTrigger** attribut vid programstart. I ett stort lagringskonto skanningen kan ta lite tid, så det kan vara ett tag innan nya blobbar finns och **BlobTrigger** funktioner körs.
 
-För att identifiera nya eller ändrade blobbar när programmet startas läser SDK regelbundet från blob storage-loggar. Blob-loggarna är buffrade och bara hämta fysiskt skriva var 10: e minut eller så, så det kan finnas betydande fördröjning när en blob skapas eller uppdateras innan den motsvarande **BlobTrigger** funktionen körs.
+För att identifiera nya eller ändrade blobbar efter programstart, läser SDK: N regelbundet från blob storage-loggar. Blobbloggar är buffrade och endast fysiskt skrivs var tionde minut eller så, så det kan finnas betydande fördröjning när en blob skapas eller uppdateras innan motsvarande **BlobTrigger** funktionen körs.
 
-Det finns ett undantag för blob som du skapar med hjälp av den **Blob** attribut. När WebJobs SDK skapar en ny blob, passerar de nya blob omedelbart för alla matchande **BlobTrigger** funktioner. Därför om du har en kedja av blob-in- och utdataenheter kan SDK bearbeta dem effektivt. Men om du vill låg latens och kör din blob bearbetningsfunktioner för blob som skapats eller uppdaterats på annat sätt, bör du använda **QueueTrigger** snarare än **BlobTrigger**.
+Det finns ett undantag för blobbar som du skapar med hjälp av den **Blob** attribut. När WebJobs SDK skapar en ny blob, överförs den nya bloben direkt till någon matchande **BlobTrigger** funktioner. Därför om du har en kedja av blob-in- och utdata, kan SDK: N bearbeta dem effektivt. Men om du vill med låg latens och kör din blob bearbetningsfunktioner för blobar som har skapats eller uppdaterats på annat sätt, bör du använda **QueueTrigger** snarare än **BlobTrigger**.
 
 ### <a name="blob-receipts"></a>BLOB kvitton
-WebJobs SDK säkerställer du att inga **BlobTrigger** funktionen anropas flera gånger för samma nya eller uppdaterade blob. Detta åstadkoms genom att upprätthålla *blob kvitton* för att avgöra om en viss blob-version har bearbetats.
+WebJobs SDK kontrollerar du att ingen **BlobTrigger** funktionen anropas flera gånger för samma nya eller uppdaterade blob. Detta sker genom att *blob kvitton* för att avgöra om en viss blob-version har bearbetats.
 
-BLOB kvitton lagras i en behållare med namnet *webjobs-azure-värdar* i Azure storage-konto som angetts i anslutningssträngen för AzureWebJobsStorage. En blob-inleverans har följande information:
+BLOB kvitton lagras i en behållare med namnet *webjobs-azure-värdar* i Azure storage-kontot som angetts av anslutningssträngen AzureWebJobsStorage. En blob-inleverans har följande information:
 
-* Funktionen anropades för blob (”*{webbjobbsnamnet}*. Funktioner. *{Funktionsnamn}*”, till exempel:” WebJob1.Functions.CopyBlob ”)
+* Den funktion som anropades för blob (”*{webbjobbsnamnet}*. Funktioner. *{Funktionsnamn}*”, till exempel:” WebJob1.Functions.CopyBlob ”)
 * Behållarens namn
-* Blob-datatyp (”BlockBlob” eller ”PageBlob”)
-* Blobbnamnet
+* Blobtyp (”BlockBlob” eller ”PageBlob”)
+* Blobnamnet
 * ETag (en blob versions-ID, till exempel: ”0x8D1DC6E70A277EF”)
 
-Om du vill tvinga ombearbetning av en blob kan du manuellt ta bort blob-inleverans för blobben från den *webjobs-azure-värdar* behållare.
+Om du vill tvinga ombearbetning av en blob kan du manuellt ta bort blob-kvitto på den blobben från den *webjobs-azure-värdar* behållare.
 
-## <a name="related-topics-covered-by-the-queues-article"></a>Närliggande ämnen som omfattas av köer artikel
-För information om hur du hanterar blob-bearbetning som utlöses av ett kömeddelande eller för WebJobs SDK scenarier som inte är specifika för blob-bearbetning, se [använda Azure queue storage med WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
+## <a name="related-topics-covered-by-the-queues-article"></a>Närliggande ämnen som omfattas av köer-artikel
+Mer information om hur du hantera blob-bearbetning som utlöses av ett kömeddelande eller för WebJobs SDK scenarier som inte är specifika för blob-bearbetning, finns i [hur du använder Azure-kölagring med WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
-Närliggande ämnen som beskrivs i artikeln inkluderar följande:
+Närliggande ämnen som beskrivs i den här artikeln är följande:
 
-* Async-funktion
+* Async-funktioner
 * Flera instanser
-* Korrekt avslutning
-* Använda WebJobs-SDK-attribut i brödtexten för en funktion
-* Ange anslutningssträngar SDK i koden.
-* Ange värden för WebJobs SDK konstruktorparametrarna i koden
-* Konfigurera **MaxDequeueCount** för hantering av skadligt blob.
+* Avslutning
+* Använd WebJobs-SDK-attribut i brödtexten i en funktion
+* Ange anslutningssträngar för SDK i koden.
+* Ange värden för WebJobs SDK konstruktor parametrar i kod
+* Konfigurera **MaxDequeueCount** för hantering av skadliga blob.
 * Utlös en funktion manuellt
-* Skriva loggar
+* Sparar loggar
 
 ## <a name="next-steps"></a>Nästa steg
-Den här artikeln har lämnat kodexempel som visar hur du hanterar vanliga scenarier för att arbeta med Azure BLOB. Mer information om hur du använder Azure WebJobs och WebJobs-SDK finns [Azure WebJobs-dokumentation](http://go.microsoft.com/fwlink/?linkid=390226).
+Den här artikeln har tillhandahållit exempel som visar hur du hanterar vanliga scenarier för att arbeta med Azure-blobar. Mer information om hur du använder Azure WebJobs och WebJobs-SDK finns i [Azure WebJobs dokumentationsresurser](http://go.microsoft.com/fwlink/?linkid=390226).
 

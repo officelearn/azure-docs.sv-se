@@ -3,7 +3,7 @@ title: DNS i Azure Stack | Microsoft Docs
 description: Med DNS i Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.assetid: ''
 ms.service: azure-stack
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
-ms.author: mabrigg
-ms.openlocfilehash: 8459a5f88bf660ac460f778f67618e9805afa29d
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.date: 08/15/2018
+ms.author: sethm
+ms.openlocfilehash: acb8b262256031ae8615180e0f55c98cb56b538d
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970717"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42055000"
 ---
 # <a name="using-dns-in-azure-stack"></a>Med DNS i Azure Stack
 
@@ -78,7 +78,7 @@ Läs mer om Azure DNS i [DNS-zoner och poster](../../dns/dns-zones-records.md).
 
 Azure Stack-DNS stöder med hjälp av Azure Resource Manager-taggar på DNS-zon resurser. Det stöder inte taggar på DNS-postuppsättningar, även om som ett alternativ ”metadata” stöds på DNS-postuppsättningar som beskrivs härnäst.
 
-**Metadata**
+**metadata**
 
 Som ett alternativ till uppsättning av poster taggar stöder Azure Stack DNS kommentera postuppsättningar med ”metadata”. Liknar taggar, metadata kan du associera namn / värde-par med varje uppsättning av poster. Detta kan exempelvis vara användbar för att registrera syftet med varje uppsättning av poster. Till skillnad från taggar, metadata kan inte användas för att tillhandahålla en filtrerad vy av Azure-fakturan och kan inte anges i en Azure Resource Manager-princip.
 

@@ -1,9 +1,9 @@
 ---
-title: Skapa ett huvudnamn för tjänsten för Azure-Stack | Microsoft Docs
+title: Skapa ett tjänstobjekt för Azure Stack | Microsoft Docs
 description: Beskriver hur du skapar ett huvudnamn för tjänsten som kan användas med rollbaserad åtkomstkontroll i Azure Resource Manager för att hantera åtkomst till resurser.
 services: azure-resource-manager
 documentationcenter: na
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
@@ -11,31 +11,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2018
-ms.author: mabrigg
+ms.date: 08/22/2018
+ms.author: sethm
 ms.reviewer: thoroet
-ms.openlocfilehash: 3c9f114c2844021d515765888aa19f18a0adc10b
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 77940a52c0817b9eaf49cdf7d1a2d284c5e662e3
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36320760"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42366108"
 ---
-# <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Ge program åtkomst till resurser i Azure-stacken genom att skapa tjänstens huvudnamn
+# <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Ge program åtkomst till Azure Stack-resurser genom att skapa tjänstens huvudnamn
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Du kan ge åtkomst till ett program till Azure-stacken resurser genom att skapa en tjänst huvudnamn som använder Azure Resource Manager. Ett huvudnamn för tjänsten kan du delegera specifika behörigheter med [rollbaserad åtkomstkontroll](azure-stack-manage-permissions.md).
+Du kan ge ett programåtkomst till Azure Stack-resurser genom att skapa ett tjänstens huvudnamn som använder Azure Resource Manager. Ett huvudnamn för tjänsten kan du delegera specifika behörigheter med hjälp av [rollbaserad åtkomstkontroll](azure-stack-manage-permissions.md).
 
-Som bästa praxis bör du använda tjänstens huvudnamn för dina program. Tjänstens huvudnamn är bättre att köra en app med dina autentiseringsuppgifter av följande skäl:
+Som bästa praxis bör du använda tjänstens huvudnamn för dina program. Tjänstens huvudnamn är bättre att köra en app med dina autentiseringsuppgifter för följande:
 
-* Du kan tilldela behörigheter till tjänsten huvudnamn som skiljer sig från din egen behörighet. Tjänstens huvudnamn normalt begränsad till exakt vad appen behöver göra.
-* Du behöver inte ändra appens autentiseringsuppgifterna ändrar din roll eller ansvarsområden.
+* Du kan tilldela behörigheter till tjänstens huvudnamn som skiljer sig från dina egna kontobehörigheter. Vanligtvis är ett tjänstens huvudnamn begränsade till exakt vad app måste göra.
+* Du behöver inte ändra dess autentiseringsuppgifter om din roll eller ansvarsområden ändrar.
 * Du kan använda ett certifikat för att automatisera autentisering när du kör ett oövervakat skript.
 
 ## <a name="example-scenario"></a>Exempel på ett scenario
 
-Du har en configuration management-app som behöver inventera Azure-resurser med Azure Resource Manager. Du kan skapa en tjänstens huvudnamn och tilldela rollen läsare. Den här rollen ger app skrivskyddad åtkomst till Azure-resurser.
+Du har en configuration management-app som behöver inventera Azure-resurser med Azure Resource Manager. Du kan skapa ett tjänstobjekt och tilldela den till rollen läsare. Den här rollen ger appen skrivskyddad åtkomst till Azure-resurser.
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -43,37 +43,37 @@ Använd stegen i den här artikeln som vägledning för:
 
 * Skapa ett huvudnamn för tjänsten för din app.
 * Registrera din app och skapa en autentiseringsnyckel.
-* Koppla appen till en roll.
+* Tilldela din app till en roll.
 
-Konfiguration av Active Directory för Azure-Stack avgör hur du skapar ett huvudnamn för tjänsten. Välj något av följande alternativ:
+Konfiguration av Active Directory för Azure Stack avgör hur du skapar ett huvudnamn för tjänsten. Välj något av följande alternativ:
 
-* Skapa en tjänstens huvudnamn för [Azure Active Directory (AD Azure)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad).
-* Skapa en tjänstens huvudnamn för [Active Directory Federation Services (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
+* Skapa ett tjänstobjekt för [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad).
+* Skapa ett tjänstobjekt för [Active Directory Federation Services (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
 
-Stegen för att tilldela ett huvudnamn för tjänsten till en roll samma för Azure AD och AD FS. När du skapar huvudnamn för tjänsten, kan du [delegera behörigheter](azure-stack-create-service-principals.md#assign-role-to-service-principal) genom att tilldela en roll.
+Stegen för att tilldela ett huvudnamn för tjänsten till en roll samma för Azure AD och AD FS. När du skapar tjänstens huvudnamn, kan du [delegera behörigheter](azure-stack-create-service-principals.md#assign-role-to-service-principal) genom att tilldela den till en roll.
 
-## <a name="create-a-service-principal-for-azure-ad"></a>Skapa ett huvudnamn för tjänsten för Azure AD
+## <a name="create-a-service-principal-for-azure-ad"></a>Skapa ett tjänstobjekt för Azure AD
 
-Om Azure-stacken använder Azure AD som Identitetslagret, kan du skapa en tjänst huvudnamn med samma metod som i Azure med Azure-portalen.
+Om Azure Stack använder Azure AD som Identitetslagret, kan du skapa en tjänst huvudnamn med hjälp av samma steg som Azure, med hjälp av Azure-portalen.
 
 >[!NOTE]
-Se till att du har den [nödvändiga behörigheter för Azure AD](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) innan du börjar skapa ett huvudnamn för tjänsten.
+Kontrollera att du har den [Azure AD-behörigheter som krävs för](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) innan du börjar skapa ett huvudnamn för tjänsten.
 
 ### <a name="create-service-principal"></a>Skapa tjänstens huvudnamn
 
 Skapa ett huvudnamn för tjänsten för ditt program:
 
 1. Logga in på ditt Azure-konto via den [Azure-portalen](https://portal.azure.com).
-2. Välj **Azure Active Directory** > **App registreringar** > **Lägg till**.
-3. Ange ett namn och en URL för programmet. Välj antingen **webbapp / API** eller **interna** för typ av program som du vill skapa. När du har angett värden, Välj **skapa**.
+2. Välj **Azure Active Directory** > **appregistreringar** > **Lägg till**.
+3. Ange ett namn och en URL för programmet. Välj antingen **webbapp / API** eller **interna** för typ av program som du vill skapa. När du har angett värdena, Välj **skapa**.
 
 ### <a name="get-credentials"></a>Hämta autentiseringsuppgifter
 
-När du loggar in via programmering använda ID: T för ditt program och en autentiseringsnyckel. Hämta dessa värden:
+När du loggar in programmässigt kan du använda det ID: T för ditt program och en autentiseringsnyckel. Hämta dessa värden:
 
-1. Från **App registreringar** Markera programmet i Active Directory.
+1. Från **appregistreringar** i Active Directory, Välj ditt program.
 
-2. Kopiera **Program-ID:t** och lagra det i din programkod. Program i den [programexempel](#sample-applications) använder **klient-id** när du refererar till den **program-ID**.
+2. Kopiera **Program-ID:t** och lagra det i din programkod. Program i den [programexempel](#sample-applications) använder **klient-id** när det gäller den **program-ID**.
 
      ![Program-ID för programmet](./media/azure-stack-create-service-principal/image12.png)
 3. Välj **Nycklar** om du vill generera en autentiseringsnyckel.
@@ -81,50 +81,50 @@ När du loggar in via programmering använda ID: T för ditt program och en aute
 4. Tillhandahåll beskrivning av och varaktighet för nyckeln. Välj **Spara** när du är klar.
 
 >[!IMPORTANT]
-När du har sparat nyckeln nyckeln **värdet** visas. Skriv ned det här värdet eftersom du inte kan hämta nyckeln senare. Lagra nyckelvärdet där programmet kan hämta det.
+När du har sparat nyckeln, nyckeln **värdet** visas. Anteckna det här värdet eftersom det går inte att hämta nyckeln senare. Lagra nyckelvärdet där programmet kan hämta det.
 
-![Nyckel/värde-varning för sparade nyckeln.](./media/azure-stack-create-service-principal/image15.png)
+![Nyckelvärdet varning för sparade nyckeln.](./media/azure-stack-create-service-principal/image15.png)
 
 Det sista steget är [tilldela en roll för ditt program](azure-stack-create-service-principals.md#assign-role-to-service-principal).
 
 ## <a name="create-service-principal-for-ad-fs"></a>Skapa tjänstens huvudnamn för AD FS
 
-Om du har distribuerat Azure stacken använder AD FS som Identitetslagret använder du PowerShell för följande uppgifter:
+Om du har distribuerat Azure Stack med hjälp av AD FS som Identitetslagret kan du använda PowerShell för följande uppgifter:
 
 * Skapa ett huvudnamn för tjänsten.
 * Tilldela en roll tjänstens huvudnamn.
 * Logga in med tjänstens huvudnamn identitet.
 
-Mer information om hur du skapar huvudnamn för tjänsten finns [skapa tjänstens huvudnamn för AD FS](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
+Mer information om hur du skapar tjänstens huvudnamn finns i [skapa tjänstens huvudnamn för AD FS](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
 
-## <a name="assign-the-service-principal-to-a-role"></a>Tilldela en roll tjänstens huvudnamn
+## <a name="assign-the-service-principal-to-a-role"></a>Tilldela en roll med tjänstens huvudnamn
 
-Om du vill komma åt resurser i din prenumeration måste du tilldela program till en roll. Bestäm vilken roll representerar rätt behörigheter för programmet. Mer information om tillgängliga roller, se [RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md).
+För att komma åt resurser i din prenumeration, måste du tilldela programmet till en roll. Bestäm vilken roll representerar rätt behörigheter för programmet. Läs om tillgängliga roller i [RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md).
 
 >[!NOTE]
-Du kan ange en rollens omfattning för en prenumeration, resursgrupp eller en resurs. Behörigheter ärvs på lägre nivåer i omfånget. Till exempel innebär en app med rollen Läsare för en resursgrupp att appen kan läsa alla resurser i resursgruppen.
+Du kan ange en Användarrollens omfång på nivån för en prenumeration, en resursgrupp eller en resurs. Behörigheter ärvs till lägre nivåer av omfång. Till exempel innebär en app med rollen Läsare för en resursgrupp att appen kan läsa någon av resurserna i resursgruppen.
 
-Använd följande steg som en vägledning för att tilldela en roll till ett huvudnamn för tjänsten.
+Använd följande steg som en vägledning för att tilldela en roll till tjänstens huvudnamn.
 
-1. Navigera till den nivå för omfång som du vill tilldela program till i Azure Stack-portalen. Välj till exempel om du vill tilldela en roll på prenumerationsomfattningen **prenumerationer**.
+1. Navigera till den nivå av omfång du vill tilldela programmet till i Azure Stack-portalen. Om du vill tilldela en roll prenumerationsområde, väljer du exempelvis **prenumerationer**.
 
-2. Välj den prenumeration för att tilldela program till. I det här exemplet är prenumerationen Visual Studio Enterprise.
+2. Välj prenumeration att tilldela programmet till. I det här exemplet är prenumerationen som Visual Studio Enterprise.
 
      ![Välj Visual Studio Enterprise-prenumeration för tilldelning](./media/azure-stack-create-service-principal/image16.png)
 
-3. Välj **Access Control (IAM)** för prenumerationen.
+3. Välj **åtkomstkontroll (IAM)** för prenumerationen.
 
      ![Välj åtkomstkontroll](./media/azure-stack-create-service-principal/image17.png)
 
 4. Välj **Lägg till**.
 
-5. Markera den roll som du vill tilldela till programmet.
+5. Välj den roll som du vill tilldela till programmet.
 
-6. Sök efter programmet och markera den.
+6. Sök efter ditt program och markera den.
 
 7. Välj **OK** Slutför tilldela rollen. Du kan se ditt program i listan över användare som har tilldelats en roll för detta omfång.
 
-Nu när du har skapat ett huvudnamn för tjänsten och tilldelats en roll, ditt program kan komma åt resurser i Azure-stacken.
+Nu när du har skapat ett tjänstobjekt och tilldelas en roll, ditt program kan komma åt Azure Stack-resurser.
 
 ## <a name="next-steps"></a>Nästa steg
 

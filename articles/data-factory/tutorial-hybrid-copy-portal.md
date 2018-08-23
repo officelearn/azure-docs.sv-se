@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: e007fd5e616b24b3a802b7ded0cd879bb0d7f34b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 994df42557ebd99d159e531f11ffa892be2e9870
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436016"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41917637"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Kopiera data från en lokal SQL Server-databas till Azure Blob Storage
 I den här självstudien använder du användargränssnittet för Azure Data Factory för att skapa en Data Factory-pipeline som kopierar data från en lokal SQL Server-databas till Azure Blob Storage. Du skapar och använder en lokal installation av Integration Runtime som flyttar data mellan lokala datalager och datalager i molnet.
@@ -75,7 +75,7 @@ I den här självstudien använder du en lokal SQL Server-databas som *källdata
 1. I trädvyn högerklickar du på databasen du skapade och sedan väljer du **Ny fråga**.
 
 ### <a name="azure-storage-account"></a>Azure Storage-konto
-I den här självstudien använder du ett allmänt Azure Storage-konto (Blob Storage, för att vara specifik) som datalager för destination eller mottagare. Om du inte har något allmänt Azure Storage-konto kan du läsa [Skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account). Pipelinen i datafabriken du skapar i den här självstudien kopierar data från den lokala SQL Server-databasen (källa) till Blob Storage (mottagare). 
+I den här självstudien använder du ett allmänt Azure Storage-konto (Blob Storage, för att vara specifik) som datalager för destination eller mottagare. Om du inte har något allmänt Azure Storage-konto kan du läsa [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md). Pipelinen i datafabriken du skapar i den här självstudien kopierar data från den lokala SQL Server-databasen (källa) till Blob Storage (mottagare). 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>Hämta lagringskontots namn och åtkomstnyckel
 Du använder namnet och nyckeln för lagringskontot i den här självstudien. Gör så här för att hämta namnet och nyckeln till lagringskontot: 
@@ -269,15 +269,15 @@ Namnet på datafabriken måste vara *globalt unikt*. Om följande felmeddelande 
 
 1. Nu visas normalt fönstret med datauppsättningen för mottagare öppen. Gör följande på fliken **Anslutning**: 
 
-       a. In **Linked service**, confirm that **AzureStorageLinkedService** is selected.
+    a. I **Länkad tjänst** bekräftar du att **AzureStorageLinkedService** är vald.
 
-       b. For the **folder**/ **Directory** part of **File path**, enter **adftutorial/fromonprem**. If the output folder doesn't exist in the adftutorial container, Data Factory automatically creates the output folder.
+    b. I delen **mapp**/ **Katalog** för **sökväg** anger du **adftutorial/fromonprem**. Om utdatamappen inte finns i containern adftutorial skapas den automatiskt av Data Factory.
 
-       c. For the **file name** part of **File path**, select **Add dynamic content**.   
+    c. I delen **filnamn** för **sökväg** väljer du **Lägg till dynamiskt innehåll**.   
 
     ![dynamiskt filnamnsvärde](./media/tutorial-hybrid-copy-portal/file-name.png)
 
-       d. Add `@CONCAT(pipeline().RunId, '.txt')`, select **Finish**. This will rename the file with PipelineRunID.txt. 
+    d. Lägg till `@CONCAT(pipeline().RunId, '.txt')`, välj **Slutför**. Då ändras namnet på filen till PipelineRunID.txt. 
 
     ![dynamiska uttryck för lösning av filnamn](./media/tutorial-hybrid-copy-portal/add-dynamic-file-name.png)
 

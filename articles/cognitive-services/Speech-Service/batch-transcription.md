@@ -8,27 +8,27 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: f21973855ceb3a257627c147490ac50465c54020
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 5af829ca076b39758973c28a44d918b9ba5782b1
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281947"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42351258"
 ---
 # <a name="batch-transcription"></a>Batch-transkription
 
-Batch avskrift är perfekt för användningsfall med stora mängder ljud. Det gör det möjligt för utvecklare att peka på ljudfiler och få tillbaka avskrifter i asynkron läge.
+Batch avskrift är perfekt om du har stora mängder ljud. Du kan peka på ljudfiler och få tillbaka avskrifter i asynkron läge.
 
 ## <a name="batch-transcription-api"></a>Batch avskrift API
 
-Batch-avskrift API gör det möjligt för scenariot ovan. Den erbjuder asynkron tal till text avskrift tillsammans med ytterligare funktioner.
+Batch-avskrift API erbjuder asynkron tal till text avskrift, tillsammans med ytterligare funktioner.
 
 > [!NOTE]
-> Batch-avskrift API är perfekt för Call Center som vanligtvis ackumuleras tusentals timmars ljud. Fire & Glöm filosofin API gör det enkelt att transkribera stort antal ljudinspelningar.
+> API: et för Batch avskrift är perfekt för call Center, som vanligtvis ackumuleras tusentals timmars ljud. API: et leds av en ”utlöses och Glöm” filosofin, vilket gör det enkelt att transkribera stort antal ljudinspelningar.
 
 ### <a name="supported-formats"></a>Format som stöds
 
-Batch-avskrift API syftar till att bli Tyskland-facto för alla offline anrop center-relaterade scenarier och erbjuder support för alla relaterade format. Format som för närvarande stöds:
+Batch-avskrift API stöder följande format:
 
 Namn| Kanal  |
 ----|----------|
@@ -37,7 +37,7 @@ MP3-filen |  Stereo  |
 WAV |   Mono   |
 WAV |  Stereo  |
 
-För stereo ljudströmmar delar Batch avskrift kanalen vänster och höger under utskrift. De två JSON-filerna med resultatet skapas var och en från en enda kanal. Tidsstämplar per uttryck gör att utvecklare kan skapa en ordnad slutlig avskrift. I följande JSON-exempel visas resultatet av en kanal.
+Delar upp kanalen vänster och höger under utskrift för stereo ljudströmmar Batch avskrift. De två JSON-filerna med resultatet skapas var och en från en enda kanal. Tidsstämplar per uttryck gör att utvecklare kan skapa en ordnad slutlig avskrift. I följande JSON-exempel visas resultatet av en kanal.
 
 ```json
        {
@@ -55,28 +55,28 @@ För stereo ljudströmmar delar Batch avskrift kanalen vänster och höger under
 ```
 
 > [!NOTE]
-> Batch-avskrift API använder en REST-tjänst för att begära avskrifter, deras status och associerade resultat. API: et kan användas från alla språk. I nästa avsnitt beskrivs hur de används.
+> Batch-avskrift API använder en REST-tjänst för att begära avskrifter, deras status och associerade resultat. Du kan använda API: T från alla språk. I nästa avsnitt beskrivs hur de används.
 
 ## <a name="authorization-token"></a>Autentiseringstoken
 
-Som med alla funktioner i tjänsten enhetliga Speech användaren behöver för att skapa en prenumerationsnyckel från den [Azure-portalen](https://portal.azure.com). Dessutom kan måste en API-nyckel förvärvas från portalen tal. Stegen för att generera en API-nyckel:
+Som med alla funktioner i enhetliga Speech-tjänsten skapar du en prenumerationsnyckel från den [Azure-portalen](https://portal.azure.com). Dessutom kan skaffa du en API-nyckel från portalen tal: 
 
-1. Logga in på https://customspeech.ai.
+1. Logga in på [Custom Speech](https://customspeech.ai).
 
-2. Klicka på prenumerationer.
+2. Välj **Prenumerationer**.
 
-3. Klicka på alternativet `Generate API Key`.
+3. Välj **generera API-nyckel**.
 
-    ![Ladda upp vyn](media/stt/Subscriptions.jpg)
+    ![Skärmbild för anpassat tal prenumerationssidan](media/stt/Subscriptions.jpg)
 
-4. Kopiera och klistra in nyckeln i klientkoden i exemplet nedan.
+4. Kopiera och klistra in nyckeln i klientkoden i följande exempel.
 
 > [!NOTE]
-> Om du planerar att använda en anpassad modell måste ID för den modellen för. Observera att detta inte är distributionen eller slutpunkts-ID som du hittar på slutpunkten detaljer, men modell-ID som du kan hämta när du klickar på information om den modellen
+> Om du planerar att använda en anpassad modell behöver du ID för den modellen för. Observera att detta inte är distribution eller slutpunkt-ID som du hittar i vyn information om slutpunkten. Det är det modell-ID som du kan hämta när du väljer information om den modellen.
 
 ## <a name="sample-code"></a>Exempelkod
 
-Genom att utnyttja API: et är ganska enkelt. Exempelkoden nedan måste uppgraderas till en prenumerationsnyckel och en API-nyckel, vilken i sin tur kan utvecklare hämta någon ägartoken, som i följande kodavsnitt visar:
+Anpassa följande exempelkod med en prenumerationsnyckel och en API-nyckel. På så sätt kan du hämta en ägartoken.
 
 ```cs
     public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
@@ -93,7 +93,7 @@ Genom att utnyttja API: et är ganska enkelt. Exempelkoden nedan måste uppgrade
         }
 ```
 
-När token hämtas måste utvecklaren ange SAS-Uri som pekar på filen kräver avskrift. Resten av koden helt enkelt upprepas status och visar resultat.
+När du har fått en token måste du ange SAS-URI som pekar på filen kräver avskrift. Resten av koden upprepas status och visar resultat.
 
 ```cs
    static async Task TranscribeAsync()
@@ -152,28 +152,27 @@ När token hämtas måste utvecklaren ange SAS-Uri som pekar på filen kräver a
 ```
 
 > [!NOTE]
-> Prenumerationsnyckel som nämns i kodfragmentet ovan är nyckeln från Speech(Preview) resursen som du skapar på Azure-portalen. Nycklar som hämtats från resursen Custom Speech Service fungerar inte.
+> I den föregående koden är prenumerationsnyckeln från Speech(Preview) resursen som du skapar på Azure-portalen. Nycklar som hämtats från resursen Custom Speech Service fungerar inte.
 
+Lägg märke till asynkron konfigurationen för att skicka ljud och ta emot avskrift status. Klienten som skapade är en .NET-Http-klient. Det finns en `PostTranscriptions` metod för att skicka ljud filinformation, och en `GetTranscriptions` metoden för att hämta resultaten. `PostTranscriptions` Returnerar en referens och `GetTranscriptions` använder den här referensen för att skapa en referens för att hämta statusen avskrift.
 
-Lägg märke till asynkron konfigurationen för att skicka ljud och ta emot avskrift status. Klienten som skapade är en .NET-Http-klient. Det finns en `PostTranscriptions` metod för att skicka ljud filinformation, och en `GetTranscriptions` metoden för att hämta resultaten. `PostTranscriptions` Returnerar en referens och `GetTranscriptions` metoden att använda den här hanteraren för att skapa en referens för att hämta statusen avskrift.
+Aktuella exempelkoden anger inte några anpassade modeller. Tjänsten använder baslinjemodeller för att skriva av den filen eller filerna. Om du vill ange modellerna, kan du skicka på samma metod modell-ID: N för akustiska och språkmodellen. 
 
-Aktuella exempelkoden anger inte några anpassade modeller. Tjänsten använder baslinjemodeller för att skriva av filen. Om du vill ange modeller, överföra en på samma metod modelIDs för akustiska och språkmodellen. 
-
-Om något inte vill använda baslinje, måste en klara modell-ID: N för språk- och språkdata-modeller.
+Om du inte vill använda baslinjen, måste du ange modell-ID: N för språk- och språkdata-modeller.
 
 > [!NOTE]
-> För baslinjen saknar avskrift användaren deklarera slutpunkterna för baslinjemodeller. Om du vill använda anpassade modeller han skulle behöva ange deras slutpunkter-ID som den [exempel](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Om användare vill använda en akustisk baslinje med en baslinje språkmodell sedan behöver han bara deklarera anpassade modellen endpoint-ID. Internt ska vårt system ta reda på partner baslinje-modellen (vara den akustiska eller språk) och använder dem för att uppfylla begäran avskrift.
+> För baslinjen avskrift har du inte deklarera slutpunkterna för baslinjemodeller. Om du vill använda anpassade modeller kan du ange deras slutpunkter-ID som den [exempel](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Om du vill använda en akustisk baslinje med en baslinje språkmodell behöver du bara deklarera anpassade modellen endpoint-ID. Microsoft identifierar baslinje partner modell (vara den akustiska eller språk), och använder som för att uppfylla begäran avskrift.
 
 ### <a name="supported-storage"></a>Lagring som stöds
 
-Den enda lagring som stöds är för närvarande Azure-blob.
+Den enda lagring som stöds är för närvarande Azure Blob storage.
 
 ## <a name="downloading-the-sample"></a>Ladda ned exemplet
 
-I exemplet som visas här finns på [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
+Det här exemplet finns på [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
 > [!NOTE]
-> En ljudutskrift kräver vanligtvis ett tidsintervall som är lika med varaktigheten för ljudfilen plus en 2 – 3 minuter kostnader.
+> En ljudutskrift kräver vanligtvis ett tidsintervall som är lika med varaktigheten för filen, plus en 2 – 3 minuter kostnader.
 
 ## <a name="next-steps"></a>Nästa steg
 

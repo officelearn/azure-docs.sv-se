@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 17ff6ebed615971b4157831431d9e2395ca68b48
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: dcfcfb24d2b47a8272c576856fc3accc547f354a
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441683"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42054403"
 ---
 # <a name="create-a-model-in-azure-portal"></a>Skapa en modell i Azure-portalen
 
@@ -23,9 +23,10 @@ Ha i åtanke, webbdesignern är **förhandsversion**. Funktionerna är begränsa
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-- En Azure Analysis Services-server i nivån Standard eller utvecklare. Nya modeller som skapats med hjälp av webbdesignern är DirectQuery stöds endast av dessa nivåer.
+- Azure Analysis Services-servern måste vara på nivån Standard eller utvecklare. Nya modeller som skapats med hjälp av webbdesignern är DirectQuery stöds endast av dessa nivåer.
 - En Azure SQL Database, Azure SQL Data Warehouse eller Power BI Desktop (.pbix)-fil som en datakälla. Nya modeller som skapats från Power BI Desktop-filer support Azure SQL Database och Azure SQL Data Warehouse.
 - Ett SQL Server-konto och lösenord för att ansluta till Azure SQL Database eller Azure SQL Data Warehouse-datakällor.
+- Du måste ha administratörsrättigheter för server för att skapa en ny modell. Databasen admin-behörighet krävs för att redigera och fråga en modell med hjälp av designern.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 

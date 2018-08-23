@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
-ms.openlocfilehash: 492a0a63198fe2013cfeac0459fc6da8521a5e6e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b43c082b5c4925fee2b1145956a2847e7f30bb11
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056808"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42058250"
 ---
 # <a name="read-nsg-flow-logs"></a>Läs NSG-flödesloggar
 
@@ -28,9 +28,9 @@ NSG-flödesloggar lagras i ett lagringskonto i [blockblobbar](/rest/api/storages
 
 ## <a name="scenario"></a>Scenario
 
-I följande scenario har du en exempel-flödeslogg som lagras i ett lagringskonto. vi gå igenom hur du selektivt kan läsa de senaste händelserna i NSG-flödesloggar. I den här artikeln använder vi PowerShell, men de begrepp som beskrivs i artikeln är inte begränsad till programmeringsspråket och gäller för alla språk som stöds av Azure Storage-API: er
+I följande scenario har du en exempel-flödeslogg som lagras i ett lagringskonto. Du lär dig hur du selektivt läsa de senaste händelserna i NSG-flödesloggar. I den här artikeln använder du PowerShell, men de begrepp som beskrivs i artikeln är inte begränsad till programmeringsspråket och gäller för alla språk som stöds av Azure Storage-API: er.
 
-## <a name="setup"></a>Inställningar
+## <a name="setup"></a>Konfiguration
 
 Du måste ha Network Security grupp Flow Logging har aktiverats på en eller flera Nätverkssäkerhetsgrupper i ditt konto innan du börjar. Mer information om hur du aktiverar Network Security flow loggar, finns i följande artikel: [introduktion till flödesloggar för Nätverkssäkerhetsgrupper](network-watcher-nsg-flow-logging-overview.md).
 
@@ -98,7 +98,7 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 
 ## <a name="read-the-block-blob"></a>Läsa blockblob
 
-Därefter måste vi att läsa den `$blocklist` variabeln för att hämta data. I det här exemplet vi gå igenom den på blockeringslistan läsa byte från varje block och artikel dem i en matris. Vi använder den [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) metod för att hämta data.
+Sedan måste du läsa den `$blocklist` variabeln för att hämta data. I det här exemplet vi gå igenom den på blockeringslistan läsa byte från varje block och artikel dem i en matris. Använd den [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) metod för att hämta data.
 
 ```powershell
 # Set the size of the byte array to the largest block
@@ -132,7 +132,7 @@ $valuearray += $value
 }
 ```
 
-Nu den `$valuearray` matris som innehåller strängvärdet för varje block. Om du vill verifiera posten, hämta andra till det senaste värdet från matrisen genom att köra `$valuearray[$valuearray.Length-2]`. Vi vill inte det senaste värdet är bara avslutande parentes.
+Nu den `$valuearray` matris som innehåller strängvärdet för varje block. Om du vill verifiera posten, hämta andra till det senaste värdet från matrisen genom att köra `$valuearray[$valuearray.Length-2]`. Du vill inte att det sista värdet eftersom det är den avslutande hakparentesen.
 
 Resultatet av det här värdet visas i följande exempel:
 
@@ -157,7 +157,6 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 ```
 
 Det här scenariot är ett exempel på hur du läser posterna i NSG-flödesloggar utan att behöva parsa hela loggen. Du kan läsa nya poster i loggen som de är skrivna med hjälp av block-ID eller genom att spåra hur lång block som lagras i blockblob. På så sätt kan du läsa endast nya poster.
-
 
 ## <a name="next-steps"></a>Nästa steg
 

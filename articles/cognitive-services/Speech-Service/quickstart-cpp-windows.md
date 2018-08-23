@@ -9,12 +9,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 7c93f9f450cc2d244a0d716401171cde02abf70b
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 59c70d33d537742a5918dc1ba55ab8ac1f84e12c
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324579"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41988775"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-desktop-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i C++ Windows-skrivbordet med hjälp av tal-SDK
 
@@ -55,7 +55,7 @@ I det övre högra hörnet i den **Paketkällan** , Välj ”Nuget.org”.
 Från den **Bläddra** fliken, Sök efter ”Microsoft.CognitiveServices.Speech”-paketet, markera den och kontrollera den **projekt** och **helloworld** rutorna till höger och välj **Installera** att installera den till helloworld-projekt.
 
 > [!NOTE]
-> Den aktuella versionen av Cognitive Services tal SDK är `0.5.0`.
+> Den aktuella versionen av Cognitive Services tal SDK är `0.6.0`.
 
 ![Installera Microsoft.CognitiveServices.Speech NuGet-paketet](media/sdk/qs-cpp-windows-04-nuget-install-0.5.0.png)
 

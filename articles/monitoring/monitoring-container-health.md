@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/06/2018
+ms.date: 08/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 2ae61d672083508d49e72afd5a015191082c23e9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8027149f3e5ace163bf380bc5362fcb101397986
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521939"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42060916"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Övervaka hälsotillstånd för behållare i Azure Kubernetes Service (AKS) (förhandsversion)
 
 Den här artikeln beskriver hur du konfigurerar och använder hälsotillstånd för behållare i Azure Monitor för att övervaka prestanda för arbetsbelastningar som distribueras till Kubernetes-miljöer och finns på Azure Kubernetes Service (AKS). Övervaka Kubernetes-kluster och behållare är viktigt, särskilt när du kör ett produktionskluster i skala med flera program.
 
-Hälsotillstånd för behållare ger dig möjligheten genom att samla in minne och processor mått från domänkontrollanter, noder och behållare som är tillgängliga i Kubernetes via mått-API för prestandaövervakning. När du har aktiverat hälsotillstånd för behållare som samlas in för dig via en behållare version av Operations Management Suite (OMS)-agenten för Linux och lagras i de här måtten automatiskt din [Log Analytics](../log-analytics/log-analytics-overview.md) arbetsyta. Inkluderade fördefinierade vyer visar som förvaras behållararbetsbelastningar och vad påverkar prestandatillståndet för Kubernetes-klustret så att du kan:  
+Hälsotillstånd för behållare ger dig möjligheten genom att samla in minne och processor mått från domänkontrollanter, noder och behållare som är tillgängliga i Kubernetes via mått-API för prestandaövervakning. När du har aktiverat hälsotillstånd för behållare som samlas in för dig via en behållare version av Log Analytics-agenten för Linux och lagras i de här måtten automatiskt din [Log Analytics](../log-analytics/log-analytics-overview.md) arbetsyta. Inkluderade fördefinierade vyer visar som förvaras behållararbetsbelastningar och vad påverkar prestandatillståndet för Kubernetes-klustret så att du kan:  
 
 * Identifiera behållare som körs på noden och deras genomsnittsanvändningen av processor och minne. Den här kunskapen kan hjälpa dig att identifiera flaskhalsar för resurser.
 * Identifiera där behållaren finns i en domänkontrollant eller en pod. Med hjälp av den här kunskapen kan du visa kontrollantens eller pod's övergripande prestanda. 
@@ -38,13 +38,15 @@ Om du vill övervaka och hantera Docker och Windows behållare-värdar att visa 
 Innan du börjar bör du kontrollera att du har följande:
 
 - En ny eller befintlig AKS-kluster.
-- En behållare OMS-agenten för Linux-versionen microsoft / oms:ciprod04202018 eller senare. Versionsnumret representeras av ett datum i följande format: *mmddyyyy*. Agenten installeras automatiskt under publiceringen av hälsotillstånd för behållare. 
+- En behållare Log Analytics-agenten för Linux-versionen microsoft / oms:ciprod04202018 eller senare. Versionsnumret representeras av ett datum i följande format: *mmddyyyy*. Agenten installeras automatiskt under publiceringen av hälsotillstånd för behållare. 
 - En Log Analytics-arbetsyta. Du kan skapa den när du aktiverar övervakning av din nya AKS-klustret eller låta publiceringsupplevelsen skapa en standardarbetsyta i standardresursgruppen för prenumerationen för AKS-kluster. Om du väljer att skapa den själv, kan du skapa den via [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), via [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), eller i den [Azure-portalen](../log-analytics/log-analytics-quick-create-workspace.md).
 - Log Analytics deltagarrollen, att aktivera behållarövervakning. Läs mer om hur du styr åtkomst till en Log Analytics-arbetsyta, [hantera arbetsytor](../log-analytics/log-analytics-manage-access.md).
 
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+
 ## <a name="components"></a>Komponenter 
 
-Du kan övervaka prestanda förlitar sig på en behållare OMS-agenten för Linux som samlar in prestanda- och händelsedata från alla noder i klustret. Agenten har automatiskt distribuerat och registrerat med den angivna Log Analytics-arbetsytan när du aktiverar behållarövervakning. 
+Du kan övervaka prestanda är beroende av en behållare Log Analytics-agenten för Linux som samlar in prestanda- och händelsedata från alla noder i klustret. Agenten har automatiskt distribuerat och registrerat med den angivna Log Analytics-arbetsytan när du aktiverar behållarövervakning. 
 
 >[!NOTE] 
 >Om du redan har distribuerat ett AKS-kluster kan aktivera du övervakning genom att använda Azure CLI eller en angiven Azure Resource Manager-mall, som visas längre fram i den här artikeln. Du kan inte använda `kubectl` om du vill uppgradera, ta bort, omdistribuera eller distribuera agenten. 
@@ -59,7 +61,7 @@ Under distributionen kan aktivera du övervakning av ett nytt AKS-kluster i Azur
 Om du vill aktivera övervakning av ett nytt AKS-kluster som skapats med Azure CLI följer du steg i snabbstartsartikeln under avsnittet [skapa AKS-kluster](../aks/kubernetes-walkthrough.md#create-aks-cluster).  
 
 >[!NOTE]
->Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt. Du måste köra Azure CLI version 2.0.27 eller senare. För att identifiera din version, kör `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+>Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt. Du måste köra Azure CLI version 2.0.43 eller senare. För att identifiera din version, kör `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 >
 
 När du har aktiverat övervakning och alla åtgärder för konfiguration har slutförts kan övervaka du prestanda för ditt kluster på något av två sätt:
@@ -303,7 +305,7 @@ omsagent   1         1         1            1            3h
 
 ### <a name="agent-version-earlier-than-06072018"></a>Tidigare än 06072018 agentversion
 
-Kontrollera att OMS-agent-version som publicerades före *06072018* har distribuerats korrekt, kör du följande kommando:  
+Verifiera att agentversionen Log Analytics som publicerades före *06072018* har distribuerats korrekt, kör du följande kommando:  
 
 ```
 kubectl get ds omsagent --namespace=kube-system

@@ -2,18 +2,18 @@
 title: Metodtips för Azure SQL Data Sync | Microsoft Docs
 description: Läs mer om bästa praxis för att konfigurera och köra Azure SQL Data Sync.
 services: sql-database
-ms.date: 07/03/2018
+ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: sql-database
 author: allenwux
 ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: 2b23f9f2edbec468ecbd1395bd138e1be801c6e5
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 96fff35b95a63e4f806258eff59d08afb2db0ffd
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620808"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056314"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Regelverk för SQL Data Sync 
 
@@ -75,17 +75,16 @@ Det här avsnittet beskriver begränsningar för etablering i SQL Data Sync.
 
 #### <a name="autoprovisioning-limitations"></a>Autoprovisioning begränsningar
 
-SQL Data Sync har följande begränsningar på autoprovisioning:
+SQL Data Sync har följande begränsningar för autoprovisioning:
 
--   Markera de kolumner som skapas i tabellen.  
-    Alla kolumner som inte ingår i synkroniseringsgruppen är inte etablerad i måltabeller.
--   Index skapas endast för de markerade kolumnerna.  
-    Om Tabellindex källa har kolumner som inte ingår i synkroniseringsgruppen, är inte dessa index etablerad i måltabeller.  
+-   Markera de kolumner som skapas i tabellen. Alla kolumner som inte ingår i synkroniseringsgruppen är inte etablerad i måltabeller.
+-   Index skapas endast för de markerade kolumnerna. Om Tabellindex källa har kolumner som inte ingår i synkroniseringsgruppen, är inte dessa index etablerad i måltabeller.  
 -   Index för kolumner av typen XML är inte etablerat.  
 -   Kontrollbegränsningar etablerats inte.  
 -   Befintliga utlösare källtabellerna etablerats inte.  
 -   Vyer och lagrade procedurer skapas inte till måldatabasen.
 -   PÅ UPDATE CASCADE och ON DELETE CASCADE återskapas inte åtgärder på sekundärnyckelrestriktioner i måltabellerna.
+-   Om du har kolumner för decimal eller numeric med en precision över 28 SQL Data Sync kan stöta på ett konvertering spill problem under synkroniseringen. Vi rekommenderar att du begränsar precisionen för decimal eller numeric kolumner till 28 eller mindre.
 
 #### <a name="recommendations"></a>Rekommendationer
 

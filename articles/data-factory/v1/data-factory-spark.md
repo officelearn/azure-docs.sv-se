@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: eb46347e82063d2e990b319ab108cf257c7e6b88
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4c7dddcb5e39eb1f72fb59af753ab167bc44d3e3
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440634"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42055919"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Anropa Spark-program från Azure Data Factory-pipelines
 
@@ -56,7 +56,7 @@ Här följer vanliga stegen för att skapa en data factory-pipeline med en Spark
 * Skapa en pipeline med Spark-aktivitet som refererar till den länkade HDInsight-tjänst som du skapade. Aktiviteten har konfigurerats med den datauppsättning som du skapade i föregående steg som utdatauppsättning. Utdatauppsättningen är det utdatauppsättningen som skapar schemat (varje timme, varje dag). Därför måste du ange datauppsättningen för utdata, även om aktiviteten inte verkligen producera utdata.
 
 ### <a name="prerequisites"></a>Förutsättningar
-1. Skapa ett allmänt lagringskonto genom att följa instruktionerna i [skapa ett lagringskonto](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
+1. Skapa ett allmänt lagringskonto genom att följa instruktionerna i [skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md).
 
 1. Skapa ett Spark-kluster i HDInsight genom att följa anvisningarna i självstudien [skapa ett Spark-kluster i HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Koppla lagringskonto som du skapade i steg 1 med det här klustret.
 

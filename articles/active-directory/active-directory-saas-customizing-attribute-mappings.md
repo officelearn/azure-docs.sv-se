@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 366b89d3db0db634e239ac2d99188c7ea0444c13
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: accc2e994e7ea361315d5dfb33b257e58410490c
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365200"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056195"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Anpassa attributmappningar för Användaretablering för SaaS-program i Azure Active Directory
 Microsoft Azure AD har stöd för användaretablering för SaaS-program från tredje part, till exempel Salesforce, Google Apps och andra. Om du har användaretablering för ett tredje parts SaaS-program som aktiverad, styr dess attributvärden i form av attributmappningar Azure-portalen.
@@ -121,7 +121,7 @@ När du redigerar listan över attribut som stöds, finns följande egenskaper:
 * **Flera värden?** – Huruvida attributet har stöd för flera värden.
 * **Skiftlägeskänsligt?** – Huruvida utvärderas attribut-värden i ett skiftlägeskänsligt sätt.
 * **API-uttryck** – Använd inte, om inte uppmanas att göra det genom att i dokumentationen för en viss etablering koppling (till exempel Workday).
-* **Refererar till objektattribut** – om det här är ett referensattribut typ, och sedan på den här menyn kan du välja tabellen och attribut i målprogrammet med det värde som är associerade med attributet. Till exempel, om du har ett attribut med namnet ”avdelning” vars lagrade värdet refererar till ett objekt i en separat tabell för ”avdelningar”, väljer du ”Departments.Name”. Observera att referenstabeller och de primära ID-fält som stöds för ett visst program redan har konfigurerats och för närvarande kan inte redigeras med Azure-portalen, men kan redigeras med den [Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
+* **Refererar till objektattribut** – om det här är ett referensattribut typ, och sedan på den här menyn kan du välja tabellen och attribut i målprogrammet med det värde som är associerade med attributet. Till exempel, om du har ett attribut med namnet ”avdelning” vars lagrade värdet refererar till ett objekt i en separat tabell för ”avdelningar”, väljer du ”Departments.Name”. Observera att referenstabeller och de primära ID-fält som stöds för ett visst program redan har konfigurerats och för närvarande kan inte redigeras med Azure-portalen, men kan redigeras med den [Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
 Om du vill lägga till ett nytt attribut, bläddra till slutet av listan över attribut som stöds, fyller du i fälten ovan med de angivna indata och välj **lägga till attributet**. Välj **spara** när du är klar att lägga till attribut. Du sedan måste du uppdatera den **etablering** fliken för de nya attribut ska bli tillgänglig i attributmappning redigeraren.
 

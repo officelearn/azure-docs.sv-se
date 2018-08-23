@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 6c288e4492ac56436d40d1e3db98af8eb7b173c8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d4eb8f3e805d96a276851052b74cac90465d1185
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436326"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42054380"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Auktorisera konton med hjälp av Azure Active Directory i Azure API Management
 
@@ -63,7 +63,7 @@ Den här artikeln visar hur du aktiverar åtkomst till utvecklarportalen för an
     Den **skapa** visas i fönstret till höger. Det är där du anger Azure AD app-relevant information.
 1. Ange ett namn för programmet.
 1. Vilken typ av program, Välj **Web app/API**.
-1. Ange Webbadressen logga in till din developer-portalen för URL-inloggningen. I det här exemplet, logga in URL: en är https://apimwithaad.portal.azure-api.net/signin.
+1. Ange Webbadressen logga in till din developer-portalen för URL-inloggningen. I det här exemplet, logga in URL: en är `https://apimwithaad.portal.azure-api.net/signin`.
 1. Välj **skapa** att skapa programmet.
 1. Om du vill hitta din app, Välj **appregistreringar** och Sök efter namn.
 

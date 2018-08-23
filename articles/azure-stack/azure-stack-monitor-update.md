@@ -1,6 +1,6 @@
 ---
-title: Övervaka uppdateringar i Azure-stacken använder Privilegierade slutpunkten | Microsoft Docs
-description: Lär dig använda Privilegierade slutpunkten för att övervaka uppdateringsstatus för Azure-stacken integrerat system.
+title: Övervaka uppdateringar i Azure Stack med hjälp av privilegierad slutpunkt | Microsoft Docs
+description: Lär dig hur du använder Privilegierade slutpunkten för att övervaka status för säkerhetsuppdatering för integrerade Azure Stack-system.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,50 +12,49 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 08/17/2018
 ms.author: mabrigg
-ms.openlocfilehash: 96eebf340f13f2f5e9e922fee8032d04fce1d130
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 8f384a79811c9a9b104acb98c8f6b6e162946ab8
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2018
-ms.locfileid: "27621869"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42059710"
 ---
-# <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Övervaka uppdateringar i Azure-stacken använder Privilegierade slutpunkten
+# <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Övervaka uppdateringar i Azure Stack med hjälp av privilegierad slutpunkt
 
-*Gäller för: Azure Stack integrerat system*
+*Gäller för: integrerade Azure Stack-system*
 
-Du kan använda Privilegierade slutpunkten för att övervaka förloppet för en Azure-stacken uppdatering körs och att återuppta en misslyckad uppdatering köras från det senaste lycka steget ska du Azure-stacken portal blir otillgängliga.  Med hjälp av Azure Stack-portalen är den rekommenderade metoden för att hantera uppdateringar i Azure-stacken.
+Du kan använda den privilegierade slutpunkten för att övervaka förloppet för en körning för uppdatering av Azure Stack och återuppta en misslyckad uppdatering köras från det senaste lyckade steget ska du Azure Stack portal blir otillgänglig.  Med hjälp av Azure Stack-portalen är den rekommenderade metoden för att hantera uppdateringar i Azure Stack.
 
-Följande nya PowerShell-cmdlets för uppdateringshantering ingår i uppdateringen 1710 för Azure-stacken integrerat system.
+Följande nya PowerShell-cmdletar för hantering av uppdateringar som ingår i uppdateringen 1710 för integrerade Azure Stack-system.
 
 | Cmdlet  | Beskrivning  |
 |---------|---------|
-| `Get-AzureStackUpdateStatus` | Returnerar status för uppdateringen för närvarande körs, slutförda och misslyckade. Ger en övergripande status för uppdateringen och ett XML-dokument som beskriver både det aktuella steget och motsvarande tillstånd. |
-| `Get-AzureStackUpdateVerboseLog` | Returnerar de utförliga loggar som genereras av uppdateringen. |
-| `Resume-AzureStackUpdate` | Återupptar en misslyckad uppdatering vid den punkt där det misslyckades. I vissa fall kanske att slutföra säkerhetsåtgärder innan du fortsätter uppdateringen.         |
+| `Get-AzureStackUpdateStatus` | Returnerar status för för närvarande körs, slutförda eller misslyckade uppdateringen. Innehåller övergripande status för uppdateringen och ett XML-dokument som beskriver både det aktuella steget och motsvarande tillstånd. |
+| `Resume-AzureStackUpdate` | Återupptar en misslyckad uppdatering vid den punkt där det misslyckades. I vissa fall, kan du behöva slutföra avhjälpande stegen innan du återuppta uppdateringen.         |
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>Kontrollera cmdletarna som är tillgängliga
-Eftersom cmdletarna som är nya i 1710-uppdateringspaket för Azure-stacken måste 1710 uppdateringsprocessen få till en viss punkt innan övervakning funktion är tillgänglig. Normalt cmdlets är tillgängliga om statusen i administratörsportalen anger att 1710 uppdateringen finns på den **starta om lagring värdar** steg. Mer specifikt cmdlet uppdateringen sker under **steg: kör steg 2.6 - Uppdatera PrivilegedEndpoint godkända**.
+Eftersom cmdletarna som är nytt i 1710 uppdateringspaketet för Azure Stack, måste 1710 uppdateringsprocessen få till en viss punkt innan övervakning funktionen är tillgänglig. Normalt cmdletarna är tillgängliga om statusen i administratörsportalen visar att uppdateringen 1710 är på den **starta om Storage värdar** steg. Mer specifikt cmdlet-uppdateringen sker under **steg: kör steg 2.6 - Uppdatera PrivilegedEndpoint godkända**.
 
-Du kan också bestämma om cmdletarna som är tillgängliga via programmering genom att fråga Kommandolistan från Privilegierade slutpunkten. Gör detta genom att köra följande kommandon från maskinvara livscykel värden eller från en arbetsstation för privilegierad åtkomst. Kontrollera också Privilegierade slutpunkten är en betrodd värd. Mer information finns i steg 1 av [komma åt den privilegierade slutpunkten](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). 
+Du kan också bestämma om cmdletarna som är tillgängliga via programmering genom att fråga Kommandolistan från Privilegierade slutpunkten. Gör detta genom att köra följande kommandon från maskinvara livscykel värden eller på en arbetsstation för privilegierad åtkomst. Kontrollera också att Privilegierade slutpunkten är en betrodd värd. Mer information finns i steg 1 av [åt den privilegierade slutpunkten](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). 
 
-1. Skapa en PowerShell-session på någon av ERCS virtuella datorerna i din Azure Stack-miljö (*prefixet*-ERCS01, *prefixet*-ERCS02, eller *prefixet*-ERCS03). Ersätt *Prefix* med den virtuella datorn Prefixsträngen som är specifik för din miljö.
+1. Skapa en PowerShell-session på någon av de virtuella datorerna i ERCS i Azure Stack-miljön (*prefixet*-ERCS01, *prefixet*-ERCS02, eller *prefixet*-ERCS03). Ersätt *Prefix* med Prefixsträngen för virtuell dator som är specifik för din miljö.
 
    ```powershell
    $cred = Get-Credential
 
    $pepSession = New-PSSession -ComputerName <Prefix>-ercs01 -Credential $cred -ConfigurationName PrivilegedEndpoint 
    ```
-   När du tillfrågas om autentiseringsuppgifter, Använd den &lt; *Azure Stack domän*&gt;\cloudadmin konto eller ett konto som är medlem i gruppen CloudAdmins. Ange samma lösenord som du angav under installationen för AzureStackAdmin domänadministratörskonto för CloudAdmin-kontot.
+   När du tillfrågas om autentiseringsuppgifter, använda den &lt; *Azure Stack-domänen*&gt;\cloudadmin konto eller ett konto som är medlem i gruppen CloudAdmins. Ange samma lösenord som angavs under installationen för AzureStackAdmin domänadministratörskontot för CloudAdmin-kontot.
 
-2. Hämta den fullständiga listan med kommandon som är tillgängliga i Privilegierade slutpunkten. 
+2. Få en fullständig lista över kommandon som är tillgängliga i den privilegierade slutpunkten. 
 
    ```powershell
    $commands = Invoke-Command -Session $pepSession -ScriptBlock { Get-Command } 
    ```
-3. Avgör om Privilegierade slutpunkten har uppdaterats.
+3. Avgör om den privilegierade slutpunkten har uppdaterats.
 
    ```powershell
    $updateManagementModuleName = "Microsoft.Azurestack.UpdateManagement"
@@ -78,29 +77,28 @@ Du kan också bestämma om cmdletarna som är tillgängliga via programmering ge
    CommandType     Name                                               Version    Source                                                  PSComputerName
     -----------     ----                                               -------    ------                                                  --------------
    Function        Get-AzureStackUpdateStatus                         0.0        Microsoft.Azurestack.UpdateManagement                   Contoso-ercs01
-   Function        Get-AzureStackUpdateVerboseLog                     0.0        Microsoft.Azurestack.UpdateManagement                   Contoso-ercs01
    Function        Resume-AzureStackUpdate                            0.0        Microsoft.Azurestack.UpdateManagement                   Contoso-ercs01
    ``` 
 
-## <a name="use-the-update-management-cmdlets"></a>Använda update management-cmdlets
+## <a name="use-the-update-management-cmdlets"></a>Använd update management-cmdletar
 
 > [!NOTE]
-> Kör följande kommandon från maskinvara livscykel värden eller från en arbetsstation för privilegierad åtkomst. Kontrollera också Privilegierade slutpunkten är en betrodd värd. Mer information finns i steg 1 av [komma åt den privilegierade slutpunkten](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint).
+> Kör följande kommandon från maskinvara livscykel värden eller på en arbetsstation för privilegierad åtkomst. Kontrollera också att Privilegierade slutpunkten är en betrodd värd. Mer information finns i steg 1 av [åt den privilegierade slutpunkten](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint).
 
-### <a name="connect-to-the-privileged-endpoint-and-assign-session-variable"></a>Anslut till Privilegierade slutpunkten och tilldela sessionsvariabeln
+### <a name="connect-to-the-privileged-endpoint-and-assign-session-variable"></a>Anslut till privilegierad slutpunkt och tilldela sessionsvariabeln
 
-Kör följande kommandon för att skapa en PowerShell-session på någon av ERCS virtuella datorerna i din Azure Stack-miljö (*prefixet*-ERCS01, *prefixet*-ERCS02, eller *prefixet*-ERCS03), och tilldela en sessionsvariabel.
+Kör följande kommandon för att skapa en PowerShell-session på någon av de virtuella datorerna i ERCS i Azure Stack-miljön (*prefixet*-ERCS01, *prefixet*-ERCS02, eller *prefixet*-ERCS03), och för att tilldela en sessionsvariabeln.
 
 ```powershell
 $cred = Get-Credential
 
 $pepSession = New-PSSession -ComputerName <Prefix>-ercs01 -Credential $cred -ConfigurationName PrivilegedEndpoint 
 ```
- När du tillfrågas om autentiseringsuppgifter, Använd den &lt; *Azure Stack domän*&gt;\cloudadmin konto eller ett konto som är medlem i gruppen CloudAdmins. Ange samma lösenord som du angav under installationen för AzureStackAdmin domänadministratörskonto för CloudAdmin-kontot.
+ När du tillfrågas om autentiseringsuppgifter, använda den &lt; *Azure Stack-domänen*&gt;\cloudadmin konto eller ett konto som är medlem i gruppen CloudAdmins. Ange samma lösenord som angavs under installationen för AzureStackAdmin domänadministratörskontot för CloudAdmin-kontot.
 
-### <a name="get-high-level-status-of-the-current-update-run"></a>Hämta övergripande status för den aktuella uppdatering-körningen 
+### <a name="get-high-level-status-of-the-current-update-run"></a>Hämta övergripande status för den aktuella uppdatering körningen 
 
-För att få en övergripande status för den aktuella uppdatering körningen, kör du följande kommandon: 
+Kör följande kommandon för att få en övergripande status för den aktuella uppdatering-körningen: 
 
 ```powershell
 $statusString = Invoke-Command -Session $pepSession -ScriptBlock { Get-AzureStackUpdateStatus -StatusOnly }
@@ -111,15 +109,15 @@ $statusString.Value
 Möjliga värden omfattar:
 
 - Körs
-- Slutförd
+- Slutfört
 - Misslyckad 
 - Avbrutna
 
-Du kan köra dessa kommandon flera gånger för att se senaste status. Du behöver inte återupprätta en anslutning till Kontrollera igen.
+Du kan köra dessa kommandon för flera gånger för att se senaste status. Du behöver att återupprätta en anslutning för att söka igen.
 
 ### <a name="get-the-full-update-run-status-with-details"></a>Hämta status för fullständig uppdateringskörningen med information 
 
-Du kan få fullständig uppdatering kör sammanfattning som en XML-sträng. Du kan skriva strängen till en fil för granskning, eller konvertera den till ett XML-dokument och använda PowerShell för att parsa den. Följande kommando Parsar XML-filen för att få en hierarkisk lista över steg som körs för tillfället.
+Du kan hämta den fullständiga uppdateringskörningen sammanfattning som en XML-sträng. Du kan skriva strängen till en fil för undersökning, eller konvertera den till ett XML-dokument och använda PowerShell för att parsa den. Kommandot Parsar XML-filen för att få en hierarkisk lista över steg som för närvarande körs.
 
 ```powershell
 [xml]$updateStatus = Invoke-Command -Session $pepSession -ScriptBlock { Get-AzureStackUpdateStatus }
@@ -127,7 +125,7 @@ Du kan få fullständig uppdatering kör sammanfattning som en XML-sträng. Du k
 $updateStatus.SelectNodes("//Step[@Status='InProgress']")
 ```
 
-I följande exempel har steget översta (moln uppdatering) en underordnad plan för att uppdatera och starta om lagring-värdar. Det visar att starta om lagring värdar planen uppdaterar Blob Storage-tjänsten på en av värdarna.
+I följande exempel har översta steg (Cloud uppdatering) en underordnad plan för att uppdatera och starta om storage-värdar. Den visar att starta om Storage värdar planen uppdateras Blob Storage-tjänsten på en av värdarna.
 
 ```powershell
 [xml]$updateStatus = Invoke-Command -Session $pepSession -ScriptBlock { Get-AzureStackUpdateStatus }
@@ -160,30 +158,7 @@ $updateStatus.SelectNodes("//Step[@Status='InProgress']")
     Task          : Task
 ```
 
-### <a name="get-the-verbose-progress-log"></a>Hämta loggen utförlig pågår
-
-Du kan skriva loggen till en fil för granskning. Detta kan hjälpa dig att felsöka en misslyckad uppdatering.
-
-```powershell
-$log = Invoke-Command -Session $pepSession -ScriptBlock { Get-AzureStackUpdateVerboseLog }
-
-$log > ".\UpdateVerboseLog.txt" 
-```
-
-### <a name="actively-view-the-verbose-logging"></a>Visa aktivt utförlig loggning
-
-För att aktivt visa den detaljerade loggen under en uppdatering kör och gå till de senaste posterna kör följande kommandon för att ange sessionen i interaktivt läge och för att visa loggen:
-
-```powershell
-Enter-PSSession -Session $pepSession 
-
-Get-AzureStackUpdateVerboseLog -Wait 
-```
-Loggen uppdateras var 60: e sekund och nytt innehåll (om tillgängligt) skrivs till konsolen. 
-
-Under tidskrävande bakgrundsprocesser kan konsolens utdata inte skrivas till konsolen under en viss tid. Tryck på Ctrl + C om du vill avbryta interaktiva utdata. 
-
-### <a name="resume-a-failed-update-operation"></a>En misslyckad uppdateringsåtgärden återuppta
+### <a name="resume-a-failed-update-operation"></a>Återuppta drift för en misslyckad uppdatering
 
 Om uppdateringen misslyckas, kan du återuppta uppdateringskörningen där den avbröts.
 
@@ -193,10 +168,10 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 
 ## <a name="troubleshoot"></a>Felsöka
 
-Privilegierade slutpunkten är tillgänglig på alla ERCS virtuella datorer i Azure Stack-miljö. Eftersom den inte är ansluta till en slutpunkt för hög tillgänglighet, kan det uppstå tillfälliga avbrott, varning eller felmeddelanden. Dessa meddelanden kan indikera att sessionen har kopplats från eller att det uppstod ett fel i kommunikationen med tjänsten FN. Det är förväntat. Du kan försök igen om några minuter eller skapa en ny Privilegierade endpoint-session på en av de andra ERCS virtuella datorerna. 
+Privilegierade slutpunkten är tillgänglig på alla ERCS virtuella datorer i Azure Stack-miljön. Eftersom den inte är ansluta till en slutpunkt för hög tillgänglighet, kan det finnas tillfälliga avbrott, varning eller felmeddelanden. Dessa meddelanden kan tyda på att sessionen kopplades eller att det uppstod ett fel i kommunikationen med tjänsten FN. Det här beteendet är förväntat. Du kan försök igen om några minuter eller skapa en ny privilegierad slutpunkt-session på en av de andra ERCS virtuella datorerna. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hantering av uppdateringar i Azure-stacken](azure-stack-updates.md) 
+- [Hantera uppdateringar i Azure Stack](azure-stack-updates.md) 
 
 

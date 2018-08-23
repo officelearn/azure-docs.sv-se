@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9469a5827765a9b82469ac1eedc66666231d82d6
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: d0b380aa6046daa235098516a8c93d3ba72533a6
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117450"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42060904"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrera dina distributioner av OMS till Azure
 
@@ -61,10 +61,12 @@ För datorer som ska uppdateras, väljer du den sparade sökningen som används 
 | --- | --- |
 |Namn |Unikt namn som identifierar uppdateringsdistributionen. |
 |Operativsystem| Välj **Linux** eller **Windows**.|
-|Datorer som ska uppdateras |För datorer som ska uppdateras, väljer du den sparade sökningen som används av den befintliga OMS-distributionen. |
+|Datorer som ska uppdateras |Välj en sparad sökning, importerat gruppen, eller välja dator från listrutan och Välj enskilda datorer. Om du väljer **datorer**, beredskap för datorn visas i den **uppdatera AGENTBEREDSKAP** kolumn.</br> Läs om de olika metoderna för att skapa datorgrupper i Log Analytics i [datorgrupper i Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
 |Uppdatera klassificeringar|Välj de uppdateringsklassificeringar som du behöver. CentOS stöder inte det direkt.|
 |Uppdateringar som ska uteslutas|Ange uppdateringarna som ska uteslutas. För Windows, ange KB-artikel utan den **KB** prefix. Ange paketnamnet för Linux, eller Använd ett jokertecken.  |
 |Schemainställningar|Välj tid att starta och välj sedan antingen **när** eller **återkommande** för upprepningen.|| Underhållsperiod |Antal minuter som angetts för uppdateringar. Värdet får inte vara mindre än 30 minuter eller mer än 6 timmar. |
+| Underhållsperiod |Antal minuter som angetts för uppdateringar. Värdet kan inte vara mindre än 30 minuter och högst 6 timmar |
+| Starta om kontroll| Detemines hur omstarter ska hanteras.</br>Alternativen är:</br>Starta om vid behov (standard)</br>Starta alltid om</br>Aldrig omstart</br>Endast omstart - kommer inte att installera uppdateringar|
 
 Klicka på **schemalagda uppdateringsdistributioner** att visa status för den nyligen skapade uppdateringsdistributionen.
 

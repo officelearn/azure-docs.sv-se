@@ -8,14 +8,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2018
+ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: 3734c30dad0735164d4501d1d63d8ffe301396a3
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 63ea7e384f9bc5713a41f6c5537ec5548810e5d9
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249122"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42060950"
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Power BI-självstudiekurs för Azure Cosmos DB: visualisera data med hjälp av anslutningsprogrammet för Power BI
 [PowerBI.com](https://powerbi.microsoft.com/) är en onlinetjänst där du kan skapa och dela instrumentpaneler och rapporter med data som är viktiga för dig och din organisation.  Power BI Desktop är en dedikerad rapportredigeringsverktyget där du kan hämta data från olika datakällor, sammanfoga och omvandla data, skapa kraftfulla rapporter och visualiseringar och publicera rapporterna till Power BI.  Med den senaste versionen av Power BI Desktop kan ansluta du nu till ditt Azure Cosmos DB-konto via Azure Cosmos DB-anslutningsprogrammet för Power BI.   
@@ -42,8 +42,8 @@ Kontrollera att du har åtkomst till följande resurser innan du följer anvisni
 * [Den senaste versionen av Power BI Desktop](https://powerbi.microsoft.com/desktop).
 * Åtkomst till vår demo-konto eller data i ditt Azure Cosmos DB-konto.
   * Demodata fylls med vulkanen data som visas i den här självstudien. Det här demo-kontot är inte bunden av alla serviceavtal och är avsedd endast i demonstrationssyfte.  Vi förbehåller oss rätten att göra ändringar inklusive den här demon konto men begränsat inte till, avslutar kontot, ändra nyckeln, begränsa åtkomst, ändra, och ta bort data, när som helst utan att i förväg eller orsak.
-    * URL: https://analytics.documents.azure.com
-    * Skrivskyddade nyckel: MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR + YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw ==
+    * URL: `https://analytics.documents.azure.com`
+    * Skrivskyddade nyckel: `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`
   * För att skapa ditt eget konto, se [skapa ett Azure Cosmos DB-databaskonto med Azure portal](https://azure.microsoft.com/documentation/articles/create-account/). Sedan för att hämta exemplet vulkanen data som liknar vad används i den här självstudien (men inte innehåller GeoJSON-block), finns i den [NOAA plats](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) och sedan importera data med den [Migreringsverktyget för Azure Cosmos DB data](import-data.md).
 
 Du måste ha ett konto på PowerBI.com om du vill dela dina rapporter på PowerBI.com.  Läs mer om Power BI för kostnadsfri och Power BI Pro [ https://powerbi.microsoft.com/pricing ](https://powerbi.microsoft.com/pricing).

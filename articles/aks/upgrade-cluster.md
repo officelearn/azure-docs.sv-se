@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/18/2018
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 9557311c97ea0fde66790c37b08d1a22d1197405
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 4ff2b56afc4496b6344735b4e3c813b06cee17e3
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144592"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42055615"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Uppgradera ett kluster i Azure Kubernetes Service (AKS)
 
@@ -39,7 +39,7 @@ default  mytestaks007     1.8.10           1.8.10             1.9.1, 1.9.2, 1.9.
 Vi har tre versioner som är tillgängliga för uppgradering: 1.9.1, 1.9.2 och 1.9.6. Vi kan använda kommandot `az aks upgrade` för att uppgradera till den senaste tillgängliga versionen.  Under uppgraderingsprocessen AKS lägger till en ny nod i klustret, sedan noggrant [här] [ kubernetes-drain] en nod åt gången för att minimera störningar i program som körs.
 
 > [!NOTE]
-> När du uppgraderar ett AKS-kluster kan inte Kubernetes delversioner hoppas över. Till exempel uppgraderingar mellan 1.8.x -> 1.9.x eller 1.9.x -> 1.10.x tillåts, men 1.8 -> 1.10 är inte.
+> När du uppgraderar ett AKS-kluster kan inte Kubernetes delversioner hoppas över. Till exempel uppgraderingar mellan 1.8.x -> 1.9.x eller 1.9.x -> 1.10.x tillåts, men 1.8 -> 1.10 är inte. Om du vill uppgradera, från 1.8 1.10 -> måste du först uppgradera från 1.8 -> 1.9 och en annan gör sedan en annan uppgradering från 1.9 1.10 ->
 
 ```azurecli-interactive
 az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.9.6

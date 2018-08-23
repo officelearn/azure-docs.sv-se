@@ -3,7 +3,7 @@ title: Om nycklar, hemligheter och certifikat
 description: Översikt över REST-gränssnittet och information om developer KV
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: BryanLa
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: abd1b743-1d58-413f-afc1-d08ebf93828a
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
-ms.author: alleonar
-ms.openlocfilehash: 8597b2d995b68e9ccff9b856b2ef6bd325cd2439
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.date: 08/14/2018
+ms.author: bryanla
+ms.openlocfilehash: 962f9be53ce0b2022e8e5490bdeb04b2eefb4d7c
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39359197"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42054369"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Om nycklar, hemligheter och certifikat
 Azure Key Vault kan du lagra och använda kryptografiska nycklar i Microsoft Azure-miljön. Key Vault stöder flera nyckeltyper och algoritmer och möjliggör användning av maskinvarusäkerhetsmodul moduler (HSM) för högt värderade nycklar. Dessutom kan Key Vault du lagra hemligheter säkert. Hemligheter är begränsad storlek oktetten objekt med inga specifika semantik. Key Vault har också stöd för certifikat som är byggda på nycklar och hemligheter och Lägg till en funktion för automatisk förnyelse.
@@ -28,26 +28,26 @@ Mer allmän information om Azure Key Vault finns i [vad är Azure Key Vault?](/a
 
 **Allmän information för Key Vault**
 
--   [Stöd för standarder](about-keys-secrets-and-certificates.md#BKMK_Standards)
--   [Datatyper](about-keys-secrets-and-certificates.md#BKMK_DataTypes)  
--   [Objekt-ID: n och versionshantering](about-keys-secrets-and-certificates.md#BKMK_ObjId)  
+-   [Stöd för standarder](#BKMK_Standards)
+-   [Datatyper](#BKMK_DataTypes)  
+-   [Objekt-ID: n och versionshantering](#BKMK_ObjId)  
 
 **Om nycklar**
 
--   [Nycklar och nyckeltyper](about-keys-secrets-and-certificates.md#BKMK_KeyTypes)  
--   [RSA-algoritmer](about-keys-secrets-and-certificates.md#BKMK_RSAAlgorithms)  
--   [RSA-HSM algoritmer](about-keys-secrets-and-certificates.md#BKMK_RSA-HSMAlgorithms)  
--   [Kryptering](about-keys-secrets-and-certificates.md#BKMK_Cryptographic)
--   [Viktiga aktiviteter](about-keys-secrets-and-certificates.md#BKMK_KeyOperations)  
--   [Nyckelattribut](about-keys-secrets-and-certificates.md#BKMK_KeyAttributes)  
--   [Viktiga taggar](about-keys-secrets-and-certificates.md#BKMK_Keytags)  
+-   [Nycklar och nyckeltyper](#BKMK_KeyTypes)  
+-   [RSA-algoritmer](#BKMK_RSAAlgorithms)  
+-   [RSA-HSM algoritmer](#BKMK_RSA-HSMAlgorithms)  
+-   [Kryptering](#BKMK_Cryptographic)
+-   [Viktiga aktiviteter](#BKMK_KeyOperations)  
+-   [Nyckelattribut](#BKMK_KeyAttributes)  
+-   [Viktiga taggar](#BKMK_Keytags)  
 
 **Om hemligheter** 
 
--   [Arbeta med hemligheter](about-keys-secrets-and-certificates.md#BKMK_WorkingWithSecrets)  
--   [Hemlig attribut](about-keys-secrets-and-certificates.md#BKMK_SecretAttrs)  
--   [Hemlig taggar](about-keys-secrets-and-certificates.md#BKMK_SecretTags)  
--   [Åtkomstkontroll till hemlighet](about-keys-secrets-and-certificates.md#BKMK_SecretAccessControl)  
+-   [Arbeta med hemligheter](#BKMK_WorkingWithSecrets)  
+-   [Hemlig attribut](#BKMK_SecretAttrs)  
+-   [Hemlig taggar](#BKMK_SecretTags)  
+-   [Åtkomstkontroll till hemlighet](#BKMK_SecretAccessControl)  
 
 **Om certifikat**
 
@@ -133,7 +133,7 @@ Azure Key Vault har stöd för RSA-nycklar med storlekar 2048, 3072 och 4096 och
 
 ### <a name="BKMK_Cryptographic"></a> Kryptering
 
-De kryptografiska moduler som använder Azure Key Vault, om HSM eller programvara är FIPS-verifierade. Du behöver inte göra något speciellt för att köra i FIPS-läge. Om du **skapa** eller **importera** nycklar som HSM-skyddad de garanterat som ska bearbetas i HSM: er som verifierats till FIPS 140-2 nivå 2 eller högre. Om du **skapa** eller **importera** nycklar som programvaruskyddad och sedan de bearbetas i kryptografiska moduler verifierade enligt standarderna FIPS 140-2 nivå 1 eller senare. Mer information finns i [nycklar och nyckeltyper](about-keys-secrets-and-certificates.md#BKMK_KeyTypes).
+De kryptografiska moduler som använder Azure Key Vault, om HSM eller programvara är FIPS-verifierade. Du behöver inte göra något speciellt för att köra i FIPS-läge. Om du **skapa** eller **importera** nycklar som HSM-skyddad de garanterat som ska bearbetas i HSM: er som verifierats till FIPS 140-2 nivå 2 eller högre. Om du **skapa** eller **importera** nycklar som programvaruskyddad och sedan de bearbetas i kryptografiska moduler verifierade enligt standarderna FIPS 140-2 nivå 1 eller senare. Mer information finns i [nycklar och nyckeltyper](#BKMK_KeyTypes).
 
 ###  <a name="BKMK_ECAlgorithms"></a> EG algoritmer
  Följande algoritm identifierare stöds med EG och EG HSM-nycklar i Azure Key Vault. 
@@ -174,7 +174,7 @@ Azure Key Vault stöder följande åtgärder på objekt med nycklar:
 -   **Backup**: exporterar en nyckel i ett skyddat format.  
 -   **Återställa**: importerar en tidigare säkerhetskopierade nyckel.  
 
-Mer information finns i [nyckeln operations](/rest/api/keyvault/key-operations).  
+Mer information finns i [viktiga åtgärder i den Key Vault REST API-referensen](/rest/api/keyvault).  
 
 När en nyckel har skapats i Azure Key Vault, kan följande kryptografiska åtgärder utföras med hjälp av nyckeln:  
 
@@ -194,22 +194,22 @@ Mer information om JWK objekt finns i [JSON Web nyckel (JWK)](http://tools.ietf.
 
 Förutom nyckelmaterial, kan följande attribut anges. I en JSON-begäran, attribut nyckelord och klammerparenteser, ' {' '}', krävs även om det finns inga attribut har angetts.  
 
-- *aktiverad*: boolesk, valfritt, standardvärdet är **SANT**. Anger om nyckeln är aktiverade och riktlinje för kryptografiska åtgärder. Den *aktiverat* attributet används tillsammans med *nbf* och *exp*. När en åtgärd som sker mellan *nbf* och *exp*, kommer endast tillåtna om *aktiverat* är inställd på **SANT**. Åtgärder utanför den *nbf* / *exp* fönster automatiskt tillåts inte, utom för vissa åtgärden under [särskilda villkor](about-keys-secrets-and-certificates.md#BKMK_key-date-time-ctrld-ops).
-- *NBF*: IntDate, valfritt, som standard är nu. Den *nbf* (inte före) attributet anger den tid som inte får nyckeln användas för kryptografiska åtgärder, utom för vissa åtgärden under [särskilda villkor](about-keys-secrets-and-certificates.md#BKMK_key-date-time-ctrld-ops). Bearbetningen av den *nbf* attributet kräver att aktuellt datum och tid måste vara efter eller lika med inte-före datum/tid som anges i den *nbf* attribut. Azure Key Vault kan ge för vissa små spelrum vanligtvis inte mer än ett par minuter till kontot för klocka skeva. Värdet måste vara ett tal som innehåller ett IntDate-värde.  
-- *EXP*: IntDate, valfritt, standardvärdet är ”alltid”. Den *exp* (upphör att gälla) attributet anger förfallotid eller senare som nyckeln får inte användas för en kryptografisk åtgärd, utom för vissa åtgärden under [särskilda villkor](about-keys-secrets-and-certificates.md#BKMK_key-date-time-ctrld-ops). Bearbetningen av den *exp* attributet kräver att aktuellt datum och tid måste vara innan det upphör att gälla datum/tid som anges i den *exp* attribut. Azure Key Vault kan ge för vissa små spelrum vanligtvis inte mer än ett par minuter till kontot för klocka skeva. Värdet måste vara ett tal som innehåller ett IntDate-värde.  
+- *aktiverad*: boolesk, valfritt, standardvärdet är **SANT**. Anger om nyckeln är aktiverade och riktlinje för kryptografiska åtgärder. Den *aktiverat* attributet används tillsammans med *nbf* och *exp*. När en åtgärd som sker mellan *nbf* och *exp*, kommer endast tillåtna om *aktiverat* är inställd på **SANT**. Åtgärder utanför den *nbf* / *exp* fönster automatiskt tillåts inte, utom för vissa åtgärden under [särskilda villkor](#BKMK_key-date-time-ctrld-ops).
+- *NBF*: IntDate, valfritt, som standard är nu. Den *nbf* (inte före) attributet anger den tid som inte får nyckeln användas för kryptografiska åtgärder, utom för vissa åtgärden under [särskilda villkor](#BKMK_key-date-time-ctrld-ops). Bearbetningen av den *nbf* attributet kräver att aktuellt datum och tid måste vara efter eller lika med inte-före datum/tid som anges i den *nbf* attribut. Azure Key Vault kan ge för vissa små spelrum vanligtvis inte mer än ett par minuter till kontot för klocka skeva. Värdet måste vara ett tal som innehåller ett IntDate-värde.  
+- *EXP*: IntDate, valfritt, standardvärdet är ”alltid”. Den *exp* (upphör att gälla) attributet anger förfallotid eller senare som nyckeln får inte användas för en kryptografisk åtgärd, utom för vissa åtgärden under [särskilda villkor](#BKMK_key-date-time-ctrld-ops). Bearbetningen av den *exp* attributet kräver att aktuellt datum och tid måste vara innan det upphör att gälla datum/tid som anges i den *exp* attribut. Azure Key Vault kan ge för vissa små spelrum vanligtvis inte mer än ett par minuter till kontot för klocka skeva. Värdet måste vara ett tal som innehåller ett IntDate-värde.  
 
 Det finns ytterligare skrivskyddade attribut som ingår i alla svar som innehåller viktiga punkter:  
 
 - *skapade*: IntDate, valfritt. Den *skapade* attributet anger när den här versionen av nyckeln skapades. Det här värdet är null för nycklar som har skapats innan det här attributet. Värdet måste vara ett tal som innehåller ett IntDate-värde.  
 - *Uppdatera*: IntDate, valfritt. Den *uppdateras* attributet anger när den här versionen av nyckeln uppdaterades. Det här värdet är null för nycklar som senast uppdaterades innan det här attributet. Värdet måste vara ett tal som innehåller ett IntDate-värde.  
 
-Läs mer på IntDate och andra datatyper, [datatyper](about-keys-secrets-and-certificates.md#BKMK_DataTypes)  
+Läs mer på IntDate och andra datatyper, [datatyper](#BKMK_DataTypes)  
 
 #### <a name="BKMK_key-date-time-ctrld-ops"></a> Datum / tid-kontrollerad åtgärder
 
 Inte ännu giltiga och har upphört att gälla nycklar, dessa utanför den *nbf* / *exp* fönstret fungerar för **dekryptera**, **unwrap** och **Kontrollera** åtgärder (inte returnerar 403, förbjuden). Anledningen till att med tillståndet som inte ännu giltig är att tillåta en nyckel som ska testas innan användning i produktion. Anledningen till att använda gått ut är att tillåta återställningsåtgärder på data som skapades när nyckeln är giltig. Dessutom kan du inaktivera åtkomst till en nyckel med Key Vault-principer eller genom att uppdatera den *aktiverat* nyckelattributet till **FALSKT**.
 
-Läs mer på data i typer, [datatyper](about-keys-secrets-and-certificates.md#BKMK_DataTypes).
+Läs mer på data i typer, [datatyper](#BKMK_DataTypes).
 
 Mer information om andra möjliga attribut finns i den [JSON Web nyckel (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).
 
@@ -256,9 +256,9 @@ Azure Key Vault stöder också fältet contentType för hemligheter. Klienter ka
 
 Följande attribut kan anges förutom de hemliga data:  
 
-- *EXP*: IntDate, valfritt, som standard är **alltid**. Den *exp* (upphör att gälla) attributet anger förfallotid eller senare som hemliga data måste inte kan hämtas, utom i [viss situationer](about-keys-secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops). Bearbetningen av den *exp* attributet kräver att aktuellt datum och tid måste vara innan det upphör att gälla datum/tid som anges i den *exp* attribut. Azure Key Vault kan ge för vissa små spelrum vanligtvis inte mer än ett par minuter till kontot för klocka skeva. Värdet måste vara ett tal som innehåller ett IntDate-värde.  
-- *NBF*: IntDate, valfritt, som standard är **nu**. Den *nbf* (inte före) attributet anger den tid som hemliga data inte att hämta, utom i [viss situationer](about-keys-secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops). Bearbetningen av den *nbf* attributet kräver att aktuellt datum och tid måste vara efter eller lika med inte-före datum/tid som anges i den *nbf* attribut. Azure Key Vault kan ge för vissa små spelrum vanligtvis inte mer än ett par minuter till kontot för klocka skeva. Värdet måste vara ett tal som innehåller ett IntDate-värde.  
-- *aktiverad*: boolesk, valfritt, standardvärdet är **SANT**. Det här attributet anger huruvida hemliga data kan hämtas. Aktiverade attributet används tillsammans med och *exp* när en åtgärd som sker mellan och exp, det ska endast beviljas om aktiverat är inställt på **SANT**. Åtgärder utanför den *nbf* och *exp* fönstret är automatiskt otillåtna, utom i [viss situationer](about-keys-secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops).  
+- *EXP*: IntDate, valfritt, som standard är **alltid**. Den *exp* (upphör att gälla) attributet anger förfallotid eller senare som den hemliga bör inte att hämta data, utom i [viss situationer](#BKMK_secret-date-time-ctrld-ops). Det här fältet är för **endast i informationssyfte** syfte endast som informerar användare av key vault-tjänsten en särskild hemlighet inte får användas. Värdet måste vara ett tal som innehåller ett IntDate-värde.   
+- *NBF*: IntDate, valfritt, som standard är **nu**. Den *nbf* (inte före) attributet anger den tid som hemliga data inte hämtas, utom i [viss situationer](#BKMK_secret-date-time-ctrld-ops). Det här fältet är för **endast i informationssyfte** i utvärderingssyfte. Värdet måste vara ett tal som innehåller ett IntDate-värde. 
+- *aktiverad*: boolesk, valfritt, standardvärdet är **SANT**. Det här attributet anger huruvida hemliga data kan hämtas. Aktiverade attributet används tillsammans med och *exp* när en åtgärd som sker mellan och exp, det ska endast beviljas om aktiverat är inställt på **SANT**. Åtgärder utanför den *nbf* och *exp* fönstret är automatiskt otillåtna, utom i [viss situationer](#BKMK_secret-date-time-ctrld-ops).  
 
 Det finns ytterligare skrivskyddade attribut som ingår i alla svar som innehåller hemliga attribut:  
 
@@ -269,7 +269,7 @@ Det finns ytterligare skrivskyddade attribut som ingår i alla svar som innehål
 
 En hemlighet **hämta** åtgärden kommer att fungera för inte ännu giltiga och har upphört att gälla hemligheter, utanför den *nbf* / *exp* fönster. Anropa en hemlighet **hämta** åtgärden för en hemlighet som inte ännu giltiga kan användas för testning. Hämtar (**hämta**ing) en hemlighet som har upphört att gälla, kan användas för återställningsåtgärder.
 
-Läs mer på data i typer, [datatyper](about-keys-secrets-and-certificates.md#BKMK_DataTypes).  
+Läs mer på data i typer, [datatyper](#BKMK_DataTypes).  
 
 ###  <a name="BKMK_SecretAccessControl"></a> Åtkomstkontroll till hemlighet
 
@@ -283,7 +283,7 @@ Följande behörigheter kan användas på basis av per huvudnamn, i den hemlighe
 -   *ta bort*: ta bort hemligheten  
 -   *alla*: alla behörigheter  
 
-Läs mer om hur du arbetar med hemligheter [hemlighetsåtgärder](/rest/api/keyvault/secret-operations).  
+Läs mer om hur du arbetar med hemligheter [åtgärder med hemligheter i den Key Vault REST API-referensen](/rest/api/keyvault).  
 
 ###  <a name="BKMK_SecretTags"></a> Hemlig taggar  
 Du kan ange ytterligare programspecifik metadata i form av taggar. Azure Key Vault har stöd för upp till 15 taggar, som kan ha ett namn för 256 tecken och ett värde med 256 tecken.  
@@ -436,18 +436,14 @@ Om en certifikatprincip anges för automatisk förnyelse, skickas ett meddelande
 -   *Skapa*: gör att skapa ett Key Vault-certifikat.  
 -   *importera*: kan importera certifikat material i ett Key Vault-certifikat.  
 -   *Uppdatera*: tillåter uppdatering av ett certifikat.  
--   *manageconnects*: låter dig hantera certifikatskontakterna för Key Vault  
+-   *managecontacts*: låter dig hantera certifikatskontakterna för Key Vault  
 -   *getissuers*: gör att hämta en certifikatutfärdare  
 -   *listissuers*: gör att listan över certifikatets utfärdare  
 -   *setissuers*: gör att skapa eller uppdatera Key Vault-certifikatutfärdare  
 -   *deleteissuers*: tillåter borttagning av Key Vault-certifikatutfärdare  
 -   *alla*: beviljar alla behörigheter  
 
-## <a name="additional-information-for-certificates"></a>Ytterligare information för certifikat
-
-- [Certifikat och principer](/rest/api/keyvault/certificates-and-policies)
-- [Certifikatutfärdare](/rest/api/keyvault/certificate-issuers)
-- [Certifikatskontakter](/rest/api/keyvault/certificate-contacts)
+Mer information finns i den [certifikatåtgärder i den Key Vault REST API-referensen](/rest/api/keyvault). 
 
 ## <a name="see-also"></a>Se även
 

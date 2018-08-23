@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 4a0fb5739812950f3a01a18acae1d797fa4f9158
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 7776ca63dd5c02e470ead35e3dad73c051731fd1
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622260"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056297"
 ---
 # <a name="what-are-authentication-methods"></a>Vad är autentiseringsmetoder?
 
@@ -136,6 +136,8 @@ Microsoft Authenticator-appen kan hjälpa att förhindra obehörig åtkomst till
 >
 > När två metoder krävs användare kommer att kunna återställa med hjälp av **antingen** meddelande **eller** Verifieringskod utöver eventuella övriga aktiverat metoder.
 >
+
+Om du aktiverar användningen av både meddelande via mobilapp och Verifieringskod från mobilappen, användare som registrerar Microsoft Authenticator-appen med hjälp av ett meddelande kan använda både meddelande och kod för att verifiera sin identitet.
 
 ### <a name="verification-code-from-mobile-app"></a>Verifieringskod från mobilapp
 

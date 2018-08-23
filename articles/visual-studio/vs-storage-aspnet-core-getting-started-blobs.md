@@ -8,17 +8,18 @@ manager: wpickett
 editor: ''
 ms.service: storage
 ms.workload: web
+ms.custom: vs-azure
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: casoper
-ms.openlocfilehash: 42390effd6a2d2a8afe9350e0a77d3c0a17b6129
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 82c5fb0f3f3e8edad948b82f77c9c336636f3077
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38720237"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442749"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Kom igång med Azure Blob storage och Visual Studio-anslutna tjänster (ASP.NET Core)
 
@@ -69,7 +70,7 @@ Det här avsnittet beskriver hur du konfigurerar utvecklingsmiljön. Detta omfat
 1. I den **Azure Storage** dialogrutan Välj Azure storage-kontonamnet som ska användas för den här självstudien. Om du vill skapa ett nytt Azure storage-konto, Välj **skapa ett nytt Lagringskonto**, och Fyll i formuläret. När du väljer ett befintligt lagringskonto eller skapa en ny, väljer **Lägg till**. Visual Studio installerar NuGet-paketet för Azure Storage och en anslutningssträng för lagring till **appsettings.json**.
 
 > [!TIP]
-> Lär dig hur du skapar ett lagringskonto med den [Azure-portalen](https://portal.azure.com), se [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+> Lär dig hur du skapar ett lagringskonto med den [Azure-portalen](https://portal.azure.com), se [skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md).
 >
 > Du kan också skapa ett lagringskonto med hjälp av [Azure PowerShell](../storage/common/storage-powershell-guide-full.md), [Azure CLI](../storage/common/storage-azure-cli.md), eller [Azure Cloud Shell](../cloud-shell/overview.md).
 
@@ -127,7 +128,7 @@ Följande steg skapar du en metod för att ansluta till lagringskontot med hjäl
 > [!NOTE]
 > Även om *test blobbehållare* inte finns ännu, den här koden skapar en referens till den. Detta är så att du kan skapa behållaren med den `CreateIfNotExists` metoden som visas i nästa steg.
 
-## <a name="create-a-blob-container"></a>Skapa en blobbehållare
+## <a name="create-a-blob-container"></a>Skapa en blobcontainer
 
 Följande steg illustrerar hur du skapar en blob-behållare:
 

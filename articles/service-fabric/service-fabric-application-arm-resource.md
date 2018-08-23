@@ -1,6 +1,6 @@
 ---
 title: Distribuera och uppgradera program och tjänster med Azure Resource Manager | Microsoft Docs
-description: Lär dig hur du distribuerar program och tjänster till ett Service Fabric-kluster med en Azure Resource Manager-mall.
+description: Lär dig hur du distribuerar program och tjänster till Service Fabric-kluster med en Azure Resource Manager-mall.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: 8c8ee30a603d439c0fadd0c1569813762bdf4351
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7aa7fc2620fa02af4a720a97eece3c0734252245
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205305"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42060311"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Hantera program och tjänster som Azure Resource Manager-resurser
 
-Du kan distribuera program och tjänster till Service Fabric-kluster via Azure Resource Manager. Detta innebär att i stället för att distribuera och hantera program via PowerShell eller CLI efter att behöva vänta på att klustret ska bli klar, du kan nu express program och tjänster i JSON och distribuera dem i samma Resource Manager-mallen som klustret. Processen för programregistrering, etablering och distribuera alla sker i ett steg.
+Du kan distribuera program och tjänster till ditt Service Fabric-kluster via Azure Resource Manager. Det innebär att i stället för att distribuera och hantera program via PowerShell eller CLI efter att behöva vänta på att klustret är klar finns nu express program och tjänster i JSON och distribuera dem i samma Resource Manager-mallen som klustret. Processen för programregistrering, etablering och distribuera alla sker i ett steg.
 
-Detta är det rekommenderade sättet att distribuera alla installationsprogrammet, styrning eller kluster hanteringsprogram som du behöver i klustret. Detta inkluderar den [korrigering Orchestration programmet](service-fabric-patch-orchestration-application.md), Watchdogs eller program som måste köras i klustret innan andra program och tjänster distribueras. 
+Det här är det rekommenderade sättet att distribuera valfri installation, styrning eller kluster hanteringsprogram som du behöver i ditt kluster. Detta inkluderar den [Patch Orchestration Application](service-fabric-patch-orchestration-application.md), Watchdogs eller program som måste köras i klustret innan andra program eller tjänster distribueras. 
 
-I förekommande fall kan du hantera dina program som hanteraren för filserverresurser resurser för att förbättra:
-* Granskningslogg: Resource Manager granskningar varje åtgärd och bevarar en detaljerad *aktivitetsloggen* som kan hjälpa dig att spåra ändringar som görs till dessa program och klustret.
-* Rollbaserad åtkomstkontroll (RBAC): hantera åtkomst till kluster samt program som distribuerats på klustret kan ske via samma Resource Manager-mallen.
-* Azure Resource Manager (via Azure portal) blir en en hos för att hantera dina kluster och distribution av kritiska program.
+När så är tillämpligt, kan du hantera dina program som Resource Manager-resurser för att förbättra:
+* Granskningslogg: Resource Manager granskar varje åtgärd och håller en detaljerad *aktivitetsloggen* som hjälper dig att spåra ändringar som görs till dessa program och klustret.
+* Rollbaserad åtkomstkontroll (RBAC): hantera åtkomst till kluster, samt program som distribueras i klustret kan ske via samma Resource Manager-mallen.
+* Azure Resource Manager (via Azure portal) blir en en-när det gäller för att hantera ditt kluster och distribution av kritiska program.
 
-Följande utdrag visar olika typer av resurser som kan hanteras via en mall:
+Följande utdrag visar de olika typerna av resurser som kan hanteras via en mall:
 
 ```json
 {
@@ -64,10 +64,10 @@ Följande utdrag visar olika typer av resurser som kan hanteras via en mall:
 
 ## <a name="add-a-new-application-to-your-resource-manager-template"></a>Lägg till ett nytt program till Resource Manager-mall
 
-1. Förbered ditt kluster Resource Manager-mall för distribution. Se [skapa ett Service Fabric-kluster med hjälp av Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) för mer information.
-2. Tänk på att vissa program som du ska distribuera i klustret. Finns det något som kommer alltid att köra som andra program kan ta beroenden? Planerar du distribuera alla kluster styrning eller installationen program? Dessa typer av program som bäst hanteras via en Resource Manager-mall som beskrivs ovan. 
-3. När du har förstått vilka program som du vill att distribuera det här sättet måste programmen paketeras, zippade och placeras på en filresurs. Resursen måste vara tillgängligt via REST-slutpunkt för Azure Resource Manager för att använda under distributionen.
-4. Beskriv egenskaper för varje program i mallen Resource Manager under din kluster-deklaration. Dessa egenskaper innehåller antalet målrepliker eller instanser och alla beroende kedjor mellan resurser (andra program eller tjänster). En lista över omfattande egenskaper finns i [REST API Swagger-specifikationen](https://aka.ms/sfrpswaggerspec). Observera att detta ersätter inte programmet eller tjänsten visar, men i stället beskrivs några av vad som finns i dem som en del av klustrets Resource Manager-mall. Här är en exempelmall som innehåller distribuera tillståndslösa tjänsten *Service1* och en tillståndskänslig service *plats2* som en del av *Application1*:
+1. Förbered ditt kluster Resource Manager-mall för distribution. Se [skapa Service Fabric-kluster med hjälp av Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) mer information om detta.
+2. Tänk på att vissa program som du ska distribuera i klustret. Finns det någon som alltid körs som andra program kan ta beroenden? Planerar du distribuera alla kluster styrning och installationsprogrammet program? Dessa typer av program som bäst hanteras via Resource Manager-mall som beskrivs ovan. 
+3. När du har kommit fram till vilka program som du vill ska distribueras på så sätt har programmen paketeras, zippade och placera på en filresurs. Resursen måste vara tillgänglig via ett REST-slutpunkt för Azure Resource Manager att använda under distributionen.
+4. I Resource Manager-mallen, under din kluster-deklarationen Beskriv egenskaper för varje program. Dessa egenskaper innehåller antalet målrepliker eller instanser och eventuella beroendekedjor mellan resurser (andra program eller tjänster). En lista över omfattande egenskaper finns i den [REST API Swagger-specifikation](https://aka.ms/sfrpswaggerspec). Observera att detta ersätter inte programmet eller tjänsten manifest, men i stället beskriver några av vad som finns i dem som en del av klustrets Resource Manager-mall. Här är en exempel-mall som innehåller distribuerar en tillståndslös tjänst *Service1* och en tillståndskänslig tjänst *plats2* som en del av *Application1*:
 
   ```json
   {
@@ -255,17 +255,19 @@ Följande utdrag visar olika typer av resurser som kan hanteras via en mall:
   ```
 
   > [!NOTE] 
-  > Den *apiVersion* måste anges till `"2017-07-01-preview"`. Den här mallen kan också distribueras oberoende av klustret, så länge klustret har redan distribuerats.
+  > Den *apiVersion* måste anges till `"2017-07-01-preview"`. Den här mallen kan också distribueras oberoende av klustret, så länge klustret redan har distribuerats.
 
 5. Distribuera! 
 
-## <a name="manage-an-existing-application-via-resource-manager"></a>Hantera ett befintligt program via Hanteraren för filserverresurser
+## <a name="manage-an-existing-application-via-resource-manager"></a>Hantera ett befintligt program via Resource Manager
 
-Om klustret redan är igång och vissa program som du vill hantera som resurshanteraren resurser som redan har distribuerats, i stället för att ta bort program och omdistribuera dem kan du använda ett PUT-anrop med samma API: er för att få program bekräftas som Resource Manager-resurser. 
+Om klustret redan är igång och vissa program som du vill hantera som Resurshanterarens resurser redan har distribuerats på den, i stället för att avlägsna program och omdistribuera dem. Du kan använda ett PUT-anrop med samma API: er för att få programmen får bekräftas som Resource Manager-resurser. 
 
+> [!NOTE]
+> Så att en uppgradering av klustret att ignorera feltillstånd appar kunden kan ange ”maxPercentUnhealthyApplications: 100” i avsnittet ”upgradeDescription/healthPolicy”; detaljerade beskrivningar för alla inställningar finns i [dokumentation om Service fabric REST API kluster uppgradera Policy](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Använd den [Service Fabric CLI](service-fabric-cli.md) eller [PowerShell](service-fabric-deploy-remove-applications.md) att distribuera andra program i klustret. 
-* [Uppgradera Service Fabric-kluster](service-fabric-cluster-upgrade.md)
+* [Uppgradera ditt Service Fabric-kluster](service-fabric-cluster-upgrade.md)
 

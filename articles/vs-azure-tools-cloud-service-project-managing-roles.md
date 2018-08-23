@@ -1,54 +1,55 @@
 ---
-title: Hantera roller i Azure-molntjänster med Visual Studio | Microsoft Docs
-description: Lär dig mer om att lägga till och ta bort roller i Azure-molntjänster med Visual Studio.
+title: Hantera roller i Azure cloud services med Visual Studio | Microsoft Docs
+description: Lär dig hur du lägger till och ta bort roller i Azure cloud services med Visual Studio.
 services: visual-studio-online
 author: ghogen
 manager: douge
 assetId: 5ec9ae2e-8579-4e5d-999e-8ae05b629bd1
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/21/2017
 ms.author: ghogen
-ms.openlocfilehash: d0a2148274cd41654eb789772b3ea46bc4ed01aa
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 023d70fd1f1ae2f79483f44a84cfedd5d1e39f3f
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793978"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056460"
 ---
-# <a name="managing-roles-in-azure-cloud-services-with-visual-studio"></a>Hantera roller i Azure-molntjänster med Visual Studio
-När du har skapat din Azure-molntjänst kan du lägga till nya roller eller ta bort befintliga roller från den. Du kan också importera ett befintligt projekt och konvertera det till en roll. Du kan till exempel importera ASP.NET-webbprogram och ange det som en webbroll.
+# <a name="managing-roles-in-azure-cloud-services-with-visual-studio"></a>Hantera roller i Azure cloud services med Visual Studio
+När du har skapat din Azure-molntjänst, kan du lägga till nya roller eller ta bort befintliga roller från den. Du kan också importera ett befintligt projekt och konvertera den till en roll. Du kan till exempel importera ASP.NET-webbprogram och ange den som en webbroll.
 
 ## <a name="adding-a-role-to-an-azure-cloud-service"></a>Att lägga till en roll till en Azure-molntjänst
-Följande steg hur du lägger till rollen webb eller arbetare i ett Azure cloud service-projekt i Visual Studio.
+Följande steg beskriver hur du lägger till en web- eller worker-roll till en Azure cloud service-projekt i Visual Studio.
 
 1. Skapa eller öppna ett Azure cloud service-projekt i Visual Studio.
 
 1. I **Solution Explorer**, expandera projektnoden
 
-1. Högerklicka på den **roller** noder för att visa snabbmenyn. På snabbmenyn Välj **Lägg till**, Välj en befintlig webbroll eller worker-rollen från den aktuella lösningen eller skapa ett projekt för webb- eller worker-rollen. Du kan också Välj en lämplig, till exempel ett ASP.NET web application-projekt och associera det med ett rollprojekt.
+1. Högerklicka på den **roller** noder för att visa snabbmenyn. På snabbmenyn väljer **Lägg till**, Välj en befintlig webbroll eller worker-rollen från den aktuella lösningen eller skapa ett projekt för webb- eller worker-rollen. Du kan också välja ett lämpligt projekt, till exempel ett ASP.NET webb-programprojekt, och koppla den till en rollprojekt.
 
     ![Menyn Alternativ för att lägga till en roll till en Azure cloud service-projekt](media/vs-azure-tools-cloud-service-project-managing-roles/add-role.png)
 
 ## <a name="removing-a-role-from-an-azure-cloud-service"></a>Ta bort en roll från en Azure-molntjänst
-Följande steg hur du tar bort en webbplats eller arbetsprocess roll från ett Azure cloud service-projekt i Visual Studio.
+Följande steg beskriver hur du tar bort en web- eller worker-roll från ett Azure cloud service-projekt i Visual Studio.
 
 1. Skapa eller öppna ett Azure cloud service-projekt i Visual Studio.
 
 1. I **Solution Explorer**, expandera projektnoden
 
-1. Expandera den **roller** nod.
+1. Expandera den **roller** noden.
 
-1. Högerklicka på den nod som du vill ta bort och på snabbmenyn Välj **ta bort**. 
+1. Högerklicka på noden som du vill ta bort och välj sedan från snabbmenyn **ta bort**. 
 
     ![Menyn Alternativ för att lägga till en roll till en Azure-molntjänst](media/vs-azure-tools-cloud-service-project-managing-roles/remove-role.png)
 
-## <a name="readding-a-role-to-an-azure-cloud-service-project"></a>Readding en roll till en Azure cloud service-projekt
-Om du tar bort en roll från ditt molntjänstprojekt men senare bestämmer dig för att lägga till rollen i projektet, läggs endast rollen deklaration och grundläggande attribut, till exempel information om slutpunkter och diagnostik. Inga ytterligare resurser eller referenser som har lagts till i den `ServiceDefinition.csdef` filen eller den `ServiceConfiguration.cscfg` filen. Om du vill lägga till den här informationen måste du manuellt lägga tillbaka det i dessa filer.
+## <a name="readding-a-role-to-an-azure-cloud-service-project"></a>Lägg till igen en roll till en Azure cloud service-projekt
+Om du tar bort en roll från ditt molntjänstprojekt men senare vill lägga till rollen i projektet, läggs endast rollen deklarationen och grundläggande attribut, till exempel slutpunkter och diagnostik. Inga ytterligare resurser eller referenser som har lagts till i `ServiceDefinition.csdef` fil eller till den `ServiceConfiguration.cscfg` filen. Om du vill lägga till den här informationen kan behöva du manuellt lägga tillbaka det i de här filerna.
 
-Till exempel kan du ta bort en webbtjänstrollen och du senare vill lägga till den här rollen i din lösning igen. Om du gör det uppstår ett fel. För att förhindra det här felet måste du lägga till den `<LocalResources>` element som visas i följande XML-filen till den `ServiceDefinition.csdef` filen. Använd namnet på rollen webbserver som du har lagt till projektet som en del av namnattributet för den **<LocalStorage>** element. I det här exemplet är namnet på webbtjänstrollen **WCFServiceWebRole1**.
+Exempel: du kan ta bort en webbtjänstrollen och du senare vill lägga till den här rollen tillbaka till din lösning. Om du gör det uppstår ett fel. Om du vill förhindra att det här felet, måste du lägga till den `<LocalResources>` element som visas i följande XML tillbaka till den `ServiceDefinition.csdef` filen. Använd namnet på webbtjänstrollen som du lagt till tillbaka till projektet som en del av namnattributet för den **<LocalStorage>** element. I det här exemplet är namnet på webbtjänstrollen **WCFServiceWebRole1**.
 
     <WebRole name="WCFServiceWebRole1">
         <Sites>

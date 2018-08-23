@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 266315a731eec8a2c0ab0a880ce9e1db58331184
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 463a015b7c01dafc5b30de56b95fa0510ffb98e4
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283144"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42424377"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Kom igång med SDK för tal-enheter
 
@@ -44,11 +44,11 @@ Samla in information och programvara som du behöver innan du startar utveckling
 
 ## <a name="set-up-the-development-kit"></a>Ställ in i development kit
 
-1. Plugin-adapterns i development kit. En grön power indikator bör tändas under den översta tavlan.
+1. MAXA dev-paket med hjälp av en mini USB-kabel ansluten till en dator eller en power adptor. En grön power indikator bör tändas under den översta tavlan.
 
-1. Ansluta i development kit till en dator med en mini USB-kabel.
+1. Ansluta i development kit till en dator med en andra mini USB-kabel.
 
-    ![ansluta dev-paket](media/speech-devices-sdk/qsg-1.jpg)
+    ![ansluta dev-paket](media/speech-devices-sdk/qsg-1.png)
 
 1. Förstå din development kit på rätt sätt.
 
@@ -57,7 +57,7 @@ Samla in information och programvara som du behöver innan du startar utveckling
     |Cirkulär|Handen, riktas mot taket med mikrofoner|
     |Linjär|På sidan, med mikrofoner mot du (visas nedan)|
 
-    ![linjär dev kit orientering](media/speech-devices-sdk/qsg-2.jpg)
+    ![linjär dev kit orientering](media/speech-devices-sdk/qsg-2.png)
 
 1. Installera certifikaten och filen wake word (nyckelordet) tabell och ange behörigheter för enheten. Skriv följande kommandon i Kommandotolken.
 
@@ -82,9 +82,22 @@ Samla in information och programvara som du behöver innan du startar utveckling
 
 1.  Enheten bör visas under ”Välj en enhet”. Klicka på den **visa** -knapp. 
  
-1.  Ansluta till det trådlösa nätverket genom att klicka på **inställningar**, sedan **WLAN**.
+1.  Ansluta till det trådlösa nätverket genom att klicka på mappikonen, sedan **inställningar**, sedan **WLAN**.
 
     ![Vysor WLAN](media/speech-devices-sdk/qsg-4.png)
+ 
+ > [!NOTE]
+ > Om företaget har principer avseende enheter som ansluter till Wi-Fi-system, måste du skaffa Mac-adressen och Kontakta IT-avdelningen om hur du ansluter till Wi-Fi-system. För att hitta Mac-adressen för dev-paket, klicka på filmappsikonen på skrivbordet för dev-paket sedan **inställningar**, söka efter ”Mac-adress”, klicka på **Mac-adress** in **avancerade WLAN** , anteckna Mac-adressen som finns längst ned. Vissa företag kan också ha en tid som gräns för hur lång tid en enhet kan anslutas till deras Wi-Fi-system. Du kan behöva utöka dev-paket registreringen med din Wi-Fi-system efter ett visst antal dagar.  
+ 
+ 
+   ![Vysor filmapp](media/speech-devices-sdk/qsg-10.png)
+   
+   ![Vysor Mac-adress](media/speech-devices-sdk/qsg-11.png)
+   
+   
+ > Om du vill koppla en talare till dev-paket kan ansluta du den till ljud rad ut. Du bör också välja en god kvalitet 3,5 mm talare.
+ 
+   ![Vysor ljud](media/speech-devices-sdk/qsg-14.png)
  
 ## <a name="run-a-sample-application"></a>Kör ett exempelprogram
 
@@ -126,7 +139,7 @@ Om du vill köra testerna Roobo och verifiera din development kit-konfiguration,
         exit
         ```
 
-    * Kopiera filerna `kws.table`, `kws_g.fst`, `kws_k.fst`, och `words_kw.txt`) till enhetens \data\keyword\ mapp. Kör följande kommandon i o kommandofönstret.
+    * Kopiera filerna `kws.table`, `kws_g.fst`, `kws_k.fst`, och `words_kw.txt`) till enhetens \data\keyword\ mapp. Kör följande kommandon i o kommandofönstret. Om du har skapat en [anpassade wake word](speech-devices-sdk-create-kws.md), kws.table-filen som genereras från webben ska vara i samma katalog som `kws.table`, `kws_g.fst`, `kws_k.fst`, och `words_kw.txt` filerna är. Använd GDB push C:\SDSDK\Android-Sample-Release\keyword\[wake_word_name]\kws.table/data/nyckelordet kommando att överföra filen kws.table till dev-paket i stället.
 
         ```
         adb push C:\SDSDK\Android-Sample-Release\keyword\kws.table /data/keyword
@@ -179,7 +192,11 @@ Om du vill köra testerna Roobo och verifiera din development kit-konfiguration,
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Om det uppstår fel certifikat när du använder Speech-tjänsten kan du kontrollera att enheten har rätt datum och tid.
+Om det uppstår fel certifikat när du använder Speech-tjänsten kan du kontrollera att enheten har rätt datum och tid. Gå till **inställningar**, klicka på **datum och tid** under System och **väljer tidszon** ska vara din aktuella tidszon. Behåll **automatisk datum och tid** vidare. När du ser i dev kit tiden matchar datorns tid och du märker dev-paket är ansluten till internet. 
+
+ ![Vysor filmapp](media/speech-devices-sdk/qsg-12.png)
+ 
+ ![Vysor filmapp](media/speech-devices-sdk/qsg-13.png)
 
 Mer information om utveckling, finns i Roobo's [Utvecklingsguide](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf).
 

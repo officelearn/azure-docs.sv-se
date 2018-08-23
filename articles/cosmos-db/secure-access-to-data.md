@@ -2,19 +2,19 @@
 title: Lär dig att skydda åtkomsten till data i Azure Cosmos DB | Microsoft Docs
 description: Läs mer om åtkomstkontrollkoncept i Azure Cosmos DB, såsom huvudnycklar, skrivskyddade nycklar, användare och behörigheter.
 services: cosmos-db
-author: SnehaGunda
+author: rafats
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2017
-ms.author: sngun
-ms.openlocfilehash: c51d399b646e7914ba85048c0928837caac7c15b
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.date: 08/19/2018
+ms.author: rafats
+ms.openlocfilehash: cfd1160d1592c03eea94e3c4d04fdc5754eca671
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901127"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056477"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Skydda åtkomst till Azure Cosmos DB-data
 Den här artikeln innehåller en översikt över att skydda åtkomsten till data som lagras i [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -174,6 +174,20 @@ foreach (Permission perm in permFeed)
 
 DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
+
+## <a name="add-users-and-assign-roles"></a>Lägga till användare och tilldela roller
+
+För att lägga till läsåtkomst i Azure Cosmos DB-konto till ditt användarkonto har du en prenumerant som utför följande steg i Azure-portalen.
+
+1. Öppna Azure portal och välj ditt Azure Cosmos DB-konto.
+2. Klicka på den **åtkomstkontroll (IAM)** fliken och klicka sedan på **+ Lägg till**.
+3. I den **Lägg till behörigheter** fönstret i den **rollen** väljer **läsarroll för Cosmos DB-konto**.
+4. I den **tilldela åtkomst till box**väljer **Azure AD-användare, grupp eller program**.
+5. Välj användaren, gruppen eller programmet i din katalog som du vill bevilja åtkomst.  Du kan söka i katalogen efter visningsnamn, e-postadress eller objektidentifierare.
+    Den valda användaren, gruppen eller programmet visas i listan valda medlemmar.
+6. Klicka på **Spara**.
+
+Entiteten kan nu läsa Azure Cosmos DB-resurser.
 
 ## <a name="delete-or-export-user-data"></a>Ta bort eller exportera användardata
 Azure Cosmos DB kan du söka efter, Välj, ändra och ta bort personliga data i databasen eller samlingar. Azure Cosmos DB tillhandahåller API: er för att hitta och ta bort personliga data men, är det ditt ansvar att använda API: er och definiera logik som krävs för att radera alla personliga data. Varje flermodells-API (SQL-API, MongoDB-API, Gremlin-API, API för Cassandra, tabell-API) tillhandahåller olika språk i SDK: er som innehåller metoder för att söka och ta bort personliga data. Du kan också aktivera den [till live (TTL)](time-to-live.md) att ta bort data automatiskt efter en angiven tidsperiod, utan några ytterligare kostnader.

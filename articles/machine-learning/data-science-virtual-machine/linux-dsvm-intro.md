@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: db1d449e5c9f66446f00b637c5550dc9144920ff
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3883fc71c099718face38c16897040788fe0c6ab
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446773"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056516"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Etablera en Linux CentOS Data Science-dator på Azure
 
@@ -38,7 +38,7 @@ Linux Data Science-dator är en CentOS-baserade Azure-dator som ingår i en saml
   * [Cognitive Toolkit](https://github.com/Microsoft/CNTK): en toolkit för programvara från Microsoft Research för djupinlärning.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): snabb machine learning-system som har stöd för tekniker som online, hash, allreduce, sänkt, learning2search, aktiv, och interaktiva utbildningar.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): ett verktyg för att tillhandahålla snabba och exakta bättre trädet implementering.
-  * [Rattle](http://rattle.togaware.com/) (den R analytiska Verktyg att lära dig enkelt): ett verktyg som gör att komma igång med dataanalys och maskininlärning i R enkelt med GUI-baserade datagranskning och modellering med automatisk generering av R-kod.
+  * [Rattle](https://togaware.com/rattle/) (den R analytiska Verktyg att lära dig enkelt): ett verktyg som gör att komma igång med dataanalys och maskininlärning i R enkelt med GUI-baserade datagranskning och modellering med automatisk generering av R-kod.
 * Azure SDK i Java, Python, node.js, Ruby, PHP
 * Bibliotek i R och Python för använder i Azure Machine Learning och andra Azure-tjänster
 * Utvecklingsverktyg och -redigerare (RStudio, PyCharm, IntelliJ, Emacs, gedit, vi)
@@ -63,7 +63,7 @@ En [Ubuntu](dsvm-ubuntu-intro.md) bilden är också tillgängliga med många av 
 Innan du kan skapa en Linux Data Science-dator, måste du ha följande:
 
 * **En Azure-prenumeration**: Om du vill skaffa en Se [skaffa Azure kostnadsfria utvärderingsversionen](https://azure.microsoft.com/free/).
-* **Ett Azure storage-konto**: Om du vill skapa en [skapa ett Azure storage-konto](../../storage/common/storage-create-storage-account.md#create-a-storage-account). Du kan också om du inte vill använda ett befintligt konto kan lagringskontot skapas som en del av processen för att skapa den virtuella datorn.
+* **Ett Azure storage-konto**: Om du vill skapa en [skapa ett Azure storage-konto](../../storage/common/storage-quickstart-create-account.md). Du kan också om du inte vill använda ett befintligt konto kan lagringskontot skapas som en del av processen för att skapa den virtuella datorn.
 
 ## <a name="create-your-linux-data-science-virtual-machine"></a>Skapa din Linux virtuell dator för datavetenskap
 Här följer stegen för att skapa en instans av den Linux virtuella datorn för datavetenskap:

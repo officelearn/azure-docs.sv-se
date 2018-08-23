@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/02/2018
+ms.date: 08/16/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d55139a6b0c4da4869c65f0a19eb3f6f3bf31066
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: a497ceab45bb3ace4e3f1ea063ef9c3e33818426
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39481040"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42059258"
 ---
 # <a name="create-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Skapa Azure-SSIS integration runtime i Azure Data Factory
 Den här artikeln innehåller steg för att distribuera en Azure-SSIS integration runtime i Azure Data Factory. Sedan kan du använda SQL Server Data Tools (SSDT) eller SQL Server Management Studio (SSMS) för att distribuera och köra SQL Server Integration Services-paket (SSIS) till den här körningen i Azure. 
@@ -68,7 +68,7 @@ I följande tabell jämförs vissa funktioner i SQL-databas och hanterad instans
 | **Autentisering** | Du kan skapa en databas med ett användarkonto för innesluten databas som representerar alla Azure Active Directory-användare i den **dbmanager** roll.<br/><br/>Se [aktivera Azure AD i Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Du kan inte skapa en databas med ett användarkonto för innesluten databas som representerar alla Azure Active Directory-användare än en Azure AD-administratör. <br/><br/>Se [aktivera Azure AD i Azure SQL Database Managed Instance](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
 | **Tjänstenivå** | När du skapar Azure-SSIS IR på SQL Database kan välja du tjänstnivå för SSISDB. Det finns flera nivåer för tjänster. | När du skapar Azure-SSIS IR på en hanterad instans, kan du inte välja tjänstnivå för SSISDB. Alla databaser på den hanterade instansen delar samma resurs allokeras till instansen. |
 | **Virtuellt nätverk** | Stöder både Azure Resource Manager och klassiska virtuella nätverk. | Stöder endast Azure Resource Manager-nätverk. Virtuellt nätverk måste anges.<br/><br/>Om du sammanfogar din Azure-SSIS IR till samma virtuella nätverk som den hanterade instansen ska du kontrollera att Azure-SSIS IR är i ett annat undernät än den hanterade instansen. Om du ansluta Azure-SSIS IR till ett annat virtuellt nätverk än den hanterade instansen rekommenderar vi virtuell nätverkspeering (som är begränsad till samma region) eller ett virtuellt nätverk för virtuell nätverksanslutning. Se [Anslut ditt program till Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md). |
-| **Distribuerade transaktioner** | Stöds via elastiska transaktioner och anpassad kod. Microsoft Distributed Transaction Coordinator (MSDTC) transaktioner stöds inte. Om dina paket använder MSDTC koordinera distribuerade transaktioner, bör du du migrera elastiska transaktion för SQL-databas. Om du vill använda elastiska transaktioner i dina SSIS-paket, måste du skriva anpassad kod för en aktivitet med skriptet eftersom SSIS inte har inbyggt stöd för elastiska transaktioner. Mer information finns i [distribuerade transaktioner över molndatabaser](../sql-database/sql-database-elastic-transactions-overview.md). | Stöds ej. |
+| **Distribuerade transaktioner** | Microsoft Distributed Transaction Coordinator (MSDTC) transaktioner stöds inte. Om dina paket använder MSDTC koordinera distribuerade transaktioner kan du implementera en tillfällig lösning med hjälp av elastiska transaktioner för SQL-databas. För tillfället har inte SSIS inbyggt stöd för elastiska transaktioner. Du måste skriva anpassad ADO.NET-kod i en skript-aktivitet för att använda elastiska transaktioner i dina SSIS-paket. Detta skript måste innehålla i början och slutet av transaktionen och alla åtgärder som måste finnas i transaktionen.<br/><br/>Mer information om kodning elastiska transaktioner finns i [transaktioner för Elastic Database med Azure SQL Database](https://azure.microsoft.com/en-us/blog/elastic-database-transactions-with-azure-sql-database/). Mer information om elastiska transaktioner i allmänhet finns [distribuerade transaktioner över molndatabaser](../sql-database/sql-database-elastic-transactions-overview.md). | Stöds ej. |
 | | | |
 
 ## <a name="azure-portal"></a>Azure Portal

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/18/2018
+ms.date: 08/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 800ec83b3599dba716e7a4a015b9b8c1745a0975
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 91d1be062dbf05f4c7c9c5c4a1eb3dfcfdb001af
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144575"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42441702"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Få insyn i klienttäckande för Azure Security Center
 Den här artikeln hjälper dig att komma igång genom att göra flera åtgärder och maximerar fördelarna Azure Security Center tillhandahåller. Utför dessa åtgärder kan du få insyn i alla Azure-prenumerationer som är länkade till din Azure Active Directory-klient och effektivt sätt hantera din organisations säkerhetsposition i stor skala genom att tillämpa säkerhetsprinciper på flera prenumerationer på ett aggregative sätt.
@@ -85,21 +85,26 @@ En Azure Active Directory-klientadministratör har inte direkt åtkomst till Azu
 
 5. Utföra uppgifter som du behöver göra på den utökade behörigheten. Ange växeln när du är klar, tillbaka till **nr**.
 
-### <a name="open-or-refresh-security-center"></a>Öppnar eller uppdaterar Security Center
-När du har haft utökade åtkomst, öppnar eller uppdaterar Azure Security Center för att kontrollera att du har insyn i alla prenumerationer under Azure AD-klienten. 
-
-1. Logga in på [Azure Portal](https://portal.azure.com). 
-2. Se till att du väljer alla prenumerationer i väljaren för prenumerationen som du vill visa i Security Center.
-    ![Skärmbild av prenumeration väljare](./media/security-center-management-groups/subscription-selector.png)
-1. Välj **alla tjänster** under Azure-huvudmenyn väljer **Security Center**.
-2. I den **översikt**, det finns ett diagram för täckning av prenumerationen. 
-    ![Prenumeration täckning diagrammet skärmbild](./media/security-center-management-groups/security-center-subscription-coverage.png)
-3. Klicka på **täckning** att se listan över prenumerationer som omfattas. 
-    ![Prenumeration täckning lista skärmbild](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="assign-rbac-roles-to-users"></a>Tilldela RBAC-roller till användare
-När en Innehavaradministratör förhöjd åtkomst, kan de tilldela RBAC-roll för relevanta användarna på rotnivå för management-grupp. Den rekommenderade rollen tilldelas är [ **läsare**](../role-based-access-control/built-in-roles.md#reader). Den här rollen krävs för att tillhandahålla på klientnivå synlighet. Den tilldelade rollen överförs automatiskt till alla hanteringsgrupper och -prenumerationer under rot-hanteringsgruppen. Mer information om RBAC-roller finns i [tillgängliga roller](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles). 
+För att få insyn till alla prenumerationer, måste innehavaradministratörer du tilldela lämpliga RBAC-roll till några användare de vill bevilja klienttäckande synlighet, inklusive själva på rotnivå management group. Antingen är de rekommenderade rollerna att tilldela **säkerhetsadministratör** eller **Säkerhetsläsare**. I allmänhet krävs rollen säkerhetsadministratör för att tillämpa principer på rotnivå, medan Säkerhetsläsare räcker för att tillhandahålla klient-nivå. Mer information om de behörigheter som beviljats av dessa roller finns i den [säkerhetsadministratör inbyggda Rollbeskrivning](../role-based-access-control/built-in-roles.md#security-admin) eller [Säkerhetsläsare inbyggda Rollbeskrivning](../role-based-access-control/built-in-roles.md#security-reader).
 
+
+#### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Tilldela RBAC-roller till användare via Azure portal: 
+
+1. Logga in på [Azure Portal](https://portal.azure.com). 
+2. Om du vill visa hanteringsgrupper, Välj **alla tjänster** under Azure-huvudmenyn väljer **Hanteringsgrupper**.
+3.  Välj en hanteringsgrupp och klickar på **information**.
+
+    ![Hantering av grupper information skärmbild](./media/security-center-management-groups/management-group-details.PNG)
+ 
+4. Klicka på **åtkomstkontroll (IAM)** sedan **Lägg till**.
+5. Rollen för att tilldela och användaren och sedan klicka på **spara**.  
+   
+   ![Lägg till Säkerhetsläsare rollskärmbilden](./media/security-center-management-groups/asc-security-reader.png)
+
+
+#### <a name="assign-rbac-roles-to-users-with-powershell"></a>Tilldela RBAC-roller till användare med PowerShell: 
 1. [Installera Azure PowerShell](/powershell/azure/install-azurerm-ps).
 2. Kör följande kommandon: 
 
@@ -128,19 +133,17 @@ När en Innehavaradministratör förhöjd åtkomst, kan de tilldela RBAC-roll f�
     Remove-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
     ```
 
-<!-- Currently, PowerShell method only 6/26/18
+### <a name="open-or-refresh-security-center"></a>Öppnar eller uppdaterar Security Center
+När du har haft utökade åtkomst, öppnar eller uppdaterar Azure Security Center för att kontrollera att du har insyn i alla prenumerationer under Azure AD-klienten. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
-2. To view management groups, select **All services** under the Azure main menu then select **Management Groups**.
-3.  Select a management group and click **details**.
-
-    ![Management Groups details screenshot](./media/security-center-management-groups/management-group-details.PNG)
- 
-4. Click **Access control (IAM)** then **Add**.
-5. Select the role to assign and the user, then click **Save**.  
-   
-   ![Add Security Reader role screenshot](./media/security-center-management-groups/asc-security-reader.png)
--->
+1. Logga in på [Azure Portal](https://portal.azure.com). 
+2. Kontrollera att du väljer alla prenumerationer i väljaren för prenumerationen som du vill visa i Security Center.
+    ![Skärmbild av prenumeration väljare](./media/security-center-management-groups/subscription-selector.png)
+1. Välj **alla tjänster** under Azure-huvudmenyn väljer **Security Center**.
+2. I den **översikt**, det finns ett diagram för täckning av prenumerationen. 
+    ![Prenumeration täckning diagrammet skärmbild](./media/security-center-management-groups/security-center-subscription-coverage.png)
+3. Klicka på **täckning** att se listan över prenumerationer som omfattas. 
+    ![Prenumeration täckning lista skärmbild](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="remove-elevated-access"></a>Ta bort utökad åtkomst 
 När RBAC-roller har tilldelats till användarna, klientadministratören ska ta bort sig själv från administratörsrollen för användaråtkomst.

@@ -8,18 +8,19 @@ manager: craigg
 ms.assetid: 7398c0c9-7a03-4628-94b3-f2aaef4a72c5
 ms.service: data-factory
 ms.workload: data-services
+ms.custom: vs-azure
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 02c9d3715d8c4632bf19512cd9ffee64e4a22e8a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 41ffd50f791cd380cd66a6eb5cb3c013da9bc43a
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047028"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42282321"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Självstudiekurs: Skapa en datafabrik med hjälp av Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -52,7 +53,7 @@ Här är de steg du utför i självstudiekursen:
     I den här självstudiekursen är både indata och utdata för Hive-aktiviteten i samma Azure Blob Storage. Du kan använda HDInsight-kluster på begäran för att bearbeta befintliga indata för att generera utdata. HDInsight-kluster på begäran skapas automatiskt åt dig av Azure Data Factory vid körning när indata är redo att bearbetas. Du måste länka dina datalager eller beräkningar till din datafabrik så att Data Factory-tjänsten kan ansluta till dem vid körning. Du ska alltså länka ditt Azure Storage-konto till datafabriken med hjälp av AzureStorageLinkedService1 och länka ett HDInsight-kluster på begäran med hjälp av HDInsightOnDemandLinkedService1. När du publicerar kan du ange namnet på datafabriken som ska skapas eller en befintlig datafabrik.  
 2. Skapa två datauppsättningar: **InputDataset** och **OutputDataset**, som visar de in- och utdata som lagras i Azure Blob Storage. 
    
-    Dessa datauppsättningsdefinitioner avser den länkade Azure Storage-tjänsten som du skapade i föregående steg. För InputDataset anger du blobbehållaren (adfgetstarted) och den mapp (inptutdata) som innehåller en blob med indata. För OutputDataset anger du blobbehållaren (adfgetstarted) och den mapp (partitioneddata) som innehåller en blob med utdata. Du kan också ange andra egenskaper som struktur, tillgänglighet och princip.
+    Dessa datauppsättningsdefinitioner avser den länkade Azure Storage-tjänsten som du skapade i föregående steg. För InputDataset anger du blobcontainern (adfgetstarted) och den mapp (inptutdata) som innehåller en blob med indata. För OutputDataset anger du blobcontainern (adfgetstarted) och den mapp (partitioneddata) som innehåller en blob med utdata. Du kan också ange andra egenskaper som struktur, tillgänglighet och princip.
 3. Skapa en pipeline med namnet **MyFirstPipeline**. 
   
     Pipelinen i den här självstudiekursen har en aktivitet: **HDInsight Hive-aktivitet**. Den här aktiviteten omvandlar indata till utdata genom att köra Hive-skript på ett HDInsight-kluster på begäran. Mer information om Hive-aktiviteter finns i [Hive-aktivitet](data-factory-hive-activity.md) 
@@ -126,15 +127,15 @@ Med den länkade tjänsten HDInsight på begäran skapas HDInsight-klustret auto
     linkedServiceName | Anger lagringskontot som används för att spara loggarna som genereras av HDInsight Hadoop-klustret. 
 
     > [!IMPORTANT]
-    > HDInsight-klustret skapar en **standardbehållare** i den bloblagring som du angav i JSON (linkedServiceName). HDInsight tar inte bort den här behållaren när klustret tas bort. Det här beteendet är avsiktligt. Med den länkade tjänsten HDInsight på begäran skapas ett HDInsight-kluster varje gång en sektor bearbetas, såvida det inte finns ett befintligt live-kluster (timeToLive). Klustret tas bort automatiskt när bearbetningen är klar.
+    > HDInsight-klustret skapar en **standardcontainer** i den bloblagring som du angav i JSON (linkedServiceName). HDInsight tar inte bort den här containern när klustret tas bort. Det här beteendet är avsiktligt. Med den länkade tjänsten HDInsight på begäran skapas ett HDInsight-kluster varje gång en sektor bearbetas, såvida det inte finns ett befintligt live-kluster (timeToLive). Klustret tas bort automatiskt när bearbetningen är klar.
     > 
-    > Allteftersom fler sektorer bearbetas kan du se mång behållare i ditt Azure Blob Storage. Om du inte behöver dem för att felsöka jobb, kan du ta bort dem för att minska lagringskostnaderna. Namnen på de här behållarna följer ett mönster: `adf<yourdatafactoryname>-<linkedservicename>-datetimestamp`. Använd verktyg som [Microsoft Lagringsutforskaren](http://storageexplorer.com/) till att ta bort behållare i din Azure Blob-lagring.
+    > Allteftersom fler sektorer bearbetas kan du se många containrar i ditt Azure Blob Storage. Om du inte behöver dem för att felsöka jobb, kan du ta bort dem för att minska lagringskostnaderna. Namnen på de här containrarna följer ett mönster: `adf<yourdatafactoryname>-<linkedservicename>-datetimestamp`. Använd verktyg som [Microsoft Lagringsutforskaren](http://storageexplorer.com/) till att ta bort containrar i din Azure bloblagring.
 
     Mer information om JSON-egenskaper finns i artikeln [Länkade tjänster för Compute](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
 4. Spara filen **HDInsightOnDemandLinkedService1.json**.
 
 ### <a name="create-datasets"></a>Skapa datauppsättningar
-I det här steget skapar du datauppsättningar som ska representera in- och utdata för Hive-bearbetning. Dessa datauppsättningar avser den **AzureStorageLinkedService1** som du skapade tidigare i den här självstudien. Den länkade tjänsten pekar på ett Azure Storage-konto och datauppsättningarna anger behållare, mapp och filnamn i det lagringsutrymme som innehåller indata och utdata.   
+I det här steget skapar du datauppsättningar som ska representera in- och utdata för Hive-bearbetning. Dessa datauppsättningar avser den **AzureStorageLinkedService1** som du skapade tidigare i den här självstudien. Den länkade tjänsten pekar på ett Azure-lagringskonto och datauppsättningarna anger container, mapp och filnamn i det lagringsutrymme som innehåller indata och utdata.   
 
 #### <a name="create-input-dataset"></a>Skapa indatauppsättning
 1. I **Solution Explorer** högerklickar du på **Tabeller**, pekar på **Lägg till** och klickar på **Nytt objekt**.
@@ -164,7 +165,7 @@ I det här steget skapar du datauppsättningar som ska representera in- och utda
         }
     }
     ```
-    Det här JSON-kodfragmentet definierar en datauppsättning med namnet **AzureBlobInput** som representerar indata för Hive-aktiviteten i pipelinen. Du anger att indata finns i blobbehållaren `adfgetstarted` och i mappen `inputdata`.
+    Det här JSON-kodfragmentet definierar en datauppsättning med namnet **AzureBlobInput** som representerar indata för Hive-aktiviteten i pipelinen. Du anger att indata finns i blobcontainern `adfgetstarted` och i mappen `inputdata`.
 
     Följande tabell innehåller beskrivningar av de JSON-egenskaper som användes i kodfragmentet:
 
@@ -206,7 +207,7 @@ Nu skapar du den utdatauppsättning som representerar de utdata som lagras i Azu
         }
     }
     ```
-    Det här JSON-kodfragmentet definierar en datauppsättning med namnet **AzureBlobOutput** som representerar utdata för Hive-aktiviteten i pipelinen. Du anger att utdata som genereras av Hive-aktiviteten finns i blobbehållaren `adfgetstarted` och i mappen `partitioneddata`. 
+    Det här JSON-kodfragmentet definierar en datauppsättning med namnet **AzureBlobOutput** som representerar utdata för Hive-aktiviteten i pipelinen. Du anger att utdata som genereras av Hive-aktiviteten finns i blobcontainern `adfgetstarted` och i mappen `partitioneddata`. 
     
     I avsnittet **tillgänglighet** anges att utdatauppsättningen skapas månadsvis. Utdatauppsättningen styr schemat för pipelinen. Pipelinen körs varje månad mellan dess start- och sluttider. 
 
@@ -275,7 +276,7 @@ Du har skapat den länkade Azure Storage-tjänsten och in- och utdatauppsättnin
 
     I typegenskaperna som är specifika för HDInsight Hive-aktiviteten anger du vilken länkad Azure Storage-tjänst som har Hive-skriptfilen, sökvägen till skriptfilen och parametrar till skriptfilen. 
 
-    Hive-skriptfilen **partitionweblogs.hql** lagras på Azure-lagringskontot (anges med scriptLinkedService), och i mappen `script` i behållaren `adfgetstarted`.
+    Hive-skriptfilen **partitionweblogs.hql** lagras på Azure-lagringskontot (anges med scriptLinkedService), och i mappen `script` i containern `adfgetstarted`.
 
     Avsnittet `defines` används för att ange körningsinställningar som skickas till Hive-skriptet som Hive-konfigurationsvärden (till exempel `${hiveconf:inputtable}`, `${hiveconf:partitionedtable})`.
 
@@ -288,7 +289,7 @@ Du har skapat den länkade Azure Storage-tjänsten och in- och utdatauppsättnin
 1. Högerklicka på **Beroenden** i fönstret **Solution Explorer**, peka på **Lägg till** och klicka på **Befintligt objekt**.  
 2. Gå till **C:\ADFGettingStarted** och markera filerna **partitionweblogs.hql**, **input.log**. Klicka på **Lägg till**. Du har skapat dessa två filer som en del av förutsättningarna från [Självstudier – översikt](data-factory-build-your-first-pipeline.md).
 
-När du publicerar lösningen i nästa steg laddas filen **partitionweblogs.hql** upp till **skript**-mappen i blobbehållaren `adfgetstarted`.   
+När du publicerar lösningen i nästa steg laddas filen **partitionweblogs.hql** upp till **skript**-mappen i blobcontainern `adfgetstarted`.   
 
 ### <a name="publishdeploy-data-factory-entities"></a>Publicera/distribuera Data Factory-entiteter
 I det här steget publicerar du datafabriksentiteter (länkade tjänster, datauppsättningar och pipeline) i projektet till Azure Data Factory-tjänsten. Vid publiceringen anger du namnet på datafabriken. 
@@ -362,7 +363,7 @@ I det här steget övervakar du pipelinen med hjälp av datafabrikens diagramvy.
     ![Vyn Öppna pipeline](./media/data-factory-build-your-first-pipeline-using-vs/open-pipeline-view.png)
 
     Om du vill gå tillbaka till den föregående vyn klickar du på **Datafabrik** i adressfältmenyn längst upp.
-6. Dubbelklicka på datauppsättningen **AzureBlobInput** i **diagramvyn**. Kontrollera att sektorn har statusen **Klar**. Det kan ta några minuter innan sektorn visas med statusen Klar. Om det inte händer trots att du har väntat ett tag, kontrollerar du att du har indatafilen (input.log) placerad i rätt behållare (`adfgetstarted`) och mapp (`inputdata`). Och se till att egenskapen **external** för indatauppsättningen är inställd på **true**. 
+6. Dubbelklicka på datauppsättningen **AzureBlobInput** i **diagramvyn**. Kontrollera att sektorn har statusen **Klar**. Det kan ta några minuter innan sektorn visas med statusen Klar. Om det inte händer trots att du har väntat ett tag, kontrollerar du att du har indatafilen (input.log) placerad i rätt container (`adfgetstarted`) och mapp (`inputdata`). Och se till att egenskapen **external** för indatauppsättningen är inställd på **true**. 
 
    ![Indatasektor med statusen Klar](./media/data-factory-build-your-first-pipeline-using-vs/input-slice-ready.png)
 7. Klicka på **X** för att stänga bladet **AzureBlobInput**.
@@ -375,7 +376,7 @@ I det här steget övervakar du pipelinen med hjälp av datafabrikens diagramvy.
    > Att skapa ett HDInsight-kluster på begäran kan ta lite längre tid (cirka 20 minuter). Förvänta dig därför att det tar **cirka 30 minuter** för pipelinen att bearbeta sektorn.  
    
     ![Datauppsättning](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)    
-10. När sektorn har statusen **Redo**, kontrollerar du mappen `partitioneddata` i behållaren `adfgetstarted` i ditt Blob Storage för utdata.  
+10. När sektorn har statusen **Redo**, kontrollerar du mappen `partitioneddata` i containern `adfgetstarted` i ditt Blob Storage för utdata.  
 
     ![utdata](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
 11. Klicka på sektorn om du vill se information om den i ett **Datasektor**-blad.
@@ -402,7 +403,7 @@ Du kan också använda övervaknings- och hanteringsprogrammet till att övervak
     ![Aktivitetsfönsterinformation](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-details.png)
 
 > [!IMPORTANT]
-> Indatafilen tas bort när sektorn har bearbetats. Om du vill köra sektorn eller gå igenom självstudien igen laddar du därför upp indatafilen (input.log) till mappen `inputdata` i behållaren`adfgetstarted`.
+> Indatafilen tas bort när sektorn har bearbetats. Om du vill köra sektorn eller gå igenom självstudien igen laddar du därför upp indatafilen (input.log) till mappen `inputdata` i containern`adfgetstarted`.
 
 ### <a name="additional-notes"></a>Ytterligare information
 - En datafabrik kan ha en eller flera pipelines. En pipeline kan innehålla en eller flera aktiviteter. Till exempel, en kopieringsaktivitet som kopierar data från en källa till en måldatalagring och en HDInsight Hive-aktivitet som kör ett Hive-skript som omvandlar indata. I [stödda datalager](data-factory-data-movement-activities.md#supported-data-stores-and-formats) står alla källor och mottagare som stöds av Kopiera aktivitet. Se [Beräkna länkade tjänster](data-factory-compute-linked-services.md) för att se listan över Compute Services som stöds av Data Factory.
@@ -410,9 +411,9 @@ Du kan också använda övervaknings- och hanteringsprogrammet till att övervak
 - Se [Flytta data från/till Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-service) för mer information om JSON-egenskaper som används i definitionen för den länkade Azure Storage-tjänsten.
 - Du kan använda ditt eget HDInsight-kluster i stället för att använda ett HDInsight-kluster på begäran. Se [Beräkna länkade tjänster](data-factory-compute-linked-services.md) för mer information.
 -  Data Factory skapar ett **Linux-baserat** HDInsight-kluster åt dig med ovanstående JSON. Se [HDInsight-länkad tjänst på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) för mer information.
-- HDInsight-klustret skapar en **standardbehållare** i den bloblagring som du angav i JSON (linkedServiceName). HDInsight tar inte bort den här behållaren när klustret tas bort. Det här beteendet är avsiktligt. Med den länkade tjänsten HDInsight på begäran skapas ett HDInsight-kluster varje gång en sektor bearbetas, såvida det inte finns ett befintligt live-kluster (timeToLive). Klustret tas bort automatiskt när bearbetningen är klar.
+- HDInsight-klustret skapar en **standardcontainer** i den bloblagring som du angav i JSON (linkedServiceName). HDInsight tar inte bort den här containern när klustret tas bort. Det här beteendet är avsiktligt. Med den länkade tjänsten HDInsight på begäran skapas ett HDInsight-kluster varje gång en sektor bearbetas, såvida det inte finns ett befintligt live-kluster (timeToLive). Klustret tas bort automatiskt när bearbetningen är klar.
     
-    Allteftersom fler sektorer bearbetas kan du se mång behållare i ditt Azure Blob Storage. Om du inte behöver dem för att felsöka jobb, kan du ta bort dem för att minska lagringskostnaderna. Namnen på de här behållarna följer ett mönster: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Använd verktyg som [Microsoft Lagringsutforskaren](http://storageexplorer.com/) till att ta bort behållare i din Azure Blob-lagring.
+    Allteftersom fler sektorer bearbetas kan du se många containrar i ditt Azure Blob Storage. Om du inte behöver dem för att felsöka jobb, kan du ta bort dem för att minska lagringskostnaderna. Namnen på de här containrarna följer ett mönster: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Använd verktyg som [Microsoft Lagringsutforskaren](http://storageexplorer.com/) till att ta bort containrar i din Azure bloblagring.
 - För närvarande är det utdatauppsättningen som skapar schemat. Därför måste du skapa en utdatauppsättning även om aktiviteten inte genererar några utdata. Om aktiviteten inte får några indata, kan du hoppa över att skapa indatauppsättningen. 
 - Den här självstudiekursen visar inte hur du kopiera data med hjälp av Azure Data Factory. En självstudiekurs om hur du kopierar data med Azure Data Factory finns i [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Självstudie: Kopiera data från Blob Storage till SQL Database).
 

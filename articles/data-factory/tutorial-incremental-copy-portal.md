@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 6d63a443da0fd331d02039ed3a3715dbc59f273b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f1803dd051b380743b56f4f026ee5c5fb684ce69
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051475"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41920120"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Läsa in data stegvis från en Azure SQL-databas till Azure Blob Storage
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta-data från en tabell i en Azure SQL-databas till Azure Blob Storage. 
@@ -65,7 +65,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 * **Azure SQL Database**. Du använder databasen som källa för datalagringen. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL Database](../sql-database/sql-database-get-started-portal.md).
-* **Azure Storage**. Du kan använda blob-lagringen som mottagare för datalagringen. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account). Skapa en behållare med namnet adftutorial. 
+* **Azure Storage**. Du kan använda blob-lagringen som mottagare för datalagringen. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md). Skapa en container med namnet adftutorial. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Skapa en datatabell i din SQL-databas
 1. Öppna SQL Server Management Studio. I **Server Explorer** högerklickar du på databasen och väljer **Ny fråga**.
@@ -287,7 +287,8 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 27. På fliken **Anslutning** och gör följande:
 
     1. Bekräfta att **AzureStorageLinkedService** har valts för **Länkad tjänst**. 
-    2. För **mappdelen** i fältet **Filsökväg** anger du **adftutorial/incrementalcopy**. **adftutorial** är blobbehållarens namn och **incrementalcopy** är mappens namn. Det här kodfragmentet förutsätter att du har en blobbehållare med namnet adftutorial i din blob-lagring. Skapa behållaren om den inte finns, eller ställ in den för namnet på en befintlig. Azure Data Factory skapar automatiskt utdatamappen **incrementalcopy** om den inte finns. Du kan också använda knappen **Bläddra** för **Filsökväg** för att navigera till en mapp i en blobbehållare. .RunId, '.txt')`.
+    2. För **mappdelen** i fältet **Filsökväg** anger du **adftutorial/incrementalcopy**. 
+  **adftutorial** är blobcontainerns namn och **incrementalcopy** är mappens namn. Det här kodfragmentet förutsätter att du har en blobcontainer med namnet adftutorial i din blob-lagring. Skapa containern om den inte finns, eller ställ in den för namnet på en befintlig. Azure Data Factory skapar automatiskt utdatamappen **incrementalcopy** om den inte finns. Du kan också använda knappen **Bläddra** för **Filsökväg** för att navigera till en mapp i en blobcontainer. .RunId, '.txt')`.
     3. För **filnamnsdelen** av fältet med **filsökväg** ange du `@CONCAT('Incremental-', pipeline().RunId, '.txt')`. Filnamnet genereras dynamiskt med uttrycket. Varje pipelinekörning har ett unikt ID. Kopieringsaktiviteten använder körnings-ID för att generera filnamnet. 
 
         ![Datauppsättning för mottagare – anslutningsinställningar](./media/tutorial-incremental-copy-portal/sink-dataset-connection-settings.png)
@@ -335,7 +336,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
     ![Aktivitetskörningar](./media/tutorial-incremental-copy-portal/activity-runs.png)
 
 ## <a name="review-the-results"></a>Granska resultaten
-1. Anslut till Azure Storage-kontot med verktyg som [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Kontrollera att en utdatafil har skapats i mappen **incrementalcopy** i **adftutorial**-behållaren.
+1. Anslut till Azure Storage-kontot med verktyg som [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Kontrollera att en utdatafil har skapats i mappen **incrementalcopy** i **adftutorial**-containern.
 
     ![Den första utdatafilen](./media/tutorial-incremental-copy-portal/first-output-file.png)
 2. Öppna utdatafilen och notera att alla data har kopierats från **data_source_table** till blobfilen. 

@@ -8,18 +8,19 @@ manager: craigg
 ms.assetid: 1751185b-ce0a-4ab2-a9c3-e37b4d149ca3
 ms.service: data-factory
 ms.workload: data-services
+ms.custom: vs-azure
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 135cfbb148f2e47819c41c7874e4a5e08335f6bf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 475199ebe04a62a3c26860ea13820ae3a7ffdf07
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452574"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42424394"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Självstudie: Skapa en pipeline med en kopieringsaktivitet med hjälp av Visual Studio
 > [!div class="op_single_selector"]
@@ -59,12 +60,12 @@ Här är de steg du utför som en del av de här självstudierna:
 
 1. Skapa **länkade tjänster** i den här datafabriken. I det här steget kan du skapa två länkade tjänster: Azure Storage och Azure SQL-databas. 
     
-    AzureStorageLinkedService länkar ditt Azure Storage-konto till datafabriken. Du har skapat en behållare och överfört data till det här lagringskontot som en del av [förhandskraven](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
+    AzureStorageLinkedService länkar ditt Azure Storage-konto till datafabriken. Du har skapat en container och överfört data till det här lagringskontot som en del av [förhandskraven](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
     AzureSqlLinkedService länkar din Azure SQL-databas till datafabriken. Data som kopieras från blob-lagringen sparas i den här databasen. Du har skapat den SQL-tabellen i den här databasen som en del av [förhandskraven](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).     
 2. Skapa **datauppsättningar** för indata och utdata i datafabriken.  
     
-    Den länkade Azure storage-tjänsten anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till ditt Azure storage-konto. Och en Azure Blob-datauppsättning anger vilken blobbehållare och mapp som innehåller data.  
+    Den länkade Azure storage-tjänsten anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till ditt Azure storage-konto. Och en Azure Blob-datauppsättning anger vilken blobcontainer och mapp som innehåller data.  
 
     Den länkade Azure SQL-databasen anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till ditt Azure SQL-databas. Och utdatauppsättningen för SQL-tabellen anger tabellen i databasen som data kopieras till från blob-lagringen.
 3. Skapa en **pipeline** i datafabriken. I det här steget kan du skapa en pipeline med en kopieringsaktivitet.   
@@ -86,7 +87,7 @@ Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager o
 
 Därför kan du skapa två länkade tjänster: AzureStorage och AzureSqlDatabase.  
 
-AzureStorageLinkedService länkar ditt Azure Storage-konto till datafabriken. Använd det lagringskonto i vilket du skapade en behållare och laddade upp data under [förberedelsestegen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
+AzureStorageLinkedService länkar ditt Azure Storage-konto till datafabriken. Använd det lagringskonto i vilket du skapade en container och laddade upp data under [förberedelsestegen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
 AzureSQLLinkedService länkar din Azure SQL-databas till datafabriken. Data som kopieras från blob-lagringen sparas i den här databasen. Du har skapat den tomma tabellen i den här databasen som en del av [förhandskraven](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
@@ -116,12 +117,12 @@ Länkade tjänster länkar datalager eller beräkningstjänster till en Azure-da
 ## <a name="create-datasets"></a>Skapa datauppsättningar
 I det föregående steget skapade du kopplade tjänster för att länka ett Azure-lagringskonto och en Azure SQL-databas till datafabriken. I det här steget definierar du två datauppsättningar – InputDataset och OutputDataset – som visar in- och utdata som lagras i de datalager som refereras till av AzureStorageLinkedService1 och AzureSqlLinkedService1.
 
-Den länkade Azure storage-tjänsten anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till ditt Azure storage-konto. Och en indatauppsättning anger vilken blobbehållare och mapp som innehåller indata.  
+Den länkade Azure storage-tjänsten anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till ditt Azure storage-konto. Och en indatauppsättning anger vilken blobcontainer och mapp som innehåller indata.  
 
 Den länkade Azure SQL-databasen anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till ditt Azure SQL-databas. Och utdatauppsättningen (OutputDataset) för SQL-tabellen anger tabellen i databasen som data kopieras till från blob-lagringen. 
 
 ### <a name="create-input-dataset"></a>Skapa indatauppsättning
-I det här steget skapar du en datauppsättning med namnet InputDataset som pekar på en blobfil (emp.ext) i rotmappen i en blobbehållare (adftutorial) i Azure Storage som representeras av den länkade tjänsten AzureStorageLinkedService1. Om du inte anger ett värde för filnamnet (eller hoppar över det), kommer data från alla blobbar i indatamappen att kopieras till målet. I den här kursen anger du ett värde för filnamnet. 
+I det här steget skapar du en datauppsättning med namnet InputDataset som pekar på en blobfil (emp.ext) i rotmappen i en blobcontainer (adftutorial) i Azure Storage som representeras av den länkade tjänsten AzureStorageLinkedService1. Om du inte anger ett värde för filnamnet (eller hoppar över det), kommer data från alla blobbar i indatamappen att kopieras till målet. I den här kursen anger du ett värde för filnamnet. 
 
 Här kan använda du termen ”tabeller” i stället för ”datauppsättningar”. En tabell är en rektangulär datauppsättning och är den enda typen av datauppsättning som stöds för tillfället. 
 
@@ -166,11 +167,11 @@ Här kan använda du termen ”tabeller” i stället för ”datauppsättningar
     |:--- |:--- |
     | typ | Typegenskapen har angetts till **AzureBlob** eftersom det finns data i Azure Blob-lagringen. |
     | linkedServiceName | Refererar till **AzureStorageLinkedService** som du skapade tidigare. |
-    | folderPath | Anger vilken **blobbehållare** och **mapp** som innehåller indatablobbar. I den här självstudiekursen adftutorial är blob-behållaren och -mappen rotmappen. | 
+    | folderPath | Anger vilken **blobcontainer** och **mapp** som innehåller indatablobar. I den här självstudiekursen adftutorial är blobcontainern och -mappen rotmappen. | 
     | fileName | Den här egenskapen är valfri. Om du tar bort egenskapen kommer alla filer från folderPath hämtas. I den här självstudiekursen har angetts **emp.txt** som filnamn så att endast den filen hämtas för bearbetning. |
     | format -> typ |Indatafilen är i textformat, så vi använder **TextFormat**. |
     | columnDelimiter | Kolumner i loggfilerna avgränsas med **kommatecken (`,`)**. |
-    | frekvens/intervall | Frekvensen är **timme** och intervallet är **1**, vilket innebär att indatasektorerna är tillgängliga en gång i **timmen**. Det betyder att tjänsten Data Factory söker efter indata varje timme i rotmappen för den angivna blobbehållaren (**adftutorial**). Den söker data i pipelinens start- och sluttider och inte före eller efter dessa tider.  |
+    | frekvens/intervall | Frekvensen är **timme** och intervallet är **1**, vilket innebär att indatasektorerna är tillgängliga en gång i **timmen**. Det betyder att tjänsten Data Factory söker efter indata varje timme i rotmappen för den angivna blobcontainern (**adftutorial**). Den söker data i pipelinens start- och sluttider och inte före eller efter dessa tider.  |
     | extern | Den här egenskapen anges som **true** om indatan inte skapades av denna pipeline. Inkommande data i den här självstudien finns i filen emp.txt som genereras av denna pipeline, så vi ställer in den här egenskapen på true. |
 
     Mer information om de här JSON-egenskaperna finns i artikeln [Azure Blob-anslutningsapp](data-factory-azure-blob-connector.md#dataset-properties).   

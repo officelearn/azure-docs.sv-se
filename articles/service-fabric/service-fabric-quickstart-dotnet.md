@@ -11,20 +11,20 @@ ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
-ms.custom: mvc, devcenter
-ms.openlocfilehash: f04af62dc555c6c05313b9d0cd7b0231aac7d3aa
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.custom: mvc, devcenter, vs-azure
+ms.openlocfilehash: 11e8f34bf409d6c158e84d6f92baaf59ad4a1e94
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110090"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42210809"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Snabbstart: Distribuera en .NET-app (tillförlitliga tjänster) till Service Fabric
 
-Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av skalbara och tillförlitliga mikrotjänster och behållare.
+Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av skalbara och tillförlitliga mikrotjänster och containrar.
 
 Den här snabbstarten visar hur du distribuerar ditt första .NET-program i Service Fabric. När du är klar har du ett röstningsprogam med en ASP.NET Core-klientdel som sparar röstningsresultat i en tillståndskänslig serverdelstjänst i klustret.
 
@@ -40,7 +40,7 @@ Med det här programmet får du lära dig att:
 * Skala programmet över flera noder
 * Utföra en löpande programuppgradering
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här snabbstarten behöver du:
 

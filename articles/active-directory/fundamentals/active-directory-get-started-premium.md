@@ -13,12 +13,12 @@ ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro;
-ms.openlocfilehash: c15cbb632410eb0b6867677d7802960033dfdd44
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: a5ede142b7f3dd314d1a6b3eb8f100ec55a4ea4e
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268390"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42022647"
 ---
 # <a name="quickstart-sign-up-for-azure-active-directory-premium"></a>Snabbstart: Registrera dig för Azure Active Directory Premium
 Du kommer igång med Azure Active Directory (Azure AD) Premium genom att först köpa licenser och koppla dem till din Azure-prenumeration. Om du skapar en ny Azure-prenumeration måste du även aktivera din licensieringsplan och åtkomst till Azure AD-tjänsten enligt beskrivningen i följande avsnitt. 
@@ -46,7 +46,7 @@ Kom igång med Azure AD via EMS-licenser med något av följande licensieringsal
 ### <a name="microsoft-volume-licensing"></a>Microsoft-volymlicensiering
 Azure Active Directory Premium är tillgängligt genom ett [Microsoft Enterprise-avtal](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 eller fler licenser) eller genom [Open Volume-licensprogrammet](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5–250 licenser).
 
-Läs mer om att alternativ för köp via volymlicensiering på sidan [How to purchase through Volume Licensing](https://www.microsoft.com/en-us/Licensing/how-to-buy/how-to-buy.aspx) (Så här köper du via volymlicensieringsprogram).
+Läs mer om att alternativ för köp via volymlicensiering på sidan [How to purchase through Volume Licensing](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx) (Så här köper du via volymlicensieringsprogram).
 
 > [!NOTE]
 > Azure Active Directory Premium och Basic är tillgängliga för kunder i Kina genom den globala instansen av Azure Active Directory. Azure Active Directory Premium och Basic stöds inte för närvarande i Microsoft Azure-tjänsten som drivs av 21Vianet i Kina. Om du vill ha mer information kontaktar du oss via [Azure Active Directory-forumet](https://feedback.azure.com/forums/169401-azure-active-directory/).

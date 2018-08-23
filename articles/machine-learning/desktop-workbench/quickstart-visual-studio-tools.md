@@ -2,22 +2,20 @@
 title: Snabbstartsartikel för Visual Studio Tools for Machine Learning på Azure | Microsoft Docs
 description: Den här artikeln beskriver hur du kommer igång med Visual Studio Tools for Machine Learning, från att skapa ett experiment, träna en modell och operationalisera en webbtjänst.
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.workload: data-services
+author: chris-lauren
+ms.author: chris.lauren
 ms.service: machine-learning
 ms.component: core
-ms.workload: data-services
-ms.custom: mvc
+ms.custom: mvc, vs-azure
 ms.topic: quickstart
 ms.date: 11/15/2017
-ms.openlocfilehash: 735bfd911a738d4e71974f5cdcd94afa50acc502
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 94bca4d7670b1ec6fba5057b8295f7a3caac2968
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932990"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42024376"
 ---
 # <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools för AI
 Visual Studio Tools för AI är ett tillägg i Visual Studio Code för att skapa, testa och distribuera djupinlärnings- och AI-lösningar. Tillägget är smidigt integrerat med Azure Machine Learning, till exempel en vy över körningshistorik med information om prestanda för tidigare träningar och anpassade mått. Det har också en utforskarvy med exempel för att söka efter och starta nya projekt med [Microsoft Cognitive Toolkit (kallades tidigare CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) och andra djupinlärningsramverk. Den innehåller även en utforskare för beräkningsmål som gör att du kan skicka jobb för att träna modeller i fjärrmiljöer som Azure Virtual Machines eller Linux-servrar med GPU. Det ger också en förenklad åtkomst till [Azure Batch AI (förhandsversion)](https://docs.microsoft.com/azure/batch-ai/).

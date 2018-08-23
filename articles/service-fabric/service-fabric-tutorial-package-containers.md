@@ -16,26 +16,26 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: be4ac20f578dc670a3d9c83124504c37e57ee9bf
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 952550225f2bdd8559d72a9d283993451ae7f60b
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37108781"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616351"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Självstudie: Paketera och distribuera containers som en Service Fabric-app med Yeoman
 
-Den här självstudien är del två i en serie. I den här självstudien används ett verktyg för mallgenerering (Yeoman) för att skapa en Service Fabric-programdefinition. Programmet kan sedan användas för att distribuera behållare till Service Fabric. I den här självstudiekursen får du lära du dig att:
+Den här självstudien är del två i en serie. I den här självstudien används ett verktyg för mallgenerering (Yeoman) för att skapa en Service Fabric-programdefinition. Programmet kan sedan användas för att distribuera containrar till Service Fabric. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Installera Yeoman
 > * Skapa ett programpaket med Yeoman
-> * Konfigurera inställningar i programpaketet för användning med behållare
+> * Konfigurera inställningar i programpaketet för användning med containrar
 > * Skapa programmet
 > * Distribuera och köra programmet
 > * Rensa programmet
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * De behållaravbildningar som överfördes till det Azure Container Registry som skapades i [del 1](service-fabric-tutorial-create-container-images.md) av denna självstudie används.
 * [Konfigurerad](service-fabric-tutorial-create-container-images.md) Linux-utvecklingsmiljö.
@@ -47,21 +47,21 @@ Service Fabric tillhandahåller ramverktyg som hjälper dig att skapa program fr
 1. Installera NodeJS och NPM på datorn. Mac OSX-användare måste använda pakethanteraren Homebrew
 
     ```bash
-    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
-    sudo apt-get install -y nodejs 
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+    nvm install node 
     ```
 2. Installera Yeoman mallgenerator på maskinen från NPM
 
     ```bash
-    sudo npm install -g yo
+    npm install -g yo
     ```
-3. Installera Service Fabric Yeoman-behållargenerator
+3. Installera Service Fabric Yeoman-containergenerator
 
-    ```bash
-    sudo npm install -g generator-azuresfcontainer
+    ```bash 
+    npm install -g generator-azuresfcontainer
     ```
 
-## <a name="package-a-docker-image-container-with-yeoman"></a>Paketera en Docker-avbildningsbehållare med Yeoman
+## <a name="package-a-docker-image-container-with-yeoman"></a>Paketera en Docker-avbildningscontainer med Yeoman
 
 1. Skapa ett Service Fabric-behållarprogram i mappen ”container-tutorial” i den klonade lagringsplatsen genom att köra följande kommando.
 
@@ -70,7 +70,7 @@ Service Fabric tillhandahåller ramverktyg som hjälper dig att skapa program fr
     ```
 2. Ange ”TestContainer” som namn på programmet
 3. Ange ”azurevotefront” som namn på tillämpningstjänsten.
-4. Ange sökvägen för behållaravbildningen i ACR för klientdelens repo – till exempel ”\<acrName>.azurecr.io/azure-vote-front:v1”. Fältet \<acrName> måste ha samma värde som användes i den föregående självstudien.
+4. Ange sökvägen för containeravbildningen i ACR för klientdelens repo – till exempel ”\<acrName&gt;.azurecr.io/azure-vote-front:v1”. Fältet \<acrName> måste ha samma värde som användes i den föregående självstudien.
 5. Tryck på Retur och lämna avsnittet Kommandon tomt.
 6. Ange ett instansantal på 1.
 
@@ -90,12 +90,12 @@ Följande visar indata och utdata vid körning av yo-kommandot:
    create TestContainer/uninstall.sh
 ```
 
-Om du vill lägga till en till behållartjänst till ett program som redan har skapats med hjälp av Yeoman utför du följande steg:
+Om du vill lägga till en till containertjänst till ett program som redan har skapats med hjälp av Yeoman utför du följande steg:
 
 1. Byt katalog en nivå till **TestContainer**-katalogen, till exempel *./TestContainer*
 2. Kör `yo azuresfcontainer:AddService`
 3. Kalla tjänsten ”azurevoteback”
-4. Ange sökvägen för behållaravbildningen – ”alpine:redis”
+4. Ange sökvägen för containeravbildningen – ”alpine:redis”
 5. Tryck på Retur och lämna avsnittet Kommandon tomt
 6. Ange ett instansantal på ”1”.
 
@@ -122,7 +122,7 @@ ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
 
 Service Fabric behöver autentiseringsuppgifter för att hämta behållaravbildningar från Azure Container Registry. Dessa anges i **ApplicationManifest.xml**.
 
-Logga in på din ACR-instans. Använd kommandot **az acr login** till att slutföra åtgärden. Ange det unika namn du angav för behållarregistret när det skapades.
+Logga in på din ACR-instans. Använd kommandot **az acr login** till att slutföra åtgärden. Ange det unika namn du angav för containerregistret när det skapades.
 
 ```bash
 az acr login --name <acrName>
@@ -130,7 +130,7 @@ az acr login --name <acrName>
 
 Du får ett meddelande om att **inloggningen lyckades** när inloggningen är klar.
 
-Kör sedan följande kommando för att hämta lösenordet för behållarregistret. Lösenordet används av Service Fabric för att autentisera med ACR och hämta behållaravbildningarna.
+Kör sedan följande kommando för att hämta lösenordet för containerregistret. Lösenordet används av Service Fabric för att autentisera med ACR och hämta containeravbildningarna.
 
 ```bash
 az acr credential show -n <acrName> --query passwords[0].value
@@ -146,7 +146,7 @@ I **ApplicationManifest.xml** lägger du till kodfragmentet under elementet **Se
 </Policies>
 ```
 
-## <a name="configure-communication-and-container-port-to-host-port-mapping"></a>Konfigurera kommunikation och portmappning mellan behållare och värd
+## <a name="configure-communication-and-container-port-to-host-port-mapping"></a>Konfigurera kommunikation och portmappning mellan container och värd
 
 ### <a name="configure-communication-port"></a>Konfigurera kommunikationsporten
 
@@ -177,11 +177,11 @@ Modifiera på tjänstemanifestet på samma sätt för serverdeltjänsten. Öppna
 </Resources>
 ```
 
-Genom att tillhandahålla **UriScheme** registreras automatiskt behållarslutpunkten med namngivningstjänsten för Service Fabric för identifiering. En fullständig ServiceManifest.xml-exempelfil för serverdeltjänsten finns i slutet av den här artikeln.
+Genom att tillhandahålla **UriScheme** registreras automatiskt containerslutpunkten med namngivningstjänsten för Service Fabric för identifiering. En fullständig ServiceManifest.xml-exempelfil för serverdeltjänsten finns i slutet av den här artikeln.
 
-### <a name="map-container-ports-to-a-service"></a>Mappa behållarportar till en tjänst
+### <a name="map-container-ports-to-a-service"></a>Mappa containerportar till en tjänst
 
-För att göra behållarna tillgängliga i klustret måste vi även skapa en portbindning i ”ApplicationManifest.xml”. Principen **PortBinding** använder de **slutpunkter** vi definierade i **ServiceManifest.xml**-filerna som referens. Inkommande begäranden till dessa slutpunkter mappas till de behållarportar som öppnas och binds här. I **ApplicationManifest.xml**-filen lägger du till följande kod för att binda port 80 och 6379 till slutpunkterna. En fullständig **ApplicationManifest.xml** finns i slutet av det här dokumentet.
+För att göra containrarna tillgängliga i klustret måste vi även skapa en portbindning i ”ApplicationManifest.xml”. Principen **PortBinding** använder de **slutpunkter** vi definierade i **ServiceManifest.xml**-filerna som referens. Inkommande begäranden till dessa slutpunkter mappas till de containerportar som öppnas och binds här. I **ApplicationManifest.xml**-filen lägger du till följande kod för att binda port 80 och 6379 till slutpunkterna. En fullständig **ApplicationManifest.xml** finns i slutet av det här dokumentet.
 
 ```xml
 <ContainerHostPolicies CodePackageRef="Code">
@@ -382,12 +382,12 @@ Använd avinstallationsskriptet som medföljer mallen för att ta bort programin
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen packades flera behållare in i ett Service Fabric-program med Yeoman. Programmet distribuerades sedan och kördes på ett Service Fabric-kluster. Följande steg har slutförts:
+I den här självstudiekursen packades flera containrar in i ett Service Fabric-program med Yeoman. Programmet distribuerades sedan och kördes på ett Service Fabric-kluster. Följande steg har slutförts:
 
 > [!div class="checklist"]
 > * Installera Yeoman
 > * Skapa ett programpaket med Yeoman
-> * Konfigurera inställningar i programpaketet för användning med behållare
+> * Konfigurera inställningar i programpaketet för användning med containrar
 > * Skapa programmet
 > * Distribuera och köra programmet
 > * Rensa programmet

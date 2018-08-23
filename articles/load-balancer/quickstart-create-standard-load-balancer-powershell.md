@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Skapa en standard belastningsutjämnare – Azure PowerShell | Microsoft Docs'
-description: Den här snabbstarten visar hur du skapar en standard belastningsutjämnare med PowerShell
+title: 'Snabbstart: Skapa en Standard Load Balancer – Azure PowerShell | Microsoft Docs'
+description: Den här snabbstarten visar hur du skapar en Standard Load Balancer med PowerShell
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/21/2018
+ms.date: 08/22/2018
 ms.author: kumud
 ms:custom: mvc
-ms.openlocfilehash: f6252b09078bcce936fc3102725519e5e433f8c4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 67d514fe6315604016dc10b7dfc8154c3919f914
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38481806"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616551"
 ---
-# <a name="get-started"></a>Snabbstart: Skapa en standard belastningsutjämnare med Azure PowerShell
-Den här snabbstarten visar hur du skapar en standard belastningsutjämnare med Azure PowerShell. Om du vill testa belastningsutjämnaren så distribuera två virtuella datorer (VM) som kör Windows-servern och belastningsutjämna en webbapp mellan de virtuella datorerna. Mer information om standard belastningsutjämnare finns i [Vad är en standard belastningsutjämnare](load-balancer-standard-overview.md).
+# 
+  <a name="get-started">
+  </a>Snabbstart: Skapa en Standard Load Balancer med Azure PowerShell
+Den här snabbstarten visar hur du skapar en Standard Load Balancer med Azure PowerShell. Om du vill testa lastbalanseraren så distribuera två virtuella datorer (VM) som kör Windows-servern och lastbalansera en webbapp mellan de virtuella datorerna. Mer information om Standard Load Balancer finns i [Vad är en Standard Load Balancer](load-balancer-standard-overview.md).
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
@@ -32,7 +34,7 @@ Om du väljer att installera och använda PowerShell lokalt kräver den här art
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Innan du kan skapa belastningsutjämnaren måste du skapa en resursgrupp med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroupLB* på platsen *eastus*:
+Innan du kan skapa lastbalanseraren måste du skapa en resursgrupp med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroupLB* på platsen *eastus*:
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup `
@@ -40,17 +42,19 @@ New-AzureRmResourceGroup `
   -Location "EastUS"
 ```
 ## <a name="create-a-public-ip-address"></a>Skapa en offentlig IP-adress
-För att kunna komma åt din app på Internet behöver du en offentlig IP-adress för belastningsutjämnaren. Skapa en offentlig IP-adress med [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). I följande exempel skapas en offentlig IP-adress med namnet *myPublicIP* i resursgruppen *myResourceGroupLB*:
+För att kunna komma åt din app på Internet behöver du en offentlig IP-adress för lastbalanseraren. Skapa en offentlig IP-adress med [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). I följande exempel skapas en offentlig IP-adress med namnet *myPublicIP* i resursgruppen *myResourceGroupLB*:
 
 ```azurepowershell-interactive
 $publicIP = New-AzureRmPublicIpAddress `
-  -ResourceGroupName "myResourceGroupLB" `
-  -Location "EastUS" `
-  -AllocationMethod "Dynamic" `
-  -Name "myPublicIP"
+-Name "myPublicIP" `
+-ResourceGroupName "myResourceGroupLB" `
+-Location "EastUS" `
+-Sku "Standard" `
+-AllocationMethod "Static"
+  
 ```
-## <a name="create-standard-load-balancer"></a>Skapa en standard belastningsutjämnare
- I det här avsnittet konfigurerar du klientdelens IP-adress och serverdelsadresspoolen för belastningsutjämnaren och skapar sedan en Basic-belastningsutjämnare.
+## <a name="create-standard-load-balancer"></a>Skapa en Standard Load Balancer
+ I det här avsnittet konfigurerar du klientdelens IP-adress och serverdelsadresspoolen för lastbalanseraren och skapar sedan en Basic-lastbalanserare.
  
 ### <a name="create-frontend-ip"></a>Skapa klientdels-IP
 Skapa en IP-adress på klientdelen med [New-AzureRmLoadBalancerFrontendIpConfig](/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig). I följande exempel skapas en IP-konfiguration på klientdelen med namnet *myFrontEnd* och adressen *myPublicIP* kopplas: 
@@ -69,9 +73,9 @@ Skapa en adresspool på serverdelen med [New-AzureRmLoadBalancerBackendAddressPo
 $backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "myBackEndPool"
 ```
 ### <a name="create-a-health-probe"></a>Skapa en hälsoavsökning
-Om du vill att belastningsutjämnaren ska övervaka status för din app kan du använda en hälsoavsökning. Hälsoavsökningen lägger till eller tar bort virtuella datorer dynamiskt från belastningsutjämnarens rotation baserat på deras svar på hälsokontroller. Som standard tas en virtuell dator bort från belastningsutjämnarens distribution efter två fel i följd inom ett intervall på 15 sekunder. Du skapar en hälsoavsökning baserat på ett protokoll eller en specifik hälsokontrollsida för din app. 
+Om du vill att lastbalanseraren ska övervaka status för din app kan du använda en hälsoavsökning. Hälsoavsökningen lägger till eller tar bort virtuella datorer dynamiskt från lastbalanserarens rotation baserat på deras svar på hälsokontroller. Som standard tas en virtuell dator bort från lastbalanserarens distribution efter två fel i följd inom ett intervall på 15 sekunder. Du skapar en hälsoavsökning baserat på ett protokoll eller en specifik hälsokontrollsida för din app. 
 
-I följande exempel skapas en TCP-avsökning. Du kan också skapa anpassade HTTP-avsökningar om du vill ha mer detaljerade hälsokontroller. När du använder en anpassad HTTP-avsökning måste du skapa en hälsokontrollsida, till exempel *healthcheck.aspx*. Avsökningen måste returnera svaret **HTTP 200 OK** för att belastningsutjämnaren ska behålla värden i rotation.
+I följande exempel skapas en TCP-avsökning. Du kan också skapa anpassade HTTP-avsökningar om du vill ha mer detaljerade hälsokontroller. När du använder en anpassad HTTP-avsökning måste du skapa en hälsokontrollsida, till exempel *healthcheck.aspx*. Avsökningen måste returnera svaret **HTTP 200 OK** för att lastbalanseraren ska behålla värden i rotation.
 
 Du skapar en TCP-hälsoavsökning med [Add-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig). I följande exempel skapas en hälsoavsökning med namnet *myHealthProbe* som övervakar alla virtuella datorer på *HTTP*-port *80*:
 
@@ -85,10 +89,10 @@ $probe = New-AzureRmLoadBalancerProbeConfig `
   -ProbeCount 2
   ```
 
-### <a name="create-a-load-balancer-rule"></a>Skapa en belastningsutjämningsregel
-En belastningsutjämningsregel används för att definiera hur trafiken ska distribueras till de virtuella datorerna. Du definierar IP-konfigurationen på klientdelen för inkommande trafik och IP-poolen på serverdelen för att ta emot trafik samt nödvändig käll- och målport. För att säkerställa att de virtuella datorerna endast tar emot felfri trafik definierar du också vilken hälsoavsökning som ska användas.
+### <a name="create-a-load-balancer-rule"></a>Skapa en lastbalanseringsregel
+En lastbalanseringsregel används för att definiera hur trafiken ska distribueras till de virtuella datorerna. Du definierar IP-konfigurationen på klientdelen för inkommande trafik och IP-poolen på serverdelen för att ta emot trafik samt nödvändig käll- och målport. För att säkerställa att de virtuella datorerna endast tar emot felfri trafik definierar du också vilken hälsoavsökning som ska användas.
 
-Skapa en belastningsutjämningsregel med [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig). I följande exempel skapas en belastningsutjämningsregel med namnet *myLoadBalancerRule* och trafiken utjämnas på *TCP*-port *80*:
+Skapa en lastbalanseringsregel med [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig). I följande exempel skapas en lastbalanseringsregel med namnet *myLoadBalancerRule* och trafiken utjämnas på *TCP*-port *80*:
 
 ```azurepowershell-interactive
 $lbrule = New-AzureRmLoadBalancerRuleConfig `
@@ -121,9 +125,9 @@ $natrule2 = New-AzureRmLoadBalancerInboundNatRuleConfig `
 -BackendPort 3389
 ```
 
-### <a name="create-load-balancer"></a>Skapa en belastningsutjämnare
+### <a name="create-load-balancer"></a>Skapa en lastbalanserare
 
-Skapa standard belastningsutjämnaren med [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer). Följande exempel skapar en offentlig Basic-belastningsutjämnare med namnet myLoadBalancer med klientdelens IP-konfiguration, serverdelspoolen, hälsoavsökningen, belastningsutjämningsregeln och NAT-reglerna som du skapade i föregående steg:
+Skapa Standard Load Balancer med [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer). Följande exempel skapar en offentlig Basic-lastbalanserare med namnet myLoadBalancer med klientdelens IP-konfiguration, serverdelspoolen, hälsoavsökningen, lastbalanseringsregeln och NAT-reglerna som du skapade i föregående steg:
 
 ```azurepowershell-interactive
 $lb = New-AzureRmLoadBalancer `
@@ -208,7 +212,7 @@ $nsg = New-AzureRmNetworkSecurityGroup`
 ```
 
 ###<a name="create-nics"></a>Skapa nätverkskort
-Skapa virtuella nätverkskort med [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). I följande exempel skapas två virtuella nätverkskort. (Det vill säga ett virtuellt nätverkskort för varje virtuell dator som du skapar för din app i följande steg.) Du kan skapa ytterligare virtuella nätverkskort och virtuella datorer när du vill och lägga till dem i belastningsutjämnaren:
+Skapa virtuella nätverkskort med [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). I följande exempel skapas två virtuella nätverkskort. (Det vill säga ett virtuellt nätverkskort för varje virtuell dator som du skapar för din app i följande steg.) Du kan skapa ytterligare virtuella nätverkskort och virtuella datorer när du vill och lägga till dem i lastbalanseraren:
 
 ```azurepowershell-interactive
 # Create NIC for VM1
@@ -279,7 +283,7 @@ Parametern `-AsJob` skapar den virtuella datorn som en bakgrundsaktivitet så at
  
 Installera IIS med en anpassad webbsida på de båda virtuella datorerna på serversidan enligt följande:
 
-1. Hämta den offentliga IP-adressen för belastningsutjämnaren. Med `Get-AzureRmPublicIPAdress` hämtar du den offentliga IP-adressen för belastningsutjämnaren.
+1. Hämta den offentliga IP-adressen för lastbalanseraren. Med `Get-AzureRmPublicIPAdress` hämtar du den offentliga IP-adressen för lastbalanseraren.
 
   ```azurepowershell-interactive
     Get-AzureRmPublicIPAddress `
@@ -308,8 +312,8 @@ Installera IIS med en anpassad webbsida på de båda virtuella datorerna på ser
 5. Stäng RDP-anslutningen med *myVM1*.
 6. Skapa en RDP-anslutning med *myVM2* genom att köra kommandot`mstsc /v:PublicIpAddress:4222` och upprepa steg 4 för *VM2*.
 
-## <a name="test-load-balancer"></a>Testa belastningsutjämnaren
-Hämta den offentliga IP-adressen för belastningsutjämnaren med [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). I följande exempel hämtas IP-adressen för *myPublicIP* som skapades tidigare:
+## <a name="test-load-balancer"></a>Testa lastbalanseraren
+Hämta den offentliga IP-adressen för lastbalanseraren med [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). I följande exempel hämtas IP-adressen för *myPublicIP* som skapades tidigare:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress `
@@ -317,11 +321,11 @@ Get-AzureRmPublicIPAddress `
   -Name "myPublicIP" | select IpAddress
 ```
 
-Du kan sedan ange den offentliga IP-adressen i en webbläsare. Webbplatsen visas, inklusive värddatornamnet för den virtuella dator som belastningsutjämnaren distribuerade trafik till, som i följande exempel:
+Du kan sedan ange den offentliga IP-adressen i en webbläsare. Webbplatsen visas, inklusive värddatornamnet för den virtuella dator som lastbalanseraren distribuerade trafik till, som i följande exempel:
 
-![Testa belastningsutjämnaren](media/quickstart-create-basic-load-balancer-powershell/load-balancer-test.png)
+![Testa lastbalanseraren](media/quickstart-create-basic-load-balancer-powershell/load-balancer-test.png)
 
-Om du vill se hur belastningsutjämnaren distribuerar trafik över de båda virtuella datorerna som kör din app, kan du framtvinga uppdatering av webbläsaren. 
+Om du vill se hur lastbalanseraren distribuerar trafik över de båda virtuella datorerna som kör din app, kan du framtvinga uppdatering av webbläsaren. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -333,7 +337,8 @@ Remove-AzureRmResourceGroup -Name myResourceGroupLB
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat en grundläggande belastningsutjämnare, anslutit virtuella datorer till den, konfigurerat regeln för trafikbelastningsutjämning, konfigurerat hälsoavsökningen och sedan testat belastningsutjämnaren. Om du vill läsa mer om Azure Load Balancer fortsätter du till självstudierna för Azure Load Balancer.
+I den här snabbstarten har du skapat en grundläggande lastbalanserare, anslutit virtuella datorer till den, konfigurerat regeln för trafiklastbalansering, konfigurerat hälsoavsökningen och sedan testat lastbalanseraren. Om du vill läsa mer om Azure Load Balancer fortsätter du till självstudierna för Azure Load Balancer.
 
 > [!div class="nextstepaction"]
-> [Självstudier om Azure Load Balancer](tutorial-load-balancer-basic-internal-portal.md)
+> 
+  [Självstudier om Azure Load Balancer](tutorial-load-balancer-basic-internal-portal.md)

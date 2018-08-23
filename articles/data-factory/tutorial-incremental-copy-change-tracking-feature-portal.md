@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: 4d2339ace047a5aacda74f6b1ccb9f1eb77aab0c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 2f56cba26f4f21e81734f68663d0054e77ab23a4
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054051"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41920652"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Läsa in data stegvis från Azure SQL-databas till Azure Blob Storage med ändringsspårningsinformation 
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in deltadata baserat på **ändringsspårningsinformation** i Azure SQL Database-källan till ett Azure Blob Storage.  
@@ -70,7 +70,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 * **Azure SQL Database**. Du använder databasen som **källa** för datalagringen. Om du inte har någon Azure SQL Database läser du [Skapa en Azure SQL Database](../sql-database/sql-database-get-started-portal.md) för att lära dig hur du skapar en.
-* **Azure Storage-konto**. Du kan använda blob-lagringen som **mottagare** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account) . Skapa en behållare med namnet **adftutorial**. 
+* **Azure Storage-konto**. Du kan använda blob-lagringen som **mottagare** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md) . Skapa en container med namnet **adftutorial**. 
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Skapa en datatabell i din Azure SQL-databas
 1. Starta **SQL Server Management Studio** och anslut till din Azure SQL-server. 
@@ -243,7 +243,7 @@ I det här steget skapar du en datamängd för att representera källdata.
    ![Källanslutning](./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-connection.png)
 
 ### <a name="create-a-dataset-to-represent-data-copied-to-sink-data-store"></a>Skapa en datauppsättning för att representera data som kopierats till datalagret för mottagare. 
-I det här steget skapar du en datamängd för att representera data som kopieras från källdatalagret. Du skapade behållaren adftutorial i din Azure Blob Storage som en del av förutsättningarna. Skapa behållaren om den inte finns (eller) ställ in den för namnet på en befintlig. I den här självstudien genereras namnet på utdatafilen dynamiskt med uttrycket: `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
+I det här steget skapar du en datamängd för att representera data som kopieras från källdatalagret. Du skapade containern adftutorial i din Azure Blob Storage som en del av förutsättningarna. Skapa containern om den inte finns (eller) ställ in den för namnet på en befintlig. I den här självstudien genereras namnet på utdatafilen dynamiskt med uttrycket: `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
 
 1. I trädvyn klickar du på **+ (plus)** och sedan på **Datauppsättning**. 
 
@@ -320,7 +320,7 @@ Klicka på **Utlösare** i verktygsfältet för pipelinen och klicka på **Trigg
     ![Aktivitetskörningar](./media/tutorial-incremental-copy-change-tracking-feature-portal/activity-runs-full-copy.png)
 
 ### <a name="review-the-results"></a>Granska resultaten
-Du ser en fil som heter `incremental-<GUID>.txt` i mappen `incchgtracking` i behållaren `adftutorial`. 
+Du ser en fil som heter `incremental-<GUID>.txt` i mappen `incchgtracking` i containern `adftutorial`. 
 
 ![Utdatafil från fullständig kopia](media\tutorial-incremental-copy-change-tracking-feature-portal\full-copy-output-file.png)
 
@@ -443,7 +443,7 @@ I det här steget skapar du en pipeline med följande aktiviteter och kör den m
 
 
 ### <a name="review-the-results"></a>Granska resultaten
-Du ser den andra filen i mappen `incchgtracking` i behållaren `adftutorial`. 
+Du ser den andra filen i mappen `incchgtracking` i containern `adftutorial`. 
 
 ![Utdatafil från inkrementell säkerhetskopia](media\tutorial-incremental-copy-change-tracking-feature-portal\incremental-copy-output-file.png)
 

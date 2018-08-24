@@ -6,14 +6,14 @@ author: meladie
 ms.assetid: 708aa129-b226-4e02-85c6-1f86e54564e4
 ms.service: security
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: a8d2eca785ad166aa4cff26bce876e41770a3427
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 7d200cfa6a529c33555a18cd6598183fedbfd2fc
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246165"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818281"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Azure-säkerhet och efterlevnad skissen - PaaS webbprogram för Australien SKYDDAS
 
@@ -36,13 +36,13 @@ Federation med Azure Active Directory ska användas för att användarna kan aut
 
 Lösningen använder Azure Storage-konton som kunder kan konfigurera för att använda kryptering av lagringstjänst för att upprätthålla sekretessen för data i vila. Azure lagrar tre kopior av data inom en kunds valda regionen för återhämtning. Azure-regioner har distribuerats i elastiska regionpar och geografiskt redundant lagring säkerställer att data replikeras till den andra regionen med samt tre kopior. Detta förhindrar att en incident på kundens primära platsen, vilket resulterar i förlust av data.
 
-Alla Azure-resurser i den här lösningen som hanteras som en resursgrupp i Azure Resource Manager för ökad säkerhet. Azure Active Directory rollbaserad åtkomstkontroll används för att styra åtkomst till distribuerade resurser och nycklar i Azure Key Vault. Systemhälsa övervakas via Azure Security Center och Azure Monitor. Kunder konfigurera båda övervakningstjänster för att samla in loggar och visa filsystemets hälsa i en enda, enkelt tangentbordsgenvägarna instrumentpanel. Azure Application Gateway har konfigurerats som en brandvägg i förhindringsläge och inte tillåter trafik som inte är TLSv1.2 eller senare. Lösningen använder Azure Application Service-miljö v2 för att isolera webbnivån i en miljö med flera organisationer.
+Alla Azure-resurser i den här lösningen som hanteras som en resursgrupp i Azure Resource Manager för ökad säkerhet. Azure Active Directory rollbaserad åtkomstkontroll används för att styra åtkomst till distribuerade resurser och nycklar i Azure Key Vault. Systemhälsa övervakas via Azure Security Center och Azure Monitor. Kunder konfigurera båda övervakningstjänster för att samla in loggar och visa filsystemets hälsa i en enda, enkelt tangentbordsgenvägarna instrumentpanel. Azure Application Gateway har konfigurerats som en brandvägg i förhindringsläge och inte tillåter trafik som inte är TLS version 1.2 eller senare. Lösningen använder Azure Application Service-miljö v2 för att isolera webbnivån i en miljö med flera organisationer.
 
 ![PaaS-webbprogram för AU-skyddade Referensarkitektur](images/au-protected-paaswa-architecture.png?raw=true "PaaS webbprogram för Arkitekturdiagram för AU-skyddade referens")
 
 Den här lösningen använder följande Azure-tjänster. Mer information finns i den [distributionsarkitektur](#deployment-architecture) avsnittet.
 
-- Application Gateway
+- Programgateway
     - Brandvägg för webbaserade program
         - Brandväggsläge: dataförlustskydd
         - Regeluppsättning: OWASP
@@ -58,8 +58,8 @@ Den här lösningen använder följande Azure-tjänster. Mer information finns i
 - Azure Resource Manager
 - Azure Security Center
 - Azure SQL Database
-- Azure Storage
-- Azure Log Analytics
+- Azure-lagring
+- Azure Logganalys
 - Azure Virtual Network
     - (1) /16 nätverk
     - (4) /24 nätverk
@@ -95,7 +95,7 @@ Användning av App Service-miljöer för den här arkitekturen tillåta följand
 - Värd i ett skyddat Azure virtuellt nätverk och Nätverkssäkerhetsregler
 - App Service-miljöer som konfigurerats med ett självsignerat intern Azure load balancer-certifikat för HTTPS-kommunikation. Som bästa praxis rekommenderar Microsoft användningen av en betrodd certifikatutfärdare för förbättrad säkerhet.
 - [Läge för intern belastningsutjämning](https://docs.microsoft.com/azure/app-service-web/app-service-environment-with-internal-load-balancer) (läge 3)
-- Inaktivera [TLS 1.0](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
+- Inaktivera [TLS v1.0 och v1.1](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
 - Ändra [TLS-chiffer](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
 - Kontrollen [inkommande trafik N/W portar](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-control-inbound-traffic)
 - [Brandvägg för webbaserade program – begränsa data](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
@@ -128,11 +128,9 @@ Azure krypterar all kommunikation till och från Azure-datacenter som standard.
 
 För skyddade data under överföring från kundägda nätverk använder arkitekturen Azure Internet eller ExpressRoute med en VPN-Gateway som konfigurerats med IPSEC.
 
-Dessutom sker alla transaktioner till Azure via Azure-hanteringsportalen via HTTPS genom att använda TLS 1.2.
-Vilande data
+Dessutom sker alla transaktioner till Azure via Azure-hanteringsportalen via HTTPS med TLS version 1.2.
 
 ### <a name="data-at-rest"></a>Vilande data
-
 Arkitekturen skyddar data i vila med kryptering, database-granskning och andra åtgärder.
 
 **Azure Storage**: att uppfylla krypterade data vid krav på rest, alla [Azure Storage](https://azure.microsoft.com/services/storage/) använder [Lagringstjänstkryptering](https://docs.microsoft.com/azure/storage/storage-service-encryption). Detta hjälper att skydda data som stöd för företagssäkerhet åtaganden och efterlevnadskrav som definieras av Australian Government ISM.

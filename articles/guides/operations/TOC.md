@@ -1,30 +1,34 @@
-# Kom igång med Azure
-## [Översikt över molntjänster](azure-operations-guide.md#cloud-computing-overview)
-### [Azure-regioner](https://azure.microsoft.com/regions/)
-## [Tjänster](azure-operations-guide.md#azure-services)
-### [Dokumentation för Azure-tjänster](https://docs.microsoft.com/azure)
-## [Viktiga begrepp](azure-operations-guide.md#azure-key-concepts)
-### [Översikt över Microsoft Azure Portal](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) 
-### [Hantera Azure-resurser via portalen](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)
-### [Installera och konfigurera Azure PowerShell](/powershell/azure/install-azurerm-ps)
-### [Installera Azure CLI](/cli/azure/install-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Referens för Azures REST-SDK](https://docs.microsoft.com/rest/api/index)
+# Azure för IT-operatörer
+## [Kom igång med Azure](azure-operations-guide.md) 
+## Snabbstarter
+### Virtuella datorer
+#### [Virtuella Windows-datorer](../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Virtuella Linux-datorer](../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
+### Virtuella nätverk
+#### [Skapa ett virtuellt nätverk med Azure Portal](../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Storage](https://docs.microsoft.com/azure/storage/)
+### Säkerhet
+#### [Hantera resurser med hjälp av rolltilldelningar](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
-## [Prenumerationer](azure-operations-guide.md#azure-subscriptions)
+## Självstudier
+### Virtuella datorer
+#### [Skapa och hantera en virtuell Windows-dator](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Skapa och hantera virtuella Linux-datorer](../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Jenkins CI/CD-pipeline](../../virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Belastningsutjämna virtuella datorer](../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Skapa Azure Resource Manager-mallar](../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
+## Instruktionsguider
 ### [Ladda ned din Azure-faktura och information om den dagliga användningen](../../billing/billing-download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Få insikter om din resursförbrukning](../../billing/billing-usage-rate-card-overview.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Webbaserad priskalkylator](http://azure.microsoft.com/pricing/calculator)
-### [Ställa in faktureringsvarningar](../../billing/billing-set-up-alerts.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Azure Resource Manager](azure-operations-guide.md#azure-resource-manager)
 
 ### [Skapa Azure Resource Manager-mallar](../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-###[Distribuera mallar med hjälp av Azure Portal](../../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-###[Distribuera mallar med hjälp av Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-###[Distribuera mallar med hjälp av Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Distribuera mallar med hjälp av Azure Portal](../../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Distribuera mallar med hjälp av Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Distribuera mallar med hjälp av Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Säkerhet (RBAC)](azure-operations-guide.md#security-of-azure-resource)
-###[Hantera resurser med hjälp av rolltilldelningar](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Hantera resurser med hjälp av rolltilldelningar](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Virtuella datorer](azure-operations-guide.md#azure-virtual-machines)
 ### [VM-storlekar för Windows](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
@@ -38,7 +42,7 @@
 ### Självstudier för virtuella datorer för Windows
 #### [Skapa/hantera en virtuell dator](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Skapa/hantera diskar](../../virtual-machines/windows/tutorial-manage-data-disk.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Automatisera konfigurationen](../../virtual-machines/windows/tutorial-automate-vm-deployment.md
+#### [Automatisera konfigurationen](../../virtual-machines/windows/tutorial-automate-vm-deployment.md)
 #### [Skapa avbildningar av virtuella datorer](../../virtual-machines/windows/tutorial-custom-images.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Virtuella datorer med hög tillgänglighet](../../virtual-machines/windows/tutorial-availability-sets.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Skapa en VM-skalningsuppsättning](../../virtual-machines/windows/tutorial-create-vmss.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)

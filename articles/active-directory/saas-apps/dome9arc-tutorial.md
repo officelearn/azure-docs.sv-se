@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 08/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 944f1b7ecc3fdc9f063d764a6deae49a68a24d77
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 934520764749b5abce9aefe22b8eb9a5d8e490f2
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433535"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746499"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>Självstudier: Azure Active Directory-integration med Dome9 båge
 
@@ -50,29 +50,32 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
+
+I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö.
+Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till Dome9 båge från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+2. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-dome9-arc-from-the-gallery"></a>Att lägga till Dome9 båge från galleriet
+
 Om du vill konfigurera integreringen av Dome9 bågen till Azure AD, som du behöver lägga till Dome9 båge från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Dome9 båge från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen][1]
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
-    
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-1. I sökrutan skriver **Dome9 båge**väljer **Dome9 båge** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver **Dome9 båge**väljer **Dome9 båge** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![Dome9 båge i resultatlistan](./media/dome9arc-tutorial/tutorial_dome9arc_addfromgallery.png)
 
@@ -82,15 +85,13 @@ I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med 
 
 För enkel inloggning att fungera, behöver Azure AD du känna till motsvarande användare i Dome9 bågen till en användare i Azure AD. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Dome9 bågen upprättas.
 
-I Dome9 bågen, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
-
 Om du vill konfigurera och testa Azure AD enkel inloggning med Dome9 båge, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare Dome9 båge](#create-a-dome9-arc-test-user)**  – du har en motsvarighet för Britta Simon i Dome9 båge som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare Dome9 båge](#create-a-dome9-arc-test-user)**  – du har en motsvarighet för Britta Simon i Dome9 båge som är länkad till en Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -102,11 +103,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning för länken][4]
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Enkel inloggning för dialogrutan](./media/dome9arc-tutorial/tutorial_dome9arc_samlbase.png)
 
-1. På den **Dome9 båge domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+3. På den **Dome9 båge domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
 
     ![Dome9 båge domän och URL: er med enkel inloggning för information](./media/dome9arc-tutorial/tutorial_dome9arc_url.png)
 
@@ -117,24 +118,24 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE]
     > Du väljer ditt företag namn-värde i administratörsportalen dome9, som beskrivs senare i självstudien.
 
-1. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+4. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Dome9 båge domän och URL: er med enkel inloggning för information](./media/dome9arc-tutorial/tutorial_dome9arc_url1.png)
 
     I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://secure.dome9.com/sso/saml/<yourcompanyname>`
-     
+ 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska svars-URL och inloggnings-URL. Kontakta [Dome9 båge klienten supportteamet](https://dome9.com/about/contact-us/) att hämta dessa värden. 
 
-1. Dome9 båge programvara förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den ”**användarattribut**” på sidan för integrering av program. Följande skärmbild visar ett exempel för detta.
+5. Dome9 båge programvara förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den ”**användarattribut**” på sidan för integrering av program. Följande skärmbild visar ett exempel för detta.
 
     ![Konfigurera enkel inloggning attb](./media/dome9arc-tutorial/tutorial_dome9arc_attribute.png)
 
-1. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i bilden ovan och utför följande steg:
+6. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i bilden ovan och utför följande steg:
     
     | Attributnamn  | Attributvärde | 
     | --------------- | --------------- | 
-    | memberof | User.assignedroles | 
+    | memberof | User.assignedroles |
     
     a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
 
@@ -145,32 +146,35 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
 
     c. Från den **värdet** anger attributvärdet som visas för den raden.
-    
-    d. Klicka på **OK**.
 
-1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
+    d. Klicka på **OK**.
+    
+    > [!NOTE]
+    > Se detta [länk](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-app-role-management) på hur du konfigurerar och konfigurera roller för programmet.
+
+7. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
     ![Länk för hämtning av certifikat](./media/dome9arc-tutorial/tutorial_dome9arc_certificate.png) 
 
-1. Klicka på **spara** knappen.
+8. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara-knapp](./media/dome9arc-tutorial/tutorial_general_400.png)
-    
-1. På den **Dome9 båge Configuration** klickar du på **konfigurera Dome9 båge** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+
+9. På den **Dome9 båge Configuration** klickar du på **konfigurera Dome9 båge** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Dome9 båge konfiguration](./media/dome9arc-tutorial/tutorial_dome9arc_configure.png) 
 
-1. Logga in på webbplatsen Dome9 båge företag som en administratör i ett annat webbläsarfönster.
+10. Logga in på webbplatsen Dome9 båge företag som en administratör i ett annat webbläsarfönster.
 
-1. Klicka på den **profilinställningar** i övre högra hörnet och sedan på **kontoinställningar**. 
+11. Klicka på den **profilinställningar** i övre högra hörnet och sedan på **kontoinställningar**. 
 
     ![Dome9 båge konfiguration](./media/dome9arc-tutorial/configure1.png)
 
-1. Gå till **SSO** och klicka sedan på **aktivera**.
+12. Gå till **SSO** och klicka sedan på **aktivera**.
 
     ![Dome9 båge konfiguration](./media/dome9arc-tutorial/configure2.png)
 
-1. Utför följande steg i konfigurationsavsnittet för enkel inloggning:
+13. Utför följande steg i konfigurationsavsnittet för enkel inloggning:
 
     ![Dome9 båge konfiguration](./media/dome9arc-tutorial/configure3.png)
 
@@ -184,9 +188,6 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     e. Klicka på **Spara**.
 
-> [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
@@ -199,15 +200,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media/dome9arc-tutorial/create_aaduser_01.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media/dome9arc-tutorial/create_aaduser_02.png)
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media/dome9arc-tutorial/create_aaduser_03.png)
 
-1. I den **användaren** dialogrutan utför följande steg:
+4. I den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media/dome9arc-tutorial/create_aaduser_04.png)
 
@@ -218,28 +219,28 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
     c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
 
     d. Klicka på **Skapa**.
- 
+
 ### <a name="create-a-dome9-arc-test-user"></a>Skapa en testanvändare Dome9 båge
 
 Om du vill aktivera Azure AD-användare att logga in till Dome9 båge, måste de etableras i program. Dome9 båge stöder just-in-time-etablering men för att det ska fungera korrekt, användaren måste välja specifika **rollen** och tilldela den till användaren.
 
-   >[!Note] 
+   >[!Note]
    >För **rollen** skapande och annan information Kontakta [Dome9 båge klienten supportteamet](https://dome9.com/about/contact-us/).
 
 **Om du vill konfigurera ett användarkonto manuellt utför du följande steg:**
 
 1. Logga in på webbplatsen Dome9 båge företagets som administratör.
 
-1. Klicka på den **användare och roller** och klicka sedan på **användare**.
+2. Klicka på den **användare och roller** och klicka sedan på **användare**.
 
     ![Lägg till medarbetare](./media/dome9arc-tutorial/user1.png)
 
-1. Klicka på **Lägg till användare**.
+3. Klicka på **Lägg till användare**.
 
     ![Lägg till medarbetare](./media/dome9arc-tutorial/user2.png)
 
-1. I den **Create User** avsnittet, utför följande steg:
-    
+4. I den **Create User** avsnittet, utför följande steg:
+
     ![Lägg till medarbetare](./media/dome9arc-tutorial/user3.png)
 
     a. I den **e-post** textrutan typ e-postmeddelandet av användare som Brittasimon@contoso.com.
@@ -264,24 +265,24 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Tilldela användare][201] 
 
-1. I listan med program väljer **Dome9 båge**.
+2. I listan med program väljer **Dome9 båge**.
 
     ![Länken Dome9 båge i listan med program](./media/dome9arc-tutorial/tutorial_dome9arc_app.png)  
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+3. I menyn till vänster, klickar du på **användare och grupper**.
 
     ![Länken ”användare och grupper”][202]
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
 
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
 
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
+7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
@@ -293,8 +294,6 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/act
 
 * [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 

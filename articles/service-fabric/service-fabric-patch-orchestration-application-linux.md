@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 00e5f5a73973a34a8611143719c91a2b1ad0c8eb
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0aadb5964b5fe08b02397588dd9b2695fb4db4ce
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971274"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746725"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Uppdatera operativsystemet Linux i Service Fabric-klustret
 
@@ -121,7 +121,7 @@ För Ubuntu [obevakad uppgraderingar](https://help.ubuntu.com/community/Automati
 
 Programmet tillsammans med installationsskript kan laddas ned från [Arkiv länk](https://go.microsoft.com/fwlink/?linkid=867984).
 
-Program i sfpkg format kan laddas ned från [sfpkg länk](https://go.microsoft.com/fwlink/?linkid=867984&pc=sfpkg). Detta är praktiskt för [Azure Resource Manager-baserade programdistribution](service-fabric-application-arm-resource.md).
+Program i sfpkg format kan laddas ned från [sfpkg länk](https://aka.ms/POA/POA_v2.0.2.sfpkg). Detta är praktiskt för [Azure Resource Manager-baserade programdistribution](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Konfigurera appen
 
@@ -271,7 +271,7 @@ En varning på servernivå hälsorapport genereras för tjänsten Coordinator om
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-FRÅGOR OCH. **Varför ser jag mitt kluster i ett feltillstånd när patch orchestration-appen körs?**
+F. **Varför ser jag mitt kluster i ett feltillstånd när patch orchestration-appen körs?**
 
 A. Under installationen, patch orchestration appen inaktiverar eller startar om noder. Den här åtgärden kan tillfälligt resultera i hälsotillståndet för klustret slutar fungera.
 
@@ -285,15 +285,15 @@ I följande exempel klustret gick in i ett feltillstånd tillfälligt eftersom t
 
 Om problemet kvarstår, finns i avsnittet Felsökning.
 
-FRÅGOR OCH. **Patch orchestration-appen är i varningstillstånd**
+F. **Patch orchestration-appen är i varningstillstånd**
 
 A. Kontrollera om en hälsorapport som publicerats i programmet är den grundläggande orsaken. Varningen innehåller vanligtvis information om problemet. Om problemet är tillfälligt, förväntas programmet återskapa automatiskt från det här läget.
 
-FRÅGOR OCH. **Vad kan jag göra om mitt kluster är i feltillstånd och jag behöver du en brådskande operativsystemuppdateringen?**
+F. **Vad kan jag göra om mitt kluster är i feltillstånd och jag behöver du en brådskande operativsystemuppdateringen?**
 
 A. Patch orchestration appen installeras inte uppdateringar medan klustret är i feltillstånd. För att låsa upp den patch orchestration arbetsflöden, sätta ditt kluster till ett felfritt tillstånd.
 
-FRÅGOR OCH. **Varför korrigeringar mellan datorkluster tar så lång tid för att köra?**
+F. **Varför korrigeringar mellan datorkluster tar så lång tid för att köra?**
 
 A. Den tid som krävs av patch orchestration appen beror huvudsakligen på följande faktorer:
 
@@ -303,26 +303,26 @@ A. Den tid som krävs av patch orchestration appen beror huvudsakligen på följ
 - Den genomsnittliga tiden som behövs för att ladda ned och installera en uppdatering, vilket får innehålla högst ett par timmar.
 - Prestanda för den virtuella dator och nätverket bandbredden.
 
-FRÅGOR OCH. **Hur gör patch orchestration app avgör vilka uppdateringar finns säkerhetsuppdateringar.**
+F. **Hur gör patch orchestration app avgör vilka uppdateringar finns säkerhetsuppdateringar.**
 
 A. Patch orchestration appen använder distribution-specifik logik för att bestämma vilka uppdateringar bland de tillgängliga uppdateringarna som säkerhetsuppdateringar. Till exempel: I ubuntu appen söker efter uppdateringar från Arkiv $RELEASE-säkerhet, $RELEASE-uppdateringar ($RELEASE = xenial eller linux standard grundläggande slutversionen). 
 
  
-FRÅGOR OCH. **Hur kan jag för att låsa in på en specifik version av paketet?**
+F. **Hur kan jag för att låsa in på en specifik version av paketet?**
 
 A. Använd ApprovedPatches-inställningar för att låsa dina paket för en viss version. 
 
 
-FRÅGOR OCH. **Vad händer med automatiska uppdateringar som är aktiverad i Ubuntu?**
+F. **Vad händer med automatiska uppdateringar som är aktiverad i Ubuntu?**
 
 A. När du installerar patch orchestration-app på ditt kluster, skulle obevakad uppgraderingar på din klusternod inaktiveras. Periodisk uppdatering arbetsflödet skulle styrs patch orchestration-app.
 För att få konsekvens miljö i klustret ska rekommenderar vi att du installerar uppdateringar via patch orchestration-enbart app. 
  
-FRÅGOR OCH. **Efter uppgraderingen patch orchestration appen gör rensningen av oanvända paket?**
+F. **Efter uppgraderingen patch orchestration appen gör rensningen av oanvända paket?**
 
 A. Ja, rensa inträffar som en del av anvisningarna efter installation. 
 
-FRÅGOR OCH. **Dirigering app användas för att korrigera mitt dev-kluster (kluster med en nod)?**
+F. **Dirigering app användas för att korrigera mitt dev-kluster (kluster med en nod)?**
 
 A. Nej, Patch orchestration appen kan inte användas till patch kluster med en nod. Den här begränsningen är avsiktligt, som [service fabric-systemtjänster](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) eller kundappar kommer att stöta på avbrott och reparation jobb för uppdatering skulle därför aldrig godkännas av reparationshanteraren.
 
@@ -370,5 +370,8 @@ Patch orchestration appen samlar in telemetri för att spåra användning och pr
 ### <a name="version-200"></a>Version 2.0.0
 - Publiceringen
 
-### <a name="version-201-latest"></a>Version 2.0.1 (senaste)
+### <a name="version-201"></a>Version 2.0.1
 - Kompileras appen med senaste Service Fabric SDK
+
+### <a name="version-202-latest"></a>Version punkt 2.0.2 (senaste)
+- Ett problem har åtgärdats med hälsotillstånd varning komma kvar under omstarten.

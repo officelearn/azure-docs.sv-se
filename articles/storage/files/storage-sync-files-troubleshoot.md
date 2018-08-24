@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 08/22/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: e0c9708107139ec899cd5902a68ff90b57b741f7
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 4434b67393d34c3418e44e82681a586c268a37e5
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005927"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42747004"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -126,7 +126,7 @@ Set-AzureRmStorageSyncServerEndpoint `
     -VolumeFreeSpacePercent 60
 ```
 
-## <a name="sync"></a>Sync
+## <a name="sync"></a>Synkronisering
 <a id="afs-change-detection"></a>**Om jag har skapat en fil direkt i min Azure-filresurs via SMB eller via portalen, hur lång tid tar det för den fil som ska synkroniseras till servrar i synkroniseringsgruppen?**  
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
@@ -438,14 +438,15 @@ Det här felet uppstår ofta eftersom servertiden är felaktig eller certifikate
 1. Öppna snapin-modulen MMC certifikat, Välj datorkontot och navigera till \Personal\Certificates certifikat (lokal dator).
 2. Ta bort certifikatet för klientautentisering om upphört att gälla och stäng snapin-modulen certifikat.
 3. Öppnar Regedit och ta bort nyckeln ServerSetting i registret: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync\ServerSetting
-4. Kör följande PowerShell-kommandon på servern:
+4. Gå till avsnittet registrerade servrar i Storage Sync-tjänsten i Azure-portalen. Högerklicka på servern med det utgångna certifikatet och klicka på ”avregistrera Server”.
+5. Kör följande PowerShell-kommandon på servern:
 
     ```PowerShell
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
     Reset-StorageSyncServer
     ```
 
-5. Omregistrera servern genom att köra ServerRegistration.exe (standardsökvägen är C:\Program Files\Azure\StorageSyncAgent).
+6. Omregistrera servern genom att köra ServerRegistration.exe (standardsökvägen är C:\Program Files\Azure\StorageSyncAgent).
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**Den volym som Serverslutpunkten har för lite ledigt diskutrymme.**  
 | | |

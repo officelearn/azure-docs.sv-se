@@ -4,16 +4,16 @@ description: Beskriver hur resource principdefinitionen används av Azure Policy
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/03/2018
+ms.date: 08/16/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: ced8ebad0122973595cdede4497cd200e3090043
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ac561be75306cab6b73b457a7d450bd640aac067
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524115"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818705"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -24,7 +24,7 @@ Ett schema som används av Azure Policy finns här: [https://schema.management.a
 Du kan använda JSON för att skapa en principdefinition. Principdefinitionen innehåller element för:
 
 - läge
-- parameters
+- parametrar
 - Visningsnamn
 - beskrivning
 - principregel
@@ -107,7 +107,7 @@ Du kan använda inom metadata-egenskap **strongType** att tillhandahålla en fle
 - `"existingResourceGroups"`
 - `"omsWorkspace"`
 
-I principregeln referera parametrar med följande syntax:
+I principregeln du referera till parametrar med följande `parameters` distribution värdet funktionens syntax:
 
 ```json
 {
@@ -219,7 +219,7 @@ Följande fält stöds:
   - Exempel: `tags.[Acct.CostCenter]` där **Acct.CostCenter** är namnet på taggen.
 - Egenskapen alias – en lista i [alias](#aliases).
 
-### <a name="effect"></a>Verkan
+### <a name="effect"></a>Effekt
 
 Principen har stöd för följande typer av effekt:
 
@@ -245,6 +245,53 @@ Med **AuditIfNotExists** och **DeployIfNotExists** du kan utvärdera förekomste
 Ett exempel på granskning när tillägg för virtuell dator inte distribueras kan se [granska om tillägg inte finns](scripts/audit-ext-not-exist.md).
 
 Mer information om varje effekt ordningen för utvärdering, egenskaper och exempel finns i [Förstå princip effekterna](policy-effects.md).
+
+### <a name="policy-functions"></a>Princip fungerar
+
+En delmängd av [Resource Manager-Mallfunktioner](../azure-resource-manager/resource-group-template-functions.md) är tillgängliga för användning i en regel. De funktioner som stöds för närvarande är:
+
+- [parameters](../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
+- [concat](../azure-resource-manager/resource-group-template-functions-array.md#concat)
+- [ResourceGroup](../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
+- [prenumeration](../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
+
+Dessutom kan den `field` funktionen är tillgänglig för hanteringsprincipregler (MPR). Den här funktionen är främst avsedd för användning med **AuditIfNotExists** och **DeployIfNotExists** till referensfälten som för resursen som utvärderas. Ett exempel på detta visas på den [DeployIfNotExists exempel](policy-effects.md#deployifnotexists-example).
+
+#### <a name="policy-function-examples"></a>Exempel på funktion
+
+Den här principen regelexempel använder den `resourceGroup` resurs-funktionen för att hämta den **namn** egenskapen tillsammans med den `concat` matris och objekt-funktionen för att skapa en `like` villkor som tillämpar resursnamnet att starta med resursgruppens namn.
+
+```json
+{
+    "if": {
+        "not": {
+            "field": "name",
+            "like": "[concat(resourceGroup().name,'*')]"
+        }
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+Den här principen regelexempel använder den `resourceGroup` resurs-funktionen för att hämta den **taggar** matris-värdet för den **kostnadsställe** taggen på resursgruppen och lägger till dem till den **kostnadsställe**  taggen på den nya resursen.
+
+```json
+{
+    "if": {
+        "field": "tags.CostCenter",
+        "exists": "false"
+    },
+    "then": {
+        "effect": "append",
+        "details": [{
+            "field": "tags.CostCenter",
+            "value": "[resourceGroup().tags.CostCenter]"
+        }]
+    }
+}
+```
 
 ## <a name="aliases"></a>Alias
 

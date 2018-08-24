@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: e562b694b2d3f226d0b4f5bc03b54d6562e52244
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 1237d6a35d279a1036bb8139dd0b0ceaa34edb7b
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057085"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746850"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x-preview"></a>Azure Cosmos DB-bindningar för Azure Functions 2.x (förhandsversion)
 
@@ -1092,7 +1092,7 @@ Här är den *function.json* fil:
 
 Här är JavaScript-kod:
 
-```cs
+```javascript
 module.exports = function (context, req, toDoItem) {
     context.log('JavaScript queue trigger function processed work item');
     if (!toDoItem)
@@ -1251,7 +1251,7 @@ I C# och F #-funktioner, när funktionen avslutas, sparas ändringar som görs t
 
 I JavaScript-funktioner görs uppdateringar inte automatiskt vid utloggning av funktionen. Använd i stället `context.bindings.<documentName>In` och `context.bindings.<documentName>Out` att göra uppdateringar. Se den [JavaScript exempel](#input---javascript-example).
 
-## <a name="output"></a>Resultat
+## <a name="output"></a>Utdata
 
 I Azure Cosmos DB-utdatabindning kan skriva du ett nytt dokument till en Azure Cosmos DB-databas. 
 

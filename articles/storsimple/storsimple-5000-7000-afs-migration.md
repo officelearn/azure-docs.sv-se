@@ -11,16 +11,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/15/2018
+ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 6a52db27491ef707b813a7645d275b371b11368c
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: d54394a8dc74d04f1922a78826b10a4a421d193b
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054375"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42814598"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Migrera data från StorSimple 5000-7000-serien till Azure File Sync
+
+> [!IMPORTANT]
+> Den 31 juli 2019 når StorSimple 5000/7000-serien slutet av supportstatus (EOS). Vi rekommenderar att StorSimple 5000/7000-kunder som migrerar till en av de alternativ som beskrivs i dokumentet.
 
 Migrering av data är processen att flytta data från en lagringsplats till en annan. Detta innebär att göra en exakt kopia av en organisations aktuella data från en enhet till en annan enhet, helst utan att störa eller inaktivera aktiva program – och sedan omdirigera alla indata/utdata (I/O) aktiviteten till den nya enheten. 
 

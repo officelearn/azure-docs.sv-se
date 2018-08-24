@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 07/19/2018
 ms.author: bsiva
-ms.openlocfilehash: 96f4ecb433277c747ddb1d1dc977bd609f93d5ff
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 89270a0bd1914a2486c8cc634563bdded743adaa
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578593"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746481"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Övervaka och felsöka Site Recovery
 
@@ -41,7 +41,7 @@ Avsnittet replikerade objekt som visar hälsotillståndet för alla datorer som 
 Felfri | Replikeringen körs normalt. Inga fel eller varning symptom identifieras.
 Varning | En eller flera varningar problem som kan påverka replikering identifieras.
 Kritisk | En eller flera kritisk replikering Fel Symptom har identifierats.<br/><br/> Problemen fel är vanligtvis indikatorer att replikeringen har fastnat eller inte så snabbt som de dataändringshastighet.
-Inte tillämpligt | Servrar som inte är för närvarande förväntas vara replikeras. Detta kan innehålla datorer som har redundansväxlats.
+Ej tillämpligt | Servrar som inte är för närvarande förväntas vara replikeras. Detta kan innehålla datorer som har redundansväxlats.
 
 ## <a name="monitor-test-failovers"></a>Övervaka redundanstestning
 
@@ -54,7 +54,7 @@ Du kan visa status för test-redundans för virtuella datorer i valvet.
 --- | ---
 Test som rekommenderas | Datorer som inte har haft ett redundanstest sedan skyddet aktiverades.
 Genomfördes | Datorer med eller mer framgångsrika redundanstestningen.
-Inte tillämpligt | Datorer som inte är för närvarande är berättigade till ett redundanstest. Datorer som har redundansväxlats, har till exempel inledande replikering/redundanstest/redundansväxling pågår.
+Ej tillämpligt | Datorer som inte är för närvarande är berättigade till ett redundanstest. Datorer som har redundansväxlats, har till exempel inledande replikering/redundanstest/redundansväxling pågår.
 
 ## <a name="monitor-configuration-issues"></a>Problem med konfigurationen av Övervakare
 
@@ -153,13 +153,14 @@ Du kan övervaka datorer i sidan virtuella datorer i instrumentpanelen för till
 3.  Klicka på **kolumner** för att visa ytterligare kolumner, till exempel för att visa RPO riktar sig mot konfigurationsproblem och replikeringsfel.
 4. Klicka på **Filter** att visa information baserat på specifika parametrar, till exempel replikeringshälsa eller en viss replikeringsprincip.
 5. Högerklicka på en dator att initiera åtgärder som att testa redundans för den eller visa felinformationen kopplade till den.
-6. Klicka på en dator för att visa mer detaljer för den. Informationen innehåller:- **replikeringsinformationen**: aktuell status och hälsa för datorn.
-        - **RPO** (mål för återställningspunkt): aktuell RPO för den virtuella datorn och den tid då beräknades senast rpo-MÅLET.
-        - **Återställningspunkter**: senaste tillgängliga återställningspunkter för datorn.
-        - **Redundansberedskap**: Anger om ett redundanstest kördes för datorn agent-version som körs på datorn (för datorer som kör mobilitetstjänsten) och eventuella konfigurationsproblem.
-        - **Fel**: lista av replikering fel inträffa som för närvarande observerats på de maskin- och möjliga orsaker/åtgärderna.
-        - **Händelser**: en kronologisk lista över de senaste händelserna som påverkar datorn. Felinformation visar för närvarande synliga Fel-Symptom när händelser är en historisk post av problem som har påverkat datorn.
-        - **Infrastruktur-vy**: Visar status för infrastruktur för scenariot när datorer replikeras till Azure.
+6. Klicka på en dator för att visa mer detaljer för den. Informationen innehåller:
+      - **Replikeringsinformation**: aktuell status och hälsa för datorn.
+      - **RPO** (mål för återställningspunkt): aktuell RPO för den virtuella datorn och den tid då beräknades senast rpo-MÅLET.
+      - **Återställningspunkter**: senaste tillgängliga återställningspunkter för datorn.
+      - **Redundansberedskap**: Anger om ett redundanstest kördes för datorn agent-version som körs på datorn (för datorer som kör mobilitetstjänsten) och eventuella konfigurationsproblem.
+      - **Fel**: lista av replikering fel inträffa som för närvarande observerats på de maskin- och möjliga orsaker/åtgärderna.
+      - **Händelser**: en kronologisk lista över de senaste händelserna som påverkar datorn. Felinformation visar för närvarande synliga Fel-Symptom när händelser är en historisk post av problem som har påverkat datorn.
+      - **Infrastruktur-vy**: Visar status för infrastruktur för scenariot när datorer replikeras till Azure.
 
     ![Site Recovery replikerade objekt information/overview](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 

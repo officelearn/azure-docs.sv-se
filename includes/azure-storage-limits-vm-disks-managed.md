@@ -4,7 +4,7 @@
 |---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
 | Diskstorlek           | 32 GB            | 64 GB            | 128 GB           | 256 GB | 512 GB           | 1 024 GB (1 TB)   | 2 048 GB (2TB)    | 4 095 GB (4 TB)   | 
 | IOPS per disk       | 500              | 500              | 500              | 500 | 500              | 500              | 500             | 500              | 
-| Dataflöde per disk | 60 MB/sek. | 60 MB/sek. | 60 MB/sek. | 60 MB/sek. | 60 MB/sek. | 60 MB/sek. | 60 MB/sek. | 50 MB/sek|
+| Dataflöde per disk | 60 MB/sek. | 60 MB/sek. | 60 MB/sek. | 60 MB/sek. | 60 MB/sek. | 60 MB/sek. | 60 MB/sek. | 60 MB/sek.|
 
 **Hanterade premiumdatordiskar för virtuella datorer: gränser per disk**
 

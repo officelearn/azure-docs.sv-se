@@ -9,21 +9,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/10/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2c313538e297c5781b48fcfe9d0d5390f94c97f5
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: c88bdce64e88f8639da2c4ebb01f4594fccff8a0
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043970"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42747096"
 ---
 # <a name="test-azure-portal-interface-for-your-managed-application"></a>Testa Azure portalgränssnitt för det hanterade programmet
 Efter [skapar filen createUiDefinition.json](create-uidefinition-overview.md) för ditt Azure hanterade program, måste du testar användarupplevelsen. För att förenkla testning kan du använda ett skript som läser in filen i portalen. Du behöver inte distribuera det hanterade programmet.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En **createUiDefinition.json** fil. Om du inte har den här filen kan kopiera den [exempelfilen](https://github.com/Azure/azure-quickstart-templates/blob/master/test/template-validation-tests/sample-template/createUIDefinition.json) och spara den lokalt.
+* En **createUiDefinition.json** fil. Om du inte har den här filen kan kopiera den [exempelfilen](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json) och spara den lokalt.
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -36,16 +36,16 @@ Testa ditt gränssnitt i portalen genom att kopiera en av följande skript till 
 
 ## <a name="run-script"></a>Kör skript
 
-Om du vill se filen gränssnitt i portalen, kör du det nedladdade skriptet. Skriptet skapar ett lagringskonto i Azure-prenumerationen och överför din createUiDefinition.json-fil till lagringskontot. Sedan öppnar portalen och läser in filen från lagringskontot.
+Om du vill se filen gränssnitt i portalen, kör du det nedladdade skriptet. Skriptet skapar ett lagringskonto i Azure-prenumerationen och överför din createUiDefinition.json-fil till lagringskontot. Storage-konto skapas första gången du kör skriptet eller om lagringskontot har tagits bort. Om lagringskontot finns redan i din Azure-prenumeration, återanvänds det av skriptet. Skriptet öppnas portalen och läser in filen från lagringskontot.
 
-Ange en plats för storage-kontot och ange den mapp som innehåller createUiDefinition.json-fil. Du behöver bara ange storage-konto plats först gången du kör skriptet eller om lagringskontot har tagits bort.
+Ange en plats för storage-kontot och ange den mapp som innehåller createUiDefinition.json-fil.
 
 Om du använder PowerShell använder du:
 
 ```powershell
 .\SideLoad-CreateUIDefinition.ps1 `
   -StorageResourceGroupLocation southcentralus `
-  -ArtifactsStagingDirectory <path-to-folder-with-createuidefinition>
+  -ArtifactsStagingDirectory .\100-Marketplace-Sample
 ```
 
 Om du använder Azure CLI använder du:
@@ -53,7 +53,21 @@ Om du använder Azure CLI använder du:
 ```azurecli
 ./sideload-createuidef.sh \
   -l southcentralus \
-  -a <path-to-folder-with-createuidefinition>
+  -a .\100-Marketplace-Sample
+```
+
+Om du redan har skapat lagringskontot createUiDefinition.json filen är i samma mapp som skriptet, behöver du inte ange dessa parametrar.
+
+Om du använder PowerShell använder du:
+
+```powershell
+.\SideLoad-CreateUIDefinition.ps1
+```
+
+Om du använder Azure CLI använder du:
+
+```azurecli
+./sideload-createuidef.sh
 ```
 
 ## <a name="test-your-interface"></a>Testa ditt gränssnitt
@@ -73,6 +87,18 @@ Om din gränssnittsdefinitionen innehåller ett fel kan se du beskrivningen i ko
 Ange värden för fälten. När du är klar kan du se de värden som skickas till mallen.
 
 ![Visa värden](./media/test-createuidefinition/show-json.png)
+
+Du kan använda dessa värden som parameterfilen för att testa din Distributionsmall.
+
+## <a name="troubleshooting-the-interface"></a>Felsökning av gränssnittet
+
+Några vanliga fel som visas är:
+
+* Portalen inte att läsa in ditt gränssnitt. I stället visas en ikon för ett moln med tear släpp. Den här ikonen visas vanligtvis när det finns ett syntaxfel i filen. Öppna filen i VS Code (eller andra JSON-redigerare som har schemavalideringen) och leta efter syntaxfel.
+
+* Det låser sig i fönstret Sammanfattning på portalen. Den här avbrott sker vanligtvis när det finns en bugg i utdata. Du kan exempelvis ha refererade en kontroll som inte finns.
+
+* En parameter i utdata är tom. Parametern kan referera till en egenskap som inte finns. Till exempel referensen till kontrollen är giltig, men Egenskapsreferensen är inte giltig.
 
 ## <a name="test-your-solution-files"></a>Testa din lösningsfiler
 

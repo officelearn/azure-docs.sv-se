@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/1/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 091a097fc9fafd5bdc6a2521f4fa2a1b6b77ba4c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 998f35c8957b63d73d7a3d15be76711198fa4833
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422561"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745715"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure portal
 ## <a name="overview"></a>Översikt ##
@@ -65,11 +65,11 @@ Information om hur du använder Azure Resource Manager-mallar för att konfigure
 
 <dt>E-post</dt>
 <dd>E-postmeddelanden skickas från följande e-postadresser. Kontrollera att din e-filtrering har konfigurerats på rätt sätt
-
-    - azure-noreply@microsoft.com
-    - azureemail-noreply@microsoft.com
-    - alerts-noreply@mail.windowsazure.com
-    
+<ul>
+    <li>azure-noreply@microsoft.com</li>
+    <li>azureemail-noreply@microsoft.com</li>
+    <li>alerts-noreply@mail.windowsazure.com</li>
+</ul>
 </dd>
 <dd>Du kan ha upp till 1 000 e poståtgärder i en åtgärdsgrupp</dd>
 <dd>Se den [begränsar information frekvensbegränsningen](./monitoring-alerts-rate-limiting.md) artikel</dd>

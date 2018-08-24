@@ -4,25 +4,26 @@ description: Innehåller en översikt och förutsättningar av funktionen för m
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: jeconnoc
+manager: twooley
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/11/2017
+ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 378eaea4c0cf19c48f47067e4f548f2d7f530377
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 23fde5fab8f223ff1d958a8fac6a31818f1fdd7c
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856696"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818924"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migrera data från StorSimple 5000-7000-serien till enheten i 8000-serien
 
 > [!IMPORTANT]
+> - Den 31 juli 2019 når StorSimple 5000/7000-serien slutet av supportstatus (EOS). Vi rekommenderar att StorSimple 5000/7000-kunder som migrerar till en av de alternativ som beskrivs i dokumentet.
 > - Migreringen är för närvarande en assisterad åtgärd. Om du planerar att migrera data från enheten StorSimple 5000-7000-serien till en enhet för 8000-serien, måste du schemalägga migrering med Microsoft Support. Microsoft Support kan sedan din prenumeration för migrering. Läs mer om hur du [öppna ett supportärende](storsimple-8000-contact-microsoft-support.md).
 > - När du registrerat tjänstbegäran kan ta det par veckor att genomföra migreringsplanen och startar migreringen.
 > - Innan du kontaktar Microsoft Support att se till att granska och fullständig den [migrering krav](#migration-prerequisites) anges i artikeln.

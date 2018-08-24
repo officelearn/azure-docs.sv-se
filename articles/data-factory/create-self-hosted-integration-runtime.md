@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 705f2ce674a31d7dda4d87d893078a2ade26e327
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 863cda349ca951bee1c43f09eefd364645de9dbd
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443398"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746809"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Skapa och konfigurera lokal Integration Runtime
 Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Data Factory för att tillhandahålla funktioner för dataintegrering i olika nätverksmiljöer. Mer information om IR finns [översikten över Integration Runtime](concepts-integration-runtime.md).
@@ -182,6 +182,8 @@ skapas implicit datafabriker som skapats med Azure Resource Manager (ARM)-mall e
 5. ADF .net SDK som stöder den här funktionen är version > = 1.1.0
 
 6. Azure PowerShell som stöder den här funktionen är version > = 6.6.0 (AzureRM.DataFactoryV2 > = 0.5.7)
+
+7. Om du vill bevilja behörighet, kräver användaren ”ägare” eller ärvda ”ägare” i Datafabriken där delade IR finns. 
 
   > [!NOTE]
   > Den här funktionen är endast tillgänglig i Azure Data Factory version 2 

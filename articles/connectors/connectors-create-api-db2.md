@@ -1,282 +1,368 @@
 ---
-title: Ansluta till DB2 - Azure Logikappar | Microsoft Docs
-description: 'Hantera resurser med DB2 REST API: er och Azure Logic Apps'
-author: gplarsen
-manager: jeconnoc
-ms.author: plarsen
-ms.date: 09/26/2016
-ms.topic: article
-ms.service: logic-apps
+title: Anslut till IBM DB2 - Azure Logic Apps | Microsoft Docs
+description: 'Hantera resurser med IBM DB2 REST API: er och Azure Logic Apps'
 services: logic-apps
-ms.reviewer: klam, estfan
+ms.service: logic-apps
+author: ecfan
+ms.author: estfan
+ms.reviewer: plarsen, LADocs
 ms.suite: integration
+ms.topic: article
+ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: 507bc48b6b775d6a6fb5f855210d33520e187a74
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 354e67183a36f511811d74a0685dea2e23d6c0e2
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295099"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818883"
 ---
-# <a name="get-started-with-the-db2-connector"></a>Kom igång med DB2-koppling
-Microsoft-anslutaren för DB2 ansluter Logic Apps till resurser som är lagrade i en IBM DB2-databas. Denna koppling inkluderar en Microsoft-klient för att kommunicera med fjärrdatorer för DB2-server i ett TCP/IP-nätverk. Detta omfattar molntjänster databaser, till exempel IBM Bluemix dashDB eller IBM DB2 för Windows körs i Azure virtualisering och lokala databaser med hjälp av lokala datagateway. Finns det [stöds listan](connectors-create-api-db2.md#supported-db2-platforms-and-versions) IBM DB2-plattformar och versioner (i det här avsnittet).
+# <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Hantera IBM DB2-resurser med Azure Logic Apps
 
-DB2-koppling har stöd för följande databasåtgärder för:
+Du kan skapa automatiserade uppgifter och arbetsflöden baserat på de resurser som lagras i DB2-databas med Azure Logic Apps och IBM DB2-koppling. Dina arbetsflöden kan ansluta till resurser i din databas, läsa och lista databastabeller, lägga till rader, ändra rader och ta bort rader. Du kan inkludera åtgärder i dina logikappar som får svar från databasen och göra utdata som är tillgänglig för andra åtgärder. 
 
-* Lista databastabeller
-* Läs en rad med väljer
-* Läsa alla rader med väljer
-* Lägga till en rad med INSERT
-* Ändra en rad med hjälp av UPDATE
-* Ta bort en rad med DELETE
+Den här artikeln visar hur du kan skapa en logikapp som utför olika databasoperationer. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md).
 
-Det här avsnittet visar hur du använder kopplingen i en logikapp till databasåtgärder i processen.
+## <a name="supported-platforms-and-versions"></a>Plattformar som stöds och versioner
 
-Läs mer om Logic Apps i [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+DB2-koppling innehåller en Microsoft-klient som kommunicerar med DB2 fjärrservrar i ett TCP/IP-nätverk. Du kan använda den här anslutningen för att komma åt molndatabaser, till exempel IBM Bluemix dashDB eller IBM DB2 för Windows som körs i Azure-virtualisering. Du kan också komma åt lokala DB2-databaser efter att du [installera och konfigurera den lokala datagatewayen](../logic-apps/logic-apps-gateway-connection.md). 
 
-## <a name="available-actions"></a>Tillgängliga åtgärder
-DB2-koppling har stöd för följande logik app åtgärder:
+IBM DB2-anslutningsappen stöder dessa IBM DB2-plattformar och versioner tillsammans med IBM DB2 kompatibla produkter, t.ex IBM Bluemix dashDB som har stöd för distribuerade Relational Database Architecture (DRDA) SQL Access Manager (SQLAM) version 10 och 11:
 
-* GetTables
-* GetRow
-* GetRows
-* InsertRow
-* UpdateRow
-* DeleteRow
+| Plattform | Version | 
+|----------|---------|
+| IBM DB2 för z/OS | 11.1, 10.1 |
+| IBM DB2 för jag | 7.3, 7.2, 7.1 |
+| IBM DB2 för LUW | 11, 10,5 |
+|||
 
-## <a name="list-tables"></a>Lista tabeller
-Skapa en logikapp för någon åtgärd består av många steg utförs via Microsoft Azure-portalen.
+## <a name="supported-database-operations"></a>Stöds databasoperationer
 
-Du kan lägga till en åtgärd i logikappen, att lista tabeller i en DB2-databas. Åtgärden instruerar kopplingen för att bearbeta en DB2 schema-instruktionen, exempelvis `CALL SYSIBM.SQLTABLES`.
+IBM DB2-anslutningsappen stöder dessa databasåtgärder, som mappar till motsvarande åtgärder i anslutningen:
 
-### <a name="create-a-logic-app"></a>Skapa en logikapp
-1. I den **Azure startar board**väljer **+** (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
-2. Ange den **namn**, som `Db2getTables`, **prenumeration**, **resursgruppen**, **plats**, och **Apptjänstplan**. Välj **fäst på instrumentpanelen**, och välj sedan **skapa**.
+| Databasåtgärden | Anslutningstjänsten åtgärd | 
+|--------------------|------------------|
+| Lista databastabeller | Hämta tabeller | 
+| Läsa en rad med väljer | Hämta rad | 
+| Läsa alla rader med väljer | Hämta rader | 
+| Lägga till en rad med INSERT | Infoga rad | 
+| Redigera en rad med hjälp av UPDATE | Uppdatera raden | 
+| Ta bort en rad med DELETE | Ta bort rad | 
+|||
 
-### <a name="add-a-trigger-and-action"></a>Lägg till en utlösare och åtgärd
-1. I den **Logic Apps Designer**väljer **tom LogicApp** i den **mallar** lista.
-2. I den **utlösare** väljer **återkommande**. 
-3. I den **upprepning** utlösning, Välj **redigera**väljer **frekvens** listrutan för att välja **dag**, och sedan ange den **intervall** till typen **7**.  
-4. Välj den **+ nytt steg** och välj sedan **lägga till en åtgärd**.
-5. I den **åtgärder** anger `db2` i den **Sök efter fler åtgärder** redigera och välj sedan **DB2 - Get-tabeller (förhandsgranskning)**.
+## <a name="prerequisites"></a>Förutsättningar
+
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
+
+* En IBM DB2-databasen, antingen molnbaserade eller lokala
+
+* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* Logikappen där du vill komma åt DB2-databas. Den här anslutningstjänsten tillhandahåller endast åtgärder, så att starta logikappen, Välj en separat utlösare, till exempel, **upprepning** utlösaren.
+I exemplen i den här artikeln i **upprepning** utlösaren.
+
+<a name="add-db2-action"></a>
+
+## <a name="add-db2-action---get-tables"></a>Lägg till åtgärd för DB2 - Get-tabeller
+
+1. I den [Azure-portalen](https://portal.azure.com), öppna logikappen i Logic App Designer, om inte redan är öppen.
+
+1. Under utlösaren väljer **nytt steg**.
+
+1. I sökrutan anger du ”db2” som filter. I det här exemplet under åtgärder väljer du den här åtgärden: **Hämta tabeller (förhandsversion)**
    
-   ![](./media/connectors-create-api-db2/Db2connectorActions.png)  
-6. I den **DB2 - Get-tabeller** configuration-fönstret, Välj **kryssrutan** att aktivera **Anslut via lokala datagateway**. Observera att ändra inställningarna från molnet till lokalt.
+   ![Välj åtgärd](./media/connectors-create-api-db2/select-db2-action.png)
+
+   Nu uppmanas du att ange anslutningsinformation för DB2-databas. 
+
+1. Följ stegen för att skapa anslutningar för [databaser i molnet](#cloud-connection) eller [lokala databaser](#on-premises-connection).
+
+<a name="cloud-connection"></a>
+
+## <a name="connect-to-cloud-db2"></a>Ansluta till DB2-molnet
+
+Om du vill konfigurera anslutningen, ange den här anslutningsinformationen när du uppmanas, Välj **skapa**, och sedan spara din logikapp:
+
+| Egenskap | Obligatoriskt | Beskrivning | 
+|----------|----------|-------------| 
+| **Anslut via lokal gateway** | Nej | Gäller endast för lokala anslutningar. | 
+| **Anslutningsnamn** | Ja | Namn på anslutningen, till exempel ”MyLogicApp – DB2-anslutning” |
+| **Server** | Ja | Adress eller alias kolon portnumret för DB2-servern, till exempel ”myDB2server.cloudapp.net:50000” <p><p>**Obs**: det här värdet är en sträng som representerar en TCP/IP-adress eller alias, antingen i IPv4 eller IPv6-format, följt av ett kolon och ett TCP/IP-portnummer. |
+| **Databas** | Ja | Namn för din databas <p><p>**Obs**: det här värdet är en sträng som representerar en DRDA relationell databas namn (RDBNAM): <p>-DB2 z/OS accepterar en 16-bytes sträng där databasen är känt som ”IBM DB2 för z/OS” plats. <br>-DB2 för i godkänner en byte-18-sträng där databasen kallas en ”IBM DB2 för jag” relationsdatabas. <br>-DB2 för LUW accepterar en 8 byte-sträng. |
+| **Användarnamn** | Ja | Användarnamnet för databasen <p><p>**Obs**: det här värdet är en sträng vars längd är baserat på specifika databasen: <p><p>-DB2 z/OS accepterar en 8 byte-sträng. <br>-DB2 för i godkänner en 10-byte-sträng. <br>-DB2 för Linux eller UNIX accepterar en 8 byte-sträng. <br>-DB2 för Windows godkänner en 30-byte-sträng. | 
+| **Lösenord** | Ja | Ditt lösenord för databasen | 
+|||| 
+
+Exempel:
+
+![Anslutningsinformationen för molnbaserade databaser](./media/connectors-create-api-db2/create-db2-cloud-connection.png)
+
+<a name="on-premises-connection"></a>
+
+## <a name="connect-to-on-premises-db2"></a>Anslut till den lokala DB2
+
+Innan du skapar anslutningen måste har du redan din lokala datagateway installerad. Annars kan har du inte konfigurerat din anslutning. Om du har din gatewayinstallationen kan fortsätta att tillhandahålla här anslutningsinformationen och välj sedan **skapa**.
+
+| Egenskap | Obligatoriskt | Beskrivning | 
+|----------|----------|-------------| 
+| **Anslut via lokal gateway** | Ja | Gäller när du vill att en lokal anslutning och visar lokalt anslutningsegenskaper. | 
+| **Anslutningsnamn** | Ja | Namn på anslutningen, till exempel ”MyLogicApp – DB2-anslutning” | 
+| **Server** | Ja | Adress eller alias kolon portnumret för DB2-servern, till exempel ”myDB2server:50000” <p><p>**Obs**: det här värdet är en sträng som representerar en TCP/IP-adress eller alias, antingen i IPv4 eller IPv6-format, följt av ett kolon och ett TCP/IP-portnummer. | 
+| **Databas** | Ja | Namn för din databas <p><p>**Obs**: det här värdet är en sträng som representerar en DRDA relationell databas namn (RDBNAM): <p>-DB2 z/OS accepterar en 16-bytes sträng där databasen är känt som ”IBM DB2 för z/OS” plats. <br>-DB2 för i godkänner en byte-18-sträng där databasen kallas en ”IBM DB2 för jag” relationsdatabas. <br>-DB2 för LUW accepterar en 8 byte-sträng. | 
+| **Autentisering** | Ja | Autentiseringstyp för anslutningen, till exempel ”Basic” <p><p>**Obs**: Välj det här värdet i listan som innehåller grundläggande eller Windows (Kerberos). | 
+| **Användarnamn** | Ja | Användarnamnet för databasen <p><p>**Obs**: det här värdet är en sträng vars längd är baserat på specifika databasen: <p><p>-DB2 z/OS accepterar en 8 byte-sträng. <br>-DB2 för i godkänner en 10-byte-sträng. <br>-DB2 för Linux eller UNIX accepterar en 8 byte-sträng. <br>-DB2 för Windows godkänner en 30-byte-sträng. | 
+| **Lösenord** | Ja | Ditt lösenord för databasen | 
+| **Gateway** | Ja | Namn för din installerade lokala datagateway <p><p>**Obs**: Välj det här värdet i listan som innehåller alla installerade datagatewayer i din Azure-prenumeration och resurs-grupp. | 
+|||| 
+
+Exempel:
+
+![Anslutningsinformationen för lokala databaser](./media/connectors-create-api-db2/create-db2-on-premises-connection.png)
+
+### <a name="view-output-tables"></a>Visa utdatatabeller
+
+Om du vill köra logikappen manuellt på verktygsfältet för appdesignern väljer **kör**. När logikappen är klar kan du visa utdata från körningen.
+
+1. På logikappmenyn, väljer **översikt**. 
+
+1. Under **sammanfattning**i den **Körningshistorik** väljer du den senaste körningen, vilket är det första objektet i listan. 
+
+   ![Visa körningshistorik](./media/connectors-create-api-db2/run-history.png)
+
+1. Under **logikappskörningen**, nu kan du granska status indata, och utdata för varje steg i din logikapp. Expandera den **Hämta tabeller** åtgärd.
+
+   ![Expandera åtgärden](./media/connectors-create-api-db2/expand-action-step.png)
+
+1. Välj för att visa indata **visa råindata**. 
+
+1. Välj för att visa utdata **visa råutdata**. 
+
+   Utdata innehåller en lista över tabeller. 
    
-   * Ange värde för **Server**, i form av adress eller alias kolon portnummer. Skriv till exempel `ibmserver01:50000`.
-   * Ange värde för **databasen**. Skriv till exempel `nwind`.
-   * Välj värde för **autentisering**. Välj exempelvis **grundläggande**.
-   * Ange värde för **användarnamn**. Skriv till exempel `db2admin`.
-   * Ange värde för **lösenord**. Skriv till exempel `Password1`.
-   * Välj värde för **Gateway**. Välj exempelvis **datagateway01**.
-7. Välj **skapa**, och välj sedan **spara**. 
+   ![Visa utdatatabeller](./media/connectors-create-api-db2/db2-connector-get-tables-outputs.png)
+
+## <a name="get-row"></a>Hämta rad
+
+Om du vill hämta en post i en DB2-tabell i databasen, använder den **hämta rad** åtgärd i din logikapp. Den här åtgärden körs en DB2 `SELECT WHERE` instruktionen, till exempel `SELECT FROM AREA WHERE AREAID = '99999'`.
+
+1. Om du aldrig har använt DB2 åtgärder före i din logikapp, granska stegen i den [lägga till DB2 åtgärd - Get-tabeller](#add-db2-action) avsnittet, men Lägg till den **hämta rad** åtgärd i stället och sedan komma tillbaka hit om du vill fortsätta. 
+
+   När du lägger till den **hämta rad** åtgärd, här är hur logikappen exempel visas:
+
+   ![Hämta rad åtgärd](./media/connectors-create-api-db2/db2-get-row-action.png)
+
+1. Ange värden för alla nödvändiga egenskaper (*). När du har valt en tabell visar åtgärden relevanta egenskaper som är specifika för poster i tabellen.
+
+   | Egenskap | Obligatoriskt | Beskrivning | 
+   |----------|----------|-------------| 
+   | **Tabellnamn** | Ja | Den tabell som innehåller posten du önskar, såsom ”området” i det här exemplet | 
+   | **Områdes-ID** | Ja | ID för posten du önskar, såsom ”99999” i det här exemplet | 
+   |||| 
+
+   ![Välj tabell](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
+
+1. När du är klar på verktygsfältet för appdesignern väljer **spara**. 
+
+### <a name="view-output-row"></a>Visa utdata rad
+
+Om du vill köra logikappen manuellt på verktygsfältet för appdesignern väljer **kör**. När logikappen är klar kan du visa utdata från körningen.
+
+1. På logikappmenyn, väljer **översikt**. 
+
+1. Under **sammanfattning**i den **Körningshistorik** väljer du den senaste körningen, vilket är det första objektet i listan. 
+
+1. Under **logikappskörningen**, nu kan du granska status indata, och utdata för varje steg i din logikapp. Expandera den **hämta rad** åtgärd.
+
+1. Välj för att visa indata **visa råindata**. 
+
+1. Välj för att visa utdata **visa råutdata**. 
+
+   Utdata innehåller den angivna raden. 
    
-    ![](./media/connectors-create-api-db2/Db2connectorOnPremisesDataGatewayConnection.png)
-8. I den **Db2getTables** bladet, inom den **alla körningar** listan **sammanfattning**, väljer du det första i listan (senaste kör).
-9. I den **logikapp kör** bladet väljer **kör information**. I den **åtgärd** väljer **Get_tables**. Visa värdet för **Status**, som borde vara **lyckades**. Välj den **indata länken** att visa indata. Välj den **utdata länken**, och visa utdata, som ska innehålla en lista över tabeller.
+   ![Visa utdata rad](./media/connectors-create-api-db2/db2-connector-get-row-outputs.png)
+
+## <a name="get-rows"></a>Hämta rader
+
+Om du vill hämta alla poster i en DB2-tabell i databasen, använder den **hämta rader** åtgärd i din logikapp. Den här åtgärden körs en DB2 `SELECT` instruktionen, till exempel `SELECT * FROM AREA`.
+
+1. Om du aldrig har använt DB2 åtgärder före i din logikapp, granska stegen i den [lägga till DB2 åtgärd - Get-tabeller](#add-db2-action) avsnittet, men Lägg till den **hämta rader** åtgärd i stället och sedan komma tillbaka hit om du vill fortsätta. 
+
+   När du lägger till den **hämta rader** åtgärd, här är hur logikappen exempel visas:
+
+   ![Hämta rader åtgärd](./media/connectors-create-api-db2/db2-get-rows-action.png)
+
+1. Öppna den **tabellnamn** och välj den tabell som du vill, vilket är ”området” i det här exemplet: 
+
+   ![Välj tabell](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
+
+1. Om du vill ange filter och frågor för resultat, Välj **visa avancerade alternativ**.
+
+1. När du är klar på verktygsfältet för appdesignern väljer **spara**. 
+
+### <a name="view-output-rows"></a>Visa utdata rader
+
+Om du vill köra logikappen manuellt på verktygsfältet för appdesignern väljer **kör**. När logikappen är klar kan du visa utdata från körningen.
+
+1. På logikappmenyn, väljer **översikt**. 
+
+1. Under **sammanfattning**i den **Körningshistorik** väljer du den senaste körningen, vilket är det första objektet i listan. 
+
+1. Under **logikappskörningen**, nu kan du granska status indata, och utdata för varje steg i din logikapp. Expandera den **hämta rader** åtgärd.
+
+1. Välj för att visa indata **visa råindata**. 
+
+1. Välj för att visa utdata **visa råutdata**. 
+
+   Utdata innehåller alla poster i den angivna tabellen.
    
-   ![](./media/connectors-create-api-db2/Db2connectorGetTablesLogicAppRunOutputs.png)
+   ![Visa utdata rader](./media/connectors-create-api-db2/db2-connector-get-rows-outputs.png)
 
-## <a name="create-the-connections"></a>Skapa anslutningar
-Den här anslutningen har stöd för anslutningar till databaser som finns på lokalt och i molnet med hjälp av följande anslutningsegenskaper. 
+## <a name="insert-row"></a>Infoga rad
 
-| Egenskap  | Beskrivning |
-| --- | --- |
-| server |Krävs. Accepterar ett strängvärde som representerar ett TCP/IP-adress eller ett alias i IPv4- eller IPv6-format, följt (-semikolonavgränsad) av ett TCP/IP-portnummer. |
-| databas |Krävs. Accepterar ett strängvärde som representerar en DRDA relationell databas namn (RDBNAM). DB2 för z/OS accepterar en sträng med 16 byte (databas kallas en IBM DB2 för z/OS-plats). DB2 för i5/OS accepterar en 18 byte-sträng (databas kallas en IBM DB2 för i relationell databas). DB2 för LUW accepterar en 8 byte-sträng. |
-| autentisering |Valfri. Tillåter lista objekt, grundläggande eller Windows (kerberos). |
-| användarnamn |Krävs. Accepterar ett strängvärde. DB2 för z/OS accepterar en 8 byte-sträng. DB2 för i accepterar en 10 byte-sträng. DB2 för Linux eller UNIX accepterar en 8 byte-sträng. DB2 för Windows accepterar en 30-byte-sträng. |
-| lösenord |Krävs. Accepterar ett strängvärde. |
-| gateway |Krävs. Accepterar en lista över objekt-värde som representerar lokala datagateway definierad för Logic Apps i lagringsgruppen. |
+Lägg till en enskild post i en DB2-tabell i databasen genom att använda den **infogningsraden** åtgärd i din logikapp. Den här åtgärden körs en DB2 `INSERT` instruktionen, till exempel `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
 
-## <a name="create-the-on-premises-gateway-connection"></a>Skapa lokalt gateway-anslutningen
-Den här anslutningen kan komma åt en lokala DB2-databas med lokala gateway. Se gateway avsnitt för mer information. 
+1. Om du aldrig har använt DB2 åtgärder före i din logikapp, granska stegen i den [lägga till DB2 åtgärd - Get-tabeller](#add-db2-action) avsnittet, men Lägg till den **infogningsraden** åtgärd i stället och sedan komma tillbaka hit om du vill fortsätta. 
 
-1. I den **Gateways** configuration-fönstret, Välj **kryssrutan** att aktivera **Anslut via gateway**. Observera att ändra inställningarna från molnet till lokalt.
-2. Ange värde för **Server**, i form av adress eller alias kolon portnummer. Skriv till exempel `ibmserver01:50000`.
-3. Ange värde för **databasen**. Skriv till exempel `nwind`.
-4. Välj värde för **autentisering**. Välj exempelvis **grundläggande**.
-5. Ange värde för **användarnamn**. Skriv till exempel `db2admin`.
-6. Ange värde för **lösenord**. Skriv till exempel `Password1`.
-7. Välj värde för **Gateway**. Välj exempelvis **datagateway01**.
-8. Välj **skapa** att fortsätta. 
+   När du lägger till den **infogningsraden** åtgärd, här är hur logikappen exempel visas:
+
+   ![Infoga rad åtgärd](./media/connectors-create-api-db2/db2-insert-row-action.png)
+
+1. Ange värden för alla nödvändiga egenskaper (*). När du har valt en tabell visar åtgärden relevanta egenskaper som är specifika för poster i tabellen. 
+
+   Här följer egenskaperna för det här exemplet:
+
+   | Egenskap | Obligatoriskt | Beskrivning | 
+   |----------|----------|-------------| 
+   | **Tabellnamn** | Ja | Tabellen var du vill lägga till posten, till exempel ”-område | 
+   | **Områdes-ID** | Ja | ID för området för att lägga till, till exempel ”99999” | 
+   | **Beskrivning av** | Ja | Beskrivningen av området att lägga till, till exempel ”området 99999” | 
+   | **Region-ID** | Ja | ID: T för regionen som att lägga till, till exempel ”102” | 
+   |||| 
+
+   Exempel:
+
+   ![Välj tabell](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
+
+1. När du är klar på verktygsfältet för appdesignern väljer **spara**. 
+
+### <a name="view-insert-row-outputs"></a>Visa Infoga rad utdata
+
+Om du vill köra logikappen manuellt på verktygsfältet för appdesignern väljer **kör**. När logikappen är klar kan du visa utdata från körningen.
+
+1. På logikappmenyn, väljer **översikt**. 
+
+1. Under **sammanfattning**i den **Körningshistorik** väljer du den senaste körningen, vilket är det första objektet i listan. 
+
+1. Under **logikappskörningen**, nu kan du granska status indata, och utdata för varje steg i din logikapp. Expandera den **infogningsraden** åtgärd.
+
+1. Välj för att visa indata **visa råindata**. 
+
+1. Välj för att visa utdata **visa råutdata**. 
+
+   Utdata innehåller den post som du har lagt till till den angivna tabellen.
    
-    ![](./media/connectors-create-api-db2/Db2connectorOnPremisesDataGatewayConnection.png)
+   ![Visa utdata med infogade raden](./media/connectors-create-api-db2/db2-connector-insert-row-outputs.png)
 
-## <a name="create-the-cloud-connection"></a>Skapa moln-anslutning
-Den här anslutningen kan komma åt en molnet DB2-databas. 
+## <a name="update-row"></a>Uppdatera raden
 
-1. I den **Gateways** configuration fönstret lämna den **kryssrutan** (oanvända) har inaktiverats **Anslut via gateway**. 
-2. Ange värde för **anslutningsnamn**. Skriv till exempel `hisdemo2`.
-3. Ange värde för **DB2 servernamn**, i form av adress eller alias kolon portnummer. Skriv till exempel `hisdemo2.cloudapp.net:50000`.
-4. Ange värde för **DB2 databasnamnet**. Skriv till exempel `nwind`.
-5. Ange värde för **användarnamn**. Skriv till exempel `db2admin`.
-6. Ange värde för **lösenord**. Skriv till exempel `Password1`.
-7. Välj **skapa** att fortsätta. 
+Uppdatera en enskild post i en DB2-tabell i databasen med den **Uppdatera rad** åtgärd i din logikapp. Den här åtgärden körs en DB2 `UPDATE` instruktionen, till exempel `UPDATE AREA SET AREAID = '99999', AREADESC = 'Updated 99999', REGIONID = 102)`.
+
+1. Om du aldrig har använt DB2 åtgärder före i din logikapp, granska stegen i den [lägga till DB2 åtgärd - Get-tabeller](#add-db2-action) avsnittet, men Lägg till den **Uppdatera rad** åtgärd i stället och sedan komma tillbaka hit om du vill fortsätta. 
+
+   När du lägger till den **Uppdatera rad** åtgärd, här är hur logikappen exempel visas:
+
+   ![Uppdatera raden åtgärd](./media/connectors-create-api-db2/db2-update-row-action.png)
+
+1. Ange värden för alla nödvändiga egenskaper (*). När du har valt en tabell visar åtgärden relevanta egenskaper som är specifika för poster i tabellen. 
+
+   Här följer egenskaperna för det här exemplet:
+
+   | Egenskap | Obligatoriskt | Beskrivning | 
+   |----------|----------|-------------| 
+   | **Tabellnamn** | Ja | Tabellen var du vill uppdatera posten, till exempel ”-område | 
+   | **Rad-ID** | Ja | ID för posten som ska uppdateras, till exempel ”99999” | 
+   | **Områdes-ID** | Ja | Det nya område-ID, till exempel ”99999” | 
+   | **Beskrivning av** | Ja | Den nya området beskrivningen, till exempel ”uppdaterad 99999” | 
+   | **Region-ID** | Ja | Den nya region-ID, till exempel ”102” | 
+   |||| 
+
+   Exempel:
+
+   ![Välj tabell](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
+
+1. När du är klar på verktygsfältet för appdesignern väljer **spara**. 
+
+### <a name="view-update-row-outputs"></a>Visa Uppdatera rad matar ut
+
+Om du vill köra logikappen manuellt på verktygsfältet för appdesignern väljer **kör**. När logikappen är klar kan du visa utdata från körningen.
+
+1. På logikappmenyn, väljer **översikt**. 
+
+1. Under **sammanfattning**i den **Körningshistorik** väljer du den senaste körningen, vilket är det första objektet i listan. 
+
+1. Under **logikappskörningen**, nu kan du granska status indata, och utdata för varje steg i din logikapp. Expandera den **Uppdatera rad** åtgärd.
+
+1. Välj för att visa indata **visa råindata**. 
+
+1. Välj för att visa utdata **visa råutdata**. 
+
+   Utdata innehåller den post som du har uppdaterat i den angivna tabellen.
    
-    ![](./media/connectors-create-api-db2/Db2connectorCloudConnection.png)
+   ![Visa utdata med uppdaterade raden](./media/connectors-create-api-db2/db2-connector-update-row-outputs.png)
 
-## <a name="fetch-all-rows-using-select"></a>Hämta alla rader med väljer
-Du kan definiera en logik app åtgärd för att hämta alla rader i en DB2-tabell. Detta gör att kopplingen för att bearbeta en DB2 SELECT-instruktion som `SELECT * FROM AREA`.
+## <a name="delete-row"></a>Ta bort rad
 
-### <a name="create-a-logic-app"></a>Skapa en logikapp
-1. I den **Azure startar board**väljer **+** (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
-2. Ange den **namn**, som `Db2getRows`, **prenumeration**, **resursgruppen**, **plats**, och **Apptjänstplan**. Välj **fäst på instrumentpanelen**, och välj sedan **skapa**.
+Ta bort en post från en DB2-tabell i databasen genom att använda den **ta bort rad** åtgärd i din logikapp. Den här åtgärden körs en DB2 `DELETE` instruktionen, till exempel `DELETE FROM AREA WHERE AREAID = '99999'`.
 
-### <a name="add-a-trigger-and-action"></a>Lägg till en utlösare och åtgärd
-1. I den **Logic Apps Designer**väljer **tom LogicApp** i den **mallar** lista.
-2. I den **utlösare** väljer **återkommande**. 
-3. I den **återkommande** utlösning, Välj **redigera**väljer **frekvens** listrutan för att välja **dag**, och välj sedan **intervall** till typen **7**. 
-4. Välj den **+ nytt steg** och välj sedan **lägga till en åtgärd**.
-5. I den **åtgärder** anger `db2` i den **Sök efter fler åtgärder** redigera och välj sedan **DB2 - Get-rader (förhandsgranskning)**.
-6. I den **hämta rader (förhandsgranskning)** åtgärd, Välj **ändra anslutningen**.
-7. I den **anslutningar** configuration-fönstret, Välj **Skapa nytt**. 
+1. Om du aldrig har använt DB2 åtgärder före i din logikapp, granska stegen i den [lägga till DB2 åtgärd - Get-tabeller](#add-db2-action) avsnittet, men Lägg till den **ta bort rad** åtgärd i stället och sedan komma tillbaka hit om du vill fortsätta. 
+
+   När du lägger till den **ta bort rad** åtgärd, här är hur logikappen exempel visas:
+
+   ![Ta bort raden åtgärd](./media/connectors-create-api-db2/db2-delete-row-action.png)
+
+1. Ange värden för alla nödvändiga egenskaper (*). När du har valt en tabell visar åtgärden relevanta egenskaper som är specifika för poster i tabellen. 
+
+   Här följer egenskaperna för det här exemplet:
+
+   | Egenskap | Obligatoriskt | Beskrivning | 
+   |----------|----------|-------------| 
+   | **Tabellnamn** | Ja | Tabellen var du vill ta bort posten, till exempel ”-område | 
+   | **Rad-ID** | Ja | ID för posten som ska ta bort, till exempel ”99999” | 
+   |||| 
+
+   Exempel:
+
+   ![Välj tabell](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
+
+1. När du är klar på verktygsfältet för appdesignern väljer **spara**. 
+
+### <a name="view-delete-row-outputs"></a>Visa ta bort raden utdata
+
+Om du vill köra logikappen manuellt på verktygsfältet för appdesignern väljer **kör**. När logikappen är klar kan du visa utdata från körningen.
+
+1. På logikappmenyn, väljer **översikt**. 
+
+1. Under **sammanfattning**i den **Körningshistorik** väljer du den senaste körningen, vilket är det första objektet i listan. 
+
+1. Under **logikappskörningen**, nu kan du granska status indata, och utdata för varje steg i din logikapp. Expandera den **ta bort rad** åtgärd.
+
+1. Välj för att visa indata **visa råindata**. 
+
+1. Välj för att visa utdata **visa råutdata**. 
+
+   Utdata innehåller inte längre den post som du har tagits bort från den angivna tabellen.
    
-    ![](./media/connectors-create-api-db2/Db2connectorNewConnection.png)
-8. I den **Gateways** configuration fönstret lämna den **kryssrutan** (oanvända) har inaktiverats **Anslut via gateway**.
-   
-   * Ange värde för **anslutningsnamn**. Skriv till exempel `HISDEMO2`.
-   * Ange värde för **DB2 servernamn**, i form av adress eller alias kolon portnummer. Skriv till exempel `HISDEMO2.cloudapp.net:50000`.
-   * Ange värde för **DB2 databasnamnet**. Skriv till exempel `NWIND`.
-   * Ange värde för **användarnamn**. Skriv till exempel `db2admin`.
-   * Ange värde för **lösenord**. Skriv till exempel `Password1`.
-9. Välj **skapa** att fortsätta.
-   
-    ![](./media/connectors-create-api-db2/Db2connectorCloudConnection.png)
-10. I den **tabellnamn** väljer den **NEDPIL**, och välj sedan **området**.
-11. Alternativt, Välj **visa avancerade alternativ** ange frågealternativ.
-12. Välj **Spara**. 
-    
-    ![](./media/connectors-create-api-db2/Db2connectorGetRowsTableName.png)
-13. I den **Db2getRows** bladet, inom den **alla körningar** listan **sammanfattning**, väljer du det första i listan (senaste kör).
-14. I den **logikapp kör** bladet väljer **kör information**. I den **åtgärd** väljer **Get_rows**. Visa värdet för **Status**, som borde vara **lyckades**. Välj den **indata länken** att visa indata. Välj den **utdata länken**, och visa utdata, som ska innehålla en lista med rader.
-    
-    ![](./media/connectors-create-api-db2/Db2connectorGetRowsOutputs.png)
+   ![Visa utdata utan borttagen rad](./media/connectors-create-api-db2/db2-connector-delete-row-outputs.png)
 
-## <a name="add-one-row-using-insert"></a>Lägga till en rad med INSERT
-Du kan definiera en logik app åtgärd för att lägga till en rad i en DB2-tabell. Den här åtgärden gör kopplingen för att bearbeta en DB2 INSERT-instruktionen, exempelvis `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
+## <a name="connector-reference"></a>Referens för anslutningsapp
 
-### <a name="create-a-logic-app"></a>Skapa en logikapp
-1. I den **Azure startar board**väljer **+** (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
-2. Ange den **namn**, som `Db2insertRow`, **prenumeration**, **resursgruppen**, **plats**, och **Apptjänstplan**. Välj **fäst på instrumentpanelen**, och välj sedan **skapa**.
+Teknisk information, till exempel utlösare och åtgärder gränser, enligt beskrivningen av kopplingens Swagger-fil, finns i den [anslutningsappens-referenssida](/connectors/db2/). 
 
-### <a name="add-a-trigger-and-action"></a>Lägg till en utlösare och åtgärd
-1. I den **Logic Apps Designer**väljer **tom LogicApp** i den **mallar** lista.
-2. I den **utlösare** väljer **återkommande**. 
-3. I den **återkommande** utlösning, Välj **redigera**väljer **frekvens** listrutan för att välja **dag**, och välj sedan **intervall** till typen **7**. 
-4. Välj den **+ nytt steg** och välj sedan **lägga till en åtgärd**.
-5. I den **åtgärder** anger **db2** i den **Sök efter fler åtgärder** redigera och välj sedan **DB2 - infogningsraden (förhandsgranskning)**.
-6. I den **DB2 - infogningsraden (förhandsgranskning)** åtgärd, Välj **ändra anslutningen**. 
-7. I den **anslutningar** configuration rutan, Välj en anslutning. Välj exempelvis **hisdemo2**.
-   
-    ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
-8. I den **tabellnamn** väljer den **NEDPIL**, och välj sedan **området**.
-9. Ange värden för alla obligatoriska kolumner (se röd asterisk). Skriv till exempel `99999` för **AREAID**, typen `Area 99999`, och skriv `102` för **REGIONID**. 
-10. Välj **Spara**.
-    
-    ![](./media/connectors-create-api-db2/Db2connectorInsertRowValues.png)
-11. I den **Db2insertRow** bladet, inom den **alla körningar** listan **sammanfattning**, väljer du det första i listan (senaste kör).
-12. I den **logikapp kör** bladet väljer **kör information**. I den **åtgärd** väljer **Get_rows**. Visa värdet för **Status**, som borde vara **lyckades**. Välj den **indata länken** att visa indata. Välj den **utdata länken**, och visa utdata, som ska innehålla den nya raden.
-    
-    ![](./media/connectors-create-api-db2/Db2connectorInsertRowOutputs.png)
+## <a name="get-support"></a>Få support
 
-## <a name="fetch-one-row-using-select"></a>Hämta en rad med väljer
-Du kan definiera en logik app åtgärd för att hämta en rad i en DB2-tabell. Den här åtgärden gör kopplingen för att bearbeta en DB2 väljer där instruktionen, exempelvis `SELECT FROM AREA WHERE AREAID = '99999'`.
-
-### <a name="create-a-logic-app"></a>Skapa en logikapp
-1. I den **Azure startar board**väljer **+** (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
-2. Ange den **namn** (t.ex.) ”**Db2getRow**”), **prenumeration**, **resursgruppen**, **plats**, och **Apptjänstplan**. Välj **fäst på instrumentpanelen**, och välj sedan **skapa**.
-
-### <a name="add-a-trigger-and-action"></a>Lägg till en utlösare och åtgärd
-1. I den **Logic Apps Designer**väljer **tom LogicApp** i den **mallar** lista. 
-2. I den **utlösare** väljer **återkommande**. 
-3. I den **återkommande** utlösning, Välj **redigera**väljer **frekvens** listrutan för att välja **dag**, och välj sedan **intervall** till typen **7**. 
-4. Välj den **+ nytt steg** och välj sedan **lägga till en åtgärd**.
-5. I den **åtgärder** anger **db2** i den **Sök efter fler åtgärder** redigera och välj sedan **DB2 - Get-rader (förhandsgranskning)**.
-6. I den **hämta rader (förhandsgranskning)** åtgärd, Välj **ändra anslutningen**. 
-7. I den **anslutningar** konfigurationer rutan, Välj en befintlig anslutning. Välj exempelvis **hisdemo2**.
-   
-    ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
-8. I den **tabellnamn** väljer den **NEDPIL**, och välj sedan **området**.
-9. Ange värden för alla obligatoriska kolumner (se röd asterisk). Skriv till exempel `99999` för **AREAID**. 
-10. Alternativt, Välj **visa avancerade alternativ** ange frågealternativ.
-11. Välj **Spara**. 
-    
-    ![](./media/connectors-create-api-db2/Db2connectorGetRowValues.png)
-12. I den **Db2getRow** bladet, inom den **alla körningar** listan **sammanfattning**, väljer du det första i listan (senaste kör).
-13. I den **logikapp kör** bladet väljer **kör information**. I den **åtgärd** väljer **Get_rows**. Visa värdet för **Status**, som borde vara **lyckades**. Välj den **indata länken** att visa indata. Välj den **utdata länken**, och visa utdata, som ska innehålla rad.
-    
-    ![](./media/connectors-create-api-db2/Db2connectorGetRowOutputs.png)
-
-## <a name="change-one-row-using-update"></a>Ändra en rad med hjälp av UPDATE
-Du kan definiera en logik app-åtgärd om du vill ändra en rad i en DB2-tabell. Den här åtgärden gör kopplingen för att bearbeta en DB2 UPDATE-instruktion som `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
-
-### <a name="create-a-logic-app"></a>Skapa en logikapp
-1. I den **Azure startar board**väljer **+** (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
-2. Ange den **namn**, som `Db2updateRow`, **prenumeration**, **resursgruppen**, **plats**, och **Apptjänstplan**. Välj **fäst på instrumentpanelen**, och välj sedan **skapa**.
-
-### <a name="add-a-trigger-and-action"></a>Lägg till en utlösare och åtgärd
-1. I den **Logic Apps Designer**väljer **tom LogicApp** i den **mallar** lista.
-2. I den **utlösare** väljer **återkommande**. 
-3. I den **återkommande** utlösning, Välj **redigera**väljer **frekvens** listrutan för att välja **dag**, och välj sedan **intervall** till typen **7**. 
-4. Välj den **+ nytt steg** och välj sedan **lägga till en åtgärd**.
-5. I den **åtgärder** anger **db2** i den **Sök efter fler åtgärder** redigera och välj sedan **DB2 - raden uppdateringen (förhandsversion)**.
-6. I den **DB2 - raden uppdateringen (förhandsversion)** åtgärd, Välj **ändra anslutningen**. 
-7. I den **anslutningar** konfigurationer fönstret, Välj att välja en befintlig anslutning. Välj exempelvis **hisdemo2**.
-   
-    ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
-8. I den **tabellnamn** väljer den **NEDPIL**, och välj sedan **området**.
-9. Ange värden för alla obligatoriska kolumner (se röd asterisk). Skriv till exempel `99999` för **AREAID**, typen `Updated 99999`, och skriv `102` för **REGIONID**. 
-10. Välj **Spara**. 
-    
-    ![](./media/connectors-create-api-db2/Db2connectorUpdateRowValues.png)
-11. I den **Db2updateRow** bladet, inom den **alla körningar** listan **sammanfattning**, väljer du det första i listan (senaste kör).
-12. I den **logikapp kör** bladet väljer **kör information**. I den **åtgärd** väljer **Get_rows**. Visa värdet för **Status**, som borde vara **lyckades**. Välj den **indata länken** att visa indata. Välj den **utdata länken**, och visa utdata, som ska innehålla den nya raden.
-    
-    ![](./media/connectors-create-api-db2/Db2connectorUpdateRowOutputs.png)
-
-## <a name="remove-one-row-using-delete"></a>Ta bort en rad med DELETE
-Du kan definiera en logik app åtgärd för att ta bort en rad i en DB2-tabell. Den här åtgärden gör kopplingen för att bearbeta en DB2 DELETE-instruktion som `DELETE FROM AREA WHERE AREAID = '99999'`.
-
-### <a name="create-a-logic-app"></a>Skapa en logikapp
-1. I den **Azure startar board**väljer **+** (plustecknet) **webb + mobilt**, och sedan **Logikapp**.
-2. Ange den **namn**, som `Db2deleteRow`, **prenumeration**, **resursgruppen**, **plats**, och **Apptjänstplan**. Välj **fäst på instrumentpanelen**, och välj sedan **skapa**.
-
-### <a name="add-a-trigger-and-action"></a>Lägg till en utlösare och åtgärd
-1. I den **Logic Apps Designer**väljer **tom LogicApp** i den **mallar** lista. 
-2. I den **utlösare** väljer **återkommande**. 
-3. I den **återkommande** utlösning, Välj **redigera**väljer **frekvens** listrutan för att välja **dag**, och välj sedan **intervall** till typen **7**. 
-4. Välj den **+ nytt steg** och välj sedan **lägga till en åtgärd**.
-5. I den **åtgärder** väljer **db2** i den **Sök efter fler åtgärder** redigera och välj sedan **DB2 - ta bort rad (förhandsgranskning)**.
-6. I den **DB2 - ta bort rad (förhandsgranskning)** åtgärd, Välj **ändra anslutningen**. 
-7. I den **anslutningar** konfigurationer rutan, Välj en befintlig anslutning. Välj exempelvis **hisdemo2**.
-   
-    ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
-8. I den **tabellnamn** väljer den **NEDPIL**, och välj sedan **området**.
-9. Ange värden för alla obligatoriska kolumner (se röd asterisk). Skriv till exempel `99999` för **AREAID**. 
-10. Välj **Spara**. 
-    
-    ![](./media/connectors-create-api-db2/Db2connectorDeleteRowValues.png)
-11. I den **Db2deleteRow** bladet, inom den **alla körningar** listan **sammanfattning**, väljer du det första i listan (senaste kör).
-12. I den **logikapp kör** bladet väljer **kör information**. I den **åtgärd** väljer **Get_rows**. Visa värdet för **Status**, som borde vara **lyckades**. Välj den **indata länken** att visa indata. Välj den **utdata länken**, och visa utdata, som ska innehålla den borttagna raden.
-    
-    ![](./media/connectors-create-api-db2/Db2connectorDeleteRowOutputs.png)
-
-## <a name="supported-db2-platforms-and-versions"></a>DB2-plattformar som stöds och versioner
-Den här anslutningen har stöd för de följande IBM DB2-plattformar och versioner, samt IBM DB2 kompatibla produkter (t.ex. IBM Bluemix dashDB) som har stöd för distribuerade relationella Database Architecture (DRDA) SQL åtkomst Manager (SQLAM) version 10 och 11:
-
-* IBM DB2 för z/OS 11,1
-* IBM DB2 för z/OS 10.1
-* IBM DB2 för i 7.3
-* IBM DB2 för i 7.2
-* IBM DB2 för i 7.1
-* IBM DB2 för LUW 11
-* IBM DB2 för LUW 10.5
-
-## <a name="connector-specific-details"></a>Connector-specifik information
-
-Visa alla utlösare och åtgärder som definierats i swagger och även se några gränser i den [connector information](/connectors/db2/). 
+* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg
-[Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Utforska andra tillgängliga kopplingar i Logic Apps på vår [API: er listan](apis-list.md).
 
+* Läs mer om andra [Logic Apps-anslutningsprogram](../connectors/apis-list.md)

@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: wesmc
-ms.openlocfilehash: 4751a76c39060f48d3b816ecee0de5b58e29bdaa
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: e476ca498e4dc1b36d18927beddc812d6d803120
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42058214"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818518"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Kontrollera åtkomst till Azure IoT Hub Device Provisioning-tjänsten
 
@@ -34,7 +34,7 @@ Du kan bevilja [behörigheter](#device-provisioning-service-permissions) på fö
 
 * **Delad åtkomst auktoriseringsprinciper**. Principer för delad åtkomst kan ge olika kombinationer av [behörigheter](#device-provisioning-service-permissions). Du kan definiera principer i den [Azure-portalen][lnk-management-portal], eller via programmering med hjälp av den [Device Provisioning Service REST API: er][lnk-resource-provider-apis]. En nyligen skapade etableringstjänst har standardprincipen för följande:
 
-   **provisioningserviceowner**: princip med alla behörigheter.
+* **provisioningserviceowner**: princip med alla behörigheter.
 
 > [!NOTE]
 > Se [behörigheter](#device-provisioning-service-permissions) detaljerad information.
@@ -177,7 +177,7 @@ Följande referens ger dig mer information om hur du styr åtkomst till din IoT 
 
 I följande tabell visas de behörigheter som du kan använda för att styra åtkomsten till IoT Device Provisioning-tjänsten.
 
-| Behörighet | Anteckningar |
+| Behörighet | OBS! |
 | --- | --- |
 | **ServiceConfig** |Beviljar åtkomst till att ändra tjänstkonfigurationer. <br/>Den här behörigheten används av backend-molntjänster. |
 | **EnrollmentRead** |Ger läsbehörighet till enhetsregistreringar och registreringsgrupper. <br/>Den här behörigheten används av backend-molntjänster. |

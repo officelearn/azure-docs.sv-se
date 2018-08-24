@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 9f37a7665521b69634329078258b00cb9f53c407
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 644089cea4dccc79e67b9117187b553eb4616d9f
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358726"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818222"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Så att du vill lära dig om Service Fabric?
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster.  Service Fabric har ett stort utsatt område för dock och det är mycket mer.  Den här artikeln innehåller en sammanfattning av Service Fabric och beskriver grundläggande begrepp, programmeringsmodeller, programmets hela livscykel, testning, kluster och övervakning av hälsotillstånd. Läs den [översikt](service-fabric-overview.md) och [vad är mikrotjänster?](service-fabric-overview-microservices.md) för en introduktion och hur Service Fabric kan användas för att skapa mikrotjänster. Den här artikeln innehåller inte en omfattande innehållslistan, men länka till översikt och komma igång artiklar för alla områden i Service Fabric. 
@@ -83,7 +83,7 @@ Varför har tillståndskänsliga mikrotjänster tillsammans med tillståndslösa
 ## <a name="supported-programming-models"></a>Programmeringsmodeller som stöds
 Service Fabric finns flera sätt att skriva och hantera dina tjänster. Tjänster kan använda Service Fabric-API: er för att dra full nytta av plattformens funktioner och ramverk för programmet. Tjänster kan också vara alla kompilerade körbart program skrivna på valfritt språk och finns i Service Fabric-kluster. Mer information finns i [programmeringsmodeller som stöds](service-fabric-choose-framework.md).
 
-### <a name="containers"></a>Containrar
+### <a name="containers"></a>Container
 Som standard, Service Fabric distribuerar och aktiverar tjänster som processer. Service Fabric kan också distribuera tjänster i [behållare](service-fabric-containers-overview.md). Allt kan du blanda tjänster i processer och tjänster i behållare i samma program. Service Fabric stöder distribution av Linux-behållare Windows-behållare på Windows Server 2016. Du kan distribuera befintliga program eller tillståndslösa tjänster tillståndskänsliga tjänster i behållare. 
 
 ### <a name="reliable-services"></a>Reliable Services
@@ -146,7 +146,7 @@ Det finns vissa funktioner som stöds på Windows, men inte i Linux. Mer informa
 ### <a name="standalone-clusters"></a>Fristående kluster
 Service Fabric tillhandahåller ett installationspaket för dig att skapa fristående Service Fabric-kluster lokalt eller på någon annan molnleverantör. Fristående kluster ger dig friheten att vara värd för ett kluster var du vill. Om dina data är föremål för efterlevnad eller föreskrifter begränsningar, eller om du vill behålla dina data lokalt, kan du vara värd för ditt eget kluster och program. Service Fabric-program kan köras i flera värdmiljöer utan ändringar, så att dina kunskaper om att bygga program överförs från en värdmiljö till en annan. 
 
-[Skapa ditt första fristående Service Fabric-kluster](service-fabric-get-started-standalone-cluster.md)
+[Skapa ditt första fristående Service Fabric-kluster](service-fabric-cluster-creation-for-windows-server.md)
 
 Linux fristående kluster stöds inte ännu.
 

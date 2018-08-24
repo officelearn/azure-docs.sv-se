@@ -1,6 +1,6 @@
 ---
 title: Kompatibilitetslista för Azure AD-federation
-description: Den här sidan har icke-Microsoft leverantörer som kan användas för att implementera enkel inloggning.
+description: Den här sidan har icke-Microsoft identitetsleverantörer som kan användas för att implementera enkel inloggning.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -12,24 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 08/23/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f5e85a551181a3dd4618db2611a99675329cfabd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3b2313b79c57a95af40d29bca3d7522c83e10e4c
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592027"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818722"
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Kompatibilitetslista för Azure AD-federation
-Azure Active Directory tillhandahåller enkel inloggning på och förbättrad säkerhet för åtkomst för Office 365 och andra Microsoft Online-tjänster för hybrid och endast molnbaserad implementeringar utan någon lösning från tredje part. Office 365, som de flesta av Microsofts onlinetjänster, är integrerad med Azure Active Directory för katalogtjänster, autentisering och auktorisering. Azure Active Directory ger även enkel inloggning till tusentals SaaS-program och lokala webbprogram. Se Azure Active Directory [programgalleriet](https://azuremarketplace.microsoft.com/marketplace/apps) för SaaS-program som stöds. 
+Azure Active Directory tillhandahåller enkel inloggning och förbättrad säkerhet för åtkomst för Office 365 och andra Microsoft Online-tjänster för hybriddata och molnbaserad implementeringar utan någon lösning från tredje part. Office 365, som de flesta av Microsofts onlinetjänster, är integrerad med Azure Active Directory för katalogtjänster, autentisering och auktorisering. Azure Active Directory tillhandahåller också enkel inloggning till tusentals SaaS-program och lokala webbprogram. Se Azure Active Directory [programgalleriet](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) för SaaS-program som stöds. 
 
-## <a name="idp-validation"></a>IDP-validering
-Om din organisation använder en lösning från tredje part federation, kan du konfigurera enkel inloggning för din lokala Active Directory-användare med Microsoft Online-tjänster, till exempel Office 365, under förutsättning att den tredje parts federation är kompatibla med Azure Active Directory.  Kontakta din identitetsleverantör om du har frågor angående kompatibilitet.  Om du vill se en lista över identitetsleverantörer som tidigare har testats för kompatibilitet med Azure AD från Microsoft, klicka på [här](https://www.microsoft.com/download/details.aspx?id=56843). 
+## <a name="idp-validation"></a>IDP-verifiering
+Om din organisation använder en federationslösning från tredje part, kan du konfigurera enkel inloggning för din lokala Active Directory-användare med Microsoft Online-tjänster, till exempel Office 365, förutsatt att den tredje parts federation är kompatibla med Azure Active Directory.  Frågor angående kompatibilitet kan du kontakta din identitetsprovider.  Om du vill se en lista över identitetsleverantörer som tidigare har testats för kompatibilitet med Azure AD av Microsoft, klicka på [här](https://www.microsoft.com/download/details.aspx?id=56843). 
 
 >[!NOTE]
->Microsoft tillhandahåller inte längre validering testningen till oberoende identitetsleverantörer för kompatibilitet med Azure Active Directory. Om du vill testa produktens samverkan läser du dessa [riktlinjer](https://www.microsoft.com/download/details.aspx?id=56843). 
+>Microsoft tillhandahåller inte längre valideringstestning till oberoende identitetsleverantörer för kompatibilitet med Azure Active Directory. Om du vill testa din produkt för samverkan ser du följande [riktlinjer](https://www.microsoft.com/download/details.aspx?id=56843). 
 
 ## <a name="next-steps"></a>Nästa steg
 

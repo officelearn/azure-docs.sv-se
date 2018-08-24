@@ -2,7 +2,7 @@
 title: Bästa praxis för villkorlig åtkomst i Azure Active Directory | Microsoft Docs
 description: Läs mer om saker du bör känna till och vad det är du bör undvika att göra när du konfigurerar principer för villkorlig åtkomst.
 services: active-directory
-keywords: villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
+keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 08/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: d21a6dc7a460e07fe7530b58bef887241a694b25
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 4e9f5a9318db813b1a0f16d3599f74fd98e53ffc
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628094"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818065"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Metodtips för villkorlig åtkomst i Azure Active Directory
 
@@ -85,7 +85,7 @@ Båda principerna tillämpas av Azure Active Directory och användaren får åtk
 
 ### <a name="what-happens-if-i-have-multiple-policies-for-the-same-user-configured"></a>Vad händer om jag har flera principer för samma användare konfigurerade?  
 
-För varje inloggning, Azure Active Directory utvärderar alla principer och säkerställer att alla krav är uppfyllda innan du beviljas åtkomst till användaren.
+För varje inloggning, Azure Active Directory utvärderar alla principer och säkerställer att alla krav är uppfyllda innan du beviljas åtkomst till användaren. Blockera åtkomst trumps alla andra konfigurationsinställningar. 
 
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>Fungerar villkorlig åtkomst med Exchange ActiveSync?

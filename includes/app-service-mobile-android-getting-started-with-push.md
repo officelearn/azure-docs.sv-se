@@ -1,4 +1,17 @@
-1. I din **app** projekt, öppna filen `AndroidManifest.xml`. Lägg till följande kod efter den `application` startkoden:
+---
+author: conceptdev
+ms.author: crdun
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.openlocfilehash: 654bc3745768fccea41d7c3991142bf7183b54be
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42811548"
+---
+1. I din **app** projekt, öppna filen `AndroidManifest.xml`. Lägg till följande kod efter den `application` starttaggen:
 
     ```xml
     <service android:name=".ToDoMessagingService">
@@ -21,7 +34,7 @@
         import com.google.firebase.iid.FirebaseInstanceId;
         ```
 
-    - Ändra definitionen av `MobileServiceClient` från **privata** till **privata statiska**, så det nu ser ut så här:
+    - Ändra definitionen av `MobileServiceClient` från **privata** till **privata statiska**, så att den nu ser ut så här:
 
         ```java
         private static MobileServiceClient mClient;
@@ -43,13 +56,13 @@
         }
         ```
 
-    - Uppdatering av **onCreate** metod för den `ToDoActivity` klass. Se till att lägga till den här koden efter den `MobileServiceClient` instansieras.
+    - Uppdatera den **onCreate** -metoden för den `ToDoActivity` klass. Se till att lägga till den här koden efter den `MobileServiceClient` instantieras.
 
         ```java
         registerPush();
         ```
 
-3. Lägg till en ny klass för att hantera meddelanden. Öppna i Projektutforskaren den **app** > **java** > **ditt projekt namnområde** noder och högerklicka på noden paket namn. Klicka på **ny**, och klicka sedan på **Java-klass**. Skriv namn `ToDoMessagingService`, och klicka sedan på OK. Ersätt sedan klassdeklarationen med:
+3. Lägg till en ny klass för att hantera meddelanden. I Project Explorer öppnar du den **app** > **java** > **your projekt namnområde** noder och högerklicka på noden paket namn. Klicka på **New**, och klicka sedan på **Java-klass**. Skriv namn `ToDoMessagingService`, och klicka sedan på OK. Ersätt sedan klassdeklarationen med:
 
     ```java
     import android.app.Notification;
@@ -102,4 +115,4 @@
     }
     ```
 
-Appen har uppdaterats för att stödja push-meddelanden.
+Din app har uppdaterats för att stödja push-meddelanden.

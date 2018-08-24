@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 85a2f0c13d483df40b6de2a158cf5fa43c45b5eb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b4905c8bcf3c14c7f1dfa752a930f57ccbfd8fd7
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531348"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818494"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via SMB-protokollet som är branschstandard. Eftersom Azure Files är fullständigt hanterad, är distribuerar den i produktionsscenarier mycket enklare än att distribuera och hantera en filserver eller NAS-enhet. Den här artikeln tar upp ämnen att tänka på när du distribuerar en Azure-filresurs för användning i produktion i din organisation.
@@ -81,7 +81,7 @@ Azure Files stöder tre alternativ för dataredundans: lokalt redundant lagring 
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## <a name="data-growth-pattern"></a>Tillväxt datamönster
-Idag är den maximala storleken för en Azure-filresurs 5 TiB, inklusive resursögonblicksbilder. På grund av den här tillfälliga begränsningen måste du överväga att den förväntade datatillväxten när du distribuerar en Azure-filresurs. Observera att ett Azure Storage-konto kan lagra flera filresurser med en totalsumma på 500 TiB som lagras på alla resurser.
+Idag är den maximala storleken för en Azure-filresurs 5 TiB. På grund av den här tillfälliga begränsningen måste du överväga att den förväntade datatillväxten när du distribuerar en Azure-filresurs. Observera att ett Azure Storage-konto kan lagra flera filresurser med en totalsumma på 500 TiB som lagras på alla resurser.
 
 Det är möjligt att synkronisera flera Azure-filresurser på en enda Windows Server med Azure File Sync. På så sätt kan du se till att äldre, mycket stora filresurser som du kan ha en lokal kan anslutas till Azure File Sync. Se [planera för distribution av Azure File Sync](storage-files-planning.md) för mer information.
 

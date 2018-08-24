@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/15/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: ba8778bad9ed1b8ec095da084ffcec79658bdea8
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: db60aaacfb2ba60dbe73663cb415e2a3baea5400
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42055802"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745807"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Hantera API-versionsprofiler i Azure Stack
 
@@ -53,7 +53,7 @@ De senaste Azure API-profilerna är inte kompatibla med Azure Stack. Du kan anv�
 **senaste**  
 Den här profilen har de senaste API-versioner som finns i globala Azure, vilket inte fungerar i Azure Stack. **Senaste** har det största antalet icke-bakåtkompatibla ändringar. Profilen har tagits ur bruk stabilitet och kompatibilitet med andra moln. Om du försöker att använda de senaste API-versionerna **senaste** är profilen som du ska använda.
 
-**Åååå-mm-dd-hybrid**  
+**åååå-mm-dd-hybrid**  
 Den här profilen släpps i mars och September varje år. Den här profilen har optimala stabilitet och kompatibilitet med de olika moln. **Åååå-mm-dd-hybrid** har utformats för att ange globala Azure och Azure Stack som mål. Azure API-versioner som anges i den här profilen ska vara samma som de som visas på Azure Stack. Du kan använda den här profilen för att utveckla kod för hybridmolnlösningar.
 
 **åååå-mm-dd-profil**  
@@ -67,7 +67,7 @@ Du kan i stället använda en API-profil än undersöka varje resursprovider och
 
 API-profiler fungerar med verktyg som använder Azure Resource Manager, som PowerShell, Azure CLI, koden i SDK och Microsoft Visual Studio. Verktyg och SDK: er kan använda profiler för att läsa vilken version av moduler och bibliotek att inkludera när du skapar ett program.
 
-Exempel: om Använd PowerShell för att skapa ett storage-konto med hjälp av den **Microsoft.Storage** resursprovidern och som har stöd för api-versionen 2016-03-30 och en virtuell dator med Microsoft.Compute-resursprovidern med api-version 2015-12-01 , skulle du behöva leta upp vilken PowerShell-modulen stöder 2016-03-30 för lagring och vilken modul stöder 2015-02-01 för databearbetning och installera den. Du kan i stället använda en profil. Använd cmdleten ** Installera profil * profilename *** och PowerShell läser du in rätt version av moduler.
+Exempel: Om du använder PowerShell för att skapa ett storage-konto med den **Microsoft.Storage** resursprovidern och som har stöd för api-versionen 2016-03-30 och en virtuell dator med Microsoft.Compute-resursprovidern med api-version 2015-12-01, skulle du behöva leta upp vilken PowerShell-modulen stöder 2016-03-30 för lagring och vilken modul stöder 2015-02-01 för databearbetning och installera den. Du kan i stället använda en profil. Använd cmdleten ** Installera profil * profilename *** och PowerShell läser du in rätt version av moduler.
 
 När du använder Python SDK för att skapa en Python-baserade program, på samma sätt kan du ange profilen. SDK: N läser in rätt moduler för de resursprovidrar som du har angett i skriptet.
 

@@ -1,18 +1,18 @@
 ## <a name="rest"></a>Distribuera ZIP-filen med REST API: er 
 
-Du kan använda den [deployment service REST API: er](https://github.com/projectkudu/kudu/wiki/REST-API) distribuera .zip-filen till din app i Azure. Distribuera genom att skicka en POST-begäran till https://<app_name>.scm.azurewebsites.net/api/zipdeploy. POST-begäran måste innehålla ZIP-filen i meddelandetexten. Autentiseringsuppgifter för distribution för din app tillhandahålls i begäran med hjälp av grundläggande autentisering. Mer information finns i [.zip push distribution referens](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file). 
+Du kan använda den [distributionstjänst för REST API: er](https://github.com/projectkudu/kudu/wiki/REST-API) att distribuera .zip-filen till din app i Azure. Om du vill distribuera, skicka en POST-begäran till https://<app_name>.scm.azurewebsites.net/api/zipdeploy. POST-begäran måste innehålla .zip-filen i meddelandetexten. Autentiseringsuppgifterna för distribution för din app tillhandahålls i begäran med hjälp av grundläggande HTTP-autentisering. Mer information finns i den [referens för distribution av .zip-push](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file). 
 
-Du måste dina autentiseringsuppgifter för distribution av App Service för grundläggande HTTP-autentisering. Information om hur du anger dina autentiseringsuppgifter för distribution finns [ange och återställa användarnivå autentiseringsuppgifter](../articles/app-service/app-service-deployment-credentials.md#userscope).
+För grundläggande HTTP-autentisering måste du dina autentiseringsuppgifter för distribution av App Service. Om du vill se hur du anger dina autentiseringsuppgifter för distribution, se [ange och Återställ användarnivå autentiseringsuppgifter](../articles/app-service/app-service-deployment-credentials.md#userscope).
 
 ### <a name="with-curl"></a>Med cURL
 
-I följande exempel använder cURL-verktyget för att distribuera en .zip-fil. Ersätt platshållarna `<username>`, `<password>`, `<zip_file_path>`, och `<app_name>`. När du uppmanas av cURL, Skriv in lösenordet.
+I följande exempel används verktyget cURL för att distribuera en ZIP-fil. Ersätt platshållarna `<username>`, `<password>`, `<zip_file_path>`, och `<app_name>`. När du uppmanas av cURL anger du lösenordet.
 
 ```bash
 curl -X POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
 ```
 
-Denna begäran utlöser push-distribution från den överförda ZIP-filen. Du kan granska aktuella och tidigare distributioner med hjälp av https://<app_name>.scm.azurewebsites.net/api/deployments-slutpunkt som visas i exemplet nedan cURL. Igen och Ersätt `<app_name>` med namnet på din app och `<deployment_user>` med användarnamnet för dina autentiseringsuppgifter för distribution.
+Den här begäran utlöser push-distribution från den uppladdade ZIP-fil. Du kan granska aktuella och tidigare distributioner med hjälp av den `https://<app_name>.scm.azurewebsites.net/api/deployments` slutpunkt, enligt följande cURL-exempel. Ersätter `<app_name>` med namnet på din app och `<deployment_user>` med användarnamnet för dina autentiseringsuppgifter för distribution.
 
 ```bash
 curl -u <deployment_user> https://<app_name>.scm.azurewebsites.net/api/deployments
@@ -33,7 +33,7 @@ $userAgent = "powershell/1.0"
 Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -UserAgent $userAgent -Method POST -InFile $filePath -ContentType "multipart/form-data"
 ```
 
-Denna begäran utlöser push-distribution från den överförda ZIP-filen. Kör följande kommandon om du vill granska aktuella och tidigare distributioner. Igen och Ersätt den `<app_name>` platshållare.
+Den här begäran utlöser push-distribution från den uppladdade ZIP-fil. Kör följande kommandon för att granska de aktuella och tidigare distributionerna. Ersätter den `<app_name>` platshållare.
 
 ```bash
 $apiUrl = "https://<app_name>.scm.azurewebsites.net/api/deployments"

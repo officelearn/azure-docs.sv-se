@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2018
 ms.author: glenga
-ms.openlocfilehash: c2e066ddf444cb81d7f0033641a300d18b266f62
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: ce520c5972bf27c30ecb175d58b6b6071bf804db
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397855"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818300"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>IP-adresser i Azure Functions
 
@@ -39,7 +39,7 @@ Varje funktionsapp har en inkommande IP-adress. Hitta IP-adress:
 3. Välj **plattformsfunktioner**.
 4. Välj **egenskaper**, och den inkommande IP-adressen visas under **virtuell IP-adress**.
 
-## <a name="function-app-outbound-ip-addresses"></a>Funktionen app utgående IP-adresser
+## <a name="find-outbound-ip-addresses"></a>Funktionen app utgående IP-adresser
 
 Varje funktionsapp har en uppsättning tillgängliga utgående IP-adresser. Alla utgående anslutning från en funktion, till exempel en backend-databas, använder en av de tillgängliga utgående IP-adresserna som ursprunglig IP-adress. Du kan inte vet i förväg vilka IP-adressen en viss anslutning kommer att använda. Därför måste din serverdelstjänst öppna dess brandväggen till att alla function-appens utgående IP-adresser.
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 08/05/2018
 ms.author: juliako
-ms.openlocfilehash: 66ba79926a949371cb2280de408835862dd1a099
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 64a38ba617a1cc5fe1fdb3473e3cb88a49d89bb0
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41988152"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42744758"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Skapa en Video Indexer-konto som är ansluten till Azure
 
@@ -46,7 +46,7 @@ Den här artikeln visar hur du skapar en Video Indexer-konto som är länkad til
 
 * Registrera resursprovidern EventGrid med Azure portal.
 
-    I Azure-portalen går du till **prenumerationer** > [prenumeration] > **ResourceProviders** > **Microsoft.EventGrid**. Om inte i tillståndet ”Registered” klickar du på **registrera**. Det tar några minuter att registrera. 
+    I den [Azure-portalen](https://portal.azure.com/)går du till **prenumerationer** > [prenumeration] > **ResourceProviders** > **Microsoft.EventGrid**. Om inte i tillståndet ”Registered” klickar du på **registrera**. Det tar några minuter att registrera. 
 
     ![EventGrid](./media/create-account/event-grid.png)
 
@@ -96,19 +96,16 @@ Följande gäller Azure Media Services relaterade:
 
     Du kan behöva justera typ och antal media **reserverade enheter**, enligt planerad inläsningen. Tänk på att om din belastningen är hög och du inte har tillräckligt med enheter eller hastighet, videor bearbetning kan leda till timeout-fel.
 
-* Om du är ansluten till ett nytt Media Services-konto, Video Indexer startar automatiskt en **Strömningsslutpunkt** i den:
+* Om du är ansluten till ett nytt Media Services-konto, Video Indexer automatiskt startar standard **Strömningsslutpunkt** i den:
 
     ![Slutpunkten för direktuppspelning av Media Services](./media/create-account/ams-streaming-endpoint.png)
 
-* Om du har anslutit till ett befintligt Media Services-konto, ändras inte Video Indexer strömmande slutpunkter konfigurationen. Om inga körs **Strömningsslutpunkt**, kommer du inte kunna titta på videor från Media Services-konto eller i Video Indexer.
+* Om du har anslutit till ett befintligt Media Services-konto, ändras inte Video Indexer-slutpunkt för direktuppspelning standardkonfigurationen. Om inga körs **Strömningsslutpunkt**, kommer du inte kunna titta på videor från Media Services-konto eller i Video Indexer.
 
-## <a name="use-video-indexer-apis-v2"></a>Använda Video Indexer API: er v2
+## <a name="next-steps"></a>Nästa steg
 
 Du kan interagera med ditt utvärderingskonto och/eller med din Video Indexer-användarkonton som är anslutna till azure genom att följa anvisningarna i: [Använd API: er](video-indexer-use-apis.md).
 
 Du bör använda samma Azure AD-användare som du använde när du ansluter till Azure.
 
-## <a name="next-steps"></a>Nästa steg
-
-[Granska information om utdata JSON](video-indexer-output-json-v2.md).
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: c9d656908d265aeb6143e857b0ea4f635203bdd9
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 82e8836892b033ccbb3c3ad9806257348afe3702
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258736"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818410"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Anslut ditt program till Azure SQL Database Managed Instance
 
@@ -75,9 +75,23 @@ Det här scenariot illustreras i följande diagram:
 
 Hanterad instans kan bara nås via en privat IP-adress så för att komma åt den från developer-box, måste du först att upprätta en anslutning mellan developer-rutan och VNet hanterade instans.  
  
-Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med intern Azure-certifikat autentisering artiklar ([Azure-portalen](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)) innehåller detaljerad information om hur Det kan göras.  
+Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med intern Azure-certifikat autentisering artiklar ([Azure-portalen](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)) innehåller detaljerad information om hur Det kan göras. 
+
+## <a name="required-versions-of-drivers-and-tools"></a>Nödvändiga versionerna av drivrutiner och verktyg
+
+Följande minsta versioner av verktyg och drivrutiner rekommenderas om du vill ansluta till hanterad instans:
+
+| Drivrutinen/verktyget | Version |
+| --- | --- |
+|.NET Framework | 4.6.1 (eller .NET Core) | 
+|ODBC-drivrutin    | v17 |
+|PHP-drivrutinen | 5.2.0 |
+|JDBC-drivrutinen    | 6.4.0 |
+|Node.js-drivrutinen | 2.1.1 |
+|OLEDB-drivrutin   | 18.0.2.0 |
+|SSMS   | 17.8.1 eller [högre](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Information om Managed Instance finns i [vad är en hanterad instans](sql-database-managed-instance.md).
-- En självstudiekurs som visar hur du skapar en ny hanterad instans finns i [skapar en hanterad instans](sql-database-managed-instance-create-tutorial-portal.md).
+- En självstudiekurs som visar hur du skapar en ny hanterad instans finns i [skapar en hanterad instans](sql-database-managed-instance-get-started.md).

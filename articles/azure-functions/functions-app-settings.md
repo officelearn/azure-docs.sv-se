@@ -3,7 +3,7 @@ title: Referens för appinställningar för Azure Functions
 description: Referensdokumentation för appinställningar för Azure Functions eller miljövariabler.
 services: functions
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: ''
@@ -12,18 +12,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/26/2017
+ms.date: 08/22/2018
 ms.author: glenga
-ms.openlocfilehash: b5f4ce786371608b276e41f6881dcb1e0a91e303
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 46c1cb0a0cb3104e3705e4a7d4ef0dd894a7c2d7
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345063"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42819054"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referens för appinställningar för Azure Functions
 
 Appinställningar i en funktionsapp innehåller globala konfigurationsalternativ som påverkar alla funktioner för den funktionsappen. När du kör lokalt är dessa inställningar i miljövariabler. Den här artikeln innehåller appinställningar som är tillgängliga i funktionsappar.
+
+[! INKLUDERA [funktionsappinställningar] (.. /.. /Includes/Functions-App-Settings.MD]
 
 Det finns andra globala konfigurationsalternativ i den [host.json](functions-host-json.md) fil och i den [local.settings.json](functions-run-local.md#local-settings-file) fil.
 
@@ -49,7 +51,7 @@ Valfritt lagringskontots anslutningssträng för att lagra loggar och visa dem i
 
 |Nyckel|Exempelvärde|
 |---|------------|
-|AzureWebJobsDisableHomepage|true|
+|AzureWebJobsDisableHomepage|sant|
 
 När den här appinställningen är utelämnas eller värdet `false`, en sida som liknar följande exempel visas som svar på URL: en `<functionappname>.azurewebsites.net`.
 
@@ -61,7 +63,7 @@ När den här appinställningen är utelämnas eller värdet `false`, en sida so
 
 |Nyckel|Exempelvärde|
 |---|------------|
-|AzureWebJobsDotNetReleaseCompilation|true|
+|AzureWebJobsDotNetReleaseCompilation|sant|
 
 ## <a name="azurewebjobsfeatureflags"></a>AzureWebJobsFeatureFlags
 
@@ -127,7 +129,7 @@ För förbrukningsplaner. Anslutningssträng för lagringskonto där funktionsko
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol = https; AccountName = [name]; AccountKey = [key]|
 
-## <a name="websitecontentshare"></a>WEBSITE_CONTENTSHARE
+## <a name="websitecontentshare"></a>WEBBPLATSEN\_CONTENTSHARE
 
 För förbrukningsplaner. Sökvägen till funktionskod och konfiguration. Använda med WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Standardvärdet är en unik sträng som börjar med funktionsappens namn. Se [skapa en funktionsapp](functions-infrastructure-as-code.md#create-a-function-app).
 
@@ -153,6 +155,19 @@ Standardvärdet är ”6.5.0”.
 |Nyckel|Exempelvärde|
 |---|------------|
 |WEBBPLATSEN\_NODEN\_DEFAULT_VERSION|6.5.0|
+
+## <a name="websiterunfromzip"></a>WEBBPLATSEN\_KÖR\_FROM\_ZIP
+
+Gör att funktionsappen ska köras från en monterad paketfil.
+
+> [!NOTE]
+> Den här inställningen avser en förhandsgranskningsfunktion.
+
+|Nyckel|Exempelvärde|
+|---|------------|
+|WEBBPLATSEN\_KÖR\_FROM\_ZIP|1|
+
+Giltiga värden är antingen en URL som motsvarar platsen för en paketfil för distribution eller `1`. När värdet `1`, paketet måste finnas i den `d:\home\data\SitePackages` mapp. När du använder zip-distribution med den här inställningen överförs automatiskt paketet till den här platsen.  Mer information finns i [kör dina funktioner från en paketfil](run-functions-from-deployment-package.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

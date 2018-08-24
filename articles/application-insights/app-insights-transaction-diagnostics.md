@@ -1,6 +1,6 @@
 ---
-title: Azure Application Insights transaktion Diagnostics | Microsoft Docs
-description: Programdiagnostik insikter slutpunkt till slutpunkt-transaktion
+title: Azure Application Insights-Transaktionsdiagnostik | Microsoft Docs
+description: Application Insights slutpunkt till slutpunkt-transaktionsdiagnostik
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -9,119 +9,98 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: mbullwin;sdash
-ms.openlocfilehash: 7a4e4f74c02358fc117e0a66977ee3f0aef5b1dd
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: sdash
+ms.author: mbullwin
+ms.openlocfilehash: df88e9025da305701dc7168f663cad2e8f5ac738
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42820269"
 ---
-# <a name="unified-cross-component-transaction-diagnostics"></a>Enhetlig mellan olika komponenter transaktion diagnostik
+# <a name="unified-cross-component-transaction-diagnostics"></a>Enhetlig komponentöverskridande transaktionsdiagnostik
 
-*Det här upplevelsen är för närvarande under förhandsgranskning och ersätter befintliga diagnostik bladen för serversidan begäranden, beroenden och undantag.*
-
-Förhandsgranskningen introducerar en ny enhetlig diagnostik-miljö som korrelerar serversidan telemetri från automatiskt för alla Application Insights övervakas komponenter i en enda vy. Det spelar ingen roll om du har flera resurser med separat instrumentation nycklar. Application Insights identifierar underliggande relationen och gör att du kan enkelt diagnostisera programkomponent, beroenden eller undantag som orsakade en transaktion långsammare eller ett fel.
+Enhetlig diagnostik uppleva automatiskt koreluje s serversidan telemetri från för alla Application Insights övervakas komponenter i en enda vy. Det spelar ingen roll om du har flera resurser med separat instrumenteringsnycklar. Application Insights identifierar underliggande relationen och gör att du kan enkelt diagnostisera programkomponent, beroenden och undantag som gjorde att en transaktion går långsammare eller ett fel.
 
 ## <a name="what-is-a-component"></a>Vad är en komponent?
 
-Komponenter är oberoende av varandra distribuerbara delar i tillämpningsprogrammet distribueras/mikrotjänster. Utvecklare och åtgärder team har kod-nivå eller tillgång till telemetri som genereras av dessa programkomponenter.
+Komponenterna är oberoende av varandra distribuerbar delar av programmet distribueras/mikrotjänster. Utvecklare och åtgärder team har kod-nivå eller åtkomst till telemetri som genereras av dessa programkomponenter.
 
-* Komponenter som skiljer sig från ”observerade” externa beroenden, till exempel SQL, EventHub etc. som team/organisationen inte kanske har åtkomst till (kod eller telemetri).
-* Komponenterna köras i valfritt antal instanser för server-roll-behållare.
-* Komponenter kan vara separat Application Insights instrumentation nycklar (även om prenumerationer är olika) eller olika roller som rapporterar till en enda Application Insights instrumentation nyckel. Den nya upplevelsen visar information för alla komponenter, oavsett hur de har ställts in.
-
-> [!NOTE]
-> * **Länkarna relaterade objekt som saknas?** Alla telemetri för serversidan begäran, beroende och undantag finns i den [upp](#cross-component-transaction-chart) och [nedre](#all-telemetry-related-to-the-selected-component-operation) avsnitt i den vänstra sidan. 
-> * Den [upp](#cross-component-transaction-chart) avsnittet korrelerar transaktionen för alla komponenter. Kontrollera att alla komponenter är försett med de senaste stabil Application Insights SDK för bästa resultat. Om det finns olika Application Insights-resurser, se till att du har behörighet att visa sina telemetri.
-> * Den [nedre](#all-telemetry-related-to-the-selected-component-operation) avsnittet i vänster visas **alla** telemetri inklusive spårningar och händelser relaterade till begäran från den markerade komponenten.
-
-## <a name="enable-transaction-diagnostics-experience"></a>Aktivera diagnostik för transaktion
-Aktivera ”Unified information: E2E transaktion diagnostik” från den [förhandsgranskningar lista](app-insights-previews.md)
-
-![Aktivera förhandsgranskning](media/app-insights-e2eTxn-diagnostics/previews.png)
-
-Den här förhandsgranskningen är tillgänglig för serversidan begäranden, beroenden och undantag. Du kan komma åt den nya upplevelsen från **sökresultat**, **prestanda**, eller **fel** prioritering upplevelser. Förhandsgranskningen ersätter motsvarande klassiska information blad.
-
-![Prestandaprover](media/app-insights-e2eTxn-diagnostics/performanceSamplesClickThrough.png)
-
-## <a name="transaction-diagnostics-experience"></a>Transaktionen diagnostik upplevelse
-Den här vyn har tre viktiga delar: en transaktion mellan komponent diagram, en tidssekvens lista över all telemetri från en viss komponent åtgärd och informationsfönstret för alla valda telemetri objekt till vänster.
-
-![Viktiga delar](media/app-insights-e2eTxn-diagnostics/3partsCrossComponent.png)
-
-## <a name="cross-component-transaction-chart"></a>Mellan olika komponenter transaktion diagram
-
-Det här diagrammet ger en tidslinje med vågräta stapeldiagram för varaktighet begäranden och beroenden för komponenter. Alla undantag som samlas in markeras också på tidslinjen.
-
-* Den översta raden i det här diagrammet representerar startpunkten inkommande begäran till den första komponenten som anropas i den här transaktionen. Varaktigheten är den totala tid det tar att slutföra transaktionen.
-* Ett anrop till externa beroenden är enkla ej Komprimerbar rader med ikoner som representerar Beroendetypen.
-* Anrop till andra komponenter kan döljas rader. Varje rad motsvarar en specifik åtgärd som anropas på komponenten.
-* Som standard visas begäran, beroenden eller undantag markerade i diagrammet.
-* Välj rader att visa dess [information till höger](#details-of-the-selected-telemetry). 
+* Komponenter skiljer sig från ”observerade” externa beroenden, till exempel SQL, EventHub etc. som ditt team/organisation inte kanske har åtkomst till (kod eller telemetri).
+* Komponenter som körs på valfritt antal instanser av server-rollen-behållare.
+* Komponenterna kan vara olika Application Insights-instrumenteringsnycklar (även om prenumerationer skiljer sig) eller olika roller som rapporterar till en enda Application Insights-instrumenteringsnyckeln. Den nya miljön visas information för alla komponenter, oavsett hur de har ställts in.
 
 > [!NOTE]
-Anrop till andra komponenter har två rader: en rad representerar utgående anropet (beroende) från komponenten anroparen och den andra raden motsvarar en inkommande begäran på komponenten som kallas. Inledande ikon och distinkta stil för varaktighet staplar lättare att skilja mellan dem.
+> * **Saknas relaterat objektlänkar?** Alla relaterad telemetri finns i den [upp](#cross-component-transaction-chart) och [nedre](#all-telemetry-with-this-Operation-Id) avsnitt i den vänstra sidan. 
 
-## <a name="all-telemetry-related-to-the-selected-component-operation"></a>All telemetri som hör till den valda komponent-åtgärden
+## <a name="transaction-diagnostics-experience"></a>Upplev transaktionsdiagnostik
+Den här vyn har fyra viktiga delar: resulterar lista, ett komponentöverskridande transaktion diagram, en tidssekvensen lista över all telemetri som är relaterade till den här åtgärden och informationsfönstret för alla valda telemetriobjekt till vänster.
 
-En rad som väljs i diagrammet mellan olika komponenter transaktion är kopplad till en åtgärd som anropas på en viss komponent. Den här åtgärden för markerad komponent visas i rubriken för den nedre delen. Öppna det här avsnittet om du vill se en platt tidssekvens av all telemetri som hör till denna åtgärd. Du kan välja ett telemetri objekt i listan om du vill se motsvarande [information till höger](#details-of-the-selected-telemetry).
+![Viktiga delar](media/app-insights-e2eTxn-diagnostics/4partsCrossComponent.png)
 
-![Tidssekvens av all telemetri](media/app-insights-e2eTxn-diagnostics/allTelemetryDrawerOpened.png)
+## <a name="cross-component-transaction-chart"></a>Komponentöverskridande transaktion diagram
+
+Det här diagrammet innehåller en tidslinje med vågräta stapeldiagram för varaktigheten för begäranden och beroenden för komponenter. Eventuella undantag som samlas in markeras också på tidslinjen.
+
+* Den översta raden i det här diagrammet representerar startpunkten, den inkommande begäran till den första komponenten som heter i den här transaktionen. Varaktigheten är den totala tid det tar för transaktionen att slutföras.
+* Alla anrop till externa beroenden är enkel icke-komprimerbart rader med ikoner som representerar Beroendetypen.
+* Anrop till andra komponenter finns komprimerbart rader. Varje rad motsvarar en viss åtgärd som anropas på komponenten.
+* Som standard, begäran, beroende eller undantag är att du har valt visas på höger sida.
+* Välj rader att se dess [information till höger](#details-of-the-selected-telemetry). 
+
+> [!NOTE]
+Anrop till andra komponenter har två rader: en rad som representerar det utgående samtalet (beroenden) från komponenten anroparen och den andra raden motsvarar en inkommande begäran i komponenten som kallas. Ledande ikon och distinkta formatering av staplarna varaktighet hjälp för att skilja dem.
+
+## <a name="all-telemetry-with-this-operation-id"></a>All telemetri med detta åtgärds-Id
+
+Det här avsnittet visar vanlig listvy i en tidssekvens av all telemetri för den här transaktionen. Den visar även anpassade händelser och spårningar som inte visas i diagrammet transaktion. Du kan filtrera listan telemetri som genereras av en viss komponent/anrop. Du kan välja alla telemetriobjekt i listan för att se motsvarande [information till höger](#details-of-the-selected-telemetry).
+
+![Tidssekvens med all telemetri](media/app-insights-e2eTxn-diagnostics/allTelemetryDrawerOpened.png)
 
 ## <a name="details-of-the-selected-telemetry"></a>Information om den valda telemetrin
 
-Det här fönstret visar information för de valda objekten från någon av två delar till vänster. ”Visa alla” visas alla standardattribut som samlas in. Anpassade attribut visas separat under standarduppsättningen. Klicka på ”Öppna profiler-spårningar” eller ”öppna debug en ögonblicksbild” för koden nivån diagnostik i motsvarande rutor i detalj.
+Det här komprimerbart fönstret visar information om alla valda objekt diagrammet transaktion eller i listan. ”Visa alla” visas alla standard attribut som samlas in. Anpassade attribut visas separat under standarduppsättningen. Klicka på ”...” nedan fönstret stack-spårning för att få ett alternativ för att kopiera spårningen. Öppna profiler-spårningar ”eller” öppna ögonblicksbild för felsökning ”visar koden på diagnostik i motsvarande rutor i detalj.
 
 ![Undantagsinformation](media/app-insights-e2eTxn-diagnostics/exceptiondetail.png)
 
-## <a name="profiler-and-snapshot-debugger"></a>Profiler och snapshot-felsökare
+## <a name="search-results"></a>Sökresultat
 
-[Application Insights profiler](app-insights-profiler.md) eller [ögonblicksbild felsökare](app-insights-snapshot-debugger.md) hjälp med diagnostiken i koden nivå av prestanda och fel. Du kan se profiler-spårningar eller ögonblicksbilder från alla komponenter med en enda på med den här miljön.
+Det här komprimerbart fönstret visar de resultat som uppfyller filterkriterierna. Klicka på alla resultat för att uppdatera respektive informationen i 3 avsnitt som anges ovan. Vi försöker hitta exempel som mest sannolikt ha information som är tillgänglig från alla komponenter, även om sampling är aktiv i någon av dem. Dessa visas som ”föreslagna” exempel.
+
+![Sökresultat](media/app-insights-e2eTxn-diagnostics/searchResults.png)
+
+## <a name="profiler-and-snapshot-debugger"></a>Profiler och snapshot debugger
+
+[Application Insights profiler](app-insights-profiler.md) eller [felsökning av ögonblicksbild](app-insights-snapshot-debugger.md) hjälp med kod på servernivå diagnostik av prestanda och fel. Med den här upplevelsen kan du se profiler-spårningar eller ögonblicksbilder från valfri komponent med en enda klickar du på.
 
 Om du inte kunde hämta Profiler fungerar, kontakta **serviceprofilerhelp@microsoft.com**
 
-Om du inte kunde hämta ögonblicksbild felsökare fungerar, kontakta **snapshothelp@microsoft.com**
+Om du inte kunde hämta Snapshot Debugger fungerar, kontakta **snapshothelp@microsoft.com**
 
-![Felsökare integrering](media/app-insights-e2eTxn-diagnostics/debugSnapshot.png)
+![Profiler-integrering](media/app-insights-e2eTxn-diagnostics/profilerTraces.png)
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor och svar
 
-*En enda komponent visas i diagrammet och andra som bara visas som externa beroenden utan någon information av vad som hände i dessa komponenter.*
+*En enskild komponent visas i diagrammet och visar de andra endast som externa beroenden utan någon information om vad som hände inom dessa komponenter.*
 
 Möjliga orsaker:
 
-* De andra komponenterna är försett med Application Insights?
+* De andra komponenterna är utrustade med Application Insights?
 * Använder de senaste stabil Application Insights SDK?
 * Har du nödvändig åtkomst till sina telemetri om de här komponenterna separat Application Insights-resurser?
 
-Om du har åtkomst och komponenterna som är försett med den senaste Application Insights SDK, meddela oss via övre högra feedback-kanal.
+Om du har åtkomst och komponenterna som är utrustade med senaste Application Insights SDK: erna, berätta för oss via översta högra feedback-kanalen.
 
-*Jag bara har externa beroenden. Bör jag är intresserad av den här förhandsgranskningen?*
+*Jag ser dubblettrader för beroenden. Förväntas detta?*
 
-Ja. Den nya upplevelsen förenar all relaterad telemetri för serversidan i en enda vy. Äldre detalj bladen ersätts av den här upplevelsen i framtiden, så prova och ge oss dina synpunkter. Här är hur det ser ut för en enskild komponent i transaktion:
+För närvarande visar utgående beroendeanropet separat från den inkommande begäran. Vanligtvis två anrop ser identiska ut med endast värdet för varaktighet att skilja sig på grund av nätverket tur och RETUR. Ledande ikon och distinkta formatering av staplarna varaktighet hjälp för att skilja dem. Är den här presentationen av data förvirrande? Ge oss din feedback!
 
-![Enskild komponent upplevelse](media/app-insights-e2eTxn-diagnostics/singleComponent.png)
+*Vad händer om klockan snedställer över olika komponentinstanser?*
 
-*Det finns dubblettrader för beroenden. Förväntas detta?*
+Tidslinjer justeras för klockavvikelser i diagrammet transaktion. Du kan se exakt tidsstämplar i informationsfönstret eller genom att använda Analytics.
 
-För tillfället vi visar utgående beroendeanropet separat från en inkommande begäran. Vanligtvis två anrop ser identiska ut med endast värdet för varaktighet som rundtur olika på grund av nätverket. Inledande ikon och distinkta stil för varaktighet staplar lättare att skilja mellan dem. Är den här presentationen av data förvirrande? Ge oss dina synpunkter!
+*Varför saknas de flesta av frågorna som relaterade objekt i den nya upplevelsen?*
 
-*Vad händer om klockan skeva mellan instanser av olika komponenter?*
-
-Tidslinjer justeras för att jämföra transaktionen diagram. Du kan se exakt tidsstämplar i informationsfönstret eller genom att använda Analytics.
-
-*Varför saknas de flesta frågor relaterade objekt i den nya miljön?*
-
-Det här är avsiktligt. Alla relaterade objekt för alla komponenter finns redan på vänster sida (övre och nedre avsnitt). Den nya upplevelsen har två relaterade objekt som inte täcker till vänster: all telemetri från 5 minuter före och efter den här händelsen och en tidslinje för användaren.
-
-*Varför den nya upplevelsen har inte den funktion som jag älskar dig i äldre blad?*
-
-Ge oss feedback! Vi vill fokusera på dina problem innan det här upplevelsen är allmänt tillgänglig då att bli inaktuell äldre vyer. Nu kan du inaktivera Förhandsgranska för att gå tillbaka till äldre blad.
-
-## <a name="known-issues"></a>Kända problem
-
-* Fel-exempel från programavbildningen länka till äldre detalj-blad.
-* De autocluster-baserade insikter i sökresultaten länka till äldre detalj-blad.
-* Arbetsuppgiftsintegrering är inte tillgänglig i den nya upplevelsen.
+Det här är avsiktligt. Alla relaterade objekt för alla komponenter finns redan på vänster sida (övre och nedre avsnitt). Den nya upplevelsen har två relaterade objekt som inte tas upp i vänster sida: all telemetri från fem minuter före och efter den här händelsen och tidslinje för användaren.

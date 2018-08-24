@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: b05eef79e94cff74b1e02243cd7c8d94e5acbb3c
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: c9cebd16d34758550144a50b6ff26da84924a964
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493978"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745676"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Säkerhetsöverväganden för dataförflyttning i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,6 +58,11 @@ Om molndatalagret stöder HTTPS- eller TLS, alla data som överförs mellan data
 
 > [!NOTE]
 > Alla anslutningar till Azure SQL Database och Azure SQL Data Warehouse kräver kryptering (SSL/TLS) datakommunikationen till och från databasen. När du är på att redigera en pipeline med hjälp av JSON, lägga till egenskapen och ge den värdet **SANT** i anslutningssträngen. Du kan använda för Azure Storage, **HTTPS** i anslutningssträngen.
+
+> [!NOTE]
+> Aktivera kryptering under överföring när du flyttar data från Oracle gör du något av de nedan alternativ:
+> 1. I Oracle-server, gå till Oracle avancerad säkerhet (OAS) och konfigurera krypteringsinställningar, vilken har stöd för kryptering av trippel-DES (3DES) och Advanced Encryption Standard (AES), se [här](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759) mer information. ADF förhandlar automatiskt krypteringsmetod för att använda den som du konfigurerar i OAS när anslutning till Oracle.
+> 2. I ADF, kan du lägga till EncryptionMethod = 1 i anslutningssträngen (i den länkade tjänsten). Detta använder SSL/TLS som krypteringsmetod. För att använda detta, måste du inaktivera icke-SSL krypteringsinställningar i OAS på serversidan Oracle för att undvika konflikt för kryptering.
 
 > [!NOTE]
 > TLS-version som används är 1.2.
@@ -121,7 +126,7 @@ Azure-nätverk är en logisk representation av ditt nätverk i molnet. Du kan an
 
 I följande tabell sammanfattas i nätverket och lokal integration runtime-konfigurationsrekommendationer baserat på olika kombinationer av käll- och platser för flytt av hybriddata.
 
-| Källa      | Mål                              | Nätverkskonfiguration                    | Installation av Integration Runtime                |
+| Källa      | Destination                              | Nätverkskonfiguration                    | Installation av Integration Runtime                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | Lokal | Virtuella datorer och molntjänster som distribuerats i virtuella nätverk | IPSec-VPN (punkt-till-plats eller plats-till-plats) | Lokal integration runtime kan installeras antingen lokalt eller på en Azure-dator i ett virtuellt nätverk. |
 | Lokal | Virtuella datorer och molntjänster som distribuerats i virtuella nätverk | ExpressRoute (privat peering)           | Lokal integration runtime kan installeras antingen lokalt eller på en Azure-dator i ett virtuellt nätverk. |

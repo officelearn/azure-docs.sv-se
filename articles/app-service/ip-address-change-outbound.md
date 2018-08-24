@@ -10,12 +10,12 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
-ms.openlocfilehash: 5e17638e030ae2827b0de7dc82ecf75062504112
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: dfc0a13c1804d8ea74c78a61bfa85e9f5bdd1685
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39575938"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42819078"
 ---
 # <a name="how-to-prepare-for-an-outbound-ip-address-change"></a>Så här förbereder du för en utgående IP-adressändring
 
@@ -39,7 +39,7 @@ Nya utgående IP-adresser visas i portalen innan de träder i kraft. När Azure 
 
 3.  Välj din App Service-app i listan.
 
-4.  Om appen är en funktionsapp, se [funktionen app utgående IP-adresser](../azure-functions/ip-addresses.md#function-app-outbound-ip-addresses).
+4.  Om appen är en funktionsapp, se [funktionen app utgående IP-adresser](../azure-functions/ip-addresses.md#find-outbound-ip-addresses).
 
 4.  Under den **inställningar** rubrik, klickar du på **egenskaper** i det vänstra navigeringsfönstret och hitta avsnittet märkta **utgående IP-adresser**.
 

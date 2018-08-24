@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: bd3eeb5ebb9b30ac315fee1597348f3bd34f3bb6
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 6b310daec67f41ba589ce279e4a2dad427adb734
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056136"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818900"
 ---
 # <a name="getting-compliance-data"></a>Hämta Data för kompatibilitetsinställningar
 
@@ -23,7 +23,7 @@ En av de största fördelarna med Azure Policy är insikter och kontroller över
 Det finns flera sätt att komma åt kompatibilitetsinformationen som genereras av din princip och initiativtilldelningar:
 
 - Med hjälp av den [Azure-portalen](#portal)
-- Via [kommandoraden](#command_line) skript
+- Via [kommandoraden](#command-line) skript
 
 Innan du tittar på metoder för att rapportera om efterlevnad, låt oss titta på när kompatibilitetsinformation uppdateras och frekvens och händelser som utlöser en utvärderingscykel för datorprincip.
 
@@ -45,12 +45,12 @@ Utvärderingar av tilldelade principer och initiativ inträffa till följd av ol
 
 I en tilldelning är en resurs icke-kompatibel om den inte följa principen eller initiativ regler. I följande tabell visar hur olika effekter som fungerar med villkorsutvärderingen för resultatet av kompatibilitetstillståndet-princip:
 
-| Resurstillstånd | Verkan | Principutvärdering | Kompatibilitetstillstånd |
+| Resurstillstånd | Effekt | Principutvärdering | Kompatibilitetstillstånd |
 | --- | --- | --- | --- |
-| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Icke-kompatibel |
-| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Kompatibel |
-| Ny | Audit, AuditIfNotExist\* | True | Icke-kompatibel |
-| Ny | Audit, AuditIfNotExist\* | False | Kompatibel |
+| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | Sant | Inkompatibel |
+| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | Falskt | Kompatibel |
+| Ny | Audit, AuditIfNotExist\* | Sant | Inkompatibel |
+| Ny | Audit, AuditIfNotExist\* | Falskt | Kompatibel |
 
 \* För åtgärderna Append, DeployIfNotExist och AuditIfNotExist måste IF-instruktionen är TRUE.
 Åtgärderna kräver också att villkoret Finns är FALSE för att vara icke-kompatibla. När det är TRUE utlöser IF-villkoret utvärdering av villkoret Finns för de relaterade resurserna.
@@ -63,7 +63,7 @@ I det här exemplet behöver du vara försiktig med säkerhetsrisker. Nu när du
 
 ![Granskas icke-kompatibla storage-konton](media/policy-insights/resource-group03.png)
 
-## <a name="portal"></a>Portalen
+## <a name="portal"></a>Portal
 
 Azure-portalen visar en grafisk upplevelse av att visualisera och förstå tillståndet för efterlevnad i din miljö. På den **princip** kan den **översikt** alternativ innehåller information om tillgängliga scope på kompatibiliteten för både principer och initiativ. Förutom kompatibilitetsstatus och antal per tilldelning innehåller den ett diagram som visar efterlevnad under de senaste sju dagarna. Den **efterlevnad** sidan innehåller en stor del av samma information (utom diagram), men ger ytterligare filtrera och sortera alternativ.
 

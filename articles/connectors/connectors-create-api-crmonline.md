@@ -1,171 +1,199 @@
 ---
-title: Anslut till Dynamics 365 - Azure Logikappar | Microsoft Docs
+title: Anslut till Dynamics 365 – Azure Logic Apps | Microsoft Docs
 description: 'Skapa och hantera poster med Dynamics 365 (online) REST API: er och Azure Logic Apps'
 author: Mattp123
-manager: jeconnoc
 ms.author: matp
-ms.date: 02/10/2017
-ms.topic: article
 ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
+ms.reviewer: estfan, LADocs
 ms.suite: integration
+ms.topic: article
+ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: 6ac45d45ed1df0e89eb27657a064a8c95ad4be79
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b1ff93f1e03e047ad5ac00259c1aa53afda0c76d
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294851"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818948"
 ---
-# <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>Anslut till Dynamics 365 från logik app arbetsflöden
+# <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Hantera Dynamics 365-poster med Azure Logic Apps
 
-Du kan ansluta till Dynamics 365 (online) och skapa användbart business-flöden som skapar posterna, uppdatera objekt eller returnera en lista över poster med Logic Apps. Med Dynamics 365-kopplingen kan du:
+Med Azure Logic Apps och Dynamics 365-kopplingen kan skapa du automatiserade uppgifter och arbetsflöden baserat på posterna i Dynamics 365. Dina arbetsflöden kan skapa poster, uppdatera artiklar, returnerar poster med mera i ditt Dynamics 365-konto. Du kan inkludera åtgärder i dina logikappar som får svar från Dynamics 365 och göra utdata som är tillgänglig för andra åtgärder. När ett objekt uppdateras i Dynamics 365, kan du skicka ett e-postmeddelande med hjälp av Office 365.
 
-* Skapa ditt företag flödet som baseras på de data som du får från Dynamics 365 (online).
-* Använd åtgärder som får ett svar och sedan se utdata för andra åtgärder. När ett objekt uppdateras i Dynamics 365 (online), kan du skicka ett e-postmeddelande med hjälp av Office 365.
-
-Det här avsnittet visar hur du skapar en logikapp som skapar en uppgift i Dynamics 365 när en ny lead skapas i Dynamics 365.
+Den här artikeln visar hur du kan skapa en logikapp som skapar en uppgift i Dynamics 365 när en ny lead-posten skapas i Dynamics 365.
+Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
-* Ett Azure-konto.
-* En Dynamics 365 (online)-konto.
 
-## <a name="create-a-task-when-a-new-lead-is-created-in-dynamics-365"></a>Skapa en uppgift när en ny lead skapas i Dynamics 365
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
 
-1.  [Logga in på Azure](https://portal.azure.com).
+* En [Dynamics 365-konto](https://dynamics.microsoft.com)
 
-2.  Skriv i sökrutan Azure `Logic apps`, och tryck på RETUR.
+* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-      ![Sök efter Logic Apps](./media/connectors-create-api-crmonline/find-logic-apps.png)
+* Logikappen där du vill komma åt ditt Dynamics 365-konto. Om du vill börja din logikapp med en Dynamics 365-utlösare, som du behöver en [tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
-3.  Under **logikappar**, klickar du på **Lägg till**.
+## <a name="add-dynamics-365-trigger"></a>Lägg till Dynamics 365-utlösare
 
-      ![Lägg till LogicApp](./media/connectors-create-api-crmonline/add-logic-app.png)
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-4.  Om du vill skapa logikappen Slutför den **namn**, **prenumeration**, **resursgruppen**, och **plats** fält och klicka sedan på **skapa**.
+Lägg först till en Dynamics 365-utlösare som utlöses när en ny lead-posten visas i Dynamics 365.
 
-5.  Välj den nya logikappen. När du får den **distributionen lyckades** meddelande, klicka på **uppdatera**.
+1. I den [Azure-portalen](https://portal.azure.com), öppna logikappen tom i Logic App Designer, om inte redan är öppna.
 
-6.  Under **utvecklingsverktyg**, klickar du på **logik App Designer**. I listan klickar du på **tom Logikapp**.
+1. Ange ”Dynamics 365” i sökrutan som filter. I det här exemplet under listan över utlösare, Välj den här utlösaren: **när en post skapas**
 
-7.  I sökrutan skriver `Dynamics 365`. Dynamics 365 utlösare listan Välj **Dynamics 365 – när en post skapas**.
+   ![Välj utlösare](./media/connectors-create-api-crmonline/select-dynamics-365-trigger.png)
 
-8.  Om du uppmanas att logga in på Dynamics 365 göra.
+1. Om du uppmanas att logga in på Dynamics 365, logga in nu.
 
-9.  Ange följande information i utlösaren-information:
+1. Ange den här utlösarinformationen:
 
-  * **Organisationens namn**. Välj Dynamics 365-instans som du vill att lyssna på logikappen.
+   | Egenskap | Obligatoriskt | Beskrivning | 
+   |----------|----------|-------------| 
+   | **Organisationens namn** | Ja | Namn för din organisations Dynamics 365-instansen ska övervakas, till exempel ”Contoso” |
+   | **Entitetsnamn** | Ja | Namnet för entitet som ska övervakas, till exempel Leads ”” | 
+   | **Frekvens** | Ja | Tidsenheten som ska användas med intervall vid sökning efter uppdateringar som rör utlösaren |
+   | **Intervall** | Ja | Antal sekunder, minuter, timmar, dagar, veckor eller månader som ska gå innan nästa kontroll |
+   ||| 
 
-  * **Entitetsnamnet**. Välj den enhet som du vill att lyssna på. Den här händelsen fungerar som en utlösare för att starta logikappen. 
-  I den här genomgången **leder** är markerad.
+   ![Utlösarinformation](./media/connectors-create-api-crmonline/trigger-details.png)
 
-  * **Hur ofta du vill söka efter objekt?** Dessa värden anger hur ofta logikappen söker efter uppdateringar som rör utlösaren. Standardinställningen är att söka efter uppdateringar tre minuters mellanrum.
+## <a name="add-dynamics-365-action"></a>Lägg till Dynamics 365-åtgärd
 
-    * **Frekvensen**. Välj sekunder, minuter, timmar eller dagar.
+Lägg nu till Dynamics 365-åtgärd som skapar en uppgiftspost för den nya leadposten.
 
-    * **Intervallet**. Ange antal sekunder, minuter, timmar eller dagar som du vill skicka före nästa kontrollen.
+1. Under utlösaren och väljer **nytt steg**.
 
-      ![Logik Apputlösare information](./media/connectors-create-api-crmonline/trigger-details.png)
+1. Ange ”Dynamics 365” i sökrutan som filter. Välj den här åtgärden från åtgärdslistan över: **skapa en ny post**
 
-10. Klicka på **nytt steg**, och klicka sedan på **lägga till en åtgärd**.
+   ![Välj åtgärd](./media/connectors-create-api-crmonline/select-action.png)
 
-11. I sökrutan skriver `Dynamics 365`. Välj i listan åtgärder **Dynamics 365 – skapa en ny post**.
+1. Ange den här informationen för åtgärden:
 
-12. Ange följande information:
+   | Egenskap | Obligatoriskt | Beskrivning | 
+   |----------|----------|-------------| 
+   | **Organisationens namn** | Ja | Dynamics 365-instans där du vill skapa den post som inte behöver vara samma instans i utlösaren, är men ”Contoso” i det här exemplet |
+   | **Entitetsnamn** | Ja | Entiteten där du vill skapa posten, till exempel ”aktiviteter” | 
+   | | |
 
-    * **Organisationens namn**. Välj Dynamics 365-instans där du vill att flödet för att skapa posten. 
-    Observera att den här instansen inte behöver vara samma instans där händelsen utlöses från.
+   ![Åtgärdsinformation](./media/connectors-create-api-crmonline/action-details.png)
 
-    * **Entitetsnamnet**. Välj den enhet som du vill skapa en post när händelsen utlöses. 
-    I den här genomgången **uppgifter** är markerad.
+1. När den **ämne** visas i åtgärden, klicka i den **ämne** rutan så visas listan med dynamiskt innehåll. Välj fältvärdena att inkludera i uppgiftsposten som är associerade med den nya leadposten från den här listan:
 
-13. Klicka i den **ämne** som visas. Du kan välja något av dessa fält dynamiskt innehåll listan som visas:
+   | Fält | Beskrivning | 
+   |-------|-------------| 
+   | **Efternamn** | Efternamnet från lead som den primära kontakten i posten |
+   | **Avsnittet** | Ett beskrivande namn för ditt lead i posten | 
+   | | | 
 
-    * **Efternamn**. Markera det här fältet infogar efternamn för lead i ämnesfältet för aktiviteten när uppgiftsposten skapas.
-    * **Avsnittet**. Att välja det här fältet infogar fältet Ämne för lead i ämnesfältet för aktiviteten när uppgiftsposten har skapats. 
-    Klicka på **avsnittet** att lägga till som att den **ämne** rutan.
+   ![Information om posten](./media/connectors-create-api-crmonline/create-record-details.png)
 
-      ![Logik App skapa nya registrera information](./media/connectors-create-api-crmonline/create-record-details.png)
+1. I verktygsfältet för appdesignern väljer **spara** för din logikapp. 
 
-14. På verktygsfältet logik App Designer **spara**.
+1. För att manuellt starta logikappen, designerverktygsfältet, Välj **kör**.
 
-    ![Logik App Designer verktygsfältet spara](./media/connectors-create-api-crmonline/designer-toolbar-save.png)
+   ![Kör logikapp](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
 
-15. Starta Logikappen, klicka på **kör**.
+1. Skapa nu en lead-post i Dynamics 365 så att du kan utlösa logikappens arbetsflöde.
 
-    ![Logik App Designer verktygsfältet spara](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
+## <a name="add-filter-or-query"></a>Lägg till filter och frågor
 
-16. Nu skapa en lead-post i Dynamics 365 för försäljning och se din flödet i praktiken!
+Om du vill ange hur du kan filtrera data i en Dynamics 365-åtgärd väljer **visa avancerade alternativ** i åtgärden. Du kan sedan lägga till ett filter eller sortera per fråga.
+Du kan till exempel använda en filterfråga för att hämta endast aktiva konton och ordna de posterna efter kontonamn. Följ dessa steg för den här uppgiften:
 
-## <a name="set-advanced-options-for-a-logic-app-step"></a>Ange avancerade alternativ för en logik app steg
+1. Under **filterfråga**, ange den här OData-filterfråga: `statuscode eq 1`
 
-Klicka på Ange filtrera data i en logik app steg **visa avancerade alternativ** steget och sedan lägga till ett filter eller ordning av frågan.
+2. Under **Order By**, när den dynamiska innehållslistan visas, Välj **kontonamn**. 
 
-Du kan till exempel använda filterfråga för att hämta endast aktiva konton och ordning genom att namnet på kontot. Om du vill utföra den här uppgiften, ange OData-filterfråga `statuscode eq 1`, och välj **kontonamn** från listan över dynamiskt innehåll. Mer information: [MSDN: $filter](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_1) och [$orderby](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_2).
+   ![Ange filter och sortering](./media/connectors-create-api-crmonline/advanced-options.png)
 
-![Logikapp avancerade alternativ](./media/connectors-create-api-crmonline/advanced-options.png)
+Mer information finns i dessa frågealternativ för webb-API för Dynamics 365 Customer Engagement system: 
 
-### <a name="best-practices-when-using-advanced-options"></a>Rekommenderade metoder när du använder avancerade alternativ
+* [$filter](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#filter-results)
+* [$orderby](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#order-results)
 
-När du lägger till ett värde till ett fält måste du matcha fälttypen om du skriver ett värde eller välj ett värde från listan över dynamiskt innehåll.
+### <a name="best-practices-for-advanced-options"></a>Metodtips för avancerade alternativ
 
-Fälttyp  |Hur du ska använda detta  |Var du hittar  |Namn  |Datatyp  
----------|---------|---------|---------|---------
-Textfält|Textfält kräver en rad med text eller dynamiskt innehåll som är ett fält av typen text. Exempel inkluderar fälten kategori och underkategori.|Inställningar > anpassningar > Anpassa systemet > enheter > aktivitet > fält |category |Rad med Text        
-Heltalsfält | Vissa fält kräver heltal eller dynamiskt innehåll som är av typen Integer. Exempel: procent färdigt och varaktighet. |Inställningar > anpassningar > Anpassa systemet > enheter > aktivitet > fält |värdet |Heltal         
-Datumfält | Vissa fält kräver ett datum som anges i formatet åååå-mm-dd eller dynamiskt innehåll som är ett fält av typen date. Exempel är skapad, startdatum, verklig Start senast på håller tid, Verkligt slut och förfallodatum. | Inställningar > anpassningar > Anpassa systemet > enheter > aktivitet > fält |createdon |Datum och tid
-Ange fälten som kräver både en post-ID och sökning |Vissa fält som refererar till en annan entitetspost kräver både post-ID och typen sökning. |Inställningar > anpassningar > Anpassa systemet > enheter > konto > fält  | accountid  | Primär nyckel
+När du anger ett värde för ett fält i en åtgärd eller utlösare måste värdetyp data matcha fälttypen oavsett om du manuellt ange värdet eller väljer du värdet från den dynamiska innehållslistan.
 
-### <a name="more-examples-of-fields-that-require-both-a-record-id-and-lookup-type"></a>Fler exempel på fält som kräver en post-ID och ett sökning skriver
-Expandera i föregående tabell följer fler exempel på fält som inte fungerar med värden som väljs från listan över dynamiskt innehåll. I stället kräver dessa fält båda ID och sökning posttyp in i fälten i PowerApps.  
-* Ägare och typen ägare. Fältet ägare måste vara en giltig användare eller det team-post-ID. Ägaren måste vara antingen **systemusers** eller **team**.
-* Kund och kunden. Fältet måste vara ett giltigt konto eller kontakta post-ID. Ägaren måste vara antingen **konton** eller **kontakter**.
-* Angående och för typen. Fältet Ämne måste vara en giltig post-ID, till exempel ett konto eller kontakta post-ID. Om typen måste vara sökning-typ för posten som **konton** eller **kontakter**.
+Den här tabellen beskriver några av fälttyper och vilka data som krävs för deras värden.
 
-I följande exempel för uppgiften Skapa åtgärd lägger till en kontopost som motsvarar post-ID lägger till den i fältet ämne av uppgiften.
+| Fälttyp | Krävs för datatyp | Beskrivning | 
+|------------|--------------------|-------------|
+| Textfält | Enskild rad med text | Dessa fält kräver en rad med text eller dynamiskt innehåll som har texttypen. <p><p>*Exempel fält*: **beskrivning** och **kategori** | 
+| Heltalsfält | Heltal | Vissa fält kräver heltal eller dynamiskt innehåll som har typen heltal. <p><p>*Exempel fält*: **procent färdigt** och **varaktighet** | 
+| Datumfält | Datum och tid | Vissa fält kräver ett datum med mm/dd/åååå eller dynamiskt innehåll som är av typen date. <p><p>*Exempel fält*: **Skapad den**, **startdatum**, **verklig Start**, **Verkligt slut**, och **förfallodatum** | 
+| Ange fält som kräver både ett post-ID och en uppslagstyp | Primär nyckel | Vissa fält som refererar till en annan entitetspost kräver både ett post-ID och en uppslagstyp. | 
+||||
 
-![Flödet recordId och typ för kontot](./media/connectors-create-api-crmonline/recordid-type-account.png)
+Som ett led i dessa fälttyper, är här exempel fält i Dynamics 365-utlösare och åtgärder som kräver både ett post-ID och uppslagstyp. Det här kravet innebär värden som du väljer från listan med dynamiskt inte fungerar. 
 
-Det här exemplet ger också aktiviteten till en viss användare baserat på användarens post-ID.
+| Fält | Beskrivning | 
+|-------|-------------|
+| **Ägare** | Måste vara antingen ett giltigt användar-ID eller team post-ID. | 
+| **Ägartyp** | Måste vara antingen **systemanvändare** eller **team**. | 
+| **Angående** | Måste vara ett giltigt post-ID, till exempel en konto-ID eller kontaktpost-ID. | 
+| **Angående typ** | Måste vara en uppslagstyp som **konton** eller **kontakter**. | 
+| **Kunden** | Måste vara ett giltigt post-ID, till exempel en konto-ID eller kontaktpost-ID. | 
+| **Kundtyp** | Måste vara Uppslagstypen, till exempel **konton** eller **kontakter**. | 
+|||
 
-![Flödet recordId och typ för kontot](./media/connectors-create-api-crmonline/recordid-type-user.png)
+I det här exemplet åtgärden med namnet **skapa en ny post** skapar en ny uppgiftspost: 
 
-Se följande avsnitt för att hitta en post-ID: *post-ID: T*
+![Skapa uppgiftsposten med ID: N och lookup-typer](./media/connectors-create-api-crmonline/create-record-advanced.png)
 
-## <a name="find-the-record-id"></a>Hitta post-ID
+Uppgiftsposten tilldelas till en specifik användar-ID eller team post-ID, baserat på post-ID i den **ägare** fält och sökfunktionens skriver i den **ägartyp** fält:
 
-1. Öppna en post, till exempel en kontopost.
+![Ägare och en uppslagstyp posttyp](./media/connectors-create-api-crmonline/owner-record-id-and-lookup-type.png)
 
-2. Klicka på i verktygsfältet Åtgärder **Pop-ut** ![popout post](./media/connectors-create-api-crmonline/popout-record.png).
-Alternativt verktygsfältet åtgärder för att kopiera hela Webbadressen till e-postprogram, klickar du på **e-post en länk**.
+Den här åtgärden lägger också till en kontopost som är associerat med ID: T har lagts till i den **angående** fält och sökfunktionens skriver i den **angående typ** fält: 
 
-   POST-ID visas mellan % 7b och %7 d kodning tecken i URL: en.
+![Angående och en uppslagstyp posttyp](./media/connectors-create-api-crmonline/regarding-record-id-lookup-type-account.png)
 
-   ![Flödet recordId och typ för kontot](./media/connectors-create-api-crmonline/recordid.png)
+## <a name="find-record-id"></a>Hitta post-ID
 
-## <a name="troubleshooting"></a>Felsökning
-Visa statusinformation om händelsen för att felsöka en misslyckad steg i en logikapp.
+Följ dessa steg för att hitta en post-ID: 
 
-1. Under **Logikappar**, Välj din logikapp och klicka sedan på **översikt**. 
+1. Öppna en post, till exempel en kontopost i Dynamics 365.
 
-   I sammanfattningen visas samt Körstatus för logikappen. 
+2. I verktygsfältet åtgärder väljer du något av följande:
 
-   ![Logikapp Körstatus](./media/connectors-create-api-crmonline/tshoot1.png)
+   * Välj **frigörs**. ![popout-post](./media/connectors-create-api-crmonline/popout-record.png) 
+   * Välj **e-POSTMEDDELANDET en länk** så att du kan kopiera den fullständiga URL: en till ditt e-postprogram.
 
-2. Klicka på misslyckade händelsen om du vill visa mer information om eventuella misslyckade körs. Klicka på steget ett steg som misslyckades.
+   Post-ID som visas i URL-Adressen mellan de `%7b` och `%7d` kodningstecken:
 
-   ![Expandera steg som misslyckades](./media/connectors-create-api-crmonline/tshoot2.png)
+   ![Hitta post-ID](./media/connectors-create-api-crmonline/find-record-ID.png)
 
-   Steg-information visas och kan hjälpa dig att felsöka orsaken till felet.
+## <a name="troubleshoot-failed-runs"></a>Felsöka misslyckade körningar
 
-   ![Det gick inte steg-information](./media/connectors-create-api-crmonline/tshoot3.png)
+Om du vill söka efter och granska misslyckade åtgärder i din logikapp, kan du visa logikappens körnings, status, indata, utdata och så vidare.
 
-Läs mer om hur du felsöker logikappar [diagnostisera fel i logik app](../logic-apps/logic-apps-diagnosing-failures.md).
+1. Azure-portalen på huvudmenyn för din logikapp, Välj **översikt**. I den **Körningshistorik** avsnitt som visar alla kör status för din logikapp, Välj en misslyckad körning för mer information.
 
-## <a name="connector-specific-details"></a>Connector-specifik information
+   ![Status för logikappskörningen](./media/connectors-create-api-crmonline/run-history.png)
 
-Visa alla utlösare och åtgärder som definierats i swagger och även se några gränser i den [connector information](/connectors/crm/). 
+1. Expandera ett steg som misslyckades så att du kan visa mer information. 
+
+   ![Expandera felande steget](./media/connectors-create-api-crmonline/expand-failed-step.png)
+
+1. Granska det steget information, till exempel indata och utdata som kan hjälpa dig att hitta orsaken till felet.
+
+   ![Misslyckade steg - in- och utdata](./media/connectors-create-api-crmonline/expand-failed-step-inputs-outputs.png)
+
+Läs mer om hur du felsöker logikappar [diagnosticera logikappfel](../logic-apps/logic-apps-diagnosing-failures.md).
+
+## <a name="connector-reference"></a>Referens för anslutningsapp
+
+Teknisk information, till exempel utlösare och åtgärder gränser, enligt beskrivningen av kopplingens Swagger-fil, finns i den [anslutningsappens-referenssida](/connectors/crm/). 
+
+## <a name="get-support"></a>Få support
+
+* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg
-Utforska andra tillgängliga kopplingar i Logic Apps på vår [API: er listan](apis-list.md).
+
+* Läs mer om andra [Logic Apps-anslutningsprogram](../connectors/apis-list.md)

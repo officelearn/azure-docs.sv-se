@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: kumud
-ms.openlocfilehash: 3172736edf4e38f53858620ebac95b711857010b
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 39a3f1a400abae4a9a30c07b7352518b55d0daf1
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901273"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746826"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Skapa en offentlig belastningsutjämnare med IPv6 med Azure CLI
 
 
-En Azure belastningsutjämnare är en Layer 4-belastningsutjämnare (TCP, UDP). Belastningsutjämnare ger hög tillgänglighet genom att distribuera inkommande trafik mellan felfria tjänsteinstanser i cloud services och virtuella datorer i en belastningsutjämningsuppsättning. Belastningsutjämnare kan även presentera dessa tjänster på flera portar eller flera IP-adresser eller båda.
+En Azure Load Balancer är en Layer 4-lastbalanserare (TCP, UDP). Belastningsutjämnare ger hög tillgänglighet genom att distribuera inkommande trafik mellan felfria tjänsteinstanser i cloud services och virtuella datorer i en belastningsutjämningsuppsättning. Belastningsutjämnare kan även presentera dessa tjänster på flera portar eller flera IP-adresser eller båda.
 
 ## <a name="example-deployment-scenario"></a>Exempelscenario för distribution
 
 Följande diagram illustrerar belastningsutjämningslösning som distribueras med hjälp av mallen för exemplet som beskrivs i den här artikeln.
 
-![Belastningsutjämningsscenario](./media/load-balancer-ipv6-internet-cli/lb-ipv6-scenario-cli.png)
+![Lastbalanseringsscenario](./media/load-balancer-ipv6-internet-cli/lb-ipv6-scenario-cli.png)
 
 I det här scenariot skapar du följande Azure-resurser:
 
@@ -259,7 +259,7 @@ Skapa nätverkskort och koppla dem till NAT-regler, belastningsutjämningsregler
     $nic1 = az network nic create --name $nic1Name --resource-group $rgname --location $location --private-ip-address-version "IPv4" --subnet $subnet1Id --lb-address-pools $backendAddressPoolV4Id --lb-inbound-nat-rules $natRule1V4Id
     $nic1IPv6 = az network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-address-version "IPv6" --lb-address-pools $backendAddressPoolV6Id --nic-name $nic1Name
 
-    $nic2 = az network nic create --name $nic2Name --resource-group $rgname --location $location --private-ip-address-version "IPv4" --subnet $subnet1Id --lb-address-pools $backendAddressPoolV4Id --lb-inbound-nat-rules $natRule2V4Id
+    $nic2 = az network nic create --name $nic2Name --resource-group $rgname --location $location --private-ip-address-version "IPv4" --subnet $subnet2Id --lb-address-pools $backendAddressPoolV4Id --lb-inbound-nat-rules $natRule2V4Id
     $nic2IPv6 = az network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-address-version "IPv6" --lb-address-pools $backendAddressPoolV6Id --nic-name $nic2Name
     ```
 
@@ -299,6 +299,9 @@ Om du vill skapa virtuella datorer, måste du ha ett lagringskonto. Belastningsu
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Komma igång med att konfigurera en intern belastningsutjämnare](load-balancer-get-started-ilb-arm-cli.md)  
-[Konfigurera ett distributionsläge för belastningsutjämnare](load-balancer-distribution-mode.md)  
-[Konfigurera timeout-inställningar för inaktiv TCP för en belastningsutjämnare](load-balancer-tcp-idle-timeout.md)
+
+  [Komma igång med att konfigurera en intern lastbalanserare](load-balancer-get-started-ilb-arm-cli.md)  
+
+  [Konfigurera ett distributionsläge för lastbalanserare](load-balancer-distribution-mode.md)  
+
+  [Konfigurera timeout-inställningar för inaktiv TCP för en lastbalanserare](load-balancer-tcp-idle-timeout.md)

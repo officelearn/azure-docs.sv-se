@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/08/2018
+ms.date: 08/08/2018
 ms.author: shvija
-ms.openlocfilehash: c41612b46102dc8fef67887c164ff6e48a8cf6c6
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: c4a9a3189f3de101528871e4dba95bf7a76b9846
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42061693"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746922"
 ---
 # <a name="event-hubs-features-overview"></a>Översikt över Event Hubs-funktioner
 
@@ -25,7 +25,7 @@ Azure Event Hubs är en skalbar händelsebearbetningstjänst som matar in och be
 
 Den här artikeln bygger på informationen i den [översiktsartikeln](event-hubs-what-is-event-hubs.md), och innehåller teknisk och implementering information om Event Hubs-komponenter och funktioner.
 
-## <a name="namespace"></a>Namnrymd
+## <a name="namespace"></a>Namnområde
 Ett namnområde för Event Hubs innehåller en unik omfattningsbehållare som refereras av dess [fullständigt kvalificerade domännamnet](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), i vilket du skapar en eller flera händelsehubbar Kafka-avsnitt. 
 
 ## <a name="event-publishers"></a>Händelseutfärdare
@@ -52,7 +52,7 @@ Med händelsehubbar får du granulär kontroll över utgivare via *utgivarprinci
 
 Du behöver inte skapa utgivarnamnen i förväg, men de måste matcha SAS-token som används när du publicerar en händelse för att garantera oberoende utgivaridentiteter. När du använder utgivarprinciper ställs **PartitionKey**-värdet in på utgivarens namn. Dessa värden måste matcha för att fungera korrekt.
 
-## <a name="capture"></a>Capture
+## <a name="capture"></a>Ta bild
 
 [Event Hubs Capture](event-hubs-capture-overview.md) gör att du kan avbilda strömmande data i Event Hubs och spara den till ett Blob storage-konto eller ett tjänstkonto för Azure Data Lake automatiskt. Du kan aktivera avbildning från Azure-portalen och ange en minsta storlek och tidsfönster att utföra insamlingen. Med Event Hubs Capture kan ange du din egen Azure Blob Storage-konto och en behållare eller ett konto för Azure Data Lake-tjänsten, av vilka används för att lagra insamlade data. Inlästa data skrivs i Apache Avro-format.
 
@@ -76,7 +76,7 @@ Partitioner är fyllda med en sekvens av händelsedata som innehåller själva h
 
 Mer information om partitioner och avvägningen mellan tillgänglighet och tillförlitlighet finns i [Programmeringsguide för Event Hubs](event-hubs-programming-guide.md#partition-key) och i artikeln om [tillgänglighet och konsekvens i Event Hubs](event-hubs-availability-and-consistency.md).
 
-### <a name="partition-key"></a>Partitionsnyckeln
+### <a name="partition-key"></a>Partitionsnyckel
 
 Du kan organisera data med hjälp av en [partitionsnyckel](event-hubs-programming-guide.md#partition-key) som mappar inkommande händelsedata till specifika partitioner. Partitionsnyckeln är ett värde som avsändaren anger och som skickas till en händelsehubb. Den bearbetas via en statisk hash-funktion som skapar partitionstilldelningen. Om du inte anger en partitionsnyckel när du publicerar en händelse, används en tilldelning enligt resursallokeringsmodellen.
 
@@ -147,7 +147,7 @@ Det är ditt ansvar att hantera positionen (offset).
 
 Event Hubs har en mycket skalbar parallell arkitektur och det finns flera viktiga faktorer att tänka på när du ändrar storlek och skala.
 
-### <a name="throughput-units"></a>Genomflödesenheter
+### <a name="throughput-units"></a>Dataflödesenheter
 
 Genomflödeskapaciteten i Event Hubs styrs av *genomflödesenheter*. Genomflödesenheter är färdiga kapacitetsenheter. En dataflödesenhet har följande kapacitet:
 

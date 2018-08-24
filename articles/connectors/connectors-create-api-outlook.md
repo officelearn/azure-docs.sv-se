@@ -1,47 +1,58 @@
 ---
-title: Outlook.com-anslutningen i Azure Logic Apps | Microsoft Docs
-description: Skapa logikappar med Azure App service. Outlook.com-anslutningen kan du hantera din e-post, kalender och kontakter. Du kan utföra olika åtgärder, till exempel skicka e-post, schemalägga möten, Lägg till kontakter, osv.
+title: Ansluta till Outlook.com – Azure Logic Apps | Microsoft Docs
+description: 'Hantera e-post, kalendrar och kontakter med Outlook.com REST API: er och Azure Logic Apps'
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: 87113c85-d158-4dd5-9ed5-5748130003d6
 ms.service: logic-apps
-ms.devlang: multiple
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
+ms.assetid: 87113c85-d158-4dd5-9ed5-5748130003d6
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
 ms.date: 08/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 1338b7ce8f72a57cb65f9389e630fd7ebd0417b1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 8030ab9d317c1deefaf441008b9022c4a26bb17c
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295592"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746170"
 ---
-# <a name="get-started-with-the-outlookcom-connector"></a>Kom igång med Outlook.com-koppling
-Outlook.com-anslutningen kan du hantera din e-post, kalender och kontakter. Du kan utföra olika åtgärder, till exempel skicka e-post, schemalägga möten, Lägg till kontakter, osv.
+# <a name="manage-email-calendars-and-contacts-in-outlookcom-with-azure-logic-apps"></a>Hantera e-post, kalendrar och kontakter i Outlook.com med Azure Logic Apps
 
-Du kan komma igång genom att skapa en logikapp nu, se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Den här artikeln visar hur du kan skapa och hantera din Outlook.com-konto i en logikapp med Box-anslutningsprogrammet. På så sätt kan du skapa logikappar som automatiserar uppgifter och arbetsflöden för ditt Outlook.com-konto, till exempel:
 
-## <a name="create-a-connection-to-outlookcom"></a>Skapa en anslutning till Outlook.com
-För att skapa logikappar med Outlook.com, måste du först skapa en **anslutning** ange detaljer för följande egenskaper:
+* Skicka e-post. 
+* Schemalägga möten.
+* Lägga till kontakter. 
 
-| Egenskap  | Krävs | Beskrivning |
-| --- | --- | --- |
-| Token |Ja |Ange autentiseringsuppgifter för Outlook.com |
+Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
-Du kan använda den köra åtgärder och lyssna för utlösare som beskrivs i den här artikeln när du har skapat anslutningen.
+## <a name="prerequisites"></a>Förutsättningar
 
-> [!INCLUDE [Steps to create a connection to Outlook.com](../../includes/connectors-create-api-outlook.md)]
->
+* En [Outlook.com-konto](https://outlook.live.com/owa/)
 
-## <a name="connector-specific-details"></a>Connector-specifik information
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
 
-Visa alla utlösare och åtgärder som definierats i swagger och även se några gränser i den [connector information](/connectors/outlook/).
+* Logikappen där du vill komma åt ditt Outlook.com-konto. Om du vill starta logikappen med en Outlook-utlösare, som du behöver en [tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
-## <a name="more-connectors"></a>Flera kopplingar
-Gå tillbaka till den [API: er listan](apis-list.md).
+* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+## <a name="connect-to-outlookcom"></a>Ansluta till Outlook.com
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+[!INCLUDE [Connect to Outlook.com](../../includes/connectors-create-api-outlook.md)]
+
+## <a name="connector-reference"></a>Referens för anslutningsapp
+
+Teknisk information, till exempel utlösare och åtgärder gränser, enligt beskrivningen av kopplingens Swagger-fil, finns i den [anslutningsappens-referenssida](/connectors/outlook/). 
+
+## <a name="get-support"></a>Få support
+
+* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](http://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Nästa steg
+
+* Läs mer om andra [Logic Apps-anslutningsprogram](../connectors/apis-list.md)

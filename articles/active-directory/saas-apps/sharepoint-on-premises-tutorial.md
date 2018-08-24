@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
-ms.openlocfilehash: cd1e4b376b634a3e3c7fa2c87723aff05f431a25
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 25e78633e7f1bead1eaa575edc6983a59e9ffa2d
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056532"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42817909"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Självstudier: Azure Active Directory-integrering med lokal SharePoint
 
@@ -49,12 +49,15 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
+
+I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö.
+Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till lokal SharePoint från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+2. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-sharepoint-on-premises-from-the-gallery"></a>Att lägga till lokal SharePoint från galleriet
+
 För att konfigurera integrering av lokal SharePoint i Azure AD, som du behöver lägga till lokal SharePoint från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till lokal SharePoint från galleriet:**
@@ -63,15 +66,15 @@ För att konfigurera integrering av lokal SharePoint i Azure AD, som du behöver
 
     ![Azure Active Directory-knappen][1]
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **företagsprogram**. Gå till **alla program**.
 
     ![Bladet för Enterprise-program][2]
 
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
 
     ![Knappen Nytt program][3]
 
-1. I sökrutan skriver **lokal SharePoint-** väljer **lokal SharePoint-** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver **lokal SharePoint-** väljer **lokal SharePoint-** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![SharePoint lokalt i listan med resultat](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_addfromgallery.png)
 
@@ -84,10 +87,10 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad du motsvarande 
 Om du vill konfigurera och testa Azure AD enkel inloggning med lokal SharePoint, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Bevilja åtkomst till SharePoint lokalt testanvändare](#grant-access-to-sharePoint-on-premises-test-user)**  – du har en motsvarighet för Britta Simon i lokal SharePoint som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Bevilja åtkomst till SharePoint lokalt testanvändare](#grant-access-to-sharePoint-on-premises-test-user)**  – du har en motsvarighet för Britta Simon i lokal SharePoint som är länkad till en Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -110,6 +113,8 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
     a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<YourSharePointServerURL>/_trust/default.aspx`
 
     b. I den **identifierare** textrutan anger du URL: `urn:sharepoint:federation`
+
+    c. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<YourSharePointServerURL>/_trust/default.aspx`
 
 4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
@@ -183,15 +188,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Azure Active Directory-knappen](./media\sharepoint-on-premises-tutorial/create_aaduser_01.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
     ![”Användare och grupper” och ”alla användare”-länkar](./media\sharepoint-on-premises-tutorial/create_aaduser_02.png)
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
     ![Knappen Lägg till](./media\sharepoint-on-premises-tutorial/create_aaduser_03.png)
 
-1. I den **användaren** dialogrutan utför följande steg:
+4. I den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media\sharepoint-on-premises-tutorial/create_aaduser_04.png)
 
@@ -320,4 +325,3 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/act
 [201]: ./media\sharepoint-on-premises-tutorial/tutorial_general_201.png
 [202]: ./media\sharepoint-on-premises-tutorial/tutorial_general_202.png
 [203]: ./media\sharepoint-on-premises-tutorial/tutorial_general_203.png
-

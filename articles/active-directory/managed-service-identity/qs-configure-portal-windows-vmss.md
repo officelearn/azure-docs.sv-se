@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 93c532cf2864db28b580303ecefec8b6dbed65f6
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: bfd63262a1d5568223b4e4077e2f8c987b7ec0d4
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257767"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746744"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-using-the-azure-portal"></a>Konfigurera en virtuell dator scale Sets hanterad tjänstidentitet med hjälp av Azure portal
 
@@ -27,10 +27,7 @@ ms.locfileid: "39257767"
 
 Hanterad tjänstidentitet ger Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering utan autentiseringsuppgifter i din kod. 
 
-I den här artikeln får du lära dig hur du aktiverar och inaktiverar systemtilldelad identitet för en VM-skalningsuppsättning med Azure portal. Tilldela och ta bort användartilldelade identiteter från en skalningsuppsättning för virtuella Azure-datorer stöds inte för närvarande via Azure portal.
-
-> [!NOTE]
-> Användartilldelad identitet åtgärder stöds för närvarande inte via Azure-portalen. Kom tillbaka om för att få uppdateringar.
+I den här artikeln får du lära dig hur du aktiverar och inaktiverar system- och Användartilldelad identitet för en VM-skalningsuppsättning med Azure portal.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -39,17 +36,19 @@ I den här artikeln får du lära dig hur du aktiverar och inaktiverar systemtil
 - För att utföra vilka hanteringsåtgärder i den här artikeln, måste ditt konto följande rolltilldelningen:
     - [Virtuell Datordeltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) att aktivera och ta bort systemtilldelad hanterad identitet från en skalningsuppsättning för virtuell dator.
 
-## <a name="managed-service-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Hanterad tjänstidentitet under skapandet av en Azure VM-skalningsuppsättning
+## <a name="system-assigned-identity"></a>Systemtilldelad identitet 
 
-Skapa en virtuell dator via Azure portal stöder för närvarande inte hanterad tjänstidentitet åtgärder. I stället finns följande Azure-dator scale set skapas snabbstartsartikeln du först skapa en Azure VM-skalningsuppsättning:
+I det här avsnittet får du lära dig hur du aktiverar och inaktiverar systemtilldelad identitet på en VM-skalningsuppsättning med Azure portal.
+
+### <a name="enable-system-assigned-identity-during-creation-of-a-virtual-machine-scale-set"></a>Aktivera systemtilldelade identiteter under skapandet av en VM-skalningsuppsättning
+
+Azure-portalen stöder för närvarande inte aktivera systemtilldelad identitet när du skapar en VM-skalningsuppsättning. I stället referera till följande VM scale set skapas snabbstartsartikeln att först skapa en skalningsuppsättning för virtuell dator och gå sedan vidare till nästa avsnitt för information om hur du aktiverar systemtilldelad identitet på en VM-skalningsuppsättning:
 
 - [Skapa en VM-Skalningsuppsättning i Azure portal](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
-Gå sedan vidare till nästa avsnitt för information om hur du aktiverar hanterad tjänstidentitet på virtuella datorns skalningsuppsättning.
+### <a name="enable-system-assigned-identity-on-an-existing-virtual-machine-scale-set"></a>Aktivera systemtilldelade identiteter på en befintlig VM-skalningsuppsättning
 
-## <a name="enable-managed-service-identity-on-an-existing-azure-vmms"></a>Aktivera hanterad tjänstidentitet på en befintlig Azure-VMMS
-
-För att aktivera systemtilldelad identitet på en virtuell dator som ursprungligen etablerades utan den:
+För att aktivera den systemtilldelade identiteten på en skalningsuppsättning för virtuella datorer som ursprungligen etablerades utan den:
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är associerade med Azure-prenumerationen som innehåller virtuella datorns skalningsuppsättning.
 
@@ -59,9 +58,9 @@ För att aktivera systemtilldelad identitet på en virtuell dator som ursprungli
 
    [![Skärmbild av konfiguration av sidan](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
 
-## <a name="remove-managed-service-identity-from-an-azure-virtual-machine-scale-set"></a>Ta bort hanterad tjänstidentitet från en Azure VM-skalningsuppsättning
+### <a name="remove-system-assigned-identity-from-a-virtual-machine-scale-set"></a>Ta bort systemtilldelade identiteter från en VM-skalningsuppsättning
 
-Om du har en skalningsuppsättning för virtuella datorer som inte längre behöver en hanterad tjänstidentitet:
+Om du har en VM-skalningsuppsättning som inte längre behöver en systemtilldelad identitet:
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är associerade med Azure-prenumerationen som innehåller virtuella datorns skalningsuppsättning. Kontrollera också att ditt konto tillhör en roll som ger dig skrivbehörighet på virtuella datorns skalningsuppsättning.
 
@@ -69,7 +68,36 @@ Om du har en skalningsuppsättning för virtuella datorer som inte längre behö
 
 3. Inaktivera systemtilldelad identitet på den virtuella datorn genom att välja ”Nej” under ”hanterad tjänstidentitet” och sedan på Spara. Den här åtgärden kan ta 60 sekunder eller mer att slutföra:
 
-   ![Skärmbild av konfiguration av sidan](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)  
+   ![Skärmbild av konfiguration av sidan](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)
+
+## <a name="user-assigned-identity"></a>Användartilldelad identitet
+
+Du lär dig hur du lägger till och ta bort Användartilldelad identitet från en VM-skalningsuppsättning med Azure portal i det här avsnittet.
+
+### <a name="assign-a-user-assigned-identity-during-the-creation-of-a-virtual-machine-scale-set"></a>Tilldela en Användartilldelad identitet när du skapar en VM-skalningsuppsättning
+
+För närvarande stöder inte Azure-portalen tilldela Användartilldelad identitet när du skapar en VM-skalningsuppsättning. I stället referera till följande VM scale set skapas snabbstartsartikeln att först skapa en skalningsuppsättning för virtuell dator och gå sedan vidare till nästa avsnitt för information om hur du tilldelar en Användartilldelad identitet till den:
+
+- [Skapa en VM-Skalningsuppsättning i Azure portal](../../virtual-machine-scale-sets/quick-create-portal.md)
+
+### <a name="assign-a-user-assigned-identity-to-an-existing-virtual-machine-scale-set"></a>Tilldela en Användartilldelad identitet till en befintlig VM-skalningsuppsättning
+
+1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är associerade med Azure-prenumerationen som innehåller virtuella datorns skalningsuppsättning.
+2. Navigera till önskade virtuella datorns skalningsuppsättning och klicka på **identitet**, **Användartilldelad** och sedan  **\+Lägg till**.
+
+   ![Lägg till Användartilldelad identitet i VMSS](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vmss-screenshot1.png)
+
+3. Klicka på den Användartilldelad identitet som du vill lägga till virtuella datorns skalningsuppsättning och sedan på **Lägg till**.
+   
+   ![Lägg till Användartilldelad identitet i VMSS](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot2.png)
+
+### <a name="remove-a-user-assigned-identity-from-a-virtual-machine-scale-set"></a>Ta bort en Användartilldelad identitet från en VM-skalningsuppsättning
+
+1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är associerade med Azure-prenumerationen som innehåller den virtuella datorn.
+2. Navigera till önskade virtuella datorns skalningsuppsättning och klicka på **identitet**, **Användartilldelad**, namnet på Användartilldelad identitet som du vill ta bort och klicka sedan på **ta bort** () Klicka på **Ja** i fönstret bekräftelse).
+
+   ![Ta bort Användartilldelad identitet från en VMSS](./media/msi-qs-configure-portal-windows-vm/remove-user-assigned-identity-vmss-screenshot.png)
+
 
 ## <a name="related-content"></a>Relaterat innehåll
 

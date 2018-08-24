@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: 610771e659a80e330fbb1c9d6fd97c15ff832386
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 3ff4c23c0538adcc3a064503431cb18016db04cd
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42055900"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42747052"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs-bindningar för Azure Functions
 
@@ -52,24 +52,24 @@ När en funktion för Event Hubs-utlösaren utlöses skickas meddelandet som utl
 
 ## <a name="trigger---scaling"></a>Utlösa - skalning
 
-Varje instans av en funktion för Event Hub-Triggered backas upp av endast 1 instans av EventProcessorHost (EPH). Event Hubs garanterar att endast 1 EPH kan få ett lån på en given partition.
+Varje instans av en event hub-utlöst funktion backas upp av endast en [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) instans. Event Hubs garanterar att endast en [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) instans kan få ett lån på en given partition.
 
-Anta exempelvis att vi börjar med följande inställningar och antaganden för en Händelsehubb:
+Anta exempelvis att en Händelsehubb på följande sätt:
 
-1. 10 partitioner.
-1. 1000 händelser fördelas jämnt över alla partitioner = > 100 meddelanden i varje partition.
+* 10 partitioner.
+* 1000 händelser fördelas jämnt över alla partitioner med 100 meddelanden i varje partition.
 
-När funktionen aktiveras först, är det bara 1 instans av funktionen. Vi kan kalla den här funktionen instansen Function_0. Function_0 har 1 EPH som hanterar att få ett lån på alla 10 partitioner. Den börjar läsa händelser från partitioner 0-9. Från och med nu händer något av följande:
+När funktionen aktiveras först, finns det endast en instans av funktionen. Vi kan kalla den här funktionen instansen `Function_0`. `Function_0` har en enda [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) -instans som har ett lån på alla tio partitioner. Den här instansen läser händelser från partitioner 0-9. Från och med nu händer något av följande:
 
-* **Funktionen endast 1 instans behövs** -Function_0 kan bearbeta alla 1000 innan Azure Functions skalar logic aktiveras. Därför bearbetas alla 1000 meddelanden av Function_0.
+* **Den nya funktionen instanser behövs inte**: `Function_0` kan bearbeta alla 1000 händelser innan de funktioner som skalning logic aktiveras. I det här fallet alla 1000 meddelanden bearbetas av `Function_0`.
 
-* **Lägg till 1 mer funktionen instans** – Azure Functions skalar logic avgör att Function_0 har fler meddelanden än den kan bearbeta så skapas en ny instans Function_1,. Händelsehubbar identifierar att en ny EPH-instans som försöker läsa meddelanden. Händelsehubbar startar partitionerna för belastningsutjämning mellan EPH-instanser, t.ex. partitioner 0-4 har tilldelats Function_0 och partitioner 5 – 9 har tilldelats Function_1. 
+* **En ytterligare funktion-instans läggs**: Functions skalning logic avgör att `Function_0` har fler meddelanden än den kan bearbeta. I det här fallet en ny funktion app-instansen (`Function_1`) skapas tillsammans med en ny [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) instans. Händelsehubbar identifierar att en ny värdinstans som försöker läsa meddelanden. Event Hubs-belastningsutjämnar partitioner över på dess värddatorinstanser. Till exempel partitioner 0-4 kan ha tilldelats `Function_0` och partitionerar 5 – 9 till `Function_1`. 
 
-* **Lägg till N fungerar fler instanser** – Azure Functions skalar logic anger att både Function_0 och Function_1 har fler meddelanden än vad de kan bearbeta. Den skalas igen för Function_2... N, där N är större än Event Hub-partitioner. Läser in Event Hubs balanserar partitionerna mellan Function_0... 9 instanser.
+* **N fler instanser av funktionen läggs**: Functions skalning logic avgör att båda `Function_0` och `Function_1` har fler meddelanden än vad de kan bearbeta. Ny funktion appinstanser `Function_2`... `Functions_N` skapas, där `N` är större än antalet händelsenavspartitioner. I vårt exempel Händelsehubbar igen belastningsutjämnar partitioner, i det här fallet mellan instanserna `Function_0`... `Functions_9`. 
 
-Azure Functions aktuella skalning logic är det faktum att N är större än antalet partitioner. Detta görs för att säkerställa att det alltid är instanser av EPH är tillgänglig för att snabbt få ett lås på partitioner när de blir tillgängliga från andra instanser. Användare debiteras endast för de resurser som används när funktionen-instansen körs, och debiteras inte för den här överetablering.
+Observera att om funktioner som kan skalas till `N` instanser, vilket är ett tal som är större än antalet händelsenavspartitioner. Detta görs för att se till att det är alltid [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) instanser är tillgängliga att hämta lås på partitioner när de blir tillgängliga från andra instanser. Du debiteras bara för de resurser som används när funktionen-instans kör; du debiteras inte för den här överetablering.
 
-Om alla funktionskörningar lyckas utan fel har kontrollpunkter lagts till det associerade lagringskontot. När kontrollpunkter lyckas ska alla 1000 meddelanden aldrig hämtas igen.
+När alla funktionen körningen har slutförts (med eller utan fel) har kontrollpunkter lagts till det associerade lagringskontot. När kontrollpunkter lyckas, hämtas alla 1000 meddelanden aldrig igen.
 
 ## <a name="trigger---example"></a>Utlösare - exempel
 
@@ -363,13 +363,13 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Saknas | Måste anges till `eventHubTrigger`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
-|**riktning** | Saknas | Måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
-|**Namn** | Saknas | Namnet på variabeln som representerar objektet händelse i funktionskoden. | 
+|**typ** | saknas | Måste anges till `eventHubTrigger`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
+|**riktning** | saknas | Måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
+|**Namn** | saknas | Namnet på variabeln som representerar objektet händelse i funktionskoden. | 
 |**Sökväg** |**EventHubName** | Fungerar endast 1.x. Namnet på händelsehubben. När namnet på händelsehubben finns också i anslutningssträngen, åsidosätter det värdet den här egenskapen vid körning. | 
 |**eventHubName** |**EventHubName** | Fungerar endast 2.x. Namnet på händelsehubben. När namnet på händelsehubben finns också i anslutningssträngen, åsidosätter det värdet den här egenskapen vid körning. |
 |**consumerGroup** |**consumerGroup** | En valfri egenskap som anger den [konsumentgrupp](../event-hubs/event-hubs-features.md#event-consumers) används för att prenumerera på händelser i hubben. Om det utelämnas används den `$Default` konsumentgrupp används. | 
-|**kardinalitet** | Saknas | För Javascript. Ange `many` för att aktivera Batchbearbetning.  Om detta utelämnas eller värdet `one`, enskilt meddelande som skickades till funktionen. | 
+|**kardinalitet** | saknas | För Javascript. Ange `many` för att aktivera Batchbearbetning.  Om detta utelämnas eller värdet `one`, enskilt meddelande som skickades till funktionen. | 
 |**anslutning** |**anslutning** | Namnet på en appinställning som innehåller anslutningssträngen till namnområdet för event hub. Kopiera denna anslutningssträng genom att klicka på den **anslutningsinformation** för den [namnområde](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), inte händelsehubben själva. Den här anslutningssträngen måste ha minst läsbehörighet till aktivera utlösaren.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -378,7 +378,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 Event Hubs-utlösare innehåller flera [metadataegenskaper](functions-triggers-bindings.md#binding-expressions---trigger-metadata). De här egenskaperna kan användas som en del av bindning uttryck i andra bindningar eller som parametrar i din kod. Dessa är egenskaper för den [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata) klass.
 
-|Egenskap |Typ|Beskrivning|
+|Egenskap|Typ|Beskrivning|
 |--------|----|-----------|
 |`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|Den `PartitionContext` instans.|
 |`EnqueuedTimeUtc`|`DateTime`|Kötid i UTC.|
@@ -396,7 +396,7 @@ Den [host.json](functions-host-json.md#eventhub) filen innehåller inställninga
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="output"></a>Resultat
+## <a name="output"></a>Utdata
 
 Använda Event Hubs-utdatabindning till skriva händelser till en händelseström. Du måste ha skicka behörighet till en event hub att skriva händelser till den.
 
@@ -599,9 +599,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Saknas | Måste anges till ”eventHub”. |
-|**riktning** | Saknas | Måste anges till ”ut”. Den här parametern anges automatiskt när du skapar bindningen i Azure-portalen. |
-|**Namn** | Saknas | Variabelnamnet som används i Funktionskoden som representerar händelsen. | 
+|**typ** | saknas | Måste anges till ”eventHub”. |
+|**riktning** | saknas | Måste anges till ”ut”. Den här parametern anges automatiskt när du skapar bindningen i Azure-portalen. |
+|**Namn** | saknas | Variabelnamnet som används i Funktionskoden som representerar händelsen. | 
 |**Sökväg** |**EventHubName** | Fungerar endast 1.x. Namnet på händelsehubben. När namnet på händelsehubben finns också i anslutningssträngen, åsidosätter det värdet den här egenskapen vid körning. | 
 |**eventHubName** |**EventHubName** | Fungerar endast 2.x. Namnet på händelsehubben. När namnet på händelsehubben finns också i anslutningssträngen, åsidosätter det värdet den här egenskapen vid körning. |
 |**anslutning** |**anslutning** | Namnet på en appinställning som innehåller anslutningssträngen till namnområdet för event hub. Kopiera denna anslutningssträng genom att klicka på den **anslutningsinformation** för den *namnområde*, inte händelsehubben själva. Den här anslutningssträngen måste ha behörighet att skicka att skicka meddelandet till händelseströmmen.|

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: bc9fbf56b37cb8c6690bd036db704532cb8b0437
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: f43715b9c419aab1f5b95e140eac72642ef74198
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42055923"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746905"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Uppdatera Windows-operativsystemet i Service Fabric-klustret
 
@@ -139,7 +139,7 @@ Automatiska uppdateringar för Windows kan leda till förlust av tillgänglighet
 
 Programmet tillsammans med installationsskript kan laddas ned från [Arkiv länk](https://go.microsoft.com/fwlink/?linkid=869566).
 
-Program i sfpkg format kan laddas ned från [sfpkg länk](https://go.microsoft.com/fwlink/?linkid=869567). Detta är praktiskt för [Azure Resource Manager-baserade programdistribution](service-fabric-application-arm-resource.md).
+Program i sfpkg format kan laddas ned från [sfpkg länk](https://aka.ms/POA/POA_v1.2.2.sfpkg). Detta är praktiskt för [Azure Resource Manager-baserade programdistribution](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Konfigurera appen
 
@@ -398,3 +398,5 @@ En administratör måste ingripa och avgöra varför programmet eller kluster fi
 ### <a name="version-122-latest"></a>Version 1.2.2 (senaste)
 
 - Diverse felkorrigeringar.
+- Binärfiler är nu inloggad.
+- länk för hämtning av sfpkg pekar nu på en specifik version.

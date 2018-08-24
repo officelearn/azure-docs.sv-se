@@ -6,19 +6,18 @@ author: meladie
 ms.assetid: f53a25c4-1c75-42d6-a0e7-a91661673891
 ms.service: security
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: 2179398cdd79db99540ce219b8f4eae24f0eca39
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: b269a145c78aaf025ef05a4562cf55124c17e2ee
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246162"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818013"
 ---
 # <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-australia-protected"></a>Azure-säkerhet och efterlevnad skissen - IaaS-webbprogram för Australien skyddas
 
 ## <a name="overview"></a>Översikt
-
 Innehåller riktlinjer för distribution av en infrastruktur som en tjänst (IaaS)-miljö som är lämplig för insamling, lagring och hämtning av AU-skyddade government data som är kompatibla med målen för den här Azure Blueprint för säkerhet och efterlevnad den australiensiska Government Information Security manuell (ISM) skapas genom att Australian Signals Directorate (ASD). Den här skissen presenterar en gemensam Referensarkitektur och hjälper till att demonstrera hanterar känsliga government data i en miljö för säker, kompatibel och flera nivåer.
 
 Den här referensarkitekturen och Implementeringsguide för hotmodell ger en grund för kunder att genomföra sina egna planerings- och system ackrediteringsprocesser att hjälpa kunder att distribuera arbetsbelastningar till Azure på ett sätt som ASD-kompatibel. Kunder kan välja att implementera en Azure VPN Gateway eller ExpressRoute att använda externa tjänster och integrera lokala resurser med Azure-resurser. Kunder måste ta hänsyn till säkerhetsriskerna med hjälp av lokala resurser. Ytterligare konfiguration krävs för att uppfylla alla krav, eftersom de kan variera beroende på specifika för varje kund-implementering.
@@ -57,8 +56,8 @@ Den här lösningen använder följande Azure-tjänster. Mer information finns i
 - Azure Monitor
 - Azure Resource Manager
 - Azure Security Center
-- Azure Log Analytics
-- Azure Storage
+- Azure Logganalys
+- Azure-lagring
 - Azure Virtual Machines
     - (1) management/skyddsmiljö (Windows Server 2016 Datacenter)
     - (2) SQL Server-klusternod (SQL Server 2017 på Windows Server 2016)
@@ -71,7 +70,6 @@ Den här lösningen använder följande Azure-tjänster. Mer information finns i
 Den här skissen innehåller Azure-tjänster som inte har certifierats för användning i den skyddade klassificeringen av australiensiska Cyberhot Security Center (ACSC). Alla tjänster som ingår i denna Referensarkitektur har certifierats av ACSC på nivån spridning begränsar markörer (DLM). Microsoft rekommenderar att kunder läsa publicerade säkerheten och granskningsrapporter relaterade till dessa Azure-tjänster och använda deras riskhanteringsramverket för att avgöra om Azure-tjänsten är lämplig för deras interna ackreditering och användning till den Skyddade klassificering.
 
 ## <a name="deployment-architecture"></a>Distributionsarkitektur för
-
 Följande avsnitt beskriver elementen distribution och implementering.
 
 **Skyddsmiljö-värd**: skyddsmiljö-värd är den enda posten som ger användare åtkomst till distribuerade resurser i den här miljön. Skyddsmiljö-värd ger en säker anslutning till distribuerade resurser genom att bara tillåta fjärrtrafik från offentliga IP-adresser på en säker lista. Källan för trafiken måste definieras i nätverkssäkerhetsgruppen för att tillåta (RDP) trafik för fjärrskrivbordet.
@@ -84,7 +82,6 @@ Den här lösningen skapar en virtuell dator som en domänansluten skyddsmiljö-
 -   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) aktiverad så att autentiseringsuppgifter och andra hemligheter som körs i en skyddad miljö som är isolerad från vilket operativsystem som körs
 
 ### <a name="virtual-network"></a>Virtuellt nätverk
-
 Arkitekturen definierar ett privat virtuellt nätverk med ett adressutrymme för 10.200.0.0/16.
 
 **Nätverkssäkerhetsgrupper**: den här lösningen används resurser i en arkitektur med ett separat undernät, databas-undernät, Active Directory-undernät och hanteringsundernätet i ett virtuellt nätverk. Undernät är logiskt åtskilda av reglerna för nätverkssäkerhetsgrupper tillämpas på de enskilda undernäten att begränsa trafik mellan undernät för att endast som krävs för system och hanteringsfunktioner.
@@ -105,7 +102,6 @@ Arkitekturen använder för skyddade data under överföring från kundägda nä
 Dessutom sker alla transaktioner till Azure via Azure-hanteringsportalen via HTTPS genom att använda TLS 1.2.
 
 ### <a name="data-at-rest"></a>Vilande data
-
 Arkitekturen skyddar data i vila med kryptering, database-granskning och andra åtgärder.
 
 **Azure Storage**: att uppfylla krypterade data vid krav på rest, alla [Azure Storage](https://azure.microsoft.com/services/storage/) använder [Lagringstjänstkryptering](https://docs.microsoft.com/azure/storage/storage-service-encryption). Detta hjälper att skydda data som stöd för företagssäkerhet åtaganden och efterlevnadskrav som definieras av Australian Government ISM.
@@ -113,7 +109,6 @@ Arkitekturen skyddar data i vila med kryptering, database-granskning och andra �
 **Azure Disk Encryption**: [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) utnyttjar BitLocker-funktion i Windows för att kryptera volymer för datadiskar. Lösningen kan integreras med Azure Key Vault för att styra och hantera diskkrypteringsnycklar.
 
 **SQL Server**: SQL Server-instans använder följande säkerhetsåtgärder för databasen:
-
 -   [Granskning av SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-2017) spårar databashändelser och skriver dem om du vill granska loggar.
 -   [Transparent datakryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) utför i realtid kryptering och dekryptering av databasen, tillhörande säkerhetskopior och transaktionsloggfiler för att skydda information i vila. Transparent datakryptering ger garantier att lagras data inte har omfattas av obehörig åtkomst.
 -   [Brandväggsregler](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) förhindrar all åtkomst till databasservrar tills rätt behörigheter beviljas. Brandväggen ger åtkomst till databaser baserat på vilken IP-adress som varje begäran kommer från.
@@ -121,7 +116,6 @@ Arkitekturen skyddar data i vila med kryptering, database-granskning och andra �
 - [Dynamisk datamaskning](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking?view=sql-server-2017) begränsar exponering av känsliga data genom att maskera data till icke-privilegierade användare eller program. Dynamisk datamaskning kan automatiskt identifiera potentiellt känsliga data och rekommenderar lämplig masker som ska användas. Detta hjälper med att minska åtkomst så att känsliga data inte lämna databasen via obehörig åtkomst. **Kunderna ansvarar för att ändra inställningarna för att uppfylla sina databasschemat för dynamisk datamaskning.**
 
 ### <a name="identity-management"></a>Identitetshantering
-
 Kunder kan använda en lokal Active Directory Federation Services att federera med [Azure Active Directory](https://azure.microsoft.com/services/active-directory/), vilket är Microsofts molnbaserade katalog- och identitetstjänst management multiklienttjänst. [Azure Active Directory Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect) integrerar lokala kataloger med Azure Active Directory. Alla användare i den här lösningen kräver Azure Active Directory-konton. Med federation inloggning, kan användare logga in på Azure Active Directory och autentisera till Azure-resurser med lokala autentiseringsuppgifter.
 
 Dessutom är följande funktioner i Azure Active Directory hjälper dig att hantera åtkomst till data i Azure-miljön:
@@ -133,7 +127,6 @@ Dessutom är följande funktioner i Azure Active Directory hjälper dig att hant
 **Azure Multi-Factor Authentication**: för att skydda identiteter, multifaktorautentisering bör implementeras. [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/) är en lättanvänd, skalbar och tillförlitlig lösning som ger ett annat sätt för att skydda användare. Azure Multi-Factor Authentication använder kraften i molnet och integreras med en lokal Active Directory och anpassade program. Det här skyddet utökas till verksamhetskritiska scenarion med stora volymer.
 
 ### <a name="security"></a>Säkerhet
-
 **Hantering av hemligheter**: lösningen använder [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) för hantering av nycklar och hemligheter. Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som används av molnprogram och molntjänster. Följande funktioner i Azure Key Vault hjälper kunder att skydda och komma åt dessa data:
 
 - Avancerade åtkomstprinciper konfigureras på basis av behov.
@@ -169,7 +162,6 @@ Dessutom är den här referensarkitekturen använder den [sårbarhetsbedömning]
 - [Azure Security Center](https://azure.microsoft.com/services/security-center) och [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations) tillhandahålla ytterligare skydd och meddelanden. Azure Security Center innehåller också ett rykte system.
 
 ### <a name="business-continuity"></a>Verksamhetskontinuitet
-
 **Hög tillgänglighet**: lösningen distribueras alla virtuella datorer i en [Tillgänglighetsuppsättning](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Tillgänglighetsuppsättningarna ser till att de virtuella datorerna distribueras över flera isolerade maskinvarukluster att förbättra tillgängligheten. Minst en virtuell dator är tillgänglig under en planerad eller oplanerad underhållshändelse, uppfyller 99,95% serviceavtalet för Azure.
 
 **Recovery Services-valv**: den [Recovery Services-valv](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) lagrar säkerhetskopierade data och skyddar alla konfigurationer av Azure-datorer i den här arkitekturen. Med ett Recovery Services-valv kan kunder återställa filer och mappar från en virtuell IaaS-dator utan att återställa hela den virtuella datorn, att aktivera återställningen går snabbare.
@@ -177,7 +169,6 @@ Dessutom är den här referensarkitekturen använder den [sårbarhetsbedömning]
 **Molnet vittne**: [Molnvittne](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) är en typ av kvorumvittne för redundanskluster i Windows Server 2016 som utnyttjar Azure som skiljedom. Molnvittnet, precis som alla andra kvorumvittnen, får en röst och kan delta i kvorumberäkningar, men den använder standard allmänt tillgängliga Azure Blob Storage. Detta eliminerar pålägget extra underhåll av virtuella datorer som finns i ett offentligt moln.
 
 ### <a name="logging-and-auditing"></a>Loggning och granskning
-
 Azure-tjänster logga stor utsträckning system- och användaraktivitet samt systemhälsa:
 - **Aktivitetsloggar**: [aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ger information om åtgärder som utförts på resurser i en prenumeration. Aktivitetsloggar kan hjälpa dig att fastställa en åtgärd initierare för förekomst och status.
 - **Diagnostikloggar**: [diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) omfattar alla loggar som genereras av varje resurs. Dessa loggar är Windows-händelsesystemloggar, Azure Storage-loggar, granskningsloggar för Key Vault och åtkomst och brandväggen loggar i Application Gateway. Alla diagnostikloggar skriva till en central och krypterade Azure storage-konto för arkivering. Kvarhållning konfigureras av användaren, upp till 730 dagar att uppfylla kraven för specifika kvarhållning.
@@ -197,13 +188,11 @@ Följande Log Analytics [hanteringslösningar](https://docs.microsoft.com/azure/
 [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Azure Network Watcher innehåller verktyg för att övervaka, diagnostisera, visa mått, och aktivera eller inaktivera loggar för resurser i Azure-nätverk.  Samväldet entiteter bör implementera Network Watcher flödesloggar för NSG: er och virtuella datorer. Dessa loggar bör lagras på en dedikerad lagringskonto som endast säkerhetsloggar lagras i och åtkomst till storage-konto bör skyddas med rollen baserade åtkomstkontroller.
 
 ## <a name="threat-model"></a>Hotmodell
-
 Dataflödesdiagram för denna Referensarkitektur är tillgängligt för [hämta](https://aka.ms/au-protected-iaaswa-tm) eller finns nedan. Den här modellen kan hjälpa kunderna att förstå punkterna i risken i system-infrastruktur när du gör ändringar.
 
 ![IaaS-webbprogram för AU-skyddade Hotmodell](images/au-protected-iaaswa-threat-model.png?raw=true "IaaS-webbprogram för AU-skyddade Threat modelldiagram")
 
 ## <a name="compliance-documentation"></a>Dokumentation om efterlevnad
-
 Den här dokumentationen för efterlevnad skapas av Microsoft baserat på plattformar och tjänster från Microsoft. På grund av det breda utbudet av kunddistributioner tillhandahåller den här dokumentationen en generaliserad för en lösning som endast finns i Azure-miljön. Kunder kan identifiera och använda andra produkter och tjänster baserat på sina egna miljöer och affärsresultat. Kunder som vill använda lokala resurser måste uppfylla säkerhets- och åtgärder för dessa lokala resurser. Dokumenterade lösningen kan anpassas av kunder att lösa sina specifika lokala och säkerhetskrav.
 
 Den [Azure säkerhet och efterlevnad skissen – AU-PROTECTED kundens ansvar matrisen](https://aka.ms/au-protected-crm) visar en lista över alla säkerhetskontroller som krävs av AU-skyddade. Den här matrisen information om implementeringen av varje kontroll ansvarar för Microsoft, kunden, eller delas mellan två.
@@ -211,9 +200,7 @@ Den [Azure säkerhet och efterlevnad skissen – AU-PROTECTED kundens ansvar mat
 Den [Azure säkerhet och efterlevnad skissen – AU-PROTECTED IaaS Web Application implementering Matrix](https://aka.ms/au-protected-iaaswa-cim) innehåller information som AU-skyddade kontroller med hjälp av IaaS webbprogramarkitektur, inklusive detaljerade beskrivningar av hur implementeringen uppfyller kraven för varje skyddad kontroll.
 
 ## <a name="guidance-and-recommendations"></a>Vägledning och rekommendationer
-
 ### <a name="vpn-and-expressroute"></a>VPN och ExpressRoute
-
 En säker tunnel med IPSec VPN måste konfigureras för att upprätta en anslutning till resurser som har distribuerats som en del av denna Referensarkitektur för IaaS web application för sekretessbelagda uppgifter. Kunder kan genom att korrekt ställa in ett IPSec VPN, lägga till ett lager säkerhet för data under överföring.
 
 Genom att implementera en säker IPSec VPN-tunnel med Azure kan du skapa en virtuell privat anslutning mellan ett lokalt nätverk och ett Azure-nätverk. Den här anslutningen kan ske via Internet och kan kunderna på ett säkert sätt ”tunnel” informationen i en krypterad anslutning mellan kundens nätverk och Azure. Plats-till-plats-VPN är en säker, mogen teknik som har distribuerats av företag av alla storlekar för flera decennier. 
@@ -244,7 +231,6 @@ För att förhindra klassificerade data synkroniseras till Azure Active Director
 - Lämna standardinställningarna för [förhindra oavsiktliga borttagningar](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-prevent-accidental-deletes) och [automatisk uppgradering](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-feature-automatic-upgrade)
 
 ## <a name="disclaimer"></a>Ansvarsfriskrivning
-
 - Det här dokumentet är endast i informationssyfte. MICROSOFT LÄMNAR INGA GARANTIER, UTTRYCKLIGA, UNDERFÖRSTÅDDA ELLER LAGSTADGADE, VAD GÄLLER INFORMATIONEN I DET HÄR DOKUMENTET. Detta dokument tillhandahålls ”som – är”. Information och åsikter som uttrycks i detta dokument, inklusive Webbadresser och andra webbplatsreferenser, kan ändras utan föregående meddelande. Kunder i det här dokumentet bär risken för användningen av den.
 - Det här dokumentet ger inte kunder med inga juridiska rättigheter till någon immateriell egendom i någon Microsoft-produkt eller lösningar.
 - Kunderna får kopiera och använda det här dokumentet som intern referens.

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 78c0864a8edd8380d30cbf0fa2284e47f3217b01
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 4f4c2ada08c69b6602ff5a300a15c4ca57090a8e
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39164017"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42816061"
 ---
 # <a name="what-is-password-writeback"></a>Vad är tillbakaskrivning av lösenord?
 
@@ -25,7 +25,7 @@ Tillbakaskrivning av lösenord stöds i miljöer där:
 
 * [Active Directory Federation Services](../connect/active-directory-aadconnect-federation-management.md)
 * [Synkronisering av lösenordshash](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)
-* [Direktautentisering](/../connect/active-directory-aadconnect-pass-through-authentication.md)
+* [Direktautentisering](../connect/active-directory-aadconnect-pass-through-authentication.md)
 
 Tillbakaskrivning av lösenord innehåller:
 

@@ -7,18 +7,18 @@ author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 08/07/2018
 ms.author: shvija
-ms.openlocfilehash: 3e98d27c297e223231e0990adc51f8765678b884
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 50491515c7a553107666e29dcba2b4bd0836f409
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40006632"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746237"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Vanliga och frågor svar om Event Hubs
 
-## <a name="general"></a>Allmänt
+## <a name="general"></a>Generell
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>Vad är skillnaden mellan Event Hubs Basic och Standard-nivån?
 
@@ -65,7 +65,7 @@ Event Hubs Standard-nivån stöder för närvarande en högsta kvarhållningsper
 
 Händelsehubbar i Azure är tillgängligt i alla regioner som stöds Azure. En lista på den [Azure-regioner](https://azure.microsoft.com/regions/) sidan.  
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Regelverk
 
 ### <a name="how-many-partitions-do-i-need"></a>Hur många partitioner behöver jag?
 

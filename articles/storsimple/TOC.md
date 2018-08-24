@@ -106,8 +106,7 @@
 ##### [Hantera säkerhetskopieringskatalogen](storsimple-8000-manage-backup-catalog.md)
 ##### [Hantera säkerhetskopieringsprinciper](storsimple-8000-manage-backup-policies-u2.md)
 ##### [Hantera lagringskonton](storsimple-8000-manage-storage-accounts.md)
-##### 
-  [Hantera volymcontainrar](storsimple-8000-manage-volume-containers.md)
+##### [Hantera volymcontainrar](storsimple-8000-manage-volume-containers.md)
 ##### [Hantera volymer – aktuella](storsimple-8000-manage-volumes-u2.md)
 ###### [Vanliga frågor och svar: Lokalt fixerade volymer](storsimple-8000-local-volume-faq.md)
 ##### [Rollbaserad åtkomstkontroll](storsimple-8000-role-based-access-control.md)

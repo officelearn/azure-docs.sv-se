@@ -1,161 +1,170 @@
+items:
 - name: Azure Kubernetes Service (AKS)
   href: ./index.yml
 - name: Översikt
   items:
-    - name: Om AKS
-      href: intro-kubernetes.md
+  - name: Om AKS
+    href: intro-kubernetes.md
 - name: Snabbstarter
-  expanded: true
   items:
-    - name: Skapa ett AKS-kluster – CLI
-      href: kubernetes-walkthrough.md
-    - name: Skapa ett AKS-kluster – portalen
-      href: kubernetes-walkthrough-portal.md
+  - name: Skapa ett AKS-kluster – CLI
+    href: kubernetes-walkthrough.md
+  - name: Skapa ett AKS-kluster – portalen
+    href: kubernetes-walkthrough-portal.md
+  expanded: true
 - name: Självstudier
   items:
-    - name: 1 – Förbereda program för AKS
-      href: tutorial-kubernetes-prepare-app.md
-    - name: 2 – Skapa containerregister
-      href: tutorial-kubernetes-prepare-acr.md
-    - name: 3 – Skapa Kubernetes-kluster
-      href: tutorial-kubernetes-deploy-cluster.md
-    - name: 4 – Köra program
-      href: tutorial-kubernetes-deploy-application.md
-    - name: 5 – Skala program
-      href: tutorial-kubernetes-scale.md
-    - name: 6 – Uppdatera program
-      href: tutorial-kubernetes-app-update.md
-    - name: 7 – Uppgradera kluster
-      href: tutorial-kubernetes-upgrade-cluster.md
+  - name: 1 – Förbereda program för AKS
+    href: tutorial-kubernetes-prepare-app.md
+  - name: 2 – Skapa containerregister
+    href: tutorial-kubernetes-prepare-acr.md
+  - name: 3 – Skapa Kubernetes-kluster
+    href: tutorial-kubernetes-deploy-cluster.md
+  - name: 4 – Köra program
+    href: tutorial-kubernetes-deploy-application.md
+  - name: 5 – Skala program
+    href: tutorial-kubernetes-scale.md
+  - name: 6 – Uppdatera program
+    href: tutorial-kubernetes-app-update.md
+  - name: 7 – Uppgradera kluster
+    href: tutorial-kubernetes-upgrade-cluster.md
 - name: Begrepp
   items:
-    - name: Kvoter och regionala begränsningar
-      href: container-service-quotas.md
-    - name: Migrera från ACS till AKS
-      href: acs-aks-migration.md
+  - name: Kvoter och regionala begränsningar
+    href: container-service-quotas.md
+  - name: Migrera från ACS till AKS
+    href: acs-aks-migration.md
 - name: Instruktionsguider
   items:
-    - name: Klusteråtgärder
-      items:
-        - name: Skapa ett AKS-kluster
-          href: create-cluster.md
-        - name: Skala ett AKS-kluster
-          href: scale-cluster.md
-        - name: Uppgradera ett AKS-kluster
-          href: upgrade-cluster.md
-        - name: Ta bort ett AKS-kluster
-          href: delete-cluster.md
-        - name: Azure AD-aktiverad AKS
-          href: aad-integration.md
-        - name: Använda Virtual Kubelet
-          href: virtual-kubelet.md
-        - name: Använda klusterautoskalning
-          href: autoscaler.md
-        - name: Distribuera AKS med Terraform
-          href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
-          maintainContext: true
-    - name: Konfigurera datavolymer
-      items:
-        - name: Azure-disk – dynamisk
-          href: azure-disks-dynamic-pv.md
-        - name: Azure-disk – statisk
-          href: azure-disk-volume.md
-        - name: Azure Files – dynamiska
-          href: azure-files-dynamic-pv.md
-        - name: Azure Files – statiska
-          href: azure-files-volume.md
-    - name: Konfigurera nätverk
-      items:
-        - name: Nätverksöversikt
-          href: networking-overview.md
-        - name: Statisk IP-adress
-          href: static-ip.md
-        - name: Intern lastbalanserare
-          href: internal-lb.md
-        - name: Ingångshändelser och TLS
-          href: ingress.md
-        - name: Utgående trafik
-          href: egress.md
-        - name: Routning av HTTP-program
-          href: http-application-routing.md
-    - name: Säkerhet och autentisering
-      items:
-        - name: Skapa tjänstens huvudnamn
-          href: kubernetes-service-principal.md
-        - name: Autentisera med ACR
-          href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
-    - name: Övervakning och loggning
-      items:
-        - name: Hälsolösning för Azure-containrar
-          href: ../monitoring/monitoring-container-health.md
-          maintainContext: true
-        - name: Visa loggar för huvudkomponenten
-          href: view-master-logs.md
-        - name: Visa kubelet-loggarna
-          href: kubelet-logs.md
-    - name: Utveckla och köra program
-      items:
-        - name: Köra program med Helm
-          href: kubernetes-helm.md
-        - name: Utveckla med Dev Spaces
-          href: ../dev-spaces/azure-dev-spaces.md
-          maintainContext: true
-        - name: Utveckla program med Draft
-          href: kubernetes-draft.md
-        - name: Open Service Broker for Azure
-          href: integrate-azure.md
-        - name: Använda OpenFaaS med AKS
-          href: openfaas.md
-        - name: Köra Spark-jobb på AKS
-          href: spark-job.md
-        - name: Använda grafikprocessorer på AKS
-          href: gpu-cluster.md
-    - name: DevOps på AKS
-      items:
-        - name: Kontinuerlig Jenkins-distribution
-          href: jenkins-continuous-deployment.md
-        - name: Azure DevOps Project för AKS
-          href: ../devops-project/azure-devops-project-aks.md
-          maintainContext: true
-    - name: Grundläggande om Kubernetes
-      items:
-        - name: Använda Kubernetes-instrumentpanelen
-          href: kubernetes-dashboard.md
-    - name: Felsöka
-      items:
-        - name: Åtkomst till SSH-noden
-          href: aks-ssh.md
+  - name: Klusteråtgärder
+    items:
+    - name: Skapa ett AKS-kluster
+      href: create-cluster.md
+    - name: Skala ett AKS-kluster
+      href: scale-cluster.md
+    - name: Uppgradera ett AKS-kluster
+      href: upgrade-cluster.md
+    - name: Ta bort ett AKS-kluster
+      href: delete-cluster.md
+    - name: Azure AD-aktiverad AKS
+      href: aad-integration.md
+    - name: Använda Virtual Kubelet
+      href: virtual-kubelet.md
+    - name: Använda klusterautoskalning
+      href: autoscaler.md
+    - name: Distribuera AKS med Terraform
+      href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
+      maintainContext: true
+  - name: Konfigurera datavolymer
+    items:
+    - name: Azure-disk – dynamisk
+      href: azure-disks-dynamic-pv.md
+    - name: Azure-disk – statisk
+      href: azure-disk-volume.md
+    - name: Azure Files – dynamiska
+      href: azure-files-dynamic-pv.md
+    - name: Azure Files – statiska
+      href: azure-files-volume.md
+  - name: Konfigurera nätverk
+    items:
+    - name: Nätverksöversikt
+      href: networking-overview.md
+    - name: Statisk IP-adress
+      href: static-ip.md
+    - name: Intern lastbalanserare
+      href: internal-lb.md
+    - name: Ingångshändelser och TLS
+      href: ingress.md
+    - name: Utgående trafik
+      href: egress.md
+    - name: Routning av HTTP-program
+      href: http-application-routing.md
+  - name: Säkerhet och autentisering
+    items:
+    - name: Skapa tjänstens huvudnamn
+      href: kubernetes-service-principal.md
+    - name: Autentisera med ACR
+      href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
+  - name: Övervakning och loggning
+    items:
+    - name: Hälsolösning för Azure-containrar
+      href: ../monitoring/monitoring-container-health.md
+      maintainContext: true
+    - name: Visa loggar för huvudkomponenten
+      href: view-master-logs.md
+    - name: Visa kubelet-loggarna
+      href: kubelet-logs.md
+  - name: Utveckla och köra program
+    items:
+    - name: Köra program med Helm
+      href: kubernetes-helm.md
+    - name: Utveckla med Dev Spaces
+      href: ../dev-spaces/azure-dev-spaces.md
+      maintainContext: true
+    - name: Utveckla program med Draft
+      href: kubernetes-draft.md
+    - name: Open Service Broker for Azure
+      href: integrate-azure.md
+    - name: Använda OpenFaaS
+      href: openfaas.md
+    - name: Köra Spark-jobb
+      href: spark-job.md
+    - name: Använda GPU:er
+      href: gpu-cluster.md
+  - name: DevOps
+    items:
+    - name: Kontinuerlig Jenkins-distribution
+      href: jenkins-continuous-deployment.md
+    - name: Azure DevOps-projekt
+      href: ../devops-project/azure-devops-project-aks.md
+      maintainContext: true
+  - name: Grundläggande om Kubernetes
+    items:
+    - name: Använda Kubernetes-instrumentpanelen
+      href: kubernetes-dashboard.md
+  - name: Felsöka
+    items:
+    - name: Vanliga problem
+      href: troubleshooting.md
+    - name: Åtkomst till SSH-noden
+      href: ssh.md
 - name: Referens
   items:
-    - name: Azure CLI
-      href: /cli/azure/aks
-    - name: REST
-      href: /rest/api/aks
-    - name: PowerShell
-      href: '/powershell/module/azurerm.aks#aks'
-    - name: .NET
-      href: /dotnet/api/overview/azure/containerservice
-    - name: Python
-      href: /python/api/overview/azure/containerservice
-    - name: Java
-      href: /java/api/overview/azure/containerservice
-    - name: Node.js
-      href: /javascript/api/overview/azure/container-service
-    - name: Resource Manager-mall
-      href: /azure/templates/microsoft.containerservice/managedclusters
+  - name: Azure CLI
+    href: /cli/azure/aks
+  - name: REST
+    href: /rest/api/aks
+  - name: PowerShell
+    href: /powershell/module/azurerm.aks#aks
+  - name: .NET
+    href: /dotnet/api/overview/azure/containerservice
+  - name: Python
+    href: /python/api/overview/azure/containerservice
+  - name: Java
+    href: /java/api/overview/azure/containerservice
+  - name: Node.js
+    href: /javascript/api/overview/azure/container-service
+  - name: Resource Manager-mall
+    href: /azure/templates/microsoft.containerservice/managedclusters
 - name: Resurser
   items:
-    - name: Regional tillgänglighet
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: Prissättning
-      href: 'https://azure.microsoft.com/pricing/details/container-service/'
-    - name: Översikt
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Ge produktfeedback
-      href: 'https://github.com/Azure/AKS/issues'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
-    - name: Videoklipp
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'
-    - name: VANLIGA FRÅGOR OCH SVAR
-      href: faq.md
+  - name: Regional tillgänglighet
+    href: https://azure.microsoft.com/regions/services/
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/container-service/
+  - name: Översikt
+    href: https://azure.microsoft.com/roadmap/
+  - name: Ge produktfeedback
+    href: https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-container-service
+  - name: Videoklipp
+    href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
+  - name: VANLIGA FRÅGOR OCH SVAR
+    href: faq.md
+ms.openlocfilehash: be17978b91f1664ea4917f7d9fcb0da5657d4832
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41944110"

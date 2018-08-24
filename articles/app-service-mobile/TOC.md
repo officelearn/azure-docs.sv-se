@@ -74,9 +74,9 @@
 #### [Versionshantering för klienter och servrar](app-service-mobile-client-and-server-versioning.md)
 
 ### App Service Environment
-#### [Skapa en webbapp i en App Service Environment](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Skapa en ILB ASE med hjälp av Azure Resource Manager-mallar](../app-service/environment/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Använda en intern belastningsutjämnare](../app-service/environment/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Skapa en webbapp i en App Service Environment](../app-service/environment/intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Skapa och använda en intern belastningsutjämnare](../app-service/environment/create-ilb-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Skapa en ASE med hjälp av en mall](../app-service/environment/create-from-template.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Distribuera
 ### [Molnsynkronisera distributionen](../app-service/app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)

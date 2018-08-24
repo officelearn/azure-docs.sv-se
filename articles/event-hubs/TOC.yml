@@ -1,176 +1,183 @@
+items:
 - name: Dokumentation om Event Hubs
   href: ./index.yml
 - name: Översikt
   items:
-    - name: Vad är Event Hubs?
-      href: event-hubs-about.md
-    - name: Event Hubs för Apache Kafka (förhandsversion)
-      href: event-hubs-for-kafka-ecosystem-overview.md
-    - name: Event Hubs Capture
-      href: event-hubs-capture-overview.md
+  - name: Vad är Event Hubs?
+    href: event-hubs-about.md
+  - name: Event Hubs för Apache Kafka (förhandsversion)
+    href: event-hubs-for-kafka-ecosystem-overview.md
+  - name: Event Hubs Capture
+    href: event-hubs-capture-overview.md
 - name: Snabbstarter
-  expanded: true
   items:
-    - name: Bearbeta hädelseströmmar – Portal
-      href: event-hubs-quickstart-portal.md
-    - name: Bearbeta hädelseströmmar – Azure CLI
-      href: event-hubs-quickstart-cli.md
-    - name: Bearbeta hädelseströmmar – Azure PowerShell
-      href: event-hubs-quickstart-powershell.md
-    - name: Strömma till Event Hubs för Apache Kafka
-      href: event-hubs-quickstart-kafka-enabled-event-hubs.md
+  - name: Skapa en händelsehubb – portalen
+    href: event-hubs-quickstart-portal.md
+  - name: Skapa en händelsehubb – Azure CLI
+    href: event-hubs-quickstart-cli.md
+  - name: Skapa en händelsehubb – Azure PowerShell
+    href: event-hubs-quickstart-powershell.md
+  - name: Strömma till Event Hubs för Apache Kafka
+    href: event-hubs-quickstart-kafka-enabled-event-hubs.md
+  expanded: true
 - name: Självstudier
   items:
-    - name: Visualisera dataavvikelser på Event Hubs-dataströmmar
-      href: event-hubs-tutorial-visualize-anomalies.md
-    - name: Strömma stordata till ett datalager
-      href: ../event-grid/event-grid-event-hubs-integration.md
-      maintainContext: true
-    - name: Strömma data i Azure Databricks med Event Hubs
-      href: ../azure-databricks/databricks-stream-from-eventhubs.md
-      maintainContext: true
-    - name: Event Hubs för Apache Kafka
-      items:
-        - name: Apache Kafka MirrorMaker med Event Hubs
-          href: event-hubs-kafka-mirror-maker-tutorial.md
-        - name: Apache Flink med Event Hubs
-          href: event-hubs-kafka-flink-tutorial.md
-        - name: Akka Streams med Event Hubs
-          href: event-hubs-kafka-akka-streams-tutorial.md
+  - name: Visualisera dataavvikelser på Event Hubs-dataströmmar
+    href: event-hubs-tutorial-visualize-anomalies.md
+  - name: Strömma stordata till ett datalager
+    href: ../event-grid/event-grid-event-hubs-integration.md
+    maintainContext: true
+  - name: Strömma data i Azure Databricks med Event Hubs
+    href: ../azure-databricks/databricks-stream-from-eventhubs.md
+    maintainContext: true
+  - name: Event Hubs för Apache Kafka
+    items:
+    - name: Apache Kafka MirrorMaker med Event Hubs
+      href: event-hubs-kafka-mirror-maker-tutorial.md
+    - name: Apache Flink med Event Hubs
+      href: event-hubs-kafka-flink-tutorial.md
+    - name: Akka Streams med Event Hubs
+      href: event-hubs-kafka-akka-streams-tutorial.md
 - name: Exempel
   href: event-hubs-samples.md
 - name: Begrepp
   items:
-    - name: Event Hubs-funktioner
-      href: event-hubs-features.md
-    - name: Översikt över händelsebearbetningsvärd
-      href: event-hubs-event-processor-host.md
-    - name: IP-anslutningsfilter
-      href: event-hubs-ip-filtering.md
-    - name: Tjänstslutpunkter för virtuellt nätverk
-      href: event-hubs-service-endpoints.md
-    - name: Programmeringsguide
-      href: event-hubs-programming-guide.md
-    - name: Integrera med Event Grid
-      href: ../event-grid/event-grid-event-hubs-integration.md
-      maintainContext: true
-    - name: Hanterad tjänstidentitet (förhandsgranskning)
-      href: event-hubs-managed-service-identity.md
-    - name: Rollbaserad åtkomstkontroll (förhandsgranskning)
-      href: event-hubs-role-based-access-control.md
-    - name: Geo-haveriberedskap och geo-replikering
-      href: event-hubs-geo-dr.md
-    - name: Event Hubs Dedicated
-      href: event-hubs-dedicated-overview.md
-    - name: Översikt över autentisering och säkerhetsmodell
-      href: event-hubs-authentication-and-security-model-overview.md
-    - name: Tillgänglighet och konsekvens
-      href: event-hubs-availability-and-consistency.md
-    - name: Skala dataflödesenheter automatiskt
-      href: event-hubs-auto-inflate.md
-    - name: Diagnostikloggar
-      href: event-hubs-diagnostic-logs.md
-    - name: AMQP 1.0-protokollguide
-      href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
-      maintainContext: true
+  - name: Event Hubs-funktioner
+    href: event-hubs-features.md
+  - name: Översikt över händelsebearbetningsvärd
+    href: event-hubs-event-processor-host.md
+  - name: IP-anslutningsfilter
+    href: event-hubs-ip-filtering.md
+  - name: Tjänstslutpunkter för virtuellt nätverk
+    href: event-hubs-service-endpoints.md
+  - name: Programmeringsguide
+    href: event-hubs-programming-guide.md
+  - name: Integrera med Event Grid
+    href: ../event-grid/event-grid-event-hubs-integration.md
+    maintainContext: true
+  - name: Hanterad tjänstidentitet (förhandsgranskning)
+    href: event-hubs-managed-service-identity.md
+  - name: Rollbaserad åtkomstkontroll (förhandsgranskning)
+    href: event-hubs-role-based-access-control.md
+  - name: Geo-haveriberedskap och geo-replikering
+    href: event-hubs-geo-dr.md
+  - name: Event Hubs Dedicated
+    href: event-hubs-dedicated-overview.md
+  - name: Översikt över autentisering och säkerhetsmodell
+    href: event-hubs-authentication-and-security-model-overview.md
+  - name: Tillgänglighet och konsekvens
+    href: event-hubs-availability-and-consistency.md
+  - name: Skala dataflödesenheter automatiskt
+    href: event-hubs-auto-inflate.md
+  - name: Diagnostikloggar
+    href: event-hubs-diagnostic-logs.md
+  - name: AMQP 1.0-protokollguide
+    href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
+    maintainContext: true
 - name: Instruktionsguider
   items:
-    - name: Skapa en händelsehubb
-      href: event-hubs-create.md
-    - name: Skicka händelser med hjälp av .NET Framework
-      href: event-hubs-dotnet-framework-getstarted-send.md
-    - name: Ta emot händelser med hjälp av .NET Framework
-      href: event-hubs-dotnet-framework-getstarted-receive-eph.md
-    - name: Skicka händelser med Go
-      href: event-hubs-go-get-started-send.md
-    - name: Ta emot händelser med Go
-      href: event-hubs-go-get-started-receive-eph.md
-    - name: Event Hubs för Apache Kafka
-      items:
-        - name: Skapa Apache Kafka-aktiverade Event Hubs
-          href: event-hubs-create-kafka-enabled.md
-    - name: 'Tillgängliga API:er'
-      href: event-hubs-api-overview.md
-      items:
-        - name: .NET Standard
-          href: event-hubs-dotnet-standard-api-overview.md
-        - name: .NET Framework
-          href: event-hubs-dotnet-framework-api-overview.md
-    - name: Skicka händelser
-      items:
-        - name: .NET Standard
-          href: event-hubs-dotnet-standard-getstarted-send.md
-        - name: Java
-          href: event-hubs-java-get-started-send.md
-        - name: C
-          href: event-hubs-c-getstarted-send.md
-    - name: Ta emot händelser
-      items:
-        - name: .NET Standard
-          href: event-hubs-dotnet-standard-getstarted-receive-eph.md
-        - name: Java
-          href: event-hubs-java-get-started-receive-eph.md
-        - name: Apache Storm
-          href: event-hubs-storm-getstarted-receive.md
-    - name: Samla in händelser
-      items:
-        - name: Använda Azure Portal för att aktivera Event Hubs Capture
-          href: event-hubs-capture-enable-through-portal.md
-        - name: Använda en Resource Manager-mall för att aktivera Event Hubs Capture
-          href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
-    - name: Hantera
-      items:
-        - name: Övervaka Event Hubs med Azure-övervakning
-          href: event-hubs-metrics-azure-monitor.md
-        - name: Event Hubs-hanteringsbibliotek
-          href: event-hubs-management-libraries.md
-        - name: Samla in Event Hubs-data med hjälp av Python
-          href: event-hubs-capture-python.md
-        - name: Strömma Azure Diagnostics-data med Event Hubs
-          href: event-hubs-streaming-azure-diags-data.md
-        - name: Skapa och distribuera en händelsehubb med en Resource Manager-mall
-          href: event-hubs-resource-manager-namespace-event-hub.md
+  - name: Skapa en händelsehubb
+    href: event-hubs-create.md
+  - name: Skicka händelser med hjälp av .NET Framework
+    href: event-hubs-dotnet-framework-getstarted-send.md
+  - name: Ta emot händelser med hjälp av .NET Framework
+    href: event-hubs-dotnet-framework-getstarted-receive-eph.md
+  - name: Skicka händelser med Go
+    href: event-hubs-go-get-started-send.md
+  - name: Ta emot händelser med Go
+    href: event-hubs-go-get-started-receive-eph.md
+  - name: Event Hubs för Apache Kafka
+    items:
+    - name: Skapa Apache Kafka-aktiverade Event Hubs
+      href: event-hubs-create-kafka-enabled.md
+  - name: Tillgängliga API:er
+    href: event-hubs-api-overview.md
+    items:
+    - name: .NET Standard
+      href: event-hubs-dotnet-standard-api-overview.md
+    - name: .NET Framework
+      href: event-hubs-dotnet-framework-api-overview.md
+  - name: Skicka händelser
+    items:
+    - name: .NET Standard
+      href: event-hubs-dotnet-standard-getstarted-send.md
+    - name: Java
+      href: event-hubs-java-get-started-send.md
+    - name: C
+      href: event-hubs-c-getstarted-send.md
+  - name: Ta emot händelser
+    items:
+    - name: .NET Standard
+      href: event-hubs-dotnet-standard-getstarted-receive-eph.md
+    - name: Java
+      href: event-hubs-java-get-started-receive-eph.md
+    - name: Apache Storm
+      href: event-hubs-storm-getstarted-receive.md
+  - name: Samla in händelser
+    items:
+    - name: Använda Azure Portal för att aktivera Event Hubs Capture
+      href: event-hubs-capture-enable-through-portal.md
+    - name: Använda en Resource Manager-mall för att aktivera Event Hubs Capture
+      href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
+  - name: Hantera
+    items:
+    - name: Övervaka Event Hubs med Azure-övervakning
+      href: event-hubs-metrics-azure-monitor.md
+    - name: Event Hubs-hanteringsbibliotek
+      href: event-hubs-management-libraries.md
+    - name: Samla in Event Hubs-data med hjälp av Python
+      href: event-hubs-capture-python.md
+    - name: Strömma Azure Diagnostics-data med Event Hubs
+      href: event-hubs-streaming-azure-diags-data.md
+    - name: Skapa och distribuera en händelsehubb med en Resource Manager-mall
+      href: event-hubs-resource-manager-namespace-event-hub.md
 - name: Referens
   items:
-    - name: Java
-      items:
-        - name: com.microsoft.azure.eventhubs
-          href: /java/api/com.microsoft.azure.eventhubs
-        - name: com.microsoft.azure.eventprocessorhost
-          href: /java/api/com.microsoft.azure.eventprocessorhost
-    - name: .NET
-      items:
-        - name: Microsoft.Azure.EventHubs
-          href: /dotnet/api/microsoft.azure.eventhubs
-        - name: Microsoft.Azure.EventHubs.Processor
-          href: /dotnet/api/microsoft.azure.eventhubs.processor
-        - name: Microsoft.ServiceBus.Messaging
-          href: /dotnet/api/microsoft.servicebus.messaging
-        - name: Microsoft.ServiceBus.Messaging.EventProcessorHost
-          href: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
-        - name: Microsoft.Azure.Management.EventHub
-          href: /dotnet/api/microsoft.azure.management.eventhub
-    - name: REST
-      href: /rest/api/eventhub
-    - name: Undantag
-      href: event-hubs-messaging-exceptions.md
-    - name: Kvoter
-      href: event-hubs-quotas.md
+  - name: Java
+    items:
+    - name: com.microsoft.azure.eventhubs
+      href: /java/api/com.microsoft.azure.eventhubs
+    - name: com.microsoft.azure.eventprocessorhost
+      href: /java/api/com.microsoft.azure.eventprocessorhost
+  - name: .NET
+    items:
+    - name: Microsoft.Azure.EventHubs
+      href: /dotnet/api/microsoft.azure.eventhubs
+    - name: Microsoft.Azure.EventHubs.Processor
+      href: /dotnet/api/microsoft.azure.eventhubs.processor
+    - name: Microsoft.ServiceBus.Messaging
+      href: /dotnet/api/microsoft.servicebus.messaging
+    - name: Microsoft.ServiceBus.Messaging.EventProcessorHost
+      href: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
+    - name: Microsoft.Azure.Management.EventHub
+      href: /dotnet/api/microsoft.azure.management.eventhub
+  - name: REST
+    href: /rest/api/eventhub
+  - name: Undantag
+    href: event-hubs-messaging-exceptions.md
+  - name: Kvoter
+    href: event-hubs-quotas.md
 - name: Resurser
   items:
-    - name: VANLIGA FRÅGOR OCH SVAR
-      href: event-hubs-faq.md
-    - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/?category=iot'
-    - name: Utbildningsväg
-      href: 'https://azure.microsoft.com/documentation/learning-paths/event-hubs/'
-    - name: Prissättning
-      href: 'https://azure.microsoft.com/pricing/details/event-hubs/'
-    - name: Priskalkylator
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Tjänstuppdateringar
-      href: 'https://azure.microsoft.com/updates/?product=event-hubs'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-eventhub'
-    - name: Videoklipp
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=event-hubs'
+  - name: VANLIGA FRÅGOR OCH SVAR
+    href: event-hubs-faq.md
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/?category=iot
+  - name: Utbildningsväg
+    href: https://azure.microsoft.com/documentation/learning-paths/event-hubs/
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/event-hubs/
+  - name: Priskalkylator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Tjänstuppdateringar
+    href: https://azure.microsoft.com/updates/?product=event-hubs
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-eventhub
+  - name: Videoklipp
+    href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs
+ms.openlocfilehash: b04ddd9ede0fce2881789b8e4610f1a4d6f05311
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41927239"

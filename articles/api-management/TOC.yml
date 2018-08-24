@@ -1,229 +1,238 @@
+items:
 - name: Dokumentation om Azure API Management
   href: index.yml
 - name: Översikt
   items:
-    - name: Om API Management
-      href: api-management-key-concepts.md
+  - name: Om API Management
+    href: api-management-key-concepts.md
 - name: Snabbstarter
-  expanded: true
   items:
-    - name: Skapa en instans – portalen
-      href: get-started-create-service-instance.md
-    - name: Skapa en instans – PowerShell
-      href: powershell-create-service-instance.md
+  - name: Skapa en instans – portalen
+    href: get-started-create-service-instance.md
+  - name: Skapa en instans – PowerShell
+    href: powershell-create-service-instance.md
+  expanded: true
 - name: Självstudier
   items:
-    - name: 1 – Importera ditt första API
-      href: import-and-publish.md
-    - name: 2 – Skapa och publicera en produkt
-      href: api-management-howto-add-products.md
-    - name: 3 – Fingera ett API-svar
-      href: mock-api-responses.md
-    - name: 4 – Skydda ditt API
-      href: transform-api.md
-    - name: '5 – Övervaka publicerade API:er'
-      href: api-management-howto-use-azure-monitor.md
-    - name: '6 – Felsök dina API:er'
-      href: api-management-howto-api-inspector.md
-    - name: 7 – Lägg till revideringar
-      href: api-management-get-started-revise-api.md
-    - name: 8 – Lägg till flera versioner
-      href: api-management-get-started-publish-versions.md
-    - name: 9 – Anpassa utvecklarportalen
-      href: api-management-customize-styles.md
+  - name: 1 – Importera ditt första API
+    href: import-and-publish.md
+  - name: 2 – Skapa och publicera en produkt
+    href: api-management-howto-add-products.md
+  - name: 3 – Simulera API-svar
+    href: mock-api-responses.md
+  - name: 4 – Skydda ditt API
+    href: transform-api.md
+  - name: 5 – Övervaka publicerade API:er
+    href: api-management-howto-use-azure-monitor.md
+  - name: 6 – Felsök dina API:er
+    href: api-management-howto-api-inspector.md
+  - name: 7 – Lägg till revideringar
+    href: api-management-get-started-revise-api.md
+  - name: 8 – Lägg till flera versioner
+    href: api-management-get-started-publish-versions.md
+  - name: 9 – Anpassa utvecklarportalen
+    href: api-management-customize-styles.md
 - name: Exempel
   items:
-    - name: Principer
-      href: policy-samples.md
-    - name: Azure PowerShell
-      href: powershell-samples.md
+  - name: Principer
+    href: policy-samples.md
+  - name: Azure PowerShell
+    href: powershell-samples.md
 - name: Begrepp
   items:
-    - name: Terminologi
-      href: api-management-terminology.md
-    - name: Principer
-      items:
-        - name: Översikt
-          href: api-management-howto-policies.md
-        - name: Principreferensindex
-          href: api-management-policies.md
-    - name: Hantera med hjälp av automatisering
-      href: automation-manage-api-management.md
-    - name: Felhantering
-      href: api-management-error-handling-policies.md
-    - name: API-importrestriktioner
-      href: api-management-api-import-restrictions.md
+  - name: Terminologi
+    href: api-management-terminology.md
+  - name: Principer
+    items:
+    - name: Översikt
+      href: api-management-howto-policies.md
+    - name: Principreferensindex
+      href: api-management-policies.md
+  - name: Hantera med hjälp av automatisering
+    href: automation-manage-api-management.md
+  - name: Felhantering
+    href: api-management-error-handling-policies.md
+  - name: API-importrestriktioner
+    href: api-management-api-import-restrictions.md
 - name: Instruktionsguider
   items:
-    - name: 'Definiera API: er '
+  - name: 'Definiera API: er '
+    items:
+    - name: Lägga till ett API manuellt
+      href: add-api-manually.md
+    - name: Importera en OpenAPI-specifikation
+      href: import-api-from-oas.md
+    - name: Importera ett SOAP-API
+      href: import-soap-api.md
+    - name: Importera ett SOAP-API och konvertera till REST
+      href: restify-soap-api.md
+    - name: Importera en API-app
+      href: import-api-app-as-api.md
+    - name: Importera en funktionsapp
+      href: import-function-app-as-api.md
+    - name: Importera en logikapp
+      href: import-logic-app-as-api.md
+    - name: Importera en Service Fabric-app
+      href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
+    - name: Redigera ett API
+      href: edit-api.md
+  - name: Etablera och skala
+    items:
+    - name: Kapacitetsmått
+      href: api-management-capacity.md
+    - name: Uppgradera och skala
+      href: upgrade-and-scale.md
+    - name: Konfigurera autoskalning
+      href: api-management-howto-autoscale.md
+    - name: Konfigurera ett anpassat domännamn
+      href: configure-custom-domain.md
+  - name: Cache
+    items:
+    - name: Lägg till cachelagring för att förbättra prestandan
+      href: api-management-howto-cache.md
+  - name: Skydda din serverdel
+    items:
+    - name: Skydda ditt API med Azure AD
+      href: api-management-howto-protect-backend-with-aad.md
+    - name: Skapa ett virtuellt nätverk
+      href: api-management-using-with-vnet.md
+    - name: Anslut till ett internt virtuellt nätverk
+      href: api-management-using-with-internal-vnet.md
+    - name: Integrera Application Gateway i ett internt virtuellt nätverk
+      href: api-management-howto-integrate-internal-vnet-appgateway.md
+    - name: Ömsesidig certifikatautentisering
+      href: api-management-howto-mutual-certificates.md
+    - name: Hantera protokoll och chiffer
+      href: api-management-howto-manage-protocols-ciphers.md
+  - name: Anpassa utvecklarupplevelsen
+    items:
+    - name: Ändra innehåll och layout
+      href: api-management-modify-content-layout.md
+    - name: Anpassa systemsidor med mallar
+      href: api-management-developer-portal-templates.md
+    - name: Autentisering med Azure AD
+      href: api-management-howto-aad.md
+    - name: Autentisering med Azure AD B2C
+      href: api-management-howto-aad-b2c.md
+    - name: Delegerad autentisering
+      href: api-management-howto-setup-delegation.md
+    - name: E-postaviseringar och mallar
+      href: api-management-howto-configure-notifications.md
+    - name: Aktivera OAuth-stöd för konsolen
+      href: api-management-howto-oauth2.md
+  - name: Definiera principer
+    items:
+    - name: Ange eller redigera principer
+      href: set-edit-policies.md
+    - name: Principuttryck
+      href: api-management-policy-expressions.md
+    - name: Anpassad cachelagring
+      href: api-management-sample-cache-by-key.md
+    - name: Avancerad övervakning
+      href: api-management-log-to-eventhub-sample.md
+    - name: Avancerad begärandebegränsning
+      href: api-management-sample-flexible-throttling.md
+    - name: Använda externa tjänster
+      href: api-management-sample-send-request.md
+    - name: Hantera hemligheter med hjälp av egenskaper
+      href: api-management-howto-properties.md
+    - name: Säkra API:er med autentisering med klientcertifikat
+      href: api-management-howto-mutual-certificates-for-clients.md
+    - name: Principer för begränsning av åtkomst
+      href: api-management-access-restriction-policies.md
+    - name: Avancerade principer
+      href: api-management-advanced-policies.md
+    - name: Autentiseringsprinciper
+      href: api-management-authentication-policies.md
+    - name: Cachelagringsprinciper
+      href: api-management-caching-policies.md
+    - name: Principer mellan domäner
+      href: api-management-cross-domain-policies.md
+    - name: Omvandlingsprinciper
+      href: api-management-transformation-policies.md
+  - name: Mallreferens
+    items:
+    - name: Mallar
+      href: api-management-developer-portal-templates-reference.md
+    - name: API:er
+      href: api-management-api-templates.md
+    - name: Produkter
+      href: api-management-product-templates.md
+    - name: Program
+      href: api-management-application-templates.md
+    - name: Problem
+      href: api-management-issue-templates.md
+    - name: Användarprofil
+      href: api-management-user-profile-templates.md
+    - name: Sidor
+      href: api-management-page-templates.md
+    - name: Mallresurser
+      href: api-management-template-resources.md
+  - name: Referens för datamodell
+    href: api-management-template-data-model-reference.md
+  - name: Sidkontroller
+    href: api-management-page-controls.md
+  - name: Hantera i produktionen
+    items:
+    - name: Hantera grupper
+      href: api-management-howto-create-groups.md
+    - name: Distribuera till flera Azure-regioner
+      href: api-management-howto-deploy-multi-region.md
+    - name: Logga händelser till Azure Event Hubs
+      href: api-management-howto-log-event-hubs.md
+    - name: Logga begäranden med Azure Application Insights
+      href: api-management-howto-app-insights.md
+    - name: Konfigurera DR med säkerhetskopiering/återställning
+      href: api-management-howto-disaster-recovery-backup-restore.md
+    - name: Hantera användarkonton
+      href: api-management-howto-create-or-invite-developers.md
+    - name: Konfigurera med Git
+      href: api-management-configuration-repository-git.md
+    - name: Använd rollbaserad åtkomstkontroll
+      href: api-management-role-based-access-control.md
+    - name: Använd en hanterad tjänstidentitet
+      href: api-management-howto-use-managed-service-identity.md
+    - name: Integrera med Service Fabric
       items:
-        - name: Lägga till ett API manuellt
-          href: add-api-manually.md
-        - name: Importera en OpenAPI-specifikation
-          href: import-api-from-oas.md
-        - name: Importera ett SOAP-API
-          href: import-soap-api.md
-        - name: Importera ett SOAP-API och konvertera till REST
-          href: restify-soap-api.md
-        - name: Importera en API-app
-          href: import-api-app-as-api.md
-        - name: Importera en funktionsapp
-          href: import-function-app-as-api.md
-        - name: Importera en logikapp
-          href: import-logic-app-as-api.md
-        - name: Importera en Service Fabric-app
-          href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
-        - name: Redigera ett API
-          href: edit-api.md
-    - name: Etablera och skala
-      items:
-        - name: Kapacitetsmått
-          href: api-management-capacity.md
-        - name: Uppgradera och skala
-          href: upgrade-and-scale.md
-        - name: Konfigurera ett anpassat domännamn
-          href: configure-custom-domain.md
-    - name: Cache
-      items:
-        - name: Lägg till cachelagring för att förbättra prestandan
-          href: api-management-howto-cache.md
-    - name: Skydda din serverdel
-      items:
-        - name: Skydda ditt API med Azure AD
-          href: api-management-howto-protect-backend-with-aad.md
-        - name: Skapa ett virtuellt nätverk
-          href: api-management-using-with-vnet.md
-        - name: Anslut till ett internt virtuellt nätverk
-          href: api-management-using-with-internal-vnet.md
-        - name: Integrera Application Gateway i ett internt virtuellt nätverk
-          href: api-management-howto-integrate-internal-vnet-appgateway.md
-        - name: Ömsesidig certifikatautentisering
-          href: api-management-howto-mutual-certificates.md
-        - name: Hantera protokoll och chiffer
-          href: api-management-howto-manage-protocols-ciphers.md
-    - name: Anpassa utvecklarupplevelsen
-      items:
-        - name: Ändra innehåll och layout
-          href: api-management-modify-content-layout.md
-        - name: Anpassa systemsidor med mallar
-          href: api-management-developer-portal-templates.md
-        - name: Autentisering med Azure AD
-          href: api-management-howto-aad.md
-        - name: Autentisering med Azure AD B2C
-          href: api-management-howto-aad-b2c.md
-        - name: Delegerad autentisering
-          href: api-management-howto-setup-delegation.md
-        - name: E-postaviseringar och mallar
-          href: api-management-howto-configure-notifications.md
-        - name: Aktivera OAuth-stöd för konsolen
-          href: api-management-howto-oauth2.md
-    - name: Definiera principer
-      items:
-        - name: Ange eller redigera principer
-          href: set-edit-policies.md
-        - name: Principuttryck
-          href: api-management-policy-expressions.md
-        - name: Anpassad cachelagring
-          href: api-management-sample-cache-by-key.md
-        - name: Avancerad övervakning
-          href: api-management-log-to-eventhub-sample.md
-        - name: Avancerad begärandebegränsning
-          href: api-management-sample-flexible-throttling.md
-        - name: Använda externa tjänster
-          href: api-management-sample-send-request.md
-        - name: Hantera hemligheter med hjälp av egenskaper
-          href: api-management-howto-properties.md
-        - name: 'Säkra API:er med autentisering med klientcertifikat'
-          href: api-management-howto-mutual-certificates-for-clients.md
-        - name: Principer för begränsning av åtkomst
-          href: api-management-access-restriction-policies.md
-        - name: Avancerade principer
-          href: api-management-advanced-policies.md
-        - name: Autentiseringsprinciper
-          href: api-management-authentication-policies.md
-        - name: Cachelagringsprinciper
-          href: api-management-caching-policies.md
-        - name: Principer mellan domäner
-          href: api-management-cross-domain-policies.md
-        - name: Omvandlingsprinciper
-          href: api-management-transformation-policies.md
-    - name: Mallreferens
-      items:
-        - name: Mallar
-          href: api-management-developer-portal-templates-reference.md
-        - name: 'API:er'
-          href: api-management-api-templates.md
-        - name: Produkter
-          href: api-management-product-templates.md
-        - name: Program
-          href: api-management-application-templates.md
-        - name: Problem
-          href: api-management-issue-templates.md
-        - name: Användarprofil
-          href: api-management-user-profile-templates.md
-        - name: Sidor
-          href: api-management-page-templates.md
-        - name: Mallresurser
-          href: api-management-template-resources.md
-    - name: Referens för datamodell
-      href: api-management-template-data-model-reference.md
-    - name: Sidkontroller
-      href: api-management-page-controls.md
-    - name: Hantera i produktionen
-      items:
-        - name: Hantera grupper
-          href: api-management-howto-create-groups.md
-        - name: Distribuera till flera Azure-regioner
-          href: api-management-howto-deploy-multi-region.md
-        - name: Logga händelser till Azure Event Hubs
-          href: api-management-howto-log-event-hubs.md
-        - name: Logga begäranden med Azure Application Insights
-          href: api-management-howto-app-insights.md
-        - name: Konfigurera DR med säkerhetskopiering/återställning
-          href: api-management-howto-disaster-recovery-backup-restore.md
-        - name: Hantera användarkonton
-          href: api-management-howto-create-or-invite-developers.md
-        - name: Konfigurera med Git
-          href: api-management-configuration-repository-git.md
-        - name: Använd rollbaserad åtkomstkontroll
-          href: api-management-role-based-access-control.md
-        - name: Använd en hanterad tjänstidentitet
-          href: api-management-howto-use-managed-service-identity.md
-        - name: Integrera med Service Fabric
-          items:
-            - name: Översikt
-              href: ../service-fabric/service-fabric-api-management-overview.md
-            - name: Självstudier
-              href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
+      - name: Översikt
+        href: ../service-fabric/service-fabric-api-management-overview.md
+      - name: Självstudier
+        href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
 - name: Referens
   items:
-    - name: Azure PowerShell
-      href: /powershell/azure/overview
-    - name: REST
-      href: /rest/api/apimanagement/
-    - name: REST (original)
-      href: /rest/api/apimanagement/ApiManagementREST/api-management-REST
+  - name: Azure PowerShell
+    href: /powershell/azure/overview
+  - name: REST
+    href: /rest/api/apimanagement/
+  - name: REST (original)
+    href: /rest/api/apimanagement/ApiManagementREST/api-management-REST
 - name: Resurser
   items:
-    - name: VANLIGA FRÅGOR OCH SVAR
-      href: api-management-faq.md
-    - name: Regional tillgänglighet
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: Vägledning för API-design
-      href: 'https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json'
-    - name: Vägledning för API-implementering
-      href: 'https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json'
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-api-management'
-    - name: Videoklipp
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=api-management'
-    - name: Översikt
-      href: 'http://aka.ms/apimroadmap'
-    - name: Power BI-lösningsmall för API Management
-      href: 'http://aka.ms/apimpbi'
-    - name: Blogg
-      href: 'http://aka.ms/apimblog'
-    - name: Funktionsbegäranden
-      href: 'http://aka.ms/apimwish'
+  - name: VANLIGA FRÅGOR OCH SVAR
+    href: api-management-faq.md
+  - name: Regional tillgänglighet
+    href: https://azure.microsoft.com/regions/services/
+  - name: Vägledning för API-design
+    href: https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
+  - name: Vägledning för API-implementering
+    href: https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json
+  - name: MSDN-forum
+    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-api-management
+  - name: Videoklipp
+    href: https://azure.microsoft.com/documentation/videos/index/?services=api-management
+  - name: Översikt
+    href: http://aka.ms/apimroadmap
+  - name: Power BI-lösningsmall för API Management
+    href: http://aka.ms/apimpbi
+  - name: Blogg
+    href: http://aka.ms/apimblog
+  - name: Funktionsbegäranden
+    href: http://aka.ms/apimwish
+ms.openlocfilehash: af48b2fa60bd7c26db79d08c678004667fd67064
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41927387"

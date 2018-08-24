@@ -9,7 +9,8 @@
 ## [Migrera SQL Server till Azure SQL DB Managed Instance](tutorial-sql-server-to-managed-instance.md)
 
 # Instruktionsguider
-## [Använda PowerShell för att migrera SQL Server](howto-sql-server-to-azure-sql-powershell.md)
+## [Använda PowerShell för att migrera SQL Server till Azure SQL DB](howto-sql-server-to-azure-sql-powershell.md)
+## [Använda PowerShell för att migrera SQL Server till Azure SQL DB MI](howto-sql-server-to-azure-sql-mi-powershell.md)
 
 # Resurser
 ## [User Voice-feedback](https://feedback.azure.com/forums/906100-azure-database-migration-service)

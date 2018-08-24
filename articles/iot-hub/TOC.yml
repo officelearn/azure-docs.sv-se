@@ -1,420 +1,431 @@
+items:
 - name: Grunderna i Azure IoT
   href: /azure/iot-fundamentals
 - name: Dokumentation om IoT Hub
   href: index.yml
 - name: Översikt
   items:
-    - name: Vad är Azure IoT Hub?
-      href: about-iot-hub.md
+  - name: Vad är Azure IoT Hub?
+    href: about-iot-hub.md
 - name: Snabbstarter
   items:
-    - name: Skicka telemetri (Node.js)
-      href: quickstart-send-telemetry-node.md
-    - name: Skicka telemetri (.NET)
-      href: quickstart-send-telemetry-dotnet.md
-    - name: Skicka telemetri (Java)
-      href: quickstart-send-telemetry-java.md
-    - name: Skicka telemetri (Python)
-      href: quickstart-send-telemetry-python.md
-    - name: Skicka telemetri (iOS)
-      href: quickstart-send-telemetry-ios.md
-    - name: Kontrollera en enhet (Node.js)
-      href: quickstart-control-device-node.md
-    - name: Kontrollera en enhet (.NET)
-      href: quickstart-control-device-dotnet.md
-    - name: Kontrollera en enhet (Java)
-      href: quickstart-control-device-java.md
-    - name: Kontrollera en enhet (Python)
-      href: quickstart-control-device-python.md
+  - name: Skicka telemetri (Node.js)
+    href: quickstart-send-telemetry-node.md
+  - name: Skicka telemetri (.NET)
+    href: quickstart-send-telemetry-dotnet.md
+  - name: Skicka telemetri (Java)
+    href: quickstart-send-telemetry-java.md
+  - name: Skicka telemetri (Python)
+    href: quickstart-send-telemetry-python.md
+  - name: Skicka telemetri (iOS)
+    href: quickstart-send-telemetry-ios.md
+  - name: Kontrollera en enhet (Node.js)
+    href: quickstart-control-device-node.md
+  - name: Kontrollera en enhet (.NET)
+    href: quickstart-control-device-dotnet.md
+  - name: Kontrollera en enhet (Java)
+    href: quickstart-control-device-java.md
+  - name: Kontrollera en enhet (Python)
+    href: quickstart-control-device-python.md
 - name: Självstudier
   items:
-    - name: Meddelanderoutning
-      href: tutorial-routing.md
-    - name: Utför manuell redundans
-      href: tutorial-manual-failover.md
-    - name: Konfigurera dina enheter
-      href: tutorial-device-twins.md
-    - name: Hantera uppdateringar av inbyggd programvara
-      href: tutorial-firmware-update.md
-    - name: Testa enhetsanslutning
-      href: tutorial-connectivity.md
+  - name: Meddelanderoutning
+    href: tutorial-routing.md
+  - name: Utför manuell redundans
+    href: tutorial-manual-failover.md
+  - name: Konfigurera dina enheter
+    href: tutorial-device-twins.md
+  - name: Hantera uppdateringar av inbyggd programvara
+    href: tutorial-firmware-update.md
+  - name: Testa enhetsanslutning
+    href: tutorial-connectivity.md
 - name: Begrepp
   items:
-    - name: Översikt över enhetshantering
-      href: iot-hub-device-management-overview.md
-    - name: Jämföra IoT Hub och Event Hubs
-      href: iot-hub-compare-event-hubs.md
-    - name: Välj den rätta nivån
-      href: iot-hub-scaling.md
-    - name: Hög tillgänglighet och haveriberedskap
-      href: iot-hub-ha-dr.md
-    - name: Stöd för ytterligare protokoll
-      href: iot-hub-protocol-gateway.md
-    - name: Jämföra meddelande- och händelsedirigering
-      href: iot-hub-event-grid-routing-comparison.md
-    - name: Regelverk för enhetskonfiguration
-      href: iot-hub-configuration-best-practices.md
-    - name: Utvecklarguide
-      href: iot-hub-devguide.md
+  - name: Översikt över enhetshantering
+    href: iot-hub-device-management-overview.md
+  - name: Jämföra IoT Hub och Event Hubs
+    href: iot-hub-compare-event-hubs.md
+  - name: Välj den rätta nivån
+    href: iot-hub-scaling.md
+  - name: Hög tillgänglighet och haveriberedskap
+    href: iot-hub-ha-dr.md
+  - name: Stöd för ytterligare protokoll
+    href: iot-hub-protocol-gateway.md
+  - name: Jämföra meddelande- och händelsedirigering
+    href: iot-hub-event-grid-routing-comparison.md
+  - name: Regelverk för enhetskonfiguration
+    href: iot-hub-configuration-best-practices.md
+  - name: Support för Azure IoT SDK-plattform
+    href: iot-hub-device-sdk-platform-support.md
+  - name: Utvecklarguide
+    href: iot-hub-devguide.md
+    items:
+    - name: Guide för funktionen enhet till moln
+      href: iot-hub-devguide-d2c-guidance.md
+    - name: Guide för funktionen moln till enhet
+      href: iot-hub-devguide-c2d-guidance.md
+    - name: Skicka och ta emot meddelanden
+      href: iot-hub-devguide-messaging.md
       items:
-        - name: Guide för funktionen enhet till moln
-          href: iot-hub-devguide-d2c-guidance.md
-        - name: Guide för funktionen moln till enhet
-          href: iot-hub-devguide-c2d-guidance.md
-        - name: Skicka och ta emot meddelanden
-          href: iot-hub-devguide-messaging.md
-          items:
-            - name: Skicka meddelanden från enhet till moln till IoT Hub
-              href: iot-hub-devguide-messages-d2c.md
-            - name: Läsa meddelanden från enhet till moln från den inbyggda slutpunkten
-              href: iot-hub-devguide-messages-read-builtin.md
-            - name: Reagera på IoT Hub-händelser
-              href: iot-hub-event-grid.md
-            - name: Använda anpassade slutpunkter och routningsregler för meddelanden från enhet till moln
-              href: iot-hub-devguide-messages-read-custom.md
-            - name: Skicka meddelanden från moln till enhet från IoT Hub
-              href: iot-hub-devguide-messages-c2d.md
-            - name: Skapa och läsa IoT Hub-meddelanden
-              href: iot-hub-devguide-messages-construct.md
-            - name: Välja ett kommunikationsprotokoll
-              href: iot-hub-devguide-protocols.md
-        - name: Ladda upp filer från en enhet
-          href: iot-hub-devguide-file-upload.md
-        - name: Hantera enhetsidentiteter
-          href: iot-hub-devguide-identity-registry.md
-        - name: Styra åtkomst till IoT Hub
-          href: iot-hub-devguide-security.md
-        - name: Förstå enhetstvillingar
-          href: iot-hub-devguide-device-twins.md
-        - name: Förstå modultvillingar
-          href: iot-hub-devguide-module-twins.md
-        - name: Anropa direktmetoder på en enhet
-          href: iot-hub-devguide-direct-methods.md
-        - name: Schemalägga jobb på flera enheter
-          href: iot-hub-devguide-jobs.md
-        - name: IoT Hub-slutpunkter
-          href: iot-hub-devguide-endpoints.md
-        - name: Frågespråk
-          href: iot-hub-devguide-query-language.md
-        - name: Kvoter och begränsningar
-          href: iot-hub-devguide-quotas-throttling.md
-        - name: Prissättningsexempel
-          href: iot-hub-devguide-pricing.md
-        - name: 'SDK:er för tjänst och enhet'
-          href: iot-hub-devguide-sdks.md
-        - name: MQTT-support
-          href: iot-hub-mqtt-support.md
-        - name: Ordlista
-          href: iot-hub-devguide-glossary.md
-    - name: Säkerhet
-      items:
-        - name: Säkerhet från grunden
-          href: /azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc
-        - name: Metodtips för säkerhet
-          href: /azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/rc/rc
-        - name: Säkerhetsarkitektur
-          href: /azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc
-        - name: Skydda distributionen av IoT
-          href: /azure/iot-fundamentals/iot-security-deployment?context=azure/iot-hub/rc/rc
-    - name: Skydda med X.509 CA-certifikat
-      items:
-        - name: Översikt över certifikatsäkerhet med X.509 CA
-          href: iot-hub-x509ca-overview.md
-        - name: Koncept för certifikatsäkerhet med X.509 CA
-          href: iot-hub-x509ca-concept.md
+      - name: Skicka meddelanden från enhet till moln till IoT Hub
+        href: iot-hub-devguide-messages-d2c.md
+      - name: Läsa meddelanden från enhet till moln från den inbyggda slutpunkten
+        href: iot-hub-devguide-messages-read-builtin.md
+      - name: Reagera på IoT Hub-händelser
+        href: iot-hub-event-grid.md
+      - name: Använda anpassade slutpunkter och routningsregler för meddelanden från enhet till moln
+        href: iot-hub-devguide-messages-read-custom.md
+      - name: Skicka meddelanden från moln till enhet från IoT Hub
+        href: iot-hub-devguide-messages-c2d.md
+      - name: Skapa och läsa IoT Hub-meddelanden
+        href: iot-hub-devguide-messages-construct.md
+      - name: Välja ett kommunikationsprotokoll
+        href: iot-hub-devguide-protocols.md
+    - name: Ladda upp filer från en enhet
+      href: iot-hub-devguide-file-upload.md
+    - name: Hantera enhetsidentiteter
+      href: iot-hub-devguide-identity-registry.md
+    - name: Styra åtkomst till IoT Hub
+      href: iot-hub-devguide-security.md
+    - name: Förstå enhetstvillingar
+      href: iot-hub-devguide-device-twins.md
+    - name: Förstå modultvillingar
+      href: iot-hub-devguide-module-twins.md
+    - name: Anropa direktmetoder på en enhet
+      href: iot-hub-devguide-direct-methods.md
+    - name: Schemalägga jobb på flera enheter
+      href: iot-hub-devguide-jobs.md
+    - name: IoT Hub-slutpunkter
+      href: iot-hub-devguide-endpoints.md
+    - name: Frågespråk
+      href: iot-hub-devguide-query-language.md
+    - name: Kvoter och begränsningar
+      href: iot-hub-devguide-quotas-throttling.md
+    - name: Prissättningsexempel
+      href: iot-hub-devguide-pricing.md
+    - name: SDK:er för tjänst och enhet
+      href: iot-hub-devguide-sdks.md
+    - name: MQTT-support
+      href: iot-hub-mqtt-support.md
+    - name: Ordlista
+      href: iot-hub-devguide-glossary.md
+  - name: Säkerhet
+    items:
+    - name: Säkerhet från grunden
+      href: /azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc
+    - name: Metodtips för säkerhet
+      href: /azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/rc/rc
+    - name: Säkerhetsarkitektur
+      href: /azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc
+    - name: Skydda distributionen av IoT
+      href: /azure/iot-fundamentals/iot-security-deployment?context=azure/iot-hub/rc/rc
+  - name: Skydda med X.509 CA-certifikat
+    items:
+    - name: Översikt över certifikatsäkerhet med X.509 CA
+      href: iot-hub-x509ca-overview.md
+    - name: Koncept för certifikatsäkerhet med X.509 CA
+      href: iot-hub-x509ca-concept.md
 - name: Instruktionsguider
   items:
-    - name: Utveckla
+  - name: Utveckla
+    items:
+    - name: Använd SDK:er för enhet och tjänst
+      href: iot-hub-devguide-sdks.md
       items:
-        - name: 'Använd SDK:er för enhet och tjänst'
-          href: iot-hub-devguide-sdks.md
-          items:
-            - name: Använda SDK för IoT-enheter för C
-              href: iot-hub-device-sdk-c-intro.md
-              items:
-                - name: Använda IoTHubClient
-                  href: iot-hub-device-sdk-c-iothubclient.md
-                - name: Använda serialiseraren
-                  href: iot-hub-device-sdk-c-serializer.md
-            - name: Utveckla för begränsade enheter
-              href: iot-hub-devguide-develop-for-constrained-devices.md
-            - name: Utveckla för mobila enheter
-              href: iot-hub-how-to-develop-for-mobile-devices.md
-            - name: Hantera anslutningar och tillförlitliga meddelandefunktioner
-              href: iot-hub-reliability-features-in-sdks.md
-        - name: Fråga Avro-data från en hubbväg
-          href: iot-hub-query-avro-data.md
-        - name: Skicka meddelanden från moln till enhet
-          items:
-            - name: .NET
-              href: iot-hub-csharp-csharp-c2d.md
-            - name: Java
-              href: iot-hub-java-java-c2d.md
-            - name: Node.js
-              href: iot-hub-node-node-c2d.md
-            - name: Python
-              href: iot-hub-python-python-c2d.md
-            - name: iOS
-              href: iot-hub-ios-swift-c2d.md
-        - name: Ladda upp filer från enheter
-          items:
-            - name: .NET
-              href: iot-hub-csharp-csharp-file-upload.md
-            - name: Java
-              href: iot-hub-java-java-file-upload.md
-            - name: Node.js
-              href: iot-hub-node-node-file-upload.md
-            - name: Python
-              href: iot-hub-python-python-file-upload.md
-        - name: Kom igång med enhetstvillingar
-          items:
-            - name: Node.js
-              href: iot-hub-node-node-twin-getstarted.md
-            - name: .NET
-              href: iot-hub-csharp-csharp-twin-getstarted.md
-            - name: Java
-              href: iot-hub-java-java-twin-getstarted.md
-            - name: Python
-              href: iot-hub-python-twin-getstarted.md
-        - name: Kom igång med modultvillingar
-          items:
-            - name: Portalen
-              href: iot-hub-portal-csharp-module-twin-getstarted.md
-            - name: .NET
-              href: iot-hub-csharp-csharp-module-twin-getstarted.md
-            - name: Python
-              href: iot-hub-python-python-module-twin-getstarted.md
-            - name: C
-              href: iot-hub-c-c-module-twin-getstarted.md
-            - name: Node
-              href: iot-hub-node-node-module-twin-getstarted.md
-        - name: Komma igång med enhetshantering
-          items:
-            - name: Node.js
-              href: iot-hub-node-node-device-management-get-started.md
-            - name: .NET
-              href: iot-hub-csharp-csharp-device-management-get-started.md
-            - name: Java
-              href: iot-hub-java-java-device-management-getstarted.md
-            - name: Python
-              href: iot-hub-python-python-device-management-get-started.md
-        - name: Schemalägga och sända jobb
-          items:
-            - name: Node.js
-              href: iot-hub-node-node-schedule-jobs.md
-            - name: .NET
-              href: iot-hub-csharp-csharp-schedule-jobs.md
-            - name: Java
-              href: iot-hub-java-java-schedule-jobs.md
-            - name: Python
-              href: iot-hub-python-python-schedule-jobs.md
-    - name: Hantera
+      - name: Support för Azure IoT SDK-plattform
+        href: iot-hub-device-sdk-platform-support.md
+      - name: Använda SDK för IoT-enheter för C
+        href: iot-hub-device-sdk-c-intro.md
+        items:
+        - name: Använda IoTHubClient
+          href: iot-hub-device-sdk-c-iothubclient.md
+        - name: Använda serialiseraren
+          href: iot-hub-device-sdk-c-serializer.md
+      - name: Utveckla för begränsade enheter
+        href: iot-hub-devguide-develop-for-constrained-devices.md
+      - name: Utveckla för mobila enheter
+        href: iot-hub-how-to-develop-for-mobile-devices.md
+      - name: Hantera anslutningar och tillförlitliga meddelandefunktioner
+        href: iot-hub-reliability-features-in-sdks.md
+    - name: Fråga Avro-data från en hubbväg
+      href: iot-hub-query-avro-data.md
+    - name: Skicka meddelanden från moln till enhet
       items:
-        - name: Skapa en IoT Hub
-          items:
-            - name: Använda Azure-portalen
-              href: iot-hub-create-through-portal.md
-            - name: Använda Azure IoT-verktyg för VS Code
-              href: iot-hub-create-use-iot-toolkit.md
-            - name: Använda Azure PowerShell
-              href: iot-hub-create-using-powershell.md
-            - name: Använda Azure CLI
-              href: iot-hub-create-using-cli.md
-            - name: Använda CLI
-              href: iot-hub-create-using-cli-nodejs.md
-            - name: Använd REST API
-              href: iot-hub-rm-rest.md
-            - name: Använda en mall från Azure PowerShell
-              href: iot-hub-rm-template-powershell.md
-            - name: Använda en mall från .NET
-              href: iot-hub-rm-template.md
-        - name: Konfigurera filuppladdning
-          items:
-            - name: Använda Azure-portalen
-              href: iot-hub-configure-file-upload.md
-            - name: Använda Azure PowerShell
-              href: iot-hub-configure-file-upload-powershell.md
-            - name: Använda Azure CLI
-              href: iot-hub-configure-file-upload-cli.md
-        - name: Övervaka med diagnostik
-          href: iot-hub-monitor-resource-health.md
-          items:
-            - name: Migrera till diagnostikinställningar
-              href: iot-hub-migrate-to-diagnostics-settings.md
-            - name: Övervakning av åtgärder
-              href: iot-hub-operations-monitoring.md
-        - name: Skydda din hubb med ett X.509-certifikat
-          href: iot-hub-security-x509-get-started.md
-        - name: Uppgradera en IoT-hubb
-          href: iot-hub-upgrade.md
-        - name: Användningsstatistik
-          href: iot-hub-metrics.md
-        - name: Konfigurera IP-filtrering
-          href: iot-hub-ip-filtering.md
-        - name: Konfigurera enheter i skala
-          items:
-            - name: Använda Azure-portalen
-              href: iot-hub-auto-device-config.md
-            - name: Använda Azure CLI
-              href: iot-hub-auto-device-config-cli.md
-        - name: Masshantera IoT-enheter
-          href: iot-hub-bulk-identity-mgmt.md
-    - name: Använda riktiga enheter
+      - name: .NET
+        href: iot-hub-csharp-csharp-c2d.md
+      - name: Java
+        href: iot-hub-java-java-c2d.md
+      - name: Node.js
+        href: iot-hub-node-node-c2d.md
+      - name: Python
+        href: iot-hub-python-python-c2d.md
+      - name: iOS
+        href: iot-hub-ios-swift-c2d.md
+    - name: Ladda upp filer från enheter
       items:
-        - name: Använda en onlinesimulator
-          href: iot-hub-raspberry-pi-web-simulator-get-started.md
-        - name: Använd en fysisk enhet
-          href: iot-hub-get-started-physical.md
-          items:
-            - name: Raspberry Pi med Python
-              href: iot-hub-raspberry-pi-kit-python-get-started.md
-            - name: Raspberry Pi med Node.js
-              href: iot-hub-raspberry-pi-kit-node-get-started.md
-            - name: Raspberry Pi med C
-              href: iot-hub-raspberry-pi-kit-c-get-started.md
-            - name: MXChip IoT DevKit med Arduino
-              href: iot-hub-arduino-iot-devkit-az3166-get-started.md
-            - name: Intel Edison med Node.js
-              href: iot-hub-intel-edison-kit-node-get-started.md
-            - name: Intel Edison med C
-              href: iot-hub-intel-edison-kit-c-get-started.md
-            - name: Adafruit Feather HUZZAH ESP8266 med Arduino
-              href: iot-hub-arduino-huzzah-esp8266-get-started.md
-            - name: Sparkfun ESP8266 Thing Dev med Arduino
-              href: iot-hub-sparkfun-esp8266-thing-dev-get-started.md
-            - name: Adafruit Feather M0 med Arduino
-              href: iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md
-        - name: Använda MXChip IoT DevKit
-          items:
-            - name: Översätta röstmeddelanden med Azure Cognitive Services
-              href: iot-hub-arduino-iot-devkit-az3166-translator.md
-            - name: Hämta ett Twitter-meddelande med Azure Functions
-              href: iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md
-            - name: 'Skicka meddelanden till en MQTT-server med Eclipse Paho-API:er'
-              href: iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md
-            - name: Övervaka den magnetiska sensorn och skicka e-postaviseringar med Azure Functions
-              href: iot-hub-arduino-iot-devkit-az3166-door-monitor.md
-        - name: Utökade IoT-scenarier
-          items:
-            - name: Hantera meddelanden mellan enheter och molnet med iothub-explorer
-              href: iot-hub-explorer-cloud-device-messaging.md
-            - name: Hantera meddelanden mellan enheter och molnet med Azure IoT Toolkit för VS Code
-              href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
-            - name: Spara IoT Hub-meddelanden i Azure Blob Storage
-              href: iot-hub-store-data-in-azure-table-storage.md
-            - name: Datavisualisering i Power BI
-              href: iot-hub-live-data-visualization-in-power-bi.md
-            - name: Datavisualisering med Web Apps
-              href: iot-hub-live-data-visualization-in-web-apps.md
-            - name: Väderprognoser med hjälp av Azure Machine Learning
-              href: iot-hub-weather-forecast-machine-learning.md
-            - name: Enhetshantering med Azure IoT Toolkit för VS Code
-              href: iot-hub-device-management-iot-toolkit.md
-            - name: Enhetshantering med iothub-explorer
-              href: iot-hub-device-management-iothub-explorer.md
-            - name: Enhetshantering med IoT-tillägg för Azure CLI 2.0
-              href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
-            - name: Fjärrövervakning och aviseringar med Logic Apps
-              href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
-    - name: Felsöka
+      - name: .NET
+        href: iot-hub-csharp-csharp-file-upload.md
+      - name: Java
+        href: iot-hub-java-java-file-upload.md
+      - name: Node.js
+        href: iot-hub-node-node-file-upload.md
+      - name: Python
+        href: iot-hub-python-python-file-upload.md
+    - name: Kom igång med enhetstvillingar
       items:
-        - name: Enhetsfrånkopplingar
-          href: iot-hub-troubleshoot-connectivity.md
+      - name: Node.js
+        href: iot-hub-node-node-twin-getstarted.md
+      - name: .NET
+        href: iot-hub-csharp-csharp-twin-getstarted.md
+      - name: Java
+        href: iot-hub-java-java-twin-getstarted.md
+      - name: Python
+        href: iot-hub-python-twin-getstarted.md
+    - name: Kom igång med modultvillingar
+      items:
+      - name: Portalen
+        href: iot-hub-portal-csharp-module-twin-getstarted.md
+      - name: .NET
+        href: iot-hub-csharp-csharp-module-twin-getstarted.md
+      - name: Python
+        href: iot-hub-python-python-module-twin-getstarted.md
+      - name: C
+        href: iot-hub-c-c-module-twin-getstarted.md
+      - name: Node
+        href: iot-hub-node-node-module-twin-getstarted.md
+    - name: Komma igång med enhetshantering
+      items:
+      - name: Node.js
+        href: iot-hub-node-node-device-management-get-started.md
+      - name: .NET
+        href: iot-hub-csharp-csharp-device-management-get-started.md
+      - name: Java
+        href: iot-hub-java-java-device-management-getstarted.md
+      - name: Python
+        href: iot-hub-python-python-device-management-get-started.md
+    - name: Schemalägga och sända jobb
+      items:
+      - name: Node.js
+        href: iot-hub-node-node-schedule-jobs.md
+      - name: .NET
+        href: iot-hub-csharp-csharp-schedule-jobs.md
+      - name: Java
+        href: iot-hub-java-java-schedule-jobs.md
+      - name: Python
+        href: iot-hub-python-python-schedule-jobs.md
+  - name: Hantera
+    items:
+    - name: Skapa en IoT Hub
+      items:
+      - name: Använda Azure-portalen
+        href: iot-hub-create-through-portal.md
+      - name: Använda Azure IoT-verktyg för VS Code
+        href: iot-hub-create-use-iot-toolkit.md
+      - name: Använda Azure PowerShell
+        href: iot-hub-create-using-powershell.md
+      - name: Använda Azure CLI
+        href: iot-hub-create-using-cli.md
+      - name: Använda CLI
+        href: iot-hub-create-using-cli-nodejs.md
+      - name: Använd REST API
+        href: iot-hub-rm-rest.md
+      - name: Använda en mall från Azure PowerShell
+        href: iot-hub-rm-template-powershell.md
+      - name: Använda en mall från .NET
+        href: iot-hub-rm-template.md
+    - name: Konfigurera filuppladdning
+      items:
+      - name: Använda Azure-portalen
+        href: iot-hub-configure-file-upload.md
+      - name: Använda Azure PowerShell
+        href: iot-hub-configure-file-upload-powershell.md
+      - name: Använda Azure CLI
+        href: iot-hub-configure-file-upload-cli.md
+    - name: Övervaka med diagnostik
+      href: iot-hub-monitor-resource-health.md
+      items:
+      - name: Migrera till diagnostikinställningar
+        href: iot-hub-migrate-to-diagnostics-settings.md
+      - name: Övervakning av åtgärder
+        href: iot-hub-operations-monitoring.md
+    - name: Skydda din hubb med ett X.509-certifikat
+      href: iot-hub-security-x509-get-started.md
+    - name: Uppgradera en IoT-hubb
+      href: iot-hub-upgrade.md
+    - name: Användningsstatistik
+      href: iot-hub-metrics.md
+    - name: Konfigurera IP-filtrering
+      href: iot-hub-ip-filtering.md
+    - name: Konfigurera enheter i skala
+      items:
+      - name: Använda Azure-portalen
+        href: iot-hub-auto-device-config.md
+      - name: Använda Azure CLI
+        href: iot-hub-auto-device-config-cli.md
+    - name: Masshantera IoT-enheter
+      href: iot-hub-bulk-identity-mgmt.md
+  - name: Använda riktiga enheter
+    items:
+    - name: Använda en onlinesimulator
+      href: iot-hub-raspberry-pi-web-simulator-get-started.md
+    - name: Använd en fysisk enhet
+      href: iot-hub-get-started-physical.md
+      items:
+      - name: Raspberry Pi med Python
+        href: iot-hub-raspberry-pi-kit-python-get-started.md
+      - name: Raspberry Pi med Node.js
+        href: iot-hub-raspberry-pi-kit-node-get-started.md
+      - name: Raspberry Pi med C
+        href: iot-hub-raspberry-pi-kit-c-get-started.md
+      - name: MXChip IoT DevKit med Arduino
+        href: iot-hub-arduino-iot-devkit-az3166-get-started.md
+      - name: Intel Edison med Node.js
+        href: iot-hub-intel-edison-kit-node-get-started.md
+      - name: Intel Edison med C
+        href: iot-hub-intel-edison-kit-c-get-started.md
+      - name: Adafruit Feather HUZZAH ESP8266 med Arduino
+        href: iot-hub-arduino-huzzah-esp8266-get-started.md
+      - name: Sparkfun ESP8266 Thing Dev med Arduino
+        href: iot-hub-sparkfun-esp8266-thing-dev-get-started.md
+      - name: Adafruit Feather M0 med Arduino
+        href: iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md
+    - name: Använda MXChip IoT DevKit
+      items:
+      - name: Översätta röstmeddelanden med Azure Cognitive Services
+        href: iot-hub-arduino-iot-devkit-az3166-translator.md
+      - name: Hämta ett Twitter-meddelande med Azure Functions
+        href: iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md
+      - name: Skicka meddelanden till en MQTT-server med Eclipse Paho-API:er
+        href: iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md
+      - name: Övervaka den magnetiska sensorn och skicka e-postaviseringar med Azure Functions
+        href: iot-hub-arduino-iot-devkit-az3166-door-monitor.md
+    - name: Utökade IoT-scenarier
+      items:
+      - name: Hantera meddelanden mellan enheter och molnet med iothub-explorer
+        href: iot-hub-explorer-cloud-device-messaging.md
+      - name: Hantera meddelanden mellan enheter och molnet med Azure IoT Toolkit för VS Code
+        href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
+      - name: Spara IoT Hub-meddelanden i Azure Blob Storage
+        href: iot-hub-store-data-in-azure-table-storage.md
+      - name: Datavisualisering i Power BI
+        href: iot-hub-live-data-visualization-in-power-bi.md
+      - name: Datavisualisering med Web Apps
+        href: iot-hub-live-data-visualization-in-web-apps.md
+      - name: Väderprognoser med hjälp av Azure Machine Learning
+        href: iot-hub-weather-forecast-machine-learning.md
+      - name: Enhetshantering med Azure IoT Toolkit för VS Code
+        href: iot-hub-device-management-iot-toolkit.md
+      - name: Enhetshantering med iothub-explorer
+        href: iot-hub-device-management-iothub-explorer.md
+      - name: Enhetshantering med IoT-tillägg för Azure CLI 2.0
+        href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
+      - name: Fjärrövervakning och aviseringar med Logic Apps
+        href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
+  - name: Felsöka
+    items:
+    - name: Enhetsfrånkopplingar
+      href: iot-hub-troubleshoot-connectivity.md
 - name: Referens
   items:
-    - name: Azure CLI
-      href: /cli/azure/iot
-    - name: .NET (tjänst)
-      href: /dotnet/api/microsoft.azure.devices
-    - name: .NET (enheter)
-      href: /dotnet/api/microsoft.azure.devices.client
-    - name: Java (tjänst)
-      href: /java/api/com.microsoft.azure.sdk.iot.service
-    - name: Java (enheter)
-      href: /java/api/com.microsoft.azure.sdk.iot.device
-    - name: Node.js (enheter)
-      href: 'https://docs.microsoft.com/javascript/api/azure-iot-device/'
-    - name: Node.js (tjänst)
-      href: 'https://docs.microsoft.com/javascript/api/azure-iothub/'
-    - name: C (enhets-SDK)
-      href: 'https://azure.github.io/azure-iot-sdk-c/index.html'
-    - name: Azure IoT Edge
-      href: 'http://azure.github.io/iot-edge/'
-    - name: REST (enhet)
-      href: 'https://docs.microsoft.com/rest/api/iothub/device'
-    - name: REST (tjänst)
-      href: 'https://docs.microsoft.com/rest/api/iothub/service'
-    - name: REST (IoT Hub-resurs)
-      href: 'https://docs.microsoft.com/rest/api/iothub/iothubresource'
-    - name: REST (certifikat)
-      href: 'https://docs.microsoft.com/rest/api/iothub/certificates'
+  - name: Azure CLI
+    href: /cli/azure/iot
+  - name: .NET (tjänst)
+    href: /dotnet/api/microsoft.azure.devices
+  - name: .NET (enheter)
+    href: /dotnet/api/microsoft.azure.devices.client
+  - name: Java (tjänst)
+    href: /java/api/com.microsoft.azure.sdk.iot.service
+  - name: Java (enheter)
+    href: /java/api/com.microsoft.azure.sdk.iot.device
+  - name: Node.js (enheter)
+    href: https://docs.microsoft.com/javascript/api/azure-iot-device/
+  - name: Node.js (tjänst)
+    href: https://docs.microsoft.com/javascript/api/azure-iothub/
+  - name: C (enhets-SDK)
+    href: https://azure.github.io/azure-iot-sdk-c/index.html
+  - name: Azure IoT Edge
+    href: http://azure.github.io/iot-edge/
+  - name: REST (enhet)
+    href: https://docs.microsoft.com/rest/api/iothub/device
+  - name: REST (tjänst)
+    href: https://docs.microsoft.com/rest/api/iothub/service
+  - name: REST (IoT Hub-resurs)
+    href: https://docs.microsoft.com/rest/api/iothub/iothubresource
+  - name: REST (certifikat)
+    href: https://docs.microsoft.com/rest/api/iothub/certificates
 - name: Relaterat
   items:
-    - name: Lösningar
-      items:
-        - name: IoT-lösningsacceleratorer
-          href: /azure/iot-accelerators
-        - name: IoT Central
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
-    - name: Plattformstjänster
-      items:
-        - name: IoT Hub
-          href: /azure/iot-hub
-        - name: IoT Hub Device Provisioning Service
-          href: /azure/iot-dps
-        - name: 'SDK:er för IoT-tjänster'
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: Kartor
-          href: /azure/azure-maps
-        - name: Time Series Insights
-          href: /azure/time-series-insights
-    - name: Edge
-      items:
-        - name: IoT Edge
-          href: /azure/iot-edge
-        - name: 'SDK:er för IoT-enheter'
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+  - name: Lösningar
+    items:
+    - name: IoT-lösningsacceleratorer
+      href: /azure/iot-accelerators
+    - name: IoT Central
+      href: https://docs.microsoft.com/microsoft-iot-central/
+  - name: Plattformstjänster
+    items:
+    - name: IoT Hub
+      href: /azure/iot-hub
+    - name: IoT Hub Device Provisioning Service
+      href: /azure/iot-dps
+    - name: SDK:er för IoT-tjänster
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+    - name: Kartor
+      href: /azure/azure-maps
+    - name: Time Series Insights
+      href: /azure/time-series-insights
+  - name: Edge
+    items:
+    - name: IoT Edge
+      href: /azure/iot-edge
+    - name: SDK:er för IoT-enheter
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 - name: Resurser
   items:
-    - name: 'Azure IoT-exempel för C# (.NET)'
-      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
-    - name: Azure IoT-exempel för Node.js
-      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'
-    - name: Azure IoT-exempel för Java
-      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-java/'
-    - name: Azure IoT-exempel för Python
-      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-python/'
-    - name: Azure IoT-exempel för iOS-plattform
-      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
-    - name: Azure Certified for IoT-enhetskatalog
-      href: 'https://catalog.azureiotsuite.com/'
-    - name: Azure IoT Developer Center
-      href: 'https://azure.microsoft.com/develop/iot/'
-    - name: Kunddataförfrågningar
-      href: iot-hub-customer-data-requests.md
-    - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/?category=iot'
-    - name: Azure IoT Toolkit
-      href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit'
-    - name: DeviceExplorer-verktyg
-      href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
-    - name: iothub-diagnostics tool
-      href: 'https://github.com/Azure/iothub-diagnostics'
-    - name: Verktyget iothub-explorer
-      href: 'https://github.com/Azure/iothub-explorer'
-    - name: Utbildningsväg
-      href: 'https://azure.microsoft.com/documentation/learning-paths/iot-hub/'
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
-    - name: Prissättning
-      href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
-    - name: Priskalkylator
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Tjänstuppdateringar
-      href: 'https://azure.microsoft.com/updates/?product=iot-hub'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-iot-hub'
-    - name: Tekniska fallstudier
-      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
-    - name: Videoklipp
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'
+  - name: Azure IoT-exempel för C# (.NET)
+    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
+  - name: Azure IoT-exempel för Node.js
+    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
+  - name: Azure IoT-exempel för Java
+    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
+  - name: Azure IoT-exempel för Python
+    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
+  - name: Azure IoT-exempel för iOS-plattform
+    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
+  - name: Azure Certified for IoT-enhetskatalog
+    href: https://catalog.azureiotsuite.com/
+  - name: Azure IoT Developer Center
+    href: https://azure.microsoft.com/develop/iot/
+  - name: Kunddataförfrågningar
+    href: iot-hub-customer-data-requests.md
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/?category=iot
+  - name: Azure IoT Toolkit
+    href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
+  - name: DeviceExplorer-verktyg
+    href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
+  - name: iothub-diagnostics tool
+    href: https://github.com/Azure/iothub-diagnostics
+  - name: Verktyget iothub-explorer
+    href: https://github.com/Azure/iothub-explorer
+  - name: Utbildningsväg
+    href: https://azure.microsoft.com/documentation/learning-paths/iot-hub/
+  - name: MSDN-forum
+    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/iot-hub/
+  - name: Priskalkylator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Tjänstuppdateringar
+    href: https://azure.microsoft.com/updates/?product=iot-hub
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-iot-hub
+  - name: Tekniska fallstudier
+    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
+  - name: Videoklipp
+    href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
+ms.openlocfilehash: e54a80a2ed04c86ab0046c1db898ef68f524ef04
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41929228"

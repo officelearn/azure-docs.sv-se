@@ -5,14 +5,12 @@
 ## [Vanliga frågor och svar](relay-faq.md)
 
 # Snabbstarter
-## [Skapa ett namnområde](relay-create-namespace-portal.md)
 ## [Skapa ett hybridprogram lokalt eller i molnet](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## Hybridanslutningar
 ### [.NET Websockets](relay-hybrid-connections-dotnet-get-started.md)
 ### [.NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
 ### [Node Websockets](relay-hybrid-connections-node-get-started.md)
 ### [Node HTTP](relay-hybrid-connections-http-requests-node-get-started.md)
-## [WCF-relä](relay-wcf-dotnet-get-started.md)
 ## [Självstudier för WCF-relä](service-bus-relay-tutorial.md)
 ## [Självstudier för WCF-relä REST](service-bus-relay-rest-tutorial.md)
 
@@ -22,6 +20,8 @@
 #### [Migrera från ACS till SAS](relay-migrate-acs-sas.md)
 ### [Hybridanslutningsprotokoll](relay-hybrid-connections-protocol.md)
 ## Utveckla
+### [Skapa ett namnområde](relay-create-namespace-portal.md)
+### [Använda WCF Relay för att exponera WCF-tjänster för externa klienter](relay-wcf-dotnet-get-started.md)
 ### [Tillgängliga API:er](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
 #### [Node](relay-hybrid-connections-node-ws-api-overview.md)

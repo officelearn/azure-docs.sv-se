@@ -106,7 +106,8 @@
 ##### [Hantera säkerhetskopieringskatalogen](storsimple-8000-manage-backup-catalog.md)
 ##### [Hantera säkerhetskopieringsprinciper](storsimple-8000-manage-backup-policies-u2.md)
 ##### [Hantera lagringskonton](storsimple-8000-manage-storage-accounts.md)
-##### [Hantera volymcontainrar](storsimple-8000-manage-volume-containers.md)
+##### 
+  [Hantera volymcontainrar](storsimple-8000-manage-volume-containers.md)
 ##### [Hantera volymer – aktuella](storsimple-8000-manage-volumes-u2.md)
 ###### [Vanliga frågor och svar: Lokalt fixerade volymer](storsimple-8000-local-volume-faq.md)
 ##### [Rollbaserad åtkomstkontroll](storsimple-8000-role-based-access-control.md)
@@ -180,7 +181,9 @@
 
 ### Migrera
 #### [Prenumerationer och lagringskonton](storsimple-8000-migrate-classic-azure-portal.md)
-#### [Från enheter i 5000/7000-serien](storsimple-8000-migrate-from-5000-7000.md)
+#### [Från enheter i 5000/7000-serien](storsimple-8000-migration-options.md)
+##### [Till enheter i StorSimple 8000-serien](storsimple-8000-migrate-from-5000-7000.md)
+##### [Till Azure File Sync](storsimple-5000-7000-afs-migration.md)
 #### [Från andra lagringsenheter](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Uppdatering

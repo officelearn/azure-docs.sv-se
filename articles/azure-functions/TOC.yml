@@ -1,277 +1,286 @@
+items:
 - name: Dokumentation om Functions
   href: index.yml
 - name: Översikt
   items:
-    - name: Om Functions
-      href: functions-overview.md
-    - name: Jämförelse utan server
-      href: functions-compare-logic-apps-ms-flow-webjobs.md
+  - name: Om Functions
+    href: functions-overview.md
+  - name: Jämförelse utan server
+    href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Snabbstarter
-  expanded: true
   items:
-    - name: 'Skapa funktion: portal'
-      href: functions-create-first-azure-function.md
-    - name: Skapa funktion – Visual Studio
-      href: functions-create-your-first-function-visual-studio.md
-    - name: Skapa funktion – Java/Maven
-      href: functions-create-first-java-maven.md
-    - name: 'Skapa funktion: Azure CLI'
-      href: functions-create-first-azure-function-azure-cli.md
-    - name: Skapa funktion – Linux
-      href: functions-create-first-azure-function-azure-cli-linux.md
-    - name: Utlösare
-      items:
-        - name: Blob Storage
-          href: functions-create-storage-blob-triggered-function.md
-        - name: Azure Cosmos DB
-          href: functions-create-cosmos-db-triggered-function.md
-        - name: Timer
-          href: functions-create-scheduled-function.md
-        - name: Allmän webhook
-          href: functions-create-generic-webhook-triggered-function.md
-        - name: GitHub-webhook
-          href: functions-create-github-webhook-triggered-function.md
-        - name: Queue Storage
-          href: functions-create-storage-queue-triggered-function.md
-    - name: Integrera
-      items:
-        - name: Storage
-          href: functions-integrate-storage-queue-output-binding.md
-        - name: Azure Cosmos DB
-          href: functions-integrate-store-unstructured-data-cosmosdb.md
+  - name: 'Skapa funktion: portal'
+    href: functions-create-first-azure-function.md
+  - name: Skapa funktion – Visual Studio
+    href: functions-create-your-first-function-visual-studio.md
+  - name: Skapa funktion – Java/Maven
+    href: functions-create-first-java-maven.md
+  - name: 'Skapa funktion: Azure CLI'
+    href: functions-create-first-azure-function-azure-cli.md
+  - name: Skapa funktion – Linux
+    href: functions-create-first-azure-function-azure-cli-linux.md
+  - name: Utlösare
+    items:
+    - name: Blob Storage
+      href: functions-create-storage-blob-triggered-function.md
+    - name: Azure Cosmos DB
+      href: functions-create-cosmos-db-triggered-function.md
+    - name: Timer
+      href: functions-create-scheduled-function.md
+    - name: Allmän webhook
+      href: functions-create-generic-webhook-triggered-function.md
+    - name: GitHub-webhook
+      href: functions-create-github-webhook-triggered-function.md
+    - name: Queue Storage
+      href: functions-create-storage-queue-triggered-function.md
+  - name: Integrera
+    items:
+    - name: Storage
+      href: functions-integrate-storage-queue-output-binding.md
+    - name: Azure Cosmos DB
+      href: functions-integrate-store-unstructured-data-cosmosdb.md
+  expanded: true
 - name: Självstudier
   items:
-    - name: Funktioner med Logic Apps
-      href: functions-twitter-email.md
-    - name: Skapa ett serverlöst API
-      href: functions-create-serverless-api.md
-    - name: Skapa en OpenAPI-definition
-      href: functions-openapi-definition.md
-    - name: Ändra storlek på avbildning med Event Grid
-      href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: Skapa en webbapp utan server
-      href: 'https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database'
-    - name: Funktioner på Linux
-      items:
-        - name: Anpassad avbildning
-          href: functions-create-function-linux-custom-image.md
-        - name: IoT Edge-enhet
-          href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
+  - name: Funktioner med Logic Apps
+    href: functions-twitter-email.md
+  - name: Skapa ett serverlöst API
+    href: functions-create-serverless-api.md
+  - name: Skapa en OpenAPI-definition
+    href: functions-openapi-definition.md
+  - name: Ändra storlek på avbildning med Event Grid
+    href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
+  - name: Skapa en webbapp utan server
+    href: https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database
+  - name: Funktioner på Linux
+    items:
+    - name: Anpassad avbildning
+      href: functions-create-function-linux-custom-image.md
+    - name: IoT Edge-enhet
+      href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Exempel
   items:
-    - name: Kodexempel
-      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=functions'
-    - name: Azure CLI
-      href: functions-cli-samples.md
+  - name: Kodexempel
+    href: https://azure.microsoft.com/en-us/resources/samples/?service=functions
+  - name: Azure CLI
+    href: functions-cli-samples.md
+  - name: Azure Functions-recept
+    href: https://docs.microsoft.com/sandbox/functions-recipes/
 - name: Begrepp
   items:
-    - name: Jämföra 1.x och 2.x
-      href: functions-versions.md
-    - name: Skalning och värdtjänster
-      href: functions-scale.md
-    - name: Utlösare och bindningar
-      href: functions-triggers-bindings.md
-    - name: Språk
-      items:
-        - name: Språk som stöds
-          href: supported-languages.md
-        - name: 'C# (klassbibliotek)'
-          href: functions-dotnet-class-library.md
-        - name: 'C#-skript (.csx)'
-          href: functions-reference-csharp.md
-        - name: 'F#'
-          href: functions-reference-fsharp.md
-        - name: JavaScript
-          href: functions-reference-node.md
-        - name: Java
-          href: functions-reference-java.md
+  - name: Jämföra 1.x och 2.x
+    href: functions-versions.md
+  - name: Skalning och värdtjänster
+    href: functions-scale.md
+  - name: Utlösare och bindningar
+    href: functions-triggers-bindings.md
+  - name: Språk
+    items:
+    - name: Språk som stöds
+      href: supported-languages.md
+    - name: C# (klassbibliotek)
+      href: functions-dotnet-class-library.md
+    - name: C#-skript (.csx)
+      href: functions-reference-csharp.md
+    - name: F#
+      href: functions-reference-fsharp.md
+    - name: JavaScript
+      href: functions-reference-node.md
+    - name: Java
+      href: functions-reference-java.md
+  - name: Diagnostik
+    href: ../app-service/app-service-diagnostics.md
+  - name: Saker att tänka på gällande prestanda
+    href: functions-best-practices.md
+  - name: Functions-proxyservrar
+    href: functions-proxies.md
+  - name: IP-adresser
+    href: ip-addresses.md
+  - name: Lokala funktioner
+    href: functions-runtime-overview.md
+  - name: Bestående funktioner
+    items:
+    - name: Översikt
+      href: durable-functions-overview.md
+    - name: Funktionstyper och funktioner
+      href: durable-functions-types-features-overview.md
+    - name: Bindningar
+      href: durable-functions-bindings.md
+    - name: Kontrollpunkt och återuppspelning
+      href: durable-functions-checkpointing-and-replay.md
+    - name: Anpassad orkestreringsstatus
+      href: durable-functions-custom-orchestration-status.md
+    - name: Instanshantering
+      href: durable-functions-instance-management.md
+    - name: HTTP-API
+      href: durable-functions-http-api.md
+    - name: Felhantering
+      href: durable-functions-error-handling.md
     - name: Diagnostik
-      href: ../app-service/app-service-diagnostics.md
-    - name: Saker att tänka på gällande prestanda
-      href: functions-best-practices.md
-    - name: Functions-proxyservrar
-      href: functions-proxies.md
-    - name: IP-adresser
-      href: ip-addresses.md
-    - name: Lokala funktioner
-      href: functions-runtime-overview.md
-    - name: Bestående funktioner
-      items:
-        - name: Översikt
-          href: durable-functions-overview.md
-        - name: Funktionstyper och funktioner
-          href: durable-functions-types-features-overview.md
-        - name: Bindningar
-          href: durable-functions-bindings.md
-        - name: Kontrollpunkt och återuppspelning
-          href: durable-functions-checkpointing-and-replay.md
-        - name: Anpassad orkestreringsstatus
-          href: durable-functions-custom-orchestration-status.md
-        - name: Instanshantering
-          href: durable-functions-instance-management.md
-        - name: HTTP-API
-          href: durable-functions-http-api.md
-        - name: Felhantering
-          href: durable-functions-error-handling.md
-        - name: Diagnostik
-          href: durable-functions-diagnostics.md
-        - name: Timers
-          href: durable-functions-timers.md
-        - name: Externa händelser
-          href: durable-functions-external-events.md
-        - name: Eternal-orkestreringar
-          href: durable-functions-eternal-orchestrations.md
-        - name: Singleton-orkestreringar
-          href: durable-functions-singletons.md
-        - name: Sub-orkestreringar
-          href: durable-functions-sub-orchestrations.md
-        - name: Uppgiftshubbar
-          href: durable-functions-task-hubs.md
-        - name: Versionshantering
-          href: durable-functions-versioning.md
-        - name: Prestanda och skalning
-          href: durable-functions-perf-and-scale.md
-        - name: Haveriberedskap och geo-replikering
-          href: durable-functions-disaster-recovery-geo-distribution.md
+      href: durable-functions-diagnostics.md
+    - name: Timers
+      href: durable-functions-timers.md
+    - name: Externa händelser
+      href: durable-functions-external-events.md
+    - name: Eternal-orkestreringar
+      href: durable-functions-eternal-orchestrations.md
+    - name: Singleton-orkestreringar
+      href: durable-functions-singletons.md
+    - name: Sub-orkestreringar
+      href: durable-functions-sub-orchestrations.md
+    - name: Uppgiftshubbar
+      href: durable-functions-task-hubs.md
+    - name: Versionshantering
+      href: durable-functions-versioning.md
+    - name: Prestanda och skalning
+      href: durable-functions-perf-and-scale.md
+    - name: Haveriberedskap och geo-replikering
+      href: durable-functions-disaster-recovery-geo-distribution.md
 - name: Instruktionsguider
   items:
-    - name: Utveckla
-      items:
-        - name: Utvecklarguide
-          href: functions-reference.md
-        - name: Testa funktioner
-          href: functions-test-a-function.md
-        - name: Utveckla och felsöka lokalt
-          href: functions-develop-local.md
-        - name: Visual Studio-utveckling
-          href: functions-develop-vs.md
-        - name: Utvecklingsverktyg
-          href: functions-run-local.md
-        - name: IntelliJ IDEA-utveckling
-          href: functions-create-maven-intellij.md
-        - name: Eclipse-utveckling
-          href: functions-create-maven-eclipse.md
-        - name: Hantera anslutningar
-          href: manage-connections.md
-        - name: Felhantering
-          href: functions-bindings-error-pages.md
-    - name: Distribuera
-      items:
-        - name: Kontinuerlig distribution
-          href: functions-continuous-deployment.md
-        - name: Zippa push-distribution
-          href: deployment-zip-push.md
-        - name: Automatisera resursdistribution
-          href: functions-infrastructure-as-code.md
-        - name: Lokala funktioner
-          href: functions-runtime-install.md
-    - name: Konfigurera
-      items:
-        - name: Hantera en funktionsapp
-          href: functions-how-to-use-azure-function-app-settings.md
-        - name: Ange körningsversion
-          href: set-runtime-version.md
-        - name: Inaktivera en funktion
-          href: disable-function.md
-    - name: Övervaka
-      href: functions-monitoring.md
-    - name: Integrera
-      items:
-        - name: Ansluta SQL Database
-          href: functions-scenario-database-table-cleanup.md
-        - name: Skapa en definition för Open API 2.0
-          href: functions-api-definition-getting-started.md
-        - name: Exportera till PowerApps och Microsoft Flow
-          href: app-service-export-api-to-powerapps-and-flow.md
-        - name: Anropa en funktion från PowerApps
-          href: functions-powerapps-scenario.md
-        - name: Anropa en funktion från Microsoft Flow
-          href: functions-flow-scenario.md
-        - name: Använd en hanterad tjänstidentitet
-          href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: Bestående funktioner
-      items:
-        - name: Installera
-          href: durable-functions-install.md
-        - name: Länkning
-          href: durable-functions-sequence.md
-        - name: Förgrening
-          href: durable-functions-cloud-backup.md
-        - name: Övervakare
-          href: durable-functions-monitor.md
-        - name: Mänsklig interaktion
-          href: durable-functions-phone-verification.md
-        - name: Enhetstestning
-          href: durable-functions-unit-testing.md
-        - name: Publicering av händelser
-          href: durable-functions-event-publishing.md
-        - name: Använd WebJobs-SDK
-          href: durable-functions-webjobs-sdk.md
+  - name: Utveckla
+    items:
+    - name: Utvecklarguide
+      href: functions-reference.md
+    - name: Testa funktioner
+      href: functions-test-a-function.md
+    - name: Utveckla och felsöka lokalt
+      href: functions-develop-local.md
+    - name: Visual Studio-utveckling
+      href: functions-develop-vs.md
+    - name: Utvecklingsverktyg
+      href: functions-run-local.md
+    - name: IntelliJ IDEA-utveckling
+      href: functions-create-maven-intellij.md
+    - name: Eclipse-utveckling
+      href: functions-create-maven-eclipse.md
+    - name: Hantera anslutningar
+      href: manage-connections.md
+    - name: Felhantering
+      href: functions-bindings-error-pages.md
+  - name: Distribuera
+    items:
+    - name: Kontinuerlig distribution
+      href: functions-continuous-deployment.md
+    - name: Zippa push-distribution
+      href: deployment-zip-push.md
+    - name: Automatisera resursdistribution
+      href: functions-infrastructure-as-code.md
+    - name: Lokala funktioner
+      href: functions-runtime-install.md
+  - name: Konfigurera
+    items:
+    - name: Hantera en funktionsapp
+      href: functions-how-to-use-azure-function-app-settings.md
+    - name: Ange körningsversion
+      href: set-runtime-version.md
+    - name: Inaktivera en funktion
+      href: disable-function.md
+  - name: Övervaka
+    href: functions-monitoring.md
+  - name: Integrera
+    items:
+    - name: Ansluta SQL Database
+      href: functions-scenario-database-table-cleanup.md
+    - name: Skapa en definition för Open API 2.0
+      href: functions-api-definition-getting-started.md
+    - name: Exportera till PowerApps och Microsoft Flow
+      href: app-service-export-api-to-powerapps-and-flow.md
+    - name: Anropa en funktion från PowerApps
+      href: functions-powerapps-scenario.md
+    - name: Anropa en funktion från Microsoft Flow
+      href: functions-flow-scenario.md
+    - name: Använd en hanterad tjänstidentitet
+      href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
+  - name: Bestående funktioner
+    items:
+    - name: Installera
+      href: durable-functions-install.md
+    - name: Länkning
+      href: durable-functions-sequence.md
+    - name: Förgrening
+      href: durable-functions-cloud-backup.md
+    - name: Övervakare
+      href: durable-functions-monitor.md
+    - name: Mänsklig interaktion
+      href: durable-functions-phone-verification.md
+    - name: Enhetstestning
+      href: durable-functions-unit-testing.md
+    - name: Publicering av händelser
+      href: durable-functions-event-publishing.md
+    - name: Använd WebJobs-SDK
+      href: durable-functions-webjobs-sdk.md
 - name: Referens
   items:
-    - name: Bindningar
+  - name: Bindningar
+    items:
+    - name: Blob Storage
+      href: functions-bindings-storage-blob.md
+    - name: Azure Cosmos DB
       items:
-        - name: Blob Storage
-          href: functions-bindings-storage-blob.md
-        - name: Azure Cosmos DB
-          items:
-            - name: Functions 1.x
-              href: functions-bindings-cosmosdb.md
-            - name: Functions 2.x
-              href: functions-bindings-cosmosdb-v2.md
-        - name: Event Grid
-          href: functions-bindings-event-grid.md
-        - name: Event Hubs
-          href: functions-bindings-event-hubs.md
-        - name: Extern fil
-          href: functions-bindings-external-file.md
-        - name: Extern tabell
-          href: functions-bindings-external-table.md
-        - name: HTTP och webhooks
-          href: functions-bindings-http-webhook.md
-        - name: Microsoft Graph
-          href: functions-bindings-microsoft-graph.md
-        - name: Mobile Apps
-          href: functions-bindings-mobile-apps.md
-        - name: Notification Hubs
-          href: functions-bindings-notification-hubs.md
-        - name: Queue Storage
-          href: functions-bindings-storage-queue.md
-        - name: SendGrid
-          href: functions-bindings-sendgrid.md
-        - name: Service Bus
-          href: functions-bindings-service-bus.md
-        - name: Table Storage
-          href: functions-bindings-storage-table.md
-        - name: Timer
-          href: functions-bindings-timer.md
-        - name: Twilio
-          href: functions-bindings-twilio.md
-    - name: Referens för host.json
-      href: functions-host-json.md
-    - name: Referens för appinställningar
-      href: functions-app-settings.md
-    - name: Referens för OpenAPI
-      href: functions-api-definition.md
+      - name: Functions 1.x
+        href: functions-bindings-cosmosdb.md
+      - name: Functions 2.x
+        href: functions-bindings-cosmosdb-v2.md
+    - name: Event Grid
+      href: functions-bindings-event-grid.md
+    - name: Event Hubs
+      href: functions-bindings-event-hubs.md
+    - name: Extern fil
+      href: functions-bindings-external-file.md
+    - name: Extern tabell
+      href: functions-bindings-external-table.md
+    - name: HTTP och webhooks
+      href: functions-bindings-http-webhook.md
+    - name: Microsoft Graph
+      href: functions-bindings-microsoft-graph.md
+    - name: Mobile Apps
+      href: functions-bindings-mobile-apps.md
+    - name: Notification Hubs
+      href: functions-bindings-notification-hubs.md
+    - name: Queue Storage
+      href: functions-bindings-storage-queue.md
+    - name: SendGrid
+      href: functions-bindings-sendgrid.md
+    - name: Service Bus
+      href: functions-bindings-service-bus.md
+    - name: Table Storage
+      href: functions-bindings-storage-table.md
+    - name: Timer
+      href: functions-bindings-timer.md
+    - name: Twilio
+      href: functions-bindings-twilio.md
+  - name: Referens för host.json
+    href: functions-host-json.md
+  - name: Referens för appinställningar
+    href: functions-app-settings.md
+  - name: Referens för OpenAPI
+    href: functions-api-definition.md
 - name: Resurser
   items:
-    - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/?category=compute'
-    - name: Prissättning
-      href: 'https://azure.microsoft.com/pricing/details/functions/'
-    - name: Priskalkylator
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Regional tillgänglighet
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: Videoklipp
-      href: 'https://www.youtube.com/c/AzureFunctions'
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-functions'
-    - name: Twitter
-      href: 'https://twitter.com/azurefunctions'
-    - name: Azure Functions GitHub-lagringsplats
-      href: 'https://github.com/Azure/Azure-Functions/'
-    - name: Tjänstuppdateringar
-      href: 'https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform='
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/?category=compute
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/functions/
+  - name: Priskalkylator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Regional tillgänglighet
+    href: https://azure.microsoft.com/regions/services/
+  - name: Videoklipp
+    href: https://www.youtube.com/c/AzureFunctions
+  - name: MSDN-forum
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-functions
+  - name: Twitter
+    href: https://twitter.com/azurefunctions
+  - name: Azure Functions GitHub-lagringsplats
+    href: https://github.com/Azure/Azure-Functions/
+  - name: Tjänstuppdateringar
+    href: https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=
+ms.openlocfilehash: 3eb52c481185c50d935991b5163d130925bd6eeb
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41928061"

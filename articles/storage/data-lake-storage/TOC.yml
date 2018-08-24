@@ -1,76 +1,83 @@
+items:
 - name: Azure Storage-dokumentation
   href: /azure/storage/
 - name: Växla till dokumentation om Data Lake Storage Gen1
   href: /azure/data-lake-store/
 - name: Översikt
   items:
-    - name: Introduktion
-      href: introduction.md
+  - name: Introduktion
+    href: introduction.md
 - name: Snabbstarter
   items:
-    - name: Skapa ett Data Lake Storage Gen2-kompatibelt Storage-konto
-      href: quickstart-create-account.md
-    - name: Skapa/ansluta Databricks-konto
-      href: quickstart-create-databricks-account.md
-    - name: Skapa ett HDInsight-kluster
-      href: quickstart-create-connect-hdi-cluster.md
+  - name: Skapa ett Data Lake Storage Gen2-kompatibelt Storage-konto
+    href: quickstart-create-account.md
+  - name: Skapa/ansluta Databricks-konto
+    href: quickstart-create-databricks-account.md
+  - name: Skapa ett HDInsight-kluster
+    href: quickstart-create-connect-hdi-cluster.md
 - name: Självstudier
   items:
-    - name: 'Extrahera, transformera och läsa in data med Azure Databricks'
-      href: handle-data-using-databricks.md
-    - name: Få åtkomst till Data Lake Storage-data med DataBricks med hjälp av Spark
-      href: using-databricks-spark.md
-    - name: 'Extrahera, transformera och läsa in data med Apache Hive på Azure HDInsight'
-      href: tutorial-extract-transform-load-hive.md
+  - name: Extrahera, transformera och läsa in data med Azure Databricks
+    href: handle-data-using-databricks.md
+  - name: Få åtkomst till Data Lake Storage-data med Databricks med hjälp av Spark
+    href: using-databricks-spark.md
+  - name: Extrahera, transformera och läsa in data med Apache Hive på Azure HDInsight
+    href: tutorial-extract-transform-load-hive.md
 - name: Begrepp
   items:
-    - name: Drivrutin för Azure Blob-filsystemet för Hadoop
-      href: abfs-driver.md
-    - name: Introduktion till URI för Azure Blob-filsystemet
-      href: introduction-abfs-uri.md
-    - name: Den hierarkiska namnområdestjänsten
-      href: namespace.md
-    - name: Säkerhet
-      items:
-        - name: Kryptering för vilande data
-          href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
-        - name: Kryptering för vilande data med kundnycklar
-          href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
-    - name: Utvärdering av Data Lake Storage Gen2
-      href: evaluation.md
+  - name: Drivrutin för Azure Blob-filsystemet för Hadoop
+    href: abfs-driver.md
+  - name: Introduktion till URI för Azure Blob-filsystemet
+    href: introduction-abfs-uri.md
+  - name: Den hierarkiska namnområdestjänsten
+    href: namespace.md
+  - name: Säkerhet
+    items:
+    - name: Kryptering för vilande data
+      href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
+    - name: Kryptering för vilande data med kundnycklar
+      href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
+  - name: Utvärdering av Data Lake Storage Gen2
+    href: evaluation.md
 - name: Instruktionsguider
   items:
-    - name: Använda Data Lake Storage Gen2 med Azure HDInsight-kluster
-      href: use-hdi-cluster.md
-    - name: Använda CLI för Hadoop-filsystemet med Data Lake Storage Gen2
-      href: use-hdfs-data-lake-storage.md
-    - name: Mata in data
-      items:
-        - name: Kopiera data till Data Lake Storage Gen2 med Distcp
-          href: use-distcp.md
-        - name: Kopiera data till Data Lake Storage Gen2 med Azure Data Factory
-          href: ../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
-    - name: Ansluta till Azure Databricks
-      href: 'https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html'
+  - name: Använda Data Lake Storage Gen2 med Azure HDInsight-kluster
+    href: use-hdi-cluster.md
+  - name: Använda CLI för Hadoop-filsystemet med Data Lake Storage Gen2
+    href: use-hdfs-data-lake-storage.md
+  - name: Mata in data
+    items:
+    - name: Kopiera data till Data Lake Storage Gen2 med Distcp
+      href: use-distcp.md
+    - name: Kopiera data till Data Lake Storage Gen2 med Azure Data Factory
+      href: ../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
+  - name: Ansluta till Azure Databricks
+    href: https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html
 - name: Referens
   items:
-    - name: REST
-      href: 'https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2'
+  - name: REST
+    href: https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2
 - name: Resurser
   items:
-    - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/?category=storage'
-    - name: Azure Storage-klientverktyg
-      href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
-    - name: Forum
-      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
-    - name: Prissättning
-      href: 'https://azure.microsoft.com/pricing/details/storage/data-lake/'
-    - name: Priskalkylator
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Tjänstuppdateringar
-      href: 'https://azure.microsoft.com/updates/?product=storage'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/windows-azure-storage'
-    - name: Videoklipp
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/?category=storage
+  - name: Azure Storage-klientverktyg
+    href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
+  - name: Forum
+    href: https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/storage/data-lake/
+  - name: Priskalkylator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Tjänstuppdateringar
+    href: https://azure.microsoft.com/updates/?product=storage
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/windows-azure-storage
+  - name: Videoklipp
+    href: https://azure.microsoft.com/documentation/videos/index/?services=storage
+ms.openlocfilehash: 2e640bee7739169b65352d7da6aedf2185c2aa99
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41927379"

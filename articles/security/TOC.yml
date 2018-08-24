@@ -1,251 +1,258 @@
+items:
 - name: Dokumentation om Azure-säkerhet
   href: index.md
 - name: Arkitektur och design
   href: azure-security.md
-  expanded: false
   items:
-    - name: Avancerad hotidentifiering
-      href: azure-threat-detection.md
-    - name: Loggning och granskning i Azure
-      href: azure-log-audit.md
-    - name: Azure-nätverkssäkerhet
-      href: abstract-azure-network-security.md
-    - name: Säkerhet för Azure-plattform utan server
-      href: abstract-serverless-platform-security.md
-    - name: Aktivera driftsäkerhet
-      href: azure-operational-security.md
-    - name: Styrning i Azure
-      href: governance-in-azure.md
-    - name: Isolering i Azure-molnet
-      href: azure-isolation.md
-    - name: Skydda hybridnätverksarkitektur
-      href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
-    - name: Tekniska funktioner för säkerhet
-      href: azure-security-technical-capabilities.md
+  - name: Avancerad hotidentifiering
+    href: azure-threat-detection.md
+  - name: Loggning och granskning i Azure
+    href: azure-log-audit.md
+  - name: Azure-nätverkssäkerhet
+    href: abstract-azure-network-security.md
+  - name: Säkerhet för Azure-plattform utan server
+    href: abstract-serverless-platform-security.md
+  - name: Aktivera driftsäkerhet
+    href: azure-operational-security.md
+  - name: Styrning i Azure
+    href: governance-in-azure.md
+  - name: Isolering i Azure-molnet
+    href: azure-isolation.md
+  - name: Skydda hybridnätverksarkitektur
+    href: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Tekniska funktioner för säkerhet
+    href: azure-security-technical-capabilities.md
+  expanded: false
 - name: Datasäkerhet och kryptering
   href: security-azure-encryption-overview.md
   items:
-    - name: Databassäkerhet
-      href: azure-database-security-overview.md
+  - name: Databassäkerhet
+    href: azure-database-security-overview.md
+    items:
+    - name: Bästa praxis
+      href: azure-database-security-best-practices.md
+    - name: Säkerhetskontrollista
+      href: azure-database-security-checklist.md
+  - name: Diskkryptering
+    items:
+    - name: Bästa praxis
+      href: azure-security-data-encryption-best-practices.md
+    - name: Vilande datakryptering
+      href: azure-security-encryption-atrest.md
+    - name: Diskkryptering för virtuella IaaS-datorer
+      href: azure-security-disk-encryption-overview.md
       items:
-        - name: Bästa praxis
-          href: azure-database-security-best-practices.md
-        - name: Säkerhetskontrollista
-          href: azure-database-security-checklist.md
-    - name: Diskkryptering
-      items:
-        - name: Bästa praxis
-          href: azure-security-data-encryption-best-practices.md
-        - name: Vilande datakryptering
-          href: azure-security-encryption-atrest.md
-        - name: Diskkryptering för virtuella IaaS-datorer
-          href: azure-security-disk-encryption-overview.md
-          items:
-            - name: Krav för diskkryptering
-              href: azure-security-disk-encryption-prerequisites.md
-            - name: Diskkryptering för virtuella Windows-datorer
-              href: azure-security-disk-encryption-windows.md
-            - name: Diskkryptering för virtuella Linux-datorer
-              href: azure-security-disk-encryption-linux.md
-            - name: Bilaga för diskkryptering
-              href: azure-security-disk-encryption-appendix.md
-            - name: Vanliga frågor och svar om diskkryptering
-              href: azure-security-disk-encryption-faq.md
-            - name: Felsökning
-              href: azure-security-disk-encryption-tsg.md
-        - name: Kryptera en virtuell Azure-dator
-          href: ../security-center/security-center-disk-encryption.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
-    - name: Azure Storage-säkerhet
-      href: security-storage-overview.md
-    - name: Lagringssäkerhetsguide
-      href: ../storage/common/storage-security-guide.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+      - name: Krav för diskkryptering
+        href: azure-security-disk-encryption-prerequisites.md
+      - name: Diskkryptering för virtuella Windows-datorer
+        href: azure-security-disk-encryption-windows.md
+      - name: Diskkryptering för virtuella Linux-datorer
+        href: azure-security-disk-encryption-linux.md
+      - name: Bilaga för diskkryptering
+        href: azure-security-disk-encryption-appendix.md
+      - name: Vanliga frågor och svar om diskkryptering
+        href: azure-security-disk-encryption-faq.md
+      - name: Felsökning
+        href: azure-security-disk-encryption-tsg.md
+    - name: Kryptera en virtuell Azure-dator
+      href: ../security-center/security-center-disk-encryption.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Azure Storage-säkerhet
+    href: security-storage-overview.md
+  - name: Lagringssäkerhetsguide
+    href: ../storage/common/storage-security-guide.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: Plattform och infrastruktur
   items:
-    - name: Säkerhet för infrastruktur
-      href: azure-security-infrastructure.md
-      items:
-        - name: Fysisk säkerhet
-          href: azure-physical-security.md
-        - name: Tillgänglighet
-          href: azure-infrastructure-availability.md
-        - name: Komponenter och gränser
-          href: azure-infrastructure-components.md
-        - name: Nätverksarkitektur
-          href: azure-infrastructure-network.md
-        - name: Produktionsnätverk
-          href: azure-production-network.md
-        - name: SQL Database
-          href: azure-infrastructure-sql.md
-        - name: Åtgärder
-          href: azure-infrastructure-operations.md
-        - name: Övervakning
-          href: azure-infrastructure-monitoring.md
-        - name: Integritet
-          href: azure-infrastructure-integrity.md
-        - name: Dataskydd
-          href: azure-protection-of-customer-data.md
-    - name: Microsoft-programvara mot skadlig kod
-      href: azure-security-antimalware.md
-    - name: IaaS-säkerhet
-      href: security-virtual-machines-overview.md
-      items:
-        - name: Metodtips – IaaS-arbetsbelastningar
-          href: azure-security-iaas.md
-        - name: Azure Marketplace-avbildningar
-          href: security-recommendations-azure-marketplace-images.md
-    - name: Identitetshantering
-      href: security-identity-management-overview.md
-      items:
-        - name: Välj Azure AD-autentisering
-          href: azure-ad-choose-authn.md
-        - name: Säkerhetskontrollista
-          href: azure-ad-secure-steps.md
-        - name: Bästa praxis
-          href: azure-security-identity-management-best-practices.md
-        - name: Använda MFA på prenumerationsadministratörer
-          href: azure-security-global-admin.md
-    - name: Nätverkssäkerhet
-      href: security-network-overview.md
-      items:
-        - name: Bästa praxis
-          href: azure-security-network-security-best-practices.md
-        - name: DDoS Protection
-          href: azure-ddos-best-practices.md
-        - name: Gränssäkerhet
-          href: ../best-practices-network-security.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Säkerhet för infrastruktur
+    href: azure-security-infrastructure.md
+    items:
+    - name: Fysisk säkerhet
+      href: azure-physical-security.md
+    - name: Tillgänglighet
+      href: azure-infrastructure-availability.md
+    - name: Komponenter och gränser
+      href: azure-infrastructure-components.md
+    - name: Nätverksarkitektur
+      href: azure-infrastructure-network.md
+    - name: Produktionsnätverk
+      href: azure-production-network.md
+    - name: SQL Database
+      href: azure-infrastructure-sql.md
+    - name: Åtgärder
+      href: azure-infrastructure-operations.md
+    - name: Övervakning
+      href: azure-infrastructure-monitoring.md
+    - name: Integritet
+      href: azure-infrastructure-integrity.md
+    - name: Dataskydd
+      href: azure-protection-of-customer-data.md
+  - name: Microsoft-programvara mot skadlig kod
+    href: azure-security-antimalware.md
+  - name: IaaS-säkerhet
+    href: security-virtual-machines-overview.md
+    items:
+    - name: Metodtips – IaaS-arbetsbelastningar
+      href: azure-security-iaas.md
+    - name: Azure Marketplace-avbildningar
+      href: security-recommendations-azure-marketplace-images.md
+  - name: Identitetshantering
+    href: security-identity-management-overview.md
+    items:
+    - name: Välj Azure AD-autentisering
+      href: azure-ad-choose-authn.md
+    - name: Säkerhetskontrollista
+      href: azure-ad-secure-steps.md
+    - name: Bästa praxis
+      href: azure-security-identity-management-best-practices.md
+    - name: Använda MFA på prenumerationsadministratörer
+      href: azure-security-global-admin.md
+  - name: Nätverkssäkerhet
+    href: security-network-overview.md
+    items:
+    - name: Bästa praxis
+      href: azure-security-network-security-best-practices.md
+    - name: DDoS Protection
+      href: azure-ddos-best-practices.md
+    - name: Gränssäkerhet
+      href: ../best-practices-network-security.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: Program
   items:
-    - name: PaaS
-      href: security-paas-deployments.md
-      items:
-        - name: Azure App Service för PaaS
-          href: security-paas-applications-using-app-services.md
-        - name: Azure Storage för PaaS
-          href: security-paas-applications-using-storage.md
-        - name: DB-metodtips för PaaS
-          href: security-paas-applications-using-sql.md
-    - name: IoT
-      href: security-internet-of-things-overview.md
-      items:
-        - name: Metodtips för IoT-säkerhet
-          href: ../iot-accelerators/iot-security-best-practices.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
-        - name: IoT-säkerhet
-          href: '../iot-accelerators/iot-security-architecture.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json#security-in-iot'
-        - name: Skydda distributionen av IoT
-          href: ../iot-accelerators/iot-accelerators-security-deployment.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
-    - name: Azure Service Fabric-säkerhet
-      href: azure-service-fabric-security-overview.md
-      items:
-        - name: Bästa praxis
-          href: azure-service-fabric-security-best-practices.md
-        - name: Säkerhetskontrollista
-          href: azure-service-fabric-security-checklist.md
-- name: 'Övervakning, granskning och åtgärder'
+  - name: PaaS
+    href: security-paas-deployments.md
+    items:
+    - name: Azure App Service för PaaS
+      href: security-paas-applications-using-app-services.md
+    - name: Azure Storage för PaaS
+      href: security-paas-applications-using-storage.md
+    - name: DB-metodtips för PaaS
+      href: security-paas-applications-using-sql.md
+  - name: IoT
+    href: security-internet-of-things-overview.md
+    items:
+    - name: Metodtips för IoT-säkerhet
+      href: ../iot-accelerators/iot-security-best-practices.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: IoT-säkerhet
+      href: ../iot-accelerators/iot-security-architecture.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json#security-in-iot
+    - name: Skydda distributionen av IoT
+      href: ../iot-accelerators/iot-accelerators-security-deployment.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Azure Service Fabric-säkerhet
+    href: azure-service-fabric-security-overview.md
+    items:
+    - name: Bästa praxis
+      href: azure-service-fabric-security-best-practices.md
+    - name: Säkerhetskontrollista
+      href: azure-service-fabric-security-checklist.md
+- name: Övervakning, granskning och åtgärder
   href: security-management-and-monitoring-overview.md
   items:
-    - name: Granskning och loggning
+  - name: Granskning och loggning
+    items:
+    - name: Säkerhetshantering
+      href: ../security-center/security-center-intro.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Säkerhet för fjärrhantering
+      href: azure-security-management.md
+    - name: Azure-loggintegrering
       items:
-        - name: Säkerhetshantering
-          href: ../security-center/security-center-intro.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
-        - name: Säkerhet för fjärrhantering
-          href: azure-security-management.md
-        - name: Azure-loggintegrering
-          items:
-            - name: Introduktion
-              href: security-azure-log-integration-overview.md
-            - name: Kom igång
-              href: security-azure-log-integration-get-started.md
-            - name: Integrera Azure AD-granskningsloggar
-              href: security-azure-log-integration-ad.md
-            - name: Integrera aviseringar i Security Center
-              href: security-azure-log-integration-security-center.md
-            - name: Integrera loggar från Key Vault
-              href: security-azure-log-integration-keyvault-eventhub.md
-            - name: VANLIGA FRÅGOR OCH SVAR
-              href: security-azure-log-integration-faq.md
-    - name: Driftsäkerhet
-      href: azure-operational-security-overview.md
-      items:
-        - name: Bästa praxis
-          href: azure-operational-security-best-practices.md
-        - name: Säkerhetskontrollista
-          href: azure-operational-security-checklist.md
+      - name: Introduktion
+        href: security-azure-log-integration-overview.md
+      - name: Kom igång
+        href: security-azure-log-integration-get-started.md
+      - name: Integrera Azure AD-granskningsloggar
+        href: security-azure-log-integration-ad.md
+      - name: Integrera aviseringar i Security Center
+        href: security-azure-log-integration-security-center.md
+      - name: Integrera loggar från Key Vault
+        href: security-azure-log-integration-keyvault-eventhub.md
+      - name: VANLIGA FRÅGOR OCH SVAR
+        href: security-azure-log-integration-faq.md
+  - name: Driftsäkerhet
+    href: azure-operational-security-overview.md
+    items:
+    - name: Bästa praxis
+      href: azure-operational-security-best-practices.md
+    - name: Säkerhetskontrollista
+      href: azure-operational-security-checklist.md
 - name: Styrning och efterlevnad
   items:
-    - name: FedRAMP
-      items:
-        - name: Datanalys
-          href: ./blueprints/fedramp-analytics-overview.md
-        - name: Informationslager
-          href: ./blueprints/fedramp-datawarehouse-overview.md
-        - name: IaaS-webbprogram
-          href: ./blueprints/fedramp-iaaswa-overview.md
-        - name: PaaS-webbprogram
-          href: ./blueprints/fedramp-paaswa-overview.md
-    - name: FFIEC
-      items:
-        - name: Datanalys
-          href: ./blueprints/ffiec-analytics-overview.md
-        - name: Informationslager
-          href: ./blueprints/ffiec-dw-overview.md
-        - name: IaaS-webbprogram
-          href: ./blueprints/ffiec-iaaswa-overview.md
-        - name: PaaS-webbprogram
-          href: ./blueprints/ffiec-paaswa-overview.md
-    - name: GDPR
-      items:
-        - name: Datanalys
-          href: ./blueprints/gdpr-analytics-overview.md
-        - name: Informationslager
-          href: ./blueprints/gdpr-datawarehouse-overview.md
-        - name: IaaS-webbprogram
-          href: ./blueprints/gdpr-iaaswa-overview.md
-        - name: PaaS-webbprogram
-          href: ./blueprints/gdpr-paaswa-overview.md
-    - name: HIPAA/HITRUST
-      items:
-        - name: Hälsodata och AI
-          href: ./blueprints/azure-health.md
-    - name: NIST SP 800-171
-      items:
-        - name: Datanalys
-          href: ./blueprints/nist171-analytics-overview.md
-        - name: Informationslager
-          href: ./blueprints/nist171-datawarehouse-overview.md
-        - name: IaaS-webbprogram
-          href: ./blueprints/nist171-iaaswa-overview.md
-        - name: PaaS-webbprogram
-          href: ./blueprints/nist171-paaswa-overview.md
-    - name: PCI DSS
-      items:
-        - name: Datanalys
-          href: ./blueprints/pcidss-analytics-overview.md
-        - name: Informationslager
-          href: ./blueprints/pcidss-dw-overview.md
-        - name: IaaS-webbprogram
-          href: ./blueprints/pcidss-iaaswa-overview.md
-        - name: PaaS-webbprogram
-          href: ./blueprints/pcidss-paaswa-overview.md
-    - name: Betrodd Internetanslutning
-      items:
-        - name: Betrodd Internetanslutning med Azure
-          href: ./compliance/compliance-tic.md
-    - name: UK NHS
-      items:
-        - name: Datanalys
-          href: ./blueprints/uknhs-analytics-overview.md
-        - name: Informationslager
-          href: ./blueprints/uknhs-datawarehouse-overview.md
-        - name: IaaS-webbprogram
-          href: ./blueprints/uknhs-iaaswa-overview.md
-        - name: PaaS-webbprogram
-          href: ./blueprints/uknhs-paaswa-overview.md
-    - name: OFFICIELLT FÖR STORBRITANNIEN
-      items:
-        - name: IaaS-webbprogram
-          href: ./blueprints/ukofficial-iaaswa-overview.md
-        - name: PaaS-webbprogram
-          href: ./blueprints/ukofficial-paaswa-overview.md
+  - name: AU-SKYDDAD
+    items:
+    - name: IaaS-webbprogram
+      href: ./blueprints/au-protected-iaaswa-overview.md
+    - name: PaaS-webbprogram
+      href: ./blueprints/au-protected-paaswa-overview.md
+  - name: FedRAMP
+    items:
+    - name: Datanalys
+      href: ./blueprints/fedramp-analytics-overview.md
+    - name: Informationslager
+      href: ./blueprints/fedramp-datawarehouse-overview.md
+    - name: IaaS-webbprogram
+      href: ./blueprints/fedramp-iaaswa-overview.md
+    - name: PaaS-webbprogram
+      href: ./blueprints/fedramp-paaswa-overview.md
+  - name: FFIEC
+    items:
+    - name: Datanalys
+      href: ./blueprints/ffiec-analytics-overview.md
+    - name: Informationslager
+      href: ./blueprints/ffiec-dw-overview.md
+    - name: IaaS-webbprogram
+      href: ./blueprints/ffiec-iaaswa-overview.md
+    - name: PaaS-webbprogram
+      href: ./blueprints/ffiec-paaswa-overview.md
+  - name: GDPR
+    items:
+    - name: Datanalys
+      href: ./blueprints/gdpr-analytics-overview.md
+    - name: Informationslager
+      href: ./blueprints/gdpr-datawarehouse-overview.md
+    - name: IaaS-webbprogram
+      href: ./blueprints/gdpr-iaaswa-overview.md
+    - name: PaaS-webbprogram
+      href: ./blueprints/gdpr-paaswa-overview.md
+  - name: HIPAA/HITRUST
+    items:
+    - name: Hälsodata och AI
+      href: ./blueprints/azure-health.md
+  - name: NIST SP 800-171
+    items:
+    - name: Datanalys
+      href: ./blueprints/nist171-analytics-overview.md
+    - name: Informationslager
+      href: ./blueprints/nist171-datawarehouse-overview.md
+    - name: IaaS-webbprogram
+      href: ./blueprints/nist171-iaaswa-overview.md
+    - name: PaaS-webbprogram
+      href: ./blueprints/nist171-paaswa-overview.md
+  - name: PCI DSS
+    items:
+    - name: Datanalys
+      href: ./blueprints/pcidss-analytics-overview.md
+    - name: Informationslager
+      href: ./blueprints/pcidss-dw-overview.md
+    - name: IaaS-webbprogram
+      href: ./blueprints/pcidss-iaaswa-overview.md
+    - name: PaaS-webbprogram
+      href: ./blueprints/pcidss-paaswa-overview.md
+  - name: Betrodd Internetanslutning
+    items:
+    - name: Betrodd Internetanslutning med Azure
+      href: ./compliance/compliance-tic.md
+  - name: UK NHS
+    items:
+    - name: Datanalys
+      href: ./blueprints/uknhs-analytics-overview.md
+    - name: Informationslager
+      href: ./blueprints/uknhs-datawarehouse-overview.md
+    - name: IaaS-webbprogram
+      href: ./blueprints/uknhs-iaaswa-overview.md
+    - name: PaaS-webbprogram
+      href: ./blueprints/uknhs-paaswa-overview.md
+  - name: OFFICIELLT FÖR STORBRITANNIEN
+    items:
+    - name: IaaS-webbprogram
+      href: ./blueprints/ukofficial-iaaswa-overview.md
+    - name: PaaS-webbprogram
+      href: ./blueprints/ukofficial-paaswa-overview.md
 - name: White paper-faktablad
   href: security-white-papers.md
 - name: Säkerhetstjänster i Azure
@@ -256,43 +263,49 @@
   href: security-best-practices-and-patterns.md
 - name: Resurser
   items:
-    - name: Azure-säkerhet MVP-program
-      href: azure-security-mvp.md
-    - name: Cybersäkerhetsrådgivning
-      href: azure-security-cyber-services.md
-    - name: Logga ett supportärende för en säkerhetshändelse
-      href: azure-security-event-support-ticket.md
-    - name: Penntestning
-      href: azure-security-pen-testing.md
-    - name: Microsoft Threat Modeling Tool
-      href: azure-security-threat-modeling-tool.md
+  - name: Azure-säkerhet MVP-program
+    href: azure-security-mvp.md
+  - name: Cybersäkerhetsrådgivning
+    href: azure-security-cyber-services.md
+  - name: Logga ett supportärende för en säkerhetshändelse
+    href: azure-security-event-support-ticket.md
+  - name: Penntestning
+    href: azure-security-pen-testing.md
+  - name: Microsoft Threat Modeling Tool
+    href: azure-security-threat-modeling-tool.md
+    items:
+    - name: Komma igång
+      href: azure-security-threat-modeling-tool-getting-started.md
+    - name: Översikt över funktioner
+      href: azure-security-threat-modeling-tool-feature-overview.md
+    - name: Hot
+      href: azure-security-threat-modeling-tool-threats.md
+    - name: Åtgärder
+      href: azure-security-threat-modeling-tool-mitigations.md
       items:
-        - name: Komma igång
-          href: azure-security-threat-modeling-tool-getting-started.md
-        - name: Översikt över funktioner
-          href: azure-security-threat-modeling-tool-feature-overview.md
-        - name: Hot
-          href: azure-security-threat-modeling-tool-threats.md
-        - name: Åtgärder
-          href: azure-security-threat-modeling-tool-mitigations.md
-          items:
-            - name: Granskning och loggning
-              href: azure-security-threat-modeling-tool-auditing-and-logging.md
-            - name: Autentisering
-              href: azure-security-threat-modeling-tool-authentication.md
-            - name: Auktorisering
-              href: azure-security-threat-modeling-tool-authorization.md
-            - name: Kommunikationssäkerhet
-              href: azure-security-threat-modeling-tool-communication-security.md
-            - name: Konfigurationshantering
-              href: azure-security-threat-modeling-tool-configuration-management.md
-            - name: Kryptografi
-              href: azure-security-threat-modeling-tool-cryptography.md
-            - name: Hantering av undantag
-              href: azure-security-threat-modeling-tool-exception-management.md
-            - name: Indataverifiering
-              href: azure-security-threat-modeling-tool-input-validation.md
-            - name: Känsliga data
-              href: azure-security-threat-modeling-tool-sensitive-data.md
-            - name: Sessionshantering
-              href: azure-security-threat-modeling-tool-session-management.md
+      - name: Granskning och loggning
+        href: azure-security-threat-modeling-tool-auditing-and-logging.md
+      - name: Autentisering
+        href: azure-security-threat-modeling-tool-authentication.md
+      - name: Auktorisering
+        href: azure-security-threat-modeling-tool-authorization.md
+      - name: Kommunikationssäkerhet
+        href: azure-security-threat-modeling-tool-communication-security.md
+      - name: Konfigurationshantering
+        href: azure-security-threat-modeling-tool-configuration-management.md
+      - name: Kryptografi
+        href: azure-security-threat-modeling-tool-cryptography.md
+      - name: Hantering av undantag
+        href: azure-security-threat-modeling-tool-exception-management.md
+      - name: Indataverifiering
+        href: azure-security-threat-modeling-tool-input-validation.md
+      - name: Känsliga data
+        href: azure-security-threat-modeling-tool-sensitive-data.md
+      - name: Sessionshantering
+        href: azure-security-threat-modeling-tool-session-management.md
+ms.openlocfilehash: 0ec99adbb53dda738eeaa3edb5bd181b8a91c0e7
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41929249"

@@ -1,51 +1,60 @@
+items:
 - name: Dokumentation om Terraform på Azure
   href: index.yml
 - name: Översikt
   items:
-    - name: Om Terraform på Azure
-      href: terraform-overview.md
+  - name: Om Terraform på Azure
+    href: terraform-overview.md
 - name: Snabbstarter
-  expanded: true
   items:
-    - name: Installera och konfigurera Terraform
-      href: /azure/virtual-machines/linux/terraform-install-configure
-      maintainContext: true
-    - name: Skapa en virtuell Linux-dator
-      href: /azure/virtual-machines/linux/terraform-create-complete-vm
-      maintainContext: true
+  - name: Installera och konfigurera Terraform
+    href: /azure/virtual-machines/linux/terraform-install-configure
+    maintainContext: true
+  - name: Skapa en virtuell Linux-dator
+    href: /azure/virtual-machines/linux/terraform-create-complete-vm
+    maintainContext: true
+  expanded: true
 - name: Självstudier
   items:
-    - name: Skapa ett Kubernetes-kluster med AKS och Terraform
-      href: terraform-create-k8s-cluster-with-tf-and-aks.md
-    - name: Distributionsfack för Terraform- och Azure-provider
-      href: terraform-slot-walkthru.md
-    - name: Skapa en virtuell Terraform-dator med MSI aktiverat
-      href: terraform-vm-msi.md
-    - name: Skapa ett VM-kluster med Terraform-moduler
-      href: terraform-create-vm-cluster-module.md
-    - name: Skapa ett VM-kluster med Terraform och HCL
-      href: terraform-create-vm-cluster-with-infrastructure.md
-    - name: Etablera virtuella skalningsuppsättningar med infrastruktur
-      href: terraform-create-vm-scaleset-network-disks-hcl.md
-    - name: Etablera en VM-skalningsuppsättning från en anpassad Packer-avbildning
-      href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+  - name: Skapa ett Kubernetes-kluster med AKS och Terraform
+    href: terraform-create-k8s-cluster-with-tf-and-aks.md
+  - name: Distributionsfack för Terraform- och Azure-provider
+    href: terraform-slot-walkthru.md
+  - name: Skapa en virtuell Terraform-dator med MSI aktiverat
+    href: terraform-vm-msi.md
+  - name: Skapa ett VM-kluster med Terraform-moduler
+    href: terraform-create-vm-cluster-module.md
+  - name: Skapa ett VM-kluster med Terraform och HCL
+    href: terraform-create-vm-cluster-with-infrastructure.md
+  - name: Etablera virtuella skalningsuppsättningar med infrastruktur
+    href: terraform-create-vm-scaleset-network-disks-hcl.md
+  - name: Etablera en VM-skalningsuppsättning från en anpassad Packer-avbildning
+    href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
 - name: Begrepp
   items:
-    - name: Cloud Shell-integrering
-      href: terraform-cloud-shell.md
+  - name: Cloud Shell-integrering
+    href: terraform-cloud-shell.md
 - name: Exempel
   items:
-    - name: Konfigurationsmallar
-      href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'
+  - name: Konfigurationsmallar
+    href: https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples
 - name: Referens
   items:
-    - name: Azure-modulregister
-      href: 'https://registry.terraform.io/modules/Azure'
-    - name: Terraform-referens
-      href: 'http://aka.ms/terraform'
+  - name: Azure-modulregister
+    href: https://registry.terraform.io/modules/Azure
+  - name: Terraform-referens
+    href: http://aka.ms/terraform
+  - name: Azure Terraform VS Code-tillägg
+    href: terraform-vscode-extension.md
 - name: Resurser
   items:
-    - name: Azure och Terraform
-      href: 'https://azure.microsoft.com/solutions/devops/terraform/'
-    - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/'
+  - name: Azure och Terraform
+    href: https://azure.microsoft.com/solutions/devops/terraform/
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/
+ms.openlocfilehash: 349348f2230005831c1ad68eb7f48dfaa8f4b78c
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41929679"

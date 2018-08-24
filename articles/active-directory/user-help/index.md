@@ -10,12 +10,12 @@ ms.component: user-help
 ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 00232a24310b13658fbfa04d2d410e7039c42bfe
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 3ee8834a2ff8b9126fea38b19df115474c36a9e9
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358408"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41927014"
 ---
 # <a name="user-help-for-authentication-apps-and-device-management"></a>Användarhjälp för autentisering, appar och enhetshantering
 
@@ -87,7 +87,6 @@ Det här innehållet är avsett som hjälp att konfigurera och använda säkerhe
                         <h3>Hjälp om Microsoft Authenticator-appen</h3>
                         <p>
                         <a href="/azure/active-directory/user-help/microsoft-authenticator-app-how-to">Komma igång</a><br/>
-                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq">Vanliga frågor och svar om telefoninloggning</a><br/>
                         <a href="/azure/active-directory/user-help/microsoft-authenticator-app-backup-and-recovery">Säkerhetskopiera och återställa kontoautentiseringsuppgifter</a>
                         </p>
                     </div>
@@ -117,8 +116,8 @@ Det här innehållet är avsett som hjälp att konfigurera och använda säkerhe
                     <div class="cardText">
                         <h3>Hjälp om att hantera enheter</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/device-management-azuread-joined-devices-setup">Ansluta mina enheter</a><br/>
-                        <a href="/azure/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup">Registrera mina Windows 10-enheter</a>
+                        <a href="/azure/active-directory/user-help/user-help-join-device-on-network">Ansluta din arbetsenhet</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-register-device-on-network">Registrera din personliga arbetsenhet</a>
                         </p>
                     </div>
                 </div>

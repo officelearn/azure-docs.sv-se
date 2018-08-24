@@ -1,150 +1,159 @@
+items:
 - name: Grunderna i Azure IoT
   href: ../iot-fundamentals/index.yml
 - name: Dokumentation för Azure Maps
   href: index.yml
 - name: Översikt
   items:
-    - name: Vad är Azure Maps?
-      href: about-azure-maps.md
+  - name: Vad är Azure Maps?
+    href: about-azure-maps.md
 - name: Snabbstarter
   items:
-    - name: Skapa en kartapp
-      href: quick-demo-map-app.md
+  - name: Skapa en kartapp
+    href: quick-demo-map-app.md
 - name: Självstudier
   items:
-    - name: 1 – Sök efter orienteringspunkt
-      href: tutorial-search-location.md
-    - name: 2 – Dirigera mot ett mål
-      href: tutorial-route-location.md
-    - name: 3 – Flera vägar efter färdsätt
-      href: tutorial-prioritized-routes.md
+  - name: 1 – Sök efter orienteringspunkt
+    href: tutorial-search-location.md
+  - name: 2 – Dirigera mot ett mål
+    href: tutorial-route-location.md
+  - name: 3 – Flera vägar efter färdsätt
+    href: tutorial-prioritized-routes.md
 - name: Begrepp
   items:
-    - name: Zoomningsnivåer och rutnät
-      href: zoom-levels-and-tile-grid.md
-    - name: Tjänstetäckning
-      items:
-        - name: Geokodning
-          href: geocoding-coverage.md
-        - name: Trafik
-          href: traffic-coverage.md
-        - name: Rendering
-          href: render-coverage.md
-        - name: Routning
-          href: routing-coverage.md
-    - name: Språk som stöds
-      href: supported-languages.md
+  - name: Zoomningsnivåer och rutnät
+    href: zoom-levels-and-tile-grid.md
+  - name: Tjänstetäckning
+    items:
+    - name: Geokodning
+      href: geocoding-coverage.md
+    - name: Trafik
+      href: traffic-coverage.md
+    - name: Rendering
+      href: render-coverage.md
+    - name: Routning
+      href: routing-coverage.md
+  - name: Språk som stöds
+    href: supported-languages.md
 - name: Instruktionsguider
   items:
-    - name: Hantera Maps-konton
-      items:
-        - name: Hantera konton och nycklar
-          href: how-to-manage-account-keys.md
-        - name: Visa användningsstatistik
-          href: how-to-view-api-usage.md
-    - name: 'Hämta mappningsdata från REST API:er'
-      items:
-        - name: Söka efter en adress
-          href: how-to-search-for-address.md
-    - name: Skapa JavaScript-kartor
-      items:
-        - name: Använda kartkontrollen
-          href: how-to-use-map-control.md
-        - name: Skapa en karta
-          href: map-create.md
-        - name: Lägg till en nål
-          href: map-add-pin.md
-        - name: Lägg till ett popup-fönster
-          href: map-add-popup.md
-        - name: Lägg till en form
-          href: map-add-shape.md
-        - name: Lägg till anpassat HTML
-          href: map-add-custom-html.md
-        - name: Visa sökresultat
-          href: map-search-location.md
-        - name: Hämta information från en koordinat
-          href: map-get-information-from-coordinate.md
-        - name: Visa anvisningar från A till B
-          href: map-route.md
-        - name: Visa trafik
-          href: map-show-traffic.md
-        - name: Interagera med mushändelser
-          href: map-events.md
-        - name: Tillgängliga kartprogram
-          href: map-accessibility.md
+  - name: Hantera Maps-konton
+    items:
+    - name: Hantera konton och nycklar
+      href: how-to-manage-account-keys.md
+    - name: Visa användningsstatistik
+      href: how-to-view-api-usage.md
+  - name: Hämta mappningsdata från REST API:er
+    items:
+    - name: Söka efter en adress
+      href: how-to-search-for-address.md
+  - name: Skapa JavaScript-kartor
+    items:
+    - name: Använda kartkontrollen
+      href: how-to-use-map-control.md
+    - name: Skapa en karta
+      href: map-create.md
+    - name: Lägg till en nål
+      href: map-add-pin.md
+    - name: Lägg till ett popup-fönster
+      href: map-add-popup.md
+    - name: Lägg till en form
+      href: map-add-shape.md
+    - name: Lägg till anpassat HTML
+      href: map-add-custom-html.md
+    - name: Visa sökresultat
+      href: map-search-location.md
+    - name: Hämta information från en koordinat
+      href: map-get-information-from-coordinate.md
+    - name: Visa anvisningar från A till B
+      href: map-route.md
+    - name: Visa trafik
+      href: map-show-traffic.md
+    - name: Interagera med mushändelser
+      href: map-events.md
+    - name: Tillgängliga kartprogram
+      href: map-accessibility.md
 - name: Referens
   items:
-    - name: API- och parametertillägg
-      items:
-        - name: Förbrukningsmodell för fordon
-          href: consumption-model.md
-        - name: Utöka GeoJSON-format
-          href: extend-geojson.md
-        - name: Sökkategorier som stöds
-          href: supported-search-categories.md
-    - name: REST
-      items:
-        - name: Geoplatstjänst
-          href: 'https://docs.microsoft.com/rest/api/maps/geolocation'
-        - name: Renderingstjänst
-          href: 'https://docs.microsoft.com/rest/api/maps/render'
-        - name: Routningstjänst
-          href: 'https://docs.microsoft.com/rest/api/maps/route'
-        - name: Söktjänst
-          href: 'https://docs.microsoft.com/rest/api/maps/search'
-        - name: Tidszonstjänst
-          href: 'https://docs.microsoft.com/rest/api/maps/timezone'
-        - name: Trafiktjänst
-          href: 'https://docs.microsoft.com/rest/api/maps/traffic'
-        - name: Kontohantering för Maps
-          href: 'https://docs.microsoft.com/rest/api/maps-management'
-    - name: JavaScript
-      items:
-        - name: Kartkontroll
-          href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
+  - name: API- och parametertillägg
+    items:
+    - name: Förbrukningsmodell för fordon
+      href: consumption-model.md
+    - name: Utöka GeoJSON-format
+      href: extend-geojson.md
+    - name: Sökkategorier som stöds
+      href: supported-search-categories.md
+  - name: REST
+    items:
+    - name: Geoplatstjänst
+      href: https://docs.microsoft.com/rest/api/maps/geolocation
+    - name: Renderingstjänst
+      href: https://docs.microsoft.com/rest/api/maps/render
+    - name: Routningstjänst
+      href: https://docs.microsoft.com/rest/api/maps/route
+    - name: Söktjänst
+      href: https://docs.microsoft.com/rest/api/maps/search
+    - name: Tidszonstjänst
+      href: https://docs.microsoft.com/rest/api/maps/timezone
+    - name: Trafiktjänst
+      href: https://docs.microsoft.com/rest/api/maps/traffic
+    - name: Kontohantering för Maps
+      href: https://docs.microsoft.com/rest/api/maps-management
+  - name: JavaScript
+    items:
+    - name: Kartkontroll
+      href: https://docs.microsoft.com/javascript/api/azure-maps-javascript/
+    - name: Tjänstmodul
+      href: https://docs.microsoft.com/javascript/api/azure-maps-rest/
 - name: Relaterat
   items:
-    - name: Lösningar
-      items:
-        - name: IoT-lösningsacceleratorer
-          href: /azure/iot-suite
-        - name: IoT Central
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
-    - name: Plattformstjänster
-      items:
-        - name: IoT Hub
-          href: /azure/iot-hub
-        - name: IoT Hub Device Provisioning Service
-          href: /azure/iot-dps
-        - name: Kartor
-          href: /azure/azure-maps
-        - name: 'Tjänst-SDK:er'
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: Time Series Insights
-          href: /azure/time-series-insights
-    - name: Edge
-      items:
-        - name: IoT Edge
-          href: /azure/iot-edge
-        - name: 'SDK:er för IoT-enheter'
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+  - name: Lösningar
+    items:
+    - name: IoT-lösningsacceleratorer
+      href: /azure/iot-suite
+    - name: IoT Central
+      href: https://docs.microsoft.com/microsoft-iot-central/
+  - name: Plattformstjänster
+    items:
+    - name: IoT Hub
+      href: /azure/iot-hub
+    - name: IoT Hub Device Provisioning Service
+      href: /azure/iot-dps
+    - name: Kartor
+      href: /azure/azure-maps
+    - name: Tjänst-SDK:er
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+    - name: Time Series Insights
+      href: /azure/time-series-insights
+  - name: Edge
+    items:
+    - name: IoT Edge
+      href: /azure/iot-edge
+    - name: SDK:er för IoT-enheter
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 - name: Resurser
   items:
-    - name: Azure IoT Developer Center
-      href: 'https://azure.microsoft.com/develop/iot/'
-    - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/?category=iot'
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
-    - name: Prissättning
-      href: 'https://azure.microsoft.com/pricing/details/azure-maps'
-    - name: Priskalkylator
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Tjänstuppdateringar
-      href: 'https://azure.microsoft.com/updates'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-maps'
-    - name: Tekniska fallstudier
-      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
-    - name: Videoklipp
-      href: 'https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo'
+  - name: Azure IoT Developer Center
+    href: https://azure.microsoft.com/develop/iot/
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/?category=iot
+  - name: MSDN-forum
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/azure-maps
+  - name: Priskalkylator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Tjänstuppdateringar
+    href: https://azure.microsoft.com/updates
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-maps
+  - name: Tekniska fallstudier
+    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
+  - name: Videoklipp
+    href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
+ms.openlocfilehash: 7099709193e3680d9f177ead4e6b663ed34dee4c
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616228"

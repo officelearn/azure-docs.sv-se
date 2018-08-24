@@ -34,6 +34,7 @@
 ### [Konfigurera ett servernamnalias](analysis-services-server-alias.md)
 ### [Konfigurera utskalning](analysis-services-scale-out.md)
 ### [Installera och konfigurera lokal datagateway](analysis-services-gateway-install.md)
+### [Använda gateway för datakällor på ett virtuellt Azure-nätverk](analysis-services-vnet-gateway.md)
 ### [Hantera en server](analysis-services-manage.md)
 ### [Övervaka servermått](analysis-services-monitor.md)
 ### [Konfigurera diagnostisk loggning](analysis-services-logging.md)

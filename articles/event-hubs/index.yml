@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: cb280602f48504069e5ac5e89a470d154cc855fc
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41927000"
 documentType: LandingData
 title: Dokumentation om Azure Event Hubs
 metadata:
@@ -12,14 +18,8 @@ metadata:
   ms.topic: landing-page
   ms.date: 05/14/2018
   ms.author: sethm
-  ms.openlocfilehash: 84ef019b64bba2d5b581593ae293ea612ecb4bc4
-  ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 07/20/2018
-  ms.locfileid: "39170940"
 abstract:
-  description: Azure Event Hubs är en dataströmningsplattform och händelsebearbetningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Tjänsten stöder HTTPS- och AMQP 1.0-protokoll och Apache Kafka-ekosystemet för händelsepublicering.
+  description: Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med hjälp av valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. <p>Tjänsten stöder protokollen HTTPS, AMQP 1.0 och Apache Kafka 1.0 för publicering av händelser till en händelsehubb. Den stöder Apache Kafka MirrorMaker, Apache Flink och Akka Streams i Apache Kafka-ekosystemen.</p>
   aside:
     image:
       alt: 

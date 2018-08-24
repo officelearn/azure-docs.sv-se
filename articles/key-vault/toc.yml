@@ -1,143 +1,138 @@
+items:
 - name: Dokumentation om Key Vault
   href: index.yml
 - name: Översikt
   items:
-    - name: Om Key Vault
-      href: key-vault-overview.md
+  - name: Om Key Vault
+    href: key-vault-overview.md
 - name: Snabbstarter
   items:
-    - name: Ange och hämta en hemlighet – CLI
-      href: quick-create-cli.md
-    - name: Ange och hämta en hemlighet – PowerShell
-      href: quick-create-powershell.md
-    - name: Ange och hämta en hemlighet – Portal
-      href: quick-create-portal.md
-    - name: Ange och hämta en hemlighet – .NET
-      href: quick-create-net.md
-    - name: Ange och hämta en hemlighet – Node.js
-      href: quick-create-node.md
+  - name: Ange och hämta en hemlighet – CLI
+    href: quick-create-cli.md
+  - name: Ange och hämta en hemlighet – PowerShell
+    href: quick-create-powershell.md
+  - name: Ange och hämta en hemlighet – Portal
+    href: quick-create-portal.md
+  - name: Ange och hämta en hemlighet – .NET
+    href: quick-create-net.md
+  - name: Ange och hämta en hemlighet – Node.js
+    href: quick-create-node.md
 - name: Självstudier
   items:
-    - name: Läsa en hemlighet från Key Vault
-      href: tutorial-web-application-keyvault.md
-    - name: Kom igång med Key Vault
-      href: key-vault-get-started.md
-    - name: Konfigurera nyckelrotation och granskning
-      href: key-vault-key-rotation-log-monitoring.md
-    - name: Använd Key Vault från en webbapp
-      href: key-vault-use-from-web-application.md
+  - name: Läsa en hemlighet från Key Vault
+    href: tutorial-web-application-keyvault.md
+  - name: Konfigurera nyckelrotation och granskning
+    href: key-vault-key-rotation-log-monitoring.md
 - name: Exempel
   items:
-    - name: Kodexempel
-      href: 'https://azure.microsoft.com/resources/samples/?service=key-vault'
+  - name: Kodexempel
+    href: https://azure.microsoft.com/resources/samples/?service=key-vault
 - name: Begrepp
   items:
-    - name: Vad är Key Vault?
-      href: key-vault-whatis.md
-    - name: Säkerhetsvärldar
-      href: key-vault-ovw-security-worlds.md
-    - name: Mjuk borttagning
-      href: key-vault-ovw-soft-delete.md
-    - name: Lagringskontonycklar
-      href: key-vault-ovw-storage-keys.md
-    - name: Begränsning
-      href: key-vault-ovw-throttling.md
+  - name: Vad är Key Vault?
+    href: key-vault-whatis.md
+  - name: Säkerhetsvärldar
+    href: key-vault-ovw-security-worlds.md
+  - name: Mjuk borttagning
+    href: key-vault-ovw-soft-delete.md
+  - name: Lagringskontonycklar
+    href: key-vault-ovw-storage-keys.md
+  - name: Begränsning
+    href: key-vault-ovw-throttling.md
+  - name: Om nycklar, hemligheter och certifikat
+    href: about-keys-secrets-and-certificates.md
+    items:
+    - name: Komma igång med certifikat
+      href: certificate-scenarios.md
+    - name: Metoder för att skapa certifikat
+      href: create-certificate.md
+    - name: Övervaka och hantera processen för att skapa certifikat
+      href: create-certificate-scenarios.md
 - name: Instruktionsguider
   items:
-    - name: Azure Key Vault-loggning
-      href: key-vault-logging.md
-    - name: Åtkomst bakom brandväggar
-      href: key-vault-access-behind-firewall.md
-    - name: Tillgänglighet och redundans
-      href: key-vault-disaster-recovery-guidance.md
-    - name: Ändra klientorganisations-ID
-      href: key-vault-subscription-move-fix.md
-    - name: Skapa och hantera med Azure CLI
-      href: key-vault-manage-with-cli2.md
-    - name: Använda mjuk borttagning i Key Vault med CLI
-      href: key-vault-soft-delete-cli.md
-    - name: Använda mjuk borttagning i Key Vault med Azure PowerShell
-      href: key-vault-soft-delete-powershell.md
-    - name: Bevilja åtkomst med hjälp av grupper
-      href: key-vault-group-permissions-for-apps.md
-    - name: Säkra ditt nyckelvalv
-      href: key-vault-secure-your-key-vault.md
+  - name: Azure Key Vault-loggning
+    href: key-vault-logging.md
+  - name: Åtkomst bakom brandväggar
+    href: key-vault-access-behind-firewall.md
+  - name: Tillgänglighet och redundans
+    href: key-vault-disaster-recovery-guidance.md
+  - name: Ändra klientorganisations-ID
+    href: key-vault-subscription-move-fix.md
+  - name: Skapa och hantera med Azure CLI
+    href: key-vault-manage-with-cli2.md
+  - name: Använda mjuk borttagning i Key Vault med CLI
+    href: key-vault-soft-delete-cli.md
+  - name: Använda mjuk borttagning i Key Vault med Azure PowerShell
+    href: key-vault-soft-delete-powershell.md
+  - name: Bevilja åtkomst med hjälp av grupper
+    href: key-vault-group-permissions-for-apps.md
+  - name: Säkra ditt nyckelvalv
+    href: key-vault-secure-your-key-vault.md
 - name: Referens
   items:
-    - name: Azure PowerShell
-      href: /powershell/module/azurerm.keyvault
-    - name: Azure CLI
-      href: /cli/azure/keyvault
-    - name: .NET
-      href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
-    - name: Java
-      href: /java/api/overview/azure/keyvault?view=azure-java-stable
-    - name: Node.js
-      href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
-    - name: Python
-      href: /python/api/overview/azure/key-vault?view=azure-python
-    - name: REST
-      href: /rest/api/keyvault
-    - name: Utveckla
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.keyvault
+  - name: Azure CLI
+    href: /cli/azure/keyvault
+  - name: .NET
+    href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+  - name: Java
+    href: /java/api/overview/azure/keyvault?view=azure-java-stable
+  - name: Node.js
+    href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
+  - name: Python
+    href: /python/api/overview/azure/key-vault?view=azure-python
+  - name: REST
+    href: /rest/api/keyvault
+  - name: Utveckla
+    items:
+    - name: Snabbstartsvideo för utvecklare
+      href: http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Key-Vault-Developer-Quick-Start
+    - name: Utvecklarguide för Key Vault
+      href: key-vault-developers-guide.md
+    - name: Tjänstbegränsningar
+      href: key-vault-service-limits.md
+    - name: HSM-skyddade nycklar
+      href: key-vault-hsm-protected-keys.md
+    - name: Migrera till .NET 2.0
+      href: key-vault-dotnet2api-release-notes.md
+    - name: Spara hemligheter för webbappar
+      href: vs-secure-secret-appsettings.md
+    - name: Tjänstautentisering med .NET
+      href: service-to-service-authentication.md
+    - name: Arbeta med Visual Studio
       items:
-        - name: Snabbstartsvideo för utvecklare
-          href: 'http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Key-Vault-Developer-Quick-Start'
-        - name: Utvecklarguide för Key Vault
-          href: key-vault-developers-guide.md
-        - name: Tjänstbegränsningar
-          href: key-vault-service-limits.md
-        - name: HSM-skyddade nycklar
-          href: key-vault-hsm-protected-keys.md
-        - name: Migrera till .NET 2.0
-          href: key-vault-dotnet2api-release-notes.md
-        - name: Spara hemligheter för webbappar
-          href: vs-secure-secret-appsettings.md
-        - name: Tjänstautentisering med .NET
-          href: service-to-service-authentication.md
-        - name: Arbeta med Visual Studio
-          items:
-            - name: Använda den anslutna tjänsten i Key Vault
-              href: vs-key-vault-add-connected-service.md
-            - name: Komma igång med ASP.NET-projekt
-              href: vs-key-vault-aspnet-get-started.md
-            - name: Vad hände med mitt ASP.NET-projekt?
-              href: vs-key-vault-aspnet-what-happened.md
-            - name: Komma igång med ASP.NET Core-projekt
-              href: vs-key-vault-aspnet-core-get-started.md
-            - name: Vad hände med mitt ASP.NET Core-projekt?
-              href: vs-key-vault-aspnet-core-what-happened.md
+      - name: Använda den anslutna tjänsten i Key Vault
+        href: vs-key-vault-add-connected-service.md
+      - name: Komma igång med ASP.NET-projekt
+        href: vs-key-vault-aspnet-get-started.md
+      - name: Vad hände med mitt ASP.NET-projekt?
+        href: vs-key-vault-aspnet-what-happened.md
+      - name: Komma igång med ASP.NET Core-projekt
+        href: vs-key-vault-aspnet-core-get-started.md
+      - name: Vad hände med mitt ASP.NET Core-projekt?
+        href: vs-key-vault-aspnet-core-what-happened.md
 - name: Resurser
   items:
-    - name: Tjänstöversikt
-      href: 'https://azure.microsoft.com/services/key-vault/'
-    - name: 'Om nycklar, hemligheter och certifikat'
-      href: about-keys-secrets-and-certificates.md
-      items:
-        - name: Komma igång med certifikat
-          href: certificate-scenarios.md
-        - name: Metoder för att skapa certifikat
-          href: create-certificate.md
-        - name: Övervaka och hantera processen för att skapa certifikat
-          href: create-certificate-scenarios.md
-    - name: 'Autentisering, begäranden och svar'
-      href: authentication-requests-and-responses.md
-    - name: Kunddatafunktioner
-      href: key-vault-customer-data.md
-    - name: Vanliga parametrar och sidhuvuden
-      href: common-parameters-and-headers.md
-    - name: Key Vault-versioner
-      href: key-vault-versions.md
-    - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
-    - name: Blogg
-      href: 'http://blogs.technet.com/b/kv/'
-    - name: Kodexempel
-      href: 'https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault&type=&language='
-    - name: Forum
-      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault'
-    - name: Prissättning
-      href: 'https://azure.microsoft.com/pricing/details/key-vault/'
-    - name: Priskalkylator
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Produktfeedback
-      href: 'https://feedback.azure.com/forums/906355-azure-key-vault'
+  - name: Tjänstöversikt
+    href: https://azure.microsoft.com/services/key-vault/
+  - name: Autentisering, begäranden och svar
+    href: authentication-requests-and-responses.md
+  - name: Vanliga parametrar och sidhuvuden
+    href: common-parameters-and-headers.md
+  - name: Kundinformation
+    href: key-vault-customer-data.md
+  - name: Blogg
+    href: http://blogs.technet.com/b/kv/
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/key-vault/
+  - name: Produktfeedback
+    href: https://feedback.azure.com/forums/906355-azure-key-vault
+- name: Viktig information
+  href: key-vault-versions.md
+ms.openlocfilehash: 0f58fd071d4fb0ed1fe286318aa3fdeabe575165
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41927327"

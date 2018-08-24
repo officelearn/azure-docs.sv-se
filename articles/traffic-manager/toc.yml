@@ -1,123 +1,132 @@
+items:
 - name: Dokumentation om Traffic Manager
   href: index.yml
 - name: Översikt
   items:
-    - name: Vad är Traffic Manager?
-      href: traffic-manager-overview.md
+  - name: Vad är Traffic Manager?
+    href: traffic-manager-overview.md
 - name: Snabbstart
   items:
-    - name: Skapa en Traffic Manager-profil
-      href: quickstart-create-traffic-manager-profile.md
+  - name: Skapa en Traffic Manager-profil
+    href: quickstart-create-traffic-manager-profile.md
 - name: Självstudier
   items:
-    - name: Dirigera trafik utifrån slutpunktens geografiska plats
-      href: traffic-manager-configure-geographic-routing-method.md
-    - name: Dirigera trafik för låg latens
-      href: traffic-manager-configure-performance-routing-method.md
-    - name: Distribuera trafik till en uppsättning slutpunkter
-      href: traffic-manager-configure-weighted-routing-method.md
-    - name: Dirigera trafik till en slutpunkt för prioritet
-      href: traffic-manager-configure-priority-routing-method.md
+  - name: Dirigera trafik för låg latens
+    href: tutorial-traffic-manager-improve-website-response.md
+  - name: Dirigera trafik utifrån slutpunktens geografiska plats
+    href: traffic-manager-configure-geographic-routing-method.md
+  - name: Distribuera trafik till en uppsättning slutpunkter
+    href: traffic-manager-configure-weighted-routing-method.md
+  - name: Dirigera trafik till en slutpunkt för prioritet
+    href: traffic-manager-configure-priority-routing-method.md
 - name: Exempel
   items:
-    - name: Azure CLI
-      href: cli-samples.md
-    - name: Azure PowerShell
-      href: powershell-samples.md
+  - name: Azure CLI
+    href: cli-samples.md
+  - name: Azure PowerShell
+    href: powershell-samples.md
 - name: Begrepp
   items:
-    - name: Routningsmetoder
-      href: traffic-manager-routing-methods.md
-      items:
-        - name: Hierarki för land/region som används av Traffic Manager
-          href: traffic-manager-geographic-regions.md
-    - name: Kapslade Traffic Manager-profiler
-      href: traffic-manager-nested-profiles.md
-    - name: Slutpunktstyper
-      href: traffic-manager-endpoint-types.md
-    - name: Slutpunktsövervakning
-      href: traffic-manager-monitoring.md
-    - name: Faktisk slutanvändarmätning
-      href: traffic-manager-rum-overview.md
-    - name: Trafikvy
-      href: traffic-manager-traffic-view-overview.md
-    - name: Mått och aviseringar
-      href: traffic-manager-metrics-alerts.md
-    - name: Haveriberedskap med hjälp av Azure DNS och Traffic Manager
-      href: ../networking/disaster-recovery-dns-traffic-manager.md
-    - name: Så här fungerar Traffic Manager
-      href: traffic-manager-how-it-works.md
-    - name: Vanliga frågor och svar
-      href: traffic-manager-FAQs.md
+  - name: Routningsmetoder
+    href: traffic-manager-routing-methods.md
+    items:
+    - name: Hierarki för land/region som används av Traffic Manager
+      href: traffic-manager-geographic-regions.md
+  - name: Kapslade Traffic Manager-profiler
+    href: traffic-manager-nested-profiles.md
+  - name: Slutpunktstyper
+    href: traffic-manager-endpoint-types.md
+  - name: Slutpunktsövervakning
+    href: traffic-manager-monitoring.md
+  - name: Faktisk slutanvändarmätning
+    href: traffic-manager-rum-overview.md
+  - name: Trafikvy
+    href: traffic-manager-traffic-view-overview.md
+  - name: Mått och aviseringar
+    href: traffic-manager-metrics-alerts.md
+  - name: Haveriberedskap med hjälp av Azure DNS och Traffic Manager
+    href: ../networking/disaster-recovery-dns-traffic-manager.md
+  - name: Så här fungerar Traffic Manager
+    href: traffic-manager-how-it-works.md
+  - name: Vanliga frågor och svar
+    href: traffic-manager-FAQs.md
 - name: Gör så här för att
   items:
-    - name: Skicka mätning av faktisk användning till Traffic Manager
-      items:
-        - name: Använda SDK för Visual Studio
-          href: traffic-manager-create-rum-visual-studio.md
-        - name: Använda webbsidor
-          href: traffic-manager-create-rum-web-pages.md
-    - name: Hantera slutpunkter
-      href: traffic-manager-manage-endpoints.md
-    - name: Hantera profiler
-      href: traffic-manager-manage-profiles.md
-    - name: Verifiera Traffic Manager-inställningar
-      href: traffic-manager-testing-settings.md
-    - name: Kombinera tjänster för belastningsutjämning
-      href: traffic-manager-load-balancing-azure.md
-    - name: Mäta Traffic Manager-prestanda
-      href: traffic-manager-performance-considerations.md
-    - name: Hantera Traffic Manager med hjälp av Azure PowerShell
-      href: traffic-manager-powershell-arm.md
-    - name: Peka din Internetdomän till Traffic Manager
-      href: traffic-manager-point-internet-domain.md
-    - name: Felsöka
-      items:
-        - name: Felsök degraderat tillstånd i Azure Traffic Manager
-          href: traffic-manager-troubleshooting-degraded.md
+  - name: Konfigurera prestandaroutning i Traffic Manager
+    href: traffic-manager-configure-performance-routing-method.md
+  - name: Skicka mätning av faktisk användning till Traffic Manager
+    items:
+    - name: Använda SDK för Visual Studio
+      href: traffic-manager-create-rum-visual-studio.md
+    - name: Använda webbsidor
+      href: traffic-manager-create-rum-web-pages.md
+  - name: Hantera slutpunkter
+    href: traffic-manager-manage-endpoints.md
+  - name: Hantera profiler
+    href: traffic-manager-manage-profiles.md
+  - name: Verifiera Traffic Manager-inställningar
+    href: traffic-manager-testing-settings.md
+  - name: Kombinera tjänster för belastningsutjämning
+    href: traffic-manager-load-balancing-azure.md
+  - name: Mäta Traffic Manager-prestanda
+    href: traffic-manager-performance-considerations.md
+  - name: Hantera Traffic Manager med hjälp av Azure PowerShell
+    href: traffic-manager-powershell-arm.md
+  - name: Peka din Internetdomän till Traffic Manager
+    href: traffic-manager-point-internet-domain.md
+  - name: Felsöka
+    items:
+    - name: Felsök degraderat tillstånd i Azure Traffic Manager
+      href: traffic-manager-troubleshooting-degraded.md
 - name: Referens
   items:
-    - name: Kodexempel
-      href: 'https://azure.microsoft.com/resources/samples/?service=traffic-manager'
-    - name: Azure PowerShell
-      href: /powershell/module/azurerm.trafficmanager
-    - name: Azure CLI
-      href: /cli/azure/network/traffic-manager
-    - name: Java
-      href: /java/api/com.microsoft.azure.management.trafficmanager
-    - name: Node.js
-      href: 'http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/'
-    - name: Ruby
-      href: 'http://www.rubydoc.info/gems/azure_mgmt_traffic_manager'
-    - name: Python
-      href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html'
-    - name: REST
-      href: 'https://msdn.microsoft.com/library/mt163667.aspx'
+  - name: Kodexempel
+    href: https://azure.microsoft.com/resources/samples/?service=traffic-manager
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.trafficmanager
+  - name: Azure CLI
+    href: /cli/azure/network/traffic-manager
+  - name: Java
+    href: /java/api/com.microsoft.azure.management.trafficmanager
+  - name: Node.js
+    href: http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/
+  - name: Ruby
+    href: http://www.rubydoc.info/gems/azure_mgmt_traffic_manager
+  - name: Python
+    href: http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html
+  - name: REST
+    href: https://msdn.microsoft.com/library/mt163667.aspx
 - name: Relaterat
   items:
-    - name: Application Gateway
-      href: /azure/application-gateway/
-    - name: Lastbalanserare
-      href: /azure/load-balancer/
-    - name: Azure DNS
-      href: /azure/dns/
+  - name: Application Gateway
+    href: /azure/application-gateway/
+  - name: Lastbalanserare
+    href: /azure/load-balancer/
+  - name: Azure DNS
+    href: /azure/dns/
 - name: Resurser
   items:
-    - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Blogg
-      href: 'https://azure.microsoft.com/blog/topics/networking/'
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork'
-    - name: Prissättning
-      href: 'https://azure.microsoft.com/pricing/details/traffic-manager/'
-    - name: Priskalkylator
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Tjänstbegränsningar
-      href: '../azure-subscription-service-limits.md#traffic-manager-limits'
-    - name: Tjänstuppdateringar
-      href: 'https://azure.microsoft.com/updates/?product=traffic-manager'
-    - name: SLA
-      href: 'https://azure.microsoft.com/support/legal/sla/traffic-manager/'
-    - name: Videoklipp
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=traffic-manager'
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/
+  - name: Blogg
+    href: https://azure.microsoft.com/blog/topics/networking/
+  - name: MSDN-forum
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/traffic-manager/
+  - name: Priskalkylator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Tjänstbegränsningar
+    href: ../azure-subscription-service-limits.md#traffic-manager-limits
+  - name: Tjänstuppdateringar
+    href: https://azure.microsoft.com/updates/?product=traffic-manager
+  - name: SLA
+    href: https://azure.microsoft.com/support/legal/sla/traffic-manager/
+  - name: Videoklipp
+    href: https://azure.microsoft.com/resources/videos/index/?services=traffic-manager
+ms.openlocfilehash: 98f9cd75227342876ab05bec7591ebd6f2d769d6
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "41926997"

@@ -1,280 +1,287 @@
+items:
 - name: Dokumentation om Azure Search
   href: index.yml
 - name: Översikt
   items:
-    - name: Vad är Azure Search?
-      href: search-what-is-azure-search.md
+  - name: Om Azure Search
+    href: search-what-is-azure-search.md
 - name: Snabbstarter
-  expanded: true
   items:
-    - name: Skapa en tjänst
-      href: search-create-service-portal.md
-    - name: Kognitiv sökning
-      href: cognitive-search-quickstart-blob.md
-    - name: .NET
-      items:
-        - name: Skapa ett index
-          href: search-create-index-dotnet.md
-        - name: Importera data
-          href: search-import-data-dotnet.md
-        - name: Search
-          href: search-query-dotnet.md
-    - name: REST
-      items:
-        - name: Skapa ett index
-          href: search-create-index-rest-api.md
-        - name: Importera data
-          href: search-import-data-rest-api.md
-        - name: Search
-          href: search-query-rest-api.md
-        - name: Utforska med Postman eller Fiddler
-          href: search-fiddler.md
+  - name: Skapa en tjänst
+    href: search-create-service-portal.md
+  - name: Kognitiv sökning
+    href: cognitive-search-quickstart-blob.md
+  - name: .NET
+    items:
+    - name: Skapa ett index
+      href: search-create-index-dotnet.md
+    - name: Importera data
+      href: search-import-data-dotnet.md
+    - name: Search
+      href: search-query-dotnet.md
+  - name: REST
+    items:
+    - name: Skapa ett index
+      href: search-create-index-rest-api.md
+    - name: Importera data
+      href: search-import-data-rest-api.md
+    - name: Search
+      href: search-query-rest-api.md
+    - name: Utforska med Postman eller Fiddler
+      href: search-fiddler.md
+  expanded: true
 - name: Självstudier
   items:
-    - name: Använda inbyggda verktyg
-      href: search-get-started-portal.md
-    - name: 'Lär dig kognitiva sök-API:er'
-      href: cognitive-search-tutorial-blob.md
-    - name: Indexera Azure-blobbar
-      href: search-semi-structured-data.md
-    - name: Indexera Azure SQL Database
-      href: search-indexer-tutorial.md
-    - name: Lägga till synonymer i .NET
-      href: search-synonyms-tutorial-sdk.md
-    - name: Lägg till automatisk komplettering i .NET
-      href: search-autocomplete-tutorial.md
+  - name: Använda inbyggda verktyg
+    href: search-get-started-portal.md
+  - name: Lär dig kognitiva sök-API:er
+    href: cognitive-search-tutorial-blob.md
+  - name: Indexera Azure-blobbar
+    href: search-semi-structured-data.md
+  - name: Indexera Azure SQL Database
+    href: search-indexer-tutorial.md
+  - name: Lägga till synonymer i .NET
+    href: search-synonyms-tutorial-sdk.md
+  - name: Lägg till automatisk komplettering i .NET
+    href: search-autocomplete-tutorial.md
 - name: Exempel
   items:
-    - name: Azure-kodexempel
-      href: 'https://azure.microsoft.com/resources/samples/?service=search'
+  - name: Azure-kodexempel
+    href: https://azure.microsoft.com/resources/samples/?service=search
 - name: Begrepp
   items:
-    - name: Kognitiv sökning (förhandsversion)
-      href: cognitive-search-concept-intro.md
-    - name: Fulltextsökning
-      href: search-lucene-query-architecture.md
+  - name: Kognitiv sökning (förhandsversion)
+    href: cognitive-search-concept-intro.md
+  - name: Fulltextsökning
+    href: search-lucene-query-architecture.md
 - name: Instruktionsguider
   items:
-    - name: Kognitiv sökning (förhandsversion)
+  - name: Kognitiv sökning (förhandsversion)
+    items:
+    - name: Definiera en kunskapsuppsättning
+      href: cognitive-search-defining-skillset.md
+    - name: Referera till en anteckning
+      href: cognitive-search-concept-annotations-syntax.md
+    - name: Mappa till indexfält
+      href: cognitive-search-output-field-mapping.md
+    - name: Bearbeta och extrahera information från bilder
+      href: cognitive-search-concept-image-scenarios.md
+    - name: Integrera anpassade kunskaper
+      href: cognitive-search-custom-skill-interface.md
+    - name: Exempel – anpassade kunskaper
+      href: cognitive-search-create-custom-skill-example.md
+    - name: Felsökningstips
+      href: cognitive-search-concept-troubleshooting.md
+    - name: Dokumentationslänkar
+      href: cognitive-search-resources-documentation.md
+  - name: Planering
+    items:
+    - name: Välj en nivå
+      href: search-sku-tier.md
+    - name: Tjänstbegränsningar
+      href: search-limits-quotas-capacity.md
+    - name: Allokera partitioner och repliker
+      href: search-capacity-planning.md
+    - name: Utveckla mönster för flera innehavare
+      href: search-modeling-multitenant-saas-applications.md
+  - name: Säkerhet
+    items:
+    - name: Säkerhetsöversikt
+      href: search-security-overview.md
+    - name: Hantering av servicenycklar
+      href: search-security-api-keys.md
+    - name: Rollbaserad administratörsåtkomst
+      href: search-security-rbac.md
+    - name: Säkerhetsfilter
+      href: search-security-trimming-for-azure-search.md
+    - name: Filtrera efter identiteter i AAD
+      href: search-security-trimming-for-azure-search-with-aad.md
+  - name: Utveckling
+    items:
+    - name: API-versioner
+      href: search-api-versions.md
+    - name: Utveckla i .NET
+      href: search-howto-dotnet-sdk.md
+    - name: Utveckla i Node.js
+      href: search-get-started-nodejs.md
+    - name: Utveckla i Java
+      href: search-get-started-java.md
+    - name: Uppgradera SDK
       items:
-        - name: Definiera en kunskapsuppsättning
-          href: cognitive-search-defining-skillset.md
-        - name: Referera till en anteckning
-          href: cognitive-search-concept-annotations-syntax.md
-        - name: Mappa till indexfält
-          href: cognitive-search-output-field-mapping.md
-        - name: Bearbeta och extrahera information från bilder
-          href: cognitive-search-concept-image-scenarios.md
-        - name: Integrera anpassade kunskaper
-          href: cognitive-search-custom-skill-interface.md
-        - name: Exempel – anpassade kunskaper
-          href: cognitive-search-create-custom-skill-example.md
-        - name: Felsökningstips
-          href: cognitive-search-concept-troubleshooting.md
-        - name: Dokumentationslänkar
-          href: cognitive-search-resources-documentation.md
-    - name: Planering
+      - name: .NET SDK 5.0
+        href: search-dotnet-sdk-migration-version-5.md
+      - name: .NET SDK 3.0
+        href: search-dotnet-sdk-migration.md
+      - name: .NET SDK 1.1
+        href: search-dotnet-sdk-migration-version-1.md
+      - name: .NET Management SDK
+        href: search-dotnet-mgmt-sdk-migration.md
+    - name: Uppgradera REST-API:et
+      href: search-api-migration.md
+  - name: Indexdesign
+    items:
+    - name: Indexdefinition
+      href: search-what-is-an-index.md
+    - name: Skapa en index (portal)
+      href: search-create-index-portal.md
+    - name: Analysverktyg
       items:
-        - name: Välj en nivå
-          href: search-sku-tier.md
-        - name: Tjänstbegränsningar
-          href: search-limits-quotas-capacity.md
-        - name: Allokera partitioner och repliker
-          href: search-capacity-planning.md
-        - name: Utveckla mönster för flera innehavare
-          href: search-modeling-multitenant-saas-applications.md
-    - name: Säkerhet
+      - name: Textanalysverktyg
+        href: search-analyzers.md
+      - name: API för språkanalysverktyg
+        href: https://docs.microsoft.com/rest/api/searchservice/language-support
+      - name: API för anpassade analysverktyg
+        href: https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search
+    - name: Automatiska förslag
+      href: https://docs.microsoft.com/rest/api/searchservice/suggesters
+    - name: Skapa modeller över komplexa datatyper
+      href: search-howto-complex-data-types.md
+    - name: Aspektbaserad navigering
+      href: search-faceted-navigation.md
+    - name: Relevansjustering
+      href: https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index
+    - name: Synonymer
+      href: search-synonyms.md
+  - name: Indexeringsdata
+    items:
+    - name: Läsa in data
+      href: search-what-is-data-import.md
+    - name: Bygga om ett index
+      href: search-howto-reindex.md
+    - name: Importera guide (portal)
+      href: search-import-data-portal.md
+    - name: Indexera stora datamängder
+      href: search-howto-large-index.md
+    - name: Hantera samtidiga uppdateringar
+      href: search-howto-concurrency.md
+    - name: Indexerare
       items:
-        - name: Säkerhetsöversikt
-          href: search-security-overview.md
-        - name: Hantering av servicenycklar
-          href: search-security-api-keys.md
-        - name: Rollbaserad administratörsåtkomst
-          href: search-security-rbac.md
-        - name: Säkerhetsfilter
-          href: search-security-trimming-for-azure-search.md
-        - name: Filtrera efter identiteter i AAD
-          href: search-security-trimming-for-azure-search-with-aad.md
-    - name: Utveckling
+      - name: Översikt över indexerare
+        href: search-indexer-overview.md
+      - name: Blob Storage-indexeraren
+        href: search-howto-indexing-azure-blob-storage.md
+      - name: Table Storage-indexeraren
+        href: search-howto-indexing-azure-tables.md
+      - name: SQL DB-indexerare
+        href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+      - name: Cosmos DB-indexeraren
+        href: search-howto-index-cosmosdb.md
+      - name: CSV-blob-indexering
+        href: search-howto-index-csv-blobs.md
+      - name: JSON-blob-indexering
+        href: search-howto-index-json-blobs.md
+      - name: Ansluta till virtuella SQL Server-datorer
+        href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+      - name: Fältmappningar
+        href: search-indexer-field-mappings.md
+  - name: Söker efter data
+    items:
+    - name: Frågetyper och sammansättning
+      href: search-query-overview.md
+    - name: Sökutforskaren (portal)
+      href: search-explorer.md
+    - name: Exempel för enkel syntax
+      href: search-query-simple-examples.md
+    - name: Exempel för fullständig syntax
+      href: search-query-lucene-examples.md
+    - name: Frågereferens
       items:
-        - name: API-versioner
-          href: search-api-versions.md
-        - name: Utveckla i .NET
-          href: search-howto-dotnet-sdk.md
-        - name: Utveckla i Node.js
-          href: search-get-started-nodejs.md
-        - name: Utveckla i Java
-          href: search-get-started-java.md
-        - name: Uppgradera SDK
-          items:
-            - name: .NET SDK 5.0
-              href: search-dotnet-sdk-migration-version-5.md
-            - name: .NET SDK 3.0
-              href: search-dotnet-sdk-migration.md
-            - name: .NET SDK 1.1
-              href: search-dotnet-sdk-migration-version-1.md
-            - name: .NET Management SDK
-              href: search-dotnet-mgmt-sdk-migration.md
-        - name: 'Uppgradera REST-API:et'
-          href: search-api-migration.md
-    - name: Indexdesign
+      - name: Enkel frågesyntax
+        href: https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search
+      - name: Lucene-frågesyntaxen
+        href: https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search
+    - name: Växla resultat
+      href: search-pagination-page-layout.md
+    - name: Relevansjustering
+      href: https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index
+    - name: Filter
       items:
-        - name: Indexdefinition
-          href: search-what-is-an-index.md
-        - name: Skapa en index (portal)
-          href: search-create-index-portal.md
-        - name: Analysverktyg
-          items:
-            - name: Textanalysverktyg
-              href: search-analyzers.md
-            - name: API för språkanalysverktyg
-              href: 'https://docs.microsoft.com/rest/api/searchservice/language-support'
-            - name: API för anpassade analysverktyg
-              href: 'https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search'
-        - name: Automatiska förslag
-          href: 'https://docs.microsoft.com/rest/api/searchservice/suggesters'
-        - name: Skapa modeller över komplexa datatyper
-          href: search-howto-complex-data-types.md
-        - name: Aspektbaserad navigering
-          href: search-faceted-navigation.md
-        - name: Relevansjustering
-          href: 'https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index'
-        - name: Synonymer
-          href: search-synonyms.md
-    - name: Indexeringsdata
-      items:
-        - name: Läsa in data
-          href: search-what-is-data-import.md
-        - name: Bygga om ett index
-          href: search-howto-reindex.md
-        - name: Importera guide (portal)
-          href: search-import-data-portal.md
-        - name: Indexera stora datamängder
-          href: search-howto-large-index.md
-        - name: Hantera samtidiga uppdateringar
-          href: search-howto-concurrency.md
-        - name: Indexerare
-          items:
-            - name: Översikt över indexerare
-              href: search-indexer-overview.md
-            - name: Blob Storage-indexeraren
-              href: search-howto-indexing-azure-blob-storage.md
-            - name: Table Storage-indexeraren
-              href: search-howto-indexing-azure-tables.md
-            - name: SQL DB-indexerare
-              href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-            - name: Cosmos DB-indexeraren
-              href: search-howto-index-cosmosdb.md
-            - name: CSV-blob-indexering
-              href: search-howto-index-csv-blobs.md
-            - name: JSON-blob-indexering
-              href: search-howto-index-json-blobs.md
-            - name: Ansluta till virtuella SQL Server-datorer
-              href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-            - name: Fältmappningar
-              href: search-indexer-field-mappings.md
-    - name: Söker efter data
-      items:
-        - name: Frågetyper/frågesammansättning
-          href: search-query-overview.md
-        - name: Sökutforskaren (portal)
-          href: search-explorer.md
-        - name: Exempel för enkel syntax
-          href: search-query-simple-examples.md
-        - name: Exempel för fullständig syntax
-          href: search-query-lucene-examples.md
-        - name: Frågereferens
-          items:
-            - name: Enkel frågesyntax
-              href: 'https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search'
-            - name: Lucene-frågesyntaxen
-              href: 'https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search'
-        - name: Växla resultat
-          href: search-pagination-page-layout.md
-        - name: Relevansjustering
-          href: 'https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index'
-        - name: Filter
-          items:
-            - name: Översikt över filter
-              href: search-filters.md
-            - name: Facet-filter
-              href: search-filters-facets.md
-            - name: Filtrera uttryckssyntax
-              href: 'https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search'
-        - name: Prestanda och optimering
-          href: search-performance-optimization.md
-    - name: Administration och analys
-      items:
-        - name: Administration (portalen)
-          href: search-manage.md
-        - name: PowerShell (Azure Search)
-          href: search-manage-powershell.md
-        - name: Övervaka användning och statistik
-          href: search-monitor-usage.md
-        - name: Sök efter trafikanalys
-          href: search-traffic-analytics.md
+      - name: Översikt över filter
+        href: search-filters.md
+      - name: Facet-filter
+        href: search-filters-facets.md
+      - name: Filtrera uttryckssyntax
+        href: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
+    - name: Prestanda och optimering
+      href: search-performance-optimization.md
+  - name: Administration och analys
+    items:
+    - name: Administration (portalen)
+      href: search-manage.md
+    - name: PowerShell (Azure Search)
+      href: search-manage-powershell.md
+    - name: Övervaka användning och statistik
+      href: search-monitor-usage.md
+    - name: Sök efter trafikanalys
+      href: search-traffic-analytics.md
 - name: Referens
   items:
-    - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/search?view=azure-cli-latest'
-    - name: Azure PowerShell
-      href: 'https://www.powershellgallery.com/packages/AzureRM.search/0.1.0-preview'
-    - name: .NET
-      href: /dotnet/api/?term=microsoft.azure.search
-    - name: .NET (hantering)
-      href: /dotnet/api/?term=microsoft.azure.management.search
-    - name: Python (hantering)
-      href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html'
-    - name: REST
-      href: /rest/api/searchservice
-    - name: REST (hantering)
-      href: /rest/api/searchmanagement
-    - name: REST (förhandsversion)
-      href: search-api-preview.md
-    - name: Fördefinierade kunskaper (förhandsversion)
-      href: cognitive-search-predefined-skills.md
-      items:
-        - name: Extrahering av nyckelfraser
-          href: cognitive-search-skill-keyphrases.md
-        - name: Språkidentifiering
-          href: cognitive-search-skill-language-detection.md
-        - name: Igenkänning av namngiven enhet
-          href: cognitive-search-skill-named-entity-recognition.md
-        - name: Textsammanslagning
-          href: cognitive-search-skill-textmerger.md
-        - name: Textuppdelning
-          href: cognitive-search-skill-textsplit.md
-        - name: Sentiment
-          href: cognitive-search-skill-sentiment.md
-        - name: Bildanalys
-          href: cognitive-search-skill-image-analysis.md
-        - name: OCR
-          href: cognitive-search-skill-ocr.md
-        - name: Formaren
-          href: cognitive-search-skill-shaper.md
+  - name: Azure CLI
+    href: https://docs.microsoft.com/cli/azure/search?view=azure-cli-latest
+  - name: Azure PowerShell
+    href: https://www.powershellgallery.com/packages/AzureRM.search/0.1.0-preview
+  - name: .NET
+    href: /dotnet/api/?term=microsoft.azure.search
+  - name: .NET (hantering)
+    href: /dotnet/api/?term=microsoft.azure.management.search
+  - name: Python (hantering)
+    href: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html
+  - name: REST
+    href: /rest/api/searchservice
+  - name: REST (hantering)
+    href: /rest/api/searchmanagement
+  - name: REST (förhandsversion)
+    href: search-api-preview.md
+  - name: Fördefinierade kunskaper (förhandsversion)
+    href: cognitive-search-predefined-skills.md
+    items:
+    - name: Extrahering av nyckelfraser
+      href: cognitive-search-skill-keyphrases.md
+    - name: Språkidentifiering
+      href: cognitive-search-skill-language-detection.md
+    - name: Igenkänning av namngiven enhet
+      href: cognitive-search-skill-named-entity-recognition.md
+    - name: Textsammanslagning
+      href: cognitive-search-skill-textmerger.md
+    - name: Textuppdelning
+      href: cognitive-search-skill-textsplit.md
+    - name: Sentiment
+      href: cognitive-search-skill-sentiment.md
+    - name: Bildanalys
+      href: cognitive-search-skill-image-analysis.md
+    - name: OCR
+      href: cognitive-search-skill-ocr.md
+    - name: Formaren
+      href: cognitive-search-skill-shaper.md
 - name: Resurser
   items:
-    - name: Support av Azure-communityn
-      href: 'https://azure.microsoft.com/support/community/?product=search'
-    - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/?tag=azure-search'
-    - name: Demowebbplatser
-      items:
-        - name: Finansiella filer – demo
-          href: 'http://wolterskluwereap.azurewebsites.net/'
-        - name: JFK-filer – demo
-          href: 'http://aka.ms/jfkfiles'
-        - name: Jobblisteapp
-          href: 'http://aka.ms/azjobsdemo'
-        - name: Sökanalys – demo
-          href: 'http://alice.unearth.ai/'
-        - name: Sök bland användarsituationer
-          href: 'https://searchsamples.azurewebsites.net/'
-    - name: VANLIGA FRÅGOR OCH SVAR
-      href: search-faq-frequently-asked-questions.md
-    - name: Prissättning
-      href: 'https://azure.microsoft.com/pricing/details/search/'
-    - name: Tjänstuppdateringar
-      href: 'https://azure.microsoft.com/updates/?product=search'
-    - name: Videoklipp
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=search'
+  - name: Support av Azure-communityn
+    href: https://azure.microsoft.com/support/community/?product=search
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/?tag=azure-search
+  - name: Demowebbplatser
+    items:
+    - name: Finansiella filer – demo
+      href: http://wolterskluwereap.azurewebsites.net/
+    - name: JFK-filer – demo
+      href: http://aka.ms/jfkfiles
+    - name: Jobblisteapp
+      href: http://aka.ms/azjobsdemo
+    - name: Sökanalys – demo
+      href: http://alice.unearth.ai/
+    - name: Sök bland användarsituationer
+      href: https://searchsamples.azurewebsites.net/
+  - name: VANLIGA FRÅGOR OCH SVAR
+    href: search-faq-frequently-asked-questions.md
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/search/
+  - name: Tjänstuppdateringar
+    href: https://azure.microsoft.com/updates/?product=search
+  - name: Videoklipp
+    href: https://azure.microsoft.com/resources/videos/index/?services=search
+ms.openlocfilehash: 59409b9a3658d1bb3b36e938d83e4a2b880a7a6d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41927627"

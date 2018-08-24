@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d6c91dd84a0ae0bfa5ffccff2f8961f95ad4dda8
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 4b7fd390b309500c6d3937fd07dac53d968b4b71
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399254"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41928084"
 documentType: LandingData
 title: Ansible i Azure-dokumentation
 metadata:
@@ -17,7 +17,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: devops
   ms.topic: landing-page
-  ms.date: 07/16/2018
+  ms.date: 08/15/2018
   ms.author: tarcher
 abstract:
   description: Använd <a href="http://www.ansible.com">Ansible</a> för att automatisera etablering i molnet, konfigurationshantering och programdistribution.
@@ -25,18 +25,22 @@ sections:
 - title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
-    text: Konfigurera Ansible och använd tjänsten för att skapa en virtuell Linux-dator i Azure.
+    text: Installera Ansible och använda det för att skapa och hantera virtuella Linux-datorer i Azure.
   - type: list
     style: icon48
     items:
     - image:
         src: /azure/media/index/azure_dev-9.svg
-      text: Konfigurera Ansible
+      text: Installera Ansible
       href: /azure/virtual-machines/linux/ansible-install-configure?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
     - image:
         src: /azure/media/index/VirtualMachine.svg
       text: Skapa en virtuell Linux-dator
       href: /azure/virtual-machines/linux/ansible-create-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
+    - image:
+        src: /azure/media/index/VirtualMachine.svg
+      text: Hantera en virtuell Linux-dator
+      href: /azure/virtual-machines/linux/ansible-manage-linux-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
 - title: Steg för steg-självstudier
   items:
   - type: paragraph
@@ -45,7 +49,7 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/virtual-machines/linux/ansible-create-complete-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json">Skapa en virtuell Linux-dator, inklusive ett virtuellt nätverk, en offentlig IP-adress och ett virtuellt nätverkskort.</a>
-    - html: <a href="./ansible-run-playbook-in-cloudshell">Ansluta till en virtuell Azure-dator och köra en Ansible-spelbok i Cloud Shell.</a>
+    - html: <a href="./ansible-run-playbook-in-cloudshell">Köra Ansible med Bash i Azure Cloud Shell.</a>
     - html: <a href="./ansible-manage-azure-dynamic-inventories">Skapa och hantera ett dynamisk lager för dina Azure-resurser.</a>
     - html: <a href="./ansible-create-configure-vmss">Skapa och hantera skalningsuppsättningar för virtuella datorer i Azure.</a>
     - html: <a href="./ansible-deploy-app-vmss">Distribuera program till skalningsuppsättningar för virtuella datorer i Azure.</a>

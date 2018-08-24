@@ -12,9 +12,10 @@ ms.author: cakarst
 ms.reviewer: igorstan
 ms.openlocfilehash: bd7665798e5bf26c0e538deb713ef9696c84338c
 ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31603320"
 ---
 # <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>T-SQL-språkelement som stöds i Azure SQL Data Warehouse
 Länkar till dokumentationen för T-SQL-språkelement som stöds i Azure SQL Data Warehouse.

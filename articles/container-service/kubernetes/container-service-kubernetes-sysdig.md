@@ -11,9 +11,10 @@ ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: 275e71ce054b83c16b9f9cbfe621c6a7e31f79c6
 ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32162236"
 ---
 # <a name="monitor-an-azure-container-service-kubernetes-cluster-using-sysdig"></a>Övervaka en Kubernetes för Azure Container Service-kluster med hjälp av Sysdig
 

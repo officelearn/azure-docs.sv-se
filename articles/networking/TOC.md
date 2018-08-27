@@ -1,7 +1,7 @@
 # Översikt
 ## [Om Azure-nätverk](networking-overview.md)
 ## Arkitektur
-### [Virtuella datacenter](networking-virtual-datacenter.md)
+### [Virtuella datacenter](/azure/architecture/vdc/networking-virtual-datacenter)
 ### [Asymmetrisk routning med flera nätverksvägar](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Skydda nätverkstrafik](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Topologi av typen hub-spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)

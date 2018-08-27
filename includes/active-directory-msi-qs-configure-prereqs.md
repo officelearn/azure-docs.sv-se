@@ -1,1 +1,1 @@
-Om du inte är bekant med funktionen Hanterad tjänstidentitet bör du läsa den här [översikten](../articles/active-directory/msi-overview.md). Om du inte har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
+- Om du inte är bekant med funktionen Hanterad tjänstidentitet bör du läsa den här [översikten](../articles/active-directory/msi-overview.md). Om du inte har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.

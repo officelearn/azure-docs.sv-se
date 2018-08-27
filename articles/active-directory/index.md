@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 08/16/2018
 ms.author: mtillman
-ms.openlocfilehash: 9496896e3d841e4857ea17987fb230adb4f0edb1
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: fa7b7430377def58f20daabc15e501321954befe
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41927279"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887558"
 ---
 # <a name="azure-active-directory-documentation"></a>Dokumentation om Azure Active Directory
 
@@ -116,8 +116,8 @@ Azure Active Directory (Azure AD) är en molnbaserad katalog- och identitetshant
                         <h3>Enheter</h3>
                         <p>
                         <a href="/azure/active-directory/device-management-introduction">Enhetshantering</a><br/>
-                        <a href="/azure/active-directory/device-management-azuread-registered-devices-windows10-setup">Windows 10-enheter</a><br/>
-                        <a href="/azure/active-directory/device-management-azuread-joined-devices-setup">Anslutna enheter</a>
+                        <a href="/azure/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup">Windows 10-enheter</a><br/>
+                        <a href="/azure/active-directory/user-help/device-management-azuread-joined-devices-setup">Anslutna enheter</a>
                         </p>
                     </div>
                 </div>

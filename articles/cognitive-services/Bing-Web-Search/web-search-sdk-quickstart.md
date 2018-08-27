@@ -1,6 +1,6 @@
 ---
-title: Webbsökning quickstart SDK C# | Microsoft Docs
-description: Installationsprogrammet för webbsökning SDK C#-konsolprogram.
+title: 'Snabbstart: Använda Bing-webbsökning SDK för C#'
+description: Installationsprogrammet för webbsökning SDK-C#-konsolprogram.
 titleSuffix: Azure cognitive services Web search SDK C# quickstart
 services: cognitive-services
 author: mikedodaro
@@ -8,44 +8,44 @@ manager: rosh
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 01/29/2018
-ms.author: v-gedod
-ms.openlocfilehash: 6d87b292475edff04e930ec4aa2f8e077a0fb82c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 08/16/2018
+ms.author: v-gedod, erhopf
+ms.openlocfilehash: ef54487a1df7303fa92a78e4f3219f40f558da2b
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355302"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887327"
 ---
-# <a name="web-search-sdk-c-quickstart"></a>Web Sök SDK C# Snabbstart
+# <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>Snabbstart: Använda Bing-webbsökning SDK för C#
 
-Bing Web Sök SDK innehåller funktionerna i REST API för webbegäranden och tolkning resultat.
+Bing Web Search SDK innehåller funktionen för REST-API för begäranden och parsa resultat.
 
-Den [källkoden för C# Bing Web Sök SDK-exempel](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/BingSearchv7/BingWebSearch/WebSearchSamples.cs) är tillgänglig på Git-hubben.
+Den [källkod för C# Bing Web Search SDK-exempel](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/BingSearchv7/BingWebSearch/WebSearchSamples.cs) finns på GitHub.
 
 ## <a name="application-dependencies"></a>Programberoenden
 
-Om du vill konfigurera ett konsolprogram med Bing Web Sök SDK, bläddra till den `Manage NuGet Packages` alternativet från Solution Explorer i Visual Studio.  Lägg till den `Microsoft.Azure.CognitiveServices.Search.WebSearch` paketet.
+Om du vill konfigurera ett konsolprogram med Bing Web Search SDK, bläddra till den `Manage NuGet Packages` alternativet från Solution Explorer i Visual Studio.  Lägg till den `Microsoft.Azure.CognitiveServices.Search.WebSearch` paketet.
 
-Installera den [NuGet Web Sök SDK-paketet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0) installeras även beroenden, inklusive:
+Installera den [NuGet Web Search SDK-paketet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0) installeras också beroenden, inklusive:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
-## <a name="web-search-client"></a>Sök Webbklient
-Att skapa en instans av den `WebSearchAPI` klienten, lägger till med direktiven:
+## <a name="web-search-client"></a>Sök webbklienten
+Skapa en instans av den `WebSearchAPI` klienten, lägger du till med hjälp av direktiv:
 ```
 using Microsoft.Azure.CognitiveServices.Search.WebSearch;
 using Microsoft.Azure.CognitiveServices.Search.WebSearch.Models;
 
 ```
-Sedan skapa en instans av klienten:
+Sedan kan skapa en instans av klienten:
 ```
 var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
 
 ```
-Använd klienten för att söka med en frågetext:
+Du kan använda klienten för att söka med en frågetext:
 ```
 // Search for "Yosemite National Park"
 var webData = client.Web.Search(query: "Yosemite National Park");
@@ -79,7 +79,7 @@ else
 ```
 ## <a name="complete-console-application"></a>Fullständig konsolprogram
 
-Följande konsolprogrammet utförs tidigare definierade frågan och Parsar webbsidor, bilder, nyheter och videor som ingår i resultatet:
+Följande konsolprogrammet utförs tidigare definierad frågan och Parsar webbsidor, bilder, nyheter och videor som ingår i resultatet:
 ```
 using System;
 using System.Collections.Generic;
@@ -213,11 +213,11 @@ namespace WebSrchSDK
 
 ```
 
-Bing search exemplen visar olika funktioner i SDK.  Lägg till följande funktioner i den tidigare definierad `WebSrchSDK` klass.
+Bing search-exempel visar olika funktioner i SDK: N.  Lägg till följande funktioner i den tidigare definierade `WebSrchSDK` klass.
 
-## <a name="count-and-offset-parameters"></a>Antal och offset parametrar
+## <a name="count-and-offset-parameters"></a>Antal och förskjutning parametrar
 
-Följande kod söker efter ”bästa hotell i Seattle”, kontrollerar antalet resultat och skriver ut namn och Webbadress för det första resultatet.
+Följande kod söker efter ”bästa restauranger i Seattle”, kontrollerar hur många resultat och skriver ut namnet och URL: en för det första resultatet.
 
 ```
        public static void WebResultsWithCountAndOffset(WebSearchAPI client)
@@ -257,7 +257,7 @@ Följande kod söker efter ”bästa hotell i Seattle”, kontrollerar antalet r
 ```
 ## <a name="response-filter"></a>Svarsfilter
 
-Följande fråga söker på termen ”Microsoft” med en svarsfilter inställd på `news` och skriver sedan ut information om resultaten.
+Följande fråga söker efter termen ”Microsoft” med hjälp av en svarsfilter inställd `news` och skriver ut information om resultaten.
 ```
         public static void WebSearchWithResponseFilter(WebSearchAPI client)
         {
@@ -299,7 +299,7 @@ Följande fråga söker på termen ”Microsoft” med en svarsfilter inställd 
         }
 
 ```
-## <a name="query-parameters---count-promotion-safe-search"></a>Fråga parametrar - antal, befordran, säker sökning
+## <a name="query-parameters---count-promotion-safe-search"></a>Frågeparametrar - count, befordran, säker sökning
 
 Den här frågan ”tanten så betuttad”, söker med `answerCount` och `promote` parametrar och skriver sedan ut information om resultaten.
 
@@ -344,4 +344,4 @@ Den här frågan ”tanten så betuttad”, söker med `answerCount` och `promot
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Kognitiva services .NET SDK-exempel](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).
+[Cognitive services .NET SDK-prov](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).

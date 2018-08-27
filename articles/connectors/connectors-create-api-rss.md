@@ -1,39 +1,67 @@
 ---
-title: RSS-anslutningen i Azure Logic Apps | Microsoft Docs
-description: Skapa logikappar med Azure App service. RSS-anslutningen kan användarna publicera och hämta flödesobjekt. Det gör även användare kan utlösa åtgärder när ett nytt objekt publiceras i flödet.
+title: Ansluta till RSS-flöden från Azure Logic Apps | Microsoft Docs
+description: Automatisera uppgifter och arbetsflöden som övervakar och hanterar RSS-flöden med hjälp av Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: a10a6277-ed29-4e68-a881-ccdad6fd0ad8
 ms.service: logic-apps
-ms.devlang: multiple
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.suite: integration
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 08/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 268fa6d260f1107659208ea07ce3e43c27eca2d3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.assetid: a10a6277-ed29-4e68-a881-ccdad6fd0ad8
+tags: connectors
+ms.date: 08/24/2018
+ms.openlocfilehash: c8d1122572764dda1fc550a06ae254109e3bf033
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295735"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885806"
 ---
-# <a name="get-started-with-the-rss-connector"></a>Kom igång med RSS-anslutningen
-RSS är en populära webbtjänstens syndikeringsformat som används för att publicera uppdateras ofta innehåll – som blogginlägg och nyhetsrubrikerna.  Många innehållsutgivare ger en RSS-feed så att användarna kan prenumerera på den.  Använda RSS-anslutningen för att hämta feed information och utlösare flödar när nya objekt publiceras i en RSS-feed.
+# <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>Hantera RSS-flöden med hjälp av Azure Logic Apps
 
-Du kan komma igång genom att skapa en logikapp nu, se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Med Azure Logic Apps och RSS-anslutningsappen kan du kan skapa automatiserade uppgifter och arbetsflöden för alla RSS-feed, till exempel:
 
-## <a name="create-a-connection-to-rss"></a>Skapa en anslutning till RSS
-> [!INCLUDE [Steps to create a connection to an RSS feed](../../includes/connectors-create-api-rss.md)]
-> 
+* Övervaka när RSS-flödesobjekt publiceras.
+* Lista alla RSS-flödesobjekt.
 
-## <a name="connector-specific-details"></a>Connector-specifik information
+RSS (Rich Site sammanfattning), även kallat verkligen enkelt syndikering är ett vanligt format för web-syndikering och används för att publicera innehåll som uppdateras ofta, till exempel blogginlägg och nyhetsrubriker. Många innehållsutgivare har ett RSS-flöde så att användare kan prenumerera på innehållet. 
 
-Visa alla utlösare och åtgärder som definierats i swagger och även se några gränser i den [connector information](/connectors/rss/).
+Du kan använda en RSS-utlösare som får svar från en RSS-feed och gör utdata som är tillgängliga för andra åtgärder. Du kan använda en RSS-åtgärd i dina logic apps för att utföra en uppgift med RSS-flödet. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="more-connectors"></a>Flera kopplingar
-Gå tillbaka till den [API: er listan](apis-list.md).
+## <a name="prerequisites"></a>Förutsättningar
+
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
+
+* URL-Adressen för en RSS-feed
+
+* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* Logikappen där du vill öppna en RSS-feed. Du kommer igång med en RSS-utlösare [skapa en tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Om du vill använda en RSS-åtgärd, starta din logikapp med en annan utlösare, till exempel, **upprepning** utlösaren.
+
+## <a name="connect-to-an-rss-feed"></a>Ansluta till en RSS-feed
+
+1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna logikappen i Logic App Designer, om inte redan är öppna.
+
+1. Välj en sökväg: 
+
+   * För tom logic apps i sökrutan anger du ”rss” som filter. Välj utlösaren som du vill under listan över utlösare. 
+
+     ELLER
+
+   * För befintliga logikappar under steget där du vill lägga till en åtgärd, Välj **nytt steg**. I sökrutan skriver du "rss" som filter. Välj vilken åtgärd du önska under åtgärder.
+
+1. Ange informationen som krävs för din valda utlösare eller åtgärd och fortsätt att utveckla logikappens arbetsflöde.
+
+## <a name="connector-reference"></a>Referens för anslutningsapp
+
+Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av anslutningsappens OpenAPI (tidigare Swagger) beskrivning, granska kopplingens [referenssida](/connectors/rss/).
+
+## <a name="get-support"></a>Få support
+
+* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](http://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Nästa steg
+
+* Läs mer om andra [Logic Apps-anslutningsprogram](../connectors/apis-list.md)

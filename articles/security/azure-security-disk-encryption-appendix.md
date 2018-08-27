@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
+ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: cf3e9ce055219bccb44c19fd8e77fe39c938c968
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 9efd8730af292e6f720c3bacd5707c48f0eab7ac
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391762"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887941"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Tillägg för Azure Disk Encryption 
 Den här artikeln är ett tillägg till [Azure Disk Encryption för virtuella IaaS-datorer](azure-security-disk-encryption-overview.md). Se till att läsa Azure Disk Encryption för virtuella IaaS-datorer artiklar först för att förstå kontexten. Den här artikeln beskriver hur du förbereder förkrypterade virtuella hårddiskar och andra uppgifter.
 
 ## <a name="connect-to-your-subscription"></a>Ansluta till din prenumeration
-Innan du fortsätter måste du granska den [krav](azure-security-disk-encryption-prerequisites.md) artikeln. När du har kontrollerat att alla krav har uppfyllts kan du ansluta till din prenumeration genom att köra följande cmdlets:
+Innan du börjar bör du granska den [krav](azure-security-disk-encryption-prerequisites.md) artikeln. När alla krav har uppfyllts kan du ansluta till din prenumeration genom att köra följande cmdlets:
 
 ### <a name="bkmk_ConnectPSH"></a> Ansluta till din prenumeration med PowerShell
 
@@ -106,33 +106,77 @@ Innan du fortsätter måste du granska den [krav](azure-security-disk-encryption
      Get-AzureKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('DiskEncryptionKeyFileName')} | format-table @{Label="MachineName"; Expression={$_.Tags['MachineName']}}, @{Label="VolumeLetter"; Expression={$_.Tags['VolumeLetter']}}, @{Label="EncryptionKeyURL"; Expression={$_.Id}}
      ```
 
+### <a name="bkmk_prereq-script"></a> Med hjälp av PowerShell-skript för Azure Disk Encryption krav
+Om du redan är bekant med kraven för Azure Disk Encryption kan du använda den [PowerShell-skript för Azure Disk Encryption krav](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Ett exempel på hur du använder det här PowerShell-skript finns i den [kryptera en virtuell dator-Snabbstart](quick-encrypt-vm-powershell.md). Du kan ta bort kommentarerna från en del av skriptet, med början på rad 211, att kryptera alla diskar för befintliga virtuella datorer i en befintlig resursgrupp. 
+
+I följande tabell visas vilka parametrar som kan användas i PowerShell-skriptet: 
+
+
+|Parameter|Beskrivning|Är obligatoriskt|
+|------|------|------|
+|$resourceGroupName| Namnet på resursgruppen som Nyckelvalvet tillhör.  En ny resursgrupp med det här namnet kommer att skapas om det inte finns.| True|
+|$keyVaultName|Namnet på Nyckelvalvet där krypteringsnycklarna nycklar är placeras. Ett nytt valv med det här namnet kommer att skapas om det inte finns.| True|
+|$location|Platsen för Nyckelvalvet. Kontrollera att Nyckelvalvet och virtuella datorer som ska krypteras finns på samma plats. Hämta en innehållsplatslista med `Get-AzureRMLocation`.|True|
+|$subscriptionId|Identifierare för Azure-prenumeration som ska användas.  Du kan hämta ditt prenumerations-ID med `Get-AzureRMSubscription`.|True|
+|$aadAppName|Namnet på Azure AD-programmet som ska användas för att skriva hemligheter KeyVault. Om det inte redan finns ett program med det namnet skapas ett nytt. Om den här appen finns redan, ange du aadClientSecret parameter till skriptet.|False|
+|$aadClientSecret|Klienthemlighet för Azure AD-programmet som du skapade tidigare.|False|
+|$keyEncryptionKeyName|Namnet på valfri nyckelkrypteringsnyckel i KeyVault. En ny nyckel med det här namnet kommer att skapas om det inte finns.|False|
+
+
 ## <a name="resource-manager-templates"></a>Mallar för Resurshanteraren
 
-- [Skapa ett nyckelvalv](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create) 
+<!--   - [Create a key vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create) -->
+
+### <a name="encrypt-or-decrypt-vms-without-an-azure-ad-app"></a>Kryptera eller dekryptera virtuella datorer utan en Azure AD-app
+
+
+- [Aktivera diskkryptering på befintliga eller som kör Windows virtuella IaaS-datorer](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad)
+- [Inaktivera diskkryptering på befintliga eller som kör Windows virtuella IaaS-datorer](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad)
+- [Aktivera diskkryptering på en befintlig eller körs IaaS Linux virtuell dator](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
+ -  [Inaktivera kryptering på en som kör Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
+    - Inaktivera kryptering tillåts endast på datavolymer för virtuella Linux-datorer.  
+
+### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Kryptera eller dekryptera virtuella datorer med en Azure AD-app (tidigare version) 
  
-- [Aktivera diskkryptering på nya virtuella IaaS Windows-dator från Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image)
-    - Den här mallen skapar en ny krypterade Windows virtuell dator som använder Windows Server 2012 galleriet bilden.
-
-- [Distribution av RHEL 7.2 med fullständig diskkryptering](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel)
-    - Den här mallen skapar en helt krypterad RHEL 7.2 VM i Azure med en 30 GB krypterade operativsystemenheten och en 200 GB RAID-0-matris monterad på /mnt/raidencrypted. Se den [vanliga frågor och svar](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) artikeln för Linux-server-distributioner som stöds. 
-
-- [Aktivera diskkryptering på en förkrypterade VHD för Windows eller Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-pre-encrypted-vm)
-
 - [Aktivera diskkryptering på befintliga eller som kör Windows virtuella IaaS-datorer](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)
 
-- [Aktivera diskkryptering på en befintlig eller körs IaaS Linux virtuell dator](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrt-running-linux-vm)    
+- [Aktivera diskkryptering på en befintlig eller körs IaaS Linux virtuell dator](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)    
 
 - [Inaktivera diskkryptering på som kör Windows IaaS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm) 
 
--  [Inaktivera kryptering på en som kör Linux VM](https://aka.ms/decrypt-linuxvm) 
+-  [Inaktivera kryptering på en som kör Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm) 
     - Inaktivera kryptering tillåts endast på datavolymer för virtuella Linux-datorer. 
 
-- [Skapa en ny krypterade hanterad disk från en förkrypterade VHD-/ lagringsblob](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
-    - Skapar en ny krypterade hanterad disk under förutsättning att en förkrypterade virtuell Hårddisk och det motsvarande krypteringsinställningar
+- [Aktivera diskkryptering på nya virtuella IaaS Windows-dator från Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image)
+    - Den här mallen skapar en ny krypterade Windows virtuell dator som använder Windows Server 2012 galleriet bilden.
 
 - [Skapa en ny krypterade Windows IaaS Managed Disk virtuell dator från galleriet bilden](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
     - Den här mallen skapar en ny krypterade Windows virtuell dator med hanterade diskar som använder galleriavbildning för Windows Server 2012.
+
+- [Distribution av RHEL 7.2 med fullständig diskkryptering med hanterade diskar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel)
+    - Den här mallen skapar en fullständigt krypterade RHEL 7.2 VM i Azure med hanterade diskar. Den innehåller en krypterad 30 GB OS-enhet och en krypterad 200 GB matris (RAID-0) monterad på /mnt/raidencrypted. Se den [vanliga frågor och svar](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) artikeln för Linux-server-distributioner som stöds. 
+
+- [Distribution av RHEL 7.2 med fullständig diskkryptering med ohanterade diskar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel-unmanaged)
+    - Den här mallen skapar en fullständigt krypterade RHEL 7.2 VM i Azure med en krypterad 30 GB OS-enhet och en krypterad 200 GB-matris (RAID-0) som är monterad på /mnt/raidencrypted. Se den [vanliga frågor och svar](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) artikeln för Linux-server-distributioner som stöds. 
+
+- [Aktivera diskkryptering på en förkrypterade VHD för Windows eller Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-pre-encrypted-vm)
+
+- [Skapa en ny krypterade hanterad disk från en förkrypterade VHD-/ lagringsblob](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
+    - Skapar en ny krypterade hanterad disk som en förkrypterade virtuell Hårddisk och dess motsvarande krypteringsinställningar
+
+- [Aktivera diskkryptering på en Windows virtuell dator som körs med hjälp av en Azure AD Klientcertifikatets tumavtryck](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-aad-client-cert)
     
+- [Aktivera diskkryptering på en som kör Linux VM-skalningsuppsättning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
+
+- [Aktivera diskkryptering på en aktiv Windows VM-skalningsuppsättning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
+
+ - [Distribuera en virtuell dator skala ange av virtuella Linux-datorer med en jumpbox och aktiverar kryptering på Linux VMSS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+
+ - [Distribuera en virtuell dator skala ange av Windows virtuella datorer med en jumpbox och aktiverar kryptering på Windows VMSS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+
+- [Inaktivera diskkryptering på en som kör Linux VM-skalningsuppsättning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+
+- [Inaktivera diskkryptering på en aktiv Windows VM-skalningsuppsättning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
 ## <a name="bkmk_preWin"></a> Förbered en förkrypterade Windows virtuell Hårddisk
 Avsnitten som följer är nödvändiga för att förbereda en förkrypterade Windows virtuell Hårddisk för distribution som en krypterad virtuell Hårddisk i Azure IaaS. Använd informationen för att förbereda och starta en ny Windows VM (VHD) på Azure Site Recovery eller Azure. Mer information om hur du förbereder och ladda upp en virtuell Hårddisk finns i [överföra en generaliserad virtuell Hårddisk och använda den för att skapa nya virtuella datorer i Azure](../virtual-machines/windows/upload-generalized-managed.md).
@@ -183,7 +227,7 @@ Använd den [ `manage-bde` ](https://technet.microsoft.com/library/ff829849.aspx
  ```powershell
     Set-AzureRmVMSourceImage -VM $VirtualMachine -PublisherName "OpenLogic" -Offer "CentOS" -Skus "7.2n" -Version "latest"
  ```
-2. Konfigurera den virtuella datorn efter dina behov. Om du kommer att kryptera alla (OS + data) enheter finns i dataenheter måste vara angivna och monteras från/etc/fstab.
+2. Konfigurera den virtuella datorn efter dina behov. Om du planerar att kryptera alla (OS + data) enheter finns i dataenheter måste vara angivna och monteras från/etc/fstab.
 
  > [!NOTE]
  > Använd UUID =... Ange dataenheter för i/etc/fstab istället för att ange blockera enhetens namn (till exempel/dev/sdb1). Ordningen på enheter ändras på den virtuella datorn under krypteringen. Om den virtuella datorn är beroende av en viss ordning av blockenheterna, misslyckas den att montera dem efter kryptering.
@@ -247,7 +291,7 @@ Du kan övervaka förloppet för OS-kryptering på tre sätt:
 
     /var/log/azure/Microsoft.Azure.Security.AzureDiskEncryptionForLinux
 
- Vi rekommenderar att du inte loggar in till den virtuella datorn när OS-kryptering pågår. Kopiera loggarna bara när de två metoderna har misslyckats.
+ Vi rekommenderar att du inte logga in på den virtuella datorn när OS-kryptering pågår. Kopiera loggarna bara när de två metoderna har misslyckats.
 
 ## <a name="bkmk_preLinux"></a> Förbereda en förkrypterade Linux-VHD
 Inför förkrypterade virtuella hårddiskar kan variera beroende på vilken distribution. Exempel på förbereda [Ubuntu 16](#bkmk_Ubuntu), [openSUSE 13.2](#bkmk_openSUSE), och [CentOS 7](#bkmk_CentOS) är tillgängliga. 
@@ -345,7 +389,7 @@ Konfigurera krypteringen ska fungera med Azure genom att göra följande:
 
 ### <a name="bkmk_openSUSE"></a>  openSUSE 13.2
 För att konfigurera kryptering under installationen av distributionsplatsen, gör du följande:
-1. När du partitionera diskarna väljer **kryptera volymen grupp**, och sedan ange ett lösenord. Detta är det lösenord som du överför till ditt nyckelvalv.
+1. När du partitionera diskarna väljer **kryptera volymen grupp**, och sedan ange ett lösenord. Det här är det lösenord som du överföra till ditt nyckelvalv.
 
  ![Konfigurera openSUSE 13.2](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
 
@@ -465,7 +509,7 @@ till
 ```
     if [ 1 ]; then
 ```
-4. Redigera /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh och lägga till detta efter ”# öppna LUKS enhet”:
+4. Redigera /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh och Lägg till nedanstående efter ”# öppna LUKS enhet”:
     ```
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName
@@ -496,7 +540,7 @@ När BitLocker-kryptering eller DM-Crypt kryptering har aktiverats, måste den l
     Add-AzureRmVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 ```
 ## <a name="bkmk_UploadSecret"></a> Ladda upp hemligheten för den förkrypterade virtuella datorn till ditt nyckelvalv
-Diskkryptering hemligheten som du fick tidigare måste ska laddas upp som en hemlighet i nyckelvalvet. Nyckelvalvet måste ha diskkryptering och behörigheter som har aktiverats för din Azure AD-klient.
+När du krypterar med hjälp av Azure AD-app (tidigare version), måste diskkryptering hemligheten som du fick tidigare laddas upp som en hemlighet i nyckelvalvet. Nyckelvalvet måste ha diskkryptering och behörigheter som har aktiverats för din Azure AD-klient.
 
 ```powershell 
  $AadClientId = "My-AAD-Client-Id"
@@ -624,7 +668,7 @@ Använd `$KeyEncryptionKey` och `$secretUrl` i nästa steg för [koppla OS-diske
 ##  <a name="bkmk_SecretURL"></a> Ange en hemlig URL när du kopplar en OS-disk
 
 ###  <a name="bkmk_URLnoKEK"></a>Utan att använda en KEK
-När du bifogar OS-disken, måste du skicka `$secretUrl`. URL: en har genererats i avsnittet ”diskkryptering hemlighet som inte är krypterade med en KEK”.
+När du kopplar OS-disken, måste du skicka `$secretUrl`. URL: en har genererats i avsnittet ”diskkryptering hemlighet som inte är krypterade med en KEK”.
 ```powershell
     Set-AzureRmVMOSDisk `
             -VM $VirtualMachine `

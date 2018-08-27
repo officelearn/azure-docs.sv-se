@@ -1,6 +1,6 @@
 ---
-title: C# Snabbstart för Microsoft kognitiva Services, projekt svaret Sök | Microsoft Docs
-description: Kodexempel för att komma igång med projektet svaret sökningen kognitiva Microsoft-tjänster i Azure.
+title: C#-Snabbstart för Microsoft Cognitive Services, projekt Svarssökning | Microsoft Docs
+description: Kodexempel för att komma igång med projektet svar Search, Microsoft Cognitive Services på Azure.
 services: cognitive-services
 author: mikedodaro
 ms.service: cognitive-services
@@ -8,36 +8,36 @@ ms.technology: project-answer-search
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: b05b7745bdb5020a4a0912635e040256415b2626
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c8e2a6a7fc3609932a7a1139d7b34553e5f9c291
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353943"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888331"
 ---
-# <a name="project-answer-search-query-in-c"></a>Projektet svaret sökfråga i C#
+# <a name="project-answer-search-query-in-c"></a>Sökfråga för projektet svar i C#
 
-Följande C#-exempel skapar och skickar en fråga om information om tredje lag för differentialräkning.
+I följande C#-exempel skapar och skickar en fråga om information om den tredje lag för differentialräkning.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver [Visual Studio 2017](https://www.visualstudio.com/downloads/) att köra den här koden i Windows. (Ledigt Community Edition fungerar).
+Du behöver [Visual Studio 2017](https://www.visualstudio.com/downloads/) att köra den här koden på Windows. (Den kostnadsfria Community Edition fungerar.)
 
-Hämta en åtkomstnyckel för den kostnadsfria utvärderingsversionen [kognitiva Services Labs](https://aka.ms/answersearchsubscription)
+Hämta en åtkomstnyckel för den kostnadsfria utvärderingsversionen [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
 
-## <a name="code-scenario"></a>Koden scenario
+## <a name="code-scenario"></a>Kod scenario
 
 Följande C#-kod som skapar och skickar frågan. 
 
 De är implementerade i följande steg:
-1. Deklarera variabler för att ange slutpunkten och fråge-URL för förhandsgranskning.  
+1. Deklarera variabler för att ange slutpunkten och en fråge-URL för att förhandsgranska.  
 2. Skapa begäran.
-3. Lägg till den *Ocp-Apim-prenumeration-nyckeln* huvud. 
+3. Lägg till den *Ocp-Apim-Subscription-Key* rubrik. 
 4. Kör webbegäran asynkront. 
 5. Läsa svaret.
-6. Skriva ut sidhuvuden och JSON-resultat till konsolen.
+6. Skriva ut rubriker och JSON-resultat till konsolen.
 
-**Källkoden**
+**Källkod**
 
 ```
 using System;
@@ -53,7 +53,7 @@ namespace Answers_csharp
         // Replace the accessKey string value with your valid access key.
         const string accessKey = "YOUR-SUBSCRIPTION-KEY";
 
-        const string uriBase = "https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search "; 
+        const string uriBase = "https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search"; 
 
         const string searchTerm = "third law of calculus"; 
 
@@ -187,10 +187,10 @@ namespace Answers_csharp
 
 Att köra programmet:
 
-1. Skapa en ny konsol lösning i Visual Studio.
+1. Skapa en ny konsol-lösning i Visual Studio.
 2. Ersätt `Program.cs` med den angivna koden.
-3. Ersätt den `YOUR-ACCESS-KEY` värde med en giltig åtkomstnyckeln för din prenumeration.
+3. Ersätt den `YOUR-ACCESS-KEY` värde med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
 ## <a name="next-steps"></a>Nästa steg
-[Java-Snabbstart](java-quickstart.md)
+[Snabbstart för Java](java-quickstart.md)

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: cherylmc
 ms.openlocfilehash: 245e5e1048f27fc76141312cf6f9021dc0060ae6
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
+ms.lasthandoff: 08/24/2018
 ms.locfileid: "39359080"
 ---
 # <a name="vpn-gateway-faq"></a>Vanliga frågor och svar om VPN Gateway
@@ -68,7 +68,7 @@ Routningsbaserade gateways implementerar routningsbaserade VPN:er. Routningsbase
 Nej. En Azure Vnet-gatewaytyp kan inte ändras från principbaserad till routningsbaserad eller tvärtom. Gatewayen måste tas bort och återskapas, en process som tar cirka 60 minuter. IP-adressen till gatewayen bevaras inte och inte heller den i förväg delade nyckeln (PSK).
 1. Ta bort alla anslutningar som är associerade med gatewayen som ska tas bort.
 2. Ta bort gatewayen:
-* [Azure-portalen](vpn-gateway-delete-vnet-gateway-portal.md)
+* [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 * [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 * [Azure Powershell – klassisk](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 3. [Skapa en ny gateway av efterfrågad typ och slutför VPN-konfigurationen](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)

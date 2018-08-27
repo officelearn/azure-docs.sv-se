@@ -16,17 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
-ms.openlocfilehash: 59fe70e4d2a710160751ab8e7a83c9f86310dc24
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 4959e4e3a0692837a7775eaf813a8fcff925312d
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597738"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918024"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Översikt över Azure App Service lokalt cacheminne
 
 > [!NOTE]
-> Lokal cache är inte stöds i behållarbaserad App Service-appar som på [App Service i Linux](containers/app-service-linux-intro.md).
+> Lokal cache är inte stöds i funktionsappar eller behållarbaserad App Service-appar, till exempel på [App Service i Linux](containers/app-service-linux-intro.md).
+
 
 Azure web appinnehåll lagras på Azure Storage och är visas upp på ett hållbart sätt som en resurs med innehåll. Den här designen är avsedd att fungera med en rad olika appar och har följande attribut:  
 
@@ -55,7 +56,7 @@ Funktionen lokalt cacheminne för Azure App Service tillhandahåller en webbvy r
 ## <a name="enable-local-cache-in-app-service"></a>Aktivera lokal Cache i App Service
 Du kan konfigurera lokal Cache genom att använda en kombination av reserverade appinställningar. Du kan konfigurera dessa inställningar med hjälp av följande metoder:
 
-* [Azure-portalen](#Configure-Local-Cache-Portal)
+* [Azure Portal](#Configure-Local-Cache-Portal)
 * [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
 ### <a name="configure-local-cache-by-using-the-azure-portal"></a>Konfigurera lokal Cache med hjälp av Azure-portalen

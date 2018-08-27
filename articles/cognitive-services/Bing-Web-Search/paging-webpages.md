@@ -1,6 +1,6 @@
 ---
-title: Hur vill bläddra igenom de tillgängliga webbsidorna | Microsoft Docs
-description: Visar hur du kan bläddra igenom alla webbsidor som Bing kan returnera.
+title: Hur du bläddrar igenom resultaten för webbsökning i Bing | Microsoft Docs
+description: Lär dig mer om att bläddra igenom resultat för webbsökning i Bing.
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
@@ -8,22 +8,22 @@ ms.assetid: 26CA595B-0866-43E8-93A2-F2B5E09D1F3B
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 04/15/2017
-ms.author: scottwhi
-ms.openlocfilehash: bf29783246c603270d59b20b63027fccdbd45b89
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 08/20/2018
+ms.author: erhopf
+ms.openlocfilehash: cd03b3af08746674dd2ba2d4af593e19e066efca
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351528"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888249"
 ---
-# <a name="paging-webpages"></a>Sidindelning webbsidor 
+# <a name="how-to-page-through-bing-web-search-api-results"></a>Hur du bläddrar igenom resultaten för webbsökning i Bing
 
-När du anropar Sök webb-API, returnerar Bing en lista med resultat. Listan är en delmängd av det totala antalet resultat som är relevant för frågan. För att få det totala antalet tillgängliga resultaten kan komma åt objektet svar [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#totalestimatedmatches) fältet.  
+När du anropar API för webbsökning i Bing returnerar en lista med resultat. Listan är en delmängd av det totala antalet resultat som är relevanta för frågan. För att få det uppskattade totala antalet tillgängliga resultat kan komma åt objektet svar [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#totalestimatedmatches) fält.  
   
-I följande exempel visas den `totalEstimatedMatches` fält som inkluderar ett webb-svar.  
+I följande exempel visas den `totalEstimatedMatches` fält som innehåller en Web-svar.  
   
-```  
+```
 {
     "_type" : "SearchResponse",
     "webPages" : {
@@ -32,15 +32,15 @@ I följande exempel visas den `totalEstimatedMatches` fält som inkluderar ett w
         "value" : [...]
     }
 }  
-```  
+```
   
-Om du vill bläddra igenom de tillgängliga webbsidorna, Använd den [antal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#count) och [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#offset) fråga parametrar.  
+Om du vill bläddra igenom tillgängliga webbsidor, använda den [antal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#count) och [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#offset) Frågeparametrar.  
   
-Den `count` parameter anger antalet resultat som ska returneras i svaret. Det maximala antalet resultat som du kan begära i svaret är 50. Standardvärdet är 10. Det faktiska antalet levereras kan vara mindre än begärt.
+Den `count` parametern anger antalet resultat som ska returneras i svaret. Det maximala antalet resultat som du kan begära i svaret är 50. Standardvärdet är 10. Det faktiska talet som levereras kan vara mindre än vad som begärts.
 
-Den `offset` parameter anger antalet resultat som ska hoppas över. Den `offset` är nollbaserade och bör vara mindre än (`totalEstimatedMatches` - `count`).  
+Den `offset` parametern anger antalet resultat som hoppas över. Den `offset` är nollbaserat och måste vara mindre än (`totalEstimatedMatches` - `count`).  
   
-Om du vill visa 15 webbsidor per sida kan du ställa in `count` 15 och `offset` till 0 för att hämta den första sidan i resultaten. För varje efterföljande sida som du vill öka `offset` av 15 (till exempel 15, 30).  
+Om du vill visa 15 webbsidor per sida, skulle du ställa in `count` till 15 och `offset` på 0 för att hämta den första sidan i resultaten. För varje efterföljande sida du vill öka `offset` av 15 (till exempel 15, 30).  
   
 I följande exempel begär 15 webbsidor som börjar vid förskjutningen 45.  
   
@@ -50,7 +50,7 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```
 
-Om standard `count` värde fungerar för din implementering, måste du ange den `offset` Frågeparametern.  
+Om standard `count` värdet som passar din implementering, behöver du bara ange den `offset` frågeparameter.  
   
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&offset=45&mkt=en-us HTTP/1.1  
@@ -58,6 +58,6 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```
 
-Sök webb-API: returnerar resultat med webbsidor som kan inkludera bilder, videor och nyheter. När du sidan sökresultaten växling av [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) svar och inte andra svar, till exempel bilder eller news. Till exempel om du ställer in `count` till 50, åter 50 webbsidan resultat, men svaret kan inkludera resultat för de andra svar. Svaret kan exempelvis omfatta 15 bilder och 4 nyhetsartiklar. Det är också möjligt att resultaten kan inkludera Nyheter på första sidan men inte på den andra sidan, och vice versa.   
+API för webbsökning returnerar resultat som innehåller webbsidor och kan innehålla bilder, videor och nyheter. När du sidan sökresultaten växling i [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) svar och inte andra svar, till exempel bilder eller nyheter. Exempel: Om du ställer in `count` till 50, du kommer tillbaka 50 webbsidan resultat, men svaret kan innehålla resultat för de andra svar. Svaret kan exempelvis omfatta 15 avbildningar och 4 nyhetsartiklar. Det är också möjligt att resultaten kan innehålla Nyheter på första sidan, men inte den andra sidan, eller tvärtom.   
     
-Om du anger den `responseFilter` Frågeparametern och inkluderar inte webbsidor i filterlistan kan inte använda den `count` och `offset` parametrar.  
+Om du anger den `responseFilter` frågeparameter och omfattar inte webbsidor i filterlistan kan inte använda den `count` och `offset` parametrar.  

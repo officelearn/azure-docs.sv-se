@@ -1,6 +1,6 @@
 ---
-title: Språk som stöds i Microsoft översättare API | Microsoft Docs
-description: Visa språk som stöds av Microsoft översättare Text API.
+title: Språk som stöds i Microsoft Translator-API | Microsoft Docs
+description: Visa språk som stöds av Microsoft Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
 manager: chriswendt1
@@ -9,24 +9,24 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: 5542c1c0eee5e4c7c85c566908dc8999b118f06e
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f5b916ba3b6b044f12b84958b2eb69f44e2f8136
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37032456"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888149"
 ---
-# <a name="supported-languages-in-the-microsoft-translator-text-api"></a>Språk som stöds i Microsoft översättare Text-API
+# <a name="supported-languages-in-the-microsoft-translator-text-api"></a>Språk som stöds i Microsoft Translator Text API
 
-Microsoft översättare Text API stöder följande språk för översättning till text. Neural maskinöversättning (NMT) är den nya standarden för hög kvalitet AI-påslagen maskinöversättningar och är tillgänglig som standard med V3 översättare Text API när ett neural system är tillgänglig. Neural maskinöversättning är tillgänglig i V2 med hjälp av kategorin ”generalnn”.
+Microsoft Translator Text API stöder följande språk för översättning till text. Neural maskinöversättning NMT är den nya standarden för AI-driven maskinöversättningar i hög kvalitet och är tillgänglig som standard med V3 av Translator Text API när ett neural system är tillgänglig. Neural maskinöversättning är tillgänglig i V2 med hjälp av kategorin ”generalnn”.
 
 [Mer information om hur maskinöversättning fungerar](https://www.microsoft.com/translator/mt.aspx)
 
-| Språk    | Översättning av typen |Språkkod |
+| Språk    | Typ av översättning |Språkkod |
 |:----------- |:-------:|:-------------:|
 | Afrikaans      | Statistisk |`af`          |
 | Arabiska      | Neural | `ar`          |
-| Arabiska *, Levantine    | Neural | `apc`
+| Arabiska, Levantine    | Neural | `apc`
 | Bangla      | Neural |`bn`          |
 | Bosniska (latinsk)      | Statistisk |`bs`          |
 | Bulgariska     |  Neural |`bg`          |
@@ -61,7 +61,7 @@ Microsoft översättare Text API stöder följande språk för översättning ti
 | Koreanska        |  Neural |`ko`          |
 | Lettiska      | Neural |`lv`          |
 | Litauiska      | Neural |`lt`          |
-| Malagassiska      | Statistisk |`mg`          |
+| Madagaskisk      | Statistisk |`mg`          |
 | Malajiska      | Statistisk |`ms`          |
 | Maltesiska      | Statistisk |`mt`          |
 | Norska        |  Neural |`nb`          |
@@ -91,11 +91,11 @@ Microsoft översättare Text API stöder följande språk för översättning ti
 
 ## <a name="transliteration"></a>Transkribering
 
-Transliterate-metoden stöder följande språk. I den ”till/från”, ”<>--” indikerar att språket som kan vara Translittererad till från eller till någon av de skript som visas. Den ”-->” anger att språket kan bara vara Translittererad till från ett skript till en annan.
+Metoden Transliterate stöder följande språk. I den ”till och från”, ”<>--” anger att språket kan vara Translittererad till från eller till någon av de skript som visas. Den ”-->” anger att språket kan bara vara Translittererad till från ett skript till en annan.
 
 | Språk    | Språkkod | Skript | Till och från | Skript|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
-| Arabiska | ar | Arabiska | <--> | Latin |
+| Arabiska | Kundreskontra | Arabiska | <--> | Latin |
 |Bangla  | bn | Bengali | <--> | Latin |
 | Förenklad kinesiska | zh-Hans | Kinesiska, förenklad | <--> | Latin |
 | Förenklad kinesiska | zh-Hans | Kinesiska, förenklad | <--> | Kinesiska, traditionell |
@@ -118,7 +118,7 @@ Transliterate-metoden stöder följande språk. I den ”till/från”, ”<>--�
 
 ## <a name="dictionary"></a>Ordlista
 
-Ordlistan stöder följande språk till eller från engelska metoderna sökning och exempel.
+Ordlistan stöder följande språk till eller från engelska med hjälp av Sök- och exempelmetoder.
 
 | Språk    | Språkkod |
 |:----------- |:-------------:|
@@ -173,9 +173,9 @@ Ordlistan stöder följande språk till eller från engelska metoderna sökning 
 | Vietnamesiska      | `vi`          |
 | Walesiska      | `cy`          |
 
-## <a name="languages-detected-by-the-detect-method"></a>Språk som identifieras av metoden identifiera
+## <a name="languages-detected-by-the-detect-method"></a>Språk som identifieras av metoden identifiering
 
-Följande språk kan identifieras av metoden identifiera. Identifiera kan identifiera språk som Microsoft Translator inte kan översätta.
+Följande språk kan identifieras av metoden identifiering. Identifiera maj identifiera språk som Microsoft Translator inte kan översätta.
 
 | Språk    |
 |:----------- |
@@ -187,8 +187,8 @@ Följande språk kan identifieras av metoden identifiera. Identifiera kan identi
 | Bulgariska |
 | Katalanska |
 | Kinesiska |
-| Chinese_Simplified |
-| Chinese_Traditional |
+| Förenklad kinesiska |
+| Traditionell kinesiska |
 | Kroatiska |
 | Tjeckiska |
 | Danska |
@@ -201,7 +201,7 @@ Följande språk kan identifieras av metoden identifiera. Identifiera kan identi
 | Galiciska |
 | Tyska |
 | Grekiska |
-| Haitian_Creole |
+| Haitiska |
 | Hebreiska |
 | Hindi |
 | Ungerska |
@@ -211,8 +211,8 @@ Följande språk kan identifieras av metoden identifiera. Identifiera kan identi
 | Italienska |
 | Japanska |
 | Koreanska |
-| Kurdish_Arabic |
-| Kurdish_Latin |
+| Kurdiska (arabiska) |
+| Kurdiska (latinsk) |
 | Latin |
 | Lettiska |
 | Litauiska |
@@ -220,15 +220,15 @@ Följande språk kan identifieras av metoden identifiera. Identifiera kan identi
 | Malajiska |
 | Maltesiska |
 | Norska |
-| Norwegian_Nynorsk |
+| Norska (nynorsk) |
 | Afghanska |
 | Persiska |
 | Polska |
 | Portugisiska |
 | Rumänska |
 | Ryska |
-| Serbian_Cyrillic |
-| Serbian_Latin |
+| Serbiska (kyrillisk) |
+| Serbiska (latinsk) |
 | Slovakiska |
 | Slovenska |
 | Somali |
@@ -240,20 +240,20 @@ Följande språk kan identifieras av metoden identifiera. Identifiera kan identi
 | Turkiska |
 | Ukrainska |
 | Urdu |
-| Uzbek_Cyrillic |
-| Uzbek_Latin |
+| Uzbekiska (kyrillisk) |
+| Uzbekiska (latinsk) |
 | Vietnamesiska |
 | Walesiska |
-| Jiddisch |
+| Jiddish |
 
 ## <a name="access-the-list-programmatically"></a>Programmässig åtkomst i listan
 
-Du kan komma åt listan över språk som stöds genom programmering med åtgärden språk V3.0 Text API. Du kan visa listan med funktionen, språkkod samt språkets namn på engelska eller något annat språk som stöds. Den här listan uppdateras automatiskt av tjänsten Microsoft Translator när nya språk blir tillgängliga.
+Du kan komma åt listan över språk som stöds via programmering med språk driften av Text-API version 3.0. Du kan visa listan efter funktionen, språkkod samt språkets namn på engelska eller något annat språk som stöds. Den här listan uppdateras automatiskt av tjänsten Microsoft Translator när nya språk blir tillgängliga.
 
-[Språk referensdokumentationen för åtgärden](reference/v3-0-languages.md)
+[Visa referensdokumentation för språk-åtgärden](reference/v3-0-languages.md)
 
 ## <a name="access-the-list-on-the-microsoft-translator-website"></a>Komma åt listan på webbplatsen Microsoft Translator
 
-Webbplatsen Microsoft Translator visar alla språk som stöds av översättare Text och tal-API: er för en titt på språk. Den här listan innehåller developer-specifik information, till exempel språkkoder.
+Webbplatsen Microsoft Translator visar alla språk som stöds av Translator Text och tal-API: er för en snabb titt på språk. Den här listan innehåller inte developer-specifik information, till exempel språkkoder.
 
-[Visa en lista över språk](https://www.microsoft.com/translator/languages.aspx)
+[Se en lista över språk](https://www.microsoft.com/translator/languages.aspx)

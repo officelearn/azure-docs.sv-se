@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 543f581659d54bd14ccb2a818fd74e379bcc8cfe
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: af2a3da788fd26387ccdcc36422ffa5b11893212
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42058196"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888091"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Använd Azure storage-emulatorn för utveckling och testning
 
@@ -26,9 +26,8 @@ Storage-emulatorn körs för närvarande endast på Windows. För de överväger
 
 > [!NOTE]
 > Data som skapats i en version av storage-emulatorn är inte säkert att vara tillgänglig när du använder en annan version. Om du vill spara dina data långsiktigt rekommenderar vi att du lagrar dessa data i ett Azure storage-konto och inte i storage-emulatorn.
-> <p/>
+> 
 > Storage-emulatorn är beroende av specifika versioner av OData-bibliotek. Ersätt OData-DLL: er som används av storage-emulatorn med andra versioner stöds inte och kan orsaka oförutsett beteende. Någon version av OData som stöds av storage-tjänsten kan dock användas för att skicka begäranden till emulatorn.
->
 
 ## <a name="how-the-storage-emulator-works"></a>Så här fungerar lagringsemulatorn
 Lagringsemulatorn använder en lokal Microsoft SQL Server-instans och det lokala filsystemet för att emulera Azure storage-tjänster. Lagringsemulatorn använder en databas i Microsoft SQL Server 2012 Express LocalDB som standard. Du kan välja att konfigurera storage-emulatorn för att komma åt en lokal instans av SQL Server i stället för LocalDB-instans. Mer information finns i den [Start- och initiera lagringsemulatorn](#start-and-initialize-the-storage-emulator) senare i den här artikeln.
@@ -187,6 +186,7 @@ Eftersom storage-emulatorn är en emulerade miljö som körs i en lokal SQL-inst
 Följande skillnader gäller för Blob storage i emulatorn:
 
 * Storage-emulatorn endast stöder blob storlekar upp till 2 GB.
+* Den maximala längden på ett blobbnamn i storage-emulatorn är 256 tecken, medan den maximala längden på ett blobbnamn i Azure Storage är 1024 tecken.
 * Inkrementell kopia kan ögonblicksbilder från skrevs över BLOB-objekt som ska kopieras, som returnerar ett fel i tjänsten.
 * Get Page Ranges Diff fungerar inte mellan ögonblicksbilder kopieras med hjälp av inkrementell kopiering av Blob.
 * En Placera Blob-åtgärden kan lyckas mot en blob som finns i storage-emulatorn med ett aktivt lån, även om lån-ID inte har angetts i begäran.

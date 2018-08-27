@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 08/23/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
-ms.openlocfilehash: a1ff4364e394b3807cf767722ee934ae024399b0
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: bac728f286c90550107b27da76a070623577ed82
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114352"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918908"
 ---
 # <a name="configure-virtual-wan-automation---for-virtual-wan-partners-preview"></a>Konfigurera virtuellt WAN-nätverk automation - för partner virtuellt WAN-nätverk (förhandsversion)
 
@@ -23,7 +23,7 @@ Programvarudefinierad anslutning lösningarna använder vanligtvis en domänkont
 
 ##  <a name="access"></a>Åtkomstkontroll
 
-Kunder måste kunna ställa in lämplig åtkomstkontroll för virtuellt WAN-nätverk i enhetens användargränssnitt. Detta rekommenderas använder ett huvudnamn för Azure-tjänsten. Tjänstens huvudnamn-baserad åtkomst ger enheten controller lämplig autentisering för att ladda upp informationen om grenen.
+Kunder måste kunna ställa in lämplig åtkomstkontroll för virtuellt WAN-nätverk i enhetens användargränssnitt. Detta rekommenderas använder ett huvudnamn för Azure-tjänsten. Tjänstens huvudnamn-baserad åtkomst ger enheten controller lämplig autentisering för att ladda upp informationen om grenen. Mer information finns i [skapa tjänstens huvudnamn](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).
 
 ##  <a name="site"></a>Ladda upp informationen om gren
 
@@ -44,10 +44,10 @@ I det här steget, skulle en kund som inte använder en provider manuellt hämta
 
 ### <a name="understanding-the-device-configuration-file"></a>Förstå konfigurationsfilen enhet
 
-Enhet-konfigurationsfilen innehåller inställningarna som ska användas när du konfigurerar den lokala VPN-enheten. När du visar den här filen kan du se följande information:
+Konfigurationsfilen för enheten innehåller de inställningarna du ska använda när du konfigurerar den lokala VPN-enheten. När du visar den här filen ser du följande information:
 
-* **vpnSiteConfiguration -** i det här avsnittet anger information om enheten som en plats som ansluter till virtuellt WAN. Det omfattar namn och offentliga ip-adressen för den gren-enheten.
-* **vpnSiteConnections -** det här avsnittet innehåller information om följande:
+* **vpnSiteConfiguration** I det här avsnittet anges enhetsinformation konfigurerad som en plats som ansluter till det virtuella WAN-nätverket. Det omfattar namn och offentlig IP-adress för grenenheten.
+* **vpnSiteConnections** – Det här avsnittet innehåller information om följande:
 
     * **Adressutrymme** av de virtuella NAV VNet.<br>Exempel:
  
@@ -59,15 +59,15 @@ Enhet-konfigurationsfilen innehåller inställningarna som ska användas när du
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.30.0.0/16"]
          ```
-    * **IP-adresser** av den virtuella hubben vpngateway. Eftersom vpngateway har varje anslutning består av 2 tunnlar i aktiv-aktiv konfiguration, visas båda IP-adresserna som anges i den här filen. I det här exemplet ser du ”Instance0” och ”Instans1” för varje plats.<br>Exempel:
+    * **IP-adresser** till vpngateway för den virtuella hubben. Eftersom varje anslutning för vpngateway består av två tunnlar i aktiv-aktiv konfiguration ser du båda IP-adresserna listade i den här filen. I det här exemplet ser du "Instance0" och "Instance1" för varje plats.<br>Exempel:
 
         ``` 
         "Instance0":"104.45.18.186"
         "Instance1":"104.45.13.195"
         ```
-    * **Konfigurationsinformation för Vpngateway anslutning** , till exempel BGP, i förväg delad nyckel osv. PSK är den delade nyckeln som genereras automatiskt åt dig. Du kan alltid redigera anslutningen på översiktssidan för en anpassad PSK.
+    * **Konfigurationsinformation för vpngatewayanslutning**, exempelvis BGP, i förväg delad nyckel osv. PSK är den i förväg delade nyckeln som genereras automatiskt åt dig. Du kan alltid redigera anslutningen på översiktssidan för en anpassad PSK.
   
-### <a name="example-device-configuration-file"></a>Konfigurationsfilen för exempel-enhet
+### <a name="example-device-configuration-file"></a>Konfigurationsfil för exempelenhet
 
   ```
   { 
@@ -250,9 +250,9 @@ Din lokala SDWAN/VPN-enhet eller SD-WAN konfigurationen måste matcha eller inne
 * IPsec-integritetsalgoritm
 * PFS-grupp
 
-## <a name="feedback"></a>Feedback från förhandsversionen
+## <a name="feedback"></a>Feedback för förhandsversionen
 
-Vi gärna dina synpunkter. Skicka ett e-postmeddelande till <azurevirtualwan@microsoft.com> rapportera eventuella problem eller att skicka feedback (positivt eller negativt) för virtuellt WAN-nätverk. Inkludera företagets namn i ”[]” i ämnesraden. Även innehålla ditt prenumerations-ID om du rapporterar ett problem.
+Vi vill gärna ha din feedback. Skicka ett e-postmeddelande till <azurevirtualwan@microsoft.com> om du vill rapportera problem eller lämna feedback (positiv och negativ) om Virtual WAN. Ange ditt företagsnamn inom [ ] i ämnesraden. Ange även ditt prenumerations-ID om du rapporterar ett problem.
 
 ## <a name="next-steps"></a>Nästa steg
 

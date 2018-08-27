@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: b84de7475c54d2bc35dcc10b0bbfb0c1839c5631
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 261f8dfe41ece0cd56a4a71972e3142ef8440afb
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522143"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918117"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuera Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -25,7 +25,7 @@ Vi rekommenderar starkt att du läser [planera för distribution av Azure Files]
     - [Regiontillgänglighet](storage-sync-files-planning.md#region-availability) för Azure File Sync.
     - [Skapa ett lagringskonto](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) för en stegvis beskrivning av hur du skapar ett lagringskonto.
     - [Skapa en filresurs](storage-how-to-create-file-share.md) för en stegvis beskrivning av hur du skapar en filresurs.
-* Minst en instans av Windows Server eller Windows Server-kluster för att synkronisera med Azure File Sync som stöds. Mer information om vilka versioner av Windows Server finns i [samverkan med Windows Server](storage-sync-files-planning.md#azure-file-sync-interoperability).
+* Minst en instans av Windows Server eller Windows Server-kluster för att synkronisera med Azure File Sync som stöds. Mer information om vilka versioner av Windows Server finns i [samverkan med Windows Server](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
 * Kontrollera PowerShell 5.1 är installerad på Windows Server. Om du använder Windows Server 2012 R2 kan du se till att du kör minst PowerShell 5.1. \*. Du kan på ett säkert sätt hoppa över den här kontrollen på Windows Server 2016 PowerShell 5.1 är den standard version out-of-box. Du kan kontrollera att du kör PowerShell 5.1 på Windows Server 2012 R2. \* genom att titta på värdet för den **PSVersion** egenskapen för den **$PSVersionTable** objekt:
 
     ```PowerShell

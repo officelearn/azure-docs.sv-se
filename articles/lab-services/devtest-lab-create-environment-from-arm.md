@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: a6f6beedfc6c23be70693428388f6d0e585260bc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 143d0d4b66fc8e6e62364090e3d3187c4aa7bb51
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433178"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919014"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Skapa miljöer för flera virtuella datorer och PaaS-resurser med Azure Resource Manager-mallar
 
@@ -37,10 +37,11 @@ Mer information om många [fördelarna med att använda Resource Manager-mallar]
 > [!NOTE]
 > När du använder Resource Manager-mall som utgångspunkt för att skapa mer labb virtuella datorer, finns det några skillnader att tänka på om du skapar flera virtuella datorer eller enskild för virtuella datorer. [Använda Azure Resource Manager-mall för en virtuell dators](devtest-lab-use-resource-manager-template.md) förklarar skillnaderna i större detalj.
 >
->
 
-## <a name="configure-azure-resource-manager-template-repositories"></a>Konfigurera databaser för Azure Resource Manager-mall
+## <a name="devtest-labs-public-environments"></a>DevTest Labs offentliga miljöer
+Azure DevTest Labs har en [offentliga lagringsplatsen för Azure Resource Manager-mallar](https://github.com/Azure/azure-devtestlab/tree/master/Environments) som du kan använda för att skapa miljöer utan att behöva ansluta till en extern källa för GitHub själv. Den här lagringsplatsen innehåller ofta använda mallar som Azure Web Apps, Service Fabric-kluster och utveckling SharePoint-servergruppen miljö. Den här funktionen liknar den offentliga databasen artefakter som ingår för varje labb som du skapar. Miljö-databasen kan du snabbt komma igång med färdiga miljömallar med minsta indataparametrar för att ge dig en smidig upplevelse för komma igång för PaaS-resurser inom labs. Mer information finns i [konfigurera och använda offentliga miljöer i DevTest Labs](devtest-lab-configure-use-public-environments.md).
 
+## <a name="configure-your-own-template-repositories"></a>Konfigurera en egen mall-databaser
 Som en av de bästa metoderna med infrastruktur som kod och konfiguration som kod, ska miljömallar hanteras i källkontrollen. Azure DevTest Labs följer den här övningen och läser in alla Azure Resource Manager-mallar direkt från GitHub eller VSTS Git-lagringsplatser. Resource Manager-mallar kan därför användas över hela lanseringen-livscykel, från testmiljö till produktionsmiljön.
 
 Se vilka mallar som skapats av DevTest Labs-teamet i den [offentliga GitHub-lagringsplatsen](https://github.com/Azure/azure-devtestlab/tree/master/Environments). I den här offentliga databasen, kan du visa mallar som delas av andra att du kan använda direkt eller anpassa dem efter dina behov. När du har skapat mallen kan du lagra den i den här lagringsplatsen att dela den med andra. Du kan också ställa in din egen Git-lagringsplats med mallar som kan användas för att konfigurera miljöer i molnet. 
@@ -56,12 +57,9 @@ Det finns några regler för att följa för att organisera dina Azure Resource 
 - Metadata kan definieras för att ange Mallens visningsnamn och beskrivning. Dessa metadata måste finnas i en fil med namnet `metadata.json`. Metadatafilen följande exempel visar hur du kan ange namn och beskrivning: 
 
     ```json
-    {
- 
-        "itemDisplayName": "<your template name>",
- 
-        "description": "<description of the template>"
- 
+    { 
+        "itemDisplayName": "<your template name>", 
+        "description": "<description of the template>" 
     }
     ```
 

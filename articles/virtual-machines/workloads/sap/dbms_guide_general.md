@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fdf5685ad8072175bdabf8938ef293bed6f5cc13
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: e7ad93cbfd096cacadaef8666b0ea5b31d7fd992
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076555"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918809"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Överväganden för distribution av Azure virtuella datorer DBMS för SAP-arbetsbelastningar
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -263,7 +263,7 @@ Sätt att konfigurera Azure-Tillgänglighetsuppsättningar visas i den här [sj�
 
 
 ## <a name="azure-network-considerations"></a>Azure Nätverksöverväganden 
-I storskaliga SAP-distributioner, rekommendation är att du använder skissen av [Azure Virtual Datacenter](https://docs.microsoft.com/azure/networking/networking-virtual-datacenter) för VNet konfiguration och behörigheter och rollen tilldelningarna till olika delar av organisationen.
+I storskaliga SAP-distributioner, rekommendation är att du använder skissen av [Azure Virtual Datacenter](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) för VNet konfiguration och behörigheter och rollen tilldelningarna till olika delar av organisationen.
 
 Det finns flera bästa praxis, vilket resulterade från hundratals kunddistributioner:
 
@@ -325,10 +325,10 @@ Information om distribution av komponenter som levererar värd för data att SAP
 ## <a name="next-steps"></a>Nästa steg
 Dokumentation om visst DBMS finns i följande artiklar:
 
-- [SQL Server Azure virtuella datorer DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_sqlserver.md)
-- [Distribution av Oracle-DBMS i Azure virtuella datorer för SAP-arbetsbelastningar](dbms_guide_oracle.md)
-- [IBM DB2 Azure virtuella datorer DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_ibm.md)
-- [SAP ASE Azure virtuella datorer DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_sapase.md)
+- [DBMS-distribution för SAP-arbetsbelastning för SQL Server på Azure Virtual Machines](dbms_guide_sqlserver.md)
+- [DBMS-distribution för SAP-arbetsbelastning för Oracle på Azure Virtual Machines](dbms_guide_oracle.md)
+- [DBMS-distribution för SAP-arbetsbelastning för IBM DB2 på Azure Virtual Machines](dbms_guide_ibm.md)
+- [DBMS-distribution för SAP-arbetsbelastning för SAP ASE på Azure Virtual Machines](dbms_guide_sapase.md)
 - [SAP maxDB, Live-Cache och Content Server-distribution i Azure](dbms_guide_maxdb.md)
 - [Användarguide för SAP HANA på Azure](hana-vm-operations.md)
 - [SAP HANA, hög tillgänglighet för Azure-datorer](sap-hana-availability-overview.md)

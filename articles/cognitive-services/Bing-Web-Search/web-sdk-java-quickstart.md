@@ -1,6 +1,6 @@
 ---
-title: Web Sök SDK Java quickstart | Microsoft Docs
-description: Installationsprogrammet för Web Sök SDK-konsolprogram.
+title: 'Snabbstart: Använd Bing-webbsökning SDK för Java'
+description: Installationsprogrammet för Web Search SDK-konsolprogram.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
@@ -8,23 +8,24 @@ manager: rosh
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 02/16/2018
-ms.author: v-gedod
-ms.openlocfilehash: 73af92ca0d6ed1a270eaea26e79c7341680dce17
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 08/16/2018
+ms.author: v-gedod, erhopf
+ms.openlocfilehash: 1cad3c6ea3e670d214c05e9e61acd566c85c2eb7
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355344"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888499"
 ---
-# <a name="web-search-sdk-java-quickstart"></a>Web Sök SDK Java-Snabbstart
+# <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>Snabbstart: Använd Bing-webbsökning SDK för Java
 
-Bing Web Sök SDK innehåller funktionerna i REST API för webb-frågor och tolkning resultat. 
+Bing Web Search SDK innehåller funktionen för REST-API för webbfrågor och parsa resultat.
 
-Den [källkoden för Java Bing Web Sök SDK-exempel](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch) är tillgänglig på Git-hubben.
+Den [källkoden för Java Bing Web Search SDK-exempel](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch) finns på GitHub.
 
-## <a name="application-dependencies"></a>Programberoenden
-Hämta en [kognitiva åtkomstnyckeln](https://azure.microsoft.com/try/cognitive-services/) under *Sök*. Installera Bing Web Sök SDK beroenden med Maven, Gradle eller ett annat hanteringssystem för beroendet. Filen Maven POM kräver:
+## <a name="prerequisites"></a>Förutsättningar
+
+* Installera SDK för Bing Web Search beroenden med Maven eller Gradle din favorit beroendehanteringssystem. Maven POM-filen kräver:
 ```
   <dependencies>
     <dependency>
@@ -34,8 +35,10 @@ Hämta en [kognitiva åtkomstnyckeln](https://azure.microsoft.com/try/cognitive-
     </dependency>
   </dependencies>
 ```
-## <a name="web-search-client"></a>Sök Webbklient
-Lägg till import i klassen implementering:
+
+## <a name="web-search-client"></a>Sök webbklienten
+
+Lägg till importen i implementeringen av klassen:
 ```
 import com.microsoft.azure.cognitiveservices.websearch.*;
 import com.microsoft.azure.cognitiveservices.websearch.implementation.SearchResponseInner;
@@ -50,7 +53,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 ```
-Implementera den `WebSearchAPIImpl` klienten, vilket kräver en instans av den `ServiceClientCredentials`:
+Implementera de `WebSearchAPIImpl` klienten, vilket kräver en instans av den `ServiceClientCredentials`:
 ```
 public static WebSearchAPIImpl getClient(final String subscriptionKey) {
     return new WebSearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
@@ -75,7 +78,7 @@ public static WebSearchAPIImpl getClient(final String subscriptionKey) {
 }
 
 ```
-Sök efter resultat.  Följande metod söker med hjälp av en enskild fråga ”Xbox”, och skriver ut `name`, och `URL` för första webb-, image, nyheter och videor resultat.
+Sök efter resultat.  Följande metod söker med hjälp av en enda fråga, ”Xbox”, och skriver ut `name`, och `URL` för första webb, bild, nyheter och videor resultat.
 ```
 public static void WebSearchResultTypesLookup(String subscriptionKey)
 {
@@ -183,7 +186,7 @@ public static void WebSearchResultTypesLookup(String subscriptionKey)
 }
 
 ```
-Sök efter ”bästa hotell i Seattle” kontrollerar antalet resultat och skriva ut `name` och `URL` för det första resultatet:
+Sök efter ”bästa restauranger i Seattle” kontrollerar antal resultat och skriva ut `name` och `URL` av det första resultatet:
 ```
 public static void WebResultsWithCountAndOffset(String subscriptionKey)
 {
@@ -224,7 +227,7 @@ public static void WebResultsWithCountAndOffset(String subscriptionKey)
 }
 
 ```
-Sök efter ”Microsoft” med svarsfilter som tilldelats `news`. Skriv ut för första nyhetsobjektet.
+Sök efter ”Microsoft” med svarsfilter som tilldelats `news`. Skriva ut information om den första nyhetsobjektet.
 ```
 public static void WebSearchWithResponseFilter(String subscriptionKey)
 {
@@ -270,7 +273,7 @@ public static void WebSearchWithResponseFilter(String subscriptionKey)
 }
 
 ```
-Sökningen med frågan ”Niagara hamnar”, med `answerCount` och `promote` parametrar. Skriv ut av resultaten.
+Sök med frågan ”Niagara hamnar”, med hjälp av `answerCount` och `promote` parametrar. Skriva ut information om resultat.
 ```
 public static void WebSearchWithAnswerCountPromoteAndSafeSearch(String subscriptionKey)
 {
@@ -312,25 +315,23 @@ public static void WebSearchWithAnswerCountPromoteAndSafeSearch(String subscript
 }
 
 ```
-Lägg till föregående metoder i en klass med huvudsakliga funktion för att köra koden:
+Lägg till en klass med huvudfunktionen att köra koden för föregående metoder:
 ```
 package javaWebSDK;
 import com.microsoft.azure.cognitiveservices.websearch.*;
 public class webSDK{
-    
+
     public static void main(String [ ] args) {
-        
+
         WebSearchResultTypesLookup("YOUR-SUBSCRIPTION-KEY");
         WebResultsWithCountAndOffset("YOUR-SUBSCRIPTION-KEY");
         WebSearchWithResponseFilter("YOUR-SUBSCRIPTION-KEY");
         WebSearchWithAnswerCountPromoteAndSafeSearch("YOUR-SUBSCRIPTION-KEY");
-        
+
     }
     // Add methods previoiusly documented.
 }
 ```
 ## <a name="next-steps"></a>Nästa steg
 
-[Kognitiva Services SDK för Java-exempel](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
-
-
+[Cognitive Services Java SDK-exempel](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)

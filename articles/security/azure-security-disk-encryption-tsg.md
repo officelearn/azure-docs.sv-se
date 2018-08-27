@@ -11,32 +11,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
+ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: e669fb5da0e3fd3c6a14ffed5cbdf80b8a4d9590
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: e63d798c24159777711c9cdd765e40b44826a530
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390729"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888737"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Felsökningsguide för Azure Disk Encryption
 
-Den här guiden är för IT-proffs, informationssäkerhetsanalytiker och molnadministratörer i organisationer som använder Azure Disk Encryption. Den här artikeln är att ge vägledning vid felsökning av disk-kryptering-relaterade problem.
+Den här guiden är för IT-proffs, informationssäkerhetsanalytiker och molnadministratörer i organisationer som använder Azure Disk Encryption. Den här artikeln är att hjälpa till med felsökning av disk-kryptering-relaterade problem.
 
 ## <a name="troubleshooting-linux-os-disk-encryption"></a>Felsökning av Linux OS-diskkryptering
 
 Diskkryptering för Linux-operativsystem (OS) måste demontera operativsystemenheten innan du kör via krypteringsprocessen fullständig disk. Om det går inte att koppla bort enheten, ett felmeddelande för ”det gick inte att demontera efter...” är sannolikt kan förekomma.
 
-Det här felet kan inträffa när OS-diskkryptering testas på en målmiljö för virtuell dator som har ändrats från stöds lagerartiklar galleriet bilden. Exempel på avvikelser från den avbildning som stöds som kan störa tilläggets möjligheten att demontera operativsystemenheten är följande:
+Det här felet kan inträffa när OS-diskkryptering testas på en målmiljö för virtuell dator som har ändrats från stöds lagerartiklar galleriet bilden. Avvikelser från avbildningen som stöds kan störa tilläggets möjligheten att demontera operativsystemenheten. Exempel på avvikelser kan innehålla följande objekt:
 - Anpassade avbildningar matchar inte längre ett filsystem som stöds eller partitioneringsschema.
 - Stora program som SAP, MongoDB, Apache Cassandra och Docker stöds inte när de är installerade och körs i Operativsystemet innan du kryptering. Azure Disk Encryption kan inte stänga av de här processerna som krävs som förberedelse för operativsystemenheten för diskkryptering på ett säkert sätt. Om det finns fortfarande aktiva processer med öppna filhandtag till operativsystemenheten, får inte operativsystemenheten vara demonterats, vilket resulterar i ett fel att kryptera operativsystemenheten. 
 - Anpassade skript som körs i Stäng tid närhet till kryptering som är aktiverade, eller om någon annan ändringar görs på den virtuella datorn under krypteringsprocessen. Den här konflikten kan inträffa när en Azure Resource Manager-mall definierar flera tillägg för att köra samtidigt, eller när ett anpassat skripttillägg eller annan åtgärd körs samtidigt till diskkryptering. Serialisering och isolera sådana åtgärder kan lösa problemet.
 - Security förbättrad Linux (SELinux) har inte inaktiverats innan du aktiverar kryptering, så att demontera steg misslyckas. Vara kan reenabled SELinux när kryptering är klar.
 - OS-disken använder ett schema för logiska Volume Manager (LVM). Även om det finns begränsat LVM data disk-stöd är inte en LVM OS-disk.
-- Minimikraven på minne är inte uppfyllda (7 GB rekommenderas för OS-diskkryptering).
+- Minimikraven på minne inte uppfylls (7 GB rekommenderas för OS-diskkryptering).
 - Dataenheter är rekursivt monterad under katalogen /mnt/ eller varandra (till exempel /mnt/data1, /mnt/data2, /data3 + /data3/data4).
-- Andra Azure Disk Encryption [krav](azure-security-disk-encryption-prerequisites.md) för Linux är inte uppfyllda.
+- Andra Azure Disk Encryption [krav](azure-security-disk-encryption-prerequisites.md) för Linux inte uppfylls.
 
 ## <a name="unable-to-encrypt"></a>Det går inte att kryptera
 
@@ -64,10 +64,10 @@ ProgressMessage            : OS disk successfully encrypted, please reboot the V
 När du uppmanas att starta om den virtuella datorn och när den virtuella datorn har startats om måste du vänta 2 – 3 minuter för omstarten och för de sista stegen som ska utföras på målet. Meddelandet statusändringar när krypteringen är slutligen Slutför. När det här meddelandet är tillgängligt, krypterade operativsystemenheten förväntas vara redo att användas och den virtuella datorn är redo att användas igen.
 
 I följande fall rekommenderar vi att du återställer den virtuella datorn tillbaka till ögonblicksbild eller säkerhetskopior som gjorts omedelbart före kryptering:
-   - Om omstart sekvensen som beskrivs tidigare sker inte.
+   - Om omstart-sekvensen som beskrivs ovan, inte inträffa.
    - Om startinformation, pågående meddelande eller andra indikatorer felrapport misslyckades att OS-kryptering mitt i den här processen. Ett exempel på ett meddelande är felet ”Det gick inte att demontera” som beskrivs i den här guiden.
 
-Egenskaperna för den virtuella datorn att omvärdera och se till att alla krav är uppfyllda innan nästa försök.
+Dags att omvärdera egenskaperna för den virtuella datorn och kontrollera att alla krav är uppfyllda innan nästa försök.
 
 ## <a name="troubleshooting-azure-disk-encryption-behind-a-firewall"></a>Felsöka Azure Disk Encryption bakom en brandvägg
 När anslutningen är begränsad av en brandvägg eller proxy kravet nätverkssäkerhetsgrupper (NSG) för nätverkssäkerhet, kan möjligheten för tillägget för att utföra nödvändiga åtgärder avbrytas. Den här avbrott kan resultera i statusmeddelanden, till exempel ”tillståndets status är inte tillgänglig på den virtuella datorn”. I förväntade scenarier krypteringen inte kan slutföras. Avsnitten som följer har några vanliga brandväggsproblem som du kan undersöka.
@@ -80,7 +80,7 @@ Den virtuella datorn måste kunna komma åt ett nyckelvalv. Referera till vägle
 
 ### <a name="linux-package-management-behind-a-firewall"></a>Linux pakethantering bakom en brandvägg
 
-Vid körning, Azure Disk Encryption för Linux förlitar sig på mål-distribution systemet för pakethantering att installera nödvändiga komponenter innan du aktiverar krypteringen. Om brandväggsinställningarna att den virtuella datorn inte kan ladda ned och installera de här komponenterna, förväntas efterföljande försök. Hur du konfigurerar det här systemet för pakethantering kan variera beroende på distributionsplatsen. När en proxyserver krävs på Red Hat, måste du kontrollera att prenumerationen manager och yum har ställts in korrekt. Mer information finns i [så här felsöker du problem med prenumeration manager och yum](https://access.redhat.com/solutions/189533).  
+Vid körning, Azure Disk Encryption för Linux förlitar sig på mål-distribution systemet för pakethantering att installera nödvändiga komponenter innan du aktiverar kryptering. Om brandväggsinställningarna att den virtuella datorn inte kan ladda ned och installera de här komponenterna, förväntas efterföljande försök. Hur du konfigurerar det här systemet för pakethantering kan variera beroende på distributionsplatsen. På Red Hat, när en proxyserver krävs, måste du se till att prenumerationen manager och yum har ställts in korrekt. Mer information finns i [så här felsöker du problem med prenumeration manager och yum](https://access.redhat.com/solutions/189533).  
 
 
 ## <a name="troubleshooting-windows-server-2016-server-core"></a>Felsökning av Windows Server 2016 Server Core
@@ -117,14 +117,14 @@ DISKPART> list vol
   Volume 1                      NTFS   Partition    550 MB  Healthy    System
   Volume 2     D   Temporary S  NTFS   Partition     13 GB  Healthy    Pagefile
 ```
-## <a name="troubleshooting-encryption-status"></a>Felsöka krypteringsstatus
+<!-- ## Troubleshooting encryption status
 
-Om den förväntade krypteringsstatus inte matchar vad som har rapporterats i portalen, finns i följande artikel för support: [krypteringsstatus visas felaktigt på Azure-hanteringsportalen](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por)
+If the expected encryption state does not match what is being reported in the portal, see the following support article:
+[Encryption status is displayed incorrectly on the Azure Management Portal](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por) --> 
 
 ## <a name="next-steps"></a>Nästa steg
 
 I det här dokumentet har du lärt dig mer om några vanliga problem i Azure Disk Encryption och hur du felsöker dessa problem. Mer information om den här tjänsten och dess funktioner finns i följande artiklar:
 
 - [Tillämpa diskkryptering i Azure Security Center](../security-center/security-center-apply-disk-encryption.md)
-- [Kryptera virtuella Azure-datorer](../security-center/security-center-disk-encryption.md)
 - [Azure datakryptering i vila](azure-security-encryption-atrest.md)

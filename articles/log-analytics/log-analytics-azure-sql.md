@@ -3,9 +3,9 @@ title: Azure SQL Analytics-lösningen i Log Analytics | Microsoft Docs
 description: Azure SQL Analytics-lösningen hjälper dig att hantera dina Azure SQL-databaser
 services: log-analytics
 documentationcenter: ''
-author: mgoedtel
+author: danimir
 manager: carmonm
-editor: ''
+ms.reviewer: carlrab
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
 ms.service: log-analytics
 ms.workload: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
-ms.author: magoedte
+ms.author: v-daljep
 ms.component: na
-ms.openlocfilehash: 440e16416b8567178c61c3d6ce2155e0e331521c
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 47069f0af7409d87cb2d4fbbbce9dda0b1c2056e
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216333"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886568"
 ---
 # <a name="monitor-azure-sql-databases-using-azure-sql-analytics-preview"></a>Övervaka Azure SQL-databaser med hjälp av Azure SQL Analytics (förhandsversion)
 
@@ -39,14 +39,14 @@ Finns det inbäddade videoklippet för en praktisk översikt om hur du använder
 
 ## <a name="connected-sources"></a>Anslutna källor
 
-Azure SQL Analytics är ett moln som övervakning lösning stödjande strömning av diagnostiktelemetri för Azure SQL-databaser och elastiska pooler. Eftersom den inte använder agenter för att ansluta till tjänsten Log Analytics, lösningen stöder inte anslutning med Windows, Linux eller SCOM-resurser finns i tabellen kompatibilitet.
+Azure SQL Analytics är ett moln som övervakning lösning stödjande strömning av diagnostiktelemetri för Azure SQL-databaser och elastiska pooler. Eftersom den inte använder agenter för att ansluta till tjänsten Log Analytics kan lösningen stöder inte anslutning med Windows, Linux eller SCOM-resurser finns i tabellen kompatibilitet.
 
 | Ansluten källa | Support | Beskrivning |
 | --- | --- | --- |
 | **[Azure-diagnostik](log-analytics-azure-storage.md)** | **Ja** | Azure mått och loggfiler data skickas till Log Analytics direkt av Azure. |
-| [Azure Storage-konto](log-analytics-azure-storage.md) | Nej | Log Analytics inte att läsa data från ett lagringskonto. |
-| [Windows-agenter](log-analytics-windows-agent.md) | Nej | Direkta Windows-agenter som inte används av lösningen. |
-| [Linux-agenter](log-analytics-linux-agents.md) | Nej | Direct Linux-agenter som inte används av lösningen. |
+| [Azure Storage-konto](log-analytics-azure-storage.md) | Nej | Log Analytics läsa inte data från ett lagringskonto. |
+| [Windows-agenter](log-analytics-windows-agent.md) | Nej | Direkta Windows-agenter används inte av lösningen. |
+| [Linux-agenter](log-analytics-linux-agents.md) | Nej | Direct Linux-agenter används inte av lösningen. |
 | [SCOM-hanteringsgrupp](log-analytics-om-agents.md) | Nej | En direktanslutning till Log Analytics från SCOM-agenten används inte av lösningen. |
 
 ## <a name="configuration"></a>Konfiguration
@@ -105,8 +105,8 @@ Varje perspektiv innehåller sammanfattningar om prenumeration, server, elastisk
 | Resursen efter typ | Perspektiv som räknar alla resurser som övervakas. Detaljnivå innehåller en sammanfattning av DTU och GB-mått. |
 | Insikter | Tillhandahåller hierarkisk nedåt till smarta insikter. Läs mer om intelligenta insikter. |
 | Fel | Tillhandahåller hierarkisk nedåt till SQL-fel som inträffat på databaserna. |
-| Tidsgränser | Tillhandahåller hierarkisk nedåt till SQL-timeouter som inträffat på databaserna. |
-| Blockings | Tillhandahåller hierarkisk nedåt till SQL-blockings som inträffat på databaserna. |
+| Timeouter | Tillhandahåller hierarkisk nedåt till SQL-timeouter som inträffat på databaserna. |
+| Blockeringar | Tillhandahåller hierarkisk nedåt till SQL-blockings som inträffat på databaserna. |
 | Databasen väntar | Tillhandahåller hierarkisk nedåt till SQL vänta statistik på databasnivå. Omfattar sammanfattningar av total Väntetid och väntetiden per typ av vänta. |
 | Frågevaraktighet | Tillhandahåller hierarkisk detaljnivå om frågestatistik för körning som frågevaraktigheten, CPU-användning, Data-i/o-användning, logg-i/o-användning. |
 | Frågan väntar | Tillhandahåller hierarkisk detaljnivå om vänta frågestatistik efter vänta kategori. |
@@ -135,27 +135,77 @@ Du kan jämföra prestanda för alla frågor via fråga rapporten via frågevara
 
 Du kan enkelt [skapa aviseringar](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) med data från Azure SQL Database-resurser. Här är några användbara [loggsökning](log-analytics-log-searches.md) frågor som du kan använda med en logg-avisering:
 
-
-
-*Hög DTU på Azure SQL Database*
+*Hög CPU i Azure SQL-databas*
 
 ```
 AzureMetrics 
-| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" 
+| where ResourceProvider=="MICROSOFT.SQL"
+| where ResourceId contains "/DATABASES/"
+| where MetricName=="cpu_percent" 
 | summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
 | render timechart
 ```
 
-*Hög DTU på Azure SQL Database-elastisk Pool*
+> [!NOTE]
+> - Före kravet för att ställa in den här aviseringen är den övervakade databaser stream diagnostikmåtten (alternativet ”alla mått”) till lösningen.
+> - Ersätt MetricName värdet cpu_percent med dtu_consumption_percent att få hög DTU-resultaten i stället.
+
+*Hög CPU på elastiska pooler i Azure SQL Database*
 
 ```
 AzureMetrics 
-| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" 
+| where ResourceProvider=="MICROSOFT.SQL"
+| where ResourceId contains "/ELASTICPOOLS/"
+| where MetricName=="cpu_percent" 
 | summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
 | render timechart
 ```
 
+> [!NOTE]
+> - Före kravet för att ställa in den här aviseringen är den övervakade databaser stream diagnostikmåtten (alternativet ”alla mått”) till lösningen.
+> - Ersätt MetricName värdet cpu_percent med dtu_consumption_percent att få hög DTU-resultaten i stället.
 
+*Azure SQL Database-lagring i genomsnitt över 95% i den senaste 1 tim*
+
+```
+let time_range = 1h;
+let storage_threshold = 95;
+AzureMetrics
+| where ResourceId contains "/DATABASES/"
+| where MetricName == "storage_percent"
+| summarize max_storage = max(Average) by ResourceId, bin(TimeGenerated, time_range)
+| where max_storage > storage_threshold
+| distinct ResourceId
+```
+
+> [!NOTE]
+> - Före kravet för att ställa in den här aviseringen är den övervakade databaser stream diagnostikmåtten (alternativet ”alla mått”) till lösningen.
+> - Den här frågan kräver en aviseringsregel som ställas in för att ställa in en avisering när det finns resultat (> 0 resultat) från frågan anger att villkoret finns på vissa databaser. Utdata är en lista över databasresurser som är ovanför storage_threshold inom time_range som definierats.
+> - Utdata är en lista över databasresurser som är ovanför storage_threshold inom time_range som definierats.
+
+*Avisera om smarta insikter*
+
+```
+let alert_run_interval = 1h;
+let insights_string = "hitting its CPU limits";
+AzureDiagnostics
+| where Category == "SQLInsights" and status_s == "Active" 
+| where TimeGenerated > ago(alert_run_interval)
+| where rootCauseAnalysis_s contains insights_string
+| distinct ResourceId
+```
+
+> [!NOTE]
+> - Före kravet för att ställa in den här aviseringen är övervakade databaser stream SQLInsights diagnostikloggen till lösningen.
+> - Den här frågan kräver en varningsregel konfigureras att köras med samma frekvens som alert_run_interval för att undvika dubbla resultat. Regeln ska ställas in för att utlösa aviseringen när det finns resultat (> 0 resultat) från frågan.
+> - Anpassa alert_run_interval för att ange tidsintervall för att kontrollera om villkoret har uppstått på databaser som har konfigurerats till stream SQLInsights loggen till lösningen.
+> - Anpassa insights_string för att samla in utdata från insikter rot orsak analysis text. Det här är samma text som visas i Användargränssnittet för den lösning som du kan använda från de befintliga insikterna. Du kan också använda frågan nedan för att se texten i alla information som genererats för din prenumeration. Använda utdata från frågan för att inhämta distinkta strängar för att ställa in aviseringar på insikter.
+
+```
+AzureDiagnostics
+| where Category == "SQLInsights" and status_s == "Active" 
+| distinct rootCauseAnalysis_s
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

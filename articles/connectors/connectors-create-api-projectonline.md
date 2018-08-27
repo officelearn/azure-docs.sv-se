@@ -1,45 +1,74 @@
 ---
-title: ProjectOnline connector i Azure Logic Apps | Microsoft Docs
-description: Skapa logikappar med Azure App service. Project Online är en flexibel lösning för online för projekthantering portfölj (PPM) och dagliga arbete från Microsoft. Levereras via Office 365 Project Online gör det möjligt att snabbt komma igång med funktioner för hantering av kraftfulla projekt du planerar, prioritera och hantera projekt och projekt portfölj investeringar – från valfri plats på nästan vilken enhet.
+title: Anslut till Project Online från Azure Logic Apps | Microsoft Docs
+description: Automatisera arbetsflöden som övervakar, skapa och hantera Project Online-projekt, uppgifter och resurser med hjälp av Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: 40ce621e-4925-4653-93bb-71ab9abcbdf1
 ms.service: logic-apps
-ms.devlang: multiple
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.suite: integration
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 08/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: aaf357b1fe2c0b9b5874ee296c9141cf757e2300
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.assetid: 40ce621e-4925-4653-93bb-71ab9abcbdf1
+tags: connectors
+ms.date: 08/24/2018
+ms.openlocfilehash: cfcb53b6e95250a1ccbebfdfcfbff5ec8479504b
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295364"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886961"
 ---
-# <a name="get-started-with-the-projectonline-connector"></a>Kom igång med ProjectOnline-koppling
-Project Online är en flexibel lösning för online för projekthantering portfölj (PPM) och dagliga arbete från Microsoft. Levereras via Office 365 Project Online gör det möjligt att snabbt komma igång med funktioner för hantering av kraftfulla projekt du planerar, prioritera och hantera projekt och projekt portfölj investeringar – från valfri plats på nästan vilken enhet.
+# <a name="manage-project-online-projects-tasks-and-resources-by-using-azure-logic-apps"></a>Hantera Project Online-projekt, uppgifter och resurser med hjälp av Azure Logic Apps
 
-Du kan komma igång genom att skapa en logikapp nu, se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Med Azure Logic Apps och Project Online connector kan du skapa automatiserade uppgifter och arbetsflöden för ditt projekt, uppgifter och resurser i Project Online via Office 365. Dina arbetsflöden kan utföra dessa åtgärder och andra, till exempel:
 
-## <a name="create-a-connection-to-projectonline"></a>Skapa en anslutning till ProjectOnline
-För att skapa logikappar med ProjectOnline, måste du först skapa en **anslutning** ange detaljer för följande egenskaper: 
+* Övervakare för när nya projekt, aktiviteter eller resurser skapas. Du kan också övervaka nya projekt som publiceras.
+* Skapa nya projekt, aktiviteter eller resurser.
+* Lista befintliga projekt eller uppgifter.
+* Checka ut, checka in eller publicera projekt.
 
-| Egenskap  | Krävs | Beskrivning |
-| --- | --- | --- |
-| Token |Ja |Ange autentiseringsuppgifter för ProjectOnline |
+Project Online hjälper dig att planera, prioritera och hantera projekt och projektportföljer från nästan var som helst på nästan vilken enhet genom att tillhandahålla kraftfulla funktioner. Du kan använda Project Online-utlösare som få svar från Project Online och göra utdata som är tillgängliga för andra åtgärder. Du kan använda åtgärder i dina logic apps för att utföra olika uppgifter i Project Online. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-> [!INCLUDE [Steps to create a connection to ProjectOnline](../../includes/connectors-create-api-projectonline.md)]
-> 
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="connector-specific-details"></a>Connector-specifik information
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
 
-Visa alla utlösare och åtgärder som definierats i swagger och även se några gränser i den [connector information](/connectors/projectonline/).
+* Project Online, tillgängligt via en [Office 365-konto](https://www.office.com/), 
 
-## <a name="more-connectors"></a>Flera kopplingar
-Gå tillbaka till den [API: er listan](apis-list.md).
+* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* Logikappen där du vill få åtkomst till din Project Online-data. Du kommer igång med en Project Online-utlösare, [skapa en tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Om du vill använda Project Online åtgärder, starta din logikapp med en annan utlösare, till exempel, **upprepning** utlösaren.
+
+## <a name="connect-to-project-online"></a>Anslut till Project Online
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna logikappen i Logic App Designer, om inte redan är öppna.
+
+1. Välj en sökväg: 
+
+   * För tom logic apps i sökrutan anger du ”Project Online” som filter. 
+   Välj utlösaren som du vill under listan över utlösare. 
+
+     ELLER
+
+   * För befintliga logikappar under steget där du vill lägga till en åtgärd, Välj **nytt steg**. I sökrutan anger du ”Project Online” som filter. Välj vilken åtgärd du önska under åtgärder.
+
+1. Om du uppmanas att logga in på Project Online, logga in nu.
+
+   Dina autentiseringsuppgifter för tillåta din logikapp för att skapa en anslutning till Project Online och komma åt dina data.
+
+1. Ange informationen som krävs för din valda utlösare eller åtgärd och fortsätt att utveckla logikappens arbetsflöde.
+
+## <a name="connector-reference"></a>Referens för anslutningsapp
+
+Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av anslutningsappens OpenAPI (tidigare Swagger) beskrivning, granska kopplingens [referenssida](/connectors/projectonline/).
+
+## <a name="get-support"></a>Få support
+
+* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](http://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Nästa steg
+
+* Läs mer om andra [Logic Apps-anslutningsprogram](../connectors/apis-list.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: dc516aa64399447973cefa47e913193adce2f8f5
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 9396e954305ecc9ff6cbdd664c6cb71846bd5bfa
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528273"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919134"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Förhindra oväntade avgifter med Azure-fakturering och kostnadshantering
 
@@ -31,6 +31,9 @@ När du registrerar dig för Azure, finns det flera saker du kan göra för att 
 - Om din prenumeration är en kostnadsfri utvärderingsversion, [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure i Open (AIO) eller BizSpark, din prenumeration inaktiveras automatiskt när alla krediten är slut. Lär dig mer om [utgiftsgränser](#spending-limit) för att förhindra att din prenumeration unexpectantly inaktiverad.
 
 - Om du har registrerat dig för [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/), [du kan använda några av de mest populära Azure-tjänsterna kostnadsfritt i 12 månader](billing-create-free-services-included-free-account.md). Tillsammans med de rekommendationer som visas nedan, se [undvika att debiteras kostnadsfritt konto](billing-avoid-charges-free-account.md).
+
+> [!div class="nextstepaction"]
+> [Hjälp oss att förbättra Azure fakturering docs](https://go.microsoft.com/fwlink/p/?linkid=2010091) 
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Få uppskattade kostnader innan du lägger till Azure-tjänster
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 08/24/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: dba43f0823282bd385dca30402a9b16fa3b99de6
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 5e5ebac221060058a44f7605f77d33a133f5e72c
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42060987"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887231"
 ---
 # <a name="azure-stack-1807-update"></a>Uppdatering av Azure Stack 1807
 
@@ -245,7 +245,9 @@ Här följer efter installation kända problem för den här build-versionen.
 
 - <!-- 1662991 IS ASDK --> Linux VM-diagnostik stöds inte i Azure Stack. Distributionen misslyckas när du distribuerar en Linux VM med VM-diagnostik aktiverat. Distributionen misslyckas också om du aktiverar den grundläggande Linux VM-mätvärden via diagnostikinställningar.  
 
-- <!-- 2724961- IS ASDK --> När du registrerar den **Microsoft.Insight** resursprovidern i inställningarna för prenumeration och skapa en virtuell Windows-dator med Guest OS diagnostiska aktiverad, kan inte visa måttdata i diagrammet CPU-procent på översiktssidan för virtuell dator. För att hitta diagrammet CPU-procent för den virtuella datorn, gå till den **mått** gästen mått bladet och visa alla Windows-VM som stöds.
+- <!-- 2724961- IS ASDK --> När du registrerar den **Microsoft.Insight** resursprovidern i inställningarna för prenumeration och skapa en virtuell Windows-dator med Guest OS diagnostiska aktiverat, översiktssidan VM inte visar mätvärden. 
+
+   Om du vill hitta mätvärden som CPU-procent diagrammet för den virtuella datorn går du till den **mått** gästen mått bladet och visa alla Windows-VM som stöds.
 
 ### <a name="networking"></a>Nätverk  
 

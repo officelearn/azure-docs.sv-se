@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 83b3aa1efdde367577a563b477403c313a51d4fe
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: a6f8984086771fea4df4851b2a878d480b2050ea
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177655"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918525"
 ---
-# <a name="windows-commands---cmd"></a>Windows-kommandon - CMD 
+# <a name="windows-commands---cmd-and-powershell"></a>Windows-kommandon - CMD och PowerShell
 
 Det här avsnittet innehåller exempel på kommandon för att utföra vanliga uppgifter i scenarier där du kan behöva använda SAC för åtkomst till din Windows-VM, till exempel när du behöver felsöka RDP-anslutningsfel.
 
@@ -91,6 +91,8 @@ eller
 `netsh interface set interface name="<interface name>" admin=enabled`
 ### <a name="set-nic-to-use-dhcp"></a>Ange nätverkskort för att använda DHCP
 `netsh interface ip set address name="<interface name>" source=dhcp`
+
+Mer information om `netsh`, [Klicka här](https://docs.microsoft.com/windows-server/networking/technologies/netsh/netsh-contexts).
 
 Virtuella Azure-datorer ska alltid konfigureras i gästoperativsystemet som du använder DHCP för att skaffa en IP-adress. Azure statiska IP-inställningen använder fortfarande DHCP för att ge den statiska IP-Adressen till den virtuella datorn.
 ### <a name="ping"></a>Pinga

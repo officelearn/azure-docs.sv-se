@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 08/24/2018
 ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: b77772ce69afbc32bfe8a6826fdf8420076074d9
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: ed1c47830cbc4a629d827853c7d440b9bbd80d64
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42058256"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888194"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Viktig information om Azure Stack Development Kit  
 Dessa versionsanmärkningar innehåller information om förbättringar och korrigeringar kända problem i Azure Stack Development Kit. Om du inte vet vilken version du kör, kan du [använda portalen för att kontrollera](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -171,7 +171,9 @@ Den här versionen innehåller följande förbättringar och korrigeringar för 
 
 - <!-- 1662991 - IS ASDK --> Linux VM-diagnostik stöds inte i Azure Stack. Distributionen misslyckas när du distribuerar en Linux VM med VM-diagnostik aktiverat. Distributionen misslyckas också om du aktiverar den grundläggande Linux VM-mätvärden via diagnostikinställningar.
 
-- <!-- 2724961- IS ASDK --> När du registrerar den **Microsoft.Insight** resursprovidern i inställningarna för prenumeration och skapa en virtuell Windows-dator med Guest OS diagnostiska aktiverad, kan inte visa måttdata i diagrammet CPU-procent på översiktssidan för virtuell dator. För att hitta diagrammet CPU-procent för den virtuella datorn, gå till den **mått** gästen mått bladet och visa alla Windows-VM som stöds.
+- <!-- 2724961- IS ASDK --> När du registrerar den **Microsoft.Insight** resursprovidern i inställningarna för prenumeration och skapa en virtuell Windows-dator med Guest OS diagnostiska aktiverat, översiktssidan VM inte visar mätvärden. 
+
+   Om du vill hitta mätvärden som CPU-procent diagrammet för den virtuella datorn går du till den **mått** gästen mått bladet och visa alla Windows-VM som stöds.
 
 #### <a name="networking"></a>Nätverk
 - <!-- 1766332 - IS, ASDK --> Under **nätverk**, om du klickar på **skapa VPN-Gateway** att konfigurera en VPN-anslutning **principbaserad** har listats som en VPN-typ. Välj inte det här alternativet. Endast den **Vägbaserad** stöds i Azure Stack.

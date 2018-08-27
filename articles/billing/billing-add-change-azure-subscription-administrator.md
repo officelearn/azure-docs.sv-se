@@ -15,16 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: genli
-ms.openlocfilehash: 97210c0d9dba9c4130b1da9ad17a257ff1d81b42
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: b0e24e498acd823242b3613abb62df978466d56d
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450039"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918320"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Lägga till eller ändra Azure-prenumerationsadministratörer
 
-Du måste ha en lämplig administratörsroll för att hantera åtkomst till Azure-resurser. Den här artikeln beskriver hur du lägger till eller ändra administratörsrollen för en användare på prenumerationsnivån.
+Du måste ha rätt administratörsroll för att hantera åtkomst till Azure-resurser. Den här artikeln beskriver hur du lägger till eller ändra administratörsrollen för en användare på prenumerationsnivån.
+
+> [!div class="nextstepaction"]
+> [Hjälp oss att förbättra Azure fakturering docs](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="what-administrator-role-do-i-use"></a>Vilka administratörsrollen kan jag använda?
 
@@ -34,16 +37,16 @@ Azure har flera olika roller. Du kan använda klassiska prenumeration-administra
 
 ## <a name="add-an-rbac-owner-for-a-subscription-in-azure-portal"></a>Lägg till en RBAC-ägare för en prenumeration på Azure-portalen 
 
-Om du vill lägga till någon som administratör för en Azure-prenumeration kan du tilldela dem den [ägare](../role-based-access-control/built-in-roles.md#owner) roll (en RBAC-roll) prenumerationsområde. Rollen ägare kan hantera resurser i den prenumeration som du tilldelade och har inte behörighet för åtkomst till andra prenumerationer.
+Om du vill lägga till någon som administratör för en Azure-prenumeration tilldelar du rollen som [ägare](../role-based-access-control/built-in-roles.md#owner) till personen (en RBAC-roll) i prenumerationsomfånget. Ägarrollen kan hantera resurser i den prenumeration som du tilldelat, men har inte åtkomstbehörighet till andra prenumerationer.
 
 1. Besök [ **prenumerationer** i Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-2. Välj den prenumeration som du vill ge åtkomst.
+2. Välj den prenumeration som du vill ge åtkomst till.
 3. Välj **Lägg till**.
-   (Om knappen Lägg till saknas kan du inte har behörighet att lägga till behörigheter.)
-4. Välj **åtkomstkontroll (IAM)** i listan.
-5. I den **rollen** väljer **ägare**. 
-6. I den **tilldela åtkomst till** väljer **Azure AD-användare, grupp eller program**. 
-7. I den **Välj** skriver du e-postadressen för den användare som du vill lägga till som ägare. Välj användaren och välj sedan **spara**.
+   (Om knappen Lägg till saknas har du inte behörighet att lägga till behörigheter.)
+4. Välj **Åtkomstkontroll (IAM)** i listan.
+5. I rutan **Roll** väljer du **Ägare**. 
+6. I rutan **Bevilja åtkomst till** väljer du **Azure AD-användare, -grupp eller -program**. 
+7. I rutan **Välj** anger du e-postadressen till användaren du vill lägga till som ägare. Välj användaren och sedan **Spara**.
 
     ![Skärmbild som visar ägarrollen valt](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
@@ -51,7 +54,7 @@ Detta ger användaren fullständig åtkomst till alla resurser inklusive rätten
 
 ## <a name="add-or-change-co-administrator"></a>Lägga till eller ändra medadministratör
 
-Endast en [ägare](../role-based-access-control/built-in-roles.md#owner) kan läggas till som en medadministratör. Andra användare med roller, exempelvis [deltagare](../role-based-access-control/built-in-roles.md#contributor) och [läsare](../role-based-access-control/built-in-roles.md#reader) kan inte läggas till som medadministratörer.
+Endast [ägare](../role-based-access-control/built-in-roles.md#owner) kan läggas till som medadministratörer. Andra användare med roller som [deltagare](../role-based-access-control/built-in-roles.md#contributor) eller [läsare](../role-based-access-control/built-in-roles.md#reader) kan inte läggas till som medadministratörer.
 
 > [!TIP]
 > Du behöver bara lägga till ägaren som en delad administratör om du behöver hantera klassiska Azure-distributioner. Vi rekommenderar att du använder RBAC för andra ändamål.

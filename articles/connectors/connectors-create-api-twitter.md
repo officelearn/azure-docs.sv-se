@@ -1,105 +1,96 @@
 ---
-title: Lär dig hur du använder Twitter-anslutningen i logikappar | Microsoft Docs
-description: Översikt över Twitter-anslutningen med REST API-parametrar
-services: ''
-documentationcenter: ''
+title: Anslut till Twitter från Azure Logic Apps | Microsoft Docs
+description: Automatisera uppgifter och arbetsflöden som övervaka och hantera tweets och hämta data om följare, dina användare som följs, andra användare, tidslinjer och mer från ditt Twitter-konto med hjälp av Azure Logic Apps
+services: logic-apps
+ms.service: logic-apps
+ms.suite: integration
 author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.assetid: 8bce2183-544d-4668-a2dc-9a62c152d9fa
-ms.service: multiple
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: b44a973a94043f71f2fd9803abca47652363d8a1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+tags: connectors
+ms.date: 08/25/2018
+ms.openlocfilehash: eea70d979a69a4855b6eeb892d1705ecadaa8434
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296551"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918653"
 ---
-# <a name="get-started-with-the-twitter-connector"></a>Kom igång med Twitter-anslutningen
-Med Twitter-anslutningen kan du:
+# <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Övervaka och hantera Twitter med hjälp av Azure Logic Apps
 
-* Efter tweets och få tweets
-* Åtkomst tidslinjer, vänner och blandare
-* Utför någon av de andra åtgärder och utlösare som beskrivs i den här artikeln
+Med Azure Logic Apps och Twitter-anslutningen kan du kan skapa automatiserade uppgifter och arbetsflöden som övervaka och hantera data som intresserar dig i Twitter som tweetar följare, användare och följt, tidslinjer med mera, tillsammans med andra åtgärder, till exempel:
 
-Att använda [alla anslutningar](apis-list.md), måste du först skapa en logikapp. Du kan komma igång med [att skapa en logikapp nu](../logic-apps/quickstart-create-first-logic-app-workflow.md).  
+* Övervaka, publicera och söka tweets.
+* Hämta data, till exempel följare, användare som följs, tidslinjer med mera.
+
+Du kan använda utlösare som få svar från ditt Twitter-konto och se utdata som är tillgängliga för andra åtgärder. Du kan använda åtgärder som utför uppgifter med ditt Twitter-konto. Du kan också ha andra åtgärder som använder utdata från Twitter-åtgärder. När en ny tweet med en specifik hashtagg visas, kan du till exempel skicka meddelanden med Slack-anslutningsprogrammet. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+
+## <a name="prerequisites"></a>Förutsättningar
+
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
+
+* Dina autentiseringsuppgifter för Twitter-konto och användare
+
+   Dina autentiseringsuppgifter för tillåta din logikapp för att skapa en anslutning och komma åt ditt Twitter-konto.
+
+* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* Logikappen där du vill komma åt ditt Twitter-konto. Du kommer igång med en Twitter-utlösare, [skapa en tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Om du vill använda en Twitter-åtgärd, starta din logikapp med en annan utlösare, till exempel, **upprepning** utlösaren.
 
 ## <a name="connect-to-twitter"></a>Ansluta till Twitter
-Innan din logikapp kan komma åt någon tjänst, måste du först skapa en *anslutning* till tjänsten. En [anslutning](connectors-overview.md) tillhandahåller anslutningen mellan en logikapp och en annan tjänst.  
 
-### <a name="create-a-connection-to-twitter"></a>Skapa en anslutning till Twitter
-> [!INCLUDE [Steps to create a connection to Twitter](../../includes/connectors-create-api-twitter.md)]
-> 
-> 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-## <a name="use-a-twitter-trigger"></a>Använda en Twitter-utlösare
-En utlösare är en händelse som kan användas för att starta arbetsflödet som definierats i en logikapp. [Mer information om utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna logikappen i Logic App Designer, om inte redan är öppna.
 
-I det här exemplet använder du den **när en ny tweet skickas** trigger för att söka efter #Seattle. Och om #Seattle hittas, uppdaterar du en fil i Dropbox med text från tweet. I enterprise exempelvis kan du söka efter namnet på ditt företag och uppdatera en SQL-databas med text från tweet.
+1. Välj en sökväg: 
 
-1. Ange *twitter* i sökrutan på logic apps designer väljer den **Twitter - när en ny tweet skickas** utlösare   
-   ![Twitter-utlösarbild 1](./media/connectors-create-api-twitter/trigger-1.png)  
-2. Ange *#Seattle* i den **söktext** kontroll  
-   ![Bild 2 till Twitter-utlösare](./media/connectors-create-api-twitter/trigger-2.png) 
+   * För tom logic apps i sökrutan anger du ”twitter” som filter. 
+   Välj utlösaren som du vill under listan över utlösare. 
 
-Din logikapp har nu konfigurerats med en utlösare som startar andra utlösare och åtgärder i arbetsflödet körs. 
+     ELLER
 
-> [!NOTE]
-> Det måste innehålla minst en utlösare och en åtgärd för en logikapp ska fungera. Använd stegen i nästa avsnitt om du vill lägga till en åtgärd.
+   * För befintliga logic apps: 
+   
+     * Under det sista steget där du vill lägga till en åtgärd, väljer **nytt steg**. 
 
-## <a name="add-a-condition"></a>Lägg till ett villkor
-Vi är bara intresserad av tweets från användare med mer än 50 användare. Så, ett villkor som bekräftar antalet blandare har lagts till logikappen.  
+       ELLER
 
-1. Välj **+ nytt steg** att lägga till den åtgärd som ska vidtas när #Seattle finns i en ny tweet  
-   ![Twitter-åtgärd bild 1](../../includes/media/connectors-create-api-twitter/action-1.png)  
-2. Välj den **Lägg till ett villkor** länk.  
-   ![Twitter villkoret bild 1](../../includes/media/connectors-create-api-twitter/condition-1.png)   
-   Då öppnas den **villkoret** kontroll där du kan kontrollera villkor som *är lika med*, *är mindre än*, *är större än*, *innehåller*osv.  
-   ![Bild 2 till Twitter villkor](../../includes/media/connectors-create-api-twitter/condition-2.png)   
-3. Välj den **väljer ett värde** kontroll. I den här kontrollen kan du välja en eller flera av egenskaperna från tidigare åtgärder eller utlösare. Egenskapsvärdet villkoret utvärderas till true eller false.
-   ![Bild 3 till Twitter villkor](../../includes/media/connectors-create-api-twitter/condition-3.png)   
-4. Välj den **...**  att expandera listan över egenskaper så att du kan se alla egenskaper som är tillgängliga.        
-   ![Bild 4 till Twitter villkor](../../includes/media/connectors-create-api-twitter/condition-4.png)   
-5. Välj den **blandare antal** egenskapen.    
-   ![Bild 5 till Twitter villkor](../../includes/media/connectors-create-api-twitter/condition-5.png)   
-6. Lägg märke till egenskapen blandare antal nu i värdekontrollen.    
-   ![Bild 6 till Twitter villkor](../../includes/media/connectors-create-api-twitter/condition-6.png)   
-7. Välj **är större än** från listan över operatörer.    
-   ![Bild 7 till Twitter villkor](../../includes/media/connectors-create-api-twitter/condition-7.png)   
-8. Ange 50 som operand för den *är större än* operator.  
-   Villkor läggs nu. Spara ditt arbete med hjälp av den **spara** länk på menyn.    
-   ![Twitter villkoret bild 8](../../includes/media/connectors-create-api-twitter/condition-8.png)   
+     * Mellan stegen där du vill lägga till en åtgärd, flyttar du pekaren över pilen mellan stegen. 
+     Välj plustecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+     
+       I sökrutan anger du ”twitter” som filter. 
+       Välj vilken åtgärd du önska under åtgärder.
 
-## <a name="use-a-twitter-action"></a>Använda en Twitter-åtgärd
-En åtgärd är en åtgärd som utförs av arbetsflödet som definierats i en logikapp. [Mer information om åtgärder](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
+1. Om du uppmanas att logga in på Twitter, logga in nu så att du kan godkänna åtkomst för din logikapp.
 
-Det finns en utlösare, lägger du till en åtgärd som publicerar en ny tweet med innehållet i tweets som hittades av utlösaren. Endast tweets från användare med mer än 50 blandare är satt till för den här genomgången.  
+1. Ange informationen som krävs för din valda utlösare eller åtgärd och fortsätt att utveckla logikappens arbetsflöde.
 
-Lägg till ett Twitter-åtgärd som skickar tweets med vissa av egenskaperna för varje tweet som publiceras av en användare med mer än 50 blandare i nästa steg.  
+## <a name="examples"></a>Exempel
 
-1. Välj **lägga till en åtgärd**. Det här steget öppnas sökkontrollen där du kan söka efter andra åtgärder och utlösare.  
-   ![Twitter villkoret bild 9](../../includes/media/connectors-create-api-twitter/condition-9.png)   
-2. Ange *twitter* i sökrutan väljer den **Twitter - efter tweets** åtgärd. Det här steget öppnar den **efter tweets** styra där du kan ange all information för tweet att anslås.      
-   ![Twitter-åtgärd bild 1-5](../../includes/media/connectors-create-api-twitter/action-1-5.png)   
-3. Välj den **Twittra text** kontroll. Alla utdata från tidigare åtgärder och utlösare i logikappen visas nu. Du kan välja något av dessa utdata och använda dem som en del av texten tweet för nya tweet.     
-   ![Bild 2 till Twitter åtgärd](../../includes/media/connectors-create-api-twitter/action-2.png)   
-4. Välj **användarnamn**   
-5. Omedelbart efter användarnamn, ange *säger:* i kontrollen tweet text.
-6. Välj *Twittra text*.       
-   ![Bild 3 till Twitter åtgärd](../../includes/media/connectors-create-api-twitter/action-3.png)   
-7. Aktivera ditt arbetsflöde genom att spara ditt arbete och skickar tweets med #Seattle hashtaggar.
+### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Twitter-utlösare: när en ny tweet publiceras
 
+Den här utlösaren startar en logikapparbetsflöde när utlösaren upptäcker en ny tweet, till exempel hashtag, #Seattle. Till exempel när dessa tweets hittas, du kan lägga till en fil med innehållet i dessa tweets lagring, till exempel ett Dropbox-konto med hjälp av Dropbox-anslutningen. 
 
-## <a name="connector-specific-details"></a>Connector-specifik information
+Du kan ta ett villkor som berättigade tweets måste komma från användare med minst ett angivet antal följare.
 
-Visa alla utlösare och åtgärder som definierats i swagger och även se några gränser i den [connector information](/connectors/twitterconnector/). 
+**Enterprise exempel**: du kan använda den här utlösaren för att övervaka tweets om ditt företag och laddar upp den tweets innehåll till en SQL-databas.
+
+### <a name="twitter-action-post-a-tweet"></a>Twitter-åtgärd: publicera en tweet
+
+Den här åtgärden skickar en tweet, men du kan konfigurera åtgärden så att tweeten innehåller innehållet från tweets som hittades av den tidigare beskrivna utlösaren. 
+
+## <a name="connector-reference"></a>Referens för anslutningsapp
+
+Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av anslutningsappens OpenAPI (tidigare Swagger) beskrivning, granska kopplingens [referenssida](/connectors/twitterconnector/).
+
+## <a name="get-support"></a>Få support
+
+* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg
-[Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* Läs mer om andra [Logic Apps-anslutningsprogram](../connectors/apis-list.md)

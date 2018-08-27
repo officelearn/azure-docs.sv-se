@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 7ac4dd41c8a1adb422539e0832715d59ec385694
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 552fce2ffd8b6bd786010da82e702ee98c3f8647
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745567"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888564"
 ---
 # <a name="configure-a-vm-managed-service-identity-using-the-azure-portal"></a>Konfigurera en virtuell dator hanterad tjänstidentitet med hjälp av Azure portal
 
@@ -53,9 +53,9 @@ För att aktivera systemtilldelad identitet på en virtuell dator som ursprungli
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är associerade med Azure-prenumerationen som innehåller den virtuella datorn.
 
-2. Navigera till den önskade virtuella datorn och välj ”Configuration”-sidan.
+2. Navigera till den önskade virtuella datorn och välj **identitet**.
 
-3. Aktivera systemtilldelad identitet på den virtuella datorn genom att välja ”Ja” under ”hanterad tjänstidentitet” och klicka sedan på **spara**. Den här åtgärden kan ta 60 sekunder eller mer att slutföra:
+3. Under **systemtilldelad**, **Status**väljer **på** och klicka sedan på **spara**:
 
    ![Skärmbild av konfiguration av sidan](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
@@ -65,9 +65,9 @@ Om du har en virtuell dator som inte längre behöver systemtilldelade identitet
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är associerade med Azure-prenumerationen som innehåller den virtuella datorn. 
 
-2. Navigera till den önskade virtuella datorn och välj ”Configuration”-sidan.
+2. Navigera till den önskade virtuella datorn och välj **identitet**.
 
-3. Inaktivera systemtilldelad identitet på den virtuella datorn genom att välja ”Nej” under ”hanterad tjänstidentitet” och sedan på Spara. Den här åtgärden kan ta 60 sekunder eller mer att slutföra:
+3. Under **systemtilldelad**, **Status**väljer **av** och klicka sedan på **spara**:
 
    ![Skärmbild av konfiguration av sidan](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 9eef382ea264bcf9e59dcc408d14a59355b0369b
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: ffa61ebfaa58425cd2bf70d9bf78a2e71b672369
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445685"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918491"
 ---
 # <a name="reference-architecture-enterprise-integration-with-queues-and-events"></a>Referensarkitektur: Enterprise-integration med köer och händelser
 
@@ -28,6 +28,7 @@ Följande Referensarkitektur visas en uppsättning beprövade metoder som du kan
 ![Arkitekturdiagram - Enterprise-integration med köer och händelser](media/logic-apps-architectures-enterprise-integration-with-queues-events/integr_queues_events_arch_diagram.png)
 
 *Det finns många möjliga program för integreringsteknik. De röra sig om en enkel point-to-point programmet till en fullständig enterprise Azure Service Bus-programmet. Arkitektur-serien beskriver återanvändbara komponenter som kan användas för att skapa ett allmänt integration-program. Arkitekter bör överväga vilka komponenter som de behöver för att implementera för sina program och infrastruktur.*
+<!-- Should previous line be in Italic or asterisks must be escaped? -->
 
 ## <a name="architecture"></a>Arkitektur
 

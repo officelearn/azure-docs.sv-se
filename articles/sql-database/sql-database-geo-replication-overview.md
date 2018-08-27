@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 08/09/2018
+ms.date: 08/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 08179ae21465a57161cc6f18c12a3d9a21449359
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 71268c07f7e653e1f7cf545f373717fd2760fee9
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057113"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918243"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Översikt: Active geo-replikering och automatisk redundans-grupper
 
@@ -129,7 +129,7 @@ För vissa program säkerhetsreglerna kräver att nätverksåtkomsten till datan
 
 ### <a name="using-failover-groups-and-virtual-network-rules"></a>Med redundansgrupper och virtuella Nätverksregler
 
-Om du använder [tjänstslutpunkter i virtuella nätverk och regler](sql-database-vnet-service-endpoint-rule-overview.md) för att begränsa åtkomst till din SQL-databas, Tänk på att varje virtuellt nätverk tjänstslutpunkt gäller för endast en Azure-region. Slutpunkten kan inte andra regioner att godta kommunikation från undernätet. Därför kan bara de klientprogram som distribuerats i samma region ansluta till den primära databasen. Eftersom växling vid fel leder till SQL-klientsessioner som dirigeras om till servern i regionen för olika (sekundär), misslyckas sessionerna om kommer från en klient utanför den regionen. Därför kan inte automatisk redundans principen aktiveras om deltagande servrar som ingår i de virtuella nätverksreglerna. Följ dessa steg för att stödja manuell växling vid fel:
+Om du använder [tjänstslutpunkter i virtuella nätverk och regler](sql-database-vnet-service-endpoint-rule-overview.md) för att begränsa åtkomst till din SQL-databas, Tänk på att varje virtuellt nätverk tjänstslutpunkt gäller för endast en Azure-region. Slutpunkten kan inte andra regioner att godta kommunikation från undernätet. Därför kan bara de klientprogram som distribuerats i samma region ansluta till den primära databasen. Eftersom växling vid fel leder till SQL-klientsessioner som dirigeras om till en server i en annan (sekundär) region, misslyckas sessionerna om kommer från en klient utanför den regionen. Därför kan inte automatisk redundans principen aktiveras om deltagande servrar som ingår i de virtuella nätverksreglerna. Följ dessa steg för att stödja manuell växling vid fel:
 
 1.  Etablera redundanta kopior av klientdelen komponenterna i ditt program (web service, VM etc.) i den sekundära regionen
 2.  Konfigurera den [virtuella Nätverksregler](sql-database-vnet-service-endpoint-rule-overview.md) individuellt för primära och sekundära servern

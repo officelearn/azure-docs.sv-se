@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 66354db65d5e615780ec49683fbc72f1156ac5e1
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 91c917687edbdfb49fc7a390187a860d9474623a
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057117"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918932"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Virtual Machine Serial Console (förhandsversion) 
 
@@ -36,7 +36,7 @@ Seriell konsol dokumentation för virtuella Linux-datorer [Klicka här](../linux
 ## <a name="prerequisites"></a>Förutsättningar 
 
 * Du måste använda resource management-distributionsmodellen. Klassiska distributioner stöds inte. 
-* Virtuell dator måste ha [startdiagnostik](boot-diagnostics.md) aktiverat 
+* Virtuell dator måste ha [startdiagnostik](boot-diagnostics.md) aktiverat   ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 * Det konto som använder seriekonsolen måste ha [deltagarrollen](../../role-based-access-control/built-in-roles.md) för den virtuella datorn och [startdiagnostik](boot-diagnostics.md) storage-konto. 
 
 ## <a name="open-the-serial-console"></a>Öppna Seriekonsolen
@@ -48,65 +48,6 @@ Seriekonsol för virtuella datorer bara kan nås via [Azure-portalen](https://po
   4. Rulla ned till avsnittet om Support och felsökning och klicka på alternativet seriekonsol (förhandsversion). Ett nytt fönster med seriell konsol öppnas och starta anslutningen.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
-
-## <a name="disable-serial-console"></a>Inaktivera Seriekonsol
-Som standard har alla prenumerationer seriell konsolåtkomst är aktiverad för alla virtuella datorer. Du kan inaktivera seriekonsolen på prenumerationsnivån eller VM-nivå.
-
-### <a name="subscription-level-disable"></a>Prenumerationsnivå inaktivera
-Seriell konsol kan inaktiveras för en hel prenumeration genom att via den [inaktivera konsolen REST API-anrop](https://aka.ms/disableserialconsoleapi). Du kan använda ”prova” funktionerna som är tillgängliga på sidan API-dokumentationen om du inaktiverar och aktiverar Seriekonsol för en prenumeration. Ange din `subscriptionId`, ”standard” i den `default` fältet och klicka på Kör. Azure CLI-kommandon är inte tillgängliga ännu och anländer vid ett senare tillfälle. [Testa REST API-anrop här](https://aka.ms/disableserialconsoleapi).
-
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
-
-Du kan också använda uppsättningen kommandon nedan i Cloud Shell (bash-kommandon visas) för att inaktivera, aktivera och visa inaktiverat status för seriell konsol för en prenumeration. 
-
-* Hämta inaktiverad status för seriell konsol för en prenumeration:
-    ```
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
-
-    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
-
-    $ curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s | jq .properties
-    ```
-* Inaktivera seriekonsol för en prenumeration:
-    ```
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
-
-    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
-
-    $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/disableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
-    ```
-* Så här aktiverar Seriell konsol för en prenumeration:
-    ```
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
-
-    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
-
-    $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/enableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
-    ```
-
-### <a name="vm-level-disable"></a>Inaktivera för VM-nivå
-Seriell konsol kan inaktiveras för specifika virtuella datorer genom att inaktivera inställningen för den virtuella datorn boot diagnostics. Helt enkelt inaktivera startdiagnostik från Azure-portalen och seriekonsolen kommer att inaktiveras för den virtuella datorn.
-
-## <a name="serial-console-security"></a>Seriell konsol-säkerhet 
-
-### <a name="access-security"></a>Åtkomstsäkerhet 
-Åtkomst till seriell konsol är begränsat till användare som har [VM deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) eller över åtkomst till den virtuella datorn. Om din AAD-klient kräver Multi-Factor Authentication och sedan åtkomst till seriell konsol måste också MFA eftersom dess åtkomst sker via [Azure-portalen](https://portal.azure.com).
-
-### <a name="channel-security"></a>Kanalsäkerhet
-Alla data som skickas fram och tillbaka krypteras under överföringen.
-
-### <a name="audit-logs"></a>Granskningsloggar
-All åtkomst till seriekonsol för tillfället är inloggad på [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) loggarna för den virtuella datorn. Åtkomst till de här loggarna ägs och kontrolleras av administratören för Azure virtuella datorer.  
-
->[!CAUTION] 
-Även om inga lösenord för åtkomst för konsolen loggas om kommandon körs i konsolen innehåller eller utgående lösenord, hemligheter, användarnamn eller någon annan form av personligt identifierbar Information (PII), skrivs de till startdiagnostik för virtuell dator loggfiler, tillsammans med alla andra synlig text, som en del av implementeringen av Seriell konsol rullar tillbaka funktioner. Dessa loggar är cirkulär och endast personer med läsbehörighet till lagringskontot för diagnostik har åtkomst till dem, men vi rekommenderar att du följer bästa praxis för att använda Remote Desktop för allt som kan omfatta hemligheter och/eller personligt identifierbar information. 
-
-### <a name="concurrent-usage"></a>Samtidig användning
-Om en användare är ansluten till seriell konsol och en annan användare begär har åtkomst till den samma virtuella datorn, kommer att kopplas från den första användaren och den andra användaren som är anslutna på ett sätt som den första användaren ställa upp och låta den fysiska konsolen och en ny användare som sitter.
-
->[!CAUTION] 
-Det innebär att den användare som kopplas inte kommer att loggas ut! Möjlighet att framtvinga en utloggning vid frånkoppling (via SIGHUP eller liknande mekanism) är fortfarande i översikten. För Windows finns en automatisk tidsgräns har aktiverats i SAC, men du kan konfigurera terminal timeoutinställning för Linux. 
-
 
 ## <a name="access-serial-console-for-windows"></a>Åtkomst Seriekonsol för Windows 
 Nyare Windows Server-avbildningar på Azure har [särskilda administrationskonsolen](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) aktiverad som standard. SAC stöds på server-versioner av Windows men är inte tillgänglig på klientversioner (till exempel Windows 10, Windows 8 eller Windows 7). Om du vill aktivera seriekonsol för Windows-datorer som skapats med hjälp av använder Feb2018 eller lägre avbildningar du följande steg: 
@@ -144,6 +85,64 @@ Om du måste aktivera Windows boot loader uppmanas du för att visa i seriekonso
 > [!NOTE] 
 > I den här punkt-stöd för funktionen nycklar inte är aktiverad ser om du behöver avancerade startalternativ använda bcdedit/set {aktuella} onetimeadvancedoptions på [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set) för mer information
 
+## <a name="disable-serial-console"></a>Inaktivera Seriekonsol
+Som standard har alla prenumerationer seriell konsolåtkomst är aktiverad för alla virtuella datorer. Du kan inaktivera seriekonsolen på prenumerationsnivån eller VM-nivå.
+
+### <a name="subscription-level-disable"></a>Prenumerationsnivå inaktivera
+Seriell konsol kan inaktiveras för en hel prenumeration genom att via den [inaktivera konsolen REST API-anrop](https://aka.ms/disableserialconsoleapi). Du kan använda ”prova” funktionerna som är tillgängliga på sidan API-dokumentationen om du inaktiverar och aktiverar Seriekonsol för en prenumeration. Ange din `subscriptionId`, ”standard” i den `default` fältet och klicka på Kör. Azure CLI-kommandon är inte tillgängliga ännu och anländer vid ett senare tillfälle. [Testa REST API-anrop här](https://aka.ms/disableserialconsoleapi).
+
+![](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
+
+Du kan också använda uppsättningen kommandon nedan i Cloud Shell (bash-kommandon visas) för att inaktivera, aktivera och visa inaktiverat status för seriell konsol för en prenumeration. 
+
+* Hämta inaktiverad status för seriell konsol för en prenumeration:
+    ```azurecli-interactive
+    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
+
+    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
+
+    $ curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s | jq .properties
+    ```
+* Inaktivera seriekonsol för en prenumeration:
+    ```azurecli-interactive 
+    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
+
+    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
+
+    $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/disableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
+    ```
+* Så här aktiverar Seriell konsol för en prenumeration:
+    ```azurecli-interactive
+    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
+
+    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
+
+    $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/enableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
+    ```
+
+### <a name="vm-level-disable"></a>Inaktivera för VM-nivå
+Seriell konsol kan inaktiveras för specifika virtuella datorer genom att inaktivera inställningen för den virtuella datorn boot diagnostics. Helt enkelt inaktivera startdiagnostik från Azure-portalen och seriekonsolen kommer att inaktiveras för den virtuella datorn.
+
+## <a name="serial-console-security"></a>Seriell konsol-säkerhet 
+
+### <a name="access-security"></a>Åtkomstsäkerhet 
+Åtkomst till seriell konsol är begränsat till användare som har [VM deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) eller över åtkomst till den virtuella datorn. Om din AAD-klient kräver Multi-Factor Authentication och sedan åtkomst till seriell konsol måste också MFA eftersom dess åtkomst sker via [Azure-portalen](https://portal.azure.com).
+
+### <a name="channel-security"></a>Kanalsäkerhet
+Alla data som skickas fram och tillbaka krypteras under överföringen.
+
+### <a name="audit-logs"></a>Granskningsloggar
+All åtkomst till seriekonsol för tillfället är inloggad på [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) loggarna för den virtuella datorn. Åtkomst till de här loggarna ägs och kontrolleras av administratören för Azure virtuella datorer.  
+
+>[!CAUTION] 
+Även om inga lösenord för åtkomst för konsolen loggas om kommandon körs i konsolen innehåller eller utgående lösenord, hemligheter, användarnamn eller någon annan form av personligt identifierbar Information (PII), skrivs de till startdiagnostik för virtuell dator loggfiler, tillsammans med alla andra synlig text, som en del av implementeringen av Seriell konsol rullar tillbaka funktioner. Dessa loggar är cirkulär och endast personer med läsbehörighet till lagringskontot för diagnostik har åtkomst till dem, men vi rekommenderar att du följer bästa praxis för att använda Remote Desktop för allt som kan omfatta hemligheter och/eller personligt identifierbar information. 
+
+### <a name="concurrent-usage"></a>Samtidig användning
+Om en användare är ansluten till seriell konsol och en annan användare begär har åtkomst till den samma virtuella datorn, kommer att kopplas från den första användaren och den andra användaren som är anslutna på ett sätt som den första användaren ställa upp och låta den fysiska konsolen och en ny användare som sitter.
+
+>[!CAUTION] 
+Det innebär att den användare som kopplas inte kommer att loggas ut! Möjlighet att framtvinga en utloggning vid frånkoppling (via SIGHUP eller liknande mekanism) är fortfarande i översikten. För Windows finns en automatisk tidsgräns har aktiverats i SAC, men du kan konfigurera terminal timeoutinställning för Linux. 
+
 ## <a name="using-serial-console-for-nmi-calls-in-windows-vms"></a>Med Seriekonsol för NMI anropar i virtuella Windows-datorer
 Ett icke-maskable avbrott (NMI) är utformad för att skapa en signal som inte kommer att ignorera programvara på en virtuell dator. Historiskt sett använts NMIs för att övervaka maskinvarufel på system som krävs för specifika svarstider.  Idag, programmerare och systemadministratörer använder ofta NMI som en mekanism för att felsöka eller felsöka system som har hängt.
 
@@ -155,7 +154,7 @@ Information om hur du konfigurerar Windows för att skapa en kraschdumpfil när 
 
 
 ## <a name="errors"></a>Fel
-De flesta felen är tillfälliga i karaktär och sedan försöka anslutningsadressen dessa. Tabellen nedan visar en lista över fel och minskning 
+De flesta felen är tillfälliga i karaktär och sedan försöka anslutningsadressen dessa. Tabellen nedan visar en lista över fel och åtgärder
 
 Fel                            |   Åtgärd 
 :---------------------------------|:--------------------------------------------|
@@ -172,8 +171,8 @@ Eftersom vi är fortfarande i förhandsstadium för seriell konsolåtkomst, vi a
 Problem                             |   Åtgärd 
 :---------------------------------|:--------------------------------------------|
 Det finns inget alternativ med VM scale set-instans från seriell konsol | Åtkomst till seriekonsol för VM-skalningsuppsättningsinstanser stöds inte vid tidpunkten för förhandsversionen.
-Träffa ange när anslutningen popup-meddelandet inte visas en logg i Kommandotolken | [Träffa ange gör ingenting](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)
-Endast hälsoinformation visas när du ansluter till en virtuell Windows-dator| [Windows hälsotillstånd signaler](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md)
+Träffa ange när anslutningen popup-meddelandet inte visas en logg i Kommandotolken | Finns på följande sida: [Hitting ange ingenting](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Detta kan inträffa om du använder en anpassad virtuell dator härdade installation eller GRUB konfiguration som causers Windows för att kunna ansluta ordentligt till den seriella porten.
+Endast hälsoinformation visas när du ansluter till en virtuell Windows-dator| Detta kommer att visas om den särskilda administrationskonsolen inte har aktiverats för din Windows-avbildning. Se [åtkomst Seriell konsol för Windows](#access-serial-console-for-windows) för instruktioner om hur du manuellt Aktivera SAC på din virtuella Windows-dator. Mer information finns på [Windows hälsotillstånd signaler](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 Det går inte att skriva vid SAC fråga om kernel-felsökning är aktiverad | RDP till den virtuella datorn och köra `bcdedit /debug {current} off` från en upphöjd kommandotolk. Om du kan inte använda RDP du i stället kan koppla OS-disken till en annan virtuell Azure-dator och ändra den när ansluten som en disk med `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, sedan växla tillbaka disken.
 Klistra in i PowerShell i SAC resulterar i ett tredje tecken om ursprungliga innehållet hade ett upprepade tecken | En lösning är att ta bort modulen PSReadLine. `Remove-Module PSReadLine` tar bort modulen PSReadLine från den aktuella sessionen.
 Vissa tangentbord indata producerar utdata som onormalt SAC (t.ex. `[A`, `[3~`) | [VT100](https://aka.ms/vtsequences) escape-sekvenser stöds inte av SAC-prompten.

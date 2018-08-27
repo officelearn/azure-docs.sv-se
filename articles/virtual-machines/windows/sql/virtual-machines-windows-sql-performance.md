@@ -1,6 +1,6 @@
 ---
-title: Prestandametodtips för SQL Server i Azure | Microsoft Docs
-description: Ta del av metodtips för att optimera prestanda för SQL Server i virtuella Microsoft Azure-datorer.
+title: Prestandariktlinjer för för SQL Server i Azure | Microsoft Docs
+description: Innehåller riktlinjer för att optimera prestanda för SQL Server i virtuella Microsoft Azure-datorer.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/19/2018
+ms.date: 08/24/2018
 ms.author: jroth
-ms.openlocfilehash: a7a24bde6cc34befee7de3bcbf13b96c8b641af2
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 3a61c20b922b60e3135d9f9e53928462887a602e
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888916"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886193"
 ---
-# <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Prestandametodtips för SQL Server på virtuella Azure-datorer
+# <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Prestandavägledning för SQL Server i Azure Virtual Machines
 
 ## <a name="overview"></a>Översikt
 

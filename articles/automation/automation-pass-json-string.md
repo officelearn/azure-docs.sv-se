@@ -10,12 +10,12 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: PowerShell, runbook, json, azure automation
-ms.openlocfilehash: 1bdeef02621924bbb7af1e676d2b275229761081
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 5e1ab8d6bd2de24251851cfc60d270a2fef4090d
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42054761"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918826"
 ---
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>Skicka ett JSON-objekt till en Azure Automation-runbook
 
@@ -29,7 +29,7 @@ PowerShell-runbook startar en Azure-dator, hämtar parametrarna för den virtuel
 ## <a name="prerequisites"></a>Förutsättningar
 För att kunna genomföra den här kursen behöver du följande:
 
-* En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller <a href="/pricing/free-account/" target="_blank">[registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/).
+* En Azure-prenumeration. Om du inte har ett konto kan du [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/).
 * Ett [Automation-konto för Azure](automation-sec-configure-azure-runas-account.md) som runbooken ska ligga under och som ska användas för autentisering mot Azure-resurser.  Det här kontot måste ha behörighet att starta och stoppa den virtuella datorn.
 * En virtuell dator i Azure. Eftersom vi ska stoppa och starta den här datorn bör det inte vara en virtuell dator som finns i produktionsmiljön.
 * Azure Powershell installerad på en lokal dator. Se [installera och konfigurera Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0) information om hur du hämtar Azure PowerShell.

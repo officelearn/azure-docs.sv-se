@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
 ms.author: daveba
-ms.openlocfilehash: 70a8c9018cdc2929abc85336211beecf82bf32cb
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a6241c105019f04df09080a89e8fe3b77b5f9385
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188054"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888771"
 ---
 # <a name="create-list-or-delete-a-user-assigned-identity-using-rest-api-calls"></a>Skapa, visa eller ta bort en Användartilldelad identitet med hjälp av REST API-anrop
 
@@ -34,7 +34,7 @@ I den här artikeln får du lära dig hur du skapar, lista, och ta bort en anvä
 - Om du är bekant med hanterad tjänstidentitet kan ta en titt på [översiktsavsnittet](overview.md). **Se till att granska den [skillnaden mellan en systemtilldelad och Användartilldelad identitet](overview.md#how-does-it-work)**.
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
 - Om du använder Windows kan du installera den [Windows-undersystem for Linux](https://msdn.microsoft.com/commandline/wsl/about) eller Använd den [Azure Cloud Shell](../../cloud-shell/overview.md) i Azure-portalen.
-- Om du använder den [Windows-undersystem for Linux](https://msdn.microsoft.com/commandline/wsl/about) eller en [Linux-distributionsoperativsystem](/cli/azure/install-azure-cli-apt?view=azure-cli-latest), [installera den lokala konsolen i Azure CLI](/azure/install-azure-cli).
+- Om du använder den [Windows-undersystem for Linux](https://msdn.microsoft.com/commandline/wsl/about) eller en [Linux-distributionsoperativsystem](/cli/azure/install-azure-cli-apt?view=azure-cli-latest), [installera den lokala konsolen i Azure CLI](/cli/azure/install-azure-cli).
 - Om du använder Azure CLI lokalt, logga in på Azure med hjälp av `az login` med ett konto som är associerad med den Azure-prenumeration du vill distribuera eller hämta användaren som tilldelats hanterade identitetsinformation.
 - Ditt konto måste följande rolltilldelningar för att utföra vilka hanteringsåtgärder i den här artikeln:
     - [Hanterad Identitetsdeltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rollen kan skapa, läsa (lista), uppdatera och ta bort en Användartilldelad identitet.

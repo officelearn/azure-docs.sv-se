@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: daveba
-ms.openlocfilehash: 71cca8e36a319d4e74eb68044a2ae741a747c27d
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: f4831f257f706838817f60a9299551ca8feec3e6
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42059582"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885553"
 ---
 # <a name="configure-managed-identity-on-an-azure-vm-using-rest-api-calls"></a>Konfigurera hanterade identiteter på en Azure-dator med hjälp av REST API-anrop
 
@@ -41,7 +41,7 @@ I den här artikeln får du lära dig hur du utför följande åtgärder för ha
     - [Hanterad Identitetsdeltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) roll för att skapa en Användartilldelad identitet.
     - [Hanterade Identitetsoperatör](/azure/role-based-access-control/built-in-roles#managed-identity-operator) roll att tilldela och ta bort en Användartilldelad identitet från och till en virtuell dator.
 - Om du använder Windows kan du installera den [Windows-undersystem for Linux](https://msdn.microsoft.com/commandline/wsl/about) eller Använd den [Azure Cloud Shell](../../cloud-shell/overview.md) i Azure-portalen.
-- [Installera den lokala konsolen i Azure CLI](/azure/install-azure-cli), om du använder den [Windows-undersystem for Linux](https://msdn.microsoft.com/commandline/wsl/about) eller en [Linux-distributionsoperativsystem](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
+- [Installera den lokala konsolen i Azure CLI](/cli/azure/install-azure-cli), om du använder den [Windows-undersystem for Linux](https://msdn.microsoft.com/commandline/wsl/about) eller en [Linux-distributionsoperativsystem](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
 - Om du använder Azure CLI lokalt, logga in på Azure med hjälp av `az login` med ett konto som är associerad med Azure-prenumeration som du vill hantera system eller användare användartilldelade identiteter.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]

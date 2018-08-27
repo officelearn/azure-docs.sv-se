@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 468bd70682b1b36e906d32cd7bde58c78bdbb376
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 1aa1bd085a312e379dc996a860c7f97b2e0dfe73
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522007"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918884"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Hantera registrerade servrar med Azure File Sync
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Det gör du genom att omvandla dina Windows-servrar till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS) och du kan ha så många cacheminnen som du behöver över hela världen.
@@ -26,7 +26,7 @@ Registrera en server med Azure File Sync upprättar en förtroenderelation mella
 ### <a name="prerequisites"></a>Förutsättningar
 Om du vill registrera en server med en Lagringssynkroniseringstjänst, måste du förbereda de nödvändiga förutsättningarna för servern:
 
-* Servern måste köra en version av Windows Server stöds. Mer information finns i [versioner av Windows Server stöds](storage-sync-files-planning.md#supported-versions-of-windows-server).
+* Servern måste köra en version av Windows Server stöds. Mer information finns i [Azure File Sync-systemkrav och samverkan](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
 * Se till att en Storage Sync-tjänsten har distribuerats. Läs mer om hur du distribuerar en tjänst för Lagringssynkronisering [så här distribuerar du Azure File Sync](storage-sync-files-deployment-guide.md).
 * Kontrollera att servern är ansluten till internet och att Azure är tillgänglig.
 * Inaktivera Förbättrad säkerhetskonfiguration för administratörer med Serverhanteraren UI.

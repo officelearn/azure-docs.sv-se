@@ -1,18 +1,18 @@
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 * En [Salesforce](https://salesforce.com) konto  
 
-Innan du kan använda ditt Salesforce-konto i en logikapp, måste du godkänna logik för att ansluta till ditt Salesforce-konto. Lyckligtvis kan du göra detta direkt i din logikapp på Azure Portal.  
+Innan du kan använda ditt Salesforce-konto i en logikapp, måste du godkänna logikappen som ska ansluta till ditt Salesforce-konto. Som tur är kan göra du det enkelt från i logikappen på Azure Portal.  
 
-Här följer stegen för att verifiera din logikapp för att ansluta till ditt Salesforce-konto:  
+Här följer stegen för att auktorisera din logikapp för att ansluta till ditt Salesforce-konto:  
 
-1. Om du vill skapa en anslutning till Salesforce, i logik app designer **visa Microsoft hanterade API: er** i nedrullningsbara listan anger *Salesforce* i sökrutan. Välj utlösaren eller åtgärd du vill använda:  
-   ![Bild 1 Salesforce](./media/connectors-create-api-salesforce/salesforce-1.png)  
-2. Om du inte har skapat alla anslutningar till Salesforce innan du kan hämta uppmanas du att ange Salesforce-autentiseringsuppgifter. Dessa autentiseringsuppgifter används för att auktorisera din logikapp för att ansluta till och komma åt data i ditt Salesforce-konto:  
-   ![Bild 2 Salesforce](./media/connectors-create-api-salesforce/salesforce-2.png)  
-3. Ange ditt Salesforce-användarnamn och lösenord för att auktorisera logikappen:  
-   ![Bild 3 Salesforce](./media/connectors-create-api-salesforce/salesforce-3.png)  
-4. Ger oss möjlighet att ansluta till Salesforce:  
-   ![Bild 4 Salesforce](./media/connectors-create-api-salesforce/salesforce-4.png)  
-5. Observera att anslutningen har skapats och du kan nu välja att fortsätta med andra steg i din logikapp:  
-   ![Bild 5 Salesforce](./media/connectors-create-api-salesforce/salesforce-5.png)  
+1. Om du vill skapa en anslutning till Salesforce, i logic appdesigner väljer **visa Microsoft hanterade API: er** i nedrullningsbara listan anger *Salesforce* i sökrutan. Välj utlösaren eller åtgärden som du kommer att tycka att använda:  
+   ![Salesforce-anslutning bild 1](./media/connectors-create-api-salesforce/salesforce-1.png)  
+2. Om du inte skapat några anslutningar till Salesforce innan du kan hämta uppmanas du att ange dina autentiseringsuppgifter för Salesforce. Dessa autentiseringsuppgifter används för att auktorisera din logikapp för att ansluta till och få åtkomst till ditt Salesforce-konto data:  
+   ![Bild 2 till Salesforce-anslutning](./media/connectors-create-api-salesforce/salesforce-2.png)  
+3. Ange ditt Salesforce-användarnamn och lösenord för att auktorisera din logikapp:  
+   ![Bild 3 till Salesforce-anslutning](./media/connectors-create-api-salesforce/salesforce-3.png)  
+4. Gör att vi kan ansluta till Salesforce:  
+   ![Bild 4 till Salesforce-anslutning](./media/connectors-create-api-salesforce/salesforce-4.png)  
+5. Lägg märke till anslutningen har skapats och du kan nu fortsätta med andra steg i logikappen:  
+   ![Salesforce-anslutning bild 5](./media/connectors-create-api-salesforce/salesforce-5.png)  
 

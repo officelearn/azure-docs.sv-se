@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: fd1e10239d63417a21eb6f76017539ec0d447258
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 44b4da7c293da0643fb88cc2de21433c6ea72c5c
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224810"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886412"
 ---
 # <a name="back-up-your-app-in-azure"></a>Säkerhetskopiera din app i Azure
 Funktionen för säkerhetskopiering och återställning i [Azure App Service](app-service-web-overview.md) kan du lätt skapa säkerhetskopior av appar manuellt eller enligt ett schema. Du kan återställa appen till en ögonblicksbild av ett tidigare tillstånd genom att skriva över den befintliga appen eller återställa till en annan app. 
@@ -55,6 +55,7 @@ Följande databaslösningar stöds med säkerhetskopieringsfunktionen:
 * Säkerhetskopieringar kan vara upp till 10 GB av app- och innehåll. Om säkerhetskopians storlek överskrider den här gränsen kan få du ett felmeddelande.
 * Säkerhetskopior av SSL aktiverat Azure Database för MySQL inte stöds. Om en säkerhetskopiering konfigureras, får du säkerhetskopieringar.
 * Säkerhetskopior av SSL aktiverat Azure Database för PostgreSQL inte stöds. Om en säkerhetskopiering konfigureras, får du säkerhetskopieringar.
+* I-app MySQL-databaser säkerhetskopieras automatiskt utan konfiguration. Om du manuellt kontrollera inställningarna för app MySQL-databaser, till exempel lägga till anslutningssträngar, fungerar inte säkerhetskopiorna.
 * Med hjälp av en brandvägg, aktiverat lagringskonto som mål för dina säkerhetskopior inte stöds. Om en säkerhetskopiering konfigureras, får du säkerhetskopieringar.
 
 
@@ -85,7 +86,9 @@ Följande databaslösningar stöds med säkerhetskopieringsfunktionen:
     ![Välj lagringskonto](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
-   > För en databas ska visas i den här listan, sin anslutningssträng måste finnas i den **anslutningssträngar** delen av den **programinställningar** för din app.
+   > För en databas ska visas i den här listan, sin anslutningssträng måste finnas i den **anslutningssträngar** delen av den **programinställningar** för din app. 
+   >
+   > I-app MySQL-databaser säkerhetskopieras automatiskt utan konfiguration. Om du manuellt kontrollera inställningarna för app MySQL-databaser, till exempel lägga till anslutningssträngar, fungerar inte säkerhetskopiorna.
    > 
    > 
 6. I den **Säkerhetskopieringskonfigurationen** klickar du på **spara**.    

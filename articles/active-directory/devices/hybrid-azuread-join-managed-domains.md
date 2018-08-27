@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 55818bf3c6997925fbac32f913d573d630bc20f4
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 36537aacce0180f9b37fb8b49f301fb1f5954d1c
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004386"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918437"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Självstudie: Konfigurera hybrid Azure Active Directory-anslutning för hanterade domäner
 
@@ -54,7 +54,8 @@ Den här självstudien förutsätter att du är bekant med:
   
 
 Om du vill konfigurera scenariot i den här artikeln, måste den [senaste versionen av Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 eller högre) som ska installeras. 
- 
+
+Kontrollera att Azure AD Connect har synkroniserats datorobjekt av de enheter som du vill ska vara hybrid Azure AD-anslutna till Azure AD. Anslut även om datorobjekt som tillhör specifika organisationsenheter (OU) dessa organisationsenheter måste konfigureras för synkronisering i Azure AD.
 
 Från och med version 1.1.819.0, ger Azure AD Connect dig en guide för att konfigurera hybrid Azure AD-anslutning. Guiden kan du avsevärt förenkla konfigurationsprocessen. Relaterade guiden konfigurerar tjänstanslutningspunkter (SCP) för registrering av enheten.
 
@@ -165,7 +166,7 @@ Dessutom kan du behöva aktivera **tillåta uppdateringar till statusfältet via
 
 ## <a name="verify-the-registration"></a>Kontrollera registreringen
 
-Du kan använda för att verifiera enheten registreringstillståndet i din Azure-klient, den ** [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) ** cmdlet i den ** [Azure Active Directory PowerShell-modulen](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
+Du kan använda för att verifiera enheten registreringstillståndet i din Azure-klient, den **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** cmdlet i den  **[Azure Active Directory PowerShell-modulen](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
 
 När du använder den **Get-MSolDevice** cmdlet för att kontrollera service:
 

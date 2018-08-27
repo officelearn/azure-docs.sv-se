@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: bfd63262a1d5568223b4e4077e2f8c987b7ec0d4
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: cbe2e3d9f60ced5c707ce5a701a5aac937ccc072
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746744"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887997"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-using-the-azure-portal"></a>Konfigurera en virtuell dator scale Sets hanterad tjänstidentitet med hjälp av Azure portal
 
@@ -54,7 +54,7 @@ För att aktivera den systemtilldelade identiteten på en skalningsuppsättning 
 
 2. Navigera till önskade virtuella datorns skalningsuppsättning.
 
-3. Aktivera systemtilldelad identitet på den virtuella datorn genom att välja ”Ja” under ”hanterad tjänstidentitet” och klicka sedan på **spara**. Den här åtgärden kan ta 60 sekunder eller mer att slutföra:
+3. Under **systemtilldelad**, **Status**väljer **på** och klicka sedan på **spara**:
 
    [![Skärmbild av konfiguration av sidan](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
 
@@ -66,7 +66,7 @@ Om du har en VM-skalningsuppsättning som inte längre behöver en systemtilldel
 
 2. Navigera till önskade virtuella datorns skalningsuppsättning.
 
-3. Inaktivera systemtilldelad identitet på den virtuella datorn genom att välja ”Nej” under ”hanterad tjänstidentitet” och sedan på Spara. Den här åtgärden kan ta 60 sekunder eller mer att slutföra:
+3. Under **systemtilldelad**, **Status**väljer **av** och klicka sedan på **spara**:
 
    ![Skärmbild av konfiguration av sidan](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)
 

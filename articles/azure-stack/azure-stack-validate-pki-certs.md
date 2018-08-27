@@ -1,6 +1,6 @@
 ---
-title: Certifikatsverifiering Azure Stack infrastruktur för offentliga nycklar för distribution av Azure-stacken integrerat system | Microsoft Docs
-description: Beskriver hur du verifierar Azure Stack PKI-certifikat för Azure-stacken integrerat system. Beskriver med verktyget Azure Stack certifikat layout.
+title: Verifiera Azure Stack Public Key Infrastructure-certifikat för distribution av integrerade Azure Stack-system | Microsoft Docs
+description: Beskriver hur du verifierar Azure Stack PKI-certifikat för integrerade Azure Stack-system. Beskriver med hjälp av verktyget Azure Stack-certifikat för installation.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,36 +15,36 @@ ms.date: 05/24/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.openlocfilehash: e381d2ed3c6a972d776dd31f311fcebe2e35823a
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605618"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917091"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Verifiera Azure Stack PKI-certifikat
 
-Verktyget Azure Stack beredskap för installation som beskrivs i den här artikeln finns [från PowerShell-galleriet](https://aka.ms/AzsReadinessChecker). Du kan använda verktyget för att kontrollera att den [genereras PKI-certifikat](azure-stack-get-pki-certs.md) är lämpliga för distributionen. Du bör verifiera certifikat genom att låta tillräckligt med tid för att testa och återutfärda certifikat om det behövs.
+Verktyget Azure Stack-beredskap för installation som beskrivs i den här artikeln är tillgänglig [från PowerShell-galleriet](https://aka.ms/AzsReadinessChecker). Du kan använda verktyget för att kontrollera att den [genereras PKI-certifikat](azure-stack-get-pki-certs.md) är lämpliga för distributionen. Du bör verifiera certifikat genom att lämna tillräckligt med tid för att testa och återutfärda certifikat om det behövs.
 
-Verktyget beredskap Checker utför följande verifieringar för certifikat:
+Beredskap för installation utförs följande verifieringar för certifikat:
 
 - **Läsa PFX**  
-    Söker efter giltiga PFX-fil rätt lösenord, och varnar om offentlig information inte skyddas av lösenordet. 
+    Söker efter giltiga PFX-fil, rätt lösenord, och varnar om offentlig information inte skyddas av lösenordet. 
 - **Signaturalgoritm**  
     Kontrollerar att signaturalgoritmen inte är SHA1.
 - **Privat nyckel**  
-    Kontrollerar att den privata nyckeln finns och har exporterats med attributet lokal dator. 
+    Kontrollerar att den privata nyckeln finns och exporteras med attributet lokala datorn. 
 - **Kedja**  
-    Kontrollerar certifikatkedjan är intakt inklusive en kontroll för självsignerade certifikat.
+    Kontrollerar certifikatkedjan är intakt, inklusive en kontroll för självsignerade certifikat.
 - **DNS-namn**  
-    Kontrollerar SAN innehåller relevant DNS-namn för varje slutpunkt eller om en stöder jokertecken är tillgänglig.
+    Kontrollerar om SAN-nätverket innehåller DNS-namnen för varje slutpunkt eller om en stöder jokertecken finns.
 - **Nyckelanvändning**  
-    Kontrollerar om nyckelanvändningen innehåller digitala signatur och nyckelchiffrering och utökad nyckelanvändning innehåller serverautentisering och klientautentisering.
-- **Nyckelstorleken**  
-    Kontrollerar om nyckelstorleken 2048 eller större.
+    Kontrollerar om nyckelanvändningen innehåller digital signatur och nyckelchiffrering och förbättrad nyckelanvändning innehåller serverautentisering och klientautentisering.
+- **Nyckelstorlek**  
+    Kontrollerar om nyckelstorleken är 2048 eller större.
 - **Kedjans ordning**  
-    Kontrollerar ordningen för de certifikat som verifierar att ordningen är korrekt.
+    Kontrollerar ordningen på de andra certifikat som verifierar att ordningen är korrekt.
 - **Andra certifikat**  
-    Se till att inga andra certifikat har paketerats i PFX än relevanta lövcertifikatet och kedjan.
+    Se till att inga andra certifikat har paketerats i PFX än det relevanta lövcertifikatet och kedjan.
 - **Ingen profil**  
     Kontrollerar att en ny användare kan läsa in PFX data utan en användarprofil som har lästs in, frihandsbilden beteendet för gMSA konton under behandlingen av certifikat.
 
@@ -53,16 +53,16 @@ Verktyget beredskap Checker utför följande verifieringar för certifikat:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Systemet bör uppfyller följande krav innan du verifierar PKI-certifikat för distribution av en Azure-Stack:
+Systemet måste uppfylla följande krav innan du verifierar PKI-certifikat för distribution av Azure Stack:
 
-- Microsoft Azure-stacken beredskap layout
-- SSL-certifikat exporteras efter den [förberedelseinstruktionerna](azure-stack-prepare-pki-certs.md)
+- Microsoft Azure Stack-beredskap för installation
+- SSL-certifikat exporteras följa den [förberedelse instruktioner](azure-stack-prepare-pki-certs.md)
 - DeploymentData.json
 - Windows 10 eller Windows Server 2016
 
 ## <a name="perform-core-services-certificate-validation"></a>Utföra certifikatsverifiering för core services
 
-Följ dessa steg för att förbereda och validera Azure Stack PKI-certifikat för distribution och hemliga rotation:
+Följ dessa steg för att förbereda och kontrollera Azure Stack PKI-certifikat för distribution och hemliga rotation:
 
 1. Installera **AzsReadinessChecker** från en PowerShell-kommandotolk (5.1 eller senare), genom att köra följande cmdlet:
 
@@ -70,7 +70,7 @@ Följ dessa steg för att förbereda och validera Azure Stack PKI-certifikat fö
         Install-Module Microsoft.AzureStack.ReadinessChecker -force 
     ````
 
-2. Skapa katalogstrukturen certifikat. I exemplet nedan kan du ändra `<c:\certificates>` till en ny sökväg som du väljer.
+2. Skapa katalogstrukturen certifikat. I exemplet nedan kan du ändra `<c:\certificates>` till en ny sökväg för valfri.
 
     ````PowerShell  
     New-Item C:\Certificates -ItemType Directory
@@ -83,14 +83,14 @@ Följ dessa steg för att förbereda och validera Azure Stack PKI-certifikat fö
     ````
     
     > [!Note]  
-    > AD FS och diagram krävs om du använder AD FS som systemet identitet.
+    > AD FS och Graph krävs om du använder AD FS som ID-system.
     
-     - Placera ditt certifikat i rätt kataloger skapade i föregående steg. Exempel:  
+     - Placera ditt certifikat i lämplig katalogerna som skapades i föregående steg. Exempel:  
         - `c:\certificates\ACSBlob\CustomerCertificate.pfx`
         - `c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx`
         - `c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx`
 
-3. I PowerShell-fönstret Ändra värdena för **RegionName** och **FQDN** lämpliga Azure Stack-miljön och kör du följande:
+3. I PowerShell-fönstret Ändra värdena för **RegionName** och **FQDN** lämpliga i Azure Stack-miljön och kör sedan följande:
 
     ````PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
@@ -99,7 +99,7 @@ Följ dessa steg för att förbereda och validera Azure Stack PKI-certifikat fö
 
     ````
 
-4. Kontrollera utdata och alla certifikat klara alla tester. Exempel:
+4. Kontrollera utdata och certifikat klara alla tester. Exempel:
 
     ````PowerShell
     AzsReadinessChecker v1.1803.405.3 started
@@ -140,7 +140,7 @@ Följ dessa steg för att förbereda och validera Azure Stack PKI-certifikat fö
 
 **Symtom**: tester hoppas över
 
-**Orsak**: AzsReadinessChecker hoppar över vissa undersökningar om ett beroende inte är uppfyllt:
+**Orsak**: AzsReadinessChecker hoppar över vissa test om ett beroende som inte är uppfyllt:
 
  - Andra certifikat hoppas över om certifikatkedja misslyckas.
 
@@ -167,11 +167,11 @@ Följ dessa steg för att förbereda och validera Azure Stack PKI-certifikat fö
     AzsReadinessChecker Completed
     ````
 
-**Lösning**: Följ verktygets riktlinjerna i informationsavsnittet under varje uppsättning med tester för varje certifikat.
+**Lösning**: följer du anvisningarna i verktyget i informationsavsnittet under varje uppsättning med tester för varje certifikat.
 
-## <a name="perform-platform-as-a-service-certificate-validation"></a>Utför plattform som en tjänst certifikatvalidering
+## <a name="perform-platform-as-a-service-certificate-validation"></a>Utför plattform som en tjänst-certifikatverifiering
 
-Följ dessa steg för att förbereda och verifiera Azure Stack PKI-certifikat för plattform som en tjänst (PaaS)-certifikat om SQL/MySQL eller Apptjänster distributioner planeras.
+Följ dessa steg för att förbereda och kontrollera Azure Stack PKI-certifikat för plattform som en tjänst (PaaS)-certifikat, om SQL/MySQL eller App Services distributioner planeras.
 
 1.  Installera **AzsReadinessChecker** från en PowerShell-kommandotolk (5.1 eller senare), genom att köra följande cmdlet:
 
@@ -179,7 +179,7 @@ Följ dessa steg för att förbereda och verifiera Azure Stack PKI-certifikat f�
       Install-Module Microsoft.AzureStack.ReadinessChecker -force
     ````
 
-2.  Skapa en kapslad hash-tabell som innehåller sökvägar och lösenord för varje PaaS-certifikat som behöver verifiering. I PowerShell-fönstret som kör:
+2.  Skapa en kapslad hash-tabell som innehåller sökvägar och lösenord för att varje PaaS-certifikat som behöver verifiering. I PowerShell-fönstret som kör:
 
     ```PowerShell
         $PaaSCertificates = @{
@@ -191,12 +191,12 @@ Följ dessa steg för att förbereda och verifiera Azure Stack PKI-certifikat f�
         }
     ```
 
-3.  Ändra värdena för **RegionName** och **FQDN** så att den matchar Azure-stacken miljön om du vill starta verifieringen. Kör sedan:
+3.  Ändra värdena för **RegionName** och **FQDN** så att de matchar Azure Stack-miljön om du vill starta verifieringen. Kör sedan:
 
     ```PowerShell
     Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com 
     ```
-4.  Kontrollera att alla certifikat utdata och att klara alla tester.
+4.  Kontrollera att utdata och att alla certifikat klara alla tester.
 
     ```PowerShell
     AzsReadinessChecker v1.1805.425.2 started
@@ -243,14 +243,14 @@ Följ dessa steg för att förbereda och verifiera Azure Stack PKI-certifikat f�
         Key Size: OK
     ```
 
-## <a name="using-validated-certificates"></a>Med validerade certifikat
+## <a name="using-validated-certificates"></a>Med verifierade certifikat
 
-När dina certifikat har godkänts av AzsReadinessChecker, är du redo att använda dem i Azure-stacken distributionen eller för Azure-stacken hemliga rotation. 
+När dina certifikat har verifierats av AzsReadinessChecker, är du redo att använda dem i Azure Stack-distribution eller Hemlig rotation av Azure Stack. 
 
- - För distribution, på ett säkert sätt överföra ditt certifikat till distribution-tekniker så att de kan kopiera dem till värden som anges i distribution av [Azure Stack PKI krav dokumentationen](azure-stack-pki-certs.md).
- - För hemliga rotation du använda certifikat för att uppdatera gammalt certifikat för infrastruktur för offentliga slutpunkter för din Azure Stack-miljö genom att följa den [Azure Stack hemlighet Rotation dokumentationen](azure-stack-rotate-secrets.md).
- - För PaaS-tjänster du använder certifikat för att installera SQL, MySQL och Resursproviders för App-tjänster i Azure-stacken genom att följa den [översikt över erbjuda tjänster i Azure-stacken dokumentationen](azure-stack-offer-services-overview.md).
+ - För distribution på ett säkert sätt överföra dina certifikat till din distribution-tekniker så att de kan kopiera dem till distribution värden som anges i den [Azure Stack PKI-kravdokumentationen](azure-stack-pki-certs.md).
+ - För hemliga rotation, kan du använda certifikaten för att uppdatera gamla certifikat för Azure Stack-miljön infrastruktur för offentliga slutpunkter genom att följa den [dokumentation om Azure Stack hemlighet Rotation](azure-stack-rotate-secrets.md).
+ - För PaaS-tjänster, kan du använda certifikat för att installera SQL, MySQL och Resursprovidrar för App Services i Azure Stack genom att följa den [översikt över erbjudna tjänster i Azure Stack-dokumentationen](azure-stack-offer-services-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Datacenter identitetsintegrering](azure-stack-integrate-identity.md)
+[Datacenter-identitetsintegrering](azure-stack-integrate-identity.md)

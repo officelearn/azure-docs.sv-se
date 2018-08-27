@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
+ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: 98b8883a5ab0096102ab7daf90b5b2791a6f7e41
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: b93ad4d6d4637b3060d92fb5e17747294c7e6211
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389583"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886000"
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure Disk Encryption vanliga frågor och svar
 
@@ -39,7 +39,7 @@ Det är kostnadsfritt för att kryptera Virtuella diskar med Azure Disk Encrypti
 
 ## <a name="which-virtual-machine-tiers-does-azure-disk-encryption-support"></a>Vilka nivåer för virtual Machines har stöd för Azure Disk Encryption?
 
-Azure Disk Encryption är tillgängliga på standard-nivån virtuella datorer, inklusive [A, D, DS, G, GS och F](https://azure.microsoft.com/pricing/details/virtual-machines/) serien virtuella IaaS-datorer. Det är också tillgänglig för virtuella datorer med premium storage. Det är inte tillgängliga på nivån basic virtuella datorer.
+Azure Disk Encryption är tillgängliga på standard-nivån virtuella datorer, inklusive [A, D, DS, G, GS och F](https://azure.microsoft.com/pricing/details/virtual-machines/) serien virtuella IaaS-datorer. Det är också tillgänglig för virtuella datorer med premium storage. Det är inte tillgängligt i basic-nivån virtuella datorer.
 
 ## <a name="bkmk_LinuxOSSupport"></a> Vilka Linux-distributioner har stöd för Azure Disk Encryption?
 
@@ -66,9 +66,9 @@ Azure Disk Encryption stöds på följande Linux-server-distributioner och versi
 | CentOS | 6.5 | Datadisk |
 | openSUSE | 13.2 | Datadisk |
 | SLES | 12 SP1 | Datadisk |
-| SLES | Prioritet: 12-SP1 | Datadisk |
+| SLES | Prioritet: 12 SP1 | Datadisk |
 | SLES | HPC 12 | Datadisk |
-| SLES | Prioritet: 11-SP4 | Datadisk |
+| SLES | Prioritet: 11 SP4 | Datadisk |
 | SLES | 11 SP4 | Datadisk |
 
 
@@ -96,11 +96,17 @@ Du kan inte använda lokal nyckelhanteringstjänst eller HSM för att skydda kry
 
 ## <a name="what-are-the-prerequisites-to-configure-azure-disk-encryption"></a>Vilka är kraven för att konfigurera Azure Disk Encryption?
 
-Det finns förutsättningar för Azure Disk Encryption. Se den [som krävs för Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) artikeln om du vill skapa ett Azure Active Directory-program, skapa ett nytt nyckelvalv, eller konfigurera ett befintligt nyckelvalv för kryptering av diskåtkomst att aktivera kryptering och skydda hemligheter och nycklar. Mer information om nyckelkryptering viktiga supportscenarier finns i [översikt över Azure Disk Encryption](azure-security-disk-encryption-overview.md).
+Det finns förutsättningar för Azure Disk Encryption. Se den [som krävs för Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) artikel om du vill skapa ett nytt nyckelvalv eller ställa in ett befintligt nyckelvalv för kryptering av diskåtkomst att aktivera kryptering, och skydda hemligheter och nycklar. Mer information om nyckelkryptering viktiga supportscenarier finns i [översikt över Azure Disk Encryption](azure-security-disk-encryption-overview.md).
 
-## <a name="where-can-i-get-more-information-on-how-to-use-powershell-for-configuring-azure-disk-encryption"></a>Var hittar jag mer information om hur du använder PowerShell för att konfigurera Azure Disk Encryption?
+## <a name="what-are-the-prerequisites-to-configure-azure-disk-encryption-with-an-azure-ad-app-previous-release"></a>Vilka är kraven för att konfigurera Azure Disk Encryption med Azure AD-app (tidigare version)?
 
-Det finns några bra artiklar på hur du kan utföra grundläggande uppgifter för Azure Disk Encryption, samt mer avancerade scenarier. Grundläggande information finns i [utforska Azure Disk Encryption med Azure PowerShell – del 1](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/explore-azure-disk-encryption-with-azure-powershell/). Mer avancerade scenarier, se [utforska Azure Disk Encryption med Azure PowerShell – del 2](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2/).
+Det finns förutsättningar för Azure Disk Encryption. Se den [som krävs för Azure Disk Encryption](azure-security-disk-encryption-prerequisites-aad.md) artikeln om du vill skapa ett Azure Active Directory-program, skapa ett nytt nyckelvalv, eller konfigurera ett befintligt nyckelvalv för kryptering av diskåtkomst att aktivera kryptering och skydda hemligheter och nycklar. Mer information om nyckelkryptering viktiga supportscenarier finns i [översikt över Azure Disk Encryption](azure-security-disk-encryption-overview.md).
+
+## <a name="is-azure-disk-encryption-using-an-azure-ad-app-previous-release-still-supported"></a>Azure Disk Encryption använder en Azure AD-app (tidigare version) som fortfarande stöds?
+Ja. Diskkryptering som använder en Azure AD-app stöds fortfarande. Men när du krypterar nya virtuella datorer rekommenderas att du använder den nya metoden i stället för att kryptera med en Azure AD-app. 
+
+## <a name="can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app"></a>Kan jag migrera virtuella datorer som krypterats med en Azure AD-app till kryptering utan en Azure AD-app?
+Det finns för närvarande inte en direkt migreringsvägen för datorer som krypterats med en Azure AD-app till kryptering utan en Azure AD-app. Det finns också också inte en direkt sökväg från kryptering utan en Azure AD-app till kryptering med en AD-app. 
 
 ## <a name="what-version-of-azure-powershell-does-azure-disk-encryption-support"></a>Vilken version av Azure PowerShell har stöd för Azure Disk Encryption?
 
@@ -121,7 +127,7 @@ Ja, kan du utföra en uppdatering eller uppdatera en Red Hat Linux-dator. Mer in
 
 Följande arbetsflöde bör vara de bästa resultat på Linux:
 * Starta från oförändrad lagerartiklar galleriet bilden som motsvarar det önskade OS-distribution och den version
-* Säkerhetskopiera alla monterade enheter som kommer att krypteras.  Detta tillåter återställning om det uppstår ett fel, till exempel om den virtuella datorn startas om innan kryptering har slutförts.
+* Säkerhetskopiera alla monterade enheter som kommer att krypteras.  Det möjliggör återställning om det uppstår ett fel, till exempel om den virtuella datorn startas om innan kryptering har slutförts.
 * Kryptera (kan ta flera timmar eller t.o.m. dagar beroende på vm-egenskaper och storleken på eventuella anslutna datadiskar)
 * Anpassa och lägga till programvara i avbildningen efter behov.
 
@@ -140,6 +146,6 @@ Du kan ställa frågor eller lämna feedback om den [forum för Azure Disk Encry
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig mer om de vanligaste frågor som rör Azure Disk Encryption. Mer information om den här tjänsten och dess funktioner finns i följande artiklar:
 
+- [Azure Disk Encryption-översikt](azure-security-disk-encryption-overview.md)
 - [Tillämpa diskkryptering i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Kryptera virtuella Azure-datorer](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)
 - [Azure datakryptering i vila](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)

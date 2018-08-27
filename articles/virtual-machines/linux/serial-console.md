@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 20bd2d61671d89a5c2a13525ea119595cf0b7c93
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 0951b0ee8a1b92f94dd06bfad831b3dd9a9e967c
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057458"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918225"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Virtual Machine Serial Console (förhandsversion) 
 
@@ -35,9 +35,10 @@ Seriell konsol dokumentation för Windows-datorer samt [Klicka här](../windows/
 ## <a name="prerequisites"></a>Förutsättningar 
 
 * Du måste använda resource management-distributionsmodellen. Klassiska distributioner stöds inte. 
-* Virtuell dator måste ha [startdiagnostik](boot-diagnostics.md) aktiverat 
+* Virtuell dator måste ha [startdiagnostik](boot-diagnostics.md) aktiverat   ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 * Det konto som använder seriekonsolen måste ha [deltagarrollen](../../role-based-access-control/built-in-roles.md) för den virtuella datorn och [startdiagnostik](boot-diagnostics.md) storage-konto. 
 * Inställningar som är specifika för Linux-distributioner, se [komma åt seriekonsolen för Linux](#access-serial-console-for-linux)
+
 
 
 ## <a name="open-the-serial-console"></a>Öppna Seriekonsolen
@@ -65,7 +66,7 @@ Seriell konsol kan inaktiveras för en hel prenumeration genom att via den [inak
 Du kan också använda uppsättningen kommandon nedan i Cloud Shell (bash-kommandon visas) för att inaktivera, aktivera och visa inaktiverat status för seriell konsol för en prenumeration. 
 
 * Hämta inaktiverad status för seriell konsol för en prenumeration:
-    ```
+    ```azurecli-interactive
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
 
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
@@ -73,7 +74,7 @@ Du kan också använda uppsättningen kommandon nedan i Cloud Shell (bash-komman
     $ curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s | jq .properties
     ```
 * Inaktivera seriekonsol för en prenumeration:
-    ```
+    ```azurecli-interactive
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
 
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
@@ -81,7 +82,7 @@ Du kan också använda uppsättningen kommandon nedan i Cloud Shell (bash-komman
     $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/disableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
     ```
 * Så här aktiverar Seriell konsol för en prenumeration:
-    ```
+    ```azurecli-interactive
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
 
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
@@ -139,7 +140,7 @@ Oracle Linux        | Oracle Linux-avbildningar på Azure har åtkomst till kons
 Anpassade Linux-avbildningar     | Aktivera åtkomst till konsolen i /etc/inittab att köra en terminal på ttyS0 om du vill aktivera seriekonsol för en anpassad Linux VM-avbildning. Här är ett exempel att lägga till det i filen inittab: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Läs mer om hur du skapar anpassade avbildningar korrekt [skapa och ladda upp en VHD för Linux i Azure](https://aka.ms/createuploadvhd).
 
 ## <a name="errors"></a>Fel
-De flesta felen är tillfälliga sin natur och anslutningsförsök görs seriekonsolen ofta åtgärdar dessa. Tabellen nedan visar en lista över fel och minskning 
+De flesta felen är tillfälliga sin natur och anslutningsförsök görs seriekonsolen ofta åtgärdar dessa. Tabellen nedan visar en lista över fel och åtgärder
 
 Fel                            |   Åtgärd 
 :---------------------------------|:--------------------------------------------|
@@ -154,7 +155,7 @@ Eftersom vi är fortfarande i förhandsstadium för seriell konsolåtkomst, arbe
 Problem                           |   Åtgärd 
 :---------------------------------|:--------------------------------------------|
 Det finns inget alternativ med VM scale set-instans från seriell konsol |  Åtkomst till seriekonsol för VM-skalningsuppsättningsinstanser stöds inte vid tidpunkten för förhandsversionen.
-Träffa ange när anslutningen popup-meddelandet inte visas en logg i Kommandotolken | [Träffa ange gör ingenting](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)
+Träffa ange när anslutningen popup-meddelandet inte visas en logg i Kommandotolken | Finns på följande sida: [Hitting ange ingenting](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Detta kan inträffa om du använder en anpassad virtuell dator, förstärkt installation eller GRUB konfiguration som orsakar Linux för att kunna ansluta ordentligt till den seriella porten.
 Ett ”förbjuden”-svar påträffades vid åtkomst till den här Virtuella datorns lagringskonto för startdiagnostik. | Kontrollera att startdiagnostik inte har en brandvägg för kontot. Ett lagringskonto för tillgänglig startdiagnostik är nödvändigt för seriekonsolen ska fungera.
 
 

@@ -1,5 +1,5 @@
 ---
-title: Länder/regioner och språk som stöds för Bing Web Search API på Azure | Microsoft Docs
+title: Länder, regioner och språk som stöds av API för webbsökning i Bing
 description: Ta reda på vilka länder/regioner och språk som stöds av Bing Web Search API.
 services: cognitive-services
 author: v-jerkin
@@ -7,24 +7,24 @@ manager: jhubbard
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 10/06/2017
-ms.author: v-jerkin
-ms.openlocfilehash: e1994ddf3bf71d01adeac4ff8688bdd1e6eac660
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.date: 8/16/2018
+ms.author: erhopf
+ms.openlocfilehash: 87384a8aeabfe0c4a178344235debcc586cdf3de
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001726"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888479"
 ---
-# <a name="bing-web-search-countriesregions-and-languages"></a>Webbsökning i Bing länder/regioner och språk
+# <a name="countries-regions-and-languages-supported-by-the-bing-web-search-api"></a>Länder, regioner och språk som stöds av API för webbsökning i Bing
 
-Bing Web Search API stöder mer än tre dussin länder/regioner, många med flera olika språk. Ange land/region med en fråga används främst för att begränsa sökresultaten baserat på intresse i landet/regionen. Dessutom resultaten kan innehålla länkar till Bing och dessa länkar kan lokalisera Bing användarupplevelsen enligt den angivna land/region eller språk.
+Bing Web Search API har stöd för över tre dussin länder eller regioner många med flera olika språk. Ange ett land eller region med en fråga kan du förfina sökresultaten baserat på de land eller regioner intressen. Resultaten kan innehålla länkar till Bing och dessa länkar kan lokalisera Bing användarupplevelsen enligt den angivna land/region eller språk.
 
-Du kan ange ett land/region med hjälp av den `cc` frågeparameter. Om du anger ett land/region, måste du även ange en eller flera språkkoder med hjälp av den `Accept-Language` HTTP-huvud. Språk som stöds varierar beroende på land/region de tilldelas för varje land/region i tabellen marknader.
+Du kan ange ett land eller region med hjälp av den `cc` frågeparameter. När du anger ett land eller region måste du ange en eller flera språkkoder med den [ `Accept-Language` rubrik](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#headers). Använd den [marknader tabell](#Markets) en lista över språk som stöds i varje marknad.
 
-Du kan också ange en marknad med hjälp av den `mkt` parameter och en kod från den **marknader** tabell. Ange en marknad samtidigt anger land/region och ett önskat språk. Den `setLang` Frågeparametern kan anges till en språkkod i det här fallet; detta är vanligtvis samma språk som anges av `mkt` såvida inte du föredrar att se Bing på ett annat språk.
+Du kan också ange på marknaden med den `mkt` Frågeparametern och en kod från den **marknader** tabell. Ange en marknad samtidigt anger ett land / region och önskat språk. Du kan uttryckligen ange språk med den `setLang` frågeparameter.
 
-## <a name="countries"></a>Länder/regioner
+## <a name="countriesregions"></a>Länder/regioner
 
 |Land/region|Kod|
 |-------|----|
@@ -64,7 +64,6 @@ Du kan också ange en marknad med hjälp av den `mkt` parameter och en kod från
 |Turkiet|TR|
 |Storbritannien|GB|
 |USA|USA|
-
 
 ## <a name="markets"></a>Marknader
 

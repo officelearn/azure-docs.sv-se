@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 08/01/2018
+ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: 0f7b19b0848886c7a906e79d63a814fddf5ef5a6
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 293671ac3426a92453e0c1642d421038824ac02c
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42061144"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886981"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Förbereda en Windows-VHD eller VHDX för att överföra till Azure
 Innan du överför en Windows-dator (VM) från en lokal plats till Microsoft Azure, måste du förbereda den virtuella hårddisken (VHD eller VHDX). Azure stöder **endast 1 virtuella datorer i generation** som är i VHD-format och har en fast storlek disk. Den maximala storleken som tillåts för den virtuella Hårddisken är 1,023 GB. Du kan konvertera en generation 1 VM från VHDX filsystemet till virtuell Hårddisk och från en dynamiskt expanderande disk till fast storlek. Men du kan inte ändra en virtuell dator generation. Mer information finns i [bör jag skapa en generation 1 eller 2 virtuella datorer i Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).

@@ -13,14 +13,14 @@ ms.devlang: ''
 ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 08/21/2018
+ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 286b9b133bfbe633ad1fe69f66aa11b9e4c4fc1d
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 8c799ad90057c53d648ba1e103c251a0e6d6cf88
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056582"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918727"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Kom igång för Azure IT-operatörer
 
@@ -467,44 +467,29 @@ Om du vill tillåta användare att ha kontrollerad åtkomst till dina lagringsre
 
 ## <a name="azure-virtual-network"></a>Azure Virtual Network
 
-
-Virtuella nätverk är nödvändiga för att ha stöd för kommunikation mellan virtuella datorer. Du kan definiera undernät, anpassad IP-adress, DNS-inställningar, säkerhetsfiltrering och belastningsutjämning. Med en VPN-gateway eller en ExpressRoute-krets, kan du ansluta virtuella Azure-nätverk till ditt lokala nätverk.
-
-### <a name="use-cases"></a>Användningsfall
-
-Det finns olika användningsområden för Azure-nätverk.
+Virtuella nätverk är nödvändiga för att ha stöd för kommunikation mellan virtuella datorer. Du kan definiera undernät, anpassad IP-adress, DNS-inställningar, säkerhetsfiltrering och belastningsutjämning. Azure har stöd för olika områden: endast molnbaserad nätverk eller hybrid virtuella nätverk. 
 
 **Endast molnbaserad virtuella nätverk**
 
 Ett Azure-nätverk som standard är bara tillgängliga för resurser som lagras i Azure. Resurser som är anslutna till samma virtuella nätverk kan kommunicera med varandra. Du kan associera virtuella datorers nätverksgränssnitt och belastningsutjämnare med en offentlig IP-adress för att göra den virtuella datorn nås via Internet. Du kan att skydda åtkomsten till de offentliga resurserna med hjälp av en nätverkssäkerhetsgrupp.
 
-**Mellan lokala virtuella nätverk**
+![Azure-nätverk för ett webbprogram på nivå 2](https://docs.microsoft.com/azure/load-balancer/media/load-balancer-internal-overview/ic744147.png)
+
+**Hybrid virtuella nätverk**
 
 Du kan ansluta ett lokalt nätverk till ett Azure-nätverk med hjälp av ExpressRoute eller en plats-till-plats VPN-anslutning. I den här konfigurationen är Azure-nätverket i stort sett en molnbaserad förlängning av det lokala nätverket.
+![Hybrid-nätverk med VPN](https://docs.microsoft.com/azure/architecture/reference-architectures/_images/blueprints/hybrid-network-vpn.png)
 
 Eftersom Azure-nätverket är anslutet till ditt lokala nätverk, mellan lokala virtuella nätverk måste använda ett unikt delen av adressutrymmet som används i din organisation. På samma sätt som olika företagsplatser har tilldelats ett specifikt IP-undernät, blir Azure en annan plats när du utökar ditt nätverk.
-
-### <a name="deploying-a-virtual-network"></a>Distribuera ett virtuellt nätverk
-
 Det finns flera alternativ för att distribuera ett virtuellt nätverk.
+- [Portal](../..//virtual-network/quick-create-portal.md)
+- [PowerShell](../../virtual-network/quick-create-powershell.md)
+- [Kommandoradsgränssnittet (CLI)](../../virtual-network/quick-create-cli.md)
+- Azure Resource Manager-mallar
 
-**Portal**
+>**När du ska använda**: när du arbetar med virtuella datorer i Azure kan du arbetar med virtuella nätverk. Det möjliggör segmentera dina virtuella datorer i offentliga och privata undernät liknande lokala datacenter. 
 
-Distribuera ett Azure-nätverk med hjälp av Azure-portalen kräver en aktiv Azure-prenumeration och åtkomst till en webbläsare. Du kan distribuera ett nytt virtuellt nätverk i en ny eller befintlig resursgrupp. När du skapar en ny virtuell dator från portalen, kan du välja ett befintligt virtuellt nätverk eller skapa en ny. Mer information finns i [skapa ett virtuellt nätverk med Azure portal](../../virtual-network/quick-create-portal.md).
-
-Förutom att distribuera ett Azure-nätverk från Azure-portalen kan distribuera du en Azure Resource Manager-mall från portalen. Detta distribuerar och konfigurerar alla resurser som definierats i mallen, inklusive eventuella virtuella nätverksresurser. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure-portalen](../../azure-resource-manager/resource-group-template-deploy-portal.md).
-
-**PowerShell**
-
-Distribuera ett Azure-nätverk med hjälp av PowerShell tillåter fullständig distributionsautomatisering för storage-konto. Mer information finns i [skapa ett virtuellt nätverk med hjälp av PowerShell](../../virtual-network/quick-create-powershell.md).
-
-Förutom att distribuera Azure-resurser individuellt kan använda du Azure PowerShell-modulen för att distribuera en Azure Resource Manager-mall. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
-
-**Kommandoradsgränssnittet (CLI)**
-
-Precis som med PowerShell-modulen Azure-kommandoradsgränssnittet ger distributionsautomatisering och kan användas på Windows, OS X eller Linux-datorer. Du kan använda Azure CLI **network vnet skapa** kommando för att skapa ett virtuellt nätverk. Mer information finns i [skapa ett virtuellt nätverk med hjälp av Azure CLI](../../virtual-network/quick-create-cli.md).
-
-På samma sätt kan du använda Azure CLI för att distribuera en Azure Resource Manager-mall. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md).
+>**Kom igång**: distribuera ett Azure-nätverk med hjälp av Azure-portalen kräver en aktiv Azure-prenumeration och åtkomst till en webbläsare. Du kan distribuera ett nytt virtuellt nätverk i en ny eller befintlig resursgrupp. När du skapar en ny virtuell dator från portalen, kan du välja ett befintligt virtuellt nätverk eller skapa en ny. Kom igång och [skapa ett virtuellt nätverk med Azure portal](../../virtual-network/quick-create-portal.md).
 
 ### <a name="access-and-security-for-virtual-networks"></a>Åtkomst och säkerhet för virtuella nätverk
 

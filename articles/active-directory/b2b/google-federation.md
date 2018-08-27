@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 38ccd45bb1acc614d4d79451dba53ab6f49c8ba6
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: d36a4071dbbfb52e22a4e0ecc850da68ebeae6e5
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/24/2018
-ms.locfileid: "42820201"
+ms.locfileid: "42888125"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Lägga till Google som en identitetsprovider för gästanvändare för B2B
 
@@ -108,4 +108,4 @@ Du kan ta bort din Google federation-konfiguration. Om du gör det Google-gästa
     `Remove-AzureADMSIdentityProvider -Id Google-OAUTH`
 
    > [!NOTE]
-   > Mer information om kommandot Remove-AzureADMSIdentityProvider finns i den här dokumentationen. 
+   > Mer information finns i [Remove-AzureADMSIdentityProvider](https://docs.microsoft.com/en-us/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview). 

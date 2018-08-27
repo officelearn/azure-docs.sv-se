@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 9e013e237a996d722d958920a1310e3aaea36c52
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: fb9193066c9501341efb779b9f9e2ccace02cccf
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170916"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888212"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>Hur du använder ”förväntades entitet”-egenskapen för åtgärder
 
@@ -59,14 +59,14 @@ Concretely, om fältet ”förväntades entitet” i en åtgärd har angetts til
 
 ### <a name="create-two-actions"></a>Skapa två åtgärder
 
-1. Klicka på åtgärder och ny åtgärd
+1. Klicka på åtgärder och ny åtgärd.
 2. I svaret, skriver du ”vad heter du”?.
 3. Ange $name i förväntat entiteter. Klicka på Spara.
     - Det här värdet innebär att om den här frågan ombeds och användarens svar inte har några entiteter som har identifierats, roboten anta att hela användarens svar är den här entiteten.
 2. Klicka på åtgärder och sedan ny åtgärd för att skapa en andra åtgärd.
 3. Skriv ”Hello $name' som svar.
-    - Entiteten läggs automatiskt som en disqualifying enhet. 
-4. Klicka på Spara
+    - Entiteten läggs automatiskt som en obligatorisk entitet. 
+4. Klicka på Spara.
 
 Nu har du två åtgärder.
 

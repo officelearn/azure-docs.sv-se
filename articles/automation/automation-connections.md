@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5c865ff5c83626f13bb4fb9df7c1533371733540
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 4ead83dc449f2b32461b0585f276c9f3bfd3f847
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42061470"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919110"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Anslutningstillgångar i Azure Automation
 
@@ -84,7 +84,7 @@ Du kan använda skript för att skapa anslutningstillgången eftersom när du sk
   
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>Med hjälp av en anslutning i en runbook eller DSC-konfiguration
 
-Du hämtar en anslutning i en runbook eller DSC-konfiguration med den **Get-AutomationConnection** cmdlet.  Du kan inte använda den [Get-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/Get-AzureRmAutomationConnection?redirectedfrom=msdn) aktivitet.  Den här aktiviteten hämtar fältvärdena i olika fält i anslutningen och returnerar dem som en [hash-tabell](http://go.microsoft.com/fwlink/?LinkID=324844) som sedan kan användas med lämpliga kommandon i runbook eller DSC-konfiguration.
+Du hämtar en anslutning i en runbook eller DSC-konfiguration med den **Get-AutomationConnection** cmdlet.  Du kan inte använda den [Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection) aktivitet.  Den här aktiviteten hämtar fältvärdena i olika fält i anslutningen och returnerar dem som en [hash-tabell](http://go.microsoft.com/fwlink/?LinkID=324844) som sedan kan användas med lämpliga kommandon i runbook eller DSC-konfiguration.
 
 ### <a name="textual-runbook-sample"></a>Textbaserade runbook-exempel
 

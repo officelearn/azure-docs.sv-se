@@ -8,25 +8,26 @@ ms.topic: include
 ms.date: 04/02/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 752feca30fdca663aaf8bd88e6686781b9065682
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 527567ee3f3a939c7358fb6a62271cbe38e16974
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33836689"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42915457"
 ---
-När du skickar meddelanden om mallar, behöver du bara ange en uppsättning egenskaper. Uppsättning egenskaper innehåller den lokaliserade versionen av de aktuella nyheterna i det här scenariot.
+När du skickar meddelanden om mallar, behöver du bara ange en uppsättning egenskaper. I det här scenariot innehåller uppsättningen egenskaper den lokaliserade versionen av den aktuella nyheten.
 
-    {
-        "News_English": "World News in English!",
-        "News_French": "World News in French!",
-        "News_Mandarin": "World News in Mandarin!"
-    }
+```json
+{
+    "News_English": "World News in English!",
+    "News_French": "World News in French!",
+    "News_Mandarin": "World News in Mandarin!"
+}
+```
 
+### <a name="send-notifications-using-a-c-console-app"></a>Skicka meddelanden med hjälp av en C#-konsolapp
 
-
-### <a name="send-notifications-using-a-c-console-app"></a>Skicka meddelanden med en C#-konsolapp
-Det här avsnittet visar hur du skickar meddelanden med hjälp av en konsolapp. Koden skickar meddelanden till Windows Store- och iOS-enheter. Ändra den `SendTemplateNotificationAsync` metoden i konsolen appen som du skapade tidigare med följande kod:
+Det här avsnittet visar hur du skickar meddelanden med hjälp av en konsolapp. Koden skickar meddelanden till Windows Store- och iOS-enheter. Ändra metoden `SendTemplateNotificationAsync` i den konsolapp som du skapade tidigare med följande kod:
 
 ```csharp
 private static async void SendTemplateNotificationAsync()
@@ -63,10 +64,11 @@ private static async void SendTemplateNotificationAsync()
 }
 ```
 
-Metoden SendTemplateNotificationAsync ger lokaliserade typ av nyheterna till **alla** dina enheter, oavsett plattform. Din meddelandehubb bygger och ger korrekt interna nyttolasten för alla enheter som prenumererar på en specifik tagg.
+Metoden SendTemplateNotificationAsync levererar lokaliserade del av nyheter till **alla** dina enheter, oavsett plattformen. Din meddelandehubb bygger och levererar rätt interna nyttolasten för alla enheter som prenumererar på en specifik tagg.
 
 ### <a name="sending-notification-with-mobile-services"></a>Skicka meddelanden med Mobile Services
-Använd följande skript i din Mobile Services-Schemaläggaren:
+
+Använd följande skript i dina mobiltjänster-scheduler:
 
 ```csharp
 var azure = require('azure');
@@ -82,4 +84,3 @@ notificationHubService.send('World', notification, function(error) {
     }
 });
 ```
-

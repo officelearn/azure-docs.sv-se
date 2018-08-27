@@ -12,19 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/21/2018
+ms.date: 08/21/2018
 ms.author: ryanwi
-ms.openlocfilehash: cad3723f3109fa2fa7e6a1a7ab61d5c7eaca2674
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 8e1c194ea2ebc0e06918c8389c9ee6f72afb3e86
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623279"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887796"
 ---
 # <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>Skala ut ett Service Fabric-kluster genom att lägga till en Virtual Machine Scale Sets
 Den här artikeln beskriver hur du skalar en Azure Service Fabric-kluster genom att lägga till en ny VM-skalningsuppsättning i ett befintligt kluster. Service Fabric-kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras. En dator eller virtuell dator som ingår i ett kluster kallas för en nod. Virtual machine scale sets är en Azure-beräkningsresurs som används för att distribuera och hantera en uppsättning virtuella datorer som en uppsättning. Varje nodtyp som definieras i ett Azure-kluster är [ställa in som en separat skalningsuppsättning](service-fabric-cluster-nodetypes.md). Varje nodtyp kan sedan hanteras separat. När du har skapat ett Service Fabric-kluster, kan du skala en klusternodstyp lodrätt (ändra resurser noder), uppgradera operativsystemet på nodtyp virtuella datorer eller Lägg till en ny VM-skalningsuppsättning i ett befintligt kluster.  Du kan skala klustret när som helst, även när arbetsbelastningar sedan körs på klustret.  När klustret skalas skalas programmen automatiskt samt.
 
 > [!WARNING]
+> Starta inte att ändra den primära nodetype VM SKU, om hälsotillståndet för klustret är i feltillstånd. Om hälsotillståndet för klustret är i feltillstånd, du kommer endast göra instabil klustret ytterligare, om du försöker ändra VM-SKU.
+>
 > Vi rekommenderar att du inte ändrar VM-SKU på en skala set/nodtyp, såvida inte den körs på [Silver hållbarhet med eller större](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Ändra VM SKU-storlek är en data-destruktiv plats infrastruktur-åtgärd. Det är möjligt att det kan leda till dataförlust för tillståndskänsliga tjänster eller orsakar andra oförutsedda driftsproblem, även för tillståndslösa arbetsbelastningar utan några möjligheten att fördröja eller övervaka den här ändringen. Det innebär att den primära nodtypen som kör tillståndskänslig service fabric systemtjänster, eller valfri nodtyp av som kör ditt arbete med tillståndskänsliga program läses in.
 >
 

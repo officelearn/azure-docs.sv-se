@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8886c08e88c1dd46d2b325b9ba8e9e0b8ae104f9
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 956cb80ddbf96f23585dd52f3dc1013c7a665113
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40006723"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886318"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Konfigurera rollbaserade åtkomstkontroller i lösningsacceleratorn för fjärrövervakning
 
@@ -51,7 +51,7 @@ Använda Azure-portalen för att lägga till eller ta bort en användare från l
 
 1. Kontrollera den [användare finns i katalogen](../active-directory/fundamentals/add-users-azure-active-directory.md) du använder. Du har valt katalog när du har loggat in på den [Microsoft Azure IoT-Lösningsacceleratorer](https://www.azureiotsolutions.com/Accelerators) plats. Katalognamnet är synlig i det övre högra hörnet av den [sidan](https://www.azureiotsolutions.com/Accelerators).
 
-1. Hitta den **företagsprogram** för din lösning i Azure-portalen. Programnamnet är namnet på lösningen för fjärrövervakning. Visningsnamn för lösningen och program finns i följande skärmbild **contoso rm4**.
+1. Hitta den **företagsprogram** för din lösning i Azure-portalen. En gång kan filtrera listan genom att ange **programtyp** till **alla program**. Sök efter namnet på programmet med appen. Programnamnet är namnet på lösningen för fjärrövervakning. Visningsnamn för lösningen och program finns i följande skärmbild **contoso rm4**.
 
     ![Företagsprogram](media/iot-accelerators-remote-monitoring-rbac/appregistration.png)
 

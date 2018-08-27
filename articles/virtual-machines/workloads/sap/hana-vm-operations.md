@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 98c7bd5daf3b84499e8e31c0a7a2da612834b83e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e2ff826f21adf12d48b21acefe4b704866e02c04
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521990"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917966"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Konfigurationer för SAP HANA-infrastruktur och åtgärder på Azure
 Det här dokumentet innehåller anvisningar för att konfigurera Azure-infrastrukturen och använda SAP HANA-system som har distribuerats på Azures inbyggda virtuella datorer (VM). Dokumentet innehåller också konfigurationsinformation för SAP HANA skalbar för M128s VM SKU: N. Det här dokumentet är inte avsedd att ersätta standard SAP-dokumentationen, som innehåller följande innehåll:
@@ -215,7 +215,7 @@ När du installerar de virtuella datorerna som kör SAP HANA, måste de virtuell
 
 Men för distributioner som är bestående, måste du skapa ett virtuellt datacenter nätverksarkitektur i Azure. Den här arkitekturen rekommenderar avgränsning av Azure VNet-Gateway som ansluter till lokala i ett separat virtuellt Azure-nätverk. Det här separata virtuella nätverket bör vara värd för all trafik som lämnar antingen till en lokal eller till internet. Den här metoden kan du distribuera programvara för granskning och loggning trafik som anger virtuellt datacenter i Azure i den här separata virtuella hubbnätverket. Du måste ett virtuellt nätverk som är värd för programvara och konfigurationer som är kopplat till in- och utgående trafik till din Azure-distribution.
 
-Artiklarna [Azure Virtual Datacenter: ett Nätverksperspektiv](https://docs.microsoft.com/azure/networking/networking-virtual-datacenter) och [Azure Virtual Datacenter och Företagskontrollplanen](https://docs.microsoft.com/azure/architecture/vdc/) ger mer information om virtuellt datacenter-metoden och relaterade Azure VNet-design.
+Artiklarna [Azure Virtual Datacenter: ett Nätverksperspektiv](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) och [Azure Virtual Datacenter och Företagskontrollplanen](https://docs.microsoft.com/azure/architecture/vdc/) ger mer information om virtuellt datacenter-metoden och relaterade Azure VNet-design.
 
 
 >[!NOTE]

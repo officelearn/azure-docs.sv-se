@@ -1,66 +1,97 @@
 ---
-title: Lär dig hur du använder SFTP-anslutningen i dina logic apps | Microsoft Docs
-description: Skapa logikappar med Azure App service. Anslut till SFTP API för att skicka och ta emot. Du kan utföra olika åtgärder så som att skapa, uppdatera, hämta eller ta bort filer.
+title: Ansluta till SFTP-konto från Azure Logic Apps | Microsoft Docs
+description: Automatisera uppgifter och arbetsflöden som övervakar, skapa, hantera, skicka och ta emot filer för en SFTP-server med Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 07/20/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 28ea02082903f71f619a52672ba41ce65557b0c7
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+tags: connectors
+ms.date: 08/24/2018
+ms.openlocfilehash: 9714a00d070caab9d3a3338329295192e1eb9997
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296010"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887595"
 ---
-# <a name="get-started-with-the-sftp-connector"></a>Kom igång med SFTP-koppling
-Använda SFTP-anslutningen för att komma åt en SFTP-konto för att skicka och ta emot filer. Du kan utföra olika åtgärder så som att skapa, uppdatera, hämta eller ta bort filer.  
+# <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Övervaka, skapa och hantera SFTP-filer med hjälp av Azure Logic Apps
 
-Att använda [alla anslutningar](apis-list.md), måste du först skapa en logikapp. Du kan komma igång med [att skapa en logikapp nu](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Med Azure Logic Apps och SFTP-anslutningsappen kan du skapa automatiserade uppgifter och arbetsflöden som övervakar, skapa, skicka och ta emot filerna med ditt konto på en [SFTP](https://www.ssh.com/ssh/sftp/) server, tillsammans med andra åtgärder, till exempel:
 
-## <a name="connect-to-sftp"></a>Anslut till SFTP
-Innan din logikapp kan komma åt någon tjänst, måste du först skapa en *anslutning* till tjänsten. En [anslutning](connectors-overview.md) tillhandahåller anslutningen mellan en logikapp och en annan tjänst.  
+* Övervaka när filer läggs till eller ändras.
+* Hämta, skapa, kopiera, uppdatera, lista, och ta bort filer.
+* Hämta filinnehåll och metadata.
+* Extrahera Arkiv till mappar.
 
-### <a name="create-a-connection-to-sftp"></a>Skapa en anslutning till SFTP
-> [!INCLUDE [Steps to create a connection to SFTP](../../includes/connectors-create-api-sftp.md)]
-> 
-> 
+Du kan använda utlösare som få svar från din SFTP-server och se utdata som är tillgängliga för andra åtgärder. Du kan använda åtgärder i dina logic apps för att utföra uppgifter med filer på din SFTP-server. Du kan också ha andra åtgärder som använder utdata från SFTP-åtgärder. Till exempel om du regelbundet hämta filer från din SFTP-server, kan du skicka e-postmeddelande om dessa filer och sitt innehåll med hjälp av anslutningsappen Office 365 Outlook eller Outlook.com-anslutning.
+Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="use-an-sftp-trigger"></a>Använd en SFTP-utlösare
-En utlösare är en händelse som kan användas för att starta arbetsflödet som definierats i en logikapp. [Mer information om utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
+## <a name="prerequisites"></a>Förutsättningar
 
-I det här exemplet i **SFTP - när en fil har lagts till eller ändrats** utlösare används för att initiera en logik app arbetsflödet när en fil har lagts till eller ändras på en SFTP-server. Du också lägga till ett villkor som kontrollerar du innehållet i den nya eller ändrade filen och gör ett beslut att extrahera filen om innehållet visar ska extraheras innan du använder innehållet. Slutligen lägger du till en åtgärd för att extrahera innehållet i en fil och placerar du extraherade innehållet i en mapp på SFTP-servern. 
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
 
-Du kan använda den här utlösaren för att övervaka en SFTP-mapp för nya filer som representerar order i ett enterprise-exempel.  Du kan sedan använda åtgärden SFTP-koppling som **hämta filinnehåll**, för att hämta innehållet i ordningen för vidare bearbetning och lagring i en order-databas.
+* Din SFTP värd postadressen och kontonamnet autentiseringsuppgifter
 
-> [!INCLUDE [Steps to create an SFTP trigger](../../includes/connectors-create-api-sftp-trigger.md)]
-> 
-> 
+   Dina autentiseringsuppgifter för tillåta din logikapp för att skapa en anslutning och få åtkomst till ditt SFTP-konto.
 
-## <a name="add-a-condition"></a>Lägg till ett villkor
-> [!INCLUDE [Steps to add a condition](../../includes/connectors-create-api-sftp-condition.md)]
-> 
-> 
+* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-## <a name="use-an-sftp-action"></a>Använd en SFTP-åtgärd
-En åtgärd är en åtgärd som utförs av arbetsflödet som definierats i en logikapp. [Mer information om åtgärder](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
+* Logikappen där du vill komma åt ditt SFTP-konto. Du kommer igång med en SFTP-utlösare [skapa en tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Om du vill använda en SFTP-åtgärd, starta din logikapp med en annan utlösare, till exempel, **upprepning** utlösaren.
 
-> [!INCLUDE [Steps to create an SFTP action](../../includes/connectors-create-api-sftp-action.md)]
-> 
-> 
+## <a name="connect-to-sftp"></a>Ansluta till SFTP
 
-## <a name="connector-specific-details"></a>Connector-specifik information
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-Visa alla utlösare och åtgärder som definierats i swagger och även se några gränser i den [connector information](/connectors/sftpconnector/).
+1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna logikappen i Logic App Designer, om inte redan är öppna.
 
-## <a name="more-connectors"></a>Flera kopplingar
-Gå tillbaka till den [API: er listan](apis-list.md).
+1. Välj en sökväg: 
+
+   * För tom logic apps i sökrutan anger du ”salesforce” som filter. 
+   Välj utlösaren som du vill under listan över utlösare. 
+
+     ELLER
+
+   * För befintliga logic apps: 
+   
+     * Under det sista steget där du vill lägga till en åtgärd, väljer **nytt steg**. 
+
+       ELLER
+
+     * Mellan stegen där du vill lägga till en åtgärd, flyttar du pekaren över pilen mellan stegen. 
+     Välj plustecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+     
+        I sökrutan anger du ”sftp” som filter. 
+        Välj vilken åtgärd du önska under åtgärder.
+
+1. Ange informationen som krävs för anslutningen och välj sedan **skapa**.
+
+1. Ange informationen som krävs för din valda utlösare eller åtgärd och fortsätt att utveckla logikappens arbetsflöde.
+
+## <a name="examples"></a>Exempel
+
+### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>SFTP-utlösare: när en fil läggs till eller ändras
+
+Den här utlösaren startar en logikapparbetsflöde när utlösaren identifierar när en fil läggs till eller ändras på en SFTP-server. Till exempel kan du lägga till ett villkor som kontrollerar dess innehåll och beslutar om att hämta innehållet, baserat på om innehållet uppfyller ett angivet villkor. Slutligen kan du lägga till en åtgärd som hämtar filens innehåll och placera innehållet i en mapp på SFTP-server. 
+
+**Enterprise exempel**: du kan använda den här utlösaren för att övervaka en SFTP-mapp för nya filer som representerar kundorder. Du kan sedan använda en SFTP-åtgärd som **hämta filinnehåll**, så du kan hämta den ordning innehåll för vidare bearbetning och lagra den ordningen i en order-databas.
+
+### <a name="sftp-action-get-content"></a>SFTP-åtgärd: hämta innehåll
+
+Den här åtgärden hämtar innehållet från en fil på en SFTP-server. Till exempel kan du lägga till utlösaren från föregående exempel och ett villkor som måste uppfylla dess innehåll. Om villkoret är sant, köra den åtgärd som hämtar innehållet. 
+
+## <a name="connector-reference"></a>Referens för anslutningsapp
+
+Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av anslutningsappens OpenAPI (tidigare Swagger) beskrivning, granska kopplingens [referenssida](/connectors/sftpconnector/).
+
+## <a name="get-support"></a>Få support
+
+* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](http://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Nästa steg
+
+* Läs mer om andra [Logic Apps-anslutningsprogram](../connectors/apis-list.md)

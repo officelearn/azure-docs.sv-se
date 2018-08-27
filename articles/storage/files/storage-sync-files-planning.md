@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a98c8ac65de930eabcedea2a009769ed6d245216
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 1f75317882e803a40df065377ef75f8b6b753898
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617200"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918387"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -67,18 +67,25 @@ Lagringsnivåer för moln är en valfri funktion i Azure File Sync som sällan a
 > [!Important]  
 > Molnet lagringsnivåer stöds inte för serverslutpunkter på volymer för Windows-system.
 
-## <a name="azure-file-sync-interoperability"></a>Azure File Sync-samverkan 
-Det här avsnittet beskriver Azure File Sync-samverkan med Windows Server-funktioner och roller och lösningar från tredje part.
+## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Azure File Sync-systemkrav och samverkan 
+Det här avsnittet beskrivs systemkraven för Azure File Sync-agenten och samverkan med Windows Server-funktioner och roller och lösningar från tredje part.
 
-### <a name="supported-versions-of-windows-server"></a>Vilka versioner av Windows Server
-Vilka versioner av Windows Server av Azure File Sync finns för närvarande:
+### <a name="system-requirements"></a>Systemkrav
+- En server som kör Windows Server 2012 R2 eller Windows Server 2016 
 
-| Version | Godkända SKU: er | Distributionsalternativen som stöds |
-|---------|----------------|------------------------------|
-| Windows Server 2016 | Datacenter och Standard | Fullständig (server med ett gränssnitt) |
-| Windows Server 2012 R2 | Datacenter och Standard | Fullständig (server med ett gränssnitt) |
+    | Version | Godkända SKU: er | Distributionsalternativen som stöds |
+    |---------|----------------|------------------------------|
+    | Windows Server 2016 | Datacenter och Standard | Fullständig (server med ett gränssnitt) |
+    | Windows Server 2012 R2 | Datacenter och Standard | Fullständig (server med ett gränssnitt) |
 
-Framtida versioner av Windows Server läggs till när de blir tillgängliga. Tidigare versioner av Windows kan läggas till baserat på feedback från användare.
+    Framtida versioner av Windows Server läggs till när de blir tillgängliga. Tidigare versioner av Windows kan läggas till baserat på feedback från användare.
+
+- En server med minst 2GB minne
+
+    > [!Important]  
+    > Om servern körs på en virtuell dator med dynamiskt minne aktiverat, kommer den virtuella datorn ska konfigureras med en minsta 2048MB minne.
+    
+- En lokalt ansluten volym som formaterats med NTFS-filsystemet
 
 > [!Important]  
 > Vi rekommenderar att alla servrar som du använder med Azure File Sync uppdaterad med de senaste uppdateringarna från Windows Update. 

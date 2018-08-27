@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 14bf68355550d756bd3f4da1a367133d83ddbf07
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 110bdcacf7433c1e0ab0cb31e1a04734137f9596
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42054197"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885247"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Använd Seriekonsol för SysRq och NMI anrop
 
@@ -84,13 +84,17 @@ Administrationshandboken för SysRq ovan:
 
 ### <a name="distribution-specific-documentation"></a>Distribution-specifika dokumentation ###
 Distribution-specifika dokumentation på SysRq och stegen för att konfigurera Linux att skapa en kraschdumpfil när den får en SysRq ”krascha” kommandot finns i länkarna nedan:
+
 #### <a name="ubuntu"></a>Ubuntu ####
  - [Kernel-kraschdump](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
+
 #### <a name="red-hat"></a>Red Hat ####
 - [Vad är funktionen SysRq och hur använder jag det?](https://access.redhat.com/articles/231663)
 - [Hur du använder funktionen SysRq att samla in information från en RHEL-server](https://access.redhat.com/solutions/2023)
+
 #### <a name="suse"></a>SUSE ####
 - [Konfigurera kernel core dump avbilda](https://www.suse.com/support/kb/doc/?id=3374462)
+
 #### <a name="coreos"></a>CoreOS ####
 - [Samla in loggar för krascher](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
@@ -109,16 +113,17 @@ Linux-system som stöder sysctl för att konfigurera kernel parametrar, kan du a
 
 Mer information om Linux-kernel inställningar, till exempel `unknown_nmi_panic`, `panic_on_io_nmi`, och `panic_on_unrecovered_nmi`, se: [dokumentationen för/proc/sys/kernel / *](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Distribution-specifika dokumentation på NMI och stegen för att konfigurera Linux att skapa en kraschdumpfil när den får en NMI finns i länkarna nedan:
  
- ### <a name="ubuntu"></a>Ubuntu 
+### <a name="ubuntu"></a>Ubuntu 
  - [Kernel-kraschdump](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
 
- ### <a name="red-hat"></a>Red Hat 
+### <a name="red-hat"></a>Red Hat 
  - [Vad är en NMI och vad kan jag använda det för?](https://access.redhat.com/solutions/4127)
  - [Hur konfigurerar jag mitt system kraschar när NMI växel skickas?](https://access.redhat.com/solutions/125103)
  - [Krascha dumpa administratörshandboken](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/pdf/kernel_crash_dump_guide/kernel-crash-dump-guide.pdf)
 
 ### <a name="suse"></a>SUSE 
 - [Konfigurera kernel core dump avbilda](https://www.suse.com/support/kb/doc/?id=3374462)
+
 ### <a name="coreos"></a>CoreOS 
 - [Samla in loggar för krascher](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 

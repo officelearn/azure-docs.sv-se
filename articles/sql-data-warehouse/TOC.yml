@@ -5,8 +5,18 @@ items:
   items:
   - name: Om SQL Data Warehouse
     href: sql-data-warehouse-overview-what-is.md
+  - name: SQL Data Warehouse-arkitektur
+    href: massively-parallel-processing-mpp-architecture.md
+  - name: Informationslagerenheter
+    href: what-is-a-data-warehouse-unit-dwu-cdwu.md
   - name: Översiktsblad
     href: cheat-sheet.md
+  - name: Bästa praxis
+    href: sql-data-warehouse-best-practices.md
+  - name: Kapacitetsbegränsningar
+    href: sql-data-warehouse-service-capacity-limits.md
+  - name: VANLIGA FRÅGOR OCH SVAR
+    href: sql-data-warehouse-overview-faq.md
 - name: Viktig information
   items:
   - name: Augusti 2018
@@ -27,13 +37,13 @@ items:
       href: create-data-warehouse-portal.md
     - name: PowerShell
       href: create-data-warehouse-powershell.md
-  - name: Pausa och återuppta beräkning
+  - name: Pausa och återuppta
     items:
     - name: Portalen
       href: pause-and-resume-compute-portal.md
     - name: PowerShell
       href: pause-and-resume-compute-powershell.md
-  - name: Skala beräkning
+  - name: Skala
     items:
     - name: Portalen
       href: quickstart-scale-compute-portal.md
@@ -78,18 +88,6 @@ items:
     items:
     - name: Översikt
       href: sql-data-warehouse-overview-develop.md
-    - name: Komponenter för informationslager
-      href: sql-data-warehouse-overview-workload.md
-    - name: Bästa praxis
-      href: sql-data-warehouse-best-practices.md
-    - name: MPP-arkitektur
-      href: massively-parallel-processing-mpp-architecture.md
-    - name: Informationslagerenheter
-      href: what-is-a-data-warehouse-unit-dwu-cdwu.md
-    - name: Kapacitetsbegränsningar
-      href: sql-data-warehouse-service-capacity-limits.md
-    - name: VANLIGA FRÅGOR OCH SVAR
-      href: sql-data-warehouse-overview-faq.md
     - name: Tabeller
       items:
       - name: Översikt
@@ -112,14 +110,6 @@ items:
         href: sql-data-warehouse-tables-statistics.md
       - name: Tillfälliga
         href: sql-data-warehouse-tables-temporary.md
-    - name: Frågor
-      items:
-      - name: Dynamisk SQL
-        href: sql-data-warehouse-develop-dynamic-sql.md
-      - name: Gruppera efter alternativ
-        href: sql-data-warehouse-develop-group-by-options.md
-      - name: Etiketter
-        href: sql-data-warehouse-develop-label.md
     - name: Språkelement för T-SQL
       items:
       - name: Loopar
@@ -136,6 +126,14 @@ items:
         href: sql-data-warehouse-develop-variable-assignment.md
       - name: Vyer
         href: sql-data-warehouse-develop-views.md
+  - name: Fråga
+    items:
+    - name: Dynamisk SQL
+      href: sql-data-warehouse-develop-dynamic-sql.md
+    - name: Gruppera efter alternativ
+      href: sql-data-warehouse-develop-group-by-options.md
+    - name: Etiketter
+      href: sql-data-warehouse-develop-label.md
   - name: Arbetsbelastningshantering
     items:
     - name: Resursklasser för hantering av arbetsbelastningar
@@ -208,11 +206,11 @@ items:
       href: sql-data-warehouse-query-visual-studio.md
     - name: Installera Visual Studio
       href: sql-data-warehouse-install-visual-studio.md
-  - name: Finjustera arbetsbelastning
+  - name: Hantera arbetsbelastning
     items:
     - name: Analysera din arbetsbelastning
       href: analyze-your-workload.md
-  - name: Hantera och övervaka
+  - name: Övervaka och finjustera
     items:
     - name: Återställa – Portal
       href: sql-data-warehouse-restore-database-portal.md
@@ -278,9 +276,9 @@ items:
       href: sql-data-warehouse-partner-data-integration.md
     - name: Datahantering
       href: sql-data-warehouse-partner-data-management.md
-ms.openlocfilehash: 8ae5810cabf2154d6c91c2d520479beb29f925bd
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: bdda7231ea4703b33c8547e493cbd47b68cf9aab
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41929456"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42915133"

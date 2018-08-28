@@ -5,38 +5,40 @@ items:
   items:
   - name: Vad är webbsökning i Bing?
     href: overview.md
-- name: Snabbstarter för REST API
+- name: Snabbstarter
   items:
-  - name: C#
-    href: quickstarts/csharp.md
-  - name: Go
-    href: quickstarts/go.md
-  - name: Java
-    href: quickstarts/java.md
-  - name: Node.js
-    href: quickstarts/nodejs.md
-  - name: PHP
-    href: quickstarts/php.md
-  - name: Python
-    href: quickstarts/python.md
-  - name: Ruby
-    href: quickstarts/ruby.md
-  expanded: true
-- name: Snabbstarter för SDK
-  items:
-  - name: Översikt över SDK-exempel
-    href: sdk.md
-  - name: Snabbstart för SDK för webbsökning i C#
-    href: web-search-sdk-quickstart.md
-  - name: Snabbstart för SDK för webbsökning i Node.js
-    href: web-search-sdk-node-quickstart.md
-  - name: Snabbstart för SDK för webbsökning i Python
-    href: web-sdk-python-quickstart.md
-  - name: Snabbstart för SDK för webbsökning i Java
-    href: web-sdk-java-quickstart.md
+  - name: REST API:er
+    items:
+    - name: C#
+      href: quickstarts/csharp.md
+    - name: Go
+      href: quickstarts/go.md
+    - name: Java
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: Python
+      href: quickstarts/python.md
+    - name: Ruby
+      href: quickstarts/ruby.md
+    expanded: true
+  - name: SDK:er
+    items:
+    - name: Översikt över exempel
+      href: sdk.md
+    - name: C#
+      href: web-search-sdk-quickstart.md
+    - name: Java
+      href: web-sdk-java-quickstart.md
+    - name: Node.js
+      href: web-search-sdk-node-quickstart.md
+    - name: Python
+      href: web-sdk-python-quickstart.md
 - name: Självstudier
   items:
-  - name: Enkelsidig webbapp
+  - name: Skapa en enkelsidig webbapp
     href: tutorial-bing-web-search-single-page-app.md
   - name: Enkelsidig webbapp (källkod)
     href: tutorial-bing-web-search-single-page-app-source.md
@@ -48,8 +50,6 @@ items:
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Web+Search
 - name: Instruktionsguider
   items:
-  - name: Använda och visa resultat
-    href: UseAndDisplayRequirements.md
   - name: Filtrera svar
     href: filter-answers.md
   - name: Rangordna resultat
@@ -62,41 +62,55 @@ items:
     href: resize-and-crop-thumbnails.md
   - name: Uppgradera från v5 till v7
     href: bing-web-upgrade-guide-v5-to-v7.md
+- name: Begrepp
+  items:
+  - name: Föreslå söktermer automatiskt
+    href: autosuggest-bing-search-terms.md
+  - name: Söksvar
+    href: search-responses.md
+  - name: Begränsningsbegäranden
+    href: throttling-requests.md
 - name: Referens
   items:
   - name: API för webbsökning i Bing v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference
   - name: API för webbsökning i Bing v5
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference
+  - name: Azure CLI
+    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+  - name: Azure PowerShell
+    href: https://aka.ms/azure-powershell-cognitiveservices
 - name: Resurser
   items:
   - name: VANLIGA FRÅGOR OCH SVAR
     href: bing-web-search-resource-faq.md
-  - name: Prissättning
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/web/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/555907-bing-web-search-api
-  - name: Stack Overflow
-    href: https://stackoverflow.com/search?q=bing+web+search
-  - name: Regional tillgänglighet
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/
-  - name: Kunskapsbas
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
   - name: Hämta API-nyckel
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api
-  - name: Prova!
-    href: https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/
   - name: Slutpunkt för webbsökning i Bing
     href: web-search-endpoints.md
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/web/
+  - name: Regional tillgänglighet
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Använda och visa krav
+    href: UseAndDisplayRequirements.md
   - name: Länder och marknader som stöds
     href: supported-countries-markets.md
   - name: Analys för API för webbsökning i Bing
     href: bing-web-stats.md
-ms.openlocfilehash: e4cc75a8d0b55141b864b9295dd832676e62b4cd
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+  - name: Support
+    items:
+    - name: User Voice-forum
+      href: https://cognitive.uservoice.com/forums/555907-bing-web-search-api
+    - name: Stack Overflow
+      href: https://stackoverflow.com/search?q=bing+web+search
+    - name: Kunskapsbas
+      href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/
+ms.openlocfilehash: 27a3ce13408b10d5ef93cf67555ac7113471ae93
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42440136"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886757"

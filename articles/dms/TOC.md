@@ -5,14 +5,19 @@
 ## [Skapa tjänst – portal](quickstart-create-data-migration-service-portal.md)
 
 # Självstudier
-## [Migrera SQL Server till Azure SQL DB](tutorial-sql-server-to-azure-sql.md)
+## [Migrera SQL Server till Azure SQL DB offline](tutorial-sql-server-to-azure-sql.md)
+## [Migrera SQL Server till Azure SQL DB online](tutorial-sql-server-azure-sql-online.md)
 ## [Migrera SQL Server till Azure SQL DB Managed Instance](tutorial-sql-server-to-managed-instance.md)
+## [Migrera MySQL till Azure DB för MySQL](tutorial-mysql-azure-mysql-online.md)
 
 # Instruktionsguider
 ## [Använda PowerShell för att migrera SQL Server till Azure SQL DB](howto-sql-server-to-azure-sql-powershell.md)
 ## [Använda PowerShell för att migrera SQL Server till Azure SQL DB MI](howto-sql-server-to-azure-sql-mi-powershell.md)
+## [Övervaka migreringsaktiviteter](how-to-monitor-migration-activity.md)
 
 # Resurser
+## [Kända problem – Onlinemigrering till Azure SQL DB](known-issues-azure-sql-online.md)
+## [Kända problem – Onlinemigrering till Azure SQL DB för MySQL](known-issues-azure-mysql-online.md)
 ## [User Voice-feedback](https://feedback.azure.com/forums/906100-azure-database-migration-service)
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)
 ## [Guide för databasmigrering](https://aka.ms/datamigration)

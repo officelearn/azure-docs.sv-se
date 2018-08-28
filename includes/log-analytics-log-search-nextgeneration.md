@@ -1,2 +1,0 @@
->[!NOTE]
-> Om din arbetsyta har uppgraderats till [det nya Log Analytics-frågespråket](../articles/log-analytics/log-analytics-log-search-upgrade.md) måste följande frågor konverteras. Du kan utföra konverteringen med hjälp av [språkkonverteraren](../articles/log-analytics/log-analytics-log-search-transition.md#language-converter).

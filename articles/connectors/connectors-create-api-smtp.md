@@ -1,73 +1,81 @@
 ---
-title: SMTP-anslutaren i Azure Logic Apps | Microsoft Docs
-description: Skapa logikappar med Azure App service. Ansluta till SMTP för att skicka e-post.
+title: Ansluta till SMTP från Azure Logic Apps | Microsoft Docs
+description: Automatisera uppgifter och arbetsflöden som skickar e-post via SMTP (Simple Mail Transfer Protocol)-konto med hjälp av Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: d4141c08-88d7-4e59-a757-c06d0dc74300
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: d4141c08-88d7-4e59-a757-c06d0dc74300
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 07/15/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 516110abc1786d99bc719d47d61475cdc2ebcc4b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+tags: connectors
+ms.date: 08/25/2018
+ms.openlocfilehash: 90af33574093cfbe529093c7091ee6988f043aa6
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296075"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43052030"
 ---
-# <a name="get-started-with-the-smtp-connector"></a>Kom igång med SMTP-koppling
-Ansluta till SMTP för att skicka e-post.
+# <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Skicka e-postmeddelande från din SMTP-konto med Azure Logic Apps
 
-Att använda [alla anslutningar](apis-list.md), måste du först skapa en logikapp. Du kan komma igång med [att skapa en logikapp nu](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Med Azure Logic Apps och Simple Mail Transfer Protocol (SMTP)-anslutningstjänsten kan skapa du automatiserade uppgifter och arbetsflöden som skickar e-post från din SMTP-kontot. Du kan också ha andra åtgärder som använder utdata från SMTP-åtgärder. När din SMTP skickar ett e-postmeddelande, kan du meddela din grupp i Slack med Slack-anslutningsprogrammet. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+
+## <a name="prerequisites"></a>Förutsättningar
+
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
+
+* Dina autentiseringsuppgifter för SMTP-kontot och användare
+
+  Dina autentiseringsuppgifter för tillåta din logikapp för att skapa en anslutning och åtkomst till SMTP-kontot.
+
+* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* Logikappen där du vill komma åt din SMTP-kontot. Starta din logikapp med en utlösare, till exempel en Salesforce-utlösare för att använda en SMTP-åtgärden, om du har en Salesforce-konto.
+
+  Du kan till exempel börja din logikapp med den **när en post skapas** Salesforce-utlösare. 
+  Den här utlösaren utlöses varje gång som en ny post, till exempel ett lead skapas i Salesforce. 
+  Sedan kan du följa den här utlösaren med SMTP **skicka e-post** åtgärd. På så sätt kan när den nya posten skapas, skickar logikappen ett e-postmeddelande från din SMTP-kontot om den nya posten.
 
 ## <a name="connect-to-smtp"></a>Ansluta till SMTP
-Innan din logikapp kan komma åt någon tjänst, måste du först skapa en *anslutning* till tjänsten. En [anslutning](connectors-overview.md) tillhandahåller anslutningen mellan en logikapp och en annan tjänst. Till exempel för att ansluta till SMTP måste du först en SMTP *anslutning*. Ange de autentiseringsuppgifter som du vanligtvis använder för att få åtkomst till tjänsten som du ansluter till om du vill skapa en anslutning. Så i SMTP-exemplet anger du autentiseringsuppgifterna till Anslutningsnamn, SMTP-serveradressen och inloggningsinformation för användare att skapa anslutning till SMTP.  
 
-### <a name="create-a-connection-to-smtp"></a>Skapa en anslutning till SMTP
-> [!INCLUDE [Steps to create a connection to SMTP](../../includes/connectors-create-api-smtp.md)]
-> 
-> 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-## <a name="use-an-smtp-trigger"></a>Använda en SMTP-utlösare
-En utlösare är en händelse som kan användas för att starta arbetsflödet som definierats i en logikapp. [Mer information om utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna logikappen i Logic App Designer, om inte redan är öppna.
 
-I det här exemplet har inte SMTP en utlösare egna. Så, Använd den **Salesforce - när ett objekt skapas** utlösare. Den här utlösaren aktiveras när ett nytt objekt skapas i Salesforce. I det här exemplet den har konfigurerat den så att varje gång en ny lead skapas i Salesforce, en *skicka e-post* sker med ett meddelande för ny lead skapas SMTP-anslutaren.
+1. Under det sista steget där du vill lägga till en SMTP-åtgärden, väljer **nytt steg**. 
 
-1. Ange *salesforce* i sökrutan på logic apps designer väljer den **Salesforce - när ett objekt skapas** utlösare.  
-   ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)  
-2. Den **när ett objekt skapas** kontrollen visas.
-   ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)  
-3. Välj den **objekttyp** Välj *leda* från listan över objekt. I det här steget skapar du en utlösare som meddelar logikappen när en ny lead skapas i Salesforce.  
-   ![](../../includes/media/connectors-create-api-salesforce/trigger3.png)  
-4. Utlösaren har skapats.  
-   ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
+   Om du vill lägga till en åtgärd mellan stegen, flyttar du pekaren över pilen mellan stegen. 
+   Välj plustecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
 
-## <a name="use-an-smtp-action"></a>Använda en SMTP-åtgärden
-En åtgärd är en åtgärd som utförs av arbetsflödet som definierats i en logikapp. [Mer information om åtgärder](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+1. I sökrutan anger du ”smtp” som filter. Välj vilken åtgärd du önska under åtgärder.
 
-Nu när utlösaren har lagts till, Använd följande steg för att lägga till en SMTP-åtgärd som utförs när en ny lead skapas i Salesforce.
+1. När du uppmanas, anger du den här anslutningsinformationen:
 
-1. Välj **+ nytt steg** att lägga till den åtgärd som ska vidtas när en ny lead skapas.  
-   ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)  
-2. Välj **lägga till en åtgärd**. Den här öppnas sökrutan där du kan söka efter något du vill göra.  
-   ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-2.png)  
-3. Ange *smtp* att söka efter åtgärder som rör SMTP.  
-4. Välj **SMTP - skicka e-post** som åtgärden som ska vidtas när ny lead skapas. Åtgärden kontrollen block öppnas. Du måste upprätta en smtp-anslutning i designern blocket om du inte har gjort det tidigare.  
-   ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)    
-5. Ange önskad e-information på den **SMTP - skicka e-post** block.  
-   ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-4.PNG)  
-6. Spara arbetet för att aktivera arbetsflödet.  
+   | Egenskap  | Krävs | Beskrivning |
+   |----------|----------|-------------|
+   | **Anslutningsnamn** | Ja | Ett namn för anslutningen till din SMTP-server | 
+   | **SMTP-serveradress** | Ja | Adress för din SMTP-server | 
+   | **Användarnamn** | Ja | Ditt användarnamn för SMTP-kontot | 
+   | **Lösenord** | Ja | Lösenordet för SMTP-kontot | 
+   | **SMTP-serverport** | Nej | En viss port på SMTP-servern som du vill använda | 
+   | **Aktivera SSL?** | Nej | Aktivera eller inaktivera SSL-kryptering. | 
+   |||| 
 
-## <a name="connector-specific-details"></a>Connector-specifik information
+1. Ange informationen som krävs för den valda åtgärden. 
 
-Visa alla utlösare och åtgärder som definierats i swagger och även se några gränser i den [connector information](/connectors/smtpconnector/).
+1. Spara din logikapp eller Fortsätt att utveckla logikappens arbetsflöde.
 
-## <a name="more-connectors"></a>Flera kopplingar
-Gå tillbaka till den [API: er listan](apis-list.md).
+## <a name="connector-reference"></a>Referens för anslutningsapp
+
+Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av anslutningsappens OpenAPI (tidigare Swagger) beskrivning, granska kopplingens [referenssida](/connectors/smtpconnector/).
+
+## <a name="get-support"></a>Få support
+
+* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](http://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Nästa steg
+
+* Läs mer om andra [Logic Apps-anslutningsprogram](../connectors/apis-list.md)

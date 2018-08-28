@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 02/14/2017
+ms.date: 08/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 33c41becb8ed741b7db5e3f89d193ca2ae7b6390
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 54e092cb98df6c092e6cf3ed8c365f966587b0db
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617140"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43091609"
 ---
 # <a name="how-to-activate-or-deactivate-roles-in-azure-ad-privileged-identity-management"></a>Aktivera eller inaktivera roller i Azure AD Privileged Identity Management
 Azure Active Directory (AD) Privileged Identity Management förenklar hur företag hantera privilegierad åtkomst till resurser i Azure AD och andra Microsoft onlinetjänster som Office 365 eller Microsoft Intune.  
@@ -31,24 +31,47 @@ Den här artikeln är för administratörer som behöver aktivera sin roll i Azu
 Använda Azure AD Privileged Identity Management-programmet i den [Azure-portalen](https://portal.azure.com/) begär rollaktivering, även om du kommer att fungera i en annan portal eller PowerShell. Om du inte har Azure AD Privileged Identity Management-program på Azure portal, följer du dessa steg för att komma igång.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Välj ditt användarnamn i det övre högra hörnet av Azure-portalen och välj den katalog där du kommer du fungerar.
-3. Välj **Alla tjänster** och använd textrutan Filter för att söka efter **Azure AD Privileged Identity Management**.
-4. Markera **Fäst på instrumentpanelen** och klicka sedan på **Skapa**. Privileged Identity Management-programmet öppnas.
+
+1. Välj ditt användarnamn i det övre högra hörnet av Azure-portalen och välj den katalog där du kommer du fungerar.
+
+1. Välj **Alla tjänster** och använd textrutan Filter för att söka efter **Azure AD Privileged Identity Management**.
+
+1. Markera **Fäst på instrumentpanelen** och klicka sedan på **Skapa**. Privileged Identity Management-programmet öppnas.
 
 ## <a name="activate-a-role"></a>Aktivera en roll
 När du behöver utföra på en roll kan du begära aktivering genom att välja den **Mina roller** navigering alternativ i Azure AD Privileged Identity Management-programmet vänstra navigeringen kolumn.
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com/) och välj panelen Azure AD Privileged Identity Management.
-2. Välj **Mina roller**. En lista över dina tilldelade berättigade roller visas i grupperingen överst på sidan.
-3. Välj en roll som ska aktiveras.
-4. Välj **aktivera**. Den **begär rollaktivering** bladet visas.
-5. Vissa roller kräver Multi-Factor Authentication (MFA) innan du kan aktivera rollen. Du behöver bara autentiseras en gång per session.
-   
+
+1. Välj **Mina roller**. En lista över dina tilldelade berättigade roller visas i grupperingen överst på sidan.
+
+1. Välj en roll som ska aktiveras.
+
+1. Välj **aktivera**. Den **begär rollaktivering** bladet visas.
+
+1. Vissa roller kräver Multi-Factor Authentication (MFA) innan du kan aktivera rollen. Du behöver bara autentiseras en gång per session.
+
     ![Verifiera med MFA innan rollaktivering – skärmbild](./media/pim-how-to-activate-role/PIM_activation_MFA.png)
-6. Ange orsaken till att aktiveringsbegäran i textfältet.  Vissa roller kräver att du kan ange ett begäransnummer problem.
-7. Välj **OK**.  Om rollen inte kräver godkännande, har nu aktiverats och att rollen visas i listan över aktiva roller (direkt under listan över möjliga rolltilldelningar). Om den [rollen kräver godkännande](./azure-ad-pim-approval-workflow.md) ett popup-meddelande visas om du vill aktivera, kort i det övre högra hörnet i webbläsaren som informerar dig om begäran väntar på godkännande.
+
+1. Ange orsaken till att aktiveringsbegäran i textfältet.  Vissa roller kräver att du kan ange ett begäransnummer problem.
+
+1. Välj **OK**.  Om rollen inte kräver godkännande, har nu aktiverats och att rollen visas i listan över aktiva roller (direkt under listan över möjliga rolltilldelningar). Om den [rollen kräver godkännande](./azure-ad-pim-approval-workflow.md) ett popup-meddelande visas om du vill aktivera, kort i det övre högra hörnet i webbläsaren som informerar dig om begäran väntar på godkännande.
 
     ![Förfrågan väntar på meddelande – skärmbild](./media/pim-how-to-activate-role/PIM_Request_Pending_Toast2.png)
+
+## <a name="use-a-role-immediately-after-activation"></a>Använd en roll omedelbart efter aktiveringen
+
+På grund av cachelagring, görs inte aktiveringar direkt i Azure portal utan att en uppdatering. Om du vill minska risken för fördröjningar när du har aktiverat en roll kan du använda den **programåtkomst** i portalen. Program som nås från den här sidan söka efter nya rolltilldelningar omedelbart.
+
+1. Öppna Azure AD Privileged Identity Management.
+
+1. Klicka på den **programåtkomst** sidan.
+
+    ![Programåtkomst med PIM - skärmbild](./media/pim-how-to-activate-role/pim-application-access.png)
+
+1. Klicka på **Azure Active Directory** att öppna portalen på den **alla användare** sidan.
+
+    När du klickar på den här länken, du tvingar fram en uppdatering och det är en kontroll för nya Azure AD-rolltilldelningar.
 
 ## <a name="deactivate-a-role"></a>Inaktivera en roll
 När en roll har aktiverats, inaktiverar automatiskt när tidsgränsen (varaktighet för berättigande) har nåtts.
@@ -59,10 +82,14 @@ Om du har slutfört dina administratörsuppgifter tidigt, kan du inaktivera en r
 Om du inte behöver aktivering av en roll som kräver godkännande, kan du säga upp en väntande begäran när som helst. Välj bara den **Mina roller** navigering alternativ i Azure AD Privileged Identity Management-programmet vänstra navigeringen kolumn.
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com/) och välj panelen Azure AD Privileged Identity Management.
-2. Välj **Mina roller**. En lista över dina tilldelade berättigade roller visas i grupperingen överst på sidan.
-3. Välj en roll.
-4. Välj den **aktivering väntar på godkännande** standardbanderoll på bladet rollen aktivering.
-5. Välj **Avbryt** överst i den **väntar på godkännande** bladet.
+
+1. Välj **Mina roller**. En lista över dina tilldelade berättigade roller visas i grupperingen överst på sidan.
+
+1. Välj en roll.
+
+1. Välj den **aktivering väntar på godkännande** standardbanderoll på bladet rollen aktivering.
+
+1. Välj **Avbryt** överst i den **väntar på godkännande** bladet.
 
    ![Avbryta väntande begäran skärmbild](./media/pim-how-to-activate-role/PIM_Request_Pending_Banner_Cancel.png)
 

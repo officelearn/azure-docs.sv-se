@@ -1,33 +1,32 @@
 ---
-title: Utöka U-SQL-skript med R i Azure Data Lake Analytics
-description: Lär dig hur du kör R-koden i U-SQL-skript med hjälp av Azure Data Lake Analytics
+title: Utöka med R i Azure Data Lake Analytics U-SQL-skript
+description: Lär dig hur du kör R-kod i U-SQL-skript med hjälp av Azure Data Lake Analytics
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
-ms.openlocfilehash: 8b22b4238b20f56727d1c7858094328ab8817dad
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b7e6c4911081d3b83ed99ab7316cb6fd810a0d60
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624932"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048733"
 ---
-# <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Utöka U-SQL-skript med R kod i Azure Data Lake Analytics
+# <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Utöka med R-kod i Azure Data Lake Analytics U-SQL-skript
 
-I följande exempel visas de grundläggande stegen för att distribuera R-koden:
-* Använd den `REFERENCE ASSEMBLY` -instruktionen för att aktivera R-tillägg för U-SQL-skript.
-* Använd den` REDUCE` åtgärden att partitionera indata för en nyckel.
-* R-tillägg för U-SQL är en inbyggd reducer (`Extension.R.Reducer`) R-koden körs på varje nod som tilldelats reducer. 
-* Användning av dedikerade med namnet ramar kallas `inputFromUSQL` och `outputToUSQL `respektive att skicka data mellan U-SQL och R. indata och utdata DataFrame identifierarnamn korrigeras (det vill säga användare kan inte ändra dessa fördefinierade namn på indata och utdata DataFrame identifierare).
+I följande exempel visas de grundläggande stegen för att distribuera R-kod:
+* Använd den `REFERENCE ASSEMBLY` -uttrycket för att aktivera R-tillägg för U-SQL-skriptet.
+* Använd den` REDUCE` åtgärden att partitionera inkommande data på en nyckel.
+* R-tillägg för U-SQL är en inbyggd reducer (`Extension.R.Reducer`) som kör R-kod på varje brytpunkt som tilldelats reducer. 
+* Användning av dedikerade med namnet dataramar kallas `inputFromUSQL` och `outputToUSQL `att överföra data mellan U-SQL och R. indata och utdata DataFrame identifierarnamn korrigeras (dvs, användare kan inte ändra dessa fördefinierade namnen på indata och utdata DataFrame identifierare).
 
-## <a name="embedding-r-code-in-the-u-sql-script"></a>Bädda in R-koden i U-SQL-skript
+## <a name="embedding-r-code-in-the-u-sql-script"></a>Bädda in R-kod i U-SQL-skript
 
-Du kan infogade R code U-SQL-skript med hjälp av Kommandoparametern för den `Extension.R.Reducer`. Du kan exempelvis deklarera R-skriptet som en string-variabel och skickar den som en parameter till Reducer.
+Du kan infogade R code U-SQL-skript med hjälp av Kommandoparametern för den `Extension.R.Reducer`. Du kan exempelvis deklarera R-skriptet som en strängvariabel och skickar den som en parameter till Reducer.
 
 
     REFERENCE ASSEMBLY [ExtR];
@@ -43,16 +42,16 @@ Du kan infogade R code U-SQL-skript med hjälp av Kommandoparametern för den `E
     
     @RScriptOutput = REDUCE … USING new Extension.R.Reducer(command:@myRScript, rReturnType:"dataframe");
 
-## <a name="keep-the-r-code-in-a-separate-file-and-reference-it--the-u-sql-script"></a>Behåll R-koden i en separat fil och hänvisar det U-SQL-skript
+## <a name="keep-the-r-code-in-a-separate-file-and-reference-it--the-u-sql-script"></a>Håll R-koden i en separat fil och referera till det U-SQL-skript
 
-Följande exempel illustrerar användning av en mer komplex. I det här fallet distribueras R-koden som en resurs som U-SQL-skript.
+I följande exempel visas en mer avancerad användning. I det här fallet distribueras R-kod som en resurs som U-SQL-skriptet.
 
-Spara den här R-koden som en separat fil.
+Spara den här R-kod som en separat fil.
 
     load("my_model_LM_Iris.rda")
     outputToUSQL=data.frame(predict(lm.fit, inputFromUSQL, interval="confidence")) 
 
-Använd ett U-SQL-skript för att distribuera det R-skriptet med instruktionen DISTRIBUERA resurs.
+Använd ett U-SQL-skript för att distribuera den R-skripten med DISTRIBUERA RESOURCE-instruktionen.
 
     REFERENCE ASSEMBLY [ExtR];
 
@@ -92,20 +91,20 @@ Använd ett U-SQL-skript för att distribuera det R-skriptet med instruktionen D
 ## <a name="how-r-integrates-with-u-sql"></a>Hur R kan integreras med U-SQL
 
 ### <a name="datatypes"></a>Datatyper
-* Konverteras som sträng och numeriska kolumner från U-SQL-mellan R DataFrame och U-SQL [typer som stöds: `double`, `string`, `bool`, `integer`, `byte`].
+* Konverteras som strängvärden och numeriska kolumner från U-SQL-är mellan R DataFrame och U-SQL [typer som stöds: `double`, `string`, `bool`, `integer`, `byte`].
 * Den `Factor` stöds inte i U-SQL.
 * `byte[]` måste serialiseras som en base64-kodad `string`.
-* U-SQL-strängar kan konverteras till faktorer i R-koden när U-SQL skapar R inkommande dataframe eller genom att ange parametern reducer `stringsAsFactors: true`.
+* U-SQL-strängar kan konverteras till faktorer i R-kod när U-SQL skapa inkommande dataram i R eller genom att ange parametern reducer `stringsAsFactors: true`.
 
 ### <a name="schemas"></a>Scheman
-* U-SQL-datauppsättningar kan inte ha dubbletter av kolumnnamn.
-* U-SQL datauppsättningar kolumnnamn måste vara strängar.
-* Kolumnnamnen måste vara samma i U-SQL och R-skript.
-* ReadOnly-kolumn kan inte ingå i utdata dataframe. Eftersom readonly kolumner automatiskt matas in tillbaka i U-SQL-tabell om det är en del av utdataschemat för UDO.
+* U-SQL-datauppsättningar kan inte ha duplicerade kolumnnamn.
+* U-SQL datauppsättningar kolumnnamnen måste vara strängar.
+* Kolumnnamnen måste vara samma i U-SQL, R-skript.
+* ReadOnly-kolumn kan inte ingå i utdata-dataframe. Eftersom readonly kolumner matas ut automatiskt tillbaka i U-SQL-tabell om det är en del av utdata-schemat för UDO.
 
 ### <a name="functional-limitations"></a>Funktionella begränsningar
 * R-motorn kan inte initieras två gånger i samma process. 
-* U-SQL stöder för närvarande inte Combiner UDO för förutsägelse partitionerade modeller som skapats med Reducer UDO. Användare kan deklarera partitionerade modeller som resurs och använda dem i sina R-skript (se exempelkod `ExtR_PredictUsingLMRawStringReducer.usql`)
+* U-SQL stöder för närvarande inte Combiner UDO för förutsägelse med partitionerade modeller som skapats med Reducer UDO. Användare kan deklarera partitionerade modeller som resurs och använda dem i deras R-skript (se kodproverna `ExtR_PredictUsingLMRawStringReducer.usql`)
 
 ### <a name="r-versions"></a>R-versioner
 Endast R 3.2.2 stöds.
@@ -160,15 +159,15 @@ Endast R 3.2.2 stöds.
     utils
     XML
 
-### <a name="input-and-output-size-limitations"></a>Indata och utdata storleksbegränsningar
-Varje nod har en begränsad mängd minne som tilldelats den. Eftersom inkommande och utgående DataFrames måste finnas i minnet i R-koden, får inte den totala storleken för ingående och utgående överskrida 500 MB.
+### <a name="input-and-output-size-limitations"></a>Indata och utdata begränsningar
+Varje hörn har en begränsad mängd minne som tilldelats den. Eftersom inkommande och utgående dataramar måste finnas i minnet i R-kod, får inte den totala storleken för indata och utdata överskrida 500 MB.
 
 ### <a name="sample-code"></a>Exempelkod
-Flera exempelkod är tillgänglig i ditt Data Lake Store-konto när du har installerat U-SQL Advanced Analytics extensions. Sökvägen för flera exempelkod är: `<your_account_address>/usqlext/samples/R`. 
+Mer exempelkod är tillgänglig i ditt Data Lake Store-konto när du har installerat U-SQL Advanced Analytics extensions. Sökvägen för mer exempelkoden är: `<your_account_address>/usqlext/samples/R`. 
 
 ## <a name="deploying-custom-r-modules-with-u-sql"></a>Distribuera anpassade R-moduler med U-SQL
 
-Först skapar en anpassad R-modul och zip den och sedan ladda upp den komprimerade anpassa R-modulfilen ADL-arkivet. I det här exemplet kommer vi att överföra magittr_1.5.zip till roten i ADLS standardkontot för kontot ADLA vi använder. När du överför modulen till ADL store deklarera den som använder DISTRIBUERA RESURSEN för att göra den tillgänglig i U-SQL-skriptet och anropet `install.packages` att installera den.
+Först skapar du en anpassad R-modul och zip den och sedan ladda upp den komprimerade anpassade R-modulfilen till ADL-store. I det här exemplet kommer vi att överföra magittr_1.5.zip till roten i standard ADLS-konto för ADLA-kontot som vi använder. När du överför modulen till ADL store deklarera den använda DISTRIBUERA resurs för att göra den tillgänglig i dina U-SQL-skript och anropa `install.packages` att installera den.
 
     REFERENCE ASSEMBLY [ExtR];
     DEPLOY RESOURCE @"/magrittr_1.5.zip";

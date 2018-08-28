@@ -4,18 +4,18 @@ description: Lär dig mer om att ladda upp och komma åt data för Hadoop-jobb i
 keywords: etl-hadoop, hämta data till hadoop, hadoop Läs in data
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 01d9029eafbefbace80508d27fc3282558a299c9
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 838444898500ce7127e1a9e999d0b5ee7b1e3687
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596804"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051832"
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Ladda upp data för Hadoop-jobb i HDInsight
 

@@ -4,12 +4,12 @@ ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 08-07-2018
-ms.openlocfilehash: 19a153a5cdc9d5f878494984313baebd12dbcbb5
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 764470bbf47c18a2ec66dc91d433f8dd14b99a8f
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39631171"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43040329"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Förskottsbetala för virtuella datorer med Azure reserverade VM-instanser
 
@@ -30,6 +30,9 @@ Fälten underkategori för mätning och produkt i användningsdata skilja inte m
 
 Reserverade VM-instanser är tillgängliga för de flesta storlekar för Virtuella datorer med vissa undantag:
 
+- Klassiska virtuella datorer och Cloud services inte får rabatten.
+- Undertryckta core virtuella datorer får inte reservation rabatter.
+- Följande VM-serie inte får reservation rabatter: A-serien, Av2-serien och G-serien.
 - Virtuella datorer i en förhandsversion: alla VM-serien och storlekar som är en förhandsversion är inte tillgängliga för reservationsköp.
 - Moln: reservationer är inte tillgängligt att köpa i regionerna som Azure US Government, Tyskland eller Kina.
 - Otillräcklig kvot: en reservation som är begränsad till en enda prenumeration måste ha vCPU-kvoten som är tillgängliga i prenumerationen för den nya RI. Till exempel om målprenumerationen har en kvot högst 10 virtuella processorer för D-serien, köpa sedan du inte en reservation för den 11 Standard_D1 instanser. Kvoten ingår för reservationer de virtuella datorerna som redan har distribuerats i prenumerationen. Till exempel om prenumerationen har en kvot på 10 virtuella processorer för D-serien och har två standard_D1 instanser som distribuerats kan köpa du en reservation för den 10 standard_D1 instanser i den här prenumerationen. 

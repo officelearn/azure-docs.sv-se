@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 08/24/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 9ba954db7003e062444e57bd56f87ff5d279b07f
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 9d33ccf9262d4432ac7255121e97f318d00b5145
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42061117"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050657"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Resource provider API-versioner som stöds av profiler i Azure Stack
 
@@ -197,26 +197,26 @@ Azure Resource Manager kan du distribuera och hantera infrastrukturen för dina 
 | Delegerade providrar | 2015-01-01 |
 | Delegerade providrar/erbjudanden | 2015-01-01 |
 | DelegatedProviders/erbjudanden/estimatePrice | 2015-01-01 |
-| Distributioner | 2016-0209-01 |
-| Distributioner/operations | 2016-0209-01 |
+| Distributioner | 2016-09-01 |
+| Distributioner/operations | 2016-09-01 |
 | Metadata för tillägg | 2015-01-01 |
 | Länkar | 2016-09-01 |
 | Platser | 2015-01-01 |
 | Erbjudande | 2015-01-01 |
 | Åtgärder | 2015-01-01 |
-| Leverantörer | 2015-012017-08-01 |
+| Leverantörer | 2017-08-01 |
 | Resursgrupper | 2016-09-01 |
 | Resurser | 2016-09-01 |
 | Prenumerationer | 2016-09-01 |
 | Prenumerationer/plats | 2016-09-01 |
 | Prenumerationer/Åtgärdsresultat | 2016-09-01 |
-| Prenumerationer/providers | 2015-012017-08-01 |
+| Prenumerationer/providers | 2017-08-01 |
 | Prenumerationerna/resursgrupperna | 2016-09-01 |
 | Prenumerationer/resourceGroups/resurser | 2016-09-01 |
 | Prenumerationer/resurser | 2016-09-01 |
-| Prenumerationer/tagNames | 2016-0609-01 |
-| Prenumerationer/tagNames/tagValues | 2016-0609-01 |
-| Klienter | 2015-012017-08-01 |
+| Prenumerationer/tagNames | 2016-09-01 |
+| Prenumerationer/tagNames/tagValues | 2016-09-01 |
+| Klienter | 2017-08-01 |
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage 
 

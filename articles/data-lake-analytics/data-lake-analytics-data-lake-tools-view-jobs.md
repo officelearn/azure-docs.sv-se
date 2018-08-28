@@ -1,175 +1,174 @@
 ---
-title: Använd jobbet webbläsare och jobbet för Azure Data Lake Analytics-jobb
-description: Den här artikeln beskriver hur du använder webbläsaren för jobbet och jobbet för Azure Data Lake Analytics-jobb.
+title: Använd Jobbwebbläsare och Jobbvy för Azure Data Lake Analytics-jobb
+description: Den här artikeln beskriver hur du använder Jobbwebbläsare och Jobbvy för Azure Data Lake Analytics-jobb.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: conceptual
 ms.date: 08/02/2017
-ms.openlocfilehash: 6d7ebc8d14e82281e074ff52abd41a16871470c0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 474478c8049dd97558b49b1df4b00655268fc0b3
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623238"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43044106"
 ---
-# <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Använd jobbet webbläsare och visa jobb för Azure Data Lake Analytics
-Azure Data Lake Analytics-tjänsten arkiveras skickade jobb i en [frågearkivet](#query-store). Du lära dig hur du använder webbläsaren för jobbet och jobbet i Azure Data Lake-verktyg för Visual Studio för att hitta historiska Jobbinformationen i den här artikeln. 
+# <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Använd Jobbwebbläsare och Jobbvy för Azure Data Lake Analytics
+Azure Data Lake Analytics-tjänsten arkiverar skickade jobb i en [frågearkivet](#query-store). I den här artikeln får du lära dig hur du använder Jobbwebbläsare och Jobbvy i Azure Data Lake Tools för Visual Studio för att hitta den historiska Jobbinformationen. 
 
-Som standard arkiveras Data Lake Analytics-tjänsten jobben i 30 dagar. Förfallotid perioden kan konfigureras från Azure portal genom att konfigurera en anpassad princip. Du kan inte komma åt jobbinformation efter förfallodatumet. 
+Som standard arkiverar Data Lake Analytics-tjänsten jobben i 30 dagar. Giltighetsperiod kan konfigureras från Azure portal genom att konfigurera en anpassad princip. Du kommer inte att kunna komma åt jobbinformation efter förfallodatumet. 
 
 ## <a name="prerequisites"></a>Förutsättningar
-Se [Data Lake-verktyg för Visual Studio förutsättningar](data-lake-analytics-data-lake-tools-get-started.md#prerequisites).
+Se [Data Lake Tools för Visual Studio krav](data-lake-analytics-data-lake-tools-get-started.md#prerequisites).
 
 ## <a name="open-the-job-browser"></a>Öppna webbläsaren jobb
-Åtkomst till jobbet webbläsaren via **Server Explorer > Azure > Data Lake Analytics > jobb** i Visual Studio.  Du kan öppna frågearkivet för Data Lake Analytics-konto med jobb-webbläsaren. Jobbet webbläsaren visar Query Store till vänster, grundläggande jobbinformation och jobbet visa på rätt visar detaljerad information om jobbet.
+Komma åt Jobbwebbläsare via **Server Explorer > Azure > Data Lake Analytics > jobb** i Visual Studio.  Webbläsaren jobb, kan du komma åt frågearkivet för ett Data Lake Analytics-konto. Jobbwebbläsare Query Store visas till vänster som visar grundläggande jobbinformation och Jobbvy på rätt visar detaljerad jobbinformation.
 
-## <a name="job-view"></a>Visa jobb
-Jobbet visas detaljerad information om ett jobb. Om du vill öppna ett jobb du dubbelklicka på ett jobb i jobb webbläsaren eller öppna den från Data Lake-menyn genom att klicka på jobbet. Du bör se en dialogruta med jobb-URL.
+## <a name="job-view"></a>Jobbvy
+Jobbet visas detaljerad information för ett jobb. För att öppna ett jobb, kan du dubbelklicka på ett jobb i jobb webbläsaren eller öppna det Data Lake-menyn genom att klicka på jobbet. Du bör se en dialogruta som fyllts med jobb-URL.
 
-![Data Lake-verktyg webbläsare för Visual Studio-projekt](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view.png)
+![Data Lake-verktyg Jobbwebbläsare för Visual Studio](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view.png)
 
 Jobbet innehåller:
 
 * Jobbsammanfattning
   
-    Uppdatera vyn jobb för att det finns nyare av jobb som körs.
+    Uppdatera visningen av jobbet om du vill se den nyare informationen för jobb som körs.
   
-  * Jobbets Status (diagram):
+  * Jobbstatus (graf):
     
-      Jobbstatus beskrivs jobbet faser:
+      Jobbet har statusen beskrivs jobbet faser:
     
       ![Azure Data Lake Analytics-jobbstatusen faser](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
     
-    * Förbereder: Överföra skriptet till molnet, kompilering och optimera skriptet med hjälp av tjänsten kompilering.
-    * Köade: Jobb ställs i kö när de väntar på att tillräckligt med resurser eller jobb överskrider högsta antal samtidiga jobb per konto begränsning. Prioritetsinställningen bestämmer i vilken ordning köade jobb - Ju lägre nummer, desto högre prioritet.
-    * Körs: Jobbet faktiskt körs i ditt Data Lake Analytics-konto.
-    * Slutför: Jobbet slutförs (till exempel Slutför filen).
+    * Förbereder: Ladda upp skriptet till molnet, när du kompilerar och optimera skriptet med hjälp av tjänsten kompilera.
+    * Köade: Jobb ställs i kö när de väntar på tillräckligt med resurser, eller jobb överskrider de maximala samtidiga jobb per konto begränsning. Prioritetsinställningen avgör vilken ordning köade jobb – Ju lägre nummer, desto högre prioritet.
+    * Körning: Jobbet körs faktiskt i Data Lake Analytics-kontot.
+    * Slutför: Jobbet slutförs (exempelvis Slutför filen).
       
-      Jobbet kan misslyckas i varje fas. Till exempel kompileringsfel i förbereda fas, timeout-fel i fasen i kö och körningsfel i körs fasen osv.
+      Jobbet kan misslyckas i varje fas. Till exempel kompileringsfel i förbereda fas, timeout-fel i fasen i kö och körningsfel i körs fas osv.
   * Grundläggande information
     
-      Grundläggande jobbinformation visas i den nedre delen av panelen jobbsammanfattning.
+      Grundläggande Jobbinformationen visar i den nedre delen av panelen jobbsammanfattning.
     
       ![Azure Data Lake Analytics-jobbstatusen faser](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-info.png)
     
-    * Jobbet resultat: Lyckades eller misslyckades. Jobbet misslyckas i varje fas.
-    * Total varaktighet: Väggskåp systemtid (varaktighet) mellan skickar tid och sluttid.
-    * Total tid för beräkning: Summan av alla vertex körningstid kan du den som den tid som jobbet körs i en enda nod. Referera till totalt formhörnen du hittar mer information om hörn.
-    * Skicka/Starttid/Sluttid: Den tid när Data Lake Analytics-tjänsten tar emot jobbet skicka/startar att köra jobbet/avslutar jobbet har eller inte.
-    * Körs-kompilering/i kö: Klocktid använt under fasen körs-förbereda/i kö.
+    * Jobbet resultat: Lyckades eller misslyckades. Jobbet kan misslyckas i varje fas.
+    * Total varaktighet: Vägg clock-tid (varaktighet) mellan föreslår tid och sluttid.
+    * Total beräkningstid: Summan av alla hörn körningstid, kan du den som den tid som jobbet körs i endast ett hörn. Se Totalt antal hörn finns mer information om hörn.
+    * Skicka/Starttid/Sluttid: Tiden när Data Lake Analytics-tjänsten tar emot bidrag/startar jobbet/avslutas jobbet körs eller inte.
+    * Kompilering/i kö/körning: Klocktid ägnat åt under fasen för förbereda/i kö/körs.
     * Konto: Data Lake Analytics-kontot används för att köra jobbet.
-    * Skapad av: Användaren som skickade jobbet, det kan vara en verklig person konto eller ett system.
-    * Prioritet: Prioritet för jobbet. Ju lägre nummer, desto högre prioritet. Den påverkar bara sekvensen av jobb i kön. Jobb som körs åsidosätter inte när du anger en högre prioritet.
-    * Parallellitet: Det begärda maximala antalet samtidiga Azure Data Lake Analytics-enheter (ADLAUs), även kallat formhörnen. För närvarande ett hörn är lika med en virtuell dator med två virtuella kärnor och sex GB RAM, även om detta kunde uppgraderas i framtiden Data Lake Analytics uppdateras.
-    * Byte kvar: Antal byte som måste bearbetas, tills jobbet har slutförts.
-    * Läs/skrivna byte: byte som har lästs/skrivits sedan jobbet startades.
-    * Totalt antal formhörnen: jobbet har delats upp i många arbeten, varje arbetsuppgifter kallas en nod. Det här värdet beskriver hur många arbeten jobbet består av. Du kan överväga att en nod som en grundläggande process-enhet, även kallat Azure Data Lake Analytics enhet (ADLAU), och formhörnen kan köras i parallellitet. 
-    * Slutfört/körs/misslyckades: Antal formhörnen slutförts/körs/misslyckades. Formhörnen kan misslyckas på grund av både användaren kod och system fel, men systemet försök misslyckades formhörnen automatiskt ett fåtal gånger. Om vertex fortfarande misslyckas efter att ha försökt att hela jobbet misslyckas.
+    * Skapad av: Den användare som skickade jobb, det kan vara en verklig person konto eller ett system.
+    * Prioritet: Prioriteten för jobbet. Ju lägre nummer, desto högre prioritet. Den påverkar bara serie jobb i kön. Inte åsidosätter jobb som körs genom att ställa in en högre prioritet.
+    * Parallellitet: Det begärda maximala antalet samtidiga Azure Data Lake Analytics Units (ADLAUs), även kallat hörn. För närvarande ett hörn är lika med en virtuell dator med två virtuella kärnor och sex GB RAM, även om detta kunde uppgraderas i framtiden Data Lake Analytics uppdateras.
+    * Byte Left: Byte som måste bearbetas tills jobbet har slutförts.
+    * Lästa/skrivna byte: byte som har varit lästa/skrivna sedan jobbet började köras.
+    * Totalt antal hörn: jobbet har delats upp i många arbeten, varje arbetsuppgifter kallas för ett hörn. Det här värdet beskrivs hur många arbeten jobbet består av. Du kan överväga ett hörn som en grundläggande process-enhet, även kallat Azure Data Lake Analytics Unit (ADLAU), och hörn kan köras i parallellitet. 
+    * Slutfört/körs/misslyckades: Antal slutförts/körs/misslyckade hörn. Hörn kan misslyckas på grund av båda användarfel för kod och system, men systemet återförsök misslyckades hörn automatiskt några gånger. Om hörnet är fortfarande misslyckas efter ett nytt försök kan misslyckas hela projektet.
 * Jobbdiagram
   
-    Ett U-SQL-skript representerar logiken för att omvandla inkommande data till utdata. Skriptet kompileras och optimerad till en fysisk Körningsplan på fasen förbereda. Jobbdiagram är att visa den fysiska åtgärdsplan.  Följande diagram illustrerar processen:
+    Ett U-SQL-skript representerar logiken för att transformera indata till utdata. Skriptet kompileras och som optimerats för en fysisk Körningsplan i förbereda fas. Jobbdiagram är att visa den fysiska åtgärdsplan.  Följande diagram illustrerar processen:
   
     ![Azure Data Lake Analytics-jobbstatusen faser](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-logical-to-physical-plan.png)
   
-    Ett jobb har delats upp i många arbeten. Varje arbetsuppgifter kallas för en nod. Formhörnen grupperas som Super Vertex (aka delen) och visualiseras som Jobbdiagram. Grön steget skyltar i jobbet diagrammet visar stegen.
+    Ett jobb har delats upp i många arbeten. Varje mängd arbete kallas för ett hörn. Hörn grupperas som Super hörn (även kallat steg), och visualiseras som Jobbdiagram. Grön scenen skyltar i jobbet diagrammet visar stegen.
   
-    Varje nod i ett steg gör samma typ av fungerar med olika delar av samma data. Om du har en fil med en TB data och det finns hundratals formhörnen läsning från den, var och en av dem läser ett segment. Dessa formhörnen grupperas i samma steg och göra samma fungerar på olika delar av samma indatafilen.
+    Varje brytpunkt som ett steg gör samma typ av arbete med olika typer av samma data. Om du har en fil med en TB data och det finns hundratals hörn läsning från den, läser var och en av dem till exempel ett segment. Dessa hörn är grupperade i samma steg och göra samma fungerar på olika typer av samma indatafilen.
   
   * <a name="state-information"></a>Steg-information
     
-      Tal visas i en viss fas i placard.
+      I en viss fas visas tal i placard.
     
-      ![Azure Data Lake Analytics-jobbet diagrammet fas](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-stage.png)
+      ![Azure Data Lake Analytics-jobbet graph steg](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-stage.png)
     
-    * SV1 Extrahera: namnet på ett steg som namnges av ett tal och metoden igen.
-    * 84 formhörnen: Totalt antal formhörnen i det här steget. Bilden visar hur många arbeten är uppdelad i det här steget.
-    * 12.90 s/vertex: brytpunkt Genomsnittlig körningstid för det här steget. Denna bild beräknas genom att SUMMAN (varje vertex körningstid) / (totalt antal Vertex). Vilket innebär att om du kan tilldela alla formhörnen köras i parallellitet hela steget har slutförts i 12.90 s. Det innebär även om allt arbete i det här steget är klart seriellt kostnaden skulle vara #vertices * Genomsnittlig tid.
-    * 850,895 rader skrivna: Totalt antal rader som har skrivits i det här skedet.
-    * R/b: mängden data Läs/skriftliga i det här steget i byte.
-    * Färger: Färger som används i skedet ange olika vertex status.
+    * SV1 Extrahera: namnet på ett steg med namnet som ett tal och Åtgärdsmetoden.
+    * 84 hörn: det totala antalet hörn i det här steget. Bilden visar hur många arbeten delas upp i det här steget.
+    * 12.90 s/hörn: den genomsnittliga hörn körningstiden för det här skedet. Den här bilden beräknas av SAMMANLAGDA (varje hörn körningstid) / (totalt antal hörn). Vilket innebär att om du kan tilldela alla hörn som körs i parallellitet, det hela steget har slutförts i 12.90 s. Det innebär också om allt arbete i det här steget är klart seriellt kostnaden skulle bli #vertices * Genomsnittlig tid.
+    * 850,895 rader skrivna: Totalt antal rader som har skrivits i det här steget.
+    * R/W: mängden data Läs/skriftliga i det här steget i byte.
+    * Färger: Färger används i scenen för att ange olika hörn status.
       
-      * Grönt anger vertex lyckades.
-      * Orange anger vertex försöks. Göras vertex gick men försöks har och automatiskt av systemet, och det övergripande steget har slutförts. Om vertex igen men fortfarande misslyckades, aktiverar färgen röd och hela jobbet misslyckades.
-      * Rött anger misslyckades, vilket innebär att en viss nod hade varit igen några gånger av systemet men fortfarande misslyckades. Detta medför att hela jobbet ska misslyckas.
-      * Blå innebär en viss nod körs.
-      * Vit anger vertex väntar. Vertex kan väntar på att schemaläggas när en ADLAU blir tillgänglig, eller det kanske väntar på indata eftersom dess indata är inte kanske redo.
+      * Grönt anger hörnet är slutfört.
+      * Orange anger hörnet görs. Gjorts hörnet kunde inte men görs automatiskt och har ett av systemet, och det övergripande steget har slutförts. Om hörnet göras fortfarande misslyckades, aktiverar färgen röd och hela jobbet misslyckades.
+      * Rött anger misslyckades, vilket innebär att ett visst hörn hade varit göras några gånger i systemet men fortfarande misslyckades. Det här scenariot kan det hela jobbet misslyckas.
+      * Blå innebär ett vissa hörn körs.
+      * White anger hörnet väntar. Hörnet kan väntar på att schemaläggas när en ADLAU blir tillgänglig eller det kan väntar på indata eftersom dess indata inte kan vara klar.
       
-      Du hittar mer information för steg genom att Hovra pekaren av ett tillstånd:
+      Du hittar mer information för steg genom att Hovra pekaren genom ett tillstånd:
       
-      ![Azure Data Lake Analytics-Jobbdetaljer diagrammet fas](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-stage-details.png)
-  * Formhörnen: Beskriver formhörnen information, till exempel hur många formhörnen totalt, hur många formhörnen har slutförts, är de misslyckades eller fortfarande körs/väntar, osv.
-  * Läsa data mellan/inom baljor: filer och data lagras i flera skida i distributed file system. Det här värdet beskriver hur mycket data har lästs i samma baljor eller mellan baljor.
-  * Total tid för beräkning: summan av varje vertex körningstid i skedet kan du den som den tid det tar om alla fungerar i steg utförs i en enda nod.
-  * Data och rader skrivs/läses: Anger hur mycket data rader har lästs/skrivits eller måste läsas.
-  * Vertex läsa fel: Beskriver hur många formhörnen misslyckades vid läsning av data.
-  * Ignorerar dubblett Vertex: om en nod är för långsam, systemet kan schemalägga flera formhörnen att köra samma arbetsuppgifter. Reductant formhörnen ignoreras när något av formhörnen slutföras. Vertex dubbla rensningar registrerar antalet formhörnen ignoreras som upprepningar i steget.
-  * Återkallelse av Vertex: vertex lyckades, men hämta senare kör igen på grund av olika orsaker. Till exempel om underordnade vertex förlorar mellanliggande indata, uppmanas överordnade vertex igen.
-  * Vertex schema körningar: den totala tiden som formhörnen har schemalagts.
-  * Max-min/genomsnittlig Vertex data läses: den genomsnittliga/gränsvärden för varje hörn läsa data.
-  * Varaktighet: Klocktid ett steg tar genom att läsa in profilen om du vill se det här värdet.
+      ![Azure Data Lake Analytics-Jobbdetaljer graph steg](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-stage-details.png)
+  * Hörn: Beskriver vad hörn, till exempel hur många hörn sammanlagt, hur många hörn har slutförts, är de misslyckades eller fortfarande körs/väntar osv.
+  * Data läses mellan/intra pod: filer och data lagras i flera poddar i distributed file system. Värdet här beskrivs hur mycket data har lästs i samma pod eller mellan pod.
+  * Total bearbetningstid: summan av alla hörn körningstid i skedet kan du den som den tid det tar om alla fungerar i steget körs i endast ett hörn.
+  * Data och rader skrivs/läses: Anger hur mycket data eller rader har importerats lästa/skrivna eller måste läsas.
+  * Hörn läsa fel: Beskriver hur många hörn är det gick inte att läsa data.
+  * Dubbla hörn ignorerar: om ett hörn är för långsam, systemet kan schemalägga flera hörn ska köras i samma mängd arbete. Reductant hörn ignoreras när något av hörn slutförs. Hörn duplicerade rensningar registrerar antalet hörn som har förkastats som upprepningar i steget.
+  * Återkallelse av Vertex: hörnet lyckades, men får köra senare på grund av orsaker. Exempel: om underordnade hörn förlorar mellanliggande indata, får du frågan överordnade hörnet att köra.
+  * Hörn schema körningar: den totala tiden som hörn har schemalagts.
+  * Genomsnittlig/min/Max-Vertex-data som läses: I genomsnitt/gränsvärden för varje hörn läsa data.
+  * Varaktighet: Klocktid ett steg tar emot och du behöver läsa in profilen om du vill se det här värdet.
   * Jobbuppspelning
     
-      Data Lake Analytics kör jobb och arkiveras formhörnen kör information för jobb, till exempel när formhörnen startas, stoppas, misslyckades och hur de är på nytt, osv. All information är automatiskt inloggad query store och lagras i dess jobbet profil. Du kan hämta jobbprofilen via ”Beläggningsprofil” i jobbet och du kan visa den Jobbuppspelning när du har hämtat jobbprofilen.
+      Data Lake Analytics kör jobb och arkiverar de hörn som kör information för jobb, till exempel när hörn startas, stoppas, misslyckades och hur de är nytt, osv. All information som är automatiskt loggas i frågearkivet och lagras i dess jobbprofilen. Du kan ladda ned jobbprofilen via ”Beläggningsprofil” i jobbet och du kan visa den Jobbuppspelning när du hämtat jobbprofilen.
     
-      Jobbuppspelning är en epitome visualisering av vad som hände i klustret. Det hjälper dig se förloppet för jobbkörningen och identifiera visuella prestandaavvikelser och flaskhalsar i mycket kort tid (mindre än vanligtvis 30s).
-  * Jobbet termiska karta visning 
+      Jobbuppspelning är en epitome visualisering av vad som hände i klustret. Det hjälper dig att se förloppet för jobbkörningen och identifiera visuella prestandaavvikelser och flaskhalsar i mycket kort tid (mindre än 30 sekunder vanligtvis).
+  * Jobbet termisk karta visning 
     
-      Du kan välja jobbet termisk karta via listrutan visas i Jobbdiagram. 
+      Termisk karta för jobbet kan väljas via listrutan visas i Jobbdiagram. 
     
-      ![Azure Data Lake Analytics-jobbet diagrammet heap kartbilden](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-heat-map-display.png)
+      ![Azure Data Lake Analytics-jobbet graph heap kartbilden](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-heat-map-display.png)
     
-      Den visar i/o, tid och genomströmning termisk karta för ett jobb som du kan hitta där jobbet tillbringar i de flesta fall, eller om ditt jobb är ett jobb för i/o-gräns, och så vidare.
+      Den visar i/o, tid och dataflöde termisk karta för ett jobb, genom vilken du hitta där jobbet tillbringar i de flesta fall, eller om ditt jobb är ett jobb för i/o-gräns och så vidare.
     
-      ![Azure Data Lake Analytics-jobbet diagrammet heap kartan exempel](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-heat-map-example.png)
+      ![Exempel på Azure Data Lake Analytics-jobb graph heap Webbplatskarta](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-heat-map-example.png)
     
-    * Förlopp: Jobbkörningen utvecklas, se informationen i [mellanlagra information](#stage-information).
-    * Läsa/skriva data: termisk karta av totala data lästa/skrivna i varje steg.
-    * Beräkna tid: termisk karta för SUM (varje vertex körningstid), kan du detta som hur lång tid det tar om allt arbete i skedet körs med endast 1 hörn.
-    * Genomsnittlig körningstid per nod: termisk karta för SUM (varje vertex körningstid) / (Vertex nummer). Vilket innebär att om du kan tilldela alla formhörnen köras i parallellitet hela steg ska utföras i denna tidsperiod.
-    * I/o-genomströmning: termisk karta av i/o-genomflöde i varje fas, du kan bekräfta om jobbet är ett i/o-bundna jobb via.
+    * Förlopp: Jobbkörningen förloppet så kan du se Information i [mellanlagra information](#stage-information).
+    * Lästa/skrivna data: den termiska kartan den totala mängden data som lästa/skrivna i varje steg.
+    * Beräkna tid: den termiska kartan för SUM (varje hörn körningstid), kan du detta hur lång tid det tar om allt arbete i steget körs med endast 1 hörn.
+    * Genomsnittlig körningstid per nod: den termiska kartan för SUM (varje hörn körningstid) / (hörn nummer). Vilket innebär att du kan tilldela alla hörn som körs i parallellitet hela scenen kommer göra det i det här tidsintervallet.
+    * I/o-dataflöde: den termiska kartan i/o-genomflöde i varje fas, du kan bekräfta om jobbet är ett i/o-bundna jobb via.
 * Åtgärder för metadata
   
-    Du kan utföra vissa åtgärder för metadata i U-SQL-skript, exempelvis skapa en databas, ta bort en tabell, osv. Dessa åtgärder visas i Metadata-åtgärd efter kompilering. Du kan hitta intyg, skapa entiteter, släpp entiteter här.
+    Du kan utföra vissa åtgärder för metadata i U-SQL-skript, till exempel skapa en databas, ta bort en tabell osv. Dessa åtgärder visas i Metadata-åtgärd efter kompilering. Du kan hitta intyg, skapa entiteter, släpp entiteter här.
   
-    ![Azure Data Lake Analytics-jobbet visa metadataåtgärder](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-metadata-operations.png)
+    ![Åtgärder för metadata för Azure Data Lake Analytics-Jobbvy](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-metadata-operations.png)
 * Tillståndshistorik
   
-    Tillstånd historiken också visualiseras i jobbsammanfattning, men du kan få mer information här. Du hittar detaljerad information t.ex. när jobbet är förberedd i kö, igång körs avslutas. Du kan söka efter hur många gånger som jobbet har kompilerats (CcsAttempts: 1), när jobbet skickas till klustret faktiskt (detaljer: skicka jobb till klustret) osv.
+    Den Tillståndshistorik visualiseras också i jobbsammanfattning, men du kan få mer information här. Du hittar detaljerad information t.ex. när jobbet är förberedd i kö, igång körs avslutas. Du kan också hitta hur många gånger som jobbet har kompilerats (CcsAttempts: 1), när jobbet skickas till klustret faktiskt (i detalj: skicka jobb till klustret) osv.
   
-    ![Azure Data Lake Analytics-jobbet visa tillståndshistorik](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-state-history.png)
+    ![Azure Data Lake Analytics-Jobbvy tillståndshistorik](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-state-history.png)
 * Diagnostik
   
-    Verktyget diagnostiserar jobbkörningen automatiskt. Du får aviseringar när det inte finns några fel eller prestandaproblem i dina jobb. Observera att du behöver hämta profil om du vill ha fullständig information här. 
+    Verktyget diagnostisera jobbkörningen automatiskt. Du får aviseringar när det finns några fel eller prestandaproblem i dina jobb. Observera att du behöver hämta profil för ytterligare information här. 
   
-    ![Azure Data Lake Analytics-jobbet visa diagnostik](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-diagnostics.png)
+    ![Azure Data Lake Analytics-Jobbvy-diagnostik](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-diagnostics.png)
   
-  * Varningar: En avisering visas här med kompileringsvarning. Du kan klicka på länken ”x eller flera” för att få mer information när varningen visas.
-  * Vertex kör för lång: om alla vertex tar slut tid (Säg 5 timmar), problem hittas här.
-  * Resursanvändning: Om du har tilldelat fler eller finns inte tillräckligt med parallellitet än behöver problem hittas här. Du kan också klicka på Resursanvändning om du vill se mer information och utföra olika sätt för att hitta en bättre resursallokering (Mer information finns i den här guiden).
-  * Minneskontroll: om alla vertex använder mer än 5 GB minne, problem hittas här. Jobbkörningen kan hämta avslutats av systemet om det använder mer minne än begränsning i filsystemet.
+  * Varningar: En avisering visas här med kompileringsvarning. Du kan klicka på länken ”x stödhändelserna” om du vill ha mer information när varningen visas.
+  * Hörn som körs för lång: om alla hörn slut tid (exempelvis 5 timmar), problem med att finnas här.
+  * Användning: Om du har allokerat fler eller finns inte tillräckligt med parallellitet än behöver problem att finnas här. Du kan också klicka på Resursanvändning för att se mer information och utföra olika sätt för att hitta en bättre resursallokering (Mer information finns i den här guiden).
+  * Kontroll av minne: om alla hörn använder mer än 5 GB minne, problem med att finnas här. Jobbkörning kan hämta avslutades av systemet om används mer minne än begränsning i filsystemet.
 
-## <a name="job-detail"></a>Jobbdetaljer
-Information om jobbet visar detaljerad information för jobbet, inklusive skript, resurser och Vertex vy.
+## <a name="job-detail"></a>Jobbinformation
+Jobbinformation visar detaljerad information om jobbet, inklusive skript, resurser och Körningsvy.
 
 ![Azure Data Lake Analytics-Jobbdetaljer](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-details.png)
 
 * Skript
   
-    U-SQL-skript för jobbet lagras i query store. Du kan visa det ursprungliga U-SQL-skriptet och skicka det igen om det behövs.
+    U-SQL-skript för jobbet lagras i query store. Du kan visa det ursprungliga U-SQL-skriptet och skicka den igen om det behövs.
 * Resurser
   
-    Du kan hitta jobb kompilering utdata som lagras i frågearkivet genom resurser. Du hittar för instans ”algebra.xml” som används för att visa Jobbdiagram, sammansättningar som du har registrerat, här osv.
-* Vertex vy
+    Du hittar jobbet kompilering utdata som lagras i frågearkivet via resurser. Du hittar exempel ”algebra.xml” som används för att visa den Jobbdiagram, sammansättningar som du har registrerat, här osv.
+* Körningsvy
   
-    Den visar formhörnen körning av information. Jobbprofilen arkiveras varje vertex körningsloggen, till exempel totala läsa/skriva, runtime, tillstånd, osv. Den här vyn kan får du mer information om hur en jobbet kördes. Mer information finns i [använda vyn Vertex körning i Data Lake-verktyg för Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
+    Hörn visas information om körningen. Jobbprofilen arkiverar alla hörn körningsloggen, till exempel total lästa/skrivna data, runtime, tillstånd, osv. Den här vyn kan får du mer information om hur ett jobb kördes. Mer information finns i [använda den Körningsvy i Data Lake Tools för Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
 
 ## <a name="next-steps"></a>Nästa steg
 * Information om hur du loggar diagnostikinformation finns i [Åtkomst till diagnostikloggar för Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
 * Om du vill se en mer komplex fråga, se [Analysera webbplatsloggar med hjälp av Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
-* Om du vill använda vertex vy finns [använda vyn Vertex körning i Data Lake-verktyg för Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
+* Om du vill använda Körningsvy Se [använda den Körningsvy i Data Lake Tools för Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 

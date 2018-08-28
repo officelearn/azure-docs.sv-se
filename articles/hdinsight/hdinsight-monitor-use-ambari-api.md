@@ -3,18 +3,18 @@ title: Övervaka Hadoop-kluster i HDInsight med Ambari-API – Azure
 description: 'Använd Apache Ambari APIs för att skapa, hantera och övervaka Hadoop-kluster. Intuitiva operatörsverktyg och API: er döljer komplexiteten i Hadoop.'
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: f55ee02ada5bb53d4634d119311fb9230ff15105
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 23da477fc24eaea4a6f987f13ad055022d2ba032
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592830"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108645"
 ---
 # <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>Övervaka Hadoop-kluster i HDInsight Ambari API
 Lär dig hur du övervakar HDInsight-kluster med Ambari APIs.

@@ -1,64 +1,58 @@
 ---
 title: Kom igång med ett exempel
-description: I den här artikeln lär dig att Power BI arbetsytan samlingar get igång exempel.
+description: I den här artikeln lär dig till Power BI-Arbetsytesamlingar get igång exemplet.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: d8a9ef78-ad4e-4bc7-9711-89172dc5c548
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: 4daa675092bed1788025e7e3f7e7e11d02ef1671
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: cd7da8d2bbd684df29432bb924bdae3cd9ac7e64
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31414889"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43044445"
 ---
-# <a name="get-started-with-power-bi-workspace-collections-sample"></a>Komma igång med Power BI arbetsytan samlingar exemplet
+# <a name="get-started-with-power-bi-workspace-collections-sample"></a>Kom igång med Power BI-Arbetsytesamlingar exempel
 
-Med **Microsoft Power BI arbetsytan samlingar**, kan du integrera Power BI-rapporter direkt i ditt webb- eller mobila program. I den här artikeln lär dig mer om att den **Power BI arbetsytan samlingar** get igång exempel.
+Med **Microsoft Power BI-Arbetsytesamlingar**, kan du integrera Power BI-rapporter direkt i dina webb- och mobilprogram. I den här artikeln har vi introducerar du den **Power BI-Arbetsytesamlingar** igång get-exemplet.
 
 > [!IMPORTANT]
 > Power BI-arbetsytesamlingar fasas ut och är tillgänglig till juni 2018 eller det som anges i ditt avtal. Du uppmanas att planera migreringen till Power BI Embedded för att undvika avbrott i programmet. Information om hur du migrerar dina data till Power BI Embedded finns i [Migrera Power BI-arbetsytesamlingar till Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-Innan vi gå längre något du vill spara följande resurser: de hjälpa dig när du integrerar för Power BI-rapporter i exempelappen och egna appar.
+Innan vi går vidare, du vill spara följande resurser: de hjälper dig att när de integrerar Power BI-rapporter i exempelappen och dina egna appar för.
 
-* [Exempelwebbapp för arbetsytan](http://go.microsoft.com/fwlink/?LinkId=761493)
-* [Power BI arbetsytan samlingar API-referens](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-* [Power BI .NET SDK ](http://go.microsoft.com/fwlink/?LinkId=746472) (tillgänglig via NuGet)
-* [JavaScript-rapporten bäddas in exempel](https://microsoft.github.io/PowerBI-JavaScript/demo)
+* [Exempelwebbappen för arbetsytan](http://go.microsoft.com/fwlink/?LinkId=761493)
+* [Power BI-arbetsyta samlingar API-referens](https://msdn.microsoft.com/library/azure/mt711507.aspx)
+* [Power BI .NET SDK ](http://go.microsoft.com/fwlink/?LinkId=746472) (tillgängligt via NuGet)
+* [Rapport för JavaScript-Inbäddningsexempel](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]
-> Innan du kan konfigurera och kör Power BI arbetsytan samlingar Kom igång exempel, måste du skapa minst en **Arbetsytesamling** i din Azure-prenumeration. Mer information om hur du skapar en **Arbetsytesamling** i Azure-portalen finns [komma igång med Power BI arbetsytan samlingar](get-started.md).
+> Innan du kan konfigurera och kör Power BI-Arbetsytesamlingar få igång exemplet, måste du skapa minst en **Arbetsytesamling** i Azure-prenumerationen. Lär dig hur du skapar en **Arbetsytesamling** i Azure-portalen finns i [komma igång med Power BI-Arbetsytesamlingar](get-started.md).
 
-## <a name="configure-the-sample-app"></a>Konfigurera sample-appen
+## <a name="configure-the-sample-app"></a>Konfigurera exempelappen
 
-Låt oss gå igenom ställa in din utvecklingsmiljö i Visual Studio för att få åtkomst till komponenter som behövs för att köra sample-appen.
+Låt oss gå genom att ställa in din utvecklingsmiljö i Visual Studio för att få åtkomst till de komponenter som behövs för att köra exempelappen.
 
-1. Hämta och packa upp den [Power BI arbetsytan samlingar – integrera en rapport i en webbapp](http://go.microsoft.com/fwlink/?LinkId=761493) på GitHub.
-2. Öppna **PowerBI embedded.sln** i Visual Studio. Du kan behöva köra den **uppdateringspaketet** i NuGet Package Manager-konsolen för att uppdatera de paket som används i den här lösningen.
+1. Hämta och packa upp den [Power BI-Arbetsytesamlingar – integrera en rapport i en webbapp](http://go.microsoft.com/fwlink/?LinkId=761493) i GitHub.
+2. Öppna **PowerBI-embedded.sln** i Visual Studio. Du kan behöva köra den **uppdateringspaketet** i NuGet Package Manager-konsolen för att uppdatera de paket som används i den här lösningen.
 3. Skapa lösningen.
-4. Kör den **ProvisionSample** konsolapp. I konsolen exempelapp etablera en arbetsyta och importerar en PBIX-fil.
-5. Att etablera en ny **arbetsytan**, Välj alternativ 1, **samling management**, och välj sedan alternativet 6, **etablera en ny arbetsyta**
-6. Så här importerar du en ny **rapporten**, Välj alternativ 2, **rapportera management**, och välj sedan alternativ 3, **importera PBIX Desktop-fil i en arbetsyta**.
+4. Kör den **ProvisionSample** konsolapp. I konsolen exempelapp etablerar en arbetsyta och importera en PBIX-fil.
+5. Att etablera en ny **arbetsytan**, Välj alternativ 1, **hantering av**, och välj sedan alternativet 6, **etablera en ny arbetsyta**
+6. Importera en ny **rapporten**, Välj alternativ 2, **rapportera management**, och välj sedan alternativ 3, **importera PBIX Desktop-fil till en arbetsyta**.
 
-7. Ange din **Arbetsytesamling** namn, och **åtkomstnyckeln**. Du kan hämta dessa i den **Azure-portalen**. Mer information om hur du hämtar dina **åtkomstnyckeln**, finns [visa åtkomstnycklar för Power BI API](get-started.md#view-power-bi-api-access-keys) i komma igång med Microsoft Power BI Embedded.
+7. Ange din **Arbetsytesamling** namn, och **åtkomstnyckel**. Du kan hämta dessa i den **Azure-portalen**. Mer information om hur du hämtar din **åtkomstnyckeln**, finns i [visa åtkomstnycklar för Power BI API](get-started.md#view-power-bi-api-access-keys) på komma igång med Microsoft Power BI Embedded.
 
-    ![Snabbtangenter i Azure-portalen](media/get-started-sample/azure-portal.png)
-8. Kopiera och spara den nyligen skapade **arbetsyte-ID** för senare användning i den här artikeln. Efter den **arbetsyte-ID** är skapat kan du kan hitta den **Azure-portalen**.
+    ![Åtkomstnycklar i Azure-portalen](media/get-started-sample/azure-portal.png)
+8. Kopiera och spara den nyligen skapade **arbetsyte-ID** att använda senare i den här artikeln. Efter den **arbetsyte-ID** är skapat kan du hittar den på **Azure-portalen**.
 
-    ![Arbetsyte-ID i Azure-portalen](media/get-started-sample/workspace-id.png)
-9. Du importerar en PBIX-fil i din **arbetsytan**, Välj alternativet **6. Importera PBIX Desktop-fil till en befintlig arbetsyta**. Om du inte har en PBIX-fil praktiska, kan du hämta den [exempel på detaljhandelsanalys PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
-10. Om du uppmanas ange ett eget namn för din **Dataset**.
+    ![Arbetsyte-ID på Azure portal](media/get-started-sample/workspace-id.png)
+9. Importera en PBIX-fil i din **arbetsytan**, Välj alternativet **6. Importera PBIX Desktop-fil till en befintlig arbetsyta**. Om du inte har en PBIX filen till hands kan du hämta den [Retail Analysis-exemplet PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
+10. Om du uppmanas, anger du ett eget namn för din **datauppsättning**.
 
 Du bör se ett svar som:
 
@@ -68,16 +62,16 @@ Checking import state... Succeeded
 ```
 
 > [!NOTE]
-> Om PBIX-fil innehåller alla anslutningar direkt fråga, kör du alternativet 7 för att uppdatera anslutningssträngar.
+> Om din PBIX-fil innehåller alla directquery-anslutningar, kör du alternativet 7 om du vill uppdatera anslutningssträngarna.
 
-Nu har du en PBIX för Power BI-rapport som importeras till din **arbetsytan**. Nu ska vi titta på hur du kör den **Power BI arbetsytan samlingar** Kom igång exempelwebbapp.
+Nu har du en rapport för Power BI PBIX som importeras till din **arbetsytan**. Nu ska vi titta på hur du kör den **Power BI-Arbetsytesamlingar** få igång exempelwebbappen.
 
 ## <a name="run-the-sample-web-app"></a>Kör exempelwebbappen
 
-Web app exempel är ett exempelprogram som återger rapporter som importeras till din **arbetsytan**. Här är hur du konfigurerar web app exemplet.
+Web app-exemplet är ett exempelprogram som återger rapporter som importeras till din **arbetsytan**. Här är att konfigurera web app-exemplet.
 
-1. I den **PowerBI-inbäddade** Visual Studio-lösning högerklickar du på den **EmbedSample** webbprogram och välj **Ställ in som Startprojekt**.
-2. I **web.config**i den **EmbedSample** webbprogrammet, redigera den **appSettings**: **AccessKey**, **WorkspaceCollection** namn, och **WorkspaceId**.
+1. I den **Power BI-inbäddad** Visual Studio-lösning högerklickar du på den **EmbedSample** webbprogrammet och välj **Ställ in som Startprojekt**.
+2. I **web.config**i den **EmbedSample** webbprogram, redigera den **appSettings**: **AccessKey**,  **WorkspaceCollection** namn, och **WorkspaceId**.
 
     ```
     <appSettings>
@@ -89,22 +83,22 @@ Web app exempel är ett exempelprogram som återger rapporter som importeras til
     ```
 3. Kör den **EmbedSample** webbprogram.
 
-När du kör den **EmbedSample** webbprogrammet, vänstra navigeringsfönstret ska innehålla en **rapporter** menyn. Om du vill visa rapporten du importerat Expandera **rapporter**, och klicka på en rapport. Om du har importerat den [exempel på detaljhandelsanalys PBIX](http://go.microsoft.com/fwlink/?LinkID=780547), exempelwebbapp skulle se ut så här:
+När du kör den **EmbedSample** webbprogrammet, den vänstra navigeringspanelen ska innehålla en **rapporter** menyn. Om du vill visa rapporten du importerat, expandera **rapporter**, och klicka på en rapport. Om du har importerat den [Retail Analysis-exemplet PBIX](http://go.microsoft.com/fwlink/?LinkID=780547), exempelwebbappen skulle se ut så här:
 
-![Exempel vänster navigeringsfält inom exempelprogrammet](media/get-started-sample/sample-left-nav.png)
+![Exemplet vänster navigeringsfält i exempelprogrammet](media/get-started-sample/sample-left-nav.png)
 
 När du klickar på en rapport i **EmbedSample** webbprogram bör se ut ungefär detta:
 
-![Exempelrapporten som visas i programmet](media/get-started-sample/sample-web-app.png)
+![Exempelrapport som visar i programmet](media/get-started-sample/sample-web-app.png)
 
 ## <a name="explore-the-sample-code"></a>Utforska exempelkoden
 
-Den **Microsoft Power BI arbetsytan samlingar** exempel är en exempelwebbapp som visar hur du integrerar **Power BI** rapporter i din app. Den använder en designmönstret Model-View-Controller (MVC) för att demonstrera bästa praxis. Det här avsnittet beskrivs delar av exempelkod som du kan utforska inom den **PowerBI-inbäddade** web app lösning. Mönstret Model-View-Controller (MVC) separerar modellering av domänen, presentationen och åtgärder baserat på användarindata i tre separata klasser: modell, visa och kontroll. Läs mer om MVC i [Lär dig mer om ASP.NET](http://www.asp.net/mvc).
+Den **Microsoft Power BI-Arbetsytesamlingar** exemplet är en exempelwebbapp som visar hur du integrerar **Power BI** rapporter i din app. Använder en designmönstret Model-View-Controller (MVC) för att demonstrera bästa praxis. Det här avsnittet beskrivs delar av exempelkoden som du kan utforska inom den **Power BI-inbäddad** web applösning. Mönstret Model-View-Controller (MVC) avgränsar modellering av domänen, presentation och åtgärder baserat på användarindata i tre separata klasser: modell, visa och kontroll. Läs mer om MVC i [Lär dig mer om ASP.NET](http://www.asp.net/mvc).
 
-Den **Microsoft Power BI arbetsytan samlingar** exempelkod avgränsas på följande sätt. Varje avsnitt innehåller filnamnet i PowerBI embedded.sln lösningen så att du lätt kan hitta koden i exemplet.
+Den **Microsoft Power BI-Arbetsytesamlingar** exempelkoden avgränsas på följande sätt. Varje avsnitt innehåller namnet på filen i Power BI-embedded.sln lösningen så att du lätt kan hitta koden i exemplet.
 
 > [!NOTE]
-> Det här avsnittet är en sammanfattning av exempelkod som visar hur koden har skrivits. Om du vill visa hela exemplet, Läs in PowerBI embedded.sln lösningen i Visual Studio.
+> Det här avsnittet är en sammanfattning av den exempelkod som visar hur koden har skrivits. Läsa in Power BI-embedded.sln-lösningen i Visual Studio om du vill visa hela exemplet.
 
 ### <a name="model"></a>Modell
 
@@ -134,7 +128,7 @@ Anslutningssträngen måste ha följande format:
 Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
 ```
 
-Med hjälp av gemensamma server och databas attribut misslyckas. Till exempel: Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
+Med hjälp av vanliga servern och databasen attribut misslyckas. Till exempel: Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
 
 ### <a name="view"></a>Visa
 
@@ -144,7 +138,7 @@ Den **visa** hanterar visningen av Power BI **rapporter** och en Power BI **rapp
 
 | En del | Beskrivning |
 | --- | --- |
-| Namn |Namnet på rapporten. |
+| Titel |Namnet på rapporten. |
 | QueryString |En länk till rapporten-ID. |
 
     <div id="reports-nav" class="panel-collapse collapse">
@@ -174,7 +168,7 @@ Report.cshtml: Ange den **Model.AccessToken**, och Lambda-uttrycket för **Power
 
 ### <a name="controller"></a>Kontrollenhet
 
-**DashboardController.cs**: skapar ett PowerBIClient skicka en **apptoken**. En JSON-Webbtoken (JWT) skapas från den **signeringsnyckeln** att hämta den **autentiseringsuppgifter**. Den **autentiseringsuppgifter** används för att skapa en instans av **PowerBIClient**. När du har en instans av **PowerBIClient**, kan du anropa GetReports() och GetReportsAsync().
+**DashboardController.cs**: skapar en PowerBIClient skicka en **apptoken**. En JSON Web Token (JWT) genereras från den **signeringsnyckeln** att hämta den **autentiseringsuppgifter**. Den **autentiseringsuppgifter** används för att skapa en instans av **PowerBIClient**. När du har en instans av **PowerBIClient**, kan du anropa GetReports() och GetReportsAsync().
 
 CreatePowerBIClient()
 
@@ -229,7 +223,7 @@ Uppgiften<ActionResult> rapporten (sträng reportId)
 
 ### <a name="integrate-a-report-into-your-app"></a>Integrera en rapport i din app
 
-När du har en **rapporten**, du använder en **IFrame** att bädda in Power BI **rapporten**. Här är ett kodstycke från powerbi.js i den **Microsoft Power BI arbetsytan samlingar** exempel.
+När du har en **rapporten**, du använder en **IFrame** att bädda in Power BI **rapporten**. Här är ett kodstycke från powerbi.js i den **Microsoft Power BI-Arbetsytesamlingar** exemplet.
 
 ```
 init: function() {
@@ -244,7 +238,7 @@ init: function() {
 
 ## <a name="filter-reports-embedded-in-your-application"></a>Filtrera rapporter som är inbäddad i ditt program
 
-Du kan filtrera en inbäddad rapport med en URL-syntax. Om du vill göra detta måste du lägga till en **$filter** frågesträngparametern med en **eq** operatorn för att din iFrame-src-url med filtret angivet. Här är frågesyntaxen filter:
+Du kan filtrera en inbäddad rapport med en URL-syntax. Om du vill göra detta måste du lägga till en **$filter** frågesträngparametern med en **eq** operatör till din iFrame-src-url med filtret angivet. Här är frågesyntaxen filter:
 
 ```
 https://app.powerbi.com/reportEmbed

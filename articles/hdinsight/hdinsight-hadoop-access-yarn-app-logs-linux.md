@@ -3,18 +3,18 @@ title: Åtkomst till Hadoop YARN-programloggar på Linux-baserade HDInsight - Az
 description: Lär dig mer om att få åtkomst till YARN-programloggar i ett kluster för Linux-baserat HDInsight (Hadoop) med hjälp av kommandoraden och en webbläsare.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: jasonh
-ms.openlocfilehash: 0aa8d76ca97789844482d2b8ad7212c2f61a8ab8
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 179349d059fd75e2da01eb908a786e2e7ac91307
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591811"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43092268"
 ---
 # <a name="access-yarn-application-logs-on-linux-based-hdinsight"></a>Åtkomst till YARN-programloggar på Linux-baserat HDInsight
 

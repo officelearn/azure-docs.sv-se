@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: 305a6c805f14e8d3ef9f77fcd90a78a50e0f770c
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: e7208cb4c2cdef6fc4e639b32fdb2fac242bd3a2
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054170"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104069"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Använda Virtual Kubelet med Azure Kubernetes Service (AKS)
 
@@ -206,6 +206,9 @@ Använd den [az aks remove-connector] [ aks-remove-connector] till att ta bort V
 ```azurecli-interactive
 az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet
 ```
+
+> [!NOTE]
+> Om du stöter på fel som tar bort båda OS-kopplingar eller vill du ta bort bara Windows eller Linux OS-anslutningen kan ange du manuellt OS-typen. Lägg till den `--os-type` parametern till den tidigare `az aks remove-connector` kommandot och ange `Windows` eller `Linux`.
 
 ## <a name="next-steps"></a>Nästa steg
 

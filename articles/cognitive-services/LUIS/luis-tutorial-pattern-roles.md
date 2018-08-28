@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 08/03/2018
 ms.author: diberry
-ms.openlocfilehash: 2fd473226dca2576be79b90bc05d66599f759713
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 633bf16790437ba83e9a2a99f33a23fef9255364
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524152"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090534"
 ---
 # <a name="tutorial-improve-app-with-pattern-roles"></a>Självstudie: Förbättra appen med mönstret roller
 
@@ -52,7 +52,7 @@ I den här självstudien identifierar appen personalfrågor yttranden om att fly
 |[Hierarkiska (inga roller)](luis-quickstart-intent-and-hier-entity.md)|MV Jill Jones från **a-2349** till **b-1298**|a-2349, b-1298|
 |Den här självstudien (med roller)|Flytta Bengt Patterson från **Yuma** till **Denver**.|Yuma Denver|
 
-Du kan inte använda hierarkisk entiteten i mönstret eftersom endast hierarkisk föräldrar används i överordnade. För att returnera de namngivna platserna av original och beskrivning, muse du använda ett mönster.
+Du kan inte använda hierarkisk entiteten i mönstret eftersom endast hierarkisk föräldrar används i ett mönster. För att returnera de namngivna platserna av original och beskrivning, muse du använda ett mönster.
 
 ### <a name="simple-entity-for-new-employee-name"></a>Enkel enhet för den nya medarbetarnamn
 Namnet på den nya medarbetaren Billy Patterson ingår inte i listan entiteten **medarbetare** ännu. Namnet på nya medarbetaren extraheras först för att skicka namnet till ett externt system att skapa autentiseringsuppgifter för företaget. När företagets autentiseringsuppgifter skapas, anställd autentiseringsuppgifterna läggs till i listan entiteten **medarbetare**.

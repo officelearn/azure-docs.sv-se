@@ -1,55 +1,49 @@
 ---
-title: Spara rapporter i Power BI arbetsytan samlingar | Microsoft Docs
-description: Lär dig mer om att spara rapporter i Power BI arbetsytan samlingar. Detta kräver att rätt behörighet för att fungera korrekt.
+title: Spara rapporter i Power BI-Arbetsytesamlingar | Microsoft Docs
+description: Lär dig hur du kan spara rapporter i Power BI-Arbetsytesamlingar. Detta kräver behörighet för att kunna fungera.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: ''
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: c5512584531c9f5c8a13e9a50161eb6b5a1f8a7b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 277667bb3b4e39acbb935285e984660a3b44993d
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31411224"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047964"
 ---
-# <a name="save-reports-in-power-bi-workspace-collections"></a>Spara rapporter i Power BI arbetsytan samlingar
+# <a name="save-reports-in-power-bi-workspace-collections"></a>Spara rapporter i Power BI-Arbetsytesamlingar
 
-Lär dig mer om att spara rapporter i Power BI arbetsytan samlingar. Spara rapporter kräver behörighet för att fungera korrekt.
+Lär dig hur du kan spara rapporter i Power BI-Arbetsytesamlingar. Spara rapporter kräver behörighet för att kunna fungera.
 
 > [!IMPORTANT]
 > Power BI-arbetsytesamlingar fasas ut och är tillgänglig till juni 2018 eller det som anges i ditt avtal. Du uppmanas att planera migreringen till Power BI Embedded för att undvika avbrott i programmet. Information om hur du migrerar dina data till Power BI Embedded finns i [Migrera Power BI-arbetsytesamlingar till Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-Du kan redigera befintliga rapporter och spara dem i Power BI arbetsytan samlingar. Du kan också skapa en ny rapport och spara som en ny rapport för att skapa en.
+Du kan redigera befintliga rapporter och spara dem i Power BI-Arbetsytesamlingar. Du kan också skapa en ny rapport och spara som en ny rapport för att skapa en.
 
-Om du vill spara en rapport måste du först skapa en token för den valda rapporten med rätt scope:
+För att spara en rapport, måste du först skapa en token för den specifika rapporten med rätt omfång:
 
 * Om du vill aktivera spara Report.ReadWrite krävs omfattning
-* Om du vill aktivera Spara som, krävs Report.Read och Workspace.Report.Copy scope
-* Om du vill aktivera spara och spara som, Report.ReadWrite och Workspace.Report.Copy krävs
+* Om du vill aktivera Spara som, krävs Report.Read och Workspace.Report.Copy områden
+* Om du vill aktivera spara och spara som, måste Report.ReadWrite och Workspace.Report.Copy anges
 
-Respektive för att aktivera höger save/Spara som knappar Arkiv-menyn som du behöver ge behörighet i konfiguration Embed när du bäddar in rapporten:
+Respektive för att aktivera rätt Spara/Spara som knappar i Arkiv-menyn som du måste ange rätt behörighet i bädda in konfigurationen när du bäddar in rapporten:
 
 * modeller. Permissions.ReadWrite
 * modeller. Permissions.Copy
 * modeller. Permissions.All
 
 > [!NOTE]
-> Åtkomst-token måste också lämpliga omfattningar. Mer information finns i [scope](app-token-flow.md#scopes).
+> Ditt åtkomsttoken behöver också lämpliga omfattningar. Mer information finns i [scope](app-token-flow.md#scopes).
 
 ## <a name="embed-report-in-edit-mode"></a>Bädda in rapporten i redigeringsläge
 
-Anta att du vill bädda in en rapport i redigeringsläge i din app att bara skicka rätt egenskaperna i konfiguration Embed och anropa powerbi.embed(). Ange behörigheter och en viewMode för att visa spara och spara som knappar i redigeringsläget. Mer information finns i [bädda in konfigurationsinformation](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details).
+Vi antar att du vill bädda in en rapport i redigeringsläge i din app att göra så här kommer bara skicka rätt egenskaper i bädda in konfiguration och anropa powerbi.embed(). Ange behörigheter och en viewMode för att kunna se spara och spara som knappar i redigeringsläget. Mer information finns i [bädda in konfigurationsinformation](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details).
 
 Till exempel i JavaScript:
 
@@ -83,11 +77,11 @@ Till exempel i JavaScript:
     var report = powerbi.embed(reportContainer, config);
 ```
 
-En rapport är inbäddat i din app i redigeringsläge.
+En rapport är nu inbäddad i din app i redigeringsläge.
 
-## <a name="save-report"></a>Spara rapporten
+## <a name="save-report"></a>Spara rapport
 
-Du kan spara rapporten från Arkivmenyn eller javascript efter bädda in rapporten i redigeringsläge med rätt token och behörigheter:
+Efter att bädda in rapporten i redigeringsläge med rätt token och behörigheter kan spara du rapporten från Arkiv-menyn eller från javascript:
 
 ```
  // Get a reference to the embedded report.
@@ -112,9 +106,9 @@ Du kan spara rapporten från Arkivmenyn eller javascript efter bädda in rapport
 ```
 
 > [!IMPORTANT]
-> Endast när *Spara som* är en ny rapport skapas. När du spara visas arbetsytan fortfarande gamla rapporten i redigeringsläge och inte den nya rapporten. Bädda in den nya rapporten skapades. Bädda in den nya rapporten kräver en ny åtkomsttoken som har skapats per rapport.
+> Endast när *Spara som* är en ny rapport skapas. När du spara visas arbetsytan fortfarande gamla rapporten i redigeringsläge och inte den nya rapporten. Bädda in den nya rapporten som har skapats. Bädda in den nya rapporten kräver en ny åtkomsttoken som har skapats per rapport.
 
-Sedan måste du läsa in den nya rapporten efter en *Spara som*. Läser in den nya rapporten liknar bädda in en rapport.
+Du måste sedan att läsa in den nya rapporten efter en *Spara som*. Läser in den nya rapporten liknar bädda in en rapport.
 
 ```
 <div id="reportContainer"></div>

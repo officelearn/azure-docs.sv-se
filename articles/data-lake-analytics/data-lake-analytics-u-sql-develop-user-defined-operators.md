@@ -1,29 +1,28 @@
 ---
-title: Utveckla U-SQL-användardefinierade operatorer (UDO) i Azure Data Lake Analytics
-description: Lär dig mer om att utveckla användardefinierade operatorer som ska användas och återanvändas i Azure Data Lake Analytics-jobb.
+title: Utveckla U-SQL-användardefinierade operatörer (UDO) i Azure Data Lake Analytics
+description: Lär dig hur du utvecklar användardefinierade operatörer som ska användas och återanvändas i Azure Data Lake Analytics-jobb.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 8d8937a6132f770e989d7595883b2c5cf804c44f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9751801449eebc5d07ca4bbb9b408d9679fef24e
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623863"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43040998"
 ---
-# <a name="develop-u-sql-user-defined-operators-udos"></a>Utveckla U-SQL-användardefinierade operatorer (UDO)
-Den här artikeln beskriver hur du utvecklar användardefinierade operatorer för att bearbeta data i ett U-SQL-jobb.
+# <a name="develop-u-sql-user-defined-operators-udos"></a>Utveckla U-SQL-användardefinierade operatörer (UDO)
+Den här artikeln beskriver hur du utvecklar användardefinierade operatörer för att bearbeta data i ett U-SQL-jobb.
 
-## <a name="define-and-use-a-user-defined-operator-in-u-sql"></a>Definiera och använder en användardefinierad operator i U-SQL
+## <a name="define-and-use-a-user-defined-operator-in-u-sql"></a>Definiera och Använd en användardefinierad operator i U-SQL
 **Skapa och skicka ett U-SQL-jobb**
 
-1. Visual Studio väljer **Arkiv > Nytt > Projekt > U-SQL-projekt**.
+1. Visual Studio väljer **fil > Nytt > Projekt > U-SQL-projekt**.
 2. Klicka på **OK**. Visual Studio skapar en lösning med en Script.usql-fil.
 3. Från **Solution Explorer**, expandera Script.usql och dubbelklicka sedan på **Script.usql.cs**.
 4. Klistra in följande kod i filen:
@@ -115,15 +114,15 @@ Den här artikeln beskriver hur du utvecklar användardefinierade operatorer fö
 7. Ange Data Lake Analytics-kontot, databas och schema.
 8. Från **Solution Explorer**, högerklicka på **Script.usql** och klicka sedan på **Skapa skript**.
 9. Från **Solution Explorer**, högerklicka på **Script.usql** och klicka sedan på **Skicka skript**.
-10. Om du inte har anslutit till din Azure-prenumeration uppmanas du att ange dina autentiseringsuppgifter för Azure-konto.
+10. Om du inte har anslutit till din Azure-prenumeration, uppmanas du att ange dina autentiseringsuppgifter för Azure-konto.
 11. Klicka på **skicka**. Resultat för skicka och jobblänk är tillgängliga i resultatfönstret när överföringen är klar.
-12. Klicka på den **uppdatera** för att visa senast jobbstatusen och uppdatera skärmen.
+12. Klicka på den **uppdatera** för att se senaste jobbstatus och uppdatera skärmen.
 
-**Se utdata**
+**Att se utdata**
 
-1. Från **Server Explorer**, expandera **Azure**, expandera **Datasjöanalys**, expandera Data Lake Analytics-kontot, expandera **Lagringskonton**högerklickar du lagringsplatsen standard och klicka sedan på **Explorer**.
+1. Från **Server Explorer**, expandera **Azure**, expandera **Datasjöanalys**, expandera Data Lake Analytics-kontot, expandera **Lagringskonton**, högerklicka på standard-lagring och klicka sedan på **Explorer**.
 2. Expandera exempel utdata, och dubbelklicka sedan på **Drivers.csv**.
 
 ## <a name="see-also"></a>Se också
 * [Utöka U-SQL-uttryck med användar-kod](https://msdn.microsoft.com/library/azure/mt621316.aspx)
-* [Använd Data Lake-verktyg för Visual Studio för att utveckla U-SQL-program](data-lake-analytics-data-lake-tools-get-started.md)
+* [Använda Data Lake Tools för Visual Studio för att utveckla U-SQL-program](data-lake-analytics-data-lake-tools-get-started.md)

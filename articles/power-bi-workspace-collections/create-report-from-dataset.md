@@ -1,50 +1,44 @@
 ---
-title: Skapa en ny rapport från en datamängd i Power BI arbetsytan samlingar | Microsoft Docs
-description: Power BI-Arbetsytesamling rapporter kan nu skapas från en datamängd i ditt eget program.
+title: Skapa en ny rapport från en datauppsättning i Power BI-Arbetsytesamlingar | Microsoft Docs
+description: Power BI-Arbetsytesamling rapporter kan nu skapas från en datauppsättning i ditt eget program.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: ''
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 5c6a52edd708b6077820f2004e83ac7dee945610
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dbfe8c98dce1879a2e0956fafba32ab6e608bfdb
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409524"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046662"
 ---
-# <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Skapa en ny rapport från en datamängd i Power BI arbetsytan samlingar
+# <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Skapa en ny rapport från en datauppsättning i Power BI-Arbetsytesamlingar
 
-Power BI-Arbetsytesamling rapporter kan nu skapas från en datamängd i ditt eget program.
+Power BI-Arbetsytesamling rapporter kan nu skapas från en datauppsättning i ditt eget program.
 
 > [!IMPORTANT]
 > Power BI-arbetsytesamlingar fasas ut och är tillgänglig till juni 2018 eller det som anges i ditt avtal. Du uppmanas att planera migreringen till Power BI Embedded för att undvika avbrott i programmet. Information om hur du migrerar dina data till Power BI Embedded finns i [Migrera Power BI-arbetsytesamlingar till Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-Autentiseringsmetoden är ungefär som att bädda in en rapport. Den baseras på åtkomst-token som är specifika för en dataset. Token som används för PowerBI.com utfärdas av Azure Active Directory (AAD). Power BI-Arbetsytesamling token utfärdas av ditt eget program.
+Autentiseringsmetoden som liknar den för att bädda in en rapport. Den baseras på åtkomst-token som är specifika för en datauppsättning. Token som används för PowerBI.com utfärdas av Azure Active Directory (AAD). Power BI-Arbetsytesamling token utfärdas av ditt eget program.
 
-När du skapar en inbäddad rapport, är de token som utfärdas för en specifik dataset. Token ska vara associerat med bädda in URL: en i samma element för var och en har en unik token. För att skapa en inbäddad rapport *Dataset.Read och Workspace.Report.Create* omfång måste anges i den åtkomst-token.
+När du skapar en inbäddad rapport, är de token som utfärdas för en specifik datauppsättning. Token ska associeras med bädda in Webbadressen på samma element att se till att var och en har en unik token. För att skapa en inbäddad rapport *Dataset.Read och Workspace.Report.Create* omfång måste anges i åtkomst-token.
 
-## <a name="create-access-token-needed-to-create-new-report"></a>Skapa åtkomsttoken som behövs för att skapa ny rapport
+## <a name="create-access-token-needed-to-create-new-report"></a>Skapa åtkomst-token som behövs för att skapa ny rapport
 
-Power BI arbetsytan samlingar använder en embed token, vilket är HMAC signerade JSON Web token. Token som signerats med åtkomst till nyckeln från din Power BI-Arbetsytesamling. Bädda in tokens som standard, som används för att ge skrivskyddad åtkomst till en rapport för att bädda in i ett program. Bädda in token utfärdas för en viss rapport och ska vara associerat med en embed-URL.
+Power BI-Arbetsytesamlingar använda en inbäddad token, vilket är HMAC signerade JSON Web token. Token är signerade med åtkomstnyckeln från din Power BI-Arbetsytesamling. Inbäddningstokens som standard, som används för att ge skrivskyddad åtkomst till en rapport för att bädda in i ett program. Bädda in token utfärdas för en viss rapport och ska associeras med en inbäddad URL.
 
-Åtkomst-token ska skapas på servern som åtkomstnycklarna används för att logga/kryptera token. Information om hur du skapar en åtkomst-token finns [Authenticating och auktorisera med Power BI arbetsytan samlingar](app-token-flow.md). Du kan också granska den [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) metod. Här är ett exempel på hur det skulle se ut med .NET SDK för Power BI.
+Åtkomsttoken ska skapas på servern som åtkomstnycklar används för att logga/kryptera token. Information om hur du skapar en åtkomst-token finns i [autentisering och auktorisering med Power BI-Arbetsytesamlingar](app-token-flow.md). Du kan också granska den [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) metod. Här är ett exempel på hur detta skulle se ut med .NET SDK för Power BI.
 
-I det här exemplet har vi vårt datauppsättnings-ID som vi vill skapa den nya rapporten på. Vi behöver lägga till scope för *Dataset.Read och Workspace.Report.Create*.
+I det här exemplet har vi vår datauppsättnings-ID som vi vill skapa den nya rapporten på. Vi måste också lägga till scope för *Dataset.Read och Workspace.Report.Create*.
 
-Den *PowerBIToken klassen* kräver att du installerar den [Power BI Core NuGut paketet](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
+Den *PowerBIToken klass* kräver att du installerar den [Power BI Core NuGut paketet](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
 
-**NuGet-paketet installation**
+**Installation av NuGet-paketet**
 
 ```
 Install-Package Microsoft.PowerBI.Core
@@ -64,12 +58,12 @@ var token = embedToken.Generate("{access key}");
 
 ## <a name="create-a-new-blank-report"></a>Skapa en ny tom rapport
 
-Skapa konfiguration måste anges för att skapa en ny rapport. Detta ska inkludera den åtkomst-token och embedURL datasetID som vi vill skapa rapporten mot. Detta kräver att du installerar nuget [Power BI JavaScript paketet](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). EmbedUrl blir https://embedded.powerbi.com/appTokenReportEmbed.
+Skapa konfiguration ska anges för att skapa en ny rapport. Detta ska inkludera åtkomsttoken, embedURL och datasetID som vi vill skapa rapporten mot. Detta kräver att du installerar nuget [Power BI JavaScript-paketet](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). EmbedUrl blir https://embedded.powerbi.com/appTokenReportEmbed.
 
 > [!NOTE]
-> Du kan använda den [JavaScript rapporten bäddas in provet](https://microsoft.github.io/PowerBI-JavaScript/demo/) att testa funktionen. Det ger även kodexempel för olika åtgärder som är tillgängliga.
+> Du kan använda den [JavaScript Rapportinbäddningsexemplet](https://microsoft.github.io/PowerBI-JavaScript/demo/) att testa funktionerna. Du får också kodexempel för olika åtgärder som är tillgängliga.
 
-**NuGet-paketet installation**
+**Installation av NuGet-paketet**
 
 ```
 Install-Package Microsoft.PowerBI.JavaScript
@@ -93,7 +87,7 @@ var embedCreateConfiguration = {
     var report = powerbi.createReport(reportContainer, embedCreateConfiguration);
 ```
 
-Anropar *powerbi.createReport()* gör början i redigeringsläge visas inom den *div* element.
+Anropa *powerbi.createReport()* gör en tom arbetsyta i redigeringsläge visas inom den *div* element.
 
 ![Ny tom rapport](media/create-report-from-dataset/create-new-report.png)
 
@@ -114,13 +108,13 @@ Rapporten skapas inte förrän du anropar den **Spara som** igen. Detta kan gör
 ```
 
 > [!IMPORTANT]
-> En ny rapport skapas efter **Spara som** anropas. När du har sparat visas arbetsytan fortfarande datauppsättningen i redigeringsläge och inte i rapporten. Du måste du uppdatera den nya rapporten sätt som andra rapporter.
+> En ny rapport skapas först efter **Spara som** anropas. När du har sparat visas fortfarande datauppsättningen i redigeringsläge och inte i rapporten i arbetsytan. Du måste du uppdatera den nya rapporten precis som andra rapporter.
 
 ![Arkiv-menyn - Spara som](media/create-report-from-dataset/save-new-report.png)
 
 ## <a name="load-the-new-report"></a>Läsa in den nya rapporten
 
-För att kunna interagera med den nya rapporten som du behöver bädda in den på samma sätt som programmet bäddar in en vanlig rapport, vilket innebär att en ny token utfärdas specifikt för den nya rapporten och sedan anropa metoden Bädda in.
+För att kunna interagera med den nya rapporten som du behöver för att bädda in den på samma sätt som programmet bäddar in en vanlig rapport, vilket innebär att en ny token utfärdas specifikt för den nya rapporten och sedan anropa metoden Bädda in.
 
 ```
 <div id="reportContainer"></div>
@@ -138,9 +132,9 @@ var embedConfiguration = {
     var report = powerbi.embed(reportContainer, embedConfiguration);
 ```
 
-## <a name="automate-save-and-load-of-a-new-report-using-the-saved-event"></a>Automatisera spara och läsa in i en ny rapport med händelsen ”sparade”
+## <a name="automate-save-and-load-of-a-new-report-using-the-saved-event"></a>Automatisera spara och läsa in av en ny rapport med händelsen ”sparade”
 
-För att automatisera processen med ”Spara som” och läser in den nya rapporten kan du använda ”sparade” händelsen. Den här händelsen utlöses när spara åtgärden har slutförts och returnerar ett Json-objekt som innehåller nya reportId, rapportnamnet, gamla reportId (om sådan fanns) och om åtgärden saveAs eller spara.
+För att automatisera processen med ”Spara som” och sedan läsa in den nya rapporten du använda händelsens ”sparade”. Den här händelsen utlöses när spara åtgärden har slutförts och den returnerar ett Json-objekt som innehåller den nya reportId, rapportnamn, gamla reportId (om det finns) och om åtgärden Spara eller spara.
 
 ```
 {
@@ -151,7 +145,7 @@ För att automatisera processen med ”Spara som” och läser in den nya rappor
 }
 ```
 
-För att automatisera processen du lyssna på händelsen ”sparade”, ta den nya reportId, skapa en ny token och bädda in den nya rapporten med den.
+För att automatisera processen kan du lyssna på händelsen ”sparade”, ta nya reportId, skapa en ny token och bädda in den nya rapporten med den.
 
 ```
 <div id="reportContainer"></div>
@@ -209,6 +203,6 @@ var embedCreateConfiguration = {
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [Inbäddat exempel med JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 [Power BI Core NuGut paketet](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)  
-[Power BI JavaScript-paket](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  
+[Power BI JavaScript-paketet](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  
 
 Fler frågor? [Försök med Power BI Community](http://community.powerbi.com/)

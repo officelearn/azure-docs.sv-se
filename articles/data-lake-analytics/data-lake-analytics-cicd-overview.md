@@ -1,25 +1,21 @@
 ---
-title: Hur du ställer in en CI/CD-pipeline för Azure Data Lake Analytics | Microsoft Docs
+title: Hur du ställer in en CI/CD-pipeline för Azure Data Lake Analytics
 description: Lär dig hur du ställer in kontinuerlig integrering och kontinuerlig distribution för Azure Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: ''
 author: yanancai
-manager: ''
-editor: ''
+ms.author: yanacai
+ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.author: yanacai
-ms.openlocfilehash: c114f190ae05f5ea4788c3785a713a6365938ded
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 49ac9f9603a1b8043b19c327d5a66015959b9dd1
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630712"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045882"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Hur du ställer in en CI/CD-pipeline för Azure Data Lake Analytics  
 
@@ -440,16 +436,16 @@ Vidta följande steg för att ställa in en databasåtgärd distributionen i Vis
         PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -AzureSDKPath <azure sdk path> -Interactive
         ```
 
-    * Använd **hemlighet** autentisering för att distribuera en U-SQL-databas till ett Azure Data Lake Analytics-konto:
+    * Använd **secrete** autentisering för att distribuera en U-SQL-databas till ett Azure Data Lake Analytics-konto:
 
         ```
-        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secret <secret>
+        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secrete <secrete>
         ```
 
     * Använd **certifikatfil** autentisering för att distribuera en U-SQL-databas till ett Azure Data Lake Analytics-konto:
 
         ```
-        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secret <secret> -CertFile <certFile>
+        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secrete <secrete> -CertFile <certFile>
         ```
 
 ### <a name="packagedeploymenttoolexe-parameter-descriptions"></a>Beskrivningar av parametern PackageDeploymentTool.exe
@@ -480,9 +476,9 @@ Vidta följande steg för att ställa in en databasåtgärd distributionen i Vis
 |AzureSDKPath|Sökvägen som ska genomsökas beroende sammansättningar i Azure SDK.|Null|true|
 |Interaktiv|Om eller inte ska användas interaktivt läge för autentisering.|false|false|
 |ClientId|Azure AD-program-ID krävs för icke-interaktiv autentisering.|Null|Krävs för icke-interaktiv autentisering.|
-|Hemlighet|Den hemlighet eller ett lösenord för icke-interaktiv autentisering. Den bör användas endast i en tillförlitlig och säker miljö.|Null|Krävs för icke-interaktiv autentisering, eller så Använd SecretFile.|
-|SecretFile|Filen sparas hemlighet eller lösenord för icke-interaktiv autentisering. Se till att hålla den läsbara bara av den aktuella användaren.|Null|Krävs för icke-interaktiv autentisering, eller så Använd hemlighet.|
-|Certifikatfil|Filen sparas X.509-certifiering för icke-interaktiv autentisering. Standardvärdet är att använda hemliga klientautentisering.|Null|false|
+|Secrete|Secrete eller lösenord för icke-interaktiv autentisering. Den bör användas endast i en tillförlitlig och säker miljö.|Null|Krävs för icke-interaktiv autentisering, eller så Använd SecreteFile.|
+|SecreteFile|Filen sparas secrete eller lösenord för icke-interaktiv autentisering. Se till att hålla den läsbara bara av den aktuella användaren.|Null|Krävs för icke-interaktiv autentisering, eller så Använd Secrete.|
+|Certifikatfil|Filen sparas X.509-certifiering för icke-interaktiv autentisering. Standardinställningen är att använda klienten secrete autentisering.|Null|false|
 | JobPrefix | Prefix för databasdistribution av ett U-SQL DDL-jobb. | Deploy_ + DateTime.Now | false |
 
 ## <a name="next-steps"></a>Nästa steg

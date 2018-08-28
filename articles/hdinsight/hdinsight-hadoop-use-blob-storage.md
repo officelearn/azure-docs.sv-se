@@ -4,17 +4,17 @@ description: Lär dig mer om hur du frågar efter data från Azure Storage och A
 services: hdinsight,storage
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: bccaf00537dd1455e1364ceb2b5ca152b12f218c
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
-ms.translationtype: HT
+ms.openlocfilehash: 027204065429a9eebd2e8121cbac8bc18b9d9ce6
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39598239"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43091443"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Använda Azure-lagring med Azure HDInsight-kluster
 
@@ -55,18 +55,15 @@ Dessutom ger HDInsight möjlighet att komma åt data som är lagrade i Azure Sto
 
 Här är några saker att tänka på när du använder Azure Storage-konton med HDInsight-kluster.
 
-* 
-  **Containrar på de lagringskonton som är anslutna till ett kluster:** Eftersom kontonamnet och nyckeln associeras med klustret när det skapas har du full tillgång till blobarna i dessa containrar.
+* **Containrar på de lagringskonton som är anslutna till ett kluster:** Eftersom kontonamnet och nyckeln associeras med klustret när det skapas har du full tillgång till blobarna i dessa containrar.
 
-* 
-  **Offentliga containrar eller offentliga blobar på lagringskonton som INTE är anslutna till något kluster:** Du har läsbehörighet till blobarna i dessa containrar.
+* **Offentliga containrar eller offentliga blobar på lagringskonton som INTE är anslutna till något kluster:** Du har läsbehörighet till blobarna i dessa containrar.
   
   > [!NOTE]
-  > Offentliga containrar låter dig hämta en lista över alla blobar som är tillgängliga i containern samt hämta metadata för containern. Du kan endast komma åt offentliga blobar om du känner till den exakta webbadressen. Mer information finns i <a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">Begränsa åtkomsten till containrar och blobar</a>.
+  > Offentliga containrar låter dig hämta en lista över alla blobar som är tillgängliga i containern samt hämta metadata för containern. Du kan endast komma åt offentliga blobar om du känner till den exakta webbadressen. Mer information finns i <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-manage-access-to-resources">hantera åtkomst till behållare och blobbar</a>.
   > 
   > 
-* 
-  **Privata containrar på lagringskonton som INTE är anslutna till något kluster:** Du kan inte komma åt blobarna i containrarna om du inte definierar lagringskontot när du skickar WebHCat-jobben. Detta beskrivs senare i artikeln.
+* **Privata containrar på lagringskonton som INTE är anslutna till något kluster:** Du kan inte komma åt blobarna i containrarna om du inte definierar lagringskontot när du skickar WebHCat-jobben. Detta beskrivs senare i artikeln.
 
 De lagringskonton som definieras under skapandeprocessen och deras nycklar lagras i %HADOOP_HOME%/conf/core-site.xml i klusternoderna. Standardbeteendet för HDInsight är att använda de lagringskonton som definieras i filen core-site.xml. Du kan ändra den här inställningen med [Ambari](./hdinsight-hadoop-manage-ambari.md)
 

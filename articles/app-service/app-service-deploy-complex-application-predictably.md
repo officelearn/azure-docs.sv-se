@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 884edbf56fbf67e4ee71e0832f8924a3747994c9
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 049f5211e800dace4b8968cd9e3db9ad968f8813
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42057310"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050754"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Etablera och distribuera mikrotjänster förutsägbart i Azure
 Den här kursen visar hur du etablerar och distribuera ett program som består av [mikrotjänster](https://en.wikipedia.org/wiki/Microservices) i [Azure App Service](https://azure.microsoft.com/services/app-service/) som en enhet och på ett förutsägbart sätt med hjälp av JSON-resursgruppsmallar och PowerShell-skript. 
@@ -40,7 +40,7 @@ I självstudien distribuerar du ett program som innehåller:
 I den här självstudien använder du följande verktyg. Eftersom det inte är omfattande diskussion om verktyg, jag tänker behålls i ett scenario för slutpunkt till slutpunkt och bara ger dig en kort introduktion till var och en, och var du hittar mer information om den. 
 
 ### <a name="azure-resource-manager-templates-json"></a>Azure Resource Manager-mallar (JSON)
-Varje gång du skapar en webbapp i Azure App Service, till exempel använder Azure Resource Manager en JSON-mall för att skapa hela resursgruppen med komponenten-resurser. En komplex mall från den [Azure Marketplace](/marketplace) som den [skalbar WordPress](/marketplace/partners/wordpress/scalablewordpress/) app kan innehålla MySQL-databas, lagringskonton, App Service-planen, själva webbappen, Varningsregler, app-inställningar inställningarna för automatisk skalning och mer och alla dessa mallar är tillgängliga via PowerShell. Information om hur du hämtar och använder dessa mallar finns i [med hjälp av Azure PowerShell med Azure Resource Manager](../powershell-azure-resource-manager.md).
+Varje gång du skapar en webbapp i Azure App Service, till exempel använder Azure Resource Manager en JSON-mall för att skapa hela resursgruppen med komponenten-resurser. En komplex mall från den [Azure Marketplace](/azure/marketplace) får innehålla databasen, lagringskonton, App Service-planen, själva webbappen, Varningsregler, app-inställningar, inställningarna för automatisk skalning och mycket mer, och dessa mallar är tillgängliga för dig via PowerShell. Information om hur du hämtar och använder dessa mallar finns i [med hjälp av Azure PowerShell med Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 Mer information om Azure Resource Manager-mallar finns i [redigera Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md)
 

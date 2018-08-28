@@ -4,18 +4,18 @@ description: Lär dig hur du använder mer än ett HDInsight-kluster med ett end
 keywords: hdinsight-lagring, hdfs, strukturerade data, Ostrukturerade data, data lake store
 services: hdinsight,storage
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: jasonh
-ms.openlocfilehash: 3f928ea7de4346e1860ca05ca0e5a9a8ac1052ce
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 0e74406d79484483053ca7d4b89b096c3f70e298
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597111"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43095132"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Använda flera HDInsight-kluster med ett Azure Data Lake Store-konto
 

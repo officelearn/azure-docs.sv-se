@@ -5,17 +5,16 @@ services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: reference
-ms.date: 06/22/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 427964a6651dd4ab71d0029f89e40afdd34d162a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.topic: reference
+ms.date: 06/22/2018
+ms.openlocfilehash: 8adfd0b3d6d87834441ab87af194de141b77af34
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390712"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093626"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Utlösare och åtgärd typer-referens för Definitionsspråk för arbetsflödet i Azure Logic Apps
 
@@ -158,6 +157,7 @@ Den här utlösaren kontrollerar eller *polls* en slutpunkt med hjälp av [Micro
 |---------|------|-------------| 
 | rubriker | JSON-objekt | Rubrikerna från svaret | 
 | brödtext | JSON-objekt | Text från svaret | 
+| Statuskod | Integer | Statuskoden från svaret | 
 |||| 
 
 *Exempel*
@@ -330,6 +330,7 @@ Den här utlösaren kontrollerar eller genomsöker den angivna slutpunkten baser
 |---------|------|-------------| 
 | rubriker | JSON-objekt | Rubrikerna från svaret | 
 | brödtext | JSON-objekt | Text från svaret | 
+| Statuskod | Integer | Statuskoden från svaret | 
 |||| 
 
 *Krav för inkommande begäranden*
@@ -337,7 +338,7 @@ Den här utlösaren kontrollerar eller genomsöker den angivna slutpunkten baser
 För att fungera bra med din logikapp måste slutpunkten följer ett mönster för utlösare eller kontrakt och känna igen de här egenskaperna:  
   
 | Svar | Krävs | Beskrivning | 
-|----------|----------|-------------|  
+|----------|----------|-------------| 
 | Statuskod | Ja | Den ”200 OK”-statuskod: startar en körning. Alla andra statuskod Påbörja inte en körning. | 
 | Rubrik för återförsök | Nej | Antalet sekunder tills logikappen söker slutpunkten igen | 
 | Location-huvudet | Nej | URL till anropa vid nästa avsökningsintervall. Om den inte anges används den ursprungliga URL: en. | 
@@ -424,6 +425,7 @@ Vissa värden, till exempel <*metodtyp*>, är tillgängliga för både den `"sub
 |---------|------|-------------| 
 | rubriker | JSON-objekt | Rubrikerna från svaret | 
 | brödtext | JSON-objekt | Text från svaret | 
+| Statuskod | Integer | Statuskoden från svaret | 
 |||| 
 
 *Exempel*
@@ -1957,7 +1959,7 @@ Den här åtgärden, vilket är en *villkorlig instruktionen*, utvärderar ett u
 
 | Värde | Typ | Beskrivning | 
 |-------|------|-------------| 
-| <*Villkor*> | JSON-objekt | Villkoret, vilket kan vara ett uttryck att utvärdera | 
+| <*villkor*> | JSON-objekt | Villkoret, vilket kan vara ett uttryck att utvärdera | 
 | <*åtgärd 1*> | JSON-objekt | Åtgärden som ska köras när <*villkor*> utvärderas till SANT | 
 | <*åtgärd-definition*> | JSON-objekt | Definitionen för åtgärden | 
 | <*åtgärd 2*> | JSON-objekt | Åtgärden som ska köras när <*villkor*> utvärderas till false | 
@@ -2217,7 +2219,7 @@ Den här åtgärdsdefinitionen utvärderar huruvida den person som svarar på e-
 | <*Åtgärdens namn*> | Sträng | Namn för åtgärden som du vill köra i den här slingan | 
 | <*typ av åtgärd*> | Sträng | Åtgärdstyp som du vill köra | 
 | <*indata för åtgärden*> | Olika | Indata för åtgärden att köra | 
-| <*Villkor*> | Sträng | Villkoret eller uttryck som ska utvärderas när alla åtgärder i loopen slutföras | 
+| <*villkor*> | Sträng | Villkoret eller uttryck som ska utvärderas när alla åtgärder i loopen slutföras | 
 | <*Antal loopar*> | Integer | Gränsen för flest antal loopar som åtgärden kan köras. Standard `count` värdet är 60. | 
 | <*loop-timeout*> | Sträng | Gränsen för den längsta tid som loopen kan köras. Standard `timeout` värdet är `PT1H`, vilket är de nödvändiga [ISO 8601-formatet](https://en.wikipedia.org/wiki/ISO_8601). |
 |||| 
@@ -2552,6 +2554,159 @@ För en enkel logikapp-körningen, antalet åtgärder som utförs var femte minu
    "runAfter": {}
 }
 ```
+
+<a name="connector-authentication"></a>
+
+## <a name="authenticate-triggers-or-actions"></a>Autentisera utlösare eller åtgärder
+
+HTTP-slutpunkter har stöd för olika typer av autentisering. Du kan konfigurera autentisering för dessa HTTP-utlösare och åtgärder:
+
+* [HTTP](../connectors/connectors-native-http.md)
+* [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)
+* [HTTP-webhook](../connectors/connectors-native-webhook.md)
+
+Här är typerna av autentisering som du kan ställa in:
+
+* [Grundläggande autentisering](#basic-authentication)
+* [Autentisering av klientcertifikat](#client-certificate-authentication)
+* [Azure Active Directory (Azure AD) OAuth-autentisering](#azure-active-directory-oauth-authentication)
+
+<a name="basic-authentication"></a>
+
+### <a name="basic-authentication"></a>Grundläggande autentisering
+
+För den här autentiseringstypen din utlösare eller åtgärd definition kan innehålla en `authentication` JSON-objekt som har följande egenskaper:
+
+| Egenskap  | Krävs | Värde | Beskrivning | 
+|----------|----------|-------|-------------| 
+| **typ** | Ja | ”Grundläggande” | Den autentiseringstyp som använder, vilket är ”Basic” här | 
+| **användarnamn** | Ja | ”@parameters(userNameParam)” | En parameter som skickar användarnamnet för att autentisera för att komma åt tjänstslutpunkten mål |
+| **Lösenord** | Ja | ”@parameters(passwordParam)” | En parameter som skickar lösenordet för autentisering för att komma åt tjänstslutpunkten mål |
+||||| 
+
+Här är till exempel formatet för den `authentication` objekt i definitionen för utlösare eller åtgärd. Mer information om hur du skyddar parametrar finns i [skydda känslig information](#secure-info). 
+
+```javascript
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "http://www.microsoft.com",
+      "authentication": {
+         "type": "Basic",
+         "username": "@parameters('userNameParam')",
+         "password": "@parameters('passwordParam')"
+      }
+  },
+  "runAfter": {}
+}
+```
+
+<a name="client-certificate-authentication"></a>
+
+### <a name="client-certificate-authentication"></a>Autentisering av klientcertifikat
+
+För den här autentiseringstypen din utlösare eller åtgärd definition kan innehålla en `authentication` JSON-objekt som har följande egenskaper:
+
+| Egenskap  | Krävs | Värde | Beskrivning | 
+|----------|----------|-------|-------------| 
+| **typ** | Ja | ”ClientCertificate” | Autentiseringstyp för Secure Sockets Layer (SSL)-klientcertifikat | 
+| **pfx** | Ja | <*Base64-kodad-pfx-fil*> | Base64-kodad innehållet från en Personal Information Exchange (PFX)-fil |
+| **Lösenord** | Ja | ”@parameters(passwordParam)” | En parameter med lösenord för åtkomst till PFX-filen |
+||||| 
+
+Här är till exempel formatet för den `authentication` objekt i definitionen för utlösare eller åtgärd. Mer information om hur du skyddar parametrar finns i [skydda känslig information](#secure-info). 
+
+```javascript
+"authentication": {
+   "password": "@parameters('passwordParam')",
+   "pfx": "aGVsbG8g...d29ybGQ=",
+   "type": "ClientCertificate"
+}
+```
+
+<a name="azure-active-directory-oauth-authentication"></a>
+
+### <a name="azure-active-directory-ad-oauth-authentication"></a>Azure Active Directory (AD) OAuth-autentisering
+
+För den här autentiseringstypen din utlösare eller åtgärd definition kan innehålla en `authentication` JSON-objekt som har följande egenskaper:
+
+| Egenskap  | Krävs | Värde | Beskrivning | 
+|----------|----------|-------|-------------| 
+| **typ** | Ja | `ActiveDirectoryOAuth` | Den autentiseringstyp som använder, vilket är ”ActiveDirectoryOAuth” för Azure AD OAuth | 
+| **utfärdare** | Nej | <*URL-för-utfärdare-token-utfärdare*> | URL-Adressen för utfärdaren som tillhandahåller autentiseringstoken |  
+| **klient** | Ja | <*klient-ID*> | Klient-ID för Azure AD-klient | 
+| **Målgrupp** | Ja | <*resurs att auktorisera*> | Den resurs som du vill ha behörighet att använda, till exempel `https://management.core.windows.net/` | 
+| **ClientId** | Ja | <*klient-ID*> | Klient-ID för appen begär auktorisering | 
+| **credentialType** | Ja | ”Hemligheten” eller ”certifikat” | Typ av autentiseringsuppgift klienten använder för att begära tillstånd. Den här egenskapen och värdet visas inte i den underliggande definitionen, men anger de obligatoriska parametrarna för typ av autentiseringsuppgift. | 
+| **Lösenord** | Ja, endast under ”certifikat” typ av autentiseringsuppgift | ”@parameters(passwordParam)” | En parameter med lösenord för åtkomst till PFX-filen | 
+| **pfx** | Ja, endast under ”certifikat” typ av autentiseringsuppgift | <*Base64-kodad-pfx-fil*> | Base64-kodad innehållet från en Personal Information Exchange (PFX)-fil |
+| **Hemlighet** | Ja, endast för ”hemligheten” autentiseringstyp | <*hemligheten för autentisering*> | Base64-kodad hemligheten som klienten använder för begär auktorisering |
+||||| 
+
+Här är till exempel formatet för den `authentication` objekt när din utlösare eller åtgärd definition använder ”hemligheten” autentiseringstypen: Mer information om hur du skyddar parametrar finns i [skydda känslig information](#secure-info). 
+
+```javascript
+"authentication": {
+   "audience": "https://management.core.windows.net/",
+   "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
+   "secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
+   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+   "type": "ActiveDirectoryOAuth"
+}
+```
+
+<a name="secure-info"></a>
+
+## <a name="secure-sensitive-information"></a>Skydda känslig information
+
+Du kan använda parametrar för att skydda känslig information som du använder för autentisering, till exempel användarnamn och lösenord, i din utlösare och åtgärd definitioner och `@parameters()` uttrycket så att den här informationen inte visas när du har sparat din logik App. 
+
+Anta exempelvis att du använder ”grundläggande” autentisering i definitionen för utlösare eller åtgärd. Här är ett exempel `authentication` objekt som anger ett användarnamn och lösenord:
+
+```javascript
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "http://www.microsoft.com",
+      "authentication": {
+         "type": "Basic",
+         "username": "@parameters('userNameParam')",
+         "password": "@parameters('passwordParam')"
+      }
+  },
+  "runAfter": {}
+}
+```
+
+I den `parameters` för sina logikapp-definitioner, definiera parametrar som du använde i definitionen för utlösare eller åtgärd:
+
+```javascript
+"definition": {
+   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+   "actions": {
+      "HTTP": {
+      }
+   },
+   "parameters": {
+      "passwordParam": {
+         "type": "securestring"
+      },
+      "userNameParam": {
+         "type": "securestring"
+      }
+   },
+   "triggers": {
+      "HTTP": {
+      }
+   },
+   "contentVersion": "1.0.0.0",
+   "outputs": {}
+},
+```
+
+Om du skapar eller med hjälp av en Distributionsmall av Azure Resource Manager, du måste också innehålla en yttre `parameters` för din malldefinitionen. Mer information om hur du skyddar parametrar finns i [säker åtkomst till dina logikappar](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow). 
 
 ## <a name="next-steps"></a>Nästa steg
 

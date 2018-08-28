@@ -1,6 +1,6 @@
 ---
 title: Känna igen tal med hjälp av REST-API
-description: Lär dig hur du använder tal till Text i Speech-tjänsten
+description: Lär dig hur du använder tal till Text-API i Cognitive Services tal-tjänst.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 24fa3882a65bf6605444a139ad5d4ee42800a8ef
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 54cdfdeabe8b43b079ab0c2ec6280894f217fe12
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42744937"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43099949"
 ---
 # <a name="recognize-speech-by-using-the-rest-api"></a>Känna igen tal med hjälp av REST-API
 
@@ -22,15 +22,14 @@ ms.locfileid: "42744937"
 
 REST API kan användas för att identifiera kort yttranden med hjälp av en HTTP POST-begäran.
 
-REST-API: et är det enklaste sättet att känna igen tal om du inte använder ett språk som stöds av den [SDK](speech-sdk.md).
-Du kan göra en HTTP POST begäran till tjänsteslutpunkt, överför hela uttryck i brödtexten i begäran. och du får ett svar som innehåller den tolkade texten.
+REST-API: et är det enklaste sättet att känna igen tal om du inte använder ett språk som stöds av den [SDK](speech-sdk.md). Du gör en HTTP POST-begäran till tjänstslutpunkten och skickar hela uttryck i brödtexten i begäran. Du får ett svar som har den tolkade texten.
 
 > [!NOTE]
 > Yttranden är begränsade till 15 sekunder eller mindre när du använder REST-API.
 > Kolla in den [tal SDK](how-to-recognize-speech-csharp.md) för igenkänning av längre yttranden.
 
-Mer information om den **tal till Text** REST API, se [REST API: er](rest-apis.md#speech-to-text). Om du vill se hur det fungerar i praktiken kan du ladda ned den [REST API-exempel](https://github.com/Azure-Samples/SpeechToText-REST) från GitHub.
+Mer information om den **tal till Text** REST API kan du läsa den [REST API: er](rest-apis.md#speech-to-text) artikeln. Visa API: et i praktiken genom att ladda ned den [REST API-exempel](https://github.com/Azure-Samples/SpeechToText-REST) från GitHub.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Se en REST API-översikt](rest-apis.md)
+- Se den [REST API-översikt](rest-apis.md).

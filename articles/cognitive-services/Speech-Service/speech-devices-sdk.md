@@ -9,20 +9,22 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 4607c997f6c274f6b367fe3e99bf8d21deceef0d
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 97a5d00d43ac6a9d4b28ba23ca69d9b67e1bdf6f
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285501"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049807"
 ---
 # <a name="about-the-speech-devices-sdk-preview"></a>Om enheterna som tal SDK (förhandsversion)
 
-Microsoft Speech-tjänsten fungerar med en mängd olika enheter och ljud datakällor på egen hand. Nu kan du dra ditt talprogram till nästa nivå med matchande maskinvara och programvara. Tal enheter SDK är redan utformad-biblioteket tillsammans med specifika mikrofon-kompatibel maskinvara. SDK gör det enkelt att integrera din enhet med molnbaserade Microsoft Speech-tjänsten och skapa en enastående användarupplevelse för kunderna.
+Den [Microsoft Speech service](overview.md) fungerar med en mängd olika enheter och ljud datakällor. Nu kan du dra ditt talprogram till nästa nivå med matchande maskinvara och programvara. Tal Devices SDK är redan utformad-biblioteket tillsammans med ett syfte mikrofoner development Kit. Ger dig kraften att snabbt testa nya voice-scenarier, gör tal Devices SDK det enkelt att integrera din enhet molnbaserade Microsoft Speech Service och skapa en enastående användarupplevelse för kunderna. 
 
-SDK kan du skapa dina egna omgivande enheter med ett anpassat wake ord, så Låt dig ledas som initierar någon interaktion från användaren är unikt för ditt varumärke. Flera kanaler ljud använder den för att ge mer exakta taligenkänning via bruset Undertryckning, eko, längst till fältet röst och beamforming.
+SDK: N för tal enheter förbrukar den [tal SDK](speech-sdk.md), och använder tal SDK för att skicka ljud som bearbetas av våra avancerade ljud bearbetning-algoritmen från enhetens mikrofon-matris på den [Microsoft Speech Service](overview.md).  Den använder flera kanaler ljud för att ge mer exakta långt fält [taligenkänning](speech-to-text.md) via bruset Undertryckning, eko, beamforming och inaktivering genljudet.
 
-SDK: N underlättar en mängd olika voice-aktiverade scenarier, till exempel enhet till skrivordning system, i bilen eller in-home assistenter och smart talare. Du kan svara på användare med text, tala med dem i en fördefinierad eller anpassad röst, visar sökresultat, översätts till andra språk och mycket mer. 
+Tal Devices SDK kan du skapa omgivande enheter med dina egna [anpassade wake word](speech-devices-sdk-create-kws.md), så Låt dig ledas som initierar någon interaktion från användaren är unikt för ditt varumärke. 
+
+SDK: N underlättar en mängd olika voice-aktiverade scenarier, till exempel enhet till skrivordning system, i butiken eller in-home assistenter och smart talare. Du kan svara på användare med text, tala tillbaka till dem i en standard eller [anpassade röst](how-to-customize-voice-font.md), ange sökresultaten [översätta](speech-translation.md) till andra språk och mycket mer. Vi ser fram emot att se vad du skapa!
 
 
 

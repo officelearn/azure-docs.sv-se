@@ -3,18 +3,18 @@ title: Använda Pig med Hadoop med PowerShell i HDInsight - Azure
 description: Lär dig mer om att skicka Pig-jobb till ett Hadoop-kluster i HDInsight med Azure PowerShell.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: d8a729177328b2f6f4e7e75f133b91ddb4db5a61
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: ff08e632c1bfd8eb4040e4e746ce08335eba8b08
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597600"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047382"
 ---
 # <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>Använd Azure PowerShell för att köra Pig-jobb med HDInsight
 

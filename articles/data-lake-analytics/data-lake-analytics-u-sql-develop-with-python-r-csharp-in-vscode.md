@@ -1,44 +1,43 @@
 ---
 title: Utveckla U-SQL med Python, R och C# för Azure Data Lake Analytics i Visual Studio Code
-description: Lär dig mer om att använda koden bakom med Python, R och C# för att skicka jobbet i Azure Data Lake.
+description: Lär dig hur du använder koden bakom med Python, R och C# för att skicka jobbet i Azure Data Lake.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jejiang
 ms.author: jejiang
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 11/22/2017
-ms.openlocfilehash: 171aef186fd681adf9b3d92deb8691c852ea1038
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 53859f5a81cf1d797ec93e83d75df5a329590dce
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624915"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051640"
 ---
 # <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Utveckla U-SQL med Python, R och C# för Azure Data Lake Analytics i Visual Studio Code
-Lär dig hur du använder Visual Studio Code (VSCode) att skriva Python, R och C# code bakom med U-SQL och skicka jobb till Azure Data Lake-tjänsten. Mer information om Azure Data Lake-verktyg för VSCode finns [använda Azure Data Lake-verktyg för Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
+Lär dig hur du använder Visual Studio Code (VSCode) att skriva Python, R- och C# code bakom med U-SQL och skicka jobb till Azure Data Lake-tjänsten. Läs mer om Azure Data Lake-verktyg för VSCode, [använda Azure Data Lake Tools för Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
 
 Innan du skriver bakomliggande kod anpassad kod, måste du öppna en mapp eller en arbetsyta i VSCode.
 
 
-## <a name="prerequisites-for-python-and-r"></a>Krav för Python och R
+## <a name="prerequisites-for-python-and-r"></a>Krav för Python- och R
 Registrera Python och R-tillägg-sammansättningar för ADL-konto. 
 1. Öppna ditt konto i portalen.
    - Välj **Översikt**. 
    - Klicka på **exempel på skript**.
 2. Klicka på **mer**.
-3. Välj **installera tillägg för U-SQL**. 
-4. Bekräftelsemeddelandet visas när U-SQL-tillägg har installerats. 
+3. Välj **installera U-SQL-tilläggen**. 
+4. Bekräftelsemeddelande visas när U-SQL-tillägg har installerats. 
 
-  ![Ställa in miljön för python och R](./media/data-lake-analytics-data-lake-tools-for-vscode/setup-the-enrionment-for-python-and-r.png)
+  ![Konfigurera en miljö för python- och R](./media/data-lake-analytics-data-lake-tools-for-vscode/setup-the-enrionment-for-python-and-r.png)
 
   > [!Note]
-  > Bästa upplevelser i Python och R språk-tjänsten, installera VSCode Python och R-tillägget. 
+  > Installera VSCode Python- och R-tillägg för bästa upplevelser på tjänsten för Python- och R-språket. 
 
 ## <a name="develop-python-file"></a>Utveckla Python-fil
-1. Klicka på den **ny fil** på arbetsytan.
-2. Skriv koden i U-SQL. Följande är ett kodexempel.
+1. Klicka på den **ny fil** i din arbetsyta.
+2. Skriv din kod i U-SQL. Här följer ett kodexempel.
     ```U-SQL
     REFERENCE ASSEMBLY [ExtPython];
     @t  = 
@@ -59,8 +58,8 @@ Registrera Python och R-tillägg-sammansättningar för ADL-konto.
         USING Outputters.Csv();
     ```
     
-3. Högerklicka på en skriptfil och välj sedan **ADL: Generera Python koden bakom filen**. 
-4. Den **xxx.usql.py** -filen har genererats i arbetsmappen. Skriv koden i Python-fil. Följande är ett kodexempel.
+3. Högerklicka på en skriptfil och välj sedan **ADL: Generera Python-koden bakom filen**. 
+4. Den **xxx.usql.py** fil skapas i arbetsmappen. Skriv din kod i Python-fil. Här följer ett kodexempel.
 
     ```Python
     def get_mentions(tweet):
@@ -73,11 +72,11 @@ Registrera Python och R-tillägg-sammansättningar för ADL-konto.
         del df['tweet']
         return df
     ```
-5. Högerklicka i **USQL** filen som du kan klicka på **kompilera skriptet** eller **skicka jobbet** att köra jobb.
+5. Högerklicka i **USQL** -fil som du kan klicka på **kompilera skriptet** eller **skicka jobb** till att köra jobbet.
 
 ## <a name="develop-r-file"></a>Utveckla R-fil
-1. Klicka på den **ny fil** på arbetsytan.
-2. Skriv koden i U-SQL-filen. Följande är ett kodexempel.
+1. Klicka på den **ny fil** i din arbetsyta.
+2. Skriv din kod i U-SQL-filen. Här följer ett kodexempel.
     ```U-SQL
     DEPLOY RESOURCE @"/usqlext/samples/R/my_model_LM_Iris.rda";
     DECLARE @IrisData string = @"/usqlext/samples/R/iris.csv";
@@ -116,20 +115,20 @@ Registrera Python och R-tillägg-sammansättningar för ADL-konto.
     TO @OutputFilePredictions
     USING Outputters.Tsv();
     ```
-3. Högerklicka i **USQL** filen och välj sedan **ADL: Generera R-koden bakom filen**. 
-4. Den **xxx.usql.r** -filen har genererats i arbetsmappen. Skriv koden i R-filen. Följande är ett kodexempel.
+3. Högerklicka i **USQL** och väljer sedan **ADL: Generera R-koden bakom filen**. 
+4. Den **xxx.usql.r** fil skapas i arbetsmappen. Skriv din kod i R-filen. Här följer ett kodexempel.
 
     ```R
     load("my_model_LM_Iris.rda")
     outputToUSQL=data.frame(predict(lm.fit, inputFromUSQL, interval="confidence"))
     ```
-5. Högerklicka i **USQL** filen som du kan klicka på **kompilera skriptet** eller **skicka jobbet** att köra jobb.
+5. Högerklicka i **USQL** -fil som du kan klicka på **kompilera skriptet** eller **skicka jobb** till att köra jobbet.
 
 ## <a name="develop-c-file"></a>Utveckla C#-filen
-En fil med bakomliggande kod är ett C#-fil som är associerad med ett enda U-SQL-skript. Du kan definiera ett skript som är dedikerad till UDO, UDA, UDT och UDF i filen bakomliggande kod. UDO, UDA, UDT och UDF kan användas direkt i skriptet utan att registrera sammansättningen först. Bakomliggande kod filen placeras i samma mapp som dess peering U-SQL-skriptfilen. Om skriptet heter xxx.usql, heter bakomliggande kod som xxx.usql.cs. Om du manuellt ta bort filen bakomliggande kod inaktiveras funktionen bakomliggande kod för dess associerade U-SQL-skript. Mer information om hur du skriver kunden koden för U-SQL-skript finns [skrivning och använder anpassad kod i U-SQL: användardefinierade funktioner]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
+En bakomliggande kod-fil är en C#-fil som är associerad med ett enda U-SQL-skript. Du kan definiera ett skript som är dedikerad till UDO, UDA, UDT och UDF i filen bakomliggande kod. UDO, UDA, UDT och UDF kan användas direkt i skriptet utan att registrera sammansättningen först. Filen bakomliggande kod placeras i samma mapp som dess peering U-SQL-skriptfilen. Om skriptet heter xxx.usql, heter bakomliggande kod som xxx.usql.cs. Om du manuellt ta bort filen bakomliggande kod inaktiveras funktionen bakomliggande kod för dess associerade U-SQL-skript. Mer information om hur du skriver Kundkod för U-SQL-skript finns i [skriva och använda anpassad kod i U-SQL: användardefinierade funktioner]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
 
-1. Klicka på den **ny fil** på arbetsytan.
-2. Skriv koden i U-SQL-filen. Följande är ett kodexempel.
+1. Klicka på den **ny fil** i din arbetsyta.
+2. Skriv din kod i U-SQL-filen. Här följer ett kodexempel.
     ```U-SQL
     @a = 
         EXTRACT 
@@ -158,8 +157,8 @@ En fil med bakomliggande kod är ett C#-fil som är associerad med ett enda U-SQ
         TO @"/output/SearchLogtest.txt" 
         USING Outputters.Tsv();
     ```
-3. Högerklicka i **USQL** filen och välj sedan **ADL: Generera CS koden bakom filen**. 
-4. Den **xxx.usql.cs** -filen har genererats i arbetsmappen. Skriv koden i CS-filen. Följande är ett kodexempel.
+3. Högerklicka i **USQL** och väljer sedan **ADL: Generera CS koden bakom filen**. 
+4. Den **xxx.usql.cs** fil skapas i arbetsmappen. Skriv koden i CS-filen. Här följer ett kodexempel.
 
     ```CS
     namespace USQLApplication_codebehind
@@ -177,12 +176,12 @@ En fil med bakomliggande kod är ett C#-fil som är associerad med ett enda U-SQ
         }
     }
     ```
-5. Högerklicka i **USQL** filen som du kan klicka på **kompilera skriptet** eller **skicka jobbet** att köra jobb.
+5. Högerklicka i **USQL** -fil som du kan klicka på **kompilera skriptet** eller **skicka jobb** till att köra jobbet.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Använda Azure Data Lake Tools för Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
-* [Lokal U-SQL kör och lokala debug med Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md)
+* [U-SQL-lokal körning och lokal felsökning med Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md)
 * [Kom igång med Data Lake Analytics med hjälp av PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Kom igång med Data Lake Analytics med hjälp av Azure portal](data-lake-analytics-get-started-portal.md)
-* [Använd Data Lake-verktyg för Visual Studio för att utveckla U-SQL-program](data-lake-analytics-data-lake-tools-get-started.md)
-* [Använd Data Lake Analytics(U-SQL) katalog](data-lake-analytics-use-u-sql-catalog.md)
+* [Använda Data Lake Tools för Visual Studio för att utveckla U-SQL-program](data-lake-analytics-data-lake-tools-get-started.md)
+* [Använda Data Lake Analytics(U-SQL) catalog](data-lake-analytics-use-u-sql-catalog.md)

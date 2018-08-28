@@ -3,18 +3,18 @@ title: Skapa Hadoop-kluster med hjälp av Azure REST-API – Azure
 description: Lär dig hur du skapar HDInsight-kluster genom att skicka in Azure Resource Manager-mallar till Azure REST-API.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jasonh
-ms.openlocfilehash: 06aa88dec705288edfbe6fecdd92ca31807ed015
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 79ab8ad9d827b3d2dda8138260b9857f241afc45
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593425"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43094075"
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Skapa Hadoop-kluster med hjälp av Azure REST-API
 

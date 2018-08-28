@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/27/2018
 ms.author: wolfma
-ms.openlocfilehash: 05713be42d27df8f1c15537667f7e6cdbe832588
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: d874f1bd13239be16d7819ad1fa74797bd45ec1f
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39331108"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093276"
 ---
-## <a name="speech-recognition-using-a-customized-model"></a>Taligenkänning med en anpassad modell
+## <a name="speech-recognition-with-a-customized-model"></a>Taligenkänning med en anpassad modell
 
-Den [Custom Speech Service (CRIS)](https://www.cris.ai/) tillåter anpassning av Microsofts tal till text-motor för ditt program.
-Kodfragmentet nedan visar hur du känna igen tal från en mikrofon med CRIS modellen; Fyll i din prenumerationsnyckel för CRIS och din egen distribution identifiering innan den körs.
+Den [Custom Speech service (CRIS)](https://www.cris.ai/) tillåter anpassning av motorn för Microsoft-tal till text för ditt program.
+Följande kodfragment visar hur du känna igen tal från en mikrofon med hjälp av din CRIS-modell. Fyll i din prenumerationsnyckel för CRIS och din egen distribution identifiering innan du kör koden.

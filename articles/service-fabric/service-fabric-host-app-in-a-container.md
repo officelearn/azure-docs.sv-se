@@ -1,6 +1,6 @@
 ---
-title: Distribuera ett .NET-program i en behållare till Azure Service Fabric | Microsoft Docs
-description: Lär dig hur du använder en behållare med ett befintligt .NET-program med hjälp av Visual Studio och hur du felsöker behållare i Service Fabric lokalt. Programmet i behållaren skickas via push-teknik till ett Azure-behållarregister och distribueras till ett Service Fabric-kluster. När det har distribuerats till Azure använder programmet Azure SQL DB för att spara data.
+title: Distribuera ett .NET-program i en container till Azure Service Fabric | Microsoft Docs
+description: Lär dig hur du använder en container med ett befintligt .NET-program med hjälp av Visual Studio och hur du felsöker containrar i Service Fabric lokalt. Programmet i containern skickas via push-teknik till ett Azure-containerregister och distribueras till ett Service Fabric-kluster. När det har distribuerats till Azure använder programmet Azure SQL DB för att spara data.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 6fe314125440096d21a1276defd082c4e1997b8e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 50ece1d1f74ace494e6bebb84f9f121c1fad7a6c
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642690"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41918017"
 ---
-# <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Självstudiekurs: Distribuera ett .NET-program i en Windows-behållare till Azure Service Fabric
+# <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Självstudiekurs: Distribuera ett .NET-program i en Windows-container till Azure Service Fabric
 
-I den här självstudiekursen lär du dig hur du skapar en behållare för ett befintligt ASP.NET-program och hur du paketerar programmet som ett Service Fabric-program.  Kör behållarna lokalt i Service Fabric-utvecklingsklustret och distribuera sedan programmet till Azure.  Programmet sparar data i [Azure SQL Database](/azure/sql-database/sql-database-technical-overview). 
+I den här självstudiekursen lär du dig hur du skapar en container för ett befintligt ASP.NET-program och hur du paketerar programmet som ett Service Fabric-program.  Kör containrarna lokalt i Service Fabric-utvecklingsklustret och distribuera sedan programmet till Azure.  Programmet sparar data i [Azure SQL Database](/azure/sql-database/sql-database-technical-overview). 
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Använda en behållare med ett befintligt program med hjälp av Visual Studio
+> * Använda en container med ett befintligt program med hjälp av Visual Studio
 > * Skapa en Azure SQL Database
-> * Skapa ett Azure-behållarregister
+> * Skapa ett Azure-containerregister
 > * Distribuera ett Service Fabric-program till Azure
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 1. Om du inte redan har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-2. Installera [Docker CE för Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) så att du kan köra behållare i Windows 10.
+2. Installera [Docker CE för Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) så att du kan köra containrar i Windows 10.
 3. Installera [Service Fabric Runtime version 6.2 eller senare](service-fabric-get-started.md) och [Service Fabric SDK version 3.1](service-fabric-get-started.md) eller senare.
 4. [Installera Visual Studio 2017 version 15.7](https://www.visualstudio.com/) eller senare med arbetsbelastningarna **Azure Development** och **ASP.NET och webbutveckling**.
 5. Installera [Azure PowerShell][link-azure-powershell-install]
@@ -49,17 +49,17 @@ Kontrollera att Fabrikam Fiber CallCenter-programmet skapas och körs utan fel. 
 
 ![Fabrikam-webbexempel][fabrikam-web-page]
 
-## <a name="containerize-the-application"></a>Använd programmet med behållare
-Högerklicka på projektet **FabrikamFiber.Web** > **Lägg till** > **Stöd för Container Orchestrator**.  Välj **Service Fabric** som initierare för behållaren och klicka på **OK**.
+## <a name="containerize-the-application"></a>Använd programmet med en container
+Högerklicka på projektet **FabrikamFiber.Web** > **Lägg till** > **Stöd för Container Orchestrator**.  Välj **Service Fabric** som initierare för containern och klicka på **OK**.
 
-Klicka på **Ja** för att byta Docker till Windows-behållare nu.
+Klicka på **Ja** för att byta Docker till Windows-containrar nu.
 
 Ett nytt Service Fabric-programprojekt **FabrikamFiber.CallCenterApplication** skapas i lösningen.  En Dockerfile läggs till i det befintliga **FabrikamFiber.Web**-projektet.  En **PackageRoot**-katalog läggs också till i **FabrikamFiber.Web**-projektet, som innehåller tjänstmanifestet och inställningarna för den nya FabrikamFiber.Web-tjänsten. 
 
-Behållaren är du redo att byggas och paketeras i ett Service Fabric-program. När du har behållaravbildningen klar på datorn kan du lägga den i valfritt behållarregister och hämta den till valfri värd för körning.
+Containern är nu redo att byggas och paketeras i ett Service Fabric-program. När du har containeravbildningen klar på datorn kan du lägga den i valfritt containerregister och hämta den till valfri värd för körning.
 
 ## <a name="create-an-azure-sql-db"></a>Skapa en Azure SQL DB-databas
-När du kör Fabrikam Fiber CallCenter-programmet i produktion måste data sparas i en databas. Det finns för närvarande inget sätt att garantera beständiga data i en behållare. Därför kan du inte lagra produktionsdata i SQL Server i en behållare.
+När du kör Fabrikam Fiber CallCenter-programmet i produktion måste data sparas i en databas. Det finns för närvarande inget sätt att garantera beständiga data i en container. Därför kan du inte lagra produktionsdata i SQL Server i en container.
 
 Vi rekommenderar [Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell). Konfigurera och kör en hanterad SQL Server-databas i Azure genom att köra följande skript.  Ändra skriptvariablerna efter behov. *clientIP* är utvecklingsdatorns IP-adress.  Om datorn finns bakom en företagsbrandvägg kanske utvecklingsdatorns IP-adress inte exponeras mot Internet.  Du kan också ange serverns brandväggsregel för SQL-databasen på [Azure Portal](https://portal.azure.com), som visar IP-adressen för din dator.
 
@@ -111,7 +111,7 @@ Write-Host "Server name is $servername"
 ```
 
 ## <a name="update-the-web-config"></a>Uppdatera webbkonfiguration
-I projektet **FabrikamFiber.Web** uppdaterar du anslutningssträngen i filen **web.config** så att den pekar på SQL Server i behållaren.  Uppdatera *Server*-delen i anslutningssträngen för servern som skapades med föregående skript. 
+I projektet **FabrikamFiber.Web** uppdaterar du anslutningssträngen i filen **web.config** så att den pekar på SQL Server i containern.  Uppdatera *Server*-delen i anslutningssträngen för servern som skapades med föregående skript. 
 
 ```xml
 <add name="FabrikamFiber-Express" connectionString="Server=tcp:fab-fiber-1300282665.database.windows.net,1433;Initial Catalog=call-center-db;Persist Security Info=False;User ID=ServerAdmin;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />
@@ -121,12 +121,12 @@ I projektet **FabrikamFiber.Web** uppdaterar du anslutningssträngen i filen **w
 >[!NOTE]
 >Du kan använda vilken SQL-Server som helst för lokal felsökning så länge den kan nås från värden, men **localdb** stöder inte `container -> host`-kommunikation. Om du vill använda en annan SQL-databas när du skapar ett versionsbygge av ditt webbprogram, lägger du till ytterligare en anslutningssträng i filen *web.release.config*.
 
-## <a name="run-the-containerized-application-locally"></a>Kör programmet i behållaren lokalt
-Tryck på **F5** för att köra och felsöka programmet i en behållare i det lokala Service Fabric-utvecklingsklustret. Klicka på **Ja** om ett meddelande visas där du ombeds att ge gruppen 'ServiceFabricAllowedUsers' läs- och körbehörighet till katalogen Visual Studio-projekt.
+## <a name="run-the-containerized-application-locally"></a>Kör programmet i containern lokalt
+Tryck på **F5** för att köra och felsöka programmet i en container i det lokala Service Fabric-utvecklingsklustret. Klicka på **Ja** om ett meddelande visas där du ombeds att ge gruppen 'ServiceFabricAllowedUsers' läs- och körbehörighet till katalogen Visual Studio-projekt.
 
-## <a name="create-a-container-registry"></a>Skapa ett behållarregister
-Nu när programmet körs lokalt kan du börja förbereda distributionen till Azure.  Behållaravbildningar måste lagras i ett behållarregister.  Skapa ett [Azure-behållarregister](/azure/container-registry/container-registry-intro) med hjälp av följande skript. Behållarregisternamnet är synligt för andra Azure-prenumerationer så det måste vara unikt.
-Innan du distribuerar programmet till Azure skickar du behållaravbildningen via push-teknik till det här registret.  När programmet distribueras till klustret i Azure hämtas behållaravbildningen från det här registret.
+## <a name="create-a-container-registry"></a>Skapa ett containerregister
+Nu när programmet körs lokalt kan du börja förbereda distributionen till Azure.  Containeravbildningar måste lagras i ett containerregister.  Skapa ett [Azure-containerregister](/azure/container-registry/container-registry-intro) med hjälp av följande skript. Containerregisternamnet är synligt för andra Azure-prenumerationer så det måste vara unikt.
+Innan du distribuerar programmet till Azure skickar du containeravbildningen via push-teknik till det här registret.  När programmet distribueras till klustret i Azure hämtas containeravbildningen från det här registret.
 
 ```powershell
 # Variables
@@ -148,7 +148,7 @@ Du kan:
 
 I den här självstudiekursen skapar du ett kluster från Visual Studio, vilket är idealiskt för testscenarier. Om du skapar ett kluster på något annat sätt eller om du använder ett befintligt kluster kan du kopiera och klistra in anslutningens slutpunkt eller välja den från din prenumeration. 
 
-När du skapar klustret, väljer du en SKU som stöder körningsbehållare. Windows Server-operativsystemet på klusternoderna måste vara kompatibla med Windows Server-operativsystemet för din behållare. Mer information finns i [Kompatibilitet mellan operativsystem för Windows Server-operativsystem och värdoperativsystem](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). Den här guiden skapar en Docker-avbildning baserat på Windows Server 2016 LTSC som standard. Behållare som bygger på den här avbildningen kan köras på kluster som skapas med Windows Server 2016 Datacenter med behållare. Om du skapar ett kluster eller använder ett befintligt kluster baserat på Windows Server Datacenter Core 1709 med behållare, måste du ändra Windows Server-OS-avbildningen som behållaren baseras på. Öppna **Dockerfile** i projektet **FabrikamFiber.Web**, kommentera den befintliga instruktionen `FROM` (baserat på `windowsservercore-ltsc`) och avkommentera instruktionen `FROM` baserat på `windowsservercore-1709`. 
+När du skapar klustret, väljer du en SKU som stöder körningscontainrar. Windows Server-operativsystemet på klusternoderna måste vara kompatibla med Windows Server-operativsystemet för din container. Mer information finns i [Kompatibilitet mellan operativsystem för Windows Server-containrar och värdoperativsystem](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). Den här guiden skapar en Docker-avbildning baserat på Windows Server 2016 LTSC som standard. Containrar som bygger på den här avbildningen kan köras på kluster som skapas med Windows Server 2016 Datacenter med Containers. Om du skapar ett kluster eller använder ett befintligt kluster baserat på Windows Server Datacenter Core 1709 med Containers, måste du ändra Windows Server-OS-avbildningen som containern baseras på. Öppna **Dockerfile** i projektet **FabrikamFiber.Web**, kommentera den befintliga instruktionen `FROM` (baserat på `windowsservercore-ltsc`) och avkommentera instruktionen `FROM` baserat på `windowsservercore-1709`. 
 
 1. Högerklicka på **FabrikamFiber.CallCenterApplication**-programprojektet i Solution Explorer och välj **Publicera**.
 
@@ -162,7 +162,7 @@ När du skapar klustret, väljer du en SKU som stöder körningsbehållare. Wind
     2. Valfritt: Du kan ändra antalet noder. Som standard har du tre noder, vilket är det som krävs för att testa scenarier i Service Fabric.
     3. Välj fliken **Certifikat**. På den här fliken skriver du ett lösenord som ska skydda certifikatet i klustret. Med det här certifikatet blir klustret säkrare. Du kan också ändra sökvägen till den plats där du vill spara certifikatet. Visual Studio kan dessutom importera certifikatet åt dig, eftersom det är ett obligatoriskt steg för att kunna publicera programmet i klustret.
     4. Välj fliken med **information om den virtuella datorn**. Ange det lösenord som du vill använda för den Virtual Machines (VM) som ingår i klustret. Användarnamnet och lösenordet kan användas för att fjärransluta till de virtuella datorerna. Du måste också välja en virtuell datorstorlek och du kan ändra VM-avbildning om det behövs.
-    5. På fliken **Avancerat** visar du programporten som ska öppnas i belastningsutjämnaren när klustret distribueras. Öppna FabrikamFiber.Web -> PackageRoot -> ServiceManifest.xml i Solution Explorer.  Porten för webbklientdelen visas i **Slutpunkt**.  Du kan också lägga till en befintlig Application Insights-nyckel som används för att dirigera programmets loggfiler.
+    5. På fliken **Avancerat** visar du programporten som ska öppnas i lastbalanseraren när klustret distribueras. Öppna FabrikamFiber.Web -> PackageRoot -> ServiceManifest.xml i Solution Explorer.  Porten för webbklientdelen visas i **Slutpunkt**.  Du kan också lägga till en befintlig Application Insights-nyckel som används för att dirigera programmets loggfiler.
     6. När du är klar med ändringen av inställningarna väljer du knappen **Skapa**. 
 5. Åtgärden tar flera minuter. Utdatafönstret visar när klustret har skapats.
     
@@ -224,6 +224,9 @@ Följ distributionsförloppet i utdatafönstret  När programmet har distribuera
 
 ![Fabrikam-webbexempel][fabrikam-web-page-deployed]
 
+## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Konfigurera kontinuerlig integrering och distribution (CI/CD) med ett Service Fabric-kluster
+Lär dig hur du använder VSTS för att konfigurera CI/CD-programdistribution till ett Service Fabric-kluster i [Självstudie: Distribuera ett program med CI/CD till ett Service Fabric-kluster](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). Den process som beskrivs i självstudien är densamma för det här projektet (FabrikamFiber), förutom att du hoppar nedladdningen av Voting-exemplet och använder FabrikamFiber som namnet på lagringsplatsen i stället för Voting.
+
 ## <a name="clean-up-resources"></a>Rensa resurser
 När du är klar tar du bort alla resurser du skapat.  Det enklaste sättet att göra det är att ta bort resursgrupperna som innehåller Service Fabric-klustret, Azure SQL-databasen och Azure Container Registry.
 
@@ -246,12 +249,12 @@ Remove-AzureRmResourceGroup -Name $clusterresourcegroupname
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Använda en behållare med ett befintligt program med hjälp av Visual Studio
+> * Använda en container med ett befintligt program med hjälp av Visual Studio
 > * Skapa en Azure SQL Database
-> * Skapa ett Azure-behållarregister
+> * Skapa ett Azure-containerregister
 > * Distribuera ett Service Fabric-program till Azure
 
-I nästa del av kursen lär du dig att konfigurera [övervakning för behållaren](service-fabric-tutorial-monitoring-wincontainers.md).
+I nästa del av kursen lär du dig att konfigurera [övervakning för containern](service-fabric-tutorial-monitoring-wincontainers.md).
 
 
 [link-fabrikam-github]: https://aka.ms/fabrikamcontainer

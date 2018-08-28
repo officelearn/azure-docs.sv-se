@@ -1,24 +1,19 @@
 ---
-title: Förutsättningar för Azure Data Catalog | Microsoft Docs
+title: Förutsättningar för Azure Data Catalog
 description: Läs mer om vilka förutsättningar du behöver att komma igång med Azure Data Catalog.
 services: data-catalog
-documentationcenter: ''
 author: steelanddata
-manager: NA
-editor: ''
-tags: ''
+ms.author: maroche
 ms.assetid: ef497a54-dc4d-4820-b5bf-c361b64b964d
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: d34d9e49c3ad405a86e42ada9c86615a12adaa62
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 168083ed6226d8e1d55e116297dde5884875945b
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450452"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041310"
 ---
 # <a name="azure-data-catalog-prerequisites"></a>Förutsättningar för Azure Data Catalog
 

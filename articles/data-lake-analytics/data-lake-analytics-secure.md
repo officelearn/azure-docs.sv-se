@@ -1,39 +1,38 @@
 ---
-title: Säker Azure Data Lake Analytics för flera användare
-description: Lär dig hur du konfigurerar flera användare att köra jobb i Azure Data Lake Analytics.
+title: Skydda Azure Data Lake Analytics för flera användare
+description: Lär dig hur du konfigurerar flera användare för att köra jobb i Azure Data Lake Analytics.
 ms.service: data-lake-analytics
 services: data-lake-analytics
 author: matt1883
 ms.author: mahi
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: 1d92e6d0e619584dedcbc9a66450c25dd1ac8b75
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: c6b86e25602f36896855d2593952609904396879
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701421"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051592"
 ---
 # <a name="configure-user-access-to-job-information-to-job-information-in-azure-data-lake-analytics"></a>Konfigurera användaråtkomst till jobbinformation till jobbinformation i Azure Data Lake Analytics 
 
 I Azure Data Lake Analytics kan du använda flera användarkonton eller tjänstens huvudnamn för att köra jobb. 
 
-För dessa användare att se den detaljerade Jobbinformationen, måste användarna ska kunna läsa innehållet i mapparna jobb. Jobbet mappar finns i `/system/` directory. 
+För dessa samma användare att se den detaljerade Jobbinformationen, måste användarna för att kunna läsa innehållet i mapparna jobbet. Jobb-mappar som finns i `/system/` directory. 
 
-Om behörigheterna som krävs inte har konfigurerats, kan användaren se ett fel: `Graph data not available - You don't have permissions to access the graph data.` 
+Om behörigheterna som krävs inte har konfigurerats, kan användaren ser ett fel: `Graph data not available - You don't have permissions to access the graph data.` 
 
 ## <a name="configure-user-access-to-job-information"></a>Konfigurera användaråtkomst till jobbinformation
 
-Du kan använda den **guiden Lägg till användare** att konfigurera åtkomstkontrollistor för mappar. Mer information finns i [lägga till en ny användare](data-lake-analytics-manage-use-portal.md#add-a-new-user).
+Du kan använda den **guiden Lägg till användare** att konfigurera ACL: er på mapparna. Mer information finns i [lägga till en ny användare](data-lake-analytics-manage-use-portal.md#add-a-new-user).
 
-Om du behöver mer detaljerad kontroll eller behöver skript behörigheter, sedan skydda mappar enligt följande:
+Om du behöver mer detaljerad kontroll eller behovet av att skriptet behörighet, sedan skydda mappar enligt följande:
 
 1. Bevilja **köra** behörigheter (via en åtkomst ACL) på rotmappen:
    - /
    
-2. Bevilja **köra** och **läsa** behörigheter (via en ACL för åtkomst och standard ACL) på de mappar som innehåller mappar för jobbet. Till exempel för ett specifikt jobb som kördes på den 25 maj 2018 behöver mapparna komma åt:
+2. Bevilja **köra** och **läsa** behörigheter (via en åtkomst-ACL och standard-ACL) på mapparna som innehåller mappar för jobbet. Till exempel för ett specifikt jobb som körts på den 25 maj 2018 behöver mapparna komma åt:
    - / system
    - / system/jobservice
    - /system/jobservice/jobs

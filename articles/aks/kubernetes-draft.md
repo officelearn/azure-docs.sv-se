@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: iainfou
-ms.openlocfilehash: a64ada61b2edd0a5c5d2314125b7e2a23444a398
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: faffd919e1c57f2dff21c42c2294a06eb82a2c0a
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054793"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43092618"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Använda Draft med Azure Kubernetes Service (AKS)
 
-Draft är ett verktyg med öppen källkod som hjälper till att paket och distribuera programmet behållare i ett Kubernetes-kluster, så att du kan koncentrera dig på dev-cykel – topp utveckling ”inre slingan”. Draft fungerar som koden utvecklas, men innan du arrangerar versionskontroll. Med Draft, du kan snabbt distribuera om ett program till Kubernetes kodändringar inträffar. Mer information om Draft finns i den [utkast för dokumentation på Github][draft-documentation].
+Draft är ett verktyg med öppen källkod som hjälper till att paket och distribuera programmet behållare i ett Kubernetes-kluster, så att du kan koncentrera dig på rutinen dev - topp utveckling ”inre slingan”. Draft fungerar som koden utvecklas, men innan du arrangerar versionskontroll. Med Draft, du kan snabbt distribuera om ett program till Kubernetes kodändringar inträffar. Mer information om Draft finns i den [utkast för dokumentation på Github][draft-documentation].
 
 Den här artikeln visar hur du använder utkast med ett Kubernetes-kluster i AKS.
 

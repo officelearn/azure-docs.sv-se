@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 1237d6a35d279a1036bb8139dd0b0ceaa34edb7b
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 3fc00400590582d21590aadc9741cf0eaf048240
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746850"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047222"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x-preview"></a>Azure Cosmos DB-bindningar för Azure Functions 2.x (förhandsversion)
 
@@ -36,6 +36,10 @@ Den här artikeln förklarar hur du arbetar med [Azure Cosmos DB](..\cosmos-db\s
 > Den här bindningen hette ursprungligen DocumentDB. I funktioner version är 2.x, utlösare, bindningar och paketet alla namngivna Cosmos DB.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="supported-apis"></a>API: er som stöds
+
+[!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## <a name="packages---functions-2x"></a>Paket - fungerar 2.x
 
@@ -254,10 +258,7 @@ Utlösaren anger inte om ett dokument har uppdateras eller infogas, den bara inn
 
 ## <a name="input"></a>Indata
 
-Azure Cosmos DB-indatabindning hämtar ett eller flera Azure Cosmos DB-dokument och skickar dem till Indataparametern för funktionen. Dokument-ID eller frågeparametrar kan fastställas baserat på utlösare som anropar funktionen. 
-
->[!NOTE]
-> Inte använda Azure Cosmos DB indata eller utdatabindningar om du använder MongoDB API på Cosmos DB-konto. Skadade data är möjligt.
+Azure Cosmos DB-indatabindning använder SQL-API för att hämta en eller flera Azure Cosmos DB-dokument och skickar dem till Indataparametern för funktionen. Dokument-ID eller frågeparametrar kan fastställas baserat på utlösare som anropar funktionen. 
 
 ## <a name="input---examples"></a>Indata - exempel
 
@@ -1251,12 +1252,9 @@ I C# och F #-funktioner, när funktionen avslutas, sparas ändringar som görs t
 
 I JavaScript-funktioner görs uppdateringar inte automatiskt vid utloggning av funktionen. Använd i stället `context.bindings.<documentName>In` och `context.bindings.<documentName>Out` att göra uppdateringar. Se den [JavaScript exempel](#input---javascript-example).
 
-## <a name="output"></a>Utdata
+## <a name="output"></a>Resultat
 
-I Azure Cosmos DB-utdatabindning kan skriva du ett nytt dokument till en Azure Cosmos DB-databas. 
-
->[!NOTE]
-> Inte använda Azure Cosmos DB indata eller utdatabindningar om du använder MongoDB API på Cosmos DB-konto. Skadade data är möjligt.
+I Azure Cosmos DB-utdatabindning kan skriva du ett nytt dokument till en Azure Cosmos DB-databas med hjälp av SQL-API. 
 
 ## <a name="output---examples"></a>Utdata - exempel
 

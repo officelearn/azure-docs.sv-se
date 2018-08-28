@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/11/2018
+ms.date: 08/27/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 3586804a8384273e5c0589bef9c586cee162939e
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 179d5c71a309fd79c23519544d1da6bcc07cda0c
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42057664"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045008"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Hantera kostnader genom att kontrollera datavolymer och kvarhållning i Log Analytics
 
@@ -29,7 +29,7 @@ ms.locfileid: "42057664"
 > - [Analysera dataanvändning i Log Analytics](log-analytics-manage-cost-storage.md) beskriver hur du analyserar och Avisera om din dataanvändning.
 > - [Övervaka användning och uppskattade kostnader](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) beskriver hur du visar användning och beräknade kostnader för flera Azure övervakningsfunktioner för olika prissättningsmodeller. Det beskriver också hur du ändrar din prissättningsmodell.
 
-Log Analytics har utformats för skalning och stöd för insamling av, indexering och lagra stora mängder data per dag från vilken källa som helst i ditt företag eller distribueras i Azure.  Detta kan vara en primära drivande faktorn för din organisation, är kostnadseffektivitet i slutändan underliggande drivrutinen. Det är också beroende av den valda planen därför det är viktigt att förstå att kostnaden för en arbetsyta för Log Analytisc inte är bara baserat på mängden data som samlas in, och hur länge du har valt att lagra data som genereras från dina anslutna källor.  
+Log Analytics har utformats för skalning och stöd för insamling av, indexering och lagra stora mängder data per dag från vilken källa som helst i ditt företag eller distribueras i Azure.  Detta kan vara en primära drivande faktorn för din organisation, är kostnadseffektivitet i slutändan underliggande drivrutinen. Det är också beroende av den valda planen därför det är viktigt att förstå att kostnaden för en Log Analytics-arbetsytan inte är bara baserat på mängden data som samlas in, och hur länge du har valt att lagra data som genereras från dina anslutna källor.  
 
 I den här artikeln granskar vi hur du proaktivt övervakar tillväxt för volymen och lagring av data, och definiera gränser för att kontrollera de associerade kostnaderna. 
 
@@ -55,7 +55,7 @@ Det finns två sätt mängden data kan vara begränsad och hur kontrollerar dina
 Log Analytics gör det lätt att förstå vad kostnaderna förmodligen baseras på de senaste användningsmönster.  Utför följande steg om du vill göra detta.  
 
 1. Logga in på [Azure-portalen](http://portal.azure.com). 
-2. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.<br><br> ![Azure-portalen](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+2. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.<br><br> ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 3. Välj din arbetsyta i fönstret Log Analytics-prenumerationer och klicka sedan på **användning och uppskattade kostnader** från det vänstra fönstret.<br><br> ![Användning och uppskattade kostnader](media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
 
 Härifrån kan du granska din datavolym för månaden. Detta omfattar alla data tas emot och bevaras i Log Analytics-arbetsytan.  Klicka på **användningsinformation** högst upp på sidan för att visa instrumentpanelen för användning med information på datatrender volym av källa, datorer och erbjudande. Visa och ange en daglig högsta gräns eller ändra kvarhållningsperioden klickar du på **Datavolymhantering**.

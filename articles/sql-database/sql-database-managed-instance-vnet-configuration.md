@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: f634167f24c221e702696174ea86a212c535695b
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: b17749999f7903746651403c5948933332dbee5d
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42062103"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047940"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Konfigurera ett virtuellt nätverk för Azure SQL Database Managed Instance
 
@@ -39,21 +39,39 @@ Planera hur du distribuerar en hanterad instans i virtuellt nätverk med dina sv
 ## <a name="requirements"></a>Krav
 
 För att skapa en hanterad instans måste du anger ett undernät i det virtuella nätverket som uppfyller följande krav:
-- **Vara tom**: undernätet får inte innehålla andra molntjänst som är associerade med den och det får inte vara Gateway-undernätet. Du kan inte skapa Managed Instance i undernät som innehåller resurser än hanterad instans eller lägga till andra resurser i undernätet senare.
-- **Inga Nätverkssäkerhetsgrupper är**: undernätet får inte ha en Nätverkssäkerhetsgrupp som är kopplade till den.
+- **Dedikerade undernät**: undernätet får inte innehålla andra molntjänst som är associerade med den och det får inte vara Gateway-undernätet. Du kan inte skapa Managed Instance i undernät som innehåller resurser än hanterad instans eller lägga till andra resurser i undernätet senare.
+- **Inga Nätverkssäkerhetsgrupper är**: undernätet får inte ha en Nätverkssäkerhetsgrupp som är kopplade till den. 
 - **Har specifika routningstabellen**: undernätet måste ha en användare väg tabell (UDR) med 0.0.0.0/0 nästa hopp till Internet som den enda vägen tilldelade till den. Mer information finns i [skapar nödvändiga routningstabell och associerar den](#create-the-required-route-table-and-associate-it)
 3. **Valfri anpassad DNS**: om anpassad DNS anges i det virtuella nätverket, Azures rekursiva matchare IP-adress (till exempel 168.63.129.16) måste läggas till i listan. Mer information finns i [konfigurera anpassad DNS](sql-database-managed-instance-custom-dns.md).
-4. **Ingen tjänstslutpunkt**: undernätet får inte ha en tjänstslutpunkt (lagring eller Sql) som är associerade med den. Se till att tjänstslutpunkter alternativet inaktiveras när du skapar virtuella nätverk.
-5. **Tillräckligt med IP-adresser**: undernätet måste ha minst 16 IP-adresser. Mer information finns i [avgör storleken på undernätet för hanterade instanser](#determine-the-size-of-subnet-for-managed-instances)
+4. **Tjänsten har inga slutpunkter**: undernätet får inte ha en tjänstslutpunkt som är associerade med den. Kontrollera att tjänsten slutpunkter alternativet inaktiveras när du skapar virtuella nätverk.
+5. **Tillräckligt med IP-adresser**: undernätet måste ha minst 16 IP-adresser (rekommenderas minst är 32 IP-adresser). Mer information finns i [avgör storleken på undernätet för hanterade instanser](#determine-the-size-of-subnet-for-managed-instances)
 
 > [!IMPORTANT]
 > Du kan inte distribuera nya Managed Instance om målundernätet inte är kompatibel med alla föregående krav. Målets virtuella nätverket och undernätet måste hållas i enlighet med kraven för hanterad instans (före och efter distributionen), eftersom varje överträdelse kan medföra att instansen att ange felaktigt tillstånd och blir otillgänglig. Återställa från att tillstånd måste du skapa ny instans i ett virtuellt nätverk med efterlevnadsprinciperna för nätverk, återskapa nivå instansdata och Återställ dina databaser. Det här medför betydande driftavbrott för dina program.
 
+Med introduktionen av _avsikt nätverksprincip_, du kan lägga till en nätverkssäkerhetsgrupp (NSG) i ett undernät för hanterad instans när den hanterade instansen har skapats.
+
+Du kan nu använda en NSG för att begränsa IP-adressintervall som program och användare kan söka i och hantera data genom att filtrera trafik som skickas till port 1433. 
+
+> [!IMPORTANT]
+> När du konfigurerar NSG-regler som kommer fasthålla åtkomst till port 1433, måste du också att infoga den högsta prioriteten regler för inkommande trafik som visas i tabellen nedan. Annars nätverksprincip avsikt blockerar ändringen som inte är kompatibla.
+
+| NAMN       |PORT                        |PROTOKOLL|KÄLLA           |MÅL|ÅTGÄRD|
+|------------|----------------------------|--------|-----------------|-----------|------|
+|hantering  |9000, 9003, 1438, 1440, 1452|Alla     |Alla              |Alla        |Tillåt |
+|. mi_subnet   |Alla                         |Alla     |MI – UNDERNÄT        |Alla        |Tillåt |
+|health_probe|Alla                         |Alla     |AzureLoadBalancer|Alla        |Tillåt |
+
+Routning upplevelsen har också förbättrats så att förutom 0.0.0.0/0 nexthop-typen Internet-väg, kan du nu lägga till UDR för att dirigera trafik skickas till din lokala privata IP-adressintervall via vnet-gateway eller virtuell nätverksinstallation (NVA).
+
 ##  <a name="determine-the-size-of-subnet-for-managed-instances"></a>Avgör storleken på undernätet för hanterade instanser
 
-När du skapar en hanterad instans, tilldelar Azure ett antal virtuella datorer beroende på storleken för nivån som du väljer under etableringen. Eftersom de virtuella datorerna är kopplade till ditt undernät, kräver de IP-adresser. För att säkerställa hög tillgänglighet under normal drift och underhåll, kan Azure allokera fler virtuella datorer. Därför kan är antalet begärda IP-adresser i ett undernät större än antalet instanser som hanteras i det undernätet. 
+När du skapar en hanterad instans, tilldelar Azure ett antal virtuella datorer beroende på vilken nivå som du valde under etableringen. Eftersom de virtuella datorerna är kopplade till ditt undernät, kräver de IP-adresser. För att säkerställa hög tillgänglighet under normal drift och underhåll, kan Azure allokera fler virtuella datorer. Därför kan är antalet begärda IP-adresser i ett undernät större än antalet instanser som hanteras i det undernätet. 
 
 Enligt design, en hanterad instans måste ha minst 16 IP-adresser i ett undernät och använder upp till 256 IP-adresser. Du kan därmed använda nätmasker /28 /24 när du definierar dina IP-adressintervall för undernätet. 
+
+> [!IMPORTANT]
+> Storleken med 16 IP-adresser i undernätet är minst med begränsade möjligheter för att ytterligare Managed Instance-skala ut. Välja undernät med prefixet /27 eller under rekommenderas starkt. 
 
 Om du planerar att distribuera flera hanterade instanser i undernätet och behöver för att optimera på undernätets storlek, använder du parametrarna för att bilda en beräkning: 
 
@@ -62,6 +80,9 @@ Om du planerar att distribuera flera hanterade instanser i undernätet och behö
 - Varje affärskritisk instans behöver fyra adresserna
 
 **Exempel**: du planerar att ha tre generella och två företag kritiska hanterade instanser. Att innebär att du behöver 5 + 3 * 2 + 2 * 4 = 19 IP-adresser. När IP-intervall är definierade i potensen 2, måste IP-adressintervall 32 (2 ^ 5) IP-adresser. Du måste därför reservera undernätet med nätmask på/27. 
+
+> [!IMPORTANT]
+> Beräkningen ovan kommer att bli föråldrad med ytterligare förbättringar. 
 
 ## <a name="create-a-new-virtual-network-for-managed-instance-using-azure-resource-manager-deployment"></a>Skapa ett nytt virtuellt nätverk för hanterad instans med Azure Resource Manager-distribution
 
@@ -84,59 +105,6 @@ Det enklaste sättet att skapa och konfigurera ett virtuellt nätverk är att an
 
 Du kan ändra namnen på VNet och undernät och justera IP-adressintervall som är kopplade till dina nätverksresurser. När du trycker på ”Köp”-knappen, kommer det här formuläret Skapa och konfigurera din miljö. Om du inte behöver två undernät kan du ta bort standardvärdet. 
 
-## <a name="create-a-new-virtual-network-for-managed-instances-using-portal"></a>Skapa ett nytt virtuellt nätverk för hanterade instanser med hjälp av portalen
-
-Skapa ett Azure-nätverk är en förutsättning för att skapa en hanterad instans. Du kan använda Azure-portalen [PowerShell](../virtual-network/quick-create-powershell.md), eller [Azure CLI](../virtual-network/quick-create-cli.md). Följande avsnitt visar stegen med Azure portal. De information som beskrivs här gäller för var och en av dessa metoder.
-
-1. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
-2. Leta upp och klicka på **Virtual Network**, kontrollera den **Resource Manager** som är markerad för distributionsläge och klicka sedan på **Skapa**.
-
-   ![virtual network create](./media/sql-database-managed-instance-tutorial/virtual-network-create.png)
-
-3. Fyll i formuläret för virtuellt nätverk med den begärda informationen, på ett sätt som på följande skärmbild:
-
-   ![virtual network create form](./media/sql-database-managed-instance-tutorial/virtual-network-create-form.png)
-
-4. Klicka på **Skapa**.
-
-   Adressutrymmen och undernät har angetts i CIDR-notation. 
-
-   > [!IMPORTANT]
-   > Standardvärdena skapa undernät som tar alla VNet-adressutrymmet. Om du väljer det här alternativet kan du inte skapa andra resurser i det virtuella nätverket än Managed Instance. 
-
-   Den rekommenderade metoden är följande: 
-   - Beräkna undernätets storlek genom att följa [avgör storleken på undernätet för hanterad instans](#determine-the-size-of-subnet-for-managed-instances) avsnittet  
-   - Utvärdera behoven för resten av virtuellt nätverk 
-   - Fyll i VNet och undernät adressintervall därefter 
-
-   Kontrollera att alternativet tjänstslutpunkter förblir **inaktiverad**. 
-
-   ![virtual network create form](./media/sql-database-managed-instance-tutorial/service-endpoint-disabled.png)
-
-### <a name="create-the-required-route-table-and-associate-it"></a>Skapa nödvändiga routningstabell och koppla den
-
-1. Logga in på Azure Portal  
-2. Leta upp och klicka på **Routningstabell** och klicka sedan på **Skapa** på sidan Routningstabell.
-
-   ![route table create form](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
-
-3. Skapa en 0.0.0.0/0 nästa hopp till Internet-väg på ett sätt som följande skärmbilder:
-
-   ![route table add](./media/sql-database-managed-instance-tutorial/route-table-add.png)
-
-   ![route](./media/sql-database-managed-instance-tutorial/route.png)
-
-4. Koppla den här vägen till undernätet för den hanterade instansen på ett sätt som följande skärmbilder:
-
-    ![subnet](./media/sql-database-managed-instance-tutorial/subnet.png)
-
-    ![set route table](./media/sql-database-managed-instance-tutorial/set-route-table.png)
-
-    ![set route table-save](./media/sql-database-managed-instance-tutorial/set-route-table-save.png)
-
-
-När du har skapat ditt virtuella nätverk är du redo att skapa din hanterade instans.  
-
 ## <a name="modify-an-existing-virtual-network-for-managed-instances"></a>Ändra ett befintligt virtuellt nätverk för hanterade instanser 
 
 Frågor och svar i det här avsnittet visar hur du lägger till en hanterad instans till befintligt virtuellt nätverk. 
@@ -153,11 +121,24 @@ Om du vill skapa ny:
 - Följ stegen i [lägga till, ändra eller ta bort ett virtuellt nätverksundernät](../virtual-network/virtual-network-manage-subnet.md). 
 - Skapa en routingtabell som innehåller en enda post **0.0.0.0/0**, enligt nästa hopp-Internet och koppla den till undernätet för den hanterade instansen.  
 
-Om du vill skapa en hanterad instans i ett befintligt undernät: 
-- Kontrollera om undernätet är tom - det inte går att skapa en hanterad instans i ett undernät som innehåller andra resurser, inklusive Gateway-undernätet 
-- Beräkna undernätets storlek genom att följa riktlinjerna i den [avgör storleken på undernätet för hanterade instanser](#determine-the-size-of-subnet-for-managed-instances) och kontrollera att den är lämplig storlek. 
-- Kontrollera att tjänstslutpunkter inte är aktiverade på undernätet.
-- Se till att det finns inga nätverkssäkerhetsgrupper som är kopplad till undernätet 
+Om du vill skapa en hanterad instans i ett befintligt undernät, rekommenderar vi följande PowerShell-skript för att förbereda undernätet.
+```powershell
+$scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/prepare-subnet'
+
+$parameters = @{
+    subscriptionId = '<subscriptionId>'
+    resourceGroupName = '<resourceGroupName>'
+    virtualNetworkName = '<virtualNetworkName>'
+    subnetName = '<subnetName>'
+    }
+
+Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/prepareSubnet.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters
+```
+Förberedelse av undernät görs i tre enkla steg:
+
+- Verifiera – valda virtuella: inget delat och undernät verifieras för hanterad instans nätverkskraven
+- Bekräfta – användare visas en uppsättning ändringar som görs för att förbereda undernät för hanterad instans-distribution och bad om medgivande
+- Förbereda – virtuellt nätverk och undernät har konfigurerats korrekt
 
 **Har du anpassad DNS-server konfigurerad?** 
 

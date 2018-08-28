@@ -10,22 +10,22 @@ ms.suite: integration
 tags: connectors
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 94960b95e6de30159ec34b3f97bb5119cac42c35
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: ceef6c5f32372bb69f6ce789e755bc540cb12ba1
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818107"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051957"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Hantera Excel Online-data med Azure Logic Apps
 
-Du kan skapa automatiserade uppgifter och arbetsflöden baserat på dina data i Excel Online för företag eller OneDrive med Azure Logic Apps och Excel Online connector. Dina arbetsflöden kan utföra dessa åtgärder och andra med dina data, till exempel:
+Du kan skapa automatiserade uppgifter och arbetsflöden baserat på dina data i Excel Online för företag eller OneDrive med Azure Logic Apps och Excel Online connector. Den här anslutningstjänsten tillhandahåller åtgärder som hjälper dig att arbeta med dina data och hantera kalkylblad, till exempel: 
 
 * Skapa nya kalkylblad och tabeller.
 * Hämta och hantera kalkylblad, tabeller och rader.
 * Lägg till enskild rader och kolumner.
 
-Du kan inkludera åtgärder i dina logikappar som använder utdata från Excel Online åtgärder. Den här anslutningstjänsten tillhandahåller endast åtgärder, så att starta logikappen, använda en separat utlösare, som en **upprepning** utlösaren. Om du har skapat kalkylblad varje vecka kan kan du skicka e-postmeddelande om de nya kalkylblad i Office 365 Outlook-anslutningen.
+Du kan sedan använda utdata från de här åtgärderna med åtgärder för andra tjänster. Om du använder en åtgärd som skapar kalkylblad varje vecka, kan du till exempel använda en annan åtgärd som skickar e-postbekräftelsen med hjälp av Office 365 Outlook-anslutningen.
 
 Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 

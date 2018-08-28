@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: c5b26c01028e2a5746132939a2058cacdcad859f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: f4b6fafe40fe00492bac7bd6c28268321d4516db
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622110"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104363"
 ---
 # <a name="discover-and-manage-azure-resources-by-using-privileged-identity-management"></a>Identifiera och hantera Azure-resurser med hjälp av Privileged Identity Management
 
@@ -27,7 +27,7 @@ Lär dig att identifiera och hantera Azure-resurser när du använder Privileged
 När du först ställa in PIM för Azure-resurser, måste du identifiera och välj resurser som ska skyddas med PIM. Det finns ingen gräns för hur många resurser som du kan hantera med PIM. Vi rekommenderar dock att börja med dina viktigaste resurser (produktion).
 
 > [!NOTE]
-> Du kan bara söka efter och välja hantera med hjälp av PIM-prenumerationsresurser. Du kan också hantera underordnade resurser i prenumerationen när du hanterar en prenumeration i PIM.
+> Du kan bara söka efter och välja management grupp eller prenumeration resurser för att hantera med hjälp av PIM. När du hanterar en hanteringsgrupp eller i PIM-prenumeration kan hantera du också dess underordnade resurser.
 
 ## <a name="discover-resources"></a>Identifiera resurser
 

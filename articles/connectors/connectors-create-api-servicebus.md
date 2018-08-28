@@ -1,125 +1,141 @@
 ---
-title: Ställ in med Azure Service Bus-meddelanden för Logikappar i Azure | Microsoft Docs
-description: Skicka och ta emot meddelanden med logic apps med hjälp av Azure Service Bus
+title: Skicka och ta emot meddelanden med Azure Service Bus – Azure Logic Apps | Microsoft Docs
+description: Konfigurera molnmeddelandehantering med Azure Service Bus i Azure Logic Apps enterprise
 services: logic-apps
-documentationcenter: ''
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: logic-apps
-ms.date: 02/06/2018
-ms.author: ladocs
-ms.openlocfilehash: aa6ab10dded541b352bdb7c8c3a47dbbbfe6a15c
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+tags: connectors
+ms.date: 08/25/2018
+ms.openlocfilehash: 813df5b4ef37ad1264df48863aa8f0ed5a4d4789
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295476"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048782"
 ---
-# <a name="send-and-receive-messages-with-the-azure-service-bus-connector"></a>Skicka och ta emot meddelanden med Azure Service Bus-koppling
+# <a name="exchange-messages-in-the-cloud-with-azure-service-bus-and-azure-logic-apps"></a>Exchange-meddelanden i molnet med Azure Service Bus och Azure Logic Apps
 
-För att skicka och ta emot meddelanden med din logikapp, ansluta till [Azure Service Bus](https://azure.microsoft.com/services/service-bus/). Du kan utföra åtgärder, till exempel skicka till en kö och skicka till ett ämne, ta emot från en kö och ta emot från en prenumeration. Lär dig mer om [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) och [hur priser fungerar för Logic Apps utlöser](../logic-apps/logic-apps-pricing.md).
+Med Azure Logic Apps och Azure Service Bus-anslutningen kan skapa du automatiserade uppgifter och arbetsflöden som överför data, till exempel försäljning och inköpsorder, journaler och inventering förflyttningar i program för din organisation. Anslutningen inte bara övervakar, skickar, och hanterar meddelanden, men utför även åtgärder med köer, sessioner, ämnen, prenumerationer och så vidare, till exempel:
+
+* Övervakare för när meddelanden tas emot (Komplettera automatiskt) eller mottagna (peek-lock) i köer, ämnen och ämnesprenumerationer. 
+* Skicka meddelanden.
+* Skapa och ta bort ämnesprenumerationer.
+* Hantera meddelanden i köer och ämnesprenumerationer, till exempel få, hämta skjutas upp, Slutför, skjuta upp, avbrott och förlorade.
+* Förnya lås på meddelanden och sessioner i köer och ämnesprenumerationer.
+* Stäng sessioner i köer och ämnen.
+
+Du kan använda utlösare som får svar från Service Bus och göra utdata ska vara tillgängliga för andra åtgärder i dina logic apps. Du kan också ha andra åtgärder som använder utdata från Service Bus-åtgärder. Om du är nybörjare på Service Bus och Logic Apps kan du granska [vad är Azure Service Bus?](../service-bus-messaging/service-bus-messaging-overview.md) och [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du måste ha dessa artiklar som måste finnas i samma Azure-prenumerationen så att de är synliga för andra innan du kan använda Service Bus-anslutningen:
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
 
-* En [Service Bus-namnrymd och meddelandeentitet, till exempel en kö](../service-bus-messaging/service-bus-create-namespace-portal.md)
-* En [logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Ett Service Bus-namnområde och en meddelandeentitet, till exempel en kö. Om du inte har de här objekten kan du lära dig hur du [skapa Service Bus-namnområdet och en kö](../service-bus-messaging/service-bus-create-namespace-portal.md). 
+
+  Dessa objekt måste finnas i samma Azure-prenumeration som dina logikappar som använder de här objekten.
+
+* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* Logikappen där du vill använda Service Bus. Logikappen måste finnas i samma Azure-prenumeration som din service bus. Du kommer igång med Service Bus-utlösare [skapa en tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Om du vill använda en Service Bus-åtgärd, starta din logikapp med en annan utlösare, till exempel, **upprepning** utlösaren.
 
 <a name="permissions-connection-string"></a>
 
-## <a name="connect-to-azure-service-bus"></a>Ansluta till Azure Service Bus
+## <a name="check-permissions"></a>Kontrollera behörigheter
 
-Innan din logikapp kan komma åt någon tjänst, måste du skapa en [ *anslutning* ](./connectors-overview.md) mellan logikappen och tjänsten om du inte redan har gjort. Den här anslutningen ger logikappen åtkomst till data. Kontrollera dina behörigheter för din logikapp att komma åt Service Bus-kontot.
+Bekräfta att logikappen har behörighet för att komma åt Service Bus-namnområdet. 
 
-1. Logga in på [Azure Portal](https://portal.azure.com "Azure Portal"). 
+1. Logga in på [Azure Portal](https://portal.azure.com). 
 
-2. Gå till Service Bus *namnområde*, inte en specifik ”meddelandeentitet”. På sidan namnområde under **inställningar**, Välj **principer för delad åtkomst**. Under **anspråk**, kontrollera att du har **hantera** behörigheter för det namnområdet.
+2. Gå till Service Bus *namnområde*. På sidan namnområde under **inställningar**väljer **principer för delad åtkomst**. Under **anspråk**, kontrollera att du har **hantera** behörigheter för det här namnområdet
 
-   ![Hantera behörigheter för ditt Service Bus-namnområde](./media/connectors-create-api-azure-service-bus/azure-service-bus-namespace.png)
+   ![Hantera behörigheter för Service Bus-namnområdet](./media/connectors-create-api-azure-service-bus/azure-service-bus-namespace.png)
 
-3. Om du vill ange anslutningsinformationen senare manuellt kan du hämta anslutningssträngen för Service Bus-namnrymd. Välj **RootManageSharedAccessKey**. Välj kopieringsknappen bredvid din primära nyckel anslutningssträngen. Spara anslutningssträngen för senare användning.
+3. Hämta anslutningssträngen för ditt Service Bus-namnområde. Du behöver den här strängen när du anger information om din i din logikapp.
 
-   ![Kopiera anslutningssträngen för Service Bus-namnområde](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
+   1. Välj **RootManageSharedAccessKey**. 
+   
+   1. Välj på kopieringsknappen bredvid din primär anslutningssträng. Spara anslutningssträngen för senare användning.
+
+      ![Kopiera anslutningssträng för Service Bus-namnområde](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > Sök för att bekräfta om anslutningssträngen är associerat med Service Bus-namnrymd eller med en specifik entitet anslutningssträngen för den `EntityPath` parameter. Om du hittar den här parametern anslutningssträngen är för en specifik entitet och är inte rätt strängen som ska användas med din logikapp.
+   > För att bekräfta om din anslutningssträng är kopplad till ditt Service Bus-namnområde eller en meddelandeentitet, till exempel en kö, söka i anslutningssträngen för den `EntityPath` parametern. Om du hittar den här parametern anslutningssträngen är för en specifik enhet och är inte rätt strängen som ska användas med din logikapp.
 
-## <a name="trigger-workflow-when-your-service-bus-gets-new-messages"></a>Utlöser arbetsflödet när Service Bus hämtar nya meddelanden
+## <a name="add-trigger-or-action"></a>Lägg till utlösare eller åtgärd
 
-En [ *utlösaren* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) är en händelse som startar ett arbetsflöde i din logikapp. Följ dessa steg för att lägga till utlösare som identifierar dessa meddelanden om du vill starta ett arbetsflöde när nya meddelanden skickas till Service Bus.
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. I den [Azure-portalen](https://portal.azure.com "Azure-portalen"), gå till din befintliga logikapp eller skapa en tom logikapp.
+1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna logikappen i Logic App Designer, om inte redan är öppna.
 
-2. Ange ”service bus” i sökrutan som filter i Logic Apps Designer. Välj den **Service Bus** koppling. 
+1. Att lägga till en *utlösaren* till en tom logikapp i sökrutan anger du ”Azure Service Bus” som filter. Välj utlösaren som du vill under listan över utlösare. 
 
-   ![Välj Service Bus-koppling](./media/connectors-create-api-azure-service-bus/select-service-bus-connector.png) 
-
-3. Välj utlösare som du vill använda. Om du vill köra en logikapp när ett nytt objekt skickas till en Service Bus-kö, väljer du exempelvis den här utlösaren: **Service Bus - när ett meddelande tas emot i en kö (automatisk komplettering)**
+   Till exempel för att utlösa logikappen när ett nytt objekt skickas till en Service Bus-kö, Välj den här utlösaren: **när ett meddelande tas emot i en kö (Komplettera automatiskt)**
 
    ![Välj Service Bus-utlösare](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
    > [!NOTE]
-   > Vissa utlöser returnerade en eller meddelanden, som den *Service Bus - när en eller flera meddelanden tas emot i en kö (automatisk komplettering)* utlösare.
-   > När dessa utlösare eller de returnera mellan ett och antalet meddelanden som anges av utlösarens **maximalt meddelandet antal** egenskapen.
+   > Vissa utlösare kan returnera ett eller meddelanden, till exempel utlösaren **när en eller flera meddelanden anländer i en kö (Komplettera automatiskt)**. När dessa utlösare utlöses de tillbaka mellan ett och hur många meddelanden som anges av utlösarens **maximala meddelandeantalet** egenskapen.
 
-   1. Om du inte redan har en anslutning till Service Bus-namnrymd, uppmanas du att skapa den här anslutningen nu. Namnge din anslutning och välj Service Bus-namnområde som du vill använda.
+   *Alla Service Bus-utlösare är-longpolling utlösare*, vilket innebär att när utlösaren utlöses skapar utlösaren bearbetar alla meddelanden och väntar sedan 30 sekunder för fler meddelanden i kö eller ämne prenumerationen. 
+   Om inga meddelanden visas i 30 sekunder kan hoppas utlösarkörning. 
+   I annat fall fortsätter utlösaren läser meddelanden tills kön eller ämnet prenumerationen är tom. Nästa utlösaren omröstningen baseras på det återkommande intervall som anges i utlösarens egenskaper.
 
-      ![Skapa Service Bus-anslutning](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-1.png)
+1. Att lägga till en *åtgärd* i en befintlig logic app följer du dessa steg: 
 
-      Om du vill ange anslutningssträngen manuellt välja **manuellt ange anslutningsinformationen**. 
-      Läs [så att hitta anslutningssträngen](#permissions-connection-string).
-      
+   1. Under det sista steget där du vill lägga till en åtgärd, väljer **nytt steg**. 
 
-   2. Nu väljer Service Bus-principen för att använda, och välj **skapa**.
+      Om du vill lägga till en åtgärd mellan stegen, flyttar du pekaren över pilen mellan stegen. 
+      Välj plustecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+
+   1. I sökrutan anger du ”Azure Service Bus” som filter. 
+   Välj vilken åtgärd du önska under åtgärder. 
+ 
+      Till exempel väljer den här åtgärden: **skicka meddelande**
+
+      ![Välj Service Bus-åtgärd](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
+
+1. Om du vill ansluta logikappen till Service Bus-namnområdet för första gången, efterfrågas Logic App Designer nu anslutningsinformation. 
+
+   1. Ange ett namn för anslutningen och välj Service Bus-namnområdet.
+
+      ![Skapa Service Bus-anslutning, del 1](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-1.png)
+
+      För att manuellt ange anslutningssträngen i stället, Välj **ange anslutningsinformationen manuellt**. 
+      Om du inte har anslutningssträngen kan du lära dig [hitta anslutningssträngen](#permissions-connection-string).
+
+   1. Välj nu din Service Bus-princip och välj sedan **skapa**.
 
       ![Skapa Service Bus-anslutning, del 2](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-2.png)
 
-4. Välj Service Bus-kö för att använda och ställa in intervall och frekvens för när du vill söka i kön.
+1. I det här exemplet väljer du den asynkrona entitet som du vill, till exempel en kö eller ämne. I det här exemplet väljer du din Service Bus-kö. 
+   
+   ![Välj Service Bus-kö](./media/connectors-create-api-azure-service-bus/service-bus-select-queue.png)
 
-   ![Välj Service Bus-kö, konfigurera avsökningsintervall](./media/connectors-create-api-azure-service-bus/select-service-bus-queue.png)
+1. Ange informationen som krävs för din utlösare eller åtgärd. I det här exemplet gör de relevanta för din utlösare eller åtgärd: 
 
-   > [!NOTE]
-   > Alla Service Bus-utlösare **lång avsökning** utlösare, vilket innebär att när en utlösare utlöses utlösaren bearbetar alla meddelanden och väntar sedan på 30 sekunder för fler meddelanden i kö eller ett ämne prenumerationen.
-   > Om inga meddelanden tas emot i 30 sekunder ignoreras utlösare för körning. Annars fortsätter utlösaren läsa meddelanden tills kö eller ett ämne prenumerationen är tom.
-   > Nästa utlösaren omröstningen baseras på Upprepningsintervall som angetts i egenskaperna för den utlösaren.
+   * **För exemplet utlösaren**: ange avsökningsintervall och frekvens för att kontrollera kön.
 
-5. Spara din logikapp. Välj **Spara** i designerverktygsfältet.
+     ![Konfigurera avsökningsintervall](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
 
-Nu när logikappen kontrollerar den valda kön och söker efter ett nytt meddelande, körs utlösaren åtgärderna i din logikapp för meddelandet hittades.
+     När du är klar kan du fortsätta att bygga din logikapp arbetsflöde genom att lägga till de åtgärder som du vill. Du kan till exempel lägga till en åtgärd som skickar e-postmeddelande när ett nytt meddelande anländer.
+     När utlösaren kontrollerar din kö och söker efter ett nytt meddelande, körs logikappen dina valda åtgärder för meddelandet hittades.
 
-## <a name="send-messages-from-your-logic-app-to-your-service-bus"></a>Skicka meddelanden från din logikapp till Service Bus
+   * **För åtgärden exempel**: Ange meddelandeinnehåll och annan information. 
 
-En [*åtgärd*](../logic-apps/logic-apps-overview.md#logic-app-concepts) är en aktivitet som utförs av logikapparbetsflödet. När du lägger till en utlösare i logikappen kan du lägga till en åtgärd för att utföra åtgärder med data som genereras av den utlösaren. Följ dessa steg om du vill skicka ett meddelande till din Service Bus-meddelanden entitet från din logikapp.
+     ![Ange meddelandeinnehåll och information](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
 
-1. I Logic Apps Designer utlösaren, Välj under **+ nytt steg** > **lägga till en åtgärd**.
+     När du är klar kan du fortsätta att bygga din logikapp arbetsflöde genom att lägga till andra åtgärder som du vill. Du kan till exempel lägga till en åtgärd som skickar e-postmeddelande som bekräftar din meddelandet skickades.
 
-2. I sökrutan anger du ”service bus” som filter. Välj den här anslutningen: **Service Bus**
+1. Spara din logikapp. Välj **Spara** i designerverktygsfältet.
 
-   ![Välj Service Bus-koppling](./media/connectors-create-api-azure-service-bus/select-service-bus-connector-for-action.png) 
+## <a name="connector-reference"></a>Referens för anslutningsapp
 
-3. Välj den här åtgärden: **Service Bus - Send-meddelande**
-
-   ![Välj ”Service Bus - skicka meddelandet”](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png)
-
-4. Välj meddelandeentitet som heter kö eller ett ämne, att skicka meddelandet. Ange sedan innehållet i meddelandet och annan information.
-
-   ![Välj meddelandeentitet och ange meddelandeinformation](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)    
-
-5. Spara din logikapp. 
-
-Du har nu skapat en åtgärd som skickar meddelanden från din logikapp. 
-
-## <a name="connector-specific-details"></a>Connector-specifik information
-
-Om du vill veta mer om utlösare och åtgärder som definierats i Swagger-filen och alla gränser, granska den [connector information](/connectors/servicebus/).
+Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av anslutningsappens OpenAPI (tidigare Swagger) beskrivning, granska kopplingens [referenssida](/connectors/servicebus/).
 
 ## <a name="get-support"></a>Få support
 
@@ -128,4 +144,4 @@ Om du vill veta mer om utlösare och åtgärder som definierats i Swagger-filen 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [övriga kopplingar för Azure Logic apps](../connectors/apis-list.md)
+* Läs mer om andra [Logic Apps-anslutningsprogram](../connectors/apis-list.md)

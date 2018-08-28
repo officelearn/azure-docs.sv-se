@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 04/02/2018
+ms.date: 08/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 45a2747a60df4d91c2fe1c5247e1d4ac82ff819f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 2a5c192f231bdc75d04c78cd94838a3f341dc925
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617157"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43111066"
 ---
 # <a name="activate-roles-for-azure-resources-by-using-privileged-identity-management"></a>Aktivera roller för Azure-resurser med hjälp av Privileged Identity Management
 Privileged Identity Management (PIM) introducerar en ny upplevelse i Aktivera roller för Azure-resurser. Berättigade rollmedlemmar kan schemalägga aktivering för ett framtida datum och tid. De kan också välja en specifik aktiveringsvaraktighet inom den Maxtid (konfigureras av administratörer). Mer information finns i [aktivera eller inaktivera roller i Azure AD Privileged Identity Management](pim-how-to-activate-role.md).
 
-## <a name="activate-roles"></a>Aktivera roller
+## <a name="activate-a-role"></a>Aktivera en roll
 Bläddra till den **Mina roller** avsnitt i den vänstra rutan. Välj **aktivera** för den roll som du vill aktivera.
 
 ![Fliken ”berättigade roller” den ”Mina roller”-rutan.](media/azure-pim-resource-rbac/rbac-roles.png)
@@ -39,6 +39,19 @@ Om aktiveringen är schemalagd för ett framtida datum och tid, väntande begär
 
 ![Lista över väntande begäranden med ”Avbryt”-knappar](media/azure-pim-resource-rbac/rbac-activate-pending.png)
 
+## <a name="use-a-role-immediately-after-activation"></a>Använd en roll omedelbart efter aktiveringen
+
+På grund av cachelagring, görs inte aktiveringar direkt i Azure portal utan att en uppdatering. Om du vill minska risken för fördröjningar när du har aktiverat en roll kan du använda den **programåtkomst** i portalen. Program som nås från den här sidan söka efter nya rolltilldelningar omedelbart.
+
+1. Öppna Azure AD Privileged Identity Management.
+
+1. Klicka på den **programåtkomst** sidan.
+
+    ![Programåtkomst med PIM - skärmbild](./media/pim-resource-roles-activate-your-roles/pim-application-access.png)
+
+1. Klicka på **Azure-resurser** att öppna portalen på den **alla resurser** sidan.
+
+    När du klickar på den här länken du tvingar fram en uppdatering och det finns en kontroll för nya Azure-resurs-rolltilldelningar.
 
 ## <a name="apply-just-enough-administration-practices"></a>Tillämpa Just Enough Administration-metoder
 

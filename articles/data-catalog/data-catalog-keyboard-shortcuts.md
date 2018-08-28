@@ -1,63 +1,57 @@
 ---
-title: "Kortkommandon för Azure Data Catalog | Microsoft Docs"
-description: "Den här artikeln visar kortkommandon för Azure Data Catalog."
+title: Kortkommandon för Azure Data Catalog
+description: Den här artikeln visar kortkommandona för Azure Data Catalog.
 services: data-catalog
-documentationcenter: 
 author: spelluru
-manager: NA
-editor: 
-tags: 
+ms.author: spelluru
 ms.assetid: 00b77c88-fbca-4e6f-a175-d40b5cbbf144
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: spelluru
-ms.openlocfilehash: 537ed3bccf7d3306628b7a64ba0866f0e51a03e5
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 06a93b23738aa7bc5899de8b8618d824fd24c1d1
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053734"
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Kortkommandon för Azure Data Catalog
-## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Kortkommandon för Data Catalog data source registreringsverktyget
+## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Kortkommandon för Data Catalog-data source registreringsverktyget
 ### <a name="general-keyboard-shortcuts"></a>Allmänna kortkommandon
 | Åtgärd | Tryck på |
 | --- | --- |
-| Fliken för alla kontroller på en sida |Tab |
+| Fliken till alla kontroller på en sida |Tab |
 | Välj ett alternativ |Ange eller blanksteg |
 | Maximera sidan |WIN + UPPIL |
-| Återställ/Minimera sidan |WIN + NEDPIL |
-| Öppna sidan-menyn |ALT + BLANKSTEG |
+| Återställning/Minimera sidan |WIN + NEDPIL |
+| Öppna sidan menyn |ALT + BLANKSTEG |
 
 ### <a name="authentication-page"></a>Autentiseringssidan
 | Åtgärd | Tryck på |
 | --- | --- |
 | Logga in på tjänsten |ALT + S |
 
-### <a name="data-source-selection-page"></a>Datakälla på sidan för val
+### <a name="data-source-selection-page"></a>Sidan val av datakällor
 | Åtgärd | Tryck på |
 | --- | --- |
 | Gå till nästa sida (om aktiverat) |ALT + N |
-| Ändra valda typen när fokus ligger på en panel |VÄNSTER, höger, eller NEDPIL |
+| Ändra etikett när fokus ligger på en panel |VÄNSTER, uppåt, åt höger eller NEDPIL |
 
-### <a name="data-source-connection-page"></a>Datakälla på sidan för anslutning
+### <a name="data-source-connection-page"></a>Sidan anslutning datakällor
 | Åtgärd | Tryck på |
 | --- | --- |
 | Gå till föregående sida (om aktiverat) |ALT + P |
-| Välj Connect. |ALT + C |
+| Välj knappen Anslut. |ALT + C |
 
-### <a name="connection-context-page"></a>Kontexten anslutningssidan
+### <a name="connection-context-page"></a>Sida för kontexten
 | Åtgärd | Tryck på |
 | --- | --- |
-| Registrera knappen (om aktiverat) |ALT + R |
+| Knappen registrera (om aktiverat) |ALT + R |
 | Inkludera förhandsversion kryssrutan (om tillgängligt) |ALT + P |
-| Inkludera Data profil kryssrutan (om tillgängligt) |ALT + D |
-| Navigera till varje listobjekt |UPPIL eller NEDPIL |
-| Serverhierarki, expandera noden en trädvy |HÖGERPIL |
-| Flytta valda objekt för **tillgängliga objekt** eller **objekt som ska registreras** |SPACEBAR |
+| Inkludera Dataprofil kryssrutan (om tillgängligt) |ALT + D |
+| Gå till varje listobjekt |UPPIL eller NEDPIL |
+| Serverhierarki, expandera noden för en trädvy |HÖGERPIL |
+| Flytta valda objekt för **tillgängliga objekt** eller **objekt som ska registreras** |BLANKSTEG |
 
 ### <a name="publish-progress-page"></a>Publicera sidan för Installationsförlopp
 | Åtgärd | Tryck på |
@@ -77,12 +71,12 @@ ms.lasthandoff: 01/19/2018
 | --- | --- |
 | Navigera |FLIKEN och SKIFT + TABB |
 | Klicka på ett objekt |BLANKSTEG eller RETUR |
-| Bläddra till ett avsnitt |BLANKSTEG eller RETUR |
-| Avsluta utanför ett avsnitt |ESC |
-| PIN-kod/ta bort en tillgång |ALT + P |
+| Granska nedåt i ett avsnitt |BLANKSTEG eller RETUR |
+| Stänger ner ett avsnitt |ESC |
+| Fäst/ta bort en tillgång |ALT + P |
 | På sidan identifiera när en tillgång har fokus, Välj tillgång |BLANKSTEG eller RETUR |
-| Lägger till/ta bort tillgången från flerval |CTRL + BLANKSTEG eller RETUR |
-| Växla mellan menyn Sök matchningar |ALT + S |
-| Växla **öppna i** menyn |ALT + O |
+| Lägger till/ta bort tillgången från flera val |CTRL + BLANKSTEG eller RETUR |
+| Växla sökning matchar-menyn |ALT + S |
+| Visa/dölj **öppna i** menyn |ALT + O |
 | Utforska behållare, om den är en behållare |ALT + L |
 

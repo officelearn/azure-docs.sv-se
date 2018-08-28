@@ -4,16 +4,16 @@ description: Ansible-modulen och version matris för Azure
 ms.service: ansible
 keywords: ansible, roller, matris, version, azure, devops
 author: tomarcher
-manager: routlaw
+manager: jeconnoc
 ms.author: tarcher
 ms.date: 07/02/2018
 ms.topic: article
-ms.openlocfilehash: c9be94d1ea77b3609f146a373574e10b7f4d4355
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 8bbb2563991b45fe7a20ce243751c1c1a1f75b99
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859926"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43094915"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Ansible-modulen och version matris
 
@@ -64,7 +64,7 @@ Den här artikeln innehåller Ansible-moduler för Azure som kan utnyttja Azure-
 | azure_rm_storageblob                        | Ja          | Ja                         | Ja          | Ja                                 | 
 | azure_rm_managed_disk                       | Ja          | Ja                         | Ja          | Ja                                 | 
 | azure_rm_managed_disk_facts                 | Ja          | Ja                         | Ja          | Ja                                 | 
-| **Behållare**                    |           |                          |                          |                                  | 
+| **Containrar**                    |           |                          |                          |                                  | 
 | azure_rm_aks                                | -            | -                           | Ja          | Ja                                 | 
 | azure_rm_aks_facts                          | -            | -                           | Ja          | Ja                                 | 
 | azure_rm_acs                                | Ja          | Ja                         | Ja          | Ja                                 | 

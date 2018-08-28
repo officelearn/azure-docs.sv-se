@@ -1,84 +1,78 @@
 ---
-title: "Terminologi för Azure Data Catalog | Microsoft Docs"
-description: "Den här artikeln innehåller en introduktion till viktiga begrepp och termer som används i Azure Data Catalog-dokumentationen."
+title: Azure Data Catalog-terminologi
+description: Den här artikeln innehåller en introduktion till begrepp och termer som används i Azure Data Catalog-dokumentationen.
 services: data-catalog
-documentationcenter: 
 author: steelanddata
-manager: NA
-editor: 
-tags: 
+ms.author: maroche
 ms.assetid: 6fec74d9-4a3c-4b4b-88ba-cad5ad143331
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: b88abd01c2dbc302bfc0e783d1715710c6f8397c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 70772ae07c4a8a6e87b4fa6f119acf2d51a5c23e
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053490"
 ---
-# <a name="azure-data-catalog-terminology"></a>Terminologi för Azure Data Catalog
+# <a name="azure-data-catalog-terminology"></a>Azure Data Catalog-terminologi
 ## <a name="catalog"></a>Katalog
 Azure Data Catalog är en molnbaserad metadata-databasen där källor och data tillgångar kan registreras. Katalogen fungerar som en central lagringsplats för strukturella metadata som extraherats från datakällorna och beskrivande metadata som lagts till av användare.
 
 ## <a name="data-source"></a>Datakälla
-En datakälla är ett system eller en behållare som hanterar datatillgångar. Exempel: SQL Server-databaser, Oracle-databaser, SQL Server Analysis Services-databaser (tabell eller flerdimensionella) och SQL Server Reporting Services-servrar.
+En datakälla är ett system eller behållare som hanterar datatillgångar. Exempel: SQL Server-databaser, Oracle-databaser, SQL Server Analysis Services-databaser (tabell eller flerdimensionella) och SQL Server Reporting Services-servrar.
 
 ## <a name="data-asset"></a>Datatillgång
-Datatillgångar är objekt inom datakällor som kan registreras i katalogen. Exempel är SQL Server-tabeller och vyer, Oracle-tabeller och vyer, SQL Server Analysis Services åtgärder, mått och KPI: er och SQL Server Reporting Services-rapporter.
+Datatillgångar finns objekt som finns i datakällor som kan registreras i katalogen. Exempel innefattar SQL Server-tabeller och vyer, Oracle-tabeller och vyer, SQL Server Analysis Services mått, dimensioner och KPI: er och SQL Server Reporting Services-rapporter.
 
-## <a name="data-asset-location"></a>Plats för tillgångsinformation
-Katalogen lagrar platsen för en datakälla eller en datatillgång, som kan användas för att ansluta till datakällan med ett klientprogram. Formatera och information om platsen variera beroende på typ av datakälla. Till exempel framgår en SQL Server-tabell av dess fyra delnamn – servernamnet, databasnamnet, schemanamnet, objektnamn – när en SQL Server Reporting Services-rapport kan identifieras av dess URL.
+## <a name="data-asset-location"></a>Dataplats för tillgången
+Katalogen lagrar platsen för en datakälla eller en datatillgång, som kan användas för att ansluta till källan med hjälp av ett klientprogram. Formatera och information om platsen varierar beroende på typ av datakälla. Till exempel framgår en SQL Server-tabell av fyra delar namnet – servernamnet, databasnamnet, schemanamnet, objektnamn – när en SQL Server Reporting Services-rapport kan identifieras av URL: en.
 
 ## <a name="structural-metadata"></a>Strukturella metadata
-Strukturella metadata är metadata som extraherats från en datakälla som beskriver strukturen i en datatillgång. Detta inkluderar tillgångar plats, dess namn och typ och ytterligare egenskaper för typspecifika. Strukturella metadata för tabeller och vyer innehåller till exempel namn och datatyper för objektets kolumner.
+Strukturella metadata är metadata som extraherats från en datakälla som beskriver strukturen för en datatillgång. Detta inkluderar tillgångar plats, dess objektnamn och typ och ytterligare typspecifika egenskaper. Strukturella metadata för tabeller och vyer som innehåller till exempel namn och datatyper för objektets kolumner.
 
 ## <a name="descriptive-metadata"></a>Beskrivande metadata
-Beskrivande metadata är metadata som beskriver syftet och syftet med en datatillgång. Vanligtvis beskrivande metadata läggs till av katalogens användare med hjälp av Azure Data Catalog-portalen, men den även kan extraheras från datakällan under registreringen. Till exempel Azure Data Catalog registreringsverktyget extrahera beskrivningar från egenskapen beskrivning i SQL Server Analysis Services och SQL Server Reporting Services och från den [ms_description utökad egenskap](https://technet.microsoft.com/library/ms190243.aspx) i SQL Server-databaser, om de här egenskaperna är ifyllda med värden.
+Beskrivande metadata är metadata som beskriver syftet och syftet med en datatillgång. Vanligtvis beskrivande metadata läggs till av kataloganvändare med hjälp av Azure Data Catalog-portalen, men det kan också kan extraheras från datakällan under registreringen. Till exempel Azure Data Catalog-registreringsverktyget extraherar beskrivningar från egenskapen beskrivning på SQL Server Analysis Services och SQL Server Reporting Services och den [ms_description utökad egenskap](https://technet.microsoft.com/library/ms190243.aspx) i SQL Server-databaser, om de här egenskaperna är ifyllda med värden.
 
 ## <a name="request-access"></a>Begär åtkomst
-En datatillgång beskrivande metadata kan innehålla information om hur du begär åtkomst till datatillgång eller datakälla. Den här informationen visas Dataplats för tillgångsinformation och kan innehålla en eller flera av följande alternativ:
+En datatillgång beskrivande metadata kan innehålla information om hur du begär åtkomst till datatillgången eller datakälla. Den här informationen visas Dataplats för tillgången och kan innehålla en eller flera av följande alternativ:
 
-* E-postadressen för användaren eller gruppen som ansvarar för att bevilja åtkomst till datakällan.
-* URL till den dokumenterade process som användarna måste följa för att få åtkomst till datakällan.
+* E-postadress för användaren eller teamet som ansvarar för att bevilja åtkomst till datakällan.
+* URL till dokumenterade processen som användarna måste följa för att få åtkomst till datakällan.
 * URL till en identitets- och hanteringsverktyg (till exempel Microsoft Identity Manager) som kan användas för att få åtkomst till datakällan.
-* En fritext-post som beskriver hur användarna kan få åtkomst till datakällan.
+* En post med fri text som beskriver hur användarna kan få åtkomst till datakällan.
 
 ## <a name="preview"></a>Förhandsversion
-En förhandsgranskning i Azure Data Catalog är en ögonblicksbild av upp till 20 poster som kan extraheras från datakällan under registreringen och lagras i katalogen med data tillgångens metadata. Förhandsgranskningen hjälper användare som identifierar en datatillgång bättre förstå dess funktionen och syftet. Med andra ord ser exempeldata kan vara mer användbart än ser bara kolumnnamn och datatyper.
-Förhandsversioner stöds endast för tabeller och vyer och du måste uttryckligen välja av användaren under registreringen.
+En förhandsversion i Azure Data Catalog är en ögonblicksbild av upp till 20 poster som kan extraheras från datakällan under registreringen och lagras i katalogen med data tillgångens metadata. Förhandsversionen hjälper användare som identifierar en datatillgång bättre förstå dess funktionen och syftet. Med andra ord visas exempeldata kan vara mer användbart än ser bara de kolumnnamn och datatyper.
+Förhandsversioner stöds endast för tabeller och vyer och väljas uttryckligen av användaren under registreringen.
 
 ## <a name="data-profile"></a>Dataprofil
-En profil för data i Azure Data Catalog är en ögonblicksbild av tabellen nivå och på kolumnnivå metadata om en registrerade datatillgångar som kan extraheras från datakällan under registreringen och lagras i katalogen med data tillgångens metadata. Profilen data hjälper användare som identifierar en datatillgång bättre förstå dess funktionen och syftet. Liknar förhandsgranskningar, data-profiler måste uttryckligen välja av användaren under registreringen.
+En dataprofil i Azure Data Catalog är en ögonblicksbild av tabell- och kolumnnivå metadata om en registrerade datatillgångar som kan extraheras från datakällan under registreringen och lagras i katalogen med data tillgångens metadata. Dataprofil kan användare som identifierar en datatillgång bättre förstå dess funktionen och syftet. På liknande sätt som gäller för förhandsversioner, data-profiler måste uttryckligen väljas av användaren under registreringen.
 
 > [!NOTE]
-> Extrahera en data-profil kan vara en kostsam åtgärd för stora tabeller och vyer och ökar den tid som krävs för att registrera en datakälla.
+> Extrahera en dataprofil kan vara en kostsam åtgärd för stora tabeller och vyer och kan du drastiskt minska den tid som krävs för att registrera en datakälla.
 >
 >
 
 ## <a name="user-perspective"></a>Användarperspektiv
-I Azure Data Catalog kan alla användare ange beskrivande metadata för en registrerad datatillgång. Varje användare har olika perspektiv data och dess användning. Till exempel kan administratören ansvarar för en server tillhandahålla information om dess servicenivåavtal (SLA) eller windows säkerhetskopiering. en data-steward kan innehålla länkar till dokumentation för företaget och bearbetar data stöder; och en analytiker kan ange en beskrivning av villkoren som är mest relevant för andra analytiker och som kan vara mest värdefullt för de användare som behöver för att identifiera och förstå informationen.
+I Azure Data Catalog kan alla användare ange beskrivande metadata för en registrerade datatillgångar. Varje användare har en distinkt perspektiv på data och dess användning. Exempelvis kan kan administratören ansvarar för en server ge information om dess serviceavtal (SLA) eller säkerhetskopieringsfönster; en data-steward kan innehålla länkar till dokumentation för företaget och bearbetar data stöder; och en analytiker kan ange en beskrivning i villkor som är mest relevant för andra analytiker och som kan vara mest värdefullt för de användare som behöver för att identifiera och förstå data.
 
-Var och en av dessa perspektiv är natur värdefulla och med Azure Data Catalog varje användare kan ange den information som är meningsfullt för dem, även om alla användare kan använda informationen för att förstå data och dess syfte.
+Var och en av dessa perspektiv är sin natur värdefulla och med Azure Data Catalog varje användare kan ange den information som passar dem, även om alla användare kan använda informationen för att förstå data och dess syfte.
 
 ## <a name="expert"></a>Expert
-En expert är en användare som har identifierats som har ett välgrundat ”expert” perspektiv för en datatillgång. Alla användare kan lägga till sig själva eller en annan användare som en expert för en tillgång. Som listats som en expert inte förmedla ytterligare behörighet i Azure Data Catalog. tillåter användare att enkelt lokalisera dessa perspektiv som är mest kan vara användbar när du granskar beskrivande metadata för en tillgång.
+En expert är en användare som har identifierats som har en välgrundade ”experten” perspektiv för en datatillgång. Alla användare kan lägga till sig själva eller en annan användare som en expert för en tillgång. Listas som en expert inte förmedlar ytterligare behörighet i Azure Data Catalog. tillåter användare att enkelt lokalisera dessa perspektiv som mest sannolikt ska vara användbar när du granskar beskrivande metadata för en tillgång.
 
 ## <a name="owner"></a>Ägare
-En användare som har ytterligare behörigheter för att hantera en datatillgång i Azure Data Catalog är ägaren. Användare kan bli ägare till registrerade datatillgångar och ägare kan lägga till andra användare som delägare. Mer information finns i [så här hanterar du datatillgångar](data-catalog-how-to-manage.md)  
+En användare som har ytterligare behörigheter för att hantera en datatillgång i Azure Data Catalog är ägaren. Användare kan bli ägare av registrerade datatillgångar och ägare kan lägga till andra användare som Medägare. Mer information finns i [så här hanterar du datatillgångar](data-catalog-how-to-manage.md)  
 
 > [!NOTE]
-> Ägarskap och Datorhantering är endast tillgänglig i Standard Edition av Azure Data Catalog.
+> Ägarskap och hantering finns bara i Standard Edition av Azure Data Catalog.
 >
 >
 
 ## <a name="registration"></a>Registrering
-Registreringen är att extrahera data tillgångens metadata från en datakälla och kopiera den till Azure Data Catalog-tjänsten. Datatillgångar som har registrerats kan sedan kommenterats och identifieras.
+Registreringen är av extraherar data tillgångens metadata från en datakälla och kopierar den till Azure Data Catalog-tjänsten. Datatillgångar som har registrerats kan sedan kommenterade och identifieras.
 
 ## <a name="see-also"></a>Se också
-* [Vad är Azure Data Catalog?](data-catalog-what-is-data-catalog.md) -Den här artikeln innehåller en översikt över tjänsten Azure Data Catalog och dess värde scenarier som stöds.
-* [Kom igång med Azure Data Catalog](data-catalog-get-started.md) -den här artikeln innehåller en vägledning för slutpunkt-till-slutpunkt som visar hur du använder Azure Data Catalog för upptäckt av datakälla.  
+* [Vad är Azure Data Catalog?](data-catalog-what-is-data-catalog.md) – I den här artikeln innehåller en översikt över Azure Data Catalog-tjänsten och dess värde de scenarier som stöds.
+* [Kom igång med Azure Data Catalog](data-catalog-get-started.md) -den här artikeln innehåller en slutpunkt till slutpunkt-självstudie som visar hur du använder Azure Data Catalog för identifiering av datakällor.  

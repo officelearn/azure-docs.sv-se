@@ -1,6 +1,6 @@
 ---
-title: Översikt över text Analytics API - kognitiva Azure-tjänster | Microsoft Docs
-description: Text Analytics API i Azure kognitiva tjänster för sentiment analys, viktiga frasen extrahering och identifiera språk.
+title: Översikt över text Analytics - Azure Cognitive Services | Microsoft Docs
+description: Textanalys i Azure Cognitive Services för attitydanalys, extrahering av diskussionsämne, språkidentifiering och entitetslänkning.
 services: cognitive-services
 author: ashmaka
 manager: cgronlun
@@ -9,84 +9,88 @@ ms.technology: text-analytics
 ms.topic: article
 ms.date: 5/02/2018
 ms.author: ashmaka
-ms.openlocfilehash: db5ea943f270aa512afb508668aec90cc4c90df4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a514618713afe2306b6fb99b2f8c038aeac56009
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355191"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43092211"
 ---
-# <a name="what-is-text-analytics-api-version-20"></a>Vad är Text Analytics API Version 2.0?
+# <a name="what-is-text-analytics"></a>Vad är textanalys?
 
-Text Analytics API är en molnbaserad tjänst som ger avancerade naturligt språk bearbetning, över rådata text och omfattar fyra huvudsakliga funktionerna: sentiment analys, viktiga frasen extrahering, identifiera språk och länka entiteten.
+Text Analytics-tjänsten tillhandahåller avancerad bearbetning av för raw ostrukturerad text naturligt språk. Den innehåller fyra huvudfunktioner: attitydanalys, extrahering av diskussionsämne, språkidentifiering och entitetslänkning.
 
-API: et backas upp av resurser i [Microsoft kognitiva Services](https://docs.microsoft.com/azure/cognitive-services/), en samling av machine learning och AI algoritmer i molnet, lätt att använda i din utvecklingsprojekt.
+## <a name="analyze-sentiment"></a>Analysera sentiment
 
-## <a name="capabilities-in-text-analytics"></a>Funktioner i textanalys
+[Ta reda på](how-tos/text-analytics-how-to-sentiment-analysis.md) vad kunderna tycker om ditt märke eller ämne genom att analysera rå text efter ledtrådar om positiv eller negativ attityd. Den här API: T returnerar ett sentimentpoäng mellan 0 och 1 för varje dokument, där 1 är den mest positivt.<br />
+Analysis-modeller är tränats med hjälp av en omfattande mängd text och naturligt språk tekniker från Microsoft. För [valt språk](text-analytics-supported-languages.md), API: et kan analysera och bedöma alla rå text som du anger.
 
-Analys av text kan innebära olika saker, men i kognitiva tjänster, Text Analytics API innehåller fyra typer av analys enligt beskrivningen i följande tabell.
+## <a name="extract-key-phrases"></a>Extrahera nyckelfraser
 
-| Åtgärder| Beskrivning | API:er |
-|-----------|-------------|------|
-|[**Sentiment analys**](how-tos/text-analytics-how-to-sentiment-analysis.md) | Ta reda på vad kunder tycker varumärken eller avsnittet genom att analysera rådata text för ledtrådar om positiva eller negativa sentiment. Detta API returnerar en sentiment poäng mellan 0 och 1 för varje dokument, där 1 är den mest positivt.<br /> Analys-modeller är pretrained med hjälp av en omfattande uppsättning text och naturligt språk teknik från Microsoft. För [valt språk](text-analytics-supported-languages.md), API: et kan analysera och betygsätta rådata text som du anger måste returnera resultat direkt till det anropande programmet. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) <br /> [.NET](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package)  |
-|[**Viktiga frasen extrahering**](how-tos/text-analytics-how-to-keyword-extraction.md) | Extrahera automatiskt viktiga fraser för att snabbt identifiera de huvudsakliga delarna. Till exempel för indatatexten ”mat har delikat och det fanns fantastiska personal” API: N returnerar de viktigaste aspekterna prata: ”Mat” och ”fantastiska personal”.  | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) <br /> [.NET](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) |
-|[**Identifiera språk**](how-tos/text-analytics-how-to-language-detection.md) | Identifiera vilka språk som indatatexten är skriven i för upp till 120 språk och rapportera en enda språkkod för varje dokument som skickades i begäran. Språkkoden paras ihop med en poäng som anger styrkan hos poängen. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) <br />  [.NET](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) | 
-|[**Entitet som länkar (förhandsgranskning)**](how-tos/text-analytics-how-to-entity-linking.md) | Identifiera kända enheter i din text och en länk till mer information på webben. Entiteten länka känner igen och disambiguates när en term som används som en separat kan särskiljas entiteter, verb och andra word-formulär. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) | 
+Automatiskt [extrahera nyckelfraser](how-tos/text-analytics-how-to-keyword-extraction.md) att snabbt identifiera huvudändamålen. Till exempel få indatatexten ”livsmedelskedjan var härligt och det fanns underbar personal”, Text Analytics-tjänsten returnerar de huvudsakliga samtalsämnen: ”Mat” och ”underbar personal”.
+
+## <a name="detect-language"></a>Identifiera språk
+
+För upp till 120 språk [identifiera](how-tos/text-analytics-how-to-language-detection.md) vilka språk som indatatexten är skriven i och rapportera en enda språkkod för varje dokument som skickats på begäran. Språkkoden är kopplad till ett värde som anger styrkan hos poängen.
+
+## <a name="identify-linked-entities-preview"></a>Identifiera länkade entiteter (förhandsversion)
+
+[Identifiera](how-tos/text-analytics-how-to-entity-linking.md) välkända entiteter i din text och en länk till mer information på webben. Entitetslänkning känner igen och disambiguates när en term som används som en av olika entiteter, verb och andra ordformer.
 
 ## <a name="typical-workflow"></a>Typiskt arbetsflöde
 
-Arbetsflödet är enkel: du kan skicka data för analys och referensen utdata i koden. Analyzers förbrukas som-är utan ytterligare konfiguration eller anpassning.
+Arbetsflödet är enkel: du skickar data för analys och referensen utdata i din kod. Analysverktyg förbrukas som – är utan ytterligare konfiguration eller anpassning.
 
-1. [Registrera dig](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för en [åtkomstnyckeln](how-tos/text-analytics-how-to-access-key.md). Nyckeln måste skickas för varje begäran.
+1. [Registrera dig](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för en [åtkomstnyckel](how-tos/text-analytics-how-to-access-key.md). Nyckeln måste skickas för varje begäran.
 
-2. [Formulera en begäran](how-tos/text-analytics-how-to-call-api.md#json-schema) som innehåller data som rådata Ostrukturerade text i JSON.
+2. [Skapa en begäran om](how-tos/text-analytics-how-to-call-api.md#json-schema) i JSON som innehåller dina data som raw ostrukturerad text.
 
-3. Efter begäran till slutpunkten som fastställts under registreringen, lägga till en resurs: sentiment analys, viktiga frasen extrahering, identifiera språk eller enhetens identifiering.
+3. Skicka begäran till slutpunkten som fastställts under registrering, lägga till API: et som du vill anropa: attitydanalys, extrahering av diskussionsämne, språkidentifiering eller enhetens identifiering.
 
-4. Strömma eller lagra svaret lokalt. Beroende på begäran är resultatet en sentiment poäng, en samling av extraherade viktiga fraser eller en språkkod.
+4. Stream eller lagra svaren lokalt. Beroende på begäran är resultatet ett sentimentpoäng, extrahera nyckelfraser en samling eller en språkkod.
 
-Resultatet returneras som ett enskilt JSON-dokument med resultat för varje text-dokumentet du skickat, baserat på-ID. Därefter kan du analysera, visualisera eller kategorisera resultaten i tillämplig insikter.
+Utdata returneras som ett enda JSON-dokument med resultat för varje textdokument som du har lagt upp baserat på-ID. Du kan sedan analysera, visualisera eller kategorisera resultaten till användbara insikter.
 
-Data lagras inte i ditt konto. Åtgärder som utförs av Text Analytics API är tillståndslös, vilket innebär att den text som du anger ska bearbetas och resultat returneras omedelbart.
-
-<a name="supported-languages"></a>
-
-## <a name="supported-languages"></a>Språk som stöds
-
-Det här avsnittet har flyttats till en separat artikel för bättre synlighet. Referera till [språk som stöds i Text Analytics API](text-analytics-supported-languages.md) för det här innehållet.
+Åtgärder som utförs av Text Analytics-tjänsten är tillståndslösa. Data lagras inte i ditt konto.
 
 <a name="data-limits"></a>
 
-## <a name="data-limits"></a>Databegränsningar
+## <a name="specifications"></a>Specifikationer
 
-Alla Text Analytics API-slutpunkter acceptera rådata textdata. Den aktuella gränsen är 5 000 tecken för varje dokument. Om du behöver analysera större dokument kan du dela upp dem i mindre delar. Om du fortfarande behöver en högre gräns [kontaktar du oss](https://azure.microsoft.com/overview/sales-number/) så att vi kan diskutera dina krav.
+### <a name="supported-languages"></a>Språk som stöds
+
+Se [språk som stöds i textanalys](text-analytics-supported-languages.md).
+
+### <a name="data-limits"></a>Databegränsningar
+
+Alla tjänstslutpunkter textanalys accepterar rå textdata. Den aktuella gränsen är 5 000 tecken för varje dokument. Om du behöver analysera större dokument kan du dela upp dem i mindre segment. Om du fortfarande behöver en högre gräns [Kontakta oss](https://azure.microsoft.com/overview/sales-number/) så att vi kan diskutera dina krav.
 
 | Gräns | Värde |
 |------------------------|---------------|
-| Maximal storlek för ett enskilt dokument | 5 000 tecken med `String.Length`. |
+| Maximal storlek på ett enskilt dokument | 5 000 tecken enligt `String.Length`. |
 | Maximal storlek på hela begäran | 1 MB |
-| Maximalt antal dokument i en begäran | 1 000 dokument |
+| Högsta antalet dokument i en begäran | 1 000 dokument |
 
-Gräns för överföringshastigheten är 100 anrop per minut. Observera att du kan skicka ett stort antal dokument i ett enda anrop (upp till 1 000 dokument).
+Gräns för överföringshastigheten i är 100 anrop per minut. Observera att du kan skicka ett stort antal dokument i ett enda anrop (upp till 1 000 dokument).
 
-## <a name="unicode-encoding"></a>Unicode-kodning
+### <a name="unicode-encoding"></a>Unicode-kodning
 
-API: et för Text Analytics använder Unicode-kodning för textrepresentationen och tecknet antal beräkningar. Du kan skicka begäranden i både UTF-8 och UTF-16 med några mätbara skillnader i antal tecken. Unicode-kodpunkter används som heuristik för tecken och betraktas som motsvarande i syfte att databegränsningar för text analytics. Om du använder `String.Length` för att få teckenantalet du använder samma metod som vi använder för att mäta datastorleken.
+Text Analytics-tjänsten använder Unicode-kodning för textrepresentationen och tecknet antal beräkningar. Du kan skicka begäranden i UTF-8- eller UTF-16, med inga mätbara skillnader i antal tecken. Om du använder `String.Length` teckenantalet får du använder samma metod som vi använder för att mäta datastorlek.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Först och försök den [interaktiva demo](https://azure.microsoft.com/services/cognitive-services/text-analytics/). Du kan klistra in en textinmatning (högst 5 000 tecken) för att identifiera språk (upp till 120), beräkna en sentiment poäng eller extrahera nyckeln fraser. Ingen registrering krävs.
+Försök först den [Interaktiv demo](https://azure.microsoft.com/services/cognitive-services/text-analytics/). Du kan klistra in textinmatning (5 000 tecken maximalt) för att identifiera språk (upp till 120), beräkna ett sentimentpoäng, extrahera nyckelfraser eller identifiera länkade entiteter. Utan att behöva registrera är nödvändigt.
 
-När du är redo att anropa API: et direkt:
+När du är redo att anropa tjänsten Text Analytics direkt:
 
-+ [Registrera dig](how-tos/text-analytics-how-to-signup.md) för en nyckel och gå igenom stegen för [anropar API: et](how-tos/text-analytics-how-to-call-api.md).
++ [Registrera dig](how-tos/text-analytics-how-to-signup.md) för en nyckel och gå igenom stegen för [anropa API](how-tos/text-analytics-how-to-call-api.md).
 
-+ [Snabbstart](quickstarts/csharp.md) är en genomgång av REST API-anrop skrivna i C#. Lär dig mer om att skicka text, Välj en analys och visa resultat med minimal kod.
++ [Snabbstart](quickstarts/csharp.md) är en genomgång av REST API-anrop skrivet i C#. Lär dig mer om att skicka text, Välj en analys och visa resultat med minimal kod.
 
-+ [API-referensdokumentation](//go.microsoft.com/fwlink/?LinkID=759346) ger den tekniska dokumentationen för API: erna. I dokumentationen stöder inbäddade anrop så att du kan anropa API: et från varje dokumentationssida.
++ [API-referensdokumentation](//go.microsoft.com/fwlink/?LinkID=759346) innehåller den tekniska dokumentationen för REST-API: er. Dokumentationen har stöd för inbäddade anrop, så du kan anropa API: et från varje dokumentationssidan.
 
-+ [Externa & Community-innehåll](text-analytics-resource-external-community.md) innehåller en lista över blogginlägg och videor som visar hur du använder textanalys med andra verktyg och tekniker.
++ [Externa & Community Content](text-analytics-resource-external-community.md) innehåller en lista över blogginlägg och videor som visar hur du använder Text Analytics med andra verktyg och tekniker.
 
 ## <a name="see-also"></a>Se också
 
- [Kognitiva dokumentationssidan för tjänster](https://docs.microsoft.com/azure/cognitive-services/)
+ [Dokumentationssidan för cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)

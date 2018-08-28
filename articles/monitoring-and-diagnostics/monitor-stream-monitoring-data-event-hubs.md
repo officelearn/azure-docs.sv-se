@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/31/2018
+ms.date: 8/21/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 2990ba290dfdaf45d8a341138ea515bad16d5b30
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: e4bbf86c6cb7e827672fe279e86c8d3fd76e8e8b
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628179"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049132"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stream Azure-övervakningsdata till en händelsehubb för användning av något externt verktyg
 
@@ -48,26 +48,26 @@ Innan du börjar måste du [skapa ett Event Hubs-namnområde och en händelsehub
 
 Se även de [Azure Event Hubs vanliga frågor och svar](../event-hubs/event-hubs-faq.md).
 
-## <a name="how-do-i-set-up-azure-tenant-monitoring-data-to-be-streamed-to-an-event-hub"></a>Hur ställer jag in Azure-klient övervakningsdata strömmas till en event hub?
+## <a name="azure-tenant-monitoring-data"></a>Azure-klient övervakningsdata
 
 Azure-klient övervakningsdata är för närvarande endast tillgängliga för Azure Active Directory. Du kan använda data från [Azure Active Directory-rapportering](../active-directory/reports-monitoring/overview-reports.md), som innehåller historik över inloggning aktivitet och granska spårning av ändringar som gjorts i en viss klient.
 
-### <a name="stream-azure-active-directory-data-into-an-event-hub"></a>Stream Azure Active Directory-data i en händelsehubb
+### <a name="azure-active-directory-data"></a>Azure Active Directory-data
 
 Om du vill skicka data från Azure Active Directory-loggen i ett Event Hubs-namnområde måste konfigurera du en diagnostikinställning för klient på din AAD-klient. [Den här guiden](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md) att ställa in en diagnostikinställning för klienten.
 
-## <a name="how-do-i-set-up-azure-subscription-monitoring-data-to-be-streamed-to-an-event-hub"></a>Hur ställer jag in Azure-prenumeration övervakningsdata strömmas till en event hub?
+## <a name="azure-subscription-monitoring-data"></a>Azure-prenumeration övervakningsdata
 
 Azure-prenumeration övervakningsdata är tillgängliga i den [Azure-aktivitetsloggen](./monitoring-overview-activity-logs.md). Innehåller skapa, uppdatera och ta bort från Resource Manager, ändringar i [Azure tjänstehälsa](../service-health/service-health-overview.md) som kan påverka resurser i din prenumeration, de [resurshälsa](../service-health/resource-health-overview.md) tillstånd övergångar och flera andra typer av händelser på prenumerationsnivå. [Den här artikeln beskriver alla typer av händelser som visas i Azure-aktivitetsloggen](./monitoring-activity-log-schema.md).
 
-### <a name="stream-azure-activity-log-data-into-an-event-hub"></a>Stream Azure aktivitetsloggdata till en händelsehubb
+### <a name="activity-log-data"></a>Aktivitetsloggdata
 
 Om du vill skicka data från Azure-aktivitetsloggen till Event Hubs-namnområdet, ställer du in en logg för din prenumeration. [Den här guiden](./monitoring-stream-activity-logs-event-hubs.md) att ställa in en logg-profil på din prenumeration. Göra detta en gång per prenumeration som du vill övervaka.
 
 > [!TIP]
 > En logg-profil kan för närvarande du bara välja ett namnområde för Event Hubs, där en händelsehubb skapas med de namnet ”insights-operational-logs”. Det går inte ännu att ange ditt eget namn på händelsehubb i en logg-profil.
 
-## <a name="how-do-i-set-up-azure-resource-monitoring-data-to-be-streamed-to-an-event-hub"></a>Hur ställer jag in Azure-resurs övervakningsdata strömmas till en event hub?
+## <a name="azure-resource-metrics-and-diagnostics-logs"></a>Azure-resurs mått och diagnostik för loggar
 
 Azure-resurser genererar två typer av övervakning av data:
 1. [Resursdiagnostikloggar](./monitoring-overview-of-diagnostic-logs.md)
@@ -78,25 +78,25 @@ Båda typerna av data skickas till en händelsehubb med en resursdiagnostikinst�
 > [!TIP]
 > Du kan använda Azure Policy för att säkerställa att alla resurser inom ett visst omfång alltid är konfigurerad med en diagnostikinställning [med effekten DeployIfNotExists i principregeln](../azure-policy/policy-definition.md#policy-rule). Idag stöds DeployIfNotExists bara på inbyggda principer.
 
-## <a name="how-do-i-set-up-guest-os-monitoring-data-to-be-streamed-to-an-event-hub"></a>Hur ställer jag in övervakningsdata för gäst-OS strömmas till en event hub?
+## <a name="guest-os-data"></a>Gäst-OS-data
 
 Du måste installera en agent för att skicka guest OS övervakningsdata i en händelsehubb. För Windows eller Linux anger du de data som du vill ska skickas till event hub och event hub som data ska skickas i en konfigurationsfil och skicka konfigurationsfilen till agenten som körs på den virtuella datorn.
 
-### <a name="stream-linux-data-to-an-event-hub"></a>Stream Linux data till en händelsehubb
+### <a name="linux-data"></a>Linux-data
 
 Den [Linux Azure diagnostikagenten](../virtual-machines/extensions/diagnostics-linux.md) kan användas för att skicka övervakningsdata från en Linux-dator till en händelsehubb. Gör detta genom att lägga till event hub som en mottagare i din LAD skyddade inställningar för konfigurationsfiler JSON. [Se den här artikeln om du vill veta mer om att lägga till event hub-mottagare i din Linux Azure diagnostikagenten](../virtual-machines/extensions/diagnostics-linux.md#protected-settings).
 
 > [!NOTE]
 > Du kan inte konfigurera strömning av gäst-OS övervakade data till en händelsehubb i portalen. I stället måste du manuellt redigera konfigurationsfilen.
 
-### <a name="stream-windows-data-to-an-event-hub"></a>Stream Windows data till en händelsehubb
+### <a name="windows-data"></a>Windows-data
 
 Den [Windows Azure Diagnostics-agenten](./azure-diagnostics.md) kan användas för att skicka övervakningsdata från en Windows-dator till en händelsehubb. Gör detta genom att lägga till event hub som en mottagare i din privateConfig-avsnittet i konfigurationsfilen WAD. [Se den här artikeln om du vill veta mer om att lägga till event hub-mottagare i din Windows Azure Diagnostics-agenten](./azure-diagnostics-streaming-event-hubs.md).
 
 > [!NOTE]
 > Du kan inte konfigurera strömning av gäst-OS övervakade data till en händelsehubb i portalen. I stället måste du manuellt redigera konfigurationsfilen.
 
-## <a name="how-do-i-set-up-application-monitoring-data-to-be-streamed-to-event-hub"></a>Hur ställer jag in programmet övervakningsdata strömmas till event hub?
+## <a name="application-monitoring-data"></a>Program övervakade data
 
 Programmet övervakningsdata kräver att koden är utrustade med ett SDK, så det finns en allmänna lösning till routning program övervakning av data till en händelsehubb i Azure. Dock [Azure Application Insights](../application-insights/app-insights-overview.md) är en tjänst som kan användas för att samla in data för Azure på programnivå. Om du använder Application Insights kan du strömma övervakningsdata till en händelsehubb genom att göra följande:
 

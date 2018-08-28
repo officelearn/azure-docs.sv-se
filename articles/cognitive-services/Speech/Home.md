@@ -9,12 +9,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
-ms.openlocfilehash: ee328145419aaf8962c08bca2fb9cf1a42daae0c
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: d58642b95a60d4f1c83dfd969d0c76511dca4653
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41994401"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43097403"
 ---
 # <a name="microsoft-bing-speech-api-overview"></a>Översikt över Microsoft Bing-Taligenkänning
 
@@ -24,7 +24,7 @@ Molnbaserade Microsoft Bing Speech API får utvecklare ett enkelt sätt att skap
 - **Text till tal** API: texten omvandlas till ljudströmmar som kan spelas upp för användare av ditt program.
 
 > [!NOTE] 
-> I maj 2018 släppte vi den nya [taltjänst](/speech-service/overview.md) i offentlig förhandsversion. Vi rekommenderar att du [prova det kostnadsfritt](/speech-service/get-started.md).
+> I maj 2018 släppte vi den nya [taltjänst](../speech-service/overview.md) i offentlig förhandsversion. Vi rekommenderar att du [prova det kostnadsfritt](../speech-service/get-started.md).
 
 ## <a name="speech-to-text-speech-recognition"></a>Tal till text (Taligenkänning)
 

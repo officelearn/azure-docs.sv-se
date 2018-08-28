@@ -2,18 +2,18 @@
 title: Optimera klusterkonfigurationer med Ambari - Azure HDInsight
 description: Använda Ambari-webbgränssnittet för att konfigurera och optimera HDInsight-kluster.
 author: ashishthaps
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: a516f1a22f4bb802d1b0c93b38dd36b56e2b5e0e
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 73fdd3f221e35bc1e0b0904bdbbaa63525ba4be3
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716186"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105481"
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Använda Ambari och optimera klusterkonfigurationer för HDInsight
 

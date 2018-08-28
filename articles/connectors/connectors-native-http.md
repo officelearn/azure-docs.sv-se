@@ -1,220 +1,91 @@
 ---
-title: Kommunicerar med valfri slutpunkt över HTTP - Azure Logic Apps | Microsoft Docs
-description: Skapa logikappar som kan kommunicera med valfri slutpunkt över HTTP
+title: Ansluta till alla HTTP-slutpunkt med Azure Logic Apps | Microsoft Docs
+description: Automatisera uppgifter och arbetsflöden som kommunicerar med valfri HTTP-slutpunkt med hjälp av Azure Logic Apps
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-tags: connectors
-ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/15/2016
-ms.author: jehollan; LADocs
-ms.openlocfilehash: 452af4facd03ce2b4f010a29acc0122241df63c1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+tags: connectors
+ms.date: 08/25/2018
+ms.openlocfilehash: e1561e3be95847efccf487c96bd9c9a8104f161b
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296432"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106456"
 ---
-# <a name="get-started-with-the-http-action"></a>Kom igång med HTTP-åtgärd
+# <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Anropa HTTP eller HTTPS-slutpunkter med Azure Logic Apps
 
-Med HTTP-åtgärd kan du utöka arbetsflöden för din organisation, och kommunicera med valfri slutpunkt via HTTP.
+Med Azure Logic Apps och Hypertext Transfer Protocol (HTTP)-anslutningstjänsten kan automatisera du arbetsflöden som kommunicerar med HTTP eller HTTPS-slutpunkten genom att skapa logikappar. Du kan till exempel övervaka tjänstslutpunkten för din webbplats. När en händelse inträffar vid den slutpunkten, till exempel din webbplats slutar fungera, händelsen utlöses logikappens arbetsflöde och kör de angivna åtgärderna. 
 
-Du kan:
+Du kan använda HTTP-utlösaren som det första steget i din arbetsflödet för att kontrollera eller *avsökning* en slutpunkt med jämna mellanrum. För varje kontroll utlösaren skickar ett anrop eller *begäran* till slutpunkten. Slutpunktens svaret avgör om din logikapp arbetsflödet körs. Utlösaren skickar med innehåll från svaret till åtgärder i din logikapp. 
 
-* Skapa logik app arbetsflöden som aktiverar (utlösare) när en webbplats som du hanterar kraschar.
-* Valfri slutpunkt att kommunicera via HTTP utökar dina arbetsflöden till andra tjänster.
+Du kan använda HTTP-åtgärden som andra steg i arbetsflödet för att anropa slutpunkten när du vill. Slutpunktens svaret avgör hur din återstående arbetsflödesåtgärder köras.
 
-Om du vill komma igång med HTTP-åtgärden i en logikapp, se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="use-the-http-trigger"></a>Använda HTTP-utlösare
-En utlösare är en händelse som kan användas för att starta arbetsflödet som definieras i en logikapp. [Mer information om utlösare](connectors-overview.md).
+## <a name="prerequisites"></a>Förutsättningar
 
-Här är en Exempelsekvens av hur du ställer in HTTP-utlösaren i logik App Designer.
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
 
-1. Lägga till HTTP-utlösaren i din logikapp.
-2. Fyll i parametrarna för den HTTP-slutpunkt som du vill söka.
-3. Ändra upprepningsintervallet på hur ofta den ska avsöka.
+* URL-Adressen för slutpunkten som mål som du vill anropa 
 
-   Logikappen utlöses nu med allt innehåll som returneras vid varje kontroll.
+* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-   ![HTTP-utlösare](./media/connectors-native-http/using-trigger.png)
+* Logikappen som du vill att anropa mål-slutpunkt för att börja med HTTP-utlösare från [skapa en tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Starta din logikapp med en utlösare för att använda HTTP-åtgärden.
 
-### <a name="how-the-http-trigger-works"></a>Så här fungerar HTTP-utlösare
+## <a name="add-http-trigger"></a>Lägg till HTTP-utlösare
 
-HTTP-utlösaren skickar ett anrop till HTTP-slutpunkten med återkommande intervall. Som standard gör HTTP-svarskoden som är lägre än 300 en logikapp ska köras. Du kan redigera logikappen i kodvy och Lägg till ett villkor som utvärderar efter HTTP-anrop för att ange om logikappen ska utlösas. Här är ett exempel på en HTTP-utlösare som utlöses när den returnerade statuskoden är större än eller lika med `400`.
+1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna logikappen tom i Logic App Designer, om inte redan är öppna.
 
-```javascript
-"Http":
-{
-    "conditions": [
-        {
-            "expression": "@greaterOrEquals(triggerOutputs()['statusCode'], 400)"
-        }
-    ],
-    "inputs": {
-        "method": "GET",
-        "uri": "https://blogs.msdn.microsoft.com/logicapps/",
-        "headers": {
-            "accept-language": "en"
-        }
-    },
-    "recurrence": {
-        "frequency": "Second",
-        "interval": 15
-    },
-    "type": "Http"
-}
-```
+1. I sökrutan anger du ”http” som filter. Under listan över utlösare, väljer du den **HTTP** utlösaren. 
 
-Fullständig information om HTTP-utlösaren parametrar finns på [MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx#HTTP-trigger).
+   ![Välj HTTP-utlösare](./media/connectors-native-http/select-http-trigger.png)
 
-## <a name="use-the-http-action"></a>Använd HTTP-åtgärd
+1. Ange den [HTTP-utlösare parametrar och värden](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) du vill ska ingå i anropet till mål-slutpunkten. Konfigurera upprepningen för hur ofta du vill att utlösaren för att kontrollera target endpont.
 
-En åtgärd är en åtgärd som utförs av arbetsflödet som definieras i en logikapp. 
-[Mer information om åtgärder](connectors-overview.md).
+   ![Ange parametrar för HTTP-utlösare](./media/connectors-native-http/http-trigger-parameters.png)
 
-1. Välj **nytt steg** > **lägga till en åtgärd**.
-3. Skriv i sökrutan åtgärd **http** att lista HTTP-åtgärder.
-   
-    ![Välj den HTTP-åtgärden](./media/connectors-native-http/using-action-1.png)
+   Mer information om HTTP-utlösare, parametrar och värden finns i [utlösare och åtgärd typer referens](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger).
 
-4. Lägg till eventuella parametrar för HTTP-anropet.
-   
-    ![Slutföra HTTP-åtgärd](./media/connectors-native-http/using-action-2.png)
+1. Fortsätt att skapa din logikapp arbetsflöde med åtgärder som körs när den utlöses.
 
-5. Klicka på verktygsfältet designer **spara**. Din logikapp sparas och publiceras (aktiverad) på samma gång.
+## <a name="add-http-action"></a>Lägg till HTTP-åtgärd
 
-## <a name="http-trigger"></a>HTTP-utlösare
-Här följer information om utlösaren som har stöd för den här anslutningen. HTTP-anslutningen har en utlösare.
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-| Utlösare | Beskrivning |
-| --- | --- |
-| HTTP |Gör ett HTTP-anrop och returnerar svaret innehållet. |
+1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna logikappen i Logic App Designer, om inte redan är öppna.
 
-## <a name="http-action"></a>HTTP-åtgärd
-Här följer information om vad som har stöd för den här anslutningen. HTTP-anslutningen har en möjlig åtgärd.
+1. Under det sista steget där du vill lägga till HTTP-åtgärden, väljer **nytt steg**. 
 
-| Åtgärd | Beskrivning |
-| --- | --- |
-| HTTP |Gör ett HTTP-anrop och returnerar svaret innehållet. |
+   I det här exemplet börjar logikappen med HTTP-utlösaren som det första steget.
 
-## <a name="http-details"></a>HTTP-information
-I följande tabeller beskrivs de obligatoriska och valfria indatafält för åtgärden och detaljer om motsvarande utdata som är associerade med hjälp av åtgärden.
+1. I sökrutan anger du ”http” som filter. Under åtgärdslistan väljer du den **HTTP** åtgärd.
 
-#### <a name="http-request"></a>HTTP-begäran
-Följande är inmatningsfält för åtgärden, vilket gör en utgående HTTP-begäran.
-A * innebär att det är ett obligatoriskt fält.
+   ![Välj HTTP-åtgärd](./media/connectors-native-http/select-http-action.png)
 
-| Visningsnamn | Egenskapsnamn | Beskrivning |
-| --- | --- | --- |
-| Metoden * |metod |HTTP-verbet som ska användas |
-| URI * |URI |URI för HTTP-begäran |
-| Sidhuvuden |rubriker |HTTP-huvuden med ett JSON-objekt |
-| Innehåll |brödtext |Texten på HTTP-begäran |
-| Autentisering |autentisering |Information i den [autentisering](#authentication) avsnitt |
+   Om du vill lägga till en åtgärd mellan stegen, flyttar du pekaren över pilen mellan stegen. 
+   Välj plustecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
 
-<br>
+1. Ange den [HTTP-åtgärd parametrar och värden](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) du vill ska ingå i anropet till mål-slutpunkten. 
 
-#### <a name="output-details"></a>Utdatainformation
-Nedan visas utdata information för HTTP-svaret.
+   ![Ange HTTP-åtgärdsparametrar](./media/connectors-native-http/http-action-parameters.png)
 
-| Egenskapsnamn | Datatyp | Beskrivning |
-| --- | --- | --- |
-| Sidhuvuden |objekt |Svarshuvud |
-| Innehåll |objekt |Objektet Response |
-| Statuskod |int |HTTP-statuskod |
+1. När du är klar kan du kontrollera att du sparar din logikapp. Välj **Spara** i designerverktygsfältet. 
 
 ## <a name="authentication"></a>Autentisering
-Funktionen Logic Apps kan du använda olika typer av autentisering mot HTTP-slutpunkter. Du kan använda den här autentiseringen med den **HTTP**,  **[HTTP + Swagger](connectors-native-http-swagger.md)**, och **[HTTP Webhook](connectors-native-webhook.md)** kopplingar. Följande typer av autentisering kan konfigureras:
 
-* [Grundläggande autentisering](#basic-authentication)
-* [Autentisering av klientcertifikat](#client-certificate-authentication)
-* [Azure Active Directory (AD Azure) OAuth-autentisering](#azure-active-directory-oauth-authentication)
+Om du vill ange autentisering, Välj **visa avancerade alternativ** inuti åtgärd eller utlösare. Mer information om tillgängliga autentiseringstyper för HTTP-utlösare och åtgärder finns i [utlösare och åtgärd typer referens](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 
-#### <a name="basic-authentication"></a>Grundläggande autentisering
+## <a name="get-support"></a>Få support
 
-Följande autentiseringsobjekt behövs för grundläggande autentisering.
-A * innebär att det är ett obligatoriskt fält.
-
-| Egenskapsnamn | Datatyp | Beskrivning |
-| --- | --- | --- |
-| Typen * |typ |Typ av autentisering (måste vara `Basic` för grundläggande autentisering) |
-| Användarnamn * |användarnamn |Användarnamn för autentisering |
-| Lösenord * |lösenord |Lösenord för att autentisera |
-
-> [!TIP]
-> Om du vill använda ett lösenord som inte kan hämtas från definition, Använd en `securestring` parameter och `@parameters()`  
->  [definition arbetsflödesfunktion](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow).
-
-Exempel:
-
-```javascript
-{
-    "type": "Basic",
-    "username": "user",
-    "password": "test"
-}
-```
-
-#### <a name="client-certificate-authentication"></a>Autentisering med klientcertifikat
-
-Följande autentiseringsobjekt krävs för autentisering av klientcertifikat. A * innebär att det är ett obligatoriskt fält.
-
-| Egenskapsnamn | Datatyp | Beskrivning |
-| --- | --- | --- |
-| Typen * |typ |Typ av autentisering (måste vara `ClientCertificate` för SSL-klientcertifikat) |
-| PFX * |Pfx |Base64-kodad innehållet i filen Personal Information Exchange (PFX) |
-| Lösenord * |lösenord |Lösenord för åtkomst till PFX-filen |
-
-> [!TIP]
-> Om du vill använda en parameter som inte läsas i definitionen när du har sparat logikappen som du kan använda en `securestring` parameter och `@parameters()`  
->  [definition arbetsflödesfunktion](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow).
-
-Exempel:
-
-```javascript
-{
-    "type": "ClientCertificate",
-    "pfx": "aGVsbG8g...d29ybGQ=",
-    "password": "@parameters('myPassword')"
-}
-```
-
-#### <a name="azure-ad-oauth-authentication"></a>Azure AD OAuth-autentisering
-Följande autentiseringsobjekt krävs för Azure AD OAuth-autentisering. A * innebär att det är ett obligatoriskt fält.
-
-| Egenskapsnamn | Datatyp | Beskrivning |
-| --- | --- | --- |
-| Typen * |typ |Typ av autentisering (måste vara `ActiveDirectoryOAuth` för Azure AD OAuth) |
-| Klient * |klient |Klient-ID för Azure AD-klient |
-| Målgruppen * |målgrupp |Resurs som du begär auktorisering att använda. Exempel: `https://management.core.windows.net/` |
-| Klient -ID * |clientId |Klient-ID för Azure AD-program |
-| Hemligt * |hemlighet |Hemligheten för klienten som begär token |
-
-> [!TIP]
-> Du kan använda en `securestring` parameter och `@parameters()` [definition arbetsflödesfunktion](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow) att använda en parameter som inte läsas i definitionen när du har sparat.
-> 
-> 
-
-Exempel:
-
-```javascript
-{
-    "type": "ActiveDirectoryOAuth",
-    "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-    "audience": "https://management.core.windows.net/",
-    "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
-    "secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
-}
-```
+* Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg
-Prova nu, plattform och [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Du kan utforska andra tillgängliga kopplingar i Logic Apps genom att titta på vår [API: er listan](apis-list.md).
 
+* Läs mer om andra [Logic Apps-anslutningsprogram](../connectors/apis-list.md)

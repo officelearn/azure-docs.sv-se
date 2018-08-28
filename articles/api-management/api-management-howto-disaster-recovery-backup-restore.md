@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: ce3208fed119452ef9383fcb5b5eefb1aac6e224
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: ed8c34a7e1e11d431d9a3b416067736da0d1612c
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42058236"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046387"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Implementera haveriberedskap med hjälp av service-säkerhetskopiering och återställning i Azure API Management
 
@@ -179,7 +179,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 Där:
 
 * `subscriptionId` -ID: t för prenumerationen som innehåller API Management-tjänsten som du återställer en säkerhetskopia i
-* `resourceGroupName` – en sträng med formatet ”API - Default-{tjänsten region}' där `service-region` identifierar Azure-regionen där API Management-tjänsten som du återställer en säkerhetskopia till värd, till exempel `North-Central-US`
+* `resourceGroupName` – namnet på resursgruppen som innehåller Azure API Management-tjänsten som du återställer en säkerhetskopia i
 * `serviceName` – namnet på det API service håller på att återställas till anges vid tidpunkten för den har skapandet
 * `api-version` – Ersätt med `2018-06-01-preview`
 

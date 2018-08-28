@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/27/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4cb7b165311f57fadd63770646907ddfc0378844
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f89a6bdbe906d490231725cf528396928faebe47
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445028"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43092102"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services-utskalning
 
@@ -37,19 +37,7 @@ När bearbetningen är avslutad, måste du utföra en synkronisering mellan bear
 
 ## <a name="region-limits"></a>Region gränser
 
-Antal frågerepliker som du kan konfigurera begränsas av den region som din server finns i. Följande begränsningar gäller:
-
-|Region  |Maxantal repliker  |
-|---------|---------|
-|Östra USA 2    |    7     |
-|Västra centrala USA     |    7     |
-|Västra Europa     |    7     |
-|Västra USA     |     7    |
-|Centrala USA     |     3    |
-|Sydostasien    |     3    |
-|Alla andra regioner  |   1    |
-
-
+Antal frågerepliker som du kan konfigurera begränsas av den region som din server finns i. Mer information finns i [tillgänglighet efter region](analysis-services-overview.md#availability-by-region).
 
 ## <a name="monitor-qpu-usage"></a>Övervaka QPU-användning
 

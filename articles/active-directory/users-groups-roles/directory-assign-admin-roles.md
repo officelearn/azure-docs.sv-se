@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 08/27/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 6c97d7c2f901110421f9fc5d0a1d4468d832c472
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 813fb79bbdc09d0fb3baa9a66cfaeae74343b3f9
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057118"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093643"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Tilldela administratörsroller i Azure Active Directory
 
@@ -75,6 +75,8 @@ Följande administratörsroller är tillgängliga:
 * **[Information Protection-administratör](#information-protection-administrator)**: användare med den här rollen har alla behörigheter i Azure Information Protection-tjänsten. Den här rollen kan konfigurera etiketter för Azure Information Protection-principen, hantera skyddsmallar och aktivera skydd. Den här rollen ger inte några behörigheter i Identity Protection Center, Privileged Identity Management, övervaka Office 365 Service Health eller Office 365 säkerhets- och Efterlevnadscenter.
 
 * **[Intune-tjänstadministratör](#intune-service-administrator)**: användare med den här rollen har globala behörigheter inom Microsoft Intune Online när tjänsten finns. Dessutom innehåller den här rollen möjlighet att hantera användare och enheter för att associera principer, samt skapa och hantera grupper. Mer information på [rollbaserad administrationskontroll (RBAC) med Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)
+
+* **[Licensadministratör](#license-administrator)**: användare i den här rollen kan lägga till, ta bort, och uppdatera licenstilldelningar på användare, grupper (med gruppbaserad licensiering) och hantera användningsplats på användare. Rollen ger inte möjlighet att köpa eller hantera prenumerationer, skapa eller hantera grupper, eller skapa eller hantera användarna, förutom användningsplatsen.
 
 * **[Message Center läsare](#message-center-reader)**: användare i den här rollen kan övervaka meddelanden och rådgivande hälsotillstånd uppdateringar i [Office 365-meddelandecentret](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) för organisationen på konfigurerade tjänster, till exempel Exchange, Intune och Microsoft Teams. Meddelandecenter läsarna få veckovis e-sammandrag av inlägg, uppdateringar, och kan dela center meddelandeposter i Office 365. I Azure AD har användare som tilldelats den här rollen endast läsåtkomst på Azure AD-tjänster, till exempel användare och grupper. 
 
@@ -610,6 +612,17 @@ Kan hantera alla aspekter av Intune-produkten.
 | microsoft.aad.directory/User/Update/Manager | Uppdatera Users.Manager-egenskapen i Azure Active Directory. |
 | microsoft.aad.supporttickets/AllEntities/AllActions | Skapa och hantera Office 365-supportbegäranden. |
 | microsoft.intune/AllEntities/AllActions | Hantera alla aspekter av Intune. |
+
+### <a name="license-administrator"></a>Licensadministratör
+Kan tilldela licenser till användare.
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| microsoft.aad.directory/users/assignLicense        | &nbsp; |
+| microsoft.aad.directory/users/usageLocation/update | &nbsp; |
+| microsoft.azure.accessService/allEntities/allTasks | &nbsp; |
+| microsoft.azure.serviceHealth/allEntities/allTasks | &nbsp; |
+| Microsoft.Office365.serviceHealth/allEntities/allTasks | &nbsp; |
 
 ### <a name="lync-service-administrator"></a>Lync-tjänstadministratör
 Kan hantera alla aspekter av Skype för Business-produkten.

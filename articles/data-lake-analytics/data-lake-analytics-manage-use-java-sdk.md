@@ -1,38 +1,37 @@
 ---
-title: Hantera Azure Data Lake Analytics med hjälp av Azure SDK för Java
+title: Hantera Azure Data Lake Analytics med hjälp av Azure Java SDK
 description: Den här artikeln beskriver hur du använder Azure Java SDK för att skriva appar som hanterar Data Lake Analytics-jobb, datakällor och användare.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 4cf8390f55beeb65c1bd99594e885ed9db551d9e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 938b3776f320b7556394fff9aa070eee0c44ee88
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624241"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047094"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Hantera Azure Data Lake Analytics med hjälp av en Java-app
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Den här artikeln beskriver hur du hanterar Azure Data Lake Analytics-konton, datakällor, användare och jobb med hjälp av en app som skrivits med Azure Java SDK. 
+Den här artikeln beskriver hur du hanterar Azure Data Lake Analytics-konton, datakällor, användare och jobb med hjälp av en app som skrivits med hjälp av Azure Java SDK. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 * **Java Development Kit (JDK) 8** (med Java version 1.8).
-* **IntelliJ** eller en annan lämplig Java development environment. Anvisningarna i det här dokumentet använder IntelliJ
-* Skapa ett program med Azure Active Directory (AAD) och hämta dess **klient-ID**, **innehavar-ID** och **nyckel**. Mer information om AAD-program och instruktioner för hur du hämtar ett klient-ID finns i [Skapa Active Directory-program och tjänstobjekt med portalen](../azure-resource-manager/resource-group-create-service-principal-portal.md). Reply URI och nyckel är tillgänglig från portalen när du har skapat programmet och nyckeln genereras.
+* **IntelliJ** eller en annan lämplig Java development environment. Anvisningarna i det här dokumentet använder IntelliJ.
+* Skapa ett program med Azure Active Directory (AAD) och hämta dess **klient-ID**, **innehavar-ID** och **nyckel**. Mer information om AAD-program och instruktioner för hur du hämtar ett klient-ID finns i [Skapa Active Directory-program och tjänstobjekt med portalen](../azure-resource-manager/resource-group-create-service-principal-portal.md). Svars-URI och nyckeln är tillgänglig från portalen när du har skapat programmet och nyckeln som genererades.
 
 ## <a name="authenticating-using-azure-active-directory"></a>Autentisera med Azure Active Directory
 
-Koden följande kodavsnitt innehåller koden för **icke-interaktiv** autentisering, där programmet tillhandahåller egna autentiseringsuppgifter.
+Följande kodfragment innehåller koden för koden **icke-interaktiv** autentisering, där programmet tillhandahåller egna autentiseringsuppgifter.
 
 ## <a name="create-a-java-application"></a>Skapa ett Java-program
-1. Öppna IntelliJ och skapa ett Java-projekt med den **kommandoradsverktyget App** mall.
+1. Öppna IntelliJ och skapa ett Java-projekt med den **Command-Line App** mall.
 2. Högerklicka på projektet på vänster sida av skärmen och klicka på **Lägg till stöd för Framework**. Välj **Maven** och klicka på **OK**.
 3. Öppna den nyligen skapade filen **"pom.xml"** och lägg till följande fragment av text mellan taggen **\</version >** och **\</project>**:
 
@@ -365,7 +364,7 @@ public static JobResult WaitForJob(UUID jobId) throws IOException, CloudExceptio
 }
 ```
 
-### <a name="retrieve-job-status"></a>Hämta jobbstatus
+### <a name="retrieve-job-status"></a>Hämta status för återställningsjobb
 
 ```
 public static String GetJobStatus(UUID jobId) throws IOException, CloudException 

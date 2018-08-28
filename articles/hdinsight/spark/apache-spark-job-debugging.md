@@ -3,18 +3,18 @@ title: Felsöka Apache Spark-jobb som körs på Azure HDInsight
 description: Använd YARN-Användargränssnittet, Spark-Användargränssnittet och Spark-historikserver att spåra och felsöka jobb som körs på ett Spark-kluster i Azure HDInsight
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: jasonh
-ms.openlocfilehash: 10d46da66fa6b06089e09816f400eefbe40c0c65
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 6b62c1ff4649ac72f5c4d04cd7507e7db0166b6e
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622671"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43040938"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Felsöka Apache Spark-jobb som körs på Azure HDInsight
 

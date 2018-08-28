@@ -15,12 +15,12 @@ ms.date: 08/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 537777d2e379959d427c025036652a87ecc4a1fe
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: e03b2ab45edd57a124dcc960ff518ece4902d2fa
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617166"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048376"
 ---
 # <a name="built-in-roles-in-azure"></a>Inbyggda roller i Azure
 [Rollbaserad åtkomstkontroll (RBAC)](overview.md) har flera inbyggda rolldefinitioner som du kan tilldela till användare, grupper och tjänstens huvudnamn. Rolltilldelningar är det sätt som du styr åtkomst till resurser i Azure. Om de inbyggda rollerna inte uppfyller organisationens specifika krav kan du skapa egna, [anpassade roller](custom-roles.md).
@@ -43,7 +43,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 | [Operatörsroll för API Management](#api-management-service-operator-role) | Kan hantera tjänsten men inte API:er |
 | [Läsarroll för API Management-tjänsten](#api-management-service-reader-role) | Skrivskyddad åtkomst till tjänst och API:er |
 | [Application Insights-Komponentdeltagare](#application-insights-component-contributor) | Kan hantera Application Insights-komponenter |
-| [Application Insights Snapshot Debugger](#application-insights-snapshot-debugger) | Ger användarbehörighet för att använda funktionerna i Application Insights Snapshot Debugger |
+| [Application Insights Snapshot Debugger](#application-insights-snapshot-debugger) | Ger användarbehörighet att visa och hämta ögonblicksbilder för felsökning som samlas in med Application Insights Snapshot Debugger. Observera att den här rollen ingår i varken den [ägare](#owner) eller [deltagare](#contributor) roller. |
 | [Automation-Jobboperator](#automation-job-operator) | Skapa och hantera jobb med Automation Runbooks. |
 | [Automation-operatör](#automation-operator) | Automation-operatörer kan starta, stoppa, göra uppehåll i och återuppta jobb |
 | [Automation Runbook-Operator](#automation-runbook-operator) | Läs runbook-egenskaperna för att kunna skapa jobb av den runbooken. |

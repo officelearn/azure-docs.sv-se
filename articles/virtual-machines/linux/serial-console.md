@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 0951b0ee8a1b92f94dd06bfad831b3dd9a9e967c
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 1fcac972e7404c2e0549b9bb9f2e03861977bfad
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918225"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43094779"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Virtual Machine Serial Console (förhandsversion) 
 
@@ -35,13 +35,16 @@ Seriell konsol dokumentation för Windows-datorer samt [Klicka här](../windows/
 ## <a name="prerequisites"></a>Förutsättningar 
 
 * Du måste använda resource management-distributionsmodellen. Klassiska distributioner stöds inte. 
-* Virtuell dator måste ha [startdiagnostik](boot-diagnostics.md) aktiverat   ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
-* Det konto som använder seriekonsolen måste ha [deltagarrollen](../../role-based-access-control/built-in-roles.md) för den virtuella datorn och [startdiagnostik](boot-diagnostics.md) storage-konto. 
+* Den virtuella datorn måste ha [startdiagnostik](boot-diagnostics.md) aktiverat – se skärmbilden nedan.
+    ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
+* Azure-konto med seriekonsolen måste ha [deltagarrollen](../../role-based-access-control/built-in-roles.md) för den virtuella datorn och [startdiagnostik](boot-diagnostics.md) storage-konto. 
+* Den virtuella datorn som du är acessing Seriell konsol måste också ha ett konto för lösenordsbaserad. Du kan skapa en med den [Återställ lösenord](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) funktionerna i VM access-tillägg - se skärmbilden nedan.
+    ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 * Inställningar som är specifika för Linux-distributioner, se [komma åt seriekonsolen för Linux](#access-serial-console-for-linux)
 
 
 
-## <a name="open-the-serial-console"></a>Öppna Seriekonsolen
+## <a name="get-started-with-serial-console"></a>Kom igång med Seriekonsol
 Seriekonsol för virtuella datorer bara kan nås via [Azure-portalen](https://portal.azure.com). Nedan visas stegen för att komma åt seriekonsol för virtuella datorer via portalen 
 
   1. Öppna Azure portal

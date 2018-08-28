@@ -7,14 +7,14 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/25/2018
 ms.author: juliako
-ms.openlocfilehash: ba81030c3d6384ca6b66d6a3b14e614d1626e3e0
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: b8de9e8d73ba899fb7f3036d871c5d30daf101de
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41988467"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049363"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Bädda in Video Indexer widgetar i dina program
 
@@ -95,7 +95,7 @@ Det här avsnittet visas hur du uppnår interaktion mellan två Video Indexer wi
 
 När en användare klickar på kontrollen insyn i ditt program nu leder spelaren till relevant nu.
 
-Mer information finns i [den här demon](https://api-portal.videoindexer.ai/demo-all-widgets).
+Mer information finns i [den här demon](https://codepen.io/videoindexer/pen/NzJeOb).
 
 ### <a name="embed-the-cognitive-insights-widget-and-use-azure-media-player-to-play-the-content"></a>Bädda in widgeten kognitiva insikter och använda Azure Media Player för att spela upp innehållet
 
@@ -153,7 +153,7 @@ Det här avsnittet visas hur du uppnår interaktion mellan en **kognitiva insikt
 
 Du borde nu för att kommunicera med Azure Media Player.
 
-Mer information finns i [den här demon](https://api-portal.videoindexer.ai/demo-your-amp).
+Mer information finns i [den här demon](https://codepen.io/videoindexer/pen/rYONrO).
 
 ### <a name="embed-video-indexer-cognitive-insights-widget-and-use-your-own-player-could-be-any-player"></a>Bädda in Video Indexer kognitiva insikter widget och Använd din egen spelare (kan vara en spelare)
 
@@ -201,7 +201,7 @@ Om du använder egna player kan du behöva ta hand om manipulera spelaren själv
         </script>
 
 
-Mer information finns i [den här demon](https://api-portal.videoindexer.ai/demo-your-player).
+Mer information finns i [den här demon](https://codepen.io/videoindexer/pen/YEyPLd).
 
 ## <a name="adding-subtitles"></a>Att lägga till undertexter
 

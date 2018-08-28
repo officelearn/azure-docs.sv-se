@@ -1,85 +1,79 @@
 ---
-title: "Ställ in en företagsordlista för styrs märkning i Azure Data Catalog | Microsoft Docs"
-description: "Markera företagsordlista i Azure Data Catalog för att definiera och använder en gemensam terminologi för företag att tagga artikel registrerade datatillgångar."
+title: Konfigurera en företagsordlista för styrda taggar i Azure Data Catalog
+description: Artikel om du markerar en företagsordlista i Azure Data Catalog för att definiera och använda en gemensam företagsterminologi till taggen registrerade datatillgångar.
 services: data-catalog
-documentationcenter: 
 author: steelanddata
-manager: NA
-editor: 
-tags: 
+ms.author: maroche
 ms.assetid: b3d63dbe-1ae7-499f-bc46-42124e950cd6
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: a80b7fd0c21851a6670431e9b8647ca5cf5f51ec
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: b4586133a6d3b7514d6b47e2e0c93b0e79988f09
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053663"
 ---
-# <a name="set-up-the-business-glossary-for-governed-tagging"></a>Ställ in en företagsordlista för styrs taggning
+# <a name="set-up-the-business-glossary-for-governed-tagging"></a>Konfigurera en företagsordlista för hanterade taggar
 ## <a name="introduction"></a>Introduktion
-Azure Data Catalog gör datakälla identifiering så att du lätt kan identifiera och förstå datakällorna som du behöver utföra analyser och fatta beslut. Dessa funktioner gör den största effekten när du kan hitta och förstå mycket stort antal typer av datakällor.
+Azure Data Catalog möjliggör identifiering av datakällan, så att du enkelt kan identifiera och förstå datakällorna som du behöver utföra analyser och fatta beslut. De här funktionerna få den största effekten när du kan hitta och förstå det bredaste utbudet av tillgängliga datakällor.
 
-En funktion som främjar bättre kunskap om tillgångar data i Data Catalog är markering. Du kan associera nyckelord med en tillgång eller en kolumn, vilket i sin tur gör det lättare att identifiera tillgången via söka eller bläddra genom att använda taggar. Taggning hjälper dig också mer enkelt förstå kontext och syftet med tillgången.
+En funktion som främjar bättre förståelse för tillgångar data i Data Catalog är markering. Med taggar kan associera du nyckelord med en tillgång eller en kolumn, vilket i sin tur gör det lättare att identifiera tillgången via söka eller Bläddra. Taggning hjälper också att du enkelt kan förstå kontexten och syftet med tillgången.
 
-Taggning kan dock ibland orsaka problem egna. Det är några exempel på problem som kan leda till märkning:
+Taggning kan dock ibland orsaka problem med sin egen. Några exempel på problem som Taggning kan medföra är:
 
-* Användning av förkortningar på vissa tillgångar och utökade text på andra. Den här inkonsekvens hämmar identifiering av tillgångar, även om avsikten var att tagga tillgångar med samma tagg.
-* Potentiella variationer i betydelse, beroende på kontext. Till exempel en tagg kallas *intäkter* på en kund datauppsättning kan innebära intäkter av kunden, men samma tagg för ett kvartal försäljning datauppsättningen kan innebära kvartalsvisa intäkter för företaget.  
+* Användning av förkortningar på vissa tillgångar och utökade text på andra. Den här inkonsekvens hämmar identifieringen av tillgångar, även om avsikten var att tagga tillgångarna med samma tagg.
+* Potentiella variationer i betydelse, beroende på kontext. Till exempel en tagg med namnet *intäkter* på en kund datauppsättning kan innebära intäkter efter kund, men samma tagg på en kvartalsvis försäljning datauppsättning kan innebära kvartalsvis intäkter för företaget.  
 
 Data Catalog innehåller en företagsordlista för att åtgärda dessa och andra liknande utmaningar.
 
-Genom att använda en företagsordlista för Data Catalog kan dokumentera en organisation viktiga termer och definitioner att skapa en gemensam ordlista för företag. Den här styrning kan konsekvens i dataanvändning i organisationen. När en term som har definierats i en företagsordlista, kan den tilldelas en datatillgång i katalogen. Den här metoden *styrs taggning*, är samma metod som Taggning.
+Genom att använda en företagsordlista för Data Catalog kan dokumentera en organisation viktiga termer och deras definitioner för att skapa en gemensam företagsterminologi. Den här styrning låter konsekvens i dataanvändning i organisationen. När en term som har definierats i en företagsordlista, kan du tilldela den till en datatillgång i katalogen. Den här metoden *regleras taggning*, är samma metod som Taggning.
 
-## <a name="glossary-availability-and-privileges"></a>Ordlista tillgänglighet och privilegier
-En företagsordlista är endast tillgänglig i Standard Edition av Azure Data Catalog. Den kostnadsfria Edition av Data Catalog innehåller inte en ordlista och ger inte funktioner för styrda Taggning.
+## <a name="glossary-availability-and-privileges"></a>Ordlista tillgänglighet och behörigheter
+En företagsordlista är endast tillgängliga i Standard Edition av Azure Data Catalog. Den kostnadsfria versionen av Data Catalog innehåller inte en ordlista och det ger inte funktioner för styrda taggar.
 
-Du kan komma åt en företagsordlista via den **ordlista** alternativet i navigeringsmenyn i Data Catalog-portalen.  
+Du kan komma åt en företagsordlista via den **ordlista** alternativ i navigeringsmenyn för Data Catalog-portalen.  
 
-![Åtkomst till företagsordlistan](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
+![Åtkomst till en företagsordlista](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
 
-Data Catalog administratörer och medlemmar i rollen ordlista administratörer kan skapa, redigera och ta bort ordlista i en företagsordlista. Alla Data Catalog-användare kan visa Termdefinitioner och tagg tillgångar med termer från ordlistan.
+Data Catalog-administratörer och medlemmar i rollen ordliste-administratörer kan skapa, redigera och ta bort termer i ordlistan i en företagsordlista. Alla Data Catalog-användare kan visa Termdefinitioner och taggen tillgångar med termer från ordlistan.
 
-![Lägga till en ny Ordlisteterm](./media/data-catalog-how-to-business-glossary/02-new-term.png)
+![Att lägga till en ny Ordlisteterm](./media/data-catalog-how-to-business-glossary/02-new-term.png)
 
-## <a name="creating-glossary-terms"></a>Skapa ordlista
-Data Catalog administratörer och ordlista administratörer kan skapa ordlista genom att klicka på den **ny Term** knappen. Varje termen innehåller följande fält:
+## <a name="creating-glossary-terms"></a>Skapa ordlistetermer
+Data Catalog-administratörer och ordliste-administratörer kan skapa ordlistetermer genom att klicka på den **ny Term** knappen. Varje orlistetermen innehåller följande fält:
 
-* Företag definition för termen
-* En beskrivning som samlar in avsedda användning eller affärsregler för tillgången eller kolumn
+* En företagsdefinition för termen
+* En beskrivning som samlar in den tänkta användningen eller affärsregler för tillgång eller kolumn
 * En lista över intressenter som mest känner termen
-* Överordnad term som definierar hierarkin termen ordnas
+* Överordnad term som definierar hierarkin som termen organiseras
 
 ## <a name="glossary-term-hierarchies"></a>Ordlista termen hierarkier
-En organisation kan beskriva dess ordförråd för företag som en hierarki med villkoren med hjälp av en företagsordlista för Data Catalog och den kan skapa en klassificering av termer som representerar bättre dess klassificering för företaget.
+En organisation kan beskriva dess företagsterminologi som en hierarki av villkoren med hjälp av en företagsordlista för Data Catalog, och den kan skapa en klassificering av termer som representerar bättre dess taxonomi.
 
-Ett villkor som måste vara unika på en viss nivå i hierarkin. Dubblettnamn är inte tillåtna. Det finns ingen gräns för antalet nivåer i en hierarki, men en hierarki är ofta lättare att förstå när det finns tre nivåer eller färre.
+En term måste vara unikt i en viss nivå i hierarkin. Dubblettnamn tillåts inte. Det finns ingen gräns för antalet nivåer i en hierarki, men en hierarki är ofta mer lätt att förstå när det finns tre nivåer eller färre.
 
-Användning av hierarkier i företagsordlistan är valfritt. Om du lämnar överordnat termen tomt för ordlista skapar en platt (icke-hierarkisk) lista över villkor i ordlistan.  
+Användning av hierarkier i en företagsordlista är valfritt. Lämna överordnat termen tomt för ordlistetermer skapar en fast (icke-hierarkisk) lista med termer i ordlistan.  
 
-## <a name="tagging-assets-with-glossary-terms"></a>Taggning tillgångar med ordlista
-När ordlista har definierats i katalogen, är upplevelse av taggning tillgångar optimerad för att söka i ordlistan när användaren anger en tagg. Data Catalog-portalen visar en lista över matchande ordlista kan välja mellan. Om användaren väljer en Ordlisteterm i listan, läggs termen till tillgången som en etikett (kallas även en ordlista tagg). Användaren kan också välja att skapa en ny tagg genom att skriva en term som inte är i ordlistan (kallas även en användartagg för).
+## <a name="tagging-assets-with-glossary-terms"></a>Tagga resurser med ordlistetermer
+När ordlistetermer har definierats i katalogen, är upplevelsen av taggning tillgångar optimerad för att söka i ordlistan när användaren anger en tagg. Data Catalog-portalen visar en lista över matchande ordlistetermer att välja bland. Om användaren väljer en orlistetermen i listan, har termen lagts till tillgången som en etikett (kallas även en ordlistetagg). Du kan också välja att skapa en ny tagg genom att skriva en term som inte är i ordlistan (kallas även en användartagg).
 
-![Datatillgång märkta med taggen för en användare och två ordlista taggar](./media/data-catalog-how-to-business-glossary/03-tagged-asset.png)
+![Datatillgång taggas med en användartagg och två ordlista taggar](./media/data-catalog-how-to-business-glossary/03-tagged-asset.png)
 
 > [!NOTE]
-> Användaren taggar är den enda typen av taggen stöds i den kostnadsfria Edition av Data Catalog.
+> Användartaggar är den enda typen av taggen stöds i den kostnadsfria versionen av Data Catalog.
 >
 >
 
 ### <a name="hover-behavior-on-tags"></a>Hovra beteende på taggar
-De två typerna av taggar finns i Data Catalog-portalen visuellt distinkta och finns olika hovra beteenden. Du kan se tag-text och en eller flera användare som har lagts till taggen när du hovrar över en användartagg för. När du hovrar över en ordlista tagg kan se du också definitionen av termen eller en länk för att öppna en företagsordlista om du vill visa fullständig definition av termen.
+I Data Catalog-portalen är de två typerna av taggar visuellt distinkta och finns olika hovra beteenden. När du hovrar över en användartagg visas taggen texten och den eller de användare som har lagt till taggen. När du hovrar över en ordlistetagg se du också definitionen av Ordlistetermen och en länk för att öppna en företagsordlista om du vill visa den fullständiga definitionen av perioden.
 
 ### <a name="search-filters-for-tags"></a>Sökfilter för taggar
-Ordlista taggar och användaren taggar är båda sökbara och du kan använda dem som filter i en sökning.
+Ordlista taggar och användartaggar är båda sökbart och de kan användas som filter i en sökning.
 
 ## <a name="summary"></a>Sammanfattning
-Med hjälp av en företagsordlista i Azure Data Catalog och styrda taggarna kan du identifiera, hantera och identifiera datatillgångar i ett konsekvent sätt. En företagsordlista kan befordra inlärning av företag ordförråd av organisationsmedlemmar. Ordlistan stöder också samla in beskrivande metadata, vilket förenklar tillgången identifiering och förstå.
+Med hjälp av en företagsordlista i Azure Data Catalog och den styrda Taggning kan du identifiera, hantera och identifiera datatillgångar på ett konsekvent sätt. En företagsordlista ge inlärning av företagsterminologi av organisationsmedlemmar i. Ordlistan stöder också samla in beskrivande metadata, vilket förenklar tillgångsidentifiering och förståelse.
 
 ## <a name="next-steps"></a>Nästa steg
 * [REST API-dokumentation för affärsåtgärder ordlista](https://msdn.microsoft.com/library/mt708855.aspx)

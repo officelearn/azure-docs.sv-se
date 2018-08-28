@@ -1,3 +1,20 @@
+---
+title: ta med fil
+description: ta med fil
+services: iot-hub
+ms.service: iot-hub
+author: dominicbetts
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 3cdfa74c5f124e57b125399e39b7981b1dfb6d09
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43096360"
+---
 ## <a name="customize-and-extend-the-device-management-actions"></a>Anpassa och utöka enheten hanteringsåtgärder
 
 Dina IoT-lösningar kan utöka definierad uppsättning enhetshanteringsmönster eller Aktivera egna mönster genom att använda enhetstvillingen och moln till enhet metoden primitiver. Andra exempel på åtgärder för hantering av enhet är fabriksåterställning, uppdatering av inbyggd programvara, programuppdateringar, energisparfunktioner, nätverk och hantering och datakryptering.
@@ -12,12 +29,8 @@ I den här självstudien använde du en direkt metod för att utlösa en fjärro
 
 Om du vill fortsätta att komma igång med IoT Hub och enhetshanteringsmönster som via luften firmware-uppdatering, se:
 
-[Självstudie: Hur du gör en firmware-uppdatering][lnk-fwupdate]
+[Självstudie: Hur du gör en firmware-uppdatering](../articles/iot-hub/tutorial-firmware-update.md)
 
-Läs hur du utökar din IoT-lösning och schema anropar på flera enheter i den [schema och sändningsjobb] [ lnk-tutorial-jobs] självstudien.
+Läs hur du utökar din IoT-lösning och schema anropar på flera enheter i den [schema och sändningsjobb](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md) självstudien.
 
-Om du vill komma igång med IoT Hub går [komma igång med IoT Edge][lnk-iot-edge].
-
-[lnk-fwupdate]: ../articles/iot-hub/tutorial-firmware-update.md
-[lnk-tutorial-jobs]: ../articles/iot-hub/iot-hub-node-node-schedule-jobs.md
-[lnk-iot-edge]: ../articles/iot-edge/tutorial-simulate-device-linux.md
+Om du vill komma igång med IoT Hub går [komma igång med IoT Edge](../articles/iot-edge/tutorial-simulate-device-linux.md).

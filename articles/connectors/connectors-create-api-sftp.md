@@ -11,12 +11,12 @@ ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: 9714a00d070caab9d3a3338329295192e1eb9997
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 8f430477883543aa8f87eb3fb0fb49ab31e2d723
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887595"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042046"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Övervaka, skapa och hantera SFTP-filer med hjälp av Azure Logic Apps
 
@@ -48,24 +48,16 @@ Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../log
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna logikappen i Logic App Designer, om inte redan är öppna.
 
-1. Välj en sökväg: 
+1. För tom logic apps i sökrutan anger du ”sftp” som filter. Välj utlösaren som du vill under listan över utlösare. 
 
-   * För tom logic apps i sökrutan anger du ”salesforce” som filter. 
-   Välj utlösaren som du vill under listan över utlösare. 
+   ELLER
 
-     ELLER
+   För befintliga logikappar under det sista steget där du vill lägga till en åtgärd, Välj **nytt steg**. 
+   I sökrutan anger du ”sftp” som filter. 
+   Välj vilken åtgärd du önska under åtgärder.
 
-   * För befintliga logic apps: 
-   
-     * Under det sista steget där du vill lägga till en åtgärd, väljer **nytt steg**. 
-
-       ELLER
-
-     * Mellan stegen där du vill lägga till en åtgärd, flyttar du pekaren över pilen mellan stegen. 
-     Välj plustecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
-     
-        I sökrutan anger du ”sftp” som filter. 
-        Välj vilken åtgärd du önska under åtgärder.
+   Om du vill lägga till en åtgärd mellan stegen, flyttar du pekaren över pilen mellan stegen. 
+   Välj plustecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
 
 1. Ange informationen som krävs för anslutningen och välj sedan **skapa**.
 

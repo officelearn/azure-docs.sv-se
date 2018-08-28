@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 91c917687edbdfb49fc7a390187a860d9474623a
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 8d786a337710ed53d58c5fde8e40d5347cd6cfc8
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918932"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108386"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Virtual Machine Serial Console (förhandsversion) 
 
@@ -38,8 +38,10 @@ Seriell konsol dokumentation för virtuella Linux-datorer [Klicka här](../linux
 * Du måste använda resource management-distributionsmodellen. Klassiska distributioner stöds inte. 
 * Virtuell dator måste ha [startdiagnostik](boot-diagnostics.md) aktiverat   ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 * Det konto som använder seriekonsolen måste ha [deltagarrollen](../../role-based-access-control/built-in-roles.md) för den virtuella datorn och [startdiagnostik](boot-diagnostics.md) storage-konto. 
+* Den virtuella datorn som du är acessing Seriell konsol måste också ha ett konto för lösenordsbaserad. Du kan skapa en med den [Återställ lösenord](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) funktionerna i VM access-tillägg - se skärmbilden nedan.
+    ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
-## <a name="open-the-serial-console"></a>Öppna Seriekonsolen
+## <a name="get-started-with-serial-console"></a>Kom igång med Seriekonsol
 Seriekonsol för virtuella datorer bara kan nås via [Azure-portalen](https://portal.azure.com). Nedan visas stegen för att komma åt seriekonsol för virtuella datorer via portalen 
 
   1. Öppna Azure portal
@@ -49,7 +51,7 @@ Seriekonsol för virtuella datorer bara kan nås via [Azure-portalen](https://po
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
-## <a name="access-serial-console-for-windows"></a>Åtkomst Seriekonsol för Windows 
+## <a name="configure-serial-console-for-windows"></a>Konfigurera Seriekonsol för Windows 
 Nyare Windows Server-avbildningar på Azure har [särskilda administrationskonsolen](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) aktiverad som standard. SAC stöds på server-versioner av Windows men är inte tillgänglig på klientversioner (till exempel Windows 10, Windows 8 eller Windows 7). Om du vill aktivera seriekonsol för Windows-datorer som skapats med hjälp av använder Feb2018 eller lägre avbildningar du följande steg: 
 
 1. Ansluta till din Windows-dator via fjärrskrivbord

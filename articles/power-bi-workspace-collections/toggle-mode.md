@@ -1,41 +1,34 @@
 ---
-title: Växla mellan att visa och redigera läge för rapporter i Power BI arbetsytan samlingar | Microsoft Docs
-description: Lär dig mer om att växla mellan att visa och redigera läge för rapporter i Power BI arbetsytan samlingar.
+title: Växla mellan att visa och redigera läge för rapporter i Power BI-Arbetsytesamlingar | Microsoft Docs
+description: Lär dig mer om att växla mellan att visa och redigera läge för dina rapporter i Power BI-Arbetsytesamlingar.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
-ms.assetid: ''
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 23a8c4f0dd626a623df56de9546258a23d549d1a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 19a576440742684849ffc74092162be7008621ba
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409959"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045026"
 ---
-# <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>Växla mellan att visa och redigera läge för rapporter i Power BI arbetsytan samlingar
+# <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>Växla mellan att visa och redigera läge för rapporter i Power BI-Arbetsytesamlingar
 
-Lär dig mer om att växla mellan att visa och redigera läge för rapporter i Power BI arbetsytan samlingar.
+Lär dig mer om att växla mellan att visa och redigera läge för dina rapporter i Power BI-Arbetsytesamlingar.
 
 > [!IMPORTANT]
 > Power BI-arbetsytesamlingar fasas ut och är tillgänglig till juni 2018 eller det som anges i ditt avtal. Du uppmanas att planera migreringen till Power BI Embedded för att undvika avbrott i programmet. Information om hur du migrerar dina data till Power BI Embedded finns i [Migrera Power BI-arbetsytesamlingar till Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-## <a name="creating-an-access-token"></a>Skapa en åtkomst-token
+## <a name="creating-an-access-token"></a>Skapa en åtkomsttoken
 
-Du måste skapa en åtkomsttoken som ger dig möjlighet att både visa och redigera en rapport. Om du vill redigera och spara en rapport, måste den **Report.ReadWrite** token behörighet. Mer information finns i [Authenticating och auktorisera i Power BI arbetsytan samlingar](app-token-flow.md).
+Du behöver skapa en åtkomsttoken som gör att du kan både se och redigera en rapport. Om du vill redigera och spara en rapport, måste den **Report.ReadWrite** token behörighet. Mer information finns i [autentisering och auktorisering i Power BI-Arbetsytesamlingar](app-token-flow.md).
 
 > [!NOTE]
-> På så sätt kan du redigera och spara ändringar i en befintlig rapport. Om du vill också att funktionen stödja **Spara som**, måste du ange ytterligare behörighet. Mer information finns i [scope](app-token-flow.md#scopes).
+> På så sätt kan du redigera och spara ändringarna i en befintlig rapport. Om du vill även funktionen stödja **Spara som**, måste du ange ytterligare behörighet. Mer information finns i [scope](app-token-flow.md#scopes).
 
 ```
 using Microsoft.PowerBI.Security;
@@ -47,9 +40,9 @@ PowerBIToken embedToken = PowerBIToken.CreateReportEmbedTokenForCreation(workspa
 var token = embedToken.Generate("{access key}");
 ```
 
-## <a name="embed-configuration"></a>Bädda in konfiguration
+## <a name="embed-configuration"></a>Bädda in konfigurationen
 
-Du måste ange behörigheter och en viewMode för att visa spara knappen i redigeringsläget. Mer information finns i [bädda in konfigurationsinformation](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details).
+Du måste ange behörigheter och en viewMode om du vill se spara knappen i redigeringsläget. Mer information finns i [bädda in konfigurationsinformation](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details).
 
 Till exempel i JavaScript:
 
@@ -83,11 +76,11 @@ Till exempel i JavaScript:
     var report = powerbi.embed(reportContainer, config);
 ```
 
-Anger om du vill bädda in rapporten i läget baserat på **viewMode** anges till **modeller. ViewMode.View**.
+Detta anger om du vill bädda in rapporten i visningsläge utifrån **viewMode** anges till **modeller. ViewMode.View**.
 
-## <a name="view-mode"></a>Läget för
+## <a name="view-mode"></a>Visningsläge
 
-Du kan använda följande JavaScript för att växla till läget, om du är i redigeringsläge.
+Du kan använda följande JavaScript för att växla till läget, om du är i redigeringsläget.
 
 ```
 // Get a reference to the embedded report HTML element
@@ -103,7 +96,7 @@ report.switchMode("view");
 
 ## <a name="edit-mode"></a>Redigeringsläge
 
-Du kan använda följande JavaScript för att växla till redigeringsläget, om du är i läget.
+Du kan använda följande JavaScript för att växla till redigeringsläget, om du är i läge.
 
 ```
 // Get a reference to the embedded report HTML element
@@ -124,7 +117,7 @@ report.switchMode("edit");
 [Autentisering och auktorisering i Power BI-arbetsytesamlingar](app-token-flow.md)  
 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
 [Inbäddat exempel med JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
-[PowerBI CSharp Git Repo](https://github.com/Microsoft/PowerBI-CSharp)  
-[PowerBI-nod Git Repo](https://github.com/Microsoft/PowerBI-Node)  
+[Power BI-CSharp Git-lagringsplats](https://github.com/Microsoft/PowerBI-CSharp)  
+[Power BI-noden Git-lagringsplats](https://github.com/Microsoft/PowerBI-Node)  
 
 Fler frågor? [Försök med Power BI Community](http://community.powerbi.com/)

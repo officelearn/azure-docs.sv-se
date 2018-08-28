@@ -1,82 +1,76 @@
 ---
-title: Vad är nytt i Power BI arbetsytan samlingar
-description: Få den senaste informationen om vad är nytt i Power BI arbetsytan samlingar
+title: Vad är nytt i Power BI-arbetsytesamlingar?
+description: Hämta den senaste informationen om nyheter i Power BI-Arbetsytesamlingar
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 2794ae98-b9a7-45df-b6e1-962a395b91fa
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 647b571fc05dca12ab9d4db45236962e4794ef4b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0fe3116934ac4ab9b1e3fd3b5efcd6627df0ed3d
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31408259"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046937"
 ---
-# <a name="whats-new-in-power-bi-workspace-collections"></a>Vad är nytt i Power BI arbetsytan samlingar
+# <a name="whats-new-in-power-bi-workspace-collections"></a>Vad är nytt i Power BI-arbetsytesamlingar?
 
-Uppdateringar för **Power BI arbetsytan samlingar** släpps regelbundet. Dock innehåller inte alla viktig nya funktioner för användarinriktad; vissa versioner fokuserar på funktioner för backend-tjänst. Vi Markera nya användarinriktad funktioner här.
+Uppdaterar till **Power BI-Arbetsytesamlingar** släpps regelbundet. Men innehåller inte alla versionen nya funktioner för användarinriktade; vissa utgåvor av fokuserar på funktioner för backend-tjänst. Vi fokusera på nya användarinriktade funktioner här.
 
 > [!IMPORTANT]
 > Power BI-arbetsytesamlingar fasas ut och är tillgänglig till juni 2018 eller det som anges i ditt avtal. Du uppmanas att planera migreringen till Power BI Embedded för att undvika avbrott i programmet. Information om hur du migrerar dina data till Power BI Embedded finns i [Migrera Power BI-arbetsytesamlingar till Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 ## <a name="march-2017"></a>Mars 2017
 
-**Självbetjäning funktioner**
+**Självbetjäning**
 
 * [Skapa ny rapport](create-report-from-dataset.md)
 * [Spara rapporten](save-reports.md)
-* Bädda in rapporten i Läs/redigera/skapa nya läge 
-* [Växla mellan lägen redigera/läsning](toggle-mode.md)
+* Bädda in rapporten i Läs/redigera/skapa nytt läge 
+* [Växla mellan lägen för redigering/läsning](toggle-mode.md)
 
 **Dataanslutning med REST API: er**
 
-* [Skapa datauppsättningen](https://msdn.microsoft.com/library/azure/mt778875.aspx)
+* [Skapa datauppsättning](https://msdn.microsoft.com/library/azure/mt778875.aspx)
 * Skicka data 
 
 **Management-API: er**
 
-* Klona rapporten och datamängd
+* Klona rapport och datauppsättning
 * Binda rapporten till en annan datauppsättning
 
 **Exempel**
 
-* Uppdatera [JavaScript rapporten bäddas in exempel](https://microsoft.github.io/PowerBI-JavaScript/demo)
+* Uppdatera [rapport för JavaScript-Inbäddningsexempel](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 ## <a name="december-2016"></a>December 2016
 
-* [Ny JavaScript bädda in exempel](https://microsoft.github.io/PowerBI-JavaScript/demo/)
+* [Ny JavaScript-inbäddningsexempel](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 
 ## <a name="october-2016"></a>Oktober 2016
 
-* [Avancerade analyser med Power BI arbetsytan samlingar och R](https://powerbi.microsoft.com/blog/r-in-pbie/)
+* [Avancerad analys med Power BI-Arbetsytesamlingar och R](https://powerbi.microsoft.com/blog/r-in-pbie/)
 
 ## <a name="august-31-2016"></a>Den 31 augusti 2016
 Ingår i den här versionen:
 
-* Alla nya JavaScript SDK som stöder [avancerade filtrering och sidan navigering](interact-with-reports.md).
-* Power BI arbetsytan samlingar stöds nu i Kanada Central datacentret. Kontrollera [datacenter status](https://azure.microsoft.com/status/).
+* Alla nya JavaScript SDK som stöder [avancerad filtrering och sidan navigering](interact-with-reports.md).
+* Power BI-Arbetsytesamlingar stöds nu i Kanada, centrala datacenter. Kontrollera [datacenter status](https://azure.microsoft.com/status/).
 
 ## <a name="july-11-2016"></a>11 juli 2016
 Ingår i den här versionen:
 
-* **Goda nyheter!** Arbetsytan samlingar för Power BI-tjänsten är inte längre i preview - dess nu GA (allmänt tillgänglig).  
+* **Goda nyheter!** Tjänsten Power BI-Arbetsytesamlingar är inte längre i förhandsgranskning – dess nu allmänt tillgänglig (allmänt tillgänglig).  
 * Alla REST API: er har flyttats från **/beta** till **/v1.0**.
-* .NET- och JavaScript SDK har uppdaterats för **v1.0**.
-* Power BI-API-anrop kan nu autentiseras direkt med hjälp av API-nycklar. Apptoken krävs endast för att bädda in. Etablera och dev token har tagits bort v1.0 API: er som en del av detta, men de kommer att fortsätta att arbeta i betaversionen till 30 December 2016. Läs mer i [autentisera och auktorisera med Power BI arbetsytan samlingar](app-token-flow.md).
-* Raden säkerhet på radnivå (RLS) stöd för apptoken och inbäddade rapporter. Läs mer i [rad säkerhet på radnivå med Power BI arbetsytan samlingar](row-level-security.md).
-* Uppdatera exempelprogram för alla **v1.0** API-anrop.
-* Power BI arbetsytan samlingar stöd för Azure SDK, PowerShell och CLI.
-* Användare kan exportera visualiseringen data till en **.csv**.
-* Power BI arbetsytan samlingar stöds nu i alla de samma/språk som Microsoft Azure. Läs mer i [Azure - språk](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx).
+* .NET- och JavaScript-SDK: er har uppdaterats för **v1.0**.
+* Power BI-API-anrop kan nu autentiseras direkt med hjälp av API-nycklar. Apptoken krävs endast för inbäddning. Etablera och dev-token har tagits bort från v1.0 API: er som en del av detta, men de kommer att fortsätta att arbeta i beta-versionen till den 30 December 2016. Mer information finns i [autentisering och auktorisering med Power BI-Arbetsytesamlingar](app-token-flow.md).
+* Rad på radnivå (RLS) stöd för apptoken och inbäddade rapporter. Mer information finns i [säkerhet på radnivå med Power BI-Arbetsytesamlingar](row-level-security.md).
+* Uppdatera exempelprogrammet för alla **v1.0** API-anrop.
+* Power BI-Arbetsytesamlingar stöd för Azure SDK, PowerShell och CLI.
+* Användare kan exportera data för sökvägsvisualisering till en **.csv**.
+* Power BI-Arbetsytesamlingar stöds nu i alla de samma/språk som Microsoft Azure. Mer information finns i [Azure – språk](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx).
 

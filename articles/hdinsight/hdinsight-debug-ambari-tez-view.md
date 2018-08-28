@@ -3,18 +3,18 @@ title: Använda Ambari Tez vy med HDInsight - Azure
 description: Lär dig mer om att använda Ambari Tez-vyn för att felsöka Tez-jobb på HDInsight.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
-ms.openlocfilehash: de8e40081f92ade236c0c6f3b8d12a77ab13a82a
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 576460f4b68d670e534e0ddeed920f7ac99e1458
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594261"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108894"
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>Använda Ambari-vyer för att felsöka Tez-jobb på HDInsight
 

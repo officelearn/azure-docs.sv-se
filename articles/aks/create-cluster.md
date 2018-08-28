@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 5c133c61c989bf19be3e84287cb76a7d110dccc8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6bfe6f9b76693ded79aa9b9d21ddcac4e1a0733e
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440481"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43110312"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster"></a>Skapa ett kluster i Azure Kubernetes Service (AKS)
 
@@ -48,7 +48,7 @@ Följande alternativ är tillgängliga med den `az aks create` kommando. Se den 
 | `--enable-rbac` `-r` | Aktivera Kubernetes rollbaserad åtkomstkontroll. | nej |
 | `--generate-ssh-keys` | Generera SSH offentliga och privata nyckelfiler om saknas. | nej |
 | `--kubernetes-version` `-k` | Versionen av Kubernetes du använder för att skapa klustret, till exempel '1.7.9' eller '1.9.6'. | nej |
-| `--locaton` `-l` | Plats för den automatiskt skapade resursgruppen. | nej |
+| `--location` `-l` | Plats för den automatiskt skapade resursgruppen. | nej |
 | `--max-pods` `-m` | Det maximala antalet poddar som distribueras till en nod. | nej |
 | `--network-plugin` | Kubernetes nätverk plugin-programmet du använder. | nej |
 | `--no-ssh-key` `-x` | Använd inte eller skapa en lokal SSH-nyckel. | nej |

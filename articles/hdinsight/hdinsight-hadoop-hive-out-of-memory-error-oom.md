@@ -4,18 +4,18 @@ description: Åtgärda en Hive minnesfel i HDInsight. Kund-scenario är en fråg
 keywords: utanför minnesinställningarna fel, OOMA, Hive
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 24b0258bac8c33b84b48655d8ecddd9061368b9a
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 1ef4d8fa85a983c736fad73b652d8614c9a96ae5
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592847"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43109859"
 ---
 # <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a>Åtgärda en Hive minnesfel i Azure HDInsight
 

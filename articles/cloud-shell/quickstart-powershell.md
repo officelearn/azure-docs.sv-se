@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2018
 ms.author: damaerte
-ms.openlocfilehash: adae7ea79ada9247382c88e58f1ba5331007985b
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: cb4b7f8851c6c891ca43f6c215ba812a0c784d28
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324501"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108146"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Snabbstart för PowerShell i Azure Cloudshell (förhandsversion)
 
@@ -119,7 +119,7 @@ TestVm2   westus     Succeeded         Standard_DS1_v2 WindowsServer 2016-Datace
 ```
 
 > [!NOTE]
-> Du kanske ser som den andra gången när du skriver `dir`, cloudshell kan visa objekt som är mycket snabbare.
+> Du kanske ser som den andra gången när du skriver `dir`, Cloud Shell kan visa objekt som är mycket snabbare.
 > Det beror på att de underordnade objekten cachelagras i minnet för en bättre användarupplevelse.
 Men du kan alltid använda `dir -Force` att uppdatera data.
 
@@ -258,7 +258,6 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 ## <a name="ssh"></a>SSH
 
-[Win32-OpenSSH](https://github.com/PowerShell/Win32-OpenSSH) är tillgänglig i PowerShell Cloud Shell.
 För att autentisera till servrar eller virtuella datorer med SSH, generera offentligt / privat nyckelpar i Cloud Shell och publicera den offentliga nyckeln till `authorized_keys` på fjärrdatorn, till exempel `/home/user/.ssh/authorized_keys`.
 
 > [!NOTE]

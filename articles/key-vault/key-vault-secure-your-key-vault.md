@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: ambapat
-ms.openlocfilehash: 8bc2355c5df73d2469cab63bfbf783624228b341
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: df577222fb8f9d13bd33c5705e6234362519d351
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576975"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41920380"
 ---
 # <a name="secure-your-key-vault"></a>Säkra ditt nyckelvalv
 Azure Key Vault är en molntjänst som skyddar krypteringsnycklar och hemligheter (som certifikat, anslutningssträngar, lösenord) för dina molnprogram. Eftersom dessa data är känsliga och verksamhetskritiska, behöver du säkra åtkomsten till dina nyckelvalv så att enbart auktoriserade program och användare har åtkomst. Den här artikeln ger en översikt över åtkomstmodellen för nyckelvalvet, förklarar autentisering och auktorisering och beskriver hur du skyddar åtkomst till nyckelvalvet för dina molnprogram med ett exempel.
@@ -87,7 +87,7 @@ Du kan ge åtkomst till användare, grupper och program i en specifik omfattning
 ## <a name="data-plane-access-control"></a>Åtkomstkontroll för dataplanet
 Nyckelvalvets dataplan består av åtgärder som påverkar objekten i ett nyckelvalv, till exempel nycklar, hemligheter och certifikat.  Det omfattar nyckelåtgärder som att skapa, importera, uppdatera, lista, säkerhetskopiera och återställa nycklar, kryptografiska åtgärder som att signera, verifiera, kryptera, avkryptera, wrappa och unwrappa samt ställa in taggar och andra attribut för nycklar. För hemligheter inkluderar det att hämta, ställa in, lista och ta bort.
 
-Åtkomst till dataplanet ges genom att ställa in åtkomstprinciper för ett nyckelvalv. En användare, grupp eller ett program måste ha bidragsgivarbehörighet (RBAC) för hanteringsplanet för ett nyckelvalv för att kunna ställa in åtkomstprinciper för det nyckelvalvet. En användare, grupp eller ett program kan beviljas åtkomst för att utföra specifika åtgärder för nycklar eller hemligheter i nyckelvalvet. Nyckelvalv stöder upp till 16 åtkomstprinciper för ett nyckelvalv. Skapa en säkerhetsgrupp i Azure Active Directory och lägg till användare i den gruppen för att tilldela dataplansåtkomst till ett nyckelvalv för flera användare.
+Åtkomst till dataplanet ges genom att ställa in åtkomstprinciper för ett nyckelvalv. En användare, grupp eller ett program måste ha bidragsgivarbehörighet (RBAC) för hanteringsplanet för ett nyckelvalv för att kunna ställa in åtkomstprinciper för det nyckelvalvet. En användare, grupp eller ett program kan beviljas åtkomst för att utföra specifika åtgärder för nycklar eller hemligheter i nyckelvalvet. Nyckelvalv stöder upp till 1024 åtkomstprinciper för ett nyckelvalv. Skapa en säkerhetsgrupp i Azure Active Directory och lägg till användare i den gruppen för att tilldela dataplansåtkomst till ett nyckelvalv för flera användare.
 
 ### <a name="key-vault-access-policies"></a>Åtkomstprinciper för nyckelvalvet
 Åtkomstprinciper till nyckelvalvet ger separata behörigheter till nycklar, hemligheter och certifikat. Du kan till exempel ge en användare åtkomst till bara nycklar, men inte hemligheter. Behörighet att komma åt nycklar eller hemligheter eller certifikat är dock valvnivå. Med andra ord stöder inte åtkomstprinciper för nyckelvalvet behörigheter på objektsnivå. Du kan använda [Azure Portal](https://portal.azure.com/), [Azure CLI verktyg](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs), eller [REST API:er för nyckelvalvshantering](https://msdn.microsoft.com/library/azure/mt620024.aspx) för att ställa in åtkomstprinciper för ett nyckelvalv.

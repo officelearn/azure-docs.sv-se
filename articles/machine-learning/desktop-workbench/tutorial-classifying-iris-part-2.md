@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/15/2018
-ms.openlocfilehash: 77dcad0f3e49b601110f8700245aaf479bde1c4e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4f9b14762332bd11fd69a855d8fabdb206e34919
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722787"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41918558"
 ---
 # <a name="tutorial-2-classify-iris---build-a-model"></a>Självstudie 2: Klassificera Iris – bygga en modell
 Azure Machine Learning-tjänsterna (förhandsversionen) är en integrerad lösning för datavetenskap och analys som datatekniker kan använda för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -216,10 +216,10 @@ I Azure Machine Learning Workbench sparas varje skriptkörning som en post i kö
 
 ## <a name="run-scripts-in-local-docker-environments"></a>Köra skript i lokala Docker-miljöer
 
-Du kan också experimentera med skript som körs med en lokal Docker-behållare. Du kan enkelt konfigurera ytterligare körningsmiljöer, som t.ex. Docker, och köra skriptet i dessa miljöer. 
+Du kan också experimentera med skript som körs med en lokal Docker-container. Du kan enkelt konfigurera ytterligare körningsmiljöer, som t.ex. Docker, och köra skriptet i dessa miljöer. 
 
 >[!NOTE]
->Om du vill experimentera med att skicka skript som ska köras i en Docker-behållare på en fjärransluten virtuell dator i Azure eller ett Azure HDInsight Spark-kluster kan du följa [instruktionerna för att skapa en Ubuntu-baserad Azure Data Science Virtual Machine eller ett HDInsight-kluster](how-to-create-dsvm-hdi.md).
+>Om du vill experimentera med att skicka skript som ska köras i en Docker-container på en fjärransluten virtuell dator i Azure eller ett Azure HDInsight Spark-kluster kan du följa [instruktionerna för att skapa en Ubuntu-baserad Azure Data Science Virtual Machine eller ett HDInsight-kluster](how-to-create-dsvm-hdi.md).
 
 1. Om du inte har gjort det ännu kan du installera och starta Docker lokalt på din Windows- eller MacOS-dator. Läs installationsinstruktionerna för Docker på https://docs.docker.com/install/. Det räcker med Community Edition.
 
@@ -254,7 +254,7 @@ Du kan också experimentera med skript som körs med en lokal Docker-behållare.
 
     - Laddar ned basavbildningen från Azure.
     - Installerar Python-paketet som anges i filen `conda_dependencies.yml`.
-    - Startar en Docker-behållare.
+    - Startar en Docker-container.
     - Kopior eller referenser, beroende på körningskonfigurationen, den lokala kopian av projektmappen.      
     - Kör skriptet `iris_sklearn.py`.
 
@@ -262,7 +262,7 @@ Du kan också experimentera med skript som körs med en lokal Docker-behållare.
 
 5. Nu ska vi prova Spark. Docker-basavbildningen innehåller en förinstallerad och förkonfigurerad Spark-instans som du kan använda för att utföra PySpark-skript. Genom att använda basavbildningen kan du på ett enkelt sätt utveckla och testa ditt eget Spark-program utan att behöva ägna tid åt att installera och konfigurera Spark själv. 
 
-   Öppna filen `iris_spark.py`. Skriptet läser in datafilen `iris.csv` och sedan används Logistic Regression-algoritmen från Spark Machine Learning-biblioteket till att klassificera Iris-datauppsättningen. Ändra nu körningsmiljön till **docker-spark**, skriptet till **iris_spark.py** och kör sedan skriptet igen. Den här processen tar lite längre tid eftersom en Spark-session måste skapas och startas i Docker-behållaren. Du kan också se att stdout inte är samma som stdout för `iris_spark.py`.
+   Öppna filen `iris_spark.py`. Skriptet läser in datafilen `iris.csv` och sedan används Logistic Regression-algoritmen från Spark Machine Learning-biblioteket till att klassificera Iris-datauppsättningen. Ändra nu körningsmiljön till **docker-spark**, skriptet till **iris_spark.py** och kör sedan skriptet igen. Den här processen tar lite längre tid eftersom en Spark-session måste skapas och startas i Docker-containern. Du kan också se att stdout inte är samma som stdout för `iris_spark.py`.
 
 6. Starta några fler körningar och prova olika argument. 
 
@@ -387,13 +387,13 @@ Du kan också experimentera med skript som körs med en lokal Docker-behållare.
 
 1. Gå till CLI-fönstret och kör Python-skriptet **iris_sklearn.py**, även den här gången med en Docker-körningsmiljö (om du inte redan har Docker installerat på datorn).
 
-   + Om din behållare finns i Windows: 
+   + Om din container finns i Windows: 
      |Körnings-<br/>miljö|Kommando i Windows|
      |---------------------|------------------|
      |Python|`az ml experiment submit -c docker-python .\iris_sklearn.py 0.01`|
      |Spark|`az ml experiment submit -c docker-spark .\iris_spark.py 0.1`|
 
-   + Om din behållare finns i MacOS: 
+   + Om din container finns i MacOS: 
      |Körnings-<br/>miljö|Kommando i Windows|
      |---------------------|------------------|
      |Python|`az ml experiment submit -c docker-python iris_sklearn.py 0.01`|
@@ -424,8 +424,8 @@ Du kan också experimentera med skript som körs med en lokal Docker-behållare.
 
    När `run.py` har slutförts visas ett diagram med olika värden i listvyn för körningshistoriken i Workbench.
 
-## <a name="run-scripts-in-a-remote-docker-container"></a>Köra skript i en fjärransluten Docker-behållare
-Om du vill köra skriptet i en Docker-behållare på en fjärrdator med Linux måste du ha SSH-åtkomst (användarnamn och lösenord) till fjärrdatorn. Dessutom måste datorn ha en Docker-motor installerad och igång. Det enklaste sättet att ordna en sådan Linux-dator är att skapa en Ubuntu-baserad DSVM (Data Science Virtual Machine) i Azure. Lär dig [att skapa en Ubuntu DSVM som ska användas i Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-ubuntu-dsvm-in-azure-portal).
+## <a name="run-scripts-in-a-remote-docker-container"></a>Köra skript i en fjärransluten Docker-container
+Om du vill köra skriptet i en Docker-container på en fjärrdator med Linux måste du ha SSH-åtkomst (användarnamn och lösenord) till fjärrdatorn. Dessutom måste datorn ha en Docker-motor installerad och igång. Det enklaste sättet att ordna en sådan Linux-dator är att skapa en Ubuntu-baserad DSVM (Data Science Virtual Machine) i Azure. Lär dig [att skapa en Ubuntu DSVM som ska användas i Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-ubuntu-dsvm-in-azure-portal).
 
 >[!NOTE] 
 >CentOS-baserade DSVM:er stöds *inte*.
@@ -442,7 +442,7 @@ Om du vill köra skriptet i en Docker-behållare på en fjärrdator med Linux m�
    >IP-adresserna kan även vara offentligt adresserbara FQDN (fullständigt kvalificerade domännamn), till exempel `vm-name.southcentralus.cloudapp.azure.com`. Det är en bra idé att lägga till FQDN för din DSVM och använda den istället för IP-adresser. Det här är en bra idé eftersom du kanske vill stänga av den virtuella datorn senare för att spara på kostnaden. Nästa gång du startar den virtuella datorn kan IP-adresserna ha ändrats.
 
    >[!NOTE]
-   >Utöver autentisering med användarnamn och lösenord kan du ange en privat nyckel och motsvarande lösenfras (om sådan används) med hjälp av alternativen `--private-key-file` och (som tillval) `--private-key-passphrase`.
+   >Utöver autentisering med användarnamn och lösenord kan du ange en privat nyckel och motsvarande lösenfras (om sådan används) med hjälp av alternativen `--private-key-file` och (som tillval) `--private-key-passphrase`. Om du vill använda den privata nyckel som du använde när du skapade DSVM bör du ange alternativet `--use-azureml-ssh-key`.
 
    Förbered beräkningsmålet **myvm** genom att köra det här kommandot.
    
@@ -453,7 +453,7 @@ Om du vill köra skriptet i en Docker-behållare på en fjärrdator med Linux m�
    Det föregående kommandot skapar Docker-avbildningen på den virtuella datorn, så att den blir redo att köra skripten:
    
    >[!NOTE]
-   >Du kan även ändra värdet för `PrepareEnvironment` i `myvm.runconfig` från standardvärdet `false` till `true`. Den här förändringen förbereder automatiskt Docker-behållaren som en del av den första körningen.
+   >Du kan även ändra värdet för `PrepareEnvironment` i `myvm.runconfig` från standardvärdet `false` till `true`. Den här förändringen förbereder automatiskt Docker-containern som en del av den första körningen.
 
 2. Redigera den genererade filen `myvm.runconfig` under `aml_config` och ändra ramverket från standardvärdet `PySpark` till `Python`:
 
@@ -463,19 +463,19 @@ Om du vill köra skriptet i en Docker-behållare på en fjärrdator med Linux m�
    >[!NOTE]
    >Även om PySpark också bör fungera är Python effektivare om du inte verkligen behöver en Spark-session för att köra Python-skriptet.
 
-3. Kör samma kommando som du gjorde förut i CLI-fönstret med _myvm_ som mål för körningen av iris_sklearn.py i en fjärransluten Docker-behållare:
+3. Kör samma kommando som du gjorde förut i CLI-fönstret med _myvm_ som mål för körningen av iris_sklearn.py i en fjärransluten Docker-container:
    ```azurecli
    az ml experiment submit -c myvm iris_sklearn.py
    ```
    Kommandot körs som om du använder en `docker-python`-miljö, förutom att körningen sker på den virtuella fjärrdatorn med Linux. Samma utdata visas i CLI-fönstret.
 
-4. Nu ska vi prova att använda Spark i behållaren. Öppna Utforskaren. Skapa en kopia av filen `myvm.runconfig` och ge den namnet `myvm-spark.runconfig`. Redigera den nya filen och ändra inställningen `Framework` från `Python` till `PySpark`:
+4. Nu ska vi prova att använda Spark i containern. Öppna Utforskaren. Skapa en kopia av filen `myvm.runconfig` och ge den namnet `myvm-spark.runconfig`. Redigera den nya filen och ändra inställningen `Framework` från `Python` till `PySpark`:
    ```yaml
    Framework: PySpark
    ```
    Gör inga ändringar i filen `myvm.compute`. Samma Docker-avbildning på samma virtuella dator används vid Spark-körningen. I den nya filen `myvm-spark.runconfig` pekar fältet `Target` på samma fil `myvm.compute` via namnet `myvm`.
 
-5. Ange följande kommando för att köra skriptet **iris_spark.py** i Spark-instansen som körs i den fjärranslutna Docker-behållaren:
+5. Ange följande kommando för att köra skriptet **iris_spark.py** i Spark-instansen som körs i den fjärranslutna Docker-containern:
    ```azureli
    az ml experiment submit -c myvm-spark .\iris_spark.py
    ```

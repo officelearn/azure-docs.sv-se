@@ -4,17 +4,17 @@ description: Lär dig hur du skapar ett Azure Automation-konto och kör en runbo
 services: automation
 author: csand-msft
 ms.author: csand
-ms.date: 12/13/2017
+ms.date: 08/22/2018
 ms.topic: quickstart
 ms.service: automation
 ms.component: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 3accd62415cd7d3a8210b7a05aa1edfd7a380edc
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 81dbcb4f77708f9f679d146b1db83ddecc30629d
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34055162"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616604"
 ---
 # <a name="create-an-azure-automation-account"></a>Skapa ett Azure Automation-konto
 
@@ -22,21 +22,21 @@ Azure Automation-konton kan skapas via Azure. Den här metoden ger ett webbläsa
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="log-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in till Azure på https://portal.azure.com
+Logga in i Azure på https://portal.azure.com
 
 ## <a name="create-automation-account"></a>Skapa ett Automation-konto
 
 1. Klicka på knappen **Skapa en resurs** längst upp till vänster i Azure.
 
-1. Välj **Övervakning + Hantering** och sedan **Automation**.
+1. Välj **Hanteringsverktyg** och välj sedan **Automation**.
 
-1. Ange kontoinformation. För **Skapa Kör som-konto i Azure**, väljer du **Ja** så att artefakterna för att förenkla autentisering till Azure aktiveras automatiskt. När du är färdig klickar du på **Skapa** för att starta distributionen av Automation-kontot.
+1. Ange kontoinformation. För **Skapa Kör som-konto i Azure**, väljer du **Ja** så att artefakterna för att förenkla autentisering till Azure aktiveras automatiskt. Observera att du inte kan ändra namnet på ett Automation-konto som du skapar i efterhand. När du är färdig klickar du på **Skapa** för att starta distributionen av Automation-kontot.
 
     ![Ange information om ditt Automation-konto på sidan](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
-1. Automation-kontot fästs på Azure-instrumentpanelen. När distributionen är klar öppnas översikten över Automation-kontot automatiskt.
+1. När distributionen är klar klickar du på ** **Alla tjänster**, väljer **Automation-konton** och väljer sedan det Automation-konto som du skapade.
 
     ![Översikt över Automation-konton](./media/automation-quickstart-create-account/automation-account-overview.png)
 

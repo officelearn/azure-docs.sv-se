@@ -9,12 +9,12 @@ ms.date: 06/27/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 991113b4e3e501d6d058a83baa795a5d7cbaa585
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8a3cc9793af39deeb24fa725da5cf0dc536f4465
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439687"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41918848"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Självstudie: Utveckla en C# IoT Edge-modul och distribuera till den simulerade enheten
 
@@ -66,8 +66,14 @@ Du kan använda valfritt Docker-kompatibelt register för den här självstudien
 ## <a name="create-an-iot-edge-module-project"></a>Skapa ett projekt för IoT Edge-modulen
 I följande steg skapas ett IoT Edge-modulprojekt baserat på .NET Core 2.0 SDK med hjälp av Visual Studio Code och Azure IoT Edge-tillägget.
 
+### <a name="create-a-new-solution"></a>Skapa en ny lösning
+
+Skapa en C#-lösningsmall som du kan anpassa med din egen kod. 
+
 1. I Visual Studio Code väljer du **Visa** > **Kommandopalett** för att öppna kommandopaletten i VS Code. 
+
 2. Ange och kör kommandot **Azure: Logga in** på kommandopaletten och följ anvisningarna för att logga in med ditt Azure-konto. Om du redan är inloggad kan du hoppa över det här steget.
+
 3. Skriv och kör kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning) på kommandopaletten. Ange följande information i kommandopaletten för att skapa din lösning: 
 
    1. Välj den mapp där du vill skapa lösningen. 
@@ -76,7 +82,25 @@ I följande steg skapas ett IoT Edge-modulprojekt baserat på .NET Core 2.0 SDK 
    4. Ersätt namnet på standardmodulen med **CSharpModule**. 
    5. Ange det Azure-containerregister du skapade i föregående avsnitt som avbildningslagringsplats för den första modulen. Ersätt **localhost:5000** med det serverinloggningsvärde som du kopierade. Den slutliga strängen ser ut så här: \<registernamn\>.azurecr.io/csharpmodule.
 
-4.  VS Code-fönstret läser in IoT Edge-lösningens arbetsyta: modulmappen, en \.vscode-mapp, en mallfil för distributionsmanifestet och en \.env-fil. Öppna **modules** > **CSharpModule** > **Program.cs** i VS Code-utforskaren.
+   ![Ange lagringsplatsen för Docker-avbildningen](./media/tutorial-csharp-module/repository.png)
+
+VS Code läser in arbetsytan för IoT Edge-lösningen. Lösningens arbetsyta innehåller fem komponenter på den högsta nivån. Du kommer inte att redigera mappen **\.vscode** eller filen **\.gitignore** i den här självstudiekursen. Mappen **modules** innehåller C#-koden för din modul samt Dockerfiles som används för att skapa modulen som en containeravbildning. Filen **\.env** lagrar dina autentiseringsuppgifter för containerregistret. Filen **deployment.template.json** innehåller informationen som IoT Edge-körningen använder för att distribuera moduler på en enhet. 
+
+Om du inte angav ett containerregister när du skapade lösningen, men accepterade standardvärdet localhost:5000, har du ingen \.env-fil. 
+
+   ![C#-lösningens arbetsyta](./media/tutorial-csharp-module/workspace.png)
+
+### <a name="add-your-registry-credentials"></a>Lägg till autentiseringsuppgifter för registret
+
+Miljöfilen lagrar autentiseringsuppgifterna för containerregistret och delar dem med körningsmiljön för IoT Edge. Körningen behöver dessa autentiseringsuppgifter för att hämta dina privata avbildningar till IoT Edge-enheten. 
+
+1. Öppna .env-filen i VS Code-utforskaren. 
+2. Uppdatera fälten med det **användarnamn** och **lösenord** som du kopierade från Azure Container-registret. 
+3. Spara filen. 
+
+### <a name="update-the-module-with-custom-code"></a>Uppdatera modulen med anpassad kod
+
+1. Öppna **modules** > **CSharpModule** > **Program.cs** i VS Code-utforskaren.
 
 5. Överst i **CSharpModule**-namnrymden läger du till tre **using**-instruktioner för typer som ska användas senare:
 
@@ -253,26 +277,29 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod i **CSh
 
 4. Spara filen.
 
-5. Högerklicka på filen deployment.template.json och välj **Skapa IoT Edge-lösning** i VS Code-utforskaren. 
+5. Högerklicka på filen deployment.template.json och välj **Build and Push IoT Edge solution** (Skapa och skicka IoT Edge-lösning) i VS Code-utforskaren. 
 
-När du instruerar Visual Studio Code att skapa din lösning hämtar den först information i distributionsmallen och genererar en .json-distributionsfil i en ny mapp med namnet **config**. Sedan körs två kommandon i en integrerad terminal: `docker build` och `docker push`. Dessa två kommandon skapar din kod, bäddar in CSharpModule.dll i en container och skickar sedan koden till det containerregister som du angav när du initierade lösningen. 
+När du instruerar Visual Studio Code att skapa din lösning hämtar den först information från distributionsmallen och genererar en .json-distributionsfil i en ny mapp med namnet **config**. Sedan körs två kommandon i en integrerad terminal: `docker build` och `docker push`. Dessa två kommandon skapar din kod, bäddar in CSharpModule.dll i en container och skickar sedan koden till det containerregister som du angav när du initierade lösningen. 
 
 Den fullständiga adressen med tagg för containeravbildningen finns i den integrerade VS Code-terminalen. Avbildningsadressen skapas från information som finns i filen module.json med formatet \<lagringsplats\>:\<version\>-\<plattform\>. I den här självstudien bör den se ut så här: registryname.azurecr.io/csharpmodule:0.0.1-amd64.
 
 ## <a name="deploy-and-run-the-solution"></a>Distribuera och kör lösningen
 
-1. Konfigurera Azure IoT Toolkit-tillägget med anslutningssträngen för din IoT-hubb: 
+I stegen i snabbstartsartikeln som du följde för att konfigurera IoT Edge-enheten distribuerade du en modul med hjälp av Azure Portal. Du kan också distribuera moduler med Azure IoT Toolkit-tillägget för Visual Studio Code. Du har redan ett distributionsmanifest som är förberett för ditt scenario, filen **deployment.json**. Allt du behöver göra nu är att välja en enhet som ska ta emot distributionen.
 
-    1. Öppna VS Code-utforskaren genom att välja **Visa** > **Utforskaren**.
+1. Kör **Azure IoT Hub: Välj IoT Hub** på kommandopaletten i VS Code. 
 
-    1. Välj **Azure IoT Hub Devices** (Azure IoT Hub-enheter) i utforskaren, välj ellipsen (**...**) och sedan **Select IoT Hub** (Välj IoT Hub). Följ anvisningarna för att logga in på ditt Azure-konto och välja din IoT-hubb. 
+2. Välj den prenumeration och IoT-hubb som innehåller den IoT Edge-enhet som du vill konfigurera. 
 
-       > [!Note]
-       > Du kan också slutföra konfigurationen genom att välja **Set IoT Hub Connection String** (Ange IoT Hub-anslutningssträng). Ange anslutningssträngen för den IoT-hubb som din IoT Edge-enhet ansluter till i popup-fönstret.
+3. I VS Code-utforskaren expanderar du avsnittet **Azure IoT Hub-enheter**. 
 
-2. Högerklicka på din IoT Edge-enhet i utforskaren för Azure IoT Hub-enheter och välj sedan **Create Deployment for IoT Edge device** (Skapa distribution för IoT Edge-enhet). Välj filen deployment.json i mappen config och välj sedan **Select Edge Deployment Manifest** (Välj distributionsmanifest för Edge).
+4. Högerklicka på namnet för din IoT Edge-enhet och välj sedan **Create Deployment for Single Device** (Skapa distribution för en enskild enhet). 
 
-3. Uppdatera avsnittet **Azure IoT Hub-enheter**. Du bör se den nya **CSharpModule** köras tillsammans med **TempSensor**-modulen och **$edgeAgent** och **$edgeHub**. 
+   ![Skapa distribution för en enskild enhet](./media/tutorial-csharp-module/create-deployment.png)
+
+5. Välj filen **deployment.json** i mappen **config** och klicka sedan på **Select Edge Deployment Manifest** (Välj distributionsmanifest för Edge). Använd inte filen deployment.template.json. 
+
+6. Klicka på uppdateringsknappen. Du bör se den nya **CSharpModule** köras tillsammans med **TempSensor**-modulen och **$edgeAgent** och **$edgeHub**.  
 
 ## <a name="view-generated-data"></a>Visa genererade data
 
@@ -284,33 +311,13 @@ Den fullständiga adressen med tagg för containeravbildningen finns i den integ
  
 ## <a name="clean-up-resources"></a>Rensa resurser 
 
-<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
-
-Om du planerar att fortsätta med nästa rekommenderade artikel kan du behålla de resurser och konfigurationer som du skapat och använda dem igen.
+Om du planerar att fortsätta med nästa rekommenderade artikel kan du behålla de resurser och konfigurationer som du skapat och använda dem igen. Du kan även fortsätta att använda samma IoT Edge-enhet som en testenhet. 
 
 Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som du har skapat i den här artikeln för att därigenom undvika kostnader. 
 
-> [!IMPORTANT]
-> Det går inte att ångra borttagningen av Azure-resurser och resursgrupper. När dessa objekt tas bort tas resursgruppen och alla resurser som finns i den bort permanent. Var noga så att du inte tar bort fel resursgrupp eller resurser av misstag. Om du har skapat IoT-hubben i en befintlig resursgrupp som innehåller resurser som du vill behålla, tar du bara bort själva IoT-hubbresursen i stället för att ta bort resursgruppen.
->
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-Om du bara vill ta bort IoT-hubben kör du följande kommando med namnet på hubben och resursgruppens:
-
-```azurecli-interactive
-az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
-```
-
-
-Ta bort hela resursgruppen med namnet:
-
-1. Logga in på [Azure-portalen](https://portal.azure.com) och välj **Resursgrupper**.
-
-2. I textrutan **Filtrera efter namn** anger du namnet på den resursgrupp som innehåller din IoT-hubb. 
-
-3. Till höger om resursgruppen i resultatlistan väljer du ellipsen (**...**) och sedan **Ta bort resursgrupp**.
-
-4. Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på resursgruppen igen för att bekräfta och välj sedan **Ta bort**. Efter en liten stund tas resursgruppen och resurser som finns i den bort.
-
+[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
 
 ## <a name="next-steps"></a>Nästa steg

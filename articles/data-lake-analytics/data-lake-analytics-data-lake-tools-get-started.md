@@ -9,13 +9,13 @@ manager: kfile
 editor: jasonwhowell
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: get-started-article
-ms.date: 05/02/2018
-ms.openlocfilehash: 0acaace474d62f18b9b6ca4aaae324405a2f43db
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.date: 08/13/2018
+ms.openlocfilehash: 852840fc29589292e7a74390026b78b15f81e721
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735801"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41920919"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Utveckla U-SQL-skript med hjälp av Data Lake Tools för Visual Studio
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -52,16 +52,20 @@ För den här självstudien krävs att Data Lake Tools för Visual Studio har in
 ## <a name="connect-to-an-azure-data-lake-analytics-account"></a>Ansluta till ett Azure Data Lake Analytics-konto
 
 1. Öppna Visual Studio.
-2. Öppna Server Explorer genom att välja **Visa** > **Server Explorer**.
-3. Högerklicka på **Azure**. Välj sedan **Anslut till Microsoft Azure-prenumeration** och följ sedan instruktionerna.
-4. Välj **Azure** > **Data Lake Analytics** i Server Explorer. En lista över dina Data Lake Analytics-konton visas.
 
+2. Öppna Server Explorer genom att välja **Visa** > **Server Explorer**.
+
+3. Högerklicka på **Azure**. Välj sedan **Anslut till Microsoft Azure-prenumeration** och följ sedan instruktionerna.
+
+4. Välj **Azure** > **Data Lake Analytics** i Server Explorer. En lista över dina Data Lake Analytics-konton visas.
 
 ## <a name="write-your-first-u-sql-script"></a>Skriv ditt första U-SQL-skript
 
 Följande text är ett enkelt U-SQL-skript. Skriptet definierar ett liten datauppsättning och skriver den till standard-Data Lake Store som en fil med namnet `/data.csv`.
 
 ```
+USE DATABASE master;
+USE SCHEMA dbo;
 @a  = 
     SELECT * FROM 
         (VALUES
@@ -74,7 +78,7 @@ OUTPUT @a
     USING Outputters.Csv();
 ```
 
-### <a name="submit-a-data-lake-analytics-job"></a>Skicka ett Data Lake Analytics-jobb
+## <a name="submit-a-data-lake-analytics-job"></a>Skicka ett Data Lake Analytics-jobb
 
 1. Välj **Arkiv** > **Nytt** > **Projekt**.
 
@@ -87,31 +91,35 @@ OUTPUT @a
     ![Skicka U-SQL Visual Studio-projekt](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job.png)
 
 5. Välj **Skicka** längst upp till vänster i fönstret **Script.usql**.
-6. Kontrollera **Analytics-kontot** och välj sedan **Skicka**. Resultatet visas i resultatfönstret för Data Lake Tools för Visual Studio när överföringen är klar.
 
-    ![Skicka U-SQL Visual Studio-projekt](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)
-7. Klicka på **Uppdatera** för att se senaste jobbstatus och uppdatera skärmen. När jobbet har slutförts visas **Jobbdiagram**, **Metadataåtgärder**, **Tillståndshistorik** och **Diagnostik**:
+6. När jobbet har skickats öppnas fliken **Job view** (Jobbvy) där du kan följa jobbförloppet. Klicka på **Uppdatera** för att se senaste jobbstatus och uppdatera skärmen.
 
     ![Prestandadiagram för U-SQL Visual Studio Data Lake Analytics-jobbet](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
    * **Jobbsammanfattning** visar en sammanfattning av jobbet.   
-   * **Jobbinformation** visar mer detaljerad information om jobbet, inklusive skript, resurser och hörn.
    * **Jobbdiagram** visualiserar jobbförloppet.
    * **Metadataåtgärder** visar alla åtgärder som vidtagits för U-SQL-katalogen.
    * **Data** visar alla indata och utdata.
+   * **State History** (Tillståndshistorik) visar tidslinjen och tillståndsinformation.
+   * **AU-analys** visar hur många analysenheter som användes i jobbet och utforskar simuleringar av olika AU-allokeringsstrategier.
    * **Diagnostik** ger en avancerad analys för jobbkörning och prestandaoptimering.
 
-### <a name="to-check-job-state"></a>Om du vill kontrollera jobbstatus
+## <a name="check-job-status"></a>Kontrollera jobbstatus
 
-1. Välj **Azure** > **Data Lake Analytics** i Server Explorer. 
+1. Välj **Azure** > **Data Lake Analytics** i Server Explorer.
+
 2. Expandera Data Lake Analytics-kontonamnet.
+
 3. Dubbelklicka på **Jobb**.
+
 4. Välj det jobb som du skickade tidigare.
 
-### <a name="to-see-the-output-of-a-job"></a>Visa utdata för ett jobb
+## <a name="see-the-job-output"></a>Visa jobbutdata
 
 1. I Server Explorer bläddrar du till jobbet du skickade.
+
 2. Klicka på fliken **Data**.
+
 3. Välj filen `"/data.csv"` på fliken **Job Outputs** (Jobbutdata).
 
 ## <a name="next-steps"></a>Nästa steg

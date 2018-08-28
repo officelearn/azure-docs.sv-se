@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 42910d616bdbf38c847b48a4a44e6ff9593fa17b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 30db5dc373dd0fae24760bdad669fd872cba4b4d
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952733"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41919998"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installation av Azure AD Connect Health Agent
 Det här dokumentet beskriver hur du installerar och konfigurerar Azure AD Connect Health-agenterna. Du kan ladda ned agenterna [här](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent).
@@ -31,13 +31,13 @@ Följande tabell är en lista över kraven för att använda Azure AD Connect He
 | --- | --- |
 | Azure AD Premium |Azure AD Connect Health är en Azure AD Premium-funktion som kräver Azure AD Premium. </br></br>Mer information finns i [Komma igång med Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) </br>Information om hur du startar en kostnadsfri 30-dagars utvärderingsversion finns i [Starta en utvärderingsversion.](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Du måste vara en global administratör i din Azure AD för att komma igång med Azure AD Connect Health |Som standard kan endast globala administratörer installera och konfigurera hälsoagenter för att sätta igång, få åtkomst till portalen och utföra åtgärder i Azure AD Connect Health. Mer information finns i [Administrera Azure AD-katalogen](../fundamentals/active-directory-administer.md). <br><br> Du kan använda rollbaserad åtkomstkontroll för att ge andra användare i organisationen åtkomst till Azure AD Connect Health. Mer information finns i [Rollbaserad åtkomstkontroll för Azure AD Connect Health.](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control) </br></br>**Viktigt!** Det konto som du använder när du installerar agenter måste vara ett arbets- eller skolkonto. Det kan inte vara ett Microsoft-konto. Mer information finns i [Registrera dig för Azure som en organisation](../fundamentals/sign-up-organization.md) |
-| Azure AD Connect Health Agent installeras på varje målserver | Azure AD Connect Health kräver att hälsotillståndsagenterna ska vara installerade och konfigurerade på utvalda servrar för att ta emot data och tillhandahålla funktioner för övervakning och analys </br></br>För att exempelvis få data från AD FS-infrastrukturen måste agenten installeras på AD FS och proxyservrarna för webbappen. På samma sätt måste agenten installeras på domänkontrollanterna för att hämta data i din lokala AD DS-infrastruktur. </br></br> |
+| Azure AD Connect Health Agent installeras på varje målserver | Azure AD Connect Health kräver att hälsotillståndsagenterna är installerade och konfigurerade på målservrarna för att kunna ta emot data och tillhandahålla funktioner för övervakning och analys. </br></br>För att exempelvis få data från AD FS-infrastrukturen måste agenten installeras på AD FS och proxyservrarna för webbappen. På samma sätt måste agenten installeras på domänkontrollanterna för att hämta data i din lokala AD DS-infrastruktur. </br></br> |
 | Utgående anslutning till Azure-tjänstens slutpunkter | Under installation och körning kräver agenten anslutning till Azure AD Connect Health-tjänstens slutpunkter. Om du har blockerat utgående anslutningar med Brandväggar kontrollerar du att följande slutpunkter finns med i listan över tillåtna anslutningar. Se [Utgående anslutning för webbadresser](active-directory-aadconnect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) | 
-|Utgående anslutningar baserat på IP-adresser | Information om IP-adressbaserad filtrering för brandväggar finns i [Azure IP-intervall](https://www.microsoft.com/en-us/download/details.aspx?id=41653).|
+|Utgående anslutningar baserat på IP-adresser | Information om IP-adressbaserad filtrering för brandväggar finns i [Azure IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653).|
 | SSL-kontroll för utgående trafik filtreras eller inaktiveras | Agentregistreringsstegen eller dataöverföringsåtgärderna kan misslyckas om en SSL-inspektion utförs eller om den utgående trafiken på nätverksnivå avslutas. Läs mer om [hur du ställer in SSL-kontroll](https://technet.microsoft.com/library/ee796230.aspx) |
 | Brandväggsportar på servern som agenten körs på |Följande brandväggsportar måste vara öppna för att agenten ska kunna kommunicera med Azure AD Health-tjänstens slutpunkter.</br></br><li>TCP-port 443</li><li>TCP-port 5671</li> </br>Läs mer om att [aktivera brandväggsportar](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
 | Tillåt följande webbplatser om Förbättrad säkerhet i Internet Explorer är aktiverat |Följande webbplatser måste tillåtas om Förbättrad säkerhet i Internet Explorer är aktiverat på servern som agenten ska installeras på.</br></br><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>Federationsservern för din organisation måste vara betrodd av Azure Active Directory. Till exempel: https:\//sts.contoso.com</li> Läs mer om att [konfigurera Internet Explorer](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing) |
-| Kontrollera att PowerShell v4.0 eller senare har installerats | <li>Windows Server 2008 R2 levereras med PowerShell v2.0, vilket inte är tillräckligt för agenten.  Uppdatera PowerShell enligt beskrivningen under [Agentinstallation på Windows Server 2008 R2-servrar](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Windows Server 2012 levereras med PowerShell v3.0, vilket inte är tillräckligt för agenten.  [Uppdatera](http://www.microsoft.com/en-us/download/details.aspx?id=40855) Windows Menagement Framework.</li><li>Windows Server 2012 R2 och senare levereras med en tillräckligt ny version av PowerShell.</li>|
+| Kontrollera att PowerShell v4.0 eller senare har installerats | <li>Windows Server 2008 R2 levereras med PowerShell v2.0, vilket inte är tillräckligt för agenten.  Uppdatera PowerShell enligt beskrivningen under [Agentinstallation på Windows Server 2008 R2-servrar](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Windows Server 2012 levereras med PowerShell v3.0, vilket inte är tillräckligt för agenten.  [Uppdatera](http://www.microsoft.com/download/details.aspx?id=40855) Windows Management Framework.</li><li>Windows Server 2012 R2 och senare levereras med en tillräckligt ny version av PowerShell.</li>|
 |Inaktivera FIPS|FIPS stöds inte av Azure AD Connect Health-agenter.|
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Utgående anslutning till Azure-tjänstens slutpunkter
@@ -62,6 +62,11 @@ Följande tabell är en lista över kraven för att använda Azure AD Connect He
     * [Se installationsinstruktionerna](#installing-the-azure-ad-connect-health-agent-for-ad-ds).
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-ad-fs"></a>Installera Azure AD Connect Health Agent för AD FS
+> [!NOTE]
+> AD FS-servern bör inte vara samma som din synkroniseringsserver. Installera inte AD FS-agenten på din synkroniseringsserver.
+>
+  
+Kontrollera att ditt AD FS-värdnamn är unikt och att det inte finns i AD FS-tjänsten innan du installerar.   
 Starta agentinstallationen genom att dubbelklicka på EXE-filen som du laddade ned. Klicka på Installera på den första skärmen.
 
 ![Verifiera Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install1.png)
@@ -166,6 +171,10 @@ Observera att granskningsnivån ”basic” är aktiverad som standard. Läs mer
 
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-sync"></a>Installera Azure AD Connect Health-agenten för synkronisering
+> [!NOTE]
+> Synkroniseringsservern bör inte vara samma som din AD FS-server. Installera inte synkroniseringsagenten på din AD FS-server.
+>
+
 Azure AD Connect Health-agenten för synkronisering installeras automatiskt i den senaste versionen av Azure AD Connect. Om du vill använda Azure AD Connect för synkronisering måste du ladda ned den senaste versionen av Azure AD Connect och installera den. Du kan hämta den senaste versionen [här](http://www.microsoft.com/download/details.aspx?id=47594).
 
 Kontrollera att agenten har installerats genom att leta efter följande tjänster på servern. Dessa tjänster bör köras om du har slutfört konfigurationen. Annars startar de inte förrän konfigurationen är klar.

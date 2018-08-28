@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6922262856d6fba97349377d5d1b18b75638d88f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6c47deebfe9617cdb21f473b282dd6ea2b912dc0
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436819"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41919604"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Självstudie: Utveckla och distribuera en Node.js IoT Edge-modul till din simulerade enhet
 
@@ -36,7 +36,6 @@ IoT Edge-modulen som du skapar i den här självstudien filtrerar temperaturdata
 En Azure IoT Edge-enhet:
 
 * Du kan använda utvecklingsdatorn eller en virtuell dator som en gränsenhet genom att följa stegen i snabbstarten för [Linux-](quickstart-linux.md) eller [Windows-enheter](quickstart.md).
-* Azure Machine Learning-modulen stöder inte ARM-processorer.
 
 Molnresurser:
 
@@ -87,8 +86,14 @@ Använd **npm** för att skapa en Node.js-lösningsmall som du kan utgå ifrån.
    3. Välj **Node.js-modulen** som mall för modulen. 
    4. Ge modulen namnet **NodeModule**. 
    5. Ange det Azure Container Registry som du skapade i föregående avsnitt som avbildningslagringsplatsen för din första modul. Ersätt **localhost:5000** med serverinloggningsvärdet som du kopierade. Den slutliga strängen ser ut så här: **\<registernamn\>.azurecr.io/nodemodule**.
- 
-VS Code läser in arbetsytan för IoT Edge-lösningen. Det finns en **.vscode**-mapp, en **modules**-mapp, en **.env**-fil och en mallfil för distributionsmanifestet
+
+   ![Ange lagringsplatsen för Docker-avbildningen](./media/tutorial-node-module/repository.png)
+
+VS Code läser in arbetsytan för IoT Edge-lösningen. Lösningens arbetsyta innehåller fem komponenter på den högsta nivån. Du redigerar inte mappen **\.vscode** eller filen **\.gitignore** i den här självstudiekursen. Mappen **modules** innehåller Node.js-koden för din modul samt Dockerfiles som används för att skapa modulen som en containeravbildning. Filen **\.env** lagrar dina autentiseringsuppgifter för containerregistret. Filen **deployment.template.json** innehåller informationen som IoT Edge-körningen använder för att distribuera moduler på en enhet. 
+
+Om du inte angav ett containerregister när du skapade lösningen, men accepterade standardvärdet localhost:5000, har du ingen \.env-fil. 
+
+   ![Node.js-lösningsarbetsyta](./media/tutorial-node-module/workspace.png)
 
 ### <a name="add-your-registry-credentials"></a>Lägg till autentiseringsuppgifter för registret
 
@@ -107,7 +112,7 @@ Exempelkod ingår i alla mallar. Koden simulerar sensordata från **tempSensor**
 5. Lägg till en tröskelvariabel för temperatur under nodmoduler. Tröskelvärdet för temperatur är det värde som den uppmätta temperaturen måste överstiga för att data ska skickas till IoT Hub.
 
     ```javascript
-    var temperatureThreshold = 30;
+    var temperatureThreshold = 25;
     ```
 
 6. Ersätt hela funktionen `PipeMessage` med funktionen `FilterMessage`.
@@ -183,7 +188,7 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod till No
         }
     ```
 5. Spara filen.
-6. Högerklicka på filen **deployment.template.json** och välj **Skapa IoT Edge-lösning** i VS Code-utforskaren. 
+6. Högerklicka på filen **deployment.template.json** och välj **Build and Push IoT Edge solution** (Skapa och skicka IoT Edge-lösning) i VS Code-utforskaren. 
 
 När du ger Visual Studio Code kommando att skapa din lösning hämtar den först information i distributionsmallen och genererar en `deployment.json`-fil i en ny **config**-mapp. Sedan körs två kommandon i en integrerad terminal: `docker build` och `docker push`. Dessa två kommandon skapar koden, lägger din Node.js-kod i behållare och push-överför till det containerregister som du angav när du initierade lösningen. 
 
@@ -191,23 +196,21 @@ Den fullständiga adressen med tagg för containeravbildningen i `docker build`-
 
 ## <a name="deploy-and-run-the-solution"></a>Distribuera och kör lösningen
 
-Du kan använda Azure Portal för att distribuera din Node.ms-modul till en IoT Edge-enhet, som du gjorde i snabbstarten, men du kan också distribuera och övervaka moduler från Visual Studio Code. I följande avsnitt använder du Azure IoT Edge-filnamnstillägget för VS Code som listades under förutsättningarna. Installera det nu om du inte redan har gjort det. 
+I snabbstartsartikeln som du använde för att ställa in din IoT Edge-enhet distribuerade du en modul med hjälp av Azure Portal. Du kan också distribuera moduler med Azure IoT Toolkit-tillägget för Visual Studio Code. Du har redan ett distributionsmanifest som är förberett för ditt scenario, filen **deployment.json**. Allt du behöver göra nu är att välja en enhet som ska ta emot distributionen.
 
-1. Öppna kommandopaletten för VS Code genom att välja **Visa** > **Kommandopalett**.
+1. Kör **Azure IoT Hub: Välj IoT Hub** i kommandopaletten för VS Code. 
 
-2. Sök efter och kör kommandot **Azure: Logga in**. Följ anvisningarna för att logga in på ditt Azure-konto. 
+2. Välj den prenumeration och IoT-hubb som innehåller den IoT Edge-enhet som du vill konfigurera. 
 
-3. Leta upp kommandot **Azure IoT Hub: Välj IoT** i kommandopaletten och kör det. 
+3. I VS Code-utforskaren expanderar du avsnittet **Azure IoT Hub-enheter**. 
 
-4. Välj den prenumeration som innehåller din IoT Hub och välj sedan den IoT Hub du vill komma åt.
+4. Högerklicka på namnet för din IoT Edge-enhet och välj sedan **Create Deployment for Single Device** (Skapa distribution för en enda enhet). 
 
-5. I VS Code-utforskaren expanderar du avsnittet **Azure IoT Hub-enheter**. 
+   ![Skapa distribution för en enda enhet](./media/tutorial-node-module/create-deployment.png)
 
-6. Högerklicka på namnet för din IoT Edge-enhet och välj sedan **Skapa distribution för IoT Edge-enhet**. 
+5. Välj filen **deployment.json** i mappen **config** och klicka sedan på **Select Edge Deployment Manifest** (Välj distributionsmanifest för Edge). Använd inte filen deployment.template.json. 
 
-7. Navigera till lösningsmappen som innehåller NodeModule. Öppna mappen **config** och välj filen **deployment.json**. Klicka på **Välj distributionsmanifest för Edge**.
-
-8. Uppdatera avsnittet **Azure IoT Hub-enheter**. Du bör se den nya **NodeModule** köras tillsammans med **TempSensor**-modulen och **$edgeAgent** och **$edgeHub**. 
+6. Klicka på uppdateringsknappen. Du bör se den nya **NodeModule** köras tillsammans med **TempSensor**-modulen och **$edgeAgent** och **$edgeHub**. 
 
 
 ## <a name="view-generated-data"></a>Visa genererade data
@@ -220,32 +223,14 @@ Du kan använda Azure Portal för att distribuera din Node.ms-modul till en IoT 
 
 ## <a name="clean-up-resources"></a>Rensa resurser 
 
-<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
+Om du planerar att fortsätta med nästa rekommenderade artikel kan du behålla de resurser och konfigurationer som du skapat och använda dem igen. Du kan också fortsätta att använda samma IoT Edge-enhet som en testenhet. 
 
-Om du fortsätter till nästa rekommenderade artikel kan du behålla de resurser och konfigurationer som du redan har skapat och återanvända dem.
+Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som du har skapat i den här artikeln för att därigenom undvika kostnader. 
 
-Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som skapats i den här artikeln om du vill undvika kostnader. 
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-> [!IMPORTANT]
-> Det går inte att ångra borttagning av Azure-resurser och resursgrupper. När resursgruppen och alla resurser som ingår i den tas bort är de borta permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat IoT Hub:en inuti en befintlig resursgrupp som innehåller resurser som du vill behålla, ta bara bort själva IoT Hub-resursen i stället för att ta bort resursgruppen.
->
+[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
-Om du endast vill ta bort körningen av IoT Hub kan du använda följande kommando med namnet på hubben och resursgruppens namn:
-
-```azurecli-interactive
-az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
-```
-
-
-Ta bort hela resursgruppen med namnet:
-
-1. Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgrupper**.
-
-2. I textrutan **Filtrera efter namn ...** , skriver du namnet på resursgruppen som innehåller din IoT Hub. 
-
-3. Till höger av din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
-
-4. Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på din resursgrupp igen för att bekräfta och klicka sedan på **Ta bort**. Efter en liten stund tas resursgruppen och resurser som finns i den bort.
 
 ## <a name="next-steps"></a>Nästa steg
 

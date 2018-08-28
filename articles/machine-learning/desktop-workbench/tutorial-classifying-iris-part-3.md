@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: 2270080f8612c69a69955202ececab44136f335c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: de0c93ef5b907b56e6ad66a04bb728b5b9aabb9a
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445544"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41918710"
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>Självstudie 3: Klassificera Iris – distribuera en modell
 Azure Machine Learning (förhandsversionen) är en integrerad, avancerad lösning för datavetenskap och analys för datatekniker. Datatekniker kan använda den för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -247,7 +247,7 @@ Nu är du redo att skapa realtidswebbtjänsten.
    >[!IMPORTANT]
    >Tjänstnamnet, som även är namnet på den nya Docker-avbildningen, måste skrivas med små bokstäver. Annars får du ett felmeddelande. 
 
-1. När du kör kommandot laddas modell- och bedömningsfilerna upp till det lagringskonto du skapade i miljökonfigurationen. I distributionsprocessen skapas en Docker-avbildning med din modell, ditt schema och din bedömningsfil, som sedan skickas till Azure Container Registry: **\<ACR_name\>.azureacr.io/\<imagename\>:\<version\>**. 
+1. När du kör kommandot laddas modell- och bedömningsfilerna upp till det lagringskonto du skapade i miljökonfigurationen. I distributionsprocessen skapas en Docker-avbildning med din modell, ditt schema och din bedömningsfil, som sedan skickas till Azure Container Registry: **\<ACR_name\>.azurecr.io/\<imagename\>:\<version\>**. 
 
    Kommandot hämtar sedan avbildningen lokalt till datorn och startar en Docker-container baserat på avbildningen. Om miljön är konfigurerad i klusterläge distribueras Docker-behållaren till Azure Container Registry Kubernetes-klustret i stället.
 
@@ -313,7 +313,7 @@ Testa **irisapp**-webbtjänsten som körs med hjälp av en JSON-kodad post med e
 1. Om du vill testa tjänsten kör du tjänstkörningskommandot som returnerades:
     
    ```azurecli
-   az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
+   az ml service run realtime -i <web service ID> -d '{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}'
    ```
 
    Utdata är **”Iris-setosa”**, som är den förväntade klassen. (Dina resultat kan vara annorlunda.) 

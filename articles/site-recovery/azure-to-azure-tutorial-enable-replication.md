@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: aaed3dd5a2a7b32d24aa8b19dab870c28e6f58ec
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 4638b697dcaa0d4c11bae1878a94f76f6237d4a4
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216190"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42154789"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Konfigurera haveriberedskap för virtuella Azure-datorer till en sekundär Azure-region
 
@@ -114,8 +114,9 @@ Läs mer om [Azure RBAC inbyggda roller](../role-based-access-control/built-in-r
 2. I **Källa** väljer du **Azure**.
 3. I **Källplats** väljer du den Azure källregion där de virtuella datorerna körs just nu.
 4. Välj **Distributionsmodell för Azure virtuella datorer** för virtuella datorer: **Resurshanterare** eller **Klassisk**.
-5. Välj **Källresursgrupp** för resurshanterar-VM eller **molntjänst** för klassiska VM.
-6. Spara inställningarna genom att klicka på **OK**.
+5. Välj den **källprenumeration** där de virtuella datorerna körs. Detta kan vara en prenumeration i samma Azure Active Directory-klientorganisation som dina valv i återställningstjänsten finns i.
+6. Välj **Källresursgrupp** för Resource Manager-baserade virtuella datorer eller **Molntjänst** för klassiska virtuella datorer.
+7. Spara inställningarna genom att klicka på **OK**.
 
 ### <a name="select-the-vms"></a>Välj virtuella datorer
 
@@ -134,9 +135,11 @@ Site Recovery skapar standardinställningar och replikeringsprinciper för målr
   ![Konfigurera inställningar](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
+- **Målprenumeration**: Målprenumerationen som används för haveriberedskap. Som standard är målprenumerationen samma som källprenumerationen. Klicka på Anpassa om du vill välja en annan målprenumeration inom samma Azure Active Directory-klientorganisation.
+
 - **Målplats**: den målregion som används för haveriberedskap. Vi rekommenderar att målplatsen överensstämmer med Site Recovery-valvets plats.
 
-- **Målresursgrupp**: den resursgrupp i målregionen som innehåller virtuella Azure-datorer efter redundansväxling. Som standard skapar Site Recovery en ny resursgrupp i målregionen med suffixet ”asr”. resursgruppens plats i målresursgruppen kan vara valfri region förutom den region där dina virtuella källdatorer finns. 
+- **Målresursgrupp**: den resursgrupp i målregionen som innehåller virtuella Azure-datorer efter redundansväxling. Som standard skapar Site Recovery en ny resursgrupp i målregionen med suffixet ”asr”. resursgruppens plats i målresursgruppen kan vara valfri region förutom den region där dina virtuella källdatorer finns.
 
 - **Virtuellt målnätverk**: nätverket i målregionen som innehåller virtuella Azure-datorer efter redundansväxling.
   Som standard skapar Site Recovery ett nytt virtuellt nätverk (och undernät) i målregionen med suffixet ”asr”.

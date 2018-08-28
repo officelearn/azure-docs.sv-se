@@ -10,12 +10,12 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: 1436ad54eb13052aa87ccfd5adc371c8d7d5a100
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4387e1c935ada99e1f9c335fb7e1b67905c01188
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31403798"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42023468"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Snabbstart: Köra ett arbetsflöde genom Microsoft Genomics-tjänsten
 
@@ -57,7 +57,9 @@ Användarna måste installera både Python och Microsoft Genomics Python-kliente
 
 ### <a name="install-python"></a>Installera Python
 
-Microsoft Genomics Python-klienten är kompatibel med Python 2.7. Vi rekommenderar att du använder version 2.7.12 eller senare. 2.7.14 är den föreslagna versionen. Du hittar nedladdningen [här](https://www.python.org/downloads/). 
+Microsoft Genomics Python-klienten är kompatibel med Python 2.7. 12 eller senare 2.7.xx-version; 2.7.15 är den senaste versionen när det här dokumentet skrivs; 2.7.14 är den rekommenderade versionen. Du hittar nedladdningen [här](https://www.python.org/downloads/). 
+
+Obs! Python 3.x är inte kompatibelt med Python 2.7.xx.  MSGen är ett Python 2.7-program. När du kör MSGen kontrollerar du att din aktiva Python-miljö använder en 2.7.xx-version av Python. Du kan få ett felmeddelande om du försöker använda MSGen med en 3.x-version av Python.
 
 
 ### <a name="install-the-microsoft-genomics-client"></a>Installera Microsoft Genomics-klienten
@@ -105,7 +107,7 @@ msgen list -f “<full path where you saved the config file>”
 ```
 
 ## <a name="create-a-microsoft-azure-storage-account"></a>Skapa ett Microsoft Azure Storage-konto 
-I Microsoft Genomics-tjänsten förväntas indata lagras som blockblobar i ett Azure Storage-konto. Utdatafilerna skrivs också som blockblobar till en behållare som angetts av användaren i ett Azure Storage-konto. In- och utdata kan finnas i olika lagringskonton.
+I Microsoft Genomics-tjänsten förväntas indata lagras som blockblobar i ett Azure Storage-konto. Utdatafilerna skrivs också som blockblobar till en container som angetts av användaren i ett Azure Storage-konto. In- och utdata kan finnas i olika lagringskonton.
 Om du redan har data i ett Azure Storage-konto behöver du bara se till att det finns på samma plats som Genomics-kontot. Annars debiteras du för utgående trafik när du kör Genomics-tjänsten. Om du ännu inte har ett Microsoft Azure Storage-konto måste du skapa ett och ladda upp data. Du hittar mer information om Azure Storage-konton [här](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account), bland annat om vad ett lagringskonto är och vilka tjänster det omfattar. Om du vill skapa ett Microsoft Azure Storage-konto ska du gå till [Azure-portalen](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM ).  
 
 ![Bladet Skapa lagring](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "Bladet Skapa lagring")
@@ -143,14 +145,14 @@ I Microsoft Genomics-tjänsten förväntas parkopplade slutläsningar som indata
 [https://msgensampledata.blob.core.windows.net/small/chr21_2.fq.gz](https://msgensampledata.blob.core.windows.net/small/chr21_2.fq.gz)
 
 
-Inom lagringskontot måste du göra en blob-behållare för dina indata och en andra blob-behållare för dina utdata.  Ladda upp indata till blob-behållaren för indata. Olika verktyg kan användas för att göra detta, bland annat [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), [blobporter](https://github.com/Azure/blobporter) eller [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
+I ditt lagringskonto måste du skapa en blob-container för dina indata och en andra blob-container för dina utdata.  Ladda upp indata till blob-containern för indata. Olika verktyg kan användas för att göra detta, bland annat [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), [blobporter](https://github.com/Azure/blobporter) eller [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 
 
 
 ## <a name="run-a-workflow-through-the-microsoft-genomics-service-using-the-python-client"></a>Köra ett arbetsflöde genom Microsoft Genomics-tjänsten med hjälp av Python-klienten 
 
-Om du vill köra ett arbetsflöde genom Microsoft Genomics-tjänsten ska du redigera filen config.txt och ange lagringsbehållaren för dina in- och utdata.
-Öppna filen config.txt som du laddade ned från Genomics-kontot. De avsnitt du måste ange är din prenumerationsnyckel och de sex elementen längst ned, lagringskontonamnet, nyckel och behållarnamn för både indata och utdata. Du kan hitta den här informationen på portalen genom att gå till **Åtkomstnycklar** för ditt lagringskonto, eller direkt från Azure Storage Explorer.  
+Om du vill köra ett arbetsflöde genom Microsoft Genomics-tjänsten ska du redigera filen config.txt och ange lagringscontainern för dina in- och utdata.
+Öppna filen config.txt som du laddade ned från Genomics-kontot. De avsnitt du måste ange är din prenumerationsnyckel och de sex elementen längst ned, lagringskontonamnet, nyckel och containernamn för både indata och utdata. Du kan hitta den här informationen på portalen genom att gå till **Åtkomstnycklar** för ditt lagringskonto, eller direkt från Azure Storage Explorer.  
 
 
 ![Genomics-konfiguration](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Genomics-konfiguration")
@@ -171,7 +173,7 @@ msgen list -f c:\temp\config.txt
 ```
 
 
-När arbetsflödet har slutförts kan du visa utdatafilerna i ditt Azure Storage-konto i behållaren för utdata som du konfigurerade. 
+När arbetsflödet har slutförts kan du visa utdatafilerna i ditt Azure Storage-konto i containern för utdata som du konfigurerade. 
 
 
 ## <a name="next-steps"></a>Nästa steg

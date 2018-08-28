@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: bf9b0262e52c4f956082b00faae1b6bb1c31d8d9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: bb8914b524846b1df5d8955bb4717873004ca4a5
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526257"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41918259"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Komma igång med Azure Dev Spaces med Node.js
 
@@ -34,7 +34,7 @@ Azure Dev Spaces kräver minimal konfiguration av den lokala datorn. Merparten a
 Börja genom att ladda ned och köra [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
 > [!IMPORTANT]
-> Om du redan har installerat Azure CLI kontrollerar du att du använder version 2.0.38 eller senare.
+> Om du redan har installerat Azure CLI kontrollerar du att du använder version 2.0.43 eller senare.
 
 [!INCLUDE[](includes/sign-into-azure.md)]
 

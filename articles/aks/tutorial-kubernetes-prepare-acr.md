@@ -1,173 +1,164 @@
 ---
-title: Självstudie om Kubernetes i Azure – förbereda ACR
-description: AKS-självstudie – förbereda ACR
+title: Självstudiekurs om Kubernetes i Azure – Skapa ett containerregister
+description: I den här självstudien om Azure Kubernetes Service (AKS) ska du skapa en Azure Container Registry-instans och ladda upp en containeravbildning för exempelprogrammet.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 02/22/2018
+ms.date: 08/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4ad5dcb8dbb11f1d6e12e3c19eab5da68009df58
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4f240d346457717c66a6ed189cfd8610c7a764da
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430764"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41920643"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Självstudier: Distribuera och använda Azure Container Registry
 
-Azure Container Registry (ACR) är ett Azure-baserat och privat register för Docker-behållaravbildningar. I den här självstudien, som är del två av sju, får du hjälp att distribuera en instans av Azure Container Registry och att push-överföra en behållaravbildning till den. Det här är några av stegen:
+Azure Container Registry (ACR) är ett Azure-baserat privat register för Docker-containeravbildningar. Med ett privat containerregister kan du skapa och distribuera dina program och anpassad kod på ett säkert sätt. I den här självstudien, del två av sju, ska du distribuera en ACR-instans och skicka en containeravbildning till den. Lär dig att:
 
 > [!div class="checklist"]
-> * distribuera en ACR-instans (Azure Container Registry)
+> * Skapa en ACR-instans (Azure Container Registry)
 > * Tagga en containeravbildning för ACR
 > * ladda upp avbildningen till ACR.
+> * Visa avbildningar i registret
 
-I senare självstudier är den här ACR-instansen integrerad med ett Kubernetes-kluster i AKS.
+I efterföljande självstudier integrerar du den här ACR-instansen med ett Kubernetes-kluster i AKS och distribuerar ett program från avbildningen.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 I [föregående självstudie][aks-tutorial-prepare-app] skapade du en containeravbildning för det enkla programmet Azure Voting. Om du inte har skapat appavbildningen för Azure Voting återgår du till [Självstudie 1 – skapa containeravbildningar][aks-tutorial-prepare-app].
 
-I den här självstudien krävs att du kör Azure CLI version 2.0.27 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+I den här självstudien måste du köra Azure CLI version 2.0.44 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
-## <a name="deploy-azure-container-registry"></a>Distribuera Azure Container Registry
+## <a name="create-an-azure-container-registry"></a>Skapa ett Azure Container Registry
 
-När du distribuerar ett Azure Container Registry behöver du först en resursgrupp. En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
+För att skapa en Azure Container Registry-instans behöver du en resursgrupp. En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
 
-Skapa en resursgrupp med kommandot [az group create][az-group-create]. I det här exemplet ska vi skapa en resursgrupp med namnet `myResourceGroup` i regionen `eastus`.
+Skapa en resursgrupp med kommandot [az group create][az-group-create]. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i regionen *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Skapa ett Azure-containerregister med kommandot [az acr create][az-acr-create]. Registernamnet måste vara unikt i Azure och innehålla 5–50 alfanumeriska tecken.
+Skapa en Azure Container Registry-instans med kommandot [az acr create][az-acr-create] och ange ett registernamn. Registernamnet måste vara unikt i Azure och innehålla 5–50 alfanumeriska tecken. I resten av den här självstudien används `<acrName>` som platshållare för namnet på containerregistret. Den *grundläggande* SKU:n är en kostnadsoptimerad startpunkt för utvecklingsändamål som ger en bra balans mellan lagring och dataflöde.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
-I resten av den här självstudien använder vi `<acrName>` som platshållare för containerregisternamnet.
+## <a name="log-in-to-the-container-registry"></a>Logga in till containerregistret
 
-## <a name="container-registry-login"></a>Logga in på containerregistret
-
-Använd kommandot [docker login][az-acr-login] och logga in på ACR-instansen. Du måste ange det unika namn du angav för containerregistret när det skapades.
+För att använda ACR-instansen måste du först logga in. Använd kommandot [az acr login][az-acr-login] och ange det unika namn som du gav containerregistret i föregående steg.
 
 ```azurecli
 az acr login --name <acrName>
 ```
 
-Du får ett meddelande om att inloggningen lyckades när inloggningen är klar.
+Du får ett meddelande om att *inloggningen lyckades* när inloggningen är klar.
 
-## <a name="tag-container-images"></a>Tagga containeravbildningar
+## <a name="tag-a-container-image"></a>Tagga en containeravbildning
 
-Om du vill se en lista med aktuella avbildningar använder du kommandot [docker images][docker-images].
-
-```console
-docker images
-```
-
-Resultat:
+Om du vill visa en lista över dina aktuella lokala avbildningar använder du kommandot [docker images][docker-images]:
 
 ```
+$ docker images
+
 REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
 azure-vote-front             latest              4675398c9172        13 minutes ago      694MB
 redis                        latest              a1b99da73d05        7 days ago          106MB
 tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ago        694MB
 ```
 
-Varje containeravbildning måste taggas med namnet på inloggningsservern för registret. Den här taggen används till routning när du push-överför containeravbildningar till ett avbildningsregister.
+För att du ska kunna använda containeravbildningen *azure-vote-front* med ACR måste avbildningen taggas med adressen för inloggningsservern för ditt register. Den här taggen används till routning när du push-överför containeravbildningar till ett avbildningsregister.
 
-Du hämtar loginServer-namnet genom att köra kommandot [az acr list][az-acr-list].
+Hämta inloggningsserverns adress genom att köra kommandot [az acr list][az-acr-list] och fråga efter *loginServer* så här:
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Tagga nu avbildningen `azure-vote-front` med namnet på inloggningsservern för containerregistret. Lägg även till `:v1` i slutet av avbildningens namn. Den här taggen anger versionsnumret för avbildningen.
+Tagga nu din lokala *azure-vote-front*-avbildning med *acrloginServer*-adressen för containerregistret. Ange versionsnumret för avbildningen genom att lägga till *:v1* i slutet av avbildningens namn:
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
 ```
 
-När taggningen är färdig verifierar du åtgärden genom att köra [docker-images][docker-images].
-
-```console
-docker images
-```
-
-Resultat:
+Kontrollera att taggarna har tillämpats genom att köra [docker images][docker-images] igen. En bild taggas med ACR-instansadressen och ett versionsnummer.
 
 ```
-REPOSITORY                                           TAG                 IMAGE ID            CREATED             SIZE
-azure-vote-front                                     latest              eaf2b9c57e5e        8 minutes ago       716 MB
-mycontainerregistry082.azurecr.io/azure-vote-front   v1            eaf2b9c57e5e        8 minutes ago       716 MB
-redis                                                latest              a1b99da73d05        7 days ago          106MB
-tiangolo/uwsgi-nginx-flask                           flask               788ca94b2313        8 months ago        694 MB
+$ docker images
+
+REPOSITORY                                           TAG           IMAGE ID            CREATED             SIZE
+azure-vote-front                                     latest        eaf2b9c57e5e        8 minutes ago       716 MB
+mycontainerregistry.azurecr.io/azure-vote-front      v1            eaf2b9c57e5e        8 minutes ago       716 MB
+redis                                                latest        a1b99da73d05        7 days ago          106MB
+tiangolo/uwsgi-nginx-flask                           flask         788ca94b2313        8 months ago        694 MB
 ```
 
 ## <a name="push-images-to-registry"></a>Push-överför avbildningar till registret
 
-Push-överför avbildningen `azure-vote-front`till registret.
-
-Använd följande exempel och ersätt namnet på ACR-inloggningsservern med inloggningsnamnet från din miljö.
+Nu kan du skicka *azure-vote-front*-avbildningen till ACR-instansen. Använd [docker push][docker-push] och tillhandahåll din egen *acrLoginServer*-adress för avbildningsnamnet på följande sätt:
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v1
 ```
 
-Detta tar några minuter att slutföra.
+Överföringen till ACR kan ta några minuter.
 
 ## <a name="list-images-in-registry"></a>Lista med avbildningar i registret
 
-Du kan returnera en lista med avbildningar som push-överförts till Azure-containerregistret med kommandot [az acr repository list][az-acr-repository-list]. Uppdatera kommandot med namnet på ACR-instansen.
+Du kan returnera en lista med avbildningar som har överförts till ACR-instansen genom att köra kommandot [az acr repository list][az-acr-repository-list]. Ange din egen `<acrName>` på följande sätt:
 
 ```azurecli
 az acr repository list --name <acrName> --output table
 ```
 
-Resultat:
+Följande exempelutdata visar *azure-vote-front*-avbildningen i registret:
 
-```azurecli
+```
 Result
 ----------------
 azure-vote-front
 ```
 
-Om du sedan vill se taggar för en viss avbildning använder du kommandot [az acr repository show-tags][az-acr-repository-show-tags].
+Om du vill visa taggarna för en viss avbildning kör du kommandot [az acr repository show-tags][az-acr-repository-show-tags] på följande sätt:
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
 ```
 
-Resultat:
+Följande exempelutdata visar *v1*-avbildningen som taggades i föregående steg:
 
-```azurecli
+```
 Result
 --------
 v1
 ```
 
-När självstudien är färdig har behållaravbildningen lagrats i en privat Azure Container Registry-instans. Den här avbildningen distribueras från ACR till ett Kubernetes-kluster i efterföljande självstudier.
+Nu har du en behållaravbildning som lagras i en privat Azure Container Registry-instans. Den här avbildningen distribueras från ACR till ett Kubernetes-kluster i nästa självstudiekurs.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien förbereddes ett Azure-containerregister för användning i ett AKS-kluster. Följande steg har slutförts:
+I den här självstudien har du skapat en Azure Container Registry-instans och överfört en avbildning för användning i ett AKS-kluster. Du har lärt dig att:
 
 > [!div class="checklist"]
-> * distribuera en Azure Container Registry-instans
+> * Skapa en ACR-instans (Azure Container Registry)
 > * Tagga en containeravbildning för ACR
 > * ladda upp avbildningen till ACR.
+> * Visa avbildningar i registret
 
-Gå vidare till nästa självstudie om du vill lära dig hur du distribuerar ett Kubernetes-kluster i Azure.
+Gå vidare till nästa självstudie och lär dig hur du distribuerar ett Kubernetes-kluster i Azure.
 
 > [!div class="nextstepaction"]
 > [Distribuera Kubernetes-kluster][aks-tutorial-deploy-cluster]
 
 <!-- LINKS - external -->
 [docker-images]: https://docs.docker.com/engine/reference/commandline/images/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
 
 <!-- LINKS - internal -->
 [az-acr-create]: /cli/azure/acr#create

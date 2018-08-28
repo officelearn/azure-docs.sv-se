@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: get-started-article
 ms.date: 05/23/2018
 ms.author: sethm
-ms.openlocfilehash: 994510b415e21288fd38a116f7e77a59ba79af59
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bef88f09f182b1bb450ee0e045985ed59d5b5648
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641330"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41917750"
 ---
 # <a name="azure-service-bus"></a>Azure Service Bus
 
@@ -36,7 +36,12 @@ Du kan använda en eller flera instanser av tre olika kommunikationsmekanismer i
 * *Ämnen*, som ger enkelriktad kommunikation med hjälp av *prenumerationer*. Varje ämne kan ha flera prenumerationer. Precis som med köerna fungerar ämnena som en koordinator (broker), men varje prenumeration kan sedan använda ett filter för att endast ta emot meddelanden som uppfyller specifika villkor.
 * *Reläer* (relays), som ger dubbelriktad kommunikation. Till skillnad från köer och ämnen lagrar inte ett relä meddelanden som redan startats. Det är alltså inte en koordinator. I stället skickar reläet bara meddelandena vidare till målprogrammet.
 
-När du skapar en kö, ett ämne eller ett relä ger du dem ett namn. Det här namnet, tillsammans med det namn som du gav namnområdet, skapar en unik identifierare för objektet. Appen kan överföra detta namn till Service Bus och sedan använda kön, ämnet eller reläet i kommunikationen. 
+När du skapar en kö, ett ämne eller ett relä ger du dem ett namn. Det här namnet, tillsammans med det namn som du gav namnområdet, skapar en unik identifierare för objektet. Appen kan överföra detta namn till Service Bus och sedan använda kön, ämnet eller reläet i kommunikationen.
+
+ >**Exempel:**   
+     *https://&lt;servicebus-namespace-name&gt;.servicebus.windows.net/&lt;queue-name&gt;*  
+     *https://&lt;servicebus-namespace-name&gt;.servicebus.windows.net/&lt;topic-name&gt;*  
+     *https://&lt;servicebus-namespace-name&gt;.servicebus.windows.net/&lt;relay-name&gt;*  
 
 Windows-program kan använda Windows Communication Foundation (WCF) för att använda något av dessa objekt vid vidarebefordran. Den här tjänsten kallas [WCF Relay](../service-bus-relay/relay-what-is-it.md). För köer och ämnen kan Windows-program använda API:er för Service Bus-definierade meddelandefunktioner. Om du vill att det ska vara enklare att använda objekten från andra program som inte är från Windows, tillhandahåller Microsoft SDK:er för Java, Node.js och andra programmeringsspråk. Du kan även få åtkomst till köer och ämnen med hjälp av [REST-API:er](/rest/api/servicebus/) via HTTP. 
 

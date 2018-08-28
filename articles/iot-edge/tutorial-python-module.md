@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5766f9708d2439f42f9ad77169fd1fe7f7dc451e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6cf3a721dfd601fc4d4beb122f56b4a4de5fe426
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439120"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41917608"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Självstudie: Utveckla och distribuera en Python IoT Edge-modul till din simulerade enhet
 
@@ -37,7 +37,7 @@ IoT Edge-modulen du skapar i den här självstudien filtrerar temperaturdata som
 En Azure IoT Edge-enhet:
 
 * Du kan använda utvecklingsdatorn eller en virtuell dator som en gränsenhet genom att följa stegen i snabbstarten för [Linux-](quickstart-linux.md).
-* Python-moduler för IoT Edge stöder inte ARM-processorer eller Windows-enheter.
+* Python-moduler för IoT Edge stöder inte Windows-enheter.
 
 Molnresurser:
 
@@ -51,6 +51,9 @@ Utvecklingsresurser:
 * [Docker CE](https://docs.docker.com/engine/installation/). 
 * [Python](https://www.python.org/downloads/).
 * [Pip](https://pip.pypa.io/en/stable/installing/#installation) för att installera Python-paket (ingår vanligtvis i Python-installationen).
+
+>[!Note]
+>Se till att din `bin`-mapp finns på sökvägen för din plattform. Vanligtvis `~/.local/` för UNIX och macOS, eller `%APPDATA%\Python` i Windows.
 
 ## <a name="create-a-container-registry"></a>Skapa ett containerregister
 I den här självstudien använder du Azure IoT Edge-tillägget för VS Code för att skapa en modul och skapa en **containeravbildning** från filerna. Sedan pushar du avbildningen till ett **register** som lagrar och hanterar dina avbildningar. Slutligen, distribuerar du din avbildning från ditt register så det kör på din IoT Edge-enhet.  
@@ -78,6 +81,8 @@ Använd Python-paketet **cookiecutter** för att skapa en Python-lösningsmall s
     ```cmd/sh
     pip install --upgrade --user cookiecutter
     ```
+   >[!Note]
+   >Se till att katalogen där cookiecutter kommer att installeras är i `Path`för din miljö så att det blir möjligt att anropa det från en kommandotolk.
 
 3. Välj **Visa** > **Kommandopalett** för att öppna kommandopaletten i VS Code. 
 
@@ -91,7 +96,13 @@ Använd Python-paketet **cookiecutter** för att skapa en Python-lösningsmall s
    4. Ge modulen namnet **PythonModule**. 
    5. Ange det Azure-containerregister du skapade i föregående avsnitt som avbildningslagringsplats för den första modulen. Ersätt **localhost:5000** med det serverinloggningsvärde som du kopierade. Den slutliga strängen ser ut så här: \<registernamn\>.azurecr.io/pythonmodule.
  
-VS Code-fönstret läser in IoT Edge-lösningens arbetsyta: modulmappen, en mallfil för distributionsmanifestet och en \.env-fil. 
+   ![Ange lagringsplatsen för Docker-avbildningen](./media/tutorial-python-module/repository.png)
+
+VS Code läser in arbetsytan för IoT Edge-lösningen. Lösningens arbetsyta innehåller fem komponenter på den högsta nivån. Du kommer inte att redigera filen **\.gitignore** i den här självstudien. Mappen **modules** innehåller Python-koden för din modul samt Dockerfiles som används för att skapa modulen som en containeravbildning. Filen **\.env** lagrar dina autentiseringsuppgifter för containerregistret. Filen **deployment.template.json** innehåller informationen som IoT Edge-körningen använder för att distribuera moduler på en enhet. 
+
+Om du inte angav ett containerregister när du skapade lösningen, men accepterade standardvärdet localhost:5000, har du ingen \.env-fil. 
+
+   ![Python-lösningens arbetsyta](./media/tutorial-python-module/workspace.png)
 
 ### <a name="add-your-registry-credentials"></a>Lägg till autentiseringsuppgifter för registret
 
@@ -200,7 +211,7 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod i **Pyt
 
 4. Spara filen.
 
-5. Högerklicka på filen deployment.template.json och välj **Skapa IoT Edge-lösning** i VS Code-utforskaren. 
+5. I VS Code-utforskaren högerklickar du på filen deployment.template.json och väljer **Build and Push IoT Edge solution** (Skapa och skicka IoT Edge-lösning). 
 
 När du instruerar Visual Studio Code att skapa din lösning hämtar den först information från distributionsmallen och genererar en .json-distributionsfil i en ny mapp med namnet **config**. Sedan körs två kommandon i en integrerad terminal: `docker build` och `docker push`. Dessa två kommandon skapar koden, lägger Python-koden i en container och push-överför sedan koden till containerregistret du angav när du initierade lösningen. 
 
@@ -208,23 +219,21 @@ Den fullständiga adressen med tagg för containeravbildningen i `docker build`-
 
 ## <a name="deploy-and-run-the-solution"></a>Distribuera och kör lösningen
 
-Du kan använda Azure Portal till att distribuera din Python-modul till en IoT Edge-enhet, precis som du gjorde i snabbstarterna. Du kan också distribuera och övervaka moduler från Visual Studio Code. I följande avsnitt använder du Azure IoT Edge-filnamnstillägget för VS Code som listades under förutsättningarna. Installera tillägget nu om du inte redan har gjort det. 
+I stegen i snabbstartsartikeln som du följde för att konfigurera IoT Edge-enheten distribuerade du en modul med hjälp av Azure Portal. Du kan även distribuera moduler med Azure IoT Toolkit-tillägget för Visual Studio Code. Du har redan ett distributionsmanifest som är förberett för ditt scenario, filen **deployment.json**. Allt du behöver göra nu är att välja en enhet som ska ta emot distributionen.
 
-1. Öppna kommandopaletten för VS Code genom att välja **Visa** > **Kommandopalett**.
+1. I kommandopaletten i VS Code kör du **Azure IoT Hub: Select IoT Hub** (Azure IoT Hub: Välj IoT Hub). 
 
-2. Sök efter och kör kommandot **Azure: Logga in**. Följ anvisningarna för att logga in på ditt Azure-konto. 
+2. Välj den prenumeration och IoT-hubb som innehåller den IoT Edge-enhet som du vill konfigurera. 
 
-3. Leta upp kommandot **Azure IoT Hub: Välj IoT** i kommandopaletten och kör det. 
+3. I VS Code-utforskaren expanderar du avsnittet **Azure IoT Hub-enheter**. 
 
-4. Välj den prenumeration som innehåller din IoT-hubb och välj sedan den IoT-hubb du vill komma åt.
+4. Högerklicka på namnet för din IoT Edge-enhet och välj sedan **Create Deployment for Single Device** (Skapa distribution för en enskild enhet). 
 
-5. I VS Code-utforskaren expanderar du avsnittet **Azure IoT Hub-enheter**. 
+   ![Skapa distribution för en enskild enhet](./media/tutorial-python-module/create-deployment.png)
 
-6. Högerklicka på namnet för din IoT Edge-enhet och välj sedan **Skapa distribution för IoT Edge-enhet**. 
+5. Välj filen **deployment.json** i mappen **config** och klicka sedan på **Select Edge Deployment Manifest** (Välj distributionsmanifest för Edge). Använd inte filen deployment.template.json. 
 
-7. Bläddra till lösningsmappen som innehåller din **PythonModule**. Öppna mappen config, välj filen deployment.json och välj sedan på **Välj distributionsmanifest för Edge**.
-
-8. Uppdatera avsnittet **Azure IoT Hub-enheter**. Du bör se den nya **PythonModule** köras tillsammans med **TempSensor**-modulen och **$edgeAgent** och **$edgeHub**. 
+6. Klicka på uppdateringsknappen. Du bör se den nya **PythonModule** köras tillsammans med **TempSensor**-modulen och **$edgeAgent** och **$edgeHub**. 
 
 ## <a name="view-generated-data"></a>Visa genererade data
 
@@ -236,32 +245,42 @@ Du kan använda Azure Portal till att distribuera din Python-modul till en IoT E
 
 ## <a name="clean-up-resources"></a>Rensa resurser 
 
-<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
-
-Om du planerar att fortsätta med nästa rekommenderade artikel kan du behålla de resurser och konfigurationer som du skapat och använda dem igen.
+Om du planerar att fortsätta med nästa rekommenderade artikel kan du behålla de resurser och konfigurationer som du skapat och använda dem igen. Du kan även fortsätta att använda samma IoT Edge-enhet som en testenhet. 
 
 Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som du har skapat i den här artikeln för att därigenom undvika kostnader. 
 
-> [!IMPORTANT]
-> Det går inte att ångra borttagningen av Azure-resurser och resursgrupper. När dessa objekt tas bort tas resursgruppen och alla resurser som finns i den bort permanent. Var noga så att du inte tar bort fel resursgrupp eller resurser av misstag. Om du har skapat IoT-hubben i en befintlig resursgrupp som innehåller resurser som du vill behålla, tar du bara bort själva IoT-hubbresursen i stället för att ta bort resursgruppen.
->
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-Om du bara vill ta bort IoT-hubben kör du följande kommando med namnet på hubben och resursgruppens:
+### <a name="delete-local-resources"></a>Ta bort lokala resurser
 
-```azurecli-interactive
-az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
-```
+Om du vill ta bort IoT Edge-körningen och relaterade resurser från enheten kan du använda följande kommandon. 
 
+Ta bort IoT Edge-körningen.
 
-Ta bort hela resursgruppen med namnet:
+   ```bash
+   sudo apt-get remove --purge iotedge
+   ```
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) och välj **Resursgrupper**.
+När IoT Edge-körningen tas bort stoppas de containrar som den skapade, men de finns fortfarande kvar på enheten. Visa alla containrar.
 
-2. I textrutan **Filtrera efter namn** anger du namnet på den resursgrupp som innehåller din IoT-hubb. 
+   ```bash
+   sudo docker ps -a
+   ```
 
-3. Till höger om resursgruppen i resultatlistan väljer du ellipsen (**...**) och sedan **Ta bort resursgrupp**.
+Ta bort de körningscontainrar som har skapats på enheten.
 
-4. Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på resursgruppen igen för att bekräfta och välj sedan **Ta bort**. Efter en liten stund tas resursgruppen och resurser som finns i den bort.
+   ```bash
+   docker rm -f edgeHub
+   docker rm -f edgeAgent
+   ```
+
+Ta bort alla ytterligare containrar som visades i `docker ps`-utdata genom att referera till containernamn. 
+
+Ta bort körmiljön för containern.
+
+   ```bash
+   sudo apt-get remove --purge moby
+   ```
 
 ## <a name="next-steps"></a>Nästa steg
 

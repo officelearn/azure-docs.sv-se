@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 28e6158a3dcd4cee98c380c53a1a345983bdf4f7
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: cc8db9a11aa4c942f0dcee3dce320a5bb77cf14a
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090827"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42023995"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad X.509-enhet med C#-enhets-SDK för IoT Hub Device Provisioning-tjänsten
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -24,7 +24,7 @@ I det här stegen visas hur du skapar exemplet på simulerad X.509-enhet med [Az
 
 Om du inte känner till processen för automatisk etablering, bör du också gå igenom [Begrepp inom automatisk etablering](concepts-auto-provisioning.md). Se också till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal) innan du fortsätter. 
 
-[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
+[!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>Förbereda utvecklingsmiljön 
@@ -41,9 +41,9 @@ Om du inte känner till processen för automatisk etablering, bör du också gå
 
 ## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>Skapa ett självsignerat X.509-enhetscertifikat och en post för enskild registrering
 
-I det här avsnittet använder du ett självsignerat X.509-certifikat. Det är viktigt att tänka på följande:
+I det här avsnittet använder du ett självsignerat X.509-certifikat. Då måste du tänka på det här:
 
-* Självsignerade certifikat är endast för testning och ska inte användas i produktion.
+* Självsignerade certifikat är endast till för testning och ska inte användas i produktion.
 * Standardutgångsdatumet för ett självsignerat certifikat är 1 år.
 
 Du kommer att använda exempelkoden från [Azure IoT SDK för .NET](https://github.com/Azure/azure-iot-sdk-csharp.git) för att skapa det certifikat som ska användas med posten för enskild registrering för den simulerade enheten.
@@ -87,7 +87,7 @@ Du kommer att använda exempelkoden från [Azure IoT SDK för .NET](https://gith
 
 1. På bladet **Översikt** för etableringstjänsten noterar du värdet för **_ID-omfång_**.
 
-    ![Extrahera DP-slutpunktsinformation från portalbladet](./media/quick-create-simulated-device-x509-csharp/copy-scope.png) 
+    ![Extrahera information om enhetsetableringstjänstens slutpunkt från bladet på portalen](./media/quick-create-simulated-device-x509-csharp/copy-scope.png) 
 
 
 2. Skriv följande kommando för att skapa och köra X.509-enhetsetableringsexemplet. Ersätt `<IDScope>`-värdet med ID-omfånget för etableringstjänsten. 

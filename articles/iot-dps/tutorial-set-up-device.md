@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6e90d20053a8ccfcafc7648d81c61e9313ec57ab
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 998bc7cb7e3289a85a9ffc315f7c1f5e568a75cb
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523367"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41924841"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Konfigurera enheten för etablering med Azure IoT Hub Device Provisioning-tjänsten
 
@@ -149,7 +149,7 @@ Det sista steget är att skriva ett registreringsprogram som använder klient-SD
 
 1. Välj bladet **Översikt** i Azure Portal för enhetsetableringstjänsten och kopiera värdet för **_ID-omfång_**. *ID-omfång* genereras av tjänsten och garanterar unikhet. Det är oföränderligt och används för att unikt identifiera registrerings-ID:n.
 
-    ![Extrahera DP-slutpunktsinformation från portalbladet](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
+    ![Extrahera information om enhetsetableringstjänstens slutpunkt från bladet på portalen](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
 
 1. I Visual Studio *Solution Explorer* på datorn går du till mappen **Provision (Etablera)\_Exempel**. Välj exempelprojektet med namnet **prov\_dev\_client\_sample** och öppna källfilen **prov\_dev\_client\_sample.c**.
 

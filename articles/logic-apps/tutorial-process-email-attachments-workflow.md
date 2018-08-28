@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
-ms.openlocfilehash: 133cc9d8fa52bb655e9baaad53ee157fdc7524f7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d07342bac3f76472a4783c28cac0741906049bb2
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429428"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41918161"
 ---
 # <a name="process-emails-and-attachments-with-azure-logic-apps"></a>Bearbeta e-postmeddelanden och bilagor med Azure Logic Apps
 
@@ -56,7 +56,7 @@ Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a>
 
 Du kan spara inkommande e-postmeddelanden och blobar i en [Azure-lagringscontainer](../storage/common/storage-introduction.md). 
 
-1. Innan du kan skapa en lagringscontainer ska du [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account) med de här inställningarna:
+1. Innan du kan skapa en lagringscontainer ska du [skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md) med de här inställningarna:
 
    | Inställning | Värde | Beskrivning | 
    |---------|-------|-------------| 

@@ -9,14 +9,14 @@ ms.component: cosmosdb-table
 ms.custom: quickstart connect, mvc
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/10/2018
+ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: e70501be61455e9707fcf57d1996729097a0641f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 020345f5f5de3235a0fb34f1efc27efd771a842d
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582391"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42023854"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Snabbstart: Skapa en tabell-API-app med .NET och Azure Cosmos DB 
 
@@ -79,7 +79,7 @@ Nu ska vi klona en Table-app från GitHub, ange anslutningssträngen och köra a
 
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
 
-Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen. På så vis kan appen kommunicera med den värdbaserade databasen. 
+Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen. På så vis kan appen kommunicera med den värdbaserade databasen. 
 
 1. I [Azure-portalen](http://portal.azure.com/) klickar du på **Anslutningssträng**. 
 
@@ -117,7 +117,7 @@ Du har nu uppdaterat din app med all information den behöver för att kommunice
 1. I Visual Studio högerklickar du på projektet **TableStorage** i **Solution Explorer** och därefter på **Hantera NuGet-paket**. 
 
    ![Hantera NuGet-paket](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
-2. Skriv *Microsoft.Azure.CosmosDB.Table* i rutan **Bläddra** i NuGet. Därmed hittas klientbiblioteket Cosmos DB Table API.
+2. Skriv *Microsoft.Azure.CosmosDB.Table* i rutan **Bläddra** i NuGet. Därmed hittas klientbiblioteket Cosmos DB Table API. Observera att det här biblioteket för närvarande endast är tillgängligt för .NET Standard. Det är inte tillgängligt för .NET Core än.
    
    ![Fliken Bläddra i NuGet](media/create-table-dotnet/azure-cosmosdb-nuget-browse.png)
 
@@ -154,7 +154,7 @@ Du har nu uppdaterat din app med all information den behöver för att kommunice
 9. I konsolfönstret trycker du på Retur för att avsluta körningen av appen. 
   
 
-## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure Portal
+## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure-portalen
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 

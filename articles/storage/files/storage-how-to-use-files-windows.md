@@ -2,24 +2,18 @@
 title: Använda en Azure-filresurs med Windows | Microsoft Docs
 description: Lär dig hur du använder en Azure-filresurs med Windows och Windows Server.
 services: storage
-documentationcenter: na
 author: RenaShahMSFT
-manager: aungoo
-editor: tamram
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
-ms.openlocfilehash: 54e084e6480c872ff6dd4625b8c87d5a60a181ba
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.component: files
+ms.openlocfilehash: 96ad812aff8f6ea4f47035188940730e5dc2992c
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39392275"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41918937"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Använda en Azure-filresurs med Windows
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan användas smidigt i Windows och Windows Server. Den här artikeln beskriver överväganden för att använda en Azure-filresurs med Windows och Windows Server.
@@ -52,20 +46,11 @@ Du kan använda Azure-filresurser i en Windows-installation som körs antingen i
 
 * **Lagringskontonyckel**: Om du vill montera en Azure-filresurs behöver du den primära (eller sekundära) lagringsnyckeln. SAS-nycklar stöds inte för montering.
 
-* **Se till att port 445 är öppen**: SMB-protokollet kräver att TCP-port 445 är öppen; anslutningar misslyckas om port 445 är blockerad. Du kan kontrollera om din brandvägg blockerar port 445 med `Test-NetConnection`-cmdleten. Följande PowerShell-kod förutsätter att du har AzureRM PowerShell-modulen är installerad. Mer information finns på sidan om att [installera Azure PowerShell-modulen](/powershell/azure/install-azurerm-ps). Kom ihåg att ersätta `<your-storage-account-name>` och `<your-resoure-group-name>` med gällande namn för ditt lagringskonto.
+* **Se till att port 445 är öppen**: SMB-protokollet kräver att TCP-port 445 är öppen; anslutningar misslyckas om port 445 är blockerad. Du kan kontrollera om din brandvägg blockerar port 445 med `Test-NetConnection`-cmdleten. Glöm inge att ersätta `your-storage-account-name` med relevant namn för ditt lagringskonto.
 
     ```PowerShell
-    $resourceGroupName = "<your-resource-group-name>"
-    $storageAccountName = "<your-storage-account-name>"
-
-    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
-    # already logged in.
-    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-
-    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
-    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as soverign clouds
-    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
-    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
+    Test-NetConnection -ComputerName <your-storage-account-name>.core.windows.net -Port 445
+    
     ```
 
     Om en anslutning upprättades bör du se följande utdata:
@@ -208,6 +193,26 @@ Remove-PSDrive -Name <desired-drive-letter>
     ![Azure-filresursen är nu monterad](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
 
 7. När du är redo att demontera Azure-filresursen kan du göra det genom att högerklicka på posten för resursen under **Nätverksplatser** i Utforskaren och välja **Koppla från**.
+
+### <a name="accessing-share-snapshots-from-windows"></a>Komma åt ögonblicksbilder av resurser från Windows
+Om du har tagit en resursögonblicksbild, antingen manuellt eller automatiskt via ett skript eller en tjänst som Azure Backup, kan du visa tidigare versioner av en resurs, en katalog eller en viss fil från filresursen i Windows. Du kan ta en ögonblicksbild från [Azure Portal](storage-how-to-use-files-portal.md), [Azure PowerShell](storage-how-to-use-files-powershell.md) eller [Azure CLI](storage-how-to-use-files-cli.md).
+
+#### <a name="list-previous-versions"></a>Lista över tidigare versioner
+Bläddra till det objekt eller överordnade objekt som behöver återställas. Dubbelklicka för att gå till den önskade katalogen. Högerklicka och välj **Egenskaper** på menyn.
+
+![Snabbmeny för en vald katalog](./media/storage-how-to-use-files-windows/snapshot-windows-previous-versions.png)
+
+Välj **Tidigare versioner** för att visa en lista över resursögonblicksbilder för den här katalogen. Det kan ta några sekunder att läsa in listan, beroende på nätverkshastigheten och antalet resursögonblicksbilder i katalogen.
+
+![Fliken Tidigare versioner](./media/storage-how-to-use-files-windows/snapshot-windows-list.png)
+
+Du kan välja **Öppna** om du vill öppna en viss ögonblicksbild. 
+
+![Öppnad ögonblicksbild](./media/storage-how-to-use-files-windows/snapshot-browse-windows.png)
+
+#### <a name="restore-from-a-previous-version"></a>Återställa från en tidigare version
+Välj **Återställ** för att rekursivt kopiera innehållet i hela katalogen vid tidpunkten då resursögonblicksbilden skapades till den ursprungliga platsen.
+ ![Återställningsknapp i varningsmeddelande](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
 
 ## <a name="securing-windowswindows-server"></a>Skydda Windows/Windows Server
 För att du ska kunna montera en Azure-filresurs i Windows måste port 445 vara tillgänglig. Många organisationer blockerar port 445 på grund av säkerhetsrisker med SMB 1. SMB 1, även kallat CIFS (Common Internet File System), är ett äldre filsystemprotokoll som medföljer Windows och Windows Server. SMB 1 är ett inaktuellt, ineffektivt och framför allt oskyddat protokoll. Den goda nyheten är att Azure Files inte har stöd för SMB 1, och alla versioner av Windows och Windows Server som stöds gör det möjligt att ta bort eller inaktivera SMB 1. Vi [rekommenderar starkt](https://aka.ms/stopusingsmb1) att du alltid tar bort eller inaktiverar SMB 1-klienten och -servern i Windows innan du använder Azure-filresurser i produktion.

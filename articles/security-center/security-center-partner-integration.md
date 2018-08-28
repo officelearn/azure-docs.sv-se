@@ -12,14 +12,14 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2018
+ms.date: 08/20/2018
 ms.author: terrylan
-ms.openlocfilehash: b0e674eb161af41a848f0456a033d615293a9947
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 117fc5cb6583c4e3eed0c9506bda470400941f61
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622797"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41919611"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrera säkerhetslösningar i Azure Security Center
 Det här dokumentet hjälper dig att hantera säkerhetslösningar som redan är anslutna till Azure Security Center och lägga till nya.
@@ -38,7 +38,11 @@ Integrerade säkerhetslösningar omfattar för närvarande följande:
 - Nästa generations brandvägg ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) och [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) och [Palo Alto Networks](https://www.paloaltonetworks.com/products))
 - Sårbarhetsbedömning ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) och [Rapid7](https://www.rapid7.com/products/insightvm/))
 
-Slutpunktsskyddsintegreringen kan variera beroende på lösning. Följande tabell innehåller mer information om varje lösning:
+> [!NOTE]
+> Security Center installerar inte Microsoft Monitoring Agent på virtuella partnerenheter eftersom de flesta säkerhetsleverantörer inte tillåter att externa agenter körs på deras enhet.
+>
+>
+
 
 | Slutpunktsskydd               | Plattformar                             | Installation av Security Center | Security Center Discovery |
 |-----------------------------------|---------------------------------------|------------------------------|---------------------------|
@@ -68,9 +72,9 @@ Azure-säkerhetslösningar som distribueras från Security Center ansluts automa
 
 2. På menyn **Microsoft Azure** väljer du **Security Center**. **Security Center – Översikt** öppnas.
 
-  ![Security Center – Översikt](./media/security-center-partner-integration/overview.png)
+3. På menyn i Security Center väljer du **Säkerhetslösningar**.
 
-3. Under **Översikt** väljer du **Säkerhetslösningar**.
+  ![Security Center – Översikt](./media/security-center-partner-integration/overview.png)
 
 Under **Säkerhetslösningar** kan du se information om hälsostatus för integrerade Azure-säkerhetslösningar och utföra grundläggande hanteringsåtgärder. Du kan även ansluta andra typer av datakällor för säkerhet, t.ex. Azure Active Directory Identity Protection-aviseringar och brandväggsloggar i Common Event Format (CEF).
 

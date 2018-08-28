@@ -1,6 +1,6 @@
 ---
-title: Azure-snabbstart – Konfigurera ett Azure-webbprogram att ställa in och hämta en hemlighet från Key Vault | Microsoft Docs
-description: Snabbstart som beskriver hur du konfigurerar ett ASP.Net Core-program för att ställa in och hämta en hemlighet från Key Vault
+title: Snabbstart – Konfigurera och hämta en hemlighet från Azure Key Vault med hjälp av en Node-webbapp | Microsoft Docs
+description: 'Snabbstart: Konfigurera och hämta en hemlighet från Azure Key Vault med hjälp av en Node-webbapp'
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 07/24/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 8b5624ae3083d92213b4ee919dc0860bf5ff4ab7
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 0188d06e5c58287e1040f6a15456d3ffe291b04a
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480210"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42023105"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-net-web-app"></a>Snabbstart: Ställ in och hämta en hemlighet från Azure Key Vault med hjälp av en .NET-webbapp
 
@@ -28,7 +28,10 @@ I den här självstudien går du igenom de steg som behövs för att ett Azure-w
 > * [Aktivera hanterade tjänstidentiteter](../active-directory/managed-service-identity/overview.md).
 > * Bevilja de behörigheter som krävs för att webbprogrammet ska kunna läsa data från Key Vault.
 
-Innan du går vidare bör du läsa [grundbegreppen](key-vault-whatis.md#basic-concepts), särskilt [hanterad tjänstidentitet](../active-directory/managed-service-identity/overview.md)
+Innan du fortsätter rekommenderar vi att du läser avsnittet om [grundbegreppen](key-vault-whatis.md#basic-concepts).
+
+>[!NOTE]
+För att förstå varför självstudien nedan är bästa praxis är det viktigt att du förstår vissa begrepp. Key Vault är en central lagringsplats för programmeringsbaserad lagring av hemligheter. Detta kräver att program och användare först autentiseras mot Key Vault, dvs. presenterar en hemlighet. Den här första hemligheten måste dessutom roteras med jämna mellanrum för att uppfylla de rekommenderade säkerhetsmetoderna. Men [hanterad tjänstidentitet (MSI)](../active-directory/managed-service-identity/overview.md) tilldelas program som körs i Azure en identitet som hanteras automatiskt av Azure. Detta löser **problemet med den första hemligheten** och gör att användare och program kan följa bästa praxis utan att behöva bekymra sig om roteringen av den första hemligheten
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -165,6 +168,8 @@ Kör sedan det här kommandot med namnet på ditt Key Vault och värdet för Pri
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get
 
 ```
+
+**Nu när du kör programmet bör ditt hemliga värde hämtas**
 
 ## <a name="next-steps"></a>Nästa steg
 

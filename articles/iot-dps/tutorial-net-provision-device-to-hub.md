@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 1d82ccdf85b34416dc630b9fcad969d87cc53ff1
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 84072c7e5f7aa37e89fc1b93c1585167dd6d9f4b
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520674"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41924842"
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Registrera enheten till en IoT-hubb med tjänsteklienten Azure IoT Hub Provisioning (.NET)
 
@@ -62,7 +62,7 @@ Det finns två sätt att registrera enheten till enhetsetableringstjänsten:
     
 1. Högerklicka på projektet **DeviceProvisioning** i Solution Explorer och klicka sedan på **Hantera NuGet-paket...**.
 
-1. I fönstret **NuGet-pakethanteraren** väljer du **Bläddra** och letar upp **microsoft.azure.devices.provisioning.service**. Välj posten och klicka på **Installera** för att installera **Microsoft.Azure.Devices.Provisioning.Service**-paketet och godkänn användningsvillkoren. Denna procedur hämtar, installerar och lägger till en referens för [Azure IoT för enhetsetableringstjänst SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) för NuGet-paket och dess beroenden.
+1. I fönstret **NuGet-pakethanteraren** väljer du **Bläddra** och letar upp **microsoft.azure.devices.provisioning.service**. Välj posten och klicka på **Installera** för att installera **Microsoft.Azure.Devices.Provisioning.Service**-paketet och godkänn användningsvillkoren. Den här proceduren hämtar, installerar och lägger till en referens för NuGet-paketet för [Azure IoT Device Provisioning Service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) och dess beroenden.
 
 1. Lägg till följande `using`-uttryck överst i **Program.cs**-filen:
    
@@ -70,10 +70,10 @@ Det finns två sätt att registrera enheten till enhetsetableringstjänsten:
     using Microsoft.Azure.Devices.Provisioning.Service;
     ```
 
-1. Lägg till följande fält i klassen **Program**. Ersätt platshållarvärdet med DPS-anslutningssträngen som du antecknade i föregående avsnitt.
+1. Lägg till följande fält i klassen **Program**. Ersätt platshållarvärdet med anslutningssträngen för enhetsetableringstjänsten från föregående avsnitt.
    
     ```csharp
-    static readonly string ServiceConnectionString = "{DPS connection string}";
+    static readonly string ServiceConnectionString = "{Device Provisioning Service connection string}";
 
     private const string SampleRegistrationId = "sample-individual-csharp";
     private const string SampleTpmEndorsementKey =

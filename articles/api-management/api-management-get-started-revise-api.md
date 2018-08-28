@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 864c269da61bcea885249021a44fe0259ca83e90
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: c1c884e05d357db7e23574dbd31f206d6c3fe23c
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935172"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41918839"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Använd revideringar för att göra bakåtkompatibla ändringar på ett säkert sätt
-När ditt API är klart och börjar användas av utvecklare, måste du vara försiktig när du gör ändringar för det API:et så att du inte stör anropen av API:et. Det är också bra att informera utvecklarna om de ändringar du gjort. Det kan vi göra i Azure API Management med hjälp av **revisioner**. Mer information finns i avsnittet om [versioner & revisioner](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) och [API-versioner med Azure API Management](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/).
+När ditt API är klart och börjar användas av utvecklare, måste du så småningom göra ändringar för det API:et och samtidigt se till att du inte stör anropen till API:et. Det är också bra att informera utvecklarna om de ändringar du gjort. Det kan vi göra i Azure API Management med hjälp av **revisioner**. Mer information finns i avsnittet om [versioner & revisioner](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) och [API-versioner med Azure API Management](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/).
 
 I den här guiden får du lära dig att:
 
@@ -42,7 +42,7 @@ I den här guiden får du lära dig att:
 ## <a name="add-a-new-revision"></a>Lägga till en ny version
 
 1. Välj sidan **API:er**.
-2. Välj **konferens-API** från listan över API (eller andra API som du vill lägga till revisioner i).
+2. Välj **Demo Conference API** från listan över API (eller andra API som du vill lägga till revisioner i).
 3. Klicka på fliken **Revisioner** från menyn upptill på sidan.
 4. Välj **+ Lägg till revision**
 
@@ -60,33 +60,34 @@ I den här guiden får du lära dig att:
 
 ## <a name="make-non-breaking-changes-to-your-revision"></a>Göra bakåtkompatibla ändringar till din revision
 
-1. Välj **Conference API** (konferens-API) från listan över API.
+1. Välj **Demo Conference API** från listan över API.
 2. Överst på skärmen väljer du fliken **Design**.
-3. Observera att **revisionsväljaren** (direkt ovanför designfliken) visar den aktuella revisionen som **Revision 2**.
+3. Observera att **revisionsväljaren** (direkt ovanför designfliken) **Revision 2** som aktuellt val.
 
     > [!TIP]
     > Använd revisionsväljaren för att växla mellan de revisioner du vill arbeta med.
 
 4. Välj **+ Lägg till åtgärd**.
-5. Ange att den nya åtgärden ska vara **POST**, och sätt namn och visningsnamn för åtgärden som **test**
+5. Ange att den nya åtgärden ska vara **POST**, och ange Name (namn), Display Name (visningsnamn) och URL för åtgärden som **test**.
 6. **Spara** den nya åtgärden.
 7. Vi har nu ändrat till **Revision 2**. Använd **revisionsväljaren** upptill på sidan för att växla tillbaka till **Revision 1**.
 8. Observera att den nya åtgärden inte syns i **Revision 1**. 
 
 ## <a name="make-your-revision-current-and-add-a-change-log-entry"></a>Aktualisera dina revisioner och lägga till en ändringsloggpost
+
 1. Välj fliken **Revisioner** från menyn upptill på sidan.
 
     ![Revisionsmenyn på revisionsskärmen.](media/api-management-getstarted-revise-api/RevisionsMenu.PNG)
-1. Öppna snabbmenyn (**...**) för **revision 2**.
-2. Välj **Make Current** (Gör aktuell). Markera **Post to Public Change log for this API** (Posta till publik ändringslogg för detta API) för att skicka meddelanden om ändringen.
-3. Välj **Post to Public Change Log for this API** (Posta till publik ändringslogg för detta API)
-4. Ange en beskrivning för din ändring som utvecklare kan se, till exempel **Testning av revisioner. Ny ”teståtgärd” tillagd.**
+2. Öppna snabbmenyn (**...**) för **revision 2**.
+3. Välj **Make Current** (Gör aktuell).
+4. Markera **Post to Public Change log for this API** (Posta till publik ändringslogg för detta API) för att skicka meddelanden om ändringen. Ange en beskrivning för din ändring som utvecklare kan se, till exempel: **Testning av revisioner. Ny ”teståtgärd” tillagd.**
 5. Nu är **Revision 2** aktuell.
 
 ## <a name="browse-the-developer-portal-to-see-changes-and-change-log"></a>Gå till utvecklarportalen för att se dina ändringar och ändringsloggen
-1. Välj **API:er** i Azure Portal
+
+1. I Azure-portalen väljer du **API:er**.
 2. Välj **Utvecklarportal** i den översta menyn.
-3. Välj **API:er** och sedan **konferens-API**.
+3. Välj **API:er** och sedan **Demo Conference API**.
 4. Lägg märke till att din nya **teståtgärd** nu är tillgänglig.
 5. Välj **ändringshistoriken för API** under namnet på API:et.
 6. Observera att din post i ändringsloggen visas i den här listan.

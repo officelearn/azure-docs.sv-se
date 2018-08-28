@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 8a98b12a42dff186c9226df39ce02c71cbc40c7e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 30dd3f4a467f19efd2edc7ca26305ee2e7ff05a5
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113331"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41918281"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Självstudie: Övervaka och diagnostisera en ASP.NET Core-app för Service Fabric med Application Insights
 
@@ -41,7 +41,7 @@ I den här självstudieserien får du lära du dig att:
 > * [Konfigurera CI/CD med hjälp av Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * Konfigurera övervakning och diagnostik för programmet
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar den här självstudien:
 
@@ -91,7 +91,7 @@ Gör stegen ovan för **båda** tjänsterna i programmet för att slutföra konf
 
 ## <a name="add-the-microsoftapplicationinsightsservicefabricnative-nuget-to-the-services"></a>Lägg till Microsoft.ApplicationInsights.ServiceFabric.Native NuGet till tjänsterna
 
-Application Insights har två Service Fabric-specifika NuGets som kan användas beroende på scenario. Den ena används med Service Fabrics ursprungliga tjänster och andra med behållare och körbara gästfiler. I det här fallet ska vi använda Microsoft.ApplicationInsights.ServiceFabric.Native NuGet till att förstå vilken tjänstkontext den har. Du kan läsa mer om Application Insights SDK och Service Fabric-specifika NuGets i [Microsoft Application Insights för Service Fabric](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md).
+Application Insights har två Service Fabric-specifika NuGets som kan användas beroende på scenario. Den ena används med Service Fabrics ursprungliga tjänster och andra med containrar och körbara gästfiler. I det här fallet ska vi använda Microsoft.ApplicationInsights.ServiceFabric.Native NuGet till att förstå vilken tjänstkontext den har. Du kan läsa mer om Application Insights SDK och Service Fabric-specifika NuGets i [Microsoft Application Insights för Service Fabric](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md).
 
 Gör följande för att konfigurera NuGet:
 
@@ -100,7 +100,7 @@ Gör följande för att konfigurera NuGet:
 3. Sök efter `Microsoft.ApplicationInsights.ServiceFabric.Native` och klicka på lämpligt NuGet-paket.
 
 >[!NOTE]
->Du kan behöva installera paketet Microsoft.ServiceFabric.Diagnistics.Internal på liknande sätt, om det inte finns förinstallerat, innan du installerar Application Insights-paketet
+>Du kan behöva installera paketet Microsoft.ServiceFabric.Diagnostics.Internal på liknande sätt, om det inte finns förinstallerat, innan du installerar Application Insights-paketet
 
 4. Till höger klickar du på kryssrutorna bredvid de två tjänsterna i programmet, **VotingWeb** och **VotingData**, samt på **Installera**.
     ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
@@ -113,7 +113,8 @@ Gör följande för att konfigurera NuGet:
     using Microsoft.ApplicationInsights.ServiceFabric;
     ```
 
-    2. I den kapslade *return*-instruktionen i *CreateServiceInstanceListeners()* eller *CreateServiceReplicaListeners()* under *ConfigureServices* > *services*, mellan de två deklarerade Singleton-tjänsterna, lägger du till följande: `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))` Det här gör att *tjänstkontext* tas med i telemetrin, så att du får bättre förståelse för var telemetrin kommer ifrån i Application Insights. Den kapslade *return*-instruktionen i *VotingWeb.cs* bör se ut så här:
+    2. I den kapslade *return*-instruktionen *CreateServiceInstanceListeners()* eller *CreateServiceReplicaListeners()*, under *ConfigureServices* > *-tjänsterna*, mellan de två Singleton-tjänsterna som deklarerats, lägger du till: `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))`
+    Detta lägger till *Tjänstkontext* i din telemetri för att underlätta förståelsen av källan för din telemetri i Application Insights. Den kapslade *return*-instruktionen i *VotingWeb.cs* bör se ut så här:
 
     ```csharp
     return new WebHostBuilder()

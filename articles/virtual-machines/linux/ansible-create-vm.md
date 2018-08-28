@@ -1,69 +1,200 @@
 ---
-title: Använda Ansible till att skapa en grundläggande Linux-VM i Azure | Microsoft Docs
-description: Lär dig hur du använder Ansible för att skapa och hantera en grundläggande Linux-dator i Azure
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: cynthn
+title: Använda Ansible för att skapa en virtuell Linux-dator i Azure
+description: Lär dig hur du använder Ansible för att skapa en virtuell Linux-dator i Azure
+ms.service: ansible
+keywords: ansible, azure, devops, virtual machine
+author: tomarcher
 manager: jeconnoc
-editor: na
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
-ms.date: 05/30/2018
-ms.author: cynthn
-ms.openlocfilehash: 35dfe8348718e0edf8683f7eeddf286831697d89
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
-ms.translationtype: MT
+ms.author: tarcher
+ms.topic: quickstart
+ms.date: 08/21/2018
+ms.openlocfilehash: a60ba863dbbd308219f4229319fb98c72180114d
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931437"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40250661"
 ---
-# <a name="create-a-basic-virtual-machine-in-azure-with-ansible"></a>Skapa en grundläggande virtuell dator i Azure med Ansible
-Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan använda Ansible för att hantera dina virtuella datorer (VM) i Azure, samma precis som alla andra resurser. Den här artikeln visar hur du skapar en grundläggande virtuell dator med Ansible. Du kan också lära dig hur du [skapa en fullständig miljö för virtuella datorer med Ansible](ansible-create-complete-vm.md).
+# <a name="use-ansible-to-create-a-linux-virtual-machine-in-azure"></a>Använda Ansible för att skapa en virtuell Linux-dator i Azure
+Med hjälp av ett deklarativ språk gör Ansible att du kan automatisera skapande, konfiguration och distribution av Azure-resurser via Ansible-*spelböcker*. Varje avsnitt i den här artikeln visar hur varje avsnitt i en Ansible-spelbok kan se ut att för att skapa och konfigurera olika aspekter av en virtuell Linux-dator. Den [fullständiga Ansible-spelboken](#complete-sample-ansible-playbook) anges i slutet av den här artikeln.
 
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
-För att hantera Azure-resurser med Ansible, behöver du följande:
+- **Azure-prenumeration** – Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-- Ansible och Azure Python SDK-moduler som installerats på värdsystemet.
-    - Installera Ansible på [CentOS 7.4](ansible-install-configure.md#centos-74), [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), och [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2)
-- Azure-autentiseringsuppgifter och Ansible som konfigurerats för att använda dem för.
-    - [Skapa Azure-autentiseringsuppgifter och konfigurera Ansible](ansible-install-configure.md#create-azure-credentials)
-- Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. 
-    - Om du behöver uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). Du kan också använda den [Azure Cloud Shell](/azure/cloud-shell/quickstart) från webbläsaren.
+- **Konfigurera Azure Cloud Shell** eller **Installera och konfigurera Ansible på en virtuell Linux-dator**
 
+  **Konfigurera Azure Cloud Shell**
 
-## <a name="create-supporting-azure-resources"></a>Skapa stöd för Azure-resurser
-I det här exemplet skapar du en runbook som distribuerar en virtuell dator i en befintlig infrastruktur. Börja med att skapa resursgruppen med [az gruppen skapa](/cli/azure/group#az-group-create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+  1. **Konfigurera Azure Cloud Shell** – Om du inte har använt Azure Cloud Shell tidigare rekommenderar vi att du läser artikeln [Snabbstart för Bash i Azure Cloud Shell](/azure/cloud-shell/quickstart), som beskriver hur du startar och konfigurerar Cloud Shell. 
 
-```azurecli
-az group create --name myResourceGroup --location eastus
+  **Eller**
+
+  **Installera och konfigurera Ansible på en virtuell Linux-dator**
+
+  1. **Installera Ansible** – Installera Ansible på en [Linux-plattform som stöds](/azure/virtual-machines/linux/ansible-install-configure#install-ansible-on-an-azure-linux-virtual-machine).
+
+  1. **Konfigurera Ansible** - [Skapa Azure-autentiseringsuppgifter och konfigurera Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
+
+## <a name="create-a-resource-group"></a>Skapa en resursgrupp
+Ansible behöver en resursgrupp där dina resurser distribueras. I följande avsnitt i ett Ansible-spelboksexempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `eastus`:
+
+```yaml
+- name: Create resource group
+    azure_rm_resourcegroup:
+      name: myResourceGroup
+      location: eastus
 ```
 
-Skapa ett virtuellt nätverk för den virtuella datorn med [az network vnet skapa](/cli/azure/network/vnet#az-network-vnet-create). I följande exempel skapas ett virtuellt nätverk med namnet *myVnet* och ett undernät med namnet *mySubnet*:
+## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
+När du skapar en virtuell Azure-dator måste du skapa ett [virtuellt nätverk](/azure/virtual-network/virtual-networks-overview) eller använda ett befintligt virtuellt nätverk. Du måste även bestämma hur dina virtuella datorer är avsedda att användas på det virtuella nätverket. I följande avsnitt i ett Ansible-spelboksexempel skapas ett virtuellt nätverk med namnet `myVnet` i adressutrymmet `10.0.0.0/16`:
 
-```azurecli
-az network vnet create \
-  --resource-group myResourceGroup \
-  --name myVnet \
-  --address-prefix 10.0.0.0/16 \
-  --subnet-name mySubnet \
-  --subnet-prefix 10.0.1.0/24
+```yaml
+- name: Create virtual network
+  azure_rm_virtualnetwork:
+    resource_group: myResourceGroup
+    name: myVnet
+    address_prefixes: "10.0.0.0/16"
+```
+
+Alla Azure-resurser som distribueras till ett virtuellt nätverk distribueras till ett [undernät](/azure/virtual-network/virtual-network-manage-subnet) i ett virtuellt nätverk. 
+
+I följande avsnitt i ett Ansible-spelboksexempel skapas ett undernät med namnet `mySubnet` i det virtuella nätverket `myVnet`:
+
+```yaml
+- name: Add subnet
+  azure_rm_subnet:
+    resource_group: myResourceGroup
+    name: mySubnet
+    address_prefix: "10.0.1.0/24"
+    virtual_network: myVnet
+```
+
+## <a name="create-a-public-ip-address"></a>Skapa en offentlig IP-adress
+[Offentliga IP-adresser](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) tillåter att Internet-resurser kommunicerar inkommande till Azure-resurser. Offentliga IP-adresser gör det också möjligt för Azure-resurser att kommunicera utgående till Internet och offentliga Azure-tjänster med en IP-adress som tilldelats resursen. Adressen är dedikerad till resursen tills du tar bort den. Om ingen offentlig IP-adress har tilldelats resursen kan resursen ändå kommunicera utgående till Internet, men Azure tilldelar dynamiskt en tillgänglig IP-adress som inte är dedikerad till resursen. 
+
+I följande avsnitt i ett Ansible-spelboksexempel skapas en offentlig IP-adress med namnet `myPublicIP`:
+
+```yaml
+- name: Create public IP address
+  azure_rm_publicipaddress:
+    resource_group: myResourceGroup
+    allocation_method: Static
+    name: myPublicIP
+```
+
+## <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
+En [nätverkssäkerhetsgrupp](/azure/virtual-network/security-overview) gör att du kan filtrera nätverkstrafik till och från Azure-resurser i ett virtuellt Azure-nätverk. En nätverkssäkerhetsgrupp innehåller säkerhetsregler som tillåter eller nekar inkommande nätverkstrafik till, eller utgående nätverkstrafik från, flera typer av Azure-resurser. 
+
+I följande avsnitt i ett Ansible-spelboksexempel skapas en nätverkssäkerhetsgrupp med namnet `myNetworkSecurityGroup`, och en regel definieras så att SSH-trafik tillåts på TCP-port 22:
+
+```yaml
+- name: Create Network Security Group that allows SSH
+  azure_rm_securitygroup:
+    resource_group: myResourceGroup
+    name: myNetworkSecurityGroup
+    rules:
+      - name: SSH
+        protocol: Tcp
+        destination_port_range: 22
+        access: Allow
+        priority: 1001
+        direction: Inbound
 ```
 
 
-## <a name="create-and-run-ansible-playbook"></a>Skapa och köra Ansible-spelbok
-Skapa en Ansible-spelbok med namnet *azure_create_vm.yml* och klistra in följande innehåll. Det här exemplet skapar en enskild virtuell dator och konfigurerar SSH-autentiseringsuppgifter. Ange din egen fullständiga offentliga viktiga data i den *key_data* para ihop på följande sätt:
+## <a name="create-a-virtual-network-interface-card"></a>Skapa ett kort för virtuellt nätverksgränssnitt
+Ett kort för virtuellt nätverksgränssnitt ansluter din virtuella dator till ett angivet virtuellt nätverk, en offentlig IP-adress och en nätverkssäkerhetsgrupp. 
+
+I följande avsnitt i ett Ansible-spelboksexempel skapas ett kort för virtuellt nätverksgränssnitt med namnet `myNIC` som ansluts till de resurser för virtuellt nätverk som du har skapat:
+
+```yaml
+- name: Create virtual network inteface card
+  azure_rm_networkinterface:
+    resource_group: myResourceGroup
+    name: myNIC
+    virtual_network: myVnet
+    subnet: mySubnet
+    public_ip_name: myPublicIP
+    security_group: myNetworkSecurityGroup
+```
+
+## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
+Det sista steget är att skapa en virtuell dator som använder alla resurser som du skapade i föregående avsnitt i den här artikeln. 
+
+I det avsnitt i ett Ansible-spelboksexempel som presenteras i det här avsnittet skapas en virtuell dator med namnet `myVM`, och kortet för virtuellt nätverksgränssnitt med namnet `myNIC` kopplas. Ersätt platshållaren &lt;your-key-data> med dina egna kompletta data för offentlig nyckel.
+
+```yaml
+- name: Create VM
+  azure_rm_virtualmachine:
+    resource_group: myResourceGroup
+    name: myVM
+    vm_size: Standard_DS1_v2
+    admin_username: azureuser
+    ssh_password_enabled: false
+    ssh_public_keys:
+      - path: /home/azureuser/.ssh/authorized_keys
+        key_data: <your-key-data>
+    network_interfaces: myNIC
+    image:
+      offer: CentOS
+      publisher: OpenLogic
+      sku: '7.5'
+      version: latest
+```
+
+## <a name="complete-sample-ansible-playbook"></a>Fullständigt Ansible-spelboksexempel
+
+Det här avsnittet innehåller det Ansible-spelboksexempel som du har byggt under loppet av den här artikeln. 
 
 ```yaml
 - name: Create Azure VM
   hosts: localhost
   connection: local
   tasks:
+  - name: Create resource group
+    azure_rm_resourcegroup:
+      name: myResourceGroup
+      location: eastus
+  - name: Create virtual network
+    azure_rm_virtualnetwork:
+      resource_group: myResourceGroup
+      name: myVnet
+      address_prefixes: "10.0.0.0/16"
+  - name: Add subnet
+    azure_rm_subnet:
+      resource_group: myResourceGroup
+      name: mySubnet
+      address_prefix: "10.0.1.0/24"
+      virtual_network: myVnet
+  - name: Create public IP address
+    azure_rm_publicipaddress:
+      resource_group: myResourceGroup
+      allocation_method: Static
+      name: myPublicIP
+    register: output_ip_address
+  - name: Dump public IP for VM which will be created
+    debug:
+      msg: "The public IP is {{ output_ip_address.state.ip_address }}."
+  - name: Create Network Security Group that allows SSH
+    azure_rm_securitygroup:
+      resource_group: myResourceGroup
+      name: myNetworkSecurityGroup
+      rules:
+        - name: SSH
+          protocol: Tcp
+          destination_port_range: 22
+          access: Allow
+          priority: 1001
+          direction: Inbound
+  - name: Create virtual network inteface card
+    azure_rm_networkinterface:
+      resource_group: myResourceGroup
+      name: myNIC
+      virtual_network: myVnet
+      subnet: mySubnet
+      public_ip_name: myPublicIP
+      security_group: myNetworkSecurityGroup
   - name: Create VM
     azure_rm_virtualmachine:
       resource_group: myResourceGroup
@@ -71,9 +202,10 @@ Skapa en Ansible-spelbok med namnet *azure_create_vm.yml* och klistra in följan
       vm_size: Standard_DS1_v2
       admin_username: azureuser
       ssh_password_enabled: false
-      ssh_public_keys: 
+      ssh_public_keys:
         - path: /home/azureuser/.ssh/authorized_keys
-          key_data: "ssh-rsa AAAAB3Nz{snip}hwhqT9h"
+          key_data: <your-key-data>
+      network_interfaces: myNIC
       image:
         offer: CentOS
         publisher: OpenLogic
@@ -81,27 +213,82 @@ Skapa en Ansible-spelbok med namnet *azure_create_vm.yml* och klistra in följan
         version: latest
 ```
 
-Om du vill skapa den virtuella datorn med Ansible, kör du spelboken enligt följande:
+## <a name="run-the-sample-ansible-playbook"></a>Köra Ansible-spelboksexemplet
 
-```bash
-ansible-playbook azure_create_vm.yml
-```
+Det här avsnittet beskriver hur du kör det Ansible-spelboksexempel som presenteras i den här artikeln.
 
-Utdata liknar följande exempel som visar den virtuella datorn har skapats:
+1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-```bash
-PLAY [Create Azure VM] ****************************************************
+1. Öppna [Cloud Shell](/azure/cloud-shell/overview).
 
-TASK [Gathering Facts] ****************************************************
-ok: [localhost]
+1. Skapa en fil (som ska innehålla din spelbok) med namnet `azure_create_complete_vm.yml` och öppna den i VI-redigeringsprogrammet på följande sätt:
 
-TASK [Create VM] **********************************************************
-changed: [localhost]
+  ```azurecli-interactive
+  vi azure_create_complete_vm.yml
+  ```
 
-PLAY RECAP ****************************************************************
-localhost                  : ok=2    changed=1    unreachable=0    failed=0
-```
+1. Starta infogningsläget genom att trycka på tangenten **I**.
 
+1. Klistra in [det fullständiga Ansible-spelboksexemplet](#complete-sample-ansible-playbook) i redigeraren.
+
+1. Avsluta infogningsläget genom att trycka på tangenten **Esc**.
+
+1. Spara filen och avsluta VI-redigeringsprogrammet genom att ange följande kommando:
+
+    ```bash
+    :wq
+    ```
+
+1. Kör Ansible-spelboksexemplet.
+
+  ```bash
+  ansible-playbook azure_create_complete_vm.yml
+  ```
+
+1. Utdata liknar följande, där du kan se att en virtuell dator har skapats:
+
+  ```bash
+  PLAY [Create Azure VM] ****************************************************
+
+  TASK [Gathering Facts] ****************************************************
+  ok: [localhost]
+
+  TASK [Create resource group] *********************************************
+  changed: [localhost]
+
+  TASK [Create virtual network] *********************************************
+  changed: [localhost]
+
+  TASK [Add subnet] *********************************************************
+  changed: [localhost]
+
+  TASK [Create public IP address] *******************************************
+  changed: [localhost]
+
+  TASK [Dump public IP for VM which will be created] ********************************************************************
+  ok: [localhost] => {
+      "msg": "The public IP is <ip-address>."
+  }
+
+  TASK [Create Network Security Group that allows SSH] **********************
+  changed: [localhost]
+
+  TASK [Create virtual network inteface card] *******************************
+  changed: [localhost]
+
+  TASK [Create VM] **********************************************************
+  changed: [localhost]
+
+  PLAY RECAP ****************************************************************
+  localhost                  : ok=8    changed=7    unreachable=0    failed=0
+  ```
+
+1. SSH-kommandot används för att få åtkomst till din virtuella Linux-dator. Ersätt platshållaren &lt;ip-address> med IP-adressen från föregående steg.
+
+  ```bash
+  ssh azureuser@<ip-address>
+  ```
 
 ## <a name="next-steps"></a>Nästa steg
-Det här exemplet skapar en virtuell dator i en befintlig resursgrupp och med ett virtuellt nätverk som redan har distribuerats. Ett mer detaljerat exempel på hur du använder Ansible för att skapa resurser, till exempel ett virtuellt nätverk och regler för Nätverkssäkerhetsgruppen finns [skapa en fullständig miljö för virtuella datorer med Ansible](ansible-create-complete-vm.md).
+> [!div class="nextstepaction"] 
+> [Använda Ansible för att hantera en virtuell Linux-dator i Azure](./ansible-manage-linux-vm.md)

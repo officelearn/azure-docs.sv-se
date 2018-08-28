@@ -14,19 +14,19 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/13/2018
+ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: d702253c7b58b0a29c03e6563238b56ae75fa0d1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8b1290c2030835af1435e9a21602d3d2334a6737
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841796"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41919607"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Självstudie: Koppla samman virtuella nätverk med peerkoppling med hjälp av Azure Portal
 
-Du kan ansluta virtuella nätverk till varandra med peerkoppling. När virtuella nätverk har peerkopplats kan resurser i båda virtuella nätverken kommunicera med varandra, med samma svarstid och bandbredd som om resurserna fanns i samma virtuella nätverk. I den här guiden får du lära dig att:
+Du kan ansluta virtuella nätverk till varandra med peerkoppling. Dessa virtuella nätverk kan finnas i samma region eller andra regioner (kallas även Global VNet-peering). När virtuella nätverk har peerkopplats kan resurser i båda virtuella nätverken kommunicera med varandra, med samma svarstid och bandbredd som om resurserna fanns i samma virtuella nätverk. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa två virtuella nätverk
@@ -82,7 +82,7 @@ Logga in på Azure Portal på https://portal.azure.com.
     |---|---|
     |Namn|myVirtualNetwork1-myVirtualNetwork2|
     |Prenumeration| Välj din prenumeration.|
-    |Virtuellt nätverk|myVirtualNetwork2 – Välj det virtuella nätverket *myVirtualNetwork2* genom att välja **Virtuellt nätverk** och sedan **myVirtualNetwork2**.|
+    |Virtuellt nätverk|myVirtualNetwork2 – Välj det virtuella nätverket *myVirtualNetwork2* genom att välja **Virtuellt nätverk** och sedan **myVirtualNetwork2**. Du kan välja ett virtuellt nätverk i samma region eller i en annan region.|
 
     ![Inställningar för peerkoppling](./media/tutorial-connect-virtual-networks-portal/peering-settings.png)
 
@@ -149,7 +149,7 @@ Det tar några minuter att skapa de virtuella datorerna. Fortsätt inte med åte
     ![Ansluta till den virtuella datorn](./media/tutorial-connect-virtual-networks-portal/connect-to-virtual-machine.png)  
 
 3. Öppna den nedladdade RDP-filen för att ansluta till den virtuella datorn. Välj **Anslut** om du uppmanas att göra det.
-4. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn (du kanske måste välja **More choices** (Fler alternativ) och sedan **Use a different account** (Använd ett annat konto) för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn) och välj **OK**.
+4. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn (du kanske måste välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn) och välj **OK**.
 5. Du kan få en certifikatvarning under inloggningen. Välj **Ja** för att fortsätta med anslutningen.
 6. I ett senare steg används ping för att kommunicera med den virtuella datorn *myVm2* från den virtuella datorn *myVm1*. Ping använder som standard ICMP (Internet Control Message Protocol), som nekas via Windows-brandväggen. På den virtuella datorn *myVm1* aktiverar du ICMP via Windows-brandväggen, så att du kan pinga den här virtuella datorn från *myVm2* i ett senare steg, med hjälp av PowerShell:
 
@@ -179,7 +179,7 @@ Ta bort resursgruppen och alla resurser den innehåller när de inte längre beh
 
 1. Skriv *myResourceGroup* i rutan **Sök** högst upp i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
 2. Välj **Ta bort resursgrupp**.
-3. Skriv *myResourceGroup* i **SKRIV RESURSGRUPPSNAMNET:** och välj **Ta bort**.
+3. Skriv *myResourceGroup* där du uppmanas att **skriva resursgruppens namn:** (Skriv resursgruppens namn) och välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

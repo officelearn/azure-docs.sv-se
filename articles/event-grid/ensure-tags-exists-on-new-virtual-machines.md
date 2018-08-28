@@ -3,23 +3,19 @@ title: Integrera Azure Automation med Event Grid | Microsoft Docs
 description: Lär dig hur du lägger till en tagg automatiskt när en ny virtuell dator skapas och skicka ett meddelande till Microsoft Teams.
 keywords: automation, runbook, teams, event grid, virtual machine, VM
 services: automation
-documentationcenter: ''
 author: eamonoreilly
 manager: ''
-editor: ''
 ms.service: automation
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2017
+ms.date: 08/14/2018
 ms.author: eamono
-ms.openlocfilehash: 6270f8bad893798f46d8db91e7b1140b6a125350
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a4356f38df017901ab219318463538003d3a979e
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049872"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41919807"
 ---
 # <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Integrera Azure Automation med Event Grid och Microsoft Teams
 
@@ -87,28 +83,30 @@ För slutföra den här självstudien krävs ett [Azure Automation-konto](../aut
 
     ![Konfigurera webhook-parametrar](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-parameters.png)
 
-5. Välj **OK** för att skapa webhooken för Automation-runbook.
-
+5. Välj **Skapa** för att skapa webhooken för Automation-runbook.
 
 ## <a name="create-an-event-grid-subscription"></a>Skapa en Event Grid-prenumeration
+
 1. På översiktssidan **Automation-konto** väljer du **Event Grid**.
 
     ![Välja Event Grid](media/ensure-tags-exists-on-new-virtual-machines/select-event-grid.png)
 
-2. Välj knappen **+ Händelseprenumeration**.
+2. Klicka på **+ Händelseprenumeration**.
 
 3. Konfigurera prenumerationen med följande information:
 
-    *   Ange **AzureAutomation** som namn.
-    *   I **Typ av ämne** väljer du **Azure-prenumerationer**.
-    *   Avmarkera kryssrutan **Prenumerera på alla händelsetyper**.
-    *   I **Händelsetyper** väljer du **Resource Write Success** (Resursskrivning lyckades).
-    *   I **Slutpunkt för prenumerant** anger du webhook-URL:en för runbooken Watch-VMWrite runbook.
-    *   I **Prefixfilter** anger du den prenumeration och den resursgrupp där du vill leta efter de nya virtuella datorerna som skapats. Det bör se ut så här: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
+   * Som **Typ av ämne** väljer du **Azure-prenumerationer**.
+   * Avmarkera kryssrutan **Prenumerera på alla händelsetyper**.
+   * Ange **AzureAutomation** som namn.
+   * I listrutan **Definierade händelsetyper** avmarkerar du alla alternativ utom **Resource Write Success** (Resursskrivning lyckades).
+   * Som **Typ av slutpunkt** väljer du **Webhook**.
+   * Klicka på **Välj en slutpunkt**. På sidan **Välj webhook** som öppnas klistrar du in webhook-URL:en du har skapat för Watch-VMWrite-runbooken.
+   * Under **FILTER** anger du den prenumeration och den resursgrupp där du vill leta efter de nya virtuella datorerna som skapats. Det bör se ut så här: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
 
 4. Välj **Skapa** för att spara Event Grid-prenumerationen.
 
 ## <a name="create-a-vm-that-triggers-the-runbook"></a>Skapa en virtuell dator som utlöser runbooken
+
 1. Skapa en ny virtuell dator i den resursgrupp som du angav i prefixfiltret för Event Grid-prenumerationen.
 
 2. Runbooken Watch-VMWrite ska anropas, och en ny tagg ska läggas till i den virtuella datorn.
@@ -120,6 +118,7 @@ För slutföra den här självstudien krävs ett [Azure Automation-konto](../aut
     ![Microsoft Teams-meddelande](media/ensure-tags-exists-on-new-virtual-machines/teams-vm-message.png)
 
 ## <a name="next-steps"></a>Nästa steg
+
 I den här självstudien konfigurerar du integrering mellan Event Grid och Automation. Du har lärt dig att:
 
 > [!div class="checklist"]

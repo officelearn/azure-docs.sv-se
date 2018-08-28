@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 2a13a326aee29d002be18a3f40c4be9b4f2da4f1
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 7ff3a2b3547874fd10d35867574c020500c48cd4
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523343"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42022573"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>Snabbstart: Skapa ett Kubernetes dev-utrymme med Azure Dev Spaces (.NET Core och VS Code)
 
@@ -32,7 +32,7 @@ I den här guiden får du lära dig hur du:
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En Azure-prenumeration. Om du inte har någon, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
-- Ett [Kubernetes-kluster](https://ms.portal.azure.com/#create/microsoft.aks) som kör Kubernetes 1.10.3 i området USAÖstra, USACentrala, USAVästra2, EuropaVästra, KanadaCentrala eller KanadaÖstra med **HTTP-programroutning**.
+- Ett [Kubernetes-kluster](https://ms.portal.azure.com/#create/microsoft.aks) som kör Kubernetes 1.9.6 eller senare i området USAÖstra, USACentrala, USAVästra2, EuropaVästra, KanadaCentrala eller KanadaÖstra med **HTTP-programroutning** aktiverat.
 
   ![Se till att aktivera HTTP-programroutning.](media/common/Kubernetes-Create-Cluster-3.PNG)
 
@@ -44,7 +44,7 @@ Azure CLI- och Azure Dev Spaces-tillägget kan installeras och köras på Window
 
 Följ de här stegen för att konfigurera Azure Dev Spaces:
 
-1. Installera [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.0.38 eller högre).
+1. Installera [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.0.43 eller senare).
 1. Ställ in Dev Spaces på ditt AKS-kluster: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
 1. Ladda ned [Azure Dev Spaces-tillägget](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) för VS Code. Klicka på Installera en gång på tilläggets Marketplace-sida och igen i VS Code.
 
@@ -143,7 +143,7 @@ Uppdatera webbappen i webbläsaren och gå till sidan Om. Nu bör ditt anpassade
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur Azure Dev Spaces hjälper dig utveckla mer komplexa appar över flera containrar och hur du kan förenkla utveckling i samarbete genom att arbeta med olika versioner eller grenar av kod i olika utrymmen. 
+Lär dig hur Azure Dev Spaces hjälper dig att utveckla mer komplexa appar över flera containrar och hur du kan förenkla utvecklingen i team genom att arbeta med olika versioner eller grenar av koden i olika utrymmen. 
 
 > [!div class="nextstepaction"]
 > 

@@ -8,15 +8,15 @@ ms.reviewer: carlrab, jovanpop
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: tutorial
-ms.date: 07/16/2018
+ms.date: 08/09/2018
 ms.author: mlandzic
 manager: craigg
-ms.openlocfilehash: 042d89017db898102deafc9156cf847a08c92227
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: afecd69cdf9832e1c6dc294ca01968ee50a3eabd
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39074709"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41918847"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-managed-instance"></a>Migrera certifikat för TDE-skyddad databas till Azure SQL-hanterad instans
 
@@ -38,8 +38,9 @@ Du behöver följande för att slutföra stegen i den här artikeln:
 
 - [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx)-kommandoradsverktyget installerat på den lokala servern eller en annan dator med åtkomst till det certifikat som exporterats som en fil. Pvk2Pfx-verktyget är en del av [Enterprise Windows Driver Kit](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), en fristående, självständig kommandoradsmiljö.
 - [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) version 5.0 eller senare installerat.
-- AzureRM PowerShell-modulen [installerad och uppdaterad](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).\[AzureRM.Sql-modulen](https://www.powershellgallery.com/packages/AzureRM.Sql) version 4.10.0 eller senare.
-- Kör följande kommandon i PowerShell för att installera/uppdatera PowerShell-modulen:
+- [Installerad och uppdaterad](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) AzureRM PowerShell-modul.
+- [AzureRM.Sql-modul](https://www.powershellgallery.com/packages/AzureRM.Sql) version 4.10.0 eller senare.
+  Kör följande kommandon i PowerShell för att installera/uppdatera PowerShell-modulen:
 
    ```powershell
    Install-Module -Name AzureRM.Sql
@@ -108,16 +109,6 @@ Om certifikatet finns i SQL-serverns certifikatarkiv i lokal dator kan det expor
 
 4. Följ guiden för att exportera certifikatet och den privata nyckeln till ett Personal Information Exchange-format
 
-## <a name="extract-certificate-from-file-to-base-64-string"></a>Extrahera certifikatet från fil till base-64-sträng
-
-Kör följande skript i PowerShell och hämta base-64-kodat certifikat som utdata:
-
-```powershell
-$fileContentBytes = Get-Content 'C:/full_path/TDE_Cert.pfx' -Encoding Byte
-$base64EncodedCert = [System.Convert]::ToBase64String($fileContentBytes)
-echo $base64EncodedCert
-```
-
 ## <a name="upload-certificate-to-azure-sql-managed-instance-using-azure-powershell-cmdlet"></a>Ladda upp certifikat till Azure SQL-hanterad instans med hjälp av Azure PowerShell-cmdlet
 
 1. Börja med förberedelsestegen i PowerShell:
@@ -129,15 +120,16 @@ echo $base64EncodedCert
    Connect-AzureRmAccount
    # List subscriptions available and copy id of the subscription target Managed Instance belongs to
    Get-AzureRmSubscription
-   # Set subscription for the session
+   # Set subscription for the session (replace Guid_Subscription_Id with actual subscription id)
    Select-AzureRmSubscription Guid_Subscription_Id
    ```
 
 2. När alla förberedelsesteg är klara kör du följande kommandon för att ladda upp det base-64-kodade certifikatet till den hanterade målinstansen:
 
    ```powershell
-   $privateBlob = "<base-64-encoded-certificate-string>"
-   $securePrivateBlob = $privateBlob  | ConvertTo-SecureString -AsPlainText -Force
+   $fileContentBytes = Get-Content 'C:/full_path/TDE_Cert.pfx' -Encoding Byte
+   $base64EncodedCert = [System.Convert]::ToBase64String($fileContentBytes)
+   $securePrivateBlob = $base64EncodedCert  | ConvertTo-SecureString -AsPlainText -Force
    $password = "SomeStrongPassword"
    $securePassword = $password | ConvertTo-SecureString -AsPlainText -Force
    Add-AzureRmSqlManagedInstanceTransparentDataEncryptionCertificate -ResourceGroupName "<ResourceGroupName>" -ManagedInstanceName "<ManagedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword

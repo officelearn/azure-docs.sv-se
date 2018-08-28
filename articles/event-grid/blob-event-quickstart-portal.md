@@ -5,15 +5,15 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 07/05/2018
+ms.date: 08/13/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 423995aecc6e5f29464ad140349ba27f89c75b5d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 141e8f2a01c057f613b7668e64a0ec9503fcfb39
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068751"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42023999"
 ---
 # <a name="create-and-route-blob-storage-events-with-the-azure-portal-and-event-grid"></a>Skapa och dirigera Blob Storage-händelser med Azure Portal och Event Grid
 
@@ -27,8 +27,6 @@ När du är klar kan se du att händelsedata som har skickats till webbappen.
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Om du vill använda Blob Storage-händelser behöver du antingen ett [Blob Storage-konto](../storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) eller ett [GPv2-konto (General Purpose v2)](../storage/common/storage-account-options.md#general-purpose-v2-accounts). **GPv2-konton (General Purpose v2)** är lagringskonton som stöder alla funktionerna för alla lagringstjänster, som blobbar, filer, köer och tabeller. Ett **Blob Storage-konto** är ett specialiserat lagringskonto för lagring av ostrukturerade data som blobbar (objekt) i Azure Storage. Blob Storage-konton liknar allmänna lagringskonton och har samma höga hållbarhet, tillgänglighet, skalbarhet och prestanda som du använder idag, inklusive 100 % API-konsekvens för blockblobbar och tilläggsblobbar. För program som bara behöver lagring av block- eller tilläggsblobbar, rekommenderar vi att du använder Blob-lagringskonton. 
-
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. Om du vill skapa ett Blob Storage-konto väljer du **Skapa en resurs**. 
@@ -39,7 +37,7 @@ Om du vill använda Blob Storage-händelser behöver du antingen ett [Blob Stora
 
    ![Välj Storage](./media/blob-event-quickstart-portal/create-storage.png)
 
-1. Ange värden för Blob Storage-kontot och ge det ett unikt namn. Välj kontotypen **Blobblagring**. För plats väljer du en av de [platser](overview.md) som stöder Event Grid. När du har angett alla värden väljer du **Skapa**.
+1. För händelser måste du skapa antingen ett [Blob Storage-konto](../storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) eller ett [v2-lagringskonto för generell användning](../storage/common/storage-account-options.md#general-purpose-v2-accounts). För program som bara behöver lagring av block- eller tilläggsblobbar, rekommenderar vi att du använder Blob-lagringskonton. Ange värden för Blob- eller StorageV2-kontot. Ange ett unikt namn för kontot. När du har angett alla värden väljer du **Skapa**.
 
    ![Startsteg](./media/blob-event-quickstart-portal/provide-blob-values.png)
 

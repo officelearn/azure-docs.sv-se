@@ -1,3 +1,20 @@
+---
+title: ta med fil
+description: ta med fil
+services: data-factory
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 08/20/2018
+ms.author: jingwang
+ms.custom: include file
+ms.openlocfilehash: ac6b53926ca6c44c8ec1e71db67321366aacb00e
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617602"
+---
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 ### <a name="azure-subscription"></a>Azure-prenumeration
@@ -6,8 +23,10 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 ### <a name="azure-roles"></a>Azure-roller
 Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara medlem av rollerna *deltagare* eller *ägare*, eller vara *administratör* för Azure-prenumerationen. Om du vill visa vilka behörigheter du har i prenumerationen öppnar du Azure-portalen, väljer användarnamnet i det övre högra hörnet och väljer sedan **Behörigheter**. Om du har åtkomst till flera prenumerationer väljer du rätt prenumeration. För exempel på instruktioner om hur du lägger till en användare till en roll läser du artikeln [Lägg till roller](../articles/billing/billing-add-change-azure-subscription-administrator.md).
 
+För att skapa och hantera underordnade resurser (inklusive datauppsättningar, länkade tjänster, pipelines, utlösare och integrationskörningar) för Data Factory via redigerings- och övervakningsgränssnittet på Azure Portal måste du inneha rollen som **Data Factory-deltagare**. För att skapa och hantera underordnade resurser med PowerShell eller SDK räcker det att du har rollen som **deltagare**.
+
 ### <a name="azure-storage-account"></a>Azure Storage-konto
-I den här snabbstarten använder du ett allmänt Azure Storage-konto (Blob Storage, för att vara specifik) som datalager för både *källa* och *destination*. Om du inte har något allmänt Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account). 
+I den här snabbstarten använder du ett allmänt Azure Storage-konto (Blob Storage, för att vara specifik) som datalager för både *källa* och *destination*. Om du inte har något allmänt Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../articles/storage/common/storage-quickstart-create-account.md). 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>Hämta lagringskontots namn och åtkomstnyckel
 Du använder namnet och nyckeln för Azure Storage-kontot i den här snabbstarten. Följande procedur innehåller steg för att få fram namnet och nyckeln för ditt lagringskonto: 
@@ -23,21 +42,21 @@ Du använder namnet och nyckeln för Azure Storage-kontot i den här snabbstarte
 5. Kopiera värdena för fälten **Lagringskontots namn** och **Nyckel 1** till Urklipp. Klistra in dem i Anteckningar eller något annat redigeringsprogram och spara. Du använder det senare i den här snabbstarten.   
 
 #### <a name="create-the-input-folder-and-files"></a>Skapa indatamapp och filer
-I det här avsnittet skapar du en blobbehållare med namnet **adftutorial** i Azure Blob Storage. Skapa en mapp med namnet **input** i behållaren och ladda upp en exempelfil i indatamappen. 
+I det här avsnittet skapar du en blobcontainer med namnet **adftutorial** i Azure Blob Storage. Skapa en mapp med namnet **input** i containern och ladda upp en exempelfil i indatamappen. 
 
 1. På sidan **Lagringskonto** växlar du till **Översikt** och väljer sedan **Blobar**. 
 
    ![Alternativet Välj blobar](media/data-factory-quickstart-prerequisites/select-blobs.png)
-2. På sidan **Blob Service** väljer du **+ Behållare** i verktygsfältet. 
+2. På sidan **Blob Service** väljer du **+ Container** i verktygsfältet. 
 
-   ![Lägga till behållarknapp](media/data-factory-quickstart-prerequisites/add-container-button.png)    
-3. I dialogrutan **Ny behållare** anger du **adftutorial** som namn och väljer **OK**. 
+   ![Lägga till containerknapp](media/data-factory-quickstart-prerequisites/add-container-button.png)    
+3. I dialogrutan **Ny container** anger du **adftutorial** som namn och väljer **OK**. 
 
-   ![Ange namn på behållare](media/data-factory-quickstart-prerequisites/new-container-dialog.png)
-4. Välj **adftutorial** i listan med behållare. 
+   ![Ange namn på container](media/data-factory-quickstart-prerequisites/new-container-dialog.png)
+4. Välj **adftutorial** i listan med containrar. 
 
-   ![Välja behållaren](media/data-factory-quickstart-prerequisites/seelct-adftutorial-container.png)
-1. På sidan **Behållare** väljer du **Ladda upp** i verktygsfältet.  
+   ![Välja containern](media/data-factory-quickstart-prerequisites/seelct-adftutorial-container.png)
+1. På sidan **Container** väljer du **Ladda upp** i verktygsfältet.  
 
    ![Knappen för överföring](media/data-factory-quickstart-prerequisites/upload-toolbar-button.png)
 6. På sidan **Ladda upp blob** väljer du **Avancerat**.
@@ -59,4 +78,4 @@ I det här avsnittet skapar du en blobbehållare med namnet **adftutorial** i Az
 12. Stäng sidan **Ladda upp blob** genom att klicka på **X** i hörnet. 
 
     ![Stänga sidan Ladda upp blob](media/data-factory-quickstart-prerequisites/close-upload-blob.png)
-1. Låt sidan **Behållare** vara öppen. Du kommer att använda den för att bekräfta utdata i slutet av snabbstarten.
+1. Låt sidan **Container** vara öppen. Du kommer att använda den för att bekräfta utdata i slutet av snabbstarten.

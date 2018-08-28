@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2f0d3c592cf8e265c215c49c291d3ef420112a15
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 40d6d149d07f55784e8428eb0faa943814195a47
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090868"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42023898"
 ---
 # <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Snabbstart: Etablera en simulerad X.509-enhet med Azure IoT C SDK
 
@@ -97,7 +97,7 @@ I det här avsnittet förbereder du en utvecklingsmiljö som används för att s
 
 I det här avsnittet använder du ett självsignerat X.509-certifikat. Det är viktigt att tänka på följande:
 
-* Självsignerade certifikat är endast för testning och ska inte användas i produktion.
+* Självsignerade certifikat är endast till för testning och ska inte användas i produktion.
 * Standardutgångsdatumet för ett självsignerat certifikat är 1 år.
 
 Du kommer att använda exempelkoden från Azure IoT C SDK för att skapa det certifikat som ska användas med posten för enskild registrering för den simulerade enheten.
@@ -143,7 +143,7 @@ I det här avsnittet uppdaterar du exempelkoden för att skicka enhetens startse
 
 1. I Azure-portalen väljer du fliken **Översikt** för enhetsetableringstjänsten och noterar värdet för **_ID-omfång_**.
 
-    ![Extrahera DP-slutpunktsinformation från portalbladet](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
+    ![Extrahera information om enhetsetableringstjänstens slutpunkt från bladet på portalen](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
 2. I fönstret *Solution Explorer* i Visual Studio går du till mappen **Provision (Etablera)\_Exempel**. Expandera exempelprojektet som heter **prov\_dev\_client\_sample**. Expandera **Källfiler** och öppna **prov\_dev\_client\_sample.c**.
 

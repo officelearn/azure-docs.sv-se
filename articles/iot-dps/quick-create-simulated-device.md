@@ -1,5 +1,5 @@
 ---
-title: Den här snabbstarten visar du hur etablerar en simulerad TPM-enhet på Azure IoT Hub med C | Microsoft Docs
+title: Etablera en simulerad TPM-enhet på Azure IoT Hub med C | Microsoft Docs
 description: I den här snabbstarten skapade och etablerade du en simulerad TPM-enhet med C-enhets-SDK för Azure IoT Hub-enhetsetableringstjänsten
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 15c0ce5a545b0bd6b2d1f320b50e9990f8278296
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 4e03268db32b4be6900234abe58e7a308110520a
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091473"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42023174"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Snabbstart: Etablera en simulerad TPM-enhet med Azure IoT C SDK
 
@@ -147,7 +147,7 @@ I det här avsnittet konfigurerar du exempelkod för att använda [Advanced Mess
 
 1. I Azure-portalen väljer du fliken **Översikt** för enhetsetableringstjänsten och kopierar värdet för **_ID-omfång_**.
 
-    ![Extrahera DP-slutpunktsinformation från portalen](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
+    ![Extrahera information om enhetsetableringstjänstens slutpunkt från portalen](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 
 2. I fönstret *Solution Explorer* i Visual Studio går du till mappen **Provision (Etablera)\_Exempel**. Expandera exempelprojektet som heter **prov\_dev\_client\_sample**. Expandera **Källfiler** och öppna **prov\_dev\_client\_sample.c**.
 

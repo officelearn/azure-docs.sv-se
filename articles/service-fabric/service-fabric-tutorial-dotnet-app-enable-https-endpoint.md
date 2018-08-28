@@ -1,6 +1,6 @@
 ---
-title: Lägga till en HTTPS-slutpunkt för en Service Fabric-app i Azure | Microsoft Docs
-description: I den här självstudien får lära dig att lägga till en HTTPS-slutpunkt i en klientwebbtjänst i ASP.NET Core och distribuera programmet till ett kluster.
+title: Lägga till en HTTPS-slutpunkt med hjälp av Kestrel till en Service Fabric-app i Azure | Microsoft Docs
+description: I den här självstudien lär du dig hur du lägger till en HTTPS-slutpunkt i en klientwebbtjänst i ASP.NET Core med hjälp av Kestrel och hur du distribuerar programmet till ett kluster.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 309a43d3383658029f4fe7f90f869888bac67bb1
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 70bbeabe2c2b14e8e0dcccac9ffa63f2e19230a2
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130058"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41920885"
 ---
-# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service"></a>Självstudie: Lägga till en HTTPS-slutpunkt i en klienttjänst i webb-API:t för ASP.NET Core
+# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Självstudie: Lägga till en HTTPS-slutpunkt i en klienttjänst i webb-API:t för ASP.NET Core med hjälp av Kestrel
 
 Den här självstudiekursen är den tredje delen i en serie.  Du får lära dig att aktivera HTTPS i en ASP.NET Core-tjänst som körs på Service Fabric. När du är färdig har du ett röstningsprogram med en HTTPS-aktiverad webbklientdel i ASP.NET Core som lyssnar på port 443. Om du inte vill skapa röstningsprogrammet manuellt i [Skapa ett .NET Service Fabric-program](service-fabric-tutorial-deploy-app-to-party-cluster.md) kan du [ladda ned källkoden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) till det färdiga programmet.
 
@@ -33,7 +33,7 @@ I den tredje delen i serien får du lära dig att:
 > * Konfigurera Kestrel för användning av HTTPS
 > * Installera SSL-certifikatet på de fjärranslutna klusternoderna
 > * Ge NETWORK SERVICE åtkomst till certifikatets privata nyckel
-> * Öppna port 443 i Azure-belastningsutjämnaren
+> * Öppna port 443 i Azure-lastbalanseraren
 > * Distribuera programmet till ett fjärrkluster
 
 I den här självstudieserien får du lära du dig att:
@@ -44,7 +44,7 @@ I den här självstudieserien får du lära du dig att:
 > * [Konfigurera CI/CD med hjälp av Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar den här självstudien:
 
@@ -395,9 +395,9 @@ $secret = Set-AzureKeyVaultSecret -VaultName $vaultname -Name $certname -SecretV
 Add-AzureRmServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $secret.Id -Verbose
 ```
 
-## <a name="open-port-443-in-the-azure-load-balancer"></a>Öppna port 443 i Azure-belastningsutjämnaren
+## <a name="open-port-443-in-the-azure-load-balancer"></a>Öppna port 443 i Azure-lastbalanseraren
 
-Öppna port 443 i belastningsutjämnaren om den inte redan är öppen.
+Öppna port 443 i lastbalanseraren om den inte redan är öppen.
 
 ```powershell
 $probename = "AppPortProbe6"
@@ -437,7 +437,7 @@ I den här självstudiedelen lärde du dig att:
 > * Konfigurera Kestrel för användning av HTTPS
 > * Installera SSL-certifikatet på de fjärranslutna klusternoderna
 > * Ge NETWORK SERVICE åtkomst till certifikatets privata nyckel
-> * Öppna port 443 i Azure-belastningsutjämnaren
+> * Öppna port 443 i Azure-lastbalanseraren
 > * Distribuera programmet till ett fjärrkluster
 
 Gå vidare till nästa kurs:

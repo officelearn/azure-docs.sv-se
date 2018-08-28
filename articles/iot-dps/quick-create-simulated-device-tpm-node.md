@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 64bbebcf8b014841d7f0609120e81cf072fdf96e
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: ef3cfb77a47face18ea5f3b75cbbf08d3e275d2e
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091650"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42023853"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad TPM-enhet med Node.js-enhetens SDK för IoT Hub Device Provisioning-tjänsten
 
@@ -24,7 +24,7 @@ Dessa steg visar hur du skapar en simulerad enhet på utvecklingsdatorn som kör
 
 Om du inte känner till processen för automatisk etablering, bör du också gå igenom [Begrepp inom automatisk etablering](concepts-auto-provisioning.md). Se också till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal) innan du fortsätter. 
 
-[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
+[!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
 ## <a name="prepare-the-environment"></a>Förbereda miljön 
 
@@ -152,7 +152,7 @@ Om du inte känner till processen för automatisk etablering, bör du också gå
 
 1. I Azure-portalen väljer du bladet **Översikt** för enhetsetableringstjänsten och antecknar värdena för **_Global enhetsslutpunkt_** och **_ID-omfång_**.
 
-    ![Extrahera DP-slutpunktsinformation från portalbladet](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
+    ![Extrahera information om enhetsetableringstjänstens slutpunkt från bladet på portalen](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 
 1. Med hjälp av en textredigerare skapar du en ny **RegisterDevice.js**-fil i mappen **registerdevice**.
 

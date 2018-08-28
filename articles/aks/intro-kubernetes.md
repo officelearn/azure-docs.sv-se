@@ -1,6 +1,6 @@
 ---
 title: Introduktion till Azure Kubernetes Service
-description: Med Azure Kubernetes Service kan du enkelt distribuera och hantera behållarbaserade program i Azure.
+description: Med Azure Kubernetes Service kan du enkelt distribuera och hantera containerbaserade program i Azure.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 06/13/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: cb38285a009d8dfba175de6e3037970e6111d929
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: e6f67c8900a7ee1728b474651b47d278cdfa51eb
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096135"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42022868"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
@@ -36,9 +36,9 @@ Mer information finns i, [integrera Azure Active Directory med AKS][aks-aad].
 
 ## <a name="integrated-logging-and-monitoring"></a>Integrerad loggning och övervakning
 
-Hälsotillstånd för behållare ger prestandasynlighet för att samla in minnes- och processormått från behållare, noder och domänkontrollanter. Behållarloggar samlas också. Dessa data lagras i Log Analytics-arbetsytan och är tillgänglig via Azure Portal, Azure CLI eller en REST-slutpunkt.
+Hälsotillstånd för containrar ger prestandasynlighet för att samla in minnes- och processormått från containrar, noder och domänkontrollanter. Containerloggar samlas också. Dessa data lagras i Log Analytics-arbetsytan och är tillgänglig via Azure Portal, Azure CLI eller en REST-slutpunkt.
 
-Mer information finns i [Övervaka Azure Kubernetes Service hälsotillstånd för behållaren][container-health].
+Mer information finns i [Övervaka Azure Kubernetes Service hälsotillstånd för containrar][container-health].
 
 ## <a name="cluster-node-scaling"></a>Klusternodsskalning
 
@@ -66,9 +66,9 @@ Mer information finns i [Använda GPU-kort på AKS][aks-gpu].
 
 ## <a name="development-tooling-integration"></a>Integrering av utvecklingsverktyg
 
-Kubernetes har ett omfattande utbud av utvecklings- och hanteringsverktyg, till exempel Helm, Draft och Kubernetes-tillägget för Visual Studio-koden. Dessa verktyg fungerar sömlöst med Azure Kuberntees Service.
+Kubernetes har ett omfattande utbud av utvecklings- och hanteringsverktyg, till exempel Helm, Draft och Kubernetes-tillägget för Visual Studio-koden. Dessa verktyg fungerar sömlöst med Azure Kuberntes Service.
 
-Vidare ger Azure Dev Spaces ger en snabb, iterativ Kubernetes-utvecklingsupplevelse för team. Du kan köra och felsöka behållare direkt i Azure Kubernetes Service (AKS) med minimal konfiguration.
+Vidare ger Azure Dev Spaces ger en snabb, iterativ Kubernetes-utvecklingsupplevelse för team. Du kan köra och felsöka containrar direkt i Azure Kubernetes Service (AKS) med minimal konfiguration.
 
 Mer information finns i [Azure Dev Spaces][azure-dev-spaces].
 
@@ -82,7 +82,7 @@ Ett AKS-kluster kan distribueras till ett befintligt virtuellt nätverk. I den h
 
 Mer information finns i [AKS-nätverk – översikt][aks-networking].
 
-## <a name="private-container-registry"></a>Privat behållarregister
+## <a name="private-container-registry"></a>Privat containerregister
 
 Integrera med Azure Container Registry (ACR) för privat lagring av Docker-avbildningar.
 
@@ -90,7 +90,7 @@ Mer information finns i [Azure Container Registry (ACR)][acr-docs].
 
 ## <a name="storage-volume-support"></a>Stöd för lagringsvolym
 
-Azure Kubernetes Service (AKS) stöder montering av lagringsvolymer för beständig data. AKS-kluster skapas med stöd för Azure Files och Azure Disks.
+Azure Kubernetes Service (AKS) stöder montering av lagringsvolymer för beständiga data. AKS-kluster skapas med stöd för Azure Files och Azure Disks.
 
 Mer information finns i [Azure Files][azure-files] och [Azure Disks][azure-disk].
 
@@ -104,7 +104,7 @@ Azure Kubernetes Service (AKS) har CNCF-certifierats som Kubernetes-överensstä
 
 ## <a name="regulatory-compliance"></a>Regelefterlevnad
 
-Azure Kubernetes Service (AKS) är kompatibel med SOC och ISO/HIPAA/HITRUST.
+Azure Kubernetes Service (AKS) är kompatibel med SOC och ISO.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -131,7 +131,7 @@ Läs mer om att distribuera och hantera AKS med snabbstarten om AKS.
 [aks-scale]: ./scale-cluster.md
 [aks-upgrade]: ./upgrade-cluster.md
 [azure-dev-spaces]: https://docs.microsoft.com/en-us/azure/dev-spaces/azure-dev-spaces
-[azure-devops]: https://docs.microsoft.com/en-us/vsts/pipelines/actions/azure-devops-project-aks?view=vsts
+[azure-devops]: https://docs.microsoft.com/en-us/azure/devops-project/overview
 [azure-disk]: ./azure-disks-dynamic-pv.md
 [azure-files]: ./azure-files-dynamic-pv.md
 [container-health]: ../monitoring/monitoring-container-health.md

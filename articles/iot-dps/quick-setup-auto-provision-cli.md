@@ -1,5 +1,5 @@
 ---
-title: Konfigurera enhetsetablering med Azure CLI | Microsoft Docs
+title: Konfigurera en enhetsetableringstjänst med hjälp av Azure CLI | Microsoft Docs
 description: Azure Snabbstart – Konfigurera Azure IoT Hub Device Provisioning-tjänsten med Azure CLI
 author: wesmc7777
 ms.author: wesmc
@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cf2e108aa7cab6be2996cb535d27d597e462617c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: c9e3bbbc4fbe8a9aade3364d6cbe9e93b5798595
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626547"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42022632"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Konfigurera IoT Hub Device Provisioning-tjänsten med Azure CLI
 
-Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabbstarten använder Azure CLI för att skapa en IoT-hubb och en IoT Hub Device Provisioning-tjänst samt kopplar ihop de två tjänsterna. 
+Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabbstarten beskriver hur du använder Azure CLI för att skapa en IoT-hubb och en IoT Hub-enhetsetableringstjänst och hur du kopplar ihop de två tjänsterna. 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -72,7 +72,7 @@ az iot dps create --name my-sample-dps --resource-group my-sample-resource-group
 
 ## <a name="get-the-connection-string-for-the-iot-hub"></a>Hämta anslutningssträngen för IoT-hubben
 
-Du behöver anslutningssträngen till in IoT-hubb för att kunna länka den till enhetsetableringstjänsten. Använd kommandot [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) för att hämta anslutningssträngen. Använd sedan dess utdata för att ställa in en variabel som ska användas när du länkar de två resurserna. 
+Du behöver IoT-hubbens anslutningssträng för att kunna länka den till enhetsetableringstjänsten. Använd kommandot [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) för att hämta anslutningssträngen. Använd sedan dess utdata för att ställa in en variabel som ska användas när du länkar de två resurserna. 
 
 I följande exempel anges variabeln *hubConnectionString* till värdet för anslutningssträngen för den primära nyckeln i hubbens *iothubowner*-princip. Du kan ange en annan princip med parametern `--policy-name`. Kommandot använder Azure CLI-[frågan](/cli/azure/query-azure-cli) och [utdata](/cli/azure/format-output-azure-cli#tsv-output-format)alternativ till att extrahera anslutningssträngen från kommandots utdata.
 
@@ -94,7 +94,7 @@ echo $hubConnectionString
 
 Länka IoT-hubben och etableringstjänsten med kommandot [az iot dps linked-hub create](/cli/azure/iot/dps/linked-hub#az-iot-dps-linked-hub-create). 
 
-I följande exempel länkas en IoT-hubb med namnet *my-sample-hub* på platsen *usavästra* och en enhetsetableringstjänst med namnet *my-sample-dps*. Den använder anslutningssträngen för *my-sample-hub* som lagrades i variabeln *hubConnectionString* i föregående steg.
+I följande exempel länkas en IoT-hubb med namnet *my-sample-hub* på platsen *westus* och en enhetsetableringstjänst med namnet *my-sample-dps*. Den använder anslutningssträngen för *my-sample-hub* som lagrades i variabeln *hubConnectionString* i föregående steg.
 
 ```azurecli-interactive 
 az iot dps linked-hub create --dps-name my-sample-dps --resource-group my-sample-resource-group --connection-string $hubConnectionString --location westus

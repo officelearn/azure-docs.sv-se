@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/17/2018
+ms.date: 08/22/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: d5bb5ed45363216bb1bcd39f85157a3eed68c2f9
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: fcae6d656f6e309b0fdcd60db743d3bebf3cd5a9
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126870"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617046"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Snabbstart: Skapa och distribuera Azure Resource Manager-mallar med hjälp av Azure-portalen
 
@@ -78,7 +78,9 @@ I det här avsnittet skapar du ett lagringskonto med hjälp av Azure-portalen. I
 
 ## <a name="edit-and-deploy-the-template"></a>Redigera och distribuera mallen
 
-I det här avsnittet öppnar du den sparade mallen från mallbiblioteket, redigerar mallen inifrån portalen och distribuerar den ändrade mallen. För redigering av mer komplex kod bör du överväga att använda Visual Studio Code, som ger bättre redigeringsfunktioner.
+I det här avsnittet öppnar du den sparade mallen från mallbiblioteket, redigerar mallen inifrån portalen och distribuerar den ändrade mallen. För redigering av mer komplex kod bör du överväga att använda [Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md), som tillhandahåller mer omfattande redigeringsfunktioner.
+
+Azure kräver att varje Azure-tjänst har ett unikt namn. Distributionen misslyckas om du anger namnet på ett lagringskonto som redan finns. För att undvika det här problemet kan du använda mallfunktionsanropet uniquestring() för att generera ett unikt lagringskontonamn.
 
 1. I Azure-portalen väljer du **Alla tjänster** i den vänstra menyn, anger **mall** i filterrutan och väljer sedan **Template (PREVIEW)** (Mall (FÖRHANDSVERSION)).
 
@@ -177,6 +179,14 @@ I det här avsnittet öppnar du den sparade mallen från mallbiblioteket, redige
 
 10. Välj **Köp**.
 11. Välj klockikonen (meddelanden) längst upp på skärmen för att se distributionsstatus.
+
+    ![Distributionsmeddelande för Azure Resource Manager-mallar](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-notification.png)
+
+12. Välj **Gå till resursgrupp** i meddelandefönstret. Du bör se en skärm som liknar följande:
+
+    ![Resursgrupp för distribution av Azure Resource Manager-mallar](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-deployment-resource-group.png)
+
+    Du kan se att distributionen lyckades och att det bara finns ett lagringskonto i resursgruppen. Lagringskontots namn är en unik sträng som genereras av mallen. Mer information om hur du använder Azure Storage-konton finns i [Snabbstart: Ladda upp, ladda ned och lista blobar med Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

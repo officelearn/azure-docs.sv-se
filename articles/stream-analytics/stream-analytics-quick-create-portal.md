@@ -4,21 +4,21 @@ description: Den här snabbstarten visar hur du kommer igång genom att skapa et
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 05/11/2018
+ms.date: 08/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 830b3d4226440a68c7de62170d2ffc28082315c2
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 1e466b2945793f866aad4e6f0ace3d7379226830
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902912"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42023785"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure-portalen
 
-Den här snabbstarten visar hur du kommer igång med att skapa ett Stream Analytics-jobb. I den här snabbstarten definierar du ett Stream Analytics-jobb som läser exempelsensordata och filtrerar rader där medeltemperaturen är större än 100 för var 30:e sekund. I den här artikeln läser du data från bloblagringen, omvandlar data och skriver dessa data tillbaka till en annan behållare i samma bloblagring. Indata-filen som används i denna Snabbstart innehåller statiska data som endast är för illustration. I ett verkligt scenario använder du strömningsindata för en Stream Analytics-jobb.
+Den här snabbstarten visar hur du kommer igång med att skapa ett Stream Analytics-jobb. I den här snabbstarten definierar du ett Stream Analytics-jobb som läser exempelsensordata och filtrerar rader där medeltemperaturen är större än 100 för var 30:e sekund. I den här artikeln läser du data från bloblagringen, omvandlar data och skriver dessa data tillbaka till en annan container i samma bloblagring. Indata-filen som används i denna Snabbstart innehåller statiska data som endast är för illustration. I ett verkligt scenario använder du strömningsindata för en Stream Analytics-jobb.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -34,7 +34,7 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som har k
 
    ```json
    {
-     "time": "2018-01-26T21:18:52.0000000",
+     "time": "2018-08-19T21:18:52.0000000",
      "dspl": "sensorC",
      "temp": 87,
      "hmdt": 44
@@ -50,9 +50,9 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som har k
 
 5. Från sidan **Blob-tjänst** väljer du **Container**, anger ett **Namn** för containern, t.ex. *container1*, och ändrar **Offentlig åtkomstnivå** till Privat (ingen anonym åtkomst) > välj **OK**.  
 
-   ![Skapa en behållare](./media/stream-analytics-quick-create-portal/create-a-storage-container.png)
+   ![Skapa en container](./media/stream-analytics-quick-create-portal/create-a-storage-container.png)
 
-6. Gå till behållaren du skapade i föregående steg. Välj **Ladda upp** och ladda upp sensordata som du fick i det första steget.  
+6. Gå till containern du skapade i föregående steg. Välj **Ladda upp** och ladda upp sensordata som du fick i det första steget.  
 
    ![Ladda upp exempeldata till blob](./media/stream-analytics-quick-create-portal/upload-sample-data-to-blob.png)
 
@@ -98,7 +98,7 @@ I det här avsnittet konfigurerar du blob-lagring som indata till Stream Analyti
    |Inmatat alias  |  BlobInput   |  Ange ett namn som identifierar jobbets indata.   |
    |Prenumeration   |  \<Din prenumeration\> |  Välj den Azure-prenumeration där det lagringskonto som du skapade finns. Lagringskontot kan vara i samma eller en annan prenumeration. I det här exemplet förutsätts att du har skapat lagringskontot i samma prenumeration. |
    |Lagringskonto  |  myasastorageaccount |  Välj eller ange lagringskontots namn. Lagringskontonamn identifieras automatiskt om de skapas i samma prenumeration. |
-   |Behållare  | container1 | Välj namnet på behållaren som innehåller exempeldata. Lagringskontonamn identifieras automatiskt om de skapas i samma prenumeration. |
+   |Container  | container1 | Välj namnet på containern som innehåller exempeldata. Containernamn identifieras automatiskt om de skapas i samma prenumeration. |
 
 4. Låt standardvärdena stå kvar för övriga alternativ och välj **Spara** för att spara inställningarna.  
 
@@ -117,8 +117,8 @@ I det här avsnittet konfigurerar du blob-lagring som indata till Stream Analyti
    |Utdataalias |   BlobOutput   |   Ange ett namn som identifierar jobbets utdata. |
    |Prenumeration  |  \<Din prenumeration\>  |  Välj den Azure-prenumeration där det lagringskonto som du skapade finns. Lagringskontot kan vara i samma eller en annan prenumeration. I det här exemplet förutsätts att du har skapat lagringskontot i samma prenumeration. |
    |Lagringskonto |  asaquickstartstorage |   Välj eller ange lagringskontots namn. Lagringskontonamn identifieras automatiskt om de skapas i samma prenumeration.       |
-   |Behållare |   container1  |  Välj en befintlig behållare som du skapade i ditt lagringskonto.   |
-   |Sökvägsmönster |   utdata  |  Ange ett namn som fungerar som sökväg i din befintliga behållare för utdata.   |
+   |Container |   container1  |  Välj en befintlig container som du skapade i ditt lagringskonto.   |
+   |Sökvägsmönster |   utdata  |  Ange ett namn som fungerar som sökväg i din befintliga container för utdata.   |
 
 4. Låt standardvärdena stå kvar för övriga alternativ och välj **Spara** för att spara inställningarna.  
 
@@ -147,6 +147,16 @@ I det här avsnittet konfigurerar du blob-lagring som indata till Stream Analyti
 
    ![Konfigurera jobbomvandling](./media/stream-analytics-quick-create-portal/configure-job-transformation.png)
 
+## <a name="configure-late-arrival-policy"></a>Konfigurera en princip för händelser som kommer sent
+
+1. Gå till Stream Analytics-jobbet som du skapade tidigare.
+
+2. Välj **Händelseordning** under **Konfigurera**.
+
+3. Ange **Händelser som kommer sent** till 20 dagar och välj **Spara**.
+
+   ![Konfigurera en princip för händelser som kommer sent](./media/stream-analytics-quick-create-portal/configure-late-policy.png)
+
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Starta Stream Analytics-jobbet och kontrollera utdata
 
 1. Återgå till jobböversiktssidan och välj **Starta**.
@@ -155,7 +165,7 @@ I det här avsnittet konfigurerar du blob-lagring som indata till Stream Analyti
 
    ![Starta jobbet](./media/stream-analytics-quick-create-portal/start-the-job.png)
 
-3. Efter några minuter går du till portalen och letar rätt på lagringskontot och den behållare som du har konfigurerat som utdata för jobbet. Välj sökvägen för utdata. Nu kan du se utdatafilen i behållaren. Det tar några minuter för jobbet att starta första gången. När det har startats fortsätter det att köras medan data tas emot.  
+3. Efter några minuter går du till portalen och letar rätt på lagringskontot och den container som du har konfigurerat som utdata för jobbet. Välj sökvägen för utdata. Nu kan du se utdatafilen i containern. Det tar några minuter för jobbet att starta första gången. När det har startats fortsätter det att köras medan data tas emot.  
 
    ![Transformerade utdata](./media/stream-analytics-quick-create-portal/transformed-output.png)
 

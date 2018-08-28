@@ -6,17 +6,22 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 07/09/2018
+ms.date: 08/09/2018
 ms.author: heidist
-ms.openlocfilehash: 4874e42139e277400c866a7fc4c7094faeae136d
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e4d01fdb4c11277af68127e4671a36ad7e2c74d2
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002212"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42023626"
 ---
 # <a name="what-is-azure-search"></a>Vad är Azure Search?
-Azure Search är en molnlösning för sökning som en tjänst 0som ger utvecklare API:er och verktyg för att lägga till omfattande sökfunktioner för privat heterogent innehåll i webb-, mobil- och företagsprogram.
+Azure Search är en molnlösning för sökning som en tjänst 0som ger utvecklare API:er och verktyg för att lägga till omfattande sökfunktioner för privat heterogent innehåll i webb-, mobil- och företagsprogram. Frågor körs över ett användardefinierat index.
+
++ Skapa en sökbas som endast innehåller dina data, och som kommer från flera innehållstyper och plattformar. 
++ Dra nytta av AI-baserad indexering för att extrahera text och funktioner från bildfiler, eller entiteter och nyckelfraser från råtext.
++ Skapa intuitiva sökupplevelser med facetterad navigering och filtrering, synonymer, automatisk komplettering och textanalys för automatiskt korrigerande ”menade du”-söktermer.
++ Lägg till geo-sökning för ”hitta i närheten”, språkanalysverktyg för icke-engelsk fulltextsökning och bedömningslogik för sökrankning.
 
 Funktionerna exponeras via en enkel [REST API](/rest/api/searchservice/) eller [.NET-SDK](search-howto-dotnet-sdk.md) som maskerar den inbyggda komplexiteten i informationshämtning. Förutom API:er tillhandahåller Azure Portal stöd för administration och innehållshantering, med verktyg för indexprototyper och -frågor. Eftersom tjänsten körs i molnet hanteras infrastruktur och tillgänglighet av Microsoft.
 
@@ -51,7 +56,7 @@ Innan du kan ladda upp sökbart innehåll måste du först definiera ett Azure S
 
 Ett schema kan skapas i Azure Portal eller programmässigt med [.NET-SDK](search-howto-dotnet-sdk.md) eller [REST API](/rest/api/searchservice/).
 
-### <a name="step-3-index-data"></a>Steg 3: Indexera data
+### <a name="step-3-load-data"></a>Steg 3: Läsa in data
 När du har definierat ett index kan du ladda upp innehåll. Du kan använda en push- eller pull-modell.
 
 Med pull-modellen hämtas data från externa datakällor. Den stöds med hjälp av *indexerare* som effektiviserar och automatiserar aspekter av datainmatning, till exempel anslutning till, läsning och serialisering av data. [Indexerare](/rest/api/searchservice/Indexer-operations) finns tillgängliga för Azure Cosmos DB, Azure SQL Database, Azure Blob Storage och SQL Server på en virtuell Azure-dator. Du kan konfigurera en indexerare för datauppdatering på begäran eller enligt schemaläggning.
@@ -61,7 +66,7 @@ Push-modellen tillhandahålls via SDK eller REST API:er, som används för att s
 ### <a name="step-4-search"></a>Steg 4: Söka
 När du har fyllt i ett index kan du [utfärda sökfrågor](/rest/api/searchservice/Search-Documents) till tjänstens slutpunkt med hjälp av enkla HTTP-begäranden med REST API eller .NET-SDK.
 
-## <a name="how-azure-search-compares"></a>Azure Search i jämförelse
+## <a name="how-it-compares"></a>Jämförelse
 
 Kunder frågar ofta om Azure Search i jämförelse med andra sökrelaterade lösningar. I följande tabell sammanfattas viktiga skillnader.
 
@@ -104,13 +109,16 @@ Du kan också [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/
 
 ## <a name="how-to-get-started"></a>Så här kommer du igång
 
-1. Skapa en tjänst på den [kostnadsfria nivån](search-create-service-portal.md).
+1. Skapa en [kostnadsfri tjänst](search-create-service-portal.md). Alla snabbstarter och självstudier kan utföras med den kostnadsfria tjänsten.
 
-2. Gå igenom en eller flera av följande självstudier. 
+2. Gå igenom [självstudien om hur du använder inbyggda verktyg för indexering och frågar](search-get-started-portal.md). Lär dig viktiga begrepp och bekanta dig med informationen som är tillgänglig på portalen.
 
-  + I [Använda .NET-SDK](search-howto-dotnet-sdk.md) demonstreras huvudstegen inom förvaltad kod.  
-  + I [Komma igång med REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) visas samma steg med REST API.  
-  + [Skapa ditt första index i portalen](search-get-started-portal.md) med inbyggda funktioner för indexering och prototyper.   
+3. Gå vidare med kod med .NET eller REST-API:et:
+
+  + [Använda .NET SDK](search-howto-dotnet-sdk.md) beskriver huvudarbetsflödet i förvaltad kod.  
+  + I [Komma igång med REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) visas samma steg med REST API. Du kan också använda den här snabbstarten för att anropa REST-API:er från Postman eller Fiddler: [Utforska Azure Search REST-API:er](search-fiddler.md).
+
+## <a name="watch-this-video"></a>Titta på den här videon
 
 Sökmotorer är vanliga för informationshämtning i mobilappar, på webben och i företags datalager. Azure Search ger dig verktyg för att skapa en sökfunktion som liknar funktionerna på stora kommersiella webbplatser.
 
@@ -122,5 +130,3 @@ I den här 9-minutersvideon från programansvarige Liam Cavanagh får du reda p�
 + 3-4 minuter omfattar tjänstetablering. 
 + 4-6 minuter omfattar guiden Importera data som används för att skapa ett index med hjälp av den inbyggda datamängden för fastigheter.
 + 6-9 minuter omfattar Sökutforskaren och olika frågor.
-
-

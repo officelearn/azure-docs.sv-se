@@ -9,12 +9,12 @@ ms.date: 07/30/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 31560cbd4d8b4572ce930db7ffb8753f3e4a4bc0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6b7589652f5b180a826f3c0b1fcbe040ff3d386d
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425926"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41918023"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Självstudie: Utveckla en C IoT Edge-modul och distribuera till den simulerade enheten
 
@@ -37,6 +37,7 @@ IoT Edge-modulen som du skapar i den här självstudien filtrerar temperaturdata
 En Azure IoT Edge-enhet:
 
 * Du kan använda utvecklingsdatorn eller en virtuell dator som en gränsenhet genom att följa stegen i snabbstarten för [Linux-](quickstart-linux.md) eller [Windows-enheter](quickstart.md).
+* C-moduler för Azure IoT Edge har inte stöd för Windows-containrar. Om din IoT Edge-enhet är en Windows-dator konfigurerar du den till att [använda Linux-containrar](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
 
 Molnresurser:
 
@@ -49,7 +50,11 @@ Utvecklingsresurser:
 * [Azure IoT Edge-tillägg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) för Visual Studio Code.
 * [Docker CE](https://docs.docker.com/install/). 
 
+>[!Note]
+>C-moduler för Azure IoT Edge har inte stöd för Windows-containrar. 
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
 
 ## <a name="create-a-container-registry"></a>Skapa ett containerregister
 I den här självstudien använder du Azure IoT Edge-tillägget för VS Code för att skapa en modul och skapa en **containeravbildning** från filerna. Sedan pushar du avbildningen till ett **register** som lagrar och hanterar dina avbildningar. Slutligen, distribuerar du din avbildning från ditt register så det kör på din IoT Edge-enhet.  
@@ -72,21 +77,48 @@ Kopiera värdena för **Användarnamn** och ett av lösenorden. Du använder des
 
 ## <a name="create-an-iot-edge-module-project"></a>Skapa ett projekt för IoT Edge-modulen
 Följande steg visar hur du skapar ett IoT Edge-modulprojekt som baseras på .NET Core 2.0 med Visual Studio Code och Azure IoT Edge-tillägget.
-1. I Visual Studio Code väljer du **Visa** > **Integrerad terminal** för att öppna den integrerade Visual Studio Code-terminalen.
-2. Välj **Visa** > **Kommandopalett** för att öppna kommandopaletten i VS Code. 
-3. Ange och kör kommandot **Azure: Logga in** i kommandopaletten och följ anvisningarna för att logga in med ditt Azure-konto. Om du redan har loggat in kan du hoppa över det här steget.
-4. Skriv och kör kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning) i kommandopaletten. Ange följande information i kommandopaletten för att skapa din lösning: 
+
+### <a name="create-a-new-solution"></a>Skapa en ny lösning
+
+Skapa en C-lösningsmall som du kan anpassa med din egen kod. 
+
+1. Välj **Visa** > **Kommandopalett** för att öppna kommandopaletten i VS Code. 
+
+2. Ange och kör kommandot **Azure: Logga in** i kommandopaletten och följ anvisningarna för att logga in med ditt Azure-konto. Om du redan har loggat in kan du hoppa över det här steget.
+
+3. Skriv och kör kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning) i kommandopaletten. Ange följande information i kommandopaletten för att skapa din lösning: 
+
    1. Välj den mapp där du vill skapa lösningen. 
    2. Ange ett namn för din lösning eller välj standardnamnet **EdgeSolution**.
    3. Välj **C Module** som mall för modulen. 
    4. Ge modulen namnet **CModule**. 
-   5. Ange det Azure Container Registry som du skapade i föregående avsnitt som avbildningslagringsplats för din första modul. Ersätt **localhost:5000** med det serverinloggningsvärde som du kopierade. Den slutliga strängen ser ut så här: **\<registernamn\>.azurecr.io/cmodule**.
- 
-4. VS Code läser in arbetsytan för IoT Edge-lösningen. Det finns en **modules**-mapp, en **.vscode**-mapp, en mallfil för distributionsmanifestet och en **.env**-fil. Standardkoden för modulen implementeras som en pipe-modul. 
+   5. Ange det Azure Container Registry som du skapade i föregående avsnitt som avbildningslagringsplats för din första modul. Ersätt **localhost:5000** med **\<registernamnet \>. azurecr.io**. Ersätt endast localhost-delen av strängen; ta inte bort modulens namn. 
 
-5. Om du vill filtrera meddelanden i JSON-format måste du importera ett JSON-bibliotek för C. Du kan välja valfritt JSON-bibliotek eller skriva ett eget för att parsa JSON i C-modulen. I stegen nedan används [Parson](https://github.com/kgabis/parson) som exempel.
-   1. Ladda ned **parson.c** och **parson.h** från [Parson Github-lagringsplatsen](https://github.com/kgabis/parson). Kopiera och klistra in dessa två filer i mappen **CModule**.
-   2. Öppna **modules** > **CModule** > **CMakeLists.txt**. Importera parson-biblioteket som my_parson genom att lägga till raderna nedan.
+   ![Ange lagringsplatsen för Docker-avbildningen](./media/tutorial-c-module/repository.png)
+
+VS Code läser in arbetsytan för IoT Edge-lösningen. Lösningens arbetsyta innehåller fem komponenter på den högsta nivån. Du kommer inte att redigera mappen **\.vscode** eller filen **\.gitignore** i den här självstudiekursen. Mappen **modules** innehåller C-koden för din modul samt Dockerfiles som används för att skapa modulen som en containeravbildning. Filen **\.env** lagrar dina autentiseringsuppgifter för containerregistret. Filen **deployment.template.json** innehåller informationen som IoT Edge-körningen använder för att distribuera moduler på en enhet. 
+
+Om du inte angav ett containerregister när du skapade lösningen, men accepterade standardvärdet localhost:5000, har du ingen \.env-fil. 
+
+   ![C-lösningens arbetsyta](./media/tutorial-c-module/workspace.png)
+
+### <a name="add-your-registry-credentials"></a>Lägg till autentiseringsuppgifter för registret
+
+Miljöfilen lagrar autentiseringsuppgifterna för containerregistret och delar dem med körningsmiljön för IoT Edge. Körningen behöver dessa autentiseringsuppgifter för att hämta dina privata avbildningar till IoT Edge-enheten. 
+
+1. Öppna .env-filen i VS Code-utforskaren. 
+2. Uppdatera fälten med det **användarnamn** och **lösenord** som du kopierade från Azure Container-registret. 
+3. Spara filen. 
+
+### <a name="update-the-module-with-custom-code"></a>Uppdatera modulen med anpassad kod
+
+Lägg till kod i din C-modul som gör att den kan läsa data från sensorn, kontrollera om den rapporterade datortemperaturen har överskridit ett säkerhetströskelvärde och skicka informationen till IoT Hub. 
+
+5. Data från sensorn i det här scenariot kommer i JSON-format. Om du vill filtrera meddelanden i JSON-format importerar du ett JSON-bibliotek för C. Den här självstudien använder Parson.
+
+   1. Ladda ned den [Parson Github-lagringsplatsen](https://github.com/kgabis/parson). Kopiera filerna **parson.c** och **parson.h** till mappen **CModule**.
+
+   2. Öppna **modules** > **CModule** > **CMakeLists.txt**. Längst upp i filen importerar du Parson-filerna som ett bibliotek med namnet **my_parson**.
 
       ```
       add_library(my_parson
@@ -95,20 +127,23 @@ Följande steg visar hur du skapar ett IoT Edge-modulprojekt som baseras på .NE
       )
       ```
 
-   3. Lägg till `my_parson` i `target_link_libraries` i **CMakeLists.txt**.
-   4. Öppna **modules** > **CModule** > **main.c**. Lägg till `parson.h` för JSON-stöd genom att lägga till koden nedan sist i include-avsnittet:
+   3. Lägg till **my_parson** i listan över bibliotek i funktionen **target_link_libraries** i CMakeLists.txt.
+
+   4. Spara filen **CMakeLists.txt**.
+
+   5. Öppna **modules** > **CModule** > **main.c**. Längst ned i listan med include-instruktioner lägger du till ett nytt som ska innehålla `parson.h` för JSON-stöd:
 
       ```c
       #include "parson.h"
       ```
 
-6. Lägg till en global `temperatureThreshold`-variabel efter include-avsnittet. Variabeln anger det värde som den uppmätta temperaturen måste överstiga för att data ska skickas till IoT Hub. 
+6. I filen **main.c** lägger du till en global variabel med namnet `temperatureThreshold` efter include-avsnittet. Variabeln anger det värde som den uppmätta temperaturen måste överstiga för att data ska skickas till IoT Hub. 
 
     ```c
     static double temperatureThreshold = 25;
     ```
 
-7. Ersätt hela `CreateMessageInstance`-funktionen med koden nedan. Den här funktionen allokerar en kontext för återanropet. 
+7. Ersätt hela funktionen `CreateMessageInstance` med följande kod. Den här funktionen allokerar en kontext för återanropet. 
 
     ```c
     static MESSAGE_INSTANCE* CreateMessageInstance(IOTHUB_MESSAGE_HANDLE message)
@@ -142,7 +177,7 @@ Följande steg visar hur du skapar ett IoT Edge-modulprojekt som baseras på .NE
     }
     ```
 
-8. Ersätt hela `InputQueue1Callback`-funktionen med koden nedan. Den här funktionen implementerar själva meddelandefiltret. 
+8. Ersätt hela funktionen `InputQueue1Callback` med följande kod. Den här funktionen implementerar själva meddelandefiltret. 
 
     ```c
     static IOTHUBMESSAGE_DISPOSITION_RESULT InputQueue1Callback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -222,7 +257,7 @@ Följande steg visar hur du skapar ett IoT Edge-modulprojekt som baseras på .NE
     }
     ```
 
-10. Lägg till ett nytt återanrop för `moduleTwinCallback` i funktionen `SetupCallbacksForModule`. Ersätt hela `SetupCallbacksForModule`-funktionen med koden nedan.
+10. Ersätt funktionen `SetupCallbacksForModule` med följande kod. 
 
     ```c
     static int SetupCallbacksForModule(IOTHUB_MODULE_CLIENT_LL_HANDLE iotHubModuleClientHandle)
@@ -248,13 +283,15 @@ Följande steg visar hur du skapar ett IoT Edge-modulprojekt som baseras på .NE
     }
     ```
 
-11. Spara filen.
+11. Spara filen **main.c**.
 
 ## <a name="build-your-iot-edge-solution"></a>Skapa din IoT Edge-lösning
 
-I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod till CModule som filtrerar ut meddelanden om att temperaturen för den rapporterade datorn ligger under det godkända tröskelvärdet. Nu behöver du skapa lösningen som en containeravbildning och push-överföra den till ditt containerregister. 
+I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod till CModule som filtrerar ut meddelanden om att temperaturen för den rapporterade datorn ligger inom det godkända intervallet. Nu behöver du skapa lösningen som en containeravbildning och push-överföra den till ditt containerregister. 
 
-1. Logga in på Docker genom att ange följande kommando i den integrerade terminalen för Visual Studio Code så att du kan push-överföra modulavbildningen till ACR: 
+1. Öppna den integrerade VS Code-terminalen genom att välja **Visa** > **Integrerad terminal**. 
+
+1. Logga in på Docker genom att ange följande kommando i den integrerade Visual Studio Code-terminalen: Du måste logga in med dina Azure Container Registry-autentiseringsuppgifter så att du kan skicka din modulavbildning till registret. 
      
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -263,9 +300,8 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod till CM
 
 2. I VS Code-utforskaren öppnar du filen **deployment.template.json** i arbetsytan för IoT Edge-lösningen. Den här filen instruerar `$edgeAgent` att distribuera två moduler: **tempSensor** och **CModule**. Värdet `CModule.image` är inställt på en Linux amd64-version av avbildningen. Läs mer om distributionsmanifest i avsnittet om att [förstå hur IoT Edge-moduler kan användas, konfigureras och återanvändas](module-composition.md).
 
-3. I filen **deployment.template.json** finns det ett avsnitt som heter **registryCredentials** och som lagrar dina autentiseringsuppgifter för Docker-registret. De faktiska paren för användarnamn och lösenord lagras i env-filen, som git ignorerar.
-
 4. Lägg till CModule-modultvillingen till distributionsmanifestet. Infoga följande JSON-innehåll längst ned i avsnittet `moduleContent` efter `$edgeHub`-modultvillingen: 
+
     ```json
         "CModule": {
             "properties.desired":{
@@ -274,23 +310,34 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod till CM
         }
     ```
 
-4. Spara filen.
-5. Högerklicka på filen **deployment.template.json** och välj **Skapa IoT Edge-lösning** i VS Code-utforskaren. 
+   ![Lägga till CModule-tvilling till distributionsmall](./media/tutorial-c-module/module-twin.png)
 
-När du ger Visual Studio Code kommando att skapa din lösning hämtar den först information i distributionsmallen och genererar en `deployment.json`-fil i en ny **config**-mapp. Sedan körs två kommandon i en integrerad terminal: `docker build` och `docker push`. Dessa två kommandon skapar koden, lägger `CModule.dll` i behållare och push-överför till det containerregister som du angav när du initierade lösningen. 
+4. Spara filen **deployment.template.json**.
+5. I VS Code-utforskaren högerklickar du på filen **deployment.template.json** och väljer **Build and Push IoT Edge solution** (Skapa och skicka IoT Edge-lösning). 
 
-Den fullständiga adressen med tagg för containeravbildningen finns i den integrerade VS Code-terminalen. Avbildningsadressen skapas utifrån information i filen `module.json` med formatet **\<lagringsplats\>:\<version\>-\<plattform\>**. I den här självstudien bör den se ut så här: **registryname.azurecr.io/cmodule:0.0.1-amd64**.
+När du ger Visual Studio Code kommando att skapa din lösning genererar det först en `deployment.json`-fil i en ny **config**-mapp. Informationen för filen deployment.json hämtas från den mallfil som du uppdaterade, den .env-fil som du använde för att lagra dina autentiseringsuppgifter för containerregister samt module.json-filen i CModule-mappen. 
+
+Sedan kör Visual Studio Code två kommandon i den integrerade terminalen: `docker build` och `docker push`. Dessa två kommandon skapar koden, lägger `CModule.dll` i behållare och push-överför till det containerregister som du angav när du initierade lösningen. 
+
+Den fullständiga adressen med tagg för containeravbildningen finns i den integrerade VS Code-terminalen. Avbildningsadressen skapas utifrån information i filen `module.json` med formatet **\<lagringsplats\>:\<version\>-\<plattform\>**. I den här självstudien bör den se ut så här: **myregistry.azurecr.io/cmodule:0.0.1-amd64**.
 
 ## <a name="deploy-and-run-the-solution"></a>Distribuera och kör lösningen
 
-1. Konfigurera Azure IoT Toolkit-tillägget med anslutningssträngen för din IoT-hubb: 
-    1. Öppna VS Code-utforskaren genom att välja **Visa** > **Utforskaren**. 
-    2. I utforskaren klickar du på **AZURE IOT HUB-ENHETER** och sedan på **...**. Klicka på **Select IoT Hub** (Välj IoT Hub). Följ instruktionerna för att logga in på Azure-kontot och välja din IoT-hubb. 
-       Observera att du även kan konfigurera genom att klicka på **Set IoT Hub Connection String** (Ange anslutningssträng för IoT-hubb). Ange anslutningssträngen för den IoT-hubb som din IoT Edge-enhet ansluter till i popup-fönstret.
+I stegen i snabbstartsartikeln som du följde för att konfigurera IoT Edge-enheten distribuerade du en modul med hjälp av Azure Portal. Du kan även distribuera moduler med Azure IoT Toolkit-tillägget för Visual Studio Code. Du har redan ett distributionsmanifest som är förberett för ditt scenario, filen **deployment.json**. Allt du behöver göra nu är att välja en enhet som ska ta emot distributionen.
 
-2. I Azure IoT Hub Devices-utforskaren högerklickar du på din IoT Edge-enhet och klickar sedan på **Create Deployment for IoT Edge device** (Skapa distribution för IoT Edge-enhet). Välj filen **deployment.json** i mappen **config** och klicka sedan på **Select Edge Deployment Manifest** (Välj distributionsmanifest för Edge).
+1. I kommandopaletten i VS Code kör du **Azure IoT Hub: Select IoT Hub** (Azure IoT Hub: Välj IoT Hub). 
 
-3. Klicka på uppdateringsknappen. Den nya **CModule**-modulen visas och körs tillsammans med **TempSensor**-modulen och **$edgeAgent** och **$edgeHub**. 
+2. Välj den prenumeration och IoT-hubb som innehåller den IoT Edge-enhet som du vill konfigurera. 
+
+3. I VS Code-utforskaren expanderar du avsnittet **Azure IoT Hub-enheter**. 
+
+4. Högerklicka på namnet för din IoT Edge-enhet och välj sedan **Create Deployment for Single Device** (Skapa distribution för en enskild enhet). 
+
+   ![Skapa distribution för en enskild enhet](./media/tutorial-c-module/create-deployment.png)
+
+5. Välj filen **deployment.json** i mappen **config** och klicka sedan på **Select Edge Deployment Manifest** (Välj distributionsmanifest för Edge). Använd inte filen deployment.template.json. 
+
+6. Klicka på uppdateringsknappen. Den nya **CModule**-modulen visas och körs tillsammans med **TempSensor**-modulen och **$edgeAgent** och **$edgeHub**. 
 
 ## <a name="view-generated-data"></a>Visa genererade data
 
@@ -302,27 +349,13 @@ Den fullständiga adressen med tagg för containeravbildningen finns i den integ
  
 ## <a name="clean-up-resources"></a>Rensa resurser 
 
-Om du fortsätter till nästa rekommenderade artikel kan du behålla de resurser och konfigurationer som du redan har skapat och återanvända dem.
+Om du planerar att fortsätta med nästa rekommenderade artikel kan du behålla de resurser och konfigurationer som du skapat och använda dem igen. Du kan även fortsätta att använda samma IoT Edge-enhet som en testenhet. 
 
-Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som skapats i den här artikeln om du vill undvika kostnader. 
+Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som du har skapat i den här artikeln för att därigenom undvika kostnader. 
 
-> [!IMPORTANT]
-> Det går inte att ångra borttagningen av Azure-resursgrupper. När resursgruppen och alla resurser som ingår i den tas bort är de borta permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat IoT Hub:en inuti en befintlig resursgrupp som innehåller resurser som du vill behålla, ta bara bort själva IoT Hub-resursen i stället för att ta bort resursgruppen.
->
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-Om du endast vill ta bort körningen av IoT Hub kan du använda följande kommando med namnet på hubben och resursgruppens namn:
-
-```azurecli-interactive
-az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
-```
-
-
-Ta bort hela resursgruppen med namnet:
-
-   ```azurecli-interactive
-   az group delete --name IoTEdgeResources 
-   ```
-
+[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
 
 ## <a name="next-steps"></a>Nästa steg

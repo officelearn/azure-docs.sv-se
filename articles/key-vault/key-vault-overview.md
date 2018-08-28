@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 07/17/2018
 ms.author: barclayn
-ms.openlocfilehash: 2cda30c85ce8a8dc9b7a6c0134b7cabc58b842a4
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: a55c99764cf9d77ab3ee269e3f5b0c2a13ec1ac7
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115328"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42023103"
 ---
 # <a name="what-is-azure-key-vault"></a>Vad är Azure Key Vault?
 
@@ -29,13 +29,12 @@ Du har lösenord, anslutningssträngar och andra uppgifter som behövs för att 
 
 Du kan skapa flera säkra containrar, som kallas valv, i Key Vault. De här valven stöds av säkerhetsmoduler på maskinvarunivå (HSM:er). Med valv så minskar risken för att säkerhetsinformation förloras av misstag eftersom lagringen av hemligheter centraliseras. Key Vaults styr och loggar dessutom åtkomsten till informationen du lagrar. Azure Key Vault kan hantera förfrågningar om och förnyande av TLS-certifikat (Transport Layer Security), och du har tillgång till alla de funktioner som krävs för en robust livscykelhantering av certifikat.
 
- Azure Key Vault är utformat med stöd för programnycklar och hemligheter. Key Vault är inte avsett att användas för lagring av användarlösenord.
-
+ Azure Key Vault har stöd för alla typer av hemligheter. Med det menar vi att Key Vault kan användas för att lagra lösenord, databasautentiseringsuppgifter, API-nycklar och certifikat, som antingen kan vara programvaruskyddade eller HSM-skyddade
 ## <a name="why-use-azure-key-vault"></a>Därför ska du använda Azure Key Vault
 
 ### <a name="centralize-application-secrets"></a>Central lagring av programhemligheter
 
-När dina programhemligheter lagras lokalt i Azure Key Vault kan du styra spridningen av dem. Då minskar risken att hemligheter sprids av misstag. När du använder Key Vault behöver programutvecklare inte längre lagra säkerhetsinformation i sina program. Den här informationen behöver alltså inte ingå i koden. Ett program kan till exempel behöva ansluta till en databas. Istället för att anslutningssträngen lagras i programkoden så lagras den säkert i Key Vault.
+När dina programhemligheter lagras lokalt i Azure Key Vault kan du styra spridningen av dem. Key Vault minskar kraftigt risken för att hemligheter sprids av misstag. När du använder Key Vault behöver programutvecklare inte längre lagra säkerhetsinformation i sina program. Den här informationen behöver alltså inte ingå i koden. Ett program kan till exempel behöva ansluta till en databas. Istället för att anslutningssträngen lagras i programkoden så lagras den säkert i Key Vault.
 
 Dina program har säker åtkomst till den information de behöver via URI:er som tillåter dem att hämta specifika versioner av en hemlighet när programmets nyckel eller hemlighet lagras i Azure Key Vault. Det här sker utan att du behöver skriva någon egen kod för att skydda den hemliga informationen.
 
@@ -65,9 +64,9 @@ Du har kontroll över dina loggar, du kan skydda dem genom att begränsa åtkoms
 
 Det ingår ett flertal steg när du lagrar värdefulla data. Säkerhetsinformationen måste skyddas, den måste följa en livscykel och ha hög tillgänglighet. Azure Key Vault gör flera av de här aspekterna enklare så här:
 
-- Du behöver inte ha någon HSM-kompetens på företaget.
+- Eliminera behovet av intern expertis inom maskinvarusäkerhetsmoduler
 - Du kan skala upp med kort varsel vid tillfälliga toppar i organisationens användning.
-- Innehållet i dina nyckelvarv kan replikeras inom en region och till en sekundär region. Det här säkerställer tillgängligheten och gör att administratören inte behöver utlösa redundansen manuellt.
+- Innehållet i dina nyckelvarv kan replikeras inom en region och till en sekundär region. Key Vault säkerställer tillgängligheten och gör att administratören inte behöver utlösa redundansväxlingen manuellt.
 - Du har tillgång till vanliga administrationsalternativ för Azure via portalen, Azure CLI:t och PowerShell.
 - Vissa uppgifter kring certifikat som du köper från offentliga certifikatutfärdare automatiseras, som registrering och förnyelse.
 
@@ -75,7 +74,7 @@ Dessutom kan du särskilja programhemligheter i Azure Key Vaults. Program kan d�
 
 ### <a name="integrate-with-other-azure-services"></a>Integrera med andra Azure-tjänster
 
-Som säker lagring i Azure så har Key Vault använts till att förenkla scenarier som [Azure Disk Encryption](../security/azure-security-disk-encryption.md), funktionen [alltid krypterad]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) i SQL Server och Azure SQL samt [Azure-webbappar]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site). Key Vault kan i sig integreras med lagringskonton, händelsehubbar och Log Analytics.
+Som säker lagring i Azure så har Key Vault använts till att förenkla scenarier som [Azure Disk Encryption](../security/azure-security-disk-encryption.md), funktionen [alltid krypterad]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) i SQL Server och Azure SQL samt [Azure-webbappar]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site). Själva Key Vault kan integreras med lagringskonton, händelsehubbar och Log Analytics.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,47 +6,35 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 06/01/2018
+ms.date: 08/17/2018
 ms.author: babanisa
-ms.openlocfilehash: 6d0f769d65bc8ed4f41469b96edf4f0595d994de
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 90e8d6a3ef093046c5ee6324f6e6590e59124da7
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725249"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42023108"
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>En introduktion till Azure Event Grid
 
-Med Azure Event Grid kan du enkelt skapa program med händelsebaserade arkitekturer. Du väljer Azure-resursen som du vill prenumerera på och ger händelsehanteraren eller WebHook den slutpunkt som händelsen ska skickas till. Event Grid har inbyggt stöd för händelser som kommer från Azure-tjänster, som lagringsblobar och resursgrupper. Event Grid har också anpassat stöd för program och händelser från tredje part, med hjälp av anpassade ämnen och anpassade webhooks. 
+Med Azure Event Grid kan du enkelt skapa program med händelsebaserade arkitekturer. Du börjar med att välja Azure-resursen som du vill prenumerera på och anger sedan händelsehanteraren eller WebHook-slutpunkten som händelsen ska skickas till. Event Grid har inbyggt stöd för händelser som kommer från Azure-tjänster, som lagringsblobar och resursgrupper. Du kan också använda egna händelser med Event Grid, med hjälp av anpassade ämnen. 
 
-Du kan använda filter för att dirigera specifika händelser till olika slutpunkter, använda multicast till flera slutpunkter och kontrollera att din händelser levereras på ett tillförlitligt sätt. Event Grid har också inbyggt stöd för anpassade händelser och händelser från tredje part.
+Du kan använda filter för att dirigera specifika händelser till olika slutpunkter, använda multicast till flera slutpunkter och kontrollera att din händelser levereras på ett tillförlitligt sätt.
 
-Event Grid stöder för närvarande följande regioner:
+Azure Event Grid är för närvarande tillgängligt i alla offentliga regioner. Tjänsten är inte tillgänglig i Azure-moln för Tyskland, Kina eller statliga myndigheter än.
 
-* Sydostasien
-* Asien, östra
-* Östra Australien
-* Sydöstra Australien
-* Centrala USA
-*   Östra USA
-*   Östra USA 2
-* Västeuropa
-* Nordeuropa
-* Östra Japan
-* Västra Japan
-*   Västra centrala USA
-*   Västra USA
-*   Västra USA 2
-
-Den här artikeln innehåller en översikt för Azure Event Grid. Om du vill komma igång med Event Grid kan du läsa [Skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md). Följande bild visar hur Event Grid ansluter källor och hanterare, men den är inte någon heltäckande lista över vilka alternativ som stöds.
+Den här artikeln innehåller en översikt för Azure Event Grid. Om du vill komma igång med Event Grid kan du läsa [Skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md). 
 
 ![Funktionell modell för Event Grid](./media/overview/functional-model.png)
 
+Obs! Den här bilden illustrerar hur Event Grid ansluter källor och hanterare och är inte en heltäckande lista över integreringar som stöds.
+
 ## <a name="event-sources"></a>Händelsekällor
 
-För närvarande stöder följande Azure-tjänster att skicka händelser till Event Grid:
+Fullständig information om funktionerna för varje källa samt relaterade artiklar finns i avsnittet om [händelsekällor](event-sources.md). För närvarande stöder följande Azure-tjänster att skicka händelser till Event Grid:
 
 * Azure-prenumerationer (hanteringsåtgärder)
+* Container Registry
 * Anpassade ämnen
 * Event Hubs
 * IoT Hub
@@ -56,11 +44,9 @@ För närvarande stöder följande Azure-tjänster att skicka händelser till Ev
 * Storage Blob
 * Allmän lagring v2 (GPv2)
 
-Länkar till artiklar som visar hur du använder varje händelsekälla finns i [Händelsekällor i Azure Event Grid](event-sources.md).
-
 ## <a name="event-handlers"></a>Händelsehanterare
 
-För närvarande stöder följande Azure-tjänster hantering av händelser från Event Grid: 
+Fullständig information om funktionerna för varje hanterare samt relaterade artiklar finns i avsnittet om [händelsehanterare](event-handlers.md). För närvarande stöder följande Azure-tjänster hantering av händelser från Event Grid: 
 
 * Azure Automation
 * Azure Functions
@@ -70,8 +56,6 @@ För närvarande stöder följande Azure-tjänster hantering av händelser från
 * Microsoft Flow
 * Queue Storage
 * WebHooks
-
-Länkar till artiklar som visar hur du använder varje händelsehanterare finns i [Händelsehanterare i Azure Event Grid](event-handlers.md).
 
 ## <a name="concepts"></a>Begrepp
 
@@ -108,7 +92,7 @@ Azure Event Grid innehåller flera funktioner som avsevärt förbättrar åtgär
 
 ![Program utan server](./media/overview/serverless_web_app.png)
 
-Event Grid kopplar samman datakällor och händelsehanterare. Använd exempelvis Event Grid för att direkt utlösa att en funktion utan server kör bildanalys varje gång ett nytt foto läggs till i en bloblagringsbehållare. 
+Event Grid kopplar samman datakällor och händelsehanterare. Använd exempelvis Event Grid för att direkt utlösa att en funktion utan server kör bildanalys varje gång ett nytt foto läggs till i en bloblagringscontainer. 
 
 ### <a name="ops-automation"></a>Automatisering av åtgärder
 

@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 4774efda6748ac640d87ce83e2d5c4ee68310546
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 0f38aabf008f0335a6f9e21717aa38aefdd21615
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125747"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42022942"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Snabbstart: Skapa ditt första automatiserade arbetsflöde med Azure Logic Apps – Azure Portal
 
@@ -171,6 +171,9 @@ Ta bort resursgruppen som innehåller logikappen och alla relaterade resurser n�
 2. Ange resursgruppens namn som bekräftelse och välj **Ta bort**.
 
    ![Bekräfta borttagning](./media/quickstart-create-first-logic-app-workflow/delete-resource-group-2.png)
+
+> [!NOTE]
+> När du tar bort en logikapp instantieras inga nya körningar. Alla pågående och väntande körningar avbryts. Om du har flera tusen körningar kan det ta relativt lång tid att avbryta dem.
 
 ## <a name="get-support"></a>Få support
 

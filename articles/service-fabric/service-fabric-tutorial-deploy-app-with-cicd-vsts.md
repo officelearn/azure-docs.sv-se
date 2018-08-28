@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: f3cc4f518278cca915e40bd691c6a7674219916e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 2122b6d9c385e1137d0fc6df5229975359fa20d5
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109400"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41917711"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Självstudie: Distribuera ett program med CI/CD till ett Service Fabric-kluster
 
@@ -42,7 +42,7 @@ I den här självstudieserien får du lära du dig att:
 > * Konfigurera CI/CD med hjälp av Visual Studio Team Services
 > * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar den här självstudien:
 
@@ -50,7 +50,7 @@ Innan du börjar den här självstudien:
 * [Installera Visual Studio 2017](https://www.visualstudio.com/) och installera **Azure Development** och arbetsbelastningarna **ASP.NET och webbutveckling**.
 * [Installera Service Fabric SDK](service-fabric-get-started.md)
 * Skapa ett Windows Service Fabric-kluster i Azure, till exempel genom att [följa den här självstudiekursen](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-* Skapa ett [Team Services-konto](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
+* Skapa ett [Team Services-konto](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student).
 
 ## <a name="download-the-voting-sample-application"></a>Ladda ned exempelprogrammet Röstning
 
@@ -94,7 +94,13 @@ En versionsdefinition för Team Services beskriver ett arbetsflöde som distribu
 
 Öppna en webbläsare och navigera till det nya teamprojektet på: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
 
-Välj fliken **Build & Release** (Bygge och version), fliken **Builds** (Byggesversioner) och sedan **+ New definition** (+ Ny definition).  I **Välj en mall** väljer du mallen **Azure Service Fabric-programmet** och klickar på **Använd**.
+Välj fliken **Build and release** (Bygge och version), därefter **Builds** (Byggen) och klicka sedan på **New Pipeline** (Ny pipeline).
+
+![Ny pipeline][new-pipeline]
+
+Välj **VSTS Git** som källa, teamprojektet **Voting** (Röstning), lagringsplatsen **Voting** och standardgrenen **master** eller manuella och schemalagda byggen.  Klicka sedan på **Fortsätt**.
+
+I **Välj en mall** väljer du mallen **Azure Service Fabric-program** och klickar på **Använd**.
 
 ![Välj byggesmall][select-build-template]
 
@@ -102,7 +108,9 @@ I **Uppgifter** anger du Hosted VS2017 som **Agent queue** (Agentkö).
 
 ![Välj uppgifter][save-and-queue]
 
-Under **utlösare** aktiverar du kontinuerlig integrering genom att ställa in **utlösarstatus**.  Välj alternativet för att **spara och köa** för att manuellt starta en version.
+Under **Utlösare** aktiverar du kontinuerlig integrering genom att markera **Aktivera kontinuerlig integrering**. I **Branch filters** (Grenfilter) klickar du på **+ Lägg till** så får **Branch specification** (Grenspecifikation) standardvärdet **master**. Välj alternativet för att **spara och köa** för att manuellt starta en version.
+
+I **dialogrutan för att spara bygg-pipeline och kö** klickar du på **Save & queue** (Spara och köra).
 
 ![Välj utlösare][save-and-queue2]
 
@@ -110,7 +118,7 @@ Byggen utlöser också vid push och incheckning. Om du vill kontrollera förlopp
 
 ### <a name="create-a-release-definition"></a>Skapa en versionsdefinition
 
-Välj fliken **Build & Release** (Bygge och version), fliken **Releases** (Versioner) och sedan **+New definition** (+ Ny definition).  I **Välj en mall** väljer du mallen **Azure Service Fabric Deployment** på listan och sedan **Använd**.
+Välj fliken **Build & Release** (Bygge och version), fliken **Releases** (Versioner) och sedan **+New pipeline** (+ Ny pipeline).  I **Välj en mall** väljer du mallen **Azure Service Fabric Deployment** på listan och sedan **Använd**.
 
 ![Välj versionsmall][select-release-template]
 
@@ -134,7 +142,9 @@ Aktivera en kontinuerlig distributionsutlösare så att versionen automatiskt sk
 
 ![Aktivera utlösare][enable-trigger]
 
-Välj **+Release** -> **Create Release**  -> **Create** (+Version, Skapa version, Skapa) för att manuellt skapa en version.  Kontrollera att distributionen har slutförts och programmet körs i klustret.  Öppna en webbläsare och navigera till [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Observera programversionen. I det här exemplet är den 1.0.0.20170616.3.
+Välj **+Release** -> **Create a Release**  -> **Create** (+Version, Skapa en version, Skapa) för att manuellt skapa en version. Du kan övervaka versionsförloppet på fliken **Releases** (Versioner).
+
+Kontrollera att distributionen har slutförts och programmet körs i klustret.  Öppna en webbläsare och navigera till [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Observera programversionen. I det här exemplet är den 1.0.0.20170616.3.
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Genomför och push-överföring av ändringar utlöser en släppning
 
@@ -188,6 +198,7 @@ Gå vidare till nästa kurs:
 [publish-app-profile]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfile.png
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
+[new-pipeline]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewPipeline.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
 [save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
 [save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue2.png

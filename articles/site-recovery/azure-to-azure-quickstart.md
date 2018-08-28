@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: de30085ae5ff95e7067684ff3af9ccb0d45357de
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: abba75e731d2550b4719eec70d475884bd7f3c8e
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990871"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42023923"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>Replikera en virtuell Azure-dator till en annan Azure-region
 
 [Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din BCDR-strategi för affärskontinuitet och haveriberedskap genom att hålla dina företagsprogram igång och köra dem vid planerade och oplanerade avbrott. Site Recovery hanterar och samordnar haveriberedskap för lokala datorer och virtuella Azure-datorer, inklusive replikering, redundans och återställning.
 
-I denna snabbstart beskrivs hur du replikerar en virtuell Azure-dator till en annan Azure-region. 
+I denna snabbstart beskrivs hur du replikerar en virtuell Azure-dator till en annan Azure-region.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -62,8 +62,7 @@ Den virtuella datorn i den primära regionen slutar replikera när du inaktivera
 Stoppa replikering på följande sätt:
 
 1. Välj VM.
-2. I **Haveriberedskap** klickar du på **Mer**.
-3. Klicka på **Inaktivera replikering**.
+2. Klicka på **Inaktivera replikering** i **Haveriberedskap**.
 
    ![Inaktivera replikering](media/azure-to-azure-quickstart/disable2-replication.png)
 

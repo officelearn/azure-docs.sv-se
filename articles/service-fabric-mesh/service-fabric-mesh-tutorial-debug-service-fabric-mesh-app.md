@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ad6812f25ee33bf723ed86d4ec32ca6898d01774
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: c519d24a8401823039f3d6598276890ec6498bbc
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186746"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41920794"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-web-application"></a>Självstudie: Felsöka ett Service Fabric Mesh-webbprogram
 
@@ -74,9 +74,17 @@ När den lokala distributionen är klar och Visual Studio kör din app öppnas e
 
 **Felsökningstips**
 
-* Om du får felet **No Service Fabric local cluster is running** (Inget lokalt Service Fabric-kluster körs) ska du se till att SLCM (Service Local Custer Manager) körs och högerklicka på SLCM-ikonen i uppgiftsfältet. Klicka på **Starta lokalt kluster**. När starten är klar återgår du till Visual Studio och trycker på **F5**.
-* Om du får ett fel av typen **404** när appen startar innebär det förmodligen att miljövariablerna i **service.yaml** är felaktiga. Se till att `ApiHostPort` och `ServiceName` är rätt inställda enligt instruktionerna i dokumentationen om att [skapa miljövariabler](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore#create-environment-variables).
-* Om det uppstår kompileringsfel i **service.yaml** kontrollerar du att blanksteg används för att dra in linjerna. Det går inte att använda tabbar. För närvarande måste du skapa appen med engelska som nationella inställningar.
+Det har uppstått ett problem som gör att anropet till `using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())` inte ansluter till tjänsten. Detta kan inträffa när värdens IP-adress ändras. Lösning:
+
+1. Ta bort appen från det lokala klustret (i Visual Studio **Build** (Skapa)  > **Clean Solution** (Rensa lösning)).
+2. Från Service Fabric Local Cluster Manager väljer du **Stop Local CLuster** (Stoppa lokalt kluster) och sedan **Start Local Cluster** (Starta lokalt kluster).
+3. Distribuera om appen (i Visual Studio **F5**).
+
+Om felet **No Service Fabric local cluster is running** (Inget lokalt Service Fabric-kluster körs) returneras kontrollerar du att LCM (Service Fabric Local Custer Manager) körs. Högerklicka på LCM-ikonen i uppgiftsfältet och klicka på **Starta lokalt kluster**. När starten är klar återgår du till Visual Studio och trycker på **F5**.
+
+Om ett fel av typen **404** returneras när appen startar innebär det förmodligen att miljövariablerna i **service.yaml** är felaktiga. Se till att `ApiHostPort` och `ToDoServiceName` är rätt inställda enligt instruktionerna i dokumentationen om att [skapa miljövariabler](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore#create-environment-variables).
+
+Om det uppstår kompileringsfel i **service.yaml** kontrollerar du att blanksteg används för att dra in linjerna. Det går inte att använda tabbar. För närvarande måste du skapa appen med engelska som nationella inställningar.
 
 ### <a name="debug-in-visual-studio"></a>Felsökning i Visual Studio
 

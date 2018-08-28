@@ -1,6 +1,6 @@
 ---
-title: Enterprise-integreringslösningar med Azure Logic Apps | Microsoft Docs
-description: Lär dig att skapa automatiserade arbetsflöden och affärsprocesser med Logic Apps som integrerar data, tjänster, appar och system i företag och organisationer. Skapa lösningar för dataintegrering, systemintegrering, Enterprise Application Integration (EAI) och scenarier för orkestrering.
+title: Enterprise-integrering med Azure Logic Apps | Microsoft Docs
+description: Den här översikten beskriver hur du kan skapa integreringslösningar för företag som automatiserar uppgifter, arbetsflöden och affärsprocesser som integrerar appar, data, tjänster och system i företag och organisationer. Skapa lösningar för dataintegrering, systemintegrering, Enterprise Application Integration (EAI) och scenarier för orkestrering.
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -11,25 +11,25 @@ ms.custom: mvc
 ms.date: 6/29/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: d3640710b3ba209c8e701cf5e340103c1d3d6fa7
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: f9a59187b8de994e9ebfcab01ae2f3046f8f7971
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082227"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42023540"
 ---
 # <a name="what-is-azure-logic-apps"></a>Vad är Azure Logic Apps?
 
-Med [Logic Apps](https://azure.microsoft.com/services/logic-apps) kan du skapa lösningar där du integrerar appar, data, system och tjänster i företag och organisationer genom att automatisera uppgifter och affärsprocesser som [arbetsflöden](#logic-app-concepts). Logic Apps är en molntjänst i Azure som gör att du enklare kan utforma och skapa skalbara lösningar för appintegrering, dataintegrering, systemintegrering, EAI (Enterprise Application Integration) och B2B-kommunikation i molnet, lokalt eller både och.
+[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) är en molnbaserad tjänst som hjälper dig att automatisera och samordna uppgifter, affärsprocesser och [arbetsflöden](#logic-app-concepts) när du behöver integrera appar, data, system och tjänster i företag eller organisationer. Logic Apps förenklar hur du utformar och skapar skalbara lösningar för appintegrering, dataintegrering, systemintegrering, Enterprise Application Integration (EAI) och business-to-business-kommunikation (B2B) i molnet, lokalt eller både och.
 
-Här är exempel på några arbetsbelastningar du kan automatisera med logikappar:
+Här är exempel på några arbetsbelastningar som du kan automatisera med logikappar:
 
 * Behandla och dirigera order i lokala system och molntjänster.
-* Flytta uppladdade filer från en SFTP- eller FTP-server till Azure Storage. 
 * Skicka e-postaviseringar med Office 365 när händelser inträffar i olika system, appar och tjänster.
+* Flytta uppladdade filer från en SFTP- eller FTP-server till Azure Storage. 
 * Övervaka tweets för ett visst ämne, analysera sentiment och skapa aviseringar eller uppgifter för objekt som behöver granskas.
 
-När du ska skapa integreringslösningar med Logic Apps kan du välja från ett växande galleri med [fler än 200 anslutningsappar](../connectors/apis-list.md), inklusive andra Azure-tjänster som Service Bus, Functions och Storage, SQL, Office 365, Dynamics, BizTalk, Salesforce, SAP, Oracle DB, filresurser och många andra. Dessa [anslutningsappar](#logic-app-concepts) tillhandahåller [utlösare](#logic-app-concepts), [åtgärder](#logic-app-concepts) eller både och för att skapa logikappar som får säker åtkomst till och bearbetar data i realtid.
+Om du vill skapa integreringslösningar för företag med Azure Logic Apps kan du välja från ett växande galleri med [över 200 anslutningsappar](../connectors/apis-list.md), som bland annat innehåller tjänster som Azure Service Bus, Functions och Storage, SQL, Office 365, Dynamics, Salesforce, BizTalk, SAP, Oracle DB, filresurser och mer. [Anslutningsappar](#logic-app-concepts) tillhandahåller [utlösare](#logic-app-concepts), [åtgärder](#logic-app-concepts) eller både och för att skapa logikappar som får säker åtkomst till och bearbetar data i realtid.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 
@@ -37,17 +37,17 @@ När du ska skapa integreringslösningar med Logic Apps kan du välja från ett 
 
 Varje logikapps arbetsflöde börjar med en utlösare, som utlöses när en viss händelse sker eller när nya tillgängliga data uppfyller specifika villkor. Många utlösare har grundläggande funktioner för schemaläggning så du kan ange hur regelbundet du vill att dina arbetsbelastningar ska köras. Om du vill ha fler anpassade schemaläggningsscenarier kan du börja dina arbetsflöden med en schemautlösare. Läs mer om [att skapa schemabaserade arbetsflöden](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md).
 
-Varje gång utlösaren körs skapar Logic Apps-motorn en logikappinstans som kör arbetsflödets åtgärder. Åtgärderna kan även omfatta datakonverteringar och flödeskontroller, som villkorssatser, switch-satser, loopar och branchning. Den här logikappen till exempel börjar med en Dynamics 365-utlösare med det inbyggda villkoret ”När en post uppdateras”. Om utlösaren upptäcker en händelse som matchar villkoret utlöses utlösaren och kör arbetsflödets åtgärder. Här omfattar åtgärderna XML-transformering, datauppdateringar, beslutsbranchning och e-postmeddelanden.
+Varje gång utlösaren körs skapar Logic Apps-motorn en logikappinstans som kör åtgärderna i arbetsflödet. Åtgärderna kan även omfatta datakonverteringar och flödeskontroller, som villkorssatser, switch-satser, loopar och branchning. Den här logikappen till exempel börjar med en Dynamics 365-utlösare med det inbyggda villkoret ”När en post uppdateras”. Om utlösaren upptäcker en händelse som matchar villkoret utlöses utlösaren och kör arbetsflödets åtgärder. Här omfattar åtgärderna XML-transformering, datauppdateringar, beslutsbranchning och e-postmeddelanden.
 
 ![Logikappdesigner – exempellogikapp](./media/logic-apps-overview/overview.png)
 
-Du kan skapa logikappar visuellt med Logikappdesignern som finns i Azure-portalen via webbläsaren och i Visual Studio. Om du vill ha flera anpassade logikappar kan du skapa eller redigera logikappsdefinitioner i JavaScript Object Notation (JSON) genom att arbeta i ”kodvyläge”. Du kan också använda Azure PowerShell-kommandon och Azure Resource Manager-mallar för utvalda aktiviteter. Logikappar distribueras och körs i molnet på Azure. En mer detaljerad introduktion finns i den här videon: [Use Azure Enterprise Integration Services to run cloud apps at scale](https://channel9.msdn.com/Events/Connect/2017/T119/) (Använda Azure Enterprise-integreringstjänster för att köra molnappar i skala) 
+Du kan skapa logikappar visuellt med Logikappdesignern, som är tillgänglig på Azure Portal via webbläsaren och i Visual Studio. Om du behöver mer anpassade logikappar kan du skapa eller redigera logikappsdefinitioner i JavaScript Object Notation (JSON) genom att arbeta i ”kodvyn”. Du kan också använda Azure PowerShell-kommandon och Azure Resource Manager-mallar för utvalda aktiviteter. Logikappar distribueras och körs i molnet på Azure. En mer detaljerad introduktion finns i den här videon: [Use Azure Enterprise Integration Services to run cloud apps at scale](https://channel9.msdn.com/Events/Connect/2017/T119/) (Använda Azure Enterprise-integreringstjänster för att köra molnappar i skala) 
 
 ## <a name="why-use-logic-apps"></a>Varför ska man använda Logic Apps?
 
-Nu när företagen närmar sig digitalisering hjälper logikappar dig att ansluta äldre, moderna och banbrytande system enklare och snabbare genom att tillhandahålla inbyggda API:er som Microsoft-hanterade anslutningar. På så vis kan du lägga krutet på apparnas affärslogik och funktionalitet. Du behöver inte tänka på att skapa, vara värd för, skala, hantera, underhålla eller övervaka dina appar. Logic Apps gör det åt dig. Dessutom betalar du endast för det du använder baserat på en [förbrukningsprismodell](../logic-apps/logic-apps-pricing.md). 
+Logikappar hjälper det digitala företaget att snabbt och enkelt ansluta äldre, moderna och banbrytande system genom att erbjuda inbyggda API:er som Microsoft-hanterade anslutningsappar. På så vis kan du lägga krutet på apparnas affärslogik och funktionalitet. Du behöver inte tänka på att skapa, vara värd för, skala, hantera, underhålla eller övervaka dina appar. Logic Apps gör det åt dig. Dessutom betalar du endast för det du använder baserat på en [förbrukningsprismodell](../logic-apps/logic-apps-pricing.md). 
 
-I många fall behöver du inte skriva kod. Men om du måste skriva lite kod kan du skapa kodfragment med [Azure Functions](../azure-functions/functions-overview.md) och köra koden på begäran från logikappar. Och om dina logikappar behöver interagera med händelser från Azure-tjänster, anpassade appar eller lösningar från tredje part kan du använda [Azure Event Grid](../event-grid/overview.md) med dina logikappar för händelseövervakning, dirigering och publicering.
+I många fall behöver du inte skriva kod. Men om du måste skriva lite kod kan du skapa kodfragment med [Azure Functions](../azure-functions/functions-overview.md) och köra koden på begäran från logikappar. Om dina logikappar behöver interagera med händelser från Azure-tjänster, anpassade appar eller andra lösningar kan du dessutom använda [Azure Event Grid](../event-grid/overview.md) med dina logikappar för händelseövervakning, routning och publicering.
 
 Logic Apps, Functions och Event Grid hanteras fullständigt av Microsoft Azure, som frikopplar dig från bekymmer om att skapa, vara värd för, skala, hantera, övervaka och underhålla dina lösningar. Med möjligheten att skapa [”serverlösa” appar och lösningar](../logic-apps/logic-apps-serverless-overview.md) kan du enbart fokusera på affärslogiken. Tjänsterna skalar automatiskt för att uppfylla dina behov, göra integreringar snabbare och hjälpa dig att skapa robusta molnappar med minimal kod. Dessutom betalar du endast för det du använder baserat på en [förbrukningsprismodell](../logic-apps/logic-apps-pricing.md). 
 
@@ -76,9 +76,9 @@ Börja i liten skala med dina aktuella system och tjänster, och utöka stegvis 
 * Utveckla med dessa produkter och tjänster:
 
   * [Microsoft BizTalk Server](https://docs.microsoft.com/biztalk/core/introducing-biztalk-server)
+  * [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
   * [Azure Functions](../azure-functions/functions-overview.md)
   * [Azure API Management](../api-management/api-management-key-concepts.md)
-  * [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
 * Bearbeta [XML-meddelanden](../logic-apps/logic-apps-enterprise-integration-xml.md)
 * Bearbeta [flata filer](../logic-apps/logic-apps-enterprise-integration-flatfile.md)
@@ -90,7 +90,7 @@ Börja i liten skala med dina aktuella system och tjänster, och utöka stegvis 
   * [Mappningar för XML-omvandling](../logic-apps/logic-apps-enterprise-integration-maps.md)
   * [Scheman för XML-verifiering](../logic-apps/logic-apps-enterprise-integration-schemas.md)
    
-Om du till exempel använder Microsoft BizTalk Server kan Logic Apps ansluta till och kommunicera med din BizTalk-server via [anslutningsappen BizTalk Server](../connectors/apis-list.md#on-premises-connectors). Du kan sedan utöka eller utföra BizTalk-liknande åtgärder i dina Logic Apps-appar genom att ta med [anslutningsappar för integrationskonton](../connectors/apis-list.md#integration-account-connectors) som finns med i Enterprise Integration Pack. 
+Om du till exempel använder Microsoft BizTalk Server kan logikappar kommunicera med din BizTalk-server via [anslutningsappen för BizTalk Server](../connectors/apis-list.md#on-premises-connectors). Du kan sedan utöka eller utföra BizTalk-liknande åtgärder i dina Logic Apps-appar genom att ta med [anslutningsappar för integrationskonton](../connectors/apis-list.md#integration-account-connectors) som finns med i Enterprise Integration Pack. 
 
 Åt andra hållet så kan BizTalk Server ansluta till och kommunicera med Logic Apps via [Microsoft BizTalk Server-adaptern för Logic Apps](https://www.microsoft.com/download/details.aspx?id=54287). Lär dig hur du [konfigurerar och använder BizTalk Server-adaptern](https://docs.microsoft.com/biztalk/core/logic-app-adapter) på din BizTalk-server.
 

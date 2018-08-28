@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2e3852ffc01312f01843a90de5f5565784b1c0b5
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: ed5da0afe67deaa7000c1bf3b8d75bdea14f2ecd
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114259"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616334"
 ---
 # <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Snabbstart: Distribuera en Java-app (tillförlitliga tjänster) till Service Fabric
 
-Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av mikrotjänster och behållare.
+Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av mikrotjänster och containrar.
 
 I den här snabbstarten får du lära dig att distribuera ditt första Java-program till Service Fabric med hjälp av Eclipse Integrated Development Environment på en Linux-utvecklarmaskin. När du är klar har du ett röstningsprogram med en Java-webbklient som sparar röstningsresultat i en tillståndskänslig backend-tjänst i klustret.
 
@@ -37,7 +37,7 @@ I den här snabbstarten lär du dig att:
 * Distribuera programmet till ett kluster i Azure
 * Skala ut programmet över flera noder
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -66,8 +66,8 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ![Felfritt lokalt kluster](./media/service-fabric-quickstart-java/localclusterup.png)
 
 2. Öppna Eclipse.
-3. Klicka på Arkiv -> Öppna projekt, under Filsystem...
-4. Klicka på Directory (Katalog) och välj katalogen `Voting` från mappen `service-fabric-java-quickstart` som du klonade från Github. Klicka på Slutför.
+3. Klicka på File (Arkiv) -> Import (Importera) -> Gradle -> Existing Gradle Project (Befintligt Gradle-projekt) och följ anvisningarna i guiden.
+4. Klicka på Directory (Katalog) och välj katalogen `Voting` från mappen `service-fabric-java-quickstart` som du klonade från Github. Klicka på Slutför. 
 
     ![Dialogrutan för import till Eclipse](./media/service-fabric-quickstart-java/eclipseimport.png)
 
@@ -114,7 +114,7 @@ Om du vill använda CLI:n måste du skapa en PEM-fil som baseras på PFX-filen s
 
 Om du vill använda Service Fabric Explorer måste du importera certifikatets PFX-fil som du hämtade från partklustrets webbplats till certifikatarkivet (Windows eller Mac) eller till själva webbläsaren (Ubuntu). Du behöver lösenordet för den privata nyckeln i PFX, som du kan hämta på sidan **Viktigt**.
 
-Använd den metod som du är mest bekväm med till att importera certifikatet på datorn. Till exempel:
+Använd den metod som du är mest bekväm med till att importera certifikatet på datorn. Exempel:
 
 * I Windows: Dubbelklicka på PFX-filen och följ anvisningarna för att installera certifikatet i ditt personliga arkiv `Certificates - Current User\Personal\Certificates`. Du kan också använda PowerShell-kommandot i **Viktigt**-instruktionerna.
 * I Mac: Dubbelklicka på PFX-filen och följ anvisningarna för att installera certifikatet i din nyckelring.

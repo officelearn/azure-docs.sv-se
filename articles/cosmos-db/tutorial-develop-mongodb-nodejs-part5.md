@@ -10,14 +10,14 @@ ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: john.papa
+ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: 8674e5daee003ea0688ea8702362165ebb8ccfcf
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 5bb1aeadeb31728dcc2d9ac5fa0aeade31857169
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249214"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41918141"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-5-use-mongoose-to-connect-to-azure-cosmos-db"></a>Skapa en MongoDB-app med Angular och Azure Cosmos DB – del 5: Ansluta till Azure Cosmos DB med hjälp av Mongoose
 
@@ -123,7 +123,7 @@ Utför stegen i [del 4](tutorial-develop-mongodb-nodejs-part4.md) av självstudi
 
 ## <a name="create-a-hero-model"></a>Skapa en Hero-modell
 
-1.  Skapa filen **hero.model.js** under mappen **server** i Explorer-fönstret.
+1.  I Explorer-fönstret skapar du filen **hero.model.js** under mappen **server**.
 
 2. Kopiera följande kod till **hero.model.js**. Den här koden:
    * Kräver Mongoose.
@@ -155,7 +155,7 @@ Utför stegen i [del 4](tutorial-develop-mongodb-nodejs-part4.md) av självstudi
 
 ## <a name="create-a-hero-service"></a>Skapa en Hero-tjänst
 
-1.  Skapa filen **hero.service.js** under mappen **server** i Explorer-fönstret.
+1.  I Explorer-fönstret skapar du filen **hero.service.js** under mappen **server**.
 
 2. Kopiera följande kod till **hero.service.js**. Den här koden:
    * Hämtar modellen som du precis skapat.

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2018
+ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 63ea834401e5c6798b6f84b6f09a964005d14306
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c20375d42786b817f677be22dee8f4e71e710bc5
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257879"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41919456"
 ---
 # <a name="virtual-network-peering"></a>Virtuell nätverkspeering
 
@@ -77,7 +77,12 @@ Du kan även felsöka anslutningen till en virtuell dator i ett peer-kopplat vir
 
 ## <a name="requirements-and-constraints"></a>Krav och begränsningar
 
-Läs om krav och begränsningar i avsnittet om [krav och begränsningar för peering för virtuella nätverk](virtual-network-manage-peering.md#requirements-and-constraints). Du kan läsa om gränserna för hur många peerkopplingar du kan skapa för ett virtuellt nätverk i [Nätverksbegränsningar för Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
+Följande begränsningar gäller när virtuella nätverk peerkopplas globalt:
+- De virtuella nätverken kan finnas i valfri region för offentligt Azure-moln men inte i nationella Azure-moln.
+- Resurser i ett virtuellt nätverk kan inte kommunicera med IP-adressen i klientdelen för en intern Azure-belastningsutjämnare i ett globalt peerkopplat virtuellt nätverk. Belastningsutjämnaren och resurserna som kommunicerar med den måste finnas i samma region.
+- Du kan inte använda fjärrgatewayer eller tillåta gatewayöverföring. Om du vill använda fjärrgatewayer eller tillåta gatewayöverföring måste peerkopplade virtuella nätverk finnas i samma region.
+
+Läs mer om krav och begränsningar i avsnittet om [krav och begränsningar för peering för virtuella nätverk](virtual-network-manage-peering.md#requirements-and-constraints). Du kan läsa om gränserna för hur många peerkopplingar du kan skapa för ett virtuellt nätverk i [Nätverksbegränsningar för Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 
 ## <a name="permissions"></a>Behörigheter
 
@@ -102,3 +107,4 @@ Gatewayöverföring är en egenskap i peer-kopplade virtuella nätverk som gör 
 
 * Lär dig hur du skapar en [nätverkstopologi med nav och ekrar](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * Lär dig mer om alla [peering-inställningar för virtuella nätverk och hur du ändrar dem](virtual-network-manage-peering.md).
+* Få svar på vanliga frågor om VNet Peering och Global VNet Peering via våra [Vanliga frågor och svar om VNet Peering](virtual-networks-faq.md#vnet-peering)

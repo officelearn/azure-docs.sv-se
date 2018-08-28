@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f4bae9ba41f61223a8e18e88e30b8fbf89eff1a9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ce1586e472e1d1ea5ddd9ca5a426b1bea2b5b931
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527600"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42022438"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Konfigurera tjänsten IoT Hub Device Provisioning på Azure Portal
 
@@ -37,12 +37,12 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 3. Ange följande information för den nya instansen av enhetsetableringstjänsten och klicka på **Skapa**.
 
     * **Namn:** Ange ett unikt namn för den nya instansen av enhetsetableringstjänsten. Om namnet som du anger är tillgängligt visas en grön bockmarkering.
-    * **Prenumeration**: Välj den prenumeration du vill använda för att skapa instansen av enhetsetableringstjänsten.
+    * **Prenumeration**: Välj den prenumeration som du vill använda för att skapa instansen av enhetsetableringstjänsten.
     * **Resursgrupp:** I det här fältet kan du skapa en ny resursgrupp eller välja en befintlig som ska innehålla den nya instansen. Välj resursgruppen som innehåller den IoT-hubb du skapade, till exempel **TestResources**. Genom att lägga till alla relaterade resurser i en grupp kan du hantera dem tillsammans. Till exempel tas alla resurser som ingår i gruppen bort om resursgruppen tas bort. Mer information finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/resource-group-portal.md).
     * **Plats**: Välj den plats som är närmast enheten.
     * **Fäst på instrumentpanelen:** Med det här alternativet fäster du instansen på instrumentpanelen. Det gör den enklare att hitta.
 
-    ![Ange grundläggande information om DPS-instansen på bladet på portalen](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
+    ![Ange grundläggande information om instansen av enhetsetableringstjänsten på bladet på portalen](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
 
 4. När tjänsten har distribuerats öppnas sammanfattningsbladet för tjänsten automatiskt.
 
@@ -51,7 +51,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 I det här avsnittet lägger du till en konfiguration till instansen av enhetsetableringstjänsten. Den här konfigurationen anger den IoT-hubb för vilken enheter tillhandahålls.
 
-1. Klicka på knappen **Alla resurser** på menyn till höger på Azure-portalen. Välj Device Provisioning-tjänstinstansen som du skapade i det föregående avsnittet.  
+1. Klicka på knappen **Alla resurser** på menyn till höger på Azure-portalen. Välj instansen av enhetsetableringstjänsten som du skapade i det föregående avsnittet.  
 
 2. Välj **Linked IoT hubs** (Länkade IoT-hubbar) på sammanfattningsbladet för Device Provisioning-tjänsten. Klicka på knappen **+ Lägg till** som visas överst på bladet. 
 
@@ -61,7 +61,7 @@ I det här avsnittet lägger du till en konfiguration till instansen av enhetset
     * **IoT-hubb:** Välj den IoT-hubb som du vill länka till den nya instansen av enhetsetableringstjänsten.
     * **Åtkomstprincip:** Välj **iothubowner** som autentiseringsuppgifter när du upprättar länken till IoT-hubben.  
 
-    ![Länka hubbnamnet för att länka till DPS-instansen på bladet på portalen](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
+    ![Länka hubbnamnet för att länka till instansen av enhetsetableringstjänsten på bladet på portalen](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 
 3. Nu bör den valda hubben visas under bladet **Linked IoT hubs** (Länkade IoT-hubbar). Du kan behöva klicka på **Uppdatera** för att visa **Länkade IoT-hubbar**.
 
@@ -76,7 +76,7 @@ De andra snabbstarterna i den här samlingen bygger på den här snabbstarten. O
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat en IoT-hubb och en instans av Device Provisioning-tjänsten och länkat de två resurserna. Om du vill lära dig hur du använder den här konfigurationen för att etablera en simulerad enhet fortsätter du till Snabbstart för att skapa en simulerad enhet.
+I den här snabbstarten har du skapat en IoT-hubb och en instans av enhetsetableringstjänsten och länkat de två resurserna. Om du vill lära dig hur du använder den här konfigurationen för att etablera en simulerad enhet fortsätter du till Snabbstart för att skapa en simulerad enhet.
 
 > [!div class="nextstepaction"]
 > [Snabbstart för att skapa en simulerad enhet](./quick-create-simulated-device.md)

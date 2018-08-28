@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 651f9ba71d08698c64f3e90de59b5f29a8afc77d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b6d7b926a414c95d4e05834bafc91a2aa9c047fe
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433518"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41919232"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Kopiera flera tabeller i grupp med Azure Data Factory
 I den här självstudien visas hur du **kopierar ett antal tabeller från Azure SQL Database till Azure SQL Data Warehouse**. Du kan även använda samma mönster i andra kopieringssituationer. Till exempel kan du kopiera tabeller från SQL Server/Oracle till Azure SQL Database/Data Warehouse/Azure Blob eller kopiera olika sökvägar från Blob till Azure SQL Database-tabeller.
@@ -265,7 +265,7 @@ Pipelinen **GetTableListAndTriggerCopyData** utför två steg:
     1. Klicka på textrutan för VALUE för parametern DWTableName -> välj **Lägg till dynamiskt innehåll** nedan, ange uttrycket `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` som skript -> välj **Slutför**.
     1. Expandera **Polybase Settings** (Polybase-inställningar) och välj **Allow polybase** (Tillåt polybase). 
     1. Avmarkera alternativet **Use Type default** (Standardanvändartyp). 
-    1. Klicka på textrutan **Cleanup Script** (Rensningsscript) -> välj **Lägg till dynamiskt innehåll** nedan -> ange följande uttryck för Fråga -> välj **Slutför**. 
+    1. Klicka på textrutan **Pre-copy Script** (Förkopieringsskript) -> välj **Lägg till dynamiskt innehåll** nedan -> ange följande uttryck för Fråga -> välj **Slutför**. 
 
         ```sql
         TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]

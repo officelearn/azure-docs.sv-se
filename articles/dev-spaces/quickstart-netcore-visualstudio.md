@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 91302f21f3b3f9db50dc0c930a4cdfc02749d151
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 600625f143041eaf983b7ec7e945c5a968b522f5
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951013"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42024257"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>Snabbstart: Skapa en Kubernetes-utvecklingsmiljö med Azure Dev Spaces (.NET Core och Visual Studio)
 
@@ -31,7 +31,7 @@ I den här guiden får du lära dig hur du:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- Ett Kubernetes-kluster som kör Kubernetes 1.10.3 i området USAÖstra, USACentrala, USAVästra2, EuropaVästra, KanadaCentrala eller KanadaÖstra med HTTP-programroutning.
+- Ett Kubernetes-kluster som kör Kubernetes 1.9.6 eller senare i området USAÖstra, USACentrala, USAVästra2, EuropaVästra, KanadaCentrala eller KanadaÖstra med HTTP-programroutning aktiverat.
 
   ![Se till att aktivera HTTP-programroutning.](media/common/Kubernetes-Create-Cluster-3.PNG)
 

@@ -2,38 +2,45 @@
 title: Skapa och konfigurera Azure Kubernetes Service-kluster i Azure med Ansible
 description: Lär dig hur du använder Ansible för att skapa och hantera ett Azure Kubernetes Service-kluster i Azure
 ms.service: ansible
-keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, behållare, Kubernetes
+keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, Kubernetes
 author: tomarcher
-manager: jpconnock
-editor: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.date: 07/11/2018
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: 6d7c5f961256e0ae1831bd76353cadd761f4b8ac
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 08/21/2018
+ms.openlocfilehash: de692b29902145e44a055680d662c16ed90c56c2
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009205"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617183"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Skapa och konfigurera Azure Kubernetes Service-kluster i Azure med Ansible
-Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan använda Ansible för att hantera Azure Kubernetes Service (AKS). Den här artikeln visar hur du använder Ansible för att skapa och konfigurera ett Azure Kubernetes Service-kluster.
+Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan använda Ansible för att hantera Azure Kubernetes Service (AKS). Den här artikeln beskriver hur du använder Ansible för att skapa och konfigurera ett Azure Kubernetes Service-kluster.
 
-## <a name="prerequisites"></a>Förutsättningar
-- **Azure-prenumeration** – om du inte har en Azure-prenumeration, skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
-- **Konfigurera Ansible** - [skapa Azure-autentiseringsuppgifter och konfigurera Ansible](../virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
-- **Ansible och Azure Python SDK-moduler** 
-  - [CentOS 7.4](../virtual-machines/linux/ansible-install-configure.md#centos-74)
-  - [Ubuntu 16.04 LTS](../virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts)
-  - [SLES 12 SP2](../virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
-- **Azure-tjänstens huvudnamn** – när [skapar tjänstens huvudnamn](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal), Observera följande värden: **appId**, **displayName**, **lösenord** , och **klient**.
+## <a name="prerequisites"></a>Nödvändiga komponenter
+- **Azure-prenumeration** – Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) konto innan du börjar.
+- **Azure-tjänstens huvudnamn** – Observera följande värden när du [skapar tjänstens huvudnamn](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal): **appId**, **displayName**, **password** och **tenant**.
+
+- **Konfigurera Azure Cloud Shell** eller **Installera och konfigurera Ansible på en virtuell Linux-dator**
+
+  **Konfigurera Azure Cloud Shell**
+
+  1. **Konfigurera Azure Cloud Shell** – Om du inte har använt Azure Cloud Shell tidigare rekommenderar vi att du läser artikeln [Snabbstart för Bash i Azure Cloud Shell](/azure/cloud-shell/quickstart), som beskriver hur du startar och konfigurerar Cloud Shell. 
+
+  **Eller**
+
+  **Installera och konfigurera Ansible på en virtuell Linux-dator**
+
+  1. **Installera Ansible** – Installera Ansible på en [Linux-plattform som stöds](/azure/virtual-machines/linux/ansible-install-configure#install-ansible-on-an-azure-linux-virtual-machine).
+
+  1. **Konfigurera Ansible** - [Skapa Azure-autentiseringsuppgifter och konfigurera Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
 
 > [!Note]
-> Ansible 2.6 krävs för att köra följande exempel spelböcker i den här självstudien. 
+> Ansible 2.6 krävs för att köra följande exempelspelböcker i den här självstudien. 
 
 ## <a name="create-a-managed-aks-cluster"></a>Skapa ett hanterat AKS-kluster
-I följande exempel Ansible-spelbok skapas en resursgrupp och ett AKS-kluster som finns i resursgruppen:
+I följande Ansible-exempelspelbok skapas en resursgrupp och ett AKS-kluster som finns i resursgruppen:
 
   ```yaml
   - name: Create Azure Kubernetes Service
@@ -72,17 +79,17 @@ I följande exempel Ansible-spelbok skapas en resursgrupp och ett AKS-kluster so
           Environment: Production
   ```
 
-Följande punkter hjälpa till att förklara föregående Ansible spelbok kod:
-- Det första avsnittet i **uppgifter** definierar en resursgrupp med namnet **myResourceGroup** inom den **eastus** plats. 
-- Det andra avsnittet inom **uppgifter** definierar ett AKS-kluster med namnet **myAKSCluster** inom den **myResourceGroup** resursgrupp. 
+Följande punkter förklarar Ansible-spelbokskoden ovan:
+- Det första avsnittet i **tasks** definierar en resursgrupp med namnet **myResourceGroup** på platsen **eastus**. 
+- Det andra avsnittet i **tasks** definierar ett AKS-kluster med namnet **myAKSCluster** i resursgruppen **myResourceGroup**. 
 
-Skapa AKS-kluster med Ansible genom att spara föregående exempel spelboken som `azure_create_aks.yml`, och kör spelboken med följande kommando:
+För att skapa AKS-klustret med Ansible sparar du föregående exempelspelbok som `azure_create_aks.yml` och kör spelboken med följande kommando:
 
   ```bash
   ansible-playbook azure_create_aks.yml
   ```
 
-Utdata från den **ansible-spelbok* kommandot liknar det följande som visar att AKS-klustret har skapats:
+Utdataresultatet från kommandot **ansible-playbook* liknar följande utada som anger att AKS-klustret har skapats:
 
   ```bash
   PLAY [Create AKS] ****************************************************************************************
@@ -102,9 +109,9 @@ Utdata från den **ansible-spelbok* kommandot liknar det följande som visar att
 
 ## <a name="scale-aks-nodes"></a>Skala AKS-noder
 
-Spelboken exemplet i föregående avsnitt definierar två noder. Om du behöver fler eller färre arbetsbelastningar i ditt kluster kan justera du enkelt antalet noder. Exempel-spelbok i det här avsnittet ökar antalet noder från två noder till tre. Ändra antalet noder görs genom att ändra den **antal** värde i den **agent_pool_profiles** block. 
+Exempelspelboken i föregående avsnitt definierar två noder. Om du behöver fler eller färre containerarbetsbelastningar i ditt kluster kan du enkelt justera antalet noder. Exempelspelboken i det här avsnittet ökar antalet noder från två noder till tre. Du ändrar antalet noder genom att ändra **count**-värdet i blocket **agent_pool_profiles**. 
 
-Ange ett eget `ssh_key`, `client_id`, och `client_secret` i den **service_principal** block:
+Ange egna `ssh_key`, `client_id` och `client_secret` i blocket **service_principal**:
 
 ```yaml
 - name: Scale AKS cluster
@@ -137,7 +144,7 @@ Ange ett eget `ssh_key`, `client_id`, och `client_secret` i den **service_princi
             vm_size: Standard_D2_v2
 ```
 
-Spara föregående spelboken som skalar Azure Kubernetes Service-kluster med Ansible kan *azure_configure_aks.yml*, och kör spelboken på följande sätt:
+Om du vill skala Azure Kubernetes Service-klustret med Ansible sparar du den föregående spelboken som *azure_configure_aks.yml* och kör spelboken så här:
 
   ```bash
   ansible-playbook azure_configure_aks.yml
@@ -157,7 +164,44 @@ Följande utdata visar att AKS-klustret har skapats:
   PLAY RECAP ******************************************************************************
   localhost                  : ok=2    changed=1    unreachable=0    failed=0
   ```
+## <a name="delete-a-managed-aks-cluster"></a>Ta bort ett hanterat AKS-kluster
 
+Följande avsnitt för Ansible-exempelspelboken beskriver hur du tar bort ett AKS-kluster:
+
+  ```yaml
+  - name: Delete a managed Azure Container Services (AKS) cluster
+    hosts: localhost
+    connection: local
+    vars:
+      resource_group: myResourceGroup
+      aks_name: myAKSCluster
+    tasks:
+    - name: 
+      azure_rm_aks:
+        name: "{{ aks_name }}"
+        resource_group: "{{ resource_group }}"
+        state: absent
+   ```
+
+Om du vill ta bort Azure Kubernetes Service-klustret med Ansible sparar du den föregående spelboken som *azure_delete_aks.yml* och kör spelboken på så här:
+
+  ```bash
+  ansible-playbook azure_delete_aks.yml
+  ```
+
+Följande utdata anger att AKS-klustret har tagits bort:
+  ```bash
+PLAY [Delete a managed Azure Container Services (AKS) cluster] ****************************
+
+TASK [Gathering Facts] ********************************************************************
+ok: [localhost]
+
+TASK [azure_rm_aks] *********************************************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0
+  ```
+  
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"] 
-> [Självstudie: Skala ut ett program i Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-scale)
+> [Självstudie: Skala ett program i Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale)

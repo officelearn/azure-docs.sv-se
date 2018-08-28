@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ccc699a500cbaf20c9b90d71e7c730e617bc572c
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: c2c80790fa3e7c20408346fbebf60c39879a94df
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145544"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41918139"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Konfigurera molnresurser för enhetsetablering med IoT Hub Device Provisioning-tjänst
 
@@ -48,7 +48,7 @@ Följ de här stegen för att skapa en ny Device Provisioning-tjänstinstans.
    | **Resursgrupp** | myResourceGroup | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    | **Plats** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |   
 
-   ![Ange grundläggande DPS-information i portalen](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
+   ![Ange grundläggande information om enhetsetableringstjänsten på portalen](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
 5. Klicka på **Skapa**. Efter en liten stund skapas instansen för enhetsetableringstjänsten, och sidan **Översikt** visas.
 6. På sidan **Översikt** för den nya tjänstinstansen kopierar du värdet för **ID-omfånget** för senare användning. Det värdet används för att identifiera registrerings-ID och erbjuder en garanti för att registrerings-ID:t är unikt.
@@ -71,7 +71,7 @@ Nästa steg är att länka Device Provisioning-tjänsten och IoT Hub så att IoT
     * **IoT-hubb:** Välj namnet på den IoT-hubb som du vill länka med den här instansen för enhetsetableringstjänsten.
     * **Åtkomstprincip:** Välj **iothubowner** som autentiseringsuppgifter som ska användas för etablering av länken till IoT-hubben.
 
-   ![Länka hubbnamnet för att länka till DPS på portalen](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
+   ![Länka hubbnamnet för att länka till enhetsetableringstjänsten på portalen](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
 ## <a name="set-the-allocation-policy-on-the-device-provisioning-service"></a>Ange allokeringsprincip för enhetsetableringstjänsten
 

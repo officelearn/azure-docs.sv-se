@@ -11,15 +11,15 @@ ms.devlang: java
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 07/28/2018
+ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a1ce9aa87d8f70d3d55daa3a8f46c6a7f706f78e
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: aeb00bf55c578f61e5e1edbaab11c7773b9eab94
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620740"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42024252"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Skapa din första funktion med Java och Maven (förhandsversion)
 
@@ -68,6 +68,8 @@ mvn archetype:generate ^
 
 Maven uppmanar dig att ange de värden som behövs för att projektet ska genereras. Mer information om värdena _groupId_, _artifactId_ och _version_ finns i referensmaterialet om [namngivningskonventioner i Maven](https://maven.apache.org/guides/mini/guide-naming-conventions.html). Värdet _appName_ måste vara unikt i Azure, så Maven genererar som standard ett appnamn baserat på ett tidigare angivet _artifactId_. Värdet _packageName_ anger vilket Java-paket som ska användas till den genererade funktionskoden.
 
+`appRegion`-värdet anger vilken [Azure-region](https://azure.microsoft.com/global-infrastructure/regions/) som du vill köra den distribuerade funktionsappen i. Du kan hämta en lista med värden för regionsnamn med hjälp av kommandot `az account list-locations` i Azure CLI. `resourceGroup`-värdet anger vilken Azure-resursgrupp som funktionsappen skapas i.
+
 Identifierarna `com.fabrikam.functions` och `fabrikam-functions` nedan används som exempel och för att göra senare steg i den här snabbstarten lättare att läsa. Du bör ange dina egna värden för Maven i det här steget.
 
 ```Output
@@ -76,22 +78,18 @@ Define value for property 'artifactId' : fabrikam-functions
 Define value for property 'version' 1.0-SNAPSHOT : 
 Define value for property 'package': com.fabrikam.functions
 Define value for property 'appName' fabrikam-functions-20170927220323382:
+Define value for property 'appRegion' westus : 
+Define value for property 'resourceGroup' java-functions-group: 
 Confirm properties configuration: Y
 ```
 
-Maven skapar projektfilerna i en ny mapp med namnet _artifactId_, `fabrikam-functions` i det här exemplet. Den körklara genererade koden i projektet utgörs av en enkel [HTTP-utlöst](/azure/azure-functions/functions-bindings-http-webhook) funktion som återspeglar en begäran:
+Maven skapar projektfilerna i en ny mapp med namnet _artifactId_, `fabrikam-functions` i det här exemplet. Den körklara genererade koden i projektet är en enkel [HTTP-utlöst](/azure/azure-functions/functions-bindings-http-webhook) funktion som skickar tillbaka (eko) innehållet i begäran efter en ”Hello, ”-sträng.
 
 ```java
 public class Function {
-    /**
-     * This function listens at endpoint "/api/hello". Two ways to invoke it using "curl" command in bash:
-     * 1. curl -d "HTTP Body" {your host}/api/hello
-     * 2. curl {your host}/api/hello?name=HTTP%20Query
-     */
-    @FunctionName("hello")
-    public HttpResponseMessage<String> hello(
-            @HttpTrigger(name = "req", methods = {"get", "post"}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
-            final ExecutionContext context) {
+    @FunctionName("HttpTrigger-Java")
+    public HttpResponseMessage HttpTriggerJava(
+    @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,final ExecutionContext context) {
         context.getLogger().info("Java HTTP trigger processed a request.");
 
         // Parse query parameter
@@ -99,13 +97,12 @@ public class Function {
         String name = request.getBody().orElse(query);
 
         if (name == null) {
-            return request.createResponse(400, "Please pass a name on the query string or in the request body");
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST).body("Please pass a name on the query string or in the request body").build();
         } else {
-            return request.createResponse(200, "Hello, " + name);
+            return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
         }
     }
 }
-
 ```
 
 ## <a name="run-the-function-locally"></a>Kör funktionen lokalt
@@ -124,22 +121,22 @@ mvn azure-functions:run
 Du kan se dessa utdata när funktionen körs lokalt på datorn och är redo att svara på HTTP-begäranden:
 
 ```Output
-Listening on http://localhost:7071
+Listening on http://0.0.0.0:7071/
 Hit CTRL-C to exit...
 
 Http Functions:
 
-   hello: http://localhost:7071/api/hello
+        HttpTrigger-Java: http://localhost:7071/api/HttpTrigger-Java
 ```
 
 Utlös funktionen från kommandoraden med curl i ett nytt terminalfönster:
 
 ```
-curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
+curl -w '\n' -d LocalFunctionTest http://localhost:7071/api/HttpTrigger-Java
 ```
 
 ```Output
-Hello LocalFunction!
+Hello, LocalFunctionTest
 ```
 
 Använd `Ctrl-C` i terminalen för att stoppa funktionskoden.
@@ -171,11 +168,11 @@ När distributionen är klar kan du se den webbadress som används för att få 
 Testa funktionsappen som körs på Azure med hjälp av `cURL`. Du måste ändra URL-adressen från exemplet till den distribuerade URL-adressen för din egen funktionsapp från föregående steg.
 
 ```
-curl -w '\n' https://fabrikam-functions-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
+curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java
 ```
 
 ```Output
-Hello AzureFunctions!
+Hello, AzureFunctionsTest
 ```
 
 ## <a name="next-steps"></a>Nästa steg

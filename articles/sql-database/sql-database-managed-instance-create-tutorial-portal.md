@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/09/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: e337a5c7c203e2e1048149dfeff71436a4d2752f
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: a019b21c130bebfe27925e90d7f7843d92654e01
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850618"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41918268"
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Skapa en hanterad Azure SQL Database-instans i Azure-portalen
 
@@ -33,13 +33,15 @@ Den här kursen visar hur du skapar en hanterad Azure SQL Database-instans (för
 > * Ansluta till den virtuella datorn
 > * Installera SSMS och anslut till den hanterade instansen
 
+> [!Note]
+> I den här självstudien beskrivs hur du konfigurerar nätverk, undernät, instans och virtuell dator med hjälp av Azure-portalen, vilket kan vara en längre process. Om du behöver en kortare snabbstartskurs där det nätverk och den virtuella dator som används för åtkomst till instansen skapas med ett klick på knappen ”Distribuera till Azure” kan du använda [självstudien för att komma igång](sql-database-managed-instance-get-started.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 > [!IMPORTANT]
 > En lista över regioner där hanterade instanser är tillgängliga finns i [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/) (Migrera dina databaser till en helt hanterad tjänst med Azure SQL Database Managed Instance).
  
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
+## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
 Logga in på [Azure-portalen](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
 
@@ -160,7 +162,7 @@ Följande steg visar hur du skapar en hanterad instans när förhandsversionen h
 2. Leta upp den **hanterade instansen** och välj sedan **Azure SQL Database Managed Instance (förhandsversion)**.
 3. Klicka på **Skapa**.
 
-   ![managed instance create](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
+   ![skapa hanterad instans](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
 4. Välj din prenumeration och kontrollera att villkoren för förhandsversionen är **godkända**.
 
@@ -302,7 +304,7 @@ Följande steg visar hur du laddar ned och installerar SSMS och sedan ansluter t
 8. När du uppmanas till detta klickar du på **Installera** för att börja.
 9. När installationen är klar klickar du på **Stäng**.
 10. Öppna SSMS.
-11. I dialogrutan **Anslut till server** anger du **värdnamnet* för din hanterade instans i fältet **Servernamn**. Välj sedan **SQL Server-autentisering**, ange ditt inloggningsnamn och lösenord och klicka på **Anslut**.
+11. I dialogrutan **Anslut till server** anger du **värdnamnet** för din hanterade instans i fältet **Servernamn**. Välj sedan **SQL Server-autentisering**, ange ditt inloggningsnamn och lösenord och klicka på **Anslut**.
 
     ![ssms anslut](./media/sql-database-managed-instance-tutorial/ssms-connect.png)  
 

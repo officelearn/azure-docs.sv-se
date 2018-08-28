@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 7ff567b02fb3371186dc02b97cafb8135ae7bbd2
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 1a3015a458a579b0aadf51d610db512eb908352b
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090953"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42023256"
 ---
 # <a name="create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad X.509-enhet med Node.js-enhets-SDK för IoT Hub Device Provisioning-tjänsten
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -24,7 +24,7 @@ Dessa steg visar hur du skapar en registreringspost i enhetsetableringstjänsten
 
 Om du inte känner till processen för automatisk etablering, bör du också gå igenom [Begrepp inom automatisk etablering](concepts-auto-provisioning.md). Se också till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal) innan du fortsätter. 
 
-[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
+[!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
 ## <a name="prepare-the-environment"></a>Förbereda miljön 
 
@@ -42,9 +42,9 @@ Om du inte känner till processen för automatisk etablering, bör du också gå
 
 ## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>Skapa ett självsignerat X.509-enhetscertifikat och en post för enskild registrering
 
-I det här avsnittet använder du ett självsignerat X.509-certifikat. Det är viktigt att tänka på följande:
+I det här avsnittet använder du ett självsignerat X.509-certifikat. Då måste du tänka på det här:
 
-* Självsignerade certifikat är endast för testning och ska inte användas i produktion.
+* Självsignerade certifikat är endast till för testning och ska inte användas i produktion.
 * Standardutgångsdatumet för ett självsignerat certifikat är 1 år.
 
 Du kommer att använda exempelkoden från [Azure IoT SDK för Node.js](https://github.com/Azure/azure-iot-sdk-node.git) för att skapa det certifikat som ska användas med posten för enskild registrering för den simulerade enheten.
@@ -92,7 +92,7 @@ Du kommer att använda exempelkoden från [Azure IoT SDK för Node.js](https://g
 
 1. I Azure-portalen väljer du bladet **Översikt** för Device Provisioning-tjänsten och noterar värdena för **_Global enhetsslutpunkt_** och **_ID-omfång_**.
 
-    ![Extrahera DP-slutpunktsinformation från portalbladet](./media/quick-create-simulated-device-x509-node/extract-dps-endpoints.png) 
+    ![Extrahera information om enhetsetableringstjänstens slutpunkt från bladet på portalen](./media/quick-create-simulated-device-x509-node/extract-dps-endpoints.png) 
 
 2. Kopiera ditt _certifikat_ och din _nyckel_ till exempelmappen.
 

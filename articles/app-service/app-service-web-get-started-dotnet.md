@@ -1,6 +1,6 @@
 ---
-title: Skapa en ASP.NET Core-webbapp i Azure | Microsoft Docs
-description: Distribuera standard-ASP.NET-webbappen och lär dig att köra webbappar i Azure App Service.
+title: Skapa en C#-baserad ASP.NET Core-webbapp i Azure | Microsoft Docs
+description: Distribuera den C#-baserade standard-ASP.NET-webbappen och lär dig att köra webbappar i Azure App Service.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -12,14 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/14/2017
+ms.date: 06/11/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 91f6fd077146e94833a5527f03ac710352e4fd9c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.custom: mvc, devcenter, vs-azure
+ms.openlocfilehash: 811f4df807292b9d539084a049cc643dbee07a7e
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42432063"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Skapa en ASP.NET Core-webbapp i Azure
 
@@ -39,13 +40,9 @@ Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och 
 
 För att slutföra den här självstudien behöver du:
 
-* Installera <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> med följande arbetsbelastningar:
-    - **ASP.NET och webbutveckling**
-    - **Azure Development**
+Installera <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> med arbetsbelastningen **ASP.NET och webbutveckling**.
 
-    ![ASP.NET och webbutveckling och Azure Development (under webb och moln)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
-
-Om du redan har installerat Visual Studio lägger du till arbetsbelastningarna i Visual Studio genom att klicka på **Tools (Verktyg)** > **Get Tools and Features (Skaffa verktyg och funktioner)**.
+Om du redan har installerat Visual Studio lägger du till arbetsbelastningen i Visual Studio genom att klicka på **Tools (Verktyg)** > **Get Tools and Features (Skaffa verktyg och funktioner)**.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Skapa en ASP.NET Core-webbapp
 
@@ -62,10 +59,6 @@ Du kan distribuera alla typer av ASP.NET Core-webbappar till Azure. I den här s
 Välj **OK**.
 
 ![Dialogrutan Nytt ASP.NET-projekt](./media/app-service-web-get-started-dotnet/razor-pages-aspnet-dialog.png)
-
-När ASP.NET Core-projektet har skapats visas välkomstsidan för ASP.NET Core med ett antal länkar till resurser som hjälper dig att komma igång. 
-
-![Välkomstsida](./media/app-service-web-get-started-dotnet/aspnet-core-welcome-page.png)
 
 På menyn väljer du **Felsöka > Starta utan felsökning** för att köra webbappen lokalt.
 
@@ -85,11 +78,10 @@ Dialogrutan **Create App Service** (Skapa apptjänst) öppnas, där du kan skapa
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-I dialogrutan **Skapa App Service** väljer du **Lägg till ett konto** och loggar sedan in med din Azure-prenumeration. Välj det konto som innehåller den önskade prenumerationen i listrutan om du redan är inloggad.
+I dialogrutan **Skapa App Service** klickar du på **Lägg till ett konto** och loggar in till din Azure-prenumeration. Välj det konto som innehåller den önskade prenumerationen i listrutan om du redan är inloggad.
 
 > [!NOTE]
 > Välj inte **Skapa** ännu om du redan är inloggad.
->
 >
    
 ![Logga in på Azure](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
@@ -151,7 +143,8 @@ Leta reda på HTML-taggen `<div id="myCarousel" class="carousel slide" data-ride
 
 Högerklicka på projektet **myFirstAzureWebApp** i **Solution Explorer** och välj **Publicera** för att distribuera om appen till Azure.
 
-Välj **Publicera** på publiceringssidan.
+Välj **Publicera** på sammanfattningssidan för publicering.
+![Sammanfattningssida för publicering i Visual Studio](./media/app-service-web-get-started-dotnet/publish-summary-page.png)
 
 När publiceringen är klar startar Visual Studio en webbläsare till webbappens URL.
 
@@ -161,7 +154,7 @@ När publiceringen är klar startar Visual Studio en webbläsare till webbappens
 
 Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera webbappen.
 
-Klicka på **Apptjänster** på menyn till vänster och välj sedan namnet på din Azure-webbapp.
+Klicka på **App Services** på menyn till vänster och välj sedan namnet på din Azure-webbapp.
 
 ![Navigera till webbappen på Azure Portal](./media/app-service-web-get-started-dotnet/access-portal.png)
 

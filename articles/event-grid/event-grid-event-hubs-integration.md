@@ -6,18 +6,18 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 05/04/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 41cd2f1081cbe8d8fca9d6afa77b87f9aa1017d3
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 432436ee13519cf342313ad369c168ba764f9264
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302947"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616523"
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Strömma stordata till ett datalager
 
-Azure [Event Grid](overview.md) är en intelligent händelsedirigeringstjänst som skickar aviseringar från appar och tjänster. [Event Hubs Capture- och Event Grid-exemplet](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) visar hur du använder Azure Event Hubs Capture med Azure Event Grid för att sömlöst migrera data från en händelsehubb till ett SQL Data Warehouse.
+Azure [Event Grid](overview.md) är en intelligent händelsedirigeringstjänst som skickar aviseringar från appar och tjänster. Tjänsten kan till exempel utlösa en Azure-funktion som bearbetar Event Hubs-data som har hämtats till Azure Blob Storage eller Data Lake Store och som migrerar data till andra lagringsplatser. Det här [exemplet med Event Hubs Capture och Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) visar hur du använder Event Hubs Capture med Event Grid för att sömlöst migrera Event Hubs-data från blobblagring till SQL Data Warehouse.
 
 ![Programöversikt](media/event-grid-event-hubs-integration/overview.png)
 
@@ -75,7 +75,7 @@ Du behöver följande för att kunna slutföra den här självstudiekursen:
 
 ## <a name="deploy-the-infrastructure"></a>Distribuera infrastrukturen
 
-För enkelhetens skull distribuerar du den nödvändiga infrastrukturen med en Resource Manager-mall. Om du vill visa de resurser som distribueras visar du [mallen](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). Använd någon av de [regioner som stöds](overview.md) för resursgruppens plats.
+För enkelhetens skull distribuerar du den nödvändiga infrastrukturen med en Resource Manager-mall. Om du vill visa de resurser som distribueras visar du [mallen](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json).
 
 Om du använder Azure CLI använder du:
 

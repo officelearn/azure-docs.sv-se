@@ -9,12 +9,12 @@ ms.date: 07/12/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 5359920ab32fab65df0466474aec2d305bcf633c
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: a740672ea948bd86efce92c534e0f95f65563438
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091058"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42024256"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Snabbstart: Distribuera Hello World till Service Fabric Mesh
 
@@ -57,7 +57,7 @@ Efter några minuter returnerar kommandot:
 `helloWorldApp has been deployed successfully on helloWorldNetwork with public ip address <IP Address>` 
 
 ## <a name="open-the-application"></a>Öppna programmet
-När programmet har distribuerats kopierar du den offentliga IP-adressen för tjänstslutpunkten från CLI-utdata.  Öppna IP-adressen i en webbläsare. En webbplats med logotypen för Azure Service Fabric Mesh visas.
+När programmet har distribuerats kopierar du den offentliga IP-adressen för tjänstslutpunkten från CLI-utdata. Öppna IP-adressen i en webbläsare. En webbplats med logotypen för Azure Service Fabric Mesh visas.
 
 ## <a name="check-the-application-details"></a>Kontrollera programinformationen
 Du kan kontrollera programmets status med kommandot `az mesh app show`. Det här kommandot ger användbar information som du kan följa upp.

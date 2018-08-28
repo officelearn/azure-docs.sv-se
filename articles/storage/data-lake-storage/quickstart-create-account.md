@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 9d60b85051ff6e24c64f074ccd4fad055ba47ae8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 18f4d2656ec7f027557d73959531b781be1d8d44
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523588"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42023101"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>Snabbstart: Skapa ett Azure Data Lake Storage Gen2-lagringskonto (förhandsversion)
 
@@ -114,15 +114,6 @@ Ta bort en resursgrupp med Azure-portalen:
 2. Leta reda på den resursgrupp du vill ta bort och högerklicka på knappen **Mer** (**...**) till höger om listan.
 3. Välj **Ta bort resursgrupp** och bekräfta.
 
-
-## <a name="upgrade-your-powershell-module"></a>Uppgradera din PowerShell-modul
-
-För att kunna interagera med Data Lake Storage Gen2 via PowerShell måste du uppgradera modulen till förhandsversionen.
-
-Det gör du genom att öppna förhöjt PowerShell och ange följande kommando: `Install-Module AzureRM.Storage –Repository PSGallery -RequiredVersion 5.0.4-preview –AllowPrerelease –AllowClobber –Force `
-
-Starta sedan om gränssnittet.
-
 ## <a name="create-an-account-using-powershell"></a>Skapa ett lagringskonto med PowerShell
 
 Logga in på Azure-prenumerationen med kommandot `Login-AzureRmAccount` och följ anvisningarna på skärmen för att autentisera.
@@ -130,6 +121,14 @@ Logga in på Azure-prenumerationen med kommandot `Login-AzureRmAccount` och föl
 ```powershell
 Login-AzureRmAccount
 ```
+
+### <a name="upgrade-your-powershell-module"></a>Uppgradera din PowerShell-modul
+
+För att kunna interagera med Data Lake Storage Gen2 via PowerShell måste du uppgradera modulen till förhandsversionen.
+
+Det gör du genom att öppna förhöjt PowerShell och ange följande kommando: `Install-Module AzureRM.Storage –Repository PSGallery -RequiredVersion 5.0.4-preview –AllowPrerelease –AllowClobber –Force `
+
+Starta sedan om gränssnittet.
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -170,13 +169,7 @@ Om du vill ta bort resursgruppen och dess kopplade resurser, inklusive det nya l
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="upgrade-your-cli-module"></a>Uppgradera CLI-modulen
-
-För att kunna interagera med Data Lake Storage Gen2 via CLI måste du lägga till tillägget för gränssnittet.
-
-Det gör du genom att använda Cloud Shell eller ett lokalt gränssnitt och ange följande kommando: `az extension add --name storage-preview`
-
-## <a name="create-an-account-using-azure-cli"></a>Skapa ett konto med Azure CLI 
+## <a name="create-an-account-using-azure-cli"></a>Skapa ett konto med Azure CLI
 
 Starta Azure Cloud Shell genom att logga in på [Azure-portalen](https://portal.azure.com).
 
@@ -186,9 +179,15 @@ Logga in på den lokala installationen av CLI genom att köra inloggningskommand
 az login
 ```
 
+### <a name="upgrade-your-cli-module"></a>Uppgradera CLI-modulen
+
+För att kunna interagera med Data Lake Storage Gen2 via CLI måste du lägga till tillägget för gränssnittet.
+
+Det gör du genom att ange följande kommando i Cloud Shell eller ett lokalt gränssnitt: `az extension add --name storage-preview`
+
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Om du vill skapa en ny resursgrupp med Azure CLI använder du kommandot [az group create](/cli/azure/group#az_group_create). 
+Om du vill skapa en ny resursgrupp med Azure CLI använder du kommandot [az group create](/cli/azure/group#az_group_create).
 
 ```azurecli-interactive
 az group create \

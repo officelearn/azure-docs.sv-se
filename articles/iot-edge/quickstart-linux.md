@@ -4,17 +4,17 @@ description: I den här snabbstarten lär du dig hur du fjärrdistribuerar färd
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 08/14/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: dfcb764d75b7328d1234d47d82afdae8d6a0deef
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: af291782585cf0211cf8beac54adc36fd9fe0d34
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413022"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42023472"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Snabbstart: Distribuera din första IoT Edge-modul till en Linux x64-enhet
 
@@ -54,7 +54,9 @@ Molnresurser:
    az group create --name IoTEdgeResources --location westus
    ```
 
-* En virtuell Linux-dator som fungerar som din IoT Edge-enhet. 
+IoT Edge-enhet:
+
+* En Linux-enhet eller en virtuell dator som ska fungera som din IoT Edge-enhet. Om du vill skapa en virtuell dator i Azure använder du följande kommando för att snabbt komma igång:
 
    ```azurecli-interactive
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_B1ms
@@ -62,7 +64,7 @@ Molnresurser:
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
-Starta snabbstarten genom att skapa din IoT Hub med Azure CLI. 
+Starta snabbstarten genom att skapa din IoT-hubb med Azure CLI. 
 
 ![Skapa IoT Hub][3]
 
@@ -78,10 +80,12 @@ Följande kod skapar en kostnadsfri **F1**-hubb i resursgruppen **IoTEdgeResourc
 
 ## <a name="register-an-iot-edge-device"></a>Registrera en IoT Edge-enhet
 
-Registrera en IoT Edge-enhet med den IoT Hub som du nyss skapade.
+Registrera en IoT Edge-enhet med IoT-hubben som du nyss skapade. 
 ![Registrera en enhet][4]
 
-Skapa en enhetsidentitet för den simulerade enheten så att den kan kommunicera med din IoT Hub. Eftersom IoT Edge-enheterna fungerar och kan hanteras annorlunda än vanliga IoT-enheter, kan du ange att detta ska vara en IoT Edge-enhet från början. 
+Skapa en enhetsidentitet för den simulerade enheten så att den kan kommunicera med din IoT Hub. Enhetsidentiteten finns i molnet, och du använder en unik enhetsanslutningssträng för att associera en fysisk enhet med en enhetsidentitet. 
+
+Eftersom IoT Edge-enheter fungerar och kan hanteras på annat sätt än typiska IoT-enheter, kan du ange denna som en IoT Edge-enhet från början. 
 
 1. Ange följande kommando i Azure Cloud Shell för att skapa en enhet med namnet **myEdgeDevice** i din hubb.
 
@@ -100,12 +104,14 @@ Skapa en enhetsidentitet för den simulerade enheten så att den kan kommunicera
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>Installera och starta IoT Edge-körningen
 
-Installera och starta Azure IoT Edge-körningen på enheten. 
+Installera och starta Azure IoT Edge-körningen på din IoT Edge-enhet. 
 ![Registrera en enhet][5]
 
 IoT Edge-körningen distribueras på alla IoT Edge-enheter. Den har tre komponenter. **IoT Edge säkerhetsdaemon** startas varje gång en Edge-enhet startar. Enheten startas genom att IoT Edge-agenten startas. **IoT Edge-agenten** underlättar distribution och övervakning av moduler på IoT Edge-enheten, inklusive IoT Edge-hubb. **IoT Edge-hubben** hanterar kommunikationen mellan moduler på IoT Edge-enheten, samt mellan enheten och IoT Hub. 
 
-Utför följande steg i den Linux-dator eller den virtuella dator som du förberedde för den här snabbstarten. 
+Under körningskonfigurationen anger du en enhetsanslutningssträng. Använd den sträng som du hämtade från Azure CLI. Den här strängen associerar den fysiska enheten med IoT Edge-enhetsidentiteten i Azure. 
+
+Slutför följande steg på den Linux-dator eller virtuella dator som du har konfigurerat som en IoT Edge-enhet. 
 
 ### <a name="register-your-device-to-use-the-software-repository"></a>Registrera din enhet för att använda programvarudatabasen
 
@@ -131,19 +137,19 @@ Stegen i det här avsnittet gäller enheter som kör **Ubuntu 16.04**. För att 
 
 IoT Edge-körning är en uppsättning containrar, och den logik som du distribuerar till IoT Edge-enheten är paketerad som containrar. Förbered din enhet för dessa komponenter genom att installera en körmiljö för containrar.
 
-Uppdatera **apt-get**.
+1. Uppdatera **apt-get**.
 
    ```bash
    sudo apt-get update
    ```
 
-Installera **Moby**, en körmiljö för containrar.
+2. Installera **Moby**, en körmiljö för containrar.
 
    ```bash
    sudo apt-get install moby-engine
    ```
 
-Installera CLI-kommandona för Moby. 
+3. Installera CLI-kommandona för Moby. 
 
    ```bash
    sudo apt-get install moby-cli
@@ -166,19 +172,26 @@ Denna säkerhetsdaemon installeras som en systemtjänst så att IoT Edge-körnin
    sudo nano /etc/iotedge/config.yaml
    ```
 
-3. Lägg till IoT Edge-enhetens anslutningssträng. Hitta variabeln **device_connection_string** och uppdatera dess värde med den sträng som du kopierade efter att du registrerade enheten.
+3. Lägg till IoT Edge-enhetens anslutningssträng. Hitta variabeln **device_connection_string** och uppdatera dess värde med den sträng som du kopierade efter att du registrerade enheten. Den här anslutningssträngen associerar den fysiska enheten med enhetsidentiteten som du skapade i Azure.
 
 4. Spara och stäng filen. 
 
    `CTRL + X`, `Y`, `Enter`
 
-4. Starta om IoT Edge-säkerhetsdaemon.
+5. Starta om daemon för IoT Edge-säkerhet för att tillämpa ändringarna.
 
    ```bash
    sudo systemctl restart iotedge
    ```
 
-5. Kontrollera att Edge-säkerhetsdaemon körs som en systemtjänst.
+>[!TIP]
+>Förhöjd behörighet krävs för att köra `iotedge`-kommandon. När du loggar ut från datorn och sedan loggar in igen för första gången efter installationen av IoT Edge-körningen, så uppdateras dina behörigheter automatiskt. Tills dess kan du använda **sudo** framför kommandona. 
+
+### <a name="view-the-iot-edge-runtime-status"></a>Visa status för IoT Edge-körningen
+
+Kontrollera att körningen har installerats och konfigurerats korrekt.
+
+1. Kontrollera att Edge-säkerhetsdaemon körs som en systemtjänst.
 
    ```bash
    sudo systemctl status iotedge
@@ -186,22 +199,21 @@ Denna säkerhetsdaemon installeras som en systemtjänst så att IoT Edge-körnin
 
    ![Kontrollera att Edge Daemon körs som en systemtjänst](./media/quickstart-linux/iotedged-running.png)
 
-   Du kan också visa loggar från Edge säkerhetsdaemon genom att köra följande kommando:
+2. Hämta tjänstloggar om du behöver felsöka tjänsten. 
 
    ```bash
    journalctl -u iotedge
    ```
 
-6. Visa de moduler som körs på enheten. 
-
-   >[!TIP]
-   >Du måste använda *sudo* för att köra `iotedge`-kommandon till en början. Logga ut från datorn och logga in igen för att uppdatera behörigheterna. Sedan kan du köra `iotedge`-kommandon utan utökade behörigheter. 
+3. Visa de moduler som körs på enheten. 
 
    ```bash
    sudo iotedge list
    ```
 
    ![Visa en modul på din enhet](./media/quickstart-linux/iotedge-list-1.png)
+
+Din IoT Edge-enhet har nu konfigurerats. Den är redo att köra molndistribuerade moduler. 
 
 ## <a name="deploy-a-module"></a>Distribuera en modul
 
@@ -214,12 +226,11 @@ Hantera din Azure IoT Edge-enhet från molnet för att distribuera en modul som 
 
 I den här snabbstarten skapade du en ny IoT Edge-enhet och installerade IoT Edge-körningsmiljön på den. Sedan använde du Azure Portal för att skicka en IoT Edge-modul som ska köras på enheten utan att några ändringar behövs göras i själva enheten. I det här fallet skapar modulen som du överförde de miljödata som du använder i självstudierna. 
 
-Öppna kommandotolken igen på den dator som kör den simulerade enheten. Kontrollera att modulen distribuerades från molnet som körs på IoT Edge-enheten:
+Öppna kommandotolken på IoT Edge-enheten igen. Kontrollera att modulen distribuerades från molnet som körs på IoT Edge-enheten:
 
    ```bash
    sudo iotedge list
    ```
-   Efter en utloggning och inloggning krävs inte *sudo* för kommandot ovan.
 
    ![Visa tre moduler på enheten](./media/quickstart-linux/iotedge-list-2.png)
 
@@ -234,7 +245,7 @@ Efter en utloggning och inloggning krävs inte *sudo* för kommandot ovan.
 
 Temperatursensormodulen kanske väntar på att ansluta till Edge Hub om den sista raden i loggen är `Using transport Mqtt_Tcp_Only`. Avbryt modulen och låt Edge-agenten starta om den. Du kan avsluta den med kommandot `sudo docker stop tempSensor`.
 
-Du kan visa telemetri som enheten skickar med hjälp av [verktyget IoT Hub Explorer][lnk-iothub-explorer] eller [Azure IoT Toolkit-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+Du kan också visa telemetrin när den tas emot på IoT-hubben med hjälp av [Azure IoT Toolkit-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
@@ -278,7 +289,8 @@ Ta bort de containrar som skapades på enheten av IoT Edge-körningen. Ändra na
 Ta bort körmiljön för containern.
 
    ```bash
-   sudo apt-get remove --purge moby
+   sudo apt-get remove --purge moby-cli
+   sudo apt-get remove --purge moby-engine
    ```
 
 ## <a name="next-steps"></a>Nästa steg
@@ -305,10 +317,9 @@ Den här snabbstarten är en förutsättning för alla andra IoT Edge-självstud
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-portal]: https://portal.azure.com
-[lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az_iot_hub_delete
+[lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-delete
 
 <!-- Anchor links -->
 [anchor-register]: #register-an-iot-edge-device

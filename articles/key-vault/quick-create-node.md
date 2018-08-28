@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Konfigurera ett Azure-webbprogram att läsa en hemlighet från Key Vault | Microsoft Docs'
-description: 'Självstudie: Konfigurera ett Node.js-program att läsa en hemlighet från Key Vault'
+title: Snabbstart – Konfigurera och hämta en hemlighet från Azure Key Vault med hjälp av en Node-webbapp | Microsoft Docs
+description: 'Snabbstart: Konfigurera och hämta en hemlighet från Azure Key Vault med hjälp av en Node-webbapp'
 services: key-vault
 documentationcenter: ''
 author: prashanthyv
@@ -8,19 +8,19 @@ manager: sumedhb
 ms.service: key-vault
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 08/01/2018
+ms.date: 08/08/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: cc43081463667eba06af6538f3d78f16544ed2a5
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 4592b256dfda75e81a94034545cd54dbf0d71532
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412250"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42023625"
 ---
-# <a name="quickstart-how-to-set-and-read-a-secret-from-key-vault-in-a-node-web-app"></a>Snabbstart: Ställa in och läsa en hemlighet från Key Vault i en Node-webbapp 
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-node-web-app"></a>Snabbstart: Konfigurera och hämta en hemlighet från Azure Key Vault med hjälp av en Node-webbapp 
 
-Den här snabbstarten beskriver hur du lagrar en hemlighet i Key Vault och hur du hämtar den med hjälp av en webbapp. Det här webbprogrammet kan köras lokalt eller i Azure. I snabbstarten används Node.js och hanterade tjänstidentiteter (MSI)
+Den här snabbstarten beskriver hur du lagrar en hemlighet i Key Vault och hur du hämtar den med hjälp av en webbapp. För att visa det hemliga värdet skulle du behöva köra detta i Azure. I snabbstarten används Node.js och hanterade tjänstidentiteter (MSI)
 
 > [!div class="checklist"]
 > * Skapa ett nyckelvalv.
@@ -31,6 +31,9 @@ Den här snabbstarten beskriver hur du lagrar en hemlighet i Key Vault och hur d
 > * Bevilja de behörigheter som krävs för att webbprogrammet ska kunna läsa data från Key Vault.
 
 Försäkra dig om att du känner till [grundbegreppen](key-vault-whatis.md#basic-concepts) innan du fortsätter.
+
+>[!NOTE]
+För att förstå varför självstudien nedan är bästa praxis är det viktigt att du förstår vissa begrepp. Key Vault är en central lagringsplats för programmeringsbaserad lagring av hemligheter. Detta kräver att program och användare först autentiseras mot Key Vault, dvs. presenterar en hemlighet. Den här första hemligheten måste dessutom roteras med jämna mellanrum för att uppfylla de rekommenderade säkerhetsmetoderna. Men [hanterad tjänstidentitet (MSI)](../active-directory/managed-service-identity/overview.md) tilldelas program som körs i Azure en identitet som hanteras automatiskt av Azure. Detta löser **problemet med den första hemligheten** där användare och program kan följa bästa praxis utan att behöva bekymra sig om roteringen av den första hemligheten
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -49,7 +52,7 @@ az login
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az-group-create). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
 
 Välj ett resursgruppnamn och fyll i platshållaren.
 I följande exempel skapas en resursgrupp med namnet *<YourResourceGroupName>* på platsen *eastus*.
@@ -123,8 +126,6 @@ Nedan beskrivs de få steg som krävs
     ```
     # Bash
     az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9" --deployment-local-git
-    # PowerShell
-    az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
     ```
     När webbappen har skapats visar Azure CLI utdata liknande den i följande exempel:
     ```

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/05/2018
+ms.date: 08/17/2018
 ms.author: charwen,cherylmc,rambala
-ms.openlocfilehash: 80d2f65f516d7f1190f276fa9f2c62206bd31e67
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 0e69a85f320a0a8d77bd07fc0dedb77eb99efb36
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262880"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41921085"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Konfigurera ExpressRoute-anslutningar och anslutningar för plats-till-plats som kan samexistera
 > [!div class="op_single_selector"]
@@ -183,14 +183,7 @@ Den här proceduren vägleder dig genom att skapa ett VNet samt plats-till-plats
   ```
 
 ## <a name="add"></a>Så här konfigurerar du samexisterande anslutningar för ett befintligt VNet
-Om du har ett befintligt virtuellt nätverk, kontrollerar du storleken på gateway-undernätet. Om gateway-undernätet är /28 eller /29, måste du först ta bort den virtuella nätverksgatewayen och öka storleken för gateway-undernätet. Stegen i det här avsnittet visar hur du gör.
-
-Om gateway-undernätet är /27 eller större och det virtuella nätverket är anslutet via ExpressRoute, kan du hoppa över stegen nedan och gå vidare till [”Steg 4 – Skapa en VPN-gateway för plats till plats”](#vpngw) i föregående avsnitt. 
-
-> [!NOTE]
-> När du tar bort den befintliga gatewayen förlorar dina lokala platser anslutningen till ditt virtuella nätverk medan du arbetar med konfigurationen. 
-> 
-> 
+Om du har ett virtuellt nätverk med endast en virtuell nätverksgateway (t.ex. en VPN-gateway för plats till plats) och du vill lägga till en till gateway av en annan typ (t.ex. en ExpressRoute-gateway), kontrollerar du storleken på gateway-undernätet. Om gateway-undernätet är /27 eller större kan du hoppa över stegen nedan och följa stegen i föregående avsnitt för att lägga till en VPN-gateway för plats till plats eller en ExpressRoute-gateway. Om gateway-undernätet är /28 eller /29, måste du först ta bort den virtuella nätverksgatewayen och öka storleken för gateway-undernätet. Stegen i det här avsnittet visar hur du gör.
 
 1. Du måste installera den senaste versionen av Azure PowerShell-cmdletarna. Mer information om hur du installerar cmdletar finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview). De cmdletar som du använder för den här konfigurationen kan se annorlunda ut än de du tidigare använt. Var noga med att använda de cmdletar som anges i instruktionerna. 
 2. Ta bort den befintliga ExpressRoute- eller VPN-gatewayen för plats till plats.
@@ -220,7 +213,7 @@ Om gateway-undernätet är /27 eller större och det virtuella nätverket är an
   ```powershell
   $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-5. Just nu har du ett VNet utan gateways. Om du vill slutföra dina anslutningar och skapa nya gatewayer kan du fortsätta med [Steg 4 – Skapa en VPN-gateway för plats till plats](#vpngw), som finns i den föregående uppsättningen med steg.
+5. Nu har du ett virtuellt nätverk utan gateways. Om du vill skapa nya gateways och anslutningar följer du stegen i föregående avsnitt.
 
 ## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>Så här lägger du till punkt-till-plats-konfiguration till VPN-gateway
 Du kan följa stegen nedan om du vill lägga till punkt-till-plats-konfiguration för VPN-gateway i en samexisterande inställning.

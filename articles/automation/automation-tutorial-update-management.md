@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 92258ce7ea39a06f2af85efd9174b1b200710566
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4d5222889d5e840bd03bf77a56584dac48bb740c
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216974"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41918969"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Hantera Windows-uppdateringar med hjälp av Azure Automation
 
@@ -22,7 +22,7 @@ Du kan använda uppdateringshanteringen för att hantera uppdateringar och korri
 
 Prisinformation finns i [Automation-priser för uppdateringshantering](https://azure.microsoft.com/pricing/details/automation/).
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Publicera en virtuell dator för hantering av uppdateringar
@@ -126,9 +126,6 @@ Anpassa föremål för aviserings-e-postmeddelandet under **Skapa regel**, under
 
 För att installera uppdateringar schemalägger du en distribution som passar ditt schema och servicefönster. Du kan välja vilka uppdateringstyper som ska tas med i distributionen. Du kan till exempel ta med kritiska uppdateringar eller säkerhetsuppdateringar och exkludera samlade uppdateringar.
 
-> [!WARNING]
-> När uppdateringar kräver en omstart startas den virtuella datorn om automatiskt.
-
 Schemalägg en ny uppdateringsdistribution för den virtuella datorn, gå till **Uppdateringshantering** och välj sedan **Distribution av schemauppdatering**.
 
 Under **Ny uppdateringsdistribution** anger du följande information:
@@ -136,6 +133,8 @@ Under **Ny uppdateringsdistribution** anger du följande information:
 * **Namn**: Ange ett unikt namn på uppdateringsdistributionen.
 
 * **Operativsystem**: Välj operativsystem som mål för uppdateringsdistributionen.
+
+* **Datorer som ska uppdateras**: Välj en sparad sökning eller en importerad grupp, eller välj Dator i listrutan och välj enskilda datorer. Om du väljer **Datorer** visas datorns beredskap i kolumnen **Uppdatera agentberedskap**. Mer information om de olika metoder som du kan använda för att skapa datorgrupper i Log Analytics finns i avsnittet om [datorgrupper i Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
 * **Uppdatera klassificering**: Välj vilka typer av programvara som ska tas med i uppdateringsdistributionen. Låt alla typer vara markerade för den här självstudien.
 
@@ -154,9 +153,17 @@ Under **Ny uppdateringsdistribution** anger du följande information:
 
 * **Underhållsperiod (minuter)**: Låt standardvärdet stå kvar. Du kan ange tidsfönstret som du vill att distributionen av uppdateringen ska ske inom. Den här inställningen hjälper till att säkerställa att ändringarna utförs inom ditt definierade servicefönster.
 
+* **Omstartsalternativ**: Den här inställningen avgör hur omstarter ska hanteras. De tillgängliga alternativen är:
+  * Starta om vid behov (standard)
+  * Starta alltid om
+  * Starta aldrig om
+  * Endast omstart – uppdateringar installeras inte
+
+När du är klar med att konfigurera schemat väljer du **Skapa**.
+
 ![Inställningsfönster för uppdateringsschema](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
 
-När du är klar med att konfigurera schemat väljer du **Skapa**. Du kommer tillbaka till statusinstrumentpanelen. Välj **Schemalagda uppdateringsdistributioner** om du vill visa distributionsschemat du har skapat.
+Du kommer tillbaka till statusinstrumentpanelen. Välj **Schemalagda uppdateringsdistributioner** om du vill visa distributionsschemat du har skapat.
 
 ## <a name="view-results-of-an-update-deployment"></a>Visa resultat för en uppdateringsdistribution
 

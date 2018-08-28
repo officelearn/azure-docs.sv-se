@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d48d7625221dfb96e0119ef0d42b3b0a8d04baba
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 59ff3434e7b984f4530ad4f8b03b27991d3a9c1c
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185677"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41918960"
 ---
 # <a name="tutorial-create-debug-and-deploy-a-multi-service-web-application-to-service-fabric-mesh"></a>Självstudie: Skapa, felsöka och distribuera en webbapp för flera tjänster till Service Fabric Mesh
 
@@ -227,7 +227,7 @@ Den här minimala datakontexten fyller i vissa exempelobjekt och ger åtkomst ti
 
 ### <a name="add-a-controller"></a>Lägga till en styrenhet
 
-En standardkontroll som hanterar HTPP-begäranden och skapar HTTP-svaret tillhandahölls när **ToDoService**-projektet skapades. I **Solution Explorer**, under **ToDoService** öppnar du mappen **Controllers** (Kontrollanter) och visar filen **ValuesController.cs**. 
+En standardstyrenhet, som hanterar HTPP-begäranden och som genererar HTTP-svaret, tillhandahölls av mallen när **ToDoService**-projektet skapades. I **Solution Explorer**, under **ToDoService** öppnar du mappen **Controllers** (Kontrollanter) och visar filen **ValuesController.cs**. 
 
 Högerklicka på **ValuesController.cs** och sedan på **Rename** (Byt namn). Byt namn på filen till `ToDoController.cs`. Om du tillfrågas om du vill byta namn på alla referenser klickar du på **Yes** (Ja).
 
@@ -314,7 +314,8 @@ Ersätt innehållet i hela filen med följande HTML-kod som definierar en enkel 
 </div>
 ```
 
-Öppna koden för sidan Index i **Solution Explorer** genom att öppna **Index.cshtml** och sedan öppna **Index.cshtml.cs**. Överst i **Index.cshtml.cs** lägger du till `using System.Net.Http;`
+Öppna koden för sidan Index i **Solution Explorer** genom att öppna **Index.cshtml** och sedan öppna **Index.cshtml.cs**.
+Överst i **Index.cshtml.cs** lägger du till `using System.Net.Http;`
 
 Ersätt innehållet i nu tomma `public class IndexModel` med:
 
@@ -336,7 +337,7 @@ public class IndexModel : PageModel
         }
     }
 
-    private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ServiceName")}";
+    private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ToDoServiceName")}";
     private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.GetEnvironmentVariable("ApiHostPort")}/api/todo");
 }
 ```
@@ -346,7 +347,7 @@ public class IndexModel : PageModel
 Webbadressen för serversidetjänsten krävs för att kommunicera med den tjänsten. I den här kursen läser följande kodutdrag (som definieras ovan som del i IndexModel) miljövariabler för att skapa webbadressen:
 
 ```csharp
-private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ServiceName")}";
+private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ToDoServiceName")}";
 private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.GetEnvironmentVariable("ApiHostPort")}/api/todo");
 ```
 

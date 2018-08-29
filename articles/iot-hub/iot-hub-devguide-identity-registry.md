@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 2039b7760704de35c688dda41e3b75425e5ec0e8
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: fdbe88492d6260d19955b39ac8eaf6cfb9dba130
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186279"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144554"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Förstå identitetsregistret i IoT hub
 
@@ -88,7 +88,6 @@ Enhetsdata som lagras i en viss IoT-lösning är beroende av de specifika kraven
 IoT Hub-identitetsregistret innehåller ett fält med namnet **connectionState**. Använd bara den **connectionState** fältet under utveckling och felsökning. IoT-lösningar bör inte fråga fältet vid körning. Till exempel fråga inte den **connectionState** fält för att kontrollera om en enhet är ansluten innan du skickar ett meddelande för moln-till-enhet eller ett SMS.
 
 Om din IoT-lösning behöver veta om en enhet är ansluten, bör du implementera den *pulsslag mönstret*.
-
 I mönstret pulsslag skickar enheten meddelanden från enheten till molnet minst en gång var fast mängd tid (t.ex, minst en gång i timmen). Därför även om en enhet inte har några data att skicka skickar fortfarande den ett tomt enhet-till-moln-meddelande (vanligtvis med en egenskap som identifierar den som ett pulsslag). Lösningen innehåller en karta på serversidan, med den senaste pulsslag har tagits emot för varje enhet. Om lösningen inte får ett heartbeat-meddelande inom den förväntade tiden från enheten, förutsätter att det finns ett problem med enheten.
 
 En mer komplex implementering kan innehålla information från [åtgärdsövervakning] [ lnk-devguide-opmon] att identifiera enheter som försöker ansluta eller kommunicera men misslyckas. När du implementerar mönstret pulsslag, se till att kontrollera [IoT Hub-kvoter och begränsningar][lnk-quotas].

@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: diberry;
-ms.openlocfilehash: 286efcd97c0c9ab95a8241215bc36799c486a8b6
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.author: diberry
+ms.openlocfilehash: aadca428fa076d697cc0f893673672850ddc27d4
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247723"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124404"
 ---
 # <a name="integrate-speech-service"></a>Integrera Speech service
 Den [taltjänst](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kan du använda en enskild begäran att ta emot ljud och returnera LUIS förutsägelse JSON-objekt.
@@ -120,7 +120,7 @@ Rätt avsikten **GetEmployeeOrgChart**, hittades med 61%. Entiteten keyPhrase re
 Tal-SDK: N Returnerar hela LUIS-svaret. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort appen LUIS HumanResources när de inte längre behövs. Om du vill göra det, Välj ellipsen (***...*** ) till höger om appnamnet i applistan väljer **ta bort**. På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
+Ta bort appen LUIS HumanResources när de inte längre behövs. För att göra det väljer du ellipsknappen (***...***) till höger om appnamnet i applistan och väljer **Delete** (Ta bort). På popup-dialogrutan **Delete app?** (Ta bort appen?) väljer du **Ok**.
 
 Kom ihåg att ta bort LUIS-Samples-katalogen när du är klar med exempelkoden.
 

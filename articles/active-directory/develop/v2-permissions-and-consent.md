@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: celested
-ms.reviewer: hirsin, dastrock
+ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 6d3847f547646ae7c62f98b4cee716af5c6ba5e9
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: f83ca06843b94aecf44a4e4a58959d35f00532c2
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42055880"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125124"
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Omfattningar, behörigheter och godkännande i Azure Active Directory v2.0-slutpunkten
+
 Appar som integreras med Azure Active Directory (Azure AD) följer en modell för auktorisering som ger användare kontroll över hur en app kan komma åt sina data. V2.0-implementeringen av auktoriseringsmodellen som har uppdaterats, och den ändras hur en app måste interagera med Azure AD. Den här artikeln beskriver de grundläggande principerna för den här auktoriseringsmodellen, inklusive omfattningar, behörigheter och godkännande.
 
 > [!NOTE]
 > V2.0-slutpunkten har inte stöd för alla Azure Active Directory-scenarier och funktioner. Läs mer om för att avgöra om du ska använda v2.0-slutpunkten, [v2.0 begränsningar](active-directory-v2-limitations.md).
->
->
 
 ## <a name="scopes-and-permissions"></a>Omfång och behörigheter
+
 Azure AD implementerar den [OAuth 2.0](active-directory-v2-protocols.md) auktoriseringsprotokoll. OAuth 2.0 är en metod som en app från tredje part kan komma åt webb-värdbaserade resurser för en användares räkning. Någon webbaserat resurs som kan integreras med Azure AD har en resurs-ID eller *program-ID-URI*. Några av Microsofts webbaserat resurser är till exempel:
 
 * Office 365 Unified e API: `https://outlook.office.com`
@@ -56,18 +56,23 @@ I Azure AD och OAuth, kallas dessa typer av behörigheter *scope*. De också är
 En app kan begära dessa behörigheter genom att ange omfång i begäranden till v2.0-slutpunkten.
 
 ## <a name="openid-connect-scopes"></a>OpenID Connect-scope
+
 V2.0-implementeringen av OpenID Connect har några väldefinierade scope som inte gäller för en specifik resurs: `openid`, `email`, `profile`, och `offline_access`.
 
 ### <a name="openid"></a>openid
+
 Om en app utför logga in med hjälp av [OpenID Connect](active-directory-v2-protocols.md), den måste begära den `openid` omfång. Den `openid` omfång visas på sidan work medgivande som behörigheten ”logga du in” och på samtyckessida för personliga Microsoft-konto som ”visa din profil och ansluta till appar och tjänster med ditt Microsoft-konto”-behörighet. Med den här behörigheten kan en app kan ta emot en unik identifierare för användaren i form av den `sub` anspråk. Det ger också åtkomst till appen till slutpunkten användarinformationen. Den `openid` omfång som kan användas i token v2.0-slutpunkten för att hämta ID-token som kan användas för att säkra HTTP-anrop mellan olika komponenter i en app.
 
 ### <a name="email"></a>e-post
+
 Den `email` omfång kan användas med den `openid` omfång och alla andra. Den ger appen åtkomst till användarens primära e-postadress i form av den `email` anspråk. Den `email` anspråk som ingår i en token endast om en e-postadress är associerad med det användarkonto som inte är alltid fallet. Om den använder den `email` omfattning, din app ska vara beredd att hantera ett fall där den `email` anspråk finns inte i token.
 
 ### <a name="profile"></a>profil
+
 Den `profile` omfång kan användas med den `openid` omfång och alla andra. Den ger appen åtkomst till en stor mängd information om användaren. Informationen om den kan komma åt omfattar, men är inte begränsad till användarens förnamn, efternamn, primära användarnamn och objekt-ID. En fullständig lista över anspråk för profilen som är tillgängliga i parametern id_tokens för en viss användare ser den [v2.0 tokens referens](v2-id-and-access-tokens.md).
 
 ### <a name="offlineaccess"></a>offline_access
+
 Den [ `offline_access` omfång](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) ger din appåtkomst till resurser å användarens vägnar en längre tid. På sidan work medgivande visas det här omfånget som ”åt dina data när som helst”-behörighet. På personliga Microsoft-konto medgivande sidan visas den som ”åt din information när som helst”-behörighet. När en användare godkänner den `offline_access` omfattning, din app kan ta emot uppdaterings-tokens från token v2.0-slutpunkten. Uppdateringstoken är långlivade. Din app kan hämta nya åtkomsttoken som äldsta förfaller.
 
 Om din app inte begär det `offline_access` omfattning, det inte tar emot uppdateringstoken. Detta innebär att när du har löst in en auktoriseringskod i den [OAuth 2.0-auktoriseringskodflödet](active-directory-v2-protocols.md), får du endast en åtkomsttoken från den `/token` slutpunkt. Åtkomsttoken är giltig för en kort tid. Åtkomsttoken upphör vanligtvis i en timme. AT att punkt, din app måste därefter skickas användarna tillbaka till den `/authorize` slutpunkten för att få en ny auktoriseringskod. Under den här omdirigering, beroende på typen av app måste behöva användaren ange sina autentiseringsuppgifter igen eller godkänna igen behörigheter.
@@ -88,6 +93,7 @@ Om ett program försöker komma åt en organisations v1.0-resurs med hjälp av e
 
 
 ## <a name="requesting-individual-user-consent"></a>Begär användargodkännande för enskilda
+
 I en [OpenID Connect eller OAuth 2.0](active-directory-v2-protocols.md) auktorisering begär att en app kan begära de behörigheter som krävs med hjälp av den `scope` frågeparameter. Till exempel när en användare loggar in på en app, appen skickar en begäran som i följande exempel (med radbrytningar har lagts till för läsbarhet):
 
 ```
@@ -111,11 +117,13 @@ När användaren anger sina autentiseringsuppgifter, v2.0-slutpunkten söker eft
 När användaren godkänner behörighet, registreras samtycke så att användaren inte behöver godkänna igen på efterföljande kontoinloggningar.
 
 ## <a name="requesting-consent-for-an-entire-tenant"></a>Begär godkännande för en hel-klient
+
 Ofta, när en organisation köper en licens eller prenumeration för ett program kan vill organisationen etablera fullständigt programmet för sina anställda. Som en del av den här processen kan kan en administratör ge samtycke för programmet att fungera som ombud anställda. Om administratören ger ditt medgivande för hela klientorganisationen, ser organisationens anställda inte en samtyckessida för programmet.
 
 Om du vill begära godkännande för alla användare i en klient, kan din app använder medgivande admin-slutpunkten.
 
 ## <a name="admin-restricted-scopes"></a>Begränsat omfång
+
 Vissa höga behörigheter i Microsofts ekosystem kan anges till *begränsat*. Exempel på dessa typer av scope är följande behörigheter:
 
 * Läs katalogdata i en organisation med hjälp av `Directory.Read`
@@ -129,19 +137,23 @@ Om din app kräver åtkomst till begränsat scope för organisationer, bör du b
 Om en administratör ger dessa behörigheter via medgivande adminslutpunkten, beviljas medgivande för alla användare i klienten.
 
 ## <a name="using-the-admin-consent-endpoint"></a>Med hjälp av administratören medgivande slutpunkt
+
 Om du följer dessa steg din app kan samla in behörigheter för alla användare i en klient, inklusive begränsat scope. Ett kodexempel som implementerar stegen finns i den [begränsat scope exempel](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2).
 
 ### <a name="request-the-permissions-in-the-app-registration-portal"></a>Begär behörighet i portalen för registrering av app
+
 1. Gå till ditt program i den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), eller [skapa en app](quickstart-v2-register-an-app.md) om du inte redan har gjort.
 2. Leta upp den **Microsoft Graph-behörigheter** , och lägger sedan till de behörigheter som din app kräver.
-3. Se till att du **spara** appregistreringen.
+3. **Spara** appregistreringen.
 
 ### <a name="recommended-sign-the-user-in-to-your-app"></a>Rekommenderat: Logga in användaren till din app
+
 Vanligtvis när du skapar ett program som använder medgivande adminslutpunkten måste appen du en sida eller vy där administratören kan godkänna dess behörigheter. Den här sidan kan vara en del av appens registrering flöde, en del av appens inställningar, eller så kan vara ett dedikerat ”ansluta”-flöde. I många fall kan det vara bra för appen ska visa detta ”ansluta” Visa endast när en användare har loggat in med ett arbets- eller din skola Microsoft-konto.
 
 När du loggar du in till din app kan identifiera du den organisation som administratören tillhör innan ber dem att godkänna behörigheterna som krävs. Även om de inte är absolut nödvändigt, det kan hjälpa dig att skapa en mer intuitiv upplevelse för din organisations användare. Om du vill registrera användare i följa våra [v2.0-protokollet självstudier](active-directory-v2-protocols.md).
 
 ### <a name="request-the-permissions-from-a-directory-admin"></a>Begär behörigheter från en directory-administratör
+
 När du är redo att begära behörighet från administratören för din organisation kan du omdirigera användaren till v2.0 *medgivande adminslutpunkten*.
 
 ```
@@ -163,14 +175,15 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parameter | Tillstånd | Beskrivning |
 | --- | --- | --- |
-| klient |Krävs |Directory-klient som du vill begära behörighet från. Kan anges i GUID eller eget namnformat eller med det allmänna skyddet som hänvisas med ”vanliga” som visas i exemplet. |
-| client_id |Krävs |Programmet med ID som den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tilldelats din app. |
-| redirect_uri |Krävs |Omdirigerings-URI där du vill att svaret skickas för din app för att hantera. Det måste exakt matcha en av omdirigerings-URI: er som du registrerade i portalen för registrering av appen. |
-| state |Rekommenderas |Ett värde som ingår i den begäran som också kommer att returneras i token-svaret. Det kan vara en sträng med innehåll. Använda tillståndet för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
+| `tenant` | Krävs | Directory-klient som du vill begära behörighet från. Kan anges i GUID eller eget namnformat eller med det allmänna skyddet som hänvisas med ”vanliga” som visas i exemplet. |
+| `client_id` | Krävs | Programmet med ID som den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tilldelats din app. |
+| `redirect_uri` | Krävs |Omdirigerings-URI där du vill att svaret skickas för din app för att hantera. Det måste exakt matcha en av omdirigerings-URI: er som du registrerade i portalen för registrering av appen. |
+| `state` | Rekommenderas | Ett värde som ingår i den begäran som också kommer att returneras i token-svaret. Det kan vara en sträng med innehåll. Använda tillståndet för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
 
 Azure AD kräver nu en Innehavaradministratör för att logga in att slutföra begäran. Administratören uppmanas att godkänna de behörigheter som du har begärt för din app i portalen för registrering av appen.
 
 #### <a name="successful-response"></a>Lyckat svar
+
 Om administratören godkänner behörigheterna för din app, lyckat svar som ser ut så här:
 
 ```
@@ -179,11 +192,12 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 | Parameter | Beskrivning |
 | --- | --- | --- |
-| klient |Directory-klient som beviljats de behörigheter som den begärda i GUID-format för ditt program. |
-| state |Ett värde som ingår i den begäran som också kommer att returneras i token-svaret. Det kan vara en sträng med innehåll. Tillståndet används för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
-| admin_consent |Anges till **SANT**. |
+| `tenant` | Directory-klient som beviljats de behörigheter som den begärda i GUID-format för ditt program. |
+| `state` | Ett värde som ingår i den begäran som också kommer att returneras i token-svaret. Det kan vara en sträng med innehåll. Tillståndet används för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
+| `admin_consent` | Anges till **SANT**. |
 
 #### <a name="error-response"></a>Felsvar
+
 Om administratören inte godkänner behörigheterna för din app, misslyckat svar som ser ut så här:
 
 ```
@@ -192,12 +206,13 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 | Parameter | Beskrivning |
 | --- | --- | --- |
-| fel |En felkodsträngen som kan användas för att klassificera typer av fel som inträffar och kan användas för att ta hänsyn till fel. |
-| error_description |Ett felmeddelande som kan hjälpa utvecklare identifiera grundorsaken till ett fel. |
+| `error` |En felkodsträngen som kan användas för att klassificera typer av fel som inträffar och kan användas för att ta hänsyn till fel. |
+| `error_description` |Ett felmeddelande som kan hjälpa utvecklare identifiera grundorsaken till ett fel. |
 
 När du har fått ett lyckat svar från admin-slutpunkten för medgivande, kommer din app har fått de behörigheter som begärde. Därefter kan du begära en token för den resurs som du vill.
 
 ## <a name="using-permissions"></a>Med behörigheter
+
 När användaren godkänner behörighet för din app, kan appen hämta åtkomsttoken som representerar appens behörighet att komma åt en resurs i vissa kapacitet. En åtkomsttoken kan bara användas för en enskild resurs, men kodad i åtkomsttoken är varje behörighet som din app har beviljats för den resursen. Om du vill hämta en åtkomsttoken kan appen göra en begäran v2.0 tokenslutpunkten, så här:
 
 ```

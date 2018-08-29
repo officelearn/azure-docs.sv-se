@@ -4,15 +4,15 @@ description: Översikt över insamlingsprogrammet och hur du konfigurerar den.
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 08/25/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: c99d0f74dbb8cc28cabebae60fe10645f4bdb3b6
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 551276f88f5c27cd860a400a5769c95f4d94cbbb
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308467"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122895"
 ---
 # <a name="collector-appliance"></a>Insamlingsprogrammet
 
@@ -58,6 +58,30 @@ Insamlingsprogrammet måste vara ansluten till internet för att skicka informat
 
 > [!NOTE]
 > HTTPS-baserade proxyservrar stöds inte av insamlaren.
+
+#### <a name="internet-connectivity-with-intercepting-proxy"></a>Ansluten till Internet med spärra proxy
+
+Om proxyservern som du använder för att ansluta till internet är en spärrande proxy, behöver du importera proxy-certifikatet till den Virtuella insamlardatorn. Följande är anvisningar om hur du kan importera certifikatet till den Virtuella insamlardatorn.
+
+1. I den Virtuella insamlardatorn, går du till **Start-menyn** och leta upp och öppna **hantera datorcertifikat**.
+2. I verktyget certifikat i det vänstra fönstret under **certifikat – lokal dator**, hitta **betrodda utgivare**. Under **betrodda utgivare**, klickar du på **certifikat** att se listan över certifikat i rutan till höger.
+
+    ![Certifikat-verktyget](./media/concepts-intercepting-proxy/certificates-tool.png)
+
+3. Kopiera dina proxy-certifikatet till den Virtuella insamlardatorn. Du kan behöva kontakta teamet för nätverk-administratör i din organisation att hämta det här certifikatet.
+4. Dubbelklicka på certifikatet att öppna den. Klicka på **installera certifikat**. Då kommer du att guiden Importera certifikat.
+5. I guiden Importera certifikat för Store-plats, väljer **lokal dator**. **Klicka på nästa**.
+
+    ![Plats för certifikatarkiv](./media/concepts-intercepting-proxy/certificate-store-location.png)
+
+6. Välj alternativet att **placera alla certifikat i nedanstående arkiv**. Klicka på **Bläddra** och välj **betrodda utgivare** från listan över certifikat som kommer upp. Klicka på **Nästa**.
+
+    ![Certifikatarkivet](./media/concepts-intercepting-proxy/certificate-store.png)
+    
+7. Klicka på **Slutför**. Certifikatet importeras. 
+8. Alternativt kan du verifiera certifikatet har importerats genom att öppna verktyget certifikat som i steg 1 och 2 ovan.
+9. Kontrollera den nödvändiga kontrollen för internet-anslutningen har utförts på Azure Migrate collector-appen.
+
 
 #### <a name="whitelisting-urls-for-internet-connection"></a>Lista över tillåtna URL: er för internet-anslutning
 

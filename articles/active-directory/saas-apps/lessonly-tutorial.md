@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Lesson.ly | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Lesson.ly.
+title: 'Självstudier: Azure Active Directory-integration med Lessonly.com | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Lessonly.com.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 13c053b41782fbf1a64d93b500938680f464cf0f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 050e8efed38c40d8c7da292c0d6865869a07c9f9
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438526"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43121717"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-lessonly"></a>Självstudier: Azure Active Directory-integration med Lesson.ly
+# <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>Självstudier: Azure Active Directory-integration med Lessonly.com
 
-I den här självstudien får du lära dig hur du integrerar Lesson.ly med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar Lessonly.com med Azure Active Directory (AD Azure).
 
-Integrera Lesson.ly med Azure AD ger dig följande fördelar:
+Integrera Lessonly.com med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till Lesson.ly
-- Du kan aktivera användarna att automatiskt få loggat in på Lesson.ly (Single Sign-On) med sina Azure AD-konton
+- Du kan styra i Azure AD som har åtkomst till Lessonly.com
+- Du kan aktivera användarna att automatiskt få loggat in på Lessonly.com (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton på en central plats – Azure portal
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med Lesson.ly, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Lessonly.com, behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En Lesson.ly enkel inloggning aktiverat prenumeration
+- En Lessonly.com enkel inloggning aktiverat prenumeration
 
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
@@ -51,15 +51,15 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Lesson.ly från galleriet
+1. Att lägga till Lessonly.com från galleriet
 1. Konfigurera och testa Azure AD enkel inloggning
 
-## <a name="adding-lessonly-from-the-gallery"></a>Att lägga till Lesson.ly från galleriet
-För att konfigurera integrering av Lesson.ly i Azure AD, som du behöver lägga till Lesson.ly från galleriet i din lista över hanterade SaaS-appar.
+## <a name="adding-lessonlycom-from-the-gallery"></a>Att lägga till Lessonly.com från galleriet
+För att konfigurera integrering av Lessonly.com i Azure AD, som du behöver lägga till Lessonly.com från galleriet i din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Lesson.ly från galleriet:**
+**Utför följande steg för att lägga till Lessonly.com från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
@@ -71,51 +71,50 @@ För att konfigurera integrering av Lesson.ly i Azure AD, som du behöver lägga
 
     ![Program][3]
 
-1. I sökrutan skriver **Lesson.ly**.
+1. I sökrutan skriver **Lessonly.com**.
 
-    ![Skapa en Azure AD-användare för testning](./media/lessonly-tutorial/tutorial_lesson.ly_search.png)
+    ![Skapa en Azure AD-användare för testning](./media/lessonly-tutorial/tutorial_lessonly.com_search.png)
 
-1. I resultatpanelen väljer **Lesson.ly**, och klicka sedan på **Lägg till** för att lägga till programmet.
+1. I resultatpanelen väljer **Lessonly.com**, och klicka sedan på **Lägg till** för att lägga till programmet.
 
-    ![Skapa en Azure AD-användare för testning](./media/lessonly-tutorial/tutorial_lesson.ly_addfromgallery.png)
+    ![Skapa en Azure AD-användare för testning](./media/lessonly-tutorial/tutorial_lessonly.com_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Lesson.ly baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Lessonly.com baserat på en testanvändare som kallas ”Britta Simon”.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Lesson.ly är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Lesson.ly upprättas.
+För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Lessonly.com är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Lessonly.com upprättas.
 
-I Lesson.ly, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+I Lessonly.com, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Lesson.ly, måste du utföra följande byggblock:
+Om du vill konfigurera och testa Azure AD enkel inloggning med Lessonly.com, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
 1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare Lesson.ly](#creating-a-lessonly-test-user)**  – du har en motsvarighet för Britta Simon i Lesson.ly som är länkad till en Azure AD-representation av användaren.
+1. **[Skapa en testanvändare Lessonly.com](#creating-a-lessonly-test-user)**  – du har en motsvarighet för Britta Simon i Lessonly.com som är länkad till en Azure AD-representation av användaren.
 1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
 1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Lesson.ly program.
+I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Lessonly.com program.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Lesson.ly:**
+**Utför följande steg för att konfigurera Azure AD enkel inloggning med Lessonly.com:**
 
-1. I Azure-portalen på den **Lesson.ly** program integration-sidan klickar du på **enkel inloggning**.
+1. I Azure-portalen på den **Lessonly.com** program integration-sidan klickar du på **enkel inloggning**.
 
     ![Konfigurera enkel inloggning][4]
 
 1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
-    ![Konfigurera enkel inloggning](./media/lessonly-tutorial/tutorial_lesson.ly_samlbase.png)
+    ![Konfigurera enkel inloggning](./media/lessonly-tutorial/tutorial_lessonly.com_samlbase.png)
 
-1. På den **Lesson.ly domän och URL: er** avsnittet, utför följande steg:
+1. På den **Lessonly.com domän och URL: er** avsnittet, utför följande steg:
 
-    ![Konfigurera enkel inloggning](./media/lessonly-tutorial/tutorial_lesson.ly_url.png)
+    ![Konfigurera enkel inloggning](./media/lessonly-tutorial/tutorial_lessonly.com_url.png)
 
     a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster:
     | |
     |--|
-    | `https://<companyname>.lesson.ly/signin`|
     | `https://<companyname>.lessonly.com/signin`|
 
     >[!NOTE]
@@ -124,17 +123,16 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster:
     | |
     |--|
-    | `https://<companyname>.lesson.ly/auth/saml/metadata`|
     | `https://<companyname>.lessonly.com/auth/saml/metadata`|
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [Lesson.ly klienten supportteamet](mailto:dev@lessonly.com) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [Lessonly.com klienten supportteamet](mailto:dev@lessonly.com) att hämta dessa värden. 
 
 1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
-    ![Konfigurera enkel inloggning](./media/lessonly-tutorial/tutorial_lesson.ly_certificate.png)
+    ![Konfigurera enkel inloggning](./media/lessonly-tutorial/tutorial_lessonly.com_certificate.png)
 
-1. Lesson.ly programmet förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar till din **SAML-Tokenattribut** konfiguration. Följande skärmbild visar ett exempel för detta.
+1. Lessonly.com programmet förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar till din **SAML-Tokenattribut** konfiguration. Följande skärmbild visar ett exempel för detta.
 
     ![Konfigurera enkel inloggning](./media/lessonly-tutorial/tutorial_lessonly_06.png)
            
@@ -163,11 +161,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/lessonly-tutorial/tutorial_general_400.png)
 
-1. På den **Lesson.ly Configuration** klickar du på **konfigurera Lesson.ly** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+1. På den **Lessonly.com Configuration** klickar du på **konfigurera Lessonly.com** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
-    ![Konfigurera enkel inloggning](./media/lessonly-tutorial/tutorial_lesson.ly_configure.png)
+    ![Konfigurera enkel inloggning](./media/lessonly-tutorial/tutorial_lessonly.com_configure.png)
 
-1. Att konfigurera enkel inloggning på **Lesson.ly** sida, som du behöver skicka de hämtade **Certificate(Base64)** och **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL**till [Lesson.ly supportteamet](mailto:dev@lessonly.com).
+1. Att konfigurera enkel inloggning på **Lessonly.com** sida, som du behöver skicka de hämtade **Certificate(Base64)** och **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** till [Lessonly.com supportteamet](mailto:dev@lessonly.com).
 
 > [!TIP]
 > Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -203,30 +201,30 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     d. Klicka på **Skapa**.
  
-### <a name="creating-a-lessonly-test-user"></a>Skapa en Lesson.ly testanvändare
+### <a name="creating-a-lessonlycom-test-user"></a>Skapa en Lessonly.com testanvändare
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Lesson.ly. Lesson.LY stöder just-in-time-etablering, vilket är som standard aktiverat.
+Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Lessonly.com. Lessonly.com stöder just-in-time-etablering, vilket är som standard aktiverat.
 
-Det finns inga uppgift åt dig i det här avsnittet. En ny användare skapas vid ett försök att komma åt Lesson.ly om det inte finns ännu.
+Det finns inga uppgift åt dig i det här avsnittet. En ny användare skapas vid ett försök att komma åt Lessonly.com om det inte finns ännu.
 
 > [!NOTE]
-> Om du vill skapa en användare manuellt kan du behöva kontakta den [Lesson.ly supportteamet](mailto:dev@lessonly.com).
+> Om du vill skapa en användare manuellt kan du behöva kontakta den [Lessonly.com supportteamet](mailto:dev@lessonly.com).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Lesson.ly.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Lessonly.com.
 
 ![Tilldela användare][200] 
 
-**Om du vill tilldela Britta Simon Lesson.ly, utför du följande steg:**
+**Om du vill tilldela Britta Simon Lessonly.com, utför du följande steg:**
 
 1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
 
     ![Tilldela användare][201] 
 
-1. I listan med program väljer **Lesson.ly**.
+1. I listan med program väljer **Lessonly.com**.
 
-    ![Konfigurera enkel inloggning](./media/lessonly-tutorial/tutorial_lesson.ly_app.png) 
+    ![Konfigurera enkel inloggning](./media/lessonly-tutorial/tutorial_lessonly.com_app.png)
 
 1. I menyn till vänster, klickar du på **användare och grupper**.
 
@@ -246,7 +244,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 Målet med det här avsnittet är att prova Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Lesson.ly i åtkomstpanelen du bör få automatiskt loggat in på ditt Lesson.ly program.
+När du klickar på panelen Lessonly.com i åtkomstpanelen du bör få automatiskt loggat in på ditt Lessonly.com program.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

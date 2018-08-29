@@ -4,18 +4,18 @@ description: Ställ in Hadoop-, Kafka, Spark, HBase, ML-tjänster eller Storm-kl
 keywords: konfiguration av hadoop, kafka-kluster installation, konfiguration av spark, vad är hadoop-kluster
 services: hdinsight
 author: jasonwhowell
+ms.author: jasonh
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: f325e49695cab44d5c3d9fe94cd207755d136f7b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 08/27/2018
+ms.openlocfilehash: 0df38e1bd9c4db1cf988beab31b1c3189da4f0c2
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107137"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127915"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Konfigurera kluster i HDInsight med Hadoop, Spark, Kafka med mera
 
@@ -99,7 +99,7 @@ Du kan konfigurera två användarkonton när klustret skapas med HDInsight-klust
 * HTTP-användare: Standardanvändarnamnet är *admin*. Den använder den grundläggande konfigurationen på Azure portal. Ibland kallas ”kluster användare”.
 * SSH-användare (Linux-kluster): används för att ansluta till klustret via SSH. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
-Säkerhetspaketet för företag kan du integrera HDInsight med Active Directory och Apache Ranger. Flera användare kan skapas med hjälp av in-säkerhetspaketet.
+Säkerhetspaketet för företag kan du integrera HDInsight med Active Directory och Apache Ranger. Flera användare kan skapas med säkerhetspaketet för företag.
 
 ## <a name="location"></a>Plats (regioner) för kluster och lagring
 
@@ -140,10 +140,23 @@ Använd en anpassad metaarkiv för att öka prestandan när du använder Oozie. 
 > [!IMPORTANT]
 > Du kan inte återanvända ett anpassat Oozie-metaarkiv. Om du vill använda ett anpassat Oozie-metaarkiv, måste du ange en tom Azure SQL-databas när du skapar HDInsight-kluster.
 
+
+## <a name="custom-cluster-setup"></a>Anpassad konfiguration
+Anpassade kluster installationen bygger på Snabbstartsidan skapa inställningar och lägger till följande alternativ:
+- [HDInsight-program](#install-hdinsight-applications-on-clusters)
+- [Klusterstorlek](#configure-cluster-size)
+- [Skriptåtgärder](#advanced-settings-script-actions)
+- [Virtuellt nätverk](#advanced-settings-extend-clusters-with-a-virtual-network)
+
+## <a name="install-hdinsight-applications-on-clusters"></a>Installera HDInsight-program i kluster
+
+Ett HDInsight-program är ett program som användarna kan installera på ett Linux-baserat HDInsight-kluster. Du kan använda program förutsatt av Microsoft, tredje part eller som du utvecklar själv. Mer information finns i [installera från tredje part Hadoop-program på Azure HDInsight](hdinsight-apps-install-applications.md).
+
+De flesta av HDInsight-program är installerade på en tom edge-nod.  En tom edge-nod är en Linux-dator med samma klientverktyg installeras och konfigureras enligt huvudnoden. Du kan använda gränsnoden för åtkomst till klustret, testa dina klientprogram och som är värd för dina klientprogram. Mer information finns i [använda tomma kantnoder i HDInsight](hdinsight-apps-use-edge-node.md).
+
 ## <a name="configure-cluster-size"></a>Konfigurera klusterstorlek
 
 Du debiteras för användning av noden för så länge klustret finns. Debiteringen börjar när ett kluster skapas och stoppas när klustret tas bort. Kluster kan inte avallokeras eller läggas i beredskap.
-
 
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Antalet noder för varje typ av kluster
 Varje typ av kluster har en egen antal noder, terminologi för noder och standardstorleken för virtuella datorer. I följande tabell är antalet noder för varje nodtyp inom parentes.
@@ -191,20 +204,6 @@ Att ta reda på vilket värde som du ska använda för att ange en VM-storlek n�
 >
 
 Mer information finns i [storlekar för virtuella datorer](../virtual-machines/windows/sizes.md). Information om prissättning i olika storlekar finns i [HDInsight priser](https://azure.microsoft.com/pricing/details/hdinsight).   
-
-## <a name="custom-cluster-setup"></a>Anpassad konfiguration
-Anpassade kluster installationen bygger på Snabbstartsidan skapa inställningar och lägger till följande alternativ:
-- [HDInsight-program](#hdinsight-applications)
-- [Klusterstorlek](#cluster-size)
-- Avancerade inställningar
-  - [Skriptåtgärder](#customize-clusters-using-script-action)
-  - [Virtuellt nätverk](#use-virtual-network)
-
-## <a name="install-hdinsight-applications-on-clusters"></a>Installera HDInsight-program i kluster
-
-Ett HDInsight-program är ett program som användarna kan installera på ett Linux-baserat HDInsight-kluster. Du kan använda program förutsatt av Microsoft, tredje part eller som du utvecklar själv. Mer information finns i [installera från tredje part Hadoop-program på Azure HDInsight](hdinsight-apps-install-applications.md).
-
-De flesta av HDInsight-program är installerade på en tom edge-nod.  En tom edge-nod är en Linux-dator med samma klientverktyg installeras och konfigureras enligt huvudnoden. Du kan använda gränsnoden för åtkomst till klustret, testa dina klientprogram och som är värd för dina klientprogram. Mer information finns i [använda tomma kantnoder i HDInsight](hdinsight-apps-use-edge-node.md).
 
 ## <a name="advanced-settings-script-actions"></a>Avancerade inställningar: skriptåtgärder
 

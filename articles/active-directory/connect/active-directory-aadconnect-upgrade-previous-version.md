@@ -15,12 +15,12 @@ ms.workload: Identity
 ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 20c43669b9da24cea4b0b552a86ec7d5a77dc5a7
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: b730f80faa031b1866d3c11d8a2c885ec67f965e
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264519"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144328"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Uppgradera från en tidigare version till senast
 Det här avsnittet beskrivs olika metoder som du kan använda för att uppgradera din Azure Active Directory (Azure AD) Connect-installationen till den senaste versionen. Vi rekommenderar att du hålla dig uppdaterad med versionerna av Azure AD Connect. Du också använda stegen i den [Swingmigrering](#swing-migration) avsnittet när du gör en betydande konfigurationsändring.
@@ -67,7 +67,7 @@ De här stegen fungerar även om du vill flytta från Azure AD Sync eller en lö
 
 ### <a name="use-a-swing-migration-to-upgrade"></a>Använd en swingmigrering för att uppgradera
 1. Om du använder Azure AD Connect på båda servrarna och planerar att endast göra en konfiguration, ändra, se till att använder din aktiva server och mellanlagringsserver båda samma version. Som gör det lättare att jämföra skillnader senare. Om du uppgraderar från Azure AD Sync har olika versioner av dessa servrar. Om du uppgraderar från en äldre version av Azure AD Connect är det en bra idé att börja med de två servrarna som använder samma version, men det krävs inte.
-2. Om du har gjort en anpassad konfiguration och testservern inte har det, följer du anvisningarna under [flytta en anpassad konfiguration från den aktiva servern till testservern](#move-custom-configuration-from-active-to-staging-server).
+2. Om du har gjort en anpassad konfiguration och testservern inte har det, följer du anvisningarna under [flytta en anpassad konfiguration från den aktiva servern till testservern](#move-a-custom-configuration-from-the-active-server-to-the-staging-server).
 3. Om du uppgraderar från en tidigare version av Azure AD Connect kan du uppgradera den tillfälliga servern till den senaste versionen. Om du flyttar från Azure AD Sync, installerar du Azure AD Connect på testservern.
 4. Låt Synkroniseringsmotorn köra fullständig import och fullständig synkronisering på testservern.
 5. Verifiera att den nya konfigurationen inte orsakar några oväntade ändringar med hjälp av stegen under ”verifiera” i [verifiera konfigurationen för en server](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server). Om något inte som förväntat, rätta till det genom att köra importen och synkronisera och kontrollera data tills den ser bra ut, genom att följa stegen.

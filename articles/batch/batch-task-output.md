@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b578abfa6fc0a10edc5daab40f8a0eea5e6653d9
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: c0fdcdbf838a0bc283db05f36b900641016211b7
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115070"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43121922"
 ---
 # <a name="persist-job-and-task-output"></a>Bevara jobb- och uppgiftsutdata
 
@@ -34,7 +34,7 @@ Den här artikeln beskrivs olika alternativ för att bevara uppgiftsutdata och d
 
 ## <a name="about-the-batch-file-conventions-standard"></a>Om Batch File Conventions-standard
 
-Batch definierar en valfri uppsättning namnkonventionerna för uppgiften utdatafilerna i Azure Storage. Den [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) beskriver dessa konventioner. File Conventions-standard anger namnen på behållare och blobnamn målsökvägen i Azure Storage för en viss utdatafilen baserat på namnen på de jobb- och.
+Batch definierar en valfri uppsättning namnkonventionerna för uppgiften utdatafilerna i Azure Storage. Den [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) beskriver dessa konventioner. File Conventions-standard anger namnen på behållare och blobnamn målsökvägen i Azure Storage för en viss utdatafilen baserat på namnen på de jobb- och.
 
 Det är upp till dig om du vill använda den File Conventions-standarden för namngivning av datafilerna utdata. Du kan också namnge till Målbehållaren och blob men du vill. Om du använder den File Conventions-standarden för namngivning av utdatafilerna så din utdatafilerna är tillgängliga för visning i den [Azure-portalen][portal].
 
@@ -71,13 +71,13 @@ I följande avsnitt beskrivs varje metod i detalj.
 
 Med version 2017-05-01, Batch-tjänsten lägger till stöd för att ange utdatafilerna i Azure Storage för uppgiftsdata när du [lägger till ett jobb](https://docs.microsoft.com/rest/api/batchservice/add-a-task-to-a-job) eller [lägga till en samling aktiviteter i ett jobb](https://docs.microsoft.com/rest/api/batchservice/add-a-collection-of-tasks-to-a-job).
 
-API för Batch-tjänsten stöder bestående uppgiftsinformation till ett Azure Storage-konto från pooler som skapats med konfigurationen av virtuella datorn. Med API: et för Batch-tjänsten kan du behålla uppgiftsinformation utan att ändra program som uppgiften körs. Du kan också följa den [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) för namngivning av filer som du kan spara i ett Azure Storage. 
+API för Batch-tjänsten stöder bestående uppgiftsinformation till ett Azure Storage-konto från pooler som skapats med konfigurationen av virtuella datorn. Med API: et för Batch-tjänsten kan du behålla uppgiftsinformation utan att ändra program som uppgiften körs. Du kan också följa den [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) för namngivning av filer som du kan spara i ett Azure Storage. 
 
 Använd API: et för Batch-tjänsten för att spara utdata när uppgiften:
 
 - Du kan bevara data från Batch-aktiviteterna och job manager-aktiviteter i pooler som skapats med konfigurationen av virtuella datorn.
 - Du kan bevara data till en Azure Storage-behållare med ett godtyckligt namn.
-- Du vill bevara data till en Azure Storage-behållare med namnet enligt den [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). 
+- Du vill bevara data till en Azure Storage-behållare med namnet enligt den [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
 
 > [!NOTE]
 > API för Batch-tjänsten stöder inte bevara data från aktiviteter som körs i pooler som skapats med molntjänstkonfigurationen. Information om bestående aktivitet utdata från pooler med cloud services-konfigurationen finns i [bevara jobb- och data till Azure Storage med Batch File Conventions-bibliotek för .NET att spara ](batch-task-output-file-conventions.md)
@@ -88,7 +88,7 @@ Mer information om bestående uppgiftsutdata med API: et för Batch-tjänsten fi
 
 ### <a name="use-the-batch-file-conventions-library-for-net"></a>Använd Batch File Conventions-bibliotek för .NET
 
-Att skapa Batch-lösningar med C# och .NET-utvecklare kan använda den [File Conventions-bibliotek för .NET] [ nuget_package] till spara uppgiftsdata till Azure Storage-konto, bl.a till den [batchfil Konventioner som standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). File Conventions-bibliotek hanterar glidande utdatafilerna till Azure Storage och namnge mål behållare och blobbar i ett välkänt sätt.
+Att skapa Batch-lösningar med C# och .NET-utvecklare kan använda den [File Conventions-bibliotek för .NET] [ nuget_package] till spara uppgiftsdata till Azure Storage-konto, bl.a till den [batchfil Konventioner som standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). File Conventions-bibliotek hanterar glidande utdatafilerna till Azure Storage och namnge mål behållare och blobbar i ett välkänt sätt.
 
 File Conventions-bibliotek stöder förfrågningar till utdatafilerna efter ID eller syfte, vilket gör det enkelt att hitta dem utan att behöva den fullständiga filen URI: er. 
 
@@ -106,7 +106,7 @@ Den [PersistOutputs] [ github_persistoutputs] exempelprojektet på GitHub visar 
 
 ### <a name="implement-the-batch-file-conventions-standard"></a>Implementera Batch File Conventions-standard
 
-Om du använder ett annat språk än .NET kan du implementera den [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) i ditt eget program. 
+Om du använder ett annat språk än .NET kan du implementera den [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) i ditt eget program. 
 
 Du kanske vill implementera File Conventions namnstandarden själv när du vill att en beprövad namngivningsschemat, eller när du vill visa uppgiftens utdata i Azure-portalen.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: danlep
-ms.openlocfilehash: 69990ab7852999dca2b586fd28ef74c44cc283fd
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: f562a6647cadbde6c46eba87b180dfb4cbb3fb90
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117436"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126320"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Spara aktivitetsdata till Azure Storage med API: et för Batch-tjänsten
 
@@ -34,7 +34,7 @@ Azure Batch får du fler än ett sätt att spara uppgiftsutdata. Med API: et fö
 - Vill du skriva kod för att bevara uppgiftens utdata från inom ditt klientprogram utan att ändra de program som uppgiften körs.
 - Vill du spara utdata från Batch-aktiviteterna och job manager-aktiviteter i pooler som skapats med konfigurationen av virtuella datorn.
 - Vill du spara utdata till en Azure Storage-behållare med ett godtyckligt namn.
-- Du vill spara utdata till en Azure Storage-behållare med namnet enligt den [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). 
+- Du vill spara utdata till en Azure Storage-behållare med namnet enligt den [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
 
 Om ditt scenario skiljer sig från de som anges ovan, kan du behöva tänka på en annan metod. Till exempel stöder API: et för Batch-tjänsten för närvarande inte strömmande utdata till Azure Storage när aktiviteten körs. Att strömma utdata bör du överväga att använda Batch File Conventions-bibliotek för .NET. För övriga språk behöver du implementera en egen lösning. Mer information om andra alternativ för att bevara uppgiftsutdata finns [Spara jobb- och utdata till Azure Storage](batch-task-output.md). 
 
@@ -164,7 +164,7 @@ Den `fileuploadout.txt` filen loggar uppladdningsförloppet. Du kan kontrollera 
 
 ## <a name="use-the-batch-service-api-with-the-batch-file-conventions-standard"></a>Använda API: et för Batch-tjänsten med Batch File Conventions-standard
 
-När du bevara uppgiftens utdata med Batch-tjänst-API kan namnge din målbehållare och blobbar du själv vill. Du kan också välja att ge dem enligt den [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). File Conventions-standard anger namnen på Målbehållaren och blob i Azure Storage för en viss utdatafilen baserat på namnen på de jobb- och. Om du använder den File Conventions-standarden för namngivning av utdatafilerna så din utdatafilerna är tillgängliga för visning i den [Azure-portalen](https://portal.azure.com).
+När du bevara uppgiftens utdata med Batch-tjänst-API kan namnge din målbehållare och blobbar du själv vill. Du kan också välja att ge dem enligt den [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). File Conventions-standard anger namnen på Målbehållaren och blob i Azure Storage för en viss utdatafilen baserat på namnen på de jobb- och. Om du använder den File Conventions-standarden för namngivning av utdatafilerna så din utdatafilerna är tillgängliga för visning i den [Azure-portalen](https://portal.azure.com).
 
 Om du utvecklar i C#, du kan använda de metoder som är inbyggda i den [Batch File Conventions-bibliotek för .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files). Det här biblioteket skapas korrekt namngivna behållare och blob-sökvägar. Du kan till exempel anropa API: et för att få rätt namn för den behållaren, baserat på jobbnamnet:
 

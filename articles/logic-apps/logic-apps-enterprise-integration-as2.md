@@ -1,102 +1,98 @@
 ---
-title: AS2-meddelanden för B2B enterprise integration - Azure Logic Apps | Microsoft Docs
-description: Exchange AS2-meddelanden för B2B enterprise integrering med Azure Logikappar
+title: AS2-meddelanden för B2B enterprise-integration – Azure Logic Apps | Microsoft Docs
+description: Utbyta AS2-meddelanden för B2B enterprise-integration i Azure Logic Apps med Enterprise-Integrationspaket
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: divyaswarnkar
-manager: jeconnoc
-editor: ''
-ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
 ms.date: 06/08/2017
-ms.author: LADocs; divswa
-ms.openlocfilehash: 8984b76c68ebd562ce9e5af9bded859b38d498da
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 2604cdd6bf758858328c2d30fc4cde535f0a7148
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298247"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124670"
 ---
-# <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Exchange AS2-meddelanden för enterprise-integrering med logic apps
+# <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Utbyta AS2-meddelanden för B2B enterprise-integration i Azure Logic Apps med Enterprise-Integrationspaket
 
-Innan du kan utbyta AS2-meddelanden för Logikappar i Azure, måste du skapa ett AS2-avtal och spara avtalet i ditt konto för integrering. Här följer stegen för hur du skapar ett AS2-avtal.
+Innan du kan utbyta AS2-meddelanden för Azure Logic Apps, måste du skapa ett AS2-avtal och lagra det avtalet i ditt integrationskonto. Här följer stegen för hur du skapar ett AS2-avtal.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
 Här är de objekt som du behöver:
 
-* En [integrering konto](../logic-apps/logic-apps-enterprise-integration-accounts.md) som redan har definierat och som är associerade med din Azure-prenumeration
-* Minst två [partners](logic-apps-enterprise-integration-partners.md) som definieras i ditt konto för integrering och konfigurerad med AS2-kvalificerare under redan **Business identiteter**
+* En [integrationskontot](../logic-apps/logic-apps-enterprise-integration-accounts.md) som redan har definierat och som är associerade med din Azure-prenumeration
+* Minst två [partner](logic-apps-enterprise-integration-partners.md) som redan är definierade i ditt integrationskonto och konfigurerad med AS2-kvalificerare under **Företagsidentiteter**
 
 > [!NOTE]
-> När du skapar ett avtal måste innehållet i filen avtalet matcha en avtalstyp.    
+> När du skapar ett avtal måste innehållet i filen avtal matcha avtalstypen.    
 
-När du [skapa ett konto för integrering](../logic-apps/logic-apps-enterprise-integration-accounts.md) och [lägga till partners](logic-apps-enterprise-integration-partners.md), du kan skapa ett AS2-avtal genom att följa dessa steg.
+När du [skapar ett integrationskonto](../logic-apps/logic-apps-enterprise-integration-accounts.md) och [lägga till partner](logic-apps-enterprise-integration-partners.md), du kan skapa ett AS2-avtal genom att följa dessa steg.
 
 ## <a name="create-an-as2-agreement"></a>Skapa ett AS2-avtal
 
 1.  Logga in på [Azure Portal](http://portal.azure.com "Azure Portal").  
 
-2. På Azure huvudmenyn, Välj **alla tjänster**. I sökrutan anger du ”integration” och välj sedan **integrationskonton**.
+2. Välj på Azure-huvudmenyn **alla tjänster**. Ange ”-integration” i sökrutan och välj sedan **integrationskonton**.
 
-   ![Hitta integration-konto](./media/logic-apps-enterprise-integration-as2/overview-1.png)
+   ![Hitta ditt integrationskonto](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
    > [!TIP]
-   > Om du inte ser **alla tjänster**, du kan behöva expandera menyn först. Längst upp i den komprimerade menyn, Välj **Visa textfält**.
+   > Om du inte ser **alla tjänster**, du kan behöva expanderar du menyn först. Högst upp på menyn minimerade, Välj **visa textetiketter**.
 
-3. Under **Integrationskonton**, väljer du det integration konto där du vill skapa avtal.
+3. Under **Integrationskonton**, Välj integrationskontot där du vill skapa avtalet.
 
-   ![Välj kontot integration var du vill skapa avtalet](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+   ![Välj var du vill skapa avtalet för integrationskontot](./media/logic-apps-enterprise-integration-overview/overview-3.png)
 
-4. Välj den **avtal** panelen. Om du inte har ett avtal sida vid sida, lägga till panelen först.
+4. Välj den **avtal** panelen. Om du inte har ett avtal panel, Lägg till panelen först.
 
-    ![Välj ikonen ”avtal”](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
+    ![Välj panelen ”avtal”](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
 5. Under **avtal**, Välj **Lägg till**.
 
     ![Välj ”Lägg till”](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
 
-6. Under **Lägg till**, ange en **namn** för ditt avtal. För **avtalstyp**väljer **AS2**. Välj den **värden Partner**, **Värdidentiteten**, **gäst Partner**, och **gäst identitet** för ditt avtal.
+6. Under **Lägg till**, ange en **namn** för ditt avtal. För **avtalstyp**väljer **AS2**. Välj den **värdpartner**, **Värdidentiteten**, **Gästpartner**, och **Gästidentitet** för ditt avtal.
 
-    ![Ange avtalsuppgifter](./media/logic-apps-enterprise-integration-as2/agreement-3.png)  
+    ![Ange avtalsinformation](./media/logic-apps-enterprise-integration-as2/agreement-3.png)  
 
     | Egenskap  | Beskrivning |
     | --- | --- |
     | Namn |Avtalets namn |
-    | Avtalstyp | Ska vara AS2 |
-    | Värdpartner |Ett avtal måste både värden och gästen partner. Den mottagande partnern representerar den organisation som konfigurerar avtalet. |
-    | Värd-identitet |En identifierare för värdpartnern som |
-    | Gästpartner |Ett avtal måste både värden och gästen partner. Gästen partnern representerar den organisation som har att göra affärer med den mottagande partnern. |
-    | Gästidentitet |En identifierare för gäst-partner |
-    | Ta emot inställningar |Dessa egenskaper gäller för alla meddelanden som tagits emot av ett avtal. |
+    | Avtalstyp | Bör vara AS2 |
+    | Värdpartner |Ett avtal måste både en värdens och gästens partner. Den mottagande partnern representerar organisationen som konfigurerar avtalet. |
+    | Värd-identitet |En identifierare för den mottagande partnern |
+    | Gästpartner |Ett avtal måste både en värdens och gästens partner. Gästpartner representerar den organisation som gör affärer med den mottagande partnern. |
+    | Gästidentitet |En identifierare för gästpartner |
+    | Ta emot inställningar |Dessa egenskaper gäller för alla meddelanden som tas emot av ett avtal. |
     | Skicka inställningar |Dessa egenskaper gäller för alla meddelanden som skickas av ett avtal. |
 
-## <a name="configure-how-your-agreement-handles-received-messages"></a>Konfigurera hur ditt avtal handtag mottagna meddelanden
+## <a name="configure-how-your-agreement-handles-received-messages"></a>Konfigurera hur ditt avtal hanterar fått meddelanden
 
-Nu när du har angett egenskaperna avtal, kan du konfigurera hur detta avtal identifierar och hanterar inkommande meddelanden som tagits emot från din partner via det här avtalet.
+Nu när du har ställt in egenskaperna avtal kan konfigurera du hur detta avtal identifierar och hanterar inkommande meddelanden som tas emot från din partner via detta avtal.
 
-1.  Under **Lägg till**väljer **tar emot inställningar**.
-Konfigurera dessa egenskaper baserat på ditt avtal med den partner som utbyter meddelanden med dig. Egenskapsbeskrivningar finns i tabellen i det här avsnittet.
+1.  Under **Lägg till**väljer **ta emot inställningar**.
+Konfigurera dessa egenskaper baserat på ditt avtal med partner som utbyter meddelanden med dig. Egenskapsbeskrivningar finns i tabellen i det här avsnittet.
 
-    ![Konfigurera ”ta emot inställningar”](./media/logic-apps-enterprise-integration-as2/agreement-4.png)
+    ![Konfigurera ”Mottagningsinställningarna”](./media/logic-apps-enterprise-integration-as2/agreement-4.png)
 
-2. Alternativt kan du kan åsidosätta egenskaper för inkommande meddelanden genom att välja **åsidosätta meddelandeegenskaper**.
+2. Du kan också du kan åsidosätta egenskaperna för inkommande meddelanden genom att välja **Åsidosätt meddelandeegenskaper**.
 
-3. Välj om du vill alla inkommande meddelanden ska vara signerade, **meddelandet måste vara signerade**. Från den **certifikat** väljer du en befintlig [gäst partner offentliga certifikat](../logic-apps/logic-apps-enterprise-integration-certificates.md) för att validera signaturen på meddelanden. Eller skapa certifikatet om du inte har någon.
+3. Om du vill att alla inkommande meddelanden signeras, Välj **meddelandet ska vara signerat**. Från den **certifikat** väljer du en befintlig [gäst partner offentligt certifikat](../logic-apps/logic-apps-enterprise-integration-certificates.md) för att verifiera signaturen på meddelanden. Eller skapa certifikatet om du inte har något.
 
-4.  Välj om du vill alla inkommande meddelanden som ska krypteras, **meddelandet ska krypteras**. Från den **certifikat** väljer du en befintlig [värden partner privat certifikat](../logic-apps/logic-apps-enterprise-integration-certificates.md) för att dekryptera inkommande meddelanden. Eller skapa certifikatet om du inte har någon.
+4.  Om du vill att alla inkommande meddelanden som ska krypteras, Välj **meddelandet ska krypteras**. Från den **certifikat** väljer du en befintlig [privata värdcertifikatet för partner](../logic-apps/logic-apps-enterprise-integration-certificates.md) för dekryptering inkommande meddelanden. Eller skapa certifikatet om du inte har något.
 
-5. Välj om du vill meddelanden som kan komprimeras, **meddelandet ska komprimeras**.
+5. För att kräva meddelanden som kan komprimeras, Välj **meddelandet ska vara komprimerat**.
 
-6. Om du vill skicka en synkron disposition meddelanden (MDN) för mottagna meddelanden, Välj **skicka MDN**.
+6. Om du vill skicka en synkron disposition-meddelanden (MDN) för mottagna meddelanden, Välj **skicka MDN**.
 
-7. Om du vill skicka signerade MDNs för mottagna meddelanden, Välj **Skicka signerat MDN**.
+7. Om du vill skicka signerad mdn måste specificeras för mottagna meddelanden, Välj **skicka signerad MDN**.
 
-8. Om du vill skicka asynkront MDNs för mottagna meddelanden, Välj **skicka asynkront MDN**.
+8. För att skicka asynkron mdn måste specificeras för mottagna meddelanden, Välj **skicka asynkron MDN**.
 
 9. När du är klar kan du se till att spara inställningarna genom att välja **OK**.
 
@@ -104,44 +100,44 @@ Ditt avtal är nu redo att hantera inkommande meddelanden som överensstämmer m
 
 | Egenskap  | Beskrivning |
 | --- | --- |
-| Åsidosätt meddelandeegenskaper |Anger egenskaper i mottagna meddelanden som kan åsidosättas. |
-| Meddelandet ska vara signerat |Kräver meddelanden som ska signeras digitalt. Konfigurera gäst partner offentliga certifikat för signaturverifiering.  |
+| Åsidosätt meddelandeegenskaper |Anger egenskaper i mottagna meddelanden kan åsidosättas. |
+| Meddelandet ska vara signerat |Kräver meddelanden signeras digitalt. Konfigurera gästen partner offentliga certifikat för signaturverifiering.  |
 | Meddelandet ska vara krypterat |Kräver meddelanden som ska krypteras. Icke-krypterade meddelanden avvisas. Konfigurera värd partner privata certifikat för att dekryptera meddelanden.  |
 | Meddelandet ska vara komprimerat |Kräver att meddelanden ska komprimeras. Icke-komprimerade meddelanden avvisas. |
-| MDN-text |I standard disposition meddelanden (MDN) som ska skickas till den som skickade meddelandet. |
-| Skicka MDN |Kräver MDNs skickas. |
-| Skicka signerad MDN |Kräver MDNs signeras. |
+| MDN-text |Den standard disposition meddelanden (MDN) som ska skickas till meddelandets avsändare. |
+| Skicka MDN |Kräver mdn måste specificeras som ska skickas. |
+| Skicka signerad MDN |Kräver mdn måste specificeras signeras. |
 | MIC-algoritm |Välj algoritmen som ska användas för signering av meddelanden. |
 | Skicka asynkron MDN | Kräver att meddelanden ska skickas asynkront. |
-| URL | Ange URL: en var att skicka MDNs. |
+| URL | Ange URL att skicka de mdn måste specificeras. |
 
 ## <a name="configure-how-your-agreement-sends-messages"></a>Konfigurera hur ditt avtal skickar meddelanden
 
-Du kan konfigurera hur detta avtal identifierar och hanterar utgående meddelanden som du skickar till dina partners via det här avtalet.
+Du kan konfigurera hur detta avtal identifierar och hanterar utgående meddelanden som du skickar till dina partner via detta avtal.
 
 1.  Under **Lägg till**väljer **skicka inställningar**.
-Konfigurera dessa egenskaper baserat på ditt avtal med den partner som utbyter meddelanden med dig. Egenskapsbeskrivningar finns i tabellen i det här avsnittet.
+Konfigurera dessa egenskaper baserat på ditt avtal med partner som utbyter meddelanden med dig. Egenskapsbeskrivningar finns i tabellen i det här avsnittet.
 
-    ![Ange egenskaperna ”skicka inställningar”](./media/logic-apps-enterprise-integration-as2/agreement-51.png)
+    ![Ange egenskaper för ”skicka inställningar”](./media/logic-apps-enterprise-integration-as2/agreement-51.png)
 
-2. Om du vill skicka meddelanden till din partner, Välj **aktivera Meddelandesignering**. För att signera meddelanden, i den **MIC algoritmen** väljer den *partner privata värdcertifikatet MIC algoritmen*. I den **certifikat** väljer du en befintlig [värden partner privat certifikat](../logic-apps/logic-apps-enterprise-integration-certificates.md).
+2. Om du vill skicka meddelanden till din partner, Välj **aktivera Meddelandesignering**. För att signera meddelanden i den **MIC-algoritm** väljer den *partner privata värdcertifikatet MIC-algoritm*. I den **certifikat** väljer du en befintlig [privata värdcertifikatet för partner](../logic-apps/logic-apps-enterprise-integration-certificates.md).
 
-3. Om du vill skicka krypterade meddelanden till partnern, Välj **aktivera meddelandekryptering**. För att kryptera meddelanden, i den **krypteringsalgoritm** väljer den *gäst partner offentliga certifikat algoritmen*.
-I den **certifikat** väljer du en befintlig [gäst partner offentliga certifikat](../logic-apps/logic-apps-enterprise-integration-certificates.md).
+3. Om du vill skicka krypterade meddelanden till partnern, Välj **aktivera meddelandekryptering**. För att kryptera meddelanden i den **krypteringsalgoritm** väljer den *gäst partner offentligt certifikat algoritmen*.
+I den **certifikat** väljer du en befintlig [gäst partner offentligt certifikat](../logic-apps/logic-apps-enterprise-integration-certificates.md).
 
-4. Om du vill komprimera meddelandet, Välj **aktivera komprimering av meddelandet**.
+4. Om du vill komprimera meddelandet, Välj **aktivera meddelandekomprimering**.
 
-5. Om du vill låta programmet HTTP content-type-huvudet till en enda rad väljer **vika HTTP-huvuden**.
+5. Om du vill Vik ut HTTP content-type-huvud som en enda rad, Välj **Vik ut HTTP-huvuden**.
 
-6. För att ta emot synkron MDNs för skickade meddelanden, Välj **begära MDN**.
+6. För att få synkron mdn måste specificeras för skickade meddelanden, Välj **begär MDN**.
 
-7. För att ta emot signerade MDNs för skickade meddelanden, Välj **begäran signerade MDN**.
+7. För att få signerad mdn måste specificeras för skickade meddelanden, Välj **begär signerad MDN**.
 
-8. För att ta emot asynkrona MDNs för skickade meddelanden, Välj **begära asynkron MDN**. Om du väljer det här alternativet anger du URL att skicka MDNs.
+8. För att få asynkron mdn måste specificeras för skickade meddelanden, Välj **begär asynkron MDN**. Om du väljer det här alternativet anger du URL: en för att skicka de mdn måste specificeras.
 
-9. För att kräva oavvislighet mottogs, Välj **aktivera NRR**.  
+9. För att kräva oavvislighet efter, Välj **aktivera NRR**.  
 
-10. Välj för att ange algoritmen format som ska användas i MIC eller logga in utgående huvuden AS2-meddelande eller MDN **SHA2 algoritmen format**.  
+10. Välj för att ange algoritmformat som ska användas i MIC eller logga in utgående rubriker för AS2-meddelandet eller MDN **SHA2-algoritmformat**.  
 
 11. När du är klar kan du se till att spara inställningarna genom att välja **OK**.
 
@@ -150,32 +146,32 @@ Ditt avtal är nu redo att hantera utgående meddelanden som överensstämmer me
 | Egenskap  | Beskrivning |
 | --- | --- |
 | Aktivera meddelandesignering |Kräver att alla meddelanden som skickas från avtalet signeras. |
-| MIC-algoritm |Algoritmen som ska användas för signering av meddelanden. Konfigurerar partner privata värdcertifikatet MIC algoritmen för att signera meddelanden. |
-| Certifikat |Välj certifikatet som ska användas för signering av meddelanden. Konfigurerar värden partner privata certifikat för signering av meddelanden. |
-| Aktivera meddelandekryptering |Kräver kryptering av alla meddelanden som skickas från det här avtalet. Konfigurerar gäst partner offentliga certifikat algoritm för kryptering av meddelanden. |
-| Krypteringsalgoritm |Krypteringsalgoritm som ska användas för kryptering av meddelanden. Konfigurerar gäst partner offentliga certifikat för kryptering av meddelanden. |
-| Certifikat |Certifikatet som du använder för att kryptera meddelanden. Konfigurerar gäst partner privat certifikat för kryptering av meddelanden. |
-| Aktivera meddelandekomprimering |Kräver komprimering av alla meddelanden som skickas från det här avtalet. |
-| Vik ut HTTP-huvuden |Placerar HTTP innehållstyp-sidhuvud till en enda rad. |
-| Begär MDN |Kräver en MDN för alla meddelanden som skickas från det här avtalet. |
-| Begär signerad MDN |Kräver att alla MDNs som skickas till det här avtalet signeras. |
-| Begär asynkron MDN |Kräver asynkron MDNs skickas till det här avtalet. |
-| URL |Ange URL: en var att skicka MDNs. |
-| Aktivera NRR |Kräver oavvislighet mottogs (NRR) attributet kommunikation som ger bevis som data togs emot som åtgärdas. |
-| SHA2-algoritmformat |Välj algoritm format i MIC eller logga in utgående huvuden AS2-meddelande eller MDN |
+| MIC-algoritm |Algoritmen som ska användas för signering av meddelanden. Konfigurerar partner privata värdcertifikatet MIC-algoritm för att signera meddelanden. |
+| Certifikat |Välj certifikatet som ska användas för signering av meddelanden. Konfigurerar partner privata värdcertifikatet för att signera meddelanden. |
+| Aktivera meddelandekryptering |Kräver kryptering för alla meddelanden som skickas från detta avtal. Konfigurerar gäst partner offentligt certifikat algoritm för kryptering av meddelanden. |
+| Krypteringsalgoritm |Krypteringsalgoritmen som ska användas för kryptering av meddelanden. Konfigurerar gäst partner offentligt certifikat för kryptering av meddelanden. |
+| Certifikat |Certifikatet som ska användas för att kryptera meddelanden. Konfigurerar gäst partner privata certifikat för kryptering av meddelanden. |
+| Aktivera meddelandekomprimering |Kräver komprimering för alla meddelanden som skickas från detta avtal. |
+| Vik ut HTTP-huvuden |Placerar HTTP content-type-rubriken till en enda rad. |
+| Begär MDN |Kräver en MDN för alla meddelanden som skickas från detta avtal. |
+| Begär signerad MDN |Kräver mdn måste specificeras som skickas till detta avtal ska signeras. |
+| Begär asynkron MDN |Kräver asynkron mdn måste specificeras som ska skickas till detta avtal. |
+| URL |Ange URL att skicka de mdn måste specificeras. |
+| Aktivera NRR |Kräver oavvislighet för mottagande (NRR), ett attribut för kommunikation som ger bevis som data togs emot som åtgärdas. |
+| SHA2-algoritmformat |Välj att använda i MIC eller logga in utgående rubriker för AS2-meddelandet eller MDN-algoritmformat |
 
-## <a name="find-your-created-agreement"></a>Hitta din skapade avtal
+## <a name="find-your-created-agreement"></a>Hitta ditt skapade avtal
 
-1. När du är klar med inställningen alla dina avtal egenskaper på den **Lägg till** väljer **OK** har skapat ditt avtal och gå tillbaka till ditt konto för integrering.
+1. När du är klar med att alla dina avtal egenskaper på den **Lägg till** väljer **OK** har skapat ditt avtal och gå tillbaka till ditt integrationskonto.
 
-    Ditt nya avtal nu visas i din **avtal** lista.
+    Ditt nyligen tillagda avtal nu visas i din **avtal** lista.
 
-2. Du kan också visa dina avtal i ditt Kontoöversikt för integrering. Välj på menyn konto din integrering **översikt**och välj den **avtal** panelen. 
+2. Du kan också visa dina avtal i din integrering Kontoöversikt. På din integration meny väljer **översikt**och välj sedan den **avtal** panelen. 
 
    ![Välj ”avtal” panelen om du vill visa alla avtal](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
 
 ## <a name="view-the-swagger"></a>Visa swagger
-Finns det [swagger information](/connectors/as2/). 
+Se den [swagger information](/connectors/as2/). 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Mer information om Enterprise-Integrationspaket](logic-apps-enterprise-integration-overview.md "Lär dig mer om Enterprise-Integrationspaket")  
+* [Mer information om Enterprise-Integrationspaketet](logic-apps-enterprise-integration-overview.md "Lär dig mer om Enterprise-Integrationspaket")  

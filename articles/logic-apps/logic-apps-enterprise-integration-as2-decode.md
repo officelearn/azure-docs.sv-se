@@ -1,27 +1,23 @@
 ---
 title: Avkoda AS2-meddelanden – Azure Logic Apps | Microsoft Docs
-description: Hur du använder AS2-avkodaren i Enterprise-Integrationspaketet för Azure Logic Apps
+description: Avkoda som meddelanden med Azure Logic Apps och Enterprise-Integrationspaket
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 08/08/2018
-ms.author: LADocs; padmavc
-ms.openlocfilehash: a1b2d68a4a9433dc5c68d65552bf6bd509463958
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 06ffa6bddc1340ad548f9baf30eba65ba503bf73
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42057287"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128289"
 ---
-# <a name="decode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Avkoda AS2-meddelanden för Azure Logic Apps med Enterprise-Integrationspaketet 
+# <a name="decode-as2-messages-with-azure-logic-apps-and-enterprise-integration-pack"></a>Avkoda AS2-meddelanden med Azure Logic Apps och Enterprise-Integrationspaket 
 
 Använd avkoda AS2-meddelande-koppling för att upprätta säkerhet och tillförlitlighet vid överföring av meddelanden. Den här anslutningstjänsten tillhandahåller digital signering, dekryptering och bekräftelser via meddelande Disposition meddelanden (MDN).
 

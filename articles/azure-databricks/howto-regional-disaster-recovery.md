@@ -8,24 +8,30 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.openlocfilehash: 46cb9eaee1d56a96801065ae0a349aa0b1be85e0
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
+ms.openlocfilehash: 671e18346651a40d7f286e984117ce0c9ae62364
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/28/2018
-ms.locfileid: "43115230"
+ms.locfileid: "43125977"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Regional haveriberedskap för Azure Databricks-kluster
 
 Den här artikeln beskrivs en disaster recovery-arkitekturen användbart för Azure Databricks-kluster och de steg du utför den designen.
 
-## <a name="control-plan-architecture"></a>Kontrollen plan-arkitektur
+## <a name="azure-databricks-overview"></a>Översikt över Azure Databricks
 
-På en hög nivå när du skapar en Azure Databricks-arbetsyta från Azure-portalen en [hanterade installation](../managed-applications/overview.md) distribueras som en Azure-resurs i din prenumeration på välja Azure-region (till exempel USA, västra). Den här installationen har distribuerats i en [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) med en [Nätverkssäkerhetsgrupp](../virtual-network/manage-network-security-group.md) och ett Azure Storage-konto, som finns i din prenumeration. Det virtuella nätverket innehåller nivå perimetersäkerhet till Databricks-arbetsytan och skyddas via nätverkssäkerhetsgruppen. Du kan skapa Databricks-kluster genom att tillhandahålla worker och driver typ av virtuell dator och Databricks körningsversion arbetsytan. Beständiga data är tillgängliga i ditt storage-konto som kan vara Azure Blob Storage eller Azure Data Lake Store. När klustret har skapats kan köra du jobb via notebooks, REST API: er, ODBC-/ JDBC slutpunkter genom att koppla dem till ett specifikt kluster.
+Azure Databricks är en snabb och enkel samarbetsfunktioner Apache Spark-baserad analytics-tjänsten. För en big datapipeline data (raw eller strukturerade) var matas in i Azure via Azure Data Factory i batchar eller strömmas nästan i realtid med Kafka, Händelsehubb eller IoT Hub. Den här data oceanen i en datasjö för långsiktig beständig lagring i Azure Blob Storage eller Azure Data Lake Storage. Som en del av ditt analytics-arbetsflöde, använder du Azure Databricks för att läsa data från flera datakällor som [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml) , eller [Azure SQL Data Warehouse](../sql-data-warehouse/index.md) och omvandla dem till banbrytande insights med hjälp av Spark.
+
+![Databricks-pipeline](media/howto-regional-disaster-recovery/databricks-pipeline.png)
+
+## <a name="azure-databricks-architecture"></a>Azure Databricks-arkitektur
+
+På en hög nivå när du skapar en Azure Databricks-arbetsyta från Azure-portalen en [hanterade installation](../managed-applications/overview.md) distribueras som en Azure-resurs i din prenumeration på den valda Azure-regionen (till exempel USA, västra). Den här installationen har distribuerats i en [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) med en [Nätverkssäkerhetsgrupp](../virtual-network/manage-network-security-group.md) och ett Azure Storage-konto, som finns i din prenumeration. Det virtuella nätverket innehåller nivå perimetersäkerhet till Databricks-arbetsytan och skyddas via nätverkssäkerhetsgruppen. Du kan skapa Databricks-kluster genom att tillhandahålla worker och driver typ av virtuell dator och Databricks körningsversion i arbetsytan. Beständiga data är tillgängliga i ditt storage-konto som kan vara Azure Blob Storage eller Azure Data Lake Store. När klustret har skapats kan köra du jobb via notebooks, REST API: er, ODBC-/ JDBC slutpunkter genom att koppla dem till ett specifikt kluster.
 
 Databricks kontrollplanet hanterar och övervakar miljön för Databricks-arbetsyta. Alla management-åtgärder som till exempel när du skapar klustret kommer att initieras från kontrollplanet. Alla metadata, till exempel schemalagda jobb lagras i en Azure-databas med geo-replikering för feltolerans.
 
-![Databricks kontroll plan arkitektur](media/howto-regional-disaster-recovery/databricks-control-plane.png)
+![Databricks-arkitektur](media/howto-regional-disaster-recovery/databricks-architecture.png)
 
 En av fördelarna med den här arkitekturen är att användare kan ansluta Azure Databricks till en lagringsresurs i sitt konto. En viktig fördel är att båda compute (Azure Databricks) och lagring skalas oberoende av varandra.
 
@@ -243,7 +249,7 @@ Om du vill skapa egna regionalt haveri recovery topologi, följer du dessa krav:
 
 7. **Migrera bibliotek**
 
-   Det finns för närvarande inget enkelt sätt migrera bibliotek från en arbetsyta till en annan. Installera om dessa bibliotek i den nya arbetsytan. Det här steget är därför huvudsakligen manuell. Det är möjligt att automatisera kombination av [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples) att ladda upp anpassade bibliotek till arbetsytan och [bibliotek CLI](https://github.com/databricks/databricks-cli#libraries-cli).
+   Det finns för närvarande inget enkelt sätt migrera bibliotek från en arbetsyta till en annan. I stället installera om dessa bibliotek i den nya arbetsytan manuellt. Det är möjligt att automatisera kombination av [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples) att ladda upp anpassade bibliotek till arbetsytan och [bibliotek CLI](https://github.com/databricks/databricks-cli#libraries-cli).
 
 8. **Migrera Azure blob storage och Azure Data Lake Store monterar**
 
@@ -251,7 +257,7 @@ Om du vill skapa egna regionalt haveri recovery topologi, följer du dessa krav:
 
 9. **Migrera kluster init skript**
 
-   Initieringsskript några kluster kan migreras från den gamla till ny arbetsyta med hjälp av den [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples). Först kopiera de nödvändiga skript från ”dbfs: / dat abricks/init /...” till din lokala dator eller virtuell dator. Kopiera dessa skript till den nya arbetsytan på samma sökväg.
+   Initieringsskript några kluster kan migreras från den gamla till ny arbetsyta med hjälp av den [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples). Först kopiera de nödvändiga skript från `dbfs:/dat abricks/init/..` till din lokala dator eller virtuell dator. Kopiera dessa skript till den nya arbetsytan på samma sökväg.
 
    ```bash
    // Primary to local

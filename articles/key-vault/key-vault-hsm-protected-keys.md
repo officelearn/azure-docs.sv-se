@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 08/27/2018
 ms.author: barclayn
-ms.openlocfilehash: 774fd4ca6bbae0d02f5733269f091d325f4c776d
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 9466f4178047a4927684a1fcfd80f661ea4aa7a5
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054750"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127710"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Så här genererar och överför HSM-skyddade nycklar för Azure Key Vault
-## <a name="introduction"></a>Introduktion
+
 För extra trygghet, när du använder Azure Key Vault, kan du importera eller generera nycklar i maskinvarusäkerhetsmoduler (HSM) som aldrig lämnar HSM: ens gränser. Det här scenariot kallas ofta att *egna nycklar*, eller BYOK. HSM-modulerna är FIPS 140-2 Level 2-verifierade. Azure Key Vault använder Thales nShield-familj av HSM: er för att skydda dina nycklar.
 
 Använd informationen i det här avsnittet hjälper dig att planera för, generera och överföra din egen HSM-skyddade nycklar som ska användas med Azure Key Vault.
@@ -31,10 +31,7 @@ Den här funktionen är inte tillgänglig för Azure Kina.
 
 > [!NOTE]
 > Läs mer om Azure Key Vault [vad är Azure Key Vault?](key-vault-whatis.md)  
->
 > En introduktionskurs som innefattar att skapa key vault för HSM-skyddade nycklar, se [Kom igång med Azure Key Vault](key-vault-get-started.md).
->
->
 
 Mer information om generera och överföra en HSM-skyddad nyckel via Internet:
 
@@ -46,14 +43,17 @@ Mer information om generera och överföra en HSM-skyddad nyckel via Internet:
 * Microsoft använder separata KeyExchange-nycklar och separata Säkerhetsvärldar i varje geografisk region. Den här separationen säkerställer att din nyckel kan användas endast i datacenter i den region där den krypterades. Exempelvis kan en nyckel från en europeisk kund inte användas i datacenter i Nordamerika eller Asien.
 
 ## <a name="more-information-about-thales-hsms-and-microsoft-services"></a>Mer information om Thales HSM: er och Microsoft-tjänster
+
 Thales e-Security är en ledande global leverantör av datakryptering och cybersäkerhetslösningar till finansiella tjänster, avancerad teknik, tillverkning, myndigheter och informationsteknik. Thales lösningar som används av fyra av fem största energi och flygindustrin företag med en 40 år bevisade framgångar med att skydda företagets och myndighets-information. Sina lösningar används också av 22 NATO-länder och skyddar mer än 80 procent av transaktioner över hela världen.
 
 Microsoft har samarbetat med Thales för att göra avancerade för HSM: er. Dessa förbättringar kan du få de vanliga fördelarna med värdtjänster utan att behöva lämna ifrån dig kontrollen över dina nycklar. Mer specifikt att medför förbättringarna Microsoft hantera HSM: erna så att du inte behöver. Som en molntjänst skalar Azure Key Vault upp med kort varsel för att uppfylla din organisations användningstoppar. På samma gång, skyddas din nyckel i Microsofts HSM: du behålla kontrollen över nyckelns livscykel eftersom du generera nyckeln och överföra den till Microsofts HSM: er.
 
 ## <a name="implementing-bring-your-own-key-byok-for-azure-key-vault"></a>Implementera ta med din egen nyckel (BYOK) för Azure Key Vault
+
 Använd följande information och procedurer om du ska skapa dina egna HSM-skyddad nyckel och sedan överföra det till Azure Key Vault – ta med din egen nyckel (BYOK)-scenario.
 
 ## <a name="prerequisites-for-byok"></a>Förutsättningar för BYOK
+
 I tabellen nedan finns en lista över förutsättningar för att ta med din egen nyckel (BYOK) för Azure Key Vault.
 
 | Krav | Mer information |
@@ -61,9 +61,10 @@ I tabellen nedan finns en lista över förutsättningar för att ta med din egen
 | En prenumeration på Azure |Om du vill skapa ett Azure Key Vault behöver du en Azure-prenumeration: [registrera dig för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/) |
 | Azure Key Vault Premium-tjänstnivån för HSM-skyddade nycklar |Mer information om tjänstnivåer och funktioner för Azure Key Vault finns i den [priser för Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) webbplats. |
 | Thales HSM, smartkort och hjälpprogram |Du måste ha åtkomst till en maskinvarusäkerhetsmodul och grundläggande operativa kunskaper om Thales HSM: er. Se [maskinvarusäkerhetsmodul](https://www.thales-esecurity.com/msrms/buy) lista över kompatibla modeller eller för att köpa en HSM om du inte har något. |
-| Följande maskinvara och programvara:<ol><li>Ett offline x64 arbetsstation med minst Windows-operativsystemet Windows 7 och Thales nShield-programvara som är minst version 11.50.<br/><br/>Om den här arbetsstationen kör Windows 7, måste du [installera Microsoft .NET Framework 4.5](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>En arbetsstation som är ansluten till Internet med en minsta Windows-operativsystemet Windows 7 och [Azure PowerShell](/powershell/azure/overview) **lägsta version 1.1.0** installerad.</li><li>En USB-enhet eller annan bärbar lagringsenhet som har minst 16 MB ledigt utrymme.</li></ol> |Av säkerhetsskäl rekommenderar vi att den första arbetsstationen inte är ansluten till ett nätverk. Men är den här rekommendationen inte programmässigt tvingande.<br/><br/>Observera att i instruktionerna som följer den här arbetsstationen kallas den frånkopplade arbetsstationen.</p></blockquote><br/>Om din klientnyckel är avsedd för ett produktionsnätverk, rekommenderar vi dessutom att du använder en andra, separat arbetsstation för att hämta verktygen och överföra klientnyckeln. Men i testsyfte kan du använda samma arbetsstation som den första.<br/><br/>Observera att i instruktionerna som följer den här andra arbetsstationen kallas den Internetanslutna arbetsstationen.</p></blockquote><br/> |
+| Följande maskinvara och programvara:<ol><li>Ett offline x64 arbetsstation med minst Windows-operativsystemet Windows 7 och Thales nShield-programvara som är minst version 11.50.<br/><br/>Om den här arbetsstationen kör Windows 7, måste du [installera Microsoft .NET Framework 4.5](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>En arbetsstation som är ansluten till Internet med en minsta Windows-operativsystemet Windows 7 och [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.7.0) **lägsta version 1.1.0** installerad.</li><li>En USB-enhet eller annan bärbar lagringsenhet som har minst 16 MB ledigt utrymme.</li></ol> |Av säkerhetsskäl rekommenderar vi att den första arbetsstationen inte är ansluten till ett nätverk. Men är den här rekommendationen inte programmässigt tvingande.<br/><br/>Observera att i instruktionerna som följer den här arbetsstationen kallas den frånkopplade arbetsstationen.</p></blockquote><br/>Om din klientnyckel är avsedd för ett produktionsnätverk, rekommenderar vi dessutom att du använder en andra, separat arbetsstation för att hämta verktygen och överföra klientnyckeln. Men i testsyfte kan du använda samma arbetsstation som den första.<br/><br/>Observera att i instruktionerna som följer den här andra arbetsstationen kallas den Internetanslutna arbetsstationen.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>Generera och överför din nyckel till Azure Key Vault HSM
+
 Du vill använda följande fem steg för att generera och överför din nyckel till en Azure Key Vault HSM:
 
 * [Steg 1: Förbered din Internetanslutna arbetsstation](#step-1-prepare-your-internet-connected-workstation)
@@ -73,29 +74,33 @@ Du vill använda följande fem steg för att generera och överför din nyckel t
 * [Steg 5: Överför nyckeln till Azure Key Vault](#step-5-transfer-your-key-to-azure-key-vault)
 
 ## <a name="step-1-prepare-your-internet-connected-workstation"></a>Steg 1: Förbered din Internetanslutna arbetsstation
+
 För det här första steget, gör du följande procedurer på en arbetsstation som är ansluten till Internet.
 
 ### <a name="step-11-install-azure-powershell"></a>Steg 1.1: Installera Azure PowerShell
+
 Hämta och installera Azure PowerShell-modulen som innehåller cmdletar för att hantera Azure Key Vault från den Internetanslutna arbetsstationen. Detta kräver en lägsta version av 0.8.13.
 
 Installationsanvisningar finns i [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="step-12-get-your-azure-subscription-id"></a>Steg 1.2: Hämta ditt Azure-prenumerations-ID
+
 Starta en Azure PowerShell-session och logga in på ditt Azure-konto med hjälp av följande kommando:
 
 ```Powershell
-   Add-AzureAccount
+   Add-AzureRMAccount
 ```
 Ange användarnamnet och lösenordet för ditt Azure-konto i popup-fönstret i webbläsaren. Använd sedan den [Get-AzureSubscription](/powershell/module/servicemanagement/azure/get-azuresubscription?view=azuresmps-3.7.0) kommando:
 
 ```powershell
-   Get-AzureSubscription
+   Get-AzureRMSubscription
 ```
 Leta upp ID för den prenumeration som du ska använda för Azure Key Vault i utdata. Du behöver den här prenumerations-ID senare.
 
 Stäng inte Azure PowerShell-fönster.
 
 ### <a name="step-13-download-the-byok-toolset-for-azure-key-vault"></a>Steg 1.3: Hämta BYOK-verktygen för Azure Key Vault
+
 Gå till Microsoft Download Center och [ladda ned Azure Key Vault BYOK-verktygsuppsättningen](http://www.microsoft.com/download/details.aspx?id=45345) för geografisk region eller instans av Azure. Använd följande information för att identifiera paketets namn att ladda ned och dess motsvarande SHA-256 paketets hashvärde:
 
 - - -
@@ -215,9 +220,11 @@ Denna verktygsuppsättning omfattar följande:
 Kopiera paketet till en USB-enhet eller annan bärbar lagringsenhet.
 
 ## <a name="step-2-prepare-your-disconnected-workstation"></a>Steg 2: Förbered din frånkopplade arbetsstation
+
 För den här andra steget, gör du följande procedurer på en arbetsstation som inte är ansluten till ett nätverk (Internet eller ditt interna nätverk).
 
 ### <a name="step-21-prepare-the-disconnected-workstation-with-thales-hsm"></a>Steg 2.1: Förbered den frånkopplade arbetsstationen med Thales HSM
+
 Installera support-mjukvaran hjälpprogrammet (Thales) på en Windows-dator och Anslut en Thales HSM till datorn.
 
 Se till att Thales-verktygen finns i din sökväg (**%nfast_home%\bin**). Skriv till exempel följande:
@@ -229,6 +236,7 @@ Se till att Thales-verktygen finns i din sökväg (**%nfast_home%\bin**). Skriv 
 Mer information finns i användarhandboken som medföljer Thales HSM.
 
 ### <a name="step-22-install-the-byok-toolset-on-the-disconnected-workstation"></a>Steg 2.2: Installera BYOK-verktygen på den frånkopplade arbetsstationen
+
 Kopiera BYOK-verktygspaketet från USB-enhet eller annan bärbar lagringsenhet och gör sedan följande:
 
 1. Extrahera filerna från det Hämta paketet till valfri mapp.
@@ -236,13 +244,16 @@ Kopiera BYOK-verktygspaketet från USB-enhet eller annan bärbar lagringsenhet o
 3. Följ anvisningarna för att installera Visual C++-körtidskomponenter för Visual Studio 2013.
 
 ## <a name="step-3-generate-your-key"></a>Steg 3: Generera nyckeln
+
 För den här tredje steget, gör du följande procedurer på den frånkopplade arbetsstationen. För att slutföra det här steget måste din HSM vara i läget för initiering. 
 
 
 ### <a name="step-31-change-the-hsm-mode-to-i"></a>Steg 3.1: Ändra HSM-läge till ”I”
+
 Om du använder Thales nShield Edge, för att ändra läget: 1. Du kan använda knappen läge för att markera läget som krävs. 2. Inom några sekunder, tryck och håll Rensa-knapp för några sekunder. Om läget ändras kan det nya läget LED slutar blinka och fortsätter att lysa. Status-LED kan flash oregelbundet under några sekunder och sedan blinkar regelbundet när enheten är klar. I annat fall enheten finns kvar i det aktuella läget med det aktuella läget LED tänd.
 
 ### <a name="step-32-create-a-security-world"></a>Steg 3.2: Skapa en säkerhetsvärld
+
 Starta en kommandotolk och kör programmet Thales ny värld.
 
    ```cmd
@@ -256,10 +267,11 @@ Gör något av följande:
 * Säkerhetskopiera världfilen. Säkra och skydda världfilen, Administratörskorten och tillhörande PIN-koder och se till att ingen enskild person har tillgång till mer än ett kort.
 
 ### <a name="step-33-change-the-hsm-mode-to-o"></a>Steg 3.3: Ändra HSM-läge till ' formatmönster
+
 Om du använder Thales nShield Edge, för att ändra läget: 1. Du kan använda knappen läge för att markera läget som krävs. 2. Inom några sekunder, tryck och håll Rensa-knapp för några sekunder. Om läget ändras kan det nya läget LED slutar blinka och fortsätter att lysa. Status-LED kan flash oregelbundet under några sekunder och sedan blinkar regelbundet när enheten är klar. I annat fall enheten finns kvar i det aktuella läget med det aktuella läget LED tänd.
 
-
 ### <a name="step-34-validate-the-downloaded-package"></a>Steg 3.4: Validera det Hämta paketet
+
 Det här steget är valfritt men rekommenderas så att du kan validera följande:
 
 * KeyExchange-nyckeln som ingår i verktygsuppsättningen har genererats från en äkta Thales HSM.
@@ -268,8 +280,6 @@ Det här steget är valfritt men rekommenderas så att du kan validera följande
 
 > [!NOTE]
 > Om du vill validera det Hämta paketet HSM måste vara ansluten, påslagen, och måste ha en säkerhetsvärld (till exempel det som du nyss skapat).
->
->
 
 Verifiera det Hämta paketet:
 
@@ -329,6 +339,7 @@ Det här skriptet validerar undertecknarkedjan upp till Thales rotnyckel. Hash f
 Du är nu redo att skapa en ny nyckel.
 
 ### <a name="step-35-create-a-new-key"></a>Steg 3.5: Skapa en ny nyckel
+
 Generera en nyckel med hjälp av Thales **generatekey** program.
 
 Kör följande kommando för att generera nyckeln:
@@ -348,11 +359,12 @@ Säkerhetskopiera filen för Tokeniserad nyckel på en säker plats.
 > [!IMPORTANT]
 > När du senare överför din nyckel till Azure Key Vault kan inte Microsoft exportera den här nyckeln till dig, så det är mycket viktigt att säkerhetskopiera din nyckel och säkerhetsvärld på ett säkert sätt. Kontakta Thales för vägledning och bästa praxis för att säkerhetskopiera din nyckel.
 >
->
+
 
 Du är nu redo att överföra din nyckel till Azure Key Vault.
 
 ## <a name="step-4-prepare-your-key-for-transfer"></a>Steg 4: Förbered din nyckel för överföring
+
 För den här fjärde steget, gör du följande procedurer på den frånkopplade arbetsstationen.
 
 ### <a name="step-41-create-a-copy-of-your-key-with-reduced-permissions"></a>Steg 4.1: Skapa en kopia av din nyckel med minskade behörigheter
@@ -419,6 +431,7 @@ Du kan inspekterar ACL: er med följande kommandon med hjälp av Thales-verktyge
   När du kör dessa kommandon ersätter contosokey med samma värde som du angav i **steg 3.5: skapa en ny nyckel** från den [generera nyckeln](#step-3-generate-your-key) steg.
 
 ### <a name="step-42-encrypt-your-key-by-using-microsofts-key-exchange-key"></a>Steg 4.2: Kryptera nyckeln med hjälp av Microsofts KeyExchange-nyckel
+
 Kör något av följande kommandon, beroende på dina geografiska region eller instans av Azure:
 
 * För Nordamerika:
@@ -473,9 +486,11 @@ Använd dessa anvisningar när du kör det här kommandot:
 När detta är klar visas **resultat: lyckades** och det finns en ny fil i den aktuella mappen med följande namn: keytransferpackage*ContosoFirstHSMkey*.byok
 
 ### <a name="step-43-copy-your-key-transfer-package-to-the-internet-connected-workstation"></a>Steg 4.3: Kopiera ditt nyckelöverföringspaket till den Internetanslutna arbetsstationen
+
 Använd en USB-enhet eller annan bärbar lagringsenhet för att kopiera utdatafilen från föregående steg (KeyTransferPackage ContosoFirstHSMkey.byok) till din Internetanslutna arbetsstation.
 
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>Steg 5: Överför nyckeln till Azure Key Vault
+
 Det här sista steget på den Internetanslutna arbetsstationen använder de [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) cmdlet för att ladda upp nyckelöverföringspaketet som du kopierade från den frånkopplade arbetsstationen till Azure Key Vault HSM:
 
    ```powershell
@@ -485,4 +500,5 @@ Det här sista steget på den Internetanslutna arbetsstationen använder de [Add
 Om överföringen lyckas visas visas egenskaperna för den nyckel som du just lade till.
 
 ## <a name="next-steps"></a>Nästa steg
+
 Du kan nu använda den här HSM-skyddad nyckel i ditt nyckelvalv. Mer information finns i den **om du vill använda en maskinvarusäkerhetsmodul (HSM)** i avsnittet den [komma igång med Azure Key Vault](key-vault-get-started.md) självstudien.

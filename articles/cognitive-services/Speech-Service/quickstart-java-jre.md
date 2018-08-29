@@ -9,16 +9,16 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: fmegen
-ms.openlocfilehash: 11aba1ae6f49d6c00fabd928ae3aefedcbea8ed8
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 923ab3378d5e2d833e11c5111d4dd9964fea6dc4
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234352"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126621"
 ---
 # <a name="quickstart-recognize-speech-in-java-windows-or-linux"></a>Snabbstart: Känna igen tal i Java (Windows eller Linux)
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Det här dokumentet beskriver hur du skapar ett Java-baserade konsolprogram för körning miljö JRE (Java) som använder SDK: N för tal.
 Programmet är baserad på Microsoft Cognitive Services SDK Maven-paketet.
@@ -107,7 +107,7 @@ Nästa 15 sekunder av talindata från mikrofonen ska identifieras och loggas i k
 
 ![Konsolens utdata efter lyckad taligenkänning](media/sdk/qs-java-jre-07-console-output.png)
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Leta efter det här exemplet i den `quickstart/java-jre` mapp.
 
 ## <a name="next-steps"></a>Nästa steg

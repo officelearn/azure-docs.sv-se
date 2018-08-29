@@ -14,26 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 5e0002437b4fc22d9dfdcdca9a587bf420a7d8fa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: cb4f738fd63b8b013f674557a0c5f5639c26391e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207690"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126892"
 ---
 # <a name="differences-between-service-fabric-on-linux-and-windows"></a>Skillnader mellan Service Fabric i Linux och Windows
 
-Det finns vissa funktioner som inte finns i Linux ännu, utan bara i Windows. Till slut kommer alla funktioner att finnas på båda plattformarna. Skillnaderna minskar med varje ny version. De senaste versionerna (det vill säga version 6.0 för Windows och version 6.0 för Linux) skiljer sig åt på följande sätt: 
+Det finns vissa funktioner som inte finns i Linux ännu, utan bara i Windows. Till slut kommer alla funktioner att finnas på båda plattformarna. Skillnaderna minskar med varje ny version. Följande skillnader finns mellan de senaste versionerna.
 
-* Alla programmeringsmodeller är förhandsversioner (Java/C# Reliable Actors, Reliable Stateless Services och Reliable Stateful Services)
-* Envoy (ReverseProxy) är förhandsversion i Linux
+* Envoy (omvänd Proxy) är en förhandsversion i Linux
 * Fristående installationsprogram är inte tillgängligt ännu i Linux
 * Omdirigering av konsol (stöds inte i Linux- eller Windows-produktionskluster)
 * FAS (Fault Analysis Service) i Linux
-* DNS-tjänst för Service Fabric-tjänster (DNS-tjänst stöds för behållare i Linux)
+* DNS-tjänst för Service Fabric-tjänster (DNS-tjänst stöds för containrar i Linux)
 * Motsvarande CLI-kommandon för vissa Powershell-kommandon (se lista nedan, de flesta gäller endast fristående kluster)
-
-Utvecklingsverktygen skiljer sig också åt mellan Windows och Linux. Visual Studio, Powershell, VSTS och ETW används för Windows medan Yeoman, Eclipse, Jenkins och LTTng används i Linux.
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>PowerShell-cmdletar som inte fungerar mot ett Linux Service Fabric-kluster
 

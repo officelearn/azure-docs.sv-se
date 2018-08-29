@@ -1,6 +1,6 @@
 ---
 title: Plattformar som stöds i Azure Security Center | Microsoft Docs
-description: Det här dokumentet innehåller en lista över Windows- och Linux operatings system som stöds i Azure Security Center.
+description: Det här dokumentet innehåller en lista över Windows och Linux operatings-system som stöds i Azure Security Center.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,25 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/22/2018
+ms.date: 07/26/2018
 ms.author: terrylan
-ms.openlocfilehash: 1bb0b61fe8a74edd35bb096fd295aedc67f6efb3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b82b152ae4f44e475b5c3e9bda9d604f405503e0
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335898"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123739"
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Plattformar som stöds i Azure Security Center
-Tillstånd säkerhetsövervakning och rekommendationer är tillgängliga för virtuella datorer (VM) med hjälp av både klassiska och Resource Manager distributionsmodellerna och datorer.
+Tillstånd säkerhetsövervakning och rekommendationer är tillgängliga för virtuella datorer (VM), som skapats med hjälp av både klassiska och Resource Manager distributionsmodellerna och datorer.
 
 > [!NOTE]
-> Lär dig mer om den [klassisk och Resource Manager distributionsmodellerna](../azure-classic-rm.md) för Azure-resurser.
+> Läs mer om den [klassiska och Resource Manager-distributionsmodeller](../azure-classic-rm.md) för Azure-resurser.
 >
 >
 
 ## <a name="supported-platforms-for-windows-computers-and-vms"></a>Plattformar som stöds för Windows-datorer och virtuella datorer
-Windows operativsystem:
+Operativsystem som stöds Windows:
 
 * Windows Server 2008
 * Windows Server 2008 R2
@@ -42,26 +42,26 @@ Windows operativsystem:
 ## <a name="supported-platforms-for-linux-computers-and-vms"></a>Plattformar som stöds för Linux-datorer och virtuella datorer
 Operativsystem som stöds Linux:
 
-* Versioner av Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS
+* Versioner för Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS
 * Debian versioner 6, 7, 8, 9
 * CentOS version 5, 6, 7
 * Red Hat Enterprise Linux (RHEL) version 5, 6, 7
 * SUSE Linux Enterprise Server (SLES) versioner 11, 12
-* Oracle Linux version 5, 6, 7
-* Amazon Linux 2012.09 via 2017
+* Oracle Linux-versioner 5, 6, 7
+* Amazon Linux 2012.09 till 2017
 * Openssl 1.1.0 stöds bara på x86_64 plattformar (64-bitars)
 
 > [!NOTE]
-> Virtuella beteendeanalys är ännu inte tillgängliga för Linux-operativsystem.
+> Beteendeanalys för virtuell dator är ännu inte tillgängliga för Linux-operativsystem.
 >
 >
 
 ## <a name="vms-and-cloud-services"></a>Virtuella datorer och molntjänster
-Virtuella datorer som körs i en molntjänst stöds också. Endast cloud services webb- och arbetsroller roller som körs i produktion fack övervakas. Mer information om Molntjänsten finns [översikt över molntjänster](../cloud-services/cloud-services-choose-me.md).
+Virtuella datorer som körs i en molntjänst stöds också. Endast molntjänster web och worker-roller som körs i produktionsmiljön fack övervakas. Läs mer om Molntjänsten i [översikt över Cloud Services](../cloud-services/cloud-services-choose-me.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Planera för Azure Security Center och handboken](security-center-planning-and-operations-guide.md) – Lär dig att planera och designöverväganden för att införa Azure Security Center
-- [Säkerhetsaviseringar efter typ i Azure Security Center](security-center-alerts-type.md#virtual-machine-behavioral-analysis) – Lär dig mer om virtuella beteendeanalys och krascher dump minnesanalys i Security Center
+- [Azure Security Center planerings- och bruksanvisning](security-center-planning-and-operations-guide.md) – Lär dig hur du planerar och designaspekter att införa Azure Security Center
+- [Säkerhetsaviseringar per typ i Azure Security Center](security-center-alerts-type.md#virtual-machine-behavioral-analysis) – Lär dig mer om beteendeanalys av virtuell dator och kraschanalys dump minne i Security Center
 - [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten
-- [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – hittar du blogginlägg om säkerhet och Azure kompatibilitet
+- [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – hittar du blogginlägg om Azure-säkerhet och regelefterlevnad

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: b6078ac326fe51f4198137eec2de728b6036c271
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 7cb78647b8ae17e066f05acc32668d5c0c8b4ff5
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42058192"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127685"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware Monitoring (förhandsversion) lösningen i Log Analytics
 
@@ -153,8 +153,6 @@ Om du vill se ytterligare ESXi-värd-uppgifter för skapande av virtuell dator k
 
 #### <a name="common-search-queries"></a>Vanligaste sökfrågorna
 Lösningen innehåller andra användbara frågor som kan hjälpa dig att hantera din ESXi-värdar, t.ex hög lagringsutrymme och lagringssvarstiden sökvägsfel.
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![frågor](./media/log-analytics-vmware/queries.png)
 

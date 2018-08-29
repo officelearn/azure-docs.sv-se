@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/27/2018
 ms.author: wolfma
-ms.openlocfilehash: 3c8d986061a76c0217ea3dfcd1095cdbde74113c
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 81c0ee318a804dc8acbdfaf274394c30f470571f
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39331047"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143905"
 ---
-## <a name="intent-recognition-from-a-file-using-events"></a>Taligenkänning från en fil med hjälp av händelser
+## <a name="intent-recognition-from-a-file-with-events"></a>Taligenkänning från en fil med händelser
 
-Kodfragmentet visar hur avsiktsigenkänning på standardspråket (`en-US`) på en kontinuerlig sätt. Den här koden ger tillgång till ytterligare information, t.ex mellanresultat. Indata hämtas från en ljudfil, format är en kanal (mono) WAV / PCM med en samplingsfrekvensen 16 kHz.
+Följande kod visar hur avsiktsigenkänning på standardspråket (en-US) på en kontinuerlig sätt. Kod som ger åtkomst till ytterligare information som mellanliggande resultat. Indata har hämtats från en ljudfil. Format som stöds är en kanal (mono) WAV/PCM med en samplingsfrekvensen 16 kHz.
 
-[!include[Sample Audio](cognitive-services-speech-service-sample-audio.md)]
+[!INCLUDE [Sample audio](cognitive-services-speech-service-sample-audio.md)]
 

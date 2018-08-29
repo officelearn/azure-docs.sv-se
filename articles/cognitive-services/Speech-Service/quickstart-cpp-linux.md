@@ -9,16 +9,16 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: b8bc24123fe75e876f607b07e37423ae68d92ee4
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 92bd5980ac2e6befbe352df6ddf8644f04d37d34
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41987555"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126873"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i C++ i Linux med hjälp av tal-SDK
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 I den här artikeln lär du dig att skapa ett C++-konsolprogram i Linux (Ubuntu 16.04) med hjälp av Cognitive Services tal SDK för att transkribera tal till text.
 
@@ -35,7 +35,7 @@ I den här artikeln lär du dig att skapa ett C++-konsolprogram i Linux (Ubuntu 
 
 ## <a name="get-the-speech-sdk"></a>Hämta tal SDK
 
-[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 Den aktuella versionen av Cognitive Services tal SDK är `0.6.0`.
 
@@ -71,7 +71,7 @@ Hämta och installera SDK: N på följande sätt:
 
    Du bör se meddelande från tredje part och licensfiler, såväl som `include` katalog för rubriker och en `lib` katalogen för bibliotek.
 
-   [!include[Linux Binary Archive Content](../../../includes/cognitive-services-speech-service-linuxbinary-content.md)]
+   [!INCLUDE [Linux Binary Archive Content](../../../includes/cognitive-services-speech-service-linuxbinary-content.md)]
 
 ## <a name="add-the-sample-code"></a>Lägg till exempelkoden
 
@@ -129,7 +129,7 @@ Hämta och installera SDK: N på följande sätt:
    We recognized: What's the weather
    ```
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Leta efter det här exemplet i den `quickstart/cpp-linux` mapp.
 
 ## <a name="next-steps"></a>Nästa steg

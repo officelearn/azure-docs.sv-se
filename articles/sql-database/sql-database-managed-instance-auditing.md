@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database hanteras instans granskning | Microsoft Docs
-description: Lär dig hur du kommer igång med Azure SQL Database hanteras instans Auditing med T-SQL
+title: Azure SQL Database Managed Instance granskning | Microsoft Docs
+description: Lär dig hur du kommer igång med Azure SQL Database hanterad instans-granskning med T-SQL
 services: sql-database
 author: giladm
 manager: craigg
@@ -8,38 +8,38 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 08/28/2018
 ms.author: giladm
-ms.openlocfilehash: 71929be456de4b798da48bb202969deb71e1c371
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a43ca95717c712c932d29a619b7f1a0671c500bf
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648861"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125449"
 ---
-# <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Kom igång med Azure SQL Database hanteras instans Auditing
+# <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Kom igång med Azure SQL Database hanterad instans-granskning
 
-[Azure SQL-hanterade databasinstans](sql-database-managed-instance.md) -databas Auditing spårar databashändelser och skriver dem till en granskningslogg logga i Azure storage-konto. Granskning också:
+[Azure SQL Database Managed Instance](sql-database-managed-instance.md) granskning spårar databasen händelser och skriver dem till en granskningslogg i ditt Azure storage-konto. Granskning också:
 - Hjälper dig att upprätthålla regelefterlevnad, Förstå Databasaktivitet och få insyn i avvikelser och fel som kan tyda på affärsproblem eller potentiella säkerhetsöverträdelser.
-- Aktiverar och underlättar anslutning till efterlevnadsstandarder, även om den inte garantera efterlevnad. Mer information om Azure-program som stöd för överensstämmelse med standarder, finns det [Azure Säkerhetscenter](https://azure.microsoft.com/support/trust-center/compliance/).
+- Aktiverar och underlättar infört efterlevnadsstandarder, även om det inte garanterar efterlevnad. Mer information om Azure program som stöd för överensstämmelse med standarder, finns i den [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
 
 
-## <a name="set-up-auditing-for-your-server"></a>Konfigurera granskning för servern
+## <a name="set-up-auditing-for-your-server"></a>Konfigurera granskning för din server
 
-I följande avsnitt beskrivs konfigurationen av granskning på din hanteras instans.
+I följande avsnitt beskrivs konfigurationen av granskning på din hanterade instans.
 1. Gå till [Azure-portalen](https://portal.azure.com).
-2. Följande steg skapar du ett Azure Storage **behållare** där granskningsloggarna lagras.
+2. Följande steg skapar ett Azure Storage **behållare** där granskningsloggar lagras.
 
-   - Gå till Azure Storage där du vill lagra din granskningsloggar.
+   - Gå till Azure Storage där du vill lagra dina granskningsloggar.
 
      > [!IMPORTANT]
-     > Ett lagringskonto i samma region som hanteras instans server Undvik att använda mellan region läsning/skrivning.
+     > Använd ett lagringskonto i samma region som hanterad instans-server om du vill undvika läsningar/skrivningar över flera regioner.
 
-   - I storage-konto går du till **översikt** och på **Blobbar**.
+   - I storage-konto går du till **översikt** och klicka på **Blobar**.
 
      ![Navigeringsfönster][1]
 
-   - Klicka på den översta menyn **+ behållare** att skapa en ny behållare.
+   - I den översta menyn klickar du på **+ behållare** att skapa en ny behållare.
 
      ![Navigeringsfönster][2]
 
@@ -47,44 +47,44 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanteras inst
 
      ![Navigeringsfönster][3]
 
-   - Klicka på den nyligen skapade behållaren i listan över behållare, och klicka sedan på **behållaregenskaperna**.
+   - Klicka på den nyligen skapade behållaren i listan med behållare och klicka sedan på **behållaregenskaperna**.
 
      ![Navigeringsfönster][4]
 
-   - Kopiera URL som behållare genom att klicka på Kopiera-ikonen och spara URL (t.ex, i Anteckningar) för framtida användning. URL-format för behållaren ska vara `https://<StorageName>.blob.core.windows.net/<ContainerName>`
+   - Kopiera URL: en för behållaren genom att klicka på ikonen för kopiera och spara URL: en (till exempel i Anteckningar) för framtida användning. URL-format för behållaren ska vara `https://<StorageName>.blob.core.windows.net/<ContainerName>`
 
      ![Navigeringsfönster][5]
 
-3. Följande steg generera ett Azure Storage **SAS-Token** används för att ge hanterad instans granskning åtkomsträttigheter till lagringskontot.
+3. Följande steg generera ett Azure Storage **SAS-Token** används för att ge hanterad instans granskning åtkomstbehörigheter till lagringskontot.
 
    - Gå till Azure Storage-konto där du skapade behållaren i föregående steg.
 
-   - Klicka på **signatur för delad åtkomst** på menyn Inställningar för lagring.
+   - Klicka på **signatur för delad åtkomst** på menyn Inställningar.
 
      ![Navigeringsfönster][6]
 
    - Konfigurera SAS enligt följande:
      - **Tillåtna tjänster**: Blob
-     - **Startdatum**: för att undvika problem med tidszon, rekommenderas att använda igårs datum.
+     - **Startdatum**: för att undvika tidszon-relaterade problem rekommenderar vi att du använder gårdagens datum.
      - **Slutdatum**: Välj det datum då den här SAS-Token upphör att gälla. 
 
        > [!NOTE]
-       > Förnya token vid utgången för att undvika fel för granskning.
+       > Förnya token vid utgången att undvika fel för granskning.
 
      - Klicka sedan på **Generera signatur för delad åtkomst (SAS)**.
 
        ![Navigeringsfönster][7]
 
-   - När du klickar på Generera SAS längst SAS-Token ned. Kopiera token genom att klicka på Kopiera-ikonen och spara den (till exempel Anteckningar) för framtida användning.
+   - När du klickar på Generera SAS, längst SAS-Token ned. Kopiera token genom att klicka på ikonen för kopiera och spara den (till exempel i Anteckningar) för framtida användning.
 
      > [!IMPORTANT]
-     > Ta bort ett frågetecken (””?) tecken från början av token.
+     > Ta bort frågetecknet (””?) tecken från början av token.
 
      ![Navigeringsfönster][8]
 
-4. Ansluta till dina hanterade instansen via SQL Server Management Studio (SSMS).
+4. Anslut till din hanterade instans via SQL Server Management Studio (SSMS).
 
-5. Kör följande T-SQL-sats till **skapar en ny autentiseringsuppgift** med behållar-URL och SAS-Token som du skapade i föregående steg:
+5. Kör följande T-SQL-instruktion till **skapar du en ny autentiseringsuppgift** med hjälp av behållarens Webbadress och SAS-Token som du skapade i föregående steg:
 
     ```SQL
     CREATE CREDENTIAL [<container_url>]
@@ -93,7 +93,7 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanteras inst
     GO
     ```
 
-6. Kör följande T-SQL-sats för att skapa en ny Server Audit (Välj ditt eget namn för granskning, använda behållarens Webbadress som du skapade i föregående steg):
+6. Kör följande T-SQL-instruktion för att skapa en ny Server Audit (Välj granskningsnamnet på din egen, använda behållarens Webbadress som du skapade i föregående steg):
 
     ```SQL
     CREATE SERVER AUDIT [<your_audit_name>]
@@ -101,18 +101,18 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanteras inst
     GO
     ```
 
-    Om inget anges `RETENTION_DAYS` standardvärdet är 0 (obegränsat kvarhållning).
+    Om inte anges `RETENTION_DAYS` standardvärdet är 0 (obegränsad kvarhållning).
 
     Ytterligare information:
-    - [Granska skillnaderna mellan hanterade instans, Azure SQL Database och SQL Server](#subheading-3)
-    - [SKAPA SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
+    - [Granskning skillnaderna mellan hanterad instans, Azure SQL DB och SQL Server](#subheading-3)
+    - [SKAPA SERVERGRANSKNING](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
     - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
-7. Skapa en Server Audit Specification eller Databasgranskningsspecifikation som du skulle för SQL Server:
-    - [Skapa guide för T-SQL Server audit specification](https://docs.microsoft.com/ sql/t-sql/statements/create-server-audit-specification-transact-sql)
-    - [Skapa databas audit specification T-SQL guide](https://docs.microsoft.com/ sql/t-sql/statements/create-database-audit-specification-transact-sql)
+7. Skapa en Server Audit Specification eller Databasgranskningsspecifikation precis som för SQL Server:
+    - [Skapa Server audit specification T-SQL-guide](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+    - [Skapa databas audit specification T-SQL-guide](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
-8. Aktivera server audit som du skapade i steg 6:
+8. Aktivera servergranskning som du skapade i steg 6:
 
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>]
@@ -121,36 +121,36 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanteras inst
     ```
 
 ## <a name="analyze-audit-logs"></a>Analysera granskningsloggar
-Det finns flera metoder du kan använda för att visa blob granskningsloggar.
+Det finns flera metoder som du kan använda för att visa blob granskningsloggar.
 
-- Använd systemfunktionen `sys.fn_get_audit_file` (T-SQL) att returnera granskningsdata i tabellformat. Mer information om hur du använder den här funktionen finns i [sys.fn_get_audit_file dokumentationen](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
+- Använd systemfunktionen `sys.fn_get_audit_file` (T-SQL) att returnera granskningsloggdata i tabellformat. Mer information om hur du använder den här funktionen finns i den [sys.fn_get_audit_file dokumentation](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
-- En fullständig lista över Granska loggen förbrukningsmetoder finns i den [Kom igång med SQL database auditing](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing).
+- En fullständig lista över audit log förbrukningsmetoder finns i den [Kom igång med SQL-databasgranskning](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing).
 
 > [!IMPORTANT]
-> Metoden för att visa granskningsposter från Azure-portalen ('Granskningsloggarna' rutan) är inte tillgänglig för hanterade instans.
+> Metoden för visning av granskningsposter från Azure portal (”granskningsposter”-rutan) är inte tillgänglig för hanterad instans.
 
-## <a name="auditing-differences-between-managed-instance-azure-sql-database-and-sql-server"></a>Granska skillnaderna mellan hanterade instans, Azure SQL Database och SQL Server
+## <a name="auditing-differences-between-managed-instance-azure-sql-database-and-sql-server"></a>Granskning skillnaderna mellan hanterad instans, Azure SQL Database och SQL Server
 
-De viktigaste skillnaderna mellan SQL-granskning i hanterade instans, Azure SQL Database och SQL Server lokalt är:
+De viktigaste skillnaderna mellan SQL-granskning på hanterad instans, Azure SQL Database och SQL Server lokalt är:
 
-- I hanteras-instansen SQL Audit fungerar på servernivå och lagrar `.xel` loggfiler på Azure blob storage-konto.
-- I Azure SQL Database fungerar SQL Audit på databasnivå.
-- I SQL Server på lokala eller virtuella nivå datorer, SQL Audit fungerar på servern, men lagrar händelser på filer system och windows händelseloggar.
+- I Managed Instance fungerar SQL-granskning på servernivå och lagrar `.xel` loggfiler på en Azure blob storage-konto.
+- I Azure SQL Database fungerar SQL-granskning på databasnivå.
+- I SQL Server lokalt / virtuella nivå datorer, SQL-granskning fungerar på servern, men lagrar händelser på filer system/windows händelseloggar.
 
-XEvent granskning i hanterade instans stöder Azure blob storage-mål. Fil- och windows-loggar är **stöds inte**.
+XEvent granskning i Managed Instance stöder prestandamål i Azure blob storage. Fil- och windows-loggar är **stöds inte**.
 
 Nyckeln skillnader i den `CREATE AUDIT` syntaxen för granskning till Azure blob storage är:
-- Ny syntax `TO URL` tillhandahålls och låter dig ange Webbadressen till Azure blob Storage-behållare där den `.xel` filerna placeras.
-- Syntaxen `TO FILE` är **stöds inte** eftersom hanteras instansen inte kan komma åt filresurser för Windows.
-- Avslutningsalternativ är **stöds inte**.
+- En ny syntax `TO URL` tillhandahålls och kan du ange URL: en för Azure blob Storage-behållare där de `.xel` filerna är placerade.
+- Syntaxen `TO FILE` är **stöds inte** eftersom hanterad instans inte kan komma åt Windows-filresurser.
+- Stäng av alternativet är **stöds inte**.
 - `queue_delay` 0 är **stöds inte**.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En fullständig lista över Granska loggen förbrukningsmetoder finns i den [Kom igång med SQL database auditing](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing).
-- Mer information om Azure-program som stöd för överensstämmelse med standarder, finns det [Azure Säkerhetscenter](https://azure.microsoft.com/support/trust-center/compliance/).
+- En fullständig lista över audit log förbrukningsmetoder finns i den [Kom igång med SQL-databasgranskning](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing).
+- Mer information om Azure program som stöd för överensstämmelse med standarder, finns i den [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
 
 
 <!--Anchors-->

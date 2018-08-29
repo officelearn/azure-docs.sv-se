@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/13/2018
+ms.date: 08/28/2018
 ms.author: raynew
-ms.openlocfilehash: 11859beb3d7bf0d0b0b801328c6570d274f1ea68
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 63102b3fe131deb889fc57603c0da3608004e54b
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42054773"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125899"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Contoso-migrering: Appvärd till virtuella Azure-datorer på plats
 
@@ -21,25 +21,23 @@ ms.locfileid: "42054773"
 Den här artikeln visar hur Contoso namnkonflikt lokal SmartHotel app i Azure, genom att migrera appen virtuella datorer till virtuella Azure-datorer.
 
 
-Det här dokumentet är i en serie av artiklar som visar hur det fiktiva företaget Contoso migrerar n lokala resurser till Microsoft Azure-molnet. Serien innehåller grundläggande information och scenarier som illustrerar hur du konfigurerar en infrastruktur för migrering, utvärdera lokala resurser för migrering och som kör olika typer av migreringar. Scenarier växer i komplexitet och vi lägger till ytterligare artiklar med tiden.
-
+Det här dokumentet är i en serie av artiklar som visar hur det fiktiva företaget Contoso migrerar lokala resurser till Microsoft Azure-molnet. Serien innehåller grundläggande information och scenarier som illustrerar hur du konfigurerar en infrastruktur för migrering, utvärdera lokala resurser för migrering och som kör olika typer av migreringar. Scenarier växer i komplexitet. Vi lägger till ytterligare artiklar med tiden.
 
 **Artikel** | **Detaljer** | **Status**
 --- | --- | ---
-[Artikel 1: översikt](contoso-migration-overview.md) | Översikt över Contosos migreringsstrategi, artikelserien och exempelappar som vi använder. | Tillgängligt
-[Artikel 2: Distribuera en Azure-infrastruktur](contoso-migration-infrastructure.md) | Beskriver hur Contoso förbereder sina lokala och Azure-infrastrukturen för migrering. Samma infrastruktur används för alla migreringsartiklar om. | Tillgängligt
-[Artikel 3: Utvärdera lokala resurser för migrering till Azure](contoso-migration-assessment.md)  | Visar hur Contoso körs en bedömning av en lokal tvålagers-SmartHotel-app som körs på VMware. Contoso utvärderar app virtuella datorer med den [Azure Migrate](migrate-overview.md) -tjänsten och SQL Server-databas för appen med den [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Tillgängligt
-[Artikel 4: Ange ny värd för en app på Azure virtuella datorer och en hanterad SQL-instans](contoso-migration-rehost-vm-sql-managed-instance.md) | Visar hur Contoso körs en lift and shift-migrering till Azure för lokala SmartHotel appen. Contoso migrerar appen klientdelens VM med [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), och app-databasen till en SQL Managed Instance med hjälp av den [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Tillgängligt
-Artikel 5: Ange ny värd för en app på virtuella Azure-datorer | Visar hur Contoso migrerar appen SmartHotel virtuella datorer till virtuella Azure-datorer med hjälp av Site Recovery-tjänsten. | Den här artikeln.
-[Artikel 6: Ange ny värd för en app på Azure virtuella datorer och SQLServer Always On-tillgänglighetsgrupp](contoso-migration-rehost-vm-sql-ag.md) | Visar hur Contoso migrerar SmartHotel appen. Contoso använder Site Recovery för att migrera de virtuella datorerna för appen och tjänsten Databasmigrering att migrera app-databas till en SQL Server-kluster som skyddas av en AlwaysOn-tillgänglighetsgrupp. | Tillgängligt
-[Artikel 7: Byta Appvärd en Linux på Azure virtuella datorer](contoso-migration-rehost-linux-vm.md) | Visar hur Contoso gör en lift and shift-migrering av Linux osTicket-app till virtuella Azure-datorer med Site Recovery | Tillgängligt
-[Artikel 8: Byta Appvärd en Linux på Azure virtuella datorer och Azure MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Visar hur Contoso migrerar Linux osTicket-app till Azure virtuella datorer med Site Recovery och migrerar app-databasen till en Azure MySQL-Server-instans med MySQL Workbench. | Tillgängligt
-[Artikel 9: Omstrukturera en app på Azure Web Apps och Azure SQL-databas](contoso-migration-refactor-web-app-sql.md) | Visar hur Contoso migrerar SmartHotel-app till ett Azure Web Apps och app-databasen har migrerats till Azure SQL Server-instans | Tillgängligt
-[Artikel 10: Omstrukturera en app för Linux på Azure Web Apps och Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Visar hur Contoso migrerar Linux osTicket-app till Azure Web Apps på flera platser, integrerad med GitHub för kontinuerlig leverans. De migrera app-databasen till en Azure MySQL-instans. | Tillgängligt
-[Artikel 11: Omstrukturera TFS på VSTS](contoso-migration-tfs-vsts.md) | Visar hur Contoso migrerar sina lokala Team Foundation Server (TFS)-distributionen genom att migrera den till Visual Studio Team Services (VSTS) i Azure. | Tillgängligt
-[Artikel 12: Omforma en app på Azure-behållare och Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Visar hur Contoso migrerar och rearchitects SmartHotel appen till Azure. De Omforma webbnivån appen som en Windows-behållare och app-databasen i en Azure SQL Database. | Tillgängligt
-[Artikel 13: Återskapa en app i Azure](contoso-migration-rebuild.md) | Visar hur Contoso återskapa SmartHotel appen med hjälp av en mängd Azure-funktioner och tjänster, inklusive App Services, Azure Kubernetes, Azure Functions, Cognitive services och Cosmos DB. | Tillgängligt
-
+[Artikel 1: översikt](contoso-migration-overview.md) | Översikt över artikelserien, Contosos migreringsstrategi och exempelappar som används i serien. | Tillgängligt
+[Artikel 2: Distribuera Azure-infrastrukturen](contoso-migration-infrastructure.md) | Contoso förbereder den lokala infrastrukturen och Azure-infrastrukturen för migrering. Samma infrastruktur används för alla migreringsartiklar om i serien. | Tillgängligt
+[Artikel 3: Utvärdera lokala resurser för migrering till Azure](contoso-migration-assessment.md)  | Contoso kör en utvärdering av dess lokal SmartHotel app som körs på VMware. Contoso utvärderar app virtuella datorer med hjälp av Azure Migrate-tjänsten och app-SQL Server-databasen med hjälp av Data Migration Assistant. | Tillgängligt
+[Artikel 4: Ange ny värd för en app på en virtuell Azure-dator och SQL Database Managed Instance](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso körs en lift and shift-migrering till Azure för dess lokal SmartHotel app. Contoso migrerar app frontend virtuell dator med [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso migrerar app-databasen till en Azure SQL Database Managed Instance med hjälp av den [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Tillgängligt  
+Artikel 5: Ange ny värd för en app på virtuella Azure-datorer | Contoso migrerar dess SmartHotel app virtuella datorer till Azure virtuella datorer med Site Recovery-tjänsten. | Den här artikeln
+[Artikel 6: Ange ny värd för en app på virtuella Azure-datorer och i en SQL Server AlwaysOn-tillgänglighetsgrupp](contoso-migration-rehost-vm-sql-ag.md) | Contoso migrerar SmartHotel appen. Contoso använder Site Recovery för att migrera de virtuella datorerna för appen. Database Migration Service används för att migrera app-databas till SQL Server-kluster som skyddas av en AlwaysOn-tillgänglighetsgrupp. | Tillgängligt    
+[Artikel 7: Byta Appvärd en Linux på Azure virtuella datorer](contoso-migration-rehost-linux-vm.md) | Contoso har slutförts en lift and shift-migrering av Linux osTicket app på virtuella Azure-datorer med Azure Site Recovery | Tillgängligt
+[Artikel 8: Byta Appvärd en Linux på Azure virtuella datorer och Azure MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migrerar Linux osTicket-app till Azure virtuella datorer med Azure Site Recovery och migrerar app-databasen till en Azure MySQL-Server-instans med MySQL Workbench. | Tillgängligt
+[Artikel 9: Omstrukturera en app på Azure Web Apps och Azure SQL-databas](contoso-migration-refactor-web-app-sql.md) | Contoso migrerar SmartHotel appen till en Azure Web App och migrerar app-databasen till en Azure SQL Server-instans med Database Migration Assistant | Tillgängligt
+[Artikel 10: Omstrukturera en app för Linux på Azure Web Apps och Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso migrerar dess osTicket Linux-app till en Azure-webbapp på flera Azure-regioner med Azure Traffic Manager, integrerad med GitHub för kontinuerlig leverans. Contoso migrerar app-databasen till en Azure Database for MySQL-instans. | Tillgängligt 
+[Artikel 11: Omstrukturera TFS på VSTS](contoso-migration-tfs-vsts.md) | Contoso migrerar sin lokala Team Foundation Server-distributionen till Visual Studio Team Services i Azure. | Tillgängligt
+[Artikel 12: Omforma en app på Azure-behållare och Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso migrerar dess SmartHotel-app till Azure. Sedan rearchitects den webbnivån appen som en Windows-behållare som körs i Azure Service Fabric och databasen med Azure SQL Database. | Tillgängligt
+[Artikel 13: Återskapa en app i Azure](contoso-migration-rebuild.md) | Contoso återskapas dess SmartHotel-app med en mängd Azure-funktioner och tjänster, inklusive Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services och Azure Cosmos DB. | Tillgängligt
 
 
 I den här artikeln kommer Contoso att migrera tvålagers-Windows. NET SmartHotel app som körs på virtuella VMware-datorer till Azure. Om du vill använda den här appen tillhandahålls som öppen källkod och du kan ladda ned det från [github](https://github.com/Microsoft/SmartHotel360).
@@ -51,8 +49,8 @@ I den här artikeln kommer Contoso att migrera tvålagers-Windows. NET SmartHote
 IT-ledning har haft ett nära samarbete med affärspartners att förstå vad de vill uppnå med den här migreringen:
 
 - **Åtgärda tillväxten**: Contoso växer, och därför har Press på sina lokala system och infrastruktur.
-- **Begränsa risken**: The SmartHotel app är viktigt för företaget Contoso. De vill flytta den till Azure med noll risk.
-- **Utöka**: Contoso inte vill ändra appen. De vill säkerställa att den är stabil.
+- **Begränsa risken**: The SmartHotel app är viktigt för företaget Contoso. Företaget vill flytta appen till Azure med noll risk.
+- **Utöka**: Contoso inte vill ändra appen, men vill säkerställa att den är stabil.
 
 
 ## <a name="migration-goals"></a>Mål för migrering
@@ -60,30 +58,60 @@ IT-ledning har haft ett nära samarbete med affärspartners att förstå vad de 
 Contoso cloud-teamet har fästs ned mål för den här migreringen. Dessa mål används till att avgöra den bästa migreringsmetoden:
 
 - Efter migreringen ska app i Azure ha samma prestandafunktioner eftersom det gör idag i VMware.  Appen finns kvar som kritiskt i molnet eftersom det är på plats. 
-- Contoso vill inte investera i den här appen.  Det är viktigt att verksamheten, men i sin nuvarande form de helt enkelt vill flytta på ett säkert sätt till molnet.
-- Contoso vill inte ändra ops-modellen för den här appen. De vill interagera med den i molnet på samma sätt som de gör nu.
+- Contoso vill inte investera i den här appen.  Det är viktigt att verksamheten, men i sin nuvarande form Contoso helt enkelt vill flytta på ett säkert sätt till molnet.
+- Contoso vill inte ändra ops-modellen för den här appen. Contoso vill interagera med den i molnet på samma sätt som de gör nu.
 - Contoso vill inte ändra någon app-funktioner. App plats kommer att ändras.
 
-## <a name="proposed-architecture"></a>Föreslagna arkitektur
 
-Här är den aktuella miljön
+## <a name="solution-design"></a>Lösningsdesign
+
+sidbrytning efter fästa nedåt mål och krav, Contoso design och granska en distributionslösning och identifierar migreringsprocessen, inklusive Azure-tjänster som använder Contoso för migreringen.
+
+### <a name="current-app"></a>Aktuell app
 
 - Appen är nivåindelad över två virtuella datorer (**WEBVM** och **SQLVM**).
 - De virtuella datorerna finns på VMware ESXi-värd **contosohost1.contoso.com** (version 6.5).
 - VMware-miljön hanteras av vCenter Server 6.5 (**vcenter.contoso.com**), som körs på en virtuell dator.
 - Contoso har ett lokalt datacenter (contoso-datacenter), med en lokal domänkontrollant (**contosodc1**).
+
+### <a name="proposed-architecture"></a>Föreslagna arkitektur
+
+- Eftersom appen är en produktionsarbetsbelastning, kommer att finnas i produktion resursgruppen ContosoRG appen virtuella datorer i Azure.
+- Appen virtuella datorer ska migreras till den primära Azure-regionen (USA, östra 2) och placeras i företagets nätverk (VNET-PROD-EUS2).
+- Webbservergrupp VM kommer att finnas i undernätet på klientsidan (PROD-FE-EUS2) i produktionsmiljön.
+- Databasen VM kommer att finnas i databas-undernät (PROD-DB-EUS2) i produktionsmiljön.
 - Lokala virtuella datorer i Contoso-datacenter inaktiveras när migreringen är klar.
 
 ![Scenariots arkitektur](./media/contoso-migration-rehost-vm/architecture.png) 
 
-## <a name="migration-process"></a>Migreringsprocessen
+### <a name="database-considerations"></a>Överväganden för databasen
 
-Contoso migrerar app klient- och databasen virtuella datorer till virtuella Azure-datorer med Site Recovery:
+Som en del av designprocessen gjorde Contoso en funktionsjämförelse mellan Azure SQL Database och SQL Server. Följande överväganden hjälpte dem att bestämma att gå med SQL Server som körs på en Azure IaaS-VM: 
 
-- Som ett första steg de Förbered och konfigurera Azure-komponenter för Site Recovery och förbereda lokala VMware-infrastruktur.
-- De redan har sina [Azure-infrastrukturen](contoso-migration-infrastructure.md) på plats, så de behöver bara lägga till några Azure-komponenter specifikt för Site Recovery.
-- Med allt förberett börjar de replikera de virtuella datorerna.
--När replikering har aktiverats och arbetar måste de migrera den virtuella datorn genom att växla över till Azure.
+- Med hjälp av en Azure-dator som kör SQL Server verkar vara en optimal lösning om Contoso behöver anpassa operativsystemet eller databasservern, eller om det kanske vill samordna och köra appar från tredje part på samma virtuella dator.
+- Med Software Assurance kan i framtiden Contoso utbyta befintliga licenser för rabatterade priser på en SQL Database Managed Instance med Azure Hybrid-förmånen för SQL Server. Detta kan spara upp till 30 procent på hanterad instans.
+
+
+
+### <a name="solution-review"></a>Granska lösningen
+
+Contoso utvärderar den föreslagna designen genom att sätta ihop en lista med för- och nackdelar.
+
+**Beräkningen** | **Detaljer**
+--- | ---
+**Experter** | Båda de virtuella app-datorerna kommer att flyttas till Azure utan ändringar, kan du förenkla migreringen.<br/><br/> Eftersom Contoso använder lift and shift för både virtuella datorer i appen, behövs ingen särskild konfiguration eller migrering verktyg för app-databasen.<br/><br/> Contoso kan utnyttja deras investering i Software Assurance, med hjälp av Azure Hybrid-förmånen.<br/><br/> Contoso behåller fullständig kontroll över appen virtuella datorer i Azure. 
+**Nackdelar** | WEBVM och SQLVM kör Windows Server 2008 R2. Operativsystemet stöds av Azure för specifika roller (juli 2018). [Läs mer](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).<br/><br/> Nivåerna web och data för appen förblir en enda åtkomstpunkt för redundans.</br><br/> SQLVM körs på SQL Server 2008 R2, vilket inte är i mainstream-support. Men det finns stöd för virtuella Azure-datorer (juli 2018). [Läs mer](https://support.microsoft.com/en-us/help/956893).<br/><br/> Contoso behöver att fortsätta stödja appen som virtuella Azure-datorer i stället för att flytta till en hanterad tjänst, till exempel Azure App Service och Azure SQL Database.
+
+
+
+### <a name="migration-process"></a>Migreringsprocessen
+
+Contoso migrerar app klient- och databasen virtuella datorer till virtuella datorer i Azure med Site Recovery:
+
+- Som ett första steg Contoso förbereder och konfigurerar Azure-komponenter för Site Recovery och förbereder den lokala VMware-infrastrukturen.
+- De redan har den [Azure-infrastrukturen](contoso-migration-infrastructure.md) på plats, så Contoso behöver bara lägga till några Azure-komponenter specifikt för Site Recovery.
+- Med allt förberett börja Contoso replikera de virtuella datorerna.
+- När replikering har aktiverats och arbetar, Contoso kommer att migrera den virtuella datorn genom att växla över till Azure.
 
 ![Migreringsprocessen](./media/contoso-migration-rehost-vm/migraton-process.png) 
 
@@ -98,11 +126,11 @@ Contoso migrerar app klient- och databasen virtuella datorer till virtuella Azur
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Här är vad du (och Contoso) behöver att köra det här scenariot.
+Här är vad som behöver Contoso att köra det här scenariot.
 
 **Krav** | **Detaljer**
 --- | ---
-**Azure-prenumeration** | Du bör redan har skapat en prenumeration under tidig artiklar i den här serien. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).<br/><br/> Om du skapar ett kostnadsfritt konto är du administratör för din prenumeration och kan utföra alla åtgärder.<br/><br/> Om du använder en befintlig prenumeration och du inte är administratör, måste du be administratören tilldela dig ägar-eller deltagare.<br/><br/> Om du behöver mer detaljerade behörigheter kan granska [i den här artikeln](../site-recovery/site-recovery-role-based-linked-access-control.md). 
+**Azure-prenumeration** | Contoso skapa prenumerationer i en tidigare artikel i den här serien. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).<br/><br/> Om du skapar ett kostnadsfritt konto är du administratör för din prenumeration och kan utföra alla åtgärder.<br/><br/> Om du använder en befintlig prenumeration och du inte är administratör, måste du be administratören tilldela dig ägar-eller deltagare.<br/><br/> Om du behöver mer detaljerade behörigheter kan granska [i den här artikeln](../site-recovery/site-recovery-role-based-linked-access-control.md). 
 **Azure-infrastrukturen** | [Lär dig hur](contoso-migration-infrastructure.md) Contoso ställa in en Azure-infrastruktur.<br/><br/> Mer information om specifika [nätverk](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) och [storage](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) kraven för Site Recovery.
 **Lokala servrar** | Lokala vCenter-servrar bör kör version 5.5, 6.0 eller 6.5<br/><br/> ESXi-värdar som ska köras version 5.5, 6.0 eller 6.5<br/><br/> En eller flera virtuella VMware-datorer ska köras på ESXi-värden.
 **Lokala virtuella datorer** | Virtuella datorer måste uppfylla [krav för Azure](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements).
@@ -110,7 +138,7 @@ Här är vad du (och Contoso) behöver att köra det här scenariot.
 
 ## <a name="scenario-steps"></a>Scenarioanvisningar
 
-Här är hur Contoso kommer att köras migreringen:
+Här är hur Contoso administratörer kommer att köras migreringen:
 
 > [!div class="checklist"]
 > * **Steg 1: Förbereda Azure Site Recovery**: de skapar ett Azure storage-konto för att lagra replikerade data och Recovery Services-valvet.
@@ -131,20 +159,20 @@ Här är Azure-komponenterna Contoso behöver för att migrera de virtuella dato
 
 De har konfigurerat dessa på följande sätt:
 
-1. Contoso som redan har konfigurerat ett nätverk som de kan använda för Site Recovery när de [distribuerade Azure-infrastrukturen](contoso-migration-infrastructure.md)
+1. Konfigurera en nätverket Contoso redan har konfigurerat ett nätverk som kan vara för Site Recovery när de [distribuerade Azure-infrastrukturen](contoso-migration-infrastructure.md)
 
     - SmartHotel-app är en produktionsapp och de virtuella datorerna kommer att migreras till Azure-produktionsnätverket (VNET-PROD-EUS2) i den primära regionen östra USA 2.
     - Båda virtuella datorerna kommer att placeras i resursgruppen ContosoRG som används för produktionsresurser.
     - App-klientdelens VM (WEBVM) kommer att migrera frontend-undernätet (PROD-FE-EUS2), i produktionsmiljön.
     - App-databasen VM (SQLVM) kommer att migrera till undernätet för databasen (PROD-DB-EUS2), i produktionsnätverket.
 
-2. Contoso skapar ett Azure storage-konto (contosovmsacc20180528) i den primära regionen.
+2. Konfigurera en storage-konto-Contoso skapar ett Azure storage-konto (contosovmsacc20180528) i den primära regionen.
     - Lagringskontot måste finnas i samma region som Recovery Services-valvet.
     - De använder ett allmänt konto med standardlagring och LRS-replikering. 
 
     ![Site Recovery-lagring](./media/contoso-migration-rehost-vm/asr-storage.png)
 
-3. Med nätverks- och storage-kontot på plats, Contoso nu skapar ett Recovery Services-valv (ContosoMigrationVault) och placerar den i ContosoFailoverRG resursgrupp i den primära regionen östra USA 2.
+3. Skapa ett valv med nätverks- och storage-konto på plats, Contoso nu skapar ett Recovery Services-valv (ContosoMigrationVault) och placerar den i ContosoFailoverRG resursgrupp i den primära regionen östra USA 2.
 
     ![Recovery Services-valv](./media/contoso-migration-rehost-vm/asr-vault.png)
 
@@ -170,7 +198,7 @@ Site Recovery måste ha åtkomst till VMware-servrarna för att:
 - Dirigera replikering, redundans och återställning efter fel för virtuella datorer.
 - Minst ett skrivskyddat konto krävs. Konton som ska kunna köra åtgärder som att skapa och ta bort diskar och aktivering av virtuella datorer.
 
-Contoso ställer in kontot enligt följande:
+Contoso-administratörer som konfigurerar kontot enligt följande:
 
 1. De kan skapa en roll på vCenter-nivå.
 2. De tilldela rollen behörigheterna som krävs.
@@ -188,11 +216,11 @@ Mobilitetstjänsten måste installeras på varje virtuell dator.
 
 ### <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Förbereda för att ansluta till virtuella Azure-datorer efter en redundansväxling
 
-Contoso vill ansluta till virtuella Azure-datorer efter redundansväxling. Om du vill göra detta måste göra de följande innan migreringen:
+Contoso vill ansluta till virtuella Azure-datorer efter redundansväxling. Gör detta genom göra Contoso administratörer följande innan migreringen:
 
 1. För åtkomst via internet de:
 
- - Aktiverar du RDP på den lokala virtuella datorn före redundans
+ - Aktiverar du RDP på den lokala virtuella datorn före redundans.
  - Se till att TCP och UDP-regler lagts till för den **offentliga** profil.
  - Kontrollera att RDP tillåts i **Windows-brandväggen** > **tillåtna appar** för alla profiler.
  
@@ -216,7 +244,7 @@ Dessutom när de kör en redundans måste de du kontrollera följande:
 
 ## <a name="step-3-replicate-the-on-premises-vms"></a>Steg 3: Replikera lokala virtuella datorer
 
-Innan de kan köra en migrering till Azure, måste Contoso att konfigurera och aktivera replikering.
+Innan Contoso-administratörer kan köra en migrering till Azure, som de måste du konfigurera och aktivera replikering.
 
 ### <a name="set-a-replication-goal"></a>Ange ett replikeringsmål
 
@@ -232,7 +260,7 @@ Om du vill fortsätta, de bekräftar att de har slutfört distributionsplanering
 
 ### <a name="set-up-the-source-environment"></a>Konfigurera källmiljön
 
-Contoso behöver konfigurera sina källmiljö. Detta gör de ladda ned en OVF-mall och använda den för att distribuera Site Recovery configuration server med hög tillgänglighet, en lokal VMware VM. När configuration server är igång, registrera den i valvet.
+Contoso-administratörer måste du konfigurera källmiljön. Detta gör de ladda ned en OVF-mall och använda den för att distribuera Site Recovery configuration server med hög tillgänglighet, en lokal VMware VM. När configuration server är igång, registrera den i valvet.
 
 Konfigurationsservern körs ett antal komponenter:
 
@@ -242,7 +270,7 @@ Konfigurationsservern körs ett antal komponenter:
 
 
 
-Contoso utför de här stegen på följande sätt:
+Contoso-administratörer utför dessa steg på följande sätt:
 
 1. I valvet, de ladda ner OVF-mall från **förbereda infrastrukturen** > **källa** > **konfigurationsservern**.
     
@@ -271,19 +299,19 @@ Contoso utför de här stegen på följande sätt:
 
     ![vCenter](./media/contoso-migration-rehost-vm/cswiz2.png)
 
-7. När registreringen är klar, i Azure-portalen, Contoso dubbla kontrollerar att konfigurationsservern och VMware-servern visas på den **källa** i valvet. Identifieringen kan ta 15 minuter eller mer. 
+7. När registreringen är klar i Azure portal, de dubbla kontrollerar du att konfigurationsservern och VMware-servern visas på den **källa** i valvet. Identifieringen kan ta 15 minuter eller mer. 
 8. Site Recovery ansluter till VMware-servrar med hjälp av de angivna inställningarna och identifierar virtuella datorer.
 
 ### <a name="set-up-the-target"></a>Konfigurera mål
 
-Nu anger Contoso Målinställningar för replikering.
+Contoso-administratörer kan nu ange Målinställningar för replikering.
 
 1. I **Förbered infrastruktur** > **Target**, de väljer målinställningarna.
 2. Site Recovery kontrollerar att det finns ett Azure storage-konto och nätverk i den angivna målplatsen.
 
 ### <a name="create-a-replication-policy"></a>Skapa replikeringsprincip
 
-Contoso kan nu skapa en replikeringsprincip.
+Contoso-administratörer kan nu skapa en replikeringsprincip.
 
 1. I **Förbered infrastruktur** > **replikeringsinställningar** > **replikeringsprincip** >  **skapa och Associera**, de skapar en princip **ContosoMigrationPolicy**.
 2. De använder standardinställningarna:
@@ -299,7 +327,7 @@ Contoso kan nu skapa en replikeringsprincip.
 
 ### <a name="enable-replication-for-webvm"></a>Aktivera replikering för WEBVM
 
-Med allt på plats aktivera Contoso replikering för de virtuella datorerna. De börjar med WebVM.
+Med allt på plats, kan Contoso-administratörer nu aktivera replikering för de virtuella datorerna. De börjar med WebVM.
 
 1. I **replikera program** > **källa** > **+ replikera** de Välj inställningar för datakälla.
 2. De anger att de vill aktivera virtuella datorer, Välj vCenter-servern och konfigurationsservern.
@@ -310,20 +338,20 @@ Med allt på plats aktivera Contoso replikering för de virtuella datorerna. De 
 
      ![Aktivera replikering](./media/contoso-migration-rehost-vm/enable-replication2.png)
 
-4. Contoso väljer **WebVM** för replikering, kontrollerar du replikeringsprincipen och aktiverar replikering.
+4. De väljer **WebVM** Kontrollera replikeringsprinciper för replikering och aktivera replikering.
 
-    - I det här skedet väljer Contoso endast WEBVM eftersom VNet och undernät måste väljas och Contosos är att placera de virtuella datorerna för appen i olika undernät.
+    - I det här skedet de endast väljer WEBVM eftersom du måste välja VNet och undernät och virtuella datorerna för appen kommer att placeras i olika undernät.
     - Site Recovery installerar automatiskt mobilitetstjänsten på den virtuella datorn när replikering har aktiverats.
 
     ![Aktivera replikering](./media/contoso-migration-rehost-vm/enable-replication3.png)
 
 5. De spåra Replikeringsförlopp på **jobb**. När jobbet **Slutför skydd** har körts är datorn redo för redundans.
-6. I **Essentials** i Azure-portalen, Contoso kan se strukturen för de virtuella datorerna replikeras till Azure.
+6. I **Essentials** i Azure-portalen kan de se strukturen för de virtuella datorerna replikeras till Azure.
 
 
 ### <a name="enable-replication-for-sqlvm"></a>Aktivera replikering för SQLVM
 
-Contoso kan nu börja replikera SQLVM-datorn, med samma process som ovan.
+Contoso-administratörer kan nu börja replikera SQLVM-datorn, med samma process som ovan.
 
 1. De Välj inställningar för datakälla.
 
@@ -350,13 +378,13 @@ Contoso kan nu börja replikera SQLVM-datorn, med samma process som ovan.
 
 ## <a name="step-4-migrate-the-vms"></a>Steg 4: Migrera de virtuella datorerna 
 
-Contoso kör en snabb testredundans och en fullständig växling vid fel att migrera de virtuella datorerna.
+Contoso administratörer kör en snabb testredundans och en fullständig växling vid fel att migrera de virtuella datorerna.
 
 ### <a name="run-a-test-failover"></a>Köra ett redundanstest
 
 Ett redundanstest ser till att allt fungerar som förväntat. 
 
-1. Contoso kör ett redundanstest till den senaste tillgängliga tidpunkt (**senaste bearbetade**).
+1. Köra ett redundanstest till den senaste tillgängliga tidpunkt (**senaste bearbetade**).
 2. De väljer **Stäng datorn innan du påbörjar redundans**, så att Site Recovery försöker stänga av den Virtuella källdatorn innan redundansen. Redundansväxlingen fortsätter även om avstängningen misslyckas. 
 3. Testa redundans körs: 
 
@@ -364,12 +392,12 @@ Ett redundanstest ser till att allt fungerar som förväntat.
     - Redundansprocessen bearbetar data så att du kan skapa en virtuell Azure-dator. Om du väljer den senaste återställningspunkten skapas en återställningspunkt utifrån tillgängliga data.
     - En virtuell Azure-dator skapas med hjälp av de data som behandlas i föregående steg.
     
-3. När redundansen är klar visas repliken virtuell Azure-dator i Azure-portalen. Contoso kontrollerar att den virtuella datorn har rätt storlek, ansluten till rätt nätverk och körs. 
+3. När redundansen är klar visas repliken virtuell Azure-dator i Azure-portalen. De kontrollera att den virtuella datorn har rätt storlek, ansluten till rätt nätverk och körs. 
 4. När du har verifierat redundanstestningen Rensa växling vid fel, de och registrera och sparar eventuella observationer. 
 
 ### <a name="create-and-customize-a-recovery-plan"></a>Skapa och anpassa en återställningsplan
 
- Efter att ha kontrollerat att redundanstestningen fungerar som förväntat, skapar Contoso du en återställningsplan för migrering. 
+ Efter att ha kontrollerat att redundanstestningen fungerar som förväntat, Contoso-administratörer för att skapa en återställningsplan för migrering. 
 
 - En återställningsplan anger ordningen i vilken redundans inträffar och visar hur virtuella Azure-datorer ska anslutas i Azure.
 - Eftersom appen är två lager kan anpassa de återställningsplanen så att data VM (SQLVM) startas före klientdelen (WEBVM).
@@ -386,7 +414,7 @@ Ett redundanstest ser till att allt fungerar som förväntat.
 ### <a name="migrate-the-vms"></a>Migrera de virtuella datorerna
 
 
-Contoso kan nu köra en fullständig redundans för att slutföra migreringen.
+Contoso-administratörer kan nu köra en fullständig redundans för att slutföra migreringen.
 
 1. De väljer återställningsplanen > **redundans**.
 2. De väljer för att växla över till den senaste återställningspunkten och den Site Recovery bör försök att stänga av den lokala virtuella datorn innan du utlöser redundansväxlingen. De kan följa redundansförloppet på den **jobb** sidan.
@@ -428,18 +456,23 @@ Med den app som körs nu måste Contoso helt operationalisera och skydda den i A
 
 Contoso security-teamet granskar den virtuella Azure-datorer för att fastställa eventuella säkerhetsproblem.
 
-- För att styra åtkomsten, granska de Nätverkssäkerhetsgrupper (NSG) för de virtuella datorerna. NSG: er för att säkerställa att endast trafik som tillåts i appen kan nå.
-- De också överväga att skydda data på disken med hjälp av Azure Disk Encryption och KeyVault.
+- För att styra åtkomsten granskar till teamet Nätverkssäkerhetsgrupper (NSG) för de virtuella datorerna. NSG: er för att säkerställa att endast trafik som tillåts i appen kan nå.
+- Teamet Överväg också att skydda data på disken med hjälp av Azure Disk Encryption och KeyVault.
 
 [Läs mer](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control) om säkerhetsrutiner för virtuella datorer.
 
-### <a name="backups"></a>Säkerhetskopior
+## <a name="bcdr"></a>BCDR
 
-Contoso kommer att säkerhetskopiera data på de virtuella datorerna med hjälp av Azure Backup-tjänsten. [Läs mer](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Contoso utförs följande åtgärder för affärskontinuitet och haveriberedskap (BCDR):
+
+- Skydda data: Contoso säkerhetskopierar data på de virtuella datorerna med Azure Backup-tjänsten. [Läs mer](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+- Håll appar igång: Contoso replikerar appen virtuella datorer i Azure till en sekundär region med hjälp av Site Recovery. [Läs mer](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart).
+
+
 
 ### <a name="licensing-and-cost-optimization"></a>Licensierings- och optimering
 
-1. Contoso har befintliga licenser för sina virtuella datorer och att utnyttja Azure Hybrid-förmånen.  De konverterar befintliga virtuella Azure-datorer, om du vill dra nytta av den här prissättning.
+1. Contoso har befintliga licenser för sina virtuella datorer och att utnyttja Azure Hybrid-förmånen.  Contoso konverterar befintliga virtuella Azure-datorer, om du vill dra nytta av den här prissättning.
 2. Contoso kan Azure Cost Management licensieras av Cloudyn, ett dotterbolag till Microsoft. Det är en kostnadshanteringslösning med flera moln-hanteringslösning som hjälper dig att utnyttja och hantera Azure och andra molnresurser. [Läs mer](https://docs.microsoft.com/azure/cost-management/overview) om Azure Cost Management. 
 
 ## <a name="conclusion"></a>Sammanfattning

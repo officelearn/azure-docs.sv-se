@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 68304b3e5eea50aba28f46344abcbd7ad060c5c8
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 69b88b5aabbadadea3b04f96d9a21f266c85a52f
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42059581"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125392"
 ---
 # <a name="configure-managed-service-identity-on-virtual-machine-scale-using-a-template"></a>Konfigurera hanterad tjänstidentitet på VM-skalningsuppsättning med en mall
 
@@ -322,7 +322,7 @@ Om du har en VM-skalningsuppsättning som inte längre behöver du en hanterad t
 
 1. Om du loggar in på Azure lokalt eller via Azure portal, kan du använda ett konto som är associerade med Azure-prenumerationen som innehåller virtuella datorns skalningsuppsättning.
 
-2. Läsa in mallen till en [redigeraren](#azure-resource-manager-templates) och leta upp den `Microsoft.Compute/virtualMachineScaleSets` resource intressanta inom den `resources` avsnittet. Om du har en skalningsuppsättning för virtuella datorer som endast har Användartilldelad identitet kan du inaktivera det genom att ändra den identitetstypen till `None`.
+2. Läsa in mallen till en [redigeraren](#azure-resource-manager-templates) och leta upp den `Microsoft.Compute/virtualMachineScaleSets` resource intressanta inom den `resources` avsnittet. Om du har en skalningsuppsättning för virtuella datorer som endast har Användartilldelad identitet kan du inaktivera det genom att ändra identitetstypen till `None`.
 
    I följande exempel visas hur bort alla användartilldelade identiteter från en virtuell dator med inga systemtilldelade identiteter:
 
@@ -339,7 +339,7 @@ Om du har en VM-skalningsuppsättning som inte längre behöver du en hanterad t
    
    **Microsoft.Compute/virtualMachineScaleSets API-versionen 2018-06-01**
     
-   Ta bort en en enda Användartilldelad identitet från en skalningsuppsättning för virtuella datorer, ta bort den från den `userAssignedIdentities` ordlista.
+   Om du vill ta bort en enskild Användartilldelad identitet från en VM-skalningsuppsättning, ta bort den från den `userAssignedIdentities` ordlista.
 
    Om du har en systemtilldelade identiteter kan du förvara den på den i den `type` värde den `identity` värde.
 

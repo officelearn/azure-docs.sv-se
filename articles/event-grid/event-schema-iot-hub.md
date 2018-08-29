@@ -10,12 +10,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 08/17/2018
 ms.author: kgremban
-ms.openlocfilehash: 4bb33eae53d31701b66d13cb4e810b1a0b8a4b0b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: a86b22b3327b2353dd37a9f9863337d12a009434
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055619"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143581"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Azure Event Grid-Händelseschema för IoT Hub
 
@@ -31,8 +31,33 @@ Azure IoT Hub genererar följande händelsetyper:
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | Publicerade när en enhet registreras till en IoT hub. |
 | Microsoft.Devices.DeviceDeleted | Publicerade när en enhet tas bort från en IoT-hubb. | 
+| Microsoft.Devices.DeviceConnected | Publicerade när en enhet är ansluten till en IoT-hubb. |
+| Microsoft.Devices.DeviceDisconnected | Publicerade när en enhet är bortkopplad från en IoT-hubb. | 
 
 ## <a name="example-event"></a>Exempel-händelse
+
+Schemat för DeviceConnected och DeviceDisconnected händelser har samma struktur. Den här exempelhändelse visar schemat för en händelse som aktiveras när en enhet är ansluten till en IoT-hubb:
+
+```json
+[{
+  "id": "f6bbf8f4-d365-520d-a878-17bf7238abd8", 
+  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>", 
+  "subject": "devices/LogicAppTestDevice", 
+  "eventType": "Microsoft.Devices.DeviceConnected", 
+  "eventTime": "2018-06-02T19:17:44.4383997Z", 
+  "data": {
+    "deviceConnectionStateEventInfo": {
+      "sequenceNumber":
+        "000000000000000001D4132452F67CE200000002000000000000000000000001"
+    },
+    "hubName": "egtesthub1",
+    "deviceId": "LogicAppTestDevice",
+    "moduleId" : "DeviceModuleID"
+  }, 
+  "dataVersion": "1", 
+  "metadataVersion": "1" 
+}]
+```
 
 Schemat för DeviceCreated och DeviceDeleted händelser har samma struktur. Den här exempelhändelse visar schemat för en händelse som aktiveras när en enhet har registrerats till en IoT hub:
 
@@ -47,6 +72,7 @@ Schemat för DeviceCreated och DeviceDeleted händelser har samma struktur. Den 
     "twin": {
       "deviceId": "LogicAppTestDevice",
       "etag": "AAAAAAAAAAE=",
+      "deviceEtag": "null",
       "status": "enabled",
       "statusUpdateTime": "0001-01-01T00:00:00",
       "connectionState": "Disconnected",
@@ -74,11 +100,9 @@ Schemat för DeviceCreated och DeviceDeleted händelser har samma struktur. Den 
       }
     },
     "hubName": "egtesthub1",
-    "deviceId": "LogicAppTestDevice",
-    "operationTimestamp": "2018-01-02T19:17:44.4383997Z",
-    "opType": "DeviceCreated"
+    "deviceId": "LogicAppTestDevice"
   },
-  "dataVersion": "",
+  "dataVersion": "1",
   "metadataVersion": "1"
 }]
 ```
@@ -98,17 +122,29 @@ Alla händelser som innehåller samma översta data:
 | dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
 | metadataVersion | sträng | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
-Innehållet i dataobjektet är olika för varje händelse-utgivare. För IoT Hub-händelser innehåller dataobjektet följande egenskaper:
+För alla IoT Hub-händelser innehåller dataobjektet följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | HubName | sträng | Namnet på IoT Hub där enheten skapas eller tas bort. |
 | deviceId | sträng | Unik identifierare för enheten. Den här skiftlägeskänsliga strängar kan innehålla upp till 128 tecken och har stöd för ASCII 7 bitar alfanumeriska tecken och följande specialtecken: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
-| operationTimestamp | sträng | ISO8601-tidsstämpel för åtgärden. |
-| opType | sträng | Vilken typ av händelse som angetts för den här åtgärden av IoT Hub: antingen `DeviceCreated` eller `DeviceDeleted`.
+
+Innehållet i dataobjektet är olika för varje händelse-utgivare. För **enheten ansluten** och **enheten frånkopplad** IoT Hub-händelser, dataobjektet innehåller följande egenskaper:
+
+| Egenskap  | Typ | Beskrivning |
+| -------- | ---- | ----------- |
+| moduleId | sträng | Den unika identifieraren för modulen. Det här fältet är utdata bara för modulen enheter. Den här skiftlägeskänsliga strängar kan innehålla upp till 128 tecken och har stöd för ASCII 7 bitar alfanumeriska tecken och följande specialtecken: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| deviceConnectionStateEventInfo | objekt | Anslutningen händelseinformation om enhetstillstånd
+| sequenceNumber | sträng | Ett tal som hjälper dig att ange ordningen på enheter som är kopplade eller enhet kopplas bort händelser. Senaste händelsen kommer att ha ett sekvensnummer som är högre än föregående händelse. Det här antalet kan ändras med mer än 1, men strikt ökar. Se [hur du använder sekvensnummer](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
+
+Innehållet i dataobjektet är olika för varje händelse-utgivare. För **skapa enhet** och **enheten bort** IoT Hub-händelser, dataobjektet innehåller följande egenskaper:
+
+| Egenskap  | Typ | Beskrivning |
+| -------- | ---- | ----------- |
 | enhetstvilling | objekt | Information om enhetstvillingen, vilket är molnet represenation programmetadata för enheten. | 
 | deviceID | sträng | Den unika identifieraren för enhetstvillingen. | 
-| ETag | sträng | En del av informationen som beskriver innehållet i enhetstvillingen. Varje etag garanteras vara unikt per enhetstvillingen. | 
+| ETag | sträng | En systemhälsoverifierare för att säkerställa konsekvens för uppdateringar av en enhetstvilling. Varje etag garanteras vara unikt per enhetstvillingen. |  
+| deviceEtag| sträng | En systemhälsoverifierare för att säkerställa konsekvens av uppdateringar till en enhetsregister. Varje deviceEtag garanteras vara unikt per enhetsregister. |
 | status | sträng | Om enhetstvillingen är aktiverat eller inaktiverat. | 
 | statusUpdateTime | sträng | Uppdatera ISO8601-tidsstämpel för senaste enhetens twin status. |
 | connectionState | sträng | Om enheten är ansluten eller frånkopplad. | 

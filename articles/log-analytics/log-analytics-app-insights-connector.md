@@ -1,6 +1,6 @@
 ---
 title: Visa Azure Application Insights AppData | Microsoft Docs
-description: Du kan använda Application Insights Connector-lösning för att diagnostisera prestandaproblem och förstå vad användarna göra med din app när övervakas med Application Insights.
+description: Du kan använda lösningen för Application Insights-anslutningsprogram för att diagnostisera prestandaproblem och förstå vad användarna gör med din app när övervakas med Application Insights.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,163 +15,162 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 2312b0ed51be7079da3e53b27c269adfb761044d
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 4d2837a99c10f1600eb457e20cd7473f9f931302
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131634"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125995"
 ---
-# <a name="application-insights-connector-management-solution-preview"></a>Application Insights Connector lösning (förhandsgranskning)
+# <a name="application-insights-connector-management-solution-preview"></a>Lösning för Application Insights-Anslutningsapp (förhandsversion)
 
 ![Application Insights symbol](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
 
 >[!NOTE]
-> Med stöd för [cross-resurs frågor](log-analytics-cross-workspace-search.md), hanteringslösningen Application Insights connector krävs inte längre och kommer att vara inaktuell. Starta juli kommer du inte att länka ny Application Insights-resurser till logganalys arbetsytor. Befintliga länkar och instrumentpaneler fortsätter att fungera förrän November 2018. Mer information finns i [OMS-portalen som flyttar till Azure](log-analytics-oms-portal-transition.md).
+> Med hjälp av [mellan resurser frågor](log-analytics-cross-workspace-search.md), hanteringslösningen för Application Insights-anslutning krävs inte längre och upphör att gälla. Från och juli, kommer du inte att kunna länka ny Application Insights-resurser till Log Analytics-arbetsytor. Befintliga länkar och instrumentpaneler kommer fortsätta att fungera tills November 2018. Mer information finns i [OMS-portalen som flyttar till Azure](log-analytics-oms-portal-transition.md).
 
-Program Insights Connector-lösningen hjälper dig att diagnostisera prestandaproblem och förstå vad användare göra med din app när den är övervakad med [Programinsikter](../application-insights/app-insights-overview.md). Vyer för samma programtelemetri som utvecklare finns i Application Insights är tillgängliga i logganalys. När du integrerar dina Application Insights-appar med logganalys ökas visningen av dina program genom att låta igen och programdata på ett ställe. Med samma vyer kan du samarbeta med din apputvecklare. Vanliga vyer kan du minska tiden för att identifiera och lösa både program- och plattform problem.
+Program Insights Connector-lösningen hjälper dig att diagnostisera prestandaproblem och förstå vad användarna gör med din app när den är övervakad med [Application Insights](../application-insights/app-insights-overview.md). Vyer för samma programtelemetri som utvecklare kan se i Application Insights är tillgängliga i Log Analytics. När du integrerar dina Application Insights-appar med Log Analytics, ökas visningen av dina program genom att använda åtgärden och programdata på samma ställe. Att ha samma vyer hjälper dig att samarbeta med dina apputvecklare. Vanliga vyer kan du minska tiden för att identifiera och lösa både programmet och plattformsproblem.
 
 När du använder lösningen kan du:
 
-- Visa alla dina appar i Application Insights på en plats, även om de finns i olika Azure-prenumerationer
+- Visa alla Application Insights-appar på samma plats, även om de finns i olika Azure-prenumerationer
 - Korrelera infrastrukturdata med programdata
-- Visualisera programdata med perspektiv i loggen Sök
-- Pivotera från logganalys data i appen Application Insights i Azure-portalen
+- Visualisera programdata med perspektiv i loggsökning
+- Växla över från Log Analytics-data till din Application Insights-app i Azure portal
 
 ## <a name="connected-sources"></a>Anslutna källor
 
-Till skillnad från de flesta andra logganalys-lösningar är inte samlas in för Application Insights Connector av agenter. Alla data som används av lösningen kommer direkt från Azure.
+Till skillnad från de flesta andra Log Analytics-lösningar, inte som samlas in för Application Insights-anslutningsprogram av agenter. Alla data som används av lösningen kommer direkt från Azure.
 
 | Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |
 | [Windows-agenter](log-analytics-windows-agent.md) | Nej | Lösningen samlar inte in information från Windows-agenter. |
 | [Linux-agenter](log-analytics-linux-agents.md) | Nej | Lösningen samlar inte in information från Linux-agenter. |
 | [SCOM-hanteringsgrupp](log-analytics-om-agents.md) | Nej | Lösningen samlar inte in information från agenter i en ansluten SCOM-hanteringsgrupp. |
-| [Azure Storage-konto](log-analytics-azure-storage.md) | Nej | Lösningen matchar inte samlingsinformation från Azure storage. |
+| [Azure Storage-konto](log-analytics-azure-storage.md) | Nej | Lösningen gör inte samlingsinformation från Azure storage. |
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Om du vill komma åt information om Application Insights Connector måste du ha en Azure-prenumeration
+- Du måste ha en Azure-prenumeration för att komma åt information för Application Insights-anslutningsprogram
 - Du måste ha minst en konfigurerade Application Insights-resurs.
 - Du måste vara ägare eller deltagare i Application Insights-resursen.
 
 ## <a name="configuration"></a>Konfiguration
 
-1. Aktivera Azure Web Apps Analytics-lösning från den [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) eller genom att använda processen som beskrivs i [lägga till logganalys lösningar från galleriet lösningar](log-analytics-add-solutions.md).
-2. I OMS-portalen klickar du på **inställningar** &gt; **Data** &gt; **Programinsikter**.
-3. Under **välja en prenumeration**, välja en prenumeration med Application Insights-resurser och sedan under **programnamn**, Välj en eller flera program.
+1. Aktivera Azure Web Apps Analytics-lösningen från den [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) eller genom att använda processen som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](log-analytics-add-solutions.md).
+2. I OMS-portalen klickar du på **inställningar** &gt; **Data** &gt; **Application Insights**.
+3. Under **Välj en prenumeration**, Välj en prenumeration med Application Insights-resurser och sedan under **programnamn**, Välj ett eller flera program.
 4. Klicka på **Spara**.
 
-Data blir tillgängliga i cirka 30 minuter och panelen Application Insights uppdateras med data, till exempel följande bild:
+Data blir tillgängliga i cirka 30 minuter och Application Insights-panelen uppdateras med data, som på följande bild:
 
-![Application Insights panelen](./media/log-analytics-app-insights-connector/app-insights-tile.png)
+![Application Insights-panelen](./media/log-analytics-app-insights-connector/app-insights-tile.png)
 
-Andra punkter att tänka på:
+Andra saker att tänka på:
 
-- Du kan bara koppla Application Insights appar till en logganalys-arbetsytan.
-- Du kan bara koppla [grundläggande eller Enterprise Application Insights-resurser](https://azure.microsoft.com/pricing/details/application-insights) till logganalys. Du kan dock använda den kostnadsfria nivån av logganalys.
+- Du kan bara koppla Application Insights-appar till en Log Analytics-arbetsyta.
+- Du kan bara koppla [Basic eller Enterprise Application Insights-resurser](https://azure.microsoft.com/pricing/details/application-insights) till Log Analytics. Du kan dock använda den kostnadsfria nivån av Log Analytics.
 
 ## <a name="management-packs"></a>Hanteringspaket
 
-Den här lösningen installerar inte några management packs i anslutna hanteringsgrupper.
+Den här lösningen installerar inte alla hanteringspaket i anslutna hanteringsgrupper.
 
-## <a name="use-the-solution"></a>Använda lösningen
+## <a name="use-the-solution"></a>Använd lösningen
 
-I följande avsnitt beskrivs hur du kan använda blad som visas i Application Insights-instrumentpanelen för att visa och interagera med data från dina appar.
+I följande avsnitt beskrivs hur du kan använda bladen visas i instrumentpanelen med Application Insights för att visa och interagera med data från dina appar.
 
-### <a name="view-application-insights-connector-information"></a>Visa information om Application Insights Connector
+### <a name="view-application-insights-connector-information"></a>Visa information om Application Insights-anslutningsprogram
 
-Klicka på den **Programinsikter** öppna den **Application Insights** instrumentpanelen för att se följande blad.
+Klicka på den **Application Insights** panelen för att öppna den **Application Insights** instrumentpanelen för att se följande blad.
 
-![Instrumentpanel för program insikter](./media/log-analytics-app-insights-connector/app-insights-dash01.png)
+![Application Insights-instrumentpanel](./media/log-analytics-app-insights-connector/app-insights-dash01.png)
 
-![Instrumentpanel för program insikter](./media/log-analytics-app-insights-connector/app-insights-dash02.png)
+![Application Insights-instrumentpanel](./media/log-analytics-app-insights-connector/app-insights-dash02.png)
 
-Instrumentpanelen innehåller blad som visas i tabellen. Varje blad visar en lista med upp till tio objekt som matchar bladets kriterier för angivet omfång och tidsintervall. Du kan köra en sökning i loggen som returnerar alla poster när du klickar på **se alla** längst ned på bladet eller när du klickar på rubriken bladet.
+Instrumentpanelen innehåller blad visas i tabellen. Varje blad visar en lista med upp till tio objekt som matchar bladets kriterier för angivet omfång och tidsintervall. Du kan köra en loggsökning som returnerar alla poster när du klickar på **se alla** längst ned på bladet eller när du klickar på maximeras.
 
-[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
-| **Kolumnen** | **Beskrivning** |
+| **Kolumn** | **Beskrivning** |
 | --- | --- |
-| Program – antal program | Visar antalet program i programresurser. Visar också programnamn och för varje antalet poster i programmet. Klicka på siffran om du vill köra en logg sökning efter <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName</code> <br><br>  Klicka på ett programnamn att köra en sökning för loggen för det program som visar programmet poster per värd, poster av typen telemetri och alla data av typen (baserat på den sista dagen). |
-| Datavolymen – värdar som skickar data | Visar antalet värdar på datorn som data skickas. Visar också datorn är värd och antal poster för varje värd. Klicka på siffran om du vill köra en logg sökning efter <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by Host</code> <br><br> Klicka på ett datornamn om du vill utföra en logg-sökning för värden som visar programmet poster per värd, poster av typen telemetri och alla data av typen (baserat på den sista dagen). |
-| Tillgänglighet – Webtest resultat | Visar ett ringdiagram för webbtestresultat, som anger pass eller misslyckas. Klicka på diagrammet om du vill köra en logg sökning efter <code>ApplicationInsights &#124; where TelemetryType == "Availability" &#124; summarize AggregatedValue = sum(SampledCount) by AvailabilityResult</code> <br><br> Resultatet visar antalet gånger och fel för alla test. Den visar alla webbprogram med trafik för den senaste minuten. Klicka på ett namn på programmet ska visa en logg sökning visar information om misslyckade webbtest. |
-| Serverbegäranden – förfrågningar per timme | Visar ett linjediagram för serverbegäranden per timme för olika program. Hovra över en linje i diagrammet för att se upp 3 programmen ta emot begäranden för en punkt i tiden. Visar också en lista över program som tar emot begäranden och antalet begäranden för den valda perioden. <br><br>Klicka på diagrammet om du vill köra en logg sökning efter <code>ApplicationInsights &#124; where TelemetryType == "Request" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> som visar mer detaljerad linjediagram för serverbegäranden per timme för olika program. <br><br> Klicka på ett program i listan för att köra en logg sökning efter <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> som visar en lista med begäranden, diagram för begäranden över tid och begäran varaktighet och en lista över begäran svarskoder.   |
-| Fel – misslyckade begäranden per timme | Visar ett linjediagram för misslyckade programförfrågningar per timme. Hovra över diagrammet för att se de översta 3 program med misslyckade begäranden för en punkt i tiden. Visar en lista över program med antalet misslyckade begäranden för varje också. Klicka på diagrammet om du vill köra en logg sökning efter <code>ApplicationInsights &#124; where TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> som visar mer detaljerad linjediagram av begäranden om misslyckade program. <br><br>Klicka på ett objekt i listan för att köra en logg sökning efter <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> som visar misslyckade begäranden, diagram för misslyckade begäranden över tid och begäran varaktighet och en lista över svarskoder för misslyckade begäranden. |
-| Undantag – undantag per timme | Visar ett linjediagram av undantag per timme. Hovra över diagrammet för att se de översta 3 program med undantag för en punkt i tiden. Visar en lista över program med antalet undantag för varje också. Klicka på diagrammet om du vill köra en logg sökning efter <code>ApplicationInsights &#124; where TelemetryType == "Exception" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> som visar mer detaljerad länken i diagrammet över undantag. <br><br>Klicka på ett objekt i listan för att köra en logg sökning efter <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Exception"</code> som visar en lista över undantag, diagram för undantag över tid och misslyckade begäranden och en lista över typer av undantag.  |
+| Program - antal program | Visar antalet program i programresurser. Visar också programnamn och för varje antalet programposter. Klicka på siffran för att köra en loggsökning för <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName</code> <br><br>  Klicka på namnet på ett program att köra en loggsökning som visar programposter per värd, poster per telemetrityp och alla data per typ (baserat på den sista dagen). |
+| Datavolym – värdar som skickar data | Visar antalet datorn värdar som skickar data. Visas även datorn är värd och antal poster för varje värd. Klicka på siffran för att köra en loggsökning för <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by Host</code> <br><br> Klicka på ett datornamn att köra en loggsökning för värden som visar programposter per värd, poster per telemetrityp och alla data per typ (baserat på den sista dagen). |
+| Tillgänglighet – webbtestresultat | Visar ett ringdiagram för test av Webbresultat, som anger pass eller misslyckas. Klicka på diagrammet för att köra en loggsökning för <code>ApplicationInsights &#124; where TelemetryType == "Availability" &#124; summarize AggregatedValue = sum(SampledCount) by AvailabilityResult</code> <br><br> Resultatet visar antalet pass och fel för alla test. Den visar alla Web Apps med trafik för den senaste minuten. Klicka på namnet på ett program att visa en loggsökning som visar information om misslyckade webbtester. |
+| Serverbegäranden – förfrågningar per timme | Visar ett linjediagram med serverbegäranden per timme för olika program. Hovra över en rad i diagrammet för att ta emot begäranden för en punkt i tiden topp 3 programmen. Visar även en lista över program som tar emot begäranden och antal begäranden för den valda perioden. <br><br>Klicka på diagrammet för att köra en loggsökning för <code>ApplicationInsights &#124; where TelemetryType == "Request" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> som visar en mer detaljerad linjediagram med serverbegäranden per timme för olika program. <br><br> Klicka på ett program i listan för att köra en loggsökning för <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> som visar en lista över begäranden, diagram för begäranden över tid och begäran varaktighet och en lista över begäran svarskoder.   |
+| Fel – misslyckade förfrågningar per timme | Visar ett linjediagram med misslyckade programbegäranden per timme. Hovra över diagrammet för att se de 3 främsta programmen med misslyckade begäranden för en punkt i tiden. Visar även en lista över program med antalet misslyckade förfrågningar för var och en. Klicka på diagrammet för att köra en loggsökning för <code>ApplicationInsights &#124; where TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> som visar en mer detaljerad linjediagram med misslyckade programbegäranden. <br><br>Klicka på ett objekt i listan för att köra en loggsökning för <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> som visar misslyckade begäranden, diagram för misslyckade förfrågningar över tid och begäran varaktighet och en lista över misslyckade begäranden svarskoder. |
+| Undantag – undantag per timme | Visar ett linjediagram med undantag per timme. Hovra över diagrammet för att se de 3 främsta programmen med undantag för en punkt i tiden. Visar även en lista över program med antalet undantag för var och en. Klicka på diagrammet för att köra en loggsökning för <code>ApplicationInsights &#124; where TelemetryType == "Exception" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> som visar en mer detaljerad länk diagram över undantag. <br><br>Klicka på ett objekt i listan för att köra en loggsökning för <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Exception"</code> som visar en lista över undantag, diagram för undantag över tid och misslyckade begäranden och en lista över undantagstyper.  |
 
-### <a name="view-the-application-insights-perspective-with-log-search"></a>Visa Application Insights perspektiv med Sök i loggfilen
+### <a name="view-the-application-insights-perspective-with-log-search"></a>Visa Application Insights-perspektiv med loggsökning
 
-När du klickar på ett objekt i instrumentpanelen kan du se ett perspektiv för Application Insights som visas i sökningen. Perspektivet innehåller en utökad visualiseringen baserat på typen telemetri som valts. I så fall visualiseringen innehållsändringar för olika telemetri typer.
+När du klickar på ett objekt i instrumentpanelen kan du se en Application Insights-perspektiv som visas i sökningen. Perspektivet innehåller en utökad visualisering, beroende på vilken telemetrityp som valts. I så fall visualisering innehållsändringar för olika telemetrityper.
 
-När du klickar någonstans i bladet program visas standard **program** perspektiv.
+När du klickar någonstans i bladet program kan du se standard **program** perspektiv.
 
 ![Application Insights program perspektiv](./media/log-analytics-app-insights-connector/applications-blade-drill-search.png)
 
-Perspektiv visar en översikt över det program som du har valt.
+Perspektivet visar en översikt över det program som du har valt.
 
-Den **tillgänglighet** bladet visar perspektivvyn olika där du kan se webbtestresultat och relaterade misslyckade begäranden.
+Den **tillgänglighet** bladet visar en olika perspektivvy där du kan se Webbresultat för testning och relaterade misslyckade begäranden.
 
 ![Application Insights tillgänglighet perspektiv](./media/log-analytics-app-insights-connector/availability-blade-drill-search.png)
 
-När du klickar någonstans i den **serverbegäranden** eller **fel** blad, perspektiv komponenterna ändras så att du får en visualisering som rör begäranden.
+När du klickar någonstans i den **serverbegäranden** eller **fel** blad, perspektiv komponenterna ändras för att ge dig en visualisering som rör begäranden.
 
-![Application Insights fel bladet](./media/log-analytics-app-insights-connector/server-requests-failures-drill-search.png)
+![Bladet för Application Insights-fel](./media/log-analytics-app-insights-connector/server-requests-failures-drill-search.png)
 
-När du klickar någonstans i den **undantag** bladet finns en visualisering som är anpassad efter undantag.
+När du klickar någonstans i den **undantag** bladet visas en visualisering som är skräddarsydd för undantag.
 
-![Application Insights undantag bladet](./media/log-analytics-app-insights-connector/exceptions-blade-drill-search.png)
+![Bladet för Application Insights-undantag](./media/log-analytics-app-insights-connector/exceptions-blade-drill-search.png)
 
-Oavsett om du klickar på något en den **Application Insights Connector** instrumentpanelen, inom den **Sök** sidan, alla frågor som returnerar Application Insights-data visar programmet Insikter perspektiv. Om du visar Application Insights-data, till exempel en **&#42;** frågan också visar fliken perspektiv som på följande bild:
+Oavsett om du klickar på något någon den **Application Insights-anslutningsprogram** instrumentpanelen, i den **Search** sidan, alla frågor som returnerar Application Insights-data visar programmet Insikter perspektiv. Om du visar Application Insights-data, till exempel en **&#42;** frågan också visar fliken perspektiv som på följande bild:
 
 ![Application Insights ](./media/log-analytics-app-insights-connector/app-insights-search.png)
 
-Perspektiv komponenter uppdateras beroende på frågan. Detta innebär att du kan filtrera resultaten genom att använda alla sökfält som ger dig möjlighet att se data från:
+Perspektivet komponenter uppdateras beroende på frågan. Det innebär att du kan filtrera resultatet med hjälp av valfri sökfältet som ger dig möjlighet att se data från:
 
-- Alla program
-- Ett enda valt program
+- Alla dina program
+- Ett enda valda program
 - En grupp av program
 
-### <a name="pivot-to-an-app-in-the-azure-portal"></a>Pivotera till en app i Azure-portalen
+### <a name="pivot-to-an-app-in-the-azure-portal"></a>Växla över till en app i Azure portal
 
-Application Insights Connector blad är utformade att pivotera till den valda appen Application Insights *när du använder OMS-portalen*. Du kan använda lösningen som en övergripande övervakning plattform som hjälper dig att felsöka en app. När du ser ett potentiellt problem i någon av dina anslutna program, kan du antingen gå till den i logganalys sökning eller du kan pivotera direkt i appen Application Insights.
+Application Insights-anslutningsprogram blad är utformade så att du kan växla över till den valda appen Application Insights *när du använder OMS-portalen*. Du kan använda lösningen övervakningsplattform på hög nivå som hjälper dig att felsöka en app. När du ser ett potentiellt problem i någon av dina anslutna program, kan du antingen fördjupa dig i den i Log Analytics-sökningen eller du kan växla över direkt till appen Application Insights.
 
-Om du vill pivotera, klickar du på ellipserna (**...** ) som visas i slutet av varje rad och välj **öppna i Application Insights**.
+Pivottabell, klickar du på ellipserna (**...** ) som visas i slutet av varje rad och välj **öppna i Application Insights**.
 
 >[!NOTE]
->**Öppna i Application Insights** är inte tillgängligt i Azure-portalen.
+>**Öppna i Application Insights** är inte tillgänglig i Azure-portalen.
 
 ![Öppna i Application Insights](./media/log-analytics-app-insights-connector/open-in-app-insights.png)
 
-### <a name="sample-corrected-data"></a>Korrigerade exempel data
+### <a name="sample-corrected-data"></a>Exemplet korrigeras data
 
-Application Insights ger *[provtagning korrigering](../application-insights/app-insights-sampling.md)* för att minska telemetri trafik. När du aktiverar provtagning på appen Application Insights hämta minskat antal poster som lagras i Application Insights och i logganalys. Medan datakonsekvens bevaras i den **Application Insights Connector** sida och perspektiv, bör du manuellt korrigera samplade data för dina egna frågor.
+Application Insights ger *[sampling korrigering](../application-insights/app-insights-sampling.md)* för att minska telemetritrafik. När du aktiverar sampling i Application Insights-app kan få du ett lägre antal poster som lagras både i Application Insights och Log Analytics. Medan datakonsekvens bevaras i den **Application Insights-anslutningsprogram** sidan och perspektiv, du kan manuellt rätta samplade data för de anpassade frågorna.
 
-Här är ett exempel på provtagning korrigering i en sökning i loggen:
+Här är ett exempel på sampling korrigering i en sökfråga i loggen:
 
 ```
 ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by TelemetryType
 ```
 
-Den **provtagning antal** fältet finns i alla poster och visar antalet datapunkter som representerar posten. Om du aktiverar samplingsfrekvensen för appen Application Insights **provtagning antal** är större än 1. Om du vill räkna det faktiska antalet poster som ditt program genererar sum den **provtagning antal** fält.
+Den **samplas antal** fält finns i alla poster och visar antalet datapunkter som posten representerar. Om du aktiverar sampling för din app med Application Insights, **samplas antal** är större än 1. Om du vill räkna antalet poster som ditt program genererar summera det **samplas antal** fält.
 
-Sampling påverkar endast det totala antalet poster som programmet skapar. Du behöver inte korrigera samplingsfrekvensen för mått fält som **RequestDuration** eller **AvailabilityDuration** eftersom dessa fält visar medelvärdet för representeras poster.
+Sampling påverkar endast det totala antalet poster som ditt program genererar. Du behöver inte korrigera sampling för metriska fält som **RequestDuration** eller **AvailabilityDuration** eftersom dessa fält visar medelvärdet för representeras poster.
 
 ## <a name="input-data"></a>Indata
 
-Lösningen tar emot telemetri följande typer av data från dina anslutna appar Application Insights:
+Lösningen tar emot följande telemetrityper av data från dina anslutna Application Insights-appar:
 
 - Tillgänglighet
 - Undantag
 - Begäranden
-- Sidvisningar – för din arbetsyta för att ta emot sidvisningar, måste du konfigurera dina appar för att samla in informationen. Mer information finns i [PageViews](../application-insights/app-insights-api-custom-events-metrics.md#page-views).
-- Anpassade händelser – för din arbetsyta för att ta emot anpassade händelser, måste du konfigurera dina appar för att samla in informationen. Mer information finns i [TrackEvent](../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
+- Sidvisningar – att ta emot sidvyer-arbetsytan måste du konfigurera dina appar för att samla in informationen. Mer information finns i [PageViews](../application-insights/app-insights-api-custom-events-metrics.md#page-views).
+- Anpassade händelser – att ta emot anpassade händelser-arbetsytan måste du konfigurera dina appar för att samla in informationen. Mer information finns i [TrackEvent](../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
 
-Data tas emot av logganalys från Application Insights vartefter det blir tillgängligt.
+Data tas emot av Log Analytics från Application Insights så fort de blir tillgängliga.
 
 ## <a name="output-data"></a>Utdata
 
-En post med en *typen* av *ApplicationInsights* skapas för varje typ av indata. ApplicationInsights poster har egenskaperna som visas i följande avsnitt:
+En post med en *typ* av *ApplicationInsights* skapas för varje typ av indata. ApplicationInsights poster har egenskaper som visas i följande avsnitt:
 
 ### <a name="generic-fields"></a>Allmän fält
 
@@ -180,23 +179,23 @@ En post med en *typen* av *ApplicationInsights* skapas för varje typ av indata.
 | Typ | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | Tid för posten |
-| ApplicationId | Instrumentation nyckeln för appen Application Insights |
+| ApplicationId | Instrumenteringsnyckeln för Application Insights-app |
 | ApplicationName | Namnet på Application Insights app |
-| RoleInstance | ID för server-värd |
-| DeviceType | Klientenheten |
+| Rollinstans | ID för server-värd |
+| Enhetstyp | Klientenheten |
 | ScreenResolution |   |
 | Kontinent | Kontinent som begäran kom från |
 | Land/region | Land där begäran har sitt ursprung |
-| Län | Region, status eller locale där begäran har sitt ursprung |
-| Ort | Stad där begäran har sitt ursprung |
-| isSynthetic | Anger om begäran har skapats av en användare eller automatiserad metod. = Användargenererat TRUE eller false = automatiserad metod |
-| SamplingRate | Procentandelen telemetri som genererats av SDK som skickas till portalen. Intervallet 0,0 100,0. |
-| SampledCount | 100/(SamplingRate). Till exempel 4 =&gt; 25% |
+| Län | Provins, tillstånd eller nationella inställningar som begäran kom från |
+| Ort | Stad som begäran kom från |
+| isSynthetic | Anger om begäran har skapats av en användare eller med automatiserad metod. = Användargenererat TRUE eller false = automatiserad metod |
+| SamplingRate | Den procentandel av telemetri som genereras av SDK som skickas till portalen. Intervallet 0,0 100,0. |
+| SampledCount | 100/(SamplingRate). Exempel: 4 =&gt; 25% |
 | IsAuthenticated | Sant eller falskt |
-| Åtgärds-ID | Objekt som har samma åtgärd ID visas som relaterade objekt i portalen. Vanligtvis begäran-ID |
-| ParentOperationID | ID för överordnad igen |
-| operationName |   |
-| sessions-ID | GUID för att identifiera den session där den skapades |
+| Åtgärds-ID | Objekt som har samma åtgärd ID som visas som relaterade objekt i portalen. Vanligtvis begäran-ID |
+| ParentOperationID | ID för den överordnade åtgärden |
+| OperationName |   |
+| sessions-ID | GUID för unik identifiering session där den skapades |
 | SourceSystem | ApplicationInsights |
 
 ### <a name="availability-specific-fields"></a>Tillgänglighet-specifika fält
@@ -206,20 +205,20 @@ En post med en *typen* av *ApplicationInsights* skapas för varje typ av indata.
 | TelemetryType | Tillgänglighet |
 | AvailabilityTestName | Namnet på webbtestet |
 | AvailabilityRunLocation | Geografisk källan för http-begäran |
-| AvailabilityResult | Anger lyckade resultat av webbtestet |
+| AvailabilityResult | Visar resultatet av webbtestet lyckades |
 | AvailabilityMessage | Meddelandet som är kopplade till webbtestet |
-| AvailabilityCount | 100 /(Sampling Rate). Till exempel 4 =&gt; 25% |
+| AvailabilityCount | 100 /(Sampling Rate). Exempel: 4 =&gt; 25% |
 | DataSizeMetricValue | 1.0 eller 0,0 |
-| DataSizeMetricCount | 100 /(Sampling Rate). Till exempel 4 =&gt; 25% |
-| AvailabilityDuration | Tid i millisekunder för testperioden för webbprogram |
-| AvailabilityDurationCount | 100 /(Sampling Rate). Till exempel 4 =&gt; 25% |
+| DataSizeMetricCount | 100 /(Sampling Rate). Exempel: 4 =&gt; 25% |
+| AvailabilityDuration | Tid i millisekunder för web testets varaktighet |
+| AvailabilityDurationCount | 100 /(Sampling Rate). Exempel: 4 =&gt; 25% |
 | AvailabilityValue |   |
 | AvailabilityMetricCount |   |
 | AvailabilityTestId | Unikt GUID för webbtestet |
-| AvailabilityTimestamp | Exakt tidsstämpel tillgängligheten testet |
-| AvailabilityDurationMin | Det här fältet visar minsta web testperioden (millisekunder) för datapunkter som representeras för provade poster |
-| AvailabilityDurationMax | För provade poster visar i det här fältet maximala web testperioden (millisekunder) för representeras datapunkter |
-| AvailabilityDurationStdDev | Det här fältet visar standardavvikelsen mellan alla web test varaktighet (i millisekunder) för representeras datapunkter för provade poster |
+| AvailabilityTimestamp | Exakt tidsstämpel för tillgänglighetstestet |
+| AvailabilityDurationMin | För provade poster visar det här fältet minsta web testets varaktighet (millisekunder) för representeras datapunkter |
+| AvailabilityDurationMax | För provade poster visar det här fältet maximala web testets varaktighet (millisekunder) för representeras datapunkter |
+| AvailabilityDurationStdDev | För provade poster visar det här fältet standardavvikelsen mellan alla web test varaktigheter (millisekunder) för representeras datapunkter |
 | AvailabilityMin |   |
 | AvailabilityMax |   |
 | AvailabilityStdDev | &nbsp;  |
@@ -229,15 +228,15 @@ En post med en *typen* av *ApplicationInsights* skapas för varje typ av indata.
 | Typ | ApplicationInsights |
 | --- | --- |
 | TelemetryType | Undantag |
-| ExceptionType | Typ av undantag |
-| ExceptionMethod | Den metod som skapar undantaget |
-| ExceptionAssembly | Sammansättningen som innehåller ramen och version samt token för offentlig nyckel |
-| ExceptionGroup | Typ av undantag |
-| ExceptionHandledAt | Anger nivån som hanteras av undantag |
-| ExceptionCount | 100 /(Sampling Rate). Till exempel 4 =&gt; 25% |
-| ExceptionMessage | Meddelandet för undantaget |
-| ExceptionStack | Fullständig stack för undantaget |
-| ExceptionHasStack | TRUE om undantag har en stack |
+| ExceptionType | Typen av undantag |
+| ExceptionMethod | Metoden som skapar undantaget |
+| ExceptionAssembly | Sammansättningen innehåller ramverket och version samt token för offentlig nyckel |
+| ExceptionGroup | Typen av undantag |
+| ExceptionHandledAt | Anger den nivå som hanteras undantaget |
+| ExceptionCount | 100 /(Sampling Rate). Exempel: 4 =&gt; 25% |
+| ExceptionMessage | Meddelande för undantaget |
+| ExceptionStack | Fullständig stack av undantag |
+| ExceptionHasStack | SANT om undantag har en stack |
 
 
 
@@ -247,25 +246,25 @@ En post med en *typen* av *ApplicationInsights* skapas för varje typ av indata.
 | --- | --- |
 | Typ | ApplicationInsights |
 | TelemetryType | Förfrågan |
-| ResponseCode | HTTP-svar som skickats till klienten |
+| ResponseCode | HTTP-svar som skickas till klienten |
 | RequestSuccess | Anger lyckad eller misslyckad. SANT eller FALSKT. |
 | Begärande-ID | ID för att unikt identifiera begäran |
 | RequestName | GET/POST + URL-bas |
-| RequestDuration | Tid i sekunder, för varaktighet för begäran |
+| RequestDuration | Tid i sekunder, för varaktigheten för begäran |
 | URL | URL för begäran inte inklusive värden |
-| Värd | Web server-värd |
-| URLBase | Fullständig URL för begäran |
+| Värd | Web server-värden |
+| URLBase | Fullständiga URL: en för begäran |
 | ApplicationProtocol | Typ av protokoll som används av programmet |
-| RequestCount | 100 /(Sampling Rate). Till exempel 4 =&gt; 25% |
-| RequestDurationCount | 100 /(Sampling Rate). Till exempel 4 =&gt; 25% |
-| RequestDurationMin | Fältet visar den minsta begäran varaktigheten (i millisekunder) för representeras datapunkter för provade poster. |
-| RequestDurationMax | För provade poster visar i det här fältet den maximal varaktigheten för begäran (millisekunder) för representeras datapunkter |
-| RequestDurationStdDev | Det här fältet visas för provade poster standardavvikelsen mellan alla begäran varaktighet (i millisekunder) för representeras datapunkter |
+| RequestCount | 100 /(Sampling Rate). Exempel: 4 =&gt; 25% |
+| RequestDurationCount | 100 /(Sampling Rate). Exempel: 4 =&gt; 25% |
+| RequestDurationMin | Fältet visar varaktigheten för minsta begäran (millisekunder) för representeras datapunkter för provade poster. |
+| RequestDurationMax | Det här fältet visas för provade poster i maximal varaktighet för begäran (millisekunder) för representeras datapunkter |
+| RequestDurationStdDev | Det här fältet visas för provade poster standardavvikelsen mellan alla begäran varaktigheter (millisekunder) för representeras datapunkter |
 
 ## <a name="sample-log-searches"></a>Exempel på loggsökningar
 
-Den här lösningen har inte en uppsättning exempel loggen sökningar visas på instrumentpanelen. Dock exempelfrågor loggen sökning med en beskrivning som visas i den [visa Application Insights Connector information](#view-application-insights-connector-information) avsnitt.
+Den här lösningen har inte en uppsättning exempel på loggsökningar visas på instrumentpanelen. Men exempel loggsökningsfrågor med beskrivningar visas i den [visa Application Insights-anslutningsprogram information](#view-application-insights-connector-information) avsnittet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Använd [loggen Sök](log-analytics-log-searches.md) att visa detaljerad information för Application Insights-appar.
+- Använd [Loggsökning](log-analytics-log-searches.md) att visa detaljerad information för Application Insights-appar.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 1fcac972e7404c2e0549b9bb9f2e03861977bfad
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: d4ca44268740f48702594d9c87aa568d4f8eecb6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094779"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122413"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Virtual Machine Serial Console (förhandsversion) 
 
@@ -36,10 +36,14 @@ Seriell konsol dokumentation för Windows-datorer samt [Klicka här](../windows/
 
 * Du måste använda resource management-distributionsmodellen. Klassiska distributioner stöds inte. 
 * Den virtuella datorn måste ha [startdiagnostik](boot-diagnostics.md) aktiverat – se skärmbilden nedan.
+
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
+    
 * Azure-konto med seriekonsolen måste ha [deltagarrollen](../../role-based-access-control/built-in-roles.md) för den virtuella datorn och [startdiagnostik](boot-diagnostics.md) storage-konto. 
 * Den virtuella datorn som du är acessing Seriell konsol måste också ha ett konto för lösenordsbaserad. Du kan skapa en med den [Återställ lösenord](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) funktionerna i VM access-tillägg - se skärmbilden nedan.
+
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
+
 * Inställningar som är specifika för Linux-distributioner, se [komma åt seriekonsolen för Linux](#access-serial-console-for-linux)
 
 

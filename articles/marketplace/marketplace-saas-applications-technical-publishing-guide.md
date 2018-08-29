@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: 69f11c77d01f546aecdcb5f0560f6f89483ac204
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f1a6825cdfab2375f1a6f1858ef14684d374dae2
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056410"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123490"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS-program erbjuder publiceringsguide
 
@@ -97,7 +97,7 @@ Kostnadsfri utbildning för Azure Active Directory finns på
 * [Microsoft Azure för IT-proffs serien: Azure Active Directory](https://mva.microsoft.com/en-US/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
 
 Azure Active Directory tillhandahåller dessutom en plats för att söka efter uppdateringar av tjänsten   
-* [Tjänstuppdateringar för Azure AD](https://azure.microsoft.com/updates/?product=active-directory)|
+* [Tjänstuppdateringar för Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Använda Azure Active Directory för att aktivera utvärderingar  
 

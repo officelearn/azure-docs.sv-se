@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 9bcc73d262f4bc455c923fe0eb7c04c7cf090830
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 8ca7ce2586513373c58552bb1f56b94715f15076
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505369"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128457"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Övervaka en integration runtime i Azure Data Factory  
 **Integreringskörningen** är beräkningsinfrastrukturen som används av Azure Data Factory för att tillhandahålla olika funktioner för dataintegrering i olika nätverksmiljöer. Det finns tre typer av integration Runtime som erbjuds av Data Factory:
@@ -85,7 +85,7 @@ Vissa inställningar i egenskaperna för att klarna mer när det finns två elle
 
 Standardvärdet för samtidiga jobb anges gränsen baserat på storleken på datorn. De faktorer som används för att beräkna det här värdet beror på mängden RAM-minne och antalet CPU-kärnor för datorn. Fler kärnor och mer minne, desto högre begränsa så standardvärdet av samtidiga jobb.
 
-Du skala ut genom att öka antalet noder. När du ökar antalet noder, samtidiga jobb gränsen är den summan av gränsvärdena för samtidiga jobb av alla tillgängliga noder.  Till exempel om en nod kan du köra upp till tolv samtidiga jobb, kan lägger till tre fler liknande noder du köra upp till 48 samtidiga jobb (4 x 12). Vi rekommenderar att du ökar gräns för samtidiga jobb bara när du ser låg Resursanvändning med standardvärdena på varje nod.
+Du skala ut genom att öka antalet noder. När du ökar antalet noder, är samtidiga jobb gränsen summan av gränsvärdena för samtidiga jobb av alla tillgängliga noder.  Till exempel om en nod kan du köra upp till tolv samtidiga jobb, kan lägger till tre fler liknande noder du köra upp till 48 samtidiga jobb (4 x 12). Vi rekommenderar att du ökar gräns för samtidiga jobb bara när du ser låg Resursanvändning med standardvärdena på varje nod.
 
 Du kan åsidosätta beräknade standardvärdet i Azure-portalen. Välj Skapa > anslutningar > Integreringskörningar > Redigera > noder > ändra värdet för samtidiga jobb per nod. Du kan också använda PowerShell [uppdatering azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/en-us/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) kommando.
   
@@ -189,7 +189,7 @@ Azure-SSIS integration runtime är ett fullständigt hanterat kluster av Azure v
 | Startar | Den här noden förbereds. |
 | Tillgängligt | Den här noden är redo att distribuera/köra SSIS-paket. |
 | Återvinning | Den här noden är att reparera/omstart. |
-| Otillgängligt | Den här noden är inte redo att distribuera/köra SSIS-paket och användbara fel/problem som du kan lösa. |
+| Ej tillgänglig | Den här noden är inte redo att distribuera/köra SSIS-paket och användbara fel/problem som du kan lösa. |
 
 ### <a name="status-overall-azure-ssis-integration-runtime"></a>Status (övergripande Azure-SSIS integration runtime)
 

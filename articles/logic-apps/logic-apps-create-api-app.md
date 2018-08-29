@@ -1,28 +1,23 @@
 ---
 title: 'Skapa webb-API: er och REST API: er för Azure Logic Apps | Microsoft Docs'
-description: 'Skapa webb-API: er och REST API: er för att anropa dina API: er, tjänster eller system från logikapparbetsflöden för system integrationer'
-keywords: 'webb-API: er, REST API: er, arbetsflöden, system-integreringar'
+description: 'Skapa webb-API: er och REST API: er för att anropa dina API: er, tjänster eller system för system-integreringar i Azure Logic Apps'
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
-ms.date: 5/26/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 748070d43c34b501af3455d03429be1f44178b7f
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
+ms.date: 05/26/2017
+ms.openlocfilehash: a761e384a356a0cbf5531eee7340ddbbd1526909
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172025"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122254"
 ---
-# <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>Skapa anpassade API: er som du kan anropa från arbetsflöden i logikappar
+# <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Skapa anpassade API: er som du kan anropa från Azure Logic Apps
 
 Även om Azure Logic Apps erbjuder [100 inbyggda anslutningsappar](../connectors/apis-list.md) att du kan använda i logikapparbetsflöden kan du anropa API: er, system och tjänster som inte är tillgängliga som kopplingar. Du kan skapa dina egna API: er som tillhandahåller åtgärder och utlösare som ska använda i logic apps. Här finns andra skäl till varför du kanske vill skapa dina egna API: er som du kan anropa från arbetsflöden i logikappar:
 

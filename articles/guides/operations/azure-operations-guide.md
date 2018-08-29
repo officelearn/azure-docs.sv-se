@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 3ae912eb88972246577954cb2ff103ba607f18bf
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 2934c2323b056bfb5e556e7d688704ed20882bca
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43110505"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124458"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Kom igång för Azure IT-operatörer
 
@@ -181,7 +181,7 @@ Azure bygger på en uppsättning REST API: er som har stöd för Azure-portalens
 
 ### <a name="azure-cloud-shell"></a>Azure Cloud Shell
 
-Administratörer kan använda Azure PowerShell och Azure CLI via en webbläsare-tillgänglig upplevelse som kallas Azure Cloud Shell. Det här interaktiva gränssnittet ger ett flexibelt verktyg för Linux och Windows-administratörer använda sina kommandoradsgränssnittet föredrar, Bash eller PowerShell. Azure Cloud Shell kan vara åtkomst via portalen, som ett fristående webbgränssnitt på [shell.azure.com](https://shell.azure.com), eller från ett antal andra åtkomstpunkter. Mer information finns i [översikt av Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
+Administratörer kan använda Azure PowerShell och Azure CLI via en webbläsare-tillgänglig upplevelse som kallas Azure Cloud Shell. Det här interaktiva gränssnittet ger ett flexibelt verktyg för Linux och Windows-administratörer använda sina kommandoradsgränssnittet föredrar, Bash eller PowerShell. Azure Cloud Shell kan vara åtkomst via portalen, som ett fristående webbgränssnitt på [shell.azure.com](https://shell.azure.com), eller från ett antal andra åtkomstpunkter. Mer information finns i [översikt av Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 ## <a name="azure-subscriptions"></a>Azure-prenumerationer
 
@@ -191,17 +191,17 @@ En prenumeration är en logisk gruppering av Azure-tjänster som är länkad til
 
 Innan du kan arbeta med Azure-tjänster behöver du en prenumeration. Det finns flera typer av prenumerationer.
 
-#### <a name="free-accounts-the-link-to-sign-up-for-a-free-account-is-on-the-azure-websitehttpsazuremicrosoftcom-this-gives-you-a-credit-over-the-course-of-30-days-to-try-any-combination-of-resources-in-azure-if-you-exceed-your-credit-amount-your-account-is-suspended-at-the-end-of-the-trial-your-services-are-decommissioned-and-will-no-longer-work-you-can-upgrade-to-a-pay-as-you-go-subscription-at-any-time"></a>Kostnadsfria konton: länken för att registrera dig för ett kostnadsfritt konto finns på den [Azure-webbplatsen](https://azure.microsoft.com/). Detta ger dig en kredit under loppet av 30 dagar att prova valfri kombination av resurser i Azure. Om du överskrider din kredit är har ditt konto inaktiverats. I slutet av utvärderingsperioden dina tjänster tas ur drift och fungerar inte längre. Du kan uppgradera till en användningsbaserad prenumeration när som helst.
+**Kostnadsfria konton**: länken för att registrera dig för ett kostnadsfritt konto finns på den [Azure-webbplatsen](https://azure.microsoft.com/). Detta ger dig en kredit under loppet av 30 dagar att prova valfri kombination av resurser i Azure. Om du överskrider din kredit är har ditt konto inaktiverats. I slutet av utvärderingsperioden dina tjänster tas ur drift och fungerar inte längre. Du kan uppgradera till en användningsbaserad prenumeration när som helst.
 
-#### <a name="msdn-subscriptions-if-you-have-an-msdn-subscription-you-get-a-specific-amount-in-azure-credit-each-month-for-example-if-you-have-a-microsoft-visual-studio-enterprise-with-msdn-subscription-you-get-150-per-month-in-azure-credit"></a>MSDN-prenumerationer: Om du har en MSDN-prenumeration får du ett specifikt belopp i Azure-kredit varje månad. Till exempel, om du har en Microsoft Visual Studio Enterprise med MSDN-prenumeration kan du få \$150 per månad i Azure-kredit.
+**MSDN-prenumerationer**: Om du har en MSDN-prenumeration får du ett specifikt belopp i Azure-kredit varje månad. Till exempel, om du har en Microsoft Visual Studio Enterprise med MSDN-prenumeration kan du få \$150 per månad i Azure-kredit.
 
 Om du överstiger mängden som kredit inaktiveras tjänsten förrän nästa månad startar. Du kan inaktivera utgiftsgränsen och lägga till ett kreditkort som ska användas för ytterligare kostnader. Vissa av dessa kostnader är rabatterade för MSDN-konton. Exempelvis kan du betalar bara Linux-priset för virtuella datorer som kör Windows Server och det finns ingen extra kostnad för Microsoft-servrar, till exempel Microsoft SQL Server. Detta gör att MSDN-konton är perfekt för utveckling och testscenarion.
 
-#### <a name="bizspark-accounts-the-microsoft-bizspark-program-provides-many-benefits-to-startups-one-of-those-benefits-is-access-to-all-the-microsoft-software-for-development-and-test-environments-for-up-to-five-msdn-accounts-you-get-150-in-azure-credit-for-each-of-those-five-msdn-accounts-and-you-pay-reduced-rates-for-several-of-the-azure-services-such-as-virtual-machines"></a>BizSpark-konton: The Microsoft BizSpark-programmet ger många fördelar för nystartade företag. En av dessa fördelar är åtkomst till alla Microsoft-programvara för utvecklings- och testmiljöer för upp till fem MSDN-konton. Du får 150 USD i Azure-kredit för var och en av dessa fem MSDN-konton och du betalar reducerade priser för flera av de Azure-tjänsterna, till exempel virtuella datorer.
+**BizSpark-konton**: The Microsoft BizSpark-programmet ger många fördelar för nystartade företag. En av dessa fördelar är åtkomst till alla Microsoft-programvara för utvecklings- och testmiljöer för upp till fem MSDN-konton. Du får 150 USD i Azure-kredit för var och en av dessa fem MSDN-konton och du betalar reducerade priser för flera av de Azure-tjänsterna, till exempel virtuella datorer.
 
-#### <a name="pay-as-you-go-with-this-subscription-you-pay-for-what-you-use-by-attaching-a-credit-card-or-debit-card-to-the-account-if-you-are-an-organization-you-can-also-be-approved-for-invoicing"></a>Betala per användning: Med den här prenumerationen betalar du för det du använder genom att koppla ett kreditkort eller bankkort till kontot. Om du är en organisation kan godkännas du också för fakturering.
+**Betala per användning**: med den här prenumerationen du betala för det du använder genom att koppla ett kreditkort eller bankkort till kontot. Om du är en organisation kan godkännas du också för fakturering.
 
-#### <a name="enterprise-agreements-with-an-enterprise-agreement-you-commit-to-using-a-certain-number-of-services-in-azure-over-the-next-year-and-you-pay-that-amount-ahead-of-time-the-commitment-that-you-make-is-consumed-throughout-the-year-if-you-exceed-the-commitment-amount-you-can-pay-the-overage-in-arrears-depending-on-the-amount-of-the-commitment-you-get-a-discount-on-the-services-in-azure"></a>Enterprise-avtal: med ett enterprise-avtal du åtaganden att använda ett visst antal tjänster i Azure under nästa år, och du betalar det beloppet förbereds i förväg. Du gör åtagandet förbrukas sedan under året. Om du överstiger åtagandet, kan du betala överanvändning i efterhand. Beroende på mängden åtagandet få rabatt på tjänster i Azure.
+**Enterprise-avtal**: med ett enterprise-avtal du åtaganden att använda ett visst antal tjänster i Azure under nästa år, och du betalar det beloppet förbereds i förväg. Du gör åtagandet förbrukas sedan under året. Om du överstiger åtagandet, kan du betala överanvändning i efterhand. Beroende på mängden åtagandet få rabatt på tjänster i Azure.
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Tilldela administrativ åtkomst till en Azure-prenumeration
 
@@ -465,7 +465,7 @@ Om du vill tillåta användare att ha kontrollerad åtkomst till dina lagringsre
 
 ## <a name="azure-virtual-network"></a>Azure Virtual Network
 
-Virtuella nätverk är nödvändiga för att ha stöd för kommunikation mellan virtuella datorer. Du kan definiera undernät, anpassad IP-adress, DNS-inställningar, säkerhetsfiltrering och belastningsutjämning. Azure har stöd för olika områden: endast molnbaserad nätverk eller hybrid virtuella nätverk. 
+Virtuella nätverk är nödvändiga för att ha stöd för kommunikation mellan virtuella datorer. Du kan definiera undernät, anpassad IP-adress, DNS-inställningar, säkerhetsfiltrering och belastningsutjämning. Azure har stöd för olika områden: endast molnbaserad nätverk eller hybrid virtuella nätverk.
 
 ### <a name="cloud-only-virtual-networks"></a>Endast molnbaserad virtuella nätverk
 
@@ -489,7 +489,7 @@ Det finns flera alternativ för att distribuera ett virtuellt nätverk.
 
 - Azure Resource Manager-mallar
 
->**När du ska använda**: när du arbetar med virtuella datorer i Azure kan du arbetar med virtuella nätverk. Det möjliggör segmentera dina virtuella datorer i offentliga och privata undernät liknande lokala datacenter. 
+>**När du ska använda**: när du arbetar med virtuella datorer i Azure kan du arbetar med virtuella nätverk. Det möjliggör segmentera dina virtuella datorer i offentliga och privata undernät liknande lokala datacenter.
 
 >**Kom igång**: distribuera ett Azure-nätverk med hjälp av Azure-portalen kräver en aktiv Azure-prenumeration och åtkomst till en webbläsare. Du kan distribuera ett nytt virtuellt nätverk i en ny eller befintlig resursgrupp. När du skapar en ny virtuell dator från portalen, kan du välja ett befintligt virtuellt nätverk eller skapa en ny. Kom igång och [skapa ett virtuellt nätverk med Azure portal](../../virtual-network/quick-create-portal.md).
 

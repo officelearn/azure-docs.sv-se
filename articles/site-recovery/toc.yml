@@ -80,8 +80,6 @@ items:
         href: physical-azure-architecture.md
       - name: Stöd för flera klienter för VMware-replikering till Azure
         href: vmware-azure-multi-tenant-overview.md
-      - name: Om mobilitetstjänsten
-        href: vmware-azure-install-mobility-service.md
       - name: Alternativ för redundansplats
         href: concepts-types-of-failback.md
     - name: Replikering till en sekundär plats
@@ -190,26 +188,26 @@ items:
       items:
       - name: Replikera virtuella VMware-datorer till Azure med PowerShell
         href: vmware-azure-disaster-recovery-powershell.md
-      - name: Haveriberedskap för fysiska servrar till Azure
-        href: physical-azure-disaster-recovery.md
       - name: Konfigurera källmiljön för virtuella VMware-datorer
         href: vmware-azure-set-up-source.md
-      - name: Konfigurera källmiljön för fysiska servrar
-        href: physical-azure-set-up-source.md
       - name: Distribuera konfigurationsservern för VMware-replikering
         href: vmware-azure-deploy-configuration-server.md
       - name: Konfigurera målmiljön för virtuella VMware-datorer
         href: vmware-azure-set-up-target.md
-      - name: Konfigurera målmiljön för fysiska servrar
-        href: physical-azure-set-up-target.md
       - name: Konfigurera replikeringsinställningar
         href: vmware-azure-set-up-replication.md
-      - name: Undanta diskar från replikering
-        href: vmware-azure-exclude-disk.md
       - name: Aktivera replikering av virtuell VMware-dator
         href: vmware-azure-enable-replication.md
+      - name: Undanta diskar från replikering
+        href: vmware-azure-exclude-disk.md
       - name: Flera klienter med CSP för virtuella VMWare-datorer
         href: vmware-azure-multi-tenant-csp-disaster-recovery.md
+      - name: Konfigurera källmiljön för fysiska servrar
+        href: physical-azure-set-up-source.md
+      - name: Konfigurera målmiljön för fysiska servrar
+        href: physical-azure-set-up-target.md
+      - name: Haveriberedskap för fysiska servrar till Azure
+        href: physical-azure-disaster-recovery.md
     - name: Distribuera mobilitetstjänsten
       items:
       - name: Mobilitetstjänstöversikt
@@ -218,24 +216,24 @@ items:
         href: vmware-azure-mobility-install-configuration-mgr.md
     - name: Redundans och återställning efter fel
       items:
-      - name: Köra ett programåterställningstest till Azure
-        href: site-recovery-test-failover-to-azure.md
       - name: Konfigurera återställningsplaner
         href: site-recovery-create-recovery-plans.md
       - name: Lägga till Azure-runbookflöden i återställningsplaner
         href: site-recovery-runbook-automation.md
+      - name: Köra ett programåterställningstest till Azure
+        href: site-recovery-test-failover-to-azure.md
+      - name: Köra en redundans i Azure
+        href: site-recovery-failover.md
+      - name: Återaktivera skydd från Azure till lokalt VMware
+        href: vmware-azure-reprotect.md
+      - name: Redundansväxla från Azure till VMware
+        href: vmware-azure-failback.md
       - name: Konfigurera och hantera en processerver för återställning efter fel i Azure
         href: vmware-azure-set-up-process-server-azure.md
       - name: Konfigurera en Linux-huvudmålserver för återställning efter fel
         href: vmware-azure-install-linux-master-target.md
-      - name: Köra en redundans i Azure
-        href: site-recovery-failover.md
       - name: Köra redundans och återställning efter fel för fysiska servrar
         href: physical-to-azure-failover-failback.md
-      - name: Redundansväxla från Azure till VMware
-        href: vmware-azure-failback.md
-      - name: Återaktivera skydd från Azure till lokalt VMware
-        href: vmware-azure-reprotect.md
     - name: Hantera
       items:
       - name: Hantera konfigurationsservern för VMware-replikering
@@ -390,9 +388,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Tjänstuppdateringar
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: cdc1990f71a38e7e0740456ccc8fb82e8ed1b5f9
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: f0469d554b25565411bb8c484f3d3937bb9a87f6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42914926"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126078"

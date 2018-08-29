@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 34ee673ee1cf870e376ac8c954a9f3fc468abaa2
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 0f053c0293488f19adcd058f1ba8304d8d238738
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42059553"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128314"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Felsöka långsam prestandaproblem med webbappar i Azure App Service
 Den här artikeln hjälper dig att felsöka långsam prestandaproblem med webbappar i [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -46,7 +46,7 @@ Felsökning kan delas in i tre olika uppgifter i sekventiell ordning:
 2. [Samla in data](#collect)
 3. [Åtgärda problemet](#mitigate)
 
-[App Service Web Apps](/services/app-service/web/) ger dig olika alternativ i varje steg.
+[App Service Web Apps](app-service-web-overview.md) ger dig olika alternativ i varje steg.
 
 <a name="observe" />
 

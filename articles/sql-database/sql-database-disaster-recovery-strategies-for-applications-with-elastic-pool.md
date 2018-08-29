@@ -7,18 +7,18 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/27/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 6952e26898e4ff27dd7c2f6780dcb9b8b224460b
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 8f365d123a234f367a1415232a714d2c18663b63
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092553"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124078"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Strategier för haveriberedskap för program som använder SQL Database elastiska pooler
-Vi har lärt dig att molntjänster är inte felsäker och kritiska incidenter sker under åren. SQL Database tillhandahåller flera funktioner för att tillhandahålla för företagskontinuitet programmets när dessa inträffar. [Elastiska pooler](sql-database-elastic-pool.md) och enskilda databaser stöder samma typ av funktioner för katastrofåterställning. Den här artikeln beskriver flera strategier för Haveriberedskap för elastiska pooler som utnyttjar dessa funktioner för affärskontinuitet SQL-databas.
+Vi har lärt dig att molntjänster är inte felsäker och kritiska incidenter sker under åren. SQL Database tillhandahåller flera funktioner för att tillhandahålla för företagskontinuitet programmets när dessa inträffar. [Elastiska pooler](sql-database-elastic-pool.md) och enskilda databaser stöder samma typ av funktioner för katastrofåterställning (DR). Den här artikeln beskriver flera strategier för Haveriberedskap för elastiska pooler som utnyttjar dessa funktioner för affärskontinuitet SQL-databas.
 
 Den här artikeln använder följande canonical SaaS ISV-programmönster:
 

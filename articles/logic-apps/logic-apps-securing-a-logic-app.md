@@ -1,94 +1,90 @@
 ---
 title: Säker åtkomst till Azure Logic Apps | Microsoft Docs
-description: Lägger till säkerhet för att skydda åtkomsten till utlösare, indata och utdata, åtgärdsparametrar och tjänster som används med arbetsflöden i Azure Logic Apps.
+description: Skydda åtkomsten till utlösare, indata och utdata, åtgärdsparametrar och tjänster i arbetsflöden för Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: kevinlam1
+ms.author: klam
+ms.reviewer: estfan, LADocs
+ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
 ms.date: 11/22/2016
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 2052e58dab7241836409fb013778f9702004021c
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: fc4fdff5080e6ebe13850157e8d560a1d31e7719
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299917"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127487"
 ---
-# <a name="secure-access-to-your-logic-apps"></a>Säker åtkomst till dina logic apps
+# <a name="secure-access-in-azure-logic-apps"></a>Säker åtkomst i Azure Logic Apps
 
-Det finns många verktyg som är tillgängliga för att skydda din logikapp.
+Här finns sätt att du kan skydda åtkomst till olika komponenter i din logikapp:
 
-* Skydda åtkomsten till att utlösa en logikapp (http-begäran utlösare)
-* Skydda åtkomsten till hantera, redigera eller läsa en logikapp
-* Skydda åtkomsten till innehållet i indata och utdata för en körning
-* Att säkra parametrar eller indata i åtgärder i ett arbetsflöde
-* Skydda åtkomsten till tjänster som tar emot förfrågningar från ett arbetsflöde
+* Säker åtkomst för att utlösa ett logic app-arbetsflöde med HTTP-begäran-utlösare.
+* Säker åtkomst för att hantera, redigera eller läsa en logikapp.
+* Säker åtkomst till innehållet i indata och utdata för en logikappskörning.
+* Skydda parametrar eller indata för åtgärder i ett logic app-arbetsflöde.
+* Säker åtkomst till tjänster som tar emot begäranden från en logikappens arbetsflöde.
 
 ## <a name="secure-access-to-trigger"></a>Säker åtkomst till utlösa
 
-När du arbetar med en logikapp som utlöses på en HTTP-begäran ([begära](../connectors/connectors-native-reqres.md) eller [Webhook](../connectors/connectors-native-webhook.md)), kan du begränsa åtkomsten så att endast auktoriserade klienter kan utlösa logikappen. Alla förfrågningar till en logikapp krypteras och skyddas via SSL.
+När du arbetar med en logikapp som utlöses med en HTTP-begäran ([begära](../connectors/connectors-native-reqres.md) eller [Webhook](../connectors/connectors-native-webhook.md)), du kan begränsa åtkomst så att endast auktoriserade klienter kan utlösa logikappen. Alla begäranden till en logikapp krypteras och skyddas via SSL.
 
 ### <a name="shared-access-signature"></a>Signatur för delad åtkomst
 
-Varje begäran slutpunkt för en logikapp innehåller en [delade signatur åtkomst (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md) som en del av URL: en. Varje URL innehåller en `sp`, `sv`, och `sig` Frågeparametern. Behörigheter som anges av `sp`, och motsvarar HTTP-metoder tillåts, `sv` är den version som används för att generera, och `sig` används för att autentisera åtkomsten till utlösa. Signaturen skapas med en hemlig nyckel på den URL-sökvägar och egenskaperna SHA256-algoritmen. Den hemliga nyckeln är aldrig exponeras och publiceras, och hålls krypterade och lagras som en del av logikappen. Din logikapp tillåter endast utlösare som innehåller en giltig signatur som skapats med den hemliga nyckeln.
+Varje begäran-slutpunkten för en logic app innehåller en [signatur för delad åtkomst (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md) som en del av URL: en. Varje URL: en innehåller en `sp`, `sv`, och `sig` frågeparameter. Behörigheter som anges av `sp`, och motsvarar HTTP-metoder som tillåts, `sv` är den version som används för att generera, och `sig` används för att autentisera åtkomsten till utlösa. Signaturen genereras med SHA256-algoritmen med en hemlig nyckel på alla URL-sökvägar och egenskaper. Den hemliga nyckeln är aldrig exponeras och publicerats och förblir krypterade och lagras som en del av logikappen. Logikappen auktoriserar endast utlösare som innehåller en giltig signatur som skapats med den hemliga nyckeln.
 
 #### <a name="regenerate-access-keys"></a>Återskapa åtkomstnycklar
 
-Du kan återskapa en ny säker nyckel vid när som helst via REST API- eller Azure-portalen. Alla aktuella URL: er som har skapats tidigare med den gamla nyckeln är ogiltig och inte längre behörighet eller logikappen.
+Du kan återskapa en ny säker nyckel vid när som helst via REST API eller Azure-portalen. Alla aktuella URL: er som har skapats tidigare med den gamla nyckeln ogiltig och inte längre behörighet att utlösa logikappen.
 
 1. Öppna logikappen som du vill återskapa en nyckel i Azure-portalen
-1. Klicka på den **åtkomstnycklar** menyalternativet **inställningar**
-1. Välj för att återskapa och slutföra processen
+1. Klicka på den **åtkomstnycklar** menyalternativet under **inställningar**
+1. Välj på för att återskapa och slutföra processen
 
-URL: er som du hämtar efter återskapandet signeras med den nya åtkomstnyckeln.
+URL: er som du hämtar efteråt signeras med den nya åtkomstnyckeln.
 
-#### <a name="creating-callback-urls-with-an-expiration-date"></a>Skapa återanrop URL: er med ett förfallodatum
+#### <a name="creating-callback-urls-with-an-expiration-date"></a>Skapa Motringnings-URL: er med ett förfallodatum
 
-Om du delar URL: en med andra parter kan generera du URL: er med specifika nycklar och förfallodatum efter behov. Du kan sedan sömlöst Återställ nycklar eller kontrollera åtkomsten eller en app är begränsad till en viss timespan. Du kan ange ett sista giltighetsdatum för en URL till den [logikappar REST API](https://docs.microsoft.com/rest/api/logic/workflowtriggers):
+Om du delar URL: en med andra parter, kan du generera URL: er med specifika nycklar och förfallodatum efter behov. Du kan sedan sömlöst återställa nycklar eller se till att åtkomsten till utlöses en app är begränsad till ett visst tidsintervall. Du kan ange ett sista giltighetsdatum för en URL via den [logikappar REST API](https://docs.microsoft.com/rest/api/logic/workflowtriggers):
 
 ``` http
 POST 
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/triggers/{triggerName}/listCallbackUrl?api-version=2016-06-01
 ```
 
-I själva brödtexten, innehåller egenskapen `NotAfter` som en JSON-datumsträng som returnerar en motringning-URL som är endast giltig förrän den `NotAfter` datum och tid.
+I själva brödtexten, ta med egenskapen `NotAfter` som en JSON-datumsträng som returnerar en Motringnings-URL som endast är giltig tills den `NotAfter` datum och tid.
 
 #### <a name="creating-urls-with-primary-or-secondary-secret-key"></a>Skapa URL: er med primär eller sekundär hemlig nyckel
 
-När du generera eller listan återanrop URL: er för frågebaserad utlösare kan ange du också vilka nyckel ska användas för att logga in URL: en.  Du kan generera en URL som signerats av en viss nyckel via den [logikappar REST API](https://docs.microsoft.com/rest/api/logic/workflowtriggers) på följande sätt:
+Du kan även ange vilken nyckel som ska använda för att logga URL: en när du genererar eller lista Motringnings-URL: er för begäran-baserade utlösare.  Du kan generera en URL som signerats av en viss nyckel via den [logikappar REST API](https://docs.microsoft.com/rest/api/logic/workflowtriggers) på följande sätt:
 
 ``` http
 POST 
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/triggers/{triggerName}/listCallbackUrl?api-version=2016-06-01
 ```
 
-I själva brödtexten, innehåller egenskapen `KeyType` som antingen `Primary` eller `Secondary`.  Detta returnerar en URL som signerats av säker nyckeln som anges.
+I själva brödtexten, ta med egenskapen `KeyType` som antingen `Primary` eller `Secondary`.  Detta returnerar en URL som signerats av säker nyckeln som har angetts.
 
 ### <a name="restrict-incoming-ip-addresses"></a>Begränsa inkommande IP-adresser
 
-Förutom den signatur för delad åtkomst, kan du begränsa anropar en logikapp endast från specifika klienter.  Du kan till exempel begränsa logikappen så att endast acceptera begäran när begäran kommer från IP-adress för API Management-instans om du hanterar din slutpunkt via Azure API Management.
+Förutom Shared Access Signature, kanske du vill begränsa anropa en logikapp endast från specifika klienter.  Om du hanterar din slutpunkt via Azure API Management kan begränsa du till exempel logikappen så att endast acceptera begäran när begäran kommer från IP-adressen för API Management-instans.
 
-Den här inställningen kan konfigureras i logik app-inställningar:
+Den här inställningen kan konfigureras i inställningarna för logic app:
 
 1. Öppna logikappen som du vill lägga till IP-adressbegränsningar i Azure-portalen
-1. Klicka på den **inställningar för arbetsflöde** menyalternativet **inställningar**
-1. Ange en lista över IP-adressintervall som accepteras av utlösaren
+1. Klicka på den **arbetsflödesinställningarna** menyalternativet under **inställningar**
+1. Ange listan med IP-adresser som ska godkännas av utlösaren
 
-En giltig IP-adressintervall har formatet `192.168.1.1/255`. Om du vill logikappen eller endast som en kapslad logikapp, Välj den **andra logikappar** alternativet. Det här alternativet skrivs en tom matris till resursen, betydelse endast anropas från tjänsten sig själv (överordnade logikappar) eller har.
+En giltig IP-adressintervall har formatet `192.168.1.1/255`. Om du vill logikappen som ska bara aktiveras som en kapslad logikapp, Välj den **enbart andra logic apps** alternativet. Det här alternativet skriver en tom matris till resursen, betydelse endast anropas från själva (överordnade logikappar) tjänsten utlöses har.
 
 > [!NOTE]
-> Du kan fortfarande köra en logikapp med en utlösare för begäran via REST API / Management `/triggers/{triggerName}/run` oavsett IP. Det här scenariot kräver autentisering mot Azure REST-API och alla händelser som visas i Azure granskningsloggen. Ange åtkomstkontroll principer därefter.
+> Du kan fortfarande köra en logikapp med en begäransutlösare via REST API / Management `/triggers/{triggerName}/run` oavsett IP. Det här scenariot kräver autentisering mot Azure REST-API och alla händelser som visas i granskningsloggen för Azure. Ställ in åtkomst till principer för åtkomstkontroll i enlighet med detta.
 
 #### <a name="setting-ip-ranges-on-the-resource-definition"></a>Ange IP-intervall i resursdefinitionen
 
-Om du använder en [Distributionsmall](logic-apps-create-deploy-template.md) för att automatisera dina distributioner, IP-adressintervall inställningar kan konfigureras på resource-mallen.  
+Om du använder en [Distributionsmall](logic-apps-create-deploy-template.md) för att automatisera dina distributioner, inställningar för IP-adressintervall kan konfigureras på resource-mallen.  
 
 ``` json
 {
@@ -114,34 +110,34 @@ Om du använder en [Distributionsmall](logic-apps-create-deploy-template.md) fö
 
 ```
 
-### <a name="adding-azure-active-directory-oauth-or-other-security"></a>Lägga till Azure Active Directory, OAuth eller annan säkerhet
+### <a name="adding-azure-active-directory-oauth-or-other-security"></a>Lägga till Azure Active Directory, OAuth eller andra
 
-Att lägga till flera auktorisering protokoll ovanpå en logikapp [Azure API Management](https://azure.microsoft.com/services/api-management/) erbjuder omfattande övervakning, säkerhet, principer och för valfri slutpunkt med möjlighet att exponera en logikapp som en API-dokumentationen. Azure API Management kan exponera en offentlig eller privat slutpunkt för logikappen som kan använda Azure Active Directory, certifikat, OAuth eller andra säkerhetskrav. När en begäran tas emot vidarebefordrar Azure API Management begäran till logikappen (utför alla nödvändiga transformationer eller begränsningar relä). Du kan använda inställningar för inkommande IP-intervall på logikappen att endast tillåta logikappen ska utlösas från API-hantering.
+Att lägga till fler auktoriseringsprotokoll ovanpå en logikapp [Azure API Management](https://azure.microsoft.com/services/api-management/) erbjuder omfattande övervakning, säkerhet, principer och dokumentation för valfri slutpunkt med möjlighet att exponera en logikapp som ett API. Azure API Management kan exponera en offentlig eller privat slutpunkt för logikappen, som kan använda Azure Active Directory, certifikat, OAuth eller andra säkerhetskrav. När en begäran tas emot, vidarebefordrar begäran till logikappen (och alla nödvändiga omvandlingar eller begränsningar för relä) i Azure API Management. Du kan använda inställningar för inkommande IP-intervall på logikappen att endast tillåta logikappen utlöses från API Management.
 
 ## <a name="secure-access-to-manage-or-edit-logic-apps"></a>Säker åtkomst för att hantera eller redigera logikappar
 
-Du kan begränsa åtkomsten till hanteringsåtgärder på en logikapp så att bara vissa användare eller grupper kan utföra åtgärder på resursen. Logikappar använder Azure [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/role-assignments-portal.md) funktion och kan anpassas med samma verktyg.  Det finns några inbyggda roller som du kan tilldela medlemmar i din prenumeration samt:
+Du kan begränsa åtkomsten till hanteringsåtgärder i en logikapp så att endast specifika användare eller grupper kan utföra åtgärder på resursen. Logikappar Använd Azure [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/role-assignments-portal.md) funktion och kan anpassas med samma verktyg.  Det finns några inbyggda roller som du kan även tilldela medlemmar i din prenumeration för att:
 
-* **Logik App deltagare** -ger möjlighet att visa, redigera och uppdatera en logikapp.  Det går inte att ta bort resursen eller utföra administrativa åtgärder.
-* **Logik App operatorn** – kan visa logikappen och kör historik och aktivera/inaktivera.  Det går inte att redigera eller uppdatera definitionen.
+* **Logic App-deltagare** -ger möjlighet att visa, redigera och uppdatera en logikapp.  Det går inte att ta bort resursen eller utföra administrativa åtgärder.
+* **Logic App-operatör** – kan visa logikappen och körningshistorik och aktivera/inaktivera.  Det går inte att redigera eller uppdatera definitionen.
 
-Du kan också använda [Azure Resource Lås](../azure-resource-manager/resource-group-lock-resources.md) att förhindra att ändra eller ta bort logikappar. Den här funktionen är användbar för att förhindra produktionsresurser från ändringar eller borttagningar.
+Du kan också använda [Azure-resurslås](../azure-resource-manager/resource-group-lock-resources.md) att förhindra att ändra eller ta bort logikappar. Den här funktionen är användbar för att förhindra produktionsresurser från ändringar eller raderingar.
 
 ## <a name="secure-access-to-contents-of-the-run-history"></a>Säker åtkomst till innehållet i körningshistoriken
 
-Du kan begränsa åtkomsten till innehållet i in- eller utdata från tidigare körs till specifika IP-adressintervall.  
+Du kan begränsa åtkomsten till innehållet i indata eller utdata från tidigare körningar till specifika IP-adressintervall.  
 
-Alla data i ett arbetsflöde kör krypteras under överföring och i vila. När ett anrop till kör historik görs tjänsten autentiserar en begäran och innehåller länkar till förfrågan och svar indata och utdata. Den här länken kan skyddas så att endast begäranden om att visa innehåll från ett IP-adressintervall returnera innehållet. Du kan använda den här funktionen för ytterligare behörighet. Du kan även ange en IP-adress som `0.0.0.0` så ingen kan komma åt indata/utdata. Endast användare med administratörsbehörigheter kan ta bort den här begränsningen att tillhandahålla möjligheten för 'just-in-time-åtkomst till innehåll för arbetsflödet.
+Alla data i ett arbetsflöde kör krypteras vid överföring och i vila. När ett anrop till körningshistorik görs, autentiserar begäran tjänsten och länkar till begäranden och svar indata och utdata. Den här länken kan skyddas så att endast begäranden om att visa innehåll från en IP-adressintervall returnera innehållet. Du kan använda den här funktionen för ytterligare åtkomstkontroll. Du kan även ange en IP-adress som `0.0.0.0` så ingen kan komma åt indata/utdata. Endast användare med administratörsbehörighet kan ta bort den här begränsningen att tillhandahålla möjligheten för ”just-in-time-åtkomst till innehåll för arbetsflödet.
 
-Den här inställningen kan konfigureras i resursinställningar på Azure-portalen:
+Den här inställningen kan konfigureras i resursinställningarna för i Azure Portal:
 
 1. Öppna logikappen som du vill lägga till IP-adressbegränsningar i Azure-portalen
-2. Klicka på den **konfiguration för behörighetskontroll** menyalternativet **inställningar**
-3. Ange en lista över IP-adressintervall för åtkomst till innehåll
+2. Klicka på den **åtkomstkontrollskonfiguration** menyalternativet under **inställningar**
+3. Ange listan med IP-adressintervall för åtkomst till innehåll
 
 #### <a name="setting-ip-ranges-on-the-resource-definition"></a>Ange IP-intervall i resursdefinitionen
 
-Om du använder en [Distributionsmall](logic-apps-create-deploy-template.md) för att automatisera dina distributioner, IP-adressintervall inställningar kan konfigureras på resource-mallen.  
+Om du använder en [Distributionsmall](logic-apps-create-deploy-template.md) för att automatisera dina distributioner, inställningar för IP-adressintervall kan konfigureras på resource-mallen.  
 
 ``` json
 {
@@ -168,19 +164,19 @@ Om du använder en [Distributionsmall](logic-apps-create-deploy-template.md) fö
 
 ## <a name="secure-parameters-and-inputs-within-a-workflow"></a>Säker parametrar och indata i ett arbetsflöde
 
-Du kanske vill parameterstyra vissa aspekter av en arbetsflödesdefinition för distribution i miljöer. Vissa parametrar kan också vara säkra parametrar som du inte vill ska visas när du redigerar ett arbetsflöde, till exempel en klient-ID och klienthemlighet för [Azure Active Directory-autentisering](../connectors/connectors-native-http.md#authentication) av en HTTP-åtgärd.
+Du kanske vill Parameterisera vissa aspekter av en arbetsflödesdefinition för distribution i alla miljöer. Vissa parametrar kan också vara säkra parametrar som du inte vill ska visas när du redigerar ett arbetsflöde, till exempel ett klient-ID och klienthemligheten för [Azure Active Directory-autentisering](../connectors/connectors-native-http.md#authentication) av en HTTP-åtgärd.
 
 ### <a name="using-parameters-and-secure-parameters"></a>Med hjälp av parametrarna och säker
 
-Åtkomst till värdet för en resursparametern vid körning, den [språk i arbetsflödesdefinitionen](http://aka.ms/logicappsdocs) ger en `@parameters()` igen. Du kan också [ange parametrar i mallen för distribution av resursen](../azure-resource-manager/resource-group-authoring-templates.md#parameters). Men om du anger parametertyp som `securestring`, parametern inte returneras med resten av resursdefinitionen och inte är tillgängliga genom att visa resursen efter distributionen.
+Åtkomst till värdet för en resursparametern vid körning, den [definitionsspråk för arbetsflödet](http://aka.ms/logicappsdocs) tillhandahåller en `@parameters()` igen. Du kan också [ange parametrar i mallen för distribution av resursen](../azure-resource-manager/resource-group-authoring-templates.md#parameters). Men om du anger parametertyp som `securestring`, parametern inte returneras med resten av resursdefinitionen och kan inte nås genom att visa resursen efter distributionen.
 
 > [!NOTE]
-> Om parametern används i sidhuvuden eller en begäran om kanske parametern visas genom att öppna körningshistorik och utgående HTTP-begäran. Se till att ange principer för åtkomst till innehåll i enlighet med detta.
-> Auktorisering huvuden visas aldrig via in- eller utdata. Så om hemligheten som används det hemligheten inte strängfält.
+> Om din parameter används i sidhuvuden eller brödtexten i en begäran, vara parametern synliga genom att gå till körningshistorik och utgående HTTP-begäran. Se till att ange principer för åtkomst till innehåll i enlighet med detta.
+> Auktorisering rubriker är aldrig synliga via indata eller utdata. Så om hemligheten används det, hemligheten inte kan hämtas.
 
 #### <a name="resource-deployment-template-with-secrets"></a>Resurs-Distributionsmall med hemligheter
 
-I följande exempel visas en distribution som refererar till en säker parameter av `secret` vid körning. I en separat parameterfilen kan du ange miljö-värde för den `secret`, eller Använd [Azure Resource Manager KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) för att hämta distribuera hemligheter i tid.
+I följande exempel visas en distribution som refererar till en säker parameter för `secret` vid körning. I en separat parameterfilen, kan du ange miljö-värde för den `secret`, eller Använd [Azure Resource Manager KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) för att hämta hemligheter på distribuera tid.
 
 ``` json
 {
@@ -243,32 +239,32 @@ I följande exempel visas en distribution som refererar till en säker parameter
 }
 ```
 
-## <a name="secure-access-to-services-receiving-requests-from-a-workflow"></a>Säker åtkomst till tjänster som tar emot förfrågningar från ett arbetsflöde
+## <a name="secure-access-to-services-receiving-requests-from-a-workflow"></a>Säker åtkomst till tjänster som tar emot begäranden från ett arbetsflöde
 
 Det finns många sätt för att skydda valfri slutpunkt logikappen behöver åtkomst till.
 
-### <a name="using-authentication-on-outbound-requests"></a>Med autentisering för utgående förfrågningar
+### <a name="using-authentication-on-outbound-requests"></a>Med autentisering på utgående begäranden
 
-När du arbetar med en HTTP-, http- + Swagger (Öppna API) eller Webhook-åtgärden kan du lägga till autentisering på begäran som skickas. Du kan inkludera grundläggande autentisering eller autentisering med datorcertifikat Azure Active Directory-autentisering. Information om hur du konfigurerar den här autentiseringen kan hittas [i den här artikeln](../connectors/connectors-native-http.md#authentication).
+När du arbetar med en HTTP-, HTTP + Swagger (Open API) eller Webhook-åtgärd, kan du lägga till autentisering på begäran som skickas. Du kan inkludera grundläggande autentisering eller autentisering med datorcertifikat Azure Active Directory-autentisering. Information om hur du konfigurerar den här autentiseringen hittar [i den här artikeln](../connectors/connectors-native-http.md#authentication).
 
-### <a name="restricting-access-to-logic-app-ip-addresses"></a>Begränsa åtkomsten till logik app IP-adresser
+### <a name="restricting-access-to-logic-app-ip-addresses"></a>Begränsa åtkomsten till IP-adresser för logic app
 
-Alla anrop från logikappar komma från en specifik uppsättning IP-adresser per region. Du kan lägga till ytterligare filtrering så att den endast accepterar begäranden från de angivna IP-adresserna. En lista över de IP-adresserna, se [logik app gränser och konfiguration](logic-apps-limits-and-config.md#configuration).
+Alla anrop från logikappar kommer från en specifik uppsättning IP-adresser per region. Du kan lägga till ytterligare filtrera för att endast acceptera begäranden från de angivna IP-adresserna. En lista över de IP-adresserna finns i [logic app-gränser och konfiguration](logic-apps-limits-and-config.md#configuration).
 
 ### <a name="on-premises-connectivity"></a>Lokala anslutningsmöjligheter
 
-Logikappar ange integrering med flera tjänster att ge säkert och tillförlitligt lokalt kommunikation.
+Logic apps är integrering med flera tjänster att tillhandahålla säker och tillförlitlig lokala kommunikation.
 
 #### <a name="on-premises-data-gateway"></a>Lokal datagateway
 
-Många hanterade anslutningar för logic apps ge säker anslutning till lokalt system, inklusive filsystem, SQL, SharePoint, DB2 och mycket mer. Gatewayen som vidarebefordrar data från lokala datakällor på krypterade kanaler via Azure Service Bus. Det kommer all trafik som säkra utgående trafik från gateway-agenten. Lär dig mer om [hur datagateway fungerar](logic-apps-gateway-install.md#gateway-cloud-service).
+Många hanterade anslutningsappar för logic apps ger säkra anslutningar till lokala system, inklusive filsystem, SQL, SharePoint, DB2 och mycket mer. Gatewayen vidarebefordrar data från lokala källor på krypterade kanaler via Azure Service Bus. All trafik som samlas in som säker utgående trafik från gateway-agenten. Läs mer om [hur datagateway fungerar](logic-apps-gateway-install.md#gateway-cloud-service).
 
 #### <a name="azure-api-management"></a>Azure API Management
 
-[Azure API Management](https://azure.microsoft.com/services/api-management/) har lokala anslutningsmöjligheter, inklusive integrering med plats-till-plats VPN- och ExpressRoute för säker proxy och kommunikation till lokala system. Du kan snabbt markera en API exponeras från Azure API Management i ett arbetsflöde, vilket ger snabb åtkomst till lokala system i logik App Designer.
+[Azure API Management](https://azure.microsoft.com/services/api-management/) har lokala anslutningsmöjligheter, inklusive plats-till-plats VPN och ExpressRoute-integrering för säker proxy och kommunikation till lokala system. I Logic App Designer, kan du snabbt välja ett API som visas från Azure API Management i ett arbetsflöde, vilket ger snabb åtkomst till lokala system.
 
 ## <a name="next-steps"></a>Nästa steg
-[Skapa en Distributionsmall för](logic-apps-create-deploy-template.md)  
+[Skapa en Distributionsmall](logic-apps-create-deploy-template.md)  
 [Undantagshantering](logic-apps-exception-handling.md)  
 [Övervaka dina logikappar](logic-apps-monitor-your-logic-apps.md)  
-[Diagnostisera logik app fel och problem](logic-apps-diagnosing-failures.md)  
+[Diagnosticera logikappfel och problem](logic-apps-diagnosing-failures.md)  

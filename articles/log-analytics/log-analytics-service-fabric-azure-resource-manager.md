@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: nini
 ms.component: na
-ms.openlocfilehash: 9bc1f7d9eab73a086e664dcc520ecf26befbbf0e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7c86c1006d7139356426c0cfb8fc5e684a4c9be6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432899"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125686"
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Utvärdera Service Fabric-program och micro-tjänster med Azure portal
 
@@ -80,8 +80,6 @@ Ange de nödvändiga parametrarna efter samma stegen ovan, och sätta igång en 
 
 Visa prestandadata från noderna:
 
-
-[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 - Starta Log Analytics-arbetsytan från Azure-portalen.
   ![Service Fabric](./media/log-analytics-service-fabric/6.png)

@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 9991e0a1fc54e6aa4a99b8bfbd93abdfe974b01b
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 64dce26303c0e700da54d371af5cb275b1613d70
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283077"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122111"
 ---
 # <a name="speech-service-rest-apis"></a>Taltjänst REST API: er
 
@@ -23,7 +23,7 @@ REST-API: er av enhetliga Speech-tjänsten som liknar de API: er som tillhandah�
 
 I tal till Text-API, de slutpunkter som används som skiljer sig från föregående taltjänsten tal-API: T. De nya slutpunkterna visas i tabellen nedan. Använd det som matchar din region för prenumerationen.
 
-[!include[](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 Tal till Text API är annars liknar den [REST API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) för tidigare API för taligenkänning.
 
@@ -54,7 +54,7 @@ sv-SE  | Svenska | Man   | ”Microsoft Server tal Text till tal-röst (en-US, G
 
 Följande är REST-slutpunkter för den enhetliga service Text till tal API. Använd den slutpunkt som matchar din region för prenumerationen.
 
-[!include[](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 Hålla dessa skillnader i åtanke när du refererar till den [REST API-dokumentation](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput) för tidigare API för taligenkänning.
 
@@ -62,7 +62,7 @@ Hålla dessa skillnader i åtanke när du refererar till den [REST API-dokumenta
 
 Skicka en begäran till tal-tjänstens REST-API kräver en åtkomst-token. Du hämtar en token genom att tillhandahålla din prenumerationsnyckel till en regional taltjänst `issueToken` slutpunkt kan visas i tabellen nedan. Använd den slutpunkt som matchar din region för prenumerationen.
 
-[!include[](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
 Varje åtkomsttoken är giltig i 10 minuter. Du kan hämta en ny token när som helst – om du vill, inklusive, precis innan varje tal REST API-begäran. För att minimera nätverkstrafiken och svarstid, men bör du använda samma token i nio minuter.
 

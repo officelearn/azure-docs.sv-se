@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4d86a8fcd1dc85ccacea91afe36cb39dabe10464
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 0b4ff1799f77581452859d1dbc0e6e9cc47062e4
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117597"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128057"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Bevara jobb- och data till Azure Storage med Batch File Conventions-bibliotek för .NET 
 
@@ -49,7 +49,7 @@ Om ditt scenario skiljer sig från de som anges ovan, kan du behöva tänka på 
 
 ## <a name="what-is-the-batch-file-conventions-standard"></a>Vad är Batch File Conventions standard?
 
-Den [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) ger en namngivningsschemat för mål-behållare och blob-sökvägar som din utdatafilerna skrivs. Filer som sparats till Azure Storage som följer standarden File Conventions blir automatiskt tillgängliga för visning i Azure-portalen. Portalen är medveten om namngivningskonventionen och så kan visa filer som följer den.
+Den [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) ger en namngivningsschemat för mål-behållare och blob-sökvägar som din utdatafilerna skrivs. Filer som sparats till Azure Storage som följer standarden File Conventions blir automatiskt tillgängliga för visning i Azure-portalen. Portalen är medveten om namngivningskonventionen och så kan visa filer som följer den.
 
 File Conventions-bibliotek för .NET-automatiskt namn storage-behållare och uppgiften utdatafilerna enligt den File Conventions som är standard. File Conventions-bibliotek innehåller också metoder för att fråga utdatafilerna i Azure Storage enligt jobb-ID, uppgifts-ID eller syfte.   
 
@@ -201,7 +201,7 @@ foreach (CloudTask task in myJob.ListTasks())
 
 ## <a name="view-output-files-in-the-azure-portal"></a>Visa utdatafilerna i Azure portal
 
-Azure-portalen visar utdata aktivitetsfiler och loggar som har sparats till en länkad Azure Storage-konto med hjälp av den [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). Du kan också implementera dessa konventioner i de ett språk för ditt val eller om du kan använda File Conventions-bibliotek i .NET-program.
+Azure-portalen visar utdata aktivitetsfiler och loggar som har sparats till en länkad Azure Storage-konto med hjälp av den [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). Du kan också implementera dessa konventioner i de ett språk för ditt val eller om du kan använda File Conventions-bibliotek i .NET-program.
 
 Om du vill aktivera visning av din utdatafilerna i portalen, måste du uppfylla följande krav:
 

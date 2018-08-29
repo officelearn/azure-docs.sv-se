@@ -1,105 +1,101 @@
 ---
-title: Avkoda meddelanden med EDIFACT - Azure Logic Apps | Microsoft Docs
-description: Validera EDI och generera bekräftelser med EDIFACT meddelandet avkodaren i Enterprise-Integrationspaket för Logikappar i Azure
+title: Avkoda EDIFACT-meddelanden – Azure Logic Apps | Microsoft Docs
+description: Validera EDI och generera bekräftelser med avkodaren för EDIFACT-meddelande för Azure Logic Apps med Enterprise-Integrationspaket
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: 0e61501d-21a2-4419-8c6c-88724d346e81
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 0e61501d-21a2-4419-8c6c-88724d346e81
 ms.date: 01/27/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: bfb64b4abfca6e2a113489b79405b5df2b53c049
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b101922d15a3f90c29eff51c223d2ea7dc30ddf2
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299162"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125360"
 ---
-# <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Avkoda EDIFACT-meddelanden för Azure Logikappar med Enterprise-Integrationspaket
+# <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Avkoda EDIFACT-meddelanden för Azure Logic Apps med Enterprise-Integrationspaketet
 
-Med meddelandet avkoda EDIFACT-anslutningen kan du verifiera EDI och partner-specifika egenskaper, dela externa utbyten i transaktioner uppsättningar eller bevara hela externa utbyten och generera bekräftelser för bearbetade transaktioner. Om du vill använda denna anslutning måste du lägga till anslutningen till en befintlig utlösare i din logikapp.
+Med avkoda EDIFACT-meddelandet anslutningen kan du verifiera EDI och partner-specifika egenskaper, dela utbyten till transaktioner uppsättningar eller bevara hela utbyten och generera bekräftelser för bearbetade transaktioner. Om du vill använda denna anslutning måste du lägga till anslutningen till en befintlig utlösare i din logikapp.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
 Här är de objekt som du behöver:
 
 * Ett Azure-konto; Du kan skapa en [kostnadsfritt konto](https://azure.microsoft.com/free)
-* En [integrering konto](logic-apps-enterprise-integration-create-integration-account.md) som redan har definierat och som är associerade med din Azure-prenumeration. Du måste ha ett integration konto att använda anslutningstjänsten EDIFACT avkoda meddelandet. 
-* Minst två [partners](logic-apps-enterprise-integration-partners.md) som redan har definierats i ditt konto för integrering
-* En [EDIFACT-avtal](logic-apps-enterprise-integration-edifact.md) som redan har definierats i ditt konto för integrering
+* En [integrationskontot](logic-apps-enterprise-integration-create-integration-account.md) som redan har definierat och som är associerade med din Azure-prenumeration. Du måste ha ett integrationskonto för att använda anslutningstjänsten för avkoda EDIFACT-meddelandet. 
+* Minst två [partner](logic-apps-enterprise-integration-partners.md) som redan är definierade i ditt integrationskonto
+* En [EDIFACT-avtal](logic-apps-enterprise-integration-edifact.md) som redan har definierats i ditt integrationskonto
 
 ## <a name="decode-edifact-messages"></a>Avkoda EDIFACT-meddelanden
 
 1. [Skapa en logikapp](quickstart-create-first-logic-app-workflow.md).
 
-2. Avkoda EDIFACT meddelandet kopplingen har utlösare, så måste du lägga till en utlösare för att starta logikappen som en utlösare för begäran. Lägg till en utlösare i logik App Designer och sedan lägga till en åtgärd i din logikapp.
+2. Avkoda EDIFACT-meddelande-anslutningsapp har utlösare, så måste du lägga till en utlösare för att starta logikappen, som en begäransutlösare. Lägg till en utlösare i Logic App Designer, och sedan lägga till en åtgärd i din logikapp.
 
-3. I sökrutan anger du ”EDIFACT” som filter. Välj **avkoda meddelandet EDIFACT**.
+3. I sökrutan anger du ”EDIFACT” som filter. Välj **avkoda EDIFACT-meddelandet**.
    
     ![Sök EDIFACT](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage1.png)
 
-3. Om du inte tidigare skapade alla anslutningar till ditt konto integration, uppmanas du att skapa anslutningen nu. Namnge din anslutning och välj integration kontot som du vill ansluta till.
+3. Om du inte tidigare skapade alla anslutningar till ditt integrationskonto, uppmanas du att skapa anslutningen nu. Namnge din anslutning och välj integrationskontot som du vill ansluta till.
    
-    ![Skapa integration konto](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage2.png)
+    ![Skapa integrationskontot](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage2.png)
 
     Egenskaper med en asterisk krävs.
 
     | Egenskap  | Information |
     | --- | --- |
     | Anslutningsnamn * |Ange ett namn för anslutningen. |
-    | Integration konto * |Ange ett namn för ditt konto för integrering. Se till att appen integration konto och logik finns i samma Azure-plats. |
+    | Integrationskontot * |Ange ett namn för ditt integrationskonto. Se till att din app med integration-kontot och logik finns i samma Azure-plats. |
 
-4. När du är klar att anslutningen är klar, Välj **skapa**. Information om anslutningen bör likna exemplet:
+4. När du är klar att skapa anslutningen, väljer **skapa**. Anslutningen bör likna det här exemplet:
 
-    ![Integration kontoinformation](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage3.png)  
+    ![information om kontot för integrering](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage3.png)  
 
-5. När anslutningen har skapats, som visas i det här exemplet, Välj EDIFACT flat fil meddelandet att avkoda.
+5. När anslutningen har skapats, som visas i det här exemplet, Välj EDIFACT platt filmeddelande att avkoda.
 
-    ![Integration konto anslutning som skapats](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage4.png)  
+    ![anslutning till integrering skapas](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage4.png)  
 
     Exempel:
 
-    ![Välj EDIFACT flat fil meddelande för avkodning av](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
+    ![Välj EDIFACT platt filmeddelande för avkodning](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
 
-## <a name="edifact-decoder-details"></a>EDIFACT avkodarens information
+## <a name="edifact-decoder-details"></a>EDIFACT-avkodaren information
 
-Avkoda EDIFACT-kopplingen utför dessa uppgifter: 
+Avkoda EDIFACT-anslutningsapp utför dessa uppgifter: 
 
-* Verifierar kuvertet mot handel partneravtalet.
-* Löser avtalet genom att matcha avsändaren kvalificerare och identifierare och mottagaren kvalificerare och identifierare.
-* Delar en interchange i flera transaktioner när utbyte har fler än en transaktion baserat på avtalet ta emot konfigurationen av prenumerationsinställningar.
-* Disassemblerar utbyte.
+* Verifierar kuvert mot handel partneravtal.
+* Löser avtalet genom att matcha avsändarkvalificerare och identifierare och mottagarkvalificerare och identifierare.
+* Delar upp en utbytet i flera transaktioner när utbytet har mer än en transaktion baserat på avtalet får Inställningskonfiguration.
+* Disassemblerar utbytet.
 * Verifierar EDI och partner-specifika egenskaper, inklusive:
-  * Validering av interchange kuvert struktur
-  * Schemavalideringen Envelope mot kontroll schemat
-  * Schemavalideringen av transaktionen set dataelement mot meddelandet schemat
-  * EDI-verifiering utförs på transaktion set dataelement
-* Verifierar att interchange, grupp och transaktionen set kontrollen talen som inte är dubbletter (om konfigurerad) 
-  * Kontrollerar antalet interchange kontroll mot tidigare mottagna externa utbyten. 
-  * Kontrollerar kontrollen gruppnumret mot andra grupp kontrollen talen i utbyte. 
-  * Kontrollerar transaktionen ange kontroll många mot andra transaktion set kontrollen talen i den gruppen.
-* Delar upp interchange i transaktionen uppsättningar eller bevarar hela interchange:
-  * Dela Interchange som transaktionen uppsättningar - inaktivera transaktion anger vid fel: delningar interchange i transaktion anger och Parsar varje transaktion uppsättning. 
-  X12 avkoda åtgärd matar ut bara dessa transaktion anger som inte kan valideras till `badMessages`, och utdata återstående transaktioner anger till `goodMessages`.
-  * Dela Interchange som transaktionen uppsättningar - inaktivera utbyte vid fel: delningar interchange i transaktion anger och Parsar varje transaktion uppsättning. 
-  Om en eller flera transaktion anger i utbyte inte verifiering, X12 avkoda åtgärd matar ut alla transaktionen anger i den interchange till `badMessages`.
-  * Bevara Interchange – inaktivera transaktion anger vid fel: bevara utbyte och bearbeta hela gruppbaserad utbyte. 
-  X12 avkoda åtgärd matar ut bara dessa transaktion anger som inte kan valideras till `badMessages`, och utdata återstående transaktioner anger till `goodMessages`.
-  * Bevara Interchange – inaktivera utbyte vid fel: bevara utbyte och bearbeta hela gruppbaserad utbyte. 
-  Om en eller flera transaktion anger i utbyte inte verifiering, X12 avkoda åtgärd matar ut alla transaktionen anger i den interchange till `badMessages`.
+  * Verifiering av utbytet kuvert-struktur
+  * Schemavalideringen kuvertets mot kontrollschemat
+  * Schemavalideringen transaktionsuppsättningen dataelement mot meddelande schemat
+  * EDI-validering utförs på transaktionsuppsättningen dataelement
+* Verifierar att kontrollnummer för set-utbytet, grupp och transaktionen inte är dubbletter (om konfigurerad) 
+  * Kontrollerar interchange-kontrollnummer mot tidigare mottagna utbyten. 
+  * Kontrollerar gruppkontrollnummer mot andra gruppen kontrollnummer i utbytet. 
+  * Kontrollerar transaktionen angetts kontrollnummer mot andra transaktion set kontrollnummer i gruppen.
+* Delar upp interchange i transaktionsuppsättningar eller bevarar hela utbytet:
+  * Dela upp Interchange i transaktionsuppsättningar – inaktivera transaktionsuppsättningar vid fel: delar upp interchange i transaktion anger och Parsar varje transaktionsuppsättning. 
+  X12 avkodningen åtgärdens utdata bara dessa transaktion anger som inte kan valideras till `badMessages`, och övriga transaktioner som anger att utdata `goodMessages`.
+  * Dela upp Interchange i transaktionsuppsättningar – inaktivera interchange vid fel: delar upp interchange i transaktion anger och Parsar varje transaktionsuppsättning. 
+  Om en eller flera transaktion anger i utbytet verifieringen, X12 avkodningen åtgärdens utdata alla transaktioner som anger i det utbytet till `badMessages`.
+  * Bevara Interchange – inaktivera transaktionsuppsättningar vid fel: bevara utbytet och bearbeta hela gruppbaserade utbytet. 
+  X12 avkodningen åtgärdens utdata bara dessa transaktion anger som inte kan valideras till `badMessages`, och övriga transaktioner som anger att utdata `goodMessages`.
+  * Bevara Interchange – inaktivera interchange vid fel: bevara utbytet och bearbeta hela gruppbaserade utbytet. 
+  Om en eller flera transaktion anger i utbytet verifieringen, X12 avkodningen åtgärdens utdata alla transaktioner som anger i det utbytet till `badMessages`.
 * Genererar en Technical (kontroll) och/eller funktionella bekräftelse (om konfigurerad).
-  * En teknisk bekräftelse eller CONTRL ACK rapporterar resultatet av en syntaktiska kontroll av fullständig mottagna utbyte.
-  * En funktionell bekräftelse om godkänna eller avvisa en mottagna utbyte eller en grupp
+  * En teknisk bekräftelse eller CONTRL ACK rapporterar resultaten från en syntaktiska kontroll av fullständig mottagna utbytet.
+  * En funktionell bekräftelse om godkänna eller avvisa en mottagna utbytet eller en grupp
 
 ## <a name="view-swagger-file"></a>Visa Swagger-fil
-Swagger-information för EDIFACT-anslutningen finns i [EDIFACT](/connectors/edifact/).
+Swagger-information för EDIFACT-anslutningen finns [EDIFACT](/connectors/edifact/).
 
 ## <a name="next-steps"></a>Nästa steg
-[Mer information om Enterprise-Integrationspaket](logic-apps-enterprise-integration-overview.md "Lär dig mer om Enterprise-Integrationspaket") 
+[Mer information om Enterprise-Integrationspaketet](logic-apps-enterprise-integration-overview.md "Lär dig mer om Enterprise-Integrationspaket") 
 

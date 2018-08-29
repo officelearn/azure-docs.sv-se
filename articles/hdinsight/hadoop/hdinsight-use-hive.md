@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 6dcd9ac725b76463259b60df6312e5cafebd9e88
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 446bb23e15d908c8afe189a33e4d8a70faad284a
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044964"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126645"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Vad är Apache Hive och HiveQL på Azure HDInsight?
 
@@ -222,7 +222,7 @@ Det finns flera tjänster som kan användas för att köra Hive-frågor som en d
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 
-Azure Data Factory kan du använda HDInsight som en del av Data Factory-pipeline. Mer information om hur du använder Hive från en pipeline finns i den [Transformera data med Hive-aktivitet i Azure Data Factory](/data-factory/transform-data-using-hadoop-hive.md) dokumentet.
+Azure Data Factory kan du använda HDInsight som en del av Data Factory-pipeline. Mer information om hur du använder Hive från en pipeline finns i den [Transformera data med Hive-aktivitet i Azure Data Factory](../../data-factory/transform-data-using-hadoop-hive.md) dokumentet.
 
 ### <a name="hive-jobs-and-sql-server-integration-services"></a>Hive-jobb och SQL Server Integration Services
 

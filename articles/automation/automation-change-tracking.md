@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 08/27/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86b8f76bd221be9f30a5b9336af858359ae0af8f
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 8066612db20d1569920835a67d84b27d1b852e6e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238887"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128134"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar i miljön med lösningen ändringsspårning
 
@@ -94,8 +94,18 @@ Använd följande steg för att konfigurera filer spårning på Windows-datorer:
 |Enabled     | Avgör om inställningen tillämpas.        |
 |Objektnamn     | Eget namn på filen som ska spåras.        |
 |Grupp     | Ett gruppnamn för att gruppera filer logiskt.        |
-|Ange sökväg     | Sökvägen för att söka efter filen Till exempel: ”c:\temp\myfile.txt”       |
+|Ange sökväg     | Sökvägen till att söka efter filen till exempel ”: c:\temp\\\*.txt”<br>Du kan också använda miljövariabler som ”%winDir%\System32\\\*. *”       |
+|Rekursion     | Avgör om rekursion används när du letar efter objektet som ska spåras.        |
 |Ladda upp filinnehåll för alla inställningar| Aktiverar eller inaktiverar uppladdning av filinnehåll vid spårade ändringar. Tillgängliga alternativ: **True** eller **False**.|
+
+## <a name="wildcard-recursion-and-environment-settings"></a>Inställningar för jokertecken, rekursion och miljö
+
+Rekursion kan du ange jokertecken för att förenkla spårning i kataloger och miljövariabler att spåra filer i miljöer med flera eller dynamisk enhet namn. Här följer en lista över vanliga information som du bör känna till när du konfigurerar rekursion:
+
+* Jokertecken krävs för att spåra flera filer
+* Om du använder jokertecken, kan de bara användas i det sista segmentet i en sökväg. (till exempel C:\folder\\**filen** eller /etc/*.conf)
+* Om en miljövariabel har en ogiltig sökväg, verifiering lyckas, men den sökvägen misslyckas när maskinvaruinventering körs.
+* Undvika Allmänt sökvägar som `c:\*.*` när du ställer in sökvägen eftersom detta skulle resultera i för många mappar är slut.
 
 ## <a name="configure-file-content-tracking"></a>Konfigurera filinnehåll spårning
 
@@ -122,13 +132,8 @@ Använd följande steg för att konfigurera viktiga registerspårning på Window
 
 Lösningen ändringsspårning stöder för närvarande inte följande objekt:
 
-* Mappar (kataloger) för filspårning i Windows
-* Rekursion för filspårning i Windows
-* Jokertecken för filspårning i Windows
 * Rekursion för Windows-registret spårning
-* Sökvägsvariabler
 * Network file system
-* Filinnehåll
 
 Andra begränsningar:
 

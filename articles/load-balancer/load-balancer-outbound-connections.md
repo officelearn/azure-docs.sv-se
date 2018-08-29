@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: kumud
-ms.openlocfilehash: e9249f3a5787da9ad54945195b47cf9af0f45fb1
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 1f7e605cbf5aa3d519e04c4fdfd737a4c0926a3e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054387"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122584"
 ---
 # <a name="outbound-connections-in-azure"></a>Utgående anslutningar i Azure
 
@@ -122,13 +122,23 @@ När du använder [Standardbelastningsutjämnare med Tillgänglighetszoner](load
 
 När en offentlig belastningsutjämnare resurs är associerad med VM-instanser, skrivs om varje utgående anslutningskälla. Källan är har skrivits från virtuellt nätverk privat IP-adressutrymme klientdelen offentliga IP-adressen för belastningsutjämnaren. 5-tuppel av flödet (källans IP-adress, källport, IP-transportprotokollet, målets IP-adress, målport) måste vara unikt i det offentliga IP-adressutrymmet.  Port maskering SNAT kan användas med antingen TCP eller UDP IP-protokoll.
 
-Tillfälliga portar (SNAT) används för att uppnå detta efter att skriva om privata källans IP-adress, eftersom flera flöden kommer från en offentlig IP-adress. 
+Tillfälliga portar (SNAT) används för att uppnå detta efter att skriva om privata källans IP-adress, eftersom flera flöden kommer från en offentlig IP-adress. Algoritmen port maskering SNAT allokerar SNAT portar på olika sätt för UDP och TCP.
 
-En SNAT port förbrukas per flöde till en enda målets IP-adress, port och protokoll. Varje flöde förbrukar en enskild port SNAT för flera flöden till samma målets IP-adress, port och protokoll. Detta säkerställer att flöden är unika när de kommer från samma offentliga IP-adress och går till samma mål-IP-adress, port och protokoll. 
+#### <a name="tcp"></a>SNAT-TCP-portar
+
+En SNAT port förbrukas per flöde till en enda mål IP-adress, port. För flera TCP-flöden till samma mål-IP-adress, port och protokoll förbrukar varje TCP-flöde en enskild SNAT-port. Detta säkerställer att flöden är unika när de kommer från samma offentliga IP-adress och går till samma mål-IP-adress, port och protokoll. 
 
 Flera flöden, var och en till en annan målets IP-adress, port och protokoll, dela en enda SNAT-port. Den målets IP-adress, port och protokoll göra flöden unikt utan att behöva ytterligare källa portar för att skilja flöden i det offentliga IP-adressutrymmet.
 
+#### <a name="udp"></a> UDP-portar som SNAT
+
+SNAT UDP-portar som hanteras av en annan algoritm än TCP SNAT portar.  Belastningsutjämnaren använder en algoritm som kallas ”begränsade via port kon NAT” för UDP.  En SNAT port används för varje flöde, oavsett målets IP-adress, port.
+
+#### <a name="exhaustion"></a>Resursuttömning
+
 När SNAT port resurser tömts misslyckas utgående flöden tills befintliga flöden släpper SNAT portar. Belastningsutjämnaren återtar SNAT portar när flödet stängs och använder en [4-minuters timeout för inaktivitet](#idletimeout) Frigör SNAT portar från inaktiv flöden.
+
+UDP SNAT portar använt vanligtvis mycket snabbare än TCP SNAT portar på grund av skillnader i algoritmen. Du måste design och skala testa med denna skillnad i åtanke.
 
 Mönster att minimera villkor som ofta leder till att använda SNAT portöverbelastning, granska de [hantera SNAT](#snatexhaust) avsnittet.
 
@@ -136,7 +146,7 @@ Mönster att minimera villkor som ofta leder till att använda SNAT portöverbel
 
 Azure använder en algoritm och fastställa antalet förallokerade SNAT portar som är tillgängliga baserat på storleken på backend-poolen när du använder port maskering SNAT ([känna dig NÖJD](#pat)). Det finns tillfälliga portar som är tillgängliga för en viss offentliga IP-källadress SNAT portar.
 
-Samma antal SNAT portar förallokerade för UDP och TCP respektive och förbrukas separat per IP-transport-protokoll. 
+Samma antal SNAT portar förallokerade för UDP och TCP respektive och förbrukas separat per IP-transport-protokoll.  Men är portanvändning SNAT olika beroende på om flödet är UDP eller TCP.
 
 >[!IMPORTANT]
 >Standard-SKU SNAT programming per IP-transportprotokollet och härleds från belastningsutjämningsregel.  Om det bara finns en TCP-belastningsutjämningsregel är SNAT endast tillgängligt för TCP. Om du har endast en TCP regel för belastningsutjämning och behöver utgående SNAT för UDP, skapar du en UDP belastningsutjämningsregel från samma klientdelen i samma backend-poolen.  Detta utlöser SNAT programmera för UDP.  En fungerande regel eller hälsotillstånd avsökning krävs inte.  Grundläggande SKU SNAT program alltid SNAT för båda IP-transport-protokoll, oavsett vilken transportprotokoll som anges i regeln för belastningsutjämning.

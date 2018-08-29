@@ -1,55 +1,46 @@
 ---
-title: Så här migrerar du logikappar till förhandsschemaversionen från 2015-08-01 | Microsoft Docs
-description: Du kan enkelt migrera dina logikappar till den senaste schemaversionen. Följ bara de här stegen.
+title: Migrera appar till senaste schema – Azure Logic Apps | Microsoft Docs
+description: Så här migrerar du logikappar till den senaste schemaversionen
 services: logic-apps
-documentationcenter: ''
-author: MSFTMAN
-manager: erikre
-editor: ''
-tags: connectors
-ms.assetid: 3e177e49-fd69-43e9-9b9b-218abb250c31
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 08/23/2016
-ms.author: deonhe
-ms.openlocfilehash: a5a73a9f124e5339b61dbc49021444a208a471f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.assetid: 3e177e49-fd69-43e9-9b9b-218abb250c31
+ms.topic: article
+ms.date: 08/25/2018
+ms.openlocfilehash: 8a6925d79b225a34d980472d4fb3241ab9eb1017
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22707132"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127419"
 ---
-# <a name="how-to-migrate-logic-apps-to-schema-version-2015-08-01-preview"></a>Så här migrerar du logikappar till förhandsschemaversionen från 2015-08-01
-Flytta dina befintliga logikappar till det nya schemat genom att göra följande:  
+# <a name="migrate-logic-apps-to-latest-schema-version"></a>Så här migrerar du logikappar till senaste schemaversionen
 
-1. Öppna logikappen i Azure-portalen  
-2. Klicka på Uppdatera schema:
-   
-   ![API-ikon][step1]   
-   Sidan Uppdatera schema visas och där finns en länk till ett dokument som innehåller detaljerad information om förbättringarna i det nya schemat: ![API-ikon][step2]
+Följ dessa steg om du vill flytta dina befintliga logikappar till det senaste schemat: 
 
-> [!NOTE]
-> När du väljer **Uppdatera schema**kör vi automatiskt migreringsstegen och visar dig kodens utdata. Du kan använda dessa för att uppdatera din definition, men var noga med att följa bra kodningsmetoder, t.ex. de som beskrivs i avsnittet **Bästa metoder** nedan.
-> 
-> 
+1. I den [Azure-portalen](https://portal.azure.com), öppna logikappen i Logic App Designer.
 
-## <a name="best-practices-when-migrating-your-logic-apps-to-the-latest-schema-version"></a>Bästa metoder när du migrerar dina logikappar till den senaste schemaversionen:
-* Kopiera det migrerade skriptet till en ny logikapp – skriv inte över den gamla förrän du har slutfört testerna och bekräftat att den migrerade appen fungerar som förväntat.
-* Testa logikappen **innan** du använder den
-* När migreringen har slutförts kan du börja uppdatera logikapparna och använda de [hanterade API:erna](apis-list.md) där det är möjligt. Du kan till exempel börja använda Dropbox v2 på samma sätt som DropBox v1.
+2. På menyn för din logikapp, Välj **översikt**. I verktygsfältet, välja **uppdatera Schema**.
 
-## <a name="whats-next"></a>Nästa steg
-* [Lär dig att migrera dina logikappar manuellt](../logic-apps/logic-apps-schema-2015-08-01.md)
+   > [!NOTE]
+   > När du välja **uppdatera Schema**, Azure Logic Apps som automatiskt kör migreringsstegen och ger dig kodens utdata för. Du kan använda dessa utdata för att uppdatera sina logikapp-definitioner. Se dock till att du följer bästa praxis som beskrivs i följande **bästa praxis** avsnittet.
 
-<!--Icon references-->
-[step1]: ./media/connectors-schema-migration/migrateschema1.png
-[step2]: ./media/connectors-schema-migration/migrateschema2.png
+   ![Uppdatera schema](./media/connectors-schema-migration/update-schema.png)
 
+   Sidan uppdatera Schema visas och visar en länk till ett dokument som beskriver förbättringarna i det nya schemat.
 
+## <a name="best-practices"></a>Bästa praxis
 
+Här följer några rekommendationer för att migrera dina logikappar till den senaste schemaversionen:
 
+* Kopiera det migrerade skriptet till en ny logikapp. Skriv inte över den gamla versionen tills du slutför testet och bekräfta att migrerade appen fungerar som förväntat.
 
+* Testa din logikapp **innan** i produktion.
 
+* När du har slutfört migreringen, börja uppdatera logikapparna och använda den [hanterade API: er](../connectors/apis-list.md) där det är möjligt. Till exempel börja använda Dropbox v2 var som helst att du använder DropBox v1.
+
+## <a name="next-steps"></a>Nästa steg
+
+* Lär dig hur du [migrera dina logikappar manuellt](../logic-apps/logic-apps-schema-2015-08-01.md)

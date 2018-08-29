@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: d0dbf603c600639679e121723556a7f3ceb17e37
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 67806563dcd67876d4d922c7f2c76379f7ad7222
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158989"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125521"
 ---
 # <a name="billing-options-in-the-azure-marketplace"></a>Faktureringsalternativ på Azure Marketplace
 
@@ -70,7 +70,7 @@ En viktig fördel med hjälp av Transact alternativet Publicera i Marketplace ä
 I det här scenariot Microsoft fakturerar och samlar in för din räkning. Microsoft fakturering undanröjer behovet av att skapa din egen inköp relation med kunden. Enskild fakturering kan spara tid och resurser. Det också kan hjälpa dig att fokusera på landing försäljningen i stället för på insamling av fakturan. 
 
 ## <a name="enterprise-agreement"></a>Enterprise Agreement  
-Om du är Microsoft Enterprise Agreement-kund kan du använda ditt Enterprise Agreement för att betala för Microsoft-produkter. Du kan debiteras för produkter, inklusive för din Azure-användning. Med hjälp av ditt Enterprise Agreement för att betala är utformad för organisationer som vill licensiera programvara och molntjänster i minst tre år. Du sprida ut betalningar i stället för att göra något. förskottsbetalning. Om du använder en användningsbaserad publiceringsalternativ följer faktureringen för dina kostnader för programvarulicenser kvartalsvis Enterprise-avtal överförbrukning faktureringsperioden.  
+Om du är Microsoft Enterprise Agreement-kund kan du använda ditt Enterprise Agreement för att betala för Microsoft-produkter. Du kan debiteras för produkter, inklusive för din Azure-användning. Med hjälp av ditt Enterprise Agreement för att betala är utformad för organisationer som vill licensiera programvara och molntjänster i minst tre år. Du sprida ut betalningar i stället för att göra en förskottsbetalning. Om du använder en användningsbaserad publiceringsalternativ följer faktureringen för dina kostnader för programvarulicenser kvartalsvis Enterprise-avtal överförbrukning faktureringsperioden.  
 
 ### <a name="monetary-commitment"></a>Åtagandebelopp
 Om du är en Enterprise Agreement-kund kan du lägga till Azure i ditt avtal. Du lägger till Azure i ditt avtal genom att betala ett åtagandebelopp till Azure. Ditt betalningsåtagande förbrukas sedan under året. Ditt åtagande innehåller en kombination av användningen av Azure-tjänster.

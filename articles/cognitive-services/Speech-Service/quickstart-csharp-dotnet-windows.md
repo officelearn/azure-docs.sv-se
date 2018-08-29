@@ -9,16 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: a625ee4d8d672ddfd42128a9dd871dcfcc013060
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 20d0f4736d3aa5f23d9061b4482da7a623862344
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41988465"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128229"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-framework-on-windows-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i C# under .NET Framework i Windows med hjälp av tal-SDK
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 I den här artikeln får du lära dig hur du skapar ett C#-konsolprogram för .NET Framework på Windows med hjälp av Cognitive Services tal SDK för att transkribera tal till text.
 Programmet har skapats med den [Microsoft Cognitive Services tal SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017.
@@ -100,7 +100,7 @@ I det här avsnittet ska du lägga till en ny plattform den konfiguration som ma
 
     ![Konsolens utdata efter lyckad erkännande](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "konsolens utdata efter lyckad taligenkänning")
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Leta efter det här exemplet i den `quickstart/csharp-dotnet-windows` mapp.
 
 ## <a name="next-steps"></a>Nästa steg

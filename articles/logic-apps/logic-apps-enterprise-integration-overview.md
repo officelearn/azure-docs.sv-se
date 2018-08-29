@@ -1,27 +1,23 @@
 ---
-title: Enterprise-Integration för B2B - Azure Logic Apps | Microsoft Docs
-description: Skapa arbetsflöden för B2B och stöd för enterprise integrationsscenarier för logic apps med Enterprise-Integrationspaketet
+title: B2B-översikt för integrering av enterprise – Azure Logic Apps | Microsoft Docs
+description: Skapa automatiserade arbetsflöden för B2B för företagslösningar för integrering med Azure Logic Apps och Enterprise-Integrationspaket
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: jeconnoc
-editor: cgronlun
-ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.date: 09/08/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: c4f83d2bf082b5f1358b4eee6468d470b5cb8088
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: b2e2c81914e8c0440b358d59c7f0248db46b6c50
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42059577"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124300"
 ---
-# <a name="overview-b2b-scenarios-and-communication-with-the-enterprise-integration-pack"></a>Översikt: B2B-scenarier och kommunikation med Enterprise-Integrationspaketet
+# <a name="overview-b2b-enterprise-integration-scenarios-in-azure-logic-apps-with-enterprise-integration-pack"></a>Översikt: B2B företagsscenarier integrering i Azure Logic Apps med Enterprise-Integrationspaket
 
 Du kan aktivera scenarion för enterprise-integration med Microsofts molnbaserade lösning, Enterprise-Integrationspaketet för business-to-business (B2B) arbetsflöden och sömlös kommunikation med Azure Logic Apps. Organisationer kan utbyta meddelanden elektroniskt, även om de använder olika protokoll och format. Paketet omvandlar olika format till ett format som organisationers system kan tolka och bearbeta. Organisationer kan utbyta meddelanden via vanliga protokoll, inklusive [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), och [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md). Du kan även skydda meddelanden med både kryptering och digitala signaturer.
 

@@ -1,54 +1,49 @@
 ---
-title: Schemat uppdateras augusti 1 2015 preview - Azure Logic Apps | Microsoft Docs
-description: Skapa JSON-definitioner för Logic Apps i Azure med schemaversionen 2015-08-01-preview
-author: stepsic-microsoft-com
-manager: jeconnoc
-editor: ''
+title: Schemauppdateringar för augusti-1-2015 preview – Azure Logic Apps | Microsoft Docs
+description: Uppdaterade schemaversionen 2015-08-01-preview för logikappsdefinitioner i Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: ''
-ms.devlang: ''
+ms.suite: integration
+author: stepsic-microsoft-com
+ms.author: stepsic
+ms.reviewer: klam, estfan, LADocs
+ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
 ms.topic: article
-ms.custom: H1Hack27Feb2017
 ms.date: 05/31/2016
-ms.author: stepsic; LADocs
-ms.openlocfilehash: 736a7cf03c7fe1e9fe976c3bcc80393bff2bada5
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: dd05543c2a727f010432ecb54c2dc3e77a245de4
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299876"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122785"
 ---
-# <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Schema-uppdateringar för Logic Apps i Azure - preview 1 augusti 2015
+# <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Schemauppdateringar för Azure Logic Apps - 1 augusti 2015 preview
 
-Det här schemat och API-version för Logikappar i Azure innehåller viktiga förbättringar som gör logikappar mer tillförlitlig och enklare att använda:
+Det här schemat och API-version för Azure Logic Apps innehåller viktiga förbättringar som gör logikappar mer tillförlitlig och enklare att använda:
 
 * Den **APIApp** åtgärdstyp heter nu [ **APIConnection**](#api-connections).
 * Den **Upprepa** åtgärd heter nu [ **Foreach**](#foreach).
-* Den [ **HTTP-lyssnaren** API-App](#http-listener) krävs inte längre.
-* Anropar underordnade arbetsflöden använder en [nya schemat](#child-workflows).
+* Den [ **HTTP-lyssnare** API-App](#http-listener) inte längre behövs.
+* Anropa underordnade arbetsflöden använder en [nya schemat](#child-workflows).
 
 <a name="api-connections"></a>
 
 ## <a name="move-to-api-connections"></a>Flytta till API-anslutningar
 
-Den största förändringen är att du inte längre behöver distribuera API Apps i Azure-prenumerationen så att du kan använda API: er. Här är det sätt som du kan använda API: er:
+Den största förändringen är att du inte längre behöver distribuera API-appar i din Azure-prenumeration så att du kan använda API: er. Här är hur du kan använda API: er:
 
 * Hanterade API: er
 * Dina anpassade webb-API: er
 
-Varje sätt hanteras lite annorlunda eftersom deras hantering och värd modeller är olika. En fördel med den här modellen är du inte längre är begränsad till resurser som har distribuerats i din Azure-resursgrupp. 
+Varje sätt hanteras lite annorlunda eftersom deras hantering och som är värd för modeller är olika. En fördel med den här modellen är du inte längre är begränsad till resurser som distribueras i Azure-resursgruppen. 
 
 ### <a name="managed-apis"></a>Hanterade API: er
 
-Microsoft hanterar vissa API: er för din räkning, till exempel Office 365, Salesforce, Twitter och FTP. Du kan använda vissa hanterade API: er som-, till exempel Bing översätta, medan andra kräver konfiguration kallas även en *anslutning*.
+Microsoft hanterar vissa API: er för din räkning, till exempel Office 365, Salesforce, Twitter och FTP. Du kan använda vissa hanterade API: er som –, till exempel Bing översätta, medan andra kräver konfiguration kallas även en *anslutning*.
 
-När du använder Office 365, måste du skapa en anslutning som innehåller din Office 365-inloggning token. Din token lagras på ett säkert sätt och uppdateras så att din logikapp alltid kan anropa API för Office 365. Om du vill ansluta till SQL- eller FTP-servern måste du skapa en anslutning med anslutningssträngen. 
+När du använder Office 365, måste du skapa en anslutning som innehåller din Office 365-inloggningen token. Din token lagras på ett säkert sätt och uppdateras så att logikappen alltid kan anropa API: et för Office 365. Om du vill ansluta till SQL- eller FTP-servern måste du skapa en anslutning med anslutningssträngen. 
 
-I den här definitionen åtgärderna kallas `APIConnection`. Här är ett exempel på en anslutning som anropar Office 365 om du vill skicka ett e-postmeddelande:
+I den här definitionen åtgärderna kallas `APIConnection`. Här är ett exempel på en anslutning som anropar Office 365 för att skicka ett e-postmeddelande:
 
 ``` json
 {
@@ -77,10 +72,10 @@ I den här definitionen åtgärderna kallas `APIConnection`. Här är ett exempe
 }
 ```
 
-Den `host` objekt är en del av indata som är unik för API-anslutningar och innehåller följande element: `api` och `connection`. Den `api` objektet anger runtime är värd för URL: en för där som hanterar API. Du kan se alla tillgängliga hanterade API: er genom att anropa `GET https://management.azure.com/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
+Den `host` objektet är en del av indata som är unik för API-anslutningar och innehåller dessa delar: `api` och `connection`. Den `api` objektet anger runtime som är värd för URL: en för där som hanterad API. Du kan se alla tillgängliga hanterade API: er genom att anropa `GET https://management.azure.com/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
 
-När du använder ett API som API kanske eller kanske inte har definierat någon *anslutningsparametrar*. Så om API: N inte definierar dessa parametrar, krävs ingen anslutning. Om API: N definierar dessa parametrar, måste du skapa en anslutning med ett angivet namn.  
-Sedan kan du referera det namnet i den `connection` objekt i den `host` objekt. Anropa den här metoden om du vill skapa en anslutning i en resursgrupp:
+När du använder ett API som API: et kan eller inte har definierat någon *anslutningsparametrar*. Så om API: et inte definierar dessa parametrar, krävs ingen anslutning. Om API: et definierar dessa parametrar, måste du skapa en anslutning med ett visst angivet namn.  
+Du sedan referera till det här namnet i den `connection` objekt i den `host` objekt. Anropa den här metoden om du vill skapa en anslutning i en resursgrupp:
 
 ```
 PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Web/connections/<name>?api-version=2015-08-01-preview
@@ -105,7 +100,7 @@ Med följande text:
 ### <a name="deploy-managed-apis-in-an-azure-resource-manager-template"></a>Distribuera hanterade API: er i en Azure Resource Manager-mall
 
 Du kan skapa en fullständig app i en Azure Resource Manager-mall så länge interaktiv inloggning krävs inte.
-Om inloggning krävs, kan du ställa in allt med hjälp av Azure Resource Manager-mallen, men du behöver gå Azure-portalen för att godkänna anslutningar. 
+Om inloggning krävs måste du ställa in allt med Azure Resource Manager-mallen, men du ändå gå till Azure-portalen för att godkänna anslutningar. 
 
 ``` json
 "resources": [ {
@@ -195,11 +190,11 @@ Om inloggning krävs, kan du ställa in allt med hjälp av Azure Resource Manage
 } ]
 ```
 
-Du kan se i det här exemplet att anslutningarna är bara resurser som bor i resursgruppen. De refererar till den hanterade API: er finns i din prenumeration.
+Du kan se i det här exemplet att anslutningarna är bara resurser som bor i resursgruppen. De refererar till den hanterade API: er tillgängliga för dig i din prenumeration.
 
 ### <a name="your-custom-web-apis"></a>Dina anpassade webb-API: er
 
-Om du använder egna API: er, inte Microsoft-hanterad de använda inbyggt **HTTP** åtgärder för att anropa dem. För en perfekt upplevelse bör du exponera en Swagger-slutpunkt för din API. Den här slutpunkten aktiverar logiken App Designer ska renderas indata och utdata för din API. Swagger, kan designern bara visa in- och utgångar som täckande JSON-objekt.
+Om du använder egna API: er, inte Microsoft-hanterade de använda inbyggt **HTTP** åtgärden att anropa dem. Du bör tillgängliggöra en Swagger-slutpunkt för en perfekt miljö för ditt API. Den här slutpunkten kan Logic App Designer att återge indata och utdata för ditt API. Swagger, kan designern bara visa indata och utdata som täckande JSON-objekt.
 
 Här är ett exempel som visar den nya `metadata.apiDefinitionUrl` egenskapen:
 
@@ -218,12 +213,12 @@ Här är ett exempel som visar den nya `metadata.apiDefinitionUrl` egenskapen:
 }
 ```
 
-Om du är värd för webb-API på Azure App Service, visas Web API automatiskt i listan över åtgärder som är tillgängliga i designern. Om inte, måste du klistra in i URL-Adressen direkt. Swagger-slutpunkten måste vara oautentiserade kan användas i logik App Designer, men du kan skydda API sig själv med de metoder som har stöd för Swagger.
+Om du vara värd för ditt webb-API på Azure App Service, visas ditt webb-API automatiskt i listan över tillgängliga i designern. Annars kan du behöva klistra in URL: en direkt. Swagger-slutpunkten måste vara oautentiserade kan användas i Logic App Designer, men du kan skydda själva API med de metoder som har stöd för Swagger.
 
 ### <a name="call-deployed-api-apps-with-2015-08-01-preview"></a>Anropa distribuerade API-appar med 2015-08-01-preview
 
-Om du tidigare har distribuerat en API-App kan du anropa appen med den **HTTP** åtgärd.
-Om du använder Dropbox att lista filer, till exempel din **2014-12-01-preview** version schemadefinition kan ha något som liknar:
+Om du tidigare har distribuerat en API-App som du kan anropa appen med den **HTTP** åtgärd.
+Om du använder Dropbox för att lista filer, till exempel din **2014-12-01-preview** version schemadefinitionen kan ha något som liknar:
 
 ``` json
 "definition": {
@@ -264,7 +259,7 @@ Om du använder Dropbox att lista filer, till exempel din **2014-12-01-preview**
 }
 ```
 
-Du kan nu kan nu skapa motsvarande HTTP-åtgärden som i följande exempel medan lämnar avsnittet Parametrar för app-definition logik oförändrade:
+Nu kan du nu skapa motsvarande HTTP-åtgärden som i följande exempel medan lämna avsnittet Parametrar för logikappsdefinitionen har inte ändrats:
 
 ``` json
 "actions": {
@@ -289,24 +284,24 @@ Du kan nu kan nu skapa motsvarande HTTP-åtgärden som i följande exempel medan
 }
 ```
 
-Gå igenom de här egenskaperna i taget:
+Gå igenom de här egenskaperna en i taget:
 
-| Åtgärdsegenskap | Beskrivning |
+| Egenskapen för åtgärden | Beskrivning |
 | --- | --- |
 | `type` | `Http` Istället för `APIapp` |
-| `metadata.apiDefinitionUrl` | Om du vill använda den här åtgärden i logik App Designer är metadataslutpunkten som har skapats från: `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
+| `metadata.apiDefinitionUrl` | Om du vill använda den här åtgärden i Logic App Designer är metadataslutpunkt som konstrueras utifrån: `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
 | `inputs.uri` | Konstrueras från: `{api app host.gateway}/api/service/invoke/{last segment of the api app host.id}/{api app operation}?api-version=2015-01-14` |
 | `inputs.method` | Alltid `POST` |
-| `inputs.body` | Identiskt med parametrarna API-App |
+| `inputs.body` | Identiskt med parametrar för API-App |
 | `inputs.authentication` | Identisk med autentiseringen för API-App |
 
-Den här metoden ska fungera för alla åtgärder i API-App. Tänk dock på att dessa tidigare API Apps stöds inte längre. Därför bör du övergå till en av de två andra föregående alternativen, hanterade API eller värd för ditt anpassade webb-API.
+Den här metoden bör fungera för alla åtgärder som API-App. Kom dock ihåg att dessa API-appar som tidigare inte längre stöds. Så bör du flytta till en av de två andra föregående alternativen, en hanterad API eller som är värd för dina anpassade webb-API.
 
 <a name="foreach"></a>
 
-## <a name="renamed-repeat-to-foreach"></a>Byta namn på 'repeat' till 'foreach'
+## <a name="renamed-repeat-to-foreach"></a>Namn 'Upprepa ”till” foreach ”
 
-För den föregående schemaversionen vi har tagit emot mycket kundfeedback som den **Upprepa** åtgärdsnamn var förvirrande och inte korrekt avbilda som **Upprepa** verkligen är en för varje slinga. Så vi har fått nytt namn `repeat` till `foreach`. Tidigare skulle du skriva den här åtgärden som det här exemplet:
+För den föregående schemaversionen vi fått mycket feedback från kunder som den **Upprepa** åtgärdsnamn var förvirrande och korrekt att avläsa som **Upprepa** verkligen är en för varje slinga. Så vi har fått nytt namn `repeat` till `foreach`. Tidigare skriva du den här åtgärden som i följande exempel:
 
 ``` json
 "actions": {
@@ -336,13 +331,13 @@ Nu kan du skriva den här versionen i stället:
 }
 ```
 
-Dessutom den `repeatItem()` funktion som refererar till objektet som slingan bearbetar under den aktuella iterationen nu fått nytt namn `item()`. 
+Dessutom den `repeatItem()` som refererar till det objekt som loopen bearbetas under den aktuella iterationen nu fått nytt namn `item()`. 
 
-### <a name="reference-outputs-from-foreach"></a>Referens för utdata från 'foreach'
+### <a name="reference-outputs-from-foreach"></a>Referens för utdata från ”foreach”
 
-För enkelhetens skull utdata från `foreach` åtgärder är inte längre kapslas in i ett objekt med namnet `repeatItems`. Dessutom med de här ändringarna i `repeatItem()`, `repeatBody()`, och `repeatOutputs()` funktioner har tagits bort.
+För enkelhetens skull utdata från `foreach` åtgärder är inte längre och är inneslutna i ett objekt med namnet `repeatItems`. Dessutom med de här ändringarna i `repeatItem()`, `repeatBody()`, och `repeatOutputs()` funktioner tas bort.
 
-Det, med hjälp av den tidigare `repeat` exempelvis hämta dessa utdata:
+Det, med hjälp av den tidigare `repeat` exempel hämta dessa utdata:
 
 ``` json
 "repeatItems": [ {
@@ -410,17 +405,17 @@ Nu kan du använda den här versionen i stället:
 
 <a name="http-listener"></a>
 
-## <a name="native-http-listener"></a>Inbyggda HTTP-lyssnare
+## <a name="native-http-listener"></a>Intern HTTP-lyssnare
 
-HTTP-lyssnaren funktioner är nu inbyggda i. Så behöver du inte längre distribuera en http-lyssnare API-App. Se [fullständig information om hur du gör logik app slutpunkten callable här](../logic-apps/logic-apps-http-endpoint.md). 
+HTTP-lyssnare funktionerna är nu inbyggda i. Så behöver du inte längre distribuera en HTTP-lyssnaren API-App. Se [fullständig information om hur du gör Logic app slutpunkten anropningsbara här](../logic-apps/logic-apps-http-endpoint.md). 
 
-Med de här ändringarna vi tagit bort den `@accessKeys()` funktion, som vi har ersatts med den `@listCallbackURL()` funktionen för att hämta slutpunkten vid behov. Du måste också definiera minst en utlösare i din logikapp nu. Om du vill `/run` arbetsflödet, måste du ha något av dessa utlösare: `manual`, `apiConnectionWebhook`, eller `httpWebhook`.
+Med dessa ändringar vi har tagit bort den `@accessKeys()` funktion, som vi har ersatts av den `@listCallbackURL()` funktionen för att hämta slutpunkten när det behövs. Du måste också definiera minst en utlösare i din logikapp nu. Om du vill `/run` arbetsflödet, måste du ha en av de här utlösarna: `manual`, `apiConnectionWebhook`, eller `httpWebhook`.
 
 <a name="child-workflows"></a>
 
 ## <a name="call-child-workflows"></a>Anropa underordnade arbetsflöden
 
-Tidigare måste anropar underordnade arbetsflöden gå till arbetsflödet, få åtkomst-token och klistra in token i logik app definitionen där du vill anropa det underordnade arbetsflödet. Med det nya schemat genererar Logic Apps motorn automatiskt en SAS vid körning för det underordnade arbetsflödet så att du inte klistra in alla hemligheter i definitionen. Här är ett exempel:
+Tidigare tvungna anropa underordnade arbetsflöden att arbetsflödet, hämta åtkomsttoken och klistra in token i logikappens definition där du vill anropa det underordnade arbetsflödet. Med det nya schemat genererar Logic Apps-motorn automatiskt en SAS vid körning för det underordnade arbetsflödet så att du inte behöver att klistra in hemligheter i definitionen. Här är ett exempel:
 
 ``` json
 "myNestedWorkflow": {
@@ -446,20 +441,20 @@ Tidigare måste anropar underordnade arbetsflöden gå till arbetsflödet, få �
 }
 ```
 
-En andra förbättringar är vi ger underordnade arbetsflöden fullständig åtkomst till den inkommande begäranden. Det innebär att du kan skicka parametrar i den *frågor* avsnittet och i den *huvuden* objektet och att du helt kan definiera hela texten.
+En andra förbättringar är vi ger underordnade arbetsflöden fullständig åtkomst till den inkommande begäranden. Det innebär att du kan skicka parametrar i den *frågor* avsnittet och i den *rubriker* objektet och du kan helt definiera hela texten.
 
-Slutligen finns arbetsflöden som ändringar som krävs. När du tidigare kan anropa ett underordnat arbetsflöde direkt, måste nu du definiera en slutpunkt för utlösaren i arbetsflödet för överordnat att anropa. I allmänhet kan du lägga till en utlösare som har `manual` skriver och använder sedan den utlösaren i definitionen för överordnade. Observera den `host` egenskapen specifikt har en `triggerName` eftersom du måste alltid ange vars utlösare du anropar.
+Det finns dessutom önskade ändringar till det underordnade arbetsflödet. Även om du kunde tidigare anropar ett underordnat arbetsflöde direkt, nu definiera du en slutpunkt för utlösaren i arbetsflödet för överordnat att anropa. I allmänhet bör du skulle lägga till en utlösare som har `manual` skriver och använder sedan den utlösaren i definitionen av överordnad. Obs den `host` egenskapen specifikt har en `triggerName` eftersom du måste alltid ange vars utlösare du anropar.
 
 ## <a name="other-changes"></a>Andra ändringar
 
-### <a name="new-queries-property"></a>Ny 'frågor-egenskap
+### <a name="new-queries-property"></a>Ny 'frågor, egenskap
 
-Alla åtgärdstyper stöder nu en ny inmatning kallas `queries`. Den här indata kan vara en strukturerad objekt, snarare än du behöver samla strängen manuellt.
+En ny indata som kallas nu stöd för alla åtgärdstyper `queries`. Denna indata kan vara ett strukturobjekt snarare än du behöver samla ihop strängen manuellt.
 
-### <a name="renamed-parse-function-to-json"></a>Har bytt namn till parse() av funktionen 'json()'
+### <a name="renamed-parse-function-to-json"></a>Omdöpt parse() funktionen 'json()'
 
-Vi lägger till mer innehåll av typen snart, så vi har fått nytt namn i `parse()` för `json()`.
+Vi har lagt till mer innehåll skriver snart, så vi har fått nytt namn i `parse()` funktionen för att `json()`.
 
-## <a name="coming-soon-enterprise-integration-apis"></a>Kommer snart: Enterprise Integration-API: er
+## <a name="coming-soon-enterprise-integration-apis"></a>Kommer snart: API: er för Enterprise-Integration
 
-Vi har inte hanterade versioner än av Enterprise Integration API: erna, t.ex. AS2. Under tiden kan du använda din befintliga distribuerade BizTalk-APIs via HTTP-åtgärden. Mer information, se ”med redan distribuerade API apps” i den [översikt över integrering](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 
+Vi har inga hanterade versioner än av Enterprise-Integration API: erna, t.ex. AS2. Under tiden kan använda du din befintliga distribuerade BizTalk APIs via HTTP-åtgärden. Mer information finns i ”använda dina redan distribuerade API-appar” i den [integrering översikten](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 

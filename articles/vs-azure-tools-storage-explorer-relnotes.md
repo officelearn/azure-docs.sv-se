@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 94ade24f1761700b93ab79d497e273c64c51bddf
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: ac2787f69651e950ffb6b786280ba7f11f4fa8e0
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990905"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127968"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Viktig information om Microsoft Azure Lagringsutforskaren
 
@@ -27,31 +27,37 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.2.0
 
 [Microsoft Azure Lagringsutforskaren](./vs-azure-tools-storage-manage-with-storage-explorer.md) är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, macOS och Linux.
 
-## <a name="version-130"></a>Version 1.3.0
-07/09/2018
+## <a name="version-141"></a>Version 1.4.1
+08/28/2018
 
 ### <a name="download-azure-storage-explorer-130"></a>Hämta Azure Storage Explorer 1.3.0
 - [Azure Storage Explorer 1.3.0 för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
 - [Azure Storage Explorer 1.3.0 för Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
 - [Azure Storage Explorer 1.3.0 för Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
+### <a name="hotfixes"></a>Snabbkorrigeringar
+* Storage Explorer gick inte att generera nyckeln används för att kryptera känsliga data vid första start. Detta kan orsaka problem när du använder Snabbåtkomst och bifogande av resurser. [#535](https://github.com/Microsoft/AzureStorageExplorer/issues/535)
+* Om ditt konto inte kräver MFA för dess startklientorganisation, men gjorde för vissa andra klienter, Storage Explorer inte till listan över prenumerationer. Nu när du har loggat in med något sådant konto, ber Storage Explorer dig att ange dina autentiseringsuppgifter igen och genomför MFA. [#74](https://github.com/Microsoft/AzureStorageExplorer/issues/74)
+* Lagringsutforskaren gick inte att ansluta resurser från Azure Tyskland och Azure för amerikanska myndigheter. [#572](https://github.com/Microsoft/AzureStorageExplorer/issues/572)
+* Om du har loggat in till två konton som har samma e-postadress, misslyckas Lagringsutforskaren ibland att visa dina resurser i trädvyn. [#580](https://github.com/Microsoft/AzureStorageExplorer/issues/580)
+* På Windows-datorer långsammare ta välkomstskärmen ibland lång tid att visas. [#586](https://github.com/Microsoft/AzureStorageExplorer/issues/586)
+* Dialogrutan Anslut visas även om det fanns anslutna konton eller tjänster. [#588](https://github.com/Microsoft/AzureStorageExplorer/issues/588)
+
 ### <a name="new"></a>Ny
-* Nu har stöd för att komma åt $web-behållare som används av Serverstatiska webbplatser. På så sätt kan du enkelt ladda upp och hantera filer och mappar som används av din webbplats. [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
-* App-panelen på macOS har organiserats. Förändringarna innefattar en Arkiv-menyn, vissa genväg viktiga ändringar och flera nya kommandon under menyn app. [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
-* Utfärdare av slutpunkten för att logga in till Azure för amerikanska myndigheter har ändrats till https://login.microsoftonline.us/
-* Hjälpmedel: När en skärmläsare är aktiv, tangentbordsnavigering nu fungerar med de tabeller som används för att visa objekt på höger sida. Du kan använda piltangenterna för att navigera rader och kolumner, RETUR för att anropa standardåtgärder, på kontexten menyn för att öppna snabbmenyn för ett objekt, och flytta eller kontroll till flera markeringar. [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
+* Extern resurs bifogade filer, till exempel för SAS-anslutningarna och emulatorer, har förbättrats avsevärt. Nu kan du:
+   * Anpassa visningsnamnet för den resurs som du bifogar. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * Ansluta till flera lokala emulatorer som använder olika portar. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * Lägga till resurser som är anslutna till Snabbåtkomst. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* Lagringsutforskaren har nu stöd för mjuk borttagning. Du kan:
+   * Konfigurera en princip för mjuk borttagning genom att högerklicka på noden Blob-behållare för ditt lagringskonto.
+   * Visa ej permanent bort blobar i Blob-redigeraren genom att välja ”Active och tas bort blobbar” i listrutan bredvid navigeringsfältet.
+   * Ångra borttagning av ej permanent borttagna blobar.
 
 ### <a name="fixes"></a>Korrigeringar
-*  På vissa datorer, underordnade processerna tar lång tid att starta. När detta händer visas felet ”underordnade processen misslyckades att starta i tid”. Tiden för en underordnad process att starta har nu ökat från 20 till 90 sekunder. Om du fortfarande har drabbats av det här problemet, kommentera på den länkade GitHub-ärenden. [#281](https://github.com/Microsoft/AzureStorageExplorer/issues/281)
-* När du använder en SAS som inte har läsbehörighet, gick det inte att ladda upp en stor blob. Logiken för överföring har ändrats för att fungera i det här scenariot. [#305](https://github.com/Microsoft/AzureStorageExplorer/issues/305)
-* Ange offentlig åtkomstnivå för en behållare som skulle ta bort alla åtkomstprinciper och vice versa. Nu kan bevaras principer och åtkomst för offentlig åtkomst när du ställer in av två. [#197](https://github.com/Microsoft/AzureStorageExplorer/issues/197)
-* ”AccessTierChangeTime” trunkerades i dialogrutan Egenskaper. Problemet har åtgärdats. [#145](https://github.com/Microsoft/AzureStorageExplorer/issues/145)
-* ”Microsoft Azure Storage Explorer –” prefix saknades från dialogrutan Skapa ny katalog. Problemet har åtgärdats. [#299](https://github.com/Microsoft/AzureStorageExplorer/issues/299)
-* Hjälpmedel: Dialogrutan Lägg till entitet var svårt att navigera när du använder VoiceOver. Förbättringar har gjorts. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
-* Hjälpmedel: Bakgrundsfärgen som används av Dölj/Visa knappen för fönstret Akce a Vlastnosti var inkonsekvent med liknande UI-kontroller i högkontrast svart tema. Färgen har ändrats. [#123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
-* Hjälpmedel: Högkontrast svart tema fokus formatering för knappen ”X” i dialogrutan Egenskaper kunde inte visas. Problemet har åtgärdats. [#243](https://github.com/Microsoft/AzureStorageExplorer/issues/243)
-* Hjälpmedel: Flikarna åtgärder och egenskaper saknades flera aria-värden som resulterade i en läsare för subpar skärm. Värden som saknas aria har nu lagts till. [#316](https://github.com/Microsoft/AzureStorageExplorer/issues/316)
-* Hjälpmedel: Komprimerad trädnoder på vänster sida har inte som den angivna värdet false för aria-expanderas. Problemet har åtgärdats. [#352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
+* ”Konfigurera CORS-inställningar”-åtgärden är inte längre tillgänglig på Premium Storage-konton eftersom Premium Storage-konton inte har stöd för CORS. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* Det finns nu en signatur för delad åtkomst-egenskap för SAS-anslutna tjänster. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* ”Ange standard åtkomstnivå”-åtgärden är nu tillgängliga för Blob- och gpv2-/ Storage-konton som har fästs på Snabbåtkomst. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* Ibland misslyckas Storage Explorer att visa klassiska lagringskonton. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
 
 ### <a name="known-issues"></a>Kända problem
 * När du använder emulatorer, till exempel Azure Storage-emulatorn eller Azurite, behöver du ha dem lyssna efter anslutningar på sina standardportarna. I annat fall är Storage Explorer inte kan ansluta till dem.
@@ -88,6 +94,7 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.2.0
 
 ## <a name="previous-releases"></a>Tidigare versioner
 
+* [Version 1.3.0](#version-130)
 * [Version 1.2.0 eller senare](#version-120)
 * [Version 1.1.0](#version-110)
 * [Version 1.0.0](#version-100)
@@ -113,6 +120,63 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.2.0
 * [Version 0.7.20160129.1](#version-07201601291)
 * [Version 0.7.20160105.0](#version-07201601050)
 * [Version 0.7.20151116.0](#version-07201511160)
+
+## <a name="version-130"></a>Version 1.3.0
+07/09/2018
+
+### <a name="new"></a>Ny
+* Nu har stöd för att komma åt $web-behållare som används av Serverstatiska webbplatser. På så sätt kan du enkelt ladda upp och hantera filer och mappar som används av din webbplats. [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
+* App-panelen på macOS har organiserats. Förändringarna innefattar en Arkiv-menyn, vissa genväg viktiga ändringar och flera nya kommandon under menyn app. [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
+* Utfärdare av slutpunkten för att logga in till Azure för amerikanska myndigheter har ändrats till https://login.microsoftonline.us/
+* Hjälpmedel: När en skärmläsare är aktiv, tangentbordsnavigering nu fungerar med de tabeller som används för att visa objekt på höger sida. Du kan använda piltangenterna för att navigera rader och kolumner, RETUR för att anropa standardåtgärder, på kontexten menyn för att öppna snabbmenyn för ett objekt, och flytta eller kontroll till flera markeringar. [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
+
+### <a name="fixes"></a>Korrigeringar
+*  På vissa datorer, underordnade processerna tar lång tid att starta. När detta händer visas felet ”underordnade processen misslyckades att starta i tid”. Tiden för en underordnad process att starta har nu ökat från 20 till 90 sekunder. Om du fortfarande har drabbats av det här problemet, kommentera på den länkade GitHub-ärenden. [#281](https://github.com/Microsoft/AzureStorageExplorer/issues/281)
+* När du använder en SAS som inte har läsbehörighet, gick det inte att ladda upp en stor blob. Logiken för överföring har ändrats för att fungera i det här scenariot. [#305](https://github.com/Microsoft/AzureStorageExplorer/issues/305)
+* Ange offentlig åtkomstnivå för en behållare som skulle ta bort alla åtkomstprinciper och vice versa. Nu kan bevaras principer och åtkomst för offentlig åtkomst när du ställer in av två. [#197](https://github.com/Microsoft/AzureStorageExplorer/issues/197)
+* ”AccessTierChangeTime” trunkerades i dialogrutan Egenskaper. Problemet har åtgärdats. [#145](https://github.com/Microsoft/AzureStorageExplorer/issues/145)
+* ”Microsoft Azure Storage Explorer –” prefix saknades från dialogrutan Skapa ny katalog. Problemet har åtgärdats. [#299](https://github.com/Microsoft/AzureStorageExplorer/issues/299)
+* Hjälpmedel: Dialogrutan Lägg till entitet var svårt att navigera när du använder VoiceOver. Förbättringar har gjorts. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
+* Hjälpmedel: Bakgrundsfärgen som används av Dölj/Visa knappen för fönstret Akce a Vlastnosti var inkonsekvent med liknande UI-kontroller i högkontrast svart tema. Färgen har ändrats. [#123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
+* Hjälpmedel: Högkontrast svart tema fokus formatering för knappen ”X” i dialogrutan Egenskaper kunde inte visas. Problemet har åtgärdats. [#243](https://github.com/Microsoft/AzureStorageExplorer/issues/243)
+* Hjälpmedel: Flikarna åtgärder och egenskaper saknades flera aria-värden som resulterade i en läsare för subpar skärm. Värden som saknas aria har nu lagts till. [#316](https://github.com/Microsoft/AzureStorageExplorer/issues/316)
+* Hjälpmedel: Komprimerad trädnoder på vänster sida har inte som den angivna värdet false för aria-expanderas. Problemet har åtgärdats. [#352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
+
+### <a name="known-issues"></a>Kända problem
+* Koppla från från en resurs som är anslutna via SAS-URI, t.ex en blob-behållare kan orsaka ett fel som förhindrar andra bilagor från visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Se [problemet](https://github.com/Microsoft/AzureStorageExplorer/issues/537) för mer information.
+* Om du använder VS för Mac och någon gång har skapat en anpassad AAD-konfiguration kan kanske du inte att logga in. Undvik problemet genom att ta bort innehållet i ~ /. IdentityService/AadConfigurations. Om detta inte det avblockerar du, kommentera på [problemet](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite ännu inte helt har genomfört alla Storage API: er. Därför bör finnas det oväntade fel eller beteende när du använder Azurite för utvecklingslagring.
+* I sällsynta fall kan trädet fokus fastna på Snabbåtkomst. Du kan uppdatera alla som behövdes fokus.
+* Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron.
+* När du riktar in sig på Azure Stack, misslyckas ladda upp filer tilläggsblobbar.
+* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Detta beror på att vi använder Avbryt filter lösningen som beskrivs [här](https://github.com/Azure/azure-storage-node/issues/317).
+* Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
+* Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
+* Azure Stack har inte stöd för följande funktioner och försök att använda dem när du arbetar med Azure Stack kan resultera i oväntade fel:
+   * Filresurser
+   * Åtkomstnivåer
+   * Mjuk borttagning
+* Electron-gränssnitt som används av Storage Explorer har problem med vissa GPU (grafikprocessor) maskinvaruacceleration. Om Storage Explorer visning av ett tomt (tom) huvudfönstret måste du starta Lagringsutforskaren från kommandoraden och inaktivera GPU-acceleration genom att lägga till den `--disable-gpu` växla:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* För användare på Ubuntu 14.04 behöver du kontrollera GCC är uppdaterad – detta kan göras genom att köra följande kommandon och sedan starta om datorn:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Du måste installera GConf – detta kan göras genom att köra följande kommandon och sedan starta om datorn för användare på Ubuntu nr 17.04 från:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-120"></a>Version 1.2.0
 06/12/2018

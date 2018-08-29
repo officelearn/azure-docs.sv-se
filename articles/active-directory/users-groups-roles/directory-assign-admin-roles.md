@@ -14,12 +14,12 @@ ms.date: 08/27/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 813fb79bbdc09d0fb3baa9a66cfaeae74343b3f9
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 9b56f540af2b8d35258a4db79502c9edf83cdb45
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093643"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128474"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Tilldela administratörsroller i Azure Active Directory
 
@@ -613,16 +613,22 @@ Kan hantera alla aspekter av Intune-produkten.
 | microsoft.aad.supporttickets/AllEntities/AllActions | Skapa och hantera Office 365-supportbegäranden. |
 | microsoft.intune/AllEntities/AllActions | Hantera alla aspekter av Intune. |
 
-### <a name="license-administrator"></a>Licensadministratör
-Kan tilldela licenser till användare.
 
+### <a name="license-administrator"></a>Licensadministratör
+Kan hantera produktlicenser på användare och grupper.
+ 
+  > [!NOTE]
+  > Den här rollen ärver behörigheterna från katalogläsarrollen.
+  >
+  >
+ 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
-| microsoft.aad.directory/users/assignLicense        | &nbsp; |
-| microsoft.aad.directory/users/usageLocation/update | &nbsp; |
-| microsoft.azure.accessService/allEntities/allTasks | &nbsp; |
-| microsoft.azure.serviceHealth/allEntities/allTasks | &nbsp; |
-| Microsoft.Office365.serviceHealth/allEntities/allTasks | &nbsp; |
+| microsoft.aad.directory/users/assignLicense | Hantera licenser för användare i Azure Active Directory. |
+| microsoft.aad.directory/users/usageLocation/update | Uppdatera users.usageLocation-egenskapen i Azure Active Directory. |
+| microsoft.azure.accessService/allEntities/allTasks | Hantera alla aspekter av Azure Access-tjänsten. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
+| Microsoft.Office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 
 ### <a name="lync-service-administrator"></a>Lync-tjänstadministratör
 Kan hantera alla aspekter av Skype för Business-produkten.

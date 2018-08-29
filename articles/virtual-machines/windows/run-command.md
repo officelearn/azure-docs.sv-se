@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: f42d3fb709807d77fb0f390b6da76efc4a60dced
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 60cdcbeba0c4149d8f049bbab553bd658c965338
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090578"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128603"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Kör PowerShell-skript i din virtuella Windows-dator med kommandot Kör
 
@@ -63,7 +63,6 @@ Den här tabellen visas listan över kommandon som är tillgängliga för virtue
 |**EnableAdminAccount**|Kontrollerar om det lokala administratörskontot är inaktiverat och fall i så gör det möjligt.|
 |**IP-konfiguration**| Visar detaljerad information om den IP-adress, undernät och standard-gateway för varje nätverkskort som är bundet till TCP/IP.|
 |**RDPSettings**|Kontrollerar registerinställningar och inställningar för domänen. Föreslår åtgärder om datorn tillhör en domän eller ändrar inställningar till standardvärdena.|
-|**ResetAccountPassword**| Återställer lösenordet för inbyggda administratörskontot.|
 |**ResetRDPCert**|Tar bort SSL-certifikatet som är kopplad till RDP-lyssnaren och återställer RDP listerner säkerhet till standard. Använd det här skriptet om du ser några problem med certifikatet.|
 |**SetRDPPort**|Mängder standard eller användare anges portnummer för anslutning till fjärrskrivbord. Gör det möjligt för brandväggsregel för ingående åtkomst till porten.|
 

@@ -1,53 +1,49 @@
 ---
-title: Transformera XML med XSLT-maps - Azure Logic Apps | Microsoft Docs
-description: Lägg till XSLT mappar för att omvandla XML-data med Azure Logikappar och Enterprise-Integrationspaket
+title: Transformera XML med XSLT-kartor – Azure Logic Apps | Microsoft Docs
+description: Lägga till XSLT-kartor som omvandlar XML i Azure Logic Apps med Enterprise-Integrationspaket
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: jeconnoc
-editor: cgronlun
-ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.date: 07/08/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: e0a8e5dfd42d447b4e049574b346c41fe0067c9f
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c5e5e0a0a3f8bd5feedc00d5bbfb76a1453ccc84
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299145"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123564"
 ---
-# <a name="add-maps-for-xml-data-transform"></a>Lägga till mappningar för transformering av XML-data
+# <a name="add-maps-for-xml-transformation-in-azure-logic-apps-with-enterprise-integration-pack"></a>Lägga till kartor för XML-transformering i Azure Logic Apps med Enterprise-Integrationspaket
 
-Enterprise integration använder maps för att omvandla XML-data mellan format. En karta är ett XML-dokument som definierar data i ett dokument som ska omvandlas till ett annat format. 
+Enterprise-integration använder maps för att transformera XML-data mellan format. En karta är ett XML-dokument som definierar data i ett dokument som ska transformeras till ett annat format. 
 
 ## <a name="why-use-maps"></a>Varför använda maps?
 
-Anta att du regelbundet ta emot B2B order eller fakturor från en kund som använder YYYMMDD format för datum. Du kan dock lagra datum i formatet MMDDYYY i din organisation. Du kan använda en karta till *transformera* YYYMMDD datumformat i MMDDYYY innan de lagras informationen order eller faktura i kunddatabasen för aktiviteten.
+Anta att du regelbundet får B2B order eller fakturor från en kund som använder YYYMMDD-formatet för datum. Du kan dock lagra datum i formatet MMDDYYY i din organisation. Du kan använda en karta till *transformera* YYYMMDD datumformat i MMDDYYY innan du lagrar information om ordning eller faktura i kunddatabasen för aktiviteten.
 
 
-## <a name="how-do-i-create-a-map"></a>Hur skapar jag en karta
+## <a name="how-do-i-create-a-map"></a>Hur gör jag för att skapa en karta?
 
-Du kan skapa projekt BizTalk-integrering med den [Enterprise-Integrationspaket](logic-apps-enterprise-integration-overview.md "Lär dig mer om enterprise-integrationspaket") för Visual Studio 2015. Du kan sedan skapa en Integrationskarta-fil som kan du mappa visuellt objekt mellan två XML-schemafiler. När du skapar det här projektet har du en XSLT-dokument.
+Du kan skapa BizTalk Integration projekt med den [Enterprise-Integrationspaketet](logic-apps-enterprise-integration-overview.md "Lär dig mer om enterprise-integrationspaketet") för Visual Studio 2015. Du kan sedan skapa en Integrationskarta-fil som kan du mappa visuellt objekt mellan två filer för XML-schema. När du skapar det här projektet har du en XSLT-dokument.
 
-Om kartan har en referens till en extern sammansättningsresurs både måste överföras till kontot för integrering. De ska överföras i någon viss ordning först sammansättningen och sedan kartan som refererar till sammansättningen.
+Om kartan har en referens till en extern sammansättning båda måste laddas upp till integrationskontot. De ska vara laddades upp i en viss ordning först sammansättningen och sedan kartan som refererar till sammansättningen.
 
 
 ## <a name="how-do-i-add-a-map"></a>Hur lägger jag till en karta?
 
-1. Välj i Azure-portalen **Bläddra**.
+1. I Azure-portalen väljer du **Bläddra**.
 
     ![](./media/logic-apps-enterprise-integration-overview/overview-1.png)
 
-2. Skriv i sökrutan filtrera **integrering**och välj **Integrationskonton** från resultatlistan över.
+2. I sökrutan filtrera anger **integrering**och välj sedan **Integrationskonton** i resultatlistan.
 
     ![](./media/logic-apps-enterprise-integration-overview/overview-2.png)
 
-3. Välj integration konto där du vill lägga till kartan.
+3. Välj integrationskontot där du vill lägga till kartan.
 
     ![](./media/logic-apps-enterprise-integration-overview/overview-3.png)
 
@@ -55,46 +51,46 @@ Om kartan har en referens till en extern sammansättningsresurs både måste öv
 
     ![](./media/logic-apps-enterprise-integration-maps/map-1.png)
 
-5. Välj när mappningarna sidan öppnas **Lägg till**.
+5. När öppnas sidan kartorna, väljer **Lägg till**.
 
     ![](./media/logic-apps-enterprise-integration-maps/map-2.png)  
 
-6. Ange en **namn** på kartan. Om du vill överföra filen karta, väljer du mappikonen på höger sida av den **kartan** textruta. När överföringen är klar väljer **OK**.
+6. Ange en **namn** på kartan. Om du vill överföra filen karta väljer du mappikonen på höger sida av den **kartan** textrutan. När uppladdningen är klar väljer **OK**.
 
     ![](./media/logic-apps-enterprise-integration-maps/map-3.png)
 
-7. När Azure läggs mappningen till ditt konto integration, få skärmen som visar om din mappningsfilen har lagts till eller inte. När du får detta meddelande, välja den **Maps** panelen så att du kan visa nytillagda kartan.
+7. När Azure lägger till kartan i ditt integrationskonto, få skärmen som visar om din mappningsfilen har lagts till eller inte. När du får det här meddelandet kan välja den **Maps** panelen så att du kan visa den nyligen tillagda kartan.
 
     ![](./media/logic-apps-enterprise-integration-maps/map-4.png)
 
 
 ## <a name="how-do-i-add-an-assembly"></a>Hur lägger jag till en sammansättning?
-Öppna det integration konto där du vill överföra sammansättningen.
+Öppna integrationskontot där du vill ladda upp sammansättningen.
 
 1. Välj den **sammansättningar** panelen.
 
-    ![integrationaccount-sammansättningen-panelen](./media/logic-apps-enterprise-integration-maps/assemblytile.png)
+    ![integrationaccount-sammansättningen-panel](./media/logic-apps-enterprise-integration-maps/assemblytile.png)
 
-2. Välj när sammansättningarna sidan öppnas **Lägg till**. Ange en **namn** för sammansättningen. Om du vill överföra sammansättningsfilen väljer du mappikonen på höger sida av den **sammansättningen** textruta. När överföringen är klar väljer **OK**.
+2. När öppnas sidan sammansättningarna, väljer **Lägg till**. Ange en **namn** för sammansättningen. Om du vill överföra sammansättningsfilen, väljer du mappikonen på höger sida av den **sammansättningen** textrutan. När uppladdningen är klar väljer **OK**.
 
-    ![Lägg till sammansättningen](./media/logic-apps-enterprise-integration-maps/assemblyfile.png)
+    ![Lägg till sammansättning](./media/logic-apps-enterprise-integration-maps/assemblyfile.png)
 
 
-## <a name="how-do-i-edit-a-map"></a>Hur redigerar en karta?
+## <a name="how-do-i-edit-a-map"></a>Hur gör jag för att redigera en karta?
 
-Du måste överföra en ny fil karta med ändringarna som du vill använda. Du kan först hämta kartan för redigering.
+Du måste ladda upp en ny mappningsfil med ändringarna som du vill. Du kan först hämta kartan för redigering.
 
-Följ dessa steg för att ladda upp en ny mappning som ersätter den befintliga mappningen.
+Följ dessa steg för att ladda upp en ny karta som ersätter den befintliga import.
 
 1. Välj den **Maps** panelen.
 
-2. När öppnas sidan Maps väljer du den mappning som du vill redigera.
+2. När öppnas sidan kartor Välj kartan som du vill redigera.
 
 3. På den **Maps** väljer **uppdatering**.
 
     ![](./media/logic-apps-enterprise-integration-maps/edit-1.png)
 
-4. Välj mappningsfilen som du vill ladda upp och välj sedan i filväljaren, **öppna**.
+4. I filväljaren, väljer du filen som du vill ladda upp och välj sedan **öppna**.
 
     ![](./media/logic-apps-enterprise-integration-maps/edit-2.png)
 
@@ -102,18 +98,18 @@ Följ dessa steg för att ladda upp en ny mappning som ersätter den befintliga 
 
 1. Välj den **Maps** panelen.
 
-2. Välj kartan som du vill ta bort när öppnas sidan Maps.
+2. När öppnas sidan kartor Välj kartan som du vill ta bort.
 
 3. Välj **ta bort**.
 
     ![](./media/logic-apps-enterprise-integration-maps/delete.png)
 
-4. Bekräfta att du vill ta bort mappningen.
+4. Bekräfta att du vill ta bort kartan.
 
     ![](./media/logic-apps-enterprise-integration-maps/delete-confirmation-1.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* [Mer information om Enterprise-Integrationspaket](logic-apps-enterprise-integration-overview.md "Lär dig mer om Enterprise-Integrationspaket")  
+* [Mer information om Enterprise-Integrationspaketet](logic-apps-enterprise-integration-overview.md "Lär dig mer om Enterprise-Integrationspaket")  
 * [Mer information om avtalen](../logic-apps/logic-apps-enterprise-integration-agreements.md "Lär dig mer om enterprise integration-avtal")  
-* [Mer information om transformeringar](logic-apps-enterprise-integration-transform.md "Lär dig mer om enterprise integration transformeringar")  
+* [Läs mer om transformeringar](logic-apps-enterprise-integration-transform.md "Lär dig mer om Företagsintegrering")  
 

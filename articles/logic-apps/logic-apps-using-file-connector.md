@@ -1,108 +1,107 @@
 ---
-title: Ansluta till filsystem lokalt - Azure Logic Apps | Microsoft Docs
-description: Ansluta till lokalt filsystem från logik app arbetsflöden via lokala datagateway och filsystemet connector
-keywords: filsystem, lokalt
+title: Anslut till filsystem lokalt – Azure Logic Apps | Microsoft Docs
+description: Automatisera uppgifter och arbetsflöden som ansluter till lokala filsystem med anslutningsappen för filsystem via den lokala datagatewayen i Azure Logic Apps
 services: logic-apps
-author: derek1ee
-manager: jeconnoc
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam, estfan, LADocs
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/18/2017
-ms.author: LADocs; deli
-ms.openlocfilehash: 019b5fcd218ddd471c5f02d0332b8f5b5bf0edb3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.date: 08/25/2018
+ms.openlocfilehash: 41dd8ad721329c4c4d2761c9e4a37c640251dac3
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300828"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125286"
 ---
-# <a name="connect-to-on-premises-file-systems-from-logic-apps-with-the-file-system-connector"></a>Ansluta till lokalt filsystem från logikappar med filsystemet connector
+# <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Ansluta till lokala filsystem med Azure Logic Apps
 
-För att hantera data och säker åtkomst till lokala resurser, kan dina logic apps använda lokala datagateway. Den här artikeln visar hur du kan ansluta till ett filsystem lokalt via den här enkla Exempelscenario: kopiera en fil som överförs till Dropbox till en filresurs och sedan skicka ett e-postmeddelande.
+Med anslutningsappen för filsystem och Azure Logic Apps kan du kan skapa automatiserade uppgifter och arbetsflöden som skapar och hanterar filer på en lokal fil delar, till exempel:  
+
+- Skapa, hämta, lägga till, uppdatera och ta bort filer
+- Lista filer i mappar eller rotmappar.
+- Hämta filinnehåll och metadata.
+
+Den här artikeln visar hur du kan ansluta till ett lokalt filsystem som beskrivs i det här scenariot: kopiera en fil som har överförts till Dropbox till en filresurs och sedan skicka ett e-postmeddelande. På ett säkert sätt ansluta och få åtkomst till lokala system, logic apps används den [lokal datagateway](../logic-apps/logic-apps-gateway-connection.md). Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Ladda ned senaste [lokala datagateway](https://www.microsoft.com/download/details.aspx?id=53127).
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
 
-* Installera och ställa in senaste lokala datagateway, version 1.15.6150.1 eller senare. Anvisningar finns i avsnittet [Anslut till datakällor på lokala](http://aka.ms/logicapps-gateway). Du måste installera gatewayen på en lokal dator innan du kan fortsätta med de här stegen.
+* Innan du kan ansluta logikappar till lokala system, till exempel filservern för system, måste du [installera och konfigurera en lokal datagateway](../logic-apps/logic-apps-gateway-install.md). På så sätt kan du ange om du vill använda din gatewayinstallationen när du skapar filen system-anslutning från din logikapp.
 
-* Grundläggande kunskaper om [skapa logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* En [Drobox konto](https://www.dropbox.com/) och dina autentiseringsuppgifter
 
-## <a name="add-trigger-and-actions-for-connecting-to-your-file-system"></a>Lägga till utlösare och åtgärder för att ansluta till filsystemet
+  Dina autentiseringsuppgifter för tillåta din logikapp för att skapa en anslutning och komma åt ditt konto för Drobox. 
 
-1. Skapa en tom logikapp. Lägg till den här utlösaren som det första steget: **Dropbox - när en fil har skapats** 
+* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md). I det här exemplet behöver du en tom logikapp.
 
-2. Välj under utlösare, **+ nästa steg** > **lägga till en åtgärd**. 
+## <a name="add-trigger"></a>Lägg till utlösare
 
-3. I sökrutan anger du ”file system” som filter. När du ser alla åtgärder för kopplingen filsystem, Välj den **filsystem - skapa fil** åtgärd. 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-   ![Sök efter filen connector](media/logic-apps-using-file-connector/search-file-connector.png)
+1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna logikappen i Logic App Designer, om inte redan är öppna.
 
-4. Om du inte redan har en anslutning till din dator, uppmanas du att skapa en anslutning. 
+1. I sökrutan anger du ”dropbox” som filter. Välj den här utlösaren från listan över utlösare: **när en fil skapas** 
 
-5. Välj **Anslut via lokala datagateway**. Konfigurera anslutningen som anges i tabellen när du anslutningens egenskaper visas.
+   ![Välj Dropbox-utlösare](media/logic-apps-using-file-connector/select-dropbox-trigger.png)
 
-   ![Konfigurera anslutning](media/logic-apps-using-file-connector/create-file.png)
+1. Logga in med dina autentiseringsuppgifter för Dropbox-konto och auktorisera åtkomst till dina data i Dropbox för Azure Logic Apps. 
 
-   | Inställning | Beskrivning |
-   | ------- | ----------- |
-   | **Rotmappen** | Ange rotmappen för din dator. Du kan ange en lokal mapp på datorn där lokala datagateway har installerats eller mappen kan vara en nätverksresurs som datorn kan komma åt. <p>**Tips:** rotmappen är den viktigaste överordnade mappen som används för relativa sökvägar för alla fil-relaterade åtgärder. | 
-   | **Autentiseringstyp** | Typ av autentisering som används av filsystemet | 
-   | **Användarnamn** | Ange ditt användarnamn {*domän*\\*användarnamn*} för din tidigare installerade gateway. | 
-   | **Lösenord** | Ange lösenordet för ditt tidigare installerade gateway. | 
-   | **Gateway** | Välj din tidigare installerade gateway. | 
+1. Ange nödvändig information för utlösaren.
+
+   ![Dropbox-utlösare](media/logic-apps-using-file-connector/dropbox-trigger.png)
+
+## <a name="add-actions"></a>Lägga till åtgärder
+
+1. Under utlösaren väljer **nästa steg**. I sökrutan anger du ”file system” som filter. Välj den här åtgärden från åtgärdslistan över: **skapa fil - filsystem**
+
+   ![Hitta anslutningsappen för filsystem](media/logic-apps-using-file-connector/find-file-system-action.png)
+
+1. Om du inte redan har en anslutning till ditt filsystem, uppmanas du att skapa en anslutning.
+
+   ![Skapa anslutning](media/logic-apps-using-file-connector/file-system-connection.png)
+
+   | Egenskap  | Krävs | Värde | Beskrivning | 
+   | -------- | -------- | ----- | ----------- | 
+   | **Anslutningsnamn** | Ja | <*Anslutningens namn*> | Du ett namn för anslutningen | 
+   | **Rotmapp för vyer** | Ja | <*rot mappnamn*> | Rotmapp för ditt filsystem, till exempel en lokal mapp på datorn där den lokala datagatewayen har installerats eller mappen för en nätverksresurs som datorn kan komma åt. <p>Exempel: `\\PublicShare\\DropboxFiles` <p>Rotmappen är huvudsakliga överordnad mapp, som används för relativa sökvägar för alla filrelaterade åtgärder. | 
+   | **Autentiseringstyp** | Nej | <*autentiseringstyp*> | Vilken typ av autentisering som ditt filsystem använder, till exempel **Windows** | 
+   | **Användarnamn** | Ja | <*domän*>\\<*användarnamn*> | Användarnamn för din tidigare installerade datagateway | 
+   | **Lösenord** | Ja | <*ditt lösenord*> | Lösenordet för din tidigare installerade datagateway | 
+   | **Gateway** | Ja | <*installerade gatewaynamn*> | Namn för din tidigare installerade gateway | 
    ||| 
 
-6. När du har angett anslutningsinformationen väljer **skapa**. 
+1. När du är klar väljer du **Skapa**. 
 
-   Logic Apps konfigurerar och testar anslutningen, se till att anslutningen inte fungerar korrekt. 
-   Om anslutningen har konfigurerats korrekt visas alternativ för den åtgärd som du valde tidigare. 
-   Filen system koppling är nu redo för användning.
+   Logic Apps konfigurerar och testar anslutningen, se till att anslutningen fungerar korrekt. 
+   Om anslutningen är korrekt konfigurerad, visas alternativ för den åtgärd som du valde tidigare. 
 
-7. Ställ in den **skapa fil** åtgärd för att kopiera filer från Dropbox till rotmappen för din lokala filresurs.
+1. I den **skapa fil** åtgärden, anger du informationen för att kopiera filer från Dropbox till rotmappen i den lokala filresursen. Klicka i rutorna för att lägga till utdata från föregående steg och välj från tillgängliga fält när listan med dynamiskt innehåll visas.
 
-   ![Skapa filen åtgärd](media/logic-apps-using-file-connector/create-file-filled.png)
+   ![Skapa filåtgärd](media/logic-apps-using-file-connector/create-file-filled.png)
 
-8. Lägg till ett Outlook-åtgärd som skickar ett e-postmeddelande så att relevant användarna vet om den nya filen när den här åtgärden för att kopiera filen. Ange mottagare, titel och brödtexten i e-postmeddelandet. 
+1. Lägg nu till en Outlook-åtgärd som skickar ett e-postmeddelande så att rätt användare veta om den nya filen. Ange mottagare, rubriken och brödtexten i e-postmeddelandet. För testning bör använda du din egen e-postadress.
 
-   I den **dynamiskt innehåll** lista, kan du utdata från filen-anslutningen så att du kan lägga till mer information i e-postmeddelandet.
+   ![E-poståtgärd](media/logic-apps-using-file-connector/send-email.png)
 
-   ![Skicka e-åtgärd](media/logic-apps-using-file-connector/send-email.png)
+1. Spara din logikapp. Testa din app genom att ladda upp en fil till Dropbox. 
 
-9. Spara din logikapp. Testa din app genom att överföra en fil till Dropbox. Filen ska kopieras till filresursen lokalt och du får ett e-postmeddelande om åtgärden.
+   Logikappen bör kopiera filen till den lokala filresursen och skicka ett e-postmeddelande för mottagarna om den kopierade filen.
 
-Grattis, du har nu en fungerande logikapp som kan ansluta till det lokala filsystemet. 
+## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Försök att utforska andra funktioner som kopplingen erbjuder:
-
-- Skapa fil
-- Listar filer i mappen
-- Lägg till filen
-- Ta bort fil
-- Hämta filinnehåll
-- Hämta filinnehåll med hjälp av sökväg
-- Hämta filmetadata
-- Hämta metadata för fil med hjälp av sökväg
-- Listar filer i rotmappen
-- Uppdatera filen
-
-## <a name="view-the-swagger"></a>Visa swagger
-
-Finns det [swagger information](/connectors/fileconnector/). 
+Teknisk information om utlösare, åtgärder och begränsningar som beskrivs av anslutningsappens OpenAPI (tidigare Swagger) beskrivning, granska kopplingens [referenssida](/connectors/fileconnector/).
 
 ## <a name="get-support"></a>Få support
 
 * Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-* För att förbättra Azure Logic Apps och kopplingar, rösta eller skicka in förslag på den [Azure Logic Apps User Voice plats](http://aka.ms/logicapps-wish).
+* För att förbättra Azure Logic Apps och kopplingar, rösta på förslag eller komma med på den [Azure Logic Apps User Voice-webbplatsen](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Ansluta till lokala data](../logic-apps/logic-apps-gateway-connection.md) 
-* [Övervaka dina logikappar](../logic-apps/logic-apps-monitor-your-logic-apps.md)
-* [Enterprise-integrering för B2B-scenarier](../logic-apps/logic-apps-enterprise-integration-overview.md)
+* Lär dig hur du [ansluta till lokala data](../logic-apps/logic-apps-gateway-connection.md) 
+* Läs mer om andra [Logic Apps-anslutningsprogram](../connectors/apis-list.md)

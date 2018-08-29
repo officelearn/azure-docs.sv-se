@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: de7d4852e3696ca85ff23d40e9f3154ca72f2276
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 17f2aa8e70f8d8e18c5c7500d34060c0ed027c84
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39323667"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143901"
 ---
 ## <a name="get-the-samples"></a>Hämtar du exemplen
 
-Senaste uppsättning exempel, Kolla in vår [Cognitive Services tal SDK exempel GitHub-lagringsplatsen](https://aka.ms/csspeech/samples).
+Senaste exempel finns i [Cognitive Services tal SDK lagringsplatsen för exemplet](https://aka.ms/csspeech/samples) på GitHub.
 

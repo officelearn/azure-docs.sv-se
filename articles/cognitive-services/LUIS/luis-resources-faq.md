@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 93ced2d0c79d80a631ad90aa3f5d2dc9f8c79c7e
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: a266055c7685dca87d985775584a9ea7a4bda883
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390202"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128528"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding vanliga frågor och svar
 
@@ -151,7 +151,7 @@ Om du använder din logg för förutsägande analys kan du inte skapa test yttra
 
 Nej. LUIS-app-datamodellen är inte används av LUIS för att förbättra LUIS som en plattform eller används av Microsoft på något sätt. Varje AppData är separat och ägs endast av användar- och medarbetare. 
 
-Läs mer om [Användarsekretess](luis-reference-gdpr.md), [ytterligare säkerhet följs](luis-concept-security.md#security-compliance), och [datalagring](luis-concept-data-storage.md).
+Läs mer om [Användarsekretess](luis-user-privacy.md), [ytterligare säkerhet följs](luis-concept-security.md#security-compliance), och [datalagring](luis-concept-data-storage.md).
 
 ## <a name="language-and-translation-support"></a>Stöd för språk och översättning 
 

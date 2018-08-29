@@ -11,15 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 08/28/2018
 ms.reviewer: lmolkova
 ms.author: mbullwin
-ms.openlocfilehash: b2b5abf3b3b170e60df3aa2d6ec5ce471db74f80
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 6d161a49b35bbdfedcb27dd91f9f09dcf7ba4133
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42061094"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122034"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights för .NET-konsolprogram
 [Application Insights](app-insights-overview.md) kan du övervaka ditt webbprogram för tillgänglighet, prestanda och användning.
@@ -44,7 +44,7 @@ telemetryClient.TrackTrace("Hello World!");
 Du kan starta och konfigurera Application Insights från koden eller med hjälp av `ApplicationInsights.config` fil. Kontrollera att initieringen händer så tidigt som möjligt. 
 
 > [!NOTE]
-> Instruktioner som refererar till **ApplicationInsights.config** gäller endast för appar som riktar in sig på .NET Standard och gäller inte för .NET Core-program. 
+> Instruktioner som refererar till **ApplicationInsights.config** gäller endast för appar som riktar in sig på .NET Framework och gäller inte för .NET Core-program.
 
 ### <a name="using-config-file"></a>Med hjälp av konfigurationsfilen
 

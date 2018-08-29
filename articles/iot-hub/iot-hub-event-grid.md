@@ -1,6 +1,6 @@
 ---
-title: Azure IoT-hubb och händelsen rutnät | Microsoft Docs
-description: Använd Azure händelse rutnätet för att utlösa processer baserat på åtgärder som sker i IoT-hubb.
+title: Azure IoT Hub och Event Grid | Microsoft Docs
+description: Använd Azure Event Grid för att utlösa processer baserat på åtgärder som sker i IoT Hub.
 author: kgremban
 manager: timlt
 ms.service: iot-hub
@@ -8,43 +8,71 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: f187aa81ca519f2597657f01c2d7a630740b5348
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 068e9a3379bd2762455aade1761592fa70a09a20
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634319"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144386"
 ---
-# <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions---preview"></a>Ta hänsyn till IoT-hubb händelser med hjälp av händelse rutnätet att utlösaråtgärder - förhandsgranskning
+# <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagera på IoT Hub-händelser med Event Grid för att utlösaråtgärder
 
-Azure IoT-hubb kan integreras med Azure händelse rutnätet så att du kan skicka händelsemeddelanden till andra tjänster och starta underordnade processer. Konfigurera dina affärsprogram att lyssna efter IoT-hubb händelser så att du kan reagera på kritiska händelser på ett tillförlitligt, skalbara och säkert sätt. Till exempel skapa ett program för att utföra flera åtgärder som uppdaterar en databas, skapar en biljett och leverera ett e-postmeddelande varje gång en ny IoT-enhet är registrerad för din IoT-hubb. 
+Azure IoT Hub kan integreras med Azure Event Grid så att du kan skicka händelsemeddelanden till andra tjänster och utlösa underordnade processer. Konfigurera dina affärsprogram att lyssna efter IoT Hub-händelser så att du kan reagera på kritiska händelser på ett sätt som tillförlitlig, skalbar och säker. Till exempel skapa ett program för att utföra flera åtgärder som uppdaterar en databas, skapa en biljett och leverera ett e-postmeddelande varje gång en ny IoT-enhet är registrerad på IoT-hubben. 
 
-[Azure händelse rutnätet] [ lnk-eg-overview] är en helt hanterad händelse routning tjänst som använder ett Publicera-prenumerera modellen. Händelsen rutnätet har inbyggt stöd för Azure-tjänster som [Azure Functions](../azure-functions/functions-overview.md) och [Azure Logikappar](../logic-apps/logic-apps-what-are-logic-apps.md), och kan skicka aviseringar till Azure-tjänster med hjälp av webhooks. En fullständig lista över händelsehanterare som har stöd för händelsen rutnätet finns [en introduktion till Azure händelse rutnätet][lnk-eg-overview]. 
+[Azure Event Grid] [ lnk-eg-overview] är en fullständigt hanterad tjänst för händelsedirigering som använder en Publicera-prenumerera modellen. Event Grid har inbyggt stöd för Azure-tjänster som [Azure Functions](../azure-functions/functions-overview.md) och [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md), och kan skicka aviseringar till icke-Azure-tjänster med webhookar. En fullständig lista över de händelsehanterare som har stöd för Event Grid finns [en introduktion till Azure Event Grid][lnk-eg-overview]. 
 
-![Azure händelse rutnätet-arkitektur](./media/iot-hub-event-grid/event-grid-functional-model.png)
+![Azure Event Grid-arkitektur](./media/iot-hub-event-grid/event-grid-functional-model.png)
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
 
-Händelsen rutnätet integrationen är tillgänglig för IoT-hubbar i regioner där händelsen rutnätet stöds. Den senaste listan över regioner finns [en introduktion till Azure händelse rutnätet][lnk-eg-overview]. 
+Event Grid-integration är tillgänglig för IoT-hubbar finns i regioner där Event Grid stöds. Den senaste listan över regioner finns [en introduktion till Azure Event Grid][lnk-eg-overview]. 
 
 ## <a name="event-types"></a>Händelsetyper
 
-IoT-hubb publicerar följande händelse: 
+IoT Hub publicerar följande händelsetyper: 
 
 | Händelsetyp | Beskrivning |
 | ---------- | ----------- |
-| Microsoft.Devices.DeviceCreated | Publicerade när en enhet är registrerad på en IoT-hubb. |
+| Microsoft.Devices.DeviceCreated | Publicerade när en enhet registreras till en IoT hub. |
 | Microsoft.Devices.DeviceDeleted | Publicerade när en enhet tas bort från en IoT-hubb. | 
+| Microsoft.Devices.DeviceConnected | Publicerade när en enhet är ansluten till en IoT-hubb. | 
+| Microsoft.Devices.DeviceDisconnected | Publicerade när en enhet är bortkopplad från en IoT-hubb. | 
+Observera att enheten ansluten och enheten frånkopplad händelser kommer att aktiveras för regionerna Östra Kanada och östra USA snart.
 
-Använd Azure-portalen eller Azure CLI för att konfigurera vilka händelser som ska publicera från varje IoT-hubb. Ett exempel försök kursen [skicka e-postmeddelanden om Azure IoT Hub-händelser med hjälp av Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md). 
+Använd Azure portal eller Azure CLI för att konfigurera vilka händelser som ska publicera från varje IoT-hubb. Exempelvis kan du prova guiden [skicka e-postaviseringar om Azure IoT Hub-händelser med hjälp av Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md). 
 
 ## <a name="event-schema"></a>Händelseschema
 
-IoT-hubb-händelser innehåller all information som du måste svara för ändringar i livscykel för enhet. Du kan identifiera en händelse genom att kontrollera IoT-hubb som egenskapen eventType börjar med **Microsoft.Devices**. Mer information om hur du använder händelsen rutnätet händelseegenskaper finns i [händelse rutnätet Händelseschema](../event-grid/event-schema.md).
+IoT Hub-händelser innehåller all information du behöver för att svara på ändringar i enhetens livscykel. Du kan identifiera en IoT Hub-händelse genom att kontrollera som egenskapen händelsetyp börjar med **Microsoft.Devices**. Mer information om hur du använder Event Grid händelseegenskaper finns i den [Event Grid Händelseschema](../event-grid/event-schema.md).
 
-### <a name="device-created-schema"></a>Enheten som skapade schemat
+### <a name="device-connected-schema"></a>Enheten ansluten schema
 
-I följande exempel visas schemat för en enhet som skapats i händelsen: 
+I följande exempel visar schemat för en ansluten enhet-händelse: 
+
+```json
+[{  
+  "id": "f6bbf8f4-d365-520d-a878-17bf7238abd8", 
+  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>", 
+  "subject": "devices/LogicAppTestDevice", 
+  "eventType": "Microsoft.Devices.DeviceConnected", 
+  "eventTime": "2018-06-02T19:17:44.4383997Z", 
+  "data": {
+      "deviceConnectionStateEventInfo": {
+        "sequenceNumber":
+          "000000000000000001D4132452F67CE200000002000000000000000000000001"
+      },
+    "hubName": "egtesthub1",
+    "deviceId": "LogicAppTestDevice",
+    "moduleId" : "DeviceModuleID",
+  }, 
+  "dataVersion": "1", 
+  "metadataVersion": "1" 
+}]
+```
+
+### <a name="device-created-schema"></a>Schemat för en enhet har skapats
+
+I följande exempel visar schemat för en enhet som skapats av händelse: 
 
 ```json
 [{
@@ -57,6 +85,7 @@ I följande exempel visas schemat för en enhet som skapats i händelsen:
     "twin": {
       "deviceId": "LogicAppTestDevice",
       "etag": "AAAAAAAAAAE=",
+      "deviceEtag":"null",
       "status": "enabled",
       "statusUpdateTime": "0001-01-01T00:00:00",
       "connectionState": "Disconnected",
@@ -84,42 +113,42 @@ I följande exempel visas schemat för en enhet som skapats i händelsen:
       }
     },
     "hubName": "egtesthub1",
-    "deviceId": "LogicAppTestDevice",
-    "operationTimestamp": "2018-01-02T19:17:44.4383997Z",
-    "opType": "DeviceCreated"
+    "deviceId": "LogicAppTestDevice"
   },
-  "dataVersion": "",
+  "dataVersion": "1",
   "metadataVersion": "1"
 }]
 ```
 
-En detaljerad beskrivning av varje egenskap finns [Azure händelse rutnätet Händelseschema för IoT-hubb](../event-grid/event-schema-iot-hub.md)
+En detaljerad beskrivning av varje egenskap finns [Azure Event Grid Händelseschema för IoT Hub](../event-grid/event-schema-iot-hub.md)
 
 ## <a name="filter-events"></a>Filtrera händelser
 
-IoT-hubb händelseprenumerationer kan filtrera händelser baserat på typen och enheten händelsenamn. Ämne filter i händelsen rutnätet arbete baserat på **prefix** och **suffix** matchar. Filtret använder en `AND` operator, så levereras händelser med ett ämne som matchar både prefixet och suffixet till prenumeranten. 
+Händelseprenumerationer för IoT Hub kan filtrera händelser baserat på händelse typ och enhetens namn. Föremål filter i Event Grid arbete baserat på **börjar med** (prefix) och **slutar med** (suffix) matchar. Filtret använder en `AND` -operator, så levereras händelser med ett ämne som matchar både prefix och suffix till prenumeranten. 
 
 Ämnet för IoT-händelser använder formatet:
 
 ```json
 devices/{deviceId}
 ```
+## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Begränsningar för enheter som är kopplade och enheten frånkopplad händelser
 
-### <a name="tips-for-consuming-events"></a>Tips för förbrukning av händelser
+För att få enheten är ansluten och enhetshändelser kopplas från, måste du öppna den D2C eller C2D-länk för din enhet. Om din enhet använder MQTT-protokollet, behåller IoT Hub C2D länken öppnas. För AMQP kan du öppna länken C2D genom att anropa den [ta emot asynkrona API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet). Länken D2C är öppen om du skickar telemetri. Om enheten anslutningen flimrar, dvs. enheten ansluter och kopplar från ofta skickar vi inte varje enskild anslutning tillstånd, men ska publicera Anslutningsstatus är ögonblicksbild av varje minut. Vid ett avbrott i IoT Hub publicerar vi enhetens anslutning tillstånd så fort driftstörningarna har över. Om enheten kopplar från under det avbrottet, publiceras enheten frånkopplade händelsen inom 10 minuter.
 
-Program som hanterar IoT-hubb händelser bör följa dessa rekommendationer:
+## <a name="tips-for-consuming-events"></a>Tips för att använda händelser
 
-* Flera prenumerationer kan konfigureras på vägen händelser för samma händelsehanteraren så att det är viktigt att inte förutsätter att händelser från en viss källa. Kontrollera alltid avsnittet meddelandet för att säkerställa att det kommer från IoT-hubb som du förväntar dig. 
-* Inte förutsätt att alla händelser som visas är de typer som du förväntar dig. Kontrollera alltid eventType innan bearbetningen av meddelandet.
-* Meddelanden kan tas emot i ordning eller efter en stund. Använd fältet etag för att förstå om din information om objekt är aktuell.
+Program som hanterar IoT Hub-händelser bör följa dessa rekommendationer:
 
-
+* Flera prenumerationer kan konfigureras för att dirigera händelser till samma händelsehanterare, så det är viktigt att inte förutsätter att händelser som kommer från en viss källa. Kontrollera alltid meddelande avsnittet för att säkerställa att det kommer från IoT-hubben som du förväntar dig. 
+* Inte förutsätter att alla händelser som du får de typer som du förväntar dig. Kontrollera alltid händelsetyp innan behandlingen av meddelandet.
+* Meddelanden kan tas emot i fel ordning eller efter en fördröjning. Använd fältet etag för att förstå om din information om objekt är uppdaterad.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Försök självstudier för IoT-hubb-händelser](../event-grid/publish-iot-hub-events-to-logic-apps.md)
-* [Mer information om händelsen rutnätet][lnk-eg-overview]
-* [Jämför skillnaderna mellan routning IoT-hubb händelser och meddelanden][lnk-eg-compare]
+* [Prova guiden för IoT Hub-händelser](../event-grid/publish-iot-hub-events-to-logic-apps.md)
+* [Lär dig att ordna enheter anslutas och kopplas händelser](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
+* [Läs mer om Event Grid][lnk-eg-overview]
+* [Jämför routning IoT Hub-händelser och meddelanden][lnk-eg-compare]
 
 <!-- Links -->
 [lnk-eg-overview]: ../event-grid/overview.md

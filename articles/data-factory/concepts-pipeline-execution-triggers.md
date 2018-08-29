@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: 4ac0f27480bbddf28b83af05e4b7b89ca6766871
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 8dfc2448861ca9b376246ac42f7563e44422d6de
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093786"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122441"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Pipeline-körning och utlösare i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -324,7 +324,7 @@ Mer information om utlösare för rullande fönster och exempel finns i [Skapa e
 
 ## <a name="event-based-trigger"></a>Händelsebaserad utlösare
 
-En händelsebaserade utlösare kör pipelines som svar på en händelse, till exempel mottagning av en fil eller borttagning av en fil i Azure Blob Storage.
+En händelsebaserad utlösaren kör pipelines som svar på en händelse, till exempel ankomsten av en fil eller borttagningen av en fil i Azure Blob Storage.
 
 Läs mer om händelsebaserade utlösare i [Skapa en utlösare som kör en pipeline som svar på en händelse](how-to-create-event-trigger.md).
 

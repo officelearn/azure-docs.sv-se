@@ -1,76 +1,72 @@
 ---
-title: Webhook-koppling för Logikappar i Azure | Microsoft Docs
-description: Hur du använder webhook-åtgärder och utlösare för att utföra åtgärder som Filter matris från logikappar
+title: Skapa händelse-baserade arbetsflöden eller åtgärder – Azure Logic Apps | Microsoft Docs
+description: Automatisera händelsebaserad arbetsflöden eller åtgärder med webhooks och Azure Logic Apps
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-tags: connectors
-ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
+ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+tags: connectors
 ms.date: 07/21/2016
-ms.author: jehollan; LADocs
-ms.openlocfilehash: 647dcebdd8d66ca49e14b51633e6a4a3ce6cb32b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 7b1886321ca4afd4b4710bd9fddf16d2d5eb224b
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296568"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126595"
 ---
-# <a name="get-started-with-the-webhook-connector"></a>Kom igång med webhook-koppling
+# <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>Skapa händelse-baserade arbetsflöden eller åtgärder med webhooks och Azure Logic Apps
 
-Med webhook åtgärd och utlösare kan du starta, pausa och återuppta flöden för att utföra dessa uppgifter:
+Med webhook-åtgärd och utlösare kan du starta, pausa och återuppta flöden för att utföra dessa uppgifter:
 
-* Starta från en [Azure Event Hub](https://github.com/logicappsio/EventHubAPI) när ett objekt tas emot
-* Vänta på ett godkännande innan du fortsätter ett arbetsflöde
+* Utlösa från en [Azure Event Hub](https://github.com/logicappsio/EventHubAPI) när ett objekt tas emot
+* Vänta tills ett godkännande innan du fortsätter ett arbetsflöde
 
-Lär dig mer om [hur du skapar anpassade API: er som stöder en webhook](../logic-apps/logic-apps-create-api-app.md).
+Läs mer om [hur du skapar anpassade API: er som har stöd för en webhook](../logic-apps/logic-apps-create-api-app.md).
 
-## <a name="use-the-webhook-trigger"></a>Använda webhook-utlösare
+## <a name="use-the-webhook-trigger"></a>Använd webhook-utlösaren
 
-En [ *utlösaren* ](connectors-overview.md) är en händelse som startar ett arbetsflöde för logik-app. En webhook-utlösare är händelsebaserat och förlitar sig inte på avsökning för nya objekt. Som det [begäran utlösaren](connectors-native-reqres.md), logikappen utlöses det ögonblick som en händelse inträffar. Webhook-utlösaren registrerar en *motringning URL* för en tjänst och använder den URL eller logikappen som behövs.
+En [ *utlösaren* ](connectors-overview.md) är en händelse som startar en logikappens arbetsflöde. En webhooksutlösare är händelsebaserad och förlitar sig inte på avsökningen för nya objekt. Som den [begäransutlösare](connectors-native-reqres.md), logikappen utlöses så snart som en händelse inträffar. Webhook-utlösaren registrerar en *Motringnings-URL för* för en tjänst och använder den URL: en ska utlösas logikappen som behövs.
 
-Här är ett exempel som visar hur du ställer in en HTTP-utlösare i logik App Designer. Anvisningarna förutsätter att du redan har distribuerat eller använder ett API som följer den [webhook prenumerera och avbryta prenumerationen mönster i logikappar](../logic-apps/logic-apps-create-api-app.md#webhook-triggers). Prenumerera anrop görs när en logikapp sparas med en ny webhook eller växlade från inaktivt till aktivt. Unsubscribe-anrop görs när en webhook apputlösare logik tas bort och spara eller växlade från aktiverad till inaktiverad.
+Här är ett exempel som visar hur du ställer in en HTTP-utlösare i Logic App Designer. Anvisningarna förutsätter att du redan har distribuerat eller har åtkomst till ett API som följer den [webhook prenumerera och avsluta prenumerationen mönster i logic apps](../logic-apps/logic-apps-create-api-app.md#webhook-triggers). Prenumerera-anrop görs när en logikapp sparas med en ny webhook eller bytte från inaktiverat aktiverat. Avbryt prenumeration-anrop görs när en webhook för logikapputlösare tas bort och sparas eller bytte från aktiverad till inaktiverad.
 
-**Att lägga till webhook-utlösare**
+**Att lägga till webhook-utlösaren**
 
-1. Lägg till den **HTTP Webhook** utlösare som det första steget i en logikapp.
-2. Fyll i parametrarna för webhooken prenumerera och avbryta prenumerationen anrop.
+1. Lägg till den **HTTP-Webhook** utlösaren som det första steget i en logikapp.
+2. Fyll i parametrarna för webhooken prenumerera och avsluta prenumerationen anrop.
 
    Det här steget följer samma mönster som den [HTTP-åtgärd](connectors-native-http.md) format.
 
      ![HTTP-utlösare](./media/connectors-native-webhook/using-trigger.png)
 
 3. Lägg till minst en åtgärd.
-4. Klicka på **spara** att publicera logikappen. Det här steget anropar prenumerera slutpunkten med återanrop URL krävs för att utlösa den här logikapp.
-5. När tjänsten gör en `HTTP POST` till återanrop URL, logikappen utlöses och innehåller alla data som skickades i begäran.
+4. Klicka på **spara** att publicera logikappen. Det här steget anropar slutpunkten prenumerera med Motringnings-URL som behövs för att utlösa den här logikappen.
+5. När tjänsten blir en `HTTP POST` till Webbadressen för återanrop logikappen utlöses och innehåller alla data som skickas till begäran.
 
-## <a name="use-the-webhook-action"></a>Använd åtgärden webhooken
+## <a name="use-the-webhook-action"></a>Använd webhook-åtgärd
 
-En [ *åtgärd* ](connectors-overview.md) är en åtgärd som utförs av arbetsflödet som definierats i en logikapp. En webhook-åtgärden registrerar en *motringning URL* med en tjänst och väntar tills URL: en anropas innan du fortsätter. Den [”Skicka godkännande e-post”](connectors-create-api-office365-outlook.md) är ett exempel på en koppling som följer detta mönster. Du kan utöka det här mönstret till alla tjänster genom webhook-åtgärd. 
+En [ *åtgärd* ](connectors-overview.md) är en åtgärd som utförs av arbetsflödet som definierats i en logikapp. En webhook-åtgärd registrerar en *Motringnings-URL för* med en tjänst och väntar tills URL: en anropas innan du fortsätter. Den [”skicka e-postgodkännande”](connectors-create-api-office365-outlook.md) är ett exempel på en koppling som följer detta mönster. Du kan utöka det här mönstret till valfri tjänst med webhook-åtgärd. 
 
-Här är ett exempel som visar hur du ställer in en webhook-åtgärd i logik App Designer. Dessa instruktioner förutsätter att du redan har distribuerat eller använder ett API som följer den [webhook prenumerera och avbryta prenumerationen mönster som används i logikappar](../logic-apps/logic-apps-create-api-app.md#webhook-actions). Prenumerera anrop görs när en logikapp kör webhook-åtgärden. Unsubscribe anrop görs när en körning avbryts under väntan på ett svar, innan logiken app.
+Här är ett exempel som visar hur du ställer in en webhook-åtgärd i Logic App Designer. Dessa steg förutsätter att du redan har distribuerat eller har åtkomst till ett API som följer den [webhook prenumerera och avsluta prenumerationen mönster som används i logic apps](../logic-apps/logic-apps-create-api-app.md#webhook-actions). Prenumerera-anrop görs när en logikapp utför webhook-åtgärd. Avbryt prenumeration-anrop görs när en körning avbryts under väntan på ett svar eller innan logiken app får timeout.
 
 **Att lägga till en webhook-åtgärd**
 
-1. Välj **nytt steg** > **lägga till en åtgärd**.
+1. Välj **nytt steg** > **Lägg till en åtgärd**.
 
-2. I sökrutan skriver du ”webhook” för att hitta den **HTTP Webhook** åtgärd.
+2. I sökrutan skriver du ”webhook” för att hitta den **HTTP-Webhook** åtgärd.
 
-    ![Åtgärden Select-frågan](./media/connectors-native-webhook/using-action-1.png)
+    ![Välj frågeåtgärden](./media/connectors-native-webhook/using-action-1.png)
 
-3. Fyll i parametrarna för webhooken prenumerera och avbryta prenumerationen anrop
+3. Fyll i parametrarna för webhooken prenumerera och avsluta prenumerationen anrop
 
    Det här steget följer samma mönster som den [HTTP-åtgärd](connectors-native-http.md) format.
 
      ![Fullständig frågeåtgärden](./media/connectors-native-webhook/using-action-2.png)
    
-   Vid körning anropar logikappen prenumerera slutpunkten efter att ha uppnått steget.
+   Vid körning anropar logikappen prenumerera slutpunkten efter att ha uppnått det steget.
 
 4. Klicka på **spara** att publicera logikappen.
 
@@ -82,75 +78,75 @@ Här finns mer information om utlösare och åtgärder som webhook har stöd fö
 
 | Åtgärd | Beskrivning |
 | --- | --- |
-| HTTP-webhook |Prenumerera på en motringning URL till en tjänst som kan anropa Webbadressen för att utlösa logikapp efter behov. |
+| HTTP-webhook |Prenumerera på en Motringnings-URL till en tjänst som kan anropa URL att utlöses logikapp efter behov. |
 
-### <a name="trigger-details"></a>Information om utlösaren
+### <a name="trigger-details"></a>Utlösarinformation
 
 #### <a name="http-webhook"></a>HTTP-webhook
 
-Prenumerera på en motringning URL till en tjänst som kan anropa Webbadressen för att utlösa logikapp efter behov.
-Ett * innebär obligatoriskt fält.
+Prenumerera på en Motringnings-URL till en tjänst som kan anropa URL att utlöses logikapp efter behov.
+En * innebär obligatoriskt fält.
 
 | Visningsnamn | Egenskapsnamn | Beskrivning |
 | --- | --- | --- |
-| Prenumerera metoden * |metod |HTTP-metod som ska användas för prenumerera begäran |
-| Prenumerera URI * |URI |HTTP-URI att använda för prenumerera begäran |
+| Prenumerera på metoden * |metod |HTTP-metoden ska användas för prenumerationsbegäran |
+| Prenumerera på URI * |URI |HTTP-URI för prenumerationsbegäran |
 | Avbryta prenumerationen metoden * |metod |HTTP-metod som ska användas för unsubscribe begäran |
-| Avbryta prenumerationen URI * |URI |HTTP-URI att använda för unsubscribe begäran |
-| Prenumerera brödtext |brödtext |Text för HTTP-begäran för prenumerera |
-| Prenumerera rubriker |rubriker |HTTP-huvuden för begäran för prenumerera |
-| Prenumerera autentisering |autentisering |HTTP-autentisering ska användas för att prenumerera. [HTTP-anslutningen finns](connectors-native-http.md#authentication) information |
-| Avbryta prenumerationen brödtext |brödtext |Text för HTTP-begäran för unsubscribe |
-| Avbryta prenumerationen rubriker |rubriker |HTTP-huvuden för begäran för unsubscribe |
-| Avbryta prenumerationen autentisering |autentisering |HTTP-autentisering ska användas för unsubscribe. [HTTP-anslutningen finns](connectors-native-http.md#authentication) information |
+| Avbryta prenumerationen URI * |URI |HTTP-URI som används för unsubscribe begäran |
+| Prenumerera på brödtext |brödtext |HTTP-begärandetexten för prenumerera |
+| Prenumerera på rubriker |rubriker |HTTP-begärans sidhuvud för prenumerera |
+| Prenumerera på autentisering |autentisering |HTTP-autentisering ska användas för prenumerera. [Se HTTP-anslutningsappen](connectors-native-http.md#authentication) information |
+| Avbryta prenumerationen brödtext |brödtext |HTTP-begärandetexten för unsubscribe |
+| Avbryta prenumerationen rubriker |rubriker |HTTP-begärans sidhuvud för unsubscribe |
+| Avbryta prenumerationen autentisering |autentisering |HTTP-autentisering ska användas för unsubscribe. [Se HTTP-anslutningsappen](connectors-native-http.md#authentication) information |
 
-**Information för utdata**
+**Utdatainformation**
 
 Webhook-begäran
 
 | Egenskapsnamn | Datatyp | Beskrivning |
 | --- | --- | --- |
-| Sidhuvuden |objekt |Webhook-huvuden för begäran |
-| Innehåll |objekt |Webhook request-objektet |
-| Statuskod |int |Webhook statuskod för begäran |
+| Sidhuvuden |objekt |Webhook-begärandehuvuden |
+| Innehåll |objekt |Webhook-begäran-objekt |
+| Statuskod |int |Statuskod för Webhook-begäran |
 
 ## <a name="webhook-actions"></a>Webhook-åtgärder
 
 | Åtgärd | Beskrivning |
 | --- | --- |
-| HTTP-webhook |Prenumerera på en motringning URL till en tjänst som kan anropa URL Om du vill återuppta ett arbetsflödessteg efter behov. |
+| HTTP-webhook |Prenumerera på en Motringnings-URL till en tjänst som kan anropa URL: en om du vill återuppta ett arbetsflödessteg efter behov. |
 
 ### <a name="action-details"></a>Åtgärdsinformation
 
 #### <a name="http-webhook"></a>HTTP-webhook
 
-Prenumerera på en motringning URL till en tjänst som kan anropa URL Om du vill återuppta ett arbetsflödessteg efter behov.
-Ett * innebär obligatoriskt fält.
+Prenumerera på en Motringnings-URL till en tjänst som kan anropa URL: en om du vill återuppta ett arbetsflödessteg efter behov.
+En * innebär obligatoriskt fält.
 
 | Visningsnamn | Egenskapsnamn | Beskrivning |
 | --- | --- | --- |
-| Prenumerera metoden * |metod |HTTP-metod som ska användas för prenumerera begäran |
-| Prenumerera URI * |URI |HTTP-URI att använda för prenumerera begäran |
+| Prenumerera på metoden * |metod |HTTP-metoden ska användas för prenumerationsbegäran |
+| Prenumerera på URI * |URI |HTTP-URI för prenumerationsbegäran |
 | Avbryta prenumerationen metoden * |metod |HTTP-metod som ska användas för unsubscribe begäran |
-| Avbryta prenumerationen URI * |URI |HTTP-URI att använda för unsubscribe begäran |
-| Prenumerera brödtext |brödtext |Text för HTTP-begäran för prenumerera |
-| Prenumerera rubriker |rubriker |HTTP-huvuden för begäran för prenumerera |
-| Prenumerera autentisering |autentisering |HTTP-autentisering ska användas för att prenumerera. [HTTP-anslutningen finns](connectors-native-http.md#authentication) information |
-| Avbryta prenumerationen brödtext |brödtext |Text för HTTP-begäran för unsubscribe |
-| Avbryta prenumerationen rubriker |rubriker |HTTP-huvuden för begäran för unsubscribe |
-| Avbryta prenumerationen autentisering |autentisering |HTTP-autentisering ska användas för unsubscribe. [HTTP-anslutningen finns](connectors-native-http.md#authentication) information |
+| Avbryta prenumerationen URI * |URI |HTTP-URI som används för unsubscribe begäran |
+| Prenumerera på brödtext |brödtext |HTTP-begärandetexten för prenumerera |
+| Prenumerera på rubriker |rubriker |HTTP-begärans sidhuvud för prenumerera |
+| Prenumerera på autentisering |autentisering |HTTP-autentisering ska användas för prenumerera. [Se HTTP-anslutningsappen](connectors-native-http.md#authentication) information |
+| Avbryta prenumerationen brödtext |brödtext |HTTP-begärandetexten för unsubscribe |
+| Avbryta prenumerationen rubriker |rubriker |HTTP-begärans sidhuvud för unsubscribe |
+| Avbryta prenumerationen autentisering |autentisering |HTTP-autentisering ska användas för unsubscribe. [Se HTTP-anslutningsappen](connectors-native-http.md#authentication) information |
 
-**Information för utdata**
+**Utdatainformation**
 
 Webhook-begäran
 
 | Egenskapsnamn | Datatyp | Beskrivning |
 | --- | --- | --- |
-| Sidhuvuden |objekt |Webhook-huvuden för begäran |
-| Innehåll |objekt |Webhook request-objektet |
-| Statuskod |int |Webhook statuskod för begäran |
+| Sidhuvuden |objekt |Webhook-begärandehuvuden |
+| Innehåll |objekt |Webhook-begäran-objekt |
+| Statuskod |int |Statuskod för Webhook-begäran |
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Sök efter andra kopplingar](apis-list.md)
+* [Sök efter andra anslutningar](apis-list.md)

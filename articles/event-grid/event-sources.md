@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: efc71e02cc02574973f0b6b428b5b670cd9cfd5b
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 15fe97e39fbc1c669762ddb7523cfd043638d3de
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617360"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144237"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Händelsekällor i Azure Event Grid
 
@@ -74,13 +74,14 @@ Exempel på Händelsehubbar som en hanterare finns [Händelsehubbar hanteraren](
 
 ## <a name="iot-hub"></a>IoT Hub
 
-Prenumerera på IoT Hub händelser att svara på enheten skapar och tar bort händelser.
+Prenumerera på IoT Hub-händelser att svara på en enhet har skapats, har tagits bort, ansluten och frånkopplade händelser.
 
 |Titel  |Beskrivning  |
 |---------|---------|
-| [Självstudie: skicka e-postaviseringar om Azure IoT Hub-händelser med hjälp av Logic Apps](publish-iot-hub-events-to-logic-apps.md) | En logikapp skickar ett e-postmeddelande varje gång som en enhet har lagts till i din IoT-hubb. |
-| [Översikt: reagera på IoT Hub-händelser med Event Grid för att utlösaråtgärder](../iot-hub/iot-hub-event-grid.md) | Översikt över integrering av Iot-hubbar med Event Grid. |
+| [Skicka e-postaviseringar om Azure IoT Hub-händelser med hjälp av Logic Apps](publish-iot-hub-events-to-logic-apps.md) | En logikapp skickar ett e-postmeddelande varje gång som en enhet har lagts till i din IoT-hubb. |
+| [Reagera på IoT Hub-händelser med Event Grid för att utlösaråtgärder](../iot-hub/iot-hub-event-grid.md) | Översikt över integrering av IoT Hub med Event Grid. |
 | [Händelseschema](event-schema-iot-hub.md) | Visar fälten i IoT Hub-händelser. |
+| [Ordna enheten ansluten och enheten frånkopplad händelser](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | Lär dig mer om att ordna enhetsanslutning händelser. |
 
 ## <a name="media-services"></a>Media Services
 

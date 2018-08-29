@@ -6,12 +6,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: 4084a5bd8cb82442eb37844f88f2ff6dd166b5ee
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 6eb28ad918f9d95c26d91c05d8ee9556ef768bd3
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42446072"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125860"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Företag affärskontinuitet och haveriberedskap recovery (BCDR): parade Azure-regioner
 
@@ -19,7 +19,7 @@ ms.locfileid: "42446072"
 
 Azure körs på flera geografiska områden runtom i världen. En Azure geografiskt område är en definierad del av världen som innehåller minst en Azure-Region. En Azure-region är ett område inom ett geografiskt område som innehåller ett eller flera datacenter.
 
-Varje Azure-region är kopplad till en annan region inom samma geografiska område, tillsammans att göra en regionala par. Undantaget är södra Brasilien, som är kopplad till en region utanför dess geografisk plats. Över regionpar Azure att serialisera uppdaterar plattform (planerat underhåll) så att endast en parad region kommer att uppdateras i taget. Dessutom kan den händelse av ett avbrott som påverkar flera områden prioriteras minst en region i varje par för återställning.
+Varje Azure-region är kopplad till en annan region inom samma geografiska område, tillsammans att göra en regionala par. Undantaget är södra Brasilien, som är kopplad till en region utanför dess geografisk plats. Över regionpar Azure att serialisera uppdaterar plattform (planerat underhåll) så att endast en parad region kommer att uppdateras i taget. Vid ett eventuellt strömavbrott påverkar flera regioner kommer dessutom minst en region i varje par prioriteras för återställning.
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 

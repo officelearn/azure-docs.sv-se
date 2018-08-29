@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 08/27/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: e833cb0e7f98933fd106a92a9aac6c4c2677d50d
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 3d0eca6e1c680dd703f4dceac6abcb70144bac37
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443590"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125005"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Välja tjänstnivå vCore beräkning, minne, lagring och IO-resurser
 
@@ -35,8 +35,8 @@ Tabellen nedan hjälper dig att förstå skillnaderna mellan dessa två nivåer:
 |Bäst för|De flesta företags arbetsbelastningar. Erbjudanden budgetera objektorienterad balanserade och skalbara beräknings- och lagringsalternativ.|Affärsprogram med höga I/O-krav. Erbjuder den högsta uthålligheten mot fel tack vare flera isolerade repliker.|
 |Compute|Gen4: 1-24 vCore<br/>Gen5: 1-80 vCore|Gen4: 1-24 vCore<br/>Gen5: 1-80 vCore|
 |Minne|Gen4: 7 GB per kärna<br>Gen5: 5.5 GB per kärna | Gen4: 7 GB per kärna<br>Gen5: 5.5 GB per kärna |
-|Storage|[Premium Fjärrlagring](../virtual-machines/windows/premium-storage.md),<br/>Singleton-databas: 5 GB – 4 TB<br/>Hanterad instans: 32 GB 8 TB |Lokal SSD-lagring<br/>Databas: 5 GB – 4 TB<br/>Hanterad instans: 32 GB 4 TB |
-|I/o-genomströmning (ungefärlig)|Singleton-databas: 500 IOPS per vCore med 7000 högsta IOPS</br>Hanterad instans: Beror på [storleken på filen](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS per kärna med 200000 högsta IOPS|
+|Storage|[Premium Fjärrlagring](../virtual-machines/windows/premium-storage.md),<br/>Databas: 5 GB – 4 TB<br/>Hanterad instans: 32 GB 8 TB |Lokal SSD-lagring<br/>Databas: 5 GB-1 TB<br/>Hanterad instans: 32 GB 4 TB |
+|I/o-genomströmning (ungefärlig)|Databas: 500 IOPS per vCore med 7000 högsta IOPS</br>Hanterad instans: Beror på [storleken på filen](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS per kärna med 200000 högsta IOPS|
 |Tillgänglighet|1 repliken, inga lässkala|3 repliker, 1 [lässkala repliken](sql-database-read-scale-out.md),<br/>zonen redundant hög tillgänglighet|
 |Säkerhetskopior|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|
 |I minnet|Gäller inte|Stöds|
@@ -53,10 +53,10 @@ Se [SQL Database vanliga frågor och svar](sql-database-faq.md) svar på vanliga
 
 Tänk också på följande:
 - Allokerat lagringsutrymme används av datafiler (MDF) och loggfiler för filer (LDF).
-- Varje prestandanivå för Singleton-databasen stöder den maximala databasstorleken med en maximal standardstorlek på 32 GB.
-- När du konfigurerar den nödvändiga Singleton-databasstorleken (storleken på MDF), läggs 30% av ytterligare lagringsutrymme automatiskt till stöd för LDF
+- Varje prestandanivå för en enskild databas har stöd för den maximala databasstorleken med en maximal standardstorlek på 32 GB.
+- När du konfigurerar den nödvändiga enda databasstorleken (storleken på MDF), läggs 30% av ytterligare lagringsutrymme automatiskt till stöd för LDF
 - Lagringsstorlek i Managed Instance måste anges i multipler av 32 GB.
-- Du kan välja alla Singleton databasstorlek på mellan 10 GB och högsta som stöds
+- Du kan välja alla singleton databasstorlek på mellan 10 GB och högsta som stöds
  - För standardlagring, öka eller minska storleken i steg om 10 GB
  - För Premium storage kan öka eller minska storleken i steg om 250 GB
 - På tjänstnivån generella `tempdb` använder anslutna SSD-disk och den här lagringskostnad ingår i priset för vCore.

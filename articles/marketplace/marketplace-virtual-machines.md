@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5508b5943e116545297d91e85621d2a11a635299
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b8caeab7f08ffeee81492b01750cbb255e172872
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059769"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144530"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Erbjudande för virtuell dator publicerar Guide
 
@@ -38,11 +38,11 @@ Du kan ordna för användare att testa ditt erbjudande genom att öppna programv
 |Tillgänglighet / drifttid    |    Din SaaS-app eller en plattform måste ha en drifttid på minst 99,9%.     |
 |Azure Active Directory     |    Erbjudandet måste tillåta Azure Active Directory (Azure AD) federerad enkel inloggning (SSO) (Azure AD-federerad enkel inloggning) med medgivande aktiverat.     |
 
-## <a name="test-drive"></a>Provkörning
+## <a name="test-drive"></a>Provkör
 
 Du distribuerar en eller flera virtuella datorer via infrastructure-as-a-service(IaaS) eller SaaS-appar. En fördel med test drive publiceringsalternativ är automatiserad etablering av en virtuell dator eller hela lösningen som leds av en värdpartner guidad visning. Testa ger en utvärdering utan extra kostnad till kunden. Kunden behöver inte vara en befintlig Azure-kund för att öka interaktionen med utvärderingen. 
 
-E-post amp-testdrive@microsoft.com att komma igång. 
+Kontakta oss på [amp testdrive](mailto:amp-testdrive@microsoft.com) att komma igång. 
 
 |Krav  |Information |
 |---------|---------|

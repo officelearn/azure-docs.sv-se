@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 4b25c82de4d2d3f4300fbb688c75be74ce63fe40
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 6a5f8fc126f9c94ce139b99c94936e01da8b4099
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42061525"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126429"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Konfigurera en virtuell dator hanterad tjänstidentitet med hjälp av en mall
 
@@ -357,7 +357,7 @@ Om du har en virtuell dator som inte längre behövs en hanterad tjänstidentite
 
 1. Om du loggar in till Azure lokalt eller via Azure portal kan du använda ett konto som är associerad med Azure-prenumerationen som innehåller den virtuella datorn.
 
-2. Läsa in mallen till en [redigeraren](#azure-resource-manager-templates) och leta upp den `Microsoft.Compute/virtualMachines` resource intressanta inom den `resources` avsnittet. Om du har en virtuell dator som bara har Användartilldelad identitet kan du inaktivera det genom att ändra den identitetstypen till `None`.
+2. Läsa in mallen till en [redigeraren](#azure-resource-manager-templates) och leta upp den `Microsoft.Compute/virtualMachines` resource intressanta inom den `resources` avsnittet. Om du har en virtuell dator som bara har Användartilldelad identitet kan du inaktivera det genom att ändra identitetstypen till `None`.
  
    I följande exempel visas hur bort alla användartilldelade identiteter från en virtuell dator med inga systemtilldelade identiteter:
    
@@ -380,7 +380,7 @@ Om du har en virtuell dator som inte längre behövs en hanterad tjänstidentite
  
    **Microsoft.Compute/virtualMachines API-versionen 2017-12-01**
 
-   Ta bort en en enda Användartilldelad identitet från en virtuell dator, ta bort den från den `identityIds` matris.
+   Om du vill ta bort en enskild Användartilldelad identitet från en virtuell dator, ta bort den från den `identityIds` matris.
 
    Om du har en systemtilldelade identiteter kan du förvara den på den i den `type` värde den `identity` värde.
    

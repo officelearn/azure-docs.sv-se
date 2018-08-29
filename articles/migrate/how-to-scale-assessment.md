@@ -4,14 +4,14 @@ description: Beskriver hur du avgör stort antal lokala datorer med hjälp av Az
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/25/2018
 ms.author: raynew
-ms.openlocfilehash: 06905a2f16a23e5a7c4612f4b567aaf86322924d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 553e0d6569a3a35802703ef58e1460878dcd930b
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054377"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127522"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Upptäck och utvärdera en stor VMware-miljö
 
@@ -22,7 +22,7 @@ Azure Migrate har en gräns på 1500 datorer per projekt, den här artikeln besk
 - **VMware**: de virtuella datorer som du planerar att migrera måste hanteras av vCenter Server version 5.5, 6.0 eller 6.5. Du måste även en ESXi-värd som kör version 5.0 eller senare för att distribuera den Virtuella insamlardatorn.
 - **vCenter-kontot**: du behöver ett konto för skrivskyddad åtkomst till vCenter-servern. Azure Migrate använder kontot till att identifiera de lokala virtuella datorerna.
 - **Behörigheter**: I vCenter-servern, behöver du behörighet att skapa en virtuell dator genom att importera en fil i OVA-formatet.
-- **Inställningar för statistik**: statistikinställningarna för vCenter-servern bör vara inställda på nivå 3 innan du påbörjar distributionen. Om kompatibilitetsnivå är lägre än 3 fungerar utvärderingen, men prestandadata för lagring och nätverk samlas inte in. Storleksrekommendationer som baseras i det här fallet på prestandadata för CPU och minne och konfigurationsdata för disk och nätverkskort.
+- **Inställningar för statistik**: statistikinställningarna för vCenter-servern bör vara inställda på nivå 3 innan du påbörjar distributionen. Statistik är att vara satt till 3 för varje dag, vecka och månad datainsamlingen. Om kompatibilitetsnivå är lägre än 3 för någon av de tre datainsamlingen, fungerar utvärderingen, men prestandadata för lagring och nätverk samlas inte in. Storleksrekommendationer som baseras på prestandadata för CPU och minne och konfigurationsdata för disk och nätverkskort.
 
 
 ### <a name="set-up-permissions"></a>Konfigurera behörigheter

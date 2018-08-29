@@ -1,121 +1,117 @@
 ---
-title: Exempel & vanliga scenarier - Azure Logic Apps | Microsoft Docs
-description: Mer information om logikappar med exempel, scenarier, självstudier och genomgång
+title: Exempel och vanliga scenarier – Azure Logic Apps | Microsoft Docs
+description: Exempel, scenarier, självstudier och genomgångar för Azure Logic Apps
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: logic-apps
+ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.date: 01/31/18
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 8b340db5f89f93869486bf7541acbc3d580868a3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f35822351a1ff5176548d67c8d94ada02f470421
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300046"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123716"
 ---
-# <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Vanliga scenarier, exempel, självstudier och genomgång för Azure Logic Apps
+# <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Vanliga scenarier, exempel, självstudier och genomgångar för Azure Logic Apps
 
-[Med Azure Logikappar](../logic-apps/logic-apps-overview.md) hjälper dig att samordna och integrera olika tjänster genom att tillhandahålla [100 + färdiga att använda kopplingar](../connectors/apis-list.md), räckvidd från lokala SQLServer eller SAP på kognitiva Microsoft-tjänster. Tjänsten Logic Apps är ”serverlösa”, så du inte behöver bekymra dig om skala eller instanser. Allt du behöver göra är att definiera arbetsflödet med en utlösare och åtgärder som utförs av arbetsflödet. Den underliggande plattformen hanterar skala, tillgänglighet och prestanda. Logic Apps är särskilt användbart för användningsfall och scenarier där du behöver samordna flera åtgärder över flera system.
+[Med Azure Logic Apps](../logic-apps/logic-apps-overview.md) hjälper dig att samordna och integrera olika tjänster genom att tillhandahålla [100 + färdiga att använda kopplingar](../connectors/apis-list.md)sträcker sig från en lokal SQLServer eller SAP för Microsoft Cognitive Services. Logic Apps-tjänsten är ”serverlös”, så att du inte behöver bekymra dig om att skala eller instanser. Allt du behöver göra är att definiera arbetsflödet med en utlösare och åtgärder som arbetsflödet utför. Den underliggande plattformen hanterar skalbarhet, tillgänglighet och prestanda. Logic Apps är särskilt användbart för scenarier där du vill samordna flera åtgärder över flera system och användningsfall.
 
-För att lära dig mer om många mönster och funktioner som [Azure Logikappar](../logic-apps/logic-apps-overview.md) stöder, här är vanliga exempel och scenarier.
+För att lära dig mer om många mönster och funktioner som [Azure Logic Apps](../logic-apps/logic-apps-overview.md) stöder, här är vanliga exempel och scenarier.
 
-## <a name="popular-starting-points-for-logic-app-workflows"></a>Vanliga startpunkter för logik app arbetsflöden
+## <a name="popular-starting-points-for-logic-app-workflows"></a>Vanliga startpunkter för arbetsflöden i logikappar
 
-Varje logikappen som börjar med en [ *utlösaren*](../logic-apps/logic-apps-overview.md#logic-app-concepts), och endast en utlösare som startar logik app arbetsflödet och godkänns i alla data som en del av denna utlösare. Vissa anslutningar innehåller utlösare som kommer i de här typerna:
+Varje logikapp börjar med en [ *utlösaren*](../logic-apps/logic-apps-overview.md#logic-app-concepts), och bara en utlösare som startar logikappens arbetsflöde och skickar alla data som en del av den utlösaren. Flera anslutningsappar innehåller utlösare, som finns dessa typer av:
 
-* *Avsökningen utlösare*: regelbundet kontrollerar en tjänstslutpunkt för nya data. När det finns nya data, utlösaren skapar och kör en ny arbetsflödesinstans med data som indata.
+* *Sökningsutlösare*: regelbundet kontrollerar om en tjänstslutpunkt för nya data. När det finns nya data, skapar utlösaren och kör en ny arbetsflödesinstans med data som indata.
 
 * *Push-utlösare*: lyssnar efter data på en tjänstslutpunkt och väntar tills en viss händelse inträffar. När händelsen inträffar utlöses utlösaren omedelbart, skapa och köra en ny arbetsflödesinstans som använder alla tillgängliga data som indata.
 
-Här följer några vanliga utlösare exempel:
+Här följer några exempel på populära utlösare:
 
 * Avsökningsintervall: 
 
-  * [**Schema - upprepning** utlösaren](../connectors/connectors-native-recurrence.md) kan du ange datumet och tid plus upprepningen för startar din logikapp. 
-  Exempelvis kan du välja dagarna och tidpunkter på dagen för att utlösa logikappen.
+  * [**Schema – återkommande** utlösaren](../connectors/connectors-native-recurrence.md) kan du ange startdatum och tid plus upprepningen för aktiveringen din logikapp. 
+  Du kan till exempel välja dagar i veckan och tidpunkter på dagen för att utlösa logikappen.
 
-  * Utlösaren ”när ett e-postmeddelande tas emot” låter din logikapp söka efter ny e-post från alla e-leverantör som stöds av Logikappar, till exempel [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), [Gmail](https://docs.microsoft.com/connectors/gmail/), [ Outlook.com](https://docs.microsoft.com/connectors/outlook/)och så vidare.
+  * ”När ett e-postmeddelande tas emot” utlösaren låter din logikapp Kontrollera för nya e-post från alla e postleverantör som stöds av Logic Apps, till exempel [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), [Gmail](https://docs.microsoft.com/connectors/gmail/), [ Outlook.com](https://docs.microsoft.com/connectors/outlook/)och så vidare.
 
-  * Den [ **HTTP** utlösaren](../connectors/connectors-native-http.md) kan din logikapp Kontrollera angivna tjänstslutpunkten av kommunikation över HTTP.
+  * Den [ **HTTP** utlösaren](../connectors/connectors-native-http.md) låter din logikapp Kontrollera en slutpunkt för angivna genom att kommunicera via HTTP.
   
 * Push:
 
-  * Den [ **begäranden / svar - begäran** utlösaren](../connectors/connectors-native-reqres.md) kan din logikapp ta emot HTTP-begäranden och svara i realtid på händelser på något sätt.
+  * Den [ **begäran / svar - begäran** utlösaren](../connectors/connectors-native-reqres.md) kan logikappen tar emot HTTP-begäranden och svarar i realtid på händelser på något sätt.
 
-  * Den [ **HTTP Webhook** utlösaren](../connectors/connectors-native-webhook.md) prenumererar på en tjänstslutpunkt genom att registrera en *motringning URL* med den tjänsten. 
-  På så sätt kan tjänsten kan bara meddela utlösaren när den angivna händelsen sker, så att utlösaren inte behöver avsöka tjänsten.
+  * Den [ **HTTP-Webhook** utlösaren](../connectors/connectors-native-webhook.md) prenumererar på en tjänstslutpunkt genom att registrera en *Motringnings-URL för* med den tjänsten. 
+  På så sätt kan tjänsten kan bara meddela utlösaren när den angivna händelsen inträffar, så att utlösaren inte behöver avsöker tjänsten.
 
-När du har fått ett meddelande om nya data eller en händelse utlösaren utlöses, skapar en ny arbetsflödesinstans för logik-app och kör åtgärderna i arbetsflödet. Du kan komma åt alla data från utlösare i hela arbetsflödet. Exempelvis skickar utlösaren ”på en ny tweet” tweet innehållet i logikappen som kör. 
+När du har fått ett meddelande om nya data eller en händelse utlösaren utlöses skapar en ny logikappinstans arbetsflöde och kör åtgärderna i arbetsflödet. Du kan komma åt data från utlösare i hela arbetsflödet. Till exempel skickar utlösaren ”på en ny tweet” tweet-innehåll till den logikapp-körningen. 
 
-## <a name="respond-to-triggers-and-extend-actions"></a>Svara på utlösare och utöka åtgärder
+## <a name="respond-to-triggers-and-extend-actions"></a>Reagera på utlösare och utöka åtgärder
 
-Du kan utöka logikappar för datorer och tjänster som inte kanske har publicerats kopplingar.
+Du kan också utöka logikappar för system och tjänster som inte kanske har publicerats kopplingar.
 
 * [Skapa anpassade utlösare eller åtgärder](../logic-apps/logic-apps-create-api-app.md)
-* [Ange långvariga åtgärder för arbetsflödet körs](../logic-apps/logic-apps-create-api-app.md)
+* [Konfigurera långvariga åtgärder för arbetsflödeskörningar](../logic-apps/logic-apps-create-api-app.md)
 * [Svara på externa händelser och åtgärder med webhooks](../logic-apps/logic-apps-create-api-app.md)
-* [Anropa utlösare eller kapsla arbetsflöden med synkron svar på HTTP-begäranden](../logic-apps/logic-apps-http-endpoint.md)
-* [Självstudier: Skapa en AI-påslagen sociala instrumentpanel i minuter med Logic Apps och Power BI](http://aka.ms/logicappsdemo)
-* [Video: Svara på SMS Twilio webhooks och skicka ett textsvar](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
+* [Anropa, utlösare, eller kapsla arbetsflöden med synkron svar på HTTP-begäranden](../logic-apps/logic-apps-http-endpoint.md)
+* [Självstudie: Skapa en social instrumentpanel med AI-driven på några minuter med Logic Apps och Power BI](http://aka.ms/logicappsdemo)
+* [Video: Svara på Twilio-SMS webhooks och skicka ett textsvar](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
-## <a name="control-flow-error-handling-and-logging-capabilities"></a>Kontrollflöde felhantering och funktioner för loggning
+## <a name="control-flow-error-handling-and-logging-capabilities"></a>Kontrollflöde och felhantering loggningsfunktioner
 
-Logikappar innehåller omfattande funktioner för avancerad Kontrollflöde som villkor, växlar, slingor och omfång. För att säkerställa flexibla lösningar, kan du även implementera fel och undantagshantering i dina arbetsflöden. För meddelanden och diagnostikloggar som arbetsflödet körs status innehåller också Azure Logikappar övervakning och aviseringar.
+Logic apps innehåller omfattande funktioner för avancerad Kontrollflöde som villkor, växlar, slingor och omfång. För att säkerställa elastiska lösningar, kan du också implementera fel och undantagshantering i dina arbetsflöden. För meddelandet och diagnostikloggar för arbetsflödeskörningen status, ger Azure Logic Apps också övervakning och aviseringar.
 
-* Utföra olika åtgärder baserat på [villkorssatser](../logic-apps/logic-apps-control-flow-conditional-statement.md) och [växla instruktioner](../logic-apps/logic-apps-control-flow-switch-statement.md)
-* [Upprepa steg eller artiklar i matriser och samlingar med slingor](../logic-apps/logic-apps-control-flow-loops.md)
-* [Åtgärder som rör tillsammans med scope](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
+* Utföra olika åtgärder baserat på [villkorssatser](../logic-apps/logic-apps-control-flow-conditional-statement.md) och [switch-satser](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Upprepa steg eller processen objekt i matriser och samlingar med slingor](../logic-apps/logic-apps-control-flow-loops.md)
+* [Gruppåtgärder tillsammans med omfattningar](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
 * [Författare fel och undantagshantering i ett arbetsflöde](../logic-apps/logic-apps-exception-handling.md)
-* [Användningsfall: hur sjukvården företaget använder logik app undantagshantering för HL7 FHIR arbetsflöden](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
+* [Användningsfall: hur vårdinrättningar ska använder logic app undantagshantering för HL7 FHIR-arbetsflöden](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [Aktivera övervakning, loggning och aviseringar för befintliga logikappar](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Aktivera övervakning och diagnostikloggning när du skapar logikappar](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md)
 
 ## <a name="deploy-and-manage-logic-apps"></a>Distribuera och hantera logikappar
 
-Du kan fullständigt utveckla och distribuera logikappar med Visual Studio, Visual Studio Team Services eller andra källkontrollen och automatiserade verktyg. För att stödja distribution för arbetsflöden och beroende anslutningar i en resursmall för, Använd logikappar mallar för distribution av Azure-resurs. Visual Studio tools generera automatiskt dessa mallar som du kan checka in till källkontroll för versionshantering.
+Du kan helt utveckla och distribuera logic apps med Visual Studio, Visual Studio Team Services eller andra källkontroll och automatisk build-verktyg. För att stödja distribution för arbetsflöden och beroende anslutningar i en resursmall för, Använd logikappar mallar för distribution av Azure-resurs. Visual Studio-verktyg kan du automatiskt generera dessa mallar som du kan checka in till källkontroll för versionshantering.
 
-* [Skapa och distribuera logikappar med Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
+* [Skapa och distribuera logic apps i Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Aktivera övervakning, loggning och aviseringar för befintliga logikappar](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Skapa en mall för automatisk distribution](../logic-apps/logic-apps-create-deploy-template.md)
 
-## <a name="content-types-conversions-and-transformations-within-a-run"></a>Typer av innehåll och konverteringar transformationer inom en körning
+## <a name="content-types-conversions-and-transformations-within-a-run"></a>Typer av innehåll, konverteringar och transformationer inom en körning
 
-Du kan använda, konvertera och omvandla flera typer av innehåll med många funktioner i Azure Logikappar [språk i arbetsflödesdefinitionen](http://aka.ms/logicappsdocs). Exempelvis kan du konvertera mellan en sträng, JSON och XML med den `@json()` och `@xml()` arbetsflödesuttryck. Motorn för Logic Apps bevarar typer av innehåll för att stödja innehållsöverföring i en förlustfri sätt mellan tjänster.
+Du kan komma åt, konvertera och transformera flera typer av innehåll med hjälp av de många funktionerna i Azure Logic Apps [definitionsspråk för arbetsflödet](http://aka.ms/logicappsdocs). Exempel: du kan konvertera mellan en sträng, JSON och XML med den `@json()` och `@xml()` arbetsflöde uttryck. Logic Apps-motorn bevarar innehållstyper för att stödja innehållet i en förlustfri sätt mellan tjänster.
 
-* [Hur arbetsflödesuttryck fungerar i logikappar](../logic-apps/logic-apps-author-definitions.md)
-* [Hantera icke JSON innehållstyper](../logic-apps/logic-apps-content-type.md), till exempel `application/xml`, `application/octet-stream`, och `multipart/formdata`
-* [Arbetsflödet Definition Language schemat för Azure Logic Apps](http://aka.ms/logicappsdocs)
+* [Så här fungerar uttryck för arbetsflödet i logikappar](../logic-apps/logic-apps-author-definitions.md)
+* [Hantera innehållstyper för icke-JSON](../logic-apps/logic-apps-content-type.md), till exempel `application/xml`, `application/octet-stream`, och `multipart/formdata`
+* [Arbetsflöde för arbetsflödesschema för Azure Logic Apps](http://aka.ms/logicappsdocs)
 
-## <a name="other-integrations-and-capabilities"></a>Andra integreringar och funktioner
+## <a name="other-integrations-and-capabilities"></a>Andra funktioner och integreringar
 
-Logikappar erbjuder också integrering med många tjänster, till exempel Azure Functions, Azure API Management, Azure App Service och anpassade HTTP-slutpunkter, till exempel REST och SOAP.
+Logikappar ger även integrering med många tjänster, till exempel Azure Functions, Azure API Management, Azure App Services och anpassade HTTP-slutpunkter, till exempel REST och SOAP.
 
-* [Skapa en realtid sociala instrumentpanel med Azure serverlösa](../logic-apps/logic-apps-scenario-social-serverless.md)
-* [Anropa Azure Functions från logikappar](../logic-apps/logic-apps-azure-functions.md)
-* [Självstudier: Utlösa logikappar med Azure Functions](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
-* [Självstudier: Övervaka ändringar av virtuella datorer med Azure händelse rutnätet och Logic Apps](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
-* [Självstudier: Skapa en funktion som kan integreras med Azure Logikappar och kognitiva Microsoft-tjänster för att analysera Twitter post sentiment](../azure-functions/functions-twitter-email.md)
-* [Självstudier: IoT fjärrövervaknings och meddelanden med Azure Logikappar ansluta din IoT-hubb och postlåda](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+* [Skapa en social instrumentpanel i realtid med Azure utan Server](../logic-apps/logic-apps-scenario-social-serverless.md)
+* [Anropa Azure-funktioner från logikappar](../logic-apps/logic-apps-azure-functions.md)
+* [Självstudie: Utlösaren logic apps med Azure Functions](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
+* [Självstudie: Övervaka ändringar av virtuell dator med Azure Event Grid och Logic Apps](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
+* [Självstudier: Skapa en funktion som kan integreras med Azure Logic Apps och Microsoft Cognitive Services för att analysera sentiment för Twitter-inlägg](../azure-functions/functions-twitter-email.md)
+* [Självstudie: IoT fjärrövervakning och aviseringar med Azure Logic Apps ansluter dina IoT-hubb och postlåda](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 * [Blogg: Anropa SOAP-slutpunkter från logikappar](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 ## <a name="end-to-end-scenarios"></a>Slutpunkt-till-slutpunkt-scenarier
 
-* [Whitepaper: Slutpunkt till slutpunkt ärendehantering integrering med Azure-tjänster, till exempel Logic Apps](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
+* [White Paper: Slutpunkt till slutpunkt fallhantering integrering med Azure-tjänster, till exempel Logic Apps](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
 
 ## <a name="customer-stories"></a>Kundberättelser
 
-Lär dig hur Azure Logikappar, tillsammans med andra Azure-tjänster och Microsoft-produkter, hjälpt [dessa företag](https://aka.ms/logic-apps-customer-stories) förbättra deras flexibilitet och fokusera på verksamheten core genom att förenkla ordna, automatisering och samordna komplexa processer.
+Lär dig hur Azure Logic Apps, tillsammans med andra Azure-tjänster och Microsoft-produkter, hjälpte [dessa företag](https://aka.ms/logic-apps-customer-stories) förbättra sin rörlighet och fokusera på sina core företag genom att förenkla, ordna, automatisera och samordna komplexa processer.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Bygg på logiken app definitioner med JSON](../logic-apps/logic-apps-author-definitions.md)
-* [Hantera fel och undantag i logikappar](../logic-apps/logic-apps-exception-handling.md)
-* [Skicka dina kommentarer, frågor, feedback och förslag för att förbättra Azure Logic Apps](https://feedback.azure.com/forums/287593-logic-apps)
+* [Skapa logikappsdefinitioner med JSON](../logic-apps/logic-apps-author-definitions.md)
+* [Hantera fel och undantag i logic apps](../logic-apps/logic-apps-exception-handling.md)
+* [Skicka dina kommentarer, frågor, feedback eller förslag för att förbättra Azure Logic Apps](https://feedback.azure.com/forums/287593-logic-apps)

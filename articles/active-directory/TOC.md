@@ -54,6 +54,7 @@
 #### [Administratörer som lägger till B2B-användare](b2b/add-users-administrator.md)
 #### [Informationsarbetare som lägger till B2B-användare](b2b/add-users-information-worker.md)
 #### [API och anpassning](b2b/customize-invitation-api.md)
+#### [Google-federation](b2b/google-federation.md)
 #### [Kod och Azure PowerShell-exempel](b2b/code-samples.md)
 #### [Exempel på registreringsportal för självbetjäning](b2b/self-service-portal.md)
 #### [E-postinbjudan](b2b/invitation-email-elements.md)
@@ -126,31 +127,6 @@
 #### [Återställ eller ändra ditt lösenord](user-help/active-directory-passwords-update-your-own-password.md)
 #### [Registrera för återställning av lösenord för självbetjäning](user-help/active-directory-passwords-reset-register.md)
 
-
-## Hantera enheter
-### [Översikt](devices/overview.md)
-
-### Snabbstarter
-#### [Konfigurera Azure AD-registrerade Windows 10-enheter](user-help/device-management-azuread-registered-devices-windows10-setup.md)
-#### [Konfigurera Azure AD-anslutna enheter](user-help/device-management-azuread-joined-devices-setup.md)
-
-### Självstudier
-#### [Konfigurera Azure AD Join-hybrid för hanterade domäner](devices/hybrid-azuread-join-managed-domains.md)
-#### [Konfigurera Azure AD Join-hybrid för federerade domäner](devices/hybrid-azuread-join-federated-domains.md)
-#### [Konfigurera Azure AD Join-hybrid manuellt](devices/hybrid-azuread-join-manual-steps.md)
-#### [Konfigurera Azure AD Join under första körningen av Windows 10](devices/azuread-joined-devices-frx.md)
-
-### Anvisningsguider
-#### [Planera Azure AD Join](devices/azureadjoin-plan.md)
-#### [Planera implementering av Azure AD Join-hybrid](devices/hybrid-azuread-join-plan.md)
-#### [Kontrollera Azure AD Join-hybriden för dina enheter](devices/hybrid-azuread-join-control.md)
-#### [Tilldela lokala administratörer till Azure AD-anslutna enheter](devices/assign-local-admin.md)
-#### [Felsöka Azure AD Join-hybriden för aktuella Windows-enheter](devices/troubleshoot-hybrid-join-windows-current.md)
-#### [Felsöka Azure AD Join-hybride för äldre Windows-enheter](devices/troubleshoot-hybrid-join-windows-legacy.md)
-
-### Begrepp
-#### [Hantera enheter med Azure Portal](devices/device-management-azure-portal.md)
-#### [Vanliga frågor och svar](devices/faq.md)
 
 ## Hantera appar
 ### [Översikt](manage-apps/what-is-application-management.md)

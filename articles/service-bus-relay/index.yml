@@ -1,0 +1,76 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: b741e9fd30119aaeb5248ae3fae906a70cb163e4
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144819"
+documentType: LandingData
+title: Dokumentation om Azure Service Bus Relay
+metadata:
+  title: Dokumentation om Azure Service Bus Relay
+  meta.description: Learn how the Azure Relay service work in a hybrid cloud and on-premises environment, complete with how to, Tutorials, videos, API references, and more.
+  services: service-bus-relay
+  author: sethmanheim
+  manager: timlt
+  ms.service: service-bus-relay
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 08/21/2018
+  ms.author: sethm
+abstract:
+  description: Tjänsten Azure Relay hjälper dig att använda hybridprogram mellan en lokal miljö och molnmiljö (i ett företagsnätverk och det offentliga molnet), utan att du behöver öppna en brandväggsanslutning eller göra störande ändringar i företagets nätverksinfrastruktur.
+sections:
+- title: Snabbstarter på 5 minuter
+  items:
+  - type: paragraph
+    text: 'Se hur du skickar och tar emot meddelande med Azure Relay:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /azure/media/index/logo_net.svg
+      text: .NET-webbsockets
+      href: /azure/service-bus-relay/relay-hybrid-connections-dotnet-get-started
+    - image:
+        src: /azure/media/index/logo_net.svg
+      text: .NET HTTP
+      href: /azure/service-bus-relay/relay-hybrid-connections-http-requests-dotnet-get-started
+    - image:
+        src: /azure/media/index/logo_nodejs.svg
+      text: Node.js-webbsockets
+      href: /azure/service-bus-relay/relay-hybrid-connections-node-get-started
+    - image:
+        src: /azure/media/index/logo_nodejs.svg
+      text: Node.js HTTP
+      href: /azure/service-bus-relay/relay-hybrid-connections-http-requests-node-get-started
+- title: Steg för steg-självstudier
+  items:
+  - type: paragraph
+    text: Se hur du skapar, hanterar, skickar och tar emot meddelanden med Azure Relay
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay">Göra en lokal WCF-tjänst tillgänglig för en webbapp i molnet</a>
+    - html: <a href="/azure/service-bus-relay/service-bus-relay-tutorial">Göra en lokal WCF-tjänst tillgänglig för en WCF-klient utanför nätverket</a>
+    - html: <a href="/azure/service-bus-relay/service-bus-relay-rest-tutorial">Göra en lokal WCF-tjänst tillgänglig för ett program utanför nätverket</a>
+- title: Exempel
+  items:
+  - type: paragraph
+    text: Hitta skript för att hantera vanliga uppgifter.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="https://github.com/Azure/azure-relay/tree/master/samples">Exempel på Azure Relay</a>
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Språk
+      html: <p><a href="/dotnet/api/microsoft.azure.relay?view=azure-dotnet">.NET Framework</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/servicebus/">REST API-referens</a></p>

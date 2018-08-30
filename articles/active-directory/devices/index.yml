@@ -1,0 +1,41 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 03a96770462e66c897b93ae0790838a9c8f1bd9b
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43130579"
+documentType: LandingData
+title: Dokumentation om Azure AD-enhetshantering
+metadata:
+  document_id: 
+  title: Dokumentation om Azure AD-enhetshantering – Självstudier, koncept, referenser | Microsoft Docs
+  description: Se hur du konfigurerar och testar enhetshantering för Azure Active Directory.
+  services: active-directory
+  ms.component: devices
+  author: MarkusVi
+  manager: mtillman
+  ms.service: active-directory
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 08/14/2018
+  ms.author: markvi
+abstract:
+  description: Dina användare får åtkomst till gemensamma tillgångar genom sina enheter. Som IT-administratör vill du nog ha kontroll över de här enheterna så att du kan skydda de gemensamma tillgångarna. På så sätt kan du se till att användarna får åtkomst till resurserna från enheter som uppfyller dina krav för säkerhet och efterlevnad.<br>Enhetshantering utgör även grunden för enhetsbaserad villkorsstyrd åtkomst. Med enhetsbaserad villkorsstyrd åtkomst kan du se till att endast hanterade enheter kan komma åt resurserna i miljön.
+sections:
+- title: Stegvisa självstudier
+  items:
+  - type: paragraph
+    text: Se hur du integrerar dina lokala AD-anslutna enheter med Azure AD.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: ./media/index/i_security-management.png
+      text: Hanterade domäner
+      href: hybrid-azuread-join-managed-domains.md
+    - image:
+        src: ./media/index/i_security-management.png
+      text: Federerade domäner
+      href: hybrid-azuread-join-federated-domains.md

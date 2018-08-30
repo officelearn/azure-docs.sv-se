@@ -1,0 +1,87 @@
+items:
+- name: Dokumentation för Service Bus Relay
+  href: index.yml
+- name: Översikt
+  items:
+  - name: Vad är vidarebefordran?
+    href: relay-what-is-it.md
+  - name: VANLIGA FRÅGOR OCH SVAR
+    href: relay-faq.md
+- name: Snabbstarter
+  items:
+  - name: Skapa ett hybridprogram lokalt eller i molnet
+    href: service-bus-dotnet-hybrid-app-using-service-bus-relay.md
+  - name: Hybridanslutningar
+    items:
+    - name: .NET-webbsockets
+      href: relay-hybrid-connections-dotnet-get-started.md
+    - name: .NET HTTP
+      href: relay-hybrid-connections-http-requests-dotnet-get-started.md
+    - name: Node-webbsockets
+      href: relay-hybrid-connections-node-get-started.md
+    - name: Node HTTP
+      href: relay-hybrid-connections-http-requests-node-get-started.md
+  - name: Självstudier för WCF Relay
+    href: service-bus-relay-tutorial.md
+  - name: Självstudier för WCF Relay REST
+    href: service-bus-relay-rest-tutorial.md
+- name: Gör så här för att
+  items:
+  - name: Planera och designa
+    items:
+    - name: Autentisering och säkerhet
+      href: relay-authentication-and-authorization.md
+      items:
+      - name: Migrera från ACS till SAS
+        href: relay-migrate-acs-sas.md
+    - name: Hybridanslutningsprotokoll
+      href: relay-hybrid-connections-protocol.md
+  - name: Utveckla
+    items:
+    - name: Skapa ett namnområde
+      href: relay-create-namespace-portal.md
+    - name: Använda WCF Relay för att göra WCF-tjänster tillgängliga för externa klienter
+      href: relay-wcf-dotnet-get-started.md
+    - name: Tillgängliga API:er
+      href: relay-api-overview.md
+      items:
+      - name: .NET
+        href: relay-hybrid-connections-dotnet-api-overview.md
+      - name: Node
+        href: relay-hybrid-connections-node-ws-api-overview.md
+  - name: Hantera
+    items:
+    - name: Övervaka Azure Relay med Azure Monitor
+      href: relay-metrics-azure-monitor.md
+- name: Referens
+  items:
+  - name: .NET
+    items:
+    - name: Microsoft.Azure.Relay
+      href: /dotnet/api/microsoft.azure.relay
+    - name: Microsoft.ServiceBus
+      href: /dotnet/api/Microsoft.ServiceBus
+  - name: Undantag
+    href: relay-exceptions.md
+  - name: Portinställningar
+    href: relay-port-settings.md
+- name: Resurser
+  items:
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
+  - name: Blogg
+    href: https://blogs.msdn.microsoft.com/servicebus/
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/service-bus/
+  - name: Priskalkylator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Exempel
+    href: https://github.com/azure/azure-relay/tree/master/samples
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-servicebusrelay
+ms.openlocfilehash: 1c15d984e19f0585f386620f1e6e12667c69da5e
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144839"

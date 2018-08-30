@@ -1,22 +1,20 @@
 ---
 title: Övervaka ändringar på virtuella datorer – Azure Event Grid och Logic Apps | Microsoft Docs
 description: Övervaka konfigurationsändringar på virtuella datorer (VM) med hjälp av Azure Event Grid och Logic Apps
-keywords: logic apps, event grids, virtual machine, VM
 services: logic-apps
-author: ecfan
-manager: anneta
-ms.assetid: ''
-ms.workload: logic-apps
 ms.service: logic-apps
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 11/30/2017
-ms.author: LADocs; estfan
-ms.openlocfilehash: ea3063b5c445dab85a7ef1e5663c40efc34f961e
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 29b28b0d81314d062c1b334092979cc9bccbeb31
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303121"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127667"
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Övervaka ändringar på virtuella maskiner med Azure Event Grid och Logic Apps
 
@@ -161,7 +159,7 @@ Nu ska du lägga till en [*åtgärd*](../logic-apps/logic-apps-overview.md#logic
 
    ![Lägg till en åtgärd för när villkoret är sant](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-2.png)
 
-2. Skriv ”email” (e-post) som filter i sökrutan. Baserat på din e-leverantör söker du och väljer matchande anslutningsapp. Välj sedan åtgärden "send email" (skicka e-post) för anslutningsappen. Till exempel: 
+2. Skriv ”email” (e-post) som filter i sökrutan. Baserat på din e-leverantör söker du och väljer matchande anslutningsapp. Välj sedan åtgärden "send email" (skicka e-post) för anslutningsappen. Exempel: 
 
    * För ett arbets- eller skolkonto i Azure väljer du anslutningsappen Office 365 Outlook. 
    * För personliga Microsoft-konton väljer du anslutningsappen Outlook.com. 
@@ -212,7 +210,7 @@ Nu ska du lägga till en [*åtgärd*](../logic-apps/logic-apps-overview.md#logic
 
    Du kan till exempel ändra storlek på den virtuella datorn på Azure Portal eller [ändra storlek på den virtuella datorn med Azure PowerShell](../virtual-machines/windows/resize-vm.md). 
 
-   Du bör få ett e-postmeddelande efter en liten stund. Till exempel:
+   Du bör få ett e-postmeddelande efter en liten stund. Exempel:
 
    ![E-postmeddelande om uppdatering av den virtuella datorn](./media/monitor-virtual-machine-changes-event-grid-logic-app/email.png)
 

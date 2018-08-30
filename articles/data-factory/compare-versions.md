@@ -9,15 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: 4821ce5911508cc90c3a784d617a4528ecdeb384
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: ca00a414402c1cfdef55cfbde9291688f091bf77
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053304"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43095927"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Jämför Azure Data Factory med Data Factory version 1
 Den här artikeln jämför Data Factory med Data Factory version 1. En introduktion till Data Factory finns i [Introduktion till Data Factory](introduction.md). En introduktion till Data Factory version 1 finns i [Introduktion till Azure Data Factory](v1/data-factory-introduction.md). 
@@ -27,7 +27,7 @@ I följande tabell jämförs funktionerna i Data Factory med funktionerna i Data
 
 | Funktion | Version 1 | Aktuell version | 
 | ------- | --------- | --------- | 
-| Datauppsättningar | En namngiven vy över data som refererar till de data som du vill använda i dina aktiviteter som indata eller utdata. Datauppsättningar identifierar data inom olika datalager, till exempel tabeller, filer, mappar och dokument. En Azure Blob-datauppsättning anger till exempel blobbehållaren och mappen i Azure Blob Storage som aktiviteten ska läsa data från.<br/><br/>**Tillgänglighet** anger segmenteringsmodellen i bearbetningsfönstret för datauppsättningen (till exempel varje timme, varje dag, o.s.v.). | Datauppsättningarna är samma i den aktuella versionen. Men du behöver inte definiera scheman för **tillgänglighet** för datauppsättningar. Du kan definiera en utlösarresurs som kan schemalägga pipeliner från en clock scheduler-paradigm. Mer information finns i [Utlösare](concepts-pipeline-execution-triggers.md#triggers) och [Datauppsättningar](concepts-datasets-linked-services.md). | 
+| Datauppsättningar | En namngiven vy över data som refererar till de data som du vill använda i dina aktiviteter som indata eller utdata. Datauppsättningar identifierar data inom olika datalager, till exempel tabeller, filer, mappar och dokument. En Azure Blob-datauppsättning anger till exempel blobcontainern och mappen i Azure Blob Storage som aktiviteten ska läsa data från.<br/><br/>**Tillgänglighet** anger segmenteringsmodellen i bearbetningsfönstret för datauppsättningen (till exempel varje timme, varje dag, o.s.v.). | Datauppsättningarna är samma i den aktuella versionen. Men du behöver inte definiera scheman för **tillgänglighet** för datauppsättningar. Du kan definiera en utlösarresurs som kan schemalägga pipeliner från en clock scheduler-paradigm. Mer information finns i [Utlösare](concepts-pipeline-execution-triggers.md#triggers) och [Datauppsättningar](concepts-datasets-linked-services.md). | 
 | Länkade tjänster | Länkade tjänster liknar anslutningssträngar som definierar den anslutningsinformation som behövs för att Data Factory ska kunna ansluta till externa resurser. | Länkade tjänster är samma som Data Factory V1, men med en ny **connectVia**-egenskap för att använda Integration Runtime-beräkningsmiljön för den aktuella versionen av Data Factory. Mer information finns i [Integration Runtimes i Azure Data Factory](concepts-integration-runtime.md) och [Länkade tjänstegenskaper för Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties). |
 | Pipelines | En datafabrik kan ha en eller flera pipelines. En pipeline är en logisk gruppering aktiviteter som tillsammans utför en uppgift. Du använde startTime, endTime och isPaused för att schemalägga och köra pipeliner. | Pipeliner är grupper av aktiviteter som ska utföras på data. Schemaläggning av aktiviteter i pipelinen har dock separerats till nya utlösarresurser. Tänk på pipelines i den aktuella versionen av Data Factory V2 mer som ”arbetsflödesenheter”, som du schemalägger separat via utlösare. <br/><br/>Pipelines har inte ”fönster” för tidskörning i den aktuella versionen av Data Factory. Begreppet startTime, endTime och isPaused från Data Factory V1 finns inte längre i den aktuella versionen av Data Factory. Mer information finns i [Pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md) och [Pipeline och aktiviteter](concepts-pipelines-activities.md). |
 | Aktiviteter | Aktiviteter definierar åtgärder som ska utföras för dina data i en pipeline. Dataflytt (kopieringsaktivitet) och datatransformeringsaktiviteter (till exempel Hive, Pig och MapReduce) stöds. | I den aktuella versionen av Data Factory är aktiviteter fortfarande definierade åtgärder inom en pipeline. I den aktuella versionen av Data Factory införs nya [kontrollflödesaktiviteter](concepts-pipelines-activities.md#control-activities). Du kan använda de här aktiviteterna i ett kontrollflöde (loopning och branchning). Aktiviteter för dataflytt och datatransformering som hade stöd i V1 har även stöd i den aktuella versionen. Du kan definiera transformeringsaktiviteter utan att använda datauppsättningar i den aktuella versionen. |
@@ -56,7 +56,7 @@ Du kan definiera parametrar på pipelinenivå och skicka argument när du anropa
 ### <a name="custom-state-passing"></a>Skicka anpassade tillstånd
 Aktivitetsutdata inklusive tillstånd kan användas av en efterföljande aktivitet i pipelinen. I JSON-definitionen för en aktivitet kan du till exempel komma åt utdata från den föregående aktiviteten med hjälp av följande syntax: `@activity('NameofPreviousActivity').output.value`. Genom att använda den här funktionen kan du skapa arbetsflöden där värden kan skickas genom aktiviteter.
 
-### <a name="looping-containers"></a>Loopningsbehållare
+### <a name="looping-containers"></a>Loopningscontainrar
 [ForEach-aktiviteten](control-flow-for-each-activity.md) definierar ett upprepat kontrollflöde i din pipeline. Den här aktiviteten itererar över en samling och kör angivna aktiviteter i en slinga. Implementeringen av loopen för den här aktiviteten liknar Foreach-loopstrukturen i programmeringsspråk. 
 
 Aktiviteten [Until](control-flow-until-activity.md) fungerar på samma sätt som en do-until-loopstruktur i ett programmeringsspråk. En uppsättning aktiviteter körs i en loop tills det villkor som är associerat med aktiviteten utvärderas till `true`. Du kan ange en tidsgräns för Until-aktiviteten i Data Factory.  

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d0ec146d276f72abf4cbbe3da4d11c0d5539df6d
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 803e82a294b64452ffd788880097b9d86ac1065b
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144201"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745298"
 ---
 # <a name="what-is-azure-maps"></a>Vad är Azure Maps?
 Azure Maps är en samling geospatiala tjänster som backas upp av nya mappningsdata. Du kan ange exakt geografisk kontext till webb- och mobilprogram. Den innehåller REST API:er för att rendera kartor, söka efter intressanta platser, trafikförhållanden, tidszoner och IP till plats-tjänster. Med de här API:erna och välbekanta verktyg kan du snabbt utveckla och skala lösningar som integrerar platsinformation i dina Azure-lösningar. Tillsammans med REST API:erna får du en webbaserad JavaScript-kontroll som gör utveckling över flera medier enkel, flexibel och portabel. 
@@ -98,7 +98,7 @@ Information om REST-API:er för IP till plats-tjänsten finns på sidan om [Azur
 
 Azure Maps är byggt för flexibilitet och fungerar på olika plattformar. Programmeringsmodellen är språkoberoende och har stöd för JSON-utdata via [REST API:er](https://docs.microsoft.com/rest/api/maps/). 
 
-Azure Maps har dessutom en praktisk [JavaScript-kartkontroll ](https://docs.microsoft.com/javascript/api/azure-maps-javascript/?view=azure-iot-typescript-latest) med en enkel programmeringsmodell för snabb och enkel utveckling av både webb- och mobilprogram. 
+Azure Maps har dessutom en praktisk [JavaScript-kartkontroll ](https://docs.microsoft.com/javascript/api/azure-maps-control/models?view=azure-iot-typescript-latest) med en enkel programmeringsmodell för snabb och enkel utveckling av både webb- och mobilprogram. 
 
 
 ## <a name="usage"></a>Användning

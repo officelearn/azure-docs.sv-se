@@ -5,15 +5,15 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 07/05/2018
+ms.date: 08/23/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: a1aa666fcbb91ca62a9c33f91bfd266589864af9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 13620fbd6393c747285574cf16b519b9b6a1f324
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865114"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745192"
 ---
 # <a name="create-and-route-custom-events-with-azure-powershell-and-event-grid"></a>Skapa och dirigera anpassade händelser med Azure PowerShell och Event Grid
 
@@ -53,7 +53,7 @@ New-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Location westus2
 
 ## <a name="create-a-message-endpoint"></a>Skapa en slutpunkt för meddelanden
 
-Innan du prenumererar på ämnet ska vi ska slutpunkten för händelsemeddelandet. Slutpunkten utför vanligtvis åtgärder baserat på informationen om händelsen. För att förenkla den här snabbstarten kan du distribuera en [förskapad webbapp](https://github.com/dbarkol/azure-event-grid-viewer) som visar meddelanden om händelser. Den distribuerade lösningen innehåller en App Service-plan,en webbapp för App Service och källkod från GitHub.
+Innan du prenumererar på ämnet ska vi ska slutpunkten för händelsemeddelandet. Slutpunkten utför vanligtvis åtgärder baserat på informationen om händelsen. För att förenkla den här snabbstarten kan du distribuera en [förskapad webbapp](https://github.com/Azure-Samples/azure-event-grid-viewer) som visar meddelanden om händelser. Den distribuerade lösningen innehåller en App Service-plan,en webbapp för App Service och källkod från GitHub.
 
 Ersätt `<your-site-name>` med ett unikt namn för din webbapp. Webbappnamnet måste vara unikt eftersom det är en del av DNS-posten.
 
@@ -62,7 +62,7 @@ $sitename="<your-site-name>"
 
 New-AzureRmResourceGroupDeployment `
   -ResourceGroupName gridResourceGroup `
-  -TemplateUri "https://raw.githubusercontent.com/dbarkol/azure-event-grid-viewer/master/azuredeploy.json" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" `
   -siteName $sitename `
   -hostingPlanName viewerhost
 ```

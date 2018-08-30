@@ -10,16 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 1b0838bb3d4fa1f47d906294ce42c318d1f4a0cd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0cdf10f4898ba103f9b6f65179300a10c9e33cdf
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38623560"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43087179"
 ---
 # <a name="introduction-to-azure-data-factory"></a>introduktion till Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -105,12 +105,12 @@ Skapa en anpassad .NET-aktivitet om du behöver flytta data till eller från ett
 ### <a name="datasets"></a>Datauppsättningar
 En aktivitet har noll eller flera datauppsättningar som indata och en eller flera datauppsättningar som utdata. Datauppsättningar representerar datastrukturer i datalager. Dessa strukturer pekar eller refererar till de data som du vill använda i dina aktiviteter (till exempel indata eller utdata). 
 
-En Azure Blob-datauppsättning anger till exempel blobbehållaren och -mappen i Azure Blob Storage som pipelinen ska läsa data från. Eller också kan en Azure SQL-tabelldatauppsättning ange vilken tabell som utdata ska skrivas till av aktiviteten. 
+En Azure Blob-datauppsättning anger till exempel blobcontainern och -mappen i Azure Blob Storage som pipelinen ska läsa data från. Eller också kan en Azure SQL-tabelldatauppsättning ange vilken tabell som utdata ska skrivas till av aktiviteten. 
 
 ### <a name="linked-services"></a>Länkade tjänster
 Länkade tjänster liknar anslutningssträngar som definierar den anslutningsinformation som behövs för att Data Factory ska kunna ansluta till externa resurser. Man kan se det som att datamängden representerar strukturen för data och den länkade tjänsten definierar anslutningen till datakällan. 
 
-Till exempel anger en länkad Azure Storage-tjänst en anslutningssträng som används för att ansluta till ett Azure Storage-konto. En Azure Blob-datauppsättning anger vilken blobbehållare och mapp som innehåller data.   
+Till exempel anger en länkad Azure Storage-tjänst en anslutningssträng som används för att ansluta till ett Azure Storage-konto. En Azure Blob-datauppsättning anger vilken blobcontainer och mapp som innehåller data.   
 
 Länkade tjänster används i två syften i Data Factory:
 

@@ -9,15 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/04/2018
 ms.author: douglasl
-ms.openlocfilehash: 5959eeea7e5a16170414c7ef8036093ce122681d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 60dc0e88998580732b50cb202fb5d00a7cfcae21
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045678"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106689"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformera data i Azure Virtual Network med en Hive-aktivitet i Azure Data Factory
 I den här självstudien använder du Azure Portal för att skapa en Data Factory-pipeline som transformerar data med en Hive-aktivitet på ett HDInsight-kluster som finns i Azure Virtual Network (VNet). I den här självstudiekursen får du göra följande:
@@ -62,7 +62,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
        state
    FROM hivesampletable
    ```
-2. Skapa en behållare med namnet **adftutorial** i Azure Blob Storage om den inte finns.
+2. Skapa en container med namnet **adftutorial** i Azure Blob Storage om den inte finns.
 3. Skapa en mapp med namnet **hivescripts**.
 4. Ladda upp filen **hivescript.hql** till undermappen **hivescripts**.
 
@@ -216,7 +216,7 @@ Observera följande punkter:
     2. För **Filsökväg** klickar du på **Bläddra i lagring**. 
  
         ![Bläddra i lagring](./media/tutorial-transform-data-using-hive-in-vnet-portal/browse-storage-hive-script.png)
-    3. I fönstret **Choose a file or folder** (Välj en fil eller mapp) navigerar du till mappen **hivescripts** i behållaren **adftutorial** och väljer **hivescript.hql**. Klicka sedan på **Slutför**.  
+    3. I fönstret **Choose a file or folder** (Välj en fil eller mapp) navigerar du till mappen **hivescripts** i containern **adftutorial** och väljer **hivescript.hql**. Klicka sedan på **Slutför**.  
         
         ![Välja en fil eller mapp](./media/tutorial-transform-data-using-hive-in-vnet-portal/choose-file-folder.png) 
     4. Bekräfta att det står **adftutorial/hivescripts/hivescript.hql** som **filsökväg**.
@@ -252,7 +252,7 @@ Observera följande punkter:
 5. Du ser bara en aktivitetskörning eftersom det bara finns en aktivitet i pipelinen av typen **HDInsightHive**. Om du vill växla tillbaka till föregående vy klickar du på **Pipeliner** längst upp.
 
     ![Aktivitetskörningar](./media/tutorial-transform-data-using-hive-in-vnet-portal/view-activity-runs.png)
-6. Bekräfta att du ser en utdatafil i **outputfolder** för behållaren **adftutorial**. 
+6. Bekräfta att du ser en utdatafil i **outputfolder** för containern **adftutorial**. 
 
     ![Utdatafil](./media/tutorial-transform-data-using-hive-in-vnet-portal/output-file.png)
 

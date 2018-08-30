@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/08/2018
 ms.author: stevelas
 ms.custom: mvc
-ms.openlocfilehash: 394297e87ef03541725aad0689f11bca17c05ed9
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: f282d7d6950278d0c270009256cf054a0d630e60
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576308"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43120643"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introduktion till privata Docker-containerregister i Azure
 
@@ -28,9 +28,8 @@ Information om Docker och containrar finns i [Docker-översikt](https://docs.doc
 
 Hämta avbildningar från ett Azure-containerregister till olika distributionsmål:
 
-* 
-  **Skalbart dirigeringssystem** som hanterar program i containrar över kluster med värdar, inklusive [DC/OS](https://docs.mesosphere.com/), [Docker Swarm](https://docs.docker.com/swarm/) och [Kubernetes](http://kubernetes.io/docs/).
-* **Azure-tjänster** som stöder att skapa och köra program i skala, inkluderar [Azure Kubernetes Service (AKS)](../aks/index.yml), [App Service](/app-service/index.md), [Batch](../batch/index.yml), [ Service Fabric](/azure/service-fabric/), med mera.
+* **Skalbart dirigeringssystem** som hanterar program i containrar över kluster med värdar, inklusive [DC/OS](https://docs.mesosphere.com/), [Docker Swarm](https://docs.docker.com/swarm/) och [Kubernetes](http://kubernetes.io/docs/).
+* **Azure-tjänster** som stöder att skapa och köra program i skala, inkluderar [Azure Kubernetes Service (AKS)](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [ Service Fabric](/azure/service-fabric/), med mera.
 
 Utvecklare kan även skicka till ett behållarregister som en del av ett arbetsflöde för utveckling av container. Du kan till exempel arbeta mot ett containerregister från ett verktyg för löpande integrering och distribution som [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) eller [Jenkins](https://jenkins.io/).
 
@@ -38,23 +37,19 @@ Konfigurera [ACR Build](#azure-container-registry-build)-skaparaktiviteter för 
 
 ## <a name="key-concepts"></a>Viktiga begrepp
 
-* 
-  **Register** – Skapa ett eller flera containerregister i din Azure-prenumeration. Register är tillgängliga i tre SKU:er [Basic, Standard och Premium](container-registry-skus.md), och var och en stöder webhook-integrering, registerautentisering med Azure Active Directory och borttagning. Dra nytta av lokal, nätverksnära lagring av dina containeravbildningar genom att skapa ett register på samma Azure-plats som dina distributioner. Använd funktionen [geo-replikering](container-registry-geo-replication.md) i Premium-register för avancerad replikering och distributionsscenarier för containeravbildningar. Ett fullständigt kvalificerat registernamn har formatet `myregistry.azurecr.io`.
+* **Register** – Skapa ett eller flera containerregister i din Azure-prenumeration. Register är tillgängliga i tre SKU:er [Basic, Standard och Premium](container-registry-skus.md), och var och en stöder webhook-integrering, registerautentisering med Azure Active Directory och borttagning. Dra nytta av lokal, nätverksnära lagring av dina containeravbildningar genom att skapa ett register på samma Azure-plats som dina distributioner. Använd funktionen [geo-replikering](container-registry-geo-replication.md) i Premium-register för avancerad replikering och distributionsscenarier för containeravbildningar. Ett fullständigt kvalificerat registernamn har formatet `myregistry.azurecr.io`.
 
   Du [styr åtkomsten](container-registry-authentication.md) till en container med hjälp av ett Azure Active Directory-kopplat [tjänstobjekt](../active-directory/develop/app-objects-and-service-principals.md) eller ett angivet administratörskonto. Kör `docker login`-standardkommandot för att autentisera med ett register.
 
-* 
-  **Lagringsplats** – Ett register innehåller en eller flera databaser, som är grupper med containeravbildningar. Azure Container Registry har stöd för namnområden för lagringsplatser på flera nivåer. Med namnområden för flera nivåer kan du gruppera samlingar med avbildningar relaterade till en viss app, eller en samling appar för specifika utvecklingsgrupper eller operativa team. Exempel:
+* **Lagringsplats** – Ett register innehåller en eller flera databaser, som är grupper med containeravbildningar. Azure Container Registry har stöd för namnområden för lagringsplatser på flera nivåer. Med namnområden för flera nivåer kan du gruppera samlingar med avbildningar relaterade till en viss app, eller en samling appar för specifika utvecklingsgrupper eller operativa team. Exempel:
 
   * `myregistry.azurecr.io/aspnetcore:1.0.1` representerar en företagsomfattande avbildning
   * `myregistry.azurecr.io/warrantydept/dotnet-build` representerar en avbildning som används för att skapa .NET-appar, som delas på garantiavdelningen.
   * `myregistry.azurecr.io/warrantydept/customersubmissions/web` representerar en webbavbildning, grupperad i appen för kundöverföringar, som ägs av garantiavdelningen.
 
-* 
-  **Avbildning** – Lagras på en lagringsplats. Varje avbildning är en skrivskyddad ögonblicksbild av en Docker-container. Azure-containerregister kan innehålla både Windows- och Linux-avbildningar. Du styr avbildningsnamnen för alla containerdistributioner. Använd [Docker-standardkommandon](https://docs.docker.com/engine/reference/commandline/) för att skicka avbildningar till en lagringsplats, eller för att hämta en avbildning från en lagringsplats.
+* **Avbildning** – Lagras på en lagringsplats. Varje avbildning är en skrivskyddad ögonblicksbild av en Docker-container. Azure-containerregister kan innehålla både Windows- och Linux-avbildningar. Du styr avbildningsnamnen för alla containerdistributioner. Använd [Docker-standardkommandon](https://docs.docker.com/engine/reference/commandline/) för att skicka avbildningar till en lagringsplats, eller för att hämta en avbildning från en lagringsplats.
 
-* 
-  **Container** – En container definierar programvara och dess beroenden och är inneslutna i ett komplett filsystem, inklusive kod, runtime, systemverktyg och bibliotek. Kör Docker-containrar baserat på Windows- eller Linux-avbildningar som du hämtar från ett containerregister. Containrar som körs på en enskild dator delar operativsystemets kernel. Docker-containrar är helt portabla till alla större Linux-distributioner, macOS och Windows.
+* **Container** – En container definierar programvara och dess beroenden och är inneslutna i ett komplett filsystem, inklusive kod, runtime, systemverktyg och bibliotek. Kör Docker-containrar baserat på Windows- eller Linux-avbildningar som du hämtar från ett containerregister. Containrar som körs på en enskild dator delar operativsystemets kernel. Docker-containrar är helt portabla till alla större Linux-distributioner, macOS och Windows.
 
 ## <a name="azure-container-registry-build-preview"></a>Azure Container Registry Build (förhandsversion)
 
@@ -64,8 +59,6 @@ Konfigurera [ACR Build](#azure-container-registry-build)-skaparaktiviteter för 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* 
-  [Skapa ett containerregister med hjälp av Azure Portal](container-registry-get-started-portal.md)
-* 
-  [Skapa ett containerregister med hjälp av Azure CLI](container-registry-get-started-azure-cli.md)
+* [Skapa ett containerregister med hjälp av Azure Portal](container-registry-get-started-portal.md)
+* [Skapa ett containerregister med hjälp av Azure CLI](container-registry-get-started-azure-cli.md)
 * [Automatisera korrigering av operativsystem och ramverk med ACR Build](container-registry-build-overview.md) (förhandsversion)

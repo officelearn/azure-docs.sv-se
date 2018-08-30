@@ -11,16 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 172de59561892f0f17fc1f90016cc95495ceb2cb
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: a04e91cea4ce1670fcc0a7be2d7591d5856b738f
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051315"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106870"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Självstudie: Skapa din första Azure-datafabrik med hjälp av en Azure Resource Manager-mall
 > [!div class="op_single_selector"]
@@ -54,8 +54,8 @@ Pipeline i den här självstudiekursen har en aktivitet: **HDInsight Hive-aktivi
 | --- | --- |
 | Länkad Azure-lagringstjänst |Länkar på begäran ditt Azure Storage-konto till datafabriken. In- och utdata för pipelinen i det här exemplet lagras i Azure Storage-kontot. |
 | HDInsight on-demand linked service (Länkad tjänst för HDInsight på begäran) |Länkar på begäran HDInsight-klustret till datafabriken. Klustret skapas automatiskt för att bearbeta data och raderas när bearbetningen är klar. |
-| Indatauppsättning för Azure-blobb |Hänvisar till den länkade Azure Storage-tjänsten. Den länkade tjänsten hänvisar till ett Azure Storage-konto och datauppsättningen för Azure-blobben anger behållaren, mappen och filnamnet i lagringsutrymmet som innehåller indata. |
-| Utdatauppsättning för Azure-blobb |Hänvisar till den länkade Azure Storage-tjänsten. Den länkade tjänsten hänvisar till ett Azure Storage-konto och datauppsättningen för Azure-blobben anger behållaren, mappen och filnamnet i lagringsutrymmet som innehåller utdata. |
+| Indatauppsättning för Azure-blobb |Hänvisar till den länkade Azure Storage-tjänsten. Den länkade tjänsten hänvisar till ett Azure Storage-konto och datauppsättningen för Azure-bloben anger containern, mappen och filnamnet i lagringsutrymmet som innehåller indata. |
+| Utdatauppsättning för Azure-blobb |Hänvisar till den länkade Azure Storage-tjänsten. Den länkade tjänsten hänvisar till ett Azure Storage-konto och datauppsättningen för Azure-bloben anger containern, mappen och filnamnet i lagringsutrymmet som innehåller utdata. |
 | Datapipeline |Pipelinen har en aktivitet av typen HDInsightHive som använder indatauppsättningen och skapar utdatauppsättningen. |
 
 En datafabrik kan ha en eller flera pipelines. En pipeline kan innehålla en eller flera aktiviteter. Det finns två typer av aktiviteter: [dataflyttningsaktiviteter](data-factory-data-movement-activities.md) och [datatransformeringsaktiviteter](data-factory-data-transformation-activities.md). I den här självstudien får du skapa en pipeline i en aktivitet (Hive-aktivitet).
@@ -348,14 +348,14 @@ Skapa en JSON-fil med namnet **ADFTutorialARM-Parameters.json** som innehåller 
 6. När bearbetningen är klar visas sektorn med statusen **Klar**. Att skapa ett HDInsight-kluster på begäran kan ta lite längre tid (cirka 20 minuter). Förvänta dig därför att det tar **cirka 30 minuter** för pipelinen att bearbeta sektorn.
    
     ![Datauppsättning](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)    
-7. När sektorn har statusen **Klar**, kontrollerar du mappen **partitioneddata** i behållaren **adfgetstarted** i blobblagringen för utdata.  
+7. När sektorn har statusen **Klar**, kontrollerar du mappen **partitioneddata** i containern **adfgetstarted** i bloblagringen för utdatan.  
 
 Se [Övervaka datauppsättningar och pipeline](data-factory-monitor-manage-pipelines.md) för instruktioner om hur du använder Azures portalblad till att övervaka pipelinen och datauppsättningar som du har skapat i den här självstudien.
 
 Du kan också använda appen Övervaka och hantera till att övervaka dina datapipelines. Se [Övervaka och hantera Azure Data Factory-pipelines med övervakningsappen](data-factory-monitor-manage-app.md) för mer information om att använda programmet. 
 
 > [!IMPORTANT]
-> Indatafilen tas bort när sektorn har bearbetats. Om du vill köra sektorn eller gå igenom självstudien igen överför du därför indatafilen (input.log) till indatamappen i behållaren adfgetstarted.
+> Indatafilen tas bort när sektorn har bearbetats. Om du vill köra sektorn eller gå igenom självstudien igen överför du därför indatafilen (input.log) till indatamappen i containern adfgetstarted.
 > 
 > 
 
@@ -437,14 +437,14 @@ Observera följande punkter:
 
 * Data Factory skapar ett **Linux-baserat** HDInsight-kluster med ovanstående JSON. Se [HDInsight-länkad tjänst på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) för mer information. 
 * Du kan använda **ditt eget HDInsight-kluster** i stället för att använda ett HDInsight-kluster på begäran. Se [HDInsight-länkad tjänst](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) för mer information.
-* HDInsight-klustret skapar en **standardbehållare** i den blobblagring som du angav i JSON (**linkedServiceName**). HDInsight tar inte bort den här behållaren när klustret tas bort. Det här beteendet är avsiktligt. Med en HDInsight-länkad tjänst på begäran skapas ett HDInsight-kluster varje gång en sektor behöver bearbetas, såvida det inte finns ett befintligt livekluster (**timeToLive**). Det raderas när bearbetningen är klar.
+* HDInsight-klustret skapar en **standardcontainer** i den bloblagring som du angav i JSON (**linkedServiceName**). HDInsight tar inte bort den här containern när klustret tas bort. Det här beteendet är avsiktligt. Med en HDInsight-länkad tjänst på begäran skapas ett HDInsight-kluster varje gång en sektor behöver bearbetas, såvida det inte finns ett befintligt livekluster (**timeToLive**). Det raderas när bearbetningen är klar.
   
-    Allteftersom fler sektorer bearbetas kan du se många behållare i ditt Azure Blob Storage. Om du inte behöver dem för att felsöka jobb, kan du ta bort dem för att minska lagringskostnaderna. Namnen på de här behållarna följer ett mönster: ”adf**datafabrikensnamn**-**denlänkadetjänstensnamn**-datumtidsstämpel”. Använd verktyg som [Microsoft Lagringsutforskaren](http://storageexplorer.com/) till att ta bort behållare i din Azure blobblagring.
+    Allteftersom fler sektorer bearbetas kan du se många containrar i ditt Azure Blob Storage. Om du inte behöver dem för att felsöka jobb, kan du ta bort dem för att minska lagringskostnaderna. Namnen på de här containrarna följer ett mönster: ”adf**datafabrikensnamn**-**denlänkadetjänstensnamn**-datumtidsstämpel”. Använd verktyg som [Microsoft Lagringsutforskaren](http://storageexplorer.com/) till att ta bort containrar i din Azure bloblagring.
 
 Se [HDInsight-länkad tjänst på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) för mer information.
 
 #### <a name="azure-blob-input-dataset"></a>Indatauppsättning för Azure-blobb
-Du anger namnen på en blobbehållare, mapp och fil som innehåller dina indata. Se [Egenskaper för Azure-blobbdatauppsättning](data-factory-azure-blob-connector.md#dataset-properties) om du vill ha information om JSON-egenskaper som används för att definiera en Azure-blobbdatauppsättning. 
+Du anger namnen på en blobcontainer, mapp och fil som innehåller dina indata. Se [Egenskaper för Azure-blobbdatauppsättning](data-factory-azure-blob-connector.md#dataset-properties) om du vill ha information om JSON-egenskaper som används för att definiera en Azure-blobbdatauppsättning. 
 
 ```json
 {
@@ -477,7 +477,7 @@ Du anger namnen på en blobbehållare, mapp och fil som innehåller dina indata.
 Den här definitionen använder följande parametrar som definierats i parameter-mallen: blobContainer, inputBlobFolder och inputBlobName. 
 
 #### <a name="azure-blob-output-dataset"></a>Utdatauppsättning för Azure-blobb
-Du kan ange namnen på blobbehållaren och mappen som innehåller utdata. Se [Egenskaper för Azure-blobbdatauppsättning](data-factory-azure-blob-connector.md#dataset-properties) om du vill ha information om JSON-egenskaper som används för att definiera en Azure-blobbdatauppsättning.  
+Du kan ange namnen på blobcontainern och mappen som innehåller utdata. Se [Egenskaper för Azure-blobbdatauppsättning](data-factory-azure-blob-connector.md#dataset-properties) om du vill ha information om JSON-egenskaper som används för att definiera en Azure-blobbdatauppsättning.  
 
 ```json
 {

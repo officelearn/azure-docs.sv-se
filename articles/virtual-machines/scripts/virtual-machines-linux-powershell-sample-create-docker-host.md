@@ -17,15 +17,15 @@ ms.date: 03/02/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: f2c66385f66bf9aa75601da1a6ab03bf00210fa2
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928407"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246149"
 ---
 # <a name="create-a-docker-host-with-powershell"></a>Skapa en Docker-värd med PowerShell
 
-Det här skriptet skapar en virtuell dator med Docker aktiverat och startar en behållare som kör NGINX. När skriptet har körts kan du komma åt NGINX-webbservern via det fullständiga domännamnet för den virtuella Azure-datorn.
+Det här skriptet skapar en virtuell dator med Docker aktiverat och startar en container som kör NGINX. När skriptet har körts kan du komma åt NGINX-webbservern via det fullständiga domännamnet för den virtuella Azure-datorn.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
@@ -59,7 +59,7 @@ Det här skriptet använder följande kommandon för att skapa distributionen. V
 | [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) | Skapar ett nätverksgränssnitt. |
 | [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) | Skapar en virtuell datorkonfiguration. Den här konfigurationen omfattar information som virtuellt datornamn, operativsystem och administrativa autentiseringsuppgifter. Konfigurationen används vid skapande av virtuell dator. |
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Skapa en virtuell dator. |
-| [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) | Lägg till ett virtuellt datortillägg till den virtuella datorn. I det här exemplet används Docker-tillägget för att konfigurera Docker och köra en NGINX Docker-behållare. |
+| [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) | Lägg till ett virtuellt datortillägg till den virtuella datorn. I det här exemplet används Docker-tillägget för att konfigurera Docker och köra en NGINX Docker-container. |
 |[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Tar bort en resursgrupp och alla resurser som ingår i gruppen. |
 
 ## <a name="next-steps"></a>Nästa steg

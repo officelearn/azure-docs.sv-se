@@ -4,18 +4,17 @@ description: Med Data Lake Analytics kan du driva din verksamhet med insikter so
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: 1e1d443a-48a2-47fb-bc00-bf88274222de
 ms.service: data-lake-analytics
 ms.topic: overview
 ms.date: 06/23/2017
-ms.openlocfilehash: f5425abc484d30f07ce29d6b7b6ec36dad79b651
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a0e4878987d55b57587fe949d3bdaa8921599a14
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623629"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053351"
 ---
 # <a name="what-is-azure-data-lake-analytics"></a>Vad är Azure Data Lake Analytics?
 
@@ -39,7 +38,7 @@ Data Lake Analytics använder dina befintliga IT-investeringar för identitet, h
 
 ### <a name="affordable-and-cost-effective"></a>Prisvärt och kostnadseffektivt
 
-Data Lake Analytics är en kostnadseffektiv lösning för arbetsbelastningar av stordata som körs. Du betalar per projekt när data bearbetas. Det krävs ingen maskinvara, licenser eller tjänstspecifikt supportavtal. Systemet skalas automatiskt uppåt eller nedåt när jobbet startas och är klart, vilket innebär att du aldrig betalar för mer än vad du behöver. [Läs mer om att kontrollera kostnader och spara pengar](https://1drv.ms/f/s!AvdZLquGMt47h213Hg3rhl-Tym1c).
+Data Lake Analytics är en kostnadseffektiv lösning för arbetsbelastningar av stordata som körs. Du betalar per projekt när data bearbetas. Det krävs ingen maskinvara, licenser eller tjänstspecifikt supportavtal. Systemet skalas automatiskt uppåt eller nedåt när jobbet startas och är klart, vilket innebär att du aldrig betalar för mer än vad du behöver. [Läs mer om att kontrollera kostnader och spara pengar](https://aka.ms/adlasavemoney).
     
 ### <a name="works-with-all-your-azure-data"></a>Fungerar med alla dina Azure-data
   

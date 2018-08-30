@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 525a11d0cbb10d4170930fb4df362e0a9ea024e2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a7c11e4bd3ac30c930ec717426c43d4361e32088
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38623514"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43088874"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Självstudie: Skapa en Azure-datafabrik med hjälp av en Azure Resource Manager-mall
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -268,7 +268,7 @@ Skapa en JSON-fil med namnet **ADFTutorialARM.json** i mappen **C:\ADFTutorial**
 Skapa en JSON-fil med namnet **ADFTutorialARM-Parameters.json** som innehåller parametrar för Azure Resource Manager-mallen.  
 
 > [!IMPORTANT]
-> - Ange namn och nyckel för Azure Storage-kontot och parametrarna **storageAccountName** och **storageAccountKey** i den här parameterfilen. Du har skapat adftutorial-behållaren och laddat upp exempelfilen (emp.txt) till indatamappen i denna Azure Blob Storage. 
+> - Ange namn och nyckel för Azure Storage-kontot och parametrarna **storageAccountName** och **storageAccountKey** i den här parameterfilen. Du har skapat adftutorial-containern och laddat upp exempelfilen (emp.txt) till indatamappen i denna Azure Blob Storage. 
 > - Ange ett globalt unikt namn för datafabriken för parametern **dataFactoryName**. Till exempel: ARMTutorialFactoryJohnDoe11282017. 
 > - För **triggerStartTime** anger du aktuell dag i formatet: `2017-11-28T00:00:00`.
 > - För **triggerEndTime** anger du nästa dag i formatet: `2017-11-29T00:00:00`. Du kan också kontrollera aktuell UTC-tid och ange nästa timma eller nästa två timmar som sluttid. Om UTC-tiden exempelvis nu är 1:32 anger du `2017-11-29:03:00:00` som sluttid. I det här fallet kör utlösaren pipelinen två gånger (vid 02:00 och 3:00).
@@ -469,7 +469,7 @@ Följande Data Factory-entiteter har definierats i JSON-mallen:
 - [Utlösare](#trigger)
 
 #### <a name="azure-storage-linked-service"></a>Länkad Azure-lagringstjänst
-AzureStorageLinkedService länkar ditt Azure Storage-konto till datafabriken. Du har skapat en behållare och överfört data till det här lagringskontot som en del av förhandskraven. Du anger namnet och nyckeln för Azure Storage-kontot i det här avsnittet. Se [Länkad Azure Storage-tjänst](connector-azure-blob-storage.md#linked-service-properties) om du vill ha information om JSON-egenskaper som används för att definiera en länkad Azure Storage-tjänst. 
+AzureStorageLinkedService länkar ditt Azure Storage-konto till datafabriken. Du har skapat en container och överfört data till det här lagringskontot som en del av förhandskraven. Du anger namnet och nyckeln för Azure Storage-kontot i det här avsnittet. Se [Länkad Azure Storage-tjänst](connector-azure-blob-storage.md#linked-service-properties) om du vill ha information om JSON-egenskaper som används för att definiera en länkad Azure Storage-tjänst. 
 
 ```json
 {
@@ -495,7 +495,7 @@ AzureStorageLinkedService länkar ditt Azure Storage-konto till datafabriken. Du
 connectionString använder parametrarna storageAccountName och storageAccountKey. Värdena för dessa parametrar skickades med hjälp av en konfigurationsfil. Definitionen använder också variablerna azureStorageLinkedService och dataFactoryName, som definieras i mallen. 
 
 #### <a name="azure-blob-input-dataset"></a>Indatauppsättning för Azure-blobb
-Den länkade Azure storage-tjänsten anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till ditt Azure storage-konto. Du anger namnen på blob-behållare, mappar och filer som innehåller indatan i Azure-blobuppsättningsdefinitionen. Se [Egenskaper för Azure-blobbdatauppsättning](connector-azure-blob-storage.md#dataset-properties) om du vill ha information om JSON-egenskaper som används för att definiera en Azure-blobbdatauppsättning. 
+Den länkade Azure storage-tjänsten anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till ditt Azure storage-konto. Du anger namnen på blobcontainer, mapp och fil som innehåller indata i Azure-blobuppsättningsdefinitionen. Se [Egenskaper för Azure-blobbdatauppsättning](connector-azure-blob-storage.md#dataset-properties) om du vill ha information om JSON-egenskaper som används för att definiera en Azure-blobbdatauppsättning. 
 
 ```json
 {

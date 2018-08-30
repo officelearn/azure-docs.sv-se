@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 3d1d77e585ae8d608a8f9a4e3de0943315d897af
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: a7916a434552cbcb999f1e69c7a5bc2419f517fb
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41920387"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43094350"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Skapa en datafabrik och pipeline med .NET SDK
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,67 +32,7 @@ Den här snabbstarten beskriver hur du använder .NET SDK till att skapa en Azur
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-
-### <a name="azure-subscription"></a>Azure-prenumeration
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
-
-### <a name="azure-roles"></a>Azure-roller
-Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara medlem av rollerna **deltagare** eller **ägare**, eller vara **administratör** för Azure-prenumerationen. I Azure-portalen klickar du på ditt **användarnamn** i det övre högra hörnet och väljer **Behörigheter** för att visa de behörigheter du har i prenumerationen. Om du har åtkomst till flera prenumerationer väljer du rätt prenumeration. För exempel på instruktioner om hur du lägger till en användare till en roll läser du artikeln [Lägg till roller](../billing/billing-add-change-azure-subscription-administrator.md).
-
-### <a name="azure-storage-account"></a>Azure Storage-konto
-I den här snabbstarten använder du ett allmänt Azure Storage-konto (Blob Storage, för att vara specifik) som datalager för både **källa** och **destination**. Om du inte har något allmänt Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md). 
-
-#### <a name="get-storage-account-name-and-account-key"></a>Hämta lagringskontots namn och åtkomstnyckel
-Du använder namnet och nyckeln för Azure Storage-kontot i den här snabbstarten. Följande procedur innehåller steg för att få fram namnet och nyckeln för ditt lagringskonto. 
-
-1. Öppna webbläsaren och gå till [Azure Portal](https://portal.azure.com). Logga in med ditt Azure-användarnamn och lösenord. 
-2. Klicka på **Fler tjänster >** i den vänstra menyn, filtrera på nyckelordet **Lagring** och välj **Lagringskonton**.
-
-    ![Sök efter lagringskontot](media/quickstart-create-data-factory-dot-net/search-storage-account.png)
-3. Filtrera på ditt lagringskonto (om det behövs) i listan med lagringskonton och välj sedan **ditt lagringskonto**. 
-4. Gå till sidan **Lagringskonto** väljer du **Åtkomstnycklar** i menyn.
-
-    ![Hämta lagringskontots namn och nyckel](media/quickstart-create-data-factory-dot-net/storage-account-name-key.png)
-5. Kopiera värdena från fälten med **lagringskontots namn** och **nyckel 1** till Urklipp. Klistra in dem i Anteckningar eller något annat redigeringsprogram och spara.  
-
-#### <a name="create-input-folder-and-files"></a>Skapa indatamapp och filer
-Det här avsnittet förutsätter att du har en blobcontainer med namnet **adftutorial** i Azure Blob Storage. Skapa en mapp med namnet **input** i containern och ladda upp en exempelfil i indatamappen. 
-
-1. På sidan **Lagringskonto** växlar du till **Översikt** och klickar på **Blobbar**. 
-
-    ![Alternativet Välj blobar](media/quickstart-create-data-factory-dot-net/select-blobs.png)
-2. På sidan **Blob Service** klickar du på **+ Container** i verktygsfältet. 
-
-    ![Lägga till containerknapp](media/quickstart-create-data-factory-dot-net/add-container-button.png)    
-3. I dialogrutan **Ny container** anger du **adftutorial** som namn och klickar på **OK**. 
-
-    ![Ange namn på container](media/quickstart-create-data-factory-dot-net/new-container-dialog.png)
-4. Klicka på **adftutorial** i listan över containrar. 
-
-    ![Välja containern](media/quickstart-create-data-factory-dot-net/select-adftutorial-container.png)
-1. På sidan **Container** klickar du på **Ladda upp** i verktygsfältet.  
-
-    ![Knappen för överföring](media/quickstart-create-data-factory-dot-net/upload-toolbar-button.png)
-6. På sidan **Ladda upp blob** klickar du på **Avancerat**.
-
-    ![Klicka på länken Avancerat](media/quickstart-create-data-factory-dot-net/upload-blob-advanced.png)
-7. Öppna **Anteckningar** och skapa en fil med namnet **emp.txt** med följande innehåll: Spara den i mappen **c:\ADFv2QuickStartPSH**: Skapa mappen **ADFv2QuickStartPSH** om den inte redan finns.
-    
-    ```
-    John, Doe
-    Jane, Doe
-    ```    
-8. På sidan **Ladda upp blob** i Azure-portalen bläddrar du och väljer filen **emp.txt** för fältet **Filer**. 
-9. Ange **input** som värdet som **Ladda upp till mapp** arkiverade. 
-
-    ![Ladda upp blobinställningar](media/quickstart-create-data-factory-dot-net/upload-blob-settings.png)    
-10. Kontrollera att mappen är **input** och att filen är **emp.txt** och klicka på **Ladda upp**.
-11. Du bör se filen **emp.txt** och uppladdningens status i listan. 
-12. Stäng sidan **Ladda upp blob** genom att klicka på **X** i hörnet. 
-
-    ![Stänga sidan Ladda upp blob](media/quickstart-create-data-factory-dot-net/close-upload-blob.png)
-1. Låt **containersidan** vara öppen. Du kommer att använda den för att bekräfta utdata i slutet av snabbstarten.
+[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
 ### <a name="visual-studio"></a>Visual Studio
 I den här artikeln används Visual Studio 2017. Du kan också använda Visual Studio 2013 eller 2015.
@@ -100,7 +40,7 @@ I den här artikeln används Visual Studio 2017. Du kan också använda Visual S
 ### <a name="azure-net-sdk"></a>SDK för Azure .NET
 Ladda ned och installera [Azure .NET SDK](http://azure.microsoft.com/downloads/) på datorn.
 
-### <a name="create-an-application-in-azure-active-directory"></a>Skapa ett program i Azure Active Directory
+## <a name="create-an-application-in-azure-active-directory"></a>Skapa ett program i Azure Active Directory
 Utför följande uppgifter genom att följa anvisningarna i avsnitten i [den här artikeln](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application): 
 
 1. **Skapa ett program i Azure Active Directory**. Skapa ett program i Azure Active Directory som representerar .NET-programmet du skapar i den här självstudien. För inloggnings-URL kan du ange en låtsas-URL enligt artikeln (`https://contoso.org/exampleapp`).

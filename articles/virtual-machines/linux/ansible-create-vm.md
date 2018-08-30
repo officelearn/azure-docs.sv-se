@@ -7,13 +7,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
-ms.date: 08/21/2018
-ms.openlocfilehash: a60ba863dbbd308219f4229319fb98c72180114d
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.date: 08/22/2018
+ms.openlocfilehash: ff9929d8f2da66b8aa24160c321c9158c832dbc0
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40250661"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42815193"
 ---
 # <a name="use-ansible-to-create-a-linux-virtual-machine-in-azure"></a>Använda Ansible för att skapa en virtuell Linux-dator i Azure
 Med hjälp av ett deklarativ språk gör Ansible att du kan automatisera skapande, konfiguration och distribution av Azure-resurser via Ansible-*spelböcker*. Varje avsnitt i den här artikeln visar hur varje avsnitt i en Ansible-spelbok kan se ut att för att skapa och konfigurera olika aspekter av en virtuell Linux-dator. Den [fullständiga Ansible-spelboken](#complete-sample-ansible-playbook) anges i slutet av den här artikeln.
@@ -22,19 +22,7 @@ Med hjälp av ett deklarativ språk gör Ansible att du kan automatisera skapand
 
 - **Azure-prenumeration** – Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-- **Konfigurera Azure Cloud Shell** eller **Installera och konfigurera Ansible på en virtuell Linux-dator**
-
-  **Konfigurera Azure Cloud Shell**
-
-  1. **Konfigurera Azure Cloud Shell** – Om du inte har använt Azure Cloud Shell tidigare rekommenderar vi att du läser artikeln [Snabbstart för Bash i Azure Cloud Shell](/azure/cloud-shell/quickstart), som beskriver hur du startar och konfigurerar Cloud Shell. 
-
-  **Eller**
-
-  **Installera och konfigurera Ansible på en virtuell Linux-dator**
-
-  1. **Installera Ansible** – Installera Ansible på en [Linux-plattform som stöds](/azure/virtual-machines/linux/ansible-install-configure#install-ansible-on-an-azure-linux-virtual-machine).
-
-  1. **Konfigurera Ansible** - [Skapa Azure-autentiseringsuppgifter och konfigurera Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)]
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 Ansible behöver en resursgrupp där dina resurser distribueras. I följande avsnitt i ett Ansible-spelboksexempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `eastus`:

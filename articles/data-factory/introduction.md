@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: bc53d245dd814b6f9bb4edab89ddcbf841f16a8f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 87df752f62956cffd455358059a3ab7b275b6a5d
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38579185"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090504"
 ---
 # <a name="introduction-to-azure-data-factory"></a>introduktion till Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ Tänk dig till exempel ett spelföretag som samlar in petabyte med spelloggar fr
 
 När företaget ska analysera loggarna måste de använda referensdata, till exempel kundinformation, spelinformation och marknadsföringskampanjinformation som finns i ett lokalt datalager. Företaget vill använda dessa data från det lokala datalagret och kombinera dem med ytterligare loggdata som de har i ett molndatalager. 
 
-För att utvinna insikter så hoppas de kunna bearbeta dessa sammanslagna data med hjälp av ett Spark-kluster i molnet (Azure HDInsight) och publicera omvandlade data till ett molninformationslager, till exempel Azure SQL Data Warehouse, för att enkelt kunna skapa en rapport från dem. De vill automatisera det här arbetsflödet och övervaka och hantera det enligt ett dagligt schema. De vill också köra det när filer landar i en bloblagerbehållare.
+För att utvinna insikter så hoppas de kunna bearbeta dessa sammanslagna data med hjälp av ett Spark-kluster i molnet (Azure HDInsight) och publicera omvandlade data till ett molninformationslager, till exempel Azure SQL Data Warehouse, för att enkelt kunna skapa en rapport från dem. De vill automatisera det här arbetsflödet och övervaka och hantera det enligt ett dagligt schema. De vill också köra det när filer landar i en bloblagercontainer.
 
 Azure Data Factory är en plattform som löser den här typen av datascenarier. Det är en *molnbaserad dataintegreringstjänst som gör att du kan skapa datadrivna arbetsflöden i molnet för att samordna och automatisera dataförflyttning och dataomvandling*. Med Azure Data Factory kan du skapa och schemalägga datadrivna arbetsflöden (kallas pipelines) som kan mata in data från olika datalager. Den kan bearbeta och transformera data med hjälp av beräkningstjänster, till exempel Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics och Azure Machine Learning. 
 
@@ -80,7 +80,7 @@ Aktiviteter representerar ett bearbetningssteg i en pipeline. Du kan till exempe
 Datauppsättningar representerar datastrukturer i datalager som pekar på eller refererar till de data som du vill använda i dina aktiviteter som indata eller utdata. 
 
 ### <a name="linked-services"></a>Länkade tjänster
-Länkade tjänster liknar anslutningssträngar som definierar den anslutningsinformation som behövs för att Data Factory ska kunna ansluta till externa resurser. Man kan se det som att datamängden representerar strukturen för data och den länkade tjänsten definierar anslutningen till datakällan. Till exempel anger en länkad Azure Storage-tjänst en anslutningssträng för att ansluta till ett Azure Storage-konto. Och en Azure Blob-datauppsättning anger vilken blobbehållare och mapp som innehåller data.
+Länkade tjänster liknar anslutningssträngar som definierar den anslutningsinformation som behövs för att Data Factory ska kunna ansluta till externa resurser. Man kan se det som att datamängden representerar strukturen för data och den länkade tjänsten definierar anslutningen till datakällan. Till exempel anger en länkad Azure Storage-tjänst en anslutningssträng för att ansluta till ett Azure Storage-konto. Och en Azure Blob-datauppsättning anger vilken blobcontainer och mapp som innehåller data.
 
 Länkade tjänster används för två syften i Data Factory:
 
@@ -102,7 +102,7 @@ En datauppsättning är en starkt typifierad parameter och en återanvändbar/re
 En länkad tjänst är också en starkt typifierad parameter som innehåller anslutningsinformationen till antingen ett datalager eller en beräkningsmiljö. Det är också en återanvändningsbar/refererbar entitet.
 
 ### <a name="control-flow"></a>Kontrollflöde
-Kontrollflöde är en orkestrering av pipelineaktiviteter som innefattar kedjesammansättning av aktiviteter i en sekvens, branchning definiering av parametrar på pipelinenivå och argument som skickas vid anrop till pipelinen på begäran eller från en utlösare. Det innefattar även att skicka anpassade tillstånd och loopbehållare, d.v.s. for-each-iteratorer.
+Kontrollflöde är en orkestrering av pipelineaktiviteter som innefattar kedjesammansättning av aktiviteter i en sekvens, branchning definiering av parametrar på pipelinenivå och argument som skickas vid anrop till pipelinen på begäran eller från en utlösare. Det innefattar även att skicka anpassade tillstånd och loopcontainer, d.v.s. for-each-iteratorer.
 
 
 Mer information om Data Factory-begrepp finns i följande artiklar:

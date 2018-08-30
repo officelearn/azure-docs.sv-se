@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 03d4ad081a788299bab563ca6b956edc347732da
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f659c424f7d5e705343c113d2ba0971164ca622a
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447966"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108814"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Snabbstart: Skapa en virtuell Linux-dator i Azure Portal
 
@@ -53,7 +53,7 @@ Logga in på Azure Portal på http://portal.azure.com
 
 3. Ange ett namn på den virtuella datorn, till exempel *myVM*, lämna disktypen som *SSD* och ange sedan ett användarnamn, som *azureuser*.
 
-4. . Som **autentiseringstyp** väljer du **offentlig SSH-nyckel** och klistrar in den offentliga nyckeln i textrutan. Var noga med att ta bort eventuella inledande eller avslutande blanksteg i din offentliga nyckel.
+4. Som **autentiseringstyp** väljer du **offentlig SSH-nyckel** och klistrar in den offentliga nyckeln i textrutan. Var noga med att ta bort eventuella inledande eller avslutande blanksteg i din offentliga nyckel.
 
     ![Ange grundläggande information om de virtuella datorerna på portalens blad](./media/quick-create-portal/create-vm-portal-basic-blade.png)
 

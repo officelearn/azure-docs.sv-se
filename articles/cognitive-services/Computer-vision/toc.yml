@@ -6,101 +6,91 @@ items:
   - name: Vad är visuellt innehåll?
     href: Home.md
   expanded: true
-- name: API-snabbstarter
+- name: Snabbstarter
   items:
-  - name: Sammanfattning
-    href: QuickStarts/quickstart-summary.md
-  - name: C#
-    items:
-    - name: Analysera en bild
-      href: QuickStarts/CSharp-analyze.md
-    - name: Skapa en miniatyrbild
-      href: QuickStarts/CSharp-thumb.md
-    - name: Extrahera tryckt text
-      href: QuickStarts/CSharp-print-text.md
-    - name: Extrahera handskriven text
-      href: QuickStarts/CSharp-hand-text.md
-  - name: cURL
+  - name: Använda REST-API:et
     items:
     - name: Analysera en fjärrbild
-      href: QuickStarts/curl-analyze.md
+      items:
+      - name: cURL
+        href: QuickStarts/curl-analyze.md
+      - name: Go
+        href: QuickStarts/go-analyze.md
+      - name: Java
+        href: QuickStarts/java-analyze.md
+      - name: JavaScript
+        href: QuickStarts/javascript-analyze.md
+      - name: Node.js
+        href: QuickStarts/node-analyze.md
+      - name: PHP
+        href: QuickStarts/php-analyze.md
+      - name: Python
+        href: QuickStarts/python-analyze.md
+      - name: Ruby
+        href: QuickStarts/ruby-analyze.md
     - name: Analysera en lokal bild
-      href: QuickStarts/curl-disk.md
+      items:
+      - name: C#
+        href: QuickStarts/CSharp-analyze.md
+      - name: Python
+        href: QuickStarts/python-disk.md
     - name: Skapa en miniatyrbild
-      href: QuickStarts/curl-thumb.md
+      items:
+      - name: C#
+        href: QuickStarts/CSharp-thumb.md
+      - name: cURL
+        href: QuickStarts/curl-thumb.md
+      - name: Go
+        href: QuickStarts/go-thumb.md
+      - name: Java
+        href: QuickStarts/java-thumb.md
+      - name: JavaScript
+        href: QuickStarts/javascript-thumb.md
+      - name: Node.js
+        href: QuickStarts/node-thumb.md
+      - name: PHP
+        href: QuickStarts/php-thumb.md
+      - name: Python
+        href: QuickStarts/python-thumb.md
+      - name: Ruby
+        href: QuickStarts/ruby-thumb.md
     - name: Extrahera tryckt text
-      href: QuickStarts/curl-print-text.md
-  - name: Go
-    items:
-    - name: Analysera en bild
-      href: QuickStarts/go-analyze.md
-    - name: Skapa en miniatyrbild
-      href: QuickStarts/go-thumb.md
-    - name: Extrahera tryckt text
-      href: QuickStarts/go-print-text.md
-  - name: Java
-    items:
-    - name: Analysera en bild
-      href: QuickStarts/java-analyze.md
-    - name: Skapa en miniatyrbild
-      href: QuickStarts/java-thumb.md
-    - name: Extrahera tryckt text
-      href: QuickStarts/java-print-text.md
+      items:
+      - name: C#
+        href: QuickStarts/CSharp-print-text.md
+      - name: cURL
+        href: QuickStarts/curl-print-text.md
+      - name: Go
+        href: QuickStarts/go-print-text.md
+      - name: Java
+        href: QuickStarts/java-print-text.md
+      - name: JavaScript
+        href: QuickStarts/javascript-print-text.md
+      - name: Node.js
+        href: QuickStarts/node-print-text.md
+      - name: PHP
+        href: QuickStarts/php-print-text.md
+      - name: Python
+        href: QuickStarts/python-print-text.md
+      - name: Ruby
+        href: QuickStarts/ruby-print-text.md
     - name: Extrahera handskriven text
-      href: QuickStarts/java-hand-text.md
-  - name: JavaScript
-    items:
-    - name: Analysera en bild
-      href: QuickStarts/javascript-analyze.md
-    - name: Skapa en miniatyrbild
-      href: QuickStarts/javascript-thumb.md
-    - name: Extrahera tryckt text
-      href: QuickStarts/javascript-print-text.md
-    - name: Extrahera handskriven text
-      href: QuickStarts/javascript-hand-text.md
-  - name: Node.js
-    items:
-    - name: Analysera en bild
-      href: QuickStarts/node-analyze.md
-    - name: Skapa en miniatyrbild
-      href: QuickStarts/node-thumb.md
-    - name: Extrahera tryckt text
-      href: QuickStarts/node-print-text.md
-  - name: PHP
-    items:
-    - name: Analysera en bild
-      href: QuickStarts/php-analyze.md
+      items:
+      - name: C#
+        href: QuickStarts/CSharp-hand-text.md
+      - name: Java
+        href: QuickStarts/java-hand-text.md
+      - name: JavaScript
+        href: QuickStarts/javascript-hand-text.md
+      - name: Python
+        href: QuickStarts/python-hand-text.md
     - name: Använda en domänmodell
-      href: QuickStarts/php-domain.md
-    - name: Skapa en miniatyrbild
-      href: QuickStarts/php-thumb.md
-    - name: Extrahera tryckt text
-      href: QuickStarts/php-print-text.md
-  - name: Python
-    items:
-    - name: Analysera en fjärrbild
-      href: QuickStarts/python-analyze.md
-    - name: Analysera en lokal bild
-      href: QuickStarts/python-disk.md
-    - name: Använda en domänmodell
-      href: QuickStarts/python-domain.md
-    - name: Skapa en miniatyrbild
-      href: QuickStarts/python-thumb.md
-    - name: Extrahera tryckt text
-      href: QuickStarts/python-print-text.md
-    - name: Extrahera handskriven text
-      href: QuickStarts/python-hand-text.md
-  - name: Ruby
-    items:
-    - name: Analysera en bild
-      href: QuickStarts/ruby-analyze.md
-    - name: Skapa en miniatyrbild
-      href: QuickStarts/ruby-thumb.md
-    - name: Extrahera tryckt text
-      href: QuickStarts/ruby-print-text.md
-- name: Snabbstarter för SDK
-  items:
-  - name: C#
+      items:
+      - name: PHP
+        href: QuickStarts/php-domain.md
+      - name: Python
+        href: QuickStarts/python-domain.md
+  - name: Använda .NET SDK
     items:
     - name: Analysera en bild
       href: quickstarts-sdk/csharp-analyze-sdk.md
@@ -172,9 +162,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Kategoritaxonomi
     href: Category-Taxonomy.md
-ms.openlocfilehash: 9fc95708365458dcebcf40a759db3f8267fa0c96
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: b432d958b5ce8f31f6f4487d986f2c793a782e2d
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43086759"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246131"

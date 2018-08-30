@@ -7,13 +7,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/21/2018
-ms.openlocfilehash: de692b29902145e44a055680d662c16ed90c56c2
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.date: 08/23/2018
+ms.openlocfilehash: f7dbc124781992ada9c3538cf415b836d8764064
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617183"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42810828"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Skapa och konfigurera Azure Kubernetes Service-kluster i Azure med Ansible
 Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan använda Ansible för att hantera Azure Kubernetes Service (AKS). Den här artikeln beskriver hur du använder Ansible för att skapa och konfigurera ett Azure Kubernetes Service-kluster.
@@ -22,19 +22,7 @@ Med Ansible kan du automatisera distributionen och konfigurationen av resurser i
 - **Azure-prenumeration** – Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) konto innan du börjar.
 - **Azure-tjänstens huvudnamn** – Observera följande värden när du [skapar tjänstens huvudnamn](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal): **appId**, **displayName**, **password** och **tenant**.
 
-- **Konfigurera Azure Cloud Shell** eller **Installera och konfigurera Ansible på en virtuell Linux-dator**
-
-  **Konfigurera Azure Cloud Shell**
-
-  1. **Konfigurera Azure Cloud Shell** – Om du inte har använt Azure Cloud Shell tidigare rekommenderar vi att du läser artikeln [Snabbstart för Bash i Azure Cloud Shell](/azure/cloud-shell/quickstart), som beskriver hur du startar och konfigurerar Cloud Shell. 
-
-  **Eller**
-
-  **Installera och konfigurera Ansible på en virtuell Linux-dator**
-
-  1. **Installera Ansible** – Installera Ansible på en [Linux-plattform som stöds](/azure/virtual-machines/linux/ansible-install-configure#install-ansible-on-an-azure-linux-virtual-machine).
-
-  1. **Konfigurera Ansible** - [Skapa Azure-autentiseringsuppgifter och konfigurera Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
 > Ansible 2.6 krävs för att köra följande exempelspelböcker i den här självstudien. 

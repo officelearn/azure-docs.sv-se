@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: f1803dd051b380743b56f4f026ee5c5fb684ce69
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 342fdce9a0e9b47380a8d8c975703ebb7f57e3b6
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41920120"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43087137"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Läsa in data stegvis från en Azure SQL-databas till Azure Blob Storage
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta-data från en tabell i en Azure SQL-databas till Azure Blob Storage. 
@@ -287,8 +287,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 27. På fliken **Anslutning** och gör följande:
 
     1. Bekräfta att **AzureStorageLinkedService** har valts för **Länkad tjänst**. 
-    2. För **mappdelen** i fältet **Filsökväg** anger du **adftutorial/incrementalcopy**. 
-  **adftutorial** är blobcontainerns namn och **incrementalcopy** är mappens namn. Det här kodfragmentet förutsätter att du har en blobcontainer med namnet adftutorial i din blob-lagring. Skapa containern om den inte finns, eller ställ in den för namnet på en befintlig. Azure Data Factory skapar automatiskt utdatamappen **incrementalcopy** om den inte finns. Du kan också använda knappen **Bläddra** för **Filsökväg** för att navigera till en mapp i en blobcontainer. .RunId, '.txt')`.
+    2. För **mappdelen** i fältet **Filsökväg** anger du **adftutorial/incrementalcopy**. **adftutorial** är blobcontainerns namn och **incrementalcopy** är mappens namn. Det här kodfragmentet förutsätter att du har en blobcontainer med namnet adftutorial i din blob-lagring. Skapa containern om den inte finns, eller ställ in den för namnet på en befintlig. Azure Data Factory skapar automatiskt utdatamappen **incrementalcopy** om den inte finns. Du kan också använda knappen **Bläddra** för **Filsökväg** för att navigera till en mapp i en blobcontainer. .RunId, '.txt')`.
     3. För **filnamnsdelen** av fältet med **filsökväg** ange du `@CONCAT('Incremental-', pipeline().RunId, '.txt')`. Filnamnet genereras dynamiskt med uttrycket. Varje pipelinekörning har ett unikt ID. Kopieringsaktiviteten använder körnings-ID för att generera filnamnet. 
 
         ![Datauppsättning för mottagare – anslutningsinställningar](./media/tutorial-incremental-copy-portal/sink-dataset-connection-settings.png)

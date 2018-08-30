@@ -3,18 +3,18 @@ title: 'Självstudie: Apache Spark Structured Streaming med Kafka – Azure HDIn
 description: Lär dig använda Apache Spark-strömning till att hämta data till eller från Apache Kafka. I den här självstudien strömmas data med hjälp av en Jupyter Notebook från Apache Spark på HDInsight.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: jasonh
-ms.openlocfilehash: 47879350c56b9e8b943e1bff61359727746b697d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 11169e45d5fbdc5e51b81c06d814524a7b09c614
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39598321"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108297"
 ---
 # <a name="tutorial-use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Självstudie: Använda Apache Spark Structured Streaming med Kafka på HDInsight
 

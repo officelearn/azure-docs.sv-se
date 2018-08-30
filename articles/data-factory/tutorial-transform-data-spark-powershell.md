@@ -9,15 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 5c6192fdf235b5ecb1148b024da7b11f844e9321
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: c01da1b667f5a57e9597b77e21dcd9cc95340cb1
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081091"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43088234"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Transformera data i molnet genom att använda Spark-aktivitet i Azure Data Factory
 I den här självstudien använder du Azure PowerShell för att skapa en Data Factory-pipeline som transformerar data med Spark-aktivitet och en länkad HDInsight-tjänst på begäran. I den här självstudiekursen får du göra följande:
@@ -31,7 +31,7 @@ I den här självstudien använder du Azure PowerShell för att skapa en Data Fa
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * **Azure Storage-konto**. Du skapar ett Python-skript och en indatafil och överför dem till Azure Storage. Spark-programmets utdata lagras på det här lagringskontot. Spark-klustret på begäran använder samma lagringskonto som den primära lagringen.  
 * **Azure PowerShell**. Följ instruktionerna i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
@@ -63,7 +63,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
         main()
     ```
 2. Ersätt **&lt;storageAccountName&gt;** med namnet på ditt Azure-konto. Spara sedan filen. 
-3. Skapa en behållare med namnet **adftutorial** i Azure Blob Storage om den inte finns. 
+3. Skapa en container med namnet **adftutorial** i Azure Blob Storage om den inte finns. 
 4. Skapa en mapp med namnet **spark**.
 5. Skapa en undermapp med namnet **script** under mappen **spark**. 
 6. Överför filen **WordCount_Spark.py** till undermappen **script**. 
@@ -176,7 +176,7 @@ Skapa en JSON-fil med önskat redigeringsprogram, kopiera följande JSON-definit
 
 Observera följande punkter: 
 
-- rootPath pekar på Spark-mappen i behållaren adftutorial. 
+- rootPath pekar på Spark-mappen i containern adftutorial. 
 - entryFilePath pekar på filen WordCount_Spark.py i skriptets undermapp i Spark-mappen. 
 
 
@@ -327,7 +327,7 @@ Du har skapat definitioner för länkad tjänst och pipeline i JSON-filer. Nu sk
     "failureType": ""
     "target": "MySparkActivity"
     ```
-4. Bekräfta att en mapp med namnet `outputfiles` har skapats i mappen `spark` i adftutorial-behållaren med utdata från Spark-programmet. 
+4. Bekräfta att en mapp med namnet `outputfiles` har skapats i mappen `spark` i adftutorial-containern med utdata från Spark-programmet. 
 
 
 ## <a name="next-steps"></a>Nästa steg

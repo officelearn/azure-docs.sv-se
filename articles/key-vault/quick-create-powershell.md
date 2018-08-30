@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/10/2018
+ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: 381cda9072e1433048611628c692fa72ede3dceb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 50448691fb136278cf7fdf3687ffb3b13fbb54ca
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42023469"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122271"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Snabbstart: Ställ in och hämta en hemlighet från Azure Key Vault med hjälp av PowerShell
 
@@ -31,7 +31,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Om du väljer att installera och använda PowerShell lokalt måste du ha version 5.1.1 eller senare av Azure PowerShell-modulen. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
 
-```azurepowershell
+```azurepowershell-interactive
 Login-AzureRmAccount
 ```
 
@@ -39,7 +39,7 @@ Login-AzureRmAccount
 
 Skapa en Azure-resursgrupp med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. 
 
-```azurepowershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -Name ContosoResourceGroup -Location EastUS
 ```
 
@@ -53,7 +53,7 @@ Sedan skapar du ett nyckelvalv. När du utför det här steget behöver du en de
 - **Resursgruppnamn** ContosoResourceGroup.
 - **Plats** Östra USA.
 
-```azurepowershell
+```azurepowershell-interactive
 New-AzureRmKeyVault -VaultName 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
 ```
 
@@ -72,19 +72,19 @@ När du ska lägga till en hemlighet i valvet behöver du bara utföra ett fåta
 
 Konvertera först värdet Pa$$w0rd till en säker sträng genom att skriva följande:
 
-```azurepowershell
+```azurepowershell-interactive
 $secretvalue = ConvertTo-SecureString 'Pa$$w0rd' -AsPlainText -Force
 ```
 
 Skriv sedan PowerShell-kommandona nedan för att skapa en hemlighet i nyckelvalvet med namnet **ExamplePassword**, som har värdet **Pa$$w0rd**:
 
-```azurepowershell
+```azurepowershell-interactive
 $secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'ExamplePassword' -SecretValue $secretvalue
 ```
 
 Så här visar du värdet som finns i hemligheten som oformaterad text:
 
-```azurepowershell
+```azurepowershell-interactive
 (Get-AzureKeyVaultSecret -vaultName "Contosokeyvault" -name "ExamplePassword").SecretValueText
 ```
 
@@ -96,7 +96,7 @@ Nu har du skapat ett nyckelvalv, lagrat en hemlighet och hämtat den.
 
 När du inte behöver resursgruppen längre kan du använda kommandot [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) till att ta bort resursgruppen, nyckelvalvet och alla relaterade resurser.
 
-```azurepowershell
+```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name ContosoResourceGroup
 ```
 

@@ -2,19 +2,18 @@
 title: Anpassa operatörsvyerna i Azure IoT Central | Microsoft Docs
 description: Som byggare anpassar du operatörsvyerna i Azure IoT Central-programmet.
 author: sandeeppujar
-ms.author: sadeepu
+ms.author: sandeepu
 ms.date: 04/16/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: peterpr
-ms.openlocfilehash: ddb6e6d7859227b8eec7f13b95fab06b333dacda
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: c0b42c3efd5e015eaf1fbd750f835d8de8818de9
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235376"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43185859"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Självstudie: Anpassa operatörsvyn i Azure IoT Central
 
@@ -22,7 +21,7 @@ Den här självstudien visar hur du som är byggare anpassar operatörsvyn för 
 
 I den här självstudien anpassar du programmet så att det visar relevant information om en ansluten luftkonditioneringsenheten för en operatör. Med dina anpassningar kan operatören hantera de luftkonditioneringsenheter som är anslutna till programmet.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Konfigurera enhetens instrumentpanel

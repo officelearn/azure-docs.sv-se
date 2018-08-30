@@ -11,16 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 09cad6b76b2fdefe1163530e5437427faf29d72f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1373882fa64ac334b92dc772fc04d4b40260cc25
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299929"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093416"
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>Självstudier: Använd Azure Portal för att skapa Data Factory-pipeline för att kopiera data 
 > [!div class="op_single_selector"]
@@ -55,12 +55,12 @@ Här är de steg du utför som en del av de här självstudierna:
 1. Skapa en Azure-**datafabrik**. I det här steget skapar du en datafabrik med namnet ADFTutorialDataFactory. 
 2. Skapa **länkade tjänster** i den här datafabriken. I det här steget kan du skapa två länkade tjänster: Azure Storage och Azure SQL-databas. 
     
-    AzureStorageLinkedService länkar ditt Azure Storage-konto till datafabriken. Du har skapat en behållare och överfört data till det här lagringskontot som en del av [förhandskraven](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
+    AzureStorageLinkedService länkar ditt Azure Storage-konto till datafabriken. Du har skapat en container och överfört data till det här lagringskontot som en del av [förhandskraven](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
     AzureSqlLinkedService länkar din Azure SQL-databas till datafabriken. Data som kopieras från blob-lagringen sparas i den här databasen. Du har skapat den SQL-tabellen i den här databasen som en del av [förhandskraven](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 3. Skapa **datauppsättningar** för indata och utdata i datafabriken.  
     
-    Den länkade Azure storage-tjänsten anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till ditt Azure storage-konto. Och en Azure Blob-datauppsättning anger vilken blobbehållare och mapp som innehåller data.  
+    Den länkade Azure storage-tjänsten anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till ditt Azure storage-konto. Och en Azure Blob-datauppsättning anger vilken blobcontainer och mapp som innehåller data.  
 
     Den länkade Azure SQL-databasen anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till ditt Azure SQL-databas. Och utdatauppsättningen för SQL-tabellen anger tabellen i databasen som data kopieras till från blob-lagringen.
 4. Skapa en **pipeline** i datafabriken. I det här steget kan du skapa en pipeline med en kopieringsaktivitet.   
@@ -117,7 +117,7 @@ Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager o
 
 Därför kan du skapa två länkade tjänster som heter AzureStorageLinkedService och AzureSqlLinkedService av typerna: AzureStorage och AzureSqlDatabase.  
 
-AzureStorageLinkedService länkar ditt Azure Storage-konto till datafabriken. Använd det lagringskonto i vilket du skapade en behållare och laddade upp data under [förberedelsestegen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
+AzureStorageLinkedService länkar ditt Azure Storage-konto till datafabriken. Använd det lagringskonto i vilket du skapade en container och laddade upp data under [förberedelsestegen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
 AzureSqlLinkedService länkar din Azure SQL-databas till datafabriken. Data som kopieras från blob-lagringen sparas i den här databasen. Du har skapat den tomma tabellen i den här databasen som en del av [förhandskraven](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).  
 
@@ -155,12 +155,12 @@ I det här steget länkar du Azure SQL-databasen till din datafabrik. Du anger A
 ## <a name="create-datasets"></a>Skapa datauppsättningar
 I det föregående steget skapade du kopplade tjänster för att länka ett Azure-lagringskonto och en Azure SQL-databas till datafabriken. I det här steget definierar du två datauppsättningar – InputDataset och OutputDataset – som visar in- och utdata som lagras i de datalager som refereras till av AzureStorageLinkedService och AzureSqlLinkedService.
 
-Den länkade Azure storage-tjänsten anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till ditt Azure storage-konto. Och en indatauppsättning anger vilken blobbehållare och mapp som innehåller indata.  
+Den länkade Azure storage-tjänsten anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till ditt Azure storage-konto. Och en indatauppsättning anger vilken blobcontainer och mapp som innehåller indata.  
 
 Den länkade Azure SQL-databasen anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till ditt Azure SQL-databas. Och utdatauppsättningen (OutputDataset) för SQL-tabellen anger tabellen i databasen som data kopieras till från blob-lagringen. 
 
 ### <a name="create-input-dataset"></a>Skapa indatauppsättning
-I det här steget skapar du en datauppsättning med namnet InputDataset som pekar på en blobfil (emp.ext) i rotmappen i en blobbehållare (adftutorial) i Azure Storage som representeras av den länkade tjänsten AzureStorageLinkedService. Om du inte anger ett värde för filnamnet (eller hoppar över det), kommer data från alla blobbar i indatamappen att kopieras till målet. I den här kursen anger du ett värde för filnamnet. 
+I det här steget skapar du en datauppsättning med namnet InputDataset som pekar på en blobfil (emp.ext) i rotmappen i en blobcontainer (adftutorial) i Azure Storage som representeras av den länkade tjänsten AzureStorageLinkedService. Om du inte anger ett värde för filnamnet (eller hoppar över det), kommer data från alla blobbar i indatamappen att kopieras till målet. I den här kursen anger du ett värde för filnamnet. 
 
 1. I **redigeringsprogrammet** för Data Factory klickar du på **... More (Mer)**, **Ny datauppsättning** och sedan på **Azure Blob Storage** i listrutan. 
    
@@ -206,11 +206,11 @@ I det här steget skapar du en datauppsättning med namnet InputDataset som peka
     |:--- |:--- |
     | typ | Typegenskapen har angetts till **AzureBlob** eftersom det finns data i Azure Blob-lagringen. |
     | linkedServiceName | Refererar till **AzureStorageLinkedService** som du skapade tidigare. |
-    | folderPath | Anger vilken **blobbehållare** och **mapp** som innehåller indatablobbar. I den här självstudiekursen adftutorial är blob-behållaren och -mappen rotmappen. | 
+    | folderPath | Anger vilken **blobcontainer** och **mapp** som innehåller indatablobar. I den här självstudiekursen adftutorial är blobcontainern och -mappen rotmappen. | 
     | fileName | Den här egenskapen är valfri. Om du tar bort egenskapen kommer alla filer från folderPath hämtas. I den här självstudiekursen har angetts **emp.txt** som filnamn så att endast den filen hämtas för bearbetning. |
     | format -> typ |Indatafilen är i textformat, så vi använder **TextFormat**. |
     | columnDelimiter | Kolumner i loggfilerna avgränsas med **kommatecken (`,`)**. |
-    | frekvens/intervall | Frekvensen är **timme** och intervallet är **1**, vilket innebär att indatasektorerna är tillgängliga en gång i **timmen**. Det betyder att tjänsten Data Factory söker efter indata varje timme i rotmappen för den angivna blobbehållaren (**adftutorial**). Den söker data i pipelinens start- och sluttider och inte före eller efter dessa tider.  |
+    | frekvens/intervall | Frekvensen är **timme** och intervallet är **1**, vilket innebär att indatasektorerna är tillgängliga en gång i **timmen**. Det betyder att tjänsten Data Factory söker efter indata varje timme i rotmappen för den angivna blobcontainern (**adftutorial**). Den söker data i pipelinens start- och sluttider och inte före eller efter dessa tider.  |
     | extern | Den här egenskapen anges som **true** om indatan inte skapades av denna pipeline. Inkommande data i den här självstudien finns i filen emp.txt som genereras av denna pipeline, så vi ställer in den här egenskapen på true. |
 
     Mer information om de här JSON-egenskaperna finns i artikeln [Azure Blob-anslutningsapp](data-factory-azure-blob-connector.md#dataset-properties).      
@@ -352,7 +352,7 @@ Följande steg visar hur du övervakar pipelines i din datafabrik med hjälp av 
 
     I aktivitetsfönsterutforskaren till höger ser du att segment upp till den aktuella UTC-tiden (20:12) bearbetas (med grön färg). Segmenten 20: 00-21:00, 21:00-22:00, 22:00-23:00, 23:00-24:00 bearbetas inte ännu.
 
-    Området **Försök** i den högra rutan innehåller information om aktivitetskörningar för datasektorn. Om ett fel uppstod, visas information om felet. Till exempel, om indatamappen eller behållaren inte finns och segmentbearbetningen misslyckades visas ett felmeddelande om att behållaren eller mappen inte finns.
+    Området **Försök** i den högra rutan innehåller information om aktivitetskörningar för datasektorn. Om ett fel uppstod, visas information om felet. Till exempel, om indatamappen eller containern inte finns och segmentbearbetningen misslyckades visas ett felmeddelande om att containern eller mappen inte finns.
 
     ![Aktivitetskörningsförsök](./media/data-factory-copy-activity-tutorial-using-azure-portal/activity-run-attempts.png) 
 4. Starta **SQL Server Management Studio**, anslut till Azure SQL Database och kontrollera att raderna infogas i **emp**-tabellen i databasen.
@@ -377,7 +377,7 @@ Du kan också övervaka datapipelines genom att använda diagramvyn.
    
     ![Alla indatasektorer](./media/data-factory-copy-activity-tutorial-using-azure-portal/all-input-slices.png)  
    
-    Observera att alla datasegment upp till aktuell tid är **klara** eftersom filen **emp.txt** alltid finns i blobbehållaren: **adftutorial\input**. Segmenten för framtida tider ännu inte klara. Kontrollera att inga sektorer visas i avsnittet **Nyligen misslyckade sektorer** längst ned.
+    Observera att alla datasegment upp till aktuell tid är **klara** eftersom filen **emp.txt** alltid finns i blobcontainern: **adftutorial\input**. Segmenten för framtida tider ännu inte klara. Kontrollera att inga sektorer visas i avsnittet **Nyligen misslyckade sektorer** längst ned.
 6. Stäng bladen tills du ser diagramvyn (eller) rulla åt vänster för att visa diagramvyn. Dubbelklicka sedan på **OutputDataset**. 
 8. Klicka på länken **Visa mer** på bladet **Tabell** för **OutputDataset** för att se alla segment.
 

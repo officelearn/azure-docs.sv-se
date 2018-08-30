@@ -1,6 +1,6 @@
 ---
 title: Snabbstart – skapa ett privat Docker-register i Azure med PowerShell
-description: Lär dig snabbt att skapa ett privat Docker-behållarregister i Azure med PowerShell.
+description: Lär dig snabbt att skapa ett privat Docker-containerregister i Azure med PowerShell.
 services: container-registry
 author: marsma
 manager: jeconnoc
@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 05/08/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 282cd4bc9256fc483014b53626c02106d0de236a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e6c3330519692eb829803af2582b711be2fb3efe
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33885127"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43092886"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>Snabbstart: Skapa ett Azure Container Registry med PowerShell
 
-Azure Container Registry är en hanterad Docker-behållarregistertjänst för att bygga, lagra och hantera Docker-behållaravbildningar. I denna snabbstart kommer du att lära dig hur du skapar ett Azure-behållarregister med hjälp av PowerShell. När du har skapat registret push-överför du en behållaravbildning till det och sedan distribuerar du behållaren från registret i Azure Container Instances (ACI).
+Azure Container Registry är en hanterad Docker-behållarregistertjänst för att bygga, lagra och hantera Docker-behållaravbildningar. I denna snabbstart kommer du att lära dig hur du skapar ett Azure-containerregister med hjälp av PowerShell. När du har skapat registret push-överför du en behållaravbildning till det och sedan distribuerar du behållaren från registret i Azure Container Instances (ACI).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -30,7 +30,7 @@ Eftersom Azure Cloud Shell inte innehåller alla nödvändiga Docker-komponenter
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-prenumerationen med kommandot [Connect-AzureRmAccount] och följ anvisningarna på skärmen.
+Logga in på Azure-prenumerationen med kommandot [Connect-AzureRmAccount][Connect-AzureRmAccount] och följ anvisningarna på skärmen.
 
 ```powershell
 Connect-AzureRmAccount
@@ -38,13 +38,13 @@ Connect-AzureRmAccount
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
-När du är autentiserad med Azure, skapa en resursgrupp med [New-AzureRmResourceGroup][New-AzureRmResourceGroup]. En resursgrupp är en logisk behållare där du kan distribuera och hantera dina Azure-resurser.
+När du är autentiserad med Azure, skapa en resursgrupp med [New-AzureRmResourceGroup][New-AzureRmResourceGroup]. En resursgrupp är en logisk container där du kan distribuera och hantera dina Azure-resurser.
 
 ```powershell
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-## <a name="create-container-registry"></a>Skapa behållarregister
+## <a name="create-container-registry"></a>Skapa containerregister
 
 Skapa sedan ett behållarregister i din nya resursgrupp med kommandot [New-AzureRMContainerRegistry][New-AzureRMContainerRegistry].
 
@@ -56,7 +56,7 @@ $registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -N
 
 ## <a name="log-in-to-registry"></a>Logga in till registret
 
-Innan du skickar och hämtar behållaravbildningar måste du logga in på ditt register. Använd kommandot [Get-AzureRmContainerRegistryCredential][Get-AzureRmContainerRegistryCredential] för att först hämta autentiseringsuppgifter som administratör för registret:
+Innan du skickar och hämtar containeravbildningar måste du logga in i ditt register. Använd kommandot [Get-AzureRmContainerRegistryCredential][Get-AzureRmContainerRegistryCredential] för att först hämta autentiseringsuppgifter som administratör för registret:
 
 ```powershell
 $creds = Get-AzureRmContainerRegistryCredential -Registry $registry
@@ -77,7 +77,7 @@ Login Succeeded
 
 ## <a name="push-image-to-registry"></a>Push-överför avbildningen till registret
 
-Nu när du är inloggad i registret, kan du push-överföra behållaravbildningar till det. För att få en avbildning som du kan push-överföra till registret, hämtar du den offentliga [aci-helloworld][aci-helloworld-image]-avbildningen från Docker-hubben. [aci-helloworld][aci-helloworld-github]-avbildningen är ett litet Node.js-program som har en statisk HTML-sida som visar Azure Container Instances-logotypen.
+Nu när du är inloggad i registret, kan du push-överföra containeravbildningar till det. För att få en avbildning som du kan push-överföra till registret, hämtar du den offentliga [aci-helloworld][aci-helloworld-image]-avbildningen från Docker-hubben. [aci-helloworld][aci-helloworld-github]-avbildningen är ett litet Node.js-program som har en statisk HTML-sida som visar Azure Container Instances-logotypen.
 
 ```powershell
 docker pull microsoft/aci-helloworld
@@ -99,7 +99,7 @@ Digest: sha256:a3b2eb140e6881ca2c4df4d9c97bedda7468a5c17240d7c5d30a32850a2bc573
 Status: Downloaded newer image for microsoft/aci-helloworld:latest
 ```
 
-Innan du kan push-överföra en avbildning i Azure-behållarregistret, måste du tagga den med det fullständigt kvalificerade domännamnet (FQDN) för registret. FQDN för Azure-behållarregistret anges i formatet *\<registry-name\>.azurecr.io*.
+Innan du kan push-överföra en avbildning till Azure-containerregistret, måste du tagga den med det fullständigt kvalificerade domännamnet (FQDN) för registret. FQDN för Azure-containerregistret anges i formatet *\<registry-name\>.azurecr.io*.
 
 Fyll i en variabel med fullständig avbildningstagg. Inkludera inloggningsserver, databasens namn (”aci-helloworld”) och avbildningens version (”v1”):
 
@@ -133,20 +133,20 @@ d8fbd47558a8: Pushed
 v1: digest: sha256:565dba8ce20ca1a311c2d9485089d7ddc935dd50140510050345a1b0ea4ffa6e size: 1576
 ```
 
-Grattis! Du har precis push-överfört din första behållaravbildning till registret.
+Grattis! Du har precis push-överfört din första containeravbildning till registret.
 
 ## <a name="deploy-image-to-aci"></a>Distribuera avbildningen till ACI
 
 Med avbildningen i registret, distribuera en behållare direkt till Azure Container Instances om du vill se hur den körs i Azure.
 
-Konvertera först registrets autentiseringsuppgifter till en *PSCredential*. `New-AzureRmContainerGroup`-kommandot som du använder för att skapa behållarinstansen, kräver att det är i det här formatet.
+Konvertera först registrets autentiseringsuppgifter till en *PSCredential*. `New-AzureRmContainerGroup`-kommandot som du använder för att skapa containerinstansen, kräver att det är i det här formatet.
 
 ```powershell
 $secpasswd = ConvertTo-SecureString $creds.Password -AsPlainText -Force
 $pscred = New-Object System.Management.Automation.PSCredential($creds.Username, $secpasswd)
 ```
 
-Dessutom måste DNS-namnetiketten för din behållare vara unik inom den Azure-region där den skapades. Kör följande kommando för att fylla i en variabel med ett genererat namn:
+Dessutom måste DNS-namnetiketten för din container vara unik inom den Azure-region där den skapades. Kör följande kommando för att fylla i en variabel med ett genererat namn:
 
 ```powershell
 $dnsname = "aci-demo-" + (Get-Random -Maximum 9999)
@@ -158,7 +158,7 @@ Kör slutligen [New-AzureRmContainerGroup][New-AzureRmContainerGroup] för att d
 New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name "mycontainer" -Image $image -RegistryCredential $pscred -Cpu 1 -MemoryInGB 1 -DnsNameLabel $dnsname
 ```
 
-Du bör få ett inledande svar från Azure med information om din behållare och dess tillstånd är först ”väntande”:
+Du bör få ett inledande svar från Azure med information om din container, och dess tillstånd är först ”väntande”:
 
 ```console
 PS Azure:\> New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name "mycontainer" -Image $image -RegistryCredential $pscred -Cpu 1 -MemoryInGB 1 -DnsNameLabel $dnsname
@@ -182,13 +182,13 @@ State                    : Pending
 Events                   : {}
 ```
 
-Om du vill övervaka statusen och fastställa när den körs, kör kommandot [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] några gånger. Det bör ta mindre än en minut för behållaren att starta.
+Om du vill övervaka statusen och fastställa när den körs, kör kommandot [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] några gånger. Det bör ta mindre än en minut för containern att starta.
 
 ```powershell
 (Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).ProvisioningState
 ```
 
-Här kan du se att behållarens ProvisioningState är först *Skapar* för att sedan gå över till tillståndet *Lyckad* när den är igång:
+Här kan du se att containerns ProvisioningState är först *Skapar* för att sedan gå över till tillståndet *Lyckad* när den är igång:
 
 ```console
 PS Azure:\> (Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).ProvisioningState
@@ -199,7 +199,7 @@ Succeeded
 
 ## <a name="view-running-application"></a>Visa program som körs
 
-När distributionen till ACI har slutförts och din behållare är igång kan du gå till dess fullständigt kvalificerade domännamn (FQDN) i webbläsaren om du vill visa appen när den körs i Azure.
+När distributionen till ACI har slutförts och din container är igång kan du gå till dess fullständigt kvalificerade domännamn (FQDN) i webbläsaren om du vill visa appen när den körs i Azure.
 
 Hämta det fullständiga domännamnet för din behållare med [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup]:
 
@@ -208,7 +208,7 @@ Hämta det fullständiga domännamnet för din behållare med [Get-AzureRmContai
 (Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).Fqdn
 ```
 
-Utdata från kommandot är det fullständiga domännamnet för din behållarinstans:
+Utdata från kommandot är det fullständiga domännamnet för din containerinstans:
 
 ```console
 PS Azure:\> (Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).Fqdn
@@ -219,11 +219,11 @@ Med det fullständiga domännamnet till hands navigerar du till det i din webbl�
 
 ![Hello World-app i webbläsaren][qs-psh-01-running-app]
 
-Grattis! Du har fått en behållare som kör ett program i Azure, distribuerad direkt från en behållaravbildning i ditt privata Azure-behållarregister.
+Grattis! Du har fått en container som kör ett program i Azure, distribuerad direkt från en containeravbildning i ditt privata Azure-containerregister.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du har arbetat klart med resurserna som du skapade i den här snabbstarten, använd kommandot [Remove-AzureRmResourceGroup][Remove-AzureRmResourceGroup] för att ta bort resursgruppen, behållarregistret och behållarinstansen:
+När du har arbetat klart med resurserna som du skapade i den här snabbstarten, använd kommandot [Remove-AzureRmResourceGroup][Remove-AzureRmResourceGroup] för att ta bort resursgruppen, containerregistret och containerinstansen:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -252,7 +252,7 @@ I snabbstarten skapade du ett Azure Container Registry med Azure CLI och startad
 [Get-AzureRmContainerRegistryCredential]: /powershell/module/azurerm.containerregistry/get-azurermcontainerregistrycredential
 [Get-Module]: /powershell/module/microsoft.powershell.core/get-module
 [New-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
-[New-AzureRMContainerRegistry]: /powershell/module/containerregistry/New-AzureRMContainerRegistry
+[New-AzureRMContainerRegistry]: /powershell/module/azurerm.containerregistry/New-AzureRMContainerRegistry
 [New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup
 [Remove-AzureRmResourceGroup]: /powershell/module/azurerm.resources/remove-azurermresourcegroup
 

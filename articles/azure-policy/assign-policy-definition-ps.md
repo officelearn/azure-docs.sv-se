@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 50c6a0cc268e2b638a03494bed96d294789da9ab
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 92e1d94f9d68e6d877e2c39b71151dee77f5a49f
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34794674"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43120626"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-the-azure-rm-powershell-module"></a>Snabbstart: Skapa en principtilldelning som identifierar icke-kompatibla resurser med i Azure RM PowerShell-modulen
 
@@ -108,7 +108,7 @@ Resultatet är jämförbart med det du vanligtvis skulle se under **Icke-kompati
 Efterföljande guider i den här samlingen bygger på den här snabbstarten. Om du planerar att fortsätta arbeta med andra självstudier ska du inte rensa resurserna som du skapade i den här snabbstarten. Om du inte planerar att fortsätta tar du bort tilldelningen som du skapade genom att köra det här kommandot:
 
 ```azurepowershell-interactive
-Remove-AzureRmPolicyAssignment -Name 'audit-vm-manageddisks' -Scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
+Remove-AzureRmPolicyAssignment -Name 'audit-vm-manageddisks' -Scope '/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>'
 ```
 
 ## <a name="next-steps"></a>Nästa steg

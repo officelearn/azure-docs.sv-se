@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 19e152b8cb8f18a616af647b31a4f35998f47858
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 2b88bd3c86d520b10c27746319f807d2f6208bfa
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798227"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048183"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Använda Azure Table Storage eller Azure Cosmos DB Table-API:et från Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -32,7 +32,7 @@ Den här artikeln beskriver hur du utför vanliga scenarier med tjänsten Azure 
 
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>Skapa ett Azure Cosmos DB Table API-konto
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Skapa ett konto för Table-API:et för Azure Cosmos DB
 
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
@@ -69,8 +69,8 @@ Azure-modulen läser miljövariablerna AZURE_STORAGE_ACCOUNT och AZURE_STORAGE_A
 var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
-## <a name="add-an-azure-comsos-db-connection"></a>Lägga till en Azure Comsos DB-anslutning
-Du lägger till en Azure Cosmos DB-anslutning genom att skapa ett **TableService**-objekt och ange ditt kontonamn, primärnyckeln och slutpunkten. Du kan kopiera dessa värden från **Inställningar** > **Anslutningssträng** på Azure Portal för ditt Cosmos-DB-konto. Till exempel:
+## <a name="add-an-azure-cosmos-db-connection"></a>Lägga till en Azure Cosmos DB-anslutning
+Du lägger till en Azure Cosmos DB-anslutning genom att skapa ett **TableService**-objekt och ange ditt kontonamn, primärnyckeln och slutpunkten. Du kan kopiera dessa värden från **Inställningar** > **Anslutningssträng** på Azure Portal för ditt Cosmos-DB-konto. Exempel:
 
 ```nodejs
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
@@ -200,7 +200,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > När du uppdaterar en entitet utförs ingen kontroll som standard för att se om de data som uppdateras har ändrats tidigare av en annan process. Om du vill använda samtidiga uppdateringar:
 >
 > 1. Hämta ETag för objektet som uppdateras. Värdet returneras som en del av `response` för entitetsrelaterade åtgärder och kan hämtas via `response['.metadata'].etag`.
-> 2. När du utför en uppdateringsåtgärd för en entitet lägger du till ETag-informationen som du hämtade till den nya entiteten. Till exempel:
+> 2. När du utför en uppdateringsåtgärd för en entitet lägger du till ETag-informationen som du hämtade till den nya entiteten. Exempel:
 >
 >       entity2['.metadata'].etag = currentEtag;
 > 3. Kör uppdateringsåtgärden. Om entiteten har ändrats sedan du hämtade ETag-värdet, till exempel en annan instans av programmet, returneras `error` och anger att uppdateringsvillkoret som angavs i begäran inte uppfylldes.

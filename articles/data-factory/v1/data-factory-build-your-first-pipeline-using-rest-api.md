@@ -10,16 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 25667051fa0a1484204f672c78fb94136ac84469
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d0bb951e7392eb0f818ed0e9b5c17e203f94e753
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054712"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43087858"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Självstudier: Skapa din första Azure-datafabrik med hjälp av REST-API:et för Data Factory
 > [!div class="op_single_selector"]
@@ -131,9 +131,9 @@ Observera följande punkter:
 
 * Data Factory skapar ett **Linux-baserat** HDInsight-kluster med ovanstående JSON. Se [HDInsight-länkad tjänst på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) för mer information.
 * Du kan använda **ditt eget HDInsight-kluster** i stället för att använda ett HDInsight-kluster på begäran. Se [HDInsight-länkad tjänst](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) för mer information.
-* HDInsight-klustret skapar en **standardbehållare** i den blobblagring som du angav i JSON (**linkedServiceName**). HDInsight tar inte bort den här behållaren när klustret tas bort. Det här beteendet är avsiktligt. Med en HDInsight-länkad tjänst på begäran skapas ett HDInsight-kluster varje gång en sektor bearbetas, såvida det inte finns ett befintligt live-kluster (**timeToLive**). Det raderas när bearbetningen är klar.
+* HDInsight-klustret skapar en **standardcontainer** i den bloblagring som du angav i JSON (**linkedServiceName**). HDInsight tar inte bort den här containern när klustret tas bort. Det här beteendet är avsiktligt. Med en HDInsight-länkad tjänst på begäran skapas ett HDInsight-kluster varje gång en sektor bearbetas, såvida det inte finns ett befintligt live-kluster (**timeToLive**). Det raderas när bearbetningen är klar.
 
-    Allt eftersom fler sektorer bearbetas ser du många behållare i Azure-blobblagringen. Om du inte behöver dem för att felsöka jobb, kan du ta bort dem för att minska lagringskostnaderna. Namnen på de här behållarna följer ett mönster: ”adf**datafabrikensnamn**-**denlänkadetjänstensnamn**-datumtidsstämpel”. Använd verktyg som [Microsoft Lagringsutforskaren](http://storageexplorer.com/) till att ta bort behållare i din Azure blobblagring.
+    Allteftersom fler sektorer bearbetas kan du se många containrar i ditt Azure Blob Storage. Om du inte behöver dem för att felsöka jobb, kan du ta bort dem för att minska lagringskostnaderna. Namnen på de här containrarna följer ett mönster: ”adf**datafabrikensnamn**-**denlänkadetjänstensnamn**-datumtidsstämpel”. Använd verktyg som [Microsoft Lagringsutforskaren](http://storageexplorer.com/) till att ta bort containrar i din Azure bloblagring.
 
 Se [HDInsight-länkad tjänst på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) för mer information.
 
@@ -163,7 +163,7 @@ Se [HDInsight-länkad tjänst på begäran](data-factory-compute-linked-services
 }
 ```
 
-JSON definierar en datauppsättning med namnet **AzureBlobInput**, som representerar indata för en aktivitet i pipelinen. Dessutom anger den att indata finns i blobbehållaren **adfgetstarted** och i mappen **inputdata**.
+JSON definierar en datauppsättning med namnet **AzureBlobInput**, som representerar indata för en aktivitet i pipelinen. Dessutom anger den att indata finns i blobcontainern **adfgetstarted** och i mappen **inputdata**.
 
 Följande tabell innehåller beskrivningar av de JSON-egenskaper som användes i kodfragmentet:
 
@@ -200,7 +200,7 @@ Följande tabell innehåller beskrivningar av de JSON-egenskaper som användes i
 }
 ```
 
-JSON definierar en datauppsättning med namnet **AzureBlobOutput**, som representerar utdata för en aktivitet i pipelinen. Dessutom anger den att resultaten lagras i blobbehållaren **adfgetstarted** och i mappen **partitioneddata**. I avsnittet **tillgänglighet** anges att utdatauppsättningen skapas månadsvis.
+JSON definierar en datauppsättning med namnet **AzureBlobOutput**, som representerar utdata för en aktivitet i pipelinen. Dessutom anger den att resultaten lagras i blobcontainern **adfgetstarted** och i mappen **partitioneddata**. I avsnittet **tillgänglighet** anges att utdatauppsättningen skapas månadsvis.
 
 ### <a name="pipelinejson"></a>pipeline.json
 > [!IMPORTANT]
@@ -249,7 +249,7 @@ JSON definierar en datauppsättning med namnet **AzureBlobOutput**, som represen
 
 I JSON-kodfragmentet skapar du en pipeline med en enda aktivitet, som använder Hive för att bearbeta data i ett HDInsight-kluster.
 
-Hive-skriptfilen **partitionweblogs.hql** lagras i Azure-lagringskontot (anges med scriptLinkedService, kallas **StorageLinkedService**), och i mappen **script** i behållaren **adfgetstarted**.
+Hive-skriptfilen **partitionweblogs.hql** lagras i Azure-lagringskontot (anges med scriptLinkedService, kallas **StorageLinkedService**), och i mappen **script** i containern **adfgetstarted**.
 
 Avsnittet **defines** anger körningsinställningar som skickas till Hive-skriptet som Hive-konfigurationsvärden (t.ex. ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
 
@@ -379,7 +379,7 @@ I det här steget ska du länka ett HDInsight-kluster på begäran till datafabr
     ```
 
 ## <a name="create-datasets"></a>Skapa datauppsättningar
-I det här steget skapar du datauppsättningar som ska representera in- och utdata för Hive-bearbetning. Dessa datauppsättningar finns i den **StorageLinkedService** som du skapade tidigare i självstudien. Den länkade tjänsten pekar på ett Azure Storage-konto och datauppsättningarna anger behållare, mapp och filnamn i det lagringsutrymme som innehåller indata och utdata.
+I det här steget skapar du datauppsättningar som ska representera in- och utdata för Hive-bearbetning. Dessa datauppsättningar finns i den **StorageLinkedService** som du skapade tidigare i självstudien. Den länkade tjänsten pekar på ett Azure-lagringskonto och datauppsättningarna anger container, mapp och filnamn i det lagringsutrymme som innehåller indata och utdata.
 
 ### <a name="create-input-dataset"></a>Skapa indatauppsättning
 I det här steget skapar du indatauppsättningen som ska representera indata som lagras i Azure Blob Storage.
@@ -463,12 +463,12 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 >
 >
 
-Kör Invoke-Command och nästa kommando tills du ser sektorn med tillståndet **Ready** eller **Failed**. När sektorn har statusen Klar, kontrollerar du mappen **partitioneddata** i behållaren **adfgetstarted** i blobblagringen för utdatan.  Det kan ta lite längre tid att skapa ett HDInsight-kluster på begäran.
+Kör Invoke-Command och nästa kommando tills du ser sektorn med tillståndet **Ready** eller **Failed**. När sektorn har statusen Klar, kontrollerar du mappen **partitioneddata** i containern **adfgetstarted** i bloblagringen för utdatan.  Det kan ta lite längre tid att skapa ett HDInsight-kluster på begäran.
 
 ![utdata](./media/data-factory-build-your-first-pipeline-using-rest-api/three-ouptut-files.png)
 
 > [!IMPORTANT]
-> Indatafilen tas bort när sektorn har bearbetats. Om du vill köra sektorn eller gå igenom självstudien igen överför du därför indatafilen (input.log) till indatamappen i behållaren adfgetstarted.
+> Indatafilen tas bort när sektorn har bearbetats. Om du vill köra sektorn eller gå igenom självstudien igen överför du därför indatafilen (input.log) till indatamappen i containern adfgetstarted.
 >
 >
 

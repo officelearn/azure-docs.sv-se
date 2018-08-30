@@ -9,25 +9,25 @@ ms.date: 04/05/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 66ff1e2e02728e05cb0aeedce90de1882a8804ce
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 08/24/2018
 ms.locfileid: "30921316"
 ---
-Vanliga frågor och svar om VNet-till-VNet gäller för VPN-Gateway-anslutningar. Om du letar efter VNet-Peering, se [Peering för virtuella nätverk](../articles/virtual-network/virtual-network-peering-overview.md)
+Vanliga frågor och svar om VNet-till-VNet gäller för VPN Gateway-anslutningar. Om du letar efter VNet-Peering, se [Peering för virtuella nätverk](../articles/virtual-network/virtual-network-peering-overview.md)
 
 ### <a name="does-azure-charge-for-traffic-between-vnets"></a>Tar Azure ut avgifter för trafik mellan virtuella nätverk?
 
-Trafik mellan virtuella nätverk inom samma region är kostnadsfri i båda riktningarna när du använder en VPN-gatewayanslutning. Utgående trafik mellan virtuella nätverk i flera regioner debiteras med priset på utgående dataöverföring mellan virtuella nätverk, baserat på källregionerna. Se [sidan med prissättning för VPN-gateway](https://azure.microsoft.com/pricing/details/vpn-gateway/) för mer information. Om du ansluter dina virtuella nätverk med VNet-peering istället för med VPN-gateway kan du titta på [sidan med prissättning för Virtual Network](https://azure.microsoft.com/pricing/details/virtual-network/).
+Trafik mellan virtuella nätverk inom samma region är kostnadsfri i båda riktningarna när du använder en VPN-gatewayanslutning. Utgående trafik mellan virtuella nätverk i flera regioner debiteras med priset på utgående dataöverföring mellan virtuella nätverk, baserat på källregionerna. Se [sidan med prissättning för VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway/) för mer information. Om du ansluter dina virtuella nätverk med VNet-peering istället för med VPN Gateway kan du titta på [sidan med prissättning för Virtual Network](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ### <a name="does-vnet-to-vnet-traffic-travel-across-the-internet"></a>Skickas trafik mellan virtuella nätverk via Internet?
 
 Nej. Trafik mellan virtuella nätverk skickas via Microsoft Azure-stamnätet, och inte via Internet.
 
-### <a name="can-i-establish-a-vnet-to-vnet-connection-across-aad-tenants"></a>Kan jag ansluta VNet-till-VNet över AAD klienter?
+### <a name="can-i-establish-a-vnet-to-vnet-connection-across-aad-tenants"></a>Kan jag upprätta en anslutning mellan virtuella nätverk i flera AAD-klientorganisationer?
 
-Ja, alltid VNet-till-VNet-anslutningar som använder Azure VPN-gatewayer för AAD-klienter.
+Ja, anslutningar mellan virtuella nätverk som använder Azure VPN-gatewayer fungerar i flera AAD-klientorganisationer.
 
 ### <a name="is-vnet-to-vnet-traffic-secure"></a>Är trafiken mellan virtuella nätverk säker?
 

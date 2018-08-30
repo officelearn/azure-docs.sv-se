@@ -1,5 +1,5 @@
-Antalet frågor du kan ställa per sekund (QPS) beror på tjänsten och typen av prenumeration. Försäkra dig om att programmet har den logik som behövs för att hålla dig inom kvoten. Om du överskrider dina QPS misslyckas begäran med HTTP-statuskoden 429. Svaret innehåller även Retry-After-huvudet, som innehåller antal sekunder som du bör vänta innan du skickar en ny begäran.  
-  
-### <a name="denial-of-service-dos-versus-throttling"></a>Överbelastning (DOS) eller begränsning?
+Antalet frågor du kan ställa per sekund (QPS) beror på tjänsten och typen av prenumeration. Se till att programmet har den logik som behövs för att hålla dig inom kvoten. Om QPS-gränsen uppnås eller överskrids misslyckas begäran och en HTTP 429-statuskod returneras. Svaret innehåller `Retry-After`-huvudet, som anger hur länge du bör vänta innan du skickar en ny begäran.
 
-Tjänster skiljer sig mellan en DOS-attack och en QPS-överträdelse. Begäran lyckas om tjänsten misstänker en DOS-attack (HTTP-statuskod 200 OK), men brödtexten i svaret är tom.
+## <a name="denial-of-service-versus-throttling"></a>Överbelastning eller begränsning?
+
+Tjänsten skiljer på en överbelastningsattack (DoS) och en QPS-överträdelse. Om tjänsten misstänker en DoS-attack lyckas begäran (HTTP-statuskod är 200 OK), men brödtexten i svaret är tom.

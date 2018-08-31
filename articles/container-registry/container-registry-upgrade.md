@@ -6,22 +6,26 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 08/28/2018
 ms.author: marsma
-ms.openlocfilehash: 562bd8da54605986e95d8105782ce7ebb9b359ea
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7a377c607639f5c044e689b11380e9778f9c72c8
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432396"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189029"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Uppgradera ett klassiskt container register
 
-Azure Container Registry (ACR) är tillgänglig i flera servicenivåer, [kallas SKU: er](container-registry-skus.md). Den första versionen av ACR erbjuds en enda SKU klassisk som saknar flera funktioner som ingår i Basic, Standard och Premium-SKU: er (benämns gemensamt kallas *hanteras* register). Den här artikeln beskriver hur du migrerar dina ohanterade klassiskt register till någon av de hantera SKU: erna så att du kan dra nytta av sina förbättrad funktionsuppsättning.
+Azure Container Registry (ACR) är tillgänglig i flera servicenivåer, [kallas SKU: er](container-registry-skus.md). Den första versionen av ACR erbjuds en enda SKU klassisk som saknar flera funktioner som ingår i Basic, Standard och Premium-SKU: er (benämns gemensamt kallas *hanteras* register).
+
+Klassiska SKU: N är inaktuell och kommer att vara tillgänglig efter mars 2019. Den här artikeln beskriver hur du migrerar dina ohanterade klassiskt register till någon av de hantera SKU: erna så att du kan dra nytta av sina förbättrad funktionsuppsättning.
 
 ## <a name="why-upgrade"></a>Varför uppgradera?
 
-På grund av begränsade möjligheter för klassisk ohanterade register rekommenderar vi alla klassiskt register är uppgraderade till grundläggande, Standard eller Premium hanterade register. Dessa på högre nivå SKU: er integrera molnmiljön registret i funktionerna i Azure.
+Klassisk registret SKU håller **inaktuell**, och är inte tillgängliga från **mars 2019**. Alla befintliga klassiska register ska uppgradera före mars 2019.
+
+På grund av planerade utfasning och begränsade möjligheter för klassisk ohanterade register vara alla klassiskt register uppgraderade till grundläggande, Standard eller Premium hanterade register. Dessa på högre nivå SKU: er integrera molnmiljön registret i funktionerna i Azure.
 
 Hanterade register innehåller:
 
@@ -30,7 +34,7 @@ Hanterade register innehåller:
 * [Geo-replikering](container-registry-geo-replication.md)
 * [Webhooks](container-registry-webhook.md)
 
-Framför allt: ett klassiskt register beror på storage-konto att Azure automatiskt etablerar i din Azure-prenumeration när du skapar i registret. Däremot Basic, Standard och Premium-SKU: er dra nytta av Azures [avancerade lagringsfunktioner](container-registry-storage.md) genom att transparent hantera lagring av dina avbildningar för dig. Ett separat lagringskonto skapas inte i din egen prenumeration.
+Klassiskt register beror på det lagringskonto som Azure automatiskt etablerar i din Azure-prenumeration när du skapar i registret. Däremot Basic, Standard och Premium-SKU: er dra nytta av Azures [avancerade lagringsfunktioner](container-registry-storage.md) genom att transparent hantera lagring av dina avbildningar för dig. Ett separat lagringskonto skapas inte i din egen prenumeration.
 
 Hanterat register storage ger följande fördelar:
 

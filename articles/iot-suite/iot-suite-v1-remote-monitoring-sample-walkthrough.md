@@ -1,26 +1,18 @@
 ---
 title: Genomgång av den förkonfigurerade lösningen för fjärrövervakning | Microsoft Docs
 description: En beskrivning av den förkonfigurerade fjärrövervakningslösningen i Azure IoT och dess arkitektur.
-services: ''
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
-manager: timlt
-editor: ''
-ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-suite
+ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: d35052087899925e0e8119ce104345f718cc12bd
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
-ms.translationtype: HT
+ms.openlocfilehash: 8cb6c3087bac460069a689f7b109a20aa9125ae9
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858521"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43184921"
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Genomgång av den förkonfigurerade lösningen för fjärrövervakning
 
@@ -38,12 +30,12 @@ Följande diagram illustrerar de logiska komponenterna i den förkonfigurerade l
 
 ![Logisk arkitektur](media/iot-suite-v1-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
 
-## <a name="microservices--docker-containers"></a>Mikrotjänster och Docker-behållare
+## <a name="microservices--docker-containers"></a>Mikrotjänster och Docker-containrar
 Fjärrövervakning är den första av våra förkonfigurerade lösningar som utnyttjar en arkitektur för mikrotjänster. Lösningen finns tillgänglig i både [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) och [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
-Mikrotjänster har vuxit fram som ett vanligt förekommande mönster för att uppnå skalbarhet och flexibilitet (genom att tillåta att behållare skalas individuellt), utan att utvecklingshastigheten påverkas.
+Mikrotjänster har vuxit fram som ett vanligt förekommande mönster för att uppnå skalbarhet och flexibilitet (genom att tillåta att containrar skalas individuellt), utan att utvecklingshastigheten påverkas.
 Mikrotjänsterna bäddar in koden och anger väldefinierade gränssnitt som gör lösningen enklare att förstå och mindre monolitisk. Den ger också fler alternativ för partners som vill utöka nuvarande lösningsacceleratorer och skapa färdiga lösningar som kan generera intäkter.
 
-**Mer information om Docker-behållare**
+**Mer information om Docker-containrar**
 * [Installera Docker](https://docs.docker.com/engine/installation/)
 * [Vanliga Docker-kommandon för fjärrövervakning](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#common-docker-commands)
 * [Komma igång med Docker](https://docs.docker.com/get-started/)
@@ -69,7 +61,7 @@ Varje simulerad enhet kan skicka följande typer av meddelanden till IoT Hub:
 
 De simulerade enheterna skickar följande enhetsegenskaper till [tvillingen][lnk-device-twins] i IoT Hub som *rapporterade egenskaper*. Enheten skickar rapporterade egenskaper vid start och som svar på ett kommando eller en metod om att **ändra enhetens tillstånd**.
 
-| Egenskap | Syfte |
+| Egenskap  | Syfte |
 | --- | --- |
 | Config.TelemetryInterval | Den frekvens (i sekunder) som enheten skickar telemetri med |
 | Config.TemperatureMeanValue | Anger medelvärdet för telemetrin för simulerad temperatur |

@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/24/2018
+ms.date: 08/29/2018
 ms.author: robinsh
-ms.openlocfilehash: f9903781a998db8192e3958ae386b7420f56fd31
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7ecd35ba33d2860ba052aa27286c69985c2f7dd9
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045634"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190238"
 ---
 # <a name="create-an-iot-hub-using-the-new-azurermiothub-cmdlet"></a>Skapa en IoT hub med hjälp av cmdleten New-AzureRmIotHub
 
@@ -42,7 +42,7 @@ Du behöver en resursgrupp att distribuera en IoT-hubb. Du kan använda en befin
 
 Du kan skapa en resursgrupp för din IoT-hubb med den [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup) kommando. Det här exemplet skapas en resursgrupp med namnet **MyIoTRG1** i den **USA, östra** region:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 ```
 
@@ -50,7 +50,7 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 
 Du kan skapa en IoT-hubb i resursgruppen du skapade i föregående steg med den [New AzureRmIotHub](https://docs.microsoft.com/powershell/module/AzureRM.IotHub/New-AzureRmIotHub) kommando. Det här exemplet skapar en **S1** hub kallas **MyTestIoTHub** i den **USA, östra** region:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmIotHub `
     -ResourceGroupName MyIoTRG1 `
     -Name MyTestIoTHub `
@@ -64,15 +64,15 @@ Namnet på IoT-hubben måste vara globalt unikt.
 
 Du kan lista alla IoT-hubbar i din prenumeration med hjälp av den [Get-AzureRmIotHub](https://docs.microsoft.com/powershell/module/AzureRM.IotHub/Get-AzureRmIotHub) kommando:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmIotHub
 ```
 
-Det här exemplet visar S1 Standard IoT-hubben som du skapade i föregående steg. 
+Det här exemplet visar S1 Standard IoT-hubben som du skapade i föregående steg.
 
 Du kan ta bort en IoT hub med hjälp av den [Remove-AzureRmIotHub](https://docs.microsoft.com/powershell/module/azurerm.iothub/remove-azurermiothub) kommando:
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmIotHub `
     -ResourceGroupName MyIoTRG1 `
     -Name MyTestIoTHub
@@ -80,7 +80,7 @@ Remove-AzureRmIotHub `
 
 Alternativt kan du ta bort en resursgrupp och alla resurser den innehåller med hjälp av den [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Remove-AzureRmResourceGroup) kommando:
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name MyIoTRG1
 ```
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/10/2018
+ms.date: 08/28/2018
 ms.author: kumud
-ms.openlocfilehash: 91c7d16296653aea2381793f2e52f2b33b831185
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 5ceddb1bcd6ce89f7014e034b56c873f02cc2007
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42057625"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190741"
 ---
 # <a name="load-balancer-health-probes"></a>Läsa in Belastningsutjämnarens hälsotillståndsavsökningar
 
@@ -181,7 +181,12 @@ Om alla avsökningar för alla instanser i en serverdelspool misslyckas avslutas
 
 ## <a name="probesource"></a>Avsökning för källans IP-adress
 
-Alla Load Balancers hälsoavsökningar kommer från IP-adressen 168.63.129.16 som källa.  När du vill aktivera dina egna IP-adresser till Azure Virtual Network, garanteras den här hälsotillstånd avsökningen källans IP-adress vara unikt eftersom det globalt är reserverade för Microsoft.  Den här adressen är samma i alla regioner och ändras inte. Det ska inte betraktas som en säkerhetsrisk eftersom endast interna Azure-plattformen kan styra ett paket från den här IP-adress. 
+Belastningsutjämnaren använder en distribuerad avsöknings tjänst för sin interna hälsomodellen. Varje värd där virtuella datorer finns kan programmeras för att generera hälsoavsökningar per kundens konfiguration. Hälsotillstånd avsökningen trafiken är direkt mellan infrastrukturkomponenter som genererar hälsoavsökningen och kunden VM. Alla Load Balancers hälsoavsökningar kommer från IP-adressen 168.63.129.16 som källa.  När du vill aktivera dina egna IP-adresser till Azure Virtual Network, garanteras den här hälsotillstånd avsökningen källans IP-adress vara unikt eftersom det globalt är reserverade för Microsoft.  Den här adressen är samma i alla regioner och ändras inte. Det ska inte betraktas som en säkerhetsrisk eftersom endast interna Azure-plattformen kan styra ett paket från den här IP-adress. 
+
+Utöver Load Balancers hälsoavsökningar använda följande åtgärder den här IP-adress:
+
+- Gör det möjligt för VM-agenten till att kommunicera med plattformen att signalera att den är i tillståndet ”klar”
+- Möjliggör kommunikation med den virtuella DNS-servern att tillhandahålla filtrerade namnmatchning för kunder som inte definierar anpassade DNS-servrar.  Den här filtreringen garanterar att kunderna endast kan matcha värdnamnen för deras distribution.
 
 För Belastningsutjämnarens hälsoavsökning att markera din instans, du **måste** tillåter denna IP-adress i alla Azure [säkerhetsgrupper](../virtual-network/security-overview.md) och lokala Brandväggsprinciper.
 

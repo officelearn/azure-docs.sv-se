@@ -1,6 +1,6 @@
 ---
-title: Tilldela roller för Azure-resurser med hjälp av Privileged Identity Management | Microsoft Docs
-description: Beskriver hur du tilldelar roller i PIM.
+title: Tilldela Azure-resursroller i PIM | Microsoft Docs
+description: Lär dig hur du tilldelar Azure-resursroller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,25 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 52320fe160fc1df2997dd419b406fce24f43b786
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 7019a6f97a9590d3b652584015f3077f4ed075af
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622984"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188928"
 ---
-# <a name="assign-roles-for-azure-resources-by-using-privileged-identity-management"></a>Tilldela roller för Azure-resurser med hjälp av Privileged Identity Management
+# <a name="assign-azure-resource-roles-in-pim"></a>Tilldela Azure-resursroller i PIM
+
+Azure AD PIM kan hantera inbyggda Azure-resursroller, samt anpassade roller, inklusive (men inte begränsat till):
+
+- Ägare
+- Administratör för användaråtkomst
+- Deltagare
+- Säkerhetsadministratör
+- Säkerhetshanteraren och mycket mer
+
+>[!NOTE]
+Användare eller medlemmar i en grupp som tilldelats ägare eller administratör för användaråtkomst roller och globala administratörer som aktiverar prenumerationshantering i Azure AD är resursen administratörer. Dessa administratörer kan tilldela roller, konfigurera inställningar för serverrollen och granska åtkomst med hjälp av PIM för Azure-resurser. Visa en lista över [inbyggda roller för Azure-resurser](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="assign-roles"></a>Tilldela roller
 
@@ -76,3 +87,8 @@ Om du har en roll som väntar på aktivering är en meddelandebanderoll visas ö
 Om du vill ändra befintliga tilldelningar från detaljvy användare/grupp, Välj **ändra inställningarna för** från Åtgärdsfältet. Ändra Tilldelningstyp till **Just-in-time** eller **direkt**.
 
 ![”Användare” informationsfönstret med knappen ”Inställningar”](media/azure-pim-resource-rbac/rbac-assign-role-manage.png)
+
+## <a name="next-steps"></a>Nästa steg
+
+- [Konfigurera Azure-resurs rollinställningar i PIM](pim-resource-roles-configure-role-settings.md)
+- [Tilldela Azure AD-katalogroller i PIM](pim-how-to-add-role-to-user.md)

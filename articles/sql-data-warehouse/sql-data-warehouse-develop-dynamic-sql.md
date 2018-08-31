@@ -1,28 +1,28 @@
 ---
-title: Med dynamisk SQL i Azure SQL Data Warehouse | Microsoft Docs
+title: Med hjälp av dynamisk SQL i Azure SQL Data Warehouse | Microsoft Docs
 description: Tips för att använda dynamisk SQL i Azure SQL Data Warehouse för utveckling av lösningar.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 604074e0a645918f7033360b79a1b7cad050c9e4
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 6793fba1476595918ac20c0484a661e3af7897d7
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31523174"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247308"
 ---
 # <a name="dynamic-sql-in-sql-data-warehouse"></a>Dynamisk SQL i SQL Data Warehouse
 Tips för att använda dynamisk SQL i Azure SQL Data Warehouse för utveckling av lösningar.
 
 ## <a name="dynamic-sql-example"></a>Dynamisk SQL-exempel
 
-När du utvecklar programkod för SQL Data Warehouse, kan du behöva använda dynamisk sql ger flexibla, allmän och modulär lösningar. SQL Data Warehouse stöder inte blob-datatyper just nu. Stöder inte blob-datatyper kan begränsa storleken på din strängar eftersom blob-datatyper är både varchar(max) och nvarchar(max) typer. Om du har använt dessa typer i din programkod för att skapa stora strängar, måste du bryta koden i segment och i stället använda EXEC-instruktion.
+När du utvecklar programkod för SQL Data Warehouse, kan du behöva använda dynamisk sql för att leverera flexibla, allmän och modulära lösningar. SQL Data Warehouse stöder inte blob datatyper just nu. Inte har stöd för blob-datatyper kan begränsa storleken på din strängar eftersom blob-datatyper innehåller både varchar(max) och nvarchar(max) typer. Om du har använt typerna i din programkod för att skapa stora strängar kan behöva du dela koden i segment och i stället använda EXEC-instruktion.
 
 Ett enkelt exempel:
 
@@ -37,10 +37,10 @@ EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 Om strängen är kort, kan du använda [sp_executesql](/sql/relational-databases/system-stored-procedures/sp-executesql-transact-sql) som vanligt.
 
 > [!NOTE]
-> Instruktioner som körs som dynamiska SQL fortfarande omfattas av alla TSQL valideringsregler.
+> Instruktioner som körs som dynamisk SQL kommer fortfarande att omfattas av alla TSQL-valideringsregler.
 > 
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-För fler utvecklingstips, se [utvecklingsöversikt](sql-data-warehouse-overview-develop.md).
+Fler utvecklingstips, se [utvecklingsöversikt](sql-data-warehouse-overview-develop.md).
 

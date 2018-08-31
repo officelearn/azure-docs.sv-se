@@ -1,6 +1,6 @@
 ---
-title: Så här använder du granskningsloggen i Azure AD Privileged Identity Management | Microsoft Docs
-description: Lär dig hur du använder du granskningsloggen i Azure Privileged Identity Management-tillägget.
+title: Visa granskningshistorik för Azure AD-katalogroller i PIM | Microsoft Docs
+description: Lär dig hur du visar granskningshistorik för Azure AD-katalogroller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,28 +13,34 @@ ms.component: pim
 ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 922658f75a0d00998072c7bd8f2160e9db27f318
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: ab5a072d845bfdbaafabe1e0e7bdce2dfce6184d
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627798"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188187"
 ---
-# <a name="using-the-audit-log-in-pim"></a>Använda granskningsloggen i PIM
-Du kan använda granskningsloggen Privileged Identity Management (PIM) för att se alla användartilldelningar och aktiveringar inom en viss tidsperiod. Om du vill visa fullständig granskningshistorik för aktiviteten i din klient, inklusive administratören, slutanvändare och synkroniseringsåtgärden, kan du använda den [rapporter för åtkomst och användning av Azure Active Directory.](../reports-monitoring/overview-reports.md)
+# <a name="view-audit-history-for-azure-ad-directory-roles-in-pim"></a>Visa granskningshistorik för Azure AD-katalogroller i PIM
+Du kan använda granskningshistoriken Privileged Identity Management (PIM) för att se alla användartilldelningar och aktiveringar inom en viss tidsperiod för alla Privilegierade roller. Om du vill visa fullständig granskningshistorik för aktiviteten i din klient, inklusive administratören, slutanvändare och synkroniseringsåtgärden, kan du använda den [rapporter för åtkomst och användning av Azure Active Directory.](../reports-monitoring/overview-reports.md)
 
-## <a name="navigate-to-the-audit-log"></a>Gå in i spårningsloggen
-Från den [Azure-portalen](https://portal.azure.com) instrumentpanelen, väljer den **Azure AD Privileged Identity Management** app. Därifrån kan du komma åt granskningsloggen genom att klicka på **hantera Privilegierade roller** > **granskningshistorik** i PIM-instrumentpanelen.
+## <a name="navigate-to-audit-history"></a>Navigera och granskningshistorik
+Från den [Azure-portalen](https://portal.azure.com) instrumentpanelen, väljer den **Azure AD Privileged Identity Management** app. Därifrån kan du komma åt granskningshistoriken genom att klicka på **hantera Privilegierade roller** > **granskningshistorik** i PIM-instrumentpanelen.
 
-## <a name="the-audit-log-graph"></a>Granska loggen graph
-Du kan använda granskningsloggen för att visa totalt antal aktiveringar, max aktiveringar per dag och genomsnittlig aktiveringar per dag i ett linjediagram.  Du kan också filtrera data efter roll om det finns mer än en roll i granskningshistoriken.
+![](media/azure-ad-pim-approval-workflow/image021.png)
 
-Använd den **tid**, **åtgärd**, och **rollen** knappar för att sortera loggen.
+>[!NOTE]
+Du kan sortera data av åtgärden och leta efter ”aktivering Approved”
 
-## <a name="the-audit-log-list"></a>Listan Granska loggen
-Kolumnerna i listan Granska loggen är:
 
-* **Begärande** – den användare som begärde rollaktivering eller ändra.  Om värdet är ”Azure System”, kontrollera Azure granskningsloggen för mer information.
+## <a name="audit-history-graph"></a>Granska historiken graph
+Du kan använda granskningshistoriken för att visa totalt antal aktiveringar, max aktiveringar per dag och genomsnittlig aktiveringar per dag i ett linjediagram.  Du kan också filtrera data efter roll om det finns mer än en roll i granskningshistoriken.
+
+Använd den **tid**, **åtgärd**, och **rollen** knappar för att sortera historiken.
+
+## <a name="audit-history-list"></a>Granska listan med kommandohistorik
+Kolumnerna i listan Granska historiken är:
+
+* **Begärande** – den användare som begärde rollaktivering eller ändra.  Om värdet är ”Azure System”, kontrollera Azure granskningshistoriken för mer information.
 * **Användaren** -användare som är genom att aktivera eller tilldelade till en roll.
 * **Rollen** -rollen tilldelning eller aktivering av användaren.
 * **Åtgärden** – de åtgärder som vidtas av förfrågaren. Detta kan inkludera tilldelning, vid ej tilldelning, aktivering eller inaktivering.
@@ -42,20 +48,20 @@ Kolumnerna i listan Granska loggen är:
 * **Skäl till** – om text har angetts i fältet Orsak under aktivering, visas den här.
 * **Upphör att gälla** – gäller endast för aktivering av roller.
 
-## <a name="filter-the-audit-log"></a>Filtrera granskningsloggen
-Du kan filtrera den information som visas i granskningsloggen genom att klicka på den **Filter** knappen.  Den **uppdatering diagrammet parametrar bladet** visas.
+## <a name="filter-audit-history"></a>Filtrera granskningshistorik
+Du kan filtrera den information som visas i granskningshistoriken genom att klicka på den **Filter** knappen.  Den **uppdatering diagrammet parametrar bladet** visas.
 
-När du har angett filtren klickar du på **uppdatering** att filtrera data i loggen.  Uppdatera sidan om data inte visas direkt.
+När du har angett filtren klickar du på **uppdatering** att filtrera data i historiken.  Uppdatera sidan om data inte visas direkt.
 
 ### <a name="change-the-date-range"></a>Ändra datumintervallet
-Använd den **idag**, **senaste veckan**, **senaste månaden**, eller **anpassad** knappar för att ändra tidsintervallet för granskningsloggen.
+Använd den **idag**, **senaste veckan**, **senaste månaden**, eller **anpassad** knappar för att ändra tidsintervallet för granskningshistoriken.
 
-När du väljer den **anpassade** knapp, du får en **från** datumfält och en **till** datumfält så att du anger ett datumintervall för loggen.  Du kan ange datum i formatet ÅÅÅÅ-MM-DD eller klicka på den **kalender** ikonen och Välj datum från en kalender.
+När du väljer den **anpassade** knapp, du får en **från** datumfält och en **till** datumfält så att du anger ett datumintervall för historiken.  Du kan ange datum i formatet ÅÅÅÅ-MM-DD eller klicka på den **kalender** ikonen och Välj datum från en kalender.
 
-### <a name="change-the-roles-included-in-the-log"></a>Ändra de roller som ingår i loggen
-Markera eller avmarkera den **rollen** kryssrutan bredvid varje roll ska tas med eller undantas från loggen.
+### <a name="change-the-roles-included-in-the-history"></a>Ändra de roller som ingår i historiken
+Markera eller avmarkera den **rollen** kryssrutan bredvid varje roll ska tas med eller undantas från historiken.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Nästa steg
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
 
+- [Visa granskningshistorik för Azure-resursroller i PIM](pim-resource-roles-use-the-audit-log.md)

@@ -1,6 +1,6 @@
 ---
-title: Aktivera roller för Azure-resurser med hjälp av Privileged Identity Management | Microsoft Docs
-description: Beskriver hur du aktiverar roller i PIM.
+title: Aktivera Mina roller för Azure-resurs i PIM | Microsoft Docs
+description: Lär dig mer om att aktivera din Azure-resursroller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.component: pim
 ms.date: 08/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2a5c192f231bdc75d04c78cd94838a3f341dc925
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 234c1d71f0ec17d15a4dd589e3db92fd9bf68df2
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43111066"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189497"
 ---
-# <a name="activate-roles-for-azure-resources-by-using-privileged-identity-management"></a>Aktivera roller för Azure-resurser med hjälp av Privileged Identity Management
+# <a name="activate-my-azure-resource-roles-in-pim"></a>Aktivera Mina roller för Azure-resurs i PIM
 Privileged Identity Management (PIM) introducerar en ny upplevelse i Aktivera roller för Azure-resurser. Berättigade rollmedlemmar kan schemalägga aktivering för ett framtida datum och tid. De kan också välja en specifik aktiveringsvaraktighet inom den Maxtid (konfigureras av administratörer). Mer information finns i [aktivera eller inaktivera roller i Azure AD Privileged Identity Management](pim-how-to-activate-role.md).
 
 ## <a name="activate-a-role"></a>Aktivera en roll
@@ -64,3 +64,7 @@ Hitta den underordnade resursen som du behöver hantera från sidan Sök efter.
 Välj **Mina roller** i den vänstra rutan och välj rätt roll för att aktivera. Tilldelningstypen är **ärvd** eftersom rollen har tilldelats på prenumerationen, i stället för vid resursgruppen.
 
 ![Lista över berättigade rolltilldelningar med Tilldelningstyp markerat](media/azure-pim-resource-rbac/my-roles-02.png)
+
+## <a name="next-steps"></a>Nästa steg
+
+- [Aktivera mitt Azure AD-katalogroller i PIM](pim-how-to-activate-role.md)

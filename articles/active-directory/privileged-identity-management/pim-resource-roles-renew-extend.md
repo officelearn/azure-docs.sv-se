@@ -1,6 +1,6 @@
 ---
-title: Utöka och granska roller i Azure-resurser med hjälp av Privileged Identity Management | Microsoft Docs
-description: Det här dokumentet beskriver hur du utökar och förnya Azure-resursroller för PIM-resurser.
+title: Utöka eller förnya Azure-resursroller i PIM | Microsoft Docs
+description: Lär dig mer om att utöka eller förnya roller för Azure-resurs i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 7eb30f895214ff7d5a1607fc7e477d3d876a6fc1
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 2c85c5bbbd4c152113108e0fdb717d23f85f9fde
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617531"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189658"
 ---
-# <a name="extend-and-review-roles-in-azure-resources-by-using-privileged-identity-management"></a>Utöka och granska roller i Azure-resurser med hjälp av Privileged Identity Management
+# <a name="extend-or-renew-azure-resource-roles-in-pim"></a>Utöka eller förnya Azure-resursroller i PIM
 
 Privileged Identity Management (PIM) för Azure-resurser introducerar nya kontroller för att hantera livscykeln för åtkomst och tilldelning för Azure-resurser. Administratörer kan tilldela medlemskap med hjälp av start- och datum / tid-egenskaper. När det närmar sig slutet tilldelning, skickar PIM e-postmeddelanden till de berörda användare eller grupper. Den skickar också e-postaviseringar till administratörer av resursen för att säkerställa att rätt upprätthålls. Tilldelningar kan förnyas och fortsätter att visas upphört att gälla för upp till 30 dagar, även om åtkomst inte har utökats.
 
@@ -113,7 +113,7 @@ När begäran har skickats, meddelas resource administratörer av en väntande b
 
 Resurs-administratörer kan komma åt begäran om förnyelse från länken i e-postmeddelande eller genom att få åtkomst till PIM från Azure-portalen och välja **godkänna förfrågningar** i den vänstra rutan.
 
-![Godkänn ansökningar](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_grid.png)
+![Godkänn förfrågningar](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_grid.png)
 
 När en administratör väljer **Godkänn** eller **neka**, information om begäran är visas tillsammans med ett fält för att ange en motivering för granskningsloggar.
 
@@ -131,8 +131,5 @@ Visa en lista över alla upphörde rolltilldelningar den **medlemmar** väljer *
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Kräv godkännande för att aktivera](pim-resource-roles-approval-workflow.md)
-
-[Aktivera en roll](pim-resource-roles-use-the-audit-log.md)
-
-
+- [Godkänn eller neka begäranden för Azure-resursroller i PIM](pim-resource-roles-approval-workflow.md)
+- [Konfigurera Azure-resurs rollinställningar i PIM](pim-resource-roles-configure-role-settings.md)

@@ -1,5 +1,5 @@
 ---
-title: Registrering av appen företagsportal hjälpavsnitt | Microsoft Docs
+title: Appregistrering Portal hjälpavsnitt | Microsoft Docs
 description: En beskrivning av olika funktioner i portalen för registrering av Microsoft-app.
 services: active-directory
 documentationcenter: ''
@@ -13,41 +13,44 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 08/28/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: 9d38f6e6d6b9fa47b1cd1497820f7ff887954ad5
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: bebabad4c7beb27022e12e5d48b77d88fc054fc2
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156195"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190123"
 ---
-# <a name="app-registration-reference"></a>Referens för registrering
-Det här dokumentet innehåller kontexten och beskrivningar av olika funktioner som finns i portalen för registrering av Microsoft App [ https://apps.dev.microsoft.com ](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).
+# <a name="app-registration-reference"></a>Referens för registrering av appar
+Det här dokumentet ger kontext och beskrivningar av olika funktioner i den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).
 
-## <a name="my-applications"></a>Mina program
-Den här listan innehåller alla dina program som har registrerats för användning med Azure AD v2.0-slutpunkten. Programmen har möjlighet att logga in användare med både personliga Microsoft-konton och arbete/skolkonton från Azure Active Directory. Läs mer om Azure AD v2.0-slutpunkten i den [v2.0 översikt](active-directory-appmodel-v2-overview.md). Dessa program kan också användas för att integrera med Microsoft-konto autentisering endpoint `https://login.live.com`.
+## <a name="my-applications-or-converged-applications"></a>Mina program eller konvergerade program
+Den här listan innehåller alla dina program som har registrerats för användning med Azure AD v2.0-slutpunkten. Dessa program möjlighet att logga in användare med både personliga Microsoft-konton och arbets-/ skolkonton från Azure Active Directory. Läs mer om Azure AD v2.0-slutpunkten i den [v2.0 översikt](active-directory-appmodel-v2-overview.md). Dessa program kan också användas för att integrera med autentiseringsslutpunkt för Microsoft-konto `https://login.live.com`.
+
+## <a name="azure-ad-only-applications"></a>Endast Azure AD-program
+Den här listan innehåller alla dina program som har registrerats för användning med Azure AD v1.0-slutpunkten. Dessa program kan bara ha möjlighet att logga in användare med arbets-/ skolkonton från Azure Active Directory. Den här listan innehåller program som har registrerats med hjälp av den **appregistreringar** användarupplevelsen i den [Azure-portalen](https://portal.azure.com).
 
 ## <a name="live-sdk-applications"></a>Live SDK-program
-Den här listan innehåller alla dina program som har registrerats för eget bruk med Microsoft-konto. De är inte aktiverade för användning med Azure Active Directory. Detta är hittar du alla program som tidigare hade registrerats med MSA developer-portalen på `https://account.live.com/developers/applications`. Alla funktioner som du tidigare har utförts på `https://account.live.com/developers/applications` nu kan utföras i den här nya portalen `https://apps.dev.microsoft.com`. Kontakta oss om du har fler frågor om dina program för Microsoft-konto.
+Den här listan innehåller alla dina program som har registrerats för eget bruk med Microsoft-konto. De är inte aktiverade för användning med Azure Active Directory. Det här är hittar du alla program som tidigare hade registrerats med MSA-utvecklarportalen på `https://account.live.com/developers/applications`. Alla funktioner som du tidigare har utförts på `https://account.live.com/developers/applications` nu kan utföras i den här nya portalen `https://apps.dev.microsoft.com`.
 
 ## <a name="application-secrets"></a>Programhemligheter
-Programmet hemligheter är autentiseringsuppgifter som tillåter programmet att utföra tillförlitliga [klientautentisering](http://tools.ietf.org/html/rfc6749#section-2.3) med Azure AD. OAuth-& OpenID Connect ett programhemlighet ofta kallas en `client_secret`. I version 2.0-protokollet är alla program som tar emot en säkerhetstoken på en webbplats för adresserbara (med hjälp av en `https` schemat) måste använda en programhemlighet identifiera sig själv till Azure AD på inlösning för att säkerhetstoken. Dessutom ska alla interna klienter som tar emot token på en enhet vara förbjudet från att använda en apphemligheten för klientautentisering. Detta minskar sannolikheten för lagring av hemligheter i osäker miljöer.
+Hemligheter är autentiseringsuppgifter som tillåter programmet att utföra tillförlitlig [klientautentisering](http://tools.ietf.org/html/rfc6749#section-2.3) med Azure AD. I OAuth och OpenID Connect, en programhemlighet ofta kallas en `client_secret`. I version 2.0-protokollet, alla program som tar emot en säkerhetstoken på en webbplats för adresserbara (med hjälp av en `https` schema) måste använda en programhemlighet för att identifiera sig för Azure AD vid inlösen av den säkerhetstoken. Alla interna klienter som tar emot token på en enhet kommer dessutom att tillåts inte från att använda en programhemlighet för klientautentisering. Detta minskar sannolikheten för lagringen av hemligheter i osäkert miljöer.
 
-Varje app kan innehålla två giltigt program hemligheter vid en given tidpunkt. Genom att upprätthålla två hemligheter, har du möjligheten att utföra regelbundna nyckelförnyelse över hela miljön i ditt program. När du har migrerat i sin helhet ditt program till en ny hemlighet, kan du ta bort den gamla hemligheten och etablera en ny.
+Varje app kan innehålla två giltiga programhemligheter vid en given tidpunkt. Genom att två hemligheter, har du möjligheten att utföra regelbundna nyckelförnyelse över programmets hela miljön. När du har migrerat hela ditt program till en ny hemlighet, kan du ta bort den gamla hemligheten och etablera en ny.
 
-För tillfället tillåts bara två typer av program hemligheter i portalen för registrering av app. Om du väljer **generera nya lösenord** genererar och lagrar en delad hemlighet i respektive datalagret, som du kan använda i ditt program. Om du väljer **Generera en ny nyckel** skapar ett nytt offentligt/privat nyckelpar som kan hämtas och används för klientautentisering till Azure AD. Om du väljer **överför offentliga nyckel** kan du använda dina egna offentliga/privata nyckelparet.
+För närvarande tillåts bara två typer av programhemligheter i portalen för registrering av appen. Välja **generera nytt lösenord** genererar och lagrar en delad hemlighet i respektive datalagret, som du kan använda i ditt program. Välja **Generera ny nyckel** skapar ett nytt offentligt/privat nyckelpar som kan hämtas och används för klientautentisering till Azure AD. Välja **ladda upp offentlig nyckel** kan du använda din egen offentligt/privat nyckelpar.
 Du måste överföra ett certifikat som innehåller en offentlig nyckel.
 
 ## <a name="profile"></a>Profil
-Avsnittet profil i portalen för registrering av appen kan användas för att anpassa inloggningssidan för ditt program. Just nu kan du ändra inloggning sidans programmet logotyp, villkor för URL: en, och URL till sekretesspolicy. Logotypen måste vara en transparent bild på 48 x 48 eller 50 x 50 bildpunkter i en GIF-, PNG- eller JPEG-fil som är på högst 15 kB. Försök ändra värdena och visa den resulterande inloggningssidan!
+Profilavsnittet för portalen för registrering av appen kan användas för att anpassa inloggningssidan för ditt program. Just nu kan du ändra inloggning sidans programlogotyp, villkoren i tjänstens URL och URL för sekretesspolicy. Logotypen måste vara en transparent bild på 48 x 48 eller 50 x 50 bildpunkter i en GIF-, PNG- eller JPEG-fil som är på högst 15 kB. Försök ändra värdena och visa den resulterande inloggningssidan!
 
 ## <a name="live-sdk-support"></a>Live SDK-Support
-När du aktiverar ”Live SDK stöd” alla hemligheter för program som du skapar kommer att tillhandahållas till Azure AD och Account dataarkiv. På så sätt kan programmet integreras direkt med tjänsten Account (login.live.com). Om du vill skapa en app med Account direkt (i stället för med Azure AD v2.0-slutpunkten) bör du kontrollera Live SDK-stöd är aktiverat.
+När du aktiverar ”Live SDK stöd” alla programhemligheter som du skapar kommer att tillhandahållas till Azure AD och Account datalager. På så sätt kan dina program för att integrera direkt med Microsoft Account service (login.live.com). Om du vill skapa en app med Account direkt (i stället för med Azure AD v2.0-slutpunkten) bör du kontrollera Live SDK-stöd är aktiverat.
 
-Inaktivera stöd för Live SDK säkerställer att programmet hemlighet bara skrivs till Azure AD-data lagras. Azure AD-data store omfattar företagsklass regler som tillåter att uppfylla vissa krav, till exempel FISMA kompatibilitet. Om du aktiverar stöd för Live SDK, kan programmet inte uppnå kompatibilitet med vissa av dessa standarder.
+Inaktivera stöd för Live SDK säkerställer att programhemlighet endast har skrivits till Azure AD-data lagras. Azure AD-data store införlivar företagsklass förordningar som tillåter att den uppfyller vissa standarder, till exempel FISMA-efterlevnad. Om du aktiverar Live SDK stöd kan ditt program inte uppnå efterlevnad med några av dessa standarder.
 
-Om du bara tänker använda Azure AD v2.0-slutpunkten kan du inaktivera stöd för Live SDK på ett säkert sätt.
+Om du bara planerar att använda Azure AD v2.0-slutpunkten, kan du inaktivera stöd för Live SDK på ett säkert sätt.
 

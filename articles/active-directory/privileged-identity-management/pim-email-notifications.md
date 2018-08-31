@@ -1,6 +1,6 @@
 ---
-title: E-postmeddelanden i Azure AD PIM | Microsoft Docs
-description: Beskriver e-postaviseringar i Azure AD Privileged Identity Management (PIM)
+title: E-postmeddelanden i PIM - Azure | Microsoft Docs
+description: Beskriver e-postaviseringar i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 07/24/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 7943b4fb8c2027b50ce04c30d21f1b0a58f98ace
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 1a1635e0ba16bdc0fa6dc90aa0e1a417f43e04ac
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621590"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190184"
 ---
-# <a name="email-notifications-in-azure-ad-pim"></a>E-postaviseringar i Azure AD PIM
+# <a name="email-notifications-in-pim"></a>E-postmeddelanden i PIM
 
 När viktiga händelser inträffar i Azure AD Privileged Identity Management (PIM), skickas e-postmeddelanden till relevant administratör eller användare. Till exempel skickar PIM e-postmeddelanden för följande händelser:
 
@@ -74,5 +74,5 @@ När en användare har tilldelats en privilegierad roll, tittat tidigare e-postm
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Så här hanterar du rollaktiveringsinställningar i Azure AD PIM](pim-how-to-change-default-settings.md)
-- [Godkännanden i Azure AD PIM](azure-ad-pim-approval-workflow.md)
+- [Konfigurera Azure AD directory rollinställningar i PIM](pim-how-to-change-default-settings.md)
+- [Godkänn eller neka begäranden för Azure AD-katalogroller i PIM](azure-ad-pim-approval-workflow.md)

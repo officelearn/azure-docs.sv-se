@@ -3,19 +3,19 @@ title: Metodtips för inläsning av data – Azure SQL Data Warehouse | Microsof
 description: Rekommendationer och prestandaoptimering för inläsning av data i Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 5ccf0ce0cc94f0ae08213167ee54628a9d059859
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: a2cc5b02744c04752ba11cbba14fe95c487d737c
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701526"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248125"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Metodtips för inläsning av data i Azure SQL Data Warehouse
 Rekommendationer och prestandaoptimering för inläsning av data i Azure SQL Data Warehouse. 
@@ -58,7 +58,7 @@ Anslut till informationslagret och skapa en användare. Följande kod förutsät
 ```
 När du vill köra en inläsning med resurser för staticRC20-resursklasserna loggar du bara in som LoaderRC20 och kör inläsningen.
 
-Kör inläsningar under statiska i stället för dynamiska resursklasser. Med hjälp av statiska resursklasser garanterar samma resurser oberoende av din [datalager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md). Om du använder en dynamisk resursklass varierar resurserna beroende på din servicenivå. För dynamiska klasser innebär en lägre servicenivå att du troligtvis behöver använda en större resursklass för din inläsningsanvändare.
+Kör inläsningar under statiska i stället för dynamiska resursklasser. Använda statiska resursklasser ser samma resurser oavsett dina [data informationslagerenheter](what-is-a-data-warehouse-unit-dwu-cdwu.md). Om du använder en dynamisk resursklass varierar resurserna beroende på din servicenivå. För dynamiska klasser innebär en lägre servicenivå att du troligtvis behöver använda en större resursklass för din inläsningsanvändare.
 
 ## <a name="allowing-multiple-users-to-load"></a>Tillåta många användare att läsa in
 

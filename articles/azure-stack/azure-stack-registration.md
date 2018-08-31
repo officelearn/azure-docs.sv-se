@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 08/24/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: e2411a91174fd0b52227b4cfe8783c8c74c4039e
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 58c8568da0a818f87a5bb3d6966d2d4a6c977fd9
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42058175"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247831"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrera Azure Stack med Azure
 
@@ -84,13 +84,12 @@ Azure Stack-distributioner kanske *anslutna* eller *frånkopplad*.
 
  - **Ansluten**  
  Ansluten innebär att du har distribuerat Azure Stack så att den kan ansluta till Internet och till Azure. Du har Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) för din identitet butik. Med en ansluten distribution som du kan välja mellan två faktureringsmodeller: betalning som du-användning eller kapacitetsbaserad.
-    - [Registrera en ansluten Azure Stack med Azure med hjälp av den **betalning som du-användning** faktureringsmodell](#register-a-connected-azure-stack-with-azure-using-the-pay-as-you-use-billing-model)
-    - [Registrera en ansluten Azure Stack med Azure med hjälp av den **kapacitet** faktureringsmodell](#register-a-connected-azure-stack-with-azure-using-the-capacity-billing-model)
+    - [Registrera en ansluten Azure Stack med Azure med hjälp av den **betalning som du-användning** faktureringsmodell](#register-connected-with-pay-as-you-go-billing)
+    - [Registrera en ansluten Azure Stack med Azure med hjälp av den **kapacitet** faktureringsmodell](#register-connected-with-capacity-billing)
 
  - **Frånkopplad**  
  Med den frånkopplade från Azure distributionsalternativ, du kan distribuera och använda Azure Stack utan en anslutning till Internet. Men med en frånkopplad distribution är du begränsad till en AD FS-Identitetslagret och kapacitetsbaserad faktureringsmodell.
-    - [Registrera en frånkopplad Azure Stack med den **kapacitet** faktureringsmodell ](#register-a-disconnected-Azure-Stack-using-the-capacity-billing-model
-)
+    - [Registrera en frånkopplad Azure Stack med den **kapacitet** faktureringsmodell ](#register-disconnected-with-capacity-billing)
 
 ## <a name="register-connected-with-pay-as-you-go-billing"></a>Registrera kontakten med användningsbaserad fakturering
 
@@ -218,7 +217,7 @@ Om du registrerar Azure Stack i en frånkopplad miljö (som saknar Internetanslu
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
-   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -EnableUsageReporting False $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
+   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -UsageReportingEnabled:$False $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
    Mer information om cmdleten Get-AzsRegistrationToken finns [referens för registrering av](#registration-reference).
 
@@ -358,7 +357,7 @@ Du har nu helt avregistreras i ett scenario med frånkopplade och upprepa stegen
 
 ### <a name="disable-or-enable-usage-reporting"></a>Inaktivera eller aktivera användningsrapportering
 
-Inaktivera för Azure Stack-miljöer som använder ett prispaket av fakturering, användning rapportering med den **EnableUsageReporting** parametern med antingen den **Set-AzsRegistration** eller  **Get-AzsRegistrationToken** cmdletar. Azure Stack rapporterar användningsstatistik som standard. Operatörer med kapacitet använder eller stöd för en frånkopplad miljö måste du inaktivera användningsrapportering.
+Inaktivera för Azure Stack-miljöer som använder ett prispaket av fakturering, användning rapportering med den **UsageReportingEnabled** parametern med antingen den **Set-AzsRegistration** eller  **Get-AzsRegistrationToken** cmdletar. Azure Stack rapporterar användningsstatistik som standard. Operatörer med kapacitet använder eller stöd för en frånkopplad miljö måste du inaktivera användningsrapportering.
 
 #### <a name="with-a-connected-azure-stack"></a>Med en ansluten Azure Stack
 
@@ -378,7 +377,7 @@ Inaktivera för Azure Stack-miljöer som använder ett prispaket av fakturering,
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
-   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -EnableUsageReporting False
+   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -UsageReportingEnabled:$False
    $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
 

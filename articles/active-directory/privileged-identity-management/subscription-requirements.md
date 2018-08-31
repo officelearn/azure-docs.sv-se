@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management-prenumerationerna - Azure | Microsoft Docs
-description: Beskriver prenumerationen och Licensieringskrav för att hantera och använda Azure AD Privileged Identity Management i din klient
+title: Prenumerationskrav att använda PIM - Azure | Microsoft Docs
+description: Beskriver den prenumerationen och licenskraven som använder Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.component: pim
 ms.date: 06/01/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: dbe4efa57a7c4c31b2bdca84665eef8179564a8f
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 1554895dcba0c09a3a2e19c284a1cd6f0416cfe1
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617077"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190618"
 ---
-# <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Krav för Azure Active Directory Privileged Identity Management-prenumeration
+# <a name="subscription-requirements-to-use-pim"></a>Prenumerationskraven för att använda PIM
 
 Azure AD Privileged Identity Management är tillgängligt som en del av Premium P2-versionen av Azure AD. Mer information om andra funktioner för P2 och jämförelse med Premium P1 finns [Azure Active Directory-versioner](../active-directory-editions.md).
 
@@ -61,5 +61,5 @@ När en Azure AD Premium P2-prenumeration eller EMS E5-prenumeration upphör att
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Kom igång med Azure AD Privileged Identity Management](pim-getting-started.md)
-- [Roller i Azure AD Privileged Identity Management](pim-roles.md)
+- [Börja använda PIM](pim-getting-started.md)
+- [Azure AD-katalogroller som du kan hantera i PIM](pim-roles.md)

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5f2674aeb83fbb7679d9d0c2574a93484a352e9d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 180f1a39b92dd699fa114cb98a5842b0ab0dc89a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40162128"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190546"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Skapa en datapipeline med Data Collector API
 
@@ -42,7 +42,7 @@ Vi använder en klassiska ETL-type-logik för att utforma vår pipeline. Arkitek
 
 Den här artikeln inte beskriver hur du skapar data eller [överföra den till ett Azure Blob Storage-konto](../storage/blobs/storage-upload-process-images.md). I stället över vi flödet så fort en ny fil laddas upp till blob. Härifrån:
 
-1. En process som identifierar att nya data har överförts.  Vårt exempel använder använder en [Azure Logic App](../logic-apps/logic-apps-overview.md), som har en utlösare för att identifiera nya data som överförs till en blob.
+1. En process som identifierar att nya data har överförts.  Vårt exempel använder en [Azure Logic App](../logic-apps/logic-apps-overview.md), som har en utlösare för att identifiera nya data som överförs till en blob.
 
 2. En processor läser dessa nya data och konverterar den till JSON, det format som krävs av Log Analytics.  I det här exemplet använder vi en [Azure Function](../azure-functions/functions-overview.md) som ett enkelt, kostnadseffektivt sätt att köra vår kod för bearbetning. Funktionen har startats av samma Logikapp som vi använde för att identifiera en nya data.
 

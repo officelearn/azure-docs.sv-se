@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1d42d9a97244eeff501b9d02b0f143d6ef0c91b2
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6ad0a5d59b28bf48742c9e1be89b51d2301dd582
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440640"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189298"
 ---
 # <a name="using-b2clogincom"></a>Med hjälp av b2clogin.com
 
@@ -25,7 +25,7 @@ ms.locfileid: "37440640"
 
 Nu har du möjlighet att använda Azure AD B2C-tjänsten med `<YourTenantName>.b2clogin.com` istället för att använda `login.microsoftonline.com`.  Detta har många fördelar:
 * Du kan inte längre dela samma storleksgränsen för cookie-sidhuvud med andra Microsoft-produkter.
-* Du kan ta bort alla referenser till Microsoft i din URL (du kan ersätta `<YourTenantName>.onmicrosoft.com` med ditt klient-ID). Till exempel: `https://<tenantname>.b2clogin.com/tfp/<tenantname>/<policyname>/v2.0/.well-known/openid-configuration`.
+* Du kan ta bort alla referenser till Microsoft i din URL (du kan ersätta `<YourTenantName>.onmicrosoft.com` med ditt klient-ID). Till exempel: `https://<tenantname>.b2clogin.com/tfp/<tenantID>/<policyname>/v2.0/.well-known/openid-configuration`.
 
  För att kunna dra nytta av b2clogin.com, måste du ange en del av följande:
 

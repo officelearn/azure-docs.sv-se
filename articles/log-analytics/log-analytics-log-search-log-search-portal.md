@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: e97bab36a9a1a18cab1d45abfa451139323b2320
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 532df20a7639f42d8ba1c840a5fd19f0ad0e4042
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057089"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246341"
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Skapa sökningar i loggen i Azure Log Analytics med hjälp av loggsökningsportalen
 
@@ -38,9 +38,8 @@ Börja med att öppna loggsökningsportalen.
 
 1. Öppna Azure Portal.
 2. Gå till Log Analytics och välj din arbetsyta.
-3. Välj **Loggsöknings**.
+3. Välj **Loggar**.
 
-![Loggsökningsknapp](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 
 ## <a name="create-a-simple-search"></a>Skapa en enkel sökning
 Det snabbaste sättet att hämta vissa data att arbeta med är en enkel fråga som returnerar alla poster i en tabell.  Om du har några Windows- eller Linux-klienter anslutna till din arbetsyta har du data i antingen tabellen Händelse (Windows) eller Syslog (Linux).

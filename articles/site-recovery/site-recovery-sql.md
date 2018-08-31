@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/22/2018
 ms.author: raynew
-ms.openlocfilehash: 23cf9430f82be860cb9acbfac42163f9243b2d0f
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: a734999f0fa473b5f1ee8ed55c4b73950566490d
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42060683"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188781"
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>Skydda SQL Server med hjälp av SQL Server-haveriberedskap och Azure Site Recovery
 
@@ -83,7 +83,6 @@ Den här tabellen sammanfattas våra rekommendationer för integrering av SQL Se
 
 * En lokal SQL Server-distributionen, kör en SQL Server-version som stöds. Vanligtvis måste du också Active Directory för SQL-servern.
 * Kraven för scenariot som du vill distribuera. Mer information om kraven för stöd för [replikering till Azure](site-recovery-support-matrix-to-azure.md) och [lokala](site-recovery-support-matrix.md), och [distributionskraven](site-recovery-prereq.md).
-* Om du vill konfigurera i Azure, kör den [diagnostisk utvärdering av för Azure VM](http://www.microsoft.com/download/details.aspx?id=40898) verktyget på din SQL Server-datorer, att kontrollera att de är kompatibla med Azure och Site Recovery.
 
 ## <a name="set-up-active-directory"></a>Konfigurera Active Directory
 

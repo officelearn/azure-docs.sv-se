@@ -1,6 +1,6 @@
 ---
-title: Azure AD Privileged Identity Management-säkerhetsguiden
-description: Första gången du använder Azure Active Directory Privileged Identity Management-tillägget visas med en säkerhetsguiden. Den här artikeln beskriver steg för att använda guiden.
+title: Säkerhetsguiden i PIM - Azure | Microsoft Docs
+description: Beskriver säkerhetsguiden som visas första gången du använder Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 02/27/2017
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
-ms.openlocfilehash: 19eb2b36b217dc67fabcc3c2c4721fb13b2224ec
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 178a4c5e978075f2a59b22a1cccf462138527964
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617014"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189087"
 ---
-# <a name="using-the-security-wizard-in-azure-ad-privileged-identity-management"></a>Guiden Säkerhet i Azure AD Privileged Identity Management 
+# <a name="security-wizard-in-pim"></a>Säkerhetsguiden i PIM
 Om du är den första personen som kör Azure Privileged Identity Management (PIM) för din organisation kan visas med en guide. Guiden hjälper dig att förstå säkerhetsriskerna med Privilegierade identiteter och hur du använder PIM för att minska riskerna. Du behöver inte göra ändringar i befintliga rolltilldelningar i guiden om du vill göra det senare.
 
 ## <a name="what-to-expect"></a>Vad du kan förvänta dig
@@ -40,5 +40,7 @@ När du har gjort ändringar, visas inte längre i guiden. Nästa gång du eller
 * Om du vill ge fler användare åtkomst till att hantera PIM Läs mer i [ge åtkomst till att hantera i PIM](pim-how-to-give-access-to-pim.md).
 
 ## <a name="next-steps"></a>Nästa steg
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
 
+- [Börja använda PIM](pim-getting-started.md)
+- [Tilldela Azure AD-katalogroller i PIM](pim-how-to-add-role-to-user.md)
+- [Bevilja åtkomst till andra administratörer att hantera PIM](pim-how-to-give-access-to-pim.md)

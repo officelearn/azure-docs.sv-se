@@ -1,6 +1,6 @@
 ---
-title: Hantera säkerhetsaviseringar för Azure-resurser med hjälp av Privileged Identity Management | Microsoft Docs
-description: Beskriver PIM säkerhetsaviseringar.
+title: Konfigurera säkerhetsaviseringar för Azure-resursroller i PIM | Microsoft Docs
+description: Lär dig hur du konfigurerar säkerhetsaviseringar för Azure-resursroller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 46b19866ec3f276c8337cf9501b779701377d0a5
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 33bd13421b0c1574475516da942abe4e8c71ed52
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620424"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188840"
 ---
-# <a name="manage-security-alerts-for-azure-resources-by-using-privileged-identity-management"></a>Hantera säkerhetsaviseringar för Azure-resurser med hjälp av Privileged Identity Management
+# <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>Konfigurera säkerhetsaviseringar för Azure-resursroller i PIM
 Privileged Identity Management (PIM) för Azure-resurser genererar aviseringar när det finns misstänkt eller osäkra aktivitet i din miljö. När en avisering utlöses visas den på sidan aviseringar. 
 
 ![Sidan varningar](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
@@ -50,3 +50,8 @@ Från sidan aviseringar går du till **inställningar**.
 
 Anpassa inställningar för olika aviseringar för att arbeta med din miljö och säkerhetsmål.
 ![Anpassa inställningar](media/azure-pim-resource-rbac/rbac-alert-settings.png)
+
+## <a name="next-steps"></a>Nästa steg
+
+- [Kräv multifaktorautentisering för Azure-resursroller i PIM](pim-resource-roles-require-mfa.md)
+- [Konfigurera säkerhetsaviseringar för Azure-resursroller i PIM](pim-resource-roles-configure-alerts.md)

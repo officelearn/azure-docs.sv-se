@@ -1,6 +1,6 @@
 ---
-title: Slutför en åtkomstgranskning för Azure-resurser med hjälp av Privileged Identity Management | Microsoft Docs
-description: Beskriver hur du slutför en åtkomstgranskning för Azure-resurser.
+title: Slutför en åtkomstgranskning för Azure-resursroller i PIM | Microsoft Docs
+description: Lär dig hur du slutför en åtkomstgranskning för Azure-resursroller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: f1fc23afb41753bfe358cb05376a5ee9a07e34fd
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: f998c509e9bea65980367690a5e9d03f579b8e98
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620050"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189135"
 ---
-# <a name="complete-an-access-review-for-azure-resources-by-using-privileged-identity-management"></a>Slutför en åtkomstgranskning för Azure-resurser med hjälp av Privileged Identity Management
+# <a name="complete-an-access-review-for-azure-resource-roles-in-pim"></a>Slutför en åtkomstgranskning för Azure-resursroller i PIM
 Privilegierade rolladministratörer kan granska privilegierad åtkomst efter en [åtkomstgranskning har startats](pim-resource-roles-start-access-review.md). Privileged Identity Management (PIM) för Azure-resurser skickar automatiskt ett e-postmeddelande som uppmanar användaren att granska åtkomsten. Om en användare inte får ett e-postmeddelande, kan du skicka dem instruktionerna [så här utför du en åtkomstgranskning](pim-resource-roles-perform-access-review.md).
 
 När åtkomstgranskningsperiod är slut, eller när alla användare är klar med sin egen granska, följer du stegen i den här artikeln om du vill hantera granskningen och se resultaten.
@@ -60,5 +60,7 @@ På den **resultat** fliken, visa och hämta en lista över granskningsresultate
 Visa och Lägg till granskare till din befintliga åtkomstgranskning. Påminn granskare att slutföra sina granskningar.
 ![Lägg till granskare](media/azure-pim-resource-rbac/rbac-access-review-reviewers.png)
 
+## <a name="next-steps"></a>Nästa steg
 
-
+- [Starta en åtkomstgranskning för Azure-resursroller i PIM](pim-resource-roles-start-access-review.md)
+- [Utför en åtkomstgranskning av min Azure-resursroller i PIM](pim-resource-roles-perform-access-review.md)

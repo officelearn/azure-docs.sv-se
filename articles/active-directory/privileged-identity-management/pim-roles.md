@@ -1,6 +1,6 @@
 ---
-title: Roller i Azure AD Privileged Identity Management | Microsoft Docs
-description: Lär dig vilka roller som används för privilegierade identiteter med Azure Privileged Identity Management-tillägget.
+title: Azure AD-katalogroller som du kan hantera i PIM | Microsoft Docs
+description: Beskriver Azure AD-katalogroller som du kan hantera i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: f8045d70ab4926cdc0e28a9a2290685c4f11205a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: c8870e4da63dc52d5926bdfd5f7c9b3218e5f53a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618571"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188994"
 ---
-# <a name="directory-roles-you-can-manage-using-azure-ad-pim"></a>Du kan hantera med hjälp av Azure AD PIM för katalogroller
+# <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>Azure AD-katalogroller som du kan hantera i PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
 Du kan tilldela användare i din organisation för olika administrativa roller i Azure AD. De här rolltilldelningarna bestämma vilka aktiviteter, till exempel att lägga till eller ta bort användare eller ändra tjänstinställningar, användarna ska kunna utföra på Azure AD, Office 365, och andra Microsoft Online Services och anslutna program.  
@@ -86,5 +86,7 @@ För vissa Microsoft-tjänster och program, kanske tilldela en användare till e
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Nästa steg
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Börja använda PIM](pim-getting-started.md)
+- [Tilldela Azure AD-katalogroller i PIM](pim-how-to-add-role-to-user.md)
 

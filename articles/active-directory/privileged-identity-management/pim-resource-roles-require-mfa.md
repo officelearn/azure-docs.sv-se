@@ -1,6 +1,6 @@
 ---
-title: Använda Azure Multifaktorautentisering i Azure-resurser med hjälp av Privileged Identity Management | Microsoft Docs
-description: Det här dokumentet beskriver hur du aktiverar multifaktorautentisering för PIM-resurser.
+title: Kräv multifaktorautentisering för Azure-resursroller i PIM | Microsoft Docs
+description: Lär dig mer om att kräva multifaktorautentisering (MFA) för Azure-resursroller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 42c93a107c7ed58d6f7412b61627dccaf9076bb7
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 171d79856cf67dae9573dd1076c2ae4617cf86d1
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617878"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190576"
 ---
-# <a name="enforce-azure-multi-factor-authentication-in-azure-resources-by-using-privileged-identity-management"></a>Använda Azure Multifaktorautentisering i Azure-resurser med hjälp av Privileged Identity Management
+# <a name="require-multi-factor-authentication-for-azure-resource-roles-in-pim"></a>Kräv multifaktorautentisering för Azure-resursroller i PIM
 
 Privileged Identity Management (PIM) för Azure-resursroller kan resurs-administratörer och identitetsadministratörer att skydda viktiga Azure-infrastrukturen med tidsbegränsade medlemskap och just-in-time-åtkomst. Dessutom tillhandahåller PIM valfritt tillämpning av Azure Multi-Factor Authentication för två olika scenarier.
 
@@ -59,9 +59,7 @@ Från samma roll inställningen informationsskärmen, markerar du kryssrutan **M
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Kräv godkännande för att aktivera](pim-resource-roles-approval-workflow.md)
-
-[Använda granskningsloggen](pim-resource-roles-use-the-audit-log.md)
-
+- [Konfigurera Azure-resurs rollinställningar i PIM](pim-resource-roles-configure-role-settings.md)
+- [Konfigurera säkerhetsaviseringar för Azure-resursroller i PIM](pim-resource-roles-configure-alerts.md)
 
 

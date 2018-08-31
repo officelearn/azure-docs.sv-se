@@ -1,6 +1,6 @@
 ---
-title: SAP ASCS/SCS instansen multi-SID hög tillgänglighet med Windows Server Failover Clustering och filresursen i Azure | Microsoft Docs
-description: Flera SID hög tillgänglighet för SAP ASCS/SCS instanser med Windows Server Failover Clustering och filen dela på Azure
+title: SAP ASCS/SCS-instans – flera SÄKERHETSIDENTIFIERARE hög tillgänglighet med Windows Server Failover Clustering och filresursen på Azure | Microsoft Docs
+description: Multi-SID hög tillgänglighet för SAP ASCS/SCS-instanser med Windows Server Failover Clustering och filen dela på Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 604179ec856d21dce51101fdafa5d51eed08f89f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1e21357eeb795a26874cddb90b4d3a6303b83ac0
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657221"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189641"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -194,86 +194,87 @@ ms.locfileid: "34657221"
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-# <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>SAP ASCS/SCS instansen multi-SID hög tillgänglighet med Windows Server Failover Clustering och filresursen på Azure
+# <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>SAP ASCS/SCS-instans – flera SÄKERHETSIDENTIFIERARE hög tillgänglighet med Windows Server Failover Clustering och filresursen på Azure
 
 > ![Windows][Logo_Windows] Windows
 >
 
-I September 2016 Microsoft släppt en funktion där du kan hantera flera virtuella IP-adresser med hjälp av en [Azure intern belastningsutjämnare][load-balancer-multivip-overview]. Den här funktionen finns redan i Azure externa belastningsutjämnaren.
+I September 2016 släppte Microsoft en funktion där du kan hantera flera virtuella IP-adresser med hjälp av en [Azure intern belastningsutjämnare][load-balancer-multivip-overview]. Den här funktionen finns redan i den externa belastningsutjämnaren som Azure.
 
-Om du har en SAP-distribution kan använda du en intern belastningsutjämnare för att skapa en Windows-klusterkonfiguration för centrala SAP-tjänster (ASCS/SCS) instanser.
+Om du har en SAP-distribution kan använda du en intern belastningsutjämnare för att skapa en Windows-klusterkonfiguration för SAP Central Services (ASCS/SCS)-instanser.
 
-Den här artikeln fokuserar på hur du flyttar från en enda ASCS/SCS-installation till en SAP multi-SID-konfigurationen genom att installera ytterligare SAP ASCS/SCS klustrade instanser i en befintlig Windows Server WSFC (Failover Clustering) kluster med **filresurs** . Du har konfigurerat en SAP multi-SID-klustret när den här processen har slutförts.
+Den här artikeln handlar om hur du flyttar från en enda ASCS/SCS-installation till en SAP – flera SÄKERHETSIDENTIFIERARE konfiguration genom att installera ytterligare SAP ASCS/SCS klustrade instanser i en befintlig WSFC Windows Server Failover Clustering ()-kluster med **filresurs** . När processen är slutförd, har du konfigurerat ett SAP – flera SÄKERHETSIDENTIFIERARE kluster.
 
 > [!NOTE]
 >
 > Den här funktionen är endast tillgänglig i Azure Resource Manager-distributionsmodellen.
 >
->Det finns en gräns för antalet privata frontend IP-adresser för varje Azure interna belastningsutjämnare.
+>Det finns en gräns för antalet privata frontend IP-adresser för varje Azure intern belastningsutjämnare.
 >
->Det maximala antalet SAP ASCS/SCS instanser i en WSFC-klustret är lika med det maximala antalet privata frontend IP-adresser för varje Azure interna belastningsutjämnare.
+>Det maximala antalet SAP ASCS/SCS-instanser i ett WSFC-klustret är lika med det maximala antalet privata frontend IP-adresser för varje Azure intern belastningsutjämnare.
 >
 
-Mer information om belastningsutjämnare begränsningar finns i avsnittet ”privat frontend-IP per belastningsutjämnare i [nätverk gränser: Azure Resource Manager][networking-limits-azure-resource-manager].
+Mer information om belastningsutjämnare begränsningar finns i avsnittet ”privat frontend-IP per belastningsutjämnare i [nätverksgränser: Azure Resource Manager][networking-limits-azure-resource-manager].
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du redan har konfigurerat en WSFC-klustret ska använda för en SAP ASCS/SCS-instans med hjälp av **filresursen**som visas i det här diagrammet.
+Du redan har konfigurerat en WSFC-klustret ska använda för en SAP ASCS/SCS-instans med hjälp av **filresurs**, vilket visas i det här diagrammet.
 
-![Bild 1: En SAP ASCS/SCS-instans och SOFS som distribuerats i två kluster][sap-ha-guide-figure-8007]
+![Bild 1: Ett SAP ASCS/SCS-instans och SOFS som distribueras i två kluster][sap-ha-guide-figure-8007]
 
-_**Bild 1:** en SAP ASCS/SCS-instans och SOFS som distribuerats i två kluster_
+_**Bild 1:** en SAP ASCS/SCS-instans och SOFS som distribueras i två kluster_
 
 > [!IMPORTANT]
 > Inställningen måste uppfylla följande villkor:
 > * SAP ASCS/SCS-instanser måste dela samma WSFC-klustret.
+> * Olika globala värdar för SAP-filresurser som hör till olika SAP-SID måste dela samma SOFS-klustret.
 > * Varje databashanteringssystem (DBMS) SID måste ha sitt eget dedikerade WSFC-kluster.
-> * SAP-programservrar som hör till ett SAP system SID måste ha sina egna dedikerade virtuella datorer.
+> * SAP-programservrar som hör till en SAP-system SID måste ha sina egna dedikerade virtuella datorer.
 
-## <a name="sap-ascsscs-multi-sid-architecture-with-file-share"></a>SAP ASCS/SCS multi-SID-arkitektur med filresurs
+## <a name="sap-ascsscs-multi-sid-architecture-with-file-share"></a>SAP ASCS/SCS – flera SÄKERHETSIDENTIFIERARE arkitektur med filresurs
 
-Målet är att installera flera SAP avancerade Business Application Programming (ASCS) eller SAP Java (SCS) klustrade instanser i samma WSFC-klustret som visas här: 
+Målet är att installera flera Advanced Business Application Programming ASCS (SAP) eller SAP Java (SCS) klustrade instanser i samma WSFC-klustret som visas här: 
 
-![Bild 2: SAP multi-SID-konfigurationen i två kluster][sap-ha-guide-figure-8008]
+![Bild 2: SAP – flera SÄKERHETSIDENTIFIERARE konfiguration i två kluster][sap-ha-guide-figure-8008]
 
-_**Bild 2:** SAP multi-SID-konfigurationen i två kluster_
+_**Bild 2:** SAP – flera SÄKERHETSIDENTIFIERARE konfiguration i två kluster_
 
-Installation av ytterligare **SAP \<SID2 >** system är identisk med installation av en <SID> system. Två ytterligare förberedelser krävs på ASCS/SCS klustret samt på SOFS för kluster.
+Installationen av ytterligare **SAP \<SID2 >** system är identisk med installationen av en <SID> system. Två ytterligare förberedelser krävs på ASCS/SCS-kluster samt på filen resursen SOFS-kluster.
 
-## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>Förbereda infrastrukturen för ett scenario för SAP multi-SID
+## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>Förbered infrastrukturen i ett scenario med SAP – flera SÄKERHETSIDENTIFIERARE
 
-### <a name="prepare-the-infrastructure-on-the-domain-controller"></a>Förbereda infrastrukturen på domänkontrollanten
+### <a name="prepare-the-infrastructure-on-the-domain-controller"></a>Förbered infrastrukturen på domänkontrollanten
 
 Skapa domängruppen  **\<domän > \SAP_\<SID2 > _GlobalAdmin**, till exempel med \<SID2 > = PR2. Namnet på domänen är \<domän > \SAP_PR2_GlobalAdmin.
 
-### <a name="prepare-the-infrastructure-on-the-ascsscs-cluster"></a>Förbereda infrastrukturen i ASCS/SCS-kluster
+### <a name="prepare-the-infrastructure-on-the-ascsscs-cluster"></a>Förbered infrastrukturen på ASCS/SCS-kluster
 
-Måste du förbereda infrastrukturen på det befintliga klustret ASCS/SCS för andra SAP \<SID >:
+Måste du förbereda infrastrukturen på det befintliga ASCS/SCS-klustret för en andra SAP \<SID >:
 
-* Skapa ett virtuellt värdnamn för den klustrade instansen SAP ASCS/SCS på DNS-servern.
-* Lägga till en IP-adress i en befintlig Azure intern belastningsutjämnare med hjälp av PowerShell.
+* Skapa ett virtuellt värdnamn för den klustrade SAP ASCS/SCS-instansen på DNS-servern.
+* Lägg till en IP-adress till en befintlig Azure intern belastningsutjämnare med hjälp av PowerShell.
 
-Dessa steg beskrivs i [förberedelse av infrastruktur för ett scenario för SAP multi-SID][sap-ascs-ha-multi-sid-wsfc-shared-disk-infrast-prepare].
+De här stegen beskrivs i [infrastrukturförberedelser i ett scenario med SAP – flera SÄKERHETSIDENTIFIERARE][sap-ascs-ha-multi-sid-wsfc-shared-disk-infrast-prepare].
 
 
-### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>Förbereda infrastrukturen i ett SOFS-kluster med hjälp av den befintliga SAP-värd
+### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>Förbered infrastrukturen på ett skalbart filserverkluster med hjälp av den befintliga SAP-värd
 
-Du kan återanvända den befintliga \<SAPGlobalHost > och volym1 första SAP <SID1> system.
+Du kan återanvända den befintliga \<SAPGlobalHost > och Volume1 av den första SAP <SID1> system.
 
 ![Bild 3: Multi-SID SOFS är samma som SAP globala värdnamn][sap-ha-guide-figure-8014]
 
 _**Bild 3:** Multi-SID SOFS är samma som SAP globala värdnamn_
 
 > [!IMPORTANT]
->För andra **SAP \<SID2 >** system, samma volym1 och samma  **\<SAPGlobalHost >** nätverksnamn används.
->Eftersom du redan har **SAPMNT** som resursnamn för olika SAP-system, återanvända den  **\<SAPGlobalHost >** nätverksnamn, måste du använda samma **volym1**.
+>För andra **SAP \<SID2 >** system, samma Volume1 och samma  **\<SAPGlobalHost >** nätverksnamn används.
+>Eftersom du redan har **SAPMNT** som resursnamn för olika SAP-system, kan återanvända den  **\<SAPGlobalHost >** nätverksnamnet, måste du använda samma **Volume1**.
 >
->Sökvägen till den <SID2> globala värden är C:\ClusterStorage\\**volym1**\usr\sap\<SID2 > \SYS\.
+>Sökvägen till filen för den <SID2> globala värden är C:\ClusterStorage\\**Volume1**\usr\sap\<SID2 > \SYS\.
 >
 
 För den \<SID2 > system, måste du förbereda SAP globala värden... \SYS\.. mapp på SOFS-klustret.
 
-Så här förbereder du den globala SAP-värden för den \<SID2 > instansen, kör följande PowerShell-skript:
+Förbereda den globala SAP-värden för den \<SID2 > instans, kör följande PowerShell-skript:
 
 
 ```PowerShell
@@ -322,15 +323,15 @@ $Acl.SetAccessRule($Ar)
 Set-Acl $UsrSAPFolder $Acl -Verbose
 ```
 
-### <a name="prepare-the-infrastructure-on-the-sofs-cluster-by-using-a-different-sap-global-host"></a>Förbereda infrastrukturen på SOFS-kluster med hjälp av en annan SAP-värd
+### <a name="prepare-the-infrastructure-on-the-sofs-cluster-by-using-a-different-sap-global-host"></a>Förbered infrastrukturen på SOFS-kluster med hjälp av en annan SAP-värd
 
 Du kan konfigurera andra SOFS (till exempel andra SOFS kluster roll med  **\<SAPGlobalHost2 >** och en annan **Volume2** för andra  **\< SID2 >**).
 
-![Figur 4: Multi-SID SOFS är samma som den globala SAP värdnamnet 2][sap-ha-guide-figure-8015]
+![Bild 4: Multi-SID SOFS är samma som den globala SAP värdnamnet 2][sap-ha-guide-figure-8015]
 
-_**Bild 4:** Multi-SID SOFS är densamma som värdnamn för SAP globala 2_
+_**Bild 4:** Multi-SID SOFS är samma som den globala SAP värdnamn 2_
 
-Att skapa den andra SOFS-rollen med \<SAPGlobalHost2 >, köra detta PowerShell-skript:
+Att skapa den andra SOFS-rollen med \<SAPGlobalHost2 >, Kör PowerShell-skript:
 
 ```PowerShell
 # Create SOFS with SAP Global Host Name 2
@@ -338,7 +339,7 @@ $SAPGlobalHostName = "sapglobal2"
 Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 ```
 
-Skapa andra **Volume2**. Kör PowerShell-skript:
+Skapa andra **Volume2**. Kör följande PowerShell-skript:
 
 ```PowerShell
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
@@ -348,9 +349,9 @@ New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_
 
 _**Bild 5:** andra Volume2 i hanteraren för redundanskluster_
 
-Skapa en SAP globala mapp för andra \<SID2 >, och att ange filsäkerhet.
+Skapa en mapp med SAP globala för andra \<SID2 >, och Ställ in filsäkerhet.
 
-Kör PowerShell-skript:
+Kör följande PowerShell-skript:
 
 ```PowerShell
 # Create a folder for <SID2> on a second Volume2 and set file security
@@ -391,9 +392,9 @@ $Acl.SetAccessRule($Ar)
 Set-Acl $UsrSAPFolder $Acl -Verbose
 ```
 
-Att skapa en filresurs för SAPMNT på Volume2 med den  *\<SAPGlobalHost2 >* värdnamn för andra SAP \<SID2 >, starta den **lägga till filresursen** i redundanskluster Manager.
+Att skapa en filresurs för SAPMNT på Volume2 med den  *\<SAPGlobalHost2 >* värdnamn för andra SAP \<SID2 >, starta den **Lägg till filresurs** guiden i Failover-kluster Manager.
 
-Högerklicka på den **saoglobal2** SOFS klustergruppen och välj sedan **Lägg till filresurs**.
+Högerklicka på den **saoglobal2** SOFS kluster gruppen och välj sedan **Lägg till filresurs**.
 
 ![Bild 6: Starta guiden ”Lägg till filresurs”][sap-ha-guide-figure-8017]
 
@@ -410,50 +411,50 @@ _**Bild 7:** Välj ”SMB-resurs – snabb”_
 _**Bild 8:** Välj ”sapglobalhost2” och ange sökvägen på Volume2_
 
 <br>
-![Bild 9: Ange filresursnamn till ”sapmnt”][sap-ha-guide-figure-8020]
+![Bild 9: Ange namn på filresurs till ”sapmnt”][sap-ha-guide-figure-8020]
 
 _**Bild 9:** Set filresursnamn till ”sapmnt”_
 
 <br>
-![Figur 10: Inaktivera alla inställningar][sap-ha-guide-figure-8021]
+![Bild 10: Inaktivera alla inställningar][sap-ha-guide-figure-8021]
 
-_**Figur 10:** inaktivera alla inställningar_
+_**Bild 10:** inaktivera alla inställningar_
 
 <br>
-Tilldela *fullständig kontroll* behörigheter till filer och sapmnt dela för:
+Tilldela *fullständig behörighet* behörigheter till filer och sapmnt dela för:
 * Den **SAP_\<SID > _GlobalAdmin** domänanvändargrupp
-* ASCS/SCS klusternoder datorobjekt **ascs-1$** och **ascs-2$**
+* Datorobjekt ASCS/SCS klusternoder **ascs-1$** och **ascs-2 $**
 
-![Figur 11: Tilldela fullständig behörighet till grupp och användarkonton][sap-ha-guide-figure-8022]
+![Bild 11: Tilldela fullständig behörighet till grupp och användarkonton][sap-ha-guide-figure-8022]
 
-_**Figur 11:** tilldela ”fullständig behörighet” till grupp och användarkonton_
-
-<br>
-![Figur 12: Välj ”Skapa”][sap-ha-guide-figure-8023]
-
-_**Figur 12:** Välj ”Skapa”_
+_**Bild 11:** tilldela ”fullständig behörighet” till grupp och användarkonton_
 
 <br>
-![Figur 13: Andra sapmnt bunden till sapglobal2 värden och Volume2 har skapats][sap-ha-guide-figure-8024]
+![Bild 12: Välj ”Skapa”][sap-ha-guide-figure-8023]
 
-_**Figur 13:** andra sapmnt bunden till sapglobal2 värden och Volume2 har skapats_
+_**Bild 12:** Välj ”Skapa”_
+
+<br>
+![Bild 13: Andra sapmnt bunden till sapglobal2 värd och Volume2 skapas][sap-ha-guide-figure-8024]
+
+_**Bild 13:** andra sapmnt bunden till sapglobal2 värd och Volume2 skapas_
 
 <br>
 ## <a name="install-sap-netweaver-multi-sid"></a>Installera SAP NetWeaver multi-SID
 
 ### <a name="install-sap-sid2-ascsscs-and-ers-instances"></a>Installera SAP \<SID2 > ASCS/SCS och ÄNDARE instanser
 
-Följ samma steg för installation och konfiguration som tidigare beskrivits för en SAP \<SID >.
+Följ samma steg för installation och konfiguration enligt beskrivningen ovan för en SAP \<SID >.
 
-### <a name="install-dbms-and-sap-application-servers"></a>Installera DBMS och SAP programservrar
-Installera DBMS och SAP-programservrar som tidigare beskrivits.
+### <a name="install-dbms-and-sap-application-servers"></a>Installera DBMS och SAP-programservrar
+Installera DBMS och SAP-programservrar enligt beskrivningen ovan.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Installera en ASCS/SCS-instans i ett redundanskluster utan delade diskar][sap-official-ha-file-share-document]: officiella SAP riktlinjer för en filresurs för hög tillgänglighet
 
-* [Lagringsutrymmen direkt i Windows Server 2016][s2d-in-win-2016]
+* [Lagringsdirigering i Windows Server 2016][s2d-in-win-2016]
 
-* [Skalbar filserver för programdata][sofs-overview]
+* [Skalbar filserver för programdataöversikt][sofs-overview]
 
-* [Vad är nytt i lagring i Windows Server 2016][new-in-win-2016-storage]
+* [Nyheter i storage i Windows Server 2016][new-in-win-2016-storage]

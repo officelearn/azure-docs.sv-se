@@ -1,6 +1,6 @@
 ---
-title: Ge tillgång till Privileged Identity Management – Azure | Microsoft Docs
-description: Lär dig hur du lägger till roller till användare med Azure Active Directory Privileged Identity Management-tillägget så att de kan hantera PIM.
+title: Bevilja åtkomst till andra administratörer att hantera PIM - Azure | Microsoft Docs
+description: Lär dig mer om att bevilja åtkomst till andra myndigheter att hantera Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ade3939057669e7f9979001db4376fe61c2f4ad9
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
-ms.translationtype: MT
+ms.openlocfilehash: d6b2d9f43ce9bb86f4557c92887689c83beb49fa
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623076"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189563"
 ---
-# <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Ge åtkomst till att hantera Azure AD Privileged Identity Management
+# <a name="grant-access-to-other-administrators-to-manage-pim"></a>Bevilja åtkomst till andra administratörer att hantera PIM
 Den globala administratören som gör Azure AD Privileged Identity Management (PIM) för en organisation att automatiskt få rolltilldelningar och åtkomst till PIM. Ingen annan hämtar skrivåtkomst som standard, men även andra globala administratörer. Andra globala administratörer, säkerhetsadministratörer och säkerhetsläsare har skrivskyddad åtkomst till Azure AD PIM. Om du vill ge åtkomst till PIM, kan den första användaren tilldela andra användare till den **privilegierad rolladministratör** roll.
 
 > [!NOTE]
@@ -54,4 +54,5 @@ Innan du tar bort någon från en administratör för privilegierade roller kan 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Nästa steg
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Aktivera prenumerationshantering i din klient](pim-resource-roles-enable-subscription-management.md)

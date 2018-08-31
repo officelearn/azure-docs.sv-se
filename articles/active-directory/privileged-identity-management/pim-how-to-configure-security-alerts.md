@@ -1,6 +1,6 @@
 ---
-title: Så här konfigurerar du säkerhetsaviseringar | Microsoft Docs
-description: Lär dig hur du konfigurerar du säkerhetsvarningar för Azure Privileged Identity Management-tillägget.
+title: Konfigurera säkerhetsaviseringar för Azure AD-katalogroller i PIM | Microsoft Docs
+description: Lär dig hur du konfigurerar säkerhetsaviseringar för Azure AD-katalogroller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8df9bc7c332a83e9761ea71dddfbfbfaa3ae5154
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: fc39b6ad2dd63d45995b76011f4ebbe0228b4c2d
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622161"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190399"
 ---
-# <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Så här konfigurerar du säkerhetsaviseringar i Azure AD Privileged Identity Management
+# <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Konfigurera säkerhetsaviseringar för Azure AD-katalogroller i PIM
 ## <a name="security-alerts"></a>Säkerhetsaviseringar
 Azure Privileged Identity Management (PIM) genererar aviseringar när det finns misstänkt eller osäkra aktivitet i din miljö. När en avisering utlöses, visas det i PIM-instrumentpanelen. Välj vilken avisering du vill se en rapport som visar den användare eller de roller som utlöste aviseringen.
 
@@ -65,4 +65,6 @@ Den här aviseringen utlöses om en användare går en viss tidsperiod utan att 
 * **Antal dagar**: Ange antalet dagar från 0 till 100, som en användare kan gå utan att aktivera en roll.
 
 ## <a name="next-steps"></a>Nästa steg
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Konfigurera Azure AD directory rollinställningar i PIM](pim-how-to-change-default-settings.md)
+- [Kräv multifaktorautentisering för Azure AD-katalogroller i PIM](pim-how-to-require-mfa.md)

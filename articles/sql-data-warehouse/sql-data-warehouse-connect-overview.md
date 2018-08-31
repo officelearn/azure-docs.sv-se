@@ -3,19 +3,19 @@ title: Anslut till Azure SQL Data Warehouse | Microsoft Docs
 description: Anslut till Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: b2aff8379667191017830bf441ee101e773d2dfc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0b2d8cec03c54ebd5bd780a2524da61d718a9673
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31596178"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247866"
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Anslut till Azure SQL Data Warehouse
 Anslut till Azure SQL Data Warehouse.
@@ -31,7 +31,7 @@ Servernamnet i följande exempel är samplesvr.database.windows.net. För att hi
     ![Fullständigt servernamn][1]
 
 ## <a name="supported-drivers-and-connection-strings"></a>Drivrutiner och anslutningssträngar som stöds
-Azure SQL Data Warehouse stöder [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] och [JDBC][JDBC]. För att hitta den senaste versionen och dokumentation, klickar du på någon av de föregående drivrutinerna. För att automatiskt generera anslutningssträngen för den drivrutin som du använder från Azure portal, klicka på den **visa databasanslutningssträngar** från föregående exempel. Nedan visas några exempel på hur en anslutningssträng kan se ut för respektive drivrutin.
+Azure SQL Data Warehouse stöder [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] och [JDBC][JDBC]. Klicka på någon av drivrutinerna ovan för att hitta den senaste versionen och dokumentation. För att automatiskt generera anslutningssträngen för den drivrutin som du använder från Azure-portalen, klicka på den **visa databasanslutningssträngar** från föregående exempel. Nedan visas några exempel på hur en anslutningssträng kan se ut för respektive drivrutin.
 
 > [!NOTE]
 > Det kan vara bra att ange en tidsgräns på 300 sekunder för anslutningen så att den inte bryts vid korta perioder av inaktivitet.

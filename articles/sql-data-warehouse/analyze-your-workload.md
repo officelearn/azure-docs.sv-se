@@ -1,33 +1,33 @@
 ---
-title: Analysera din arbetsbelastning - Azure SQL Data Warehouse | Microsoft Docs
-description: Metoder för att analysera fråga prioritering för din arbetsbelastning i Azure SQL Data Warehouse.
+title: Analysera din arbetsbelastning – Azure SQL Data Warehouse | Microsoft Docs
+description: Tekniker för att analysera fråga prioritering för arbetsbelastningen i Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6b0d39b81b72615a9522e95558a59007b10bf109
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 4ce84e9714b580bcc243285dc1da5ae24a27e8e5
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795365"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248101"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analysera din arbetsbelastning i Azure SQL Data Warehouse
-Metoder för att analysera fråga prioritering för din arbetsbelastning i Azure SQL Data Warehouse.
+Tekniker för att analysera fråga prioritering för arbetsbelastningen i Azure SQL Data Warehouse.
 
 ## <a name="workload-groups"></a>Arbetsbelastningsgrupper 
-SQL Data Warehouse implementerar resursklasser med hjälp av arbetsbelastningsgrupper. Det finns totalt åtta arbetsbelastningsgrupper som styr beteendet för resursklasser över olika DWU-storleken. För alla DWU använder SQL Data Warehouse bara fyra grupperna åtta arbetsbelastning. Den här metoden är meningsfullt eftersom varje arbetsbelastningsgruppen har tilldelats någon av fyra resursklasser: smallrc mediumrc, largerc, eller xlargerc. Vikten av att förstå grupperna arbetsbelastning är att vissa av dessa arbetsbelastningsgrupper som har angetts till högre *vikten*. Vikten används för CPU schemaläggning. Frågor som körs med hög prioritet hämta tre gånger så mycket CPU-cykler än frågor som körs med medelhög prioritet. Därför avgör samtidighet fack mappningar också CPU-prioritet. När en fråga förbrukar 16 eller flera platser, körs det som hög prioritet.
+SQL Data Warehouse implementerar resursklasser med hjälp av arbetsbelastningsgrupper. Det finns totalt åtta arbetsbelastningsgrupper som styr beteendet för resursklasser över olika DWU-storlekar. För alla DWU använder SQL Data Warehouse bara fyra av åtta arbetsbelastningsgrupper. Den här metoden är naturligt eftersom varje arbetsbelastningsgruppen är tilldelad till en av fyra resursklasser: smallrc mediumrc, largerc, eller xlargerc. Vikten av att förstå arbetsbelastningsgrupper som är några av de här arbetsbelastningsgrupper som har angetts till högre *vikten*. Prioritet används för CPU schemaläggning. Frågor som körs med hög prioritet får tre gånger så mycket CPU-cykler än frågor som körs med medelhög prioritet. Därför avgör samtidighet fack mappningar också processorprioritet. När en fråga förbrukar 16 eller flera platser, körs den som hög prioritet.
 
-Följande tabell visar vikten mappningar för varje arbetsbelastning.
+I följande tabell visar vikten mappningar för varje arbetsbelastningsgruppen.
 
-### <a name="workload-group-mappings-to-concurrency-slots-and-importance"></a>Arbetsbelastningen gruppmappningar till samtidighet platser och betydelse
+### <a name="workload-group-mappings-to-concurrency-slots-and-importance"></a>Arbetsbelastningen gruppmappningar samtidighetsfack och prioritet
 
-| Arbetsbelastningsgrupper | Concurrency fack mappning | MB / Distribution (elasticitet) | MB / Distribution (beräkning) | Vikten mappning |
+| Arbetsbelastningsgrupper | Mappning av samtidighet fack | MB / Distribution (elasticitet) | MB / Distribution (beräkning) | Vikten mappning |
 |:---------------:|:------------------------:|:------------------------------:|:---------------------------:|:------------------:|
 | SloDWGroupC00   | 1                        |    100                         | 250                         | Medel             |
 | SloDWGroupC01   | 2                        |    200                         | 500                         | Medel             |
@@ -39,11 +39,10 @@ Följande tabell visar vikten mappningar för varje arbetsbelastning.
 | SloDWGroupC07   | 128                      | 12,800                         | 32,000                      | Hög               |
 | SloDWGroupC08   | 256                      | 25,600                         | 64,000                      | Hög               |
 
-<!-- where are the allocation and consumption of concurrency slots charts? -->
-Den **fördelningen och förbrukningen av samtidighet fack** diagrammet visar en DW500 använder 1, 4, 8 och 16 samtidighet fack för smallrc, mediumrc, largerc och xlargerc, respektive. Du kan slå upp värdena i det föregående för att hitta vikten för varje resurs.
+<!-- where are the allocation and consumption of concurrency slots charts? --> Den **allokering och användning av samtidighetsfack** diagrammet visar en DW500 använder 1, 4, 8 eller 16 samtidighetsfack för smallrc, mediumrc, largerc eller xlargerc, respektive. Du kan söka efter de här värdena i föregående diagram för att hitta vikten för varje resursklass.
 
 ### <a name="dw500-mapping-of-resource-classes-to-importance"></a>DW500 mappning av resursklasser betydelse
-| Resursklass | Arbetsbelastningsgruppen | Concurrency-platser som används | MB / Distribution | Prioritet |
+| Resursklass | Arbetsbelastningsgrupp | Samtidighetsfack används | MB / Distribution | Prioritet |
 |:-------------- |:-------------- |:----------------------:|:-----------------:|:---------- |
 | smallrc        | SloDWGroupC00  | 1                      | 100               | Medel     |
 | mediumrc       | SloDWGroupC02  | 4                      | 400               | Medel     |
@@ -58,8 +57,8 @@ Den **fördelningen och förbrukningen av samtidighet fack** diagrammet visar en
 | staticrc70     | SloDWGroupC03  | 16                     | 1,600             | Hög       |
 | staticrc80     | SloDWGroupC03  | 16                     | 1,600             | Hög       |
 
-## <a name="view-workload-groups"></a>Visa grupper av arbetsbelastning
-Följande fråga visar detaljerad information om resurs minnesallokering ur resursstyrningen. Det här är användbart för att analysera active och historisk användning av arbetsbelastningsgrupper när du felsöker.
+## <a name="view-workload-groups"></a>Visa arbetsbelastningsgrupper
+Följande fråga visar information om minne resurstilldelningen ur resursstyrningen. Det här är användbart för att analysera active och historisk användning av arbetsbelastningsgrupper när du felsöker.
 
 ```sql
 WITH rg
@@ -107,8 +106,8 @@ ORDER BY
 ;
 ```
 
-## <a name="queued-query-detection-and-other-dmvs"></a>Köade frågan identifiering och andra av DMV: er
-Du kan använda den `sys.dm_pdw_exec_requests` DMV att identifiera frågor som väntar i en kö samtidighet. Väntar på en plats för samtidiga frågor har statusen **avbruten**.
+## <a name="queued-query-detection-and-other-dmvs"></a>Köade fråga identifiering och andra DMV: er
+Du kan använda den `sys.dm_pdw_exec_requests` DMV att identifiera frågor som väntar i kö samtidighet. Frågor som väntar på ett fack för samtidighet har statusen **pausats**.
 
 ```sql
 SELECT  r.[request_id]                           AS Request_ID
@@ -145,10 +144,10 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 
 SQL Data Warehouse har följande vänta typer:
 
-* **LocalQueriesConcurrencyResourceType**: frågor som är placerade utanför samtidighet fack ramen. DMV frågor och system fungerar som `SELECT @@VERSION` är exempel på lokala frågor.
-* **UserConcurrencyResourceType**: frågor som visas inuti samtidighet fack ramen. Frågor mot tabeller slutanvändarens representerar exempel som använder den här resurstypen.
-* **DmsConcurrencyResourceType**: Väntar till följd av dataflyttsåtgärderna.
-* **BackupConcurrencyResourceType**: den här vänta anger att en databas säkerhetskopieras. Det maximala värdet för den här resurstypen är 1. Om flera säkerhetskopieringar har begärt samtidigt, de andra kön.
+* **LocalQueriesConcurrencyResourceType**: frågor som finns utanför ramen för samtidighet fack. DMV frågor och systemet fungerar som `SELECT @@VERSION` är exempel på lokala frågor.
+* **UserConcurrencyResourceType**: frågor som finns inom ramen för samtidighet fack. Frågor mot slutanvändare tabeller representerar exempel som använder den här resurstypen.
+* **DmsConcurrencyResourceType**: väntar härrör från dataflyttningsåtgärder.
+* **BackupConcurrencyResourceType**: den här vänta indikerar att en databas säkerhetskopieras. Det maximala värdet för den här resurstypen är 1. Om flera säkerhetskopieringar har begärts på samma gång, de andra kön.
 
 Den `sys.dm_pdw_waits` DMV kan användas för att se vilka resurser som väntar på en begäran.
 
@@ -187,7 +186,7 @@ WHERE    w.[session_id] <> SESSION_ID()
 ;
 ```
 
-Den `sys.dm_pdw_resource_waits` DMV visar endast de resursen väntar som används av en given fråga. Väntetiden för resursen endast mäter den tid som väntar på resurser som ska tillhandahållas, till skillnad från signal väntetiden, vilket är den tid det tar för de underliggande SQL-servrarna att schemalägga frågan till Processorn.
+Den `sys.dm_pdw_resource_waits` DMV visar endast resurs-väntar som används av en viss fråga. Väntetid för resursen endast mäter den tid som väntar på resurser som ska tillhandahållas, till skillnad från signal väntetid, vilket är den tid det tar för de underliggande SQL-servrarna att schemalägga frågan till Processorn.
 
 ```sql
 SELECT  [session_id]
@@ -205,7 +204,7 @@ FROM    sys.dm_pdw_resource_waits
 WHERE    [session_id] <> SESSION_ID()
 ;
 ```
-Du kan också använda den `sys.dm_pdw_resource_waits` DMV beräkna hur många samtidiga platser har beviljats.
+Du kan också använda den `sys.dm_pdw_resource_waits` DMV beräkna hur många samtidighetsfack har beviljats.
 
 ```sql
 SELECT  SUM([concurrency_slots_used]) as total_granted_slots 
@@ -216,7 +215,7 @@ AND     [session_id]     <> session_id()
 ;
 ```
 
-Den `sys.dm_pdw_wait_stats` DMV kan användas för analys av historiska trender för väntar.
+Den `sys.dm_pdw_wait_stats` DMV kan användas för historisk trendanalys av väntar.
 
 ```sql
 SELECT   w.[pdw_node_id]
@@ -231,6 +230,6 @@ FROM    sys.dm_pdw_wait_stats w
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om hur du hanterar databasanvändare och säkerhet finns [skydda en databas i SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md). Mer information om hur större resursklasser kan förbättra kvaliteten för grupperade columnstore-index, finns [bygga om index för att förbättra kvaliteten segment](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Mer information om hur du hanterar databasanvändare och säkerhet finns i [skydda en databas i SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md). Mer information om hur större resursklasser kan förbättra kvaliteten för grupperade columnstore-index, finns i [bygga om index för att förbättra segmentkvaliteten](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
 
 

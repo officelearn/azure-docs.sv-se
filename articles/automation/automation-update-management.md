@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/28/2018
+ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ea96898e36080096c91285f3ff7621f84bf81edf
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: e0d92cc52b34e1e04f13e03ec2196d13961fb7de
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42058808"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247944"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -35,6 +35,8 @@ Följande diagram visar en konceptuell vy över beteende och dataflöde över hu
 
 ![Uppdatera processflöde för hantering](media/automation-update-management/update-mgmt-updateworkflow.png)
 
+Hantering av uppdateringar kan användas för att internt registrera datorer i flera prenumerationer i samma klientorganisation. Hantera virtuella datorer i en annan klient måste du publicera dem som [icke-Azure-datorer](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine).
+
 När en dator utför en sökning för att kontrollera uppdateringskompatibilitet, vidarebefordrar agenten informationen gruppvis till Azure Log Analytics. På en Windows-dator utförs kompatibilitetsgenomsökningen var 12: e timme som standard.
 
 Förutom genomsökningsschemat initieras sökningen för uppdateringskompatibilitet inom 15 minuter om du MMA startas innan installationen av uppdateringen och efter installationen av uppdateringen.
@@ -48,7 +50,7 @@ Lösningen rapporterar hur uppdaterad datorn är utifrån vilken källa du är k
 
 Du kan distribuera och installera programuppdateringar på datorer som kräver uppdateringarna genom att skapa en schemalagd distribution. Uppdateringar som klassificeras som *valfritt* ingår inte i distributionsomfattningen för Windows-datorer. Endast nödvändiga uppdateringar som ingår i distributionsomfattningen. 
 
-En schemalagd distribution definierar vilka måldatorer som får tillämpliga uppdateringar, antingen genom att uttryckligen ange datorer eller genom att välja en [datorgrupp](../log-analytics/log-analytics-computer-groups.md) som baseras på loggsökningar för en specifik uppsättning datorer. Du kan även ange ett schema för att godkänna och ange en viss tidsperiod under vilken du kan installera uppdateringar. 
+En schemalagd distribution definierar vilka måldatorer som får tillämpliga uppdateringar, antingen genom att uttryckligen ange datorer eller genom att välja en [datorgrupp](../log-analytics/log-analytics-computer-groups.md) som baseras på loggsökningar för en specifik uppsättning datorer. Du kan även ange ett schema för att godkänna och ange en viss tidsperiod under vilken du kan installera uppdateringar.
 
 Uppdateringar installeras av runbooks i Azure Automation. Du kan inte visa dessa runbooks och runbooks kräver inte någon konfigurering. När en uppdateringsdistribution skapas, skapar ett schema som startar en masteruppdaterings-runbook vid den angivna tidpunkten för datorerna som ingår i uppdateringsdistributionen. Master-runbook startar en underordnad runbook på varje agent så att utföra installationen av nödvändiga uppdateringar.
 
@@ -217,10 +219,10 @@ Om du vill skapa en ny uppdateringsdistribution, Välj **distribution av schemau
 |Operativsystem| Linux eller Windows|
 | Datorer som ska uppdateras |Välj en sparad sökning, importerat gruppen, eller välja dator från listrutan och Välj enskilda datorer. Om du väljer **datorer**, beredskap för datorn visas i den **uppdatera AGENTBEREDSKAP** kolumn.</br> Läs om de olika metoderna för att skapa datorgrupper i Log Analytics i [datorgrupper i Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
 |Uppdatera klassificeringar|Välj de uppdateringsklassificeringar som du behöver|
-|Uppdateringar som ska uteslutas|Ange uppdateringarna som ska uteslutas. Ange KB utan prefixet ”KB' för Windows. Ange paketets namn för Linux, eller Använd ett jokertecken.  |
+|Uppdateringar som ska uteslutas|Ange uppdateringarna som ska uteslutas. För Windows, anger du KB utan prefixet ”KB”. Ange paketets namn för Linux, eller Använd ett jokertecken.  |
 |Schemainställningar|Välj tid att starta och välj antingen en gång eller återkommande för upprepningen|
 | Underhållsperiod |Antal minuter som angetts för uppdateringar. Värdet kan inte vara mindre än 30 minuter och högst 6 timmar |
-| Starta om kontroll| Detemines hur omstarter ska hanteras.</br>Alternativen är:</br>Starta om vid behov (standard)</br>Starta alltid om</br>Aldrig omstart</br>Endast omstart - kommer inte att installera uppdateringar|
+| Starta om kontroll| Anger hur omstarter ska hanteras. De tillgängliga alternativen är:</br>Starta om vid behov (standard)</br>Starta alltid om</br>Starta aldrig om</br>Endast omstart – uppdateringar installeras inte|
 
 ## <a name="update-classifications"></a>Uppdatera klassificeringar
 
@@ -310,7 +312,7 @@ Update
 
 #### <a name="single-azure-vm-assessment-queries-linux"></a>Enskild virtuell dator i Azure-utvärdering frågor (Linux)
 
-För vissa Linux-distributioner som det finns en [endianness](https://en.wikipedia.org/wiki/Endianness) inte överensstämmer med det VMUUID-värde som kommer från Azure Resource Manager och vad som lagras i Log Analytics. Följande fråga söker efter en matchning på antingen endianness. Ersätt värdena VMUUID med big endian och little endian formatering av GUID för att korrekt returnerar resultat. Du kan hitta VMUUID som ska användas genom att köra följande fråga i Log Analytics: `Update | where Computer == "<machine name>"
+För vissa Linux-distributioner finns en [endianness](https://en.wikipedia.org/wiki/Endianness) inte överensstämmer med det VMUUID-värde som kommer från Azure Resource Manager och vad som lagras i Log Analytics. Följande fråga söker efter en matchning på antingen endianness. Ersätt värdena VMUUID med big endian och little endian formatering av GUID för att korrekt returnerar resultat. Du kan hitta VMUUID som ska användas genom att köra följande fråga i Log Analytics: `Update | where Computer == "<machine name>"
 | summarize by Computer, VMUUID`
 
 ##### <a name="missing-updates-summary"></a>Sammanfattning av uppdateringar som saknas
@@ -510,7 +512,7 @@ Eftersom uppdateringshantering update-funktioner i molnet, kan vissa uppdatering
 
 Uppdateringshantering kan dock fortfarande att rapportera den datorn som icke-kompatibel eftersom den innehåller ytterligare information om relevanta uppdateringen.
 
-Distribuera uppdateringar med klassificeringen fungerar inte på CentOS direkt ur lådan. För SUSE, att välja *endast* andra uppdateringar som klassificeringen resultera i att vissa uppdateringar installeras även om säkerhetsuppdateringar rör zypper (package manager) eller dess beroenden krävs först. Det här är en begränsning i zypper. I vissa fall kan du kanske måste kör uppdateringsdistribution, för att verifiera Kontrollera update-loggen.
+Distribuera uppdateringar med klassificeringen fungerar inte på CentOS direkt ur lådan. För SUSE, att välja *endast* andra uppdateringar som klassificeringen resultera i att vissa uppdateringar installeras även om säkerhetsuppdateringar rör zypper (package manager) eller dess beroenden krävs först. Det här är en begränsning i zypper. I vissa fall kan du bli ombedd att köra uppdateringsdistribution, för att verifiera Kontrollera update-loggen.
 
 ## <a name="troubleshoot"></a>Felsöka
 

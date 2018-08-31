@@ -1,6 +1,6 @@
 ---
-title: Utför en åtkomstgranskning i Privileged Identity Management för Azure-resurser | Microsoft Docs
-description: Det här dokumentet beskriver hur du utför en åtkomstgranskning i PIM för Azure-resurser enligt resursrollen.
+title: Utför en åtkomstgranskning av min Azure-resursroller i PIM | Microsoft Docs
+description: Lär dig hur du utför en åtkomstgranskning av din Azure-resursroller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 336ad1d7eff8eee0f2370e206eb98f20b4efb45b
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: a96a1de7828797f1124280fca95a3358210b55b7
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617232"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189726"
 ---
-# <a name="perform-an-access-review-in-pim-according-to-resource-role"></a>Utför en åtkomstgranskning i PIM, enligt resurs roll
+# <a name="perform-an-access-review-of-my-azure-resource-roles-in-pim"></a>Utför en åtkomstgranskning av min Azure-resursroller i PIM
 Privileged Identity Management (PIM) för Azure-resurser förenklar hur företag hantera privilegierad åtkomst till resurser i Azure. 
 
 Om du har tilldelats en administrativ roll kan privilegierad rolladministratör för din organisation be dig att regelbundet kontrollera att du fortfarande behöver rollen för jobbet. Du kan få ett e-postmeddelande som innehåller en länk eller du kan gå direkt till den [Azure-portalen](https://portal.azure.com). Följ stegen i den här artikeln för att utföra själv granska av dina tilldelade roller.
@@ -50,3 +50,7 @@ Följ dessa steg för att hitta och slutföra åtkomstgranskningen:
 4. Välj antingen **godkänna** eller **neka**. I den **ge en orsak ruta**, du kan behöva ta en orsak till ditt beslut.
 
    ![Skärmbild av granska informationssida](media/azure-pim-resource-rbac/rbac-access-review-choice.png)
+
+## <a name="next-steps"></a>Nästa steg
+
+- [Utför en åtkomstgranskning av min Azure AD-katalogroller i PIM](pim-how-to-perform-security-review.md)

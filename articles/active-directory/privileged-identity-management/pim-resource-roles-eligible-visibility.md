@@ -1,6 +1,6 @@
 ---
-title: Berättigade uppgifter och synlighet för Azure i Privileged Identity Management | Microsoft Docs
-description: Beskriver hur du tilldelar medlemmar som är berättigade till resursroller när du använder PIM.
+title: Berättigade uppgifter och synlighet i PIM - Azure | Microsoft Docs
+description: Beskriver hur du tilldelar medlemmar som är berättigade till Azure-resursroller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,18 +15,18 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 336453c1ef6ef8d0295d00f31afc6a5e7e42e8b6
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 3551c3231a94f8a844d26a713cbf171ca7653815
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621556"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189222"
 ---
-# <a name="eligible-assignments-and-resource-visibility-with-privileged-identity-management"></a>Berättigade uppgifter och synlighet med Privileged Identity Management
+# <a name="eligible-assignments-and-resource-visibility-in-pim"></a>Berättigade uppgifter och synlighet i PIM
 
 Privileged Identity Management (PIM) för Azure-resursroller ger förbättrad säkerhet för organisationer som har viktiga Azure-resurser. Resurs-administratörer kan använda PIM för att tilldela medlemmar som är berättigade till resursroller. Läs mer om de olika tilldelningstyperna och tilldelning av tillstånden för Azure-resursroller i följande avsnitt. 
 
-## <a name="assignment-types"></a>Tilldelningstyperna
+## <a name="assignment-types"></a>Tilldelningstyper
 
 PIM för Azure-resurser tillhandahåller två distinkta tilldelningstyperna:
 
@@ -70,4 +70,4 @@ När du visar ett medlemskap som anges i **aktiva roller**, du kan använda vär
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Tilldela roller i Privileged Identity Manager](pim-resource-roles-assign-roles.md)
+- [Tilldela Azure-resursroller i PIM](pim-resource-roles-assign-roles.md)

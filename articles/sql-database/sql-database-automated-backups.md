@@ -11,12 +11,12 @@ ms.workload: Active
 ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ac548d90d5a5ed931dc199b6fed52c7cd8f25239
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: ce7c41730bec4e014225fb8c744d029493f5ec2c
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42061130"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246794"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Mer information om automatisk SQL Database-säkerhetskopior
 
@@ -26,7 +26,7 @@ SQL Database skapar säkerhetskopior av databasen och använder Azure read-acces
 
 ## <a name="what-is-a-sql-database-backup"></a>Vad är en SQL Database-säkerhetskopia?
 
-SQL Database använder SQL Server-teknik för att skapa [fullständig](https://msdn.microsoft.com/library/ms186289.aspx), [differentiell](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server), och [transaktionsloggen](https://msdn.microsoft.com/library/ms191429.aspx) säkerhetskopieringar för Point-in-time-återställning (PITR). Säkerhetskopieringarna av transaktionsloggen vanligtvis sker var 5 – 10 minuter och differentiella säkerhetskopieringar inträffar vanligen var tolfte timme med den frekvens som är baserat på den prestandanivå och mängden Databasaktivitet. Säkerhetskopieringar av transaktionsloggen kan med fullständiga och differentiella säkerhetskopieringar, kan du återställa en databas till en specifik point-in-time till samma server som är värd för databasen. De fullständiga och differentiella säkerhetskopieringarna replikeras också till ett [kopplat datacenter](../best-practices-availability-paired-regions.md) för skydd mot avbrott på datacentret. När du återställer en databas kan databas tjänsten där fullständig, differentiell och transaktionen loggfiler säkerhetskopieringar ska återställas.
+SQL Database använder SQL Server-teknik för att skapa [fullständig](https://msdn.microsoft.com/library/ms186289.aspx), [differentiell](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server), och [transaktionsloggen](https://msdn.microsoft.com/library/ms191429.aspx) säkerhetskopieringar för Point-in-time-återställning (PITR). Säkerhetskopieringarna av transaktionsloggen vanligtvis sker var 5 – 10 minuter och differentiella säkerhetskopieringar inträffar vanligen var tolfte timme med den frekvens som är baserat på den prestandanivå och mängden Databasaktivitet. Säkerhetskopieringar av transaktionsloggen kan med fullständiga och differentiella säkerhetskopieringar, kan du återställa en databas till en specifik point-in-time till samma server som är värd för databasen. Säkerhetskopiorna lagras i RA-GRS storage-blobbar som replikeras till en [kopplat Datacenter](../best-practices-availability-paired-regions.md) för skydd mot avbrott i datacentret. När du återställer en databas kan databas tjänsten där fullständig, differentiell och transaktionen loggfiler säkerhetskopieringar ska återställas.
 
 
 Du kan använda dessa säkerhetskopior till:

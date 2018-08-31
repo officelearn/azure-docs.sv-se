@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f54001c26938ea508111542b930b189342303633
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: f8ac885444c0ba52802024be9a78dfc0737e2673
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186871"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247691"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Skapa en Linux IoT Edge-enhet som fungerar som en transparent gateway
 
@@ -80,9 +80,9 @@ Följande steg vägleder dig genom processen att skapa certifikat och installera
    >[!NOTE]
    > **INTE** använda ett namn som är samma som gatewayens DNS-värdnamn. Gör klienten certifiering mot dessa certifikat misslyckas.
 
-      ```cmd
-      ./certGen.sh create_edge_device_certificate "<gateway device name>"
-      ```
+   ```cmd
+   ./certGen.sh create_edge_device_certificate "<gateway device name>"
+   ```
 
    Utdata för körningen av skriptet är följande certifikat och nyckel:
    * `$WRKDIR/certs/new-edge-device.*`
@@ -101,18 +101,24 @@ Skapa en certifikatkedja från ägare CA-certifikat, mellanliggande certifikat o
    * Enhets-CA-certifikat –  `$WRKDIR/certs/new-edge-device-full-chain.cert.pem`
    * Enhets-CA-privata nyckel – `$WRKDIR/private/new-edge-device.key.pem`
    * Ägare CA- `$WRKDIR/certs/azure-iot-test-only.root.ca.cert.pem`
+   
+2. Öppna konfigurationsfilen för IoT Edge. Konfigurationsfilen är skyddad, så du kan behöva använda förhöjd behörighet att komma åt den.
+   
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
 
-2.  Ange den `certificate` egenskaper i säkerhet-Daemon yaml konfigurationsfilen till sökvägen där du lade till certifikatet och nyckel.
+3.  Ange den `certificate` egenskaper i Iot Edge-Daemon yaml konfigurationsfilen till sökvägen där du lade till certifikatet och nyckel.
 
-```yaml
-certificates:
-  device_ca_cert: "$CERTDIR/certs/new-edge-device-full-chain.cert.pem"
-  device_ca_pk: "$CERTDIR/private/new-edge-device.key.pem"
-  trusted_ca_certs: "$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem"
-```
+   ```yaml
+   certificates:
+     device_ca_cert: "$CERTDIR/certs/new-edge-device-full-chain.cert.pem"
+     device_ca_pk: "$CERTDIR/private/new-edge-device.key.pem"
+     trusted_ca_certs: "$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem"
+   ```
 
 ## <a name="deploy-edgehub-to-the-gateway"></a>Distribuera EdgeHub till gatewayen
-En av de viktigaste funktionerna i Azure IoT Edge är möjligheten att distribuera moduler till IoT Edge-enheter från molnet. Det här avsnittet har du skapar en till synes tom distribution; Edge Hub är dock automatcially läggs till i alla distributioner även om det finns inga andra moduler som finns. Edge Hub är den enda modul som du behöver på en Edge-enhet att den fungerar som en transparent gateway så att skapa en tom distribution är tillräckligt. 
+En av de viktigaste funktionerna i Azure IoT Edge är möjligheten att distribuera moduler till IoT Edge-enheter från molnet. Det här avsnittet har du skapar en till synes tom distribution; Edge Hub läggs dock automatiskt alla distributioner även om det finns inga andra moduler som finns. Edge Hub är den enda modul som du behöver på en Edge-enhet att den fungerar som en transparent gateway så att skapa en tom distribution är tillräckligt. 
 1. Gå till din IoT-hubb på Azure Portal.
 2. Gå till **IoT Edge** och välj din IoT Edge-enhet som du vill använda som en gateway.
 3. Välj **Ange moduler**.

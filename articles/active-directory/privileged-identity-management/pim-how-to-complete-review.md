@@ -1,6 +1,6 @@
 ---
-title: Så här slutför du en åtkomstgranskning | Microsoft Docs
-description: När du har startat en åtkomstgranskning i Azure AD Privileged Identity Management, lär du dig hur du slutför det och visa resultaten
+title: Slutför en åtkomstgranskning för Azure AD-katalogroller i PIM | Microsoft Docs
+description: Lär dig hur du slutför en åtkomstgranskning för Azure AD-katalogroller i Azure AD Privileged Identity Management (PIM) och visa resultaten
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 3b4135368c2222a08b155c851b384244774ce246
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 3955f4bf9b579ae40424c2650f9d3b4c2ac4f030
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622538"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188594"
 ---
-# <a name="how-to-complete-an-access-review-in-azure-ad-privileged-identity-management"></a>Så här slutför du en åtkomstgranskning i Azure AD Privileged Identity Management
+# <a name="complete-an-access-review-for-azure-ad-directory-roles-in-pim"></a>Slutför en åtkomstgranskning för Azure AD-katalogroller i PIM
 Privilegierade rolladministratörer kan granska privilegierad åtkomst när en [åtkomstgranskning har startats](pim-how-to-start-security-review.md). Azure AD Privileged Identity Management (PIM) skickas automatiskt ett e-postmeddelande som uppmanar användarna att granska åtkomsten. Om en användare inte fått ett e-postmeddelande, kan du skicka dem instruktionerna [så här utför du en åtkomstgranskning](pim-how-to-perform-security-review.md).
 
 När åtkomstgranskningsperiod är över, eller alla användare är klar med sin egen granska, följer du stegen i den här artikeln för att hantera granskningen och se resultaten.
@@ -53,4 +53,6 @@ Om du inte är intresserad av att granska ytterligare kan du ta bort den. Den **
 > Du kommer inte får en varning innan borttagningen sker, så var noga med att du vill ta bort granskningen. 
 
 ## <a name="next-steps"></a>Nästa steg
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Starta en åtkomstgranskning för Azure AD-katalogroller i PIM](pim-how-to-start-security-review.md)
+- [Utför en åtkomstgranskning av min Azure AD-katalogroller i PIM](pim-how-to-perform-security-review.md)

@@ -5,58 +5,60 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 08/29/2018
 ms.author: raynew
-ms.openlocfilehash: 6d1d90ff0f9a49d3db9f4dc8894c9837942658f0
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f854c269eaf65335fb5654709fe98857d11865b2
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215007"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190143"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-visual-studio-team-services-vsts"></a>Contoso-migrering: omstrukturera en Team Foundation Server-distribution till Visual Studio Team Services (VSTS)
 
-Den här artikeln visar hur Contoso omstrukturering sina lokala Team Foundation Server (TFS)-distributionen genom att migrera den till Visual Studio Team Services (VSTS) i Azure. Contosos Utvecklingsteamet har använt TFS för gruppsamarbete och källkontroll under de senaste fem åren. Nu kan vill de flytta till en molnbaserad lösning för utveckling och testning arbete och för källkontroll. VSTS kommer att ha en roll som de flyttar till en DevOps-modell och utveckla nya molnbaserade appar.
+Den här artikeln visar hur Contoso omstrukturering sin lokala Team Foundation Server (TFS)-distributionen genom att migrera den till Visual Studio Team Services (VSTS) i Azure. Contosos Utvecklingsteamet har använt TFS för gruppsamarbete och källkontroll under de senaste fem åren. Nu kan vill teamet flytta till en molnbaserad lösning för utveckling och testning arbete och för källkontroll. VSTS kommer att ha en roll som teamet flytta till en DevOps-modell och utveckla nya molnbaserade appar.
 
-Det här dokumentet är 11 i en serie artiklar som visar hur det fiktiva företaget Contoso migrerar sina lokala resurser till Microsoft Azure-molnet. Serien innehåller grundläggande information och scenarier som illustrerar hur du konfigurerar en infrastruktur för migreringen och kör olika typer av migreringar. Scenarier växer i komplexitet och vi lägger till ytterligare artiklar med tiden.
+Det här dokumentet är i en serie av artiklar som visar hur det fiktiva företaget Contoso migrerar sina lokala resurser till Microsoft Azure-molnet. Serien innehåller grundläggande information och scenarier som illustrerar hur du konfigurerar en infrastruktur för migreringen och kör olika typer av migreringar. Scenarier växer i komplexitet. Vi lägger till ytterligare artiklar med tiden.
+
 
 **Artikel** | **Detaljer** | **Status**
 --- | --- | ---
-[Artikel 1: översikt](contoso-migration-overview.md) | Översikt över Contosos migreringsstrategi, artikelserien och exempelappar som vi använder. | Tillgängligt
-[Artikel 2: Distribuera en Azure-infrastruktur](contoso-migration-infrastructure.md) | Beskriver hur Contoso förbereder sina lokala och Azure-infrastrukturen för migrering. Samma infrastruktur används för alla scenarier för migrering av Contoso. | Tillgängligt
-[Artikel 3: Utvärdera lokala resurser](contoso-migration-assessment.md)  | Visar hur Contoso körs en bedömning av sina lokala tvålagers-SmartHotel-app som körs på VMware. De utvärdera app virtuella datorer med den [Azure Migrate](migrate-overview.md) -tjänsten och SQL Server-databas för appen med den [Azure Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Tillgängligt
-[Artikel 4: Rehost till Azure virtuella datorer och en hanterad SQL-instans](contoso-migration-rehost-vm-sql-managed-instance.md) | Visar hur Contoso migrerar SmartHotel appen till Azure. De migrera appen web VM med [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), och appen databasen med den [Azure Database Migration](https://docs.microsoft.com/azure/dms/dms-overview) service för att migrera till en SQL-hanterad instans. | Tillgängligt
-[Artikel 5: Byt värd till virtuella Azure-datorer](contoso-migration-rehost-vm.md) | Visar hur Contoso migrerar sina SmartHotel till virtuella Azure IaaS-datorer med hjälp av Site Recovery-tjänsten.
-[Artikel 6: Byt värd till virtuella Azure-datorer och SQL Server-Tillgänglighetsgrupper](contoso-migration-rehost-vm-sql-ag.md) | Visar hur Contoso migrerar SmartHotel appen. De kan använda Site Recovery för att migrera de virtuella datorerna för appen och tjänsten Databasmigrering för att migrera app-databas till en SQL Server-tillgänglighetsgrupp. | Tillgängligt
-[Artikel 7: Byta Appvärd en Linux på Azure virtuella datorer](contoso-migration-rehost-linux-vm.md) | Visar hur Contoso migrerar sina osTicket Linux-app till Azure IaaS-VM med Azure Site Recovery.
-[Artikel 8: Rehost en Linux-app till Azure virtuella datorer och Azure MySQL-Server](contoso-migration-rehost-linux-vm-mysql.md) | Visar hur Contoso migrerar osTicket Linux-app. De kan använda Site Recovery för VM-migrering och MySQL Workbench för att migrera till en Azure MySQL-Server-instans. | Tillgängligt
-[Artikel 9: Omstrukturera en app på en Azure-Webbappen och Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Visar hur Contoso migrerar SmartHotel appen till en Azure container-baserad webbapp och migrerar app-databas till Azure SQL Server. | Tillgängligt
-[Artikel 10: Omstrukturera en Linux-app till Azure App Service och Azure MySQL-Server](contoso-migration-refactor-linux-app-service-mysql.md) | Visar hur Contoso migrerar osTicket Linux-app till Azure App Service med PHP 7.0 Docker-behållare. Kodbas för distributionen har migrerats till GitHub. App-databasen har migrerats till Azure MySQL. | Tillgängligt
-Artikel 11: Omstrukturera en TFS-distribution i VSTS | Migrera dev app TFS till VSTS i Azure | Den här artikeln
-[Artikel 12: Omforma en app på Azure-behållare och Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Visar hur Contoso migrerar och rearchitects SmartHotel appen till Azure. De Omforma webbnivån appen som en Windows-behållare och app-databasen i en Azure SQL Database. | Tillgängligt
-[Artikel 13: Återskapa en app i Azure](contoso-migration-rebuild.md) | Visar hur Contoso återskapa SmartHotel appen med hjälp av en mängd Azure-funktioner och tjänster, inklusive App Services, Azure Kubernetes, Azure Functions, Cognitive services och Cosmos DB. | Tillgängligt
+[Artikel 1: översikt](contoso-migration-overview.md) | Översikt över artikelserien, Contosos migreringsstrategi och exempelappar som används i serien. | Tillgängligt
+[Artikel 2: Distribuera Azure-infrastrukturen](contoso-migration-infrastructure.md) | Contoso förbereder den lokala infrastrukturen och Azure-infrastrukturen för migrering. Samma infrastruktur används för alla migreringsartiklar om i serien. | Tillgängligt
+[Artikel 3: Utvärdera lokala resurser för migrering till Azure](contoso-migration-assessment.md)  | Contoso kör en utvärdering av dess lokal SmartHotel app som körs på VMware. Contoso utvärderar app virtuella datorer med hjälp av Azure Migrate-tjänsten och app-SQL Server-databasen med hjälp av Data Migration Assistant. | Tillgängligt
+[Artikel 4: Ange ny värd för en app på en virtuell Azure-dator och SQL Database Managed Instance](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso körs en lift and shift-migrering till Azure för dess lokal SmartHotel app. Contoso migrerar app frontend virtuell dator med [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso migrerar app-databasen till en Azure SQL Database Managed Instance med hjälp av den [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Tillgängligt  
+[Artikel 5: Ange ny värd för en app på virtuella Azure-datorer](contoso-migration-rehost-vm.md) | Contoso migrerar dess SmartHotel app virtuella datorer till Azure virtuella datorer med Site Recovery-tjänsten. | Tillgängligt
+[Artikel 6: Byt värd till virtuella Azure-datorer och SQL Server-Tillgänglighetsgrupper](contoso-migration-rehost-vm-sql-ag.md) | Contoso migrerar SmartHotel appen. Contoso använder Site Recovery för att migrera de virtuella datorerna för appen. Database Migration Service används för att migrera app-databas till SQL Server-kluster som skyddas av en AlwaysOn-tillgänglighetsgrupp. | Tillgängligt
+[Artikel 7: Byta Appvärd en Linux på Azure virtuella datorer](contoso-migration-rehost-linux-vm.md) | Contoso har slutförts en lift and shift-migrering av Linux osTicket app på virtuella Azure-datorer med Azure Site Recovery | Tillgängligt
+[Artikel 8: Byta Appvärd en Linux på Azure virtuella datorer och Azure MySQL-Server](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migrerar Linux osTicket-app till Azure virtuella datorer med Azure Site Recovery och migrerar app-databasen till en Azure MySQL-Server-instans med MySQL Workbench. | Tillgängligt
+[Artikel 9: Omstrukturera en app på Azure Web Apps och Azure SQL-databas](contoso-migration-refactor-web-app-sql.md) | Contoso migrerar SmartHotel appen till en Azure Web App och migrerar app-databasen till en Azure SQL Server-instans med Database Migration Assistant | Tillgängligt
+[Artikel 10: Omstrukturera en app för Linux på Azure Web Apps och Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso migrerar dess osTicket Linux-app till en Azure-webbapp på flera Azure-regioner med Azure Traffic Manager, integrerad med GitHub för kontinuerlig leverans. Contoso migrerar app-databasen till en Azure Database for MySQL-instans. | Tillgängligt 
+Artikel 11: Omstrukturera TFS på VSTS | Contoso migrerar sin lokala Team Foundation Server-distributionen till Visual Studio Team Services i Azure. | Den här artikeln.
+[Artikel 12: Omforma en app på Azure-behållare och Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso migrerar dess SmartHotel-app till Azure. Sedan rearchitects den webbnivån appen som en Windows-behållare som körs i Azure Service Fabric och databasen med Azure SQL Database. | Tillgängligt
+[Artikel 13: Återskapa en app i Azure](contoso-migration-rebuild.md) | Contoso återskapas dess SmartHotel-app med en mängd Azure-funktioner och tjänster, inklusive Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services och Azure Cosmos DB. | Tillgängligt
+
 
 
 ## <a name="business-drivers"></a>Affärsdrivande faktorer
 
-IT-ledning har arbetat tillsammans med sina företag för att identifiera framtida mål. Affärspartner inte alltför bekymrad utvecklingsverktygen och teknikerna, men de har skapat de här punkterna:
+IT-ledning har haft ett nära samarbete med affärspartners att identifiera framtida mål. Partner inte alltför bekymrad utvecklingsverktygen och teknikerna, men de har skapat de här punkterna:
 
 - **Programvara**: oavsett kärnverksamhet, alla företag är nu programvaruföretag, till exempel Contoso. Företag ledarskap är intresserad av hur IT kan hjälpa dig att leda företaget med nya arbetsmetoder för användare och upplevelser för sina kunder.
-- **Effektivitet**: Contoso behöver att effektivisera processen och ta bort onödiga procedurer för utvecklare och användare. Detta så att de kan leverera på kundernas krav på mer effektivt. Affärsbehoven IT att snabbt och utan att ödsla tid och pengar.
+- **Effektivitet**: Contoso behöver att effektivisera processen och ta bort onödiga procedurer för utvecklare och användare. Detta gör att företaget att leverera på kundernas krav på mer effektivt. Affärsbehoven IT att snabbt och utan att ödsla tid och pengar.
 - **Flexibilitet**: Contoso IT måste svara på affärsbehov och reagera snabbare än på marketplace för att aktivera framgång i en global ekonomi. IT får inte vara en blockerare för företaget.
 
 ## <a name="migration-goals"></a>Mål för migrering
 
 Contoso cloud-teamet har fästs ned mål för migrering till VSTS:
 
-- De måste ha ett verktyg för att migrera data till molnet. Några manuella processer ska behövas.
+- Ett verktyg för att migrera data till molnet måste teamet. Några manuella processer ska behövas.
 - Data för arbetsobjekt och historik för det senaste året måste migreras.
-- De vill inte konfigurera nya användarnamn och lösenord. Alla aktuella system-tilldelningar måste underhållas.
-- De vill flytta från Team Foundation Version Control (TFVC) till Git för källkontroll.
-- Startpunkt Git är ett ”migreringen av tips” som importerar bara den senaste versionen av källkoden. Det som händer under ett avbrott när allt arbete ska stoppas som kodbas arbetspass. De förstår att endast den aktuella huvudgrenen historiken är tillgänglig efter flytten.
-- De bryr dig om ändringen och vill testa den innan du gör en fullständig flytt. De vill behålla åtkomsten till TFS även efter övergången till VSTS.
-- Har flera samlingar, och vill börja med en som har endast några projekt att bättre förstå processen.
-- De förstår att TFS-samlingar är ett förhållande med VSTS-konton så att de har flera URL: er. Men matchar detta deras aktuella modellen uppdelning för kodbaser och projekt.
+- Teamet vill inte konfigurera nya användarnamn och lösenord. Alla aktuella system-tilldelningar måste underhållas.
+- Teamet vill flytta från Team Foundation Version Control (TFVC) till Git för källkontroll.
+- Startpunkt Git är ett ”migreringen av tips” som importerar bara den senaste versionen av källkoden. Det som händer under ett avbrott när allt arbete ska stoppas som kodbas arbetspass. Teamet förstår att endast den aktuella huvudgrenen historiken är tillgänglig efter flytten.
+- Teamet är orolig över ändringen och vill testa den innan du gör en fullständig flytt. Teamet vill behålla åtkomsten till TFS även efter övergången till VSTS.
+- Contoso har flera samlingar och vill börja med en med endast några projekt att bättre förstå processen.
+- Teamet veta att TFS-samlingar är ett förhållande med VSTS-konton med flera URL: er. Men matchar detta den aktuella modellen uppdelning för kodbaser och projekt.
 
 
 ## <a name="proposed-architecture"></a>Föreslagna arkitektur
@@ -65,7 +67,7 @@ Contoso cloud-teamet har fästs ned mål för migrering till VSTS:
 - TFS kommer att migreras till VSTS.
 - Contoso har för närvarande en TFS-samling som heter **ContosoDev**, som kommer att migreras till en VSTS-konto med namnet **contosodevmigration.visualstudio.com**.
 - Projekt, arbetsobjekt, buggar och iterationer från det senaste året kommer att migreras till VSTS.
-- Contoso att utnyttja Azure Active Directory, som de har konfigurerat när de [distribuerat sina Azure-infrastrukturen](contoso-migration-infrastructure.md) i början av deras migreringsplanering. 
+- Contoso att utnyttja Azure Active Directory, som Contoso ställa in under distributionen av den [Azure-infrastrukturen](contoso-migration-infrastructure.md) i början av planering av migreringsaktiviteter. 
 
 
 ![Scenariots arkitektur](./media/contoso-migration-tfs-vsts/architecture.png) 
@@ -75,29 +77,29 @@ Contoso cloud-teamet har fästs ned mål för migrering till VSTS:
 
 Contoso kommer att slutföra migreringen på följande sätt:
 
-1. Det finns en massa förberedelse. Som ett första steg måste Contoso att uppgradera sina TFS-implementering till en nivå som stöds. De för närvarande körs TFS 2017 Update 3, men om du vill använda Databasmigrering de behöver för att köra en 2018-version som stöds med de senaste uppdateringarna.
-2. Efter uppgraderingen måste de köra Migreringsverktyget TFS och validera sin samling.
-3. De skapa en uppsättning förberedelse och utföra en migrering testsändning för testning.
-4. De sedan kör en annan migrering, nu en fullständig migrering med arbetsuppgifter, buggar sprintar och code.
-5. Efter migreringen, kommer de flytta sin kod från TFVC till Git.
+1. Det finns en massa förberedelse. Som ett första steg måste Contoso att uppgradera sina TFS-implementering till en nivå som stöds. Contoso körs för närvarande TFS 2017 Update 3, men om du vill använda Databasmigrering måste köra en 2018-version som stöds med de senaste uppdateringarna.
+2. Efter uppgraderingen, kommer Contoso köra Migreringsverktyget TFS och validera sin samling.
+3. Contoso skapar en uppsättning filer för förberedelse, och utföra en migrering testsändning för testning.
+4. Contoso körs en annan migrering, nu en fullständig migrering med arbetsuppgifter, buggar, sprintar och code.
+5. Efter migreringen flyttar Contoso sin kod från TFVC till Git.
 
 ![Migreringsprocessen](./media/contoso-migration-tfs-vsts/migration-process.png) 
 
 
 ## <a name="scenario-steps"></a>Scenarioanvisningar
 
-Här är hur Azure kommer att slutföra migreringen:
+Här är hur Contoso kommer att slutföra migreringen:
 
 > [!div class="checklist"]
 > * **Steg 1: Skapa ett Azure storage-konto**: det här lagringskontot används under migreringsprocessen.
-> * **Steg 2: Uppgradera TFS**: de uppgraderar deras distribution till TFS 2018 uppgraderingen 2. 
-> * **Steg 3: Kontrollera samling**: de ska verifiera sin TFS-samling vid förberedelserna för migreringen.
-> * **Steg 4: Förbereda filen**: skapar migreringsfilerna med hjälp av migreringsverktyget TFS. 
+> * **Steg 2: Uppgradera TFS**: Contoso uppgraderar deras distribution till TFS 2018 uppgraderingen 2. 
+> * **Steg 3: Kontrollera samling**: Contoso valideras TFS-samling vid förberedelserna för migreringen.
+> * **Steg 4: Förbereda filen**: Contoso skapar migreringsfilerna med hjälp av migreringsverktyget TFS. 
 
 
 ## <a name="step-1-create-a-storage-account"></a>Steg 1: Skapa ett lagringskonto
 
-1. Contoso skapar ett lagringskonto i Azure-portalen (**contosodevmigration**).
+1. I Azure-portalen, Contoso-administratörer för att skapa ett lagringskonto (**contosodevmigration**).
 2. De placera kontot i deras sekundära region som de använder för redundans - centrala USA. De använder ett allmänt standard-konto med lokalt-sekundära (redundanta) lagring.
 
     ![Lagringskonto](./media/contoso-migration-tfs-vsts/storage1.png) 
@@ -111,7 +113,7 @@ Här är hur Azure kommer att slutföra migreringen:
 
 ## <a name="step-2-upgrade-tfs"></a>Steg 2: Uppgradera TFS
 
-Contoso uppgraderar sina TFS-servern till TFS 2018 uppdatering 2. Innan de börjar:
+Contoso administratörer uppgradera TFS-servern till TFS 2018 uppdatering 2. Innan de börjar:
 
 - Laddar ned [TFS 2018 uppdatering 2](https://visualstudio.microsoft.com/downloads/)
 - De kontrollerar den [maskinvarukrav](https://docs.microsoft.com/tfs/server/requirements), och Läs igenom den [viktig](https://docs.microsoft.com/visualstudio/releasenotes/tfs2018-relnotes) och [uppgradera saker](https://docs.microsoft.com/tfs/server/upgrade/get-started#before-you-upgrade-to-tfs-2018).
@@ -134,7 +136,7 @@ De uppgradera på följande sätt:
 
      ![TFS](./media/contoso-migration-tfs-vsts/upgrade4.png) 
 
-5. Contoso verifierar TFS-installationen genom att granska projekt, arbetsuppgifter och kod.
+5. De kontrollerar TFS-installationen genom att granska projekt, arbetsuppgifter och kod.
 
      ![TFS](./media/contoso-migration-tfs-vsts/upgrade5.png) 
 
@@ -147,9 +149,9 @@ Lär dig mer om [uppgraderar TFS](https://docs.microsoft.com/tfs/server/upgrade/
 
 ## <a name="step-3-validate-the-tfs-collection"></a>Steg 3: Kontrollera TFS-samling
 
-Contoso körs Migreringsverktyget TFS mot databasen för samlingen ContosoDev att validera före migreringen.
+Contoso administratörer köra Migreringsverktyget TFS mot ContosoDev insamlingsdatabasen valideras innan migreringen.
 
-1. Contoso laddar ned och därefter den [TFS-Migreringsverktyget](https://www.microsoft.com/download/details.aspx?id=54274). Det är viktigt att hämta versionen för TFS-uppdateringen som körs. Versionen kan kontrolleras i administratörskonsolen.
+1. De kan hämta och packa upp den [TFS-Migreringsverktyget](https://www.microsoft.com/download/details.aspx?id=54274). Det är viktigt att hämta versionen för TFS-uppdateringen som körs. Versionen kan kontrolleras i administratörskonsolen.
 
     ![TFS](./media/contoso-migration-tfs-vsts/collection1.png)
 
@@ -166,11 +168,11 @@ Contoso körs Migreringsverktyget TFS mot databasen för samlingen ContosoDev at
 
     ![TFS](./media/contoso-migration-tfs-vsts/collection3.png)
 
-4. Contoso hittar den här posten för identitet.
+4. De kan hitta den här posten för identitet.
 
     ![TFS](./media/contoso-migration-tfs-vsts/collection4.png)
 
-5. Contoso körs **TfsMigration Validera/Help** på kommandoraden, och ser som kommandot **/tenantDomainName** verkar vara nödvändiga för att verifiera identiteter.
+5. De körs **TfsMigration Validera/Help** på kommandoraden, och ser till att kommandot **/tenantDomainName** verkar vara nödvändiga för att verifiera identiteter.
 
      ![TFS](./media/contoso-migration-tfs-vsts/collection5.png)
 
@@ -190,7 +192,7 @@ Contoso körs Migreringsverktyget TFS mot databasen för samlingen ContosoDev at
 
 ## <a name="step-4-create-the-migration-files"></a>Steg 4: Skapa migreringsfilerna
 
-Contoso kan använda TFS-Migreringsverktyget skapa migreringsfilerna med verifiering klar.
+Contoso-administratörer kan använda Migreringsverktyget TFS för att skapa migreringsfilerna med verifiering klar.
 
 1. De köra förberedelsesteget i verktyget.
 
@@ -203,7 +205,7 @@ Contoso kan använda TFS-Migreringsverktyget skapa migreringsfilerna med verifie
     - Förbereder anslutningen till Azure Active Directory för att hitta en matchning för varje identitet.
     - Contoso har redan distribuerats Azure AD och synkronisera den med hjälp av AD Connect, så Förbered ska kunna hitta de matchande identiteterna och markera dem som aktiv.
 
-2. En Azure AD-inloggningen skärmen visas och Contoso anger autentiseringsuppgifterna för Global administratör.
+2. En Azure AD-inloggningen skärmen visas och de anger autentiseringsuppgifterna för Global administratör.
 
     ![Förbereda](./media/contoso-migration-tfs-vsts/prep2.png)
 
@@ -211,11 +213,11 @@ Contoso kan använda TFS-Migreringsverktyget skapa migreringsfilerna med verifie
 
     ![Förbereda](./media/contoso-migration-tfs-vsts/prep3.png)
 
-4. Contoso kan nu se att både IdentityMapLog.csv och import.json-filen har skapats i en ny mapp.
+4. De kan nu se att både IdentityMapLog.csv och import.json-filen har skapats i en ny mapp.
 
     ![Förbereda](./media/contoso-migration-tfs-vsts/prep4.png)
 
-5. Filen import.json innehåller importinställningarna. Det omfattar information, till exempel önskad kontonamnet och information på lagringskontot. De flesta fälten fylls i automatiskt. Vissa fält kräver indata från användaren. Contoso öppnas filen och lägger till VSTS-kontonamn som ska skapas: **contosodevmigration**. Med det här namnet sina VSTS-URL: en blir **contosodevmigration.visualstudio.com**.
+5. Filen import.json innehåller importinställningarna. Det omfattar information, till exempel önskad kontonamnet och information på lagringskontot. De flesta fälten fylls i automatiskt. Vissa fält kräver indata från användaren. De öppna filen och lägger till VSTS-kontonamn som ska skapas: **contosodevmigration**. Med det här namnet sina VSTS-URL: en blir **contosodevmigration.visualstudio.com**.
 
     ![Förbereda](./media/contoso-migration-tfs-vsts/prep5.png)
 
@@ -234,22 +236,22 @@ Contoso kan använda TFS-Migreringsverktyget skapa migreringsfilerna med verifie
 
 ## <a name="step-5-migrate-to-vsts"></a>Steg 5: Migrera till VSTS
 
-Contoso kan nu fokusera på migreringen med förberedelse på plats. När du har kört migreringen, kommer de växla från att använda TFVC Git för versionskontroll.
+Contoso-administratörer kan nu fokusera på migreringen med förberedelse på plats. När du har kört migreringen, kommer de växla från att använda TFVC Git för versionskontroll.
 
-Innan de börjar schemalägger Contoso driftstopp med Utvecklingsteamet ska samlingen offline för migrering. Det här är stegen för att migreringen:
+Innan de börjar Schemalägg administratörer driftstopp med dev-teamet att ta samlingen offline under migreringen. Det här är stegen för att migreringen:
 
-1. **Koppla från samlingen**: identitetsdata för samlingen som finns i konfigurationsdatabasen för TFS-servern medan samlingen är online. När en samling kopplas bort från TFS-servern, tar en kopia av den identitetsdata och paket med samlingen för transport. Identity-delen av importen kan inte köras utan att dessa data. Du rekommenderas att samlingen förblir frånkopplade tills importen har slutförts, eftersom det inte finns något sätt att importera de ändringar som uppstod under importen.
-2. **Skapa en säkerhetskopia**: nästa steg i processen är att skapa en säkerhetskopia som kan importeras till VSTS. Datanivå program komponenten paket (DACPAC), är en SQL Server-funktion som gör att databasändringar paketeras i en enda fil och distribueras till andra instanser av SQL. Det kan också återställas direkt till VSTS och används därför som paketering metod för att hämta samlingsdata i molnet. Contoso använder verktyget SqlPackage.exe för att generera DACPAC. Det här verktyget ingår i SQL Server Data Tools.
+1. **Koppla från samlingen**: de identitetsdata för samlingen finns i konfigurationsdatabasen för TFS-servern medan samlingen är online. När en samling kopplas bort från TFS-servern, tar en kopia av den identitetsdata och paket med samlingen för transport. Identity-delen av importen kan inte köras utan att dessa data. Du rekommenderas att samlingen förblir frånkopplade tills importen har slutförts, eftersom det inte finns något sätt att importera de ändringar som uppstod under importen.
+2. **Skapa en säkerhetskopia**: nästa steg i migreringsprocessen är att skapa en säkerhetskopia som kan importeras till VSTS. Datanivå program komponenten paket (DACPAC), är en SQL Server-funktion som gör att databasändringar paketeras i en enda fil och distribueras till andra instanser av SQL. Det kan också återställas direkt till VSTS och används därför som paketering metod för att hämta samlingsdata i molnet. Contoso använder verktyget SqlPackage.exe för att generera DACPAC. Det här verktyget ingår i SQL Server Data Tools.
 3. **Ladda upp till storage**: efter DACPAC skapas, de överför den till Azure Storage. När paketet har överförts får de en signatur för delad åtkomst (SAS) för att tillåta Migreringsverktyget för TFS-åtkomst till lagringen.
-4. **Fyll importen**: Contoso kan sedan fylla i saknade fält i importfilen, inklusive DACPAC-inställningen. Börja med de anger att de vill göra en **blobbar i kontrolläge har** import för att kontrollera att allt fungerar korrekt innan du fullständig migrering.
+4. **Fyll importen**: de kan sedan fylla i saknade fält i importfilen, inklusive DACPAC-inställningen. Börja med de anger att de vill göra en **blobbar i kontrolläge har** import för att kontrollera att allt fungerar korrekt innan du fullständig migrering.
 5. **Gör en testsändning**: testsändning import att testa migrering av samling. Torr körningar har begränsad livslängd och tas bort innan en migrering i produktion körs. De är tas bort automatiskt efter en angiven tidsperiod. En anteckning om när testsändningen kommer att tas bort ingår i de e-postmeddelande tas emot när importen är klar. Notera och planera på lämpligt sätt.
-6. **Slutföra migreringen produktion**: med testsändning migreringen har slutförts, Contoso har sista migreringen genom att uppdatera import.json och köra importera igen.
+6. **Slutföra migreringen produktion**: med testsändning migreringen har slutförts, Contoso administratörer göra slutliga migreringen genom att uppdatera import.json och köra importera igen.
 
 
 
 ### <a name="detach-the-collection"></a>Koppla från samlingen
 
-Innan du startar tar Contoso en lokal SQL Server-säkerhetskopiering och VMware-ögonblicksbild av TFS-servern innan du kopplar från.
+Innan du startar tar Contoso-administratörer en lokal SQL Server-säkerhetskopiering och VMware-ögonblicksbild av TFS-servern innan du kopplar från.
 
 1.  I TFS-administratörskonsolen de väljer du den samling som de vill koppla från (**ContosoDev**).
 
@@ -282,13 +284,13 @@ Innan du startar tar Contoso en lokal SQL Server-säkerhetskopiering och VMware-
 
 ### <a name="generate-a-dacpac"></a>Generera en DACPAC
 
-Contoso skapar en säkerhetskopia (DACPAC) för import till VSTS.
+Contoso-administratörer skapa en säkerhetskopia (DACPAC) för import till VSTS.
 
 - SqlPackage.exe i SQL Server Data Tools används för att skapa DACPAC. Det finns flera versioner av SqlPackage.exe installeras med SQL Server Data Tools finns under mappar med namn, t.ex 120 och 130 140. Det är viktigt att använda rätt version för att förbereda DACPAC.
 - TFS 2018 import måste du använda SqlPackage.exe från mappen 140 eller högre.  För CONTOSOTFS, den här filen finns i mappen: **C:\Program Files (x86) \Microsoft Visual Studio\2017\Enterprise\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\140**.
 
 
-Contoso genererar DACPAC på följande sätt:
+Contoso administratörer generera DACPAC på följande sätt:
 
 1. De öppna en kommandotolk och navigera till platsen SQLPackage.exe. De skriver du den här följande kommando för att generera DACPAC:
 
@@ -338,7 +340,7 @@ När du har skapat DACPAC överför Contoso den till Azure Storage.
 
 ### <a name="fill-in-the-import-settings"></a>Fyll i importinställningar
 
-Contoso fyllt tidigare, delvis i importfilen-specifikationen (import.json). Nu kan behöva de lägga till de återstående inställningarna.
+Contoso administratörer fyllt tidigare, delvis i importfilen-specifikationen (import.json). Nu kan behöva de lägga till de återstående inställningarna.
 
 De öppna filen import.json och fylla i följande fält: • plats: platsen för SAS-nyckeln som genererades ovan.
 • Dacpac: Anger namnet DACPAC filen du laddade upp till lagringskontot. Omfatta tillägget ”.dacpac”.
@@ -350,7 +352,7 @@ De öppna filen import.json och fylla i följande fält: • plats: platsen för
 
 ### <a name="do-a-dry-run-migration"></a>Gör en testsändning migrering
 
-Contoso börja med en testsändning migrering, att kontrollera att allt fungerar som förväntat.
+Contoso administratörer börja med en testsändning migrering, att kontrollera att allt fungerar som förväntat.
 
 1. De öppna en kommandotolk och leta upp till TfsMigration plats (C:\TFSMigrator).
 2. Som ett första steg validera de importfilen. De vill att filen har formaterats korrekt och att SAS-nyckeln fungerar.
@@ -387,11 +389,11 @@ Contoso börja med en testsändning migrering, att kontrollera att allt fungerar
 
     ![Testsändning](./media/contoso-migration-tfs-vsts/test6.png)
 
-11. Efter 15 minuter Contoso bläddrar till URL: en och ser du följande information:
+11. Efter 15 minuter de Bläddra till URL: en och se följande information:
 
      ![Testsändning](./media/contoso-migration-tfs-vsts/test7.png)
 
-12. När migreringen är klar loggar en Contoso Dev Leads i VSTS för att kontrollera att testsändningen fungerat korrekt. Efter autentisering måste VSTS några uppgifter för att bekräfta kontot.
+12. När migreringen är klar, en Contoso-utveckling Leads loggar in på VSTS för att kontrollera att testsändningen fungerat korrekt. Efter autentisering måste VSTS några uppgifter för att bekräfta kontot.
 
     ![Testsändning](./media/contoso-migration-tfs-vsts/test8.png)
 
@@ -399,18 +401,18 @@ Contoso börja med en testsändning migrering, att kontrollera att allt fungerar
 
     ![Testsändning](./media/contoso-migration-tfs-vsts/test9.png)
 
-14. Dev-Lead öppnas ett av projekten och öppnar **arbetsobjekt** > **tilldelats mig**. Detta visar att objektet arbetsdata har migrerats, tillsammans med sin identitet.
+14. Dev-Lead öppnas ett av projekten och öppnar **arbetsobjekt** > **tilldelats mig**. Detta visar att objektet arbetsdata har migrerats, tillsammans med identiteten.
 
     ![Testsändning](./media/contoso-migration-tfs-vsts/test10.png)
 
-15. Han kontrollerar också andra projekt och kod för att bekräfta att källkoden och historik har migrerats.
+15. Ditt lead kontrollerar också andra projekt och kod för att bekräfta att källkoden och historik har migrerats.
 
     ![Testsändning](./media/contoso-migration-tfs-vsts/test11.png)
 
 
 ### <a name="run-the-production-migration"></a>Kör migrering för produktion
 
-Med fullständig testsändning, Contoso gå vidare till produktion-migrering. De ta bort testsändningen uppdatera importinställningarna för och kör importera igen.
+Med fullständig testsändning gå Contoso administratörer vidare till produktion-migrering. De ta bort testsändningen uppdatera importinställningarna för och kör importera igen.
 
 1. Ta bort kontot testsändning i VSTS-portal de.
 2. De uppdatera filen import.json att ställa in den **ImportType** till **ProductionRun**.
@@ -422,7 +424,7 @@ Med fullständig testsändning, Contoso gå vidare till produktion-migrering. De
 
     ![Produktion](./media/contoso-migration-tfs-vsts/full2.png)
 
-5. I Azure AD-inloggning anger Contoso Contoso administratör loggar in.
+5. I Azure AD-inloggning anger de Contoso administratör loggar in.
 
     ![Produktion](./media/contoso-migration-tfs-vsts/full3.png)
 
@@ -430,30 +432,30 @@ Med fullständig testsändning, Contoso gå vidare till produktion-migrering. De
 
     ![Produktion](./media/contoso-migration-tfs-vsts/full4.png)
 
-7. Contoso efter cirka 15 minuter, bläddrar till URL: en och ser du följande information:
+7. Efter cirka 15 minuter, de Bläddra till URL: en, och ser du följande information:
 
     ![Produktion](./media/contoso-migration-tfs-vsts/full5.png)
 
-8. När migreringen är klar en Contoso Dev leder loggar in på VSTS för att kontrollera att migreringen fungerat korrekt. Efter inloggningen ser han kan projekt har migrerats.
+8. När migreringen är klar en Contoso Dev leder loggar in på VSTS för att kontrollera att migreringen fungerat korrekt. Efter inloggningen ser ditt lead projekt har migrerats.
 
     ![Produktion](./media/contoso-migration-tfs-vsts/full6.png)
 
-8. Dev-Lead öppnas ett av projekten och öppnar **arbetsobjekt** > **tilldelats mig**. Detta visar att objektet arbetsdata har migrerats, tillsammans med sin identitet.
+8. Dev-Lead öppnas ett av projekten och öppnar **arbetsobjekt** > **tilldelats mig**. Detta visar att objektet arbetsdata har migrerats, tillsammans med identiteten.
 
     ![Produktion](./media/contoso-migration-tfs-vsts/full7.png)
 
-9. Han kontrollerar andra arbetsdata objekt att bekräfta.
+9. Ditt lead kontrollerar andra arbetsdata objekt att bekräfta.
 
     ![Produktion](./media/contoso-migration-tfs-vsts/full8.png)
 
-15. Han kontrollerar också andra projekt och kod för att bekräfta att källkoden och historik har migrerats.
+15. Ditt lead kontrollerar också andra projekt och kod för att bekräfta att källkoden och historik har migrerats.
 
     ![Produktion](./media/contoso-migration-tfs-vsts/full9.png)
 
 
 ### <a name="move-source-control-from-tfvc-to-git"></a>Flytta källkontroll från TFVC till GIT
 
-Contoso vill flytta från TFVC till Git för hantering av källa kod med migreringen har slutförts. De måste du importera källkoden för närvarande i sina VSTS-konto som Git-databaser i samma konto.
+Contoso vill flytta från TFVC till Git för hantering av källa kod med migreringen har slutförts. Contoso-administratörer måste du importera källkoden för närvarande i VSTS-konto som Git-databaser i samma konto.
 
 1. I VSTS-portal de öppnar någon av TFVC-lagringsplatser (**$/ PolicyConnect**) och granska den.
 
@@ -468,9 +470,9 @@ Contoso vill flytta från TFVC till Git för hantering av källa kod med migreri
     ![Git](./media/contoso-migration-tfs-vsts/git3.png)
 
     > [!NOTE]
-    > På grund av skillnader i hur TFVC och Git lagrar information om version kontroll, rekommenderar vi inte för att migrera historiken. Det här är den metod som Microsoft tog när den migrerade Windows och andra produkter från centraliserad versionskontroll till Git.
+    > På grund av skillnader i hur TFVC och Git lagrar information om version kontroll, rekommenderar vi att Contoso inte migrerar historik. Det här är den metod som Microsoft tog när den migrerade Windows och andra produkter från centraliserad versionskontroll till Git.
 
-4. Efter importen kan Contoso går du igenom koden.
+4. Efter importen kan granska administratörer koden.
 
     ![Git](./media/contoso-migration-tfs-vsts/git4.png)
 

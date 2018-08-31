@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/20/2018
+ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e06db4e356de6a4572721d1652d6a2666e7cfefc
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 231a9876c7a84953a7d9a88b761a1da9475d1f48
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42061692"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248149"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Hantera uppdateringar av flera datorer
 
@@ -154,10 +154,10 @@ I den **ny uppdateringsdistribution** fönstret anger du följande information:
 
    |Alternativ|Beskrivning|
    |---|---|
-   |Starta om vid behov| **(Standard)**  Om det behövs kan en omstart är intitated om underhållsperioden tillåter.|
+   |Starta om vid behov| **(Standard)**  Om det behövs kan en omstart initieras om underhållsperioden tillåter.|
    |Starta alltid om|En omstart initieras oavsett om en sådan krävs. |
-   |Aldrig omstart|Oavsett om en omstart är obligatorisk, är omstarter surpressed.|
-   |Endast omstart - kommer inte att installera uppdateringar|Det här alternativet ignorerar installerar uppdateringar och endast initierar en omstart.|
+   |Starta aldrig om|Oavsett om en omstart krävs, undertrycks omstarter.|
+   |Endast omstart – uppdateringar installeras inte|Det här alternativet ignorerar installerar uppdateringar och endast initierar en omstart.|
 
 När du är klar med att konfigurera schemat, väljer den **skapa** vill gå tillbaka till statusinstrumentpanelen. Den **schemalagd** tabellen visar distributionsschemat som du skapade.
 

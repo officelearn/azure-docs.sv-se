@@ -3,19 +3,19 @@ title: Azure SQL Data Warehouse-hantering och övervakning – fråga aktivitet,
 description: Läs om vilka funktioner är tillgängliga för att hantera och övervaka Azure SQL Data Warehouse. Använd Azure-portalen och dynamiska hanteringsvyer (DMV) för att förstå frågeaktivitet och resursanvändningen för ditt informationslager.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 08/26/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 7ff304fa478942254cca372282a30a1a3f00f354
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c783045d242725ee19dfe7e0baee13625d986312
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43113009"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246502"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Övervaka användning och fråga aktivitet för resurs i Azure SQL Data Warehouse
 Azure SQL Data Warehouse är en omfattande övervakning i Azure portal och ytinsikter till din arbetsbelastning i informationslager. Azure-portalen är det rekommendera verktyget när du övervakar ditt informationslager eftersom den innehåller konfigurerbara innehållna perioder, aviseringar, rekommendationer, och anpassningsbara diagram och instrumentpaneler för mått och loggar. På portalen kan du integrera med andra Azure-övervakningstjänster, till exempel Operations Management Suite (OMS) / Log Analytics och Azure Monitor för att tillhandahålla en holistisk övervakning av inte bara din data warehouse utan även din hela Azure analysplattform för en integrerad upplevelse för övervakning. Den här dokumentationen beskriver vilka övervakningsfunktioner som är tillgängliga för att optimera och hantera dina analysplattform med SQL Data Warehouse. 

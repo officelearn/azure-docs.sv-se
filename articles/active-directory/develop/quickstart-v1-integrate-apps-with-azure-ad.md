@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2018
+ms.date: 08/28/2018
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: luleon
-ms.openlocfilehash: 90b8a9bd45d2c6a8551e3af84a5bfa915f4c3cea
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.reviewer: celested
+ms.openlocfilehash: c9db5169a978875cf639f6c534ce7920909c896e
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592211"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188248"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrera program med Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -95,12 +95,12 @@ Följande steg visar hur samtycke uppleva fungerar för både programutvecklare 
 
 5. När användaren ger ditt medgivande, returneras en auktoriseringskod till programmet, som har löst in att hämta en åtkomsttoken och uppdatera token. Mer information om det här flödet finns i den [webbprogram till webb-API-avsnittet i Autentiseringsscenarier för Azure AD](authentication-scenarios.md#web-application-to-web-api).
 
-6. Som administratör kan också samtycker du till ett programs delegerade behörigheter för alla användare i din klient. Administratörs godkännande förhindrar att godkännande i dialogrutan visas för varje användare i klienten och kan göras i den [Azure-portalen](https://portal.azure.com) av användare med administratörsrollen. Från den **inställningar** för ditt program och klicka på **nödvändiga behörigheter** och klicka på den **bevilja behörigheter** knappen. 
+6. Som administratör kan också samtycker du till ett programs delegerade behörigheter för alla användare i din klient. Administratörs godkännande förhindrar att godkännande i dialogrutan visas för varje användare i klienten och kan göras i den [Azure-portalen](https://portal.azure.com) av användare med administratörsrollen. Från den **inställningar** för ditt program och klicka på **nödvändiga behörigheter** och klicka på den **bevilja** knappen. 
 
   ![Bevilja behörigheter för explicit administratörens godkännande](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
     
   > [!NOTE]
-  > Bevilja uttryckliga medgivande med hjälp av den **bevilja behörigheter** knappen krävs för närvarande för en sida-program (SPA) som använder ADAL.js. Annars misslyckas programmet när åtkomsttoken begärs. 
+  > Bevilja uttryckliga medgivande med hjälp av den **bevilja** knappen krävs för närvarande för en sida-program (SPA) som använder ADAL.js. Annars misslyckas programmet när åtkomsttoken begärs. 
 
 ### <a name="configure-a-client-application-to-access-web-apis"></a>Konfigurera ett klientprogram för att få åtkomst till webb-API: er
 Det måste upprätta säkra autentiseringsuppgifter för ett webb-/ konfidentiell klientprogram för att kunna delta i ett flöde för auktorisering att bevilja som kräver autentisering (och få en åtkomsttoken). Standardmetoden för autentisering som stöds av Azure-portalen är klient-ID + hemlig nyckel. Det här avsnittet beskriver de konfigurationssteg som krävs för att tillhandahålla den hemliga nyckeln med klientens autentiseringsuppgifter.
@@ -112,7 +112,7 @@ Dessutom innan en klient kan komma åt ett webb-API som exponeras av resursprogr
 - Delegerade behörigheter: Klientprogrammet behöver åtkomst till webb-API som den inloggade användaren, men med åtkomst begränsas av den valda behörigheten. Den här typen av behörighet kan beviljas av en användare, såvida inte behörigheten kräver administratörens godkännande. 
 
   > [!NOTE]
-  > Att lägga till en delegerad behörighet till ett program ger automatiskt ditt medgivande till användare i klienten. Användarna måste manuellt godkänna för de tillagda delegerade behörigheterna vid körning, om inte administratören klickar på den **bevilja behörigheter** knappen från den **nödvändiga behörigheter** delen av den programsidan i Azure-portalen. 
+  > Att lägga till en delegerad behörighet till ett program ger automatiskt ditt medgivande till användare i klienten. Användarna måste manuellt medgivande för de tillagda delegerade behörigheterna vid körning, om inte administratören tilldelar samtycke åt alla användare.
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>Om du vill lägga till webb autentiseringsuppgifter eller behörighet att komma åt-API: er
 1. Logga in på [Azure Portal](https://portal.azure.com).
@@ -121,13 +121,15 @@ Dessutom innan en klient kan komma åt ett webb-API som exponeras av resursprogr
 
    ![Uppdatera registreringen av ett program](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
 
-4. Du kommer till programmets huvudsakliga registreringssidan, vilket öppnar den **inställningar** för programmet. Lägga till en hemlig nyckel för ditt webbprogram autentiseringsuppgifter:
+4. Du kommer till programmets huvudsakliga registreringssidan, vilket öppnar den **inställningar** för programmet. Lägga till en autentiseringsuppgift för ditt webbprogram:
   - Klicka på den **nycklar** avsnittet på den **inställningar** sidan. 
-  - Lägg till en beskrivning av nyckeln.
-  - Välj en eller två år varaktighet.
-  - Klicka på **Spara**. Kolumnen längst till höger innehåller nyckelvärde, när du har sparat ändringar i konfigurationen. **Se till att kopiera nyckeln** för användning i din programkod för klienten, eftersom den inte är tillgänglig när du lämnar den här sidan.
-
-  ![Uppdatera registreringen av ett program - nycklar](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-keys.png)
+  - Lägga till ett certifikat:
+    - Välj **ladda upp offentlig nyckel**.
+    - Markera den fil som du vill ladda upp. Det måste vara något av följande filtyper: .cer, .pem, .crt.
+  - Lägga till ett lösenord:
+    - Lägg till en beskrivning av nyckeln.
+    - Välj en varaktighet.
+    - Klicka på **Spara**. Kolumnen längst till höger innehåller nyckelvärde, när du har sparat ändringar i konfigurationen. **Se till att kopiera nyckeln** för användning i din programkod för klienten, eftersom den inte är tillgänglig när du lämnar den här sidan.
 
 5. Att lägga till behörigheter att komma åt resursen API: er från klienten
   - Klicka på den **nödvändiga behörigheter** avsnittet på den **inställningar** sidan. 
@@ -141,11 +143,6 @@ Dessutom innan en klient kan komma åt ett webb-API som exponeras av resursprogr
   ![Uppdatera registreringen av ett program - behörigheter för varje behörighet](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
 
 6. När du är klar klickar du på den **Välj** knappen **Aktivera åtkomst** kan sedan **klar** knappen på den **Lägg till API-åtkomst** sidan. Du kommer tillbaka till den **nödvändiga behörigheter** sidan där den nya resursen har lagts till i listan över API: er.
-
-  > [!NOTE]
-  > Klicka på den **klar** knapp anger också automatiskt behörigheter för ditt program i din katalog baserat på behörigheterna till andra program som du har konfigurerat. Du kan visa dessa behörigheter för programmet genom att titta på programmet **inställningar** sidan.
-  > 
-  > 
 
 ### <a name="configuring-a-resource-application-to-expose-web-apis"></a>Konfigurera resursprogram att exponera webb API: er
 

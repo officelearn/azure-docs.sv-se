@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 2934c2323b056bfb5e556e7d688704ed20882bca
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 06365e4397075d18150095f7e77367f457e3308c
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124458"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190433"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Kom igång för Azure IT-operatörer
 
@@ -173,7 +173,7 @@ Azure PowerShell är en uppsättning moduler med cmdletar för hantering av Azur
 
 #### <a name="azure-command-line-interface"></a>Azure-kommandoradsgränssnittet
 
-Azure-kommandoradsgränssnittet är ett verktyg som du kan använda för att skapa, hantera och ta bort Azure-resurser från kommandoraden. Azure CLI är tillgängligt för Linux, Mac OS X och Windows. Mer information och teknisk information finns i [installera Azure CLI](/cli/azure/install-azure-cli.md).
+Azure-kommandoradsgränssnittet är ett verktyg som du kan använda för att skapa, hantera och ta bort Azure-resurser från kommandoraden. Azure CLI är tillgängligt för Linux, Mac OS X och Windows. Mer information och teknisk information finns i [installera Azure CLI](/cli/azure/install-azure-cli).
 
 #### <a name="rest-apis"></a>REST API:er
 
@@ -499,5 +499,5 @@ Du kan hjälpa att säkra Azure-nätverk med hjälp av en nätverkssäkerhetsgru
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa en Windows VM](/virtual-machines/windows/quick-create-portal.md)
+- [Skapa en Windows VM](../../virtual-machines/windows/quick-create-portal.md)
 - [Skapa en virtuell Linux-dator](../../virtual-machines/linux/quick-create-portal.md)

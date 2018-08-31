@@ -1,38 +1,36 @@
 ---
-title: Azure SQL Data Warehouse säkerhetskopiering och återställning - ögonblicksbilder, geo-redundant | Microsoft Docs
-description: Lär dig hur säkerhetskopiering och återställning fungerar i Azure SQL Data Warehouse. Använd data warehouse säkerhetskopior som ska återställas ditt data warehouse till en återställningspunkt i den primära regionen. Använd geo-redundant säkerhetskopieringar för att återställa till en annan geografisk region.
+title: Azure SQL Data Warehouse-säkerhetskopiering och återställning – ögonblicksbilder, geo-redundant | Microsoft Docs
+description: Lär dig hur säkerhetskopiering och återställning fungerar i Azure SQL Data Warehouse. Använd säkerhetskopior av informationslager att återställa ditt informationslager till en återställningspunkt i den primära regionen. Återställ till en annan geografisk region med hjälp av geo-redundanta säkerhetskopieringar.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
+ms.date: 08/24/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a4f24aad95f13315eaeac790c9006ca00f61af69
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: e9b5005fad1eeb13314e1fb6a5708bb02b96cbf9
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187607"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248664"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Säkerhetskopiering och återställning i Azure SQL Data Warehouse
-Lär dig hur säkerhetskopiering och återställning fungerar i Azure SQL Data Warehouse. Använd data warehouse säkerhetskopior som ska återställas ditt data warehouse till en återställningspunkt i den primära regionen. Använd geo-redundant säkerhetskopieringar för att återställa till en annan geografisk region. 
+Lär dig hur säkerhetskopiering och återställning fungerar i Azure SQL Data Warehouse. Användningsdata warehouse ögonblicksbilder till recovery eller kopiera ditt informationslager till en tidigare återställningspunkt i den primära regionen. Användningsdata warehouse geo-redundanta säkerhetskopieringar att återställa till en annan geografisk region. 
 
-## <a name="what-is-backup-and-restore"></a>Vad är säkerhetskopiering och återställning?
-En *säkerhetskopiering av data warehouse* är en kopia av databasen som du kan använda för att återställa ett datalager.  Eftersom SQL Data Warehouse är ett distribuerat system, består en data warehouse-säkerhetskopia av många filer som finns i Azure-lagring. En säkerhetskopiering av data warehouse innehåller både lokalt databasögonblicksbilder och geo-säkerhetskopior av alla databaser och filer som är associerade med ett datalager. 
+## <a name="what-is-a-data-warehouse-snapshot"></a>Vad är en ögonblicksbild av data warehouse?
+En *data warehouse ögonblicksbild* skapar en återställningspunkt som du kan använda för att återställa eller kopiera din datalager till ett tidigare tillstånd.  Eftersom SQL Data Warehouse är ett distribuerat system, består en ögonblicksbild av data warehouse med många filer som finns i Azure storage. Sparar hårdiskdata inkrementella ändringar från data som lagras i ditt informationslager.
 
-En *datalager återställning* är ett nytt datalager som har skapats från en säkerhetskopia av en befintlig eller borttagna data warehouse. Återställda data warehouse återskapar säkerhetskopierade data warehouse vid en viss tid. Du återställer data warehouse är en viktig del av alla disaster recovery strategi för affärskontinuitet och eftersom den återskapar dina data efter oavsiktliga skador eller tas bort.
+En *datalager återställning* är ett nytt datalager som har skapats från en återställningspunkt för en befintlig eller borttagna data warehouse. Återställa ditt informationslager är en viktig del av alla disaster recovery strategi för affärskontinuitet och eftersom den återskapar dina data efter oavsiktliga skador eller tas bort. Data warehouse är också en kraftfull mekanism för att skapa kopior av ditt informationslager för test- eller utvecklingsmiljö.  SQL Data Warehouse använder snabb återställning mekanismer inom samma region som har varit mäts för att ta mindre än 20 minuter för alla datastorlekar. 
 
-Både lokala och geografiska återställningar är en del av SQL Data Warehouse funktioner för katastrofåterställning. 
+## <a name="automatic-restore-points"></a>Automatiska återställningspunkter
+Ögonblicksbilder är en inbyggd funktion av tjänsten som skapar återställningspunkter. Du behöver inte aktivera den här funktionen. Automatiska återställningspunkter för närvarande kan inte tas bort av användare där tjänsten använder dessa återställningspunkter pekar Underhåll serviceavtal för återställning.
 
-## <a name="local-snapshot-backups"></a>Lokal ögonblicksbild säkerhetskopieringar
-Lokal ögonblicksbild säkerhetskopior är en inbyggd funktion för tjänsten.  Du behöver inte aktivera dem. 
+SQL Data Warehouse tar ögonblicksbilder av informationslagret under dagen skapar återställningspunkter som är tillgängliga i sju dagar. Den här kvarhållningsperioden kan inte ändras. SQL Data Warehouse stöder en åttonde timme återställningspunkt (RPO). Du kan återställa ditt informationslager i den primära regionen från någon av ögonblicksbilder som tas under de senaste sju dagarna.
 
-SQL Data Warehouse tar ögonblicksbilder av datalagret under dagen. Ögonblicksbilder är tillgängliga i sju dagar. SQL Data Warehouse stöder en åtta timmar återställningspunktmål (RPO). Du kan återställa ditt informationslager i den primära regionen av ögonblicksbilder som vidtagits under de senaste sju dagarna.
-
-Om du vill se när den senaste ögonblicksbilden startas, kör du den här frågan på ditt online SQL Data Warehouse. 
+Om du vill se när den senaste ögonblicksbilden startas, kör du den här frågan på online SQL Data Warehouse. 
 
 ```sql
 select   top 1 *
@@ -41,71 +39,63 @@ order by run_id desc
 ;
 ```
 
-### <a name="snapshot-retention-when-a-data-warehouse-is-paused"></a>Ögonblicksbilden kvarhållning när ett informationslager har pausats
-SQL Data Warehouse skapar inte ögonblicksbilder och upphör inte ögonblicksbilder medan ett informationslager har pausats. En ögonblicksbild ålder ändras inte när datalagret har pausats. Ögonblicksbild kvarhållning baseras på hur många dagar data warehouse är online, inte kalenderdagar.
+## <a name="user-defined-restore-points"></a>Användardefinierade återställningspunkter
+Den här funktionen kan du manuellt utlösaren ögonblicksbilder att skapa återställningspunkter för ditt informationslager före och efter stora ändringar. Den här funktionen ser till att återställningspunkter är logiskt konsekvent som tillhandahåller ytterligare dataskydd vid eventuella avbrott i arbetsbelastningen och användarfel för tiden för snabb återställning. Användardefinierade återställningspunkter är tillgängliga i sju dagar och tas bort automatiskt åt dig. Du kan inte ändra kvarhållningsperioden för användardefinierade återställningspunkter. Endast 42 användardefinierade återställningspunkter stöds när som helst i tid så att de måste vara [bort](https://go.microsoft.com/fwlink/?linkid=875299) innan du skapar en annan återställningspunkt. Du kan utlösa ögonblicksbilder för att skapa en användardefinierad återställningspunkter via [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples) eller Azure-portalen.
 
-Om en ögonblicksbild startas 1 oktober klockan 4 och datalagret har pausats 3 oktober klockan 4 är ögonblicksbilderna upp till två dagar. När datalagret är tillbaka online är ögonblicksbilden två dagar gammal. Om datalagret är online 5 oktober klockan 4 ögonblicksbilden är två dagar gammal och förblir i fem dagar.
-
-När datalagret går tillbaka online SQL Data Warehouse återupptar nya ögonblicksbilder och upphör att gälla ögonblicksbilder när de har mer än sju dagar data.
-
-### <a name="snapshot-retention-when-a-data-warehouse-is-dropped"></a>Ögonblicksbilden kvarhållning när ett informationslager har släppts
-När du släpper ett data warehouse, SQL Data Warehouse skapar en slutlig ögonblicksbild och sparar den under sju dagar. Du kan återställa datalagret till den sista återställningspunkten som skapades på borttagning. 
-
-> [!IMPORTANT]
-> Om du tar bort en logisk SQL server-instansen tas även bort alla databaser som tillhör instansen och kan inte återställas. Du kan inte återställa en server som har tagits bort.
-> 
-
-## <a name="geo-backups"></a>GEO-säkerhetskopieringar
-SQL Data Warehouse säkerhetskopierar geo-en gång per dag för att en [parad Datacenter](../best-practices-availability-paired-regions.md). Återställningspunktmålet för geo-återställning är 24 timmar. Du kan återställa geo-säkerhetskopiering till en server i en annan region där det finns stöd för SQL Data Warehouse. Geo-säkerhetskopiering gör att du kan återställa datalagret om du inte kommer åt ögonblicksbilder i din primära region.
-
-GEO-säkerhetskopior är aktiverade som standard. Om ditt data warehouse är Gen1, kan du [avanmälas](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) om du vill. Du kan inte välja bort geo säkerhetskopieringar för Gen2 dataskydd är en inbyggd gurantee.
-
-## <a name="backup-costs"></a>Kostnaderna för säkerhetskopiering
-Du ser växeln Azure har en artikel för Azure Premium-lagring och ett radobjekt för geo-redundant lagring. Premium-lagring tillägget är den totala kostnaden för att lagra data i den primära region som innehåller ögonblicksbilder.  Geo-redundant tillägget omfattar kostnaden för att lagra geo-säkerhetskopior.  
-
-Den totala kostnaden för ditt primära datalagret och sju dagar i Azure Blob-ögonblicksbilder avrundas till närmaste TB. Om ditt data warehouse är 1,5 TB och ögonblicksbilderna använder 100 GB, debiteras du till exempel för 2 TB data till Azure Premium Storage-priser. 
 
 > [!NOTE]
-> Varje ögonblicksbild är tom från början och växer när du gör ändringar i den primära datalagret. Alla ögonblicksbilder ökar i storlek när data warehouse ändras. Lagringskostnader för ögonblicksbilder växer därför enligt ändringshastigheten.
-> 
-> 
+> Om du behöver återställningspunkter som är längre än 7 dagar kan du rösta på den här funktionen [här](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). Du kan också skapa en återställningspunkt för användardefinierade och återställa från den nyligen skapade återställningspunkten till ett nytt datalager. När du har återställt ha datalagret online och kan pausa på obestämd tid för att spara beräkningskostnader. Pausad databasen medför avgifter för lagring till Azure Premium Storage-kostnad. Om du behöver en aktiv kopia av återställda data warehouse kan återuppta du som tar bara några minuter.
+>
 
-Om du använder geo-redundant lagring, får du en separat lagring kostnad. Geo-redundant lagring faktureras enligt standardkostnaden geografiskt Redundant lagring med läsbehörighet (RA-GRS).
+### <a name="snapshot-retention-when-a-data-warehouse-is-paused"></a>Ögonblicksbild kvarhållning när ett informationslager har pausats
+SQL Data Warehouse skapar inte ögonblicksbilder och upphör inte återställningspunkter medan ett informationslager har pausats. Återställa punkter ändras inte när informationslagret har pausats. Återställningspunkt baseras kvarhållningen på hur många dagar data warehouse är online, inte kalenderdagar.
 
-Mer information om priser för SQL Data Warehouse finns [priser för SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+Om en ögonblicksbild startas 1 oktober kl 4 och informationslagret har pausats oktober 3 4 klockan, är återställningspunkterna upp till två dagar. När datalagret är online igen är återställningspunkten två dagar gamla. Om datalagret är online 5 oktober kl 4, återställningspunkten är två dagar gamla och förblir i fem dagar.
+
+När datalagret är online igen, fortsätter med att skapa nya återställningspunkter SQL Data Warehouse och går ut dem när de har mer än sju dagarnas data.
+
+### <a name="snapshot-retention-when-a-data-warehouse-is-dropped"></a>Ögonblicksbild kvarhållning när ett informationslager har släppts
+När du släpper ett data warehouse, SQL Data Warehouse skapar en slutlig ögonblicksbild och sparar den i sju dagar. Du kan återställa datalagret till den sista återställningspunkten som skapas vid borttagning. 
+
+> [!IMPORTANT]
+> Om du tar bort en logisk SQL server-instans, raderas också alla databaser som tillhör instansen och kan inte återställas. Du kan inte återställa en borttagen server.
+>
+
+## <a name="geo-backups"></a>GEO-säkerhetskopiering
+SQL Data Warehouse utför en geo-säkerhetskopia en gång per dag för att en [kopplat Datacenter](../best-practices-availability-paired-regions.md). Återställningspunktmålet för en geo-återställning är 24 timmar. Du kan återställa geo-säkerhetskopiering till en server i alla andra regioner där det finns stöd för SQL Data Warehouse. En geo-säkerhetskopia säkerställer att du kan återställa datalagret om du inte åtkomst till återställningspunkter i den primära regionen.
+
+GEO-säkerhetskopiering är aktiverat som standard. Om ditt informationslager är Gen1, kan du [avanmäla dig](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) om du vill. Du kan inte välja bort geo-säkerhetskopiering för Gen2 eftersom dataskydd är en inbyggd garanteras.
+
+> [!NOTE]
+> Om du behöver ett kortare Återställningspunktmål för geo-säkerhetskopiering kan rösta för den här funktionen [här](https://feedback.azure.com/forums/307516-sql-data-warehouse). Du kan också skapa en återställningspunkt för användardefinierade och återställa från den nyligen skapade återställningspunkten till ett nytt datalager i en annan region. När du har återställt ha datalagret online och kan pausa på obestämd tid för att spara beräkningskostnader. Pausad databasen medför avgifter för lagring till Azure Premium Storage-kostnad. och sedan pausa. Om du behöver en aktiv kopia av datalagret, kan du återuppta som tar bara några minuter.
+>
+
+
+## <a name="backup-and-restore-costs"></a>Kostnader för säkerhetskopiering och återställning
+Du ser Azure-faktura har ett radobjekt för lagring och ett radobjekt för Disaster Recovery-lagring. Avgiften för lagring är den totala kostnaden för att lagra data i den primära regionen tillsammans med de inkrementella ändringar som avbildas av ögonblicksbilder. En mer detaljerad förklaring på hur ögonblicksbilder tas för närvarande finns i den här [dokumentation](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). Geo-redundant avgiften täcker kostnaden för lagring av geo-säkerhetskopiering.  
+
+Den totala kostnaden för din primära datalagret och sju dagar efter ögonblicksbild ändringar avrundas till närmaste TB. Till exempel att om ditt informationslager är 1,5 TB och ögonblicksbilderna samlar in 100 GB, kommer du att debiteras för 2 TB data enligt priserna för Azure Premium Storage. 
+
+Om du använder geo-redundant lagring, får du en separat lagringsfaktura. Geo-redundant lagring debiteras enligt standardavgifterna för läsåtkomst till geografiskt Redundant lagring (RA-GRS).
+
+Mer information om priser för SQL Data Warehouse finns i [priser för SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) och [egress avgifter](https://azure.microsoft.com/pricing/details/bandwidth/) när du återställer mellan regioner.
 
 ## <a name="restoring-from-restore-points"></a>Återställa från återställningspunkter
-Varje ögonblicksbild har en återställningspunkt som representerar den tid som ögonblicksbilden igång. Om du vill återställa ett datalager, Välj en återställningspunkt och utfärda ett kommando för återställning.  
+Varje ögonblicksbild skapar en återställningspunkt som representerar den tid som ögonblicksbilden igång. Om du vill återställa ett informationslager, Välj en återställningspunkt och utfärda ett kommando för återställning.  
 
-SQL Data Warehouse återställs alltid säkerhetskopian till ett nytt datalager. Du kan hålla återställda data warehouse och det aktuella eller ta bort en av dem. Om du vill ersätta det aktuella datalagret med återställda data warehouse, du kan byta namn på den med hjälp av [ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) med alternativet Ändra namnet. 
+Du kan antingen behålla de återställda data warehouse och det aktuella eller ta bort en av dem. Om du vill ersätta det aktuella datalagret med återställda data warehouse, du kan byta namn på den med hjälp av [ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) med alternativet Ändra namnet. 
 
-Om du vill återställa ett datalager, se [återställa ett data warehouse med Azure-portalen](sql-data-warehouse-restore-database-portal.md), [återställa ett data warehouse med hjälp av PowerShell](sql-data-warehouse-restore-database-powershell.md), eller [återställa ett data warehouse med hjälp av T-SQL](sql-data-warehouse-restore-database-rest-api.md) .
+Om du vill återställa ett informationslager, se [Återställ ett informationslager med Azure portal](sql-data-warehouse-restore-database-portal.md), [Återställ ett informationslager med hjälp av PowerShell](sql-data-warehouse-restore-database-powershell.md), eller [Återställ ett informationslager med T-SQL](sql-data-warehouse-restore-database-rest-api.md) .
 
-Om du vill återställa en borttagen eller pausas datalagret kan du [skapa ett supportärende](sql-data-warehouse-get-started-create-support-ticket.md). 
+Om du vill återställa en borttagen eller pausat informationslager kan du [skapa ett supportärende](sql-data-warehouse-get-started-create-support-ticket.md). 
 
 
 ## <a name="geo-redundant-restore"></a>GEO-redundant återställning
-Du kan återställa ditt datalager till en region som stöder Azure SQL Data Warehouse på din valda prestandanivå. 
+Du kan [återställa ditt informationslager](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) till valfri region som stöd för SQL Data Warehouse på din valda prestandanivå. 
 
 > [!NOTE]
-> Om du vill utföra en återställning av geo-redundant måste du inte har valt utanför den här funktionen.
-> 
-> 
-
-## <a name="restore-timeline"></a>Återställa tidslinjen
-Du kan återställa en databas till vilken tillgänglig återställningspunkt under de senaste sju dagarna. Ögonblicksbilder starta alla fyra till åtta timmar och är tillgängliga i sju dagar. När en ögonblicksbild är äldre än sju dagar, den upphör att gälla och dess återställningspunkten är inte längre tillgänglig. 
-
-Säkerhetskopieringar inte göras mot ett pausat data warehouse. Om ditt data warehouse är pausad för mer än sju dagar har du inte några återställningspunkter. 
-
-## <a name="restore-costs"></a>Återställa kostnader
-Storage-tillägget för återställda data warehouse faktureras till Azure Premium Storage-sats. 
-
-Om du pausar ett återställda data warehouse, debiteras du för lagring till Azure Premium Storage-sats. Fördelen med att pausa är inte debiteras du för dataresurser.
-
-Mer information om priser för SQL Data Warehouse finns [priser för SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
-
-## <a name="restore-use-cases"></a>Återställa användningsområden
-Den primära data warehouse återställning används för att återställa data efter oavsiktlig dataförlust eller skadade data. Du kan också använda data warehouse återställning för att behålla en säkerhetskopia för längre än sju dagar. När säkerhetskopieringen har återställts har datalagret online och kan pausa under obestämd tid för att spara kostnader för beräkning. Pausad databas debiteras lagring till Azure Premium Storage-sats. 
+> Om du vill utföra en geo-redundant återställning måste du inte har valt ut från den här funktionen.
+>
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om planering för katastrofåterställning finns [översikt över verksamhetskontinuitet](../sql-database/sql-database-business-continuity.md)
+Läs mer om hur du planerar för haveriberedskap, [översikt över affärskontinuitet](../sql-database/sql-database-business-continuity.md)

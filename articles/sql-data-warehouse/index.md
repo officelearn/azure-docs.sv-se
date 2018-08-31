@@ -3,7 +3,7 @@ title: Dokumentation om Azure SQL Data Warehouse – självstudier, begrepp | Mi
 description: Lär dig hur du använder Azure SQL Data Warehouse, som kombinerar SQL-relationsdatabaser med massivt parallell bearbetning (Massively Parallel Processing, MPP). Självstudier och annan dokumentation visar dig hur du utformar, läser in, hanterar och analyserar data med hjälp av ett informationslager.
 services: sql-data-warehouse
 author: hirokib
-manager: craigg-msft
+manager: craigg
 layout: LandingPage
 ms.service: sql-data-warehouse
 ms.topic: overview
@@ -11,12 +11,12 @@ ms.component: design
 ms.date: 04/11/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: 4c716999d082d33536d70465a23e336ee989d065
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 4e6f8cd6bd1a84e7c2a6024bf6bcdb1b6b61620c
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143396"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287275"
 ---
 # <a name="sql-data-warehouse-documentation"></a>Dokumentation om SQL Data Warehouse
 

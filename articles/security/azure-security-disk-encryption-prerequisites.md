@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2018
+ms.date: 08/29/2018
 ms.author: mstewart
-ms.openlocfilehash: 4fb0cf61d88a9a3d44091e49f501ef7af0f213d4
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
-ms.translationtype: MT
+ms.openlocfilehash: d248a97235ead134f29e468aaafcd04211590e02
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887088"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247498"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Krav för Azure Disk Encryption 
  Den här artikeln krävs för Azure Disk Encryption, förklarar objekt som måste vara uppfyllda innan du kan använda Azure Disk Encryption. Azure Disk Encryption är integrerad med [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) för att hantera krypteringsnycklar. Du kan använda [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure/), eller [Azure-portalen](https://portal.azure.com) att konfigurera Azure Disk Encryption.
@@ -74,20 +74,18 @@ Ett exempel på kommandon som kan användas för att montera datadiskarna och sk
         - Installera PowerShellGet, Azure PowerShell, och Läs in AzureRM-modulen. 
     - [Installera och konfigurera Azure Powershell på macOS och Linux](/powershell/azure/install-azurermps-maclinux).
         -  Installera PowerShell Core, Azure PowerShell för .NET Core och läsa in modulen AzureRM.Netcore.
-2. Installera den [Azure Active Directory PowerShell-modulen](/powershell/azure/active-directory/install-adv2#installing-the-azure-ad-module). 
+
+2. Kontrollera de installerade versionerna av AzureRM-modulen. Om det behövs [uppdatera Azure PowerShell-modulen](/powershell/azure/install-azurerm-ps#update-the-azure-powershell-module).
+    -  AzureRM-Modulversion måste vara 6.0.0 eller högre.
+    - Du bör använda den senaste versionen av AzureRM-modulen.
 
      ```powershell
-     Install-Module AzureAD
+     Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path
      ```
 
-3. Kontrollera de installerade versionerna av moduler.
-      ```powershell
-      Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path
-      Get-Module AzureAD -ListAvailable | Select-Object -Property Name,Version,Path
-      ```
-4. Logga in på Azure med hjälp av den [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet.
+3. Logga in på Azure med hjälp av den [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet.
      
-     ```powershell
+     ```azurepowershell-interactive
      Connect-AzureRmAccount
      # For specific instances of Azure, use the -Environment parameter.
      Connect-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
@@ -99,13 +97,7 @@ Ett exempel på kommandon som kan användas för att montera datadiskarna och sk
      Set-AzureRmContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"
      ```
 
-5.  Anslut till Azure AD [Connect-AzureAD](/powershell/module/azuread/connect-azuread).
-     
-     ```powershell
-     Connect-AzureAD
-     ```
-
-6. Granska [komma igång med Azure PowerShell](/powershell/azure/get-started-azureps) och [AzureAD](/powershell/module/azuread), om det behövs.
+4.  Om det behövs kan du granska [komma igång med Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ## <a name="bkmk_CLI"></a> Installera Azure CLI för användning på den lokala datorn (valfritt)
 

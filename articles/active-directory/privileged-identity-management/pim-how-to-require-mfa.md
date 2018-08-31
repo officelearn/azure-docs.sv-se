@@ -1,6 +1,6 @@
 ---
-title: Så här kräver du multifaktorautentisering | Microsoft Docs
-description: Lär dig hur du kan kräva multifaktorautentisering (MFA) för privilegierade identiteter med Azure Active Directory Privileged Identity Management-tillägget.
+title: Kräv multifaktorautentisering för Azure AD-katalogroller i PIM | Microsoft Docs
+description: Lär dig mer om att kräva multifaktorautentisering (MFA) för Azure AD-katalogroller i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8e1c0fa212b31c05fcc4559f9f8d42b627f0da0e
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 9777a7d2ed07ea2edf4bea661a5065c808de9f2b
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622855"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188361"
 ---
-# <a name="how-to-require-mfa-in-azure-ad-privileged-identity-management"></a>Så här kräver du MFA i Azure AD Privileged Identity Management
+# <a name="require-multi-factor-authentication-for-azure-ad-directory-roles-in-pim"></a>Kräv multifaktorautentisering för Azure AD-katalogroller i PIM
 Vi rekommenderar att du kräver multifaktorautentisering (MFA) för alla dina administratörer. Detta minskar risken för angrepp på grund av ett olämpligt lösenord.
 
 Du kan kräva att användarna slutföra MFA-kontrollen när de loggar in. Det här blogginlägget [MFA för Office 365 och MFA för Azure](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/) jämför vad som ingår i Office och Azure-prenumerationer, med följande funktioner i Microsoft Azure Multi-Factor Authentication-erbjudandet.
@@ -46,5 +46,6 @@ Du kan också ha din identitetsprovider som ansvarar för MFA genom att använda
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Nästa steg
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
 
+- [Konfigurera Azure AD directory rollinställningar i PIM](pim-how-to-change-default-settings.md)
+- [Konfigurera säkerhetsaviseringar för Azure AD-katalogroller i PIM](pim-how-to-configure-security-alerts.md)

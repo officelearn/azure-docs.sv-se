@@ -1,6 +1,6 @@
 ---
-title: Text Merge kognitiva Sök kunskaper (Azure Search) | Microsoft Docs
-description: Sammanfoga text från en uppsättning fält i en konsoliderad fältet. Använd kognitiva kompetensen i en Azure Search berikande pipeline.
+title: Text Merge kognitiv sökning färdighet (Azure Search) | Microsoft Docs
+description: Sammanfoga text från en uppsättning fält i ett konsoliderade fält. Använd den här kognitiva kunskaper i en Azure Search berikande pipeline.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -10,32 +10,32 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: ba779ebcbc791f9caa60948feeb38b88a23ef379
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d90a9f8bd32924eef6533e602957aa1704cfdae9
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640670"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190481"
 ---
 #    <a name="text-merge-cognitive-skill"></a>Text Merge kognitiva kunskaper
 
-Den **Text sammanfoga** kunskaper konsoliderar text från en uppsättning fält i ett enda fält. 
+Den **Text sammanfoga** färdighet konsoliderar text från en samling av fält till ett fält. 
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Util.TextMerger
+Microsoft.Skills.Text.MergeSkill
 
-## <a name="skill-parameters"></a>Kunskaper parametrar
+## <a name="skill-parameters"></a>Färdighet parametrar
 
 Parametrar är skiftlägeskänsliga.
 
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
-| insertPreTag  | Strängen som ska tas med innan varje infogning. Standardvärdet är `" "`. Om du vill utelämna området, anger du värdet till `""`.  |
-| insertPostTag | Strängen som ska tas med när varje infogning. Standardvärdet är `" "`. Om du vill utelämna området, anger du värdet till `""`.  |
+| insertPreTag  | Strängen som ska tas med innan varje infogning. Standardvärdet är `" "`. Om du vill utelämna utrymmet Ställ in värdet `""`.  |
+| insertPostTag | Strängen som ska ingå efter varje infogning. Standardvärdet är `" "`. Om du vill utelämna utrymmet Ställ in värdet `""`.  |
 
 
 ##  <a name="sample-input"></a>Exempelindata
-En JSON-dokumentet som tillhandahåller användbar indata för kompetensen kan vara:
+Ett JSON-dokument som tillhandahåller användbar indata för den här färdighet kan vara följande:
 
 ```json
 {
@@ -70,11 +70,11 @@ Det här exemplet visar utdata från föregående indata, under förutsättning 
 }
 ```
 
-## <a name="extended-sample-skillset-definition"></a>Utökade exempel kunskaper definition
+## <a name="extended-sample-skillset-definition"></a>Utökade kompetens exempeldefinition
 
-Ett vanligt scenario för med Text är att koppla en textrepresentation av avbildningar (text från en OCR kunskap eller en titel på en bild) i fältet content för ett dokument. 
+Ett vanligt scenario för att använda Text Merge är att slå samman textrepresentation av bilder (text från en OCR-kunskaper eller rubriken på en avbildning) i fältet content för ett dokument. 
 
-Följande exempel kunskaper använder OCR kunskaper för att extrahera text från bilder som är inbäddade i dokumentet. Därefter skapar den en *merged_text* fältet ska innehålla både ursprungliga och OCRed text från varje avbildning. 
+Följande exempel kompetens använder OCR-kunskaper för att extrahera text från bilder som är inbäddade i dokumentet. Därefter skapas en *merged_text* fält som innehåller både ursprungliga och OCRed text från varje avbildning. 
 
 ```json
 {
@@ -101,7 +101,7 @@ Följande exempel kunskaper använder OCR kunskaper för att extrahera text frå
         ]
     },
     {
-      "@odata.type": "#Microsoft.Skills.Util.TextMerger",
+      "@odata.type": "#Microsoft.Skills.Text.MergeSkill",
       "description": "Create merged_text, which includes all the textual representation of each image inserted at the right location in the content field.",
       "context": "/document",
       "insertPreTag": " ",
@@ -126,7 +126,7 @@ Följande exempel kunskaper använder OCR kunskaper för att extrahera text frå
   ]
 }
 ```
-Exemplet ovan förutsätter att det finns ett normaliserat bilder fält. För att få normaliserade bilder fältet, ange den *imageAction* konfigurationen i indexeraren-definitionen så att *generateNormalizedImages* enligt nedan:
+I exemplet ovan förutsätter att det finns ett normaliserat avbildningar fält. För att få normalized avbildningar fältet kan du ange den *imageAction* konfiguration i din indexerarens definition till *generateNormalizedImages* enligt nedan:
 
 ```json
 {  
@@ -143,5 +143,5 @@ Exemplet ovan förutsätter att det finns ett normaliserat bilder fält. För at
 ## <a name="see-also"></a>Se också
 
 + [Fördefinierade kunskaper](cognitive-search-predefined-skills.md)
-+ [Hur du definierar en kunskaper](cognitive-search-defining-skillset.md)
++ [Hur du definierar en kompetens](cognitive-search-defining-skillset.md)
 + [Skapa indexerare (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

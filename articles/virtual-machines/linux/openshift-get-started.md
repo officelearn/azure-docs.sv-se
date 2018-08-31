@@ -1,5 +1,5 @@
 ---
-title: OpenShift i översikt över Azure | Microsoft Docs
+title: OpenShift i Azure – översikt | Microsoft Docs
 description: En översikt över OpenShift i Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,56 +15,56 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: c8e740a66271c88b3abb036867d1760cc9e77607
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e3ab060c1cea28f83c18dc89aeea7716ec86572a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944509"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190351"
 ---
 # <a name="openshift-in-azure"></a>OpenShift i Azure
 
-OpenShift är en öppen och utökningsbar behållaren programmet plattform som ger Docker och Kubernetes till företaget.  
+OpenShift är en öppen och utökningsbar behållarplattform som ger Docker och Kubernetes för företaget.  
 
-OpenShift innehåller Kubernetes för behållaren orchestration och hantering. Den innehåller developer - och operations-elementbaserade som möjliggör:
+OpenShift innehåller Kubernetes för orkestrering av behållare och hantering. Den innehåller och operations-utvecklare som möjliggör:
 
-- Snabb utveckling.
+- Snabb programutveckling.
 - Enkel distribution och skalning.
 - Livscykel på lång sikt för grupper och program.
 
 Det finns flera versioner av OpenShift:
 
-- OpenShift Origin
+- OKD (tidigare OpenShift Origin)
 - OpenShift Container Platform
 - OpenShift Online
-- OpenShift dedikerad
+- OpenShift Dedicated
 
-Av de fyra versionerna som beskrivs i den här artikeln endast två är tillgängliga för kunder att distribuera i Azure: OpenShift ursprung och OpenShift behållare plattform.
+Av fyra versioner som beskrivs i den här artikeln har bara två tillgängliga för kunder att distribuera i Azure: OpenShift Origin och OpenShift Container Platform.
 
-## <a name="openshift-origin"></a>OpenShift Origin
+## <a name="okd-formerly-openshift-origin"></a>OKD (tidigare OpenShift Origin)
 
-Ursprung är en [öppen källkod](https://www.openshift.org/) överordnade projektet för OpenShift är community stöds. Ursprung kan installeras på CentOS eller Red Hat Enterprise Linux (RHEL).
+OKD är en [öppen källkod](https://www.okd.io/) överordnade projektet för OpenShift som är community stöds. OKD kan installeras på CentOS eller Red Hat Enterprise Linux (RHEL).
 
 ## <a name="openshift-container-platform"></a>OpenShift Container Platform
 
-Behållaren är en enterprise-redo [kommersiella version](https://www.openshift.com) från och stöds i Red Hat. Med den här versionen kunder köpa nödvändiga rättigheterna för OpenShift behållare plattform och ansvarar för installation och hantering av hela infrastrukturen.
+Behållarplattform är en företagsklar [kommersiella versioner](https://www.openshift.com) från och stöds av Red Hat. Med den här versionen kan kunder köper nödvändiga rättigheterna för OpenShift Container Platform och ansvarar för installation och hantering av hela infrastrukturen.
 
-Eftersom kunder ”äger” hela plattformen kan installera de den i sina lokala datacenter eller i ett offentligt moln (till exempel Azure, AWS eller Google).
+Eftersom kunder ”äger” hela plattformen, kan de installera den i sina lokala datacenter eller i ett offentligt moln (till exempel Azure, AWS och Google).
 
 ## <a name="openshift-online"></a>OpenShift Online
 
-Red Hat-hanterad online är *flera innehavare* OpenShift som använder behållaren plattform. Red Hat hanterar alla underliggande infrastruktur (t.ex virtuella datorer, OpenShift kluster, nätverk och lagring). 
+Online är en Red Hat-hanterade *flera innehavare* OpenShift som använder Behållarplattform. Red Hat hanterar den underliggande infrastrukturen (till exempel virtuella datorer, OpenShift kluster, nätverk och lagring). 
 
-Med den här versionen kunden distribuerar behållare, men har ingen kontroll över vilka värdar som behållarna körs. Eftersom Online är flera innehavare, kan behållare finnas på samma VM-värdar som behållare från andra kunder. Det är kostnaden per behållare.
+Med den här versionen kan kunden distribuerar behållare, men har ingen kontroll över vilka värdar som behållarna körs. Eftersom Online är flera innehavare, kan behållare finnas på samma VM-värdarna som behållare från andra kunder. Kostnaden är per behållare.
 
-## <a name="openshift-dedicated"></a>OpenShift dedikerad
+## <a name="openshift-dedicated"></a>OpenShift Dedicated
 
-Dedikerad är Red Hat-hanterad *stöd för en innehavare* OpenShift som använder behållaren plattform. Red Hat hanterar alla underliggande infrastruktur (virtuella datorer, OpenShift kluster, nätverk, lagring, etc.). Klustret är specifik för en kund och körs i ett offentligt moln (till exempel AWS eller Google, med Azure som kommer in tidigt 2018). Ett första kluster innehåller fyra programmet noder för $48,000 per år (betald direkt).
+Dedikerad är en Red Hat-hanterad *enda klient* OpenShift som använder Behållarplattform. Red Hat hanterar den underliggande infrastrukturen (virtuella datorer, OpenShift kluster, nätverk, lagring osv.). Klustret är specifik för en kund och körs i ett offentligt moln (till exempel AWS eller Google med Azure som kommer med tidigt 2018). Ett från kluster innehåller fyra noder för programmet för $48,000 per år (betalas direkt).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Konfigurera gemensamma krav för OpenShift i Azure](./openshift-prerequisites.md)
-- [Distribuera OpenShift ursprung i Azure](./openshift-origin.md)
-- [Distribuera OpenShift behållare plattform i Azure](./openshift-container-platform.md)
-- [Uppgifter efter distributionen](./openshift-post-deployment.md)
-- [Felsöka OpenShift distribution](./openshift-troubleshooting.md)
+- [Konfigurera vanliga krav för OpenShift i Azure](./openshift-prerequisites.md)
+- [Distribuera OpenShift Origin i Azure](./openshift-origin.md)
+- [Distribuera OpenShift Container Platform i Azure](./openshift-container-platform.md)
+- [Uppgifter efter distribution](./openshift-post-deployment.md)
+- [Felsöka distribution för OpenShift](./openshift-troubleshooting.md)

@@ -2,18 +2,18 @@
 title: Ansluta en Windows IoT Core-enhet till Azure IoT Central programmet | Microsoft Docs
 description: Lär dig hur du ansluter en enhet för MXChip IoT DevKit till Azure IoT Central programmet som utvecklare enheten.
 author: miriambrus
-ms.author: mriamb
+ms.author: miriamb
 ms.date: 04/09/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 39eb6f137750f7f741c88dcdf9a55f34d24eaa59
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 73a23ace23d2373e238c6887c4a41c6037d233de
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205756"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189012"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Anslut en Windows IoT Core-enhet till din Azure IoT Central program
 
@@ -44,7 +44,7 @@ I Azure IoT Central programmet, lägger du till en riktig enhet från den **Wind
 
 ### <a name="prepare-the-windows-iot-core-device"></a>Förbereda Windows IoT Core-enhet
 
-Konfigurera en Windows IoT Core-enhet genom att följa steg-för-steg-instruktioner på [konfigurera en Windows IoT Core-enhet] (https://github.com/Microsoft/microsoft-iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device).
+Konfigurera en Windows IoT Core-enhet genom att följa steg-för-steg-instruktioner på [konfigurera en Windows IoT Core-enhet] (https://github.com/Azure/iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device).
 
 ### <a name="add-a-real-device"></a>Lägga till en riktig enhet
 

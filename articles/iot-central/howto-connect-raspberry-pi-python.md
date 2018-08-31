@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: a3d6ad9f2f442481908bc02252fcc8ab1a74419e
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: aa2d8f50d8fb4ba356af20a290976b8b32601ebf
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205596"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188799"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Ansluta en Raspberry Pi till Azure IoT Central programmet (Python)
 
@@ -53,9 +53,9 @@ Följande steg beskriver hur du hämtar och konfigurerar du exempelprogrammet Py
 * Svarar på inställningen ändringar som gjorts i Azure IoT Central.
 
 > [!NOTE]
-> Mer information om de Raspberry Pi Python-exempel finns i den [Readme](https://github.com/Microsoft/microsoft-iot-central-firmware/blob/master/RaspberryPi/README.md) fil på GitHub.
+> Mer information om de Raspberry Pi Python-exempel finns i den [Readme](https://github.com/Azure/iot-central-firmware/blob/master/RaspberryPi/README.md) fil på GitHub.
 
-1. Använda webbläsaren i desktop Raspberry Pi för att navigera till den [Azure IoT Central firmware släpper](https://github.com/Microsoft/microsoft-iot-central-firmware/releases) sidan.
+1. Använda webbläsaren i desktop Raspberry Pi för att navigera till den [Azure IoT Central firmware släpper](https://github.com/Azure/iot-central-firmware/releases) sidan.
 
 1. Ladda ned zip-filen som innehåller den senaste inbyggda programvaran arbetsmappen på Raspberry Pi. Namnet på filen som ser ut som `RaspberryPi-IoTCentral-X.X.X.zip`.
 

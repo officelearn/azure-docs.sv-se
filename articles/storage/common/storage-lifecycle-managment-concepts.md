@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: a3208152ddf198d00c0a158e466c9d024c17b4d6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: af32ea826f8150284c242fb6d1013924945aee97
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528451"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247790"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Hantera Azure Blob Storage livscykel (förhandsversion)
 
@@ -37,7 +37,7 @@ Princip för livscykelhantering är tillgängligt med både generell användning
 Funktionen för hantering av livscykeln är kostnadsfritt i förhandsversionen. Kunderna debiteras den vanliga åtgärd kostnaden för den [lista Blobar](https://docs.microsoft.com/rest/api/storageservices/list-blobs) och [ange Blobnivå](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API-anrop. Se [blockblobpriserna](https://azure.microsoft.com/pricing/details/storage/blobs/) mer information om priser.
 
 ## <a name="register-for-preview"></a>Registrera dig för förhandsversion 
-Om du vill registrera i offentlig förhandsversion, behöver du ansöka om att registrera den här funktionen till din prenumeration. När din begäran har godkänts (inom ett par dagar), har alla befintliga och nya GPv2 eller Blob Storage-konto i USA, västra 2 och USA, västra centrala funktionen aktiverad. I förhandsversionen stöds endast blockblob. Precis som med de flesta förhandsversionerna av ska den här funktionen inte användas för produktionsarbetsbelastningar tills den når GA.
+Om du vill registrera i offentlig förhandsversion, behöver du ansöka om att registrera den här funktionen till din prenumeration. När din begäran har godkänts (inom ett par dagar), har alla befintliga och nya GPv2 eller Blob Storage-konto i USA, västra 2, västra centrala USA och Västeuropa funktionen aktiverad. I förhandsversionen stöds endast blockblob. Precis som med de flesta förhandsversionerna av ska den här funktionen inte användas för produktionsarbetsbelastningar tills den når GA.
 
 Kör följande PowerShell eller CLI-kommandon för att skicka en begäran.
 

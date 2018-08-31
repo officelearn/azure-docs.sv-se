@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 03/22/2018
+ms.date: 08/29/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 880e9c8f7326c6b4c471e820266c144bbd9a000f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d047ce5a09e9b011085689903b86b03c20c44ab5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30197558"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43303002"
 ---
-Erbjudanden med programvara som en tjänst (SaaS), till exempel Office 365 och Dynamics 365, har utformats för att användas på ett säkert och tillförlitligt sätt via Internet. Därför rekommenderar vi ExpressRoute för dessa program endast för specifika scenarier. Information om hur du använder ExpressRoute åtkomst till Office 365 finns [Azure ExpressRoute för Office 365](http://aka.ms/ExpressRouteOffice365).
+Office 365 har skapats för att kunna nås säkert och tillförlitligt via Internet. Därför rekommenderar vi ExpressRoute för specifika scenarier. Information om hur du använder ExpressRoute för att få åtkomst till Office 365 finns i [Azure ExpressRoute för Office 365](http://aka.ms/ExpressRouteOffice365).

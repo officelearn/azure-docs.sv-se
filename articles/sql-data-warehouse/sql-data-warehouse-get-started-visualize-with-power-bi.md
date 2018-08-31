@@ -3,19 +3,19 @@ title: Visualisera SQL Data Warehouse-data med Power BI Microsoft Azure
 description: Visualisera SQL Data Warehouse-data med Power BI
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 52581a87caac419a79caab647cc9c5a4ee7453ba
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 514516dcc28e99d03611c7db6ec09c7b4a48ff0e
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31601585"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306671"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualisera data med Power BI
 De här självstudierna visar hur du använder Power BI för att ansluta till SQL Data Warehouse och skapa några grundläggande visualiseringar.
@@ -27,7 +27,7 @@ De här självstudierna visar hur du använder Power BI för att ansluta till SQ
 ## <a name="prerequisites"></a>Förutsättningar
 För att gå igenom de här självstudierna, behöver du:
 
-* En SQL Data Warehouse förinstallerad med AdventureWorksDW-databasen. Om du vill etablera ett datalager, se [skapa ett SQL Data Warehouse](create-data-warehouse-portal.md) och väljer att läsa in exempeldata. Om du redan har ett data warehouse men inte har exempeldata, kan du [ladda WideWorldImportersDW](load-data-wideworldimportersdw.md).
+* En SQL Data Warehouse förinstallerad med AdventureWorksDW-databasen. För att etablera ett informationslager, se [skapa ett SQL Data Warehouse](create-data-warehouse-portal.md) och väljer att läsa in exempeldata. Om du redan har ett data warehouse men inte har exempeldata, kan du [läsa in WideWorldImportersDW](load-data-wideworldimportersdw.md).
 
 ## <a name="1-connect-to-your-database"></a>1. Ansluta till databasen
 Om du vill öppna Power BI och ansluta till databasen AdventureWorksDW:
@@ -60,14 +60,14 @@ Du är nu redo att använda Power BI för att analysera dina AdventureWorksDW-ex
    
     ![Power BI-karta](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-map.png)
 
-2. Det här steget skapar ett stapeldiagram som visar försäljningsintäkter efter kund. Om du vill skapa stapeldiagrammet går du till den expanderade AggregateSales-vyn. Klicka på fältet SalesAmount. Dra fältet Customer Income till vänster och släpp det i axeln.
+2. Det här steget skapar ett stapeldiagram som visar försäljningsintäkter efter kund. Om du vill skapa stapeldiagrammet, går du till den expanderade AggregateSales-vyn. Klicka på fältet SalesAmount. Dra fältet Customer Income till vänster och släpp det i axeln.
    
-    ![Powerbi väljer axeln](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-chooseaxis.png)
+    ![Powerbi väljer axel](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-chooseaxis.png)
    
-    Liggande diagram över till vänster.
+    Diagrammet över till vänster.
    
     ![Power BI-stapel](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-bar.png)
-3. Det här steget skapar ett linjediagram som visar försäljning per beställningsdatum. Om du vill skapa linjediagrammet, går du till den expanderade AggregateSales-vyn. Klicka på SalesAmount och OrderDate. I kolumnen visualiseringar klickar du på linjediagram-ikonen, vilket är den första ikonen i den andra raden under visualiseringar.
+3. Det här steget skapar ett linjediagram som visar försäljning per beställningsdatum. Gå till den expanderade AggregateSales-vyn för att skapa linjediagrammet. Klicka på SalesAmount och OrderDate. I kolumnen visualiseringar klickar du på linjediagram-ikonen, vilket är den första ikonen i den andra raden under visualiseringar.
    
     ![Powerbi väljer linjediagram](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-prepare-line.png)
    
@@ -77,20 +77,20 @@ Du är nu redo att använda Power BI för att analysera dina AdventureWorksDW-ex
 
 Du kan spara ditt arbete när som helst genom att klicka på **Arkiv** och välja **Spara**.
 
-## <a name="using-direct-connnect"></a>Med hjälp av direkt koppla de olika processtegen
-Som med Azure SQL Database kan SQL Data Warehouse Direct Connect logiska pushdown tillsammans med analytiska funktionerna i Power BI. Med Direct Connect skickas frågor tillbaka till din Azure SQL Data Warehouse i realtid att utforska data.  Den här funktionen kan kombineras med skalan för SQL Data Warehouse, kan du skapa dynamiska rapporter i minuter mot terabyte data. Dessutom tillåter introduktionen av funktionen Öppna i Power BI-knappen användare att ansluta Power BI direkt till deras SQL Data Warehouse utan att samla in information från andra delar av Azure.
+## <a name="using-direct-connnect"></a>Med hjälp av direkt Connnect
+Som med Azure SQL Database kan SQL Data Warehouse Direct Connect logiska pushdown tillsammans med analysfunktionerna i Power BI. Med Direct Connect skickas frågor tillbaka till Azure SQL Data Warehouse i realtid medan du utforskar dessa data.  Den här funktionen i kombination med skalan för SQL Data Warehouse, kan du skapa dynamiska rapporter på några få minuter mot flera terabyte med data. Dessutom tillåter införandet av öppna i Power BI-knappen användare att ansluta Power BI direkt till SQL Data Warehouse utan att samla in information från andra delar av Azure.
 
 När du använder direkt ansluta:
 
 * Ange det fullständigt kvalificerade servernamnet vid anslutning.
-* Se till att brandväggsreglerna för databasen är konfigurerade att tillåta åtkomst till Azure-tjänster.
-* Varje åtgärd som att markera en kolumn, eller lägga till ett filter, frågar direkt datalagret.
-* Paneler uppdateras automatiskt och ungefär var 15: e minut.
-* Frågor och svar är inte tillgängliga för datauppsättningar som Direct Connect.
+* Se till att brandväggsreglerna för databasen är konfigurerade för att ge tillgång till Azure-tjänster.
+* Varje åtgärd, som att markera en kolumn eller lägga till ett filter frågor direkt mot informationslagret.
+* Panelerna uppdateras automatiskt och cirka 15 minuter.
+* Frågor och svar är inte tillgängligt för Direct Connect datauppsättningar.
 * Schemaändringar ingår automatiskt.
-* Alla frågor med Direct Connect gör timeout efter två minuter.
+* Alla frågor med Direct Connect når tidsgränsen efter två minuter.
 
-Dessa begränsningar och anteckningar kan ändras när upplevelser förbättra.
+Dessa begränsningar och anteckningar kan ändras när upplevelserna förbättra.
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har värmt upp med exempeldata, kan du se mer information om att [utveckla](sql-data-warehouse-overview-develop.md), [läsa in](design-elt-data-loading.md) eller [migrera](sql-data-warehouse-overview-migrate.md). Eller ta en titt på [Power BI-webbplatsen](http://www.powerbi.com/).

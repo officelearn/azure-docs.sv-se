@@ -28,9 +28,9 @@ items:
     href: billing-spending-limit.md
   - name: Analysera kostnader
     href: billing-cost-analysis.md
-  - name: Spara med Azure-reservationer
+  - name: Spara med Azure Reservations
     items:
-    - name: Vad är Azure-reservationer?
+    - name: Vad är Azure Reservations?
       href: billing-save-compute-costs-reservations.md
     - name: Köpa en reservation
       items:
@@ -38,19 +38,21 @@ items:
         href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
       - name: SQL Database
         href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
+      - name: SUSE Linux-programvara
+        href: ../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json
     - name: Så här tillämpas rabatter
       items:
       - name: Reserverade VM-instanser
         href: billing-understand-vm-reservation-charges.md
-      - name: Reserverad kapacitet för SQL Database
-        href: billing-understand-reservation-charges.md
+      - name: SUSE Linux-programvaruplaner
+        href: billing-understand-suse-reservation-charges.md
     - name: Programvarukostnader som inte ingår
       href: billing-reserved-instance-windows-software-costs.md
     - name: Användning för Betala per användning
       href: billing-understand-reserved-instance-usage.md
     - name: Användning för Enterprise
       href: billing-understand-reserved-instance-usage-ea.md
-    - name: Hantera Azure-reservationer
+    - name: Hantera Reservations
       href: billing-manage-reserved-vm-instance.md
 - name: Hantera kontot
   items:
@@ -168,9 +170,9 @@ items:
     items:
     - name: REST API för Enterprise Reporting
       href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
-ms.openlocfilehash: 5d7d56325201cbf3c851a843ea4d4393dea4bb40
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 52efe9fa438aea7b47f1fb32568ffcb2eb6bfd0a
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41929408"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302396"

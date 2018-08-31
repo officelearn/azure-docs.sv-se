@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/24/2018
 ms.author: cwatson
-ms.openlocfilehash: db2c6f9995356abc233e971a2fae5a1ee6233ed1
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 40070acab5f656cab7f3034e3b35c113c0ff6051
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42915704"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300819"
 ---
 # <a name="azure-billing-and-cost-management-documentation"></a>Dokumentation om Azure-fakturering och kostnadshantering
 
@@ -104,8 +104,8 @@ Lär dig att förstå din Azure-fakturering, hantera, övervaka användning och 
                         <p>
                         <a href="/azure/billing/billing-manage-access">Bevilja åtkomst till fakturering</a><br/>
                         <a href="/azure/billing/billing-how-to-pay-by-invoice">Betala med faktura</a><br/>
-                        <a href="/azure/billing/billing-manage-reserved-vm-instance">Hantera Azure-reservationer</a><br/>
-                        <a href="/azure/billing/billing-understand-reserved-instance-usage-ea">Användning av Azure-reservationer</a>
+                        <a href="/azure/billing/billing-manage-reserved-vm-instance">Hantera Azure Reservations</a><br/>
+                        <a href="/azure/billing/billing-understand-reserved-instance-usage-ea">Användning för Azure Reservations</a>
                         </p>
                     </div>
                 </div>
@@ -134,9 +134,9 @@ Lär dig att förstå din Azure-fakturering, hantera, övervaka användning och 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Spara med Azure-reservationer</h3>
+                        <h3>Spara med Azure Reservations</h3>
                         <p>
-                        <a href="/azure/billing/billing-save-compute-costs-reservations">Vad är Azure-reservationer?</a> <br/>
+                        <a href="/azure/billing/billing-save-compute-costs-reservations">Vad är Azure Reservations?</a> <br/>
                         <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">Köp en reserverad VM-instans</a><br/>
                         <a href="/azure/sql-database/sql-database-reserved-capacity?toc=/azure/billing/TOC.json">Köp reserverad kapacitet för SQL Database</a><br/>
                         <a href="/azure/billing/billing-understand-vm-reservation-charges">Så här tillämpas VM-rabatter</a><br/>

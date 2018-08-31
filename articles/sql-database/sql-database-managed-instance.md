@@ -9,14 +9,14 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 08/30/2018
 ms.author: bonova
-ms.openlocfilehash: 2c6cdcd5d8d50a54a87e3dabd2aa09eccc646738
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 2e1fd7c87931f804433708b6ac30a5960e6006ae
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42058238"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287671"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Vad är en hanterad instans (förhandsversion)?
 
@@ -71,7 +71,7 @@ Hanterad instans finns i två tjänstnivåer:
 - **Generella**: avsedd för tillämpningar med vanliga prestanda och i/o-svarstidskrav.
 - **Alternativet affärskritisk**: avsedd för tillämpningar med låg i/o-svarstidskrav och minimal påverkan på underliggande underhållsåtgärder på arbetsbelastningen.
 
-Båda versionerna garanterar 99,99% tillgänglighet och gör att du kan välja lagringsstorlek oberoende och beräkningskapacitet. 
+Båda versionerna garanterar 99,99% tillgänglighet och gör att du kan välja lagringsstorlek oberoende och beräkningskapacitet. Mer information om arkitektur med hög tillgänglighet i Azure SQL Database finns i [hög tillgänglighet och Azure SQL Database](sql-database-high-availability.md).
 
 > [!IMPORTANT]
 > Ändra din tjänstenivå från generell användning till affärskritiska eller vice versa stöds inte i offentlig förhandsversion. Om du vill migrera dina databaser till en instans i olika tjänstnivå du skapa en ny instans, återställa databaser med återställning till tidpunkt från den ursprungliga instansen och sedan släppa ursprunglig instans om det inte behövs längre. 
@@ -97,7 +97,7 @@ I följande lista beskrivs de främsta egenskaperna för tjänstnivån generell 
 | Antalet datafiler (rader) per databasen | Flera | 
 | Antal loggfiler (loggning) per databas | 1 | 
 | Hanterade automatiska säkerhetskopieringar | Ja |
-| HÖG TILLGÄNGLIGHET | Baserat på Fjärrlagring och [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| HÖG TILLGÄNGLIGHET | Data som lagras i Azure Storage och [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
 | Inbyggd instans och databasövervakning och mått | Ja |
 | Automatisk uppdatering av programvaror | Ja |
 | Virtuellt nätverk – Azure Resource Manager-distribution | Ja |
@@ -131,7 +131,7 @@ I följande lista beskrivs de främsta egenskaperna för nivån affärskritisk s
 | Antalet datafiler (rader) per databasen | Flera | 
 | Antal loggfiler (loggning) per databas | 1 | 
 | Hanterade automatiska säkerhetskopieringar | Ja |
-| HÖG TILLGÄNGLIGHET | Baserat på [alltid på Tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) och [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| HÖG TILLGÄNGLIGHET | Data som lagras på lokala SSD och [ständigt aktiverade Tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) och [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
 | Inbyggd instans och databasövervakning och mått | Ja |
 | Automatisk uppdatering av programvaror | Ja |
 | Virtuellt nätverk – Azure Resource Manager-distribution | Ja |

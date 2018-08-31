@@ -3,25 +3,25 @@ title: SQL Data Warehouse datahanteringspartner | Microsoft Docs
 description: Listor med tredje parts datahanteringspartner med lösningar som har stöd för SQL Data Warehouse.
 services: sql-data-warehouse
 author: jrowlandjones
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: c300a28356249b019cefce382d92f9cc44345f47
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 8b2451798ffe05372b434207bbfbc092aee00b66
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745870"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301136"
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>SQL Data Warehouse datahanteringspartner
 Välj från ett brett utbud av branschledande verktyg för att skapa din lösning för informationslager. Den här artikeln visar Microsoft partnerföretag med hanteringsverktyg för data och stöd för Azure SQL Data Warehouse-lösningar.
 
 ## <a name="data-management-partners"></a>Datahanteringspartner
-| Partner | Beskrivning | Länkar | Videor |
+| Partner | Beskrivning | Länkar | Videoklipp |
 | --- | --- | --- | --- |
 | ![Coffing datalagring][1] |**Coffing datalagring**<br>Coffing datalager innehåller Nexus Chameleon, ett verktyg med 10 års design som är dedikerad till fråga system. Nexus är tillgängligt som ett Frågeverktyg för SQL Data Warehouse. Använd Nexus att fråga inom företaget och molnet datorer och koppla samman data på olika plattformar. Punkt-Klicka-rapport! |[Webbplats][coffing_website]<br>[Pressmeddelanden][coffing_press]<br>[Twitter][coffing_twitter]<br>[YouTube][coffing_youtube] |[![coffing video](./media/sql-data-warehouse-partner-data-management/coffing_video.jpg)](https://www.youtube.com/watch?v=N5GSxBEySFc) |
 | ![Inbrein][2] |**MicroERD**<br>Inbrein MicroERD innehåller verktyg som behövs för att skapa en exakt datamodell, minska dataredundans, förbättra produktiviteten och notera standarder. Med hjälp av dess användargränssnitt, som har utvecklats baserat på omfattande användarupplevelser fungerar Modellerare på DB modeller enkelt och smidigt sätt. Kontinuerligt kan du utnyttja nya och förbättrade funktioner i MicroERD via Kommandotolken funktionella förbättringarna och uppdateringar. |[Webbplats][inbrein_website]<br>[Datablad] [inbrein_datasheet]<br>[Twitter][inbrein_twitter]<br>[YouTube][inbrein_youtube] |[![inbrein video](./media/sql-data-warehouse-partner-data-management/inbrein_video.jpg)](https://www.youtube.com/watch?v=IGHSAk4bxdE) |

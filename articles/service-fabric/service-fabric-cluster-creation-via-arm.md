@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: 29d04781d166abdd1fc1fc506077e6257f6551a6
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: aab985270cf17b94d6353536c96a3825b5e3b73f
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42055906"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287350"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Skapa ett Service Fabric-kluster med Azure Resource Manager 
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Azure-portalen](service-fabric-cluster-creation-via-portal.md)
+> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 >
 >
 
@@ -259,7 +259,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ### <a name="use-a-pointer-to-a-secret-uploaded-into-a-key-vault"></a>Använda en pekare till en hemlighet som har överförts till ett nyckelvalv
 
-Om du vill använda ett befintligt nyckelvalv nyckelvalvet måste vara [aktiverat för distribution](../key-vault/key-vault-manage-with-cli2.md#bkmk_KVperCLI)) så att compute-resursprovidern skaffa certifikat från den och installera den på klusternoderna.
+Om du vill använda ett befintligt nyckelvalv nyckelvalvet måste vara [aktiverat för distribution av](../key-vault/key-vault-manage-with-cli2.md#bkmk_KVperCLI) att tillåta compute-resursprovidern skaffa certifikat från den och installera den på klusternoderna.
 
 Distribuera kluster med hjälp av PowerShell:
 

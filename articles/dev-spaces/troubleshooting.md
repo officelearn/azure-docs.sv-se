@@ -11,12 +11,12 @@ ms.topic: article
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 001d58aa22d4fc52acebfc88ba07d2467c1be08e
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 3f45d8059cd4af5dbab64fef798b61e439a5f2fc
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42055408"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286882"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -106,6 +106,16 @@ Du kan se det här felet om azds.exe inte är installerat eller korrekt konfigur
     ```cmd
     az aks use-dev-spaces -n <cluster-name> -g <resource-group>
     ```
+
+## <a name="warning-dockerfile-could-not-be-generated-due-to-unsupported-language"></a>Varning ”Dockerfile kunde inte genereras på grund av språket stöds inte.
+Azure Dev blanksteg har inbyggt stöd för C# och Node.js. När du kör *azds prep* i en katalog som innehåller kod som skrivs i ett av dessa språk, Azure Dev blanksteg automatiskt skapar en lämplig Dockerfile åt dig.
+
+Du kan fortfarande använda Azure Dev blanksteg med kod som skrivits på andra språk, men du kommer att behöva skapa Dockerfile själv innan du kör *azds upp* för första gången.
+
+### <a name="try"></a>Prova:
+Om ditt program är skrivet på ett språk att Azure Dev blanksteg inte har inbyggt stöd, måste du ange en lämplig Dockerfile för att skapa en behållaravbildning som kör koden. Docker innehåller en [lista över bästa praxis för att skriva Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) samt en [Dockerfile-referensen](https://docs.docker.com/engine/reference/builder/) som kan hjälpa dig göra detta.
+
+När du har en lämplig Dockerfile på plats kan du fortsätta med körs *azds upp* att köra ditt program i Azure Dev blanksteg.
 
 ## <a name="error-upstream-connect-error-or-disconnectreset-before-headers"></a>Fel ”uppströms anslutningsfel eller koppla från/reset innan rubriker”
 Du kan se det här felet när du försöker komma åt tjänsten. Till exempel när du går till tjänstens URL i en webbläsare. 

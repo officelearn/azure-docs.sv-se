@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
-ms.openlocfilehash: b43c082b5c4925fee2b1145956a2847e7f30bb11
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 63407382762a814ded4529caa109d76e987c9505
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42058250"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286452"
 ---
 # <a name="read-nsg-flow-logs"></a>Läs NSG-flödesloggar
 
 Lär dig mer om att läsa NSG flödet loggar poster med PowerShell.
 
-NSG-flödesloggar lagras i ett lagringskonto i [blockblobbar](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs.md#about-block-blobs). Blockblobar består av mindre block. Varje logg är en separat blockblob som genereras varje timme. Nya loggar genereras varje timme, loggarna är uppdaterade med nya poster med några minuters mellanrum med den senaste informationen. Du lära dig hur du läser delar av flödesloggar i den här artikeln.
+NSG-flödesloggar lagras i ett lagringskonto i [blockblobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). Blockblobar består av mindre block. Varje logg är en separat blockblob som genereras varje timme. Nya loggar genereras varje timme, loggarna är uppdaterade med nya poster med några minuters mellanrum med den senaste informationen. Du lära dig hur du läser delar av flödesloggar i den här artikeln.
 
 ## <a name="scenario"></a>Scenario
 

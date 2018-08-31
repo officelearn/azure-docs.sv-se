@@ -4,12 +4,12 @@ ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 08-07-2018
-ms.openlocfilehash: 764470bbf47c18a2ec66dc91d433f8dd14b99a8f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6be00937a6645fbdd266ac0b1aa1ce95ecc6c3d9
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040329"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301867"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Förskottsbetala för virtuella datorer med Azure reserverade VM-instanser
 
@@ -34,7 +34,7 @@ Reserverade VM-instanser är tillgängliga för de flesta storlekar för Virtuel
 - Undertryckta core virtuella datorer får inte reservation rabatter.
 - Följande VM-serie inte får reservation rabatter: A-serien, Av2-serien och G-serien.
 - Virtuella datorer i en förhandsversion: alla VM-serien och storlekar som är en förhandsversion är inte tillgängliga för reservationsköp.
-- Moln: reservationer är inte tillgängligt att köpa i regionerna som Azure US Government, Tyskland eller Kina.
+- Moln: Reservationer är inte tillgängligt att köpa i regionerna som Azure US Government, Tyskland eller Kina.
 - Otillräcklig kvot: en reservation som är begränsad till en enda prenumeration måste ha vCPU-kvoten som är tillgängliga i prenumerationen för den nya RI. Till exempel om målprenumerationen har en kvot högst 10 virtuella processorer för D-serien, köpa sedan du inte en reservation för den 11 Standard_D1 instanser. Kvoten ingår för reservationer de virtuella datorerna som redan har distribuerats i prenumerationen. Till exempel om prenumerationen har en kvot på 10 virtuella processorer för D-serien och har två standard_D1 instanser som distribuerats kan köpa du en reservation för den 10 standard_D1 instanser i den här prenumerationen. 
 - Begränsningar för kapacitet: I sällsynta fall kan Azure-begränsningar inköp av ny reservationer för delmängd av VM-storlekar, på grund av låg kapacitet i en region.
 

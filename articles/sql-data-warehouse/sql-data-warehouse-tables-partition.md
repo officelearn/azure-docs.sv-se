@@ -1,47 +1,47 @@
 ---
-title: Partitionering tabeller i Azure SQL Data Warehouse | Microsoft Docs
+title: Partitionstabeller i Azure SQL Data Warehouse | Microsoft Docs
 description: Rekommendationer och exempel för att använda tabellpartitioner i Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: ada55950ee36222e70809e2ef423c63612cd61ed
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 04e489e6b6841f1038830d0b160e88111be8d838
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526785"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301968"
 ---
-# <a name="partitioning-tables-in-sql-data-warehouse"></a>Partitionering tabeller i SQL Data Warehouse
+# <a name="partitioning-tables-in-sql-data-warehouse"></a>Partitionstabeller i SQL Data Warehouse
 Rekommendationer och exempel för att använda tabellpartitioner i Azure SQL Data Warehouse.
 
 ## <a name="what-are-table-partitions"></a>Vad är tabellpartitioner?
-Tabellpartitioner kan du dela in dina data i mindre grupper av data. I de flesta fall skapas tabellpartitioner på ett datum. Partitionering stöds på alla SQL Data Warehouse tabelltyper; inklusive grupperade columnstore, grupperat index och heap. Partitionering stöds även på alla typer av distribution, inklusive hash- eller resursallokering distribueras.  
+Tabellpartitioner kan du dela upp dina data i mindre grupper av data. I de flesta fall skapas tabellpartitioner på en datumkolumn. Partitionering stöds på alla typer för SQL Data Warehouse-tabell. inklusive grupperade, grupperat index och heap. Partitionering stöds även på alla typer av distribution, inklusive hash- eller resursallokering som distribueras.  
 
-Partitionering kan dra prestandadata för underhåll och fråga. Om den fördelar både eller bara en beror på hur data har lästs in och om samma kolumn kan användas för båda, eftersom partitionering kan bara utföras på en kolumn.
+Partitionering kan dra dataprestanda för underhåll och fråga. Om den förmåner båda eller bara en beror på hur data har lästs in och om samma kolumn kan användas för båda, eftersom partitionering kan bara utföras på en kolumn.
 
 ### <a name="benefits-to-loads"></a>Fördelar med att belastning
-Den största fördelen med partitionering i SQL Data Warehouse är att förbättra effektiviteten och prestanda för inläsning av data med hjälp av partition borttagning, växlar och koppla. I de flesta fall partitionerat data på ett datum som är beroende av den ordning i vilken data läses in i databasen. En av de största fördelarna med att använda partitioner för att upprätthålla data den undvikande av transaktionsloggning. Även om bara infoga, uppdatera eller ta bort data kan vara den enklaste metoden med lite tankar och prestanda, kan med partitionering under din inläsningen avsevärt förbättra prestanda.
+Den främsta fördelen med partitionering i SQL Data Warehouse är att förbättra effektivitet och prestanda för inläsning av data med hjälp av partitionen borttagning, växlar och koppla. I de flesta fall är data partitionerade på ett datum som är beroende av den ordning i vilken data läses in i databasen. En av de största fördelarna med att använda partitioner för att lagra data den undvikande av transaktionsloggning. Helt enkelt infogar, uppdaterar eller tar bort data kan vara den enklaste metoden, med lite ansedda och enkelt har kan partitioner under din inläsningen avsevärt förbättra prestanda.
 
-Växla partition kan användas för att snabbt ta bort eller ersätta ett avsnitt i en tabell.  En försäljning faktatabellen kan innehålla bara data för de senaste 36 månaderna. I slutet av varje månad raderas den äldsta månaden av försäljningsinformation från tabellen.  Dessa data kan tas bort genom att använda en delete-instruktion för att ta bort data för den äldsta månaden. Men kan om du tar bort en stor mängd data rad för rad med en delete-instruktion ta för lång tid, samt skapa risken för stora transaktioner som tar lång tid att återställa om något går fel. En mer optimala metoden är att ta bort den äldsta partitionen i data. När du tar bort enskilda rader kan ta timmar, ta ta bort en hel partition sekunder.
+Växla partition kan användas för att snabbt ta bort eller ersätta en del av en tabell.  En försäljning faktatabell kan exempelvis innehålla bara data för de senaste 36 månaderna. I slutet av varje månad raderas den äldsta månaden med försäljningsdata från tabellen.  Dessa data kan tas bort genom att använda en delete-instruktion för att ta bort data för den äldsta månaden. Men kan om du tar bort en stor mängd data rad för rad med en delete-instruktion ta för lång tid, samt skapa risk för stora transaktioner som tar lång tid att återställa om något går fel. En mer optimal metod är att släppa den äldsta partitionen i data. Tar bort en hel partition kan ta när bort enskilda rader kan ta några timmar som sekunder.
 
-### <a name="benefits-to-queries"></a>Fördelar för frågor
-Partitionering kan också användas för att förbättra frågeprestanda. En fråga som filtrerar partitionerade data kan begränsa sökningen till kvalificerande partitionerna. Den här metoden för filtrering kan undvika att en fullständig tabellgenomsökning och bara skanna en mindre deluppsättning av data. Predikat eliminering prestandafördelarna är mindre användbara med introduktionen av grupperade columnstore-index, men i vissa fall det kan vara en fördel med att frågorna. Till exempel om försäljning faktatabellen delas upp i 36 månader med fältet Försäljning och sedan frågar filtret på Försäljningsdatum kan hoppa över sökning i partitioner som inte matchar filtret.
+### <a name="benefits-to-queries"></a>Fördelar med att frågor
+Partitionering kan också användas för att förbättra frågeprestanda. En fråga som filtrerar partitionerade data kan begränsa sökningen till endast partitionerna som är berättigade. Den här metoden för att filtrera kan undvika att en fullständig tabellsökning och bara skanna en mindre deluppsättning av data. Med introduktionen av grupperade columnstore-index, predikat utesluta prestandafördelarna är mindre bra, men i vissa fall det kan vara en fördel med att frågorna. Till exempel om försäljning faktatabellen är indelat i 36 månader med hjälp av fältet Försäljning och sedan frågar filtret på Försäljningsdatum kan hoppa över sökning i partitioner som inte matchar filtret.
 
 ## <a name="sizing-partitions"></a>Ändra storlek på partitioner
-Medan partitionering kan användas för att förbättra prestandan för vissa scenarier, skapar en tabell med **för många** partitioner kan försämra prestanda under vissa omständigheter.  Dessa problem är särskilt för grupperade columnstore-tabeller. Partitionering för att vara användbara, är det viktigt att förstå när du ska använda partitionering och antalet partitioner för att skapa. Det finns ingen hårda snabb regel om hur många partitioner är för många, det beror på dina data och hur många partitioner du läser in samtidigt. En lyckad partitioneringsschema har vanligtvis flera hundratals partitioner, inte tusentalsavgränsare.
+Partitionering kan användas för att förbättra prestanda vissa scenarier, skapar en tabell med **för många** partitioner kan försämra prestanda under vissa omständigheter.  Dessa problem är särskilt för grupperade columnstore-tabeller. Det är viktigt att veta när du använder partitionering och antalet partitioner som ska skapas för partitionering för att vara till hjälp. Det finns ingen hårda snabb regel om hur många partitioner är för stort, det beror på dina data och hur många partitioner du läser in samtidigt. En lyckad partitioneringsschemat har vanligtvis tiotals till hundratals partitioner, inte tusentals.
 
-När du skapar partitioner på **grupperade columnstore** tabeller, är det viktigt att tänka på hur många rader som hör till varje partition. För optimala komprimering och prestanda för grupperade columnstore-tabeller krävs minst 1 miljon rader per distribution och partition. Innan partitioner skapas, delas SQL Data Warehouse redan varje tabell i 60 distribuerade databaser. Partitionering lagts till i en tabell är utöver de distributioner som skapats i bakgrunden. Med det här exemplet, om försäljning faktatabellen innehåller 36 månatliga partitioner och med hänsyn till att SQL Data Warehouse har 60 distributioner, sedan försäljning faktatabellen ska innehålla 60 miljoner rader per månad eller 2.1 miljarder rader när alla månader fylls i. Om en tabell innehåller färre än det rekommenderade minsta antalet rader per partition, Överväg att använda färre partitioner för att öka antalet rader per partition. Mer information finns i [indexering](sql-data-warehouse-tables-index.md) artikel som innehåller de förfrågningar som kan bedöma kvaliteten på klustret columnstore-index.
+När du skapar partitioner på **grupperade** tabeller, är det viktigt att tänka på hur många rader som hör till varje partition. För optimala komprimering och prestanda för grupperade columnstore-tabeller krävs minst 1 miljon rader per distribution och partition. Innan partitioner skapas, delar SQL Data Warehouse redan varje tabell i 60 distribuerade databaser. Partitionering har lagts till i en tabell är ett tillägg till de distributioner som skapats i bakgrunden. Med det här exemplet om försäljning faktatabellen finns 36 månatliga partitioner och tanke på att SQL Data Warehouse har 60 distributioner, sedan försäljning faktatabellen ska innehålla 60 miljoner rader per månad eller 2.1 miljarder rader när alla månader har fyllts i. Om en tabell innehåller färre än det rekommenderade lägsta antalet rader per partition kan du använda färre partitioner för att öka antalet rader per partition. Mer information finns i den [indexering](sql-data-warehouse-tables-index.md) artikel som innehåller de förfrågningar som kan bedöma kvaliteten på cluster columnstore-index.
 
 ## <a name="syntax-differences-from-sql-server"></a>Skillnader i syntaxen från SQL Server
-SQL Data Warehouse introducerar ett sätt att definiera partitioner som är enklare än SQL Server. Partitionering funktioner och scheman används inte i SQL Data Warehouse som i SQL Server. I stället är allt du behöver göra identifiera partitionerad kolumn och gräns punkter. Syntaxen för partitionering kan skilja sig något från SQL Server, är grundbegreppen samma. SQL Server och SQL Data Warehouse stöder en partition kolumn per tabell, som kan vara låg. Mer information om partitionering finns [partitionerade tabeller och index](/sql/relational-databases/partitions/partitioned-tables-and-indexes).
+SQL Data Warehouse introducerar ett sätt att definiera partitioner som är enklare än SQL Server. Partitionering funktioner och scheman används inte i SQL Data Warehouse som i SQL Server. Allt du behöver göra är i stället identifiera partitionerade kolumn- och gräns-punkter. Syntaxen för partitionering kan vara skiljer sig från SQL Server, är de grundläggande begreppen desamma. SQL Server och SQL Data Warehouse stöder en partition kolumn per tabell, vilket kan vara intervallet partition. Mer information om partitionering finns [partitionerade tabeller och index](/sql/relational-databases/partitions/partitioned-tables-and-indexes).
 
-I följande exempel används den [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) instruktionen för att partitionera tabellen FactInternetSales på kolumnen OrderDateKey:
+I följande exempel används den [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) -uttrycket för att partitionera tabellen FactInternetSales i kolumnen OrderDateKey:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -68,12 +68,12 @@ WITH
 ```
 
 ## <a name="migrating-partitioning-from-sql-server"></a>Migrera partitionering från SQL Server
-Migrera bara definitioner för SQL Server-partitionen till SQL Data Warehouse:
+Migrera bara definitioner för partition av SQL Server till SQL Data Warehouse:
 
 - Ta bort SQL Server [partitionsschema](/sql/t-sql/statements/create-partition-scheme-transact-sql).
 - Lägg till den [partitionsfunktioner](/sql/t-sql/statements/create-partition-function-transact-sql) definitionen för att skapa tabellen.
 
-Om du migrerar en partitionerad tabell från en SQL Server-instans kan följande SQL kan hjälpa dig att ta reda på hur många rader som i varje partition. Tänk på att om samma partitionering detaljnivå används i SQL Data Warehouse, minskar antalet rader per partition med en faktor på 60.  
+Om du migrerar en partitionerad tabell från en SQL Server-instans, följande SQL kan hjälpa dig att ta reda på hur många rader som i varje partition. Tänk på att om du använder samma partitionering detaljnivå i SQL Data Warehouse, minskar antalet rader per partition med en faktor på 60.  
 
 ```sql
 -- Partition information for a SQL Server Database
@@ -110,9 +110,9 @@ GROUP BY    s.[name]
 ```
 
 ## <a name="workload-management"></a>Arbetsbelastningshantering
-En slutlig att ta hänsyn till din tabell partition beslut är [hantering av arbetsbelastning](resource-classes-for-workload-management.md). Hantering av arbetsbelastning i SQL Data Warehouse är främst hanteringen av minne och samtidighet. Den maximala mängd minne som allokerats till varje distributionsplats vid körning av fråga styrs av resursklasser i SQL Data Warehouse. Partitioner är det bästa storlek med hänsyn till andra faktorer som de minne som behövs för att skapa grupperade columnstore-index. Grupperade columnstore-index förmånen avsevärt när de tilldelas mer minne. Därför vill du se till att bygga upp index en partition inte är för lite minne. Öka mängden tillgängligt minne för att din fråga kan uppnås genom att växla från standardroll smallrc, till en av rollerna som largerc.
+En slutlig att ta hänsyn till ditt beslut för partition av tabellen är [arbetsbelastningshantering](resource-classes-for-workload-management.md). Hantering av arbetsbelastning i SQL Data Warehouse är främst hanteringen av minne och samtidighet. I SQL Data Warehouse regleras maximalt minne som allokerats till varje distribution under Frågekörningen av resursklasser. Vi rekommenderar storlek partitionerna med hänsyn till andra faktorer som de mycket minne som behövs för att skapa grupperade columnstore-index. Klustrade columnstore-index förmånen avsevärt när de tilldelas mer minne. Därför kan du se till att partitionen indexet återskapas inte lite minne. Öka mängden tillgängligt minne för att din fråga kan uppnås genom att växla från standardroll smallrc, till en av de andra rollerna, till exempel largerc.
 
-Genom att fråga de dynamiska hanteringsvyer Resursstyrningen finns information om fördelningen av minne per distribution. I själva verket är din minnestilldelningen mindre än resultatet av följande fråga. Den här frågan finns dock en nivå som du kan använda vid bedömning av partitionerna för hanteringsåtgärder för data. Försök undvika att ändra storlek på dina partitioner efter minnestilldelningen som tillhandahålls av den extra stor resursklassen. Om partitioner växer utöver denna bild, riskerar du att minnesbelastning, vilket i sin tur leder till mindre optimal komprimering.
+Information om allokering av minne per distribution är tillgänglig genom att fråga de dynamiska hanteringsvyerna för Resursstyrning. I verkligheten kan understiger din minnestilldelningen följande frågans resultat. Den här frågan innehåller dock en nivå som du kan använda när du ändrar storlek partitionerna för datahanteringsåtgärder. Försök att undvika att ändra storlek på dina partitioner till mer än minnestilldelningen som tillhandahålls av den extra stor resursklassen. Om din partitioner växer bortom den här bilden, riskerar du att minnestryck, vilket i sin tur leder till mindre optimala komprimering.
 
 ```sql
 SELECT  rp.[name]                                AS [pool_name]
@@ -131,12 +131,12 @@ AND     rp.[name]    = 'SloDWPool'
 ```
 
 ## <a name="partition-switching"></a>Växla partition
-SQL Data Warehouse stöder partition dela sammanslagning och växlar. Dessa funktioner utförs med hjälp av den [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql) instruktionen.
+SQL Data Warehouse stöder partition delning, sammanslagning och växlar. Var och en av dessa funktioner utförs med hjälp av den [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql) instruktionen.
 
-Om du vill växla partitioner mellan två tabeller måste du kontrollera att justera partitionerna på deras respektive gränser och att tabelldefinitionerna matchar. Som Kontrollera begränsningar inte är tillgängliga att använda olika värden i en tabell, måste källtabellen innehålla samma partitionsgränserna som måltabellen. Om partitionsgränserna inte är samma sedan, misslyckas partitionsväxeln som partition metadata inte synkroniseras.
+Om du vill växla partitioner mellan två tabeller, måste du kontrollera att partitionerna justera på sina respektive gränser och att tabelldefinitionerna stämmer. Som Kontrollera begränsningar inte är tillgängliga för att genomdriva intervallet för värden i en tabell, måste källtabellen innehålla samma partitionsgränserna som måltabellen. Om partitionsgränserna inte är samma sedan, misslyckas partitionsväxeln kommer inte att synkroniseras partitionsmetadata.
 
-### <a name="how-to-split-a-partition-that-contains-data"></a>Så här delar du en partition som innehåller data
-Det effektivaste sättet att dela en partition som redan innehåller data är att använda en `CTAS` instruktion. Om partitionerad tabell är ett grupperat columnstore, måste sedan partition table vara tom innan du kan dela.
+### <a name="how-to-split-a-partition-that-contains-data"></a>Att dela en partition som innehåller data
+Den effektivaste metoden att dela upp en partition som redan innehåller data är att använda en `CTAS` instruktionen. Om partitionerade tabellen är en klustrad columnstore, måste sedan table-partition vara tom innan den kan delas.
 
 I följande exempel skapas en partitionerad columnstore-tabell. Den infogar en rad i varje partition:
 
@@ -172,11 +172,11 @@ CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSal
 ```
 
 > [!NOTE]
-> Tabellmetadata är mer exakt genom att skapa objektet statistik. Om du utelämnar statistik, använda standardvärden SQL Data Warehouse. Mer information om statistik, granska [statistik](sql-data-warehouse-tables-statistics.md).
+> Tabellens metadata är mer exakta genom att skapa objektet statistik. Om du utelämnar statistik kommer SQL Data Warehouse använder standardvärden. Information om statistik och granska [statistik](sql-data-warehouse-tables-statistics.md).
 > 
 > 
 
-Följande fråga returnerar antalet rader med hjälp av den `sys.partitions` vyn katalog:
+Följande fråga söker efter antalet rader med hjälp av den `sys.partitions` vyn katalog:
 
 ```sql
 SELECT  QUOTENAME(s.[name])+'.'+QUOTENAME(t.[name]) as Table_name
@@ -193,13 +193,13 @@ WHERE t.[name] = 'FactInternetSales'
 ;
 ```
 
-Följande dela kommandot får ett felmeddelande:
+Följande dela kommandot tar emot ett felmeddelande visas:
 
 ```sql
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
-Ignorerad 35346 nivå 15, tillstånd 1, rad 44 SPLIT-satsen i ALTER PARTITION-instruktionen misslyckades eftersom partitionen inte är tom. Endast tomma partitioner kan delas i när ett columnstore-index finns i tabellen. Överväg att inaktivera columnstore-indexet innan ALTER PARTITION-instruktionen utfärdas och återskapa sedan columnstore-indexet när ALTER PARTITION har slutförts.
+Msg 35346 nivå 15, tillstånd 1, rad 44 SPLIT-satsen i ALTER PARTITION-instruktionen misslyckades eftersom partitionen inte är tom. Endast tomma partitioner kan delas i när ett columnstore-index finns i tabellen. Överväg att inaktivera columnstore-indexet innan ALTER PARTITION-instruktionen utfärdas och återskapa sedan columnstore-indexet när ALTER PARTITION har slutförts.
 
 Du kan dock använda `CTAS` att skapa en ny tabell för att lagra data.
 
@@ -219,7 +219,7 @@ WHERE   1=2
 ;
 ```
 
-En växel tillåts som partitionsgränserna är justerade. Detta lämnar källtabellen med en tom partition som du senare kan dela.
+Eftersom partitionsgränserna justeras tillåts en växel. Detta lämnar källtabellen med en tom partition som du kan därefter delas.
 
 ```sql
 ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 PARTITION 2;
@@ -227,7 +227,7 @@ ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
-Allt som återstår är att justera data till de nya partitionsgränser med hjälp av `CTAS`, och sedan växla data tillbaka till huvudtabellen.
+Allt som återstår är att justera data som nya partitionsgränserna med hjälp av `CTAS`, och växla sedan data tillbaka till huvudtabell.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
@@ -248,16 +248,16 @@ AND     [OrderDateKey] <  20010101
 ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.FactInternetSales PARTITION 2;
 ```
 
-När du har slutfört flytt av data är en bra idé att uppdatera statistik i måltabellen. Uppdaterar statistiken garanterar statistik korrekt speglar ny distribution av data i deras respektive partitioner.
+När du har slutfört flödet av data, är det en bra idé att uppdatera statistik i måltabellen. Uppdaterar statistik säkerställer statistik korrekt speglar den nya distributionen av data i sina respektive partitioner.
 
 ```sql
 UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
-### <a name="table-partitioning-source-control"></a>Tabell partitionering källkontroll
-Att undvika att dina tabelldefinitionen från **rostangripet** i ditt källkontrollsystem du bör du överväga följande metod:
+### <a name="table-partitioning-source-control"></a>Tabellen partitionering källkontroll
+Undvik din tabelldefinitionen från **rostangripet** i ditt källkontrollsystem kan du överväga följande metod:
 
-1. Skapa tabellen som en partitionerad tabell men saknar värden för partition
+1. Skapa tabellen som en partitionerad tabell men utan partition värden
 
     ```sql
     CREATE TABLE [dbo].[FactInternetSales]
@@ -331,8 +331,8 @@ Att undvika att dina tabelldefinitionen från **rostangripet** i ditt källkontr
     DROP TABLE #partitions;
     ```
 
-Med den här metoden koden i källkontroll är statisk och partitionering gränsvärden tillåts vara dynamiska; under utveckling för datalagret över tid.
+Med den här metoden koden i källkontroll är statiskt och partitionering gränsvärden ska kunna vara dynamisk; under utveckling med lagret över tid.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om hur du utvecklar tabeller finns i artiklar på [tabell översikt](sql-data-warehouse-tables-overview.md).
+Mer information om hur du utvecklar tabeller finns i artiklarna på [Tabellöversikt](sql-data-warehouse-tables-overview.md).
 

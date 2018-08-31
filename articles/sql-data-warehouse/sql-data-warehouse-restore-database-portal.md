@@ -3,19 +3,19 @@ title: Återställa Azure SQL Data Warehouse (Azure portal) | Microsoft Docs
 description: Azure portal uppgifter för att återställa Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6268f500d44bf7ceaaccbcc8e2c2134b42032197
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 8752bc1977bac75928651a62576272ffc673ee7e
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526880"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306308"
 ---
 # <a name="restore-azure-sql-data-warehouse-portal"></a>Återställa Azure SQL Data Warehouse (portal)
 > [!div class="op_single_selector"]
@@ -28,28 +28,28 @@ ms.locfileid: "31526880"
 I den här artikeln får lära du dig att återställa Azure SQL Data Warehouse med hjälp av Azure portal.
 
 ## <a name="before-you-begin"></a>Innan du börjar
-**Kontrollera DTU-kapacitet.** Varje instans av SQL Data Warehouse finns i en SQL-server (till exempel myserver.database.windows.net) som har en kvot som standard data genomströmning enhet (DTU). Innan du kan återställa SQL Data Warehouse, kan du kontrollera att SQLServer har tillräckligt återstående DTU-kvot för den databas som du återställa. Om du vill lära dig att beräkna DTU-kvot eller begära mer dtu: er, se [begär en ändring för DTU-kvot][Request a DTU quota change].
+**Kontrollera din DTU-kapacitet.** Varje instans av SQL Data Warehouse finns på en SQL-server (t.ex, myserver.database.windows.net) som har en kvot för standard data throughput unit (DTU). Innan du kan återställa SQL Data Warehouse, kan du kontrollera att SQLServer har tillräckligt återstående DTU-kvot för den databas som du återställa. Läs hur du beräkna DTU-kvot eller begär mer dtu: er i [begära en DTU-kvot ändring][Request a DTU quota change].
 
-## <a name="restore-an-active-or-paused-database"></a>Återställa en databas för aktiva eller pausats
-Att återställa en databas:
+## <a name="restore-an-active-or-paused-database"></a>Återställ en databas med aktiv eller pausad
+Du återställer en databas:
 
 1. Logga in på [Azure Portal][Azure portal].
-2. I den vänstra rutan, Välj **Bläddra**, och välj sedan **SQL-servrar**.
+2. I den vänstra rutan väljer **Bläddra**, och välj sedan **SQL-servrar**.
 
     ![Välj Bläddra > SQL-servrar](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
-3. Hitta din server och markerar den.
+3. Hitta din server och välj den sedan.
 
-    ![Markera din server](./media/sql-data-warehouse-restore-database-portal/01-select-server.png)
-4. Hitta instans av SQL Data Warehouse som du vill återställa och välj sedan den.
+    ![Välj din server](./media/sql-data-warehouse-restore-database-portal/01-select-server.png)
+4. Hitta den instansen av SQL Data Warehouse som du vill återställa från och välj den sedan.
 
-    ![Välj instansen av SQL Data Warehouse att återställa](./media/sql-data-warehouse-restore-database-portal/01-select-active-dw.png)
-5. Längst upp i bladet Data Warehouse, Välj **återställa**.
+    ![Välj instansen av SQL Data Warehouse för att återställa](./media/sql-data-warehouse-restore-database-portal/01-select-active-dw.png)
+5. Högst upp på bladet informationslager, Välj **återställa**.
 
     ![Välj återställning](./media/sql-data-warehouse-restore-database-portal/01-select-restore-from-active.png)
-6. Ange ett nytt **databasnamnet**.
+6. Ange en ny **databasnamn**.
 7. Välj senast **återställningspunkt**.
 
-   Se till att välja den senaste återställningspunkten. Eftersom återställningspunkter visas i Coordinated Universal Time (UTC), kanske inte den senaste återställningspunkten standardalternativet.
+   Kontrollera att du väljer den senaste återställningspunkten. Eftersom återställningspunkter visas i Coordinated Universal Time (UTC), kanske inte den senaste återställningspunkten standardalternativet.
 
       ![Välj en återställningspunkt](./media/sql-data-warehouse-restore-database-portal/01-restore-blade-from-active.png)
 8. Välj **OK**.
@@ -61,23 +61,23 @@ Att återställa en databas:
 >
 
 ## <a name="restore-a-deleted-database"></a>Återställa en borttagen databas
-Att återställa en borttagen databas:
+Så här återställer en borttagen databas:
 
 1. Logga in på [Azure Portal][Azure portal].
-2. I den vänstra rutan, Välj **Bläddra**, och välj sedan **SQL-servrar**.
+2. I den vänstra rutan väljer **Bläddra**, och välj sedan **SQL-servrar**.
 
     ![Välj Bläddra > SQL-servrar](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
-3. Hitta din server och markerar den.
+3. Hitta din server och välj den sedan.
 
-    ![Markera din server](./media/sql-data-warehouse-restore-database-portal/02-select-server.png)
-4. Rulla ned till den **Operations** avsnitt på bladet för din server.
-5. Välj den **bort databaser** panelen.
+    ![Välj din server](./media/sql-data-warehouse-restore-database-portal/02-select-server.png)
+4. Rulla ned till den **Operations** avsnittet på bladet för din server.
+5. Välj den **borttagna databaser** panelen.
 
-    ![Markera rutan borttagna databaser](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dws.png)
+    ![Välj panelen borttagna databaser](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dws.png)
 6. Välj den borttagna databasen som du vill återställa.
 
-    ![Välj en databas som ska återställas](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dw.png)
-7. Ange ett nytt **databasnamnet**.
+    ![Välj en databas för att återställa](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dw.png)
+7. Ange en ny **databasnamn**.
 
     ![Lägga till ett namn för databasen](./media/sql-data-warehouse-restore-database-portal/02-restore-blade-from-deleted.png)
 8. Välj **OK**.
@@ -89,7 +89,7 @@ Att återställa en borttagen databas:
 >
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om funktionerna för verksamhetskontinuitet Azure SQL Database version, läsa den [översikt över verksamhetskontinuitet i Azure SQL Database][Azure SQL Database business continuity overview].
+Mer information om funktionerna för affärskontinuitet för Azure SQL Database-versioner, läsa den [översikt över Azure SQL Database affärskontinuitet][Azure SQL Database business continuity overview].
 
 <!--Image references-->
 

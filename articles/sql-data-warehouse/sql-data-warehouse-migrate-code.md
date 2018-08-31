@@ -1,34 +1,34 @@
 ---
-title: Migrera dina SQL-kod till SQL Data Warehouse | Microsoft Docs
-description: Tips för att migrera SQL-kod till Azure SQL Data Warehouse för utveckling av lösningar.
+title: Migrera din SQL-kod till SQL Data Warehouse | Microsoft Docs
+description: Tips för att migrera din SQL-kod till Azure SQL Data Warehouse för utveckling av lösningar.
 services: sql-data-warehouse
 author: jrowlandjones
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: b17e8e306c01bef4c58658b35f3a67d0e721633c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 2f16f9448da2dab9670908f74935bb5fb31a0547
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31527461"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301379"
 ---
-# <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Migrera dina SQL-kod till SQL Data Warehouse
-Den här artikeln förklarar kodändringar behöver du antagligen se när du migrerar din kod från en annan databas till SQL Data Warehouse. Vissa funktioner i SQL Data Warehouse förbättrar prestanda eftersom de är avsedda att fungera i ett distribuerat sätt. För att upprätthålla prestanda och skalning så är vissa funktioner dock också inte tillgänglig.
+# <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Migrera din SQL-kod till SQL Data Warehouse
+Den här artikeln förklarar ändringar i koden behöver du förmodligen göra när du migrerar din kod från en annan databas till SQL Data Warehouse. Vissa SQL Data Warehouse-funktioner kan avsevärt förbättra prestanda eftersom de har utformats för att arbeta i en distribuerad sätt. Men för att upprätthålla prestanda och skalning, är vissa funktioner också inte tillgängliga.
 
 ## <a name="common-t-sql-limitations"></a>Vanliga T-SQL-begränsningar
-I följande lista sammanfattas de vanligaste funktionerna som inte har stöd för SQL Data Warehouse. Länkarna om du vill lösningar för funktionerna som inte stöds:
+I följande lista sammanfattas de vanligaste funktioner som inte har stöd för SQL Data Warehouse. Länken tar dig till lösningar för funktionerna som inte stöds:
 
-* [ANSI kopplingar uppdateringar][ANSI joins on updates]
-* [ANSI-kopplingar på borttagningar][ANSI joins on deletes]
+* [ANSI kopplingar på uppdateringar][ANSI joins on updates]
+* [ANSI kopplingar till borttagningar][ANSI joins on deletes]
 * [merge-instruktion][merge statement]
-* flera databaser kopplingar
+* kopplingar mellan databaser
 * [Markörer][cursors]
-* [INSERT... EXEC][INSERT..EXEC]
+* [INFOGA... EXEC][INSERT..EXEC]
 * Output-sats
 * infogade användardefinierade funktioner
 * flera instruktioner funktioner
@@ -38,45 +38,45 @@ I följande lista sammanfattas de vanligaste funktionerna som inte har stöd fö
 * $partition funktion
 * tabellvariabler
 * tabellen värdet parametrar
-* distribuerade transaktioner
+* Distribuerade transaktioner
 * Commit / rollback arbete
 * Spara transaktionen
-* körningen kontexter (EXECUTE AS)
+* körningen sammanhang (EXECUTE AS)
 * [Group by-satser med Samlad / kub / grupperingsalternativ uppsättningar][group by clause with rollup / cube / grouping sets options]
 * [kapslingsnivåer utöver 8][nesting levels beyond 8]
-* [uppdatering i vyer][updating through views]
+* [Uppdatera via vyer][updating through views]
 * [användning av väljer för variabeltilldelning][use of select for variable assignment]
-* [Ingen MAX datatyp för dynamisk SQL-strängar][no MAX data type for dynamic SQL strings]
+* [Inga MAX datatyp för dynamisk SQL-strängar][no MAX data type for dynamic SQL strings]
 
-De flesta av dessa begränsningar kan Lyckligtvis arbetat runt. Förklaringar finns i de relevanta development artiklar som anges ovan.
+Som tur är kan de flesta av dessa begränsningar utföras runt. Förklaringar finns i de relevanta utvecklingsartiklarna som anges ovan.
 
 ## <a name="supported-cte-features"></a>CTE-funktioner som stöds
-Cte (cte-referenser) stöds delvis i SQL Data Warehouse.  Följande CTE-funktioner stöds:
+Vanliga tabelluttryck (cte-referenser) stöds delvis i SQL Data Warehouse.  Följande CTE-funktioner stöds för närvarande:
 
 * En CTE kan anges i en SELECT-instruktion.
-* En CTE kan anges i instruktionen CREATE VIEW.
-* En CTE kan anges i instruktionen Skapa tabell AS Välj (CTAS).
-* En CTE kan anges i instruktionen skapa REMOTE TABLE AS Välj (CRTAS).
-* En CTE kan anges i instruktionen Skapa extern tabell AS Välj (CETAS).
+* En CTE kan anges i en CREATE VIEW-instruktion.
+* En CTE kan anges i en CREATE TABLE AS SELECT (CTAS)-instruktion.
+* En CTE kan anges i en skapa FJÄRRANSLUTEN tabell som Välj (CRTAS)-instruktion.
+* En CTE kan anges i en Skapa extern tabell som Välj (CETAS)-instruktion.
 * En fjärrtabell kan refereras från en CTE.
 * En extern tabell kan refereras från en CTE.
-* Flera CTE frågan definitioner kan definieras i en CTE.
+* Flera CTE fråga definitioner kan definieras i en CTE.
 
 ## <a name="cte-limitations"></a>CTE begränsningar
 Vanliga tabelluttryck har vissa begränsningar i SQL Data Warehouse, inklusive:
 
-* En CTE måste följas av en enstaka SELECT-instruktion. INSERT-, UPDATE-, DELETE och MERGE-instruktioner stöds inte.
-* Ett vanligt tabelluttryck som innehåller referenser till sig själv (ett rekursivt vanligt tabelluttryck) stöds inte (se nedan avsnitt).
-* Ange fler än en med-satsen i en CTE är inte tillåtet. Om en CTE_query_definition innehåller en underfråga, kan till exempel denna underfråga innehåller en kapslad med-sats som definierar en annan CTE.
-* En ORDER BY-sats kan inte användas i CTE_query_definition, utom när en TOP-instruktion har angetts.
-* När en CTE används i en instruktion som är en del av en batch måste instruktionen innan den följas av ett semikolon.
-* När de används i rapporter med sp_prepare fungerar cte-referenser på samma sätt som andra SELECT-satser i PDW. Men om cte-referenser används som en del av CETAS förberedda av sp_prepare beteendet kan skjuta upp från SQL Server och andra PDW-instruktioner på grund av hur bindning har implementerats för sp_prepare. Om väljer att refererar till CTE använder en fel kolumn som inte finns i CTE, sp_prepare skickas utan att identifiera felet, men felet uppstod under sp_execute i stället.
+* En CTE måste följas av en enda SELECT-instruktion. INSERT, UPDATE-, DELETE och MERGE-instruktioner stöds inte.
+* Ett vanligt tabelluttryck som innehåller referenser till sig själv (ett rekursivt vanligt tabelluttryck) stöds inte (se nedan avsnittet).
+* Att ange fler än en WITH-satsen i en CTE tillåts inte. Om en CTE_query_definition innehåller en underfråga, det går inte att exempelvis den underfrågan innehåller en kapslad WITH-satsen som definierar en annan CTE.
+* En ORDER BY-sats kan inte användas i CTE_query_definition, förutom när en TOP-satsen har angetts.
+* När en CTE används i en instruktion som är en del av en batch, måste instruktionen innan den följas av ett semikolon.
+* När det används i rapporter som sammanställts av sp_prepare fungerar cte-referenser på samma sätt som andra SELECT-uttryck i PDW. Men om cte-referenser används som en del av CETAS som sammanställts av sp_prepare kan beteendet fördröja från SQL Server och andra PDW-instruktioner på grund av det sätt som bindningen har implementerats för sp_prepare. Om du väljer att refererar till CTE använder en fel kolumn som inte finns i CTE, skickar sp_prepare utan att identifiera felet, men felet uppstod under ett sp_execute i stället.
 
 ## <a name="recursive-ctes"></a>Rekursiva cte-referenser
-Rekursiva cte-referenser stöds inte i SQL Data Warehouse.  Migrering av rekursiva CTE kan vara ganska komplicerat och på bästa sätt är att dela upp det i flera steg. Du kan normalt använda en loop och fylla i en tillfällig tabell som du iterera över rekursiva tillfälliga frågor. Du kan sedan returnera data som en enda resultatmängd när den temporära tabellen fylls i. Ett liknande sätt har använts för att lösa `GROUP BY WITH CUBE` i den [group by-satser med Samlad / kub / grupperingsalternativ anger] [ group by clause with rollup / cube / grouping sets options] artikel.
+Rekursiva cte-referenser stöds inte i SQL Data Warehouse.  Migreringen av rekursiva CTE kan vara ganska komplicerat och på bästa sätt är att bryta ned den i flera steg. Du kan normalt använda en slinga och fylla i en tillfällig tabell som du kan iterera över rekursiva mellanliggande frågor. När den temporära tabellen fylls kan du sedan returnera data som en enda resultatmängd. Ett liknande tillvägagångssätt som har använts för att lösa `GROUP BY WITH CUBE` i den [group by-satser med Samlad / kub / grupperingsalternativ uppsättningar] [ group by clause with rollup / cube / grouping sets options] artikeln.
 
-## <a name="unsupported-system-functions"></a>Systemfunktioner som inte stöds
-Det finns även vissa systemfunktioner som inte stöds. Några av de huvudsakliga som kanske vanligtvis används i informationslager är:
+## <a name="unsupported-system-functions"></a>Funktioner som inte stöds
+Det finns även vissa systemfunktioner som inte stöds. Några av de huvudsakliga som kanske vanligtvis används i datalagret är:
 
 * NEWSEQUENTIALID()
 * @@NESTLEVEL()
@@ -85,10 +85,10 @@ Det finns även vissa systemfunktioner som inte stöds. Några av de huvudsaklig
 * ROWCOUNT_BIG
 * ERROR_LINE()
 
-Vissa av dessa problem kan du arbetade runt.
+Vissa av dessa problem går att arbeta runt.
 
 ## <a name="rowcount-workaround"></a>@@ROWCOUNT lösning
-Undvika bristande stöd för @@ROWCOUNT, skapa en lagrad procedur som hämtar det senaste antalet rader från sys.dm_pdw_request_steps och sedan köra `EXEC LastRowCount` efter en DML-instruktionen.
+Att kringgå avsaknaden av stöd för @@ROWCOUNT, skapa en lagrad procedur som ska hämta senaste radantalet från sys.dm_pdw_request_steps och sedan köra `EXEC LastRowCount` efter en DML-instruktionen.
 
 ```sql
 CREATE PROCEDURE LastRowCount AS
@@ -111,7 +111,7 @@ SELECT TOP 1 row_count FROM LastRequestRowCounts ORDER BY step_index DESC
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-En fullständig lista över alla T-SQL-instruktioner som stöds finns i [Transact-SQL-avsnitt][Transact-SQL topics].
+En fullständig lista över alla T-SQL-uttryck som stöds finns i [Transact-SQL-ämnen][Transact-SQL topics].
 
 <!--Image references-->
 

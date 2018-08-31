@@ -14,19 +14,19 @@ ms.service: sql-database
 ms.custom: ''
 ms.tgt_pltfrm: ''
 ms.topic: conceptual
-ms.date: 06/28/2018
+ms.date: 08/30/2018
 ms.author: aliceku
 monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: d3e8d34599600512a1d9d0308c0d6014691bf519
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 30ef71d0fc98b168000f7e7b936e4efc6c441498
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442730"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307938"
 ---
 # <a name="transparent-data-encryption-with-bring-your-own-key-support-for-azure-sql-database-and-data-warehouse"></a>Transparent datakryptering med Bring Your Own Key-stöd för Azure SQL Database och Data Warehouse
 
-Stöd för Bring Your Own Key (BYOK) för [Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/transparent-data-encryption) kan du kryptera den databasen Datakrypteringsnyckeln (DEK) med en asymmetrisk nyckel som heter TDE-skydd.  TDE-skyddet lagras under din kontroll i [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), Azures molnbaserade externa nyckelhanteringssystem. Azure Key Vault är den första nyckelhanteringstjänst som TDE har inbyggt stöd för BYOK. TDE DEK, som är lagrad på startsidan av en databas krypteras och dekrypteras av TDE-skyddet. TDE-skyddet lagras i Azure Key Vault och lämnar aldrig nyckelvalvet. Serverns åtkomst till nyckelvalvet har återkallats, en databas dekrypteras och läsa in i minnet.  TDE-skyddet är inställd på logiska servernivå och ärvs av alla databaser som är associerade med den här servern. 
+Stöd för Bring Your Own Key (BYOK) för [Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) kan du kryptera den databasen Datakrypteringsnyckeln (DEK) med en asymmetrisk nyckel som heter TDE-skydd.  TDE-skyddet lagras under din kontroll i [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), Azures molnbaserade externa nyckelhanteringssystem. Azure Key Vault är den första nyckelhanteringstjänst som TDE har inbyggt stöd för BYOK. TDE DEK, som är lagrad på startsidan av en databas krypteras och dekrypteras av TDE-skyddet. TDE-skyddet lagras i Azure Key Vault och lämnar aldrig nyckelvalvet. Serverns åtkomst till nyckelvalvet har återkallats, en databas dekrypteras och läsa in i minnet.  TDE-skyddet är inställd på logiska servernivå och ärvs av alla databaser som är associerade med den här servern. 
 
 Användare kan nu styra viktiga hanteringsaktiviteter, inklusive nyckelrotationer med BYOK-stöd, nyckelvalvet behörigheter, ta bort nycklar och aktivera granskning/rapportering på alla TDE-skydd med hjälp av Azure Key Vault-funktioner. Key Vault ger central nyckelhantering, utnyttjar nära övervakade maskinvarusäkerhetsmoduler (HSM) och låter uppdelning av uppgifter mellan hantering av nycklar och data för att uppfylla regelefterlevnad.  
 

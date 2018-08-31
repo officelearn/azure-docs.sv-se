@@ -1,26 +1,28 @@
 ---
-title: Azure SQL Data Warehouse kolumnnivå säkerhet | Microsoft Docs
-description: Kolumnnivå säkerhet (CLS) ger kunder möjlighet att styra åtkomsten till databasen tabellkolumner baserat på användarens körningskontexten eller deras gruppmedlemskap. CLS förenklar design och kodning av säkerhet i ditt program. CLS kan du implementera begränsningar för kolumnen.
+title: Azure SQL Data Warehouse på kolumnnivå-säkerhet | Microsoft Docs
+description: På kolumnnivå säkerhet (CLS) ger kunder möjlighet att styra åtkomsten till databasen tabellkolumner baserat på användarens körningskontexten skapades eller deras gruppmedlemskap. CLS förenklar design och kodning av säkerheten i ditt program. CLS kan du implementera begränsningar för kolumnen åtkomst.
 services: sql-data-warehouse
 author: KavithaJonnakuti
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 06/15/2018
 ms.author: kavithaj
 ms.reviewer: igorstan, carlrab
-ms.openlocfilehash: 5a916132f705f3c517ee6789b61a3972b2445b62
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 1765c92ad10fa35af98e7c7314eb44c3a119f422
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938518"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301063"
 ---
-# <a name="column-level-security"></a>Kolumnen säkerhet 
-Kolumnnivå säkerhet (CLS) ger kunder möjlighet att styra åtkomsten till databasen tabellkolumner baserat på användarens körningskontexten eller deras gruppmedlemskap.  
+# <a name="column-level-security"></a>Säkerhet på radnivå kolumn 
+På kolumnnivå säkerhet (CLS) ger kunder möjlighet att styra åtkomsten till databasen tabellkolumner baserat på användarens körningskontexten skapades eller deras gruppmedlemskap.  
 
-CLS förenklar design och kodning av säkerhet i ditt program. CLS kan du implementera begränsningar på kolumnen åtkomst för att skydda känsliga data. Till exempel säkerställer att vissa användare har åtkomst till vissa kolumner i en tabell som är relevanta för deras avdelning. Logik för åtkomst-begränsning är finns i databasnivån i stället för avstånd från data i ett annat program skikt. Databasen gäller åtkomstbegränsningarna varje gång ett försök gjordes att dataåtkomst från alla skikt. Detta gör ditt säkerhetssystem mer tillförlitlig och stabil genom att minska ytan på din övergripande säkerhetssystem. Dessutom kan eliminerar detta även behovet av introduktion till vyer att filtrera bort kolumner för åtkomst begränsningar för användarna. 
+> [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
+
+CLS förenklar design och kodning av säkerheten i ditt program. CLS kan du implementera begränsningar för kolumnen åtkomst till att skydda känsliga data. Till exempel se till att vissa användare har åtkomst till vissa av kolumnerna i en tabell som är relevanta för deras avdelning. Logiken för begränsning av är placerad på databasnivån i stället för in från data i en annan programnivå. Databasen gäller åtkomstbegränsningarna varje gång den dataåtkomsten görs från valfri nivå. Den här begränsningen gör din säkerhetssystem mer tillförlitlig och stabil genom att minska ytan på din övergripande säkerhetssystem. Dessutom eliminerar CLS även behovet introduktion till vyer att filtrera bort kolumner för aktiviteternas åtkomstbegränsningarna för användarna. 
 
 Du kan implementera CLS med den [BEVILJA](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) T-SQL-instruktionen. Med den här mekanismen stöds både SQL och Azure Active Directory (AAD)-autentisering.
 
@@ -45,9 +47,9 @@ GRANT <permission> [ ,...n ] ON
 ```
 
 ## <a name="example"></a>Exempel 
-I följande exempel visas hur du begränsar 'TestUser' från att komma åt 'SSN' kolumn 'medlemskap, tabell: 
+I följande exempel visas hur du begränsar 'TestUser' från att komma åt 'SSN' kolumnen 'Medlemskap ”-tabellen: 
 
-Skapa 'Medlemskap' tabell med SSN kolumn som används för att lagra personnummer:
+Skapa 'Medlemskap ”tabell med SSN kolumn som används för att lagra personnummer:
 
 ```sql
 CREATE TABLE Membership   
@@ -59,13 +61,13 @@ CREATE TABLE Membership
    Email varchar(100) NULL);  
 ```
 
-Tillåt 'TestUser' åtkomst till alla kolumner utom SSN som innehåller känsliga data: 
+Tillåt 'TestUser} att få åtkomst till alla kolumner utom SSN som innehåller känsliga data: 
 
 ```sql  
 GRANT SELECT ON Membership(MemberID, FirstName, LastName, Phone, Email) TO TestUser;   
 ``` 
 
-Frågor som körs som 'TestUser' misslyckas om de innehåller kolumnen SSN:
+Frågor som ”TestUser' misslyckas om de innehåller kolumnen SSN:
 
 ```sql  
 SELECT * FROM Membership;
@@ -76,5 +78,5 @@ The SELECT permission was denied on the column 'SSN' of the object 'Membership',
 
 ## <a name="use-cases"></a>Användningsfall
 Några exempel på hur CLS används idag: 
-- Ett företag för finansiella tjänster kan endast konto chefer ska ha åtkomst till kunden personnummer (SSN), telefonnummer och annan personligt identifierbar information (PII).
-- Hälsovård providern tillåter endast läkare och sjuksköterskor ska ha åtkomst till känsliga medicinska poster samtidigt som inte medlemmar i avdelningen faktureringsinformation att visa dessa data.
+- Ett företag för finansiella tjänster kan endast konto hanterare kan ha åtkomst till kunden personnummer (SSN), telefonnummer och annan personligt identifierbar information (PII).
+- En hälsovård provider kan endast läkare och sjuksköterskor ska ha åtkomst till känsliga medicinska journaler samtidigt som medlemmar i avdelningen fakturering inte att visa dessa data.

@@ -1,23 +1,24 @@
 ---
-title: T-SQL - instruktioner i Azure SQL Data Warehouse | Microsoft Docs
-description: Länkar till dokumentationen för T-SQL-satser stöds i Azure SQL Data Warehouse.
+title: Instruktioner för T-SQL - Azure SQL Data Warehouse | Microsoft Docs
+description: Länkar till dokumentationen för T-SQL-uttryck som stöds i Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ckarst
-manager: craigg-msft
+author: twounder
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 06/13/2018
+ms.author: twounder
 ms.reviewer: igorstan
-ms.openlocfilehash: ec708f30b59bbd6af878720c65f9a464224c57a5
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fa497979349346016e1c176ace98407d98eebdca
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307858"
 ---
-# <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>T-SQL-satser stöds i Azure SQL Data Warehouse
-Länkar till dokumentationen för T-SQL-satser stöds i Azure SQL Data Warehouse.
+# <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>T-SQL-uttryck som stöds i Azure SQL Data Warehouse
+Länkar till dokumentationen för T-SQL-uttryck som stöds i Azure SQL Data Warehouse.
 
 ## <a name="data-definition-language-ddl-statements"></a>Uttryck för data Definition Language (DDL)
 * [ALTER DATABASE](https://msdn.microsoft.com/library/mt204042.aspx)
@@ -34,21 +35,21 @@ Länkar till dokumentationen för T-SQL-satser stöds i Azure SQL Data Warehouse
 * [SKAPA FUNKTION](https://msdn.microsoft.com/library/mt203952.aspx)
 * [SKAPA INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
 * [SKAPA PROCEDUREN](https://msdn.microsoft.com/library/ms187926.aspx)
-* [SKAPA SCHEMAT](https://msdn.microsoft.com/library/ms189462.aspx)
+* [SKAPA SCHEMA](https://msdn.microsoft.com/library/ms189462.aspx)
 * [CREATE STATISTICS](https://msdn.microsoft.com/library/ms188038.aspx)
 * [CREATE TABLE](https://msdn.microsoft.com/library/mt203953.aspx)
 * [CREATE TABLE AS SELECT](https://msdn.microsoft.com/library/mt204041.aspx)
 * [SKAPA VY](https://msdn.microsoft.com/library/ms187956.aspx)
-* [TA BORT EXTERN DATAKÄLLA](https://msdn.microsoft.com/library/mt146367.aspx)
-* [TA BORT EXTERNA FILFORMATET](https://msdn.microsoft.com/library/mt146379.aspx)
-* [TA BORT EXTERN TABELL](https://msdn.microsoft.com/library/mt130698.aspx)
-* [DROP INDEX](https://msdn.microsoft.com/library/ms176118.aspx)
+* [SLÄPP EXTERN DATAKÄLLA](https://msdn.microsoft.com/library/mt146367.aspx)
+* [SLÄPP EXTERNT FILFORMAT](https://msdn.microsoft.com/library/mt146379.aspx)
+* [SLÄPP EXTERN TABELL](https://msdn.microsoft.com/library/mt130698.aspx)
+* [TA BORT INDEXET](https://msdn.microsoft.com/library/ms176118.aspx)
 * [SLÄPPA PROCEDUREN](https://msdn.microsoft.com/library/ms174969.aspx)
 * [SLÄPP STATISTIK](https://msdn.microsoft.com/library/ms175075.aspx)
-* [SLÄPPA TABELLEN](https://msdn.microsoft.com/library/ms173790.aspx)
-* [TA BORT SCHEMAT](https://msdn.microsoft.com/library/ms186751.aspx)
-* [SLÄPP VY](https://msdn.microsoft.com/library/ms173492.aspx)
-* [BYT NAMN](https://msdn.microsoft.com/library/mt631611.aspx)
+* [TA BORT TABELL](https://msdn.microsoft.com/library/ms173790.aspx)
+* [TA BORT SCHEMA](https://msdn.microsoft.com/library/ms186751.aspx)
+* [TA BORT VY](https://msdn.microsoft.com/library/ms173492.aspx)
+* [BYT NAMN PÅ](https://msdn.microsoft.com/library/mt631611.aspx)
 * [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx)
 * [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)
 
@@ -57,7 +58,7 @@ Länkar till dokumentationen för T-SQL-satser stöds i Azure SQL Data Warehouse
 * [INSERT](https://msdn.microsoft.com/library/ms174335.aspx)
 * [UPPDATERING](https://msdn.microsoft.com/library/ms177523.aspx)
 
-## <a name="database-console-commands"></a>Databas: kommandon
+## <a name="database-console-commands"></a>Databasen konsolkommandon
 * [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/library/ms187762.aspx)
 * [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/mt204018.aspx)
 * [DBCC SHRINKLOG](https://msdn.microsoft.com/library/mt204020.aspx)
@@ -66,11 +67,11 @@ Länkar till dokumentationen för T-SQL-satser stöds i Azure SQL Data Warehouse
 * [DBCC PDW_SHOWSPACEUSED](https://msdn.microsoft.com/library/mt204028.aspx)
 * [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/mt204043.aspx)
 
-## <a name="query-statements"></a>Instruktioner för fråga
+## <a name="query-statements"></a>Uttryck för fråga
 * [VÄLJ](https://msdn.microsoft.com/library/ms189499.aspx)
 * [MED common_table_expression](https://msdn.microsoft.com/library/ms175972.aspx)
-* [Förutom och INTERSECT](https://msdn.microsoft.com/library/ms188055.aspx)
-* [FÖRKLARAR](https://msdn.microsoft.com/library/mt631615.aspx)
+* [Förutom och SKÄR](https://msdn.microsoft.com/library/ms188055.aspx)
+* [FÖRKLARA](https://msdn.microsoft.com/library/mt631615.aspx)
 * [FRÅN](https://msdn.microsoft.com/library/ms177634.aspx)
 * [Med hjälp av PIVOT och UNPIVOT](https://msdn.microsoft.com/library/ms177410.aspx)
 * [GRUPPERA EFTER](https://msdn.microsoft.com/library/ms177673.aspx)
@@ -79,35 +80,35 @@ Länkar till dokumentationen för T-SQL-satser stöds i Azure SQL Data Warehouse
 * [OPTION](https://msdn.microsoft.com/library/ms190322.aspx)
 * [UNION](https://msdn.microsoft.com/library/ms180026.aspx)
 * [DÄR](https://msdn.microsoft.com/library/ms188047.aspx)
-* [UPP](https://msdn.microsoft.com/library/ms189463.aspx)
+* [LÄNGST UPP](https://msdn.microsoft.com/library/ms189463.aspx)
 * [Alias](https://msdn.microsoft.com/library/mt631614.aspx)
 * [Sökvillkor](https://msdn.microsoft.com/library/ms173545.aspx)
 * [Underfrågor](https://msdn.microsoft.com/library/mt631613.aspx)
 
 ## <a name="security-statements"></a>Säkerhetsuttryck
 * Behörigheter: [BEVILJA](https://msdn.microsoft.com/library/ms187965.aspx), [NEKA](https://msdn.microsoft.com/library/ms188338.aspx), [ÅTERKALLA](https://msdn.microsoft.com/library/ms187728.aspx)
-* [ÄNDRA TILLSTÅND](https://msdn.microsoft.com/library/ms187359.aspx)
+* [ALTER AUTHORIZATION](https://msdn.microsoft.com/library/ms187359.aspx)
 * [ÄNDRA CERTIFIKAT](https://msdn.microsoft.com/library/ms189511.aspx)
 * [ALTER DATABASE ENCRYPTION KEY](https://msdn.microsoft.com/library/bb630389.aspx)
 * [ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx)
-* [ÄNDRA HUVUDNYCKELN](https://msdn.microsoft.com/library/ms186937.aspx)
+* [ALTER HUVUDNYCKEL](https://msdn.microsoft.com/library/ms186937.aspx)
 * [ÄNDRA ROLL](https://msdn.microsoft.com/library/ms189775.aspx)
-* [ÄNDRA ANVÄNDARE](https://msdn.microsoft.com/library/ms176060.aspx)
+* [ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx)
 * [SÄKERHETSKOPIERA CERTIFIKAT](https://msdn.microsoft.com/library/ms178578.aspx)
-* [STÄNG HUVUDNYCKELN](https://msdn.microsoft.com/library/ms188387.aspx)
+* [STÄNG HUVUDNYCKEL](https://msdn.microsoft.com/library/ms188387.aspx)
 * [SKAPA CERTIFIKAT](https://msdn.microsoft.com/library/ms187798.aspx)
 * [SKAPA DATABASKRYPTERINGSNYCKEL](https://msdn.microsoft.com/library/bb677241.aspx)
 * [SKAPA INLOGGNING](https://msdn.microsoft.com/library/ms189751.aspx)
 * [SKAPA HUVUDNYCKEL](https://msdn.microsoft.com/library/ms174382.aspx)
-* [SKAPA EN ROLL](https://msdn.microsoft.com/library/ms187936.aspx)
+* [SKAPA ROLL](https://msdn.microsoft.com/library/ms187936.aspx)
 * [SKAPA ANVÄNDARE](https://msdn.microsoft.com/library/ms173463.aspx)
 * [TA BORT CERTIFIKAT](https://msdn.microsoft.com/library/ms179906.aspx)
 * [DROP DATABASE ENCRYPTION KEY](https://msdn.microsoft.com/library/bb630256.aspx)
 * [ATT SLÄPPA INLOGGNINGEN](https://msdn.microsoft.com/library/ms188012.aspx)
-* [TA BORT HUVUDNYCKELN](https://msdn.microsoft.com/library/ms180071.aspx)
+* [TA BORT HUVUDNYCKEL](https://msdn.microsoft.com/library/ms180071.aspx)
 * [TA BORT ROLL](https://msdn.microsoft.com/library/ms174988.aspx)
 * [TA BORT ANVÄNDARE](https://msdn.microsoft.com/library/ms189438.aspx)
 * [ÖPPNA HUVUDNYCKELN](https://msdn.microsoft.com/library/ms174433.aspx)
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer till referens [T-SQL-språkelement i Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-language-elements.md), och [systemvyer i Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-system-views.md).
+Mer information, finns i [språkelement för T-SQL i Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-language-elements.md), och [systemvyer i Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-system-views.md).

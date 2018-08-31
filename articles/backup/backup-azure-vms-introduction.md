@@ -7,14 +7,14 @@ manager: carmonm
 keywords: Säkerhetskopiera virtuella datorer, virtuella datorer för säkerhetskopiering
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/31/2018
+ms.date: 8/29/2018
 ms.author: markgal
-ms.openlocfilehash: 438c1130486fe1ba2ee484ae01655a2fb115de27
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 9e2ef16cffb044409b6f7f8e7785010097bcda87
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390763"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286660"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planera din infrastruktur för VM-säkerhetskopiering i Azure
 Den här artikeln ger prestanda och resurs förslag på hur du planerar din infrastruktur för säkerhetskopiering av virtuell dator. Den definierar även viktiga aspekter av Backup-tjänsten; följande aspekter kan vara avgörande för att fastställa din arkitektur kapacitetsplanering och schemaläggning. Om du har [förberett din miljö](backup-azure-arm-vms-prepare.md), planering är nästa steg innan du börjar [att säkerhetskopiera virtuella datorer](backup-azure-arm-vms.md). Om du behöver mer information om virtuella Azure-datorer finns i den [dokumentation om Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/). 
@@ -50,17 +50,18 @@ Azure Backup har tagit fullständiga säkerhetskopieringar för VSS på virtuell
 ```
 
 #### <a name="linux-vms"></a>Virtuella Linux-datorer
-Azure Backup är ett ramverk för skript. För att säkerställa programkonsekvens vid säkerhetskopiering av virtuella Linux-datorer, skapa anpassade förskript och efterskript som styr arbetsflöde för säkerhetskopiering och miljö. Azure Backup anropar förskript innan du tar VM-ögonblicksbilden och anropar skriptet efter när ögonblicksbildjobb VM har slutförts. Mer information finns i [programkonsekventa VM säkerhetskopior av med förskript och efterskript](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+
+Azure Backup är ett ramverk för skript för att styra arbetsflöde för säkerhetskopiering och miljö. För att säkerställa programkonsekvent Linux VM-säkerhetskopieringar, använder du scripting framework för att skapa anpassade förskript och efterskript. Anropa förskript innan du tar VM-ögonblicksbilden och sedan anropa efter skriptet när ögonblicksbildjobb VM har slutförts. Mer information finns i artikeln [programkonsekventa Linux VM säkerhetskopior](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+
 > [!NOTE]
 > Azure Backup anropar bara den kund som skrivits av före och efter skript. Om förskript och efterskript köras, markerar Azure Backup återställningspunkten som programmet konsekvent. Kunden är dock slutgiltigt ansvariga för konsekvens för programmet när du använder anpassade skript.
 >
 
-
-Den här tabellen beskriver vilka typer av konsekvens och de villkor som de sker under Azure VM säkerhetskopiera och återställa.
+I följande tabell beskrivs vilka typer av konsekvens och villkoren när de uppstår.
 
 | Konsekvens | VSS-baserade | Förklaring och information |
 | --- | --- | --- |
-| Programkonsekvens |Ja för Windows|Programkonsekvens är perfekt för arbetsbelastningar som den ser till att:<ol><li> Den virtuella datorn *startar*. <li>Det finns *inte är skadad*. <li>Det finns *inga data går förlorade*.<li> Data är konsekventa till det program som använder dessa data genom att programmet vid tidpunkten för säkerhetskopieringen – med hjälp av VSS eller före/efter-skript.</ol> <li>*Windows-datorer*– de flesta Microsoft-arbetsbelastningar har VSS-skrivare som gör belastningsspecifikt åtgärder som rör datakonsekvens. Microsoft SQL Server har till exempel en VSS-skrivare som säkerställer att skrivningar till transaktionsloggfilen och databasen är görs på rätt sätt. För Azure Windows VM-säkerhetskopieringar, om du vill skapa en programkonsekvent återställningspunkt måste säkerhetskopieringstillägget anropa VSS-arbetsflöde och slutför den innan du tar ögonblicksbilden för virtuell dator. Azure VM-ögonblicksbilden vara korrekt måste VSS-skrivare för alla Virtuella Azure-program Slutför samt. (Läs den [grunderna för VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) och gör en djupdykning i information om [hur det fungerar](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)). </li> <li> *Virtuella Linux-datorer*-kunder kan köra [anpassade förskript och efterskript så programkonsekvens](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). </li> |
+| Programkonsekvens |Ja för Windows|Programkonsekvens är perfekt för arbetsbelastningar som den ser till att:<ol><li> Den virtuella datorn *startar*. <li>Det finns *inte är skadad*. <li>Det finns *inga data går förlorade*.<li> Data är konsekventa till det program som använder dessa data genom att programmet vid tidpunkten för säkerhetskopieringen – med hjälp av VSS eller före/efter-skript.</ol> <li>*Windows-datorer*– de flesta Microsoft-arbetsbelastningar har VSS-skrivare som kör arbetsbelastningen-specifika åtgärder som rör datakonsekvens. Till exempel SQL Server VSS-skrivaren säkerställer skrivningar transaktionsloggfilen och till databasen, utförs korrekt. För IaaS Windows VM-säkerhetskopior om du vill skapa en programkonsekvent återställningspunkt måste säkerhetskopieringstillägget anropa VSS-arbetsflöde och slutför den innan du tar ögonblicksbilden för virtuell dator. Azure VM-ögonblicksbilden vara korrekt måste VSS-skrivare för alla Virtuella Azure-program Slutför samt. (Läs den [grunderna för VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) och gör en djupdykning i information om [hur det fungerar](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)). </li> <li> *Virtuella Linux-datorer*-kunder kan köra [anpassade förskript och efterskript så programkonsekvens](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). </li> |
 | Filsystemskonsekvens |Ja – för Windows-baserade datorer |Det finns två scenarier där återställningspunkten kan vara *filsystemkonsekvent*:<ul><li>Säkerhetskopior av virtuella Linux-datorer i Azure, utan förproduktions-script/efter-script eller om förproduktions-script/efter-script misslyckades. <li>VSS-fel under säkerhetskopiering för Windows-datorer i Azure.</li></ul> I båda dessa fall är är det bästa att göra att se till att: <ol><li> Den virtuella datorn *startar*. <li>Det finns *inte är skadad*.<li>Det finns *inga data går förlorade*.</ol> Program måste implementera sina egna ”åtgärds-” mekanism för återställda data. |
 | Kraschkonsekvens |Nej |Detta motsvarar en virtuell dator med en ”krasch” (via antingen en mjuka eller svårt reset). Kraschkonsekvens brukar hända när den virtuella Azure-datorn är avstängd vid tidpunkten för säkerhetskopieringen. En kraschkonsekvent återställningspunkt ger inga garantier kring konsekvenskontroll av data på lagringsmedium – antingen ur operativsystemet eller programmet. Endast de data som redan finns på disken vid tidpunkten för säkerhetskopieringen inhämtas och säkerhetskopieras. <br/> <br/> Det finns inga garantier, vanligtvis, operativsystemet startas, följt av disk-kontrollerar proceduren som chkdsk, åtgärda eventuella skadade-fel. Alla data i minnet eller skrivningar som inte har överförts till disken går förlorade. Programmet följer vanligtvis med en egen mekanism för verifiering om återställning av data som behöver göras. <br><br>Till exempel om transaktionsloggen har poster finns inte i databasen, samlar databasprogrammet tillbaka förrän data är konsekventa. När data fördelas mellan flera virtuella diskar (till exempel volymer), ger en kraschkonsekvent återställningspunkt inga garantier för data. |
 
@@ -104,19 +105,22 @@ En återställningsåtgärd består av två huvudsakliga uppgifter: kopiera data
 * Kopiera data tid - Data kopieras från valvet till kundens lagringskonto. Återställ tiden beror på IOPS och dataflöde Azure Backup-tjänsten hämtar på valda kundens lagringskonto. Om du vill minska tid som kopiering under återställningsprocessen, Välj ett lagringskonto som inte lästs in med andra programskrivningar och läsningar.
 
 ## <a name="best-practices"></a>Bästa praxis
-Vi rekommenderar att följande dessa metoder när du konfigurerar säkerhetskopieringar för virtuella datorer med ohanterade diskar:
 
-> [!Note]
-> Följande metoder som rekommenderar att du ändrar eller hantera storage-konton gäller endast virtuella datorer med ohanterade diskar. Om du använder hanterade diskar, hand Azure tar om alla aktiviteter som rör lagring.
-> 
+Vi rekommenderar att följande dessa metoder när du konfigurerar säkerhetskopieringar för alla virtuella datorer:
 
-* Inte schemalägga fler än 10 klassiska virtuella datorer från samma molntjänst för att säkerhetskopiera på samma gång. Om du vill säkerhetskopiera flera virtuella datorer från samma molntjänst är en fristående säkerhetskopiering av en timme.
-* Schemalägg inte fler än 100 virtuella datorer för att säkerhetskopiera på samma gång från ett enda valv. 
+* Inte schemalägga säkerhetskopieringar för fler än 10 klassiska virtuella datorer från samma molntjänst på samma gång. Om du vill säkerhetskopiera flera virtuella datorer från samma molntjänst är en fristående säkerhetskopiering av en timme.
+* Inte schemalägga säkerhetskopieringar för fler än 100 virtuella datorer från ett valv, på samma gång.
 * Schemalägga säkerhetskopior av virtuella datorer vid låg belastning. Det här sättet Backup-tjänsten används IOPS för att överföra data från kundens lagringskonto till valvet.
-* Se till att en princip tillämpas på virtuella datorer som är fördelade på olika lagringskonton. Vi rekommenderar att mer än 20 Totalt antal diskar från ett enda lagringskonto skyddas av samma schemat för säkerhetskopiering. Om du har större än 20 diskar i ett lagringskonto kan sprida dessa virtuella datorer över flera principer för att hämta nödvändiga IOPS under fasen för överföring av säkerhetskopieringen.
-* Återställ inte en virtuell dator som körs på Premium-lagring till samma lagringskonto. Om åtgärden återställningsprocessen är i linje med säkerhetskopieringen, minskar tillgängliga IOPS för säkerhetskopiering.
-* För virtuella datorer i Premium-säkerhetskopiering på VM-säkerhetskopieringsstack V1 rekommenderar vi att du allokerar högst 50% av det totala utrymmet för kontot så att Azure Backup-tjänsten kan kopiera ögonblicksbilden till storage-konto och överför data från den här kopierade platsen i storage-konto till valvet.
 * Se till att virtuella Linux-datorer aktiverad för säkerhetskopiering, har Python version 2.7 eller senare.
+
+### <a name="best-practices-for-vms-with-unmanaged-disks"></a>Metodtips för virtuella datorer med ohanterade diskar
+
+Följande rekommendationer gäller endast för virtuella datorer med ohanterade diskar. Om de virtuella datorerna använder hanterade diskar, hanterar Backup-tjänsten alla hanteringsaktiviteter för lagring.
+
+* Se till att använda en princip för säkerhetskopiering för virtuella datorer som är fördelade på flera lagringskonton. Fler än 20 Totalt antal diskar från ett enda lagringskonto bör skyddas av samma schemat för säkerhetskopiering. Om du har större än 20 diskar i ett lagringskonto kan sprida dessa virtuella datorer över flera principer för att hämta nödvändiga IOPS under fasen för överföring av säkerhetskopieringen.
+* Återställ inte en virtuell dator som körs på Premium-lagring till samma lagringskonto. Om åtgärden återställningsprocessen är i linje med säkerhetskopieringen, minskar tillgängliga IOPS för säkerhetskopiering.
+* För virtuella datorer i Premium-säkerhetskopiering på VM-säkerhetskopieringsstack V1, bör du allokera högst 50% av det totala utrymmet för kontot så Backup-tjänsten kan kopiera ögonblicksbilden till storage-konto och överföra data från storage-kontot till valvet.
+
 
 ## <a name="data-encryption"></a>Datakryptering
 Azure Backup krypterar inte data som en del av säkerhetskopieringen. Men du kan kryptera data i den virtuella datorn och säkerhetskopiera skyddade data smidigt (Läs mer om [säkerhetskopiering av krypterade data](backup-azure-vms-encryption.md)).

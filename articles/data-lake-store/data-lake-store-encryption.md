@@ -4,22 +4,16 @@ description: Du kan skydda dina data, implementera säkerhetsprinciper och uppfy
 services: data-lake-store
 documentationcenter: ''
 author: esung22
-manager: ''
-editor: ''
-ms.assetid: ''
 ms.service: data-lake-store
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: 2328f7e233025d9f9ee9113aa28fb74754dd9193
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: HT
+ms.openlocfilehash: c3f79348cb5d80639d76ad1a8ba82fcfa56ebed1
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31402819"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307790"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Kryptera data i Azure Data Lake Store
 
@@ -84,7 +78,7 @@ Det finns tre typer av nycklar som används i utformningen av datakryptering. I 
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Huvudkrypteringsnyckel | MEK          | Ett Data Lake Store-konto | Key Vault                              | Asymmetrisk | Det kan hanteras av Data Lake Store eller dig.                                                              |
 | Datakrypteringsnyckel   | DEK          | Ett Data Lake Store-konto | Beständig lagring – hanteras av Data Lake Store-tjänsten | Symmetrisk  | DEK krypteras av MEK. Den krypterade DEK lagras på permanenta medier. |
-| Blockkrypteringsnyckel  | BEK          | Ett datablock | Inget                                         | Symmetrisk  | BEK härleds från DEK och datablocket.                                                      |
+| Blockkrypteringsnyckel  | BEK          | Ett datablock | Ingen                                         | Symmetrisk  | BEK härleds från DEK och datablocket.                                                      |
 
 Följande diagram illustrerar dessa begrepp:
 
@@ -113,7 +107,7 @@ Följande diagram illustrerar dessa begrepp:
 
 När du använder kundhanterade nycklar kan du rotera huvudkrypteringsnyckeln. Information om hur du konfigurerar ett Data Lake Store-konto med kundhanterade nycklar finns på sidan [Komma igång](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Förutsättningar
 
 När du konfigurerar Data Lake Store-kontot har du valt att använda dina egna nycklar. Det här alternativet kan inte ändras efter att kontot har skapats. I anvisningarna nedan antas att du använder kundhanterade nycklar (att du valt egna nycklar från ditt nyckelvalv).
 

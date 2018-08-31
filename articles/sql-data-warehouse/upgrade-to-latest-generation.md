@@ -3,25 +3,27 @@ title: Uppgradera till den senaste generationen i Azure SQL Data Warehouse | Mic
 description: Uppgradera Azure SQL Data Warehouse till senaste generationen i Azure maskin- och storage-arkitektur.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 08/22/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1e2993e1f4d28fd5d281ea510121686d3bc37a8c
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: b7765182a89e08a2b2b8fcdbdfed82c64893fc27
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746970"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306988"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Optimera prestanda genom att uppgradera SQL Data Warehouse
 Uppgradera Azure SQL Data Warehouse till senaste generationen i Azure maskin- och storage-arkitektur.
 
 ## <a name="why-upgrade"></a>Varför uppgradera?
 Du kan nu sömlöst uppgradera till SQL Data Warehouse Compute Optimized Gen2 nivån i Azure-portalen. Om du har ett informationslager för Compute Optimized Gen1 nivå, rekommenderas uppgradera. Genom att uppgradera, du kan använda den senaste generationen i Azure-maskinvaran och förbättrad lagringsarkitektur. Du kan dra nytta av bättre prestanda, högre skalbarhet och obegränsad kolumnformad lagring. 
+
+> [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
 ## <a name="applies-to"></a>Gäller
 Den här uppgraderingen gäller för informationslager för Compute Optimized Gen1 nivå.

@@ -1,5 +1,5 @@
 ---
-title: Förstå Azure reservationsrabatten | Microsoft Docs
+title: Förstå Azure reservationer rabatt | Microsoft Docs
 description: Lär dig hur en reservationsrabatten tillämpas på som kör SQL-databaser.
 services: billing
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashar
-ms.openlocfilehash: 3a5339200309a50eace5b48dfbd9127b7eb1dae6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 923337291d297832e03892b505f4efa8d3bb3f36
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39635173"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300722"
 ---
 # <a name="understand-how-an-azure-reservation-discount-is-applied-to-sql-databases"></a>Förstå hur ett Azure reservationsrabatten tillämpas på SQL-databaser
 
@@ -40,7 +40,7 @@ I resten av de här exemplen förutsätter att du köper reserverade SQL-databas
 - Scenario 3: Du kör ett 16-kärnig SQL-databas från 1 pm till 1:30 pm. Du kör en annan 16 kärnor SQL-databas från 1:30 till 14: 00. Båda omfattas av reservationsrabatten.
 - Scenario 4: Du kör ett 16-kärnig SQL-databas från 1 pm till 1:45 pm. Du kör en annan 16 kärnor SQL-databas från 1:30 till 14: 00. Du debiteras användningsbaserad priset för den 15 minuters överlappar varandra. Rabatten gäller för den beräkning användningen av resten av tiden.
 
-För att förstå och visa tillämpningen av dina Azure reservationer i fakturering användningsrapporter, se [förstå Azure reservation användning](https://go.microsoft.com/fwlink/?linkid=862757).
+För att förstå och visa tillämpningen av dina Azure-reservationer i fakturering användningsrapporter, se [förstå Azure reservation användning](https://go.microsoft.com/fwlink/?linkid=862757).
 
 ## <a name="next-steps"></a>Nästa steg
 

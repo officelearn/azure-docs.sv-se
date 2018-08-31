@@ -1,23 +1,24 @@
 ---
-title: Systemvyer - Azure SQL Data Warehouse | Microsoft Docs
+title: Systemvyer – Azure SQL Data Warehouse | Microsoft Docs
 description: Länkar till dokumentationen för systemvyer som stöds i Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: kevinvngo
-manager: craigg-msft
+author: twounder
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
-ms.author: kevin
+ms.date: 06/13/2018
+ms.author: twounder
 ms.reviewer: igorstan
-ms.openlocfilehash: a0e75bc9b7cfa6827794f8d4256bddc3807f17d1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d76e21e37266a1b17f90fe7ce41438b9361c6e31
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312456"
 ---
 # <a name="system-views-supported-in-azure-sql-data-warehouse"></a>Systemvyer som stöds i Azure SQL Data Warehouse
-Länkar till dokumentationen för T-SQL-satser stöds i Azure SQL Data Warehouse.
+Länkar till dokumentationen för T-SQL-uttryck som stöds i Azure SQL Data Warehouse.
 
 ## <a name="sql-data-warehouse-catalog-views"></a>SQL Data Warehouse katalogvyer
 * [sys.pdw_column_distribution_properties](http://msdn.microsoft.com/library/mt204022.aspx)
@@ -37,7 +38,7 @@ Länkar till dokumentationen för T-SQL-satser stöds i Azure SQL Data Warehouse
 * [sys.pdw_table_distribution_properties](http://msdn.microsoft.com/library/mt203896.aspx)
 * [sys.pdw_table_mappings](http://msdn.microsoft.com/library/mt203876.aspx)
 
-## <a name="sql-data-warehouse-dynamic-management-views-dmvs"></a>SQL Data Warehouse dynamiska hanteringsvyer (av DMV: er)
+## <a name="sql-data-warehouse-dynamic-management-views-dmvs"></a>SQL Data Warehouse dynamiska hanteringsvyer (DMV)
 * [sys.dm_pdw_dms_cores](http://msdn.microsoft.com/library/mt203911.aspx)
 * [sys.dm_pdw_dms_external_work](https://msdn.microsoft.com/library/mt204024.aspx)
 * [sys.dm_pdw_dms_workers](http://msdn.microsoft.com/library/mt203878.aspx)
@@ -57,8 +58,8 @@ Länkar till dokumentationen för T-SQL-satser stöds i Azure SQL Data Warehouse
 * [sys.dm_pdw_wait_stats](http://msdn.microsoft.com/library/mt203909.aspx)
 * [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 
-## <a name="sql-server-dmvs-applicable-to-sql-data-warehouse"></a>SQL Server av DMV: er gäller för SQL Data Warehouse
-Följande av DMV: er som gäller för SQL Data Warehouse, men måste köras genom att ansluta till den **master** databas.
+## <a name="sql-server-dmvs-applicable-to-sql-data-warehouse"></a>SQL Server DMV: er gäller för SQL Data Warehouse
+Följande DMV: er kan användas för SQL Data Warehouse, men måste köras genom att ansluta till den **master** databas.
 
 * [sys.database_service_objectives](https://msdn.microsoft.com/library/mt712619.aspx)
 * [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx)
@@ -130,13 +131,13 @@ Följande av DMV: er som gäller för SQL Data Warehouse, men måste köras geno
 * [sys.types](http://msdn.microsoft.com/library/ms188021.aspx)
 * [sys.Views](http://msdn.microsoft.com/library/ms190334.aspx)
 
-## <a name="sql-server-dmvs-available-in-sql-data-warehouse"></a>SQL Server av DMV: er finns i SQL Data Warehouse
-SQL Data Warehouse exponerar många av de dynamiska hanteringsvyer (av DMV: er) för SQL Server. Dessa vyer när en förfrågan i SQL Data Warehouse rapporterar tillståndet för SQL-databaser som körs på distributioner.
+## <a name="sql-server-dmvs-available-in-sql-data-warehouse"></a>SQL Server DMV: er tillgängliga i SQL Data Warehouse
+SQL Data Warehouse visar många av de dynamiska hanteringsvyerna (DMV) för SQL Server. Dessa vyer när en förfrågan i SQL Data Warehouse rapporterar tillståndet för SQL-databaser som körs på distributionerna.
 
-SQL Data Warehouse och Analytics Platform System Parallel Data Warehouse (PDW) använder du samma systemvyer. Varje DMV har en kolumn med namnet pdw_node_id, vilket är identifieraren för Compute-nod. 
+SQL Data Warehouse och Analytics Platform System Parallel Data Warehouse (PDW) använder du samma systemvyer. Varje DMV har en kolumn med namnet pdw_node_id, vilket är identifieraren för Beräkningsnoden. 
 
 > [!NOTE]
-> Om du vill använda dessa vyer, infoga 'pdw_nodes_' i namnet som visas i följande tabell:
+> Om du vill använda dessa vyer, infoga ”pdw_nodes_” i namnet, som visas i följande tabell:
 > 
 > 
 
@@ -166,7 +167,7 @@ SQL Data Warehouse och Analytics Platform System Parallel Data Warehouse (PDW) a
 | sys.dm_pdw_nodes_os_child_instances |[sys.dm_os_child_instances](http://msdn.microsoft.com/library/ms165698.aspx) |
 | sys.dm_pdw_nodes_os_cluster_nodes |[sys.dm_os_cluster_nodes](http://msdn.microsoft.com/library/ms187341.aspx) |
 | sys.dm_pdw_nodes_os_dispatcher_pools |[sys.dm_os_dispatcher_pools](http://msdn.microsoft.com/library/bb630336.aspx) |
-| sys.dm_pdw_nodes_os_dispatchers |Transact-SQL-dokumentationen finns inte. |
+| sys.dm_pdw_nodes_os_dispatchers |Transact-SQL-dokumentation är inte tillgänglig. |
 | sys.dm_pdw_nodes_os_hosts |[sys.dm_os_hosts](http://msdn.microsoft.com/library/ms187800.aspx) |
 | sys.dm_pdw_nodes_os_latch_stats |[sys.dm_os_latch_stats](http://msdn.microsoft.com/library/ms175066.aspx) |
 | sys.dm_pdw_nodes_os_memory_brokers |[sys.dm_os_memory_brokers](http://msdn.microsoft.com/library/bb522548.aspx) |
@@ -175,7 +176,7 @@ SQL Data Warehouse och Analytics Platform System Parallel Data Warehouse (PDW) a
 | sys.dm_pdw_nodes_os_memory_cache_entries |[sys.dm_os_memory_cache_entries](http://msdn.microsoft.com/library/ms189488.aspx) |
 | sys.dm_pdw_nodes_os_memory_cache_hash_tables |[sys.dm_os_memory_cache_hash_tables](http://msdn.microsoft.com/library/ms182388.aspx) |
 | sys.dm_pdw_nodes_os_memory_clerks |[sys.dm_os_memory_clerks](http://msdn.microsoft.com/library/ms175019.aspx) |
-| sys.dm_pdw_nodes_os_memory_node_access_stats |Transact-SQL-dokumentationen finns inte. |
+| sys.dm_pdw_nodes_os_memory_node_access_stats |Transact-SQL-dokumentation är inte tillgänglig. |
 | sys.dm_pdw_nodes_os_memory_nodes |[sys.dm_os_memory_nodes](http://msdn.microsoft.com/library/bb510622.aspx) |
 | sys.dm_pdw_nodes_os_memory_objects |[sys.dm_os_memory_objects](https://msdn.microsoft.com/library/ms179875.aspx) |
 | sys.dm_pdw_nodes_os_memory_pools |[sys.dm_os_memory_pools](http://msdn.microsoft.com/library/ms175022.aspx) |
@@ -183,7 +184,7 @@ SQL Data Warehouse och Analytics Platform System Parallel Data Warehouse (PDW) a
 | sys.dm_pdw_nodes_os_performance_counters |[sys.dm_os_performance_counters](http://msdn.microsoft.com/library/ms187743.aspx) |
 | sys.dm_pdw_nodes_os_process_memory |[sys.dm_os_process_memory](http://msdn.microsoft.com/library/bb510747.aspx) |
 | sys.dm_pdw_nodes_os_schedulers |[sys.dm_os_schedulers](http://msdn.microsoft.com/library/ms177526.aspx) |
-| sys.dm_pdw_nodes_os_spinlock_stats |Transact-SQL-dokumentationen finns inte. |
+| sys.dm_pdw_nodes_os_spinlock_stats |Transact-SQL-dokumentation är inte tillgänglig. |
 | sys.dm_pdw_nodes_os_sys_info |[sys.dm_os_sys_info](http://msdn.microsoft.com/library/ms175048.aspx) |
 | sys.dm_pdw_nodes_os_sys_memory |[sys.dm_os_memory_nodes](http://msdn.microsoft.com/library/bb510622.aspx) |
 | sys.dm_pdw_nodes_os_tasks |[sys.dm_os_tasks](http://msdn.microsoft.com/library/ms174963.aspx) |
@@ -204,8 +205,8 @@ SQL Data Warehouse och Analytics Platform System Parallel Data Warehouse (PDW) a
 | sys.dm_pdw_nodes_tran_session_transactions |[sys.dm_tran_session_transactions](http://msdn.microsoft.com/library/ms188739.aspx) |
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](http://msdn.microsoft.com/library/ms188778.aspx) |
 
-## <a name="sql-server-2016-polybase-dmvs-available-in-sql-data-warehouse"></a>SQL Server 2016 PolyBase av DMV: er finns i SQL Data Warehouse
-Följande av DMV: er som gäller för SQL Data Warehouse, men måste köras genom att ansluta till den **master** databas.
+## <a name="sql-server-2016-polybase-dmvs-available-in-sql-data-warehouse"></a>SQL Server 2016 PolyBase DMV: er tillgängliga i SQL Data Warehouse
+Följande DMV: er kan användas för SQL Data Warehouse, men måste köras genom att ansluta till den **master** databas.
 
 * [sys.dm_exec_compute_node_errors](http://msdn.microsoft.com/library/mt146380.aspx)
 * [sys.dm_exec_compute_node_status](http://msdn.microsoft.com/library/mt146382.aspx)
@@ -219,7 +220,7 @@ Följande av DMV: er som gäller för SQL Data Warehouse, men måste köras geno
 * [sys.dm_exec_external_work](https://msdn.microsoft.com/library/mt146375.aspx)
 
 ## <a name="sql-server-informationschema-views"></a>SQL Server INFORMATION_SCHEMA vyer
-* [CHECK_CONSTRAINTS](http://msdn.microsoft.com/library/ms189772.aspx)
+* [FEL VID](http://msdn.microsoft.com/library/ms189772.aspx)
 * [KOLUMNER](http://msdn.microsoft.com/library/ms188348.aspx)
 * [PARAMETRAR](http://msdn.microsoft.com/library/ms173796.aspx)
 * [RUTINER](https://msdn.microsoft.com/library/ms188757.aspx)
@@ -230,4 +231,4 @@ Följande av DMV: er som gäller för SQL Data Warehouse, men måste köras geno
 * [VYER](http://msdn.microsoft.com/library/ms181381.aspx)
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer till referens [T-SQL-uttryck i Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md), och [T-SQL-språkelement i Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-language-elements.md).
+Mer information, finns i [T-SQL-instruktioner i Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md), och [språkelement för T-SQL i Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-language-elements.md).

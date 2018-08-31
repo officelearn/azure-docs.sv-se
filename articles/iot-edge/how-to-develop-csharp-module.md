@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 06/27/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 212de83a88f5a8114454761121ee3f22830d2448
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: e78a2c3492ebab2ac9f23f607e5bcaa0481003d9
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42057312"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287806"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka C#-moduler för Azure IoT Edge
 
@@ -88,7 +88,7 @@ Det finns flera Docker-filer för olika behållartyper i varje modul-mapp. Anvä
 
 2. Ange i kommandopaletten VS Code och kör kommandot **Edge: skapa IoT Edge-lösningen**.
 3. Välj den `deployment.template.json` -filen för din lösning från kommandopaletten. 
-4. I Azure IoT Hub Device Explorer högerklickar du på en IoT Edge-enhets-ID. Välj sedan **skapa distribution för IoT Edge-enhet**. 
+4. I Azure IoT Hub Device Explorer högerklickar du på en IoT Edge-enhets-ID. Välj sedan **skapa distribution för enskild enhet**. 
 5. Öppna din lösning **config** mapp. Välj sedan den `deployment.json` filen. Välj **Välj Edge-distribution Manifest**. 
 
 Distributionen har skapats med en distributions-ID i en terminal för VS Code-integrerade visas.

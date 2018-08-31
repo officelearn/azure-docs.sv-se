@@ -1,21 +1,21 @@
 ---
-title: Anslut till Azure SQL Data Warehouse - SSMS | Microsoft Docs
+title: Ansluta till Azure SQL Data Warehouse – SSMS | Microsoft Docs
 description: Använda SQL Server Management Studio (SSMS) för att ansluta till och fråga Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: f4b960115da3d30d355768498ae95270acaef49b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6079c3064699da38fad20468517eb97d6ab107f8
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182382"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307208"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>Anslut till SQL Data Warehouse med SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -33,12 +33,12 @@ Använda SQL Server Management Studio (SSMS) för att ansluta till och fråga Az
 Du behöver följande för att använda de här självstudierna:
 
 * Ett befintligt SQL Data Warehouse. Se [Skapa ett SQL Data Warehouse][Create a SQL Data Warehouse] för att se hur man skapar det.
-* SQL Server Management Studio (SSMS) installerat. [Installera SSMS] [ Install SSMS] kostnadsfritt om det inte redan har.
+* SQL Server Management Studio (SSMS) installerat. [Installera SSMS] [ Install SSMS] kostnadsfritt om du inte redan har den.
 * Det fullständigt kvalificerade servernamnet. [Anslut till SQL Data Warehouse][Connect to SQL Data Warehouse] för att hitta detta.
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Anslut till din SQL Data Warehouse
 1. Öppna SSMS.
-2. Öppna Object Explorer. Om du vill göra det, Välj **filen** > **ansluta Object Explorer**.
+2. Öppna Object Explorer. Om du vill göra detta, Välj **filen** > **ansluta Object Explorer**.
    
     ![SQL Server Object Explorer][1]
 3. Fyll i fälten i fönstret anslut till server.

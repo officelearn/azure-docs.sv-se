@@ -3,14 +3,14 @@ title: VMware till Azure-replikeringsarkitektur i Azure Site Recovery | Microsof
 description: Den här artikeln innehåller en översikt över komponenter och arkitektur som används för att replikera lokala virtuella VMware-datorer till Azure med Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.date: 07/06/2018
+ms.date: 08/29/2018
 ms.author: raynew
-ms.openlocfilehash: 48adf61dc0f1796b820e1e14ca509d4618c6256b
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4a97c44226d875a08f81a6306fc9ddd4ee29c409
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920576"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288149"
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>VMware till Azure-replikering-arkitektur
 
@@ -32,22 +32,7 @@ Följande tabell och bild ger en översikt över de komponenter som används fö
 
 ![Komponenter](./media/vmware-azure-architecture/arch-enhanced.png)
 
-## <a name="configuration-steps"></a>Konfigurationssteg
 
-Generella steg för att konfigurera VMware för Azure-haveriberedskap eller migrering är följande:
-
-1. **Konfigurera Azure-komponenter**. Du behöver ett Azure-konto med rätt behörigheter, ett Azure storage-konto, ett Azure-nätverk och ett Recovery Services-valv. [Läs mer](tutorial-prepare-azure.md).
-2. **Konfigurera lokala**. Dessa omfattar att konfigurera ett konto på VMware-servern så att Site Recovery kan automatiskt identifiera virtuella datorer för replikering, skapa ett konto som kan användas för att installera mobilitetstjänsten på virtuella datorer du vill replikera och verifiera att VMware-servrarna och virtuella datorer som uppfyller kraven. Du kan också välja förbereda att ansluta till dessa virtuella Azure-datorer efter redundansväxling. Site Recovery replikerar VM-data till ett Azure storage-konto och skapar virtuella Azure-datorer med hjälp av data när du kör en redundansväxling till Azure. [Läs mer](vmware-azure-tutorial-prepare-on-premises.md).
-3. **Konfigurera replikering**. Du kan välja var du vill replikera till. Du kan konfigurera källmiljön för replikering genom att konfigurera en enda lokal VMware VM (konfigurationsserver) som kör alla lokala Site Recovery-komponenter som du behöver. Efter installationen registrerar configuration server-dator i Recovery Services-valvet. Sedan kan välja du målinställningarna. [Läs mer](vmware-azure-tutorial.md).
-4. **Skapa en replikeringsprincip**. Du skapar en replikeringsprincip som anger hur replikering ska ske. 
-    - **Tröskelvärde för Replikeringspunktmål**: den här övervakningen som inställning tillstånd som om replikeringen inte inträffar inom den angivna tiden, en avisering (och eventuellt ett e-postmeddelande) utfärdas. Om du anger tröskelvärde för Replikeringspunktmål till 30 minuter och ett problem hindrar replikering inträffar i 30 minuter, till exempel genereras en händelse. Den här inställningen påverkar inte replikering. Replikeringen är kontinuerlig och återställningspunkter skapas några minuters mellanrum
-    - **Kvarhållning**: återställningspunkt kvarhållning anger hur länge återställningspunkterna ska lagras i Azure. Du kan ange ett värde mellan 0 och 24 timmar för premium-lagring eller upp till 72 timmar för standardlagring. Du kan växla över till den senaste återställningspunkten, eller till en lagrad om du ställer in värdet som är större än noll. Efter kvarhållningsperioden rensas återställningspunkterna.
-    - **Kraschkonsekventa ögonblicksbilder**: som standard Site Recovery tar kraschkonsekventa ögonblicksbilder och skapar återställningspunkter med dem med några minuters mellanrum. En återställningspunkt är kraschkonsekventa om alla relaterade data-komponenter är konsekvent för skrivning ordning, som de befann sig vid ögonblicket återställningspunkten skapades. För att bättre förstå anta att status för data på hårddisken PC efter ett strömavbrott eller en liknande händelse. En kraschkonsekvent återställningspunkt räcker vanligtvis om ditt program är utformat för att återställa från en krasch utan eventuella inkonsekvenser i data.
-    - **Appkonsekventa ögonblicksbilder**: om det här värdet inte är noll, den mobilitetstjänstversion som körs på den virtuella datorn försöker generera system-konsekventa ögonblicksbilder och återställningspunkter. Första ögonblicksbilden tas när den inledande replikeringen är klar. Ögonblicksbilder tas sedan med den frekvens som du anger. En återställningspunkt är programkonsekventa om, förutom att skriva ordning konsekvent och pågående program har slutfört alla sina åtgärder och tömma buffertarna till disk (programmet offline stegvis). Appkonsekventa återställningspunkter rekommenderas för databasprogram som SQL, Oracle och Exchange. Om en kraschkonsekventa ögonblicksbilder är tillräcklig kan det här värdet anges till 0.  
-    - **Konsekvens**: du kan också skapa en replikeringsgrupp. Sedan, när du aktiverar replikering kan du samla in virtuella datorer i gruppen. Virtuella datorer i en replikering gruppera replikera och har delade kraschkonsekventa och appkonsekventa återställningspunkter vid redundansväxling. Du bör använda det här alternativet noggrant, eftersom det kan påverka arbetsbelastningens prestanda som ögonblicksbilder som behövs för att samlas in över flera datorer. Endast göra detta om virtuella datorer kör samma arbetsbelastning och måste vara konsekvent och virtuella datorer har liknande churns. Du kan lägga till upp till 8 virtuella datorer till en grupp. 
-5. **Aktivera replikering av virtuella datorer**. Slutligen kan aktivera du replikering för din lokala VMware-datorer. Om du har skapat ett konto för att installera mobilitetstjänsten och anges att Site Recovery bör göra en push-installation, installeras mobilitetstjänsten på varje virtuell dator som du aktiverar replikering. [Läs mer](vmware-azure-tutorial.md#enable-replication). Om du har skapat en replikeringsgruppen för konsekvens för flera datorer kan du lägga till virtuella datorer i gruppen.
-6. **Testa redundans**. När allt har konfigurerats, kan du göra ett redundanstest för att kontrollera att virtuella datorer redundansväxlar till Azure som förväntat. [Läs mer](tutorial-dr-drill-azure.md).
-7. **Redundans**. Om du bara migrerar de virtuella datorerna till Azure – kan du köra en fullständig redundans för att göra detta. Om du konfigurerar haveriberedskap, kan du köra en fullständig växling vid fel eftersom du behöver. För fullständig haveriberedskap, kan efter en redundansväxling till Azure, du växla tillbaka till din lokala plats och när den är tillgänglig. [Läs mer](vmware-azure-tutorial-failover-failback.md).
 
 ## <a name="replication-process"></a>Replikeringsprocessen
 

@@ -1,6 +1,6 @@
 ---
-title: Bevilja behörighet till många program till en Azure key vault | Microsoft Docs
-description: Lär dig att tilldela behörighet för många program för att komma åt ett nyckelvalv
+title: Bevilja behörighet till många program för att få åtkomst till ett Azure key vault | Microsoft Docs
+description: Lär dig att ge behörighet till många program för att komma åt ett nyckelvalv
 services: key-vault
 documentationcenter: ''
 author: amitbapat
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 ms.author: ambapat
-ms.openlocfilehash: ddeaf184138bd48d324799ddb45248b0a0ee8eeb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 14e6e8bb723eb236f8fb315454b8697a3bd947ef
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30174990"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286435"
 ---
-# <a name="grant-permission-to-many-applications-to-access-a-key-vault"></a>Bevilja behörighet till många program för att komma åt ett nyckelvalv
+# <a name="grant-permission-to-many-applications-to-access-a-key-vault"></a>Ge behörighet till många program för att komma åt ett nyckelvalv
 
-## <a name="q-i-have-several-over-16-applications-that-need-to-access-a-key-vault-since-key-vault-only-allows-16-access-control-entries-how-can-i-achieve-that"></a>F: Jag har flera (över 16) program som behöver åtkomst till en nyckelvalvet. Hur kan jag få det med tanke på att Key Vault endast tillåter 16 åtkomstkontrollposter?
+## <a name="q-i-have-several-applications-that-need-to-access-a-key-vault-how-can-i-give-these-applications-up-to-1024-access-to-key-vault"></a>F: Jag har flera program som behöver komma åt ett nyckelvalv, hur kan jag ge programmen (upp till 1024) åtkomst till Key Vault?
 
-Key Vault principer för åtkomstkontroll har endast stöd för 16-poster. Du kan dock skapa en Azure Active Directory-säkerhetsgrupp. Lägg till alla associerade tjänster säkerhetsobjekt i den här säkerhetsgruppen och sedan ge åtkomst till den här säkerhetsgruppen att Nyckelvalvet.
+Principer för åtkomstkontroll Key Vault har stöd för upp till 1024 poster. Du kan dock skapa en Azure Active Directory-säkerhetsgrupp. Lägg till alla associerade huvudnamn i den här säkerhetsgruppen och bevilja åtkomst till den här säkerhetsgruppen till Key Vault.
 
-Här följer kraven:
+Här följer krav:
 * [Installera Azure Active Directory PowerShell V2-modulen](https://www.powershellgallery.com/packages/AzureAD).
 * [Installera Azure PowerShell](/powershell/azure/overview).
-* För att köra följande kommandon, behöver du behörigheter att skapa eller redigera grupper i Azure Active Directory-klient. Om du inte har behörighet, kan du behöva kontaktar du administratören Azure Active Directory.
+* För att köra följande kommandon, behöver du behörighet att skapa eller redigera grupper i Azure Active Directory-klient. Om du inte har behörighet, kan du behöva kontakta Azure Active Directory-administratören.
 
 Nu kör följande kommandon i PowerShell.
 
@@ -53,8 +53,8 @@ Set-AzureRmKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.
 # Of course you can adjust the permissions as required 
 ```
 
-Om du behöver ge en annan uppsättning behörigheter till en grupp av program kan du skapa en separat Azure Active Directory-säkerhetsgrupp för dessa program.
+Om du vill ge en annan uppsättning behörigheter till en grupp av program kan du skapa en separat Azure Active Directory-säkerhetsgrupp för sådana program.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du [Secure nyckelvalvet](key-vault-secure-your-key-vault.md).
+Mer information om hur du [säkra ditt nyckelvalv](key-vault-secure-your-key-vault.md).

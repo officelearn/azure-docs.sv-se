@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: 1a4b970b07514619b2d81a0483546ac64d07927f
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 6099a818651cf75a75159f43748720b3eb01e4de
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005483"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287829"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Utvecklarguide för Azure Functions JavaScript
 
@@ -30,27 +30,28 @@ JavaScript-upplevelsen för Azure Functions gör det enkelt att exportera en fun
 Den här artikeln förutsätter att du redan har läst den [Azure Functions för utvecklare](functions-reference.md).
 
 ## <a name="exporting-a-function"></a>Exportera en funktion
-Alla JavaScript-funktioner måste exportera en enda `function` via `module.exports` för körning för att hitta funktionen och kör den. Den här funktionen måste alltid innehålla en `context` objekt.
+Varje JavaScript-funktion måste exportera en enda `function` via `module.exports` för körning för att hitta funktionen och kör den. Den här funktionen måste alltid ta en `context` objektet som första parameter.
 
 ```javascript
-// You must include a context, but other arguments are optional
-module.exports = function(context) {
-    // Additional inputs can be accessed by the arguments property
-    if(arguments.length === 4) {
-        context.log('This function has 4 inputs');
-    }
-};
-// or you can include additional inputs in your arguments
+// You must include a context, other arguments are optional
 module.exports = function(context, myTrigger, myInput, myOtherInput) {
     // function logic goes here :)
+    context.done();
+};
+// You can also use 'arguments' to dynamically handle inputs
+module.exports = function(context) {
+    context.log('Number of inputs: ' + arguments.length);
+    // Iterates through trigger and input binding data
+    for (i = 1; i < arguments.length; i++){
+        context.log(arguments[i]);
+    }
+    context.done();
 };
 ```
 
-Bindningar för `direction === "in"` skickas vidare som funktionsargument, vilket innebär att du kan använda [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) att dynamiskt hantera nya indata (till exempel genom att använda `arguments.length` iterera över alla dina indata). Den här funktionen är praktiskt när du har bara en utlösare och inga ytterligare indata, eftersom du kan komma åt dina data för utlösaren förutsägbart utan att hänvisa till dina `context` objekt.
+Bindningar för indata och utlösare (bindningarna för `direction === "in"`) kan skickas till funktionen som parametrar. De skickas till funktionen i samma ordning som de har definierats i *function.json*. Du kan dynamiskt hantera indata med hjälp av JavaScript [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) objekt. Om du har till exempel `function(context, a, b)` och ändra den till `function(context, a)`, du kan fortfarande få värdet för `b` i Funktionskoden genom att referera till `arguments[2]`.
 
-Argumenten skickas alltid vidare till funktionen i den ordning som de ligger i *function.json*, även om du inte anger dem i din export-instruktionen. Om du har till exempel `function(context, a, b)` och ändra den till `function(context, a)`, du kan fortfarande få värdet för `b` i Funktionskoden genom att referera till `arguments[2]`.
-
-Alla bindningar, oavsett riktning, skickas även vidare den `context` objekt (se följande skript). 
+Alla bindningar, oavsett riktning, skickas även vidare den `context` objekt med hjälp av den `context.bindings` egenskapen.
 
 ## <a name="context-object"></a>Context-objektet
 Körningen använder en `context` objekt att skicka data till och från din funktion och så att du kan kommunicera med körningen.
@@ -61,6 +62,7 @@ Den `context` objektet är alltid den första parametern för en funktion och m�
 // You must include a context, but other arguments are optional
 module.exports = function(context) {
     // function logic goes here :)
+    context.done();
 };
 ```
 
@@ -96,7 +98,7 @@ context.done([err],[propertyBag])
 
 Informerar den runtime som koden har slutförts. Om din funktion använder den `async function` deklarationen (tillgängligt med hjälp av Node 8 + i Functions version 2.x), du behöver inte använda `context.done()`. Den `context.done` anropas implicit återanrop.
 
-Om funktionen inte är en async-funktion, **måste du anropa `context.done` ** att informera körningen att funktionen har slutförts. Körningen når tidsgränsen om den saknas.
+Om funktionen inte är en async-funktion, **måste du anropa `context.done`**  att informera körningen att funktionen har slutförts. Körningen når tidsgränsen om den saknas.
 
 Den `context.done` metoden kan du ange både en användardefinierad fel att körningen och en egenskapsuppsättning av egenskaperna som skriver över egenskaperna på den `context.bindings` objekt.
 

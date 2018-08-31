@@ -8,87 +8,87 @@ ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 3501c8d35968ecf8e32c806dfb05ccfebc7f4386
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: d61ac48aa7c51bc4b215a7d56b1bbedfdc613f9f
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264229"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287564"
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Översikt över mått i Microsoft Azure
 Den här artikeln beskriver vilka mått som finns i Microsoft Azure sina fördelar och hur du börjar använda dem.  
 
 ## <a name="what-are-metrics"></a>Vad är mått?
-Azure-Monitor kan du använda telemetri för att få insyn i prestanda och hälsotillståndet för dina arbetsbelastningar i Azure. Viktigaste är Azure telemetridata mätvärdena (kallas även prestandaräknare) sänds av mest Azure-resurser. Azure-Monitor finns flera sätt att konfigurera och använda de här måtten för övervakning och felsökning.
+Azure Monitor kan du använda telemetri för att få insyn i prestanda och hälsa för arbetsbelastningar på Azure. Viktigaste är Azure telemetridata mått (kallas även prestandaräknare) skickas från de flesta Azure-resurser. Azure Monitor innehåller flera olika sätt att konfigurera och använda de här måtten för övervakning och felsökning.
 
-## <a name="what-are-the-characteristics-of-metrics"></a>Vad är egenskaper hos mått?
+## <a name="what-are-the-characteristics-of-metrics"></a>Vad är egenskaper för mått?
 Mått har följande egenskaper:
 
-* Alla mätvärden har **minut frekvens** (om inget annat anges i definitionen för ett mått). Du får ett värde varje minut från din resurs så att du nära realtid insyn i tillstånd och hälsotillståndet för din resurs.
-* Mått är **tillgängliga omedelbart**. Du behöver inte välja eller konfigurera ytterligare diagnostik.
-* Du kan komma åt **93 dagar tidigare** för varje mått. Du kan snabbt se senaste och en månadsvis trender i prestanda eller hälsotillståndet för din resurs.
-* Vissa mått kan ha namn-värdepar attribut kallas **dimensioner**. Dessa kan du ytterligare segmentera och utforska ett mått på ett bättre sätt.
+* Alla mått har **en minut frekvens** (om inget annat anges i definitionen för ett mått). Du får ett måttvärde varje minut från din resurs, vilket ger dig en insyn i tillstånd och hälsa för din resurs realtid.
+* Mått är **tillgängliga omedelbart**. Du behöver inte välja eller skapa ytterligare diagnostik.
+* Du kan komma åt **93 dagars historik** för varje mått. Du kan snabbt leta efter de senaste och månatliga trenderna i prestanda eller hälsotillståndet för din resurs.
+* Vissa mått kan ha namn-värdepar attribut kallas **dimensioner**. Dessa kan du ytterligare segmentera och utforska ett mått på ett mer meningsfulla sätt.
 
 ## <a name="what-can-you-do-with-metrics"></a>Vad kan du göra med mått?
 Mått kan du utföra följande uppgifter:
 
 
-- Konfigurera ett mått **avisering regel som skickar ett meddelande eller tar automatisk åtgärd** om måttet överskrider tröskelvärdet som du har angett. Åtgärder styrs via [åtgärdsgrupper](monitoring-action-groups.md). Exempel åtgärder omfattar e-post, telefon och SMS-meddelanden, anropar en webhook startar en runbook och mycket mer. **Autoskala** är en automatisk specialåtgärd som du kan anpassa du är en resurs uppåt och nedåt för att hantera belastningen men Håll kostnaderna lägre när inte under belastning. Du kan konfigurera en regel för automatiska inställningen att skala in eller ut baserat på ett mått som passerar ett tröskelvärde.
-- **Väg** alla mått till *Programinsikter* eller *logganalys* så att instant analytics, Sök och anpassade aviseringar på mått data från dina resurser. Du kan också strömma med en *Händelsehubb*, så att du kan sedan dirigera dem till Azure Stream Analytics eller anpassade appar för analys i nära realtid. Du ställa in Event Hub strömning med diagnostikinställningar.
-- **Arkivera** prestanda eller hälsa historiken för din resurs för kompatibilitet granskning eller rapportering offline.  Du kan vidarebefordra dina till Azure Blob storage när du konfigurerar inställningar för diagnostik för din resurs.
-- Använd den **Azure-portalen** för att identifiera, komma åt och visa alla när du väljer en resurs och rita mått i ett diagram. Du kan spåra prestandan för din resurs (till exempel en VM, en webbplats eller en logikapp) genom att fästa diagrammet på instrumentpanelen.  
-- **Utföra avancerade analyser** eller rapportering på prestanda eller användning trender för din resurs.
-- **Frågan** mått med hjälp av PowerShell-cmdlets eller plattformsoberoende REST API.
-- **Använda** mätvärden via den nya Azure övervakaren REST API: er.
+- Konfigurera ett mått **avisering regel som skickar ett meddelande eller tar automatisk åtgärd** när måtten överskrider tröskelvärdet som du har angett. Åtgärder styrs via [åtgärdsgrupper](monitoring-action-groups.md). Exempel åtgärder omfattar e-post, telefon och SMS-meddelanden, anropa en webhook som startar en runbook och mycket mer. **Automatisk skalning** är en automatiserad specialåtgärd som gör det möjligt att skala du är en resurs upp och ned för att hantera belastningen men Håll kostnaderna lägre när inte under belastning. Du kan konfigurera en regel för inställning av automatisk skalning att skala in eller ut baserat på ett mått som korsar ett tröskelvärde.
+- **Väg** alla mått till *Programinsikter* eller *Log Analytics* så att direkta analyser, sökning och anpassade varningar på mätvärden från dina resurser. Du kan också strömma mått för att en *Event Hub*, så att du kan sedan dirigera dem till Azure Stream Analytics eller anpassade appar för analys i nära realtid. Du ställer in Event Hub strömning med diagnostikinställningar.
+- **Arkivera** prestanda eller hälsotillstånd historiken för dina resurser för efterlevnad, granskning eller rapportering offline.  Du kan dirigera dina mått till Azure Blob storage när du konfigurerar diagnostikinställningar för din resurs.
+- Använd den **Azure-portalen** för att identifiera, komma åt och visa alla mått när du väljer en resurs och rita mått i ett diagram. Du kan spåra prestanda för din resurs (till exempel en virtuell dator, en webbplats eller en logikapp) genom att fästa diagrammet på instrumentpanelen.  
+- **Utföra avancerade analyser** eller rapporter på prestanda och användning trender för din resurs.
+- **Fråga** mått med hjälp av PowerShell-cmdlets eller plattformsoberoende REST API.
+- **Använda** mätvärden via den nya Azure Monitor REST API: er.
 
-  ![Routning av mätvärden i Azure-Monitor](./media/monitoring-overview-metrics/Metrics_Overview_v4.png)
+  ![Routning av mått i Azure Monitor](./media/monitoring-overview-metrics/Metrics_Overview_v4.png)
 
-## <a name="access-metrics-via-the-portal"></a>Åtkomst till mätvärden via portalen
-Följande är en snabb genomgång av hur du skapar ett mått diagram med hjälp av Azure portal.
+## <a name="access-metrics-via-the-portal"></a>Mått för åtkomst via portalen
+Följande är en snabb genomgång av hur du skapar ett måttdiagram med hjälp av Azure portal.
 
 ### <a name="to-view-metrics-after-creating-a-resource"></a>Visa mått när du har skapat en resurs
 1. Öppna Azure Portal.
 2. Skapa en Azure App Service-webbplats.
-3. När du skapar en webbplats, går du till den **översikt** bladet på webbplatsen.
+3. När du skapar en webbplats går du till den **översikt** bladet av webbplatsen.
 4. Du kan visa nya mått som en **övervakning** panelen. Du kan redigera panelen och välja fler mått.
 
-   ![Mått på en resurs i Azure-Monitor](./media/monitoring-overview-metrics/MetricsOverview1.png)
+   ![Mått på en resurs i Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview1.png)
 
 ### <a name="to-access-all-metrics-in-a-single-place"></a>Åtkomst till alla mått i en enda plats
 1. Öppna Azure Portal.
-2. Navigera till den nya **övervakaren** fliken och sedan väljer du den **mått** alternativet under.
+2. Gå till den nya **övervakaren** fliken och sedan väljer du den **mått** alternativet under den.
 3. Välj din prenumeration, resursgrupp och namnet på resursen från den nedrullningsbara listan.
-4. Visa listan över tillgängliga mått. Välj det mått som du är intresserad av och rita den sedan.
+4. Visa listan över tillgängliga mått. Välj sedan de mått som du är intresserad av och rita den.
 5. Du kan fästa den på instrumentpanelen genom att klicka på PIN-koden i det övre högra hörnet.
 
-   ![Åtkomst till alla mått i en enda plats i Azure-Monitor](./media/monitoring-overview-metrics/MetricsOverview2.png)
+   ![Få åtkomst till alla mått på en enda plats i Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview2.png)
 
 > [!NOTE]
-> Du kan komma åt värdnivå mått från virtuella datorer (Azure Resource Manager-baserat) och virtuella datorn anger utan några ytterligare inställningar för diagnostik. Dessa nya värdnivå mått är tillgängliga för Windows och Linux-instanser. De här måtten är ska inte förväxlas med det att du har åtkomst till när du aktiverar Azure-diagnostik på virtuella datorer eller virtuella datorn anger gäst-OS-nivå. Mer information om hur du konfigurerar diagnostik finns [vad är Microsoft Azure-diagnostik](../azure-diagnostics.md).
+> Du kan komma åt värdnivå mått från virtuella datorer (Azure Resource Manager-baserade) och VM scale sets för utan ytterligare diagnostiska inställningar. Dessa nya mått på värdnivå är tillgängliga för Windows och Linux-instanser. De här måtten är ska inte förväxlas med de mått som gäst-OS-nivå är att du har åtkomst till när du stänger på Azure-diagnostik på virtuella datorer eller VM scale sets. Läs mer om att konfigurera diagnostik i [vad är Microsoft Azure Diagnostics](../azure-diagnostics.md).
 >
 >
 
-Övervakare för Azure har också en ny mått diagram upplevelse som är tillgängliga i förhandsversionen. Det här upplevelsen kan användare överlägg mått från flera resurser i ett diagram. Användare kan också rita segment, och filtrera flerdimensionella mått med mätvärdet nytt diagram upplevelse. Mer information [Klicka här](https://aka.ms/azuremonitor/new-metrics-charts)
+Azure Monitor har också en nya mått som diagram upplevelse som är tillgänglig som förhandsversion. Den här upplevelsen kan användare företagsdataskydd mått från flera resurser på ett diagram. Användare kan också rita segment, och filtrera flerdimensionella mått med den här nya mått som diagram upplevelse. Mer [Klicka här](https://aka.ms/azuremonitor/new-metrics-charts)
 
-## <a name="access-metrics-via-the-rest-api"></a>Åtkomst till mätvärden via REST API
-Azure mått kan nås via API: er för Azure-Monitor. Det finns två API: er som hjälper dig identifiera och komma åt mått:
+## <a name="access-metrics-via-the-rest-api"></a>Mått för åtkomst via REST API
+Azure-mått kan nås via API: er för Azure Monitor. Det finns två API: er som hjälper dig att upptäcka och komma åt mått:
 
-* Använd den [mått för Azure-Monitor definitioner REST API](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) att komma åt listan över mått och dimensioner som är tillgängliga för en tjänst.
-* Använd den [Azure övervakaren mått REST API](https://docs.microsoft.com/rest/api/monitor/metrics) segmentera, filtrera och komma åt data faktiska mått.
+* Använd den [REST API för Azure Monitor måttdefinitioner](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) att komma åt listan över mått och dimensioner, som är tillgängliga för en tjänst.
+* Använd den [Azure Monitor Metrics REST API](https://docs.microsoft.com/rest/api/monitor/metrics) att segmentera, filtrera och komma åt faktiska mätvärden.
 
 > [!NOTE]
-> Den här artikeln beskriver mätvärden via den [nya API: et för mått](https://docs.microsoft.com/rest/api/monitor/) för Azure-resurser. API-versionen för den nya måttdefinitioner och mått API: er är 2018-01-01. Äldre måttdefinitioner och mått kan nås med API-version 2014-04-01.
+> Den här artikeln beskriver mätvärden via den [nya API: et för mått](https://docs.microsoft.com/rest/api/monitor/) för Azure-resurser. API-versionen för den nya definitioner av mätvärden och mått API: er är 2018-01-01. Definitioner av mätvärden för äldre och mått kan nås med API-version 2014-04-01.
 >
 >
 
-En mer detaljerad genomgång med hjälp av Azure övervakaren REST-API: er finns [REST-API för Azure-Monitor genomgången](monitoring-rest-api-walkthrough.md).
+En mer detaljerad genomgång med hjälp av Azure Monitor REST-API: er finns i [Azure Monitor REST API-genomgång](monitoring-rest-api-walkthrough.md).
 
 ## <a name="export-metrics"></a>Exportera mått
-Går du till den **diagnostikinställningarna** bladet under den **övervakaren** fliken och visa exportalternativ för mått. Du kan välja mått (och diagnostikloggar) ska vidarebefordras till Blob storage till Händelsehubbar i Azure eller till logganalys för användningsområden som har nämnts tidigare i den här artikeln.
+Går du till den **diagnostikinställningar** bladet under den **övervakaren** fliken och visa exportalternativ för mått. Du kan välja mått och diagnostikloggar som dirigeras till Blob storage till Azure Event Hubs eller till Log Analytics för användningsfall som har nämnts tidigare i den här artikeln.
 
- ![Exportalternativ för mätvärden i Azure-Monitor](./media/monitoring-overview-metrics/MetricsOverview3.png)
+ ![Exportalternativ för mått i Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview3.png)
 
-Du kan konfigurera detta via Resource Manager-mallar [PowerShell](insights-powershell-samples.md), [Azure CLI](insights-cli-samples.md), eller [REST API: er](https://msdn.microsoft.com/library/dn931943.aspx).
+Du kan konfigurera detta via Resource Manager-mallar, [PowerShell](insights-powershell-samples.md), [Azure CLI](insights-cli-samples.md), eller [REST API: er](https://msdn.microsoft.com/library/dn931943.aspx).
 
 > [!NOTE]
 > Det går för närvarande inte att skicka flerdimensionella mätvärden via diagnostikinställningar. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.
@@ -97,30 +97,30 @@ Du kan konfigurera detta via Resource Manager-mallar [PowerShell](insights-power
 >
 >
 
-## <a name="take-action-on-metrics"></a>Utför en åtgärd på mått
-Du kan konfigurera Varningsregler eller automatiska inställningar för att ta emot meddelanden eller utför automatiserade åtgärder på mätvärden.
+## <a name="take-action-on-metrics"></a>Vidta åtgärder för mått
+Du kan konfigurera Varningsregler eller inställningarna för automatisk skalning för att ta emot meddelanden eller vidta automatiska åtgärder på måttdata.
 
 ### <a name="configure-alert-rules"></a>Konfigurera Varningsregler
-Du kan konfigurera Varningsregler på mått. Dessa Varningsregler kan kontrollera om ett mått har passerat ett visst tröskelvärde. Det finns två mått aviseringar funktionerna i Azure-Monitor.
+Du kan konfigurera Varningsregler för mått. Dessa Varningsregler kan kontrollera om ett mått har passerat ett visst tröskelvärde. Det finns två metriska varningar funktioner som erbjuds av Azure Monitor.
 
-Mått aviseringar: de kan sedan meddela dig via e-post eller eller en webhook som kan användas för att köra alla anpassade skript. Du kan också använda webhooken för att konfigurera integration produkten från tredje part.
+Måttaviseringar: de kan sedan meddelar dig via e-post eller utlöses en webhook som kan användas för att köra eventuella anpassade skript. Du kan också använda webhooken för att konfigurera produkten från tredje part-integration.
 
- ![Mått och Varningsregler i Azure-Monitor](./media/monitoring-overview-metrics/MetricsOverview4.png)
+ ![Mått och aviseringsregler i Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
-Nyare mått aviseringar har möjlighet att övervaka flera mått och tröskelvärden för en resurs och meddela dig via en [grupp](/monitoring-action-groups.md). Lär dig mer om [nyare aviseringar här](https://aka.ms/azuremonitor/near-real-time-alerts).
+Nyare måttaviseringar möjlighet att övervaka flera mått och tröskelvärden för en resurs och meddelar dig via en [åtgärdsgrupp](monitoring-action-groups.md). Läs mer om [nyare aviseringar här](https://aka.ms/azuremonitor/near-real-time-alerts).
 
 
-### <a name="autoscale-your-azure-resources"></a>Autoskala din Azure resurser
-Vissa Azure-resurser stöd för skalning in eller ut av flera instanser för att hantera dina arbetsbelastningar. Autoskala gäller för App Service (webbprogram), skalningsuppsättningar i virtuella datorer och klassiska Azure-molntjänster. Du kan konfigurera automatiska regler för att skala in eller ut när ett mått som påverkar din arbetsbelastning överskrider ett tröskelvärde som du anger. Mer information finns i [översikt över autoskalning](monitoring-overview-autoscale.md).
+### <a name="autoscale-your-azure-resources"></a>Autoskala din Azure-resurser
+Vissa Azure-resurser stöd för att skala in eller ut över flera instanser för att hantera dina arbetsbelastningar. Automatisk skalning gäller för App Service (Webbappar), VM-skalningsuppsättningar och klassiska Azure-molntjänster. Du kan konfigurera regler för automatisk skalning att skala in eller ut när ett mått som påverkar din arbetsbelastning överskrider ett tröskelvärde som du anger. Mer information finns i [översikt över automatisk skalning](monitoring-overview-autoscale.md).
 
- ![Mått och Autoskala i Azure-Monitor](./media/monitoring-overview-metrics/MetricsOverview5.png)
+ ![Mått och automatisk skalning i Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview5.png)
 
-## <a name="learn-about-supported-services-and-metrics"></a>Lär dig mer om tjänster som stöds och mått
-Du kan visa en detaljerad lista över alla tjänster som stöds och deras mått på [Azure-Monitor mått--stöds mått per resurstypen](monitoring-supported-metrics.md).
+## <a name="learn-about-supported-services-and-metrics"></a>Läs mer om tjänster som stöds och mått
+Du kan visa en detaljerad lista över alla tjänster som stöds och deras mått [Azure Monitor-mått – mått som stöds per resurstyp](monitoring-supported-metrics.md).
 
 ## <a name="next-steps"></a>Nästa steg
-Se länkarna i den här artikeln. Dessutom lär dig mer om:  
+Se länkarna i den här artikeln. Dessutom kan du läsa om:  
 
-* [Vanliga mätvärden för autoskalning](insights-autoscale-common-metrics.md)
+* [Vanliga mått för autoskalning](insights-autoscale-common-metrics.md)
 * [Så här skapar du Varningsregler](insights-alerts-portal.md)
-* [Analysera loggar från Azure storage med logganalys](../log-analytics/log-analytics-azure-storage.md)
+* [Analysera loggar från Azure storage med Log Analytics](../log-analytics/log-analytics-azure-storage.md)

@@ -3,19 +3,19 @@ title: Azure SQL Data Warehouse viktig juni 2018 | Microsoft Docs
 description: Viktig information för Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: twounder
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 1db503ea40a9f07720aa9c130cd3bcc22f87f2af
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 6dff2d1886a560e3a7e2758816a884782e33787f
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324827"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287978"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Vad är nytt i Azure SQL Data Warehouse? Juni 2018
 Azure SQL Data Warehouse tar emot förbättringar kontinuerligt. Den här artikeln beskriver nya funktioner och ändringar som har införts i juni 2018. 

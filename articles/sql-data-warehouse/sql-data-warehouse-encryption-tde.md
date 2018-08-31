@@ -3,23 +3,23 @@ title: Transparent datakryptering i SQL Data Warehouse (Portal) | Microsoft Docs
 description: Transparent datakryptering (TDE) i SQL Data Warehouse
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 9c4abb0416acc656a4cfae332377c398260191de
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: e641ddb5360c18b5977fb79de41334d4216c2b90
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31524235"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306195"
 ---
-# <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>Kom igång med Transparent Data kryptering (TDE) i SQL Data Warehouse
+# <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>Kom igång med Transparent datakryptering (TDE) i SQL Data Warehouse
 > [!div class="op_single_selector"]
-> * [Översikt över säkerheten](sql-data-warehouse-overview-manage-security.md)
+> * [Säkerhetsöversikt](sql-data-warehouse-overview-manage-security.md)
 > * [Autentisering](sql-data-warehouse-authentication.md)
 > * [Kryptering (Portal)](sql-data-warehouse-encryption-tde.md)
 > * [Kryptering (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
@@ -27,30 +27,30 @@ ms.locfileid: "31524235"
 > 
 
 ## <a name="required-permssions"></a>Nödvändig behörighet
-Om du vill aktivera Transparent Data kryptering (TDE) måste du vara administratör eller medlem i rollen dbmanager.
+Om du vill aktivera Transparent datakryptering (TDE), måste du vara administratör eller medlem i rollen dbmanager.
 
 ## <a name="enabling-encryption"></a>Aktivera kryptering
-Följ stegen nedan om du vill aktivera TDE för ett SQL Data Warehouse:
+Följ stegen nedan om du vill aktivera transparent Datakryptering för ett SQL Data Warehouse:
 
 1. Öppna databasen i den [Azure-portalen](https://portal.azure.com)
-2. I databasbladet klickar du på den **inställningar** knappen
+2. Databasbladet klickar du på den **inställningar** knappen
 3. Välj den **Transparent datakryptering** alternativet ![][1]
-4. Välj den **på** inställning ![][2]
+4. Välj den **på** inställningen ![][2]
 5. Välj **spara**
    ![][3]  
 
-## <a name="disabling-encryption"></a>Om du inaktiverar kryptering
+## <a name="disabling-encryption"></a>Inaktivering av kryptering
 Följ stegen nedan om du vill inaktivera TDE för ett SQL Data Warehouse:
 
 1. Öppna databasen i den [Azure-portalen](https://portal.azure.com)
-2. I databasbladet klickar du på den **inställningar** knappen
+2. Databasbladet klickar du på den **inställningar** knappen
 3. Välj den **Transparent datakryptering** alternativet ![][1]
-4. Välj den **av** inställning ![][4]
+4. Välj den **av** inställningen ![][4]
 5. Välj **spara**
    ![][5]  
 
-## <a name="encryption-dmvs"></a>Kryptering av DMV: er
-Kryptering kan bekräftas med följande av DMV: er:
+## <a name="encryption-dmvs"></a>Kryptering DMV: er
+Kryptering kan bekräftas med följande DMV: er:
 
 * [sys.Databases]
 * [sys.dm_pdw_nodes_database_encryption_keys]

@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 08/28/2018
+ms.date: 08/30/2018
 ms.author: marsma
-ms.openlocfilehash: 5c10c961519614d1560f27c41ba57237085261ba
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
-ms.translationtype: HT
+ms.openlocfilehash: eb3a1745677871211df05d18e28d32061f360bac
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190416"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301824"
 ---
 # <a name="azure-container-registry-skus"></a>Azure Container Registry SKU: er
 
@@ -21,9 +21,9 @@ Azure Container Registry (ACR) är tillgänglig i flera tjänstnivåer, kallas S
 
 | SKU | Hanterad | Beskrivning |
 | --- | :-------: | ----------- |
-| **Basic** | Ja | En kostnadsoptimerad startpunkt för utvecklare som lär sig Azure Container Registry. Grundläggande register har samma programmässiga funktioner som Standard och Premium (Azure Active Directory-autentiseringsintegrering, bildborttagning och webhooks), men det finns begränsningar för storlek och användning. |
-| **Standard** | Ja | Standardregister erbjuder samma funktioner som grundläggande med ökade Lagringsgränser och avbildning dataflöde. Standard-register bör uppfylla behoven för de flesta produktionsscenarier. |
-| **Premium** | Ja | Premium-register ger högre gränser på begränsningarna, t.ex lagring och samtidiga åtgärder som att aktivera scenarier med hög volym. Förutom högre bild dataflödeskapacitet Premium lägger du till funktioner som [georeplikering] [ container-registry-geo-replication] underhålla nätverksnära register i var och en för att hantera ett enda register över flera regioner distribution. |
+| **Basic** | Ja | En kostnadsoptimerad startpunkt för utvecklare som lär sig Azure Container Registry. Grundläggande register har samma programmässiga funktioner som Standard och Premium (integrering med Azure Active Directory-autentisering, bild borttagning och webhooks). Inkluderad lagring och dataflöde som bilden är dock bäst för lägre Användningsscenarier. |
+| **Standard** | Ja | Standardregister erbjuder samma funktioner som grundläggande med ökad inkluderade lagrings- och dataflöde. Standard-register bör uppfylla behoven för de flesta produktionsscenarier. |
+| **Premium** | Ja | Premium-register ger högsta mängden lagringsutrymme och samtidiga åtgärder som att aktivera scenarier med hög volym. Förutom högre bild dataflöde Premium lägger du till funktioner som [georeplikering] [ container-registry-geo-replication] för att hantera ett enda register i flera regioner och [innehåll förtroende (förhandsversion)](container-registry-content-trust.md)för signering av bild taggen. |
 | Klassiska<sup>1</sup> | Nej | Denna SKU aktiverat den första versionen av Azure Container Registry-tjänst i Azure. Klassiskt register backas upp av ett lagringskonto som skapas av Azure i din prenumeration, vilket begränsar möjligheten för ACR och programlivscykler på högre nivå, till exempel ökat genomflöde och geo-replikering. |
 
 <sup>1</sup> klassiska SKU blir **inaktuell** i **mars 2019**. Använd Basic, Standard eller Premium för alla nya behållarregister.

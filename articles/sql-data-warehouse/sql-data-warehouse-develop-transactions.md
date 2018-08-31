@@ -1,40 +1,40 @@
 ---
-title: Med transaktioner i Azure SQL Data Warehouse | Microsoft Docs
-description: Tips för transaktioner i Azure SQL Data Warehouse för utveckling av lösningar.
+title: Använda transaktioner i Azure SQL Data Warehouse | Microsoft Docs
+description: Tips för att genomföra transaktioner i Azure SQL Data Warehouse för utveckling av lösningar.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 7fa3d19cc0fca81616969773a40c3d3dbccc4a26
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 121fa87cb295799fdcd3de5e627fb894efc24c49
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31596933"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301273"
 ---
-# <a name="using-transactions-in-sql-data-warehouse"></a>Med hjälp av transaktioner i SQL Data Warehouse
-Tips för transaktioner i Azure SQL Data Warehouse för utveckling av lösningar.
+# <a name="using-transactions-in-sql-data-warehouse"></a>Använda transaktioner i SQL Data Warehouse
+Tips för att genomföra transaktioner i Azure SQL Data Warehouse för utveckling av lösningar.
 
 ## <a name="what-to-expect"></a>Vad du kan förvänta dig
-Precis som väntat stöder transaktioner som en del av arbetsbelastningen för informationslager i SQL Data Warehouse. För att säkerställa prestanda för SQL Data Warehouse underhålls i skala är vissa funktioner dock begränsad jämfört med SQL Server. Den här artikeln visar skillnaderna och visar en lista över de andra. 
+Som förväntat, stöder SQL Data Warehouse transaktioner som en del av arbetsbelastningen för informationslager. Men för att säkerställa att prestandan för SQL Data Warehouse underhålls i stor skala är vissa funktioner begränsade jämfört med SQL Server. Den här artikeln visar skillnaderna och visar en lista över de andra. 
 
 ## <a name="transaction-isolation-levels"></a>Transaktionsisoleringsnivåer
-SQL Data Warehouse implementerar ACID-transaktioner. Dock är isoleringsnivå för transaktionell stöd begränsad till READ UNCOMMITTED; den här nivån kan inte ändras. Om READ UNCOMMITTED är ett problem kan implementera du ett antal metoder för att förhindra felaktiga läsningar av data-kodning. De mest populära metoderna använda CTAS och tabellen partition växling (kallas ofta för glidande fönstret mönstret) för att förhindra att användare datafrågor som förbereds fortfarande. Vyer som före filtrerar data är också en populär metod.  
+SQL Data Warehouse implementerar ACID-transaktioner. Dock är isoleringsnivå för transaktionellt stöd begränsat till READ UNCOMMITTED; den här nivån kan inte ändras. Om READ UNCOMMITTED är ett problem kan implementera du ett antal kodning metoder för att förhindra felaktiga läsningar av data. De mest populära metoderna använder både CTAS och tabellen växla partition (kallas ofta för mönstret glidande fönstret) för att hindra användare från att köra frågor mot data som förbereds fortfarande. Vyer som förfiltrera data är också ett populärt sätt.  
 
-## <a name="transaction-size"></a>Transaktionsstorlek
-En enda data ändras transaktion har begränsad storlek. Gränsen tillämpas per distribution. Därför kan den totala fördelningen beräknas genom att multiplicera gränsen med antalet distribution. Att ungefärliga det maximala antalet rader i transaktionen delar taket för distribution av den totala storleken på varje rad. Överväg att tar en genomsnittlig kolumnlängden i stället för med den maximala storleken för kolumner med variabel längd.
+## <a name="transaction-size"></a>Transaktionstorlek
+En enda ändring av transaktion har begränsad storlek. Gränsen tillämpas per distribution. Därför kan den totala allokeringen beräknas genom att multiplicera gränsen med antalet distribution. Att ungefärliga det maximala antalet rader i transaktionen dividera taket för distribution av den totala storleken på varje rad. Överväg att tar en genomsnittlig Kolumnlängd i stället för med den maximala storleken för variabel längd kolumner.
 
 I tabellen nedan följande antaganden har gjorts:
 
-* Det uppstod en jämn fördelning av data 
-* Genomsnittlig radlängden är 250 byte
+* En jämn fördelning av data har uppstått 
+* Den genomsnittliga radlängden är 250 byte
 
-| [DWU](sql-data-warehouse-overview-what-is.md) | CAP per distribution (GiB) | Antal distributioner | Maxstorlek för transaktionen (GiB) | # Rader per distribution | Maximalt antal rader per transaktion |
+| [DWU](sql-data-warehouse-overview-what-is.md) | Gräns per distribution (GiB) | Antal distributioner | Maxstorlek för transaktionen (GiB) | Antal rader per distribution | Maximalt antal rader per transaktion |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200 |1.5 |60 |90 |6,000,000 |360,000,000 |
@@ -49,25 +49,25 @@ I tabellen nedan följande antaganden har gjorts:
 | DW3000 |22.5 |60 |1,350 |90,000,000 |5,400,000,000 |
 | DW6000 |45 |60 |2,700 |180,000,000 |10,800,000,000 |
 
-Storleksgräns för transaktionen används per transaktion eller åtgärden. Det har inte tillämpats över alla samtidiga transaktioner. Varje transaktion tillåts därför att skriva den här mängden data i loggen. 
+Storleksgräns för transaktioner används per transaktion eller åtgärden. Den används inte i alla samtidiga transaktioner. Varje transaktion tillåts därför att skriva den här mängden data in i. 
 
-För att optimera och minska mängden data som skrivs till loggfilen måste referera till den [transaktioner metodtips](sql-data-warehouse-develop-best-practices-transactions.md) artikel.
+För att optimera och minska mängden data som skrivs till loggen, finns det [Metodtips för transaktioner](sql-data-warehouse-develop-best-practices-transactions.md) artikeln.
 
 > [!WARNING]
-> Den maximala transaktionsstorlek kan bara genomföras för HASH eller ROUND_ROBIN distribuerade tabeller där spridning av data är även. Om transaktionen skriver data i ett skeva sätt till distributioner är det troligt att nå innan den maximala transaktionsstorlek med gränsen.
+> Den maximala transaktionstorlek kan bara ske för HASH eller ROUND_ROBIN distribuerade tabeller där spridningen av data är ännu. Om transaktionen skriver data på ett skeva sätt till distributionerna är det troligt att nå innan den maximala transaktionstorlek med gränsen.
 > <!--REPLICATED_TABLE-->
 > 
 > 
 
 ## <a name="transaction-state"></a>Transaktionstillstånd
-SQL Data Warehouse använder funktionen XACT_STATE() för att rapportera en misslyckad transaktion med värdet -2. Det här värdet innebär transaktionen misslyckades och har markerats för återställning endast.
+SQL Data Warehouse använder funktionen XACT_STATE() för att rapportera en misslyckad transaktion med hjälp av värdet -2. Det här värdet innebär transaktionen misslyckades och har markerats för endast återställning.
 
 > [!NOTE]
-> Använd 2 av funktionen XACT_STATE för att ange en misslyckad transaktion representerar olika beteenden till SQL Server. SQL Server använder värdet -1 för att representera en transaktion. SQL Server kan tolerera fel inuti en transaktion utan har markerats som en icke-allokerad. Till exempel `SELECT 1/0` skulle orsaka fel men inte att tvinga fram en transaktion i ett tillstånd som en icke-allokerad. SQL Server tillåter också läsningar i en icke-allokerad transaktion. Dock kan SQL Data Warehouse du inte göra detta. Om ett fel uppstår i en transaktion i SQL Data Warehouse-2-tillståndet anges automatiskt och du kommer inte att kunna göra Markera ytterligare instruktioner tills instruktionen har återställts. Det är därför viktigt att kontrollera att din programkod för att se om det använder XACT_STATE() som du kan behöva göra ändringar i koden.
+> Användning av -2 av funktionen XACT_STATE att ange en misslyckad transaktion representerar olika beteenden till SQL Server. SQL Server används värdet -1 för att representera en transaktion. SQL Server kan tolerera fel i en transaktion utan har markerats som en icke-allokerad. Till exempel `SELECT 1/0` skulle orsaka ett fel men inte tvingar en transaktion i ett tillstånd som en icke-allokerad. SQL Server tillåter också läsningar i en icke-allokerad transaktion. SQL Data Warehouse tillåter dock inte att du gör detta. Om ett fel uppstår i en transaktion i SQL Data Warehouse-2-tillstånd anges automatiskt och du kommer inte att kunna göra Välj ytterligare instruktioner tills instruktionen har återställts. Det är därför viktigt att kontrollera att din programkod för att se om det använder XACT_STATE() som du kan behöva göra kodändringar.
 > 
 > 
 
-Till exempel i SQL Server kan du se en transaktion som ser ut som följande:
+Exempelvis kan du i SQL Server finns i en transaktion som ser ut som följande:
 
 ```sql
 SET NOCOUNT ON;
@@ -105,13 +105,13 @@ END
 SELECT @xact_state AS TransactionState;
 ```
 
-Föregående kod ger följande felmeddelande visas:
+Föregående kod får följande felmeddelande visas:
 
-Meddelande 111233, nivå 16, tillstånd 1, rad 1 111233; Den aktuella transaktionen har avbrutits och väntande ändringar har återställts. Orsak: En transaktion endast återställning har inte uttryckligen återställts innan en DDL-, DML- eller SELECT-instruktion.
+Msg 111233, nivå 16, tillstånd 1, rad 1 111233; Den aktuella transaktionen har avbrutits och väntande ändringar har återställts. Orsak: En transaktion endast återställning inte uttryckligen återställdes innan en DDL-, DML- eller SELECT-instruktion.
 
 Du kommer inte att hämta utdata för ERROR_ *-funktioner.
 
-Koden måste vara något ändras i SQL Data Warehouse:
+I SQL Data Warehouse måste koden ändras något:
 
 ```sql
 SET NOCOUNT ON;
@@ -148,32 +148,32 @@ END
 SELECT @xact_state AS TransactionState;
 ```
 
-Förväntat beteende observeras nu. Fel i transaktionen hanteras och funktioner ERROR_ * ange värden som förväntat.
+Förväntat beteende observeras nu. Fel i transaktionen hanteras och funktionerna ERROR_ * ange värden som förväntat.
 
-Alla som har ändrats är att ÅTERSTÄLLNINGEN av transaktionen måste inträffa innan läsning av information om felet i CATCH-blocket.
+Allt som har ändrats är att ÅTERSTÄLLNINGEN av transaktionen måste inträffa innan läsning av information om felet i CATCH-blocket.
 
 ## <a name="errorline-function"></a>Error_Line() funktion
-Det är också värt att nämna att SQL Data Warehouse inte implementera eller stöder funktionen ERROR_LINE(). Om du har du i koden kan behöva du ta bort den för att vara kompatibel med SQL Data Warehouse. Använd fråga etiketter i koden i stället för att genomföra motsvarande funktioner. Mer information finns i [etikett](sql-data-warehouse-develop-label.md) artikel.
+Det är också värt att SQL Data Warehouse inte implementera eller stöder funktionen ERROR_LINE(). Om du har du i din kod kan behöva du ta bort den för att vara kompatibel med SQL Data Warehouse. Använd fråga etiketter i din kod i stället för att implementera motsvarande funktioner. Mer information finns i den [etikett](sql-data-warehouse-develop-label.md) artikeln.
 
 ## <a name="using-throw-and-raiserror"></a>Med hjälp av THROW och RAISERROR
-THROW är mer modern implementering för att öka undantag i SQL Data Warehouse men stöds även RAISERROR. Det finns några skillnader som är värt uppmärksam på men.
+THROW är mer modern implementeringen för att öka undantag i SQL Data Warehouse men RAISERROR stöds också. Det finns några skillnader som är värda var uppmärksam på men.
 
-* Användardefinierade meddelanden felnummer får inte vara i intervallet för THROW 150 100 000 000
-* RAISERROR felmeddelanden korrigeras på 50 000
+* Användardefinierade fel meddelanden siffror får inte vara i intervallet 100 000 – 150 000 för THROW
+* RAISERROR-felmeddelanden är högst 50 000
 * Användning av sys.messages stöds inte
 
 ## <a name="limitations"></a>Begränsningar
-SQL Data Warehouse har några andra begränsningar som relaterar till transaktioner.
+SQL Data Warehouse har några andra begränsningar som är relaterade till transaktioner.
 
 De är följande:
 
 * Inga distribuerade transaktioner
-* Inga kapslade transaktioner tillåtna
+* Inga kapslade transaktioner tillåts
 * Spara punkter tillåts inte
 * Inga namngivna transaktioner
 * Inga markerade transaktioner
-* Inget stöd för DDL, till exempel skapa tabell inuti en användardefinierad transaktion
+* Inget stöd för DDL, till exempel CREATE TABLE inuti en användardefinierad transaktion
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om hur du optimerar transaktioner finns [transaktioner metodtips](sql-data-warehouse-develop-best-practices-transactions.md). Mer information om andra Metodtips för SQL Data Warehouse, se [SQL Data Warehouse metodtips](sql-data-warehouse-best-practices.md).
+Mer information om hur du optimerar transaktioner finns [Metodtips för transaktioner](sql-data-warehouse-develop-best-practices-transactions.md). Läs om andra Metodtips för SQL Data Warehouse i [Metodtips för SQL Data Warehouse](sql-data-warehouse-best-practices.md).
 

@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: c5d0bc6a0e7e885f61ba28be0575697b03fece09
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 4aaba753a8d61d60cb053a4aa164b5be0a3c50fa
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917150"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307616"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack datacenter-integrering – publicera slutpunkter
 Azure Stack ställer in virtuella IP-adresser (VIP) för dess infrastrukturroller. Dessa virtuella IP-adresser tilldelas från den offentliga IP-adresspoolen. Varje VIP skyddas med en åtkomstkontrollista (ACL) i nätverkslagret programvarudefinierade. ACL: er används också för de fysiska växlarna (trera Övervakare och BMC) för att ytterligare skydda lösningen. En DNS-post skapas för varje slutpunkt i externa DNS-zon som angetts vid tidpunkten för distribution.
@@ -76,7 +76,8 @@ Azure Stack stöder endast transparent proxy-servrar. I en distribution där en 
 |DNS|     |TCP<br>UDP|53|
 |     |     |     |     |
 
-
+> [!Note]  
+> Utgående URL: er är belastningsutjämnad med Azure traffic manager för att tillhandahålla den bästa möjliga anslutningen baserat på geografisk plats. Med att läsa in belastningsutjämnade URL: er, Microsoft kan uppdatera och ändra serverdelsslutpunkter utan att påverka kunder. Microsoft delar inte listan över IP-adresser för belastningsutjämnade URL: er. Du bör använda en enhet som stöder filtrering efter URL i stället för IP.
 
 ## <a name="next-steps"></a>Nästa steg
 

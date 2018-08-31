@@ -14,14 +14,14 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/09/2017
+ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: a3bba4e8fd83b160472a2dc6a9425192b4bbd301
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1e2204dbe645aeff2587c2c3d55b5da89ac227d8
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38531587"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288221"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Konfigurera Always On Availability Group i virtuella Azure-datorer manuellt
 
@@ -188,7 +188,7 @@ Aktivera sedan den **AlwaysOn Availability Groups** funktionen. Utför dessa ste
 
     ![Aktivera AlwaysOn-Tillgänglighetsgrupper](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/54-enableAlwaysOn.png)
 
-4. Klicka på **Använd**. Klicka på **OK** i en dialogruta.
+4. Klicka på **Verkställ**. Klicka på **OK** i en dialogruta.
 
 5. Starta om SQL Server-tjänsten.
 
@@ -427,9 +427,9 @@ Om du vill konfigurera belastningsutjämnaren måste du skapa en backend-adressp
 
 ### <a name="add-the-front-end-ip-address-for-the-wsfc"></a>Lägg till IP-adress för klientdelen för WSFC
 
-WSFC-IP-adressen måste också vara på belastningsutjämnaren. 
+WSFC-IP-adressen måste också vara på belastningsutjämnaren.
 
-1. Lägg till en ny Frontend IP-konfiguration för WSFC i portalen. Använd IP-adress som du har konfigurerat för WSFC i klustrets kärnresurser. Ange IP-adressen som statisk. 
+1. Lägg till en ny Frontend IP-konfiguration för WSFC i portalen. Använd IP-adress som du har konfigurerat för WSFC i klustrets kärnresurser. Ange IP-adressen som statisk.
 
 1. Klicka på belastningsutjämnaren, **hälsoavsökningar**, och klicka på **+ Lägg till**.
 
@@ -450,7 +450,7 @@ WSFC-IP-adressen måste också vara på belastningsutjämnaren.
 1. Ställa in reglerna för belastningsutjämning på följande sätt.
    | Inställning | Beskrivning | Exempel
    | --- | --- |---
-   | **Namn** | Text | WSFCPointListener |
+   | **Namn** | Text | WSFCEndPointListener |
    | **Frontend-IP-adress** | Välj en adress |Använd den adress som du skapade när du har konfigurerat WSFC-IP-adress. |
    | **Protokoll** | Välj TCP |TCP |
    | **Port** | Använd port för tillgänglighetsgruppens lyssnare | 58888 |
@@ -498,38 +498,20 @@ Så här testar du anslutningen:
 
 1. Använd **sqlcmd** verktyg för att testa anslutningen. Till exempel följande skript upprättar en **sqlcmd** anslutning till den primära repliken via lyssnaren med Windows-autentisering:
 
-    ```
-    sqlcmd -S <listenerName> -E
-    ```
+  ```cmd
+  sqlcmd -S <listenerName> -E
+  ```
 
-    Om lyssnaren använder en annan port än standardvärdet standardporten (1433), ange porten i anslutningssträngen. Till exempel ansluter kommandot sqlcmd till en lyssnare på port 1435:
+  Om lyssnaren använder en annan port än standardvärdet standardporten (1433), ange porten i anslutningssträngen. Till exempel ansluter kommandot sqlcmd till en lyssnare på port 1435:
 
-    ```
-    sqlcmd -S <listenerName>,1435 -E
-    ```
+  ```cmd
+  sqlcmd -S <listenerName>,1435 -E
+  ```
 
 SQLCMD-anslutning ansluter automatiskt till instansen av SQL Server är värd för den primära repliken.
 
 > [!TIP]
 > Se till att den port som du anger är öppen i brandväggen för både SQL-servrar. Båda servrarna kräver en regel för inkommande trafik för TCP-porten som du använder. Mer information finns i [Lägg till eller redigera brandväggsregel](http://technet.microsoft.com/library/cc753558.aspx).
->
->
-
-
-
-<!--**Notes**: *Notes provide just-in-time info: A Note is “by the way” info, an Important is info users need to complete a task, Tip is for shortcuts. Don’t overdo*.-->
-
-
-<!--**Procedures**: *This is the second “step." They often include substeps. Again, use a short title that tells users what they’ll do*. *("Configure a new web project.")*-->
-
-<!--**UI**: *Note the format for documenting the UI: bold for UI elements and arrow keys for sequence. (Ex. Click **File > New > Project**.)*-->
-
-<!--**Screenshot**: *Screenshots really help users. But don’t include too many since they’re difficult to maintain. Highlight areas you are referring to in red.*-->
-
-<!--**No. of steps**: *Make sure the number of steps within a procedure is 10 or fewer. Seven steps is ideal. Break up long procedure logically.*-->
-
-
-<!--**Next steps**: *Reiterate what users have done, and give them interesting and useful next steps so they want to go on.*-->
 
 ## <a name="next-steps"></a>Nästa steg
 

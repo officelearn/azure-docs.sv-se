@@ -12,45 +12,65 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 04/28/2017
+ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 7bf1e437e97fdb4d929af23bd7b2a9abb49268df
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
-ms.translationtype: HT
+ms.openlocfilehash: bc60c0dbe6c609a08907feb243fe514badfe3e4e
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189166"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288083"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-directory-roles-in-pim"></a>Godkänn eller neka begäranden för Azure AD-katalogroller i PIM
 
-Med Privileged Identity Management kan du konfigurera roller för att kräva godkännande för aktivering och välja en eller flera användare eller grupper som delegerad godkännare.
+Med Azure AD Privileged Identity Management (PIM), kan du konfigurera roller för att kräva godkännande för aktivering och välja en eller flera användare eller grupper som delegerad godkännare.
 
-## <a name="view-pending-approvals-requests"></a>Visa väntande godkännanden (begäranden)
+## <a name="view-pending-requests"></a>Visa väntande begäranden
 
-Som en delegerad godkännaren får du e-postmeddelanden när en begäran väntar på ditt godkännande. Välj fliken ”väntande godkännandebegäranden” i det vänstra navigeringsfältet på instrumentpanelen (i den nya navigeringen) om du vill visa dessa begäranden i PIM-portalen.
+Som en delegerad godkännaren får du e-postmeddelanden när en begäran väntar på ditt godkännande. Du kan visa dessa väntande begäranden i PIM.
 
-![](media/azure-ad-pim-approval-workflow/image023.png)
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-Därifrån kan visas en lista över begäranden väntar på godkännande:
+1. Öppna **Azure AD Privileged Identity Management**.
 
-![](media/azure-ad-pim-approval-workflow/image024.png)
+1. Klicka på **Azure AD-katalogroller**.
 
-## <a name="approve-or-deny-requests-for-role-elevation-single-andor-bulk"></a>Godkänn eller avvisa begäranden om rollen utökade privilegier (enkel och/eller)
+1. Klicka på **godkänna förfrågningar**.
 
-Välj de förfrågningar som du vill godkänna eller neka och klicka på knappen i Åtgärdsfältet som motsvarar ditt beslut:
+    ![PIM-Azure AD-katalogroller - roller](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
 
-![](media/azure-ad-pim-approval-workflow/image025.png)
+    Du ser en lista över begäranden väntar på ditt godkännande.
 
-## <a name="provide-justification-for-my-approvaldenial"></a>Ange en motivering för min godkännande/avvisades
+## <a name="approve-requests"></a>Godkänn förfrågningar
 
-Då öppnas ett nytt blad för att godkänna eller neka flera begäranden samtidigt. Ange en motivering till ditt beslut och klicka på Godkänn (eller neka) på nederkant eller bladet:
+1. Välj de förfrågningar som du vill godkänna och klicka sedan på **Godkänn** att öppna Godkänn valda förfrågningar fönstret.
 
-![](media/azure-ad-pim-approval-workflow/image029.png)
+    ![PIM godkänna begäranden lista](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
 
-När begäran-processen är klar visas symbolen för statusen återspeglas beslut som du gjort (i det här exemplet beslutet är godkänna):
+1. I den **Godkänn skäl** skriver en orsak.
 
-![](media/azure-ad-pim-approval-workflow/image031.png)
+    ![PIM Godkänn valda förfrågningar](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
+
+1. Klicka på **godkänna**.
+
+    Symbolen för statusen kommer att uppdateras med ditt godkännande.
+
+    ![PIM Godkänn valda förfrågningar](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
+
+## <a name="deny-requests"></a>Neka förfrågningar
+
+1. Välj de förfrågningar som du vill neka och klicka sedan på **neka** att öppna neka valda förfrågningar fönstret.
+
+    ![PIM godkänna begäranden lista](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
+
+1. I den **skäl för nekande** skriver en orsak.
+
+    ![PIM neka valda förfrågningar](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
+
+1. Klicka på **neka**.
+
+    Symbolen för statusen kommer att uppdateras med din datorn.
 
 ## <a name="next-steps"></a>Nästa steg
 

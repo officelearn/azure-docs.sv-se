@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 07/20/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9fc067c46828079f7369683b5edec682747cd5c7
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 65495893d93fddd6d8e13ae80720e002ac7d8efa
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391460"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307496"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka C-moduler för Azure IoT Edge
 
@@ -29,7 +29,7 @@ Den här artikeln förutsätter att du använder en dator eller virtuell dator s
 Eftersom den här artikeln används Visual Studio Code som det huvudsakliga utvecklingsverktyg, installera VS Code. Lägg sedan till tillägg som behövs:
 * [Visual Studio Code](https://code.visualstudio.com/) 
 * [Azure IoT Edge-tillägget](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
-* [C/C++-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) för Visual Studio Code.
+* [C/C++-tillägg](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) för Visual Studio Code.
 * [Docker-tillägg](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 
 Om du vill skapa en modul, behöver du Docker för att skapa modulen avbildningen och ett behållarregister ska lagra avbildningen modulen:
@@ -85,7 +85,7 @@ Det finns flera Docker-filer för olika behållartyper i varje modul-mapp. Anvä
 
     ![Lägg till *** .debug till din avbildningsnamn](./media/how-to-develop-c-module/image-debug.png)
 
-2. Ersätt createOptions för Node.js-modulen i **deployment.template.json** med nedan innehåll och spara den här filen: 
+2. Ersätt C modulen createOptions i **deployment.template.json** med nedan innehåll och spara den här filen: 
     
     ```json
     "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
@@ -93,7 +93,7 @@ Det finns flera Docker-filer för olika behållartyper i varje modul-mapp. Anvä
 
 2. Ange i kommandopaletten VS Code och kör kommandot **Edge: skapa IoT Edge-lösningen**.
 3. Välj den `deployment.template.json` -filen för din lösning från kommandopaletten. 
-4. I Azure IoT Hub Device Explorer högerklickar du på en IoT Edge-enhets-ID. Välj sedan **skapa distribution för IoT Edge-enhet**. 
+4. I Azure IoT Hub Device Explorer högerklickar du på en IoT Edge-enhets-ID. Välj sedan **skapa distribution för enskild enhet**. 
 5. Öppna din lösning **config** mapp. Välj sedan den `deployment.json` filen. Välj **Välj Edge-distribution Manifest**. 
 
 Distributionen har skapats med en distributions-ID i en terminal för VS Code-integrerade visas.
@@ -113,7 +113,7 @@ VS Code håller felsökning konfigurationsinformationen i en `launch.json` finns
 
 4. I VS Code Felsöka vyn visas variabler i den vänstra panelen. 
 
-I föregående exempel visar hur du felsöker C IoT Edge-moduler i behållare. Det har lagts till portar i din modul behållare createOptions. När du är klar med att felsöka dina Node.js-moduler rekommenderar vi att du tar bort dessa portar för produktionsklara IoT Edge-moduler.
+I föregående exempel visar hur du felsöker C IoT Edge-moduler i behållare. Det har lagts till portar i din modul behållare createOptions. När du är klar med att felsöka dina C-moduler rekommenderar vi att du tar bort dessa portar för produktionsklara IoT Edge-moduler.
 
 ## <a name="next-steps"></a>Nästa steg
 

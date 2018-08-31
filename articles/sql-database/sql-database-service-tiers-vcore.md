@@ -6,21 +6,21 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 08/30/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 3d0eca6e1c680dd703f4dceac6abcb70144bac37
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 8266d9e3530969154ac9c8c877badda9f8b4fed3
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125005"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307280"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Välja tjänstnivå vCore beräkning, minne, lagring och IO-resurser
 
 Den vCore-baserade inköpsmodellen kan du oberoende skala beräknings- och lagringsresurser, matcha lokala prestanda och optimera pris. Du kan också välja maskinvarusystem:
 - Gen 4 – upp till 24 logiska processorer bygger på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer, vCore = 1 sidor (fysiska kärnor), 7 GB per kärna, anslutna SSD
-- Gen 5 – upp till 80 logiska processorer som baseras på Intel E5-2673 v4 (Broadwell) 2,3 GHz-processorer, vCore = 1 LP (hyper-tråd), 5.5. GB per kärna, snabb eNVM SSD
+- Gen 5 – upp till 80 logiska processorer som baseras på Intel E5-2673 v4 (Broadwell) 2,3 GHz-processorer, vCore = 1 LP (hyper-tråd), 5.1. GB per kärna, snabb eNVM SSD
 
 vCore-modellen kan du använda [Azure Hybrid Use-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) att få kostnadsbesparingar.
 
@@ -34,7 +34,7 @@ Tabellen nedan hjälper dig att förstå skillnaderna mellan dessa två nivåer:
 |---|---|---|
 |Bäst för|De flesta företags arbetsbelastningar. Erbjudanden budgetera objektorienterad balanserade och skalbara beräknings- och lagringsalternativ.|Affärsprogram med höga I/O-krav. Erbjuder den högsta uthålligheten mot fel tack vare flera isolerade repliker.|
 |Compute|Gen4: 1-24 vCore<br/>Gen5: 1-80 vCore|Gen4: 1-24 vCore<br/>Gen5: 1-80 vCore|
-|Minne|Gen4: 7 GB per kärna<br>Gen5: 5.5 GB per kärna | Gen4: 7 GB per kärna<br>Gen5: 5.5 GB per kärna |
+|Minne|Gen4: 7 GB per kärna<br>Gen5: 5.1 GB per kärna | Gen4: 7 GB per kärna<br>Gen5: 5.1 GB per kärna |
 |Storage|[Premium Fjärrlagring](../virtual-machines/windows/premium-storage.md),<br/>Databas: 5 GB – 4 TB<br/>Hanterad instans: 32 GB 8 TB |Lokal SSD-lagring<br/>Databas: 5 GB-1 TB<br/>Hanterad instans: 32 GB 4 TB |
 |I/o-genomströmning (ungefärlig)|Databas: 500 IOPS per vCore med 7000 högsta IOPS</br>Hanterad instans: Beror på [storleken på filen](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS per kärna med 200000 högsta IOPS|
 |Tillgänglighet|1 repliken, inga lässkala|3 repliker, 1 [lässkala repliken](sql-database-read-scale-out.md),<br/>zonen redundant hög tillgänglighet|

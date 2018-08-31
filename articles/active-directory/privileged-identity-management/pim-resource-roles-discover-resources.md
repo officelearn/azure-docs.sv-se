@@ -11,56 +11,53 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 03/30/2018
+ms.date: 08/30/2018
 ms.author: rolyon
-ms.openlocfilehash: b5d48b3f854afaa79574e0ec13cff91f60396ac6
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
-ms.translationtype: HT
+ms.openlocfilehash: d9a6ab49d619e487eee6fb13abe128cfc167b560
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190666"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306697"
 ---
 # <a name="discover-azure-resources-to-manage-in-pim"></a>Identifiera Azure-resurser du hanterar i PIM
 
-Lär dig att identifiera och hantera Azure-resurser när du använder Privileged Identity Management (PIM) i Azure Active Directory (AD Azure). Den här informationen kan vara användbart att organisationer som redan använder PIM för att skydda resurser som administratör och prenumerationsägare som vill skydda produktionsresurser.
+Du kan använda Azure AD Privileged Identity Management (PIM), för att förbättra skydd av dina Azure-resurser. Det här är användbart att organisationer som redan använder PIM för att skydda Azure AD-katalogroller och hantering av grupp och prenumeration ägare som vill skydda produktionsresurser.
 
-När du först ställa in PIM för Azure-resurser, måste du identifiera och välj resurser som ska skyddas med PIM. Det finns ingen gräns för hur många resurser som du kan hantera med PIM. Vi rekommenderar dock att börja med dina viktigaste resurser (produktion).
-
-> [!NOTE]
-> Du kan bara söka efter och välja management grupp eller prenumeration resurser för att hantera med hjälp av PIM. När du hanterar en hanteringsgrupp eller i PIM-prenumeration kan hantera du också dess underordnade resurser.
+När du först ställa in PIM för Azure-resurser, måste du identifiera och markerar resurserna som ska skyddas med PIM. Det finns ingen gräns för hur många resurser som du kan hantera med PIM. Vi rekommenderar dock att börja med dina viktigaste resurser (produktion).
 
 ## <a name="discover-resources"></a>Identifiera resurser
 
-I Azure-portalen går du till den **Privileged Identity Management** fönstret. I den vänstra menyn i den **hantera** väljer **Azure-resurser**.
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-![”Privileged Identity Management - Azure-resurser” fönstret](media/azure-pim-resource-rbac/aadpim_manage_azure_resources.png)
+1. Öppna **Azure AD Privileged Identity Management**.
 
-Om det här är första gången du använder PIM för Azure-resurser bör du först kör identifiering för att hitta resurser för att hantera. I den **Identifieringsresurser** väljer den **identifiera resurser** knappen för att starta upplevelsen av identifieringen.
+1. Klicka på **Azure-resurser**.
 
-![Fönstret ”identifiera resurser”](media/azure-pim-resource-rbac/aadpim_first_run_discovery.png)
+    Om det här är första gången du använder PIM för Azure-resurser, visas ett fönster som identifierar resurser.
 
-Om en annan resurs eller directory-administratör i din organisation redan hanterar en Azure-resurs med hjälp av PIM, eller om du har en berättigad rolltilldelning för en resurs, listvyn visas meddelandet **identifiera resurser eller aktivera en berättigad rolltilldelning för att fortsätta**. 
+    ![Identifiera resurser – första gången](./media/pim-resource-roles-discover-resources/discover-resources-first-run.png)
 
-![Knappen ”Identifiera resurser” i ”Privileged Identity Manager - Azure-resurser” fönstret](media/azure-pim-resource-rbac/aadpim_discover_eligible_not_active.png)
+    Om en annan resurs eller directory-administratör i din organisation redan hanterar Azure-resurser i PIM, visas en lista över de resurser som hanteras för närvarande.
 
-När du väljer den **Identifieringsresurser** knapp, från den översta menyn eller mitt i fönstret visas en lista över prenumerationer som du kan hantera. Prenumerationer som är markerade skyddas redan av PIM.
+    ![Identifiera resurser fönstret](./media/pim-resource-roles-discover-resources/discover-resources.png)
 
-> [!NOTE]
-> Om du vill förhindra att en annan resursadministratör att ta bort PIM-inställningar, efter en prenumeration är inställd på hanterade får inte prenumerationen vara ohanterade.
+1. Klicka på **Identifieringsresurser** att starta upplevelsen av identifieringen.
 
-![”Azure-resurser – identifiering” fönstret](media/azure-pim-resource-rbac/aadpim_discovery_some_selected.png)
+    ![Identifiering av fönstret](./media/pim-resource-roles-discover-resources/discovery-pane.png)
 
-I den **RESOURCE** kolumnen placera muspekaren över en prenumeration som du vill skydda med PIM. Markera kryssrutan till vänster om resursnamnet. Du kan välja flera prenumerationer i taget.
+1. I fönstret identifiering använder **resurstillståndsfilter** och **Välj resurstyp** för att filtrera hanteringen grupper eller prenumerationer som du har skrivbehörighet till. Det är troligen enklast att börja med **alla** från början.
 
-![Listan över resurser i ”Azure-resurser – identifiering” fönstret](media/azure-pim-resource-rbac/aadpim_discovery_all_selected.png)
+    Du kan bara söka efter och välja management grupp eller prenumeration resurser för att hantera med hjälp av PIM. När du hanterar en hanteringsgrupp eller i PIM-prenumeration kan hantera du också dess underordnade resurser.
 
-Om du vill initiera onboarding-processen på den översta menyn, Välj **hantera resurs**.
+1. Lägg till en bock bredvid eventuella ohanterade resurser som du vill hantera.
 
-![Knappen ”Hantera resurs” i ”Azure-resurser – identifiering” fönstret](media/azure-pim-resource-rbac/aadpim_discovery_click_manage.png)
+    > [!NOTE]
+    > När en hanteringsgrupp eller prenumeration har angetts till hanterade, kan den inte ohanterade. Detta förhindrar att en annan resursadministratör tar bort PIM-inställningar.
 
-De markerade resurserna som nu hanteras av PIM. Om du vill stänga i det övre högra hörnet på skärmen identifiering Välj **X**. Börja hantera PIM-inställningar och tilldela medlemmar på menyn överst på den **Privileged Identity Management - Azure-resurser** väljer den **uppdatera** knappen.
+    ![Identifiering – hantera resurs](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
-![Knappen ”Uppdatera” i den övre menyn i ”Privileged Identity Management - Azure-resurser” fönstret](media/azure-pim-resource-rbac/aadpim_discovery_resources_refresh.png)
+1. Klicka på **hantera resurs** och börja hantera de markerade resurserna.
 
 ## <a name="next-steps"></a>Nästa steg
 

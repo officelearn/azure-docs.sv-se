@@ -1,5 +1,5 @@
 ---
-title: Få hjälp med åtkomst till och med hjälp av portalen Mina appar i Azure Active Directory | Microsoft Docs
+title: Få hjälp med åtkomst till och med MyApps-portalen i Azure Active Directory | Microsoft Docs
 description: Få hjälp med att logga in på och utföra vanliga uppgifter i åtkomstpanelen.
 services: active-directory
 author: eross-msft
@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
-ms.openlocfilehash: a6ac780625f6a109797cbdab78dc555e21e18bee
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 5503681b051066f6601be97bda246128763e7bc7
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343618"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306418"
 ---
-# <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Felsöka problem med åtkomst till och med hjälp av Mina appar-portalen
+# <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>Felsöka problem med åtkomst till och med hjälp av MyApps-portalen
 
-Om du upplever problem med inloggning i eller med hjälp av Mina appar-portalen, Prova dessa felsökningstips innan du kontaktar supportavdelningen eller administratören om du behöver hjälp.
+Om du upplever problem med att logga in på eller använda MyApps-portalen, försök med dessa felsökningstips innan du kontaktar supportavdelningen eller administratören om du behöver hjälp.
 
-## <a name="i-am-having-trouble-signing-into-the-my-apps-portal"></a>Jag har problem med att logga in på portalen Mina appar
+## <a name="i-am-having-trouble-signing-into-the-myapps-portal"></a>Jag har problem med att logga in på MyApps-portalen
 
 Prova de här Allmänna tips:
 
@@ -45,7 +45,7 @@ Du kan återställa ditt lösenord eller låsa upp ditt konto utan att behöva t
 
 ## <a name="i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Jag har problem med att installera den Mina appar skyddat Inloggningstillägg
 
-Portalen Mina appar kräver en webbläsare som stöder JavaScript och CSS aktiverat. Om du använder lösenordsbaserad enkel inloggning för appar, måste tillhörande tillägget installeras också. Det här tillägget laddas ned automatiskt när du startar ett program som har konfigurerats för lösenordsbaserad enkel inloggning för appar.
+MyApps-portalen kräver en webbläsare som stöder JavaScript och CSS aktiverat. Om du använder lösenordsbaserad enkel inloggning för appar, måste tillhörande tillägget installeras också. Det här tillägget laddas ned automatiskt när du startar ett program som har konfigurerats för lösenordsbaserad enkel inloggning för appar.
 
 Kontrollera att du uppfyller följande webbläsarkrav:
 
@@ -63,8 +63,8 @@ Du kan också hämta tillägget direkt från följande platser:
 Om du har installerat tillägget och fortfarande har problem kan du prova följande:
 
 - Kontrollera inställningarna för webbläsaren tillägget för att kontrollera att tillägget är aktiverat.
-- Starta om webbläsaren och logga in på portalen Mina appar.
-- Rensa cookies i webbläsaren och logga in på portalen Mina appar.
+- Starta om webbläsaren och logga in på MyApps-portalen.
+- Rensa cookies i webbläsaren och logga in på MyApps-portalen.
 - Åtkomst till ett verktyg för diagnostik och stegvisa instruktioner om hur du konfigurerar tillägget för Internet Explorer finns [Felsök Access Panel-tillägg för Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>Använd den Mina appar skyddat Inloggningstillägg
@@ -85,7 +85,7 @@ Om du har installerat tillägget och fortfarande har problem kan du prova följa
 * Starta en app från tillägget genom att göra följande:
    1. När du installerar tillägget, loggar du in till den genom att välja **logga in att komma igång**.
    2. Välj tillägg till menyn öppnas.
-   3. Sök efter en app som är tillgänglig i portalen Mina appar.
+   3. Sök efter en app som är tillgänglig i MyApps-portalen.
    4. Välj appen i listan med sökresultat.  
        De tre sista appar som du har använt visas i den **nyligen använda** genväg lista.
 

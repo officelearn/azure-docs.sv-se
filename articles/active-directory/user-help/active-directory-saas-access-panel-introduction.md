@@ -1,6 +1,6 @@
 ---
-title: Vad är panelen i Azure Active Directory? | Microsoft Docs
-description: Lär dig hur du använder varianter av åtkomstpanelen (webbläsare, Android-app, iPhone och iPad-app) för att få åtkomst till SaaS-appar.
+title: Vad är MyApps-portalen i Azure Active Directory? | Microsoft Docs
+description: Lär dig hur du använder varianter av MyApps-portalen (webbläsare, Android-app, iPhone och iPad-app) för att få åtkomst till SaaS-appar.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.date: 05/11/18
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: f69830deb4d2c74b5fe1c85ad8c9452097dd2a1e
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: e382f53678806aa3442151703277c3a57bb30830
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056999"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302285"
 ---
-# <a name="what-is-the-access-panel"></a>Vad är åtkomstpanelen?
+# <a name="what-is-the-myapps-portal"></a>Vad är MyApps-portalen?
 
-Åtkomstpanelen är en webbaserad portal. Om du har ett arbets eller skolkonto i Azure Active Directory (Azure AD) kan använda du åtkomstpanelen för att visa och starta molnbaserade program som en Azure AD-administratör har gett dig åtkomst till. Du kan också använda självbetjäning och apphanteringsfunktionerna via åtkomstpanelen.
+Om du har ett arbets eller skolkonto i Azure Active Directory (AD Azure), kan du kan använda Mina appar webbaserad portal för att visa och starta molnbaserade program som en Azure AD-administratör har gett dig åtkomst till. Du kan också använda självbetjäning och apphanteringsfunktionerna via MyApps-portalen.
 
-Åtkomstpanelen är separat från Azure-portalen. Det kräver inte du har en Azure-prenumeration.
+MyApps-portalen är separat från Azure-portalen. Det kräver inte du har en Azure-prenumeration.
 
-![Åtkomstpanelen][1] med hjälp av åtkomstpanelen, kan du redigera vissa av dina profilinställningar och gör följande:
+![MyApps-portalen][1] genom att använda MyApps-portalen kan du redigera vissa av dina profilinställningar och gör följande:
 
 - Ändra lösenordet som associeras med ett arbets- eller skolkonto.
 
@@ -39,12 +39,9 @@ ms.locfileid: "42056999"
 
 - Lokal hantera grupper. Administratörer kan skapa och hantera säkerhetsgrupper och begära medlemskap i säkerhetsgrupper i Azure AD. Mer information finns i [grupphantering för användare i Azure AD](../users-groups-roles/groups-self-service-management.md) och [hantera dina grupper](../fundamentals/active-directory-manage-groups.md).
 
+## <a name="access-the-myapps-portal"></a>Få åtkomst till MyApps-portalen
 
-
-
-## <a name="access-the-access-panel"></a>Komma åt åtkomstpanelen
-
-Du kan komma åt åtkomstpanelen genom att gå till `http://myapps.microsoft.com`.
+Du kan komma åt MyApps-portalen genom att gå till `http://myapps.microsoft.com`.
 
 Om du har anpassade anpassning som konfigurerats för din inloggningssida kan du läsa in anpassning genom att lägga till organisationens domän i URL: en (till exempel `http://myapps.microsoft.com/<your domain>.com`).
 
@@ -54,7 +51,7 @@ Distribuera URL: en för alla användare som loggar in till program som är inte
 
 ## <a name="authentication"></a>Autentisering
 
-Om du vill nå panelen, måste du autentiseras via ett arbets- eller skolkonto konto i Azure AD. Du kan autentiseras till Azure AD direkt. Du kan också om en organisation har konfigurerat federation med hjälp av Active Directory Federation Services (AD FS) eller andra tekniker, kan du autentiseras av Windows Server Active Directory.
+För att nå MyApps-portalen, måste du autentiseras via ett arbets- eller skolkonto konto i Azure AD. Du kan autentiseras till Azure AD direkt. Du kan också om en organisation har konfigurerat federation med hjälp av Active Directory Federation Services (AD FS) eller andra tekniker, kan du autentiseras av Windows Server Active Directory.
 
 Om du har en prenumeration på Azure eller Office 365 och du har använt Azure-portalen eller ett Office 365-program, kan du visa listan med program utan att logga in igen. Om du inte har autentiserats, uppmanas du att logga in med användarnamnet och lösenordet för ditt konto i Azure AD. Om din organisation har konfigurerat federation, räcker att skriva användarnamnet.
 
@@ -62,12 +59,12 @@ När du har autentiserats kan interagera du med de program som din administratö
 
 ## <a name="web-browser-requirements"></a>Webbläsarkrav
 
-Minst åtkomstpanelen kräver en webbläsare som stöder JavaScript och har aktiverat CSS. Om du vill logga in på program via lösenordsbaserad enkel inloggning (SSO), måste du ha access panel-tillägg som installerats i din webbläsare. Tillägget laddas ned automatiskt när du väljer ett program som har konfigurerats för lösenordsbaserad SSO.
+Minst MyApps-portalen kräver en webbläsare som stöder JavaScript och har aktiverat CSS. Om du vill logga in på program via lösenordsbaserad enkel inloggning (SSO), måste du ha MyApps portaltillägg som installerats i din webbläsare. Tillägget laddas ned automatiskt när du väljer ett program som har konfigurerats för lösenordsbaserad SSO.
 
 Installationsprogrammet är arkitektur-specifika. Om du klickar på länken kan hämta du bara installationsprogrammet för OS-arkitektur som du för närvarande körs på. Om du är administratör för distribution av program, kontrollera att du besöker hämtningslänken från ett 64-bitars och 32-bitars enhet för att hämta båda installationsprogram.
 
 
-Det finns för närvarande access panel-tillägg för:
+MyApps portaltillägg är nu tillgänglig för:
 - **Edge**: på Windows 10 Anniversary Edition eller senare. 
 - **Chrome**: på Windows 7 eller senare, och i Mac OS X eller senare.
 - **Firefox 26.0 eller senare**: på Windows XP SP2 eller senare, och på Mac OS X 10.6 eller senare.
@@ -77,7 +74,7 @@ Det finns för närvarande access panel-tillägg för:
 Om du vill logga in på lösenordsbaserad enkel inloggning, måste du använda tillägget. När tillägget har installerats kan du logga in till den att tillhandahålla ytterligare funktioner genom att välja **logga in att komma igång**. 
 
 - Du kan logga in på en app direkt med hjälp av appens **inloggnings-URL**. När du använder appens Webbadress tillägget åtgärden identifieras och ger dig alternativet att logga in från tillägget.
-- Du kan starta en av dina appar från åtkomstpanelen med hjälp av den *Snabbsökning* funktion i tillägget. 
+- Du kan starta en av dina appar från MyApps-portalen med hjälp av den *Snabbsökning* funktion i tillägget. 
 - Tillägget visar de senaste tre program som du startade i **nyligen använda** avsnittet.
 - Du kan använda interna företagets URL: er samtidigt remote via [Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)
 
@@ -111,7 +108,7 @@ För att använda företagets interna URL: er samtidigt remote med hjälp av til
 Azure Active Directory-teamet publicerar den mobila appen för Mina appar. När du installerar appen kan logga du in på lösenordsbaserad SSO-program i iOS och Android-enheter.
 
 > [!NOTE]
-> Du kan logga in på program som stöder federation med Azure AD (inklusive Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 och mycket mer än 70 andra) på i stort sett alla webbläsare, på alla enheter, utan att behöva en plugin-programmet eller mobila app. Som ska användas på en mobil enhet, den andra [åtkomst till panelen upplevelser](https://myapps.microsoft.com/) även kräver inte den mobila appen för Mina appar.
+> Du kan logga in på program som stöder federation med Azure AD (inklusive Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 och mycket mer än 70 andra) på i stort sett alla webbläsare, på alla enheter, utan att behöva en plugin-programmet eller mobila app. Som ska användas på en mobil enhet, den andra [MyApps-portalen inträffar](https://myapps.microsoft.com/) även kräver inte den mobila appen för Mina appar.
 >
 >
 
@@ -145,22 +142,22 @@ Intune Managed Browser finns på den [Apple App Store](https://itunes.apple.com/
 
 ## <a name="tips-for-testing-the-user-experience"></a>Tips för att testa användarupplevelsen
 
-Om du är administratör för Azure och du har loggat in på Azure Portal med ett konto i katalogen, är du automatiskt inloggad till åtkomstpanelen som ditt aktuella konto. Den här vyn visas alla program som har tilldelats dig.
+Om du är administratör för Azure och du har loggat in på Azure Portal med ett konto i katalogen, är du automatiskt inloggad MyApps-portalen som ditt aktuella konto. Den här vyn visas alla program som har tilldelats dig.
 
 Testa i en *olika* användare konto, gör du följande:
 
-1. Längst upp till höger på Azure portal eller åtkomstpanelen, Välj **logga ut**. 
-2. Gå till den [åtkomstpanelen](http://myapps.microsoft.com).
+1. Längst upp till höger på Azure portal eller MyApps-portalen, Välj **logga ut**. 
+2. Gå till den [MyApps-portalen](http://myapps.microsoft.com).
 3. På sidan logga in skriver du användarnamnet och lösenordet för kontot i din katalog som du vill testa.
 
 
 ## <a name="starting-applications"></a>Start av program
 
-Det här avsnittet beskrivs flera typer av program som kan visas på åtkomstpanelen.
+Det här avsnittet beskrivs flera typer av program som kan visas på MyApps-portalen.
 
 ### <a name="office-365-applications"></a>Office 365-program
 
-Om din organisation använder Office 365-program och du har licenser för dessa, Office 365-program visas på din åtkomstpanelen.
+Om din organisation använder Office 365-program och du har licenser för dessa, Office 365-program visas på din MyApps-portalen.
 
 När du väljer ett program sida vid sida för ett Office 365-program, är du omdirigeras till programmet och loggas in automatiskt.
 
@@ -174,7 +171,7 @@ När du väljer en panel för ett program kan du omdirigeras och loggas in autom
 
 Administratören kan lägga till program i avsnittet Active Directory i Azure-portalen inställd för enkel inloggning på **lösenordsbaserad enkel inloggning**. Alla användare i katalogen kan se alla program som har konfigurerats i det här läget.
 
-Första gången du väljer en program-panel uppmanas du att installera plugin-programmet lösenord SSO för Internet Explorer eller Chrome. Installationen kräver att du starta om webbläsaren. När du återgå till panelen och välj panelen programmet igen och du uppmanas att ange ett användarnamn och lösenord för programmet. När du har angett ditt användarnamn och lösenord kan autentiseringsuppgifterna som lagras på ett säkert sätt och kopplat till ditt konto i Azure AD.
+Första gången du väljer en program-panel uppmanas du att installera plugin-programmet lösenord SSO för Internet Explorer eller Chrome. Installationen kräver att du starta om webbläsaren. När du återgår till MyApps-portalen och välj panelen programmet igen uppmanas du att ange ett användarnamn och lösenord för programmet. När du har angett ditt användarnamn och lösenord kan autentiseringsuppgifterna som lagras på ett säkert sätt och kopplat till ditt konto i Azure AD.
 
 Nästa gång du väljer panelen program har du automatiskt loggat in till programmet.  
 
@@ -194,7 +191,7 @@ Administratören kan lägga till program i avsnittet Active Directory i Azure-po
 
 Första gången du väljer en program-panel uppmanas du att installera plugin-programmet lösenord SSO för Internet Explorer eller Chrome. Installationen kräver att du starta om webbläsaren.  
 
-När du återgå till panelen och välj panelen programmet igen, du har loggat in automatiskt till programmet.
+När du gå tillbaka till MyApps-portalen och välj panelen programmet igen, du har loggat in automatiskt till programmet.
 
 Vissa program kan kräva att du kan ändra lösenord vid första inloggningen. Om dina autentiseringsuppgifter har ändrats i målprogrammet från tredje part, måste du även uppdatera de autentiseringsuppgifter som lagras i Azure AD. 
 
@@ -206,9 +203,9 @@ Du kan uppdatera dina autentiseringsuppgifter genom att göra följande:
 
 ### <a name="application-with-existing-sso-solutions"></a>Program med befintliga lösningar för enkel inloggning
 
-Om du vill konfigurera enkel inloggning för ett program, tillhandahåller Azure-portalen ett tredje alternativ som heter befintlig enkel inloggning. Det här alternativet kan din administratör för att skapa en länk till ett program och placera den på åtkomstpanelen för valda användare.
+Om du vill konfigurera enkel inloggning för ett program, tillhandahåller Azure-portalen ett tredje alternativ som heter befintlig enkel inloggning. Det här alternativet kan din administratör för att skapa en länk till ett program och placera den på MyApps-portalen för valda användare.
 
-Om ett program är konfigurerad för att autentisera användare med hjälp av AD FS 2.0, kan administratören till exempel använda alternativet befintlig enkel inloggning för att skapa en länk till den på åtkomstpanelen. När du använder länken kan autentiseras via AD FS 2.0 eller den befintliga SSO-lösning programmet tillhandahåller.
+Om ett program är konfigurerad för att autentisera användare med hjälp av AD FS 2.0, kan administratören till exempel använda alternativet befintlig enkel inloggning för att skapa en länk till den på MyApps-portalen. När du använder länken kan autentiseras via AD FS 2.0 eller den befintliga SSO-lösning programmet tillhandahåller.
 
 
 ## <a name="next-steps"></a>Nästa steg

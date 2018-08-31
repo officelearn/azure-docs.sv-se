@@ -3,19 +3,19 @@ title: 'Självstudie: Läsa in data till Azure SQL Data Warehouse | Microsoft Do
 description: I den här självstudien används Azure Portal och SQL Server Management Studio för att läsa in informationslagret WideWorldImportersDW från en offentlig Azure-blob till Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 0b28bb07006ed58a82af80afe42fe472d4878971
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 57803d6b83b71e65064c4ec701ed5b7e7607321f
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195370"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286941"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Självstudie: Läsa in data till Azure SQL Data Warehouse
 
@@ -39,7 +39,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 Innan du börjar med de här självstudierna ska du ladda ned och installera den senaste versionen av [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
+## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -85,7 +85,7 @@ Följ de här stegen om du vill skapa ett tomt SQL-informationslager.
 
     ![konfigurera prestanda](media/load-data-wideworldimportersdw/configure-performance.png)
 
-8. Klicka på **Använd**.
+8. Klicka på **Verkställ**.
 9. På sidan för SQL-informationslager väljer du en **Sortering** för den tomma databasen. I de här självstudierna ska du välja standardvärdet. Mer information om sorteringar finns i [Sorteringar](/sql/t-sql/statements/collations).
 
 11. Nu när du har fyllt i SQL Database-formuläret klickar du på **Skapa** så att databasen etableras. Etableringen tar några minuter. 

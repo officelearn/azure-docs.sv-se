@@ -6,19 +6,19 @@ author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 08/29/2018
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
-ms.openlocfilehash: 329af89e52af6f3599e2d86e6ac6d28b8b63f333
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: f056bfa33e2a43af60357d6bf50a0b9cd8d7f254
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056241"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286305"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hög tillgänglighet och Azure SQL-databas
 
-Azure SQL Database är en databas med hög tillgänglighet plattform som en tjänst som garanterar att din databas är igång och körs 99,99% av tiden, utan att behöva bekymra dig om underhåll och stillestånd. Det här är en fullständigt hanterad SQL Server Database Engine-processen i Azure-molnet som ser till att SQL Server-databasen är alltid uppgraderas/korrigerade utan att påverka din arbetsbelastning. Azure SQL Database kan snabbt återställa även i de mest kritiska omständigheter som säkerställer att dina data alltid är tillgänglig.
+Azure SQL Database är en databas med hög tillgänglighet plattform som en tjänst som garanterar att din databas är igång och körs 99,99% av tiden, utan att behöva bekymra dig om underhåll och stillestånd. Det här är en fullständigt hanterad SQL Server Database Engine-processen i Azure-molnet som ser till att SQL Server-databasen är alltid uppgraderas/korrigerade utan att påverka din arbetsbelastning. När en instans är uppdaterad eller växlar över, avbrottstiden är vanligtvis inte noticable om du [använder logik för omprövning](sql-database-develop-overview.md#resiliency) i din app. Om tid att slutföra redundans är längre än 60 sekunder, ska du öppna ett supportärende. Azure SQL Database kan snabbt återställa även i de mest kritiska omständigheter som säkerställer att dina data alltid är tillgänglig.
 
 Azure-plattformen fullständigt hanterar varje Azure SQL-databas och garanterar att inga data går förlorade och en hög andel datatillgänglighet. Azure hanterar automatiskt korrigeringar, säkerhetskopieringar, replikering, felidentifiering, underliggande potentiella maskinvara, program- eller fel, distribuera felkorrigeringar, redundans, databasen uppgraderingar och andra underhållsuppgifter. SQL Server-tekniker har implementerat MES praxis att säkerställa att alla underhållsåtgärder för har utförts i mindre än 0,01% tidpunkten för livet databas. Den här arkitekturen är utformad för att se till att allokerade data aldrig går förlorad och att underhåll utförs utan att påverka arbetsbelastning. Det finns inga underhållsperioder eller stilleståndstider som bör kräver att du stoppar arbetsbelastningen när databasen har uppgraderats eller bibehålls. Inbyggd hög tillgänglighet i Azure SQL Database garanterar att databasen blir aldrig felkritisk systemdel i din programvaruarkitektur.
 

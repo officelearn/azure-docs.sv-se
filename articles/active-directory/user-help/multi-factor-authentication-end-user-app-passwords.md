@@ -12,12 +12,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 86cc98721681750617e374679c38ad29cf5a2362
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 836f426be950e33031ff74276218d1ba59f1f2f7
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056292"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300921"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Hantera lösenord för tvåstegsverifiering
 
@@ -38,11 +38,46 @@ När du använder lösenord, är det viktigt att komma ihåg:
 
 Du får ett applösenord under inledande tvåstegsverifiering verifiering registreringen. Om du behöver fler än en lösenordet kan skapa du ytterligare lösenord, baserat på hur du använder tvåstegsverifiering:
 
-- **Du kan använda tvåstegsverifiering med Microsoft Azure-kontot.** Skapa och ta bort ditt lösenord med hjälp av den [Azure-portalen](https://portal.azure.com). Mer information finns i den [applösenord och tvåstegsverifiering](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) artikeln.
+- **Du kan använda tvåstegsverifiering med ditt arbets- eller skolkonto och MyApps-portalen.** Skapa och ta bort ditt lösenord med hjälp av anvisningarna i den [skapa och ta bort applösenord med hjälp av MyApps-portalen](#create-and-delete-app-passwords-using-the-myapps-portal) i den här artikeln. Mer information om MyApps-portalen och hur du använder den finns i [vad är MyApps-portalen i Azure Active Directory?](active-directory-saas-access-panel-introduction.md).
 
-- **Du kan använda tvåstegsverifiering med ditt personliga Microsoft-konto.** Skapa och ta bort ditt lösenord med hjälp av den [Säkerhetsgrunder](https://account.microsoft.com/account/) sida med ditt Microsoft-konto. Mer information finns i den [applösenord och tvåstegsverifiering](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) artikeln.
+- **Du kan använda tvåstegsverifiering med ditt arbets- eller skolkonto och Office 365-portalen.** Skapa och ta bort ditt lösenord med hjälp av anvisningarna i den [skapa och ta bort applösenord med hjälp av Office 365-portalen](#create-and-delete-app-passwords-using-the-office-365-portal) i den här artikeln.
 
-- **Du kan använda tvåstegsverifiering med ditt arbets- eller skolkonto och Office 365-appar.** Skapa och ta bort ditt lösenord med hjälp av anvisningarna i den [skapa och ta bort applösenord med hjälp av Office 365-portalen](#create-and-delete-app-passwords-using-the-office-365-portal) i den här artikeln.
+- **Du kan använda tvåstegsverifiering med ditt personliga Microsoft-konto.** Skapa och ta bort ditt lösenord med hjälp av den [Säkerhetsgrunder](https://account.microsoft.com/account/) sida med ditt personliga Microsoft-konto. Mer information finns i den [applösenord och tvåstegsverifiering](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) artikeln.
+
+## <a name="create-and-delete-app-passwords-using-the-myapps-portal"></a>Skapa och ta bort lösenord med hjälp av MyApps-portalen
+Du kan skapa och ta bort lösenord via MyApps-portalen.
+
+### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Skapa ett applösenord med hjälp av MyApps-portalen
+
+1. Logga in på [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
+
+2. Välj namnet på din längst upp till höger och välj **profil**.
+
+3. Välj **ytterligare säkerhetsverifiering**.
+
+   ![Välj ytterligare säkerhetskontroll – skärmbild](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
+
+4. Välj **applösenord**.
+
+   ![Välj applösenord – skärmbild](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
+
+5. Klicka på **Skapa**.
+
+6. Skriv ett namn för applösenordet och välj sedan **nästa**.
+
+7. Kopiera applösenordet till Urklipp och klistra in den i din app.
+   
+    ![Skapa ett applösenord](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
+
+### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Att ta bort ett applösenord med hjälp av MyApps-portalen
+
+1. Gå till din profil och välj sedan **ytterligare säkerhetskontroll**.
+
+2. Välj **applösenord**, och välj sedan **ta bort** bredvid applösenordet som du vill ta bort.
+
+   ![Ta bort ett applösenord](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
+
+3. Välj **Ja** att bekräfta att du vill ta bort lösenordet och välj sedan **Stäng**.
 
 ## <a name="create-and-delete-app-passwords-using-the-office-365-portal"></a>Skapa och ta bort lösenord med hjälp av Office 365-portalen
 
@@ -77,46 +112,6 @@ Om du använder tvåstegsverifiering med ditt arbets- eller skolkonto och Office
     Applösenordet har tagits bort.
 
 5. Följ stegen för att skapa ett applösenord för att skapa ditt nya applösenord.
-
-## <a name="manage-app-passwords-in-the-azure-portal"></a>Hantera lösenord i Azure portal
-
-Om du använder tvåstegsverifiering med Azure som du vill skapa applösenord via Azure portal.
-
-## <a name="manage-app-passwords-with-the-myapps-portal"></a>Hantera applösenord med MyApps-portalen
-
-Du kan också skapa och ta bort lösenord via portalen Mina appar.
-
-### <a name="to-create-an-app-password-using-the-my-apps-portal"></a>Skapa ett applösenord med hjälp av Mina appar-portalen
-
-1. Logga in på [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
-
-2. Välj namnet på din längst upp till höger och välj **profil**.
-
-3. Välj **ytterligare säkerhetsverifiering**.
-
-   ![Välj ytterligare säkerhetskontroll – skärmbild](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
-
-4. Välj **applösenord**.
-
-   ![Välj applösenord – skärmbild](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
-
-5. Klicka på **Skapa**.
-
-6. Skriv ett namn för applösenordet och välj sedan **nästa**.
-
-7. Kopiera applösenordet till Urklipp och klistra in den i din app.
-   
-    ![Skapa ett applösenord](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
-
-### <a name="to-delete-an-app-password-using-the-my-apps-portal"></a>Att ta bort ett applösenord med hjälp av Mina appar-portalen
-
-1. Gå till din profil och välj sedan **ytterligare säkerhetskontroll**.
-
-2. Välj **applösenord**, och välj sedan **ta bort** bredvid applösenordet som du vill ta bort.
-
-   ![Ta bort ett applösenord](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
-
-3. Välj **Ja** att bekräfta att du vill ta bort lösenordet och välj sedan **Stäng**.
 
 ## <a name="if-your-app-passwords-arent-working-properly"></a>Om dina applösenord inte fungerar korrekt
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: a1296565384e60117d883a1f1407362482ba1a3e
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 7c08848698f07d64bbbff429682c18525659f7bf
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125021"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286525"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Skapa och läsa IoT Hub-meddelanden
 
@@ -23,7 +23,7 @@ Om du vill ha stöd för smidig samverkan mellan protokoll, definierar IoT Hub e
 
 En [IoT Hub-meddelande] [ lnk-messaging] består av:
 
-* En uppsättning *Systemegenskaper*. Egenskaper som IoT Hub tolkar eller anger. Den här uppsättningen är förinställt.
+* En förutbestämd uppsättning *Systemegenskaper* enligt nedan.
 * En uppsättning *programegenskaper*. En ordlista med egenskaper för anslutningssträngar som programmet kan definiera och åtkomst, utan att behöva deserialisera meddelandetexten. IoT Hub ändrar aldrig de här egenskaperna.
 * En täckande binära brödtext.
 
@@ -36,20 +36,20 @@ Läs mer om hur du kodar och avkodar meddelandena som skickas med olika protokol
 
 I följande tabell visar uppsättningen Systemegenskaper i IoT Hub-meddelanden.
 
-| Egenskap  | Beskrivning |
-| --- | --- |
-| MessageId |En användare inställbar identifierare för meddelandet som används för begäran / svar-mönster. Format: En skiftlägeskänslig sträng (upp till 128 tecken) med ASCII 7 bitar alfanumeriska tecken + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
-| Sekvensnummer |Ett tal (unika per enhet kö) IoT Hub har tilldelats varje moln-till-enhet-meddelande. |
-| Till |Ett mål som anges i [moln till enhet] [ lnk-c2d] meddelanden. |
-| ExpiryTimeUtc |Datum och tid för förfallodatum för meddelanden. |
-| EnqueuedTime |Datum och tid i [moln till enhet] [ lnk-c2d] meddelande togs emot av IoT Hub. |
-| CorrelationId |En strängegenskap i ett svarsmeddelande som vanligtvis innehåller meddelande-ID för begäran i begäran / svar-mönster. |
-| UserId |Ett ID som används för att ange ursprunget av meddelanden. När meddelanden genereras av IoT Hub, den är inställd på `{iot hub name}`. |
-| Ack |En feedback meddelande generator. Den här egenskapen används i meddelanden från moln till enhet för att begära IoT Hub för att generera meddelanden på grund av användningen av meddelandet av enheten. Möjliga värden: **ingen** (standard): ingen feedback meddelande genereras **positivt**: meddelandet feedback om meddelandet har slutförts, **negativt**: ta emot en feedback-meddelande om meddelandet har gått ut (eller har nått maximalt antal leveranser) utan håller på att slutföras av enheten, eller **fullständig**: både positiva och negativa. Mer information finns i [meddelande feedback][lnk-feedback]. |
-| ConnectionDeviceId |Ett ID som angetts av IoT Hub på meddelanden från enheten till molnet. Den innehåller den **deviceId** på den enhet som skickade meddelandet. |
-| ConnectionDeviceGenerationId |Ett ID som angetts av IoT Hub på meddelanden från enheten till molnet. Den innehåller den **generationId** (enligt [identitet enhetsegenskaper][lnk-device-properties]) på den enhet som skickade meddelandet. |
-| ConnectionAuthMethod |En autentiseringsmetod som angetts av IoT Hub på meddelanden från enheten till molnet. Den här egenskapen innehåller information om den autentiseringsmetod som används för att autentisera den enhet som skickar meddelandet. Mer information finns i [enhet till moln skydd mot förfalskning][lnk-antispoofing]. |
-| CreationTimeUtc | Datum och tidpunkt som meddelandet skapades på en enhet. En enhet måste ange ett explicit värde. |
+| Egenskap  | Beskrivning | Är användare inställbar? |
+| --- | --- | --- |
+| MessageId |En användare inställbar identifierare för meddelandet som används för begäran / svar-mönster. Format: En skiftlägeskänslig sträng (upp till 128 tecken) med ASCII 7 bitar alfanumeriska tecken + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. | Ja |
+| Sekvensnummer |Ett tal (unika per enhet kö) IoT Hub har tilldelats varje moln-till-enhet-meddelande. | Nej för C2D-meddelanden. Ja annars. |
+| Till |Ett mål som anges i [moln till enhet] [ lnk-c2d] meddelanden. | Nej för C2D-meddelanden. Ja annars. |
+| ExpiryTimeUtc |Datum och tid för förfallodatum för meddelanden. | Ja |
+| EnqueuedTime |Datum och tid i [moln till enhet] [ lnk-c2d] meddelande togs emot av IoT Hub. | Nej för C2D-meddelanden. Ja annars. |
+| CorrelationId |En strängegenskap i ett svarsmeddelande som vanligtvis innehåller meddelande-ID för begäran i begäran / svar-mönster. | Ja |
+| UserId |Ett ID som används för att ange ursprunget av meddelanden. När meddelanden genereras av IoT Hub, den är inställd på `{iot hub name}`. | Nej |
+| Ack |En feedback meddelande generator. Den här egenskapen används i meddelanden från moln till enhet för att begära IoT Hub för att generera meddelanden på grund av användningen av meddelandet av enheten. Möjliga värden: **ingen** (standard): ingen feedback meddelande genereras **positivt**: meddelandet feedback om meddelandet har slutförts, **negativt**: ta emot en feedback-meddelande om meddelandet har gått ut (eller har nått maximalt antal leveranser) utan håller på att slutföras av enheten, eller **fullständig**: både positiva och negativa. Mer information finns i [meddelande feedback][lnk-feedback]. | Ja |
+| ConnectionDeviceId |Ett ID som angetts av IoT Hub på meddelanden från enheten till molnet. Den innehåller den **deviceId** på den enhet som skickade meddelandet. | Nej för D2C-meddelanden. Ja annars. |
+| ConnectionDeviceGenerationId |Ett ID som angetts av IoT Hub på meddelanden från enheten till molnet. Den innehåller den **generationId** (enligt [identitet enhetsegenskaper][lnk-device-properties]) på den enhet som skickade meddelandet. | Nej för D2C-meddelanden. Ja annars. |
+| ConnectionAuthMethod |En autentiseringsmetod som angetts av IoT Hub på meddelanden från enheten till molnet. Den här egenskapen innehåller information om den autentiseringsmetod som används för att autentisera den enhet som skickar meddelandet. Mer information finns i [enhet till moln skydd mot förfalskning][lnk-antispoofing]. | Nej för D2C-meddelanden. Ja annars. |
+| CreationTimeUtc | Datum och tidpunkt som meddelandet skapades på en enhet. En enhet måste ange ett explicit värde. | Ja |
 
 ## <a name="message-size"></a>Meddelandestorlek
 

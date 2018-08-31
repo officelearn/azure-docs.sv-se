@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: nberdy
-ms.openlocfilehash: 0b84d7b0e7bbd2021ea4d3e3e804c739be59b48a
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 4d55c152bdc938d943c90a3e51af37b45f6a8eb5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186887"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301404"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Förstå och anropa direktmetoder från IoT Hub
 IoT Hub ger dig möjlighet att anropa direktmetoder på enheter från molnet. Direkta metoder representerar en begäran / svar-interaktion med en enhet som liknar ett HTTP-anrop i att de lyckas eller misslyckas omedelbart (efter en användardefinierade tidsgräns). Den här metoden är användbart för scenarier där loppet av omedelbara åtgärder är olika beroende på om enheten var kunna svara.
@@ -105,7 +105,7 @@ Backend-appen tar emot ett svar som består av:
     Båda `status` och `body` tillhandahålls av enheten och används för att svara med statuskod för enhetens egna och/eller beskrivning.
 
 ### <a name="method-invocation-for-iot-edge-modules"></a>Metodanropet för IoT Edge-moduler
-Anropar direkta metoder med hjälp av en modul ID stöds i C# Förhandsgranska SDK (tillgängliga [här](https://www.nuget.org/packages/Microsoft.Azure.Devices/1.16.0-preview-004)).
+Anropa direktmetoder med hjälp av en modul i C# SDK har stöd för ID (tillgängliga [här](https://www.nuget.org/packages/Microsoft.Azure.Devices/)).
 
 För detta ändamål använder den `ServiceClient.InvokeDeviceMethodAsync()` metoden samt skickar den `deviceId` och `moduleId` som parametrar.
 

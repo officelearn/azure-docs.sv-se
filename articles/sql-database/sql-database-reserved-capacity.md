@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: carlrab
-ms.openlocfilehash: 1d1cad4b614eb35be9235a721368db8048be050a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: fcb7f2c1bb3e1653b9f8112abc0effaddc45fa54
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39635085"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306477"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Betala i förskott för beräkningsresurser för SQL-databas med Azure SQL Database reserverad kapacitet
 
@@ -65,10 +65,11 @@ VCore-reservationsrabatten tillämpas automatiskt på hur många SQL Database-in
 
 Lär dig hur du hanterar SQL-databas reserverad kapacitet reservation, se [hantera SQL Database reserverad kapacitet](../billing/billing-manage-reserved-vm-instance.md).
 
-Om du vill veta mer om Azure reservation, finns i följande artiklar:
+Om du vill veta mer om Azure reservationer, finns i följande artiklar:
 
 - [Vad är Azure reservationer?](../billing/billing-save-compute-costs-reservations.md)
 - [Hantera Azure-reservationer](../billing/billing-manage-reserved-vm-instance.md)
+- [Förstå Azure reservationer rabatt](../billing/billing-understand-reservation-charges.md)
 - [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](../billing/billing-understand-reserved-instance-usage.md)
 - [Förstå användningen av reserverade för din Enterprise-registrering](../billing/billing-understand-reserved-instance-usage-ea.md)
 - [Azure reservationer i programmet för Partner Center Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-reservations)

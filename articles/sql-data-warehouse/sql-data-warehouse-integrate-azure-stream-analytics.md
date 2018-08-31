@@ -1,73 +1,73 @@
 ---
-title: Använda Azure Stream Analytics med SQL Data Warehouse | Microsoft Docs
+title: Använd Azure Stream Analytics med SQL Data Warehouse | Microsoft Docs
 description: Tips för att använda Azure Stream Analytics med Azure SQL Data Warehouse för utveckling av lösningar.
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 76cbbddca70d3bc8091dbea383213446adac533e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 6e9a6e9c7407939ea9e76cad569e870d578b37f9
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31600316"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307369"
 ---
-# <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Använda Azure Stream Analytics med SQL Data Warehouse
-Azure Stream Analytics är en helt hanterad tjänst som tillhandahåller låg latens, hög tillgänglighet och skalbara komplexa händelsebearbetning över strömmande data i molnet. Du kan lära dig grunderna genom att läsa [introduktion till Azure Stream Analytics][Introduction to Azure Stream Analytics]. Sedan kan du lära dig hur du skapar en lösning för slutpunkt till slutpunkt med Stream Analytics genom att följa den [komma igång med Azure Stream Analytics] [ Get started using Azure Stream Analytics] kursen.
+# <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Använd Azure Stream Analytics med SQL Data Warehouse
+Azure Stream Analytics är en helt hanterad tjänst som ger låg latens, hög tillgänglighet och skalbar komplex händelsebearbetning över strömmande data i molnet. Du kan lära dig grunderna genom att läsa [introduktion till Azure Stream Analytics][Introduction to Azure Stream Analytics]. Sedan kan du lära dig hur du skapar en slutpunkt till slutpunkt-lösning med Stream Analytics genom att följa den [komma igång med Azure Stream Analytics] [ Get started using Azure Stream Analytics] självstudien.
 
-I den här artikeln får du lära dig hur du använder Azure SQL Data Warehouse-databas som utdatamottagare för ånga Analytics-jobb.
+I den här artikeln får du lära dig hur du använder din Azure SQL Data Warehouse-databas som en utdatamottagare för din Steam Analytics-jobb.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Kör först igenom följande steg i den [komma igång med Azure Stream Analytics] [ Get started using Azure Stream Analytics] kursen.  
+Först gå igenom följande steg i den [komma igång med Azure Stream Analytics] [ Get started using Azure Stream Analytics] självstudien.  
 
-1. Skapa en Event Hub-indata
-2. Konfigurera och starta program eller generator-händelse
+1. Skapa en Event Hub
+2. Konfigurera och starta händelsegeneratorprogrammet
 3. Etablera ett Stream Analytics-jobb
-4. Ange indata för jobbet och fråga
+4. Ange jobbindata och fråga
 
 Skapa sedan en Azure SQL Data Warehouse-databas
 
 ## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>Ange jobbutdata: Azure SQL Data Warehouse-databas
 ### <a name="step-1"></a>Steg 1
-Klicka på i Stream Analytics-jobbet **utdata** högst upp på sidan och klicka sedan på **lägga till utdata**.
+I ditt Stream Analytics-jobb klickar du på **utdata** högst upp på sidan och klicka sedan på **lägga till utdata**.
 
 ### <a name="step-2"></a>Steg 2
-Välj SQL-databasen och klicka på Nästa.
+Välj SQL-databas och klicka på Nästa.
 
 ![][add-output]
 
 ### <a name="step-3"></a>Steg 3
 Ange följande värden på nästa sida:
 
-* *Utdata Alias*: Ange ett eget namn för det här jobbutdata.
-* *Prenumerationen*:
-  * Om din SQL Data Warehouse-databas är i samma prenumeration som Stream Analytics-jobbet väljer du Använd SQL-databas från aktuell prenumeration.
+* *Utdata Alias*: Ange ett eget namn för den här jobbutdata.
+* *Prenumeration*:
+  * Om SQL Data Warehouse-databasen är i samma prenumeration som Stream Analytics-jobb väljer du Använd SQL-databas från aktuella prenumerationen.
   * Om databasen är i en annan prenumeration väljer du Använd SQL-databas från en annan prenumeration.
-* *Databasen*: Ange namnet på en måldatabasen.
-* *Servernamnet*: Ange namnet på servern för databasen som du precis angav. Du kan använda Azure-portalen för att hitta detta.
+* *Databasen*: Ange namnet på en måldatabas.
+* *Servernamn*: Ange namnet på servern för databasen som du precis angav. Du kan använda Azure-portalen för att hitta detta.
 
 ![][server-name]
 
 * *Användarnamnet*: Ange användarnamnet för ett konto som har skrivbehörighet för databasen.
-* *Lösenordet*: Ange lösenordet för det angivna användarkontot.
+* *Lösenord*: Ange lösenordet för det angivna användarkontot.
 * *Tabellen*: Ange namnet på måltabellen i databasen.
 
 ![][add-database]
 
 ### <a name="step-4"></a>Steg 4
-Klicka på knappen Kontrollera för att lägga till det här jobbutdata och kontrollera att Stream Analytics kan ansluta till databasen.
+Klicka på knappen Kontrollera för att lägga till den här jobbutdata och kontrollera att Stream Analytics kan ansluta till databasen.
 
 ![][test-connection]
 
 När anslutningen till databasen lyckas visas ett meddelande längst ned i portalen. Du kan klicka på Testa anslutning längst ned för att testa anslutningen till databasen.
 
 ## <a name="next-steps"></a>Nästa steg
-En översikt över integrering finns [översikt över SQL Data Warehouse-integration][SQL Data Warehouse integration overview].
+En översikt över integration finns i [översikt över SQL Data Warehouse-integration][SQL Data Warehouse integration overview].
 
 För fler utvecklingstips, se [Översikt över SQL Data Warehouse-utveckling][SQL Data Warehouse development overview].
 

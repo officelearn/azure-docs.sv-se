@@ -1,6 +1,6 @@
 ---
-title: Behörigheter som krävs för att använda Azure Nätverksbevakaren funktioner | Microsoft Docs
-description: Lär dig vilka Azure rollbaserad behörighet krävs för att arbeta med Nätverksbevakaren funktioner.
+title: Behörigheter som krävs för att använda funktionerna för Azure Network Watcher | Microsoft Docs
+description: Lär dig vilka Azure rollbaserad behörighet krävs för att arbeta med Network Watcher-funktioner.
 services: network-watcher
 documentationcenter: ''
 author: jimdial
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: jdial
-ms.openlocfilehash: 09f3a1e1d9c6796cb55ae8f0ab18bf8e1b3fa198
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 7d0f0367a4126e7cecd34b39e6e5065e7d4fd90a
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077880"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287115"
 ---
-# <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Rollbaserad behörighet krävs för att använda funktionerna för Nätverksbevakaren
+# <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Rollbaserad åtkomstbehörighet som krävs för att använda funktionerna för Network Watcher
 
-Azure rollbaserad åtkomstkontroll (RBAC) kan du tilldela medlemmar i din organisation som de behöver för att slutföra sina tilldelade ansvarsområden endast specifika åtgärder. Om du vill använda Nätverksbevakaren funktioner kontot du loggar in på Azure med, måste tilldelas den [ägare](/role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#owner), [deltagare](/role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#contributor), eller [Network-deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-contributor) inbyggda roller eller tilldelad till en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) som tilldelas de åtgärder som anges för varje Nätverksbevakaren funktion i avsnitten som följer. Mer information om funktionerna i nätverket Watcher finns [vad är Nätverksbevakaren?](network-watcher-monitoring-overview.md).
+Azure rollbaserad åtkomstkontroll (RBAC) kan du tilldela bara specifika åtgärder för medlemmar i din organisation som de behöver för att slutföra sina tilldelade ansvarsområden. För att använda Network Watcher-funktioner, måste det konto som du loggar in på Azure med, tilldelas till den [ägare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#owner), [deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#contributor), eller [nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-contributor) inbyggda roller eller tilldelad till en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) som är tilldelade åtgärderna för varje funktion för Network Watcher i avsnitten som följer. Mer information om funktionerna i Network Watcher finns [vad är Network Watcher?](network-watcher-monitoring-overview.md).
 
 ## <a name="network-watcher"></a>Network Watcher
 
 | Åtgärd                                                              | Namn                                                           |
 | ---------                                                           | -------------                                                  |
-| Microsoft.Network/networkWatchers/read                              | Hämta en nätverksbevakaren                                          |
+| Microsoft.Network/networkWatchers/read                              | Hämta en network watcher                                          |
 | Microsoft.Network/networkWatchers/write                             | Skapa eller uppdatera en nätverksbevakaren                             |
 | Microsoft.Network/networkWatchers/delete                            | Ta bort en nätverksbevakaren                                       |
 
-## <a name="nsg-flow-logs"></a>NSG-loggar flöde
+## <a name="nsg-flow-logs"></a>NSG-flödesloggar
 
 | Åtgärd                                                              | Namn                                                           |
 | ---------                                                           | -------------                                                  |
-| Microsoft.Network/networkWatchers/configureFlowLog/action           | Konfigurera ett flöde logg                                           |
-| Microsoft.Network/networkWatchers/queryFlowLogStatus/action         | Fråga status för en flödet logg                                    |
+| Microsoft.Network/networkWatchers/configureFlowLog/action           | Konfigurera ett flöde Log                                           |
+| Microsoft.Network/networkWatchers/queryFlowLogStatus/action         | Fråga status för en flow-logg                                    |
 
 ## <a name="connection-troubleshoot"></a>Felsökning av anslutning
 
@@ -47,26 +47,26 @@ Azure rollbaserad åtkomstkontroll (RBAC) kan du tilldela medlemmar i din organi
 | Microsoft.Network/networkWatchers/queryTroubleshootResult/action    | Resultatet av frågan för en anslutning felsöka test                |
 | Microsoft.Network/networkWatchers/troubleshoot/action               | Kör en anslutning felsöka test                             |
 
-## <a name="connection-monitor"></a>Övervakaren anslutning
+## <a name="connection-monitor"></a>Anslutningsövervakaren
 
 | Åtgärd                                                              | Namn                                                           |
 | ---------                                                           | -------------                                                  |
-| Microsoft.Network/networkWatchers/connectionMonitors/start/action   | Starta en anslutning Övervakare                                     |
-| Microsoft.Network/networkWatchers/connectionMonitors/stop/action    | Stoppa en anslutning Övervakare                                      |
-| Microsoft.Network/networkWatchers/connectionMonitors/query/action   | Fråga en anslutning Övervakare                                     |
-| Microsoft.Network/networkWatchers/connectionMonitors/read           | Få en skärm för anslutning                                       |
-| Microsoft.Network/networkWatchers/connectionMonitors/write          | Skapa en anslutning                                    |
-| Microsoft.Network/networkWatchers/connectionMonitors/delete         | Ta bort en anslutning Övervakare                                    |
+| Microsoft.Network/networkWatchers/connectionMonitors/start/action   | Starta en anslutningsövervakaren                                     |
+| Microsoft.Network/networkWatchers/connectionMonitors/stop/action    | Stoppa en anslutningsövervakare                                      |
+| Microsoft.Network/networkWatchers/connectionMonitors/query/action   | Fråga en anslutningsövervakare                                     |
+| Microsoft.Network/networkWatchers/connectionMonitors/read           | Hämta en anslutningsövervakare                                       |
+| Microsoft.Network/networkWatchers/connectionMonitors/write          | Skapa en anslutningsövervakare                                    |
+| Microsoft.Network/networkWatchers/connectionMonitors/delete         | Ta bort en anslutningsövervakare                                    |
 
 ## <a name="packet-capture"></a>Paketinsamling
 
 | Åtgärd                                                              | Namn                                                           |
 | ---------                                                           | -------------                                                  |
-| Microsoft.Network/networkWatchers/packetCaptures/queryStatus/action | Fråga status för en paketinsamling                           |
-| Microsoft.Network/networkWatchers/packetCaptures/stop/action        | Stoppa en paketinsamling                                          |
-| Microsoft.Network/networkWatchers/packetCaptures/read               | Hämta en paketinsamling                                           |
-| Microsoft.Network/networkWatchers/packetCaptures/write              | Skapa en paketinsamling                                        |
-| Microsoft.Network/networkWatchers/packetCaptures/delete             | Ta bort en paketinsamling                                        |
+| Microsoft.Network/networkWatchers/packetCaptures/queryStatus/action | Fråga status för ett infångat paket                           |
+| Microsoft.Network/networkWatchers/packetCaptures/stop/action        | Stoppa ett infångat paket                                          |
+| Microsoft.Network/networkWatchers/packetCaptures/read               | Hämta ett infångat paket                                           |
+| Microsoft.Network/networkWatchers/packetCaptures/write              | Skapa ett infångat paket                                        |
+| Microsoft.Network/networkWatchers/packetCaptures/delete             | Ta bort ett infångat paket                                        |
 
 ## <a name="ip-flow-verify"></a>Kontrollera IP-flöde
 
@@ -90,17 +90,17 @@ Azure rollbaserad åtkomstkontroll (RBAC) kan du tilldela medlemmar i din organi
 
 | Åtgärd                                                              | Namn                                                           |
 | ---------                                                           | -------------                                                  |
-| Microsoft.Network/networkWatchers/topology/action                   | Hämta topologi                                                   |
+| Microsoft.Network/networkWatchers/topology/action                   | Hämta topologin                                                   |
 
-## <a name="reachability-report"></a>Reachability rapport
+## <a name="reachability-report"></a>Nätverksåtkomst rapport
 
 | Åtgärd                                                              | Namn                                                           |
 | ---------                                                           | -------------                                                  |
-| Microsoft.Network/networkWatchers/azureReachabilityReport/action    | Hämta en Azure reachability-rapport                               |
+| Microsoft.Network/networkWatchers/azureReachabilityReport/action    | Hämta en Azure nätverksåtkomst-rapport                               |
 
 ## <a name="additional-actions"></a>Ytterligare åtgärder
 
-Watcher nätverksfunktioner kräver också följande åtgärder:
+Funktioner för Network Watcher kräver även följande åtgärder:
 
 - Microsoft.Storage/Read
 - Microsoft.Authorization/Read

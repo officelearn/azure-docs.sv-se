@@ -1,25 +1,25 @@
 ---
-title: 'Självstudier: Läs in New York tag taxi data till Azure SQL Data Warehouse | Microsoft Docs'
-description: Guiden använder Azure portal och SQL Server Management Studio för att läsa in New York tag taxi data från en offentlig Azure blob till Azure SQL Data Warehouse.
+title: 'Självstudie: Läs in New York-taxidata till Azure SQL Data Warehouse | Microsoft Docs'
+description: Självstudien används Azure portal och SQL Server Management Studio för att läsa in New York-taxidata från en offentlig Azure-blob till Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: acc7d0a031821b8b6e9c110c92597b0307e216fb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 06d889686c673adc3941ac7303ab52a6fff408a8
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193241"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288132"
 ---
-# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Självstudier: Läs in New York tag taxi data till Azure SQL Data Warehouse
+# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Självstudie: Läs in New York-taxidata till Azure SQL Data Warehouse
 
-Den här självstudiekursen använder PolyBase för att läsa in New York tag taxi data från en offentlig Azure blob till Azure SQL Data Warehouse. I självstudierna används [Azure-portalen](https://portal.azure.com) och [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) för att: 
+Den här självstudien används PolyBase för att läsa in New York-taxidata från en offentlig Azure-blob till Azure SQL Data Warehouse. I självstudierna används [Azure-portalen](https://portal.azure.com) och [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) för att: 
 
 > [!div class="checklist"]
 > * Skapa ett informationslager på Azure-portalen
@@ -38,7 +38,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 Innan du börjar med de här självstudierna ska du ladda ned och installera den senaste versionen av [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
+## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -78,13 +78,13 @@ Följ de här stegen om du vill skapa ett tomt SQL-informationslager.
 
 5. Klicka på **Välj**.
 
-6. Klicka på **prestandanivå** att ange om datalagret är Gen1 eller Gen2 och antalet data warehouse enheter. 
+6. Klicka på **prestandanivå** att ange om informationslagret är Gen1 och Gen2 och antalet informationslagerenheter. 
 
-7. Den här kursen väljer **Gen1** för SQL Data Warehouse. Skjutreglaget, som standard är inställt på **DW1000c**.  Prova att flytta det uppåt och nedåt för att se hur det fungerar. 
+7. Den här självstudien väljer **Gen1** i SQL Data Warehouse. Skjutreglaget är som standard anges till **DW1000c**.  Prova att flytta det uppåt och nedåt för att se hur det fungerar. 
 
     ![konfigurera prestanda](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
-8. Klicka på **Använd**.
+8. Klicka på **Verkställ**.
 9. På sidan för SQL-informationslager väljer du en **Sortering** för den tomma databasen. I de här självstudierna ska du välja standardvärdet. Mer information om sorteringar finns i [Sorteringar](/sql/t-sql/statements/collations).
 
 11. Nu när du har fyllt i SQL Database-formuläret klickar du på **Skapa** så att databasen etableras. Etableringen tar några minuter. 
@@ -103,7 +103,7 @@ Tjänsten SQL Database Warehouse skapar en brandvägg på servernivå som hindra
 > SQL Database Warehouse kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 1433.
 >
 
-1. När distributionen är klar klickar du på **SQL-databaser** på menyn till vänster och klickar sedan på **mySampleDatabase** på sidan **SQL-databaser**. På översiktssidan för din databas öppnas och visar fullständigt kvalificerade servernamnet (exempelvis **mynewserver 20180430.database.windows.net**) och innehåller alternativ för ytterligare konfiguration. 
+1. När distributionen är klar klickar du på **SQL-databaser** på menyn till vänster och klickar sedan på **mySampleDatabase** på sidan **SQL-databaser**. Översiktssidan för databasen öppnas, där du kan se det fullständigt kvalificerade servernamnet (till exempel **mynewserver-20180430.database.windows.net**) och alternativ för ytterligare konfiguration. 
 
 2. Kopiera det här fullständiga servernamnet för anslutning till servern och databaserna i efterföljande snabbstarter. Klicka sedan på servernamnet för att öppna serverinställningarna.
 
@@ -133,8 +133,8 @@ Nu kan du ansluta till SQL-servern och dess informationslager med den här IP-ad
 Hämta det fullständigt kvalificerade servernamnet för SQL-servern i Azure Portal. Du kommer att använda det fullständigt kvalificerade namnet senare när du ska ansluta till servern.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Välj **SQL-informationslager** i den vänstra menyn och klicka på din databas på den **SQL-informationslager** sidan. 
-3. I rutan **Essentials** på sidan för Azure Portal för databasen letar du reda på och kopierar **servernamnet**. I det här exemplet är det fullständigt kvalificerade namnet mynewserver 20180430.database.windows.net. 
+2. Välj **SQL-informationslager** på den vänstra menyn och klicka på databasen på den **SQL-informationslager** sidan. 
+3. I rutan **Essentials** på sidan för Azure Portal för databasen letar du reda på och kopierar **servernamnet**. I det här exemplet är det fullständigt kvalificerade namnet mynewserver-20180430.database.windows.net. 
 
     ![anslutningsinformation](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
 
@@ -149,7 +149,7 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
     | Inställning      | Föreslaget värde | Beskrivning | 
     | ------------ | --------------- | ----------- | 
     | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
-    | servernamn | Fullständigt kvalificerat servernamn | Namnet ska vara ungefär så här: **mynewserver 20180430.database.windows.net**. |
+    | servernamn | Fullständigt kvalificerat servernamn | Namnet bör vara ungefär så här: **mynewserver-20180430.database.windows.net**. |
     | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi har konfigurerat i den här kursen. |
     | Inloggning | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
     | Lösenord | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
@@ -164,7 +164,7 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
 
 ## <a name="create-a-user-for-loading-data"></a>Skapa en användare för att läsa in data
 
-Serveradministratörskontot är avsett för att utföra hanteringsåtgärder och är inte lämpligt för att köra frågor på användardata. Datainläsning är en minneskrävande åtgärd. Minne maxkapacitet definieras enligt vilken Generation av SQL Data Warehouse du har etablerat [datalager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md), och [resursklassen](resource-classes-for-workload-management.md). 
+Serveradministratörskontot är avsett för att utföra hanteringsåtgärder och är inte lämpligt för att köra frågor på användardata. Datainläsning är en minneskrävande åtgärd. Minnesmaxkapacitet definieras enligt vilken Generation av SQL Data Warehouse du har etablerat [data informationslagerenheter](what-is-a-data-warehouse-unit-dwu-cdwu.md), och [resursklass](resource-classes-for-workload-management.md). 
 
 Det är bäst att skapa en särskild inloggning och en särskild användare för inläsning av data. Lägg sedan till inläsningsanvändaren i en [resursklass](resource-classes-for-workload-management.md) som möjliggör en lämplig maximal minnesallokering.
 
@@ -215,7 +215,7 @@ Första steget mot att läsa in data är att logga in som LoaderRC20.
 
 ## <a name="create-external-tables-for-the-sample-data"></a>Skapa externa tabeller för exempeldata
 
-Du är redo att börja läsa in data till ditt nya informationslager. Den här kursen visar hur du använder externa tabeller för att läsa in New York City taxi cab data från en Azure storage blob. Om du vill lära dig hur du får dina data till Azure Blob Storage eller hur du läser in dem direkt från källan till SQL Data Warehouse för framtida bruk går du till [översikten över inläsning](sql-data-warehouse-overview-load.md).
+Du är redo att börja läsa in data till ditt nya informationslager. Den här självstudien visar hur du använder externa tabeller för att läsa in New York City-taxidata från en Azure storage blob. Om du vill lära dig hur du får dina data till Azure Blob Storage eller hur du läser in dem direkt från källan till SQL Data Warehouse för framtida bruk går du till [översikten över inläsning](sql-data-warehouse-overview-load.md).
 
 Kör följande SQL-skript och ange information om de data du vill läsa in. Informationen omfattar var informationen finns, formatet för innehållet i aktuella data och tabelldefinitionen för dessa data. 
 
@@ -589,7 +589,7 @@ Följ dessa steg för att rensa resurser enligt dina önskemål.
 
 3. Om du vill ta bort informationslagret så att du varken debiteras för beräkning eller lagring klickar du på **Ta bort**.
 
-4. Ta bort SQL-server som du har skapat, klicka på **mynewserver 20180430.database.windows.net** i föregående bild och klicka sedan på **ta bort**.  Var försiktig: om du tar bort servern tas nämligen alla databaser som servern har tilldelats bort.
+4. Ta bort den SQLServer som du skapade genom att klicka på **mynewserver-20180430.database.windows.net** i föregående bild och klicka sedan på **ta bort**.  Var försiktig: om du tar bort servern tas nämligen alla databaser som servern har tilldelats bort.
 
 5. Om du vill ta bort resursgruppen klickar du på **myResourceGroup** och sedan på **Ta bort resursgrupp**.
 

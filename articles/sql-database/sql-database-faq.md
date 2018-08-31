@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 08/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 7f784689e8437d92cf4fc4974983d3ae1455f11b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a7837ac6af82b5c67ea5779340aedc16cb78d156
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43091832"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286340"
 ---
 # <a name="sql-database-faq"></a>Vanliga frågor om SQL Database
 
@@ -22,8 +22,10 @@ ms.locfileid: "43091832"
 Den aktuella versionen av SQL-databas är V12. Version V11 har tagits bort.
 
 ## <a name="what-is-the-sla-for-sql-database"></a>Vad är serviceavtalet för SQL-databas?
-Vi garanterar minst 99,99% av tiden, du har anslutning mellan Microsoft Azure SQL-databas och vår Internet-gateway, oavsett din tjänstnivå. Mer information finns i [SLA](http://azure.microsoft.com/support/legal/sla/).
+Vi garanterar minst 99,99% av tiden, du har anslutning mellan Microsoft Azure SQL-databas och vår Internet-gateway, oavsett din tjänstnivå. 0,01% är reserverad för korrigeringar och uppgraderingar redundans. Mer information finns i [SLA](http://azure.microsoft.com/support/legal/sla/). Information om tillgänglighet arkitekturen i Azure SQL Database finns i [hög tillgänglighet och Azure SQL Database](sql-database-high-availability.md). 
 
+## <a name="can-i-control-when-patching-downtime-occurs"></a>Jag kan styra när uppdatering driftstopp uppstår
+Nej. Effekten av korrigeringar är vanligtvis inte noticable om du [använder logik för omprövning](sql-database-develop-overview.md#resiliency) i din app.
 ## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>Vad är den nya vCore-baserade inköpsmodellen för Azure SQL Database?
 
 Den nya inköpsmodellen är ett tillägg till den befintliga DTU-baserade modellen. Den vCore-baserade modellen är utformad för att ge kunder flexibilitet, kontroll, transparens och ett enkelt sätt att överföra lokala arbetsbelastningskrav till molnet. Det gör också kunderna möjlighet att skala sina resurser för beräkning och lagring utifrån deras arbetsbelastningsbehov. Enkel databas och elastisk pool alternativ med vCore-modellen är också berättigade till upp till 30 procent med den [Azure Hybrid-förmånen för SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Se [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) för mer information. 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: e94b023275f3992bea9595195688eebf42f0f229
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b5e0a0caacab2413b640c58575673e555eeb76a4
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186796"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288286"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Förstå och använda enhetstvillingar i IoT Hub
 
@@ -254,7 +254,7 @@ Taggar och önskade egenskaper rapporterade egenskaper är JSON-objekt med följ
     }
     ```
 
-* Alla strängvärden får vara högst 4 KB långt.
+* Alla strängvärden får vara högst 512 byte i längd.
 
 ## <a name="device-twin-size"></a>Enheten twin storlek
 IoT Hub tillämpar en begränsning på 8KB storlek på var och en av de totalt värdena i `tags`, `properties/desired`, och `properties/reported`, exklusive skrivskyddade element.
@@ -354,6 +354,7 @@ I följande självstudier får IoT Hub för att prova några av de koncept som b
 
 * [Hur du använder enhetstvillingen][lnk-twin-tutorial]
 * [Så här använder du tvillingegenskaper][lnk-twin-properties]
+* [Enhetshantering med Azure IoT Toolkit för VS Code][lnk-twin-vscode]
 
 <!-- links and images -->
 
@@ -377,6 +378,7 @@ I följande självstudier får IoT Hub för att prova några av de koncept som b
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-properties]: tutorial-device-twins.md
+[lnk-twin-vscode]: iot-hub-device-management-iot-toolkit.md
 [lnk-twin-metadata]: iot-hub-devguide-device-twins.md#device-twin-metadata
 [lnk-concurrency]: iot-hub-devguide-device-twins.md#optimistic-concurrency
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow

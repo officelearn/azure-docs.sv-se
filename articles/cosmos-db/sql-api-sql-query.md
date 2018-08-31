@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: laviswa
-ms.openlocfilehash: 26928e36b09ef0dfe5576a8a8039ffac2dd3fb4a
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: a3a1f376c36004851d6e64f2fa037bebfc24665b
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42061701"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287766"
 ---
 # <a name="query-azure-cosmos-db-data-with-sql-queries"></a>Fråga Azure Cosmos DB-data med SQL-frågor
 
@@ -27,17 +27,7 @@ Microsoft Azure Cosmos DB stöder förfrågningar till dokument med hjälp av SQ
 
 * Azure Cosmos DB använder JavaScript-programmeringsmodell som grund för frågespråket. SQL API grundas på typsystemet i JavaScript-typsystemet, uttrycksutvärdering och funktionsanrop. Den här i sin tur är en naturlig programmeringsmodell för relationella projektioner, hierarkisk navigering i JSON-dokument, självsignerat kopplingar, rumsliga förfrågningar och anrop av användardefinierade funktioner (UDF) helt skrivna i JavaScript, bland annat. 
 
-Den här artikeln vägleder dig igenom några exempel SQL-frågor med hjälp av enkla JSON-dokument. Mer information om syntaxen för Azure Cosmos DB SQL, se [referens för SQL-syntax](sql-api-sql-query-reference.md) artikeln. Du kan också komma igång genom att titta på följande videor som visar Azure Cosmos DB frågefunktioner och visar den online [Frågespelplan](http://www.documentdb.com/sql/demo).
-
-> [!VIDEO https://www.youtube.com/embed/1LqUQRpHfFI]
->
->
-
-Mer avancerade teknikerna för förfrågningar till visas i följande video:
-
-> [!VIDEO https://www.youtube.com/embed/kASU9NOIR90]
->
->
+Den här artikeln vägleder dig igenom några exempel SQL-frågor med hjälp av enkla JSON-dokument. Mer information om syntaxen för Azure Cosmos DB SQL, se [referens för SQL-syntax](sql-api-sql-query-reference.md) artikeln. 
 
 ## <a id="GettingStarted"></a>Kom igång med SQL-kommandon
 Nu ska vi skapa två enkla JSON-dokument och fråga mot dessa data. Överväg två JSON-dokument om familjer, infoga dessa JSON-dokument i en samling och sedan fråga data. Här har vi ett enkelt JSON dokumentera för familjen Andersen och Wakefield familjer, överordnade, barn (och deras husdjur), adress och registreringsinformation. Dokumentet har strängar, tal, booleska värden, matriser och kapslade egenskaper. 

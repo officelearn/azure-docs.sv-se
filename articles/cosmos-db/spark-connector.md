@@ -10,20 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: ramkris
-ms.openlocfilehash: 57ad621006a79148aaa6e9435d6ede446539c648
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: e7ed0049e64a7740063f2fab7bdfddff38d45ed9
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714761"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287718"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Påskynda analyser av stordata med Apache Spark för Azure Cosmos DB-anslutningsapp
  
 Apache Spark för Azure Cosmos DB-anslutningsapp kan Azure Cosmos DB vara indata eller utdata för Apache Spark-jobb. Ansluta [Spark](http://spark.apache.org/) till [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) ökar dina möjligheter att lösa snabbrörliga data science-problem. Du kan använda Azure Cosmos DB för att snabbt spara och fråga efter data. Anslutningen används effektivt de inbyggda Azure Cosmos DB-hanterade indexen. Index kan använda uppdateringsbara kolumner när du utför analyser och push-down-predikat filtrering mot föränderliga, globalt distribuerade data. Den här typen av data kan vara mellan Internet of Things (IoT) och scenarier för datavetenskap och analys av data.
-
-Mer information om anslutningen i den här videon:
-
-> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T135/player] 
 
 ## <a name="connector-components"></a>Connector-komponenter
 

@@ -1,49 +1,49 @@
 ---
-title: 'Övervaka din arbetsbelastning med av DMV: er | Microsoft Docs'
-description: 'Lär dig att övervaka din arbetsbelastning med av DMV: er.'
+title: Övervaka arbetsbelastningen med Datahanteringsvyer | Microsoft Docs
+description: 'Lär dig mer om att övervaka din arbetsbelastning med DMV: er.'
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 887fa4b9f950531438986269d041189d45cdecb2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: fe989a1693d73dbbea7ed0e3e91ed7aaf6fc37c4
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31522480"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301090"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Övervaka din arbetsbelastning med DMV:er
-Den här artikeln beskriver hur du använder dynamiska hanteringsvyer (av DMV: er) för att övervaka din arbetsbelastning. Detta inkluderar undersöker Frågekörningen i Azure SQL Data Warehouse.
+Den här artikeln beskriver hur du använder dynamiska hanteringsvyer (DMV) för att övervaka din arbetsbelastning. Detta inkluderar att undersöka Frågekörningen i Azure SQL Data Warehouse.
 
 ## <a name="permissions"></a>Behörigheter
-Om du vill fråga de av DMV: er i den här artikeln behöver behörighet att visa status för databasen eller kontroll. Beviljande VISNINGSSTATUS för databasen är vanligtvis prioriterade behörigheten eftersom den är mycket mer restriktiva.
+Om du vill fråga DMV: er i den här artikeln, måste du antingen visa DATABASTILLSTÅND eller behörighet. Beviljad visa DATABASTILLSTÅND är vanligtvis den önskade behörigheten eftersom den är mycket mer restriktiva.
 
 ```sql
 GRANT VIEW DATABASE STATE TO myuser;
 ```
 
 ## <a name="monitor-connections"></a>Övervaka anslutningar
-Alla inloggningar till SQL Data Warehouse loggas [sys.dm_pdw_exec_sessions][sys.dm_pdw_exec_sessions].  Den här DMV innehåller de senaste 10 000-inloggningar.  Session_id är den primära nyckeln och har tilldelats sekventiellt för varje ny inloggning.
+Alla inloggningar till SQL Data Warehouse är inloggade [sys.dm_pdw_exec_sessions][sys.dm_pdw_exec_sessions].  Den här DMV innehåller de senaste 10 000 inloggningarna.  Session_id är den primära nyckeln och har tilldelats sekventiellt för varje ny inloggning.
 
 ```sql
 -- Other Active Connections
 SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed' and session_id <> session_id();
 ```
 
-## <a name="monitor-query-execution"></a>Körning av övervakaren fråga
-Alla frågor som körs på SQL Data Warehouse loggas [sys.dm_pdw_exec_requests][sys.dm_pdw_exec_requests].  Den här DMV innehåller de senaste 10 000 frågor som körs.  Request_id unikt identifierar varje fråga och är den primära nyckeln för den här DMV.  Request_id tilldelas sekventiellt för varje ny fråga och med prefixet QID, vilket står för frågan-ID.  Frågor till den här DMV för en given session_id visas alla frågor för en viss inloggning.
+## <a name="monitor-query-execution"></a>Övervaka Frågekörningen
+Alla frågor som körs på SQL Data Warehouse är inloggade [sys.dm_pdw_exec_requests][sys.dm_pdw_exec_requests].  Den här DMV innehåller de senaste 10 000 frågor som körs.  Request_id identifierar varje fråga och är den primära nyckeln för den här DMV.  Request_id tilldelas sekventiellt för varje ny fråga och har prefixet QID som står för frågan-ID.  Frågor till den här DMV för en viss session_id visas alla frågor för en viss inloggning.
 
 > [!NOTE]
-> Lagrade procedurer använda flera begäran-ID: N.  Begäran-ID: N tilldelas i följd. 
+> Lagrade procedurer använder flera ID: N som begär.  Begäran-ID: N har tilldelats i sekventiell ordning. 
 > 
 > 
 
-Här följer stegen för att undersöka frågeplaner för körning och tid för en viss fråga.
+Här är steg att följa om du vill undersöka frågeplaner för körning och tid för en viss fråga.
 
 ### <a name="step-1-identify-the-query-you-wish-to-investigate"></a>STEG 1: Identifiera den fråga som du vill undersöka
 ```sql
@@ -66,11 +66,11 @@ FROM    sys.dm_pdw_exec_requests
 WHERE   [label] = 'My Query';
 ```
 
-Från föregående frågeresultaten **Observera begäran-ID** till den fråga som du vill undersöka.
+Från resultatet av föregående frågan **Observera ID för begäran** till den fråga som du vill undersöka.
 
-Frågor i den **pausad** tillstånd köas på grund av samtidiga gränser. De här frågorna visas också i sys.dm_pdw_waits väntar frågan med en typ av UserConcurrencyResourceType. Information om samtidighet begränsar finns [prestandanivåer](performance-tiers.md) eller [resursklasser för hantering av arbetsbelastning](resource-classes-for-workload-management.md). Frågor kan också vänta tills andra orsaker som för lås för objektet.  Om din fråga väntar på en resurs, se [undersöker frågor som väntar på resurser] [ Investigating queries waiting for resources] längre ned i den här artikeln.
+Frågor i den **pausad** tillstånd köas på grund av samtidighetsgränser. De här frågorna visas även i sys.dm_pdw_waits väntar frågan med en typ av UserConcurrencyResourceType. Information om samtidighetsgränser finns [prestandanivåer](performance-tiers.md) eller [resursklasser för hantering av arbetsbelastning](resource-classes-for-workload-management.md). Frågor kan också vänta av andra orsaker som för lås för objektet.  Om din fråga väntar på en resurs, se [undersöka frågor som väntar på resurser] [ Investigating queries waiting for resources] längre ned i den här artikeln.
 
-För att förenkla sökning efter en fråga i tabellen sys.dm_pdw_exec_requests, Använd [etikett] [ LABEL] att tilldela en kommentar till din fråga kan sökas i vyn sys.dm_pdw_exec_requests.
+För att förenkla sökning av en fråga i tabellen sys.dm_pdw_exec_requests kan använda [etikett] [ LABEL] att tilldela en kommentar för frågan som kan sökas i vyn sys.dm_pdw_exec_requests.
 
 ```sql
 -- Query with Label
@@ -80,8 +80,8 @@ OPTION (LABEL = 'My Query')
 ;
 ```
 
-### <a name="step-2-investigate-the-query-plan"></a>STEG 2: Undersöka frågeplanen
-Använda begäran-ID för att hämta frågans distribuerade SQL (DSQL) plan från [sys.dm_pdw_request_steps][sys.dm_pdw_request_steps].
+### <a name="step-2-investigate-the-query-plan"></a>STEG 2: Undersök frågeplanen
+Använda ID för begäran för att hämta frågans distribuerade SQL (DSQL) planen från [sys.dm_pdw_request_steps][sys.dm_pdw_request_steps].
 
 ```sql
 -- Find the distributed query plan steps for a specific query.
@@ -92,15 +92,15 @@ WHERE request_id = 'QID####'
 ORDER BY step_index;
 ```
 
-När en plan för DSQL tar längre tid än förväntat, kan orsaken vara en komplicerad plan med många DSQL steg eller ett enda steg som tar lång tid.  Om planen många steg med flera move-åtgärder kan du optimera din tabell distributioner för att minska dataflyttning. Den [tabell distribution] [ Table distribution] artikel som förklarar varför data måste flyttas till att lösa en fråga och förklarar vissa distributionsstrategier för att minimera dataflyttning.
+När en plan för DSQL tar längre tid än förväntat kan vara orsaken en komplex plan med många DSQL steg eller bara ett steg som tar lång tid.  Om planen är många steg med flera flyttåtgärder kan du överväga att optimera din tabell distributioner för att minska dataförflyttning. Den [tabelldistribution] [ Table distribution] artikeln förklarar varför data måste flyttas till att lösa en fråga och förklarar vissa distributionsstrategier för att minimera dataförflyttning.
 
-Att undersöka ytterligare information om ett enskilt steg i *operation_type* kolumnen tidskrävande frågesteg och den **steg Index**:
+Att undersöka vidare information om ett enskilt steg i *operation_type* kolumnen tidskrävande frågesteg och den **Stegindex**:
 
-* Fortsätt med steg 3a för **SQL-åtgärder**: OnOperation, RemoteOperation, ReturnOperation.
-* Fortsätt med steg 3b för **dataflyttning operations**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
+* Fortsätt med steg 3a för **SQL operations**: OnOperation, RemoteOperation, ReturnOperation.
+* Fortsätt med steg 3b för **dataförflyttning operations**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
-### <a name="step-3a-investigate-sql-on-the-distributed-databases"></a>STEG 3a: undersöka SQL på de distribuerade databaserna
-Använda begäran-ID och indexet steg för att hämta information från [sys.dm_pdw_sql_requests][sys.dm_pdw_sql_requests], som innehåller information om körningen av steget fråga på alla distribuerade databaser.
+### <a name="step-3a-investigate-sql-on-the-distributed-databases"></a>STEG 3a: Undersök SQL på distribuerade databaser
+Använd ID för begäran och steg indexet för att hämta information från [sys.dm_pdw_sql_requests][sys.dm_pdw_sql_requests], som innehåller information om körning av fråga steg på alla distribuerade databaser.
 
 ```sql
 -- Find the distribution run times for a SQL step.
@@ -110,7 +110,7 @@ SELECT * FROM sys.dm_pdw_sql_requests
 WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
-När du kör steget frågan [DBCC PDW_SHOWEXECUTIONPLAN] [ DBCC PDW_SHOWEXECUTIONPLAN] kan användas för att hämta den uppskattade planen för SQL Server från SQL Server-plancache för steget körs på en viss distributionsplats.
+När frågesteg körs [DBCC PDW_SHOWEXECUTIONPLAN] [ DBCC PDW_SHOWEXECUTIONPLAN] kan användas för att hämta den uppskattade planen för SQL Server från SQL Server-plancachen för steg som körs på en viss distribution.
 
 ```sql
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -119,8 +119,8 @@ När du kör steget frågan [DBCC PDW_SHOWEXECUTIONPLAN] [ DBCC PDW_SHOWEXECUTIO
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 ```
 
-### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>STEG 3b: undersöka flytt av data på de distribuerade databaserna
-Använda begäran-ID och indexet steg för att hämta information om ett steg för flytt av data som körs på varje distributionsplats från [sys.dm_pdw_dms_workers][sys.dm_pdw_dms_workers].
+### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>STEG 3b: Undersök dataförflyttning på distribuerade databaser
+Använda ID för begäran och indexet steg för att hämta information om ett steg för flytt av data som körs på varje distributionsplats från [sys.dm_pdw_dms_workers][sys.dm_pdw_dms_workers].
 
 ```sql
 -- Find the information about all the workers completing a Data Movement Step.
@@ -130,10 +130,10 @@ SELECT * FROM sys.dm_pdw_dms_workers
 WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
-* Kontrollera den *total_elapsed_time* kolumnen att se om en viss distributionsplats tar betydligt längre än andra för dataförflyttning.
-* Långvariga-distribution Kontrollera den *rows_processed* kolumn om antalet rader som flyttas från den distributionsplatsen är betydligt större än andra. I så fall kan detta tyda skeva underliggande data.
+* Kontrollera den *total_elapsed_time* kolumnen för att se om en viss distribution tar avsevärt längre tid än andra för dataförflyttning.
+* Tidskrävande distribution, kontrollera den *rows_processed* kolumnen för att se om antalet rader som flyttas från den distributionsplatsen är betydligt större än andra. I så, fall kan detta tyda på Skeva dina underliggande data.
 
-Om frågan körs [DBCC PDW_SHOWEXECUTIONPLAN] [ DBCC PDW_SHOWEXECUTIONPLAN] kan användas för att hämta den uppskattade planen för SQL Server från SQL Server-plancache för pågående SQL steg inom en viss distribution.
+Om frågan körs [DBCC PDW_SHOWEXECUTIONPLAN] [ DBCC PDW_SHOWEXECUTIONPLAN] kan användas för att hämta den uppskattade planen för SQL Server från SQL Server-plancachen för pågående SQL-steg inom en viss distribution.
 
 ```sql
 -- Find the SQL Server estimated plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -144,8 +144,8 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 
 <a name="waiting"></a>
 
-## <a name="monitor-waiting-queries"></a>Övervaka väntar frågor
-Om du upptäcker att frågan inte är framsteg eftersom den väntar på en resurs, är här en fråga som visar alla resurser som väntar på en fråga.
+## <a name="monitor-waiting-queries"></a>Övervakaren frågar för att vänta
+Om du upptäcker att frågan inte är framsteg eftersom den väntar för en resurs, är här en fråga som visar alla resurser som väntar på en fråga.
 
 ```sql
 -- Find queries 
@@ -167,12 +167,12 @@ WHERE waits.request_id = 'QID####'
 ORDER BY waits.object_name, waits.object_type, waits.state;
 ```
 
-Om frågan är aktivt väntar på resurser från en annan fråga, så kommer att vara i tillståndet **AcquireResources**.  Om frågan har alla nödvändiga resurser och tillståndet kommer att **beviljas**.
+Om frågan är aktivt väntar på resurser från en annan fråga så kommer att vara i tillståndet **AcquireResources**.  Om frågan har alla nödvändiga resurser så kommer att vara i tillståndet **beviljas**.
 
-## <a name="monitor-tempdb"></a>Övervakaren tempdb
-Hög tempdb-användning kan vara orsaken för långsam prestanda och ut ur minnesproblem. Överväg att skala ditt informationslager om du hittar tempdb når gränsen vid körning av fråga. Följande information beskriver hur du identifierar tempdb-användning per fråga på varje nod. 
+## <a name="monitor-tempdb"></a>Övervaka tempdb
+Hög tempdb-användning kan vara orsaken för långsam prestanda och ut ur minnesproblem. Överväg att skala ditt informationslager om du hittar tempdb når gränsen under Frågekörningen. Följande information beskriver hur du identifierar tempdb-användningen per fråga på varje nod. 
 
-Skapa följande vy om du vill associera lämpliga nod-ID för sys.dm_pdw_sql_requests. Med nod-ID kan du använda andra direkt av DMV: er och delta i dessa tabeller med sys.dm_pdw_sql_requests.
+Skapa följande vy för att associera lämplig nod-ID för sys.dm_pdw_sql_requests. Med nod-ID kan du använda andra direkt DMV: er och delta i dessa tabeller med sys.dm_pdw_sql_requests.
 
 ```sql
 -- sys.dm_pdw_sql_requests with the correct node id
@@ -196,7 +196,7 @@ CREATE VIEW sql_requests AS
 FROM sys.pdw_distributions AS d
 RIGHT JOIN sys.dm_pdw_sql_requests AS sr ON d.distribution_id = sr.distribution_id)
 ```
-Om du vill övervaka tempdb, kör du följande fråga:
+För att övervaka tempdb, kör du följande fråga:
 
 ```sql
 -- Monitor tempdb
@@ -229,7 +229,7 @@ ORDER BY sr.request_id;
 ```
 ## <a name="monitor-memory"></a>Övervaka minne
 
-Minne kan vara orsaken för långsam prestanda och ut ur minnesproblem. Överväg att skala ditt informationslager om du hittar minnesanvändning för SQL Server når gränsen vid körning av fråga.
+Minne kan vara orsaken för långsam prestanda och ut ur minnesproblem. Överväg att skala ditt informationslager om du hittar minnesanvändning på SQL Server når gränsen under Frågekörningen.
 
 Följande fråga returnerar SQL Server och minnesbelastning per nod:   
 ```sql
@@ -253,8 +253,8 @@ WHERE
 pc1.counter_name = 'Total Server Memory (KB)'
 AND pc2.counter_name = 'Target Server Memory (KB)'
 ```
-## <a name="monitor-transaction-log-size"></a>Övervaka transaktion loggfilens storlek
-Följande fråga returnerar storleken på transaktionsloggen på varje distributionsplats. Om en av filerna når 160 GB, bör du skala upp din instans eller begränsa storleken på din transaktion. 
+## <a name="monitor-transaction-log-size"></a>Övervaka transaktionsloggarnas storlek
+Följande fråga returnerar storleken på transaktionsloggen på varje distribution. Om en av filerna når 160 GB, bör du överväga att skala upp din instans eller begränsa storleken på din transaktion. 
 ```sql
 -- Transaction log size
 SELECT
@@ -266,7 +266,7 @@ WHERE
 instance_name like 'Distribution_%' 
 AND counter_name = 'Log File(s) Used Size (KB)'
 ```
-## <a name="monitor-transaction-log-rollback"></a>Övervaka logg transaktionsåterställning
+## <a name="monitor-transaction-log-rollback"></a>Övervaka log transaktionsåterställning
 Om dina frågor misslyckas eller tar lång tid att fortsätta, kan du kontrollera och övervaka om du har några transaktioner återställs.
 ```sql
 -- Monitor rollback
@@ -280,7 +280,7 @@ GROUP BY t.pdw_node_id, nod.[type]
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om av DMV: er finns [systemvyer][System views].
+Mer information om DMV: er finns i [systemvyer][System views].
 
 
 <!--Image references-->

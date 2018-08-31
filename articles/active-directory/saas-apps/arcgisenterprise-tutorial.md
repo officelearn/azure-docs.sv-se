@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: jeedes
-ms.openlocfilehash: ca5bf7ae49cf120c0566419ccadeff92433c6467
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: ea2b32b43fedacba7b8a60db29762c32fda65aa5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42819904"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306350"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>Självstudier: Azure Active Directory-integrering med ArcGIS Enterprise
 
@@ -120,7 +120,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och inloggnings-URL. Kontakta [ArcGIS Enterprise Client supportteamet](mailto:nshampur@esri.com) att hämta dessa värden. Du får ID-värde från **ange identitetsprovider** som beskrivs senare i den här självstudien.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och inloggnings-URL. Kontakta [ArcGIS Enterprise Client supportteamet](mailto:support@esri.com) att hämta dessa värden. Du får ID-värde från **ange identitetsprovider** som beskrivs senare i den här självstudien.
 
 5. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** och klistra in den i anteckningar.
 
@@ -195,7 +195,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i ArcGIS-företag. ArcGIS Enterprise stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inga uppgift åt dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt ArcGIS Enterprise om det inte finns ännu.
 
 > [!Note]
-> Om du vill skapa en användare manuellt kan du kontakta [ArcGIS Enterprise support-teamet](mailto:nshampur@esri.com).
+> Om du vill skapa en användare manuellt kan du kontakta [ArcGIS Enterprise support-teamet](mailto:support@esri.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

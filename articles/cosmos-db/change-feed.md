@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: e53f1e62b9265d2eec2f49537cc05c865e1436f3
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 3170ee1b48aa332a8730ba835396761ca5ef44c7
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902970"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287333"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Arbeta med stöd för ändringsflödet i Azure Cosmos DB
 
@@ -31,12 +31,6 @@ Den **stöd för ändringsfeed** i Azure Cosmos DB gör att du kan bygga skalbar
 
 > [!NOTE]
 > Ändringsfeed support tillhandahålls för alla datamodeller och behållare i Azure Cosmos DB. Ändringsflöde läses med hjälp av SQL-klienten och Serialiserar objekt till JSON-format. På grund av formatering, JSON MongoDB klienter får ett matchningsfel mellan BSON formaterade dokument och JSON-formaterad ändringsflödet.
-
-I följande videoklipp visar Azure Cosmos DB-Programhanteraren Andrew Liu hur Azure Cosmos DB ändringsfeed fungerar.
-
-> [!VIDEO https://www.youtube.com/embed/mFnxoxeXlaU]
->
->
 
 ## <a name="how-does-change-feed-work"></a>Hur ändringsfeed arbete?
 
@@ -510,7 +504,7 @@ Java-bibliotek för att läsa ändringsfeed är tillgänglig i [Github-lagringsp
 
 _etag format är intern och du bör inte lita på den (inte att parsa den) eftersom den kan ändras när som helst.
 _ts är ändring eller skapa en tidsstämpel. Du kan använda _ts kronologisk jämförelse.
-_lsn är är ett batch-id som läggs endast för ändringsfeed, representerar transaktions-id från store... Många dokument kan ha samma _lsn.
+_lsn är ett batch-id som läggs endast för ändringsfeed, representerar transaktions-id från store... Många dokument kan ha samma _lsn.
 En sak att notera ETag på FeedResponse skiljer sig från _etag som du ser på dokumentet. _etag är en intern identifierare och används för samtidighet, meddelar om versionen av dokumentet och ETag används för ordningsföljd feeden.
 
 ### <a name="does-reading-change-feed-add-any-additional-cost-"></a>Lägger du till extra kostnad genom att läsa ändringsfeed?

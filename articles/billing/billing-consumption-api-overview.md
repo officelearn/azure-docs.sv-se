@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/07/2018
 ms.author: erikre
-ms.openlocfilehash: c37ff7e2f81b3dbca42193777287dae873768e24
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 88b7909e78f8bd36ce456eee60587acbbb94b6cd
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630508"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286756"
 ---
 # <a name="azure-consumption-api-overview"></a>Azure-förbrukning API-översikt 
 
@@ -81,7 +81,7 @@ API: et innehåller:
 -   **Enterprise-kunder bara** API: et är endast tillgängliga EA-kunder. 
     - Kunder måste ha företagsadministratör behörighet att anropa detta API 
 
-Mer information finns i den tekniska specifikationen för den [saldo API](https://docs.microsoft.com/rest/api/consumption/getbalancesbybillingaccount).
+Mer information finns i den tekniska specifikationen för den [saldo API](https://docs.microsoft.com/rest/api/consumption/balances).
 
 ## <a name="budgets-api"></a>Budgetar API
 

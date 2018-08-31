@@ -8,21 +8,21 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: e2e8da3d2dec2c74bbd1c0ca0f52b7eaba5c024e
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 3f70a8cf2df25f487de7cd1a8c8cbdf9431839f0
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42058279"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43285629"
 ---
 | Resurs | Mål | Hård gräns |
 |----------|--------------|------------|
 | Lagringstjänster för synkronisering per prenumeration | 15 lagringstjänster för synkronisering | Nej |
-| Synkroniseringsgrupper per tjänst för Lagringssynkronisering | 30 synkroniseringsgrupper | Ja |
+| Synkroniseringsgrupper per tjänst för Lagringssynkronisering | 100 synkroniseringsgrupper | Ja |
 | Registrerade servrar per tjänst för Lagringssynkronisering | 99 servrar | Ja |
 | Molnslutpunkter per Synkroniseringsgrupp | 1 molnslutpunkt | Ja |
 | Serverslutpunkter per Synkroniseringsgrupp | 50 serverslutpunkter | Nej |
-| Serverslutpunkter per server | 33-99 serverslutpunkter | Ja, men varierar beroende på konfigurationen |
+| Serverslutpunkter per server | 33-99 serverslutpunkter | Ja, men varierar beroende på konfigurationen (processor, minne, volymer, filen omsättning, antal filer, osv.) |
 | Slutpunkten storlek | 4 TiB | Nej |
 | Filsystemobjekt (kataloger och filer) per synkroniseringsgrupp | 25 miljoner objekt | Nej |
 | Maxantalet filsystemsobjekt (kataloger och filer) i en katalog | 200 000 objekt | Ja |

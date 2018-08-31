@@ -1,39 +1,39 @@
 ---
-title: Med hjälp av grupp med alternativen i Azure SQL Data Warehouse | Microsoft Docs
-description: Tips för gruppen av alternativen i Azure SQL Data Warehouse för utveckling av lösningar.
+title: Med hjälp av grupp av alternativen i Azure SQL Data Warehouse | Microsoft Docs
+description: Tips för att implementera grupp av alternativen i Azure SQL Data Warehouse för utveckling av lösningar.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 0548983df23b158385783ac777b23268b5ac7d01
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 1f5723bd160abc164779062f213762751e5875c8
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526054"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43303386"
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>Gruppera efter alternativ i SQL Data Warehouse
-Tips för gruppen av alternativen i Azure SQL Data Warehouse för utveckling av lösningar.
+Tips för att implementera grupp av alternativen i Azure SQL Data Warehouse för utveckling av lösningar.
 
-## <a name="what-does-group-by-do"></a>Vad är GROUP BY?
+## <a name="what-does-group-by-do"></a>Vad gör GROUP BY?
 
-Den [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) T-SQL-satsen samlar in data till en sammanfattande uppsättning rader. GRUPPEN har vissa alternativ som inte har stöd för SQL Data Warehouse. Dessa alternativ har olika lösningar.
+Den [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) T-SQL-satsen sammanställer data till en sammanfattning av uppsättning rader. GRUPP som har vissa alternativ som inte har stöd för SQL Data Warehouse. Dessa alternativ har lösningar.
 
 Dessa alternativ är
 
 * GROUP BY med Samlad
 * GROUPING SETS
-* GROUP BY med kub
+* GROUP BY utan kub
 
-## <a name="rollup-and-grouping-sets-options"></a>Anger alternativ för insamling och gruppering
-Det enklaste alternativet är att använda UNION ALL i stället för att utföra samlade i stället för att förlita dig på explicit syntax. Resultatet är exakt samma
+## <a name="rollup-and-grouping-sets-options"></a>Rollup och grouping sets-alternativ
+Det enklaste alternativet är att använda UNION ALL i stället för att utföra samlade i stället för att förlita dig på den explicita syntaxen. Resultatet är exakt samma
 
-I följande exempel med GROUP BY-instruktionen med alternativet samlad:
+I följande exempel med hjälp av GROUP BY-instruktionen med alternativet samlad:
 ```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
@@ -47,13 +47,13 @@ GROUP BY ROLLUP (
 ;
 ```
 
-Med hjälp av insamling av begäranden i föregående exempel följande aggregeringar:
+Med hjälp av samlad förfrågningar följande aggregeringar i föregående exempel:
 
 * Land och Region
 * Land/region
 * Totalsumma
 
-Du kan använda UNION ALL och uttryckligen ange aggregeringar krävs om du vill ersätta samlad och ger samma resultat:
+Du kan använda UNION ALL och uttryckligen ange obligatoriska sammansättningar för att ersätta samlad och ger samma resultat:
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -80,14 +80,14 @@ FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey;
 ```
 
-Om du vill ersätta GROUPING SETS gäller exempel principen. Behöver du bara skapa UNION ALL avsnitt för aggregering-nivåer som du vill se.
+Om du vill ersätta GROUPING SETS gäller exempel principen. Du behöver bara skapa UNION ALL avsnitt för sammansättningsnivåer som du vill se.
 
 ## <a name="cube-options"></a>Kubalternativ för
-Det är möjligt att skapa en grupp av med kub med hjälp av UNION ALL-metoden. Problemet är att koden kan snabbt bli besvärlig och svårhanterliga. Om du vill åtgärda det, kan du använda den mer avancerade metod.
+Det är möjligt att skapa en grupp av med kub med hjälp av UNION ALL-metoden. Problemet är att koden kan snabbt bli besvärligt och svårhanterligt. Du kan använda den här mer avancerade metod för att åtgärda det.
 
-Nu ska vi använda exemplet ovan.
+Vi använder exemplet ovan.
 
-Det första steget är att definiera 'kuben' som definierar alla nivåer av aggregation som vi vill skapa. Det är viktigt att notera CROSS JOIN av två härledda tabeller. Detta genererar alla nivåer för oss. Resten av koden är verkligen det för formatering.
+Det första steget är att definiera 'kuben' som definierar alla nivåer av aggregering som vi vill skapa. Det är viktigt att notera CROSS JOIN av två härledda tabeller. Detta genererar alla nivåer för oss. Resten av koden är verkligen det för formatering.
 
 ```sql
 CREATE TABLE #Cube
@@ -145,7 +145,7 @@ WITH
 ;
 ```
 
-Det tredje steget är att köras i slinga över våra kub med kolumner som utför aggregering. Frågan ska köras en gång för varje rad i den temporära tabellen #Cube och spara resultatet i den temporära tabellen #Results
+Det tredje steget är att loopa igenom våra kuben med kolumner som utför aggregering. Frågan ska köras en gång för varje rad i den tillfälliga tabellen #Cube och spara resultatet i den temporära tabellen #Results
 
 ```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
@@ -169,7 +169,7 @@ BEGIN
 END
 ```
 
-Till sist ska du gå tillbaka resultaten genom att bara läsa från den temporära tabellen #Results
+Slutligen kan du kan gå tillbaka resultaten genom att bara läsa från den tillfälliga tabellen #Results
 
 ```sql
 SELECT *
@@ -178,8 +178,8 @@ ORDER BY 1,2,3
 ;
 ```
 
-Genom att dela koden upp i avsnitt och genererar en slinga konstruktion, blir koden mer användarvänlig och hanterbar.
+Genom att dela koden upp i delar och generera uvozuje konstruktor cyklu, blir koden mer hanterbara och hanterbar.
 
 ## <a name="next-steps"></a>Nästa steg
-För fler utvecklingstips, se [utvecklingsöversikt](sql-data-warehouse-overview-develop.md).
+Fler utvecklingstips, se [utvecklingsöversikt](sql-data-warehouse-overview-develop.md).
 

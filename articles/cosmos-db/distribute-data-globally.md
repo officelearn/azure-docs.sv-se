@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: dec981ad750a49646916dbef40a4cc632ab71da2
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 19e47e0dba1a89ea32f42ef0bafc26f8c59b4ad7
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856648"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288310"
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Att distribuera data globalt med Azure Cosmos DB
 Azure är allt vanligare – den har ett globala fotavtryck över 50 + geografiska områden och utökas ständigt. Med dess global närvaro är en differentierad funktioner som Azure erbjuder till dess utvecklare möjlighet att bygga, distribuera och hantera enkelt globalt distribuerade program. 
@@ -34,11 +34,6 @@ Den här artikeln innehåller en översikt över funktioner för global distribu
 
 ## <a id="EnableGlobalDistribution"></a>Aktivera nyckelfärdig global distribution
 Azure Cosmos DB tillhandahåller följande funktioner som gör det möjligt att enkelt skriva globalt distribuerade program. Dessa funktioner är tillgängliga via Azure Cosmos DB: s resource provider-baserad [REST API: er](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/) samt Azure-portalen.
-
-Titta på följande videoklipp om du vill se funktionen nyckelfärdig global distribution i Azure Cosmos DB i praktiken.
-
-> [!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
->
 
 ### <a id="RegionalPresence"></a>Allt vanligare regionala närvaro 
 Azure ständigt växande dess geografisk närvaro genom att föra [nya regioner](https://azure.microsoft.com/regions/) online. Azure Cosmos DB klassificeras som en *grundläggande tjänst* i Azure och är tillgänglig i alla nya Azure-regioner som standard. På så sätt kan du associera en geografisk region med ditt Azure Cosmos DB-databaskonto som öppnar den nya regionen för företag i Azure.

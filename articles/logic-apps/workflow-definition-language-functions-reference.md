@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 78e991fcac87d59ed7b84180192899ddbdf330f2
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 8a2e06d2e6cf3e470d4e0909e5559ac0411292fd
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105647"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307121"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Funktionsreferens för Definitionsspråk för arbetsflödet i Azure Logic Apps
 
@@ -80,7 +80,7 @@ Om du vill arbeta med strängar, du kan använda dessa strängfunktioner och äv
 | [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Kontrollera om en sträng som slutar med den angivna delsträngen. | 
 | [GUID](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Generera en globalt unik identifierare (GUID) som en sträng. | 
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Returnera startpositionen för en delsträng. | 
-| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Returnera slutpositionen efter en delsträng. | 
+| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Returnera startpositionen för den sista förekomsten av en delsträng. | 
 | [Ersätt](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Ersätta en understräng med den angivna strängen och returnerar den uppdaterade strängen. | 
 | [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Returnera en matris som innehåller alla tecken från en sträng, och mellan varje tecken med specifika avgränsningstecken. | 
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Kontrollera om en sträng som börjar med en viss delsträng. | 
@@ -2123,7 +2123,7 @@ indexOf('<text>', '<searchText>')
 
 | Returvärde | Typ | Beskrivning | 
 | ------------ | ---- | ----------- | 
-| <*hodnota indexu*>| Integer | Positionen eller index startvärdet för den angivna delsträngen. <p>Om strängen hittas, returnera talet -1. </br>Om strängen är tom, returnerar du siffran 0. | 
+| <*hodnota indexu*>| Integer | Positionen eller index startvärdet för den angivna delsträngen. <p>Om strängen hittas, returnera talet -1. | 
 |||| 
 
 *Exempel* 
@@ -2387,7 +2387,7 @@ Och returnerar följande resultat:
 
 ### <a name="lastindexof"></a>lastIndexOf
 
-Returnera slutvärde för positionen eller index för en delsträng. Den här funktionen är inte skiftlägeskänsligt och index som börjar med 0.
+Returnera startpositionen eller indexvärde för den sista förekomsten av en delsträng. Den här funktionen är inte skiftlägeskänsligt och index som börjar med 0.
 
 ```
 lastIndexOf('<text>', '<searchText>')
@@ -2401,18 +2401,18 @@ lastIndexOf('<text>', '<searchText>')
 
 | Returvärde | Typ | Beskrivning | 
 | ------------ | ---- | ----------- | 
-| <*slutar indexvärde*> | Integer | Positionen eller index slutvärdet för den angivna delsträngen. <p>Om strängen hittas, returnera talet -1. </br>Om strängen är tom, returnerar du siffran 0. | 
+| <*slutar indexvärde*> | Integer | Positionen eller index startvärdet för den sista förekomsten av den angivna delsträngen. <p>Om strängen hittas, returnera talet -1. | 
 |||| 
 
 *Exempel* 
 
-Det här exemplet hittar index slutvärdet för den ”world” delsträngen i strängen ”hello world”:
+Det här exemplet hittar index startvärde för den sista förekomsten av ”world”-delsträngen i strängen ”hello world”:
 
 ```
 lastIndexOf('hello world', 'world')
 ```
 
-Och returnerar resultatet: `10`
+Och returnerar resultatet: `6`
 
 <a name="length"></a>
 

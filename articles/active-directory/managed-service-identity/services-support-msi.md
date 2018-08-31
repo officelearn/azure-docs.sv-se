@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: 04247792f8467ecf51a074d1e03bbd6e7c553a02
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
-ms.translationtype: HT
+ms.openlocfilehash: d738abc225e2148460012d9fe200131882b1e698
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247263"
+ms.locfileid: "43306175"
 ---
 # <a name="services-that-support-managed-service-identity"></a>Tjänster som stöder hanterad tjänstidentitet 
 
@@ -46,4 +46,4 @@ Följande tjänster stöder Azure AD-autentisering och har testats med klienttj�
 | Azure SQL | https://database.windows.net/ | Tillgängligt | Oktober 2017 | |
 | Azure Event Hubs | https://eventhubs.azure.net | Tillgängligt | December 2017 | |
 | Azure Service Bus | https://servicebus.azure.net | Tillgängligt | December 2017 | |
-| Azure Storage | https://azure.microsoft.com/services/storage/ | Förhandsversion | Maj 2018 | |
+| Azure Storage | https://storage.azure.com/ | Förhandsversion | Maj 2018 | |

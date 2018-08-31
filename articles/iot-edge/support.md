@@ -8,12 +8,12 @@ ms.date: 6/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 696a752f199e2f7018713cb87c3b098556c5b4f5
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
-ms.translationtype: HT
+ms.openlocfilehash: 2163179d3353626e12495381fc64792db56ec78e
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247624"
+ms.locfileid: "43286370"
 ---
 # <a name="azure-iot-edge-support"></a>Support för Azure IoT Edge
 Det finns en mängd olika sätt att söka efter support för Azure IoT Edge-produkten.
@@ -35,16 +35,16 @@ Nivå 1-system kan betraktas som officiellt stöds. Detta innebär att Microsoft
 Allmänt tillgänglig
 | Operativsystem | AMD64 | ARM32 |
 | ---------------- | ----- | ----- |
-| Ubuntu Server 18.04 | Ja | Nej |
-| Ubuntu Server 16.04 | Ja | Nej |
 | Raspbian stretch | Nej | Ja|
+| Ubuntu Server 16.04 | Ja | Nej |
+| Ubuntu Server 18.04 | Ja | Nej |
 
 Offentlig förhandsversion
 | Operativsystem | AMD64 | ARM32 |
 | ---------------- | ----- | ----- |
-| Windows 10-Server 1803 | Ja | Nej |
-| Windows 10 IoT Enterprise (April 2018 uppdatering) | Ja | Nej |
 | Windows 10 IoT Core (April 2018 uppdatering) | Ja | Nej |
+| Windows 10 IoT Enterprise (April 2018 uppdatering) | Ja | Nej |
+| Windows 10-Server 1803 | Ja | Nej |
 
 ### <a name="tier-2"></a>Nivå 2
 Nivå 2-system kan betraktas som kompatibelt med Azure IoT Edge och relativt lätt kan användas. Detta innebär att:
@@ -53,14 +53,14 @@ Nivå 2-system kan betraktas som kompatibelt med Azure IoT Edge och relativt lä
 
 | Operativsystem | AMD64 | ARM32 |
 | ---------------- | ----- | ----- |
-| Ubuntu 18.04 | Ja | Ja |
-| Ubuntu 16.04 | Ja | Ja |
 | CentOS 7.5 | Ja | Ja |
-| RHEL 7.5 | Ja | Ja |
-| Vind floden 8 | Ja | Nej |
-| Yocto | Ja | Nej |
 | Debian 8 | Ja | Ja |
 | Debian 9 | Ja | Ja |
+| RHEL 7.5 | Ja | Ja |
+| Ubuntu 18.04 | Ja | Ja |
+| Ubuntu 16.04 | Ja | Ja |
+| Vind floden 8 | Ja | Nej |
+| Yocto | Ja | Nej |
 
 ## <a name="container-engines"></a>Behållare-motorer
 Azure IoT Edge måste en motor för behållaren att starta moduler, oavsett vilket operativsystem som den körs. Microsoft tillhandahåller en motor för behållare, moby-motorn att uppfylla detta krav. Den är baserad på öppen källkod-projekt Moby. Docker CE- och Docker EE är andra populära container-motorer. De även baseras på Moby öppnas source-projektet och är kompatibla med Azure IoT Edge. Microsoft tillhandahåller support efter bästa förmåga för system med hjälp av de motorerna för behållaren. Microsoft har dock inte att leverera korrigeringar för problem i dem. Därför rekommenderar Microsoft med moby-motor på produktionssystemen.

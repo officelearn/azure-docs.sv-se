@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 08/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7ddab3717626df14f491662849d01cb85658791c
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 160e2a277c82470df7d9ced2899699dae8d4ef01
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617298"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302136"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -57,7 +57,7 @@ Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel 
   * [Överföra ägarskap för en Azure-prenumeration till ett annat konto](../billing/billing-subscription-transfer.md)
   * [Så här associerar du eller lägger till en prenumeration i din Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-2. Tjänsten måste göra det möjligt att flytta resurser. Den här artikeln visas vilka tjänster kan flytta resurser och vilka tjänster inte kan flytta resurser.
+2. Tjänsten måste göra det möjligt att flytta resurser. I avsnitten nedan i den här artikeln som [tjänster kan flytta resurser](#services-that-can-be-moved) och vilka [tjänster inte kan flytta resurser](#services-that-cannot-be-moved).
 3. Målprenumerationen måste vara registrerad för resursprovidern för den resurs som flyttas. Om inte, du får ett felmeddelande om att den **prenumerationen har inte registrerats för en resurstyp**. Du kan stöta på detta problem när en resurs flyttas till en ny prenumeration, men prenumerationen aldrig har använts med den resurstypen.
 
   Använd följande kommandon för att hämta registreringsstatus PowerShell:

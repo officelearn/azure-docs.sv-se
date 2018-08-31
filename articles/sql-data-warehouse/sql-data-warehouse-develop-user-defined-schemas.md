@@ -1,58 +1,58 @@
 ---
-title: Använda anpassade scheman i SQL Data Warehouse | Microsoft Docs
+title: Med användardefinierade scheman i SQL Data Warehouse | Microsoft Docs
 description: Tips för att använda T-SQL-användardefinierade scheman i Azure SQL Data Warehouse för utveckling av lösningar.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: c18e6d34416390ae7e93b69b28d508a540f7b1ab
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d46f41e75538fae230219068d3530b7181564ac0
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31522715"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302649"
 ---
-# <a name="using-user-defined-schemas-in-sql-data-warehouse"></a>Använda anpassade scheman i SQL Data Warehouse
+# <a name="using-user-defined-schemas-in-sql-data-warehouse"></a>Med användardefinierade scheman i SQL Data Warehouse
 Tips för att använda T-SQL-användardefinierade scheman i Azure SQL Data Warehouse för utveckling av lösningar.
 
 ## <a name="schemas-for-application-boundaries"></a>Scheman för programmet
 
-Traditionella informationslager använder ofta separata databaser för att skapa programmet gränser, baserat på arbetsbelastning, domän och säkerhet. En traditionell SQL Server-datalagret kan exempelvis innehålla en fristående databas, en databas för datalager och vissa data mart-databaser. Varje databas fungerar som en arbetsbelastning och säkerhetsgräns i arkitekturen i den här topologin.
+Traditionella informationslager använder ofta separata databaser för att skapa programmet gränser baserat på arbetsbelastning, domän eller säkerhet. En traditionell SQL Server data warehouse kan exempelvis innehålla en mellanlagrings-databas och en datalagerdatabas vissa data mart-databaser. Varje databas fungerar som en arbetsbelastning och säkerhetsgräns i arkitekturen i den här topologin.
 
-Däremot kör SQL Data Warehouse hela arbetsbelastningen för informationslager inom en databas. Mellan databasen tillåts inte kopplingar. SQL Data Warehouse förväntar därför alla tabeller som används av för datalagret lagras i en databas.
+Däremot kör hela arbetsbelastningen i informationslagret i en databas i SQL Data Warehouse. Mellan databasen tillåts inte kopplingar. SQL Data Warehouse förväntar sig därför alla tabeller som används av lagret som ska lagras i en databas.
 
 > [!NOTE]
-> SQL Data Warehouse stöder inte mellan databasfrågor av något slag. Därför behöver data warehouse implementeringar som använder det här mönstret ändras.
+> SQL Data Warehouse stöder inte frågor mellan databaser av något slag. Data warehouse-implementeringar som använder det här mönstret måste därför ändras.
 > 
 > 
 
 ## <a name="recommendations"></a>Rekommendationer
-Dessa är rekommendationer för att konsolidera arbetsbelastningar, säkerhet, domän och funktionella gränser med hjälp av användardefinierade scheman
+Här följer rekommendationer om konsolidera arbetsbelastningar, säkerhet, domän och funktionella gränser med hjälp av användardefinierade scheman
 
-1. Använd en SQL Data Warehouse-databas för att köra din hela arbetsbelastningen för informationslager
-2. Konsolidera din befintliga data warehouse-miljö för att använda en SQL Data Warehouse-databas
-3. Utnyttjar **användardefinierade scheman** att ange kolumnrubrikens tidigare implementeras med hjälp av databaser.
+1. Använd en SQL Data Warehouse-databas för att köra dina hela arbetsbelastningen för informationslager
+2. Konsolidera din befintliga data warehouse-miljö för att använda ett SQL Data Warehouse-databas
+3. Utnyttja **användardefinierade scheman** att tillhandahålla den gräns som tidigare implementeras med hjälp av databaser.
 
-Om användardefinierade scheman inte har använts tidigare har du grunden. Använd bara gamla databasnamnet som bas för dina egna scheman i SQL Data Warehouse-databas.
+Om användardefinierade scheman inte har använts tidigare finns så det en tom arbetsyta. Använd bara gamla databasnamnet som grund för din användardefinierade scheman i SQL Data Warehouse-databas.
 
-Om scheman har redan använts har du några alternativ:
+Om scheman har redan använts har du flera alternativ:
 
-1. Ta bort de äldra schemanamn och börja om från början
-2. Behålla de äldra schemanamn av före väntande äldre schemanamnet till tabellnamnet
-3. Behåll det äldre schemat genom att implementera vyer över tabellen i en extra schemat att återskapa gamla datastrukturen.
+1. Ta bort äldre schemanamnen och börja om från början
+2. Behålla äldre schemanamnen genom förväg väntande äldre schemanamnet till tabellens namn
+3. Behåll det äldre schemat genom att implementera vyer över tabellen i ett extra schema du återskapa den gamla schemastrukturen.
 
 > [!NOTE]
-> På första inspektion verka alternativet intressanta alternativ 3. Djävulen är dock i informationen. Vyer är skrivskyddad i SQL Data Warehouse. Alla ändringar av data- eller behöver utföras mot bastabellen. Alternativ 3 introducerar också ett lager av vyer i systemet. Du kanske vill ge den här ytterligare upp om du använder vyer i din arkitektur redan.
+> Alternativ 3 kan verka som alternativet satsa på första kontroll. Djävulen är dock i informationen. Vyer är skrivskyddade endast i SQL Data Warehouse. Alla ändringar av data eller tabell måste utföras mot bastabellen. Alternativ 3 introducerar också ett lager av vyer i systemet. Du kanske vill ge detta ytterligare upp om du använder vyer i din arkitektur redan.
 > 
 > 
 
 ### <a name="examples"></a>Exempel:
-Implementera anpassade scheman baserat på databasnamn
+Implementera användardefinierade scheman baserat på databasnamn
 
 ```sql
 CREATE SCHEMA [stg]; -- stg previously database name for staging database
@@ -70,7 +70,7 @@ CREATE TABLE [edw].[customer] -- create data warehouse tables in the edw schema
 );
 ```
 
-Behålla äldre schemanamn av före väntande dem till tabellens namn. Scheman används för arbetsbelastningen gräns.
+Behålla äldre schemanamn genom förväg väntande dem till tabellens namn. Använda scheman för arbetsbelastningen gräns.
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
@@ -88,7 +88,7 @@ CREATE TABLE [edw].[dim_customer] --pre-pend the old schema name to the table an
 );
 ```
 
-Behålla äldre schemanamn med hjälp av vyer
+Behåll äldre schemanamn använda vyer
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
@@ -116,10 +116,10 @@ FROM    [edw].customer
 ```
 
 > [!NOTE]
-> Ändringar i schemat strategi måste en granskning av säkerhetsmodellen för databasen. I många fall kanske du kan förenkla säkerhetsmodellen genom att tilldela behörigheter på schemanivån. Om mer detaljerade behörigheter som krävs kan du använda databasroller.
+> Ändringar i schemat strategi måste en granskning av säkerhetsmodellen för databasen. I många fall kanske du kan förenkla säkerhetsmodellen genom att tilldela behörigheter på nivån schemat. Om det krävs mer detaljerade behörigheter kan du använda databasroller.
 > 
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-För fler utvecklingstips, se [utvecklingsöversikt](sql-data-warehouse-overview-develop.md).
+Fler utvecklingstips, se [utvecklingsöversikt](sql-data-warehouse-overview-develop.md).
 

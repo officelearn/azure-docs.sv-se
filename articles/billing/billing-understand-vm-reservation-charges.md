@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashar
-ms.openlocfilehash: bce4e05cbc4ecc8a44f2929eecbeee4093d39652
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: de4a771672b45f930385c2c923b3935c65b6c045
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628366"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301654"
 ---
 # <a name="understand-how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Förstå hur Azure reservationsrabatten tillämpas på virtuella datorer
 
@@ -47,7 +47,7 @@ I följande tabell visas kostnaderna för den virtuella datorn när du har köpt
 3. Båda instanserna kördes för 1 timme för timme 2 och timme 3. En instans täcks av reservationen och den andra debiteras enligt priserna för användningsbaserad betalning.
 4. För timme 4, 1-instans som körs i 0,5 timmar och 2-instans som körs i 1 timme. Instansen 1 omfattas fullständigt av reservationen och 0,5 timmars instans 2 behandlas. Användningsbaserad betalning debiteras du för de återstående 0,5 timmarna.
 
-För att förstå och visa tillämpningen av dina Azure reservationer i fakturering användningsrapporter, se [förstå användningen av reserverade](https://go.microsoft.com/fwlink/?linkid=862757).
+För att förstå och visa tillämpningen av dina Azure-reservationer i fakturering användningsrapporter, se [förstå användningen av reserverade](https://go.microsoft.com/fwlink/?linkid=862757).
 
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Tillämpning av reservationsrabatten på Windows virtuella datorer
 
@@ -55,7 +55,7 @@ När du kör Windows VM-instanser, ska reservationen gälla för att täcka infr
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om reservationer, finns i följande artiklar:
+Om du vill veta mer om Azure reservationer, finns i följande artiklar:
 
 - [Vad är Azure reservationer?](billing-save-compute-costs-reservations.md)
 - [Förskottsbetala för virtuella datorer med Azure reserverade VM-instanser](../virtual-machines/windows/prepay-reserved-vm-instances.md)

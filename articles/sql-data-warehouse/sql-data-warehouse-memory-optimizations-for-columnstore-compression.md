@@ -1,45 +1,45 @@
 ---
-title: Förbättra prestanda för columnstore-index - Azure SQL Data Warehouse | Microsoft Docs
-description: Minska minneskrav eller öka mängden tillgängligt minne för att maximera antalet rader som ett columnstore-index komprimeras i varje radgrupps.
+title: Förbättra columnstore-index prestanda – Azure SQL Data Warehouse | Microsoft Docs
+description: Minska minneskrav eller öka det tillgängliga minnet för att maximera antalet rader som ett columnstore-index komprimeras till varje radgrupp.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 909b53e65fd893575a944d714f99698c7e45387d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e30320631a7fd9b4ee27096556af01f2ad77a746
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32188141"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306840"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximera radgrupps kvalitet för columnstore
 
-Radgrupps kvalitet bestäms av antalet rader i en radgrupps. Minska minneskrav eller öka mängden tillgängligt minne för att maximera antalet rader som ett columnstore-index komprimeras i varje radgrupps.  Du kan använda dessa metoder för att förbättra komprimering priser och fråga prestanda för columnstore-index.
+Radgrupps kvalitet bestäms av antalet rader i en radgrupp. Minska minneskrav eller öka det tillgängliga minnet för att maximera antalet rader som ett columnstore-index komprimeras till varje radgrupp.  Du kan använda dessa metoder för att förbättra komprimeringsgrad och frågeprestanda för columnstore-index.
 
-## <a name="why-the-rowgroup-size-matters"></a>Radgrupps storlek
-Eftersom ett columnstore-index skannar en tabell genom att skanna kolumnsegment med enskilda rowgroups, förbättrar maximera antalet rader i varje radgrupps prestanda för frågor. När rowgroups har ett stort antal rader, förbättrar datakomprimering vilket innebär att det finns mindre data vid läsning från disken.
+## <a name="why-the-rowgroup-size-matters"></a>Radgrupps-storlek
+Eftersom ett columnstore-index söker igenom en tabell genom att skanna kolumnsegment med enskilda radgrupper, förbättrar ökar antalet rader i varje radgrupp frågeprestanda. När radgrupper har ett stort antal rader, förbättrar datakomprimering vilket innebär att det är mindre data som lästs från disk.
 
-Läs mer om rowgroups [Columnstore-index guiden](https://msdn.microsoft.com/library/gg492088.aspx).
+Läs mer om radgrupper [Guide för Kolumnlagringsindex](https://msdn.microsoft.com/library/gg492088.aspx).
 
-## <a name="target-size-for-rowgroups"></a>Målstorlek för rowgroups
-Målet är att maximera antalet rader per radgrupps i ett columnstore-index för bästa möjliga prestanda. En radgrupps kan ha högst 1 048 576 rader. Det går inte har det maximala antalet rader per radgrupps. Columnstore-index uppnå goda prestanda när rowgroups har minst 100 000 rader.
+## <a name="target-size-for-rowgroups"></a>Målstorlek för radgrupper
+Målet är att maximera antalet rader per radgrupp i ett columnstore-index för bästa frågeprestanda. En radgrupp kan ha högst 1 048 576 rader. Det är Okej att inte låta det maximala antalet rader per radgrupp. Columnstore-index uppnå goda prestanda när radgrupper har minst 100 000 rader.
 
-## <a name="rowgroups-can-get-trimmed-during-compression"></a>Rowgroups kan hämta trimmade under komprimering
+## <a name="rowgroups-can-get-trimmed-during-compression"></a>Radgrupper kan hämta tas bort under komprimering
 
-Under en bulk load eller columnstore-index återskapning, ibland det finns inte tillräckligt med minne för att komprimera alla rader som anges för varje radgrupps. När minnesbelastning trim kolumnlagringsindex radgrupps-storlekar så komprimering i columnstore kan genomföras. 
+Under bulk belastning eller columnstore-indexet återskapas, ibland det finns inte tillräckligt med minne för att komprimera alla rader för varje radgrupp. När det finns minnesbelastning, trimma kolumnlagringsindex radgrupps-storlekar så komprimering till columnstore kan lyckas. 
 
-När det finns inte tillräckligt med minne för att komprimera minst 10 000 rader till varje radgrupps, genererar ett fel i SQL Data Warehouse.
+När det finns inte tillräckligt med minne för att komprimera minst 10 000 rader till varje radgrupp, genererar ett fel i SQL Data Warehouse.
 
-Mer information om massinläsning finns [massinläsning till ett grupperat columnstore-index](https://msdn.microsoft.com/library/dn935008.aspx#Bulk load into a clustered columnstore index).
+Läs mer på massinläsning [massinläsning till ett grupperat columnstore-index](https://msdn.microsoft.com/library/dn935008.aspx#Bulk load into a clustered columnstore index).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Så här övervakar du radgrupps kvalitet
 
-Det finns en DMV (sys.dm_pdw_nodes_db_column_store_row_group_physical_stats) som visar användbar information, till exempel antalet rader i rowgroups och orsaken till trimning om det var trimning. Du kan skapa följande vy som ett praktiskt sätt att fråga den här DMV för att få information om radgrupps trimning.
+Det finns en DMV (sys.dm_pdw_nodes_db_column_store_row_group_physical_stats) som exponerar användbar information, till exempel antalet rader i radgrupper och ta bort om det var trimmar orsaken. Du kan skapa följande vy som ett praktiskt sätt att fråga efter den här DMV för att få information om hur radgrupp.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -66,63 +66,63 @@ select *
 from cte;
 ```
 
-Trim_reason_desc talar om radgrupps har trimmade (trim_reason_desc = NO_TRIM innebär det fanns ingen beskrivande text och raden är optimal kvalitet). Följande trim anger tidigt Trimning av radgrupps:
-- BULKLOAD: Trim därför används när inkommande batchen med rader för den har mindre än 1 miljoner rader. Motorn skapar komprimerade radgrupper om det är större än 100 000 rader som ska infogas (i stället för att infoga i arkivet delta) men anger trim orsaken till BULKLOAD. Överväg att öka din batch belastningen fönster om du vill samla fler rader i det här scenariot. Dessutom omvärdera din partitioneringsschema så det inte är för detaljerade som radgrupper inte får omfatta partitionsgränser.
-- MEMORY_LIMITATION: För att skapa radgrupper med 1 miljon rader, krävs en viss mängd arbetsminne av motorn. När tillgängligt minne för inläsning sessionen är mindre än det nödvändiga arbetsminnet, hämta tidigt radgrupper bort. I följande avsnitt beskrivs hur du uppskatta minne som krävs och allokera mer minne.
-- DICTIONARY_SIZE: Trim därför anger att radgrupps trimning inträffat eftersom det har minst en strängkolumn med bred och/eller hög kardinalitet strängar. Ordlistan storlek är begränsad till 16 MB i minnet och när den här gränsen har nåtts gruppen raden har komprimerats. Överväg att isolera problematiska kolumnen till en separat tabell om du kör i den här situationen.
+Trim_reason_desc meddelar om radgrupps har tas bort (trim_reason_desc = NO_TRIM innebär det fanns ingen beskrivande text och radgrupp är av hög kvalitet). Följande trim anger för tidig Trimning av radgrupps:
+- BULKLOAD: Den här trim orsaken används när inkommande batch med rader för arbetsbelastning har mindre än 1 miljon rader. Motorn skapar komprimerade radgrupper om det är större än 100 000 rader infogas (i stället för att infoga i arkivet delta) men anger trim orsaken till BULKLOAD. Överväg att öka belastningen batch fönstret för att ackumuleras fler rader i det här scenariot. Dessutom att omvärdera ditt partitioneringsschema och kontrollera att det inte är för detaljerad eftersom radgrupper inte kan omfatta partitionsgränser.
+- MEMORY_LIMITATION: För att skapa radgrupper med 1 miljon rader, krävs en viss mängd arbetsminne av motorn. När tillgängligt minne på den läser in sessionen är mindre än det nödvändiga arbetsminnet, radgrupper hämta tidigt tas bort. I följande avsnitt beskrivs hur du beräkna minne som krävs och tilldela mer minne.
+- DICTIONARY_SIZE: Därför trim anger att radgrupps trimning inträffat eftersom det inte fanns minst en strängkolumn med bred och/eller hög kardinalitet strängar. Ordlista storlek är begränsad till 16 MB i minnet och komprimeras när den här gränsen har nåtts i radgrupp. Om du kör i den här situationen, Överväg att isolera den problematiska kolumnen i en separat tabell.
 
-## <a name="how-to-estimate-memory-requirements"></a>Hur du beräkna minneskrav
+## <a name="how-to-estimate-memory-requirements"></a>Så här att uppskatta minneskrav
 
 <!--
 To view an estimate of the memory requirements to compress a rowgroup of maximum size into a columnstore index, download and run the view [dbo.vCS_mon_mem_grant](). This view shows the size of the memory grant that a rowgroup requires for compression in to the columnstore.
 -->
 
-Det maximala begärt minnet att komprimera en radgrupps är ungefär
+Det maximala krävs minnet för att komprimera en radgrupp är ungefär
 
 - 72 MB +
 - \#rader \* \#kolumner \* 8 byte +
-- \#rader \* \#kort-sträng-kolumner \* 32 byte +
-- \#lång sträng staplar \* 16 MB för komprimering
+- \#rader \* \#kort strängkolumner \* 32 byte +
+- \#långa strängkolumner \* 16 MB för komprimering
 
-där kort-sträng-kolumner använder strängdatatyper av < = 32 byte och lång sträng staplar Använd strängdatatyper > 32 byte.
+där kort strängkolumner använder strängdatatyper av < = 32 byte och långa strängkolumner Använd strängdatatyper > 32 byte.
 
-Lång sträng har komprimerats med en komprimeringsmetod som utformats för att komprimera text. Den här komprimeringsmetoden använder en *ordlista* att lagra textmönster. Den maximala storleken för en ordlista är 16 MB. Det finns endast en ordlista för varje lång sträng-kolumn i radgrupps.
+Lång sträng komprimeras med en komprimeringsmetod som utformats för att komprimera text. Den här komprimeringsmetoden använder en *ordlista* att lagra textmönster. Den maximala storleken för en ordlista är 16 MB. Det finns bara en ordlista för varje lång sträng-kolumn i radgrupp.
 
-En detaljerad beskrivning av columnstore minneskrav finns i videon [Azure SQL Data Warehouse skalning: konfiguration och vägledning](https://myignite.microsoft.com/videos/14822).
+En detaljerad beskrivning av columnstore minneskrav finns i videon [skalning i Azure SQL Data Warehouse: konfiguration och vägledning](https://myignite.microsoft.com/videos/14822).
 
-## <a name="ways-to-reduce-memory-requirements"></a>Sätt att minska minneskrav
+## <a name="ways-to-reduce-memory-requirements"></a>Så här minskar minneskrav
 
-Använd följande metoder för att minska minneskrav för att komprimera rowgroups columnstore-index.
+Använd följande metoder för att minska minneskraven för komprimerar radgrupper till columnstore-index.
 
-### <a name="use-fewer-columns"></a>Använd färre kolumner
-Om möjligt utforma tabell med färre kolumner. När en radgrupps komprimeras i columnstore komprimerar columnstore-indexet varje kolumn segment separat. Därför öka minneskrav att komprimera en radgrupps som antalet kolumner ökar.
+### <a name="use-fewer-columns"></a>Använda färre kolumner
+Om det är möjligt, utforma tabell med färre kolumner. När en radgrupp komprimeras till columnstore, komprimeras columnstore-indexet varje kolumn segment separat. Därför ökar minneskrav att komprimera en radgrupp när antalet kolumner ökar.
 
 
-### <a name="use-fewer-string-columns"></a>Använd färre sträng kolumner
-Kolumner i strängdatatyper kräver mer minne än numeriska datatyperna och date. Överväg att ta bort sträng kolumner från faktatabeller och placera dem i mindre dimensionstabeller för att minska minneskrav.
+### <a name="use-fewer-string-columns"></a>Använda färre strängkolumner
+Kolumner med strängdatatyper kräver mer minne än numeriska datatyperna och date. Överväg att ta bort strängkolumner från faktatabeller och placera dem i mindre dimensionstabeller för att minska minneskrav.
 
-Ytterligare minneskrav för sträng komprimering:
+Ytterligare minneskraven för sträng-komprimering:
 
 - Strängdatatyper högst 32 tecken kan kräva 32 ytterligare byte per värde.
-- Strängdatatyper med mer än 32 tecken komprimeras med ordlistan metoder.  Varje kolumn i radgrupps kan kräva upp till ytterligare 16 MB för att skapa ordlistan.
+- Datatyper med mer än 32 tecken är komprimerade med ordlistan metoder.  Varje kolumn i radgrupps kan kräva upp till ytterligare 16 MB för att skapa ordlistan.
 
 ### <a name="avoid-over-partitioning"></a>Undvika över partitionering
 
-Columnstore-index skapa en eller flera rowgroups per partition. I SQL Data Warehouse växer antalet partitioner snabbt eftersom data distribueras och varje distribution är partitionerad. Om tabellen innehåller för många partitioner, kanske det inte tillräckligt många rader för att fylla i rowgroups. Bristen på rader skapar inte minnesbelastning under komprimeringen, men det leder till rowgroups som inte uppnår bästa frågeprestanda för columnstore.
+Kolumnlagringsindex skapa en eller flera radgrupper per partition. I SQL Data Warehouse växer antalet partitioner snabbt eftersom data fördelas och varje distribution är partitionerad. Om tabellen innehåller för många partitioner, kanske det inte finns tillräckligt med rader att fylla i radgrupper. Bristen på rader skapar inte minnesbelastning under komprimeringen, men det leder till radgrupper som inte uppnå bästa columnstore frågeprestanda.
 
-En annan orsak att undvika över partitionering är finns det en minne omkostnader för att läsa in rader i ett columnstore-index för en partitionerad tabell. Under inläsningen av en kan många partitioner få de inkommande rader som är kvar i minnet tills varje partition har tillräckligt med rader som ska komprimeras. Med för många partitioner skapar ytterligare minnesbelastning.
+En annan orsak att undvika över partitionering är att det finns en minne användning för att läsa in rader i ett columnstore-index för en partitionerad tabell. Under inläsningen av en många partitioner kan ta emot inkommande rader, som sparas i minnet tills varje partition har tillräckligt med rader som ska komprimeras. För många partitioner skapar ytterligare minnesbelastning.
 
 ### <a name="simplify-the-load-query"></a>Förenkla frågan belastning
 
-Databasen delar minnestilldelningen för en fråga bland alla operatorer i frågan. När en fråga belastningen har komplexa sorteringar och kopplingar, minskas minne för komprimering.
+Databasen delar minnestilldelningen för en fråga bland alla operatörer i frågan. När en belastning fråga har komplexa typer och kopplingar, minskas minne för komprimering.
 
-Utforma belastningen fråga att fokusera på att frågan läses in. Om du behöver köra omvandlingar på data köra dem separat från frågan belastningen. Till exempel mellanlagra data i en heap-tabell, kör omvandlingarna och sedan ladda mellanlagringstabellen i columnstore-indexet. Du kan också läsa in data först och sedan använda MPP-systemet för att omvandla data.
+Utforma load-fråga för att fokusera på att läsa in frågan. Om du behöver köra omvandlingar av data, kör dem separat från frågan belastningen. Till exempel mellanlagra data i en heap-tabell, kör omvandlingarna och sedan läsa in mellanlagringstabellen i columnstore-indexet. Du kan också läsa in data först och sedan använda MPP-systemet för att transformera data.
 
 ### <a name="adjust-maxdop"></a>Justera MAXDOP
 
-Varje distributionsplats komprimerar rowgroups till columnstore parallellt om det inte finns fler än en CPU-kärnor per distribution. Parallellitet kräver ytterligare minne, vilket kan leda till minnesbelastning och radgrupps trimning.
+Varje distribution komprimerar radgrupper till columnstore parallellt när det finns fler än en CPU-kärna per distribution. Parallellitet kräver ytterligare minne, vilket kan leda till minnesbelastning och ta bort radgrupp.
 
-Du kan använda frågetipset MAXDOP för att minska minnesbelastning för att tvinga Inläsningsåtgärd för seriell läget i varje distribution.
+För att minska minnesbelastning kan använda du frågetipset MAXDOP för att tvinga inläsningen körs med seriell inom varje distribution.
 
 ```
 CREATE TABLE MyFactSalesQuota
@@ -133,20 +133,20 @@ OPTION (MAXDOP 1);
 
 ## <a name="ways-to-allocate-more-memory"></a>Sätt att allokera mer minne
 
-DWU storlek och användaren resursklassen tillsammans bestämmer du hur mycket minne som är tillgängligt för en användarfråga. För att öka minnestilldelningen för en load-fråga kan du öka antalet dwu: er eller öka resursklassen.
+DWU-storleken och den användare resursklassen tillsammans avgör du hur mycket minne som är tillgängliga för en användare-frågor. För att öka minnestilldelningen för en load-fråga kan du öka antalet dwu: er eller öka resursklassen.
 
-- Om du vill öka de dwu: er Se [hur skala prestanda?](quickstart-scale-compute-portal.md)
-- Om du vill ändra resursklassen för en fråga, se [ändra ett exempel på användaren resurs klassen](resource-classes-for-workload-management.md#change-a-users-resource-class).
+- För att öka de dwu: er, se [hur skala prestanda?](quickstart-scale-compute-portal.md)
+- Om du vill ändra resursklass för en fråga, se [ändra en klass för användaren resursexempel](resource-classes-for-workload-management.md#change-a-users-resource-class).
 
-Till exempel på DWU 100 kan användare i resursklassen smallrc använda 100 MB minne för varje distribution. Mer information, se [samtidighet i SQL Data Warehouse](resource-classes-for-workload-management.md).
+På 100 DWU använder en användare i smallrc resursklass till exempel 100 MB minne för varje distribution. Mer information finns i [samtidighet i SQL Data Warehouse](resource-classes-for-workload-management.md).
 
-Anta att du kontrollera att du behöver 700 MB minne för att få hög kvalitet radgrupps storlekar. De här exemplen visar hur du kan köra frågan belastningen med tillräckligt med minne.
+Anta att du bestämma att du behöver 700 MB minne att få hög kvalitet radgrupps storlekar. De här exemplen visar hur du kan köra frågan belastning med tillräckligt med minne.
 
-- Använder DWU 1000 och mediumrc, är din minnestilldelningen 800 MB
-- Använder DWU 600 och largerc, är din minnestilldelningen 800 MB.
+- Använda DWU 1000 och mediumrc kan är din minnestilldelningen 800 MB
+- Använda DWU 600 och largerc kan är din minnestilldelningen 800 MB.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du hittar fler sätt att förbättra prestanda i SQL Data Warehouse den [översikt över prestanda](sql-data-warehouse-overview-manage-user-queries.md).
+Du hittar fler sätt att förbättra prestanda i SQL Data Warehouse den [prestandaöversikt](sql-data-warehouse-overview-manage-user-queries.md).
 

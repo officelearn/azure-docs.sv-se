@@ -1,5 +1,5 @@
 ---
-title: Förstå användningen av Azure reservation för prenumeration med användningsbaserad betalning | Microsoft Docs
+title: Förstå användningen av Azure-reservationer för prenumeration med användningsbaserad betalning | Microsoft Docs
 description: Lär dig hur du läser din användning för att förstå hur Azure reservation för prenumerationen med användningsbaserad betalning används.
 services: billing
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: manshuk
-ms.openlocfilehash: cf1d7c67fe6033bf41317e75a33349ae07ecf643
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 1226b2f73d556da2ff7d73f6f322e0bd1590f915
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627891"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307066"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Förstå användningen av Azure reservation för prenumerationen med användningsbaserad betalning
 
@@ -93,12 +93,12 @@ Filtrera på **ytterligare information** och skriver i din **reservations-ID**. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om reservationer, finns i följande artiklar:
+Om du vill veta mer om Azure reservationer, finns i följande artiklar:
 
 - [Vad är Azure reservationer?](billing-save-compute-costs-reservations.md)
 - [Förskottsbetala för virtuella datorer med Azure reserverade VM-instanser](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Betala i förskott för beräkningsresurser för SQL-databas med Azure SQL Database reserverad kapacitet](../sql-database/sql-database-reserved-capacity.md)
-- [Hantera reservationer i Azure](billing-manage-reserved-vm-instance.md)
+- [Hantera Azure-reservationer](billing-manage-reserved-vm-instance.md)
 - [Förstå hur reservationsrabatten tillämpas](billing-understand-vm-reservation-charges.md)
 - [Förstå användningen av reserverade för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
 - [Kostnader för Windows-programvara ingår inte i reservationer](billing-reserved-instance-windows-software-costs.md)

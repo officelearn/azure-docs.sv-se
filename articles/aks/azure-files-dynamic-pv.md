@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: iainfou
-ms.openlocfilehash: ea77244d4b2e078c5eda716e94a97291350228f5
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: dfc9171f54effe3da7a0f13695ab233d561357d4
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42058515"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43285693"
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Beständiga volymer med Azure files
 
@@ -73,7 +73,7 @@ kubectl apply -f azure-file-sc.yaml
 
 AKS-kluster använder Kubernetes rollbaserad åtkomstkontroll (RBAC) till gränsen åtgärder som kan utföras. *Roller* definierar behörigheterna som ska tilldelas, och *bindningar* tillämpa dem till önskade användare. Dessa uppgifter kan tillämpas till ett visst namnområde eller över hela klustret. Mer information finns i [med RBAC-auktorisering][kubernetes-rbac].
 
-Om du vill tillåta Azure-plattformen för att skapa de nödvändiga lagringsresurserna, skapa en *clusterrole* och *clusterrolebinding*. Skapa en fil med namnet `azure-pvc-roles.yaml` och kopiera följande YAML:
+Om du vill tillåta Azure-plattformen för att skapa de nödvändiga lagringsresurserna, skapa en *ClusterRole* och *ClusterRoleBinding*. Skapa en fil med namnet `azure-pvc-roles.yaml` och kopiera följande YAML:
 
 ```yaml
 ---

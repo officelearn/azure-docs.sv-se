@@ -3,19 +3,19 @@ title: Återställa en Azure SQL Data Warehouse | Microsoft Docs
 description: Så här guide för att återställa en Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 08/29/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 583346f2297f590d8e9484c0a3c19c947de7f740
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
-ms.translationtype: HT
+ms.openlocfilehash: cf96e153c07211fe176839e713935adcf6b9dbe1
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191158"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306970"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>Återställa Azure SQL Data Warehouse 
 I den här artikeln får du lära dig hur du gör följande:

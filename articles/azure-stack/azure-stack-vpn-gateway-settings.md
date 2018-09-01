@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/14/2018
 ms.author: brenduns
-ms.openlocfilehash: e9e474fe4a32bb99673fba2a88f28a3161f23362
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 6380936766bb0f3848811be305783c274867b0fc
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139715"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381875"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Konfigurationsinställningar för VPN-gateway för Azure Stack
 
@@ -27,7 +27,7 @@ ms.locfileid: "42139715"
 
 En VPN-gateway är en typ av virtuell nätverksgateway som skickar krypterad trafik mellan ditt virtuella nätverk i Azure Stack och en fjärransluten VPN-gateway. Den fjärranslutna VPN-gatewayen kan vara i Azure, en enhet i ditt datacenter eller en enhet på en annan plats.  Om det finns nätverksanslutning mellan två slutpunkter kan upprätta du en säker plats-till-plats (S2S) VPN-anslutning mellan de två nätverken.
 
-En anslutning för VPN-gateway är beroende av konfigurationen av flera resurser som innehåller konfigurerbara inställningar. Avsnitt i den här artikeln beskrivs de resurser och inställningar som är relaterade till en VPN-gateway för ett virtuellt nätverk som skapats i Resource Manager-distributionsmodellen. Du hittar beskrivningar och Topologidiagram för varje anslutning lösning [om VPN Gateway för Azure Stack](azure-stack-vpn-gateway-about-vpn-gateways.md).
+En anslutning för VPN-gateway är beroende av konfigurationen av flera resurser som innehåller konfigurerbara inställningar. Den här artikeln beskriver de resurser och inställningar som är relaterade till en VPN-gateway för ett virtuellt nätverk som du skapar i Resource Manager-distributionsmodellen. Du hittar beskrivningar och Topologidiagram för varje anslutning lösning [om VPN Gateway för Azure Stack](azure-stack-vpn-gateway-about-vpn-gateways.md).
 
 ## <a name="vpn-gateway-settings"></a>VPN gateway-inställningar
 
@@ -100,7 +100,7 @@ Du måste ange en VPN-typ när du skapar den virtuella nätverksgatewayen för e
 >
 > Dessutom stöder Azure Stack inte med principen baserat Trafikväljare för vägen baserat gatewayer just nu, eftersom anpassade IPSec/IKE-principkonfigurationer inte stöds.
 
-* **Principbaserad**: principbaserade VPN: er krypterar och dirigerar paket via IPsec-tunnlar baserat på IPsec-principer som konfigureras med kombinationer av adressprefix mellan ditt lokala nätverk och Azure Stack VNet. Principen eller trafikväljaren, definieras vanligtvis som en åtkomstlista i VPN-enhetens konfiguration.
+* **Principbaserad**: principbaserade VPN: er krypterar och dirigerar paket via IPsec-tunnlar baserat på IPsec-principer som konfigureras med kombinationer av adressprefix mellan ditt lokala nätverk och Azure Stack VNet. Principen eller trafikväljaren, är vanligtvis en åtkomstlista i VPN-enhetens konfiguration.
 
   >[!NOTE]
   >Principbaserad stöds i Azure, men inte i Azure Stack.
@@ -184,14 +184,12 @@ Till skillnad från Azure, som har stöd för flera erbjudanden som både en ini
 |IKE-version |IKEv2 |
 |Kryptering och hash-algoritmer (kryptering)     | GCMAES256|
 |Kryptering och hash-algoritmer (autentisering) | GCMAES256|
-|SA-livstid (tid)  | 27 000 sekunder<sup>se anmärkning 1</sup> |
-|SA-livstid (byte) | 33,553,408<sup>se anmärkning 2</sup>     |
-|PFS (Perfect Forward Secrecy) |Ingen<sup>se anmärkning 3</sup> |
+|SA-livstid (tid)  | 27 000 sekunder  |
+|SA-livstid (byte) | 33,553,408     |
+|PFS (Perfect Forward Secrecy) |Ingen<sup>se anmärkning 1</sup> |
 |Utebliven peer-identifiering | Stöds|  
 
-* *Anmärkning 1:* före version 1803 använder Azure Stack 14 400 värdet för SA-livstid (tid).
-* *Anmärkning 2:* före version 1803 använder Azure Stack 819,200 värdet för SA-livstid (byte).
-* *Anmärkning 3:* före version 1807, Azure Stack använder PFS2048 värdet för Perfect Forward Secrecy (PFS).
+* *Anmärkning 1:* före version 1807, Azure Stack använder PFS2048 värdet för Perfect Forward Secrecy (PFS).
 
 ## <a name="next-steps"></a>Nästa steg
 

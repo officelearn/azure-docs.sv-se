@@ -123,10 +123,6 @@
 #### [Använda certifikat](reports-monitoring/tutorial-access-api-with-certificates.md)
 
 ## [Hantera lösenord](authentication/concept-sspr-howitworks.md)
-### Användardokument
-#### [Återställ eller ändra ditt lösenord](user-help/active-directory-passwords-update-your-own-password.md)
-#### [Registrera för återställning av lösenord för självbetjäning](user-help/active-directory-passwords-reset-register.md)
-
 
 ## Hantera appar
 ### [Översikt](manage-apps/what-is-application-management.md)
@@ -338,10 +334,6 @@
 ### [Hämta resultat för åtkomstgranskning](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## Skydda dina identiteter
-### Certifikatbaserad autentisering
-#### [Android](active-directory-certificate-based-authentication-android.md)
-#### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Komma igång](active-directory-certificate-based-authentication-get-started.md)
 
 ### Azure AD Identity Protection
 #### [Översikt](identity-protection/overview.md)

@@ -114,12 +114,10 @@ items:
     href: Vision-API-How-to-Topics/HowToSubscribe.md
   - name: Anropa API:et för visuellt innehåll
     href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
+  - name: Använda en ansluten tjänst för visuellt innehåll
+    href: vs-computer-vision-connected-service.md
   - name: Analysera videor i realtid
     href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
-  - name: Arbeta med Visual Studio
-    items:
-    - name: Använda en ansluten tjänst för visuellt innehåll
-      href: vs-computer-vision-connected-service.md
 - name: Referens
   items:
   - name: Azure CLI
@@ -162,9 +160,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Kategoritaxonomi
     href: Category-Taxonomy.md
-ms.openlocfilehash: b432d958b5ce8f31f6f4487d986f2c793a782e2d
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: c784546bdba472882b6c098befc584da35bbac59
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43246131"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337509"

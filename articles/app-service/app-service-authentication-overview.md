@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
-ms.openlocfilehash: 9b4e86e719998c5f19a70734480356bcb98b8d2f
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 46f8602583329a0516edb9af59e53754ca349555
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888108"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336812"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autentisering och auktorisering i Azure App Service
 
@@ -135,7 +135,7 @@ Med det här alternativet behöver du inte skriva någon Autentiseringskod i din
 
 Alternativet är **Tillåt anonyma förfrågningar**. Det här alternativet aktiverar autentisering och auktorisering i App Service, men skjuter upp auktoriseringsbeslut programkoden. För autentiserade begäranden skickar också App Service med autentiseringsinformation i HTTP-huvuden. 
 
-Det här alternativet ger bättre flexibilitet vid hantering av anonyma begäranden. Exempelvis kan du [presentera flera inloggningsalternativ](app-service-authentication-how-to.md#configure-multiple-sign-in-options) till dina användare. Du kan dock skriva kod. 
+Det här alternativet ger bättre flexibilitet vid hantering av anonyma begäranden. Exempelvis kan du [presentera flera inloggning providers](app-service-authentication-how-to.md#use-multiple-sign-in-providers) till dina användare. Dock måste du skriva kod. 
 
 ## <a name="more-resources"></a>Fler resurser
 

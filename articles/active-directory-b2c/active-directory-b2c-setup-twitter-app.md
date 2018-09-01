@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: bf5ae39d83fd021775fbd18cf23d2e6b9078e748
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 6d8e9245e95c08aad69cd05f338b6260e554469b
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37927904"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337798"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett Twitter-konto med hjälp av Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Om du vill använda ett Twitter-konto som identitetsprovider i Azure Active Dire
 1. Logga in på den [Twitter appar](https://apps.twitter.com/) med dina autentiseringsuppgifter för Twitter.
 2. Välj **Skapa ny App**.
 3. Ange den **namn**, **beskrivning**, och **webbplats**.
-4. Ange `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp` i **Motringnings-URL: er**. Ersätt **{klient}** med klientens namn (exempel: contosob2c.onmicrosoft.com) och **{policyId}** med princip-ID (till exempel b2c_1_policy). Du bör lägga till en Motringnings-URL för alla principer som använder Twitter-konto. Se till att använda `b2clogin.com` i stället för ` login.microsoftonline.com` om du använder den i ditt program.
+4. Ange `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/{policyId}/oauth1/authresp` i **Motringnings-URL: er**. Ersätt **{klient}** med klientens namn (till exempel contosob2c) och **{policyId}** med princip-ID (till exempel b2c_1_policy). Du bör lägga till en Motringnings-URL för alla principer som använder Twitter-konto. 
 5. Godkänn den **Developer-avtalet** och välj **skapa ditt Twitter-program**.
 7. Välj den **nycklar och åtkomsttoken** fliken.
 8. Kopiera värdet för **använda nyckeln** och **Konsumenthemligheten**. Du behöver dem för att konfigurera ett Twitter-konto som identitetsprovider i din klient båda.

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 07/19/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: e8d30ae6cde7c787f1aa950506e0eb74bac0c12d
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: fe20cae4c316462e3af3f0a5e7e6052f6ba5719d
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238816"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344431"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Vanliga frågor – VMware till Azure replikering
 
@@ -45,7 +45,7 @@ Om du är administratör för prenumerationen har Replikeringsbehörighet som du
 
 
 
-## <a name="on-premises"></a>Lokal 
+## <a name="on-premises"></a>Lokal
 
 ### <a name="what-do-i-need-on-premises"></a>Vad gör jag behöver på plats?
 På den lokala måste du Site Recovery-komponenter installeras på en enda VMware VM. Du behöver också en VMware-infrastruktur, med minst en ESXi-värden och vi rekommenderar en vCenter-server. Dessutom behöver du en eller flera virtuella VMware-datorer att replikera. [Läs mer](vmware-azure-architecture.md) om VMware till Azure-arkitektur.
@@ -72,7 +72,7 @@ Ja, ExpressRoute kan användas för att replikera datorer till Azure. Site Recov
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Varför kan inte replikera via VPN?
 
-När du replikerar till Azure replikeringstrafik når de offentliga slutpunkterna för ett Azure Storage-konto och därför kan du bara replikera via det offentliga internet med ExpressRoute (offentlig peering) VPN fungerar inte. 
+När du replikerar till Azure replikeringstrafik når de offentliga slutpunkterna för ett Azure Storage-konto och därför kan du bara replikera via det offentliga internet med ExpressRoute (offentlig peering) VPN fungerar inte.
 
 
 
@@ -90,7 +90,7 @@ Utökad eller länkad replikering stöds inte. Begär den här funktionen i [Fee
 Det stöds inte. Begär den här funktionen i den [Feedbackforum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-disks"></a>Kan jag utesluta diskar?
-Ja, kan du undanta diskar från replikering. 
+Ja, kan du undanta diskar från replikering.
 
 ### <a name="can-i-replicate-vms-with-dynamic-disks"></a>Kan jag replikera virtuella datorer med dynamiska diskar?
 Dynamiska diskar kan replikeras. Operativsystemdisken måste vara en standarddisk.
@@ -105,7 +105,7 @@ Du kan ändra diskens storlek för VMware-replikering till Azure. Om du vill lä
 ## <a name="configuration-server"></a>Konfigurationsservern
 
 ### <a name="what-does-the-configuration-server-do"></a>Vad gör configuration server?
-Konfigurationsservern körs lokalt Site Recovery-komponenter, inklusive: 
+Konfigurationsservern körs lokalt Site Recovery-komponenter, inklusive:
 - Konfigurationsservern som samordnar kommunikationen mellan lokala och Azure och hanterar datareplikering.
 - Processervern som fungerar som en replikeringsgateway. Den tar emot replikeringsdata; optimerar dem med cachelagring, komprimering och kryptering och skickar det till Azure storage., processervern installerar också Mobilitetstjänsten på virtuella datorer du vill replikera och utför automatisk identifiering av lokala virtuella VMware-datorer.
 - Huvudmålservern som hanterar replikeringsdata vid återställning från Azure.
@@ -118,13 +118,13 @@ Du behöver en enda med hög tillgänglighet lokal VMware VM för konfigurations
 Granska den [krav](vmware-azure-deploy-configuration-server.md#prerequisites).
 
 ### <a name="can-i-manually-set-up-the-configuration-server-instead-of-using-a-template"></a>Kan jag manuellt konfigurera konfigurationsservern istället för att använda en mall?
-Vi rekommenderar att du använder den senaste versionen av OVF-mall till [skapa konfigurationsserverns Virtuella](vmware-azure-deploy-configuration-server.md). Om du av någon anledning som du kan till exempel du inte har åtkomst till VMware-servern, kan du [Filnedladdning enhetliga installationsprogrammet](physical-azure-set-up-source.md) från portalen och kör den på en virtuell dator. 
+Vi rekommenderar att du använder den senaste versionen av OVF-mall till [skapa konfigurationsserverns Virtuella](vmware-azure-deploy-configuration-server.md). Om du av någon anledning som du kan till exempel du inte har åtkomst till VMware-servern, kan du [Filnedladdning enhetliga installationsprogrammet](physical-azure-set-up-source.md) från portalen och kör den på en virtuell dator.
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>Replikera en konfigurationsserver till fler än en region?
 Nej. Om du vill göra detta måste du ställa in en konfigurationsserver i varje region.
 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>Kan jag vara värd för en konfigurationsserver i Azure?
-Även om det går måste den virtuella Azure-datorer som kör konfigurationsservern kommunicera med dina lokala VMware-infrastruktur och virtuella datorer. Overhead är förmodligen inte lönsamma.
+Även om det går måste den virtuella Azure-datorer som kör konfigurationsservern kommunicera med dina lokala VMware-infrastruktur och virtuella datorer. Detta kan lägga till svarstider och påverka pågående replikering.
 
 
 ### <a name="where-can-i-get-the-latest-version-of-the-configuration-server-template"></a>Var hittar jag den senaste versionen av konfigurationsservermallen?
@@ -132,6 +132,9 @@ Hämta den senaste versionen från den [Microsoft Download Center](https://aka.m
 
 ### <a name="how-do-i-update-the-configuration-server"></a>Hur uppdaterar jag configuration server?
 Du kan installera samlade uppdateringar. Du hittar den senaste uppdatering informationen i den [wiki-sida för uppdateringar](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+
+### <a name="should-i-backup-the-deployed-configuration-server"></a>Bör jag säkerhetskopiera distribuerade konfigurationsservern?
+Vi rekommenderar att utföra regelbundna schemalagda säkerhetskopieringar av konfigurationsservern. Den virtuella datorn att växlas tillbaka måste finnas i server-konfigurationsdatabasen för lyckad återställning efter fel och konfigurationsservern måste vara körs och är i anslutet tillstånd. Du kan lära dig mer om vanliga hanteringsaktiviteter för configuration server [här](vmware-azure-manage-configuration-server.md).
 
 ## <a name="mobility-service"></a>Mobilitetstjänsten
 
@@ -191,7 +194,7 @@ Ja, om du växlas över till Azure, du kan växla tillbaka till en annan plats o
 
 ### <a name="why-do-i-need-a-vpn-or-expressroute-to-fail-back"></a>Varför behöver jag en VPN eller ExpressRoute för att återställa efter felet?
 
-När du växlar tillbaka från Azure kopieras data från Azure tillbaka till den lokala virtuella datorn och privat åtkomst krävs. 
+När du växlar tillbaka från Azure kopieras data från Azure tillbaka till den lokala virtuella datorn och privat åtkomst krävs.
 
 
 

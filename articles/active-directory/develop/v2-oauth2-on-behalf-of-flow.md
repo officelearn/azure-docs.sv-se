@@ -17,12 +17,12 @@ ms.date: 06/06/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b0f8568dd67dd292ccca3972a402a110cd4a46fb
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: da13b7b7b9bd39692db422a315383e0f12aae453
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581952"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344884"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0- och OAuth 2.0-Behalf-flöde
 OAuth 2.0-Behalf flow fungerar användningsfall där ett program anropar en tjänst/webb-API, som i sin tur måste anropa en annan tjänst/webb-API. Tanken är att sprida delegerade användaren identitets- och behörigheter genom begärandekedjan. För mellannivå-tjänsten ska göra autentiserade begäranden till den underordnade tjänsten, behöver så skydda en åtkomsttoken från Azure Active Directory (Azure AD), användarens räkning.
@@ -40,7 +40,7 @@ Anta att användaren har autentiserats på ett program med hjälp av den [flöde
 
 De steg som följer utgör On-Behalf-Of-flöde och beskrivs med hjälp av följande diagram.
 
-![OAuth2.0-On-Behalf-Of-flöde](/media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+![OAuth2.0-On-Behalf-Of-flöde](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 
 1. Klientprogrammet skickar en begäran till API A med token A (med en `aud` anspråk av API-A).

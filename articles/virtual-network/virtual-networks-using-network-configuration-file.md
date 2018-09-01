@@ -1,6 +1,6 @@
 ---
-title: Konfigurera ett Azure Virtual Network (klassisk) - nätverket konfigurationsfilen | Microsoft Docs
-description: Lär dig mer om att skapa och ändra virtuella nätverk (klassiskt) genom att exportera, ändra och importera en konfigurationsfil för nätverket.
+title: Konfigurera ett Azure-nätverk (klassisk) - nätverkskonfigurationsfilen | Microsoft Docs
+description: Lär dig mer om att skapa och ändra virtuella nätverk (klassisk) genom att exportera, ändra och importera en nätverkskonfigurationsfil.
 services: virtual-network
 documentationcenter: ''
 author: genlin
@@ -16,29 +16,29 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: ed47a5d1449ba634f90e93a82f15daf6e44a553e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 57ad5541bb7b61f8d26002168bb069fad3058965
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793869"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339083"
 ---
-# <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Konfigurera ett virtuellt nätverk (klassiska) med en konfigurationsfil för nätverk
+# <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Konfigurera ett virtuellt nätverk (klassisk) med en nätverkskonfigurationsfil
 > [!IMPORTANT]
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-distributionsmodellen.
 
-Du kan skapa och konfigurera ett virtuellt nätverk (klassiska) med en konfigurationsfil för nätverk med Azure-kommandoradsgränssnittet (CLI) 1.0 eller Azure PowerShell. Du kan inte skapa eller ändra ett virtuellt nätverk med Azure Resource Manager-distributionsmodellen med en konfigurationsfil för nätverket. Du kan inte använda Azure-portalen att skapa eller ändra ett virtuellt nätverk (klassiska) med en konfigurationsfil för nätverket, men du kan använda Azure-portalen för att skapa ett virtuellt nätverk (klassiska) utan att använda en konfigurationsfil för nätverket.
+Du kan skapa och konfigurera ett virtuellt nätverk (klassisk) med en nätverkskonfigurationsfil med Azure-kommandoradsgränssnittet (CLI) 1.0 eller Azure PowerShell. Du kan inte skapa eller ändra ett virtuellt nätverk via Azure Resource Manager-distributionsmodellen med hjälp av en nätverkskonfigurationsfil. Du kan inte använda Azure-portalen att skapa eller ändra ett virtuellt nätverk (klassisk) med en nätverkskonfigurationsfil, men du kan använda Azure-portalen för att skapa ett virtuellt nätverk (klassisk), utan att använda en nätverkskonfigurationsfil.
 
-Skapa och konfigurera ett virtuellt nätverk (klassiska) med en konfigurationsfil för nätverket kräver exportera, ändra och importera filen.
+Skapa och konfigurera ett virtuellt nätverk (klassisk) med en nätverkskonfigurationsfil kräver exportera, ändra och importera filen.
 
-## <a name="export"></a>Exportera en konfigurationsfil för nätverk
+## <a name="export"></a>Exportera en nätverkskonfigurationsfil
 
-Du kan använda PowerShell eller Azure CLI för att exportera en konfigurationsfil för nätverket. PowerShell exporterar en XML-fil, medan Azure CLI exporterar en json-fil.
+Du kan använda PowerShell eller Azure CLI för att exportera en nätverkskonfigurationsfil. PowerShell exporterar en XML-fil, medan Azure CLI exporterar en json-fil.
 
 ### <a name="powershell"></a>PowerShell
  
-1. [Installera Azure PowerShell och logga in på Azure](/powershell/azure/install-azure-ps?toc=%2fazure%2fvirtual-network%2ftoc.json).
-2. Ändra katalogen (och se till att den finns) och ett filnamn i kommandot efter behov, kör kommandot för att exportera konfigurationsfilen nätverk:
+1. [Installera Azure PowerShell och logga in på Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
+2. Ändra katalogen (och se till att den finns) och ett filnamn i följande kommando som du vill, kör sedan kommandot för att exportera nätverkskonfigurationsfilen:
 
     ```powershell
     Get-AzureVNetConfig -ExportToFile c:\azure\networkconfig.xml
@@ -46,28 +46,28 @@ Du kan använda PowerShell eller Azure CLI för att exportera en konfigurationsf
 
 ### <a name="azure-cli-10"></a>Azure CLI 1.0
 
-1. [Installera Azure CLI 1.0](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Slutför stegen från en kommandotolk i Azure CLI 1.0.
-2. Logga in i Azure genom att ange den `azure login` kommando.
+1. [Installera Azure CLI 1.0](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Slutför de återstående stegen från en kommandotolk för Azure CLI 1.0.
+2. Logga in på Azure genom att ange den `azure login` kommando.
 3. Kontrollera att du befinner dig i asm-läge genom att ange den `azure config mode asm` kommando.
-4. Ändra katalogen (och se till att den finns) och ett filnamn i kommandot efter behov, kör kommandot för att exportera konfigurationsfilen nätverk:
+4. Ändra katalogen (och se till att den finns) och ett filnamn i följande kommando som du vill, kör sedan kommandot för att exportera nätverkskonfigurationsfilen:
     
     ```azurecli
     azure network export c:\azure\networkconfig.json
     ```
 
-## <a name="create-or-modify-a-network-configuration-file"></a>Skapa eller ändra en konfigurationsfil för nätverk
+## <a name="create-or-modify-a-network-configuration-file"></a>Skapa eller ändra en nätverkskonfigurationsfil
 
-En konfigurationsfil för nätverk är en XML-fil (när du använder PowerShell) eller en json-fil (när du använder Azure CLI). Du kan redigera filen i en text, eller XML/json-redigerare. Den [nätverk konfigurationsinställningar filen schemat](https://msdn.microsoft.com/library/azure/jj157100.aspx) artikeln innehåller information om alla inställningar. Ytterligare förklaring av inställningarna finns [Visa inställningar för virtuella nätverk och](manage-virtual-network.md#view-virtual-networks-and-settings). De ändringar du gör i filen:
+En nätverkskonfigurationsfil är en XML-fil (när du använder PowerShell) eller en json-fil (när du använder Azure CLI). Du kan redigera filen i valfri text eller XML/json-redigerare. Den [nätverks-inställningar för konfigurationsfiler schemat](https://msdn.microsoft.com/library/azure/jj157100.aspx) artikeln innehåller information om alla inställningar. Ytterligare förklaring av inställningarna finns i [visa virtuella nätverk och inställningar](manage-virtual-network.md#view-virtual-networks-and-settings). De ändringar du gör i filen:
 
-- Måste vara kompatibel med schemat eller importera konfigurationsfilen nätverket misslyckas.
-- Skriv över alla befintliga nätverksinställningarna för din prenumeration, så mycket försiktig när du gör ändringar. Till exempel referera till exempel nätverk konfigurationsfilerna som följer. Säg originalfilen finns två **VirtualNetworkSite** instanser och du ändrade den som visas i exemplen. När du importerar filen Azure tar bort det virtuella nätverket för den **VirtualNetworkSite** instans som du har tagit bort i filen. Det här förenklad scenariot förutsätter att inga resurser har i det virtuella nätverket som om det fanns gick inte att ta bort det virtuella nätverket och misslyckas importen.
+- Måste överensstämma med schemat, eller import av nätverkskonfigurationsfilen misslyckas.
+- Skriv över alla befintliga nätverksinställningar för din prenumeration, så mycket försiktig när du gör ändringar. Till exempel referera till exempel nätverk konfigurationsfilerna som följer. Anta att den ursprungliga filen innehåller två **VirtualNetworkSite** instanser och ändrade den som visas i exemplen. När du importerar filen Azure tar bort det virtuella nätverket för den **VirtualNetworkSite** instans som du har tagit bort i filen. Den här förenklad scenariot förutsätter vi att inga resurserna fanns i det virtuella nätverket, som om det var det gick inte att ta bort det virtuella nätverket och importen misslyckades.
 
 > [!IMPORTANT]
-> Azure tar hänsyn till ett undernät som har något distribueras till den som **används**. När ett undernät kan inte ändras. Flytta allt som du har distribuerat till undernätet för att ett annat undernät som inte ändras innan du ändrar information om undernät i en konfigurationsfil för nätverket. Se [flytta en virtuell dator eller Rollinstans till ett annat undernät](virtual-networks-move-vm-role-to-subnet.md) mer information.
+> Azure tar hänsyn till ett undernät som har något distribueras till den som **används**. När ett undernät används, kan inte ändras. Innan du ändrar information om undernät i en nätverkskonfigurationsfil att flytta allt som har distribuerats till undernät till ett annat undernät som inte ändras. Se [flytta en virtuell dator eller Rollinstans till ett annat undernät](virtual-networks-move-vm-role-to-subnet.md) mer information.
 
 ### <a name="example-xml-for-use-with-powershell"></a>XML-exempel för användning med PowerShell
 
-Följande exempel nätverket konfigurationsfil skapar ett virtuellt nätverk med namnet *myVirtualNetwork* med ett adressutrymme för *10.0.0.0/16* i den *östra USA* Azure-region. Det virtuella nätverket innehåller ett undernät med namnet *mySubnet* med en adressprefixet *10.0.0.0/24*.
+Följande exempel nätverkskonfigurationsfilen skapar ett virtuellt nätverk med namnet *myVirtualNetwork* med ett adressutrymme för *10.0.0.0/16* i den *USA, östra* Azure region. Det virtuella nätverket innehåller ett undernät som heter *mySubnet* med adressprefixet *10.0.0.0/24*.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -90,11 +90,11 @@ Följande exempel nätverket konfigurationsfil skapar ett virtuellt nätverk med
 </NetworkConfiguration>
 ```
 
-Om nätverket konfigurationsfil som du exporterade innehåller inget innehåll kan du kopiera XML-filen i föregående exempel och klistra in den i en ny fil.
+Om du har exporterat nätverkskonfigurationsfilen innehåller inget innehåll kan du kopiera XML-koden i exemplet ovan och klistra in den i en ny fil.
 
-### <a name="example-json-for-use-with-the-azure-cli-10"></a>Exempel JSON för användning med Azure CLI 1.0
+### <a name="example-json-for-use-with-the-azure-cli-10"></a>Exempel på JSON för användning med Azure CLI 1.0
 
-Följande exempel nätverket konfigurationsfil skapar ett virtuellt nätverk med namnet *myVirtualNetwork* med ett adressutrymme för *10.0.0.0/16* i den *östra USA* Azure-region. Det virtuella nätverket innehåller ett undernät med namnet *mySubnet* med en adressprefixet *10.0.0.0/24*.
+Följande exempel nätverkskonfigurationsfilen skapar ett virtuellt nätverk med namnet *myVirtualNetwork* med ett adressutrymme för *10.0.0.0/16* i den *USA, östra* Azure region. Det virtuella nätverket innehåller ett undernät som heter *mySubnet* med adressprefixet *10.0.0.0/24*.
 
 ```json
 {
@@ -117,16 +117,16 @@ Följande exempel nätverket konfigurationsfil skapar ett virtuellt nätverk med
 }
 ```
 
-Om nätverket konfigurationsfil som du exporterade innehåller inget innehåll kan du kopiera json i föregående exempel och klistra in den i en ny fil.
+Om du har exporterat nätverkskonfigurationsfilen innehåller inget innehåll kan du kopiera json i exemplet ovan och klistra in den i en ny fil.
 
-## <a name="import"></a>Importera en konfigurationsfil för nätverk
+## <a name="import"></a>Importera en nätverkskonfigurationsfil
 
-Du kan använda PowerShell eller Azure CLI för att importera en konfigurationsfil för nätverket. PowerShell importerar en XML-fil, medan Azure CLI importerar en json-fil. Om importen misslyckas, bekräfta att filen uppfyller de [nätverk Konfigurationsschemat](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
+Du kan använda PowerShell eller Azure CLI för att importera en nätverkskonfigurationsfil. PowerShell importerar en XML-fil, medan Azure CLI importerar en json-fil. Om importen misslyckas kontrollerar du att filen uppfyller de [nätverk konfigurationsschema](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
 
 ### <a name="powershell"></a>PowerShell
  
-1. [Installera Azure PowerShell och logga in på Azure](/powershell/azure/install-azure-ps?toc=%2fazure%2fvirtual-network%2ftoc.json).
-2. Ändra katalog och filnamnet i följande kommando vid behov, kör kommandot för att importera konfigurationsfilen nätverk:
+1. [Installera Azure PowerShell och logga in på Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
+2. Ändra katalog- och filnamn i följande kommando vid behov, kör sedan kommandot för att importera nätverkskonfigurationsfilen:
  
     ```powershell
     Set-AzureVNetConfig  -ConfigurationPath c:\azure\networkconfig.xml
@@ -134,10 +134,10 @@ Du kan använda PowerShell eller Azure CLI för att importera en konfigurationsf
 
 ### <a name="azure-cli-10"></a>Azure CLI 1.0
 
-1. [Installera Azure CLI 1.0](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Slutför stegen från en kommandotolk i Azure CLI 1.0.
-2. Logga in i Azure genom att ange den `azure login` kommando.
+1. [Installera Azure CLI 1.0](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Slutför de återstående stegen från en kommandotolk för Azure CLI 1.0.
+2. Logga in på Azure genom att ange den `azure login` kommando.
 3. Kontrollera att du befinner dig i asm-läge genom att ange den `azure config mode asm` kommando.
-4. Ändra katalog och filnamnet i följande kommando vid behov, kör kommandot för att importera konfigurationsfilen nätverk:
+4. Ändra katalog- och filnamn i följande kommando vid behov, kör sedan kommandot för att importera nätverkskonfigurationsfilen:
 
     ```azurecli
     azure network import c:\azure\networkconfig.json

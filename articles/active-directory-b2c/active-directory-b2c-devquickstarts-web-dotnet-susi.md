@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/17/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 66cd3644611c1d837de717661a3515a0c0d3956f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 838717aa8f426ea54f4736453aac8c6fcf9a0099
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308039"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344505"
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Skapa en ASP.NET-webbapp med Azure Active Directory B2C registrering, inloggning, profilredigering och återställning av lösenord
 
@@ -95,7 +95,7 @@ Det här exemplet är konfigurerat att använda principerna och klient-ID:t för
 * `ida:ResetPasswordPolicyId` med namnet på din lösenordsåterställningsprincip
 
 ## <a name="launch-the-app"></a>Starta appen
-Starta appen från Visual Studio. Gå till fliken att göra-lista och notera URL: en är: https://login.microsoftonline.com/ *YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*& client_id =*YourclientID*.....
+Starta appen från Visual Studio. Gå till fliken att göra-lista och notera URL: en är: https://*YourTenantName*.b2clogin.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName* & client_id =*YourclientID*...
 
 Registrera dig för appen med hjälp av namnet på din e-postadress eller användarnamn. Logga ut, och sedan logga in igen och redigera profilen eller återställa lösenordet. Logga ut och logga in som en annan användare. 
 

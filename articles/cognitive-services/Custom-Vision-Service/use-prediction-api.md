@@ -1,6 +1,6 @@
 ---
-title: Använda anpassade Vision förutsägelse tjänstslutpunkten - kognitiva Azure-tjänster | Microsoft Docs
-description: 'Lär dig hur du använder API: T programmatiskt bilder med anpassad Vision Service-klassificerare.'
+title: Använd Custom Vision Service förutsägelse slutpunkt - Azure Cognitive Services | Microsoft Docs
+description: 'Lär dig hur du använder API: T programmatiskt bilder med din klassificerare för Custom Vision Service.'
 services: cognitive-services
 author: anrothMSFT
 manager: corncar
@@ -9,44 +9,44 @@ ms.component: custom-vision
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 54f9d9fec1f40c167341dec6a8699b6a558419da
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d7f9b90db06811e16cd0cd6ad2b32a27912cfee5
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353304"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341801"
 ---
-# <a name="use-the-prediction-endpoint-to-test-images-programmatically-with-a-custom-vision-service-classifier"></a>Använda förutsägelse slutpunkten för att testa bilder programmässigt med en anpassad Vision Service-klassificerare
+# <a name="use-the-prediction-endpoint-to-test-images-programmatically-with-a-custom-vision-service-classifier"></a>Använd förutsägelse-slutpunkten för att testa avbildningar via programmering med en klassificerare för Custom Vision Service
 
-När du träna din modell testa du avbildningar via programmering genom att skicka dem till API: T för förutsägelse. 
+När du träna din modell testa du avbildningar via programmering genom att skicka dem till förutsägelse-API. 
 
 > [!NOTE]
-> Det här dokumentet visar använda C# för att skicka en bild till API: T för förutsägelse. Mer information och exempel på användning av API: et finns i [förutsägelse API-referens för](https://go.microsoft.com/fwlink/?linkid=865445).
+> Det här dokumentet visar hur du använder C# för att skicka en avbildning förutsägelse-API: et. Mer information och exempel på användning av API: et finns i den [förutsägelse-API-referens](https://go.microsoft.com/fwlink/?linkid=865445).
 
-## <a name="get-the-url-and-prediction-key"></a>Hämta URL och förutsägelse nyckel
+## <a name="get-the-url-and-prediction-key"></a>Hämta nyckel för URL- och förutsägelsetransaktioner
 
-Från den [anpassad Vision webbsida](https://customvision.ai), Välj ditt projekt och välj sedan den __prestanda__ fliken. Om du vill visa information om hur du använder API: et för förutsägelse Välj __förutsägelse URL__. Kopiera följande information för användning i programmet:
+Från den [Custom Vision-webbsida](https://customvision.ai), markera projektet och välj sedan den __prestanda__ fliken. Att visa information om hur du använder förutsägelse-API, inklusive den __förutsägelse-key__väljer __förutsägelse URL__. För projekt som är kopplade till en Azure-resurs din __förutsägelse-key__ finns också i den [Azure-portalen](https://portal.azure.com) för associerade Azure-resurs under __nycklar__. Kopiera följande information för användning i programmet:
 
-* __URL: en__ för att använda en __avbildningsfil__.
-* __Förutsägelse nyckeln__ värde.
+* __URL: en__ för att använda en __bildfil__.
+* __Förutsägelse-key__ värde.
 
 > [!TIP]
-> Du kan styra vilken som används genom att ange den som standard om du har flera iterationer. Välj iteration från den __iterationer__ avsnittet och väljer sedan __göra standard__ överst på sidan.
+> Om du har flera iterationer kan styra du vilken som används genom att ange den som standard. Välj iteration från den __iterationer__ avsnittet och välj sedan __ange som standard__ överst på sidan.
 
-![Fliken prestanda visas med en röd rektangel runt URL: en förutsägelse.](./media/use-prediction-api/prediction-url.png)
+![Fliken prestanda visas med en röd rektangel omger URL: en förutsägelse.](./media/use-prediction-api/prediction-url.png)
 
 ## <a name="create-the-application"></a>Skapa programmet
 
-1. Skapa ett nytt C#-konsolprogram från Visual Studio.
+1. Skapa ett nytt C#-konsolprogram i Visual Studio.
 
-2. Använd följande kod som en del av den __Program.cs__ fil.
+2. Använd följande kod som huvudstycket i den __Program.cs__ fil.
 
     > [!IMPORTANT]
     > Ändra följande information:
     >
     > * Ange den __namnområde__ till namnet på ditt projekt.
-    > * Ange den __förutsägelse nyckeln__ värdet som du fått tidigare i den rad som börjar med `client.DefaultRequestHeaders.Add("Prediction-Key",`.
-    > * Ange den __URL__ värdet som du fått tidigare i den rad som börjar med `string url =`.
+    > * Ange den __förutsägelse-Key__ värde som du fick tidigare på raden som börjar med `client.DefaultRequestHeaders.Add("Prediction-Key",`.
+    > * Ange den __URL__ värde som du fick tidigare på raden som börjar med `string url =`.
 
     ```csharp
     using System;
@@ -105,7 +105,7 @@ Från den [anpassad Vision webbsida](https://customvision.ai), Välj ditt projek
 
 ## <a name="use-the-application"></a>Använda programmet
 
-När du kör programmet, ange sökvägen till en bildfil. Avbildningen skickas till API: et och resultatet returneras som ett JSON-dokument. Följande JSON är ett exempel på svaret
+När du kör programmet, ange sökvägen till en bildfil. Avbildningen skickas till API: et och resultaten returneras som JSON-dokument. Följande JSON är ett exempel på svaret
 
 ```json
 {
@@ -122,4 +122,4 @@ När du kör programmet, ange sökvägen till en bildfil. Avbildningen skickas t
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Exportera modellen för mobila](export-your-model.md)
+[Exportera modellen för mobil användning](export-your-model.md)

@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 08/30/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 3cd178333ee0d8d92db08fb08cbd02b05112f58b
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: cc1b89ff94b4d4dc0b191512b110521d5fa05a7a
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445030"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344374"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Viktig information för Azure File Sync-agenten
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Dina Windows Server-installationer omvandlas till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS). Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -27,16 +27,16 @@ Följande versioner av Azure File Sync-agenten stöds:
 |----|----------------------|--------------|------------------|
 | Samlad uppdatering augusti | 3.2.0.0 | 15 augusti 2018 | Stöds (rekommenderad version) |
 | Allmän tillgänglighet | 3.1.0.0 | 19 juli 2018 | Stöds |
-| Samlad uppdatering juni | 3.0.13.0 | Den 29 juni 2018 | Agent-version upphör att gälla den 4 September 2018 |
-| Uppdatera 2 | 3.0.12.0 | 22 maj 2018 | Agent-version upphör att gälla den 4 September 2018 |
-| Samlad uppdatering april | 2.3.0.0 | 8 maj 2018 | Agent-version upphör att gälla den 4 September 2018 |
-| Samlad uppdatering för mars | 2.2.0.0 | Den 12 mars 2018 | Agent-version upphör att gälla den 4 September 2018 |
-| Samlad uppdatering februari | 2.1.0.0 | 28 februari 2018 | Agent-version upphör att gälla den 4 September 2018 |
-| Uppdatera 1 | 2.0.11.0 | 8 februari 2018 | Agent-version upphör att gälla den 4 September 2018 |
-| Samlad uppdatering januari | 1.4.0.0 | Den 8 januari 2018 | Agent-version upphör att gälla den 4 September 2018 |
-| Samlad uppdatering november | 1.3.0.0 | Den 30 november 2017 | Agent-version upphör att gälla den 4 September 2018 |
-| Samlad uppdatering för oktober | 1.2.0.0 | 31 oktober 2017 | Agent-version upphör att gälla den 4 September 2018 |
-| Inledande förhandsversion | 1.1.0.0 | 26 september 2017 | Agent-version upphör att gälla den 4 September 2018 |
+| Samlad uppdatering juni | 3.0.13.0 | Den 29 juni 2018 | Agent-version upphör att gälla den 1 oktober 2018 |
+| Uppdatera 2 | 3.0.12.0 | 22 maj 2018 | Agent-version upphör att gälla den 1 oktober 2018 |
+| Samlad uppdatering april | 2.3.0.0 | 8 maj 2018 | Agent-version upphör att gälla den 1 oktober 2018 |
+| Samlad uppdatering för mars | 2.2.0.0 | Den 12 mars 2018 | Agent-version upphör att gälla den 1 oktober 2018 |
+| Samlad uppdatering februari | 2.1.0.0 | 28 februari 2018 | Agent-version upphör att gälla den 1 oktober 2018 |
+| Uppdatera 1 | 2.0.11.0 | 8 februari 2018 | Agent-version upphör att gälla den 1 oktober 2018 |
+| Samlad uppdatering januari | 1.4.0.0 | Den 8 januari 2018 | Agent-version upphör att gälla den 1 oktober 2018 |
+| Samlad uppdatering november | 1.3.0.0 | Den 30 november 2017 | Agent-version upphör att gälla den 1 oktober 2018 |
+| Samlad uppdatering för oktober | 1.2.0.0 | 31 oktober 2017 | Agent-version upphör att gälla den 1 oktober 2018 |
+| Inledande förhandsversion | 1.1.0.0 | 26 september 2017 | Agent-version upphör att gälla den 1 oktober 2018 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Uppdateringsprincip för Azure File Sync-agenten
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
@@ -49,6 +49,9 @@ Den här versionen innehåller följande korrigeringen:
 
 ## <a name="agent-version-3100"></a>Agentversion 3.1.0.0
 Följande viktiga information gäller 3.1.0.0 av Azure File Sync-agenten (gavs ut den 19 juli 2018).
+
+### <a name="evaluation-tool"></a>Utvärderingsverktyg för
+Innan du distribuerar Azure File Sync, bör du utvärdera om den är kompatibel med ditt system med hjälp av verktyget Azure File Sync-utvärdering. Det här verktyget är ett AzureRM PowerShell-cmdlet som söker efter potentiella problem med ditt filsystem och datauppsättningen, till exempel tecken som inte stöds eller en OS-version som inte stöds. Anvisningarna för installation och användning, finns i [Evaluation Tool](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-planning#evaluation-tool) avsnitt i Planeringsguiden. 
 
 ### <a name="agent-installation-and-server-configuration"></a>Agentinstallation och serverkonfiguration
 Mer information om hur du installerar och konfigurerar Azure File Sync-agenten med Windows Server finns i [planera för distribution av Azure File Sync](storage-sync-files-planning.md) och [så här distribuerar du Azure File Sync](storage-sync-files-deployment-guide.md).

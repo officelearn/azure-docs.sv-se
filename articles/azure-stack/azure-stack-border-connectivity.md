@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 260c58ad9099a4532c8a6558cfcf5c13f0fc8d52
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 39edcb97f062693d11fd5c0ce332c206ebd4b54a
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282016"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343561"
 ---
 # <a name="border-connectivity"></a>Kantlinje anslutning 
 Nätverksplanering integration är en viktig nödvändig komponent för lyckad distribution av integrerade Azure Stack-system, åtgärden och hantering. Planera för kantlinje anslutning börjar genom att välja huruvida du använder dynamisk routning med BGP (border gateway protocol) eller inte. Detta kräver att tilldela en 16-bitars BGP autonomt systemnummer (offentliga eller privata) eller med statisk routning, där en statisk standardväg tilldelas till enheter kantlinje.
@@ -31,7 +31,7 @@ Nätverksplanering integration är en viktig nödvändig komponent för lyckad d
 ## <a name="bgp-routing"></a>BGP-Routning
 Med hjälp av ett dynamiskt routningprotokoll som BGP garanterar att datorn alltid är medveten om ändringar i nätverket och underlättar administration. 
 
-I följande diagram visas annonsering av den privata IP-Adressen utrymme på TOR-växeln begränsas med en Prefixlistan. Listorna prefix nekar de privata IP-undernät och tillämpa det som en väg karta på anslutningen mellan TOR och kantlinjen.
+I följande diagram visas annonsering av den privata IP-Adressen utrymme på TOR-växeln begränsas med en Prefixlistan. Listan över prefix definierar de privata IP-undernät och tillämpa det som en väg karta på anslutningen mellan TOR och kantlinjen.
 
 Programvara Load Balancer (SLB) som körs i Azure Stack-lösningen peer-datorer till TOR-enheter så att den kan dynamiskt annonsera VIP-adresser.
 
@@ -44,13 +44,19 @@ Statisk routning kräver ytterligare konfiguration för att border-enheter. Det 
 
 Om du vill integrera Azure Stack i din nätverksmiljö med statisk routning, alla fyra fysiska länkar mellan kanten och TOR-enheten måste vara ansluten och kan inte garanteras hög tillgänglighet på grund av hur statisk routning fungerar.
 
-Kantlinje enheten måste konfigureras med statiska vägar som pekar till enheterna i TOR P2P för trafik till det externa nätverket eller offentliga virtuella IP-adresser och nätverkets infrastruktur. Statiska vägar till BMC-nätverk krävs för distributionen. Kunder kan välja att lämna statiska vägar i kantlinje åtkomst till vissa resurser som finns i BMC-nätverket.  Lägga till statiska vägar till *växel infrastruktur* och *växla management* nätverk är valfritt.
+Kantlinje enheten måste konfigureras med statiska vägar som pekar på enheterna som TOR P2P för trafiken till den *externa* nätverks- eller offentliga virtuella IP-adresser och *infrastruktur* nätverk. Det kräver statiska vägar till den *BMC* och *externa* nätverk för distributionen. Operatörer kan välja att lämna statiska vägar i kantlinjen för åtkomst till hantering av resurser som finns på den *BMC* nätverk. Lägga till statiska vägar till *växel infrastruktur* och *växla management* nätverk är valfritt.
 
 TOR-enheter har konfigurerat en statisk standardväg skickar all trafik till enheterna som kantlinje. Det enda undantaget trafik till Standardregeln är för det privata utrymmet som blockeras med hjälp av en åtkomstkontrollista som tillämpas på TOR kantlinje anslutning.
 
 Statisk routning gäller endast för överordnade länkar mellan växlarna TOR och kantlinje. Dynamisk BGP-routning används i racket eftersom det är ett viktigt verktyg för SLB och andra komponenter och inte kan inaktiveras eller tas bort.
 
 ![Statisk routning](media/azure-stack-border-connectivity/static-routing.png)
+
+<sup>\*</sup> BMC-nätverket är valfritt efter distributionen.
+
+<sup>\*\*</sup> Växeln infrastrukturnätverket är valfritt, eftersom det hela nätverket kan ingå i växeln hanteringsnätverket.
+
+<sup>\*\*\*</sup> Hantering av nätverksswitchar nätverket är obligatoriskt och kan läggas till separat från växeln infrastrukturnätverket.
 
 ## <a name="transparent-proxy"></a>Transparent proxy
 Om ditt datacenter kräver all trafik ska använda en proxyserver, måste du konfigurera en *transparent proxy* att bearbeta all trafik från rack att hantera det enligt principer för att separera trafiken mellan zoner i nätverket.

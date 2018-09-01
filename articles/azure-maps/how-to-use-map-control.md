@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 228d2d3331b510a0f07dbd3ca278715466d747af
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 619dda44b5ad74ba1dcb62cfb3318687aa6ec4d5
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988899"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340143"
 ---
 # <a name="how-to-use-the-azure-maps-map-control"></a>Så här använder du Kartkontroll för Azure Maps
 Kartkontroll klientens Javascript-biblioteket kan du återge kartor och inbäddade Azure Maps-funktioner till din webbplats eller mobila program. 
@@ -62,4 +62,4 @@ Du kan bädda in en karta på en webbsida med hjälp av klientens Javascript-bib
 Den här artikeln visade hur du skapar en grundläggande karta med din Azure Maps-nyckel. Flera kodexempel för att lägga till i dina kartor, finns i följande artiklar: 
 
 * [Skapa en karta](map-create.md)
-* [Lägg till en PIN-kod](map-add-pin.md)
+* [Välj kartan format](choose-map-style.md)

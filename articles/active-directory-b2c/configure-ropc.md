@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4cfd11499efb5978359fd98204271477c52491b5
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 519f13d668f09fb2d83e8f64767e195e2544fc1e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621998"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343294"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Konfigurera resursägarens lösenord autentiseringsuppgifter flöde i Azure AD B2C
 
@@ -46,7 +46,7 @@ Följande flöden stöds inte:
 
    Du ser därefter en slutpunkt som det här exemplet:
 
-   `https://login.microsoftonline.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_ROPC_Auth`
+   `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_ROPC_Auth`
 
 
 ## <a name="register-an-application"></a>Registrera ett program
@@ -64,7 +64,7 @@ Använd din favorit-API-program för utveckling för att generera ett API-anrop 
 - Ersätt  *\<B2C_1A_ROPC_Auth >* med det fullständiga namnet på din resurs ägare autentiseringsuppgifter lösenordsprincip.
 - Ersätt  *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3 >* med program-ID från din registrering.
 
-`https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
 | Nyckel | Värde |
 | --- | ----- |
@@ -81,7 +81,7 @@ Den faktiska POST-begäran som ser ut som följande:
 
 ```
 POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
-Host: login.microsoftonline.com
+Host: yourtenant.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
@@ -104,7 +104,7 @@ Ett lyckat svar med offlineåtkomst ser ut som i följande exempel:
 
 Skapa en POST-anrop som den som visas här med informationen i följande tabell som en del av begäran:
 
-`https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
 | Nyckel | Värde |
 | --- | ----- |

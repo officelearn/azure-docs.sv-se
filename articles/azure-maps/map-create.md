@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b86f29e4d3faa1382ac3a79ed828855a5d9f6d7f
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: c5d48e2e7316f33a565fc61a769a29c00834eed5
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42747227"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343377"
 ---
 # <a name="create-a-map"></a>Skapa en karta
 
@@ -56,7 +56,7 @@ Läs mer om de klasser och metoder som används i den här artikeln:
     * [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds)
     
 Flera kodexempel för att lägga till i dina kartor, finns i följande artiklar: 
-* [Lägg till en PIN-kod](./map-add-pin.md)
-* [Lägg till ett popup-fönster](map-add-popup.md)
+* [Välj kartan format](choose-map-style.md)
+* [Lägg till karta kontroller](map-add-controls.md)
     
 

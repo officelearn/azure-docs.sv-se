@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e25103d2fcbfc70be7f96f5c0e5fa6abe13fe393
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 36fad697758273246d567dfa1010f0e6bfc68939
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446749"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344570"
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: Kom igång med anpassade principer
 
@@ -77,7 +77,7 @@ Azure AD B2C måste du registrera två extra program som används av motorn för
 4. Välj **Ny programregistrering**.
    * För **namn**, använda `IdentityExperienceFramework`.
    * För **programtyp**, använda **Web app/API**.
-   * För **inloggnings-URL**, använda `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, där `yourtenant` är ditt domännamn i Azure AD B2C-klient.
+   * För **inloggnings-URL**, använda `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com`, där `yourtenant` är ditt domännamn i Azure AD B2C-klient.
 5. Välj **Skapa**.
 6. När den har skapats väljer du det nyligen skapade programmet **IdentityExperienceFramework**.<br>
    * Välj **egenskaper**.<br>
@@ -89,14 +89,14 @@ Azure AD B2C måste du registrera två extra program som används av motorn för
 1. Välj **Ny programregistrering**.
    * För **namn**, använda `ProxyIdentityExperienceFramework`.
    * För **programtyp**, använda **interna**.
-   * För **omdirigerings-URI**, använda `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, där `yourtenant` är din Azure AD B2C-klient.
+   * För **omdirigerings-URI**, använda `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com`, där `yourtenant` är din Azure AD B2C-klient.
 1. Välj **Skapa**.
 1. När den har skapats, väljer du programmet **ProxyIdentityExperienceFramework**.<br>
    * Välj **egenskaper**. <br>
    * Kopiera program-ID och spara den till senare.
 1. Välj **behörigheter som krävs för**.
 1. Välj **Lägg till**.
-1. Välj **Välj en API**.
+1. Välj alternativet **Välj ett API**.
 1. Sök efter namnet IdentityExperienceFramework. Välj **IdentityExperienceFramework** i resultatet och klicka sedan på **Välj**.
 1. Markera kryssrutan bredvid **åtkomst IdentityExperienceFramework**, och klicka sedan på **Välj**.
 1. Välj **Done** (Klar).

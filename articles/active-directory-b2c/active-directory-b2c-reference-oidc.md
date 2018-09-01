@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4ad7a6fb032c805072fd9608fb8058a70aa12914
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f56c9f916e0bbbf380347af2ec3f17645063494d
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441839"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340358"
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: Webbinloggning med OpenID Connect
 OpenID Connect är ett autentiseringsprotokoll som bygger på OAuth 2.0, som kan användas på ett säkert sätt logga användare in webbprogram. Genom att använda den Azure Active Directory B2C (Azure AD B2C) implementeringen av OpenID Connect, du kan lägga ut registrering, inloggning och andra Identitetshantering upplevelser i dina webbprogram till Azure Active Directory (AD Azure). Den här guiden visar hur du gör på ett språkoberoende sätt. Den beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda någon av våra bibliotek med öppen källkod.
@@ -36,7 +36,7 @@ I den här begäran klienten anger de behörigheter som krävs för att hämta f
 
 #### <a name="use-a-sign-in-policy"></a>Använd en inloggningsprincip
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code+id_token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -49,7 +49,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 #### <a name="use-a-sign-up-policy"></a>Använda en registreringsprincip
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code+id_token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -62,7 +62,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 #### <a name="use-an-edit-profile-policy"></a>Använda en princip för Redigera-profil
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code+id_token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -126,11 +126,11 @@ Det finns många bibliotek för öppen källkod som är tillgängliga för att v
 
 Azure AD B2C har OpenID Connect metadataslutpunkt, vilket gör att en app för att hämta information om Azure AD B2C vid körning. Informationen omfattar slutpunkter, token innehåll och nycklar för tokensignering. Det finns ett JSON-dokument för metadata för varje princip i din B2C-klient. Till exempel metadatadokument för den `b2c_1_sign_in` principen i `fabrikamb2c.onmicrosoft.com` finns på:
 
-`https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
+`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
 
 En av egenskaperna för den här konfigurationsdokumentet är `jwks_uri`, vars värdet för samma princip skulle vara:
 
-`https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`.
+`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`.
 
 För att avgöra vilken princip som har använts i logga ett ID-token (och varifrån att hämta metadata), har du två alternativ. Först namnet på principen som ingår i den `acr` anspråk i ID-token. Information om hur du Parsar anspråk från en ID-token som finns i den [tokenreferens för Azure AD B2C](active-directory-b2c-reference-tokens.md). Ett annat alternativ är att koda principen i värdet för den `state` parameter när du skickar en begäran och avkoda det för att avgöra vilken princip som har använts. Någon av metoderna är giltig.
 
@@ -160,7 +160,7 @@ Kan du lösa in den auktoriseringskod som du har köpt (med hjälp av `response_
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
-Host: https://login.microsoftonline.com
+Host: https://fabrikamb2c.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
@@ -226,7 +226,7 @@ ID-token är tillfällig. Du måste uppdatera dem när de går ut om du vill for
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
-Host: https://login.microsoftonline.com
+Host: https://fabrikamb2c.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
@@ -283,7 +283,7 @@ När du vill logga ut användaren från appen, räcker det inte att rensa appens
 Du kan helt enkelt omdirigera användaren till den `end_session` slutpunkt som visas i metadatadokument OpenID Connect som beskrivs tidigare i den ”verifiera ID-token” avsnittet:
 
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
 p=b2c_1_sign_in
 &post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 33b0f5df57623f0b4433a4a09c7cd15688783485
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 04c8f43e3b484ceeb942ae13ea95baf7f0215b53
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191163"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344843"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Koppla format som stöds av Azure Maps
 Azure maps stöd för fyra olika inbyggda Koppla format. Format tillsammans med deras beskrivningar finns nedan.
@@ -22,7 +22,7 @@ Azure maps stöd för fyra olika inbyggda Koppla format. Format tillsammans med 
 ## <a name="road"></a>Väg
 En **väg** kartan är en standard karta som visar vägar, naturliga och konstgjorda funktioner tillsammans med etiketterna för dessa funktioner.
 
-![väg](./media/supported-map-styles/road.png)
+![Väg](./media/supported-map-styles/road.png)
 
 **Tillämpliga API: er:**
 * [Kartbilden](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
@@ -32,7 +32,7 @@ En **väg** kartan är en standard karta som visar vägar, naturliga och konstgj
 ## <a name="satellite"></a>Satellit 
 Den **satellit** style är en kombination av satellit och Flygfoto bilder.
 
-![satellit](./media/supported-map-styles/satellite.png)
+![Satellit](./media/supported-map-styles/satellite.png)
 
 **Tillämpliga API: er:**
 * [Satellit-panel](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
@@ -52,4 +52,4 @@ Den här kartan format är en kombination av vägar och etiketter som aktivitete
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
 
 **Tillämpliga API: er:**
-* JS kartkontroll
+* JS kartkontroll 

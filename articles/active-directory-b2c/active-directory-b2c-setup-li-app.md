@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 84b1ad2ecd2c027c7d8a105579059ceb957f41c6
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e1949c32833bb1d5e6603a6f5e36e22dc58e8cec
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929006"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336936"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett LinkedIn-konto med Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Om du vill använda en LinkedIn-konto som identitetsprovider i Azure Active Dire
 3. Ange **företagsnamn**, **programnamn**, **Programbeskrivning**, **Programlogotyp**, **programanvändning** , **Webbadress**, **företags-e-**, och **Företagstelefon**.
 4. Godkänn den **LinkedIn API användningsvillkor** och klicka på **skicka**.
 5. Kopiera värdena för **klient-ID** och **Klienthemlighet**. Du hittar dem under **autentiseringsnycklar**. Du måste båda för att konfigurera LinkedIn som en identitetsprovider i din klient. **Klienthemlighet** är en viktig säkerhetsuppgift för autentisering.
-6. Ange `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` i **behörighet-URL: Omdirigeringswebbadresser**. Ersätt **{klient}** med klientens namn (till exempel contoso.onmicrosoft.com). Välj **Lägg till**, och klicka sedan på **uppdatering**.
+6. Ange `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` i **behörighet-URL: Omdirigeringswebbadresser**. Ersätt **{klient}** med klientens namn (till exempel contosob2c). Välj **Lägg till**, och klicka sedan på **uppdatering**.
 
 ## <a name="configure-a-linkedin-account-as-an-identity-provider"></a>Konfigurera ett LinkedIn-konto som identitetsprovider
 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: spelluru
-ms.openlocfilehash: e1903167911c07b968bae63714584f352bbca182
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: a066d2a55f6949eea316eaf0a2956500667a996f
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307851"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340279"
 ---
-# <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Processen för Apache Kafka för Event Hubs-händelser med hjälp av Stream analytics 
+# <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Bearbeta Apache Kafka för Event Hubs-händelser med Stream-analys 
 Den här artikeln visar hur du strömma data till Kafka-aktiverade Event Hubs och bearbeta dem med Azure Stream Analytics. Vi går igenom följande steg: 
 
 1. Skapa en Kafka aktiverat Event Hubs-namnområdet.
@@ -83,6 +83,7 @@ Nu kan du strömma händelser från program som använder Kafka-protokollet till
     sasl.mechanism=PLAIN
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{CONNECTION STRING for EVENT HUB NAMESPACE}";
     ```
+
 5. Gå till `azure-event-hubs/samples/kafka/quickstart/producer/src/main/java/com/example/app`, och öppna **TestDataReporter.java** fil i ett redigeringsprogram. 
 6. Kommentera ut följande rad med kod:
 

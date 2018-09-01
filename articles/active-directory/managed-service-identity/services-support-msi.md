@@ -1,6 +1,6 @@
 ---
-title: Azure-tjänster som har stöd för hanterad tjänstidentitet
-description: Lista över tjänster som har stöd för hanterad tjänstidentitet och Azure AD-autentisering
+title: Azure-tjänster som stöder hanterade identiteter för Azure-resurser
+description: Lista över tjänster som stöder hanterade identiteter för Azure-resurser och Azure AD-autentisering
 services: active-directory
 author: daveba
 ms.author: daveba
@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: d738abc225e2148460012d9fe200131882b1e698
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 4f7e672aa75d8344f0c4ae35ff2f573d1f48a0ea
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306175"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337155"
 ---
-# <a name="services-that-support-managed-service-identity"></a>Tjänster som stöder hanterad tjänstidentitet 
+# <a name="services-that-support-managed-identities-for-azure-resources"></a>Tjänster som stöder hanterade identiteter för Azure-resurser
 
-Hanterad tjänstidentitet ger Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory. Med hjälp av en hanterad identitet, kan du autentisera till en tjänst som stöder Azure AD-autentisering utan autentiseringsuppgifter i din kod. Vi håller på att integrera hanterad tjänstidentitet och Azure AD-autentisering i Azure. Kontrollera tillbaka ofta för uppdateringar.
+Hanterade identiteter för Azure-resurser tillhandahåller Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory. Med hjälp av en hanterad identitet, kan du autentisera till en tjänst som stöder Azure AD-autentisering utan autentiseringsuppgifter i din kod. Vi håller integrerande hanterade identiteter för Azure-resurser och Azure AD-autentisering i Azure. Kontrollera tillbaka ofta för uppdateringar.
 
-## <a name="azure-services-that-support-managed-service-identity"></a>Azure-tjänster som har stöd för hanterad tjänstidentitet
+## <a name="azure-services-that-support-managed-identities-for-azure-resources"></a>Azure-tjänster som stöder hanterade identiteter för Azure-resurser
 
-Hanterad tjänstidentitet stöd för följande Azure-tjänster.
+Följande Azure-tjänster stöder hanterade identiteter för Azure-resurser:
 
-| Tjänst | Status för systemtilldelad | Status för användartilldelade| Konfigurera | Hämta en token |
+| Tjänst | Automatiskt genererad status | status för tilldelade användare| Konfigurera | Hämta en token |
 | ------- | ------ | ---- | --------- | ----------- |
 | Azure Virtual Machines | Förhandsversion | Förhandsversion | [Azure Portal](qs-configure-portal-windows-vm.md)<br>[PowerShell](qs-configure-powershell-windows-vm.md)<br>[Azure CLI](qs-configure-cli-windows-vm.md)<br>[Azure Resource Manager-mallar](qs-configure-template-windows-vm.md)<br>[REST](qs-configure-rest-vm.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Go](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell) |
 | Virtual Machine Scale Sets | Förhandsversion | Förhandsversion | [Azure Portal](qs-configure-portal-windows-vmss.md)<br>[PowerShell](qs-configure-powershell-windows-vmss.md)<br>[Azure CLI](qs-configure-cli-windows-vmss.md)<br>[Azure Resource Manager-mallar](qs-configure-template-windows-vmss.md)<br>[REST](qs-configure-rest-vmss.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Go](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell)
@@ -36,7 +36,7 @@ Hanterad tjänstidentitet stöd för följande Azure-tjänster.
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Azure-tjänster som stöder Azure AD-autentisering
 
-Följande tjänster stöder Azure AD-autentisering och har testats med klienttjänster som använder hanterade tjänstidentiteten.
+Följande tjänster stöder Azure AD-autentisering och har testats med klienttjänster som använder hanterade identiteter för Azure-resurser.
 
 | Tjänst | Resurs-ID | Status | Date | Tilldela åtkomst |
 | ------- | ----------- | ------ | ---- | ------------- |

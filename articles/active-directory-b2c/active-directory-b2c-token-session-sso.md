@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 35210a8e93b8437ea4d8c3b5f002c81c549d3afe
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 061e2257200b6d660a421a86c540f43597112c5e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444844"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337893"
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C: Token, session och konfiguration för enkel inloggning
 
@@ -64,13 +64,13 @@ Det här är några användningsområden som du kan aktivera med hjälp av dessa
     > 
     > 
 
-## <a name="token-compatibility-settings"></a>Inställningar för tokenkompatibilitet
+## <a name="token-compatibility-settings"></a>Tokenkompatibilitetsinställningar
 
 Vi har gjort ändringar viktiga anspråk i säkerhetstoken som orsakats av Azure AD B2C. Detta gjordes för att förbättra vår standardprotokollet support och för bättre interoperabilitet med tredje parts identity-bibliotek. Om du vill behålla befintliga appar, kan vi dock skapat följande egenskaper så att kunder kan anmäla sig efter behov:
 
 * **Utfärdaren (iss) anspråk**: identifierar den här kolumnen den Azure AD B2C-klient som utfärdade token.
-  * `https://login.microsoftonline.com/{B2C tenant GUID}/v2.0/`: Det här är standardvärdet.
-  * `https://login.microsoftonline.com/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/`: Det här värdet innehåller ID: N för både B2C-klient och den princip som används i token-begäran. Om din app eller -biblioteket måste Azure AD B2C ska vara kompatibel med den [OpenID Connect Discovery 1.0-specifikationen](http://openid.net/specs/openid-connect-discovery-1_0.html), Använd det här värdet.
+  * `https://<domain>/{B2C tenant GUID}/v2.0/`: Det här är standardvärdet.
+  * `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/`: Det här värdet innehåller ID: N för både B2C-klient och den princip som används i token-begäran. Om din app eller -biblioteket måste Azure AD B2C ska vara kompatibel med den [OpenID Connect Discovery 1.0-specifikationen](http://openid.net/specs/openid-connect-discovery-1_0.html), Använd det här värdet.
 * **Anspråk för ämne (sub)**: identifierar den här kolumnen entiteten, dvs, den användaren, som token kontrollerar information.
   * **ObjectID**: Detta är standardvärdet. Fylls i objekt-ID för användaren i katalogen i den `sub` anspråk i token.
   * **Stöds inte**: det finns bara för bakåtkompatibilitet och vi rekommenderar att du växlar till **ObjectID** så fort du.

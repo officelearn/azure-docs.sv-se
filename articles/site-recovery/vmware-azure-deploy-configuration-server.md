@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 7bbcaa82b1072b8cbdea015195a8da03ceb3a25f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 02dc4657f6c594242d12e3eca270a3549b77bf02
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056767"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337766"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
 
@@ -38,7 +38,7 @@ Storlekskraven för konfigurationsservern är beroende av potentiella förändri
 
 | **CPU** | **Minne** | **Cachestorleken för disk** | **Dataändringshastigheten** | **Skyddade datorer** |
 | --- | --- | --- | --- | --- |
-| 8 virtuella processorer (2 platser * 4 kärnor \@ 2,5 GHz) |16 GB |300 GB |500 GB eller mindre |Replikera färre än 100 virtuella datorer. |
+| 8 virtuella processorer (2 platser * 4 kärnor \@ 2,5 GHz) |16 GB |300 GB |500 GB eller mindre |Replikera färre än 100 virtuella datorer. |
 | 12 virtuella processorer (2 platser * 6 kärnor \@ 2,5 GHz) |18 GB |600 GB |500 GB till 1 TB |Replikera 100 150 datorer. |
 | 16 virtuella processorer (2 platser * 8 kärnor \@ 2,5 GHz) |32 GB |1 TB |1 TB till 2 TB |Replikera 150 – 200 datorer. |
 
@@ -81,7 +81,7 @@ Om du vill lägga till ett extra nätverkskort i konfigurationsservern, lägger 
 
 1. I vSphere-klientlagret högerklickar du på den virtuella datorn och väljer **Redigera inställningar**.
 2. I **Maskinvara** väljer du **Lägg till** > **Ethernet-kort**. Välj sedan **Nästa**.
-3. Välj en adaptertyp och ett nätverk. 
+3. Välj en adaptertyp och ett nätverk.
 4. Anslut det virtuella nätverkskortet när den virtuella datorn är påslagen, att välja **Connect på ström på**. Välj sedan **nästa** > **Slutför** > **OK**.
 
 ## <a name="register-the-configuration-server-with-azure-site-recovery-services"></a>Registrera konfigurationsservern med Azure Site Recovery-tjänster
@@ -102,7 +102,7 @@ Om du vill lägga till ett extra nätverkskort i konfigurationsservern, lägger 
 
     > [!NOTE]
     > När du registrerat, finns det ingen möjlighet att ändra recovery services-valvet.
-    
+
 3. I **installera programvara från tredje part**,
 
     |Scenario   |Steg att följa  |
@@ -117,7 +117,7 @@ Om du vill lägga till ett extra nätverkskort i konfigurationsservern, lägger 
 8. Välj **Slutför konfigurationen** för att slutföra registreringen.
 9. När registreringen är klar öppnar du Azure-portalen, kontrollerar du att konfigurationsservern och VMware-servern visas på **Recovery Services-valv** > **hantera**  >  **Site Recovery-infrastruktur** > **Konfigurationsservrar**.
 
-## <a name="faq"></a>Vanliga frågor och svar
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 1. Kan jag använda den virtuella datorn, där konfigurationsservern installeras för olika syften?
 
@@ -144,6 +144,10 @@ Om du vill lägga till ett extra nätverkskort i konfigurationsservern, lägger 
 ## <a name="upgrade-the-configuration-server"></a>Uppgradera konfigurationsservern
 
 Läs anvisningarna för att uppgradera konfigurationsservern till den senaste versionen, [här](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)
+
+## <a name="manage-the-configuration-server"></a>Hantera konfigurationsservern
+
+Se till att IP-adressen för konfigurationsservern inte ändras när konfigurationsservern har registrerats till ett valv för att undvika avbrott i pågående replikering. Du kan lära dig mer om vanliga hanteringsaktiviteter för configuration server [här](vmware-azure-manage-configuration-server.md).
 
 ## <a name="troubleshoot-deployment-issues"></a>Felsöka distributionsproblem
 

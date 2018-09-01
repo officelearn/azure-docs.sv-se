@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: f45bb3b47209bd6b02cea49c23b0a59ad75fc2e2
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: d9008956d3a5542d71438ee13050a3951230e101
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056498"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338815"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Etablera den virtuella datorn för datavetenskap för Linux (Ubuntu)
 
@@ -81,13 +81,14 @@ Innan du kan skapa en virtuell dator för datavetenskap för Linux, måste du ha
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>Skapa din virtuella dator för datavetenskap för Linux
 Här följer stegen för att skapa en instans av den virtuella datorn för datavetenskap för Linux:
 
-1. Navigera till den virtuella datorn på den [Azure-portalen](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu).
+1. Navigera till den virtuella datorn på den [Azure-portalen](https://portal.azure.com/#create/microsoft-dsvm.linux-data-science-vm-ubuntulinuxdsvmubuntu). Du kan uppmanas att logga in på ditt Azure-konto om du redan inte är inloggad. 
 1. Klicka på **skapa** (längst ned) visas i guiden.![ Konfigurera –--virtuell dator för datavetenskap](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
 1. Följande avsnitt innehåller indata för varje steg i guiden (räknas upp till höger i föregående bild) används för att skapa Microsoft Data Science Virtual Machine. Här följer de indata som behövs för att konfigurera var och en av de här stegen:
    
    a. **Grunderna**:
    
    * **Namn på**: namnet på din data science-server som du skapar.
+   * **Typ av virtuell Datordisk**: Välj **Premium SSD** om du föredrar en Solid State-hårddisk (SSD). Annars väljer du **Standard HDD**. 
    * **Användarnamnet**: första kontoinloggningen ID.
    * **Lösenord**: första kontolösenordet (du kan använda offentlig SSH-nyckel i stället för lösenord).
    * **Prenumeration**: Om du har mer än en prenumeration kan du välja den som som datorn är skapas och faktureras. Du måste ha behörighet för resursen skapas för den här prenumerationen.
@@ -96,23 +97,17 @@ Här följer stegen för att skapa en instans av den virtuella datorn för datav
    
    b. **Storlek**:
    
-   * Välj en av de servertyper som uppfyller dina funktionella krav och begränsningar för kostnad. Välj **visa alla** att se fler alternativ med VM-storlekar. Välj en NC eller Virtuella ND-klassen för GPU-utbildning. Den [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/) sidan visar en lista över regioner med GPU: er.
+   * Välj en av de servertyper som uppfyller dina funktionella krav och begränsningar för kostnad. Välj en NC eller Virtuella ND-klassen för GPU-baserad VM-instanser. Den [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/) sidan visar en lista över regioner med GPU: er.
    
    c. **Inställningar för**:
    
-   * **Disktyp**: Välj **Premium** om du föredrar en Solid State-hårddisk (SSD). Annars väljer du **Standard**. Virtuella GPU-datorer kräver en standarddisk.
-   * **Storage-konto**: du kan skapa ett nytt Azure storage-konto i din prenumeration eller använda ett befintligt namn på samma plats som har valts på den **grunderna** steg i guiden.
-   * **Andra parametrar**: I de flesta fall använder du bara standardvärdena. Att tänka på icke-standardvärden, hovrar du över informationsmeddelande länken Hjälp om specifika fält.
+   * I de flesta fall kan du bara använda standardvärdena. Att tänka på icke-standardvärden, hovrar du över informationsmeddelande länken Hjälp om specifika fält.
    
    d. **Sammanfattning av**:
    
-   * Kontrollera att all information du angett är korrekt.
+   * Kontrollera att all information du angett är korrekt. Det finns en länk till användningsvillkoren. Den virtuella datorn har inte några ytterligare avgifter utöver beräkning för serverstorlek som du valde i den **storlek** steg. Starta etableringen, klicka på **skapa**. 
    
-   e. **Köpa**:
-   
-   * Starta etableringen, klicka på **köpa**. Det finns en länk till villkoren i transaktionen. Den virtuella datorn har inte några ytterligare avgifter utöver beräkning för serverstorlek som du valde i den **storlek** steg.
-
-Etableringen tar cirka 5 – 10 minuter. Status för etableringen visas på Azure portal.
+Etableringen tar cirka 5 minuter. Status för etableringen visas på Azure portal.
 
 ## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>Hur du kommer åt den virtuella datorn för datavetenskap för Linux
 
@@ -434,6 +429,6 @@ Här är hur du kan fortsätta din inlärning och undersökning:
 
 * Den [datavetenskap på den virtuella datorn för datavetenskap för Linux](linux-dsvm-walkthrough.md) genomgången visar hur du utför flera vanliga datavetenskapsuppgifter med den Linux virtuell dator för datavetenskap etablerats här. 
 * Utforska de olika verktyg för datavetenskap på den virtuella datorn för datavetenskap genom att prova de verktyg som beskrivs i den här artikeln. Du kan också köra *dsvm-mer-info* på gränssnittet på den virtuella datorn för en grundläggande introduktion och länkar till mer information om verktygen som installeras på den virtuella datorn.  
-* Lär dig att skapa slutpunkt till slutpunkt Analyslösningar systematiskt med hjälp av den [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
-* Gå till den [Cortana Analytics-galleriet](http://gallery.cortanaanalytics.com) för machine learning och data analytics-exempel som använder Cortana Analytics Suite.
+* Lär dig att skapa slutpunkt till slutpunkt Analyslösningar systematiskt med hjälp av den [Team Data Science Process](http://aka.ms/tdsp).
+* Gå till den [Azure AI-galleriet](https://gallery.azure.ai/) för machine learning och data analytics-exempel som använder Azure AI-tjänster.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a81baae553bbf9c58d42372e25e90cd7588f2952
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 4380d21eded3f97e3b3107e78c9544a09d1b0bb2
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445083"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338538"
 ---
 # <a name="azure-active-directory-b2c-add-adfs-as-a-saml-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Lägga till AD FS som en SAML-identitetsprovider anpassade principer
 
@@ -57,10 +57,10 @@ Medlemskap i **administratörer**, eller motsvarande på den lokala datorn är m
     ![Ange visningsnamnet och anteckningar](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-4.png)
 6.  Valfri. Om du har ett valfritt token krypteringscertifikat, sedan på den **konfigurera certifikatet** klickar du på **Bläddra** att hitta din certifikatfil och klicka sedan på **nästa**.
     ![Konfigurera certifikat](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-5.png)
-7.  På den **konfigurera URL** väljer den **aktivera stöd för protokollet SAML 2.0 WebSSO** markerar du kryssrutan. Under **tjänst-URL för förlitande part SAML 2.0 SSO**skriver Security Assertion Markup Language (SAML) tjänsten slutpunkts-URL för den här förlitande parten och klickar sedan på **nästa**.  För den **tjänst-URL för förlitande part SAML 2.0 SSO**, klistra in den `https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/{policy}`. Ersätt {klient} med klientens namn (exempel: contosob2c.onmicrosoft.com) och Ersätt {principen} med principnamnet tillägg (till exempel B2C_1A_TrustFrameworkExtensions).
+7.  På den **konfigurera URL** väljer den **aktivera stöd för protokollet SAML 2.0 WebSSO** markerar du kryssrutan. Under **tjänst-URL för förlitande part SAML 2.0 SSO**skriver Security Assertion Markup Language (SAML) tjänsten slutpunkts-URL för den här förlitande parten och klickar sedan på **nästa**.  För den **tjänst-URL för förlitande part SAML 2.0 SSO**, klistra in den `https://(tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/{policy}`. Ersätt {klient} med ditt klientnamn (till exempel contosob2c) och Ersätt {principen} med principnamnet tillägg (till exempel B2C_1A_TrustFrameworkExtensions).
     > [!IMPORTANT]
     >Principnamnet är det som signup_or_signin princip ärver från, i det här fallet är det: `B2C_1A_TrustFrameworkExtensions`.
-    >URL: en kan till exempel vara: https://login.microsoftonline.com/te/ **contosob2c**.onmicrosoft.com/**B2C_1A_TrustFrameworkBase**.
+    >URL: en kan till exempel vara: https://**contosob2c**.b2clogin.com/te/**contosob2c**.onmicrosoft.com/**B2C_1A_TrustFrameworkBase**.
 
     ![Förlitande part URL för SAML 2.0 SSO](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-6.png)
 8. På den **konfigurera identifierare** sidan, anger du samma URL som i föregående steg, klicka på **Lägg till** lägger till dem i listan och klicka sedan på **nästa**.

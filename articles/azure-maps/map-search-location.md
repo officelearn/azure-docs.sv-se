@@ -1,6 +1,6 @@
 ---
 title: Visa sökresultat med Azure Maps | Microsoft Docs
-description: Hur du utför en sökbegäran med Azure Maps och sedan visa resultaten på en Javascrip karta
+description: Hur du utför en sökbegäran med Azure Maps och sedan visa resultaten på en Javascript-karta
 author: jingjing-z
 ms.author: jinzh
 ms.date: 08/26/2018
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 540faa04573f7fa66b574f6743d42adfe855c571
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 31ff57f8a933ac17c6dfaa1a1fb0cf2bab0b6557
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095263"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43345279"
 ---
 # <a name="show-search-results-on-the-map"></a>Visa sökresultat på kartan
 
@@ -22,7 +22,7 @@ Den här artikeln visar hur du söker efter plats i närheten och visa sökresul
 
 ## <a name="understand-the-code"></a>Förstå koden
 
-<iframe height='305' scrolling='no' title='Visa sökresultat på en karta (Tjänstemodulen)' src='//codepen.io/azuremaps/embed/zLdYEB/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/zLdYEB/'>visa sökresultat på en karta (Tjänstemodulen)</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Visa sökresultat på en karta (Tjänstemodulen)' src='//codepen.io/azuremaps/embed/zLdYEB/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/zLdYEB/'>visa sökresultat på en karta (Tjänstemodulen)</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 I koden ovan första kodblocket konstruerar ett Kartobjekt och skapar en instans av en klienttjänst. Du kan se [skapa en karta](./map-create.md) anvisningar.

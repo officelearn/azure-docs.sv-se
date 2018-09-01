@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 3c447a37b1dfbdac2c6e2a4eaa61d0e0e08a2176
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: f444c75fb7a7bcd96a508fed337dfc32adccf665
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442247"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339023"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med hjälp av Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -401,13 +401,14 @@ SQL Data Warehouse PolyBase stöder direkt Azure Blob och Azure Data Lake Store.
 Om kraven inte uppfylls, Azure Data Factory kontrollerar du inställningarna och faller automatiskt tillbaka till BULKINSERT mekanism för dataförflyttning.
 
 1. Den **källa länkad tjänst** typen är Azure Blob storage (**AzureBLobStorage**/**AzureStorage**) med kontot nyckelautentisering eller Azure Data Lake Storage Gen1 (**AzureDataLakeStore**) med autentisering av tjänstens huvudnamn.
-1. Den **indatauppsättningen** typen är **AzureBlob** eller **AzureDataLakeStoreFile**. Formattyp under `type` egenskaper är **OrcFormat**, **ParquetFormat**, eller **TextFormat**, med följande konfigurationer:
+2. Den **indatauppsättningen** typen är **AzureBlob** eller **AzureDataLakeStoreFile**. Formattyp under `type` egenskaper är **OrcFormat**, **ParquetFormat**, eller **TextFormat**, med följande konfigurationer:
 
-   1. `rowDelimiter` måste vara **\n**.
-   1. `nullValue` anges antingen till **tom sträng** (””) eller till vänster som standard och `treatEmptyAsNull` inte är inställt på FALSKT.
-   1. `encodingName` anges till **utf-8**, vilket är standardvärdet.
-   1. `escapeChar`, `quoteChar` och `skipLineCount` inte anges. Stöd för PolyBase hoppa över rubrikraden, vilket kan konfigureras som `firstRowAsHeader` i ADF.
-   1. `compression` kan vara **ingen komprimering**, **GZip**, eller **Deflate**.
+   1. `fileName` inte innehåller jokertecken-filtret.
+   2. `rowDelimiter` måste vara **\n**.
+   3. `nullValue` anges antingen till **tom sträng** (””) eller till vänster som standard och `treatEmptyAsNull` inte är inställt på FALSKT.
+   4. `encodingName` anges till **utf-8**, vilket är standardvärdet.
+   5. `escapeChar`, `quoteChar` och `skipLineCount` inte anges. Stöd för PolyBase hoppa över rubrikraden, vilket kan konfigureras som `firstRowAsHeader` i ADF.
+   6. `compression` kan vara **ingen komprimering**, **GZip**, eller **Deflate**.
 
     ```json
     "typeProperties": {

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5fb6289f75f0c98cc218233d8adb900484ee4a17
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: c64b32656db2d3b821833450b4e866b9e33e44cd
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916504"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337353"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med en Amazon-konto med hjälp av Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Om du vill använda ett Amazon-konto som identitetsprovider i Azure Active Direc
 3. Välj **registrera nya program**.
 4. Ange en **namn**, **beskrivning**, och **meddelande Sekretesswebbadress**, och klicka sedan på **spara**.
 5. I den **webbinställningar** och kopiera värdena för **klient-ID**. Välj **visa hemligheten** att hämta klienthemligheten och kopiera den. Du måste båda du konfigurerar ett Amazon-konto som identitetsprovider i din klient. **Klienthemlighet** är en viktig säkerhetsuppgift för autentisering.
-6. I den **webbinställningar** väljer **redigera**, och ange sedan `https://login.microsoftonline.com` i **tillåtna ursprung för JavaScript** och `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` i **tillåten Returnerar URL: er**. Ersätt **{klient}** med klientens namn (till exempel contoso.onmicrosoft.com). 
+6. I den **webbinställningar** väljer **redigera**, och ange sedan `https://{tenant}.b2clogin.com` i **tillåtna ursprung för JavaScript** och `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` i **tillåten Returnerar URL: er**. Ersätt **{klient}** med klientens namn (till exempel contosob2c). 
 7. Klicka på **Spara**.
 
 ## <a name="configure-an-amazon-account-as-an-identity-provider"></a>Konfigurera ett Amazon-konto som identitetsprovider

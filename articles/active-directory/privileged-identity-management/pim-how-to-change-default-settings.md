@@ -13,18 +13,20 @@ ms.component: pim
 ms.date: 08/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 20a704a0d5b61134a61b5cbf02a1c71dbc7039e1
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 8af304d28be9b0884a50d60911d901818b514752
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189345"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338915"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Konfigurera Azure AD directory rollinställningar i PIM
 
 En administratör av Privilegierade roller kan anpassa Azure AD Privileged Identity Management (PIM) i deras organisation, inklusive ändra upplevelsen för en användare som är att aktivera en berättigad rolltilldelning.
 
 ## <a name="open-role-settings"></a>Öppna rollinställningar
+
+Följ stegen nedan för att öppna inställningarna för en Azure AD directory-roll.
 
 1. Öppna **Azure AD Privileged Identity Management**.
 
@@ -44,19 +46,19 @@ En administratör av Privilegierade roller kan anpassa Azure AD Privileged Ident
 
 ## <a name="activations"></a>Aktiveringar
 
-Den **aktiveringar** skjutreglaget är den maximala tiden, i timmar som en roll förblir aktiv innan den upphör. Det här värdet kan vara mellan 1 och 72 timmar.
+Använd den **aktiveringar** skjutreglaget för att ange den maximala tiden, i timmar, att en roll förblir aktiv innan den upphör. Det här värdet kan vara mellan 1 och 72 timmar.
 
 ## <a name="notifications"></a>Meddelanden
 
-Den **meddelanden** växeln kan du välja om systemet skickar e-postmeddelanden till administratörer som bekräftar att de har aktiverat en roll. Detta kan vara användbart för identifiering av obehöriga eller otillåtna aktiveringar.
+Använd den **meddelanden** växel som anger om systemet skickar e-postmeddelanden till administratörer som bekräftar att de har aktiverat en roll. Detta kan vara användbart för identifiering av obehöriga eller otillåtna aktiveringar.
 
 ## <a name="incidentrequest-ticket"></a>Biljett för incident/begäran
 
-Den **biljett för Incident/begäran** växeln kan du välja om du vill kräva berättigade administratörer att inkludera en Biljettnummer när de aktiverar sina roller. Detta kan vara användbart när du utför rollen åtkomst granskningar.
+Använd den **biljett för Incident/begäran** växel för att ange om du vill kräva berättigade administratörer att inkludera en Biljettnummer när de aktiverar sina roller. Detta kan vara användbart när du utför rollen åtkomst granskningar.
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-Den **Multifaktorautentisering** växeln kan du välja om användare ska verifiera sin identitet med MFA innan du kan aktivera sina roller. De behöver bara verifiera det här en gång per session, inte varje gång de aktivera en roll. Det finns två tips att tänka på när du aktiverar MFA:
+Använd den **Multifaktorautentisering** växel för att ange om användarna ska verifiera sin identitet med MFA innan du kan aktivera sina roller. De behöver bara verifiera det här en gång per session, inte varje gång de aktivera en roll. Det finns två tips att tänka på när du aktiverar MFA:
 
 * Användare som har Microsoft-konton för sina e-postadresser (vanligtvis @outlook.com, men inte alltid) det går inte att registrera dig för Azure MFA. Om du vill tilldela roller till användare med Microsoft-konton bör du göra dem permanenta administratörer eller inaktivera MFA för rollen.
 * Du kan inte inaktivera MFA för mycket Privilegierade roller för Azure AD och Office 365. Det här är en säkerhetsfunktion eftersom dessa roller noggrant ska skyddas:  
@@ -84,9 +86,9 @@ Läs mer om hur du använder MFA med PIM [Kräv Multi-Factor authentication för
 
 ## <a name="require-approval"></a>Godkännande krävs
 
-Den **kräver godkännande** växeln kan du välja om du vill kräva godkännande för att aktivera den här rollen.
+Följ dessa steg om du vill kräva godkännande för att aktivera en roll.
 
-1. Om du anger växeln till **aktiverad**, fönstret expanderar med alternativ att välja godkännare.
+1. Ange den **kräver godkännande** växla till **aktiverad**. Fönstret expanderar med alternativ att välja godkännare.
 
     ![Azure AD-katalogroller - Settings - godkännande](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
@@ -107,5 +109,6 @@ Den **kräver godkännande** växeln kan du välja om du vill kräva godkännand
 
 ## <a name="next-steps"></a>Nästa steg
 
+- [Tilldela Azure AD-katalogroller i PIM](pim-how-to-add-role-to-user.md)
 - [Kräv multifaktorautentisering för Azure AD-katalogroller i PIM](pim-how-to-require-mfa.md)
 - [Konfigurera säkerhetsaviseringar för Azure AD-katalogroller i PIM](pim-how-to-configure-security-alerts.md)

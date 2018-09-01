@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 48e2f85488adfb776da5f52c154028f8aafb167a
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 9b1eb6878dcafba68c230255f3b3f43e005421ab
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617029"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340196"
 ---
 # <a name="network-connectivity"></a>Nätverksanslutning
 Den här artikeln innehåller information om hur du bestämmer hur du integrerar Azure Stack bäst i din befintliga nätverksmiljö för Azure Stack nätverk infrastruktur. 
@@ -45,7 +45,7 @@ I följande tabell visas de logiska nätverken och associerade IPv4-undernät-in
 | Växeln infrastruktur | Point-to-Point IP-adresser för routningen, dedikerad växla hanteringsgränssnitt och loopback-adresser tilldelade till växeln. | /26 | 
 | Infrastruktur | Används för Azure Stack interna komponenter för att kommunicera. | /24 |
 | Privat | Används för nätverkslagring och privata virtuella IP-adresser. | /24 | 
-| BMC | Används för att kommunicera med bmc på de fysiska värdarna. | /27 | 
+| BMC | Används för att kommunicera med bmc på de fysiska värdarna. | /26 | 
 | | | |
 
 ## <a name="network-infrastructure"></a>Nätverksinfrastruktur

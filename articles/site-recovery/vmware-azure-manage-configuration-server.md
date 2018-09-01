@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: df5b2ecce2a5c9d7c263ee0acc3a49b859b93f7f
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 8bc04ba7c97447cdcc6eb07798e5f5b21e285de7
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346128"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344717"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>Hantera konfigurationsservern för VMware-datorer
 
@@ -24,7 +24,7 @@ Du ställer in en konfigurationsservern lokalt när du använder [Azure Site Rec
 Du kan komma åt konfigurationsservern på följande sätt:
     - Logga in på den virtuella datorn har distribuerats och starta Azure Site Recovery Configuration Manager från genvägen på skrivbordet.
     - Du kan också komma åt configuration server via en fjärranslutning från **https://*ConfigurationServerName*/:44315 /**. Logga in med administratörsbehörighet.
-   
+
 ### <a name="modify-vmware-server-settings"></a>Ändra inställningarna för VMware-server
 
 1. Om du vill associera en annan VMware-server med konfigurationsservern efter inloggning, Välj **Lägg till vCenter Server/vSphere ESXi-servern**.
@@ -80,103 +80,113 @@ Du kan registrera om konfigurationsservern på samma valv om du behöver. Om du 
       Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
    ```
 
-      >[!NOTE] 
+      >[!NOTE]
       >För att **Hämta senaste certifikaten** från konfigurationsservern till skalbar processerver kör du kommandot *”< Installation Drive\Microsoft Azure plats Recovery\agent\cdpcli.exe >” – registermt*
 
   8. Slutligen startar du om obengine genom att köra följande kommando.
   ```
           net stop obengine
           net start obengine
+  ```
+## <a name="upgrade-the-configuration-server"></a>Uppgradera konfigurationsservern
 
-## Upgrade the configuration server
+Du kan köra samlade uppdateringar för att uppdatera konfigurationsservern. Uppdateringar kan användas för upp till N-4 versioner. Exempel:
 
-You run update rollups to update the configuration server. Updates can be applied for up to N-4 versions. For example:
+- Om du kör 9.7, 9.8, 9.9 eller 9.10, kan du uppgradera direkt till 9.11.
+- Om du kör 9,6 eller tidigare och du vill uppgradera till 9.11, måste du först uppgradera till version 9.7. innan du 9.11.
 
-- If you run 9.7, 9.8, 9.9, or 9.10, you can upgrade directly to 9.11.
-- If you run 9.6 or earlier and you want to upgrade to 9.11, you must first upgrade to version 9.7. before 9.11.
+Länkar till samlade uppdateringar för att uppgradera till alla versioner av konfigurationsservern är tillgängliga i den [wiki-sida för uppdateringar](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
 
-Links to update rollups for upgrading to all versions of the configuration server are available in the [wiki updates page](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+Uppgradera servern på följande sätt:
 
-Upgrade the server as follows:
+1. I valvet går du till **hantera** > **Site Recovery-infrastruktur** > **Konfigurationsservrar**.
+2. Om det finns en uppdatering, en länk som visas i den **Agentversion** > kolumn.
+    ![Uppdatering](./media/vmware-azure-manage-configuration-server/update2.png)
+3. Ladda ned installationsfilen för uppdateringen till konfigurationsservern.
 
-1. In the vault, go to **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**.
-2. If an update is available, a link appears in the **Agent Version** > column.
-    ![Update](./media/vmware-azure-manage-configuration-server/update2.png)
-3. Download the update installer file to the configuration server.
+    ![Uppdatering](./media/vmware-azure-manage-configuration-server/update1.png)
 
-    ![Update](./media/vmware-azure-manage-configuration-server/update1.png)
+4. Dubbelklicka för att köra installationsprogrammet.
+5. Installationsprogrammet identifierar den aktuella versionen som körs på datorn. Klicka på **Ja** starta uppgraderingen.
+6. När uppgraderingen har slutförts verifierar serverkonfigurationen.
 
-4. Double-click to run the installer.
-5. The installer detects the current version running on the machine. Click **Yes** to start the upgrade.
-6. When the upgrade completes the server configuration validates.
+    ![Uppdatering](./media/vmware-azure-manage-configuration-server/update3.png)
 
-    ![Update](./media/vmware-azure-manage-configuration-server/update3.png)
-    
-7. Click **Finish** to close the installer.
+7. Klicka på **Slutför** stängs installationsprogrammet.
 
-## Delete or unregister a configuration server
+## <a name="delete-or-unregister-a-configuration-server"></a>Ta bort eller Avregistrerar en konfigurationsserver
 
-1. [Disable protection](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) for all VMs under the configuration server.
-2. [Disassociate](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) and [delete](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) all replication policies from the configuration server.
-3. [Delete](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) all vCenter servers/vSphere hosts that are associated with the configuration server.
-4. In the vault, open **Site Recovery Infrastructure** > **Configuration Servers**.
-5. Select the configuration server that you want to remove. Then, on the **Details** page, select **Delete**.
+1. [Inaktivera skyddet](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) för alla virtuella datorer under konfigurationsservern.
+2. [Ta bort koppling till](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) och [ta bort](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) alla replikeringsprinciper från konfigurationsservern.
+3. [Ta bort](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) alla vCenter-servrar/vSphere-värdar som är associerade med konfigurationsservern.
+4. Öppna i valvet, **Site Recovery-infrastruktur** > **Konfigurationsservrar**.
+5. Välj configuration server som du vill ta bort. Klicka på den **information** väljer **ta bort**.
 
-    ![Delete configuration server](./media/vmware-azure-manage-configuration-server/delete-configuration-server.png)
-   
+    ![Ta bort konfigurationsservern](./media/vmware-azure-manage-configuration-server/delete-configuration-server.png)
 
-### Delete with PowerShell
 
-You can optionally delete the configuration server by using PowerShell.
+### <a name="delete-with-powershell"></a>Ta bort med PowerShell
 
-1. [Install](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) the Azure PowerShell module.
-2. Sign in to your Azure account by using this command:
-    
+Du kan också ta bort konfigurationsservern med hjälp av PowerShell.
+
+1. [Installera](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell-modulen.
+2. Logga in på ditt Azure-konto med hjälp av det här kommandot:
+
     `Connect-AzureRmAccount`
-3. Select the vault subscription.
+3. Välj valvprenumerationen som.
 
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
-3.  Set the vault context.
-    
+3.  Ange valvets sammanhang.
+
     ```
-    $vault = get-AzureRmRecoveryServicesVault-namnet <name of your vault> Set-AzureRmSiteRecoveryVaultSettings - ARSVault $vault
+    $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
+    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
     ```
-4. Retrieve the configuration server.
+4. Hämta konfigurationsservern.
 
     `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
-6. Delete the configuration server.
+6. Ta bort konfigurationsservern.
 
     `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force] `
 
 > [!NOTE]
-> You can use the **-Force** option in Remove-AzureRmSiteRecoveryFabric for forced deletion of the configuration server.
- 
-## Generate configuration server Passphrase
+> Du kan använda den **-Force** alternativ i Remove-AzureRmSiteRecoveryFabric för Tvingad borttagning av konfigurationsservern.
 
-1. Sign in to your configuration server, and then open a command prompt window as an administrator.
-2. To change the directory to the bin folder, execute the command **cd %ProgramData%\ASR\home\svsystems\bin**
-3. To generate the passphrase file, execute **genpassphrase.exe -v > MobSvc.passphrase**.
-4. Your passphrase will be stored in the file located at **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**.
+## <a name="generate-configuration-server-passphrase"></a>Generera konfigurationsservern lösenfras
 
-## Renew SSL certificates
+1. Logga in på konfigurationsservern och öppna ett kommandotolksfönster som administratör.
+2. Om du vill ändra katalogen till bin-mappen, kör du kommandot **cd %ProgramData%\ASR\home\svsystems\bin**
+3. Om du vill generera lösenfrasfilen köra **genpassphrase.exe - v > MobSvc.passphrase**.
+4. Lösenfrasen kommer att lagras i filen i **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**.
 
-The configuration server has an inbuilt web server, which orchestrates activities of the Mobility Service, process servers, and master target servers connected to it. The web server uses an SSL certificate to authenticate clients. The certificate expires after three years and can be renewed at any time.
+## <a name="renew-ssl-certificates"></a>Förnya SSL-certifikat
 
-### Check expiry
+Konfigurationsservern har en inbyggd webbserver som samordnar aktiviteter av den Mobilitetstjänsten och processervrar huvudmålservrar som är anslutna till den. Webbservern använder ett SSL-certifikat för att autentisera klienter. Certifikatet upphör att gälla efter tre år och kan förnyas när som helst.
 
-For configuration server deployments before May 2016, certificate expiry was set to one year. If you have a certificate that is going to expire, the following occurs:
+### <a name="check-expiry"></a>Kontrollera förfallodatum
 
-- When the expiry date is two months or less, the service starts sending notifications in the portal, and by email (if you subscribed to Site Recovery notifications).
-- A notification banner appears on the vault resource page. For more information, select the banner.
-- If you see an **Upgrade Now** button, it indicates that some components in your environment haven't been upgraded to 9.4.xxxx.x or higher versions. Upgrade the components before you renew the certificate. You can't renew on older versions.
+Certifikatets förfallodatum angavs för configuration server-distributioner innan maj 2016, till ett år. Om du har ett certifikat som upphör att gälla, inträffar följande:
 
-### Renew the certificate
+- När utgångsdatum är två månader eller mindre, tjänsten börjar skicka meddelanden i portalen och via e-post (om du prenumererar på Site Recovery-meddelanden).
+- En meddelandebanderoll visas på resurssidan för valvet. Välj banderollen för mer information.
+- Om du ser en **uppgradera nu** knapp, betyder det att vissa komponenter i din miljö inte har uppgraderats till 9.4.xxxx.x eller senare versioner. Uppgradera komponenterna innan du förnyar certifikatet. Du kan inte förnya på äldre versioner.
 
-1. In the vault, open **Site Recovery Infrastructure** > **Configuration Server**. Select the required configuration server.
-2. The expiry date appears under **Configuration Server health**.
-3. Select **Renew Certificates**. 
+### <a name="renew-the-certificate"></a>Förnya certifikatet
 
+1. Öppna i valvet, **Site Recovery-infrastruktur** > **konfigurationsservern**. Välj den obligatoriska konfiguration-servern.
+2. Utgångsdatum visas under **konfigurationsservern hälsotillstånd**.
+3. Välj **förnya certifikat**.
 
-## Next steps
+## <a name="update-windows-licence"></a>Uppdatera Windows-licens
 
-Review the tutorials for setting up disaster recovery of [VMware VMs](vmware-azure-tutorial.md) to Azure.
+Licensen som medföljer OVF-mallen är en licens för utvärdering som är giltig i 180 dagar. För kontinuerlig användning, måste du aktivera Windows med upphandlade licens.
+
+## <a name="failback-requirements"></a>Krav för återställning efter fel
+
+Under återaktivering av skydd och återställning efter fel vara den lokala konfigurationsservern körs och är i anslutet tillstånd. Den virtuella datorn att växlas tillbaka måste finnas i server-konfigurationsdatabasen för lyckad återställning efter fel.
+
+Se till att du utför regelbundna schemalagda säkerhetskopieringar av konfigurationsservern. Om en olycka inträffar och att konfigurationsservern kan gå förlorade, måste du först återställa configuration server från en säkerhetskopia och kontrollera att återställda konfigurationsservern har samma IP-adress som har registrerats för valvet. Återställning efter fel fungerar inte om du använder en annan IP-adress för den återställda konfigurationsservern.
+
+## <a name="next-steps"></a>Nästa steg
+
+Gå igenom självstudierna för att konfigurera haveriberedskap för [virtuella VMware-datorer](vmware-azure-tutorial.md) till Azure.

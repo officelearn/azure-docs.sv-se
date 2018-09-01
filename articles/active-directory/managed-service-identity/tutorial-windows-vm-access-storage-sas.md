@@ -1,6 +1,6 @@
 ---
-title: Använda en Windows VM hanterad identitet för åtkomst till Azure Storage med SAS-autentiseringsuppgifter
-description: En självstudiekurs som visar hur du använder en Windows VM hanterad tjänstidentitet för att komma åt Azure Storage, med hjälp av SAS-autentiseringsuppgifter i stället för en åtkomstnyckel för lagringskontot.
+title: Använda en Windows VM systemtilldelade hanterad identitet för åtkomst till Azure Storage med SAS-autentiseringsuppgifter
+description: En självstudie som visar hur du använder en Windows-VM systemtilldelade hanterade identitet för att få åtkomst till Azure Storage, med hjälp av SAS-autentiseringsuppgifter i stället för en åtkomstnyckel för lagringskontot.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 7f6049e874f329c1e3a4f72417dd9a7eebc42628
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 7120e7356816fd5308aa7189f90176143742e342
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887071"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340722"
 ---
-# <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Självstudier: Använda en Windows VM hanterad tjänstidentitet för åtkomst till Azure Storage via SAS-autentiseringsuppgifter
+# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Självstudier: Använda en Windows VM systemtilldelade hanterad identitet för åtkomst till Azure Storage via SAS-autentiseringsuppgifter
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Den här självstudien visar hur du använder en systemtilldelad identitet för en Windows virtuell dator (VM) för att hämta en signatur för delad åtkomst (SAS) storage-autentiseringsuppgifter. Mer specifikt, en [autentiseringsuppgift för tjänst-SAS](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+Den här självstudien visar hur du använder en systemtilldelad identitet för en Windows virtuell dator (VM) för att hämta autentiseringsuppgift för signatur för delad åtkomst (SAS) storage. Mer specifikt, en [autentiseringsuppgift för tjänst-SAS](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
 En SAS för tjänst ger möjlighet att bevilja begränsad åtkomst till objekt i ett lagringskonto under begränsad tid och en specifik tjänst (i vårt fall blob service), utan att exponera en åtkomstnyckel. Du kan en använda SAS-autentiseringsuppgift som vanligt när du gör lagringsåtgärder, till exempel när du använder Storage SDK. Den här självstudien visar vi överföra och ladda ned en blob med hjälp av PowerShell för Azure Storage. Du lär dig hur du:
 
@@ -44,12 +44,12 @@ En SAS för tjänst ger möjlighet att bevilja begränsad åtkomst till objekt i
 
 - [Skapa en Windows-dator](/azure/virtual-machines/windows/quick-create-portal)
 
-- [Aktivera systemtilldelad identitet på den virtuella datorn](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
+- [Aktivera systemtilldelade identiteter på den virtuella datorn](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto 
 
-Nu skapar du ett lagringskonto, om du inte redan har ett. Du kan även hoppa över detta steg och ge din VM hanterad tjänstidentitet åtkomst till SAS-autentiseringsuppgifter för ett befintligt lagringskonto. 
+Nu skapar du ett lagringskonto, om du inte redan har ett. Du kan även hoppa över detta steg och ge den Virtuella datorns systemtilldelade hanterad identitet åtkomst till SAS-autentiseringsuppgifter för ett befintligt lagringskonto. 
 
 1. Klicka på knappen **+/Skapa ny tjänst** som finns i det övre vänstra hörnet på Azure Portal.
 2. Klicka på **Lagring** och sedan på **Lagringskonto**. Panelen ”Skapa lagringskonto” visas.
@@ -71,9 +71,9 @@ Senare ska vi ladda upp och ned en fil till det nya lagringskontot. Eftersom fil
 
     ![Skapa en lagringscontainer](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-managed-service-identity-access-to-use-a-storage-sas"></a>Ge den virtuella datorns hanterade tjänstidentitet behörighet att använda lagrings-SAS 
+## <a name="grant-your-vms-system-assigned-managed-identity-access-to-use-a-storage-sas"></a>Bevilja åtkomst för den Virtuella datorns systemtilldelade hanterad identitet om du vill använda en SAS-lagring 
 
-Azure Storage har inte inbyggt stöd för Azure AD-autentisering.  Du kan dock använda en hanterad tjänstidentitet för att hämta en SAS-lagring från Resource Manager och sedan använda SAS åtkomst till lagring.  I det här steget ger du den virtuella datorns hanterade tjänstidentitet åtkomst till lagringskontots SAS.   
+Azure Storage har inte inbyggt stöd för Azure AD-autentisering.  Du kan dock använda en hanterad identitet för att hämta en SAS-lagring från Resource Manager och sedan använda SAS åtkomst till lagring.  I det här steget ska bevilja du den Virtuella datorns systemtilldelade hanterad identitet åtkomst till ditt lagringskonto SAS.   
 
 1. Gå tillbaka till det lagringskonto som du nyss skapade.   
 2. Klicka på länken **Åtkomstkontroll (IAM)** på den vänstra panelen.  
@@ -94,7 +94,7 @@ Du måste använda Azure Resource Manager PowerShell-cmdletar i den här delen. 
 1. Gå till **Virtuella datorer** på Azure Portal, gå till din virtuella Windows-dator och klicka sedan på **Anslut** längst upp på sidan **Översikt**.
 2. Ange ditt **användarnamn** och **lösenord** som du lade till när du skapade den virtuella Windows-datorn. 
 3. Nu när du har skapat en **anslutning till fjärrskrivbord** med den virtuella datorn öppnar du PowerShell i fjärrsessionen. 
-4. Använd PowerShells Invoke-WebRequest och skicka en begäran till den lokala slutpunkten för hanterad tjänstidentitet för att hämta en åtkomsttoken för Azure Resource Manager.
+4. Med hjälp av Powershell-Invoke-WebRequest, gör en begäran för det lokala hanterad identitet för Azure-resurser slutpunkt för att hämta en åtkomsttoken för Azure Resource Manager.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
@@ -208,7 +208,7 @@ Name              : testblob
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig att skapa en hanterad tjänstidentitet för att komma åt Azure Storage med SAS-autentiseringsuppgifter.  Läs mer om Azure Storage SAS här:
+I den här självstudien beskrivs hur du använder en Windows-VM systemtilldelade hanterad identitet för att få åtkomst till Azure Storage med SAS-autentiseringsuppgifter.  Läs mer om Azure Storage SAS här:
 
 > [!div class="nextstepaction"]
 >[Använda signaturer för delad åtkomst (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)

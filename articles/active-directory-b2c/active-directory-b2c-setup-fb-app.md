@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: de059e3875b5f15526cb176d43a019fd2d9ee9b9
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 985285b463d66770f97a431705d5b9198b632592
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901389"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344614"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett Facebook-konto med Azure Active Directory B2C
 
@@ -30,13 +30,13 @@ Om du vill använda en Facebook-konto som identitetsprovider i Azure Active Dire
 5. Klicka på **skapa App-ID**. Du kan behöva du acceptera Facebook-plattformen principer och slutföra en online säkerhetskontrollen.
 6. Välj **inställningar** > **grundläggande**.
 7. Längst ned på sidan Välj **Lägg till plattform**, och välj sedan **webbplats**.
-8. Ange `https://login.microsoftonline.com/` i **webbadress**. Ange en URL för den **princip Sekretesswebbadress**, till exempel `http://www.contoso.com`.
+8. Ange `https://{tenantname}.b2clogin.com/` i **webbadress**. Ange en URL för den **princip Sekretesswebbadress**, till exempel `http://www.contoso.com`.
 9. Välj **spara ändringar**.
 11. Kopiera värdet för längst ned på sidan **App-ID**. 
 12. Klicka på **visa** och kopiera värdet för **Apphemlighet**. Du kan använda båda för att konfigurera Facebook som en identitetsprovider i din klient. **Apphemlighet** är en viktig säkerhetsuppgift för autentisering.
 13. Välj **produkter**, och välj sedan **konfigurera** under **Facebook-inloggning**.
 14. Välj **inställningar** under **Facebook-inloggning**.
-15. Ange `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` i **giltig OAuth omdirigerings-URI: er** . Ersätt **{klient}** med klientens namn (exempel: contosob2c.onmicrosoft.com). Klicka på **spara ändringar** längst ned på sidan.
+15. Ange `https://{tenantname}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` i **giltig OAuth omdirigerings-URI: er** . Ersätt **{klient}** med klientens namn (till exempel contosob2c). Klicka på **spara ändringar** längst ned på sidan.
 16. För att ditt Facebook-program tillgängliga för Azure AD B2C, Välj **App granska**anger **gör My Application offentliga?** till **Ja**, välja en kategori, till exempel `Business and Pages`och klicka sedan på **Bekräfta**.
 
 ## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Konfigurera ett Facebook-konto som identitetsprovider

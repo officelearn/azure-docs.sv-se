@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2534e3e39d4a6dd1659dced5a1b0342798c0049e
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 06a79250bac977fc4ade7853594c5307bb11d983
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969137"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336953"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett Weibo-konto med Azure Active Directory B2C
 
@@ -45,7 +45,7 @@ Om du vill använda ett Weibo-konto som identitetsprovider i Azure Active Direct
 6. Välj**保存以上信息**(spara).
 7. Välj**高级信息**(avancerad information).
 8. Välj**编辑**(redigera) bredvid fältet för OAuth2.0**授权设置**(omdirigerings-URL).
-9. Ange `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp` för OAuth2.0**授权设置**(omdirigerings-URL). Exempel: om din `tenant_name` är contoso.onmicrosoft.com, ange URL: en ska vara `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+9. Ange `https://{tenant_name}.b2clogin.com/te/{tenant_name}.onmicrosoft.com/oauth2/authresp` för OAuth2.0**授权设置**(omdirigerings-URL). Exempel: om din `tenant_name` är contoso, ange URL: en ska vara `https://contoso.b2clogin.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
 10. Välj**提交**(skicka).  
 
 ## <a name="configure-a-weibo-account-as-an-identity-provider"></a>Konfigurera ett Weibo-konto som identitetsprovider

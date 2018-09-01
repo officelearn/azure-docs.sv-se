@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 334f696d79cf801facf7c5301b2240b69f7134f7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 58a595c697b6e1a70089a6683493835e0d3a9780
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444386"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344326"
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: Lägga till LinkedIn som en identitetsprovider med hjälp av anpassade principer
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -40,7 +40,7 @@ Att använda LinkedIn som en identitetsprovider i Azure Active Directory B2C (Az
 
     c. Välj en **användningen av**.
 
-    d. I den **Webbadress** rutan, klistra in **https://login.microsoftonline.com**.
+    d. I den **Webbadress** rutan, klistra in **https://{tenant}.b2clogin.com**.  Där {*klient*} är ditt klientnamn (till exempel contoso.b2clogin.com).
 
     e. Skriv din **företags-e-** adress och **Företagstelefon** tal.
 
@@ -50,7 +50,7 @@ Att använda LinkedIn som en identitetsprovider i Azure Active Directory B2C (Az
 
 3. Välj **autentisering**, och anteckna den **klient-ID** och **Klienthemlighet** värden.
 
-4. I den **behörighet omdirigerings-URL: er** rutan, klistra in **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Ersätt {*klient*} med ditt klientnamn (till exempel contosob2c.onmicrosoft.com). Kontrollera att du använder HTTPS-schema. 
+4. I den **behörighet omdirigerings-URL: er** rutan, klistra in **https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Ersätt {*klient*} med ditt klientnamn (till exempel contosob2c.onmicrosoft.com). Kontrollera att du använder HTTPS-schema. 
 
     ![LinkedIn-konto – Ställ in behörighet omdirigera URL: er](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app3.png)
 

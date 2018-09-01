@@ -11,14 +11,14 @@ ms.component: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 08/30/2018
 ms.author: gokuma
-ms.openlocfilehash: f0fe2bde039cd209514d0cbc4842b20cd4b5fb99
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: b01ef3701ffb46da57c52e5fe73828ec4252b074
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444050"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344768"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Etablera Windows Data Science-dator på Azure
 Microsoft Data Science Virtual Machine (DSVM) är en avbildning för Windows Azure-dator (VM). Det har förinstallerat och har konfigurerats med flera verktyg som används för dataanalys och maskininlärning. Följande verktyg ingår:
@@ -66,7 +66,7 @@ Om du vill skapa en Microsoft Data Science Virtual Machine, måste du ha en Azur
 ## <a name="create-your-microsoft-data-science-virtual-machine"></a>Skapa din Microsoft Data Science-dator
 Följ dessa steg om du vill skapa en instans av Microsoft Data Science Virtual Machine:
 
-1. Navigera till den virtuella datorn på den [Azure-portalen](https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016).
+1. Navigera till den virtuella datorn på den [Azure-portalen](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016). Du kan uppmanas att logga in på ditt Azure-konto om du redan inte är inloggad.
 1. Välj den **skapa** längst ned för att gå till en guide.
 
   ![Konfigurera –--virtuell dator för datavetenskap](./media/provision-vm/configure-data-science-virtual-machine.png) 

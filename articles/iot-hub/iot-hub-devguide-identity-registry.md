@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 08/29/2018
 ms.author: dobett
-ms.openlocfilehash: 4e23b70c8dc5fdacfd609fb4664a78293b9e2362
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 78956c8e9d9248708ec326fc07d46f48e51e0f83
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247653"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341268"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Förstå identitetsregistret i IoT hub
 
@@ -85,12 +85,12 @@ Enhetsdata som lagras i en viss IoT-lösning är beroende av de specifika kraven
 
 ## <a name="device-heartbeat"></a>Enheten pulsslag
 
-IoT Hub-identitetsregistret innehåller ett fält med namnet **connectionState**. Använd bara den **connectionState** fältet under utveckling och felsökning. IoT-lösningar bör inte fråga fältet vid körning. Till exempel fråga inte den **connectionState** fält för att kontrollera om en enhet är ansluten innan du skickar ett meddelande för moln-till-enhet eller ett SMS. Vi rekommenderar att prenumerera på den [ **enheten är frånkopplad** händelse](https://docs.microsoft.com/azure/iot-hub/iot-hub-event-grid#event-types) på Event Grid för att få aviseringar och övervaka enhetens anslutning tillstånd. Använd det här [självstudien](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps) att lära dig hur du integrerar händelser från IoT Hub i din IoT-lösning.
+IoT Hub-identitetsregistret innehåller ett fält med namnet **connectionState**. Använd bara den **connectionState** fältet under utveckling och felsökning. IoT-lösningar bör inte fråga fältet vid körning. Till exempel fråga inte den **connectionState** fält för att kontrollera om en enhet är ansluten innan du skickar ett meddelande för moln-till-enhet eller ett SMS. Vi rekommenderar att prenumerera på den [ **enheten är frånkopplad** händelse] [ lnk-devguide-evgrid-evtype] på Event Grid för att få aviseringar och övervaka enhetens anslutning tillstånd. Använd det här [självstudien] [ lnk-howto-evgrid-connstate] att lära dig hur du integrerar enheten ansluten och enheten frånkopplad händelser från IoT Hub i din IoT-lösning.
 
 Om din IoT-lösning behöver veta om en enhet är ansluten kan du implementera den *pulsslag mönstret*.
 I mönstret pulsslag skickar enheten meddelanden från enheten till molnet minst en gång var fast mängd tid (t.ex, minst en gång i timmen). Därför även om en enhet inte har några data att skicka skickar fortfarande den ett tomt enhet-till-moln-meddelande (vanligtvis med en egenskap som identifierar den som ett pulsslag). Lösningen innehåller en karta på serversidan, med den senaste pulsslag har tagits emot för varje enhet. Om lösningen inte får ett heartbeat-meddelande inom den förväntade tiden från enheten, förutsätter att det finns ett problem med enheten.
 
-En mer komplex implementering kan innehålla information från [åtgärdsövervakning] [ lnk-devguide-opmon] att identifiera enheter som försöker ansluta eller kommunicera men misslyckas. När du implementerar mönstret pulsslag, se till att kontrollera [IoT Hub-kvoter och begränsningar][lnk-quotas].
+En mer komplex implementering kan innehålla information från [Azure Monitor] [ lnk-AM] och [Azure Resource Health] [ lnk-ARH] att identifiera enheter som försöker ansluta eller kommunicerar, men kan kontrollera [övervaka med diagnostik] [ lnk-devguide-mon] guide. När du implementerar mönstret pulsslag, se till att kontrollera [IoT Hub-kvoter och begränsningar][lnk-quotas].
 
 > [!NOTE]
 > Om en IoT-lösning använder anslutningsstatus enbart för att avgöra om du vill skicka meddelanden från moln till enhet och meddelanden inte skickas ut till stora mängder enheter, bör du använda den enklare *kort förfallotid* mönster. Det här mönstret ger samma resultat som underhålla en anslutning tillstånd enhetsregistret med hjälp av mönstret pulsslag samtidigt som det är mer effektivt. Om du begär meddelande bekräftelser, kan IoT Hub meddela dig om vilka enheter som kan ta emot meddelanden och som inte är.
@@ -256,7 +256,7 @@ Utforska använder IoT Hub Device Provisioning-tjänsten för att aktivera zero-
 [lnk-rfc7232]: https://tools.ietf.org/html/rfc7232
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
 [lnk-export]: iot-hub-devguide-identity-registry.md#import-and-export-device-identities
-[lnk-devguide-opmon]: iot-hub-operations-monitoring.md
+[lnk-devguide-mon]: iot-hub-monitor-resource-health.md
 
 [lnk-devguide-security]: iot-hub-devguide-security.md
 [lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
@@ -265,3 +265,8 @@ Utforska använder IoT Hub Device Provisioning-tjänsten för att aktivera zero-
 
 [lnk-getstarted-tutorial]: quickstart-send-telemetry-dotnet.md
 [lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
+
+[lnk-AM]: ../monitoring-and-diagnostics/index.yml
+[lnk-ARH]: ../service-health/resource-health-overview.md
+[lnk-devguide-evgrid-evtype]: iot-hub-event-grid.md#event-types
+[lnk-howto-evgrid-connstate]: iot-hub-how-to-order-connection-state-events.md

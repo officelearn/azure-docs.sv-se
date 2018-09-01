@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dd0bf50d73b70e37195e8e5e45336b68e4e883e7
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 477bd6047da639dcf21592a7ec0c1b80844e031e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915647"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337742"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett Google-konto med hjälp av Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Om du vill använda ett Google-konto som identitetsprovider i Azure Active Direc
 4. Välj **konfigurera godkännandeskärmen**.
 5. Välj eller ange en giltig **e-postadress**, ange en **produktnamn som visas för användare**, och klicka på **spara**.
 6. Under **programtyp**väljer **webbprogram**.
-7. Ange en **namn** för ditt program ange `https://login.microsoftonline.com` i **behörighet JavaScript ursprung**, och `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` i **auktoriserade omdirigerings-URI: er**. Ersätt **{klient}** med klientens namn (exempel: contosob2c.onmicrosoft.com).
+7. Ange en **namn** för ditt program ange `https://{tenant}.b2clogin.com` i **behörighet JavaScript ursprung**, och `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` i **auktoriserade omdirigerings-URI: er**. Ersätt **{klient}** med klientens namn (till exempel contosob2c).
 8. Klicka på **Skapa**.
 9. Kopiera värdena för **klient-ID** och **klienthemlighet**. Du måste båda för att konfigurera Google som en identitetsprovider i din klient. **Klienthemlighet** är en viktig säkerhetsuppgift för autentisering.
 

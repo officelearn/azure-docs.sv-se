@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: a27624d4c7a0bde4b33aefe8d05881b743ce397d
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: b325873819caff139727ec15d6aecd2d4be89c9e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285838"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338163"
 ---
 # <a name="understand-the-device-model-schema"></a>Förstå schemat för enhetsmodellen
 
@@ -24,7 +24,7 @@ Den här artikeln beskriver schemat för enhetsmodellen som anger funktioner och
 I följande artiklar är relaterade till den aktuella artikeln:
 
 * [Implementera beteendet för enhetsmodellen](iot-accelerators-device-simulation-device-behavior.md) beskriver JavaScript-filer som du använder för att implementera beteendet för en simulerad enhet.
-* [Skapa en ny simulerad enhet](iot-accelerators-remote-monitoring-test.md) placerar den allt på samma plats och visar hur du distribuerar en ny typ av simulerad enhet i lösningen.
+* [Skapa en ny simulerad enhet](iot-accelerators-device-simulation-create-simulated-device.md) placerar den allt på samma plats och visar hur du distribuerar en ny typ av simulerad enhet i lösningen.
 
 I den här artikeln kan du se hur du:
 

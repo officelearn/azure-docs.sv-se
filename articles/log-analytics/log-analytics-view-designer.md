@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 77c7d9a549b10a56faaf6226062d0e6212ce19c0
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 362d19c489dfa0eda33036052ac9626414ef0933
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42060968"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340744"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Skapa anpassade vyer med hjälp av Vydesigner i Log Analytics
 Med hjälp av Vydesigner i [Azure Log Analytics](log-analytics-overview.md), du kan skapa en mängd olika anpassade vyer i Azure portal som kan hjälpa dig att visualisera data i Log Analytics-arbetsytan. Den här artikeln presenteras en översikt över Vydesigner och procedurer för att skapa och redigera anpassade vyer.
@@ -58,7 +58,7 @@ Alternativen beskrivs i följande tabell:
 | Analytics | Öppnar den [Advanced Analytics-portalen](log-analytics-log-search-portals.md) att analysera data med loggfrågor. |
 | Redigera       | Öppnar vyn i Vydesigner redigera dess innehåll och konfiguration.  |
 | Klona      | Skapar en ny vy och öppnar den i View Designer. Namnet på den nya vyn är samma som det ursprungliga namnet, men med *kopia* läggas till den. |
-| Datumintervall | Ange filter för datum och tid intervallet för de data som ingår i vyn. |
+| Datumintervall | Ange filter för datum och tid intervallet för de data som ingår i vyn. Den här datumintervall kopplas före eventuella datumintervall som anges i frågor i vyn.  |
 | +          | Definiera en anpassad filter som har definierats för vyn. |
 
 

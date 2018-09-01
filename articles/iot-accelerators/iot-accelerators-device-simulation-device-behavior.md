@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: b68550bce1f4e3fbe3845c21598720083c8e384c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 43edbc653ddbd55aab5e722071de1f2cf4bcd1c4
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285829"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344524"
 ---
 # <a name="implement-the-device-model-behavior"></a>Implementera beteendet för enhetsmodellen
 
@@ -41,6 +41,6 @@ Den här artikeln beskrivs hur du definierar beteendet för dina egna anpassade 
 > * Definiera hur en simulerad enhet svarar på ett metodanrop från IoT-hubb som den är ansluten till
 > * Felsök ditt skript
 
-Nu när du har lärt dig hur du anger beteendet för en simulerad enhet, föreslagna nästa steg är att lära dig hur du [skapar en simulerad enhet](iot-accelerators-remote-monitoring-test.md).
+Nu när du har lärt dig hur du anger beteendet för en simulerad enhet, föreslagna nästa steg är att lära dig hur du [skapar en simulerad enhet](iot-accelerators-device-simulation-create-simulated-device.md).
 
 Mer information för utvecklare om Enhetssimulering lösningen, se den [referensguide för utvecklare](https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide).

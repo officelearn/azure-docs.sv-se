@@ -1,6 +1,6 @@
 ---
-title: Utöka eller förnya Azure-resursroller i PIM | Microsoft Docs
-description: Lär dig mer om att utöka eller förnya roller för Azure-resurs i Azure AD Privileged Identity Management (PIM).
+title: Utöka eller förnya rolltilldelningar i Azure-resurs i PIM | Microsoft Docs
+description: Lär dig mer om att utöka eller förnya Azure-resurs rolltilldelningar i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2c85c5bbbd4c152113108e0fdb717d23f85f9fde
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 3294bddea867e061d01e8dc72f4e47f3238b6c4d
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189658"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344093"
 ---
-# <a name="extend-or-renew-azure-resource-roles-in-pim"></a>Utöka eller förnya Azure-resursroller i PIM
+# <a name="extend-or-renew-azure-resource-role-assignments-in-pim"></a>Utöka eller förnya rolltilldelningar i Azure-resurs i PIM
 
 Privileged Identity Management (PIM) för Azure-resurser introducerar nya kontroller för att hantera livscykeln för åtkomst och tilldelning för Azure-resurser. Administratörer kan tilldela medlemskap med hjälp av start- och datum / tid-egenskaper. När det närmar sig slutet tilldelning, skickar PIM e-postmeddelanden till de berörda användare eller grupper. Den skickar också e-postaviseringar till administratörer av resursen för att säkerställa att rätt upprätthålls. Tilldelningar kan förnyas och fortsätter att visas upphört att gälla för upp till 30 dagar, även om åtkomst inte har utökats.
 

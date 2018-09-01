@@ -1,6 +1,6 @@
 ---
-title: Så här konfigurerar du en hanterad tjänstidentitet aktiverad virtuell Azure-dator med hjälp av en Azure-SDK
-description: Steg för steg-instruktioner för att konfigurera och använda en hanterad tjänstidentitet på en Azure-dator med hjälp av en Azure-SDK.
+title: Använd ett Azure SDK för att konfigurera en virtuell dator med hanterade identiteter för Azure-resurser
+description: Steg för steg-instruktioner för att konfigurera och använda hanterade identiteter för Azure-resurser på en Azure-dator med hjälp av en Azure-SDK.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,39 +14,37 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/28/2017
 ms.author: daveba
-ms.openlocfilehash: 2763c78d309f5a90d68429caa46581e50f8b4303
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 80368c6e6e879478df98d5c0740d60fa59703f2d
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257668"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338393"
 ---
-# <a name="configure-a-vm-managed-service-identity-using-an-azure-sdk"></a>Konfigurera en VM-Managed tjänstidentitet med hjälp av en Azure-SDK
+# <a name="configure-a-vm-with-managed-identities-for-azure-resources-using-an-azure-sdk"></a>Konfigurera en virtuell dator med hanterade identiteter för Azure-resurser med hjälp av en Azure-SDK
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Hanterad tjänstidentitet ger Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory (AD). Du kan använda den här identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering utan autentiseringsuppgifter i din kod. 
+Hanterade identiteter för Azure-resurser tillhandahåller Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory (AD). Du kan använda den här identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering utan autentiseringsuppgifter i din kod. 
 
-I den här artikeln får du lära dig hur du aktiverar och ta bort hanterad tjänstidentitet för en Azure-dator med hjälp av en Azure-SDK.
+I den här artikeln får du lära dig hur du aktiverar och ta bort hanterade identiteter för Azure-resurser för en Azure-dator med hjälp av en Azure-SDK.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-## <a name="azure-sdks-with-managed-service-identity-support"></a>Azure SDK: er med stöd för hanterad tjänstidentitet 
+## <a name="azure-sdks-with-managed-identities-for-azure-resources-support"></a>Stöd för Azure SDK: er med hanterade identiteter för Azure-resurser 
 
-Azure har stöd för flera programmeringsspråk plattformar via ett antal [Azure SDK: er](https://azure.microsoft.com/downloads). Flera av dem har uppdaterats för att stödja hanterad tjänstidentitet och tillhandahålla motsvarande exempel för att demonstrera användning. Den här listan uppdateras när ytterligare stöd har lagts till:
+Azure har stöd för flera programmeringsspråk plattformar via ett antal [Azure SDK: er](https://azure.microsoft.com/downloads). Flera av dem har uppdaterats för att stödja hanterade identiteter för Azure-resurser och tillhandahålla motsvarande exempel för att demonstrera användning. Den här listan uppdateras när ytterligare stöd har lagts till:
 
 | SDK | Exempel |
 | --- | ------ | 
-| .NET   | [Hantera resurs från en MSI-aktiverad virtuell dator](https://azure.microsoft.com/resources/samples/aad-dotnet-manage-resources-from-vm-with-msi/) |
-| Java   | [Hantera lagring från en MSI-aktiverad virtuell dator](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
-| Node.js| [Skapa en virtuell dator med MSI aktiverat](https://azure.microsoft.com/resources/samples/compute-node-msi-vm/) |
-| Python | [Skapa en virtuell dator med MSI aktiverat](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
-| Ruby   | [Skapa Azure virtuell dator med en MSI](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
+| .NET   | [Hantera resurs från en virtuell dator aktiveras med hanterade identiteter för Azure-resurser aktiverat](https://azure.microsoft.com/resources/samples/aad-dotnet-manage-resources-from-vm-with-msi/) |
+| Java   | [Hantera lagring på en virtuell dator aktiveras med hanterade identiteter för Azure-resurser](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
+| Node.js| [Skapa en virtuell dator med systemtilldelade hanterad identitet aktiverat](https://azure.microsoft.com/resources/samples/compute-node-msi-vm/) |
+| Python | [Skapa en virtuell dator med systemtilldelade hanterad identitet aktiverat](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
+| Ruby   | [Skapa virtuell Azure-dator med en automatiskt genererad identitet som aktiverats](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se relaterade artiklar under ”Konfigurera Managed Service Identity för en Azure-dator”, att lära dig hur du kan också använda Azure portal, PowerShell, CLI och resource-mallarna.
-
-Använd följande avsnitt för kommentarer för att ge feedback och hjälp oss att förfina och forma vårt innehåll.
+- Se relaterade artiklar under **konfigurera identitet för en Azure VM**du vill veta hur du kan också använda Azure portal, PowerShell, CLI och resource-mallarna.

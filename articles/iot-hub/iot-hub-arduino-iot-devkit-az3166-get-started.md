@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 08/27/2018
 ms.author: rangv
-ms.openlocfilehash: 1839f3efee53caa070690fed569a61c1d2b3c965
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 360937d335eadb6d235eb52c0d7df42f896a0de0
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127733"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344739"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Ansluta IoT DevKit AZ3166 till Azure IoT Hub
 
@@ -135,17 +135,17 @@ Följ dessa steg för att förbereda utvecklingsmiljön för DevKit:
 
 1. Öppna **fil > Inställningar > Inställningar** och Lägg till följande rad för att konfigurera Arduino.
     * **Windows**:
-    ```json
+    ```javascript
     "arduino.path": "C:\\Program Files (x86)\\Arduino",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
     * **macOS**:
-    ```json
+    ```javascript
     "arduino.path": "/Applications",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
     * **Ubuntu**:
-    ```json
+    ```javascript
     "arduino.path": "/home/{username}/Downloads/arduino-1.8.5",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
@@ -183,6 +183,9 @@ Nu konfigureras du alla med förbereder och konfigurerar din utvecklingsmiljö. 
 
 1. På sidan IoT Workbench exempel hitta **börjar** och klicka på **öppna exemplet**. Sedan väljer standardsökvägen för att hämta exempelkoden.
     ![Öppna exemplet](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/open-sample.png)
+
+1. Om du inte har Arduino tillägg i VS Code installerat, klickar du på den **installera** i meddelandefönstret.
+    ![Installera Arduino-tillägget](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-arduino-ext.png)
 
 1. I fönstret Öppna projekt, klickar du på `F1` att öppna kommandopaletten, typ och väljer **IoT Workbench: molnet**och välj sedan **Azure etablera**. Följ steg-för-steg-instruktioner för att slutföra etableringen av Azure IoT Hub och skapa enheten.
     ![Etablera i molnet](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/cloud-provision.png)

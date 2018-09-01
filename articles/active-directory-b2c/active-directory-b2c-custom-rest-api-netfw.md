@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ab91fd9ffac48a7fafbfd6e518e863ee057c6b43
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e3d938c4464fc5141b97f85220bf096920e17d00
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448017"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339601"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrera REST API anspråk Utbytena i din Azure AD B2C-användarresa som verifiering av indata från användaren
 
@@ -72,7 +72,7 @@ Utför stegen i den [komma igång med anpassade principer](active-directory-b2c-
 
 5. Se till att autentiseringen är inställd på **ingen autentisering**.
 
-6. Välj **OK** att skapa projektet.
+6. Klicka på **OK** för att skapa projektet.
 
 ## <a name="step-2-prepare-the-rest-api-endpoint"></a>Steg 2: Förbereda REST API-slutpunkt
 
@@ -366,7 +366,7 @@ När du lägger till nytt anspråk förlitande part-koden ser ut så här:
   "exp": 1507125903,
   "nbf": 1507122303,
   "ver": "1.0",
-  "iss": "https://login.microsoftonline.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+  "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
   "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
   "acr": "b2c_1a_signup_signin",
   "nonce": "defaultNonce",

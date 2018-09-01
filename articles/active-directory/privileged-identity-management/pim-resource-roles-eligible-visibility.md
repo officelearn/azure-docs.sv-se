@@ -15,12 +15,12 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 3551c3231a94f8a844d26a713cbf171ca7653815
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 59d51ba8edadd1fd71255271623b144cab94fc97
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189222"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344291"
 ---
 # <a name="eligible-assignments-and-resource-visibility-in-pim"></a>Berättigade uppgifter och synlighet i PIM
 
@@ -67,6 +67,24 @@ PIM för Azure-resurser har två distinkta tilldelning tillstånd som visas på 
 - Aktiverat
 
 När du visar ett medlemskap som anges i **aktiva roller**, du kan använda värdet i den **tillstånd** kolumnen för att skilja mellan användare som är **tilldelad** som aktiv och användare som **aktiverad** en berättigad uppgift, och är nu aktiv.
+
+## <a name="azure-resource-role-approval-workflow"></a>Arbetsflöde för godkännande av rollen i Azure-resurs
+
+Med Godkännandearbetsflöde i PIM för Azure-resursroller administratörer ytterligare skydda och begränsa åtkomsten till viktiga resurser. Det innebär att administratörer kan kräva godkännande för att aktivera rolltilldelningar.
+
+En resurs-hierarki är unika för Azure-resursroller. Den här hierarkin kan ärvda rolltilldelningar från en överordnad resurs-objektet nedåt till alla underordnade resurser i den överordnade behållaren. 
+
+Till exempel: Bob, administratör av en resurs kan används PIM Alice som en berättigad medlem tilldelas rollen ägare i Contoso-prenumeration. Med denna tilldelning är Alice berättigade ägare av alla resource group behållare i Contoso-prenumeration. Alice är också berättigade ägare av alla resurser (t.ex. virtuella datorer) i varje resursgrupp för prenumerationen.
+
+Vi antar att det finns tre resursgrupper i Contoso-prenumerationen: Fabrikam Test, Fabrikam Dev och Fabrikam Prod. Var och en av de här resursgrupperna innehåller en enda virtuell dator.
+
+PIM-inställningarna har konfigurerats för varje roll för en resurs. Till skillnad från tilldelningar, dessa inställningar ärvs inte och gäller enbart för resursrollen.
+
+Fortsättning på exemplet: Bob använder PIM vill kräva att alla medlemmar i rollen ägare av Contoso-prenumerationsgodkännande för begäran aktiveras. För att skydda resurserna i resursgruppen Fabrikam Prod, kräver Bob även godkännande för medlemmar i rollen ägare för den här resursen. Rollerna ägare i Fabrikam Test- och Fabrikam Dev kräver inte godkännande för aktivering.
+
+När Alice begär aktivering av sin ägarrollen för Contoso-prenumeration, måste en godkännare Godkänn eller neka hennes begäran innan hon blir aktiv i rollen. Om Alice beslutar att [omfång hennes aktivering](pim-resource-roles-activate-your-roles.md#apply-just-enough-administration-practices) till Fabrikam Prod resursgrupp, en godkännare måste godkänna eller neka denna begäran för. Men om Alice bestämmer sig att definiera omfattningen av sin aktivering till ena eller båda Fabrikam Test- eller Fabrikam Dev godkännande krävs inte.
+
+Arbetsflöde för godkännande kanske inte är nödvändigt för alla medlemmar i en roll. Tänk dig ett scenario där din organisation nyanställda flera kontrakt associates som underlättar utvecklingen av ett program som körs i en Azure-prenumeration. Som administratör av en resurs kan du vilja att anställda ska ha berättigad åtkomst utan godkännande krävs dock kontrakt associates måste begära godkännande. Om du vill konfigurera arbetsflöde för godkännande för endast kontrakt associates, kan du skapa en anpassad roll med samma behörigheter som rolltilldelningen för anställda. Du kan kräva godkännande för att aktivera den anpassa rollen. [Mer information om anpassade roller](pim-resource-roles-custom-role-policy.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

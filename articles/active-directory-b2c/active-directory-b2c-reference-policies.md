@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5c89f39b2f94309ea3d99230f5265d834c7093d9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f26db8bcb50fa09a8d2829d477f90cac8c52533f
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38477457"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337582"
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: Inbyggda principer
 
 
-Utökningsbart principramverk för Azure Active Directory (Azure AD) B2C är core styrkan hos tjänsten. Principer helt beskriver konsument identitetsupplevelser som registrering, inloggning och profilredigering. Exempelvis kan låter en registreringsprincip dig styra beteenden genom att konfigurera följande inställningar:
+Utökningsbart principramverk för Azure Active Directory (Azure AD) B2C är core styrkan hos tjänsten. Principer helt beskriver konsument identitetsupplevelser som registrering, inloggning och profilredigering. Till exempel kan du med en registreringsprincip styra beteenden genom att konfigurera följande inställningar:
 
 * Kontotyper (konton i sociala medier, till exempel Facebook) eller lokala konton, till exempel e-postadresser som användare kan använda för att registrera dig för programmet
 * Attribut (till exempel förnamn, postnummer och sko storlek) ska samlas in från konsumenten under registreringen
@@ -34,7 +34,7 @@ Principer kan användas via en enkel developer-gränssnittet. Programmets utlös
 
 ```
 
-https://login.microsoftonline.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
+https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Application ID
 &redirect_uri=https%3A%2F%2Flocalhost%3A44321%2F    // Your registered Reply URL, url encoded
 &response_mode=form_post                            // 'query', 'form_post' or 'fragment'
@@ -48,7 +48,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ```
 
-https://login.microsoftonline.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
+https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Application ID
 &redirect_uri=https%3A%2F%2Flocalhost%3A44321%2F    // Your registered Reply URL, url encoded
 &response_mode=form_post                            // 'query', 'form_post' or 'fragment'

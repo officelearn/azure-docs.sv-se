@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 70d3a19b715052fe658102929a1c29cf3db2d595
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e09ad89f3225af9de40781fafc022c8326f80619
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443740"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338646"
 ---
 # <a name="azure-active-directory-b2c-sign-in-using-azure-ad-accounts-through-a-built-in-policy"></a>Azure Active Directory B2C: Logga in med Azure AD-konton via en inbyggd princip
 
@@ -37,13 +37,13 @@ Aktivera inloggning för användare från en viss Azure AD-organisation kan du b
 1. Välj **Ny programregistrering**.
 1. Ange ett namn för ditt program (till exempel `Azure AD B2C App`).
 1. Välj **Webbapp/API** som programtyp.
-1. För **inloggnings-URL**, ange följande URL, där `yourtenant` ersätts med namnet på din Azure AD B2C-klient (`fabrikamb2c.onmicrosoft.com`):
+1. För **inloggnings-URL**, ange följande URL, där `yourtenant` ersätts med namnet på din Azure AD B2C-klient (`fabrikamb2c`):
 
     >[!NOTE]
     >Värdet för ”yourtenant” måste skrivas med små bokstäver i de **inloggnings-URL**.
 
     ```Console
-    https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
+    https://yourtenant.b2clogin.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
 1. Spara program-ID som du vill använda i nästa avsnitt som klient-ID.

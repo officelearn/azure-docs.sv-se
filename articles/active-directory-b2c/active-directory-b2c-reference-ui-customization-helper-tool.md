@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 18f921fb718aeb7ae4add2836fbb6ffabd66668f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1a37a37dbed3b5ef9733f1105444529b4d255bcf
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445066"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336789"
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: En hjälpverktyg används för att visa sidan användare användargränssnitt (UI) anpassning av funktionen
 Den här artikeln är avsett för den [Huvudartikel för UI-anpassning](active-directory-b2c-reference-ui-customization.md) i Azure Active Directory (Azure AD) B2C. Följande steg beskriver hur du arbeta med sidan anpassning gränssnittsfunktionen med hjälp av exemplet HTML och CSS innehåll som vi tillhandahåller.
@@ -74,7 +74,7 @@ Du kan ladda ned den [Azure Blob Storage helper-verktyget och exempel filer som 
 git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 ```
 
-Den här lagringsplatsen innehåller en `sample_templates\wingtip` directory som innehåller exempel HTML, CSS och bilder. För dessa mallar att referera till ditt eget Azure Blob Storage-konto, behöver du redigera HTML-filer. Öppna `unified.html` och `selfasserted.html` och Ersätt alla förekomster av `https://localhost` med Webbadressen för en egen behållare som du skrev ned i föregående steg. Du måste använda den absoluta sökvägen till HTML-filer eftersom i det här fallet HTML hanteras av Azure AD under domänen `https://login.microsoftonline.com`.
+Den här lagringsplatsen innehåller en `sample_templates\wingtip` directory som innehåller exempel HTML, CSS och bilder. För dessa mallar att referera till ditt eget Azure Blob Storage-konto, behöver du redigera HTML-filer. Öppna `unified.html` och `selfasserted.html` och Ersätt alla förekomster av `https://localhost` med Webbadressen för en egen behållare som du skrev ned i föregående steg. Du måste använda den absoluta sökvägen till HTML-filer eftersom i det här fallet HTML hanteras av Azure AD under domänen `tenantname.b2clogin.com`.
 
 ### <a name="upload-the-sample-files"></a>Ladda upp exempelfilerna
 På samma lagringsplats, packa upp `B2CAzureStorageClient.zip` och kör den `B2CAzureStorageClient.exe` filen i. Det här programmet kommer bara överför alla filer i katalogen som du anger till ditt lagringskonto och aktivera CORS-åtkomst för dessa filer. Om du har följt stegen ovan kommer det nu att peka HTML och CSS-filer till ditt lagringskonto. Observera att namnet på ditt lagringskonto är den del som föregår `blob.core.windows.net`, till exempel `contoso`. Du kan kontrollera att innehållet har laddats upp korrekt genom att komma åt `https://{storage-account-name}.blob.core.windows.net/{container-name}/wingtip/unified.html` i en webbläsare. Också använda [ http://test-cors.org/ ](http://test-cors.org/) att se till att innehållet är nu CORS aktiverat. (Leta efter ”XHR status: 200” i resultatet.)

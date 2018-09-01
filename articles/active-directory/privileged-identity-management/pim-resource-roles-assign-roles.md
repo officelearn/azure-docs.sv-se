@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 04/02/2018
+ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 7019a6f97a9590d3b652584015f3077f4ed075af
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: b84addf4c45e39e68dd22f6369553d397794f6b0
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188928"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340520"
 ---
 # <a name="assign-azure-resource-roles-in-pim"></a>Tilldela Azure-resursroller i PIM
 
@@ -34,59 +34,95 @@ Azure AD PIM kan hantera inbyggda Azure-resursroller, samt anpassade roller, ink
 >[!NOTE]
 Användare eller medlemmar i en grupp som tilldelats ägare eller administratör för användaråtkomst roller och globala administratörer som aktiverar prenumerationshantering i Azure AD är resursen administratörer. Dessa administratörer kan tilldela roller, konfigurera inställningar för serverrollen och granska åtkomst med hjälp av PIM för Azure-resurser. Visa en lista över [inbyggda roller för Azure-resurser](../../role-based-access-control/built-in-roles.md).
 
-## <a name="assign-roles"></a>Tilldela roller
+## <a name="assign-a-role"></a>Tilldela en roll
 
-Tilldela en användare eller grupp till en roll när du visar den **roller** , markerar du rollen och välj sedan **Lägg till användare**. 
+Följ dessa steg om du vill göra en användare som är berättigade till en Azure-resurs-roll.
 
-![Fönstret ”roller” med knappen ”Lägg till användare”](media/azure-pim-resource-rbac/rbac-assign-roles-1.png)
+1. Logga in på [Azure-portalen](https://portal.azure.com/) med en användare som är medlem i den [privilegierad Rolladministratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) roll.
 
-Du kan också välja **Lägg till användare** från den **medlemmar** fönstret.
+    Information om hur du ger en annan administratör för användaråtkomst för att hantera PIM finns [bevilja åtkomst till andra administratörer att hantera PIM](pim-how-to-give-access-to-pim.md).
 
-![”Medlemmar” fönstret med knappen ”Lägg till användare”](media/azure-pim-resource-rbac/rbac-assign-roles-2.png)
+1. Öppna **Azure AD Privileged Identity Management**.
 
+    Om du inte har startat PIM i Azure portal ännu, går du till [börja använda PIM](pim-getting-started.md).
 
-Om du lägger till en användare eller grupp från den **medlemmar** fönstret måste du: 
+1. Klicka på **Azure-resurser**.
 
-1. Välj en roll från den **Välj en roll** fönstret innan du kan välja en användare eller grupp.
+1. Använd den **resursfilter** att filtrera listan över hanterade resurser.
 
-   ![Fönstret ”Välj en roll”](media/azure-pim-resource-rbac/rbac-assign-roles-select-role.png)
+    ![Lista över Azure-resurser att hantera](./media/pim-resource-roles-assign-roles/resources-list.png)
 
-2. Välj en användare eller grupp från katalogen.
+1. Klicka på resursen som du vill hantera, till exempel en prenumerations- eller grupp.
 
-3. Välj lämplig Tilldelningstyp från den nedrullningsbara menyn: 
+1. Klicka på under hantera, **roller** vill se en lista över roller för Azure-resurser.
 
-   - **Just-in-time**: ger användaren eller gruppen medlemmarna med berättigade men inte beständig åtkomst till rollen för en angiven tidsperiod eller på obestämd tid (om konfigurerad i rollinställningar). 
-   - **Direkt**: kräver inte de användare eller grupp medlemmarna att aktivera rolltilldelningen (kallas beständig åtkomst). Vi rekommenderar att du använder direkttilldelning för kortvarig användning, där åtkomst inte är obligatoriska när aktiviteten har slutförts. Exempel är på anrop SKIFT och tidskänsliga aktiviteter.
+    ![Azure-resursroller](./media/pim-resource-roles-assign-roles/resources-roles.png)
 
-4. Om tilldelningen ska vara permanent (permanent berättigad för en just-in-time-tilldelning eller permanent aktiv för en direkttilldelning), markerar du kryssrutan nedan den **Tilldelningstyp** box.
+1. Klicka på **Lägg till medlem** att öppna tilldelningsfönstret ny.
 
-   ![”Medlemskap” inställningsfönstret med rutorna ”Tilldelningstyp” och relaterade](media/azure-pim-resource-rbac/rbac-assign-roles-settings.png)
+1. Klicka på **Välj en roll** att öppna dialogrutan Välj en roll-fönstret.
 
-   >[!NOTE]
-   >Kryssrutan kanske unmodifiable om en annan administratör har angett maximalt tilldelningsvaraktighet för varje tilldelning i rollinställningarna för.
+    ![Ny tilldelningsfönstret](./media/pim-resource-roles-assign-roles/resources-select-role.png)
 
-   Avmarkera kryssrutan om du vill ange en viss tilldelningsvaraktighet, och ändra start/slut eller datum och tid rutorna.
+1. Klicka på en roll som du vill tilldela och klicka sedan på **Välj**.
 
-   ![”Medlemskap” inställningsfönstret med rutorna för startdatum, starttid, slutdatum och sluttid](media/azure-pim-resource-rbac/rbac-assign-roles-duration.png)
+    Fönstret Välj en medlem eller grupp öppnas.
 
+1. Klicka på en medlem eller en grupp som du vill tilldela rollen och klickar sedan på **Välj**.
 
-## <a name="manage-role-assignments"></a>Hantera rolltilldelningar
+    ![Välj ett fönster som är medlem eller grupp](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
 
-Administratörer kan hantera rolltilldelningar genom att välja antingen **roller** eller **medlemmar** i den vänstra rutan. Att välja **roller** kan administratörer att definiera omfattningen av deras administrativa uppgifter till en viss roll. Att välja **medlemmar** visar alla användare och grupper rolltilldelningar för resursen.
+    Inställningsfönstret medlemskap öppnas.
 
-![Fönstret ”roller”](media/azure-pim-resource-rbac/rbac-assign-roles-roles.png)
+1. I den **Tilldelningstyp** väljer **berättigade** eller **Active**.
 
-![Fönstret ”medlemmar”](media/azure-pim-resource-rbac/rbac-assign-roles-members.png)
+    ![Medlemskap i inställningsfönstret](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
 
->[!NOTE]
-Om du har en roll som väntar på aktivering är en meddelandebanderoll visas överst i fönstret när du visar medlemskap.
+    PIM för Azure-resurser tillhandahåller två distinkta tilldelningstyperna:
 
+    - **Berättigade** tilldelningar kräver medlem i rollen att utföra en åtgärd för att använda rollen. Åtgärder kan innehålla utför en kontroll av multifaktorautentisering (MFA), vilket ger en motivering eller begära godkännande från utnämnda godkännare.
 
-## <a name="modify-existing-assignments"></a>Ändra befintliga tilldelningar
+    - **Aktiva** tilldelningar inte kräver medlemmen som ska utföra alla åtgärder för att använda rollen. Medlemmar som är tilldelad som aktiv har de behörigheter som tilldelats rollen hela tiden.
 
-Om du vill ändra befintliga tilldelningar från detaljvy användare/grupp, Välj **ändra inställningarna för** från Åtgärdsfältet. Ändra Tilldelningstyp till **Just-in-time** eller **direkt**.
+1. Om tilldelningen ska vara permanent (permanent berättigad eller permanent tilldelade), Välj den **permanent** markerar du kryssrutan.
 
-![”Användare” informationsfönstret med knappen ”Inställningar”](media/azure-pim-resource-rbac/rbac-assign-role-manage.png)
+    Beroende på rollinställningar, markera kryssrutan visas inte eller kan vara unmodifiable.
+
+1. Avmarkera kryssrutan om du vill ange en viss tilldelningsvaraktighet, och ändra start/slut eller datum och tid rutorna.
+
+    ![Inställningar för medlemskap - datum och tid](./media/pim-resource-roles-assign-roles/resources-membership-settings-date.png)
+
+1. Klicka på **Klar** när du är klar.
+
+    ![Ny tilldelning - Lägg till](./media/pim-resource-roles-assign-roles/resources-new-assignment-add.png)
+
+1. Klicka för att skapa den nya rolltilldelningen **Lägg till**. En avisering om status visas.
+
+    ![Ny tilldelning - meddelande](./media/pim-resource-roles-assign-roles/resources-new-assignment-notification.png)
+
+## <a name="update-or-remove-an-existing-role-assignment"></a>Uppdatera eller ta bort en rolltilldelning
+
+Följ dessa steg om du vill uppdatera eller ta bort en rolltilldelning.
+
+1. Öppna **Azure AD Privileged Identity Management**.
+
+1. Klicka på **Azure-resurser**.
+
+1. Klicka på resursen som du vill hantera, till exempel en prenumerations- eller grupp.
+
+1. Klicka på under hantera, **roller** vill se en lista över roller för Azure-resurser.
+
+    ![Azure-resursroller – Välj roll](./media/pim-resource-roles-assign-roles/resources-update-select-role.png)
+
+1. Klicka på den roll som du vill uppdatera eller ta bort.
+
+1. Hitta rolltilldelningen på den **berättigade roller** eller **aktiva roller** flikar.
+
+    ![Uppdatera eller ta bort rolltilldelning](./media/pim-resource-roles-assign-roles/resources-update-remove.png)
+
+1. Klicka på **uppdatera** eller **ta bort** att uppdatera eller ta bort rolltilldelningen.
+
+    Information om hur du utökar en rolltilldelning finns i [utöka eller förnya Azure-resursroller i PIM](pim-resource-roles-renew-extend.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

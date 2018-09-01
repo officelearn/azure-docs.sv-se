@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: jeedes
-ms.openlocfilehash: f860036f1a69b2d1ab6ac8de763a49380f8fe4bf
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 3a394c13092547991bf7f8ae98e5c69e92077701
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42055172"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344792"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Självstudier: Azure Active Directory-integration med YouEarnedIt
 
@@ -139,7 +139,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![YouEarnedIt konfiguration](./media/youearnedit-tutorial/tutorial_youearnedit_configure.png) 
 
-7. Att konfigurera enkel inloggning på **YouEarnedIt** sida, som du behöver skicka de hämtade **Certificate(Base64)** och **SAML enkel inloggning för tjänst-URL** till dina tilldelade YouEarnedIt kunden ska lyckas manager. De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+7. Att konfigurera enkel inloggning på den **YouEarnedIt** sida, som du behöver skicka de hämtade ***Certificate(Base64)*** och ***SAML enkel inloggning för tjänst-URL*** till dina tilldelade **YouEarnedIt** manager kunden ska lyckas. De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 

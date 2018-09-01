@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 46e4956aa145aa082de86191ede4adaf9a43fca9
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 5ff4ddee3d8af15caf082be56a51b1aa0d36f02a
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309034"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339985"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Token-referens
 
@@ -73,7 +73,7 @@ Observera att anspråk i ID-token inte returneras i någon särskild ordning. De
 | Namn | Begär | Exempelvärde | Beskrivning |
 | --- | --- | --- | --- |
 | Målgrupp |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |En målgrupp anspråket identifierar den avsedda mottagaren av token. Målgruppen är appens program-ID, som tilldelats din app i portalen för registrering av appen för Azure AD B2C. Din app ska verifiera det här värdet och avvisa token om det inte matchar. Målgruppen är synonyma med resursen. |
-| Utfärdare |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Det här anspråket identifierar den säkerhetstokentjänst (STS) som skapar och returnerar token. Den identifierar också Azure AD-katalog där användaren autentiserades. Din app bör verifiera utfärdare anspråk så att token kom från Azure Active Directory v2.0-slutpunkten. |
+| Utfärdare |`iss` |`https://{tenantname}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Det här anspråket identifierar den säkerhetstokentjänst (STS) som skapar och returnerar token. Den identifierar också Azure AD-katalog där användaren autentiserades. Din app bör verifiera utfärdare anspråk så att token kom från Azure Active Directory v2.0-slutpunkten. |
 | Utfärdat på |`iat` |`1438535543` |Det här kravet är den tid då token utfärdats, representeras i epoktid. |
 | Förfallotid |`exp` |`1438539443` |Förfallotiden anspråk är den tid då token blir ogiltig, som representeras i epoktid. Din app ska använda detta anspråk för att kontrollera giltigheten för livslängd för token. |
 | Inte före |`nbf` |`1438535543` |Det här kravet är den tid då token blir giltigt, representeras i epoktid. Detta är vanligtvis samma som den tid som token utfärdats. Din app ska använda detta anspråk för att kontrollera giltigheten för livslängd för token. |
@@ -120,7 +120,7 @@ Vid en given tidpunkt logga Azure AD en token med hjälp av någon av en viss up
 Azure AD B2C har en slutpunkt för OpenID Connect metadata. På så sätt kan appar att hämta information om Azure AD B2C vid körning. Informationen omfattar slutpunkter, token innehåll och nycklar för tokensignering. Din B2C-katalog innehåller ett JSON-dokument för metadata för varje princip. Till exempel metadatadokument för den `b2c_1_sign_in` principen i `fabrikamb2c.onmicrosoft.com` finns på:
 
 ```
-https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in
 ```
 
 `fabrikamb2c.onmicrosoft.com` är B2C-katalog som används för att autentisera användaren, och `b2c_1_sign_in` är den princip som används för att hämta token. Att avgöra vilken princip som användes för att registrera en token (och var du kan hämta metadata), har du två alternativ. Först namnet på principen som ingår i den `acr` anspråk i token. Du kan parsa anspråk från innehållet i JWT av Base64-avkodning brödtexten och avserialisering av JSON-strängen som är ett resultat. Den `acr` anspråk kommer att namnet på den princip som användes för att utfärda token.  Ett annat alternativ är att koda principen i värdet för den `state` parameter när du skickar en begäran och avkoda det för att avgöra vilken princip som har använts. Någon av metoderna är giltig.
@@ -128,7 +128,7 @@ https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/o
 Metadatadokumentet är ett JSON-objekt som innehåller flera användbara uppgifter för. Dessa inkluderar platsen för slutpunkter som krävs för att utföra autentisering med OpenID Connect. De omfattar också `jwks_uri`, vilket ger platsen för en uppsättning offentliga nycklar som används för att signera token. Att platsen anges här, men det är bäst att hämta platsen dynamiskt med hjälp av webbplatsen för metadata och tolka ut `jwks_uri`:
 
 ```
-https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in
 ```
 
 JSON-dokument som finns på denna URL innehåller alla offentliga viktig information som används på en viss tidpunkt. Din app kan använda den `kid` anspråk i JWT-huvudet för att välja den offentliga nyckeln i JSON-dokument som används för att logga en viss token. Den kan sedan utföra signaturverifiering genom att använda rätt offentlig nyckel och den angivna algoritmen.

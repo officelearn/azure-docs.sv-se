@@ -11,78 +11,110 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 04/02/2018
+ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 901eb5ef43ddb2840ed7a3d83fc08f2f05849461
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 9ad4965ccd86f88a61b5f6fb8f540d76e472ea69
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189743"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43345303"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Konfigurera Azure-resurs rollinställningar i PIM
 
-När du konfigurerar inställningar kan definiera du standardinställningarna som tillämpas på tilldelningar i miljön för Privileged Identity Management (PIM). För att definiera de här inställningarna för din resurs, Välj den **rollinställningar** fliken i den vänstra rutan. Du kan också välja inställningsknappen för rollen från Åtgärdsfältet (i en roll) för att visa aktuella alternativ.
+När du konfigurerar Azure-resurs rollinställningar kan definiera du standardinställningarna som tillämpas på Azure-resurs rolltilldelningar i Azure AD Privileged Identity Management (PIM). Använd följande procedurer för att konfigurera arbetsflöde för godkännande och ange vem som kan godkänna eller neka förfrågningar.
 
-## <a name="overview"></a>Översikt
+## <a name="open-role-settings"></a>Öppna rollinställningar
 
-Med Godkännandearbetsflöde i Privileged Identity Management (PIM) för Azure-resursroller administratörer ytterligare skydda och begränsa åtkomsten till viktiga resurser. Det innebär att administratörer kan kräva godkännande för att aktivera rolltilldelningar. 
+Följ stegen nedan för att öppna inställningarna för en roll i Azure-resurs.
 
-En resurs-hierarki är unika för Azure-resursroller. Den här hierarkin kan ärvda rolltilldelningar från en överordnad resurs-objektet nedåt till alla underordnade resurser i den överordnade behållaren. 
+1. Logga in på [Azure-portalen](https://portal.azure.com/) med en användare som är medlem i den [privilegierad Rolladministratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) roll.
 
-Till exempel: Bob, administratör av en resurs kan används PIM Alice som en berättigad medlem tilldelas rollen ägare i Contoso-prenumeration. Med denna tilldelning är Alice berättigade ägare av alla resource group behållare i Contoso-prenumeration. Alice är också berättigade ägare av alla resurser (t.ex. virtuella datorer) i varje resursgrupp för prenumerationen. 
+1. Öppna **Azure AD Privileged Identity Management**.
 
-Vi antar att det finns tre resursgrupper i Contoso-prenumerationen: Fabrikam Test, Fabrikam Dev och Fabrikam Prod. Var och en av de här resursgrupperna innehåller en enda virtuell dator.
+1. Klicka på **Azure-resurser**.
 
-PIM-inställningarna har konfigurerats för varje roll för en resurs. Till skillnad från tilldelningar, dessa inställningar ärvs inte och gäller enbart för resursrollen. [Läs mer om berättigade uppgifter och synlighet](pim-resource-roles-eligible-visibility.md).
+1. Klicka på resursen som du vill hantera, till exempel en prenumerations- eller grupp.
 
-Fortsättning på exemplet: Bob använder PIM vill kräva att alla medlemmar i rollen ägare av Contoso-prenumerationsgodkännande för begäran aktiveras. För att skydda resurserna i resursgruppen Fabrikam Prod, kräver Bob även godkännande för medlemmar i rollen ägare för den här resursen. Rollerna ägare i Fabrikam Test- och Fabrikam Dev kräver inte godkännande för aktivering.
+    ![Lista över Azure-resurser att hantera](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
-När Alice begär aktivering av sin ägarrollen för Contoso-prenumeration, måste en godkännare Godkänn eller neka hennes begäran innan hon blir aktiv i rollen. Om Alice beslutar att [omfång hennes aktivering](pim-resource-roles-activate-your-roles.md#apply-just-enough-administration-practices) till Fabrikam Prod resursgrupp, en godkännare måste godkänna eller neka denna begäran för. Men om Alice bestämmer sig att definiera omfattningen av sin aktivering till ena eller båda Fabrikam Test- eller Fabrikam Dev godkännande krävs inte.
+1. Klicka på **rollinställningar**.
 
-Arbetsflöde för godkännande kanske inte är nödvändigt för alla medlemmar i en roll. Tänk dig ett scenario där din organisation nyanställda flera kontrakt associates som underlättar utvecklingen av ett program som körs i en Azure-prenumeration. Som administratör av en resurs kan du vilja att anställda ska ha berättigad åtkomst utan godkännande krävs dock kontrakt associates måste begära godkännande. Om du vill konfigurera arbetsflöde för godkännande för endast kontrakt associates, kan du skapa en anpassad roll med samma behörigheter som rolltilldelningen för anställda. Du kan kräva godkännande för att aktivera den anpassa rollen. [Mer information om anpassade roller](pim-resource-roles-custom-role-policy.md).
+    ![Rollinställningar](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
-Följ anvisningarna nedan om du vill konfigurera arbetsflöde för godkännande och ange vem som kan godkänna eller neka förfrågningar.
+1. Klicka på den roll som du vill konfigurera inställningarna.
+
+    ![Information om rollinställningar](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
+
+1. Klicka på **redigera** att öppna inställningsfönstret för rollen.
+
+    ![Redigera rollinställningar](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+
+    Det finns flera inställningar som du kan konfigurera i fönstret för roll-inställningen för varje roll.
+
+## <a name="assignment-duration"></a>Tilldelningsvaraktighet
+
+Du kan välja mellan två alternativ för tilldelning varaktighet för varje tilldelning (tillgängliga och aktiva) när du konfigurerar inställningar för en roll. De här alternativen blir standard maximal varaktighet när en medlem har tilldelats rollen i PIM.
+
+Du kan välja någon av dessa **berättigade** tilldelningsalternativ varaktighet:
+
+| | |
+| --- | --- |
+| **Tillåt permanent berättigad uppgift** | Resurs-administratörer kan tilldela permanent berättigad medlemskap. |
+| **Upphör att gälla berättigad uppgift efter** | Resurs-administratörer kan kräva att alla berättigade uppgifter har ett visst datum för start- och slutdatum. |
+
+Och du kan välja någon av dessa **active** tilldelningsalternativ varaktighet:
+
+| | |
+| --- | --- |
+| **Tillåt permanent aktiv uppgift** | Resurs-administratörer kan tilldela permanent aktiv medlemskap. |
+| **Upphör att gälla aktiv uppgift efter** | Resurs-administratörer kan kräva att alla aktiva uppgifter har ett visst datum för start- och slutdatum. |
+
+> [!NOTE] 
+> Alla tilldelningar som har ett angivet slutdatum kan förnyas av resurs-administratörer. Medlemmar kan också initiera självbetjäning begäranden till [utöka eller förnya rolltilldelningar](pim-resource-roles-renew-extend.md).
+
+## <a name="require-multi-factor-authentication"></a>Kräv multifaktorautentisering
+
+PIM innehåller valfria tvingande av Azure Multi-Factor Authentication (MFA) för två olika scenarier.
+
+### <a name="require-multi-factor-authentication-on-active-assignment"></a>Kräv Multi-Factor Authentication vid aktiv uppgift
+
+I vissa fall kanske du vill tilldela en medlem till en roll under en kort period (en dag, till exempel). I det här fallet behöver de inte tilldelade medlemmar ska kunna begära aktivering. I det här scenariot kan inte PIM tvinga MFA när medlemmen använder sina rolltilldelningen, eftersom de redan är aktiv i rollen från den tidpunkt då de är tilldelade.
+
+För att säkerställa att resursadministratören uppfyller tilldelningen är de säger att de är, kan du använda Multifaktorautentisering vid aktiv uppgift genom att markera den **Multi-Factor Authentication vid aktiv uppgift** box.
+
+### <a name="require-multi-factor-authentication-on-activation"></a>Kräv Multi-Factor Authentication vid aktivering
+
+Du kan kräva berättigade medlemmar i en roll att köra MFA innan du kan aktivera. Den här processen säkerställer att den användare som begär aktivering är de säger att de är med rimlig säkerhet. Tillämpa det här alternativet skyddar kritiska resurser i situationer när användarkonton kan ha komprometterats.
+
+För att kräva en behörig medlem att köra MFA innan aktivering, kontrollera den **Multi-Factor Authentication vid aktivering** box.
+
+## <a name="activation-maximum-duration"></a>Aktiveringens maximala varaktighet
+
+Använd den **aktiveringens maximala varaktighet** skjutreglaget för att ange den maximala tiden, i timmar, att en roll förblir aktiv innan den upphör. Det här värdet kan vara mellan 1 och 24 timmar.
+
+## <a name="require-justification"></a>Kräv motivering
+
+Du kan kräva att medlemmar ange en motivering vid aktiv uppgift eller när de aktiverar. För att kräva en anledning, kontrollera den **Kräv motivering vid aktiv uppgift** box eller **Kräv motivering vid aktivering** box.
 
 ## <a name="require-approval-to-activate"></a>Kräv godkännande för att aktivera
 
-1. Bläddra till PIM i Azure-portalen och välj en resurs i listan.
+Följ dessa steg om du vill kräva godkännande för att aktivera en roll.
 
-   ![”Azure-resurser” fönstret med en vald resurs](media/azure-pim-resource-rbac/aadpim_manage_azure_resource_some_there.png)
+1. Kontrollera den **kräver godkännande för att aktivera** markerar du kryssrutan.
 
-2. I den vänstra rutan, Välj **rollinställningar**.
+1. Klicka på **Välj godkännare** att öppna dialogrutan Välj ett fönster som är medlem eller grupp.
 
-3. Sök efter och välj en roll och välj sedan **redigera** att ändra inställningarna.
+    ![Välj en medlem eller en grupp](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
-   ![Knappen ”Redigera” för operatörsrollen](media/azure-pim-resource-rbac/aadpim_rbac_role_settings_view_settings.png)
+1. Välj minst en medlem eller gruppen och klicka sedan på **Välj**. Du kan lägga till valfri kombination av medlemmar och grupper. Du måste välja minst en godkännare. Det finns inga standard godkännare.
 
-4. I den **aktivering** väljer den **kräver godkännande för att aktivera** markerar du kryssrutan.
+    Dina val visas i listan över valda godkännare.
 
-   ![”Aktivera”-delen av rollinställningar](media/azure-pim-resource-rbac/aadpim_rbac_settings_require_approval_checkbox.png)
-
-## <a name="specify-approvers"></a>Ange godkännare
-
-Klicka på **Välj godkännare** att öppna den **väljer en användare eller grupp** fönstret.
-
->[!NOTE]
->Du måste välja minst en användare eller grupp för att uppdatera inställningen. Det finns inga standard godkännare.
-
-Resurs-administratörer kan lägga till valfri kombination av användare och grupper i listan över godkännare. 
-
-![”Välj en användare eller grupp” fönstret med en användare som har valts](media/azure-pim-resource-rbac/aadpim_rbac_role_settings_select_approvers.png)
-
-## <a name="request-approval-to-activate"></a>Begär godkännande för att aktivera
-
-Begära godkännande har ingen inverkan på den procedur som en medlem måste följa för att aktivera. [Gå igenom stegen för att aktivera en roll](pim-resource-roles-activate-your-roles.md).
-
-Om en medlem begärde att aktivering av en roll som kräver godkännande och rollen inte längre behövs, kan medlemmen avbryta begäran i PIM.
-
-Om du vill avbryta, bläddra till PIM och välj **Mina förfrågningar**. Leta reda på begäran och välj **Avbryt**.
-
-![Fönstret ”Mina begäranden”](media/azure-pim-resource-rbac/aadpim_rbac_role_approval_request_pending.png)
+1. När du har angett alla dina rollinställningarna, klickar du på **uppdatering** att spara dina ändringar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Kräv multifaktorautentisering för Azure-resursroller i PIM](pim-resource-roles-require-mfa.md)
+- [Tilldela Azure-resursroller i PIM](pim-resource-roles-assign-roles.md)
 - [Konfigurera säkerhetsaviseringar för Azure-resursroller i PIM](pim-resource-roles-configure-alerts.md)

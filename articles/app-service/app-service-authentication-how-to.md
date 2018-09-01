@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: 191d42f43e500c7f8041a02aeba2fbcb7dfd5379
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 629a76ab5610625e14780d7b5c57d3979c2224c9
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226534"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344178"
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Anpassa autentisering och auktorisering i Azure App Service
 
@@ -34,9 +34,9 @@ Om du vill komma igång snabbt, finns i följande Självstudier:
 * [Så här konfigurerar du din app för att använda Microsoft-kontoinloggning](app-service-mobile-how-to-configure-microsoft-authentication.md)
 * [Så här konfigurerar du din app för att använda Twitter-inloggning](app-service-mobile-how-to-configure-twitter-authentication.md)
 
-## <a name="configure-multiple-sign-in-options"></a>Konfigurera flera inloggningsalternativ
+## <a name="use-multiple-sign-in-providers"></a>Använda flera inloggning-providers
 
-Ett NYCKELFÄRDIGT sätt att presentera flera inloggningsalternativ för dina användare (till exempel både Facebook och Twitter) omfattas inte av Portalkonfiguration. Men det är inte svårt att lägga till funktioner till din webbapp. Stegen beskrivs i följande:
+Ett NYCKELFÄRDIGT sätt att presentera flera inloggning providers för dina användare (till exempel både Facebook och Twitter) omfattas inte av Portalkonfiguration. Men det är inte svårt att lägga till funktioner till din webbapp. Stegen beskrivs i följande:
 
 Först i den **autentisering / auktorisering** i Azure-portalen kan konfigurera var och en för den identitetsprovider som du vill aktivera.
 
@@ -58,6 +58,50 @@ För att omdirigera användaren efter-registrerings-modulen till en anpassad URL
 
 ```HTML
 <a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
+```
+
+## <a name="sign-out-of-a-session"></a>Logga ut från en session
+
+Användare kan initiera en utloggning genom att skicka en `GET` begäran till appens `/.auth/logout` slutpunkt. Den `GET` begäran utför följande:
+
+- Tar bort autentiseringscookies från den aktuella sessionen.
+- Tar bort den aktuella användarens token från arkivet för token.
+- Utför en serversidan utloggning identitetsleverantören för Azure Active Directory och Google.
+
+Här är en enkel utloggning länk i en webbsida:
+
+```HTML
+<a href="/.auth/logout">Sign out</a>
+```
+
+Som standard en lyckad utloggning dirigerar om klienten till URL: en `/.auth/logout/done`. Du kan ändra post-sign-out Omdirigeringssida genom att lägga till den `post_logout_redirect_uri` frågeparameter. Exempel:
+
+```
+GET /.auth/logout?post_logout_redirect_uri=/index.html
+```
+
+Det vi rekommenderar att du [koda](https://wikipedia.org/wiki/Percent-encoding) värdet för `post_logout_redirect_uri`.
+
+När du använder fullständiga URL: er, måste URL: en vara antingen finns i samma domän eller konfigurerad som en tillåtna externa omdirigerings-URL för din app. I följande exempel visas att omdirigera till `https://myexternalurl.com` som inte finns i samma domän:
+
+```
+GET /.auth/logout?post_logout_redirect_uri=https%3A%2F%2Fmyexternalurl.com
+```
+
+Du måste köra följande kommando i den [Azure Cloud Shell](../cloud-shell/quickstart.md):
+
+```azurecli-interactive
+az webapp auth update --name <app_name> --resource-group <group_name> --allowed-external-redirect-urls "https://myexternalurl.com"
+```
+
+## <a name="preserve-url-fragments"></a>Bevara URL fragment
+
+När användare loggar in på din app, vanligtvis ska omdirigeras till samma avsnitt i samma sida, till exempel `/wiki/Main_Page#SectionZ`. Men eftersom [URL fragment](https://wikipedia.org/wiki/Fragment_identifier) (till exempel `#SectionZ`) skickas aldrig till servern, de inte bevaras som standard när OAuth-inloggningen har slutförts och omdirigerar tillbaka till din app. Användare får sedan en optimal upplevelse när de behöver för att navigera till den önskade fästpunkten igen. Den här begränsningen gäller för alla autentiseringslösningar för serversidan.
+
+Du kan bevara URL fragment över OAuth-inloggningen i App Service-autentisering. Gör detta genom att ange en app som heter `WEBSITE_AUTH_PRESERVE_URL_FRAGMENT` till `true`. Du kan göra det den [Azure-portalen](https://portal.azure.com), eller helt enkelt att köra följande kommando den [Azure Cloud Shell](../cloud-shell/quickstart.md):
+
+```azurecli-interactive
+az webapp config appsettings set --name <app_name> --resource-group <group_name> --settings WEBSITE_AUTH_PRESERVE_URL_FRAGMENT="true"
 ```
 
 ## <a name="access-user-claims"></a>Användaranspråk för åtkomst

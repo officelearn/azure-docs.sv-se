@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 07/20/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 65495893d93fddd6d8e13ae80720e002ac7d8efa
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 5732f6986750dfee49084e2744052bb54e3a8139
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307496"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382575"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka C-moduler för Azure IoT Edge
 
@@ -35,9 +35,7 @@ Eftersom den här artikeln används Visual Studio Code som det huvudsakliga utve
 Om du vill skapa en modul, behöver du Docker för att skapa modulen avbildningen och ett behållarregister ska lagra avbildningen modulen:
 * [Docker Community Edition](https://docs.docker.com/install/) på utvecklingsdatorn. 
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) eller [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
-
-   > [!TIP]
-   > Du kan använda en lokal Docker-register för prototyper och testning i stället för ett register i molnet. 
+   * Du kan använda en lokal Docker-register för prototyper och testning i stället för ett register i molnet. 
 
 Testa din modul på en enhet, behöver du en aktiv IoT-hubb med minst en IoT Edge-enhet. Om du vill använda din dator som en IoT Edge-enhet följer du stegen i snabbstarten för [Windows](quickstart.md) eller [Linux](quickstart-linux.md). 
 
@@ -46,16 +44,24 @@ Testa din modul på en enhet, behöver du en aktiv IoT-hubb med minst en IoT Edg
 Gör följande för att skapa en IoT Edge-modul som baseras på Azure IoT C SDK med hjälp av Visual Studio Code och Azure IoT Edge-tillägget. Först skapar du en lösning och sedan skapa den första modulen i lösningen. Varje lösning kan innehålla mer än en modul. 
 
 1. I Visual Studio Code, Välj **visa** > **integrerade terminalen**.
-3. Välj **visa** > **kommandot paletten**. 
-4. Ange i kommandopaletten, och kör kommandot **Azure IoT Edge: nya IoT Edge-lösning**.
+
+2. Välj **visa** > **kommandot paletten**. 
+
+3. Ange i kommandopaletten, och kör kommandot **Azure IoT Edge: nya IoT Edge-lösning**.
 
    ![Kör ny IoT Edge-lösning](./media/how-to-develop-csharp-module/new-solution.png)
 
-5. Bläddra till mappen där du vill skapa den nya lösningen. Välj **Välj mapp**. 
-6. Ange ett namn för din lösning. 
-7. Välj **C modulen** som mall för den första modulen i lösningen.
-8. Ange ett namn för din modul. Välj ett namn som är unikt i ditt behållarregister. 
-9. Ange namnet på modulens avbildningslagringsplatsen. VS Code autopopulates modulen namnet med **localhost:5000**. Ersätt den med din egen information i registret. Om du använder en lokal Docker-register för testning, sedan **localhost** är bra. Om du använder Azure Container Registry kan du sedan använda inloggningsserver från din registerinställningar. Det ser ut som inloggningsserver  **\<registernamn\>. azurecr.io**.
+4. Bläddra till mappen där du vill skapa den nya lösningen. Välj **Välj mapp**. 
+
+5. Ange ett namn för din lösning. 
+
+6. Välj **C modulen** som mall för den första modulen i lösningen.
+
+7. Ange ett namn för din modul. Välj ett namn som är unikt i ditt behållarregister. 
+
+8. Ange namnet på modulens avbildningslagringsplatsen. VS Code autopopulates modulen namnet med **localhost:5000**. Ersätt den med din egen information i registret. Om du använder en lokal Docker-register för testning, sedan **localhost** är bra. Om du använder Azure Container Registry kan du sedan använda inloggningsserver från din registerinställningar. Det ser ut som inloggningsserver  **\<registernamn\>. azurecr.io**. Ersätt endast localhost-delen av strängen; ta inte bort modulens namn. 
+
+   ![Ange lagringsplatsen för Docker-avbildningen](./media/how-to-develop-c-module/repository.png)
 
 VS Code tar den information du tillhandahålls, skapar en IoT Edge-lösning och läser sedan in den i ett nytt fönster.
 
@@ -73,7 +79,7 @@ Det finns fyra objekt inne i lösningen:
 
 ## <a name="develop-your-module"></a>Utveckla din modell
 
-C-modul-koden som medföljer lösningen finns i **moduler** > **\<din Modulnamn\>** > **main.c** . Modulen och filen deployment.template.json ställs in så att du kan skapa lösningen, push-överföra den till behållarregistret och distribuera den till en enhet för att börja testa utan att röra kod. Modulen är utformat för att helt enkelt ta indata från en källa (i det här fallet modulen tempSensor som simulerar data) och skicka det till IoT Hub. 
+C-modul-koden som medföljer lösningen finns i **moduler** > [Modulnamn] > **main.c**. Modulen och filen deployment.template.json ställs in så att du kan skapa lösningen, push-överföra den till behållarregistret och distribuera den till en enhet för att börja testa utan att röra kod. Modulen är utformat för att helt enkelt ta indata från en källa (i det här fallet modulen tempSensor som simulerar data) och skicka det till IoT Hub. 
 
 När du är redo att anpassa mallen C med din egen kod kan använda den [Azure IoT Hub SDK: er](../iot-hub/iot-hub-devguide-sdks.md) att skapa moduler adressen nyckeln måste för IoT-lösningar som säkerhet, hantering av enheter och tillförlitlighet. 
 

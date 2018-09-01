@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: ede8fab67c04eb7ce8d26280de2d1563b6cc8ad2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: defc871caed429eeda1f8672323b48a9c0007c8e
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38678748"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371745"
 ---
 # <a name="create-a-windows-virtual-machine-with-the-simplified-new-azurermvm-cmdlet-in-cloud-shell"></a>Skapa en Windows-dator med förenklad cmdlet New-AzureRMVM i Cloud Shell 
 
-Den [New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) cmdlet har lagt till en förenklad parameteruppsättning för att skapa en ny virtuell dator med hjälp av PowerShell. Det här avsnittet visar hur du använder PowerShell i Azure Cloud Shell, med den senaste versionen av cmdleten New-AzureVM förinstallerad, för att skapa en ny virtuell dator. Vi använder en förenklad parameteruppsättning som automatiskt skapar alla nödvändiga resurser med hjälp av smarta standardinställningar. 
+Den [New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm?view=azurermps-6.8.1) cmdlet har lagt till en förenklad parameteruppsättning för att skapa en ny virtuell dator med hjälp av PowerShell. Det här avsnittet visar hur du använder PowerShell i Azure Cloud Shell, med den senaste versionen av cmdleten New-AzureVM förinstallerad, för att skapa en ny virtuell dator. Vi använder en förenklad parameteruppsättning som automatiskt skapar alla nödvändiga resurser med hjälp av smarta standardinställningar. 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -36,7 +36,7 @@ Om du väljer att installera och använda PowerShell lokalt kräver den här sj�
 
 ## <a name="create-the-vm"></a>Skapa den virtuella datorn
 
-Du kan använda den [New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) cmdlet för att skapa en virtuell dator med smarta standardinställningar som inbegriper med hjälp av Windows Server 2016 Datacenter-avbildning från Azure Marketplace. Du kan använda New-AzureRMVM med bara de **-namnet** parametern och den använder detta värde för alla resursnamnen. I det här exemplet har vi ställt in parametern **-Name** som *myVM*. 
+Du kan använda den [New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm?view=azurermps-6.8.1) cmdlet för att skapa en virtuell dator med smarta standardinställningar som inbegriper med hjälp av Windows Server 2016 Datacenter-avbildning från Azure Marketplace. Du kan använda New-AzureRMVM med bara de **-namnet** parametern och den använder detta värde för alla resursnamnen. I det här exemplet har vi ställt in parametern **-Name** som *myVM*. 
 
 Kontrollera att **PowerShell** är valt i Cloud Shell och skriv:
 

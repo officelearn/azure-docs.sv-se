@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 8/17/2017
 ms.author: ghogen
-ms.openlocfilehash: e4a72729cfe69a810e0eec0a0ac6ddb87a468932
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 4b14fa44f484735f2a5efee4d631a6f48e6a8bf6
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42059700"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382644"
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Konfigurera och använda Lagringsemulatorn med Visual Studio
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -33,7 +33,7 @@ Detaljerad information om storage-emulatorn, inklusive systemkrav och anpassade 
 > 
 
 ## <a name="configuring-a-connection-string-for-the-storage-emulator"></a>Konfigurera en anslutningssträng för storage-emulatorn
-Om du vill komma åt storage-emulatorn från kod i en roll måste vill du konfigurera en anslutningssträng som pekar på storage-emulatorn och som kan senare ändras för att peka mot ett Azure storage-konto. En anslutningssträng är en konfigurationsinställning som din roll kan läsa vid körning för att ansluta till ett lagringskonto. Mer information om hur du skapar anslutningssträngar finns i [konfiguration av Azure-programmet](https://msdn.microsoft.com/library/azure/2da5d6ce-f74d-45a9-bf6b-b3a60c5ef74e#BK_SettingsPage).
+Om du vill komma åt storage-emulatorn från kod i en roll måste vill du konfigurera en anslutningssträng som pekar på storage-emulatorn och som kan senare ändras för att peka mot ett Azure storage-konto. En anslutningssträng är en konfigurationsinställning som din roll kan läsa vid körning för att ansluta till ett lagringskonto. Mer information om hur du skapar anslutningssträngar finns i [konfigurera Azure Storage-anslutningssträngar](/azure/storage/common/storage-configure-connection-string).
 
 > [!NOTE]
 > Du kan returnera en referens till storage-emulatorn-kontot från din kod med hjälp av den **DevelopmentStorageAccount** egenskapen. Den här metoden fungerar korrekt om du vill komma åt storage-emulatorn från din kod, men om du planerar att publicera programmet till Azure måste du skapa en anslutningssträng för att få åtkomst till ditt Azure storage-konto och ändra koden om du vill använda denna anslutning sträng innan du publicerar den. Om du byter mellan storage-emulatorn-konto och ett Azure storage-konto ofta, kommer en anslutningssträng förenklar processen.

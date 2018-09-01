@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 06/27/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e78a2c3492ebab2ac9f23f607e5bcaa0481003d9
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: a4d6d7bfe259e8616a51100162594315a5d37546
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287806"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382435"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka C#-moduler för Azure IoT Edge
 
@@ -36,9 +36,7 @@ Om du vill skapa en modul måste .NET för att skapa projektmappen, Docker för 
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
 * [Docker Community Edition](https://docs.docker.com/install/) på utvecklingsdatorn. 
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) eller [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
-
-   > [!TIP]
-   > Du kan använda en lokal Docker-register för prototyper och testning i stället för ett register i molnet. 
+   * Du kan använda en lokal Docker-register för prototyper och testning i stället för ett register i molnet. 
 
 Testa din modul på en enhet, behöver du en aktiv IoT-hubb med minst en IoT Edge-enhet. Om du vill använda din dator som en IoT Edge-enhet följer du stegen i snabbstarten för [Windows](quickstart.md) eller [Linux](quickstart-linux.md). 
 
@@ -56,7 +54,9 @@ Gör följande för att skapa en IoT Edge-modul som baseras på .NET Core 2.0 me
 6. Ange ett namn för din lösning. 
 7. Välj **C#-modul** som mall för den första modulen i lösningen.
 8. Ange ett namn för din modul. Välj ett namn som är unikt i ditt behållarregister. 
-9. Ange namnet på modulens avbildningslagringsplatsen. VS Code autopopulates modulen namnet med **localhost:5000**. Ersätt den med din egen information i registret. Om du använder en lokal Docker-register för testning, sedan **localhost** är bra. Om du använder Azure Container Registry kan du sedan använda inloggningsserver från din registerinställningar. Det ser ut som inloggningsserver  **\<registernamn\>. azurecr.io**.
+9. Ange namnet på modulens avbildningslagringsplatsen. VS Code autopopulates modulen namnet med **localhost:5000**. Ersätt den med din egen information i registret. Om du använder en lokal Docker-register för testning, sedan **localhost** är bra. Om du använder Azure Container Registry kan du sedan använda inloggningsserver från din registerinställningar. Det ser ut som inloggningsserver  **\<registernamn\>. azurecr.io**. Ersätt endast localhost-delen av strängen; ta inte bort modulens namn.
+
+   ![Ange lagringsplatsen för Docker-avbildningen](./media/how-to-develop-csharp-module/repository.png)
 
 VS Code tar den information du tillhandahålls, skapar en IoT Edge-lösning och läser sedan in den i ett nytt fönster.
 
@@ -74,7 +74,7 @@ Det finns fyra objekt inne i lösningen:
 
 ## <a name="develop-your-module"></a>Utveckla din modell
 
-Standard Azure Function-koden som medföljer lösningen finns i **moduler** > **\<din Modulnamn\>**   >   **Program.CS**. Modulen och filen deployment.template.json ställs in så att du kan skapa lösningen, push-överföra den till behållarregistret och distribuera den till en enhet för att börja testa utan att röra kod. Modulen är utformat för att helt enkelt ta indata från en källa (i det här fallet modulen tempSensor som simulerar data) och skicka det till IoT Hub. 
+Standard Azure Function-koden som medföljer lösningen finns i **moduler** > [Modulnamn] > **Program.cs**. Modulen och filen deployment.template.json ställs in så att du kan skapa lösningen, push-överföra den till behållarregistret och distribuera den till en enhet för att börja testa utan att röra kod. Modulen är utformat för att helt enkelt ta indata från en källa (i det här fallet modulen tempSensor som simulerar data) och skicka det till IoT Hub. 
 
 När du är redo att anpassa mallen C# med din egen kod kan använda den [Azure IoT Hub SDK: er](../iot-hub/iot-hub-devguide-sdks.md) att skapa moduler adressen nyckeln måste för IoT-lösningar som säkerhet, hantering av enheter och tillförlitlighet. 
 

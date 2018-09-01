@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/29/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: cf96e153c07211fe176839e713935adcf6b9dbe1
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 31b137cca55b1dd249368ba5e287496582152c9f
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306970"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382668"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>Återställa Azure SQL Data Warehouse 
 I den här artikeln får du lära dig hur du gör följande:
@@ -25,6 +25,10 @@ I den här artikeln får du lära dig hur du gör följande:
 - Återställa från en borttagen databas
 - Återställa från en geo-säkerhetskopia
 - Skapa en kopia av ditt informationslager från en användardefinierad återställningspunkt
+
+> [!NOTE]
+> Från och med 8/27, har återställning av flera servrar inaktiverats på grund av en känd regression. Vi arbetar på att lösa med vår högsta prioritet. Vi ber om ursäkt för detta. Under tiden kan du utnyttja din [geosäkerhetskopieringen](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore#restore-from-an-azure-geographical-region) att återställa alla servrar.  
+>
 
 ## <a name="before-you-begin"></a>Innan du börjar
 **Kontrollera din DTU-kapacitet.** Varje SQL Data Warehouse finns på en SQLServer (t.ex. myserver.database.windows.net) som har en standard DTU-kvot.  Innan du kan återställa ett SQL data warehouse, kontrollerar du att den SQLServer har tillräckligt med återstående DTU-kvot för den databas som återställs. Läs hur du beräkna DTU behövs eller begära mer DTU i [begära en DTU-kvot ändring][Request a DTU quota change].

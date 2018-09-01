@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a7d62531492695be6ec148c3bf7b9786b2a428cf
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: d5b01566f672309837f738e185820a0f13eda1c1
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247403"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382262"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -112,7 +112,7 @@ Så här visar resultatet i CSV:
 ```
 
 ### <a name="system-requirements"></a>Systemkrav
-- En server som kör Windows Server 2012 R2 eller Windows Server 2016 
+- En server som kör Windows Server 2012 R2 eller Windows Server 2016:
 
     | Version | Godkända SKU: er | Distributionsalternativen som stöds |
     |---------|----------------|------------------------------|
@@ -121,15 +121,15 @@ Så här visar resultatet i CSV:
 
     Framtida versioner av Windows Server läggs till när de blir tillgängliga. Tidigare versioner av Windows kan läggas till baserat på feedback från användare.
 
-- En server med minst 2GB minne
+    > [!Important]  
+    > Vi rekommenderar att alla servrar som du använder med Azure File Sync uppdaterad med de senaste uppdateringarna från Windows Update. 
+
+- En server med minst 2 GiB minne.
 
     > [!Important]  
-    > Om servern körs på en virtuell dator med dynamiskt minne aktiverat, kommer den virtuella datorn ska konfigureras med en minsta 2048MB minne.
+    > Om servern körs på en virtuell dator med dynamiskt minne aktiverat, kommer den virtuella datorn ska konfigureras med en minsta 2048 MiB minne.
     
-- En lokalt ansluten volym som formaterats med NTFS-filsystemet
-
-> [!Important]  
-> Vi rekommenderar att alla servrar som du använder med Azure File Sync uppdaterad med de senaste uppdateringarna från Windows Update. 
+- En lokalt ansluten volym som formaterats med NTFS-filsystemet.
 
 ### <a name="file-system-features"></a>Filsystem: funktioner
 | Funktion | Supportstatus | Anteckningar |

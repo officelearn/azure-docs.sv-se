@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: bb46881425398618df54288a9d2e6d65bb03dad4
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: ce226bb34c5ff8a7ea7dc44d8428da2bb09e25e5
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42061511"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382390"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Hantera klienten registrering i Azure Stack
 
@@ -154,4 +154,4 @@ Du kan ta bort klient mappningarna med åtgärden ta bort.
 
 ## <a name="next-steps"></a>Nästa steg
 
- - Läs mer om hur du hämtar information om användning från Azure Stack i [användning och fakturering i Azure Stack](/azure-stack-billing-and-chargeback.md).
+ - Läs mer om hur du hämtar information om användning från Azure Stack i [användning och fakturering i Azure Stack](azure-stack-billing-and-chargeback.md).

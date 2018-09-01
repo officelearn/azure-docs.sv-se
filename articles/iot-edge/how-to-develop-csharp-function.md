@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bf2d1af66cc3ecc35dafe3bcd43bf10399d71641
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 4b4f9bd1c7390d64a0db08b55bfb777498a10cb0
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346723"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382713"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-azure-functions-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka Azure functions för Azure IoT Edge
 
@@ -33,12 +33,11 @@ Den här artikeln används Visual Studio Code som det huvudsakliga utvecklingsve
 * [Docker-tillägg](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 
 Om du vill skapa en modul måste .NET för att skapa projektmappen, Docker för att skapa modulen avbildningen och ett behållarregister ska lagra avbildningen modulen:
+
 * [.NET core SDK 2.1](https://www.microsoft.com/net/download)
 * [Docker Community Edition](https://docs.docker.com/install/) på utvecklingsdatorn 
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) eller [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
-
-   > [!TIP]
-   > Du kan använda en lokal Docker-register för prototyper och testning i stället för ett register i molnet. 
+   * Du kan använda en lokal Docker-register för prototyper och testning i stället för ett register i molnet. 
 
 Testa din modul på en enhet, behöver du en aktiv IoT-hubb med minst en IoT Edge-enhet. Om du vill använda din dator som en IoT Edge-enhet följer du stegen i snabbstarten för [Windows](quickstart.md) eller [Linux](quickstart-linux.md). 
 
@@ -56,7 +55,9 @@ Gör följande för att skapa en IoT Edge-lösning som har en C#-funktionsmodul.
 6. Ange ett namn för din lösning. 
 7. Välj **Azure Functions – C#** som mall för den första modulen i lösningen.
 8. Ange ett namn för din modul. Välj ett namn som är unikt i ditt behållarregister. 
-9. Ange avbildningslagringsplatsen för modulen. VS Code autopopulates modulen namnet med **localhost:5000**. Ersätt den med din egen information i registret. Om du använder en lokal Docker-register för testning, sedan **localhost** är bra. Om du använder Azure Container Registry kan du sedan använda inloggningsserver från din registerinställningar. Det ser ut som inloggningsserver  **\<registernamn\>. azurecr.io**.
+9. Ange avbildningslagringsplatsen för modulen. VS Code autopopulates modulen namnet med **localhost:5000**. Ersätt den med din egen information i registret. Om du använder en lokal Docker-register för testning, sedan **localhost** är bra. Om du använder Azure Container Registry kan du sedan använda inloggningsserver från din registerinställningar. Det ser ut som inloggningsserver  **\<registernamn\>. azurecr.io**. Ersätt endast localhost-delen av strängen; ta inte bort modulens namn.
+
+   ![Ange lagringsplatsen för Docker-avbildningen](./media/how-to-develop-csharp-function/repository.png)
 
 VS Code tar den information du tillhandahålls, skapar en IoT Edge-lösning med Azure Functions-projekt och läser sedan in den i ett nytt fönster.
 
@@ -73,7 +74,7 @@ Det finns fyra objekt inne i lösningen:
 
 ## <a name="develop-your-module"></a>Utveckla din modell
 
-Standard Azure Function-koden som medföljer lösningen finns i **moduler** > **\<din Modulnamn\>**   >   **EdgeHubTrigger-Csharp** > **run.csx**. Modulen och filen deployment.template.json ställs in så att du kan skapa lösningen, push-överföra den till behållarregistret och distribuera den till en enhet för att börja testa utan att röra kod. Modulen är utformat för att helt enkelt ta indata från en källa (i det här fallet modulen tempSensor som simulerar data) och skicka det till IoT Hub. 
+Standard Azure Function-koden som medföljer lösningen finns i **moduler** > [Modulnamn] > **EdgeHubTrigger-Csharp** > **run.csx** . Modulen och filen deployment.template.json ställs in så att du kan skapa lösningen, push-överföra den till behållarregistret och distribuera den till en enhet för att börja testa utan att röra kod. Modulen är utformat för att helt enkelt ta indata från en källa (i det här fallet modulen tempSensor som simulerar data) och skicka det till IoT Hub. 
 
 När du är redo att anpassa Azure Function-mallen med din egen kod kan använda den [Azure IoT Hub SDK: er](../iot-hub/iot-hub-devguide-sdks.md) att skapa moduler adressen nyckeln måste för IoT-lösningar som säkerhet, hantering av enheter och tillförlitlighet. 
 
@@ -85,7 +86,7 @@ När du är redo att anpassa Azure Function-mallen med din egen kod kan använda
 2. Återskapa din lösning. Ange i kommandopaletten VS Code och kör kommandot **Azure IoT Edge: skapa IoT Edge-lösningen**.
 3. Högerklicka på en IoT Edge-enhets-ID i Azure IoT Hub-enheter explorer och välj sedan **skapa distribution för Edge-enhet**. Välj den `deployment.json` fil i den `config` mapp. Distributionen har skapats med en distributions-ID i en terminal för VS Code-integrerade visas.
 
-Kontrollera behållarstatus för i VS Code Docker explorer eller genom att köra den `docker images` i terminalen.
+Kontrollera behållarstatus för i VS Code Docker explorer eller genom att köra den `docker ps` i terminalen.
 
 ## <a name="start-debugging-c-functions-in-vs-code"></a>Starta felsökning C#-funktioner i VS Code
 1. VS Code håller felsökning konfigurationsinformationen i en `launch.json` finns i en `.vscode` mapp i din arbetsyta. Detta `launch.json` filen genererades när du skapade en ny IoT Edge-lösning. Uppdateras varje gång du lägger till en ny modul som har stöd för felsökning. Gå till felsökningsvyn. Välj den motsvarande debug-konfigurationsfilen. Alternativnamn debug bör likna **ModuleName fjärrfelsökning (.NET Core)**.

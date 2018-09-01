@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashesvi
-ms.openlocfilehash: 2283a12845a3b334e29e3f48cbadb99ad508e459
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: c530fdca9d5fe499df680211a741bfd9950bb1fe
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301589"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382158"
 ---
-# <a name="manage-reservations-for-resources-in-azure"></a>Hantera reservationer för resurser i Azure
+# <a name="manage-reservations-for-azure-resources"></a>Hantera reservationer för Azure-resurser
 
 När du köper en Reservation för Azure kan behöva du använda reservationen i en annan prenumeration, ändra vem som kan hantera reservationen eller ändra omfattningen för reservationen. Du kan också dela upp en reservation i två reservationer att tillämpa vissa av de instanser som du har köpt till en annan prenumeration.
 
@@ -60,7 +60,7 @@ Att delegera hantering för en reservation:
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>Dela en enda reservation i två reservationer
 
- När du köper fler än en resursinstans inom en reservation kan du tilldela instanser inom det reserverade till olika prenumerationer. Som standard alla instanser har ett scope - antingen enstaka prenumeration eller delat. Exempel: du har köpt 10 Standard D2 virtuella datorer och angav omfång till prenumeration A. Du kan nu vill ändra omfattningen för 7 reservationer i prenumeration A och återstående 3 till B. dela upp en reservation-prenumeration kan du distribuera instanser för hantering av detaljerade säkerhetsomfattning. Du kan förenkla allokering till prenumerationer genom att välja delade omfattningen. Men för cost management eller budgetering, kan du allokera kvantiteter till specifika prenumerationer.
+ När du köper fler än en resursinstans inom en reservation kan du tilldela instanser inom det reserverade till olika prenumerationer. Som standard alla instanser har ett scope - antingen enstaka prenumeration eller delat. Exempelvis kan du köpt 10 reserverade instanser och angav omfång till prenumeration A. Du kan nu vill ändra omfattningen för 7 reservationer i prenumeration A och återstående 3 till B. dela upp en reservation-prenumeration kan du distribuera instanser för hantering av detaljerade säkerhetsomfattning. Du kan förenkla allokering till prenumerationer genom att välja delade omfattningen. Men för cost management eller budgetering, kan du allokera kvantiteter till specifika prenumerationer.
 
  Du kan dela upp en reservation i två reservationer och PowerShell, CLI, eller via API: et.
 
@@ -86,6 +86,7 @@ Att delegera hantering för en reservation:
     Split-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a -Quantity 3,2
     ```
 4. Du kan uppdatera omfattningen genom att köra följande kommando:
+
     ```powershell
     Update-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
     ```
@@ -113,7 +114,9 @@ Om du vill veta mer om Azure reservationer, finns i följande artiklar:
 - [Vad är Azure reservationer?](billing-save-compute-costs-reservations.md)
 - [Förskottsbetala för virtuella datorer med Azure reserverade VM-instanser](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Betala i förskott för beräkningsresurser för SQL-databas med Azure SQL Database reserverad kapacitet](../sql-database/sql-database-reserved-capacity.md)
+- [Betala i förskott för SUSE programvaruplaner från Azure-reservationer](../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Förstå hur VM-reservationsrabatten tillämpas](billing-understand-vm-reservation-charges.md)
+- [Förstå hur SUSE Linux Enterprise software plan rabatten](../billing/billing-understand-suse-reservation-charges.md)
 - [Förstå hur andra reservationen rabatter](billing-understand-reservation-charges.md)
 - [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
 - [Förstå användningen av reserverade för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)

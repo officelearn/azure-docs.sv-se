@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a628e28e9e6bd603fb2a3789c3281bc2181c91fe
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 2283f55be1a17ec95c73878d42d3acf4d0503e07
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42061485"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371380"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konton och behörigheter
 
@@ -42,7 +42,7 @@ Förutom dessa tre konton som används för att köra Azure AD Connect, måste d
 - **Administratörskontot för AD DS Enterprise**: används för att installera Azure AD Connect
 - **Azure AD globala administratörskonto**: används för att skapa konto för Azure AD-koppling och konfigurera Azure AD.
 
-- **SQL-SA-kontot (valfritt)**: används för att skapa ADSync-databas när du använder den fullständiga versionen av SQL Server.  Den här SQL-servern kan vara lokal eller fjärransluten till Azure AD Connect-installationen.  Det här kontot kan vara samma konto som företagsadministratör.  Distribuera databasen nu utförs out of band av SQL-administratören och installeras sedan av Azure AD Connect-administratören med databasägarrättigheter.  Information om den här finns [installera Azure AD Connect med SQL-delegerade administratörsbehörigheter]()
+- **SQL-SA-kontot (valfritt)**: används för att skapa ADSync-databas när du använder den fullständiga versionen av SQL Server.  Den här SQL-servern kan vara lokal eller fjärransluten till Azure AD Connect-installationen.  Det här kontot kan vara samma konto som företagsadministratör.  Distribuera databasen nu utförs out of band av SQL-administratören och installeras sedan av Azure AD Connect-administratören med databasägarrättigheter.  Information om den här finns [installera Azure AD Connect med SQL-delegerade administratörsbehörigheter](active-directory-aadconnect-sql-delegation.md)
 
 ## <a name="installing-azure-ad-connect"></a>Installerar Azure AD Connect
 Installationsguiden för Azure AD Connect innehåller två olika sökvägar:

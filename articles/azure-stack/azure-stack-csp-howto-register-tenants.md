@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: d5f775761def1c06063cd02b4141c5de2a752cce
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: d3fc3ef6c5fdcf5a87c691c73169ef2bec95805e
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089918"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382696"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Lägg till klient för användning och fakturering i Azure Stack
 
@@ -91,5 +91,5 @@ När du har lagt till den nya kunden till Azure Stack eller kundklient slutet ha
 ## <a name="next-steps"></a>Nästa steg
 
  - Felmeddelanden om de aktiveras i din registreringen finns i [klient registrering felmeddelanden](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes).
- - Läs mer om hur du hämtar information om användning från Azure Stack i [användning och fakturering i Azure Stack](/azure-stack-billing-and-chargeback.md).
+ - Läs mer om hur du hämtar information om användning från Azure Stack i [användning och fakturering i Azure Stack](azure-stack-billing-and-chargeback.md).
  - Om du vill granska hur en slutkund kan lägga till dig, som CSP: N, chef för deras Azure Stack-klientorganisation, se [aktivera en Molntjänstleverantör att hantera din prenumeration för Azure Stack](user\azure-stack-csp-enable-billing-usage-tracking.md).

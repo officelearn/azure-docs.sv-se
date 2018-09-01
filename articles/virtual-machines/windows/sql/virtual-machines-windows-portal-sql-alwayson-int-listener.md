@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 7ef26dc5fa7676ca590d56978c735bf4a195440b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e87b58ecd72291365f9eba70c807e3018c02ae07
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698058"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382747"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Konfigurera en belastningsutjämnare för en Always On-tillgänglighetsgrupp i Azure
 Den här artikeln förklarar hur du skapar en belastningsutjämnare för en SQL Server Always On-tillgänglighetsgrupp i Azure virtuella datorer som körs med Azure Resource Manager. En tillgänglighetsgrupp kräver en belastningsutjämnare när SQL Server-instanserna är på Azure virtual machines. Belastningsutjämnaren lagrar IP-adressen för tillgänglighetsgruppens lyssnare. Om en tillgänglighetsgrupp sträcker sig över flera regioner, måste en belastningsutjämnare i varje region.
@@ -298,6 +298,8 @@ Om en tillgänglighetsgrupp deltar i en distribuerad tillgänglighetsgrupp, mås
    |**Flytande IP (direkt serverreturnering)** | Enabled
 
 Upprepa dessa steg för belastningsutjämnaren på andra tillgänglighetsgrupperna som deltar i distribuerade Tillgänglighetsgrupper.
+
+Om du är att begränsa åtkomst med en Azure Network Security Group, se till att Tillåt-reglerna omfattar serverdel SQL Server VM IP-adresser och belastningsutjämnare flytande IP-adresser för AG-lyssnare och klustrets core IP-adress om det är tillämpligt.
 
 ## <a name="next-steps"></a>Nästa steg
 

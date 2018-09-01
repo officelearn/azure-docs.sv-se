@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 06/26/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fbf8a0302ae8414f49a055ab260a52222425ab7c
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 6976314929ac2e0e099e8c2f07da32970bc57509
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287202"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382515"
 ---
 # <a name="develop-and-debug-nodejs-modules-with-azure-iot-edge-for-visual-studio-code"></a>Utveckla och Felsök Node.js-moduler med Azure IoT Edge för Visual Studio Code
 
@@ -35,9 +35,7 @@ Om du vill skapa en modul, behöver du Node.js som innehåller npm för att skap
 * [Node.js](https://nodejs.org)
 * [Docker](https://docs.docker.com/engine/installation/)
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) eller [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
-
-   >[!TIP]
-   >Du kan använda en lokal Docker-register för prototyper och testning i stället för ett register i molnet. 
+   * Du kan använda en lokal Docker-register för prototyper och testning i stället för ett register i molnet. 
 
 Testa din modul på en enhet, behöver du en aktiv IoT-hubb med minst en IoT Edge-enhet. Om du vill använda din dator som en IoT Edge-enhet kan du göra det genom att följa stegen i självstudier för [Windows](quickstart.md) eller [Linux](quickstart-linux.md). 
 
@@ -60,7 +58,9 @@ Följande steg visar hur du skapar en IoT Edge-modul baserat på Node.js med hj�
 6. Ange ett namn för din lösning. 
 7. Välj **Node.js-modulen** som mall för den första modulen i lösningen.
 8. Ange ett namn för din modul. Välj ett namn som är unikt i ditt behållarregister. 
-9. Ange avbildningslagringsplatsen för modulen. VS Code autopopulates modulen namn, så du behöver bara ersätta **localhost:5000** med din egen information i registret. Om du använder en lokal Docker-register för testning, är det bra med localhost. Om du använder Azure Container Registry kan du sedan använda inloggningsserver från din registerinställningar. Det ser ut som inloggningsserver  **\<registernamn\>. azurecr.io**.
+9. Ange avbildningslagringsplatsen för modulen. VS Code autopopulates modulen namn, så du behöver bara ersätta **localhost:5000** med din egen information i registret. Om du använder en lokal Docker-register för testning, är det bra med localhost. Om du använder Azure Container Registry kan du sedan använda inloggningsserver från din registerinställningar. Det ser ut som inloggningsserver  **\<registernamn\>. azurecr.io**. Ersätt endast localhost-delen av strängen; ta inte bort modulens namn.
+
+   ![Ange lagringsplatsen för Docker-avbildningen](./media/how-to-develop-node-module/repository.png)
 
 VS Code tar den information du tillhandahålls, skapar en IoT Edge-lösning och läser in den i ett nytt fönster.
 
@@ -76,7 +76,7 @@ I lösningen har du tre objekt:
 
 ## <a name="develop-your-module"></a>Utveckla din modell
 
-Standard Node.js-kod som medföljer lösningen finns i **moduler** > **\<din Modulnamn\>** > **app.js** . Modulen och filen deployment.template.json ställs in så att du kan skapa lösningen, push-överföra den till behållarregistret och distribuera den till en enhet för att börja testa utan att röra kod. Modulen är utformat för att helt enkelt ta indata från en källa (i det här fallet modulen tempSensor som simulerar data) och skicka det till IoT Hub. 
+Standard Node.js-kod som medföljer lösningen finns i **moduler** > [Modulnamn] > **app.js**. Modulen och filen deployment.template.json ställs in så att du kan skapa lösningen, push-överföra den till behållarregistret och distribuera den till en enhet för att börja testa utan att röra kod. Modulen är utformat för att helt enkelt ta indata från en källa (i det här fallet modulen tempSensor som simulerar data) och skicka det till IoT Hub. 
 
 När du är redo att anpassa mallen Node.js med din egen kod kan använda den [Azure IoT Hub SDK: er](../iot-hub/iot-hub-devguide-sdks.md) att skapa moduler adressen nyckeln måste för IoT-lösningar som säkerhet, hantering av enheter och tillförlitlighet. 
 

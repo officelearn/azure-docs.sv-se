@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: 11aecd9b2bc1bc1521a0e27fc3cd06fe7426a26d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b4641c847db817df905f056847a26d003ac25fd1
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307994"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381803"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Konfigurera en eller flera Always On availability-grupplyssnare - Resource Manager
 Det här avsnittet visar hur du:
@@ -42,6 +42,8 @@ Relaterade ämnen innefattar:
 
 ## <a name="configure-the-windows-firewall"></a>Konfigurera Windows-brandväggen
 Konfigurera Windows-brandväggen så att SQL Server-åtkomst. Brandväggsreglerna tillåta TCP-anslutningar till portar används av SQL Server-instansen och lyssnare-avsökning. Detaljerade anvisningar finns i [konfigurerar en Windows-brandvägg för Databasmotoråtkomst](http://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Skapa en regel för inkommande för SQL Server-porten och avsökningsporten.
+
+Om du är att begränsa åtkomst med en Azure Network Security Group, se till att Tillåt-reglerna omfattar serverdel SQL Server VM IP-adresser och belastningsutjämnare flytande IP-adresser för AG-lyssnare och klustrets core IP-adress om det är tillämpligt.
 
 ## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Exempel på skript: Skapa en intern belastningsutjämnare med PowerShell
 > [!NOTE]
@@ -195,6 +197,7 @@ Observera följande riktlinjer på tillgänglighetsgruppens lyssnare i Azure med
 
 * Med en intern belastningsutjämnare du bara åtkomst till lyssnaren från inom samma virtuella nätverk.
 
+* Om du är att begränsa åtkomst med en Azure Network Security Group, se till att Tillåt-reglerna omfattar serverdel SQL Server VM IP-adresser och belastningsutjämnare flytande IP-adresser för AG-lyssnare och klustrets core IP-adress om det är tillämpligt.
 
 ## <a name="for-more-information"></a>Mer information
 Mer information finns i [konfigurera Always On-tillgänglighetsgruppen i Azure VM manuellt](virtual-machines-windows-portal-sql-availability-group-tutorial.md).

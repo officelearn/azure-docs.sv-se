@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
-ms.openlocfilehash: 78487061dd49c057e8f569fd2ccdaa6408443fd2
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 40fdd22bdbb3fc0676688430069d58c0422a7ca2
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885878"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382124"
 ---
 # <a name="security-in-azure-app-service-and-azure-functions"></a>Säkerhet i Azure App Service och Azure Functions
 
@@ -29,7 +29,7 @@ Plattformskomponenter i App Service, inklusive Azure virtuella datorer, lagring,
 
 - Appens resurser är [säker](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) från andra kunders Azure-resurser.
 - [VM-instanser och runtime programvara uppdateras regelbundet](app-service-patch-os-runtime.md) för säkerhetsrisker i adressen som nyligen identifierats. 
-- Kommunikation av hemligheter (till exempel anslutningssträngar) mellan din app och andra Azure-resurser (till exempel [SQL Database](/services/sql-database/)) stannar kvar i Azure och inte mellan alla nätverksgränser. Hemligheter som krypteras alltid när lagras.
+- Kommunikation av hemligheter (till exempel anslutningssträngar) mellan din app och andra Azure-resurser (till exempel [SQL Database](https://azure.microsoft.com/services/sql-database/)) stannar kvar i Azure och inte mellan alla nätverksgränser. Hemligheter som krypteras alltid när lagras.
 - All kommunikation över App Service-anslutning funktioner som [hybridanslutning](app-service-hybrid-connections.md), krypteras. 
 - Anslutningar med verktyg för fjärrhantering som Azure PowerShell, Azure CLI, Azure SDK: er, REST API: er, krypteras alla.
 - 24-timmarsformat threat management skyddar infrastruktur och plattform mot skadlig kod, distributed denial of service (DDoS), man-in-the-middle (MITM) och andra hot.
@@ -84,7 +84,7 @@ App Service gör det möjligt för dig att skapa säkra anslutningar i var och e
 
 ### <a name="azure-resources"></a>Azure-resurser
 
-När din app ansluter till Azure-resurser, till exempel [SQL Database](/services/sql-database/) och [Azure Storage](/azure/storage/), anslutningen håller sig inom Azure och inte mellan alla nätverksgränser. Men anslutningen går igenom det delade nätverket i Azure, så du måste alltid se till att anslutningen är krypterad. 
+När din app ansluter till Azure-resurser, till exempel [SQL Database](https://azure.microsoft.com/services/sql-database/) och [Azure Storage](/azure/storage/), anslutningen håller sig inom Azure och inte mellan alla nätverksgränser. Men anslutningen går igenom det delade nätverket i Azure, så du måste alltid se till att anslutningen är krypterad. 
 
 Om din app finns i en [apptjänstmiljö](environment/intro.md), bör du [ansluta till Azure-tjänster med virtuella nätverksslutpunkter som stöds](../virtual-network/virtual-network-service-endpoints-overview.md).
 
@@ -117,4 +117,4 @@ Undantag för den **isolerad** prisnivå, alla nivåerna kör dina appar i den d
 - Hantera internt program med en intern belastningsutjämnare (ILB), vilket ger åtkomst från i ditt virtuella Azure-nätverk. Den interna Belastningsutjämnaren har en IP-adress från ditt privata undernät, vilket ger totalt isolering av dina appar från internet.
 - [Använda en ILB bakom en brandvägg för webbaserade program (WAF)](environment/integrate-with-application-gateway.md). WAF erbjuder företagsnivå skydd för dina offentliga program, till exempel DDoS-skydd, URI-filtrering och SQL-inmatning dataförlustskydd.
 
-Mer information finns i [introduktion till Azure App Service-miljöer](environment/intro.md).
+Mer information finns i [introduktion till Azure App Service-miljöer](environment/intro.md). 

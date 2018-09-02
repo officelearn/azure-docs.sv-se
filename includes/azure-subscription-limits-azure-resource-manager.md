@@ -5,15 +5,15 @@ services: billing
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 07/02/2018
+ms.date: 08/22/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: f47654d056a26f5a58b1ccc2c200f774bee1f19f
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 08cd67e86666cdc9c9fc1b0f4ef98cf3ea7a156c
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37348209"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "43435614"
 ---
 | Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
@@ -31,6 +31,7 @@ ms.locfileid: "37348209"
 | Unika taggberäkningar per prenumeration<sup>3</sup> | 10 000 | 10 000 |
 | [Molntjänster](../articles/cloud-services/cloud-services-choose-me.md) per prenumeration |Inte tillämpligt<sup>4</sup> |Inte tillämpligt<sup>4</sup> |
 | [Tillhörighetsgrupper](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per prenumeration |Inte tillämpligt<sup>4</sup> |Inte tillämpligt<sup>4</sup> |
+| [Prenumeration på distributioner](../articles/azure-resource-manager/deploy-to-subscription.md) per plats | 800 | 800 |
 
 <sup>1</sup>Standardgränserna varierar beroende på erbjudandets kategorityp, t.ex. kostnadsfri utvärderingsversion, betala per användning och serie, t.ex. Dv2, F eller G.
 
@@ -41,7 +42,7 @@ ms.locfileid: "37348209"
 <sup>4</sup>Dessa funktioner krävs inte längre med Azure-resursgrupper och Azure Resource Manager.
 
 > [!NOTE]
-> Det är viktigt att betona att virtuella datorkärnor har en regional total gräns och en regional gräns per storleksserie (Dv2, F osv.) som tillämpas separat.  Anta till exempel att en prenumeration i regionen Östra USA har en gräns för totalt antal VM-kärnor på 30, en gräns för antal kärnor i A-serien på 30 och en gräns för antal kärnor i D-serien på 30.  Den här prenumerationen kan distribuera 30 virtuella datorer i A1-serien eller 30 virtuella datorer i D1-serien, eller en kombination av båda som inte överstiger sammanlagt 30 kärnor (t.ex. 10 virtuella datorer i A1-serien och 20 virtuella datorer i D1-serien).  
+> Det är viktigt att betona att virtuella datorkärnor har en regional total gräns och en regional gräns per storleksserie (Dv2, F osv.) som tillämpas separat.  Anta till exempel att en prenumeration i regionen USA, östra har en gräns för totalt antal VM-kärnor på 30, en gräns för antal kärnor i A-serien på 30 och en gräns för antal kärnor i D-serien på 30.  Den här prenumerationen kan distribuera 30 virtuella datorer i A1-serien eller 30 virtuella datorer i D1-serien, eller en kombination av båda som inte överstiger sammanlagt 30 kärnor (t.ex. 10 virtuella datorer i A1-serien och 20 virtuella datorer i D1-serien).  
 > <!-- -->
 > 
 > 

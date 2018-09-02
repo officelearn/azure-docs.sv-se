@@ -1,6 +1,6 @@
 | Resurs | Standardgräns | Obs! |
 | --- | --- | --- |
-| Application Gateway |50 per prenumeration | Maximalt 100 |
+| Application Gateway |50 per prenumeration | Maximal 1000 |
 | IP-konfigurationer för frontend |2 |1 offentlig och 1 privat |
 | Frontend-portar |20 | |
 | Backend-adresspooler |20 | |

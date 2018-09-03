@@ -196,20 +196,22 @@ items:
         href: vmware-azure-deploy-configuration-server.md
       - name: Konfigurera målmiljön för virtuella VMware-datorer
         href: vmware-azure-set-up-target.md
-      - name: Konfigurera replikeringsinställningar
+      - name: Konfigurera replikeringsinställningar för virtuella VMware-datorer
         href: vmware-azure-set-up-replication.md
-      - name: Aktivera replikering av virtuell VMware-dator
+      - name: Aktivera replikering för virtuella VMware-datorer
         href: vmware-azure-enable-replication.md
-      - name: Undanta diskar från replikering
+      - name: Undanta diskar från replikering av virtuella VMware-datorer
         href: vmware-azure-exclude-disk.md
-      - name: Flera klienter med CSP för virtuella VMWare-datorer
+      - name: Konfigurera replikering med flera innehavare och CSP för virtuella VMWare-datorer
         href: vmware-azure-multi-tenant-csp-disaster-recovery.md
-      - name: Konfigurera källmiljön för fysiska servrar
-        href: physical-azure-set-up-source.md
-      - name: Konfigurera målmiljön för fysiska servrar
-        href: physical-azure-set-up-target.md
-      - name: Haveriberedskap för fysiska servrar till Azure
+      - name: Konfigurera haveriberedskap för fysiska servrar till Azure
         href: physical-azure-disaster-recovery.md
+      - name: Konfigurera källmiljön för replikering av fysiska servrar
+        href: physical-azure-set-up-source.md
+      - name: Konfigurera målmiljön för replikering av fysiska servrar
+        href: physical-azure-set-up-target.md
+      - name: Konfigurera haveriberedskap för virtuella Azure Stack-datorer
+        href: azure-stack-site-recovery.md
     - name: Distribuera mobilitetstjänsten
       items:
       - name: Mobilitetstjänstöversikt
@@ -390,9 +392,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Tjänstuppdateringar
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 63d404406e3b33d4022974246a227cad1e6535a6
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 01f369aede31d44ff404c1ff5e7d2d1e9bb92950
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43285114"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343981"

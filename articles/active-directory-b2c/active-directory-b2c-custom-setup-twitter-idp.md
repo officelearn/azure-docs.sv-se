@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 786f0dfd0cf3cf2e9ab0d16e26811fabd6bfc17c
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 28679ef07c2625908f7b08f808ff49c48ddb625b
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440967"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339876"
 ---
 # <a name="azure-active-directory-b2c-add-twitter-as-an-oauth1-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: Lägga till Twitter som identitetsprovider OAuth1 med anpassade principer
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -36,9 +36,9 @@ Använda Twitter som identitetsprovider i Azure Active Directory B2C (Azure AD B
  
     a. Skriv den **namn** och en **beskrivning** för din nya app. 
 
-    b. I den **webbplats** rutan, klistra in **https://login.microsoftonline.com**. 
+    b. I den **webbplats** rutan, klistra in **https://{tenant}.b2clogin.com**. Där **{klient}** är ditt klientnamn (till exempel https://contosob2c.b2clogin.com).
 
-    c. 4. För den **Motringnings-URL**, ange `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp`. Ersätt **{klient}** med klientens namn (exempel: contosob2c.onmicrosoft.com) och **{policyId}** med princip-id (till exempel b2c_1_policy).  **Motringningen URL: en måste finnas i alla gemener.** Du bör lägga till en Motringnings-URL för alla principer som använder Twitter-inloggning. Se till att använda `b2clogin.com` i stället för ` login.microsoftonline.com` om du använder den i ditt program.
+    c. 4. För den **Motringnings-URL**, ange `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/{policyId}/oauth1/authresp`. Ersätt **{klient}** med klientens namn (till exempel contosob2c) och **{policyId}** med princip-id (till exempel b2c_1_policy).  **Motringningen URL: en måste finnas i alla gemener.** Du bör lägga till en Motringnings-URL för alla principer som använder Twitter-inloggning. Se till att använda `b2clogin.com` i stället för ` login.microsoftonline.com` om du använder den i ditt program.
 
     d. Längst ned på sidan Läs och Godkänn villkoren och välj sedan **skapa ditt Twitter-program**.
 

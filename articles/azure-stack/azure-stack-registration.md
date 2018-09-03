@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 58c8568da0a818f87a5bb3d6966d2d4a6c977fd9
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: ebf10c7f0fb90d976062300854f69369dba946fa
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247831"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340174"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrera Azure Stack med Azure
 
@@ -58,7 +58,7 @@ Innan du registrerar Azure Stack med Azure, måste du ha:
 
 ### <a name="powershell-language-mode"></a>PowerShell-läget för språk
 
-För att kunna registrera Azure Stack, PowerShell-läget för språk måste anges till **FullLanguageMode**.  För att verifiera att det aktuella språkläget har angetts till full, öppna en upphöjd PowerShell-fönster och kör följande PowerShell-cmdlts:
+För att kunna registrera Azure Stack, PowerShell-läget för språk måste anges till **FullLanguageMode**.  För att verifiera att det aktuella språkläget har angetts till full, öppna en upphöjd PowerShell-fönster och kör följande PowerShell-cmdletar:
 
 ```PowerShell  
 $ExecutionContext.SessionState.LanguageMode
@@ -100,7 +100,7 @@ Följ dessa steg för att registrera Azure Stack med Azure med hjälp av fakture
 
 Anslutna miljöer kan komma åt internet och Azure. För dessa miljöer måste du registrera Azure Stack-resursprovidern med Azure och sedan konfigurera faktureringsmodellen.
 
-1. För att registrera resursprovidern Azure Stack med Azure, starta PowerShell ISE som administratör och använder följande PowerShell-cmdlts med den **EnvironmentName** parameteruppsättning till typen lämplig Azure-prenumeration (se nedanstående parametrar).
+1. För att registrera resursprovidern Azure Stack med Azure, starta PowerShell ISE som administratör och använder följande PowerShell-cmdlets med den **EnvironmentName** parameteruppsättning till typen lämplig Azure-prenumeration (se nedanstående parametrar).
 
 2. Lägg till Azure-konto som används för att registrera Azure Stack. Om du vill lägga till kontot, kör den **Add-AzureRmAccount** cmdlet. Du uppmanas att ange dina autentiseringsuppgifter för global administratör för Azure-konto och du kan behöva använda 2-faktor autentisering baserat på konfigurationen för ditt konto.
 
@@ -160,7 +160,7 @@ Följ dessa steg för att registrera Azure Stack med Azure med hjälp av fakture
 
 Anslutna miljöer kan komma åt internet och Azure. För dessa miljöer måste du registrera Azure Stack-resursprovidern med Azure och sedan konfigurera faktureringsmodellen.
 
-1. För att registrera resursprovidern Azure Stack med Azure, starta PowerShell ISE som administratör och använder följande PowerShell-cmdlts med den **EnvironmentName** parameteruppsättning till typen lämplig Azure-prenumeration (se nedanstående parametrar).
+1. För att registrera resursprovidern Azure Stack med Azure, starta PowerShell ISE som administratör och använder följande PowerShell-cmdlets med den **EnvironmentName** parameteruppsättning till typen lämplig Azure-prenumeration (se nedanstående parametrar).
 
 2. Lägg till Azure-konto som används för att registrera Azure Stack. Om du vill lägga till kontot, kör den **Add-AzureRmAccount** cmdlet. Du uppmanas att ange dina autentiseringsuppgifter för global administratör för Azure-konto och du kan behöva använda 2-faktor autentisering baserat på konfigurationen för ditt konto.
 
@@ -213,7 +213,7 @@ Om du registrerar Azure Stack i en frånkopplad miljö (som saknar Internetanslu
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-2. Om du vill ha fcm, kör du följande PowerShell-cmdlts:  
+2. Kör följande PowerShell-cmdletar för att hämta registreringstoken:  
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
@@ -250,7 +250,7 @@ Du kan även använda cmdleten Get-innehåll för att den pekar på en fil som i
 
 Därefter måste du hämta en aktiveringsnyckeln från registrering resursen skapades registrera AzsEnvironment i Azure.
 
-Kör följande PowerShell-cmdlts för att hämta aktiveringsnyckeln:  
+Kör följande PowerShell-cmdletar för att hämta aktiveringsnyckeln:  
 
   ```Powershell
   $RegistrationResourceName = "AzureStack-<Cloud Id for the Environment to register>"
@@ -263,7 +263,7 @@ Kör följande PowerShell-cmdlts för att hämta aktiveringsnyckeln:
 
 ### <a name="create-an-activation-resource-in-azure-stack"></a>Skapa en resurs för aktivering i Azure Stack
 
-Gå tillbaka till Azure Stack-miljön med filen eller text från aktiveringsnyckeln som skapats från Get-AzsActivationKey. Därefter skapar du en resurs för aktivering i Azure Stack med hjälp av denna aktiveringsnyckel. Om du vill skapa en resurs för aktivering, kör du följande PowerShell-cmdlts:  
+Gå tillbaka till Azure Stack-miljön med filen eller text från aktiveringsnyckeln som skapats från Get-AzsActivationKey. Därefter skapar du en resurs för aktivering i Azure Stack med hjälp av denna aktiveringsnyckel. Kör följande PowerShell-cmdletar för att skapa en resurs för aktivering:  
 
   ```Powershell
   $ActivationKey = "<activation key>"
@@ -329,13 +329,13 @@ Du behöver uppdatera eller förnya din registrering under följande omständigh
 
 Du måste först ta bort resursen aktivering från Azure Stack och registrerings-resurs i Azure.  
 
-Om du vill ta bort resursen aktivering i Azure Stack, kör du följande PowerShell-cmdlts i Azure Stack-miljön:  
+Om du vill ta bort resursen aktivering i Azure Stack, kör du följande PowerShell-cmdletar i Azure Stack-miljön:  
 
   ```Powershell
   Remove-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   ```
 
-Därefter för att ta bort resursen för registrering i Azure, kontrollera att du i en Azure anslutna datorn, logga in på rätt sammanhang för Azure PowerShell och kör lämpligt PowerShell cmdlts enligt beskrivningen nedan.
+Därefter för att ta bort resursen för registrering i Azure, kontrollera att du i en Azure anslutna datorn, logga in på rätt sammanhang för Azure PowerShell och kör lämpliga PowerShell-cmdlets som beskrivs nedan.
 
 Du kan använda registreringstoken som används för att skapa resursen:  
 
@@ -386,6 +386,8 @@ Inaktivera för Azure Stack-miljöer som använder ett prispaket av fakturering,
 
 2. Ansluten datorn om du vill spara den här registreringstoken för användning på Azure. Du kan kopiera filen eller texten från $FilePathForRegistrationToken.
 
+## <a name="move-a-registration-resource"></a>Flytta en resurs för registrering
+En registrering resurs flyttas mellan resursgrupper i samma prenumeration **är** stöds för alla miljöer. Men stöds en registrering resurs flyttas mellan prenumerationer endast för CSP: er när båda prenumerationerna matcha till samma Partner-ID. Läs mer om hur du flyttar resurser till en ny resursgrupp, [flytta resurser till ny resursgrupp eller prenumeration](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 ## <a name="registration-reference"></a>Referens för registrering
 

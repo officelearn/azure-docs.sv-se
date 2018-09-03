@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d3be19c67027746ddb73cf2cd9b4545584fd3ce0
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: ccc508b8dbfb990639abe24efa2822ff27f2f910
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389789"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341572"
 documentType: LandingData
-title: Dokumentation om Hanterad tjänstidentitet i Azure Active Directory
+title: Dokumentation om Azure AD-hanterade identiteter för Azure-resurser
 metadata:
   document_id: 
-  title: Dokumentation om Hanterad tjänstidentitet i Azure Active Directory
-  description: Lär dig hur du använder Hanterad tjänstidentitet för att autentisera säkert till Azure-molntjänster utan att behöva ha autentiseringsuppgifterna i källkoden.
+  title: Dokumentation om Azure AD-hanterade identiteter för Azure-resurser
+  description: Lär dig hur du använder hanterade identiteter för Azure-resurser för att autentisera säkert till Azure-molntjänster utan att behöva ha autentiseringsuppgifterna i källkoden.
   services: active-directory
   ms.component: msi
   author: daveba
@@ -22,30 +22,30 @@ metadata:
   ms.date: 03/16/2018
   ms.author: daveba
 abstract:
-  description: Hanterad tjänstidentitet tillhandahåller Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering utan att behöva ha några autentiseringsuppgifter i koden.  Lär dig hur du skapar och hanterar hanterade tjänstidentiteter med våra snabbstarter och självstudier.
+  description: Med hanterade identiteter för Azure-resurser får Azure-tjänsterna en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering utan att behöva ha några autentiseringsuppgifter i koden.  Lär dig hur du skapar och hanterar hanterade identiteter för Azure-resurser med våra snabbstarter och självstudier.
   aside:
     image:
       alt: 
       height: 112
       src: media/index/video-thumb-landing-page.png
       width: 200
-    title: Introduktion till Hanterad tjänstidentitet
+    title: Introduktion till hanterade identiteter för Azure-resurser
     href: https://www.youtube.com/embed/bBi1bll2928
     width: 200
 sections:
-- title: Snabbstarter på 5 minuter
+- title: Snabbstarter på fem minuter
   items:
   - type: paragraph
-    text: Lär dig hur du använder Hanterad tjänstidentitet för att få åtkomst till API:et för Azure Resource Manager
+    text: Lär dig hur du använder hanterade identiteter för Azure-resurser för att få åtkomst till API:et för Azure Resource Manager
   - type: list
     style: unordered
     items:
     - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-arm">Få åtkomst till Azure Resource Manager från en virtuell Windows Azure-dator</a>
     - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-arm">Få åtkomst till Azure Resource Manager från en virtuell Linux Azure-dator</a>
-- title: Steg för steg-självstudier
+- title: Stegvisa självstudier
   items:
   - type: paragraph
-    text: Lär dig hur du använder Hanterad tjänstidentitet för att få säker åtkomst till Azure-resurser
+    text: Lär dig hur du använder hanterade identiteter för Azure-resurser för att få säker åtkomst till Azure-resurser
   - type: paragraph
     text: Windows VM/VMSS
   - type: list

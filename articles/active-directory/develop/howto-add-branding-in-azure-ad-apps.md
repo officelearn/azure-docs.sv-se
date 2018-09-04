@@ -1,5 +1,5 @@
 ---
-title: Riktlinjer för program för anpassning | Microsoft Docs
+title: Varumärkesriktlinjer för program | Microsoft Docs
 description: En heltäckande handbok om utvecklarorienterade resurser för Azure Active Directory
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,95 +17,95 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 78a0b9bf7f49cc41c8d78287bcbe54c5c88f0809
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
-ms.translationtype: MT
+ms.openlocfilehash: 92990a71a0b138f08c515450ecd71692fa57f297
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "39597913"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43185428"
 ---
-# <a name="branding-guidelines-for-applications"></a>Riktlinjer för varumärkesanpassning för program
+# <a name="branding-guidelines-for-applications"></a>Varumärkesriktlinjer för program
 
-Den här artikeln beskriver riktlinjer för varumärkesanpassning bör du använda när du utvecklar program med Azure Active Directory (AD Azure). Dessa riktlinjer hjälper dig att dirigera dina kunder när de vill använda sitt arbets- eller skolkonto konto hanteras i Azure AD eller deras personliga konto för registrering och inloggning i ditt program.
+I den här artikeln beskriver vi de varumärkesriktlinjer du bör använda när du utvecklar program med Azure Active Directory (Azure AD). De här riktlinjerna hjälper dig att dirigera kunderna när de vill använda sitt arbets- eller skolkonto, som hanteras i Azure AD, eller sitt personliga konto när de registrerar sig och loggar in i ditt program.
 
-## <a name="personal-accounts-vs-work-or-school-accounts-from-microsoft"></a>Personliga konton och arbets- eller skolkonton från Microsoft
+## <a name="personal-accounts-vs-work-or-school-accounts-from-microsoft"></a>Personliga konton jämfört med arbets- eller skolkonton från Microsoft
 
 Microsoft hanterar två typer av användarkonton:
 
-* **Personliga konton** (kallades tidigare Windows Live ID). Dessa konton representera relationen mellan *enskilda* användare och Microsoft, och används för att komma åt konsumentenheter och tjänster från Microsoft. Dessa konton är avsedda för personligt bruk.
-* **Konton för arbets- eller skolkonto.** Dessa konton hanteras av Microsoft för organisationer som använder Azure Active Directory. Dessa konton används för att logga in på Office 365 och andra företagstjänster från Microsoft.
+* **Personliga konton** (kallades tidigare Windows Live ID). De här kontona sätts upp mellan *enskilda* användare och Microsoft. De ger åtkomst till konsumentenheter och konsumenttjänster från Microsoft. De här kontona är avsedda för personligt bruk.
+* **Arbets- eller skolkonton.** De här kontona hanteras av Microsoft, åt organisationer som använder Azure Active Directory. De är avsedda för att logga in på Office 365 och andra företagstjänster från Microsoft.
 
-Microsoft arbets-eller skolkonton vanligtvis är tilldelade till slutanvändare (anställda, studenter, federalt anställda) av sina organisationer (company, skola, myndighet). Dessa konton hanterat direkt i molnet (i Azure AD-plattformen) eller synkroniseras till Azure AD från en lokal katalog, t.ex Windows Server Active Directory. Microsoft är den *skyddar* för arbetet eller skolan konton, men konton som ägs och kontrolleras av organisationen.
+Microsofts arbets- eller skolkonton tilldelas vanligtvis till slutanvändare (anställda, studenter, myndighetsanställda) av organisationerna (företag, skola/universitet, myndighet). De hanteras direkt i molnet (via Azure AD-plattformen) eller synkroniseras till Azure AD från en lokal katalog, t.ex. Windows Server Active Directory. Microsoft *övervakar* arbets- och skolkonton, men de ägs och kontrolleras av organisationen.
 
-## <a name="referring-to-azure-ad-accounts-in-your-application"></a>Refererar till Azure AD-konton i ditt program
+## <a name="referring-to-azure-ad-accounts-in-your-application"></a>Referenser till Azure AD-konton i programmet
 
-Microsoft exponera inte få åtkomst till Azure eller Active Directory-märken och ingen av dem ska du.
+Microsoft visar inte varumärkena Azure och Active Directory för slutanvändare och det bör inte du heller göra.
 
-* När användare har loggat in, använder du organisationens namn och logotyp så mycket som möjligt. Detta är bättre än att använda allmänna villkor som ”din organisation”.
-* När användare inte är inloggad, referera till sina konton som ”arbete eller skola konton” och använda Microsoft-logotypen för att förmedla att Microsoft hanterar dessa konton. Använd inte termer som ”enterprise-konto”, ”företag-konto” eller ”företagets-konto”, som skapar förvirring för användaren.
+* När användaren har loggat in använder du organisationens namn och logotyp så mycket som möjligt. Det är bättre än att använda allmänna termer, exempelvis ”organisationen”.
+* När användare inte är inloggade kan du benämna deras konton som arbets- eller skolkonton och använda Microsoft-logotypen för att förmedla att Microsoft hanterar de här kontona. Använd inte termer som företagskonto och affärskonto. Det förvirrar användaren.
 
-## <a name="user-account-pictogram"></a>Användare konto grafik
+## <a name="user-account-pictogram"></a>Piktogram för användarkonto
 
-I en tidigare version av dessa riktlinjer rekommenderar vi en ”skylt blå” grafik. Baserat på feedback från användare och utvecklare kan rekommenderar vi nu användning av Microsoft-logotypen i stället. Microsoft-logotypen hjälper användarna att förstå att de kan återanvända det konto de använder med Office 365 eller andra Microsoft-företagstjänster att logga in på din app.
+I en tidigare version av de här riktlinjerna rekommenderar vi ett blått piktogram. Vi har fått återkoppling från användare och utvecklare och rekommenderar nu att du använder Microsofts logotyp istället. När användare ser Microsoft-logotypen förstår de att de kan återanvända kontot de använder med Office 365 och andra Microsoft-företagstjänster när de loggar in i ditt program.
 
-## <a name="signing-up-and-signing-in-with-azure-ad"></a>Registrera dig och logga in med Azure AD
+## <a name="signing-up-and-signing-in-with-azure-ad"></a>Registrera sig och logga in med Azure AD
 
-Appen kan visa separata sökvägar för registrering och inloggning och följande avsnitt innehåller visual vägledning för båda scenarierna.
+Det kan finnas flera olika sätt att registrera sig och logga in i ditt program. Följande avsnitt visar hur båda scenarierna går till.
 
-**Om din app har stöd för slutanvändare registrera dig (t.ex, kostnadsfri utvärderingsversion eller freemium-modellen)**: du kan visa en **inloggning** knapp som gör att användare åtkomst till din app med sitt arbetskonto eller ett personligt konto. Azure AD visas en medgivandetext för första gången som de har åtkomst till din app.
+**Om slutanvändare kan registrera sig för ditt program (till exempel för en kostnadsfri utvärderingsversion)**: Du kan visa en **logga in**-knapp där användare kan komma åt din app med sitt arbetskonto eller personliga konto. Azure AD visar en samtyckestext första gången de öppnar din app.
 
-**Om din app kräver behörigheter som endast administratörer kan godkänna eller om din app kräver organisationens licensiering**: Separera admin förvärv från användarinloggning. Den **”hämta den här appen” knappen** omdirigerar administratörer för att logga in och be dem att ge samtycke åt användare i organisationen som har den ytterligare fördelen att utelämna slutanvändarprompt för godkännande till din app.
+**Om appen kräver behörigheter som endast administratörer kan godkänna, eller om programmet kräver organisationslicensiering**: Separera administratörshämtning från användarinloggning. Knappen för att **hämta den här appen** omdirigerar administratörer för att logga in och ber dem sedan att ge samtycke åt användare i organisationen. Det här har den ytterligare fördelen att prompter om slutanvändargodkännande undertrycks.
 
-## <a name="visual-guidance-for-app-acquisition"></a>Visual vägledning för app-förvärv
+## <a name="visual-guidance-for-app-acquisition"></a>Skaffa app – visuell vägledning
 
-Länken ”Hämta appen” omdirigera användaren till Azure AD bevilja åtkomst (auktorisera) att tillåta en administratör att godkänna din app ska ha åtkomst till organisationens data, som tillhandahålls av Microsoft. Information om hur du begär åtkomst beskrivs i den [integrera program med Azure Active Directory](quickstart-v1-integrate-apps-with-azure-ad.md) artikeln.
+Den länk du lägger in för apphämtning måste omdirigera användaren till Azure AD-godkännandesidan (auktorisering). Administratören måste kunna godkänna så att appen får åtkomst till organisationens data, som tillhandahålls av Microsoft. Information om hur du begär åtkomst beskrivs i artikeln om att [integrera app med Azure Active Directory](quickstart-v1-integrate-apps-with-azure-ad.md).
 
-När administratörer godkänna din app, kan de välja att lägga till den i deras Office 365 app launcher användarupplevelsen (tillgänglig från waffle och [ https://portal.office.com/myapps ](https://portal.office.com/myapps)). Om du vill annonsera den här funktionen kan du använda termer som ”Lägg till den här appen i din organisation” och visa en knapp enligt följande exempel:
+När administratörerna har godkänt din app kan de välja att lägga till den i användarnas Office 365-programstartsupplevelse (tillgänglig via våfflan och [ https://portal.office.com/myapps ](https://portal.office.com/myapps)). Om du vill annonsera den här funktionen kan du till exempel skriva ”Lägg till den här appen i organisationen” och visa en knapp enligt följande exempel:
 
 ![Programtyper och scenarier](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
 Vi rekommenderar dock att du skriver förklarande text istället för att förlita dig på knappar. Exempel:
 
-> *Om du redan använder Office 365 eller annan företagstjänst från Microsoft, kan du bevilja < your_app_name > åtkomst till data i din organisation. Detta kan användarna åtkomst till < your_app_name > med sina befintliga arbetskonton.*
+> *Om du redan använder Office 365 eller någon annan företagstjänst från Microsoft kan du bevilja < your_app_name > åtkomst till data i organisationen. Det innebär att användarna kan använda < your_app_name > med sina befintliga arbetskonton.*
 
-För att hämta den officiella Microsoft-logotypen för användning i din app, högerklickar du på det du vill använda och spara det på din dator.
-
-| Tillgång                                | PNG-format | SVG-format |
-| ------------------------------------ | ---------- | ---------- |
-| Microsoft-logotyp  | ![Microsoft-logotypen PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_MSSymbol_19.png) | ![Microsoft-logotypen SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_MSSymbol_19.svg) |
-
-## <a name="visual-guidance-for-sign-in"></a>Visual vägledning för att logga in
-
-Din app ska visa en knapp för inloggning som omdirigerar användarna till inloggning slutpunkten som motsvarar det protokoll som du använder för att integrera med Azure AD. Följande avsnitt innehåller information om hur knappen ska se ut.
-
-### <a name="pictogram-and-sign-in-with-microsoft"></a>Grafik och ”logga in med Microsoft”
-
-Det är föreningen av Microsoft-logotypen och villkoren ”logga in med Microsoft” som representerar unikt Azure AD av andra identitetsleverantörer din app kan stöda. Om du inte har tillräckligt med utrymme för ”logga in med Microsoft”, är det ok att förkorta den till ”logga in”. Du kan använda ett ljust och mörkt färgschema för knapparna.
-
-Följande diagram visar den Microsoft-rekommenderad redlines när du använder tillgångarna med din app. Den redlines gäller för ”logga in med Microsoft” eller kortare ”logga in”-versionen.
-
-![Logga in med Microsoft redlines](./media/howto-add-branding-in-azure-ad-apps/Sign-in-with-Microsoft-redlines.png)
-
-För att hämta de officiella avbildningarna för användning i din app, högerklickar du på det du vill använda och spara det på din dator.
+Du kan ladda ned den officiella Microsoft-logotypen och använda den i din app. Högerklicka på den du vill använda och spara den på datorn.
 
 | Tillgång                                | PNG-format | SVG-format |
 | ------------------------------------ | ---------- | ---------- |
-| Logga in med Microsoft (mörkt tema)  | ![Logga in knappen mörkt tema PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark.png) | ![Logga in med Microsoft knappen mörkt tema SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark.svg) |
-| Logga in med Microsoft (ljust tema) | ![Logga in knappen ljusa temat PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light.png) | ![Logga in med Microsoft knappen ljusa temat SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light.svg) |
-| Logga in (mörkt tema)                 | ![Logga i korthet knappen mörkt tema PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark_short.png) | ![Logga i korthet knappen mörkt tema SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark_short.svg) |
-| Logga in (ljust tema)                | ![Logga i korthet knappen ljusa temat PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light_short.png) | ![Logga i korthet knappen ljusa temat SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light_short.svg) |
+| Microsoft-logotyp  | ![Microsoft-logotyp, PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![Microsoft-logotyp, SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
+
+## <a name="visual-guidance-for-sign-in"></a>Visuell vägledning för inloggning
+
+I din app bör det finnas en inloggningsknapp som omdirigerar användarna till inloggningsslutpunkten som motsvarar det protokoll du använder för att integrera med Azure AD. I det här avsnittet finns information om hur knappen ska se ut.
+
+### <a name="pictogram-and-sign-in-with-microsoft"></a>Piktogram och Logga in med Microsoft
+
+Det är associationerna som Microsoft-logotypen och uttrycket Logga in med Microsoft ger som unikt representerar Azure AD bland eventuella andra identitetsleverantörer som fungerar med din app. Om det inte finns tillräckligt med utrymme för Logga in med Microsoft går det bra att förkorta det till Logga in. Du kan välja ett ljust eller ett mörkt färgschema för knapparna.
+
+I det här diagrammet visar vi Microsofts riktlinjer när du använder tillgångarna med din app. Riktlinjerna gäller för Logga in med Microsoft och det kortare Logga in.
+
+![Riktlinjer för Logga in med Microsoft](./media/howto-add-branding-in-azure-ad-apps/sign-in-with-microsoft-redlines.png)
+
+Du kan ladda ned de officiella bilderna och använda dem i din app. Högerklicka på den du vill använda och spara den på datorn.
+
+| Tillgång                                | PNG-format | SVG-format |
+| ------------------------------------ | ---------- | ---------- |
+| Logga in med Microsoft (mörkt tema)  | ![Knappen Logga in, mörkt tema, PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | ![Knappen Logga in med Microsoft, mörkt tema, SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
+| Logga in med Microsoft (ljust tema) | ![Knappen Logga in, ljust tema, PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![Knappen Logga in med Microsoft, ljust tema, SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
+| Logga in (mörkt tema)                 | ![Logga in, kortknapp, mörkt tema, PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![Logga in, kortknapp, mörkt tema, SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
+| Logga in (ljust tema)                | ![Logga in, kortknapp, ljust tema, PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![Logga in, kortknapp, ljust tema, SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
 
 
-## <a name="branding-dos-and-donts"></a>Anpassning av bra att veta
+## <a name="branding-dos-and-donts"></a>Rekommendationer för varumärke
 
-**GÖR** använder ”arbets- eller skolkonto konto” i kombination med knappen ”Logga in med Microsoft” för att ge ytterligare förklaring för att hjälpa slutanvändarna att identifiera om de kan använda. **Inte** använder andra termer som ”enterprise-konto”, ”företag-konto” eller ”företagskonto”.
+**JA.** Skriv ”arbets- eller skolkonto” i kombination med knappen Logga in med Microsoft. Det här är en fras användarna känner igen och vet hur de ska använda. **NEJ.** Skriv inte andra termer, exempelvis företagskonto, jobbkonto eller affärskonto.
 
-**Inte** använda ”Office 365-ID” eller ”Azure-ID” Office 365 är också namnet på en konsument erbjudandet från Microsoft, som inte använder Azure AD för autentisering.
+**NEJ.** Skriv inte Office 365-ID eller Azure-ID. Office 365 är också namnet på en konsumentprodukt från Microsoft. Den använder inte Azure AD för autentisering.
 
-**Inte** alter Microsoft-logotypen.
+**NEJ.** Ändra inte på Microsoft-logotypen.
 
-**Inte** exponerar användare till Azure eller Active Directory-varumärken. Det går bra men att använda dessa villkor med utvecklare, IT-proffs och administratörer.
+**NEJ.** Visa inte varumärkena Azure och Active Directory för slutanvändarna. Det går bra att använda de här termerna när du riktar dig till utvecklare, IT-proffs och administratörer.
 
-## <a name="navigation-dos-and-donts"></a>Navigering göra och tänka på
+## <a name="navigation-dos-and-donts"></a>Rekommendationer vid navigering
 
-**GÖR** gör det möjligt för användare att logga ut och växla till ett annat konto. Även om de flesta har en enda personliga konto från Microsoft/Facebook/Google/Twitter, är personer ofta kopplade mer än en organisation. Stöd för flera inloggade användare kommer snart.
+**JA.** Gör det möjligt för användare att logga ut och växla till ett annat användarkonto. De flesta har bara ett privat konto hos Microsoft/Facebook/Google/Twitter, men många har flera konton som de använder i sitt arbete. Funktioner för flera inloggade användare kommer snart.

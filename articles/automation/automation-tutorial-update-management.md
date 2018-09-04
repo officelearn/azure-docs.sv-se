@@ -6,15 +6,15 @@ author: zjalexander
 ms.service: automation
 ms.component: update-management
 ms.topic: tutorial
-ms.date: 02/28/2018
+ms.date: 08/29/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 4d5222889d5e840bd03bf77a56584dac48bb740c
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 8458aaee9f8d328d959fb47fb3e32af176d545b1
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41918969"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247376"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Hantera Windows-uppdateringar med hjälp av Azure Automation
 
@@ -82,9 +82,19 @@ Klicka någon annanstans på uppdateringen för att öppna fönstret **Loggsökn
 
 ## <a name="configure-alerts"></a>Konfigurera varningar
 
-I det här steget ställer du in en avisering för att meddela när uppdateringar har distribuerats. Aviseringen som du skapar baseras på en Log Analytics-fråga. Du kan skriva en anpassad fråga för ytterligare aviseringar och omfattar många olika scenarier. I Azure Portal går du till **Övervaka**, och väljer sedan **Skapa avisering**. 
+I det här steget lär du dig att ställa in en avisering som meddelar dig när uppdateringar har distribuerats via en Log Analytics-fråga eller genom att spåra huvud-runbook för uppdateringshantering för distributioner som har misslyckats.
 
-Under **Skapa regel**,under **1. Definiera aviseringstillstånd**, välj **Välj mål**. Under **Filtrera efter resurstyp** väljer du **Log Analytics**. Välj Log Analytics-arbetsytan och välj sedan **Klar**.
+### <a name="alert-conditions"></a>Aviseringsvillkor
+
+Det finns olika aviseringsvillkor som måste definieras för varje typ av avisering.
+
+#### <a name="log-analytics-query-alert"></a>Log Analytics-frågeavisering
+
+Du kan skapa en avisering baserad på en Log Analytics-fråga för lyckade distributioner. För misslyckade distributioner kan du använda stegen i [Runbook-aviseringen](#runbook-alert) och få aviseringar när något går fel med den huvud-runbook som initierar distributionen av uppdateringar. Du kan skriva en anpassad fråga för ytterligare aviseringar och omfattar många olika scenarier.
+
+I Azure Portal går du till **Övervaka**, och väljer sedan **Skapa avisering**.
+
+Under **1. Definiera aviseringstillstånd** , klicka på **Välj mål**. Under **Filtrera efter resurstyp** väljer du **Log Analytics**. Välj Log Analytics-arbetsytan och välj sedan **Klar**.
 
 ![Skapa avisering](./media/automation-tutorial-update-management/create-alert.png)
 
@@ -104,7 +114,21 @@ Under **Aviseringslogik**, för **Tröskelvärde**, ange **1**. När du är klar
 
 ![Konfigurera signallogiken](./media/automation-tutorial-update-management/signal-logic.png)
 
-Under **2. Definiera aviseringsinformation**, ange ett namn och en beskrivning för aviseringen. Ange **Allvarlighetsgrad** till **Informational(Sev 2)** eftersom aviseringen är en lyckad körning.
+#### <a name="runbook-alert"></a>Runbook-avisering
+
+För misslyckade distributioner måste du avisera om felet i huvudkörningen. I Azure-portalen öppnar du **Monitor** och väljer **Skapa avisering**.
+
+Under **1. Definiera aviseringstillstånd** , klicka på **Välj mål**. Under **Filtrera efter resurstyp** väljer du **Automation-konton**. Välj ditt Automation-konto och välj **Klar**.
+
+För **Namn på runbook** klickar du på **\+**-tecknet och skriver in **Patch-MicrosoftOMSComputers** som anpassat namn. För **Status** väljer du **Misslyckad** eller klickar på **\+**-tecknet och skriver **Misslyckad**.
+
+![Konfigurera signallogiken för runbook-flöden](./media/automation-tutorial-update-management/signal-logic-runbook.png)
+
+Under **Aviseringslogik**, för **Tröskelvärde**, ange **1**. När du är klar väljer du **Klar**.
+
+### <a name="alert-details"></a>Aviseringsinformation
+
+Under **2. Definiera aviseringsinformation**, ange ett namn och en beskrivning för aviseringen. Ange **allvarlighetsgrad** till **Information (allvarlighetsgrad 2)** för en lyckad körning eller **Information (allvarlighetsgrad 1)** för en misslyckad körning.
 
 ![Konfigurera signallogiken](./media/automation-tutorial-update-management/define-alert-details.png)
 
@@ -134,7 +158,7 @@ Under **Ny uppdateringsdistribution** anger du följande information:
 
 * **Operativsystem**: Välj operativsystem som mål för uppdateringsdistributionen.
 
-* **Datorer som ska uppdateras**: Välj en sparad sökning eller en importerad grupp, eller välj Dator i listrutan och välj enskilda datorer. Om du väljer **Datorer** visas datorns beredskap i kolumnen **Uppdatera agentberedskap**. Mer information om de olika metoder som du kan använda för att skapa datorgrupper i Log Analytics finns i avsnittet om [datorgrupper i Log Analytics](../log-analytics/log-analytics-computer-groups.md)
+* **Datorer som ska uppdateras**: Välj en sparad sökning eller en importerad grupp, eller välj Dator i listrutan och välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**. Mer om de olika metoderna för att skapa datorgrupper i Log Analytics finns i dokumentationen om [datorgrupper i Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
 * **Uppdatera klassificering**: Välj vilka typer av programvara som ska tas med i uppdateringsdistributionen. Låt alla typer vara markerade för den här självstudien.
 

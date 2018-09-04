@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 7a3e91e8f928f6e7e2df7a26f52bd44b3b3a81b2
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 70b7af1701c13e6a5d7644f04e4502f76ef7743a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618962"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43187853"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>Självstudie: Skapa en Node.js- och MongoDB-webbapp i Azure
 
@@ -117,6 +117,9 @@ MEAN.js-exempelprogrammet lagrar användardata i databasen. Om du lyckas skapa e
 Välj **Administratör > Hantera artiklar** för att lägga till några artiklar.
 
 Du kan när som helst stoppa Node.js genom att trycka på `Ctrl+C` i terminalen. 
+
+> [!NOTE]
+> [Node.js-snabbstarten](app-service-web-get-started-nodejs.md) nämner behovet av en web.config i rotappkatalogen. I de här självstudierna skapas web.config-filen automatiskt av App Service när du distribuerar dina filer med [lokal Git-distribution](app-service-deploy-local-git.md), istället för distribution via .zip-fil. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

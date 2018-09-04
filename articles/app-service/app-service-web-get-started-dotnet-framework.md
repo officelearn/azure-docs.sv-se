@@ -1,6 +1,6 @@
 ---
-title: Skapa en ASP.NET Framework-webbapp i Azure | Microsoft Docs
-description: Distribuera standard-ASP.NET-webbappen och lär dig att köra webbappar i Azure App Service.
+title: Skapa en C# ASP.NET Framework-webbapp i Azure | Microsoft Docs
+description: Distribuera den C#-baserade standard-ASP.NET-webbappen och lär dig att köra webbappar i Azure App Service.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -12,22 +12,21 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/30/2017
+ms.date: 08/29/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 125377b91514b1615cfbb488f7ddfe59fbc016f5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f6f443dfe637e68b0e1e13f7c3b9e718ae48a85d
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43191303"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Skapa en ASP.NET Framework-webbapp i Azure
 
 Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst.  Den här snabbstarten visar hur du distribuerar din första ASP.NET-webbapp till Azure Web Apps. När du är klar har du en resursgrupp som består av en App Service-plan och en Azure-webbapp med en distribuerad webbapp.
 
-Titta på videon som beskriver den här snabbstarten och följ sedan stegen för att publicera din första .NET-app i Azure.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
+![](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -35,11 +34,7 @@ Titta på videon som beskriver den här snabbstarten och följ sedan stegen för
 
 För att slutföra den här självstudien behöver du:
 
-* Installera <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> med följande arbetsbelastningar:
-    - **ASP.NET och webbutveckling**
-    - **Azure Development**
-
-    ![ASP.NET och webbutveckling och Azure Development (under webb och moln)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+Installera <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> med arbetsbelastningen **ASP.NET och webbutveckling**.
 
 Om du redan har installerat Visual Studio lägger du till arbetsbelastningarna i Visual Studio genom att klicka på **Tools (Verktyg)** > **Get Tools and Features (Skaffa verktyg och funktioner)**.
 
@@ -144,6 +139,7 @@ Leta reda på HTML-taggen `<div class="jumbotron">` längst upp på sidan och er
 Högerklicka på projektet **myFirstAzureWebApp** i **Solution Explorer** och välj **Publicera** för att distribuera om appen till Azure.
 
 Välj **Publicera** på publiceringssidan.
+![Sammanfattningssida för publicering i Visual Studio](./media/app-service-web-get-started-dotnet-framework/publish-summary-page.png)
 
 När publiceringen är klar startar Visual Studio en webbläsare till webbappens URL.
 
@@ -153,7 +149,7 @@ När publiceringen är klar startar Visual Studio en webbläsare till webbappens
 
 Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera webbappen.
 
-Klicka på **Apptjänster** på menyn till vänster och välj sedan namnet på din Azure-webbapp.
+Klicka på **App Services** på menyn till vänster och välj sedan namnet på din Azure-webbapp.
 
 ![Navigera till webbappen på Azure Portal](./media/app-service-web-get-started-dotnet-framework/access-portal.png)
 
@@ -162,6 +158,12 @@ Nu visas sidan Översikt för din webbapp. Här kan du utföra grundläggande ha
 ![App Service-blad på Azure Portal](./media/app-service-web-get-started-dotnet-framework/web-app-blade.png)
 
 Menyn till vänster innehåller olika sidor för att konfigurera appen. 
+
+## <a name="video"></a>Video
+
+Titta på videon som beskriver den här snabbstarten och följ sedan stegen för att publicera din första .NET-app i Azure.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 

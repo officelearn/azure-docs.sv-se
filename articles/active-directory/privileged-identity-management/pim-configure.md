@@ -1,6 +1,6 @@
 ---
-title: Konfigurera Azure AD Privileged Identity Management | Microsoft Docs
-description: En artikel som förklarar vad Azure AD Privileged Identity Management är och hur du använder PIM för att förbättra molnsäkerheten.
+title: Vad är Azure AD Privileged Identity Management? | Microsoft Docs
+description: Visar översikt över Azure Active Directory Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8ac1dad9413d9e2710722127c2e837223a5b6f7f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: ff4e5322ac9ccc0bbfd0706ca9f4863670bbf1b5
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618860"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186219"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Vad är Azure AD Privileged Identity Management?
 
@@ -51,6 +51,35 @@ I Azure AD kan Azure AD Privileged Identity Management hantera användare som ti
 ## <a name="just-in-time-administrator-access"></a>Just-in-time-administratörsåtkomst
 
 Tidigare kunde du tilldela en användare till en administratörsroll via Azure Portal, andra Microsoft Online Services-portaler eller Azure AD-cmdlets i Windows PowerShell. Med detta förfarande blir användaren en **permanent administratör** som alltid är aktiv i den tilldelade rollen. Azure AD Privileged Identity Management introducerar begreppet **berättigad administratör**. Berättigade administratörer bör vara användare som behöver privilegierad åtkomst då och då men inte hela tiden, varje dag. Rollen är inaktiv tills användaren behöver åtkomst. Därefter slutför användaren en aktiveringsprocess och blir aktiv administratör under en förinställd tidsperiod. Allt fler organisationer väljer att använda den här metoden för att minska eller eliminera ”fast administratörsåtkomst” till privilegierade roller.
+
+
+## <a name="terminology"></a>Terminologi
+
+*Berättigad roll-användare* – en berättigad roll-användare är en användare i organisationen som har tilldelats till en Azure AD-roll som berättigad (rollen kräver aktivering).
+
+*Delegerad godkännare* – En delegerad godkännare är en eller flera individer eller grupper inom Azure AD som ansvarar för att godkänna begäranden om att aktivera roller.
+
+## <a name="scenarios"></a>Scenarier
+
+Privileged Identity Management stöder följande scenarier:
+
+**Som Privilegierad rolladministratör kan du:**
+
+- aktivera godkännande för specifika roller
+- specificera godkända användare och grupper för att godkänna begäranden
+- visa historik för begäranden och godkännanden för alla privilegierade roller.
+
+**Som designerad godkännare kan du:**
+
+- visa väntande godkännanden (begäranden)
+- godkänna och avvisa begäranden om att upphöja roller (en i taget eller i grupp)
+- ange en motivering för godkännandet/avvisandet. 
+
+**Som berättigad roll-användare kan du:**
+
+- begära aktivering av roller som kräver godkännande
+- visa status för begäran att aktivera
+- slutföra uppgiften i Azure AD om aktiveringen godkändes.
 
 ## <a name="enable-privileged-identity-management-for-your-directory"></a>Aktivera Privileged Identity Management för din katalog
 
@@ -157,4 +186,6 @@ Om din organisation inte förnyar Azure AD Premium P2 eller om utvärderingsvers
 
 ## <a name="next-steps"></a>Nästa steg
 
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+- [Prenumerationskrav för att använda PIM](subscription-requirements.md)
+- [Azure AD-katalogroller som du kan hantera i PIM](pim-roles.md)
+- [Skydda privilegierad åtkomst för hybrid- och molndistributioner i Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)

@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 7ff3a2b3547874fd10d35867574c020500c48cd4
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 1fa3ddd605ba410093542795c1c805906f98a1f5
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42022573"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186429"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>Snabbstart: Skapa ett Kubernetes dev-utrymme med Azure Dev Spaces (.NET Core och VS Code)
 
@@ -94,7 +94,7 @@ Först måste du konfigurera ditt kodprojekt så att VS Code kommunicerar med ut
 
 Öppna **Kommandopaletten** (med hjälp av menyn **Visa | Kommandopalett**) och använd automatisk komplettering för att ange och välja det här kommandot: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`. 
 
-Då läggs felsökningskonfigurationen för Azure Dev Spaces till under mappen `.vscode`.
+Då läggs felsökningskonfigurationen för Azure Dev Spaces till under mappen `.vscode`. Det här kommandot ska inte förväxlas med kommandot `azds prep` som konfigurerar projektet för distribution.
 
 ![](./media/common/command-palette.png)
 
@@ -146,5 +146,4 @@ Uppdatera webbappen i webbläsaren och gå till sidan Om. Nu bör ditt anpassade
 Lär dig hur Azure Dev Spaces hjälper dig att utveckla mer komplexa appar över flera containrar och hur du kan förenkla utvecklingen i team genom att arbeta med olika versioner eller grenar av koden i olika utrymmen. 
 
 > [!div class="nextstepaction"]
-> 
-  [Arbeta med flera containrar och utveckling i team](team-development-netcore.md)
+> [Arbeta med flera containrar och utveckling i team](team-development-netcore.md)

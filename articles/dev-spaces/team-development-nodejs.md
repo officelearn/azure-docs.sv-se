@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 6993712e6de3eb932c4d1e3331ff6028463ad0ec
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 1bdc0b450a0d36c5de00050559750ded61edd7e5
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41919987"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188902"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Teamutveckling med Azure Dev Spaces
 
@@ -33,7 +33,7 @@ Du bör redan ha exempelkoden för `mywebapi` för den här guiden under en mapp
 
 ### <a name="run-mywebapi"></a>Kör *mywebapi*
 1. Öppna mappen `mywebapi` i ett *separat VS Code-fönster*.
-1. Öppna **Kommandopaletten** (med hjälp av menyn **Visa | Kommandopalett**) och använd automatisk komplettering för att ange och välja det här kommandot: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`. 
+1. Öppna **Kommandopaletten** (med hjälp av menyn **Visa | Kommandopalett**) och använd automatisk komplettering för att ange och välja det här kommandot: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`. Det här kommandot ska inte förväxlas med kommandot `azds prep` som konfigurerar projektet för distribution.
 1. Tryck på F5 och vänta tills tjänsten har skapats och distribuerats. Felsökningsfältet i VS Code visas när åtgärden har slutförts.
 1. Skriv ned slutpunktens URL, som ser ut ungefär så här: http://localhost:\<portnumber\>. **Tips! Statusfältet i VS Code innehåller en klickbar URL.** Det kan verka som om containern körs lokalt, men i själva verket körs den i utvecklingsmiljön i Azure. localhost-adressen beror på att `mywebapi` inte har definierat några offentliga slutpunkter och endast kan nås från Kubernetes-instansen. För enkelhetens skull, och för att underlätta interaktionen med den privata tjänsten från den lokala datorn, skapar Azure Dev Spaces en tillfällig SSH-tunnel för containern som körs i Azure.
 1. När `mywebapi` är redo öppnar du webbläsaren på localhost-adressen. Du bör se ett svar från `mywebapi`-tjänsten (”Hello from mywebapi”).

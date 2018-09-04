@@ -1,9 +1,9 @@
 ---
-title: Importera en Azure Functions-app som ett API i Azure Portal | Microsoft Docs
-description: Den här självstudien visar hur du använder Azure API Management för att importera en Azure Functions-app som ett API.
+title: Importera en Azure-funktionsapp som API i Azure API Management | Microsoft Docs
+description: Den här självstudien visar hur du importerar en Azure-funktionsapp till Azure API Management som API.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,100 +11,168 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/15/2018
+ms.date: 08/28/2018
 ms.author: apimpm
-ms.openlocfilehash: 670fa58de7155028b0f72f1f819b9f269e07b9eb
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: ea6078088417099045006f81dcaf1f769bbd64d7
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239060"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246823"
 ---
-# <a name="import-an-azure-functions-app-as-an-api"></a>Importera en Azure Functions-app som ett API
+# <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importera en Azure-funktionsapp som API i Azure API Management | Microsoft Docs
 
-Den här artikeln visar hur du importerar en Azure Functions-app som ett API. Artikeln beskriver också hur du testar Azure API Management API.
+Azure API Management har funktioner för att importera Azure-funktionsappar som nya API:er eller lägga till dem till befintliga API:er. Processen genererar automatiskt en värdnyckel i Azure-funktionsappen, som sedan tilldelas till ett namngivet värde i Azure API Management.
 
-I den här artikeln kan du se hur du:
+Den här artikeln visar hur du importerar en Azure-funktionsapp som API i Azure API Management. Vi beskriver också testprocessen.
+
+Du lär dig hur du:
 
 > [!div class="checklist"]
-> * Importera en Functions-app som ett API
+> * Importera en Azure-funktionsapp som API
+> * Lägga till en Azure-funktionsapp till ett API
+> * Visa den nya Azure-funktionsappsvärdnyckeln och det namngivna Azure API Management-värdet
 > * Testa API:et i Azure Portal
 > * Testa API:et i utvecklarportalen
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-+ Slutför snabbstarten [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
-+ Se till att du har en Azure Funktions-app i din prenumeration. Mer information finns i [Skapa en Functions-app](../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
-+ [Skapa en OpenAPI-definition](../azure-functions/functions-openapi-definition.md) för din Azure Functions-app.
+* Slutför snabbstarten [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
+* Se till att du har en Azure Funktions-app i din prenumeration. Mer information finns i [Skapa en Azure-funktionsapp](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). Det måste innehålla funktioner med HTTP-utlösare och inställningar för auktoriseringsnivå inställda på *Anonym* eller *Funktion*.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"></a>Importera och publicera ett serverdels-API
+## <a name="add-new-api-from-azure-function-app"></a> Importera en Azure-funktionsapp som nytt API
 
-1. Under **API MANAGEMENT** (API-HANTERING) väljer du **APIs** (API:er).
-2. In the listan **Lägg till ett nytt API** väljer du **Functions App** (Functions-app).
+Följ stegen nedan och skapa ett nytt API från en Azure-funktionsapp.
 
-    ![Functions-app](./media/import-function-app-as-api/function-app-api.png)
-3. Välj **Bläddra** för att se listan över Functions-appar i din prenumeration.
-4. Välj appen. API Management hittar den swagger som är associerad med den valda appen, hämtar den och importerar den. 
-5. Lägg till ett API URL-suffix. Suffixet är ett namn som identifierar det här specifika API:et i den här API Management-instansen. Suffixet måste vara unikt i den här API Management-instansen.
-6. Du kan publicera API:et genom att associera det med en produkt. I det här fallet används produkten **Unlimited** (Obegränsat). Om du vill att API:et ska publiceras och vara tillgängligt för utvecklare lägger du till API:et till en produkt. Du kan lägga till API:et till en produkt när du skapar API:et, eller så kan du lägga till det senare.
+1. I tjänsteinstansen **Azure API Management** väljer du **API:er** i menyn till vänster.
 
-    Produkter är associationer med en eller flera API:er. Du kan inkludera flera API:er och erbjuda dem till utvecklare via utvecklarportalen. Utvecklare måste först prenumerera på en produkt för att få åtkomst till API:n. En utvecklare som prenumererar får en prenumerationsnyckel som går att använda till alla API:er i den produkten. Om du skapade API Management-instansen är du administratör. Administratörer prenumererar på alla produkter som standard.
+2. I listan **Lägg till ett nytt API** väljer du **Funktionsapp**.
 
-    Som standard medföljer två exempelprodukter varje API Management-instans:
+    ![Lägg till från funktionsapp](./media/import-function-app-as-api/add-01.png)
 
-    * **Starter**
-    * **Obegränsat**   
-7. Välj **Skapa**.
+3. Klicka på **Bläddra** för att välja funktioner att importera.
 
-## <a name="populate-azure-functions-keys-in-azure-api-management"></a>Fyll i Azure-funktionsnycklar i Azure API Management
+    ![Lägg till från funktionsapp](./media/import-function-app-as-api/add-02.png)
 
-Om importerade Azure Functions-apparna skyddas av nycklar skapar API Management automatiskt *namngivna värden* för nycklarna. API Management fyller inte i posterna med hemligheter. Utför följande steg för varje post:  
+4. Klicka på avsnittet **Funktionsapp** och välj från listan över tillgängliga funktionsappar.
 
-1. I API Management-instansen väljer du fliken **Namngivna värden**.
-2. Välj en post och välj **Visa värde** i sidofältet.
+    ![Lägg till från funktionsapp](./media/import-function-app-as-api/add-03.png)
 
-    ![Namngivna värden](./media/import-function-app-as-api/apim-named-values.png)
+5. Hitta den funktionsapp du vill importera funktioner från, klicka på den och tryck på **Välj**.
 
-3. Om den text som visas i rutan **Värde** liknar **koden för \<Azure Functions-namnet\>** går du till **Functions Apps** (Funktionsappar) och går sedan till **Functions** (Funktioner).
-4. Välj **Hantera** och kopiera sedan den relevanta nyckeln baserat på din autentiseringsmetoden för din app.
+    ![Lägg till från funktionsapp](./media/import-function-app-as-api/add-04.png)
 
-    ![Functions-app – kopiera nycklar](./media/import-function-app-as-api/azure-functions-app-keys.png)
+6. Välj de funktioner du vill importera och klicka på **Välj**.
 
-5. Klistra in nyckeln i rutan **Värde** välj sedan **Spara**.
+    ![Lägg till från funktionsapp](./media/import-function-app-as-api/add-05.png)
 
-    ![Functions-app – klistra in nyckelvärden](./media/import-function-app-as-api/apim-named-values-2.png)
+    > [!NOTE]
+    > Du kan endast importera de funktioner som är baserade på HTTP-utlösare och som har auktoriseringsnivåinställningen *Anonym* eller *Funktion*.
 
-## <a name="test-the-new-api-management-api-in-the-azure-portal"></a>Testa det nya API Management-API:et i Azure-portalen
+7. Redigera de förifyllda fälten om det behövs. Klicka på **Skapa**.
+
+    ![Lägg till från funktionsapp](./media/import-function-app-as-api/add-06.png)
+
+## <a name="append-azure-function-app-to-api"></a> Lägg till Azure-funktionsapp till befintligt API
+
+Följ stegen nedan för att lägga till Azure-funktionsapp till befintligt API.
+
+1. I tjänsteinstansen **Azure API Management** väljer du **API:er** i menyn till vänster.
+
+2. Välj ett API som du vill importera en Azure-funktionsapp till. Klicka på **...** och välj **Importera** på snabbmenyn.
+
+    ![Lägg till från funktionsapp](./media/import-function-app-as-api/append-01.png)
+
+3. Klicka på rutan **Funktionsapp**.
+
+    ![Lägg till från funktionsapp](./media/import-function-app-as-api/append-02.png)
+
+4. I popup-fönstret klickar du på **Bläddra**.
+
+    ![Lägg till från funktionsapp](./media/import-function-app-as-api/append-03.png)
+
+5. Klicka på avsnittet **Funktionsapp** och välj från listan över tillgängliga funktionsappar.
+
+    ![Lägg till från funktionsapp](./media/import-function-app-as-api/add-03.png)
+
+6. Hitta den funktionsapp du vill importera funktioner från, klicka på den och tryck på **Välj**.
+
+    ![Lägg till från funktionsapp](./media/import-function-app-as-api/add-04.png)
+
+7. Välj de funktioner du vill importera och klicka på **Välj**.
+
+    ![Lägg till från funktionsapp](./media/import-function-app-as-api/add-05.png)
+
+8. Klicka på **Importera**.
+
+    ![Lägg till från funktionsapp](./media/import-function-app-as-api/append-04.png)
+
+## <a name="function-app-import-keys"></a> Genererade värdnyckel för Azure-funktionsapp
+
+Import av en Azure-funktionsapp genererar automatiskt:
+* värdnyckel i funktionsappen med namnet apim-{*ditt Azure API Management-tjänsteinstansnamn*},
+* namngivet värde i Azure API Management-instans med namnet {*ditt Azure-funktionsappinstansnamn*}-nyckel, vilket innehåller den skapade värdnyckeln.
+
+> [!WARNING]
+> Om du tar bort eller ändrar värdet för antingen värdnyckeln för Azure-funktionsappen eller det namngivna Azure API Management-värdet bryts kommunikationen mellan tjänsterna. Värdena synkroniseras inte automatiskt.
+>
+> Om du behöver rotera värdnyckeln ska du se till att det namngivna värdet i Azure API Management också ändras.
+
+### <a name="access-azure-function-app-host-key"></a>Komma åt värdnyckel för Azure-funktionsapp
+
+1. Öppna instansen av Azure-funktionsappen.
+
+2. Välj **Funktionsappinställningar** i översikten.
+
+    ![Lägg till från funktionsapp](./media/import-function-app-as-api/keys-02-a.png)
+
+3. Nyckeln finns i avsnittet **Värdnycklar**.
+
+    ![Lägg till från funktionsapp](./media/import-function-app-as-api/keys-02-b.png)
+
+### <a name="access-the-named-value-in-azure-api-management"></a>Komma åt det namngivna värdet i Azure API Management
+
+Öppna instansen av Azure API Management och välj **Namngivna värden** på menyn till vänster. Azure-funktionsappnyckeln finns där.
+
+![Lägg till från funktionsapp](./media/import-function-app-as-api/keys-01.png)
+
+## <a name="test-in-azure-portal"></a> Testa det nya API Management-API:et i Azure-portalen
 
 Du kan anropa åtgärder direkt från Azure-portalen. Azure-portalen är ett praktiskt sätt att visa och testa åtgärderna i ett API.  
 
 1. Välj det API som du skapade i föregående avsnitt.
+
 2. Välj fliken **Test**.
+
 3. Välj en åtgärd.
 
     Sidan visar fält för frågeparametrar och fält för sidhuvudena. Ett av huvudena är **Ocp-Apim-Subscription-Key**, för prenumerationsnyckeln till den produkt som är associerad med det här API:et. Om du skapade API Management-instansen är du redan administratör, vilket innebär att nyckeln fylls i automatiskt. 
+
 4. Välj **Skicka**.
 
     Serverdelen svarar med **200 OK** och några data.
 
-## <a name="call-operation"></a>Anropa en åtgärd från utvecklarportalen
+## <a name="test-in-developer-portal"></a> Anropa en åtgärd från utvecklarportalen
 
 Du kan även anropa åtgärder från utvecklarportalen för att testa API:er. 
 
 1. Välj det API som du skapade i [Importera och publicera ett serverdels-API](#create-api).
+
 2. Välj **Developer portal** (Utvecklarportal).
 
     Webbplatsen för utvecklarportalen öppnas.
+
 3. Välj det **API** som du skapade.
+
 4. Välj den åtgärd som du vill testa.
+
 5. Välj **Prova**.
+
 6. Välj **Skicka**.
     
     När en åtgärd har anropats visas **svarsstatus**, **svarshuvuden** och eventuellt **svarsinnehåll** på utvecklarportalen.
-
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

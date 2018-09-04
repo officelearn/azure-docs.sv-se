@@ -3,7 +3,7 @@ title: Lägg till ett API manuellt med Azure Portal | Microsoft Docs
 description: Den här självstudien visar hur du använder API Management (APIM) för att lägga till ett API manuellt.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,16 +11,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 08/27/2018
 ms.author: apimpm
-ms.openlocfilehash: ef7cfa0f30eaaa426c312b21ce0a73aa4409d2ec
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 35b4777c7de4db1f8514b24e7b1e4d11775d0ca0
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307456"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247910"
 ---
-# <a name="add-an-api-manually"></a>Lägga till ett API manuellt 
+# <a name="add-an-api-manually"></a>Lägga till ett API manuellt
 
 Stegen i den här artikeln visar hur du använder Azure Portal för att lägga till ett API manuellt till API Management (APIM)-instansen. Ett vanligt scenario när du vill skapa ett tomt API och definiera det manuellt är när du vill testa API:et. Mer information om att testa API:er finns i [Testa API-svar](mock-api-responses.md).
 
@@ -54,17 +54,16 @@ Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-start
     |**Produkter**|"*Obegränsat*" |Du kan publicera API:et genom att associera det med en produkt. Om du vill att API:et ska publiceras och vara tillgänglig för utvecklare, lägger du till det till en produkt. Du kan göra det vid API-skapandet eller ställa in det senare.<br/><br/>Produkter är associationer med en eller flera API:er. Du kan inkludera flera API:er och erbjuda dem till utvecklare via utvecklarportalen. <br/>Utvecklare måste först prenumerera på en produkt för att få åtkomst till API:n. När de prenumererar få de en prenumerationsnyckel som går att använda till alla API:er i produkten. Om du har skapat APIM-instansen är du redan administratör, så du prenumererar på alla produkter som standard.<br/><br/> Som standard medföljer två exempelprodukter varje API Management-instans: **Starter** och **Unlimited**.| 
 5. Välj **Skapa**.
 
-För tillfället har du inga åtgärder i APIM som mappar till åtgärderna i ditt serverdels-API. Om du anropar en åtgärd som exponeras via serverdelen men inte via APIM, får du en **404**. 
+För tillfället har du inga åtgärder i APIM som mappar till åtgärderna i ditt serverdels-API. Om du anropar en åtgärd som exponeras via serverdelen men inte via APIM, får du en **404**.
 
 >[!NOTE] 
 > Som standard när du lägger till en API, även om den är ansluten till en serverdelstjänst, kommer inte APIM att exponera några åtgärder förrän du vitlistat dem. Om du vill vitlista en åtgärd i din serverdelstjänst, skapar du en APIM-åtgärd som mappar till serverdelsåtgärden.
->
 
 ## <a name="add-and-test-an-operation"></a>Lägg till och testa en åtgärd
 
 Det här avsnittet visar hur du lägger till en /get-åtgärd för att mappa den till serverdelens http://httpbin.org/get-åtgärd.
 
-### <a name="add-the-operation"></a>Lägg till åtgärden
+### <a name="add-an-operation"></a>Lägga till en åtgärd
 
 1. Välj det API som du skapade i föregående steg.
 2. Klicka på **+ Lägg till åtgärd**.
@@ -72,7 +71,7 @@ Det här avsnittet visar hur du lägger till en /get-åtgärd för att mappa den
 4. Ange *FetchData* som **Visningsnamn**.
 5. Välj **Spara**.
 
-### <a name="test-the-operation"></a>Testa åtgärden
+### <a name="test-an-operation"></a>Testa en åtgärd
 
 Testa åtgärden i Azure Portal. Du kan också testa den i **Utvecklarportalen**.
 

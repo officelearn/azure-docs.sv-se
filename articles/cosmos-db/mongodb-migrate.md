@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sclyon
 ms.custom: mvc
-ms.openlocfilehash: ffb15c3a608cb7b7be275913cf9dec84e655334a
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: e133dde4defdec51d33fda70c0ac6d6fbeff18fe
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41918359"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189393"
 ---
-# <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: Importera MongoDB-data 
+# <a name="migrate-your-data-to-azure-cosmos-db-mongodb-api-account"></a>Migrera data till Azure Cosmos DB MongoDB-API-konto
 
 Om du vill migrera data från MongoDB till ett Azure Cosmos DB-konto för användning med API för MongoDB, måste du göra följande:
 
@@ -42,7 +42,7 @@ Den här självstudien omfattar följande uppgifter:
 
 * Aktivera SSL: Azure Cosmos DB har stränga säkerhetskrav och säkerhetsstandarder. Det är viktigt att du aktiverar SSL när du kommunicerar med ditt konto. Resten av den här artikeln innehåller anvisningar som beskriver hur du aktiverar SSL för mongoimport och mongorestore.
 
-## <a name="find-your-connection-string-information-host-port-username-and-password"></a>Hitta information om din anslutningssträng (värd, port, användarnamn och lösenord)
+## <a name="get-your-connection-string"></a>Hämta anslutningssträngen 
 
 1. Klicka på posten **Azure Cosmos DB** i det vänstra fönstret på [Azure Portal](https://portal.azure.com).
 1. Välj namnet på ditt konto i fönstret **Prenumerationer**.
@@ -52,43 +52,51 @@ Den här självstudien omfattar följande uppgifter:
 
    ![Bladet Anslutningssträng](./media/mongodb-migrate/ConnectionStringBlade.png)
 
-## <a name="import-data-to-the-api-for-mongodb-by-using-mongoimport"></a>Importera data till API:et för MongoDB med hjälp av mongoimport
+## <a name="migrate-data-by-using-mongoimport"></a>Migrera data med mongoimport
 
 Använd följande mall för att importera data till ditt Azure Cosmos DB-konto. Fyll i *värd*, *användarnamn* och *lösenord* med de värden som är specifika för ditt konto.  
 
 Mall:
 
-    mongoimport.exe --host <your_hostname>:10255 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates --type json --file C:\sample.json
+```bash
+    mongoimport.exe --host <your_hostname>:10255 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates --type json --file "C:\sample.json"
+```
 
 Exempel:  
 
-    mongoimport.exe --host comsosdb-mongodb-account.documents.azure.com:10255 -u comsosdb-mongodb-account -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates --db sampleDB --collection sampleColl --type json --file C:\Users\admin\Desktop\*.json
+```bash
+    mongoimport.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates --db sampleDB --collection sampleColl --type json --file "C:\Users\admin\Desktop\*.json"
+```
 
-## <a name="import-data-to-the-api-for-mongodb-by-using-mongorestore"></a>Importera data till API:et för MongoDB med hjälp av mongorestore
+## <a name="migrate-data-by-using-mongorestore"></a>Migrera data med mongorestore
 
 Du kan återställa data till ditt API för MongoDB-konto genom att importera dem med hjälp av följande mall. Fyll i *värd*, *användarnamn* och *lösenord* med värdena för ditt konto.
 
 Mall:
 
+```bash
     mongorestore.exe --host <your_hostname>:10255 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates <path_to_backup>
+```
 
 Exempel:
 
-    mongorestore.exe --host comsosdb-mongodb-account.documents.azure.com:10255 -u comsosdb-mongodb-account -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
+```bash
+    mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
+```
     
-## <a name="guide-for-a-successful-migration"></a>Guide för en lyckad migrering
+## <a name="steps-for-a-successful-migration"></a>Så genomför du en lyckad migrering
 
 1. Skapa samlingar i förväg och skala dem:
         
-    * Som standard etablerar Azure Cosmos DB en ny MongoDB-samling med 1 000 enheter för programbegäran per sekund (RU/s). Innan du påbörjar migreringen med mongoimport, mongorestore eller mongomirror skapar du alla samlingar i förväg från [Azure Portal](https://portal.azure.com) eller från MongoDB-drivrutiner och MongoDB-verktyg. Om samlingen är större än 10 GB skapar du en [fragmenterad/partitionerad samling](partition-data.md) med lämplig shard-nyckel.
+    * Som standard etablerar Azure Cosmos DB en ny MongoDB-samling med 1 000 enheter för programbegäran per sekund (RU/s). Innan du påbörjar migreringen med mongoimport eller mongorestore skapar du alla samlingar i förväg från [Azure Portal](https://portal.azure.com) eller från MongoDB-drivrutiner och MongoDB-verktyg. Om datastorleken är större än 10 GB skapar du en [fragmenterad/partitionerad samling](partition-data.md) med lämplig shard-nyckel.
 
-    * Öka samlingarnas dataflöde på [Azure Portal](https://portal.azure.com) från 1 000 RU/s för en enskild partitionssamling och 2 500 RU/s för en fragmenterad samling under migreringen. Med ett högre dataflöde kan du undvika begränsningar och migrera snabbare. Med timbaserad fakturering i Azure Cosmos DB kan du minska dataflödet direkt efter migreringen för att spara kostnader.
+    * Öka samlingarnas dataflöde på [Azure Portal](https://portal.azure.com) från 1000 RU/s för en enskild partitionssamling och 2 500 RU/s för en fragmenterad samling under migreringen. Med ett högre dataflöde kan du undvika begränsningar och migrera snabbare. Du kan minska dataflödet direkt efter migreringen för att spara kostnader.
 
     * Förutom att etablera RU/s på samlingsnivå kan du även etablera RU/s för en uppsättning samlingar på den överordnade databasnivån. Detta kräver att du skapar databasen och samlingarna i förväg, samt att du definierar en shard-nyckel för varje samling.
 
     * Du kan skapa fragmenterade (sharded) samlingar med valfritt verktyg, drivrutin eller SDK. I det här exemplet använder vi Mongo Shell för att skapa en fragmenterad samling:
 
-        ```
+        ```bash
         db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
         ```
     
@@ -104,15 +112,17 @@ Exempel:
 
 1. Beräkna den ungefärliga RU-kostnaden för en enskild dokumentskrivning:
 
-    a. Anslut till Azure Cosmos DB MongoDB-databasen från MongoDB Shell. Anvisningar finns i [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md) (Ansluta ett MongoDB-program till Azure Cosmos DB).
+   a. Anslut till Azure Cosmos DB MongoDB-API-kontot från MongoDB Shell. Anvisningar finns i [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md) (Ansluta ett MongoDB-program till Azure Cosmos DB).
     
-    b. Kör ett insert-exempelkommando genom att använda något av dina exempeldokument från MongoDB Shell:
-    
-        ```db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })```
+   b. Kör ett insert-exempelkommando genom att använda något av dina exempeldokument från MongoDB Shell:
+   
+      ```bash
+      db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })
+      ```
         
-    c. Kör ```db.runCommand({getLastRequestStatistics: 1})```. Ett svar liknande följande returneras:
+   c. Kör ```db.runCommand({getLastRequestStatistics: 1})```. Ett svar liknande följande returneras:
      
-        ```
+      ```bash
         globaldb:PRIMARY> db.runCommand({getLastRequestStatistics: 1})
         {
             "_t": "GetRequestStatisticsResponse",
@@ -121,7 +131,7 @@ Exempel:
             "RequestCharge": 10,
             "RequestDurationInMilliSeconds": NumberLong(50)
         }
-        ```
+      ```
         
     d. Notera kostnaden för begäran.
     
@@ -159,13 +169,13 @@ Exempel:
 
 1. Kör migreringskommandot:
 
-   ```
-   mongoimport.exe --host comsosdb-mongodb-account.documents.azure.com:10255 -u comsosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24
+   ```bash
+   mongoimport.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24
    ```
    Eller med mongorestore (kontrollera att dataflödet för alla samlingar minst har angetts till antalet RU:er som användes i tidigare beräkningar):
    
-   ```
-   mongorestore.exe --host comsosdb-mongodb-account.documents.azure.com:10255 -u comsosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07 --numInsertionWorkersPerCollection 4 --batchSize 24
+   ```bash
+   mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07 --numInsertionWorkersPerCollection 4 --batchSize 24
    ```
 
 ## <a name="next-steps"></a>Nästa steg

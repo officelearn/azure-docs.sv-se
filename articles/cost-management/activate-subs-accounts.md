@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 08/29/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 4a5e613169bf3173b7585b49803fc7ac7f5186ce
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: ec56f9fdf21459857c8115222da921b6681a3ac5
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297979"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247244"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Aktivera Azure-prenumerationer och -konton med Azure Cost Management
 
@@ -103,7 +103,7 @@ Innan du kan generera API-nyckeln för Azure Enterprise-avtal för att konfigure
 
 Du kanske även behöver ge avdelningsadministratörer, kontoägare och Enterprise-administratörer behörigheter att _visa debiteringar_ med fakturerings-API:et.
 
-Endast en Azure-tjänstadministratör kan aktivera Cost Management. Det räcker inte att vara medadministratör. Du kan dock kringgå administratörskravet. Du kan begära att din Azure Active Directory-administratör beviljar dig behörighet att godkänna **CloudynAzureCollector** med ett PowerShell-skript. Följande skript ger behörighet att registrera tjänstens huvudnamn **CloudynAzureCollector** i Azure Active Directory.
+Endast en Azure-tjänstadministratör kan aktivera Cost Management. Det räcker inte att vara medadministratör. Du kan dock kringgå administratörskravet. Du kan begära att din Azure Active Directory-administratör beviljar dig behörighet att godkänna **CloudynAzureCollector** med ett PowerShell-skript. Följande skript ger behörighet att registrera tjänstens huvudnamn **CloudynAzureCollector** i Azure Active Directory. När det har körts avslutas åtgärden med att webbläsaren visar webbadressen http://localhost:8080/CloudynJava.
 
 ```
 #THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

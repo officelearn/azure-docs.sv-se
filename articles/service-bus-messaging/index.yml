@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 00484fd11d1bf7a25b5e6cd8029366794e44c16c
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695303"
 documentType: LandingData
 title: Dokumentation om Azure Service Bus-meddelanden
 metadata:
@@ -6,20 +12,14 @@ metadata:
   title: Dokumentation om Azure Service Bus-meddelanden – Självstudier, snabbstarter, API-referens
   meta.description: Learn how to set up messaging that connects applications and services across on-premises and cloud environments.
   services: service-bus-messaging
-  author: sethmanheim
-  manager: timlt
+  author: spelluru
+  manager: femila
   ms.service: service-bus-messaging
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 05/16/2018
-  ms.author: sethm
-  ms.openlocfilehash: 7746b2259f4c4c411e52d236f9734825355750d5
-  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 06/01/2018
-  ms.locfileid: "34648599"
+  ms.author: spelluru
 abstract:
   description: Azure Service Bus är en meddelandetjänst i molnet för flera klienter som skickar information mellan program och tjänster. Asynkrona åtgärder ger dig en flexibel, asynkron meddelandetjänst med funktioner för strukturerade meddelanden enligt FIFO-metoden (först-in-först-ut) och funktioner för publicering/prenumeration.
   aside:

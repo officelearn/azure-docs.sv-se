@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 25af61ce51828691d08210f4089afa0cf56b9846
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 46c99011a22f855f6faf53e03169b2d1e4c6ce85
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257862"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669015"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Så här fungerar det: Azure Multi-Factor Authentication
 
@@ -39,11 +39,14 @@ Multi-Factor Authentication ingår i följande erbjudanden:
 * **Multi-Factor Authentication för Office 365** -vissa Azure Multi-Factor Authentication-funktioner är tillgängliga som en del av din prenumeration. Mer information om MFA för Office 365 finns i artikeln [planera för multi-Factor authentication för Office 365-distributioner](https://support.office.com/article/plan-for-multi-factor-authentication-for-office-365-deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba).
 * **Azure Active Directorys globala administratörer** -vissa Azure Multi-Factor Authentication-funktioner är tillgängliga som ett sätt att skydda globala administratörskonton.
 
+> [!NOTE]
+> Nya kunder kan inte längre att köpa Azure Multi-Factor Authentication som en fristående erbjuder effektiva September 1 2018. Multifaktorautentisering fortsätter att vara en tillgänglig funktion i Azure AD Premium-licenser.
+
 ### <a name="auth-provider-or-mfa-license"></a>Auth-Provider eller MFA-licens
 
-Om du har Azure AD Premium eller ett licens-paket som innehåller Azure AD Premium kan har du redan Azure MFA. Din organisation behöver inte något mer att utöka kapaciteten för tvåstegsverifiering verifiering för alla användare. Du behöver bara tilldela en licens till en användare och sedan kan du aktivera MFA.
+Om du har Azure AD Premium eller en annan licens-paket som innehåller Azure AD Premium kan har du redan Azure MFA. Din organisation behöver inte något mer att utöka kapaciteten för tvåstegsverifiering verifiering för alla användare. Du behöver bara tilldela en licens till en användare och sedan kan du aktivera MFA.
 
-Om du inte har licenser som inkluderar Azure MFA eller inte har tillräckligt med licenser för alla användare, kan du skapa en [MFA Auth-Provider](concept-mfa-authprovider.md) att utöka alla funktioner i MFA till de användare som behövs. 
+Om du inte har licenser som inkluderar Azure MFA eller inte har tillräckligt med licenser för alla användare, kan du skapa en [MFA Auth-Provider](concept-mfa-authprovider.md) att utöka alla funktioner i MFA till de användare som behövs.
 
 > [!IMPORTANT]
 > Om du inte har tillräckligt med licenser för alla användare, kan du skapa en per användare Multi-Factor Auth-Provider för att täcka resten av din organisation. Skapa inte en per autentisering Multi-Factor Auth-Provider. Om du gör det, kan du få betala för begäranden från användare som redan har licenser.

@@ -3,18 +3,18 @@ title: Visa sökresultat med Azure Maps | Microsoft Docs
 description: Hur du utför en sökbegäran med Azure Maps och sedan visa resultaten på en Javascript-karta
 author: jingjing-z
 ms.author: jinzh
-ms.date: 08/26/2018
+ms.date: 08/31/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 31ff57f8a933ac17c6dfaa1a1fb0cf2bab0b6557
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 7d4eb5f9be4a6bcefe4b544d3f97a9b9391c0d81
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43345279"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665785"
 ---
 # <a name="show-search-results-on-the-map"></a>Visa sökresultat på kartan
 
@@ -27,7 +27,7 @@ Den här artikeln visar hur du söker efter plats i närheten och visa sökresul
 
 I koden ovan första kodblocket konstruerar ett Kartobjekt och skapar en instans av en klienttjänst. Du kan se [skapa en karta](./map-create.md) anvisningar.
 
-Andra kodblocket använder Fuzzy-sökning [Azure Maps Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) att söka efter orienteringspunkt. Fuzzy-sökning API kan hantera valfri kombination av fuzzy indata. Svaret från tjänsten fuzzy-sökning parsas sedan till GeoJSON-format och PIN-koder har lagts till i kartan för att visa orienteringspunkter på kartan. 
+Andra kodblocket använder Fuzzy-sökning [Azure Maps Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) att söka efter orienteringspunkt. Fuzzy-sökning API kan hantera valfri kombination av fuzzy indata. Svaret från tjänsten fuzzy-sökning parsas sedan till GeoJSON-format med den [getGeoJsonSearchResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonsearchresponse?view=azure-iot-typescript-latest#geojsonsearchresponse) metod. De PIN-koderna läggs sedan till kartan för att visa orienteringspunkter på kartan.
 
 Det sista blocket kod lägger till kamera gränser för kartan med hjälp av kartans [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) egenskapen.
 

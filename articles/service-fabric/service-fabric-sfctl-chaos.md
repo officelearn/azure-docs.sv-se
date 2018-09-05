@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 68799fe2755d8c0e811ae217f2cf6ceb84c7d869
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 1e77dfdec902b64f2524c790bda6742eaa1105fc
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494234"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669182"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Starta, stoppa och rapportera om chaos-testtjänsten.
@@ -47,9 +47,9 @@ Du kan ange ContinuationToken för att hämta nästa segment Chaos-händelser. F
 |Argumentet|Beskrivning|
 | --- | --- |
 | --fortsättningstoken | Fortsättningstoken parameter-token som används för att hämta nästa uppsättning resultat. Ett fortsättningstoken med en icke-tomma värden inkluderas i svaret på API: et när resultaten från systemet inte ryms i ett enda svar. När det här värdet skickas till nästa API-anropet API: et Returnerar nästa uppsättning resultat. Om det finns inga ytterligare resultat, innehåller ett värde inte i fortsättningstoken. Värdet för den här parametern får inte vara URL-kodas. |
-| --utc-tid-slutpunkt | Windows-filen gång representerar sluttid på det tidsintervall som en Chaos-rapporten ska genereras. Läser [DateTime.ToFileTimeUtc metoden](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) mer information. |
+| --utc-tid-slutpunkt | Windows-filen gång representerar sluttid på det tidsintervall som en Chaos-rapporten ska genereras. Läser [DateTime.ToFileTimeUtc metoden](https://docs.microsoft.com/dotnet/api/system.datetime.tofiletimeutc?redirectedfrom=MSDN&view=netframework-4.7.2#System_DateTime_ToFileTimeUtc) mer information. |
 | --max resultat | Det maximala antalet resultat som ska returneras som en del av de växlade frågorna. Den här parametern definierar den övre gränsen för antalet resultat som returneras. Resultatet som returneras kan mindre än de angivna maximalt antal resultat om de inte passar i meddelandet enligt storleksbegränsningar max meddelande definieras i konfigurationen. Om den här parametern är noll eller inte har angetts, inkluderar växlade frågan så många resultat som möjligt som passar in i svarsmeddelandet. |
-| --utc-tid-start | Windows-filen tid som representerar starttiden på det tidsintervall som en Chaos-rapporten ska genereras. Läser [DateTime.ToFileTimeUtc metoden](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) mer information. |
+| --utc-tid-start | Windows-filen tid som representerar starttiden på det tidsintervall som en Chaos-rapporten ska genereras. Läser [DateTime.ToFileTimeUtc metoden](https://docs.microsoft.com/dotnet/api/system.datetime.tofiletimeutc?redirectedfrom=MSDN&view=netframework-4.7.2#System_DateTime_ToFileTimeUtc) mer information. |
 | --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Global argument

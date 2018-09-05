@@ -9,12 +9,12 @@ ms.technology: project-answer-search
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: a12761c2d913cd7ffaa2cbc2cd42576c6bc96434
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 28a73918b50d7b13248fe5b6a17f2c95287a1ba4
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866992"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666296"
 ---
 # <a name="project-answer-search-v7-reference"></a>Projektet svar Search v7-referens
 
@@ -112,7 +112,7 @@ Definierar de fel som inträffat.
 |<a name="error-moredetails" />moreDetails|En beskrivning som ger ytterligare information om felet.|Sträng|  
 |<a name="error-parameter" />Parametern|Frågeparametern i begäran som orsakade felet.|Sträng|  
 |<a name="error-subcode" />Obligatorisk|Felkoden som identifierar felet. Till exempel om `code` är InvalidRequest, `subCode` kanske ParameterInvalid eller ParameterInvalidValue. |Sträng|  
-|<a name="error-value" />värde|Värde för Frågeparametern som inte var giltig.|Sträng|  
+|<a name="error-value" />Värde|Värde för Frågeparametern som inte var giltig.|Sträng|  
   
 
 ### <a name="errorresponse"></a>ErrorResponse  
@@ -121,7 +121,7 @@ Det översta objekt som svaret innehåller när begäran misslyckas.
 |Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |_typ|Typ-tipset.|Sträng|  
-|<a name="errors" />fel|En lista över fel som beskriver orsaker varför begäran misslyckades.|[Fel](#error)]|  
+|<a name="errors" />Fel|En lista över fel som beskriver orsaker varför begäran misslyckades.|[Fel](#error)|  
 
   
   

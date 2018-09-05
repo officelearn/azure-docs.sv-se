@@ -9,19 +9,32 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: juliako
-ms.openlocfilehash: 8a9409c46cac8397bc449c586374729a4d864036
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ac9d3f8fd10a3b65a2af2999b8c7ade7965de912
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41987609"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664452"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
-Den här artikeln visar hur du använder den [ladda upp video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API för att ladda upp och indexera dina videor med Azure Video Indexer. Artikeln diskuteras även några av parametrarna att du kan ange för API: et ändra processen och utdata för API: et.
+Den här artikeln visar hur du laddar upp en video med Video Indexer i Azure. Video Indexer API innehåller två alternativ för uppladdning: 
+
+* ladda upp din video från en URL (rekommenderas)
+* Skicka videofilen som en bitmatris i begärandetexten.
+
+Artikeln visar hur du använder den [ladda upp video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API för att ladda upp och indexera dina videor baserat på en URL. Kodexemplet i artikeln innehåller de kommenterade ut koden som visar hur du överför byte-matris.  
+
+Artikeln beskriver några av parametrarna att du kan ange för API: et ändra processen och utdata för API: et.
 
 > [!Note]
-> När du skapar en Video Indexer-konto, kan du välja ett kostnadsfritt konto (där du får ett visst antal kostnadsfria indexering minuter) eller ett betalt alternativ (där du inte begränsas av kvoten). <br/>Video Indexer ger upp till 600 minuter för kostnadsfria indexering för webbplatsen användare och upp till 2 400 minuters kostnadsfria indexering för API-användare med kostnadsfri utvärderingsversion. <br/>Med betald alternativet kan du skapa en Video Indexer-konto som är [är ansluten till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras som Media-konto som är relaterade kostnader. 
+> När du skapar en Video Indexer-konto, kan du välja ett kostnadsfritt konto (där du får ett visst antal kostnadsfria indexering minuter) eller ett betalt alternativ (där du inte begränsas av kvoten). <br/>Video Indexer ger upp till 600 minuter för kostnadsfria indexering för webbplatsen användare och upp till 2 400 minuters kostnadsfria indexering för API-användare med kostnadsfri utvärderingsversion. Med betald alternativet kan du skapa en Video Indexer-konto som är [är ansluten till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras som Media-konto som är relaterade kostnader. 
+
+## <a name="uploading-considerations"></a>Ladda upp överväganden
+    
+- När du laddade upp videon baserat på URL: en (rekommenderas) måste slutpunkten skyddas med TLS 1.2 (eller senare)
+- Alternativet byte-matrisen är begränsat till 4GB och timeout efter 30 min
+- URL: en som anges i den `videoURL` param måste kodas
 
 ## <a name="configurations-and-params"></a>Konfigurationer och parametrar
 
@@ -45,7 +58,7 @@ Priset beror på det valda alternativet för indexering.
 
 En POST-URL för att meddela när indexering har slutförts. Video Indexer lägger till två fråga strängparametrar till den: id och tillstånd. Om webbadressen för återanrop är till exempel ”https://test.com/notifyme?projectName=MyProject', meddelandet ska skickas med ytterligare parametrar i'https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed'.
 
-Du kan också lägga till fler parametrar i URL: en innan du publicerar anropet till Video Indexer och dessa parametrar kommer att inkluderas i motringningen. Senare i koden kan du parsa frågesträngen och få tillbaka alla angivna parametrar i frågesträngen (data som du ursprungligen hade läggas till URL: en plus informationen som Video Indexer som tillhandahålls.) 
+Du kan också lägga till fler parametrar i URL: en innan du publicerar anropet till Video Indexer och dessa parametrar kommer att inkluderas i motringningen. Senare i koden kan du parsa frågesträngen och få tillbaka alla angivna parametrar i frågesträngen (data som du ursprungligen hade läggas till URL: en plus informationen som Video Indexer som tillhandahålls.) URL: en måste vara kodad.
 
 ### <a name="streamingpreset"></a>streamingPreset
 
@@ -56,6 +69,12 @@ När du använder den [ladda upp video](https://api-portal.videoindexer.ai/docs/
 För att kunna köra indexering och kodningsjobb den [Azure Media Services-konto som är anslutna till ditt konto för Video Indexer](connect-to-azure.md), kräver reserverade enheter. Mer information finns i [skala bearbetning av Media](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview). Eftersom dessa är beräkningsintensiva Beräkningsjobb rekommenderas starkt S3 enhetstyp. Antalet mediereserverade enheter definierar det maximala antalet jobb som kan köras parallellt. Baslinje-rekommendationen är 10 mediereserverade S3-enheter. 
 
 Om du bara vill indexerar videon men inte koda den `streamingPreset`till `NoStreaming`.
+
+### <a name="videourl"></a>videoUrl
+
+En URL för ljud och filen som ska indexeras. URL: en måste peka på en mediefil (HTML-sidor stöds inte). Filen kan skyddas av en åtkomsttoken som tillhandahålls som en del av URI: N och den slutpunkt som betjänar filen måste vara skyddad med TLS 1.2 eller senare. URL: en måste vara kodad. 
+
+Om den `videoUrl` inte anges Video Indexer förväntar sig att du kan skicka filen som en brödtext i multipart/form.
 
 ## <a name="code-sample"></a>Kodexempel
 

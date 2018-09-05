@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 8396db3a45c2b6f2c88a9fd6bbf0b8e5a7df4efb
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 404be287d2e6ac693e0942c84f630f4e067127f3
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162056"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666760"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Lösenordsprinciper och begränsningar i Azure Active Directory
 
@@ -23,7 +23,7 @@ Den här artikeln beskriver lösenordsprinciper och krav på komplexitet som är
 
 ## <a name="administrator-reset-policy-differences"></a>Administratören återställa principen skillnader
 
-**Microsoft tillämpar en stark standardprincip *två gate* för återställning av lösenord för alla Azure-administratörsroller** den här polciy kan skilja sig från det du har definierat för dina användare och kan inte ändras. Du bör alltid kontrollera att återställa lösenord som en användare utan någon Azure-administratörsroller som tilldelats.
+**Microsoft tillämpar en stark standardprincip *två gate* för återställning av lösenord för alla Azure-administratörsroller** den här principen kan skilja sig från det du har definierat för dina användare och kan inte ändras. Du bör alltid kontrollera att återställa lösenord som en användare utan någon Azure-administratörsroller som tilldelats.
 
 Med en princip för två gate **administratörer inte har möjlighet att använda säkerhetsfrågor**.
 
@@ -76,7 +76,7 @@ En princip för en gate kräver en typ av autentiseringsdata, till exempel en e-
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>UserPrincipalName-principer som gäller för alla användarkonton
 
-Alla användarkonton som krävs för att logga in på Azure AD måste ha en unik användare huvudnamn (UPN) attribut-värde som är associerad med deras konto. I följande tabell beskrivs de principer som gäller för både den lokala Active Directory-användarkonton som synkroniseras till molnet samt för endast molnbaserade användarkonton:
+Alla användarkonton som krävs för att logga in på Azure AD måste ha en unik användare huvudnamn (UPN) attribut-värde som är associerad med deras konto. I följande tabell visas de principer som gäller för både den lokala Active Directory-användarkonton som synkroniseras till molnet samt för endast molnbaserade användarkonton:
 
 | Egenskap  | UserPrincipalName-krav |
 | --- | --- |

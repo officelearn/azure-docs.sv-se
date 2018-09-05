@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 16d023a2f3abf0feb1f1c0478edb3de7a157d5a4
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 1f3a24cebe5061f7e3ca3897692b068531780431
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42058178"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668129"
 ---
 # <a name="how-to-use-perfinsights"></a>Hur du använder PerfInsights
 
@@ -68,7 +68,7 @@ Det här scenariot körs den [Diskspd](https://github.com/Microsoft/diskspd) ben
 
 Det här scenariot körs en [prestandaräknaren](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) spårningen med hjälp av de räknare som anges i filen RuleEngineConfig.json. Om den virtuella datorn identifieras som en server som kör SQL Server, kör en räknare spårning av prestanda. Detta sker med hjälp av de räknare som finns i filen RuleEngineConfig.json. Det här scenariot omfattar också diagnostik prestandadata.
 
-### <a name="azure-files-analysis"></a>Azure Files-analys
+### <a name="azure-files-analysis"></a>Azure filer analys
 
 Det här scenariot körs en särskild prestandaräknaren avbildning tillsammans med en nätverksspårning. Avbildningen innehåller alla Server Message Block (SMB) klienten resurser räknare. Här följer några viktiga SMB-resurs prestandaräknare i klient som ingår i avbildningen:
 
@@ -104,7 +104,7 @@ Information om Windows-VM, diskar eller pooler lagringskonfiguration, prestandar
 
 |Data som samlas in                              |  |  | Prestanda-scenarier |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Snabb prestandaanalys | Prestandatest | Prestandaanalys | Azure Files-analys | Avancerade prestandaanalys |
+|                               | Snabb prestandaanalys | Prestandatest | Prestandaanalys | Azure filer analys | Avancerade prestandaanalys |
 | Information från händelseloggar       | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Systeminformation                | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Volymen karta                        | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
@@ -171,9 +171,9 @@ I/o för Diskspd arbetsbelastning tester (OS-Disk [Skriv] och poolen enheter [L�
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Möjliga problem när du kör verktyget på virtuella produktionsdatorer
 
--  För benchmarking scenariot eller ”Advanced prestandaanalys”-scenario som är konfigurerad för att använda Xperf eller Diskspd kan verktyget påverka prestanda negativt för den virtuella datorn. Dessa scenarier bör inte köras i en aktiv produktionsmiljö.
+-  För benchmarking scenariot eller ”Advanced prestandaanalys” scenariot som är konfigurerad för att använda Xperf eller Diskspd kan verktyget påverka prestanda negativt för den virtuella datorn. Dessa scenarier bör inte köras i en aktiv produktionsmiljö.
 
--  Se till att inga andra bakgrundsaktiviteten stör arbetsbelastningen i/o för benchmarking scenariot eller ”Advanced prestandaanalys”-scenario som är konfigurerad för att använda Diskspd.
+-  Se till att inga andra bakgrundsaktiviteten stör arbetsbelastningen i/o för benchmarking scenariot eller ”Advanced prestandaanalys” scenariot som är konfigurerad för att använda Diskspd.
 
 -  Som standard använder verktyget en tillfällig lagringsenhet för att samla in data. Om spårning är kvar aktiverad under en längre tid, kan det vara relevanta mängden data som samlas in. Detta kan minska tillgängligheten för utrymme på den temporära disken och kan därför påverka alla program som förlitar sig på den här enheten.
 
@@ -245,11 +245,11 @@ Följ dessa steg om du vill köra verktyget PerfInsights:
     >
     >Om hela växlar **/d** inte anges PerfInsights uppmanas du att reproducera problemet när du kör vmslow azurefiles och avancerade scenarier. 
 
-När spårningar eller åtgärder har slutförts, visas en ny fil i samma mapp som PerfInsights. Namnet på filen är **CollectedData\_åååå-MM-dd\_hh-mm-ss-fff.zip.** Du kan skicka den här filen till support-agenten för analys eller öppna rapporten i zip-filen till att granska resultaten och rekommendationerna.
+När spårningar eller åtgärder har slutförts, visas en ny fil i samma mapp som PerfInsights. Namnet på filen är **PerformanceDiagnostics\_åååå-MM-dd\_hh-mm-ss-fff.zip.** Du kan skicka den här filen till support-agenten för analys eller öppna rapporten i zip-filen till att granska resultaten och rekommendationerna.
 
 ## <a name="review-the-diagnostics-report"></a>Granska rapporten diagnostik
 
-I den **CollectedData\_åååå-MM-dd\_hh-mm-ss-fff.zip** -fil som du kan hitta en HTML-rapport som beskriver resultaten av PerfInsights. För att granska rapporten, expandera den **CollectedData\_åååå-MM-dd\_hh-mm-ss-fff.zip** filen och öppna sedan den **PerfInsights Report.html** fil.
+I den **PerformanceDiagnostics\_åååå-MM-dd\_hh-mm-ss-fff.zip** -fil som du kan hitta en HTML-rapport som beskriver resultaten av PerfInsights. För att granska rapporten, expandera den **PerformanceDiagnostics\_åååå-MM-dd\_hh-mm-ss-fff.zip** filen och öppna sedan den **PerfInsights Report.html** fil.
 
 Välj den **resultat** fliken.
 
@@ -314,4 +314,4 @@ Följande skärmbild visar ett meddelande som liknar vad du kan få:
 
 Följ instruktionerna i meddelandet för att få åtkomst till arbetsytan för överföring av filen. För ytterligare säkerhet måste du ändra ditt lösenord vid första användningen.
 
-När du har loggat in hittar du en dialogruta för att ladda upp den **CollectedData\_åååå-MM-dd\_hh-mm-ss-fff.zip** -fil som har samlats in av PerfInsights.
+När du har loggat in hittar du en dialogruta för att ladda upp den **PerformanceDiagnostics\_åååå-MM-dd\_hh-mm-ss-fff.zip** -fil som har samlats in av PerfInsights.

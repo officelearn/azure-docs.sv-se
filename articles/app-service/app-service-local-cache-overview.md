@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
-ms.openlocfilehash: 4959e4e3a0692837a7775eaf813a8fcff925312d
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 6729c87dcc9a85e2e3ccb6b4822213d38e2ba6f7
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918024"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666122"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Översikt över Azure App Service lokalt cacheminne
 
@@ -44,13 +44,15 @@ Funktionen lokalt cacheminne för Azure App Service tillhandahåller en webbvy r
 * De är immun planerade uppgraderingar eller oplanerade stillestånd och eventuella andra avbrott med Azure Storage som uppstår på servrar som betjänar innehållsresursen.
 * De har färre omstarter av appen på grund av ändringar för storage-resurs.
 
-## <a name="how-local-cache-changes-the-behavior-of-app-service"></a>Hur lokal Cache ändras beteendet för App Service
-* Den lokala cachen är en kopia av mapparna /site och /siteextensions webbappens. Den har skapats på den lokala VM-instansen på web start av appen. Storleken på den lokala cachen per webbapp är begränsad till 300 MB som standard, men du kan öka det upp till 2 GB.
-* Den lokala cachen är skrivskyddad. Varje ändring ignoreras när webbappen flyttar virtuella datorer eller hämtar startas om. Använd inte lokal Cache för appar som lagrar verksamhetskritiska data i arkivet för innehåll.
-* Webbappar kan fortsätta att skriva loggfiler och diagnostikdata som de gör för närvarande. Loggfiler och data, men lagras lokalt på den virtuella datorn. Sedan kopieras de över regelbundet till den delade innehållslagringen. Kopiera till den delade innehållslagringen är en bästa möjliga ansträngning – Skriv baksidor kan gå förlorade på grund av att en plötslig krascher för en VM-instans.
-* Det finns en ändring i mappstrukturen i mapparna LogFiles och Data för webbprogram som använder lokal Cache. Det finns nu undermappar i mappen storage LogFiles och Data som följer namngivningsmönstret ”unika identifierare” + tidsstämpel. Varje undermapp motsvarar en VM-instans där webbappen körs eller har körts.  
-* Publicera ändringar till webbappen genom någon av mekanismerna för publicering ska publicera till varaktiga delade innehållslagringen. Om du vill uppdatera den lokala cachen med webbappen, måste den startas om. Se information nedan om du vill göra livscykeln sömlös.
-* D:\Home pekar på den lokala cachen. D:\Local fortsätter att peka mot tillfällig lagring för virtuella datorer.
+## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>Hur ändrar det lokala cacheminnet beteendet för App Service
+* _D:\home_ pekar på den lokala cachen som skapas på den Virtuella datorinstansen när appen startas. _D:\Local_ fortsätter att peka mot tillfällig lagring för virtuella datorer.
+* Den lokala cachen innehåller en enstaka kopia av den _/platskonfiguration_ och _/siteextensions_ mappar till den delade innehållslagringen i _D:\home\site_ och _D:\home\ siteextensions_respektive. Filerna kopieras till den lokala cachen när appen startas. Storleken på två mappar för varje app är begränsad till 300 MB som standard, men du kan öka det upp till 2 GB.
+* Den lokala cachen är skrivskyddad. Varje ändring ignoreras när appen flyttar virtuella datorer eller hämtar startas om. Använd inte den lokala cachen för appar som lagrar verksamhetskritiska data i arkivet för innehåll.
+* _D:\home\LogFiles_ och _D:\home\Data_ innehåller loggfiler och appdata. Två undermappar lagras lokalt på den Virtuella datorinstansen och kopieras till den delade innehållslagringen med jämna mellanrum. Appar kan spara loggfiler och data genom att skriva dem till dessa mappar. Kopiera till den delade innehållslagringen är dock bästa, så det är möjligt för loggfiler och data går förlorade på grund av en plötslig krascher för en VM-instans.
+* [Loggströmningen](web-sites-enable-diagnostic-log.md#streamlogs) påverkas av den bästa kopian. Du kan se upp till en minuts fördröjning i loggarna strömmas.
+* I den delade innehållslagringen görs en ändring i mappstrukturen för det _LogFiles_ och _Data_ mappar för appar som använder den lokala cachen. Det finns nu undermappar i dem som följer namngivningsmönstret ”unika identifierare” + tidsstämpel. Varje undermapp motsvarar en VM-instans där appen körs eller har körts.
+* Andra mappar i _D:\home_ finns kvar i den lokala cachen och inte kopieras till den delade innehållslagringen.
+* App-distribution med valfri metod som stöds publicerar direkt till varaktiga delade innehållslagringen. Uppdatera den _D:\home\site_ och _D:\home\siteextensions_ appen behöver startas mappar i den lokala cachen. Se information nedan om du vill göra livscykeln sömlös.
 * Innehåll standardvyn för SCM-webbplatsen fortsätter till att den delade innehållslagringen.
 
 ## <a name="enable-local-cache-in-app-service"></a>Aktivera lokal Cache i App Service

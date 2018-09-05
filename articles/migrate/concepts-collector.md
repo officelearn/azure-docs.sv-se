@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/25/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 551276f88f5c27cd860a400a5769c95f4d94cbbb
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 74caf0ab052e1f6558dc20d15d84c01177b3f9cb
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122895"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665588"
 ---
 # <a name="collector-appliance"></a>Insamlingsprogrammet
 
@@ -212,17 +212,27 @@ Vi rekommenderar också följande steg för att skydda din installation
 
 Du kan uppgradera insamlaren till den senaste versionen utan att hämta ova-filen igen.
 
-1. Hämta senaste [uppgraderingspaketet](https://aka.ms/migrate/col/upgrade_9_13) (version 1.0.9.13).
+1. Hämta senaste [uppgraderingspaketet](https://aka.ms/migrate/col/upgrade_9_14) (version 1.0.9.14).
 2. För att säkerställa att den nedladdade snabbkorrigeringen är säker, Öppna kommandofönster för administratör och kör följande kommando för att generera en hash för ZIP-filen. Den genererade hashen måste matcha med hash nämns mot den specifika versionen:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-    (exempel på användning C:\>CertUtil - HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.7.zip SHA256)
+    (exempel på användning C:\>CertUtil - HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.14.zip SHA256)
 3. Kopiera zip-filen till Azure Migrate insamlarens virtuella dator (insamlingsprogrammet).
 4. Högerklicka på zip-filen och välja extrahera alla.
 5. Högerklicka på Setup.ps1 och välj kör med PowerShell och följ anvisningarna på skärmen för att installera uppdateringen.
 
 ### <a name="list-of-updates"></a>Listan över uppdateringar
+
+#### <a name="upgrade-to-version-10914"></a>Uppgradera till version 1.0.9.14
+
+Hash-värden för uppgradering [paketera 1.0.9.14](https://aka.ms/migrate/col/upgrade_9_14)
+
+**Algoritm** | **Hash-värde**
+--- | ---
+MD5 | c5bf029e9fac682c6b85078a61c5c79c
+SHA1 | af66656951105e42680dfcc3ec3abd3f4da8fdec
+SHA256 | 58b685b2707f273aa76f2e1d45f97b0543a8c4d017cd27f0bdb220e6984cc90e
 
 #### <a name="upgrade-to-version-10913"></a>Uppgradera till version 1.0.9.13
 

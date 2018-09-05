@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 3c6adc3f27e49facec124401f03a036269b7c7a9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e87b791dda03521def32ca7473336d7d37644773
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524455"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666027"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Skapa ett importjobb för tjänsten Azure Import/Export
 
@@ -57,7 +57,7 @@ Förbereda enheten omfattar:
 
 ## <a name="obtaining-your-shipping-location"></a>Hämta din plats för leverans
 
-Innan du skapar ett importjobb, måste du skaffa ett endash platsnamn och adress genom att anropa den [List Locations](/rest/api/storageimportexport/listlocations) igen. `List Locations` Returnerar en lista över platser och deras e-postadresser. Du kan välja en plats från den returnerade listan och skicka dina hårddiskar till adressen. Du kan också använda den `Get Location` åtgärden att hämta leveransadressen för en specifik plats direkt.
+Innan du skapar ett importjobb, måste du skaffa ett endash platsnamn och adress genom att anropa den [List Locations](https://docs.microsoft.com/rest/api/storageimportexport/locations/list) igen. `List Locations` Returnerar en lista över platser och deras e-postadresser. Du kan välja en plats från den returnerade listan och skicka dina hårddiskar till adressen. Du kan också använda den `Get Location` åtgärden att hämta leveransadressen för en specifik plats direkt.
 
  Följ stegen nedan för att hämta leveranser plats:
 

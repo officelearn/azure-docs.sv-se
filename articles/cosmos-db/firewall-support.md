@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: govindk
-ms.openlocfilehash: 6d1daededcf8f0efdc6a3a5649aa830110192fef
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: b21debdd6baa0a6587318ad861a821840ec6879c
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43381848"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666705"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Azure Cosmos DB-brandväggsstöd
 Om du vill skydda data som lagras i ett Azure Cosmos DB-databaskonto Azure Cosmos DB har lagt till stöd för en hemlighet baserat [auktoriseringsmodellen](https://msdn.microsoft.com/library/azure/dn783368.aspx) som använder sig av en stark hashbaserad meddelandeautentiseringskod (HMAC). Förutom den hemliga baserat auktoriseringsmodellen stöder nu Azure Cosmos DB-princip driven IP-baserade åtkomstkontroller för Brandvägg för inkommande trafik support. Den här modellen liknar brandväggsreglerna för traditionella databassystem och ger en extra nivå av säkerhet för Azure Cosmos DB-databaskonto. Med den här modellen kan du nu konfigurera ett Azure Cosmos DB-databaskonto för att endast vara tillgängliga från en godkänd uppsättning datorer och/eller molntjänster. Åtkomst till Azure Cosmos DB-resurser från dessa godkända uppsättningar av datorer och tjänster kräver fortfarande anroparen att presentera en giltig auktoriseringstoken.
@@ -58,7 +58,7 @@ När du aktiverar en IP-principer för åtkomstkontroll programmässigt kan du b
 
 ## <a name="connections-from-global-azure-datacenters-or-azure-paas-services"></a>Anslutningar från globala Azure-datacenter och Azure PaaS-tjänster
 
-”Azure PaaS-tjänster som Azure Stream analytics, Azure Functions etc. används tillsammans med Azure Cosmos DB. En brandväggsinställning måste aktiveras för att tillåta program från andra Azure PaaS-tjänster för att ansluta till din Azure Cosmos DB-resurser. Lägg till IP-adress-0.0.0.0 i listan över tillåtna IP-adresser om du vill aktivera den här brandväggsinställningen. Ip-adress-0.0.0.0 anger att anslutningar från alla Azure-datacenter IP-adressintervall tillåts att ansluta till din Azure Cosmos DB-resurser ”.
+Azure PaaS-tjänster som Azure Stream analytics, Azure Functions etc. används tillsammans med Azure Cosmos DB. En brandväggsinställning måste aktiveras för att tillåta program från andra Azure PaaS-tjänster för att ansluta till din Azure Cosmos DB-resurser. Lägg till IP-adress-0.0.0.0 i listan över tillåtna IP-adresser om du vill aktivera den här brandväggsinställningen. 0.0.0.0 begränsar anslutningar till Azure Cosmos DB-konto från Azure-datacenter IP-adressintervall. Den här inställningen tillåter inte åtkomst för alla andra IP-adressintervall till Azure Cosmos DB-konto.
 
 > [!IMPORTANT]
 > Det här alternativet konfigurerar brandväggen så att alla anslutningar från Azure tillåts, inklusive anslutningar från prenumerationer för andra kunder. Om du väljer det här alternativet kontrollerar du att dina inloggnings- och användarbehörigheter begränsar åtkomsten till endast auktoriserade användare.

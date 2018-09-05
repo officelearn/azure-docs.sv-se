@@ -15,20 +15,20 @@ ms.component: pim
 ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: bc60c0dbe6c609a08907feb243fe514badfe3e4e
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 9402824540f965cb89aa00791d093bd87712a89a
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288083"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665850"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-directory-roles-in-pim"></a>Godkänn eller neka begäranden för Azure AD-katalogroller i PIM
 
-Med Azure AD Privileged Identity Management (PIM), kan du konfigurera roller för att kräva godkännande för aktivering och välja en eller flera användare eller grupper som delegerad godkännare.
+Med Azure AD Privileged Identity Management (PIM), kan du konfigurera roller för att kräva godkännande för aktivering och välja en eller flera användare eller grupper som delegerad godkännare. Följ stegen i den här artikeln att godkänna eller neka begäranden för Azure AD-katalogroller.
 
 ## <a name="view-pending-requests"></a>Visa väntande begäranden
 
-Som en delegerad godkännaren får du e-postmeddelanden när en begäran väntar på ditt godkännande. Du kan visa dessa väntande begäranden i PIM.
+Som en delegerad godkännaren får du ett e-postmeddelande när en begäran om Azure AD directory roll är väntar på ditt godkännande. Du kan visa dessa väntande begäranden i PIM.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -74,5 +74,5 @@ Som en delegerad godkännaren får du e-postmeddelanden när en begäran väntar
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Godkänn eller neka begäranden för Azure-resursroller i PIM](pim-resource-roles-approval-workflow.md)
 - [E-postmeddelanden i PIM](pim-email-notifications.md)
+- [Godkänn eller neka begäranden för Azure-resursroller i PIM](pim-resource-roles-approval-workflow.md)

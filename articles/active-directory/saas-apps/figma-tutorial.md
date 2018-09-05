@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: jeedes
-ms.openlocfilehash: c8613697481f642066bf1d5d5db7be3af81a6529
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 4094de1a1c17e844d96ac789bb4bc1655fdc1546
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307783"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669251"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-figma"></a>Självstudier: Azure Active Directory-integration med Figma
 
@@ -38,10 +38,10 @@ Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är pro
 Om du vill konfigurera Azure AD-integrering med Figma, behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En Figma enkel inloggning aktiverat prenumeration
+- En Figma [enkel inloggning aktiverat prenumeration](https://www.figma.com/pricing/)
 
 > [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
+> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö. Nya kunder och aktiva Figma Team för Professional-prenumeranter kan kontakta Figma till [uppgradera sina prenumerationer](https://www.figma.com/pricing/) Figma organisation nivån.
 
 Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
 
@@ -81,15 +81,14 @@ För att konfigurera integrering av Figma i Azure AD, som du behöver lägga til
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Figma baserat på en testanvändare som kallas ”Britta Simon”.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Figma är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Figma upprättas.
+För enkel inloggning att fungera, behöver Azure AD länkas till Figma.  Om du vill konfigurera och testa Azure AD enkel inloggning med Figma, gör du följande:
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Figma, måste du utföra följande byggblock:
-
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Figma](#create-a-figma-test-user)**  – du har en motsvarighet för Britta Simon i Figma som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. [**Kontakta supportteamet för Figma** ](mailto:support@figma.com?subject=SAML+Config) att initiera en SAML-konfiguration för din organisation och få en ORG_SAML_CONFIG_ID.
+2. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+4. **[Skapa en testanvändare Figma](#create-a-figma-test-user)**  – du har en motsvarighet för Britta Simon i Figma som är länkad till en Azure AD-representation av användaren.
+5. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -120,7 +119,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>/start`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och inloggnings-URL. Kontakta [Figma klienten supportteamet]( mailto:services-404040@figma.com) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och inloggnings-URL. Kontakta [Figma supportteamet](mailto:support@figma.com?subject=SAML+Config) att hämta dessa värden.
 
 5. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** och klistra in den i anteckningar.
 
@@ -130,7 +129,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning spara-knapp](./media/figma-tutorial/tutorial_general_400.png)
 
-7. Att konfigurera enkel inloggning på **Figma** sida, som du behöver skicka den **Appfederationsmetadata** till [Figma supportteamet]( mailto:services-404040@figma.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+7. Om du vill konfigurera enkel inloggning på Figma sida, fyller du i det här formuläret: [ https://goo.gl/forms/XkRB1z5ed4eVUzXn2 ](https://goo.gl/forms/XkRB1z5ed4eVUzXn2). Det ska ta emot din **Appfederationsmetadata** från steg 5.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -167,9 +166,6 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 ### <a name="create-a-figma-test-user"></a>Skapa en Figma testanvändare
 
 Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Figma. Figma stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inga uppgift åt dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Figma om det inte finns ännu.
-
-> [!Note]
-> Om du vill skapa en användare manuellt kan du kontakta [Figma supportteamet]( mailto:services-404040@figma.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

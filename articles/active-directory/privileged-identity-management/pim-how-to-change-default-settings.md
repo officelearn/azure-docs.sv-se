@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 08/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8af304d28be9b0884a50d60911d901818b514752
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 2d7226f18eb922eaba3c8184656560c33202ef56
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338915"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665442"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Konfigurera Azure AD directory rollinställningar i PIM
 
@@ -82,7 +82,7 @@ Använd den **Multifaktorautentisering** växel för att ange om användarna ska
   * Skype for Business-administratör  
   * Användarkonto-administratör  
 
-Läs mer om hur du använder MFA med PIM [Kräv Multi-Factor authentication för Azure AD-katalogroller i PIM](pim-how-to-require-mfa.md).
+Mer information finns i [multifaktorautentisering (MFA) och PIM](pim-how-to-require-mfa.md).
 
 ## <a name="require-approval"></a>Godkännande krävs
 
@@ -110,5 +110,4 @@ Följ dessa steg om du vill kräva godkännande för att aktivera en roll.
 ## <a name="next-steps"></a>Nästa steg
 
 - [Tilldela Azure AD-katalogroller i PIM](pim-how-to-add-role-to-user.md)
-- [Kräv multifaktorautentisering för Azure AD-katalogroller i PIM](pim-how-to-require-mfa.md)
 - [Konfigurera säkerhetsaviseringar för Azure AD-katalogroller i PIM](pim-how-to-configure-security-alerts.md)

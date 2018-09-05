@@ -14,12 +14,12 @@ ms.component: pim
 ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 9ad4965ccd86f88a61b5f6fb8f540d76e472ea69
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: a4aecd276df8e5453f0c35d6290bbe8a8d156ffa
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43345303"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669371"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Konfigurera Azure-resurs rollinställningar i PIM
 
@@ -89,6 +89,8 @@ För att säkerställa att resursadministratören uppfyller tilldelningen är de
 Du kan kräva berättigade medlemmar i en roll att köra MFA innan du kan aktivera. Den här processen säkerställer att den användare som begär aktivering är de säger att de är med rimlig säkerhet. Tillämpa det här alternativet skyddar kritiska resurser i situationer när användarkonton kan ha komprometterats.
 
 För att kräva en behörig medlem att köra MFA innan aktivering, kontrollera den **Multi-Factor Authentication vid aktivering** box.
+
+Mer information finns i [multifaktorautentisering (MFA) och PIM](pim-how-to-require-mfa.md).
 
 ## <a name="activation-maximum-duration"></a>Aktiveringens maximala varaktighet
 

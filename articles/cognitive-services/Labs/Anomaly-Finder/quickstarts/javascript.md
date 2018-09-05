@@ -1,6 +1,6 @@
 ---
-title: 'Hur du använder API: et för Avvikelseidentifiering Finder med Javascript - kognitiva Microsoft-tjänster | Microsoft Docs'
-description: Hämta information och exempel på kod för att snabbt komma igång med Avvikelseidentifiering Finder med Javascript i kognitiva Services.
+title: 'Hur du använder API: T för Avvikelseidentifiering Finder med Javascript - Microsoft Cognitive Services | Microsoft Docs'
+description: Hämta information och exempel på kod som hjälper dig att snabbt komma igång med Avvikelsesökare med Javascript i Cognitive Services.
 services: cognitive-services
 author: chliang
 manager: bix
@@ -9,38 +9,40 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 105da0219efd7bf7c9a105a018dda7ea5b084cfd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 048647f1657a5674bcb508b20b7c57a8a6ed5ed9
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353340"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665030"
 ---
-# <a name="use-the-anomaly-finder-api-with-javascript"></a>Använda Avvikelseidentifiering Finder API med Javascript
+# <a name="use-the-anomaly-finder-api-with-javascript"></a>Använda Avvikelsesökare API med Javascript
 
-Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med API: et för Avvikelseidentifiering identifiering med Javascript för att utföra uppgiften för att få resultat av identifiering av avvikelseidentifiering tid serie data.
+Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med API: T för Avvikelseidentifiering identifiering med Javascript för att utföra uppgiften för att få Identifieringsresultat för avvikelseidentifiering av time series-data.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="getting-anomaly-points-with-anomaly-detection-api-using-javascript"></a>Hämta avvikelseidentifiering punkter med Avvikelseidentifiering identifiering API med hjälp av Javascript
+## <a name="getting-anomaly-points-with-anomaly-detection-api-using-javascript"></a>Hämta avvikelseidentifiering punkter med Avvikelseidentifiering API: T med hjälp av Javascript
 
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
-### <a name="example-of-time-series-data"></a>Exempel på tid series-data
+### <a name="example-of-time-series-data"></a>Exempel på time series-data
 
-Exempel på den tid som datapunkter i serien är följande: [!INCLUDE [Request](../includes/request.md)]
+Exempel på den tid som datapunkter i serien är följande:
+
+[!INCLUDE [Request](../includes/request.md)]
 
 ### <a name="analyze-data-and-get-anomaly-points-javascript-example"></a>Analysera data och få avvikelseidentifiering punkter Javascript-exempel
 
-Stegen i exemplet är som följer.
+Steg för att använda exemplet är som följer.
 
 1. Skapa en ny HTML-fil.
 2. Ersätt HTML-fil med följande kod.
-3. Ersätt den `[YOUR_SUBSCRIPTION_KEY]` värde med en giltig prenumeration nyckel.
-4. Ersätta data i requestTextArea med datapunkterna.
-5. Öppna HTML-fil i en webbläsare och på `Anomaly Detection` knappen.
+3. Ersätt den `[YOUR_SUBSCRIPTION_KEY]` värde med giltig prenumeration-nyckel.
+4. Ersätt data i requestTextArea med datapunkterna.
+5. Öppna HTML-fil i en webbläsare och klicka på `Anomaly Detection` knappen.
 
 ```Javascript
 <!DOCTYPE html>

@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 09/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 8ecb2008b85bb6a7ac35b5f95deaf0fb321ce155
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: e5915157c1ff2c1f58779e5c3b1d784241464b32
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057378"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669054"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Så här hämtar du Azure Multi-Factor Authentication
 
@@ -32,7 +32,10 @@ I följande tabell beskrivs skillnaderna mellan tre versioner av multifaktoraute
 | --- | --- |
 | Multi-Factor Authentication för Office 365 |Den här versionen fungerar enbart med Office 365-program och hanteras via Office 365-portalen. Administratörer kan [skydda Office 365-resurser med tvåstegsverifiering](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Den här versionen är en del av Office 365-prenumeration. |
 | Multi-Factor Authentication för Azure AD-administratörer | Användare som har tilldelats rollen Global administratör för Azure AD i Azure AD-klienter kan aktivera tvåstegsverifiering utan extra kostnad.|
-| Azure Multi-Factor Authentication | Azure Multi-Factor Authentication erbjuder kallas ofta ”full” version, den bästa möjliga uppsättningen funktioner. Det ger ytterligare konfigurationsalternativ via den [Azure-portalen](https://portal.azure.com), avancerad rapportering och stöd för flera olika lokala och molnprogram. Azure Multi-Factor Authentication ingår i [Azure Active Directory Premium-planer](https://www.microsoft.com/cloud-platform/azure-active-directory-features), och kan distribueras antingen i molnet eller lokalt. |
+| Azure Multi-Factor Authentication | Azure Multi-Factor Authentication erbjuder kallas ofta ”full” version, den bästa möjliga uppsättningen funktioner. Det ger ytterligare konfigurationsalternativ via den [Azure-portalen](https://portal.azure.com), avancerad rapportering och stöd för flera olika lokala och molnprogram. Azure Multi-Factor Authentication är en funktion i [Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features), och kan distribueras antingen i molnet eller lokalt. |
+
+> [!NOTE]
+> Nya kunder kan inte längre att köpa Azure Multi-Factor Authentication som en fristående erbjuder effektiva September 1 2018. Multifaktorautentisering fortsätter att vara en tillgänglig funktion i Azure AD Premium-licenser.
 
 ## <a name="feature-comparison-of-versions"></a>Jämförelse av versioner
 
@@ -77,9 +80,12 @@ Om du använder det här alternativet kan skapa du en Azure Multi-Factor Authent
 
 ### <a name="option-2---mfa-consumption-based-model"></a>Alternativ 2 – MFA konsumtionsbaserad modell
 
+> [!NOTE]
+> Effektiva den 1 September 2018 nya auth-providers kan inte längre skapas. Befintliga autentiseringsleverantörer kan fortsätta att användas och uppdateras. Multifaktorautentisering fortsätter att vara en tillgänglig funktion i Azure AD Premium-licenser.
+
 Skapa en Azure Multi-Factor Authentication-Provider i en Azure-prenumeration. Azure MFA-leverantörer är Azure-resurser som faktureras mot ditt Enterprise Agreement, Azure-betalningsåtaganden eller kreditkort som alla andra Azure-resurser. Dessa providers kan endast skapas i fullständiga Azure-prenumerationer, inte begränsat Azure-prenumerationer som har ett $-0 utgiftsgräns. Begränsad prenumerationer skapas när du aktiverar licenser, som i alternativ 1.
 
-När du använder en Azure Multi-Factor Authentication-Provider, finns det två användningsmodeller som är tillgängliga som faktureras via din Azure-prenumeration: 
+När du använder en Azure Multi-Factor Authentication-Provider, finns det två användningsmodeller som är tillgängliga som faktureras via din Azure-prenumeration:
 
 1. **Per aktiverad användare** – för företag som vill aktivera tvåstegsverifiering för ett fast antal anställda som regelbundet behöver autentisering. Fakturering per användare baseras på antalet användare som har aktiverats för MFA i Azure AD-klienten och Azure MFA-servern. Om användarna är aktiverade för MFA i både Azure AD och Azure MFA Server och är aktiverad för synkronisering av domänen (Azure AD Connect) och sedan vi räknar större uppsättning användare. Om inte är aktiverad för synkronisering av domänen, så vi räknar summan av alla användare som har aktiverats för MFA i Azure AD och Azure MFA Server. Fakturering beräknas och har rapporterats till handelssystem dagligen.
 
@@ -93,7 +99,7 @@ När du använder en Azure Multi-Factor Authentication-Provider, finns det två 
   > [!NOTE]
   > Fakturering exempel 3: idag, Azure MFA-tjänsten har tagit emot 3,105 begäranden om tvåstegsverifiering. Din Azure-prenumeration faktureras efter 310.5 autentisering hanteringspaket.
 
-Det är viktigt att Observera att du kan ha licenser för Azure MFA, men får betala för förbrukning-baserad konfiguration. Om du har konfigurerat en per autentisering Azure MFA-Provider, debiteras du för varje förfrågningar om tvåstegsverifiering, även de som görs av användare som har licenser. Om du ställer in en per användare Azure MFA-Provider på en domän som inte är länkad till din Azure AD-klient, debiteras du per aktiverad användare även om användarna har licenser på Azure AD.
+Det är viktigt att Observera att du kan ha licenser, men får betala för förbrukning-baserad konfiguration. Om du har konfigurerat en per autentisering Azure MFA-Provider, debiteras du för varje förfrågningar om tvåstegsverifiering, även de som görs av användare som har licenser. Om du ställer in en per användare Azure MFA-Provider på en domän som inte är länkad till din Azure AD-klient, debiteras du per aktiverad användare även om användarna har licenser på Azure AD.
 
 ## <a name="next-steps"></a>Nästa steg
 

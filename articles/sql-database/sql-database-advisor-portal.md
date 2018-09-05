@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 7df4033a378ce3b37a99ed0335200e7f71696594
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 67432c8751cd8809649d41195957a7d68b392074
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528654"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665607"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Hitta och tillämpa prestandarekommendationer
 
@@ -114,7 +114,7 @@ Välj valfri rekommendation och klicka sedan på **Visa skript**. Kör skriptet 
 *Index som körs manuellt inte övervakas och verifierat att prestanda påverkas av tjänsten* så vi rekommenderar att du övervaka dessa index när du har skapat för att verifiera de ge prestandavinster och justera eller ta bort dem om det behövs. Mer information om hur du skapar index finns i [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
 
 ### <a name="canceling-recommendations"></a>Avbryter rekommendationer
-Rekommendationer som finns i en **väntande**, **verifiera**, eller **lyckades** status kan avbrytas. Rekommendationer med statusen **kör** kan inte annulleras.
+Rekommendationer som finns i en **väntande**, **verifierar**, eller **lyckades** status kan avbrytas. Rekommendationer med statusen **kör** kan inte annulleras.
 
 1. Välj en rekommendation i den **justering historik** område för att öppna den **rekommendationsdetaljer** sidan.
 2. Klicka på **Avbryt** att avbryta processen med Tillämpandet av rekommendationen.

@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 08/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 7c990fc0d385af9527bf55339b2fa617e589ec0e
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 59dab4651366c3ad6579e0da660baee0c653d1a3
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190594"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666010"
 ---
 # <a name="activate-my-azure-ad-directory-roles-in-pim"></a>Aktivera mitt Azure AD-katalogroller i PIM
 
@@ -26,11 +26,11 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) förenkla
 
 Om du har gjorts kan en administrativ roll, som innebär att du kan aktivera rollen när du behöver utföra Privilegierade åtgärder. Till exempel om du hanterar ibland Office 365-funktioner kan kan din organisations Privilegierade rolladministratörer inte göra du permanent Global administratör, eftersom rollen påverkar andra tjänster för. I stället gör de du berättigad till Azure AD-roller, till exempel Exchange Online-administratör. Du kan begära för att aktivera rollen när du behöver ha dess behörighet, och du har administratören kan styra för en förutbestämd tidsperiod.
 
-Den här artikeln är för administratörer som behöver aktivera sin roll i PIM.
+Den här artikeln är för administratörer som behöver aktivera sina Azure AD directory-rollen i PIM.
 
 ## <a name="activate-a-role"></a>Aktivera en roll
 
-När du behöver utföra på en roll kan du begära aktivering med hjälp av den **Mina roller** navigeringsalternativet i PIM.
+När du behöver utföra på en Azure AD directory-roll kan du begära aktivering med hjälp av den **Mina roller** navigeringsalternativet i PIM.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 

@@ -15,12 +15,12 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 59d51ba8edadd1fd71255271623b144cab94fc97
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: fb52bc92c86261831d0e8d8e9e863a4863fe8fb9
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344291"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666897"
 ---
 # <a name="eligible-assignments-and-resource-visibility-in-pim"></a>Berättigade uppgifter och synlighet i PIM
 
@@ -82,7 +82,7 @@ PIM-inställningarna har konfigurerats för varje roll för en resurs. Till skil
 
 Fortsättning på exemplet: Bob använder PIM vill kräva att alla medlemmar i rollen ägare av Contoso-prenumerationsgodkännande för begäran aktiveras. För att skydda resurserna i resursgruppen Fabrikam Prod, kräver Bob även godkännande för medlemmar i rollen ägare för den här resursen. Rollerna ägare i Fabrikam Test- och Fabrikam Dev kräver inte godkännande för aktivering.
 
-När Alice begär aktivering av sin ägarrollen för Contoso-prenumeration, måste en godkännare Godkänn eller neka hennes begäran innan hon blir aktiv i rollen. Om Alice beslutar att [omfång hennes aktivering](pim-resource-roles-activate-your-roles.md#apply-just-enough-administration-practices) till Fabrikam Prod resursgrupp, en godkännare måste godkänna eller neka denna begäran för. Men om Alice bestämmer sig att definiera omfattningen av sin aktivering till ena eller båda Fabrikam Test- eller Fabrikam Dev godkännande krävs inte.
+När Alice begär aktivering av sin ägarrollen för Contoso-prenumeration, måste en godkännare Godkänn eller neka hennes begäran innan hon blir aktiv i rollen. Om Alice beslutar att [omfång hennes aktivering](pim-resource-roles-activate-your-roles.md) till Fabrikam Prod resursgrupp, en godkännare måste godkänna eller neka denna begäran för. Men om Alice bestämmer sig att definiera omfattningen av sin aktivering till ena eller båda Fabrikam Test- eller Fabrikam Dev godkännande krävs inte.
 
 Arbetsflöde för godkännande kanske inte är nödvändigt för alla medlemmar i en roll. Tänk dig ett scenario där din organisation nyanställda flera kontrakt associates som underlättar utvecklingen av ett program som körs i en Azure-prenumeration. Som administratör av en resurs kan du vilja att anställda ska ha berättigad åtkomst utan godkännande krävs dock kontrakt associates måste begära godkännande. Om du vill konfigurera arbetsflöde för godkännande för endast kontrakt associates, kan du skapa en anpassad roll med samma behörigheter som rolltilldelningen för anställda. Du kan kräva godkännande för att aktivera den anpassa rollen. [Mer information om anpassade roller](pim-resource-roles-custom-role-policy.md).
 

@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/27/2018
+ms.date: 08/31/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8066612db20d1569920835a67d84b27d1b852e6e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 0707726ec86b0a0c69d1ec752ebd6761327f3f0f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128134"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669491"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar i miljön med lösningen ändringsspårning
 
@@ -27,8 +27,7 @@ Den här artikeln hjälper dig att använda ändringsspårning-lösning lätt ka
 
 Följande versioner av Windows-operativsystemet stöds officiellt för Windows-agenten:
 
-* Windows Server 2008 Service Pack 1 (SP1) eller senare
-* Windows 7 SP1 och senare.
+* Windows Server 2008 R2 eller senare
 
 ## <a name="supported-linux-operating-systems"></a>Linux-operativsystem som stöds
 
@@ -47,8 +46,8 @@ Följande Linux-distributioner stöds officiellt. Linux-agenten kan också köra
 Om du vill börja spåra ändringar, måste du Aktivera ändringsspårning och inventering lösningen för ditt Automation-konto.
 
 1. I Azure-portalen går du till ditt Automation-konto
-1. Välj **ändringsspårning** under **CONFIGURATION**.
-1. Välj en befintlig Log analytics-arbetsyta eller **Skapa ny arbetsyta** och klicka på **aktivera**.
+2. Välj **ändringsspårning** under **CONFIGURATION**.
+3. Välj en befintlig Log analytics-arbetsyta eller **Skapa ny arbetsyta** och klicka på **aktivera**.
 
 Detta gör att lösningen för ditt automation-konto. Lösningen kan ta upp till 15 minuter att aktivera. Blå banderoll meddelar dig när lösningen har aktiverats. Gå tillbaka till den **ändringsspårning** att hantera lösningen.
 

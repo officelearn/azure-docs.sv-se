@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 291de21d3d98bf9eb65adc7d506f3549171ee0a0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9408531a9e24af93359b562ed022b3d8253851e8
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696828"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665692"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Använda Windows PowerShell för StorSimple för att administrera din enhet
 
@@ -37,7 +37,7 @@ När du har läst den här artikeln kommer du att kunna:
 
 > [!NOTE]
 > * Windows PowerShell för StorSimple cmdlets kan du hantera din StorSimple-enhet från en seriell konsol eller via en fjärranslutning via Windows PowerShell-fjärrkommunikation. Mer information om var och en av de enskilda cmdletar som kan användas i det här gränssnittet går du till [cmdlet-referens för Windows PowerShell för StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
-> * StorSimple för Azure PowerShell-cmdlets finns en annan uppsättning cmdletar som om du vill automatisera StorSimple tjänstnivå och migreringen från kommandoraden. Mer information om Azure PowerShell-cmdlets för StorSimple går du till den [cmdlet-referens för Azure StorSimple](https://docs.microsoft.com/powershell/servicemanagement/azure.storsimple/v3.1.0/azure.storsimple).
+> * StorSimple för Azure PowerShell-cmdlets finns en annan uppsättning cmdletar som om du vill automatisera StorSimple tjänstnivå och migreringen från kommandoraden. Mer information om Azure PowerShell-cmdlets för StorSimple går du till den [cmdlet-referens för Azure StorSimple](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0&viewFallbackFrom=azuresmps-3.7.0#azure).
 
 
 Du kan komma åt Windows PowerShell för StorSimple med någon av följande metoder:
@@ -68,13 +68,13 @@ Se till att du använder följande inställningar för PuTTY för att ansluta ti
    | Aktivera funktioner för extra tangentbord |CTRL + ALT + skiljer sig från AltGr |
    
     ![Putty-inställningar som stöds](./media/storsimple-windows-powershell-administration/IC740877.png)
-3. Klicka på **Använd**.
+3. Klicka på **Verkställ**.
 4. I den **kategori** väljer **Translation**.
 5. I den **Remote teckenuppsättningen** väljer **UTF-8**.
 6. Under **hantering av Linjeteckning tecken**väljer **Använd Unicode Linjeteckning kodpunkter**. Följande skärmbild visar rätt PuTTY val.
    
     ![UTF Putty-inställningar](./media/storsimple-windows-powershell-administration/IC740878.png)
-7. Klicka på **Använd**.
+7. Klicka på **Verkställ**.
 
 Du kan nu använda PuTTY för att ansluta till enhetens seriekonsol genom att göra följande steg.
 

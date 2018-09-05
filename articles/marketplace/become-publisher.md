@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4d37aba665fd9b6de89f683ce2785a14b1b6f60b
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: c6f074b84b099f6ea5023967fdae7e44d5e9d545
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412023"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666392"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Bli en Cloud Marketplace-utgivare
 
@@ -29,7 +29,7 @@ Den här artikeln beskriver registrera som en cloud marketplace-utgivare. Beroen
 |  | Registreringssteget | Varaktighet | Information |  
 |:--- |:--- |:--- |:--- |  
 | 1 | Registrera i Microsoft Partner Network | 15 min | [Registrera i Microsoft Partner Network](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
-| 2 | Skapa ett Microsoft-konto <ul>(krävs för Azure Marketplace transact erbjudanden; rekommenderas för andra)</ul> | 15 minuter | [Skapa ett Microsoft-ID](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
+| 2 | Skapa ett Microsoft-konto <ul>(krävs för Azure Marketplace transact erbjudanden; rekommenderas för andra)</ul> | 15 min | [Skapa ett Microsoft-ID](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
 | 3 | Skicka formuläret av marketplace-registrering | 15 min | [Skicka nomineringsformuläret marketplace](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
 | 4 |  Logga in på partnerportalen i molnet | 1 – 3 dagar | [Logga in på partnerportalen i molnet](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
 | 5 | Registrera dig i Microsoft Developer Center (Dev Center) (för Azure Marketplace transact erbjudanden) | 5 – 10 dagar | [Registrera i Dev Center](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
@@ -48,7 +48,7 @@ Efter registreringen kan du registrera Microsoft Partner Network-ID för din org
 ---  
 
 ## <a name="2-create-a-microsoft-account"></a>2. Skapa ett Microsoft-konto  
-| 15 minuter |  
+| 15 min |  
 En Microsoft-konto, t.ex. *@outlook.com eller @live.com*, används för att få åtkomst till många Microsoft-enheter och tjänster. Det krävs för Azure Marketplace transact erbjudanden och dess användning rekommenderar vi att alla moln-utgivare. Mer information om förmåner och användning av ett Microsoft-konto [besöker den här sidan](https://account.microsoft.com/account/). Du ska använda ett personligt microsoftkonto för att få åtkomst till partnerportalen i molnet måste erbjuder publicera plattform som du använder för att skapa och hantera dina marketplace. 
 
 [! [Viktigt] Tänk på att ett Microsoft-konto som är associerade med din e-postadress inte tillåter att du kan få åtkomst till portalen.
@@ -64,7 +64,7 @@ En Microsoft-konto, t.ex. *@outlook.com eller @live.com*, används för att få 
 ---  
 
 ## <a name="3-submit-the-marketplace-registration-form"></a>3. Skicka formuläret av marketplace-registrering  
-| 15 minuter |  
+| 15 min |  
 Slutför denna rapport [registreringsformuläret](https://azuremarketplace.microsoft.com/en-us/sell/signup) ska bli en marketplace-utgivare. Uppgifter i det här formuläret används för att skapa ett utgivarkonto i Cloud Partner Portal där du kan skapa, publicera och hantera marketplace-erbjudanden.
 
 Du blir ombedd att inkludera följande information:
@@ -74,7 +74,8 @@ Du blir ombedd att inkludera följande information:
 
 ---  
 ## <a name="4-sign-into-cloud-partner-portal"></a>4. Logga in på partnerportalen i molnet
-| 1 – 3 dagar | Vår Marketplace Onboarding-teamet granskar och verifiera registreringsinformationen marketplace i steg 3. När du blivit godkänd, får du ett välkomstmeddelande med autentiseringsuppgifter för kontot och vägledning för att logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com).
+| 1 – 3 dagar | <br>
+Vår Marketplace Onboarding-teamet granskar och verifiera registreringsinformationen marketplace i steg 3. När du blivit godkänd, får du ett välkomstmeddelande med autentiseringsuppgifter för kontot och vägledning för att logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com).
 
 Du kommer att använda den [Cloud Partner Portal](https://cloudpartner.azure.com) för att skapa, publicera och hantera marketplace-erbjudanden. När du får välkomstmeddelandet godkännande kan du omedelbart kan logga in på [Cloud Partner Portal](https://cloudpartner.azure.com) med ditt Microsoft-konto för att få åtkomst till ytterligare teknisk information om publicering på marketplace och skapa ditt erbjudande. 
 *   Mer information om hur du använder Cloud Partner Portal [gå till komma igång-artikeln i Läs avsnittet](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal). Du måste vara inloggad på partnerportalen i molnet att komma åt informationen.

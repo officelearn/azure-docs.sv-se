@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 08/22/2018
+ms.date: 09/04/2018
 ms.author: rolyon
-ms.openlocfilehash: 69313adea1719324e2b22b45c6a45535ea65097f
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 0171cd3e3a39d1fe70e7c97b618d854857a1c376
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125050"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695531"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Användningsvillkorsfunktion för Azure Active Directory
 Användningsvillkoren för Azure AD tillhandahåller en enkel metod som organisationer kan använda för att presentera information för slutanvändare. Den här presentationen gör att användare kan se relevanta ansvarsfriskrivningar för juridiska krav eller efterlevnadskrav. Den här artikeln beskriver hur du kommer igång med användningsvillkor för Azure AD.
@@ -223,7 +223,7 @@ S: för närvarande kan uppdatera du inte ett befintligt dokument med användnin
 S: PDF-filen renderas som standard som JPEG, så att inte klickbara hyperlänkar. Användare har möjlighet att välja **har du problem med att visa? Klicka här**, vilket visas med PDF-filen internt där hyperlänkar stöds.
 
 **F: Kan användningsvillkor ha stöd för flera språk?**</br>
-S: Ja.  Det finns för närvarande 18 olika språk som en administratör kan konfigurera för ett enskilt användningsvillkor. 
+S: Ja. Det finns fler än 100 olika språk som en administratör kan konfigurera för ett enskilt användningsvillkor.
 
 **F: När tillämpas användningsvillkoren?**</br>
 S: Användningsvillkoren tillämpas under inloggningen.

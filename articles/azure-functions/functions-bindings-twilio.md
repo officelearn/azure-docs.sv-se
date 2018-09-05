@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 07/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 580dd0409c2210de786723736128d489e5a93aa9
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 8d973e4003f8501fb3b4d1b461703bd0b869c205
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345838"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669162"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Twilio-bindning för Azure Functions
 
@@ -227,10 +227,9 @@ public static CreateMessageOptions Run(
 {
     log.Info($"C# Queue trigger function processed: {order}");
 
-    var message = new CreateMessageOptions(new PhoneNumber("+1704XXXXXXX"))
+    var message = new CreateMessageOptions(new PhoneNumber(order["mobileNumber"].ToString()))
     {
-        Body = $"Hello {order["name"]}, thanks for your order!",
-        To = order["mobileNumber"].ToString()
+        Body = $"Hello {order["name"]}, thanks for your order!"
     };
 
     return message;
@@ -404,8 +403,8 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**typ**|| Måste anges till `twilioSms`.|
 |**riktning**|| Måste anges till `out`.|
 |**Namn**|| Variabelnamnet som används i Funktionskoden för Twilio-SMS-textmeddelanden. |
-|**AccountSid**|**AccountSid**| Det här värdet måste vara samma som namnet på en appinställning som innehåller din Twilio konto-Sid.|
-|**AuthToken**|**AuthToken**| Det här värdet måste vara samma som namnet på en appinställning som innehåller din Twilio-autentiseringstoken.|
+|**accountSid**|**accountSid**| Det här värdet måste vara samma som namnet på en appinställning som innehåller din Twilio konto-Sid.|
+|**authToken**|**authToken**| Det här värdet måste vara samma som namnet på en appinställning som innehåller din Twilio-autentiseringstoken.|
 |**Att**|**Till**| Det här värdet anges till telefonnumret som SMS-meddelanden skickas till.|
 |**Från**|**Från**| Det här värdet anges till telefonnumret som SMS-meddelanden skickas från.|
 |**Brödtext**|**Brödtext**| Det här värdet kan användas för att hårt code SMS-textmeddelande om du inte behöver ange den dynamiskt i koden för din funktion. |

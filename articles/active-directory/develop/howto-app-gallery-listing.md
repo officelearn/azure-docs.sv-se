@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/14/2018
+ms.date: 08/31/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 8c9d1ee51acdfff188e0d6483f723fbb08e17bd5
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: e5db7b9bed674011c2922f026c301172f347f53f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39601957"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666316"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Visa ditt program i Azure Active Directory-programgalleriet
 
@@ -45,11 +45,23 @@ Azure Active Directory (Azure AD) är en molnbaserad identitetstjänst. Den [Azu
 
 *  Kunder som använder SCIM kan använda etablering för samma app.
 
-##  <a name="prerequisites-implement-federation-protocol"></a>Krav: Implementera federation-protokollet
+## <a name="prerequisites"></a>Förutsättningar
+
+- För federerade program (Öppna ID och SAML/WS-Fed), måste programmet stöder SaaS-modellen för att bli listad i Azure AD-galleriet. Galleriet företagsprogram ska ha stöd för kundkonfigurationer med flera och inte en specifik kund.
+
+- För att öppna ID Connect programmet bör vara med flera innehavare och [Azure AD-ramverket för medgivande](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework) korrekt bör implementeras för programmet. Användaren kan skicka inloggningsförfrågan till en gemensam slutpunkt så att alla kunder kan ge samtycke till programmet. Du kan styra användaråtkomst baserat på klient-ID och användarens UPN tas emot i token.
+
+- För SAML 2.0/WS-Fed måste ditt program möjlighet att genomföra SAML/WS-Fed SSO-integrering i SP eller IDP-läge. Kontrollera att det fungerar korrekt innan du skickar in begäran.
+
+- För lösenord för enkel inloggning, se till att ditt program stöder formulärautentisering så att lösenordsvalv kan göras för att få enkel inloggning fungerar som förväntat.
+
+- För förfrågningar om etableringen av automatisk användare bör programmet visas i galleriet med funktionen för enkel inloggning som är aktiverad med någon av federation-protokollet som beskrivs ovan. Du kan begära för enkel inloggning och Användaretablering tillsammans på portalen om det inte redan visas.
+
+##  <a name="implementing-sso-using-federation-protocol"></a>Implementera enkel inloggning med federation-protokollet
 
 Om du vill visa ett program i Azure AD-appgalleri, måste du först att implementera en av följande federation protokoll som stöds av Azure AD och godkänner villkoren Azure AD application Gallery. Läs villkoren i Azure AD-programgalleriet från [här](https://azure.microsoft.com/en-us/support/legal/active-directory-app-gallery-terms/).
 
-*   **OpenID Connect**: skapa program för flera klientorganisationer i Azure AD och implementera de [Azure AD-ramverket för medgivande](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework) för ditt program. Skicka inloggningsförfrågan till en gemensam slutpunkt så att alla kunder kan ge samtycke till programmet. Du kan styra användaråtkomst baserat på klient-ID och användarens UPN tas emot i token. Om du vill integrera ditt program med Azure AD följer den [utvecklares instruktioner](authentication-scenarios.md).
+*   **OpenID Connect**: Om du vill integrera ditt program med Azure AD med öppna ID Connect-protokollet, följer du de [utvecklares instruktioner](authentication-scenarios.md).
 
     ![Tidslinje för att visa en lista över OpenID Connect-program i galleriet](./media/howto-app-gallery-listing/openid.png)
 
@@ -57,21 +69,23 @@ Om du vill visa ett program i Azure AD-appgalleri, måste du först att implemen
 
     * Om du har några frågor om åtkomst kan du kontakta den [enkel inloggning för Azure AD-integrering Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **SAML 2.0** eller **WS-Fed**: ditt program måste ha möjlighet att genomföra SAML/WS-Fed SSO-integrering i SP eller IDP-läge. Om appen stöder SAML 2.0, kan du integrera det direkt med en Azure AD-klient med hjälp av den [anvisningar för att lägga till ett anpassat program](../active-directory-saas-custom-apps.md).
+*   **SAML 2.0** eller **WS-Fed**: om din app har stöd för SAML 2.0, kan du integrera det direkt med en Azure AD-klient med hjälp av den [anvisningar för att lägga till ett anpassat program](../active-directory-saas-custom-apps.md).
 
     ![Tidslinje för att visa en lista över SAML 2.0 eller WS-Fed program i galleriet](./media/howto-app-gallery-listing/saml.png)
 
     * Om du vill lägga till dina program i listan i galleriet med **SAML 2.0** eller **WS-Fed**väljer **SAMl 2.0/WS-Fed** precis som ovan.
 
-    * Om du har några frågor om åtkomst kan du kontakta den [enkel inloggning för Azure AD-integrering Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
-
-*   **Enkel inloggning med lösenord**: skapa ett webbprogram som har en HTML-inloggningssida konfigurera [lösenordsbaserad enkel inloggning](../manage-apps/what-is-single-sign-on.md). Lösenordsbaserad SSO, även kallat lösenord vaulting, kan du hantera användaråtkomst och lösenord till webbprogram som inte har stöd för identitetsfederation. Det är också användbart för scenarier där flera användare behöver dela ett enda konto, till exempel till din organisations konton för sociala medier.
-
-    ![Tidslinje för att visa en lista över lösenord SSO-program i galleriet](./media/howto-app-gallery-listing/passwordsso.png)
-
-    * Om du vill lägga till dina program i listan i galleriet med lösenord för enkel inloggning, Välj **lösenord SSO** precis som ovan.
-
     * Om du har några frågor om åtkomst kan du kontakta den [enkel inloggning för Azure AD-integrering Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+
+## <a name="implementing-sso-using-password-sso"></a>Implementera enkel inloggning med lösenord för enkel inloggning
+
+Skapa ett webbprogram som har en HTML-inloggningssida konfigurera [lösenordsbaserad enkel inloggning](../manage-apps/what-is-single-sign-on.md). Lösenordsbaserad SSO, även kallat lösenord vaulting, kan du hantera användaråtkomst och lösenord till webbprogram som inte har stöd för identitetsfederation. Det är också användbart för scenarier där flera användare behöver dela ett enda konto, till exempel till din organisations konton för sociala medier.
+
+![Tidslinje för att visa en lista över lösenord SSO-program i galleriet](./media/howto-app-gallery-listing/passwordsso.png)
+
+* Om du vill lägga till dina program i listan i galleriet med lösenord för enkel inloggning, Välj **lösenord SSO** precis som ovan.
+
+* Om du har några frågor om åtkomst kan du kontakta den [enkel inloggning för Azure AD-integrering Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ##  <a name="updateremove-existing-listing"></a>Uppdatera/ta bort befintlig registrering
 
@@ -80,7 +94,7 @@ Om du vill uppdatera eller ta bort ett befintligt program i Azure AD app-galleri
 * Välj lämpligt alternativ från i bilden nedan
 
     ![Tidslinje för att visa en lista över saml-program i galleriet](./media/howto-app-gallery-listing/updateorremove.png)
-    
+
     * Om du vill uppdatera ett befintligt program väljer **uppdatera befintliga program lista**.
 
     * Om du vill ta bort ett befintligt program från Azure AD-galleriet väljer **ta bort befintliga program-lista**

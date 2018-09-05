@@ -1,6 +1,6 @@
 ---
-title: Azure-databas för MySQL Data i replikering lagrade procedurer
-description: Den här artikeln introducerar alla lagrade procedurer som används för Data i replikering.
+title: Azure Database for MySQL-Data i replikering lagrade procedurer
+description: Den här artikeln beskrivs alla lagrade procedurer som används för Data i replikering.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -8,26 +8,26 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 05/18/2018
-ms.openlocfilehash: 2d62cd693d7a67faf836c645f8bd33de9afca949
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 08/31/2018
+ms.openlocfilehash: fb1a1b31d90df0022e5973de3ae2f55fb4c36701
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266116"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665954"
 ---
-# <a name="azure-database-for-mysql-data-in-replication-stored-procedures"></a>Azure-databas för MySQL Data i replikering lagrade procedurer
+# <a name="azure-database-for-mysql-data-in-replication-stored-procedures"></a>Azure Database for MySQL-Data i replikering lagrade procedurer
 
-Data i replikering kan du synkronisera data från en MySQL-server som kör lokalt, i virtuella datorer eller databastjänster hos andra molntjänstleverantörer till Azure-databas för MySQL-tjänst.
+Data i replikering kan du synkronisera data från en MySQL-server som körs lokalt, i virtuella datorer eller databastjänster med andra molnleverantörer till Azure Database for MySQL-tjänsten.
 
-Följande lagrade procedurer för att ställa in eller ta bort Data i replikeringen mellan en primär och repliken.
+Följande lagrade procedurer används för att konfigurera eller ta bort Data i replikeringen mellan huvud- och repliken.
 
-|**Namnet på lagrade proceduren**|**Indataparametrar**|**Utdataparametrar**|**Observera användning**|
+|**Namn på lagrad procedur**|**Indataparametrar**|**Utdataparametrar**|**Obs! användning**|
 |-----|-----|-----|-----|
-|*MySQL.az_replication_change_primary*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|Gäller inte|Skicka i kontexten för CA-certifikatet till parametern master_ssl_ca för att överföra data med SSL-läge. </br><br>Skicka in en tom sträng i master_ssl_ca-parameter för att överföra data utan SSL.|
+|*MySQL.az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|Gäller inte|Skicka i kontexten för CA-certifikatet till master_ssl_ca-parametern för att överföra data med SSL-läge. </br><br>Skicka en tom sträng till master_ssl_ca-parametern för att överföra data utan SSL.|
 |*_starta MySQL.az_replication*|Gäller inte|Gäller inte|Startar replikering.|
-|*MySQL.az_replication _stop*|Gäller inte|Gäller inte|Stoppar replikering.|
-|*MySQL.az_replication _remove_primary*|Gäller inte|Gäller inte|Tar bort replikeringsrelationen mellan den primära servern och repliken.|
+|*MySQL.az_replication _stop*|Gäller inte|Gäller inte|Stoppar replikeringen.|
+|*MySQL.az_replication _remove_master*|Gäller inte|Gäller inte|Tar bort replikeringsrelationen mellan huvud- och repliken.|
 |*MySQL.az_replication_skip_counter*|Gäller inte|Gäller inte|Hoppar över en replikeringsfel.|
 
-Om du vill konfigurera data i replikering mellan en primär och en replik i Azure-databas för MySQL avser [hur du konfigurerar replikering data i](howto-data-in-replication.md).
+Om du vill ställa in data i replikering mellan en och en replik i Azure Database för MySQL, referera till [hur du konfigurerar data i replikering](howto-data-in-replication.md).

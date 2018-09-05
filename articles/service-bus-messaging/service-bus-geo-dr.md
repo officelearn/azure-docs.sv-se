@@ -1,49 +1,49 @@
 ---
-title: Azure Service Bus Geo-katastrofåterställning | Microsoft Docs
+title: Azure Service Bus geohaveriberedskap | Microsoft Docs
 description: Hur du använder geografiska regioner för redundans och utföra katastrofåterställning i Azure Service Bus
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 06/14/2018
-ms.author: sethm
-ms.openlocfilehash: b43c5bd6ff6b386e1a2ee0b5e3ae8ec8fa61fb4b
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.author: spelluru
+ms.openlocfilehash: 42960222efb1ade1b48a1d0db56ae3fb0349d174
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301527"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695399"
 ---
-# <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus Geo-katastrofåterställning
+# <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus Geo-haveriberedskap
 
-När hela Azure-regioner eller Datacenter (om inget [tillgänglighet zoner](../availability-zones/az-overview.md) används) eventuellt driftstopp, det är viktigt för databearbetning fortsätta att arbeta i en annan region eller datacenter. Därför *Geo-återställning* och *georeplikering* är viktiga funktioner för företag. Azure Service Bus stöder både geo-återställning och geo-replikering på namnområdesnivån. 
+När hela Azure-regioner eller Datacenter (om ingen [tillgänglighetszoner](../availability-zones/az-overview.md) används) drabbas, det är viktigt för att bearbeta till fortsätter att fungera i en annan region eller datacenter. Därför *geohaveriberedskap* och *Geo-replikering* är viktiga funktioner för vilket företag som helst. Azure Service Bus stöder både geo-haveriberedskap och geo-replikering på namnområdesnivå. 
 
-Funktionen Geo disaster recovery finns globalt för Service Bus Premium-SKU. 
+Geo-disaster recovery-funktionen är globalt tillgänglig för Service Bus Premium-SKU. 
 
 ## <a name="outages-and-disasters"></a>Avbrott och katastrofer
 
-Det är viktigt att Observera skillnaden mellan ”avbrott” och ”katastrofer”. En *avbrott* är temporär otillgänglighet Azure Service Bus och kan påverka vissa komponenter av tjänsten, till exempel ett meddelandearkiv eller även hela datacentret. Men när problemet är åtgärdat blir Service Bus tillgänglig igen. Normalt orsakar avbrott inte meddelanden eller andra data förlorade. Ett exempel på sådana avbrott kan vara ett strömavbrott i datacentret. Vissa avbrott är endast kort anslutning förluster på grund av problem med övergående eller nätverket. 
+Det är viktigt att Observera skillnaden mellan ”avbrott” och ”katastrofer”. En *avbrott* är Azure Service Bus är tillfälligt otillgänglig och kan påverka vissa komponenter av tjänsten, till exempel ett meddelandearkiv eller även hela datacentret. Men när problemet är löst, blir Service Bus tillgänglig igen. Ett avbrott medför normalt förlusten av meddelanden eller andra data. Ett exempel på sådana ett avbrott kan vara ett strömavbrott i datacentret. Vissa avbrott kan endast kort anslutning förluster på grund av problem med tillfälliga eller. 
 
-En *katastrofåterställning* definieras som permanenta eller långsiktig förlust av en Service Bus-kluster, Azure-region eller datacenter. Region eller datacenter kan eller kan inte bli tillgänglig igen eller kan vara avstängd för timmar eller dagar. Exempel på sådana katastrofer är brand, överbelasta eller jordbävning. En katastrof som blir permanent kan orsaka förlust av vissa meddelanden, händelser eller andra data. Men i de flesta fall bör det finnas ingen dataförlust och meddelanden som kan återställas när Datacenter är säkerhetskopiera.
+En *haveriberedskap* definieras som permanenta eller mer långsiktiga förlusten av en Service Bus-kluster, Azure-region eller datacenter. Den region eller datacenter kan eller kan inte bli tillgänglig igen, eller kanske inte körs i timmar eller dagar. Exempel på sådana katastrofer är fire, överbelasta eller jordbävning. Problem som blir permanent kan orsaka förlust av vissa meddelanden, händelser eller andra data. Men i de flesta fall bör det finnas inga data går förlorade och meddelanden kan återställas när datacentret är säkerhetskopiera.
 
-Geo-disaster recovery-funktion i Azure Service Bus är en lösning för katastrofåterställning. Koncept och arbetsflödet som beskrivs i den här artikeln gäller katastrofåterställning scenarier och inte tillfälligt eller tillfälliga avbrott. En detaljerad beskrivning av katastrofåterställning i Microsoft Azure finns [i den här artikeln](/azure/architecture/resiliency/disaster-recovery-azure-applications).   
+Funktionen Geo-disaster recovery i Azure Service Bus är en lösning för haveriberedskap. Koncept och arbetsflödet som beskrivs i den här artikeln gäller katastrofscenarier och inte tillfälliga eller tillfälliga avbrott. En detaljerad beskrivning av haveriberedskap i Microsoft Azure finns i [i den här artikeln](/azure/architecture/resiliency/disaster-recovery-azure-applications).   
 
 ## <a name="basic-concepts-and-terms"></a>Grundläggande begrepp och termer
 
-Funktionen disaster recovery implementerar metadata katastrofåterställning och bygger på primära och sekundära disaster recovery-namnområden. Observera att Geo disaster recovery-funktionen är tillgänglig för den [Premium-SKU](service-bus-premium-messaging.md) endast. Du behöver inte göra ändringar anslutning sträng som anslutningen görs via ett alias.
+Funktionen disaster recovery implementerar metadata katastrofåterställning och förlitar sig på primära och sekundära disaster recovery-namnområden. Observera att Geo-disaster recovery-funktionen är tillgänglig för den [Premium-SKU](service-bus-premium-messaging.md) endast. Du behöver inte göra några ändringar av anslutningen sträng, eftersom anslutningen görs via ett alias.
 
-Följande villkor används i den här artikeln:
+I den här artikeln används följande termer:
 
--  *Alias*: namn för någon haveriberedskapskonfiguration som du skapat. Aliaset som innehåller en enda stabil anslutningssträng för fullständigt kvalificerade domännamn (FQDN). Program använda anslutningssträng med detta alias för att ansluta till ett namnområde. 
+-  *Alias*: namnet på en haveriberedskapskonfiguration som du har konfigurerat. Aliaset som innehåller en enda stabil anslutningssträng för fullständigt kvalificerade domännamn (FQDN). Program använder den här anslutningssträngen för alias för att ansluta till ett namnområde. 
 
--  *Primära och sekundära namnområdet*: de namnområden som motsvarar aliaset. Det primära namnområdet är ”aktiv” och tar emot meddelanden (det kan vara en befintlig eller ny namnområde). Sekundär namnområdet är ”passiva” och ta emot inte meddelanden. Metadata mellan de båda är synkroniserade, så att både sömlöst kan godkänna meddelanden utan någon kod eller ett anslutningsfel sträng ändringar i programmet. För att säkerställa att endast aktiva namnområdet tar emot meddelanden, måste du använda detta alias. 
+-  *Primära och sekundära namnområdet*: namnområden som motsvarar aliaset. Det primära namnområdet är ”aktiv” och tar emot meddelanden (det kan vara ett namnområde för befintliga eller nya). Det sekundära namnområdet är ”passiva” och ta emot inte meddelanden. Metadata mellan båda är synkroniserade, så att båda sömlöst kan godkänna meddelanden utan program kod eller anslutningen sträng ändringar. För att säkerställa att endast aktiva namnområdet tar emot meddelanden, måste du använda detta alias. 
 
--  *Metadata*: entiteter som köer, ämnen, prenumerationer, och deras egenskaper som är associerade med namnområdet för tjänsten. Observera att endast enheter och deras inställningar replikeras automatiskt. Meddelanden replikeras inte. 
+-  *Metadata*: entiteter som köer, ämnen och prenumerationer; och deras egenskaper för tjänsten som är associerade med namnområdet. Observera att endast entiteter och deras inställningar replikeras automatiskt. Meddelanden replikeras inte. 
 
--  *Redundans*: att aktivera sekundär namnområdet.
+-  *Redundans*: aktiveringsprocessen för det sekundära namnområdet.
 
-## <a name="setup-and-failover-flow"></a>Installationen och växling vid fel
+## <a name="setup-and-failover-flow"></a>Installation och redundans flöde
 
 Följande avsnitt är en översikt över failover-processen och förklarar hur du ställer in inledande växling vid fel. 
 
@@ -51,75 +51,75 @@ Följande avsnitt är en översikt över failover-processen och förklarar hur d
 
 ### <a name="setup"></a>Konfiguration
 
-Du först skapa eller använda en befintlig primär namnrymd och ett nytt sekundära namnområde och sedan koppla två. Länkning av den här får du ett alias som du kan använda för att ansluta. Eftersom du använder ett alias, behöver du inte ändra anslutningssträngar. Endast nya namnområden kan läggas till redundans para ihop. Slutligen bör du lägga till vissa övervakning för att identifiera om det krävs en växling vid fel. I de flesta fall tjänsten är en del av ett stort ekosystem, vilket automatisk redundans är sällan möjliga som ofta växling vid fel måste utföras synkroniserad med återstående undersystemet eller infrastruktur.
+Du först skapa eller använda en befintlig primär namnrymd och ett nytt sekundärt namnområde och sedan koppla ihop två. Den här parkoppling ger dig ett alias som du kan använda för att ansluta. Eftersom du använder ett alias, behöver du inte ändra anslutningssträngar. Endast nya namnområden kan läggas till dina redundans länkning. Slutligen bör du lägga till viss övervakning för att identifiera om en redundansväxling är nödvändigt. I de flesta fall tjänsten är en del av ett omfattande ekosystem, vilket automatisk växling vid fel är sällan möjligt, som ofta redundansväxling måste utföras synkroniserade med återstående undersystem eller infrastruktur.
 
 ### <a name="example"></a>Exempel
 
-Överväga en lösning för platsen för försäljning (POS) som skickar meddelanden eller händelser i ett exempel på det här scenariot. Service Bus skickar händelser till vissa mappnings- eller formatera om lösning som sedan vidarebefordrar mappade data till ett annat system för vidare bearbetning. Alla dessa system kan då finnas i samma Azure-region. Beslut om när och vilken del att växla över beror på dataflödet i din infrastruktur. 
+Överväg en återställningspunkt för försäljning (POS)-lösning som genererar meddelanden eller händelser i ett exempel på det här scenariot. Service Bus skickar händelser till vissa mappnings- eller formatera om lösningen, som sedan vidarebefordrar mappade data till ett annat system för vidare bearbetning. I det här läget att alla dessa system kan finnas i samma Azure-region. Beslutet om när och vilken del att växla över beror på flödet av data i din infrastruktur. 
 
-Du kan automatisera redundans med övervakningssystem, eller med specialbyggt övervakar lösningar. Sådana automation tar dock extra planerings- och arbetet, vilket ligger utanför omfånget för den här artikeln.
+Du kan automatisera redundans med övervakningssystem eller med anpassade övervakningslösningar. Sådana automation tar dock extra planering och arbete som ligger utanför omfånget för den här artikeln.
 
 ### <a name="failover-flow"></a>Redundansflöde
 
 Om du påbörja redundans krävs två steg:
 
-1. Om en annan avbrott inträffar som du vill kunna redundansväxla igen. Därför måste ställa in en annan passiva namnrymd och uppdatera kopplingen. 
+1. Om något annat avbrott inträffar, som du vill kunna redundansväxla igen. Därför kan ställa in en annan passiva namnrymd och uppdatera kopplingen. 
 
-2. Hämta meddelanden från tidigare primära namnområde när den är tillgänglig igen. Använd namnutrymmet för regelbundna meddelanden utanför inställningarna geo-återställning efter det, eller ta bort det gamla primära namnområdet.
+2. Hämta meddelanden från det tidigare versionen primärt namnområdet när den är tillgänglig igen. Använd det här namnområdet för regelbundna meddelanden utanför din konfiguration för geo-återställning efter det eller ta bort det gamla primära namnområdet.
 
 > [!NOTE]
-> Endast misslyckas vidarebefordra semantik stöds. I det här scenariot växla över och sedan koppla igen med ett nytt namnområde. Det går inte att återställas. till exempel i en SQL-kluster. 
+> Endast misslyckas vidarebefordra semantik stöds. I det här scenariot du växlar över och sedan koppla igen med ett nytt namnområde. Det går inte att återställas. till exempel i en SQL-kluster. 
 
 ![2][]
 
 ## <a name="management"></a>Hantering
 
-Om du har gjort ett misstag; till exempel du paras ihop fel regioner under den första konfigurationen, du kan dela länkar de två namnområdena när som helst. Om du vill använda parad namnområden som regelbundet namnområden tar du bort den.
+Om du har gjort ett misstag; till exempel du länkade fel regioner under den första konfigurationen, du kan bryta länkningen av de två namnområdena när som helst. Om du vill använda den kopplade namnområden som vanlig namnområden tar du bort den.
 
 ## <a name="use-existing-namespace-as-alias"></a>Använd befintligt namnområde som alias
 
-Om du har ett scenario där du inte kan ändra anslutningar för producenter och konsumenter, kan du återanvända namnet på ditt namnområde som aliasnamnet. Finns det [exempelkoden på GitHub här](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR_existing_namespace_name).
+Om du har ett scenario där du inte kan ändra anslutningar av producenter och konsumenter, kan du återanvända namnet på ditt namnområde som aliasnamnet. Se den [exempelkoden på GitHub här](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR_existing_namespace_name).
 
 ## <a name="samples"></a>Exempel
 
-Den [exemplen på GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) visar hur du ställer in och initiera redundans. De här exemplen visar följande:
+Den [exemplen på GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) visar hur du ställer in och initiera redundans. De här exemplen visar följande begrepp:
 
-- Ett exempel på .NET och inställningar som krävs i Azure Active Directory för att använda Azure Resource Manager med Service Bus för att konfigurera och aktivera Geo-återställning.
+- En .NET-exempel och inställningar som krävs i Azure Active Directory för att använda Azure Resource Manager med Service Bus för att konfigurera och aktivera Geo-haveriberedskap.
 - Steg som krävs för att köra exempelkoden.
 - Hur du använder ett befintligt namnområde som ett alias.
-- Steg för att du kan också aktivera Geo-återställning via PowerShell eller CLI.
+- Steg för att du kan också aktivera Geo-haveriberedskap via PowerShell eller CLI.
 - [Skicka och ta emot](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1) från det primära eller sekundära namnområdet med hjälp av alias.
 
 ## <a name="considerations"></a>Överväganden
 
-Observera följande viktiga aspekter att tänka på med den här versionen:
+Observera följande överväganden att tänka på med den här versionen:
 
-1. Du bör också övervägas tid faktorn under växling vid fel planeringen. Till exempel om du förlorar anslutningen längre än 15 till 20 minuter kan du välja att påbörja redundans. 
+1. I redundans planeringen, bör du också faktorn tid. Exempelvis kan kan du förlora anslutningen längre än 15 till 20 minuter du välja att påbörja redundans. 
  
-2. Det faktum att inga data replikeras innebär att för tillfället aktiva sessioner inte replikeras. Dessutom kanske dubblettidentifiering och schemalagda meddelanden inte fungerar. Nya sessioner, nya schemalagda meddelanden och nya dubbletter ska fungera. 
+2. Det faktum att inga data replikeras innebär att för närvarande aktiva sessioner inte replikeras. Dessutom fungerar inte dubblettidentifiering och schemalagda meddelanden. Nya sessioner, nya schemalagda meddelanden och nya dubbletter ska fungera. 
 
-3. Misslyckande en infrastruktur för komplexa distribuerade ska vara [testas](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) minst en gång. 
+3. Redundansväxla en infrastruktur för komplexa distribuerade ska vara [testas](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) minst en gång. 
 
-4. Synkronisera enheter kan ta lite tid, ungefär 50 – 100 entiteter per minut. Prenumerationer och regler räknas också som entiteter. 
+4. Synkronisera enheter kan ta lite tid, cirka 50 – 100 entiteter per minut. Prenumerationer och regler räknas också som entiteter. 
 
-## <a name="availability-zones-preview"></a>Tillgänglighet zoner (förhandsgranskning)
+## <a name="availability-zones-preview"></a>Tillgänglighetszoner (förhandsversion)
 
-Service Bus Premium-SKU stöder också [tillgänglighet zoner](../availability-zones/az-overview.md), att tillhandahålla feltolerans isolerad platser inom en Azure-region. 
+Service Bus Premium-SKU: N stöder också [Tillgänglighetszoner](../availability-zones/az-overview.md), vilket ger felisolerade platser inom en Azure-region. 
 
 > [!NOTE]
-> Tillgänglighet zoner förhandsgranskningen stöds bara i den **centrala USA**, **östra USA 2**, och **Frankrike centrala** regioner.
+> Förhandsversionen av Tillgänglighetszoner stöds bara i den **centrala USA**, **östra USA 2**, och **Frankrike, centrala** regioner.
 
-Du kan aktivera tillgänglighet zoner på endast nya namnområden med hjälp av Azure portal. Service Bus stöder inte migrering av befintliga namnområden. Du kan inte inaktivera redundans när den har aktiverats på ditt namnområde.
+Du kan aktivera Tillgänglighetszoner på nya namnområden, med hjälp av Azure portal. Service Bus stöder inte migreringen av befintliga namnområden. Du kan inte inaktivera redundans när du har aktiverat i namnområdet.
 
 ![3][]
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Geo-återställning finns [här REST API-referensen](/rest/api/servicebus/disasterrecoveryconfigs).
-- Kör Geo-återställning [på GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2).
-- Geo-återställning finns [exempel som skickar meddelanden till ett alias](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1).
+- Se Geo-haveriberedskap [REST API-referensen här](/rest/api/servicebus/disasterrecoveryconfigs).
+- Kör Geo-haveriberedskap [i GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2).
+- Se Geo-haveriberedskap [exemplet som skickar meddelanden till ett alias](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1).
 
-Om du vill lära dig mer om Service Bus-meddelanden, finns i följande artiklar:
+Om du vill veta mer om Service Bus-meddelanden, finns i följande artiklar:
 
 * [Service Bus-grunder](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)

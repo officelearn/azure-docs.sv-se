@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: jasonh
-ms.openlocfilehash: b8a177ad2bbd463d2dcb94a01ff2a29a95d86693
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 567bac8a12a841eed2df1467b94a2a91c86ff7b4
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105291"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666159"
 ---
 # <a name="tutorial-create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Självstudie: Skapa på begäran Hadoop-kluster i HDInsight med Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -37,9 +37,9 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Azure PowerShell. Anvisningar finns i [installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
+- Azure PowerShell. Anvisningar finns i [installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
 
-* Ett Azure Active Directory-tjänstobjekt. När du har skapat tjänstens huvudnamn, måste du hämta den **program-ID** och **autentiseringsnyckeln** med hjälp av anvisningarna i den länkade artikeln. Du behöver dessa värden senare i den här självstudien. Kontrollera också att tjänstens huvudnamn är medlem i den *deltagare* rollen för prenumerationen eller resursgruppen som klustret har skapats. Anvisningar att hämta värdena som krävs och tilldela rätt roller finns i [och skapa en Azure Active Directory-tjänstens huvudnamn](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+- Ett Azure Active Directory-tjänstobjekt. När du har skapat tjänstens huvudnamn, måste du hämta den **program-ID** och **autentiseringsnyckeln** med hjälp av anvisningarna i den länkade artikeln. Du behöver dessa värden senare i den här självstudien. Kontrollera också att tjänstens huvudnamn är medlem i den *deltagare* rollen för prenumerationen eller resursgruppen som klustret har skapats. Anvisningar att hämta värdena som krävs och tilldela rätt roller finns i [och skapa en Azure Active Directory-tjänstens huvudnamn](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
 ## <a name="create-an-azure-storage-account"></a>Skapa ett Azure-lagringskonto
 
@@ -148,18 +148,18 @@ Write-host "`nScript completed" -ForegroundColor Green
 
 En datafabrik kan ha en eller flera datapipelines i Azure Data Factory. En datapipeline har en eller flera aktiviteter. Det finns två typer av aktiviteter:
 
-* [Dataförflyttningsaktiviteter](../data-factory/copy-activity-overview.md) -du använda dataförflyttningsaktiviteter för att flytta data från ett källdatalager till ett måldatalager.
-* [Datatransformeringsaktiviteter](../data-factory/transform-data.md). Du kan använda datatransformeringsaktiviteter för att omvandla/bearbeta data. HDInsight Hive-aktivitet är en av transformeringsaktiviteter som stöds av Data Factory. Du kan använda omvandling Hive-aktiviteten i den här självstudien.
+- [Dataförflyttningsaktiviteter](../data-factory/copy-activity-overview.md) -du använda dataförflyttningsaktiviteter för att flytta data från ett källdatalager till ett måldatalager.
+- [Datatransformeringsaktiviteter](../data-factory/transform-data.md). Du kan använda datatransformeringsaktiviteter för att omvandla/bearbeta data. HDInsight Hive-aktivitet är en av transformeringsaktiviteter som stöds av Data Factory. Du kan använda omvandling Hive-aktiviteten i den här självstudien.
 
 I den här artikeln får konfigurera du Hive-aktiviteten för att skapa ett HDInsight Hadoop-kluster på begäran. När aktiviteten körs för att bearbeta data, är här vad som händer:
 
 1. Ett HDInsight Hadoop-kluster skapas automatiskt för du just-in-time att bearbeta sektorn. 
 
 1. Indata har bearbetats genom att köra en HiveQL-skript på klustret. I de här självstudierna utför HiveQL-skript som är associerade med hive-aktiviteten följande åtgärder:
-
-    * Använder den befintliga tabellen (*hivesampletable*) att skapa en annan tabell **HiveSampleOut**.
-    * Fyller den **HiveSampleOut** tabell med endast vissa kolumner från ursprungligt *hivesampletable*.
-
+    
+    - Använder den befintliga tabellen (*hivesampletable*) att skapa en annan tabell **HiveSampleOut**.
+    - Fyller den **HiveSampleOut** tabell med endast vissa kolumner från ursprungligt *hivesampletable*.
+    
 1. HDInsight Hadoop-klustret tas bort när bearbetningen är klar och den har varit inaktivt under en angiven tidsperiod (timeToLive-inställning). Om nästa datasektorn är tillgängliga för bearbetning med i den här timeToLive väntetid, används samma kluster att bearbeta sektorn.  
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
@@ -265,16 +265,16 @@ I det här avsnittet skapar du två länkade tjänster i din datafabrik.
     ![Ange information om HDInsight-kluster för pipelinen](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-hive-activity-select-hdinsight-linked-service.png "ge HDInsight klusterinformation för pipelinen")
 
 1. Välj den **skriptet** fliken och utför följande steg:
-
-    a. För **skriptet länkade tjänsten**väljer **HDIStorageLinkedService**. Det här värdet är den länkade storage-tjänst som du skapade tidigare.
-
-    b. För **filsökväg**väljer **Bläddra i lagring** och navigera till den plats där exempel Hive-skriptet är tillgänglig. Om du har kört PowerShell-skriptet tidigare den här platsen måste vara `adfgetstarted/hivescripts/hivescript.hql`.
-
-    ![Ange information för Hive-skript för pipelinen](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-path.png "ange Hive skriptinformation för pipelinen")
-
-    c. Under **Avancerat** > **parametrar**väljer **Autofyll från skript**. Det här alternativet söker efter alla parametrar i Hive-skriptet som du kräver värden vid körning. Skriptet som du använder (**hivescript.hql**) har en **utdata** parametern. Ange ett värde i formatet `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` så att den pekar till en befintlig mapp i Azure Storage. Sökvägen är skiftlägeskänslig. Det här är den sökväg där utdata från skriptet kommer att lagras.
-
-    ![Ange parametrar för Hive-skriptet](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-parameters.png "ange parametrar för Hive-skript")
+    
+    1. För **skriptet länkade tjänsten**väljer **HDIStorageLinkedService**. Det här värdet är den länkade storage-tjänst som du skapade tidigare.
+    
+    1. För **filsökväg**väljer **Bläddra i lagring** och navigera till den plats där exempel Hive-skriptet är tillgänglig. Om du har kört PowerShell-skriptet tidigare den här platsen måste vara `adfgetstarted/hivescripts/hivescript.hql`.
+    
+        ![Ange information för Hive-skript för pipelinen](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-path.png "ange Hive skriptinformation för pipelinen")
+    
+    1. Under **Avancerat** > **parametrar**väljer **Autofyll från skript**. Det här alternativet söker efter alla parametrar i Hive-skriptet som du kräver värden vid körning. Skriptet som du använder (**hivescript.hql**) har en **utdata** parametern. Ange ett värde i formatet `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` så att den pekar till en befintlig mapp i Azure Storage. Sökvägen är skiftlägeskänslig. Det här är den sökväg där utdata från skriptet kommer att lagras.
+    
+        ![Ange parametrar för Hive-skriptet](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-parameters.png "ange parametrar för Hive-skript")
 
 1. Välj **verifiera** att verifiera pipelinen. Klicka på knappen **>>** (högerpil) för att stänga verifieringsfönstret.
 

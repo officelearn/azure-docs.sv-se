@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7e2634db33d760207e9190b9955bd1f2ead179be
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: de9abac2839341e1744a694daaaa0befdff4e7fa
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123162"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668588"
 ---
 # <a name="supported-languages-for-speech-service"></a>Språk som stöds för Speech service
 
@@ -39,7 +39,7 @@ Microsoft taligenkänningens API stöder följande språk.
 
 ## <a name="text-to-speech"></a>Text till tal
 
-Den **Text till tal** API: et erbjuder följande röster, som stöder ett visst språk och dialekt som identifieras av nationella inställningar.
+API för taligenkänning syntes erbjuder följande röster, som stöder ett visst språk och dialekt som identifieras av nationella inställningar.
 
 Nationella inställningar | Språk | Kön | Tjänsten Namnmappningen
 -------|----------|---------|--------------------
@@ -128,13 +128,16 @@ zh-TW | Kinesiska (Taiwan)|Kvinna | ”Microsoft Server tal Text till tal-röst 
 
 ### <a name="customization"></a>Anpassning
 
-Anpassad **Text till tal** rösttyper stöd för amerikansk engelska (en-US) och kinesiska (zh-CN).
+Röst anpassning är tillgängligt för amerikansk engelska (en-US), fastlandet kinesiska (zh-CN) och italienska (it-IT).
+
+> [!NOTE]
+> Italienska ton börjar med en datauppsättning av över 2 000 yttranden. Kinesiska – engelska tvåspråkig modeller stöds också med en inledande över 2 000 yttranden-datauppsättning.
 
 ## <a name="speech-translation"></a>Talöversättning
 
 Den **Talöversättning** API har stöd för olika språk för översättning av tal-till-tal- och tal till text. Källspråk måste alltid vara från tabellen talspråk. Tillgängliga mål språk beror på om translation målet är tal eller text.
 
-Du kan hämta listan över språk som antingen via programmering eller med hjälp av REST-API-slutpunkt för språk. Listan innehåller varje språkkod samt språkets namn på engelska, eller på annat språk som stöds. Den här listan uppdateras av tjänsten Microsoft Translator när ett nytt språk blir tillgängliga.
+Du kan hämta en lista med språk som programmässigt med hjälp av REST-API-slutpunkt för språk. Listan innehåller varje språkkod samt språkets namn på engelska, eller på annat språk som stöds. Den här listan uppdateras av tjänsten Microsoft Translator när ett nytt språk blir tillgängliga.
 
 ### <a name="speech-languages"></a>Talspråk
 

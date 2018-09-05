@@ -3,18 +3,18 @@ title: Mappa style funktioner i Azure Maps | Microsoft Docs
 description: Lär dig mer om Azure Maps style relaterade funktioner.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 08/29/2018
+ms.date: 08/31/2018
 ms.topic: how-to-guides
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e4a54394dc2bb6784f1b1dcbd0ef71ac1f7bbabd
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: b95e3c325160d1c0b775320e25fdd40514b02b9f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43345183"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666879"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Välja en karta i Azure Maps
 Azure Maps har fyra olika kartor format att välja bland. Mer information om Koppla format finns i [Koppla format som stöds i Azure Maps](./supported-map-styles.md). Den här artikeln visar hur du använder formatrelaterade-funktioner för att ställa in en stil på kartan belastningen, en ny formatmall och använda väljarkontrollen style.

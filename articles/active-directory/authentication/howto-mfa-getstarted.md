@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 09/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: c2d0f14bca2b9ab062c61407479ab45a0104ff0a
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 0408b26e687dd31c408dbccc68f56e8198016c8f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716271"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664796"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Distribuera molnbaserade Azure Multi-Factor Authentication
 
@@ -23,8 +23,8 @@ Det är enkelt att komma igång med Azure Multi-Factor Authentication (MFA Azure
 
 Innan du börjar bör du kontrollera att du har följande krav:
 
-* Ett globalt administratörskonto i Azure AD-klienten. Om du behöver hjälp med att slutföra det här steget finns i vår artikel [Kom igång med Azure AD](../get-started-azure-ad.md)
-* Rätt licenser till användare. Om du behöver mer information finns i avsnittet [så här hämtar du Azure Multi-Factor Authentication](concept-mfa-licensing.md)
+* Ett globalt administratörskonto i Azure AD-klienten. Om du behöver hjälp med att slutföra det här steget finns i vår artikel [Kom igång med Azure AD](../get-started-azure-ad.md).
+* Rätt licenser till användare. Om du behöver mer information finns i avsnittet [så här hämtar du Azure Multi-Factor Authentication](concept-mfa-licensing.md).
 
 ## <a name="choose-how-to-enable"></a>Välj hur du vill aktivera
 
@@ -32,7 +32,7 @@ Innan du börjar bör du kontrollera att du har följande krav:
 
 Aktiveras med Azure AD Identity Protection - används den här metoden Azure AD Identity Protection risken för att kräva tvåstegsverifiering endast utifrån inloggningsrisk för alla molnprogram. Den här metoden kräver Azure Active Directory P2 licensiering. Mer information om den här metoden finns i [Azure Active Directory Identity Protection](../identity-protection/overview.md#risky-sign-ins).
 
-Aktiverat genom att ändra användarens tillstånd - detta är den traditionella metoden för att kräva tvåstegsverifiering. Det fungerar med både Azure MFA i molnet och Azure MFA-servern. Med den här metoden kräver att användare utför en tvåstegsverifiering **varje gång** de logga in och åsidosätter principer för villkorlig åtkomst. Mer information om den här metoden finns i [kräva tvåstegsverifiering för en användare](howto-mfa-userstates.md)
+Aktiverat genom att ändra användarens tillstånd - detta är den traditionella metoden för att kräva tvåstegsverifiering. Det fungerar med både Azure MFA i molnet och Azure MFA-servern. Med den här metoden kräver att användare utför en tvåstegsverifiering **varje gång** de logga in och åsidosätter principer för villkorlig åtkomst. Mer information om den här metoden finns i [kräva tvåstegsverifiering för en användare](howto-mfa-userstates.md).
 
 > [!Note]
 > Mer information om licenser och priser finns på den [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/

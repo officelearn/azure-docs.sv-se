@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/28/2018
+ms.date: 09/04/2018
 ms.author: kumud
-ms.openlocfilehash: 5ceddb1bcd6ce89f7014e034b56c873f02cc2007
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: ecc33fc6078dac4affe3942f1be7e039ae9e9e70
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190741"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695433"
 ---
 # <a name="load-balancer-health-probes"></a>Läsa in Belastningsutjämnarens hälsotillståndsavsökningar
 
@@ -36,7 +36,7 @@ Vilka typer av hälsoavsökningar som är tillgängliga och hur hälsotillstånd
 > [!IMPORTANT]
 > Belastningsutjämnarens hälsotillståndsavsökningar kommer från IP-adressen 168.63.129.16 och får inte vara blockerad vid avsökningar för att märka din instans.  Granska [avsökning källans IP-adress](#probesource) mer information.
 
-## <a name="types"></a>Avsökningen hälsotyper
+## <a name="types"></a>Avsökningen typer
 
 Hälsokontroller av slutpunkter kan se alla portar på en backend-instans, inklusive den port där faktiska tjänsten tillhandahålls. Protokollet för avsökningen hälsa kan konfigureras för tre olika typer av hälsotillståndsavsökningar:
 

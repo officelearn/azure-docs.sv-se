@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 8e27ba7d5b245d8857f0c07bfe2923afe9d7e3a0
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: a3f40624e51ef287d70bed547eba7ec9e0882b0e
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39266217"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669203"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Självstudier: Azure Active Directory-integrering med Meta nätverk Connector
 
@@ -52,27 +52,27 @@ Om du vill testa stegen i den här självstudien bör du följa dessa rekommenda
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Att lägga till metadata nätverk Connector från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa Azure AD enkel inloggning
 
 ## <a name="adding-meta-networks-connector-from-the-gallery"></a>Att lägga till metadata nätverk Connector från galleriet
 Om du vill konfigurera integreringen av Meta nätverk anslutningen till Azure AD, som du behöver lägga till metadata nätverk Connector från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till metadata nätverk Connector från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
-
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+    
     ![Azure Active Directory-knappen][1]
-
-2. Gå till **företagsprogram**. Gå till **alla program**.
-
+    
+1. Gå till **företagsprogram**. Gå till **alla program**.
+    
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
-
+1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+    
     ![Knappen Nytt program][3]
-
-4. I sökrutan skriver **Meta nätverk Connector**väljer **Meta nätverk Connector** resultatet panelen klickar **Lägg till** för att lägga till programmet.
-
+    
+1. I sökrutan skriver **Meta nätverk Connector**väljer **Meta nätverk Connector** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+    
     ![Meta nätverk anslutningen i listan med resultat](./media/metanetworksconnector-tutorial/tutorial_metanetworksconnector_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
@@ -84,10 +84,10 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad du motsvarighet
 Om du vill konfigurera och testa Azure AD enkel inloggning med Meta nätverk Connector, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Meta nätverk Connector](#create-a-meta-networks-connector-test-user)**  – du har en motsvarighet för Britta Simon i Meta nätverk koppling som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Skapa en testanvändare Meta nätverk Connector](#create-a-meta-networks-connector-test-user)**  – du har en motsvarighet för Britta Simon i Meta nätverk koppling som är länkad till en Azure AD-representation av användaren.
+1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
@@ -99,35 +99,35 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning för länken][4]
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
     ![Enkel inloggning för dialogrutan](./media/metanetworksconnector-tutorial/tutorial_metanetworksconnector_samlbase.png)
 
-3. På den **Meta nätverk Connector domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+1. På den **Meta nätverk Connector domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
 
     ![Meta nätverk Connector domän och URL: er med enkel inloggning för information](./media/metanetworksconnector-tutorial/tutorial_metanetworksconnector_url.png)
 
-    a. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata`
-
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/sso/saml`
-
-4. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+    1. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata`
+    
+    1. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/sso/saml`
+    
+1. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Meta nätverk Connector domän och URL: er med enkel inloggning för information](./media/metanetworksconnector-tutorial/tutorial_metanetworksconnector_url1.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`
-
-    b. I den **Vidarebefordransstatus** textrutan anger du ett URL med hjälp av följande mönster: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/#/`
-
+    1. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`
+    
+    1. I den **Vidarebefordransstatus** textrutan anger du ett URL med hjälp av följande mönster: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/#/`
+    
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren svars-URL och inloggnings-URL beskrivs senare i självstudien.
-
-5. Meta nätverk anslutningsprogram förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den **användarattribut** avsnitt på sidan för integrering av programmet. Följande skärmbild visar ett exempel för detta.
-
+    
+1. Meta nätverk anslutningsprogram förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den **användarattribut** avsnitt på sidan för integrering av programmet. Följande skärmbild visar ett exempel för detta.
+    
     ![Konfigurera enkel inloggning](./media/metanetworksconnector-tutorial/tutorial_metanetworksconnector_attribute.png)
-
-6. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i bilden ovan och utför följande steg:
-
+    
+1. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i bilden ovan och utför följande steg:
+    
     | Attributnamn | Attributvärde | NAMNOMRÅDE|
     | ---------------| --------------- | -------- |
     | Förnamn | User.givenName | |
@@ -136,105 +136,105 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | namn | User.userPrincipalName| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | telefon | User.telephonenumber | |
 
-    a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
+    1. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
 
-    ![Konfigurera enkel inloggning](./media/metanetworksconnector-tutorial/tutorial_attribute_04.png)
-
-    ![Konfigurera enkel inloggning](./media/metanetworksconnector-tutorial/tutorial_attribute_05.png)
-
-    b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
-
-    c. Från den **värdet** anger attributvärdet som visas för den raden.
-
-    d. I den **Namespace** textrutan skriver namnområdesvärdet som visas för den raden.
-
-    e. Klicka på **Ok**
-
-7. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
-
+        ![Konfigurera enkel inloggning](./media/metanetworksconnector-tutorial/tutorial_attribute_04.png)
+    
+        ![Konfigurera enkel inloggning](./media/metanetworksconnector-tutorial/tutorial_attribute_05.png)   
+    
+    1. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
+    
+    1. Från den **värdet** anger attributvärdet som visas för den raden.
+    
+    1. I den **Namespace** textrutan skriver namnområdesvärdet som visas för den raden.
+    
+    1. Klicka på **Ok**
+    
+1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
+    
     ![Länk för hämtning av certifikat](./media/metanetworksconnector-tutorial/tutorial_metanetworksconnector_certificate.png)
-
-8. På den **Meta nätverk Kopplingskonfiguration** klickar du på **konfigurera Meta nätverk Connector** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
-
+    
+1. På den **Meta nätverk Kopplingskonfiguration** klickar du på **konfigurera Meta nätverk Connector** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+    
     ![Konfigurera enkel inloggning](./media/metanetworksconnector-tutorial/tutorial_metanetworksconnector_configure.png)
-
-9. Klicka på **spara** knappen.
-
+    
+1. Klicka på **spara** knappen.
+    
     ![Konfigurera enkel inloggning spara-knapp](./media/metanetworksconnector-tutorial/tutorial_general_400.png)
-
-10. Öppna en ny flik i webbläsaren och logga in på ditt administratörskonto för Meta nätverk Connector.
-
+    
+1. Öppna en ny flik i webbläsaren och logga in på ditt administratörskonto för Meta nätverk Connector.
+    
     > [!NOTE]
     > Meta nätverk-anslutningen är en säker system. Så innan åtkomst till sina portal måste du hämta din offentliga IP-adress godkänd på sidan. För att få din offentliga IP-adress följer den länken som anges nedan [här](https://whatismyipaddress.com/). Skicka din IP-adress till den [Meta nätverk Connector-klient supportteamet](mailto:support@metanetworks.com) att hämta din IP-adress godkänd.
-
-11. Gå till **administratör** och välj **inställningar**.
-
+    
+1. Gå till **administratör** och välj **inställningar**.
+    
     ![Konfigurera enkel inloggning](./media/metanetworksconnector-tutorial/configure3.png)
-
-12. Se till att **Log Internettrafik** och **kraft VPN MFA** har värdet off.
-
+    
+1. Se till att **Log Internettrafik** och **kraft VPN MFA** har värdet off.
+    
     ![Konfigurera enkel inloggning](./media/metanetworksconnector-tutorial/configure1.png)
-
-13. Gå till **administratör** och välj **SAML**.
-
+    
+1. Gå till **administratör** och välj **SAML**.
+    
     ![Konfigurera enkel inloggning](./media/metanetworksconnector-tutorial/configure4.png)
-
-14. Utför följande steg på den **information** sidan:
-
+    
+1. Utför följande steg på den **information** sidan:
+    
     ![Konfigurera enkel inloggning](./media/metanetworksconnector-tutorial/configure2.png)
-
-    a. Kopiera **SSO URL** värde och klistra in den i den **logga In URL: en** -textrutan i den **Meta nätverk Connector domän och URL: er** avsnittet.
-
-    b. Kopiera **mottagaren URL** värde och klistra in den i den **svars-URL** -textrutan i den **Meta nätverk Connector domän och URL: er** avsnittet.
-
-    c. Kopiera **Målgrupps-URI (SP entitets-ID)** värde och klistra in den i den **identifierare (entitets-ID)** -textrutan i den **Meta nätverk Connector domän och URL: er** avsnittet.
-
-    d. Aktivera SAML
-
-15. På den **Allmänt** fliken utför följande steg:
+    
+    1. Kopiera **SSO URL** värde och klistra in den i den **logga In URL: en** -textrutan i den **Meta nätverk Connector domän och URL: er** avsnittet.
+    
+    1. Kopiera **mottagaren URL** värde och klistra in den i den **svars-URL** -textrutan i den **Meta nätverk Connector domän och URL: er** avsnittet.
+    
+    1. Kopiera **Målgrupps-URI (SP entitets-ID)** värde och klistra in den i den **identifierare (entitets-ID)** -textrutan i den **Meta nätverk Connector domän och URL: er** avsnittet.
+    
+    1. Aktivera SAML
+    
+1. På den **Allmänt** fliken utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/metanetworksconnector-tutorial/configure5.png)
 
-    a. I den **enkel inloggnings-URL för identitetsprovider**, klistra in den **SAML enkel inloggning för tjänst-URL** värde som du har kopierat från Azure-portalen.
+    1. I den **enkel inloggnings-URL för identitetsprovider**, klistra in den **SAML enkel inloggning för tjänst-URL** värde som du har kopierat från Azure-portalen.
 
-    b. I den **Providerutgivare**, klistra in den **SAML entitets-ID** värde som du har kopierat från Azure-portalen.
+    1. I den **Providerutgivare**, klistra in den **SAML entitets-ID** värde som du har kopierat från Azure-portalen.
 
-    c. Öppna det nedladdade certifikatet från Azure-portalen i anteckningar, klistra in den i den **X.509-certifikat** textrutan.
+    1. Öppna det nedladdade certifikatet från Azure-portalen i anteckningar, klistra in den i den **X.509-certifikat** textrutan.
 
-    d. Aktivera den **Just-in-Time-etablering**.
+    1. Aktivera den **Just-in-Time-etablering**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
-
-   ![Skapa en Azure AD-testanvändare][100]
-
+    
+![Skapa en Azure AD-testanvändare][100]
+    
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
 1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
-
+    
     ![Azure Active Directory-knappen](./media/metanetworksconnector-tutorial/create_aaduser_01.png)
-
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
-
+    
+1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+    
     ![”Användare och grupper” och ”alla användare”-länkar](./media/metanetworksconnector-tutorial/create_aaduser_02.png)
-
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
-
+    
+1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+    
     ![Knappen Lägg till](./media/metanetworksconnector-tutorial/create_aaduser_03.png)
-
-4. I den **användaren** dialogrutan utför följande steg:
+    
+1. I den **användaren** dialogrutan utför följande steg:
 
     ![Dialogrutan användare](./media/metanetworksconnector-tutorial/create_aaduser_04.png)
+    
+    1. I den **namn** skriver **BrittaSimon**.
 
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
-
-    d. Klicka på **Skapa**.
-
+    1. I den **användarnamn** skriver användarens Britta Simon e-postadress.
+    
+    1. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    
+    1. Klicka på **Skapa**.
+    
 ### <a name="create-a-meta-networks-connector-test-user"></a>Skapa en testanvändare Meta nätverk Connector
 
 Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Meta nätverk Connector. Meta stöder nätverk anslutningen just-in-time-etablering, vilket är som standard aktiverat. Det finns inga uppgift åt dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt metadata nätverk anslutningen om den inte finns.
@@ -251,27 +251,27 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 **Om du vill tilldela Britta Simon Meta nätverk Connector, utför du följande steg:**
 
 1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
+    
     ![Tilldela användare][201]
-
-2. I listan med program väljer **Meta nätverk Connector**.
-
+    
+1. I listan med program väljer **Meta nätverk Connector**.
+    
     ![Meta nätverk Connector-länk i listan med program](./media/metanetworksconnector-tutorial/tutorial_metanetworksconnector_app.png)  
-
-3. I menyn till vänster, klickar du på **användare och grupper**.
-
+    
+1. I menyn till vänster, klickar du på **användare och grupper**.
+    
     ![Länken ”användare och grupper”][202]
-
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
-
+    
+1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+    
     ![Fönstret Lägg till tilldelning][203]
-
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
-
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-
+    
+1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+    
+1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+    
+1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+    
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
@@ -281,8 +281,8 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-direct
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

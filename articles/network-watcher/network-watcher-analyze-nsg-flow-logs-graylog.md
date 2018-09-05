@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 87d7c39a9340a82813f4df971c03a10be56e8f94
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: db3b08ae8092661e6ffa0f2dd7e460f341a8d013
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057394"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666067"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Hantera och analysera flödesloggar för nätverkssäkerhetsgrupper i Azure med Network Watcher och Graylog
 
@@ -32,7 +32,7 @@ Du kan ha många nätverkssäkerhetsgrupper i nätverket med flow-loggning är a
 
 Loggar för nätverkssäkerhetsgrupper flow aktiveras med hjälp av Network Watcher. Flödet loggar flödet i till Azure blob storage. En Logstash plugin-programmet används för att ansluta och bearbeta flödesloggar från blob storage och skicka dem till Graylog. När flödesloggar lagras i Graylog, kan de analyseras och visualiseras med anpassade instrumentpaneler.
 
-! [Graylog arbetsflöde]] (. / media/network-watcher-analyze-nsg-flow-logs-graylog/workflow.png)
+![Arbetsflöde för Graylog](./media/network-watcher-analyze-nsg-flow-logs-graylog/workflow.png)
 
 ## <a name="installation-steps"></a>Installationssteg
 

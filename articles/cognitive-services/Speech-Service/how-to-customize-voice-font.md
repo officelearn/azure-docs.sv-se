@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 84493ae83515c0458bf5b9e9cf44603300a8b4f7
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 1f9facf94b8068b98aa49c49ece7070a83db0686
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284895"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665093"
 ---
 # <a name="creating-custom-voice-fonts"></a>Skapa anpassade rösttyper
 
@@ -22,7 +22,6 @@ För att skapa din rösttyp du gör en studio-registrering och ladda upp de asso
 
 Du kan komma igång med en liten mängd data för ett konceptbevis. Men ju mer data du tillhandahålla, desto mer naturliga och professional låter din röst.
 
-Röst anpassning är tillgängliga för amerikansk engelska (en-US) och fastlandet kinesiska (zh-CN).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -45,6 +44,9 @@ Du behöver också en Azure-konto och en prenumeration på Speech-tjänsten. [Sk
      ![Lägg till prenumeration](media/custom-voice/add-subscription.png)
 
 Du är redo att sätta igång!
+
+> [!IMPORTANT]
+> Under fasen privat förhandsgranskning måste prenumerationer vara vitlistad för att använda funktionen för anpassad röst. Följ anvisningarna på sidan för att få din prenumeration i listan över godkända.
 
 ## <a name="prepare-recordings-and-transcripts"></a>Förbereda inspelningar och betyg
 
@@ -69,8 +71,6 @@ Ljudfiler bör vara beredd på följande sätt. Andra format stöds inte och kom
 | Arkivformat| Zip      |
 | Maximal arkivstorlek|200 MB|
 
-Placera uppsättningen ljudfiler i en enda mapp utan underkataloger och paketera hela uppsättningen som ett enda ZIP-arkiv för filen.
-
 > [!NOTE]
 > Wave-filer med en lägre än 16 000 Hz samplingsfrekvensen avvisas. I de fall där en zip-fil innehåller vågor med med olika samplingshastigheter, importeras endast dessa lika med eller högre än 16 000 Hz.
 > Portalen för närvarande importerar ZIP arkiverar upp till 200 MB. Dock kan du överföra flera Arkiv. Det maximala antalet datauppsättningar som tillåts är 10 ZIP-filer utan kostnad användare och 50 för standard användare.
@@ -90,7 +90,7 @@ Exempel:
 Anpassade röst systemet normaliserar avskrifter genom att omvandla text till gemener och ta bort överflödig skiljetecken. Det är viktigt att avskrifter är 100% korrekt till motsvarande ljudinspelningar.
 
 > [!TIP]
-> Om att skapa text till tal röster, väljer yttranden (eller skriva skript) som överväger både fonetiska täckning och effektivitet.
+> Om att skapa text till tal röster, väljer yttranden (eller skriva skript) som överväger både fonetiska täckning och effektivitet. Problem med att resultaten vill? [Anpassad Voice-teamet](mailto:tts@microsoft.com) att ta reda på mer om med oss finns.
 
 ## <a name="upload-your-datasets"></a>Ladda upp dina datauppsättningar
 
@@ -102,8 +102,6 @@ När du har förberett din ljudfil arkivering och avskrifter, överföra dem via
 1. Logga in på portalen.
 
 2. Välj **Data** under Anpassad röst på huvudsidan. 
-
-    ![Mina projekt](media/custom-voice/my-projects.png)
 
     Tabellen Mina Voice-Data visas. Den är tom om du inte har ännu har överfört röst datauppsättningar.
 
@@ -224,13 +222,20 @@ När distributionsstatusen är slutfört visas slutpunkten för din distribuerad
 Online testning av slutpunkten är också tillgängligt via portalen anpassade röst. Om du vill testa din slutpunkt, Välj **slutpunkter testning** anpassad röst nedrullningsbara menyn. Slutpunkten testning sida visas. Välj en distribuerade anpassade röst och ange vilken text som ska läsas (i oformaterad text eller SSML format) i textrutan.
 
 > [!NOTE] 
-> När du använder SSML, den `<voice>` taggen måste ange det namn du gav din anpassade röst när du skapade den.
+> När du använder SSML, den `<voice>` taggen måste ange det namn du gav din anpassade röst när du skapade den. Om du skickar in oformaterad text, används alltid anpassade röst.
 
 Klicka på **spela upp** att höra texten som sägs i din anpassad rösttyp.
 
 ![Slutpunkt för testning](media/custom-voice/endpoint-testing.png)
 
 Anpassad slutpunkt är funktionellt identisk standard slutpunkten som används för text till tal-begäranden. Se [REST API](rest-apis.md) för mer information.
+
+## <a name="language-support"></a>Stöd för språk
+
+Röst anpassning är tillgängligt för amerikansk engelska (en-US), fastlandet kinesiska (zh-CN) och italienska (it-IT).
+
+> [!NOTE]
+> Italienska ton börjar med en datauppsättning av över 2 000 yttranden. Kinesiska – engelska tvåspråkig modeller stöds också med en datauppsättning av över 2 000 yttranden.
 
 ## <a name="next-steps"></a>Nästa steg
 

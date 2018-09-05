@@ -9,13 +9,13 @@ ms.reviewer: douglasl
 ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
-ms.date: 08/27/2018
-ms.openlocfilehash: 443edcaf1d087028120f4996ba5abef00b1d2c94
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/01/2018
+ms.openlocfilehash: d59850b0234912b02b003f4fc8089d76130151ba
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041345"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666237"
 ---
 # <a name="what-is-the-azure-database-migration-service"></a>Vad är Azure Database Migration Service?
 Azure Database Migration Service är en fullständigt hanterad tjänst som utformats för att aktivera sömlös migrering från flera databaskällor till Azure-Dataplattformar med minimal avbrottstid.
@@ -24,13 +24,14 @@ Azure Database Migration Service är en fullständigt hanterad tjänst som utfor
 Azure Database Migration Service integrerar några av funktionerna i vår befintliga verktyg och tjänster. Tjänsten ger kunderna med en omfattande lösning med hög tillgänglighet. Tjänsten använder den [Data Migration Assistant](http://aka.ms/dma) att generera bedömningsrapporter som ger rekommendationer att guida dig genom de ändringar som krävs innan du utför en migrering. Det är upp till du kan utföra alla åtgärder som krävs. När du är redo att påbörja migreringen, utför alla nödvändiga steg i Azure Database Migration Service. Du kan utlöses och Glöm ditt migreringsprojekt med tryggheten att veta att processen drar nytta av bästa praxis enligt Microsofts bedömning.
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
-Uppdaterad information om vilka regioner där Database Migration Service är tillgängligt finns i [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/).
+Azure Database Migration Service är nu tillgänglig i följande regioner:
+
+![Azure Database Migration Service regional tillgänglighet](media\overview\dms-regional-availability.png)
 
 > [!NOTE]
-> Online-migrering och SKU rekommendation funktioner är tillgängliga i följande regioner:
-> - Cental USA
-> - USA, östra 2
-> - Västra Europa
+> Online-migrering och SKU rekommendation funktioner är för närvarande endast tillgängliga i den **centrala USA**, **östra USA 2**, och **Västeuropa** regioner.
+
+Den senaste informationen om regional tillgänglighet för Azure Database Migration Service, på global infrastruktur med Azure-webbplats, se [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/).
 
 ## <a name="next-steps"></a>Nästa steg
 - [Skapa en instans av Azure Database Migration Service med hjälp av Azure portal](quickstart-create-data-migration-service-portal.md).

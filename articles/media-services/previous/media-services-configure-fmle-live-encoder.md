@@ -1,6 +1,6 @@
 ---
-title: Konfigurera FMLE kodaren om du vill skicka en direktsänd dataström med enkel bithastighet | Microsoft Docs
-description: Det här avsnittet visar hur du konfigurerar kodaren Flash Media Live kodare (FMLE) för att skicka en dataström med enkel bithastighet till AMS-kanaler som är aktiverade för live encoding.
+title: Konfigurera FMLE-kodare för att skicka en direktsänd dataström med enkel bithastighet | Microsoft Docs
+description: Det här avsnittet visar hur du konfigurerar kodaren Flash Media Live Encoder (FMLE) för att skicka en enda bithastighet till AMS-kanaler som är aktiverade för live encoding.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,115 +14,114 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 055decd689e260a69651c5a3e1ce3f3f78b67340
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1a7cbd19b89663ab874fc5a7a86587e292b86f81
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788748"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665893"
 ---
-# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>Använda kodaren FMLE för att skicka en direktsänd dataström med enkel bithastighet
+# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>Använd FMLE-kodare för att skicka en direktsänd dataström med enkel bithastighet
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
-> * [Elemental Live](media-services-configure-elemental-live-encoder.md)
-> * [tricaster](media-services-configure-tricaster-live-encoder.md)
-> * [wirecast](media-services-configure-wirecast-live-encoder.md)
+> * [Tricaster](media-services-configure-tricaster-live-encoder.md)
+> * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 >
 >
 
-Den här artikeln visar hur du konfigurerar den [Flash Live mediekodare](http://www.adobe.com/products/flash-media-encoder.html) kodare (FMLE) att skicka en dataström med enkel bithastighet till AMS kanaler som är aktiverade för live encoding. Mer information finns i [Arbeta med kanaler som är aktiverade för att utföra Live Encoding med Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+Den här artikeln visar hur du konfigurerar den [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) encoder (FMLE) att skicka en enda bithastighet till AMS kanaler som är aktiverade för live encoding. Mer information finns i [Arbeta med kanaler som är aktiverade för att utföra Live Encoding med Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
-Den här kursen visar hur du hanterar Azure Media Services (AMS) med Azure Media Services Explorer (AMSE)-verktyget. Det här verktyget körs bara på Windows-dator. Om du är på Mac- eller Linux använder Azure-portalen för att skapa [kanaler](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) och [program](media-services-portal-creating-live-encoder-enabled-channel.md).
+Den här självstudien visar hur du hanterar Azure Media Services (AMS) med Azure Media Services Explorer (AMSE)-verktyget. Det här verktyget körs bara på Windows-dator. Om du använder Mac- eller Linux kan du använda Azure-portalen för att skapa [kanaler](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) och [program](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-Den här självstudiekursen beskriver hur du använder AAC. FMLE stöder inte AAC som standard. Du behöver köpa ett plugin-program för AAC kodning till exempel från MainConcept: [AAC plugin-program](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
+Den här självstudien beskrivs hur du använder AAC. FMLE stöder inte AAC som standard. Du behöver du köpa ett plugin-program för AAC kodning till exempel från MainConcept: [AAC-pluginprogram](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
 ## <a name="prerequisites"></a>Förutsättningar
 * [Skapa ett Azure Media Services-konto](media-services-portal-create-account.md)
-* Se till att det finns en Strömningsslutpunkt som körs. Mer information finns i [hanterar Strömningsslutpunkter i ett Media Services-konto](media-services-portal-manage-streaming-endpoints.md)
+* Se till att det finns en slutpunkt för direktuppspelning som körs. Mer information finns i [hanterar Strömningsslutpunkter i ett Media Services-konto](media-services-portal-manage-streaming-endpoints.md)
 * Installera den senaste versionen av den [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) verktyget.
-* Starta verktyget och Anslut till AMS-kontot.
+* Starta verktyget och ansluta till AMS-kontot.
 
 ## <a name="tips"></a>Tips
 * När det är möjligt använda ett inbyggt internet-anslutning.
-* En bra tumregel samband med fastställandet av krav på bandbredd är att dubbla strömmande bithastighet. Detta är inte ett obligatoriskt krav, minimeras det effekten av överbelastning.
-* När du använder programvarubaserad kodare, Stäng alla onödiga program.
+* En bra tumregel när du fastställer kraven på nätverksbandbredd är att dubbla strömmande bithastighet. Detta är inte ett obligatoriskt krav, hjälper det att undvika påverkan av överbelastning på nätverket.
+* När du använder programvarubaserad kodare kan du stänga alla onödiga program.
 
 ## <a name="create-a-channel"></a>Skapa en kanal
-1. I verktyget AMSE navigerar du till den **Live** fliken och högerklicka på inom området kanal. Välj **skapa kanal...** från menyn.
+1. I AMSE-verktyget går du till den **Live** fliken och högerklicka i området för kanalen. Välj **skapa kanal...** på menyn.
 
     ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle1.png)
 
-2. Ange ett Kanalnamn beskrivningsfältet är valfritt. Markera under inställningar för kanal **Standard** för alternativet Live Encoding med protokollet indata som angetts till **RTMP**. Du kan lämna alla andra inställningar som är.
+2. Ange ett Kanalnamn beskrivningsfältet är valfritt. Välj under inställningar för kanalen **Standard** för alternativet Live Encoding med indata-protokollet som är inställd på **RTMP**. Du kan lämna alla andra inställningar som är.
 
-    Kontrollera att den **starta den nya kanalen nu** är markerad.
+    Kontrollera att den **starta den nya kanalen nu** har valts.
 
 3. Klicka på **skapa kanal**.
 
    ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle2.png)
 
 > [!NOTE]
-> Kanalen kan ta upp till 20 minuter för att starta.
+> Kanalen kan ta upp till 20 minuter att starta.
 >
 >
 
-Medan startar kanalen kan [konfigurera kodaren](media-services-configure-fmle-live-encoder.md#configure_fmle_rtmp).
+Medan kanalen startar kan du [konfigurera kodaren](media-services-configure-fmle-live-encoder.md#configure_fmle_rtmp).
 
 > [!IMPORTANT]
-> Observera att faktureringen påbörjas så snart kanal blir klar att användas. Mer information finns i [kanalens tillstånd](media-services-manage-live-encoder-enabled-channels.md#states).
+> Observera att faktureringen påbörjas när kanalen hamnar i tillståndet redo. Mer information finns i [kanalens tillstånd](media-services-manage-live-encoder-enabled-channels.md#states).
 >
 >
 
-## <a id=configure_fmle_rtmp></a>Konfigurera FMLE kodaren
-I den här kursen används följande inställningar för utdata. Resten av det här avsnittet beskriver konfigurationssteg i detalj.
+## <a id=configure_fmle_rtmp></a>Konfigurera FMLE-kodare
+I den här självstudien används följande utdatainställningar för. Resten av det här avsnittet beskriver konfigurationssteg i detalj.
 
 **Video**:
 
 * Codec: H.264
 * Profil: Hög (nivå 4.0)
-* Bithastighet: 5000 kbit/s
-* Keyframe: 2 sekunder (60 sekunder)
-* RAM-hastighet: 30
+* Med flera bithastigheter: 5000 kbit/s
+* Bildrutan: 2 sekunder (60 sekunder)
+* RAM-pris: 30
 
 **Ljud**:
 
 * Codec: AAC (LC)
-* Bithastighet: 192 kbit/s
-* Samplingsfrekvens: 44.1 kHz
+* Med flera bithastigheter: 192 kbit/s
+* Samplingshastighet: 44.1 kHz
 
 ### <a name="configuration-steps"></a>Konfigurationssteg
-1. Navigera till den Flash Media Live kodarens (FMLE) gränssnitt på den dator som används.
+1. Navigera till den Flash Media Live Encoder's (FMLE) gränssnitt på den datorn som används.
 
-    Gränssnittet är en huvudsidan för inställningar. Beakta följande rekommenderade inställningar för att komma igång med strömning med FMLE.
+    Gränssnittet är en huvudsidan för inställningar. Anteckna följande rekommenderade inställningar för att komma igång med strömning med FMLE.
 
    * Format: H.264 bildfrekvens: 30,00
-   * Inkommande storlek: minst 1 280 x 720
+   * Indatastorlek: 1 280 x 720
    * Bithastighet: 5000 kbit/s (kan justeras utifrån nätverksbegränsningar)  
 
      ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle3.png)
 
-     När du använder sammanflätad källor, du markera alternativet ”Ej sammanflätning”
+     När du använder sammanflätad källor, kan du markera alternativet ”Ej sammanflätning”
 2. Välj skiftnyckelikonen bredvid Format, dessa ytterligare inställningar ska vara:
 
    * Profil: Main
    * Nivå: 4.0
-   * Keyframe frekvens: 2 sekunder
+   * Bildrutan frekvens: 2 sekunder
 
      ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle4.png)
 3. Ange följande viktiga ljud inställning:
 
    * Format: AAC
-   * Samplingsfrekvens: 44100 Hz
-   * Bithastighet: 192 kbit/s
+   * Samplingshastighet: 44100 Hz
+   * Med flera bithastigheter: 192 kbit/s
 
      ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle5.png)
-4. Hämta kanalen input URL: en för att tilldela FMLE **RTMP Endpoint**.
+4. Hämta kanalen användarens indata URL: en för att tilldela den till FMLE **RTMP Endpoint**.
 
-    Gå tillbaka till verktyget AMSE och kontrollera status för slutförande kanal. När läget har ändrats från **Start** till **kör**, du kan hämta indata-URL.
+    Gå tillbaka till AMSE-verktyget och kontrollera status för slutförande kanal. När tillståndet har ändrats från **startar** till **kör**, du kan hämta den angivna URL-Adressen.
 
-    När kanalen körs, högerklicka på dess namn, navigera till hovra över **kopiera indata-URL till Urklipp** och välj sedan **primära indata-URL**.  
+    När kanalen körs, högerklicka på kanalnamnet på, navigera till hovra över **kopia indata-URL till Urklipp** och välj sedan **primära indata-URL**.  
 
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle6.png)
-5. Klistra in informationen i den **FMS URL** i utdata och tilldela ett namn på dataströmmen.
+5. Klistra in den här informationen i den **FMS URL** i outputs-avsnittet och tilldela ett namn för stream.
 
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle7.png)
 
@@ -130,39 +129,39 @@ I den här kursen används följande inställningar för utdata. Resten av det h
 6. Välj **Anslut**.
 
 > [!IMPORTANT]
-> Innan du klickar på **Anslut**, du **måste** se till att kanalen är klar.
-> Kontrollera också att kanalen klar utan ett inkommande bidrag feed för > 15 minuter.
+> Innan du klickar på **Connect**, du **måste** se till att kanalen är redo.
+> Se dessutom till att du inte lämnar kanalen i tillståndet redo utan ett inkommande bidrag feed > 15 minuter.
 >
 >
 
 ## <a name="test-playback"></a>Testa uppspelning
 
-Navigera till verktyget AMSE och högerklicka på kanalen som ska testas. Från menyn hovra över **uppspelning förhandsgranskningen** och välj **med Azure Media Player**.  
+Gå till AMSE-verktyget och högerklicka på kanalen som ska testas. Från menyn, hovrar du över **uppspelning förhandsversionen** och välj **med Azure Media Player**.  
 
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle8.png)
 
-Om strömmen visas i media player, har sedan kodaren konfigurerats korrekt för att ansluta till AMS.
+Om strömmen visas i spelaren, har sedan kodaren konfigurerats korrekt för att ansluta till AMS.
 
-Om ett fel tas emot kanalen måste återställas och anpassa inställningar för kodare. Finns det [felsökning](media-services-troubleshooting-live-streaming.md) artikeln som vägledning.  
+Om ett fel tas emot kanalen måste återställas och anpassa inställningar för kodare. Se den [felsökning](media-services-troubleshooting-live-streaming.md) artikeln vägledning.  
 
 ## <a name="create-a-program"></a>Skapa ett program
-1. När kanalen uppspelning bekräftas, skapa ett program. Under den **Live** i verktyget AMSE, högerklickar du i området för programmet och välj **Skapa nytt Program**.  
+1. När kanalen uppspelning har bekräftats kan du skapa ett program. Under den **Live** fliken AMSE-verktyget, högerklicka i området för programmet och välj **Skapa nytt Program**.  
 
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle9.png)
-2. Namnge programmet och, om det behövs, justera det **längd** (som standard 4 timmar). Du kan också ange en lagringsplats eller lämna som standard.  
-3. Kontrollera den **starta programmet nu** rutan.
+2. Namnge programmet och, om det behövs, justera den **Arkiveringsfönstret** (som standard är 4 timmar). Du kan också ange en lagringsplats eller lämna som standard.  
+3. Kontrollera den **starta programmet nu** box.
 4. Klicka på **skapa Program**.  
 
     >[!NOTE]
-    >Skapa en program tar mindre tid än att skapa en kanal.
+    >Programmet tar mindre tid än att skapa en kanal.
         
-5. När programmet körs kan bekräfta uppspelning genom att högerklicka på programmet och navigera till **uppspelning av program** och sedan välja **med Azure Media Player**.  
-6. När bekräftat, högerklicka på programmet igen och välj **kopiera den URL som utdata till Urklipp** (eller hämta den här informationen från den **programmet information och inställningar** alternativ på menyn).
+5. När programmet körs kan bekräfta uppspelning genom att högerklicka på programmet och navigera till **uppspelning på program** och sedan välja **med Azure Media Player**.  
+6. När du bekräftat, högerklicka på programmet igen och välj **kopiera den URL som utdata till Urklipp** (eller hämta den här informationen från den **programmet information och inställningar** alternativ på menyn).
 
-Dataströmmen är nu redo att vara inbäddat i ett player eller distribuerats till en målgrupp för live visning.  
+Dataströmmen är nu redo att vara inbäddad i en spelare eller distribueras till en målgrupp för visning av live.  
 
 ## <a name="troubleshooting"></a>Felsökning
-Finns det [felsökning](media-services-troubleshooting-live-streaming.md) artikeln som vägledning.
+Se den [felsökning](media-services-troubleshooting-live-streaming.md) artikeln vägledning.
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

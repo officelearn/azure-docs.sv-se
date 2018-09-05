@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 889cedf555c8a9a86cc8a2101f27cafcb48376df
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0066ec20c68d70fac9a6529f8f5b85855d6c5349
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523163"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666832"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Skapa ett exportjobb för tjänsten Azure Import/Export
 Skapa ett exportjobb för Microsoft Azure Import/Export-tjänsten med hjälp av REST-API omfattar följande steg:
@@ -48,7 +48,7 @@ Skapa ett exportjobb för Microsoft Azure Import/Export-tjänsten med hjälp av 
  Läs mer om hur du anger BLOB-och exportera den [placera jobbet](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) igen.
 
 ## <a name="obtaining-your-shipping-location"></a>Hämta din plats för leverans
-Innan du skapar ett exportjobb, måste du skaffa ett endash platsnamn och adress genom att anropa den [få plats](https://portal.azure.com) eller [List Locations](/rest/api/storageimportexport/listlocations) igen. `List Locations` Returnerar en lista över platser och deras e-postadresser. Du kan välja en plats från den returnerade listan och skicka dina hårddiskar till adressen. Du kan också använda den `Get Location` åtgärden att hämta leveransadressen för en specifik plats direkt.
+Innan du skapar ett exportjobb, måste du skaffa ett endash platsnamn och adress genom att anropa den [få plats](https://portal.azure.com) eller [List Locations](https://docs.microsoft.com/rest/api/storageimportexport/locations/list) igen. `List Locations` Returnerar en lista över platser och deras e-postadresser. Du kan välja en plats från den returnerade listan och skicka dina hårddiskar till adressen. Du kan också använda den `Get Location` åtgärden att hämta leveransadressen för en specifik plats direkt.
 
 Följ stegen nedan för att hämta leveranser plats:
 

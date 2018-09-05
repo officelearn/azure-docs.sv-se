@@ -1,6 +1,6 @@
 ---
-title: Kopiera data från HBase med hjälp av Azure Data Factory | Microsoft Docs
-description: Lär dig hur du kopierar data från HBase till stöds sink datalager med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen.
+title: Kopiera data från HBase med Azure Data Factory | Microsoft Docs
+description: Lär dig hur du kopierar data från HBase till mottagarens datalager genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,47 +13,50 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 9b4cbc7224c29d97f235fcc409ce27ee6eea9f01
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f47e85b47f262e30e9160f11604220aa8055be5d
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049204"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701725"
 ---
-# <a name="copy-data-from-hbase-using-azure-data-factory"></a>Kopiera data från HBase med hjälp av Azure Data Factory 
+# <a name="copy-data-from-hbase-using-azure-data-factory"></a>Kopiera data från HBase med Azure Data Factory 
 
-Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från HBase. Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
+Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från HBase. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från HBase till alla stöds sink-datalagret. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten, finns det [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från HBase till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
-Azure Data Factory innehåller en inbyggd drivrutin att tillåta anslutningar, måste du därför inte att manuellt installera en drivrutin med den här anslutningen.
+Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, måste du därför inte att manuellt installera en drivrutin som använder den här anslutningen.
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till HBase-anslutningen.
+Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för HBase-anslutningen.
 
-## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
+## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper stöds för HBase länkade tjänsten:
+Följande egenskaper har stöd för HBase länkade tjänsten:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type måste anges till: **HBase** | Ja |
-| värd | IP-adressen eller värdnamnet namnet på HBase-server. (d.v.s. 192.168.222.160 [klusternamn]. azurehdinsight.NET .net)  | Ja |
-| port | TCP-porten som HBase-instans som används för att lyssna efter anslutningar. Standardvärdet är 9090. Om du ansluter till Azure HDInsights ange porten som 443. | Nej |
-| httpPath | Partiell URL som motsvarar HBase-server. (d.v.s. /gateway/sandbox/hbase/version)  | Nej |
-| authenticationType | Autentiseringsmekanism för att ansluta till HBase-servern. <br/>Tillåtna värden är: **anonym**, **grundläggande** | Ja |
+| typ | Type-egenskapen måste anges till: **HBase** | Ja |
+| värd | IP-adressen eller värdnamnet namnet på den HBase-servern. (dvs.)  `[clustername].azurehdinsight.net`, ' 192.168.222.160·)  | Ja |
+| port | TCP-porten som HBase-instans som används för att lyssna efter klientanslutningar. Standardvärdet är 9090. Ange porten som 443 om du ansluter till Azure HDInsights. | Nej |
+| httpPath | Partiell URL som motsvarar HBase-server. (d.v.s. `/hbaserest0`)  | Nej |
+| authenticationType | Autentiseringsmekanismen för att ansluta till HBase-servern. <br/>Tillåtna värden är: **anonym**, **grundläggande** | Ja |
 | användarnamn | Användarnamnet som används för att ansluta till HBase-instans.  | Nej |
-| lösenord | Lösenordet för användarnamnet. Markera det här fältet som en SecureString lagra den på ett säkert sätt i Data Factory eller [referera en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
-| enableSsl | Anger om anslutningar till servern krypteras med SSL. Standardvärdet är false.  | Nej |
-| trustedCertPath | Den fullständiga sökvägen till PEM-filen som innehåller certifikat för betrodda Certifikatutfärdare för att verifiera servern när du ansluter via SSL. Den här egenskapen kan bara anges när du använder SSL på själva värdbaserade IR. Standardvärdet är filen cacerts.pem installeras med IR.  | Nej |
-| allowHostNameCNMismatch | Anger om en Certifikatutfärdare som utfärdade SSL certifikatets namn att matcha värdnamn för servern när du ansluter via SSL. Standardvärdet är false.  | Nej |
-| allowSelfSignedServerCert | Anger om självsignerade certifikat från servern. Standardvärdet är false.  | Nej |
-| connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Self-hosted integrering Runtime eller Azure Integration Runtime (om datalager är offentligt tillgänglig). Om inget anges används standard-Azure Integration Runtime. |Nej |
+| lösenord | Lösenordet för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
+| enableSsl | Anger om anslutningar till servern krypteras med SSL. Standardvärdet är FALSKT.  | Nej |
+| trustedCertPath | Den fullständiga sökvägen till filen .pem som innehåller certifikat från betrodda Certifikatutfärdare för att verifiera servern när du ansluter via SSL. Den här egenskapen kan bara anges när du använder SSL på lokal IR. Standardvärdet är filen cacerts.pem installerad med i IR.  | Nej |
+| allowHostNameCNMismatch | Anger om en CA-utfärdade SSL-certifikatnamnet att matcha värdnamnet för servern när du ansluter via SSL. Standardvärdet är FALSKT.  | Nej |
+| allowSelfSignedServerCert | Anger om du vill tillåta självsignerade certifikat från servern. Standardvärdet är FALSKT.  | Nej |
+| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
+
+>[!NOTE]
+>Om klustret inte stöder sticky sessionen som HDInsight, uttryckligen lägga till noden index i slutet av inställningen för http-sökväg, t.ex. Ange `/hbaserest0` i stället för `/hbaserest`.
 
 **Exempel för HDInsights HBase:**
 
@@ -65,7 +68,7 @@ Följande egenskaper stöds för HBase länkade tjänsten:
         "typeProperties": {
             "host" : "<cluster name>.azurehdinsight.net",
             "port" : "443",
-            "httpPath" : "<e.g. hbaserest>",
+            "httpPath" : "/hbaserest0",
             "authenticationType" : "Basic",
             "username" : "<username>",
             "password": {
@@ -82,7 +85,7 @@ Följande egenskaper stöds för HBase länkade tjänsten:
 }
 ```
 
-**Exempel för allmän HBase:**
+**Allmän HBase-exempel:**
 
 ```json
 {
@@ -114,9 +117,9 @@ Följande egenskaper stöds för HBase länkade tjänsten:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns på [datauppsättningar](concepts-datasets-linked-services.md) artikel. Det här avsnittet innehåller en lista över egenskaper som stöds av HBase dataset.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av HBase-datauppsättningen.
 
-Ange typegenskapen för dataset för att kopiera data från HBase, **HBaseObject**. Det finns ingen ytterligare typspecifika egenskap i den här typen av datauppsättningen.
+Kopiera data från HBase genom att ange typegenskapen på datauppsättningen till **HBaseObject**. Det finns ingen ytterligare typspecifika-egenskap i den här typen av datauppsättning.
 
 **Exempel**
 
@@ -135,15 +138,15 @@ Ange typegenskapen för dataset för att kopiera data från HBase, **HBaseObject
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md) artikel. Det här avsnittet innehåller en lista över egenskaper som stöds av HBase-källa.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av HBase-källa.
 
 ### <a name="hbasesource-as-source"></a>HBaseSource som källa
 
-Om du vill kopiera data från HBase, anger du källa i kopieringsaktiviteten till **HBaseSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
+För att kopiera data från HBase, ange typ av datakälla i kopieringsaktiviteten till **HBaseSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **HBaseSource** | Ja |
+| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **HBaseSource** | Ja |
 | DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Ja |
 
 **Exempel:**
@@ -179,4 +182,4 @@ Om du vill kopiera data från HBase, anger du källa i kopieringsaktiviteten til
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datakällor som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 08/08/2018
+ms.date: 08/31/2018
 ms.author: marsma
-ms.openlocfilehash: 051402a319e1dc26145b5a1602a4caeffa7fba19
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: e78be76d68cf75cf9d59f5b5dff86c65524275a9
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445515"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697249"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Nätverkskonfigurationen i Azure Kubernetes Service (AKS)
 
@@ -50,7 +50,7 @@ Avancerade nätverk ger följande fördelar:
 * Det virtuella nätverket för AKS-klustret måste tillåta utgående internet-anslutning.
 * Skapa inte fler än ett AKS-kluster i samma undernät.
 * AKS-kluster får inte använda `169.254.0.0/16`, `172.30.0.0/16`, eller `172.31.0.0/16` för Kubernetes service-adressintervall.
-* Tjänstens huvudnamn som används av AKS-klustret måste ha minst [Nätverksdeltagare](../role-based-access-control/built-in-roles.md#network-contributor) behörigheter på undernät inom ditt virtuella nätverk. Om du vill definiera en [anpassad roll](../role-based-access-control/custom-roles.md) istället för att använda den inbyggda rollen som Nätverksdeltagare, krävs följande behörigheter:
+* Tjänstens huvudnamn som används av AKS-klustret måste ha minst [Nätverksdeltagare](../role-based-access-control/built-in-roles.md#network-contributor) behörigheter på undernätet i det virtuella nätverket. Om du vill definiera en [anpassad roll](../role-based-access-control/custom-roles.md) istället för att använda den inbyggda rollen som Nätverksdeltagare, krävs följande behörigheter:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
@@ -60,17 +60,15 @@ Kluster som har konfigurerats med avancerade nätverk kräver ytterligare planer
 
 IP-adresser för poddarna och klustrets noder tilldelas från det angivna undernätet i det virtuella nätverket. Varje nod har konfigurerats med en primär IP-adress, vilket är den IP-Adressen på noden och 30 ytterligare IP-adresser redan har konfigurerats av Azure CNI som har tilldelats poddar som schemalagts att noden. När du skalar ut ditt kluster konfigureras varje nod på samma sätt med IP-adresser från undernätet.
 
-Planera för IP-adress för ett AKS-kluster består av ett virtuellt nätverk, minst ett undernät för noder och poddar, och ett Kubernetes service-adressintervall.
+Plan för IP-adress för ett AKS-kluster består av en virtuell nätverks-, minst ett undernät för noder och poddar och Kubernetes service-adressintervall.
 
 | Adressintervall / Azure resurs | Gränser och storlek |
 | --------- | ------------- |
-| Virtuellt nätverk | Azure virtuellt nätverk kan vara så stora/8 som men kan endast ha 16000 konfigurerat IP-adresser. |
+| Virtuellt nätverk | Azure-nätverket kan vara så stora/8 som, men är begränsad till 65 536 konfigurerade IP-adresser. |
 | Undernät | Måste vara tillräckligt stor för att hantera noder, poddar och alla Kubernetes och Azure-resurser som kan etableras i klustret. Om du distribuerar en intern Azure Load Balancer, exempelvis dess frontend IP-adresser tilldelas från klustret undernätet inte offentliga IP-adresser. <p/>Att beräkna *minsta* undernätets storlek: `(number of nodes) + (number of nodes * pods per node)` <p/>Exempel för ett kluster med 50 noder: `(50) + (50 * 30) = 1,550` (/ 21 eller större) |
 | Kubernetes service-adressintervall | Det här intervallet bör inte används av alla nätverkselement på eller ansluten till det här virtuella nätverket. CIDR-tjänstadress måste vara mindre än /12. |
 | IP-adress för Kubernetes DNS-tjänsten | IP-adress inom Kubernetes service-adressintervall som ska användas av klustertjänstidentifiering (kube-dns). |
 | Docker bridge-adress | IP-adress (i CIDR-notation) som används som Docker-brygga IP-adress på noder. Standardvärdet 172.17.0.1/16. |
-
-Varje virtuellt nätverk som etablerats för användning med plugin-programmet Azure CNI är begränsad till **16000 konfigurerade IP-adresser**.
 
 ## <a name="maximum-pods-per-node"></a>Maximal poddar per nod
 
@@ -78,29 +76,38 @@ Standard maximala antalet poddar per nod i ett AKS-kluster varierar mellan grund
 
 ### <a name="default-maximum"></a>Standardmaxvärde
 
-* Grundläggande nätverk: **110 poddar per nod**
-* Avancerat nätverk **30 poddar per nod**
+Det här är den *standard* maximum när du distribuerar ett AKS-klustret utan att ange det maximala antalet poddar vid tidpunkten för distribution:
 
-### <a name="configure-maximum"></a>Konfigurera maximalt
+| Distributionsmetod | Basic | Advanced | Kan konfigureras vid distribution |
+| -- | :--: | :--: | -- |
+| Azure CLI | 110 | 30 | Ja |
+| Resource Manager-mall | 110 | 30 | Ja |
+| Portalen | 110 | 30 | Nej |
 
-Beroende på din distribution kanske du kan ändra det maximala antalet poddar per nod i ett AKS-kluster.
+### <a name="configure-maximum---new-clusters"></a>Konfigurera maximal – nya kluster
+
+Ange ett annat maximalt antal poddar per nod när du distribuerar ett AKS-kluster:
 
 * **Azure CLI**: Ange den `--max-pods` argumentet när du distribuerar ett kluster med den [az aks skapa] [ az-aks-create] kommando.
 * **Resource Manager-mall**: Ange den `maxPods` -egenskapen i den [ManagedClusterAgentPoolProfile] objekt när du distribuerar ett kluster med en Resource Manager-mall.
 * **Azure-portalen**: du kan inte ändra det maximala antalet poddar per nod när du distribuerar ett kluster med Azure-portalen. Avancerade nätverk kluster är begränsade till 30 poddar per nod när de distribueras i Azure-portalen.
 
+### <a name="configure-maximum---existing-clusters"></a>Konfigurera maximal – befintliga kluster
+
+Du kan inte ändra de maximala poddarna per nod i ett befintligt AKS-kluster. Du kan justera antalet endast när du först distribuera klustret.
+
 ## <a name="deployment-parameters"></a>Distributionsparametrarna
 
 När du skapar ett AKS-kluster, konfigureras följande parametrar för avancerade nätverksfunktioner:
 
-**Virtuellt nätverk**: det virtuella nätverket dit du vill distribuera Kubernetes-klustret. Om du vill skapa ett nytt virtuellt nätverk för klustret, väljer *Skapa nytt* och följ stegen i den *skapa virtuellt nätverk* avsnittet. Det virtuella nätverket är begränsad till 16 000 konfigurerade IP-adresser.
+**Virtuellt nätverk**: det virtuella nätverket dit du vill distribuera Kubernetes-klustret. Om du vill skapa ett nytt virtuellt nätverk för klustret, väljer *Skapa nytt* och följ stegen i den *skapa virtuellt nätverk* avsnittet. Information om begränsningar och kvoter för ett Azure-nätverk finns i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
 **Undernät**: undernätet i det virtuella nätverket där du vill distribuera klustret. Om du vill skapa ett nytt undernät i det virtuella nätverket för klustret, väljer *Skapa nytt* och följ stegen i den *skapa undernät* avsnittet.
 
 **Kubernetes-tjänst-adressintervall**: det här är en uppsättning virtuella IP-adresser som Kubernetes tilldelar [services] [ services] i klustret. Du kan använda alla privata adressintervall som uppfyller följande krav:
 
-* Får inte vara VNet IP-adressintervallet för ditt kluster
-* Får inte överlappa andra Vnet som som klustret VNet peer-datorer
+* Får inte vara i virtuella nätverkets IP-adressintervall för ditt kluster
+* Får inte överlappa med andra virtuella nätverk som virtuellt klusternätverk peer-datorer
 * Får inte överlappa eventuella lokala IP-adresser
 * Får inte vara inom intervallen `169.254.0.0/16`, `172.30.0.0/16`, eller `172.31.0.0/16`
 
@@ -108,7 +115,7 @@ När du skapar ett AKS-kluster, konfigureras följande parametrar för avancerad
 
 **IP-adress för Kubernetes DNS-tjänsten**: IP-adress för klustrets DNS-tjänsten. Den här adressen måste vara inom den *Kubernetes-tjänst-adressintervall*.
 
-**Docker Bridge-adress**: IP-adress och nätmask ska tilldelas Docker bridge. Den här IP-adressen får inte vara VNet IP-adressintervallet för ditt kluster.
+**Docker Bridge-adress**: IP-adress och nätmask ska tilldelas Docker bridge. Den här IP-adressen får inte vara inom det virtuella nätverket IP-adressintervallet på klustret.
 
 ## <a name="configure-networking---cli"></a>Konfigurera nätverk – CLI
 
@@ -150,13 +157,15 @@ Följande frågor och svar gäller den **Avancerat** nätverkskonfiguration.
 
   Ja, när du distribuerar ett kluster med Azure CLI eller en Resource Manager-mall. Se [maximalt poddar per nod](#maximum-pods-per-node).
 
+  Du kan inte ändra det maximala antalet poddar per nod i ett befintligt kluster.
+
 * *Hur konfigurerar jag ytterligare egenskaper för det undernät som jag skapade när du skapar för AKS-klustret? Till exempel Tjänsteslutpunkter.*
 
-  Den fullständiga listan med egenskaper för virtuellt nätverk och undernät som du skapar när du skapar för AKS-klustret kan konfigureras i standard VNet-konfigurationssidan i Azure-portalen.
+  Den fullständiga listan över egenskaper för virtuellt nätverk och undernät som du skapar när du skapar för AKS-klustret kan konfigureras på sidan virtuellt standardnätverk konfiguration i Azure-portalen.
 
-* *Kan jag använda ett annat undernät i mitt kluster virtuellt nätverk för den* **Kubernetes-tjänst-adressintervall**?
+* *Kan jag använda ett annat undernät i mitt kluster virtuella nätverk för den* **Kubernetes-tjänst-adressintervall**?
 
-  Det rekommenderas inte, men den här konfigurationen är möjligt. Service-adressintervall är en uppsättning virtuella IP-adresser (VIP) som Kubernetes tilldelar tjänster i ditt kluster. Azure-nätverk har inga insyn i Kubernetes-klustret service IP-adressintervall. På grund av bristen på insyn i klustrets service-adressintervall är det möjligt att senare skapar ett nytt undernät i virtuella nätverk som överlappar adressintervallet service-klustret. Om en sådan överlappning inträffar kan Kubernetes tilldela en tjänst en IP-adress som används redan av en annan resurs i undernätet orsaka oväntade funktionssätt eller fel. Genom att se till att du använder ett adressintervall utanför klustrets virtuella nätverk, kan du undvika detta överlappar varandra.
+  Det rekommenderas inte, men den här konfigurationen är möjligt. Service-adressintervall är en uppsättning virtuella IP-adresser (VIP) som Kubernetes tilldelar tjänster i ditt kluster. Azure-nätverk har inga insyn i Kubernetes-klustret service IP-adressintervall. På grund av bristen på insyn i klustrets service-adressintervall är det möjligt att skapa ett nytt undernät senare i det virtuella nätverk i klustret som överlappar adressintervallet service. Om en sådan överlappning inträffar kan Kubernetes tilldela en tjänst en IP-adress som används redan av en annan resurs i undernätet orsaka oväntade funktionssätt eller fel. Genom att se till att du använder ett adressintervall utanför klustrets virtuella nätverk, kan du undvika detta överlappar varandra.
 
 ## <a name="next-steps"></a>Nästa steg
 

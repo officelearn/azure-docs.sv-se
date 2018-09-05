@@ -1,5 +1,5 @@
 ---
-title: Grafpartitionering API | Microsoft Docs
+title: Gremlin-API partitionering | Microsoft Docs
 description: Lär dig hur du kan använda en partitionerad Graph i Azure Cosmos DB.
 services: cosmos-db
 author: luisbosquez
@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.author: lbosq
-ms.openlocfilehash: 202c575a917cfb24436d86881e5368b61f216d42
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 7290687c62b0a500aef80bd8786df4cc1ece8ed4
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861890"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698986"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Med hjälp av ett partitionerade diagram i Azure Cosmos DB
 
-En av de viktigaste funktionerna i Graph API i Azure Cosmos DB är möjligheten att hantera storskaliga diagram via horisontell skalbarhet. Den här processen uppnås via den [partitionering funktioner i Azure Cosmos DB](partition-data.md#how-does-partitioning-work), vilket gör användning av behållare som kan skalas oberoende vad gäller lagring och dataflöde. Azure Cosmos DB stöder följande typer av behållare i alla API: er:
+En av de viktigaste funktionerna i Gremlin-API i Azure Cosmos DB är möjligheten att hantera storskaliga diagram via horisontell skalbarhet. Den här processen uppnås via den [partitionering funktioner i Azure Cosmos DB](partition-data.md#how-does-partitioning-work), vilket gör användning av behållare som kan skalas oberoende vad gäller lagring och dataflöde. Azure Cosmos DB stöder följande typer av behållare i alla API: er:
 
 - **Fast behållare**: de här behållarna kan lagra ett diagram databasen upp till 10 GB i storlek med högst 10 000 enheter för programbegäran per sekund som tilldelas till den. Om du vill skapa en fast behållare är det inte nödvändigt att ange en nyckelegenskap för partitionen i data.
 
@@ -31,7 +31,7 @@ I det här dokumentet beskrivs ärendets på hur grafdatabaser partitioneras til
 
 Nedan visas information som behöver förstå när du skapar en partitionerad grafbehållare:
 - **Ställa in partitionering är nödvändigt för** om behållaren förväntas vara större än 10 GB i storlek och/eller om tilldelning av över 10 000 enheter för programbegäran per sekund (RU/s) kommer att krävas.
-- **Både hörn och kanter lagras som JSON-dokument** i serverdelen av en Azure Cosmos DB Graph API-behållare.
+- **Både hörn och kanter lagras som JSON-dokument** i serverdelen av en Gremlin-API för Azure Cosmos DB-behållare.
 - **Hörn kräver en partitionsnyckel**. Den här nyckeln avgör i vilken partition hörnet lagras via en hash-algoritm. Namnet på den här partitionsnyckel är ett enstaka ord sträng utan blanksteg eller specialtecken och definieras när du skapar en ny behållare i formatet `/partitioning-key-name` på portalen.
 - **Kanter lagras tillsammans med deras källvertex**. Med andra ord för varje brytpunkt definierar sin partitionsnyckel var de lagras tillsammans med dess utgående kanter. Detta görs för att undvika flera partitioner frågor när du använder den `out()` kardinalitet i graph-frågor.
 - **Graph-frågor måste du ange en partitionsnyckel**. Om du vill dra full nytta av horisontell partitionering i Azure Cosmos DB, anges Partitionsnyckeln när en enskild brytpunkt väljs, när det är möjligt. Här följer några frågor för att välja en eller flera hörn i en partitionerad graph:
@@ -69,8 +69,8 @@ Här följer några riktlinjer som ska följas för att säkerställa effektiv p
 - **Optimera frågor för att få data inom gränserna för en partition när det är möjligt**. En optimal partitioneringsstrategin skulle justeras till frågor mönster. Frågor som hämtar data från en enda partition ger bästa möjliga prestanda.
 
 ## <a name="next-steps"></a>Nästa steg
-En översikt över koncepten och bästa praxis för partitionering med en Azure Cosmos DB Graph API har angetts i den här artikeln. 
+En översikt över koncepten och bästa praxis för partitionering med en Azure Cosmos DB Gremlin-API har angetts i den här artikeln. 
 
 * Lär dig mer om [partitionera och skala i Azure Cosmos DB](partition-data.md).
-* Lär dig mer om den [Gremlin-support i Graph API](gremlin-support.md).
-* Lär dig mer om [introduktion till Graph API](graph-introduction.md).
+* Lär dig mer om den [Gremlin-support i Gremlin-API: et](gremlin-support.md).
+* Lär dig mer om [introduktion till Gremlin-API](graph-introduction.md).

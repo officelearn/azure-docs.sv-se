@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: 888a99cad68f98030d4481cc23cb82123c900ee6
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 2a6172a4e163d937f5a0a2140831b730bca23c3f
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480537"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696531"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Med hjälp av referensdata för sökningar i Stream Analytics
 Referensdata (även kallat en uppslagstabell) är en begränsad mängd data som är statiska eller långsamt ändrad karaktär används för att utföra en sökning eller att korrelera med din dataström. Azure Stream Analytics läser in referensdata i minnet för att uppnå bearbetning av dataströmmar med låg latens. Att göra använder referensdata i Azure Stream Analytics-jobb kan du vanligtvis använder en [referens Data ansluta](https://msdn.microsoft.com/library/azure/dn949258.aspx) i frågan. Stream Analytics använder Azure Blob storage som lagringsskikt för referensdata och med Azure Data Factory referens data kan omvandlas eller kopieras till Azure Blob storage, för användning som referens för Data från [valfritt antal molnbaserade och lokala datalager](../data-factory/copy-activity-overview.md). Referensdata modelleras som en serie blobbar (definieras i den inkommande configuration) i stigande ordning efter datum/tid som anges i blobnamnet. Den **endast** har stöd för att lägga till i slutet av sekvensen med hjälp av ett datum/tid **större** än den som angetts av senaste blob i sekvensen.

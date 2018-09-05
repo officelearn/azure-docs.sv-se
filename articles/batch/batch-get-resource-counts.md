@@ -6,18 +6,18 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 08/23/2018
 ms.author: danlep
-ms.openlocfilehash: f4bad3d7058e82a246afce9502d275c7d485cb88
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 0ef3cc373b3b87bbd1dde5682fbc076e6b77d6a0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009177"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698391"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Övervaka Batch-lösningar genom att räkna aktiviteter och nod efter tillstånd
 
-Om du vill övervaka och hantera lösningar för storskaliga Azure Batch, behöver du korrekt antal resurser i olika tillstånd. Azure Batch får du effektiv drift för att få detta antal för Batch *uppgifter* och *beräkningsnoder*. Använda de här åtgärderna i stället för tidsödande API-anrop till returnerar detaljerad information om stora samlingar av uppgifter eller noder.
+Om du vill övervaka och hantera lösningar för storskaliga Azure Batch, behöver du korrekt antal resurser i olika tillstånd. Azure Batch får du effektiv drift för att få detta antal för Batch *uppgifter* och *beräkningsnoder*. Använd åtgärderna i stället för tidsödande lista: frågor som returnerar detaljerad information om stora samlingar av uppgifter eller noder.
 
 * [Hämta uppgift räknar] [ rest_get_task_counts] hämtar en sammanställd antal aktiva, pågående och slutförda uppgifter i ett jobb och uppgifter som har lyckats eller misslyckats. 
 
@@ -49,19 +49,15 @@ Console.WriteLine("Task count in preparing or running state: {0}", taskCounts.Ru
 Console.WriteLine("Task count in completed state: {0}", taskCounts.Completed);
 Console.WriteLine("Succeeded task count: {0}", taskCounts.Succeeded);
 Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
-Console.WriteLine("ValidationStatus: {0}", taskCounts.ValidationStatus);
 ```
 
 Du kan använda ett liknande mönster för REST och andra språk som stöds för att hämta uppgiften antalet för ett jobb. 
- 
 
-### <a name="consistency-checking-for-task-counts"></a>Konsekvenskontrollen för uppgiften antal
+### <a name="counts-for-large-numbers-of-tasks"></a>Antal för stort antal aktiviteter
 
-Batch tillhandahåller ytterligare verifiering för uppgiften tillståndet antal genom att utföra konsekvenskontroller mot flera komponenter i systemet. Det osannolika att konsekvenskontrollen hittar fel, korrigerar Batch resultatet av åtgärden hämta uppgifter räknar baserat på resultatet av konsekvenskontrollen.
+Hämta uppgift räknar-åtgärden returnerar antalet aktiviteternas status i systemet vid en tidpunkt i tid. När jobbet har ett stort antal uppgifter, kan antalet som returneras av hämta uppgift räknar lag faktiska aktiviteternas status av upp till några sekunder. Batch säkerställer eventuell konsekvens mellan resultatet från att hämta uppgift räknar och faktiska aktiviteternas status (som du kan skicka frågor via API: T för listan uppgifter). Men om jobbet har ett mycket stort antal uppgifter (> 200 000), rekommenderar vi att du använder API: T för listan uppgifter och en [filtrerade fråga](batch-efficient-list-queries.md) i stället som ger mer uppdaterad information. 
 
-Den `validationStatus` -egenskapen i svaret anger om Batch köras konsekvenskontrollen. Om Batch har haft tillstånd räknas mot de faktiska tillstånd i systemet, och sedan den `validationStatus` är inställd på `unvalidated`. Av prestandaskäl Batch inte utföra en konsekvenskontroll om jobbet innehåller fler än 200 000 aktiviteter, så den `validationStatus` är inställd på `unvalidated` i det här fallet. (Antal uppgifter är inte nödvändigtvis fel i det här fallet, eftersom även en begränsad dataförlust sannolikt.) 
-
-När status ändras i en aktivitet bearbetar sammansättningspipelinen ändringen inom några sekunder. Åtgärden hämta uppgift räknar återspeglar de uppdaterade aktiviteten antal inom denna period. Men om sammansättningspipelinen missar en ändring i Uppgiftstillstånd, är sedan som ändrar inte registrerad tills nästa verifiering passet. Uppgiften antalet kan vara något felaktigt på grund av missade händelse under denna tid, men de har korrigerats på nästa verifiering passet.
+Batch-tjänstens API-versioner innan 2018-08-01.7.0 returnerar också en `validationStatus` egenskapen hämta uppgift räknar-svar. Den här egenskapen anger om Batch markerat tillståndet antal för konsekvens med tillstånd som rapporteras i API: T för listan uppgifter. Värdet `validated` bara anger att Batch markerats för att få konsekvens minst en gång för jobbet. Värdet för den `validationStatus` egenskapen anger inte om de antal som hämta uppgift räknar returnerar är för närvarande uppdaterade.
 
 ## <a name="node-state-counts"></a>Nodtillstånd räknar
 

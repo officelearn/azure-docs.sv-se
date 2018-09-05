@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 09/04/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 2f5661ddac16a3024335bd633623f7ada2fc5870
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 6d6ee22bd1691f1af6956330b3299a1483c588f7
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054955"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696650"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Distribuera MySQL-resursprovider i Azure Stack
 
@@ -38,21 +38,20 @@ Det finns flera förutsättningar som måste vara uppfyllda innan du kan distrib
   >[!NOTE]
   >Om du vill distribuera MySQL-providern på ett system som inte har tillgång till Internet, kopiera den [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) filen till en lokal sökväg. Ange en sökväg namn med hjälp av den **DependencyFilesLocalPath** parametern.
 
-* Resursprovidern har en minsta motsvarande Azure Stack skapa. Kontrollera att du har hämtat rätt binärfilen för versionen av Azure Stack som du kör:
+* Resursprovidern har en minsta motsvarande Azure Stack skapa.
 
-    | Azure Stack-versionen | MySQL RP-version|
+    | Lägsta version av Azure Stack | MySQL RP-version|
     | --- | --- |
     | Version 1804 (1.0.180513.1)|[MySQL RP version 1.1.24.0](https://aka.ms/azurestackmysqlrp1804) |
-    | Version 1802 (1.0.180302.1) | [MySQL RP version 1.1.18.0](https://aka.ms/azurestackmysqlrp1802)|
     |     |     |
 
-- Kontrollera att datacenter integration krav är uppfyllda:
+* Kontrollera att datacenter integration krav är uppfyllda:
 
     |Krav|Referens|
     |-----|-----|
     |Villkorlig vidarebefordran av DNS är korrekt.|[Integrering med Azure Stack datacenter - DNS](azure-stack-integrate-dns.md)|
     |Ingående portar för resursprovider är öppna.|[Azure Stack datacenter-integrering – publicera slutpunkter](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
-    |PKI-certifikatämne och alternativt namn har angetts korrekt.|[Azure Stack obligatoriska PKI kraven för distribution](azure-stack-pki-certs.md#mandatory-certificates)<br>[Azure PaaS certifikat distributionskrav Stack](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |PKI-certifikatämne och alternativt namn har angetts korrekt.|[Azure Stack obligatoriska PKI distributionskraven](azure-stack-pki-certs.md#mandatory-certificates)[Azure Stack distributionskraven PaaS-certifikat](azure-stack-pki-certs.md#optional-paas-certificates)|
     |     |     |
 
 ### <a name="certificates"></a>Certifikat
@@ -87,6 +86,7 @@ Du kan ange dessa parametrar från kommandoraden. Om du inte, eller om någon pa
 | **AzCredential** | Autentiseringsuppgifter för Azure Stack-tjänstadministratörskonto. Använd samma autentiseringsuppgifter som du använde för att distribuera Azure Stack. | _Krävs_ |
 | **VMLocalCredential** | Autentiseringsuppgifterna för det lokala administratörskontot för MySQL-resursprovider VM. | _Krävs_ |
 | **PrivilegedEndpoint** | IP-adressen eller DNS-namnet på den privilegierade slutpunkten. |  _Krävs_ |
+| **AzureEnvironment** | Azure-miljön för admin kontot som du använde för att distribuera Azure Stack. Krävs endast om den inte är AD FS. Miljö som stöds är **AzureCloud**, **azureusgovernment eller**, eller om du använder en Kina Azure Active Directory, **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | För integrerade system, måste din .pfx-certifikatfil placeras i den här katalogen. Frånkopplade enviroments hämta [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) till den här katalogen. Du kan också kopiera här ett Windows Update MSU-paket. | _Valfritt_ (_obligatoriska_ för integrerade system eller frånkopplade miljöer) |
 | **DefaultSSLCertificatePassword** | Lösenordet för PFX-certifikat. | _Krävs_ |
 | **MaxRetryCount** | Antal gånger som du vill försöka utföra varje åtgärd om det uppstår ett fel.| 2 |

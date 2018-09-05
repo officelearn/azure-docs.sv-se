@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 09/04/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 4e894eaee6bb151b480204905d0a98324f5c353b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 86e72787347cddd399fbdde4cd943b86ba48375f
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049603"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697840"
 ---
 # <a name="update-the-mysql-resource-provider"></a>Uppdatera MySQL-resursprovider 
 
@@ -31,6 +31,7 @@ En ny SQL-resursprovideradaptern kan frigöras när Azure Stack-versioner har up
 >Du måste installera uppdateringar i den ordning de ges ut. Du kan inte hoppa över versioner. Se listan över versioner i [distribuera resource provider krav](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
 ## <a name="update-the-mysql-resource-provider-adapter-integrated-systems-only"></a>Uppdatera MySQL-resursprovideradaptern (endast integrerade system)
+
 En ny SQL-resursprovideradaptern kan frigöras när Azure Stack-versioner har uppdaterats. Befintliga kortet fortsätter att fungera, rekommenderar vi uppdaterar till den senaste versionen så snart som möjligt.  
  
 Uppdatering av resursprovidern som du använder den **UpdateMySQLProvider.ps1** skript. Processen påminner om en process som används för att installera en resursleverantör, enligt beskrivningen i den [distribuerar resursprovidern](#deploy-the-resource-provider) i den här artikeln. Skriptet ingår hämtning av resursprovidern. 
@@ -97,6 +98,7 @@ Du kan ange dessa parametrar på kommandoraden. Om du inte, eller om någon para
 | **AzCredential** | Autentiseringsuppgifter för Azure Stack-tjänstadministratörskonto. Använda samma autentiseringsuppgifter som du använde för att distribuera Azure Stack. | _Krävs_ | 
 | **VMLocalCredential** |Autentiseringsuppgifterna för det lokala administratörskontot för SQL-resursprovider VM. | _Krävs_ | 
 | **PrivilegedEndpoint** | IP-adressen eller DNS-namnet på den privilegierade slutpunkten. |  _Krävs_ | 
+| **AzureEnvironment** | Azure-miljön för admin kontot som du använde för att distribuera Azure Stack. Krävs endast om den inte är AD FS. Miljö som stöds är **AzureCloud**, **azureusgovernment eller**, eller om du använder en Kina Azure Active Directory, **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Din .pfx-certifikatfil måste placeras i den här katalogen samt. | _Valfritt_ (_obligatoriska_ för flera noder) | 
 | **DefaultSSLCertificatePassword** | Lösenordet för PFX-certifikat. | _Krävs_ | 
 | **MaxRetryCount** | Antal gånger som du vill försöka utföra varje åtgärd om det uppstår ett fel.| 2 | 

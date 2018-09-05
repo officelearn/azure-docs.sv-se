@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: iainfou
-ms.openlocfilehash: b910b6cdf55ae7c2a220543bdb555d8e9bff59a0
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: f4bc7724c0bc288ab269d1b3ec054bd1a6ba26e3
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056063"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701202"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor och svar om Azure Kubernetes Service (AKS)
 
@@ -58,7 +58,7 @@ Om du skapar resurser som ska användas med AKS-klustret, till exempel lagringsk
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>Kan jag ändra taggar och andra egenskaper för AKS-resurser i resursgruppen MC_ *?
 
-Ändra och ta bort taggar och andra egenskaper för resurser i den *MC_** resursgrupp kan leda till oväntade resultat, till exempel skalning och uppgradera fel. Ändra resurser under den *MC_** i AKS kluster delar på SLO.
+Ändra och ta bort de Azure-skapade taggarna och andra egenskaper för resurser i den *MC_** resursgrupp kan leda till oväntade resultat, till exempel skalning och uppgradera fel. Det går att skapa och ändra ytterligare anpassade taggar, till exempel tilldela en business unit eller kostnaden center. Ändra resurser under den *MC_** i AKS kluster delar på SLO.
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Vilka Kubernetes åtkomst domänkontrollanter stöder AKS? Kan åtkomst domänkontrollanter läggs till eller tas bort?
 

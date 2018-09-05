@@ -4,14 +4,14 @@ description: Vanliga frågor och svar om Azure Migrate adresser
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 09/03/2018
 ms.author: snehaa
-ms.openlocfilehash: 3f035f38b1ad68e9e39d151ffad3fc650a0a1d80
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: ce9dc4aab26b99bbb1e9f24f018354b8c91f66f4
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952757"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699972"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate – och vanliga frågor svar (FAQ)
 
@@ -114,7 +114,7 @@ Det finns för närvarande ingen integrering. Den. OVA-mallen i Site Recovery an
 
 ### <a name="i-changed-my-machine-size-can-i-rerun-the-assessment"></a>Jag har ändrat storlek på min dator. Kan jag köra utvärderingen?
 
-Om du ändrar inställningarna på en virtuell dator som du vill utvärdera, Upptäck utlösaren igen med insamlingsprogrammet. I installationen använder det **starta insamlingen igen** möjlighet att göra detta. När samlingen är klar väljer du den **beräkna om** alternativet för utvärdering i portalen för att hämta uppdaterade utvärderingsresultat.
+Om du ändrar inställningarna på en virtuell dator som du vill utvärdera, Upptäck utlösaren igen med insamlingsprogrammet. I installationen använder det **starta insamlingen igen** möjlighet att göra detta. När insamlingen är klar väljer du alternativet **Beräkna om** för utvärderingen på portalen för att hämta uppdaterade utvärderingsresultat.
 
 ### <a name="how-can-i-discover-a-multi-tenant-environment-in-azure-migrate"></a>Hur kan jag för att identifiera en miljö med flera organisationer i Azure Migrate?
 
@@ -123,6 +123,12 @@ Om du har en miljö som delas mellan klienter och du inte vill identifiera de vi
 ### <a name="how-many-virtual-machines-can-be-discovered-in-a-single-migration-project"></a>Hur många virtuella datorer kan identifieras i en enda migration-projekt?
 
 Du kan identifiera 1500 virtuella datorer i en enda migreringsprojekt. Om du har flera virtuella datorer i din lokala miljö, [mer](how-to-scale-assessment.md) om hur du kan identifiera en stor miljö i Azure Migrate.
+
+### <a name="does-azure-migrate-support-enterprise-agreement-ea-based-cost-estimation"></a>Kostar Azure Migrate support för Enterprise Agreement (EA) baserade uppskattning?
+
+Azure Migrate stöder för närvarande inte kostnadsuppskattning för [erbjudande för Enterprise Agreement](https://azure.microsoft.com/offers/enterprise-agreement-support/). Lösningen är att ange att betala per användning erbjudandet och manuellt ange procentvärdet (gäller för prenumerationen) i fältet ”Rabatt” i egenskaperna för utvärdering.
+
+  ![Rabatt](./media/resources-faq/discount.png)
 
 ## <a name="dependency-visualization"></a>Visualisering av beroenden
 

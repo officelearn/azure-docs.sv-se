@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 08/14/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 196e671eefc3a8baaa7d6edc723851c101afc2da
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: bb2dc0d5500778372de674c749b44267fb512a2e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42059565"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701161"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-objekt tillgängliga för Azure Stack
 
@@ -90,8 +90,7 @@ Microsoft Azure Stack har stöd för följande virtuella datorer i Azure Marketp
 | ![Debian 9 ”Stretch”](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 9 ”Stretch”](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian9) | Debian GNU/Linux är en av de mest populära Linux-distributionerna. | credativ |
 | ![CentOS-baserade 6,9](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-baserade 6,9](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased69) | Den här distributionen av Linux baserat på CentOS som erbjuds av otillåten Wave programvara. | Falsk Wave programvara (tidigare OpenLogic)  |
 | ![CentOS-baserade 6.10](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-baserade 6.10](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased610) | Den här distributionen av Linux baserat på CentOS som erbjuds av otillåten Wave programvara. | Falsk Wave programvara (tidigare OpenLogic)  |
-| ![CentOS-baserade 7.4](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-baserade 7.4](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74) | Den här distributionen av Linux baserat på CentOS som erbjuds av otillåten Wave programvara. | Falsk Wave programvara (tidigare OpenLogic) |
-| ![CentOS-baserade 7.4-LVM](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-baserade 7.4-LVM](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74) | Den här distributionen av Linux baserat på CentOS som erbjuds av otillåten Wave programvara. | Falsk Wave programvara (tidigare OpenLogic) |
+| ![CentOS-baserad 7.3](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-baserade 7.3](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73) | Den här distributionen av Linux baserat på CentOS som erbjuds av otillåten Wave programvara. | Falsk Wave programvara (tidigare OpenLogic) |
 | ![CentOS-baserade 7.5](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-baserade 7.5](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased75) | Den här distributionen av Linux baserat på CentOS som erbjuds av otillåten Wave programvara. | Falsk Wave programvara (tidigare OpenLogic) |
 | ![CentOS-baserade 7.5-LVM](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-baserade 7.5-LVM](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased75) | Den här distributionen av Linux baserat på CentOS som erbjuds av otillåten Wave programvara. | Falsk Wave programvara (tidigare OpenLogic) |
 | ![SLES 11 SP4 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 11 SP4 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 11 SP4. | SUSE |
@@ -234,9 +233,9 @@ Microsoft Azure Stack har stöd för följande virtuella datorer i Azure Marketp
 | ![KEMP LoadMaster Load Balancer ADC innehåll växel](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster Load Balancer ADC innehåll växel](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Belastningsutjämnare för Layer 4-7 Application Delivery Controller (ADC), innehåll växel och Traffic Manager. | KEMP Technologies Inc. |
 | ![NRI mPLAT Suite – flera moln ledare](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT Suite – flera moln ledare](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | En enda fönstret av glas att övervaka, konfigurera, etablera, automatisera och styra alla arbetsbelastning och moln. | NRI |
 | ![Kompatibla NooBaa Hybrid AWS S3 - Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [Compatibe NooBaa Hybrid AWS S3 - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | S3-kompatibla lagringsutrymmet tjänst som sträcker sig över offentliga och lokala resurser med kapacitet. | NooBaa |
+| ![Palo Alto VM-serien nästa generations brandvägg](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM-serien nästa generations brandvägg](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | VM-serien nästa generations brandvägg kan kunderna på ett säkert sätt migrera sina program och data till Azure Stack, skydda dem mot kända och okända hot med programmet lista över tillåtna och hot principer för dataförlustskydd. **Den här bilden kräver en mall för att distribuera; se den här [artikeln](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack) viktig information.**| Palo Alto Networks, Inc. |
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall identifierar kända och okända säkerhetsrisker och förebygger attacker i web apps. **Hämta båda PT Marketplace-objekt.** | Positivt tekniker |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise kan du automatisera hela livscykeln för din Azure Stack-infrastruktur. **Hämta båda Puppet Marketplace-objekt.** | Puppet |
 | ![Begäran om snabb återställning](media/azure-stack-marketplace-azure-items/quest.png) | [Begäran om snabb återställning Core](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Snabb återställning avancerade dataskydd förenar säkerhetskopiering, replikering och återställning i en enkel att använda programvarulösning. | Quest-program |
 | ![SUSE Manager 3.1 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.1 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSE-Manager) | Bästa klassens infrastrukturhantering för öppen källkod. | SUSE |
 | ![ZeroDown programvara BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [Affärskontinuitet för ZeroDown programvara som en tjänst](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | ZeroDown® programvaruteknik erbjuder företag med kontinuerlig åtkomst till deras företagsdata via deras kontinuitet för företag som en tjänst (BCaaS)™ arkitektur, skydda program och transaktioner i händelse av avbrott i nätverket som skulle normalt cripple företaget. | ZeroDown programvara |
-| ![Palo Alto VM-serien nästa generations brandvägg](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM-serien nästa generations brandvägg](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | VM-serien nästa generations brandvägg kan kunderna på ett säkert sätt migrera sina program och data till Azure Stack, skydda dem mot kända och okända hot med programmet lista över tillåtna och hot principer för dataförlustskydd. **Den här bilden kräver en mall för att distribuera; se den här [artikeln](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack) viktig information.**| Palo Alto Networks, Inc. |

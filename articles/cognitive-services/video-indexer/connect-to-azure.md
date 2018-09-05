@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 08/05/2018
 ms.author: juliako
-ms.openlocfilehash: 64a38ba617a1cc5fe1fdb3473e3cb88a49d89bb0
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: df9d3f40b28f5b030f3d7e7a63b1b3e77caedb6c
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42744758"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700825"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Skapa en Video Indexer-konto som är ansluten till Azure
 
@@ -52,7 +52,7 @@ Den här artikeln visar hur du skapar en Video Indexer-konto som är länkad til
 
 ## <a name="connect-to-azure"></a>Anslut till Azure
 
-1. Logga in med den användaren och klicka på den **Anslut till Azure** knappen:
+1. Logga in på [ https://www.videoindexer.ai/ ](https://www.videoindexer.ai/) och klicka på den **Anslut till Azure** knappen:
 
     ![Ansluta till Azure](./media/create-account/connect-to-azure.png)
 
@@ -69,9 +69,21 @@ Den här artikeln visar hur du skapar en Video Indexer-konto som är länkad til
     * Om du vill använda ett befintligt Media Services-konto, Välj **använda befintlig resurs**. Välj ditt konto från kontolistan över.
 
         Media Services-kontot måste ha samma region som din Video Indexer-konto. För att minimera indexering varaktighet och lågt dataflöde, justera typen och antalet Mediereserverade enheter för att **10 S3 Mediereserverade enheter** i Media Services-kontot.
-    * För att manuellt konfigurera anslutningen, klickar du på den **växla till manuell konfiguration** länka och ange nödvändig information:
+    * För att manuellt konfigurera anslutningen, klickar du på den **växla till manuell konfiguration**. 
+    
+        Du kanske vill manuellt konfigurera anslutningen, om du av någon anledning det automatiska alternativet som inte går att slutföra eller om din installation och konfiguration är annorlunda än i vanliga fall, eller om du vill ha full insyn och kontroll över inställningarna. 
+        
+        I den **ansluta Video Indexer till en Azure-prenumeration**, ange följande information.
 
-    ![ansluta Video Indexer till Azure](./media/create-account/connect-vi-to-azure-subscription-2.png)
+        |Inställning|Beskrivning|
+        |---|---|
+        |Region för video Indexer|Namnet på regionen Video Indexer-konto. För bättre prestanda och lägre kostnader rekommenderas att ange namnet på den region där Azure Media Services-resurs och Azure Storage-konto finns. |
+        |Azure Active Directory (AAD)-klient|Namnet på Azure AD-klient, till exempel ”contoso.onmicrosoft.com”. Klient-informationen kan hämtas från Azure-portalen. Placera markören över namnet på den inloggade användaren i övre högra hörnet.|
+        |Prenumerations-ID:t|Azure-prenumerationen som den här anslutningen ska skapas. Prenumerations-ID kan hämtas från Azure-portalen. Klicka på **alla tjänster** i den vänstra panelen och söka efter ”prenumerationer”. Välj, **prenumerationer** och välj önskad ID i listan med dina prenumerationer.|
+        |Azure-resursgrupp namn|Namnet på den nya resursgruppen där du vill skapa anslutningen.|
+        |Azure-resurs namn|Namnet på Azure Media Services-resursen.|
+        |Program-ID:t|Det program-ID för Azure AD med behörigheter för det angivna Media Services-kontot. Mer information finns i [Använd tjänstobjektautentisering](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
+        |Programnyckel|Mer information finns i [Använd tjänstobjektautentisering](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
 
 5. När du är klar väljer **Connect**. Den här åtgärden kan ta några minuter. 
 

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/7/2017
 ms.author: sngun
-ms.openlocfilehash: 2af77cacced7a6905c4ed7393569949b2eac1906
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 2548213cf5d7d5a0fa1b0f5d7cd49f677ffe3ca4
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859674"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700829"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Vanliga användningsområden för Azure Cosmos DB
 Den här artikeln innehåller en översikt över flera vanliga användningsområden för Azure Cosmos DB.  Rekommendationerna i den här artikeln fungerar som en startpunkt när du utvecklar ditt program med Cosmos DB.   
@@ -29,7 +29,7 @@ När du har läst den här artikeln kommer du att kunna besvara följande frågo
 ## <a name="introduction"></a>Introduktion
 [Azure Cosmos DB](../cosmos-db/introduction.md) är Microsofts globalt distribuerade databastjänst. Tjänsten är utformad att ge kunderna möjlighet att (skala Elastiskt och oberoende) dataflöde och lagring över valfritt antal geografiska regioner. Azure Cosmos DB är den första globalt distribuerade databastjänsten på marknaden idag som erbjuder omfattande [serviceavtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/) omfattar dataflöde, svarstider, tillgänglighet och konsekvens. 
 
-Azure Cosmos DB är en globalt distribuerad databas som används i en mängd olika program och användningsfall. Det är ett bra val för någon [serverlös](http://azure.com/serverless) program som behöver korta svarstider ordning millisekunder och behöver skalas globalt och snabbt. Det har stöd för flera datamodeller (nyckelvärde, dokument, diagram och kolumner) och många API: er för data kan komma åt, inklusive [MongoDB API](mongodb-introduction.md), [SQL API](documentdb-introduction.md), [Graph API (Gremlin)](graph-introduction.md), och [API: T Tables](table-introduction.md) internt och på ett utökningsbart sätt. 
+Azure Cosmos DB är en globalt distribuerad databas som används i en mängd olika program och användningsfall. Det är ett bra val för någon [serverlös](http://azure.com/serverless) program som behöver korta svarstider ordning millisekunder och behöver skalas globalt och snabbt. Det har stöd för flera datamodeller (nyckelvärde, dokument, diagram och kolumner) och många API: er för data kan komma åt, inklusive [MongoDB API](mongodb-introduction.md), [SQL API](documentdb-introduction.md), [Gremlin-API](graph-introduction.md), och [ Tabeller API](table-introduction.md) internt och på ett utökningsbart sätt. 
 
 Här följer några attribut för Azure Cosmos DB som gör att den passar bra för program med höga prestanda med globala ambitionsnivå.
 

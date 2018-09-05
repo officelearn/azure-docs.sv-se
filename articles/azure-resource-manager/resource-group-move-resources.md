@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/30/2018
+ms.date: 09/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 160e2a277c82470df7d9ced2899699dae8d4ef01
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 429a10988fdc19863cfd6809a8d73757d33349c9
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302136"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702322"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -122,7 +122,6 @@ Tjänster som gör det möjligt att flytta till en ny resursgrupp och en prenume
 * Azure Maps
 * Azure Relay
 * Azure Stack - registreringar
-* Azure Migrate
 * Batch
 * BizTalk Services
 * Robottjänst
@@ -141,7 +140,7 @@ Tjänster som gör det möjligt att flytta till en ny resursgrupp och en prenume
 * Event Grid
 * Event Hubs
 * HDInsight-kluster – Se [HDInsight begränsningar](#hdinsight-limitations)
-* IOT Central
+* IoT Central
 * IoT-hubbar
 * Key Vault
 * Belastningsutjämnare – Se [belastningsutjämnaren begränsningar](#lb-limitations)
@@ -188,6 +187,7 @@ De tjänster som för närvarande inte aktiverar en resurs flyttas är:
 * Azure Database for PostgreSQL
 * Azure Database Migration
 * Azure Databricks
+* Azure Migrate
 * Batch AI
 * Certifikat - App Service-certifikat kan flyttas, men uppladdade certifikat har [begränsningar](#app-service-limitations).
 * Container Instances
@@ -237,8 +237,6 @@ När du flyttar ett virtuellt nätverk, måste du även flytta beroende resurser
 Om du vill flytta en peer-kopplade virtuella nätverket måste du först inaktivera virtuell nätverkspeering. Du kan flytta det virtuella nätverket när inaktiverat. Återaktivera virtuell nätverkspeering efter överflyttningen.
 
 Du kan inte flytta ett virtuellt nätverk till en annan prenumeration om det virtuella nätverket innehåller ett undernät med resursnavigeringslänkar. Om en resurs för Redis Cache har distribuerats i ett undernät har till exempel en resursnavigeringslänken i det undernätet.
-
-Du kan inte flytta ett virtuellt nätverk till en annan prenumeration om det virtuella nätverket innehåller en anpassad DNS-server. Flytta det virtuella nätverket genom att ställa in den till standard (medföljer Azure) DNS-server. Konfigurera anpassade DNS-servern efter överflyttningen.
 
 ## <a name="app-service-limitations"></a>Begränsningar för App Service
 

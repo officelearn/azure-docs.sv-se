@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus pausa meddelandeentiteter | Microsoft Docs
-description: Inaktivera och återaktivera Azure Service Bus meddelandet entiteter.
+description: Inaktivera och återaktivera entiteter för Azure Service Bus-meddelande.
 services: service-bus-messaging
 documentationcenter: ''
 author: clemensv
@@ -12,40 +12,40 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
-ms.author: sethm
-ms.openlocfilehash: 1984b113f695107f8d4d80e5bbf25c7dc39d13f6
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: spelluru
+ms.openlocfilehash: 3e3c0fdf4133fa1f44a67f4f7e0df1995c0a23f0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28197034"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701984"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Inaktivera och återaktivera meddelandeentiteter (inaktivera)
 
-Köer, ämnen och prenumerationer kan vara tillfälligt. Upphävande placerar entiteten i ett inaktiverat tillstånd där alla meddelanden underhålls i lagringen. Dock meddelanden kan inte tas bort eller lagts till och åtgärderna för respektive protokollet ger fel.
+Köer, ämnen och prenumerationer kan vara tillfälligt. Inaktiveringen placerar entiteten i ett inaktiverat tillstånd där alla meddelanden underhålls i lagring. Dock meddelanden kan inte tas bort eller läggs till, och åtgärderna för respektive protokollet ger fel.
 
-Pausa en entitet normalt görs för brådskande administrativa skäl. Ett scenario är har distribuerat en felaktig mottagare som tar meddelanden från kön, misslyckas bearbetning, och ännu felaktigt Slutför meddelanden och tas bort. Om att problemet har diagnostiserats kön kan inaktiveras för tar emot förrän korrigerade koden har distribuerats och ytterligare dataförlust på grund av felaktiga koden kan förhindras.
+Pausa en entitet är normalt görs för brådskande administrativa skäl. Ett scenario är har distribuerat en felaktig mottagare som tar meddelanden från kö, misslyckas bearbetning, och ännu felaktigt har slutförts meddelanden och tas bort. Om som standard är diagnostiseras kön kan inaktiveras för tar emot tills korrigerad kod distribueras och ytterligare dataförlust på grund av den felaktiga koden kan förhindras.
 
-En upphävande eller återaktivering kan utföras av användaren eller av systemet. Systemet pausar endast entiteter på grund av allvarligt administrativa orsaker, till exempel prenumerationsgränsen utgiftsgräns. System-inaktiverad entiteter kan inte aktiveras igen av användaren, men återställs när orsaken till detta åtgärdats.
+En inaktivering eller återaktivering kan utföras av användaren eller av systemet. Systemet pausar endast entiteter på grund av allvarligt administrativa orsaker, till exempel nått utgiftsgränsen. System-inaktiverad entiteter kan inte aktiveras av användaren, men återställs när orsaken till inaktiveringen har utförts.
 
-I portalen på **egenskaper** avsnittet för respektive enhet kan ändra tillståndet; följande skärmbild visar växla för en kö:
+I portalen på **egenskaper** avsnittet för respektive entiteten kan ändra tillståndet; på skärmbilden nedan visar växlingsknappen för en kö:
 
 ![][1]
 
-Portalen tillåter endast inaktiveras fullständigt köer. Du kan också inaktivera skicka och ta emot åtgärder separat med hjälp av Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API: er i .NET Framework SDK eller med en Azure Resource Manager-mall med Azure CLI eller Azure PowerShell.
+Portalen tillåter endast inaktiveras fullständigt köer. Du kan också inaktivera skicka och ta emot åtgärder separat med hjälp av Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API: er i .NET Framework SDK eller med en Azure Resource Manager-mall via Azure CLI eller Azure PowerShell.
 
-## <a name="suspension-states"></a>Tillfälligt tillstånd
+## <a name="suspension-states"></a>Inaktiveringen tillstånd
 
-Tillstånd som kan anges för en kö är:
+Tillstånd som kan ställas in för en kö är:
 
 -   **Aktiva**: kön är aktiv.
--   **Inaktiverade**: kön har pausats.
+-   **Inaktiverad**: kön har pausats.
 -   **SendDisabled**: kön delvis pausas, med ta emot de tillåts.
--   **ReceiveDisabled**: kön delvis pausas, skicka de tillåts.
+-   **ReceiveDisabled**: kön delvis pausas, med skicka de tillåts.
 
-För prenumerationer och ämnen, endast **Active** och **inaktiverad** kan anges.
+För prenumerationer och ämnen, endast **Active** och **inaktiverad** kan ställas in.
 
-Den [EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) uppräkning definierar också en uppsättning övergående tillstånd som kan endast anges av systemet. PowerShell-kommando för att inaktivera en kö visas i följande exempel. Kommandot återaktivering är likvärdiga, `Status` till **Active**.
+Den [EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) uppräkning definierar också en uppsättning av övergående tillstånd som kan bara ställas in av systemet. PowerShell-kommando för att inaktivera en kö visas i följande exempel. Kommandot återaktivering är motsvarande inställningen `Status` till **Active**.
 
 ```powershell
 $q = Get-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue
@@ -57,7 +57,7 @@ Set-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName m
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill lära dig mer om Service Bus-meddelanden, finns i följande avsnitt:
+Om du vill veta mer om Service Bus-meddelanden, finns i följande avsnitt:
 
 * [Service Bus-grunder](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)

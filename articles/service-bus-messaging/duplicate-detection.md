@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus dubbla meddelanden identifiering | Microsoft Docs
-description: Hitta dubblerade Service Bus-meddelanden
+title: Azure Service Bus dubblettmeddelandet identifiering | Microsoft Docs
+description: Identifiera duplicerade Service Bus-meddelanden
 services: service-bus-messaging
 documentationcenter: ''
 author: clemensv
@@ -12,51 +12,51 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
-ms.author: sethm
-ms.openlocfilehash: efc5608d4812edbb3f477dffbc2b495b331bd787
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: spelluru
+ms.openlocfilehash: 7402fcf01078ea3934d1b6794a9190947fe339c2
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28198561"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696639"
 ---
-# <a name="duplicate-detection"></a>Identifiering av dubbletter
+# <a name="duplicate-detection"></a>Dubblettidentifiering
 
-Om ett program råkar ut för ett allvarligt fel omedelbart efter den skickar ett meddelande och startas om programinstansen tror felaktigt att den tidigare meddelandeleverans inte förekommer, gör att en efterföljande skicka samma meddelande visas två gånger i systemet.
+Om ett program råkar ut för ett allvarligt fel omedelbart efter att den skickar ett meddelande och startats om programinstansen tror felaktigt att den tidigare meddelandeleverans inte förekommer, att skicka efterföljande visas samma meddelande visas två gånger i systemet.
 
-Det är också möjligt för ett fel på klienten eller nätverket ska ske en kort stund tidigare och för ett meddelande som skickades till allokeras till kön med bekräftelsen gick inte att returneras till klienten. Det här scenariot lämnar klienten tveksam om resultatet av send-åtgärden.
+Det är också möjligt för ett fel på klienten eller nätverket ska ske ett ögonblick tidigare och för en skickade meddelandet gick inte att vara allokerad till kön med bekräftelsen returneras till klienten. Det här scenariot gör klienten osäker på hur resultatet av åtgärden Skicka.
 
-Identifiering av dubbletter tar osäker utanför dessa situationer genom att aktivera den avsändaren att skicka samma meddelande och kön eller avsnittet ignoreras eventuella dubbletter.
+Identifiering av dubbletter tar osäkra utanför dessa situationer genom att aktivera den avsändaren skicka samma meddelande och kön eller ämnet tar du bort alla dubbletter.
 
-Aktivera identifiering av dubbletter hjälper dig att hålla reda på program-kontrollerade *MessageId* av alla meddelanden som skickas till en kö eller ett ämne under ett angivet tidsintervall. Om några nya meddelande skickas med en *MessageId* som har redan loggats under tidsfönstret, meddelandet rapporteras som accepteras (send-åtgärden lyckas), men det nyligen skickade meddelandet ignoreras och tas bort omedelbart. Inga andra delar av meddelandet än den *MessageId* anses.
+När du aktiverar dubblettidentifiering hjälper dig att hålla reda på program-kontrollerade *MessageId* för alla meddelanden som skickas till en kö eller ämne under ett angivet tidsintervall. Om några nya meddelanden skickas som en *MessageId* som har redan loggats under tidsperioden, meddelandet har rapporterats som godkänt (skicka åtgärden lyckas), men det nyligen skickade meddelandet ignoreras och tas bort direkt. Inga andra delar av meddelandet än den *MessageId* betraktas.
 
-Programkontrollen av identifieraren är viktigt, eftersom endast som gör det möjligt för program att koppla den *MessageId* till en business process kontext där den förutsägbart rekonstrueras om ett fel uppstår.
+Programkontroll på identifieraren är avgörande, eftersom endast som tillåter programmet att koppla den *MessageId* till en business processen kontext som det förutsägbart rekonstrueras om ett fel uppstår.
 
-För en process där flera meddelanden skickas under hantering av vissa programkontexten den *MessageId* kan vara en kombination av programnivå kontext-ID, till exempel ett inköpsordernummer och ämne för meddelandet. till exempel **12345.2017/betalning**.
+För en affärsprocess som flera meddelanden skickas under hantering av vissa Programkontext den *MessageId* kan vara en kombination av programnivå kontext-ID, till exempel ett inköpsordernummer och ämne för meddelandet. till exempel **12345.2017/betalning**.
 
-Den *MessageId* kan alltid vissa GUID, men inställningen identifierare till business-processen ger förutsägbar repeterbarhet som behövs för att kunna utnyttja funktionen för dubblettidentifiering effektivt.
+Den *MessageId* alltid kan vara en GUID, men det inställningen identifierare som affärsprocessen ger förutsägbar repeterbarhet som önskas för att använda funktionen dubblettidentifiering effektivt.
 
 ## <a name="enable-duplicate-detection"></a>Aktivera dubblettidentifiering
 
-I portalen funktionen är aktiverad när entiteten skapas med den **aktivera dubblettidentifiering** kryssrutan som är inaktiverat som standard. Inställningen för att skapa nya avsnitt är likvärdiga.
+I portalen, funktionen är aktiverad när entitet skapas med den **aktivera dubblettidentifiering** kryssrutan som är inaktiverat som standard. Inställningen för att skapa nya ämnen är likvärdiga.
 
 ![][1]
 
-Anger programmässigt, flaggan med den [QueueDescription.requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) egenskapen på fullständig framework .NET-API. Med Azure Resource Manager API är värdet med den [queueProperties.requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) egenskapen.
+Programmässigt, du anger flaggan med den [QueueDescription.requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) egenskapen på fullständiga framework .NET API. Värdet anges med API: et för Azure Resource Manager med den [queueProperties.requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) egenskapen.
 
-Som standard den dubblettidentifiering historik över 30 sekunder för köer och ämnen, med ett maximalt värde för 7 dagar. Du kan ändra inställningen i fönstret kön, ämnet och egenskaper i Azure-portalen.
+Som standard den dubblettidentifiering historik över 30 sekunder för köer och ämnen med ett maxvärde på 7 dagar. Du kan ändra den här inställningen i egenskapsfönstret queue och topic i Azure-portalen.
 
 ![][2]
 
-Programmässigt, du kan konfigurera storleken på fönstret dubblettidentifiering då bevaras meddelande-ID, den [QueueDescription.DuplicateDetectionHistoryTimeWindow](/dotnet/api/microsoft.servicebus.messaging.queuedescription.duplicatedetectionhistorytimewindow#Microsoft_ServiceBus_Messaging_QueueDescription_DuplicateDetectionHistoryTimeWindow) egenskap med fullständig .NET Framework-API . Med Azure Resource Manager API är värdet med den [queueProperties.duplicateDetectionHistoryTimeWindow](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) egenskapen.
+Programmässigt, du kan konfigurera storleken på fönstret dubblettidentifiering meddelande-ID: n som finns kvar, med hjälp av den [QueueDescription.DuplicateDetectionHistoryTimeWindow](/dotnet/api/microsoft.servicebus.messaging.queuedescription.duplicatedetectionhistorytimewindow#Microsoft_ServiceBus_Messaging_QueueDescription_DuplicateDetectionHistoryTimeWindow) egenskap med det fullständiga .NET Framework-API . Värdet anges med API: et för Azure Resource Manager med den [queueProperties.duplicateDetectionHistoryTimeWindow](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) egenskapen.
 
-Observera att aktivera identifiering av dubbletter och storleken på fönstret direkt påverka kön (och avsnittet) dataflöde, eftersom alla inspelade meddelande-ID: n måste matchas mot nyligen skickade meddelandet identifierare.
+Observera att aktivera dubblettidentifiering och storleken på fönstret direkt påverkar dataflödet i kö (och avsnittet), eftersom alla inspelade meddelande-ID: n måste matchas mot den nyligen skickade meddelandeidentifieraren.
 
-Att hålla den fönstret små innebär att färre meddelande-ID: n måste vara kvar och matchade och dataflöde är påverkas mindre. För högt genomflöde entiteter som kräver identifiering av dubbletter, bör du behålla fönstret så mycket som möjligt.
+Att hålla den fönstret små innebär att färre meddelande-ID: n måste vara kvar och matchas och dataflöde är påverkas mindre. För stora dataflöden entiteter som kräver dubblettidentifiering, bör du behålla fönstret så mycket som möjligt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill lära dig mer om Service Bus-meddelanden, finns i följande avsnitt:
+Om du vill veta mer om Service Bus-meddelanden, finns i följande avsnitt:
 
 * [Service Bus-grunder](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)

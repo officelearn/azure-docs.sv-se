@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/10/2018
 ms.author: routlaw
-ms.openlocfilehash: d895258a4c8a38d00932d81600dc8633d7d70112
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: bbc1c3426b52e71db84a988b39a1d76ac24b6168
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42055582"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697019"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Utvecklarguide för Azure Functions Java
 
@@ -93,7 +93,7 @@ med motsvarande `function.json`:
 
 Azure Functions har stöd för användning av bibliotek från tredje part. Som standard alla beroenden som anges i ditt projekt `pom.xml` filen automatiskt ska ligga under den `mvn package` mål. För bibliotek som inte har angetts som beroenden i den `pom.xml` filen, placera dem i en `lib` katalogen i funktionens rotkatalog. Beroendena placeras i den `lib` directory kommer att läggas till klassinläsare system vid körning.
 
-## <a name="data-types"></a>Datatyper
+## <a name="data-type-support"></a>Stöd för datatypen
 
 Du kan använda alla datatyper i Java för inkommande och utgående data, inklusive inbyggda typer. anpassad Java-typer och specialiserade Azure typer som definieras i `azure-functions-java-library` paketet. I Azure Functions runtime försöker konvertera indata till i den typ som begärdes av din kod.
 
@@ -243,7 +243,7 @@ public class MyClass {
 
 Interagera med Azure Functions-körningsmiljö via den `ExecutionContext` objekt som definieras i den `azure-functions-java-library` paketet. Använd den `ExecutionContext` objekt som ska användas anrop information och functions runtime i din kod.
 
-### <a name="logging"></a>Loggning
+### <a name="custom-logging"></a>Anpassad loggning
 
 Åtkomst till Functions runtime loggaren är tillgänglig via den `ExecutionContext` objekt. Den här loggaren är knutna till Azure monitor och du kan ange flaggan varningar och fel påträffades under körning av funktion.
 
@@ -263,6 +263,29 @@ public class Function {
     }
 }
 ```
+
+## <a name="view-logs-and-trace"></a>Visa loggar och spårning
+
+Du kan använda Azure CLI för att stream Java som standard ut och felloggning samt andra programloggning. Först konfigurera funktionen programmet för att skriva programloggning med hjälp av Azure-CLI:
+
+```azurecli-interactive
+az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
+```
+
+Strömma loggning utdata för din funktionsapp med hjälp av Azure CLI, öppna en kommandotolk, Bash eller terminalsession och ange följande kommando:
+
+```azurecli-interactive
+az webapp log tail --name webappname --resource-group myResourceGroup
+```
+Den [az webapp log tail](/cli/azure/webapp/log) kommandot har alternativ för att filtrera utdata med den `--provider` alternativet. 
+
+Öppna en kommandotolk, Bash eller terminalsession för att hämta loggfilerna som en ZIP-fil med hjälp av Azure CLI, och ange följande kommando:
+
+```azurecli-interactive
+az webapp log download --resource-group resourcegroupname --name functionappname
+```
+
+Du måste ha aktiverat filsystemet loggning i Azure Portal eller Azure CLI innan du kör det här kommandot.
 
 ## <a name="environment-variables"></a>Miljövariabler
 
@@ -288,9 +311,12 @@ Var och en nyckel / värde-mappning i den `values` kartan ska göras tillgängli
 Med din kod nu beroende på dessa miljövariabler, kan du logga in på Azure portal för att ange samma nyckel / värde-par i din funktionsappinställningar så att din kod equivalently fungerar när du testar lokalt och när du har distribuerat på Azure.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information finns i följande resurser:
+
+Mer information om utveckling av Java för Azure-funktion finns i följande resurser:
 
 * [Metodtips för Azure Functions](functions-best-practices.md)
 * [Azure Functions, info för utvecklare](functions-reference.md)
 * [Azure Functions-utlösare och bindningar](functions-triggers-bindings.md)
+- Lokal utveckling och felsökning med [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md), och [Eclipse](functions-create-maven-eclipse.md). 
 * [Fjärrfelsök Java Azure Functions med Visual Studio Code](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
+* [Maven-pluginprogrammet för Azure Functions](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-functions-maven-plugin/README.md) -effektivisera funktionsskapande via den `azure-functions:add` mål och Förbered uppsamlingskatalogen för [ZIP-filen distribution](deployment-zip-push.md).

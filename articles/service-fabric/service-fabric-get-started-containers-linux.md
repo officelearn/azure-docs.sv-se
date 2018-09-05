@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: 259d876a958a348aeef70554390e48251b31a63d
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 133b0d483eb47a76ad2525a430b09b82259c118f
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42061119"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698255"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Skapa din första Service Fabric-containerapp i Linux
 > [!div class="op_single_selector"]
@@ -27,6 +27,9 @@ ms.locfileid: "42061119"
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
 Du behöver inga göra några ändringar i din app för att köra en befintlig app i en Linux-container i ett Service Fabric-kluster. Den här artikeln vägleder dig genom att skapa en Docker-avbildning som innehåller ett Python [Flask](http://flask.pocoo.org/)-program och distribuera den till ett Service Fabric-kluster. Du kan också dela programmet via [Azure Container-registret](/azure/container-registry/). Den här artikeln förutsätter att du har grundläggande kunskaper om Docker. Mer information om Docker finns i [Docker Overview](https://docs.docker.com/engine/understanding-docker/) (Översikt över Docker).
+
+> [!NOTE]
+> Den här artikeln gäller för en Linux-utvecklingsmiljö.  Körningstiden för Service Fabric-kluster och Docker-körning måste köras på samma OS.  Du kan inte köra Linux-behållare i ett Windows-kluster.
 
 ## <a name="prerequisites"></a>Förutsättningar
 * En utvecklingsdator som kör:
@@ -117,8 +120,7 @@ Kör programmet, vilket mappar port 4000 på datorn till containerns exponerade 
 docker run -d -p 4000:80 --name my-web-site helloworldapp
 ```
 
-
-  *name* namnger den container som körs (i stället för container-ID:t).
+*name* namnger den container som körs (i stället för container-ID:t).
 
 Anslut till den container som körs. Öppna en webbläsare med den IP-adress som returnerades på port 4000, till exempel "http://localhost:4000". Nu visas normalt rubriken "Hello World!" i webbläsaren.
 

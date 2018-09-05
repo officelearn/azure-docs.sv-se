@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/25/2018
 ms.author: saurse
-ms.openlocfilehash: e7a63167285c06fdfe632e7d45d9fddd3cca7842
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 2c8978cfba8fc56d4dbc565cb3a91c75d9d54679
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248530"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700203"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent-issues"></a>Felsöka problem med agentens för Microsoft Azure Recovery Services (MARS)
 ## <a name="recommended-steps"></a>Rekommenderade åtgärder
@@ -66,7 +66,10 @@ Utför följande steg när schemalagda säkerhetskopieringar hämta inte aktiver
 <li>Dubbelklicka på aktiviteten ”Microsoft-OnlineBackup” och gå till fliken ”utlösare”.
 <li>Kontrollera att statusen för aktiviteten är inställd på 'Enabled'. Om inte, klicka på ”Redigera” och markera kryssrutan 'Enabled'
 <li>Navigera till den *säkerhetsalternativ* delen av den *Allmänt* fliken
-<li>Se till att det användarkonto som valts för att köra uppgiften är antingen *SYSTEM* eller gruppen lokala administratörer på servern > [!TIP] rekommenderar vi att du startar om servern när du har utfört stegen ovan för att säkerställa att ändringar gjort tillämpas konsekvent
+<li>Se till att det användarkonto som valts för att köra uppgiften är antingen *SYSTEM* eller gruppen lokala administratörer på servern
+
+> [!TIP]
+> Det rekommenderas att starta om servern när du har utfört stegen ovan för att se till att ändringarna tillämpas konsekvent
 
 
 ## <a name="troubleshooting-restore-issues"></a>Felsökning av problem med återställning

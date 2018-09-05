@@ -1,9 +1,9 @@
 ---
-title: SQLRuleAction syntax referens i Azure | Microsoft Docs
+title: SQLRuleAction-syntaxreferens i Azure | Microsoft Docs
 description: Information om SQLRuleAction grammatik.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/05/2018
-ms.author: sethm
-ms.openlocfilehash: 9ac9a2968adfdd8e1fb229ad744bc99914cdcd08
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: spelluru
+ms.openlocfilehash: 01833a51425f6a02c5ed781f4b10b22dc292f45d
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29125827"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696405"
 ---
-# <a name="sqlruleaction-syntax"></a>SQLRuleAction syntax
+# <a name="sqlruleaction-syntax"></a>SQLRuleAction-syntax
 
-En *SqlRuleAction* är en instans av den [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) klass och representerar uppsättning åtgärder på SQL-språk baserat syntax som utförs mot en [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
+En *SqlRuleAction* är en instans av den [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) klass och representerar uppsättning åtgärder som är skrivna på SQL-språk-baserad syntax som utförs mot en [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
   
 Den här artikeln innehåller information om SQL-grammatik regeln åtgärd.  
   
@@ -65,13 +65,13 @@ Den här artikeln innehåller information om SQL-grammatik regeln åtgärd.
   
 ## <a name="arguments"></a>Argument  
   
--   `<scope>`är en valfri sträng som anger omfånget för den `<property_name>`. Giltiga värden är `sys` eller `user`. Den `sys` värdet anger scope för system där `<property_name>` är en offentlig egenskapsnamnet på den [BrokeredMessage klassen](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`Anger användarens scope där `<property_name>` är en nyckel för den [BrokeredMessage klassen](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) ordlistan. `user`omfånget är standardvärde om `<scope>` har inte angetts.  
+-   `<scope>` är en valfri sträng som anger omfattningen för den `<property_name>`. Giltiga värden är `sys` eller `user`. Den `sys` värdet anger system omfång där `<property_name>` är en offentlig egenskapsnamnet på den [BrokeredMessage klass](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` Anger användaromfattning där `<property_name>` är en nyckel för den [BrokeredMessage klass](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) ordlista. `user` omfånget är standardvärde om `<scope>` har inte angetts.  
   
 ### <a name="remarks"></a>Kommentarer  
 
-Ett försök att komma åt en obefintlig Systemegenskapen är ett fel när ett försök att komma åt en obefintlig egenskap inte är ett fel. I stället utvärderas en obefintlig användaregenskap internt som ett okänt värde. Ett okänt värde behandlas särskilt under utvärdering av operatorn.  
+Ett försök att komma åt en icke-existerande systemegenskap är ett fel när ett försök att komma åt en icke-existerande användaregenskap inte är ett fel. I stället utvärderas en egenskap för icke-existerande internt som ett okänt värde. Ett okänt värde behandlas särskilt under operatorn utvärdering.  
   
-## <a name="propertyname"></a>property_name  
+## <a name="propertyname"></a>%{Property_Name/  
   
 ```  
 <property_name> ::=  
@@ -84,7 +84,7 @@ Ett försök att komma åt en obefintlig Systemegenskapen är ett fel när ett f
 ```  
   
 ### <a name="arguments"></a>Argument  
- `<regular_identifier>`en sträng som representeras av följande reguljära uttryck:  
+ `<regular_identifier>` är en sträng som representeras av följande reguljära uttryck:  
   
 ```  
 [[:IsLetter:]][_[:IsLetter:][:IsDigit:]]*  
@@ -92,13 +92,13 @@ Ett försök att komma åt en obefintlig Systemegenskapen är ett fel när ett f
   
  Det innebär att alla strängar som börjar med en bokstav och följs av en eller flera understreck/bokstav/siffra.  
   
- `[:IsLetter:]`innebär att alla Unicode-tecken som är kategoriserade som ett Unicode-tecken. `System.Char.IsLetter(c)`Returnerar `true` om `c` är ett Unicode-tecken.  
+ `[:IsLetter:]` innebär att alla Unicode-tecken som kategoriseras som en Unicode-bokstav. `System.Char.IsLetter(c)` Returnerar `true` om `c` är en Unicode-bokstav.  
   
- `[:IsDigit:]`innebär att alla Unicode-tecken som är kategoriserade som en siffra. `System.Char.IsDigit(c)`Returnerar `true` om `c` är en Unicode-siffra.  
+ `[:IsDigit:]` innebär att alla Unicode-tecken som kategoriseras som en hexadecimal siffra. `System.Char.IsDigit(c)` Returnerar `true` om `c` är en Unicode-siffra.  
   
  En `<regular_identifier>` får inte vara ett reserverat nyckelord.  
   
- `<delimited_identifier>`är en sträng som medföljde åt vänster och höger hakparentes ([]). Höger hakparentes representeras som två höger hakparentes. Följande är exempel på `<delimited_identifier>`:  
+ `<delimited_identifier>` är en sträng som omges av hakparenteser ([]) för åt vänster och höger. Höger hakparentes representeras av två rätt hakparenteser. Följande är exempel på `<delimited_identifier>`:  
   
 ```  
 [Property With Space]  
@@ -106,7 +106,7 @@ Ett försök att komma åt en obefintlig Systemegenskapen är ett fel när ett f
   
 ```  
   
- `<quoted_identifier>`är en sträng som omges av dubbla citattecken. Ett dubbelt citattecken i identifierare representeras av dubbla citattecken. Det rekommenderas inte att använda identifierare inom citattecken eftersom den enkelt kan förväxlas med en strängkonstant. Använd om möjligt en avgränsad identifierare. Följande är ett exempel på `<quoted_identifier>`:  
+ `<quoted_identifier>` är valfri sträng som omges av dubbla citattecken. Ett dubbelt citattecken i identifierare representeras av två dubbla citattecken. Du bör inte använda identifierare eftersom den enkelt kan blandas ihop med en strängkonstant. Använd om möjligt en avgränsad identifierare. Följande är ett exempel på `<quoted_identifier>`:  
   
 ```  
 "Contoso & Northwind"  
@@ -121,11 +121,11 @@ Ett försök att komma åt en obefintlig Systemegenskapen är ett fel när ett f
   
 ### <a name="remarks"></a>Kommentarer
   
- `<pattern>`måste vara ett uttryck som utvärderas som en sträng. Den används som ett mönster för operatorn.      Det kan innehålla följande jokertecken:  
+ `<pattern>` måste vara ett uttryck som utvärderas som en sträng. Den används som ett mönster för operatorn.      Den kan innehålla följande jokertecken:  
   
 -   `%`: En sträng med noll eller flera tecken.  
   
--   `_`: Ett valfritt tecken.  
+-   `_`: Ett enskilt tecken.  
   
 ## <a name="escapechar"></a>escape_char  
   
@@ -136,7 +136,7 @@ Ett försök att komma åt en obefintlig Systemegenskapen är ett fel när ett f
   
 ### <a name="remarks"></a>Kommentarer
   
- `<escape_char>`måste vara ett uttryck som utvärderas som en sträng med längden 1. Den används som escape-tecken för LIKE-operator.  
+ `<escape_char>` måste vara ett uttryck som utvärderas som en sträng med längden 1. Den används som escape-tecken för operatorn.  
   
  Till exempel `property LIKE 'ABC\%' ESCAPE '\'` matchar `ABC%` i stället för en sträng som börjar med `ABC`.  
   
@@ -149,27 +149,27 @@ Ett försök att komma åt en obefintlig Systemegenskapen är ett fel när ett f
   
 ### <a name="arguments"></a>Argument  
   
--   `<integer_constant>`är en sträng som inte är inom citattecken och inte innehåller decimaltecken. Värdena lagras som `System.Int64` internt, och följ samma intervall.  
+-   `<integer_constant>` är en sträng som inte är inom citattecken och inte innehålla punkter. Värdena lagras som `System.Int64` internt, och följer samma intervall.  
   
-     Följande är exempel på lång konstanter:  
+     Här följer några exempel på lång konstanter:  
   
     ```  
     1894  
     2  
     ```  
   
--   `<decimal_constant>`är en sträng som inte är inom citattecken och innehåller ett decimaltecken. Värdena lagras som `System.Double` internt, och följ samma intervall/precision.  
+-   `<decimal_constant>` är en sträng med tal som inte är inom citattecken och innehåller ett decimaltecken. Värdena lagras som `System.Double` internt, och följer samma intervall/precisionen.  
   
-     I en framtida version siffran kan lagras i en annan datatyp för att stödja exakta antalet semantik, så du inte bör lita på faktumet den underliggande-datatypen är `System.Double` för `<decimal_constant>`.  
+     I en framtida version numret kan lagras i en annan datatyp för exakta numeriska semantik, så du inte bör förlita dig på faktumet den underliggande-datatypen är `System.Double` för `<decimal_constant>`.  
   
-     Följande är exempel på decimal konstanter:  
+     Här följer några exempel på decimal konstanter:  
   
     ```  
     1894.1204  
     2.0  
     ```  
   
--   `<approximate_number_constant>`är ett antal skrivna i matematisk notation. Värdena lagras som `System.Double` internt, och följ samma intervall/precision. Följande är exempel på ungefärliga numeriska konstanter:  
+-   `<approximate_number_constant>` är ett antal skriftliga i matematisk notation. Värdena lagras som `System.Double` internt, och följer samma intervall/precisionen. Här följer några exempel på ungefärliga numeriska konstanter:  
   
     ```  
     101.5E5  
@@ -185,7 +185,7 @@ Ett försök att komma åt en obefintlig Systemegenskapen är ett fel när ett f
   
 ### <a name="remarks"></a>Kommentarer
   
-Booleska konstanter som representeras av nyckelorden `TRUE` eller `FALSE`. Värdena lagras som `System.Boolean`.  
+Booleska konstanter representeras av nyckelord `TRUE` eller `FALSE`. Värdena lagras som `System.Boolean`.  
   
 ## <a name="stringconstant"></a>string_constant  
   
@@ -195,7 +195,7 @@ Booleska konstanter som representeras av nyckelorden `TRUE` eller `FALSE`. Värd
   
 ### <a name="remarks"></a>Kommentarer
   
-Strängkonstanter omges av enkla citattecken och inkludera alla giltiga Unicode-tecken. Ett enkelt citattecken inbäddat i en strängkonstant representeras som två enkla citattecken.  
+Strängkonstanter är inom enkla citattecken och innehåller giltig Unicode-tecken. Ett enkelt citattecken inbäddad i en strängkonstant representeras som två enkla citattecken.  
   
 ## <a name="function"></a>funktion  
   
@@ -207,18 +207,18 @@ Strängkonstanter omges av enkla citattecken och inkludera alla giltiga Unicode-
   
 ### <a name="remarks"></a>Kommentarer  
 
-Den `newid()` fungerar returnerar en **System.Guid** genereras av den `System.Guid.NewGuid()` metoden.  
+Den `newid()` returnerar en **System.Guid** genereras av den `System.Guid.NewGuid()` metoden.  
   
 Den `property(name)` funktionen returnerar värdet på egenskapen som refereras av `name`. Den `name` värdet kan vara ett uttryck som returnerar ett strängvärde.  
   
 ## <a name="considerations"></a>Överväganden
 
-- UPPSÄTTNINGEN används för att skapa en ny egenskap eller uppdatera värdet för en befintlig egenskap.
+- Ställ in används för att skapa en ny egenskap eller uppdatera värdet för en befintlig egenskap.
 - Ta bort används för att ta bort en egenskap.
-- Ange utför implicit konvertering om möjligt när uttryckstypen och befintliga egenskapstypen är olika.
-- Åtgärden misslyckas om obefintlig Systemegenskaper har referenser till.
-- Åtgärden misslyckas inte om ej existerande användaregenskaper har referenser till.
-- En egenskap för obefintlig utvärderas som ”okänt” internt, följa samma semantik som [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) vid utvärdering av operatörer.
+- SET utför implicit konvertering om möjligt när uttryckstyp och befintliga egenskapstypen är olika.
+- Åtgärden misslyckas om icke-existerande Systemegenskaper refererade.
+- Åtgärden misslyckas inte om icke-existerande användaregenskaper refererade.
+- En icke-existerande användaregenskap utvärderas som ”okänt” internt, följa samma semantik som [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) vid utvärdering av operatörer.
 
 ## <a name="next-steps"></a>Nästa steg
 

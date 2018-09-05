@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 7ca0e8eb2d496bdcd8eff7dbee2af2e549f123dd
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 988c264ef6052b4b41de493944ac8d39a197a083
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626863"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698765"
 ---
 # <a name="data-management-gateway"></a>Gateway för datahantering
 > [!NOTE]
@@ -142,7 +142,7 @@ På nivån för företagets brandvägg måste du konfigurera följande domäner 
 
 | Domännamn | Portar | Beskrivning |
 | --- | --- | --- |
-| *.servicebus.windows.net |443, 80 |Används för kommunikation med Data Movement Service-serverdelen |
+| *.servicebus.windows.net |443 |Används för kommunikation med Data Movement Service-serverdelen |
 | *.core.windows.net |443 |Används för mellanlagrad kopiering med hjälp av Azure Blob (om konfigurerad)|
 | *.frontend.clouddatahub.net |443 |Används för kommunikation med Data Movement Service-serverdelen |
 | *.servicebus.windows.net |9350-9354, 5671 |Valfri service bus-relä via TCP som används av guiden Kopiera |
@@ -249,7 +249,7 @@ Om du använder en brandvägg från tredje part, kan du öppna port 8050 manuell
 
 Om du inte väljer att öppna port 8050 på gateway-datorn, använda metoder än med hjälp av den **ange autentiseringsuppgifter** program för att konfigurera autentiseringsuppgifter för datalagring. Du kan till exempel använda [New AzureRmDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) PowerShell-cmdlet. Se [ange autentiseringsuppgifter och säkerhet](#set-credentials-and-securityy) avsnittet om hur data lagra autentiseringsuppgifter kan ställas in.
 
-## <a name="update"></a>Uppdatera
+## <a name="update"></a>Uppdatering
 Som standard uppdateras data management gateway automatiskt när en nyare version av gatewayen är tillgänglig. Gatewayen uppdateras inte förrän alla schemalagda uppgifter är klar. Inga ytterligare aktiviteter bearbetas av gatewayen tills uppdateringen har slutförts. Om uppdateringen misslyckas återställs gateway till den gamla versionen.
 
 Du kan se den schemalagda uppdateringstiden på följande platser:
@@ -260,7 +260,7 @@ Du kan se den schemalagda uppdateringstiden på följande platser:
 
 Fliken Start av Data Management Gateway Configuration Manager visar schema för uppdatering och den senaste gången gatewayen har installerats/uppdateras.
 
-![Schemalägg uppdateringar](media/data-factory-data-management-gateway/UpdateSection.png)
+![Schemauppdateringar](media/data-factory-data-management-gateway/UpdateSection.png)
 
 Du kan installera uppdateringen direkt eller vänta tills gateway uppdateras automatiskt vid den schemalagda tiden. Följande bild visar exempelvis meddelandet som visas i Gateway Configuration Manager tillsammans med knappen Uppdatera som du kan klicka på för att installera den direkt.
 
@@ -362,7 +362,7 @@ Följande tabell innehåller beskrivningar av kolumner i den **Gateway-noder** l
 
 Övervakning av egenskap | Beskrivning
 :------------------ | :---------- 
-namn | Namnet på logisk gateway och noder som är associerade med gatewayen. Noden är en lokal Windows-dator som gatewayen har installerats på den. Information om att ha fler än en nod (upp till fyra noder) i en enda logisk gateway finns i [Data Management Gateway - hög tillgänglighet och skalbarhet](data-factory-data-management-gateway-high-availability-scalability.md).    
+Namn | Namnet på logisk gateway och noder som är associerade med gatewayen. Noden är en lokal Windows-dator som gatewayen har installerats på den. Information om att ha fler än en nod (upp till fyra noder) i en enda logisk gateway finns i [Data Management Gateway - hög tillgänglighet och skalbarhet](data-factory-data-management-gateway-high-availability-scalability.md).    
 Status | Status för logisk gateway och gateway-noderna. Exempel: Online/Offline/Limited/osv. Läs om hur dessa statusar [gatewaystatus](#gateway-status) avsnittet. 
 Version | Visar vilken version av logiska gatewayen och varje gateway-noden. Version av den logiska gatewayen bestäms baserat på version av merparten av noder i gruppen. Om det finns noder med olika versioner i logisk gateway-installationen endast noder med samma versionsnummer som funktionen logisk gateway korrekt. Andra är i begränsat läge och måste uppdateras manuellt (endast om automatisk uppdatering misslyckas). 
 Ledigt minne | Tillgängligt minne på en gateway-noden. Det här värdet är en nästan i realtid ögonblicksbild. 

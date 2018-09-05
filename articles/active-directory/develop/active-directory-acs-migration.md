@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 11/14/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
-ms.openlocfilehash: 803dd69aed91f6e33c354d01d3f5419597d98de9
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 41c7de3039634f262efedc1bb3de1b39dda4593a
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115892"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698068"
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Migrera från Azure Access Control service
 
@@ -106,7 +106,7 @@ SharePoint 2013, 2016 och SharePoint Online-kunder har länge använt ACS för a
 
 | Funktion | Riktlinjer |
 | ------- | -------- |
-| Autentisera användare från Azure AD | Tidigare Azure AD har stöd inte för SAML 1.1-tokens som krävs för SharePoint för autentisering och ACS användes som en mellanhand som gjort SharePoint-kompatibelt med Azure AD-token formaterar. Nu kan du [ansluta SharePoint direkt till Azure AD med hjälp av token utgivningsprinciper](https://docs.microsoft.com/Office365/Enterprise/using-azure-ad-for-sharepoint-server-authentication). |
+| Autentisera användare från Azure AD | Tidigare Azure AD har stöd inte för SAML 1.1-tokens som krävs för SharePoint för autentisering och ACS användes som en mellanhand som gjort SharePoint-kompatibelt med Azure AD-token formaterar. Nu kan du [ansluta SharePoint direkt till Azure AD med Azure AD-Appgalleriet SharePoint på lokala app](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
 | [Appautentisering & server-till-server-autentisering i SharePoint on-premises](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Inte påverkas av ACS tillbakadragande; Inga ändringar som behövs. | 
 | [Låg förtroende auktorisering för SharePoint-tillägg (värd-providern och SharePoint som värd)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Inte påverkas av ACS tillbakadragande; Inga ändringar som behövs. |
 | [SharePoint cloud hybrid search](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Inte påverkas av ACS tillbakadragande; Inga ändringar som behövs. |

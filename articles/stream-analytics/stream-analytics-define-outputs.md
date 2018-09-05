@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 37edf60ed0b63b4ff97094a496a08a592cb46fc0
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 4fd85135ea16a5183b1b0d5220d1c160044e8841
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715428"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701022"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 Den här artikeln beskrivs de olika typerna av utdata som är tillgängliga för Azure Stream Analytics-jobb. Utdata kan du lagra och spara resultatet av Stream Analytics-jobb. Med utdata kan du göra ytterligare affärsanalys och datalager för dina data. 
@@ -58,7 +58,7 @@ Azure Data Lake Store-utdata från Stream Analytics är för närvarande inte ti
 ### <a name="renew-data-lake-store-authorization"></a>Förnya auktoriseringen för Data Lake Store
 Du måste autentiseras på nytt Data Lake Store-konto om lösenordet har ändrats sedan jobbet skapades eller senast autentiserade. Om du inte återautentisera jobbet producerar inte utdata resultatet och visar ett felmeddelande om att behovet av omauktorisering i loggarna för åtgärden. För närvarande finns en begränsning där autentiseringstoken behöver uppdateras manuellt efter 90 dagar för alla jobb med Data Lake Store-utdata. 
 
-Förnya auktorisering, **stoppa** jobbet > Gå till ditt Data Lake Store-utdata > klickar du på den **förnya auktoriseringen** länka och under en kort tid en sida kommer att visas som anger **omdirigering till auktorisering... **. Sidan stängs automatiskt och om det lyckas anger **auktoriseringen har förnyats**. Du måste sedan klicka på **spara** längst ned på sidan och kan gå vidare genom att starta om jobbet från den **senast stoppad** att undvika dataförlust.
+Förnya auktorisering, **stoppa** jobbet > Gå till ditt Data Lake Store-utdata > klickar du på den **förnya auktoriseringen** länka och under en kort tid en sida kommer att visas som anger **omdirigering till auktorisering...** . Sidan stängs automatiskt och om det lyckas anger **auktoriseringen har förnyats**. Du måste sedan klicka på **spara** längst ned på sidan och kan gå vidare genom att starta om jobbet från den **senast stoppad** att undvika dataförlust.
 
 ![Auktorisera Data Lake Store](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 

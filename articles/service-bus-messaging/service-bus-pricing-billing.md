@@ -3,7 +3,7 @@ title: Service Bus priser och fakturering | Microsoft Docs
 description: Översikt över Service Bus prissättningsstruktur.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 7c45b112-e911-45ab-9203-a2e5abccd6e0
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
-ms.author: sethm
-ms.openlocfilehash: 4faf37394b8e4f6c4e463acb11aea898a29fef80
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.author: spelluru
+ms.openlocfilehash: 9f899afef175afa2509dc60e0920dc387f8a7c5e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448415"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702569"
 ---
 # <a name="service-bus-pricing-and-billing"></a>Service Bus priser och fakturering
 
@@ -37,7 +37,7 @@ Service Bus använder följande taxor för 2 för köer och ämnen/prenumeration
 
 Den **Standard** nivån introducerar graderad priserna för åtgärder som utförs med köer och ämnen/prenumerationer, vilket resulterar i volymbaserad rabatter på upp till 80% på högsta användning nivåer. Det finns också en Standard-nivån basavgift på $10 per månad, där du kan utföra upp till 12,5 miljoner åtgärder per månad utan extra kostnad.
 
-Den **Premium** nivån ger resursisolering på processor-och minne så att varje kunds arbetsbelastning körs i isolering. Den här resursbehållaren kallas för en *meddelandefunktionsenhet*. Varje Premium-namnområde allokeras minst en meddelandefunktionsenhet. Du kan köpa 1, 2 eller 4 meddelandefunktionsenheter för varje Service Bus Premium-namnområde. En enda arbetsbelastning eller enhet kan spänna över flera meddelandefunktionsenheter, och antalet meddelandefunktionsenheter kan ändras när du vill, även om faktureringen är per 24 timmar eller daglig taxa. Resultatet är förutsägbara och repeterbara prestanda för Service Bus-lösningen. Prestanda är inte bara mer förutsägbara och tillgängliga, utan de är snabbare också.
+Den **Premium** nivån ger resursisolering på processor-och minne så att varje kunds arbetsbelastning körs i isolering. Den här resurscontainern kallas för en *meddelandefunktionsenhet*. Varje Premium-namnområde allokeras minst en meddelandefunktionsenhet. Du kan köpa 1, 2 eller 4 meddelandefunktionsenheter för varje Service Bus Premium-namnområde. En enda arbetsbelastning eller enhet kan spänna över flera meddelandefunktionsenheter, och antalet meddelandefunktionsenheter kan ändras när du vill, även om faktureringen är per 24 timmar eller daglig taxa. Resultatet är förutsägbara och repeterbara prestanda för Service Bus-lösningen. Prestanda är inte bara mer förutsägbara och tillgängliga, utan de är snabbare också.
 
 > [!NOTE]
 > Ämnen och prenumerationer är bara tillgängliga i Standard- eller Premium-prisnivåerna; Basic-nivån stöder endast köer.

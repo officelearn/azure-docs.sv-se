@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 426d7b15cd4a98d958ed02329f40becdfb177ceb
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: ea4d33b569ae0932d6091869c4825cf2b5e69664
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259287"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697721"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Komma igång med Azure Stream Analytics för bearbetning av data från IoT-enheter
 I den här självstudiekursen lär du dig hur du skapar logiken för bearbetning av dataströmmar för datainsamling från IoT-enheter (Internet of Things). Vi använder verkliga IoT-användningsfall (Internet of Things) för att demonstrera hur du snabbt och billigt kan skapa din lösning.
@@ -87,7 +87,7 @@ Den enklaste typen av fråga är en anslutningsfråga som arkiverar alla indata 
     ![Testresultat](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
 
 ### <a name="query-filter-the-data-based-on-a-condition"></a>Fråga: Filtrera dina data baserat på ett villkor
-Nu ska vi prova att filtrera resultatet baserat på ett villkor. Vi vill bara visa resultat för de händelser som kommer från ”SensorA.” Frågan finns i filen Filtering.txt.
+Nu ska vi prova att filtrera resultatet baserat på ett villkor. Vi vill visa resultat för de händelser som kommer från ”sensorA”. Frågan finns i filen Filtering.txt.
 
 ![Filtrera en dataström](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-08.png)
 

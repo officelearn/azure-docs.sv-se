@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 61ee84ccfccfa49ff2e106e7036d072c1b21ca03
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 4da97d708f8db2dcee406645a0eee409fa111012
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34652550"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696810"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Skala Azure Stream Analytics-jobb för att öka dataflödet
 Den här artikeln visar hur du ställer in en Stream Analytics-fråga för att öka dataflödet för Streaming Analytics-jobb. Du kan använda följande guide för att skala dina jobb för att hantera högre belastning och dra nytta av mer systemresurser (till exempel mer bandbredd, mer CPU-resurser, mer minne).
@@ -70,7 +70,7 @@ För vissa ISV användarfall, där det är mer kostnadseffektivt att bearbeta da
 2.  Minska antalet partitioner som indata till det lägsta värdet 2 om du använder Event Hub.
 3.  Kör frågan med 6 SU. Med förväntade belastningen för varje underfråga att lägga till så många underfrågor som möjligt, tills jobbet belastas systemet resursbegränsningar. Referera till [fall 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions) efter problem när det händer.
 4.  När du nått gränsen för underfråga som mäts ovan, kan du börja lägga till underfrågan till ett nytt projekt. Antalet jobb som ska köras som en funktion av antalet oberoende frågor ska vara ganska linjär, förutsatt att du inte har all belastning skeva. Du kan sedan beräkna hur många 6 SU-jobb måste du köra som en funktion av hur många klienter som du vill hantera.
-5.  När du använder referens data join med sådana frågor, bör du union indata tillsammans, innan du kan ansluta med samma referensdata sedan dela upp händelser om det behövs. Annars behåller varje referens data join en kopia av referensdata i minnet, sannolikt blowing upp minnesanvändningen onödan.
+5.  När du använder referens data join med sådana frågor, union tillsammans innan du kan ansluta med samma indata refererar till data. Dela sedan bort händelser om det behövs. Annars behåller varje referens data join en kopia av referensdata i minnet, sannolikt blowing upp minnesanvändningen onödan.
 
 > [!Note] 
 > Hur många klienter ska placeras i varje jobb?

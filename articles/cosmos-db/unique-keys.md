@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: rafats
-ms.openlocfilehash: 796971ff541b62a22a70df4022ab78817e7158e9
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 5811cb1e08ed5d02038da2a4460ae4b63580833b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003325"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696147"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Unika nycklar i Azure Cosmos DB
 
 Unika nycklar ger utvecklarna möjlighet att lägga till ett lager med dataintegritet till sin databas. Genom att skapa en unik nyckel princip när en behållare har skapats kan du se till att en eller flera värden för varje unikt [partitionsnyckel](partition-data.md). När du har skapat en behållare med en unik nyckel princip förhindrar skapande av alla nya eller uppdaterade objekt med värden att duplicerade värden som anges av det unika nyckelvillkoret.   
 
 > [!NOTE]
-> Unika nycklar stöds av de senaste versionerna av den [.NET](sql-api-sdk-dotnet.md) och [.NET Core](sql-api-sdk-dotnet-core.md) SQL SDK: er, och [MongoDB API](mongodb-feature-support.md#unique-indexes). Tabell-API och Graph API stöder inte unika nycklar just nu. 
+> Unika nycklar stöds av de senaste versionerna av den [.NET](sql-api-sdk-dotnet.md) och [.NET Core](sql-api-sdk-dotnet-core.md) SQL SDK: er, och [MongoDB API](mongodb-feature-support.md#unique-indexes). Tabell-API och Gremlin API stöder inte unika nycklar just nu. 
 > 
 >
 

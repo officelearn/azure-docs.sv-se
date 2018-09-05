@@ -1,5 +1,5 @@
 ---
-title: Datakällor stöds - kognitiva Microsoft-tjänster | Microsoft Docs
+title: Datakällor som stöds – Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: Datakällor som stöds
 services: cognitive-services
@@ -10,69 +10,69 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 04/21/2018
 ms.author: saneppal
-ms.openlocfilehash: b888846056fd60f37cdb1da85904fa14ffe79a39
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 698f96b15a9387cd30d26e684ed03ff4cc3346a7
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354102"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697908"
 ---
 # <a name="data-sources"></a>Datakällor 
-Frågor och svar om Maker extraherar automatiskt frågor svar par från vanliga halvstrukturerade innehåll format, till exempel vanliga frågor och produkthandböcker. Innehållet kan också läggas till i kunskapsbasen från strukturerade filer.
+QnA Maker extrahera automatiskt frågor svar par från vanliga halvstrukturerade innehåll format, till exempel vanliga frågor och svar och produkthandböcker. Innehållet kan också läggas till i knowledge base från strukturerade filer.
 
-## <a name="plain-faq-pages"></a>Vanlig FAQ-sidor
-Det här är den vanligaste typen av sida med vanliga frågor, där svaren följa omedelbart efter frågor på samma sida. 
+## <a name="plain-faq-pages"></a>Vanlig vanliga frågor och svar-sidor
+Det här är den vanligaste typen av FAQ-sida, som svar direkt efter frågor på samma sida. 
 
-![Enkel sida med vanliga frågor](../media/qnamaker-concepts-datasources/plain-faq.png) 
+![Vanlig FAQ-sida](../media/qnamaker-concepts-datasources/plain-faq.png) 
 
  
 
 ## <a name="faq-pages-with-section-links"></a>Vanliga frågor och svar sidor med avsnittet länkar 
-Frågor aggregeras tillsammans i den här typen av sida med vanliga frågor och är kopplade till svar som finns i olika avsnitt på samma sida.
+I den här typen av FAQ-sida kan frågor räknas samman tillsammans och har kopplats till svar som finns i olika avsnitt på samma sida.
 
- ![Sida med avsnittet länken vanliga frågor](../media/qnamaker-concepts-datasources/sectionlink-faq.png) 
+ ![Avsnittet länk FAQ-sida](../media/qnamaker-concepts-datasources/sectionlink-faq.png) 
 
 
 ## <a name="faq-pages-with-links-to-different-pages"></a>Vanliga frågor och svar sidor med länkar till olika sidor 
-Den här typen av sida med vanliga frågor liknar en avsnittet länkade vanliga frågor och svar sida, förutom att länkarna omdirigera till en annan sida. Frågor och svar om Maker crawlar länkade sidor för att extrahera motsvarande svar.
+Den här typen av FAQ-sida liknar en länkad avsnittet vanliga frågor och svar sida, förutom att länkarna omdirigera till en annan sida. QnA Maker crawlar alla länkade sidor för att extrahera motsvarande svaren.
 
- ![Sidan djuplänk vanliga frågor och svar](../media/qnamaker-concepts-datasources/deeplink-faq.png) 
+ ![Sidan för djuplänk vanliga frågor och svar](../media/qnamaker-concepts-datasources/deeplink-faq.png) 
 
 
 ## <a name="product-manuals"></a>Produkthandböcker
 
-En manuell är vanligtvis anvisningar som medföljer en produkt. Det hjälper användare att konfigurera, använda, underhålla och felsöka produkten. När frågor och svar om Maker bearbetar en manuell, extraheras rubriker och nummer som frågor och efterföljande innehållet som svar. Se ett exempel [här](http://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide-EN.pdf).
+En manuell är vanligtvis anvisningar som medföljer en produkt. Det hjälper användaren att konfigurera, använda, underhålla och felsöka produkten. När QnA Maker bearbetar en manuell, extraheras rubriker och underrubriker som frågor och efterföljande innehållet som svar. Se ett exempel [här](http://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide-EN.pdf).
 
 > [!NOTE]
-> Extrahering fungerar bäst på handböcker som har en tabell med innehållet och/eller en indexsida och en tydlig struktur med hierarkiska rubriker.
+> Extrahering fungerar bäst på handböcker som har en tabell med innehåll och/eller en indexsida och en tydlig struktur med hierarkisk rubriker.
 
 
-## <a name="structured-data-format-through-file-upload"></a>Format för strukturerade data via ladda upp filen
+## <a name="structured-data-format-through-file-upload"></a>Formatet för strukturerade data med filuppladdning
 
-Strukturerade filer, till exempel TSV .xlsx med formaterad kolumner kan också överföras till frågor och svar om Maker under skapande av knowledge base. Du kan också ladda upp filer från den **inställningar** fliken för en kunskapsbas
+Strukturerade filer, till exempel TSV .xlsx med formaterade kolumner kan också överföras till QnA Maker under skapande av kunskapsbas. Du kan också ladda upp filer från den **inställningar** fliken en kunskapsbas
 
 | Fråga  | Svar  | Metadata                |
 |-----------|---------|-------------------------|
-| Question1 | Answer1 | `Key1:Value1\|Key2:Value2` |
+| Question1 | Answer1 | ' Key1:Value1|Key2:value2' |
 | Question2 | Answer2 |      `Key:Value`           |
 Alla övriga kolumner i källfilen ignoreras.
 
 ## <a name="structured-data-format-through-import"></a>Format för strukturerade data via import
-Importera en kunskapsbas ersätter innehållet i den befintliga knowledge basen. Importera kräver en strukturerad TSV-fil som innehåller information om datakällan. Den här informationen hjälper frågor och svar om Maker gruppera frågor svar-par och attributet dem till en specifik datakälla.
+Importera en kunskapsbas ersätter innehållet i den befintliga kunskapsbasen. Importera kräver en strukturerade TSV-fil som innehåller information om datakällan. Den här informationen hjälper QnA Maker gruppera frågor svar-par och attributet dem till en viss datakälla.
 
 | Fråga  | Svar  | Källa| Metadata                |
 |-----------|---------|----|---------------------|
-| Question1 | Answer1 | Url1|`Key1:Value1\|Key2:Value2` |
+| Question1 | Answer1 | Url1|' Key1:Value1|Key2:value2' |
 | Question2 | Answer2 | Redigering|    `Key:Value`       |
 
 ## <a name="editorial"></a>Redigering
-Om du inte har befintliga innehåll för att fylla i knowledge base om du kan också lägga till dem redigeringsmässigt i frågor och svar om Maker Knowledge base. Lär dig hur du uppdaterar kunskapsbasen [här](../How-To/edit-knowledge-base.md).
+Om du inte har redan befintliga innehåll för att fylla i knowledge base, du kan också lägga till dem redigeringsmässigt i QnA Maker Knowledge base. Lär dig hur du uppdaterar din kunskapsbas [här](../How-To/edit-knowledge-base.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Konfigurera en tjänst för frågor och svar om Maker](../How-To/set-up-qnamaker-service-azure.md)
+> [Ställ in QnA Maker-tjänsten](../How-To/set-up-qnamaker-service-azure.md)
 
 ## <a name="see-also"></a>Se också 
 
-[Frågor och svar om Maker översikt](../Overview/overview.md)
+[Översikt över QnA Maker](../Overview/overview.md)

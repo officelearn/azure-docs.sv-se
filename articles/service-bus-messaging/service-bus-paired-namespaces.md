@@ -1,9 +1,9 @@
 ---
-title: Azure Service Bus länkas namnområden | Microsoft Docs
-description: Implementeringsdetaljer parad namnområde och kostnad
+title: Azure Service Bus har parats ihop namnområden | Microsoft Docs
+description: Information om implementering av kopplat namnområde och kostnader
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 2440c8d3-ed2e-47e0-93cf-ab7fbb855d2e
@@ -13,94 +13,94 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
-ms.author: sethm
-ms.openlocfilehash: f16c65286b0aa079889c9d53e98bf54e3d57c95f
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.author: spelluru
+ms.openlocfilehash: 3dbeba3e8a7a3acc651eb9f2f679440dd9e6728b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27159549"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696759"
 ---
-# <a name="paired-namespace-implementation-details-and-cost-implications"></a>Länkas namnområde implementeringsdetaljer och cost effekter
+# <a name="paired-namespace-implementation-details-and-cost-implications"></a>Länkad implementeringsdetaljer för namnområde och kostnaden effekter
 
-Den [PairNamespaceAsync] [ PairNamespaceAsync] metod med en [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] instansen, utför synliga uppgifter å dina vägnar. Eftersom det är kostnad överväganden när du använder funktionen, är det viktigt att förstå dessa uppgifter så att du förväntar dig beteendet när det sker. API: et aktiverar följande automatiska funktioner för din räkning:
+Den [PairNamespaceAsync] [ PairNamespaceAsync] metoden med hjälp av en [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] instans, utför uppgifter som är synliga på din räkning. Eftersom det är att lagra överväganden när du använder funktionen, är det viktigt att förstå dessa uppgifter så att du förväntar dig beteendet när det händer. Följande automatiska funktioner för din räkning talar med API: et:
 
 * Skapa eftersläpning köer.
-* Skapa en [MessageSender] [ MessageSender] objekt som kommunicerar köer och ämnen.
-* Om en meddelandeentitet blir otillgänglig, pinga skickar meddelanden till entiteten i ett försök att identifiera när enheten blir tillgänglig igen.
-* Du kan även skapa en uppsättning ”meddelande pumpar” som flytta meddelanden från eftersläpning köer till de primära köerna.
-* Samordnar avslutande/felaktig av primära och sekundära [MessagingFactory] [ MessagingFactory] instanser.
+* Skapa en [MessageSender] [ MessageSender] objekt som pratar med köer eller ämnen.
+* När en meddelandeentitet blir otillgänglig kan pinga skickar meddelanden till entiteten i ett försök att identifiera när denna entitet blir tillgänglig igen.
+* Du kan också skapas av en uppsättning ”meddelande pumpar” som flytta meddelanden från köer med kvarvarande uppgifter till de primära köerna.
+* Samordnar avslutande/felaktigt av primära och sekundära [MessagingFactory] [ MessagingFactory] instanser.
 
-På en hög nivå funktionen fungerar på följande sätt: när den primära entiteten är felfri, ingen funktionsändringar sker. När den [FailoverInterval] [ FailoverInterval] varaktighet är slut och de primära entiteten ser inte lyckas skickar efter en inte är tillfällig [MessagingException] [ MessagingException] eller en [TimeoutException][TimeoutException], händer följande:
+På hög nivå, funktionen fungerar på följande sätt: när den primära entiteten är felfri, inga ändringar sker. När den [FailoverInterval] [ FailoverInterval] varaktighet är slut och de primära entiteten ser inte lyckas skickar efter en icke tillfälliga [MessagingException] [ MessagingException] eller en [TimeoutException][TimeoutException], händer följande:
 
-1. Skicka till den primära entiteten har inaktiverats och systemet pingar den primära enheten förrän pingar har levereras.
-2. En slumpmässig eftersläpning kö har valts.
-3. [BrokeredMessage] [ BrokeredMessage] objekt dirigeras till valda eftersläpning kön.
-4. Om en send-åtgärd till valda eftersläpning kön misslyckas kön hämtas från rotationen och en ny kö har valts. Alla avsändare på den [MessagingFactory] [ MessagingFactory] instans Lär dig mer om felet.
+1. Skicka åtgärder till den primära entiteten är inaktiverade och systemet pingar den primära entiteten tills pingar kan levereras.
+2. En slumpmässig för eftersläpning i kö har valts.
+3. [BrokeredMessage] [ BrokeredMessage] dirigeras objekt till valda för eftersläpning i kön.
+4. Om en åtgärd för send till valda för eftersläpning i kön misslyckas kön hämtas från rotationen och en ny kö har valts. Alla avsändare på den [MessagingFactory] [ MessagingFactory] instans Lär dig om felet.
 
-I följande figurer visas sekvensen. Först skickar avsändare meddelanden.
+I följande figurer visas sekvensen. Först skickar avsändaren meddelanden.
 
-![Parad namnområden][0]
+![Kopplade namnområden][0]
 
-Vid fel ska skickas till primära kön börjar avsändaren skicka meddelanden till en slumpmässigt vald eftersläpning kö. Samtidigt, startar en ping-aktivitet.
+Vid fel ska skickas till den primära kön börjar avsändaren skicka meddelanden till en slumpmässigt vald för eftersläpning i kö. Samtidigt, startar en ping-uppgiften.
 
-![Parad namnområden][1]
+![Kopplade namnområden][1]
 
-Nu finns kvar i sekundär kö meddelanden och inte har levererats till primära kön. När primära kön är felfri igen, ska minst en process köras syphon. Syphon levererar meddelanden från alla olika eftersläpning köer till rätt mål-enheter (köer och ämnen).
+I det här läget meddelanden finns kvar i den sekundära kön och inte har levererats till den primära kön. När den primära kön är felfri igen, bör minst en process med syphon. Syphon levererar meddelanden från alla olika eftersläpning köer till rätt destination entiteter (köer och ämnen).
 
-![Parad namnområden][2]
+![Kopplade namnområden][2]
 
-Resten av det här avsnittet innehåller information om specifik information om hur dessa delar fungerar.
+Resten av det här avsnittet beskrivs specifik information om hur dessa delar fungerar.
 
 ## <a name="creation-of-backlog-queues"></a>Skapandet av eftersläpning köer
-Den [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] objekt har överförts till den [PairNamespaceAsync] [ PairNamespaceAsync] metoden anger antalet eftersläpning köer du vill använda. Varje kö eftersläpning skapas med följande egenskaper uttryckligen ange (alla andra värden är inställda på att den [QueueDescription] [ QueueDescription] standardvärden):
+Den [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] objekt skickades till den [PairNamespaceAsync] [ PairNamespaceAsync] metoden anger antalet Eftersläpning för köer som du vill använda. Varje eftersläpning-kö skapas med följande egenskaper uttryckligen ange (alla andra värden är inställda på den [QueueDescription] [ QueueDescription] standardvärden):
 
-| Sökväg | [primära namnutrymme] / x-servicebus-överföring / [index] där [index] är ett värde i [0, BacklogQueueCount) |
+| Sökväg | [primärt namnområde] / x-servicebus-överföra / [index] där [index] är ett värde i [0, BacklogQueueCount) |
 | --- | --- |
 | MaxSizeInMegabytes |5120 |
-| MaxDeliveryCount |heltal. MaxValue |
+| MaxDeliveryCount |int. MaxValue |
 | DefaultMessageTimeToLive |TimeSpan.MaxValue |
 | AutoDeleteOnIdle |TimeSpan.MaxValue |
-| Varaktighet |1 minut |
-| EnableDeadLetteringOnMessageExpiration |sant |
-| EnableBatchedOperations |sant |
+| LockDuration |1 minut |
+| EnableDeadLetteringOnMessageExpiration |true |
+| EnableBatchedOperations |true |
 
-Till exempel den första eftersläpning kön skapas för namnområdet **contoso** heter `contoso/x-servicebus-transfer/0`.
+Till exempel den första för eftersläpning i kön skapas för namnområde **contoso** heter `contoso/x-servicebus-transfer/0`.
 
-När du skapar köerna kontrollerar koden först om det finns en sådan kö. Om det inte finns kön, skapa kön. Koden inte rensa ”extra” eftersläpning köer. I synnerhet om programmet med primära namnområde **contoso** begär fem eftersläpning köer, men en eftersläpning kö med sökvägen `contoso/x-servicebus-transfer/7` finns extra eftersläpning kön är kvar men används inte. Systemet tillåter uttryckligen extra eftersläpning köer finns som inte används. Du är ansvarig för att rensa alla oanvända/oönskad eftersläpning köer som ägare namnområde. Orsaken till detta beslut är att Service Bus inte kan vet vilket syfte som finns för alla köer i namnområdet. Dessutom, om en kö med det angivna namnet finns men inte uppfyller den antagna [QueueDescription][QueueDescription], din orsaker är din egen för ändra standardbeteendet. Inga garantier görs för att ändringarna till eftersläpning köer av din kod. Se till att testa dina ändringar noggrant.
+När du skapar köer, kontrollerar koden först om det finns sådan kö. Om kön inte finns, skapas i kön. Koden inte rensa ”extra” eftersläpning köer. Mer specifikt om programmet som det primära namnområdet **contoso** begär fem eftersläpning köer men en eftersläpning kö med sökvägen `contoso/x-servicebus-transfer/7` finns, extra för eftersläpning i kön är kvar men används inte. Systemet kan uttryckligen extra eftersläpning köer finns som inte används. Du är ansvarig för att rensa eventuella oanvända/oönskad eftersläpning för köer som ägare till namnområdet. Orsaken till det här beslutet är att Service Bus inte kan vet vilket syfte som finns för alla köer i namnområdet. Dessutom, om en kö med det angivna namnet finns men inte uppfyller den antagen [QueueDescription][QueueDescription], och sedan din orsakerna är ditt eget för Ändra standardbeteende. Inga garantier görs efter ändringar av köer eftersläpning av din kod. Se till att testa ändringarna noggrant.
 
 ## <a name="custom-messagesender"></a>Anpassade MessageSender
-När du skickar, alla meddelanden gå igenom en intern [MessageSender] [ MessageSender] objekt som fungerar sedan normalt när allt fungerar och omdirigerar till eftersläpningen köer när saker ”delar”. Vid mottagning av ett fel uppstod, startar en timer. När en [TimeSpan] [ TimeSpan] period som består av den [FailoverInterval] [ FailoverInterval] egenskapens värde under vilket inga lyckade meddelanden skickas, växling vid fel används. Nu händer följande för varje entitet:
+När du skickar, alla meddelanden går igenom en intern [MessageSender] [ MessageSender] objekt som fungerar sedan normalt när allt fungerar och omdirigerar till eftersläpningen köer när saker ”bryta”. När tas emot ett icke tillfälliga fel, startar en timer. När du har en [TimeSpan] [ TimeSpan] period som består av den [FailoverInterval] [ FailoverInterval] egenskapsvärdet då skickas inga meddelanden som skickats, redundansen är engagerade. Följande saker händer nu för varje entitet:
 
-* Ping-uppgiften körs varje [PingPrimaryInterval] [ PingPrimaryInterval] att kontrollera om enheten är tillgänglig. När den här aktiviteten lyckas startar alla klientkod som använder enheten omedelbart skicka nya meddelanden till det primära namnområdet.
-* Kommande begäranden att skicka till att samma entitet från andra sändare leder den [BrokeredMessage] [ BrokeredMessage] som skickas till ändras så att de är placerade i eftersläpning kön. Detta tar bort vissa egenskaper från den [BrokeredMessage] [ BrokeredMessage] objekt och lagrar dem på en annan plats. Följande egenskaper tas bort och lagts till under ett nytt alias, vilket gör att Service Bus och SDK att bearbeta meddelanden enhetligt:
+* En ping-aktivitet körs varje [PingPrimaryInterval] [ PingPrimaryInterval] att kontrollera om enheten är tillgänglig. När den här uppgiften har slutförts startar alla klientkod som använder entiteten omedelbart skicka nya meddelanden till det primära namnområdet.
+* Framtida begäranden till att skicka till samma entiteten från andra sändare leder den [BrokeredMessage] [ BrokeredMessage] som skickas till ändras så att de finns i för eftersläpning i kön. Ändringen tar bort vissa egenskaper från den [BrokeredMessage] [ BrokeredMessage] objekt och lagrar dem någon annanstans. Följande egenskaper är avmarkerad och lagts till under ett nytt alias, vilket gör att Service Bus och SDK att bearbeta meddelanden på ett enhetligt sätt:
 
-| Gamla egenskapsnamn | Nya egenskapsnamn |
+| Gamla egenskapsnamn | Den nya egenskapens namn |
 | --- | --- |
-| Sessions-ID |x-ms-sessions-ID |
+| sessions-ID |x-ms-sessions-ID |
 | TimeToLive |x-ms-timetolive |
-| ScheduledEnqueueTimeUtc |x-ms-sökväg |
+| ScheduledEnqueueTimeUtc |x-ms-path |
 
-Den ursprungliga målsökvägen lagras också i meddelandet som en egenskap med namnet x-ms-sökväg. Den här designen kan meddelanden för många enheter som ska finnas i en enda eftersläpning kö. Egenskaperna översätts igen genom syphon.
+Den ursprungliga målsökvägen lagras också i meddelandet som en egenskap med namnet x-ms-sökväg. Den här designen kan meddelanden för många entiteter att finnas i en enda för eftersläpning i kö. Egenskaperna översätts tillbaka av syphon.
 
-Anpassat [MessageSender] [ MessageSender] objekt problem kan uppstå när meddelanden hanterar 256 KB-gränsen och växling vid fel används. Anpassat [MessageSender] [ MessageSender] -objektet lagrar meddelanden för alla köer och ämnen tillsammans i eftersläpning köer. Det här objektet blandas meddelanden från många primärfärgerna tillsammans i eftersläpning köer. Om du vill hantera belastningsutjämningen bland många klienter som inte vet varandra SDK slumpvis en eftersläpning kö för varje [QueueClient] [ QueueClient] eller [TopicClient] [ TopicClient] du skapar i koden.
+Anpassat [MessageSender] [ MessageSender] objekt kan uppleva problem när meddelanden hanterar 256 KB-gränsen och växling vid fel är engagerade. Anpassat [MessageSender] [ MessageSender] objektet lagrar meddelanden för alla köer och ämnen tillsammans i eftersläpning köer. Det här objektet blandas meddelanden från många USA: s presidentval tillsammans i eftersläpning köer. För att hantera belastningsutjämningen bland många klienter som inte vet varandra SDK slumpvis en eftersläpning för kö för varje [QueueClient] [ QueueClient] eller [TopicClient] [ TopicClient] du skapar i kod.
 
 ## <a name="pings"></a>Pingar
-Ett ping-meddelande är ett tomt [BrokeredMessage] [ BrokeredMessage] med dess [ContentType] [ ContentType] -egenskapen angetts till programmet/vnd.ms-servicebus-ping och en [TimeToLive] [ TimeToLive] värdet 1 sekund. Den här ping har en särskild egenskap i Service Bus: ett ping skickas aldrig när alla anroparen begär en [BrokeredMessage][BrokeredMessage]. Du har aldrig alltså att lära dig att ta emot och ignorera dessa meddelanden. Varje entitet (unikt kö eller ett ämne) per [MessagingFactory] [ MessagingFactory] instans per klient ska pingas när de anses vara otillgänglig. Som standard är detta sker en gång per minut. Ping-meddelanden anses vara vanliga Service Bus-meddelanden och kan resultera i kostnader för bandbredd och meddelanden. När klienter identifiera att systemet är tillgängligt, stoppa meddelanden.
+Ett ping-meddelande är en tom [BrokeredMessage] [ BrokeredMessage] med dess [ContentType] [ ContentType] -egenskapen angetts till program/vnd.ms-servicebus-ping och en [TimeToLive] [ TimeToLive] värde på 1 sekund. Den här pingen har en särskild egenskap i Service Bus: en ping skickas aldrig när alla anroparen begär en [BrokeredMessage][BrokeredMessage]. Därför får du aldrig att lära dig att ta emot och ignorera dessa meddelanden. Varje entitet (unikt kö eller ämne) per [MessagingFactory] [ MessagingFactory] instans per klient ska pingas när de anses vara ej tillgänglig. Som standard sker detta en gång per minut. Pingmeddelanden anses vara vanliga Service Bus-meddelanden och kan resultera i kostnader för bandbredd och meddelanden. När klienter identifiera att systemet är tillgänglig, stoppa meddelanden.
 
 ## <a name="the-syphon"></a>Syphon
-Minst ett körbart program i programmet bör aktivt köra syphon. Syphon utför lång avsökning får som pågår i 15 minuter. När du har 10 eftersläpning köer och alla entiteter som är tillgängliga anropar programmet som är värd för syphon mottagningsåtgärd 40 gånger per timme, 960 gånger per dag och 28800 gånger i 30 dagar. När syphon är aktivt flyttar meddelanden från eftersläpningen till primära kön, inträffar följande avgifterna (standard kostnader för meddelandestorlek och bandbredd som används i alla led) i varje meddelande:
+Minst ett körbart program i programmet bör aktivt köra syphon. Syphon utför en lång avsökning får som pågår i 15 minuter. När alla entiteter är tillgängliga och du har 10 eftersläpning för köer, anropar det program som är värd för syphon Mottagningsåtgärden 40 gånger per timme, 960 gånger per dag och 28800 gånger i 30 dagar. När syphon flyttar aktivt meddelanden från eftersläpningen till den primära kön, inträffar följande avgifter (standardavgifter för meddelandestorlek och bandbredd som gäller i alla led) i varje meddelande:
 
 1. Skicka till eftersläpningen.
 2. Ta emot från eftersläpningen.
-3. Skicka till den primära servern.
-4. Ta emot från den primära servern.
+3. Skicka till primärt.
+4. Ta emot från primärt.
 
 ## <a name="closefault-behavior"></a>Stäng/fel beteende
-I ett program som är värd för syphon, när primärt eller sekundära [MessagingFactory] [ MessagingFactory] hos eller stängs utan sin partner också fel eller stängd och syphon identifierar det här tillståndet den syphon fungerar. Om den andra [MessagingFactory] [ MessagingFactory] inte är stängd inom 5 sekunder hos syphon fortfarande öppen [MessagingFactory][MessagingFactory].
+I ett program som är värd för syphon, när primärt eller sekundära [MessagingFactory] [ MessagingFactory] faults eller stängs utan dess partner också felaktiga eller stängda och syphon identifierar det här tillståndet i syphon fungerar. Om den andra [MessagingFactory] [ MessagingFactory] inte stängs inom 5 sekunder på syphon faults fortfarande öppna [MessagingFactory][MessagingFactory].
 
 ## <a name="next-steps"></a>Nästa steg
-Se [asynkrona meddelanden mönster och hög tillgänglighet] [ Asynchronous messaging patterns and high availability] för en detaljerad beskrivning av asynkrona Service Bus-meddelanden. 
+Se [asynkron meddelandehantering mönster och hög tillgänglighet] [ Asynchronous messaging patterns and high availability] för en detaljerad beskrivning av asynkrona meddelanden i Service Bus. 
 
 [PairNamespaceAsync]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PairNamespaceAsync_Microsoft_ServiceBus_Messaging_PairedNamespaceOptions_
 [SendAvailabilityPairedNamespaceOptions]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions

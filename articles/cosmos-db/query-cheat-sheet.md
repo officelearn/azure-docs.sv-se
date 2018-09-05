@@ -1,7 +1,7 @@
 ---
-title: Azure Cosmos DB PDF fråga över blad | Microsoft Docs
-description: 'Utskrivbara PDF cheat blad som hjälper dig att använda Azure Cosmos DB SQL, MongoDB, diagram och tabell-API: er för att fråga dina data'
-keywords: SQL-fusklapp, sql över blad pdf, fusklapp för sql-fråga
+title: Facit för Azure Cosmos DB PDF-fråga | Microsoft Docs
+description: 'PDF utskrivbara fusklappar som hjälper dig att använda Azure Cosmos DB SQL, MongoDB, diagram och tabell-API: er för att fråga efter data'
+keywords: facit för SQL, sql fuska blad pdf, facit för sql-fråga
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -10,35 +10,35 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: 10ee398bce30b82d1e199a12cd471ae52d4fae21
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 432f61adaf736180a720aa23a7275e96fed4c733
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34614126"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696939"
 ---
-# <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure DB Cosmos fråga över blad
+# <a name="azure-cosmos-db-query-cheat-sheets"></a>Facit för Azure Cosmos DB-fråga
 
-Den **Azure Cosmos DB fråga över blad** hjälper dig att snabbt skriva frågor för dina data genom att visa vanliga databasfrågor, åtgärder, funktioner och operatorer i enkel att utskrift PDF-referens blad. Över-blad innehåller referensinformation för SQL-API, MongoDB-API, tabell-API och Gremlin/Graph API. 
+Den **facit för Azure Cosmos DB-fråga** hjälper dig att snabbt skriva frågor för dina data genom att visa vanliga databasfrågor, åtgärder, funktioner och operatorer i enkel till utskrift PDF referens blad. Facit innehåller referensinformation för SQL-API, API för MongoDB, tabell-API och Gremlin-API. 
 
-Välj en hämtning Letter eller A3-storlek. 
+Välj bland en nedladdning Letter eller A3-storlek. 
 
-## <a name="letter-sized-cheat-sheets"></a>A4-över-blad
+## <a name="letter-sized-cheat-sheets"></a>A4-facit
 
-Hämta den [Azure Cosmos DB a4-fråga över blad](http://go.microsoft.com/fwlink/?LinkId=623215) om du vill skriva ut på a4-papper (8,5 x 11 tum).
+Ladda ned den [facit för Azure Cosmos DB-a4-fråga](http://go.microsoft.com/fwlink/?LinkId=623215) om du ska skriva ut på a4-papper (8,5 ”x 11”).
 
-![Azure DB Cosmos fråga över blad - a4-, med SQL-API, JavaScript, MongoDB-API, Graph API och tabellen API-frågor och -funktioner](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png)
+![Azure Cosmos DB-fråga facit - a4-, med SQL API-, JavaScript, MongoDB-API, Gremlin-API och tabell-API och funktioner](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png)
 
-## <a name="oversized-cheat-sheets"></a>Stora över blad
-Hämta den [Azure Cosmos DB A3-storlek fråga över blad](https://go.microsoft.com/fwlink/?linkid=870413) om du ska använda en storskalig skrivare eller plotter på A3-storlek papper (11,7 ”x 16,5”).
+## <a name="oversized-cheat-sheets"></a>Stora facit
+Ladda ned den [facit för Azure Cosmos DB A3-storlek fråga](https://go.microsoft.com/fwlink/?linkid=870413) om du vill skriva ut adressen med hjälp av en plotter eller storskaliga skrivare på papper A3-storlek (11,7 ”x 16,5”).
 
-![Azure DB Cosmos fråga över blad - A3-storlek, med SQL-API, JavaScript, MongoDB-API, Graph API och tabellen API-frågor och -funktioner](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png)
+![Azure Cosmos DB-fråga-facit - A3-storlek, med SQL API-, JavaScript, MongoDB-API, Gremlin-API och tabell-API och funktioner](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Mer hjälp skriva frågor finns i följande artiklar:
-* API för SQL-frågor finns i [fråga med SQL-API](tutorial-query-sql-api.md), [SQL-frågor för Azure Cosmos DB](sql-api-sql-query.md), och [referens för SQL-syntax](sql-api-sql-query-reference.md)
-* MongoDB-frågor finns i [fråga med MongoDB-API](tutorial-query-mongodb.md) och [MongoDB-API-stöd för MongoDB-funktioner och syntax](mongodb-feature-support.md)
-* Graph API-frågor finns i [fråga med Graph API](tutorial-query-graph.md) och [Azure Cosmos DB Gremlin graph-support](gremlin-support.md)
-* Tabell-API-frågor finns [fråga med tabell-API](tutorial-query-table.md)
+Mer hjälp skriver frågor finns i följande artiklar:
+* SQL API-frågor finns i [frågar med SQL API](tutorial-query-sql-api.md), [SQL-frågor för Azure Cosmos DB](sql-api-sql-query.md), och [referens för SQL-syntax](sql-api-sql-query-reference.md)
+* MongoDB-frågor finns i [frågar med hjälp av MongoDB API](tutorial-query-mongodb.md) och [MongoDB API-stöd för MongoDB-funktioner och syntax](mongodb-feature-support.md)
+* Gremlin-API-frågor finns i [fråga med hjälp av Gremlin-API](tutorial-query-graph.md) och [grafstöd för Azure Cosmos DB Gremlin](gremlin-support.md)
+* Tabell-API-frågor finns [ställa frågor med tabell-API](tutorial-query-table.md)
 
 

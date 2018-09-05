@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: a8d9704c48801b98800abb71769ba0954e727848
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 375990f095d3a6cbbbfa18db70466c274fd7e17b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190464"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702603"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB vanliga frågor och svar
 ## <a name="azure-cosmos-db-fundamentals"></a>Grunderna i Azure Cosmos DB
@@ -28,7 +28,7 @@ Om du har ett DocumentDB-API-konto innan, nu har du en SQL API-konto utan ändri
 
 ### <a name="what-happened-to-azure-documentdb-as-a-service"></a>Vad hände med Azure DocumentDB som en tjänst?
 
-Azure DocumentDB-tjänsten är nu en del av Azure Cosmos DB-tjänsten och visar sig i form av SQL-API. Program som skapats för Azure DocumentDB körs mot Azure Cosmos DB SQL API utan ändringar. Dessutom stöder Azure Cosmos DB Graph API, tabell-API, API för MongoDB och Cassandra-API (förhandsversion).
+Azure DocumentDB-tjänsten är nu en del av Azure Cosmos DB-tjänsten och visar sig i form av SQL-API. Program som skapats för Azure DocumentDB körs mot Azure Cosmos DB SQL API utan ändringar. Dessutom stöder Azure Cosmos DB Gremlin-API, tabell-API, API för MongoDB och Cassandra-API (förhandsversion).
 
 ### <a name="what-are-the-typical-use-cases-for-azure-cosmos-db"></a>Vad är vanliga användningsområden för Azure Cosmos DB?
 Azure Cosmos DB är ett bra alternativ för nya webb-, mobil, spel, och IoT-program där automatisk skalning, förutsägbar prestanda, snabba ordningen på svarstider och möjlighet till frågor över schemafria data är viktigt. Azure Cosmos DB lämpar sig för snabb utveckling och stöder kontinuerlig iteration av appens datamodeller. Program som hanterar användargenererat innehåll och data är [vanliga användningsområden för Azure Cosmos DB](use-cases.md). 
@@ -36,11 +36,11 @@ Azure Cosmos DB är ett bra alternativ för nya webb-, mobil, spel, och IoT-prog
 ### <a name="how-does-azure-cosmos-db-offer-predictable-performance"></a>Hur erbjuder förutsägbar prestanda i Azure Cosmos DB?
 En [begäransenhet](request-units.md) (RU) är måttenheten för dataflöde i Azure Cosmos DB. Ett dataflöde på 1 RU motsvarar dataflödet av GET för ett 1 KB-dokument. Varje åtgärd i Azure Cosmos DB, inklusive läsningar, skrivningar, SQL-frågor och lagrade procedurkörningar har ett deterministiskt RU-värde som baseras på dataflödet som krävs för att slutföra åtgärden. I stället för att tänka på CPU, I/O och minne och hur de påverkar dataflödet i ditt program kan tänka du i termer av ett enda RU-mått.
 
-Du kan reservera varje Azure Cosmos DB-behållare med etablerat dataflöde räknat ru: er av dataflöde per sekund. För appar oavsett skala, kan du jämföra enskilda förfrågningar för att mäta deras RU-värden och etablera en behållare för att hantera det totala antalet av frågeenheter över alla förfrågningar. Du kan även skala upp eller skala ned dataflödet för en behållare som behov utvecklas. Mer information om begäransenheter och hjälp med att fastställa din behållare behöver finns i [beräknar dataflödet behöver](request-units.md#estimating-throughput-needs) och försök på [dataflöde Kalkylatorn](https://www.documentdb.com/capacityplanner). Termen *behållare* här refererar till refererar till en SQL API-samling, graph för Graph API, API för MongoDB-samling och tabell-API-tabellen. 
+Du kan reservera varje Azure Cosmos DB-behållare med etablerat dataflöde räknat ru: er av dataflöde per sekund. För appar oavsett skala, kan du jämföra enskilda förfrågningar för att mäta deras RU-värden och etablera en behållare för att hantera det totala antalet av frågeenheter över alla förfrågningar. Du kan även skala upp eller skala ned dataflödet för en behållare som behov utvecklas. Mer information om begäransenheter och hjälp med att fastställa din behållare behöver finns i [beräknar dataflödet behöver](request-units.md#estimating-throughput-needs) och försök på [dataflöde Kalkylatorn](https://www.documentdb.com/capacityplanner). Termen *behållare* här refererar till refererar till en SQL API-samling, Gremlin-API-diagram, MongoDB API-samling och tabell-API-tabellen. 
 
 ### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>Hur stöder olika datamodeller som nyckel/värde, kolumner, dokument och graph i Azure Cosmos DB?
 
-Nyckelvärdedata (tabell), kolumner, dokumentera och diagramdata modeller är inbyggt stöd på grund av ARS (atomer, poster och sekvenser) utforma som Azure Cosmos DB bygger på. Atomer, poster och sekvenser kan enkelt mappas och planerade att olika datamodeller. API: er för en delmängd av modeller är tillgängliga just nu (SQL, MongoDB, Table och Graph API: er) och andra som är specifika för ytterligare datamodeller kommer att finnas i framtiden.
+Nyckelvärdedata (tabell), kolumner, dokumentera och diagramdata modeller är inbyggt stöd på grund av ARS (atomer, poster och sekvenser) utforma som Azure Cosmos DB bygger på. Atomer, poster och sekvenser kan enkelt mappas och planerade att olika datamodeller. API: er för en delmängd av modeller är tillgängliga just nu (SQL, MongoDB, Table och Gremlin-API: er) och andra som är specifika för ytterligare datamodeller kommer att finnas i framtiden.
 
 Azure Cosmos DB har en schemat schemaoberoende indexering motor som kan indexera automatiskt alla data den tar in utan att kräva något schema eller sekundära index från utvecklaren. Motorn är beroende av en uppsättning logiskt index layouter (vägar i inverterad, kolumner,-träd) som frikopplar lagringslayout från indexet och frågebearbetning undersystem. Cosmos DB har också möjlighet att stödja en uppsättning wire-protokoll och API: er på ett utökningsbart sätt och effektivt översätta dem till datamodellen core (1) och de logiska index layouter (2) vilket gör det unikt kan stödja flera datamodeller internt.
 
@@ -57,7 +57,7 @@ Det finns ingen gräns för den totala mängden dataflöde som har stöd för en
 Ja krypteras alltid helt båda lägena. 
 
 ### <a name="how-much-does-azure-cosmos-db-cost"></a>Hur mycket kostar Azure Cosmos DB?
-Mer information finns i [prisinformation för Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) sidan. Azure Cosmos DB-användningskostnader bestäms av antalet etablerade behållare, antalet timmar behållarna var online, och det etablerade dataflödet för varje behållare. Termen *behållare* här refererar till SQL API-samling, graph för Graph API, API för MongoDB-samling och tabell-API-tabeller. 
+Mer information finns i [prisinformation för Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) sidan. Azure Cosmos DB-användningskostnader bestäms av antalet etablerade behållare, antalet timmar behållarna var online, och det etablerade dataflödet för varje behållare. Termen *behållare* här refererar till SQL API-samling, Gremlin-API (graf), MongoDB API-samling och tabeller för tabell-API. 
 
 ### <a name="is-a-free-account-available"></a>Är ett kostnadsfritt konto tillgängligt?
 Ja, kan du registrera dig för en tidsbegränsad kontot utan kostnad, utan förpliktelser. Om du vill registrera dig, besök [testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) eller Läs mer i den [prova Azure Cosmos DB vanliga frågor och svar](#try-cosmos-db).
@@ -87,7 +87,7 @@ Prova Azure Cosmos DB-prenumerationer som visas i Azure-portalen bredvid andra p
 
 Följande villkor gäller för testa Azure Cosmos DB-prenumerationer:
 
-* Behållare per prenumeration för SQL och Gremlin (Graph-API) tabellen konton.
+* Behållare per prenumeration för SQL, Gremlin-API och Table-konton.
 * Upp till 3 samlingar per prenumeration för MongoDB-konton.
 * 10 GB lagringskapacitet.
 * Global replikering finns tillgängligt i följande [Azure-regioner](https://azure.microsoft.com/regions/): centrala USA, Norra Europa och Asien, sydöstra
@@ -97,7 +97,7 @@ Följande villkor gäller för testa Azure Cosmos DB-prenumerationer:
 
 ## <a name="set-up-azure-cosmos-db"></a>Ställ in Azure Cosmos DB
 ### <a name="how-do-i-sign-up-for-azure-cosmos-db"></a>Hur registrerar jag mig för Azure Cosmos DB?
-Azure Cosmos DB är tillgängliga i Azure-portalen. Först registrera dig för en Azure-prenumeration. När du har registrerat dig kan du lägga till en SQL-API, Graph API, tabell-API, MongoDB API eller Cassandra API-konto på Azure-prenumerationen.
+Azure Cosmos DB är tillgängliga i Azure-portalen. Först registrera dig för en Azure-prenumeration. När du har registrerat dig kan du lägga till en SQL-API, Gremlin-API, tabell-API, MongoDB API eller Cassandra API-konto på Azure-prenumerationen.
 
 ### <a name="what-is-a-master-key"></a>Vad är en huvudnyckel?
 En huvudnyckel är en säkerhetstoken som ger åtkomst till alla resurser för ett konto. Personer med nyckeln har läs- och skrivbehörighet till alla resurser i databaskontot. Var försiktig när du distribuerar huvudnycklar. Den primära och sekundära huvudnycklarna finns på den **nycklar** bladet för den [Azure-portalen][azure-portal]. Mer information om nycklar finns i [Visa, kopiera och generera åtkomstnycklar på nytt](manage-account.md#keys).
@@ -440,15 +440,15 @@ Azure Table storage och Azure Cosmos DB Table API kan du använda samma SDK: ern
 ### <a name="why-do-i-get-throttled-when-i-try-to-create-lot-of-tables-one-after-another-in-the-table-api"></a>Varför jag begränsas när jag försöker skapa många tabeller efter varandra i tabell-API?
 Azure Cosmos DB är en SLA-baserade system som ger svarstid, dataflöde, tillgänglighet och konsekvensgarantier. Eftersom det är en etablerad system, reserverar resurser för att garantera att dessa krav. Snabb frekvensen för skapande av tabellerna har identifierats och begränsas. Vi rekommenderar att du tittar på frekvensen för skapandet av tabeller och sänka den till mindre än 5 per minut. Kom ihåg att tabell-API är ett etablerade system. Den tidpunkt då du etablerar den, kommer du börja betala för den. 
 
-## <a name="graph-api"></a>Graph API
-### <a name="how-can-i-apply-the-functionality-of-graph-api-to-azure-cosmos-db"></a>Hur kan jag använda funktionerna i Graph API till Azure Cosmos DB?
-Du kan använda ett tilläggsbibliotek för att använda funktionerna i Graph API. Det här biblioteket kallas Microsoft Azure-diagram och det är tillgängligt på [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs). 
+## <a name="gremlin-api"></a>Gremlin-API
+### <a name="how-can-i-apply-the-functionality-of-gremlin-api-to-azure-cosmos-db"></a>Hur kan jag använda funktionerna i Gremlin-API till Azure Cosmos DB?
+Du kan använda ett tilläggsbibliotek för att använda funktionen för Gremlin-API. Det här biblioteket kallas Microsoft Azure-diagram och det är tillgängligt på [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs). 
 
 ### <a name="it-looks-like-you-support-the-gremlin-graph-traversal-language-do-you-plan-to-add-more-forms-of-query"></a>Det verkar som du stöder genomgång av språket Gremlin graph. Planerar du att lägga till fler typer av frågan?
 Ja, vi planerar att lägga till andra mekanismer för frågan i framtiden. 
 
-### <a name="how-can-i-use-the-new-graph-api-offering"></a>Hur kan jag använda nya Graph API-erbjudandet? 
-Kom igång genom att slutföra den [Graph API](../cosmos-db/create-graph-dotnet.md) snabbstartartikeln.
+### <a name="how-can-i-use-the-new-gremlin-api-offering"></a>Hur kan jag använda nya Gremlin-API-erbjudandet? 
+Kom igång genom att slutföra den [Gremlin-API](../cosmos-db/create-graph-dotnet.md) snabbstartartikeln.
 
 
 ## <a id="cassandra"></a> API för Cassandra

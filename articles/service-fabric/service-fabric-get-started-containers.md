@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 41246e434f8adade65f39b3471417888f62d7528
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 4a5ca4879f81533e3617ca9dfe9cdf8afcf2965b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42061694"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700179"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Skapa din första Service Fabric-containerapp i Windows
 > [!div class="op_single_selector"]
@@ -27,6 +27,9 @@ ms.locfileid: "42061694"
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
 Du behöver inga göra några ändringar i din app för att köra en befintlig app i en Windows-container i ett Service Fabric-kluster. Den här artikeln vägleder dig genom att skapa en Docker-avbildning som innehåller ett Python [Flask](http://flask.pocoo.org/)-program och distribuera den till ett Service Fabric-kluster. Du kan också dela programmet via [Azure Container-registret](/azure/container-registry/). Den här artikeln förutsätter att du har grundläggande kunskaper om Docker. Mer information om Docker finns i [Docker Overview](https://docs.docker.com/engine/understanding-docker/) (Översikt över Docker).
+
+> [!NOTE]
+> Den här artikeln gäller för en Windows-utvecklingsmiljö.  Körningstiden för Service Fabric-kluster och Docker-körning måste köras på samma OS.  Du kan inte köra Windows-behållare på en Linux-kluster.
 
 ## <a name="prerequisites"></a>Förutsättningar
 * En utvecklingsdator som kör:
@@ -135,8 +138,7 @@ Kör programmet:
 docker run -d --name my-web-site helloworldapp
 ```
 
-
-  *name* namnger den container som körs (i stället för container-ID:t).
+*name* namnger den container som körs (i stället för container-ID:t).
 
 När containern har startat letar du reda på dess IP-adress så att du kan ansluta till den container som körs via en webbläsare:
 ```

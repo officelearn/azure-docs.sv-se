@@ -10,21 +10,22 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: a1212befd1cc6aaf74bc596459aa5be1ef689813
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
-ms.translationtype: HT
+ms.openlocfilehash: 89f486a00f80ba4b9f4c9f38a0637e88e5bf1ad6
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43703845"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Komma igång med Application Insights i ett Java-webbprojekt
 
 
 [Application Insights](https://azure.microsoft.com/services/application-insights/) är en utökningsbar analystjänst för webbutvecklare som hjälper dig att förstå prestanda och användningen av ditt liveprogram. Tjänsten hjälper dig att [identifiera och diagnostisera prestandaproblem och undantag](app-insights-detect-triage-diagnose.md) samt att [skriva kod][api] för att se vad användarna gör med din app.
 
-![exempeldata](./media/app-insights-java-get-started/5-results.png)
+![Skärmbild av översikt exempeldata](./media/app-insights-java-get-started/overview-graphs.png)
 
 Application Insights har stöd för Java-appar som körs på Linux, Unix eller Windows.
 
@@ -34,6 +35,8 @@ Du behöver:
 * En prenumeration på [Microsoft Azure](https://azure.microsoft.com/).
 
 *Om du har en webbapp som redan är aktiv kan du följa den alternativa proceduren [för att lägga till SDK vid körningen på webbservern](app-insights-java-live.md). Med det alternativet undviker du att behöva återskapa koden, men du kan inte skriva kod för att spåra användaraktivitet.*
+
+Om du föredrar Spring-ramverket, testa [Guiden konfigurera en Spring Boot-startapp att använda Application Insights](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
 
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Hämta en Application Insights-instrumenteringsnyckel
 1. Logga in på [Microsoft Azure Portal](https://portal.azure.com).
@@ -219,7 +222,9 @@ package devCamp.WebApp.configurations;
     }
 ```
 
-[!NOTE] Om du använder Spring Boot 1.3.8 eller senare ska du ersätta FilterRegistrationBean med nedanstående rad
+> [!NOTE]
+> Om du använder Spring Boot 1.3.8 eller senare ska du ersätta FilterRegistrationBean med nedanstående rad
+
 ```Java
     import org.springframework.boot.context.embedded.FilterRegistrationBean;
 ```

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 644089cea4dccc79e67b9117187b553eb4616d9f
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: d4b27feab5c1bb5913d2ba26f7f43aca9a899aa0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818222"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697677"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Så att du vill lära dig om Service Fabric?
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster.  Service Fabric har ett stort utsatt område för dock och det är mycket mer.  Den här artikeln innehåller en sammanfattning av Service Fabric och beskriver grundläggande begrepp, programmeringsmodeller, programmets hela livscykel, testning, kluster och övervakning av hälsotillstånd. Läs den [översikt](service-fabric-overview.md) och [vad är mikrotjänster?](service-fabric-overview-microservices.md) för en introduktion och hur Service Fabric kan användas för att skapa mikrotjänster. Den här artikeln innehåller inte en omfattande innehållslistan, men länka till översikt och komma igång artiklar för alla områden i Service Fabric. 
@@ -83,7 +83,7 @@ Varför har tillståndskänsliga mikrotjänster tillsammans med tillståndslösa
 ## <a name="supported-programming-models"></a>Programmeringsmodeller som stöds
 Service Fabric finns flera sätt att skriva och hantera dina tjänster. Tjänster kan använda Service Fabric-API: er för att dra full nytta av plattformens funktioner och ramverk för programmet. Tjänster kan också vara alla kompilerade körbart program skrivna på valfritt språk och finns i Service Fabric-kluster. Mer information finns i [programmeringsmodeller som stöds](service-fabric-choose-framework.md).
 
-### <a name="containers"></a>Container
+### <a name="containers"></a>Containrar
 Som standard, Service Fabric distribuerar och aktiverar tjänster som processer. Service Fabric kan också distribuera tjänster i [behållare](service-fabric-containers-overview.md). Allt kan du blanda tjänster i processer och tjänster i behållare i samma program. Service Fabric stöder distribution av Linux-behållare Windows-behållare på Windows Server 2016. Du kan distribuera befintliga program eller tillståndslösa tjänster tillståndskänsliga tjänster i behållare. 
 
 ### <a name="reliable-services"></a>Reliable Services
@@ -104,7 +104,7 @@ En [körbar gäst](service-fabric-guest-executables-introduction.md) är en befi
 ## <a name="application-lifecycle"></a>Programlivscykel
 Som med andra plattformar, ett program i Service Fabric vanligtvis går igenom följande faser: design, utveckling, testning, distribution, uppgradering, underhåll och borttagning. Service Fabric erbjuder förstklassig support för hela programlivscykeln för molnprogram, från utveckling till distribution, daglig hantering och underhåll till eventuell inaktivering. Tjänstmodellen gör det möjligt för flera olika roller att delta oberoende av varandra i programmets hela livscykel. [Service Fabric-programlivscykeln](service-fabric-application-lifecycle.md) innehåller en översikt över API: er och hur de används av de olika rollerna i hela faserna i livscykeln för Service Fabric-program. 
 
-Hela appens livstid kan hanteras med [PowerShell-cmdletar](/powershell/module/ServiceFabric/), [CLI-kommandon](service-fabric-sfctl.md), [C# API: er](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java API: er](/java/api/system.fabric._application_management_client), och [ REST API: er](/rest/api/servicefabric/). Du kan också ställa in pipelines för kontinuerlig integrering/kontinuerlig distribution med hjälp av verktyg som [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) eller [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
+Hela appens livstid kan hanteras med [PowerShell-cmdletar](/powershell/module/ServiceFabric/), [CLI-kommandon](service-fabric-sfctl.md), [C# API: er](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java API: er](/java/api/system.fabric), och [ REST API: er](/rest/api/servicefabric/). Du kan också ställa in pipelines för kontinuerlig integrering/kontinuerlig distribution med hjälp av verktyg som [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) eller [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
 
 Följande Microsoft Virtual Academy videoklipp beskriver hur du hanterar livscykeln för din: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
@@ -185,7 +185,7 @@ Direkt rapport komponenterna för Service Fabric hälsotillstånd för alla enti
 
 Service Fabric finns flera sätt att [visa hälsorapporter](service-fabric-view-entities-aggregated-health.md) aggregeras i health store:
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) eller andra visualiseringsverktyg för.
-* Hälsoförfrågningar (via [PowerShell](/powershell/module/ServiceFabric/), [CLI](service-fabric-sfctl.md), [C# FabricClient APIs](/dotnet/api/system.fabric.fabricclient.healthclient) och [Java FabricClient APIs](/java/api/system.fabric._health_client), eller [REST API: er](/rest/api/servicefabric)).
+* Hälsoförfrågningar (via [PowerShell](/powershell/module/ServiceFabric/), [CLI](service-fabric-sfctl.md), [C# FabricClient APIs](/dotnet/api/system.fabric.fabricclient.healthclient) och [Java FabricClient APIs](/java/api/system.fabric), eller [REST API: er](/rest/api/servicefabric)).
 * Allmänna frågor som returnerar en lista över entiteter som har health som en av egenskaperna (via PowerShell, CLI, API: er eller REST).
 
 Följande Microsoft Virtual Academy-video beskrivs hälsomodellen för Service Fabric och hur de används: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">

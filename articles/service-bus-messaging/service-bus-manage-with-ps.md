@@ -1,9 +1,9 @@
 ---
-title: Hantera Azure Service Bus-resurser med hjälp av PowerShell | Microsoft Docs
-description: Använd PowerShell-modulen för att skapa och hantera Service Bus-resurser
+title: Använd PowerShell för att hantera Azure Service Bus-resurser | Microsoft Docs
+description: Använda PowerShell-modulen för att skapa och hantera Service Bus-resurser
 services: service-bus-messaging
 documentationcenter: .NET
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
-ms.author: sethm
-ms.openlocfilehash: 962134c0c71ac0a251f8adf1f0f067d6067cb808
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.author: spelluru
+ms.openlocfilehash: 66475d9d59c8825eef7eb16e826d9813e819aa8a
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018629"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699635"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Använd PowerShell för att hantera Service Bus-resurser
 
-Microsoft Azure PowerShell är en skriptmiljö som du kan använda för att styra och automatisera distribution och hantering av Azure-tjänster. Den här artikeln beskriver hur du använder den [Service Bus Resource Manager PowerShell-modulen](/powershell/module/azurerm.servicebus) att etablera och hantera Service Bus-entiteter (namnområden, köer, ämnen och prenumerationer) med hjälp av en lokal Azure PowerShell-konsolen eller ett skript.
+Microsoft Azure PowerShell är en skriptmiljö som du kan använda för att styra och automatisera distributionen och hanteringen av Azure-tjänster. Den här artikeln beskriver hur du använder den [Service Bus Resource Managers PowerShell-modulen](/powershell/module/azurerm.servicebus) att etablera och hantera Service Bus-entiteter (namnområden, köer, ämnen och prenumerationer) med hjälp av en lokal Azure PowerShell-konsolen eller ett skript.
 
 Du kan också hantera Service Bus-entiteter med hjälp av Azure Resource Manager-mallar. Mer information finns i artikeln [skapa Service Bus-resurser med hjälp av Azure Resource Manager-mallar](service-bus-resource-manager-overview.md).
 
@@ -31,31 +31,31 @@ Du kan också hantera Service Bus-entiteter med hjälp av Azure Resource Manager
 
 Innan du börjar behöver du följande krav:
 
-* En Azure-prenumeration. Mer information om hur du skaffar en prenumeration finns [köpalternativ][purchase options], [medlemserbjudanden][member offers], eller [ledigt kontot][free account].
-* En dator med Azure PowerShell. Instruktioner finns i [Kom igång med Azure PowerShell-cmdlets](/powershell/azure/get-started-azureps).
-* En förståelse av PowerShell-skript, NuGet-paket och .NET Framework.
+* En Azure-prenumeration. Läs mer om hur du skaffar en prenumeration, [köpalternativ][purchase options], [medlemserbjudanden][member offers], eller [kostnadsfritt kontot][free account].
+* En dator med Azure PowerShell. Anvisningar finns i [Kom igång med Azure PowerShell-cmdlets](/powershell/azure/get-started-azureps).
+* En allmän förståelse för PowerShell-skript, NuGet-paket och .NET Framework.
 
 ## <a name="get-started"></a>Kom igång
 
 Det första steget är att använda PowerShell för att logga in på Azure-konto och Azure-prenumeration. Följ instruktionerna i [Kom igång med Azure PowerShell-cmdlets](/powershell/azure/get-started-azureps) att logga in på ditt Azure-konto och hämta och komma åt resurser i din Azure-prenumeration.
 
-## <a name="provision-a-service-bus-namespace"></a>Etablera ett Service Bus-namnområde
+## <a name="provision-a-service-bus-namespace"></a>Etablera en Service Bus-namnområde
 
-När du arbetar med Service Bus-namnområden kan du använda den [Get-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespace), [ny AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespace), [Remove-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespace), och [Set AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespace) cmdlets.
+När du arbetar med Service Bus-namnområden, du kan använda den [Get-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespace), [New-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespace), [Remove-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespace), och [Set-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespace) cmdletar.
 
 Det här exemplet skapar några lokala variabler i skriptet; `$Namespace` och `$Location`.
 
-* `$Namespace` är namnet på Service Bus-namnrymd som vi vill arbeta med.
-* `$Location` identifierar datacenter där vi etablera namnområdet.
+* `$Namespace` är namnet på Service Bus-namnområde som vi vill arbeta.
+* `$Location` identifierar det datacenter där vi etablera namnområdet.
 * `$CurrentNamespace` lagrar referens-namnområde som vi hämta (eller skapa).
 
-I en verklig skript `$Namespace` och `$Location` kan skickas som parametrar.
+I ett faktiskt skript `$Namespace` och `$Location` kan skickas som parametrar.
 
 Den här delen av skriptet gör följande:
 
-1. Försök att hämta en Service Bus-namnrymd med det angivna namnet.
-2. Om namnområdet hittas rapporterar vad hittades.
-3. Om det gick inte att hitta namnområdet, skapar namnområdet och hämtar sedan det nya namnområdet.
+1. Om du försöker hämta ett Service Bus-namnområde med det angivna namnet.
+2. Om namnområdet hittas, rapporterar vad hittades.
+3. Om namnområdet inte finns, skapar namnområdet och sedan hämtar det nyligen skapade namnområdet.
    
     ``` powershell
     # Query to see if the namespace currently exists
@@ -79,9 +79,9 @@ Den här delen av skriptet gör följande:
     }
     ```
 
-### <a name="create-a-namespace-authorization-rule"></a>Skapa en regel för auktorisering av namnområdet
+### <a name="create-a-namespace-authorization-rule"></a>Skapa en auktoriseringsregel för namnområde
 
-I följande exempel visas hur du hanterar auktoriseringsregler för namnområdet med hjälp av den [ny AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespaceauthorizationrule), [Get-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespaceauthorizationrule), [Set AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespaceauthorizationrule), och [ta bort AzureRmServiceBusNamespaceAuthorizationRule cmdlets](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespaceauthorizationrule).
+I följande exempel visar hur du hanterar auktoriseringsregler för namnområdet med hjälp av den [New-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespaceauthorizationrule), [Get-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespaceauthorizationrule), [Set-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespaceauthorizationrule), och [Remove-AzureRmServiceBusNamespaceAuthorizationRule cmdletar](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespaceauthorizationrule).
 
 ```powershell
 # Query to see if rule exists
@@ -123,7 +123,7 @@ else
 
 ## <a name="create-a-queue"></a>Skapa en kö
 
-Om du vill skapa en kö eller ett ämne, kontrollera namnområdet med hjälp av skriptet i föregående avsnitt. Skapa sedan kön:
+Om du vill skapa en kö eller ämne, kontrollera namnområdet med hjälp av skriptet i föregående avsnitt. Skapa sedan kön:
 
 ```powershell
 # Check if queue already exists
@@ -143,9 +143,9 @@ else
 }
 ```
 
-### <a name="modify-queue-properties"></a>Ändra egenskaper för kön
+### <a name="modify-queue-properties"></a>Ändra egenskaper för kö
 
-När skriptet i föregående avsnitt, kan du använda den [Set AzureRmServiceBusQueue](/powershell/module/azurerm.servicebus/set-azurermservicebusqueue) att uppdatera egenskaperna för en kö, som i följande exempel:
+När du kör skriptet i föregående avsnitt, kan du använda den [Set-AzureRmServiceBusQueue](/powershell/module/azurerm.servicebus/set-azurermservicebusqueue) cmdlet för att uppdatera egenskaperna för en kö, som i följande exempel:
 
 ```powershell
 $CurrentQ.DeadLetteringOnMessageExpiration = $True
@@ -156,20 +156,20 @@ $CurrentQ.EnableExpress = $True
 Set-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -QueueName $QueueName -QueueObj $CurrentQ
 ```
 
-## <a name="provisioning-other-service-bus-entities"></a>Etablerar andra Service Bus-entiteter
+## <a name="provisioning-other-service-bus-entities"></a>Etablera andra Service Bus-entiteter
 
-Du kan använda den [Service Bus PowerShell-modulen](/powershell/module/azurerm.servicebus) att etablera andra entiteter, till exempel ämnen och prenumerationer. Dessa cmdletar liknar syntaktiskt kön skapas cmdlets som visas i föregående avsnitt.
+Du kan använda den [Service Bus PowerShell-modulen](/powershell/module/azurerm.servicebus) att etablera andra entiteter, till exempel ämnen och prenumerationer. Dessa cmdletar är syntaktiskt liknande i kön skapas-cmdletar som visas i föregående avsnitt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Finns i dokumentationen för fullständig Service Bus Resource Manager PowerShell-modulen [här](/powershell/module/azurerm.servicebus). Den här sidan visas alla tillgängliga cmdlet: ar.
+- Se den fullständiga dokumentationen för Service Bus Resource Managers PowerShell-modulen [här](/powershell/module/azurerm.servicebus). Den här sidan visas alla tillgängliga cmdlet: ar.
 - Information om hur du använder Azure Resource Manager-mallar finns i artikeln [skapa Service Bus-resurser med hjälp av Azure Resource Manager-mallar](service-bus-resource-manager-overview.md).
-- Information om [bibliotek för Service Bus .NET](service-bus-management-libraries.md).
+- Information om [Service Bus .NET-hanteringsbibliotek](service-bus-management-libraries.md).
 
 Det finns några alternativa metoder för att hantera Service Bus-entiteter, enligt beskrivningen i följande blogginlägg:
 
 * [Så här skapar du Service Bus-köer, ämnen och prenumerationer med hjälp av ett PowerShell-skript](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-* [Så här skapar du en Service Bus-Namespace och en Händelsehubb med hjälp av ett PowerShell-skript](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
+* [Så här skapar du en Service Bus Namespace och en Händelsehubb med ett PowerShell-skript](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 * [Service Bus PowerShell-skript](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->

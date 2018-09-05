@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: d4ca44268740f48702594d9c87aa568d4f8eecb6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: e74ee48f0adc0d8ba0d2ea91b5d82415601f9405
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122413"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702426"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Virtual Machine Serial Console (förhandsversion) 
 
@@ -38,7 +38,7 @@ Seriell konsol dokumentation för Windows-datorer samt [Klicka här](../windows/
 * Den virtuella datorn måste ha [startdiagnostik](boot-diagnostics.md) aktiverat – se skärmbilden nedan.
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
-    
+
 * Azure-konto med seriekonsolen måste ha [deltagarrollen](../../role-based-access-control/built-in-roles.md) för den virtuella datorn och [startdiagnostik](boot-diagnostics.md) storage-konto. 
 * Den virtuella datorn som du är acessing Seriell konsol måste också ha ett konto för lösenordsbaserad. Du kan skapa en med den [Återställ lösenord](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) funktionerna i VM access-tillägg - se skärmbilden nedan.
 
@@ -124,14 +124,14 @@ Det innebär att den användare som kopplas inte kommer att loggas ut! Möjlighe
 Seriell konsol-funktionen kan inaktiveras för specifika virtuella datorer genom att inaktivera inställningen för den virtuella datorn boot diagnostics.
 
 ## <a name="common-scenarios-for-accessing-serial-console"></a>Vanliga scenarier för att komma åt seriekonsol 
-Scenario          | Åtgärder i seriekonsol                |  OS-tillämplighet 
-:------------------|:-----------------------------------------|:------------------
-Bruten FSTAB-filen | `Enter` för att fortsätta och åtgärda fstab-filen med hjälp av en textredigerare. Du kan behöva vara i enanvändarläge för detta. Se [hur du löser problem med fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) och [med Seriekonsol för att komma åt GRUB och enanvändarläge](serial-console-grub-single-user-mode.md) att komma igång. | Linux 
-Felaktig brandväggsregler | Få åtkomst till seriell konsol och åtgärda iptables eller regler för Windows-brandväggen. | Linux/Windows 
-Filsystem skadade/kontroll | Få åtkomst till seriell konsol och Återställ filsystem. | Linux/Windows 
-Problem med SSH/RDP-konfigurationen | Komma åt Seriell konsol och ändra inställningarna. | Linux/Windows 
-Nätverket låsa system| Åtkomst seriekonsolen via portalen för att hantera system. | Linux/Windows 
-Interagera med startprogrammet | Åtkomst GRUB/BCD via seriekonsolen. Gå till [med Seriekonsol för att komma åt GRUB och enanvändarläge](serial-console-grub-single-user-mode.md) att komma igång. | Linux/Windows 
+Scenario          | Åtgärder i seriekonsol                
+:------------------|:-----------------------------------------
+Bruten FSTAB-filen | `Enter` för att fortsätta och åtgärda fstab-filen med hjälp av en textredigerare. Du kan behöva vara i enanvändarläge för detta. Se [hur du löser problem med fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) och [med Seriekonsol för att komma åt GRUB och enanvändarläge](serial-console-grub-single-user-mode.md) att komma igång.
+Felaktig brandväggsregler | Få åtkomst till seriell konsol och åtgärda iptables. 
+Filsystem skadade/kontroll | Få åtkomst till seriell konsol och Återställ filsystem. 
+Problem med SSH/RDP-konfigurationen | Komma åt Seriell konsol och ändra inställningarna. 
+Nätverket låsa system| Åtkomst seriekonsolen via portalen för att hantera system. 
+Interagera med startprogrammet | Åtkomst GRUB via seriekonsolen. Gå till [med Seriekonsol för att komma åt GRUB och enanvändarläge](serial-console-grub-single-user-mode.md) att komma igång. 
 
 ## <a name="access-serial-console-for-linux"></a>Åtkomst Seriekonsol för Linux
 Gästoperativsystemet måste konfigureras för att läsa och skriva konsolmeddelanden att den seriella porten för seriekonsol för att fungera korrekt. De flesta [godkända Azure Linux-distributioner](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) har seriekonsolen konfigureras som standard. Att klicka på avsnittet Seriekonsolen i Azure portal ger åtkomst till konsolen. 
@@ -145,6 +145,15 @@ CoreOS      | CoreOS-avbildningarna i Azure har åtkomst till konsolen aktiverad
 SUSE        | Nyare SLES-avbildningar på Azure har åtkomst till konsolen aktiverad som standard. Om du använder äldre versioner (10 eller nedan) för SLES på Azure, följer du de [KB-artikel](https://www.novell.com/support/kb/doc.php?id=3456486) att aktivera Seriell konsol. 
 Oracle Linux        | Oracle Linux-avbildningar på Azure har åtkomst till konsolen aktiverad som standard.
 Anpassade Linux-avbildningar     | Aktivera åtkomst till konsolen i /etc/inittab att köra en terminal på ttyS0 om du vill aktivera seriekonsol för en anpassad Linux VM-avbildning. Här är ett exempel att lägga till det i filen inittab: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Läs mer om hur du skapar anpassade avbildningar korrekt [skapa och ladda upp en VHD för Linux i Azure](https://aka.ms/createuploadvhd).
+
+## <a name="accessibility"></a>Hjälpmedel
+Hjälpmedel är viktiga fokus för Azure seriekonsol. Därför har vi sett att seriekonsolen är tillgänglig för de med visuella objekt och hörselnedsättning samt personer som inte kanske kan använda en mus.
+
+### <a name="keyboard-navigation"></a>Tangentbordsnavigering
+Använd den `tab` på tangentbordet för att flytta runt Seriell konsol-gränssnittet i Azure-portalen. Din plats kommer vara markerad på skärmen. Om du vill lämna fokus på bladet för seriell konsol, trycker du på `Ctrl + F6` på tangentbordet.
+
+### <a name="use-serial-console-with-a-screen-reader"></a>Använda Seriell konsol med en skärmläsare
+Seriell konsol levereras med stöd för Skärmläsaren inbyggda. Navigera med en skärmläsare aktiveras kan alternativ text för knappen är markerade som ska läsas upp av Skärmläsaren.
 
 ## <a name="errors"></a>Fel
 De flesta felen är tillfälliga sin natur och anslutningsförsök görs seriekonsolen ofta åtgärdar dessa. Tabellen nedan visar en lista över fel och åtgärder

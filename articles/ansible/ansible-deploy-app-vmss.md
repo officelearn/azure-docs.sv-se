@@ -1,45 +1,39 @@
 ---
-title: Distribuera program till VM-skalningsuppsättningar i Azure med Ansible
-description: Lär dig hur du använder Ansible för att konfigurera en VM-skalningsuppsättning och distribuera program i VM-skalningsuppsättning i Azure
+title: Distribuera program till skalningsuppsättningar för virtuella datorer i Azure med Ansible
+description: Läs om hur du använder Ansible för att konfigurera en skalningsuppsättning för virtuell dator och distribuera program på skalningsuppsättningen i Azure
 ms.service: ansible
-keywords: ansible, azure, devops, bash, playbook, VM, VM-skalningsuppsättning, vmss
+keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
 author: tomarcher
-manager: jpconnock
-editor: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.date: 07/11/2018
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: b9c8058606e13c0db4908530e98cddb69d2caf50
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 08/24/2018
+ms.openlocfilehash: 762c14b5b6e30f6410a8d572d69651c803f079c2
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008855"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918094"
 ---
-# <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Distribuera program till VM-skalningsuppsättningar i Azure med Ansible
-Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan använda Ansible för att distribuera program till Azure. Den här artikeln visar hur du distribuerar en Java-program till en Azure VM-skalningsuppsättning (VMSS).  
+# <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Distribuera program till skalningsuppsättningar för virtuella datorer i Azure med Ansible
+Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan distribuera program till Azure med Ansible. I den här artikeln får du se hur du distribuerar ett Java-program till en Azure VM-skalningsuppsättning (VMSS).  
 
-## <a name="prerequisites"></a>Förutsättningar
-- **Azure-prenumeration** – om du inte har en Azure-prenumeration, skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
-- **Konfigurera Ansible** - [skapa Azure-autentiseringsuppgifter och konfigurera Ansible](../virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
-- **Ansible och Azure Python SDK-moduler** 
-  - [CentOS 7.4](../virtual-machines/linux/ansible-install-configure.md#centos-74)
-  - [Ubuntu 16.04 LTS](../virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts)
-  - [SLES 12 SP2](../virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
-- **Virtual machine scale Sets** – om du inte redan har en virtuell datorskalning har angetts kan du [skapa en VM-skalningsuppsättning med Ansible](ansible-create-configure-vmss.md). 
-- **Git** - [git](https://git-scm.com) används för att hämta ett Java-exempel som används i den här självstudien.
-- **Java SE Development Kit (JDK)** – The JDK används för att skapa Java exempelprojektet.
-- **Apache Maven-byggverktygen** – [Apache Maven-byggverktygen](https://maven.apache.org/download.cgi) används för att skapa Java exempelprojektet.
+## <a name="prerequisites"></a>Nödvändiga komponenter
+- **Azure-prenumeration** – Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) konto innan du börjar.
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
+- **VM-skalningsuppsättning** – Om du inte redan har en VM-skalningsuppsättning kan du [skapa en VM-skalningsuppsättning med Ansible](ansible-create-configure-vmss.md). 
+- **git** - [git](https://git-scm.com) används för att ladda ned ett Java-exempel som används in den här självstudien.
+- **Java SE Development Kit (JDK)** – JDK-paketet används till att skapa Java-exempelprojektet.
+- **Genereringsverktyg för Apache Maven** –[Genereringsverktygen för Apache Maven](https://maven.apache.org/download.cgi) används för att skapa Java-exempelprojektet.
 
 > [!Note]
-> Ansible 2.6 krävs för att köra följande exempel spelböcker i den här självstudien. 
+> Ansible 2.6 krävs för att köra följande exempelspelböcker i den här självstudien. 
 
 ## <a name="get-host-information"></a>Hämta värdinformation
 
-Det här avsnittet visas hur du använder Ansible för att hämta värdinformation för en grupp med virtuella Azure-datorer. Nedan visas ett exempel Ansible-spelbok. Koden hämtar de offentliga IP-adresserna och belastningsutjämnare i angivna resursgruppen och skapar en värdgrupp med namnet **saclesethosts** i inventeringen. 
+I den här delen visas hur du använder Ansible för att hämta värdinformation för en grupp med virtuella Azure-datorer. Nedan finns ett Ansible-spelboksexempel. Koden hämtar de offentliga IP-adresserna och belastningsutjämnaren i den angivna resursgruppen och skapar en värdgrupp med namnet **saclesethosts** i inventeringen. 
 
-Spara följande exempel spelboken som `get-hosts-tasks.yml`: 
+Spara följande exempelspelbok som `get-hosts-tasks.yml`: 
 
   ```yaml
   - name: Get facts for all Public IPs within a resource groups
@@ -67,7 +61,7 @@ Spara följande exempel spelboken som `get-hosts-tasks.yml`:
 
 ## <a name="prepare-an-application-for-deployment"></a>Förbereda ett program för distribution  
 
-I det här avsnittet använder du git för att klona en Java-exempelprojektet från GitHub och skapa projektet. Spara följande spelboken som `app.yml`:
+I det här avsnittet använder du git för att klona ett Java-exempelprojekt från GitHub och skapa projektet. Spara följande spelbok som `app.yml`:
 
   ```yaml
   - hosts: localhost
@@ -85,13 +79,13 @@ I det här avsnittet använder du git för att klona en Java-exempelprojektet fr
       shell: mvn package chdir="{{ workspace }}/complete"
   ```
 
-Kör exemplet Ansible-spelbok med följande kommando:
+Kör Ansible-spelboksexemplet med följande kommando:
 
   ```bash
   ansible-playbook app.yml
   ```
 
-Utdata från kommandot ansible-spelbok visar ut ungefär så här där du ser den byggd klonade exempelappen från GitHub:
+Utdata från kommandot ansible-playbook liknar följande där du ser att det skapade exempelappen genom att klona från GitHub:
 
   ```bash
   PLAY [localhost] **********************************************************
@@ -112,9 +106,9 @@ Utdata från kommandot ansible-spelbok visar ut ungefär så här där du ser de
 
 ## <a name="deploy-the-application-to-vmss"></a>Distribuera programmet till VMSS
 
-Följande avsnitt i en Ansible-spelbok installerar JRE (Java Runtime Environment) på en värdgrupp med namnet **saclesethosts**, och distribuerar Java-program till en värdgrupp med namnet **saclesethosts**: 
+Följande avsnitt i en Ansible-spelbok installerar JRE (Java Runtime Environment) i en värdgrupp som heter **saclesethosts** och distribuerar Java-programmet till gruppen **saclesethosts**: 
 
-(Ändra den `admin_password` till ditt eget lösenord.)
+(Ändra `admin_password` till ditt eget lösenord.)
 
   ```yaml
   - hosts: localhost
@@ -153,13 +147,13 @@ Följande avsnitt i en Ansible-spelbok installerar JRE (Java Runtime Environment
       poll: 0
   ```
 
-Du kan spara de föregående exemplet Ansible-spelboken som `vmss-setup-deploy.yml`, eller [ladda ned hela exemplet spelboken](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss). 
+Du kan spara den föregående Ansible-exempelspelboken som `vmss-setup-deploy.yml` eller [ladda ned hela exempelspelboken](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss). 
 
-Du använder den ssh anslutningstypen med lösenord, måste du installera sshpass-program. 
-  - Kör kommandot för Ubunto 16.04 `apt-get install sshpass`.
-  - Kör kommandot för CentOS 7.4 `yum install sshpass`.
+Om du vill använda ssh-anslutningstypen med lösenord måste du installera sshpass-programmet. 
+  - För Ubunto 16.04 kör du kommandot `apt-get install sshpass`.
+  - För CentOS 7.4 kör du kommandot `yum install sshpass`.
 
-Ett felmeddelande som kan visas **med ett SSH-lösenord i stället för en nyckel är inte möjligt eftersom Värdnyckeln är aktiverad och sshpass har inte stöd för detta.  Lägga till den här värden fingeravtryck i filen known_hosts att hantera den här värden.** Om du ser detta fel kan du inaktivera värdnyckeln kontroll genom att lägga till följande rad till antingen den `/etc/ansible/ansible.cfg` fil eller `~/.ansible.cfg` fil:
+Du kanske ser ett fel i stil med **Using an SSH password instead of a key is not possible because Host Key checking is enabled and sshpass does not support this. Add this host's fingerprint to your known_hosts file to manage this host** (Det går inte att använda ett SSH-lösenord istället för en nyckel eftersom värdnyckelkontroll är aktiverat och sshpass inte stöder det Lägg till värdens fingeravtryck till filen known_hosts för att hantera värden). Om du ser det här felet kan du inaktivera värdnyckelkontroll genom att lägga till följande rad till antingen filen `/etc/ansible/ansible.cfg` eller `~/.ansible.cfg`:
   ```bash
   [defaults]
   host_key_checking = False
@@ -171,7 +165,7 @@ Kör spelboken med följande kommando:
   ansible-playbook vmss-setup-deploy.yml
   ```
 
-Utdata från köra ansible-spelbok kommando anger att Java-exempelprogram har installerats för värdgruppen för virtuella datorns skalningsuppsättning:
+Utdata från körning av kommandot ansible-playbook anger att Java-exempelprogrammet har installerats till värdgruppen i VM-skalningsuppsättningen:
 
   ```bash
   PLAY [localhost] **********************************************************
@@ -208,10 +202,10 @@ Utdata från köra ansible-spelbok kommando anger att Java-exempelprogram har in
   localhost                  : ok=4    changed=1    unreachable=0    failed=0
   ```
 
-Congratulation! Programmet körs nu i Azure. Du kan nu gå till URL: en för belastningsutjämnaren för din VM-skalningsuppsättning:
+Grattis! Programmet körs nu på Azure. Nu kan du gå till lastbalanserarens webbadress för din VM-skalningsuppsättning:
 
 ![Java-app som körs i en VM-skalningsuppsättning i Azure.](media/ansible-deploy-app-vmss/ansible-deploy-app-vmss.png)
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"] 
-> [Ansible-spelbok exemplet för VMSS](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Ansible-exempelspelbok för VMSS](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)

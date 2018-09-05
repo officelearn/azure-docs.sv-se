@@ -1,19 +1,19 @@
 ---
 title: Använda Jenkins för att distribuera dina webbprogram till Azure
 description: Konfigurera kontinuerlig integrering från GitHub till Azure App Service för Java-webbappar med hjälp av Jenkins och Docker.
-ms.topic: tutorial
-ms.author: tarcher
+ms.service: jenkins
+keywords: jenkins, azure, devops, app service, continuous integration, ci, continuous deployment, cd
 author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: e880d84c3ae0fd23c11bb9b30733544bd5f28872
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: b1af82060d316a18cd6427f70695ca4fa982064d
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389950"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106805"
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Konfigurera kontinuerlig integrering och distribution till Azure App Service med Jenkins
 
@@ -33,7 +33,7 @@ I den här självstudien går du igenom följande uppgifter:
 
 För att slutföra den här kursen behöver du:
 
-* [Jenkins](https://jenkins.io/) med JDK och Maven-verktyg som har konfigurerats. Om du inte har ett Jenkins-system kan du skapa ett nu i Azure från [Jenkins-lösningsmallen](/azure/jenkins/install-jenkins-solution-template).
+* [Jenkins](https://jenkins.io/) med JDK och Maven-verktyg konfigurerade. Om du inte har ett Jenkins-system kan du skapa ett nu i Azure från [Jenkins-lösningsmallen](/azure/jenkins/install-jenkins-solution-template).
 * Ett [GitHub](https://github.com)-konto.
 * [Azure CLI 2.0](/cli/azure), antingen från din lokala kommandoraden eller i [Azure Cloud Shell](/azure/cloud-shell/overview)
 
@@ -164,7 +164,7 @@ Konfigurera Jenkins för att ta emot [GitHub-webhooks](https://developer.github.
 ## <a name="deploy-the-app-from-github"></a>Distribuera appen från GitHub
 
 1. Från Jenkins-projektet väljer du **Build Now** (Skapa nu) för att distribuera exempelappen till Azure.
-2. När skapandet är klart är app live på Azure vid dess distributions-URL, till exempel http://myjavaapp.azurewebsites.net.   
+2. När kompileringen är klar är appen live på Azure på distributionswebbadressen, till exempel http://myjavaapp.azurewebsites.net.   
    ![Visa den distribuerade appen på Azure](media/jenkins-java-quickstart/hello_docker_world_unedited.png)
 
 ## <a name="push-changes-and-redeploy"></a>Skicka ändringar och omdistribuera

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
 ms.date: 06/13/2018
 ms.author: wesmc
-ms.openlocfilehash: 4c34bd10768ab7acf4700b29386d3a71532490db
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cf47b2d6bd17fa5a9f7cbe98ab7db2799f6e8287
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38674860"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42916308"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Snabbstart: Skapa ett chattrum med SignalR Service
 
@@ -93,15 +93,20 @@ I det här avsnittet lägger du till [verktyget Secret Manager](https://docs.mic
 
         dotnet restore
 
-3. Lägg till en hemlighet med namnet *Azure__SignalR__ConnectionString* i Secret Manager. Den här hemligheten är ett hierarkiskt konfigurationsvärde. Kolon (:) fungerar inte på alla plattformar. Dubbla understreck (__), som används i den här hemligheten, stöds på alla plattformar.  Den här hemligheten innehåller anslutningssträngen för åtkomst till din SignalR Service-resurs. *Azure__SignalR__ConnectionString* är standardkonfigurationsnyckeln som SignalR letar efter för att upprätta en anslutning. Ersätt värdet i kommandot nedan med anslutningssträngen för din SignalR Service-resurs.
+3. Lägg till en hemlighet med namnet *Azure: SignalR:ConnectionString* till Secret Manager. 
+
+    Den här hemligheten innehåller anslutningssträngen för åtkomst till din SignalR Service-resurs. *Azure: SignalR:ConnectionString* är den konfigurationsnyckel av standardtyp som SignalR letar efter för att upprätta en anslutning. Ersätt värdet i kommandot nedan med anslutningssträngen för din SignalR Service-resurs.
 
     Det här kommandot måste köras i samma katalog som *.csproj*-filen.
 
     ```
-    dotnet user-secrets set Azure__SignalR__ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
+    dotnet user-secrets set Azure:SignalR:ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
     ```
 
     Secret Manager används endast för testning av webbappen medan den hanteras lokalt. I senare självstudier kommer du att distribuera chattwebbappen till Azure. När webbappen har distribuerats till Azure, använder du en programsinställning istället för att lagra anslutningssträngen med Secret Manager.
+
+    Du får tillgång till den här hemligheten med konfigurations-API:et. Ett kolon (:) fungerar i konfigurationsnamnet med API-konfigurationen på alla plattformar som stöds. Se dokumentationen om [konfiguration efter miljö](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0#configuration-by-environment). 
+
 
 4. Öppna *Startup.cs* och uppdatera `ConfigureServices`-metoden för att använda Azure SignalR Service genom att anropa metoden `services.AddSignalR().AddAzureSignalR()`:
 
@@ -113,7 +118,7 @@ I det här avsnittet lägger du till [verktyget Secret Manager](https://docs.mic
     }
     ```
 
-    I stället för att skicka en parameter till `AddAzureSignalR()`, använder den här koden standardkonfigurationsnyckeln, *Azure__SignalR__ConnectionString*, för SignalR Service-resursens anslutningssträng.
+    Istället för att skicka en parameter till `AddAzureSignalR()`, använder den här koden konfigurationsnyckeln av standardtyp, *Azure: SignalR:ConnectionString*, för SignalR Service-resursens anslutningssträng.
 
 5. Uppdatera även `Configure`-metoden i *Startup.cs* genom att ersätta anropet till `app.UseStaticFiles()` med följande kod och spara filen.
 

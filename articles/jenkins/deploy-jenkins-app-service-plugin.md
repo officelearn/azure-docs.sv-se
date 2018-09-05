@@ -1,77 +1,77 @@
 ---
-title: Distribuera till Azure App Service med hjälp av Jenkins-plugin-programmet
-description: Lär dig hur du använder Azure App Service Jenkins plugin-programmet för att distribuera en Java-webbapp till Azure i Jenkins
-ms.topic: article
-ms.author: tarcher
+title: Distribuera till Azure App Service med plugin-programmet Jenkins
+description: Lär dig använda plugin-programmet Jenkins i Azure App Service för att distribuera en Java-webbapp till Azure i Jenkins
+ms.service: jenkins
+keywords: jenkins, azure, devops, app service
 author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: f54e4e8f64fe444f264b547d5af475c533c5723f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: b364dfb033c3af640892bb305d7df3c916dd3fef
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441688"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43095775"
 ---
-# <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Distribuera till Azure App Service med hjälp av Jenkins-plugin-programmet 
+# <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Distribuera till Azure App Service med plugin-programmet Jenkins 
 
-Om du vill distribuera en Java-webbapp till Azure måste du använda Azure CLI i [Jenkins Pipeline](/azure/jenkins/execute-cli-jenkins-pipeline) eller så kan du använda den [plugin-programmet Jenkins för Azure App Service](https://plugins.jenkins.io/azure-app-service). Jenkins-plugin-programmet version 1.0 har stöd för kontinuerlig distribution med hjälp av funktionen Web Apps i Azure App Service via:
-* Git- eller FTP.
+Om du vill distribuera en Java-webbapp till Azure kan du använda Azure CLI i [Jenkins Pipeline](/azure/jenkins/execute-cli-jenkins-pipeline) eller [plugin-programmet Jenkins för Azure App Service](https://plugins.jenkins.io/azure-app-service). Plugin-programmet Jenkins version 1.0 har stöd för kontinuerlig distribution med Web Apps-funktionen i Azure App Service via:
+* Git eller FTP.
 * Docker för Web Apps på Linux.
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
-> * Konfigurera Jenkins för att distribuera Webbappar via Git eller FTP.
-> * Konfigurera Jenkins för att distribuera Web App for Containers.
+> * Konfigurera Jenkins för distribution av Web Apps via Git eller FTP.
+> * Konfigurera Jenkins för distribution av Web App for Containers.
 
 ## <a name="create-and-configure-a-jenkins-instance"></a>Skapa och konfigurera en Jenkins-instans
 
-Om du inte redan har en Jenkins-huvudserver, börjar du med den [lösningsmallen](install-jenkins-solution-template.md), som innehåller Java Development Kit (JDK) version 8 och följande obligatoriska Jenkins plugin-program:
+Om du inte redan har ett Jenkins-original börjar du med [lösningsmallen](install-jenkins-solution-template.md), som innehåller Java Development Kit (JDK) version 8 och följande obligatoriska Jenkins-plugin-program:
 
-* [Plugin-program för Jenkins Git-klient](https://plugins.jenkins.io/git-client) version 2.4.6 
-* [Docker Commons plugin-programmet](https://plugins.jenkins.io/docker-commons) version 1.4.0
-* [Autentiseringsuppgifter för Azure](https://plugins.jenkins.io/azure-credentials) version 1.2
+* [Klient-plugin-programmet Jenkins Git](https://plugins.jenkins.io/git-client) version 2.4.6 
+* [Plugin-programmet Docker Commons](https://plugins.jenkins.io/docker-commons) version 1.4.0
+* [Azure Credentials](https://plugins.jenkins.io/azure-credentials) version 1.2
 * [Azure App Service](https://plugins.jenkins.io/azure-app-service) version 0.1
 
-Du kan använda plugin-programmet Jenkins för att distribuera en webbapp på valfritt språk som stöds av Web Apps, till exempel C#, PHP, Java och Node.js. I den här självstudien använder vi en [enkel Java-webbapp för Azure](https://github.com/azure-devops/javawebappsample). Om du vill Förgrena lagringsplatsen till ditt eget GitHub-konto, Välj den **förgrening** knappen i det övre högra hörnet av GitHub-gränssnittet.  
+Du kan använda plugin-programmet Jenkins för att distribuera en webbapp på valfritt språk som stöds av Web Apps, till exempel C#, PHP, Java eller Node.js. I den här självstudien använder vi en [enkel Java-webbapp för Azure](https://github.com/azure-devops/javawebappsample). Om du vill förgrena lagringsplatsen till ditt eget GitHub-konto väljer du knappen **Fork** (Förgrening) i det övre högra hörnet i GitHub-gränssnittet.  
 > [!NOTE]
-> Java JDK och Maven krävs för att skapa Java-projekt. Installera komponenterna på Jenkins-huvudserver eller på VM-agenten om du använder agenten för kontinuerlig integrering. 
+> Java JDK och Maven krävs för att skapa Java-projektet. Installera komponenterna på Jenkins-originalet, eller på VM-agenten om du använder agenten för kontinuerlig integrering. 
 
-Installera komponenterna, logga in på Jenkins-instans med SSH och kör följande kommandon:
+Installera komponenterna genom att logga in till Jenkins-instansen med SSH och köra följande kommandon:
 
 ```bash
 sudo apt-get install -y openjdk-7-jdk
 sudo apt-get install -y maven
 ```
 
-Distribuera till Web App for Containers genom att installera Docker på Jenkins-huvudserver eller på VM-agenten som används för kompilering. Anvisningar finns i [installera Docker på Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntu/).
+Om du vill distribuera till Web App for Containers installerar du Docker på Jenkins-originalet eller på den VM-agent som används för kompileringen. Instruktioner finns i [Installera Docker på Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntu/).
 
-##<a name="service-principal"></a> Lägg till ett Azure-tjänstobjekt till Jenkins-autentiseringsuppgifter
+##<a name="service-principal"></a> Lägg till ett Azure-tjänsthuvudnamn till autentiseringsuppgifterna för Jenkins
 
-Du behöver ett Azure-tjänsthuvudnamn för att distribuera till Azure. 
-
-
-1. Du kan skapa en Azure-tjänstens huvudnamn med den [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) eller [Azure-portalen](/azure/azure-resource-manager/resource-group-create-service-principal-portal).
-2. På Jenkins-instrumentpanelen väljer **autentiseringsuppgifter** > **System**. Välj **globala credentials(unrestricted)**.
-3. Om du vill lägga till ett huvudnamn för tjänsten Microsoft Azure, Välj **Lägg till autentiseringsuppgifter**. Ange värden för den **prenumerations-ID**, **klient-ID**, **Klienthemlighet**, och **OAuth 2.0-Tokenslutpunkten** fält. Ange den **ID** fältet **mySp**. Vi kan använda detta ID i efterföljande steg i den här artikeln.
+Du behöver ett Azure-tjänsthuvudnamn för att kunna distribuera till Azure. 
 
 
-## <a name="configure-jenkins-to-deploy-web-apps-by-uploading-files"></a>Konfigurera Jenkins för att distribuera Web Apps genom att överföra filer
-
-Du kan ladda upp din byggartefakter (till exempel en WAR-fil i Java) för att distribuera projektet till Web Apps, med hjälp av Git eller FTP.
-
-Innan du konfigurerar jobbet i Jenkins behöver du en Azure App Service-plan och en webbapp för att köra Java-app.
+1. Skapa en Azure-tjänsthuvudnamn med [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) eller [Azure-portalen](/azure/azure-resource-manager/resource-group-create-service-principal-portal).
+2. På Jenkins-instrumentpanelen väljer du **Autentiseringsuppgifter** > **System**. Välj sedan **Globala autentiseringsuppgifter (obegränsade)**.
+3. Lägg till ett tjänsthuvudnamn för Microsoft Azure genom att välja **Lägg till autentiseringsuppgifter**. Ange värden i fälten **Prenumerations-ID**, **Klient-ID**, **Klienthemlighet** och **OAuth 2.0 Token Endpoint**. Ange fältet **ID** till **mySp**. Vi använder detta ID i efterföljande steg i den här artikeln.
 
 
-1. Skapa en Azure App Service-plan med den **kostnadsfri** prisnivån med hjälp av den `az appservice plan create` [Azure CLI-kommando](/cli/azure/appservice/plan#az-appservice-plan-create). App Service-planen definierar vilka fysiska resurser som används som värd för dina appar. Alla program som har tilldelats en App Service-plan delar dessa resurser. Delade resurser hjälper dig att minska kostnaderna när flera appar.
-2. Skapa en webbapp. Du kan använda den [Azure-portalen](/azure/app-service-web/web-sites-configure) eller följande `az` Azure CLI-kommando:
+## <a name="configure-jenkins-to-deploy-web-apps-by-uploading-files"></a>Konfigurera Jenkins för distribution av Web Apps med filuppladdning
+
+Distribuera ditt projekt till Web Apps genom att ladda upp dina versionsartefakter (till exempel en WAR-fil i Java) med Git eller FTP.
+
+Innan du konfigurerar jobbet i Jenkins behöver du en Azure App Service-plan och en webbapp för att köra Java-appen.
+
+
+1. Skapa en Azure App Service-plan med den **kostnadsfria** prisnivån med `az appservice plan create` [Azure CLI-kommandot](/cli/azure/appservice/plan#az-appservice-plan-create). I App Service-planen definieras de fysiska resurser som används som värd för dina appar. Alla program som har tilldelats en App Service-plan delar de här resurserna. Delade resurser hjälper dig att minska kostnaderna vid värdskap för flera appar.
+2. Skapa en webbapp. Du kan använda [Azure-portalen](/azure/app-service-web/web-sites-configure) eller följande `az` Azure CLI-kommando:
     ```azurecli-interactive 
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
     ```
     
-3. Ställa in Java runtime-konfiguration som appen behöver. Följande Azure CLI-kommando konfigurerar webbappen att köra på en nyligen JDK 8 och [Apache Tomcat](http://tomcat.apache.org/) version 8.0:
+3. Konfigurera den Java Runtime-konfiguration som appen behöver. Följande Azure CLI-kommando konfigurerar webbappen att köras på en ny Java 8 JDK och [Apache Tomcat](http://tomcat.apache.org/) 8.0:
     ```azurecli-interactive
     az webapp config set \
     --name <myAppName> \
@@ -81,34 +81,34 @@ Innan du konfigurerar jobbet i Jenkins behöver du en Azure App Service-plan och
     --java-container-version 8.0
     ```
 
-### <a name="set-up-the-jenkins-job"></a>Konfigurera Jenkins-jobb
+### <a name="set-up-the-jenkins-job"></a>Konfigurera Jenkins-jobbet
 
-1. Skapa en ny **freestyle** projekt på Jenkins-instrumentpanelen.
-2. Konfigurera den **Source Code Management** fält som du vill använda din lokala förgrening av den [enkel Java-webbapp för Azure](https://github.com/azure-devops/javawebappsample). Ange den **URL för databasen** värde. Till exempel: http://github.com/&lt; your_ID > / javawebappsample.
-3. Lägg till ett steg för att skapa projektet med hjälp av Maven genom att lägga till den **köra shell** kommando. I det här exemplet behöver vi en extra kommando för att byta namn på den \*WAR-filen i målmappen för **ROOT.war**:   
+1. Skapa ett nytt **freestyle**-projekt på Jenkins-instrumentpanelen.
+2. Konfigurera fältet **Source Code Management** (Källkodshantering) att använda din lokala förgrening av den [enkla Java-webbappen för Azure](https://github.com/azure-devops/javawebappsample). Ange värdet **lagringsplats-URL**. Till exempel: http://github.com/&lt; ditt_ID >/javawebappsample.
+3. Lägg till ett steg för att kompilera projektet med hjälp av Maven genom att lägga till kommandot **Execute shell**. I det här exemplet behöver vi ett extra kommando för att byta namn på \*.war-filen i målmappen till **ROOT.war**:   
     ```bash
     mvn clean package
     mv target/*.war target/ROOT.war
     ```
 
-4. Lägg till en åtgärd för post-build genom att välja **publicera ett Azure Web Apps**.
-5. Ange **mySp** som huvudsaklig Azure-tjänst. Den här huvudnamn lagrades som den [Azure Credentials](#service-principal) i föregående steg.
-6. I den **Appkonfiguration** väljer resurs grupp och web app i din prenumeration. Jenkins-plugin-programmet identifierar automatiskt om webbappen är baserad på Windows eller Linux. För en Windows-webbapp i **publicera filer** alternativ visas.
-7. Fyll i de filer som du vill distribuera. Till exempel ange WAR-paketet om du använder Java. Använd det valfria **källkatalog** och **målkatalogen** parametrar för att ange käll- och Målmapparna för filöverföring. Java-webbapp i Azure körs i en Tomcat-servern. Så för Java överföra du dina WAR-paket till webbappens mapp. För det här exemplet ställer du in den **källkatalog** värde att **target** och **målkatalogen** värde att **webapps**.
-8. Om du vill distribuera till en plats än produktion kan du också ange den **fack** namn.
-9. Spara projektet och skapa den. Din webbapp har distribuerats till Azure när versionen har slutförts.
+4. Lägg till en efterkompileringsåtgärd genom att välja **Publicera en Azure Web App**.
+5. Ange **mySp** som Azure-tjänstens huvudnamn. Detta huvudnamn lagrades som [Azure-autentiseringsuppgifter](#service-principal) i ett tidigare steg.
+6. I avsnittet **Appkonfiguration** väljer du resursgruppen och webbappen i din prenumeration. Plugin-programmet Jenkins känner automatiskt av om webbappen är baserad på Windows eller Linux. För en Windows-webbapp visas alternativet **Publicera filer**.
+7. Fyll i de filer som du vill distribuera. Ange till exempel WAR-paketet om du använder Java. Använd de valfria parametrarna för **källkatalog** och **målkatalog** för att ange käll- och målmappar för filuppladdning. Java-webbappen i Azure körs på en Tomcat-server. För Java laddar du därför upp ditt WAR-paket till webbappens mapp. För det här exemplet anger du värdet för **Källkatalog** till **target** (mål) och värdet för **Målkatalog** till **webapps**.
+8. Om du vill distribuera till en annan plats än produktion kan du också ange namnet för **Slot** (fack).
+9. Spara projektet och kompilera det. Din webbapp distribueras till Azure när kompileringen är klar.
 
-### <a name="deploy-web-apps-by-uploading-files-using-jenkins-pipeline"></a>Distribuera Web Apps genom att ladda upp filer med hjälp av Jenkins-Pipeline
+### <a name="deploy-web-apps-by-uploading-files-using-jenkins-pipeline"></a>Distribuera Web Apps genom att ladda upp filer med Jenkins Pipeline
 
-Azure App Service Jenkins plugin-programmet är redo för pipeline. Du kan referera till följande exempel på GitHub-lagringsplats.
+Plugin-programmet Jenkins i Azure App Service är klart för pipeline. Du kan referera till följande exempel på GitHub-lagringsplatsen.
 
-1. Öppna i GitHub-gränssnittet i **Jenkinsfile_ftp_plugin** fil. Välj pennikonen för att redigera filen. Uppdatera den **resourceGroup** och **webAppName** definitioner för din webbapp på linjer 11 och 12, respektive:
+1. Gå till GitHub-gränssnittet och öppna filen **Jenkinsfile_ftp_plugin**. Välj pennikonen för att redigera filen. Uppdatera definitionerna för **resourceGroup** och **webAppName** för din webbapp på rad 11 respektive 12:
     ```java
     def resourceGroup = '<myResourceGroup>'
     def webAppName = '<myAppName>'
     ```
 
-2. Ange den **withCredentials** definitionen på rad 14 credential-ID: t i din Jenkins-instans:
+2. Ange definitionen **withCredentials** på rad 14 som autentiseringsuppgifts-ID:t i din Jenkins-instans:
     ```java
     withCredentials([azureServicePrincipal('<mySp>')]) {
     ```
@@ -117,55 +117,55 @@ Azure App Service Jenkins plugin-programmet är redo för pipeline. Du kan refer
 
 1. Öppna Jenkins i en webbläsare. Välj **Nytt objekt**.
 2. Ange ett namn för jobbet och välj **Pipeline**. Välj **OK**.
-3. Välj den **Pipeline** fliken.
-4. För den **Definition** värde, väljer **Pipeline-skriptet från SCM**.
-5. För den **SCM** värde, väljer **Git**. Ange GitHub-URL: en för din förgrenade lagringsplats. Till exempel: https://&lt;your_forked_repo > .git.
-6. Uppdatera den **skriptets sökväg** värde att **Jenkinsfile_ftp_plugin**.
-7. Välj **spara** och kör jobbet.
+3. Välj fliken **Pipeline**.
+4. För värdet **Definition** väljer du **Pipeline-skript från SCM**.
+5. För värdet **SCM** väljer du **Git**. Ange GitHub-URL:en för din förgrenade lagringsplats. Exempel: https://&lt;din_förgrenade_lagringsplats>.git.
+6. Uppdatera värdet för **Skriptets sökväg** till **Jenkinsfile_ftp_plugin**.
+7. Välj **Spara** och kör jobbet.
 
-## <a name="configure-jenkins-to-deploy-web-app-for-containers"></a>Konfigurera Jenkins för att distribuera Web App for Containers
+## <a name="configure-jenkins-to-deploy-web-app-for-containers"></a>Konfigurera Jenkins för distribution av Web App för Containers
 
-Web Apps på Linux stöder distributioner med hjälp av Docker. För att distribuera din webbapp med Docker, måste du ange en Dockerfile som din webbapp med en service runtime-paket i en dockeravbildning. Plugin-programmet Jenkins sedan skapas avbildningen, skickar den till ett Docker-register och distribuerar avbildningen till webbappen.
+Web Apps på Linux har stöd för distributioner med Docker. För att kunna distribuera webbappen med Docker måste du ange en Dockerfile som paketerar webbappen med en tjänst-CLR till en Docker-avbildning. Plugin-programmet Jenkins skapar sedan avbildningen, skickar den till ett Docker-register och distribuerar avbildningen till webbappen.
 
-Web Apps på Linux stöder också traditionella distributionsmetoder, t.ex. Git och FTP, men endast för inbyggda språk (.NET Core, Node.js, PHP och Ruby). För övriga språk måste du paketera din kod och tjänsten körning av program tillsammans i en dockeravbildning och använda Docker för att distribuera.
+Web Apps på Linux kan också användas med traditionella distributionsmetoder som Git och FTP, men endast för inbyggda språk (.NET Core, Node.js, PHP och Ruby). För andra språk än dessa måste du paketera programkoden och tjänst-CLR:en tillsammans i en Docker-avbildning och använda Docker för distributionen.
 
-Innan du konfigurerar jobbet i Jenkins, behöver du en webbapp on Linux. Du måste också ett behållarregister för att lagra och hantera dina privata Docker-behållaravbildningar. Du kan använda DockerHub för att skapa behållarregistret. I det här exemplet använder vi Azure Container Registry.
+Innan du konfigurerar jobbet i Jenkins behöver du ha en webbapp på Linux. Du behöver också ha ett containerregister för lagring och hantering av dina privata avbildningar av Docker-containrar. Du kan skapa containerregistret med DockerHub. I det här exemplet använder vi Azure Container Registry.
 
 * [Skapa din webbapp i Linux](../app-service/containers/quickstart-nodejs.md).
-* Azure Container Registry är en hanterad [Docker-register](https://docs.docker.com/registry/) tjänst som är baserad på öppen källkod av Docker-register version 2.0. [Skapa ett Azure container registry](/azure/container-registry/container-registry-get-started-azure-cli). Du kan också använda DockerHub.
+* Azure Container Registry är en hanterad [Docker Registry](https://docs.docker.com/registry/)-tjänst baserad på den öppna källkoden Docker Registry version 2.0. [Skapa ett Azure-containerregister](/azure/container-registry/container-registry-get-started-azure-cli). Du kan även använda DockerHub.
 
 ### <a name="set-up-the-jenkins-job-for-docker"></a>Konfigurera Jenkins-jobbet för Docker
 
-1. Skapa en ny **freestyle** projekt på Jenkins-instrumentpanelen.
-2. Konfigurera den **Source Code Management** fält som du vill använda din lokala förgrening av den [enkel Java-webbapp för Azure](https://github.com/azure-devops/javawebappsample). Ange den **URL för databasen** värde. Till exempel: http://github.com/&lt; your_ID > / javawebappsample.
-3. Lägg till ett steg för att skapa projektet med hjälp av Maven genom att lägga till en **köra shell** kommando. Inkludera följande rad i kommandot:
+1. Skapa ett nytt **freestyle**-projekt på Jenkins-instrumentpanelen.
+2. Konfigurera fältet **Source Code Management** (Källkodshantering) att använda din lokala förgrening av den [enkla Java-webbappen för Azure](https://github.com/azure-devops/javawebappsample). Ange värdet **lagringsplats-URL**. Till exempel: http://github.com/&lt; ditt_ID >/javawebappsample.
+3. Lägg till ett steg för att kompilera projektet med hjälp av Maven genom att lägga till kommandot **Execute shell**. Inkludera följande rad i kommandot:
     ```bash
     mvn clean package
     ```
 
-4. Lägg till en åtgärd för post-build genom att välja **publicera ett Azure Web Apps**.
-5. Ange **mySp** som huvudsaklig Azure-tjänst. Den här huvudnamn lagrades som den [Azure Credentials](#service-principal) i föregående steg.
-6. I den **Appkonfiguration** väljer resursgruppens namn och en Linux-webbapp i din prenumeration.
-7. Välj **publicera via Docker**.
-8. Fyll i den **Dockerfile** värdet för åtgärdssökvägen. Du kan behålla standard värdet /Dockerfile.
-För den **Docker registry URL** värde, ange URL: en med hjälp av formatet https://&lt;yourRegistry >. azurecr.io om du använder Azure Container Registry. Om du använder DockerHub kan lämna värdet tomt.
-9. För den **autentiseringsuppgifter för registret** värde, Lägg till autentiseringsuppgift för behållarregistret. Du kan få det användar-ID och lösenord genom att köra följande kommandon i Azure CLI. Det första kommandot gör det möjligt för administratörskontot:
+4. Lägg till en efterkompileringsåtgärd genom att välja **Publicera en Azure Web App**.
+5. Ange **mySp** som Azure-tjänstens huvudnamn. Detta huvudnamn lagrades som [Azure-autentiseringsuppgifter](#service-principal) i ett tidigare steg.
+6. I avsnittet **Appkonfiguration** väljer du resursgruppen och en Linux-webbapp i din prenumeration.
+7. Välj **Publicera via Docker**.
+8. Fyll i värdet för **Dockerfile**-sökväg. Du kan behålla standardvärdet /Dockerfile.
+För värdet **URL för Docker-register** anger du webbadressen i formatet https://&lt;dittRegister>. azurecr.io om du använder Azure Container Registry. Om du använder DockerHub lämnar du värdet tomt.
+9. För värdet **autentiseringsuppgifter för registret** lägger du till autentiseringsuppgiften för containerregistret. Du kan få användar-ID och lösenord genom att köra följande kommandon i Azure CLI. Det första kommandot ger administratörskontot:
     ```azurecli-interactive
     az acr update -n <yourRegistry> --admin-enabled true
     az acr credential show -n <yourRegistry>
     ```
 
-10. Docker-avbildning namn och tagg värdet i den **Avancerat** fliken är valfria. Som standard hämtas värdet för namnet på avbildningen från avbildningens namn som du konfigurerade i Azure-portalen i den **Dockerbehållare** inställningen. Taggen genereras från $BUILD_NUMBER.
+10. Docker-avbildningens namn och taggvärde på fliken **Avancerat** är valfria. Som standard hämtas värdet för avbildningens namn från det avbildningsnamn som du konfigurerade i Azure-portalen i inställningen för **Docker Container**. Taggen genereras från $BUILD_NUMBER.
     > [!NOTE]
-    > Se till att ange avbildningens namn i Azure-portalen eller ange en **Docker-avbildning** värde i den **Avancerat** fliken. För det här exemplet ställer du in den **Docker-avbildning** värde att &lt;your_Registry >.azurecr.io/calculator och lämna den **Docker bildtagg** värdet tomt.
+    > Du måste ange avbildningens namn i Azure-portalen eller ange ett värde för **Docker-avbildning** på fliken **Avancerat**. I det här exemplet ställer du in värdet **Docker-avbildning** till &lt;ditt_Register>.azurecr.io/calculator och lämnar värdet **Docker Image Tab** (Docker-avbildningstagg) tomt.
 
-11. Det går inte att avsnittet distribuera om du använder en inbyggd inställning för Docker-avbildning. Ändra konfigurationen av Docker för att använda en anpassad avbildning i den **Dockerbehållare** i Azure-portalen. Använd metoden som överför fil för att distribuera för en inbyggd avbildning.
-12. Liknar metoden som överför fil, du kan välja en annan **fack** namn än **produktion**.
-13. Spara och skapa projektet. Behållaravbildningen skickas till ditt register och webbappen har distribuerats.
+11. Det går inte att distribuera om du använder en inbyggd inställning för Docker-avbildning. Ändra Docker-konfigurationen om du vill använda en anpassad avbildning i inställningen **Docker Container** i Azure-portalen. För en inbyggd avbildning använder du filuppladdningsmetoden för distributionen.
+12. På liknande sätt som med filuppladdningsmetoden kan du välja ett annat namn för **Slot** (fack) än **produktion**.
+13. Spara och kompilera projektet. Containeravbildningen skickas till ditt register och webbappen distribueras.
 
-### <a name="deploy-web-app-for-containers-by-using-jenkins-pipeline"></a>Distribuera Web App for Containers med hjälp av Jenkins-Pipeline
+### <a name="deploy-web-app-for-containers-by-using-jenkins-pipeline"></a>Distribuera Web App för containrar med Jenkins Pipeline
 
-1. Öppna i GitHub-gränssnittet i **Jenkinsfile_container_plugin** fil. Välj pennikonen för att redigera filen. Uppdatera den **resourceGroup** och **webAppName** definitioner för din webbapp på linjer 11 och 12, respektive:
+1. Gå till GitHub-gränssnittet och öppna filen **Jenkinsfile_container_plugin**. Välj pennikonen för att redigera filen. Uppdatera definitionerna för **resourceGroup** och **webAppName** för din webbapp på rad 11 respektive 12:
     ```java
     def resourceGroup = '<myResourceGroup>'
     def webAppName = '<myAppName>'
@@ -176,7 +176,7 @@ För den **Docker registry URL** värde, ange URL: en med hjälp av formatet htt
     def registryServer = '<registryURL>'
     ```
 
-3. Ändra rad 16 använder autentiseringsuppgifts-ID i Jenkins-instansen:
+3. Ändra rad 16 så att autentiseringsuppgifts-ID i Jenkins-instansen används:
     ```java
     azureWebAppPublish azureCredentialsId: '<mySp>', publishType: 'docker', resourceGroup: resourceGroup, appName: webAppName, dockerImageName: imageName, dockerImageTag: imageTag, dockerRegistryEndpoint: [credentialsId: 'acr', url: "http://$registryServer"]
     ```
@@ -185,26 +185,26 @@ För den **Docker registry URL** värde, ange URL: en med hjälp av formatet htt
 
 1. Öppna Jenkins i en webbläsare. Välj **Nytt objekt**.
 2. Ange ett namn för jobbet och välj **Pipeline**. Välj **OK**.
-3. Välj den **Pipeline** fliken.
-4. För den **Definition** värde, väljer **Pipeline-skriptet från SCM**.
-5. För den **SCM** värde, väljer **Git**. Ange GitHub-URL: en för din förgrenade lagringsplats. Till exempel: https://&lt;your_forked_repo > .git.
-7. Uppdatera den **skriptets sökväg** värde att **Jenkinsfile_container_plugin**.
-8. Välj **spara** och kör jobbet.
+3. Välj fliken **Pipeline**.
+4. För värdet **Definition** väljer du **Pipeline-skript från SCM**.
+5. För värdet **SCM** väljer du **Git**. Ange GitHub-URL:en för din förgrenade lagringsplats. Exempel: https://&lt;din_förgrenade_lagringsplats>.git.
+7. Uppdatera värdet **Skriptets sökväg** till **Jenkinsfile_container_plugin**.
+8. Välj **Spara** och kör jobbet.
 
-## <a name="verify-your-web-app"></a>Kontrollera din webbapp
+## <a name="verify-your-web-app"></a>Verifiera din webbapp
 
-1. Kontrollera att WAR-filen har distribuerats till din webbapp, öppna en webbläsare.
-2. Gå till http://&lt;your_app_name >.azurewebsites.net/api/calculator/ping. Ersätt &lt;your_app_name > med namnet på din webbapp. Du ser meddelandet:
+1. Om du vill kontrollera att WAR-filen har distribuerats till din webbapp öppnar du en webbläsare.
+2. Gå till http://&lt;ditt_appnamn>.azurewebsites.net/api/calculator/ping. Ersätt &lt;ditt_appnamn> med namnet på din webbapp. Det här meddelandet visas:
     ```
     Welcome to Java Web App!!! This is updated!
     Sun Jun 17 16:39:10 UTC 2017
     ```
 
-3. Gå till http://&lt;your_app_name >.azurewebsites.net/api/calculator/add?x=&lt;x > & y =&lt;y >. Ersätt &lt;x > och &lt;y > med alla värden för att hämta summan av x + y. Kalkylatorn visar summan: ![Kalkylatorn: Lägg till](./media/execute-cli-jenkins-pipeline/calculator-add.png)
+3. Gå till http://&lt;ditt_appnamn>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Ersätt &lt;x> och &lt;y> med valfria värden för att hämta summan av x + y. Kalkylatorn visar summan: ![Calculator: add](./media/execute-cli-jenkins-pipeline/calculator-add.png) (Kalkylator: lägg till)
 
-### <a name="for-azure-app-service-on-linux"></a>För Azure App Service på Linux
+### <a name="for-azure-app-service-on-linux"></a>För Azure App Service i Linux
 
-1. Kör följande kommando för att verifiera din webbapp i Azure CLI:
+1. Verifiera din webbapp genom att köra följande kommando i Azure CLI:
     ```CLI
     az acr repository list -n <myRegistry> -o json
     ```
@@ -213,17 +213,17 @@ För den **Docker registry URL** värde, ange URL: en med hjälp av formatet htt
     ["calculator"]
     ```
     
-2. Gå till http://&lt;your_app_name >.azurewebsites.net/api/calculator/ping. Ersätt &lt;your_app_name > med namnet på din webbapp. Du ser meddelandet: 
+2. Gå till http://&lt;ditt_appnamn>.azurewebsites.net/api/calculator/ping. Ersätt &lt;ditt_appnamn> med namnet på din webbapp. Det här meddelandet visas: 
     ```
     Welcome to Java Web App!!! This is updated!
     Sun Jul 09 16:39:10 UTC 2017
     ```
 
-3. Gå till http://&lt;your_app_name >.azurewebsites.net/api/calculator/add?x=&lt;x > & y =&lt;y >. Ersätt &lt;x > och &lt;y > med alla värden för att hämta summan av x + y.
+3. Gå till http://&lt;ditt_appnamn>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Ersätt &lt;x> och &lt;y> med valfria värden för att hämta summan av x + y.
     
-## <a name="troubleshooting-the-jenkins-plugin"></a>Felsökning av plugin-programmet Jenkins
+## <a name="troubleshooting-the-jenkins-plugin"></a>Felsökning av Jenkins-plugin-programmet
 
-Om du stöter på buggar med Jenkins plugin-program kan du rapportera problemet i den [Jenkins JIRA](https://issues.jenkins-ci.org/) för en viss komponent.
+Om du stöter på buggar med Jenkins-plugin-programmet kan du rapportera problemet i [Jenkins JIRA](https://issues.jenkins-ci.org/) för en viss komponent.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -232,5 +232,5 @@ I den här självstudien använde du plugin-programmet Jenkins för Azure App Se
 Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Konfigurera Jenkins för att distribuera Azure App Service med FTP 
-> * Konfigurera Jenkins för distribution till Web App for Containers 
+> * Konfigurera Jenkins för distribution av Azure App Service med FTP 
+> * Konfigurera Jenkins för distribution av Web App för containrar 

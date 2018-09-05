@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 08/28/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 20dc414c5cdd309434ba53acf2d7f6716d3edfe5
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 596c4b15ea6ef76d4471bca6994377bf4d5ddc01
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009934"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143431"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Snabbstart: Distribuera Azure Data Box Disk med hjälp av Azure Portal (förhandsversion)
 
@@ -31,7 +31,7 @@ Detaljerade stegvisa distributions- och spårningsinstruktioner finns i [Självs
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F).
 
 > [!IMPORTANT]
-> Azure Data Box Disk är tillgänglig som en förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du distribuerar den här lösningen.
+> Data Box Disk är tillgängligt som förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du distribuerar den här lösningen.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -54,7 +54,6 @@ Det här steget tar ungefär 5 minuter.
 
 När ordern har skapats förbereds diskarna för leverans. 
 
-
 ## <a name="unpack"></a>Uppackning
 
 Det här steget tar ungefär 5 minuter.
@@ -64,7 +63,6 @@ Data Box-disken skickas i en UPS Express-box. Öppna boxen och kontrollera att d
 - 1 till 5 USB-diskar inlindade i bubbelplast.
 - En anslutningskabel per disk. 
 - En fraktsedel för returförsändelse.
- 
 
 ## <a name="connect-and-unlock"></a>Ansluta och låsa upp
 
@@ -75,10 +73,8 @@ Det här steget tar ungefär 5 minuter.
 
     1. På Azure Portal går du till **Allmänt > Enhetsinformation** och hämtar nyckeln.
     2. Ladda ned och extrahera Data Box Disk-upplåsningsverktyget på den dator som används för att kopiera data till diskarna. 
-    3. Kör *DataBoxDiskUnlock.exe* och ange nyckeln. Upprepa steget för eventuella återinsättningar av diskar.
+    3. Kör *DataBoxDiskUnlock.exe* och ange nyckeln. Om du sätter i nya diskar kör du upplåsningsverktyget igen och anger nyckeln. **Använd inte BitLocker-dialogrutan eller BitLocker-nyckeln för att låsa upp disken.** 
     4. Diskens tilldelade enhetsbeteckning visas i verktyget. Skriv ned diskens enhetsbeteckning. Du behöver den i efterföljande steg.
-
-
 
 ## <a name="copy-data-and-verify"></a>Kopiera data och verifiera
 
@@ -92,7 +88,7 @@ Hur lång tid det tar att slutföra den här åtgärden beror på datastorleken.
     > - Alla containrar och blobar måste följa [Azures namngivningskonventioner](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). Om dessa regler inte uppfylls misslyckas datauppladdningen till Azure.
     > - Kontrollera att filerna inte överskrider ~4,7 TiB för blockblobar och ~ 8 TiB för sidblobar.
 
-2. (Valfritt) När kopieringen är klar rekommenderar vi att du kör `AzureExpressDiskService.ps1` i mappen *AzureImportExport* för att generera kontrollsummor för verifiering. Beroende på datastorleken kan det här steget ta en stund. 
+2. (Valfritt) När kopieringen är klar rekommenderar vi att du kör `AzureExpressDiskService.cmd` i mappen *AzureImportExport* för att generera kontrollsummor för verifiering. Beroende på datastorleken kan det här steget ta en stund. 
 3. Koppla från enheten. 
 
 
@@ -116,7 +112,6 @@ Hur lång tid det tar att slutföra den här åtgärden beror på datastorleken.
     1. Kontrollera felloggarna för eventuella fel och vidta lämpliga åtgärder.
     2. Kontrollera att alla data finns på lagringskontot innan du tar bort dem från källan.
 
-
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Det här steget tar 2–3 minuter att slutföra.
@@ -131,7 +126,7 @@ Om du vill rensa resurser kan du avbryta Data Box-beställningen och ta bort ord
 
     Om du vill ta bort ordern går du till **Översikt** och klickar på **Ta bort** i kommandofältet.
 
-## <a name="next-step"></a>Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 I den här snabbstarten har du distribuerat Azure Data Box Disk för att importera dina data till Azure. Gå vidare till nästa självstudie om du vill veta mer om Azure Data Box Disk-hantering: 
 

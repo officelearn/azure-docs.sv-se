@@ -1,19 +1,19 @@
 ---
 title: Skapa en Jenkins-server i Azure
 description: Installera Jenkins på en virtuell Azure Linux-dator från Jenkins-lösningsmappen och skapa ett Java-exempelprogram.
-ms.topic: quickstart
-ms.author: tarcher
+ms.service: jenkins
+keywords: jenkins, azure, devops, portal, virtuell dator, lösningsmall
 author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
-ms.date: 07/31/2018
-ms.openlocfilehash: af1082d9b7b350f1845d6c8e22108b9238a40f28
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: quickstart
+ms.date: 6/7/2017
+ms.openlocfilehash: 92a0583ad01c4dc9263988f6ef48c95c380c9289
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390436"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43086582"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Skapa en Jenkins-server på en virtuell Azure Linux-dator från Azure Portal
 
@@ -75,7 +75,7 @@ Välj fliken **Build** (Bygg) och sedan **Add build step** (Lägg till byggsteg)
 
 ![Använda Gradle-omslutning för att bygga](./media/install-jenkins-solution-template/jenkins-job-gradle-config.png) 
 
-Välj **Avancerat..** och ange sedan `complete` i fältet **Root Build script** (Rotbuildskript). Välj **Spara**.
+Välj **Avancerat** och ange sedan `complete` i fältet **Root Build script** (Root Build-skript). Välj **Spara**.
 
 ![Ange avancerade inställningar i steget för att bygga Gradle-omslutning](./media/install-jenkins-solution-template/jenkins-job-gradle-advances.png) 
 

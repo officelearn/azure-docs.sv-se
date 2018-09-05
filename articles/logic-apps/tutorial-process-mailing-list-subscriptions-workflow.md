@@ -1,33 +1,28 @@
 ---
 title: Skapa godkännandearbetsflöden för att bearbeta e-postlistebegäranden – Azure Logic Apps | Microsoft Docs
-description: I den här självstudiekursen visas hur du skapar automatiska arbetsflöden för godkännande, för att bearbeta e-postlisteprenumerationer med Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-editor: ''
+description: Självstudie – Hur du skapar automatiska arbetsflöden för godkännande, för att bearbeta e-postlisteprenumerationer med Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: e31be6ac24b7b194ab77856cb7376f9431a79f24
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 4ac5861dabbc473099886b4f099824cde60f38b9
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300682"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122877"
 ---
 # <a name="manage-mailing-list-requests-with-a-logic-app"></a>Hantera begäranden om distributionslistor med en logikapp
 
 Med Azure Logic Apps lär du dig att automatisera arbetsflöden och integrera data i olika Azure-tjänster, Microsoft-tjänster och andra SaaS-appar (programvara som en tjänst) samt lokala system. I den här självstudiekursen visar vi hur du kan bygga en [logikapp](../logic-apps/logic-apps-overview.md) som bearbetar prenumerationsbegäranden för e-postlistor som hanteras via tjänsten [MailChimp](https://mailchimp.com/).
 Den här logikappen övervakar ett e-postkonto och söker efter begäranden, skickar begäranden om godkännande och lägger till godkända medlemmar på distributionslistan.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en tom logikapp.
@@ -69,7 +64,7 @@ Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a>
    | **Namn** | LA-MailingList | Logikappens namn | 
    | **Prenumeration** | <*your-Azure-subscription-name*> | Azure-prenumerationens namn | 
    | **Resursgrupp** | LA-MailingList-RG | Namnet på den [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) som används för att organisera relaterade resurser | 
-   | **Plats** | Östra USA 2 | Regionen där informationen om logikappen ska lagras | 
+   | **Plats** | USA, östra 2 | Regionen där informationen om logikappen ska lagras | 
    | **Log Analytics** | Av | Behåll inställningen **Av** för diagnostisk loggning. | 
    |||| 
 

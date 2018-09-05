@@ -1,25 +1,25 @@
 ---
-title: Översikt över Jenkins och Azure | Microsoft Docs
+title: Översikt över Jenkins och Azure
 description: Använd Azure som värd för en Jenkins-automationsserver för versions- och distributionshantering och använd Azures beräknings- och lagringsresurser för att utöka dina kontinuerliga pipelines för integration och distribution (CI/CD).
-ms.topic: overview
-ms.author: tarcher
+ms.service: jenkins
+keywords: jenkins, azure, devops, översikt
 author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: overview
 ms.date: 07/25/2018
-ms.openlocfilehash: ecb4ea7aee005cb539910b2cb25f0b84de7ba510
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: cb4082046e57ac16abd6cdef3d5779525e7cfc82
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281563"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105537"
 ---
 # <a name="azure-and-jenkins"></a>Azure och Jenkins
 
 [Jenkins](https://jenkins.io/) är en populär automationsserver med öppen källkod för hantering av kontinuerlig integration och leverans (CI/CD) i programvaruprojekt. Du kan använda Azure som värd för din Jenkins-distribution eller utöka din befintliga Jenkins-konfiguration med hjälp av Azure-resurser. Du har också tillgång till Jenkins-plugin-program som underlättar den kontinuerliga integrationen och leveransen för dina program till Azure.
 
-Den här artikeln är en introduktion till Azure med Jenkins och beskriver de viktigaste Azure-funktioner som är tillgängliga för Jenkins-användare. Vår [snabbstart](install-jenkins-solution-template.md) hjälper dig att komma igång med din egen Jenkins-server i Azure.
+Den här artikeln är en introduktion till Azure med Jenkins och beskriver de viktigaste Azure-funktioner som är tillgängliga för Jenkins-användare. Mer information om hur du kommer igång med din egen Jenkins-server i Azure finns i [Skapa en Jenkins-server på Azure](install-jenkins-solution-template.md).
 
 ## <a name="host-your-jenkins-servers-in-azure"></a>Använda Azure som värd för Jenkins-servrar
 

@@ -11,17 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 09/04/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: d33ca1a4ab08ab25855f8b3992157ad3d086a180
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: c9efaeed05856f830a4f0cf699cb35ebc21966c1
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054135"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700718"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Distribuera SQL Server-resursprovider i Azure Stack
+
 Använda Azure Stack SQL Server-resursprovidern för att visa SQL-databaser som en tjänst för Azure Stack. SQL-resursprovider körs som en tjänst på en Windows Server 2016 Server Core-dator (VM).
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -30,13 +31,12 @@ Det finns flera förutsättningar som måste vara uppfyllda innan du kan distrib
 
 - Om du inte redan gjort det, [registrera Azure Stack](azure-stack-registration.md) med Azure så att du kan ladda ned Azure marketplace-objekt.
 - Du måste installera Azure- och Azure Stack PowerShell-moduler på systemet där du kör installationen. Systemet måste vara en Windows 10 eller Windows Server 2016-avbildning med den senaste versionen av .NET-runtime. Se [installera PowerShell för Azure Stack](.\azure-stack-powershell-install.md).
-- Lägg till nödvändiga Windows Server core VM på Azure Stack Marketplace genom att ladda ned den **Windows Server 2016 Datacenter - Server Core** bild. 
-- Ladda ned den SQL-resursprovidern binära och kör sedan Self-Extractor för att extrahera innehållet till en tillfällig katalog. Resursprovidern har en minsta motsvarande Azure Stack skapa. Kontrollera att du har hämtat rätt binärfilen för versionen av Azure Stack som du kör:
+- Lägg till nödvändiga Windows Server core VM på Azure Stack Marketplace genom att ladda ned den **Windows Server 2016 Datacenter - Server Core** bild.
+- Ladda ned den SQL-resursprovidern binära och kör sedan Self-Extractor för att extrahera innehållet till en tillfällig katalog. Resursprovidern har en minsta motsvarande Azure Stack skapa.
 
-    |Azure Stack-versionen|SQL RP-version|
+    |Lägsta version av Azure Stack|SQL RP-version|
     |-----|-----|
-    |Version 1804 (1.0.180513.1)|[SQL RP version 1.1.24.0](https://aka.ms/azurestacksqlrp1804)
-    |Version 1802 (1.0.180302.1)|[SQL RP version 1.1.18.0](https://aka.ms/azurestacksqlrp1802)|
+    |Version 1804 (1.0.180513.1)|[SQL RP version 1.1.24.0](https://aka.ms/azurestacksqlrp)
     |     |     |
 
 - Kontrollera att datacenter integration krav är uppfyllda:
@@ -45,7 +45,7 @@ Det finns flera förutsättningar som måste vara uppfyllda innan du kan distrib
     |-----|-----|
     |Villkorlig vidarebefordran av DNS är korrekt.|[Integrering med Azure Stack datacenter - DNS](azure-stack-integrate-dns.md)|
     |Ingående portar för resursprovider är öppna.|[Azure Stack datacenter-integrering – publicera slutpunkter](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
-    |PKI-certifikatämne och alternativt namn har angetts korrekt.|[Azure Stack obligatoriska PKI kraven för distribution](azure-stack-pki-certs.md#mandatory-certificates)<br>[Azure PaaS certifikat distributionskrav Stack](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |PKI-certifikatämne och alternativt namn har angetts korrekt.|[Azure Stack obligatoriska PKI distributionskraven](azure-stack-pki-certs.md#mandatory-certificates)[Azure Stack distributionskraven PaaS-certifikat](azure-stack-pki-certs.md#optional-paas-certificates)|
     |     |     |
 
 ### <a name="certificates"></a>Certifikat
@@ -80,6 +80,7 @@ Du kan ange följande parametrar från kommandoraden. Om du inte, eller om någo
 | **AzCredential** | Autentiseringsuppgifter för Azure Stack-tjänstadministratörskonto. Använd samma autentiseringsuppgifter som du använde för att distribuera Azure Stack. | _Krävs_ |
 | **VMLocalCredential** | Autentiseringsuppgifterna för det lokala administratörskontot för SQL-resursprovider VM. | _Krävs_ |
 | **PrivilegedEndpoint** | IP-adressen eller DNS-namnet på den privilegierade slutpunkten. |  _Krävs_ |
+| **AzureEnvironment** | Azure-miljön för admin kontot som du använde för att distribuera Azure Stack. Krävs endast om den inte är AD FS. Miljö som stöds är **AzureCloud**, **azureusgovernment eller**, eller om du använder en Kina Azure Active Directory, **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | För integrerade system, måste din .pfx-certifikatfil placeras i den här katalogen. Du kan också kopiera här ett Windows Update MSU-paket. | _Valfritt_ (_obligatoriska_ för integrerade system) |
 | **DefaultSSLCertificatePassword** | Lösenordet för PFX-certifikat. | _Krävs_ |
 | **MaxRetryCount** | Antal gånger som du vill försöka utföra varje åtgärd om det uppstår ett fel.| 2 |

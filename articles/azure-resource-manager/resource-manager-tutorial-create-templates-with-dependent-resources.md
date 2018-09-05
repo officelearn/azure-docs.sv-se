@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/20/2018
+ms.date: 08/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: bd559cb9f0140706a4b9735c642367e03616a14d
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 7509ed46ba07cd8250f82f8eb258d18e3f4a1ee6
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188173"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43107113"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Självstudie: Skapa Azure Resource Manager-mallar med beroende resurser
 
@@ -56,12 +56,27 @@ Azure-snabbstartsmallar är en lagringsplats för Resource Manager-mallar. I st�
 
 ## <a name="explore-the-template"></a>Utforska mallen
 
+När du utforskar mallen i det här avsnittet kan du försöka besvara följande frågor:
+
+- Hur många Azure-resurser är definierade i den här mallen?
+- En av resurserna är ett Azure-lagringskonto.  Ser definitionen ut som den som används i den senaste självstudien?
+- Kan du hitta mallreferenserna för de resurser som är definierade i mallen?
+- Kan du hitta resursernas beroenden?
+
 1. Från Visual Studio Code döljer du elementen tills du bara ser elementen på den första och andra nivån i **resurser**:
 
     ![Azure Resource Manager-mallar i Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
     Det finns fem resurser som definieras i mallen.
-2. Expandera det fjärde elementet:
+2. Expandera den första resursen. Det är ett lagringskonto. Definitionen ska vara identisk med den som används i början av den senaste självstudien.
+
+    ![Lagringsdefinition för Azure Resource Manager-mallar i Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
+
+3. Expandera den andra resursen. Resurstypen är **Microsoft.Network/publicIPAddresses**. Du hittar mallreferensen genom att bläddra till [mallreferens](https://docs.microsoft.com/azure/templates/) och ange **offentlig ip-adress** eller **offentliga ip-adresser** i fältet **Filtrera efter rubrik**. Jämför resursdefinitionen med mallreferensen.
+
+    ![Definition av offentlig IP-adress för Azure Resource Manager-mallar i Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
+4. Upprepa det senaste steget för att leta rätt på mallreferenserna för de övriga resurser som är definierade i mallen.  Jämför resursdefinitionerna med mallreferenserna.
+5. Expandera den fjärde resursen:
 
     ![Azure Resource Manager-mallar i Visual Studio Code – dependson](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
 
@@ -70,7 +85,7 @@ Azure-snabbstartsmallar är en lagringsplats för Resource Manager-mallar. I st�
     * publicIPAddress
     * virtualNetwork
 
-3. Expandera det femte elementet. Den här resursen är en virtuell dator. Den beror på två resurser:
+6. Expandera den femte resursen. Den här resursen är en virtuell dator. Den beror på två resurser:
 
     * storageAccount
     * networkInterface

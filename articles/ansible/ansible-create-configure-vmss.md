@@ -1,47 +1,41 @@
 ---
 title: Skapa VM-skalningsuppsättningar i Azure med Ansible
-description: Lär dig hur du använder Ansible för att skapa och konfigurera en VM-skalningsuppsättning i Azure
+description: Lär dig hur du använder Ansible för att skapa och konfigurera en skalningsuppsättning för virtuell dator i Azure
 ms.service: ansible
-keywords: ansible, azure, devops, bash, playbook, VM, VM-skalningsuppsättning, vmss
+keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
 author: tomarcher
-manager: jpconnock
-editor: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.date: 07/11/2018
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: 5f915f7b1b425a3bd6e5d62eb70bb3f633b7eda8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 08/24/2018
+ms.openlocfilehash: f3b08c41d3bf083c7cca5897cee11a1a4b9c9092
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009009"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918583"
 ---
 # <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>Skapa VM-skalningsuppsättningar i Azure med Ansible
-Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan använda Ansible för att hantera din VM-skalningsuppsättning (VMSS) i Azure, på samma sätt som du skulle hantera andra Azure-resurs. Den här artikeln visar hur du använder Ansible för att skapa och skala ut en skalningsuppsättning för virtuell dator. 
+Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan använda Ansible för att hantera dina VM-skalningsuppsättningar (VMSS) i Azure på samma sätt som för alla andra Azure-resurser. I den här artikeln får du läsa om hur du använder Ansible för att skapa och skala ut en skalningsuppsättning för virtuell dator. 
 
-## <a name="prerequisites"></a>Förutsättningar
-- **Azure-prenumeration** – om du inte har en Azure-prenumeration, skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
-- **Konfigurera Ansible** - [skapa Azure-autentiseringsuppgifter och konfigurera Ansible](../virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
-- **Ansible och Azure Python SDK-moduler** 
-  - [CentOS 7.4](../virtual-machines/linux/ansible-install-configure.md#centos-74)
-  - [Ubuntu 16.04 LTS](../virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts)
-  - [SLES 12 SP2](../virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
+## <a name="prerequisites"></a>Nödvändiga komponenter
+- **Azure-prenumeration** – Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) konto innan du börjar.
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Ansible 2.6 krävs för att köra följande exempel spelböcker i den här självstudien. 
+> Ansible 2.6 krävs för att köra följande exempelspelböcker i den här självstudien. 
 
 ## <a name="create-a-vmss"></a>Skapa en VMSS
-Det här avsnittet presenteras en Ansible-spelbok som definierar följande resurser:
-- **Resursgrupp** dit alla dina resurser kommer att distribueras
+I den här delen finns en Ansible-exempelspelbok som definierar följande resurser:
+- **Resursgrupp** dit alla dina resurser distribueras
 - **Virtuellt nätverk** i adressutrymmet 10.0.0.0/16
 - **Undernät** i det virtuella nätverket
-- **Offentlig IP-adress** den wllows du kan komma åt resurser via Internet
-- **Nätverkssäkerhetsgrupp** som styr flödet av nätverkstrafik till och från virtual machine scale Sets
-- **Belastningsutjämnare** som distribuerar trafik över en uppsättning definierade virtuella datorer med hjälp av regler för belastningsutjämnaren
-- **Virtual machine scale Sets** som använder de skapade resurserna
+- **Offentlig IP-adress** som gör att du kan få åtkomst till resurser via Internet
+- **Nätverkssäkerhetsgrupp** som styr flödet av nätverkstrafik in till och ut från VM-skalningsuppsättningen
+- **Lastbalanseraren** som distribuerar trafik över en uppsättning definierade virtuella datorer med hjälp av regler för lastbalanseraren
+- **Skalningsuppsättning för virtuell dator** som använder alla resurser som har skapats
 
-Ange ditt eget lösenord för den *admin_password* värde.
+Ange ett eget lösenord för värdet *admin_password*.
 
   ```yaml
   - hosts: localhost
@@ -137,15 +131,15 @@ Ange ditt eget lösenord för den *admin_password* värde.
               caching: ReadOnly
   ```
 
-Om du vill skapa VM scale set-miljö med Ansible, spara den föregående spelboken som `vmss-create.yml`, eller [ladda ned exemplet Ansible-spelbok](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-create.yml).
+Om du vill skapa en miljö för VM-skalningsuppsättningar med Ansible sparar du den föregående spelboken som `vmss-create.yml` eller [laddar ned Ansible-exempelspelboken](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-create.yml).
 
-Använd för att köra Ansible-spelbok i **ansible-spelbok** -kommandot enligt följande:
+Med kommandot **ansible-playbook** kör du Ansible-spelboken enligt följande:
 
   ```bash
   ansible-playbook vmss-create.yml
   ```
 
-När strategiboken, utdata som liknar följande exempel visar att VM-skalningsuppsättningen har set skapats:
+När du har kört spelboken visar utdata som liknar följande exempel att VM-skalningsuppsättningen har skapats:
 
   ```bash
   PLAY [localhost] ***********************************************************
@@ -180,13 +174,13 @@ När strategiboken, utdata som liknar följande exempel visar att VM-skalningsup
   ```
 
 ## <a name="scale-out-a-vmss"></a>Skala ut en VMSS
-Skalningsuppsättningen för den skapade virtuella datorn har två instanser. Om du navigerar till skalningsuppsättning för virtuell dator i Azure portal visas **Standard_DS1_v2 (2 instanser)**. Du kan också använda den [Azure Cloud Shell](https://shell.azure.com/) genom att köra följande kommando i Cloud Shell:
+VM-skalningsuppsättningen som har skapats har två instanser. Om du går till VM-skalningsuppsättningen i Azure-portalen ser du **Standard_DS1_v2 (2 instanser)**. Du kan även använda [Azure Cloud Shell](https://shell.azure.com/) genom att köra följande kommando i Cloud Shell:
 
   ```azurecli-interactive
   az vmss show -n myVMSS -g myResourceGroup --query '{"capacity":sku.capacity}' 
   ```
 
-Resultatet bör likna följande:
+Du ser resultat som liknar följande utdata:
 
   ```bash
   {
@@ -194,7 +188,7 @@ Resultatet bör likna följande:
   }
   ```
 
-Nu kan vi skala från två instanser till tre instanser. Följande kod för Ansible-spelbok hämtar information om VM-skalningsuppsättningen och ändrar sin kapacitet från två till tre. 
+Nu ska vi skala från två till tre instanser. Följande Ansible-spelbokskod hämtar information om VM-skalningsuppsättningen och ändrar sin kapacitet från två till tre. 
 
   ```yaml
   - hosts: localhost
@@ -221,15 +215,15 @@ Nu kan vi skala från två instanser till tre instanser. Följande kod för Ansi
         azure_rm_virtualmachine_scaleset: "{{ body }}"
   ```
 
-Om du vill skala ut virtuella datorns skalningsuppsättning som du skapade, spara den föregående spelboken som `vmss-scale-out.yml` eller [ladda ned exemplet Ansible-spelbok](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-scale-out.yml)). 
+Om du vill skala ut en VM-skalningsuppsättning som du har skapat sparar du den föregående spelboken som `vmss-scale-out.yml` eller [laddar ned Ansible-exempelspelboken](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-scale-out.yml)). 
 
-Följande kommando körs spelboken:
+Spelboken körs med följande kommando:
 
   ```bash
   ansible-playbook vmss-scale-out.yml
   ```
 
-Utdata från att köra Ansible-spelbok visar att virtuella datorns skalningsuppsättning har har skalats ut:
+Utdata efter körningen av Ansible-spelboken visar att VM-skalningsuppsättningen har skalats ut:
 
   ```bash
   PLAY [localhost] **********************************************************
@@ -265,13 +259,13 @@ Utdata från att köra Ansible-spelbok visar att virtuella datorns skalningsupps
   localhost                  : ok=5    changed=1    unreachable=0    failed=0
   ```
 
-Om navigerar du till virtuella datorns skaluppsättning som du konfigurerade i Azure-portalen kan du se **Standard_DS1_v2 (3 instanser)**. Du kan också kontrollera ändringar som har den [Azure Cloud Shell](https://shell.azure.com/) genom att köra följande kommando:
+Om du går till VM-skalningsuppsättningen du konfigurerade i Azure-portalen ser du **Standard_DS1_v2 (3 instanser)**. Du kan även verifiera ändringen med [Azure Cloud Shell](https://shell.azure.com/) genom att köra följande kommando:
 
   ```azurecli-interactive
   az vmss show -n myVMSS -g myResourceGroup --query '{"capacity":sku.capacity}' 
   ```
 
-Resultat med följande kommando i Cloud Shell visar att det nu finns tre instanser. 
+Resultatet av körningen av kommandot i Cloud Shell visar att det nu finns tre instanser. 
 
   ```bash
   {
@@ -281,4 +275,4 @@ Resultat med följande kommando i Cloud Shell visar att det nu finns tre instans
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"] 
-> [Ansible-spelbok exemplet för VMSS](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Ansible-exempelspelbok för VMSS](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)

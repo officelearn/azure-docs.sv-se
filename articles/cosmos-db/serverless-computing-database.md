@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: dfca26f36287cfd856beb98edeb2b2362f36bc4b
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b54a302c022a8af84c1964c13ffadc52b45c4ca4
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858814"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696827"
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Databas utan Server databehandling med Azure Functions
 
@@ -31,7 +31,7 @@ Azure Cosmos DB och Azure Functions kan du integrera dina databaser och appar ut
 * Binda en funktion till ett Azure Cosmos DB behållaren med hjälp av en **utdatabindning**. Utdatabindningar skriva data till en behållare när en funktion är klar.
 
 > [!NOTE]
-> Just nu fungerar Azure Cosmos DB-utlösaren, indatabindningar och utdatabindningar endast med SQL API och Graph API-konton.
+> Just nu fungerar Azure Cosmos DB-utlösaren, indatabindningar och utdatabindningar med endast SQL-API och Gremlin-API-konton.
 
 Följande diagram illustrerar var och en av dessa tre integreringar: 
 
@@ -82,7 +82,7 @@ Följande bilder visar koden i Azure-portalen för det här scenariot.
 
 ### <a name="gaming-use-case---azure-cosmos-db-trigger-and-output-binding"></a>Spel användningsfall - Azure Cosmos DB-utlösare och -utdatabindning
 
-I spel, när en ny användare skapas du kan söka efter andra användare som kanske känner till dem med hjälp av den [Azure Cosmos DB Graph API](graph-introduction.md). Du kan sedan skriva resultaten till en [Azure Cosmos DB SQL-databas] för enkel hämtning.
+I spel, när en ny användare skapas du kan söka efter andra användare som kanske känner till dem med hjälp av den [Gremlin-API för Azure Cosmos DB](graph-introduction.md). Du kan sedan skriva resultaten till en [Azure Cosmos DB SQL-databas] för enkel hämtning.
 
 **Implementering:** använder en Azure Cosmos DB-utlösare och en utdatabindning
 

@@ -3,18 +3,18 @@ title: Söka med Azure Maps | Microsoft Docs
 description: Söka efter orienteringspunkter i närheten med hjälp av Azure Maps
 author: dsk-2015
 ms.author: dkshir
-ms.date: 05/07/2018
+ms.date: 08/23/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ffc4b7625a6c43f8e2801313c61f14c785a3ec5f
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: e30d84c70f786a5bea25073c70a29b63c9a00ae9
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988882"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917670"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Söka efter orienteringspunkter i närheten med hjälp av Azure Maps
 
@@ -81,8 +81,9 @@ API:et Kartkontroll är ett praktiskt klientbiblioteket som hjälper dig att enk
         <meta name="viewport" content="width=device-width, user-scalable=no" />
         <title>Map Search</title>
 
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1.0" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1.0"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" /> 
+        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script> 
+        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.min.js?api-version=1"></script> 
 
         <style>
             html,
@@ -131,10 +132,12 @@ API:et Kartkontroll är ett praktiskt klientbiblioteket som hjälper dig att enk
 
 ## <a name="add-search-capabilities"></a>Lägga till sökfunktioner
 
-Det här avsnittet visar hur du API:et Maps Search för att hitta en orienteringspunkt på kartan. Det är ett RESTful-API för utvecklare för att söka efter adresser, orienteringspunkter och annan geografisk information. Search Service tilldelar en angiven adress latitud- och longitudinformation. 
+Det här avsnittet visar hur du API:et Maps Search för att hitta en orienteringspunkt på kartan. Det är ett RESTful-API för utvecklare för att söka efter adresser, orienteringspunkter och annan geografisk information. Search Service tilldelar en angiven adress latitud- och longitudinformation. **Tjänstemodulen** som beskrivs nedan kan användas till att söka efter en plats med hjälp av API:et för kartsökning.
 
-1. Lägg till ett nytt lager på kartan för att visa sökresultaten. Lägg till följande Javascript-kod till *skriptblocket* efter koden som initierar kartan. 
+### <a name="service-module"></a>Tjänstmodul
 
+1. Lägg till ett nytt lager på kartan för att visa sökresultaten. Lägg till följande Javascript-kod till skriptblocket efter koden som initierar kartan. 
+    
     ```JavaScript
     // Initialize the pin layer for search results to the map
     var searchLayerName = "search-results";
@@ -145,69 +148,50 @@ Det här avsnittet visar hur du API:et Maps Search för att hitta en orientering
     });
     ```
 
-2. Skapa en [XMLHttpRequest](https://xhr.spec.whatwg.org/) och lägg till en händelsehanterare för att parsa JSON-svaret som skickas av Maps-söktjänsten. Det här kodfragmentet skapar händelsehanteraren för att samla in adress, namn och information om latitud och longitud för varje plats som returneras i variabeln `searchPins`. Slutligen lägger det till den här samlingen av platser i kontrollen `map` som kartnålar. 
+2. Lägg till följande Javascript-kod till skriptblocket efter koden som initierar kartan, för att initiera klienttjänsten.
 
     ```JavaScript
-    // Perform a request to the search service and create a pin on the map for each result
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        var searchPins = [];
-
-        if (this.readyState === 4 && this.status === 200) {
-            var response = JSON.parse(this.responseText);
-
-            var poiResults = response.results.filter((result) => { return result.type === "POI" }) || [];
-
-            searchPins = poiResults.map((poiResult) => {
-                var poiPosition = [poiResult.position.lon, poiResult.position.lat];
-                return new atlas.data.Feature(new atlas.data.Point(poiPosition), {
-                    name: poiResult.poi.name,
-                    address: poiResult.address.freeformAddress,
-                    position: poiResult.position.lat + ", " + poiResult.position.lon
-                });
-            });
-
-            map.addPins(searchPins, {
-                name: searchLayerName
-            });
-
-            var lons = searchPins.map((pin) => { return pin.geometry.coordinates[0] });
-            var lats = searchPins.map((pin) => { return pin.geometry.coordinates[1] });
-
-            var swLon = Math.min.apply(null, lons);
-            var swLat = Math.min.apply(null, lats);
-            var neLon = Math.max.apply(null, lons);
-            var neLat = Math.max.apply(null, lats);
-
-            map.setCameraBounds({
-                bounds: [swLon, swLat, neLon, neLat],
-                padding: 50
-            });
-        }
-    };
+    var client = new atlas.service.Client(subscriptionKey);
     ```
 
-3. Lägg till följande kod till *skriptblocket* för att skapa frågan och skicka XMLHttpRequest till Maps-söktjänsten:
+3. Lägg till följande skriptblock för att skapa frågan. Den använder det enkla söknings-API:et i Search Service, som kallas Fuzzy Search. Fuzzy Search-tjänsten hanterar de flesta diffusa indata, exempelvis olika kombinationer av adress och orienteringspunkt. Du söker efter närliggande bensinstationer inom angiven radie. Svaret tolkas sedan till GeoJSON-format och konverteras till punktfunktioner. De läggs till på kartan som knappnålar. Den sista delen av skriptet lägger till kameragränser för kartan med hjälp av kartans [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest)-egenskap.
 
     ```JavaScript
-    var url = "https://atlas.microsoft.com/search/fuzzy/json?";
-    url += "api-version=1.0";
-    url += "&query=gasoline%20station";
-    url += "&subscription-key=" + MapsAccountKey;
-    url += "&lat=47.6292";
-    url += "&lon=-122.2337";
-    url += "&radius=100000";
-
-    xhttp.open("GET", url, true);
-    xhttp.send();
-    ``` 
-    Det här kodfragmentet använder det enkla söknings-API:et i Search Service som kallas **Fuzzy Search**. Det hanterar de mest otydliga indata, däribland alla kombinationer av adresser eller orienteringspunkter. Det söker efter **bensinstationer** i närheten inom en angiven radie för de angivna koordinaterna för latituden och longituden. Det använder ditt kontos primärnyckel som angavs tidigare i exempelfilen för att anropa Maps. Det returnerar resultatet som par av latitud/longitud för de funna platserna. 
-    
+    client.search.getSearchFuzzy("gasoline station", {
+     lat: 47.6292,
+     lon: -122.2337,
+     radius: 100000
+    }).then(response => {
+       // Parse the response into GeoJSON 
+       var geojsonResponse = new atlas.service.geojson.GeoJsonSearchResponse(response); 
+ 
+       // Create the point features that will be added to the map as pins 
+       var searchPins = geojsonResponse.getGeoJsonResults().features.map(poiResult => { 
+           var poiPosition = [poiResult.properties.position.lon, poiResult.properties.position.lat]; 
+           return new atlas.data.Feature(new atlas.data.Point(poiPosition), { 
+                name: poiResult.properties.poi.name, 
+                address: poiResult.properties.address.freeformAddress, 
+                position: poiPosition[1] + ", " + poiPosition[0] 
+           }); 
+       }); 
+ 
+       // Add pins to the map for each POI 
+       map.addPins(searchPins, { 
+           name: searchLayerName 
+       }); 
+ 
+       // Set the camera bounds 
+       map.setCameraBounds({ 
+           bounds: geojsonResponse.getGeoJsonResults().bbox, 
+           padding: 50 
+       ); 
+    }); 
+    ```
 4. Spara filen **MapSearch.html** och uppdatera webbläsaren. Du bör nu se att kartan är centrerad i Seattle och att blå kartnålar markerar områdets bensinstationer. 
 
    ![Visa kartan med sökresultat](./media/tutorial-search-location/pins-map.png)
 
-5. Du kan se i rådata att kartan återger genom att ta XMLHTTPRequest som du skapade i filen och lägger in den i webbläsaren. Ersätt \<din kontonyckel\> med primärnyckeln. 
+5. Du kan visa rådata som kartan återger genom att ange följande HTTP-förfrågan i webbläsaren. Ersätt \<din kontonyckel\> med primärnyckeln. 
 
    ```http
    https://atlas.microsoft.com/search/fuzzy/json?api-version=1.0&query=gasoline%20station&subscription-key=<your account key>&lat=47.6292&lon=-122.2337&radius=100000
@@ -237,7 +221,7 @@ Karta som har vi gjort tittar hittills bara på latitud-/longituddata för sökr
         popupContentElement.appendChild(popupAddressElement);
 
         var popupPositionElement = document.createElement("div");
-        popupPositionElement.innerText = e.features[0].properties.name;
+        popupPositionElement.innerText = e.features[0].properties.position;
         popupContentElement.appendChild(popupPositionElement);
 
         popup.setPopupOptions({

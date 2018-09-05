@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/08/2018
+ms.date: 09/04/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 5fbce0c20e66eec0e7d7023344051fcf302af677
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 391cc4ca4b34149aeda54a60bfe6f6949e5a379b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382620"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697755"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Självstudie: distribuera appar till Azure och Azure Stack
 
@@ -108,10 +108,11 @@ Följande steg beskriver vad krävs för att konfigurera autentisering:
 
 ### <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 
-Referera till den [tjänstens huvudnamn skapas](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) anvisningar för att skapa ett huvudnamn för tjänsten och välj sedan **Web App/API** för vilken typ av program eller [använder den här PowerShell.skript](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5)enligt beskrivningen [här](https://docs.microsoft.com/en-us/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal).
+Referera till den [tjänstens huvudnamn skapas](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) instruktioner för att skapa ett huvudnamn för tjänsten. Välj **Web App/API** för vilken typ av program eller [använder PowerShell-skriptet](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5) enligt beskrivningen i artikeln [skapa en tjänstanslutning för Azure Resource Manager-med en befintlig tjänst huvudnamn ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal).
 
- > [!Note]
- > Om du använder skriptet för att skapa en Azure Stack Azure Resource Manager-slutpunkt, måste du skicka in den `-azureStackManagementURL` och `-environmentName` parametrar som är https://management.local.azurestack.external/ och *AzureStack*.
+ > [!Note]  
+ > Om du använder skriptet för att skapa en Azure Stack Azure Resource Manager-slutpunkt, måste du skicka den **- azureStackManagementURL** parametern och **- environmentName** parametern. Exempel:  
+> `-azureStackManagementURL https://management.local.azurestack.external -environmentName AzureStack`
 
 ### <a name="create-an-access-key"></a>Skapa en åtkomstnyckel
 
@@ -264,17 +265,17 @@ Genom att skapa slutpunkter kan distribuera en version av Visual Studio Online (
 9. I **lägga till användare och grupper**, ange ett användarnamn och Välj användaren i listan med användare.
 10. Välj **spara ändringar**.
 
-## <a name="create-azure-stack-endpoint"></a>Skapa Azure Stack-slutpunkt
+## <a name="create-an-azure-stack-endpoint"></a>Skapa en Azure Stack-slutpunkt
 
-Kontrollera [detta](https://docs.microsoft.com/en-us/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) dokumentationen för att skapa en anslutning för tjänsten med en befintlig tjänsts huvudnamn och använda följande mappning:
+Du kan följa anvisningarna i [skapa en tjänstanslutning för Azure Resource Manager-med en befintlig tjänsts huvudnamn ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) artikeln om du vill skapa en anslutning för tjänsten med en befintlig tjänsts huvudnamn och använda följande mappning:
 
 - Miljö: AzureStack
 - Miljö-URL: Något som liknar `https://management.local.azurestack.external`
 - Prenumerations-ID: Användarens prenumerations-ID från Azure Stack
 - Prenumerationsnamn: namn på användarens prenumeration från Azure Stack
-- Klient-ID för tjänstens huvudnamn: ägar-ID från [detta](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) i den här artikeln.
+- Klient-ID för tjänstens huvudnamn: ägar-ID från [detta](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) i den här artikeln.
 - Nyckel för tjänstens huvudnamn: nyckeln från samma artikel (eller lösenordet om du använder skriptet).
-- Klient-ID: Klient-ID du fick [här](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).
+- Klient-ID: Klient-ID du hämta följande instruktionen på [hämta klient-ID](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).
 
 Nu när slutpunkten har skapats är VSTS till Azure Stack-anslutningen klar att användas. Build-agenten i Azure Stack får anvisningar från VSTS och agenten meddelar sedan slutpunktsinformation för kommunikation med Azure Stack.
 
@@ -316,7 +317,7 @@ Hybrid CI/CD kan använda för både programkoden och infrastrukturkod. Använd 
 ### <a name="create-the-build-definition"></a>Skapa build-definition
 
 1. Logga in på VSTS med ett konto som kan skapa en byggesdefinition.
-2. Navigera till den **skapa Web Applicaiton** sidan för projektet.
+2. Navigera till den **skapa webbprogram** sidan för projektet.
 
 3. I **argument**, lägga till **- r win10-x64** kod. Detta krävs för att utlösa en självständig distribution med .net Core.
 

@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/17/2018
+ms.date: 08/28/2018
 ms.author: alkohli
-ms.openlocfilehash: 5288e9900c75eae7601b84f7366edf9ac739d5da
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 931b3fd4730ed9ca3a901b423d6c804dfa7e5305
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125811"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143550"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Vad är Azure Data Box Disk? (Förhandsversion)
 
@@ -60,10 +60,10 @@ A.  Om du vill ha Azure Data Box-diskar registrerar du dig för [Data Box-diskf�
 A. Om du får fem diskar om vardera 8 TB (7 TB användbar kapacitet) är den maximala användbara kapaciteten 35 TB. Du kan då överföra 35 TB data.  Om du vill överföra en större datamängd måste du beställa fler diskar.
 
 ### <a name="q-how-can-i-check-if-data-box-disks-are-available-in-my-region"></a>F. Hur ser jag om Data Box-diskar finns tillgängliga i min region? 
-A.  Data Box-diskarna är tillgängliga i USA och i alla EU-länder under förhandsversionsfasen.  
+A.  Data Box Disks är tillgängligt i USA och i alla EU-länder under förhandsversionsfasen.  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>F. I vilka regioner kan jag lagra data med Data Box-diskar?
-A. Data Box Disk kan användas i alla regioner i USA och västra och norra Europa under förhandsversionen. Endast regionerna med offentligt Azure-moln stöds. Azure Government och andra begränsade moln stöds inte.
+A. Data Box Disk kan användas i alla regioner i USA, Kanada, Europa västra och Europa norra under förhandsversionen. Endast regionerna med offentligt Azure-moln stöds. Azure Government och andra begränsade moln stöds inte.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>F. Vem kontaktar jag om jag får problem med Data Box-diskarna?
 A. Om du får problem med Data Box-diskarna kan du kontakta [Data Box-supporten](mailto:expresspodsupport@microsoft.com).

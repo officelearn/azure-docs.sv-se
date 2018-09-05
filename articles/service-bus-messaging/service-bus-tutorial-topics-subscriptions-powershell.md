@@ -9,12 +9,12 @@ ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 05c30504eb9b4440694f78ee979d4b25f30f65dc
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6246e951cb9b1e0b4dac656fef6acf8027e79271
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237972"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126559"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Självstudie: Uppdatera lagerplatsen med PowerShell och ämnen/prenumerationer
 
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 
 Ett exempel på det här scenariot är en uppdatering av lagersortimentet för flera butiker. I det här scenariot, får varje butik eller uppsättning butiker meddelanden för att uppdatera sina sortiment. Den här självstudien visar hur du implementerar det här scenariot med prenumerationer och filter. Först skapar du ett ämne med 3 prenumerationer, lägger till några regler och filter och skickar och tar sedan emot meddelanden från ämnet och prenumerationerna.
 
-![kö](./media/service-bus-quickstart-powershell/quick-start-queue.png)
+![ämne](./media/service-bus-tutorial-topics-subscriptions-powershell/about-service-bus-topic.png)
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][] innan du börjar.
 
@@ -47,9 +47,9 @@ Den här självstudien kräver att du kör den senaste versionen av Azure PowerS
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="log-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Utfärda följande kommandon för att logga in på Azure. De här stegen behövs inte om du kör PowerShell-kommandon i Cloud Shell: 
+Kör följande kommandon för att logga in på Azure. De här stegen behövs inte om du kör PowerShell-kommandon i Cloud Shell: 
 
 1. Installera Service Bus PowerShell-modulen:
 
@@ -57,7 +57,7 @@ Utfärda följande kommandon för att logga in på Azure. De här stegen behövs
    Install-Module AzureRM.ServiceBus
    ```
 
-2. Kör följande kommando för att logga in i Azure:
+2. Kör följande kommandon för att logga in på Azure:
 
    ```azurepowershell-interactive
    Login-AzureRmAccount
@@ -72,7 +72,7 @@ Utfärda följande kommandon för att logga in på Azure. De här stegen behövs
 
 ## <a name="provision-resources"></a>Etablera resurser
 
-Efter att du loggar in på Azure, utfärdar du följande kommandon för att etablera Service Bus-resurser. Tänk på att ersätta alla platshållare med lämpliga värden:
+När du har loggat in på Azure kör du följande kommandon för att etablera Service Bus-resurser. Tänk på att ersätta alla platshållare med lämpliga värden:
 
 ```azurepowershell-interactive
 # Create a resource group 

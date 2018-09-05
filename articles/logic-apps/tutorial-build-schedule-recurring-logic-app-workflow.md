@@ -1,32 +1,27 @@
 ---
 title: Skapa schemabaserade automatiserade arbetsflöden – Azure Logic Apps | Microsoft Docs
-description: Den här självstudiekursen visar hur du skapar ett återkommande, automatiserad arbetsflöde enligt ett schema med Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-editor: ''
+description: Självstudiekurs – Hur du skapar ett återkommande, automatiserad arbetsflöde enligt ett schema med Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: 84779d3e56b089c34e6556368008d794e634d535
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 43f826414ae7f279c23f6e9e2e39d4d21267e158
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300777"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124026"
 ---
-# <a name="check-traffic-with-a-scheduler-based-logic-app"></a>Kontrollera trafik med en schemabaserad logikapp
+# <a name="check-traffic-with-a-schedule-based-logic-app"></a>Kontrollera trafik med en schemabaserad logikapp
 
 Med Azure Logic Apps kan du automatisera arbetsflöden som körs enligt ett schema. Den här kursen visar hur du kan skapa en [logikapp](../logic-apps/logic-apps-overview.md) med en utlösare som körs varje morgon på vardagar och kontrollerar restiden, inklusive trafik, mellan två platser. Om tiden överskrider en viss gräns, skickar logikappen ett e-postmeddelande med restiden och den extra tid som krävs för att nå ditt mål.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en tom logikapp. 
@@ -65,9 +60,9 @@ Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a>
    | Inställning | Värde | Beskrivning | 
    | ------- | ----- | ----------- | 
    | **Namn** | LA-TravelTime | Logikappens namn | 
-   | **Prenumeration** | <*your-Azure-subscription-name*> | Azure-prenumerationens namn | 
+   | **Prenumeration** | <*ditt-Azure-prenumerationsnamn*> | Azure-prenumerationens namn | 
    | **Resursgrupp** | LA-TravelTime-RG | Namnet på den [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) som används för att organisera relaterade resurser | 
-   | **Plats** | Östra USA 2 | Regionen där informationen om logikappen ska lagras | 
+   | **Plats** | USA, östra 2 | Regionen där informationen om logikappen ska lagras | 
    | **Log Analytics** | Av | Behåll inställningen **Av** för diagnostisk loggning. | 
    |||| 
 

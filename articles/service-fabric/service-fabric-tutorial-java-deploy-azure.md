@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: afa9aa4ef4d3d8d8a6816d194b69271fdf0d928a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 4614eedd08eabf5c1c2eec6f26e542e20b0875bf
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109682"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43040511"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Självstudie: Distribuera en Java-tillämpning till ett Service Fabric-kluster i Azure
 
@@ -41,7 +41,7 @@ I den här självstudieserien får du lära du dig att:
 > * [konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-java-elk.md)
 > * [konfigurera CI/CD](service-fabric-tutorial-java-jenkins.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar den här självstudien:
 
@@ -173,7 +173,7 @@ Med följande steg skapar du de resurser som krävs för att distribuera tilläm
 
     Din SAS URL för EventHubs följer strukturen: https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>. Till exempel, https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
 
-12. Öppna filen *sfdeploy.parameters.json* och ersätt följande innehåll från föregående steg
+12. Öppna filen *sfdeploy.parameters.json* och ersätt följande innehåll från föregående steg. [SAS-URL-STORAGE-ACCOUNT] beskrevs i steg 8. [SAS-URL-EVENT-HUBS] beskrevs i steg 11.
 
     ```json
     "applicationDiagnosticsStorageAccountName": {
@@ -187,7 +187,12 @@ Med följande steg skapar du de resurser som krävs för att distribuera tilläm
     }
     ```
 
-13. Kör följande kommando för att skapa Service Fabric-klustret
+13. Öppnar **sfdeploy.parameters.json**. Ändra följande parametrar och spara därefter filen.
+    - **clusterName**. Använd bara gemena bokstäver och siffror.
+    - **adminUserName** (till ett värde som inte är tomt)
+    - **adminPassword** (till ett värde som inte är tomt)
+
+14. Kör följande kommando för att skapa Service Fabric-klustret
 
     ```bash
     az sf cluster create --location 'westus' --resource-group 'testlinux' --template-file sfdeploy.json --parameter-file sfdeploy.parameters.json --secret-identifier <certificate_url_from_step4>
@@ -206,13 +211,13 @@ Med följande steg skapar du de resurser som krävs för att distribuera tilläm
 2. För att kunna distribuera din tillämpning till klustret måste du etablera en anslutning till klustret med hjälp av SFCTL. SFCTL kräver en PEM-fil med både offentlig och privat nyckel för att bevilja anslutning till klustret. Kör följande kommando om du vill skapa en PEM-fil med både offentlig och privat nyckel. 
 
     ```bash
-    openssl pkcs12 -in testservicefabric.westus.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>
+    openssl pkcs12 -in <clustername>.<region>.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>
     ```
 
 3. Kör följande kommando för att ansluta till klustret.
 
     ```bash
-    sfctl cluster select --endpoint https://testlinuxcluster.westus.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
+    sfctl cluster select --endpoint https://<clustername>.<region>.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
     ```
 
 4. Om du vill distribuera programmet går du till mappen *Voting/Scripts* (Röstning/Skript) och kör skriptet **install.sh**.

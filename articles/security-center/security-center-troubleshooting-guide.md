@@ -3,7 +3,7 @@ title: Felsökningsguide för Azure Security Center | Microsoft Docs
 description: Det här dokumentet hjälper dig att felsöka problem i Azure Security Center.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2018
-ms.author: yurid
-ms.openlocfilehash: 0cbc0db7e982ad85dd1e3514def8cf13be595f24
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 08/26/2018
+ms.author: rkarlin
+ms.openlocfilehash: eebdff338454b1fb50b27d5b3d8c1c37d28f6b6f
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779234"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43121210"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Felsökningsguide för Azure Security Center
 Den här guiden riktar sig till de som arbetar med IT, informationssäkerhetsanalytiker och molnadministratörer i organisationer som använder Azure Security Center och behöver felsöka Security Center-relaterade problem.
@@ -64,7 +64,7 @@ Det finns två installationsscenarier som kan ge olika resultat när du installe
 > Kontrollera att du laddar ned den senaste versionen av agenten för att undvika det andra scenariot.
 >
 
-## <a name="monitoring-agent-health-issues"></a>Övervaka problem med hälsotillstånd
+## Övervaka problem med hälsotillstånd <a name="mon-agent"></a>
 **Övervakningstillstånd** definierar anledningen till att Security Center inte kan övervaka virtuella datorer och datorer som initierats för automatisk etablering. I följande tabell visas steg för värden, beskrivningar och lösningar för **övervakningstillstånd**.
 
 | Övervakningstillstånd | Beskrivning | Lösningsanvisningar |
@@ -81,7 +81,7 @@ Det finns två installationsscenarier som kan ge olika resultat när du installe
 | Agenten har inte installerats | Datainsamling är inaktiverat. | Aktivera datainsamling i säkerhetsprincipen eller installera Microsoft Monitoring Agent manuellt. |
 
 
-## <a name="troubleshooting-monitoring-agent-network-requirements"></a>Felsöka nätverkskrav för övervakningsagenten
+## Felsöka nätverkskrav för övervakningsagenten <a name="mon-network-req"></a>
 Agenter att ansluta till och registrera med Security Center, måste de ha åtkomst till nätverksresurser, inklusive portnummer och URL: er för domänen.
 
 - För proxyservrar måste du se till att lämpliga proxy serverresurser konfigureras i agentinställningarna. Mer information om att [ändra proxyinställningarna](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings) finns i den här artikeln.

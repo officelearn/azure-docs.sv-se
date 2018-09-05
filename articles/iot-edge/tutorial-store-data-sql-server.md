@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/26/2018
+ms.date: 08/22/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1bd6f048682b93e3dfa1e19f6b3c50bff2ed232e
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 7e02caf9706a5127d3729256fcc238f467eb2991
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "41920638"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143508"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Självstudie: Lagra data på gränsen med SQL Server-databaser
 
@@ -73,7 +73,7 @@ Om du vill skicka data till en databas behöver du en modul som kan strukturera 
 Följande steg visar hur du skapar en IoT Edge-funktion med Visual Studio Code och Azure IoT Edge-tillägget.
 
 1. Öppna Visual Studio Code.
-2. Välj **Visa** > **Integrerad terminal** för att öppna den integrerade terminalen i VS Code.
+2. Öppna den VS Code-integrerade terminalen genom att välja **Visa** > **Terminal**.
 3. Öppna kommandopaletten i VS Code genom att välja **Visa** > **Kommandopalett**.
 4. Ange och kör kommandot **Azure: Logga in** i kommandopaletten och följ anvisningarna för att logga in med ditt Azure-konto. Om du redan har loggat in kan du hoppa över det här steget.
 3. Skriv och kör kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning) i kommandopaletten. Ange följande information i kommandopaletten för att skapa din lösning: 
@@ -253,15 +253,15 @@ Du kan ange moduler på en enhet via IoT Hub, men du kan också komma åt din Io
 2. Följ anvisningarna för att logga in på ditt Azure-konto. 
 3. Välj din Azure-prenumeration och sedan din IoT Hub i kommandopaletten. 
 4. I VS Code-utforskaren expanderar du avsnittet **Azure IoT Hub-enheter**. 
-5. Högerklicka på enheten du vill ha som mål för distributionen och välj **Skapa distribution för IoT Edge-enhet**. 
+5. Högerklicka på den enhet som du vill ha som mål för distributionen och välj **Skapa distribution för enskild enhet**. 
 6. I filutforskaren går du till **config**-mappen i din lösning och väljer **deployment.json**. Klicka på **Välj distributionsmanifest för Edge**. 
 
 Om distributionen lyckas skrivs ett bekräftelsemeddelande ut i utdata för VS Code. Du kan också kontrollera att alla moduler är igång på enheten. 
 
 Kör följande kommando på IoT Edge-enheten för att se status för modulerna. Det kan ta några minuter.
 
-   ```bash
-   sudo iotedge list
+   ```PowerShell
+   iotedge list
    ```
 
 ## <a name="create-the-sql-database"></a>Skapa SQL-databasen

@@ -8,12 +8,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 0161a691cbec45a87ade218d1707a2784d7f1cfc
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 97659bf38b6d06464eee37a33e87d0c528cdcd37
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283892"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126946"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Självstudie: Skapa en anpassad språkmodell
 
@@ -93,7 +93,7 @@ När språkdata är klara klickar du på ”Language Models” (Språkmodeller) 
 
 Du måste välja rätt nationella inställningar innan du vidtar åtgärder. De aktuella nationella inställningarna anges i tabellrubriken på alla sidor för data, modeller och distribution. Om du vill ändra de nationella inställningarna klickar du på knappen ”Change Locale” (Ändra nationella inställningar) under tabellrubriken. Då öppnas en sida för att bekräfta nationella inställningar. Klicka på ”OK” för att gå tillbaka till tabellen.
 
-På sidan ”Create Language Model” (Skapa språkmodell) anger du ett ”Name” (Namn) och en ”Description” (Beskrivning) som hjälper dig att hålla reda på viktig information om den här modellen, till exempel den datamängd som används. Välj sedan ”Base Language Model” (Basspråkmodell) i listrutan. Den här modellen blir startpunkten för din anpassning. Det finns två basspråkmodeller att välja mellan. Search and Dictation-modellen (Språkmodell för sökning och diktamen) är lämplig för tal som riktas mot ett program, till exempel kommandon, sökfrågor och diktamen. Conversational-modellen (Konversationsmodell) är lämplig för igenkänning av tal i konversationsstil. Den här typen av tal riktas vanligtvis mot en annan person och används i kundtjänst och i möten. En ny modell som kallas ”Universal” (Universell) är också allmänt tillgänglig. Universal syftar till att hantera alla scenarier och småningom ersätta modellerna Search and Dictation och Conversational.
+På sidan ”Create Language Model” (Skapa språkmodell) anger du ett ”Name” (Namn) och en ”Description” (Beskrivning) som hjälper dig att hålla reda på viktig information om den här modellen, till exempel den datamängd som används. Välj sedan ”Base Language Model” (Basspråkmodell) i listrutan. Den här modellen blir startpunkten för din anpassning. Det finns två basspråkmodeller att välja mellan. Search and Dictation-modellen (Språkmodell för sökning och diktamen) är lämplig för tal som riktas mot ett program, till exempel kommandon, sökfrågor och diktamen. Conversational-modellen (Konversationsmodell) lämpar sig för igenkänning av tal i samtalsstil. Den här typen av tal riktas vanligtvis mot en annan person och används i kundtjänst och i möten. En ny modell som kallas ”Universal” (Universell) är också allmänt tillgänglig. Universal syftar till att hantera alla scenarier och småningom ersätta modellerna Search and Dictation och Conversational.
 
 5.  När du i exemplet nedan har angett basspråkmodellen väljer du den språkdatamängd som du vill använda för anpassning med hjälp av listrutan ”Language Data” (Språkdata)
 

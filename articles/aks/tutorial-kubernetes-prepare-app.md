@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 7bf3b5f8eb066428b382b9b2e742b919595bdffc
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: b2bb187e5ad55b466da0b9b06ffbb047ac539717
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41921076"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105007"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Självstudie: Förbereda ett program för Azure Kubernetes Service (AKS)
 
@@ -96,7 +96,7 @@ Om du vill visa programmet som körs anger du http://localhost:8080 i en lokal w
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Nu när programfunktionen har verifierats, kan containrarna som körs stoppas och tas bort. Ta inte bort containeravbildningarna – i nästa självstudie ska du ladda upp *azure-vote-front*-avbildningen till en Azure Container Registry-instans
+Nu när programfunktionen har verifierats, kan containrarna som körs stoppas och tas bort. Ta inte bort containeravbildningarna – i nästa självstudie ska du ladda upp *azure-vote-front*-avbildningen till en Azure Container Registry-instans.
 
 Stoppa och ta bort containerinstanser och resurser med kommandot [docker-compose down][docker-compose-down]:
 

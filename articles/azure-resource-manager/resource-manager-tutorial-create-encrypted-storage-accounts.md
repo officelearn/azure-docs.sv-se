@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/20/2018
+ms.date: 08/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7c78636a210ae90c5bfe1d0bfd35e4e05633f5cd
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 57d5f7039831c9fd617926f20f3ff001b22ef314
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188207"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43097893"
 ---
 # <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>Självstudie: Skapa en Azure Resource Manager-mall för att distribuera ett krypterat lagringskonto
 
@@ -30,9 +30,7 @@ Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
 > * Öppna en snabbstartsmall
-> * Förstå mallformatet
-> * Använda parametrar i mallen
-> * Använda variabler i mallen
+> * Förstå mallen
 > * Redigera mallen
 > * Distribuera mallen
 
@@ -101,7 +99,7 @@ Med variabler kan du skapa värden som kan användas i hela mallen. Variabler hj
 Den här mallen definierar en variabel: *storageAccountName*. I definitionen används två mallfunktioner:
 
 - **concat()**: sammanfogar strängar. Mer information finns i [concat](./resource-group-template-functions-string.md#concat).
-- **uniqueString()**: skapar en deterministisk hash-sträng baserat på de värden som anges som parametrar. Varje Azure-lagringskonto måste ha ett unikt namn i hela Azure. Den här funktionen tillhandahåller en unik sträng. Fler strängfunktioner finns i [Strängfunktioner](./resource-group-template-functions-string.md).
+- **uniqueString()**: skapar en deterministisk hash-sträng baserat på de värden som anges som parametrar. Varje Azure-lagringskonto måste ha ett namn som är unikt i hela Azure. Den här funktionen tillhandahåller en unik sträng. Fler strängfunktioner finns i [Strängfunktioner](./resource-group-template-functions-string.md).
 
 Så använder du den variabel som definieras i mallen:
 
@@ -111,10 +109,10 @@ Så använder du den variabel som definieras i mallen:
 
 ## <a name="edit-the-template"></a>Redigera mallen
 
-För att hitta den krypteringsrelaterade konfigurationen av lagringskontot kan du använda mallreferensen för Azure Storage-kontot.
+Målet med den här självstudien är att definiera en mall för att skapa ett krypterat lagringskonto.  Exempelmallen skapar bara ett grundläggande okrypterat lagringskonto. För att hitta den krypteringsrelaterade konfigurationen kan du använda mallreferensen för Azure Storage-kontot.
 
 1. Bläddra till [Azure-mallar](https://docs.microsoft.com/azure/templates/).
-2. Från innehållsförteckningen till vänster väljer du **Referens**->**Lagring**->**Lagringskonton**. Sidan innehåller information om att definiera information för lagringskonto.
+2. Från innehållsförteckningen till vänster väljer du **Referens**->**Lagring**->**Lagringskonton**. Du kan också ange **lagring** i fältet **Filtrera efter rubrik**.  Sidan innehåller schemat för definition av information för lagringskonto.
 3. Utforska den krypteringsrelaterade informationen.  
 4. I egenskapselementet (properties) i resursdefinitionen för lagringskontot lägger du till följande json:
 
@@ -130,59 +128,17 @@ För att hitta den krypteringsrelaterade konfigurationen av lagringskontot kan d
     ```
     Den här delen aktiverar krypteringsfunktionen i blob-lagringstjänsten.
 
-Det sista resurselementet ser ut så här:
+Ändra mallen från Visual Studio Code, så att det slutliga resurselementet som ser ut som följer:
 
 ![Krypterade lagringskontoresurser för Resource Manager-mall](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-Det finns många metoder för att distribuera mallar.  I den här självstudien använder du Cloud Shell från Azure-portalen. Cloud Shell stöder både Azure CLI och Azure PowerShell. De instruktioner som ges här använder CLI.
+Mer information finns i avsnittet [Distribuera mallen](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) i Visual Studio Code-snabbstarten för distributionen.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com)
-2. Välj **Cloud Shell** från det övre högra hörnet enligt följande bild:
+Följande skärmbild visar CLI-kommandot för att lista det nya lagringskontot, vilket anger att kryptering har aktiverats för blob-lagringen.
 
-    ![Azure portal Cloud shell](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell.png)
-
-3. Välj nedåtpilen och välj sedan **Bash** om den inte är Bash. Du använder Azure CLI i den här självstudien.
-
-    ![Azure portal Cloud shell CLI](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-choose-cli.png)
-4. Välj **Starta om** för att starta om gränssnittet.
-5. Välj **Ladda upp/ned filer** och välj sedan **Ladda upp**.
-
-    ![Azure portal Cloud shell upload file](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-upload-file.png)
-6. Välj den fil som du sparade tidigare i självstudien. Standardnamnet är **azuredeploy.json**.
-7. Från Cloud Shell kör du kommandot **ls** för att kontrollera att filen har laddats upp. Du kan även använda kommandot **cat** för att verifiera mallinnehållet.
-
-    ![Azure portal Cloud shell list file](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-list-file.png)
-8. Från Cloud Shell kör du följande kommandon:
-
-    ```cli
-    az group create --name <ResourceGroupName> --location <AzureLocation>
-
-    az group deployment create --name <DeploymentName> --resource-group <ResourceGroupName> --template-file azuredeploy.json
-    ```
-    Här är skärmbilden på en exempeldistribution:
-
-    ![Azure portal Cloud shell deploy template](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-deploy-template.png)
-
-    På skärmbilden används de här värdena:
-
-    * **&lt;ResourceGroupName>**: myresourcegroup0719. Det finns två förekomster av parametern.  Se till att använda samma värde.
-    * **&lt;AzureLocation>**: eastus2
-    * **&lt;DeployName>**: mydeployment0719
-    * **&lt;TemplateFile>**: azuredeploy.json
-
-    Från skärmbildsutdata är lagringskontonamnet *fhqbfslikdqdsstandardsa*. 
-
-9. Kör följande PowerShell-kommando för att visa det nyligen skapade lagringskontot:
-
-    ```cli
-    az storage account show --resource-group <ResourceGroupName> --name <StorageAccountName>
-    ```
-
-    Du bör se utdata som liknar följande skärmbild som visar att kryptering har aktiverats för blob-lagringen.
-
-    ![Krypterat lagringskonto för Azure Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-account.png)
+![Krypterat lagringskonto för Azure Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-account.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -195,7 +151,7 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig hur du använder mallreferensen för att anpassa en befintlig mall. Den mall som används i den här självstudien innehåller bara en Azure-resurs.  I nästa självstudie utvecklar du en mall med flera resurser.  Några av resurserna har beroende resurser.
+I den här självstudien lärde du dig hur du använder mallreferensen för att anpassa en befintlig mall. Den mall som används i den här självstudien innehåller bara en Azure-resurs.  I nästa självstudie utvecklar du en mall med flera resurser. Några av resurserna har beroende resurser.
 
 > [!div class="nextstepaction"]
 > [Skapa flera resurser](./resource-manager-tutorial-create-templates-with-dependent-resources.md)

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 06/27/2018
+ms.date: 08/30/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 5c2088ab39e32c049ce867698e84efba759c9a87
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7f16f53af7d1c2f46c5c61974601833fafc8f828
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447344"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698782"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Göra en avbildning av virtuell dator som är tillgängliga i Azure Stack
 
@@ -37,7 +37,7 @@ Avbildningar måste kunna refereras till av en URI för blob-lagring. Förbereda
 
 1. [Överför en Windows VM-avbildning till Azure för Resource Manager-distributioner](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) eller för en Linux-avbildning, följer du instruktionerna som beskrivs i [distribuera Linux-datorer på Azure Stack](azure-stack-linux.md). Innan du laddar upp avbildningen är det viktigt att tänka på följande faktorer:
 
-   - Azure Stack har stöd för VHD-formatet fast disk. Det fasta formatet strukturer den logiska disken linjärt i filen så att diskförskjutning X lagras vid blob-förskjutning X. En liten sidfot i slutet av bloben beskriver egenskaperna för den virtuella Hårddisken. För att bekräfta om disken är fast, använda den [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell-kommando.  
+   - Azure Stack som endast stöder generering en (1) virtuell dator i hårddisk VHD-format. Det fasta formatet strukturer den logiska disken linjärt i filen så att diskförskjutning X lagras vid blob-förskjutning X. En liten sidfot i slutet av bloben beskriver egenskaperna för den virtuella Hårddisken. För att bekräfta om disken är fast, använda den [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell-kommando.  
 
     > [!IMPORTANT]
     >  Azure Stack har inte stöd för dynamisk disk virtuella hårddiskar. Ändra storlek på en dynamisk disk som är kopplad till en virtuell dator lämnar den virtuella datorn i ett felaktigt tillstånd. Om du vill minimera detta problem genom att ta bort den virtuella datorn utan att ta bort den Virtuella datorns disk, en VHD-blob i ett lagringskonto. Konvertera den virtuella Hårddisken från en dynamisk disk till en fast disk och återskapa den virtuella datorn i.
@@ -48,7 +48,7 @@ Avbildningar måste kunna refereras till av en URI för blob-lagring. Förbereda
 
    * Anteckna URI där du laddar upp avbildningen för blob-lagring. URI för blob-lagring har följande format: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* VHD.
 
-   * För att göra blob anonymt tillgänglig, går du till blob-behållaren storage-konto där den Virtuella datoravbildningen VHD har överförts. Välj **Blob**, och välj sedan **åtkomstprincip**. Du kan i stället skapar en signatur för delad åtkomst för behållaren, och lägger till den som en del av blob-URI.
+   * För att göra blob anonymt tillgänglig, går du till blob-behållaren storage-konto där den Virtuella datoravbildningen VHD har överförts. Välj **Blob**, och välj sedan **åtkomstprincip**. Du kan i stället skapar en signatur för delad åtkomst för behållaren, och lägger till den som en del av blob-URI. Det här steget ser till att bloben är tillgängliga att användas för att lägga till detta som en bild. Om du inte kan nås anonymt blob skapas VM-avbildning till i ett felaktigt tillstånd.
 
    ![Gå till lagringskontoblobbar](./media/azure-stack-add-vm-image/image1.png)
 
@@ -102,7 +102,7 @@ Avbildningar måste kunna refereras till av en URI för blob-lagring. Förbereda
   - **sku**  
     Exempel: `14.04.3-LTS`  
     Namnsegmentet SKU för avbildningen som användare använder när de distribuerar VM-avbildning. Ett exempel är **Datacenter2016**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
-  - **version**  
+  - **Version**  
     Exempel: `1.0.0`  
     Versionen av avbildningen som användare använder när de distribuerar VM-avbildning. Den här versionen är i formatet *\#.\#.\#*. Ett exempel är **1.0.0**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
   - **osType**  
@@ -206,7 +206,7 @@ När du behöver inte längre den avbildning av virtuell dator som du laddade up
   - **sku**  
     Exempel: `14.04.3-LTS`  
     Namnsegmentet SKU för avbildningen som användare använder när de distribuerar VM-avbildning. Ett exempel är **Datacenter2016**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
-  - **version**  
+  - **Version**  
     Exempel: `1.0.0`  
     Versionen av avbildningen som användare använder när de distribuerar VM-avbildning. Den här versionen är i formatet *\#.\#.\#*. Ett exempel är **1.0.0**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
     

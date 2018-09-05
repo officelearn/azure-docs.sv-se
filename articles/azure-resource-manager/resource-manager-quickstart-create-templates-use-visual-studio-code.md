@@ -1,6 +1,6 @@
 ---
 title: Använda Visual Studio Code för att skapa en Azure Resource Manager-mall | Microsoft Docs
-description: Arbeta med Resource Manager-mallar med hjälp av tillägget Azure Resource Manager Tools.
+description: Använd Visual Studio Code och Azure Resource Manager-malltillägget för att arbeta med Resource Manager-mallar.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/17/2018
+ms.date: 08/24/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: d50b84ac61210fc89665341ae0c2de3fc4ce0c11
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 540aabc9164e43776d2166926430f4512dd23f49
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42023259"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106057"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Snabbstart: Skapa Azure Resource Manager-mallar genom att använda Visual Studio Code
 
@@ -89,32 +89,49 @@ Om du vill veta hur du redigerar en mall med Visual Studio Code lägger du till 
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-Det finns många metoder för att distribuera mallar.  I den här snabbstarten använder du Cloud Shell från Azure-portalen. Cloud Shell stöder både Azure CLI och Azure PowerShell. De instruktioner som ges här använder CLI.
+Det finns många metoder för att distribuera mallar.  I den här snabbstarten använder du Azure Cloud Shell från Azure-portalen. Cloud Shell kan användas med både Azure CLI och Azure PowerShell. 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com)
 2. Välj **Cloud Shell** från det övre högra hörnet enligt följande bild:
 
     ![Azure portal Cloud shell](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell.png)
 
-3. Välj nedåtpilen och välj sedan **Bash** för att växla till CLI från PowerShell.
+    Cloud Shell öppnas längst ned på skärmen.
+
+3. I övre vänstra hörnet i Cloud Shell visas antingen **PowerShell** eller **Bash**. Om du vill använda CLI måste du öppna en Bash-session. Om du vill köra PowerShell måste du öppna en PowerShell-session. Byt genom att välja nedåtpilen och sedan välja tolk. Följande bild visar byte från PowerShell till Bash.
 
     ![Azure portal Cloud shell CLI](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
-4. Välj **Starta om** för att starta om gränssnittet.
-5. Välj **Ladda upp/ned filer** och välj sedan **Ladda upp**.
+
+    Du måste starta om gränssnittet när du byter.
+4. Välj **Ladda upp/ned filer** och välj sedan **Ladda upp**.
 
     ![Azure portal Cloud shell upload file](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file.png)
-4. Välj den fil som du sparade tidigare i snabbstarten. Standardnamnet är **azuredeploy.json**.
-5. Från Cloud Shell kör du kommandot **ls** för att kontrollera att filen har laddats upp. Du kan även använda kommandot **cat** för att verifiera mallinnehållet.
+
+    Du måste ladda upp mallfilen innan du kan distribuera den från gränssnittet.
+5. Välj den fil som du sparade tidigare i snabbstarten. Standardnamnet är **azuredeploy.json**.
+6. Från Cloud Shell kör du kommandot **ls** för att kontrollera att filen har laddats upp. Du kan även använda kommandot **cat** för att verifiera mallinnehållet. Följande bild visar kommandot som körs från Bash.  Du använder samma kommandon från en PowerShell-session.
 
     ![Azure portal Cloud shell list file](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file.png)
-6. Från Cloud Shell kör du följande kommandon:
+7. Från Cloud Shell kör du följande kommandon. Välj fliken så att du ser PowerShell-koden eller CLI-koden.
 
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```cli
     az group create --name <ResourceGroupName> --location <AzureLocation>
 
     az group deployment create --name <DeploymentName> --resource-group <ResourceGroupName> --template-file <TemplateFileName>
     ```
-    Här är skärmbilden på en exempeldistribution:
+   
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+    
+    ```powershell
+    New-AzureRmResourceGroup -Name <ResourceGroupName> -Location <AzureLocation>
+
+    New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroupName> -TemplateFile <TemplateFileName>
+    ```
+    
+    ---
+
+    Följande skärmbild visar ett exempel på CLI-distribution:
 
     ![Azure portal Cloud shell deploy template](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template.png)
 
@@ -127,11 +144,20 @@ Det finns många metoder för att distribuera mallar.  I den här snabbstarten a
 
     Från skärmbildsutdata är lagringskontonamnet *3tqebj3slyfyestandardsa*. 
 
-7. Kör följande CLI-kommando för att visa det nyligen skapade lagringskontot:
+7. Kör följande CLI- eller PowerShell-kommando för att visa det nyligen skapade lagringskontot:
 
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```cli
     az storage account show --resource-group <ResourceGroupName> --name <StorageAccountName>
     ```
+   
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+    
+    ```powershell
+    Get-AzureRmStorageAccount -ResourceGroupName <ResourceGroupName> -Name <StorageAccountName>
+    ```
+    
+    ---
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -144,7 +170,7 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig hur du skapar en mall med hjälp av Visual Studio Code samt hur du distribuerar mallen med hjälp av Azure-portalens Cloud Shell. I nästa självstudie lär du dig mer om hur du utvecklar en mall och hur du använder mallreferensen.
+Primärt fokus för den här självstudien är att använda Visual Studio Code för att redigera en befintlig mall från snabbstartsmallarna i Azure. Du har också lärt dig att distribuera mallen med CLI eller PowerShell från Azure Cloud Shell. Snabbstartsmallarna i Azure kanske inte innehåller exakt det du behöver. Nästa självstudiekurs visar hur du hittar information i mallreferensen så att du kan skapa ett krypterat Azure Storage-konto.
 
 > [!div class="nextstepaction"]
 > [Skapa ett krypterat lagringskonto](./resource-manager-tutorial-create-encrypted-storage-accounts.md)

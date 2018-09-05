@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 07/13/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: ce84498ab89891bd7b96cfcc6b0c7ac029c93cbd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9a623156ad2a27abf7fa5e865f8b7452e2c70b3c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423087"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124526"
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Skapa en Docker Python- och PostgreSQL-webbapp i Azure
 
@@ -169,7 +169,9 @@ När den logiska Azure Database for PostgreSQL-servern har skapats visar Azure C
 
 ### <a name="create-a-firewall-rule-for-the-postgresql-server"></a>Skapa en brandväggsregel för PostgreSQL-servern
 
-I Cloud Shell kör du följande Azure CLI-kommando för att tillåta åtkomst till databasen från alla IP-adresser. När både start-IP och slut-IP har angetts till `0.0.0.0` öppnas brandväggen endast för andra Azure-resurser. 
+I Cloud Shell kör du följande Azure CLI-kommando för att tillåta åtkomst till databasen från alla IP-adresser. 
+> [!Note]
+> Du bör inte lämna alla portar öppna till din databas och inte heller öppna databasen mot internet.  Läs fler [artiklar om säkerhet i Azure](https://docs.microsoft.com/azure/security/) för att skydda den nya databasen vid produktionsanvändning.  
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=0.0.0.0 --name AllowAzureIPs

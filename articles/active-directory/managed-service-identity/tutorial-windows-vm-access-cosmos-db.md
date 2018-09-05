@@ -14,21 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: daveba
-ms.openlocfilehash: 05b31dffbe51dcbcd76c13a17f6ecc640b63569b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 5f7a0f2bd6820ce65490ae9241dac519fb635da2
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248976"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885466"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-cosmos-db"></a>Självstudie: Använda en hanterad tjänstidentitet på en virtuell Windows-dator och komma åt Azure Cosmos DB
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Den här självstudiekursen beskriver hur du skapar och använder en hanterad tjänstidentitet på en virtuell Windows-dator för att få åtkomst till Cosmos DB. Lär dig att:
+I den här självstudien lär du dig att komma åt Cosmos DB med en systemtilldelad identitet för en virtuell Windows-dator. Lär dig att:
 
 > [!div class="checklist"]
-> * Skapa en virtuell Windows-dator som är aktiverad för hanterad tjänstidentitet 
 > * Skapa ett Cosmos DB-konto
 > * Ge den virtuella Windows-datorns hanterade tjänstidentitet åtkomst till åtkomstnycklarna för Cosmos DB-kontot
 > * Hämta en åtkomsttoken med hjälp av den virtuella Windows-datorns hanterade tjänstidentitet och anropa Azure Resource Manager
@@ -40,33 +39,11 @@ Den här självstudiekursen beskriver hur du skapar och använder en hanterad tj
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
+- [Logga in på Azure-portalen](https://portal.azure.com)
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+- [Skapa en virtuell Windows-dator](/azure/virtual-machines/windows/quick-create-portal)
 
-Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
-
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Windows-dator i en ny resursgrupp
-
-I den här självstudien ska vi skapa en ny virtuell Windows-dator.  Du kan även aktivera hanterad tjänstidentitet på en befintlig virtuell dator.
-
-1. Klicka på knappen **Skapa en resurs** längst upp till vänster i Azure Portal.
-2. Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**. 
-3. Ange informationen för den virtuella datorn. **Användarnamnet** och **lösenordet** som skapas här är de autentiseringsuppgifter som du använder när du loggar in på den virtuella datorn.
-4. Välj lämplig **prenumeration** för den virtuella datorn i listrutan.
-5. Du väljer en ny **Resursgrupp** där du skapar din virtuella dator genom att välja **Skapa ny**. När du är klar klickar du på **OK**.
-6. Välj storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. Acceptera alla standardvärden på inställningssidan och klicka på **OK**.
-
-   ![Alternativ bildtext](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>Aktivera hanterad tjänstidentitet på en virtuell dator 
-
-Med en hanterad tjänstidentitet på en virtuell dator kan du få åtkomsttoken från Azure Active Directory utan att du behöver skriva in autentiseringsuppgifter i koden. När du aktiverar hanterad tjänstidentitet på en virtuell dator via Azure-portalen sker två saker: din virtuella dator registreras med Azure Active Directory och skapar en hanterad identitet, och identiteten konfigureras på den virtuella datorn.
-
-1. Välj den **virtuella dator** som du vill aktivera hanterad tjänstidentitet på.  
-2. Klicka på **Konfiguration** i det vänstra navigeringsfältet. 
-3. **Hanterad tjänstidentitet** visas. Om du vill registrera och aktivera den hanterade tjänstidentiteten väljer du **Ja**. Om du vill inaktivera den väljer du Nej. 
-4. Klicka på **Spara** för att spara konfigurationen.  
-   ![Alternativ bildtext](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+- [Aktivera systemtilldelad identitet på den virtuella datorn](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="create-a-cosmos-db-account"></a>Skapa ett Cosmos DB-konto 
 

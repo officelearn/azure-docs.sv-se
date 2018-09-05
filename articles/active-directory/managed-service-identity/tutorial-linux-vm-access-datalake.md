@@ -14,23 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 6854b0a6c72b44bcd3f778e0c46cb109b34ce826
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 4a9d147d1605f4efa638ff258df2667b6b95230e
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258838"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885166"
 ---
 # <a name="tutorial-use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>Självstudie: Använda en hanterad tjänstidentitet för en virtuell Linux-dator för att få åtkomst till Azure Data Lake Store
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-I den här självstudien lär du dig använda en hanterad tjänstidentitet för en virtuell Linux-dator för att få åtkomst till Azure Data Lake Store. Azure hanterar automatiskt identiteter som du skapar via hanterad tjänstidentitet. Du kan använda hanterad tjänstidentitet för att autentisera mot tjänster som stöder Azure Active Directory-autentisering (Azure AD), utan att du behöver skriva in autentiseringsuppgifter i koden. 
+I den här självstudien lär du dig att komma åt Azure Data Lake Store med en systemtilldelad identitet för en virtuell Linux-dator. Azure hanterar automatiskt identiteter som du skapar via hanterad tjänstidentitet. Du kan använda hanterad tjänstidentitet för att autentisera mot tjänster som stöder Azure Active Directory-autentisering (Azure AD), utan att du behöver skriva in autentiseringsuppgifter i koden. 
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Aktivera hanterad tjänstidentitet på en virtuell Linux-dator. 
 > * Bevilja din virtuella dator åtkomst till Azure Data Lake Store.
 > * Hämta en åtkomsttoken med hjälp av en identitet för en virtuell dator och använd den för att få åtkomst till Azure Data Lake Store.
 
@@ -40,33 +39,11 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+- [Logga in på Azure-portalen](https://portal.azure.com)
 
-Logga in på [Azure Portal](https://portal.azure.com).
+- [Skapa en virtuell Linux-dator](/azure/virtual-machines/linux/quick-create-portal)
 
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Linux-dator i en ny resursgrupp
-
-I den här självstudien skapar vi en ny virtuell Linux-dator. Du kan även aktivera MSI på en befintlig virtuell dator.
-
-1. Klicka på knappen **Nytt** i det övre vänstra hörnet i Azure-portalen.
-2. Välj **Compute** och välj sedan **Ubuntu Server 16.04 LTS**.
-3. Ange informationen för den virtuella datorn. För **Autentiseringstyp** väljer du **Offentlig SSH-nyckel** eller **Lösenord**. Med de skapade autentiseringsuppgifterna kan du logga in på den virtuella datorn.
-
-   ![Fönstret ”Grundinställningar” för att skapa en virtuell dator](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
-
-4. I listan **Prenumeration** väljer du en prenumeration för den virtuella datorn.
-5. Du väljer en ny resursgrupp som du vill att den virtuella datorn ska skapas i genom att välja **Resursgrupp** > **Skapa ny**. Välj **OK** när du är klar.
-6. Välj storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. Behåll alla standardvärden på inställningssidan och välj **OK**.
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>Aktivera hanterad tjänstidentitet på en virtuell dator
-
-Med en hanterad tjänstidentitet på en virtuell dator kan du få åtkomsttoken från Azure Active Directory utan att du behöver skriva in autentiseringsuppgifter i koden. När du aktiverar en hanterad tjänstidentitet på en virtuell dator händer två saker: din virtuella dator registreras hos Azure Active Directory och dess hanterade tjänstidentitet skapas, och identiteten konfigureras på den virtuella datorn.
-
-1. För **virtuell dator** väljer du den virtuella dator som du vill aktivera hanterad tjänstidentitet på.
-2. Välj **Konfiguration** i det vänstra fönstret.
-3. Du ser **Hanterad tjänstidentitet**. Om du vill registrera och aktivera hanterad tjänstidentitet väljer du **Ja**. Om du vill inaktivera det, väljer du **Nej**.
-   ![Markeringen Registrera dig på Azure Active Directory](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-4. Välj **Spara**.
+- [Aktivera systemtilldelad identitet på den virtuella datorn](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Bevilja din virtuella dator åtkomst till Azure Data Lake Store
 

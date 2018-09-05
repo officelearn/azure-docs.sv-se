@@ -37,7 +37,7 @@ items:
       href: create-mongodb-golang.md
   - name: Gremlin
     items:
-    - name: Använd Gremlin-konsol
+    - name: Gremlin-konsol
       href: create-graph-gremlin-console.md
     - name: .NET
       href: create-graph-dotnet.md
@@ -78,6 +78,9 @@ items:
     href: distribute-data-globally.md
   - name: Dataflöde
     href: request-units.md
+    items:
+    - name: Beräkna och ange dataflöde
+      href: set-throughput.md
   - name: Partitionering
     href: partition-data.md
   - name: Indexering
@@ -86,11 +89,11 @@ items:
     href: consistency-levels.md
   - name: Flera huvudservrar
     href: multi-region-writers.md
+    items:
+    - name: Konfiguration med flera huvudservrar
+      href: multi-master-workaround.md
   - name: Ändringsfeed
     href: change-feed.md
-    items:
-    - name: Näthandelslösning för ändringsflöde
-      href: changefeed-ecommerce-solution.md
   - name: Time to live
     href: time-to-live.md
   - name: Unika nycklar
@@ -104,18 +107,16 @@ items:
       href: secure-access-to-data.md
     - name: Brandväggssupport
       href: firewall-support.md
-    - name: Konfigurera slutpunkt för virtuell nätverkstjänst
+    - name: Konfigurera VNet-slutpunkt
       href: vnet-service-endpoint.md
-    - name: Nyckelvalv för att lagra hemligheter
+    - name: Key Vault-stöd
       href: access-secrets-from-keyvault.md
 - name: API:er för flera modeller
   items:
   - name: SQL API-dokument
     items:
     - name: Översikt
-      items:
-      - name: Om SQL API
-        href: sql-api-introduction.md
+      href: sql-api-introduction.md
     - name: Självstudier
       items:
       - name: 1 – Skapa konto
@@ -172,22 +173,16 @@ items:
         href: powershell-samples.md
       - name: Azure CLI
         href: cli-samples.md
-    - name: Begrepp
-      items:
-      - name: Modelldokumentdata
-        href: modeling-data.md
     - name: Instruktionsguider
       items:
-      - name: Använda massexecutor – .NET-bibliotek
+      - name: Massexecutor – .NET-bibliotek
         href: bulk-executor-dot-net.md
-      - name: Använda massexecutor – Java-bibliotek
+      - name: Massexecutor – Java-bibliotek
         href: bulk-executor-java.md
       - name: Skriva SQL-frågor
         href: sql-api-sql-query.md
       - name: Justera prestanda för frågor
         href: sql-api-sql-query-metrics.md
-      - name: SQL-datapartitionering
-        href: sql-api-partition-data.md
       - name: Datatyper
         items:
         - name: DateTime
@@ -220,16 +215,11 @@ items:
         href: /rest/api/cosmos-db-resource-provider/
       - name: Språksyntax för SQL
         href: sql-api-sql-query-reference.md
-    - name: Resurser
-      items:
-      - name: SQL-spelplan
-        href: https://aka.ms/cosmos-db-playground
   - name: MongoDB API-dokument
     items:
     - name: Översikt
+      href: mongodb-introduction.md
       items:
-      - name: Om MongoDB API
-        href: mongodb-introduction.md
       - name: Stöd för MongoDB
         href: mongodb-feature-support.md
     - name: Självstudier
@@ -276,16 +266,11 @@ items:
         href: mongodb-time-to-live.md
       - name: Hantera dataindexering
         href: mongodb-indexing.md
-    - name: Resurser
-      items:
-      - name: Visual Studio Code-tillägg
-        href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
   - name: Dokument för Gremlin-API
     items:
     - name: Översikt
+      href: graph-introduction.md
       items:
-      - name: Om Gremlin-API
-        href: graph-introduction.md
       - name: Gremlin-support
         href: gremlin-support.md
     - name: Självstudier
@@ -296,14 +281,10 @@ items:
       items:
       - name: Importera diagramdata
         href: bulk-executor-graph-dotnet.md
-      - name: Partitionering av diagramdata
-        href: graph-partitioning.md
   - name: Dokument för API för Cassandra
     items:
     - name: Översikt
-      items:
-      - name: Om API för Cassandra
-        href: cassandra-introduction.md
+      href: cassandra-introduction.md
     - name: Självstudier
       items:
       - name: 1 – Skapa konto
@@ -313,9 +294,7 @@ items:
   - name: Dokument för tabell-API
     items:
     - name: Översikt
-      items:
-      - name: Om tabell-API
-        href: table-introduction.md
+      href: table-introduction.md
     - name: Självstudier
       items:
       - name: 1 – Skapa konto
@@ -373,10 +352,8 @@ items:
       href: storage-explorer.md
     - name: Hantering med hjälp av datautforskaren
       href: data-explorer.md
-    - name: Hantera nycklar och konsekvensnivåer
+    - name: Hantera ditt konto
       href: manage-account.md
-    - name: Beräkna och ange dataflöde
-      href: set-throughput.md
   - name: Loggning
     items:
     - name: Diagnostikloggning
@@ -407,6 +384,14 @@ items:
       href: performance-tips-async-java.md
     - name: Prestandatest – exempelapp
       href: performance-testing.md
+  - name: Bästa praxis
+    items:
+    - name: Modelldokumentdata
+      href: modeling-data.md
+    - name: SQL-datapartitionering
+      href: sql-api-partition-data.md
+    - name: Partitionering av diagramdata
+      href: graph-partitioning.md
   - name: Stordata och analyser
     items:
     - name: Lambda-arkitektur
@@ -415,9 +400,11 @@ items:
       href: spark-connector.md
     - name: Spark, Kafka och Azure Cosmos DB
       href: https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json
+    - name: Näthandelslösning för ändringsflöde
+      href: changefeed-ecommerce-solution.md
   - name: Integrera med andra Azure-tjänster
     items:
-    - name: Distribuera en webbplats med Azure App Service
+    - name: Azure App Service
       href: create-website.md
     - name: Azure Search-indexerare
       href: https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json
@@ -427,7 +414,7 @@ items:
         href: serverless-computing-database.md
       - name: Azure Function-bindningar
         href: https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb?toc=/azure/cosmos-db/toc.json
-    - name: Flytta data med Azure Data Factory
+    - name: Azure Data Factory
       href: https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db?toc=/azure/cosmos-db/toc.json
     - name: Azure Stream Analytics
       href: ../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db
@@ -449,8 +436,6 @@ items:
     href: regional-failover.md
   - name: Lagrade procedurer, utlösare och UDF:er
     href: programming.md
-  - name: Konfiguration med flera huvudservrar
-    href: multi-master-workaround.md
   - name: Om bibliotek för massexecutor
     href: bulk-executor-overview.md
   - name: Kostnadseffektiva läsningar och skrivningar
@@ -459,8 +444,8 @@ items:
   items:
   - name: Översiktsblad för frågor
     href: query-cheat-sheet.md
-  - name: 20 dagars tips
-    href: 20-days-of-tips.md
+  - name: SQL-spelplan
+    href: https://aka.ms/cosmos-db-playground
   - name: VANLIGA FRÅGOR OCH SVAR
     href: faq.md
   - name: Faktablad
@@ -478,9 +463,9 @@ items:
     href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
   - name: Appar för sociala medier
     href: social-media-apps.md
-ms.openlocfilehash: 882b7d69a8282beb2fcbbce0ed788810210236ca
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 8837d9bc6cf492a146d96d917d9157e51bffa0f5
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43184903"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695990"

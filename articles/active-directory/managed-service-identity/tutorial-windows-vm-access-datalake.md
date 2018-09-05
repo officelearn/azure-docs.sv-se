@@ -14,21 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: f5d4a5e26ecf4bde286a5163bf5ec7da492e474d
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: a472a0f1fe052b0bc8130f5d81c91692c7723377
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247921"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885896"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-data-lake-store"></a>Självstudie: Använda du en hanterad tjänstidentitet på en virtuell Windows-dator för att komma åt Azure Data Lake Store
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Den här självstudien beskriver steg för steg hur du använder en hanterad tjänstidentitet för en virtuell Windows-dator (VM) för att komma åt en Azure Data Lake Store. Hanterade tjänstidentiteter hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver skriva in autentiseringsuppgifter i koden. Lär dig att:
+I den här självstudien lär du dig att komma åt en Azure Data Lake Store med en systemtilldelad identitet för en virtuell Windows-dator. Hanterade tjänstidentiteter hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver skriva in autentiseringsuppgifter i koden. Lär dig att:
 
 > [!div class="checklist"]
-> * Aktivera hanterad tjänstidentitet på en virtuell Windows-dator 
 > * Bevilja din virtuella dator åtkomst till en Azure Data Lake Store
 > * Hämta en åtkomsttoken med hjälp av en identitet för en virtuell dator och använd den för att få åtkomst till en Azure Data Lake Store
 
@@ -38,36 +37,11 @@ Den här självstudien beskriver steg för steg hur du använder en hanterad tj�
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+- [Logga in på Azure-portalen](https://portal.azure.com)
 
-Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+- [Skapa en virtuell Windows-dator](/azure/virtual-machines/windows/quick-create-portal)
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Windows-dator i en ny resursgrupp
-
-I den här självstudien ska vi skapa en ny virtuell Windows-dator.  Du kan även aktivera hanterad tjänstidentitet på en befintlig virtuell dator.
-
-1. Klicka på knappen **Skapa en resurs** längst upp till vänster i Azure Portal.
-2. Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**. 
-3. Ange informationen för den virtuella datorn. **Användarnamnet** och **lösenordet** som skapas här är de autentiseringsuppgifter som du använder när du loggar in på den virtuella datorn.
-4. Välj lämplig **prenumeration** för den virtuella datorn i listrutan.
-5. Du väljer en ny **Resursgrupp** där du skapar din virtuella dator genom att välja **Skapa ny**. När du är klar klickar du på **OK**.
-6. Välj storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. Acceptera alla standardvärden på inställningssidan och klicka på **OK**.
-
-   ![Alternativ bildtext](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>Aktivera hanterad tjänstidentitet på en virtuell dator 
-
-Med en hanterad tjänstidentitet på en virtuell dator kan du få åtkomsttoken från Azure Active Directory utan att du behöver skriva in autentiseringsuppgifter i koden. När du aktiverar hanterad tjänstidentitet skapar Azure en hanterad identitet för den virtuella datorn. I bakgrunden sker två saker när du aktiverar en hanterad tjänstidentitet på en virtuell dator: din virtuella dator registreras hos Azure Active Directory och dess hanterade tjänstidentitet skapas, och identiteten konfigureras på den virtuella datorn.
-
-1. Välj den **virtuella dator** som du vill aktivera hanterad tjänstidentitet på.  
-2. Klicka på **Konfiguration** i det vänstra navigeringsfältet. 
-3. **Hanterad tjänstidentitet** visas. Om du vill registrera och aktivera den hanterade tjänstidentiteten väljer du **Ja**. Om du vill inaktivera den väljer du Nej. 
-4. Klicka på **Spara** för att spara konfigurationen.  
-   ![Alternativ bildtext](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Om du vill kontrollera och verifiera vilka tillägg som finns på den här virtuella datorn klickar du på **Tillägg**. Om hanterad tjänstidentitet är aktiverat visas **ManagedIdentityExtensionforWindows** i listan.
-
-   ![Alternativ bildtext](media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
+- [Aktivera systemtilldelad identitet på den virtuella datorn](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Bevilja din virtuella dator åtkomst till Azure Data Lake Store
 

@@ -4,17 +4,17 @@ description: I den här självstudien distribuerar du en Azure-funktion som en m
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/10/2018
+ms.date: 08/22/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 426d9fd81a0cd856378be3bb4f430f310bee53eb
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: cf973899a6f56010c47588bdd506418a3d9a7cd8
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41920786"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42744050"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules-preview"></a>Självstudie: Distribuera Azure-funktioner som IoT Edge-moduler (förhandsversion)
 
@@ -170,7 +170,7 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod i **CSh
 
 I det här avsnittet anger du autentiseringsuppgifterna för ditt containerregister två gånger. Den första gången är för att logga in lokalt från utvecklingsdatorn så att Visual Studio Code kan överföra avbildningar till ditt register. Den andra gången gör du det i **.env**-filen för IoT Edge-lösningen, vilket ger IoT-Edge enheten behörighet att hämta avbildningar från ditt register. 
 
-1. Välj **Visa** > **Integrerad terminal** för att öppna den integrerade terminalen i VS Code. 
+1. Öppna den VS Code-integrerade terminalen genom att välja **Visa** > **Terminal**. 
 
 1. Logga in i ditt containerregister genom att ange följande kommando i den integrerade terminalen. Sedan kan du skicka modulavbildningen till ditt Azure-containerregister: 
      
@@ -192,7 +192,7 @@ I det här avsnittet anger du autentiseringsuppgifterna för ditt containerregis
 
 5. Spara filen.
 
-6. Högerklicka på filen deployment.template.json och välj **Build and Push IoT Edge solution** (Skapa och skicka IoT Edge-lösning) i VS Code-utforskaren. 
+6. I VS Code-utforskaren högerklickar du på filen deployment.template.json och väljer **Build and Push IoT Edge solution** (Skapa och skicka IoT Edge-lösning). 
 
 När du instruerar Visual Studio Code att skapa din lösning hämtar den först information från distributionsmallen och genererar en .json-distributionsfil i en ny mapp med namnet **config**. Sedan körs två kommandon i en integrerad terminal: `docker build` och `docker push`. Dessa två kommandon skapar koden, lägger funktionerna i container och push-överför sedan koden till containerregistret du angav när du initierade lösningen. 
 
@@ -219,7 +219,7 @@ Du kan använda Azure Portal till att distribuera din funktionsmodul till en IoT
 
 5. I VS Code-utforskaren expanderar du avsnittet **Azure IoT Hub-enheter**. 
 
-6. Högerklicka på namnet för din IoT Edge-enhet och välj sedan **Skapa distribution för IoT Edge-enhet**. 
+6. Högerklicka på namnet för din IoT Edge-enhet och välj sedan **Create Deployment for Single Device** (Skapa distribution för enskild enhet). 
 
 7. Bläddra till lösningsmappen som innehåller **CSharpFunction**. Öppna mappen config, välj filen deployment.json och välj sedan på **Välj distributionsmanifest för Edge**.
 

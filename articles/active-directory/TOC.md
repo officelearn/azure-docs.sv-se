@@ -103,6 +103,7 @@
 #### [Dirigera aktivitetsloggar till en Azure-händelsehubb](reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
 #### [Arkivera aktivitetsloggar till ett Azure Storage-konto](reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 #### [Integrera aktivitetsloggar med Splunk med Azure Monitor](reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md)
+#### [Integrera aktivitetsloggar med SumoLogic med Azure Monitor](reports-monitoring/howto-integrate-activity-logs-with-sumologic.md)
 
 ### Referens
 #### [Kvarhållning](reports-monitoring/reference-reports-data-retention.md)
@@ -332,6 +333,8 @@
 ### [Hantera användaråtkomst med granskningar](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 ### [Hantera program och kontroller](active-directory-azure-ad-controls-manage-programs-controls.md)
 ### [Hämta resultat för åtkomstgranskning](active-directory-azure-ad-controls-retrieve-access-review.md)
+
+## [Användningsvillkor](active-directory-tou.md)
 
 ## Skydda dina identiteter
 

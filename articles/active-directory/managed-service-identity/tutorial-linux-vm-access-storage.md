@@ -14,23 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: daveba
-ms.openlocfilehash: d4daccfdcb2bc11831e960aa20533e32801db946
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5117444b6312d96f87f9e1edf8ce26d0360417ef
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049345"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885759"
 ---
 # <a name="tutorial-use-a-linux-vms-managed-identity-to-access-azure-storage"></a>Självstudie: Använda en hanterad identitet i en virtuell Linux-dator för åtkomst till Azure Storage 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-
-Den här självstudien visar hur du skapar och använder en hanterad identitet i en virtuell Linux-dator för att få åtkomst till Azure Storage. Lär dig att:
+I den här självstudien lär du dig att komma åt Azure Storage med en systemtilldelad identitet för en virtuell Linux-dator. Lär dig att:
 
 > [!div class="checklist"]
-> * Skapa en virtuell Linux-dator i en ny resursgrupp
-> * Aktivera hanterad identitet på en virtuell Linux-dator
+> * skapar ett lagringskonto
 > * Skapa en blobcontainer i ett lagringskonto
 > * Ge en hanterade identitet på en virtuell Linux-dator åtkomst till en Azure Storage-container
 > * Hämta en åtkomsttoken och använda den för att anropa Azure Storage
@@ -40,41 +38,20 @@ Den här självstudien visar hur du skapar och använder en hanterad identitet i
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com) innan du fortsätter.
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-[!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
+[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+- [Logga in på Azure-portalen](https://portal.azure.com)
+
+- [Skapa en virtuell Linux-dator](/azure/virtual-machines/linux/quick-create-portal)
+
+- [Aktivera systemtilldelad identitet på den virtuella datorn](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 Om du vill köra CLI-exempelskripten i den här självstudien har du två alternativ:
 
 - Använd [Azure Cloud Shell](~/articles/cloud-shell/overview.md) antingen från Azure Portal eller via knappen **Prova**, som du hittar i det övre högra hörnet av varje kodblock.
 - [Installera den senaste versionen av CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 eller senare) om du föredrar att använda en lokal CLI-konsol.
-
-## <a name="sign-in-to-azure"></a>Logga in på Azure
-
-Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
-
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Linux-dator i en ny resursgrupp
-
-I det här avsnittet skapar du en virtuell Linux-dator som sedan beviljas en hanterad identitet.
-
-1. Klicka på knappen **Nytt** i det övre vänstra hörnet i Azure-portalen.
-2. Välj **Compute** och välj sedan **Ubuntu Server 16.04 LTS**.
-3. Ange informationen för den virtuella datorn. För **Autentiseringstyp** väljer du **Offentlig SSH-nyckel** eller **Lösenord**. Med de skapade autentiseringsuppgifterna kan du logga in på den virtuella datorn.
-
-   ![Fönstret ”Grundinställningar” för att skapa en virtuell dator](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
-
-4. I listan **Prenumeration** väljer du en prenumeration för den virtuella datorn.
-5. Du väljer en ny resursgrupp som du vill att den virtuella datorn ska skapas i genom att välja **Resursgrupp** > **Skapa ny**. Välj **OK** när du är klar.
-6. Välj storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. Behåll alla standardvärden på inställningssidan och välj **OK**.
-
-## <a name="enable-managed-identity-on-your-vm"></a>Aktivera hanterad identitet på den virtuella datorn
-
-Med en hanterad identitet på en virtuell dator kan du få åtkomsttoken från Azure Active Directory utan att du behöver skriva in autentiseringsuppgifter i koden. När du aktiverar hanterad identitet på en virtuell dator via Azure-portalen sker två saker: din virtuella dator registreras med Azure Active Directory och skapar en hanterad identitet, och identiteten konfigureras på den virtuella datorn.
-
-1. Gå till den nya virtuella datorns resursgrupp och välj den virtuella dator som du skapade i förra steget.
-2. Klicka på **Konfiguration** under kategorin **Inställningar**.
-3. Välj **Ja** för att aktivera hanterad identitet.
-4. Klicka på **Spara** och tillämpa konfigurationen. 
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto 
 

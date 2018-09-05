@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 04/06/2018
+ms.date: 08/22/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d404e3a300a953ccc1cfb691cbde6f6d7ee54b26
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f1c933c9dcb3e3e2c2cb267073386d4b9c4e2022
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216316"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746026"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Utveckla storskaliga parallella beräkningslösningar med Batch
 
@@ -288,7 +288,7 @@ Om startaktiviteten misslyckas på en beräkningsnod uppdateras nodens status me
 Om du lägger till eller uppdaterar startaktiviteten för en befintlig pool måste du starta om dess beräkningsnoder för att startaktiviteten ska tillämpas på noderna.
 
 >[!NOTE]
-> Den totala storleken på en startaktivitet måste vara mindre än eller lika med 32768 tecken, inklusive resursfiler och miljövariabler. Du kan använda en av följande två metoder för att säkerställa att startaktiviteten uppfyller detta krav:
+> Batch begränsar den totala storleken på en startaktivitet. Det här omfattar resursfiler och miljövariabler. Om du vill minska storleken på en startaktivitet finns två metoder:
 >
 > 1. Du kan använda programpaket för att distribuera program eller data i varje nod i Batch-poolen. Mer information om programpaket finns i [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md) (Distribuera program till beräkningsnoder med Batch-programpaket).
 > 2. Du kan manuellt skapa ett zippat arkiv som innehåller dina programfiler. Ladda upp ditt zippade arkiv till Azure Storage som en blob. Ange det zippade arkivet som en resursfil för startaktiviteten. Innan du kör kommandoraden för din startaktivitet packar du upp arkivet från kommandoraden. 

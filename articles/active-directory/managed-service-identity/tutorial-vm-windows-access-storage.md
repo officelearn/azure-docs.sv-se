@@ -14,22 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2018
 ms.author: daveba
-ms.openlocfilehash: e001907b9df77eff1455043a3fd7ce5533838fcc
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 0781bf3fe9806c2c8aaa911433c4d6eddcafe04c
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056182"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885501"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-identity-to-access-azure-storage"></a>Självstudie: Komma åt Azure Storage med en hanterad tjänstidentitet för virtuell Windows-dator
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Den här självstudien visar hur du aktiverar hanterad identitet för en virtuell Windows-dator och sedan använder identiteten och kommer åt Azure Storage.  Lär dig att:
+I den här självstudien lär du dig att komma åt Azure Storage med en systemtilldelad identitet för en virtuell Windows-dator. Lär dig att:
 
 > [!div class="checklist"]
-> * Skapa en virtuell Windows-dator i en ny resursgrupp 
-> * Aktivera hanterad identitet på en virtuell Windows-dator (VM)
 > * Skapa en blobcontainer i ett lagringskonto
 > * Ge den virtuella Windows-datorns hanterade identitet åtkomst till ett lagringskonton 
 > * Hämta en åtkomsttoken, och använda den och anropa Azure Storage 
@@ -43,31 +41,11 @@ Den här självstudien visar hur du aktiverar hanterad identitet för en virtuel
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+- [Logga in på Azure-portalen](https://portal.azure.com)
 
-Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+- [Skapa en virtuell Windows-dator](/azure/virtual-machines/windows/quick-create-portal)
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Windows-dator i en ny resursgrupp
-
-I det här avsnittet skapar du en virtuell Windows-dator som sedan beviljas en hanterad identitet.
-
-1.  Klicka på knappen **+/Skapa ny tjänst** som finns i det övre vänstra hörnet på Azure Portal.
-2.  Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**. 
-3.  Ange informationen för den virtuella datorn. **Användarnamnet** och **lösenordet** som skapas här är de autentiseringsuppgifter som du använder när du loggar in på den virtuella datorn.
-4.  Välj lämplig **prenumeration** för den virtuella datorn i listrutan.
-5.  Välj en ny **Resursgrupp** som den virtuella datorn ska skapas i genom att klicka på **Skapa ny**. När du är klar klickar du på **OK**.
-6.  Välj storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. Acceptera alla standardvärden på bladet Inställningar och klicka på **OK**.
-
-    ![Alternativ bildtext](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-identity-on-your-vm"></a>Aktivera hanterad identitet på den virtuella datorn
-
-Med en hanterad identitet på en virtuell dator kan du få åtkomsttoken från Azure Active Directory utan att du behöver skriva in autentiseringsuppgifter i koden. När du aktiverar hanterad identitet på en virtuell dator via Azure-portalen sker två saker: din virtuella dator registreras med Azure Active Directory och skapar en hanterad identitet, och identiteten konfigureras på den virtuella datorn. 
-
-1. Gå till den nya virtuella datorns resursgrupp och välj den virtuella dator som du skapade i förra steget.
-2. Under kategorin **Inställningar** klickar du på **Konfiguration**.
-3. Välj **Ja** om du vill aktivera hanterad identitet.
-4. Klicka på **Spara** och tillämpa konfigurationen. 
+- [Aktivera systemtilldelad identitet på den virtuella datorn](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto 
 

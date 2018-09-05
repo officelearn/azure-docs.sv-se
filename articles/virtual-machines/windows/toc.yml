@@ -432,6 +432,14 @@ items:
       href: install-vm-agent-offline.md
     - name: Felsöka anslutna virtuella hårddiskar
       items:
+      - name: Fel vid borttagning av lagringsresurs
+        href: storage-resource-deletion-errors.md
+      - name: Oväntade omstarter av virtuella datorer med anslutna virtuella hårddiskar
+        href: unexpected-reboots-attached-vhds.md
+    - name: Felsöka startproblem
+      items:
+      - name: BitLocker-fel
+        href: troubleshoot-bitlocker-boot-error.md
       - name: Kontrollera filsystemfel
         href: troubleshoot-check-disk-boot-error.md
 - name: Referens
@@ -470,9 +478,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: VANLIGA FRÅGOR OCH SVAR
     href: faq.md
-ms.openlocfilehash: dc65985a2c629aff30bd0ed7e2821f3772ca6942
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 891d433b02416cb3c02df87a4c4fae29b27d0d78
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43337175"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666738"

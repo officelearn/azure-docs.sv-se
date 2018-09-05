@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: d94f8d38ef771bd5ab03f4d3cef25233c33e7546
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 6759568a678394f7cec4ac9f0bdd99d8ed1db9de
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282625"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886798"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Självstudie: Identifiera problem med enheter som är anslutna till din övervakningslösning
 
@@ -117,6 +117,18 @@ Om du tillfälligt vill inaktivera en regel kan du göra det i listan med regler
 [![Inaktivera regel](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-expanded.png#lightbox)
 
 Du kan aktivera och inaktivera flera regler på samma gång genom att markera flera regler i listan.
+
+## <a name="delete-a-rule"></a>Ta bort en regel
+
+Om du vill ta bort en regel permanent kan du ta bort den i listan över regler. Välj regeln du vill ta bort och välj sedan **Ta bort**.
+
+[![Ta bort regel](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
+
+När du har bekräftat att du vill ta bort regeln har du möjlighet att ta bort alla aviseringar som är kopplade till regeln från sidan **Underhåll**.
+
+[![Ta bort regel](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-expanded.png#lightbox)
+
+Du kan bara ta bort en regel i taget.
 
 [!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 

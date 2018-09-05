@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/14/2018
+ms.date: 08/23/2018
 ms.author: jdial
-ms.openlocfilehash: 2442c177b303600f936e80f6c765e2d4096b1dca
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: b951386fbeca883ae61a7f8040893e55467c8e5d
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021727"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42810092"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Självstudie: Begränsa nätverksåtkomst till PaaS-resurser med virtuella nätverksslutpunkter med Azure-portalen
 
-Med virtuella nätverksslutpunkter kan du begränsa nätverksåtkomsten till vissa Azure-tjänsters resurser till ett undernät för virtuella datorer. Du kan också ta bort resursernas internetåtkomst. Tjänstslutpunkterna möjliggör direktanslutning från ditt virtuella nätverk till Azure-tjänster som stöds, så att du kan använda det privata adressutrymmet i det virtuella nätverket för åtkomst till Azure-tjänsterna. Trafik till Azure-resurser genom tjänstslutpunkterna finns alltid kvar i Microsoft Azure-stamnätverket. I den här guiden får du lära dig hur man:
+Med virtuella nätverksslutpunkter kan du begränsa nätverksåtkomsten till vissa Azure-tjänsters resurser till ett undernät för virtuella datorer. Du kan också ta bort resursernas internetåtkomst. Tjänstslutpunkterna möjliggör direktanslutning från ditt virtuella nätverk till Azure-tjänster som stöds, så att du kan använda det privata adressutrymmet i det virtuella nätverket för åtkomst till Azure-tjänsterna. Trafik till Azure-resurser genom tjänstslutpunkterna finns alltid kvar i Microsoft Azure-stamnätverket. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa ett virtuellt nätverk med ett undernät
@@ -39,9 +39,9 @@ Om du vill kan du slutföra den här självstudien med [Azure CLI](tutorial-rest
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="log-in-to-azure"></a>Logga in på Azure 
+## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på http://portal.azure.com.
+Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
@@ -49,19 +49,18 @@ Logga in på Azure Portal på http://portal.azure.com.
 2. Välj **Nätverk** och välj därefter **Virtuellt nätverk**.
 3. Välj eller ange följande information och välj **Skapa**:
 
-    |Inställning|Värde|
-    |----|----|
-    |Namn| myVirtualNetwork |
-    |Adressutrymme| 10.0.0.0/16|
-    |Prenumeration| Välj din prenumeration|
-    |Resursgrupp | Välj **Skapa ny** och ange *myResourceGroup*.|
-    |Plats| Välj **USA, östra** |
-    |Namn på undernät| Offentligt|
-    |Undernätsadressintervall| 10.0.0.0/24|
-    |Tjänstslutpunkter| Disabled|
+   |Inställning|Värde|
+   |----|----|
+   |Namn| myVirtualNetwork |
+   |Adressutrymme| 10.0.0.0/16|
+   |Prenumeration| Välj din prenumeration|
+   |Resursgrupp | Välj **Skapa ny** och ange *myResourceGroup*.|
+   |Plats| Välj **USA, östra** |
+   |Namn på undernät| Offentligt|
+   |Undernätsadressintervall| 10.0.0.0/24|
+   |Tjänstslutpunkter| Disabled|
 
-    ![Ange grundläggande information om ditt virtuella nätverk](./media/tutorial-restrict-network-access-to-resources/create-virtual-network.png)
-
+   ![Ange grundläggande information om ditt virtuella nätverk](./media/tutorial-restrict-network-access-to-resources/create-virtual-network.png)
 
 ## <a name="enable-a-service-endpoint"></a>Aktivera en tjänstslutpunkt
 
@@ -101,7 +100,7 @@ Alla virtuella datorer i ett undernät kan kommunicera med alla resurser som sta
 4. När nätverkssäkerhetsgruppen har skapats anger du *myNsgPrivate* i rutan **Sök efter resurser, tjänster och dokument** överst i portalen. När **myNsgPrivate** visas i sökresultaten väljer du det.
 5. Under **INSTÄLLNINGAR** väljer du **Utgående säkerhetsregler**.
 6. Välj **+ Lägg till**.
-7. Skapa en regel som tillåter utgående kommunikation till Azure Storage-tjänsten. Välj eller ange följande information och välj **OK**:
+7. Skapa en regel som tillåter utgående kommunikation till Azure Storage-tjänsten. Välj eller ange följande information och välj **Lägg till**:
 
     |Inställning|Värde|
     |----|----|
@@ -114,8 +113,8 @@ Alla virtuella datorer i ett undernät kan kommunicera med alla resurser som sta
     |Åtgärd|Tillåt|
     |Prioritet|100|
     |Namn|Allow-Storage-All|
-    
-8. Skapa en regel som nekar utgående kommunikation till internet. Den här regeln åsidosätter en standardregel i alla nätverkssäkerhetsgrupper som tillåter utgående internetkommunikation. Slutför steg 6 och 7 igen med följande värden:
+
+8. Skapa en annan säkerhetsregel för utgående kommunikation som nekar utgående kommunikation till internet. Den här regeln åsidosätter en standardregel i alla nätverkssäkerhetsgrupper som tillåter utgående internetkommunikation. Slutför steg 5–7 igen med följande värden:
 
     |Inställning|Värde|
     |----|----|
@@ -131,14 +130,13 @@ Alla virtuella datorer i ett undernät kan kommunicera med alla resurser som sta
 
 9. Under **INSTÄLLNINGAR** väljer du **Inkommande säkerhetsregel**.
 10. Välj **+ Lägg till**.
-11. Skapa en regel som tillåter ingående RDP-trafik (Remote Desktop Protocol) till undernätet varifrån som helst. Regeln åsidosätter en standardsäkerhetsregel som nekar all inkommande trafik från internet. Fjärrskrivbordsanslutningar tillåts i undernätet så att anslutningen kan testas i ett senare steg. Slutför steg 6 och 7 igen med följande värden:
+11. Skapa en säkerhetsregel för ingående kommunikation som tillåter RDP-trafik (Remote Desktop Protocol) till undernätet varifrån som helst. Regeln åsidosätter en standardsäkerhetsregel som nekar all inkommande trafik från internet. Fjärrskrivbordsanslutningar tillåts i undernätet så att anslutningen kan testas i ett senare steg. Under **INSTÄLLNINGAR** väljer du **Ingående säkerhetsregler**, väljer **+Lägg till**, skriver in följande värden och väljer **Lägg till**:
 
     |Inställning|Värde|
     |----|----|
     |Källa| Alla |
     |Källportintervall| * |
-    |Mål | Välj **Service Tag** (tjänsttagg)|
-    |Måltjänsttagg| Välj **VirtualNetwork**|
+    |Mål | Välj **VirtualNetwork**|
     |Målportintervall| 3389 |
     |Protokoll|Alla|
     |Åtgärd|Tillåt|
@@ -164,18 +162,19 @@ De steg som behövs för att begränsa nätverksåtkomsten till resurser som har
     |----|----|
     |Namn| Ange ett namn som är unikt i alla Azure-platser, mellan 3–24 tecken långt och som endast innehåller siffror och gemener.|
     |Typ av konto|StorageV2 (generell användning v2)|
+    |Plats| Välj **USA, östra** |
     |Replikering| Lokalt redundant lagring (LRS)|
     |Prenumeration| Välj din prenumeration|
     |Resursgrupp | Välj **Använd befintlig** och sedan *myResourceGroup*.|
-    |Plats| Välj **USA, östra** |
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>Skapa en filresurs i lagringskontot
 
 1. När lagringskontot är skapat anger du namnet på det i rutan **Sök efter resurser, tjänster och dokument** högst upp i portalen. När namnet på ditt lagringskonto visas i sökresultatet väljer du det.
 2. Välj **Filer** enligt bilden nedan:
 
-    ![Lagringskonto](./media/tutorial-restrict-network-access-to-resources/storage-account.png) 
-3. Välj **+ Filresurs** under **Filtjänst**.
+   ![Lagringskonto](./media/tutorial-restrict-network-access-to-resources/storage-account.png) 
+
+3. Välj **+ Filresurs**.
 4. Skriv *my-file-share* under **Namn** och välj **OK**.
 5. Stäng rutan **Filtjänst**.
 
@@ -184,8 +183,8 @@ De steg som behövs för att begränsa nätverksåtkomsten till resurser som har
 Som standard godkänner lagringskonton nätverksanslutningar från klienter i alla nätverk, inklusive internet. Neka nätverksåtkomst från internet och andra undernät i alla virtuella nätverk, utom för det *privata* undernätet i det virtuella nätverket *myVirtualNetwork*.
 
 1. Under **INSTÄLLNINGAR** för lagringskontot väljer du **Brandväggar och virtuella nätverk**.
-2. Under **Virtuella nätverk** väljer du **Valda nätverk**.
-3. Välj **Lägg till befintligt virtuellt nätverk**.
+2. Välj **Valda nätverk**.
+3. Välj **+Lägg till befintligt virtuellt nätverk**.
 4. Under **Lägg till nätverk** väljer du följande värden och sedan **Lägg till**:
 
     |Inställning|Värde|
@@ -194,7 +193,7 @@ Som standard godkänner lagringskonton nätverksanslutningar från klienter i al
     |Virtuella nätverk|Välj **myVirtualNetwork** under **Virtuella nätverk**|
     |Undernät| Välj **Privat** under **Undernät**|
 
-    ![Brandväggar och virtuella nätverk](./media/tutorial-restrict-network-access-to-resources/storage-firewalls-and-virtual-networks.png) 
+    ![Brandväggar och virtuella nätverk](./media/tutorial-restrict-network-access-to-resources/storage-firewalls-and-virtual-networks.png)
 
 5. Välj **Spara**.
 6. Stäng rutan **Brandväggar och virtuella nätverk**.
@@ -214,25 +213,27 @@ Om du vill testa nätverksåtkomsten till ett lagringskonto distribuerar du en v
 2. Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**.
 3. Välj eller ange följande information och välj **OK**:
 
-    |Inställning|Värde|
-    |----|----|
-    |Namn| myVmPublic|
-    |Användarnamn|Ange ett valfritt användarnamn.|
-    |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Prenumeration| Välj din prenumeration.|
-    |Resursgrupp| Välj **Använd befintlig** och sedan **myResourceGroup**.|
-    |Plats| Välj **USA, östra**.|
+   |Inställning|Värde|
+   |----|----|
+   |Namn| myVmPublic|
+   |Användarnamn|Ange ett valfritt användarnamn.|
+   |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+   |Prenumeration| Välj din prenumeration.|
+   |Resursgrupp| Välj **Använd befintlig** och sedan **myResourceGroup**.|
+   |Plats| Välj **USA, östra**.|
 
-    ![Ange grundläggande information om en virtuell dator](./media/tutorial-restrict-network-access-to-resources/virtual-machine-basics.png)
+   ![Ange grundläggande information om en virtuell dator](./media/tutorial-restrict-network-access-to-resources/virtual-machine-basics.png)
 4. Välj en storlek för den virtuella datorn och sedan **Välj**.
 5. Under **Inställningar** väljer du **Nätverk** och sedan **myVirtualNetwork**. Välj sedan **Undernät** och därefter **Offentligt** enligt följande bild:
 
-    ![Välja ett virtuellt nätverk](./media/tutorial-restrict-network-access-to-resources/virtual-machine-settings.png)
-6. På **sammanfattningssidan** klickar du på **Skapa** för att starta distributionen av den virtuella datorn. Det tar några minuter att distribuera den virtuella datorn, men du kan fortsätta till nästa steg medan den virtuella datorn skapas.
+   ![Välja ett virtuellt nätverk](./media/tutorial-restrict-network-access-to-resources/virtual-machine-settings.png)
+
+6. Under **Nätverkssäkerhetsgrupp** väljer du **Avancerat**. Portalen skapar automatiskt en nätverkssäkerhetsgrupp som tillåter port 3389. Den behöver du öppna för att ansluta till den virtuella datorn i ett senare steg. Välj **OK** på sidan **Inställningar**.
+7. På **sammanfattningssidan** klickar du på **Skapa** för att starta distributionen av den virtuella datorn. Det tar några minuter att distribuera den virtuella datorn, men du kan fortsätta till nästa steg medan den virtuella datorn skapas.
 
 ### <a name="create-the-second-virtual-machine"></a>Skapa den andra virtuella datorn
 
-Slutför steg 1–6 igen, men i steg 3 ska du ge den virtuella datorn namnet *myVmPrivate*, och i steg 5 väljer du undernätet **Privat**.
+Slutför steg 1–7 igen, men i steg 3 ska du ge den virtuella datorn namnet *myVmPrivate* och i steg 5 väljer du undernätet **Privat**.
 
 Det tar några minuter att distribuera den virtuella datorn. Fortsätt inte till nästa steg förrän skapandet är klart och dess inställningar öppnas i portalen.
 
@@ -240,7 +241,7 @@ Det tar några minuter att distribuera den virtuella datorn. Fortsätt inte till
 
 1. När den virtuella datorn *myVmPrivate* har skapats öppnar Azure dess inställningar. Anslut till den virtuella datorn genom att välja knappen **Anslut** enligt följande bild:
 
-    ![Ansluta till en virtuell dator](./media/tutorial-restrict-network-access-to-resources/connect-to-virtual-machine.png)
+   ![Ansluta till en virtuell dator](./media/tutorial-restrict-network-access-to-resources/connect-to-virtual-machine.png)
 
 2. När du har valt knappen **Anslut** skapas en .rdp-fil (Remote Desktop Protocol) som laddas ned till datorn.  
 3. Öppna den nedladdade rdp-filen. Välj **Anslut** om du uppmanas att göra det. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn. Du kan behöva välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn. 
@@ -248,29 +249,29 @@ Det tar några minuter att distribuera den virtuella datorn. Fortsätt inte till
 5. Du kan få en certifikatvarning under inloggningen. Om du ser varningen väljer du **Ja** eller **Fortsätt** för att fortsätta med anslutningen.
 6. På den virtuella datorn *myVmPrivate* mappar du Azure-fildelningen till enhet Z med PowerShell. Innan du kör kommandona som följer ska du ersätta `<storage-account-key>` och `<storage-account-name>` med värden som du angav och hämtade i [Skapa ett lagringskonto](#create-a-storage-account).
 
-    ```powershell
-    $acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force
-    $credential = New-Object System.Management.Automation.PSCredential -ArgumentList "Azure\<storage-account-name>", $acctKey
-    New-PSDrive -Name Z -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\my-file-share" -Credential $credential
-    ```
-    
-    PowerShell returnerar utdata som liknar följande exempelutdata:
+   ```powershell
+   $acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force
+   $credential = New-Object System.Management.Automation.PSCredential -ArgumentList "Azure\<storage-account-name>", $acctKey
+   New-PSDrive -Name Z -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\my-file-share" -Credential $credential
+   ```
 
-    ```powershell
-    Name           Used (GB)     Free (GB) Provider      Root
-    ----           ---------     --------- --------      ----
-    Z                                      FileSystem    \\vnt.file.core.windows.net\my-f...
-    ```
+   PowerShell returnerar utdata som liknar följande exempelutdata:
 
-    Azure-fildelningen har mappats till enhet Z.
+   ```powershell
+   Name           Used (GB)     Free (GB) Provider      Root
+   ----           ---------     --------- --------      ----
+   Z                                      FileSystem    \\vnt.file.core.windows.net\my-f...
+   ```
+
+   Azure-fildelningen har mappats till enhet Z.
 
 7. Bekräfta att de virtuella datorerna inte har någon utgående anslutning till internet från en kommandotolk:
 
-    ```
-    ping bing.com
-    ```
-    
-    Du får inga svar eftersom nätverkssäkerhetsgruppen som är kopplad till det *privata* undernätet inte tillåter utgående åtkomst till internet.
+   ```
+   ping bing.com
+   ```
+
+   Du får inga svar eftersom nätverkssäkerhetsgruppen som är kopplad till det *privata* undernätet inte tillåter utgående åtkomst till internet.
 
 8. Stäng fjärrskrivbordssessionen för den virtuella datorn *myVmPrivate*.
 
@@ -280,7 +281,7 @@ Det tar några minuter att distribuera den virtuella datorn. Fortsätt inte till
 2. När **myVmPublic** visas i sökresultaten väljer du det.
 3. Slutför steg 1–6 i [Bekräfta åtkomst till lagringskontot](#confirm-access-to-storage-account) för den virtuella datorn *myVmPublic*.
 
-    Åtkomst nekas och du ser felet `New-PSDrive : Access is denied`. Åtkomst nekas eftersom den virtuella datorn *myVmPublic* distribueras i det *offentliga* undernätet. Det *offentliga* undernätet har inte en tjänstslutpunkt aktiverat för Azure Storage. Lagringskontot tillåter endast nätverksåtkomst från det *privata* undernätet, inte det *offentliga* undernätet.
+   Efter en kort stund visas felet `New-PSDrive : Access is denied`. Åtkomst nekas eftersom den virtuella datorn *myVmPublic* distribueras i det *offentliga* undernätet. Det *offentliga* undernätet har inte en tjänstslutpunkt aktiverat för Azure Storage. Lagringskontot tillåter endast nätverksåtkomst från det *privata* undernätet, inte det *offentliga* undernätet.
 
 4. Stäng fjärrskrivbordssessionen för den virtuella datorn *myVmPublic*.
 
@@ -289,9 +290,9 @@ Det tar några minuter att distribuera den virtuella datorn. Fortsätt inte till
 7. Välj **Filer**.
 8. Du ser felet som visas i följande bild:
 
-    ![Fel för nekad åtkomst](./media/tutorial-restrict-network-access-to-resources/access-denied-error.png)
+   ![Fel för nekad åtkomst](./media/tutorial-restrict-network-access-to-resources/access-denied-error.png)
 
-    Åtkomsten nekas eftersom din dator inte är i det *privata* undernätet i det virtuella nätverket för *MyVirtualNetwork*.
+   Åtkomsten nekas eftersom din dator inte är i det *privata* undernätet i det virtuella nätverket för *MyVirtualNetwork*.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

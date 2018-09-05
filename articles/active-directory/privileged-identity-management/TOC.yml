@@ -12,6 +12,8 @@ items:
     href: pim-roles.md
   - name: Säker privilegierad åtkomst
     href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+  - name: MFA och PIM
+    href: pim-how-to-require-mfa.md
   - name: Översikt över instrumentpaneler
     href: pim-resource-roles-overview-dashboards.md
   - name: E-postmeddelanden
@@ -42,30 +44,28 @@ items:
     items:
     - name: Tilldela roller
       href: pim-how-to-add-role-to-user.md
-    - name: Konfigurera rollinställningar
-      href: pim-how-to-change-default-settings.md
-    - name: Kräv MFA
-      href: pim-how-to-require-mfa.md
-    - name: Konfigurera varningar
-      href: pim-how-to-configure-security-alerts.md
     - name: Godkänn förfrågningar
       href: azure-ad-pim-approval-workflow.md
+    - name: Konfigurera rollinställningar
+      href: pim-how-to-change-default-settings.md
+    - name: Konfigurera varningar
+      href: pim-how-to-configure-security-alerts.md
     - name: Visa granskningshistorik
       href: pim-how-to-use-audit-log.md
   - name: Hantera resursroller
     items:
-    - name: Visa vilka som har åtkomst
-      href: azure-pim-resource-rbac.md
     - name: Tilldela roller
       href: pim-resource-roles-assign-roles.md
-    - name: Konfigurera rollinställningar
-      href: pim-resource-roles-configure-role-settings.md
-    - name: Konfigurera varningar
-      href: pim-resource-roles-configure-alerts.md
     - name: Godkänn förfrågningar
       href: pim-resource-roles-approval-workflow.md
     - name: Utöka eller förnya roller
       href: pim-resource-roles-renew-extend.md
+    - name: Konfigurera rollinställningar
+      href: pim-resource-roles-configure-role-settings.md
+    - name: Konfigurera varningar
+      href: pim-resource-roles-configure-alerts.md
+    - name: Visa vilka som har åtkomst
+      href: azure-pim-resource-rbac.md
     - name: Visa granskningshistorik
       href: pim-resource-roles-use-the-audit-log.md
     - name: Använd anpassade roller
@@ -89,9 +89,9 @@ items:
       - name: Slutför en åtkomstgranskning
         href: pim-resource-roles-complete-access-review.md
   expanded: true
-ms.openlocfilehash: e545faae657ae3dc0feadca7f4a5eed10db7ff34
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 3f42a0786cfa0d2e6caffccd6e84d5cc21d2d74c
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340495"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667786"

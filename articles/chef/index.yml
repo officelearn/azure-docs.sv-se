@@ -1,14 +1,14 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 97bdd968297b301218891ce9ff1c98e5e894d5e9
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 3fe9c3628dd914197c5b479197add5a6bd127e78
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108483"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43663510"
 documentType: LandingData
-title: Chef Software i Azure-dokumentationen
+title: Dokumentation om Chef Software på Azure
 metadata:
-  title: Chef Software i Azure-dokumentationen – självstudier, exempel, referens och resurser
+  title: Dokumentation om Chef Software på Azure – självstudier, exempel, referenser och resurser
   description: Chef Software tillhandahåller en DevOps-plattform för automatisering för Linux och Windows som möjliggör hantering av både fysiska och virtuella serverkonfigurationer. Lär dig hur du använder Chef Software för att automatisera IaC-recept (infrastruktur som kod), och hantera och distribuera virtuella datorer på Azure med snabbstarter och självstudier.
   ms.service: chef
   keywords: chef, azure, devops, tutorials, samples, reference

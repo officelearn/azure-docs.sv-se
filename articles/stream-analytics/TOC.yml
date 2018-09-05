@@ -1,185 +1,194 @@
+items:
 - name: Stream Analytics-dokumentation
   href: index.yml
 - name: Översikt
   items:
-    - name: Vad är Stream Analytics?
-      href: stream-analytics-introduction.md
+  - name: Vad är Stream Analytics?
+    href: stream-analytics-introduction.md
 - name: Snabbstarter
   items:
-    - name: Skapa ett jobb – Azure Portal
-      href: stream-analytics-quick-create-portal.md
-    - name: Skapa ett jobb – PowerShell
-      href: stream-analytics-quick-create-powershell.md
-    - name: Skapa ett jobb – Visual Studio
-      href: stream-analytics-quick-create-vs.md
+  - name: Skapa ett jobb – Azure Portal
+    href: stream-analytics-quick-create-portal.md
+  - name: Skapa ett jobb – PowerShell
+    href: stream-analytics-quick-create-powershell.md
+  - name: Skapa ett jobb – Visual Studio
+    href: stream-analytics-quick-create-vs.md
 - name: Självstudier
   items:
-    - name: 1 – Skapa/hantera ett jobb
-      href: stream-analytics-manage-job.md
-    - name: 2 – Köra Azure Functions
-      href: stream-analytics-with-azure-functions.md
-    - name: 3 – Köra Javascript UDF
-      href: stream-analytics-javascript-user-defined-functions.md
-    - name: 4 – Distribuera med CI/CD i VSTS
-      href: stream-analytics-tools-visual-studio-cicd-vsts.md
+  - name: 1 – Skapa/hantera ett jobb
+    href: stream-analytics-manage-job.md
+  - name: 2 – Köra Azure Functions
+    href: stream-analytics-with-azure-functions.md
+  - name: 3 – Köra Javascript UDF
+    href: stream-analytics-javascript-user-defined-functions.md
+  - name: 4 – Distribuera med CI/CD i VSTS
+    href: stream-analytics-tools-visual-studio-cicd-vsts.md
 - name: Exempel
   items:
-    - name: Kodexempel
-      href: 'https://azure.microsoft.com/resources/samples/?service=stream-analytics'
+  - name: Kodexempel
+    href: https://azure.microsoft.com/resources/samples/?service=stream-analytics
 - name: Begrepp
   items:
-    - name: Indatatyper för ett jobb
-      href: stream-analytics-add-inputs.md
-      items:
-        - name: Inmatningar av strömmande data
-          href: stream-analytics-define-inputs.md
-        - name: Inmatningar av referensdata
-          href: stream-analytics-use-reference-data.md
-    - name: Utdatatyper för ett jobb
-      href: stream-analytics-define-outputs.md
-      items:
-        - name: Utdata till Cosmos DB
-          href: stream-analytics-documentdb-output.md
-    - name: Fönsterfunktioner
-      href: stream-analytics-window-functions.md
-    - name: Efterlevnadsnivå
-      href: stream-analytics-compatibility-level.md
-    - name: Vanliga frågemönster
-      href: stream-analytics-stream-analytics-query-patterns.md
-    - name: Parsa JSON- och AVRO-data
-      href: stream-analytics-parsing-json.md
-    - name: Överväganden för händelseordning
-      href: stream-analytics-out-of-order-and-late-events.md
-    - name: Kontrollpunkt och återuppspelning
-      href: stream-analytics-concepts-checkpoint-replay.md
-    - name: Felprincip
-      href: output-error-policy.md
+  - name: Indatatyper för ett jobb
+    href: stream-analytics-add-inputs.md
+    items:
+    - name: Inmatningar av strömmande data
+      href: stream-analytics-define-inputs.md
+    - name: Inmatningar av referensdata
+      href: stream-analytics-use-reference-data.md
+  - name: Utdatatyper för ett jobb
+    href: stream-analytics-define-outputs.md
+    items:
+    - name: Utdata till Cosmos DB
+      href: stream-analytics-documentdb-output.md
+  - name: Fönsterfunktioner
+    href: stream-analytics-window-functions.md
+  - name: Geospatiala funktioner
+    href: stream-analytics-geospatial-functions.md
+  - name: Efterlevnadsnivå
+    href: stream-analytics-compatibility-level.md
+  - name: Vanliga frågemönster
+    href: stream-analytics-stream-analytics-query-patterns.md
+  - name: Parsa JSON- och AVRO-data
+    href: stream-analytics-parsing-json.md
+  - name: Överväganden för händelseordning
+    href: stream-analytics-out-of-order-and-late-events.md
+  - name: Kontrollpunkt och återuppspelning
+    href: stream-analytics-concepts-checkpoint-replay.md
+  - name: Felprincip
+    href: output-error-policy.md
 - name: Anvisningsguider
   items:
-    - name: Hantera
+  - name: Hantera
+    items:
+    - name: Uppdatera autentiseringsuppgifter
+      href: stream-analytics-login-credentials-inputs-outputs.md
+    - name: Konfigurera varningar
+      href: stream-analytics-set-up-alerts.md
+    - name: Testa ett jobb
+      href: stream-analytics-test-query.md
+    - name: Visa resultat på en instrumentpanel
+      href: stream-analytics-power-bi-dashboard.md
+    - name: Rensa ett jobb
+      href: stream-analytics-clean-up-your-job.md
+    - name: Koppla jobb för tillförlitlighet
+      href: stream-analytics-job-reliability.md
+  - name: Skapa lösningar
+    items:
+    - name: Twitter-attitydanalys
+      href: stream-analytics-twitter-sentiment-analysis-trends.md
+    - name: Identifiering av bedrägerier i realtid
+      href: stream-analytics-real-time-fraud-detection.md
+    - name: Köra jobb i IoT Edge
+      href: stream-analytics-edge.md
+    - name: Vägtull för sensordataanalys
+      href: stream-analytics-build-an-iot-solution-using-stream-analytics.md
+    - name: Köra JavaScript UDA
+      href: stream-analytics-javascript-user-defined-aggregates.md
+    - name: Handel med hög frekvens
+      href: stream-analytics-high-frequency-trading.md
+    - name: Bearbeta IoT-strömningsdata
+      href: stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md
+    - name: Tröskelvärdesbaserade regler
+      href: stream-analytics-threshold-based-rules.md
+  - name: Övervaka
+    items:
+    - name: Övervaka jobb – Azure Portal
+      href: stream-analytics-monitoring.md
+    - name: Övervaka jobb– PowerShell
+      href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
+    - name: Övervaka jobb – Azure SDK för .Net
+      href: stream-analytics-monitor-jobs.md
+    - name: Övervaka jobb – Visual Studio
+      href: stream-analytics-monitor-jobs-use-vs.md
+  - name: Skala
+    items:
+    - name: Skala med direktuppspelningsenheter
+      href: stream-analytics-streaming-unit-consumption.md
+    - name: Skala med frågeparallellisering
+      href: stream-analytics-parallelization.md
       items:
-        - name: Uppdatera autentiseringsuppgifter
-          href: stream-analytics-login-credentials-inputs-outputs.md
-        - name: Konfigurera varningar
-          href: stream-analytics-set-up-alerts.md
-        - name: Testa ett jobb
-          href: stream-analytics-test-query.md
-        - name: Visa resultat på en instrumentpanel
-          href: stream-analytics-power-bi-dashboard.md
-        - name: Rensa ett jobb
-          href: stream-analytics-clean-up-your-job.md
-        - name: Koppla jobb för tillförlitlighet
-          href: stream-analytics-job-reliability.md
-    - name: Skapa lösningar
-      items:
-        - name: Twitter-attitydanalys
-          href: stream-analytics-twitter-sentiment-analysis-trends.md
-        - name: Identifiering av bedrägerier i realtid
-          href: stream-analytics-real-time-fraud-detection.md
-        - name: Köra jobb i IoT Edge
-          href: stream-analytics-edge.md
-        - name: Vägtull för sensordataanalys
-          href: stream-analytics-build-an-iot-solution-using-stream-analytics.md
-        - name: Köra JavaScript UDA
-          href: stream-analytics-javascript-user-defined-aggregates.md
-        - name: Handel med hög frekvens
-          href: stream-analytics-high-frequency-trading.md
-        - name: Bearbeta IoT-strömningsdata
-          href: stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md
-        - name: Tröskelvärdesbaserade regler
-          href: stream-analytics-threshold-based-rules.md
-    - name: Övervaka
-      items:
-        - name: Övervaka jobb – Azure Portal
-          href: stream-analytics-monitoring.md
-        - name: Övervaka jobb– PowerShell
-          href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
-        - name: Övervaka jobb – Azure SDK för .Net
-          href: stream-analytics-monitor-jobs.md
-        - name: Övervaka jobb – Visual Studio
-          href: stream-analytics-monitor-jobs-use-vs.md
-    - name: Skala
-      items:
-        - name: Skala med direktuppspelningsenheter
-          href: stream-analytics-streaming-unit-consumption.md
-        - name: Skala med frågeparallellisering
-          href: stream-analytics-parallelization.md
-          items:
-            - name: Öka dataflödet
-              href: stream-analytics-scale-jobs.md
-        - name: Skala med ML-funktioner
-          href: stream-analytics-scale-with-machine-learning-functions.md
-    - name: Automatisera
-      items:
-        - name: Använda .NET SDK
-          href: stream-analytics-dotnet-management-sdk.md
-        - name: Använda Azure PowerShell
-          href: 'https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick'
-    - name: Visual Studio-verktyg
-      items:
-        - name: Installera verktygen
-          href: stream-analytics-tools-for-visual-studio-install.md
-        - name: Testa ett jobb lokalt
-          href: stream-analytics-vs-tools-local-run.md
-        - name: Visa jobb i Visual Studio
-          href: stream-analytics-vs-tools.md
-        - name: Utveckla ett Edge-jobb
-          href: stream-analytics-tools-for-visual-studio-edge-jobs.md
-        - name: Konfigurera CI/CD-pipeliner
-          href: stream-analytics-tools-for-visual-studio-cicd.md
-    - name: Felsöka
-      items:
-        - name: Felsökningsanvisningar
-          href: stream-analytics-troubleshooting-guide.md
-        - name: Vanliga problem
-          href: stream-analytics-common-troubleshooting-issues.md
-        - name: Jobbdiagram
-          href: stream-analytics-job-diagram-with-metrics.md
-        - name: Diagnostikloggar
-          href: stream-analytics-job-diagnostic-logs.md
-        - name: SELECT INTO-instruktion
-          href: stream-analytics-select-into.md
-        - name: Händelsehubbmottagare
-          href: stream-analytics-event-hub-consumer-groups.md
-    - name: Integrera med Machine Learning
-      items:
-        - name: Attitydanalys med maskininlärningsmodeller
-          href: stream-analytics-machine-learning-integration-tutorial.md
-        - name: Avvikelseidentifiering
-          href: stream-analytics-machine-learning-anomaly-detection.md
-        - name: 'Använda REST-API:er'
-          href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
+      - name: Öka dataflödet
+        href: stream-analytics-scale-jobs.md
+    - name: Skala med ML-funktioner
+      href: stream-analytics-scale-with-machine-learning-functions.md
+  - name: Automatisera
+    items:
+    - name: Använda .NET SDK
+      href: stream-analytics-dotnet-management-sdk.md
+    - name: Använda Azure PowerShell
+      href: https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick
+  - name: Visual Studio-verktyg
+    items:
+    - name: Installera verktygen
+      href: stream-analytics-tools-for-visual-studio-install.md
+    - name: Testa ett jobb lokalt
+      href: stream-analytics-vs-tools-local-run.md
+    - name: Visa jobb i Visual Studio
+      href: stream-analytics-vs-tools.md
+    - name: Utveckla ett Edge-jobb
+      href: stream-analytics-tools-for-visual-studio-edge-jobs.md
+    - name: Konfigurera CI/CD-pipeliner
+      href: stream-analytics-tools-for-visual-studio-cicd.md
+  - name: Felsöka
+    items:
+    - name: Felsökningsanvisningar
+      href: stream-analytics-troubleshooting-guide.md
+    - name: Vanliga problem
+      href: stream-analytics-common-troubleshooting-issues.md
+    - name: Jobbdiagram
+      href: stream-analytics-job-diagram-with-metrics.md
+    - name: Diagnostikloggar
+      href: stream-analytics-job-diagnostic-logs.md
+    - name: SELECT INTO-instruktion
+      href: stream-analytics-select-into.md
+    - name: Händelsehubbmottagare
+      href: stream-analytics-event-hub-consumer-groups.md
+  - name: Integrera med Machine Learning
+    items:
+    - name: Attitydanalys med maskininlärningsmodeller
+      href: stream-analytics-machine-learning-integration-tutorial.md
+    - name: Avvikelseidentifiering
+      href: stream-analytics-machine-learning-anomaly-detection.md
+    - name: Använda REST-API:er
+      href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
 - name: Referens
   items:
-    - name: Azure PowerShell
-      href: /powershell/module/azurerm.streamanalytics
-    - name: Frågespråk
-      href: 'https://msdn.microsoft.com/library/azure/dn834998'
-    - name: .NET
-      href: /dotnet/api/microsoft.azure.management.streamanalytics
-    - name: REST
-      href: /rest/api/streamanalytics
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.streamanalytics
+  - name: Frågespråk
+    href: https://msdn.microsoft.com/library/azure/dn834998
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.streamanalytics
+  - name: REST
+    href: /rest/api/streamanalytics
 - name: Resurser
   items:
-    - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Blogg
-      href: 'http://blogs.msdn.com/b/streamanalytics/'
-    - name: Feedback-forum
-      href: 'http://feedback.azure.com/forums/270577-azure-stream-analytics'
-    - name: Forum
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics'
-    - name: Prissättning
-      href: 'https://azure.microsoft.com/pricing/details/stream-analytics/'
-    - name: Priskalkylator
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Tjänstuppdateringar
-      href: 'https://azure.microsoft.com/updates/?product=stream-analytics'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-stream-analytics'
-    - name: Videoklipp
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest'
-    - name: Kundfallstudier
-      href: 'https://azure.microsoft.com/case-studies/?service=stream-analytics'
-    - name: Whitepaper-datablad – händelsebearbetning i realtid
-      href: stream-analytics-real-time-event-processing-reference-architecture.md
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/
+  - name: Blogg
+    href: http://blogs.msdn.com/b/streamanalytics/
+  - name: Feedback-forum
+    href: http://feedback.azure.com/forums/270577-azure-stream-analytics
+  - name: Forum
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/stream-analytics/
+  - name: Priskalkylator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Tjänstuppdateringar
+    href: https://azure.microsoft.com/updates/?product=stream-analytics
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-stream-analytics
+  - name: Videoklipp
+    href: https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest
+  - name: Kundfallstudier
+    href: https://azure.microsoft.com/case-studies/?service=stream-analytics
+  - name: Whitepaper-datablad – händelsebearbetning i realtid
+    href: stream-analytics-real-time-event-processing-reference-architecture.md
+ms.openlocfilehash: 6598121e8405a60c64490fda179c22f34ac86455
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695328"

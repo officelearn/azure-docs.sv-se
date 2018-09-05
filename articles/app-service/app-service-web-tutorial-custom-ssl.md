@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/19/2018
+ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6e3679a994a7340fc38bf98f370efd359785fd90
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 2aca366e6a433e3e71cccb49a13638dedacc38d6
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214973"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887514"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Självstudie: Binda ett befintligt anpassat SSL-certifikat till Azure Web Apps
 
@@ -237,11 +237,11 @@ När åtgärden har slutförts går du till någon av de HTTP-webbadresser som p
 - `http://contoso.com`
 - `http://www.contoso.com`
 
-## <a name="enforce-tls-1112"></a>Använda TLS 1.1/1.2
+## <a name="enforce-tls-versions"></a>Framtvinga TLS-version
 
-Din app tillåter [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 som standard, vilket inte längre anses som säkert enligt branschstandarder, t.ex. [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). Följ dessa steg om du vill göra en högre TLS-version obligatorisk:
+Din app tillåter [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2 som standard, vilket är den rekommenderade TLS-nivån enligt branschstandarder, t.ex. [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). Följ dessa steg om du vill genomdriva en högre TLS-version:
 
-Välj **SSL-inställningar** i den vänstra navigeringen på webbappsidan. I **TLS-version** väljer du sedan den lägsta TLS-version du vill använda.
+Välj **SSL-inställningar** i den vänstra navigeringen på webbappsidan. I **TLS-version** väljer du sedan den lägsta TLS-version du vill använda. Den här inställningen styr endast inkommande samtal. 
 
 ![Kräv TLS 1.1 eller 1.2](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 

@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: Lägg inte till eller redigera nyckelord utan att först kontakta den SEO-ansvarige.
 author: rwike77
 ms.author: ryanwi
-ms.date: 07/12/2018
+ms.date: 08/24/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: a740672ea948bd86efce92c534e0f95f65563438
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: f5b834f92b2a126f68780a7647fda4d8b35dfe43
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42024256"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886452"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Snabbstart: Distribuera Hello World till Service Fabric Mesh
 
@@ -45,11 +45,18 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="deploy-the-application"></a>Distribuera programmet
-Skapa ditt program i en resursgrupp med kommandot `az mesh deployment create`:
+Skapa ditt program i en resursgrupp med kommandot `az mesh deployment create`.  Om du använder en Bash-konsol kör du följande:
 
 ```azurecli-interactive
 az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}}" 
 ```
+
+Om du använder en PowerShell-konsol kör du följande:
+
+```azurecli-interactive
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{'location': {'value': 'eastus'}}"
+```
+
 Föregående kommando distribuerar ett Linux-program med hjälp av [mesh_rp.linux.json-mallen](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json). Om du vill distribuera ett Windows-program använder du [mesh_rp.windows.json-mallen](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json). Windows-containeravbildningar är större än Linux-containeravbildningar och kan ta längre tid att distribuera.
 
 Efter några minuter returnerar kommandot:

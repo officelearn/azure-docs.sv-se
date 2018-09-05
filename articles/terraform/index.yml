@@ -1,24 +1,23 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 38f55894925febb66a50f019de15f8e7dcd9ef23
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666987"
 documentType: LandingData
 title: Dokumentation om Terraform på Azure
 metadata:
-  title: Dokumentation om Terraform på Azure – självstudier och referens
-  meta.description: Learn how to use Terraform to reliably provision virtual machines and other infrastructure on Azure.
+  title: Dokumentation om Terraform på Azure – självstudier, exempel, referenser och resurser
+  description: Lär dig hur du använder Terraform för att etablera virtuella datorer och annan infrastruktur på Azure på ett tillförlitligt sätt.
   services: terraform
-  author: rloutlaw
-  manager: justhe
   ms.service: terraform
-  ms.tgt_pltfrm: na
-  ms.devlang: devops
+  keywords: terraform, azure, devops, tutorials, samples, reference
+  author: tomarcher
+  manager: jeconnoc
+  ms.author: tarcher
   ms.topic: landing-page
-  ms.date: 09/21/2017
-  ms.author: routlaw
-  ms.openlocfilehash: b12e9b8f611bb456d0eda04a1b9e8d42d1256d0a
-  ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 06/11/2018
-  ms.locfileid: "35300617"
+  ms.date: 08/31/2018
 abstract:
   description: Använd Terraform för att på ett tillförlitligt sätt tilldela versionsnummer och skapa infrastruktur på Azure. Lär dig hur du skapar resurser, använder Azure Terraform-moduler och underhåller din infrastruktur med kod med våra snabbstarter och självstudier.
 sections:
@@ -66,4 +65,4 @@ sections:
     className: cardsD
     items:
     - title: Azure Terraform-moduler
-      html: <p><a href="https://registry.terraform.io/modules/Azure/database/azurerm">Azure RM för databas</a></p><p><a href="https://registry.terraform.io/modules/Azure/loadbalancer">Azure RM för belastningsutjämnare</a></p><p><a href="https://registry.terraform.io/modules/Azure/computegroup">Azure RM-beräkningsgrupp</a></p><p><a href="https://registry.terraform.io/modules/Azure/network">Azure RM-nätverk</a></p><p><a href="https://registry.terraform.io/modules/Azure/compute">Azure RM-beräkning</a></p>
+      html: <p><a href="https://registry.terraform.io/modules/Azure/database/azurerm">Azure RM för databas</a></p><p><a href="https://registry.terraform.io/modules/Azure/loadbalancer">Azure RM för lastbalanserare</a></p><p><a href="https://registry.terraform.io/modules/Azure/computegroup">Azure RM-beräkningsgrupp</a></p><p><a href="https://registry.terraform.io/modules/Azure/network">Azure RM-nätverk</a></p><p><a href="https://registry.terraform.io/modules/Azure/compute">Azure RM-beräkning</a></p>

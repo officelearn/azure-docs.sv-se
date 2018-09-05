@@ -15,20 +15,20 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: d2e4a014a0f7bb7f94885528abc930d2b243318b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1ac55b728a29ff1bb8129087da5992ffe5f23df9
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30911326"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42820298"
 ---
 # <a name="azure-and-linux"></a>Azure och Linux
-Microsoft Azure är en växande samling integrerade offentliga molntjänster som omfattar analyser, virtuella datorer, databaser, mobil, nätverk, lagring och webb &mdash; perfekt som värd för dina lösningar.  Microsoft Azure tillhandahåller en skalbar plattform som gör att du bara betalar för vad du använder, när du behöver det – utan att behöva investera i lokal maskinvara.  Azure är klar när du är klar att skala upp och ut lösningar oavsett vilken skala du behöver för dina klienter.
+Microsoft Azure är en växande samling integrerade offentliga molntjänster som omfattar analyser, virtuella datorer, databaser, mobil, nätverk, lagring och webb – perfekt som värd för dina lösningar.  Microsoft Azure tillhandahåller en skalbar plattform som gör att du bara betalar för vad du använder, när du behöver det – utan att behöva investera i lokal maskinvara.  Azure är klar när du är klar att skala upp och ut lösningar oavsett vilken skala du behöver för dina klienter.
 
 Om du känner till de olika funktionerna i Amazons AWS kan du utforska [dokumentet för definitionsmappning](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) för Azure jämfört med AWS.
 
 ## <a name="regions"></a>Regioner
-Microsoft Azure-resurser fördelas på flera geografiska områden runtom i världen.  En ”region” representerar flera datacenter i ett enda geografiskt område. Azure har för närvarande (i november 2017) 36 regioner som är allmänt tillgängliga världen över, och sex ytterligare regioner har tillkännagivits. En uppdaterad lista över befintliga och nyligen tillkännagivna regioner finns på följande sida:
+Microsoft Azure-resurser fördelas på flera geografiska områden runtom i världen.  En ”region” representerar flera datacenter i ett enda geografiskt område. Azure har för närvarande (i augusti 2018) 42 regioner som är allmänt tillgängliga runt världen och ytterligare 12 regioner har tillkännagivits. Det är fler globala regioner än någon annan molnleverantör. En uppdaterad lista över befintliga och nyligen tillkännagivna regioner finns på följande sida:
 
 * [Azure-regioner](https://azure.microsoft.com/regions/)
 
@@ -59,7 +59,7 @@ All infrastruktur måste vara kod för att uppnå en korrekt DevOps-kultur.  Nä
 * [Azure-mallar](create-ssh-secured-vm-from-template.md)
 * [Azure VMAccess](using-vmaccess-extension.md)
 
-Azure inför stöd för [cloud-init](http://cloud-init.io/) i de flesta Linux-distributioner som har stöd för det.  För närvarande distribueras Canonicals virtuella Ubuntu-datorer med cloud-init aktiverat som standard.  Red Hats RHEL, CentOS och Fedora har stöd för cloud-init, men Azure-avbildningarna som underhålls av RedHat har inte cloud-init installerat för närvarande.  Om du vill använda cloud-init på ett operativsystem i RedHat-gruppen måste du skapa en anpassad avbildning med cloud-init installerat.
+Azure inför stöd för [cloud-init](http://cloud-init.io/) i de flesta Linux-distributioner som har stöd för det.  För närvarande distribueras Canonicals virtuella Ubuntu-datorer med cloud-init aktiverat som standard.  Red Hats RHEL, CentOS och Fedora har stöd för cloud-init, men Azure-avbildningarna som underhålls av Red Hat har inte cloud-init installerat för närvarande.  Om du vill använda cloud-init på ett operativsystem i Red Hat-gruppen måste du skapa en anpassad avbildning med cloud-init installerat.
 
 * [Använda cloud-init på virtuella Azure Linux-datorer](using-cloud-init.md)
 
@@ -73,7 +73,7 @@ Microsoft har ett nära samarbete med partner för att se till att de tillgängl
 
 * Linux på Azure – [godkända distributioner](endorsed-distros.md)
 * SUSE – [Azure Marketplace – SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=%27SUSE%27)
-* Redhat – [Azure Marketplace – RedHat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
+* Red Hat – [Azure Marketplace – Red Hat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
 * Canonical – [Azure Marketplace – Ubuntu Server 16.04 LTS](https://azure.microsoft.com/marketplace/partners/canonical/ubuntuserver1604lts/)
 * Debian – [Azure Marketplace – Debian 8 "Jessie"](https://azure.microsoft.com/marketplace/partners/credativ/debian8/)
 * FreeBSD – [Azure Marketplace – FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
@@ -110,7 +110,7 @@ Att skapa en virtuell Linux-dator i Azure-webbportalen är ett sätt att enkelt 
 Den virtuella datorn körs nu på Azure och du är redo att logga in.  Att använda lösenord för att logga in via SSH är osäkert och tidskrävande.  Det säkraste och snabbaste sättet att logga in är att använda SSH-nycklar.  När du skapar den virtuella Linux-datorn via portalen eller CLI har du två autentiseringsval.  Om du väljer ett lösenord för SSH konfigurerar Azure den virtuella datorn så att den tillåter inloggning via lösenord.  Om du väljer att använda en offentlig SSH-nyckel konfigurerar Azure den virtuella datorn så att den endast tillåter inloggningar via SSH-nycklar och inaktiverar inloggningar med lösenord. Om du vill skydda den virtuella Linux-datorn genom att endast tillåta SSH-nyckelinloggningar använder du alternativet med offentlig SSH-nyckel när du skapar den virtuella datorn i portalen eller CLI.
 
 ## <a name="related-azure-components"></a>Relaterade Azure-komponenter
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 * [Introduktion till Microsoft Azure Storage](../../storage/common/storage-introduction.md)
 * [Lägga till en disk i en virtuell Linux-dator med azure-cli](add-disk.md)
 * [Lägga till en datadisk i en virtuell Linux-dator i Azure-portalen](attach-disk-portal.md)
@@ -121,8 +121,8 @@ Den virtuella datorn körs nu på Azure och du är redo att logga in.  Att anvä
 * [Öppna portar till en virtuell Linux-dator i Azure](nsg-quickstart.md)
 * [Skapa ett fullständigt domännamn i Azure-portalen](portal-create-fqdn.md)
 
-## <a name="containers"></a>Behållare
-* [Virtuella datorer och behållare i Azure](containers.md)
+## <a name="containers"></a>Containrar
+* [Virtuella datorer och containrar i Azure](containers.md)
 * [Introduktion till Azure Container Service](../../container-service/container-service-intro.md)
 * [Distribuera ett Azure Container Service-kluster](../../container-service/dcos-swarm/container-service-deployment.md)
 

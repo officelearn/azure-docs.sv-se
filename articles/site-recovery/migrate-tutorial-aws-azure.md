@@ -6,19 +6,19 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 08/24/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ee38fe542ca6e2e4e1f8e09b54717d4390b453d0
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 48714d71edcf54726eb362c7f56950a1350fd52b
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922665"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885333"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrera virtuella AWS-datorer (Amazon Web Services) till Azure
 
-I de här självstudien får du lära dig hur du migrerar virtuella Amazon Web Services-datorer (AWS) till virtuella Azure-datorer med Azure Site Recovery. När du migrerar AWS EC2-instanser till Azure, behandlas de virtuella datorerna som fysiska, lokala datorer. I den här guiden får du lära dig hur man:
+I de här självstudien får du lära dig hur du migrerar virtuella Amazon Web Services-datorer (AWS) till virtuella Azure-datorer med Azure Site Recovery. När du migrerar AWS EC2-instanser till Azure, behandlas de virtuella datorerna som fysiska, lokala datorer. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Kontrollera förutsättningar
@@ -33,10 +33,12 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 - Kontrollera att de virtuella datorer du vill migrera körs på en OS-version som stöds. Versioner som stöds inkluderar: 
-    - Windows Server 2016
-    - Red Hat Enterprise Linux 6.7 (endast HVM-virtualiserade instanser) med enbart Citrix PV- eller AWS PV-drivrutiner. Instanser som kör Red Hat PV-drivrutiner stöds **inte**.
-
-- Mobilitetstjänsten måste installeras på varje virtuell dator som du vill replikera. 
+  - Windows Server 2016 
+  - Windows Server 2012 R2
+  - Windows Server 2012 
+  - 64-bitarsversionen av Windows Server 2008 R2 SP1 eller senare
+  - Red Hat Enterprise Linux 6.7 (endast HVM-virtualiserade instanser) med Citrix PV- eller AWS PV-drivrutiner. Instanser som kör RedHat PV-drivrutiner stöds *inte*.
+ - Mobilitetstjänsten måste installeras på varje virtuell dator som du vill replikera. 
 
     > [!IMPORTANT]
     > Site Recovery installerar den här tjänsten automatiskt när du aktiverar replikering för den virtuella datorn. För automatisk installation, måste du förbereda ett konto på EC2-instanserna som Site Recovery använder för att komma åt den virtuella datorn. Du kan använda en domän eller lokalt konto. 

@@ -14,24 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: a8eb733cf90d0160fe4b36cfb8c30df3ff19566e
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: e59282f202b80ffe43e049c71a60b882ea8168a5
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258511"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885016"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Självstudier: Komma åt Azure Storage via en SAS-autentiseringsuppgift med en hanterad tjänstidentitet för virtuell Linux-dator
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Den här självstudien visar hur du aktiverar hanterad tjänstidentitet för en virtuell Linux-dator och sedan hämtar en SAS-autentiseringsuppgift (en signatur för delad åtkomst) för lagring med hjälp av den hanterade tjänstidentiteten. Mer specifikt, en [autentiseringsuppgift för tjänst-SAS](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+Den här självstudien visar hur du använder en systemtilldelad identitet för en virtuell Linux-dator och hämtar en SAS-autentiseringsuppgift (en signatur för delad åtkomst) för lagring. Mer specifikt, en [autentiseringsuppgift för tjänst-SAS](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
 En tjänst-SAS ger möjlighet att ge begränsad åtkomst till objekt i ett lagringskonto under en begränsad tid och för en särskild tjänst (i vårt fall blob-tjänsten) utan att göra kontots åtkomstnyckel tillgänglig. Du kan en använda SAS-autentiseringsuppgift som vanligt när du gör lagringsåtgärder, till exempel när du använder Storage SDK. I den här självstudien visar vi hur man laddar upp och ned en blob med hjälp av Azure Storage CLI. Du lär dig hur du:
 
 
 > [!div class="checklist"]
-> * Aktivera hanterad tjänstidentitet på en virtuell Linux-dator 
+> * skapar ett lagringskonto
+> * Skapa en blob-container i lagringskontot
 > * Ge den virtuella datorn åtkomst till en SAS för lagringskonton i Resource Manager 
 > * Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet och använde den när du hämtar SAS:en från Resource Manager 
 
@@ -41,34 +42,11 @@ En tjänst-SAS ger möjlighet att ge begränsad åtkomst till objekt i ett lagri
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
-Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+- [Logga in på Azure-portalen](https://portal.azure.com)
 
+- [Skapa en virtuell Linux-dator](/azure/virtual-machines/linux/quick-create-portal)
 
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Linux-dator i en ny resursgrupp
-
-I den här självstudien skapar vi en ny virtuell Linux-dator. Du kan även aktivera hanterad tjänstidentitet på en befintlig virtuell dator.
-
-1. Klicka på knappen **+/Skapa ny tjänst** som finns i det övre vänstra hörnet på Azure Portal.
-2. Välj **Compute** och välj sedan **Ubuntu Server 16.04 LTS**.
-3. Ange informationen för den virtuella datorn. För **Autentiseringstyp** väljer du **Offentlig SSH-nyckel** eller **Lösenord**. Med de skapade autentiseringsuppgifterna kan du logga in på den virtuella datorn.
-
-    ![Alternativ bildtext](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
-
-4. Välj en **Prenumeration** för den virtuella datorn i listrutan.
-5. Välj en ny **resursgrupp** som den virtuella datorn ska skapas i genom att klicka på **Skapa ny**. När du är klar klickar du på **OK**.
-6. Välj storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller ändrar filtret för disktyper som stöds. Acceptera alla standardvärden på bladet Inställningar och klicka på **OK**.
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>Aktivera hanterad tjänstidentitet på en virtuell dator
-
-Med en hanterad tjänstidentitet på en virtuell dator kan du få åtkomsttoken från Azure Active Directory utan att du behöver skriva in autentiseringsuppgifter i koden. När du aktiverar en hanterad tjänstidentitet på en virtuell dator händer två saker: din virtuella dator registreras hos Azure Active Directory och dess hanterade tjänstidentitet skapas, och identiteten konfigureras på den virtuella datorn. 
-
-1. Gå till den nya virtuella datorns resursgrupp och välj den virtuella dator som du skapade i förra steget.
-2. Klicka på **Konfiguration** till vänster under inställningarna för den virtuella datorn.
-3. Om du vill registrera och aktivera den hanterade tjänstidentiteten väljer du **Ja**. Om du vill inaktivera den väljer du Nej.
-4. Klicka på **Spara** för att spara konfigurationen.
-
-    ![Alternativ bildtext](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+- [Aktivera systemtilldelad identitet på den virtuella datorn](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto 
 

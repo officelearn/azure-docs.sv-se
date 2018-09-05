@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 115611c5d4eeffb0f0600dd0a792ee9f80247e36
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 7c2e67605cd2489f2c8d9da5ac80386056464afa
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
-ms.locfileid: "27998057"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42815121"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Hitta och diagnostisera körningsundantag med Azure Application Insights
 
@@ -62,20 +62,17 @@ Application Insights samlar in eventuella fel i programmet, och du kan se frekve
 
     ![Fönstret Misslyckade förfrågningar](media/app-insights-tutorial-runtime-exceptions/failed-requests-window.png)
 
-5. Klicka på **Visa information** för att se detaljer om åtgärden.  Då visas bland annat ett Gantt-diagram med två misslyckade beroenden som sammanlagt tog nästan en halv sekund att slutföra.  Mer information om hur du analyserar prestandaproblem finns i självstudien [Hitta och diagnostisera prestandaproblem med Azure Application Insights](app-insights-tutorial-performance.md).
+5. Du kan visa relaterade exempel genom att klicka på knappen med antalet filtrerade resultat. De föreslagna exemplen har relaterad telemetri från alla komponenter, även om sampling kan ha förekommit. Klicka på ett sökresultat om du vill se information om felet.
 
-    ![Detaljer om misslyckade förfrågningar](media/app-insights-tutorial-runtime-exceptions/failed-requests-details.png)
+    ![Exempel på misslyckade begäranden](media/app-insights-tutorial-runtime-exceptions/failed-requests-search.png)
 
-6. I driftinformationen visas också ett FormatException-undantag som verkar ha orsakat felet.  Klicka på undantaget eller på **Top 3 exception types** (De 3 vanligaste undantagstyperna) om du vill visa detaljerad information.  Du kan se att orsaken är ett ogiltigt postnummer.
+6. Informationen om den misslyckade begäran visar Gantt-diagrammet som visar att det uppstod två beroendefel i transaktionen. Det gav upphov till över 50 % av den totala varaktigheten för transaktionen. Den här upplevelsen visar all telemetri, för alla komponenter i ett distribuerat program, som är relaterade till det här åtgärds-ID:t. [Läs mer om den nya upplevelsen](app-insights-transaction-diagnostics.md) Du kan välja valfritt objekt och visa information om det på höger sida. 
+
+    ![Information om misslyckade begäranden](media/app-insights-tutorial-runtime-exceptions/failed-request-details.png)
+
+7. I driftinformationen visas också ett FormatException-undantag som verkar ha orsakat felet.  Du kan se att orsaken är ett ogiltigt postnummer. Du kan öppna ögonblicksbilden för felsökningen om du vill se felsökningsinformation på kodnivå i Visual Studio.
 
     ![Undantagsinformation](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
-
-> [!NOTE]
-Aktivera [förhandsgranskningsupplevelsen](app-insights-previews.md) Unified details: E2E Transaction Diagnostics (Enhetlig information: E2E-transaktionsdiagnostik) om du vill se telemetriliknande förfrågningar, beroenden, undantag, spårningar, händelser och så vidare på serversidan i en enda helskärmsvy. 
-
-När den här förhandsgranskningen är aktiverad kan du se hur lång tid som tillbringats i beroendeanrop tillsammans med eventuella fel eller undantag i en enda enhetlig vy. När det gäller transaktioner mellan olika komponenter kan du snabbt se vilken komponent, vilket beroende eller undantag som är rotorsak i Gannt-diagrammet och informationsfönstret. Du kan expandera den undre delen om du vill se tidssekvensen för spårningar eller händelser som samlats in för den valda komponentåtgärden. [Läs mer om den nya upplevelsen](app-insights-transaction-diagnostics.md)  
-
-![Transaktionsdiagnostik](media/app-insights-tutorial-runtime-exceptions/e2e-transaction-preview.png)
 
 ## <a name="identify-failing-code"></a>Identifiera felaktig kod
 Snapshot Debugger samlar in ögonblicksbilder av de vanligaste undantagen i ditt program, som är till hjälp när du ska diagnostisera grundorsaken i produktion.  Du kan visa de här ögonblicksbilderna i portalen, se anropsstacken och inspektera variablerna på varje nivå av stacken. Du kan sedan felsöka källkoden genom att ladda ned ögonblicksbilden och öppna den i Visual Studio 2017.
@@ -104,15 +101,6 @@ Alla data som samlas in av Application Insights lagras i Azure Log Analytics, s�
     ![Kod](media/app-insights-tutorial-runtime-exceptions/codelens.png)
 
 9. Klicka på **Analyze impact** (Analysera påverkan) för att öppna Application Insights Analytics.  Det fylls i med flera frågor som kan ge detaljerad information om misslyckade förfrågningar, till exempel vilka användare, webbläsare och regioner som påverkas.<br><br>![Analys](media/app-insights-tutorial-runtime-exceptions/analytics.png)<br>
-
-## <a name="add-work-item"></a>Lägg till arbetsobjekt
-Om du ansluter Application Insights till ett spårningssystem som Visual Studio Team Services eller GitHub kan du skapa ett arbetsobjekt direkt från Application Insights.
-
-1. Återgå till panelen **Exception Properties** (Egenskaper för undantag) i Application Insights.
-2. Klicka på **Nytt arbetsobjekt**.
-3. Panelen **Nytt arbetsobjekt** öppnas med detaljer om undantaget ifyllda.  Du kan lägga till ytterligare information innan du sparar objektet.
-
-    ![Nytt arbetsobjekt](media/app-insights-tutorial-runtime-exceptions/new-work-item.png)
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har lärt dig hur du identifierar körningsundantag går du vidare till nästa självstudie, där du får lära dig hur du identifierar och diagnostiserar prestandaproblem.

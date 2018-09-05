@@ -14,22 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ca920a93d754254390a5c5c5a066be3144b47fc7
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: b6b2985bf72d9ecb2041d51852b5a4230e11d8be
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41918127"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886061"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-sql"></a>Självstudie: Använda en hanterad tjänstidentitet på en virtuell Windows-dator och komma åt Azure SQL
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Den här självstudien beskriver steg för steg hur du använder en hanterad tjänstidentitet för en virtuell Windows-dator (VM) för att komma åt en Azure SQL-server. Hanterade tjänstidentiteter hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver skriva in autentiseringsuppgifter i koden. Lär dig att:
+I den här självstudien lär du dig att komma åt en Azure SQL-server med en systemtilldelad identitet för en virtuell Windows-dator. Hanterade tjänstidentiteter hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver skriva in autentiseringsuppgifter i koden. Lär dig att:
 
 > [!div class="checklist"]
-> * Aktivera hanterad tjänstidentitet på en virtuell Windows-dator 
 > * Ge din virtuella dator åtkomst till en Azure SQL-server
+> * Skapa en grupp i Azure AD och göra den virtuella datorns hanterade tjänstidentitet medlem i gruppen
+> * Aktivera Azure AD-autentisering för SQL-servern
+> * Skapa en innesluten användare i databasen som representerar Azure AD-gruppen
 > * Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet och använda den för att köra frågor mot en Azure SQL-server
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
@@ -38,32 +40,11 @@ Den här självstudien beskriver steg för steg hur du använder en hanterad tj�
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+- [Logga in på Azure-portalen](https://portal.azure.com)
 
-Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+- [Skapa en virtuell Windows-dator](/azure/virtual-machines/windows/quick-create-portal)
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Windows-dator i en ny resursgrupp
-
-I den här självstudien ska vi skapa en ny virtuell Windows-dator.  Du kan även aktivera hanterad tjänstidentitet på en befintlig virtuell dator.
-
-1.  Klicka på knappen **Skapa en resurs** längst upp till vänster i Azure Portal.
-2.  Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**. 
-3.  Ange informationen för den virtuella datorn. **Användarnamnet** och **lösenordet** som skapas här är de autentiseringsuppgifter som du använder när du loggar in på den virtuella datorn.
-4.  Välj lämplig **prenumeration** för den virtuella datorn i listrutan.
-5.  Du väljer en ny **Resursgrupp** där du skapar din virtuella dator genom att välja **Skapa ny**. När du är klar klickar du på **OK**.
-6.  Välj storlek för den virtuella datorn. Om du vill se fler storlekar väljer du **Visa alla** eller så ändrar du filtret för **disktyper som stöds**. Acceptera alla standardvärden på inställningssidan och klicka på **OK**.
-
-    ![Alternativ bildtext](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>Aktivera hanterad tjänstidentitet på en virtuell dator 
-
-Med en hanterad tjänstidentitet på en virtuell dator kan du få åtkomsttoken från Azure Active Directory utan att du behöver skriva in autentiseringsuppgifter i koden. När du aktiverar hanterad tjänstidentitet skapar Azure en hanterad identitet för den virtuella datorn. I bakgrunden sker två saker när du aktiverar en hanterad tjänstidentitet på en virtuell dator: din virtuella dator registreras hos Azure Active Directory och dess hanterade tjänstidentitet skapas, och identiteten konfigureras på den virtuella datorn.
-
-1.  Välj den **virtuella dator** som du vill aktivera hanterad tjänstidentitet på.  
-2.  Klicka på **Konfiguration** i det vänstra navigeringsfältet. 
-3.  **Hanterad tjänstidentitet** visas. Om du vill registrera och aktivera den hanterade tjänstidentiteten väljer du **Ja**. Om du vill inaktivera den väljer du Nej. 
-4.  Klicka på **Spara** för att spara konfigurationen.  
-    ![Alternativ bildtext](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+- [Aktivera systemtilldelad identitet på den virtuella datorn](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Ge din virtuella dator åtkomst till en databas i en Azure SQL-server
 
@@ -78,7 +59,7 @@ Det finns tre steg för att ge den virtuella datorn åtkomst till en databas:
 > Normalt skapar du en innesluten användare som mappar direkt till den virtuella datorns hanterade tjänstidentitet.  För närvarande tillåter inte Azure SQL att det Azure AD-tjänsthuvudnamn som representerar den virtuella datorns hanterade tjänstidentitet mappas till en innesluten användare.  Som en tillfällig lösning kan du göra den virtuella datorns hanterade tjänstidentitet till medlem i en Azure AD-grupp och sedan skapa en innesluten användare i databasen som representerar gruppen.
 
 
-### <a name="create-a-group-in-azure-ad-and-make-the-vm-managed-service-identity-a-member-of-the-group"></a>Skapa en grupp i Azure AD och göra den virtuella datorns hanterade tjänstidentitet medlem i gruppen
+## <a name="create-a-group-in-azure-ad-and-make-the-vm-managed-service-identity-a-member-of-the-group"></a>Skapa en grupp i Azure AD och göra den virtuella datorns hanterade tjänstidentitet medlem i gruppen
 
 Du kan använda en befintlig Azure AD-grupp eller skapa en ny med hjälp av Azure AD PowerShell.  
 
@@ -132,7 +113,7 @@ ObjectId                             AppId                                Displa
 b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTestWinVM
 ```
 
-### <a name="enable-azure-ad-authentication-for-the-sql-server"></a>Aktivera Azure AD-autentisering för SQL-servern
+## <a name="enable-azure-ad-authentication-for-the-sql-server"></a>Aktivera Azure AD-autentisering för SQL-servern
 
 Nu när du har skapat gruppen och lagt till den virtuella datorns hanterade tjänstidentitet i medlemskapet kan du [konfigurera Azure AD-autentisering för SQL-servern](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) med följande steg:
 
@@ -143,7 +124,7 @@ Nu när du har skapat gruppen och lagt till den virtuella datorns hanterade tjä
 5.  Välj ett Azure AD-användarkonto som ska bli administratör för servern och klicka på **Välj**.
 6.  I kommandofältet klickar du på **Spara**.
 
-### <a name="create-a-contained-user-in-the-database-that-represents-the-azure-ad-group"></a>Skapa en innesluten användare i databasen som representerar Azure AD-gruppen
+## <a name="create-a-contained-user-in-the-database-that-represents-the-azure-ad-group"></a>Skapa en innesluten användare i databasen som representerar Azure AD-gruppen
 
 För nästa steg behöver du [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Innan du börjar kan det också vara bra att granska följande artiklar för att få bakgrundsinformation om Azure AD-integrering:
 

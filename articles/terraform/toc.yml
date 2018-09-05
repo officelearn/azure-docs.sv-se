@@ -16,23 +16,33 @@ items:
   expanded: true
 - name: Självstudier
   items:
-  - name: Skapa ett Kubernetes-kluster med AKS och Terraform
-    href: terraform-create-k8s-cluster-with-tf-and-aks.md
-  - name: Distributionsfack för Terraform- och Azure-provider
-    href: terraform-slot-walkthru.md
-  - name: Skapa en virtuell Terraform-dator med MSI aktiverat
-    href: terraform-vm-msi.md
-  - name: Skapa ett VM-kluster med Terraform-moduler
-    href: terraform-create-vm-cluster-module.md
-  - name: Skapa ett VM-kluster med Terraform och HCL
-    href: terraform-create-vm-cluster-with-infrastructure.md
-  - name: Etablera virtuella skalningsuppsättningar med infrastruktur
-    href: terraform-create-vm-scaleset-network-disks-hcl.md
-  - name: Etablera en VM-skalningsuppsättning från en anpassad Packer-avbildning
-    href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+  - name: App Service
+    items:
+    - name: Distributionsfack för Terraform- och Azure-provider
+      href: terraform-slot-walkthru.md
+  - name: Containrar
+    items:
+    - name: Skapa ett Kubernetes-kluster med AKS och Terraform
+      href: terraform-create-k8s-cluster-with-tf-and-aks.md
+  - name: Infrastruktur
+    items:
+    - name: Skapa en virtuell Terraform-dator med MSI aktiverat
+      href: terraform-vm-msi.md
+    - name: Skapa ett VM-kluster med Terraform-moduler
+      href: terraform-create-vm-cluster-module.md
+    - name: Skapa ett VM-kluster med Terraform och HCL
+      href: terraform-create-vm-cluster-with-infrastructure.md
+    - name: Etablera virtuella skalningsuppsättningar med infrastruktur
+      href: terraform-create-vm-scaleset-network-disks-hcl.md
+    - name: Etablera en VM-skalningsuppsättning från en anpassad Packer-avbildning
+      href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+  - name: Verktyg
+    items:
+    - name: Installera Terraform Visual Studio Code-tillägget
+      href: terraform-vscode-extension.md
 - name: Begrepp
   items:
-  - name: Cloud Shell-integrering
+  - name: Azure Cloud Shell-integrering
     href: terraform-cloud-shell.md
 - name: Exempel
   items:
@@ -44,17 +54,15 @@ items:
     href: https://registry.terraform.io/modules/Azure
   - name: Terraform-referens
     href: http://aka.ms/terraform
-  - name: Azure Terraform VS Code-tillägg
-    href: terraform-vscode-extension.md
 - name: Resurser
   items:
   - name: Azure och Terraform
     href: https://azure.microsoft.com/solutions/devops/terraform/
   - name: Azure-översikt
     href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: 349348f2230005831c1ad68eb7f48dfaa8f4b78c
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: e6c4637618d794f96db8ed9ca8eb063a62f704a1
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41929679"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43663544"

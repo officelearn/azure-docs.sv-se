@@ -14,14 +14,19 @@ ms.component: report-monitor
 ms.date: 12/06/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 090e7419f80bc734ee2b1cb4f976911792046a9c
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 752e71f3c6b22a6d9f1e2392b58c01deef9de89c
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42060732"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782175"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Så här använder du innehållspaketet för Azure Active Directory Power BI
+
+|  |
+|--|
+|Azure AD Power BI-Innehållspaketet använder för närvarande, Azure AD Graph-API: er för att hämta data från Azure AD-klienten. Därför kan det hända att vissa skillnader mellan data som är tillgängliga i Innehållspaketet och data som hämtats med hjälp av den [Microsoft Graph API: er för rapportering](concept-reporting-api.md). |
+|  |
 
 Det är viktigt för dig som IT-administratör att förstå hur dina användare anpassar sig till och använder Azure Active Directory-funktioner. Då kan du planera IT-infrastrukturen och kommunikationen för att öka användningen och för att få ut det mesta av AAD-funktionerna. Med Power BI-innehållspaketet för Azure Active Directory kan du ytterligare analysera dina data för att förstå hur du kan använda informationen och bättre tolka vad som händer med Azure Active Directory för de olika funktionerna som används ofta.  Du kan enkelt ladda ned det förskapade innehållspaketet och få information om alla aktiviteter i din Azure Active Directory med den omfattande visualiseringsupplevelsen som Power BI erbjuder med hjälp av integreringen av Azure Active Directory-API:er i Power BI. Du kan skapa en egen instrumentpanel och enkelt dela den med andra i din organisation. 
 

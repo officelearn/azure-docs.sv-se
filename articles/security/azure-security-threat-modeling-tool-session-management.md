@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: cd843f1826ad65098a7c0f6d30383113ccd28f6a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 97953779f1132d89c7ad07abdb4e08c0f476f4b9
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306447"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841821"
 ---
-# <a name="security-frame-session-management--articles"></a>Security ram: Sessionshantering | Artiklar 
+# <a name="security-frame-session-management"></a>Security ram: Sessionshantering
 | Produkt/tjänst | Artikel |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[Implementera rätt logga ut med hjälp av ADAL metoder när du använder Azure AD](#logout-adal)</li></ul> |
@@ -380,36 +380,42 @@ void Page_Init (object sender, EventArgs e) {
 | **Steg** | Tidsgräns för session representerar händelsen inträffar när en användare inte utför någon åtgärd på en webbplats under ett intervall (definieras av webbservern). Händelsen på serversidan, ändra status för användarens session till ”ogiltigt” (till exempel ”används inte längre”) och att webbservern att ta bort den (tar bort alla data som finns i den). I följande kodexempel anger attributet timeout-session till 15 minuter i Web.config-filen.|
 
 ### <a name="example"></a>Exempel
-'''XML-koden <configuration> < system.web > <sessionState mode="InProc" cookieless="true" timeout="15" /> < /system.web > </configuration>
+```XML 
+<configuration>
+  <system.web>
+    <sessionState mode="InProc" cookieless="true" timeout="15" />
+  </system.web>
+</configuration>
 ```
 
-## <a id="threat-detection"></a>Enable Threat detection on Azure SQL
-```
-
-| Titel                   | Information      |
-| ----------------------- | ------------ |
-| **Komponent**               | Webbprogram | 
-| **SDL fas**               | Utveckla |  
-| **Tillämpliga tekniker** | Webbformulär |
-| **Attribut**              | Gäller inte  |
-| **Referenser**              | [utgör Element för autentisering (ASP.NET inställningsschema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
-| **Steg** | Ange tidsgränsen för formulär autentiseringsbiljetten cookie till 15 minuter|
-
-### <a name="example"></a>Exempel
-'''XML-koden <forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
-</forms>
+## <a id="threat-detection"></a>Aktivera hotidentifiering i Azure SQL
 ```
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
 | **Component**               | Web Application | 
 | **SDL Phase**               | Build |  
-| **Applicable Technologies** | Web Forms, MVC5 |
-| **Attributes**              | EnvironmentType - OnPrem |
-| **References**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
-| **Steps** | When the web application is Relying Party and ADFS is the STS, the lifetime of the authentication cookies - FedAuth tokens - can be set by the following configuration in web.config:|
+| **Applicable Technologies** | Web Forms |
+| **Attributes**              | N/A  |
+| **References**              | [forms Element for authentication (ASP.NET Settings Schema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
+| **Steps** | Set the Forms Authentication Ticket cookie timeout to 15 minutes|
 
 ### Example
+```XML
+<forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
+</forms>
+```
+
+| Titel                   | Information      |
+| ----------------------- | ------------ |
+| **Komponent**               | Webbprogram | 
+| **SDL fas**               | Utveckla |  
+| **Tillämpliga tekniker** | Webbformulär, MVC5 |
+| **Attribut**              | EnvironmentType - OnPrem |
+| **Referenser**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
+| **Steg** | När webbprogrammet är förlitande part och AD FS STS, kan autentiseringscookies - FedAuth-token - livslängd anges med följande konfiguration i web.config:|
+
+### <a name="example"></a>Exempel
 ```XML
   <system.identityModel.services>
     <federationConfiguration>

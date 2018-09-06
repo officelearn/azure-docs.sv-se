@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 7734848035eeab3c38a57b9999f8cda77f6a4e24
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: f1aa80ec9df8faee4cf5ea98910e28cfc11a7920
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107164"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782135"
 ---
 # <a name="authorize-users-for-ambari-views"></a>Auktorisera användare för Ambari Views
 
@@ -116,7 +116,7 @@ Listvyn ger snabb redigering funktioner i två kategorier: användare och gruppe
 
     ![Roller listvy - användare](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-* Kategorin grupper i listvyn visas alla grupper och rolltilldelningen för varje grupp. I vårt exempel i listan över grupper som ska synkroniseras från Azure AD-grupper som anges i den **ha åtkomst till användargrupper** egenskapen för klustrets Domäninställningar. Se [skapa ett domänanslutet HDInsight-kluster](/domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster).
+* Kategorin grupper i listvyn visas alla grupper och rolltilldelningen för varje grupp. I vårt exempel i listan över grupper som ska synkroniseras från Azure AD-grupper som anges i den **ha åtkomst till användargrupper** egenskapen för klustrets Domäninställningar. Se [skapa ett domänanslutet HDInsight-kluster](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster).
 
     ![Roller listvy - grupper](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 

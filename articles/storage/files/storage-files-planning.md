@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: b4905c8bcf3c14c7f1dfa752a930f57ccbfd8fd7
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 19adbbfc456303b471251c28cd984d1676786b19
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818494"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783159"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via SMB-protokollet som är branschstandard. Eftersom Azure Files är fullständigt hanterad, är distribuerar den i produktionsscenarier mycket enklare än att distribuera och hantera en filserver eller NAS-enhet. Den här artikeln tar upp ämnen att tänka på när du distribuerar en Azure-filresurs för användning i produktion i din organisation.
@@ -41,7 +41,7 @@ ms.locfileid: "42818494"
 Azure Files erbjuder två inbyggda och smidigt dataåtkomst med metoder som du kan använda separat eller i kombination med varandra, komma åt dina data:
 
 1. **Direkt molnåtkomst**: alla Azure-filresurser kan monteras av [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), och/eller [Linux](storage-how-to-use-files-linux.md) med branschens standard Server Message Block (SMB) protokoll eller via File REST API. Med SMB görs läsningar och skrivningar till filer på resursen direkt på en filresurs i Azure. Om du vill montera av en virtuell dator i Azure, SMB-klienten i Operativsystemet måste stödja minst SMB 2.1. Att montera lokalt, t.ex. på en användares arbetsstation SMB-klienten som stöds av arbetsstationen måste minst stödja SMB 3.0 (med kryptering). Förutom SMB, nya program eller tjänster kan direkt komma åt filresursen via File REST, vilket ger ett enkelt och skalbart programmeringsgränssnitt för programutveckling.
-2. **Azure File Sync** (förhandsversion): med Azure File Sync filresurser kan replikeras till Windows-servrar på lokala eller i Azure. Användarna kan komma åt filresursen via Windows-Server som via en SMB- eller NFS-resurs. Detta är användbart för scenarier där data nås och ändras långt från ett Azure-datacenter, till exempel i ett scenario med ett avdelningskontor. Data kan replikeras mellan flera Windows Server-slutpunkter, till exempel mellan flera olika avdelningskontor. Slutligen kan nivåindelade data till Azure Files, så att alla data är fortfarande tillgängliga via servern, men servern har inte en fullständig kopia av data. Data återställs i stället sömlöst när öppnas av användaren.
+2. **Azure File Sync**: med Azure File Sync filresurser kan replikeras till Windows-servrar på lokala eller i Azure. Användarna kan komma åt filresursen via Windows-Server som via en SMB- eller NFS-resurs. Detta är användbart för scenarier där data nås och ändras långt från ett Azure-datacenter, till exempel i ett scenario med ett avdelningskontor. Data kan replikeras mellan flera Windows Server-slutpunkter, till exempel mellan flera olika avdelningskontor. Slutligen kan nivåindelade data till Azure Files, så att alla data är fortfarande tillgängliga via servern, men servern har inte en fullständig kopia av data. Data återställs i stället sömlöst när öppnas av användaren.
 
 I följande tabell visar hur dina användare och program kan komma åt din Azure-filresurs:
 

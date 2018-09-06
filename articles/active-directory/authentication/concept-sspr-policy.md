@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 404be287d2e6ac693e0942c84f630f4e067127f3
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 8ec0947d041dc0d4f5423a48a443ab2dd86949e2
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666760"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782543"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Lösenordsprinciper och begränsningar i Azure Active Directory
 
@@ -80,7 +80,7 @@ Alla användarkonton som krävs för att logga in på Azure AD måste ha en unik
 
 | Egenskap  | UserPrincipalName-krav |
 | --- | --- |
-| Tecken som tillåts |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
+| Tecken som tillåts |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> \. - \_ ! \# ^ \~</li></ul> |
 | Tecken som tillåts inte |<ul> <li>Alla ”\@ \" tecken som inte är att ange användarnamnet från domänen.</li> <li>Får inte innehålla en punkt ””. omedelbart före den ”\@ \" symbol</li></ul> |
 | Längdkravet |<ul> <li>Den totala längden får inte överskrida 113 tecken</li><li>Det kan vara upp till 64 tecken innan den ”\@ \" symbol</li><li>Det kan vara upp till 48 tecken efter den ”\@ \" symbol</li></ul> |
 

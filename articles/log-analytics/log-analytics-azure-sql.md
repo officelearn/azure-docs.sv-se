@@ -15,22 +15,22 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: na
-ms.openlocfilehash: 47069f0af7409d87cb2d4fbbbce9dda0b1c2056e
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 82845f475857f9a911febd496e86eb2a60f69c25
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886568"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782251"
 ---
 # <a name="monitor-azure-sql-databases-using-azure-sql-analytics-preview"></a>Övervaka Azure SQL-databaser med hjälp av Azure SQL Analytics (förhandsversion)
 
 ![Azure SQL Analytics-symbol](./media/log-analytics-azure-sql/azure-sql-symbol.png)
 
-Azure SQL Analytics är ett moln som övervakningslösning för övervakning av prestanda för Azure SQL-databaser i stor skala över flera elastiska pooler och prenumerationer. Den samlar in och visar viktiga mått för Azure SQL Database-prestanda med inbyggd intelligens för prestandafelsökning längst upp. 
+Azure SQL Analytics är ett moln som övervakningslösning för övervakning av prestanda i Azure SQL-databaser, elastiska pooler och hanterade instanser och över flera prenumerationer. Den samlar in och visar viktiga mått för Azure SQL Database-prestanda med inbyggd intelligens för prestandafelsökning av.
 
-Genom att använda mått som du samlar in med lösningen kan skapa du anpassade regler för övervakning och aviseringar. Lösningen hjälper dig att identifiera problem på varje lager i din programstack. Azure diagnostikmått tillsammans med vyer för Log Analytics används för att presentera data om dina Azure SQL-databaser och elastiska pooler i en enda Log Analytics-arbetsyta. Log Analytics hjälper dig att samla in, korrelera och visualisera strukturerade och Ostrukturerade data.
+Genom att använda mått som du samlar in med lösningen kan skapa du anpassade regler för övervakning och aviseringar. Lösningen hjälper dig att identifiera problem på varje lager i din programstack. Azure diagnostikmått tillsammans med vyer för Log Analytics används för att presentera data om alla dina Azure SQL-databaser, elastiska pooler och databaser i hanterade instanser i en enda Log Analytics-arbetsyta. Log Analytics hjälper dig att samla in, korrelera och visualisera strukturerade och Ostrukturerade data.
 
-Den här förhandsversionen-lösningen stöder för närvarande upp till 150 000 Azure SQL-databaser och 5 000 elastiska SQL-pooler per arbetsyta.
+Den här förhandsversionen-lösningen stöder för närvarande upp till 200 000 Azure SQL-databaser och 5 000 elastiska SQL-pooler per arbetsyta.
 
 Finns det inbäddade videoklippet för en praktisk översikt om hur du använder Azure SQL Analytics-lösningen och för vanliga Användningsscenarier:
 
@@ -39,9 +39,9 @@ Finns det inbäddade videoklippet för en praktisk översikt om hur du använder
 
 ## <a name="connected-sources"></a>Anslutna källor
 
-Azure SQL Analytics är ett moln som övervakning lösning stödjande strömning av diagnostiktelemetri för Azure SQL-databaser och elastiska pooler. Eftersom den inte använder agenter för att ansluta till tjänsten Log Analytics kan lösningen stöder inte anslutning med Windows, Linux eller SCOM-resurser finns i tabellen kompatibilitet.
+Azure SQL Analytics är ett moln som endast övervakning lösning stödjande strömning av diagnostiktelemetri för Azure SQL-databaser, elastiska pooler och hanterade instanser. Eftersom den inte använder agenter för att ansluta till tjänsten Log Analytics kan lösningen inte stöd för övervakning av en lokal SQL-servrar eller virtuella datorer, se tabellen kompatibilitet.
 
-| Ansluten källa | Support | Beskrivning |
+| Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |
 | **[Azure-diagnostik](log-analytics-azure-storage.md)** | **Ja** | Azure mått och loggfiler data skickas till Log Analytics direkt av Azure. |
 | [Azure Storage-konto](log-analytics-azure-storage.md) | Nej | Log Analytics läsa inte data från ett lagringskonto. |

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: 0e1ebd8868cfe5ef69a09219ffc82092fb85a4c8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f14ffc7bfbdabdd93e7743c7932dae1af7730e60
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527094"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781572"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Kryptering av lagringstjänst med Kundhanterade nycklar i Azure Key Vault
 Microsoft Azure är förbundet till hjälper dig att skydda och skydda dina data för att uppfylla organisationens säkerhets- och efterlevnadsbestämmelser. Ett sätt att Azure storage-plattformen skyddar dina data är via Storage Service Encryption (SSE), som krypterar dina data vid skrivning till lagring och dekrypterar data vid hämtning av den. Kryptering och dekryptering är automatisk, transparent och använder 256-bitars [AES-kryptering](https://wikipedia.org/wiki/Advanced_Encryption_Standard), en av de starkaste blockchiffer som finns.
@@ -34,7 +34,7 @@ Om du vill använda Kundhanterade nycklar med SSE, du kan antingen skapa ett nyt
 Skapa först ett lagringskonto om du inte redan har en. Mer information finns i [skapa ett nytt lagringskonto](storage-quickstart-create-account.md).
 
 ### <a name="step-2-enable-sse-for-blob-and-file-storage"></a>Steg 2: Aktivera SSE för Blob- och lagring
-Om du vill aktivera SSE med Kundhanterade nycklar, måste två nyckelskydd funktioner, mjuk borttagning och rensa inte, vara aktiverat. De här inställningarna Kontrollera nycklarna inte får vara råkar eller avsiktligt borttagna. Den högsta bevarandeperioden av nycklarna har angetts till 90 dagar, skydda användarna mot skadliga aktörer eller utpressningstrojan-attacker.
+Om du vill aktivera SSE med Kundhanterade nycklar måste två nyckelskydd funktioner, mjuk borttagning och rensa inte, aktiveras i Azure Key Vault. De här inställningarna Kontrollera nycklarna inte får vara råkar eller avsiktligt borttagna. Den högsta bevarandeperioden av nycklarna har angetts till 90 dagar, skydda användarna mot skadliga aktörer eller utpressningstrojan-attacker.
 
 Om du vill aktivera programmässigt Kundhanterade nycklar för SSE, kan du använda den [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp), [klientbibliotek för Storage Resource Provider för .NET](https://docs.microsoft.com/dotnet/api), [ Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), eller [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 

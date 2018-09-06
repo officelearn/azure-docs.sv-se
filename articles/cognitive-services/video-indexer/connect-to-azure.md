@@ -7,14 +7,14 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 08/05/2018
+ms.date: 09/05/2018
 ms.author: juliako
-ms.openlocfilehash: df9d3f40b28f5b030f3d7e7a63b1b3e77caedb6c
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: c598fdae40b4552e1d4dc29b8558d82d0830160a
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700825"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841853"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Skapa en Video Indexer-konto som är ansluten till Azure
 
@@ -80,8 +80,8 @@ Den här artikeln visar hur du skapar en Video Indexer-konto som är länkad til
         |Region för video Indexer|Namnet på regionen Video Indexer-konto. För bättre prestanda och lägre kostnader rekommenderas att ange namnet på den region där Azure Media Services-resurs och Azure Storage-konto finns. |
         |Azure Active Directory (AAD)-klient|Namnet på Azure AD-klient, till exempel ”contoso.onmicrosoft.com”. Klient-informationen kan hämtas från Azure-portalen. Placera markören över namnet på den inloggade användaren i övre högra hörnet.|
         |Prenumerations-ID:t|Azure-prenumerationen som den här anslutningen ska skapas. Prenumerations-ID kan hämtas från Azure-portalen. Klicka på **alla tjänster** i den vänstra panelen och söka efter ”prenumerationer”. Välj, **prenumerationer** och välj önskad ID i listan med dina prenumerationer.|
-        |Azure-resursgrupp namn|Namnet på den nya resursgruppen där du vill skapa anslutningen.|
-        |Azure-resurs namn|Namnet på Azure Media Services-resursen.|
+        |Azure Media Services resursgruppens namn|Namnet på resursgruppen där till Media Services-kontot finns.|
+        |Media service-resursnamn|Namnet på Azure Media Services-resursen.|
         |Program-ID:t|Det program-ID för Azure AD med behörigheter för det angivna Media Services-kontot. Mer information finns i [Använd tjänstobjektautentisering](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
         |Programnyckel|Mer information finns i [Använd tjänstobjektautentisering](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
 

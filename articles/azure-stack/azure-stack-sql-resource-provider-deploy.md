@@ -11,19 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: c9efaeed05856f830a4f0cf699cb35ebc21966c1
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 08ab76e587c4e2c8b8afe9cb27e9df59a5924475
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700718"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842048"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Distribuera SQL Server-resursprovider i Azure Stack
 
 Använda Azure Stack SQL Server-resursprovidern för att visa SQL-databaser som en tjänst för Azure Stack. SQL-resursprovider körs som en tjänst på en Windows Server 2016 Server Core-dator (VM).
+
+> [!IMPORTANT]
+> Endast resursprovidern stöds för att skapa objekt på servrar som värd SQL eller MySQL. Objekt som har skapats på en värdserver som inte skapats med resursprovidern kan resultera i ett felaktigt tillstånd.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -144,8 +147,8 @@ Du kan använda följande steg verifierar att SQL-resursprovider har distribuera
 2. Välj **resursgrupper**.
 3. Välj den **system.\< plats\>.sqladapter** resursgrupp.
 4. På sidan Sammanfattning för resursgruppen översikt bör det finnas inga misslyckade distributioner.
-
       ![Kontrollera distributionen av SQL-resursprovider](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
+5. Välj slutligen **virtuella datorer** på administrationsportalen för att verifiera att SQL-resursprovider virtuell dator har skapats och körs.
 
 ## <a name="next-steps"></a>Nästa steg
 

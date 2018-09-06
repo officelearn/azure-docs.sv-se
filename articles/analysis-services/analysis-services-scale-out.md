@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 08/31/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f89a6bdbe906d490231725cf528396928faebe47
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 730b11fb5038e5d6c4f9b00fbc4eb07d673757f9
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092102"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43840997"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services-utskalning
 
@@ -23,11 +23,15 @@ Med skalbar, klientfrågor kan fördelas mellan flera *frågerepliker* minskar s
 
 En server fungerar som både bearbetningsservern och fråge-i en typisk serverdistribution. Om antalet klientfrågor mot modeller på servern överskrider den enheter QPU (Query Processing) för din server plan, eller modellbearbetning inträffar samtidigt som hög frågearbetsbelastningar, kan försämra prestanda. 
 
-Med skalbar, kan du skapa en frågepool med upp till sju ytterligare frågerepliker (åtta totalt, inklusive din server). Du kan skala antalet frågerepliker att uppfylla QPU krav vid kritiska tidpunkter och du kan avgränsa en bearbetningsservern från frågepoolen när som helst. Alla frågerepliker skapas i samma region som din server.
+Med skalbar, kan du skapa en frågepool med upp till sju ytterligare repliken resurser (åtta totalt, inklusive din server). Du kan skala antalet frågerepliker att uppfylla QPU krav vid kritiska tidpunkter och du kan avgränsa en bearbetningsservern från frågepoolen när som helst. Alla frågerepliker skapas i samma region som din server.
 
-Oavsett hur många frågerepliker som du har i en frågepool fördelas bearbetningsbelastningar inte mellan frågerepliker. En enskild server fungerar som bearbetningsservern. Frågerepliker fungerar bara frågor mot modeller som synkroniseras mellan varje replik i frågepoolen. 
+Oavsett hur många frågerepliker som du har i en frågepool fördelas bearbetningsbelastningar inte mellan frågerepliker. En enskild server fungerar som bearbetningsservern. Frågerepliker fungerar bara frågor mot modeller som synkroniseras mellan varje fråga replik i frågepoolen. 
 
-När bearbetningen är avslutad, måste du utföra en synkronisering mellan bearbetning av servern och replikservern fråga. Det är viktigt att konfigurera en synkroniseringsåtgärd vid slutförande av bearbetningsåtgärder vid automatisering av bearbetningsåtgärder. Synkronisering kan utföras manuellt i portalen eller med hjälp av PowerShell eller REST API.
+Vid utskalning, läggs nya frågerepliker till frågepoolen inkrementellt. Det kan ta upp till fem minuter för nya fråga repliken resurser som ska ingå i frågepoolen. är du redo att ta emot klientanslutningar och frågor. När alla nya frågerepliker är igång och körs, att nya klientanslutningar finns belastningsutjämnas mellan alla poolresurser för frågan. Befintliga klientanslutningar ändras inte från de för närvarande är anslutna till resursen.  När skalning i avslutas de befintliga klientanslutningar i en poolresurs för frågan som tas bort från frågepoolen. De återansluts till en återstående fråga poolresurs när skalan i åtgärden har slutförts.
+
+Vid bearbetning av modeller, när bearbetningen är avslutad, måste du utföra en synkronisering mellan bearbetningsservern och fråga replikerna. Det är viktigt att konfigurera en synkroniseringsåtgärd vid slutförande av bearbetningsåtgärder vid automatisering av bearbetningsåtgärder. Synkronisering kan utföras manuellt i portalen eller med hjälp av PowerShell eller REST API. 
+
+Du kan välja att dela din bearbetningsservern från frågepoolen för maximal prestanda för såväl bearbetning frågeåtgärder. När separerade kan tilldelas befintliga och nya klientanslutningar till frågerepliker i poolen fråga. Om bearbetningsåtgärder bara tar upp en kort tidsperiod, kan du avgränsa din bearbetningsservern från frågepoolen endast för den tid det tar att utföra åtgärder för bearbetning och synkronisering och Lägg sedan tillbaka till frågepoolen. 
 
 > [!NOTE]
 > Skala ut är tillgänglig för servrar i Standardprisnivån. Varje fråga replik debiteras till samma pris som din server.

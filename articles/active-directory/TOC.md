@@ -84,7 +84,6 @@
 
 ## [Hantera grupper och medlemmar](fundamentals/active-directory-manage-groups.md)
 ### [Hantera grupper](fundamentals/active-directory-groups-create-azure-portal.md)
-### [Återställa en borttagen Office 365-grupp](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Hantera gruppinställningar](fundamentals/active-directory-groups-settings-azure-portal.md)
 ## [Hantera rapporter](reports-monitoring/overview-reports.md)
 ### [Inloggningsaktiviteter](reports-monitoring/concept-sign-ins.md)

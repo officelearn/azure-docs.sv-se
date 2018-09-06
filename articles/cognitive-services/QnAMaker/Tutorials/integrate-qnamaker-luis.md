@@ -1,7 +1,7 @@
 ---
-title: Integrera frågor och svar om Maker och THOMAS - kognitiva Microsoft-tjänster | Microsoft Docs
+title: Integrera QnA Maker och LUIS - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: en stegvis självstudiekurs om att integrera frågor och svar om Maker och THOMAS
+description: en stegvis självstudiekurs om integrering av QnA Maker och LUIS
 services: cognitive-services
 author: nstulasi
 manager: sangitap
@@ -10,42 +10,42 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 04/21/2018
 ms.author: saneppal
-ms.openlocfilehash: 0a0eeb3815b793ed81f60b2b239bc459e5574788
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 18eae69867dc9774f63b11c762b22df4595bdce6
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354111"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781755"
 ---
-# <a name="integrate-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Integrera frågor och svar om Maker och THOMAS om du vill distribuera kunskapsbasen
-Som frågor och svar om Maker kunskapsbasen blir stor, är det svårt att underhålla den eftersom en enda monolitisk och måste du dela kunskapsbasen i kortare logiska segment.
+# <a name="integrate-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Integrera QnA Maker och LUIS för att distribuera din kunskapsbas
+När kunskapsbasen QnA Maker växer stora, blir det svårt att underhålla den som en enda monolitisk ange och det finns en behöver delas upp i knowledge base i mindre logiska segment.
 
-Det är enkelt att skapa flera knowledge baser i frågor och svar om Maker, behöver du vissa logik för att dirigera inkommande frågan till lämplig knowledge base. Du kan göra detta med hjälp av THOMAS.
+Det är enkelt att skapa flera kunskapsbaser i QnA Maker, behöver du vissa logik för att dirigera inkommande frågan till rätt kunskapsbas. Du kan göra detta med hjälp av LUIS.
 
 ## <a name="architecture"></a>Arkitektur
 
-![Frågor och svar om Maker Thomas arkitektur](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
+![QnA Maker luis-arkitektur](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
 
-I scenariot ovan frågor och svar om Maker först hämtar syftet med den inkommande frågan från en THOMAS modell och sedan använder du den och vidarebefordra den till rätt frågor och svar om Maker knowledge base.
+I scenariot ovan QnA Maker först hämtar syftet med den inkommande frågan från en LUIS-modell och sedan använda den för att dirigera till rätt kunskapsbas för QnA Maker.
 
 ## <a name="prerequisites"></a>Förutsättningar
-- Logga in på den [THOMAS](https://www.luis.ai/) portal och [skapa en app](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/create-new-app).
+- Logga in på den [LUIS](https://www.luis.ai/) portal och [skapa en app](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/create-new-app).
 - [Lägg till avsikter](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-intents) enligt ditt scenario.
-- [Train](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-train) och [publicera](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/publishapp) LUIS appen.
-- Logga in på [frågor och svar om Maker](https://qnamaker.ai) och [skapa knowledge]() baserar enligt ditt scenario.
-- [Testa]() och [publicera]() knowledge baser.
+- [Träna](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-train) och [publicera](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/publishapp) LUIS-appen.
+- Logga in på [QnA Maker](https://qnamaker.ai) och [skapa](https://www.qnamaker.ai/Create) kunskapsbaser enligt ditt scenario.
+- Testa och publicera kunskapsbaser.
 
-## <a name="qna-maker--luis-bot"></a>Frågor och svar om Maker + THOMAS Bot
-1. Först skapar en Webbapp bot med mallen THOMAS länka med THOMAS appen som du skapade ovan och ändra innehållet. Detaljerade anvisningar finns [här](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample).
+## <a name="qna-maker--luis-bot"></a>QnA Maker + LUIS-Bot
+1. Först skapa en Web App-robot med LUIS-mall, koppla den till LUIS-app som du skapade ovan och ändra avsikter. Se detaljerade steg [här](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample).
 
-2. Lägga till beroenden överst i filen med de andra beroenden:
+2. Lägga till beroenden överst i filen med de andra beroendena:
 
     ```
     using RestSharp;
     using System.Collections.Generic;
     using Newtonsoft.Json;
     ```
-3. Lägg till den nedan klassen för att anropa tjänsten frågor och svar om Maker:
+3. Lägg till den nedan klass för att anropa QnA Maker-tjänsten:
 
     ```
         /// <summary>
@@ -121,11 +121,11 @@ I scenariot ovan frågor och svar om Maker först hämtar syftet med den inkomma
         /* END - QnA Maker Response Class */
     ```
 
-3. Gå till https://qnamaker.ai -> min knowledge baser -> Visa kod för motsvarande kunskapsbasen. Hämta följande information:
+3. Gå till https://qnamaker.ai -> min kunskapsbaser -> Visa koden för motsvarande kunskapsbasen. Hämta följande information:
 
-    ![Frågor och svar om Maker HTTP-begäran](../media/qnamaker-tutorials-qna-luis/qnamaker-http-request.png)
+    ![QnA Maker HTTP-begäran](../media/qnamaker-tutorials-qna-luis/qnamaker-http-request.png)
 
-4. Skapa en instans av klassen QnAMakerService för varje knowledge-databaser:
+4. Skapa en instans av klassen QnAMakerService för var och en av dina kunskapsbaser:
     ```
             // Instantiate the knowledge bases
             public QnAMakerService hrQnAService = new QnAMakerService("https://hrkb.azurewebsites.net", "<HR knowledge base id>", "<HR endpoint key>");
@@ -160,21 +160,21 @@ I scenariot ovan frågor och svar om Maker först hämtar syftet med den inkomma
             }
     ```
 
-## <a name="build-the-bot"></a>Skapa bot
-1. Högerklicka på i kodredigeraren `build.cmd` och välj **köra från konsolen**.
+## <a name="build-the-bot"></a>Skapa roboten
+1. I kodredigeraren, högerklickar du på `build.cmd` och välj **kör från konsolen**.
 
     ![Kör från konsolen](../media/qnamaker-tutorials-qna-luis/run-from-console.png)
 
-2. Kodvyn ersätts med ett terminalfönster visar förlopp och resultat för versionen.
+2. Kodvyn ersätts med ett terminalfönster som visar förlopp och resultat för versionen.
 
     ![konsolen build](../media/qnamaker-tutorials-qna-luis/console-build.png)
 
-## <a name="test-the-bot"></a>Testa bot
-Välj i Azure-portalen **testa i Web chatta** att testa bot. Skriv meddelanden från olika avsikter hämta svaret från motsvarande knowledge base.
+## <a name="test-the-bot"></a>Testa roboten
+I Azure-portalen väljer du **testa i Web Chat** att testa roboten. Skriv meddelanden från olika avsikter att få svaret från motsvarande kunskapsbasen.
 
-![chatt webbtestet](../media/qnamaker-tutorials-qna-luis/qnamaker-web-chat.png)
+![chatt webbtest](../media/qnamaker-tutorials-qna-luis/qnamaker-web-chat.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en kontinuitetsplan för frågor och svar om Maker](../How-To/business-continuity-plan.md)
+> [Skapa en kontinuitetsplan för QnA Maker](../How-To/business-continuity-plan.md)

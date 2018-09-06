@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 725f52e55795025671036095f209fd92636a4d9c
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 4e93e455e309771ed3e33382ee49cdc144036fb1
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701507"
+ms.locfileid: "43782421"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Virtual Machine Serial Console (förhandsversion) 
 
 
-Virtual Machine Serial Console i Azure ger åtkomst till en textbaserad konsol för Linux och Windows-datorer. Den här seriell anslutning är att COM1 seriell port på den virtuella datorn och ger åtkomst till den virtuella datorn och inte är relaterade till nätverk för virtuella datorer / drift systemtillstånd. Åtkomst till seriekonsol för en virtuell dator kan klar för närvarande endast via Azure-portalen och tillåts endast för de användare som har VM-deltagare eller senare åtkomst till den virtuella datorn. 
+Virtual Machine Serial Console i Azure ger åtkomst till en textbaserad konsol för Windows-datorer. Den här seriell anslutning är att den seriella porten COM1 för den virtuella datorn, som ger tillgång till den virtuella datorn som är oberoende av en virtuell dators nätverks- eller operating system-tillstånd. Åtkomsten till seriekonsol för en virtuell dator för närvarande kan endast göras via Azure portal och tillåts endast för de användare som har VM-deltagare eller senare åtkomst till den virtuella datorn. 
 
 Seriell konsol dokumentation för virtuella Linux-datorer [Klicka här](../linux/serial-console.md).
 
@@ -46,7 +46,7 @@ Seriell konsol dokumentation för virtuella Linux-datorer [Klicka här](../linux
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
 ## <a name="get-started-with-serial-console"></a>Kom igång med Seriekonsol
-Seriekonsol för virtuella datorer bara kan nås via [Azure-portalen](https://portal.azure.com). Nedan visas stegen för att komma åt seriekonsol för virtuella datorer via portalen 
+Seriekonsol för virtuella datorer bara kan nås via [Azure-portalen](https://portal.azure.com). Nedan följer du stegen för att komma åt seriekonsol för virtuella datorer via portalen.
 
   1. Öppna Azure portal
   2. Välj virtuella datorer i den vänstra menyn.
@@ -55,8 +55,8 @@ Seriekonsol för virtuella datorer bara kan nås via [Azure-portalen](https://po
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
-## <a name="configure-serial-console-for-windows"></a>Konfigurera Seriekonsol för Windows 
-Nyare Windows Server-avbildningar på Azure har [särskilda administrationskonsolen](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) aktiverad som standard. SAC stöds på server-versioner av Windows men är inte tillgänglig på klientversioner (till exempel Windows 10, Windows 8 eller Windows 7). Om du vill aktivera seriekonsol för Windows-datorer som skapats med hjälp av använder Feb2018 eller lägre avbildningar du följande steg: 
+## <a name="enable-serial-console-in-custom-or-older-images"></a>Aktivera Seriekonsolen i anpassade eller äldre bilder
+Nyare Windows Server-avbildningar på Azure har [särskilda administrationskonsolen](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) aktiverad som standard. SAC stöds på server-versioner av Windows men är inte tillgänglig på klientversioner (till exempel Windows 10, Windows 8 eller Windows 7). Om du vill aktivera seriekonsol för Windows-datorer som skapats före februari 2018, använder du följande steg: 
 
 1. Ansluta till din Windows-dator via fjärrskrivbord
 2. Kör följande kommandon från en administrativ kommandotolk 
@@ -73,13 +73,13 @@ Om nödvändiga SAC kan aktiveras offline
 * `bcdedit /store <mountedvolume>\boot\bcd /ems {default} on`
 * `bcdedit /store <mountedvolume>\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 
-### <a name="how-do-i-know-if-sac-is-enabled-or-not"></a>Hur vet jag om SAC har aktiverats eller inte 
+### <a name="how-do-i-know-if-sac-is-enabled"></a>Hur vet jag om SAC är aktiverad?
 
-Om [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) aktiveras inte seriekonsolen visas inte SAC-prompten. Det kan visa information om en VM-hälsa i vissa fall eller det skulle vara tomt.  
+Om [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) aktiveras inte seriekonsolen visas inte SAC-prompten. Hälsoinformation för virtuell dator visas i vissa fall och i andra fall är det tomt.  
 
-## <a name="enabling-boot-menu-to-show-in-the-serial-console"></a>Aktivera startmenyn för att visa i seriekonsolen 
+## <a name="enable-the-windows-boot-menu-in-serial-console"></a>Aktivera Windows-startmenyn i Seriekonsol 
 
-Om du måste aktivera Windows boot loader uppmanas du för att visa i seriekonsolen, du kan lägga till följande ytterligare alternativ i startprogrammet för Windows.
+Om du måste aktivera Windows boot loader uppmanas du för att visa i seriekonsolen, du kan lägga till följande ytterligare alternativ till dina boot configuration data. Se [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set) för mer information
 
 1. Ansluta till din Windows-dator via fjärrskrivbord
 2. Kör följande kommandon från en administrativ kommandotolk 
@@ -88,8 +88,14 @@ Om du måste aktivera Windows boot loader uppmanas du för att visa i seriekonso
 * `bcdedit /set {bootmgr} bootems yes`
 3. Starta om datorn för Start-menyn är aktiverat
 
-> [!NOTE] 
-> I den här punkt-stöd för funktionen nycklar inte är aktiverad ser om du behöver avancerade startalternativ använda bcdedit/set {aktuella} onetimeadvancedoptions på [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set) för mer information
+## <a name="use-serial-console-for-nmi-calls-in-windows-vms"></a>Använd Seriekonsol för NMI anrop i Windows-datorer
+Ett icke-maskable avbrott (NMI) är utformad för att skapa en signal som inte kommer att ignorera programvara på en virtuell dator. Historiskt sett använts NMIs för att övervaka maskinvarufel på system som krävs för specifika svarstider.  Idag, programmerare och systemadministratörer använder ofta NMI som en mekanism för att felsöka eller felsöka system som har hängt.
+
+Seriekonsol kan användas för att skicka en NMI till en Azure virtuell dator med hjälp av tangentbordsikonen i kommandofältet visas nedan. När NMI levereras, ska konfigurationen av virtuella datorn styra hur systemet svarar. Windows kan konfigureras att krascher och skapa en minnesdump när du tar emot en NMI.
+
+![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
+
+Information om hur du konfigurerar Windows för att skapa en kraschdumpfil när den får en NMI finns: [hur du skapar en fullständig kraschdumpfil eller en kernel-kraschdumpfil genom att använda en NMI på en Windows-dator](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
 ## <a name="disable-serial-console"></a>Inaktivera Seriekonsol
 Som standard har alla prenumerationer seriell konsolåtkomst är aktiverad för alla virtuella datorer. Du kan inaktivera seriekonsolen på prenumerationsnivån eller VM-nivå.
@@ -157,15 +163,6 @@ Filsystem skadade/kontroll | Få åtkomst till seriell konsol och Återställ fi
 Problem med RDP-konfigurationen | Komma åt Seriell konsol och ändra inställningarna. Gå till den [RDP-dokumentationen](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access) att komma igång.
 Nätverket låsa system| Åtkomst seriekonsolen via portalen för att hantera system. Vissa nätverkskommandon finns i den [seriella konsolen CMD och PowerShell-dokumentationen](./serial-console-cmd-ps-commands.md). 
 Interagera med startprogrammet | Åtkomst BCD via seriekonsolen. Gå till [aktiverar startmenyn ska visas i seriekonsolen](#enabling-boot-menu-to-show-in-the-serial-console) att komma igång. 
-
-## <a name="using-serial-console-for-nmi-calls-in-windows-vms"></a>Med Seriekonsol för NMI anropar i virtuella Windows-datorer
-Ett icke-maskable avbrott (NMI) är utformad för att skapa en signal som inte kommer att ignorera programvara på en virtuell dator. Historiskt sett använts NMIs för att övervaka maskinvarufel på system som krävs för specifika svarstider.  Idag, programmerare och systemadministratörer använder ofta NMI som en mekanism för att felsöka eller felsöka system som har hängt.
-
-Seriekonsol kan användas för att skicka en NMI till en Azure virtuell dator med hjälp av tangentbordsikonen i kommandofältet visas nedan. När NMI levereras, ska konfigurationen av virtuella datorn styra hur systemet svarar. Windows kan konfigureras att krascher och skapa en minnesdump när du tar emot en NMI.
-
-![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
-
-Information om hur du konfigurerar Windows för att skapa en kraschdumpfil när den får en NMI finns: [hur du skapar en fullständig kraschdumpfil eller en kernel-kraschdumpfil genom att använda en NMI på en Windows-dator](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
 ## <a name="accessibility"></a>Hjälpmedel
 Hjälpmedel är viktiga fokus för Azure seriekonsol. Därför har vi sett att seriekonsolen är tillgänglig för de med visuella objekt och hörselnedsättning samt personer som inte kanske kan använda en mus.

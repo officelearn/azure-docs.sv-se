@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 29ed96044ceaa914db3f8b7090a1be5f65827e54
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 5f654ce8730af1e66e0186d7087aa130b00afd2b
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627482"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782116"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sömlös enkel inloggning: vanliga frågor och svar
 
@@ -44,7 +44,7 @@ Nedan följer en ofullständig lista över program som kan skicka dessa parametr
 
 | Programnamn | Programmets URL som ska användas |
 | -- | -- |
-| Åtkomstpanelen | https://myapps.microsoft.com/contoso.com |
+| Åtkomstpanel | https://myapps.microsoft.com/contoso.com |
 | Outlook på webben | https://outlook.office365.com/contoso.com |
 | Office 365-portalen | https://portal.office.com?domain_hint=contoso.com |
 
@@ -52,7 +52,7 @@ Dessutom kan användare får en tyst inloggning om ett program skickar inloggnin
 
 | Programnamn | Programmets URL som ska användas |
 | -- | -- |
-| SharePoint Online | https://contoso.sharepoint.com |
+| sharepoint online | https://contoso.sharepoint.com |
 | Azure Portal | https://portal.azure.com/contoso.com |
 
 I tabellerna ovan ersätter du ”contoso.com” med ditt domännamn för att hämta rätt program-URL: er för din klient.
@@ -84,12 +84,11 @@ Följ dessa steg på den lokala servern där du kör Azure AD Connect:
 
 ### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Steg 1. Hämta lista över AD-skogar där sömlös enkel inloggning har aktiverats
 
-1. Först, hämta och installera den [Microsoft Online Services-inloggningsassistent](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Hämta och installera sedan den [64-bitars Azure Active Directory-modulen för Windows PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
-3. Gå till mappen `%programfiles%\Microsoft Azure Active Directory Connect`.
-4. Importera sömlös SSO-PowerShell-modulen med hjälp av det här kommandot: `Import-Module .\AzureADSSO.psd1`.
-5. Kör PowerShell som administratör. I PowerShell, anropa `New-AzureADSSOAuthenticationContext`. Det här kommandot bör ge dig ett fönster för att ange autentiseringsuppgifterna för Global administratör för din klient.
-6. Anropa `Get-AzureADSSOStatus`. Det här kommandot innehåller en lista över AD-skogar (titt på listan ”domäner”) på som den här funktionen har aktiverats.
+1. Först, hämta och installera [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+2. Gå till mappen `%programfiles%\Microsoft Azure Active Directory Connect`.
+3. Importera sömlös SSO-PowerShell-modulen med hjälp av det här kommandot: `Import-Module .\AzureADSSO.psd1`.
+4. Kör PowerShell som administratör. I PowerShell, anropa `New-AzureADSSOAuthenticationContext`. Det här kommandot bör ge dig ett fönster för att ange autentiseringsuppgifterna för Global administratör för din klient.
+5. Anropa `Get-AzureADSSOStatus`. Det här kommandot innehåller en lista över AD-skogar (titt på listan ”domäner”) på som den här funktionen har aktiverats.
 
 ### <a name="step-2-update-the-kerberos-decryption-key-on-each-ad-forest-that-it-was-set-it-up-on"></a>Steg 2. Uppdatera Kerberos krypteringsnyckel på varje AD-skog som den var konfigurera det på
 
@@ -123,26 +122,24 @@ Om du vill slutföra rensningen, följer du steg 2 och 3 på den lokala servern 
 
 Kör följande steg på den lokala servern där du kör Azure AD Connect:
 
-1. Först, hämta och installera den [Microsoft Online Services-inloggningsassistent](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Hämta och installera sedan den [64-bitars Azure Active Directory-modulen för Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
-3. Gå till mappen `%programfiles%\Microsoft Azure Active Directory Connect`.
-4. Importera sömlös SSO-PowerShell-modulen med hjälp av det här kommandot: `Import-Module .\AzureADSSO.psd1`.
-5. Kör PowerShell som administratör. I PowerShell, anropa `New-AzureADSSOAuthenticationContext`. Det här kommandot bör ge dig ett fönster för att ange autentiseringsuppgifterna för Global administratör för din klient.
-6. Anropa `Enable-AzureADSSO -Enable $false`.
+1. Först, hämta och installera [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+2. Gå till mappen `%programfiles%\Microsoft Azure Active Directory Connect`.
+3. Importera sömlös SSO-PowerShell-modulen med hjälp av det här kommandot: `Import-Module .\AzureADSSO.psd1`.
+4. Kör PowerShell som administratör. I PowerShell, anropa `New-AzureADSSOAuthenticationContext`. Det här kommandot bör ge dig ett fönster för att ange autentiseringsuppgifterna för Global administratör för din klient.
+5. Anropa `Enable-AzureADSSO -Enable $false`.
 
 >[!IMPORTANT]
 >Inaktivera sömlös SSO ändrar med hjälp av PowerShell inte status i Azure AD Connect. Sömlös SSO ska visas som aktiverat i den **ändra användarinloggning** sidan.
 
 ### <a name="step-2-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Steg 2. Hämta lista över AD-skogar där sömlös enkel inloggning har aktiverats
 
-Följ steg 1 till 5 nedan om du har inaktiverat sömlös enkel inloggning med Azure AD Connect. Om du har inaktiverat sömlös SSO med hjälp av PowerShell i stället kan du gå vidare till steg 6 nedan.
+Följ uppgifter 1 till 4 nedan om du har inaktiverat sömlös enkel inloggning med Azure AD Connect. Om du har inaktiverat sömlös SSO med hjälp av PowerShell i stället kan du gå vidare till uppgift 5 nedan.
 
-1. Först, hämta och installera den [Microsoft Online Services-inloggningsassistent](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Hämta och installera sedan den [64-bitars Azure Active Directory-modulen för Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
-3. Gå till mappen `%programfiles%\Microsoft Azure Active Directory Connect`.
-4. Importera sömlös SSO-PowerShell-modulen med hjälp av det här kommandot: `Import-Module .\AzureADSSO.psd1`.
-5. Kör PowerShell som administratör. I PowerShell, anropa `New-AzureADSSOAuthenticationContext`. Det här kommandot bör ge dig ett fönster för att ange autentiseringsuppgifterna för Global administratör för din klient.
-6. Anropa `Get-AzureADSSOStatus`. Det här kommandot innehåller en lista över AD-skogar (titt på listan ”domäner”) på som den här funktionen har aktiverats.
+1. Först, hämta och installera [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+2. Gå till mappen `%programfiles%\Microsoft Azure Active Directory Connect`.
+3. Importera sömlös SSO-PowerShell-modulen med hjälp av det här kommandot: `Import-Module .\AzureADSSO.psd1`.
+4. Kör PowerShell som administratör. I PowerShell, anropa `New-AzureADSSOAuthenticationContext`. Det här kommandot bör ge dig ett fönster för att ange autentiseringsuppgifterna för Global administratör för din klient.
+5. Anropa `Get-AzureADSSOStatus`. Det här kommandot innehåller en lista över AD-skogar (titt på listan ”domäner”) på som den här funktionen har aktiverats.
 
 ### <a name="step-3-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>Steg 3. Ta manuellt bort de `AZUREADSSOACCT` datorkontot från varje AD-skog i listan.
 

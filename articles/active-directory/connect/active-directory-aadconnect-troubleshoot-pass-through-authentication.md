@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 99f877a0002e9a631bcfdabdbea51fcf2ca1a2c1
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 890c28601315a63e34c286289cd7378830afa9ba
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626600"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782065"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Felsöka Azure Active Directory-direktautentisering
 
@@ -43,7 +43,7 @@ Kontrollera att funktionen direktautentisering är fortfarande **aktiverad** på
 
 Om användaren inte kan logga in med hjälp av direktautentisering, kan de se något av följande användarinriktade fel på skärmen för Azure AD: 
 
-|Fel|Beskrivning|Matchning
+|Fel|Beskrivning|Lösning
 | --- | --- | ---
 |AADSTS80001|Det går inte att ansluta till Active Directory|Kontrollera att agentservrar är medlemmar i samma AD-skog som de användare vars lösenord behöver verifieras och kunna ansluta till Active Directory.  
 |AADSTS8002|En timeout inträffade vid anslutning till Active Directory|Kontrollera att Active Directory är tillgänglig och svarar på förfrågningar från agenter.
@@ -59,7 +59,7 @@ Om klienten har en associerad med den Azure AD Premium-licens, kan du också tit
 
 Gå till **Azure Active Directory** -> **inloggningar** på den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com/) och klicka på en viss användares inloggningsaktivitet. Leta efter den **LOGGA IN FELKODEN** fält. Mappa fältets värde till en felorsak och en lösning med hjälp av följande tabell:
 
-|Felkod för inloggning|Logga in felorsak|Matchning
+|Felkod för inloggning|Logga in felorsak|Lösning
 | --- | --- | ---
 | 50144 | Användarens Active Directory-lösenord har upphört att gälla. | Återställa användarens lösenord i din lokala Active Directory.
 | 80001 | Ingen autentiseringsagent är tillgänglig. | Installera och registrera en Agent för autentisering.
@@ -97,7 +97,7 @@ Kontrollera att du använder ett globalt administratörskonto enbart i molnet f�
 
 Om du har direktautentisering har aktiverats på din klient och försök att avinstallera Azure AD Connect, den visar följande varning: ”användare kommer inte att kunna logga in på Azure AD om du inte har andra direktautentisering agenter som installerats på andra servrar ”.
 
-Se till att din konfiguration är [hög tillgängliga](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability) innan du avinstallerar den Azure AD Connect för att undvika att skada användarinloggning.
+Se till att din konfiguration är [med hög tillgänglighet](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability) innan du avinstallerar den Azure AD Connect för att undvika att skada användarinloggning.
 
 ## <a name="issues-with-enabling-the-feature"></a>Problem med att aktivera funktionen
 
@@ -129,7 +129,7 @@ Aktivera ”sessionsloggen” för detaljerad analys. Kör inte Autentiseringsag
 
 ### <a name="detailed-trace-logs"></a>Detaljerad spårningsloggar
 
-Om du vill felsöka användaren inloggningar, leta efter spårningsloggar på **%ProgramData%\Microsoft\Azure AD ansluta autentisering Agent\Trace\\**. Dessa loggar innehåller orsaker till varför en viss användare logga in som misslyckats med att använda funktionen direktautentisering. De här felen också är mappade till inloggningsfel skälen visas i det föregående [tabell](#sign-in-failure-reasons-on-the-Azure-portal). Nedan följer ett exempel på post i loggen:
+Om du vill felsöka användaren inloggningar, leta efter spårningsloggar på **%ProgramData%\Microsoft\Azure AD ansluta autentisering Agent\Trace\\**. Dessa loggar innehåller orsaker till varför en viss användare logga in som misslyckats med att använda funktionen direktautentisering. De här felen är även mappas till inloggningsfel skälen visas i tabellen ovan inloggningsfel orsaker. Nedan följer ett exempel på post i loggen:
 
 ```
     AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/21/2018
+ms.date: 09/05/2018
 ms.author: roiyz
-ms.openlocfilehash: 58827e8abd6394b1c9359ecbabbee37193a34706
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 858c586151c8a0dd5378794a5057c22a423c43cf
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414302"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782747"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Logga Analytics tillägg för virtuell dator för Linux
 
@@ -36,18 +36,24 @@ Tillägget Log Analytics-agenten kan köras mot dessa Linux-distributioner.
 
 | Distribution | Version |
 |---|---|
-| CentOS Linux | 5, 6 och 7 (x86/x64) |
-| Oracle Linux | 5, 6 och 7 (x86/x64) |
-| Red Hat Enterprise Linux Server | 5, 6 och 7 (x86/x64) |
-| Debian GNU/Linux | 6, 7, 8 och 9 (x86/x64) |
-| Ubuntu | 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64) |
-| SUSE Linux Enterprise Server | 11 och 12 (x86/x64) |
+| CentOS Linux | 6 och 7 (x86/x64) |
+| Amazon Linux | 2017.09 | 
+| Oracle Linux | 6 och 7 (x86/x64) |
+| Red Hat Enterprise Linux Server | 6 och 7 (x86/x64) |
+| Debian GNU/Linux | 8 och 9 (x86/x64) |
+| Ubuntu | 14.04 LTS, 16.04 LTS och 18.04 LTS (x86/x64) |
+| SUSE Linux Enterprise Server | 12 (x86/x64) |
+
+>[!NOTE]
+>OpenSSL som är lägre än version 1.x stöds inte på valfri plattform och version 1.10 stöds bara på x86_64 plattformar (64-bitars).  
+>
 
 ### <a name="agent-and-vm-extension-version"></a>Version av agenten och tillägg för virtuell dator
 Följande tabell innehåller en mappning av versionen av Log Analytics VM-tillägget och Log Analytics-agenten paket för varje version. En länk till viktig information om Paketversion för Log Analytics-agenten ingår. Viktig information innehåller information om felkorrigeringar och nya funktioner som är tillgängliga för en viss agent-version.  
 
 | Log Analytics Linux VM-tilläggsversion | Paketversion för log Analytics-agenten | 
 |--------------------------------|--------------------------|
+| 1.7.7 | [1.6.1-3](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.1.3)| 
 | 1.6.42.0 | [1.6.0-42](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.0-42)| 
 | 1.4.60.2 | [1.4.4-210](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.4-210)| 
 | 1.4.59.1 | [1.4.3-174](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.3-174)|
@@ -84,7 +90,7 @@ Följande JSON visar schemat för tillägget Log Analytics-agenten. Tillägget k
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.6",
+    "typeHandlerVersion": "1.7",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -102,7 +108,7 @@ Följande JSON visar schemat för tillägget Log Analytics-agenten. Tillägget k
 | apiVersion | 2015-06-15 |
 | utgivare | Microsoft.EnterpriseCloud.Monitoring |
 | typ | OmsAgentForLinux |
-| typeHandlerVersion | 1.6 |
+| typeHandlerVersion | 1.7 |
 | workspaceId (t.ex.) | 6f680a37-00c6-41C7-a93f-1437e3462574 |
 | workspaceKey (t.ex.) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
@@ -127,7 +133,7 @@ I följande exempel förutsätter att VM-tillägget är kapslade i den virtuella
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.6",
+    "typeHandlerVersion": "1.7",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -152,7 +158,7 @@ När du monterar tillägget JSON i roten på mallen resursnamnet innehåller en 
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.6",
+    "typeHandlerVersion": "1.7",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -173,7 +179,7 @@ az vm extension set \
   --vm-name myVM \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.6 --protected-settings '{"workspaceKey": "omskey"}' \
+  --version 1.7 --protected-settings '{"workspaceKey": "omskey"}' \
   --settings '{"workspaceId": "omsid"}'
 ```
 
@@ -200,12 +206,11 @@ Tillägget utförande-utdatan loggas till följande fil:
 | 9 | Aktivera som kallas för tidigt | [Uppdatera Azure Linux Agent](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) till den senaste tillgängliga versionen. |
 | 10 | Virtuell dator är redan ansluten till en Log Analytics-arbetsyta | Om du vill ansluta den virtuella datorn till arbetsytan som angetts i schemat för tillägget stopOnMultipleConnections inställd på false i offentliga inställningar eller ta bort den här egenskapen. Den här virtuella datorn debiteras när för varje arbetsyta som den är ansluten till. |
 | 11 | Ogiltig konfiguration som angetts för tillägget | Följ föregående exempel för att ange alla egenskapsvärden som krävs för distributionen. |
-| 12 | Dpkg package manager är låst | Kontrollera att alla dpkg uppdateringsåtgärder på datorn har slutförts och försök igen. |
 | 17 | Installationsfel för OMS-paketet | 
 | 19 | OMI paketet installationsfel | 
 | 20 | Installationsfel för SCX-paket |
 | 51 | Det här tillägget stöds inte på den Virtuella datorns operativsystem | |
-| 55 | Det går inte att ansluta till tjänsten Microsoft Operations Management Suite | Kontrollera att datorn är ansluten till Internet eller att en giltig HTTP-proxy har angetts. Dessutom bör du läsa för arbetsyte-ID. |
+| 55 | Det går inte att ansluta till OMS-tjänsten eller paket som krävs saknas eller dpkg package manager är låst| Kontrollera att datorn är ansluten till Internet eller att en giltig HTTP-proxy har angetts. Dessutom kan kontrollera för arbetsyte-ID och kontrollera curl och tar är installerade. |
 
 Ytterligare information kan hittas på den [felsökningsguide för OMS Agent for Linux](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
 

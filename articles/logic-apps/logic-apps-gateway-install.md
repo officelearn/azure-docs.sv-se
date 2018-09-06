@@ -1,25 +1,24 @@
 ---
 title: Installera en lokal datagateway – Azure Logic Apps | Microsoft Docs
-description: Ladda ned och installera den lokala datagatewayen innan du kan komma åt data lokalt från logikappar
+description: Innan du kan komma åt data lokalt från Logikappar i Azure, hämta och installera den lokala datagatewayen
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: yshoukry, LADocs
 ms.topic: article
 ms.date: 07/20/2018
-ms.reviewer: yshoukry, LADocs
-ms.suite: integration
-ms.openlocfilehash: 616e3d81d577fd30e65117ec15c65250d3b3e27e
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d4fbbcb81433876e4c57763b8a90b3ff1168a699
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503656"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842455"
 ---
-# <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Installera den lokala datagatewayen för Azure Logic Apps
+# <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installera en lokal datagateway för Azure Logic Apps
 
-Innan du kan ansluta dina logikappar till den lokala datakällor, hämta och installera den lokala datagatewayen på en lokal dator. Gatewayen fungerar som en brygga som ger snabb dataöverföring och kryptering mellan datakällor lokalt (inte i molnet) och dina logic apps. Den här artikeln visar hur du kan hämta, installera och konfigurera din lokala datagateway. 
+Innan du kan ansluta till lokala datakällor från Azure Logic Apps, hämta och installera den lokala datagatewayen på en lokal dator. Gatewayen fungerar som en brygga som ger snabb dataöverföring och kryptering mellan datakällor lokalt (inte i molnet) och dina logic apps. Den här artikeln visar hur du kan hämta, installera och konfigurera din lokala datagateway. 
 
 Du kan använda samma gatewayinstallationen med andra tjänster, till exempel Power BI, Microsoft Flow, PowerApps och Azure Analysis Services. Läs mer om [hur datagateway fungerar](#gateway-cloud-service).
 
@@ -52,7 +51,11 @@ Information om hur du använder gatewayen med andra tjänster finns i följande 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En [arbets- eller skolkonto](../active-directory/fundamentals/sign-up-organization.md) som har en [Azure-prenumeration](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer). Under gatewayinstallationen kan logga du in till det här kontot så att du kan associera gatewayinstallationen med din Azure-prenumeration. Senare kan använda du också samma konto när du skapar en Azure-resurs för din gateway-installation i Azure-portalen. Om du inte har en Azure-prenumeration än, <a href="https://azure.microsoft.com/free/" target="_blank">registrera dig för ett kostnadsfritt konto</a>.
+* En [arbets- eller skolkonto](../active-directory/fundamentals/sign-up-organization.md) som har en [Azure-prenumeration](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) 
+
+  Under gatewayinstallationen kan logga du in till det här kontot så att du kan associera gatewayinstallationen med din Azure-prenumeration. 
+  Senare kan använda du också samma konto när du skapar en Azure-resurs för din gateway-installation i Azure-portalen. 
+  Om du inte har en Azure-prenumeration än, <a href="https://azure.microsoft.com/free/" target="_blank">registrera dig för ett kostnadsfritt konto</a>.
 
 * Här följer kraven för den lokala datorn:
 
@@ -72,8 +75,7 @@ Information om hur du använder gatewayen med andra tjänster finns i följande 
     > [!TIP]
     > Du kan installera gatewayen så nära som möjligt till datakällan eller på samma dator, förutsatt att du har behörighet för att minimera svarstider.
 
-  * Installera gatewayen på en dator som *inte* stänga av, försättas i viloläge eller ansluta till Internet. Gatewayen kan inte köras under dessa förhållanden. 
-  Gatewayens prestanda försämras också på ett trådlöst nätverk.
+  * Installera gatewayen på en dator som är ansluten till internet, alltid aktiverat, och *inte* viloläge. I annat fall kan inte gatewayen köras. Dessutom försämras prestandan på trådlösa nätverk.
 
   * Under installationen, kan du bara logga in med en [arbets- eller skolkonto](../active-directory/sign-up-organization.md) som hanteras av Azure Active Directory (Azure AD) och inte ett Microsoft-konto. 
   Kontrollera också att det här kontot är inte en Azure B2B (Gäst)-konto. 

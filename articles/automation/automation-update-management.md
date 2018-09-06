@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 79c78da3ba3102f41a1bd623c6844f064699b30a
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 62a7bb9bf63e8ebf97f9aeb5b08bf08ef06da43b
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382107"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782798"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -119,7 +119,7 @@ Om din hanteringsgrupp för System Center Operations Manager är ansluten till e
 Mer information om hur lösningens hanteringspaket uppdateras finns i [ansluta Operations Manager till Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
 > [!NOTE]
-> För system med Operations Manager-agenten för att kunna hanteras helt av uppdateringshantering, måste agenten uppdateras till Microsoft Monitoring Agent. Information om hur du uppdaterar agenten finns [så här uppgraderar du en Operations Manager-agent](/system-center/scom/deploy-upgrade-agents).
+> För system med Operations Manager-agenten för att kunna hanteras helt av uppdateringshantering, måste agenten uppdateras till Microsoft Monitoring Agent. Information om hur du uppdaterar agenten finns [så här uppgraderar du en Operations Manager-agent](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents).
 
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Bekräfta att icke-Azure-datorer är integrerats
 
@@ -217,7 +217,7 @@ Om du vill skapa en ny uppdateringsdistribution, Välj **distribution av schemau
 | --- | --- |
 | Namn |Unikt namn som identifierar uppdateringsdistributionen. |
 |Operativsystem| Linux eller Windows|
-| Datorer som ska uppdateras |Välj en sparad sökning, importerat gruppen, eller välja dator från listrutan och Välj enskilda datorer. Om du väljer **datorer**, beredskap för datorn visas i den **uppdatera AGENTBEREDSKAP** kolumn.</br> Läs om de olika metoderna för att skapa datorgrupper i Log Analytics i [datorgrupper i Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
+| Datorer som ska uppdateras |Välj en sparad sökning, importerat gruppen, eller välja dator från listrutan och Välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**.</br> Mer om de olika metoderna för att skapa datorgrupper i Log Analytics finns i dokumentationen om [datorgrupper i Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
 |Uppdatera klassificeringar|Välj de uppdateringsklassificeringar som du behöver|
 |Uppdateringar som ska uteslutas|Ange uppdateringarna som ska uteslutas. För Windows, anger du KB utan prefixet ”KB”. Ange paketets namn för Linux, eller Använd ett jokertecken.  |
 |Schemainställningar|Välj tid att starta och välj antingen en gång eller återkommande för upprepningen|

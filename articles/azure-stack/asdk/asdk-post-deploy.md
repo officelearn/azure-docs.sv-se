@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: e057d7a649397083240e9f67080808a3057c7f50
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: d3bfe2c472d48a68bd818ac06874db136528b470
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42055001"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43840277"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Publicera konfigurationsuppgifter för ASDK installation
 
@@ -140,16 +140,6 @@ Testerna ta ett par minuter att slutföra. Om installationen slutfördes korrekt
 ![test-azurestack](media/asdk-post-deploy/test-azurestack.png)
 
 Om det uppstod ett fel, följer du anvisningarna för att få hjälp.
-
-## <a name="activate-the-administrator-and-tenant-portals"></a>Aktivera administratör och klient-portaler
-När du har distributioner som använder Azure AD, måste du aktivera båda Azure Stack-administratör och klient portaler. Den här aktiveringen godkänner ger Azure Stack-portalen och Azure Resource Manager rätt behörigheter (som visas på sidan medgivande) för alla användare av katalogen.
-
-- Administratörsportalen går du till https://adminportal.local.azurestack.external/guest/signup, Läs informationen och klicka sedan på **acceptera**. Efter att du godkänt, kan du lägga till administratörer som inte är också directory-klientadministratörer.
-
-- För klientportalen går du till https://portal.local.azurestack.external/guest/signup, Läs informationen och klicka sedan på **acceptera**. Efter att du godkänt, kan användare i katalogen logga in till klientportalen. 
-
-> [!NOTE] 
-> Om portalerna inte har aktiverat kan endast directory-administratör logga in och använda portalerna. Om en annan användare loggar in, visas ett fel som talar om att administratören inte har behörighet till andra användare. När administratören internt inte tillhör den katalog som Azure Stack är registrerad, måste Azure Stack-katalog läggas till Aktiverings-URL. Till exempel om Azure Stack är registrerad på fabrikam.onmicrosoft.com och administratören är admin@contoso.com, navigera till https://portal.local.azurestack.external/guest/signup/fabrikam.onmicrosoft.com att aktivera på portalen. 
 
 ## <a name="reset-the-password-expiration-policy"></a>Återställ förfalloprincipen för lösenord 
 Följ dessa steg för att säkerställa att lösenordet för development kit värden inte går ut innan din utvärderingsversion har upphört att gälla, när du har distribuerat ASDK.

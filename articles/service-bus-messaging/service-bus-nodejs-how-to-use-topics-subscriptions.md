@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.openlocfilehash: fbb43d07296ca573f0c4cb9f1e10e005633ade06
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: daabf711e923e1c4ff3132c5e4765bdbff206948
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700104"
+ms.locfileid: "43782919"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Använd Service Bus-ämnen och prenumerationer med Node.js
 
@@ -95,7 +95,7 @@ serviceBusService.createTopicIfNotExists('MyTopic',function(error){
 });
 ```
 
-Den `createServiceBusService` metoden stöder också ytterligare alternativ som gör att du kan åsidosätta standardinställningarna för ämnet, till exempel tid för TTL-värde eller högsta ämnesstorleken. 
+Den `createTopicIfNotExists` metoden stöder också ytterligare alternativ som gör att du kan åsidosätta standardinställningarna för ämnet, till exempel tid för TTL-värde eller högsta ämnesstorleken. 
 
 I följande exempel anger den maximala avsnitt storleken till 5 GB med tid TTL-värde på en minut:
 
@@ -235,7 +235,7 @@ var rule={
 }
 ```
 
-När ett meddelande skickas nu till `MyTopic`, kommer meddelandet att skickas till mottagare som prenumererar på den `AllMessages` ämnesprenumerationen levereras selektivt till mottagare som prenumererar på den `HighMessages` och `LowMessages` ämnesprenumerationer (beroende på meddelandeinnehåll).
+När ett meddelande skickas nu till `MyTopic`, de skickas till mottagare som prenumererar på den `AllMessages` ämnesprenumerationen levereras selektivt till mottagare som prenumererar på den `HighMessages` och `LowMessages` ämnesprenumerationer (beroende på den meddelandeinnehåll).
 
 ## <a name="how-to-send-messages-to-a-topic"></a>Hur du skickar meddelanden till ett ämne
 Om du vill skicka ett meddelande till en Service Bus-ämne, ditt program måste använda den `sendTopicMessage` -metoden för den **ServiceBusService** objekt.
@@ -268,7 +268,7 @@ Service Bus-ämnena stöder en maximal meddelandestorlek på 256 kB på [standar
 ## <a name="receive-messages-from-a-subscription"></a>Ta emot meddelanden från en prenumeration
 Meddelanden tas emot från en prenumeration med hjälp av den `receiveSubscriptionMessage` metoden på den **ServiceBusService** objekt. Som standard tas meddelanden bort från prenumerationen eftersom de är skrivskyddade. Du kan dock ange den valfria parametern `isPeekLock` till **SANT** att läsa (peek) och låsa meddelandet utan att ta bort den från prenumerationen.
 
-Standardbeteendet för att läsa och radera meddelandet som en del av åtgärden ta emot är den enklaste modellen och fungerar bäst för scenarier där ett program kan tolerera icke-bearbetning av ett meddelande om ett fel inträffar. Tänk dig ett scenario där konsumenten utfärdar en receive-begäran och sedan kraschar innan bearbetningen för att förstå det här beteendet. Eftersom Service Bus kommer att ha markerat meddelandet som Förbrukat, att sedan när programmet startas om och börjar förbruka meddelanden igen, ha missat meddelandet som förbrukades innan kraschen.
+Standardbeteendet för att läsa och radera meddelandet som en del av åtgärden ta emot är den enklaste modellen och fungerar bäst för scenarier där ett program kan tolerera icke-bearbetning av ett meddelande om ett fel inträffar. Tänk dig ett scenario där konsumenten utfärdar en receive-begäran och sedan kraschar innan bearbetningen för att förstå det här beteendet. Eftersom Service Bus har markerat meddelandet som Förbrukat, har sedan när programmet startas om och börjar förbruka meddelanden igen, det missat meddelandet som förbrukades innan kraschen.
 
 Om den `isPeekLock` parametern är inställd på **SANT**, ta emot blir en åtgärd i två steg, vilket gör det möjligt att stödprogram som inte tolererar att missade. När Service Bus tar emot en begäran, det upp nästa meddelande att använda låser det för att förhindra att andra användare från att ta emot den och tillbaka till programmet.
 När programmet kan bearbeta meddelandet (eller lagrar den på ett tillförlitligt sätt för framtida bearbetning), den är klar det andra steget i processen genom att anropa **deleteMessage** metoden och skickar meddelandet att ta bort som en parameter. Den **deleteMessage** metoden markerar meddelandet som Förbrukat och tas bort från prenumerationen.

@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 1f9facf94b8068b98aa49c49ece7070a83db0686
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 35572f046b3702deba56e86819b8ad0cd7ae6e9b
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665093"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842486"
 ---
 # <a name="creating-custom-voice-fonts"></a>Skapa anpassade rösttyper
 
@@ -31,13 +31,11 @@ Du behöver också en Azure-konto och en prenumeration på Speech-tjänsten. [Sk
 
 1. Logga in på den [anpassad röst portal](https://customvoice.ai) med samma Microsoft-konto som du använde för att tillämpa för åtkomst.
 
-2. Gå till ”Subscriptions” under kontonamnet på ditt längst upp till höger.
+2. Gå till alla prenumerationer under kontonamnet på ditt längst upp till höger.
 
     ![Prenumerationer](media/custom-voice/subscriptions.png)
 
 3. På sidan ”Subscriptions” väljer du Anslut befintlig prenumeration.
-
-     ![Ansluta befintliga prenumeration](media/custom-voice/connect-existing-sub.png)
 
 4. Klistra in din prenumerationsnyckel i tabellen, enligt nedan. Varje prenumeration har två nycklar och du kan använda någon av dessa.
 
@@ -122,7 +120,7 @@ När du har förberett din ljudfil arkivering och avskrifter, överföra dem via
 > [!NOTE]
 > Kostnadsfria användare kan ladda upp två datauppsättningar i taget. Standard-prenumerationsanvändare kan samtidigt överföra fem datauppsättningar. Om du når gränsen, vänta tills minst en av dina datauppsättningar har importerats, försök sedan igen.
 
-När överföringen är klar, visas tabellen Mina Voice-Data igen. Du bör se en post som motsvarar till din datauppsättning precis överförs. 
+När överföringen är klar, visas tabellen Mina Voice-Data igen. Du bör se en post som motsvarar till din datauppsättning precis överförs.
 
 Datauppsättningar verifieras automatiskt efter överföringen. Dataverifiering innehåller en rad kontroller på ljudfiler att verifiera sina filformat, storlek och samplingsfrekvensen. Kontrollerar om filerna som taltranskription verifiera filformatet och utföra vissa text normalisering. Talade transkriberas använder taligenkänning och den resulterande texten jämförs med avskrift som du angav.
 
@@ -189,17 +187,11 @@ Utbildning tiden varierar beroende på mängden bearbetade ljud data. Vanliga g�
 
 ## <a name="test-your-voice-font"></a>Testa din rösttyp
 
-När din rösttyp har har skapats, kan du testa den innan du distribuerar den för användning. Klicka på **Test** i kolumnen åtgärder. Testsidan visas för den valda rösttyp. Tabellen är tom om du ännu inte har skickat alla test-begäranden för röst.
-
-![Min Rösttyper, del 2](media/custom-voice/my-voice-fonts2.png)
+När din rösttyp har har skapats, kan du testa den innan du distribuerar den för användning. Klicka på **Test** i kolumnen åtgärder i min Rösttyper-tabellen. Testsidan visas för den valda rösttyp. Tabellen är tom om du ännu inte har skickat alla test-begäranden för röst.
 
 Klicka på **Test med text** knappen under tabelltitel så visas en popup-meny för att skicka begäranden om text. Du kan skicka din begäran för testning i oformaterad text eller SSML. Den maximala storleken för indata är 1 024 tecken, inklusive alla taggar för SSML begäran. Språk i texten måste vara samma som din rösttyp språk.
 
-![Röst teckensnitt för testning](media/custom-voice/voice-font-testing.png)
-
 När du fyller i textrutan och bekräftar läget som indata, klickar du på **Ja** att skicka din begäran för testning och återgå till testsidan. Tabellen innehåller nu en post som motsvarar din nya förfrågan och välbekanta statuskolumnen. Det kan ta några minuter att syntetisera tal. När statuskolumnen läser lyckades, du kan ladda ned textinmatningen (en `.txt` fil) och ljuduppspelning (en `.wav` fil) och lyssna det senare för kvalitet.
-
-![Röst teckensnitt testning, del 2](media/custom-voice/voice-font-testing2.png)
 
 ## <a name="create-and-use-a-custom-endpoint"></a>Skapa och använda en anpassad slutpunkt
 

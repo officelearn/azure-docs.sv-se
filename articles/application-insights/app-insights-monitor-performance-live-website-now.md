@@ -1,6 +1,6 @@
 ---
-title: "Övervaka en ASP.NET-livewebbapp med Azure Application Insights | Microsoft Docs"
-description: "Övervaka prestanda för en webbplats utan att distribuera den igen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure."
+title: Övervaka en ASP.NET-livewebbapp med Azure Application Insights | Microsoft Docs
+description: Övervaka prestanda för en webbplats utan att distribuera den igen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -10,21 +10,21 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 05/05/2017
+ms.topic: conceptual
+ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 869ea96072b1492db929c16cfb1e22b0c96bca7d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: 54a335cf1386ab29c0e0214bccf1f53a076da02b
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783601"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentera webbappar vid körning med Application Insights
 
+Du kan instrumentera en live-webbapp med Azure Application Insights utan att behöva ändra eller omdistribuera din kod. Om en lokal IIS-server är värd för dina appar, installerar du Statusövervakare. Om de är Azure-webbappar eller körs i en virtuell Azure-dator kan du aktivera Application Insights-övervakning från Azures kontrollpanel. (Det finns även olika artiklar om hur du instrumenterar [J2EE-livewebbappar](app-insights-java-live.md) och [Azure Cloud Services](app-insights-cloudservices.md).) Du behöver en [Microsoft Azure](http://azure.com)-prenumeration.
 
-Du kan instrumentera en live-webbapp med Azure Application Insights utan att behöva ändra eller omdistribuera din kod. Om dina appar hanteras av en lokal IIS-server installerar du	Statusövervakare. Om de är Azure-webbappar eller körs i en virtuell Azure-dator kan du aktivera Application Insights-övervakning från Azures kontrollpanel. (Det finns även olika artiklar om hur du instrumenterar [J2EE-livewebbappar](app-insights-java-live.md) och [Azure Cloud Services](app-insights-cloudservices.md).) Du behöver en [Microsoft Azure](http://azure.com)-prenumeration.
-
-![exempeldiagram](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
+![Skärmbild av App Insights översikt diagram som innehåller information om misslyckade förfrågningar, svarstid för servern och servern för serverbegäranden](./media/app-insights-monitor-performance-live-website-now/overview-graphs.png)
 
 Du kan tillämpa Application Insights på dina .NET-webbprogram via tre vägar:
 
@@ -69,7 +69,6 @@ Om du har aktiverat Application Insights i Azure kan du lägga till sidvy och an
     Nyckel: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
     
     Värde:`true`
-
 3. **Spara** inställningarna och **starta om** din app.
 
 Application Insights JavaScript SDK infogas nu i alla webbsidor.

@@ -6,25 +6,25 @@ documentationcenter: ''
 keywords: WAD2AI, Azure Diagnostics
 author: mrbullwinkle
 manager: carmonm
-editor: alancameronwills
 ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
 ms.service: application-insights
 ms.devlang: na
 ms.tgt_pltfrm: ibiza
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.workload: tbd
-ms.date: 05/05/2017
+ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: f36a9e21478d2629d705d90179a6db5175c78299
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: HT
+ms.openlocfilehash: 3b06ec3b10edc39d770e5a724125e70afd5e5477
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783606"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights för Azure Cloud Services
 Du kan övervaka [Microsoft Azure Cloud-tjänstapparnas](https://azure.microsoft.com/services/cloud-services/) tillgänglighet, prestanda, fel och användning med [Application Insights][start] genom att kombinera data från Application Insights SDK:er med data från [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) från Cloud Services. Med den feedback du får om appens prestanda och effektivitet kan du fatta välgrundade beslut om designen i varje utvecklingslivscykel.
 
-![Exempel](./media/app-insights-cloudservices/sample.png)
+![Skärmbild av instrumentpanel](./media/app-insights-cloudservices/overview-graphs.png)
 
 ## <a name="before-you-start"></a>Innan du börjar
 Du behöver:
@@ -81,9 +81,8 @@ Om du har valt att skapa en separat resurs för varje roll – och kanske en sep
 1. Skapa en ny Application Insights-resurs på [Azure Portal][portal]. Välj ASP.NET-app för programtyp. 
 
     ![Klicka på Nytt, Application Insights](./media/app-insights-cloudservices/01-new.png)
-2. Observera att varje resurs identifieras av en instrumenteringsnyckel. Du kanske behöver den senare om du vill konfigurera eller verifiera konfigurationen för SDK manuellt.
+2. Varje resurs identifieras av en Instrumenteringsnyckel. Du kanske behöver den senare om du vill konfigurera eller verifiera konfigurationen för SDK manuellt.
 
-    ![Klicka på Egenskaper, markera nyckeln och tryck på CTRL + C.](./media/app-insights-cloudservices/02-props.png) 
 
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Konfigurera Azure Diagnostics för varje roll
 Ange det här alternativet om du vill övervaka din app med Application Insights. För webbroller tillhandahåller det här alternativet prestandaövervakning, aviseringar och diagnostik, samt användningsanalys. För andra roller kan du söka efter och övervaka Azure-diagnostik, till exempel omstart, prestandaräknare och anrop till System.Diagnostics.Trace. 
@@ -107,14 +106,14 @@ I Visual Studio konfigurerar du Application Insights SDK för varje molnapprojek
 1. **Webbroller**: Högerklicka på projektet och välj **Konfigurera Application Insights** eller **Lägg till > Application Insights Telemetry**.
 
 2. **Arbetsroller**: 
- * Högerklicka på projektet och välj **Hantera Nuget-paket**.
+ * Högerklicka på projektet och välj **hantera NuGet-paket**.
  * Lägg till [Application Insights för Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
 
     ![Sök efter ”Application Insights”](./media/app-insights-cloudservices/04-ai-nuget.png)
 
 3. Konfigurera SDK att skicka data till Application Insights-resursen.
 
-    Ange instrumenteringsnyckeln från konfigurationsinställningen i .cscfg-filen i en lämplig startfunktion:
+    I en lämplig startfunktion ange instrumenteringsnyckeln från Konfigurationsinställningen i den ``.cscfg file``:
  
     ```csharp
    
@@ -128,7 +127,7 @@ I Visual Studio konfigurerar du Application Insights SDK för varje molnapprojek
    * [För webbsidor](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13) 
 4. Ange att filen ApplicationInsights.config alltid ska kopieras till utdatakatalogen. 
    
-    (I .config-filen visas meddelanden som uppmanar dig att placera instrumenteringsnyckeln där. Men för molnprogram är det dock bättre att ställa in den från .cscfg-filen. Detta säkerställer att rollen identifieras korrekt på portalen.)
+    (I .config-filen visas meddelanden som uppmanar dig att placera instrumenteringsnyckeln där. Men för molnprogram är det bättre att ställa in den från den ``.cscfg file``. Detta säkerställer att rollen identifieras korrekt på portalen.)
 
 #### <a name="run-and-publish-the-app"></a>Köra och publicera appen
 Kör appen och logga in i Azure. Öppna de Application Insights-resurser som du skapade så ser du enskilda datapunkter som visas i [Sök](app-insights-diagnostic-search.md), och aggregerade data i [Metric Explorer](app-insights-metrics-explorer.md). 
@@ -152,7 +151,7 @@ Om du vill visa prestandaräknare och antalet händelser öppnar du [Metrics Exp
 
 ![Azure-diagnostikdata](./media/app-insights-cloudservices/23-wad.png)
 
-Använd [Sök](app-insights-diagnostic-search.md) eller en [Analytics-fråga](app-insights-analytics-tour.md) för att söka igenom de olika spårningsloggarna som skickas av Azure Diagnostics. Anta exempelvis att du har ett ohanterat undantag som gjorde att en roll kraschade och återanvändes. Den här informationen skulle visas i kanalen Program i Windows-händelseloggen. Du kan använda Sök för att granska felet i Windows-händelseloggen och visa den fullständiga stackspårningen för undantaget. Det gör det lättare att hitta grundorsaken till problemet.
+Använd [Sök](app-insights-diagnostic-search.md) eller en [Analytics-fråga](app-insights-analytics-tour.md) för att söka igenom de olika spårningsloggarna som skickas av Azure Diagnostics. Anta exempelvis att du har ett ohanterat undantag som gjorde att en roll kraschade och återanvändes. Den här informationen skulle visas i kanalen Program i Windows-händelseloggen. Du kan använda Sök för att granska felet i Windows-händelseloggen och visa den fullständiga stackspårningen för undantaget. Detta hjälper dig att hitta den bakomliggande orsaken till problemet.
 
 ![Söka i Azure Diagnostics](./media/app-insights-cloudservices/25-wad.png)
 
@@ -197,7 +196,7 @@ För webbroller samlas även dessa räknare in:
 
 Du kan ange fler anpassade prestandaräknare eller andra Windows-prestandaräknare genom att redigera ApplicationInsights.config [som i det här exemplet](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
 
-  ![Prestandaräknare](./media/app-insights-cloudservices/OLfMo2f.png)
+  ![Prestandaräknare](./media/app-insights-cloudservices/002-servers.png)
 
 ## <a name="correlated-telemetry-for-worker-roles"></a>Korrelerad telemetri för arbetsroller
 Det är en omfattande diagnostikupplevelse där du kan se vad som ledde till en misslyckad begäran eller en begäran med lång svarstid. Med webbroller konfigurerar SDK automatiskt sambandet mellan relaterad telemetri. För arbetsroller kan du uppnå detta genom att använda en anpassad telemetriinitierare och ange ett gemensamt Operation.Id-kontextattribut för all telemetri. På så sätt kan du snabbt se om fördröjningen/felet orsakades på grund av ett beroende eller din kod. 
@@ -206,11 +205,7 @@ Så här gör du:
 
 * Ange korrelations-ID:t i en CallContext som du ser [här](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36). I detta fall använder vi ID:t för begäran som korrelations-ID
 * Lägg till en anpassad TelemetryInitializer-implementering och ange Operation.Id till det correlationId som du angav ovan. Ett exempel finns här: [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13)
-* Lägg till den anpassade telemetriinitieraren. Du kan göra det i filen applicationinsights.config eller i koden som du ser [här](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233)
-
-Klart! Portalmiljön är redan utformad så att du snabbt ser all telemetri:
-
-![Korrelerad telemetri](./media/app-insights-cloudservices/bHxuUhd.png)
+* Lägg till den anpassade telemetriinitieraren. Du kan göra det i filen ApplicationInsights.config eller i koden som visas [här](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233).
 
 ## <a name="client-telemetry"></a>Klienttelemetri
 [Lägg till JavaScript SDK till dina webbsidor][client] om du vill visa webbläsarbaserad telemetri, till exempel antal sidvisningar, inläsningstider för sidor och skriptundantag, samt om du vill skriva anpassad telemetri i dina sidskript.

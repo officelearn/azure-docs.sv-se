@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2060239b27ef05c34ea6f5b388b4c4086a44a826
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 037c2714d146bd59b30573df874794342d743e03
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42058184"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782240"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Underordnade runbooks i Azure Automation
 
@@ -72,7 +72,9 @@ Om du inte vill att den överordnade runbooken blockeras på att vänta, du kan 
 
 Parametrar för en underordnad runbook som startas med en cmdlet tillhandahålls som en hash-tabell enligt beskrivningen i [Runbookparametrar](automation-starting-a-runbook.md#runbook-parameters). Endast enkla datatyper kan användas. Om runbooken har en parameter med en komplex datatyp, det måste den anropas infogad.
 
-Om du arbetar med flera prenumerationer prenumerationskontexten kan gå förlorade vid underordnade runbooks. För att säkerställa att prenumerationskontexten överförs till underordnade runbooks, lägger du till den `DefaultProfile` parameter till cmdleten och pass kontexten till den.
+Prenumerationskontexten förlorade vid underordnade runbooks som separat jobb. För den underordnade runbooken ska anropa Azure RM-cmdlet: ar mot en önskad Azure-prenumeration, måste den underordnade runbooken autentisera till den här prenumerationen oberoende av den överordnade runbooken.
+
+Om jobb i samma Automation-kontot fungerar med flera prenumerationer kan kan att välja en prenumeration i ett jobb ändras den markerade prenumerationskontext för andra jobb, som normalt inte är önskvärt. Om du vill undvika det här problemet, spara resultatet av den `Select-AzureRmSubscription` cmdlet-anrop och pass detta objekt till den `DefaultProfile` -parametern för alla de efterföljande Azure RM-cmdlet: ar anrop. Det här mönstret måste tillämpas konsekvent för alla runbooks som körs i Automation-kontot.
 
 ### <a name="example"></a>Exempel
 

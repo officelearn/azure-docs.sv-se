@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: bd9988925b3c9a253d8c7e4632fea303a070fe38
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782871"
 documentType: LandingData
 title: Dokumentation om Azure Machine Learning Studio
 metadata:
@@ -14,12 +20,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/18/2018
   ms.author: jmartens
-  ms.openlocfilehash: 1ea3075556006c06e23a4e006ef9f5b5dce8ede8
-  ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 06/07/2018
-  ms.locfileid: "34834408"
 abstract:
   description: Azure Machine Learning Studio är ett dra-och-släpp-verktyg där flera användare kan samarbeta för att bygga, testa och distribuera prediktiva analyslösningar utifrån dina data. Självstudier, videor och exempelmodeller visar hur du använder Studio för att skapa och distribuera Machine Learning-modeller.
 sections:
@@ -68,8 +68,8 @@ sections:
     className: cardsD
     items:
     - title: Kommandorad
-      html: <p><a href="/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning">PowerShell-modul (ny)</a></p><p><a href="powershell-module">PowerShell-modul (klassisk)</a></p>
+      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.machinelearning">PowerShell-modul (ny)</a></p><p><a href="powershell-module">PowerShell-modul (klassisk)</a></p>
     - title: Moduler
       html: <p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">Algoritm- och modulreferens</a></p>
     - title: REST
-      html: <p><a href="/rest/api/machinelearning">Hantering av REST API:er</a></p><p><a href="web-service-error-codes">Felkoder för webbtjänst</a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/machinelearning/">Hantering av REST API:er</a></p><p><a href="web-service-error-codes">Felkoder för webbtjänst</a></p>

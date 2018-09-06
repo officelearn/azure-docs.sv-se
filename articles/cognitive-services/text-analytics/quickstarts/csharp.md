@@ -7,14 +7,14 @@ author: luiscabrer
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 08/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 4bf5179ade6f49b847b8b674d33652071e19a769
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 42a682898303b742a17b0a6d4d98c2b9fedf9003
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41987506"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841702"
 ---
 # <a name="quickstart-for-the-text-analytics-api-with-c"></a>Snabbstart för textanalys-API med C# 
 <a name="HOLTop"></a>
@@ -35,7 +35,7 @@ Du måste också ha den [slutpunkt och åtkomstnyckel](../How-tos/text-analytics
 1. Högerklicka på lösningen och välj **hantera NuGet-paket för lösningen**.
 1. Välj den **inkludera förhandsversion** markerar du kryssrutan.
 1. Välj den **Bläddra** fliken och Sök efter **Microsoft.Azure.CognitiveServices.Language**.
-1. Välj NuGet-paketet och installera den.
+1. Välj den **Microsoft.Azure.CognitiveServices.Language.TextAnalytics** NuGet paketera och installera den.
 
 > [!Tip]
 > Även om du kan anropa den [HTTP-slutpunkter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) direkt från C#, Microsoft.Azure.CognitiveServices.Language SDK gör det enklare att anropa tjänsten utan att behöva bekymra dig om serialisering och avserialisering av JSON.
@@ -57,6 +57,7 @@ using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
 using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
 using System.Collections.Generic;
 using Microsoft.Rest;
+using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -87,7 +88,13 @@ namespace ConsoleApp1
             };
 
             Console.OutputEncoding = System.Text.Encoding.UTF8;
+```
 
+## <a name="detect-language"></a>Identifiera språk
+
+Language identifiering API identifierar språket för dokument, med hjälp av den [identifiera språk metoden](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
+
+```csharp
             // Extracting language.
             Console.WriteLine("===== LANGUAGE EXTRACTION ======");
 
@@ -104,7 +111,13 @@ namespace ConsoleApp1
             {
                 Console.WriteLine("Document ID: {0} , Language: {1}", document.Id, document.DetectedLanguages[0].Name);
             }
+```
 
+## <a name="extract-key-phrases"></a>Extrahera nyckelfraser
+
+Key frasen extrahering API: et extraherar nyckelfraser från en text dokument, med hjälp av den [Nyckelfraser metoden](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6).
+
+```csharp
             // Getting key phrases.
             Console.WriteLine("\n\n===== KEY-PHRASE EXTRACTION ======");
 
@@ -129,8 +142,14 @@ namespace ConsoleApp1
                     Console.WriteLine("\t\t" + keyphrase);
                 }
             }
+```
 
-            // Extracting sentiment.
+## <a name="analyze-sentiment"></a>Analysera sentiment
+
+API för Attitydstextanalys Analysis identifierar känslan i texten postuppsättningar med hjälp av den [Sentiment metoden](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9).
+
+```csharp
+            // Analyzing sentiment.
             Console.WriteLine("\n\n===== SENTIMENT ANALYSIS ======");
 
             SentimentBatchResult result3 = client.SentimentAsync(
@@ -149,6 +168,29 @@ namespace ConsoleApp1
             {
                 Console.WriteLine("Document ID: {0} , Sentiment Score: {1:0.00}", document.Id, document.Score);
             }
+```
+
+## <a name="identify-linked-entities"></a>Identifiera länkade entiteter
+
+API för Entity Linking identifierar välkända entiteter i en text dokument, med hjälp av den [Entitetslänkning metoden](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634).
+
+```csharp
+            // Linking entities
+            Console.WriteLine("\n\n===== ENTITY LINKING ======");
+
+            EntitiesBatchResult result4 = client.EntitiesAsync(
+                    new MultiLanguageBatchInput(
+                        new List<MultiLanguageInput>()
+                        {
+                            new MultiLanguageInput("en", "0", "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable."),
+                            new MultiLanguageInput("en", "1", "The Seattle Seahawks won the Super Bowl in 2014."),
+                        })).Result;
+
+            // Printing entity results.
+            foreach (var document in result4.Documents)
+            {
+                Console.WriteLine("Document ID: {0} , Entities: {1}", document.Id, String.Join(", ", document.Entities.Select(entity => entity.Name)));
+            }
         }
     }
 }
@@ -163,4 +205,3 @@ namespace ConsoleApp1
 
  [Översikt över text Analytics](../overview.md)  
  [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)
-

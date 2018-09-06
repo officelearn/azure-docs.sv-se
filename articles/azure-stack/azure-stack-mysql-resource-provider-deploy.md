@@ -11,19 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 6d6ee22bd1691f1af6956330b3299a1483c588f7
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 722df244135d045e18b9f2d0dd88066ba00b7d49
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696650"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841887"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Distribuera MySQL-resursprovider i Azure Stack
 
 Använda resursprovidern MySQL-Server för att visa MySQL-databaser som en tjänst för Azure Stack. MySQL-resursprovider körs som en tjänst på en Windows Server 2016 Server Core-dator (VM).
+
+> [!IMPORTANT]
+> Endast resursprovidern stöds för att skapa objekt på servrar som värd SQL eller MySQL. Objekt som har skapats på en värdserver som inte skapats med resursprovidern kan resultera i ett felaktigt tillstånd.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -150,6 +153,7 @@ Uppdatera webbläsaren för att kontrollera att du kan se de senaste uppdatering
 2. Välj **resursgrupper**
 3. Välj den **system.\< plats\>.mysqladapter** resursgrupp.
 4. På sidan Sammanfattning för resursgruppen översikt bör det finnas inga misslyckade distributioner.
+5. Välj slutligen **virtuella datorer** på administrationsportalen för att verifiera att MySQL-resursprovider VM har skapats och körs.
 
 ## <a name="next-steps"></a>Nästa steg
 

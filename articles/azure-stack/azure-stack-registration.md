@@ -12,19 +12,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: ebf10c7f0fb90d976062300854f69369dba946fa
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 5a6dcddce3337989a7a34515570ac3277aa1edd5
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340174"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841938"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrera Azure Stack med Azure
 
 Registrera Azure Stack med Azure kan du hämta marketplace-objekt från Azure och konfigurera handelsdata rapporterar tillbaka till Microsoft. När du har registrerat Azure Stack användning rapporteras till Azure commerce och du kan se dem under den prenumeration som användes för registrering.
+
+I den här artikeln beskrivs registrera integrerade Azure Stack-system med Azure. Information om hur du registrerar ASDK med Azure finns i [Azure Stack-registrering](.\asdk\asdk-register.md) i ASDK-dokumentationen.
 
 > [!IMPORTANT]  
 > Registrering krävs för att stödja fullständig Azure Stack-funktioner, inklusive erbjuder objekt i marketplace. Du kan dessutom strider mot Azure Stack licensvillkoren om du inte registrerar när du använder faktureringsmodellen betalning som du-användning. Läs mer om Azure Stack licensiering modeller i den [köpa sidan](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).

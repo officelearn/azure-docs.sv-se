@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: 5b3cea87e7762e492432722c54a1a8aaa342b84a
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: d2ab34b3737ec00e4adc464f6d2255203fb6ae08
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42062078"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43840627"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Lägg till Key Vault i ditt webbprogram med hjälp av Visual Studio Connected Services
 
@@ -74,6 +74,10 @@ Du kan nu komma åt dina hemligheter i kod. Nästa steg är olika beroende på o
 
 ## <a name="access-your-secrets-in-code-aspnet-core-projects"></a>Få åtkomst till dina hemligheter i kod (ASP.NET Core-projekt)
 
+Anslutningen till Key Vault har ställts in vid start av en klass som implementerar [Microsoft.AspNetCore.Hosting.IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup?view=aspnetcore-2.1) med hjälp av ett sätt att utöka appkonfigurering som beskrivs i [förbättra en app från en extern sammansättningen i ASP.NET Core med IHostingStartup](/aspnet/core/fundamentals/host/platform-specific-configuration). Start-klassen använder två miljövariabler som innehåller anslutningsinformationen för Key Vault: ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONENABLED, inställd på true och ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONVAULT, ange den nya nyckeln Vault-URL. Dessa läggs till i filen launchsettings.json när du kör den **Lägg till Connected Service** processen.
+
+Öppna dina hemligheter:
+
 1. I Visual Studio kan i ASP.NET Core-projektet du nu referera till dessa hemligheter med hjälp av följande uttryck i koden:
  
    ```csharp
@@ -99,6 +103,10 @@ Du kan nu komma åt dina hemligheter i kod. Nästa steg är olika beroende på o
 1. Skapa och köra webbprogrammet, gå till sidan om och se ”hemlighet”-värde.
 
 ## <a name="access-your-secrets-in-code-aspnet-471-projects"></a>Få åtkomst till dina hemligheter i kod (ASP.NET 4.7.1 projekt)
+
+Anslutningen till ditt Nyckelvalv har ställts in av klassen ConfigurationBuilder med hjälp av information som har lagts till i din web.config-fil när du kör den **Lägg till Connected Service** processen.
+
+Öppna dina hemligheter:
 
 1. Ändra web.config enligt följande. Nycklarna är platshållare som kommer att ersättas av AzureKeyVault ConfigurationBuilder med värdena för hemligheter i Key Vault.
 

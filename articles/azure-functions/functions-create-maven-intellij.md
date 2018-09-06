@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 5e265543e2ce5feeed095d89cdb47ede9817bad1
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 317d8bf40ef152e5b7dae6406be29330feaaa8d3
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40002686"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842489"
 ---
 # <a name="create-your-first-function-with-java-and-intellij-preview"></a>Skapa din första funktion med Java och IntelliJ (förhandsversion)
 
@@ -80,11 +80,11 @@ Starta funktionen värden i felsökningsläge genom att lägga till **- DenableD
 mvn azure-functions:run -DenableDebug
 ```
 
-Felsöka i IntelliJ, i den **kör** väljer du menyn **redigera konfigurationer**. Klicka på ** + ** att lägga till en **Remote**. Fyll i **namn** och **inställningar**, och klicka sedan på **OK** att spara konfigurationen. Efter installationen klickar du på **felsöka** ”din fjärranslutna Configuration namn” eller trycker på **SKIFT + F9** att starta felsökningen.
+Felsöka i IntelliJ, i den **kör** väljer du menyn **redigera konfigurationer**. Klicka på **+** att lägga till en **Remote**. Fyll i **namn** och **inställningar**, och klicka sedan på **OK** att spara konfigurationen. Efter installationen klickar du på **felsöka** ”din fjärranslutna Configuration namn” eller trycker på **SKIFT + F9** att starta felsökningen.
 
 ![Felsökningsfunktioner i IntelliJ](media/functions-create-first-java-intellij/debug-configuration-intellij.PNG)
 
-När du är klar stoppa felsökningen och processen. Enda funktion värden kan vara aktiv och körs lokalt på tidpunkt.
+När du är klar stoppa felsökningen och processen. Enda funktion värden kan vara aktiv och körs lokalt i taget.
 
 ## <a name="deploy-the-function-to-azure"></a>Distribuera funktionen till Azure
 

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8b5f62daf2b43453aadb0373171bc98f96494688
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 58a33b2d3f06deab4f31c76e04d45f8bd0bbba4c
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215075"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841972"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory-direktautentisering: Vanliga frågor och svar
 
@@ -48,7 +48,7 @@ Ja. Har stöd för direktautentisering `Alternate ID` som användarnamn när du 
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>Synkronisering av lösenordshash fungera som reserv för direktautentisering?
 
-Nej. Direktautentisering _inte_ automatiskt växla över till synkronisering av lösenordshash. Det fungerar endast som reserv för [scenarier som direktautentisering inte stöder idag](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Om du vill undvika användaren inloggningar, bör du konfigurera direktautentisering för [hög tillgänglighet](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
+Nej. Direktautentisering _inte_ automatiskt växla över till synkronisering av lösenordshash. Om du vill undvika användaren inloggningar, bör du konfigurera direktautentisering för [hög tillgänglighet](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Kan jag installera en [Azure AD Application Proxy](../manage-apps/application-proxy.md) anslutningsapp på samma server som en Autentiseringsagenten för direktautentisering?
 
@@ -56,17 +56,17 @@ Ja. Rebranded versioner av Autentiseringsagenten för direktautentisering, versi
 
 ## <a name="what-versions-of-azure-ad-connect-and-pass-through-authentication-agent-do-you-need"></a>Vilka versioner av Azure AD Connect och Autentiseringsagenten för direktautentisering behöver du?
 
-För den här funktionen ska fungera måste version 1.1.486.0 eller senare för Azure AD Connect och 1.5.58.0 eller senare för Autentiseringsagenten för direktautentisering. Installera all programvara på servrar med Windows Server 2012 R2 eller senare.
+För den här funktionen ska fungera måste version 1.1.750.0 eller senare för Azure AD Connect och 1.5.193.0 eller senare för Autentiseringsagenten för direktautentisering. Installera all programvara på servrar med Windows Server 2012 R2 eller senare.
 
 ## <a name="what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication"></a>Vad händer om min användarens lösenord har upphört att gälla och de försöker logga in med hjälp av direktautentisering?
 
-Om du har konfigurerat [tillbakaskrivning av lösenord](../user-help/active-directory-passwords-update-your-own-password.md) för en viss användare, och om användaren loggar in med hjälp av direktautentisering, de kan ändra eller återställa sina lösenord. Lösenorden som skrivs tillbaka till den lokala Active Directory som förväntat.
+Om du har konfigurerat [tillbakaskrivning av lösenord](../authentication/concept-sspr-writeback.md) för en viss användare, och om användaren loggar in med hjälp av direktautentisering, de kan ändra eller återställa sina lösenord. Lösenorden som skrivs tillbaka till den lokala Active Directory som förväntat.
 
 Om du inte har konfigurerat tillbakaskrivning av lösenord för en viss användare eller om användaren inte har en giltig Azure AD-licens, användaren kan inte uppdatera sina lösenord i molnet. De kan inte uppdatera sina lösenord, även om deras lösenord har upphört att gälla. I stället ser användaren det här meddelandet: ”din organisation tillåter inte att du ändrar ditt lösenord på den här platsen. Uppdatera den enligt den metod som din organisation rekommenderar eller be din administratör om du behöver hjälp ”. Användaren eller administratören måste återställa sina lösenord i den lokala Active Directory.
 
 ## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>Hur direktautentisering skyddar dig mot lösenord brute force-attacker?
 
-Läs [Azure Active Directory-direktautentisering: Smart kontoutelåsning](../authentication/howto-password-smart-lockout.md) för mer information.
+[Information om Smart kontoutelåsning](../authentication/howto-password-smart-lockout.md).
 
 ## <a name="what-do-pass-through-authentication-agents-communicate-over-ports-80-and-443"></a>Vad direkt Autentiseringsagenter kommunicerar via port 80 och 443?
 
@@ -82,7 +82,7 @@ Ja. Om Web Proxy Auto-Discovery (WPAD) är aktiverad i din lokala miljö, förs�
 
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>Kan jag installera två eller flera Autentiseringsagenter för direkt på samma server?
 
-Nej, kan du endast installera en Autentiseringsagenten för direktautentisering på en enskild server. Om du vill konfigurera direktautentisering för hög tillgänglighet, följer du anvisningarna i [Azure Active Directory-direktautentisering: Snabbstart](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
+Nej, kan du endast installera en Autentiseringsagenten för direktautentisering på en enskild server. Om du vill konfigurera direktautentisering för hög tillgänglighet, [följa instruktionerna här](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Hur tar jag bort en Autentiseringsagenten för direktautentisering?
 
@@ -116,6 +116,10 @@ Två eller tre Autentiseringsagenter totalt är tillräckliga för hög tillgän
 ## <a name="can-i-install-the-first-pass-through-authentication-agent-on-a-server-other-than-the-one-that-runs-azure-ad-connect"></a>Kan jag installera den första Autentiseringsagenten för direktautentisering på en server än den som kör Azure AD Connect?
 
 Nej, det här scenariot är _inte_ stöds.
+
+## <a name="why-do-i-need-a-cloud-only-global-administrator-account-to-enable-pass-through-authentication"></a>Varför behöver jag en endast molnbaserad globala administratörskonto för att aktivera direktautentisering
+
+Vi rekommenderar att du aktiverar eller inaktiverar direktautentisering med ett globalt administratörskonto enbart i molnet. Lär dig mer om [att lägga till ett globalt administratörskonto molnbaserad](../active-directory-users-create-azure-portal.md). Göra det på så sätt säkerställer du att du inte blir utelåst från klientorganisationen.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>Hur kan jag inaktivera direktautentisering?
 

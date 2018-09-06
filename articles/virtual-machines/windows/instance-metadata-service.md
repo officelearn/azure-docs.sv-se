@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: de597424c1be01e651068b7900acbece822610b1
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: d64233883d2dd6fb174c55467fcfcd276b452775
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008383"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782998"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
 
@@ -37,10 +37,10 @@ Tjänsten är tillgänglig i allmänt tillgängliga Azure-regioner. Inte alla AP
 
 Regioner                                        | Tillgänglighet?                                 | Versioner som stöds
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Alla allmänt tillgängliga Azure-regioner globalt](https://azure.microsoft.com/regions/)     | Allmänt tillgänglig   | 2018-02-01 till 2017-12-01 till 2017-08-01 till 2017-04-02
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Allmänt tillgänglig | 2017-04-02,2017-08-01
-[Azure Kina](https://www.azure.cn/)                                                           | Allmänt tillgänglig | 2017-04-02,2017-08-01
-[Azure Tyskland](https://azure.microsoft.com/overview/clouds/germany/)                    | Allmänt tillgänglig | 2017-04-02,2017-08-01
+[Alla allmänt tillgängliga Azure-regioner globalt](https://azure.microsoft.com/regions/)     | Allmänt tillgänglig   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Allmänt tillgänglig | 2018-02-01 till 2017-12-01 till 2017-08-01 till 2017-04-02
+[Azure Kina](https://www.azure.cn/)                                                           | Allmänt tillgänglig | 2018-02-01 till 2017-12-01 till 2017-08-01 till 2017-04-02
+[Azure Tyskland](https://azure.microsoft.com/overview/clouds/germany/)                    | Allmänt tillgänglig | 2018-02-01 till 2017-12-01 till 2017-08-01 till 2017-04-02
 
 Den här tabellen uppdateras när det finns uppdateringar av tjänsten och eller nya versioner som stöds är tillgängliga
 
@@ -49,7 +49,7 @@ Om du vill prova Instance Metadata Service, skapa en virtuell dator från [Azure
 ## <a name="usage"></a>Användning
 
 ### <a name="versioning"></a>Versionshantering
-Instance Metadata Service är en ny version. Versioner är obligatoriska och den aktuella versionen på Global Azure är `2017-12-01`. Aktuella versioner som stöds är (2017-04-02, 2017-08-01,2017-12-01)
+Instance Metadata Service är en ny version. Versioner är obligatoriska och den aktuella versionen på Global Azure är `2018-04-02`. Aktuella versioner som stöds är (2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02)
 
 > [!NOTE] 
 > Föregående förhandsversionerna av schemalagda händelser stöds {senaste} som den api-versionen. Det här formatet stöds inte längre och kommer att bli inaktuella i framtiden.
@@ -299,6 +299,8 @@ subscriptionId | Azure-prenumeration för den virtuella datorn | 2017-08-01
 tags | [Taggar](../../azure-resource-manager/resource-group-using-tags.md) för den virtuella datorn  | 2017-08-01
 resourceGroupName | [Resursgrupp](../../azure-resource-manager/resource-group-overview.md) för den virtuella datorn | 2017-08-01
 placementGroupId | [Placeringsgrupp](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) för VM-skalningsuppsättning | 2017-08-01
+plan | [Planera] (https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/createorupdate#plan) för en virtuell dator i den är en Azure Marketplace-avbildning, som innehåller namn, produkt och utgivare | 2017-04-02
+publicKeys | Samling med offentliga nycklar [https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/createorupdate#sshpublickey] tilldelats den virtuella datorn och sökvägar | 2017-04-02
 vmScaleSetName | [Namn på virtuell dator ScaleSet](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för VM-skalningsuppsättning | 2017-12-01
 zon | [Tillgänglighetszon](../../availability-zones/az-overview.md) för den virtuella datorn | 2017-12-01 
 ipv4/privateIpAddress | Lokala IPv4-adressen för den virtuella datorn | 2017-04-02
@@ -379,6 +381,39 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 }
 ```
 
+
+### <a name="getting-azure-environment-where-the-vm-is-running"></a>Hämta Azure-miljön där Virtuellt datorn körs 
+
+Azure har olika soverign moln som [Azure Government](https://azure.microsoft.com/overview/clouds/government/) , du ibland behöva till Azure-miljön att fatta beslut om vissa runtime. Följande exempel visar hur du kan åstadkomma detta
+
+**Förfrågan**
+
+```
+  $metadataResponse = Invoke-WebRequest "http://169.254.169.254/metadata/instance/compute?api-version=2018-02-01" -H @{"Metadata"="true"} -UseBasicParsing
+  $metadata = ConvertFrom-Json ($metadataResponse.Content)
+ 
+  $endpointsResponse = Invoke-WebRequest "https://management.azure.com/metadata/endpoints?api-version=2017-12-01" -UseBasicParsing
+  $endpoints = ConvertFrom-Json ($endpointsResponse.Content)
+ 
+  foreach ($cloud in $endpoints.cloudEndpoint.PSObject.Properties) {
+    $matchingLocation = $cloud.Value.locations | Where-Object {$_ -match $metadata.location}
+    if ($matchingLocation) {
+      $cloudName = $cloud.name
+      break
+    }
+  }
+ 
+  $environment = "Unknown"
+  switch ($cloudName) {
+    "public" { $environment = "AzureCloud"}
+    "usGovCloud" { $environment = "AzureUSGovernment"}
+    "chinaCloud" { $environment = "AzureChinaCloud"}
+    "germanCloud" { $environment = "AzureGermanCloud"}
+  }
+ 
+  Write-Host $environment
+```
+
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>Exempel på hur metadatatjänsten med olika språk på den virtuella datorn 
 
 Språk | Exempel 
@@ -404,7 +439,7 @@ Puppet | https://github.com/keirans/azuremetadata
    * Instance Metadata Service stöder för närvarande endast instanser som skapats med Azure Resource Manager. I framtiden, stöd för virtuella datorer molnet kan läggas till.
 3. Jag har skapat Min virtuella dator via Azure Resource Manager en tid sedan. Varför kan jag inte se compute metadatainformation?
    * För virtuella datorer som skapats efter Sep 2016, lägga till en [taggen](../../azure-resource-manager/resource-group-using-tags.md) att börja Se compute metadata. För äldre virtuella datorer (som skapats före 2016 Sep), Lägg till/ta bort tillägg eller data diskar till den virtuella datorn att uppdatera metadata.
-4. Jag ser inte alla data som har fyllts i för ny version av 2017-08-01
+4. Jag ser inte alla data som har fyllts i för ny version
    * För virtuella datorer som skapats efter Sep 2016, lägga till en [taggen](../../azure-resource-manager/resource-group-using-tags.md) att börja Se compute metadata. För äldre virtuella datorer (som skapats före 2016 Sep), Lägg till/ta bort tillägg eller data diskar till den virtuella datorn att uppdatera metadata.
 5. Varför får jag felet `500 Internal Server Error`?
    * Försök igen med din begäran utifrån exponentiell backoff-system. Kontakta Azure-supporten om problemet kvarstår.
@@ -414,6 +449,10 @@ Puppet | https://github.com/keirans/azuremetadata
    * Ja är Metadata service tillgänglig för skala ange instanser. 
 8. Hur får jag support för tjänsten?
    * Om du vill få support för tjänsten, skapa ett supportärende i Azure portal för den virtuella datorn där det inte går att hämta metadata svar efter långt återförsök 
+9. Jag får timeout för min anrop för begäran i tjänsten?
+   * Metadata-anrop måste göras från den primära IP-adress som tilldelats till nätverkskortet för den virtuella datorn, även om du har ändrat vägarna det måste vara en väg för 169.254.0.0/16 adress utanför nätverkskortet.
+10. Jag har uppdaterat min taggarna i skalningsuppsättningen för virtuella datorer, men de visas inte i instanser till skillnad från virtuella datorer?
+   * För närvarande för ScaleSets visar taggar endast att den virtuella datorn på en omstart/reimage/eller ändrar du en disk till instansen. 
 
    ![Stöd för instans-Metadata](./media/instance-metadata-service/InstanceMetadata-support.png)
     

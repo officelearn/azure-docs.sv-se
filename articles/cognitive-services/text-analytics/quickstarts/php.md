@@ -1,44 +1,44 @@
 ---
-title: PHP Snabbstartsguide för Azure kognitiva-tjänster, Text Analytics API | Microsoft Docs
-description: Hämta information och exempel på kod för att snabbt komma igång med Text Analytics API i kognitiva Microsoft-tjänster i Azure.
+title: PHP-Snabbstart för Azure Cognitive Services API för textanalys | Microsoft Docs
+description: Hämta information och exempel på kod som hjälper dig att snabbt komma igång med API för textanalys i Microsoft Cognitive Services på Azure.
 services: cognitive-services
 documentationcenter: ''
 author: ashmaka
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 08/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 837a9bab4a4b20be95f03bea0cc97b0b3f414d82
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2f654736e998652ecaf8825b308c7ff3bf84a924
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352707"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43840778"
 ---
-# <a name="quickstart-for-text-analytics-api-with-php"></a>Snabbstart för textanalys API med PHP 
+# <a name="quickstart-for-text-analytics-api-with-php"></a>Snabbstart för textanalys-API med PHP 
 <a name="HOLTop"></a>
 
-Den här artikeln beskrivs hur du till [identifiera språk](#Detect), [analysera sentiment](#SentimentAnalysis), [extrahera nyckeln fraser](#KeyPhraseExtraction), och [identifiera länkade entiteter](#Entities) med den [Text Analytics API: er](//go.microsoft.com/fwlink/?LinkID=759711) med PHP.
+Den här artikeln visar hur du [identifiera språk](#Detect), [analysera sentiment](#SentimentAnalysis), [extrahera nyckelfraser](#KeyPhraseExtraction), och [identifiera länkade entiteter](#Entities) med hjälp av den [Text Analytics API: er](//go.microsoft.com/fwlink/?LinkID=759711) med PHP.
 
 Referera till den [API-definitioner](//go.microsoft.com/fwlink/?LinkID=759346) för teknisk dokumentation för API: erna.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du måste ha en [kognitiva Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **Text Analytics API**. Du kan använda den **kostnadsfria nivån för 5 000 transaktioner per månad** att slutföra denna Snabbstart.
+Du måste ha en [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API för textanalys**. Du kan använda den **kostnadsfri nivå för 5 000 transaktioner per månad** att slutföra den här snabbstarten.
 
-Du måste ha den [slutpunkt och åtkomstnyckeln](../How-tos/text-analytics-how-to-access-key.md) som genererades för dig när du registrerar dig. 
+Du måste också ha den [slutpunkt och åtkomstnyckel](../How-tos/text-analytics-how-to-access-key.md) som genererades för dig när du registrerade dig. 
 
 <a name="Detect"></a>
 
 ## <a name="detect-language"></a>Identifiera språk
 
-Språk identifiering API identifierar språket för en textsträng dokument, med hjälp av den [identifiera språk metoden](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
+Language identifiering API identifierar språket för dokument, med hjälp av den [identifiera språk metoden](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
 
-1. Skapa ett nytt PHP-projekt i din favorit IDE.
+1. Skapa ett nytt PHP-projekt i din favorit-IDE.
 2. Lägg till koden nedan.
-3. Ersätt den `accessKey` värde med en giltig snabbtangent för din prenumeration.
-4. Ersätt platsen i `host` (för närvarande `westus`) till den region som du registrerade dig för.
+3. Ersätt den `accessKey` värde med en giltig åtkomstnyckel för din prenumeration.
+4. Ersätt plats i `host` (för närvarande `westus`) till den region som du registrerat dig för.
 5. Kör programmet.
 
 ```php
@@ -52,7 +52,7 @@ Språk identifiering API identifierar språket för en textsträng dokument, med
 // **********************************************
 
 // Replace the accessKey string value with your valid access key.
-$accessKey = 'enter key here';
+$accessKey = 'ENTER KEY HERE';
 
 // Replace or verify the region.
 
@@ -63,7 +63,7 @@ $accessKey = 'enter key here';
 // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 // a free trial access key, you should not need to change this region.
 $host = 'https://westus.api.cognitive.microsoft.com';
-$path = '/text/analytics/v2.0/languages';
+$path = '/text/analytics/v2.0/';
 
 function DetectLanguage ($host, $path, $key, $data) {
 
@@ -82,7 +82,7 @@ function DetectLanguage ($host, $path, $key, $data) {
         )
     );
     $context  = stream_context_create ($options);
-    $result = file_get_contents ($host . $path, false, $context);
+    $result = file_get_contents ($host . $path . 'languages', false, $context);
     return $result;
 }
 
@@ -94,20 +94,18 @@ $data = array (
     )
 );
 
-print "Please wait a moment for the results to appear.";
+print "Please wait a moment for the results to appear.\n\n";
 
 $result = DetectLanguage ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
-?>
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
 ```
 
-**Språk identifiering svar**
+**Svaret för identifiering av språk**
 
 Ett lyckat svar returneras i JSON, som visas i följande exempel: 
 
 ```json
-
 {
    "documents": [
       {
@@ -145,45 +143,16 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 
    ]
 }
-
-
 ```
 <a name="SentimentAnalysis"></a>
 
 ## <a name="analyze-sentiment"></a>Analysera sentiment
 
-API för analys av Sentiment detexts sentiment av en uppsättning textposter med den [Sentiment metoden](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). I följande exempel poäng två dokument, en i engelska och en annan på spanska.
+API för Attitydstextanalys Analysis detexts känsla av en uppsättning textposter, med hjälp av den [Sentiment metoden](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). I följande exempel poängsätter två dokument, en i engelska och en annan på spanska.
 
-1. Skapa ett nytt PHP-projekt i din favorit IDE.
-2. Lägg till koden nedan.
-3. Ersätt den `accessKey` värde med en giltig snabbtangent för din prenumeration.
-4. Ersätt platsen i `host` (för närvarande `westus`) till den region som du registrerade dig för.
-5. Kör programmet.
+Lägg till följande kod i koden från den [föregående avsnitt](#Detect).
 
 ```php
-<?php
-
-// NOTE: Be sure to uncomment the following line in your php.ini file.
-// ;extension=php_openssl.dll
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the accessKey string value with your valid access key.
-$accessKey = 'enter key here';
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-$host = 'https://westus.api.cognitive.microsoft.com';
-$path = '/text/analytics/v2.0/sentiment';
-
 function GetSentiment ($host, $path, $key, $data) {
 
     $headers = "Content-type: text/json\r\n" .
@@ -201,7 +170,7 @@ function GetSentiment ($host, $path, $key, $data) {
         )
     );
     $context  = stream_context_create ($options);
-    $result = file_get_contents ($host . $path, false, $context);
+    $result = file_get_contents ($host . $path . 'sentiment', false, $context);
     return $result;
 }
 
@@ -212,15 +181,14 @@ $data = array (
     )
 );
 
-print "Please wait a moment for the results to appear.";
+print "Please wait a moment for the results to appear.\n\n";
 
 $result = GetSentiment ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
-?>
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
 ```
 
-**Sentiment analys svar**
+**Sentiment analysis svar**
 
 Ett lyckat svar returneras i JSON, som visas i följande exempel: 
 
@@ -244,38 +212,11 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 
 ## <a name="extract-key-phrases"></a>Extrahera nyckelfraser
 
-Nyckeln frasen extrahering API extraherar nyckeln fraser från en text dokument, med hjälp av den [nyckel fraser metoden](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). I följande exempel extraherar viktiga fraser för både engelska och spanska dokument.
+Key frasen extrahering API: et extraherar nyckelfraser från en text dokument, med hjälp av den [Nyckelfraser metoden](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). I följande exempel extraherar viktiga fraser för både engelska och spanska dokument.
 
-1. Skapa ett nytt PHP-projekt i din favorit IDE.
-2. Lägg till koden nedan.
-3. Ersätt den `accessKey` värde med en giltig snabbtangent för din prenumeration.
-4. Ersätt platsen i `host` (för närvarande `westus`) till den region som du registrerade dig för.
-5. Kör programmet.
+Lägg till följande kod i koden från den [föregående avsnitt](#SentimentAnalysis).
 
 ```php
-<?php
-
-// NOTE: Be sure to uncomment the following line in your php.ini file.
-// ;extension=php_openssl.dll
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the accessKey string value with your valid access key.
-$accessKey = 'enter key here';
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-$host = 'https://westus.api.cognitive.microsoft.com';
-$path = '/text/analytics/v2.0/keyPhrases';
-
 function GetKeyPhrases ($host, $path, $key, $data) {
 
     $headers = "Content-type: text/json\r\n" .
@@ -293,7 +234,7 @@ function GetKeyPhrases ($host, $path, $key, $data) {
         )
     );
     $context  = stream_context_create ($options);
-    $result = file_get_contents ($host . $path, false, $context);
+    $result = file_get_contents ($host . $path . 'keyPhrases', false, $context);
     return $result;
 }
 
@@ -305,16 +246,14 @@ $data = array (
     )
 );
 
-print "Please wait a moment for the results to appear.";
+print "Please wait a moment for the results to appear.\n\n";
 
 $result = GetKeyPhrases ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
-?>
-
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
 ```
 
-**Viktiga frasen extrahering svar**
+**Svaret för extrahering av diskussionsämne**
 
 Ett lyckat svar returneras i JSON, som visas i följande exempel: 
 
@@ -358,38 +297,11 @@ Ett lyckat svar returneras i JSON, som visas i följande exempel:
 
 ## <a name="identify-linked-entities"></a>Identifiera länkade entiteter
 
-Entiteten länka API identifierar kända enheter i en textsträng dokument, med hjälp av den [entitet länka metoden](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). I följande exempel identifierar entiteter för engelska.
+API för Entity Linking identifierar välkända entiteter i en text dokument, med hjälp av den [Entitetslänkning metoden](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). I följande exempel identifierar entiteter för dokument på engelska.
 
-1. Skapa ett nytt PHP-projekt i din favorit IDE.
-2. Lägg till koden nedan.
-3. Ersätt den `accessKey` värde med en giltig snabbtangent för din prenumeration.
-4. Ersätt platsen i `host` (för närvarande `westus`) till den region som du registrerade dig för.
-5. Kör programmet.
+Lägg till följande kod i koden från den [föregående avsnitt](#KeyPhraseExtraction).
 
 ```php
-<?php
-
-// NOTE: Be sure to uncomment the following line in your php.ini file.
-// ;extension=php_openssl.dll
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the accessKey string value with your valid access key.
-$accessKey = 'enter key here';
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-$host = 'https://westus.api.cognitive.microsoft.com';
-$path = '/text/analytics/v2.0/entities';
-
 function GetEntities ($host, $path, $key, $data) {
 
     $headers = "Content-type: text/json\r\n" .
@@ -407,7 +319,7 @@ function GetEntities ($host, $path, $key, $data) {
         )
     );
     $context  = stream_context_create ($options);
-    $result = file_get_contents ($host . $path, false, $context);
+    $result = file_get_contents ($host . $path . 'entities', false, $context);
     return $result;
 }
 
@@ -418,13 +330,12 @@ $data = array (
     )
 );
 
-print "Please wait a moment for the results to appear.";
+print "Please wait a moment for the results to appear.\n\n";
 
 $result = GetEntities ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
 ?>
-
 ```
 
 **Entiteten länkande svar**

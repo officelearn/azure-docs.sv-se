@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: gokuma
-ms.openlocfilehash: b01ef3701ffb46da57c52e5fe73828ec4252b074
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8131122f78f743d04e332bfc8dfeba87a8c34236
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344768"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782662"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Etablera Windows Data Science-dator på Azure
 Microsoft Data Science Virtual Machine (DSVM) är en avbildning för Windows Azure-dator (VM). Det har förinstallerat och har konfigurerats med flera verktyg som används för dataanalys och maskininlärning. Följande verktyg ingår:
@@ -126,7 +126,7 @@ För utveckling med hjälp av Python har 2.7 och 3.6 Anaconda Python-distributio
 > 
 > 
 
-Anaconda Python 3.6 är installerat **C:\Anaconda**. Anaconda Python 2.7 är installerat **c:\Anaconda\envs\python2**. Detaljerade anvisningar finns i [dokumentationen till PTVS](/visualstudio/python/installing-python-interpreters.md). 
+Anaconda Python 3.6 är installerat **C:\Anaconda**. Anaconda Python 2.7 är installerat **c:\Anaconda\envs\python2**. Detaljerade anvisningar finns i [dokumentationen till PTVS](https://docs.microsoft.com/visualstudio/python/installing-python-interpreters). 
 
 ### <a name="the-jupyter-notebook"></a>Jupyter-anteckningsbok
 Anaconda distribution levereras också med Jupyter-anteckningsboken en miljö för att dela kod och analys. Jupyter Notebook-server är förkonfigurerad med Python 2.7, Python 3.x, PySpark, Julia och R-kärnor. Att starta Jupyter-servern och starta om webbläsaren för att komma åt den notebook-servern, det är en skrivbordsikonen kallas **Jupyter Notebook**. 

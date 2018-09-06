@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/08/2018
+ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: b34386a7b416d6f7d8b008a9cb5ef142948a370f
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 2a9ff23e5182c8cb7c91ad93e368f61f258c84f8
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005403"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841600"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid meddelandeleverans och försök igen 
 
@@ -35,19 +35,20 @@ Följande HTTP-svarskoder indikerar att en händelse har har levererats till din
 
 ### <a name="failure-codes"></a>Felkoder
 
-Följande HTTP-svarskoder tyda på att en händelse leveransförsök misslyckades. 
+Följande HTTP-svarskoder tyda på att en händelse leveransförsök misslyckades.
 
 - 400 Felaktig förfrågan
 - 401 Ej behörig
 - 404 Hittades inte
 - 408 timeout för begäran
+- 413 begäran entiteten är för stor
 - 414 URI för lång
 - 429 för många begäranden
 - 500 Internt serverfel
 - 503 Tjänsten är inte tillgänglig
 - 504 Gateway-timeout
 
-Om Event Grid tar emot ett fel som anger slutpunkten är tillfälligt otillgänglig eller en begäran om framtida kan lyckas, försök igen att skicka händelsen. Om Event Grid tar emot ett fel som anger leveransen aldrig lyckas och [förlorade slutpunkten har konfigurerats](manage-event-delivery.md), skickas händelsen till slutpunkten för obeställbara meddelanden. 
+Om du har [konfigurerat en slutpunkt för förlorade](manage-event-delivery.md) och Event Grid tar emot antingen en svarskod 400 eller 413, Event Grid omedelbart skickas händelsen till slutpunkten för obeställbara meddelanden. I annat fall försöker Event Grid alla fel.
 
 ## <a name="retry-intervals-and-duration"></a>Intervall för återförsök och varaktighet
 

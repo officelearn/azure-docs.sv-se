@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: jaredmoo
-ms.openlocfilehash: ca21355c836a58591bbbd09874d0c5d0b5c17435
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: ae5dafcebd50ecd22309a7771b0edf01a97fd7a7
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126433"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842631"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Använd Transact-SQL (T-SQL) för att skapa och hantera elastiska Databasjobb
 
@@ -184,7 +184,13 @@ Till exempel om du vill gruppera alla resultat från samma jobbkörningen tillsa
 
 ## <a name="monitor-database-performance"></a>Övervaka databasprestanda
 
-I följande exempel skapas ett nytt jobb för att samla in prestandadata från flera databaser.  
+I följande exempel skapas ett nytt jobb för att samla in prestandadata från flera databaser.
+
+Som standard söker jobbagenten för att skapa tabell för att lagra de returnerade resultaten i. Därmed måste inloggningen som är associerade med de autentiseringsuppgifter som används för utdata-autentiseringsuppgifter ha tillräcklig behörighet att utföra detta. Om du vill skapa manuellt i tabellen i tid sedan måste den ha följande egenskaper:
+1. Kolumner med rätt namn och datatyper för resultatuppsättningen.
+2. Ytterligare en kolumn för internal_execution_id med datatypen uniqueidentifier.
+3. Icke-grupperat index med namnet ”IX_<TableName>_Internal_Execution_ID” i kolumnen internal_execution_id.
+
 Ansluta till den [ *jobbet databasen* ](elastic-jobs-overview.md#job-database) och kör följande kommandon:
 
 ```sql

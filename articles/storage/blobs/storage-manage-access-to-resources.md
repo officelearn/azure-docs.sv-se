@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: tamram
-ms.openlocfilehash: 7270ec7c5129352b0e801808e5c7720e5021ac9d
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: bf7dabc1c3765d86e7a0f87acaa6f06a68d3d530
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398826"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782016"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Hantera anonym läsåtkomst till containrar och blob-objekt
 Du kan aktivera anonym, offentlig läsbehörighet till en behållare och dess blobbar i Azure Blob storage. Då kan ge du skrivskyddad åtkomst till dessa resurser utan att dela din kontonyckel och utan en signatur för delad åtkomst (SAS).
@@ -30,7 +30,7 @@ Du kan konfigurera en behållare med följande behörigheter:
 
 Du kan använda följande för att ange behörigheter för behållare:
 
-* [Azure-portalen](https://portal.azure.com)
+* [Azure Portal](https://portal.azure.com)
 * [Azure PowerShell](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Azure CLI 2.0](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-and-manage-blobs)
 * Programmässigt med någon av storage-klientbibliotek eller REST API
@@ -39,7 +39,7 @@ Du kan använda följande för att ange behörigheter för behållare:
 Ange behörigheter för behållare i den [Azure-portalen](https://portal.azure.com), Följ dessa steg:
 
 1. Öppna din **lagringskonto** -bladet i portalen. Du hittar ditt storage-konto genom att välja **lagringskonton** på bladet portal huvudmenyn.
-1. Under **BLOBTJÄNSTEN** på menyn-bladet och välj **behållare**.
+1. Under **BLOBTJÄNSTEN** på menyn-bladet och välj **Blobar**.
 1. Högerklicka på behållaren raden eller ellipserna att öppna behållarens **snabbmenyn**.
 1. Välj **princip** på snabbmenyn.
 1. Välj en **åtkomsttyp** från nedrullningsbara menyn.

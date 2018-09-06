@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 429a10988fdc19863cfd6809a8d73757d33349c9
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 35bd895636bcedf0fd3fad073819d238c7850326
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702322"
+ms.locfileid: "43783346"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -57,8 +57,7 @@ Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel 
   * [Överföra ägarskap för en Azure-prenumeration till ett annat konto](../billing/billing-subscription-transfer.md)
   * [Så här associerar du eller lägger till en prenumeration i din Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-2. Tjänsten måste göra det möjligt att flytta resurser. I avsnitten nedan i den här artikeln som [tjänster kan flytta resurser](#services-that-can-be-moved) och vilka [tjänster inte kan flytta resurser](#services-that-cannot-be-moved).
-3. Målprenumerationen måste vara registrerad för resursprovidern för den resurs som flyttas. Om inte, du får ett felmeddelande om att den **prenumerationen har inte registrerats för en resurstyp**. Du kan stöta på detta problem när en resurs flyttas till en ny prenumeration, men prenumerationen aldrig har använts med den resurstypen.
+1. Målprenumerationen måste vara registrerad för resursprovidern för den resurs som flyttas. Om inte, du får ett felmeddelande om att den **prenumerationen har inte registrerats för en resurstyp**. Du kan stöta på detta problem när en resurs flyttas till en ny prenumeration, men prenumerationen aldrig har använts med den resurstypen.
 
   Använd följande kommandon för att hämta registreringsstatus PowerShell:
 
@@ -86,14 +85,16 @@ Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel 
   az provider register --namespace Microsoft.Batch
   ```
 
-4. Det konto som flyttar resurser måste ha minst följande behörigheter:
+1. Det konto som flyttar resurser måste ha minst följande behörigheter:
 
    * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** på resursgrupp för källa.
    * **Microsoft.Resources/subscriptions/resourceGroups/write** på målresursgruppen.
 
-5. Kontrollera prenumerationskvoter för den prenumeration som du flyttar resurser till innan du flyttar resurser. Om du flytta resurserna innebär prenumerationen kommer att överskrida gränsen, måste du granska om du kan begära en ökning av kvoten. En lista över begränsningar och hur du begär en ökning, se [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md).
+1. Kontrollera prenumerationskvoter för den prenumeration som du flyttar resurser till innan du flyttar resurser. Om du flytta resurserna innebär prenumerationen kommer att överskrida gränsen, måste du granska om du kan begära en ökning av kvoten. En lista över begränsningar och hur du begär en ökning, se [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md).
 
-5. När det är möjligt, flyttar break stora till separata flyttåtgärder. Resource Manager misslyckas omedelbart försök att flytta fler än 800 resurser i en enda åtgärd. Men kan flyttar resurser som är mindre än 800 också misslyckas av tiden går ut.
+1. När det är möjligt, flyttar break stora till separata flyttåtgärder. Resource Manager misslyckas omedelbart försök att flytta fler än 800 resurser i en enda åtgärd. Men kan flyttar resurser som är mindre än 800 också misslyckas av tiden går ut.
+
+1. Tjänsten måste göra det möjligt att flytta resurser. Att fastställa om flytten kommer att lyckas [verifiera din begäran om att flytta](#validate-move). I avsnitten nedan i den här artikeln som [tjänster kan flytta resurser](#services-that-can-be-moved) och vilka [tjänster inte kan flytta resurser](#services-that-cannot-be-moved).
 
 ## <a name="when-to-call-support"></a>När du ska kontakta supporten
 
@@ -106,6 +107,59 @@ Kontakta [stöder](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpA
 
 * Flytta dina resurser till en ny Azure-konto (och Azure Active Directory-klient) och du behöver hjälp med anvisningarna i föregående avsnitt.
 * Flytta klassiska resurser, men har problem med begränsningar.
+
+## <a name="validate-move"></a>Verifiera flytt
+
+Den [verifiera flyttåtgärden](/rest/api/resources/resources/validatemoveresources) kan du testa ditt move-scenario utan att faktiskt flytta resurserna. Använd den här åtgärden för att avgöra om flytten lyckas. Om du vill köra den här åtgärden, måste den:
+
+* namn på resursgrupp för källa
+* resurs-ID för målresursgruppen
+* resurs-ID för varje resurs att flytta
+* den [åtkomsttoken](/rest/api/azure/#acquire-an-access-token) för ditt konto
+
+Skicka följande begäran:
+
+```
+POST https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<source-group>/validateMoveResources?api-version=2018-02-01
+Authorization: Bearer <access-token>
+Content-type: application/json
+```
+
+Med en brödtext i begäran:
+
+```json
+{
+ "resources": ['<resource-id-1>', '<resource-id-2>'],
+ "targetResourceGroup": "/subscriptions/<subscription-id>/resourceGroups/<target-group>"
+}
+```
+
+Om begäran har formaterats korrekt, returnerar åtgärden:
+
+```
+Response Code: 202
+cache-control: no-cache
+pragma: no-cache
+expires: -1
+location: https://management.azure.com/subscriptions/<subscription-id>/operationresults/<operation-id>?api-version=2018-02-01
+retry-after: 15
+...
+```
+
+202 statuskoden anger verifieringsförfrågan togs emot, men den inte har fastställt om flyttåtgärden lyckas. Den `location` värdet innehåller en URL som används för att kontrollera statusen för långvarig åtgärd.  
+
+Om du vill kontrollera statusen genom att skicka följande begäran:
+
+```
+GET <location-url>
+Authorization: Bearer <access-token>
+```
+
+Medan åtgärden körs, fortsätta att ta emot 202 statuskoden. Vänta antalet sekunder som anges i den `retry-after` värdet innan du försöker igen. Om åtgärden för att flytta verifieras felmeddelandet 204 statuskoden. Om flytten valideringen misslyckas visas ett felmeddelande som:
+
+```json
+{"error":{"code":"ResourceMoveProviderValidationFailed","message":"<message>"...}}
+```
 
 ## <a name="services-that-can-be-moved"></a>Tjänster som kan flyttas
 

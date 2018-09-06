@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/27/2018
 ms.author: kumud
-ms.openlocfilehash: 1f7e605cbf5aa3d519e04c4fdfd737a4c0926a3e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: ea8e8ae9b0f487481ac2f25d4e2b9c5733e15431
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122584"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842263"
 ---
 # <a name="outbound-connections-in-azure"></a>Utgående anslutningar i Azure
 
@@ -165,7 +165,7 @@ I följande tabell visas SNAT port preallocations för nivåerna för backend-po
 | 801-1 000 | 32 |
 
 >[!NOTE]
-> När du använder Standard Load Balancer med [flera klienter](load-balancer-multivip-overview.md), [varje frontend IP-adress multiplicerar antalet tillgängliga portar för SNAT](#multivipsnat) i föregående tabell. Till exempel använder en serverdelspool med 50 Virtuella datorer med 2 belastningsutjämningsregler, var och en med en separat frontend IP-adresser, 2048 (2 x 1 024) SNAT portar per IP-konfiguration. Visa detaljer för [flera klienter](#multife).
+> När du använder Standard Load Balancer med [flera klienter](load-balancer-multivip-overview.md), [varje frontend IP-adress multiplicerar antalet tillgängliga portar för SNAT](#multivipsnat) i föregående tabell. Till exempel använder en serverdelspool med 50 Virtuella datorer med 2 belastningsutjämningsregler, var och en med en separat frontend IP-adress, 2048 (2 x 1 024) SNAT portar per IP-konfiguration. Visa detaljer för [flera klienter](#multife).
 
 Kom ihåg att antalet tillgängliga portar för SNAT inte översätter direkt till antal flöden. En enskild SNAT-port kan återanvändas för flera unika mål. Portar används endast om det är nödvändigt att göra flöden som är unikt. Riktlinjer för design och problemlösning, finns i avsnittet om [hur du hanterar icke förnybara resursen](#snatexhaust) och de avsnitt som beskriver [känna dig NÖJD](#pat).
 
@@ -219,16 +219,16 @@ Tilldela en ILPIP ändras ditt scenario till [offentlig IP på instansnivå till
 
 #### <a name="multifesnat"></a>Använd flera klienter
 
-När du använder offentlig Standard Load Balancer kan du tilldela [flera frontend-IP-adresser för utgående anslutningar](#multife) och [multiplicera antalet SNAT-portar som är tillgängliga](#preallocatedports).  Du måste skapa en klientdelens IP-konfiguration, regel och backend-pool för att utlösa programmeringen av SNAT till offentliga IP-Adressen för klientdelen.  Regeln behöver inte funktionen och en hälsoavsökning behöver inte lyckas.  Om du använder flera klienter för inkommande samt (i stället för bara för utgående), bör du använda anpassade hälsotillståndsavsökningar bra för att försäkra dig om tillförlitlighet.
+När du använder offentlig Standard Load Balancer kan du tilldela [flera frontend-IP-adresser för utgående anslutningar](#multife) och [multiplicera antalet SNAT-portar som är tillgängliga](#preallocatedports).  Du måste skapa en klientdelens IP-konfiguration, regel och backend-pool för att utlösa programmeringen av SNAT till offentliga IP-Adressen för klientdelen.  Regeln behöver inte funktionen och en hälsoavsökning behöver inte lyckas.  Om du använder flera klienter för inkommande samt (i stället för bara för utgående), bör du använda anpassade hälsotillståndsavsökningar bra för att säkerställa tillförlitligheten.
 
 >[!NOTE]
 >I de flesta fall är överbelastning av SNAT portar ett tecken på designen.  Kontrollera att du förstår varför du finns förbrukar portar innan du använder flera klienter för att lägga till SNAT portar.  Du kan maskera problem som kan leda till fel senare.
 
 #### <a name="scaleout"></a>Skala ut
 
-[Förallokerade portar](#preallocatedports) tilldelas baserat på storleken för backend-poolen och grupperade i nivåerna för att minimera störningar om några av portarna måste allokeras om för att tillgodose nästa större serverdelen pool storlek nivå.  Du kan ha ett alternativ för att öka intensiteten av SNAT port belastning för en given frontend genom att skala poolen till maximal storlek för en viss nivå.  Detta kräver att programmet effektivt skala ut.
+[Förallokerade portar](#preallocatedports) tilldelas baserat på storleken för backend-poolen och grupperade i nivåerna för att minimera störningar om några av portarna måste allokeras om för att tillgodose nästa större serverdelen pool storlek nivå.  Du kan ha ett alternativ för att öka intensiteten av användning av SNAT-port för en given frontend genom att skala backend-pool till den maximala storleken för en viss nivå.  Detta kräver att programmet effektivt skala ut.
 
-2 virtuella datorer i serverdelspoolen skulle till exempel ha 1024 SNAT-portar som är tillgängliga per IP-konfiguration, vilket gör att totalt 2048 SNAT portar för distributionen.  Om distributionen ökas till 50 virtuella kan datorer, även om antalet förallokerade portar är konstant per virtuell dator, totalt 51,200 (50 x 1 024) SNAT portar användas för distributionen.  Om du vill skala upp distributionen kontrollera antalet [förallokerade portar](#preallocatedports) per nivå för att kontrollera att du formar din skala ut till den maximala storleken för respektive nivå.  I föregående exempel om du har valt att skala ut till 51 i stället för 50 instanser din skulle vidare till nästa nivå och slutar upp med mindre SNAT portar per virtuell dator samt som totalt.
+2 virtuella datorer i serverdelspoolen skulle till exempel ha 1024 SNAT-portar som är tillgängliga per IP-konfiguration, vilket gör att totalt 2048 SNAT portar för distributionen.  Om distributionen ökas till 50 virtuella kan datorer, även om antalet förallokerade portar är konstant per virtuell dator, totalt 51,200 (50 x 1 024) SNAT portar användas för distributionen.  Om du vill skala upp distributionen kontrollera antalet [förallokerade portar](#preallocatedports) per nivå för att kontrollera att du formar din skala ut till den maximala storleken för respektive nivå.  I föregående exempel, om du har valt att skala ut till 51 i stället för 50 instanser skulle du vidare till nästa nivå och slutar upp med färre SNAT portar per virtuell dator samt som totalt.
 
 Om du skala ut till nästa större serverdelen pool storlek nivå finns potentiella för några av dina utgående anslutningar till timeout om allokerade portar måste allokeras.  Om du bara använder vissa av dina SNAT-portar, har skala ut över nästa större serverdelen poolstorleken ingen betydelse.  Halva befintliga portar allokeras till varje gång som du flyttar till nästa nivå för backend-poolen.  Om du inte vill att äga rum, måste du utformar din distribution till nivån storlek.  Eller kontrollera att ditt program kan identifiera och försök igen efter behov.  TCP keepalive-överföringar kan hjälpa dig i identifiera när SNAT portar inte längre funktion på grund av att tilldelas på nytt.
 

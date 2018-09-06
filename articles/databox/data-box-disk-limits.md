@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/12/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 358f81498d8caad7c0a67519bbb776efa153249f
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 3b26c5f9a6d75725fb102d89192e77988b295dea
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42055579"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782033"
 ---
 # <a name="azure-data-box-disk-limits-preview"></a>Azure Data Box-Disk-begränsningar (förhandsgranskning)
 
@@ -33,7 +33,7 @@ ms.locfileid: "42055579"
 
 ## <a name="data-box-service-limits"></a>Data Box-tjänstbegränsningar
 
- - Data Box-tjänsten finns bara i USA och EU: S i alla Azure-regioner för offentliga Azure-molnet.
+ - Data Box-tjänsten finns bara i USA, EU, Kanada och Australien i alla Azure-regioner för offentliga Azure-molnet.
  - Ett enda lagringskonto stöds med Data Box-Disk.
 
 ## <a name="data-box-disk-performance"></a>Prestanda för data Box-Disk

@@ -16,15 +16,19 @@ ms.component: report-monitor
 ms.date: 01/15/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: eafbe25a5a0fa9182030304e9142a6013c9fb29b
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: bf50dbf942dc7a82afbb60455be45b6c4b287ccd
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057369"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782183"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Felsöka Azure Active Directory-aktivitet loggarna fel i innehållspaket 
 
+|  |
+|--|
+|Azure AD Power BI-Innehållspaketet använder för närvarande, Azure AD Graph-API: er för att hämta data från Azure AD-klienten. Därför kan det hända att vissa skillnader mellan data som är tillgängliga i Innehållspaketet och data som hämtats med hjälp av den [Microsoft Graph API: er för rapportering](concept-reporting-api.md). |
+|  |
 
 När du arbetar med Power BI-Innehållspaketet för Azure Active Directory-förhandsgranskning, är det möjligt att du får följande fel: 
 

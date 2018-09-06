@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: c9cebd16d34758550144a50b6ff26da84924a964
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 3c2b44455b417d1bc764337d91a5535d7ffa34a5
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745676"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783380"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Säkerhetsöverväganden för dataförflyttning i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -126,7 +126,7 @@ Azure-nätverk är en logisk representation av ditt nätverk i molnet. Du kan an
 
 I följande tabell sammanfattas i nätverket och lokal integration runtime-konfigurationsrekommendationer baserat på olika kombinationer av käll- och platser för flytt av hybriddata.
 
-| Källa      | Destination                              | Nätverkskonfiguration                    | Installation av Integration Runtime                |
+| Källa      | Mål                              | Nätverkskonfiguration                    | Installation av Integration Runtime                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | Lokal | Virtuella datorer och molntjänster som distribuerats i virtuella nätverk | IPSec-VPN (punkt-till-plats eller plats-till-plats) | Lokal integration runtime kan installeras antingen lokalt eller på en Azure-dator i ett virtuellt nätverk. |
 | Lokal | Virtuella datorer och molntjänster som distribuerats i virtuella nätverk | ExpressRoute (privat peering)           | Lokal integration runtime kan installeras antingen lokalt eller på en Azure-dator i ett virtuellt nätverk. |
@@ -188,7 +188,7 @@ Vi stöder inte den här funktionen ännu. Vi arbetar på den.
 
 **Vilka är portkraven för den lokala integreringskörningen ska fungera?**
 
-Lokal integration runtime gör HTTP-baserade anslutningar för att ansluta till internet. Utgående portarna 443 och 80 måste vara tillgänglig för den lokala integreringskörningen att upprätta anslutningen. Öppna inkommande port 8050 endast på datornivå (inte företagets brandvägg nivå) för Autentiseringshanteraren. Om Azure SQL Database eller Azure SQL Data Warehouse används som källan eller målet, måste du öppna port 1433 samt. Mer information finns i den [konfigurationer och listan över tillåtna IP-adresser i brandväggen](#firewall-configurations-and-whitelisting-ip-address-of-gateway) avsnittet. 
+Lokal integration runtime gör HTTP-baserade anslutningar för att ansluta till internet. Utgående portarna 443 måste vara tillgänglig för den lokala integreringskörningen att upprätta anslutningen. Öppna inkommande port 8050 endast på datornivå (inte företagets brandvägg nivå) för Autentiseringshanteraren. Om Azure SQL Database eller Azure SQL Data Warehouse används som källan eller målet, måste du öppna port 1433 samt. Mer information finns i den [konfigurationer och listan över tillåtna IP-adresser i brandväggen](#firewall-configurations-and-whitelisting-ip-address-of-gateway) avsnittet. 
 
 
 ## <a name="next-steps"></a>Nästa steg

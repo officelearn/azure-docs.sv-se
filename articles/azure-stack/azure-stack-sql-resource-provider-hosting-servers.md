@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: de2e1defeff9ab2dd78bdf019009b62955f73b88
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 4dfeff0e22a541a39a59c37c869af41a7e444fa6
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970559"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842506"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Lägg till värdservrar för SQL-resursprovider
 
@@ -78,15 +78,15 @@ Följ dessa steg för att lägga till en fristående värd-server som redan har 
 
 1. Logga in på Azure Stack-operator-portalen som tjänstadministratör.
 
-2. Välj **Bläddra** &gt; **administrativa resurser** &gt; **SQL som är värd för servrar**.
+2. Välj **alla tjänster** &gt; **ADMINISTRATIONSRESURSER** &gt; **som är värd för SQL-servrar**.
 
    ![Som är värd för SQL-servrar](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
    Under **som är värd för SQL-servrar**, kan du ansluta SQL-resursprovider till instanser av SQL Server som fungerar som serverdel för provider för nätverksresurser.
 
-   ![SQL Adapter instrumentpanel](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.png)
+   ![SQL Adapter instrumentpanel](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.png)
 
-3. På **lägga till en SQL Server som är värd för**, ange anslutningsinformationen för SQL Server-instansen.
+3. Klicka på **Lägg till** och ange anslutningsinformationen för SQL Server-instansen på den **lägga till en SQL Server som är värd för** bladet.
 
    ![Lägg till en SQL på värdservern](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 

@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: raynew
-ms.openlocfilehash: 3d835a7bd93426e57c5ab204d277faca22ae0638
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 17212c076ef296a24021213b0aa887de930a44ac
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42058174"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783363"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Contoso-migrering: återskapa en lokal app till Azure
 
-Den här artikeln visar hur Contoso migrerar och återskapar sin SmartHotel app i Azure. De migrera appens klientdel virtuell dator till Azure App Services Web apps. App-serverdel har skapats med mikrotjänster distribueras till behållare som hanteras av Azure Kubernetes Service (AKS). Platsen interagerar med Azure Functions Husdjurets foto-funktioner. 
+Den här artikeln visar hur Contoso migrerar och återskapar sin SmartHotel360-app i Azure. De migrera appens klientdel virtuell dator till Azure App Services Web apps. App-serverdel har skapats med mikrotjänster distribueras till behållare som hanteras av Azure Kubernetes Service (AKS). Platsen interagerar med Azure Functions Husdjurets foto-funktioner. 
 
 Det här dokumentet är i en serie av artiklar som visar hur det fiktiva företaget Contoso migrerar sina lokala resurser till Microsoft Azure-molnet. Serien innehåller grundläggande information och scenarier som illustrerar hur du konfigurerar en infrastruktur för migrering, utvärdera lokala resurser för migrering och som kör olika typer av migreringar. Scenarier växer i komplexitet och vi lägger till ytterligare artiklar med tiden.
 
@@ -24,19 +24,19 @@ Det här dokumentet är i en serie av artiklar som visar hur det fiktiva företa
 --- | --- | ---
 [Artikel 1: översikt](contoso-migration-overview.md) | Översikt över Contosos migreringsstrategi, artikelserien och exempelappar som vi använder. | Tillgängligt
 [Artikel 2: Distribuera en Azure-infrastruktur](contoso-migration-infrastructure.md) | Beskriver hur Contoso förbereder sina lokala och Azure-infrastrukturen för migrering. Samma infrastruktur används för alla migreringsartiklar om. | Tillgängligt
-[Artikel 3: Utvärdera lokala resurser](contoso-migration-assessment.md)  | Visar hur Contoso körs en bedömning av en lokal tvålagers-SmartHotel-app som körs på VMware. Contoso utvärderar app virtuella datorer med den [Azure Migrate](migrate-overview.md) -tjänsten och SQL Server-databas för appen med den [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Tillgängligt
-[Artikel 4: Ange ny värd för en app på Azure virtuella datorer och en hanterad SQL-instans](contoso-migration-rehost-vm-sql-managed-instance.md) | Visar hur Contoso körs en lift and shift-migrering till Azure för SmartHotel appen. Contoso migrerar appen klientdelens VM med [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), och app-databasen till en SQL Managed Instance med hjälp av den [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Tillgängligt
-[Artikel 5: Ange ny värd för en app på virtuella Azure-datorer](contoso-migration-rehost-vm.md) | Visar hur Contoso migrerar appen SmartHotel virtuella datorer med Site Recovery endast. | Tillgängligt
-[Artikel 6: Ange ny värd för en app på Azure virtuella datorer och SQLServer Always On-tillgänglighetsgrupp](contoso-migration-rehost-vm-sql-ag.md) | Visar hur Contoso migrerar SmartHotel appen. Contoso använder Site Recovery för att migrera de virtuella datorerna för appen och tjänsten Databasmigrering att migrera app-databas till en SQL Server-kluster som skyddas av en AlwaysOn-tillgänglighetsgrupp. | Tillgängligt
+[Artikel 3: Utvärdera lokala resurser](contoso-migration-assessment.md)  | Visar hur Contoso körs en bedömning av en lokal tvålagers-SmartHotel360-app som körs på VMware. Contoso utvärderar app virtuella datorer med den [Azure Migrate](migrate-overview.md) -tjänsten och SQL Server-databas för appen med den [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Tillgängligt
+[Artikel 4: Ange ny värd för en app på Azure virtuella datorer och en hanterad SQL-instans](contoso-migration-rehost-vm-sql-managed-instance.md) | Visar hur Contoso körs en lift and shift-migrering till Azure för SmartHotel360-appen. Contoso migrerar appen klientdelens VM med [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), och app-databasen till en SQL Managed Instance med hjälp av den [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Tillgängligt
+[Artikel 5: Ange ny värd för en app på virtuella Azure-datorer](contoso-migration-rehost-vm.md) | Visar hur Contoso migrerar virtuella datorerna med Site Recovery endast för SmartHotel360-appen. | Tillgängligt
+[Artikel 6: Ange ny värd för en app på Azure virtuella datorer och SQLServer Always On-tillgänglighetsgrupp](contoso-migration-rehost-vm-sql-ag.md) | Visar hur Contoso migrerar SmartHotel360-app. Contoso använder Site Recovery för att migrera de virtuella datorerna för appen och tjänsten Databasmigrering att migrera app-databas till en SQL Server-kluster som skyddas av en AlwaysOn-tillgänglighetsgrupp. | Tillgängligt
 [Artikel 7: Byta Appvärd en Linux på Azure virtuella datorer](contoso-migration-rehost-linux-vm.md) | Visar hur Contoso gör en lift and shift-migrering av Linux osTicket-app till virtuella Azure-datorer med Site Recovery | Tillgängligt
 [Artikel 8: Byta Appvärd en Linux på Azure virtuella datorer och Azure MySQL-Server](contoso-migration-rehost-linux-vm-mysql.md) | Visar hur Contoso migrerar Linux osTicket-app till Azure virtuella datorer med Site Recovery och migrerar app-databasen till en Azure MySQL-Server-instans med MySQL Workbench. | Tillgängligt
-[Artikel 9: Omstrukturera en app på Azure Web Apps och Azure SQL-databas](contoso-migration-refactor-web-app-sql.md) | Visar hur Contoso migrerar SmartHotel-app till ett Azure Web Apps och app-databasen har migrerats till Azure SQL Server-instans | Tillgängligt
+[Artikel 9: Omstrukturera en app på Azure Web Apps och Azure SQL-databas](contoso-migration-refactor-web-app-sql.md) | Visar hur Contoso migrerar SmartHotel360-app till ett Azure Web Apps och app-databasen har migrerats till Azure SQL Server-instans | Tillgängligt
 [Artikel 10: Omstrukturera en Linux-app till Azure Web Apps och Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Visar hur Contoso migrerar Linux osTicket-app till Azure Web Apps på flera platser, integrerad med GitHub för kontinuerlig leverans. De migrera app-databasen till en Azure MySQL-instans. | Tillgängligt
 [Artikel 11: Omstrukturera TFS på VSTS](contoso-migration-tfs-vsts.md) | Visar hur Contoso migrerar lokala Team Foundation Server (TFS)-distributionen genom att migrera den till Visual Studio Team Services (VSTS) i Azure. | Tillgängligt
-[Artikel 12: Omforma en app på Azure-behållare och SQL-databas](contoso-migration-rearchitect-container-sql.md) | Visar hur Contoso migrerar och rearchitects SmartHotel appen till Azure. De Omforma webbnivån appen som en Windows-behållare och app-databasen i en Azure SQL Database. | Tillgängligt
-Artikel 13: Återskapa en app till Azure | Visar hur Contoso återskapa SmartHotel appen med hjälp av en mängd Azure-funktioner och tjänster, inklusive App Services, Azure Kubernetes, Azure Functions, Cognitive services och Cosmos DB. | Den här artikeln.
+[Artikel 12: Omforma en app på Azure-behållare och SQL-databas](contoso-migration-rearchitect-container-sql.md) | Visar hur Contoso migrerar och rearchitects sina SmartHotel360-app till Azure. De Omforma webbnivån appen som en Windows-behållare och app-databasen i en Azure SQL Database. | Tillgängligt
+Artikel 13: Återskapa en app till Azure | Visar hur Contoso återskapa sina SmartHotel360-app med en mängd Azure-funktioner och tjänster, inklusive App Services, Azure Kubernetes, Azure Functions, Cognitive services och Cosmos DB. | Den här artikeln.
 
-I den här artikeln migrerar Contoso tvålagers-Windows. NET SmartHotel app som körs på virtuella VMware-datorer till Azure. Om du vill använda den här appen tillhandahålls som öppen källkod och du kan ladda ned det från [GitHub](https://github.com/Microsoft/SmartHotel360).
+I den här artikeln migrerar Contoso tvålagers-Windows. NET SmartHotel360-app som körs på virtuella VMware-datorer till Azure. Om du vill använda den här appen tillhandahålls som öppen källkod och du kan ladda ned det från [GitHub](https://github.com/Microsoft/SmartHotel360).
 
 ## <a name="business-drivers"></a>Affärsdrivande faktorer
 
@@ -61,7 +61,7 @@ Efter att fästa ned sina mål och krav, Contoso utformar och granska en distrib
 
 ### <a name="current-app"></a>Aktuell app
 
-- SmartHotel lokal app är nivåindelad över två virtuella datorer (WEBVM och SQLVM).
+- SmartHotel360 lokal app är nivåindelad över två virtuella datorer (WEBVM och SQLVM).
 - De virtuella datorerna finns på VMware ESXi-värd **contosohost1.contoso.com** (version 6.5)
 - VMware-miljön hanteras av vCenter Server 6.5 (**vcenter.contoso.com**), som körs på en virtuell dator.
 - Contoso har ett lokalt datacenter (contoso-datacenter), med en lokal domänkontrollant (**contosodc1**).
@@ -132,7 +132,7 @@ Här är hur Contoso kommer att köras migreringen:
 > * **Steg 3: Distribuera backend-mikrotjänster**: de distribuerar resten av den infrastruktur som ska användas av backend-mikrotjänster.
 > * **Steg 4: Distribuera frontend infrastruktur**: de distribuera frontend-infrastruktur, inklusive blob-lagring för Husdjurets telefoner, Cosmos DB och API för visuellt innehåll.
 > * **Steg 5: Migrera serverdelen**: de distribuera mikrotjänster och köras på AKS att migrera backend-servern.
-> * **Steg 6: Publicera klientdelen**: de publicera appen SmartHotel i Azure App service och Funktionsappen som kommer att anropas av tjänsten Husdjurets.
+> * **Steg 6: Publicera klientdelen**: de publicera SmartHotel360-appen i Azure App service och Funktionsappen som kommer att anropas av tjänsten Husdjurets.
 
 
 
@@ -219,7 +219,7 @@ Contoso skapas ett VSTS-projekt och konfigurerar en CI skapa för att skapa beh�
 
     ![VSTS](./media/contoso-migration-rebuild/vsts2.png)
     
-4. I **Build and Release**, de skapar en ny definition med VSTS Git som en källa från importerade **smarthotel** lagringsplats. 
+4. I **Build and Release**, de skapar en ny definition med VSTS Git som en källa från importerade databasen. 
 
     ![VSTS](./media/contoso-migration-rebuild/vsts3.png)
 
@@ -381,7 +381,7 @@ Anvisningarna i det här avsnittet används den [SmartHotel360-Azure-Backend](ht
 
 ## <a name="step-6-publish-the-frontend"></a>Steg 6: Publicera klientdelen
 
-Som ett sista steg publicerar Contoso SmartHotel appen till Azure App Service och för att Funktionsappen som anropas av tjänsten husdjur.
+Som ett sista steg publicerar Contoso SmartHotel360-app till Azure App Service och för att Funktionsappen som anropas av tjänsten husdjur.
 
 Anvisningarna i det här avsnittet används den [SmartHotel-public-web-lagringsplatsen.](https://github.com/Microsoft/SmartHotel360-public-web) lagringsplatsen.
 
@@ -510,7 +510,7 @@ Med de migrerade resurserna i Azure måste Contoso fullständigt operationaliser
 
 ## <a name="conclusion"></a>Sammanfattning
 
-I den här artikeln återskapa Contoso SmartHotel-app i Azure. De återskapas lokal app klientdelens VM till Azure App Services Web apps. De byggde serverdel med hjälp av mikrotjänster distribueras till behållare som hanteras av Azure Kubernetes Service (AKS). De utökad funktionalitet med en Husdjurets foto-app.
+I den här artikeln återskapa Contoso SmartHotel360-app i Azure. De återskapas lokal app klientdelens VM till Azure App Services Web apps. De byggde serverdel med hjälp av mikrotjänster distribueras till behållare som hanteras av Azure Kubernetes Service (AKS). De utökad funktionalitet med en Husdjurets foto-app.
 
 
 

@@ -14,12 +14,12 @@ ms.date: 03/09/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 656577211a992432366033326362c9892f7ba6ef
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 29a53101bff8c384d01f952c4498e09d9d970ee3
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861902"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841742"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Konfigurera en princip för Office 365-grupper
 
@@ -43,9 +43,9 @@ Roll | Behörigheter
 Global administratör eller Användaradministratör för konto | Kan skapa, läsa, uppdatera eller ta bort principinställningar för Office 365 grupper upphör att gälla<br>Kan förnya någon Office 365-grupp
 Användare | Förnya ett Office 365-grupp som de äger<br>Återställa en Office 365-grupp som de äger<br>Kan läsa förfallodatum principinställningar
 
-Läs mer om behörigheter för att återställa en borttagen grupp [återställa en borttagen Office 365-grupp i Azure Active Directory](../fundamentals/active-directory-groups-restore-azure-portal.md).
+Läs mer om behörigheter för att återställa en borttagen grupp [återställa en borttagen Office 365-grupp i Azure Active Directory](groups-restore-deleted.md).
 
-## <a name="set-group-expiration"></a>Ange förfallodatum
+## <a name="set-group-expiration"></a>Ange gruppförfallotid
 
 1. Öppna den [Azure AD administratörscenter](https://aad.portal.azure.com) med ett konto som är en global administratör i Azure AD-klienten.
 
@@ -71,7 +71,7 @@ När en grupp upphör att gälla, är gruppen bort en dag efter utgångsdatum. E
 
 ![Gruppen borttagning av e-postmeddelande](./media/groups-lifecycle/deletion-notification.png)
 
-Gruppen kan återställas inom 30 dagar från dess borttagningen genom att välja **Återställ grupp** eller med hjälp av PowerShell-cmdletar, enligt beskrivningen i [återställa en borttagen Office 365-grupp i Azure Active Directory](../fundamentals/active-directory-groups-restore-azure-portal.md).
+Gruppen kan återställas inom 30 dagar från dess borttagningen genom att välja **Återställ grupp** eller med hjälp av PowerShell-cmdletar, enligt beskrivningen i [återställa en borttagen Office 365-grupp i Azure Active Directory](groups-restore-deleted.md).
     
 Om gruppen som du återställa innehåller dokument, SharePoint-webbplatser och andra beständiga objekt, kan det ta upp till 24 timmar att fullständigt återställa gruppen och dess innehåll.
 
@@ -146,8 +146,8 @@ Följande cmdletar kan användas för att konfigurera principen i detalj. Mer in
 ## <a name="next-steps"></a>Nästa steg
 Dessa artiklar innehåller ytterligare information om Azure AD-grupper.
 
-* [Se befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
-* [Hantera inställningarna för en grupp](../fundamentals/active-directory-groups-settings-azure-portal.md)
+* [Visa befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
+* [Hantera inställningar för en grupp](../fundamentals/active-directory-groups-settings-azure-portal.md)
 * [Hantera medlemmar i en grupp](../fundamentals/active-directory-groups-members-azure-portal.md)
 * [Hantera medlemskap i en grupp](../fundamentals/active-directory-groups-membership-azure-portal.md)
 * [Hantera dynamiska regler för användare i en grupp](groups-dynamic-membership.md)

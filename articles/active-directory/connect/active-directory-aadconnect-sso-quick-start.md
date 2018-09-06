@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4710e30ad38485f47c115ac2e0e914e91c96d582
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8cab491a874094ee195f12ba6fe7f19a87f09ef2
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522189"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841961"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sömlös enkel inloggning: Snabbstart
 
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) sömlös enkel inloggning (sömlös SSO) logga
 
 Följ dessa steg om du vill distribuera sömlös enkel inloggning.
 
-## <a name="step-1-check-the-prerequisites"></a>Steg 1: Kontrollera krav
+## <a name="step-1-check-the-prerequisites"></a>Steg 1: Kontrollera kraven
 
 Se till att följande krav är uppfyllda:
 
@@ -42,6 +42,9 @@ Se till att följande krav är uppfyllda:
     >Azure AD Connect-versioner 1.1.557.0, 1.1.558.0, 1.1.561.0 och 1.1.614.0 har ett problem med synkronisering av lösenordshash. Om du _inte_ planerar att använda synkronisering av lösenordshash tillsammans med direktautentisering, läsa den [viktig information om Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) vill veta mer.
 
 * **Använda en stödd Azure AD Connect-topologi**: Kontrollera att du använder en av Azure AD Connect topologier som stöds beskrivs [här](active-directory-aadconnect-topologies.md).
+
+    >[!NOTE]
+    >Sömlös SSO stöder flera AD-skogar, oavsett om det är AD förtroenden mellan dem eller inte.
 
 * **Ställ in autentiseringsuppgifter som domänadministratör**: du måste ha administratörsbehörighet för domänen för varje Active Directory-skogen som:
     * Du kan synkronisera till Azure AD via Azure AD Connect.
@@ -180,7 +183,7 @@ Mozilla Firefox använda inte automatiskt Kerberos-autentisering. Varje använda
 
 #### <a name="safari-macos"></a>Safari (macOS)
 
-Se till att den dator som kör macOS är ansluten till AD. Anvisningar om hur du ansluter AD finns i [bästa praxis för integrering med Active Directory i OS X](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf).
+Se till att den dator som kör macOS är ansluten till AD. Instruktioner för AD-anslutning till din macOS-enhet inte omfattas av den här artikeln.
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (alla plattformar)
 

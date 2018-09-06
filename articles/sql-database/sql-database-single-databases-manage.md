@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: a94c3a4c4b8ffb22b1d75ca064bd3e48a2e50141
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 483ac248619a6d8a0f403592b1b4e55ad5e973da
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005686"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841870"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Skapa och hantera logiska servrar och enskilda databaser i Azure SQL Database 
 
@@ -156,10 +156,7 @@ Om du vill skapa och hantera Azure SQL server, databaser och brandväggar, kan d
 |[Servrar - uppdatering](/rest/api/sql/servers/update)|Uppdaterar en befintlig server.|
 |[Databaser – skapa eller uppdatera](/rest/api/sql/databases/createorupdate)|Skapar en ny databas eller uppdaterar en befintlig databas.|
 |[Databaser – Get](/rest/api/sql/databases/get)|Hämtar en databas.|
-|[Databaser – Get av elastisk Pool](/rest/api/sql/databases/getbyelasticpool)|Hämtar en databas i en elastisk pool.|
-|[Databaser – få genom rekommenderade elastisk Pool](/rest/api/sql/databases/getbyrecommendedelasticpool)|Hämtar en databas i en recommented elastisk pool.|
 |[Databaser – lista med elastisk Pool](/rest/api/sql/databases/listbyelasticpool)|Returnerar en lista över databaser i en elastisk pool.|
-|[Databaser – lista med rekommenderade elastisk Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|Returnerar en lista över databaser i en rekommenderad elastisk pool.|
 |[Databaser – listan efter Server](/rest/api/sql/databases/listbyserver)|Returnerar en lista över databaser i en server.|
 |[Databaser – uppdatering](/rest/api/sql/databases/update)|Uppdaterar en befintlig databas.|
 |[Brandväggsregler – skapa eller uppdatera](/rest/api/sql/firewallrules/createorupdate)|Skapar eller uppdaterar en brandväggsregel.|

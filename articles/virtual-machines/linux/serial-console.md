@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: e74ee48f0adc0d8ba0d2ea91b5d82415601f9405
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 857998c73abed76c9e20d5b3422ce607fb9f733d
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702426"
+ms.locfileid: "43782890"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Virtual Machine Serial Console (förhandsversion) 
 
 
-Virtual Machine Serial Console i Azure ger åtkomst till en textbaserad konsol för Linux och Windows-datorer. Den här seriell anslutning är att COM1 seriell port på den virtuella datorn och ger åtkomst till den virtuella datorn och inte är relaterade till nätverk för virtuella datorer / drift systemtillstånd. Åtkomst till seriekonsol för en virtuell dator kan klar för närvarande endast via Azure-portalen och tillåts endast för de användare som har VM-deltagare eller senare åtkomst till den virtuella datorn. 
+Virtual Machine Serial Console i Azure ger åtkomst till en textbaserad konsol för Linux-datorer. Den här seriell anslutning är att den seriella porten COM1 för den virtuella datorn, som ger tillgång till den virtuella datorn som är oberoende av en virtuell dators nätverks- eller operating system-tillstånd. Åtkomsten till seriekonsol för en virtuell dator för närvarande kan endast göras via Azure portal och tillåts endast för de användare som har VM-deltagare eller senare åtkomst till den virtuella datorn. 
 
 Seriell konsol dokumentation för Windows-datorer samt [Klicka här](../windows/serial-console.md).
 
@@ -61,6 +61,29 @@ Seriekonsol för virtuella datorer bara kan nås via [Azure-portalen](https://po
 
 > [!NOTE] 
 > Seriell konsol kräver en lokal användare med ett lösenord som har konfigurerats. Virtuella datorer som endast konfigurerats med en offentlig SSH-nyckel har inte åtkomst till seriekonsol för tillfället. Om du vill skapa en lokal användare med lösenord, använda den [VM Access-tillägg](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) (finns också i portalen genom att klicka på ”Återställ lösenord”) och skapa en lokal användare med ett lösenord.
+
+## <a name="access-serial-console-for-linux"></a>Åtkomst Seriekonsol för Linux
+Gästoperativsystemet måste konfigureras för att läsa och skriva konsolmeddelanden att den seriella porten för seriekonsol för att fungera korrekt. De flesta [godkända Azure Linux-distributioner](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) har seriekonsolen konfigureras som standard. Att klicka på avsnittet Seriekonsolen i Azure portal ger åtkomst till konsolen. 
+
+Distribution      | Seriell åtkomst till konsolen
+:-----------|:---------------------
+Red Hat Enterprise Linux    | Red Hat Enterprise Linux-avbildningar på Azure har åtkomst till konsolen aktiverad som standard. 
+CentOS      | CentOS-avbildningarna i Azure har åtkomst till konsolen aktiverad som standard. 
+Ubuntu      | Ubuntu-avbildningar som är tillgängliga på Azure har åtkomst till konsolen aktiverad som standard.
+CoreOS      | CoreOS-avbildningarna i Azure har åtkomst till konsolen aktiverad som standard.
+SUSE        | Nyare SLES-avbildningar på Azure har åtkomst till konsolen aktiverad som standard. Om du använder äldre versioner (10 eller nedan) för SLES på Azure, följer du de [KB-artikel](https://www.novell.com/support/kb/doc.php?id=3456486) att aktivera Seriell konsol. 
+Oracle Linux        | Oracle Linux-avbildningar på Azure har åtkomst till konsolen aktiverad som standard.
+Anpassade Linux-avbildningar     | Aktivera åtkomst till konsolen i /etc/inittab att köra en terminal på ttyS0 om du vill aktivera seriekonsol för en anpassad Linux VM-avbildning. Här är ett exempel att lägga till det i filen inittab: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Läs mer om hur du skapar anpassade avbildningar korrekt [skapa och ladda upp en VHD för Linux i Azure](https://aka.ms/createuploadvhd).
+
+## <a name="common-scenarios-for-accessing-serial-console"></a>Vanliga scenarier för att komma åt seriekonsol 
+Scenario          | Åtgärder i seriekonsol                
+:------------------|:-----------------------------------------
+Bruten FSTAB-filen | `Enter` för att fortsätta och åtgärda fstab-filen med hjälp av en textredigerare. Du kan behöva vara i enanvändarläge för detta. Se [hur du löser problem med fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) och [med Seriekonsol för att komma åt GRUB och enanvändarläge](serial-console-grub-single-user-mode.md) att komma igång.
+Felaktig brandväggsregler | Få åtkomst till seriell konsol och åtgärda iptables. 
+Filsystem skadade/kontroll | Få åtkomst till seriell konsol och Återställ filsystem. 
+Problem med SSH/RDP-konfigurationen | Komma åt Seriell konsol och ändra inställningarna. 
+Nätverket låsa system| Åtkomst seriekonsolen via portalen för att hantera system. 
+Interagera med startprogrammet | Åtkomst GRUB via seriekonsolen. Gå till [med Seriekonsol för att komma åt GRUB och enanvändarläge](serial-console-grub-single-user-mode.md) att komma igång. 
 
 ## <a name="disable-serial-console"></a>Inaktivera Seriekonsol
 Som standard har alla prenumerationer seriell konsolåtkomst är aktiverad för alla virtuella datorer. Du kan inaktivera seriekonsolen på prenumerationsnivån eller VM-nivå.
@@ -120,32 +143,6 @@ Om en användare är ansluten till seriell konsol och en annan användare begär
 >[!CAUTION] 
 Det innebär att den användare som kopplas inte kommer att loggas ut! Möjlighet att framtvinga en utloggning vid frånkoppling (via SIGHUP eller liknande mekanism) är fortfarande i översikten. För Windows finns en automatisk tidsgräns har aktiverats i SAC, men för Linux du kan konfigurera terminal timeoutinställning. För att göra detta helt enkelt till `export TMOUT=600` i din .bash_profile eller .profile för användaren du logga in i konsolen med, för att tidsgränsen för sessionen efter 10 minuter.
 
-### <a name="disable-feature"></a>Inaktivera funktionen
-Seriell konsol-funktionen kan inaktiveras för specifika virtuella datorer genom att inaktivera inställningen för den virtuella datorn boot diagnostics.
-
-## <a name="common-scenarios-for-accessing-serial-console"></a>Vanliga scenarier för att komma åt seriekonsol 
-Scenario          | Åtgärder i seriekonsol                
-:------------------|:-----------------------------------------
-Bruten FSTAB-filen | `Enter` för att fortsätta och åtgärda fstab-filen med hjälp av en textredigerare. Du kan behöva vara i enanvändarläge för detta. Se [hur du löser problem med fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) och [med Seriekonsol för att komma åt GRUB och enanvändarläge](serial-console-grub-single-user-mode.md) att komma igång.
-Felaktig brandväggsregler | Få åtkomst till seriell konsol och åtgärda iptables. 
-Filsystem skadade/kontroll | Få åtkomst till seriell konsol och Återställ filsystem. 
-Problem med SSH/RDP-konfigurationen | Komma åt Seriell konsol och ändra inställningarna. 
-Nätverket låsa system| Åtkomst seriekonsolen via portalen för att hantera system. 
-Interagera med startprogrammet | Åtkomst GRUB via seriekonsolen. Gå till [med Seriekonsol för att komma åt GRUB och enanvändarläge](serial-console-grub-single-user-mode.md) att komma igång. 
-
-## <a name="access-serial-console-for-linux"></a>Åtkomst Seriekonsol för Linux
-Gästoperativsystemet måste konfigureras för att läsa och skriva konsolmeddelanden att den seriella porten för seriekonsol för att fungera korrekt. De flesta [godkända Azure Linux-distributioner](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) har seriekonsolen konfigureras som standard. Att klicka på avsnittet Seriekonsolen i Azure portal ger åtkomst till konsolen. 
-
-Distribution      | Seriell åtkomst till konsolen
-:-----------|:---------------------
-Red Hat Enterprise Linux    | Red Hat Enterprise Linux-avbildningar på Azure har åtkomst till konsolen aktiverad som standard. 
-CentOS      | CentOS-avbildningarna i Azure har åtkomst till konsolen aktiverad som standard. 
-Ubuntu      | Ubuntu-avbildningar som är tillgängliga på Azure har åtkomst till konsolen aktiverad som standard.
-CoreOS      | CoreOS-avbildningarna i Azure har åtkomst till konsolen aktiverad som standard.
-SUSE        | Nyare SLES-avbildningar på Azure har åtkomst till konsolen aktiverad som standard. Om du använder äldre versioner (10 eller nedan) för SLES på Azure, följer du de [KB-artikel](https://www.novell.com/support/kb/doc.php?id=3456486) att aktivera Seriell konsol. 
-Oracle Linux        | Oracle Linux-avbildningar på Azure har åtkomst till konsolen aktiverad som standard.
-Anpassade Linux-avbildningar     | Aktivera åtkomst till konsolen i /etc/inittab att köra en terminal på ttyS0 om du vill aktivera seriekonsol för en anpassad Linux VM-avbildning. Här är ett exempel att lägga till det i filen inittab: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Läs mer om hur du skapar anpassade avbildningar korrekt [skapa och ladda upp en VHD för Linux i Azure](https://aka.ms/createuploadvhd).
-
 ## <a name="accessibility"></a>Hjälpmedel
 Hjälpmedel är viktiga fokus för Azure seriekonsol. Därför har vi sett att seriekonsolen är tillgänglig för de med visuella objekt och hörselnedsättning samt personer som inte kanske kan använda en mus.
 
@@ -173,6 +170,7 @@ Problem                           |   Åtgärd
 Det finns inget alternativ med VM scale set-instans från seriell konsol |  Åtkomst till seriekonsol för VM-skalningsuppsättningsinstanser stöds inte vid tidpunkten för förhandsversionen.
 Träffa ange när anslutningen popup-meddelandet inte visas en logg i Kommandotolken | Finns på följande sida: [Hitting ange ingenting](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Detta kan inträffa om du använder en anpassad virtuell dator, förstärkt installation eller GRUB konfiguration som orsakar Linux för att kunna ansluta ordentligt till den seriella porten.
 Ett ”förbjuden”-svar påträffades vid åtkomst till den här Virtuella datorns lagringskonto för startdiagnostik. | Kontrollera att startdiagnostik inte har en brandvägg för kontot. Ett lagringskonto för tillgänglig startdiagnostik är nödvändigt för seriekonsolen ska fungera.
+Seriell konsol text tar endast upp en del av skärmstorlek (ofta när du använder en textredigerare) | Det här är ett känt problem med okänt skärmstorlek över seriella anslutningar. Vi rekommenderar instaling xterm eller några andra liknande verktyg som ger kommandot 'storleksändring'. Köra, ändra storlek på' åtgärda detta.
 
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar 
@@ -183,6 +181,15 @@ A. Ge feedback som ett problem genom att gå till https://aka.ms/serialconsolefe
 **FRÅGOR OCH. Jag kan inte komma åt seriekonsolen var kan jag registrera ett supportärende?**
 
 A. Den här förhandsversionsfunktionen täcks via Azure-förhandsversioner. Stöd för detta hanteras bäst via kanaler som nämns ovan. 
+
+**FRÅGOR OCH. Kan jag använda seriekonsolen i stället för en SSH-anslutning?**
+
+A. Medan det kan verka tekniskt möjligt, är seriell konsol avsedd att användas som ett verktyg för felsökning i situationer där anslutning via SSH inte är möjligt. Vi rekommenderar mot att använda seriekonsolen som en SSH-ersättning av två skäl:
+
+1. Seriell konsol har inte så mycket bandbredd som ssh - anslutningen endast text, är så att flera GUI omfattande interaktioner blir svårt i Seriell konsol.
+1. Seriell konsolåtkomst är för närvarande endast av användarnamn och lösenord. SSH-nycklar är mycket säkrare än kombinationer av användarnamn/lösenord, så ur säkerhetssynpunkt inloggningen rekommenderar vi SSH via seriell konsol.
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 * Använd Seriekonsol för att [starta i GRUB och ange enanvändarläge](serial-console-grub-single-user-mode.md)

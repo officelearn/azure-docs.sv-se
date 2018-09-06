@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 09/05/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b0769ba70f495728df5c38b43bae4059b27de88b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f25d0b3522658d5fcd4b34110cb03b624dd9e7b1
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010828"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841513"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Självstudie: Kopiera data till en Azure Data Box-disk och verifiera
 
@@ -76,8 +76,8 @@ Utför stegen nedan för att ansluta och kopiera data från din dator till Data 
     
     |Parametrar/alternativ  |Beskrivning |
     |--------------------|------------|
-    |<Source>            | Anger sökvägen till källkatalogen.        |
-    |<Destination>       | Anger sökvägen till målkatalogen.        |
+    |Källa            | Anger sökvägen till källkatalogen.        |
+    |Mål       | Anger sökvägen till målkatalogen.        |
     |/E                  | Kopierar underkataloger, inklusive tomma kataloger. |
     |/MT[:N]             | Skapar flertrådiga kopior med N trådar, där N är ett heltal mellan 1 och 128. <br>Standardvärdet för N är 8.        |
     |/R: <N>             | Anger antalet återförsök vid misslyckade kopieringar. Standardvärdet för N är 1 000 000 (en miljon nya försök).        |

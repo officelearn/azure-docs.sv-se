@@ -14,26 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: ellacroi
-ms.openlocfilehash: f529459562ec10a7b9bbcca578d8998e545f3f4c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 0007396ad6d5fc16177d76683f959591e9830ac3
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952621"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782084"
 ---
-# <a name="support-for-azure-marketplace"></a>Stöd för Azure Marketplace  
-Supportalternativ för Azure Marketplace.  
+# <a name="support-for-the-marketplace"></a>Stöd för Marketplace  
+Supportalternativ för Marketplace.  
 
 ## <a name="onboarding"></a>Publicering
 
 [Öppna en biljett](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) för ”Onboarding för Marketplace” med Microsoft för att lösa alla problem med att komma igång.
-
-## <a name="publishing"></a>Publicering  
-
-| Supportkanal | Beskrivning | Tillgänglighet |  
-|:--- |:--- |:--- |  
-| E-postadress: [azurecertified@microsoft.com](mailto:azurecertified@microsoft.com) | Stöd för Azure Marketplace-publicering av appar åt dig. | Det är kontorstid i tidszonen Pacific time. |  
-| E-postadress: [amp-testdrive@microsoft.com](mailto:amp-testdrive@microsoft.com) | Onboarding-åtkomst till testenheter. | Det är kontorstid i tidszonen Pacific time. |  
 
 ## <a name="cloud-partner-portal"></a>Partnerportalen i molnet  
 
@@ -48,7 +41,7 @@ Supportalternativ för Azure Marketplace.
 | Slack: [join.marketplace.azure.com](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Slack miljö för att stödja partner med tekniska problem. Det finns om 350 Partners arbetar i den här miljön. |  
 | MSDN-forum: Marketplace finns på [social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Microsoft Developer Network-forum. |  
 | Stackspill: Azure finns på [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Stack Overflow-miljö för att få ut lösningar och ställa frågor om allt som rör Azure Marketplace.<ul> <li>Stackspill: Azure Marketplace finns på [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stackspill: Azure Resource Manager finns på [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stackspill: virtuella datorer på Azure finns på [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stackspill: Behållare i Azure finns på [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
-
+| Stöd för AppSource: [appsourcecrm@Microsoft.com](mailto:appsourcecrm@microsoft.com) | Stöd för publicering för dina Dynamics-appar |
 ## <a name="marketing-resources"></a>Marketing-resurser  
 
 | Supportkanal | Beskrivning | Tillgänglighet |  
@@ -57,14 +50,6 @@ Supportalternativ för Azure Marketplace.
 | E-postadress: [gtm@microsoft.com](mailto:gtm@microsoft.com) | Stöd för GTM-fördelar och frågor för programmet. | Det är kontorstid i tidszonen Pacific time. |  
 | E-postadress: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Svar på frågor om användning för Azure logotyper och anpassning. |  |  
 
-# <a name="support-for-appsource"></a>Stöd för AppSource  
-Supportalternativ för AppSource.  
-
-## <a name="technical"></a>Teknik  
-
-| Supportkanal | Beskrivning |  
-|:--- |:--- |  
-| E-postadress: [appsourcecrm@Microsoft.com](mailto:appsourcecrm@microsoft.com) | Stöd för publicering Dynamics-appar för dig |
 
 ## <a name="next-steps"></a>Nästa steg
 Gå till den [Azure Marketplace och AppSource Publiceringsguiden](./marketplace-publishers-guide.md) sidan.  

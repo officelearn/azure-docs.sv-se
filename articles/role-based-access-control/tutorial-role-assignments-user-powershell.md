@@ -13,18 +13,18 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/11/2018
 ms.author: rolyon
-ms.openlocfilehash: 4eeae864721040bda18409b48abf5d33b81ca609
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: cac585b36c3b5969a18c941215b623443850cd4c
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295906"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301736"
 ---
 # <a name="tutorial-grant-access-for-a-user-using-rbac-and-azure-powershell"></a>Självstudiekurs – Bevilja åtkomst för en användare med RBAC och Azure PowerShell
 
 [Rollbaserad åtkomstkontroll (RBAC)](overview.md) är sättet som du hantera åtkomst till resurser i Azure. I den här självstudien kommer du at ge en användare åtkomst för att visa allt i en prenumeration och hantera allt innehåll i en resursgrupp med hjälp av Azure PowerShell.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Beviljar åtkomst till en användare med olika omfång
@@ -109,7 +109,7 @@ Du kan använda en resursgrupp för att visa hur du tilldelar en roll med resurs
 
 Om du vill bevilja åtkomst för användaren använder du kommandot [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) för att tilldela en roll. Du måste ange säkerhetsobjekt, rolldefinition och omfång.
 
-1. Hämta ID för din prenumeration med hjälp av kommandot [Get-AzureRmSubscription](/powershell/module/azurerm.resources/get-azurermsubscription).
+1. Hämta ID för din prenumeration med hjälp av kommandot [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
 
     ```azurepowershell
     Get-AzureRmSubscription

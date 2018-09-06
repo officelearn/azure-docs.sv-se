@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1d5298d2b15fc94d8e7e0d22fc2f858ffc13e7c8
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e42f8f36acdaa5e84f4a3087cac7016867622c21
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932593"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338832"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Självstudier: Skydda en webbserver på en virtuell Windows-dator i Azure med SSL-certifikat som lagras i Key Vault
 
@@ -151,7 +151,7 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
 
 
 ### <a name="test-the-secure-web-app"></a>Testa den säkra webbappen
-Hämta den offentliga IP-adressen för den virtuella datorn med [Get-AzureRmPublicIPAddress](/powershell/resourcemanager/azurerm.network/get-azurermpublicipaddress). I följande exempel hämtas IP-adressen för `myPublicIP` som skapades tidigare:
+Hämta den offentliga IP-adressen för den virtuella datorn med [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress). I följande exempel hämtas IP-adressen för `myPublicIP` som skapades tidigare:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIPAddress" | select "IpAddress"

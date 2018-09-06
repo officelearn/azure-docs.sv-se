@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 832b32ebc4cf99d17df4669b421415d0d0ca0560
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 786dbb258fa4299f80f7ff9d24a1c129a9506bb7
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112856"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43663753"
 ---
 # <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>Exempelskript för att överföra en virtuell hårddisk till Azure och skapa en ny virtuell dator
 
@@ -147,7 +147,7 @@ Det här skriptet använder följande kommandon för att skapa distributionen. V
 | [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage)                           | Anger en avbildning för en virtuell dator.                                                                                                                                            |
 | [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk)                                     | Anger operativsystemets diskegenskaper på en virtuell dator.                                                                                                                      |
 | [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem)                   | Anger operativsystemets diskegenskaper på en virtuell dator.                                                                                                                      |
-| [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.network/add-azurermvmnetworkinterface)                 | Lägger till ett nätverksgränssnitt i en virtuell dator.                                                                                                                                       |
+| [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmnetworkinterface?view=azurermps-6.8.1)                 | Lägger till ett nätverksgränssnitt i en virtuell dator.                                                                                                                                       |
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)                                                 | Skapa en virtuell dator.                                                                                                                                                            |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)                     | Tar bort en resursgrupp och alla resurser som ingår i gruppen.                                                                                                                         |
 

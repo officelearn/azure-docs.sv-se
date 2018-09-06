@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/08/2018
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: da077f013c558448be63dce9b215ded99362d22e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 61e040fc2f7ff70794b49204e3dea01375637641
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452472"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336584"
 ---
 # <a name="create-and-manage-s2s-vpn-connections-with-the-azure-powershell-module"></a>Skapa och hantera VPN-anslutningar mellan servrar med Azure PowerShell-modulen
 
@@ -86,7 +86,7 @@ En lokal nätverksgateway representerar det lokala nätverket. Du kan ange egens
 * Lokalt adressutrymme
 * (Valfritt) BGP-attribut (IP-adress för BGP-peer och AS-nummer)
 
-Skapa en lokal nätverksgateway med kommandot [New-AzureRmLocalNetworkGateway](/powershell/module/azurerm.resources/new-azurermlocalnetworkgateway).
+Skapa en lokal nätverksgateway med kommandot [New-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermlocalnetworkgateway?view=azurermps-6.8.1).
 
 ```azurepowershell-interactive
 New-AzureRmLocalNetworkGateway -Name $LNG1 -ResourceGroupName $RG1 `
@@ -95,7 +95,7 @@ New-AzureRmLocalNetworkGateway -Name $LNG1 -ResourceGroupName $RG1 `
 
 ## <a name="create-a-s2s-vpn-connection"></a>Skapa en VPN-anslutning mellan servrar
 
-Därefter skapar du VPN-anslutningen för plats till plats mellan din virtuella nätverksgateway och din VPN-enhet med [New-AzureRmVirtualNetworkGatewayConnection](/powershell/module/azurerm.resources/new-azurermvirtualnetworkgatewayconnection). Observera att ”-ConnectionType” för VPN för plats till plats är *IPsec*.
+Därefter skapar du VPN-anslutningen för plats till plats mellan din virtuella nätverksgateway och din VPN-enhet med [New-AzureRmVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayconnection?view=azurermps-6.8.1). Observera att ”-ConnectionType” för VPN för plats till plats är *IPsec*.
 
 ```azurepowershell-interactive
 $vng1 = Get-AzureRmVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
@@ -112,7 +112,7 @@ Lägg till den valfria egenskapen ”**-EnableBGP $True**” för att aktivera B
 
 ### <a name="view-and-update-your-pre-shared-key"></a>Visa och uppdatera din i förväg delade nyckel
 
-Azures VPN-anslutning mellan servrar använder en i förväg delad nyckel (hemlighet) till att autentisera mellan din lokala VPN-enhet och Azure VPN-gatewayen. Du kan visa och uppdatera den i förväg delade nyckeln för en anslutning med [Get-AzureRmVirtualNetworkGatewayConnectionSharedKey](/powershell/module/azurerm.resources/get-azurermvirtualnetworkgatewayconnectionsharedkey) och [Set-AzureRmVirtualNetworkGatewayConnectionSharedKey](/powershell/module/azurerm.resources/set-azurermvirtualnetworkgatewayconnectionsharedkey).
+Azures VPN-anslutning mellan servrar använder en i förväg delad nyckel (hemlighet) till att autentisera mellan din lokala VPN-enhet och Azure VPN-gatewayen. Du kan visa och uppdatera den i förväg delade nyckeln för en anslutning med [Get-AzureRmVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworkgatewayconnectionsharedkey?view=azurermps-6.8.1) och [Set-AzureRmVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgatewayconnectionsharedkey?view=azurermps-6.8.1).
 
 > [!IMPORTANT]
 > Den i förväg delade nyckeln är en sträng med **utskrivbara ASCII-tecken** med en maximal längd på 128.
@@ -140,7 +140,7 @@ Azure VPN-gatewayen har stöd för BGP-protokoll för dynamisk routning. Du kan 
 * ASN för lokal nätverksgateway
 * IP-adress för BGP-peer för lokal nätverksgateway
 
-Om du inte har konfigurerat BGP-egenskaperna använder du följande kommandon för att lägga till dessa egenskaper i din VPN-gateway och lokala nätverksgateway: [Set-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.resources/set-azurermvirtualnetworkgateway) och [Set-AzureRmLocalNetworkGateway](/powershell/module/azurerm.resources/set-azurermlocalnetworkgateway).
+Om du inte har konfigurerat BGP-egenskaperna använder du följande kommandon för att lägga till dessa egenskaper i din VPN-gateway och lokala nätverksgateway: [Set-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway?view=azurermps-6.8.1) och [Set-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermlocalnetworkgateway?view=azurermps-6.8.1).
 
 ```azurepowershell-interactive
 $vng1 = Get-AzureRmVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
@@ -151,7 +151,7 @@ Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $lng1 `
   -Asn $LNGASN1 -BgpPeeringAddress $BGPPeerIP1
 ```
 
-Aktivera BGP med [Set-AzureRmVirtualNetworkGatewayConnection](/powershell/module/azurerm.resources/set-azurermvirtualnetworkgatewayconnection).
+Aktivera BGP med [Set-AzureRmVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgatewayconnection?view=azurermps-6.8.1).
 
 ```azurepowershell-interactive
 $connection = Get-AzureRmVirtualNetworkGatewayConnection `
@@ -214,7 +214,7 @@ Det finns nu två VPN-anslutningar mellan servrar till din Azure VPN-gateway.
 
 ## <a name="delete-a-s2s-vpn-connection"></a>Ta bort en VPN-anslutning mellan servrar
 
-Ta bort en VPN-anslutning mellan servrar med [Remove-AzureRmVirtualNetworkGatewayConnection](/powershell/module/azurerm.resources/remove-azurermvirtualnetworkgatewayconnection).
+Ta bort en VPN-anslutning mellan servrar med [Remove-AzureRmVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermvirtualnetworkgatewayconnection?view=azurermps-6.8.1).
 
 ```azurepowershell-interactive
 Remove-AzureRmVirtualNetworkGatewayConnection -Name $Connection2 -ResourceGroupName $RG1

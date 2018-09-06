@@ -3,19 +3,19 @@ title: 'Snabbstart: Skala ut beräkning i Azure SQL Data Warehouse – Azure Por
 description: Skala beräkning i Azure SQL Data Warehouse i Azure Portal. Skala ut beräkning för bättre prestanda eller skala ned beräkning om du vill sänka kostnaderna.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d707b9a4b7b683e75bb9313dae2611fd59dbb155
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1abafb011a445847757af3efb9e0ea4e6170408d
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182467"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43285541"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>Snabbstart: Skala beräkning i Azure SQL Data Warehouse i Azure Portal
 
@@ -37,7 +37,7 @@ I SQL Data Warehouse kan du öka eller minska beräkningsresurser genom att just
 
 Så här ändrar du informationslagerenheter:
 
-1. Klicka på **SQL-databaser** på den vänstra sidan i Azure Portal.
+1. Klicka på **SQL-informationslager** till vänster på Azure Portal.
 2. Välj **mySampleDataWarehouse** på sidan **SQL-databaser**. Informationslagret öppnas.
 3. Klicka på **Skala**.
 

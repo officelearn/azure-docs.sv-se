@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 6e421aa630dc121589dece789e2e0d7f9a56bbe6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a52ab4ff65312088e65d56006b6f99a7470b88f6
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434847"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287258"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Självstudie: Konfigurera meddelandedirigering med IoT Hub
 
@@ -184,7 +184,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 ### <a name="powershell-instructions"></a>PowerShell-instruktioner
 
-Det lättaste sättet att använda det här skriptet är att öppna [PowerShell ISE](/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise.md), kopiera skriptet till Urklipp och sedan klistra in hela skriptet i skriptfönstret. Du kan därefter ändra värdena för resursnamnen (om du vill) och köra hela skriptet. 
+Det lättaste sättet att använda det här skriptet är att öppna [PowerShell ISE](https://docs.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise?view=powershell-6), kopiera skriptet till Urklipp och sedan klistra in hela skriptet i skriptfönstret. Du kan därefter ändra värdena för resursnamnen (om du vill) och köra hela skriptet. 
 
 ```azurepowershell-interactive
 # Log into Azure account.
@@ -295,8 +295,7 @@ Konfigurera nu routning för lagringskontot. Definiera en slutpunkt och konfigur
 
    **Namn**: Ange ett namn på slutpunkten. I den här självstudien används **StorageContainer**.
    
-   
-  **Typ av slutpunkt**: Välj **Container för Azure Storage** från listrutan.
+   **Typ av slutpunkt**: Välj **Container för Azure Storage** från listrutan.
 
    Klicka på **Pick a container** (Välj en behållare) för att se en lista över lagringskonton. Välj ditt lagringskonto. I den här självstudiekursen används **contosostorage**. Välj sedan containern. I självstudien används **contosoresults**. Klicka på **Välj** för att återgå till fönstret **Lägg till slutpunkt**. 
    
@@ -588,14 +587,14 @@ Logga in på ditt [Power BI](https://powerbi.microsoft.com/)-konto. Gå till din
 
 ### <a name="clean-up-resources-using-azure-cli"></a>Rensa resurser med hjälp av Azure CLI
 
-Om du vill ta bort resursgruppen använder du kommandot [az group delete](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az-group-delete).
+Om du vill ta bort resursgruppen använder du kommandot [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete).
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
 ```
 ### <a name="clean-up-resources-using-powershell"></a>Rensa resurser med hjälp av PowerShell
 
-Om du vill ta bort resursgruppen använder du kommandot [Remove-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup). $resourceGroup ställdes in på **ContosoIoTRG1** i början av den här självstudien.
+Om du vill ta bort resursgruppen använder du kommandot [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup). $resourceGroup ställdes in på **ContosoIoTRG1** i början av den här självstudien.
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name $resourceGroup

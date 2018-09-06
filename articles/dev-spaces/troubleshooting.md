@@ -11,16 +11,24 @@ ms.topic: article
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 3f45d8059cd4af5dbab64fef798b61e439a5f2fc
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: b66e43c0f40f184bfb2c62327f5742346ff8b187
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286882"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841617"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
 Den här guiden innehåller information om vanliga problem som du kan ha när du använder Azure Dev blanksteg.
+
+## <a name="enabling-detailed-logging"></a>Aktivera detaljerad loggning
+
+Det kan hjälpa för att skapa mer detaljerade loggar för granskning för att felsöka problem med mer effektivt.
+
+För Visual Studio-tillägget kan du göra detta genom att ange den `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` miljövariabeln till 1. Glöm inte att starta om Visual Studio för miljövariabeln ska börja gälla. När du har aktiverat, detaljerade loggar skrivs till din `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` directory.
+
+I CLI, kan du mata ut mer information under Kommandokörning med hjälp av den `--verbose` växla.
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>Felet ”Det gick inte att skapa Azure Dev blanksteg controller'
 

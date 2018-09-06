@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: fcf3c7d47e43adc94d2de933430f16d64ec987a2
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 3f3adb1230d6ca6b3a7e616a0beed15d66895124
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "41918371"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43283005"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Komma igång med Azure Key Vault
 Med den här artikeln får du hjälp med att komma igång med Azure Key Vault med PowerShell, och den går igenom följande aktiviteter:
@@ -34,7 +34,7 @@ Anvisningar för plattformsoberoende kommandoradsgränssnitt finns i [den här s
 ## <a name="requirements"></a>Krav
 Innan du gå vidare med artikeln bekräftar du att du har:
 
-- **En Azure-prenumeration**. Om du inte har en prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
+- **En Azure-prenumeration**. Om du inte har en prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/en-us/free/).
 - **Azure PowerShell**, **minst version 1.1.0**. Om du vill installera och sedan koppla Azure PowerShell till din Azure-prenumeration läser du [Installera och konfigurera Azure PowerShell](/powershell/azure/overview). Om du redan har installerat Azure PowerShell och inte vet vilken version du har skriver du `(Get-Module azure -ListAvailable).Version` i Azure PowerShell-konsolen. Du kan använda den här självstudiekursen med några mindre ändringar även om du har Azure PowerShell version 0.9.1 till och med 0.9.8 installerad. Du måste till exempel använda kommandot `Switch-AzureMode AzureResourceManager`, och vissa Azure Key Vault-kommandon har ändrats. En lista med Key Vault-cmdlets för version 0.9.1 till och med 0.9.8 finns i [Cmdlets för Azure Key Vault](/powershell/module/azurerm.keyvault/#key_vault).
 - **Ett program som kan konfigureras för att använda Key Vault**. Ett exempelprogram är tillgängligt från [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=45343). Anvisningar finns i den tillhörande **Readme**-filen.
 

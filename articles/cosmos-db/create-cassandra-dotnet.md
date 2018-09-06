@@ -11,14 +11,21 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 1b7021987c1c58c7b08798a28643ac647569e2bc
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6ab7c0fa5f7e4d10b38ecee8f75372dda3b11a1c
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38485556"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700588"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-and-azure-cosmos-db"></a>Snabbstart: Skapa en Cassandra-app med .NET och Azure Cosmos DB
+
+> [!div class="op_single_selector"]
+> * [.NET](create-cassandra-dotnet.md)
+> * [Java](create-cassandra-java.md)
+> * [Node.js](create-cassandra-nodejs.md)
+> * [Python](create-cassandra-python.md)
+>  
 
 Den här snabbstarten visar hur du använder [Cassandra API](cassandra-introduction.md) i .NET och Azure Cosmos DB för att skapa en profilapp genom att klona ett exempel från GitHub. Denna snabbstart visar dig också hur man skapar ett Azure Cosmos DB-konto med hjälp av den webbaserade Azure-portalen.   
 
@@ -112,7 +119,7 @@ Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas 
 
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
 
-Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen. Informationen i anslutningssträngen gör det möjligt för appen att kommunicera med den värdbaserade databasen.
+Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen. Informationen i anslutningssträngen gör det möjligt för appen att kommunicera med den värdbaserade databasen.
 
 1. I [Azure-portalen](http://portal.azure.com/) klickar du på **Anslutningssträng**. 
 
@@ -161,7 +168,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
     ![Visa data i Datautforskaren](./media/create-cassandra-dotnet/data-explorer.png)
 
-## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure Portal
+## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure-portalen
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 

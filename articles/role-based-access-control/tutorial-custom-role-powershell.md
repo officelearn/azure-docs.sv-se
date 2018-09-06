@@ -13,18 +13,18 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/12/2018
 ms.author: rolyon
-ms.openlocfilehash: 2b3bd55fd2ed9f392611fcb32b0ebd0f5c6b5e09
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 1e3043a6053625f8363e9035e59b53275714a827
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36322533"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300617"
 ---
 # <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>Självstudie: Skapa en anpassad roll med Azure PowerShell
 
 Om de [inbyggda rollerna](built-in-roles.md) inte uppfyller organisationens specifika krav kan du skapa egna, anpassade roller. För den här självstudien skapar du en anpassad roll med namnet Reader Support Tickets (Läsare av supportbegäranden) med hjälp av Azure PowerShell. Med den här anpassade rollen kan användare visa allt i prenumerationen samt öppna supportbegäranden.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en anpassad roll
@@ -99,7 +99,7 @@ Det enklaste sättet att skapa en anpassad roll är att utgå från en inbyggd r
     
 1. Redigera JSON-filen för att lägga till `"Microsoft.Support/*"`-åtgärden till `Actions`-egenskapen. Se till att inkludera ett kommatecken efter läsåtgärden. Den här åtgärden tillåter att användare skapar supportbegäranden.
 
-1. Hämta ID för din prenumeration med hjälp av kommandot [Get-AzureRmSubscription](/powershell/module/azurerm.resources/get-azurermsubscription).
+1. Hämta ID för din prenumeration med hjälp av kommandot [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
 
     ```azurepowershell
     Get-AzureRmSubscription

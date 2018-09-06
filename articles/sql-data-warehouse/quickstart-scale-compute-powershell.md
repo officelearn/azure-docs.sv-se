@@ -3,19 +3,19 @@ title: 'Snabbstart: Skala ut beräkning i Azure SQL Data Warehouse – PowerShel
 description: Skala beräkning i Azure SQL Data Warehouse i PowerShell. Skala ut beräkning för bättre prestanda eller skala ned beräkning om du vill sänka kostnaderna.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 0718365153390f525b22ef07559a822c777c2ff4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d3a3b30539ed33bf3e8d21a8cc5e5f2692308f98
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187920"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43283200"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Snabbstart: Skala beräkning i Azure SQL Data Warehouse i PowerShell
 
@@ -57,7 +57,7 @@ Följ de här anvisningarna för att hitta platsen för ditt informationslager.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Klicka på **SQL-informationslager** till vänster på Azure Portal.
-3. Välj **mySampleDataWarehouse** på sidan **SQL-informationslager**. Informationslagret öppnas.
+3. Välj **mySampleDataWarehouse** på sidan **SQL-databaser**. Informationslagret öppnas.
 
     ![Servernamn och resursgrupp](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 

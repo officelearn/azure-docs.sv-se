@@ -3,7 +3,7 @@ title: Vad är Azure SignalR? | Microsoft Docs
 description: Översikt över Azure SignalR Service.
 services: signalr
 documentationcenter: ''
-author: wesmc7777
+author: sffamily
 manager: cfowler
 editor: ''
 ms.service: signalr
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: overview
 ms.workload: tbd
 ms.date: 04/17/2018
-ms.author: wesmc
-ms.openlocfilehash: bc144fb1d7db9251871e7e181b012417a32de7e6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.author: zhshang
+ms.openlocfilehash: c574a3dd26b36b656cc931a0801cbf0ef23cf362
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868117"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668249"
 ---
 # <a name="what-is-azure-signalr-service"></a>Vad är Azure SignalR Service?
 
@@ -55,7 +55,7 @@ Det är fortfarande möjligt att distribuera en Azure-webbapp på egen hand med 
 
 Ett av de viktigaste skälen till att använda Azure SignalR Service är enkelheten. Med Azure SignalR Service behöver du inte hantera problem med prestanda, skalbarhet och tillgänglighet. Sådana problem hanteras åt dig med ett servicenivåavtal på 99,9 %.
 
-WebSockets är också normalt den teknik som föredras för stöd för innehållsuppdateringar i realtid. Belastningsutjämning av ett stort antal beständiga WebSocket-anslutningar blir dock ett komplicerat problemet att lösa vid skalning. Vanliga lösningar använder sig av DNS-belastningsutjämning, maskinvarubaserade belastningsutjämnare och programvarubaserad belastningsutjämning. Azure SignalR Service hanterar problemen åt dig.
+WebSockets är också normalt den teknik som föredras för stöd för innehållsuppdateringar i realtid. Belastningsutjämning av ett stort antal beständiga WebSocket-anslutningar blir dock ett komplicerat problemet att lösa vid skalning. Vanliga lösningar använder sig av DNS-lastbalansering, maskinvarubaserade lastbalanserare och programvarubaserad lastbalansering. Azure SignalR Service hanterar problemen åt dig.
 
 En annan orsak kan vara att du inte har något behov av att vara värd för webbappen. Logiken för din webbappp kan använda sig av [serverlös databehandling](https://azure.microsoft.com/overview/serverless-computing/). Som exempel kanske din kod bara hanteras och körs på begäran med [Azure Functions](https://docs.microsoft.com/azure/azure-functions/)-utlösare. Det här scenariot kan vara komplicerat eftersom koden endast körs på begäran och inte upprätthåller längre anslutningar med klienter. Azure SignalR Service kan hantera den detta eftersom tjänsten redan hanterar anslutningar för dig.
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: cshoe
-ms.openlocfilehash: acf332209ca0588ab7722ddcfdcfe7b6715d672c
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 21e09ea231853826155d1ab12d9c992d85ef568a
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397940"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664220"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Node.js
 
@@ -100,11 +100,11 @@ Variablerna är inställda på följande värden:
 - *sourceFilePath* anges till den absoluta sökvägen till filen som ska laddas upp
 - *blobName* skapas genom att använda namnet på filen och ta bort filnamnstillägget
 
-I följande implementering omsluts varje *blobService*-funktion i en *Promise*, som ger åtkomst till Javascript-funktionen *async* och operatorn *await*, vilket förenklar motringningar i [Azure Storage-API:n](/nodejs/api/azure-storage/blobservice). När ett lyckat svar returneras för varje funktion, matchas aktuell promise med relevanta data, tillsammans med ett meddelande som är specifikt för åtgärden.
+I följande implementering omsluts varje *blobService*-funktion i en *Promise*, som ger åtkomst till Javascript-funktionen *async* och operatorn *await*, vilket förenklar motringningar i [Azure Storage-API:n](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest). När ett lyckat svar returneras för varje funktion, matchas aktuell promise med relevanta data, tillsammans med ett meddelande som är specifikt för åtgärden.
 
 ### <a name="create-a-blob-container"></a>Skapa en blobcontainer
 
-Funktionen *createContainer* anropar [createContainerIfNotExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists) och anger rätt åtkomstnivå för blobben.
+Funktionen *createContainer* anropar [createContainerIfNotExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createcontainerifnotexists) och anger rätt åtkomstnivå för blobben.
 
 ```javascript
 const createContainer = () => {
@@ -120,13 +120,13 @@ const createContainer = () => {
 };
 ```
 
-Den andra parametern (*alternativ*) för **createContainerIfNotExists** accepterar ett värde för [publicAccessLevel](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists). Värdet *blob* för *publicAccessLevel* anger att specifika blobbdata exponeras offentligt. Den här inställningen är motsatt till *containerns* nivååtkomst, vilket ger möjlighet att visa innehållet i containern.
+Den andra parametern (*alternativ*) för **createContainerIfNotExists** accepterar ett värde för [publicAccessLevel](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createcontainerifnotexists). Värdet *blob* för *publicAccessLevel* anger att specifika blobbdata exponeras offentligt. Den här inställningen är motsatt till *containerns* nivååtkomst, vilket ger möjlighet att visa innehållet i containern.
 
 Användningen av **createContainerIfNotExists** innebär att programmet kör kommandot *createContainer* flera gånger utan att returnera fel när behållaren redan finns. I en produktionsmiljö kan du ofta bara anropa **createContainerIfNotExists** när samma behållare används i hela programmet. I dessa fall kan du skapa containern i förväg via portalen eller via Azure CLI.
 
 ### <a name="upload-a-blob-to-the-container"></a>Ladda upp en blob till containern
 
-Funktionen *Ladda upp* använder [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromLocalFile) till att ladda upp och skriva eller skriva över en fil från filsystemet till blobblagringen. 
+Funktionen *Ladda upp* använder [createBlockBlobFromLocalFile](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromlocalfile) till att ladda upp och skriva eller skriva över en fil från filsystemet till blobblagringen. 
 
 ```javascript
 const upload = () => {
@@ -141,13 +141,13 @@ const upload = () => {
     });
 };
 ```
-I samband med det här exempelprogrammet överförs filen *exempel.txt* till en blob med namnet *example* i en behållare med namnet *test-container*. Andra metoder som är tillgängliga för att ladda upp innehåll till blobbar är att arbeta med [text](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) och [dataströmmar](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromStream).
+I samband med det här exempelprogrammet överförs filen *exempel.txt* till en blob med namnet *example* i en behållare med namnet *test-container*. Andra metoder som är tillgängliga för att ladda upp innehåll till blobbar är att arbeta med [text](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromtext) och [dataströmmar](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromstream).
 
 Om du vill kontrollera att filen har laddats upp till blobblagringen, kan du använda [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) till att visa datan på ditt konto.
 
 ### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
 
-Funktionen *list* anropar metoden [listBlobsSegmented](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) för att returnera en lista med blobbmetadata i en container. 
+Funktionen *list* anropar metoden [listBlobsSegmented](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#listblobssegmented) för att returnera en lista med blobbmetadata i en container. 
 
 ```javascript
 const list = () => {
@@ -163,11 +163,11 @@ const list = () => {
 };
 ```
 
-Om *listBlobsSegmented* anropas returneras blobbmetadata som en matris med [BlobResult](/nodejs/api/azure-storage/blobresult)-instanser. Resultaten returneras i 5 000 inkrementella batchar (segment). Om det finns fler än 5 000 blobbar i en container kommer resultatet innehålla ett värde för **continuationToken**. Visa efterföljande segment från blobcontainern genom att skicka fortsättningstoken tillbaka till **listBlobSegmented** som det andra argumentet.
+Om *listBlobsSegmented* anropas returneras blobbmetadata som en matris med [BlobResult](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.blobresult?view=azure-node-latest)-instanser. Resultaten returneras i 5 000 inkrementella batchar (segment). Om det finns fler än 5 000 blobbar i en container kommer resultatet innehålla ett värde för **continuationToken**. Visa efterföljande segment från blobcontainern genom att skicka fortsättningstoken tillbaka till **listBlobSegmented** som det andra argumentet.
 
 ### <a name="download-a-blob-from-the-container"></a>Ladda ner en blob från containern
 
-Funktionen för att *ladda ned* använder [getBlobToLocalFile](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_getBlobToLocalFile) för att hämta innehållet i blobben till den angivna absoluta sökvägen.
+Funktionen för att *ladda ned* använder [getBlobToLocalFile](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#getblobtolocalfile) för att hämta innehållet i blobben till den angivna absoluta sökvägen.
 
 ```javascript
 const download = () => {
@@ -187,7 +187,7 @@ Implementeringen som visas här ändrar sökvägen till källfilen genom att lä
 
 ### <a name="delete-blobs-in-the-container"></a>Ta bort blobbar i containern
 
-Funktionen *deleteBlock* (ett alias för konsolkommandot *ta bort*) anropar funktionen [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists). Som namnet antyder returnerar den här funktionen inte ett fel som blobben redan har tagit bort.
+Funktionen *deleteBlock* (ett alias för konsolkommandot *ta bort*) anropar funktionen [deleteBlobIfExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deleteblobifexists). Som namnet antyder returnerar den här funktionen inte ett fel som blobben redan har tagit bort.
 
 ```javascript
 const deleteBlock = () => {
@@ -272,7 +272,7 @@ try {
 ```
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Om du inte planerar att använda data eller konton som har skapats i den här artikeln, kan du ta bort dem för att undvika eventuell oönskad fakturering. Om du vill ta bort blob och behållare kan du använda metoderna [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice?view=azure-node-latest#deleteBlobIfExists_container__blob__options__callback_) och [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice?view=azure-node-latest#deleteContainerIfExists_container__options__callback_). Du kan också ta bort lagringskontot [via portalen](../common/storage-create-storage-account.md).
+Om du inte planerar att använda data eller konton som har skapats i den här artikeln, kan du ta bort dem för att undvika eventuell oönskad fakturering. Om du vill ta bort blob och behållare kan du använda metoderna [deleteBlobIfExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deleteblobifexists) och [deleteContainerIfExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deletecontainerifexists). Du kan också ta bort lagringskontot [via portalen](../common/storage-create-storage-account.md).
 
 ## <a name="resources-for-developing-nodejs-applications-with-blobs"></a>Resurser för utveckling av Node.js-program med blobbar
 

@@ -3,7 +3,7 @@ title: Vad är Azure Relay och varför ska jag använda det – översikt | Micr
 description: Översikt över Azure Relay
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 05/02/2018
-ms.author: sethm
-ms.openlocfilehash: 2b179f8f5de9a0020ea6457c11bb6f48f3a51320
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.author: spelluru
+ms.openlocfilehash: dc616f18033014a5dcc9e5d15434497978484bc1
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33896548"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695973"
 ---
 # <a name="what-is-azure-relay"></a>Vad är Azure Relay?
 
@@ -65,7 +65,7 @@ WCF Relay har stöd för hela .NET Framework (NETFX) och för WCF. Du upprättar
 
 ## <a name="architecture-processing-of-incoming-relay-requests"></a>Arkitektur: Bearbetning av inkommande vidarebefordrade begäranden
 
-När en klient skickar en begäran till tjänsten [Azure Relay](/azure/service-bus-relay/) skickar Azure-belastningsutjämnaren den vidare till någon av gateway-noderna. Om det handlar om en begäran om att lyssna, skapas en ny vidarebefordran av gateway-noden. Om det handlar om en begäran om anslutning till en specifik vidarebefordran skickar gateway-noden begäran vidare till gateway-noden som äger vidarebefordran. Gateway-noden som äger vidarebefordran skickar en rendezvous-begäran till den lyssnande klienten och ber lyssnaren skapa en tillfällig kanal till gateway-noden som tog emot anslutningsbegäran.
+När en klient skickar en begäran till tjänsten [Azure Relay](/azure/service-bus-relay/) skickar Azure-lastbalanseraren den vidare till någon av gateway-noderna. Om det handlar om en begäran om att lyssna, skapas en ny vidarebefordran av gateway-noden. Om det handlar om en begäran om anslutning till en specifik vidarebefordran skickar gateway-noden begäran vidare till gateway-noden som äger vidarebefordran. Gateway-noden som äger vidarebefordran skickar en rendezvous-begäran till den lyssnande klienten och ber lyssnaren skapa en tillfällig kanal till gateway-noden som tog emot anslutningsbegäran.
 
 Klienterna kan utbyta meddelanden via gateway-noden som används för rendezvous när anslutningen med vidarebefordran har upprättats.
 

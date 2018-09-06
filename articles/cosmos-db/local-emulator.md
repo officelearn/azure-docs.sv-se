@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 368caa063ea0487923af8a29f67aa73cae7ed75e
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 355f80479ba7c6d6399bb25f7ba1511c6b18599b
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952900"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43285235"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Använda Azure Cosmos DB-emulatorn för lokal utveckling och testning
 
@@ -38,7 +38,7 @@ ms.locfileid: "37952900"
 Azure Cosmos DB-emulatorn ger en lokal miljö som emulerar Azure Cosmos DB-tjänsten för utveckling. Med Azure Cosmos DB-emulatorn kan du utveckla och testa ditt program lokalt, utan att skapa en Azure-prenumeration och utan kostnad. När du är nöjd med hur programmet fungerar i Azure Cosmos DB-emulatorn kan du växla till ett Azure Cosmos DB-konto i molnet.
 
 > [!NOTE]
-> För närvarande stöder datautforskaren i emulatorn endast fullständigt SQL API-samlingar och MongoDB-samlingar. Behållare för Table, Graph och Cassandra stöds ännu inte helt. 
+> För närvarande stöder datautforskaren i emulatorn endast fullständigt SQL API-samlingar och MongoDB-samlingar. Containrar för Table, Graph och Cassandra stöds ännu inte helt. 
 
 Den här artikeln beskriver följande uppgifter: 
 
@@ -51,12 +51,6 @@ Den här artikeln beskriver följande uppgifter:
 > * Köra emulatorn på Docker för Windows
 > * Samla in spårningsfiler
 > * Felsökning
-
-Vi rekommenderar att du kommer igång genom att titta på nedanstående video, där Kirill Gavrylyuk visar hur du kommer igång med Azure Cosmos DB-emulatorn. Videon refererar till emulatorn som DocumentDB-emulatorn, men själva verktyget har bytt namn till Azure Cosmos DB-emulatorn sedan videon spelades in. All information i videon stämmer ändå för Azure Cosmos DB-emulatorn. 
-
-> [!VIDEO https://channel9.msdn.com/Events/Connect/2016/192/player]
-> 
-> 
 
 ## <a name="how-the-emulator-works"></a>Så här fungerar emulatorn
 
@@ -384,7 +378,7 @@ Cmdleten garanterar att emulatorn stoppas innan den avinstalleras.
 
 Azure Cosmos DB-emulatorn kan köras på Docker för Windows. Emulatorn fungerar inte på Docker för Oracle Linux.
 
-När du har installerat [Docker för Windows](https://www.docker.com/docker-windows) växlar du till Windows-behållare genom att högerklicka på Docker-ikonen i verktygsfältet och välja **Växla till Windows-behållare**.
+När du har installerat [Docker för Windows](https://www.docker.com/docker-windows) växlar du till Windows-containrar genom att högerklicka på Docker-ikonen i verktygsfältet och välja **Växla till Windows-containrar**.
 
 Hämta därefter emulatoravbildningen från Docker-hubben genom att köra följande kommando från ditt favoritgränssnitt.
 
@@ -433,7 +427,7 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 .\importcert.ps1
 ```
 
-Om du stänger det interaktiva gränssnittet när emulatorn har startats stängs emulatorns behållare.
+Om du stänger det interaktiva gränssnittet när emulatorn har startats stängs emulatorns container.
 
 Öppna Datautforskaren genom att gå till följande URL i webbläsaren. Emulatorns slutpunkt finns i svarsmeddelandet ovan.
 

@@ -11,14 +11,21 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: 532b69f23b0e6d27e255f0b3d0a0eaee60eb8c10
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 349fe9eafc169d232c4434a2c536d2020d4ea76a
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38485520"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702086"
 ---
 # <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Snabbstart: Skapa en tabell-API-app med Java och Azure Cosmos DB
+
+> [!div class="op_single_selector"]
+> * [.NET](create-table-dotnet.md)
+> * [Java](create-table-java.md)
+> * [Node.js](create-table-nodejs.md)
+> * [Python](create-table-python.md)
+> 
 
 Den här snabbstarten visar hur du använder [tabell-API](table-introduction.md) i Java och Azure Cosmos DB för att skapa en app genom att klona ett exempel från GitHub. Den här snabbstarten visar även hur du skapar ett Azure Cosmos DB-konto och hur du använder Datautforskaren för att skapa tabeller och entiteter i den webbaserade Azure-portalen.
 
@@ -79,7 +86,7 @@ Nu ska vi klona en Table-app från github, ange anslutningssträngen och köra a
 
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
 
-Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen. På så vis kan appen kommunicera med den värdbaserade databasen. 
+Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen. På så vis kan appen kommunicera med den värdbaserade databasen. 
 
 1. I [Azure-portalen](http://portal.azure.com/) klickar du på **Anslutningssträng**. 
 
@@ -124,7 +131,7 @@ Du har nu uppdaterat din app med all information den behöver för att kommunice
 
     Du kan nu gå tillbaka till datautforskaren och se frågan, ändra och arbeta med dessa nya data. 
 
-## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure Portal
+## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure-portalen
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 

@@ -2,19 +2,19 @@
 title: Självstudie – Uppdatera butikssortimentet med publicera/avpublicera kanaler och ämnesfilter med Azure PowerShell | Microsoft Docs
 description: I den här självstudien får du lära dig hur du skickar och tar emot meddelanden från ett ämne och en prenumeration och hur du lägger till och använder filterregler med Azure PowerShell
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
-ms.author: sethm
+ms.author: spelluru
 ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 6246e951cb9b1e0b4dac656fef6acf8027e79271
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 14f3fe81ab613f05154365b832d860808c3184bf
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126559"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702195"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Självstudie: Uppdatera lagerplatsen med PowerShell och ämnen/prenumerationer
 

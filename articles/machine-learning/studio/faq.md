@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.openlocfilehash: 01635b184903b88fa12e23c370caa65bb1eb377c
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 31676ea43acc495bf0cb6a249901e5b64ef217b7
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37024786"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782938"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Vanliga frågor och svar om Azure Machine Learning: Fakturering, funktioner, begränsningar och support
 Här får du svar på vanliga frågor om molntjänsten Azure Machine Learning som tillhandahåller förutsägelsemodeller och operationaliseringslösningar genom webbtjänster. Avsnittet ger svar på frågor om hur du använder tjänsten, inklusive faktureringsmodellen, funktioner, begränsningar och support.
@@ -312,7 +312,7 @@ Du kan också hitta kurser på [Microsoft Virtual Academy](http://www.microsoftv
 
 **Hur får jag support för Azure Machine Learning?**
 
-Om du behöver teknisk support för Azure Machine Learning går du till [Azure-support](/support/options/) och väljer **Machine Learning**.
+Om du behöver teknisk support för Azure Machine Learning går du till [Azure-support](https://azure.microsoft.com/support/options/) och väljer **Machine Learning**.
 
 Azure Machine Learning har även ett community-forum på MSDN där du kan ställa frågor om Azure Machine Learning. Forumet övervakas av Azure Machine Learning-teamet. Gå till [Azure-forumet](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
 

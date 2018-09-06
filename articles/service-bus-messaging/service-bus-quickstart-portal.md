@@ -2,20 +2,20 @@
 title: Snabbstart – Använd Azure-portalen för att skicka och ta emot meddelanden från Azure Service Bus | Microsoft Docs
 description: I den här snabbstarten får du lära dig att skicka och ta emot Service Bus-meddelanden med Azure-portalen
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/22/2018
-ms.author: sethm
-ms.openlocfilehash: 3f8979687747453354f60eda15d73b20b2c745a0
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: spelluru
+ms.openlocfilehash: 05c19b2b602e8541a21d5be508e0346c63714544
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867213"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700437"
 ---
 # <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>Snabbstart: Skicka och ta emot meddelanden med Azure-portalen och .NET
 
@@ -25,7 +25,7 @@ Microsoft Azure Service Bus är en asynkron meddelandekö för företagsintegrer
 
 Den här snabbstarten beskriver hur man skickar och tar emot meddelanden till och från en Service Bus-kö med [Azure-portalen][Azure portal] för att skapa ett namnområde för meddelanden och en kö inom det namnområdet och för att få auktoriseringsuppgifter på det namnområdet. Proceduren visar därefter hur du skickar och tar emot meddelanden från den här kön med [.NET standardbiblioteket](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt][] konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][] innan du börjar.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -40,7 +40,7 @@ Först går du till [Azure-portalen][Azure portal] och loggar in med din Azure-p
 
 ## <a name="create-a-service-bus-namespace"></a>Skapa ett namnområde för Service Bus
 
-Ett namnområde för Service Bus-meddelanden innehåller en unik omfattningsbehållare som refereras till av dess [fullständigt kvalificerade domännamn][], där du skapar en eller fler köer, ämnen och prenumerationer. I följande exempel skapas ett namnområde för Service Bus-meddelanden i en ny eller befintlig [resursgrupp](/azure/azure-resource-manager/resource-group-portal):
+Ett namnområde för Service Bus-meddelanden innehåller en unik omfattningscontainer som refereras till av dess [fullständigt kvalificerade domännamn][], där du skapar en eller fler köer, ämnen och prenumerationer. I följande exempel skapas ett namnområde för Service Bus-meddelanden i en ny eller befintlig [resursgrupp](/azure/azure-resource-manager/resource-group-portal):
 
 1. I det vänstra navigeringsfältet i portalen, klickar du på **+ Skapa en resurs**, därefter klickar du på **Enterprise-integration** och sedan på **Service Bus**.
 2. I dialogrutan **Skapa namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.
@@ -254,7 +254,7 @@ I den här artikeln skapade du ett Service Bus-namnområde och andra resurser so
 > [Uppdatera lagringsplatsen med Azure-portalen](./service-bus-tutorial-topics-subscriptions-portal.md)
 
 
-[kostnadsfritt]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[kostnadsfritt konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fullständigt kvalificerade domännamn]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 

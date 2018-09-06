@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: fd2a030d3529857b5a68aeaf28494e76d416e6fd
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781047"
 documentType: LandingData
 title: Dokumentation om virtuella Azure-datorer för datavetenskap
 metadata:
@@ -14,12 +20,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/18/2018
   ms.author: gokuma
-  ms.openlocfilehash: 2378c8bcca2ac97c6045a9e573192087d03b4b61
-  ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-  ms.translationtype: HT
-  ms.contentlocale: sv-SE
-  ms.lasthandoff: 04/19/2018
-  ms.locfileid: "31590793"
 abstract:
   description: Virtuella datorer för datavetenskap och djupinlärning är anpassade VM-avbildningar i Azure med verktyg för datavetenskap som används för att skapa intelligenta program för avancerade analyser.
 sections:
@@ -41,8 +41,8 @@ sections:
     style: ordered
     items:
     - html: <a href="provision-vm">Etablera en Windows DSVM</a>
-    - html: <a href="vm-do-ten-thing">Använda en Windows DSVM</a>
-    - html: <a href:"linux-dsvm-intro"> Etablera en Linux CentOS DSVM</a>
+    - html: <a href="vm-do-ten-things">Använda en Windows DSVM</a>
+    - html: <a href="linux-dsvm-intro">Etablera Linux CentOS DSVM</a>
     - html: <a href="dsvm-ubuntu-intro">Etablera en Linux Ubuntu DSVM</a>
     - html: <a href="linux-dsvm-walkthrough">Använda en Linux DSVM</a>
 - title: Fler Azure Machine Learning-tekniker

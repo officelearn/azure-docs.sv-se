@@ -1,6 +1,6 @@
 ---
-title: Autentiseringsuppgifter i Azure innehåll kontrollant | Microsoft Docs
-description: 'Hantera innehåll kontrollant autentiseringsuppgifter som ska användas med API: erna.'
+title: Autentiseringsuppgifter i Azure Content Moderator | Microsoft Docs
+description: 'Hantera Content Moderator autentiseringsuppgifter som ska användas med API: erna.'
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,77 +9,69 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 4531fa4c8bbb7bb9c1daeaaac6f9e7078dae250a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6477879953dc2bb2c7503eb0b2d4b5effa7b6a11
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351519"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024663"
 ---
 # <a name="manage-credentials"></a>Hantera autentiseringsuppgifter
 
-Autentiseringsuppgifterna innehåll kontrollant skapas på följande platser:
+Dina autentiseringsuppgifter för Content Moderator skapas på följande platser:
 
 - [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)
-- [Verktyget innehåll kontrollant granskning](http://contentmoderator.cognitive.microsoft.com/)
+- [Content Moderator-granskningsverktyget](http://contentmoderator.cognitive.microsoft.com/)
 
 Den här artikeln förklarar var du hittar dem och hur de relaterar till varandra.
 
-## <a name="the-azure-portal"></a>Azure-portalen
+## <a name="the-azure-portal"></a>Azure Portal
 
-Välj ditt innehåll kontrollant konto på Azure portal instrumentpanelen. Under **resurshantering**väljer **nycklar**. Klicka på ikonen till höger om nyckeln för att kopiera nyckeln.
+På instrumentpanelen för Azure portal, väljer du ditt konto med Content Moderator. Under **resurshantering**väljer **nycklar**. Välj ikonen till höger om nyckeln för att kopiera nyckeln.
 
-![Innehåll kontrollant nycklar i Azure-portalen](images/credentials-azure-portal-keys.PNG)
+![Content Moderator-nycklar i Azure portal](images/credentials-azure-portal-keys.PNG)
 
-### <a name="how-to-use-your-azure-account-with-the-review-tool"></a>Hur du använder ditt Azure-konto med verktyget granskning
-Om du vill använda din Azure-nyckel med granska API: er, kopiera resurs-ID som visas på den **egenskaper** skärmen i följande skärmbild och ange den på verktyget granska autentiseringsuppgifter skärm i den **godkända resurs-ID** fält som visas i följande **resurs-ID** avsnitt. 
-
-Om du vill använda din Azure-nyckel för arbetsflöden finns i innehåll kontrollant, anger du den i den **Ocp-Apim-prenumeration-nyckeln** i den **inställningar för arbetsflöde** avsnittet som visas i följande  **Arbetsflöden** avsnitt.
+### <a name="use-the-azure-account-with-the-review-tool-and-review-api"></a>Använda Azure-konto med verktyg för granskning och granska API
+Om du vill använda din Azure-nyckel med granska API: er, kopiera det resurs-ID som visas på den **egenskaper** skärmen på följande skärmbild och ange det verktyg för granskning autentiseringsuppgifter skärmen i den **godkänd resurs-ID(n)** fält som visas i följande **resurs-ID** avsnittet. 
 
 > [!NOTE]
-> När du ersätter två platser i verktyget granska med nyckeln och resurs-ID från din Azure-prenumeration din **utvärderingsversion Ocp-Apim-prenumeration-nyckeln** visas på de autentiseringsuppgifter som skärmen inte längre används men alltid är tillgängligt.
-> Nyckeln utvärderingsversion begränsar du maximalt 5 000 transaktioner per månad på 1 begäran per sekund (RPS).
+> Prenumerationen Content Moderator region ska matcha granska gruppens region att identifiera ditt team och dataåtkomst team. Till exempel i bilder på den här sidan i **västra USA** region **(4)** innehåller Content Moderator-Azure-prenumeration och ditt granskningsteam.
+>
+> När du ersätta de två platser i granskningsverktyget med nyckeln och resurs-ID från Azure-prenumerationen, din **utvärderingsversion Ocp-Apim-Subscription-Key** visas på autentiseringsuppgifterna skärmen används inte längre, men alltid är tillgänglig.
+> Nyckeln utvärderingsperioden begränsad till maximalt 5 000 transaktioner per månad med 1 begäran per sekund (RPS).
 
-![Innehåll kontrollant resurs-ID i Azure-portalen](images/credentials-azure-portal-resourceid.PNG)
+![Content Moderator resurs-ID i Azure portal](images/credentials-azure-portal-resourceid.PNG)
 
+### <a name="use-the-azure-account-with-the-workflows-in-the-review-tool"></a>Använda Azure-konto med arbetsflöden i granskningsverktyget
 
-## <a name="the-review-tool"></a>Granska-verktyget
+Om du vill använda din Azure-nyckel för arbetsflödena som är tillgängliga i Content Moderator, anger du den i den **Ocp-Apim-Subscription-Key** i den **arbetsflödesinställningarna** som visas i följande  **Arbetsflöden** avsnittet. Tryck på den **”+”** att spara din resurs-ID.
 
-Verktyget instrumentpanelen på granskningen på den **inställningar** väljer **autentiseringsuppgifter**.
+![Content Moderator arbetsflöde autentiseringsuppgifter i granskningsverktyget](images/credentials-workflow.PNG)
 
-![Innehåll kontrollant autentiseringsuppgifter i verktyget granskning](images/credentials-trial-resource-workflow.PNG)
+## <a name="the-review-tool"></a>Granskningsverktyget
 
-Följande avsnitt undersöks föregående bilden i detalj:
+På granskningen verktyget instrumentpanelen på den **inställningar** fliken **autentiseringsuppgifter**.
 
+![Content Moderator-autentiseringsuppgifter i granskningsverktyget](images/credentials-trial-resource-workflow.PNG)
+
+Följande avsnitt går igenom den föregående bilden i detalj:
 
 ### <a name="api"></a>API
 
-De första delen listorna din **granska API-slutpunkt**, **team ID**, och **Ocp-Apim-prenumeration-nyckel (innehåll kontrollant utvärderingsversion key)** skapas som en del av din grupp för granskning Skapa. Använd dem för att anropa alla innehåll kontrollant API: er, inklusive granska API.
+De första delen listorna din **granska API-slutpunkt**, **lag-ID**, och **Ocp-Apim-Subscription-Key (Content Moderator utvärderingsversion nyckel)** genereras som en del av ditt granskningsteam Skapa. Du kan använda dem för att anropa alla Content Moderator API: er, inklusive granska API.
 
-Tänk också på din regionsidentifierare för API-slutpunkt. Till exempel **westus** är regionen i ”https://westus.api.cognitive.microsoft.com/contentmoderator/review/v1.0”
+Tänk också på din regionsidentifierare för din API-slutpunkt. Till exempel **westus** är regionen i ”https://westus.api.cognitive.microsoft.com/contentmoderator/review/v1.0”
 
-![Kontrollant innehållsnyckeln i verktyget granskning](images/credentials-trialkey.PNG)
-
+![Content Moderator-nyckeln i granskningsverktyget](images/credentials-trialkey.PNG)
 
 ### <a name="resource-id"></a>Resurs-ID
 
-De andra delen startar ut som tom med inga resurs-ID. **Om du vill använda din nyckel för Azure-prenumeration med granska API, gå till skärmen resurs-ID som visas tidigare och kopiera den till fältet visas**. Tryck på **”+”** att spara din resurs-ID.
-
-> [!NOTE]
-> Granska teamet region att identifiera din grupp och dataåtkomst team måste överensstämma med prenumerationen innehåll kontrollant region. Till exempel i bilder på den här sidan i **västra USA** region **(4)** innehåller innehåll kontrollant Azure-prenumeration och granska-teamet.
-
-![Innehåll kontrollant resurs-ID i verktyget granskning](images/credentials-resourceids.PNG)
-
+Vi har gått igenom det här avsnittet i den [med ditt Azure-konto med verktyg för granskning och API: et](credentials.md#how-to-use-your-azure-account-with-the-review-tool) avsnittet. Det här fältet är vanligtvis tomt om inte du lägga till din Azure-resurs-Id i det här fältet enligt beskrivningen i föregående avsnitt.
 
 ### <a name="workflows"></a>Arbetsflöden
 
-Den tredje delen visar den information som används för att köra arbetsflöden. Startar med den automatisk genererade utvärderingsversion nyckeln som standard. 
-
-**Uppdatera den med din Azure-nyckel när du får en Azure-prenumeration**. De andra två fälten Tillåt med respektive termen och image listor i Skärmtext- och utvärdera åtgärder.
-
-![Innehåll kontrollant arbetsflödet autentiseringsuppgifter i verktyget granskning](images/credentials-workflow.PNG)
-
+Vi har gått igenom den här uppsättningen fält i föregående avsnitt på [använder din Azure-nyckel för att köra arbetsflöden](credentials.md#use-the-azure-account-with-the-workflows-in-the-review-tool). Granskningsverktyget använder den automatisk genererade utvärderingsversion nyckeln för att köra arbetsflöden som standard och det är vad som visas att. De två fälten kan med perioden och avbildning listor i Skärmtext- och utvärdera åtgärder respektive.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du använder innehåll kontrollant autentiseringsuppgifter i din [arbetsflöden](workflows.md).
+* Lär dig hur du använder Content Moderator autentiseringsuppgifterna i din [arbetsflöden](workflows.md).

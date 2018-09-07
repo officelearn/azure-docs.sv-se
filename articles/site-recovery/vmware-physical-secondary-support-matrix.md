@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 2ea1c337b4193997039876a05e71fb0088d455b1
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4df929e8a185a04aef5cb13f30c19b0db707e765
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921495"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022001"
 ---
 # <a name="support-matrix-for-replication-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Stödmatris för replikering av virtuella VMware-datorer och fysiska servrar till en sekundär plats
 
@@ -112,7 +112,7 @@ Mobilitetstjänsten samordnar replikering mellan lokala VMware-servrar eller fys
 
 **Uppdatering** | **Detaljer** 
 --- | --- 
-Scout uppdateringar | [Lär dig och ladda ned](/vmware-physical-secondary-disaster-recovery.md#updates) de senaste uppdateringarna för Scout | Scout uppdateringar är kumulativa.
+Scout uppdateringar | [Lär dig och ladda ned](vmware-physical-secondary-disaster-recovery.md#updates) de senaste uppdateringarna för Scout | Scout uppdateringar är kumulativa.
 Komponentuppdateringar | Scout uppdateringar innehåller uppdateringar för alla komponenter, inklusive RX server, konfigurationsservern, process och huvudmålservrar, vContinuum servrar och källservrar som du vill skydda.<br/><br/> [Läs mer](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).
 
 

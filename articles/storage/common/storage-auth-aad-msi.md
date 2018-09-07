@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 05/18/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 6ddae66ee6408a3cab905826cd0d7c0831607d33
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e20e0c412206b2a35973b192ef911bb99ed7c210
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526393"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021871"
 ---
 # <a name="authenticate-with-azure-ad-from-an-azure-managed-service-identity-preview"></a>Autentisera med Azure AD från en Azure hanterad tjänstidentitet (förhandsversion)
 
-Azure Storage har stöd för Azure Active Directory (Azure AD)-autentisering med [hanterad tjänstidentitet](../../active-directory/managed-service-identity/overview.md). Hanterad tjänstidentitet (MSI) innehåller en automatiskt hanterad identitet i Azure Active Directory (AD Azure). Du kan använda MSI för att autentisera till Azure Storage från program som körs i Azure-datorer, funktionsappar, skalningsuppsättningar för virtuella datorer och andra. Med hjälp av MSI och utnyttja kraften i Azure AD-autentisering, kan du undvika lagring av autentiseringsuppgifter med dina program som körs i molnet.  
+Azure Storage har stöd för Azure Active Directory (Azure AD)-autentisering med [hanterad tjänstidentitet](../../active-directory/managed-identities-azure-resources/overview.md). Hanterad tjänstidentitet (MSI) innehåller en automatiskt hanterad identitet i Azure Active Directory (AD Azure). Du kan använda MSI för att autentisera till Azure Storage från program som körs i Azure-datorer, funktionsappar, skalningsuppsättningar för virtuella datorer och andra. Med hjälp av MSI och utnyttja kraften i Azure AD-autentisering, kan du undvika lagring av autentiseringsuppgifter med dina program som körs i molnet.  
 
 Om du vill tilldela behörigheter till en hanterad tjänstidentitet för storage-behållare eller köer, kan du tilldela en RBAC-roll som omfattar storage behörigheter till MSI. Mer information om RBAC-roller i storage finns i [hantera åtkomsträttigheter till storage-data med RBAC (förhandsversion)](storage-auth-aad-rbac.md). 
 
@@ -33,14 +33,14 @@ Den här artikeln visar hur du autentiserar till Azure Storage med MSI från en 
 Innan du kan använda MSI för att autentisera till Azure Storage från din virtuella dator, måste du först aktivera MSI på den virtuella datorn. Läs hur du aktiverar MSI i någon av följande artiklar:
 
 - [Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
-- [Azure PowerShell](../../active-directory/managed-service-identity/qs-configure-powershell-windows-vm.md)
-- [Azure CLI](../../active-directory/managed-service-identity/qs-configure-cli-windows-vm.md)
-- [Azure Resource Manager-mall](../../active-directory/managed-service-identity/qs-configure-template-windows-vm.md)
-- [Azure SDK: er](../../active-directory/managed-service-identity/qs-configure-sdk-windows-vm.md)
+- [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+- [Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
+- [Azure Resource Manager-mall](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Azure SDK: er](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="get-an-msi-access-token"></a>Hämta en MSI åtkomsttoken
 
-Ditt program eller skript måste skaffa en MSI-åtkomsttoken för att autentisera med MSI. Läs om hur du hämta en åtkomsttoken i [hur du använder en Azure VM hanterad tjänstidentitet (MSI) för tokenförvärv](../../active-directory/managed-service-identity/how-to-use-vm-token.md).
+Ditt program eller skript måste skaffa en MSI-åtkomsttoken för att autentisera med MSI. Läs om hur du hämta en åtkomsttoken i [hur du använder en Azure VM hanterad tjänstidentitet (MSI) för tokenförvärv](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
 ## <a name="net-code-example-create-a-block-blob"></a>Kodexempel för .NET: skapa en blockblob
 

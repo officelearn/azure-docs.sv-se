@@ -10,20 +10,25 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3cc2794105eff196c3e1db02d664a89c9b37e318
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: d53106efa4e3761a497e67181546c8ec09fd880c
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286993"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055513"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitionera och skala i Azure Cosmos DB
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) är en globalt distribuerad databas som hjälper dig få snabb, förutsägbar prestanda. Det kan skalas sömlöst tillsammans med ditt program. Den här artikeln innehåller en översikt över hur partitionering fungerar för alla data modeller i Azure Cosmos DB. Det beskriver också hur du konfigurerar Azure Cosmos DB-behållare för att effektivt skala dina program.
 
+Azure Cosmos DB stöder följande typer av behållare i alla API: er:
+
+- **Fast behållare**: de här behållarna kan lagra ett diagram databasen upp till 10 GB i storlek med högst 10 000 enheter för programbegäran per sekund som tilldelas till den. Om du vill skapa en fast behållare är det inte nödvändigt att ange en nyckelegenskap för partitionen i data.
+
+- **Obegränsad behållare**: de här behållarna kan automatiskt skala för att lagra en graf utöver gränsen på 10 GB via horisontell partitionering. Varje partition lagras 10 GB och data automatiskt balanseras baserat på den **angivna partitionsnyckel**, som kommer att vara en obligatorisk parameter när du använder en obegränsad behållare. Den här typen av behållare kan lagra ett praktiskt taget obegränsade datastorlek och tillåta upp till 100 000 enheter för programbegäran per sekund eller mer [genom att kontakta supporten](https://aka.ms/cosmosdbfeedback?subject=Cosmos%20DB%20More%20Throughput%20Request).
+
 ## <a name="partitioning-in-azure-cosmos-db"></a>Partitionering i Azure Cosmos DB
 Azure Cosmos DB tillhandahåller behållare för lagring av anropade samlingar (för dokument), diagram och tabeller data. Behållare är logiska resurser och kan sträcka sig över en eller flera fysiska partitioner eller servrar. Antalet partitioner bestäms av Azure Cosmos DB baserat på lagringsutrymmet och dataflödet som etableras för en behållare eller en uppsättning behållare. 
-
 
 ### <a name="physical-partition"></a>Fysisk partition
 
@@ -72,7 +77,7 @@ Om en fysisk partition når sin lagringsgräns och data i partitionen har samma 
 Välja en partitionsnyckel så att:
 
 * Storage-distribution är även över alla nycklar.  
-* Volymen distributionen av begäranden som vid en viss tidpunkt är även över alla nycklar.  
+* Välj en partitionsnyckel som ska distribuera data jämnt över partitioner.
 
   Det är en bra idé att kontrollera hur dina data fördelas över partitioner. Om du vill kontrollera Datadistribution i portalen, gå till ditt Azure Cosmos DB-konto och klicka på **mått** i **övervakning** och klicka sedan på **storage** fliken för att se hur din data partitioneras på olika fysiska partitioner.
 
@@ -80,13 +85,13 @@ Välja en partitionsnyckel så att:
 
   Vänstra bilden ovan visar resultatet av en felaktig partitionsnyckel och rätt bilden ovan visar resultatet när en bra partitionsnyckel har valts. I den vänstra bilden ser du att data inte är jämnt fördelade mellan partitionerna. Du bör sträva efter att välja en partitionsnyckel som distribuerar dina data så att den liknar vilken avbildning.
 
-* Frågor som anropas med hög samtidighet kan dirigeras effektivt genom att inkludera Partitionsnyckeln i filterpredikatet.  
+* Optimera frågor för att få data inom gränserna för en partition när det är möjligt. En optimal partitioneringsstrategin skulle justeras till frågor mönster. Frågor som hämtar data från en enda partition ger bästa möjliga prestanda. Frågor som anropas med hög samtidighet kan dirigeras effektivt genom att inkludera Partitionsnyckeln i filterpredikatet.  
+
 * Välja en partitionsnyckel med högre kardinalitet föredras Allmänt – becaue det vanligtvis ger bättre distribution och skalbarhet. Till exempel kan en syntetisk nyckel skapas genom att sammanfoga värden från flera egenskaper för att öka kardinalitet.  
 
 När du väljer en partitionsnyckel med ovan överväganden du inte behöver bekymra dig om antalet partitioner eller hur högt dataflöde tilldelas per fysisk partition som Azure Cosmos DB skalar ut antalet fysiska partitioner och det kan även skala den enskilda partitioner vid behov.
 
-<a name="prerequisites"></a>
-## <a name="prerequisites-for-partitioning"></a>Krav för partitionering
+## <a name="prerequisites"></a>Krav för partitionering
 
 Azure Cosmos DB-behållare kan skapas som fasta eller obegränsat i Azure-portalen. Containrar med fast storlek har en maxgräns på 10 GB och en genomströmning på 10 000 RU/s. Du måste ange en partitionsnyckel och en minsta genomströmning av 1 000 RU/s för att skapa en behållare som obegränsade. Azure Cosmos DB-behållare kan också konfigureras för att dela dataflödet mellan en uppsättning behållare, där varje behållare måste ange en partition nyckeln och kan växa obegränsad. Följande är förutsättningar för att tänka på för partitionering och skalning:
 
@@ -98,16 +103,49 @@ Azure Cosmos DB-behållare kan skapas som fasta eller obegränsat i Azure-portal
 
 Om du har skapat en **fast** behållare utan partitions nyckel eller dataflöde mindre än 1 000 RU/s, behållaren kommer inte automatisk skalning. Om du vill migrera data från en fast behållare till en obegränsad behållare, måste du använda den [datamigreringsverktyget](import-data.md) eller [biblioteket Change Feed](change-feed.md). 
 
-## <a name="partitioning-and-provisioned-throughput"></a>Partitionering och etablerade dataflöde
-Azure Cosmos DB är utformad för förutsebara prestanda. När du skapar en behållare eller en uppsättning behållare kan du reservera dataflöde i  *[programbegäran](request-units.md) (RU) per sekund*. Varje begäran som gör en RU-avgift som står i proportion till mängden systemresurser som processor, minne och I/O som förbrukats av åtgärden. En läsning av ett 1 KB-dokument med sessionskonsekvens förbrukar 1 RU. En läsning är 1 RU, oavsett hur många objekt som lagras eller antalet samtidiga begäranden som körs på samma gång. Större objekt kräver högre RUs beroende på storleken. Om du vet att storleken på dina enheter och antalet läsningar som du behöver stöd för ditt program kan etablera du den exakta mängden dataflödet som krävs för programmets behov. 
+## <a name="PartitionedGraph"></a>Krav för partitionerade graph
 
-> [!NOTE]
-> För att kunna utnyttja dataflödet som etableras för en behållare eller en uppsättning behållare, måste du välja en partitionsnyckel som gör att du kan distribuera begäranden jämnt över alla nyckelvärden för särskild partition.
-> 
-> 
+Överväg följande information när du skapar en partitionerad grafbehållare:
 
-<a name="designing-for-partitioning"></a>
-## <a name="create-partition-key"></a>Skapa partitionsnyckel 
+- **Det är nödvändigt att konfigurera partitionering** om behållaren förväntas vara större än 10 GB i storlek och/eller om tilldelning av över 10 000 enheter för programbegäran per sekund (RU/s) kommer att krävas.
+
+- **Hörn och kanter lagras som JSON-dokument** i serverdelen av en Azure Cosmos DB Gremlin-API.
+
+- **Hörn kräver en partitionsnyckel**. Den här nyckeln avgör vilken partition som används för att lagra hörnet och den här processen använder en hash-algoritm. Namnet på den här partitionsnyckel är ett enstaka ord sträng utan blanksteg eller specialtecken och definieras när du skapar en ny behållare i formatet `/partitioning-key-name`.
+
+- **Kanter lagras med sina källvertex**. Med andra ord för varje brytpunkt definierar sin partitionsnyckel där hörnet och kanterna utgående lagras. Detta görs för att undvika flera partitioner frågor när du använder den `out()` kardinalitet i graph-frågor.
+
+- **Graph-frågor ska ange en partitionsnyckel**. Om du vill dra full nytta av horisontell partitionering i Azure Cosmos DB, när det är möjligt i diagrammet ska frågor inkludera partitionsnyckel. Till exempel när en enskild brytpunkt är markerad. Följande exempelfrågor visar hur du inkluderar partitionsnyckel när du väljer en eller flera hörn i en partitionerad graph:
+
+    - Att välja ett hörn med ID: T, sedan **använder den `.has()` steg för att ange egenskapen partitions**: 
+    
+        ```
+        g.V('vertex_id').has('partitionKey', 'partitionKey_value')
+        ```
+    
+    - Att välja ett hörn av **att ange en tuppel inklusive partitionsnyckelvärde och ID**: 
+    
+        ```
+        g.V(['partitionKey_value', 'vertex_id'])
+        ```
+        
+    - Att välja en brytpunkt genom att ange en **mängd tupplar som innehåller partitionsnyckelvärdena och ID: N**:
+    
+        ```
+        g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
+        ```
+        
+    - Att välja en uppsättning hörn av **att ange en lista över partitionsnyckelvärdena**: 
+    
+        ```
+        g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
+        ```
+
+* **Ange alltid partitionsnyckelvärdet vid frågor till en brytpunkt**. Skaffa ett hörn från en känd partition är det effektivaste sättet i termer av prestanda.
+
+* **Använda utgående riktning vid fråga kanter** när det är möjligt. Kanter lagras med deras källkod hörn i den utgående riktningen. Det innebär att minimeras risken för tillgripa till flera partitioner frågor när data och frågor som är utformade med det här mönstret i åtanke.
+
+## <a name="designing-for-partitioning"></a> Skapa partitionsnyckel 
 Du kan använda Azure portal eller Azure CLI för att skapa behållare och skala dem när som helst. Det här avsnittet visar hur du skapar behållare och ange den etablerade dataflöde och partition nyckeln med hjälp av varje API.
 
 
@@ -225,8 +263,7 @@ Ett alternativ är att ange partitionKey för /deviceId eller /date. Om vill bil
 
 Du kan ha tusentals dokument så att du ska definiera klienten sida logik för att sammanfoga värden i en syntetisk nyckel, infoga syntetiska nyckeln i dokumenten och sedan använda den för att ange partitionsnyckel i realtid scenarier.
 
-<a name="designing-for-scale"></a>
-## <a name="design-for-scale"></a>Design för skalbarhet
+## <a name="designing-for-scale"></a> Design för skalbarhet
 Om du vill skala effektivt med Azure Cosmos DB, måste du välja en bra partitionsnyckel när du skapar din behållare. Det finns två huvudsakliga överväganden för att välja en bra partitionsnyckel:
 
 * **Fråga gräns och transaktioner**. Ditt val av partitionsnyckel bör balansera behovet av att använda transaktioner mot kravet för att distribuera dina entiteter över flera partitionsnycklar för att se till att en skalbar lösning. Du kan ange samma partitionsnyckel för alla objekt på en extreme, men det här alternativet kan begränsa skalbarheten i din lösning. Du kan tilldela en unik partitionsnyckel för varje objekt på andra yttersta. Det här alternativet är mycket skalbar, men det förhindrar att du använder transaktioner mellan dokument via lagrade procedurer och utlösare. En perfekt partitionsnyckel kan du använda effektiva frågor och har tillräckligt med kardinalitet för att se till att din lösning är skalbar. 

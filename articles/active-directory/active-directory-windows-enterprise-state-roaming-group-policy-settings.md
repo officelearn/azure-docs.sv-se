@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 9db0fa29f6af0053d45f9f0238b52ac34fdb464a
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: f1bbbecf1f40b110614b3da9874d5d2c560f9e58
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223269"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024643"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Inställningar för grupprinciper och MDM
 Använd dessa Grupprincip och hanteringsinställningar för mobila enheter (MDM) endast på företagsägda enheter eftersom dessa principer tillämpas på användarens hela enheten. Tillämpa en MDM-principen för att inaktivera synkronisering av inställningar för en personlig påverkar användarägda enheter negativt användningen av enheten. Dessutom kommer andra användarkonton på enheten också att påverkas av principen.
@@ -30,7 +30,7 @@ Företag som vill hantera för personliga (ohanterade) enheter kan använda Azur
 I följande tabeller beskrivs de tillgängliga inställningarna.
 
 ## <a name="mdm-settings"></a>MDM-inställningar
-Inställningarna för MDM-principen gäller för både Windows 10 och Windows 10 Mobile.  Windows 10 Mobile-stöd finns endast för Microsoft-konto baserat nätverksväxling via användarens OneDrive-konto.  Se ”enheter och slutpunkter” avsnitt finns information om vilka enheter som stöds för Azure AD-baserad synkronisering.
+Inställningarna för MDM-principen gäller för både Windows 10 och Windows 10 Mobile.  Windows 10 Mobile-stöd finns endast för Microsoft-konto baserat nätverksväxling via användarens OneDrive-konto.  Se [enheter och slutpunkter](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md) mer information om vilka enheter som stöds för Azure AD-baserad synkronisering.
 
 | Namn | Beskrivning |
 | --- | --- |

@@ -1,5 +1,6 @@
 ---
-title: Förstå begrepp för extrahering av data i LUIS - Azure | Microsoft Docs
+title: Begrepp för extrahering i LUIS - Språkförståelse
+titleSuffix: Azure Cognitive Services
 description: Lär dig vilka typer av data kan extraheras från Språkförståelse (LUIS)
 services: cognitive-services
 author: diberry
@@ -9,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: f57e7cb85e6d183a59b358e347d70d4d185868a7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 40c7e0744825697779e6bd19a78d8d3512b5d63e
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225690"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023468"
 ---
 # <a name="data-extraction"></a>Extrahering av data
 LUIS ger dig möjlighet att få information från en användares naturligt språk yttranden. Informationen hämtas i ett sätt att den kan användas av ett program, programmet eller chattrobot för att vidta åtgärder.
@@ -46,7 +47,7 @@ Primära data är högsta bedömning **avsikt namn**. Med hjälp av den `MyStore
 
 |Dataobjekt|Datatyp|Dataplats|Värde|
 |--|--|--|--|
-|Avsikten|Sträng|topScoringIntent.intent|”GetStoreInfo”|
+|Avsikt|Sträng|topScoringIntent.intent|”GetStoreInfo”|
 
 Om din chattrobot eller LUIS-anropa app fattar ett beslut som baseras på mer än en avsiktlig poäng, returnerar avsikter poäng genom att ange parametern querystring `verbose=true`. Slutpunkt-svaret är:
 
@@ -75,8 +76,8 @@ Avsikter sorteras från högsta till lägsta poängen.
 
 |Dataobjekt|Datatyp|Dataplats|Värde|Poäng|
 |--|--|--|--|:--|
-|Avsikten|Sträng|avsikter [0] .intent|”GetStoreInfo”|0.984749258|
-|Avsikten|Sträng|.intent avsikter [1]|”None”|0.0168218873|
+|Avsikt|Sträng|avsikter [0] .intent|”GetStoreInfo”|0.984749258|
+|Avsikt|Sträng|.intent avsikter [1]|”None”|0.0168218873|
 
 Om du lägger till fördefinierade domäner avsikt namnet anger domänen, till exempel `Utilties` eller `Communication` samt avsikten:
 
@@ -104,11 +105,11 @@ Om du lägger till fördefinierade domäner avsikt namnet anger domänen, till e
 }
 ```
     
-|Domän|Dataobjekt|Datatyp|Dataplats|Värde|
+|Domain|Dataobjekt|Datatyp|Dataplats|Värde|
 |--|--|--|--|--|
-|Samhällsservice|Avsikten|Sträng|avsikter [0] .intent|”<b>Verktyg</b>. ShowNext ”|
-|Kommunikation|Avsikten|Sträng|.intent avsikter [1]|<b>Kommunikation</b>. StartOver ”|
-||Avsikten|Sträng|.intent avsikter [2]|”None”|
+|Samhällsservice|Avsikt|Sträng|avsikter [0] .intent|”<b>Verktyg</b>. ShowNext ”|
+|Kommunikation|Avsikt|Sträng|.intent avsikter [1]|<b>Kommunikation</b>. StartOver ”|
+||Avsikt|Sträng|.intent avsikter [2]|”None”|
 
 
 ## <a name="data-from-entities"></a>Data från enheter

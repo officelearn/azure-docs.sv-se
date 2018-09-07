@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: d7ed440ba794bcdfab4744e0ac4864aab6896ca8
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 6743d03b623084675f5043a7e158fa99e8aa39d2
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057037"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054013"
 ---
 # <a name="archive-the-azure-activity-log"></a>Arkivera Azure-aktivitetsloggen
 I den här artikeln visar vi hur du kan använda Azure-portalen, PowerShell-Cmdlets och plattformsoberoende CLI för att arkivera dina [ **Azure-aktivitetsloggen** ](monitoring-overview-activity-logs.md) i ett lagringskonto. Det här alternativet är användbart om du vill behålla din aktivitetslogg som är längre än 90 dagar (med fullständig kontroll över bevarandeprincipen) för granskning, statiska analys eller säkerhetskopiering. Om du behöver bara att behålla dina händelser i 90 dagar eller mindre du behöver inte konfigurera arkivering till ett lagringskonto eftersom aktivitetslogghändelser finns kvar i Azure-plattformen i 90 dagar utan att aktivera arkivering.
@@ -65,9 +65,9 @@ Om du vill arkivera aktivitetsloggen med någon av metoderna nedan, anger du den
 | Egenskap  | Krävs | Beskrivning |
 | --- | --- | --- |
 | StorageAccountId |Ja |Resurs-ID för det Lagringskonto där aktivitetsloggar ska sparas. |
-| Platser |Ja |Kommaavgränsad lista över regioner som du vill samla in händelser i aktivitetsloggen. Du kan visa en lista över alla regioner för din prenumeration med hjälp av `(Get-AzureRmLocation).Location`. |
+| Plats |Ja |Kommaavgränsad lista över regioner som du vill samla in händelser i aktivitetsloggen. Du kan visa en lista över alla regioner för din prenumeration med hjälp av `(Get-AzureRmLocation).Location`. |
 | RetentionInDays |Nej |Antal dagar för vilka händelser ska behållas, mellan 1 och 2147483647. Värdet noll lagrar loggarna på obestämd tid (alltid). |
-| Kategorier |Nej |Kommaavgränsad lista över kategorier som ska samlas in. Möjliga värden är skriva, ta bort och åtgärder.  Om det inte anges, antas alla möjliga värden |
+| Kategori |Nej |Kommaavgränsad lista över kategorier som ska samlas in. Möjliga värden är skriva, ta bort och åtgärder.  Om det inte anges, antas alla möjliga värden |
 
 ## <a name="archive-the-activity-log-via-cli"></a>Arkivera aktivitetsloggen via CLI
 

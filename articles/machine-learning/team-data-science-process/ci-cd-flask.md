@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jainr
-ms.openlocfilehash: 4d95fc25ed6f2f2efec8313e5b208b3cccbb619f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 6de1832dde1764b2655d4c34643d6a026e198f64
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968799"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052232"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>DevOps för artificiell intelligens (AI)-program: skapa pipeline för kontinuerlig integrering på Azure med Docker och Kubernetes
 Det finns ofta två strömmar av arbete, Dataexperter att skapa machine learning-modeller och App-utvecklare att bygga programmet och göra den tillgänglig att slutanvändare kan använda för ett AI-program. I den här artikeln visar vi hur du implementerar en kontinuerlig integrering (CI) / kontinuerlig leverans (CD) pipeline för ett AI-program. AI-program är en kombination av programkoden inbäddad med en tränats machine learning (ML)-modell. Vi hämtar en pretrained modell från en privat Azure blob storage-konto, det kan vara ett AWS S3-konto i den här artikeln. Vi använder en enkel python flask-webbapp för artikeln.
@@ -65,7 +65,7 @@ Pipeline-arkitekturen anges nedan.
 11. DNS-servern skickar sin begäran till belastningsutjämnaren och skickar svaret tillbaka till användaren.
 
 ## <a name="next-steps"></a>Nästa steg
-* Referera till den [självstudien]((https://github.com/Azure/DevOps-For-AI-Apps/blob/master/Tutorial.md)) att följa informationen och implementera en egen CI/CD-pipeline för ditt program.
+* Referera till den [självstudien](https://github.com/Azure/DevOps-For-AI-Apps/blob/master/Tutorial.md) att följa informationen och implementera en egen CI/CD-pipeline för ditt program.
 
 ## <a name="references"></a>Referenser
 * [Team Data Science Process (TDSP)](https://aka.ms/tdsp)

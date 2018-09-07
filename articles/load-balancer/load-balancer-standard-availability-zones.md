@@ -1,6 +1,6 @@
 ---
-title: Standard Azure belastningsutjämnare och tillgänglighet zoner | Microsoft Docs
-description: Standard belastningsutjämnare och tillgänglighet zoner
+title: Azure Standard Load Balancer och Tillgänglighetszoner | Microsoft Docs
+description: Standard Load Balancer och tillgänglighetszoner
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,51 +14,51 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2018
 ms.author: kumud
-ms.openlocfilehash: f5d46fda6bdb32c1a5000883c6aedb2da15e796a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 042ab6cc0c894a720e9d9974be9debdb089fe65d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30322802"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050263"
 ---
-# <a name="standard-load-balancer-and-availability-zones"></a>Standard belastningsutjämnare och tillgänglighet zoner
+# <a name="standard-load-balancer-and-availability-zones"></a>Standard Load Balancer och tillgänglighetszoner
 
-Har stöd för Azure belastningsutjämnare Standard SKU [tillgänglighet zoner](../availability-zones/az-overview.md) scenarier. Flera nya begrepp är tillgängliga med Standard belastningsutjämnare, vilket gör att du kan optimera tillgänglighet i slutpunkt till slutpunkt-scenario genom att justera resurser med zoner samt distribuera dem i zoner.  Granska [tillgänglighet zoner](../availability-zones/az-overview.md) för anvisningar om tillgänglighet zoner är, vilka regioner som för närvarande stöder tillgänglighet zoner och andra relaterade begrepp och produkter. Tillgänglighet zoner i kombination med Standard belastningsutjämnare är en omfattande och flexibel funktionsuppsättning som kan skapa många olika scenarier.  Granska det här dokumentet för att förstå dessa [begrepp](#concepts) och grundläggande scenario [utforma vägledning](#design).
+Har stöd för Azure Load Balancer Standard-SKU [Tillgänglighetszoner](../availability-zones/az-overview.md) scenarier. Flera nya begrepp är tillgängliga med Standard Load Balancer, vilket gör att du kan optimera tillgänglighet i ditt scenario för slutpunkt till slutpunkt genom att justera resurser med zoner och fördela dem i olika zoner.  Granska [Tillgänglighetszoner](../availability-zones/az-overview.md) råd om Tillgänglighetszoner är vilka regioner stöder för närvarande Tillgänglighetszoner och andra relaterade begrepp och produkter. Tillgänglighetszoner i kombination med Standard Load Balancer är en omfattande och flexibel funktionsuppsättning som kan skapa många olika scenarier.  Granska det här dokumentet för att förstå dessa [begrepp](#concepts) och grundläggande scenario [designvägledning](#design).
 
 >[!NOTE]
->Granska [tillgänglighet zoner](https://aka.ms/availabilityzones) för andra relaterade ämnen. 
+>Granska [Tillgänglighetszoner](https://aka.ms/availabilityzones) för andra relaterade ämnen. 
 
-## <a name="concepts"></a> Tillgänglighet zoner begrepp som används för belastningsutjämnare
+## <a name="concepts"></a> Tillgänglighetszoner begrepp som tillämpas på belastningsutjämnare
 
-Det finns ingen direkt relation mellan belastningsutjämnaren resurser och faktiska infrastruktur. Skapa en belastningsutjämnare skapa inte en instans. Belastningsutjämnaren resurser är objekt inom vilken express hur Azure ska programmet färdiga flera innehavare infrastrukturen för att få det scenario som du vill skapa.  Detta är betydande i samband med tillgänglighet zoner eftersom en enskild resurs för belastningsutjämnaren kan styra programmering av infrastrukturen i flera zoner som tillgänglighet medan en zonredundant tjänsten visas som en resurs från en kund synvinkel.
+Det finns ingen direkt relation mellan belastningshanterare och faktiska infrastruktur. Skapa en belastningsutjämnare, skapar inte en instans. Resurser för belastningsutjämning är objekt som du kan uttrycka hur Azure bör programmet den fördefinierade flera innehavare-infrastrukturen för att uppnå det scenario som du vill skapa.  Det här är betydande i samband med Availability Zones eftersom en enskild resurs för belastningsutjämnaren kan styra programmering av infrastrukturen i flera Tillgänglighetszoner medan en zonredundant tjänst visas som en resurs från en kund synsätt.
 
-En belastningsutjämnare resurs funktioner uttrycks som en klientdel, en regel, en hälsoavsökningen och en definition för backend-adresspool.
+Funktioner för en belastningsutjämnare resource uttrycks som en klientdel, en regel, en hälsoavsökning och en definition för backend-poolen.
 
-I samband med tillgänglighet zoner beskrivs beteende och egenskaper för en belastningsutjämnare resurs som zonredundant eller zonal.  Zonredundant och zonal beskriver zonality för en egenskap.  I samband med belastningsutjämnaren zonredundant alltid innebär *alla zoner* och zonal tjänsten för att garantera en *zon*.
+I samband med Availability Zones beskrivs beteende och egenskaperna för en belastningsutjämnare-resurs som zonredundant eller zonindelade.  Zonredundant och zonindelade beskriver zonality för en egenskap.  I samband med belastningsutjämnaren, zonredundant alltid innebär *alla zoner* och zonindelade sätt, vilket ger tjänsten till en *samma zon*.
 
-Stöd för både offentliga och interna belastningsutjämnare zonredundant och zonal scenarier och båda kan dirigera trafik över zoner vid behov (*mellan zon belastningsutjämning*).
+Stöd för både offentliga och interna belastningsutjämnare zonredundant och zonindelade och båda kan dirigera trafik mellan zoner efter behov (*belastningsutjämning mellan zoner*).
 
-En belastningsutjämnare-resurs är regionala och aldrig zonal.  Och ett VNet och undernät är alltid regionala och aldrig zonal.
+En belastningsutjämnare datorresursen är regionala och zonindelade aldrig.  Och ett virtuellt nätverk och undernät är alltid regionala och zonindelade aldrig.
 
 ### <a name="frontend"></a>Klientdel
 
-En belastningsutjämnare klientdel är en Frontend-IP-konfiguration refererar till en offentlig IP-adressresurs eller en privat IP-adress i undernät för virtuellt nätverk.  Utgör den belastningsutjämnade slutpunkten där tjänsten exponeras.
+En klientdel för belastningsutjämnare är en Frontend IP-konfiguration som refererar till en offentlig IP-adressresurs eller en privat IP-adress inom undernätet för en resurs för virtuella nätverk.  Den utgör den belastningsutjämnade slutpunkten där tjänsten exponeras.
 
-En belastningsutjämnare resurs kan innehålla både zonal och zonredundant frontends samtidigt. 
+En belastningsutjämnare resurs kan innehålla både zonindelade och zonredundanta klientdelar samtidigt. 
 
-När en zon har garanterat en offentlig IP-resurs, är det inte föränderliga med zonality (eller avsaknad av).  Om du vill ändra eller utelämna zonality av en offentlig IP-klientdel, måste du återskapa offentliga IP-Adressen i den aktuella zonen.  
+När en zon har garanterat en offentlig IP-resurs, inte zonality (eller avsaknad av) föränderliga.  Om du vill ändra eller utelämna zonality av en offentlig IP-klientdel, måste du återskapa den offentliga IP-Adressen i den aktuella zonen.  
 
 Du kan ändra zonality av en klientdel för en intern belastningsutjämnare genom att ta bort och återskapa klientdelen, ändrar eller tar bort zonality.
 
-När du använder flera frontends, granska [flera frontends för belastningsutjämnaren](load-balancer-multivip-overview.md) för mer information.
+När du använder flera klienter, granska [flera klienter för belastningsutjämnaren](load-balancer-multivip-overview.md) för mer information.
 
 #### <a name="zone-redundant-by-default"></a>Zonredundant som standard
 
-I en region med tillgänglighet zoner är en Standard belastningsutjämnaren klientdel zonredundant som standard.  En enda klientdelens IP-adress kan överleva zonen fel och kan användas för att nå alla medlemmar i serverdelen oavsett zonen. Detta innebär inte hitless datasökväg, men alla försök eller reestablishment lyckas. DNS-redundans scheman krävs inte. Den klientdelens IP-adress är samtidigt som betjänar oberoende distributioner i varje zon tillgänglighet.  Zonredundant innebär att alla inkommande eller utgående flöden behandlas alla zoner för tillgänglighet i en region samtidigt med en enda IP-adress.
+I en region med Azure Availability Zones är en Standard Load Balancer-klientdel zonredundant som standard.  En enda frontend IP-adress kan överleva zon fel och kan användas för att nå alla medlemmar i serverdelspool oavsett zonen. Detta innebär inte hitless datasökväg, men alla återförsök eller reestablishment lyckas. DNS-redundans scheman inte behövs. Den frontend IP-adress hanteras samtidigt av oberoende infrastruktur distributioner i varje Tillgänglighetszon.  Zonredundant innebär att alla inkommande eller utgående flöden betjänas av alla Tillgänglighetszoner i en region samtidigt med hjälp av en IP-adress.
 
-En eller flera tillgänglighet zoner kan misslyckas och datasökvägen kvarstår så länge som en zon i regionen är felfri. Zonredundant konfigurationen är standard och kräver inga ytterligare åtgärder.  När en region får möjlighet att stödja tillgänglighet zoner, blir en befintlig klientdel zonredundant automatiskt.
+En eller flera Tillgänglighetszoner kan misslyckas och datasökvägen kvarstår så länge som en zon i regionen förblir felfritt. Zonredundant konfigurationen är standard och kräver inga ytterligare åtgärder.  När en region får möjlighet att stöd för Tillgänglighetszoner, blir en befintlig klientdel zonredundant automatiskt.
 
-Använd följande skript för att skapa en zonredundant offentliga IP-adress för din interna Standard belastningsutjämnaren. Om du använder befintliga Resource Manager-mallar i konfigurationen, lägger du till den **sku** avsnitt till dessa mallar.
+Använd följande skript för att skapa en zonredundant offentlig IP-adress för interna Standard Load Balancer. Om du använder befintliga Resource Manager-mallar i din konfiguration, lägger du till den **sku** avsnitt för att dessa mallar.
 
 ```json
             "apiVersion": "2017-08-01",
@@ -71,7 +71,7 @@ Använd följande skript för att skapa en zonredundant offentliga IP-adress fö
             },
 ```
 
-Använd följande skript för att skapa en zonredundant klientdelens IP-adress för din interna Standard belastningsutjämnaren. Om du använder befintliga Resource Manager-mallar i konfigurationen, lägger du till den **sku** avsnitt till dessa mallar.
+Använd följande skript för att skapa en zonredundant frontend IP-adress för din interna Standard Load Balancer. Om du använder befintliga Resource Manager-mallar i din konfiguration, lägger du till den **sku** avsnitt för att dessa mallar.
 
 ```json
             "apiVersion": "2017-08-01",
@@ -97,15 +97,15 @@ Använd följande skript för att skapa en zonredundant klientdelens IP-adress f
                 ],
 ```
 
-#### <a name="optional-zone-guarantee"></a>Valfria zonen garanti
+#### <a name="optional-zone-guarantee"></a>Valfritt zon garanti
 
-Du har en klientdel som garanterar att en zon, som kallas för en *zonal klientdel*.  Det innebär att inkommande eller utgående flöde hanteras av en zon i en region.  Din klientdel delar omvandling med hälsotillståndet för zonen.  Datasökvägen påverkas inte av fel i zoner än där den var garanterad. Du kan använda zonal frontends för att exponera en IP-adress per tillgänglighet zon.  Dessutom du kan använda zonal frontends direkt eller, när klientdelen består av offentliga IP-adresser, integrera dem med en produkt som för DNS-av belastningsutjämning [Traffic Manager](../traffic-manager/traffic-manager-overview.md) och använda en enda DNS-namn som en klient ska matcha flera zonal IP-adresser.  Du kan också använda detta för att exponera per zon belastningsutjämnade slutpunkter individuellt övervaka varje zon.  Om du vill blanda dessa koncept (zonredundant och zonal för samma serverdel) granska [flera frontends för Azure-belastningsutjämnaren](/load-balancer-multivip-overview.md).
+Du kan välja att ha en klientdel att garantera att en zon, vilket kallas en *zonindelad klientdel*.  Det innebär att alla inkommande eller utgående flöden hanteras av en enskild zon i en region.  Dina klientdelsservrar delar öde med hälsotillståndet för zonen.  Datasökvägen påverkas inte av fel i zoner än där det var säkert. Du kan använda zonindelad klienter för att exponera en IP-adress per Tillgänglighetszon.  Dessutom du kan använda zonindelad klienter direkt eller, när klientdelen består av offentliga IP-adresser, integrera dem med en produkt som för DNS av belastningsutjämning [Traffic Manager](../traffic-manager/traffic-manager-overview.md) och använda en enda DNS-namn som matchar en klient med flera zonindelad IP-adresser.  Du kan också använda det för att exponera per zon belastningsutjämnade slutpunkter individuellt övervaka varje zon.  Om du vill att blanda dessa koncept (zonredundant och zonindelade för samma serverdel) kan du granska [flera klienter för Azure Load Balancer](load-balancer-multivip-overview.md).
 
-För en offentlig belastningsutjämnare klientdel du lägga till en *zoner* parametern till den offentliga IP-Adressen refererar till klientdelens IP-konfiguration.  
+En offentlig Load Balancer-klientdel, lägger du till en *zoner* parametern till den offentliga IP-Adressen som refereras av klientdelens IP-konfiguration.  
 
-För en intern belastningsutjämnare klientdel lägga till en *zoner* parametern till den interna belastningsutjämnaren klientdelens IP-konfigurationen. Zonal klientdel gör belastningsutjämnare att garantera en IP-adress i ett undernät till en viss zon.
+För en intern belastningsutjämnare klientdel, lägga till en *zoner* parametern till den interna belastningsutjämnaren klientdelens IP-konfigurationen. Zonindelade klientdelen gör att belastningsutjämnaren ska garanterar en IP-adress i ett undernät till en viss zon.
 
-Använd följande skript för att skapa en zonal Standard offentlig IP-adress i tillgänglighet zon 1. Om du använder befintliga Resource Manager-mallar i konfigurationen, lägger du till den **sku** avsnitt till dessa mallar.
+Använd följande skript för att skapa en zonindelad offentlig IP-adress i tillgänglighet zon 1. Om du använder befintliga Resource Manager-mallar i din konfiguration, lägger du till den **sku** avsnitt för att dessa mallar.
 
 ```json
             "apiVersion": "2017-08-01",
@@ -119,9 +119,9 @@ Använd följande skript för att skapa en zonal Standard offentlig IP-adress i 
             },
 ```
 
-Använd följande skript för att skapa en intern Standard belastningsutjämnaren klientdelen i tillgänglighet zon 1.
+Använd följande skript för att skapa en intern Standard Load Balancer-klientdel i tillgänglighet zon 1.
 
-Om du använder befintliga Resource Manager-mallar i konfigurationen, lägger du till den **sku** avsnitt till dessa mallar. Dessutom definiera den **zoner** egenskap i klientdelens IP-konfiguration för den underordnade resursen.
+Om du använder befintliga Resource Manager-mallar i din konfiguration, lägger du till den **sku** avsnitt för att dessa mallar. Dessutom definiera den **zoner** -egenskapen i klientdelens IP-konfiguration för den underordnade resursen.
 
 ```json
             "apiVersion": "2017-08-01",
@@ -148,77 +148,77 @@ Om du använder befintliga Resource Manager-mallar i konfigurationen, lägger du
                 ],
 ```
 
-### <a name="cross-zone-load-balancing"></a>Belastningsutjämning mellan zon
+### <a name="cross-zone-load-balancing"></a>Belastningsutjämning mellan zoner
 
-Globala zonen nätverksbelastning är belastningsutjämnare förmåga att nå en backend-slutpunkt i alla zoner och är oberoende av klientdelen och dess zonality.
+Belastningsutjämning mellan zoner är möjligheten för Load Balancer att nå en serverdelens slutpunkt i alla zoner och är oberoende av klient- och dess zonality.
 
-Om du vill justera och garantera din distribution inom en zon justera zonal klientdel och zonal serverdelsresurser till samma zon. Ingen ytterligare åtgärd krävs.
+Om du vill justera och garantera din distribution inom en enskild zon justera zonindelad klient- och zonindelade serverdelsresurser till samma zon. Ingen ytterligare åtgärd krävs.
 
 ### <a name="backend"></a>Serverdel
 
-Belastningsutjämnaren fungerar med virtuella datorer.  Någon virtuell dator i en enda virtuella nätverk kan vara en del av serverdelspoolen oavsett om den var garanterad till en zon eller vilken zon har garanteras.
+Belastningsutjämnaren fungerar med virtuella datorer.  Virtuella datorer i ett enskilt virtuellt nätverk kan inte ingå i serverdelspoolen oavsett om det var säkert till en zon eller vilken zon har garanteras.
 
-Om du vill justera och garantera din klient- och servergränssnitten med en zon kan du bara placera virtuella datorer i samma zon i respektive serverdelspoolen.
+Om du vill justera och garantera din klient- och serverdelsportarna med samma zon kan du bara placera virtuella datorer i samma zon i respektive serverdelspoolen.
 
-Om du vill adress virtuella datorer över flera zoner du helt enkelt placera virtuella datorer från flera zoner i samma serverdelspoolen.  När du använder virtuella datorn anger placera du en eller flera skalningsuppsättningar i virtuella datorer i samma serverdelspoolen.  Och var och en av dessa skalningsuppsättningar i virtuella datorer kan vara i en enda eller flera zoner.
+Om du vill att adressen virtuella datorer över flera zoner kan du helt enkelt placera virtuella datorer från flera zoner i samma serverdelspool.  När du använder VM-skalningsuppsättningar, kan du placera en eller flera VM-skalningsuppsättningar i samma serverdelspool.  Och var och en av dessa VM-skalningsuppsättningar kan finnas i en eller flera zoner.
 
 ### <a name="outbound-connections"></a>Utgående anslutningar
 
-[Utgående anslutningar](load-balancer-outbound-connections.md) behandlas alla zoner och är i en region med tillgänglighet zoner automatiskt zonredundant när en virtuell dator som är associerad med en offentlig belastningsutjämnare och en zonredundant klientdel.  Utgående anslutning SNAT port allokeringar klarar zonen fel.  
+[Utgående anslutningar](load-balancer-outbound-connections.md) betjänas av alla zoner och är i en region med Azure Availability Zones automatiskt zonredundant när en virtuell dator som är associerad med en offentlig belastningsutjämnare och en zonredundant klientdel.  Utgående anslutning SNAT port allokeringar tåla zon haverier.  
 
-I sin tur, om den virtuella datorn är associerad med en offentlig belastningsutjämnare och en zonal klientdel är utgående anslutningar garanterat betjänas av en zon.  Utgående anslutningar dela omvandling med respektive zonens hälsa.
+Om den virtuella datorn är associerad med en offentlig belastningsutjämnare och en zonindelad klientdel, garanterat utgående anslutningar i sin tur att hanteras av en enskild zon.  Utgående anslutningar dela öde med respektive zonens hälsa.
 
-SNAT port Förallokering och algoritmen är lika med eller utan zoner.
+SNAT port Förallokering och algoritmen är samma med eller utan zoner.
 
 ### <a name="health-probes"></a>Hälsotillståndsavsökningar
 
-Din befintliga hälsa avsökningen definitionerna förblir som de är utan tillgänglighet zoner.  Men vi har utökat hälsomodell på en infrastrukturnivå. 
+Befintliga hälsotillstånd avsökningen definitionerna förblir som de är utan Tillgänglighetszoner.  Men vi har utökat hälsomodellen på infrastrukturnivå. 
 
-När du använder zonredundant expanderar frontends belastningsutjämnaren dess interna hälsomodell för att oberoende avsökning av tillgänglighet för en virtuell dator från varje zon för tillgänglighet och stänga av sökvägar i zoner som kan ha misslyckats utan åtgärder från kunden.  Om en angiven sökväg inte är tillgänglig från infrastrukturen för belastningsutjämning för en zon till en virtuell dator i en annan zon belastningsutjämnaren identifiera och lösa det här felet. Andra zoner som kan nå den här virtuella datorn kan fortsätta att hantera den virtuella datorn från deras respektive frontends.  Det är därför under felhändelser, varje zon kan ha lite olika flödet distributioner samtidigt skydda den övergripande hälsan för slutpunkt till slutpunkt-tjänsten.
+När du använder zonredundant utökar klientdelar, belastningsutjämnare sin interna hälsomodellen för att oberoende avsökning Åtkomstmöjligheten i en virtuell dator från varje Tillgänglighetszon och stänga av sökvägar mellan zoner som kan ha misslyckats utan inblandning av kunden.  Om en viss sökväg inte är tillgänglig från belastningsutjämnaren infrastrukturen i en zon till en virtuell dator i en annan zon kan belastningsutjämnare identifiera och undvika det här felet. Andra zoner som kan nå den här virtuella datorn kan fortsätta att hantera den virtuella datorn från deras respektive klienter.  Det är därför under felhändelser, varje zon kan ha något annat flöde distributioner samtidigt som du skyddar den övergripande hälsan för din slutpunkt till slutpunkt-tjänst.
 
-## <a name="design"></a> Överväganden vid utformning
+## <a name="design"></a> Designöverväganden
 
-Belastningsutjämning är ändamålsenligt flexibla i samband med tillgänglighet zoner. Du kan välja att justera till zoner eller kan du vara zonredundant.  Ökad tillgänglighet kan komma till samma pris ökad komplexitet och du måste skapa för tillgänglighet för optimala prestanda.  Låt oss ta en titt på några viktiga överväganden vid utformning av.
+Belastningsutjämnare är ändamålsenligt flexibla i samband med Tillgänglighetszoner. Du kan välja att justera zoner eller du kan välja att vara zonredundant.  Ökad tillgänglighet kan komma till samma pris ökad komplexitet och du måste skapa för tillgänglighet för optimala prestanda.  Låt oss ta en titt på några viktiga designrelaterade aspekter.
 
-### <a name="automatic-zone-redundancy"></a>Automatisk-redundans
+### <a name="automatic-zone-redundancy"></a>Automatisk zonredundans
 
-Belastningsutjämnaren gör det enkelt att ha en enda IP-adress som en zonredundant klientdel. En zonredundant IP-adress på ett säkert sätt kan hantera en zonal resurs i alla zoner och kan överleva en eller flera fel i zonen så länge en zon är felfri för regionen. Däremot är en zonal klientdel en minskning av tjänsten till en enda zon och resurser omvandling med respektive zon.
+Belastningsutjämnaren gör det enkelt att ha en enda IP-adress som en zonredundant klientdel. En zonredundant IP-adress på ett säkert sätt kan fungera en zonindelade resursen i alla zoner och kan överleva en eller flera zonen fel så länge en zon är felfri för regionen. En zonindelad klientdel är däremot en minskning av tjänsten till en enskild zon och resurser öde med respektive zonen.
 
-Redundans innebär inte hitless datapath eller kontrollplan;  Det är uttryckligen dataplan. Zonredundant flöden kan använda alla zoner och en kund flöden använder alla felfri zoner i en region. Om zonen kraschar påverkas inte trafikflöden använder felfri zoner då i tid.  Trafikflöden med en zon vid tiden för felet zon kan påverkas men program kan återställa och flödena kan fortsätta i de återstående felfria zonerna för regionen återöverföring eller reestablishment när Azure har konvergerats runt zonen felet.
+Redundans innebär inte hitless datapath eller kontrollplanet;  Det är uttryckligen dataplanet. Zonredundant flöden kan använda alla zoner och flöden för en kund använder alla felfria zoner i en region. Om zonen kraschar påverkas inte trafikflöden med felfri zoner i det här läget i tid.  Trafikflöden med hjälp av en zon vid tidpunkten för felet zon kan påverkas men program kan återställas och dessa flöden kan fortsätta i återstående felfria zonerna i regionen vid återöverföring eller reestablishment när Azure har konvergerats runt zon-fel.
 
 ### <a name="xzonedesign"></a> Mellan zon gränser
 
-Det är viktigt att förstå att varje gång en slutpunkt till slutpunkt-tjänst korsar zoner kan du dela omvandling med inte en zon men eventuellt flera zoner.  Därför kan slutpunkt till slutpunkt-tjänsten inte har fått någon tillgänglighet över icke-zonal distributioner.
+Det är viktigt att förstå att när som helst tjänstens slutpunkt till slutpunkt korsar zoner kan du dela öde med inte en zon men potentiellt flera zoner.  Därför kanske slutpunkt till slutpunkt-tjänsten inte fått några tillgänglighet över icke-zonindelad distributioner.
 
-Undvika att oavsiktligt mellan zonen beroenden som kommer upphäver tillgänglighet får när du använder tillgänglighet zoner.  När ditt program består av flera komponenter och du vill bli motståndskraftiga mot zon fel, måste du vara försiktig så överlevnad tillräckligt viktiga komponenter vid en zon misslyckas.  En enda kritisk komponent för ditt program kan påverka hela programmet om det finns bara i en zon än kvarvarande zonerna.  Dessutom kan också överväga återställningen zon och hur programmet konvergerar. Nu ska vi gå igenom några huvudpunkter och använda dem som inspiration för frågor som du tror via din situation.
+Undvika att introducera oönskade mellan zoner beroenden, som kommer upphäver tillgänglighet får när du använder Tillgänglighetszoner.  När ditt program består av flera komponenter och ska vara motståndskraftig mot zon fel, måste du noga till att de räcker viktiga komponenter i händelse av en zon misslyckas.  En enda kritisk komponent för ditt program kan påverka hela programmet om det finns bara i en zon än kvarvarande zonerna.  Dessutom kan också beakta zon återställningen och hur programmet kommer att Konvergera. Nu ska vi gå igenom några viktiga saker och använda dem som inspiration för frågor som du tänka igenom din situation.
 
-- Om ditt program består av två komponenter som en IP-adress och en virtuell dator med hanterad disk, och de är garanterat i zonen 1 och zonen 2 när zonen 1 misslyckas slutpunkt till slutpunkt-tjänsten kommer inte klarar när zonen 1 misslyckas.  Zoner inte går över om du vet att du skapar ett potentiellt farliga fel läge.
+- Om ditt program består av två komponenter som en IP-adress och en virtuell dator med hanterade diskar och är garanterade i zon 1 och zon 2, när zon 1 inte din slutpunkt till slutpunkt-tjänst överlever inte när zon 1 misslyckas.  Inte mellan zoner, såvida inte du förstår att du skapar ett potentiellt farliga fel-läge.
 
-- Om ditt program består av två komponenter som en IP-adress och en virtuell dator med hanterad disk, och de är garanterat zonredundant och zon 1 respektive, slutpunkt-till-slutpunkt-tjänsten överlever zonen fel i zonen 2, zonen 3 eller båda om zonen 1 misslyckades.  Men förlorar du vissa möjlighet till orsak om hälsotillståndet för din tjänst om du observerar tillgänglighet för frontend.  Överväg att utveckla en mer omfattande hälsa och kapacitet modell.  Du kan använda koncept zonredundant och zonal tillsammans för att expandera insikt och hanterbarhet.
+- Om ditt program består av två komponenter som en IP-adress och en virtuell dator med hanterad disk, och de garanterat zonredundant och respektive zon 1, din slutpunkt till slutpunkt-tjänst överlever zon fel i zon 2, zon 3, eller båda, såvida inte zon 1 har misslyckats.  Du förlorar emellertid vissa möjligheten att avgöra om hälsotillståndet för din tjänst om du får Åtkomstmöjligheten i klientdelen.  Överväg att utveckla en mer omfattande modell för hälso- och kapacitet.  Du kan använda zonredundant och zonindelade begrepp tillsammans för att expandera insikt och hanterbarhet.
 
-- Om ditt program består av två komponenter som en zonredundant belastningsutjämnaren klientdel och en zon mellan virtuella datorns skaluppsättning i tre zoner, resurserna i zoner som inte påverkas av fel är tillgänglig men slutpunkt till slutpunkt-tjänsten kan försämras i kapacitet under zonen fel. Distributionen kan överleva fel minst en zon från en infrastruktur-perspektiv och detta genererar följande frågor:
-  - Har du förstå hur programmet orsakerna till om dessa fel och försämrad kapacitet?
-  - Du behöver skydd i din tjänst att tvinga växla över till en region paret vid behov?
-  - Hur ska du övervaka, identifiera och minska sådant scenario? Du kan använda Standard belastningsutjämnaren diagnostik för att utöka övervakning av prestanda för din slutpunkt till slutpunkt-tjänsten. Fundera över vad som är tillgängligt och vad kan behöva förstärkning för en komplett bild.
+- Om ditt program består av två komponenter som en zonredundant Load Balancer-klientdel och en mellan zoner VM-skalningsuppsättning i tre zoner, dina resurser i zoner som inte berörs av felet kommer att vara tillgängliga men din tjänstkapacitet för slutpunkt till slutpunkt-kan försämras under zon fel. Distributionen kan överleva en eller flera zonen fel från en infrastruktur-perspektiv och detta genererar följande frågor:
+  - Har du förstå hur ditt program orsakerna till att om sådana fel och försämrad kapacitet?
+  - Behöver du ha skydd i tjänsten framtvingar en redundansväxling till en regionparet vid behov?
+  - Hur ska du övervaka, identifiera och minimera sådant scenario? Du kan använda Standard Load Balancer diagnostik för att utöka övervakning av tjänstens slutpunkt till slutpunkt prestanda. Fundera över vad som är tillgängligt och kanske behöver tokenomvandling för en bild.
 
-- Zoner kan göra fel blir det lättare att förstå och finns.  Zonen fel är dock inte annorlunda än andra fel när det gäller begrepp som tidsgränser, återförsök och backoff algoritmer. Även om Azure belastningsutjämnare ger zonen redundanta sökvägar och försöker att återställa snabbt på en paketnivå i realtid, nya sändningar eller reestablishments kan uppstå under utbrott av ett fel och det är viktigt att förstå hur programmet copes med fel. Schemat för belastningsutjämning överlever, men du måste planera för följande:
-  - När en zon inte slutpunkt till slutpunkt-tjänsten förstår detta och om tillståndet är förlorade, hur ska du återställa?
-  - När en zon återkommer programmet förstår hur att Konvergera på ett säkert sätt?
+- Zoner kan göra fel lättare att förstå och som finns.  Zon fel är dock inte skiljer sig från andra fel när det gäller begrepp som tidsgränser, omförsök och backoff algoritmer. Även om Azure Load Balancer ger zonredundant sökvägar och försöker att återställa snabbt, på en paketnivå i realtid, begäranden som skickats eller reestablishments kan uppstå under utbrott av ett fel och det är viktigt att förstå hur ditt program copes med fel. Belastningsutjämning schema överlever, men du måste planera för följande:
+  - När en zon inte din slutpunkt till slutpunkt-tjänst förstår detta och om tillståndet är borttappad, hur ska du återställa?
+  - När en zon returnerar programmets förstår hur att Konvergera på ett säkert sätt?
 
-### <a name="zonalityguidance"></a> Zonredundant jämfört med zonal
+### <a name="zonalityguidance"></a> Zonredundant jämfört med zonindelad
 
-Zonredundant kan tillhandahålla en zon-oberoende och på samma tid flexibla alternativ för med en enda IP-adressen för tjänsten.  Det kan minska komplexiteten i sin tur.  Zonredundant också har mobilitetstjänsten över zoner och kan användas på ett säkert sätt på resurser i en zon.  Det är också framtida bevis i regioner utan tillgänglighet zoner, vilket kan begränsa ändringar krävs när en region få tillgänglighet zoner.  Konfigurationen syntaxen för en zonredundant IP-adress eller klientdel lyckas i en region, inklusive de som saknar tillgänglighet zoner.
+Zonredundant kan ange en zon-oberoende och vid samma tid elastiska alternativet med en enda IP-adress för tjänsten.  Det kan minska komplexiteten i sin tur.  Zonredundant också har mobilitetstjänsten i flera zoner och kan användas på ett säkert sätt på resurser i alla zoner.  Det är även framtidssäkrat i regioner utan Tillgänglighetszoner, där du kan begränsa ändringar som krävs när en region få Tillgänglighetszoner.  Konfigurationen syntaxen för en zonredundant IP-adress eller en klientdel lyckas i alla regioner, inklusive de som saknar Tillgänglighetszoner.
 
-Zonal kan ge en explicit garanti till en zon dela omvandling med hälsotillståndet för zonen. Associera en zonal IP kan-adress eller zonal belastningsutjämnaren klientdel vara attributet önskvärt eller rimliga särskilt om dina anslutna resursen är en zonal virtuell dator i samma zon.  Eller kanske explicit kunskap om vilken zon finns en resurs i krävs för ditt program och du vill skäl om tillgänglighet i separata zoner explicit.  Du kan välja att exponera flera zonal frontends för en slutpunkt till slutpunkt-tjänst som är fördelade på zoner (det vill säga per zon zonal frontends för flera zonal virtuella skala anger).  Och om din zonal frontends offentliga IP-adresser, kan du använda dessa flera zonal frontends för att visa din tjänst med [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Eller du kan använda flera zonal frontends för att få per zon insikter om hälsa och prestanda via tredje part övervakningslösningar och exponera övergripande tjänsten med zonredundant klientdel. Du bör bara hantera zonal resurser med zonal frontends justeras till samma zon och undvika potentiellt skadligt mellan zon scenarier för zonal resurser.  Det finns endast zonal resurser i regioner där tillgänglighet zoner finns.
+Zonindelade kan ge en explicit garanti till en zon dela öde med hälsotillståndet för zonen. Associera en zonindelad IP kan-adress eller zonindelad klientdel för belastningsutjämnare vara attributet önskvärt eller rimlig särskilt om en ansluten resurs är en zonindelad virtuell dator i samma zon.  Eller kanske programmet kräver explicit kunskap om vilken zon finns en resurs i och du vill inte att uttryckligen anledning om tillgänglighet i separata zoner.  Du kan välja att exponera flera zonindelad klienter för en slutpunkt till slutpunkt-tjänst som distribueras i flera zoner (det vill säga per zon zonindelad klientdelar för flera zonindelad virtuell datorskalning anger).  Och om din zonindelad klienter är offentliga IP-adresser, du kan använda dessa flera zonindelad klienter för att visa dina tjänster med [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Du kan också använda flera zonindelad klienter och få per zon hälsotillstånd och prestanda insikter via tredje part övervakningslösningar och exponera den övergripande tjänsten med en zonredundant klientdel. Du bör bara ge zonindelade resurser med zonindelad klienter justeras till samma zon och undvika potentiellt skadliga mellan zoner scenarier för zonindelade resurser.  Zonindelade resurser finns bara i regioner där Availability Zones finns.
 
-Det finns inga allmänna riktlinjer som en är ett bättre alternativ än andra utan att känna till service-arkitektur.
+Det finns inga allmänna riktlinjer som en är bättre än andra utan att känna till service-arkitektur.
 
 ## <a name="limitations"></a>Begränsningar
 
-- När data plan är fullständigt zonredundant (såvida inte zonal garanti har angetts), kontroll plan åtgärder är inte fullständigt zonredundant.
+- När data plan är helt zonredundant (om inte zonindelad garanti har angetts), kontrollplanåtgärder inte fullständigt zonredundant.
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig mer om [tillgänglighet zoner](../availability-zones/az-overview.md)
-- Lär dig mer om [Standard belastningsutjämnare](load-balancer-standard-overview.md)
-- Lär dig hur du [belastningsutjämna virtuella datorer i en zon med en zonal klientdel Standard belastningsutjämnare](load-balancer-standard-public-zonal-cli.md)
-- Lär dig hur du [belastningsutjämna virtuella datorer i zoner som Standard belastningsutjämnare med zonredundant klientdel](load-balancer-standard-public-zone-redundant-cli.md)
+- Läs mer om [Tillgänglighetszoner](../availability-zones/az-overview.md)
+- Mer information finns i [Standard Load Balancer](load-balancer-standard-overview.md)
+- Lär dig hur du [belastningsutjämna virtuella datorer inom en zon med hjälp av en Standardbelastningsutjämnare med en zonindelad klientdel](load-balancer-standard-public-zonal-cli.md)
+- Lär dig hur du [belastningsutjämna virtuella datorer i flera zoner med hjälp av en Standardbelastningsutjämnare med en zonredundant klientdel](load-balancer-standard-public-zone-redundant-cli.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8f79926d0d4729c6ad939bc604e9eb885dbe9f03
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b742f3eb9124093bcf0c3c912bbae0367cdcce56
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421271"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053847"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Självstudier: Azure Active Directory-integration med Slack
 
@@ -59,7 +59,7 @@ Om du vill konfigurera integreringen av Slack i Azure AD, som du behöver lägga
 
 **Utför följande steg för att lägga till Slack från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
@@ -114,11 +114,8 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<companyname>.slack.com`
 
-    b. I den **identifierare** textrutan anger du URL: `https://slack.com`
+    b. I den **identifierare** textrutan uppdatera värdet med loggar på URL: en. Det här är din arbetsyta-domän. Exempel: `https://contoso.slack.com`
 
-    > [!NOTE] 
-    > Värdet är inte verkliga. Du måste uppdatera värdet med faktiska logga på URL: en. Kontakta [Slack supportteamet](https://slack.com/help/contact) att hämta värdet.
-     
 1. Slack program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den ”**användarattribut**” på sidan för integrering av program. Följande skärmbild visar ett exempel för detta.
     
     ![Konfigurera enkel inloggning](./media/slack-tutorial/tutorial_slack_attribute.png)

@@ -9,14 +9,14 @@ ms.service: sql-database
 ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 09/07/2018
 ms.author: carlrab
-ms.openlocfilehash: 7dbd2585628c64f5baf7df6083e38217d00953be
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4abdbac44f4730d15c36d587190db1f95ea54d19
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42058200"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050741"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Kontrollera och att bevilja åtkomst till databasen till SQL Database och SQL Data Warehouse
 
@@ -49,7 +49,7 @@ Kontona **Serveradministratör** och **Azure AD-administratör** har följande e
 - Kan visa den `sys.sql_logins` systemtabellen.
 
 ### <a name="configuring-the-firewall"></a>Konfigurering av brandväggen
-När brandväggen på servernivå är konfigurerad för en enskild IP-adress eller ett intervall kan **SQL-serveradministratören** och **Azure Active Directory-administratören** ansluta till huvuddatabasen och alla användardatabaser. Den första brandväggen på servernivå kan konfigureras via [Azure-portalen](sql-database-get-started-portal.md)med hjälp av [PowerShell](sql-database-get-started-powershell.md) eller med [REST API:t](https://msdn.microsoft.com/library/azure/dn505712.aspx). När en anslutning upprättats, kan även ytterligare brandväggsregler på servernivå konfigureras med hjälp av [Transact-SQL](sql-database-configure-firewall-settings.md).
+När brandväggen på servernivå är konfigurerad för en enskild IP-adress eller ett intervall kan **SQL-serveradministratören** och **Azure Active Directory-administratören** ansluta till huvuddatabasen och alla användardatabaser. Den första brandväggen på servernivå kan konfigureras via [Azure-portalen](sql-database-get-started-portal.md)med hjälp av [PowerShell](sql-database-powershell-samples.md) eller med [REST API:t](https://msdn.microsoft.com/library/azure/dn505712.aspx). När en anslutning upprättats, kan även ytterligare brandväggsregler på servernivå konfigureras med hjälp av [Transact-SQL](sql-database-configure-firewall-settings.md).
 
 ### <a name="administrator-access-path"></a>Åtkomstväg för administratör
 När brandväggen på servernivå är korrekt konfigurerad kan **SQL-serveradministratören** och **Azure Active Directory-administratören** ansluta med hjälp av klientverktyg som SQL Server Management Studio eller SQL Server Data Tools. Endast de senaste verktygen innehåller alla funktioner och möjligheter. I följande diagram visas en typisk konfiguration för två administratörskonton.

@@ -12,12 +12,12 @@ ms.date: 08/16/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 ms.topic: conceptual
-ms.openlocfilehash: 54917c6548c7f0bfacad6408732c5619e6346683
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 56a1e7038515a64f1dfe3fda639213bcfcde63d6
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177684"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053439"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Azure SQL Database Managed Instance Anslutningsarkitektur 
 
@@ -73,7 +73,7 @@ Hanterings-och ansluta till Managed Instance med offentlig slutpunkt som mappar 
 - En översikt finns i [vad är en hanterad instans](sql-database-managed-instance.md) 
 - Mer information om konfiguration av virtuellt nätverk finns i [hanteras VNet instanskonfiguration](sql-database-managed-instance-vnet-configuration.md). 
 - För en Snabbstart Lär dig hur du skapar hanterad instans: 
-  - från den [Azure-portalen](sql-database-managed-instance-create-tutorial-portal.md) 
+  - Från den [Azure-portalen](sql-database-managed-instance-get-started.md) 
   - med hjälp av [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) 
   - med hjälp av [Azure Resource Manager-mall](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/) 
   - med hjälp av [Azure Resource Manager-mall (jumpbox med SSMS som ingår)](https://portal.azure.com/) 

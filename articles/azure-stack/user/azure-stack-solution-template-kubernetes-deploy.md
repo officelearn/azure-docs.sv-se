@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2018
+ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 67e82a4809253123e15305b5f2ecd8cc5f7ee4ed
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 5df8104907e30337cdf47e5a9489ffdb50451a94
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046858"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055224"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Distribuera ett Kubernetes-kluster i Azure Stack
 
 *Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
 > [!Note]  
-> Azure Kubernetes Services (AKS) Kubernetes på Azure Stack är i privat förhandsversion. Azure Stack-operator måste begära åtkomst till Kubernetes marknadsplats-objektet som behövs för att göra det som beskrivs i den här artikeln.
+> Motorn för AKS (Azure Kubernetes Service) på Azure Stack är i privat förhandsversion. Azure Stack-operator måste begära åtkomst till Kubernetes marknadsplats-objektet som behövs för att göra det som beskrivs i den här artikeln.
 
 I följande artikel tittar på med hjälp av en lösningsmall för Azure Resource Manager-för att distribuera och etablera resurserna för Kubernetes i en enda, samordnad åtgärd. Du behöver samla in nödvändig information om installationen av Azure Stack, generera mallen, och sedan distribuera till molnet.
 

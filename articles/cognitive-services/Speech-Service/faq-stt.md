@@ -1,6 +1,7 @@
 ---
-title: Vanliga frågor om tal till Text-tjänst på Azure
-description: Här är några svar på de mest populära frågorna om tal till Text.
+title: Vanliga frågor och svar om tal till Text-tjänst i Azure
+description: Få svar på de mest populära frågorna om tal till Text-tjänsten.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: PanosPeriorellis
 ms.service: cognitive-services
@@ -8,136 +9,134 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: e5ba01c25646578da22f054659051be3515e9e4b
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 31515d6867fc5524df1b081932dd2a28b0cf989c
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281838"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022166"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Vanliga och frågor svar om tal till Text
 
-Om du inte hittar svar på dina frågor i den här vanliga frågor och svar kan du läsa andra supportalternativ [här](support.md).
+Om du inte hittar svar på dina frågor i den här vanliga frågor och svar kan du kolla [andra supportalternativ](support.md).
 
 ## <a name="general"></a>Allmänt
 
-**Fråga**: Vad är skillnaden mellan grundläggande och anpassad tal till Text modeller?
+**F: Vad är skillnaden mellan en baslinje-modell och ett anpassat tal till Text-modellen?**
 
-**Svar**: basmodeller har tränats med Microsoft som ägs av data och redan har distribuerats i molnet. Anpassade modeller Tillåt användaren att anpassa en modell för att bättre passa för en viss miljö med specifika omgivande ljuden eller språk. Oavsett, bilar, bort störande gator kräver anpassats akustisk modell medan specifika ämnen, till exempel biologi, fysik, radiologi, produktnamn och anpassade förkortningar kräver en anpassad språkmodell.
+**En**: en baslinje-modell som har tränats med hjälp av data som ägs av Microsoft och redan har distribuerats i molnet.  Du kan använda en anpassad modell för att anpassa en modell för att bättre passa för en viss miljö som har specifika omgivande ljuden eller språk. Oavsett, bilar eller störningar gator kräver en anpassad akustisk modell. Ämnen som biologi, fysik, radiologi, produktnamn och anpassade förkortningar kräver en anpassad språkmodell.
 
-**Fråga**: hur börjar jag om jag vill använda en baslinje-modell?
+**F: var börjar jag om jag vill använda en baslinje-modell?**
 
-**Svar**: först måste du hämta en [prenumerationsnyckel](get-started.md). Om du vill göra REST-anrop till predeployed basmodeller läser den [information här](rest-apis.md). Om du vill använda WebSockets ladda ned den [SDK](speech-sdk.md)
+**En**: hämta först en [prenumerationsnyckel](get-started.md). Om du vill göra REST-anrop till predeployed basmodeller finns i den [REST API: er](rest-apis.md). Om du vill använda WebSockets, [ladda ned SDK](speech-sdk.md).
 
-**Fråga**: gör I alltid behöver för att skapa en anpassad talmodell?
+**F: jag alltid behöver skapa en anpassad talmodell?**
 
-**Svar**: Nej, om ditt program använder allmän dagliga språk behöver du inte anpassa en modell. Dessutom om ditt program används i en miljö där det finns lite eller ingen bakgrundsljud och du behöver inte anpassa antingen. Portalen kan du distribuera baslinje- och anpassade modeller och köra precisionstester mot dessa. Användare kan använda den här funktionen för att mäta korrektheten i en baslinje vs en anpassad modell.
+**En**: Nej. Om programmet använder allmän dagliga språk, behöver du inte att anpassa en modell. Om ditt program används i en miljö där det finns lite eller ingen bakgrundsljud, behöver du inte anpassa en modell. 
 
-**Fråga**: hur vet jag när bearbetningen av min datauppsättning eller en modell är klar?
+Du kan distribuera baslinje- och anpassade modeller i portalen och sedan köra precisionstester mot dem. Du kan använda den här funktionen för att mäta det arbete du utfört en baslinje-modell jämfört med en anpassad modell.
 
-**Svar**: för närvarande status för den modellen eller en uppsättning data i tabellen är det enda sättet du behöver veta.
-När bearbetningen är klar, ska status vara ”lyckades”.
+**F: hur vet jag när bearbetningen för min datauppsättning eller en modell är klar?**
 
-**Fråga**: kan jag skapa mer än en modell?
+**En**: för närvarande status för modellen eller datauppsättningen i tabellen är det enda sättet du behöver veta. När bearbetningen är klar, är status **lyckades**.
 
-**Svar**: det finns ingen gräns för hur många modeller som finns i din samling.
+**F: kan jag skapa mer än en modell?**
 
-**Fråga**: jag insåg att jag har gjort ett misstag. Hur avbryter mitt dataimporten jag eller modellera skapa pågående? 
+**En**: det finns ingen gräns för hur många modeller som du kan ha i din samling.
 
-**Svar**: för närvarande du inte återställa en akustiska eller språk anpassning process. Importerade data och modeller kan tas bort när de är i ett avslutat tillstånd.
+**F: jag insåg att jag har gjort ett misstag. Hur avbryter mitt dataimporten jag eller modellera skapa pågående?**
 
-**Fråga**: Vad är skillnaden mellan sökningen & diktering modeller och Konversationsanpassade modeller?
+**En**: för närvarande kan du inte återställa en akustiska eller språk anpassning process. Du kan ta bort importerade data och modeller när de är i ett avslutat tillstånd.
 
-**Svar**: det finns fler än en baslinjemodeller att välja bland i Speech-tjänsten. Konversationsanpassad modellen passar känna igen tal som sägs i ett konversationsanpassade format. Den här modellen skulle vara optimal för att skriva av anrop vid sökning och diktering är perfekt för rösten appar. Universal är en ny modell för att hantera både scenarier.
+**F: Vad är skillnaden mellan modell för sökning och diktering och Konversationsanpassade modellen?**
 
-**Fråga**: kan jag uppdatera min befintliga modellen (model stapling)?
+**En**: du kan välja bland fler än en baslinje-modell i Speech-tjänsten. Konversationsanpassad modellen är användbart för att känna igen tal som sägs i ett konversationsanpassade format. Den här modellen är perfekt för att skriva av telefonsamtal. Sök och diktering modellen är perfekt för röst-utlöst appar. Universal modellen är en ny modell för att hantera både scenarier.
 
-**Svar**: Det går inte att uppdatera befintliga modeller. Kombinera den gamla datamängden med den nya och readapt som en lösning.
+**F: kan jag uppdatera min befintliga modellen (model stapling)?**
 
-De gamla och nya uppgifter som måste kombineras i en enda ZIP (om det är akustiska data) eller en txt-fil om den är språk-data. En gång anpassning görs nya uppdaterade modellen måste vara ta bort distribuerade att hämta en ny slutpunkt
+**En**: du kan inte uppdatera en befintlig modell. Kombinera den gamla datamängden med den nya datauppsättningen och readapt som en lösning.
 
-**Fråga**: Vad händer om jag behöver högre samtidighet för min distribuerad modell än vad som är tillgängligt i portalen. 
+Gammal datauppsättning och den nya datauppsättningen måste kombineras i en enda .zip-fil (för akustiska data) eller i en txt-fil (för språk data). När anpassningen är klar visas måste den nya, uppdaterade modellen distribueras för att få en ny slutpunkt
 
-**Svar**: du kan skala upp din modell i steg om 20 samtidiga begäranden. 
+**F: Vad händer om jag behöver högre samtidighet för min distribuerad modell än vad som är tillgängligt i portalen?** 
 
-Kontakta oss om du behöver hög skala.
+**En**: du kan skala upp din modell i steg om 20 samtidiga begäranden. 
 
-**Fråga**: kan jag hämta Mina modellen och köra den lokalt?
+Kontakta oss om du behöver en högre skala.
 
-**Svar**: modeller kan inte hämtas och köras lokalt.
+**F: kan jag hämta Mina modellen och köra den lokalt?**
 
-**Fråga**: är Mina förfrågningar loggas?
+**En**: modeller kan inte hämtas och köras lokalt.
 
-**Svar**: du kan välja när du skapar en distribution för att stänga av spårning, då ingen ljud eller avskrifter kommer att loggas. Annars är begäranden vanligtvis inloggad i Azure säker lagring. Om du har fler sekretessen som förhindrar med Custom Speech Service kan du kontakta någon av supportkanalerna.
+**F: är Mina förfrågningar loggas?**
 
-## <a name="importing-data"></a>Importera Data
+**En**: du kan välja när du skapar en distribution för att stänga av spårning. I det här läget kommer utan ljud eller avskrifter att loggas. I annat fall loggas vanligtvis begäranden i Azure i säker lagring. 
 
-**Fråga**: Vad är gränsen för storleken på datauppsättningen? Varför? 
+Om du har fler sekretessfrågor som förhindrar att du använder med custom Speech service kan du kontakta någon av supportkanalerna.
 
-**Svar**: den aktuella gränsen för en datauppsättning är 2 GB på grund av begränsningen på storleken på en fil för HTTP-överföring. 
+## <a name="importing-data"></a>Importera data
 
-**Fråga**: kan jag zip min textfiler för att ladda upp en större textfil? 
+**F: Vad är gränsen för storleken på en datauppsättning och varför är det gränsen?**
 
-**Svar**: Nej, för närvarande endast okomprimerade textfiler tillåts.
+**En**: den aktuella gränsen för en datauppsättning är 2 GB. Gränsen är på grund av begränsningen på storleken på en fil för HTTP-överföring. 
 
-**Fråga**: data rapporten står det fanns misslyckade yttranden. Vad är problemet?
+**F: kan jag zip min textfiler, så jag kan ladda upp en större textfil?** 
 
-**Svar**: misslyckas att överföra 100% av uttryck i en fil är inte ett problem.
-Om det stora flertalet yttranden i en språkdata eller språk data (till exempel > 95%) har importerats, kan datauppsättningen vara användbar. Vi rekommenderar dock att du försöker förstå varför talade misslyckades och åtgärda problem. De vanligaste problem, till exempel formateringsfel, är enkla att åtgärda. 
+**En**: Nej. För närvarande tillåts bara okomprimerade textfiler.
 
-## <a name="creating-am"></a>Skapa AM
+**F: data rapporten säger det fanns misslyckade yttranden. Vad är problemet?**
 
-**Fråga**: hur mycket akustiska data behöver jag?
+**En**: misslyckas att överföra 100 procent av uttryck i en fil är inte ett problem. Om det stora flertalet yttranden i en språkdata eller språk datauppsättning (till exempel, mer än 95 procent) har importerats, kan datauppsättningen användas. Vi rekommenderar dock att du försöker förstå varför talade misslyckades och åtgärda problem. De vanligaste problem, till exempel formateringsfel, är enkla att åtgärda. 
 
-**Svar**: Vi rekommenderar att du börjar med 30 minuter att en timmes akustiska data.
+## <a name="creating-an-acoustic-model"></a>Skapa en akustisk modell
 
-**Fråga**: vilka data bör jag samla in?
+**F: hur mycket akustiska data behöver jag?**
 
-**Svar**: samla in data som ligger så nära programmet scenario och användningsfall som möjligt.
-Insamling av data ska matcha målprogrammet och användare när det gäller enheter eller enheter, miljöer och typer av talare. I allmänhet du ska samla in data från som bred olika talare som möjligt. 
+**En**: Vi rekommenderar att du börjar med mellan 30 minuter och en timmes akustiska data.
 
-**Fråga**: hur ska jag samla in den? 
+**F: vilka data bör jag samla in?**
 
-**Svar**: du kan skapa ett fristående program för insamling av data eller använda en del av hylla ljudinspelning programmet.
-Du kan också skapa en version av programmet som loggar ljuddata och används den. 
+**En**: samla in data som ligger så nära programmet scenario och användningsfall som möjligt. Insamling av data ska matcha målprogrammet och användare när det gäller enheter eller enheter, miljöer och typer av talare. I allmänhet du ska samla in data från som bred olika talare som möjligt. 
 
-**Fråga**: behöver jag transkribera anpassning data mig? 
+**F: hur ska jag samla in akustiska data?**
 
-**Svar**: Ja! Du kan transkribera själv eller använda en professionell avskrift-tjänst. Vissa användare föredrar journalanteckningarna medan andra använder gemensamt skapade eller göra avskrifter själva.
+**En**: du kan skapa ett fristående program för insamling av data eller använda kablingen ljudinspelning programvara. Du kan också skapa en version av programmet som loggar ljuddata och använder sedan data. 
+
+**F: Jag behöver transkribera anpassning data mig?**
+
+**En**: Ja! Du kan transkribera själv eller använda en professionell avskrift-tjänst. Vissa användare föredrar journalanteckningarna och andra använda gemensamt skapade eller göra avskrifter själva.
 
 ## <a name="accuracy-testing"></a>Precisionstest
 
-**Fråga**: kan jag utföra offline testning av min anpassad akustisk modell med hjälp av en anpassad språkmodell?
+**F: kan jag utföra offline testning av min anpassad akustisk modell med hjälp av en anpassad språkmodell?**
 
-**Svar**: Ja, bara välja modellen med anpassat språk i listrutan när du ställer in offline testet
+**En**: Ja, bara välja modellen med anpassat språk i den nedrullningsbara menyn när du ställer in offline testet.
 
-**Fråga**: kan jag utföra offline testning av mina anpassade språkmodell med hjälp av en anpassad akustisk modell?
+**F: kan jag utföra offline testning av mina anpassade språkmodell genom att använda en anpassad akustisk modell?**
 
-**Svar**: Ja, markera bara anpassad akustisk modell i den nedrullningsbara menyn när du ställer in offline testet.
+**En**: Ja, markera bara anpassad akustisk modell i den nedrullningsbara menyn när du ställer in offline testet.
 
-**Fråga**: Vad är priset för Word-fel (WER) och hur beräknas den?
+**F: Vad är ordet Felfrekvens (WER) och hur beräknas den?**
 
-**Svar**: Word fel hastighet (WER) är utvärderingen mått för taligenkänning. Räknas den som det totala antalet fel, vilket innefattar tillägg, borttagningar och ersättningar, dividerat med det totala antalet ord i referens avskrift. Mer information finns [här](https://en.wikipedia.org/wiki/Word_error_rate).
+**En**: WER är utvärderingen mått för taligenkänning. WER räknas som det totala antalet fel, vilket innefattar tillägg, borttagningar och ersättningar, dividerat med det totala antalet ord i referens avskrift. Mer information finns i [word Felfrekvens](https://en.wikipedia.org/wiki/Word_error_rate).
 
-**Fråga**: hur tar jag reda på om resultatet av ett test av Precision är bra?
+**F: hur tar jag reda på om resultatet av ett test av Precision är bra?**
 
-**Svar**: resultatet visar en jämförelse mellan baslinje och de som du anpassat.
-Du bör syfta till beat baslinje-modellen för att göra anpassningen någonsin bortkastade pengar.
+**En**: resultatet visar en jämförelse mellan baslinje-modellen och modellen du anpassat. Du bör syfta till att Microsoft baseline-modellen för att göra anpassning lönar.
 
-**Fråga**: hur jag ta reda på ordet Felfrekvens av de grundläggande modellerna så att jag kan se om det var improvement? 
+**F: hur vet jag WER av en grundläggande modell så att jag kan se om det var en förbättring av?** 
 
-**Svar**: offline testresultaten visa riktighet baslinje riktighet anpassade modellen och förbättring över baslinje.
+**En**: offline testresultaten visa baslinje riktighet anpassade modellen och förbättring över baslinje.
 
-## <a name="creating-lm"></a>Skapa LM
+## <a name="creating-a-language-model"></a>Skapa en språkmodell
 
-**Fråga**: hur mycket textdata kan jag överföra?
+**F: hur mycket textdata behöver jag att ladda upp?**
 
-**Svar**: Det beror på hur olika ordförråd och fraser som används i ditt program är från från språkmodeller. För alla nya ord är det praktiskt att ange så många exempel som möjligt av användningen av orden. För vanliga fraser som används i ditt program, är inklusive fraser i språk data också användbart eftersom det anger att lyssna efter även dessa villkor. Det är vanligt att ha minst 100 och vanligtvis flera hundra yttranden i datauppsättningen språk eller mer. Även om vissa typer av frågor som förväntas vara vanligare än andra, kan du infoga flera kopior av de vanliga frågorna i datauppsättningen.
+**En**: Det beror på hur olika ordförråd och fraser som används i ditt program är från från språkmodeller. För alla nya ord är det praktiskt att ange så många exempel som möjligt av användningen av orden. För vanliga fraser som används i ditt program, är inklusive fraser i språk data också användbart eftersom det anger att även lyssna efter dessa villkor. Det är vanligt att ha minst 100 och vanligtvis flera hundra eller flera uttryck i datauppsättningen språk. Även om vissa typer av frågor som förväntas vara vanligare än andra, kan du infoga flera kopior av de vanliga frågorna i datauppsättningen.
 
-**Fråga**: kan bara överföra en lista över ord?
+**F: kan jag bara ladda upp en lista över ord?**
 
-**Svar**: ladda upp en lista över ord kommer att få ord i att ordförråd men inte lära systemet hur orden används vanligtvis för.
-Genom att tillhandahålla fullständigt eller partiellt yttranden (meningar eller satser saker som användare kan komma att säga) du kan lära dig nya ord språkmodellen och hur de används. Anpassade språkmodellen är bra inte bara för att hämta nya ord i systemet, men också för att ändra sannolikheten för kända ord för ditt program. Att tillhandahålla fullständig yttranden hjälper systemet lär du dig bättre. 
+**En**: ladda upp en lista över ord läggs orden vokabulär, men det kommer inte Lär systemet hur orden används vanligtvis för. Genom att tillhandahålla fullständigt eller partiellt yttranden (meningar eller satser saker som användare kan komma att säga), kan språkmodellen lära dig nya ord och hur de används. Anpassade språkmodellen är bra inte bara för att lägga till nya ord i systemet, utan också för att ändra sannolikheten för kända ord för ditt program. Att tillhandahålla fullständig yttranden hjälper systemet lär du dig bättre. 
 
 ## <a name="next-steps"></a>Nästa steg
 

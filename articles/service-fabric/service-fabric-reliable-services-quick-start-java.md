@@ -1,5 +1,5 @@
 ---
-title: Skapa din första tillförlitliga mikrotjänster för Azure i Java | Microsoft Docs
+title: Skapa din första Azure Service Fabric reliable service i Java | Microsoft Docs
 description: Introduktion till att skapa ett Microsoft Azure Service Fabric-program med tillståndslösa och tillståndskänsliga tjänster.
 services: service-fabric
 documentationcenter: java
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 7e83f141791bb49130f7cf01086537f8ae08c406
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: d4e3419241d44744f8a692896848edb6cebb56a0
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019703"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049702"
 ---
 # <a name="get-started-with-reliable-services"></a>Kom igång med Reliable Services
 > [!div class="op_single_selector"]
@@ -28,30 +28,30 @@ ms.locfileid: "37019703"
 >
 >
 
-Den här artikeln beskriver grunderna i Azure Service Fabric Reliable Services och vägleder dig genom att skapa och distribuera en enkel tillförlitliga tjänstprogrammet skriven i Java. Den här Microsoft Virtual Academy video visar även hur du skapar en tillståndslös tillförlitlig tjänst: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
+Den här artikeln förklarar grunderna i Azure Service Fabric Reliable Services och vägleder dig genom att skapa och distribuera en enkel och tillförlitlig tjänst-App skriven i Java. Den här Microsoft Virtual Academy-video visar också hur du skapar en tillståndslös och tillförlitlig tjänst: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
 <img src="./media/service-fabric-reliable-services-quick-start-java/ReliableServicesJavaVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
-## <a name="installation-and-setup"></a>Installation och konfiguration
-Innan du börjar bör du kontrollera du har Service Fabric-utvecklingsmiljö ställa in på din dator.
-Om du behöver konfigurera den går du till [komma igång på Mac](service-fabric-get-started-mac.md) eller [komma igång med Linux](service-fabric-get-started-linux.md).
+## <a name="installation-and-setup"></a>Installations- och
+Innan du börjar bör du kontrollera att du har Service Fabric-utvecklingsmiljö på din dator.
+Om du vill konfigurera det kan gå till [komma igång på Mac](service-fabric-get-started-mac.md) eller [komma igång på Linux](service-fabric-get-started-linux.md).
 
 ## <a name="basic-concepts"></a>Grundläggande begrepp
 Om du vill komma igång med Reliable Services, behöver du bara förstå några grundläggande begrepp:
 
-* **Typen tjänst**: det här är din implementering. Den definieras av den klass som utökar du skriver `StatelessService` och annan kod eller beroenden, används tillsammans med ett namn och ett versionsnummer.
-* **Med namnet tjänstinstans**: för att köra din tjänst måste du skapa namngivna instanser av service-typen mycket som du skapar objektinstanser av en klasstyp. Instanser av tjänsten är i själva verket objektinstansieringar av din tjänstklass som du skriver.
-* **Tjänstvärden**: namngiven tjänstinstanser som du skapar måste köras i en värd. Tjänstevärden är bara en process där instanser av tjänsten kan köras.
-* **Registrering av tjänst**: registrering sammanför allt. Tjänsttypen måste registreras med Service Fabric-körning i en tjänstevärd för att tillåta Service Fabric skapar instanser av den att köra.  
+* **Typ av tjänst**: det här är din implementering. Den definieras av den klass som du skriver och som utökar `StatelessService` och eventuella andra koden och beroenden som används i, tillsammans med ett namn och ett versionsnummer.
+* **Namngiven tjänstinstans**: Om du vill köra tjänsten du skapar namngivna instanser i din tjänsttyp mycket som du skapar objektinstanser av en klasstyp. Instanser av tjänsten är i själva verket objektinstansieringar på din tjänstklass som du skriver.
+* **Tjänstevärden**: namngiven tjänst-instanser som du skapar måste du köra i en värd. Tjänstevärden är bara en process där instanser av din tjänst kan köras.
+* **Registrering av tjänst**: registrering samlar allt. Tjänsttypen måste vara registrerad med Service Fabric-körning i en tjänstevärd så att Service Fabric för att skapa instanser av den att köra.  
 
 ## <a name="create-a-stateless-service"></a>Skapa en tillståndslös tjänst
-Börja med att skapa ett Service Fabric-program. Service Fabric-SDK för Linux innehåller en Yeoman generator att tillhandahålla scaffold-teknik för ett Service Fabric-program med en tillståndslös tjänst. Starta genom att köra följande Yeoman kommando:
+Börja med att skapa ett Service Fabric-program. Service Fabric SDK för Linux finns en Yeoman generator att tillhandahålla ställningarna för ett Service Fabric-program med en tillståndslös tjänst. Starta genom att köra följande Yeoman kommando:
 
 ```bash
 $ yo azuresfjava
 ```
 
-Följ instruktionerna för att skapa en **tillförlitliga tillståndslösa tjänsten**. Den här självstudien namn för programmet ”HelloWorldApplication” och ”HelloWorld”-tjänsten. Resultatet innehåller kataloger för den `HelloWorldApplication` och `HelloWorld`.
+Följ anvisningarna för att skapa en **tillståndslös och tillförlitlig tjänst**. Den här självstudien ett namn för programmet ”HelloWorldApplication” och ”HelloWorld”-tjänsten. Resultatet innehåller kataloger för den `HelloWorldApplication` och `HelloWorld`.
 
 ```bash
 HelloWorldApplication/
@@ -77,8 +77,8 @@ HelloWorldApplication/
 ├── settings.gradle
 └── uninstall.sh
 ```
-### <a name="service-registration"></a>Tjänstregistrering
-Tjänsttyper måste registreras med Service Fabric-körning. Service-typen är definierad i den `ServiceManifest.xml` och tjänstklassen som implementerar `StatelessService`. Registreringen för tjänsten utförs i den huvudsakliga startpunkten i processen. I det här exemplet är den process startpunkten `HelloWorldServiceHost.java`:
+### <a name="service-registration"></a>Registrering av tjänst
+Tjänsttyper måste registreras med Service Fabric-körningen. Tjänsttypen har definierats i den `ServiceManifest.xml` och din tjänstklass som implementerar `StatelessService`. Registrering av tjänst utförs i den huvudsakliga startpunkten i processen. I det här exemplet är den viktigaste process startpunkten `HelloWorldServiceHost.java`:
 
 ```java
 public static void main(String[] args) throws Exception {
@@ -96,9 +96,9 @@ public static void main(String[] args) throws Exception {
 
 ## <a name="implement-the-service"></a>Implementera tjänsten
 
-Öppna **HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService.java**. Den här klassen definierar tjänsttypen och köra all kod. API för tjänsten tillhandahåller två startpunkter för din kod:
+Öppna **HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService.java**. Den här klassen definierar tjänsttypen och kan köra valfri kod. Tjänst-API: et tillhandahåller två ställen för din kod:
 
-* En öppen metoden, kallas `runAsync()`, där du kan börja köra alla arbetsbelastningar, inklusive tidskrävande beräkning av arbetsbelastningar.
+* En kunskapsuppsättning metoden, kallas `runAsync()`, där du kan börja köra alla arbetsbelastningar, inklusive tidskrävande beräkning av arbetsbelastningar.
 
 ```java
 @Override
@@ -107,7 +107,7 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 }
 ```
 
-* En kommunikation startpunkt där du kan ansluta i din kommunikation stack med val. Det är där du kan börja ta emot begäranden från användare och andra tjänster.
+* En kommunikation startpunkt där du kan ansluta din kommunikationsstack val. Det här är där du kan börja ta emot begäranden från användare och andra tjänster.
 
 ```java
 @Override
@@ -116,22 +116,22 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 }
 ```
 
-Den här självstudiekursen fokuserar på de `runAsync()` metoden. Det är där du kan starta direkt köra din kod.
+Den här självstudien fokuserar på de `runAsync()` metoden. Det här är där du kan omedelbart börja köra din kod.
 
 ### <a name="runasync"></a>RunAsync
-Plattformen som anropar den här metoden när en instans av en tjänst är monterade och redo att köra. För tillståndslösa tjänster, det innebär när tjänstinstansen öppnas. En token för annullering tillhandahålls koordinera när service-instans måste stängas. I Service Fabric inträffa cykeln Öppna/stänga av en tjänstinstans många gånger under livslängden för tjänsten som helhet. Detta kan inträffa av olika orsaker, bland annat:
+Plattformen anropar den här metoden när en instans av en tjänst är placerade och redo att köra. Det innebär att när tjänstinstansen öppnas för för en tillståndslös tjänst. En annullering token har angetts för samordning när din tjänstinstans måste stängas. I Service Fabric, kan den här första/sista cykeln av en tjänstinstans inträffa flera gånger under livslängden för tjänsten som helhet. Detta kan inträffa av olika anledningar, inklusive:
 
-* Systemet flyttar instanser av tjänsten för resurser.
-* Fel uppstår i koden.
+* Systemet flyttar dina service-instanser för resurser.
+* Fel uppstår i din kod.
 * Programmets eller systemets uppgraderas.
-* Den underliggande maskinvaran skulle få ett avbrott.
+* Den underliggande maskinvaran uppstår ett avbrott.
 
-Den här orchestration hanteras av Service Fabric att hålla din tjänst hög tillgänglighet och korrekt belastningsutjämnade.
+Denna orkestrering hanteras av Service Fabric för att hålla din tjänst med hög tillgänglighet och korrekt belastningsutjämnade.
 
-`runAsync()` bör inte blockera synkront. Implementeringen av runAsync ska returnera en CompletableFuture för att tillåta körning fortsätta. Om din arbetsbelastning behöver för att implementera en tidskrävande uppgift som bör göras i CompletableFuture.
+`runAsync()` bör inte blockera synkront. Implementeringen av runAsync ska returnera en CompletableFuture för att tillåta körning för att fortsätta. Om din arbetsbelastning behöver implementera en tidskrävande uppgift som bör göras inuti CompletableFuture.
 
-#### <a name="cancellation"></a>Annullering
-Annullering av din arbetsbelastning är en samverkande ansträngning styrd av den angivna annullering-token. Systemet väntar på att aktiviteten slutar (lyckades, avbokning eller fel) innan den flyttas på. Det är viktigt att respektera cancellation-token, Slutför allt arbete och avsluta `runAsync()` så snabbt som möjligt när systemet begär annullering. Exemplet nedan visar hur du hanterar en annullering händelse:
+#### <a name="cancellation"></a>Annulleringen
+Annullering av din arbetsbelastning är en samverkande ansträngning dirigeras genom den tillhandahållna annullering-token. Systemet väntar tills uppgiften att avsluta (efter slutförande, uppsägning eller fel) innan flyttas på. Det är viktigt att respektera annullering token, Slutför allt arbete och avsluta `runAsync()` så snabbt som möjligt när systemet begär annullering. I följande exempel visar hur du hanterar en annullering händelsen:
 
 ```java
 @Override
@@ -155,20 +155,20 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 }
 ```
 
-I det här exemplet tillståndslösa tjänsten lagras antalet i en lokal variabel. Men eftersom detta är en tillståndslös tjänst är det värde som lagras finns bara för den aktuella livscykeln för dess tjänstinstansen. När tjänsten startas om flyttar går värdet förlorad.
+I det här exemplet tillståndslös tjänst lagras antalet i en lokal variabel. Men eftersom detta är en tillståndslös tjänst kan det värde som lagras finns bara för den aktuella livscykeln för dess tjänstinstans. När tjänsten flyttar eller startar om kan förloras värdet.
 
 ## <a name="create-a-stateful-service"></a>Skapa en tillståndskänslig tjänst
-Service Fabric introducerar en ny typ av tjänst som är tillståndskänslig. En tillståndskänslig service kan upprätthålla tillstånd på ett tillförlitligt sätt inom tjänsten samordnad med kod som använder den. Tillstånd görs högtillgänglig av Service Fabric utan att behöva spara tillstånd för att en extern butik.
+Service Fabric introducerar en ny typ av tjänst som är tillståndskänslig. En tillståndskänslig tjänst kan underhålla tillståndet på ett tillförlitligt sätt inom tjänsten samordnad med kod som använder den. Tillstånd görs med hög tillgänglighet av Service Fabric utan att behöva bevara tillstånd till en extern lagring.
 
-Om du vill konvertera ett värde för prestandaräknaren från tillståndslös till hög tillgänglighet och beständiga, även när tjänsten flyttas eller startas om, behöver du en tillståndskänslig tjänst.
+Om du vill konvertera ett värde för prestandaräknaren från tillståndslösa till hög tillgänglighet och beständig, även när tjänsten flyttar eller startar om, måste en tillståndskänslig tjänst.
 
-I samma katalog som programmet HelloWorld, kan du lägga till en ny tjänst genom att köra den `yo azuresfjava:AddService` kommando. Välj ”tillförlitliga Stateful tjänsten” för din framework och namnet tjänsten ”HelloWorldStateful”. 
+I samma katalog som HelloWorld-program, kan du lägga till en ny tjänst genom att köra den `yo azuresfjava:AddService` kommando. Välj ”tillförlitlig tillståndskänslig tjänst” för ditt ramverk och namnge tjänsten ”HelloWorldStateful”. 
 
-Ditt program bör nu ha två tjänster: tillståndslösa tjänsten HelloWorld och stateful-HelloWorldStateful.
+Ditt program bör nu ha två tjänster: den tillståndslösa tjänsten HelloWorld och tillståndskänsliga tjänsten HelloWorldStateful.
 
-En tillståndskänslig tjänst har samma startpunkter som en tillståndslös tjänst. Den största skillnaden är tillgängligheten för tillståndsprovidern som lagrar tillstånd på ett tillförlitligt sätt. Service Fabric levereras med en implementering av provider för tillstånd kallas tillförlitliga samlingar, som kan du skapa replikerade datastrukturer via Hanteraren för tillförlitlig tillstånd. En tillståndskänslig tillförlitlig tjänst använder den här tillståndsprovidern som standard.
+En tillståndskänslig tjänst har samma startpunkter som en tillståndslös tjänst. Den största skillnaden är tillgängligheten för en tillståndsprovider som lagrar tillstånd på ett tillförlitligt sätt. Service Fabric levereras med en implementering av databasleverantör som tillståndet kallas tillförlitliga samlingar som du kan skapa replikerade datastrukturer via Reliable State Manager. En tillståndskänslig tillförlitlig tjänst använder den här tillståndsprovider som standard.
 
-Öppna HelloWorldStateful.java i **HelloWorldStateful src ->**, som innehåller följande RunAsync metod:
+Öppna HelloWorldStateful.java i **HelloWorldStateful src ->**, som innehåller följande RunAsync-metod:
 
 ```java
 @Override
@@ -194,26 +194,26 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ```
 
 ### <a name="runasync"></a>RunAsync
-`RunAsync()` fungerar på samma sätt i tillståndskänsliga och tillståndslösa tjänster. Dock i en tillståndskänslig service plattformen utför ytterligare arbete för din räkning innan den kör `RunAsync()`. Detta verk kan inkludera att säkerställa att tillförlitliga Tillståndshanterare och tillförlitlig samlingar är redo att användas.
+`RunAsync()` fungerar på samma sätt i tillståndskänsliga och tillståndslösa tjänster. Men i en tillståndskänslig tjänst plattformen utför ytterligare arbete för din räkning innan den kan köras `RunAsync()`. Arbetet kan inkludera vilket säkerställer att Reliable State Manager och Reliable Collections är redo att använda.
 
-### <a name="reliable-collections-and-the-reliable-state-manager"></a>Tillförlitliga samlingar och hanteraren för tillförlitlig tillstånd
+### <a name="reliable-collections-and-the-reliable-state-manager"></a>Tillförlitliga samlingar och Reliable State Manager
 ```java
 ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
 ```
 
-[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) är en dictionary-implementering som du kan använda för att lagra på ett tillförlitligt sätt tillstånd i tjänsten. Med Service Fabric och tillförlitlig HashMaps kan lagra du data direkt i din tjänst utan behov av en extern beständiga arkivet. Tillförlitliga HashMaps gör att dina data är hög tillgänglighet. Service Fabric åstadkommer detta genom att skapa och hantera flera *repliker* av tjänsten för dig. Det ger också en API som avlägsnar direkt svårigheter för att hantera dessa repliker och deras tillståndsövergångar.
+[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) är en ordlista-implementering som du kan använda för att på ett tillförlitligt sätt lagrar tillstånd i tjänsten. Du kan lagra data direkt i din tjänst utan att behöva en extern beständigt Arkiv med Service Fabric och tillförlitlig HashMaps. Tillförlitlig HashMaps gör dina data med hög tillgänglighet. Service Fabric åstadkommer detta genom att skapa och hantera flera *repliker* av din tjänst för dig. Det ger också ett API som avlägsnar komplex hantering av dessa repliker och ändrar deras status.
 
-Tillförlitliga samlingar kan lagra alla Java-typ, inklusive din anpassade typer med några varningar.
+Tillförlitliga samlingar kan lagra alla Java-datatypen, inklusive din anpassade typer med ett par varningar:
 
-* Service Fabric gör ditt tillstånd hög tillgänglighet av *replikerar* tillstånd mellan noder och tillförlitlig HashMap lagrar dina data till lokal disk på varje replik. Det innebär att allt som lagras i tillförlitliga HashMaps måste vara *serialiserbara*. 
-* Objekt replikeras för hög tillgänglighet när du gör transaktioner på tillförlitliga HashMaps. Objekt som lagras i tillförlitliga HashMaps sparas i lokalt minne i din tjänst. Det innebär att du har en lokal referens till objektet.
+* Service Fabric gör din delstat med hög tillgänglighet av *replikera* tillstånd på noder och tillförlitlig HashMap lagrar dina data till lokal disk på varje replik. Det innebär att allt som är lagrad i tillförlitliga HashMaps måste vara *serialiserbara*. 
+* Objekt replikeras för hög tillgänglighet när du genomför transaktioner på tillförlitliga HashMaps. Objekt som lagras i tillförlitliga HashMaps sparas i lokalt minne i din tjänst. Det innebär att du har en lokal referens till objektet.
   
-   Det är viktigt att du inte mutera lokala instanser av dessa objekt utan att utföra en Uppdateringsåtgärd i den tillförlitliga samlingen i en transaktion. Det beror på att ändringar i lokala instanser av objekt inte replikeras automatiskt. Du måste komma in objektet i ordlistan igen eller Använd en av de *uppdatera* metoder i ordlistan.
+   Det är viktigt att du inte mutera lokala instanser av dessa objekt utan att utföra en Uppdateringsåtgärd i tillförlitlig samling i en transaktion. Det beror på att ändringar i lokala instanser av objekt inte replikeras automatiskt. Du måste komma in objektet i ordlistan igen eller Använd en av de *uppdatera* metoder i ordlistan.
 
-Tillförlitliga Tillståndshanterarens hanterar tillförlitliga HashMaps åt dig. Du kan be tillförlitliga Tillståndshanterarens för en tillförlitlig samling med namnet när som helst och var som helst i din tjänst. Den tillförlitliga tillstånd Manager ser till att du får en referens tillbaka. Vi rekommenderar inte att du sparar referenser till tillförlitliga samling instanser i klassmedlemsvariabler eller egenskaper. Särskild försiktighet måste vidtas för att säkerställa att referensen har angetts till en instans alltid i livscykeln för tjänsten. Tillförlitliga Tillståndshanterarens hanterar det här fungerar och har optimerats för Upprepa besök.
+Reliable State Manager hanterar tillförlitlig HashMaps åt dig. Du kan be Reliable State Manager för en tillförlitlig samling med namnet när som helst och var som helst i din tjänst. Reliable State Manager ser till att du får en referens tillbaka. Vi rekommenderar inte att du sparar referenser till tillförlitlig samling instanser i klassmedlemsvariabler eller egenskaper. Särskild försiktighet måste vidtas för att se till att referensen har angetts till en instans vid alla tidpunkter i livscykeln för tjänsten. Reliable State Manager hanterar arbetet åt dig och tjänsten är optimerad för upprepningar besök.
 
 
-### <a name="transactional-and-asynchronous-operations"></a>Transaktionell och asynkrona åtgärder
+### <a name="transactional-and-asynchronous-operations"></a>Transaktions- och asynkrona åtgärder
 ```java
 return map.computeAsync(tx, "counter", (k, v) -> {
     if (v == null)
@@ -231,14 +231,14 @@ return map.computeAsync(tx, "counter", (k, v) -> {
 });
 ```
 
-Åtgärder på tillförlitliga HashMaps är asynkron. Det beror på att skrivåtgärder med tillförlitlig samlingar utföra i/o-åtgärder för att replikera och spara data till disk.
+Åtgärder för tillförlitlig HashMaps är asynkrona. Det beror på att skrivåtgärder med Reliable Collections utföra i/o-åtgärder för att replikera och bevara data till disk.
 
-Den tillförlitliga HashMap åtgärder är *transaktionella*, så att du kan behålla tillstånd konsekvent över flera tillförlitliga HashMaps och åtgärder. Du kan till exempel få ett arbetsobjekt från en tillförlitlig ordlista, utföra en åtgärd på den och spara resultatet i en annan tillförlitlig HashMap alla inom en enskild transaktion. Detta behandlas som en atomisk åtgärd och det garanterar att hela åtgärden lyckas eller hela åtgärden återställs. Om ett fel inträffar efter att objektet har status Created men innan du sparar resultatet hela transaktionen återställs och artikeln finns kvar i kön för bearbetning.
+Tillförlitlig HashMap åtgärder är *transaktionell*, så att du kan hålla tillstånd konsekvent över flera tillförlitlig HashMaps och åtgärder. Du kan till exempel få ett arbetsobjekt från en tillförlitlig ordlista, utföra en åtgärd på den och spara resultatet i en annan tillförlitlig HashMap alla inom en enda transaktion. Detta kommer att behandlas som en atomisk åtgärd och det garanterar att hela åtgärden lyckas eller hela åtgärden återställs. Om felet inträffar efter att du ta bort från kön objektet, men innan du sparar resultatet, återställs hela transaktionen och objektet som finns kvar i kön för bearbetning.
 
 
 ## <a name="build-the-application"></a>Skapa programmet
 
-Yeoman scaffold-teknik innehåller ett gradle-skript för att skapa programmet och bash-skript för att distribuera och ta bort programmet. Om du vill köra programmet först skapa programmet med gradle:
+Yeoman ställningar innehåller ett gradle-skript för att skapa programmet och bash-skript för att distribuera och ta bort programmet. Om du vill köra programmet måste du först skapa programmet med gradle:
 
 ```bash
 $ gradle
@@ -269,7 +269,7 @@ Du hittar parametrarna till de här kommandona i de genererade manifesten i prog
 När programmet har distribuerats öppnar du en webbläsare och går till [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) på [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Expandera sedan noden **Program** och observera att det nu finns en post för din programtyp och en post för den första instansen av den typen.
 
 > [!IMPORTANT]
-> Om du vill distribuera programmet till en säker Linux-kluster i Azure måste du konfigurera ett certifikat för att verifiera ditt program med Service Fabric-körning. På så sätt kan dina Reliable Services-tjänster att kommunicera med den underliggande Service Fabric runtime API: er. Läs mer i [konfigurera en Reliable Services app att köras på Linux-kluster](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+> Om du vill distribuera programmet till ett säkert Linux-kluster i Azure måste du konfigurera ett certifikat för att verifiera ditt program med Service Fabric-körningen. På så sätt kan dina Reliable Services-tjänster att kommunicera med underliggande Service Fabric-körningen API: er. Mer information finns i [konfigurera en Reliable Services-app som körs i Linux-kluster](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
 >
 
 ## <a name="next-steps"></a>Nästa steg

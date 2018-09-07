@@ -1,6 +1,6 @@
 ---
-title: Azure innehåll kontrollant komma igång | Microsoft Docs
-description: Hur du kommer igång med Azure innehåll kontrollanten.
+title: Azure Content Moderator Kom igång | Microsoft Docs
+description: Hur du kommer igång med Azure Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,80 +9,80 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: sajagtap
-ms.openlocfilehash: ae4333047ebd95733c7baaed0323a0c2c477d323
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 39727b4d97ade67b854fe525afad565451cc3d77
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352566"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024519"
 ---
 # <a name="get-started-with-content-moderator"></a>Kom igång med Content Moderator
 
-Du komma igång med API: er med innehåll kontrollant och granska verktyget på följande sätt:
+Du Kom igång med Content Moderator på följande sätt:
 
-- [Börja med verktyget granska](#start-with-the-review-tool) både skapa API-nycklar och granska-teamet. Utforska verktyget granskning och hur du integrerar med hjälp av API: er för innehåll kontrollanten.
-- [Prenumerera på innehåll kontrollant](#start-with-the-apis) i Azure-portalen. Du måste registrera dig online för att skapa ett team för granskning.
-- [Använd flödet koppling och mallar](https://flow.microsoft.com/connectors/shared_cognitiveservicescontentmoderator/content-moderator/) att checka ut en mängd olika integration med ett enkelt att använda designer.
+- [Börja med granskningsverktyget](#start-with-the-review-tool) att hämta API-nyckeln och skapa ett granskningsteam. Fördelen är att du kan använda API-nyckel för att anropa API: er för moderering för att söka efter innehåll och granska API: er för att generera granskningar utan ytterligare steg.
+- [Prenumerera på Content Moderator](#start-with-the-apis) i Azure för att hämta API-nyckel. Kolla in den [API-referens](api-reference.md) och [SDK: er](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net). Du måste registrera dig online för att skapa ett granskningsteam.
+- [Använda Flow-anslutningar och mallar för](https://flow.microsoft.com/connectors/shared_cognitiveservicescontentmoderator/content-moderator/) att checka ut en rad olika integreringar med en enkel att använda designer.
 
-Oavsett vilket alternativ du väljer, finns det [hantera autentiseringsuppgifter](review-tool-user-guide/credentials.md) artikeln för att hitta dina API-autentiseringsuppgifter.
+Oavsett vilket alternativ som väljs, se den [hantera autentiseringsuppgifter](review-tool-user-guide/credentials.md) artikeln för att hitta dina API-autentiseringsuppgifter.
 
-## <a name="start-with-the-review-tool"></a>Börja med verktyget granskning
-[Registrera dig](http://contentmoderator.cognitive.microsoft.com/) på webbplatsen innehåll kontrollant granska verktyget.
+## <a name="start-with-the-review-tool"></a>Börja med granskningsverktyget
+[Registrera dig](http://contentmoderator.cognitive.microsoft.com/) på webbplatsen för Content Moderator granska verktyget.
 
-![Innehåll kontrollant startsidan](images/homepage.PNG)
+![Startsida för innehåll Moderator](images/homepage.PNG)
 
-### <a name="create-a-review-team"></a>Skapa ett team för granskning
-Namnge ditt team. Om du vill bjuda in dina kollegor kan du göra det genom att ange sina e-postadresser.
+### <a name="create-a-review-team"></a>Skapa ett granskningsteam
+Namnge ditt team. Om du vill bjuda in dina kollegor kan du göra det genom att ange deras e-postadresser.
 
-![Bjud in teammedlem](images/QuickStart-2-small.png)
+![Bjud in gruppmedlem](images/QuickStart-2-small.png)
 
 ### <a name="upload-images-or-enter-text"></a>Ladda upp bilder eller ange text
-Klicka på **försök > bild** eller **försök > Text**. Överför upp till fem exempel bilder eller ange exempeltext för gruppering.
+Klicka på **försök > bild** eller **försök > Text**. Överföra upp till fem Exempelbilder eller ange exempeltext för moderering.
 
-![Försök bild- eller Text Avbrottsmoderering](images/tryimagesortext.png)
+![Testa avbildningen eller Textmoderering](images/tryimagesortext.png)
 
-### <a name="submit-for-automated-moderation"></a>Skicka för automatisk avbrottsmoderering
-Skicka innehållet för automatisk måtta. Internt, anropar verktyget granska avbrottsmoderering API: er för att söka igenom ditt innehåll. När skanning har slutförts visas ett meddelande som talar om väntar på att granska resultaten.
+### <a name="submit-for-automated-moderation"></a>Skicka in för automatiserad moderering
+Skicka in ditt innehåll för automatiserad moderering. Internt, anropar granskningsverktyget moderering API: er så att ditt innehåll. När den skanningen är klar, visas ett meddelande som informerar dig om väntar på att granska resultaten.
 
 ![Måttlig filer](images/submitted.png)
 
 ### <a name="review-and-confirm-results"></a>Granska och bekräfta resultat
-Granska automatiskt kontrollerad taggar, ändra vid behov och skicka med hjälp av den **nästa** knappen. Som ett affärsprogram anropar kontrollant API: er, de kodade innehåll startar köa, är redo för att granskas av mänsklig granska team. Du kan snabbt granska stora mängder innehåll med hjälp av den här metoden.
+Granska automatisk modereras-taggar, ändra om det behövs och skicka med hjälp av den **nästa** knappen. Som ett affärsprogram anrop Moderator API: er, den taggade innehåll startar köa, är redo för att granskas av mänsklig granskning-team. Du kan snabbt granska stora mängder innehåll med hjälp av den här metoden.
 
 ![Granska resultatet](images/reviewresults.png)
 
-Lär dig att använda alla de [granska verktygets funktioner](Review-Tool-User-Guide/human-in-the-loop.md) eller Fortsätt med nästa avsnitt för att lära dig om de API: er. Hoppa över registrering steget eftersom du har API-nyckeln som etablerats för dig i verktyget granska enligt den [hantera autentiseringsuppgifter](review-tool-user-guide/credentials.md) artikel.
+Lär dig att använda alla de [granskar verktygets funktionerna](Review-Tool-User-Guide/human-in-the-loop.md) eller fortsätta med nästa avsnitt för att lära dig om de API: er. Hoppa över registrering steget eftersom du har etablerat för dig i granskningsverktyget som visas i API-nyckeln i [hantera autentiseringsuppgifter](review-tool-user-guide/credentials.md) artikeln.
 
 ### <a name="use-the-apis"></a>API: er i
 
-Nu när du har arbetat innehåll avbrottsmoderering och granska verktyget lär du dig hur du integrerar innehåll kontrollant med dina affärsprogram. Använd följande avsnitt om du vill veta mer och snabb åtkomst till din förståelse med SDK: er och exempel.
+Lär dig hur du integrerar Content Moderator med dina affärsprogram. Kolla in den [API-referens](api-reference.md) och [SDK: er](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net).
 
-## <a name="start-with-the-apis"></a>Börja med de API: er
+## <a name="subscribe-in-the-azure-portal"></a>Prenumerera på Azure-portalen
 
-[Prenumerera på innehåll kontrollant](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) i Azure-portalen. Börja med en av följande API: er:
+[Prenumerera på Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) i Azure-portalen. Börja med någon av följande API: er:
 
 ### <a name="image-moderation"></a>Bildmoderering
 
-Börja med den [API konsolen](try-image-api.md) eller använda den [.NET quickstart](image-moderation-quickstart-dotnet.md) skanna bilder och identifiera potentiella innehåll för vuxna och dyr med hjälp av taggar, förtroende poäng och andra extraherade information.
+Börja med den [API-konsol](try-image-api.md) eller Använd den [Snabbstart för .NET](image-moderation-quickstart-dotnet.md) Genomsök bilder och identifiera potentiellt vuxet eller olämpligt innehåll med hjälp av taggar, förtroende poäng och andra extraherade information.
 
 ### <a name="text-moderation"></a>Textmoderering
 
-Börja med den [API-konsolen](try-text-api.md) eller använda den [.NET quickstart](text-moderation-quickstart-dotnet.md) skanna textinnehåll potentiella bort olämpligt material, dator-stödd oönskad text klassificering (förhandsversion) och personligt identifierbar information (PII). 
+Börja med den [API-konsol](try-text-api.md) eller Använd den [Snabbstart för .NET](text-moderation-quickstart-dotnet.md) söker igenom textinnehåll för potentiella svordomar, datorstödd oönskad text klassificering (förhandsversion) och personligt identifierbar information (PII). 
 
 
 ### <a name="video-moderation"></a>Videomoderering
 
-Börja med den [.NET quickstart](video-moderation-api.md) att skanna videor och identifiera potentiella innehåll för vuxna och dyr. 
+Börja med den [Snabbstart för .NET](video-moderation-api.md) att söka igenom videor och identifiera potentiellt vuxet eller olämpligt innehåll. 
 
 
 ### <a name="review-apis"></a>Omdömes-API:er
 
-Börja här genom att välja från jobbet, granska och API: er för arbetsflödet.
+Börja här genom att välja från jobbet, granskning och arbetsflöde för API: er.
 
-- Den [jobbet API](try-review-api-job.md) genomsöker ditt innehåll med hjälp av avbrottsmoderering API: er och genererar granskningar i verktyget granska. 
-- Den [granska API](try-review-api-review.md) direkt skapar image, text eller video omdömen för mänsklig moderatorer utan att söka igenom innehållet. 
-- Den [arbetsflöde API](try-review-api-workflow.md) skapar, uppdaterar och hämtar information om de anpassade arbetsflöden som ni skapar.
+- Den [jobbet API](try-review-api-job.md) söker igenom ditt innehåll med hjälp av API: er för moderering och genererar granskningar i granskningsverktyget. 
+- Den [granska API](try-review-api-review.md) direkt skapar bild, text eller video granskningar för mänskliga moderatorer utan att söka igenom innehållet. 
+- Den [arbetsflöde API](try-review-api-workflow.md) skapar, uppdaterar och hämtar information om de anpassade arbetsflöden som ditt team skapar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om innehåll avbrottsmoderering från och med den [bild avbrottsmoderering API](image-moderation-api.md).
+Kolla in den [API-referens](api-reference.md) och [SDK: er](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net). Kom igång snabbt med din integrering med den [.NET SDK-prov](sdk-and-samples.md#net-sdk-samples), [REST API-exempel i C#](https://github.com/sanjeev3/azure-docs-pr/blob/master/articles/cognitive-services/Content-Moderator/sdk-and-samples.md#rest-api-samples-in-c) och [självstudier](sdk-and-samples.md#tutorials).

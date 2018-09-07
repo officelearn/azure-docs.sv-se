@@ -13,20 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 09/06/2018
 ms.author: celested
-ms.reviewer: hirsin, dastrock
-ms.openlocfilehash: 41c7de3039634f262efedc1bb3de1b39dda4593a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.reviewer: jlu, annaba, hirsin
+ms.openlocfilehash: 3120bf36c32a8be42f325ef584bfc8a2c5cd04df
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698068"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055302"
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Migrera från Azure Access Control service
 
-Azure Access Control, en tjänst i Azure Active Directory (Azure AD), tas ur bruk 7 November 2018. Program och tjänster som använder åtkomstkontroll måste fullständigt flyttas till en annan autentiseringsmekanism innan dess. Den här artikeln beskriver rekommendationer för befintliga kunder som du planerar att inaktualisera din användning av Access Control. Om du inte använder åtkomstkontroll, behöver du inte vidta några åtgärder.
-
+Microsoft Azure Access Control Service (ACS), en tjänst i Azure Active Directory (Azure AD), tas ur bruk 7 November 2018. Program och tjänster som använder åtkomstkontroll måste fullständigt flyttas till en annan autentiseringsmekanism innan dess. Den här artikeln beskriver rekommendationer för befintliga kunder som du planerar att inaktualisera din användning av Access Control. Om du inte använder åtkomstkontroll, behöver du inte vidta några åtgärder.
 
 ## <a name="overview"></a>Översikt
 
@@ -73,7 +72,6 @@ Här är schemat för avvecklar Access Control-komponenter:
 - **Den 2 april 2018**: Azure klassiska portal helt dras tillbaka, vilket innebär att hantering av åtkomstkontroll namnområden är inte längre tillgänglig via alla URL: er. Du kan nu inaktivera eller aktivera, ta bort eller räkna upp dina Access Control-namnområden. Access Control-hanteringsportalen kommer dock att helt funktionella och finns på `https://\<namespace\>.accesscontrol.windows.net`. Alla andra komponenter i Access Control fortsätta att fungera normalt.
 - **7 november 2018**: alla åtkomstkontroll komponenter permanent stänga. Detta inkluderar Access Control-hanteringsportalen, management-tjänsten, STS och token omvandling regeln motorn. Nu kan alla förfrågningar som skickas till Access Control (finns på \<namnområde\>. accesscontrol.windows.net) misslyckas. Du bör har migrerat alla befintliga appar och tjänster till andra tekniker bra före denna tidpunkt.
 
-
 ## <a name="migration-strategies"></a>Migreringsstrategier
 
 I följande avsnitt beskrivs på hög nivå rekommendationer för att migrera från åtkomstkontroll till andra Microsoft-tekniker.
@@ -98,7 +96,6 @@ Varje Microsoft-molntjänst som accepterar token som utfärdas av Access Control
 <!-- Retail federation services are moving, customers don't need to move -->
 <!-- Azure StorSimple: TODO -->
 <!-- Azure SiteRecovery: TODO -->
-
 
 ### <a name="sharepoint-customers"></a>SharePoint-kunder
 
@@ -175,26 +172,14 @@ Om du vill använda WS-Federation eller WIF för att integrera med Azure AD, rek
 - Du får fullständig flexibilitet för Azure AD-token anpassning. Du kan anpassa de anspråk som utfärdas av Azure AD för att matcha de anspråk som utfärdas av Access Control. Detta inkluderar särskilt användar-ID eller namnidentifierare anspråket. Se till att användar-ID utfärdats av Azure AD matchar de utfärdade av Access Control för att fortsätta att ta emot konsekvent användaridentifierare för dina användare när du har ändrat tekniker.
 - Du kan konfigurera ett certifikat för tokensignering som är specifik för ditt program, och med en livslängd som du bestämmer.
 
-<!--
-
-Possible nameIdentifiers from Access Control (via AAD or AD FS):
-- AD FS - Whatever AD FS is configured to send (email, UPN, employeeID, what have you)
-- Default from AAD using App Registrations, or Custom Apps before ClaimsIssuance policy: subject/persistent ID
-- Default from AAD using Custom apps nowadays: UPN
-- Kusto can't tell us distribution, it's redacted
-
--->
-
 > [!NOTE]
 > Den här metoden kräver en Azure AD Premium-licens. Om du är en Access Control-kund och du behöver en premiumlicens för att konfigurera enkel inloggning för ett program, kontakta oss. Vi gärna att ge utvecklare licenser som du kan använda.
 
 En annan metod är att följa [detta kodexempel](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), vilket ger något annorlunda instruktioner för att konfigurera WS-Federation. Det här kodexemplet använder inte WIF, men i stället ASP.NET 4.5 OWIN-mellanprogrammet. Men instruktionerna för registrering av appen är giltiga för appar som använder WIF och kräver inte en Azure AD Premium-licens. 
 
-Om du väljer den här metoden måste du förstå [signeringsnyckel i Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Den här metoden använder Azure AD globala signeringsnyckel till problemet token. Som standard uppdateras WIF inte automatiskt Signeringsnycklar. När Azure AD roterar dess globala Signeringsnycklar, måste implementeringen WIF förberedas för att godkänna ändringarna.
+Om du väljer den här metoden måste du förstå [signeringsnyckel i Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Den här metoden använder Azure AD globala signeringsnyckel till problemet token. Som standard uppdateras WIF inte automatiskt Signeringsnycklar. När Azure AD roterar dess globala Signeringsnycklar, måste implementeringen WIF förberedas för att godkänna ändringarna. Mer information finns i [viktig information om signeringsnyckel i Azure AD](https://msdn.microsoft.com/en-us/library/azure/dn641920.aspx).
 
 Om du kan integrera med Azure AD via OpenID Connect eller OAuth-protokoll, rekommenderar vi då. Vi har en omfattande dokumentation och vägledning om hur du integrerar Azure AD i ditt webbprogram som är tillgängliga i vår [utvecklarguide för Azure AD](https://aka.ms/aaddev).
-
-<!-- TODO: If customers ask about authZ, let's put a blurb on role claims here -->
 
 #### <a name="migrate-to-azure-active-directory-b2c"></a>Migrera till Azure Active Directory B2C
 
@@ -237,7 +222,6 @@ Om du väljer att Azure AD B2C är den bästa migreringsvägen för dina program
 - [Azure AD B2C anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)
 - [Priser för Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
-
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Migrera till Ping Identity eller Auth0
 
 I vissa fall kan det kan hända att Azure AD och Azure AD B2C inte är tillräckligt för att ersätta Access Control i dina webbprogram utan att göra ändringar i större koden. Några vanliga exempel kan vara:
@@ -249,8 +233,6 @@ I vissa fall kan det kan hända att Azure AD och Azure AD B2C inte är tillräck
 - Webbprogram för flera klienter som använder ACS centralt hantera federation till många olika identitetsleverantörer
 
 I dessa fall kan vilja du bör du migrera ditt webbprogram till en annan molntjänst för autentisering. Vi rekommenderar att utforska följande alternativ. Var och en av följande alternativ erbjuder funktioner som liknar Access Control:
-
-
 
 |     |     | 
 | --- | --- |

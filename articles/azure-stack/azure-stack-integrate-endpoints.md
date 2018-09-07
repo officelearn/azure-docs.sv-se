@@ -6,18 +6,19 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: 4aaba753a8d61d60cb053a4aa164b5be0a3c50fa
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 26ee1c8f02a0a4e5aa5048a7a02929c448106ffd
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307616"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024966"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack datacenter-integrering – publicera slutpunkter
+
 Azure Stack ställer in virtuella IP-adresser (VIP) för dess infrastrukturroller. Dessa virtuella IP-adresser tilldelas från den offentliga IP-adresspoolen. Varje VIP skyddas med en åtkomstkontrollista (ACL) i nätverkslagret programvarudefinierade. ACL: er används också för de fysiska växlarna (trera Övervakare och BMC) för att ytterligare skydda lösningen. En DNS-post skapas för varje slutpunkt i externa DNS-zon som angetts vid tidpunkten för distribution.
 
 
@@ -39,12 +40,14 @@ Intern infrastruktur för virtuella IP-adresser inte visas eftersom de inte krä
 |---------|---------|---------|---------|
 |AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Portal (administratör)|Adminportal.  *&lt;region >.&lt; FQDN >*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015|
+|Adminhosting | *.adminhosting. \<region >. \<fqdn > | HTTPS | 443 |
 |Azure Resource Manager (administratör)|Adminmanagement.  *&lt;region >.&lt; FQDN >*|HTTPS|443<br>30024|
 |Portal (användare)|Portalen.  *&lt;region >.&lt; FQDN >*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003|
 |Azure Resource Manager (användare)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
 |Graph|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Lista över återkallade certifikat|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP OCH UDP|53|
+|Som är värd för | * .hosting. \<region >. \<fqdn > | HTTPS | 443 |
 |Key Vault (användare)|&#42;.Vault.  *&lt;region >.&lt; FQDN >*|HTTPS|443|
 |Key Vault (administratör)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Lagringskö|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|

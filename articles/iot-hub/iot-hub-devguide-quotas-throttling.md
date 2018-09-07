@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: 11cec9621ad72cfeaee45e4cd466430e64b9b836
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: c9004e776488006d563fd4de791cade69736a5b8
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42059562"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024377"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referens – IoT Hub-kvoter och begränsningar
 
@@ -42,8 +42,9 @@ I följande tabell visas de tvingande begränsningar. Värden finns i en enskild
 | Direkta metoder<sup>1</sup> | 160KB per sekund och enhet<sup>2</sup> | 480KB per sekund och enhet<sup>2</sup> | 24MB per sekund och enhet<sup>2</sup> | 
 | Twin (enhets- och modulen) läsningar<sup>1</sup> | 10 per sekund | Högre av 10 per sekund eller 1 per sekund och enhet | 50 per sekund och enhet |
 | Twin uppdateringar (enhets- och modulen)<sup>1</sup> | 10 per sekund | Högre av 10 per sekund eller 1 per sekund och enhet | 50 per sekund och enhet |
-| Jobb operations<sup>1</sup> <br/> (skapa, uppdatera, visa, ta bort) | 1.67/sec/Unit (100 per minut per enhet) | 1.67/sec/Unit (100 per minut per enhet) | 83.33/sec/Unit (5000 per minut per enhet) |
-| Jobb åtgärder<sup>1</sup> <br/> (uppdatera twin, anropa direkt metod) | 10 per sekund | Högre av 10 per sekund eller 1 per sekund och enhet | 50 per sekund och enhet |
+| Jobb skapa, uppdatera, lista och ta bort | 1.67/sec/Unit (100 per minut per enhet) | 1.67/sec/Unit (100 per minut per enhet) | 83.33/sec/Unit (5000 per minut per enhet) |
+| Jobb twin uppdateringen kan anropa åtgärder direkt metod | 10 per sekund | Högre av 10 per sekund eller 1 per sekund och enhet | 50 per sekund och enhet |
+| Jobb bulk import/export-åtgärder | 1 aktiv jobb per hubb | 1 aktiv jobb per hubb | 1 aktiv jobb per hubb |
 | Konfigurationer och edge-distributioner<sup>1</sup> <br/> (skapa, uppdatera, visa, ta bort) | 0.33/sec/Unit (20 per minut per enhet) | 0.33/sec/Unit (20 per minut per enhet) | 0.33/sec/Unit (20 per minut per enhet) |
 
 

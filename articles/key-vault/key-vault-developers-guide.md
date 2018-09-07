@@ -7,14 +7,14 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 10/12/2017
+ms.date: 09/05/2018
 ms.author: bryanla
-ms.openlocfilehash: d8554d235fdfeb5b192ddf1268e60b7bc32aabe7
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: b4522d9eb2e9af782918f021c79bbcb155c5c383
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42060225"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053629"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Utvecklarguide för Azure Key Vault
 
@@ -53,11 +53,9 @@ Resurser som ingår i ovan video:
 
 ## <a name="creating-and-managing-key-vaults"></a>Skapa och hantera Nyckelvalv
 
-Azure Key Vault är ett sätt att lagra autentiseringsuppgifter samt andra nycklar och hemligheter på ett säkert sätt, men din kod måste autentiseras till Key Vault för att kunna hämta dem. Hanterad tjänstidentitet (MSI) löser detta problem på ett enklare sätt genom att ge Azure-tjänsterna en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan att behöva ha några autentiseringsuppgifter i koden. 
+Azure Key Vault är ett sätt att lagra autentiseringsuppgifter samt andra nycklar och hemligheter på ett säkert sätt, men din kod måste autentiseras till Key Vault för att kunna hämta dem. Hanterade identiteter för Azure-resurser kan lösa problemet enklare genom att ge Azure-tjänster en automatiskt hanterad identitet i Azure Active Directory (AD Azure). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan att behöva ha några autentiseringsuppgifter i koden. 
 
-Läs mer på MSI [hanterad tjänstidentitet (MSI) för Azure-resurser](https://docs.microsoft.com/azure/active-directory/msi-overview).
-
-Läs mer om hur du arbetar med AAD, [integrera program med Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
+Mer information om hanterade identiteter för Azure-resurser finns i [hanterade identiteter översikten](../active-directory/managed-identities-azure-resources/overview.md). Läs mer om hur du arbetar med AAD, [integrera program med Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
 
 Innan du börjar arbeta med nycklar, hemligheter eller certifikat i ditt nyckelvalv ska du skapa och hantera ditt nyckelvalv via CLI, PowerShell, Resource Manager-mallar eller REST, enligt beskrivningen i följande artiklar:
 
@@ -110,14 +108,14 @@ I Node.js är management-API Key Vault och Key Vault-objektet API separat. I fö
 ### <a name="quick-start-guides"></a>Snabbstartsguide
 
 - [Skapa Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
-- [Komma igång med Key Vault i Node.js](https://azure.microsoft.com/resources/samples/key-vault-node-getting-started/)
+- [Komma igång med Key Vault i Node.js](https://github.com/Azure-Samples/key-vault-node-getting-started)
 
 ### <a name="code-examples"></a>Kodexempel
 
 För fullständiga exempel med Key Vault med dina program, se:
 
-- [Azure Key Vault-kodexempel](http://www.microsoft.com/download/details.aspx?id=45343) -.NET-exempelprogram *HelloKeyVault* och ett exempel på Azure-webbappar. 
-- [Använda Azure Key Vault från ett webbprogram](key-vault-use-from-web-application.md) -självstudiekursen för att lära dig hur du använder Azure Key Vault från ett webbprogram i Azure. 
+- [Azure Key Vault-kodexempel](https://azure.microsoft.com/resources/samples/?service=key-vault) -kodexempel för Azure Key Vault. 
+- [Använda Azure Key Vault från ett webbprogram](quick-create-net.md) -självstudiekursen för att lära dig hur du använder Azure Key Vault från ett webbprogram i Azure. 
 
 ## <a name="how-tos"></a>Instruktioner
 

@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 20d0f4736d3aa5f23d9061b4482da7a623862344
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 0f4c0243c09fd7a6b8d221d6c077775f83d82b8b
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128229"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024551"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-framework-on-windows-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i C# under .NET Framework i Windows med hjälp av tal-SDK
 
@@ -31,8 +31,6 @@ Programmet har skapats med den [Microsoft Cognitive Services tal SDK NuGet-paket
 * Den **.NET-skrivbordsutveckling** arbetsbelastningen i Visual Studio. Du kan aktivera den i **verktyg** \> **hämta verktyg och funktioner**.
 
   ![Aktivera .NET-skrivbordsutveckling](media/sdk/vs-enable-net-desktop-workload.png)
-
-  ![Aktivera .NET Core plattformsoberoende utveckling](media/sdk/vs-enable-net-desktop-workload.png)
 
 ## <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 

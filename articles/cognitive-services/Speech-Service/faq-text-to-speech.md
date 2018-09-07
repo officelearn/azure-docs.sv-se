@@ -1,6 +1,7 @@
 ---
-title: Vanliga frågor om tal till Text-tjänst på Azure
-description: Här är några svar på de mest populära frågorna om tal till Text.
+title: Vanliga frågor och svar om Text till tal-tjänst i Azure
+description: Få svar på de mest populära frågorna om Text till tal-tjänsten.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: PanosPeriorellis
 ms.service: cognitive-services
@@ -8,48 +9,52 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 8d70c4a359c713d6c5f46423193e9c9e7e1f3baf
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 4e08abedf9b60f229865bf935d50443782bd928c
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282865"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024473"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Vanliga och frågor svar om text till tal
 
-Om du inte hittar svar på dina frågor i den här vanliga frågor och svar kan du läsa andra supportalternativ [här](support.md).
+Om du inte hittar svar på dina frågor i den här vanliga frågor och svar kan du kolla [andra supportalternativ](support.md).
 
 ## <a name="general"></a>Allmänt
 
-**Fråga**: Vad är skillnaden mellan standardentiteter och anpassade voice-modeller?
+**F: Vad är skillnaden mellan en standard voice-modell och en anpassad voice-modell?**
 
-**Svar**: standard röst-modeller (alias) rösttyper) har tränats med Microsoft som ägs av data och redan har distribuerats i molnet. Anpassade röst modeller gör att användarna antingen att anpassa en genomsnittlig modell och överföra timbre och uttryck sätt enligt talarens röst stil, eller för att träna en fullständig ny modell som baseras på träningsdata som sammanställts av användaren. Idag vill fler kunder ha en en av en typ, företagsanpassad ton för sina robotar. Anpassade röst att skapa plattform är det rätta valet för detta.
+**En**: standard voice-modellen (kallas även en *rösttyp*) har tränats med hjälp av data som ägs av Microsoft och redan har distribuerats i molnet. Du kan använda en anpassad voice-modell för att anpassa en genomsnittlig modell och överför timbre och uttryck av talarens röst style eller öva med en fullständig, ny modell som baseras på träningsdata som sammanställts av användaren. Fler och fler kunder vill idag, en röst för en av en typ, företagsanpassad för sina robotar. Anpassade voice-sestavuje Se platforma är det rätta valet för det valda alternativet.
 
-**Fråga**: hur börjar jag om jag vill använda en standard voice-modell?
+**F: var börjar jag om jag vill använda en standard voice-modell?**
 
-**Svar**: mer än 80 standard röst modeller i över 45 språk är tillgängliga via HTTP-begäranden. Först måste du hämta en [prenumerationsnyckel](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started). Om du vill göra REST-anrop för redan distribuerade voice-modeller finns det [information här](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+**En**: mer än 80 standard röst modeller i över 45 språk är tillgängliga via HTTP-begäranden. Hämta först en [prenumerationsnyckel](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started). REST-anrop till predeployed voice-modeller finns det [REST API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
-**Fråga**: om jag vill använda en röstmeddelanden modell är API: et samma som standard röster?
+**F: Jag vill använda en modell för röstmeddelanden finns om API: et samma som det som används för att få en standard?**
 
-**Svar**: när du har anpassade röst modellen skapas och distribueras, får du en unik slutpunkt för din modell. Du måste ange slutpunkten i din HTTP-åtgärdsbegäranden, Använd röst för att tala i dina appar. På samma sätt som är tillgängliga via REST API för text till tal-tjänst är också tillgänglig för din anpassade slutpunkt. Se hur du [skapar och använder din anpassade slutpunkt](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-endpoint).
+**En**: när en anpassad voice-modell skapas och distribueras, du får en unik slutpunkt för din modell. Om du vill använda röst för att tala i dina appar, måste du ange slutpunkten i HTTP-förfrågningar. På samma sätt som är tillgänglig i REST-API för Text till tal-tjänsten är tillgänglig för din anpassade slutpunkt. Lär dig hur du [skapar och använder din anpassade slutpunkt](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-endpoint).
 
-**Fråga**: måste du förbereda träningsdata för att skapa anpassade röst modeller på egen hand?
+**F: Jag behöver förbereda träningsdata att skapa anpassade röst modeller på egen hand?**
 
-**Svar**: du måste förbereda träningsdata själv. En samling taldata krävs för att skapa en modell i röstmeddelanden. Den här samlingen består av en uppsättning ljudfiler av tal inspelningar och en textfil för utskrift av varje ljudfil. Resultatet av din digitala röst beroende kraftigt av kvaliteten på dina utbildningsdata. För att skapa en bra text till tal-röst, är det viktigt att inspelningarna utförs i en tyst rum med hög kvalitet stående mikrofon. Konsekvent volym talar pris, talar försäljningsargument och även konsekvens i lättfattliga maner, ovanor tal är nödvändiga för att skapa en fantastisk digital röst. Vi rekommenderar starkt att du har de rösterna registreras i en inspelning studio.
-För tillfället vi inte stödja online inspelning eller några rekommendationer för inspelning studio. Format-krav, se [hur du förbereder inspelningar och betyg](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-voice-font#prepare-recordings-and-transcripts)
- 
-**Fråga**: vilka skript ska jag använda för att registrera taldata för anpassade ton? 
+**En**: Ja, måste du förbereda träningsdata själv för en anpassad voice-modell.
 
-**Svar**: vi begränsar inte skript för röstinspelning. Du kan använda dina egna skript för att registrera tal. Se bara till du har tillräckligt med fonetisk täckning i ditt tal. För att träna en anpassad ton, som du kan börja med en liten mängd taldata, vilket kan vara 50 olika meningar (om 3-5 minuter tal). Ju mer data som du anger, desto mer naturliga rösten. Du kan börja att träna en fullständig rösttyp när du anger inspelningar av över 2 000 meningar (cirka 3 – 4 timmar tal). För att få en fullständig röst hög kvalitet, måste du förbereda inspelningar av mer än 6000 meningar (cirka 8 – 10 timmar tal).  
+En samling taldata krävs för att skapa en modell i röstmeddelanden. Den här samlingen består av en uppsättning ljudfiler av tal inspelningar och en textfil för utskrift av varje ljudfil. Resultatet av din digitala röst beroende kraftigt kvaliteten på dina utbildningsdata. Det är viktigt att inspelningarna görs i en tyst rum med hög kvalitet, stående mikrofon för att skapa en bra rösten. En konsekvent volym talar hastighet och talar försäljningsargument och även konsekvens i lättfattliga maner, ovanor tal är behövs för att skapa en fantastisk digital röst. Vi rekommenderar starkt att spela in rösterna i en inspelning studio.
+
+Vi inte för närvarande kan stödja online inspelning eller några rekommendationer för inspelning studio. Format-krav, se [hur du förbereder inspelningar och betyg](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-voice-font#prepare-recordings-and-transcripts).
+
+**F: vilka skript ska jag använda för att registrera taldata för anpassade ton?**
+
+**En**: vi begränsar inte skript för röstinspelning. Du kan använda dina egna skript för att registrera tal. Se bara till att du har tillräckligt med fonetisk täckning i ditt tal. Du kan börja med en liten mängd taldata, vilket kan vara 50 olika meningar (cirka 3-5 minuter tal) för att träna en anpassad röst. Ju mer data som du anger, desto mer naturliga rösten. Du kan börja att träna en fullständig rösttyp när du anger inspelningar av mer än 2 000 meningar (cirka 3 – 4 timmar tal). Om du vill ha en hög kvalitet, fullständig röst, måste du förbereda inspelningar av mer än 6 000 meningar (cirka 8 – 10 timmar tal).
+
 Vi tillhandahåller ytterligare tjänster för att hjälpa dig att förbereda skript för inspelning. Kontakta [anpassad röst kundsupport](mailto:customvoice@microsoft.com?subject=Inquiries%20about%20scripts%20generation%20for%20Custom%20Voice%20creation) för frågor.
 
-**Fråga**: Vad händer om jag behöver högre samtidighet än standardvärdet eller vad som är tillgängligt i portalen?
+**F: Vad händer om jag behöver högre samtidighet än standardvärdet eller vad som är tillgängligt i portalen?**
 
-**Svar**: du kan skala upp din modell i steg om 20 samtidiga begäranden. Kontakta [anpassad röst kundsupport](mailto:customvoice@microsoft.com?subject=Inquiries%20about%20scripts%20generation%20for%20Custom%20Voice%20creation) för förfrågningar om högre skalning.
+**En**: du kan skala upp din modell i steg om 20 samtidiga begäranden. Kontakta [anpassad röst kundsupport](mailto:customvoice@microsoft.com?subject=Inquiries%20about%20scripts%20generation%20for%20Custom%20Voice%20creation) för frågor om högre skalning.
 
-**Fråga**: kan jag hämta Mina modellen och köra den lokalt?
+**F: kan jag hämta Mina modellen och köra den lokalt?**
 
-**Svar**: modeller kan inte hämtas och köras lokalt.
+**En**: modeller kan inte hämtas och köras lokalt.
 
 ## <a name="next-steps"></a>Nästa steg
 

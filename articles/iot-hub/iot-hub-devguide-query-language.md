@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 7704e08246798108aa251c19a4ab0c3baaaad570
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: f6959e0fec77ff046e4db86bad30502259775a49
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054178"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022847"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub-frågespråk för tvillingar för enheten och modulen, jobb och meddelanderoutning
 
@@ -165,7 +165,7 @@ Frågekörning på modultvillingar påminner om att fråga på enhetstvillingar,
 SELECT * FROM devices.modules
 ```
 
-Tillåter vi inte koppling mellan enheter och devices.modules samlingar. Om du vill fråga modultvillingar mellan enheter gör det baserat på taggar. Den här frågan returnerar alla modultvillingar på alla enheter med statusen genomsökning:
+Tillåter vi inte koppling mellan enheter och devices.modules samlingar. Om du vill fråga modultvillingar mellan enheter, gör du det baserat på taggar. Den här frågan returnerar alla modultvillingar på alla enheter med statusen genomsökning:
 
 ```sql
 Select * from devices.modules where properties.reported.status = 'scanning'

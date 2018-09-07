@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: af2a3da788fd26387ccdcc36422ffa5b11893212
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 529612aeecfcea1d775c2f4359c5135ca3c6885e
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888091"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052551"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Använd Azure storage-emulatorn för utveckling och testning
 
@@ -68,7 +68,7 @@ Du kan använda kommandoradsverktyget för storage-emulatorn för att initiera s
 
   Du kan också använda följande kommando, som riktar emulatorn för att använda standardinstansen för SQL Server:
 
-  `AzureStorageEmulator.exe init /server .\\`
+  `AzureStorageEmulator.exe init /server .`
 
   Du kan också använda följande kommando, där återinitierar databasen till LocalDB standardinstansen:
 
@@ -93,10 +93,10 @@ Vissa Azure storage, klientbiblioteken, till exempel Xamarin-klientbibliotek har
 Du kan också generera en SAS-token med hjälp av Azure PowerShell. I följande exempel skapar en SAS-token med fullständig behörighet till en blobbehållare:
 
 1. Installera Azure PowerShell om du inte redan gjort med (den senaste versionen av Azure PowerShell cmdlet: ar rekommenderas). Installationsanvisningar finns i [installera och konfigurera Azure PowerShell](/powershell/azure/install-azurerm-ps).
-2. Öppna Azure PowerShell och kör följande kommandon och Ersätt `ACCOUNT_NAME` och `ACCOUNT_KEY==` med dina autentiseringsuppgifter och `CONTAINER_NAME` med ett namn du väljer:
+2. Öppna Azure PowerShell och kör följande kommandon och Ersätt `CONTAINER_NAME` med ett namn du väljer:
 
 ```powershell
-$context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
+$context = New-AzureStorageContext -Local
 
 New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
 
@@ -108,7 +108,7 @@ New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryT
 Den resulterande signaturen för delad åtkomst URI för den nya behållaren ska vara liknar:
 
 ```
-https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
+http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
 ```
 
 Signatur för delad åtkomst som skapats med det här exemplet är giltig i en dag. Signaturen ger fullständig åtkomst (läsa, skriva, ta bort, lista) till blobbar i behållaren.

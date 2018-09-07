@@ -1,5 +1,6 @@
 ---
-title: Förstå LUIS app samarbete – Azure | Microsoft Docs
+title: LUIS-app samarbete – Language Understanding
+titleSuffix: Azure Cognitive Services
 description: LUIS appar kräver en enda ägaren och valfritt medarbetare.
 services: cognitive-services
 author: diberry
@@ -9,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: fe5e35c2dcb08cdff9d92142558cf8d7ec81c36c
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: fd4955cb2d7ea76e8d0fd6c60027740b64bd8b24
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399579"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026255"
 ---
 # <a name="collaborating"></a>Samarbeta
 
@@ -41,7 +42,7 @@ Om du vill dela flera appar med medarbetare, måste den medarbetarens e-post har
 ## <a name="managing-multiple-authors"></a>Hantera flera författare
 Den [LUIS](luis-reference-regions.md#luis-website) webbplats omfattas inte för närvarande transaktionsnivå redigering. Du kan tillåta redigerare att arbeta med oberoende versioner från en grundläggande version. Det finns två metoder beskrivs i följande avsnitt.
 
-### <a name="manage-multiple-versions-inside-the-same-app"></a>Hantera flera versioner i samma app
+## <a name="manage-multiple-versions-inside-the-same-app"></a>Hantera flera versioner i samma app
 Börja med att [kloning](luis-how-to-manage-versions.md#clone-a-version), från en grundläggande version för varje författare. 
 
 Var och gör ändringar i sin egen version av appen. När var och är nöjd med modellen kan du exportera de nya versionerna till JSON-filer.  
@@ -50,7 +51,7 @@ Exporterade appar är JSON-formaterade filer som kan jämföras för ändringar.
 
 Den här metoden låter dig ha en aktiv version, en steg-version och en publicerad version. Du kan jämföra resultaten i det interaktiva fönstret för testning mellan tre versioner.
 
-### <a name="manage-multiple-versions-as-apps"></a>Hantera flera versioner som appar
+## <a name="manage-multiple-versions-as-apps"></a>Hantera flera versioner som appar
 [Exportera](luis-how-to-manage-versions.md#export-version) basversionen. Var och importerar versionen. Den person som importerar appen är ägare av versionen. När de är klar ändra appen, exportera versionen. 
 
 Exporterade appar är JSON-formaterade filer som kan jämföras med den grundläggande exporten av ändringar. Kombinera filer för att skapa en JSON-fil för den nya versionen. Ändra den **versionId** egenskap i JSON för att ange den nya sammanfogade versionen att. Importera den här versionen till den ursprungliga appen.

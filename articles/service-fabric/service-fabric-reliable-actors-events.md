@@ -1,5 +1,5 @@
 ---
-title: Händelser i aktören-baserad Azure mikrotjänster | Microsoft Docs
+title: Händelser i aktörbaserade Azure Service Fabric actors | Microsoft Docs
 description: Introduktion till händelser för Service Fabric Reliable Actors.
 services: service-fabric
 documentationcenter: .net
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: ed920c8d4ff7254b19c6eef8f5961593bb56bacf
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c228821383a1bfedf380f97e3411fdacc322a6f9
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207085"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054486"
 ---
 # <a name="actor-events"></a>Aktören händelser
-Aktören händelser är ett sätt att skicka meddelanden för bästa prestanda från aktören till klienterna. Aktören händelser är utformade för aktören till klientkommunikation och bör inte användas för aktören – aktören kommunikation.
+Aktören händelser är ett sätt att skicka meddelanden för bästa prestanda från aktören till klienterna. Aktören händelser är utformade för aktören till klientkommunikation och bör inte användas för aktören till aktören kommunikation.
 
-Följande kodavsnitt visar hur du använder aktören händelser i ditt program.
+I följande kodavsnitt visar hur du använder aktören händelser i ditt program.
 
-Definiera ett gränssnitt som beskrivs de händelser som publicerats av den. Det här gränssnittet måste härledas från den `IActorEvents` gränssnitt. Argument av metoder måste vara [data minimera serialiserbara](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). Metoderna måste returnera void, som händelse-meddelanden är ett sätt och bästa prestanda.
+Definiera ett gränssnitt som beskriver de händelser som publicerats av aktören. Det här gränssnittet måste härledas från den `IActorEvents` gränssnitt. Argument av metoder måste vara [data kontrakt serialiserbara](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). Metoderna måste returnera void, som händelse-meddelanden är ett sätt och bästa prestanda.
 
 ```csharp
 public interface IGameEvents : IActorEvents
@@ -40,7 +40,7 @@ public interface GameEvents implements ActorEvents
     void gameScoreUpdated(UUID gameId, String currentScore);
 }
 ```
-Deklarera händelser som publicerats av aktören i gränssnittet aktören.
+Deklarera de händelser som publicerats av aktör i aktörsgränssnittet.
 
 ```csharp
 public interface IGameActor : IActor, IActorEventPublisher<IGameEvents>
@@ -58,7 +58,7 @@ public interface GameActor extends Actor, ActorEventPublisherE<GameEvents>
     CompletableFuture<String> getGameScore();
 }
 ```
-Implementera händelsehanteraren på klienten.
+Implementera händelsehanteraren på klientsidan.
 
 ```csharp
 class GameEventsHandler : IGameEvents
@@ -79,7 +79,7 @@ class GameEventsHandler implements GameEvents {
 }
 ```
 
-Skapa en proxy för aktören som publicerar händelsen och prenumerera på händelser på klienten.
+Skapa en proxy till aktören som publicerar händelsen och prenumerera på händelser på klienten.
 
 ```csharp
 var proxy = ActorProxy.Create<IGameActor>(
@@ -94,9 +94,9 @@ GameActor actorProxy = ActorProxyBase.create<GameActor>(GameActor.class, new Act
 return ActorProxyEventUtility.subscribeAsync(actorProxy, new GameEventsHandler());
 ```
 
-Vid växling vid fel, kan aktören växlas över till en annan process eller en nod. Aktören proxy hanterar de aktiva prenumerationerna och igen prenumererar automatiskt dem. Du kan styra intervallet för ny prenumerationen via den `ActorProxyEventExtensions.SubscribeAsync<TEvent>` API. Om du vill avbryta prenumerationen, använder den `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` API.
+I händelse av redundans, kan aktören redundansväxla till en annan process eller en nod. Aktören-proxyn hanterar de aktiva prenumerationerna och igen prenumererar automatiskt dem. Du kan styra intervallet för ny prenumeration via den `ActorProxyEventExtensions.SubscribeAsync<TEvent>` API. Om du vill avbryta prenumerationen, använder de `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` API.
 
-Publicera händelser på aktören, när de görs. Om det finns prenumeranter att händelsen, skickas aktörer runtime meddelandet.
+Publicera händelser på aktören, när de visar. Om det finns prenumeranter på händelsen, skickar aktörer runtime dem meddelandet.
 
 ```csharp
 var ev = GetEvent<IGameEvents>();
@@ -109,9 +109,9 @@ event.gameScoreUpdated(Id.getUUIDId(), score);
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Aktören återinträde](service-fabric-reliable-actors-reentrancy.md)
-* [Aktören diagnostik- och prestandaövervakning](service-fabric-reliable-actors-diagnostics.md)
+* [Återinträde av aktör](service-fabric-reliable-actors-reentrancy.md)
+* [Aktören diagnostik och övervakning av programprestanda](service-fabric-reliable-actors-diagnostics.md)
 * [Aktören API-referensdokumentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [C# exempelkod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [C# .NET Core exempelkod](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
-* [Java-kodexempel](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Java-exempelkoden](http://github.com/Azure-Samples/service-fabric-java-getting-started)

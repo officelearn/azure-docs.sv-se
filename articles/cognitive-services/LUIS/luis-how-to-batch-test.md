@@ -1,22 +1,23 @@
 ---
-title: Batch testa LUIS-appen – Azure | Microsoft Docs
-description: Använd Språkförståelse (LUIS) batch testning för att hitta yttranden med felaktig avsikter och entiteter.
+title: Testa batch med 1000 exempel yttranden
+titleSuffix: Azure Cognitive Services
+description: Använd batch för Språkförståelse (LUIS) testningsuppsättningar för att hitta yttranden med felaktig avsikter och entiteter.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 07c38aa5f66fc8c38392c5407449ec6911e80d47
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: e5820b7d65cb989411657670ae19ef1bdca2122d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888634"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054782"
 ---
-# <a name="batch-testing"></a>Batch-testning
+# <a name="batch-testing-with-a-set-of-example-utterances"></a>Testa med en uppsättning exempel yttranden batch
  Testning av batch är en omfattande test på din aktuella tränade modellen att mäta prestanda i LUIS. 
 
 <a name="batch-testing"></a>
@@ -27,8 +28,6 @@ ms.locfileid: "42888634"
     ![Batch Testa länk](./media/luis-how-to-batch-test/batch-testing-link.png)
 
 2. Välj **importera datauppsättningen**. Den **importera ny datauppsättning** dialogrutan visas. Välj **Välj fil** och leta upp en JSON-fil med rätt [JSON-format](luis-concept-batch-test.md#batch-file-format) som innehåller *mer än 1 000* yttranden att testa.
-
-    ![Importera datauppsättningen fil](./media/luis-how-to-batch-test/batchtest-importset.png)
 
     Importfel rapporteras i en röd meddelandefältet längst upp i webbläsaren. När en import har fel, skapas inte någon datauppsättning. Mer information finns i [vanliga fel](luis-concept-batch-test.md#common-errors-importing-a-batch).
 

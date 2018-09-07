@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 12b383267cb90d9305043b52450572add0c1c202
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: d09505e4738243576dbde64fa6daba22d054bc8e
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527498"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053275"
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Använda Azure CLI 2.0 med Azure Storage
 
@@ -105,7 +105,7 @@ Nu ska arbetar vi med ett litet kommandoskript som utfärdar några grundläggan
 # A simple Azure Storage example script
 
 export AZURE_STORAGE_ACCOUNT=<storage_account_name>
-export AZURE_STORAGE_ACCESS_KEY=<storage_account_key>
+export AZURE_STORAGE_KEY=<storage_account_key>
 
 export container_name=<container_name>
 export blob_name=<blob_name>
@@ -210,7 +210,7 @@ Nu när du har nyckeln kan definiera du den och kontonamnet som miljövariabler:
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
-export AZURE_STORAGE_ACCESS_KEY=<key>
+export AZURE_STORAGE_KEY=<key>
 ```
 
 Ett annat sätt att ange ett standard storage-konto är med hjälp av en anslutningssträng. Först hämtar anslutningssträngen med den `show-connection-string` kommando:
@@ -228,7 +228,7 @@ export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 ```
 
 > [!NOTE]
-> Alla exemplen i följande avsnitt i den här artikeln förutsätter att du har ställt in den `AZURE_STORAGE_ACCOUNT` och `AZURE_STORAGE_ACCESS_KEY` miljövariabler.
+> Alla exemplen i följande avsnitt i den här artikeln förutsätter att du har ställt in den `AZURE_STORAGE_ACCOUNT` och `AZURE_STORAGE_KEY` miljövariabler.
 
 ## <a name="create-and-manage-blobs"></a>Skapa och hantera BLOB-objekt
 Azure Blob storage är en tjänst för att lagra stora mängder Ostrukturerade data, exempelvis text eller binära data som kan nås från var som helst i världen via HTTP eller HTTPS. Det här avsnittet förutsätter att du redan är bekant med principerna för Azure Blob storage. Detaljerad information finns i [komma igång med Azure Blob storage med hjälp av .NET](../blobs/storage-dotnet-how-to-use-blobs.md) och [Blob Service-koncept](/rest/api/storageservices/blob-service-concepts).
@@ -257,6 +257,8 @@ az storage blob upload \
     --container-name <container_name> \
     --name <blob_name>
 ```
+
+Om du vill överföra direkt till en mapp i behållare i ditt storage-konto, ersätter `--name <blob_name>` med `--name <folder/blob_name>`.
 
  Som standard den `blob upload` kommando laddar upp *.vhd filer till sidblobar eller blockblob-objekt som på annat sätt. Om du vill ange en annan typ när du laddar upp en blob, du kan använda den `--type` argumentet--tillåtna värden är `append`, `block`, och `page`.
 

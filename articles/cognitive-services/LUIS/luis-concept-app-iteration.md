@@ -1,6 +1,7 @@
 ---
-title: Förstå iterativ LUIS-app utforma – Azure | Microsoft Docs
-description: LUIS appar kräver design iterationer för att träna LUIS för att få den bästa Extraheringen av data.
+title: Förstå LUIS iterativ apputformning – Language Understanding
+description: LUIS lär sig bäst i en iterativ livscykel datamodellen ändras, uttryck exempel, publicering och samla in data från slutpunkt-frågor.  LUIS appar kräver design iterationer för att träna LUIS för att få den bästa Extraheringen av data.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
 manager: cjgronlund
@@ -9,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: diberry
-ms.openlocfilehash: 947350a1d0dcfb0caaca654768c3660fc1b146e1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 7c267d53c9057ac05427ff14a7e3c25d56ab1f62
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225449"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025435"
 ---
 # <a name="authoring-cycle"></a>Redigeringscykel
 LUIS lär sig bäst i en iterativ livscykel datamodellen ändras, uttryck exempel, publicering och samla in data från slutpunkt-frågor. 

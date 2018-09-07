@@ -3,17 +3,17 @@ title: Så här använder du Kartkontroll för Azure Maps | Microsoft Docs
 description: Lär dig hur du använder Azure Maps Kartkontroll klientens Javascript-biblioteket.
 author: dsk-2015
 ms.author: dkshir
-ms.date: 05/07/2018
+ms.date: 09/05/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 619dda44b5ad74ba1dcb62cfb3318687aa6ec4d5
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 5b8703c218790549a0cf5a319345132a0eca66ce
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340143"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025197"
 ---
 # <a name="how-to-use-the-azure-maps-map-control"></a>Så här använder du Kartkontroll för Azure Maps
 Kartkontroll klientens Javascript-biblioteket kan du återge kartor och inbäddade Azure Maps-funktioner till din webbplats eller mobila program. 
@@ -27,8 +27,8 @@ Du kan bädda in en karta på en webbsida med hjälp av klientens Javascript-bib
 2. Lägg till Azure Maps formatmall och skript källa referenser till den `<head>` elementet i filen:
 
     ```html
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1.0" type="text/css" />
-    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1.0"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
+    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
     ```
     
 3. För att göra en ny karta i webbläsaren, lägger du till en **#map** refererar till i den `<style>` element.

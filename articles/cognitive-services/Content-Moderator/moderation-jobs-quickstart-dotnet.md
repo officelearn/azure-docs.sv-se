@@ -1,6 +1,6 @@
 ---
-title: Azure innehåll kontrollant - Start avbrottsmoderering jobb med hjälp av .NET | Microsoft Docs
-description: Hur du startar avbrottsmoderering jobb med hjälp av Azure innehåll kontrollant SDK för .NET
+title: Azure Content Moderator – Start moderering jobb med hjälp av .NET | Microsoft Docs
+description: Hur du startar moderering jobb med hjälp av Azure Content Moderator-SDK för .NET
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,45 +9,57 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/06/2018
 ms.author: sajagtap
-ms.openlocfilehash: a103875607355993e216ce1ddea02009fc8fa1c4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d936ff91cd2b7db6a88c4adb0a6f332205b814bb
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351693"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022074"
 ---
-# <a name="start-moderation-jobs-using-net"></a>Starta avbrottsmoderering jobb med hjälp av .NET
+# <a name="start-moderation-jobs-using-net"></a>Starta moderering jobb med hjälp av .NET
 
-Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med innehåll kontrollant SDK för .NET för att:
+Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med den [Content Moderator-SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) till:
  
-- Starta en avbrottsmoderering jobbet för att söka och skapa omdömen för mänsklig moderatorer
+- Starta ett jobb för moderering för att söka och skapa granskningar för mänskliga moderatorer
 - Hämta status för väntande granskning
-- Spåra och få slutlig status för granska
-- Skicka resultatet till återanrop Url
+- Spåra och få den slutgiltiga statusen för granskningen
+- Skicka resultatet till Motringnings-Url
 
 Den här artikeln förutsätter att du redan är bekant med Visual Studio och C#.
 
-## <a name="sign-up-for-content-moderator-services"></a>Registrera dig för innehåll kontrollant services
+## <a name="sign-up-for-content-moderator"></a>Registrera dig för Content Moderator
 
-Innan du kan använda innehåll kontrollant tjänster via REST API eller SDK behöver du en prenumeration för.
-Referera till den [Quickstart](quick-start.md) att lära dig hur du kan hämta nyckeln.
+Innan du kan använda Content Moderator-tjänster via REST-API: et eller SDK: N, måste en prenumerationsnyckel.
+Referera till den [snabbstarten](quick-start.md) att lära dig hur du kan hämta nyckeln.
 
-## <a name="define-a-custom-moderation-workflow"></a>Definiera en anpassad avbrottsmoderering arbetsflöde
+## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Registrera dig för ett konto för granskning-verktyget om inte slutförts i föregående steg
 
-Ett jobb med måtta skannar ditt innehåll med hjälp av API: er och använder en **arbetsflöde** att avgöra om du vill skapa granskningar eller inte.
-Medan verktyget granska innehåller ett standardarbetsflöde som, vi [definiera ett anpassat arbetsflöde](Review-Tool-User-Guide/Workflows.md) för denna Snabbstart.
+Om du har fått din Content Moderator från Azure-portalen, även [registrera granska verktyget konto](https://contentmoderator.cognitive.microsoft.com/) och skapa en granskningsteam. Du behöver Id-teamet och granskningsverktyget att anropa granska API för att starta ett jobb och visa granskningarna i granskningsverktyget.
 
-Du kan använda namnet på arbetsflödet i koden som startar avbrottsmoderering jobb.
+## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Se till att din API-nyckel kan anropa API: et för granskning för att skapa en granskning
+
+När du har slutfört föregående steg, kan det sluta med två Content Moderator-nycklar om du utgick från Azure-portalen. 
+
+Om du planerar att använda Azure-tillhandahållna API-nyckeln i SDK-exempel, följer du stegen som beskrivs i den [med hjälp av Azure-nyckel med granska API: et](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) avsnittet så att dina program kan anropa API: et för granskning och skapa granskningar.
+
+Om du använder den kostnadsfria utvärderingsversionen nyckeln som genererats av granskningsverktyget granska verktyget kontot redan vet om nyckeln och därför inga ytterligare åtgärder krävs.
+
+## <a name="define-a-custom-moderation-workflow"></a>Definiera en anpassad moderering arbetsflöde
+
+Ett jobb för moderering söker igenom innehållet med hjälp av API: er och använder en **arbetsflöde** att avgöra om du vill skapa granskningar eller inte.
+Medan granskningsverktyget innehåller ett standardarbetsflöde, vi [definierar ett anpassat arbetsflöde](Review-Tool-User-Guide/Workflows.md) för den här snabbstarten.
+
+Du använder namnet på arbetsflödet i din kod som startar moderering av jobbet.
 
 ## <a name="create-your-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
-1. Lägg till en ny **konsolapp (.NET Framework)** projekt i lösningen.
+1. Lägga till en ny **konsolapp (.NET Framework)** projekt i lösningen.
 
-   Namnge projektet i koden, **CreateReviews**.
+   Namnge projektet i exempelkoden **CreateReviews**.
 
-1. Välj det här projektet som Startprojekt enda för lösningen.
+1. Välj det här projektet som enda Startprojekt för lösningen.
 
-1. Lägg till en referens till den **ModeratorHelper** projektet sammansättningen som du skapade i den [innehåll kontrollant klienten helper quickstart](content-moderator-helper-quickstart-dotnet.md).
+1. Lägg till en referens till den **ModeratorHelper** projektet sammansättning som du skapade i den [Content Moderator klienten helper Snabbstart](content-moderator-helper-quickstart-dotnet.md).
 
 ### <a name="install-required-packages"></a>Installera de paket som krävs
 
@@ -57,9 +69,9 @@ Installera följande NuGet-paket:
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Uppdatera programmet använder instruktioner
+### <a name="update-the-programs-using-statements"></a>Uppdatera programmet använder uttryck
 
-Ändra programmet använder instruktioner.
+Ändra programmet är med hjälp av uttryck.
 
     using Microsoft.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator.Models;
@@ -75,10 +87,10 @@ Installera följande NuGet-paket:
 Lägg till följande konstanter och statiska fält till den **programmet** klassen i Program.cs.
 
 > [!NOTE]
-> Du kan ange TeamName konstant till namn som du använde när du har skapat prenumerationen innehåll kontrollanten. Du kan hämta TeamName från den [innehåll kontrollant webbplats](https://westus.contentmoderator.cognitive.microsoft.com/).
-> När du loggar in, markera **autentiseringsuppgifter** från den **inställningar** (kugghjulet)-menyn.
+> Du kan ange TeamName konstant namnet du använde när du skapade prenumerationen Content Moderator. Du kan hämta TeamName från den [Content Moderator-webbplats](https://westus.contentmoderator.cognitive.microsoft.com/).
+> När du har loggat in väljer **autentiseringsuppgifter** från den **inställningar** (kugghjulet)-menyn.
 >
-> Teamnamnet på din är värdet för den **ID** i den **API** avsnitt.
+> Ditt Teamnamn är värdet för den **ID** i den **API** avsnittet.
 
 
     /// <summary>
@@ -122,12 +134,12 @@ Lägg till följande konstanter och statiska fält till den **programmet** klass
     /// callback endpoint using an HTTP POST request.</remarks>
     private const string CallbackEndpoint = "";
 
-## <a name="add-code-to-auto-moderate-create-a-review-and-get-the-job-details"></a>Lägg till kod i automatisk måttlig, skapa en granskning och hämta jobbinformation om
+## <a name="add-code-to-auto-moderate-create-a-review-and-get-the-job-details"></a>Lägg till kod till automatisk måttlig, skapa en granskning, så får Jobbinformationen
 
 > [!Note]
-> I praktiken kan du ange motringning URL **CallbackEndpoint** till den URL som tar emot resultaten av manuell granskning (via en HTTP POST-begäran).
+> I praktiken ställer du in Webbadressen för återanrop **CallbackEndpoint** till den URL som tar emot resultatet av manuell granskning (via en HTTP POST-begäran).
 
-Starta genom att lägga till följande kod i **Main** metod.
+Starta genom att lägga till följande kod till den **Main** metod.
 
     using (TextWriter writer = new StreamWriter(OutputFile, false))
     {
@@ -181,27 +193,27 @@ Starta genom att lägga till följande kod i **Main** metod.
     }
 
 > [!NOTE]
-> Nyckeln för tjänsten för ditt innehåll kontrollant har en begäranden per hastighetsbegränsning för andra (RPS). Om du överskrider gränsen som utlöser ett undantag med 429 felkoden SDK. 
+> Din nyckel för Content Moderator-tjänsten har en begäranden per sekund (RPS) hastighetsbegränsning. Om du överskrider gränsen utlöser ett undantag med en 429 felkod i SDK: N. 
 >
-> En kostnadsfri nivå-nyckel har en gräns för överföringshastigheten en RPS.
+> En nyckel för kostnadsfria nivån har en hastighetsbegränsning för en RPS.
 
-## <a name="run-the-program-and-review-the-output"></a>Kör programmet och granska utdata
+## <a name="run-the-program-and-review-the-output"></a>Kör programmet och granska resultatet
 
 Du kan se följande exempel på utdata i konsolen:
 
     Perform manual reviews on the Content Moderator site.
     Then, press any key to continue.
 
-Logga in på innehåll kontrollanten granska verktyget om du vill se granska väntande bilden.
+Logga in på Content Moderator granska verktyg för att se den väntande avbildningen granska.
 
 Använd den **nästa** knapp för att skicka.
 
-![Granska bild för mänsklig moderatorer](images/ocr-sample-image.PNG)
+![Bild granskning för mänskliga moderatorer](images/ocr-sample-image.PNG)
 
-## <a name="see-the-sample-output-in-the-log-file"></a>Finns på utdata i loggfilen
+## <a name="see-the-sample-output-in-the-log-file"></a>Se exempel på utdata i loggfilen
 
 > [!NOTE]
-> I utdatafilen, strängarna **Teamname**, **ContentId**, **CallBackEndpoint**, och **WorkflowId** speglar de värden som du använde tidigare.
+> I utdatafilen, strängarna **Teamname**, **ContentId**, **CallBackEndpoint**, och **WorkflowId** de värden som du använde tidigare.
 
     Create moderation job for an image.
     {
@@ -235,12 +247,12 @@ Använd den **nästa** knapp för att skicka.
     }
 
 
-## <a name="your-callback-url-if-provided-receives-this-response"></a>URL: en motringning får om det här svaret.
+## <a name="your-callback-url-if-provided-receives-this-response"></a>Motringnings-Url om du får det här svaret.
 
-Ett svar som i följande exempel visas:
+Du ser ett svar som i följande exempel:
 
 > [!NOTE]
-> I svaret återanrop strängarna **ContentId** och **WorkflowId** speglar de värden som du använde tidigare.
+> I svaret återanrop strängarna **ContentId** och **WorkflowId** de värden som du använde tidigare.
 
     {
         "JobId": "2018014caceddebfe9446fab29056fd8d31ffe",
@@ -260,4 +272,4 @@ Ett svar som i följande exempel visas:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Hämta Visual Studio-lösningen](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) för denna och andra innehåll kontrollant Snabbstart för .NET, och komma igång med din integrering.
+Hämta den [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) och [Visual Studio-lösning](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) för denna och andra Content Moderator-Snabbstart för .NET, och kom igång med din integrering.

@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 0935867e835fe88568f1cdce1ea8dfcea14a451a
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 1d2f194eb6a2186fc1e8451a7022d26cd1013bb2
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669323"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022404"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>Hantera konfigurationsservern för VMware-datorer
 
@@ -88,7 +88,22 @@ Du kan registrera om konfigurationsservern på samma valv om du behöver. Om du 
           net stop obengine
           net start obengine
   ```
-  
+
+## <a name="register-a-configuration-server-with-a-different-vault"></a>Registrera en konfigurationsserver med ett annat valv
+
+> [!WARNING]
+> Följande steg tas konfigurationsservern från aktuella valvet och replikering av alla skyddade virtuella datorer under configuration server har stoppats.
+
+1. Logga in på konfigurationsservern.
+2. Öppna en PowerShell-kommandofönster som administratör och kör följande kommando:
+
+    ```
+    reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+    net stop dra
+    ```
+3. Starta configuration server installation webbläsare-portalen med hjälp av genvägen på skrivbordet.
+4. Gör registreringen liknar en ny configuration server [registrering](vmware-azure-tutorial.md#register-the-configuration-server).
+
 ## <a name="upgrade-the-configuration-server"></a>Uppgradera konfigurationsservern
 
 Du kan köra samlade uppdateringar för att uppdatera konfigurationsservern. Uppdateringar kan användas för upp till N-4 versioner. Exempel:

@@ -1,6 +1,6 @@
 ---
-title: Skapa din första Azure-mikrotjänstapp i Linux med hjälp av C# | Microsoft Docs
-description: Skapa och distribuera ett Service Fabric-program med C#
+title: Skapa din första Azure Service Fabric-app i Linux med C# | Microsoft Docs
+description: Lär dig mer om att skapa och distribuera ett Service Fabric-program med C# och .NET Core 2.0.
 services: service-fabric
 documentationcenter: csharp
 author: mani-ramaswamy
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: 7427af3e814752801c4738675f7cd2263843f9b8
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: e917119e2d0f9b7b5cfa9ea145cc6e540486ac66
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617094"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052604"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Skapa ditt första Azure Service Fabric-program
 > [!div class="op_single_selector"]

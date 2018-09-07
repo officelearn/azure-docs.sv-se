@@ -1,6 +1,6 @@
 ---
-title: Skapa din första Azure aktören-baserade-mikrotjänster i C# | Microsoft Docs
-description: Den här självstudiekursen vägleder dig genom stegen för att skapa, felsöka och distribuera en enkel aktören-baserad tjänst med hjälp av Service Fabric Reliable Actors.
+title: Skapa en aktör-baserad tjänst på Azure Service Fabric | Microsoft Docs
+description: Lär dig mer om att skapa, felsöka och distribuera din första aktörbaserade tjänst i C# med Service Fabric Reliable Actors.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,55 +14,55 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: 32d3fa09c863c47753267e97e7c4730dff869887
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4ff896902c1a92c244c3bcd147c3daeeb9e49c77
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211413"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054765"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Komma igång med Reliable Actors
 > [!div class="op_single_selector"]
 > * [C# i Windows](service-fabric-reliable-actors-get-started.md)
 > * [Java i Linux](service-fabric-reliable-actors-get-started-java.md)
 
-Den här artikeln beskrivs hur du skapar och felsökning av ett enkelt tillförlitliga aktören program i Visual Studio. Läs mer på Reliable Actors [introduktion till Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md).
+Den här artikeln visar hur du skapar och felsöker ett enkelt Reliable Actor-program i Visual Studio. Mer information om Reliable Actors finns [introduktion till Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du börjar bör du kontrollera att du har utvecklingsmiljön Service Fabric, inklusive Visual Studio, Ställ in på din dator. Mer information finns i [hur du ställer in utvecklingsmiljön](service-fabric-get-started.md).
+Innan du börjar bör du kontrollera att du har Service Fabric-utvecklingsmiljö, inklusive Visual Studio, ställa in på din dator. Mer information finns i [hur du ställer in utvecklingsmiljön](service-fabric-get-started.md).
 
 ## <a name="create-a-new-project-in-visual-studio"></a>Skapa ett nytt projekt i Visual Studio
 
-Starta Visual Studio 2015 eller senare som en administratör och sedan skapa en ny **Fabric tjänstprogrammet** projektet:
+Starta Visual Studio 2015 eller senare som en administratör och sedan skapa en ny **Service Fabric-program** projekt:
 
 ![Service Fabric-verktyg för Visual Studio – nytt projekt][1]
 
-Välj i dialogrutan nästa **aktören Service** under **.Net Core 2.0** och ange ett namn för tjänsten.
+I dialogrutan nästa väljer **Aktörstjänsten** under **.Net Core 2.0** och ange ett namn för tjänsten.
 
 ![Service Fabric-projektmallar][5]
 
-Skapade projektet visas följande struktur:
+Projektet som du har skapat visas följande struktur:
 
-![Struktur för Service Fabric-projekt][2]
+![Service Fabric projektstruktur][2]
 
 ## <a name="examine-the-solution"></a>Undersök lösningen
 
 Lösningen innehåller tre projekt:
 
-* **Projektet för konsolprogrammet (MyApplication)**. Det här projektet paket för alla tjänster tillsammans för distribution. Den innehåller den *ApplicationManifest.xml* och PowerShell-skript för att hantera programmet.
+* **Programprojektet (MyApplication)**. Det här projektet paketerar alla tjänster tillsammans för distribution. Den innehåller den *ApplicationManifest.xml* och PowerShell-skript för att hantera programmet.
 
-* **Gränssnittet projektet (HelloWorld.Interfaces)**. Projektet innehåller gränssnittsdefinition för aktören. Aktören gränssnitt kan definieras i ett projekt med ett namn.  Gränssnittet definierar kontraktet aktören som delas av aktören implementering och klienterna som anropar aktören.  Eftersom klienten projekt kan bero på den praktiskt det vanligtvis att definiera den i en sammansättning som skiljer sig från aktören implementeringen.
+* **Gränssnittsprojektet (HelloWorld.Interfaces)**. Det här projektet innehåller gränssnittsdefinitionen för aktören. Aktörsgränssnitt kan definieras i alla projekt med ett namn.  Gränssnittet definierar aktörskontraktet som delas av aktörsimplementeringen och klienterna som anropar aktören.  Eftersom klienten projekt kan beror på den, är det vanligtvis meningsfullt att definiera den i en sammansättning som är separat från aktörsimplementeringen.
 
-* **Aktören service-projekt (HelloWorld)**. Det här projektet definierar Service Fabric-tjänsten som ska vara värd för aktören. Den innehåller implementeringen av aktören, *HellowWorld.cs*. En implementering av aktören är en klass som härleds från bastypen `Actor` och implementerar gränssnitt som definierats i den *MyActor.Interfaces* projekt. En aktörklass måste också implementera en konstruktor som accepterar ett `ActorService` instans och en `ActorId` och skickar dem till grundläggande `Actor` klass.
+* **Aktörtjänstprojektet (HelloWorld)**. Det här projektet definierar Service Fabric-tjänst som kommer att vara värd för aktören. Den innehåller implementeringen av aktören, *HellowWorld.cs*. En aktörsimplementeringen är en klass som härleds från bastypen `Actor` och implementerar de gränssnitt som definierats i den *MyActor.Interfaces* projekt. En aktörsklassen måste även implementera en konstruktor som accepterar en `ActorService` instans och en `ActorId` och skickar dem till grundläggande `Actor` klass.
     
-    Det här projektet innehåller också *Program.cs*, som registrerar aktören klasser med Service Fabric runtime med `ActorRuntime.RegisterActorAsync<T>()`. Den `HelloWorld` klass har redan registrerats. Ytterligare aktören implementeringar läggs till i projektet måste också registreras i den `Main()` metoden.
+    Det här projektet innehåller också *Program.cs*, som registrerar aktören klasser med Service Fabric runtime med `ActorRuntime.RegisterActorAsync<T>()`. Den `HelloWorld` klassen är redan registrerad. Eventuella ytterligare aktören implementeringar som har lagts till i projektet måste också vara registrerade i den `Main()` metoden.
 
-## <a name="customize-the-helloworld-actor"></a>Anpassa HelloWorld aktören
+## <a name="customize-the-helloworld-actor"></a>Anpassa HelloWorld-aktör
 
-Projektmallen definierar vissa metoder i den `IHelloWorld` gränssnitt och implementerar dem i den `HelloWorld` aktören implementering.  Ersätt metoderna så att tjänsten aktören returnerar en sträng i ”Hello World”.
+Projektmallen definierar vissa metoder i den `IHelloWorld` gränssnitt och implementerar dem i den `HelloWorld` aktörsimplementeringen.  Ersätt dessa metoder så att aktörstjänsten returnerar en enkel ”Hello World”-sträng.
 
-I den *HelloWorld.Interfaces* projektet i den *IHelloWorld.cs* fil, Ersätt gränssnittsdefinitionen för på följande sätt:
+I den *HelloWorld.Interfaces* projektet i den *IHelloWorld.cs* filen och Ersätt gränssnittsdefinitionen på följande sätt:
 
 ```csharp
 public interface IHelloWorld : IActor
@@ -89,22 +89,22 @@ internal class HelloWorld : Actor, IHelloWorld
 }
 ```
 
-Tryck på **Ctrl-Skift-B** att bygga projektet och kontrollera att allt kompileras.
+Tryck på **Ctrl-Shift-B** skapa projektet och kontrollera att allt kompilerar.
 
 ## <a name="add-a-client"></a>Lägga till en klient
 
-Skapa ett enkelt konsolprogram att anropa tjänsten aktören.
+Skapa ett enkelt konsolprogram för att anropa aktörstjänsten.
 
 1. Högerklicka på lösningen i Solution Explorer > **Lägg till** > **nytt projekt...** .
 
-2. Under den **.NET Core** projekttyper, Välj **Konsolapp (.NET Core)**.  Namnge projektet *ActorClient*.
+2. Under den **.NET Core** projekttyper, Välj **Konsolapp (.NET Core)**.  Ge projektet namnet *ActorClient*.
     
     ![Lägg till dialogrutan Nytt projekt][6]    
     
     > [!NOTE]
-    > Ett konsolprogram är inte typ av app som du använder normalt som en klient i Service Fabric, men det är ett enkelt exempel för felsökning och testning med det lokala Service Fabric-klustret.
+    > Ett konsolprogram är inte typ av app som du använder vanligtvis som en klient i Service Fabric, men det gör ett enkelt exempel för felsökning och testning med det lokala Service Fabric-klustret.
 
-3. Konsolprogrammet måste vara ett 64-bitarsprogram att bibehålla kompatibilitet med gränssnittet projektet och andra beroenden.  I Solution Explorer högerklickar du på den **ActorClient** projektet och klicka sedan på **egenskaper**.  På den **skapa** ställer du in **plattform mål** till **x64**.
+3. Konsolprogrammet måste vara ett 64-bitars program att bibehålla kompatibilitet med gränssnittsprojektet och andra beroenden.  I Solution Explorer högerklickar du på den **ActorClient** projektet och klicka sedan på **egenskaper**.  På den **skapa** fliken genom att ange **plattform target** till **x64**.
     
     ![Skapa egenskaper][8]
 
@@ -114,13 +114,13 @@ Skapa ett enkelt konsolprogram att anropa tjänsten aktören.
     Install-Package Microsoft.ServiceFabric.Actors -IncludePrerelease -ProjectName ActorClient
     ```
 
-    NuGet-paketet och dess beroenden är installerade i ActorClient-projektet.
+    NuGet-paketet och alla dess beroenden är installerade i ActorClient-projektet.
 
-5. Klientprojektet kräver också en referens till projektet gränssnitt.  Högerklicka i projektet ActorClient **beroenden** och klicka sedan på **Lägg till referens...** .  Välj **projekt > lösning** (om du inte redan är markerat), och markera kryssrutan bredvid **HelloWorld.Interfaces**.  Klicka på **OK**.
+5. Klientprojektet kräver också en referens till projektet gränssnitt.  Högerklicka i projektet ActorClient **beroenden** och klicka sedan på **Lägg till referens...** .  Välj **projekt > lösning** (om det inte redan är markerat), och markera sedan kryssrutan bredvid **HelloWorld.Interfaces**.  Klicka på **OK**.
     
     ![Lägg till referens dialogrutan][7]
 
-6. Ersätt hela innehållet i i projektet ActorClient *Program.cs* med följande kod:
+6. Ersätt hela innehållet i projektu ActorClient *Program.cs* med följande kod:
     
     ```csharp
     using System;
@@ -146,19 +146,19 @@ Skapa ett enkelt konsolprogram att anropa tjänsten aktören.
 
 ## <a name="running-and-debugging"></a>Köra och felsöka
 
-Tryck på **F5** för att skapa, distribuera och köra programmet lokalt i development Service Fabric-klustret.  Under distributionsprocessen, kan du se förloppet på den **utdata** fönster.
+Tryck på **F5** för att bygga, distribuera och köra programmet lokalt i klustret för Service Fabric-utveckling.  Under distributionsprocessen, kan du följa förloppet i den **utdata** fönster.
 
 ![Service Fabric felsökning utdatafönstret][3]
 
-När utdata innehåller text, *att programmet är redo*, är det möjligt att testa tjänsten med hjälp av ActorClient-programmet.  I Solution Explorer högerklickar du på den **ActorClient** projektet och klicka sedan på **felsöka** > **Starta ny instans**.  Programmet kommandoraden ska visa utdata från tjänsten aktören.
+När utdata innehåller texten, *programmet är redo*, är det möjligt att testa tjänsten med hjälp av ActorClient-programmet.  I Solution Explorer högerklickar du på den **ActorClient** projektet och klicka sedan på **felsöka** > **Starta ny instans**.  Kommandoraden programmet ska visa utdata från aktörstjänsten.
 
-![programutdata][9]
+![Utdata för program][9]
 
 > [!TIP]
-> Service Fabric aktörer runtime skickar vissa [händelser och prestandaräknare som rör aktören metoder](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters). De är användbara i diagnostik- och prestandaövervakning.
+> Service Fabric Actors runtime genererar några [händelser och prestandaräknare som rör aktören metoder](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters). De är användbara i diagnostik och övervakning av programprestanda.
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig mer om [hur Reliable Actors använda Service Fabric-plattformen](service-fabric-reliable-actors-platform.md).
+Läs mer om [hur Reliable Actors använder Service Fabric-plattformen](service-fabric-reliable-actors-platform.md).
 
 
 [1]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject.PNG

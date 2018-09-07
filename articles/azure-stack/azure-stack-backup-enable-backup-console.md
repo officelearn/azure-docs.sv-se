@@ -12,14 +12,14 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 6231ee760902618afedf64443690be0b02c4d0eb
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 1373e98b8edac81ebdb15aaf36d8bbfc910029fe
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42061091"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026193"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Aktivera säkerhetskopiering för Azure Stack från administrationsportalen
 Aktivera infrastruktur Backup-tjänsten via administrationsportalen så att Azure Stack kan generera säkerhetskopieringar. Du kan använda dessa säkerhetskopior för att återskapa din miljö med hjälp av molnåterställning i händelse av [ett oåterkalleligt fel](.\azure-stack-backup-recover-data.md). Syftet med molnet är att säkerställa att dina operatörer och användare kan logga in igen på portalen när återställningen är klar. Användarna har sina prenumerationer som återställts, inklusive behörigheter för rollbaserad åtkomst och roller, ursprungliga planer, erbjudanden, och tidigare definierad beräkning, lagring och nätverkskvoter.
@@ -36,7 +36,7 @@ Administratörer och användare ansvarar för att säkerhetskopiera och återst�
 ## <a name="enable-or-reconfigure-backup"></a>Aktivera eller konfigurera om backup
 
 1. Öppna den [Azure Stack-administrationsportalen](azure-stack-manage-portals.md).
-2. Välj **fler tjänster** > **infrastruktur för säkerhetskopiering**. Välj **Configuration** i den **infrastruktur för säkerhetskopiering** bladet.
+2. Välj **alla tjänster**, och sedan under den **ADMINISTRATION** kategori väljer **infrastruktur för säkerhetskopiering**. Välj **Configuration** i den **infrastruktur för säkerhetskopiering** bladet.
 3. Ange sökvägen till den **lagringsplats för säkerhetskopiering**. Använd en Universal Naming Convention (UNC)-sträng för sökväg till en filresurs på en separat enhet. En UNC-sträng Anger platsen för resurser, till exempel delade filer eller enheter. Du kan använda en IP-adress för tjänsten. Enheten måste vara i en separat plats för att säkerställa tillgängligheten för säkerhetskopierade data efter en katastrof.
 
     > [!Note]  

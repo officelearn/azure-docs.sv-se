@@ -1,6 +1,6 @@
 ---
-title: Omvandla appar i Azure Cloud Services till mikrotjänster | Microsoft Docs
-description: Den här guiden jämför Cloud Services webb- och arbetsroller- och Service Fabric tillståndslösa tjänster för att migrera från molntjänster till Service Fabric.
+title: Konvertera Azure Cloud Services-appar till Service Fabric | Microsoft Docs
+description: Den här guiden jämför Cloud Services Web och Worker-roller och Service Fabric tillståndslösa tjänster för att migrera från Cloud Services till Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,49 +14,49 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: c6bdd6f88c9008a8d9c15d22bdcf263190424649
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4eed3825d52fe52025077980e21f3763cc5751ac
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206690"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049957"
 ---
-# <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Att konvertera webb- och arbetsroller till Service Fabric tillståndslösa tjänster
-Den här artikeln beskriver hur du migrerar din Cloud Services webb- och arbetsroller till Service Fabric tillståndslösa tjänster. Detta är den enklaste migreringsvägen från molntjänster till Service Fabric för program som ska vara ungefär samma vars övergripande arkitektur.
+# <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guide för att konvertera webb- och Worker-roller till tillståndslös Service Fabric-tjänster
+Den här artikeln beskriver hur du migrerar dina Cloud Services Web och Worker-roller till tillståndslös Service Fabric-tjänster. Det här är den enklaste migreringsvägen från Cloud Services till Service Fabric för program vars övergripande arkitekturen kommer att vara ungefär detsamma.
 
-## <a name="cloud-service-project-to-service-fabric-application-project"></a>Molntjänstprojekt till Service Fabric projektet
- Cloud Service-projekt och ett tjänstprogram för Fabric-projekt har en liknande struktur och båda representerar distributionsenhet för ditt program – det vill säga de definiera hela paketet distribueras för att köra programmet. En Cloud Service-projekt innehåller en eller flera rollerna webb eller arbetare. På liknande sätt kan innehåller ett tjänstprogram för Fabric-projekt en eller flera tjänster. 
+## <a name="cloud-service-project-to-service-fabric-application-project"></a>Molntjänstprojekt till projektet för Service Fabric
+ En Cloud Service-projekt och ett Service Fabric-program-projekt har en liknande struktur och båda representerar distributionsenhet för ditt program – det vill säga de definierar det fullständiga paket som har distribuerats för att köra dina program. En Cloud Service-projektet innehåller en eller flera webb- eller Worker-roller. På samma sätt kan innehåller ett projekt för Service Fabric-program en eller flera tjänster. 
 
-Skillnaden är att Cloud Service-projekt kombinerar programdistribution med en distribution av Virtuella datorer och därmed innehåller inställningar för virtuell dator, Service Fabric programprojekt bara definierar ett program som ska distribueras till en uppsättning av befintliga virtuella datorer i ett Service Fabric-kluster. Själva Service Fabric-klustret distribueras bara en gång, antingen via en Resource Manager-mall eller Azure-portalen och flera Service Fabric-program kan distribueras till den.
+Skillnaden är att Cloud Service-projekt kombinerar programdistribution med en VM-distribution och därför innehåller konfigurationsinställningar för virtuella datorer, Service Fabric-program-projektet bara definierar ett program som ska distribueras till en uppsättning befintliga virtuella datorer i ett Service Fabric-kluster. Själva Service Fabric-klustret distribueras bara en gång, antingen via en Resource Manager-mall eller via Azure-portalen och flera Service Fabric-program kan distribueras till den.
 
 ![Jämförelse mellan Service Fabric och Cloud Services-projekt][3]
 
-## <a name="worker-role-to-stateless-service"></a>Worker-rollen till tillståndslösa tjänsten
-En Arbetsroll representerar begreppsmässigt en tillståndslös arbetsbelastning, vilket innebär att varje förekomst av arbetsbelastningen är identiska och begäranden kan vidarebefordras till en valfri instans när som helst. Varje instans förväntas inte att komma ihåg föregående begäran. Tillstånd som arbetsbelastningen som körs på hanteras av en extern tillståndslager, till exempel Azure Table Storage eller Azure-dokumentet DB. Den här typen av arbetsbelastning representeras av en tjänst för tillståndslösa i Service Fabric. Det enklaste sättet att migrera en Arbetsroll till Service Fabric kan göras genom att konvertera Arbetsrollen koden till en tillståndslös tjänst.
+## <a name="worker-role-to-stateless-service"></a>Worker-roll till tillståndslös tjänst
+Den övergripande representerar en Arbetsroll en tillståndslös arbetsbelastning, vilket innebär att varje instans av arbetsbelastning är identiska och kan begäranden dirigeras till en valfri instans när som helst. Varje instans förväntades inte att komma ihåg tidigare begäran. Tillstånd som arbetsbelastningen som körs på hanteras av en extern tillståndslager, till exempel Azure Table Storage eller Azure Document DB. I Service Fabric kan representeras den här typen av arbetsbelastning av en tillståndslös tjänst. Det enklaste sättet att migrera en Arbetsroll till Service Fabric kan göras genom att konvertera Arbetsroll kod till en tillståndslös tjänst.
 
-![Worker-rollen till tillståndslösa tjänsten][4]
+![Worker-roll till tillståndslös tjänst][4]
 
-## <a name="web-role-to-stateless-service"></a>Webbrollen till tillståndslösa tjänsten
-Liknar Arbetsrollen, en Webbroll också representerar en tillståndslös arbetsbelastning och så begreppsmässigt de för kan mappas till en tillståndslös Service Fabric-tjänsten. Men till skillnad från webbroller stöder Service Fabric inte IIS. Om du vill migrera en webbplats kräver program från en Webbroll till en tillståndslösa tjänsten först flytta till en webbramverk som kan finnas själv och är inte beroende av IIS eller System.Web, till exempel ASP.NET Core 1.
+## <a name="web-role-to-stateless-service"></a>Webbroll för tillståndslös tjänst
+Liknar Worker-roll, en Webbroll också representerar en tillståndslös arbetsbelastning och så begreppsmässigt de för kan mappas till en tillståndslös Service Fabric-tjänst. Men till skillnad från Web-roller, har Service Fabric inte stöd för IIS. Om du vill migrera en webbplats kräver en Webbroll program till en tillståndslös tjänst först flytta till ett webbramverk som kan vara egenvärdbaserat och är inte beroende av IIS eller System.Web, till exempel ASP.NET Core-1.
 
-| **Programmet** | **Stöds** | **Sökväg för migrering** |
+| **Programmet** | **Stöds** | **Migreringsvägen** |
 | --- | --- | --- |
-| ASP.NET Web Forms |Nej |Omvandla till ASP.NET Core 1 MVC |
+| ASP.NET Web Forms |Nej |Konvertera till ASP.NET Core 1 MVC |
 | ASP.NET MVC |Med migrering |Uppgradera till ASP.NET Core 1 MVC |
-| ASP.NET Webb-API |Med migrering |Använda automatisk värdbaserade servern eller ASP.NET Core 1 |
+| ASP.NET Webb-API |Med migrering |Använda lokal server eller ASP.NET Core 1 |
 | ASP.NET Core 1 |Ja |Gäller inte |
 
-## <a name="entry-point-api-and-lifecycle"></a>Posten punkt API och livscykel
-Worker-rollen och Service Fabric-API: er erbjuder liknande startpunkter: 
+## <a name="entry-point-api-and-lifecycle"></a>Posten punkt API och livscykelhantering
+Worker-roll och Service Fabric-tjänsten för liknande startpunkter för API: er för erbjudande: 
 
-| **Startpunkt** | **Worker-rollen** | **Service Fabric-tjänsten** |
+| **Startpunkt** | **Worker-roll** | **Service Fabric-tjänst** |
 | --- | --- | --- |
 | Bearbetning |`Run()` |`RunAsync()` |
-| Starta VM |`OnStart()` |Gäller inte |
-| Stoppa VM |`OnStop()` |Gäller inte |
-| Öppna lyssnaren för klientbegäranden |Gäller inte |<ul><li> `CreateServiceInstanceListener()` för tillståndslösa</li><li>`CreateServiceReplicaListener()` för stateful</li></ul> |
+| VM start |`OnStart()` |Gäller inte |
+| VM stop |`OnStop()` |Gäller inte |
+| Öppna lyssnaren för klientbegäranden |Gäller inte |<ul><li> `CreateServiceInstanceListener()` för tillståndslösa</li><li>`CreateServiceReplicaListener()` för tillståndskänslig</li></ul> |
 
-### <a name="worker-role"></a>Worker-rollen
+### <a name="worker-role"></a>Worker-roll
 ```csharp
 
 using Microsoft.WindowsAzure.ServiceRuntime;
@@ -81,7 +81,7 @@ namespace WorkerRole1
 
 ```
 
-### <a name="service-fabric-stateless-service"></a>Service Fabric tillståndslösa tjänsten
+### <a name="service-fabric-stateless-service"></a>Tillståndslös Service Fabric-tjänst
 ```csharp
 
 using System.Collections.Generic;
@@ -106,34 +106,34 @@ namespace Stateless1
 
 ```
 
-Båda har en primär ”kör” åsidosättning att påbörja behandlingen. Service Fabric services kombinera `Run`, `Start`, och `Stop` till en enda kontaktpunkt `RunAsync`. Din tjänst ska börja arbeta när `RunAsync` startar och ska upphöra att fungera när den `RunAsync` metodens CancellationToken signaleras. 
+Båda har en primär ”kör” åsidosättning där du vill börja bearbetning. Service Fabric-tjänster kombinera `Run`, `Start`, och `Stop` i en enda kontaktpunkt `RunAsync`. Din tjänst ska börja arbeta när `RunAsync` startas och bör slutar fungera när den `RunAsync` metodens CancellationToken signaleras. 
 
-Det finns flera viktiga skillnader mellan livscykel och livslängden för arbetsroller och Service Fabric-tjänster:
+Det finns flera viktiga skillnader mellan livscykel och livslängden för Worker-roller och Service Fabric-tjänster:
 
-* **Livscykel:** den största skillnaden är att en Arbetsroll är en virtuell dator så livscykeln är knutna till den virtuella datorn, vilket innefattar händelser för när den virtuella datorn startar och stoppar. En Service Fabric-tjänst har en livscykel som skiljer sig från VM-livscykel, så att den inte innehåller händelser för när värden VM eller datorn startar och stoppar, eftersom de inte är relaterade.
-* **Livslängd:** Arbetsrollen-instansen kommer att återanvändas om den `Run` metoden avslutar. Den `RunAsync` metod i en tjänst för Service Fabric men kan köra kan slutföras och tjänstinstansen ska fortsätta. 
+* **Livscykel:** den största skillnaden är att en Arbetsroll är en virtuell dator och så livscykeln är kopplad till den virtuella datorn, vilket innefattar händelser för när den virtuella datorn startar och stoppar. En Service Fabric-tjänst har en livscykel som är separat från VM-livscykeln, så att den inte omfattar händelser för när värden VM eller datorn startar och stoppar, eftersom de inte är relaterade.
+* **Livstid:** en Worker-rollinstans kommer Papperskorgen om den `Run` metoden avslutas. Den `RunAsync` -metod i en Service Fabric-tjänst men kan köra slutförandet och tjänstinstansen kommer vara igång. 
 
-Service Fabric ger en startpunkt för valfri kommunikation installationsprogrammet för tjänster som lyssnar efter förfrågningar från klienter. Startpunkten för både RunAsync och kommunikation är valfria åsidosättningar i Service Fabric-services - tjänsten kan välja att bara lyssna på förfrågningar från klienter eller endast köra en loop i bearbetning eller båda - vilket är anledningen till RunAsync-metoden tillåts att avsluta utan att starta om tjänstinstansen eftersom den kan fortsätta att lyssna efter begäranden från klienter.
+Service Fabric tillhandahåller en startpunkt för installationen av valfritt kommunikation för tjänster som lyssnar efter klientbegäranden. Startpunkten för både RunAsync och kommunikation är valfritt åsidosättningar i Service Fabric-tjänster - tjänsten kan välja att bara lyssna kundernas begäranden eller endast köra en loop för bearbetning eller båda - vilket är anledningen till RunAsync-metod kan avsluta utan att starta om tjänstinstansen, eftersom den kan fortsätta att lyssna efter klientbegäranden.
 
-## <a name="application-api-and-environment"></a>Program-API och miljö
-Molntjänster miljön API innehåller information och funktioner för den aktuella VM-instans, samt information om andra rollinstanser för VM. Service Fabric innehåller information som rör dess runtime och viss information om noden en tjänst körs på. 
+## <a name="application-api-and-environment"></a>Program-API och -miljö
+Cloud Services-miljö API innehåller information och funktioner för den aktuella VM-instans, samt information om andra VM-rollinstanser. Service Fabric tillhandahåller information som rör dess runtime och viss information om noden en tjänst körs på. 
 
-| **Miljö aktivitet** | **Cloud Services** | **Service Fabric** |
+| **Miljö-aktivitet** | **Cloud Services** | **Service Fabric** |
 | --- | --- | --- |
 | Konfigurationsinställningar och ändringsmeddelande |`RoleEnvironment` |`CodePackageActivationContext` |
 | Lokal lagring |`RoleEnvironment` |`CodePackageActivationContext` |
-| Slutpunkten |`RoleInstance` <ul><li>Aktuell instans: `RoleEnvironment.CurrentRoleInstance`</li><li>Andra roller och instans: `RoleEnvironment.Roles`</li> |<ul><li>`NodeContext` för den aktuella noden adressen</li><li>`FabricClient` och `ServicePartitionResolver` för identifiering av tjänst slutpunkt</li> |
+| Slutpunktsinformation |`RoleInstance` <ul><li>Aktuell instans: `RoleEnvironment.CurrentRoleInstance`</li><li>Andra roller och instans: `RoleEnvironment.Roles`</li> |<ul><li>`NodeContext` för den aktuella noden adress</li><li>`FabricClient` och `ServicePartitionResolver` för tjänstidentifiering för slutpunkt</li> |
 | Miljö emulering |`RoleEnvironment.IsEmulated` |Gäller inte |
 | Samtidiga Ändringshändelse |`RoleEnvironment` |Gäller inte |
 
 ## <a name="configuration-settings"></a>Konfigurationsinställningar
-Konfigurationsinställningarna i molntjänster har angetts för en VM-roll och gäller för alla instanser av den Virtuella datorrollen. De här inställningarna är nyckel / värde-par i ServiceConfiguration.*.cscfg filer och kan nås direkt via RoleEnvironment. I Service Fabric inställningarna individuellt för varje tjänst och varje program i stället för en virtuell dator eftersom en virtuell dator kan vara värd för flera tjänster och program. En tjänst består av tre paket:
+Konfigurationsinställningar i molntjänster som har angetts för en VM-roll och gäller för alla instanser av den Virtuella datorrollen. Dessa inställningar är nyckel / värde-par i ServiceConfiguration.*.cscfg filer och kan nås direkt via RoleEnvironment. I Service Fabric inställningarna individuellt för varje tjänst och till varje program, i stället för en virtuell dator, eftersom en virtuell dator kan vara värd för flera tjänster och program. En tjänst består av tre paket:
 
-* **Kod:** innehåller tjänsten körbara filer, binärfiler, DLL-filer och andra filer som en tjänst måste köras.
-* **Config:** alla konfigurationsfiler och inställningarna för en tjänst.
-* **Data:** Statiska filer som är associerad med tjänsten.
+* **Kod:** innehåller tjänsten körbara filer, binärfiler, DLL-filer och andra filer som en tjänst ska köras.
+* **Config:** alla konfigurationsfiler och inställningar för en tjänst.
+* **Data:** Statiska datafiler som är kopplade till tjänsten.
 
-Var och en av dessa paket kan vara oberoende versionsnummer och uppgraderade. Liknar Cloud Services, en konfigurationspaketet kan nås via programmering genom en API och händelser som är tillgängliga att meddela tjänsten av en ändring för config-paketet. En Settings.xml-fil kan användas för nyckel / värde-konfiguration och Programmeringsåtkomst liknar avsnittet app inställningar i en App.config-fil. Men till skillnad från molntjänster, kan ett Service Fabric config-paket innehålla konfigurationsfiler i valfritt format, oavsett om det är XML, JSON, YAML eller ett anpassat binärt format. 
+Var och en av dessa paket kan vara olika versionsnummer och uppgraderas. Liknar Cloud Services, ett konfigurationspaket kan nås via programmering via ett API och händelser är tillgängliga att meddela tjänsten av en ändrad för paketet. En Settings.xml-fil kan användas för nyckel / värde-konfiguration och Programmeringsåtkomst liknar avsnittet appen inställningar för en App.config-fil. Men till skillnad från Cloud Services, kan ett Service Fabric config-paket innehålla alla konfigurationsfiler i valfritt format, oavsett om det är XML, JSON, YAML eller ett anpassat binärt format. 
 
 ### <a name="accessing-configuration"></a>Åtkomst till konfiguration
 #### <a name="cloud-services"></a>Cloud Services
@@ -146,7 +146,7 @@ string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 ```
 
 #### <a name="service-fabric"></a>Service Fabric
-Varje tjänst har sin egen enskilda konfigurationspaket. Det finns ingen inbyggd mekanism för globala inställningar nås av alla program i ett kluster. När du använder Service Fabric särskilda Settings.xml konfigurationsfilen inom ett konfigurationspaket kan värden i Settings.xml åsidosättas på programnivå, gör det möjligt på programnivå konfigurationsinställningar.
+Varje tjänst har sin egen enskilda konfigurationspaket. Det finns ingen inbyggd mekanism för konfigurationsinställningar tillgänglig med alla program i ett kluster. När du använder Service Fabric särskilda Settings.xml konfigurationsfilen inom ett konfigurationspaket kan kan värdena i Settings.xml åsidosättas på programnivå som gör det möjligt programnivå konfigurationsinställningar.
 
 Konfigurationsinställningarna är öppningar i varje tjänstinstans via tjänstens `CodePackageActivationContext`.
 
@@ -169,7 +169,7 @@ using (StreamReader reader = new StreamReader(Path.Combine(configPackage.Path, "
 
 ### <a name="configuration-update-events"></a>Update-konfigurationshändelser
 #### <a name="cloud-services"></a>Cloud Services
-Den `RoleEnvironment.Changed` händelsen används för att meddela alla rollinstanser när en ändring inträffar i miljön, till exempel en konfigurationsändring. Detta används för att använda konfigurationsuppdateringar utan återvinning rollinstanser eller omstart av en arbetsprocess.
+Den `RoleEnvironment.Changed` händelsen används för att meddela alla rollinstanser när en ändring sker i miljön, till exempel en konfigurationsändring. Det här används för att använda uppdateringar utan återvinning rollinstanser eller starta om en arbetsprocess.
 
 ```csharp
 
@@ -188,9 +188,9 @@ foreach (var settingChange in settingChanges)
 ```
 
 #### <a name="service-fabric"></a>Service Fabric
-Var och en av tre pakettyper i en tjänst - kod, konfiguration och Data - ha händelser som meddelar en tjänstinstans när ett paket uppdateras, lägga till eller tas bort. En tjänst kan innehålla flera paket för varje typ. En tjänst kan till exempel ha flera config paket, varje enskilt version och kan uppgraderas. 
+Var och en av tre pakettyper i en tjänst - kod, konfiguration och Data – har händelser som meddelar en tjänstinstans när ett paket uppdateras, har lagts till eller tas bort. En tjänst kan innehålla flera paket för varje typ. En tjänst kan till exempel ha flera config paket, vart och versionsnummer och kan uppgraderas. 
 
-Dessa händelser är tillgängliga att använda ändringar i servicepaket utan att starta om tjänstinstansen.
+Dessa händelser är tillgängliga att använda ändringar i tjänstpaket utan att starta om tjänstinstansen.
 
 ```csharp
 
@@ -205,14 +205,14 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 
 ```
 
-## <a name="startup-tasks"></a>Start-uppgifter
-Start-aktiviteter är åtgärder som vidtas innan ett program startas. En startåtgärd normalt används för att köra installationsprogrammet skript med utökade privilegier. Både molntjänster och Service Fabric stöder uppstart uppgifter. Den största skillnaden är att i Cloud Services, en startaktivitet är knuten till en virtuell dator eftersom det är en del av en rollinstans medan i Service Fabric en startaktivitet är knuten till en tjänst som inte är kopplad till någon särskild virtuell dator.
+## <a name="startup-tasks"></a>Startåtgärder
+Startåtgärder är åtgärder som vidtas innan ett program startar. Normalt används en startåtgärd för att köra installationsprogrammet skript med utökade privilegier. Både molntjänster och Service Fabric stöder startåtgärder. Den största skillnaden är att i Cloud Services, en startåtgärd är knutna till en virtuell dator eftersom det är en del av en rollinstans medan i Service Fabric en startåtgärd är knuten till en tjänst som inte är kopplat till en viss virtuell dator.
 
 | Service Fabric | Cloud Services |
 | --- | --- | --- |
-| Platsen för konfigurationen |ServiceDefinition.csdef |
-| Behörigheter |”begränsad” eller ”utökade” |
-| Sekvensering |”enkla”, ”bakgrund”, ”förgrunden” |
+| Plats för konfiguration |ServiceDefinition.csdef |
+| Behörigheter |”begränsad” eller ”utökad” |
+| Ordningsföljd |”enkel”, ”BITS” och ”förgrunden” |
 
 ### <a name="cloud-services"></a>Cloud Services
 I Cloud Services konfigureras en startpunkt för start per roll i ServiceDefinition.csdef. 
@@ -233,7 +233,7 @@ I Cloud Services konfigureras en startpunkt för start per roll i ServiceDefinit
 ```
 
 ### <a name="service-fabric"></a>Service Fabric
-I Service Fabric konfigureras en startpunkt för start per tjänst i ServiceManifest.xml:
+I Service Fabric är en startpunkt för start konfigurerad per tjänst i ServiceManifest.xml:
 
 ```xml
 
@@ -250,13 +250,13 @@ I Service Fabric konfigureras en startpunkt för start per tjänst i ServiceMani
 ``` 
 
 ## <a name="a-note-about-development-environment"></a>En anteckning om utvecklingsmiljö
-Både molntjänster och Service Fabric är integrerade med Visual Studio med projektmallar och stöd för felsökning, konfigurera och distribuera både lokalt och till Azure. Både molntjänster och Service Fabric ger också en körningsmiljö för lokal utveckling. Skillnaden är att när Molntjänsten development runtime emulerar Azure-miljön där den körs, Service Fabric inte använder en emulator - fullständig Service Fabric runtime används. Service Fabric-miljö som du kör på utvecklingsdatorn lokala är i samma miljö som körs i produktion.
+Både molntjänster och Service Fabric är integrerade med Visual Studio-projektmallar och support för felsökning, konfigurera och distribuera både lokalt och till Azure. Både molntjänster och Service Fabric får en körningsmiljö för lokal utveckling. Skillnaden är att medan molntjänst utveckling runtime emulerar Azure-miljön där den körs, Service Fabric använder inte en emulator – den har slutförts Service Fabric-körningen. Service Fabric-miljö som du kör på din lokala utvecklingsdator är i samma miljö som körs i produktion.
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om Service Fabric Reliable Services och grundläggande skillnaderna mellan molntjänster och arkitektur för Service Fabric-programmet för att förstå hur du dra nytta av hela uppsättningen av Service Fabric-funktioner.
+Läs mer om Service Fabric Reliable Services och grundläggande skillnaderna mellan Cloud Services och arkitektur för Service Fabric-program för att du ska kunna dra nytta av en fullständig uppsättning funktioner för Service Fabric.
 
 * [Komma igång med Service Fabric Reliable Services](service-fabric-reliable-services-quick-start.md)
-* [Konceptuell guide till skillnaderna mellan molntjänster och Service Fabric](service-fabric-cloud-services-migration-differences.md)
+* [Konceptuell guide till skillnaderna mellan Cloud Services och Service Fabric](service-fabric-cloud-services-migration-differences.md)
 
 <!--Image references-->
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png

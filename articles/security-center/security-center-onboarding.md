@@ -3,7 +3,7 @@ title: Kom igång med Azure Security Center Standard för förbättrad säkerhet
 description: " Lär dig hur du Kom igång med Azure Security Center Standard för förbättrad säkerhet. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: a68c0ecc15f81efe6045f4c298b48f9809916297
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 09/02/2018
+ms.author: rkarlin
+ms.openlocfilehash: 21ffab10b87925513a50198b5b0e66188ef15455
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38479469"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024918"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Kom igång med Azure Security Center Standard för ökad säkerhet
 Uppgradera till Security Center Standard att dra nytta av förbättrad säkerhetshantering och skydd mot hot i dina hybridmolnarbetsbelastningar.  Du kan prova Standard kostnadsfritt under 60 dagar. Se de Säkerhetscenter [prissättningssidan](https://azure.microsoft.com/pricing/details/security-center/) för mer information.
@@ -40,59 +40,40 @@ Du kan uppgradera en hel Azure-prenumeration till standardnivån som ärvs av al
 >
 >
 
-## <a name="upgrade-an-azure-subscription"></a>Uppgradera en Azure-prenumeration
-Uppgradera alla prenumerationer till Standard:
-1. På huvudmenyn i Security Center väljer du **Kom igång med avancerad säkerhet**.
-2. Under **registrering för avancerad säkerhet**, Security Center visar en lista över prenumerationer som är behöriga för registrering. Du kan uppgradera alla prenumerationerna som visas genom att välja **gäller standardprenumerationen**.
+## <a name="upgrade-an-azure-subscription-or-workspace"></a>Uppgradera ett Azure-prenumeration eller arbetsyta
+Uppgradera en prenumeration eller en arbetsyta till Standard:
+1. Huvudmenyn i Security Center, Välj **komma igång**.
+  ![Komma igång](./media/security-center-onboarding/get-started.png)
+2. Under **uppgradera**, listar Security Center prenumerationer och arbetsytor som är behöriga för registrering. 
+   - Du kan klicka på den expanderbara **gäller din utvärderingsversion** att se en lista över alla prenumerationer och arbetsytor med deras utvärderingsversion berättigande status.
+   -    Du kan uppgradera prenumerationer och arbetsytor som inte är berättigade till utvärderingsversionen.
+   -    Du kan välja berättigade arbetsytor och prenumerationer Påbörja din utvärderingsperiod.
+3.  Klicka på **starta utvärdering** Påbörja din utvärderingsperiod på de valda prenumerationerna.
+  ![Välj prenumeration](./media/security-center-onboarding/select-subscription.png)
 
-  ![Uppgradera alla prenumerationer][1]
-
-Så här uppgraderar du en enskild prenumeration till Standard: du kan uppgradera en prenumeration från **Onboarding** genom att välja **tillämpa standardnivån**. Välj prenumerationen för att uppgradera en resursgrupp i prenumeration till Standard:
-1. Välj en prenumeration.  **Säkerhetsprincip** innehåller information om resursgrupp i prenumerationen.
-2. Välj prenumerationen eller resursgrupp.
-
-  ![Uppgradera alla prenumerationer][2]
-
-3. Välj **Standard** uppgraderingen från kostnadsfri till Standard.
-4. Välj **Spara**.
-
-> [!NOTE]
-> Uppgradera en prenumeration till Standard så aktiveras [Automatisk etablering](security-center-enable-data-collection.md) om det tidigare har inaktiverats. Vi rekommenderar att du automatisk försörjning av övervakningsagenter.
->
->
-
-## <a name="upgrade-a-workspace"></a>Uppgradera en arbetsyta
-Tillämpa Standard till arbetsytan gäller för alla resurser som rapporterar till arbetsytan.
-
-1. Gå tillbaka till den **Onboarding** bladet.
-2. Välj en arbetsyta.
-
-  ![Uppgradera en arbetsyta][8]
-
-3. Välj **Standard** att uppgradera.  
-4. Välj **Spara**.
 
    > [!NOTE]
-   > Det är ett scenario där du inte kanske har kostnadsfri eller Standard tillämpas på din arbetsyta. Om du väljer kostnadsfri tillämpas kostnadsfria funktioner i Security Center på virtuella datorer i Azure endast. De kostnadsfria funktionerna tillämpas inte på icke-Azure-datorer. Om du väljer Standard tillämpas Standard-funktionerna på alla virtuella Azure-datorer och icke-Azure-datorer som rapporterar till arbetsytan. Vi rekommenderar att du tillämpar Standard för att tillhandahålla avancerad säkerhet för Azure- och icke-Azure-resurser.
+   > Security Centers kostnadsfria funktioner som tillämpas på virtuella datorer i Azure endast. De kostnadsfria funktionerna tillämpas inte på icke-Azure-datorer. Om du väljer Standard tillämpas Standard-funktionerna på alla virtuella Azure-datorer och icke-Azure-datorer som rapporterar till arbetsytan. Vi rekommenderar att du tillämpar Standard för att tillhandahålla avancerad säkerhet för Azure- och icke-Azure-resurser.
    >
    >
 
 ## <a name="onboard-non-azure-computers"></a>Publicera icke-Azure-datorer
-Security Center kan övervaka säkerhetsstatusen för icke-Azure-datorer men du måste först publicera dessa resurser. Du kan lägga till icke-Azure-datorer från den **Onboarding** bladet eller från den **Compute** bladet. Vi gå igenom båda metoderna.
+Security Center kan övervaka säkerhetsstatusen för icke-Azure-datorer men du måste först publicera dessa resurser. Du kan lägga till icke-Azure-datorer från den **komma igång** bladet eller från den **Compute** bladet. Vi gå igenom båda metoderna.
 
-### <a name="add-new-non-azure-computers-from-onboarding"></a>Lägga till nya Azure-datorer från Onboarding
+### <a name="add-new-non-azure-computers-from-getting-started"></a>Lägga till nya Azure-datorer från **komma igång**
 
-1. Gå tillbaka till **Onboarding**.   
-2. Välj **vill du lägga till nya Azure-datorer**.
+1. Gå tillbaka till **komma igång**.   
+2. Välj den **börjar** fliken.
 
-  ![Lägga till en dator som inte är en Azure-dator][3]
+  ![Icke-Azure](./media/security-center-onboarding/non-azure.png)
+
+3. Klicka på **konfigurera** under **lägga till nya Azure-datorer**. En lista över dina logganalysarbetsytor visas. Om det är tillämpligt innehåller listan standardarbetsytan som har skapats för dig av Security Center när automatisk etablering aktiverades. Välj den här arbetsytan eller någon annan arbetsyta som du vill använda.
+
+  ![Lägga till en dator som inte är en Azure-dator][7]
 
 Om du har befintliga arbetsytor kan de visas under **lägga till nya icke-Azure-datorer**. Du kan lägga till datorer till en befintlig arbetsyta eller skapa en ny arbetsyta. Klicka på länken om du vill skapa en ny arbetsyta **lägga till en ny arbetsyta**.
 
-Vi gå igenom båda metoderna:
-
-- Skapa en ny arbetsyta och lägger till datorn
-- Välj en befintlig arbetsyta och Lägg till dator
+### <a name="add-new-non-azure-computers-from-compute"></a>Lägga till nya Azure-datorer från **Compute**
 
 **Skapa en ny arbetsyta och lägger till datorn**
 
@@ -134,9 +115,9 @@ I den här artikeln beskrivs hur du integrera Azure och icke-Azure-resurser för
 <!--Image references-->
 [1]: ./media/security-center-onboarding/onboard.png
 [2]: ./media/security-center-onboarding/onboard-subscription.png
-[3]: ./media/security-center-onboarding/add-non-azure-resource.png
+[3]: ./media/security-center-onboarding/get-started.png
 [4]: ./media/security-center-onboarding/create-workspace.png
 [5]: ./media/security-center-onboarding/overview.png
 [6]: ./media/security-center-onboarding/compute-blade.png
-[7]: ./media/security-center-onboarding/add-non-azure-computer.png
+[7]: ./media/security-center-onboarding/add-computer.png
 [8]: ./media/security-center-onboarding/onboard-workspace.png

@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 08-07-2018
-ms.openlocfilehash: 6be00937a6645fbdd266ac0b1aa1ce95ecc6c3d9
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.date: 09-05-2018
+ms.openlocfilehash: 75e493f6b2e47bf3323df9e52ad3a933a6efbead
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301867"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44058354"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Förskottsbetala för virtuella datorer med Azure reserverade VM-instanser
 
@@ -50,9 +50,9 @@ Reserverade VM-instanser är tillgängliga för de flesta storlekar för Virtuel
     |Namn        |Namnet på den här reservationen.| 
     |Prenumeration|Den prenumeration som används för att betala för reservationen. Betalningsmetoden för prenumerationen debiteras startavgifter för reservationen. Prenumerationstypen måste vara ett företagsavtal (erbjudandets nummer: MS-AZR-0017P) eller Betala per användning (erbjudandets nummer: MS-AZR-0003P). För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning. Får en Betala per användning-prenumeration faktureras avgifterna från kreditkortet eller enligt fakturabetalningsmetoden.|    
     |Omfång       |Den reservationsomfånget kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer: <ul><li>Enstaka prenumeration - reservationsrabatten tillämpas på virtuella datorer i den här prenumerationen. </li><li>Delad – tillämpas reservationsrabatten på virtuella datorer som körs i alla prenumerationer i din faktureringskontexten. För företagskunder, den delade omfattningen registreringen och innehåller alla prenumerationer (utom prenumerationer för utveckling och testning) i registreringen. För kunder med användningsbaserad betalning är den delade omfattningen alla betala per användning-prenumerationer som skapas av kontoadministratören.</li></ul>|
-    |Plats    |Azure-regionen som omfattas av reservationen.|    
+    |Region    |Azure-regionen som omfattas av reservationen.|    
     |Storlek på virtuell dator     |Storleken på de Virtuella datorinstanserna.|
-    |Optimera för     |Flexibilitet för Virtuella datorinstanser storlek tillämpas reservationsrabatten på andra virtuella datorer i samma [VM storleksgruppen](https://aka.ms/RIVMGroups). Prioritet för datacenterkapacitet reserverar datacenterkapacitet för dina distributioner. Det ger ytterligare förtroende i din möjlighet att starta VM-instanser när så behövs. Kapacitetsprioritet är bara tillgänglig när reservationsomfånget är enstaka prenumeration. |
+    |Optimera för     |Flexibilitet för Virtuella datorinstanser storlek tillämpas reservationsrabatten på andra virtuella datorer i samma [VM storleksgruppen](https://aka.ms/RIVMGroups). Prioritet för datacenterkapacitet prioriterar datacentrets kapacitet för dina distributioner. Det ger ytterligare förtroende i din möjlighet att starta VM-instanser när så behövs. Kapacitetsprioritet är bara tillgänglig när reservationsomfånget är enstaka prenumeration. |
     |Period        |Ett eller tre år.|
     |Antal    |Antalet instanser som köpts i reservationen. Antalet är antalet VM-instanser som kan få fakturering rabatten som körs. Till exempel om du kör 10 Standard_D2 virtuella datorer i östra USA, skulle du ange antalet som 10 om du vill maximera förmån för alla datorer som körs. |
 5. Du kan visa kostnaden för reservationen när du väljer **beräkna kostnaden**.
@@ -63,6 +63,12 @@ Reserverade VM-instanser är tillgängliga för de flesta storlekar för Virtuel
 7. Välj **visa den här reservationen** att se status för ditt köp.
 
     ![Skärmbild efter att ha skickat reservationsköp](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
+
+## <a name="cancellations-and-exchanges"></a>Avbokningar och utbyten
+
+Om du vill avbryta din reservation kan finnas det 12% uppsägningsavgift. Återbetalningar baseras på lägsta priset för din inköpspriset eller aktuella priset för reservationen. Återbetalningar är begränsade till 50 000 per år. Återbetalning felmeddelandet är det återstående proportionella saldot minus 12% uppsägningsavgift. Om du vill begära ett avbrott, går du till reservationen i Azure-portalen och välj **återbetala** att skapa en supportbegäran.
+
+Om du vill ändra din reservation för reserverade VM-instanser till en annan region, VM-storleksgruppen eller termen kan byta du den för en annan reservation som är av samma eller högre värde. Termen startdatumet för den nya reservationen sprids inte från sker ett certifikatutbyte reservationen. 1 eller 3 år termen startar från när du skapar den nya reservationen. Om du vill begära en exchange, gå till reservationen i Azure-portalen och välj **Exchange** att skapa en supportbegäran.
 
 ## <a name="next-steps"></a>Nästa steg
 

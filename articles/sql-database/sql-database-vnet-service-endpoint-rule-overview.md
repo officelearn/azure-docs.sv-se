@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/28/2018
 ms.reviewer: carlrab
 ms.author: dmalik
-ms.openlocfilehash: 223a8da0c3c940c57dfc58d9cc87a19ae45a64eb
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 38806b3dbf47b21885ef704cfec8be3c491a66a0
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143818"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055394"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Använda tjänstslutpunkter i virtuella nätverk och regler för Azure SQL Database och SQL Data Warehouse
 
@@ -184,7 +184,7 @@ Om du väljer att använda den här funktionen med ett Storage-konto som använd
 PolyBase är vanligt att läsa in data i Azure SQLDW från Storage-konton. Om lagringskontot som du läser in data från begränsar endast åtkomst till en uppsättning VNet-undernät, bryter anslutningen från PolyBase till kontot. Det finns en lösning för det här och du kan kontakta Microsoft support för mer information.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob granskning
-Blobbgranskning skickar granskningsloggar till ditt eget lagringskonto. Om det här lagringskontot använder den FÖRHIN funktionen med tjänstslutpunkt bryts anslutningar från Azure SQLDB till lagringskontot.
+Blobbgranskning skickar granskningsloggar till ditt eget lagringskonto. Om det här lagringskontot använder funktionen VNet Service slutpunkter bryts anslutningar från Azure SQLDB till lagringskontot.
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Att lägga till en brandväggsregel för virtuellt nätverk till din server utan att slå på VNET-tjänstslutpunkter
 
@@ -254,7 +254,7 @@ Du måste redan ha ett undernät som är taggade med viss tjänstslutpunkt för 
 
 ### <a name="azure-portal-steps"></a>Steg för Azure portal
 
-1. Logga in på den [Azure-portalen][http-azure-portal-link-ref-477t].
+1. Logga in på [Azure Portal][http-azure-portal-link-ref-477t].
 
 2. Gå sedan portalen för att **SQL-servrar** &gt; **brandvägg / virtuella nätverk**.
 

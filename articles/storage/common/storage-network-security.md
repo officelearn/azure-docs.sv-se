@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 9eaaaaa4cc9be661cdc2ffde2b634e062c95a404
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 56c464b9fbc9fe5f2d9acd1a403333fd1c729113
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523265"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023400"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage-brandväggar och virtuella nätverk
 Azure Storage tillhandahåller en skiktbaserad säkerhetsmodell som gör att du kan skydda dina storage-konton till en specifik uppsättning tillåtna nätverk.  Om Nätverksregler har konfigurerats endast program från tillåtna nätverk kan komma åt ett storage-konto.  När du anropar från ett tillåtna nätverk programmen kräver rätt auktorisering (en giltig åtkomstnyckel eller SAS-token) att komma åt lagringskontot.
 
 > [!IMPORTANT]
-> Aktivera brandväggsregler för ditt lagringskonto ska blockera inkommande begäranden för data, inklusive från andra Azure-tjänster.  Detta inkluderar med hjälp av portalen skriver loggar osv.  För deltagande-tjänster som du kan återaktivera funktioner via de [undantag](#Exceptions) nedan.  Om du vill få åtkomst till portalen skulle du behöva göra det från en dator i den betrodda gränsen (IP eller virtuellt nätverk) som du har ställt in.
+> Aktivera brandväggsregler för ditt lagringskonto ska blockera inkommande begäranden för data, inklusive från andra Azure-tjänster.  Detta inkluderar med hjälp av portalen skriver loggar osv.  För deltagande-tjänster som du kan återaktivera funktioner via de [undantag](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) nedan.  Om du vill få åtkomst till portalen skulle du behöva göra det från en dator i den betrodda gränsen (IP eller virtuellt nätverk) som du har ställt in.
 >
 
 ## <a name="scenarios"></a>Scenarier
@@ -35,7 +35,7 @@ Virtuell datordisktrafik (inklusive montera och demontera operations och disk-i/
 
 Klassiska lagringskonton **inte** stöd för brandväggar och virtuella nätverk.
 
-Säkerhetskopiering och återställning av virtuella datorer med ohanterade diskar i storage-konton med Nätverksregler som tillämpas stöds via skapar ett undantag som beskrivs i den [undantag](/storage/common/storage-network-security#exceptions) i den här artikeln.  Brandväggsundantag kan inte användas med Managed Disks eftersom de hanteras redan av Azure.
+Säkerhetskopiering och återställning av virtuella datorer med ohanterade diskar i storage-konton med Nätverksregler som tillämpas stöds via skapar ett undantag som beskrivs i den [undantag](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) i den här artikeln.  Brandväggsundantag kan inte användas med Managed Disks eftersom de hanteras redan av Azure.
 
 ## <a name="change-the-default-network-access-rule"></a>Ändra standardåtkomstregel för nätverk
 Som standard godkänner lagringskonton anslutningar från klienter på något nätverk.  För att begränsa åtkomsten till valda nätverk, måste du först ändra standardåtgärden.

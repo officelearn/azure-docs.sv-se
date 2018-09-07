@@ -1,5 +1,6 @@
 ---
-title: Träna och testa din LUIS-app – Azure | Microsoft Docs
+title: Testa LUIS-appen i LUIS-portalen
+titleSuffix: Azure Cognitive Services
 description: Använd Språkförståelse (LUIS) för att fungera kontinuerligt för ditt program för att förfina och förbättra dess språkförståelse.
 services: cognitive-services
 author: diberry
@@ -7,18 +8,18 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 925b96b61de876d40105c89556fd6dcb600d1b1a
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: f697e55e095baf113b7e622c4e7447b78444d4ac
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223658"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054755"
 ---
 # <a name="test-your-luis-app"></a>Testa LUIS-appen
 <a name="train-your-app"></a>
-[Utbildning](luis-how-to-train.md) och [testning](luis-concept-test.md) en app är en iterativ process. Testa den efter utbildning LUIS-appen, med exempel yttranden om avsikter och entiteter identifieras korrekt. Om de inte gör uppdateringar till LUIS-app, träna och testa igen. 
+[Testa](luis-concept-test.md) en app är en iterativ process. Testa den efter utbildning LUIS-appen, med exempel yttranden om avsikter och entiteter identifieras korrekt. Om de inte gör uppdateringar till LUIS-app, träna och testa igen. 
 
 <!-- anchors for H2 name changes -->
 <a name="test-your-app"></a>

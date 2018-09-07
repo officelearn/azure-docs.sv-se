@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 8/10/2018
+ms.date: 9/6/2018
 ms.author: victorh
-ms.openlocfilehash: 858427bfd2a9b4c40ddf7054e09d98bcf5c1a992
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: e180f0912bdb9145f3d36492fb9bcdcb551037f0
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42055569"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022924"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Vanliga frågor om Application Gateway
 
@@ -84,7 +84,7 @@ Nej, Application Gateway stöder inte statiska offentliga IP-adresser och har st
 
 Endast en offentlig IP-adress har stöd för en Programgateway.
 
-**FRÅGOR OCH. Hur stora bör se mitt undernät för Application Gateway?**
+**FRÅGOR OCH. Hur stor ska jag göra mitt undernät för Application Gateway?**
 
 Application Gateway förbrukar en privat IP-adress per instans, plus en annan privat IP-adress om en privat klientdels-IP-konfiguration har konfigurerats. Dessutom Azure reserverar fyra första och sista IP-adress i varje undernät för intern användning.
 Exempel: om Application Gateway är inställd på tre instanser och ingen privat klientdels-IP, sedan ett/29 undernät storlek eller högre krävs. I det här fallet använder Application Gateway tre IP-adresser. Om du har tre instanser och en IP-adress för privata klientdelens IP-konfiguration, sedan en/28 undernät storlek eller högre krävs eftersom det krävs fyra IP-adresser.
@@ -93,7 +93,7 @@ Exempel: om Application Gateway är inställd på tre instanser och ingen privat
 
 Ja, infogar Application Gateway x vidarebefordras för x-vidarebefordrade-protokoll och x-vidarebefordrade-port rubriker i begäran vidarebefordras till serverdelen. Formatet för x-vidarebefordrade-för-huvudet är en kommaavgränsad lista över IP:Port. Giltiga värden för x-vidarebefordrade-protokoll är http eller https. X-vidarebefordrade-port Anger den port som nått begäran vid Application Gateway.
 
-Application Gateway infogar också huvudet för X-Original-värd som innehåller ursprungliga värdhuvudet som begäran kom. Den här rubriken är användbart i scenarier som Azure-webbplats integration, där inkommande värdhuvudet ändras innan trafiken dirigeras till serverdelen.
+Application Gateway infogar också X-Original-värd-huvud som innehåller den ursprungliga värdhuvud som begäran kom. Den här rubriken är användbart i scenarier som Azure-webbplats integration, där inkommande värdhuvudet ändras innan trafiken dirigeras till serverdelen.
 
 **FRÅGOR OCH. Hur lång tid tar det för att distribuera en Programgateway? Min Application-Gateway fortfarande fungerar när uppdateras?**
 
@@ -211,8 +211,8 @@ Följande tabell visar ett genomsnittligt prestanda-dataflöde för varje Applic
 
 | Genomsnittlig backend-svar sidstorlek | Liten | Medel | Stor |
 | --- | --- | --- | --- |
-| 6KB |7.5 Mbit/s |13 Mbit/s |50 Mbit/s |
-| 100KB |35 Mbit/s |100 Mbit/s |200 Mbit/s |
+| 6 KB |7.5 Mbit/s |13 Mbit/s |50 Mbit/s |
+| 100 KB |35 Mbit/s |100 Mbit/s |200 Mbit/s |
 
 > [!NOTE]
 > De här värdena är genomsnittliga värden för ett Application Gateway-dataflöde. Det faktiska dataflödet beror på olika miljöfaktorer som genomsnittlig sidstorlek, plats för serverdelsinstanserna och bearbetningstid för att serva en sida. Du bör köra egna test för exakta prestandavärden. Dessa värden är bara för vägledning vid kapacitetsplanering.
@@ -333,7 +333,7 @@ WAF stöder för närvarande CRS [2.2.9](application-gateway-crs-rulegroups-rule
 
 **FRÅGOR OCH. Stöder WAF också DDoS-skydd?**
 
-Nej, ger inte WAF DDoS-skydd.
+Ja. Du kan aktivera DDos-skydd på det virtuella nätverket där application gateway distribueras. Detta säkerställer att application gateway VIP också skyddas med hjälp av Azure DDos Protection-tjänsten.
 
 ## <a name="diagnostics-and-logging"></a>Diagnostik- och loggning
 

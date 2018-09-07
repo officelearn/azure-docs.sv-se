@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/07/2018
 ms.author: carlrab
-ms.openlocfilehash: 9213f82a8e3a350312d4830aa2a8e5f695852ca5
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: f30d15c70b33200565f1933a4d8ebe8ed654638c
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841859"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055241"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Azure SQL Database logiska servrar och deras hantering
 
@@ -62,7 +62,7 @@ Att skapa en Azure SQL-databas med den [Azure-portalen](https://portal.azure.com
 > [!IMPORTANT]
 > Information om hur du väljer prisnivå för din databas finns i [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).
 
-Om du vill skapa en hanterad instans [skapar en hanterad instans](sql-database-managed-instance-create-tutorial-portal.md)
+Om du vill skapa en hanterad instans [skapar en hanterad instans](sql-database-managed-instance-get-started.md)
 
 ### <a name="manage-an-existing-sql-server"></a>Hantera en befintlig SQLServer
 
@@ -132,7 +132,7 @@ Skapa och hantera Azure SQL server, databaser och brandväggar med den [Azure CL
 |[AZ sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Tar bort en brandväggsregel|
 
 > [!TIP]
-> En Snabbstart för Azure CLI, se [skapa en enskild Azure SQL-databas med hjälp av Azure CLI](sql-database-get-started-cli.md). Exempelskript för Azure CLI, se [Använd CLI för att skapa en Azure SQL-databas och konfigurera en brandväggsregel](scripts/sql-database-create-and-configure-database-cli.md) och [Använd CLI för att övervaka och skala en enskild SQL-databas](scripts/sql-database-monitor-and-scale-database-cli.md).
+> En Snabbstart för Azure CLI, se [skapa en enskild Azure SQL-databas med hjälp av Azure CLI](sql-database-cli-samples.md). Exempelskript för Azure CLI, se [Använd CLI för att skapa en Azure SQL-databas och konfigurera en brandväggsregel](scripts/sql-database-create-and-configure-database-cli.md) och [Använd CLI för att övervaka och skala en enskild SQL-databas](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-transact-sql"></a>Hantera Azure SQL-servrar, databaser och brandväggar med Transact-SQL

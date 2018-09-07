@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 578bb864f56b788db77d1201533e73d3b9616669
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: a11de2a4580515f6a358438a706e5be3f5543e28
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42059535"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025318"
 ---
 # <a name="back-up-azure-stack"></a>Säkerhetskopiera Azure Stack
 
@@ -81,7 +81,7 @@ Resultatet bör se ut som följande:
 Använd Azure Stack-administrationsportalen för att kontrollera att säkerhetskopiering har slutförts genom att följa dessa steg:
 
 1. Öppna den [Azure Stack-administrationsportalen](azure-stack-manage-portals.md).
-2. Välj **fler tjänster** > **infrastruktur för säkerhetskopiering**. Välj **Configuration** i den **infrastruktur för säkerhetskopiering** bladet.
+2. Välj **alla tjänster**, och sedan under den **ADMINISTRATION** kategori väljer > **infrastruktur för säkerhetskopiering**. Välj **Configuration** i den **infrastruktur för säkerhetskopiering** bladet.
 3. Hitta den **namn** och **datum slutförts** på säkerhetskopieringen på **tillgängliga säkerhetskopior** lista.
 4. Kontrollera den **tillstånd** är **lyckades**.
 

@@ -14,12 +14,12 @@ ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 1a7ecbe42857e522785d5919d46b783feae4caeb
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 1ac15ce8f8abf2b30b42f02b300a17448f86fc40
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494133"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052776"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Vad är programåtkomst och enkel inloggning med Azure Active Directory?
 Enkel inloggning innebär det att kunna komma åt alla program och resurser som du behöver för att göra affärer, genom att logga in med ett enda användarkonto. När du har loggat in, du kan komma åt alla program som du behöver utan att behöva autentisera dig (exempel: Skriv ett lösenord) en andra gång.
@@ -46,7 +46,7 @@ Azure AD stöder tre olika sätt att logga in på programmen:
 
 * **Federerad enkel inloggning** gör det möjligt att omdirigera till Azure AD för autentisering av användare i stället för att fråga om ett eget lösenord. Federerad enkel inloggning har stöd för program som stöder protokoll, till exempel SAML 2.0, WS-Federation och OpenID Connect, och är det bästa möjliga läget för enkel inloggning.
 * **Lösenordsbaserad enkel inloggning** möjliggör säker lagring av lösenord för programmet och spela upp med ett webbläsartillägg eller mobilapp. Lösenordsbaserad enkel inloggning använder den befintliga processen som tillhandahålls av programmet, men låter en administratör hantera lösenorden och kräver inte att användaren känner till lösenordet.
-* **Befintlig enkel inloggning** gör att Azure AD kan utnyttja alla befintliga enkel inloggning som har ställts in för programmet, men gör att programmen ska kopplas till de Office 365 eller Azure AD åtkomst till panelen portalerna och även aktiverar ytterligare rapportering i Azure AD när programmen det startas.
+* **Länkad enkel inloggning** gör att Azure AD kan utnyttja alla befintliga enkel inloggning som har ställts in för programmet, men gör att programmen ska kopplas till de Office 365 eller Azure AD åtkomst till panelen portalerna och även aktiverar ytterligare rapportering i Azure AD när programmen det startas.
 
 När en användare har autentiserats med ett program, måste de också har en kontopost som etablerats på programnivå som instruerar programmet var behörigheter och åtkomstnivå är i programmet. Etableringen av den här kontopost kan antingen automatiskt, eller när det kan ske manuellt av en administratör innan användaren får enkel inloggning.
 
@@ -79,10 +79,10 @@ För lösenordsbaserad SSO kan slutanvändarens webbläsare vara:
 * Chrome--På Windows 7 eller senare, och i Mac OS X eller senare
 * Firefox 26.0 eller senare, på Windows XP SP2 eller senare, och på Mac OS X 10,6 eller senare
 
-### <a name="existing-single-sign-on"></a>Befintlig enkel inloggning
-När du konfigurerar enkel inloggning för ett program, innehåller Azure portal ett tredje alternativ för ”befintliga enkel inloggning”. Det här alternativet kan bara en administratör skapa en länk till ett program och placera den på åtkomstpanelen för valda användare.
+### <a name="linked-single-sign-on"></a>Länkade enkel inloggning
+När du konfigurerar enkel inloggning för ett program, innehåller Azure portal ett tredje alternativ för ”länkade enkel inloggning”. Det här alternativet kan bara en administratör skapa en länk till ett program och placera den på åtkomstpanelen för valda användare.
 
-Om det finns ett program som är konfigurerad för att autentisera användare som använder Active Directory Federation Services 2.0, kan en administratör exempelvis använda alternativet ”befintliga enkel inloggning” för att skapa en länk till den på åtkomstpanelen. När användarna använder länken kan autentiseras med hjälp av Active Directory Federation Services 2.0 eller den befintliga enkla inloggning lösningen tillhandahålls av programmet.
+Om det finns ett program som är konfigurerad för att autentisera användare som använder Active Directory Federation Services 2.0, kan en administratör exempelvis använda alternativet ”länkade enkel inloggning” för att skapa en länk till den på åtkomstpanelen. När användarna använder länken kan autentiseras med hjälp av Active Directory Federation Services 2.0 eller den befintliga enkla inloggning lösningen tillhandahålls av programmet.
 
 ### <a name="user-provisioning"></a>Etableringen av användare
 Välj program aktiverar Azure AD för automatisk användaretablering och avetablering av konton i tredje parts SaaS-program från Azure Portal med din Windows Server Active Directory eller Azure AD-identitetsinformation. När en användare har behörighet i Azure AD för en av dessa program, kan ett konto skapas automatiskt (etablerade) i mål-SaaS-program.
@@ -172,7 +172,7 @@ Mest federerade program som stöder SAML 2.0, WS-Federation och OpenID connect o
 ![](./media/what-is-single-sign-on/workdaymobile.png)
 
 ### <a name="direct-sign-on-links-for-federated-password-based-or-existing-apps"></a>Inloggning direktlänkar för federerade, lösenordsbaserade eller befintliga appar
-Azure AD stöder också enkel inloggning Direktlänkar till enskilda program som har stöd för lösenordsbaserad enkel inloggning, befintlig enkel inloggning och någon form av federerad enkel inloggning.
+Azure AD stöder också enkel inloggning Direktlänkar till enskilda program som har stöd för lösenordsbaserad enkel inloggning, länkade enkel inloggning och någon form av federerad enkel inloggning.
 
 Dessa länkar är särskilt utformad URL: er som skickar en användare via Azure AD logga in igen för ett visst program utan att användaren lanseringen dem från Azure AD åtkomst till panelen eller Office 365. Dessa enkel inloggnings-URL: er finns under fliken instrumentpanel i alla redan integrerade program i Active Directory-avsnittet i Azure-portalen som visas i skärmbilden nedan.
 

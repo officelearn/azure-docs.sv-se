@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: e6cb83eb6aaaea38686c63d0f3f70738efa4bcff
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 39d3913013d9528405191c5f052a943f1869048a
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630764"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026864"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Vanliga frågor och svar om inställningar och dataväxling
 Den här artikeln får du svar på några frågor som IT-administratörer kan ha om inställningar och data appsynkronisering.
@@ -35,12 +35,12 @@ Den här artikeln får du svar på några frågor som IT-administratörer kan ha
 * *Lösenord*, inklusive Internet-lösenord och Wi-Fi-profiler.
 * *Språkinställningar*, som innehåller inställningar för tangentbordslayout, systemspråk, datum och tid och mycket mer.
 * *Enkel åtkomstfunktioner*, till exempel högkontrasttema, Skärmförstoraren och Skärmläsaren.
-* *Andra Windows-inställningar*, till exempel inställningar för Kommandotolken och lista över program.
+* *Andra Windows-inställningar*, t.ex musinställningar.
 
 **Programdata**: universella Windows-appar kan skriva inställningsdata till en central mapp och alla data som skrivs till den här mappen synkroniseras automatiskt. Det är upp till enskilda apputvecklaren för att designa en app att dra nytta av den här funktionen. Mer information om hur du utvecklar en universell Windows-app som använder centrala finns i den [API: et för appdata storage](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) och [Windows 8 appdata roaming utvecklarblogg](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 
 ## <a name="what-account-is-used-for-settings-sync"></a>Vilket konto används för synkronisering av inställningar?
-I Windows 8 och Windows 8.1 används synkronisering alltid konsument Microsoft-konton. Företagsanvändare hade möjlighet att ansluta ett Microsoft-konto till deras Active Directory-domänkonto som ska få åtkomst till inställningar för synkronisering. I Windows 10 ansluten detta Microsoft-konto funktioner ersätts med ett konto för primär/sekundär ramverk.
+I Windows 8.1 för synkronisering av alltid konsument Microsoft-konton. Företagsanvändare hade möjlighet att ansluta ett Microsoft-konto till deras Active Directory-domänkonto som ska få åtkomst till inställningar för synkronisering. I Windows 10 ansluten detta Microsoft-konto funktioner ersätts med ett konto för primär/sekundär ramverk.
 
 Det primära kontot har definierats som används för att logga in på Windows-kontot. Detta kan vara ett Microsoft-konto, ett Azure Active Directory (Azure AD)-konto, en lokal Active Directory-konto eller ett lokalt konto. Förutom det primära kontot Windows 10-användare kan lägga till en eller flera sekundära molnkonton sin enhet. Ett sekundärt konto är vanligtvis ett Microsoft-konto, en Azure AD-konto eller några andra kontot, till exempel Gmail- eller Facebook. Dessa sekundära konton har åtkomst till ytterligare tjänster som enkel inloggning och Windows Store, men de kan inte stöda synkronisering.
 
@@ -59,7 +59,7 @@ Om en appägare inte kan identifieras, kommer den flyttas med det primära konto
 >
 
 ## <a name="how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10"></a>Hur uppgraderar jag från synkronisera inställningar för Microsoft-konto i Windows 8 till Azure AD sync inställningar i Windows 10?
-Om du är ansluten till Active Directory-domän som kör Windows 8 eller Windows 8.1 med ett anslutet microsoftkonto, kommer det att synkronisera inställningar via ditt Microsoft-konto. Efter uppgraderingen till Windows 10, fortsätter du att synkronisera användarinställningar via Microsoft-konto så länge du använder en domänansluten och Active Directory-domänen kan inte anslutas till Azure AD.
+Om du är ansluten till Active Directory-domän som kör Windows 8.1 med ett anslutet microsoftkonto, kommer det att synkronisera inställningar via ditt Microsoft-konto. Efter uppgraderingen till Windows 10, fortsätter du att synkronisera användarinställningar via Microsoft-konto så länge du använder en domänansluten och Active Directory-domänen kan inte anslutas till Azure AD.
 
 Om den lokala Active Directory-domän ansluter med Azure AD, försöker enheten synkronisera inställningar med hjälp av den anslutna Azure AD-konto. Om Azure AD-administratör inte har aktiverat för Enterprise State Roaming, dina anslutna slutar Azure AD-konto att synkronisera inställningar. Om du är en Windows 10-användare och du loggar in med en Azure AD-identitet, startar du synkronisera windows-inställningar som administratören gör det möjligt för synkronisering av inställningar via Azure AD.
 
@@ -94,7 +94,7 @@ Administratörer kan konfigurera UE-V för att flyttas Windows-skrivbordsapp dat
 I framtiden, kan Microsoft undersöka sätt att göra UE-V som kommer att integreras i Windows och utöka UE-V för att flytta inställningar via Azure AD-molnet.
 
 ## <a name="can-i-store-synced-settings-and-data-on-premises"></a>Kan jag lagra synkroniserade inställningar och data lokalt?
-Enterprise State Roaming lagrar alla synkroniserade data i Azure-molnet. UE-V erbjuder en lokal nätverksväxling lösning.
+Enterprise State Roaming lagrar alla synkroniserade data i Microsoft-molnet. UE-V erbjuder en lokal nätverksväxling lösning.
 
 ## <a name="who-owns-the-data-thats-being-roamed"></a>Vem äger de data som är att flyttade?
 Företag egna data flyttade via Enterprise State Roaming. Data lagras i ett Azure-datacenter. Alla data krypteras både under överföring och i vila i molnet med Azure Rights Management-tjänsten från Azure Information Protection. Det här är en förbättring jämfört med Microsoft-konto-baserade inställningar sync, vilket endast vissa känsliga data, till exempel autentiseringsuppgifterna krypteras innan de lämnar enheten.

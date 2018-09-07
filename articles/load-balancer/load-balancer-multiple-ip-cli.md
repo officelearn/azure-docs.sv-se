@@ -1,6 +1,6 @@
 ---
-title: Belastningsutjämning på flera IP-konfigurationer med hjälp av Azure CLI | Microsoft Docs
-description: Lär dig hur du tilldelar flera IP-adresser till en virtuell dator med Azure CLI.
+title: Belastningsutjämning på flera IP-konfigurationer med Azure CLI | Microsoft Docs
+description: Lär dig mer om att tilldela flera IP-adresser till en virtuell dator med Azure CLI.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -15,31 +15,31 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: kumud
-ms.openlocfilehash: f9cd6405f5c3c87cdf004f8a71b9e72d58532a12
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 4080e4e3e274d64046f46d24b34959542e0ad304
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37108936"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049600"
 ---
-# <a name="load-balancing-on-multiple-ip-configurations-using-azure-cli"></a>Belastningsutjämning på flera IP-konfigurationer med hjälp av Azure CLI
+# <a name="load-balancing-on-multiple-ip-configurations-using-azure-cli"></a>Belastningsutjämning på flera IP-konfigurationer med Azure CLI
 
-Den här artikeln beskriver hur du använder Azure-belastningsutjämnaren med flera IP-adresser på sekundärt nätverksgränssnitt (NIC). I det här scenariot har vi två virtuella datorer som kör Windows med en primär och sekundär NIC. Varje sekundär nätverkskort har två IP-konfigurationer. Varje virtuell värd för både webbplatser contoso.com och fabrikam.com. Varje webbplats är bunden till en IP-konfigurationer på sekundära nätverkskortet. Vi kan använda Azure belastningsutjämnare för att visa två klientdelens IP-adresser, en för varje webbplats för att distribuera trafik till respektive IP-konfiguration för webbplatsen. Det här scenariot använder samma portnummer på både frontends som båda backend poolen IP-adresser.
+Den här artikeln beskriver hur du använder Azure Load Balancer med flera IP-adresser på ett sekundärt nätverksgränssnitt (NIC). För det här scenariot har vi två virtuella datorer som kör Windows med en primär och en sekundärt nätverkskort. Var och en av de sekundära nätverkskort har två IP-konfigurationer. Varje virtuell dator är värd för både webbplatser contoso.com och fabrikam.com. Varje webbplats är bunden till en av IP-konfigurationer på sekundärt nätverkskort. Vi kan använda Azure Load Balancer för att visa två frontend IP-adresser, en för varje webbplats, för att distribuera trafik till respektive IP-konfigurationen för webbplatsen. Det här scenariot använder samma portnummer i såväl klienter, som båda backend-pool IP-adresser.
 
 ![LB scenariot bild](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
 ## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>Steg för att belastningsutjämna på flera IP-konfigurationer
 
-För att uppnå det scenario som beskrivs i den här artikeln gör du följande:
+För att uppnå det scenario som beskrivs i den här artikeln Slutför följande steg:
 
-1. [Installera och konfigurera Azure CLI]((https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)) genom att följa stegen i den länkade artikeln och loggar till ditt Azure-konto.
+1. [Installera och konfigurera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) genom att följa stegen i den länkade artikeln och logga på Azure-kontot.
 2. [Skapa en resursgrupp](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-group) kallas *contosofabrikam* på följande sätt:
 
     ```azurecli
     az group create contosofabrikam westcentralus
     ```
 
-3. [Skapa en tillgänglighetsuppsättning](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-an-availability-set) till för de två virtuella datorerna. I det här scenariot använder du följande kommando:
+3. [Skapa en tillgänglighetsuppsättning](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-an-availability-set) till för de två virtuella datorerna. Det här scenariot använder du följande kommando:
 
     ```azurecli
     az vm availability-set create --resource-group contosofabrikam --location westcentralus --name myAvailabilitySet
@@ -58,7 +58,7 @@ För att uppnå det scenario som beskrivs i den här artikeln gör du följande:
     az network lb create --resource-group contosofabrikam --location westcentralus --name mylb
     ```
 
-6. Skapa två dynamiska offentliga IP-adresser för klientdelens IP-konfigurationer för din belastningsutjämnare:
+6. Skapa två dynamiska offentliga IP-adresser för klientdelens IP-konfigurationer för belastningsutjämnaren:
 
     ```azurecli
     az network public-ip create --resource-group contosofabrikam --location westcentralus --name PublicIp1 --domain-name-label contoso --allocation-method Dynamic
@@ -66,14 +66,14 @@ För att uppnå det scenario som beskrivs i den här artikeln gör du följande:
     az network public-ip create --resource-group contosofabrikam --location westcentralus --name PublicIp2 --domain-name-label fabrikam --allocation-method Dynamic
     ```
 
-7. Skapa två klientdelens IP-konfigurationer, *contosofe* och *fabrikamfe* respektive:
+7. Skapa två frontend-IP-konfigurationer, *contosofe* och *fabrikamfe* respektive:
 
     ```azurecli
     az network lb frontend-ip create --resource-group contosofabrikam --lb-name mylb --public-ip-name PublicIp1 --name contosofe
     az network lb frontend-ip create --resource-group contosofabrikam --lb-name mylb --public-ip-name PublicIp2 --name fabrkamfe
     ```
 
-8. Skapa din serverdel för adresspool - *contosopool* och *fabrikampool*, [avsökningen](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json) - *HTTP*, och din belastning NLB regler - *HTTPc* och *HTTPf*:
+8. Skapa din backend-adresspooler - *contosopool* och *fabrikampool*, ett [avsökningen](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json) - *HTTP*, och inläsningen belastningsutjämningsregler – *HTTPc* och *HTTPf*:
 
     ```azurecli
     az network lb address-pool create --resource-group contosofabrikam --lb-name mylb --name contosopool
@@ -85,13 +85,13 @@ För att uppnå det scenario som beskrivs i den här artikeln gör du följande:
     az network lb rule create --resource-group contosofabrikam --lb-name mylb --name HTTPf --protocol tcp --probe-name http --frontend-port 5000 --backend-port 5000 --frontend-ip-name fabrkamfe --backend-address-pool-name fabrikampool
     ```
 
-9. Kontrollera utdata till [Kontrollera din belastningsutjämnare](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json) skapades korrekt genom att köra följande kommando:
+9. Kontrollera utdata till [Kontrollera belastningsutjämnaren](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json) har skapats korrekt genom att köra följande kommando:
 
     ```azurecli
     az network lb show --resource-group contosofabrikam --name mylb
     ```
 
-10. [Skapa en offentlig IP-adress](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-public-ip-address), *myPublicIp*, och [lagringskonto](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json), *mystorageaccont1* för din första virtuella VM1 på följande sätt:
+10. [Skapa en offentlig IP-adress](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-public-ip-address), *myPublicIp*, och [lagringskonto](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json), *mystorageaccont1* för din första VM VM1 på följande sätt:
 
     ```azurecli
     az network public-ip create --resource-group contosofabrikam --location westcentralus --name myPublicIP --domain-name-label mypublicdns345 --allocation-method Dynamic
@@ -99,7 +99,7 @@ För att uppnå det scenario som beskrivs i den här artikeln gör du följande:
     az storage account create --location westcentralus --resource-group contosofabrikam --kind Storage --sku-name GRS mystorageaccount1
     ```
 
-11. [Skapa nätverksgränssnitten](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-nic) för VM1 och lägga till en andra IP-konfiguration, *VM1 ipconfig2*, och [skapa den virtuella datorn](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-vm) på följande sätt:
+11. [Skapa nätverksgränssnitt](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-nic) för VM1 och lägga till en sekundär IP-konfiguration, *VM1 ipconfig2*, och [skapa den virtuella datorn](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-vm) på följande sätt:
 
     ```azurecli
     az network nic create --resource-group contosofabrikam --location westcentralus --subnet-vnet-name myVnet --subnet-name mySubnet --name VM1Nic1 --ip-config-name NIC1-ipconfig1
@@ -108,7 +108,7 @@ För att uppnå det scenario som beskrivs i den här artikeln gör du följande:
     az vm create --resource-group contosofabrikam --name VM1 --location westcentralus --os-type linux --nic-names VM1Nic1,VM1Nic2  --vnet-name VNet1 --vnet-subnet-name Subnet1 --availability-set myAvailabilitySet --vm-size Standard_DS3_v2 --storage-account-name mystorageaccount1 --image-urn canonical:UbuntuServer:16.04.0-LTS:latest --admin-username <your username>  --admin-password <your password>
     ```
 
-12. Upprepa steg 10-11 för den virtuella datorn med andra:
+12. Upprepa steg 10 – 11 för den andra virtuella datorn:
 
     ```azurecli
     az network public-ip create --resource-group contosofabrikam --location westcentralus --name myPublicIP2 --domain-name-label mypublicdns785 --allocation-method Dynamic
@@ -119,8 +119,8 @@ För att uppnå det scenario som beskrivs i den här artikeln gör du följande:
     az vm create --resource-group contosofabrikam --name VM2 --location westcentralus --os-type linux --nic-names VM2Nic1,VM2Nic2 --vnet-name VNet1 --vnet-subnet-name Subnet1 --availability-set myAvailabilitySet --vm-size Standard_DS3_v2 --storage-account-name mystorageaccount2 --image-urn canonical:UbuntuServer:16.04.0-LTS:latest --admin-username <your username>  --admin-password <your password>
     ```
 
-13. Slutligen måste du konfigurera DNS-resursposter för att peka till respektive klientdelens IP-adressen för belastningsutjämnaren. Du kan vara värd för dina domäner i Azure DNS. Mer information om hur du använder Azure DNS med belastningsutjämnaren finns [med hjälp av Azure DNS med andra Azure-tjänster](../dns/dns-for-azure-services.md).
+13. Slutligen måste du konfigurera DNS-resursposter så att den pekar till respektive frontend IP-adressen för belastningsutjämnaren. Du kan vara värd för dina domäner i Azure DNS. Läs mer om hur du använder Azure DNS med belastningsutjämnare, [med hjälp av Azure DNS med andra Azure-tjänster](../dns/dns-for-azure-services.md).
 
 ## <a name="next-steps"></a>Nästa steg
-- Mer information om hur du kombinerar belastningsutjämning för tjänster i Azure i [med belastningsutjämning tjänster i Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Lär dig hur du kan använda olika typer av loggar i Azure för att hantera och felsöka belastningsutjämnare i [logga analytics för Azure belastningsutjämnare](../load-balancer/load-balancer-monitor-log.md).
+- Mer information om hur du kombinerar belastningsutjämning i Azure i [med tjänster för belastningsutjämning i Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
+- Lär dig hur du kan använda olika typer av loggar i Azure för att hantera och felsöka belastningsutjämnare i [logganalys för Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

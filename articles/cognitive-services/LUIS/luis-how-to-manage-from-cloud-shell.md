@@ -1,5 +1,6 @@
 ---
-title: Visa LUIS användning från Azure Cloud Shell | Microsoft Docs
+title: Azure Cloud Shell-användningsdata för LUIS
+titleSuffix: Azure Cognitive Services
 description: Lär dig mer om att hämta information om användningen i Azure Cloud Shell för LUIS.
 services: cognitive-services
 author: diberry
@@ -7,16 +8,16 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 09/06/2017
 ms.author: diberry
-ms.openlocfilehash: f9d3a489328263bd300d60935bfde2f0dfc0245c
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 95bd1e83b4a0ed08850862ec4f4addb3353a9481
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224049"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052973"
 ---
-# <a name="manage-luis-service-from-azure-cloud-shell"></a>Hantera LUIS-tjänsten från Azure Cloud Shell
+# <a name="usage-data-for-luis-service-from-azure-cloud-shell"></a>Användningsdata för LUIS-tjänsten från Azure Cloud Shell
 Azure-portalen kan du använda PowerShell-cmdlets för att arbeta med LUIS-resurser. 
 
 Dessa cmdletar kan du [skapa](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/new-azurermcognitiveservicesaccount?view=azurermps-6.0.0) en LUIS-prenumeration, hämta information om prenumerationen, inklusive [användning](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/get-azurermcognitiveservicesaccountusage?view=azurermps-6.0.0), och [ta bort](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/remove-azurermcognitiveservicesaccount?view=azurermps-6.0.0) prenumerationen. 

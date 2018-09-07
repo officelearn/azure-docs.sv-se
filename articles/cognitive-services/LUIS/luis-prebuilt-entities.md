@@ -1,24 +1,25 @@
 ---
-title: Färdiga entiteter i LUIS | Microsoft Docs
-description: Den här artikeln innehåller en lista över de fördefinierade entiteter som ingår i Language Understanding Intelligent Service (LUIS).
+title: Fördefinierade entiteter för Språkförståelse (LUIS)
+titleSuffix: Azure Cognitive Services
+description: LUIS innehåller en uppsättning fördefinierade entiteter för att identifiera vanliga typer av information som datum, tider, nummer, mätningar och valuta. Fördefinierade entitet support varierar beroende på kultur LUIS-appen.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 95ff173a843e7ad18ec396a1130b2e2b4035f656
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: f62c078a023d9ee7ca535cb5e02623df7a568e8a
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248245"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052881"
 ---
-# <a name="prebuilt-entities"></a>Fördefinierade entiteter
+# <a name="prebuilt-entities-to-recognize-common-data-types"></a>Färdiga entiteter för att identifiera vanliga datatyper
 
-LUIS innehåller en uppsättning fördefinierade entiteter för att identifiera vanliga typer av information som datum, tider, nummer, mätningar och valuta. Fördefinierade entitet support varierar beroende på kultur LUIS-appen. En fullständig lista över de fördefinierade entiteter som LUIS stöder, bland annat stöd av kulturen, finns i den [fördefinierade Entitetsreferens](./luis-reference-prebuilt-entities.md).
+LUIS innehåller en uppsättning fördefinierade entiteter för att identifiera vanliga typer av information som datum, tider, nummer, mätning av faktisk användning och valuta. Fördefinierade entitet support varierar beroende på kultur LUIS-appen. En fullständig lista över de fördefinierade entiteter som LUIS stöder, bland annat stöd av kulturen, finns i den [fördefinierade Entitetsreferens](./luis-reference-prebuilt-entities.md).
 
 > [!NOTE]
 > **Builtin.datetime** är inaktuell. Ersätter [ **builtin.datetimeV2**](luis-reference-prebuilt-datetimev2.md), som tillhandahåller igenkänning av datum- och tidsintervall, samt bättre tolkning av tvetydiga datum och tider.
@@ -28,7 +29,6 @@ LUIS innehåller en uppsättning fördefinierade entiteter för att identifiera 
 1. Öppna din app genom att klicka på namnet på **Mina appar** , och klicka sedan på **entiteter** till vänster. 
 2. På den **entiteter** klickar du på **hantera förskapade entiteter**.
 
-    ![Entiteter sidan – Hantera fördefinierade entiteter](./media/luis-use-prebuilt-entity/add-prebuilt-entity-button.png)
 3. I **Lägg till fördefinierade entiteter** dialogrutan klickar du på den fördefinierade entiteten som du vill lägga till (till exempel ”datetimeV2”). Klicka sedan på **Spara**.
 
     ![Fördefinierade entitet dialogrutan Lägg till](./media/luis-use-prebuilt-entity/add-prebuilt-entity-dialog.png)
@@ -42,7 +42,7 @@ När en entitet som är färdiga ingår i ditt program, med dess förutsägelser
 
     ![uttryck i webbläsare som innehåller ett antal entitet](./media/luis-use-prebuilt-entity/browser-query.png)
 
-LUIS kan smart känna igen tal som inte ligger i icke-standardläge form. Prova att använda olika numeriska uttryck i din yttranden och se vad LUIS returnerar.
+LUIS kan smart känna igen tal som inte ligger i inte är standard form. Prova att använda olika numeriska uttryck i din yttranden och se vad LUIS returnerar.
 
 I följande exempel visar ett JSON-svar från LUIS, som innehåller av lösningen på värdet 24, för uttryck ”24”.
 
@@ -73,7 +73,7 @@ Den **datetimeV2** fördefinierade entitet identifierar datum, tider, datuminter
 2. Klicka på slutpunkts-URL i den **publicera appen** kan du öppna LUIS-slutpunkten i en webbläsare. 
 3. Lägg till ett uttryck till den URL som innehåller ett datumintervall. Du kan till exempel skriva i `book a flight tomorrow`, och se som identifierar LUIS `tomorrow` som en `builtin.datetimeV2.date` entitet, och identifierar morgondagens datum som värde i den `resolution` fält. 
 
-I följande exempel visas hur JSON-svar från LUIS kan se ut om dagens datum och med 31 oktober-2017.
+I följande exempel visas hur JSON-svar från LUIS kan se ut om dagens datum är den 31 oktober 2017.
 
 ```json
 {

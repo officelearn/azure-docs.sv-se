@@ -2,7 +2,7 @@
 title: Vad är en skydd vid baslinjen i Azure Active Directory villkorlig åtkomst? -Förhandsgranskning | Microsoft Docs
 description: Lär dig hur skydd vid baslinjen säkerställer att du behöver minst baslinje-säkerhetsnivå aktiverad i din Azure Active Directory-miljö.
 services: active-directory
-keywords: villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
+keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 856673d2a5465f9646172a1436ed75c0d73692cb
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 57fef112186834ead76f6223e32cb358e4d6d053
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003180"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024081"
 ---
 # <a name="what-is-baseline-protection-preview"></a>Vad är skydd vid baslinjen (förhandsversion)?  
 
@@ -51,7 +51,7 @@ Användare med åtkomst till behöriga konton har obegränsad åtkomst till din 
 
 ![Azure Active Directory](./media/baseline-protection/01.png)
 
-Den här baslinjeprincip ger dig möjlighet att exkludera användare och grupper. Du kanske vill utesluta ett * [nödfall åtkomst administratörskonto](../users-groups-roles/directory-emergency-access.md) * att se till att du inte har låsts ute från klienten.
+Den här baslinjeprincip ger dig möjlighet att exkludera användare och grupper. Du kanske vill utesluta ett *[nödfall åtkomst administratörskonto](../users-groups-roles/directory-emergency-access.md)* att se till att du inte har låsts ute från klienten.
 
 
 ## <a name="enable-a-baseline-policy"></a>Aktivera en baslinjeprincip 
@@ -86,7 +86,7 @@ Medan hantera principer för villkorlig åtkomst kräver en Azure AD Premium-lic
 
 Katalogroller som ingår i baslinjeprincip är de mest Privilegierade rollerna för Azure AD. 
 
-Om du har Privilegierade konton som används i dina skript, bör du ersätta dem med [hanterad tjänstidentitet (MSI)](../managed-service-identity/overview.md) eller [tjänsthuvudnamn med certifikat](../../azure-resource-manager/resource-group-authenticate-service-principal.md). Du kan utesluta specifika användarkonton från baslinje-principen som en tillfällig lösning. 
+Om du har Privilegierade konton som används i dina skript, bör du ersätta dem med [hanterad tjänstidentitet (MSI)](../managed-identities-azure-resources/overview.md) eller [tjänsthuvudnamn med certifikat](../../azure-resource-manager/resource-group-authenticate-service-principal.md). Du kan utesluta specifika användarkonton från baslinje-principen som en tillfällig lösning. 
 
 Grundläggande principer gäller för äldre autentiseringsflöden som POP, IMAP, äldre Office-klientversionen. 
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: e87b791dda03521def32ca7473336d7d37644773
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: c1effeba7e4b0750d5af3a5a82b755704379af68
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666027"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021854"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Skapa ett importjobb för tjänsten Azure Import/Export
 
@@ -97,7 +97,7 @@ Du måste skicka dina enheter till den adress som du hämtade i föregående ste
 >  Du måste skicka dina enheter via en stöds operatör-tjänst som tillhandahåller en spårningsnummer för ditt paket.
 
 ## <a name="updating-the-import-job-with-your-shipping-information"></a>Uppdaterar importjobbet med din fraktinformation
-När du har din spårningsnummer kan anropa den [uppdatera jobbegenskaper](/api/storageimportexport/jobs#Jobs_Update) uppdateringsåtgärd endash operatör namn, spårningsnummer för jobbet och transportföretagets kontonummer för returfrakt. Du kan du ange hur många enheter och den leverans.
+När du har din spårningsnummer kan anropa den [uppdatera jobbegenskaper](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Update) uppdateringsåtgärd endash operatör namn, spårningsnummer för jobbet och transportföretagets kontonummer för returfrakt. Du kan du ange hur många enheter och den leverans.
 
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 

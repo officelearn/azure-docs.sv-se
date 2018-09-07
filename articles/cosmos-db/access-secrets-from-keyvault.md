@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: rafats
-ms.openlocfilehash: 11aac0ab4476494f74453ca64a1b77964197adaa
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: b090c1593b49bec4f51fea8d498860e8af8b2f4b
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42748034"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053092"
 ---
 # <a name="use-key-vault-to-store-and-access-azure-cosmos-db-keys"></a>Använd Key Vault för att lagra och komma åt Azure Cosmos DB-nycklar
 
@@ -56,7 +56,7 @@ Följande steg krävs för att lagra och läsa åtkomstnycklar för Azure Cosmos
 
 ## <a name="create-an-azure-web-application"></a>Skapa en Azure-webbprogram
 
-1. Skapa en Azure-webbprogram eller du kan ladda ned appen från den [GitHub-lagringsplatsen](https://github.com/rsarosh/CosmosDB-KeyVault). Det är ett enkelt MVC-program.  
+1. Skapa en Azure-webbprogram eller du kan ladda ned appen från den [GitHub-lagringsplatsen](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/Demo/keyvaultdemo). Det är ett enkelt MVC-program.  
 
 2. Packa upp programmet som laddats ned och öppna den **HomeController.cs** fil. Uppdatera hemliga-ID i följande rad:
 
@@ -87,11 +87,9 @@ Om du kör programmet, kan du nu läsa hemligheten från Key Vault.
 
 ![Appen distribueras med hemlighet](./media/access-secrets-from-keyvault/app-deployed-with-access.png)
  
-På samma sätt kan du lägga till en användare för att få åtkomst till key Vault. Du måste lägga till dig själv till Key Vault genom att klicka på ”åtkomstprinciper” och sedan ge alla behörigheter som du behöver för att köra programmet från Visual studio. När det här programmet körs på skrivbordet, tar din identitet.
+På samma sätt kan du lägga till en användare för att få åtkomst till key Vault. Du måste lägga till dig själv till Key Vault genom att välja **åtkomstprinciper** och sedan bevilja alla behörigheter som du behöver att köra programmet från Visual studio. När det här programmet körs på skrivbordet, tar din identitet.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Konfigurera en brandvägg för Azure Cosmos DB finns i [stöd i brandväggen](firewall-support.md) artikeln.
 * För att konfigurera tjänstslutpunkt för virtuellt nätverk, se [säker åtkomst med hjälp av VNet-tjänstslutpunkt](vnet-service-endpoint.md) artikeln.
-
-

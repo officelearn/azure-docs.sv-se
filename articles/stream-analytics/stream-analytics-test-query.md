@@ -10,12 +10,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: d699d69362b2d28c205aab14a4bfb26570a68a4e
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 63f9b98bcd70378ae02769298f0ffcd796378612
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42054780"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027273"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>Testa en Stream Analytics-fråga med exempeldata
 
@@ -29,7 +29,7 @@ Du kan överföra data och test exempelfrågor i Azure portal utan att starta el
 
 3. På Stream Analytics-jobbet kan under den **Jobbtopologi** väljer **fråga** att öppna Query editor-fönstret. 
 
-4. Testa din fråga med exempel på inmatade data genom att högerklicka på någon av dina indata.  Välj sedan **överför exempeldata från filen**. Data måste serialiseras i JSON, CSV eller AVRO.
+4. Testa din fråga med exempel på inmatade data genom att högerklicka på någon av dina indata.  Välj sedan **överför exempeldata från filen**. Data måste serialiseras i JSON, CSV eller AVRO. Exempelindata måste vara kodad i UTF-8 och inte komprimeras. Endast kommatecken (,) avgränsare stöds för att testa CSV indata på portalen.
 
     ![test för Stream analytics fråga frågeredigeraren](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 

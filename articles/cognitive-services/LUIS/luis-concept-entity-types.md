@@ -1,5 +1,6 @@
 ---
-title: Förstå entitetstyper i LUIS-appar i Azure | Microsoft Docs
+title: Entitetstyper i LUIS-appar – Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Lägg till entiteter (viktiga data i ditt programs domän) i appar för Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
 author: diberry
@@ -9,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: diberry
-ms.openlocfilehash: b0b5852a223a77e33a288bb8061c1ce374018ec1
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: d6d68842b5e519201f7990a9c361710115de7fea
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282287"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022958"
 ---
 # <a name="entities-in-luis"></a>Entiteter i LUIS
 

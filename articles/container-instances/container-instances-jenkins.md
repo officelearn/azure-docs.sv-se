@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: marsma
-ms.openlocfilehash: 6419753a48e1356b2d94592fca72cee1f848dcdb
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 9108d9e1b230fe2267f0195bd2c33c5a4c57d956
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390661"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021948"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Använd Azure Container Instances som en Jenkins skapa agenten
 
@@ -48,7 +48,7 @@ Mer information om Azure Container Instances finns [om Azure Container Instances
 
    ![Ytterligare inställningar för distributioner av Jenkins-portalen](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. Tjänstens huvudnamn integration, Välj **Auto(MSI)** ha [Azure hanterad tjänstidentitet] [ managed-service-identity] automatiskt skapa en autentiseringsidentitet för Jenkins instans. Välj **manuell** att ge dina egna autentiseringsuppgifter för tjänstens huvudnamn.
+4. Tjänstens huvudnamn integration, Välj **Auto(MSI)** ha [Azure Managed Service Identity] [hanterade-identiteter-azure-resurser] automatiskt skapa en autentiseringsidentitet för Jenkins-instansen. Välj **manuell** att ge dina egna autentiseringsuppgifter för tjänstens huvudnamn.
 
 5. Molnet agenter konfigurera en molnbaserad plattform för Jenkins build jobb. För den här artikeln väljer **ACI**. Varje Jenkins-byggjobb körs i en behållarinstans med ACI-molnagent.
 
@@ -128,9 +128,9 @@ Om du vill testa build-jobb och noterar Azure Container Instances som build-plat
 
    ![Resursgrupp med behållarinstanser som har tagits bort](./media/container-instances-jenkins/jenkins-aci-none.png)
 
-## <a name="troubleshooting-the-jenkins-plugin"></a>Felsökning av plugin-programmet Jenkins
+## <a name="troubleshooting-the-jenkins-plugin"></a>Felsökning av Jenkins-plugin-programmet
 
-Om du stöter på buggar med Jenkins plugin-program kan du rapportera problemet i den [Jenkins JIRA](https://issues.jenkins-ci.org/) för en viss komponent.
+Om du stöter på buggar med Jenkins-plugin-programmet kan du rapportera problemet i [Jenkins JIRA](https://issues.jenkins-ci.org/) för en viss komponent.
 
 ## <a name="next-steps"></a>Nästa steg
 

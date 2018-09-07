@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 09/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 730b11fb5038e5d6c4f9b00fbc4eb07d673757f9
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: ecf56f3172ebeab54757d7cbd164b92ca1470ce5
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43840997"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051178"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services-utskalning
 
@@ -27,7 +27,7 @@ Med skalbar, kan du skapa en frågepool med upp till sju ytterligare repliken re
 
 Oavsett hur många frågerepliker som du har i en frågepool fördelas bearbetningsbelastningar inte mellan frågerepliker. En enskild server fungerar som bearbetningsservern. Frågerepliker fungerar bara frågor mot modeller som synkroniseras mellan varje fråga replik i frågepoolen. 
 
-Vid utskalning, läggs nya frågerepliker till frågepoolen inkrementellt. Det kan ta upp till fem minuter för nya fråga repliken resurser som ska ingå i frågepoolen. är du redo att ta emot klientanslutningar och frågor. När alla nya frågerepliker är igång och körs, att nya klientanslutningar finns belastningsutjämnas mellan alla poolresurser för frågan. Befintliga klientanslutningar ändras inte från de för närvarande är anslutna till resursen.  När skalning i avslutas de befintliga klientanslutningar i en poolresurs för frågan som tas bort från frågepoolen. De återansluts till en återstående fråga poolresurs när skalan i åtgärden har slutförts.
+Vid utskalning, läggs nya frågerepliker till frågepoolen inkrementellt. Det kan ta upp till fem minuter för nya fråga repliken resurser som ska ingå i frågepoolen. är du redo att ta emot klientanslutningar och frågor. När alla nya frågerepliker är igång och körs, att nya klientanslutningar finns belastningsutjämnas mellan alla poolresurser för frågan. Befintliga klientanslutningar ändras inte från de för närvarande är anslutna till resursen.  När skalning i avslutas de befintliga klientanslutningar i en poolresurs för frågan som tas bort från frågepoolen. De återansluts till en återstående fråga poolresurs när skalan i åtgärden har slutförts, vilket kan ta upp till fem minuter.
 
 Vid bearbetning av modeller, när bearbetningen är avslutad, måste du utföra en synkronisering mellan bearbetningsservern och fråga replikerna. Det är viktigt att konfigurera en synkroniseringsåtgärd vid slutförande av bearbetningsåtgärder vid automatisering av bearbetningsåtgärder. Synkronisering kan utföras manuellt i portalen eller med hjälp av PowerShell eller REST API. 
 

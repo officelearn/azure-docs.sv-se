@@ -1,6 +1,6 @@
 ---
-title: Ändra inställningar för FabricTransport i Azure mikrotjänster | Microsoft Docs
-description: Lär dig mer om hur du konfigurerar Azure Service Fabric aktören kommunikationsinställningar.
+title: Ändra FabricTransport i Azure Service Fabric actors | Microsoft Docs
+description: Lär dig mer om hur du konfigurerar inställningar för kommunikation med Azure Service Fabric-aktör.
 services: Service-Fabric
 documentationcenter: .net
 author: suchiagicha
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: f196859500d5de883a4de3f21b803c8f83e2f0b2
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: aa4339fa1fe4b21369004e748492ee71cbe6d616
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021420"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052147"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Konfigurera inställningar för FabricTransport för Reliable Actors
 
-Här följer de inställningar som du kan konfigurera:
+Här är de inställningar som du kan konfigurera:
 - C#: [FabricTransportRemotingSettings](
 https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 - Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 
 Du kan ändra standardkonfigurationen av FabricTransport på följande sätt.
 
-## <a name="assembly-attribute"></a>Sammansättningsattributet
+## <a name="assembly-attribute"></a>Sammansättningen attribut
 
-Den [FabricTransportActorRemotingProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) måste attributet som ska tillämpas på aktören klienten och aktören service sammansättningar.
+Den [FabricTransportActorRemotingProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) attributet måste tillämpas på aktören klienten och aktören service sammansättningar.
 
 I följande exempel visas hur du ändrar standardvärdet för FabricTransport OperationTimeout inställningar:
 
@@ -41,26 +41,26 @@ I följande exempel visas hur du ändrar standardvärdet för FabricTransport Op
     [assembly:FabricTransportActorRemotingProvider(OperationTimeoutInSeconds = 600)]
    ```
 
-   Andra exempel ändrar standard värden för FabricTransport MaxMessageSize och OperationTimeoutInSeconds.
+   Andra exempel ändras standard värden för FabricTransport MaxMessageSize och OperationTimeoutInSeconds.
 
   ```csharp
     using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
     [assembly:FabricTransportActorRemotingProvider(OperationTimeoutInSeconds = 600,MaxMessageSize = 134217728)]
    ```
 
-## <a name="config-package"></a>Konfigurationspaketet
+## <a name="config-package"></a>Konfigurationspaket
 
-Du kan använda en [konfigurationspaketet](service-fabric-application-and-service-manifests.md) att ändra standardkonfigurationen.
+Du kan använda en [konfigurationspaket](service-fabric-application-and-service-manifests.md) att ändra standardkonfigurationen.
 
 > [!IMPORTANT]
-> Certifikaten måste ha PEM-formaterade för på Linux-noder. Läs mer om att hitta och konfigurera certifikat för Linux i [konfigurera certifikat på Linux](./service-fabric-configure-certificates-linux.md). 
+> På Linux-noder vara certifikat PEM-formaterade. Läs mer om att hitta och konfigurera certifikat för Linux i [konfigurerar du certifikat i Linux](./service-fabric-configure-certificates-linux.md). 
 > 
 
-### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>Konfigurera FabricTransport inställningar för tjänsten aktören
+### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>Konfigurera inställningar för FabricTransport för actor-tjänst
 
-Lägg till ett TransportSettings avsnitt i filen settings.xml.
+Lägg till en TransportSettings-avsnitt i filen settings.xml.
 
-Som standard söker aktören koden för SectionName som ”&lt;ActorName&gt;TransportSettings”. Om som hittas söker efter SectionName som ”TransportSettings”.
+Som standard aktören koden ser ut för SectionName som ”&lt;ActorName&gt;TransportSettings”. Om det inte hittas, kontrolleras för SectionName som ”TransportSettings”.
 
   ```xml
   <Section Name="MyActorServiceTransportSettings">
@@ -77,9 +77,9 @@ Som standard söker aktören koden för SectionName som ”&lt;ActorName&gt;Tran
    </Section>
   ```
 
-### <a name="configure-fabrictransport-settings-for-the-actor-client-assembly"></a>Konfigurera inställningar för FabricTransport för klientsammansättningen aktören
+### <a name="configure-fabrictransport-settings-for-the-actor-client-assembly"></a>Konfigurera inställningar för FabricTransport för klientsammansättningen aktör
 
-Om klienten inte körs som en del av en tjänst, kan du skapa en ”&lt;klienten Exe-namn&gt;. settings.xml” filen på samma plats som klienten .exe-fil. Lägg sedan till ett TransportSettings avsnitt i filen. SectionName ska vara ”TransportSettings”.
+Om klienten inte körs som en del av en tjänst, kan du skapa en ”&lt;Exe klientnamn&gt;. settings.xml” filen på samma plats som klienten .exe-filen. Lägg sedan till en TransportSettings-avsnitt i filen. SectionName ska vara ”TransportSettings”.
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>
@@ -100,7 +100,7 @@ Om klienten inte körs som en del av en tjänst, kan du skapa en ”&lt;klienten
    ```
 
   * Konfigurera FabricTransport inställningar för säker aktören Tjänstklienten med sekundärt certifikat.
-  Sekundär certifikatinformationen kan läggas till genom att lägga till parametern CertificateFindValuebySecondary.
+  Sekundärt certifikatinformation kan läggas till genom att lägga till parametern CertificateFindValuebySecondary.
   Nedan visas i exemplet för lyssnare TransportSettings.
 
     ```xml
@@ -129,7 +129,7 @@ Om klienten inte körs som en del av en tjänst, kan du skapa en ”&lt;klienten
     <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
     </Section>
      ```
-    * Konfigurera inställningar för FabricTransport för att skydda aktören Service eller-klienten med hjälp av ämnesnamnet.
+    * Konfigurera FabricTransport inställningar för att skydda aktören Service/klient som använder namn på certifikatmottagare.
     Användaren måste ange findType som FindBySubjectName, lägga till CertificateIssuerThumbprints och CertificateRemoteCommonNames värden.
   Nedan visas i exemplet för lyssnare TransportSettings.
 

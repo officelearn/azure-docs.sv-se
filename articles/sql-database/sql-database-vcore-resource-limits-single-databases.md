@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/30/2018
+ms.date: 09/05/2018
 ms.author: carlrab
-ms.openlocfilehash: 350e472a4c17ed878d8506b4093bcd44ad60f469
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: c1ea223bf00dea32fb150cf141be7b5ea3239215
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288029"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055428"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL Database vCore-baserade köpa modellen gränser för en enskild databas
 
@@ -44,7 +44,7 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 |I/o-svarstid (ungefärlig)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|
 |Maximal datastorlek (GB)|1024|1024|1536|3072|4096|4096|
 |Maximal storlek (GB)|307|307|461|922|1229|1229|
-|TempDB-storlek (MB)|32|64|128|256|384|384|
+|TempDB-storlek (GB)|32|64|128|256|384|384|
 |Mål-IOPS (64 KB)|500|1000|2000|4000|7000|7000|
 |Maximalt antal samtidiga arbetare (begäranden)|200|400|800|1600|3200|4800|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
@@ -66,7 +66,7 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 |I/o-svarstid (ungefärlig)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|
 |Maximal datastorlek (GB)|1024|1024|1536|3072|4096|4096|4096|4096|
 |Maximal storlek (GB)|307|307|461|614|1229|1229|1229|1229|
-|TempDB-storlek (MB)|64|128|256|384|384|384|384|384|
+|TempDB-storlek (GB)|64|128|256|384|384|384|384|384|
 |Mål-IOPS (64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
 |Maximalt antal samtidiga arbetare (begäranden)|200|400|800|1600|2400|3200|4000|8000|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|30000|
@@ -89,7 +89,7 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
 |Maximal datastorlek (GB)|1024|1024|1024|1024|1024|1024|
 |Maximal storlek (GB)|307|307|307|307|307|307|
-|TempDB-storlek (MB)|32|64|128|256|384|384|
+|TempDB-storlek (GB)|32|64|128|256|384|384|
 |Mål-IOPS (64 KB)|5000|10000|20000|40000|80000|120000|
 |I/o-svarstid (ungefärlig)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|
 |Maximalt antal samtidiga arbetare (begäranden)|200|400|800|1600|3200|4800|
@@ -112,7 +112,7 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 |I/o-svarstid (ungefärlig)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|
 |Maximal datastorlek (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
 |Maximal storlek (GB)|307|307|307|307|614|1229|1229|1229|
-|TempDB-storlek (MB)|64|128|256|384|384|384|384|384|
+|TempDB-storlek (GB)|64|128|256|384|384|384|384|384|
 |Mål-IOPS (64 KB)|5000|10000|20000|40000|60000|80000|100000|200000
 |Maximalt antal samtidiga arbetare (begäranden)|200|400|800|1600|2400|3200|4000|8000|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|30000|
@@ -125,4 +125,5 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 ## <a name="next-steps"></a>Nästa steg
 
 - Se [SQL Database vanliga frågor och svar](sql-database-faq.md) svar på vanliga frågor och svar.
+- Se [översikt över Azure SQL Database-resursgränser](sql-database-resource-limits.md) information om begränsningar på de server och prenumeration.
 - Information om allmänna Azure-begränsningar finns i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md).

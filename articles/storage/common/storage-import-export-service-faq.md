@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/22/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 6a2d067625e96aefdcb0197e1abb13b0c41fbe7f
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: edaff86531a9c40064d25a046bbbb70f48b75c84
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521446"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027137"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Tjänsten Azure Import/Export: vanliga frågor och svar 
 Här följer frågor och svar som du kan ha när du använder Azure Import/Export-tjänsten för att överföra data till Azure storage. Frågor och svar är ordnade i följande kategorier:
@@ -119,7 +119,7 @@ När du förbereder en hårddisk för ett importjobb anges målet av DstBlobPath
 Beror. När du förbereder enheten ska du ange om målfilerna ska skrivas över eller ignoreras med hjälp av fältet i datauppsättningen CSV-filen heter Disposition: < Byt namn på | Nej skriva över | Skriv över >. Som standard tjänsten byter namn på de nya filerna i stället skriva över befintliga blobar eller filer.
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>Är verktyget WAImportExport kompatibel med 32-bitars operativsystem?
-Nej. Verktyget WAImportExport är endast kompatibel med 64-bitars Windows-operativsystem. En fullständig lista över operativsystem som stöds går du till [Supported Operating Systems](). 
+Nej. Verktyget WAImportExport är endast kompatibel med 64-bitars Windows-operativsystem. En fullständig lista över operativsystem som stöds går du till [Supported Operating Systems](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements). 
 
 
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Vad är den högsta Block Blob och Sidblobens storlek som stöds av Azure Import/Export?

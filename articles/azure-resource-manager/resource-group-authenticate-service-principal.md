@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: df1cf093a154b4f7adf59fae93f90fbc70459788
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 57cfa44a0eb114503b89733b2c3e309b65d5b7e5
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054753"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023332"
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten med certifikat
 
@@ -29,7 +29,7 @@ När du har en app eller ett skript som behöver åtkomst till resurser, kan du 
 * Använda ett certifikat för autentisering när du kör oövervakade skript.
 
 > [!IMPORTANT]
-> Överväg att använda Azure AD hanterad tjänstidentitet som tillämpningsprogrammets identitet i stället för att skapa ett huvudnamn för tjänsten. Azure AD MSI är en funktion för förhandsversion av Azure Active Directory som gör det enklare att skapa en identitet för koden. Om din kod körs på en tjänst som stöder Azure AD MSI och har åtkomst till resurser som stöder Azure Active Directory-autentisering, är Azure AD MSI ett bättre alternativ för dig. Läs mer om Azure AD MSI, inklusive tjänster som stöds för närvarande under avsnittet om [hanterade tjänstidentiteter för Azure-resurser](../active-directory/managed-service-identity/overview.md).
+> Överväg att använda Azure AD hanterad tjänstidentitet som tillämpningsprogrammets identitet i stället för att skapa ett huvudnamn för tjänsten. Azure AD MSI är en funktion för förhandsversion av Azure Active Directory som gör det enklare att skapa en identitet för koden. Om din kod körs på en tjänst som stöder Azure AD MSI och har åtkomst till resurser som stöder Azure Active Directory-autentisering, är Azure AD MSI ett bättre alternativ för dig. Läs mer om Azure AD MSI, inklusive tjänster som stöds för närvarande under avsnittet om [hanterade tjänstidentiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md).
 
 Den här artikeln visar hur du skapar ett huvudnamn för tjänsten som autentiserar med ett certifikat. Om du vill konfigurera ett huvudnamn för tjänsten med lösenord, se [Skapa tjänstens huvudnamn för Azure med Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 

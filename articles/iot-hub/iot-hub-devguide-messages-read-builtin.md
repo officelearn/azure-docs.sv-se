@@ -8,14 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 912bb0dd3e48e53134ad848119ae7428b380b88d
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 767c91e4926e553b63b8331ac99edcd7823d2c13
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39124944"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055023"
 ---
-# <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Läsa meddelanden från enheten till molnet från den inbyggda slutpunkten
+# <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Läsa meddelanden från enhet till moln från den inbyggda slutpunkten
 
 Som standard dirigeras meddelanden till den inbyggda tjänst-riktade slutpunkten (**meddelanden/händelser**) som är kompatibel med [Händelsehubbar][lnk-event-hubs]. Den här slutpunkten är för närvarande endast synliga använder den [AMQP] [ lnk-amqp] -protokollet på port 5671. En IoT hub exponerar följande egenskaper så att du kan styra den inbyggda meddelanden för Event Hub-kompatibla slutpunkten **meddelanden/händelser**.
 
@@ -80,5 +80,5 @@ Om du vill dirigera din enhet till moln-meddelanden till anpassade slutpunkter f
 [lnk-d2c-tutorial]: tutorial-routing.md
 [lnk-event-hub-partitions]: ../event-hubs/event-hubs-features.md#partitions
 [lnk-servicebus-sdk]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
-[lnk-eventprocessorhost]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
+[lnk-eventprocessorhost]: https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph
 [lnk-amqp]: https://www.amqp.org/

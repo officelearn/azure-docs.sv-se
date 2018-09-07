@@ -1,3 +1,21 @@
+---
+title: ta med fil
+description: ta med fil
+services: site-recovery
+author: rayne-wiselman
+manager: carmonm
+ms.service: site-recovery
+ms.topic: include
+ms.date: 09/06/2018
+ms.author: raynew
+ms.custom: include file
+ms.openlocfilehash: 2ca4916d48da6fe8a2c061056a1ea0fed9a78bb6
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44058585"
+---
 1. Kör det enhetliga installationsprogrammet.
 2. I **innan du börjar**väljer **installera konfigurationsservern och processervern**.
 
@@ -21,10 +39,7 @@
 7. I **MySQL Configuration** (MySQL-konfiguration) skapar du autentiseringsuppgifter för att logga in på den MySQL-serverinstans som är installerad.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz6.png)
-8. I **Miljöinformation** väljer du om du ska replikera virtuella VMwares-datorer. Om du kan sedan kontrollerar installationen att PowerCLI 6.0 är installerat.
-
-    ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz7.png)
-
+8. I **miljöinformation**, Välj Nej om du replikerar virtuella datorer i Azure Stack eller fysiska servrar. 
 9. I **Installationsplats** väljer du om du vill installera binärfilerna och lagra cachen. Enheten du väljer måste ha minst 5 GB tillgängligt utrymme, men vi rekommenderar en cacheenhet med 600 GB eller mer ledigt utrymme.
 
     ![Installationsplats](./media/site-recovery-add-configuration-server/combined-wiz8.png)

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: sujayt
-ms.openlocfilehash: 32bdf1080aa6e7c5884747eeecad3f42c7334c3a
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: c3852f4055b5afe84aaa233c50f50732f98537a2
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444834"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022900"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Stöd matrix för replikering från en Azure-region till en annan
 
@@ -26,7 +26,7 @@ Den här artikeln sammanfattar konfigurationer som stöds och komponenter när d
 
 **Användargränssnitt** |  **Stöds / stöds inte**
 --- | ---
-**Azure-portalen** | Stöds
+**Azure Portal** | Stöds
 **PowerShell** | [Replikering från Azure till Azure med PowerShell](azure-to-azure-powershell.md)
 **REST API** | Stöds för närvarande inte
 **CLI** | Stöds för närvarande inte
@@ -38,8 +38,8 @@ Den här artikeln sammanfattar konfigurationer som stöds och komponenter när d
 --- | --- | ---
 **Flytta valv mellan resursgrupper** | Stöds inte<br/><br/> Du kan inte flytta ett Recovery services-valv mellan resursgrupper.
 **Flytta resurser för beräkning/lagringsnätverk mellan resursgrupper** | Stöds ej.<br/><br/> Om du flyttar en virtuell dator eller tillhörande komponenter, till exempel lagringsnätverk/när den replikerar, måste du inaktivera replikering och återaktivera replikering för den virtuella datorn.
-**Replikera virtuella Azure-datorer från en prenumeration till en annan för katastrofåterställning** | Stöd för inom samma Azure Active Directory-klientorganisation.
-**Migrera virtuella datorer mellan prenumerationer** | Stöds ej.
+**Replikera virtuella Azure-datorer från en prenumeration till en annan för katastrofåterställning** | Stöd för inom samma Azure Active Directory-klient för ”Resource manager-distributionsmodellen” virtuella datorer. För virtuella datorer i klassiska distributionsmodellen stöds inte.
+**Migrera virtuella datorer mellan regioner i stöds geografiska kluster (inom och mellan prenumerationer)** | Stöd för inom samma Azure Active Directory-klient för ”Resource manager-distributionsmodellen” virtuella datorer. För virtuella datorer i klassiska distributionsmodellen stöds inte.
 **Migrera virtuella datorer i samma region** | Stöds ej.
 
 
@@ -147,6 +147,7 @@ Lägg till disk i replikerade virtuella datorn | Stöds ej. Du måste inaktivera
 --- | --- | ---
 Storlek | Alla Azure VM-storlekar med minst 2 CPU-kärnor och 1 GB RAM-minne | Referera till [storlekar för Azure virtuella datorer](../virtual-machines/windows/sizes.md)
 Tillgänglighetsuppsättningar | Stöds | Om du använder alternativet under ”Aktivera replikering” steg i portalen är tillgänglighetsuppsättningen automatiskt skapa baserat på konfigurationen av datakällan region. Du kan ändra tillgänglighetsuppsättning för målet i ”replikerat objekt > Inställningar > beräkning och nätverk > tillgänglighetsuppsättning” när som helst.
+Tillgänglighetszoner | Stöds inte | Virtuella datorer som distribueras i tillgänglighetszoner stöds inte för närvarande.
 Hybrid Använd förmånen (HUB) virtuella datorer | Stöds | Om den Virtuella källdatorn har HUB-licens, använder redundanstest eller Failover VM också HUB-licens.
 Skalningsuppsättningar för virtuella datorer | Stöds inte |
 Galleriavbildningar för Azure - Microsoft publicerat | Stöds | Stöds så länge som den virtuella datorn körs på ett operativsystem som stöds av Site Recovery

@@ -1,6 +1,6 @@
 ---
-title: Hantera tillstånd i Azure Service Fabric-mikrotjänster | Microsoft Docs
-description: Hur du definierar och hantera tjänstestatus i Service Fabric
+title: Hantera tillstånd i Azure Service Fabric-tjänster | Microsoft Docs
+description: Lär dig mer om att definiera och hantera tjänstestatus i Service Fabric-tjänster.
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: eaa38e864da2525b640fa101ecc807f89de8eeaf
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 48345be959bb9bebf7c30fa71de91b7881863d66
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072205"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054965"
 ---
 # <a name="service-state"></a>Tjänsttillstånd
 **Tjänsten tillstånd** refererar till det i minnet eller på disk som en tjänst kräver att fungera. Det omfattar till exempel datastrukturer och medlemsvariabler som tjänsten läser och skriver till fungerar. Beroende på hur tjänsten har byggts, kan den även innehålla filer eller andra resurser som är lagrade på disken. Till exempel filerna en databas använder att lagra data och transaktionsloggar.

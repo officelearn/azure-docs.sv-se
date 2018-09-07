@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: fd93f1ad83f6627f27534eca17f91c9fe9b2cc9f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: ab56ad07bd3da17f105bd09f2484173207d30015
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667865"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025072"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Förstå användningen av Azure-dator
-Kraftfulla förbrukning insikter som kan uppnås genom att analysera dina data i Azure-användning – insikter som kan aktivera kostnad bättre hantering och tilldelning i hela organisationen. Det här dokumentet innehåller en djupdykning i din information på Azure Compute-förbrukning. För ytterligare information om allmänna Azure-användning, går du till [förstå din faktura](/billing/billing-understand-your-bill.md).
+Kraftfulla förbrukning insikter som kan uppnås genom att analysera dina data i Azure-användning – insikter som kan aktivera kostnad bättre hantering och tilldelning i hela organisationen. Det här dokumentet innehåller en djupdykning i din information på Azure Compute-förbrukning. För ytterligare information om allmänna Azure-användning, går du till [förstå din faktura](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
 
 ## <a name="download-your-usage-details"></a>Ladda ned användningsinformation
 Börja [ladda ned användningsinformation](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). Tabellen nedan innehåller definitioner och exempel värdena för användning för virtuella datorer som distribueras via Azure Resource Manager. Det här dokumentet innehåller inte detaljerad information om virtuella datorer som distribueras via vår klassiska modellen.
@@ -143,5 +143,6 @@ I den klassiska modellen sammanställs faktureringen för resurser på nivån tj
 Premium-lagring kan virtuella datorer faktureras enligt samma taxa som icke-premium-lagring kan virtuella datorer. Endast dina lagringskostnader skiljer sig åt. Gå till den [storage-prissidan](https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/) för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om användningsinformation i [förstå fakturan för Microsoft Azure.](/billing/billing-understand-your-bill.md)
+Läs mer om användningsinformation i [förstå fakturan för Microsoft Azure.](https://docs.microsoft.com/azure/billing/billing-understand-your-bill
+)
 

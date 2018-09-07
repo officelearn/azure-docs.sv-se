@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: juliako
-ms.openlocfilehash: 757ba9e999bfbb46be96e653e7939d91bdf67679
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 015b8570e9cbb06a33107de7a8cb9ae00d60cacb
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287133"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053996"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Kom igång med att leverera innehåll på begäran med hjälp av REST
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -54,7 +54,7 @@ Följande aktiviteter visas i den här snabbstarten.
 >[!NOTE]
 >Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Använd samma princip-ID om du alltid använder samma dagar / åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [den här artikeln](media-services-dotnet-manage-entities.md#limit-access-policies).
 
-Mer information om AMS REST-entiteter som används i den här artikeln finns [Azure Media Services REST API-referens](https://docs.microsoft.com/en-us/rest/api/media/services/azure-media-services-rest-api-reference). Se även [Azure Media Services-koncepten](media-services-concepts.md).
+Mer information om AMS REST-entiteter som används i den här artikeln finns [Azure Media Services REST API-referens](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference). Se även [Azure Media Services-koncepten](media-services-concepts.md).
 
 >[!NOTE]
 >Vid åtkomst till entiteter i Media Services, måste du ange specifika namn på huvudfält och värden i HTTP-förfrågningar. Mer information finns i [installationsprogrammet för Media Services REST API-utveckling](media-services-rest-how-to-use.md).
@@ -405,7 +405,7 @@ Om detta lyckas, returneras följande:
 
 ## <a id="encode"></a>Koda källfilen till en uppsättning MP4-filer
 
-När du matar in tillgångar i Media Services, media kan kodas, användas med transmux, förses med vattenstämpel och så vidare innan de skickas till klienter. Dessa aktiviteter schemaläggs och körs mot flera bakgrundsrollinstanser för höga prestanda och tillgänglighet. De här aktiviteterna kallas jobb och varje jobb består av atomiska uppgifter som gör det faktiska arbetet i tillgångsfilen (Mer information finns i [jobbet](https://docs.microsoft.com/en-us/rest/api/media/operations/job), [uppgift](https://docs.microsoft.com/en-us/rest/api/media/operations/task) beskrivningar).
+När du matar in tillgångar i Media Services, media kan kodas, användas med transmux, förses med vattenstämpel och så vidare innan de skickas till klienter. Dessa aktiviteter schemaläggs och körs mot flera bakgrundsrollinstanser för höga prestanda och tillgänglighet. De här aktiviteterna kallas jobb och varje jobb består av atomiska uppgifter som gör det faktiska arbetet i tillgångsfilen (Mer information finns i [jobbet](https://docs.microsoft.com/rest/api/media/operations/job), [uppgift](https://docs.microsoft.com/rest/api/media/operations/task) beskrivningar).
 
 Som tidigare nämnts, när du arbetar med Azure Media Services som ett av de vanligaste scenarierna att leverera strömning med anpassad bithastighet till dina klienter. Media Services kan dynamiskt Paketera en uppsättning MP4-filer till något av följande format: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
 

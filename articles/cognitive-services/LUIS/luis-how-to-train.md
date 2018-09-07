@@ -1,20 +1,21 @@
 ---
-title: Träna din LUIS-app – Azure | Microsoft Docs
-description: Använd Språkförståelse (LUIS) för att träna din modell.
+title: Träna LUIS-appen
+titleSuffix: Azure Cognitive Services
+description: Utbildning är lära appen Språkförståelse (LUIS) för att förbättra förståelse för naturliga språk. Träna LUIS-appen efter uppdateringar till modellen, till exempel att lägga till, redigera, etiketter eller ta bort entiteter, avsikter eller yttranden.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: e947df20141b0b9870f318f410488aea23bafcf5
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 42cff3dd8237598da5aa71ed1a4d6462c5b4c25d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223192"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049139"
 ---
 # <a name="train-your-luis-app"></a>Träna LUIS-appen
 
@@ -32,11 +33,7 @@ Om du vill starta iterativ process, måste du först träna LUIS-appen minst en 
 
 2. I din app, väljer **träna** i den övre panelen. 
 
-    ![Knappen Train (Träna)](./media/luis-how-to-train/train-button.png)
-
 3. När utbildning är klar, visas en grön meddelandefältet överst i webbläsaren.
-
-    ![Träna och testa appen](./media/luis-how-to-train/train-success.png)
 
 <!-- The following note refers to what might cause the error message "Training failed: FewLabels for model: <ModelName>" -->
 

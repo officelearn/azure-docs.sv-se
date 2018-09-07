@@ -9,16 +9,16 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: sajagtap
-ms.openlocfilehash: fe321d08a44e7f843228668908c8b2c4ff3a3c32
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 808ee3637d67ff4874c5d4837d5c53cbe7b18680
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41987601"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024598"
 ---
 # <a name="create-video-reviews-using-net"></a>Skapa video granskningar med hjälp av .NET
 
-Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med Content Moderator-SDK med C# för att:
+Den här artikeln innehåller information och kodexempel som hjälper dig att snabbt komma igång med den [Content Moderator-SDK med C#](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) till:
 
 - Skapa en video granskning för mänskliga moderatorer
 - Lägga till bildrutor i en granskning
@@ -32,11 +32,22 @@ Den här artikeln förutsätter att du har [modereras videon (se snabbstarten)](
 
 Den här artikeln förutsätter också att du redan är bekant med Visual Studio och C#.
 
-### <a name="sign-up-for-content-moderator-services"></a>Registrera dig för Content Moderator-tjänster
+## <a name="sign-up-for-content-moderator"></a>Registrera dig för Content Moderator
 
 Innan du kan använda Content Moderator-tjänster via REST-API: et eller SDK: N, måste en prenumerationsnyckel.
+Referera till den [snabbstarten](quick-start.md) att lära dig hur du kan hämta nyckeln.
 
-Du kan hitta din prenumerationsnyckel i instrumentpanelen för Content Moderator **inställningar** > **autentiseringsuppgifter** > **API**  >  **Utvärderingsversion Ocp-Apim-Subscription-Key**. Mer information finns i [översikt](overview.md).
+## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Registrera dig för ett konto för granskning-verktyget om inte slutförts i föregående steg
+
+Om du har fått din Content Moderator från Azure-portalen, även [registrera granska verktyget konto](https://contentmoderator.cognitive.microsoft.com/) och skapa en granskningsteam. Du behöver Id-teamet och granskningsverktyget att anropa granska API för att starta ett jobb och visa granskningarna i granskningsverktyget.
+
+## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Se till att din API-nyckel kan anropa API: et för granskning för att skapa en granskning
+
+När du har slutfört föregående steg, kan det sluta med två Content Moderator-nycklar om du utgick från Azure-portalen. 
+
+Om du planerar att använda Azure-tillhandahållna API-nyckeln i SDK-exempel, följer du stegen som beskrivs i den [med hjälp av Azure-nyckel med granska API: et](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) avsnittet så att dina program kan anropa API: et för granskning och skapa granskningar.
+
+Om du använder den kostnadsfria utvärderingsversionen nyckeln som genererats av granskningsverktyget granska verktyget kontot redan vet om nyckeln och därför inga ytterligare åtgärder krävs.
 
 ### <a name="prepare-your-video-and-the-video-frames-for-review"></a>Förbereda din video och video ramar för granskning
 
@@ -536,8 +547,8 @@ Slutligen kan du se video granskning i din Content Moderator granskar verktyget 
 
 ## <a name="next-steps"></a>Nästa steg
 
+Hämta den [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) och [Visual Studio-lösning](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) för denna och andra Content Moderator-Snabbstart för .NET.
+
 Lär dig hur du lägger till [avskrift moderering](video-transcript-moderation-review-tutorial-dotnet.md) till video granskningen. 
 
 Kolla in detaljerad genomgång om hur du utvecklar en [slutföra videomoderering lösning](video-transcript-moderation-review-tutorial-dotnet.md).
-
-[Ladda ned Visual Studio-lösningen](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) för denna och andra Content Moderator-Snabbstart för .NET.

@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 12/15/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f0de2f8700bef83b5a8a9303e90c97aab29722a3
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 66e974e80fa6f5e002b1f54584ea48e22a7b13ce
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42058763"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053195"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory-rapporteringssvarstider
 
@@ -39,10 +39,10 @@ Det finns två områden för aktivitetsrapportering:
 
 I följande tabell visas latensinformation för aktivitetsrapporter.
 
-| Rapport | Svarstid (P95) |Svarstid (P99)|
+| Rapport | Svarstid (95%) |Svarstid (99%)|
 | :-- | --- | --- | 
-| Granskningsloggar | 2 min  | 5 minuter  |
-| Inloggningar | 2 min  | 5 minuter |
+| Granskningsloggar | 2 min  | 5 min  |
+| Inloggningar | 2 min  | 5 min |
 
 
 

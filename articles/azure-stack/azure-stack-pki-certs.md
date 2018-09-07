@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 13bc82caf5e10f5b35df29d085349ec4c80628a2
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: d4322e5a7f9d587049e9225c3adde08d04325afc
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917460"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024312"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Certifikatkrav för Azure Stack-infrastruktur för offentliga nycklar
 
@@ -76,6 +76,8 @@ För din distribution [region] och [externalfqdn] värden måste matcha region o
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Jokertecken SSL-certifikat) | Queue Storage | kön. &lt;region >. &lt;fqdn > |
 | KeyVault | * .vault. &lt;region >. &lt;fqdn ><br>(Jokertecken SSL-certifikat) | Key Vault | valvet. &lt;region >. &lt;fqdn > |
 | KeyVaultInternal | *.adminvault. &lt;region >. &lt;fqdn ><br>(Jokertecken SSL-certifikat) |  Intern Keyvault |  adminvault. &lt;region >. &lt;fqdn > |
+| Admininistrationstillägg värden | *.adminhosting. \<region >. \<fqdn > (SSL-certifikat med jokertecken) | Admininistrationstillägg värden | adminhosting. \<region >. \<fqdn > |
+| Offentliga tillägget värd | * .hosting. \<region >. \<fqdn > (SSL-certifikat med jokertecken) | Offentliga tillägget värd | som är värd för. \<region >. \<fqdn > |
 
 Om du distribuerar Azure Stack med hjälp av Azure AD-distributionsläget, behöver du bara begära certifikat visas i föregående tabell. Om du distribuerar Azure Stack med hjälp av läget för AD FS-distribution måste du dock också begära certifikat beskrivs i följande tabell:
 

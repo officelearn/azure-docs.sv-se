@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: af7d4253b4e631295f8c04c96601e932595af9c1
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: bb5e58c0cb06baabf76d7d0443e94b368549176f
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697772"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051348"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Skapa och konfigurera lokal Integration Runtime
 Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Data Factory för att tillhandahålla funktioner för dataintegrering i olika nätverksmiljöer. Mer information om IR finns [översikten över Integration Runtime](concepts-integration-runtime.md).
@@ -30,16 +30,16 @@ Det här dokumentet beskriver hur du kan skapa och konfigurera lokal IR.
 1. Skapa en lokal integration runtime. Du kan använda ADF UI för att skapa lokal IR. Här är ett PowerShell-exempel:
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
 2. Hämta och installera lokal integration runtime (på lokal dator).
 3. Hämta autentiseringsnyckeln och registrera lokal integration runtime med nyckeln. Här är ett PowerShell-exempel:
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
     ```
 
-## <a name="setting-up-self-hosted-ir-on-azure-vm-using-azure-resource-manager-template-automatation"></a>Konfigurera lokal IR på Azure VM med hjälp av Azure Resource Manager-mall (automatation)
+## <a name="setting-up-self-hosted-ir-on-azure-vm-using-azure-resource-manager-template-automation"></a>Konfigurera lokal IR på Azure VM med hjälp av Azure Resource Manager-mall (automatiskt)
 Du kan automatisera lokal IR-installationen på en virtuell Azure-dator med hjälp av [Azure Resource Manager-mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). Detta ger ett enkelt sätt att ha en fullt fungerande lokal IR i Azure virtuellt nätverk med hög Avalaibility och skalbarhet (förutsatt att du ställer in antalet noder vara 2 eller högre).
 
 ## <a name="command-flow-and-data-flow"></a>Kommandot flödet och dataflöde

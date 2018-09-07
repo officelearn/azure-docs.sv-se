@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 020f9c8753b2b91b3336b304a1c92590f62be003
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 2cae74224a9d59939175ac7e43d4d6b183ca3933
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42055412"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050752"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Ta bort data från Azure Cosmos DB-samlingarna automatiskt med TTL-värde
 Program kan skapa och lagra stora mängder data. Vissa av dessa data som genererats händelse data, loggar och användaren datorsession informationen kan bara användas under en begränsad tidsperiod. När data blir överskott i förhållande till programmet, är det säkert att rensa dessa data och minska lagringsbehov för ett program.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: 55feb64f06c2d67f85f230cb92e84dfe8fd3ada2
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: db4f83d0d407ad3d9e895759ea2a687662f5620a
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782397"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053303"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introduktion till automatisk skalning
 Automatisk skalning är en ytterligare funktion av Service Fabric dynamiskt skala dina tjänster baserat på den belastning som tjänster rapporterar eller baserat på deras användning av resurser. Automatisk skalning ger bra elasticitet och gör etablering av ytterligare instanser eller partitioner av din tjänst på begäran. Hela processen för autoskalning är automatiserade och transparent och när du har konfigurerat dina principer på en tjänst det finns inget behov av manuell skalningsåtgärder på tjänstnivå. Automatisk skalning kan aktiveras antingen när tjänsten skapas eller när som helst genom att uppdatera tjänsten.
@@ -117,7 +117,7 @@ Update-ServiceFabricService -Stateless -ServiceName "fabric:/AppName/ServiceName
 Andra utlösare baseras på belastningen på alla partitioner i en tjänst. Metrisk belastningar jämnas först för att hämta belastningen för varje replik eller en instans av en partition. För tillståndskänsliga tjänster anses belastningen på partitionen vara belastningen på den primära repliken, även för tillståndslösa tjänster belastningen på partitionen är den genomsnittliga belastningen över alla instanser av partitionen. Dessa värden är genomsnitt för alla partitioner i tjänsten, och det här värdet används för att utlösa automatisk skalning. Samma som i föregående mekanism, det finns tre faktorer som styr när tjänsten kommer att skalas:
 
 * _Lägre tröskelvärde_ är ett värde som anger när tjänsten kommer att vara **skalas i**. Om den genomsnittliga belastningen för alla partitioner i tjänsten är lägre än det här värdet, kommer tjänsten att skalas i.
-* _Övre tröskelvärdet för inläsning_ är ett värde som anger när tjänsten kommer att vara **utskalad**. Om den genomsnittliga belastningen för alla partitioner i tjänsten är lägre än det här värdet, kommer tjänsten att skalas ut.
+* _Övre tröskelvärdet för inläsning_ är ett värde som anger när tjänsten kommer att vara **utskalad**. Om den genomsnittliga belastningen för alla partitioner i tjänsten är högre än det här värdet, kommer tjänsten att skalas ut.
 * _Skalningsintervall_ avgör hur ofta utlösaren ska kontrolleras. När utlösaren kontrolleras om skalning krävs mekanismen används. Om skalning inte krävs vidtas någon åtgärd. I båda fallen kontrolleras utlösaren inte igen innan skalningsintervall går ut igen.
 
 Den här utlösaren kan vara används för både med tillståndskänsliga och tillståndslösa tjänster. Den enda funktionen som kan användas med den här utlösaren är AddRemoveIncrementalNamedParitionScalingMechanism. När tjänsten har skalats ut och sedan en ny partition har lagts till och när tjänsten skalas i ett av befintliga partitioner tas bort. Det finns begränsningar som ska kontrolleras när tjänsten skapas eller uppdateras och skapande/uppdatering av tjänsten kommer att misslyckas om dessa villkor inte uppfylls:

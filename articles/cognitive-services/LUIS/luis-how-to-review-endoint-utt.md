@@ -1,20 +1,21 @@
 ---
-title: Etiketten föreslagna yttranden med LUIS | Microsoft Docs
-description: Använda Språkförståelse (LUIS) för att märka föreslagna yttranden och att öka active maskininlärning.
+title: Granska endpoint yttranden för Språkförståelse (LUIS)
+titleSuffix: Azure Cognitive Services
+description: Funktionen banbrytande Luis är konceptet med aktiv inlärning. När din LUIS har slutpunkt frågor, förbättrar aktiv inlärning resultatets kvalitet genom väljer yttranden som det är osäker på. Om du anger dessa yttranden träna och publicera sedan LUIS identifierar yttranden mer exakt.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 5e195b8ef5aeb35b73c22438980fe2b2e3856977
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3ec791d534fb73a9d88f2dcdb81e445d6c26ab69
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224559"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44057378"
 ---
 # <a name="review-endpoint-utterances"></a>Granska slutpunktsyttranden
 
@@ -24,8 +25,6 @@ Funktionen banbrytande Luis är den [konceptet](luis-concept-review-endpoint-utt
 1. Öppna din app (till exempel TravelAgent) genom att välja dess namn på **Mina appar** sidan och välj sedan **skapa** i det översta fältet.
 
 2. Under den **förbättra apprestanda**väljer **granska endpoint yttranden**.
-
-    ![Granska yttranden](./media/label-suggested-utterances/review.png)
 
 3. På den **granska endpoint yttranden** väljer i den **filtrera listan efter avsikt eller entitet** textrutan. Den här listan innehåller alla avsikter under **AVSIKTER** och alla entiteter under **ENTITETER**.
 

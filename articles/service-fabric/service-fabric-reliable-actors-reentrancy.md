@@ -1,6 +1,6 @@
 ---
-title: Återinträde i aktören-baserad Azure mikrotjänster | Microsoft Docs
-description: Introduktion till återinträde för Service Fabric Reliable Actors
+title: Återinträde i Azure Service Fabric actors | Microsoft Docs
+description: Introduktion till återinträde för Service Fabric Reliable Actors.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 40f52cb399f2d7391657ce4356a0c30921d46e5f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c7a4066a949ad6e66c45dff67f1e80801f2fa4cd
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207102"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055268"
 ---
-# <a name="reliable-actors-reentrancy"></a>Tillförlitliga aktörer återinträde
-Körningsmiljön Reliable Actors tillåter som standard logiska anropet kontext-baserade återinträde. Detta ger aktörer ska fleraktivt om de finns i samma kedja för anrop kontext. Till exempel skickar aktören A ett meddelande till aktören B, som skickar ett meddelande till aktören C. Som en del av meddelandebehandling, om aktören C anropar aktören A och är meddelandet fleraktivt, så ska tillåtas. Andra meddelanden som ingår i ett annat sammanhang blockeras på aktören A tills bearbetningen har slutförts.
+# <a name="reliable-actors-reentrancy"></a>Återinträde av Reliable Actors
+Reliable Actors-runtime tillåter som standard logiska anrop kontext-baserade återinträde. Det möjliggör aktörer vara fleraktivt om de finns i samma anropskedja för kontexten. Till exempel skickar aktör A ett meddelande till aktören B, som skickar ett meddelande till aktören C. Som en del av meddelandebehandling, om aktören C anropar aktören A, är meddelandet fleraktivt, så kommer att tillåtas. Andra meddelanden som ingår i ett annat sammanhang blockeras på aktören A tills processen avslutas.
 
-Det finns två alternativ för aktören återinträde som definierats i den `ActorReentrancyMode` uppräkningen:
+Det finns två alternativ för aktören återinträde som definierats i den `ActorReentrancyMode` enum:
 
-* `LogicalCallContext` (standardinställningen)
+* `LogicalCallContext` (standardinställning)
 * `Disallowed` -inaktiverar återinträde
 
 ```csharp
@@ -43,9 +43,9 @@ public enum ActorReentrancyMode
     Disallowed(2)
 }
 ```
-Återinträde kan konfigureras i en `ActorService`'s inställningar under registreringen. Inställningen gäller för alla instanser av aktören som skapats i tjänsten aktören.
+Återinträde kan konfigureras i en `ActorService`'s inställningar under registreringen. Inställningen gäller för alla aktörsinstanser som skapats i aktörstjänsten.
 
-I följande exempel visas en aktören-tjänst som anger återinträde läge till `ActorReentrancyMode.Disallowed`. I det här fallet, om en aktör skickar ett fleraktivt meddelande till en annan aktören, ett undantag av typen `FabricException` genereras.
+I följande exempel visas en actor-tjänst som anger återinträde-läge till `ActorReentrancyMode.Disallowed`. I det här fallet, om en aktör skickar ett fleraktivt meddelande till en annan aktören, ett undantag av typen `FabricException` utlöses.
 
 ```csharp
 static class Program

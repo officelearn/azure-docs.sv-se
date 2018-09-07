@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 5a6dcddce3337989a7a34515570ac3277aa1edd5
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 52d0706177482e162d1f4bc038c967a4596fd3b3
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841938"
+ms.locfileid: "44024866"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrera Azure Stack med Azure
 
@@ -45,7 +45,7 @@ Du behöver följande för på plats innan du registrerar:
 
 Innan du registrerar Azure Stack med Azure, måste du ha:
 
-- Prenumerations-ID för en Azure-prenumeration. Logga in på Azure för att hämta ID, klickar du på **fler tjänster** > **prenumerationer**, klicka på den prenumeration som du vill använda, och under **Essentials** du hittar den Prenumerations-ID.
+- Prenumerations-ID för en Azure-prenumeration. Logga in på Azure för att hämta ID, klickar du på **alla tjänster**. Sedan, under den **Allmänt** kategori, väljer **prenumerationer**, klicka på den prenumeration som du vill använda, och under **Essentials** du hittar prenumerations-ID.
 
   > [!Note]  
   > Tyskland cloud-prenumerationer stöds inte för närvarande.
@@ -284,7 +284,7 @@ Du kan även använda cmdleten Get-innehåll för att den pekar på en fil som i
 Följ dessa steg för att verifiera att Azure Stack har registrerats med Azure.
 
 1. Logga in på Azure Stack [administratörsportalen](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;/ / adminportal. *&lt;region >. &lt;fqdn >*.
-2. Välj **fler tjänster** > **Marketplace Management** > **Lägg till från Azure**.
+2. Välj **alla tjänster**, och sedan under den **ADMINISTRATION** kategori, väljer **Marketplace management** > **Lägg till från Azure**.
 
 Om du ser en lista med objekt som är tillgängliga från Azure (till exempel WordPress) lyckades aktiveringen. Men i frånkopplade miljöer visas inte Azure marketplace-objekt i Azure Stack marketplace.
 

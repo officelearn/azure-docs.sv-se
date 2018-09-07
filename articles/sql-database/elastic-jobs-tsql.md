@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: jaredmoo
-ms.openlocfilehash: ae5dafcebd50ecd22309a7771b0edf01a97fd7a7
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: d524f7756c8dd394d8651839a1f6426c512d6a73
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842631"
+ms.locfileid: "44023536"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Använd Transact-SQL (T-SQL) för att skapa och hantera elastiska Databasjobb
 
@@ -482,7 +482,7 @@ sp_add_job måste köras från jobbagentdatabas som anges när du skapar jobbage
 När sp_add_job har körts för att lägga till ett jobb, användas sp_add_jobstep för att lägga till steg som utför aktiviteterna för jobbet. Jobbets första versionsnumret är 0, vilket ökas till 1 när du lägger till det första steget.
 
 #### <a name="permissions"></a>Behörigheter
-Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Inställningen begränsa en användare att de bara att kunna övervaka jobb måste bevilja du användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
+Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Du kan de hindra en användare om du bara vill övervaka jobb för att bevilja användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
 
 - jobs_reader
 
@@ -544,7 +544,7 @@ Datum i vilket projekt körning kan stoppa. schedule_end_time är DATETIME2, med
 När sp_add_job har körts för att lägga till ett jobb, användas sp_add_jobstep för att lägga till steg som utför aktiviteterna för jobbet. Jobbets första versionsnumret är 0, vilket ökas till 1 när du lägger till det första steget.
 
 #### <a name="permissions"></a>Behörigheter
-Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Inställningen begränsa en användare att de bara att kunna övervaka jobb måste bevilja du användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
+Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Du kan de hindra en användare om du bara vill övervaka jobb för att bevilja användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
 - jobs_reader
 
 Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare.
@@ -576,7 +576,7 @@ Anger om du vill ta bort om jobbet har alla körningar pågår och Avbryt alla p
 Jobbhistorik tas bort automatiskt när ett jobb har tagits bort.
 
 #### <a name="permissions"></a>Behörigheter
-Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Inställningen begränsa en användare att de bara att kunna övervaka jobb måste bevilja du användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
+Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Du kan de hindra en användare om du bara vill övervaka jobb för att bevilja användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
 - jobs_reader
 
 Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare.
@@ -701,7 +701,7 @@ Den maximala nivån för parallellitet per elastisk pool. Om anges kommer jobbst
 När sp_add_jobstep lyckas stegvis jobbets aktuella versionsnumret. Jobbet körs nästa gång kommer den nya versionen att användas. Om jobbet körs för tillfället, innehåller inte den körningen nytt steg.
 
 #### <a name="permissions"></a>Behörigheter
-Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Inställningen begränsa en användare att de bara att kunna övervaka jobb måste bevilja du användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:  
+Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Du kan de hindra en användare om du bara vill övervaka jobb för att bevilja användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:  
 
 - jobs_reader
 
@@ -825,7 +825,7 @@ Den maximala nivån för parallellitet per elastisk pool. Om anges kommer jobbst
 Alla pågående körningar av jobbet påverkas inte. När sp_update_jobstep lyckas stegvis versionsnumret för jobbets. Jobbet körs nästa gång kommer den nya versionen att användas.
 
 #### <a name="permissions"></a>Behörigheter
-Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Inställningen begränsa en användare att de bara att kunna övervaka jobb måste bevilja du användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
+Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Du kan de hindra en användare om du bara vill övervaka jobb för att bevilja användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
 
 - jobs_reader
 
@@ -870,7 +870,7 @@ Alla pågående körningar av jobbet påverkas inte. När sp_update_jobstep lyck
 Andra jobb steg numreras automatiskt så att den fyller luckan efter steget Borttaget jobb.
  
 #### <a name="permissions"></a>Behörigheter
-Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Inställningen begränsa en användare att de bara att kunna övervaka jobb måste bevilja du användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
+Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Du kan de hindra en användare om du bara vill övervaka jobb för att bevilja användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
 - jobs_reader
 
 Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare.
@@ -906,7 +906,7 @@ Utdataparameter som ska tilldelas den jobbkörning id. job_version är uniqueide
 Ingen.
  
 #### <a name="permissions"></a>Behörigheter
-Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Inställningen begränsa en användare att de bara att kunna övervaka jobb måste bevilja du användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
+Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Du kan de hindra en användare om du bara vill övervaka jobb för att bevilja användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
 - jobs_reader
 
 Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare.
@@ -934,7 +934,7 @@ ID-nummer för jobbkörningen att stoppa. job_execution_id är uniqueidentifier 
 Ingen.
  
 #### <a name="permissions"></a>Behörigheter
-Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Inställningen begränsa en användare att de bara att kunna övervaka jobb måste bevilja du användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
+Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Du kan de hindra en användare om du bara vill övervaka jobb för att bevilja användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
 - jobs_reader
 
 Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare.
@@ -966,7 +966,7 @@ Namnet på målgruppen du skapar. target_group_name är nvarchar(128) med inget 
 Målgrupper ger ett enkelt sätt att fokusera på ett jobb på en uppsättning databaser.
 
 #### <a name="permissions"></a>Behörigheter
-Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Inställningen begränsa en användare att de bara att kunna övervaka jobb måste bevilja du användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
+Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Du kan de hindra en användare om du bara vill övervaka jobb för att bevilja användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
 - jobs_reader
 
 Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare.
@@ -994,7 +994,7 @@ Namnet på målgruppen du ta bort. target_group_name är nvarchar(128) med inget
 Ingen.
 
 #### <a name="permissions"></a>Behörigheter
-Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Inställningen begränsa en användare att de bara att kunna övervaka jobb måste bevilja du användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
+Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Du kan de hindra en användare om du bara vill övervaka jobb för att bevilja användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
 - jobs_reader
 
 Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare.
@@ -1050,7 +1050,7 @@ Returnera kodvärden 0 (lyckades) eller 1 (misslyckades)
 Ett jobb körs på alla databaser i en server eller elastisk pool vid tidpunkten för körning när en logisk server eller en elastisk pool ingår i målgruppen.
 
 #### <a name="permissions"></a>Behörigheter
-Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Inställningen begränsa en användare att de bara att kunna övervaka jobb måste bevilja du användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
+Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Du kan de hindra en användare om du bara vill övervaka jobb för att bevilja användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
 - jobs_reader
 
 Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare.
@@ -1115,7 +1115,7 @@ Namnet på målgruppen som ska ta bort gruppmedlem mål. target_group_name är n
 Målgrupper ger ett enkelt sätt att fokusera på ett jobb på en uppsättning databaser.
 
 #### <a name="permissions"></a>Behörigheter
-Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Inställningen begränsa en användare att de bara att kunna övervaka jobb måste bevilja du användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
+Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Du kan de hindra en användare om du bara vill övervaka jobb för att bevilja användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
 - jobs_reader
 
 Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare.
@@ -1166,7 +1166,7 @@ Namnet på jobbet som du vill ta bort historikposter. job_name är nvarchar(128)
 0 (lyckades) eller 1 (misslyckades) Anmärkning-målgrupper ger ett enkelt sätt att fokusera på ett jobb på en uppsättning databaser.
 
 #### <a name="permissions"></a>Behörigheter
-Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Inställningen begränsa en användare att de bara att kunna övervaka jobb måste bevilja du användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
+Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Du kan de hindra en användare om du bara vill övervaka jobb för att bevilja användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
 - jobs_reader
 
 Mer information om behörigheter för dessa roller finns i avsnittet behörighet i det här dokumentet. Endast medlemmar i sysadmin kan använda den här lagrade proceduren för att redigera attribut för jobb som ägs av andra användare.
@@ -1336,7 +1336,7 @@ Visar alla medlemmar i alla målgrupper.
 
 ## <a name="resources"></a>Resurser
 
- - ![Avsnittet länkikon](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "avsnittet länkikon") [konventioner för Transact-SQL-Syntax](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+ - ![Avsnittet länkikon](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "avsnittet länkikon") [konventioner för Transact-SQL-Syntax](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
 
 
 ## <a name="next-steps"></a>Nästa steg

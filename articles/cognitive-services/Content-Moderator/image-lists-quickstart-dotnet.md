@@ -1,6 +1,6 @@
 ---
-title: Måttlig med anpassad avbildning listor i Azure Content kontrollant | Microsoft Docs
-description: Så här måttlig med anpassade avbildningen visas med hjälp av Azure innehåll kontrollant SDK för .NET.
+title: Måttlig med anpassade bildlistor i Azure Content Moderator | Microsoft Docs
+description: Så här måttlig med anpassad bild visas med hjälp av Azure Content Moderator-SDK för .NET.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,47 +9,47 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: sajagtap
-ms.openlocfilehash: c953df88f878b4f05c9a9f3099aea77f3ff48a92
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 040962077def18d373d6e187d4b0b220889ed133
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351855"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024009"
 ---
-# <a name="moderate-with-custom-image-lists-in-net"></a>Måttlig med anpassad avbildning listor i .NET
+# <a name="moderate-with-custom-image-lists-in-net"></a>Måttlig med anpassade bildlistor i .NET
 
-Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med innehåll kontrollant SDK för .NET för att:
-- Skapa en anpassad avbildning lista
-- Lägga till och ta bort bilder från listan
-- Hämta ID på alla bilder i listan
-- Hämta och uppdatera listan metadata
-- Uppdatera listan sökindex
-- Skärmbilder mot bilderna i listan
-- Ta bort alla bilder från listan
+Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med den [Content Moderator-SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) till:
+- Skapa en anpassad avbildning-lista
+- Lägga till och ta bort avbildningar från listan
+- Hämta ID på alla avbildningar i listan
+- Hämta och uppdatera metadata för lista
+- Uppdatera lista search-index
+- Skärmbilder mot avbildningar i listan
+- Ta bort alla avbildningar i listan
 - Ta bort den anpassade listan
 
 > [!NOTE]
-> Det finns en övre gräns för **5 bild visar** med varje lista till **inte överstiga 10 000 bilder**.
+> Det finns en maxgräns på **5 bild listor** med varje lista till **inte överstiga 10 000 bilder**.
 >
 
-Konsolprogram för denna Snabbstart simulerar vissa av de uppgifter som du kan utföra med Bildlistan API.
+Konsolprogrammet för den här snabbstarten simulerar några av de uppgifter du kan utföra med API för bildlista.
 
 Den här artikeln förutsätter att du redan är bekant med Visual Studio och C#.
 
-## <a name="sign-up-for-content-moderator-services"></a>Registrera dig för innehåll kontrollant services
+## <a name="sign-up-for-content-moderator-services"></a>Registrera dig för Content Moderator-tjänster
 
-Innan du kan använda innehåll kontrollant tjänster via REST API eller SDK behöver du en prenumeration för.
-Referera till den [Quickstart](quick-start.md) att lära dig hur du kan hämta nyckeln.
+Innan du kan använda Content Moderator-tjänster via REST-API: et eller SDK: N, måste en prenumerationsnyckel.
+Referera till den [snabbstarten](quick-start.md) att lära dig hur du kan hämta nyckeln.
 
 ## <a name="create-your-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
-1. Lägg till en ny **konsolapp (.NET Framework)** projekt i lösningen.
+1. Lägga till en ny **konsolapp (.NET Framework)** projekt i lösningen.
 
-   Namnge projektet i koden, **ImageLists**.
+   Namnge projektet i exempelkoden **ImageLists**.
 
-1. Välj det här projektet som Startprojekt enda för lösningen.
+1. Välj det här projektet som enda Startprojekt för lösningen.
 
-1. Lägg till en referens till den **ModeratorHelper** projektet sammansättningen som du skapade i den [innehåll kontrollant klienten helper quickstart](content-moderator-helper-quickstart-dotnet.md).
+1. Lägg till en referens till den **ModeratorHelper** projektet sammansättning som du skapade i den [Content Moderator klienten helper Snabbstart](content-moderator-helper-quickstart-dotnet.md).
 
 ### <a name="install-required-packages"></a>Installera de paket som krävs
 
@@ -59,9 +59,9 @@ Installera följande NuGet-paket:
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Uppdatera programmet använder instruktioner
+### <a name="update-the-programs-using-statements"></a>Uppdatera programmet använder uttryck
 
-Ändra programmet använder instruktioner.
+Ändra programmet är med hjälp av uttryck.
 
     using Microsoft.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator.Models;
@@ -197,9 +197,9 @@ Lägg till följande klasser och statiska fält till den **programmet** klassen 
    
 
 > [!NOTE]
-> Nyckeln för tjänsten för ditt innehåll kontrollant har en begäranden per hastighetsbegränsning för andra (RPS) och om du överskrider gränsen SDK utlöser ett undantag med en 429 felkod. 
+> Din nyckel för Content Moderator-tjänsten har en begäranden per sekund (RPS) hastighetsbegränsning, och om du överskrider gränsen SDK: N genereras ett undantag med en 429 felkod. 
 >
-> En kostnadsfri nivå-nyckel har en gräns för överföringshastigheten en RPS.
+> En nyckel för kostnadsfria nivån har en hastighetsbegränsning för en RPS.
 
 
 ## <a name="create-a-method-to-write-messages-to-the-log-file"></a>Skapa en metod för att skriva meddelanden till loggfilen
@@ -248,11 +248,11 @@ Lägg till följande metod i klassen **Program**.
         return result;
     }
 
-## <a name="create-a-method-to-add-a-collection-of-images-to-the-list"></a>Skapa en metod för att lägga till en mängd bilder i listan
+## <a name="create-a-method-to-add-a-collection-of-images-to-the-list"></a>Skapa en metod för att lägga till en samling av bilder i listan
 
 Lägg till följande metod i klassen **Program**.
 
-Den här snabbstarten visar inte hur du tillämpar taggar på bilderna i listan. 
+Den här snabbstarten visar inte hur du kan lägga till taggar till avbildningar i listan. 
 
     /// <summary>
     /// Adds images to an image list.
@@ -292,7 +292,7 @@ Den här snabbstarten visar inte hur du tillämpar taggar på bilderna i listan.
         }
     }
 
-## <a name="create-a-method-to-remove-images-from-the-list"></a>Skapa en metod för att ta bort bilder från listan
+## <a name="create-a-method-to-remove-images-from-the-list"></a>Skapa en metod för att ta bort avbildningar från listan
 
 Lägg till följande metod i klassen **Program**. 
 
@@ -327,7 +327,7 @@ Lägg till följande metod i klassen **Program**.
         }
     }
 
-## <a name="create-a-method-to-get-all-of-the-content-ids-for-images-in-the-list"></a>Skapa en metod för att hämta allt innehåll ID: N för bilder i listan
+## <a name="create-a-method-to-get-all-of-the-content-ids-for-images-in-the-list"></a>Skapa en metod för att hämta allt innehåll ID: N för avbildningar i listan
 
 Lägg till följande metod i klassen **Program**. 
 
@@ -352,7 +352,7 @@ Lägg till följande metod i klassen **Program**.
         return result;
     }
 
-## <a name="create-a-method-to-update-the-details-of-the-list"></a>Skapa en metod för att uppdatera information i listan
+## <a name="create-a-method-to-update-the-details-of-the-list"></a>Skapa en metod för att uppdatera informationen om listan
 
 Lägg till följande metod i klassen **Program**. 
 
@@ -405,11 +405,11 @@ Lägg till följande metod i klassen **Program**.
         return result;
     }
 
-## <a name="create-a-method-to-refresh-the-search-index-of-the-list"></a>Skapa en metod för att uppdatera sökindex i listan
+## <a name="create-a-method-to-refresh-the-search-index-of-the-list"></a>Skapa en metod för att uppdatera search-index i listan
 
 Lägg till följande metod i klassen **Program**.
 
-När du uppdaterar en lista, måste du uppdatera sökindexet innan du kan använda listan för att skärmbilder.
+Varje gång du uppdaterar en lista som du behöver uppdatera search-index innan du kan använda listan om du vill skärmbilder.
 
     /// <summary>
     /// Refreshes the search index for an image list.
@@ -460,7 +460,7 @@ Lägg till följande metod i klassen **Program**.
         }
     }
 
-## <a name="create-a-method-to-delete-all-images-from-the-list"></a>Skapa en metod för att ta bort alla bilder från listan
+## <a name="create-a-method-to-delete-all-images-from-the-list"></a>Skapa en metod för att ta bort alla avbildningar i listan
 
 Lägg till följande metod i klassen **Program**. 
 
@@ -504,7 +504,7 @@ Lägg till följande metod i klassen **Program**.
         WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
     }
 
-## <a name="create-a-method-to-retrieve-ids-for-all-image-lists"></a>Skapa en metod för att hämta ID: N för alla listor på avbildningen
+## <a name="create-a-method-to-retrieve-ids-for-all-image-lists"></a>Skapa en metod för att hämta ID: N för alla bildlistor
 
 Lägg till följande metod i klassen **Program**. 
 
@@ -529,9 +529,9 @@ Lägg till följande metod i klassen **Program**.
 
 ## <a name="add-code-to-simulate-the-use-of-an-image-list"></a>Lägg till kod för att simulera användning av en bildlista
 
-Lägg till följande kod i den **Main** metod.
+Lägg till följande kod till den **Main** metod.
 
-Den här koden simulerar många av de åtgärder som du vill utföra i definiera och hantera listan samt med hjälp av listan till skärmen avbildningar. Loggningsfunktioner kan du se svar-objekt som genererats av SDK-anrop till tjänsten innehåll kontrollanten.
+Den här koden simulerar många av de åtgärder som du utför i definiera och hantera listan över samt med hjälp av listan för att skärmbilder. Loggningsfunktionerna kan du se svarsobjekt som genereras av SDK-anrop till tjänsten Content Moderator.
 
     // Create the text writer to use for logging, and cache a static reference to it.
     using (StreamWriter outputWriter = new StreamWriter(OutputFile))
@@ -599,9 +599,9 @@ Den här koden simulerar många av de åtgärder som du vill utföra i definiera
     Console.WriteLine("Press any key to exit...");
     Console.ReadKey();
 
-## <a name="run-the-program-and-review-the-output"></a>Kör programmet och granska utdata
+## <a name="run-the-program-and-review-the-output"></a>Kör programmet och granska resultatet
 
-Lista över ID och image content-ID är olika gång varje du kör programmet.
+List-ID och image innehåll skiljer sig ID: N gång varje du kör programmet.
 Loggfilen som skrivits av programmet har följande utdata:
 
     Creating list MyList.
@@ -1021,4 +1021,4 @@ Loggfilen som skrivits av programmet har följande utdata:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Hämta Visual Studio-lösningen](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) för denna och andra innehåll kontrollant Snabbstart för .NET, och komma igång med din integrering.
+Hämta den [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) och [Visual Studio-lösning](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) för denna och andra Content Moderator-Snabbstart för .NET, och kom igång med din integrering.

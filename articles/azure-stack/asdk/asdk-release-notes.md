@@ -11,20 +11,159 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2018
-ms.author: brenduns
+ms.date: 09/05/2018
+git ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: 6016d6fd4dcae699efba49667676373a6586e723
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: fe6be5a041b87af2323c7978c5371e326b3cd3d6
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43101653"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051280"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Viktig information om Azure Stack Development Kit  
-Dessa versionsanmärkningar innehåller information om förbättringar och korrigeringar kända problem i Azure Stack Development Kit. Om du inte vet vilken version du kör, kan du [använda portalen för att kontrollera](.\.\azure-stack-updates.md#determine-the-current-version).
+Den här artikeln innehåller information om förbättringar, korrigeringar och kända problem i Azure Stack Development Kit. Om du inte vet vilken version du kör, kan du [använda portalen för att kontrollera](.\.\azure-stack-updates.md#determine-the-current-version).
 
 > Håll dig uppdaterad med Nyheter i ASDK genom att prenumerera på den [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
+
+## <a name="build-11808097"></a>Skapa 1.1808.0.97
+
+### <a name="new-features"></a>Nya funktioner
+Den här versionen innehåller följande förbättringar och korrigeringar för Azure Stack.  
+
+- <!-- 2682594   | ASDK  -->   **Alla miljöer i Azure Stack kan nu använda formatet tidszon Coordinated Universal Time (UTC).**  Alla logga data nu relaterad information visas i UTC-format. 
+
+- <!-- 2437250  | IS  ASDK --> **Hanterade diskar stöds.** Du kan nu använda Managed Disks i Azure Stack virtuella datorer och VM-skalningsuppsättningar. Mer information finns i [Azure Stack Managed Disks: skillnader och överväganden](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
+ 
+- <!-- 2563799  | IS  ASDK -->  **Azure Monitor**. Som Azure Monitor på Azure ger Azure Monitor på Azure Stack beroende på infrastruktur-mått och loggar för de flesta tjänster. Mer information finns i [Azure Monitor på Azure Stack](/azure/azure-stack/user/azure-stack-metrics-azure-data).
+
+- <!-- ASDK --> **Galleriobjekt för Virtual Machine Scale Sets är nu inbyggda**.  Virtual Machine Scale Sets galleriobjekt är nu tillgänglig i användar- och analytikerportaler utan att behöva hämta dem. 
+
+- <!-- IS, ASDK --> **Virtual Machine Scale Sets skalning**.  Du kan använda portalen för att [skala en VM-Skalningsuppsättning](/azure/azure-stack/azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).   
+
+- <!-- 2489570 | IS ASDK--> **Stöd för anpassade konfigurationer för IPSec/IKE-princip** för [VPN-gatewayer i Azure Stack](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
+
+
+### <a name="fixed-issues"></a>Åtgärdade problem
+- <!-- IS ASDK--> Vi har åtgärdat problemet för att skapa en tillgänglighetsuppsättning i portalen som resulterade i gruppen med en feldomän och uppdateringsdomän 1.
+
+- <!-- IS ASDK --> Inställningar för att skala VM-skalningsuppsättningar är nu tillgängliga i portalen.  
+
+- <!-- 2494144- IS, ASDK --> Problem som gjorde att vissa F-serien-storlekar för virtuella datorer från att visas när du väljer en VM-storlek för distribution är löst. 
+
+- <!-- IS, ASDK --> Förbättringar av prestanda när du skapar virtuella datorer med mera optimerad användning av underliggande lagring.
+
+- **Olika korrigeringar** för prestanda, stabilitet, säkerhet och det operativsystem som används av Azure Stack
+
+
+### <a name="changes"></a>Ändringar
+- <!-- 1697698  | IS, ASDK --> *Snabbstartsguider* i användaren portalens instrumentpanel nu länken till artiklarna i onlinedokumentationen för Azure Stack.
+
+- <!-- 2515955   | IS ,ASDK--> *Alla tjänster* ersätter *fler tjänster* i Azure Stack administratörs- och portaler. Du kan nu använda *alla tjänster* som ett alternativ till att navigera i Azure Stack-portaler på samma sätt som du gör i Azure-portaler.
+
+- <!--  TBD – IS, ASDK --> *Basic A* storlekar för virtuella datorer är inte längre tillgängligt för [skapar VM-skalningsuppsättningar](.\.\azure-stack-compute-add-scalesets.md) (VMSS) via portalen. Använd PowerShell eller en mall för att skapa en VMSS med den här storleken. 
+
+### <a name="known-issues"></a>Kända problem
+
+#### <a name="portal"></a>Portalen  
+-  <!--  2873083 - IS ASDK --> När du använder portalen för att skapa en virtuell datorskalning ange (VMSS), den *instansstorlek* listrutan inte in korrekt när du använder Internet Explorer. Undvik problemet genom att använda en annan webbläsare när du använder portalen för att skapa en VMSS.  
+
+- <!-- TBD  ASDK --> Standardtidszon för alla Azure Stack-distributioner är nu ställa in att Coordinated Universal Time (UTC). Du kan välja en tidszon när du installerar Azure Stack, men det automatiskt med UTC som standard under installationen.
+
+- <!-- 2931230 – IS  ASDK --> Planer som läggs till i en användarprenumeration som en tilläggsplanen kan inte raderas även när du tar bort planen från användarprenumerationen. Planen finns kvar tills de prenumerationer som refererar till tilläggsplanen tas också bort. 
+
+- <!--2760466 – IS  ASDK --> När du installerar en ny Azure Stack-miljö med den här versionen, aviseringen-värde som anger *aktivering krävs* kanske inte visas. [Aktivering](.\.\azure-stack-registration.md) krävs innan du kan använda marketplace syndikering. 
+
+- <!-- TBD - IS ASDK --> Två administrativa prenumerationstyper som var [introducerades i version 1804](.\.\azure-stack-update-1804.md#new-features) bör inte användas. Typerna av prenumeration är **Avläsning av prenumeration**, och **förbrukning prenumeration**. Dessa typer av prenumerationer är **Avläsning av prenumeration**, och **förbrukning prenumeration**. Dessa typer av prenumerationer visas i den nya Azure Stack miljöer från och med version 1804 men ännu inte är redo att användas. Du bör fortsätta att använda den **standard providerprenumeration** typen.
+
+- <!-- TBD -  IS ASDK --> Tar bort användaren prenumerationer resulterar i överblivna resurser. Som en lösning kan du först ta bort användarresurser eller hela resursgruppen och tar bort användarprenumerationer.
+
+- <!-- TBD -  IS ASDK --> Du kan inte visa behörigheter till din prenumeration med hjälp av Azure Stack-portaler. Som en lösning kan du använda PowerShell för att kontrollera behörigheterna.
+
+
+
+#### <a name="health-and-monitoring"></a>Hälsa och övervakning
+- <!-- 1264761 - IS ASDK -->  Du kan se aviseringar för den *hälsotillstånd controller* komponent som har följande information:  
+
+   Avisera #1:
+   - NAMN: Infrastrukturrollen defekt
+   - ALLVARLIGHETSGRAD: varning
+   - KOMPONENT: Health controller
+   - Beskrivning: Kontrollanten hälsotillstånd pulsslag skannern är inte tillgänglig. Detta kan påverka rapporter om hälsotillstånd och mått.  
+
+  Avisera #2:
+   - NAMN: Infrastrukturrollen defekt
+   - ALLVARLIGHETSGRAD: varning
+   - KOMPONENT: Health controller
+   - Beskrivning: Kontrollanten hälsotillstånd fel skannern är inte tillgänglig. Detta kan påverka rapporter om hälsotillstånd och mått.
+
+  Båda aviseringarna kan ignoreras och stängs automatiskt över tid.  
+
+- <!-- 2368581 - IS. ASDK --> Azure Stack-operatör, om du får en avisering om ont om minne och virtuella datorer inte att distribueras med en *fel vid skapande av Fabric VM*, är det möjligt att Azure Stack-stämpel har tillräckligt med tillgängligt minne. Använd den [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) så att den tillgängliga kapaciteten för dina arbetsbelastningar.
+
+
+#### <a name="compute"></a>Compute  
+- <!-- 2869209 – IS, ASDK --> När du använder den [ **Lägg till AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), måste du använda den **- OsUri** parameter som lagringskontot URI där disken har laddats upp. Om du använder den lokala sökvägen på disken kan cmdleten misslyckas med följande fel: *tidskrävande åtgärden misslyckades med statusen ”misslyckades”*. 
+
+- <!--  2966665 – IS, ASDK --> Koppla datadiskar som SSD till premium storlek managed disk virtuella datorer (DS, DSv2, Fs, Fs_V2) misslyckas med felmeddelandet: *gick inte att uppdatera diskar för den virtuella datorn 'vmname' fel: begärda åtgärden inte kan utföras eftersom lagringskontot typ ' Premium_LRS' stöds inte för VM-storleken ”Standard_DS/Ds_V2/FS/Fs_v2)*
+
+   Undvik problemet genom att använda *Standard_LRS* datadiskar i stället för *Premium_LRS diskar*. Användning av *Standard_LRS* datadiskar ändras inte IOPs eller fakturering kostnaden.  
+
+- <!--  2795678 – IS, ASDK --> När du använder portalen för att skapa virtuella datorer (VM) i en premium VM-storlek (DS, Ds_v2, FS, FSv2), skapas den virtuella datorn i ett standardlagringskonto. Du skapar i ett standardlagringskonto påverkar inte samma funktioner, IOPs, eller fakturering. 
+
+   Du kan ignorera varningen där det står: *du har valt att använda en standardisk med en storlek som har stöd för premiumdiskar. Detta kan påverka operativsystemets prestanda och rekommenderas inte. Överväg att använda premium storage (SSD) i stället.*
+
+- <!-- 2967447 - IS, ASDK --> Virtuella datorns skalningsuppsättning (VMSS) skapa upplevelse ger 7.2 CentOS-baserade som ett alternativ för distribution. Välj en annan OS för din distribution eller använder en ARM-mall som anger en annan CentOS-avbildning som har hämtats innan den distribueras från marketplace av operatorn eftersom avbildningen inte är tillgänglig på Azure Stack.
+
+- <!-- TBD -  IS ASDK --> Skalningsinställningarna för skalningsuppsättningar för virtuella datorer är inte tillgängliga i portalen. Som en tillfällig lösning kan du använda [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). På grund av skillnader i PowerShell-version, måste du använda den `-Name` parameter i stället för `-VMScaleSetName`.
+
+- <!-- TBD -  IS ASDK --> När du skapar virtuella datorer på Azure Stack-användarportalen visar ett felaktigt antal datadiskar som kan bifogas en D-serien VM i portalen. Alla stöds D-serien virtuella datorer kan hantera så många datadiskar som Azure-konfiguration.
+
+- <!-- TBD -  IS ASDK --> När en VM-avbildning som inte kan skapas, kan ett misslyckade objekt som du inte kan ta bort läggas till VM-avbildningar compute-bladet.
+
+  Som en lösning kan du skapa en ny VM-avbildning med en dummy virtuell Hårddisk som kan skapas via Hyper-V (New-VHD-sökväg C:\dummy.vhd-fast - SizeBytes 1 GB). Den här processen ska åtgärda de problem som förhindrar att ta bort objektet som misslyckades. Därefter, 15 minuter när du har skapat den dummy-avbildningen har bort den.
+
+  Du kan sedan försök hämtning av VM-avbildning som tidigare misslyckats.
+
+- <!-- TBD -  IS ASDK --> Om det tar för lång tid att etablera ett tillägg på en VM-distribution, bör användarna låta etablering timeout-värde istället för att försöka stoppa processen för att frigöra eller ta bort den virtuella datorn.  
+
+- <!-- 1662991 - IS ASDK --> Linux VM-diagnostik stöds inte i Azure Stack. Distributionen misslyckas när du distribuerar en Linux VM med VM-diagnostik aktiverat. Distributionen misslyckas också om du aktiverar den grundläggande Linux VM-mätvärden via diagnostikinställningar.
+
+- <!-- 2724961- IS ASDK --> När du registrerar den **Microsoft.Insight** resursprovidern i inställningarna för prenumeration och skapa en virtuell Windows-dator med Guest OS diagnostiska aktiverad, kan inte visa måttdata i diagrammet CPU-procent på översiktssidan för virtuell dator.
+ 
+  För att hitta diagrammet CPU-procent för den virtuella datorn, gå till den **mått** gästen mått bladet och visa alla Windows-VM som stöds.
+
+ 
+
+#### <a name="networking"></a>Nätverk
+- <!-- 1766332 - IS, ASDK --> Under **nätverk**, om du klickar på **skapa VPN-Gateway** att konfigurera en VPN-anslutning **principbaserad** har listats som en VPN-typ. Välj inte det här alternativet. Endast den **Vägbaserad** stöds i Azure Stack.
+
+- <!-- 1902460 -  IS ASDK --> Azure Stack stöd för en enda *lokal nätverksgateway* per IP-adress. Detta gäller för alla klient-prenumerationer. Efter skapandet av den första gateway nätverksanslutningen, efterföljande försök att skapa en resurs för gatewayen lokalt nätverk med samma IP-adress blockeras.
+
+- <!-- 16309153 -  IS ASDK --> I ett virtuellt nätverk som har skapats med en DNS-Server-inställningarna för *automatisk*, ändra till en anpassad DNS-servern misslyckas. De uppdaterade inställningarna skickas inte till virtuella datorer i det virtuella nätverket.
+
+- <!-- 2702741 -  IS ASDK --> Offentliga IP-adresser som distribueras med hjälp av dynamisk fördelning garanteras att bevaras när en frigörandet har utfärdats.
+
+- <!-- 2529607 - IS ASDK --> Under Azure Stack *hemlighet Rotation*, där offentliga IP-adresser inte kan nås i två till fem minuter på en stund.
+
+-   <!-- 2664148 - IS ASDK --> De kan stöta på ett scenario där anslutningsförsök misslyckas om det lokala undernätet har lagts till i den lokala nätverksgateway när gatewayen har redan skapats i scenarier där klienten har åtkomst till sina virtuella datorer med hjälp av en S2S VPN-tunnel. 
+
+
+<!--  #### SQL and MySQL  -->
+
+
+#### <a name="app-service"></a>App Service
+- <!-- 2352906 - IS ASDK --> Användarna måste registrera lagringsresursprovidern innan de skapar sina första Azure-funktion i prenumerationen.
+
+- <!-- TBD - IS ASDK --> För att skala ut infrastruktur (arbetare, hantering, frontend-roller), måste du använda PowerShell enligt beskrivningen i viktig information för beräkning.  
+
+
+#### <a name="usage"></a>Användning  
+- <!-- TBD -  IS ASDK --> Offentlig IP-adress användning mätaren användningsdata visar samma *EventDateTime* värde för varje post i stället för den *TimeDate* stämpel som visar när posten skapades. För närvarande kan använda du inte dessa data för att utföra redovisas korrekt användning av offentlig IP-adress.
+
+<!-- #### Identity -->
+
+
 
 
 ## <a name="build-11807076"></a>Skapa 1.1807.0.76
@@ -140,7 +279,7 @@ Den här versionen innehåller följande förbättringar och korrigeringar för 
 
 - <!-- 2368581 - IS. ASDK --> Azure Stack-operatör, om du får en avisering om ont om minne och virtuella datorer inte att distribueras med en *fel vid skapande av Fabric VM*, är det möjligt att Azure Stack-stämpel har tillräckligt med tillgängligt minne. Använd den [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) så att den tillgängliga kapaciteten för dina arbetsbelastningar.
 
-- <!-- TBD - IS. ASDK --> När du kör cmdleten Test-AzureStack på behörighet slutpunkt (program) kan felmeddelande ett Varna för ERCS VM. Du kan fortsätta att använda ASDK. 
+- <!-- TBD - IS. ASDK --> När du kör cmdleten Test-AzureStack på behörighet slutpunkt (program) kan felmeddelande testet ett WARN/MISSLYCKAS för ERCS VM. Du kan fortsätta att använda ASDK.
 
 #### <a name="compute"></a>Compute
 - <!-- 2494144 - IS, ASDK --> När du väljer en VM-storlek för en distribution av virtuella datorer, vissa F-seriens storlekar visas inte som en del av storlek Väljaren när du skapar en virtuell dator. Storlek på följande Virtuella datorer visas inte i Väljaren: *F8s_v2*, *F16s_v2*, *F32s_v2*, och *F64s_v2*.  
@@ -226,14 +365,14 @@ Den här versionen innehåller följande förbättringar och korrigeringar för 
 
 - <!-- 2297790 - IS, ASDK --> **Azure Stack innehåller nu en *Syslog* klienten** som en *förhandsgranskningsfunktion*. Den här klienten gör att vidarebefordring av gransknings- och loggar som är relaterade till Azure Stack-infrastruktur till en Syslog-server eller säkerhet och händelsehantering (SIEM) hanteringsprogramvara som är extern till Azure Stack. Syslog-klienten stöder för närvarande endast oautentiserade UDP-anslutningar via standardporten 514. Nyttolasten för varje Syslog-meddelande är formaterad i Common Event Format (CEF).
 
-  Du konfigurerar Syslog-klienten använder den **Set-SyslogServer** cmdleten som visas i den privilegierade slutpunkten.
+  Du konfigurerar Syslog-klienten använder den **Set-SyslogServer** cmdlet på privilegierad slutpunkt.
 
   Med den här förhandsversionen kan du se följande tre aviseringar. När den får från Azure Stack, dessa aviseringar innehåller *beskrivningar* och *reparation* vägledning.
   - Rubrik: Kodintegritet av  
   - Rubrik: Kodintegritet i granskningsläge
   - Rubrik: Användarkontot som skapade
 
-  Den här funktionen är i förhandsversion, det bör inte förlita sig på detta i produktionsmiljöer.   
+  Den här funktionen är i förhandsversion, det bör inte förlita sig på i produktionsmiljöer.   
 
 
 ### <a name="fixed-issues"></a>Åtgärdade problem
@@ -304,7 +443,7 @@ Den här versionen innehåller följande förbättringar och korrigeringar för 
 
   I den här versionen av Azure Stack, kan den här aviseringen utlöses felaktigt. Om virtuella datorer fortsätter att distribuera har kan ignorera du den här aviseringen. 
   
-  Aviseringen #3 stängs inte automatiskt. Om du stänger aviseringen skapar Azure Stack samma avisering inom 15 minuter.  
+  Inte automatiskt att Stäng avisering #3. Om du stänger aviseringen skapar Azure Stack samma avisering inom 15 minuter.  
 
 - <!-- 2368581 - IS. ASDK --> Azure Stack-operatör, om du får en avisering om ont om minne och virtuella datorer inte att distribueras med en *fel vid skapande av Fabric VM*, är det möjligt att Azure Stack-stämpel har tillräckligt med tillgängligt minne. Använd den [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) så att den tillgängliga kapaciteten för dina arbetsbelastningar.
 
@@ -383,144 +522,4 @@ Den här versionen innehåller följande förbättringar och korrigeringar för 
 - <!-- TBD -  IS ASDK --> Offentlig IP-adress användning mätaren användningsdata visar samma *EventDateTime* värde för varje post i stället för den *TimeDate* stämpel som visar när posten skapades. För närvarande kan använda du inte dessa data för att utföra redovisas korrekt användning av offentlig IP-adress.
 
 <!-- #### Identity -->
-
-
-## <a name="build-201805131"></a>Skapa 20180513.1
-
-### <a name="new-features"></a>Nya funktioner
-Den här versionen innehåller följande förbättringar och korrigeringar för Azure Stack.  
-
-- <!-- 1759172 - IS, ASDK --> **Nya administrativa prenumerationer**. Med 1804 finns det två typer av nya prenumerationer i portalen. Dessa nya typer av prenumerationer är utöver standard providerprenumeration och synliga i nya Azure Stack-installationer från och med version 1804. *Använd inte de här nya typer av prenumerationer med den här versionen av Azure Stack*. <!-- We will announce the availability to use these subscription types in with a future update. -->
-
-  Dessa nya typer av prenumerationer är synliga, men en del av en större ändring att skydda standard providerprenumeration och för att göra det enklare att distribuera delade resurser, till exempel som är värd för SQL-servrar.
-
-  Det finns tre prenumerationstyper som är nu tillgängligt:  
-  - Standard providerprenumeration: fortsätta att använda den här prenumerationstypen.
-  - Avläsning av prenumerationen: *inte använder den här prenumerationstypen.*
-  - Användning-prenumeration: *inte använder den här prenumerationstypen*
-
-### <a name="fixed-issues"></a>Åtgärdade problem
-- <!-- IS, ASDK -->  I administrationsportalen behöver du inte längre uppdatera uppdatera panel innan den visar information.
-
-- <!-- 2050709 - IS, ASDK -->  Du kan nu använda administrationsportalen för att redigera lagringsmått för Blob service, Table service och kötjänsten.
-
-- <!-- IS, ASDK --> Under **nätverk**när du klickar på **anslutning** att konfigurera en VPN-anslutning **plats-till-plats (IPsec)** nu är det enda tillgängliga alternativet.
-
-- **Olika korrigeringar** för prestanda, stabilitet, säkerhet och det operativsystem som används av Azure Stack
-
-<!-- ### Changes  -->
-### <a name="additional-releases-timed-with-this-update"></a>Ytterligare versioner som taggats med den här uppdateringen  
-Följande är nu tillgängliga, men kräver inte Azure Stack-uppdatering 1804.
-- **Uppdatera till Microsoft Azure Stack-System Center Operations Manager Övervakningspaket**. En ny version (1.0.3.0) av Microsoft System Center Operations Manager Monitoring Pack för Azure Stack är tillgänglig för [hämta](https://www.microsoft.com/download/details.aspx?id=55184). Med den här versionen kan du använda tjänstens huvudnamn när du lägger till en ansluten Azure Stack-distribution. Den här versionen har också en uppdateringshantering upplevelse som låter dig dra Reparationsåtgärd direkt från Operations Manager. Det finns även nya instrumentpaneler som Visa resursprovidrar, skalningsenheter och skala enhet noder.
-
-- **Nya Azure Stack Admin PowerShell-Version 1.3.0**.  Azure Stack PowerShell 1.3.0 är nu tillgängliga för installation. Den här versionen innehåller kommandon för alla providrar för administratören att hantera Azure Stack.  Den här versionen kan delar av innehållet upphör att gälla från Azure Stack verktyg GitHub [databasen](https://github.com/Azure/AzureStack-Tools).
-
-   Installationsinformation, följ den [instruktioner](.\.\azure-stack-powershell-install.md) eller [hjälpa](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) innehåll för Azure Stack-modulen 1.3.0.
-
-- **Första versionen av Azure Rest API-referens Stack**. Den [API-referens för alla Azure Stack-Admin-providrar](https://docs.microsoft.com/rest/api/azure-stack/) har nu publicerats.
-
-### <a name="known-issues"></a>Kända problem
-
-#### <a name="portal"></a>Portalen
-- <!-- TBD - IS ASDK --> Möjligheten [att öppna en ny supportbegäran i listrutan](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) från inom administratören portalen är inte tillgänglig. I stället använder du följande länk:     
-    - Använd för Azure Stack Development Kit https://aka.ms/azurestackforum.    
-
-- <!-- 2403291 - IS ASDK --> Du kanske inte användning av den vågräta rullningslisten längst ned på administratörs- och portaler. Om du inte kommer åt den vågräta rullningslisten, Använd spåret och navigera till ett tidigare blad i portalen genom att välja namn på bladet du vill visa i dynamiska länkar på listan som finns längst upp till vänster i portalen.
-  ![Brödsmula](media/asdk-release-notes/breadcrumb.png)
-
-- <!-- TBD -  IS ASDK --> Tar bort användaren prenumerationer resulterar i överblivna resurser. Som en lösning kan du först ta bort användarresurser eller hela resursgruppen och tar bort användarprenumerationer.
-
-- <!-- TBD -  IS ASDK --> Du kan inte visa behörigheter till din prenumeration med hjälp av Azure Stack-portaler. Som en lösning kan du använda PowerShell för att kontrollera behörigheterna.
-
--   <!-- TBD -  IS ASDK --> Du kan se en kritisk varning för komponenten Microsoft.Update.Admin i administrationsportalen. Aviseringens namn, beskrivning och åtgärder som alla Visa som:  
-    - *FEL - mall för FaultType ResourceProviderTimeout saknas.*
-
-    Den här varningen kan ignoreras.
-
-#### <a name="health-and-monitoring"></a>Hälsa och övervakning
-- <!-- 1264761 - IS ASDK -->  Du kan se aviseringar för den *hälsotillstånd controller* komponent som har följande information:  
-
-   Avisera #1:
-   - NAMN: Infrastrukturrollen defekt
-   - ALLVARLIGHETSGRAD: varning
-   - KOMPONENT: Health controller
-   - Beskrivning: Kontrollanten hälsotillstånd pulsslag skannern är inte tillgänglig. Detta kan påverka rapporter om hälsotillstånd och mått.  
-
-  Avisera #2:
-   - NAMN: Infrastrukturrollen defekt
-   - ALLVARLIGHETSGRAD: varning
-   - KOMPONENT: Health controller
-   - Beskrivning: Kontrollanten hälsotillstånd fel skannern är inte tillgänglig. Detta kan påverka rapporter om hälsotillstånd och mått.
-
-  Båda aviseringarna kan ignoreras. De stängs automatiskt över tid.  
-
-#### <a name="marketplace"></a>Marketplace
-- Användare kan bläddra till den fullständiga marknadsplatsen utan en prenumeration och kan se administrativa objekt och planer och erbjudanden. De här objekten är icke-funktionella till användare.
-
-#### <a name="compute"></a>Compute
-- <!-- TBD -  IS ASDK --> Skalningsinställningarna för skalningsuppsättningar för virtuella datorer är inte tillgängliga i portalen. Som en tillfällig lösning kan du använda [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). På grund av skillnader i PowerShell-version, måste du använda den `-Name` parameter i stället för `-VMScaleSetName`.
-
-- <!-- TBD -  IS ASDK --> När du skapar virtuella datorer på Azure Stack-användarportalen visar portalen ett felaktigt antal datadiskar som kan ansluta till virtuella datorer i DS-serien. DS-serien virtuella datorer kan hantera så många datadiskar som Azure-konfiguration.
-
-- <!-- TBD -  IS ASDK --> När en VM-avbildning som inte kan skapas, kan ett misslyckade objekt som du inte kan ta bort läggas till VM-avbildningar compute-bladet.
-
-  Som en lösning kan du skapa en ny VM-avbildning med en dummy virtuell Hårddisk som kan skapas via Hyper-V (New-VHD-sökväg C:\dummy.vhd-fast - SizeBytes 1 GB). Den här processen ska åtgärda de problem som förhindrar att ta bort objektet som misslyckades. Därefter, 15 minuter när du har skapat den dummy-avbildningen har bort den.
-
-  Du kan sedan försök hämtning av VM-avbildning som tidigare misslyckats.
-
-- <!-- TBD -  IS ASDK --> Om det tar för lång tid att etablera ett tillägg på en VM-distribution, bör användarna låta etablering timeout-värde istället för att försöka stoppa processen för att frigöra eller ta bort den virtuella datorn.  
-
-- <!-- 1662991 - IS ASDK --> Linux VM-diagnostik stöds inte i Azure Stack. Distributionen misslyckas när du distribuerar en Linux VM med VM-diagnostik aktiverat. Distributionen misslyckas också om du aktiverar den grundläggande Linux VM-mätvärden via diagnostikinställningar.
-
-#### <a name="networking"></a>Nätverk
-- <!-- 1766332 - IS, ASDK --> Under **nätverk**, om du klickar på **skapa VPN-Gateway** att konfigurera en VPN-anslutning **principbaserad** har listats som en VPN-typ. Välj inte det här alternativet. Endast den **Vägbaserad** stöds i Azure Stack.
-
-- <!-- 2388980 -  IS ASDK --> När en virtuell dator skapas och som är associerade med en offentlig IP-adress, kan du kopplingen mellan den virtuella datorn från IP-adress. Avassociationsåtgärden ser ut att fungera, men den tidigare tilldelade offentliga IP-adressen förblir kopplad till den ursprungliga virtuella datorn.
-
-  För närvarande, måste du använda endast nya offentliga IP-adresser för nya virtuella datorer som du skapar.
-
-  Detta inträffar även om du omtilldelar IP-adress till en ny virtuell dator (som ofta kallas en *VIP-växling*). Alla framtiden försöker ansluta via IP-adress resultatet i en anslutning till den ursprungliga virtuella datorn och inte till den nya servern.
-
-- <!-- 2292271 - IS ASDK --> Om du ökar en kvot för en nätverksresurs som är en del av ett erbjudande och en Plan som är associerad med en klientprenumeration, tillämpas inte den nya gränsen till den prenumerationen. Den nya gränsen gäller dock för nya prenumerationer som skapas när kvoten ökas.
-
-  Undvik problemet genom att använda en tilläggsplanen för att öka en kvot för datornätverk när planen är redan associerad med en prenumeration. Läs mer om hur du [tillgängliggöra en tilläggsplanen](.\.\azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
-
-- <!-- 2304134 IS ASDK --> Du kan inte ta bort en prenumeration som har resurser som DNS-zon eller routningstabellen resurser som är associerade med den. Om du vill ta bort prenumerationen har, måste du först radera DNS-zon och routningstabellen resurser från prenumerationen klient.
-
-
-- <!-- 1902460 -  IS ASDK --> Azure Stack stöd för en enda *lokal nätverksgateway* per IP-adress. Detta gäller för alla klient-prenumerationer. Efter skapandet av den första gateway nätverksanslutningen, efterföljande försök att skapa en resurs för gatewayen lokalt nätverk med samma IP-adress blockeras.
-
-- <!-- 16309153 -  IS ASDK --> I ett virtuellt nätverk som har skapats med en DNS-Server-inställningarna för *automatisk*, ändra till en anpassad DNS-servern misslyckas. De uppdaterade inställningarna skickas inte till virtuella datorer i det virtuella nätverket.
-
-- <!-- TBD -  IS ASDK --> Azure Stack har inte stöd för att lägga till ytterligare nätverksgränssnitt i en VM-instans efter den virtuella datorn har distribuerats. Om den virtuella datorn kräver mer än ett nätverksgränssnitt, måste de ha definierats vid tidpunkten för distribution.
-
-
-#### <a name="sql-and-mysql"></a>SQL- och MySQL
-- <!-- TBD - ASDK --> Databasen som är värd för servrar måste vara reserverad för användning av resurs-providern och användaren arbetsbelastningar. Du kan inte använda en instans som används av någon annan konsument, inklusive App Services.
-
-- <!-- IS, ASDK --> Specialtecken, inklusive blanksteg och punkter, stöds inte i den **familj** namn när du skapar en SKU för SQL- och MySQL-resursprovider.
-
-#### <a name="app-service"></a>App Service
-- <!-- TBD -  IS ASDK --> Användarna måste registrera lagringsresursprovidern innan de skapar sina första Azure-funktion i prenumerationen.
-
-- <!-- TBD -  IS ASDK --> För att skala ut infrastruktur (arbetare, hantering, frontend-roller), måste du använda PowerShell enligt beskrivningen i viktig information för beräkning.
-
-#### <a name="usage"></a>Användning  
-- <!-- TBD -  IS ASDK --> Offentlig IP-adress användning mätaren användningsdata visar samma *EventDateTime* värde för varje post i stället för den *TimeDate* stämpel som visar när posten skapades. För närvarande kan använda du inte dessa data för att utföra redovisas korrekt användning av offentlig IP-adress.
-
-<!--
-#### Identity
--->
-
-
-
-#### <a name="downloading-azure-stack-tools-from-github"></a>Ladda ned Azure Stack-verktyg från GitHub
-- När du använder den *invoke-webrequest* PowerShell-cmdlet för att ladda ned Azure Stack-verktyg från Github, du får ett felmeddelande:     
-    -  *Invoke-webrequest: begäran avbröts: Det gick inte att skapa säkra SSL/TLS-kanalen.*     
-
-  Det här felet uppstår på grund av en nyligen utfasning för GitHub om Tlsv1 och Tlsv1.1 kryptografiska (standard för PowerShell). Mer information finns i [svaga kryptografiska standarder meddelande om borttagning](https://githubengineering.com/crypto-removal-notice/).
-
-<!-- #### Identity -->
-
-
 

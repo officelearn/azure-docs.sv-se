@@ -1,6 +1,6 @@
 ---
-title: Simulera fel i Azure mikrotjänster | Microsoft Docs
-description: Hur du kan skydda dina tjänster mot korrekt och städat fel.
+title: Simulera fel i Azure Service Fabric-appar | Microsoft Docs
+description: Hur du kan skydda dina tjänster mot korrekt och okontrollerad fel.
 services: service-fabric
 documentationcenter: .net
 author: anmolah
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: dccd8eeeda1a41f23c9e3dd9896e0630e2a7a0a4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3c075ac9642c7d050fc45ce6164071c9c733326e
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208904"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051922"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Simulera fel under tjänstarbetsbelastningar
-Möjlighet att testa scenarier i Azure Service Fabric ger utvecklare möjligheten att oroa dig inte om hantering av enskilda fel. Det finns scenarier, men där en explicit interfoliering av klienten arbetsbelastning och fel kan behövas. Interfoliering av klienten arbetsbelastning och fel innebär att tjänsten faktiskt utför någon åtgärd när fel inträffar. Angivna kontrollnivån som ger möjlighet att testa kan det vara på exakt punkterna i körningen arbetsbelastning. Den här induktion av fel på olika tillstånd i programmet kan hitta buggar och förbättra kvaliteten.
+Testningsscenarier i Azure Service Fabric kan utvecklare oroa dig inte om hantering av enskilda fel. Det finns scenarier, men där en explicit interleaving av klienten arbetsbelastning och fel kan behövas. Interleaving av klienten arbetsbelastning och fel ser du till att tjänsten faktiskt utför en åtgärd när fel inträffar. Beroende kontrollnivå som ger möjlighet att testa kan det vara vid en viss arbetsbelastning körningen exakt. Den här induktion av fel på olika tillstånd i programmet kan hitta buggar och förbättra kvaliteten.
 
 ## <a name="sample-custom-scenario"></a>Anpassade Exempelscenario
-Det här testet visas ett scenario som interleaves business arbetsbelastningen med [korrekt och städat](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Fel bör vara framkallas i mitten av tjänståtgärderna eller beräkning för bästa resultat.
+Det här testet visas ett scenario som interleaves arbetsbelastningen i företag med [fel korrekt och okontrollerad](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Fel bör orsakas i mitten av tjänståtgärder eller beräkning för bästa resultat.
 
-Låt oss gå igenom ett exempel på en tjänst som visar fyra arbetsbelastningar: A, B, C och D. varje motsvarar en uppsättning av arbetsflöden och gick inte att beräkna, lagring eller en blandning. För enkelhetens skull, kommer vi abstrakt ut arbetsbelastningar i vårt exempel. Olika fel körs i det här exemplet är:
+Låt oss gå igenom ett exempel på en tjänst som exponerar fyra arbetsbelastningar: A, B, C och D. varje motsvarar en uppsättning av arbetsflöden och kan beräkning, lagring, eller en blandning. För enkelhetens skull, kommer vi abstrahera ut arbetsbelastningarna i vårt exempel. De olika fel som körs i det här exemplet är:
 
-* RestartNode: Städat fel att simulera en omstart av datorn.
-* RestartDeployedCodePackage: Städat fel att simulera serverprocess kraschar.
+* RestartNode: Okontrollerad fel att simulera en omstart av datorn.
+* RestartDeployedCodePackage: Okontrollerad fel att simulera värdprocess för tjänsten kraschar.
 * RemoveReplica: Korrekt fel att simulera repliken tas bort.
-* En MovePrimary: Korrekt fel att simulera replik flyttar utlöses av belastningsutjämnaren Service Fabric.
+* En MovePrimary: Korrekt fel att simulera repliken flyttar utlöstes av Service Fabric-belastningsutjämnare.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.

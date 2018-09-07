@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/27/2018
 ms.author: aljo
-ms.openlocfilehash: ed904f7d4de9406e60de1652cefeb5bb84e5a1d8
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: cf8e9dff020e16efe4b37a2bfd66563211be3020
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144046"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055547"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa inställningar för Service Fabric-kluster
 Den här artikeln beskriver hur du anpassar olika fabric inställningarna för Service Fabric-klustret. För kluster i Azure kan du anpassa inställningar via den [Azure-portalen](https://portal.azure.com) eller genom att använda en Azure Resource Manager-mall. Fristående kluster kan anpassa du inställningarna genom att uppdatera filen ClusterConfig.json och utför en uppgradering av konfigurationen på ditt kluster. 
@@ -624,10 +624,13 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 ## <a name="security"></a>Säkerhet
 | **Parametern** | **Tillåtna värden** |**Uppgradera princip**| **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
+|AADCertEndpointFormat|sträng, standardvärdet är ””|Statisk|AAD Cert Endpoint Format, standard Azure Commercial angetts för icke-standard-miljö, till exempel Azure Government ”https://login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml” |
 |AADClientApplication|sträng, standardvärdet är ””|Statisk|Native Client-programnamn eller ID som representerar Fabric klienter |
 |AADClusterApplication|sträng, standardvärdet är ””|Statisk|Webb-API-programnamn eller ID som representerar klustret |
+|AADLoginEndpoint|sträng, standardvärdet är ””|Statisk|AAD Inloggningsslutpunkt, standard Azure Commercial angetts för icke-standard-miljö, till exempel Azure Government ”https://login.microsoftonline.us” |
 |AADTenantId|sträng, standardvärdet är ””|Statisk|Klient-ID (GUID) |
 |AdminClientCertThumbprints|sträng, standardvärdet är ””|Dynamisk|Tumavtryck för certifikat som används av klienter i rollen som administratör. Det är en kommaavgränsad lista med namn på. |
+|AADTokenEndpointFormat|sträng, standardvärdet är ””|Statisk|AAD Tokenslutpunkten, standard Azure Commercial angetts för icke-standard-miljö, till exempel Azure Government ”https://login.microsoftonline.us/{0}” |
 |AdminClientClaims|sträng, standardvärdet är ””|Dynamisk|Alla möjliga anspråk förväntades från admin-klienter. samma format som ClientClaims; den här listan läggs internt till ClientClaims; så du behöver inte att lägga till samma poster till ClientClaims. |
 |AdminClientIdentities|sträng, standardvärdet är ””|Dynamisk|Windows-identiteter för fabric klienter administratörsroll; används för att auktorisera Privilegierade fabric åtgärder. Det är en kommaavgränsad lista. varje post är ett Domänkontonamn eller gruppnamn. För att underlätta; det konto som kör fabric.exe tilldelas automatiskt administratörsroll; så är gruppera ServiceFabricAdministrators. |
 |CertificateExpirySafetyMargin|TimeSpan, standardvärdet är Common::TimeSpan::FromMinutes(43200)|Statisk|Ange tidsintervall i sekunder. Säkerhetsmarginal för förfallodatum för certifikat; certifikatet hälsotillstånd Rapportstatus ändras till varning från OK när förfallotid är närmare än så. Standardvärdet är 30 dagar. |

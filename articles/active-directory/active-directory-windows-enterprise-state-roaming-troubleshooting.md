@@ -18,12 +18,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: a80bec460fffcc7c7170204d541d578428980394
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: c7a2428e4e5e3b5af0e9e01514ba433707e6a3c8
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223957"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022806"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Felsöka Enterprise State Roaming-inställningar i Azure Active Directory
 
@@ -71,7 +71,7 @@ Enterprise State Roaming kräver att enheten registreras med Azure AD. Även om 
 **Potentiella problem**: **WamDefaultSet** och **AzureAdJoined** både har ”Nej” i fältvärdet enheten var ansluten till domänen och registrerad med Azure AD och synkroniserar inte enheten. Om den visar detta, enheten kan behöva vänta på att principen tillämpas det gick inte att autentiseringen för enheten när du ansluter till Azure AD Användaren kan behöva vänta några timmar innan principen tillämpas. Andra åtgärder för felsökning kan omfatta försöker automatisk registrering genom att logga ut och in igen eller starta om aktiviteten i Schemaläggaren. I vissa fall kan köra ”*dsregcmd.exe /leave*” i en upphöjd kommandotolk, starta om och försök registrera igen kan bidra med det här problemet.
 
 
-**Potentiella problem**: fältet för **AzureAdSettingsUrl** är tom och synkroniserar inte enheten. Användaren kan ha senast inloggad till enheten innan Enterprise State Roaming aktiverades i Azure Active Directory-portalen. Starta om enheten och har användarinloggning. Prova också att IT-administratör inaktiverar och återaktiverar användare kan synkroniseringsinställningar och AppData för Enterprise i portalen. En gång återaktiveras, starta om enheten och har användarinloggning. Om detta inte löser problemet, **AzureAdSettingsUrl** kan vara tom när det gäller ett felaktigt certifikat. I det här fallet kör ”*dsregcmd.exe /leave*” i en upphöjd kommandotolk, starta om och försök registrera igen kan bidra med det här problemet.
+**Potentiella problem**: fältet för **SettingsUrl** är tom och synkroniserar inte enheten. Användaren kan ha senast inloggad till enheten innan Enterprise State Roaming aktiverades i Azure Active Directory-portalen. Starta om enheten och har användarinloggning. Prova också att IT-administratör inaktiverar och återaktiverar användare kan synkroniseringsinställningar och AppData för Enterprise i portalen. En gång återaktiveras, starta om enheten och har användarinloggning. Om detta inte löser problemet, **SettingsUrl** kan vara tom när det gäller ett felaktigt certifikat. I det här fallet kör ”*dsregcmd.exe /leave*” i en upphöjd kommandotolk, starta om och försök registrera igen kan bidra med det här problemet.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Enterprise State Roaming och Multi-Factor Authentication 
 Enterprise State Roaming kan misslyckas under vissa förhållanden synkroniserar data om Azure Multi-Factor Authentication har konfigurerats. Mer information om problemen finns i dokumentet support [KB3193683](https://support.microsoft.com/kb/3193683). 
@@ -81,7 +81,7 @@ Enterprise State Roaming kan misslyckas under vissa förhållanden synkroniserar
 **Potentiella problem**: synkronisering kan misslyckas om en administratör konfigurerar principen för villkorlig åtkomst för Active Directory Federation Services Multi-Factor-autentisering och åtkomst-token på enheten går ut. Se till att du loggar in och logga ut med hjälp av Microsoft Passport för arbete PIN-kod eller slutföra Multifaktorautentisering vid åtkomst till andra Azure-tjänster som Office 365.
 
 ### <a name="event-viewer"></a>Loggboken
-För avancerad felsökning, kan Loggboken användas för att hitta specifika fel. Dessa finns dokumenterade i tabellen nedan. Händelser finns i Loggboken > Applications and Services Logs > **Microsoft** > **Windows** > **SettingSync** och för identitetsrelaterade problem med synkronisering av **Microsoft** > **Windows** > **AAD**.
+För avancerad felsökning, kan Loggboken användas för att hitta specifika fel. Dessa finns dokumenterade i tabellen nedan. Händelser finns i Loggboken > Applications and Services Logs > **Microsoft** > **Windows** > **SettingSync Azure** och identitetsrelaterade problem med synkronisering av **Microsoft** > **Windows** > **AAD**.
 
 
 ## <a name="known-issues"></a>Kända problem
@@ -174,14 +174,6 @@ I Loggboken under AAD/Operational loggar det här felet kan visas med händelsen
 
 **Rekommenderad åtgärd**  
 Fortsätter med stegen [KB3196528](https://support.microsoft.com/kb/3196528).  
-
-
-
-## <a name="next-steps"></a>Nästa steg
-
-- Använd den [User Voice-forumet](https://social.technet.microsoft.com/Forums/windows/en-US/f51c856c-db92-4cf7-a497-720da21d7d31/enterprise-state-roaming) kan ge feedback och förslag på hur vi kan förbättra Enterprise State Roaming.
-
-- Mer information finns i den [översikt över Enterprise Tillståndsväxling](active-directory-windows-enterprise-state-roaming-overview.md). 
 
 ## <a name="related-topics"></a>Relaterade ämnen
 * [Centrala översikt över Enterprise tillstånd](active-directory-windows-enterprise-state-roaming-overview.md)

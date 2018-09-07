@@ -11,12 +11,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: e0816e8609ba1ab0ef1b4f685731339378fee844
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8bfe069ba03aec2476d437f25ebb00f8a934c845
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525594"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025561"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Snabbstart: Konfigurera kluster i HDInsight
 
@@ -35,7 +35,7 @@ I följande tabell visas de olika metoderna som du kan använda för att konfigu
 
 | Kluster som skapas med | Webbläsare | Kommandorad | REST-API | SDK | 
 | --- |:---:|:---:|:---:|:---:|
-| [Azure-portalen](../../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
+| [Azure Portal](../../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](../../hdinsight/hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
 | [Azure CLI (version 1.0)](../../hdinsight/hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](../../hdinsight/hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
@@ -242,7 +242,7 @@ Ibland vill du konfigurera följande konfigurationsfilerna under skapandeprocess
 Mer information finns i [anpassa HDInsight-kluster med Bootstrap](../../hdinsight/hdinsight-hadoop-customize-cluster-bootstrap.md).
 
 ## <a name="advanced-settings-extend-clusters-with-a-virtual-network"></a>Avancerade inställningar: utöka kluster med ett virtuellt nätverk
-Om din lösning kräver tekniker som är fördelade på flera HDInsight-klustertyper en [Azure-nätverk](../../hdinsight/https://docs.microsoft.com/azure/virtual-network) kan ansluta vilka krävs för klustret. Den här konfigurationen ger klustren, och all kod som du distribuerar till dem, kan kommunicera direkt med varandra.
+Om din lösning kräver tekniker som är fördelade på flera HDInsight-klustertyper en [Azure-nätverk](https://docs.microsoft.com/azure/virtual-network) kan ansluta vilka krävs för klustret. Den här konfigurationen ger klustren, och all kod som du distribuerar till dem, kan kommunicera direkt med varandra.
 
 Mer information om hur du använder Azure-nätverk med HDInsight finns i [utöka HDInsight med Azure-nätverk](../../hdinsight/hdinsight-extend-hadoop-virtual-network.md).
 

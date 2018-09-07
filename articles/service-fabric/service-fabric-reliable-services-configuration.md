@@ -1,5 +1,5 @@
 ---
-title: Konfigurera reliable Azure-mikrotjänster | Microsoft Docs
+title: Konfigurera Azure Service Fabric Reliable Services | Microsoft Docs
 description: Lär dig mer om hur du konfigurerar tillståndskänsliga Reliable Services i Azure Service Fabric.
 services: Service-Fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: f2af7c65d42cbbec28fd511be18c72a6cd3c3d0c
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: ee8010fbbadc011e04d6d43599d671a1f926bb5f
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249027"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049664"
 ---
 # <a name="configure-stateful-reliable-services"></a>Konfigurera tillståndskänsliga reliable services
 Det finns två uppsättningar med konfigurationsinställningarna för reliable services. En uppsättning är globala för alla reliable services i klustret medan den andra uppsättningen är specifik för en viss tillförlitlig tjänst.

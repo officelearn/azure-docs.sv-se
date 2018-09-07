@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: bff0140d173fc3393ac56ec3d709c3c067842a2a
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 9287eb0925556d382410f95caf16a9ca478ca2da
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42057597"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054425"
 ---
 # <a name="add-a-kubernetes-cluster-to-the-azure-stack-marketplace"></a>Lägg till ett Kubernetes-kluster i Azure Stack Marketplace
 
 *Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
 > [!note]  
-> Azure Kubernetes Services (AKS) Kubernetes på Azure Stack är i privat förhandsversion. Att begära åtkomst till Kubernetes marknadsplats-objektet som behövs för att göra det som beskrivs i den här artikeln [ansöka om att få åtkomst](https://aka.ms/azsk8).
+> Motorn för AKS (Azure Kubernetes Service) på Azure Stack är i privat förhandsversion. Att begära åtkomst till Kubernetes marknadsplats-objektet som behövs för att göra det som beskrivs i den här artikeln [ansöka om att få åtkomst](https://aka.ms/azsk8).
 
 Du kan erbjuda ett Kubernetes-kluster som ett Marketplace-objekt till dina användare. Användarna kan distribuera Kubernetes i en enda, samordnad åtgärd.
 
@@ -66,7 +66,7 @@ Lägg till följande Ubuntu Server bild Marketplace:
 
 1. Logga in på den [administrationsportalen](https://adminportal.local.azurestack.external).
 
-1. Välj **fler tjänster** > **Marketplace Management**.
+1. Välj **alla tjänster**, och sedan under den **ADMINISTRATION** kategori, väljer **Marketplace management**.
 
 1. Välj **+ Lägg till från Azure**.
 
@@ -89,7 +89,7 @@ Lägg till Kubernetes-klustret från Marketplace:
 
 1. Öppna den [administrationsportalen](https://adminportal.local.azurestack.external).
 
-1. Välj **fler tjänster** > **Marketplace Management**.
+1. Välj **alla tjänster** och sedan under den **ADMINISTRATION** kategori, väljer **Marketplace Management**.
 
 1. Välj **+ Lägg till från Azure**.
 
@@ -110,7 +110,7 @@ Lägg till Kubernetes-klustret från Marketplace:
 
 1. Öppna den [administrationsportalen](https://adminportal.local.azurestack.external).
 
-1. Välj **fler tjänster** > **Marketplace Management**.
+1. Välj **A; tjänster** och sedan under den **ADMINISTRATION** kategori, väljer **Marketplace Management**.
 
 1. Välj **+ Lägg till från Azure**.
 

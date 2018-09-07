@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: 112586d3ee5f49eab9adb72d41a210e2dd9828d8
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: b58118a3ed4fba5017e0eb630d822ec59f04aa16
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42057300"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024784"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Delegera erbjudanden i Azure Stack
 
@@ -128,7 +128,7 @@ Logga in på användarportalen som delegerad provider och sedan skapa ett nytt e
 
 4. Offentliga delegerade erbjudanden visas nu endast via delegerade-portalen. Hitta och ändra den här URL: en:
 
-    a.  Välj **Bläddra** > **fler tjänster** > **prenumerationer**. Välj sedan den delegerad Providerprenumeration. Till exempel **DPSubscription** > **egenskaper**.
+    a.  Välj **Bläddra** > **alla tjänster**, och sedan under den **Allmänt** kategori, väljer **prenumerationer**. Välj delegerad Providerprenumeration. Till exempel **DPSubscription** > **egenskaper**.
 
     b.  Kopiera portalen URL: en till en annan plats, till exempel Anteckningar.
 

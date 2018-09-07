@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: be3fd304e04a66e6564141b6a20efea88cf62553
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 75b7ecac465fa12b1e19ca409d1535d89c755801
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42056762"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021895"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Hantera åtkomsträttigheter till Azure Storage-data med RBAC (förhandsversion)
 
 Azure Active Directory (Azure AD) auktoriserar åtkomsträttigheter till skyddade resurser via [rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview). Azure Storage definierar en uppsättning inbyggda RBAC-roller som omfattar vanliga uppsättningar av behörigheter som används för åtkomst till behållare eller köer. När en RBAC-roll tilldelas till en Azure AD-identitet identitet beviljas åtkomst till dessa resurser, enligt det angivna omfånget. Åtkomst kan begränsas till nivån för prenumerationen, resursgruppen, storage-konto eller en enskild behållare eller en kö. Du kan tilldela åtkomsträttigheter för Azure Storage-resurser med Azure-portalen, Azure kommandoradsverktyg och Azure Management API: er. 
 
-En Azure AD-identitet kan vara en användare, grupp eller tjänstens huvudnamn för programmet eller det kan vara en *hanterad tjänstidentitet*. Ett säkerhetsobjekt kan vara en användare, grupp eller program tjänstens huvudnamn. En [hanterad tjänstidentitet](../../active-directory/managed-service-identity/overview.md) är ett automatiskt hanterad identitet som används för att autentisera från program som körs i Azure-datorer, funktionsappar, skalningsuppsättningar för virtuella datorer och andra. En översikt av identitet i Azure AD finns i [förstå Azure-identitetslösningar](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
+En Azure AD-identitet kan vara en användare, grupp eller tjänstens huvudnamn för programmet eller det kan vara en *hanterad tjänstidentitet*. Ett säkerhetsobjekt kan vara en användare, grupp eller program tjänstens huvudnamn. En [hanterad tjänstidentitet](../../active-directory/managed-identities-azure-resources/overview.md) är ett automatiskt hanterad identitet som används för att autentisera från program som körs i Azure-datorer, funktionsappar, skalningsuppsättningar för virtuella datorer och andra. En översikt av identitet i Azure AD finns i [förstå Azure-identitetslösningar](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
 
 ## <a name="rbac-roles-for-azure-storage"></a>RBAC-roller för Azure Storage
 

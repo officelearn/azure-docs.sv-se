@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/22/2018
 ms.author: shlo
-ms.openlocfilehash: 1023eadbf4b799cd8b0c761c1689b9249cee450a
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: d0f36551fb06e04b50af464bac6953dda64c6202
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616852"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054156"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Varna och övervaka datafabriker med hjälp av Azure Monitor
 Molnprogram är komplexa med alla rörliga delar. Övervakning ger data så att ditt program fungerar och körs i ett felfritt tillstånd. Det hjälper dig också att stave potentiella problem eller felsöka tidigare sådana. Du kan dessutom använda övervakningsdata för att få djupa insikter om ditt program. Den här kunskapen kan hjälpa dig att förbättra programmets prestanda och underhåll eller automatisera åtgärder som annars skulle kräva manuella åtgärder.
@@ -392,7 +392,7 @@ ADFV2 genererar följande mått
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
 | PipelineSucceededRun | Lyckades mått för pipeline-körningar | Antal    | Totalt                | Totalt antal pipelines arbetsflödeskörningar inom ett |
 | PipelineFailedRuns   | Det gick inte mått för pipeline-körningar    | Antal    | Totalt                | Totalt antal pipelines körs misslyckade inom ett    |
-| ActiviySucceededRuns | Lyckades aktivitetsmått för körningar | Antal    | Totalt                | Totalt antal aktiviteten körs lyckades inom ett  |
+| ActivitySucceededRuns | Lyckades aktivitetsmått för körningar | Antal    | Totalt                | Totalt antal aktiviteten körs lyckades inom ett  |
 | ActivityFailedRuns   | Det gick inte aktivitetsmått för körningar    | Antal    | Totalt                | Totalt antal aktiviteten körs misslyckade inom ett     |
 | TriggerSucceededRuns | Lyckades utlösaren körs mått  | Antal    | Totalt                | Totalt antal utlösaren körs lyckades inom ett   |
 | TriggerFailedRuns    | Det gick inte utlösaren körs mått     | Antal    | Totalt                | Totalt antal utlösaren körs misslyckade inom ett      |

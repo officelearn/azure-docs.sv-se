@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/04/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b1c6209c4d589093d7a29cd8a883d3e5d4ca12f9
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: a66a17a0f8daed5f61753dd7c20ed5d9987c0b15
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782310"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053908"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka C#-moduler för Azure IoT Edge
 
@@ -44,7 +44,7 @@ Konfigurera lokal utvecklingsmiljö för att felsöka, köra och testa din IoT E
    pip install --upgrade iotedgehubdev
    ```
 
-Testa din modul på en enhet, behöver du en aktiv IoT-hubb med minst en IoT Edge-enhet. Om du vill använda din dator som en IoT Edge-enhet följer du stegen i snabbstarten för [Windows](quickstart.md) eller [Linux](quickstart-linux.md). 
+Testa din modul på en enhet, behöver du en aktiv IoT-hubb med minst en IoT Edge enhets-ID som skapats. Om du kör IoT Edge-daemon på utvecklingsdator, kan du behöva stoppa EdgeHub och EdgeAgent innan du går vidare till nästa steg. 
 
 ## <a name="create-a-new-solution-with-c-module"></a>Skapa en ny lösning med C#-modul
 
@@ -111,9 +111,6 @@ IoT Edge C#-modul är en .net Core program. Och det är beroende av Azure IoT C#
     dotnet build
     ```
 
-   > [!TIP]
-   > Du kan också använda [PostMan](https://www.getpostman.com/) eller andra API-verktyg för att skicka meddelanden via i stället för `curl`.
-
 2. Navigera till `program.cs`. Lägg till en brytpunkt i den här filen.
 
 3. Gå till felsökningsvyn för VS Code. Välj debug konfigurationen **ModuleName lokala felsöka (.NET Core)**. 
@@ -136,7 +133,7 @@ IoT Edge C#-modul är en .net Core program. Och det är beroende av Azure IoT C#
 
     ![Titta på variabler](media/how-to-develop-csharp-module/single-module-variables.png)
 
-7. Stoppa felsökningssessionen genom klicka på stoppknappen eller tryck på **SKIFT + F5**. I VS Code kommandopaletten, och Skriv Välj **Azure IoT Edge: stoppa IoT Edge-simulatorn**.
+7. Stoppa felsökningssessionen genom klicka på stoppknappen eller tryck på **SKIFT + F5**. I VS Code kommandopaletten, och Skriv Välj **Azure IoT Edge: stoppa IoT Edge-simulatorn** stoppa och rensa simulatorn.
 
 ## <a name="build-module-container-for-debugging-and-debug-in-attach-mode"></a>Skapa modulen behållare för felsökning och felsökning i Koppla läge
 

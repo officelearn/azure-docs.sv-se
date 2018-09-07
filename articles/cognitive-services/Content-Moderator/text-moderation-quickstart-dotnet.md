@@ -9,16 +9,16 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: sajagtap
-ms.openlocfilehash: 7320286e186d7e6ba4041d3ed52f19e573b4d7e3
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 87ed816077d2c742223a0350851cdf2f0c5653f6
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049889"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023046"
 ---
 # <a name="moderate-text-using-net"></a>Moderera text med hjälp av .NET
 
-Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med Content Moderator-SDK för .NET för att:
+Den här artikeln innehåller information och kodexempel som hjälper dig att komma igång med den [Content Moderator-SDK för .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) till:
 - Identifiera potentiellt olämpligt språk i texten med termen-baserad filtrering
 - Använd machine-learning-baserade modeller för att [klassificera texten](text-moderation-api.md#classification) i tre kategorier.
 - Identifiera personligt identifierbar information (PII), till exempel USA och Storbritannien telefonnummer, e-postadresser och USA e-postadresser.
@@ -211,4 +211,4 @@ I exemplet som utdata för programmet, som skrivs till loggfilen är:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Ladda ned Visual Studio-lösningen](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) för denna och andra Content Moderator-Snabbstart för .NET, och kom igång med din integrering.
+Hämta den [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) och [Visual Studio-lösning](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) för denna och andra Content Moderator-Snabbstart för .NET, och kom igång med din integrering.

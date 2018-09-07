@@ -9,18 +9,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: manayar
-ms.openlocfilehash: 3a2ad35a5382394a6886ed14dcc4f659762f2833
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 28ea6c58eed110cfb57f3feaa6b828289bd20e64
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172246"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054554"
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Använda Azure Site Recovery för att skydda Active Directory och DNS
 
 Företagsprogram som SharePoint, Dynamics AX och SAP beror på Active Directory och DNS-infrastrukturen ska fungera korrekt. När du konfigurerar haveriberedskap för program, behöver du ofta att återställa Active Directory och DNS innan du återställer andra programkomponenter, för att säkerställa att rätt programfunktionen.
 
-Du kan använda [Site Recovery](site-recovery-overview.md) att skapa en haveriberedskapsplan för Active Directory. När avbrott uppstår kan initiera du redundans. Du kan ha Active Directory dig och som körs i ett par minuter. Om du har distribuerat Active Directory för flera program på din primära plats, till exempel kan för SharePoint och SAP, du växla över den fullständiga platsen. Du kan först växlar över Active Directory med OD återställning. Växla över de andra programmen, med programspecifika återställningsplaner.
+Du kan använda [Site Recovery](site-recovery-overview.md) att skapa en haveriberedskapsplan för Active Directory. När avbrott uppstår kan initiera du redundans. Du kan ha Active Directory dig och som körs i ett par minuter. Om du har distribuerat Active Directory för flera program på din primära plats, till exempel kan för SharePoint och SAP, du växla över den fullständiga platsen. Du kan först växlar över Active Directory med Site Recovery. Växla över de andra programmen, med programspecifika återställningsplaner.
 
 Den här artikeln beskriver hur du skapar en lösning för haveriberedskap för Active Directory. Den innehåller förutsättningar och instruktioner för redundans. Du bör känna till Active Directory och Site Recovery innan du börjar.
 

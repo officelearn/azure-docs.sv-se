@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashesvi
-ms.openlocfilehash: c530fdca9d5fe499df680211a741bfd9950bb1fe
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 3e5316ac0ca20c58a0960818d3151c238927df0d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382158"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054605"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Hantera reservationer för Azure-resurser
 
@@ -91,9 +91,17 @@ Att delegera hantering för en reservation:
     Update-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
     ```
 
+## <a name="cancellations-and-exchanges"></a>Avbokningar och utbyten
+
+Beroende på reservationstyp av kan du annullera eller byta en reservation. Mer information finns i annullering och utbyten avsnitt i följande avsnitt:
+
+- [Förskottsbetala för virtuella datorer med Azure reserverade VM-instanser](..//virtual-machines/windows/prepay-reserved-vm-instances.md#cancellations-and-exchanges)
+- [Betala i förskott för SUSE programvaruplaner från Azure-reservationer](../virtual-machines/linux/prepay-suse-software-charges.md#cancellation-and-exchanges-not-allowed)
+- [Betala i förskott för beräkningsresurser för SQL-databas med Azure SQL Database reserverad kapacitet](../sql-database/sql-database-reserved-capacity.md#cancellations-and-exchanges)
+
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Ändra optimera inställning för reserverade VM-instanser
 
- När du köper en reserverad VM-instans kan välja du instans storlek flexibilitet eller kapacitetsprioritet. Instans storlek flexibilitet gäller reservationsrabatten på andra virtuella datorer i samma [VM storleksgruppen](https://aka.ms/RIVMGroups). Prioritet för datacenterkapacitet reserverar datacentrets kapacitet för dina distributioner. Det här alternativet erbjuder ytterligare förtroende på din möjlighet att starta VM-instanser när du behöver dem.
+ När du köper en reserverad VM-instans kan välja du instans storlek flexibilitet eller kapacitetsprioritet. Instans storlek flexibilitet gäller reservationsrabatten på andra virtuella datorer i samma [VM storleksgruppen](https://aka.ms/RIVMGroups). Prioritet för datacenterkapacitet prioriterar datacentrets kapacitet för dina distributioner. Det här alternativet erbjuder ytterligare förtroende på din möjlighet att starta VM-instanser när du behöver dem.
 
 När den reservationens omfång delas som standard är flexibilitet för datorinstanser storlek på. Datacentrets kapacitet inte är prioriterad för VM-distributioner.
 

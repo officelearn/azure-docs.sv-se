@@ -1,7 +1,7 @@
 ---
-title: Gränser för språk Språkförståelse (LUIS) | Microsoft Docs
-titleSuffix: Azure
-description: Den här artikeln innehåller kända begränsningar Luis.
+title: Gränser och begränsningar för Språkförståelse (LUIS)
+titleSuffix: Azure Cognitive Services
+description: Den här artikeln innehåller kända begränsningar för Azure Cognitive Services Språkförståelse (LUIS). LUIS har flera gräns områden. Modellen gräns styr avsikter, entiteter och funktioner i LUIS. Kvotgränser baserat på nyckeltyp. Tangentkombination styr LUIS-webbplatsen.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: diberry
-ms.openlocfilehash: 0a75c113f619aa70ba6c504f07afc8dc8a35b694
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: b867d2c6c2bd586e0844d4ad149ac4a73399ed7b
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399839"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023242"
 ---
 # <a name="luis-boundaries"></a>LUIS gränser
 LUIS har flera gräns områden. Först är det [modellen gräns](#model-boundaries), som styr avsikter, entiteter och funktioner i LUIS. Det andra området är [kvotgränser](#key-limits) baserat på nyckeltyp. Ett tredje område av gränser är den [tangentbord kombination](#keyboard-controls) för att styra LUIS-webbplatsen. En fjärde området är den [världen regionsmappning](luis-reference-regions.md) mellan LUIS redigering av webbplatsen och LUIS [endpoint](luis-glossary.md#endpoint) API: er. 

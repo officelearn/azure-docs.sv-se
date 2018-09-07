@@ -1,20 +1,21 @@
 ---
-title: Använda fördefinierade domäner i LUIS-appar i Azure | Microsoft Docs
-description: Lär dig mer om att använda fördefinierade domäner i Language Understanding Intelligent Service (LUIS) program.
+title: Använda fördefinierade domäner för att skapa appar snabbare i LUIS appar
+titleSuffix: Azure Cognitive Services
+description: Språkförståelse (LUIS) tillhandahåller fördefinierade domäner som är färdiga uppsättningar av avsikter och entiteter som samverkar för domäner eller vanliga kategorier av klientprogram. Fördefinierade domäner har redan tränats och är redo att lägga till i din LUIS-app.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: df57f9adf5bf7f5f652a77ddeafe950463c6a9fc
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 80a83fdb1e2b84ac03d0ae0cf969f1635f00cca0
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224185"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053731"
 ---
 # <a name="use-prebuilt-domains-in-luis-apps"></a>Använda fördefinierade domäner i LUIS-appar  
 

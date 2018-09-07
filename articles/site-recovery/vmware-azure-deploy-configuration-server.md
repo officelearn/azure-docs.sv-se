@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: bd456e0f881f606f36f2b4d80e704ce138f7db0f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 4222214705c42fe09d90d77faa7be63cc2a13206
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666440"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025284"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
 
@@ -42,7 +42,7 @@ Storlekskraven för konfigurationsservern är beroende av potentiella förändri
 | 12 virtuella processorer (2 platser * 6 kärnor \@ 2,5 GHz) |18 GB |600 GB |500 GB till 1 TB |Replikera 100 150 datorer. |
 | 16 virtuella processorer (2 platser * 8 kärnor \@ 2,5 GHz) |32 GB |1 TB |1 TB till 2 TB |Replikera 150 – 200 datorer. |
 
-Om du replikerar mer än en VMware VM läsa [överväganden vid kapacitetsplanering](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware). Kör den [verktyget Distributionshanteraren](site-recovery-deployment-planner.md) för VMWare-replikering.
+Om du replikerar mer än en VMware VM läsa [överväganden vid kapacitetsplanering](site-recovery-plan-capacity-vmware.md). Kör den [verktyget Distributionshanteraren](site-recovery-deployment-planner.md) för VMWare-replikering.
 
 ## <a name="download-the-template"></a>Ladda ned mallen
 
@@ -121,19 +121,19 @@ Om du vill lägga till ett extra nätverkskort i konfigurationsservern, lägger 
 
 1. Kan jag använda den virtuella datorn, där konfigurationsservern installeras för olika syften?
 
-    **Inte**, rekommenderar vi att du använder den virtuella datorn för uteslutande av konfigurationsservern. Se till att följa de specifikationer som nämns i den [föregående avsnitt](vmware-azure-deploy-configuration-server.md#Prerequisites) för effektiv hantering av katastrofåterställning.
+    **Inte**, rekommenderar vi att du använder den virtuella datorn för uteslutande av konfigurationsservern. Se till att du följer de specifikationer som nämns i [krav](#prerequisites) för effektiv hantering av katastrofåterställning.
 2. Kan jag byta valvet redan registrerad på konfigurationsservern med ett nyligen skapade valv?
 
     **Inte**, när ett valv har registrerats med konfigurationsservern är den inte kan ändras.
 3. Kan jag använda samma konfigurationsserver för att skydda både fysiska och virtuella datorer?
 
-    **Ja**, samma konfigurationsservern kan användas för att replikera fysiska och virtuella datorer. Dock fysisk dator kan att växlas tillbaka endast till en VMware-VM.
+    **Ja**, samma konfigurationsserver kan användas för att replikera fysiska och virtuella datorer. Dock fysisk dator kan att växlas tillbaka endast till en VMware-VM.
 4. Vad är syftet med en konfigurationsserver och var används den?
 
-    Referera till vår Azure Site Recovery-arkitektur [här](vmware-azure-architecture.md) mer information om konfigurationsservern och dess funktioner.
+    Referera till [arkitektur för Azure-replikering för VMware till](vmware-azure-architecture.md) mer information om konfigurationsservern och dess funktioner.
 5. Var hittar jag den senaste versionen av konfigurationsservern
 
-    Finns i artikeln på stegen för att uppgradera konfigurationsservern [via portalen](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Du kan också direkt ladda ned det från [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+    Anvisningar om att uppgradera konfigurationsservern via portalen finns i [uppgradera konfigurationsservern](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Du kan också direkt ladda ned det från [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 6. Var kan jag hämta lösenfrasen för konfigurationsservern?
 
     Referera till [i den här artikeln](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) att hämta lösenfrasen.
@@ -143,7 +143,7 @@ Om du vill lägga till ett extra nätverkskort i konfigurationsservern, lägger 
 
 ## <a name="upgrade-the-configuration-server"></a>Uppgradera konfigurationsservern
 
-Läs anvisningarna för att uppgradera konfigurationsservern till den senaste versionen, [här](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)
+Om du vill uppgradera konfigurationsservern till den senaste versionen, följer du dessa [steg](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
 
 ## <a name="manage-the-configuration-server"></a>Hantera konfigurationsservern
 

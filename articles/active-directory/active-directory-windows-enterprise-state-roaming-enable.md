@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: bb2210619e481189fc88ca3bb6b8044a8f5d7e14
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: aa14563966e028716d8e18c3228f026af983561f
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262956"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024117"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Aktivera enterprise tillståndsväxling i Azure Active Directory
 Enterprise State Roaming är tillgänglig för alla företag med en Azure AD Premium eller Enterprise Mobility + Security (EMS)-licens. Mer information om hur du hämtar en Azure AD-prenumeration finns i den [produktsidan för Azure AD](https://azure.microsoft.com/services/active-directory).
@@ -32,16 +32,17 @@ När du aktiverar Enterprise State Roaming, beviljas automatiskt en kostnadsfri,
 
 1. Logga in på [Azure AD administratörscenter](https://aad.portal.azure.com/).
 
-2. Välj **Azure Active Directory** &gt; **enheter** &gt; **Enhetsinställningar**.
+2. Välj **Azure Active Directory** &gt; **enheter** &gt; **Enterprise State Roaming**.
 
 3. Välj **användarna kan synkronisera inställningar och AppData på enheter**. Mer information finns i [så här konfigurerar du Enhetsinställningar](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
   
   ![Bild av enhetsinställning med namnet användare kan synkronisera inställningar och AppData på enheter](./media/active-directory-windows-enterprise-state-roaming-enable/device-settings.png)
   
-Enheten måste autentiseras med hjälp av en Azure AD-identitet för för en Windows 10-enhet du använder Enterprise State Roaming-tjänsten. För enheter som är anslutna till Azure AD är användarens primära inloggning identitet sina Azure AD-identitet, så krävs ingen ytterligare konfiguration. För enheter som använder en lokal Active Directory kan IT-administratören måste [ansluta domänanslutna enheter till Azure AD för Windows 10 inträffar](active-directory-azureadjoin-devices-group-policy.md).
+Enheten måste autentiseras med hjälp av en Azure AD-identitet för för en Windows 10-enhet du använder Enterprise State Roaming-tjänsten. För enheter som är anslutna till Azure AD är användarens primära inloggning identitet sina Azure AD-identitet, så krävs ingen ytterligare konfiguration. För enheter som använder en lokal Active Directory kan IT-administratören måste [konfigurera Azure Active Directory-anslutna hybridenheter](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual-steps). 
 
 ## <a name="data-storage"></a>Datalagring
 Enterprise State Roaming data finns i en eller flera [Azure-regioner](https://azure.microsoft.com/regions/) som bäst överensstämmer med värdet för land/region i Azure Active Directory-instans. Enterprise State Roaming data partitioneras baserat på tre större geografiska områden: Nordamerika, EMEA och APAC. Enterprise State Roaming data för klientorganisationen finns lokalt tillsammans med det geografiska området och har replikerats inte i flera regioner.  Exempel:
+
 Värdet för land/region | sina data har finns i
 ---------------------|-------------------------
 En EMEA land, till exempel ”France” eller ”Zambia” | en eller Azure-regioner i Europa 
@@ -69,7 +70,7 @@ Följ dessa steg om du vill visa en statusrapport för per användare enheten sy
   ![Bild av kolumnbaserad enhetsdata för synkronisering](./media/active-directory-windows-enterprise-state-roaming-enable/device-status-row.png)
 
 ## <a name="data-retention"></a>Datakvarhållning
-Data som synkroniseras till Azure med hjälp av Enterprise State Roaming behålls tills den raderas manuellt eller i fråga data bedöms vara inaktuella. 
+Data som synkroniseras med Microsoft-molnet med hjälp av Enterprise State Roaming behålls tills den raderas manuellt eller i fråga data bedöms vara inaktuella. 
 
 ### <a name="explicit-deletion"></a>Explicit borttagning
 Explicit borttagning är när en Azure-administratör tar bort en användare eller en katalog eller annars begär uttryckligen att data som ska tas bort.
@@ -79,14 +80,14 @@ Explicit borttagning är när en Azure-administratör tar bort en användare ell
 * **På begäran om borttagning av**: om Azure AD-administratören vill ta bort en viss användares data eller inställningsdata manuellt, administratören kan lämna in en biljett med [Azure-supporten](https://azure.microsoft.com/support/). 
 
 ### <a name="stale-data-deletion"></a>Ta bort inaktuella data
-Data som inte har använts i ett år (”kvarhållningsperioden”) kommer att behandlas som inaktuell och kan tas bort från Azure. Kvarhållningsperioden kan ändras, men inte mindre än 90 dagar. Inaktuella data kan vara en specifik uppsättning Windows/programinställningar eller alla inställningar för en användare. Exempel:
+Data som inte har använts i ett år (”kvarhållningsperioden”) kommer att behandlas som inaktuell och kan tas bort från Microsoft-molnet. Kvarhållningsperioden kan ändras, men inte mindre än 90 dagar. Inaktuella data kan vara en specifik uppsättning Windows/programinställningar eller alla inställningar för en användare. Exempel:
 
 * Om inga enheter åtkomst till en viss inställningar-samling (till exempel om ett program tas bort från enheten eller en grupp med inställningar, till exempel ”tema” är inaktiverad för alla användarens enheter), och sedan samlingen blir inaktuella efter kvarhållningsperioden och kan tas bort . 
 * Om en användare har inaktiverat synkronisering på hans/hennes enheter, inga inställningsdata kommer att komma åt och alla inställningsdata för den användaren blir inaktuella och kan tas bort efter kvarhållningsperioden. 
 * Om Azure AD directory-administratör inaktiverar Enterprise State Roaming för hela katalogen, sedan alla användare i den directory slutar att synkronisera inställningar och inställningsdata för alla för alla användare blir inaktuella och kan tas bort efter kvarhållningsperioden. 
 
 ### <a name="deleted-data-recovery"></a>Återställning av borttagna data
-Policyn för datalagring i kan inte konfigureras. När data raderas permanent, kan den inte återställas. Dock tas inställningsdata bort från Azure, inte från slutanvändarens enhet. Om alla enheter senare ska återansluta till tjänsten Enterprise State Roaming, synkroniseras inställningarna igen och lagras i Azure.
+Policyn för datalagring i kan inte konfigureras. När data raderas permanent, kan den inte återställas. Dock raderas inställningsdata endast från Microsoft-molnet, inte från slutanvändarens enhet. Om alla enheter senare ska återansluta till tjänsten Enterprise State Roaming, synkroniseras inställningarna igen och lagras i Microsoft-molnet.
 
 ## <a name="related-topics"></a>Relaterade ämnen
 * [Översikt över Enterprise Tillståndsväxling](active-directory-windows-enterprise-state-roaming-overview.md)

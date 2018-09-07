@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 09/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: da8261d27ae7fad3c5ff30e4e1cce3f1bca2b70a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: ca07c3aca106f6c92187fea5a3ebf7bf172cddcc
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035341"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026210"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Tillämpa uppdateringar i Azure Stack
 
@@ -42,7 +42,7 @@ Följande procedur visar hur du importerar och installera uppdateringspaket i ad
 > [!IMPORTANT]
 > Vi rekommenderar starkt att du meddela användare om eventuella underhållsåtgärder, och att du schemalägger normala underhållsfönster under tider utanför kontorstid så mycket som möjligt. Underhåll kan påverka både användaren arbetsbelastningar och åtgärder.
 
-1. I administratörsportalen kan väljer **fler tjänster**. Sedan, under den **Data + lagring** kategori, väljer **lagringskonton**. (Eller börja skriva i filterrutan **lagringskonton**, och välj det.)
+1. I administratörsportalen kan väljer **alla tjänster**. Sedan, under den **DATA + lagring** kategori, väljer **lagringskonton**. (Eller börja skriva i filterrutan **lagringskonton**, och välj det.)
 
     ![Visar var du hittar storage-konton i portalen](media/azure-stack-apply-updates/ApplyUpdates1.png)
 

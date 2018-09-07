@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 131ba3dfb8bd8ad8be893e26fcc22c5a0e65f145
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 010556dae1649754df5199fb81c10efcf4c5a226
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431648"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050008"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ansluta till Azure Cosmos DB med BI analysverktyg med ODBC-drivrutin
 
@@ -173,7 +173,7 @@ Du kan definiera och skapa vyer som en del av sampling. Dessa vyer är likvärdi
 
 Du skapar en vy för dina data i den **Schemaredigerare** fönstret i den **vydefinitioner** kolumnen, klickar du på **Lägg till** på raden i samlingen som exempel. I den **vydefinitioner** fönstret gör du följande:
 1. Klicka på **New**, ange ett namn för vyn, till exempel EmployeesfromSeattleView och klicka sedan på **OK**.
-1. I den **Redigera vy** fönstret, ange en Azure Cosmos DB-fråga. Detta måste vara en Azure Cosmos DB SQL-fråga, till exempel`SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = “Seattle”`, och klicka sedan på **OK**.
+1. I den **Redigera vy** fönstret, ange en Azure Cosmos DB-fråga. Detta måste vara en Azure Cosmos DB SQL-fråga, till exempel`SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = "Seattle"`, och klicka sedan på **OK**.
 
 Du kan skapa flera vyer som du vill. När du är klar Definiera vyer kan du kan sedan ta prov på data. 
 

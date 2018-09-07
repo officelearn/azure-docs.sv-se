@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0007396ad6d5fc16177d76683f959591e9830ac3
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 55f66203c7d84a41e6c060dd6ae5241b4a719f1c
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782084"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049039"
 ---
 # <a name="support-for-the-marketplace"></a>Stöd för Marketplace  
 Supportalternativ för Marketplace.  
@@ -41,7 +41,8 @@ Supportalternativ för Marketplace.
 | Slack: [join.marketplace.azure.com](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Slack miljö för att stödja partner med tekniska problem. Det finns om 350 Partners arbetar i den här miljön. |  
 | MSDN-forum: Marketplace finns på [social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Microsoft Developer Network-forum. |  
 | Stackspill: Azure finns på [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Stack Overflow-miljö för att få ut lösningar och ställa frågor om allt som rör Azure Marketplace.<ul> <li>Stackspill: Azure Marketplace finns på [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stackspill: Azure Resource Manager finns på [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stackspill: virtuella datorer på Azure finns på [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stackspill: Behållare i Azure finns på [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
-| Stöd för AppSource: [appsourcecrm@Microsoft.com](mailto:appsourcecrm@microsoft.com) | Stöd för publicering för dina Dynamics-appar |
+| Stöd för AppSource: [appsourcecrm@Microsoft.com](mailto:appsourcecrm@microsoft.com) | Stöd för publicering för Dynamics-appar |
+
 ## <a name="marketing-resources"></a>Marketing-resurser  
 
 | Supportkanal | Beskrivning | Tillgänglighet |  

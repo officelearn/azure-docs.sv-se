@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 9a06ff345d1bf91efd1abff9960a1a6f9a681dce
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 40e67dfd4ffa427ac47198e88994762a4a45cc94
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223675"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023359"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referens för Windows 10-växlingsinställningar
 Följande är en fullständig lista över alla inställningar som ska flyttade eller säkerhetskopierats i Windows 10. 
@@ -44,10 +44,11 @@ Följande inställningsgrupper med är tillgängliga för slutanvändarna att ak
 
 * Tema: skrivbordsbakgrund, användarpanel, Aktivitetsfältet plats, osv. 
 * Internet Explorer-inställningar: webbhistorik har angett URL: er, Favoriter, osv. 
-* Lösenord: [Windows-autentiseringsuppgifter](https://technet.microsoft.com/library/jj554668.aspx), inklusive Wi-Fi-profiler 
+* Lösenord: Windows Autentiseringshanteraren, inklusive Wi-Fi-profiler 
 * Språkinställningar: stavning ordboken, systeminställningar för språk 
 * Hjälpmedel: Skärmläsaren, Skärmtangentbordet, Skärmförstoraren 
 * Andra inställningar för Windows: se information om Windows-inställningar
+* Edge-webbläsarinställningen: Microsoft Edge-Favoriter, läsning lista och andra inställningar
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
@@ -73,7 +74,7 @@ Inställningar som inte flyttas eller sync kommer inte tillhör en grupp.
 | **AppData**: enskilda appar kan synkronisera data |synkronisering av säkerhetskopiering |synkronisering av säkerhetskopiering |Intern |
 | **Applista**: listan över installerade appar |X |säkerhetskopiering |Annat |
 | **Bluetooth**: alla Bluetooth-inställningar |X |X | |
-| **Kommandotolk**: kommandotolk ”inställningar” inställningar |Synkronisering |X | |
+| **Kommandotolk**: kommandotolk ”inställningar” inställningar |Synkronisering |X |Intern |
 | **Autentiseringsuppgifter**: autentiseringsuppgifter för säker plats för autentiseringsuppgifter |Synkronisering |Synkronisering |lösenord |
 | **Datum, tid och Region**: automatiska tiden (Internet tidssynkronisering) |Synkronisering |Synkronisering |Språk |
 | **Datum, tid och Region**: 24-timmarsformat |Synkronisering |X |Språk |

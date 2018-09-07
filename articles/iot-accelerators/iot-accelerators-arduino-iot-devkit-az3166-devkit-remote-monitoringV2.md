@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: isacabe
-ms.openlocfilehash: 92ce85a3cc94702468a13348d3a41667498c68f5
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: d3175290c1a7fca5e35f4438392f29324868f1a3
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43187399"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054924"
 ---
 # <a name="connect-mxchip-iot-devkit-az3166-to-the-iot-remote-monitoring-solution-accelerator"></a>Ansluta MXChip IoT DevKit AZ3166 till IoT-Remote Monitoring solution accelerator
 
@@ -27,64 +27,35 @@ Den [MXChip IoT DevKit](https://aka.ms/iot-devkit) är en allt-i-ett Arduino kom
 
 ## <a name="what-you-need"></a>Vad du behöver
 
-Slutför den [Kom igång med](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) till:
+Gå igenom den [Kom igång-guiden](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) och **Slutför i följande avsnitt**:
 
-* Har din DevKit som är ansluten till Wi-Fi
+* Förbered maskinvaran
+* Konfigurera Wi-Fi
+* Börja använda DevKit
 * Förbereda utvecklingsmiljön
 
 
-## <a name="open-the-remotemonitoring-sample"></a>Öppna exemplet RemoteMonitoring
+## <a name="open-the-remotemonitoring-sample-in-vs-code"></a>Öppna exemplet RemoteMonitoring i VS Code
 
-1. Koppla från DevKit från datorn, om den är ansluten.
+1. Koppla från MXChip DevKit från datorn, om den är ansluten.
 
 2. Starta VS Code.
 
-3. Anslut DevKit till din dator. VS Code automatiskt identifierar din DevKit och öppnas på följande sidor:
-  * DevKit startsidan.
-  * Arduino-exempel: Praktiska exempel för att komma igång med DevKit.
+3. Ansluta MXChip DevKit till din dator.
 
-4. Expandera vänster **ARDUINO exempel** bläddrar du till **exempel för MXCHIP AZ3166 > AzureIoT**, och välj **RemoteMonitoringv2**. Ett nytt VS Code-fönster öppnas med en projektmapp, till exempel i den.
+4. Använd `Ctrl+Shift+P` (Mac OS: `Cmd+Shift+P`) Skriv för att öppna kommandopaletten **Arduino**, och leta upp och välj **Arduino: exempel**.
+
+ 5. Expandera vänster **ARDUINO exempel** bläddrar du till **exempel för MXCHIP AZ3166 > AzureIoT**, och välj **RemoteMonitoringv2**. Ett nytt VS Code-fönster öppnas med en projektmapp, till exempel i den.
+
+  > [!NOTE]
+  > Om du inte ser **exempel för MXCHIP**, använda `Ctrl+Shift+P` (Mac OS: `Cmd+Shift+P`) att öppna kommandopaletten och skriv **Arduino tavla Manager**. Markera den och sedan söka efter **AZ3166** i hanteraren för tavlan. Du bör sedan att kunna upprepa steg 5 ovan och se exempel.
 
   ![Öppna projektet för fjärrövervakning](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-arduino-examples.png)
-
 
   > [!NOTE]
   > Om du råkar stänga fönstret kan öppna du den. Använd `Ctrl+Shift+P` (Mac OS: `Cmd+Shift+P`) Skriv för att öppna kommandopaletten **Arduino**, och leta upp och välj **Arduino: exempel**.
 
-## <a name="add-a-new-physical-device"></a>Lägg till en ny fysisk enhet
-
-I portalen, går du till **enheter** och det, klicka i den **+ ny enhet** knappen. 
-
-![Att lägga till en ny enhet](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-add-device.png)
-
-Den *nytt enheten formulär* bör fyllas i.
-1. Klicka på **fysiska** i den *enhetstyp* avsnittet.
-2. Ange ditt eget enhets-ID (till exempel *MXChip* eller *AZ3166*).
-3. Välj **generera nycklar automatiskt** i den *autentiseringsnyckeln* avsnittet.
-4. Klicka på *tillämpa* knappen.
-
-![Att lägga till ett nytt formulär för enhet](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-add-new-device-form.png)
-
-Vänta tills portalen har slutat att etableringen av den nya enheten.
-
-![Etablera en ny enhet ](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-add-device-provisioning.png)
-
-
-Konfigurationen av den nya enheten visas.
-Kopiera den **Connection String** genereras.
-
-![Enhetens anslutningssträng](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-new-device-connstring.png)
-
-
-Den här anslutningssträngen används i nästa avsnitt.
-
-
-
-
-
-## <a name="build-and-upload-the-device-code"></a>Skapa och överföra kod för enhet
-
-Gå tillbaka till Visual Studio Code: 
+## <a name="build-and-upload-the-device-code-to-your-mxchip"></a>Skapa och överföra kod för enhet till din MXChip
 
 1. Använd `Ctrl+P` (Mac OS: `Cmd + P`) och skriv **uppgift config enhetsanslutning**.
 
@@ -94,7 +65,7 @@ Gå tillbaka till Visual Studio Code:
 
   ![Klistra in anslutningssträngen](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/iot-suite-task-config-device-conexion-choose-iot-hub-press-button-A.png)
 
-3. Ibland uppmanas terminalen du att ange konfigurationsläge. Gör du hålla ned A, och sedan push- och släpp återställningsknappen och sedan på knappen A. På skärmen visas DevKit ID och ”Configuration”.
+3. Ibland uppmanas terminalen du att ange konfigurationsläge. Du gör detta genom att hålla ned **knappen A**, skickar sedan och släpp den **Återställ** och släpp knappen A. På skärmen visas DevKit ID och ”Configuration”.
 
   ![Enhetens DevKit skärm](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-devkit-screen.png)
 
@@ -103,22 +74,25 @@ Gå tillbaka till Visual Studio Code:
 
   ![Leta efter anslutningssträngen](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-connection-string-of-a-device.png)
 
+  Nu har du är ansluten och verifierat MXChip enheten till IoT-hubb. Om du vill se den nya fysiska enheten i avsnittet VS Code ”Azure IoT Hub-enheter”, måste du hämta den [Azure IoT Toolkit-tillägget.](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) 
 
-Du kan nu se den nya fysiska enheten i avsnittet VS Code ”Azure IoT Hub-enheter”:
+  Du kan nu se den nya fysiska enheten i avsnittet VS Code ”Azure IoT Hub-enheter”:
 
-![Lägg märke till den nya enheten i IoT Hub](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/iot-suite-new-iot-hub-device.png)
+  ![Lägg märke till den nya enheten i IoT Hub](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/iot-suite-new-iot-hub-device.png)
+
+4. Slutligen ska du ladda upp RemoteMonitoringV2.ino kod till din MxChip att börja skicka data till din IoT-lösningsaccelerator. Använd `Ctrl + Shift + P` (Mac OS: `Cmd + Shift + P`) och skriv **Arduino överför**. VS Code sedan starta överföring av koden på din MXChip och meddelar dig när du är klar. 
 
 ## <a name="test-the-project"></a>Testa projektet
 
-När exempelappen körs, skickar DevKit sensordata via Wi-Fi till din IoT-Lösningsacceleratorer. Följ dessa steg om du vill visa resultatet genom:
+När exempelappen körs, skickar MXChip DevKit sensordata via Wi-Fi till din IoT-Lösningsacceleratorer. Följ dessa steg om du vill visa resultatet genom:
 
 1. Gå till din IoT-lösningsaccelerator klicka sedan på **INSTRUMENTPANELEN**.
 
-2. IoT solution accelerator-konsolen visas din DevKit sensor status. 
+2. IoT solution accelerator-konsolen visas din MXChip DevKit sensor status. 
 
 ![Sensordata i IoT-Lösningsacceleratorer](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-dashboard.png)
 
-Om du klickar på sensornamnet (AZ3166) öppnas en flik på höger sida av instrumentpanelen där du kan se MX-Chip sensorer diagrammet i realtid.
+Om du klickar på sensornamnet (AZ3166) öppnas en flik på höger sida av instrumentpanelen där du kan se MXChip sensorer diagrammet i realtid.
 
 
 ## <a name="send-a-c2d-message"></a>Skicka ett C2D-meddelande
@@ -127,7 +101,7 @@ MX-Chip exempelkoden publicerar tre metoder som du kan se i avsnittet metod när
 
 ![Metoder MX-Chip](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-methods.png)
 
-Du kan ändra färg på en MX-Chip led: ar med hjälp av metoden ”LedColor”. För att göra det, markerar du kryssrutan för enheten och klicka på knappen schema. 
+Du kan ändra färg på en av de MX-Chip led: ar med metoden ”LedColor”. För att göra det, markerar du kryssrutan för enheten och klicka på knappen schema. 
 
 ![Metoder MX-Chip](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-schedule.png)
 
@@ -135,9 +109,9 @@ Välj den metod som heter ChangeColor i listrutan där alla metoder som visas, S
 
 ![Listrutan MX-Chip](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/iot-suite-change-color.png)
 
-Några sekunder bör din fysiska MX-Chip ändra färg på RGB ledde (nedan av A knappen)
+Några sekunder bör din fysiska MX-Chip ändra färg på RGB-LED (nedan av A knappen)
 
-![Lampa MX-Chip](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-devkit-led.png)
+![LED MX-Chip](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-devkit-led.png)
 
 ## <a name="problems-and-feedback"></a>Problem och feedback
 

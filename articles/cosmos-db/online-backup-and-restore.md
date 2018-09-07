@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 613c61d9b881b7d736a50cadbf313c1f9aac57c9
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: a2c52844e09daf42418b4e548f7185e31dcf4ae9
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42061477"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053541"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Automatisk online säkerhetskopiering och återställning med Azure Cosmos DB
 Azure Cosmos DB tar automatiskt säkerhetskopior av dina data med jämna mellanrum. Automatisk säkerhetskopiering är hämtade utan att påverka prestanda eller tillgänglighet för dina databasåtgärder. Alla säkerhetskopior lagras separat i en annan lagringstjänst och säkerhetskopieringarna replikeras globalt för återhämtning mot regionala problem. Automatisk säkerhetskopiering är avsett för scenarion med när du av misstag tar bort din Cosmos DB-behållare och senare kräver återställning av data eller en lösning för haveriberedskap.  

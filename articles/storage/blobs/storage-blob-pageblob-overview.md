@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: wielriac
 ms.component: blobs
-ms.openlocfilehash: a215771b0126e9048b7d9da4ed1d6073c8e960a4
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: dc15dcb9f7b342d2d5140199ecf34c1a4781fa25
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39266148"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022696"
 ---
 # <a name="unique-features-of-azure-page-blobs"></a>Unika funktionerna för Azure-sidblobar
 
@@ -71,7 +71,7 @@ pageBlob.Resize(32 * OneGigabyteAsBytes);
 ```
 
 #### <a name="writing-pages-to-a-page-blob"></a>Skriva sidor till en sidblob
-Om du vill skriva sidor, använda den [CloudPageBlob.WritePages](/library/microsoft.windowsazure.storageclient.cloudpageblob.writepages.aspx) metod.  På så sätt kan du skriva en sekventiell uppsättning sidor upp till 4MBs. Förskjutningen skrivs till måste börja på en 512 byte-gräns (startingOffset % 512 == 0), och på en 512 gräns - 1.  I följande kodexempel visas hur du anropar **WritePages** för en blob:
+Om du vill skriva sidor, använda den [CloudPageBlob.WritePages](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.beginwritepages?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_BeginWritePages_System_IO_Stream_System_Int64_System_String_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_System_AsyncCallback_System_Object_) metod.  På så sätt kan du skriva en sekventiell uppsättning sidor upp till 4MBs. Förskjutningen skrivs till måste börja på en 512 byte-gräns (startingOffset % 512 == 0), och på en 512 gräns - 1.  I följande kodexempel visas hur du anropar **WritePages** för en blob:
 
 ```csharp
 pageBlob.WritePages(dataStream, startingOffset); 
@@ -116,8 +116,6 @@ foreach (PageRange range in pageRanges)
 
 #### <a name="leasing-a-page-blob"></a>Leasing en sidblob
 Åtgärden Lease Blob upprättar och hanterar ett lås för en blob för skrivning och ta bort. Den här åtgärden är användbar i scenarier där en sidblobb nås från flera klienter för att se till att endast en klient kan skriva till bloben i taget. Azure-diskar, till exempel använder det här leasing mekanism för att se till att disken är endast hanteras av en enskild virtuell dator. Varaktighet för lås kan vara 15 till 60 sekunder eller kan vara oändlig. Finns i dokumentationen [här](/rest/api/storageservices/lease-blob) för mer information.
-
-> Använd länken nedan för att hämta [kodexempel](/resources/samples/?service=storage&term=blob&sort=0 ) för många Programscenarier för andra. 
 
 Utöver omfattande REST API: er erbjuder även Page blobs delad åtkomst, tillförlitlighet och förbättrad säkerhet. Vi täcker dessa förmåner i detalj i nästa stycken. 
 

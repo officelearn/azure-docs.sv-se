@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: markvi
-ms.openlocfilehash: c1332679af57a4994f4337e241845a87bf16b341
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 25daca5d1654e97684098c0f1a394b126e4e5391
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42058836"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023814"
 ---
 # <a name="enterprise-state-roaming-overview"></a>Översikt över enterprise tillståndsväxling
-Med Windows 10, [Azure Active Directory (Azure AD)](fundamentals/active-directory-whatis.md) användare få möjlighet att synkronisera sina användarinställningar och inställningar för programdata till molnet på ett säkert sätt. Enterprise State Roaming ger användarna en enhetlig upplevelse på sina Windows-enheter och minskar den tid som behövs för att konfigurera en ny enhet. Enterprise State Roaming fungerar ungefär som standard [synkronisering av konsumenten](http://windows.microsoft.com/windows-8/sync-settings-pcs) som introducerades i Windows 8. Enterprise State Roaming erbjuder dessutom:
+Med Windows 10, [Azure Active Directory (Azure AD)](fundamentals/active-directory-whatis.md) användare få möjlighet att synkronisera sina användarinställningar och inställningar för programdata till molnet på ett säkert sätt. Enterprise State Roaming ger användarna en enhetlig upplevelse på sina Windows-enheter och minskar den tid som behövs för att konfigurera en ny enhet. Enterprise State Roaming fungerar ungefär som standard [synkronisering av konsumenten](https://go.microsoft.com/fwlink/?linkid=2015135) som introducerades i Windows 8. Enterprise State Roaming erbjuder dessutom:
 
 * **Uppdelning av företagets och konsumentdata** – organisationer har kontroll över sina data och det finns ingen blandning av företagets data i ett molnkonto för konsumenter eller konsumentdata i en enterprise cloud-konto.
 * **Förbättrad säkerhet** – Data krypteras automatiskt innan de lämnar användarens Windows 10-enhet med hjälp av Azure Rights Management (Azure RMS) och data förblir krypterade i vila i molnet. Allt innehåll förblir krypterade i vila i molnet, förutom namnområden, till exempel namn på inställningar och Windows-app.  

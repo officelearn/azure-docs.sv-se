@@ -1,5 +1,6 @@
 ---
-title: Förstå LUIS metodtips – Azure | Microsoft Docs
+title: Metodtips för att skapa appar med LUIS - Språkförståelse
+titleSuffix: Azure Cognitive Services
 description: Läs metodtipsen LUIS för att få bästa resultat.
 services: cognitive-services
 author: diberry
@@ -9,14 +10,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: diberry
-ms.openlocfilehash: 81a2523f37cac926d9f498953a831c2d877a7528
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 2c844aa9dbaa1b228558e9cee80565cdc95650b7
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224015"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025626"
 ---
-# <a name="best-practices"></a>Bästa praxis
+# <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Metodtips för att skapa en app med language understanding med Cognitive Services
 Använd appredigeringsprocessen för att skapa LUIS-appen. 
 
 * Skapa språkmodell

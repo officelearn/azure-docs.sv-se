@@ -1,6 +1,6 @@
 ---
-title: Lägga till mallar för mönstret i LUIS-appar | Microsoft Docs
-titleSuffix: Azure
+title: Lägga till mallar för mönstret i stället för flera uttryck i LUIS-appar
+titleSuffix: Azure Cognitive Services
 description: Lär dig hur du lägger till mönstret mallar i program för Språkförståelse (LUIS) att förbättra förutsägelsefunktionen.
 services: cognitive-services
 author: diberry
@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 8926ce48a8426aa667787f7bbe104e27e1a68669
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 0fc7c0d0cafef1bdb8d33c6ebfaa672c55101ee5
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124692"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049746"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Hur du lägger till mönster för att förbättra förutsägelsefunktionen
 När en LUIS-app tar emot endpoint yttranden, använda den [konceptet](luis-concept-patterns.md) av mönster förbättra prognosens noggrannhet för yttranden som avslöjar ett mönster i ordföljden och word valet. Mönster Använd [entiteter](luis-concept-entity-types.md) och deras roller för att extrahera data med hjälp av specifika mönstret syntax. 

@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/07/2018
 ms.author: carlrab
-ms.openlocfilehash: 483ac248619a6d8a0f403592b1b4e55ad5e973da
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 20039c32ed7bb740ba5d1185d195d7590cff39e2
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841870"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051263"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Skapa och hantera logiska servrar och enskilda databaser i Azure SQL Database 
 
@@ -38,7 +38,7 @@ Att skapa en Azure SQL-databas med den [Azure-portalen](https://portal.azure.com
 > [!IMPORTANT]
 > Information om hur du väljer prisnivå för din databas finns i [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).
 
-Om du vill skapa en hanterad instans [skapar en hanterad instans](sql-database-managed-instance-create-tutorial-portal.md)
+Om du vill skapa en hanterad instans [skapar en hanterad instans](sql-database-managed-instance-get-started.md)
 
 ### <a name="manage-an-existing-sql-server"></a>Hantera en befintlig SQLServer
 
@@ -85,7 +85,7 @@ Använd följande PowerShell-cmdletar för att skapa och hantera Azure SQL serve
 Skapa och hantera Azure SQL server, databaser och brandväggar med [Azure CLI](/cli/azure), Använd följande [Azure CLI SQL Database](/cli/azure/sql/db) kommandon. Använd [Cloud Shell](/azure/cloud-shell/overview) för att köra CLI i webbläsaren eller [installera](/cli/azure/install-azure-cli) det på macOS, Linux eller Windows. Skapa och hantera elastiska pooler finns i [elastiska pooler](sql-database-elastic-pool.md).
 
 > [!TIP]
-> En Snabbstart för Azure CLI, se [skapa en enskild Azure SQL-databas med hjälp av Azure CLI](sql-database-get-started-cli.md). Exempelskript för Azure CLI, se [Använd CLI för att skapa en Azure SQL-databas och konfigurera en brandväggsregel](scripts/sql-database-create-and-configure-database-cli.md) och [Använd CLI för att övervaka och skala en enskild SQL-databas](scripts/sql-database-monitor-and-scale-database-cli.md).
+> En Snabbstart för Azure CLI, se [skapa en enskild Azure SQL-databas med hjälp av Azure CLI](sql-database-cli-samples.md). Exempelskript för Azure CLI, se [Använd CLI för att skapa en Azure SQL-databas och konfigurera en brandväggsregel](scripts/sql-database-create-and-configure-database-cli.md) och [Använd CLI för att övervaka och skala en enskild SQL-databas](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
 | Cmdlet | Beskrivning |

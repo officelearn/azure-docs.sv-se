@@ -3,7 +3,7 @@ title: Hotinformation i Azure Security Center | Microsoft Docs
 description: Lär dig hur du använder hotinformationsfunktionen i Azure Security Center för att identifiera potentiella hot i dina datorer och virtuella datorer.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: a771a3a1-2925-46ca-8e27-6f6a0746f58b
@@ -12,60 +12,62 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: 8f1c6aa2e691a11e8920db8ca8bfdef5b8eb61b9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.date: 09/3/2018
+ms.author: rkarlin
+ms.openlocfilehash: 34474892d35c2c0bc299bbc4a2fb6507ffb24ee9
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434198"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022228"
 ---
-# <a name="threat-intelligence-in-azure-security-center"></a>Hotinformation i Azure Security Center
-Den här artikeln hjälper dig använda hotinformationen i Azure Security Center till att åtgärda säkerhetsrelaterade problem.
+# <a name="security-alerts-map-azure-security-center"></a>Säkerhetsaviseringar mappa Azure Security Center
+Den här artikeln hjälper dig att använda Azure Security Center säkerhetskarta aviseringar och säkerhet händelsebaserad karta för hotinformation att åtgärda säkerhetsrelaterade problem med.
 
-## <a name="what-is-threat-intelligence"></a>Vad är hotinformation?
-Genom att använda alternativet för hotinformation i Security Center kan IT-administratörer identifiera säkerhetshot mot miljön. De kan till exempel identifiera om en vissa dator är en del av ett botnät. Datorer kan bli noder i ett botnät när angripare installerar otillåten skadlig kod som i hemlighet ansluter datorn till kommando och kontroll. Hotinformation kan även identifiera möjliga hot som kommer från underjordiska kommunikationskanaler, till exempel mörka internet.
+## <a name="how-the-security-alerts-map-works"></a>Hur säkerhetsaviseringar mappar fungerar
+Security Center ger dig en karta som hjälper dig att identifiera säkerhetshot mot miljön. Du kan till exempel identifiera om en specifik dator är en del av ett botnät, och där hotet kommer från. Datorer kan bli noder i ett botnät när angripare installerar otillåten skadlig kod som hemlighet interagerar med kommando och kontroll som hanterar botnet. 
 
-För generering av den här hotinformationen använder Security Center data från flera källor på Microsoft. Security Center använder dessa data för identifiering av potentiella hot mot din miljö. Fönstret **Hotinformation** består av tre huvudsakliga alternativ:
+Om du vill skapa den här kartan använder Security Center data som kommer från flera källor på Microsoft. Security Center använder dessa data för att mappa potentiella hot mot din miljö. 
 
-- Identifierade hottyper
-- Hotursprung
-- Karta för hotinformation
-
-
-## <a name="when-should-you-use-threat-intelligence"></a>När ska du använda hotinformation?
 Ett av stegen i [processen för svar på säkerhetsincidenter](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide#incident-response) är att identifiera allvarlighetsgraden för de komprometterade systemen. I det här steget bör du utföra följande uppgifter:
 
 - Fastställa typen av angrepp.
-- Fastställa angreppets ursprung.
+- Fastställa referenspunkt av angrepp.
 - Fastställa syftet med angreppet. Var angreppet riktat mot din organisation för att erhålla viss information eller var det slumpmässigt?
 - Identifiera systemen som har drabbats.
 - Identifiera de filer som har använts och fastställ filernas känslighet.
 
-Du kan använda hotinformation i Security Center för de här uppgifterna.
+Du kan använda säkerhetskarta för aviseringar i Security Center för att de här uppgifterna.
 
-## <a name="access-the-threat-intelligence"></a>Komma åt hotinformationen
-Om du vill visualisera aktuell hotinformation för din miljö måste du först markera arbetsytan där din information finns. Om du inte har flera arbetsytor går du förbi väljaren för arbetsytor och du hamnar direkt på instrumentpanelen **Hotinformation**. Öppna instrumentpanelen:
+## <a name="access-the-security-alerts-map"></a>Få åtkomst till aviseringar säkerhetskarta
+Öppna aviseringar säkerhetskarta för att visualisera aktuella hot på din miljö:
+
+1. Öppna instrumentpanelen för **Security Center**.
+2. I den vänstra rutan under **Hotskydd** Välj **aviseringar säkerhetskarta**. Kartan öppnas.
+3. Klicka på aviseringen prick på kartan för att få mer information om aviseringen och ta emot steg, och följ instruktionerna. 
+ 
+Aviseringar säkerhetskarta baseras på aviseringar. Dessa aviseringar baseras på aktiviteter för vilka nätverk kommunikation associerades med en IP-adress som löstes har, oavsett om IP-adressen är en känd riskfyllda IP-adress (till exempel en känd cryptominer) eller en IP-adress som inte känns igen tidigare som riskfyllt. Kartan innehåller varningar för alla prenumerationer som du tidigare valt i Azure. 
+
+Aviseringar på kartan visas enligt den geografiska platsen där de identifieras som kommer från, och de är färgkodade efter allvarlighetsgrad. 
+ 
+## <a name="viewing-the-event-based-threat-intelligence-dashboard"></a>Visa händelsebaserad instrumentpanelen för hotinformation
+Du kan följa den här proceduren om du vill visa den karta för hotinformation baserat på raw säkerhetshändelser. Den här kartan visar endast de händelser som rör en IP-adress som anses risk, till exempel en IP-adress av ett känt botnät.
 
 1. Öppna instrumentpanelen för **Security Center**.
 
-1. I den vänstra rutan under **Hotskydd** Välj **Hotinformation**. En karta öppnas.
+1. I den vänstra rutan under **Hotskydd** Välj **aviseringar säkerhetskarta**. Kartan öppnas.
+2. I övre högra hörnet, klickar du på **går du till händelser säkerhetskarta**.
+3. Välj den arbetsyta som du vill visa instrumentpanelen.
+4. Högst upp på kartan, Välj **Visa klassiska hotinformation**. Den **Hotinformation** instrumentpanelen öppnas.
 
-    ![Karta för hotinformation](./media/security-center-threat-intel/security-center-threat-intel.png)
-
-1. Högst upp på kartan, Välj **Visa klassiska hotinformation**. Den **Hotinformation** instrumentpanelen öppnas.
-
-    ![Instrumentpanelen Hotinformation](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
-
-    > [!NOTE]
-    > Om kolumnen längst till höger visar **UPGRADE PLAN** (Uppgradera abonnemang) använder den här arbetsytan den kostnadsfria prenumerationen. Uppgradera till Standard om du vill använda den här funktionen. Om kolumnen längst till höger visar **REQUIRES UPDATE** (Kräver uppdatering) uppdaterar [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) om du vill använda funktionen. Mer information om prissättning finns i Azure Security Center pricing (Azure Security Center-prissättning).
-    >
-1. Om du har fler än en arbetsyta att undersöka prioriterar du undersökningen enligt kolumnen **Skadlig IP-adress**. Den visar det aktuella antalet skadliga IP-adresser på den här arbetsytan. Välj den arbetsyta du vill använda så visas instrumentpanelen **Hotinformation**.
+   > [!NOTE]
+   > Om kolumnen längst till höger visar **UPGRADE PLAN** (Uppgradera abonnemang) använder den här arbetsytan den kostnadsfria prenumerationen. Uppgradera till Standard om du vill använda den här funktionen. Om kolumnen längst till höger visar **REQUIRES UPDATE** (Kräver uppdatering) uppdaterar [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) om du vill använda funktionen. Mer information om prissättning finns i Azure Security Center pricing (Azure Security Center-prissättning).
+   >
+5. Om du har fler än en arbetsyta att undersöka prioriterar du undersökningen enligt kolumnen **Skadlig IP-adress**. Den visar det aktuella antalet skadliga IP-adresser på den här arbetsytan. Välj den arbetsyta du vill använda så visas instrumentpanelen **Hotinformation**.
 
     ![Hotinformation](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
 
-1. Instrumentpanelen är indelad i fyra paneler:
+6. Instrumentpanelen är indelad i fyra paneler:
 
     a.  **Hottyper**. Sammanfattar de typer av hot som upptäcktes på den valda arbetsytan.
 

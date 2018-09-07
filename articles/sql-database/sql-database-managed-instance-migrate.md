@@ -11,12 +11,12 @@ ms.custom: managed instance
 ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: bonova
-ms.openlocfilehash: e152fa4bb439f1881dc9974bfdf1b3e8c77c434a
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 276d36562aece7101465752528f59008e1ee7607
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42060701"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050331"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migrering av SQL Server-instans till Azure SQL Database Managed Instance
 
@@ -100,13 +100,13 @@ Följande tabell innehåller mer information om de metoder som du kan använda b
 |Placera säkerhetskopiering till Azure Storage|Tidigare SQL 2012 SP1 CU2|Ladda upp bak-filen direkt till Azure storage|
 ||2012 SP1 CU2 - 2016|Direkt säkerhetskopiering med inaktuella [WITH CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql) syntax|
 ||2016 och senare|Direkt säkerhetskopiering med [med SAS-AUTENTISERINGSUPPGIFTER](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
-|Återställa från Azure Storage till hanterad instans|[ÅTERSTÄLLA från URL: en med SAS-AUTENTISERINGSUPPGIFTER](sql-database-managed-instance-restore-from-backup-tutorial.md)|
+|Återställa från Azure Storage till hanterad instans|[ÅTERSTÄLLA från URL: en med SAS-AUTENTISERINGSUPPGIFTER](sql-database-managed-instance-get-started-restore.md)|
 
 > [!IMPORTANT]
 > - När du migrerar en databas som skyddas av [transparent datakryptering](transparent-data-encryption-azure-sql.md) till Azure SQL-hanterad instans med hjälp av det inbyggda återställningsalternativet måste det motsvarande certifikatet från en lokal server eller IaaS-SQL-server migreras före databasåterställningen. Detaljerade anvisningar finns i [migrera TDE-certifikat till hanterad instans](sql-database-managed-instance-migrate-tde-certificate.md)
 > - Återställning av systemdatabaser stöds inte. Om du vill migrera nivå instansobjekt (lagras i master- eller msdb-databaser), rekommenderar vi att skriva ut dem och köra T-SQL-skript på mål-instans.
 
-En fullständig genomgång som innehåller återställer en säkerhetskopia av databasen till en hanterad instans med hjälp av SAS-autentiseringsuppgifter kan se [återställa från en säkerhetskopia till en hanterad instans](sql-database-managed-instance-restore-from-backup-tutorial.md).
+En Snabbstart som visar hur du återställer en säkerhetskopia av databasen till en hanterad instans med hjälp av SAS-autentiseringsuppgifter, se [återställa från en säkerhetskopia till en hanterad instans](sql-database-managed-instance-get-started-restore.md).
 
 ## <a name="monitor-applications"></a>Övervakning av program
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 1db7219beead4d7ee228baff4c802c105419ba1c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 248ec73b09c25c162c5bdc77ceb18e610d604b77
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524611"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052181"
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Skalbarhets- och prestandamål i Azure Storage
 ## <a name="overview"></a>Översikt
@@ -46,6 +46,8 @@ Mer information om mål för skalbarhet och prestanda för Azure Files och Azure
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
 ### <a name="azure-file-sync-scale-targets"></a>Azure File Sync skala mål
+Med Azure File Sync försöker vi så mycket som möjligt att utforma för obegränsad användning, men detta inte är alltid möjligt. I tabellen nedan visar gränserna för våra tester och vilka riktar sig faktiskt gränser:
+
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
 ## <a name="azure-queue-storage-scale-targets"></a>Skala prestandamål för Azure storage-kö

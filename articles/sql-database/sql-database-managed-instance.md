@@ -11,12 +11,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/30/2018
 ms.author: bonova
-ms.openlocfilehash: 2e1fd7c87931f804433708b6ac30a5960e6006ae
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 5caafdfbaca1a701d2728afdfcb31e8e73b4fded
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287671"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050314"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Vad är en hanterad instans (förhandsversion)?
 
@@ -200,7 +200,7 @@ Hanterade instans mål användarscenarier med drivrutiner för masslagring Datab
 ### <a name="backup-and-restore"></a>Säkerhetskopiering och återställning  
 
 Förhållningssätt till Databasmigrering utnyttjar SQL-säkerhetskopior till Azure blob storage. Säkerhetskopior som lagras i Azure storage blob kan återställas direkt till hanterade instansen med hjälp av den [T-SQL RESTORE-kommandot](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current). 
-  - Se en självstudie som visar hur du återställer Wide World Importers – Standard databassäkerhetskopia, [återställa en säkerhetskopia till en hanterad instans](sql-database-managed-instance-restore-from-backup-tutorial.md). Den här kursen visar du behöver ladda upp en säkerhetskopia till Azure BLOB-lagring och skydda den med en signatur för delad åtkomstnyckel.
+  - Se en självstudie som visar hur du återställer Wide World Importers – Standard databassäkerhetskopia, [återställa en säkerhetskopia till en hanterad instans](sql-database-managed-instance-get-started-restore.md). Den här kursen visar du behöver ladda upp en säkerhetskopia till Azure BLOB-lagring och skydda den med en signatur för delad åtkomstnyckel.
   - Information om återställning från URL: en finns i [interna ÅTERSTÄLLA från URL: en](sql-database-managed-instance-migrate.md#native-restore-from-url).
   
 ### <a name="data-migration-service"></a>Data Migration Service
@@ -251,6 +251,6 @@ I följande tabell visar flera egenskaper som är tillgängliga via Transact-SQL
 - Information om hur du skapar din första hanterad instans finns [snabbstartsguiden](sql-database-managed-instance-get-started.md).
 - För en funktioner och jämförelse lista, se [SQL vanliga funktioner](sql-database-features.md).
 - Mer information om konfiguration av virtuella nätverk finns i avsnittet om [konfiguration av virtuella nätverk för hanterade instanser](sql-database-managed-instance-vnet-configuration.md).
-- Se en självstudie som skapar en hanterad instans och återställer en databas från en säkerhetskopia, [skapar en hanterad instans](sql-database-managed-instance-create-tutorial-portal.md).
+- Se en självstudie som skapar en hanterad instans och återställer en databas från en säkerhetskopia, [skapar en hanterad instans](sql-database-managed-instance-get-started.md).
 - En självstudie om hur du använder Azure Database Migration Service (DMS) för migrering finns i avsnittet om [migrering av hanterade instanser med DMS](../dms/tutorial-sql-server-to-managed-instance.md).
 - Information om priser finns i [priser för SQL Database Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/).

@@ -1,6 +1,6 @@
 ---
-title: Lägg till exempel yttranden i LUIS-appar | Microsoft Docs
-titleSuffix: Azure
+title: Lägg till exempel yttranden i LUIS-appar
+titleSuffix: Azure Cognitive Services
 description: Lär dig hur du lägger till yttranden i Språkförståelse (LUIS) program.
 services: cognitive-services
 author: diberry
@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: cf6fc131a1ae2ba0a77bdbeda942c9f85aadd189
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: eb859dfd2dca37415d074e8a0398be37fcc0a6b8
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226295"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051775"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>Lägg till exempel yttranden och en etikett med entiteter
 

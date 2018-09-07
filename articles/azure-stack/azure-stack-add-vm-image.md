@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 08/30/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 7f16f53af7d1c2f46c5c61974601833fafc8f828
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: ba4c53f03350995544eb95917102bd7123a077d2
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698782"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022772"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Göra en avbildning av virtuell dator som är tillgängliga i Azure Stack
 
@@ -54,7 +54,7 @@ Avbildningar måste kunna refereras till av en URI för blob-lagring. Förbereda
 
    ![Ange blob-åtkomst till offentliga](./media/azure-stack-add-vm-image/image2.png)
 
-2. Logga in på Azure Stack som operatör. I menyn, Välj **fler tjänster**. Välj **Compute** > **VM-avbildningar** > **Lägg till**.
+2. Logga in på Azure Stack som operatör. I menyn, Välj **alla tjänster**. Sedan, under den **ADMINISTRATION** kategori väljer **Compute** > **VM-avbildningar** > **Lägg till**.
 
 3. Under **lägga till en virtuell datoravbildning**, ange utgivare, erbjudande, SKU och version av avbildningen av virtuella datorn. Dessa namn segment avser VM-avbildning i Resource Manager-mallar. Se till att välja den **osType** värde korrekt. För **OS diskens Blob-URI**, anger du Blob-URI där avbildningen laddades upp. Välj **skapa** att börja skapa avbildningen.
 
@@ -115,7 +115,7 @@ Avbildningar måste kunna refereras till av en URI för blob-lagring. Förbereda
     Mer information finns i PowerShell-referens för den [Lägg till AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) cmdlet och [New DataDiskObject](https://docs.microsoft.com/powershell/module/Azs.Compute.Admin/New-DataDiskObject) cmdlet.
 
 ## <a name="add-a-custom-vm-image-to-the-marketplace-by-using-powershell"></a>Lägga till en anpassad virtuell datoravbildning i Marketplace med hjälp av PowerShell
-
+ 
 1. [Installera PowerShell för Azure Stack](azure-stack-powershell-install.md).
 
   ```PowerShell  

@@ -8,14 +8,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: 375990f095d3a6cbbbfa18db70466c274fd7e17b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 2f18840802a39f03659792a4d5b33ad3a73c5961
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702603"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051450"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB vanliga frågor och svar
 ## <a name="azure-cosmos-db-fundamentals"></a>Grunderna i Azure Cosmos DB
@@ -441,15 +441,132 @@ Azure Table storage och Azure Cosmos DB Table API kan du använda samma SDK: ern
 Azure Cosmos DB är en SLA-baserade system som ger svarstid, dataflöde, tillgänglighet och konsekvensgarantier. Eftersom det är en etablerad system, reserverar resurser för att garantera att dessa krav. Snabb frekvensen för skapande av tabellerna har identifierats och begränsas. Vi rekommenderar att du tittar på frekvensen för skapandet av tabeller och sänka den till mindre än 5 per minut. Kom ihåg att tabell-API är ett etablerade system. Den tidpunkt då du etablerar den, kommer du börja betala för den. 
 
 ## <a name="gremlin-api"></a>Gremlin-API
-### <a name="how-can-i-apply-the-functionality-of-gremlin-api-to-azure-cosmos-db"></a>Hur kan jag använda funktionerna i Gremlin-API till Azure Cosmos DB?
-Du kan använda ett tilläggsbibliotek för att använda funktionen för Gremlin-API. Det här biblioteket kallas Microsoft Azure-diagram och det är tillgängligt på [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs). 
 
-### <a name="it-looks-like-you-support-the-gremlin-graph-traversal-language-do-you-plan-to-add-more-forms-of-query"></a>Det verkar som du stöder genomgång av språket Gremlin graph. Planerar du att lägga till fler typer av frågan?
-Ja, vi planerar att lägga till andra mekanismer för frågan i framtiden. 
+### <a name="for-cnet-development-should-i-use-the-microsoftazuregraphs-package-or-gremlinnet"></a>För C# / .NET-utveckling ska jag använda Microsoft.Azure.Graphs paketet eller Gremlin.NET? 
 
-### <a name="how-can-i-use-the-new-gremlin-api-offering"></a>Hur kan jag använda nya Gremlin-API-erbjudandet? 
-Kom igång genom att slutföra den [Gremlin-API](../cosmos-db/create-graph-dotnet.md) snabbstartartikeln.
+Azure Cosmos DB Gremlin-API använder open source-drivrutiner som de huvudsakliga kopplingarna för tjänsten. Så det rekommenderade alternativet är att använda [drivrutiner som stöds av Apache Tinkerpop](http://tinkerpop.apache.org/).
 
+### <a name="how-are-rus-charged-when-running-queries-on-a-graph-database"></a>Hur debiteras RU/s när du kör frågor på en grafdatabas? 
+
+Graph-objekt, hörn och gränser, representeras som JSON-dokument i serverdelen. Eftersom en Gremlin-fråga kan ändra en eller flera diagram objekt i taget, kostnaden som är associerade med den isbe direkt relaterade till objekt, kanter som bearbetas av frågan. Det här är samma process som använder Azure Cosmos DB för alla andra API: er. Mer information finns i [ru i Azure Cosmos DB](request-units.md).
+
+RU-kostnad är baserad på data arbetsminnet för övergången och för resultatuppsättningen inte. Till exempel om en fråga syftar till att hämta en enskild brytpunkt därmed men måste passera flera objekt på sättet, baseras sedan kostnaden på alla graph-objekt som det tar för att beräkna ett resultat hörn.
+
+### <a name="whats-the-maximum-scale-that-a-graph-database-can-have-in-azure-cosmos-db-gremlin-api"></a>Vad är maximal skala som en grafdatabas kan ha i Azure Cosmos DB Gremlin API? 
+
+Azure Cosmos DB använder [horisontell partitionering](partition-data.md) automatiskt adress ökning krav för lagring och dataflöde. Maxkapacitet för dataflöde och lagring på en arbetsbelastning bestäms av mängden partitioner som är associerade med en viss samling. En samling med Gremlin-API har dock en specifik uppsättning riktlinjer för att säkerställa en korrekt prestandaupplevelse i stor skala. Mer information och bästa praxis, se [metodtipsen för partitionering](partition-data.md#best-practices-when-choosing-a-partition-key) dokumentet. 
+
+### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Hur kan jag skydda mot inmatningsattacker med hjälp av Gremlin drivrutiner? 
+
+De flesta interna Tinkerpop Gremlin-drivrutiner kan alternativet för att skapa en ordlista med parametrar för frågekörning. Det här är ett exempel på hur du gör i [Gremlin.Net]() och i [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+
+### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Varför får jag det ”Gremlin Frågekompileringsfel: Det gick inte att hitta någon av metoderna” fel?
+
+Azure Cosmos DB Gremlin API implementerar en deluppsättning av de funktioner som definierats i Gremlin ytan. Stöds anvisningar och mer information finns i [Gremlin-support](gremlin-support.md) artikeln.
+
+Den bästa lösningen är att skriva de Gremlin-steg som krävs med funktioner som stöds eftersom alla viktiga Gremlin-steg som stöds av Azure Cosmos DB.
+
+### <a name="why-am-i-getting-the-websocketexception-the-server-returned-status-code-200-when-status-code-101-was-expected-error"></a>Varför får jag det ”WebSocketException: servern returnerade statuskoden” 200 ”när statuskoden” 101' förväntades ”fel?
+
+Det här felet returneras sannolikt när fel slutpunkten som används. Den slutpunkt som genererar det här felet har följande mönster:
+
+`https:// YOUR_DATABASE_ACCOUNT.documents.azure.com:443/` 
+
+Är detta dokument-slutpunkten för graph-databasen.  Du använder rätt slutpunkt är Gremlin-slutpunkt, vilket har följande format: 
+
+`https://YOUR_DATABASE_ACCOUNT.gremlin.cosmosdb.azure.com:443/`
+
+### <a name="why-am-i-getting-the-requestrateistoolarge-error"></a>Varför får jag ”RequestRateIsTooLarge”-fel?
+
+Detta fel innebär att den allokerade programbegäran per sekund inte är tillräckligt för att hantera frågan. Det här felet visas vanligtvis när du kör en fråga som hämtar alla hörn:
+
+```
+// Query example:
+g.V()
+```
+
+Den här frågan kommer att försöka hämta alla hörnen från diagrammet. Kostnaden för den här frågan kommer därför vara lika med minst antal hörn när det gäller ru: er. RU/s-inställningen ska justeras för att åtgärda den här frågan.
+
+### <a name="why-do-my-gremlin-driver-connections-get-dropped-eventually"></a>Varför min Gremlin-drivrutinen anslutningar tas bort så småningom?
+
+En Gremlin-anslutning görs via en WebSocket-anslutning. Även om WebSocket-anslutningar inte har en viss tid TTL-värde, avslutas inaktiva anslutningar i Azure Cosmos DB Gremlin API efter 30 minuter av inaktivitet. 
+
+### <a name="why-cant-i-use-fluent-api-calls-in-the-native-gremlin-drivers"></a>Varför kan jag använda fluent-API-anrop i de interna Gremlin-drivrutinerna?
+
+Fluent-API-anrop ännu stöds inte av Azure Cosmos DB Gremlin-API. Fluent-API-anrop kräver en intern formatering funktion som kallas bytecode stöd som för närvarande inte stöds av Azure Cosmos DB Gremlin API. På grund av samma anledning stöds den senaste Gremlin-JavaScript-drivrutinen för närvarande inte heller. 
+
+### <a name="how-can-i-evaluate-the-efficiency-of-my-gremlin-queries"></a>Hur kan jag utvärdera effektiviteten för min Gremlin-frågor?
+
+Den **executionProfile()** förhandsversion steg kan användas för att tillhandahålla en analys av frågeplan för körning. Det här steget måste du lägga till i slutet av en Gremlin-fråga som du ser i följande exempel:
+
+**Exempel på sökfråga**
+
+```
+g.V('mary').out('knows').executionProfile()
+```
+
+**Exempel på utdata**
+
+```json
+[
+  {
+    "gremlin": "g.V('mary').out('knows').executionProfile()",
+    "totalTime": 8,
+    "metrics": [
+      {
+        "name": "GetVertices",
+        "time": 3,
+        "annotations": {
+          "percentTime": 37.5
+        },
+        "counts": {
+          "resultCount": 1
+        }
+      },
+      {
+        "name": "GetEdges",
+        "time": 5,
+        "annotations": {
+          "percentTime": 62.5
+        },
+        "counts": {
+          "resultCount": 0
+        },
+        "storeOps": [
+          {
+            "partitionsAccessed": 1,
+            "count": 0,
+            "size": 0,
+            "time": 0.6
+          }
+        ]
+      },
+      {
+        "name": "GetNeighborVertices",
+        "time": 0,
+        "annotations": {
+          "percentTime": 0
+        },
+        "counts": {
+          "resultCount": 0
+        }
+      },
+      {
+        "name": "ProjectOperator",
+        "time": 0,
+        "annotations": {
+          "percentTime": 0
+        },
+        "counts": {
+          "resultCount": 0
+        }
+      }
+    ]
+  }
+]
+```
+
+Utdata från profilen ovan visar hur mycket tid det tar att hörn och Edge-objekt, samt storleken på data arbetsminne. Detta är relaterade till mått som standard kostnaden för Azure Cosmos DB-frågor.
 
 ## <a id="cassandra"></a> API för Cassandra
 

@@ -1,69 +1,78 @@
-- name: Dokumentation för Azure-stacken Development Kit
+items:
+- name: Dokumentation om Azure Stack Development Kit
   href: index.yml
 - name: Översikt
-  expanded: true
   items:
-    - name: Vad är ASDK?
-      href: asdk-what-is.md
-    - name: ASDK viktig information
-      href: asdk-release-notes.md
+  - name: Vad är ASDK?
+    href: asdk-what-is.md
+  - name: Viktig information om ASDK
+    href: asdk-release-notes.md
+  expanded: true
 - name: Begrepp
   items:
-    - name: Överväganden vid planering av distribution
-      href: asdk-deploy-considerations.md
-    - name: Development kit arkitektur
-      href: asdk-architecture.md
-    - name: ASDK administration grunderna
-      href: asdk-admin-basics.md
-    - name: Avancerade utvärderingsaktiviteter
-      href: asdk-advanced-eval.md
+  - name: Överväganden vid planering av distribution
+    href: asdk-deploy-considerations.md
+  - name: Development kit-arkitektur
+    href: asdk-architecture.md
+  - name: Grundläggande om administration av ASDK
+    href: asdk-admin-basics.md
+  - name: Avancerade utvärderingsaktiviteter
+    href: asdk-advanced-eval.md
 - name: Gör så här för att
   items:
-    - name: Installationen av ASDK
-      items:
-        - name: Ladda ned och extrahera development kit
-          href: asdk-download.md
-        - name: Förbereda värddatorn ASDK
-          href: asdk-prepare-host.md
-        - name: Distribuera ASDK - installationsprogrammet
-          href: asdk-install.md
-        - name: Distribuera ASDK - PowerShell
-          href: asdk-deploy-powershell.md
-        - name: Efter distributionen konfiguration
-          href: asdk-post-deploy.md
-        - name: Distribuera om ASDK
-          href: asdk-redeploy.md
-    - name: Registrera ASDK
-      href: asdk-register.md
-    - name: Konfigurera Azure Stack telemetriinställningar
-      href: asdk-telemetry.md
-    - name: Starta och stoppa ASDK
-      href: asdk-start-stop.md
-    - name: Felsökning
-      href: asdk-troubleshooting.md
+  - name: Konfigurera ASDK
+    items:
+    - name: Ladda ned och extrahera i development kit
+      href: asdk-download.md
+    - name: Förbereda ASDK värddatorn
+      href: asdk-prepare-host.md
+    - name: Distribuera ASDK - installationsprogrammet
+      href: asdk-install.md
+    - name: Distribuera ASDK – PowerShell
+      href: asdk-deploy-powershell.md
+    - name: Konfigurationen efter distribution
+      href: asdk-post-deploy.md
+    - name: Distribuera om ASDK
+      href: asdk-redeploy.md
+  - name: Registrera ASDK
+    href: asdk-register.md
+  - name: Konfigurera inställningar för Azure Stack-telemetri
+    href: asdk-telemetry.md
+  - name: Starta och stoppa ASDK
+    href: asdk-start-stop.md
+  - name: Validera en säkerhetskopiering i Azure Stack
+    href: asdk-validate-backup.md
+  - name: Felsökning
+    href: asdk-troubleshooting.md
 - name: Referens
   items:
-    - name: Azure Stack PowerShell
-      href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
-    - name: Azure Stack CLI
-      href: /cli/azure/?view=azure-cli-2017-03-09-profile
+  - name: Azure Stack PowerShell
+    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
+  - name: Azure Stack CLI
+    href: /cli/azure/?view=azure-cli-2017-03-09-profile
 - name: Relaterat
   items:
-    - name: Dokumentation om Azure Stack-operator
-      href: /azure/azure-stack/
-    - name: Användardokumentation om Azure Stack
-      href: /azure/azure-stack/user/
+  - name: Dokumentation om Azure Stack-operator
+    href: /azure/azure-stack/
+  - name: Användardokumentation om Azure Stack
+    href: /azure/azure-stack/user/
 - name: Resurser
   items:
-    - name: Översikt över Azure Stack
-      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
-    - name: Azure-stacken MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
-    - name: Azure-stacken dokumentationskommentarer
-      href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
-    - name: Prisinformation
-      href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-stack'
-    - name: Utbildning och certifiering
-      href: 'https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert'
+  - name: Azure Stack-översikt
+    href: https://azure.microsoft.com/roadmap/?tag=azure-stack
+  - name: Azure Stack MSDN-forum
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack
+  - name: Feedback om Azure Stack-dokumentation
+    href: https://feedback.azure.com/forums/344565-azure-stack?category_id=160275
+  - name: Prisinformation
+    href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-stack
+  - name: Utbildning och certifiering
+    href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
+ms.openlocfilehash: 49a707294e6018355a2e355bffa2139057ba81f3
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023621"

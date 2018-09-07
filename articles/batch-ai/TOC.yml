@@ -1,43 +1,72 @@
+items:
 - name: Dokumentation om Batch AI
-  href: index.md
+  href: index.yml
 - name: Översikt
   items:
-    - name: Vad är Batch AI?
-      href: overview.md
-- name: Kom igång
-  expanded: true
+  - name: Vad är Batch AI?
+    href: overview.md
+- name: Snabbstarter
   items:
-    - name: Kör träningsjobb – CLI
-      href: quickstart-cli.md
-    - name: Kör träningsjobb – Python
-      href: quickstart-python.md
+  - name: Skapa kluster – CLI
+    href: quickstart-create-cluster-cli.md
+  - name: Skapa kluster – portalen
+    href: quickstart-create-cluster-portal.md
+  - name: Träna en AI-modell – CLI
+    href: quickstart-tensorflow-training-cli.md
+  expanded: true
+- name: Självstudier
+  items:
+  - name: Distribuerad träning med Horovod
+    href: tutorial-horovod-tensorflow.md
+- name: Exempel
+  items:
+  - name: Azure CLI
+    href: cli-samples.md
+- name: Begrepp
+  items:
+  - name: Batch AI-resurser
+    href: resource-concepts.md
+  - name: Batch AI-kvoter och -begränsningar
+    href: quota-limits.md
 - name: Instruktionsguider
   items:
-    - name: Migrera till uppdaterat API
-      href: migrate-to-new-api.md
+  - name: Fungerar med kluster
+    href: clusters.md
+  - name: Använda Azure-lagring
+    href: use-azure-storage.md
+  - name: Träna en modell med hjälp av Python SDK
+    href: cntk-training-python.md
+  - name: Migrera till uppdaterat API
+    href: migrate-to-new-api.md
 - name: Referens
   items:
-    - name: Azure CLI
-      href: /cli/azure/batchai
-    - name: .NET
-      href: /dotnet/api/overview/azure/batchai
-    - name: Java
-      href: /java/api/overview/azure/batchai
-    - name: Node.js
-      href: /javascript/api/overview/azure/batchai
-    - name: Python
-      href: /python/api/overview/azure/batchai
-    - name: REST
-      href: /rest/api/batchai
+  - name: Azure CLI
+    href: /cli/azure/batchai
+  - name: .NET
+    href: /dotnet/api/overview/azure/batchai
+  - name: Java
+    href: /java/api/overview/azure/batchai
+  - name: Node.js
+    href: /javascript/api/overview/azure/batchai
+  - name: Python
+    href: /python/api/overview/azure/batchai
+  - name: REST
+    href: /rest/api/batchai
 - name: Resurser
   items:
-    - name: Träningsrecept
-      href: 'https://github.com/Azure/BatchAI'
-    - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Prissättning
-      href: 'https://azure.microsoft.com/pricing/details/batch-ai'
-    - name: Priskalkylator
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Regional tillgänglighet
-      href: 'https://azure.microsoft.com/regions/services/'
+  - name: Träningsrecept
+    href: https://github.com/Azure/BatchAI
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/batch-ai
+  - name: Priskalkylator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Regional tillgänglighet
+    href: https://azure.microsoft.com/regions/services/
+ms.openlocfilehash: ad3ffb48dd035f189054c40c9c1a3466230ac11d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051698"

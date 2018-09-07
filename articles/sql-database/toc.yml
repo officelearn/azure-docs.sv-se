@@ -9,15 +9,27 @@ items:
     href: sql-database-paas-vs-sql-server-iaas.md
 - name: Snabbstarter
   items:
-  - name: Skapa DB – Portal
-    href: sql-database-get-started-portal.md
-  - name: Skapa DB – Azure CLI
-    href: sql-database-get-started-cli.md
-  - name: Skapa DB – Azure PowerShell
-    href: sql-database-get-started-powershell.md
-  - name: Skapa hanterad instans
-    href: sql-database-managed-instance-get-started.md
-  - name: Anslut och fråga
+  - name: Skapa
+    items:
+    - name: Enskild databas
+      href: sql-database-get-started-portal.md
+    - name: Managed Instance
+      href: sql-database-managed-instance-get-started.md
+  - name: Konfigurera
+    items:
+    - name: Brandväggsregel för logisk server
+      href: sql-database-get-started-portal-firewall.md
+    - name: VM-klientanslutning till en hanterad instans
+      href: sql-database-managed-instance-configure-vm.md
+    - name: Punkt-till-plats-anslutning till en hanterad instans
+      href: sql-database-managed-instance-configure-p2s.md
+  - name: Läsa in data
+    items:
+    - name: Importera BACPAC till en enkel databas
+      href: sql-database-import.md
+    - name: Återställa en databassäkerhetskopia till en hanterad instans
+      href: sql-database-managed-instance-get-started-restore.md
+  - name: Fråga
     href: sql-database-connect-query.md
     items:
     - name: SSMS
@@ -59,13 +71,9 @@ items:
     href: sql-database-security-tutorial.md
   - name: 5 – Implementera en geo-distribuerad databas
     href: sql-database-implement-geo-distributed-database.md
-  - name: 6 – Skapa en hanterad instans
-    href: sql-database-managed-instance-create-tutorial-portal.md
-  - name: 7 – Återställa en säkerhetskopia till en hanterad instans
-    href: sql-database-managed-instance-restore-from-backup-tutorial.md
-  - name: 8 – Migrera till en hanterad instans med DMS
+  - name: 6 – Migrera till en hanterad instans med DMS
     href: ../dms/tutorial-sql-server-to-managed-instance.md
-  - name: 9 – Konfigurera Azure SQL Data Sync
+  - name: 7 – Konfigurera Azure SQL Data Sync
     href: sql-database-get-started-sql-data-sync.md
 - name: Exempel
   items:
@@ -606,9 +614,9 @@ items:
     href: /azure/architecture/
   - name: Kundberättelser
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 1cd65f1f3ee3907324bdb17be61dcfb5d0a747f1
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: e44c2d461f35098e20e50c776ca37b932566c4a0
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43245919"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050487"

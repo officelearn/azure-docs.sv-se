@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/07/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 6bd722801202f5cdff2882c29895ae06fecbbcb8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 09b9126125006fb70f5e2560f04b815b4a874405
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425371"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027307"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>Självstudie: tillgängliggör virtuella datorer för Azure Stack-användare
 
@@ -118,7 +118,7 @@ Nu när du har skapat ett erbjudande kan testa du den. Du ska logga in som en an
 
    ![Skapa ett erbjudande](media/azure-stack-subscribe-plan-provision-vm/image02.png)
 
-   c. Om du vill visa prenumerationen, Välj **fler tjänster**, och välj sedan **prenumerationer**. Välj din nya prenumeration för att se vilka tjänster som ingår i prenumerationen.
+   c. Om du vill visa prenumerationen, Välj **alla tjänster**, och sedan under den **Allmänt** kategori väljer **prenumerationer**. Välj din nya prenumeration för att se vilka tjänster som ingår i prenumerationen.
 
    >[!NOTE]
    >När du prenumererar på ett erbjudande kan du behöva uppdatera portalen för att se vilka tjänster som en del av den nya prenumerationen.

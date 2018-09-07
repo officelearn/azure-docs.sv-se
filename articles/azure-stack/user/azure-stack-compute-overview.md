@@ -6,15 +6,15 @@ author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: d478ccd0895ad067657bce56469a3a61d4ea0e17
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 143e6c2856485e33022254abfcf0cf3806b30cef
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139500"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025781"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Introduktion till virtuella Azure Stack-datorer
 
@@ -99,7 +99,7 @@ Resurserna i följande tabell som används av den virtuella datorn och måste fi
 |Resurs|Krävs|Beskrivning|
 |---------|---------|---------|
 |Resursgrupp|Ja|Den virtuella datorn måste ingå i en resursgrupp.|
-|Lagringskonto|Ja|Den virtuella datorn behöver lagringskontot för att kunna lagra sina virtuella hårddiskar.|
+|Lagringskonto|Nej|Den virtuella datorn har inte behöver lagringskontot för att lagra sina virtuella hårddiskar om du använder Managed Disks. <br>Den virtuella datorn behöver lagringskontot för att lagra sina virtuella hårddiskar om använder ohanterade diskar.|
 |Virtuellt nätverk|Ja|Den virtuella datorn måste ingå i ett virtuellt nätverk.|
 |Offentlig IP-adress|Nej|Den virtuella datorn kan tilldelas en offentlig IP-adress för att möjliggöra fjärråtkomst till den.|
 |Nätverksgränssnitt|Ja|Den virtuella datorn behöver nätverksgränssnittet för att kunna kommunicera i nätverket.|

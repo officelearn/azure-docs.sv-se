@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: jiahan
-ms.openlocfilehash: fc17ce0ebd13fb7e89405fcf4d6633551f340a27
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: bdf31c72fbcd8941161e6b9df0a490df7f6a16e0
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139760"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026526"
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Etablera disklagring för virtuella datorer i Azure Stack
 
@@ -30,9 +30,13 @@ Den här artikeln beskriver hur du etablerar disklagring för virtuella datorer 
 
 ## <a name="overview"></a>Översikt
 
-Azure Stack stöd för användning av [ohanterade diskar](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) på virtuella datorer som både ett operativsystem (OS) och en datadisk.
+Från och med version 1808, stöder Azure Stack användning av hanterade diskar och ohanterade diskar på virtuella datorer som både ett operativsystem (OS) och en datadisk. Före version 1808 stöds endast ohanterade diskar. 
 
-Om du vill använda ohanterade diskar skapar du en [lagringskonto](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) att lagra diskar. Diskar som du skapar kallas VM-diskar och lagras i behållare i lagringskontot.
+**[Hanterade diskar](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#managed-disks)**  förenkla Diskhantering för virtuella Azure IaaS-datorer genom att hantera de lagringskonton som är associerade med de Virtuella diskarna. Du behöver bara ange storleken på disk och Azure Stack skapar och hanterar disken åt dig.
+
+**[Ohanterade diskar](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks)**, kräver att du skapar en [lagringskonto](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) att lagra diskar. Diskar som du skapar kallas VM-diskar och lagras i behållare i lagringskontot.
+
+ 
 
 ### <a name="best-practice-guidelines"></a>Riktlinjer för bästa praxis
 

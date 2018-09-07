@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/27/2018
+ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 418b2f6b156853c1a2820271808bdba922d41a87
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 290b3daf73e323b3f5a7e1ef81299e72bf1c5f1d
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412907"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024808"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Hämta marketplace-objekt från Azure till Azure Stack
 
@@ -151,7 +151,7 @@ Det finns två delar i det här scenariot:
 2. Du kan använda administrationsportalen för att överföra marketplace objekt paketet (.azpkg-fil) till Azure Stack Blob storage. Överföring av paketet gör dem tillgängliga för Azure Stack så att du senare kan publicera objektet Azure Stack Marketplace.
 
    Ladda upp måste du ha ett lagringskonto med en offentligt tillgänglig behållare (se kraven för det här scenariot)   
-   1. I Azure Stack-administratörsportalen, går du till **fler tjänster** > **lagringskonton**.  
+   1. I Azure Stack-administratörsportalen, går du till **alla tjänster** och sedan under den **DATA + lagring** kategori, väljer **lagringskonton**.  
    
    2. Välj ett lagringskonto från din prenumeration och sedan under **BLOBTJÄNSTEN**väljer **behållare**.  
       ![BLOB service](media/azure-stack-download-azure-marketplace-item/blob-service.png)  
@@ -198,7 +198,7 @@ Det finns två delar i det här scenariot:
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      –Verbose
     ```
-5. När du har publicerat ett galleriobjekt kan du visa den från **fler tjänster** > **Marketplace**.  Om din nedladdning är en lösningsmall, kontrollera att du lägger till alla beroende VHD-avbildning för den lösningsmallen.  
+5. När du har publicerat ett galleriobjekt det genom att gå till **alla tjänster**. Sedan under den **Allmänt** kategori, väljer **Marketplace**.  Om din nedladdning är en lösningsmall, kontrollera att du lägger till alla beroende VHD-avbildning för den lösningsmallen.  
   ![Visa marketplace](media/azure-stack-download-azure-marketplace-item/view-marketplace.png)  
 
 > [!NOTE]

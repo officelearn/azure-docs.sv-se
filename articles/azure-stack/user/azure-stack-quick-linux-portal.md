@@ -7,16 +7,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: c692bc461c116b4c0497c2378ae4e21e1b841c8f
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: e82c3de4461e2d663496cd4ae4a98c10e7819466
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139424"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025418"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Snabbstart: skapa en Linux-server-dator med Azure Stack-portalen
 
@@ -27,6 +27,10 @@ Du kan skapa en Ubuntu Server 16.04 LTS-dator med hjälp av Azure Stack-portalen
 * Anslut till den virtuella datorn med en fjärransluten klient.
 * Installera en NGINX-webbserver.
 * Rensa dina resurser.
+
+> [!NOTE]  
+> Skärmbilder i den här artikeln har uppdaterats för att matcha ändringar som införs med Azure Stack-version 1808. 1808 lägger till stöd för användning av *hanterade diskar* förutom ohanterade diskar. Om du använder en tidigare version, kommer vissa bilder för uppgifter som valet av disk skilja sig från vad som visas i den här artikeln.  
+
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -66,7 +70,9 @@ Logga in på Azure Stack-portalen. Adressen för Azure Stack portal beror på vi
 1. Klicka på **skapa en resurs** i det övre vänstra hörnet i Azure Stack-portalen.
 
 2. Välj **Compute** och välj sedan **Ubuntu Server 16.04 LTS**.
-3. Klicka på **Skapa**.
+   
+   ![Välj Linux-servern](media/azure-stack-quick-linux-portal/select.png)
+1. Klicka på **Skapa**.
 
 4. Ange informationen om virtuella datorn. Välj **Offentlig SSH-nyckel** som **Autentiseringstyp**. Klistra in den offentliga SSH-nyckeln som du sparade och klicka sedan på **OK**.
 
@@ -75,24 +81,28 @@ Logga in på Azure Stack-portalen. Adressen för Azure Stack portal beror på vi
 
    ![Grunderna i panelen – konfigurera en virtuell dator](media/azure-stack-quick-linux-portal/linux-01.PNG)
 
-5. Välj **D1_V2** för den virtuella datorn.
+5. Välj **D1** för den virtuella datorn.
 
    ![Ändra storlek på panelen – Välj en storlek på virtuell dator](media/azure-stack-quick-linux-portal/linux-02.PNG)
 
-6. På den **inställningar** , behåller du standardvärdena och klicka på **OK**.
+6. På den **inställningar** sidan, gör ändringarna av standardinställningarna.
+   
+    - Från och med Azure Stack-version 1808, kan du konfigurera **Storage** där du kan välja att använda *hanterade diskar*. Före version 1808 kan endast ohanterade diskar användas.    
+      ![Konfigurera lagring för hanterade diskar](media/azure-stack-quick-linux-portal/linux-03.PNG)
+    
+    När dina konfigurationer är klar, Välj **OK** att fortsätta.
 
-7. På den **sammanfattning** klickar du på **OK** att starta distributionen av virtuella datorn.
+7. På den **sammanfattning** klickar du på **OK** att starta distributionen av virtuella datorn.  
+   ![Distribuera](media/azure-stack-quick-linux-portal/deploy.png)
 
 ## <a name="connect-to-the-virtual-machine"></a>Ansluta till den virtuella datorn
 
-1. Klicka på **Connect** på sidan virtuell dator. Då visas en SSH-anslutningssträng som du behöver ansluta till den virtuella datorn.
-
-   ![Ansluta virtuell dator](media/azure-stack-quick-linux-portal/linux-03.PNG)
+1. Klicka på **Connect** på sidan virtuell dator. Då visas en SSH-anslutningssträng som du behöver ansluta till den virtuella datorn. 
 
 2. Öppna PuTTY.
-3. På den **PuTTY-konfiguration** skärmen som du kommer att använda den **kategori** fönster för att rulla uppåt eller nedåt. Rulla ned till **SSH**, expandera **SSH**, och klicka sedan på **Auth**. Klicka på **Bläddra** och välj filen för privat nyckel som du sparade.
 
-   ![Välj PuTTY privata nyckel](media/azure-stack-quick-linux-portal/Putty03.PNG)
+3. På den **PuTTY-konfiguration** skärmen som du kommer att använda den **kategori** fönster för att rulla uppåt eller nedåt. Rulla ned till **SSH**, expandera **SSH**, och klicka sedan på **Auth**. Klicka på **Bläddra** och välj filen för privat nyckel som du sparade.
+   ![Ansluta virtuell dator](media/azure-stack-quick-linux-portal/putty03.PNG)
 
 4. Rulla uppåt i den **kategori** , och klicka på **Session**.
 5. I den **värdnamn (eller IP-adress)** rutan, klistra in anslutningssträngen som visas i Azure Stack-portalen. I det här exemplet strängen är ```asadmin@192.168.102.34```.
@@ -136,7 +146,7 @@ När NGINX är installerat och port 80 är öppen på den virtuella datorn kan d
 
 Öppna en webbläsare och gå till ```http://<public IP address>```.
 
-![Välkomstsidan för NGINX web server](media/azure-stack-quick-linux-portal/linux-04.PNG)
+![Välkomstsidan för NGINX web server](media/azure-stack-quick-linux-portal/linux-05.PNG)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

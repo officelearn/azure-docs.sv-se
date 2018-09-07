@@ -1,6 +1,6 @@
 ---
-title: Prenumerera på ett erbjudande i Azure-stacken | Microsoft Docs
-description: Skapa prenumerationer för erbjudanden i Azure-stacken
+title: Prenumerera på ett erbjudande i Azure Stack | Microsoft Docs
+description: Skapa prenumerationer för erbjudanden i Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,90 +12,90 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/11/2018
+ms.date: 09/05/2018
 ms.author: brenduns
-ms.openlocfilehash: 9153649774a67533649fb62da83a3f50abd592da
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b35e75d7cfcaa46da46d2edcb80fe37c112a66a3
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295218"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025579"
 ---
-# <a name="create-subscriptions-to-offers-in-azure-stack"></a>Skapa prenumerationer erbjudanden i Azure-stacken
+# <a name="create-subscriptions-to-offers-in-azure-stack"></a>Skapa prenumerationer för erbjudanden i Azure Stack
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-När du [skapa ett erbjudande](azure-stack-create-offer.md), användare behöver en prenumeration på den erbjudanden innan de kan använda den. Det finns två sätt att användare kan hämta prenumererar på ett erbjudande:
+När du [skapa ett erbjudande](azure-stack-create-offer.md), användarna behöver en prenumeration på erbjudandet innan de kan använda. Det finns två sätt att användare kan få prenumererar på ett erbjudande:
 
-- Du kan skapa en prenumeration för en användare från i administratörsportalen som en moln-operator. Prenumerationer som du skapar kan vara för både offentliga och privata erbjudanden.
-- Som en klient-användare kan du prenumerera på offentliga erbjudandet när du använder användarportalen.  
+- Du kan skapa en prenumeration för en användare från i administratörsportalen som en cloud-operator. Prenumerationer som du skapar kan vara både offentliga och privata erbjudanden.
+- Som en klientanvändare prenumererar du på ett erbjudande till allmänheten när du använder användarportalen.  
 
-## <a name="create-a-subscription-as-a-cloud-operator"></a>Skapa en prenumeration som molntjänster operator
+## <a name="create-a-subscription-as-a-cloud-operator"></a>Skapa en prenumeration som en cloud-operator
 
-Molnoperatörer kan använda administrationsportal för att skapa en prenumeration på ett erbjudande om en användare.  Du kan skapa prenumerationer för medlemmar i en egen directory-klient.  När [multitenans](azure-stack-enable-multitenancy.md) är aktiverad, kan du också skapa prenumerationer för användare i ytterligare directory-klienter.
+Molnoperatörer kan använda administrationsportalen för att skapa en prenumeration på ett erbjudande om en användare.  Du kan skapa prenumerationer för medlemmar i din egen directory-klient.  När [multitenans](azure-stack-enable-multitenancy.md) är aktiverad, kan du också skapa prenumerationer för användare i ytterligare directory-klienter.
 
-Om inte vill att klienterna att skapa sina egna prenumerationer, göra dina erbjudanden privata och sedan skapa prenumerationer för dina klienter. Den här metoden är vanliga när du integrerar Azure stacken med externa fakturerings- eller tjänsten katalogen system.
+Om inte vill att klienterna kommer att skapa sina egna prenumerationer, gör dina erbjudanden privat och sedan skapa prenumerationer för dina klienter. Den här metoden är vanlig när du integrerar Azure Stack med externa fakturerings- eller tjänsten katalogsystem.
 
 När du skapar en prenumeration för en användare kan de logga in på användarportalen och se att de är prenumererar på erbjudandet.  
 
 ### <a name="to-create-a-subscription-for-a-user"></a>Skapa en prenumeration för en användare
 
-1. Gå till i administrationsportal **användaren prenumerationer.**
-2. Välj **Lägg till**. Under **användaren prenumeration**, anger du följande information:  
+1. I Admin portal går du till **användarprenumerationer.**
+2. Välj **Lägg till**. Under **ny användarprenumeration**, anger du följande information:  
 
-   - **Visningsnamn** – ett eget namn för att identifiera prenumerationen som visas som den *prenumeration användarnamn*.
-   - **Användaren** – ange en användare från en tillgänglig directory-klient för den här prenumerationen. Användarnamnet visas som *ägare*.  Formatet på användarnamnet beror på din identitetslösning. Exempel:
+   - **Visningsnamn** – ett eget namn för att identifiera prenumerationen som visas i den *namn på användarens prenumeration*.
+   - **Användaren** – ange en användare från en tillgänglig directory-klient för den här prenumerationen. Användarnamnet som visas som *ägare*.  Formatet på användarnamnet är beroende av ID-lösning. Exempel:
 
-     - **Azure AD:***&lt;Användare1 > @&lt;contoso.onmicrosoft.com >* 
+     - **Azure AD:** `<user1>@<contoso.onmicrosoft.com>`
 
-     - **AD FS:***&lt;Användare1 > @&lt;azurestack.local >* 
+     - **AD FS:** `<user1>@<azurestack.local>` 
 
-   - **Directory-klient** – Välj directory-klient där användarkontot tillhör. Om du inte har aktiverat multitenans är bara din lokala katalog-klient tillgänglig.
+   - **Directory-klient** – Välj directory-klient som användaren tillhör. Om du inte har aktiverat flera innehavare, finns bara i din lokala katalog-klient.
 
-3. Välj **erbjuder**. Under **erbjuder**, Välj en **erbjuder** för den här prenumerationen. Eftersom du skapar prenumerationen för en användare kan välja **privata** som hjälpmedel tillstånd.
+3. Välj **erbjuder**. Under **erbjuder**, Välj en **erbjuder** för den här prenumerationen. Eftersom du skapar prenumerationen för en användare kan välja **privata** som tillstånd för hjälpmedel.
 
-4. Välj **skapa** att skapa prenumerationen. Du ser den nya prenumerationen under **användarens prenumeration**. När användaren loggar in på användarportalen kan de se prenumerationsinformation.
+4. Välj **skapa** att skapa prenumerationen. Du ser den nya prenumerationen under **användarprenumeration**. När användaren loggar in på användarportalen kan visas i prenumerationsinformationen.
 
-### <a name="to-make-an-add-on-plan-available"></a>Att tillhandahålla en plan för tillägg
+### <a name="to-make-an-add-on-plan-available"></a>Att tillgängliggöra en tilläggsplan
 
-En operator i molnet kan lägga till en plan för tillägg till en tidigare skapad prenumeration när som helst:
+En molnoperator kan lägga till en tilläggsplan till en tidigare skapad prenumeration när som helst:
 
-1. Välj i administrationsportal **fler tjänster** > **användaren prenumerationer**. Välj den prenumeration som du vill ändra.
+1. Välj i administrationsportalen **alla tjänster** och sedan under den **ADMINISTRATIONSRESURSER** kategori, väljer **användarprenumerationer**. Välj den prenumeration som du vill ändra.
 
 2. Välj **tillägg** och välj sedan **+ Lägg till**.  
 
-3. Under **Lägg till plan**, Välj den plan som du vill använda som ett tillägg.
+3. Under **Lägg till plan**, Välj den plan som du vill som ett tillägg.
 
 ## <a name="create-a-subscription-as-a-user"></a>Skapa en prenumeration som en användare
 
-Som en användare kan du logga in på användarportalen för att leta upp och prenumerera på offentliga erbjudanden och tillägg planer för directory-klient (organisationen).
+Som en användare kan du logga in på användarportalen för att hitta och prenumerera på offentliga erbjudanden och tilläggsplaner för directory-klienten (organisation).
 
 >[!NOTE]
->Om Azure Stack-miljön stöder [multitenans](azure-stack-enable-multitenancy.md) du kan även prenumerera på erbjudanden från en fjärrkatalog-klient.
+>Om Azure Stack-miljön stöder [multitenans](azure-stack-enable-multitenancy.md) du kan även prenumerera erbjudanden från en fjärrkatalog-klient.
 
 ### <a name="to-subscribe-to-an-offer"></a>Prenumerera på ett erbjudande
 
-1. [Logga in](azure-stack-connect-azure-stack.md) till användarportalen Azure Stack (https://portal.local.azurestack.external) och välj **skaffa en prenumeration**.
+1. [Logga in](azure-stack-connect-azure-stack.md) till användarportalen för Azure Stack (https://portal.local.azurestack.external) och välj **skaffa en prenumeration**.
 
    ![Skaffa en prenumeration](media/azure-stack-subscribe-plan-provision-vm/image01.png)
   
-2. Under **skaffa en prenumeration**, ange det egna namnet för prenumerationen i **visningsnamn**. Välj **erbjuder** och under **väljer du ett erbjudande**, Välj ett erbjudande. Välj **skapa** att skapa prenumerationen.
+2. Under **skaffa en prenumeration**, ange det egna namnet för prenumerationen i **visningsnamn**. Välj **erbjuder** och under **Välj ett erbjudande**, Välj ett erbjudande. Välj **skapa** att skapa prenumerationen.
 
    ![Skapa ett erbjudande](media/azure-stack-subscribe-plan-provision-vm/image02.png)
   
-3. När du prenumererar på ett erbjudande uppdatera portalen om du vill se vilka tjänster som är en del av den nya prenumerationen.
-4. Om du vill se den prenumeration som du har skapat, Välj **fler tjänster** och välj sedan **prenumerationer**. Välj prenumerationen visas prenumerationsinformation.  
+3. När du prenumererar på ett erbjudande kan du uppdatera portalen för att se vilka tjänster som en del av den nya prenumerationen.
+4. Om du vill se prenumerationen du skapade **alla tjänster** och sedan under den **Allmänt** kategori väljer **prenumerationer**. Välj prenumerationen du vill ha prenumerationsinformation.  
 
-### <a name="to-subscribe-to-an-add-on-plan"></a>Prenumerera på en plan för tillägg
+### <a name="to-subscribe-to-an-add-on-plan"></a>Prenumerera på en tilläggsplan
 
-Om ett erbjudande har en plan för tillägg, kan du lägga till planen prenumerationen när som helst.  
+Om ett erbjudande har en tilläggsplan, kan du lägga till den här planen prenumerationen när som helst.  
 
-1. Välj i användarportalen, **fler tjänster** > **prenumerationer**, och sedan väljer du den prenumeration som du vill ändra. Om alla tillägg planer är tillgängliga **+ Lägg till plan** är aktiv och det finns en panel för **tillägg planer**.
+1. Välj i användarportalen, **alla tjänster**. Sedan under den **Allmänt** kategori väljer **prenumerationer**, och välj sedan den prenumeration du vill ändra. Om det finns några tilläggsplaner, **+ Lägg till plan** är aktiv och det finns en panel för **tilläggsplaner**.
 
    >[!NOTE]
-   >Om **+ Lägg till plan** är inte aktiv, och det inte alla tillägg planer för erbjudande som är kopplade till den prenumerationen.
+   >Om **+ Lägg till plan** är inte aktiv, och det inte finns några tilläggsplaner för erbjudande som är associerade med den aktuella prenumerationen.
 
-1. Välj **+ Lägg till plan** eller **tillägg planer** panelen. Under **tillägg planer**, Välj den plan som du vill lägga till.
+1. Välj **+ Lägg till plan** eller **tilläggsplaner** panelen. Under **tilläggsplaner**, Välj den plan som du vill lägga till.
 
 ## <a name="next-steps"></a>Nästa steg
 

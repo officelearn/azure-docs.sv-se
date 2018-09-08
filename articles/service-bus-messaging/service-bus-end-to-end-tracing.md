@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: lmolkova
-ms.openlocfilehash: 5489fa999f3427345c3ee9f07f904296de224e31
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: e30c6b9ef8f593f2fea3f6e3f5ccf22734ca5bee
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42061100"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092181"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Distribuerad spårning och korrelation via Service Bus-meddelanden
 
@@ -83,10 +83,10 @@ async Task ProcessAsync(Message message)
 I det här exemplet `RequestTelemetry` rapporteras för varje bearbetade meddelande med en tidsstämpel, varaktighet och resultatet (lyckades). Telemetri har också en uppsättning korrelation egenskaper.
 Kapslade spårningar och undantag som har rapporterat under meddelandebehandling också stämplad med Korrelations-egenskaper som representerar dem som underordnade om du till den `RequestTelemetry`.
 
-Om du gör anrop till externa komponenter som stöds under behandlingen av meddelandet, men de är också automagically spåras och korrelerade. Referera till [spåra anpassade åtgärder med Application Insights SDK för .NET](../application-insights/application-insights-custom-operations-tracking.md) för manuell spårning och korrelation.
+Om du göra anrop till externa komponenter som stöds under behandlingen av meddelandet är de också automatiskt spåras och korrelerade. Referera till [spåra anpassade åtgärder med Application Insights SDK för .NET](../application-insights/application-insights-custom-operations-tracking.md) för manuell spårning och korrelation.
 
 ### <a name="tracking-without-tracing-system"></a>Spåra utan spårningssystemet
-Om spårning av systemet inte har stöd för spårning automagical Service Bus-anrop kan till exempel se till att lägga till stödet till ett spårningssystem eller till ditt program. Det här avsnittet beskrivs diagnostikhändelser som skickas av Service Bus .NET-klient.  
+Om din spårningssystemet inte stöder automatisk Service Bus-anrop spårning kan till exempel se till att lägga till stödet till ett spårningssystem eller till ditt program. Det här avsnittet beskrivs diagnostikhändelser som skickas av Service Bus .NET-klient.  
 
 Service Bus .NET-klient är utrustade med hjälp av .NET spårning primitiver [System.Diagnostics.Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) och [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md).
 
@@ -153,7 +153,7 @@ Varje händelse som ”stoppa” har `Status` egenskap med `TaskStatus` async-å
 
 Här är en fullständig lista över instrumenterade åtgärder:
 
-| Åtgärdsnamn | Spårade API | Egenskaper för specifika nyttolast|
+| Åtgärdens namn | Spårade API | Egenskaper för specifika nyttolast|
 |----------------|-------------|---------|
 | Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | IList<Message> meddelanden - lista med meddelanden som skickas |
 | Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | Meddelandet meddelandet - meddelande som bearbetas<br/>DateTimeOffset ScheduleEnqueueTimeUtc - schemalagt meddelande förskjutning<br/>lång SequenceNumber - sekvensnumret för schemalagt meddelande (”stoppa” händelsenyttolast) |

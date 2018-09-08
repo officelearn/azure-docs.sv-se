@@ -3,33 +3,29 @@ title: Hantera fel i varaktiga funktioner – Azure
 description: Lär dig mer om att hantera fel i tillägget varaktiga funktioner för Azure Functions.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 944fab5ccc55bc9a697e870208338bd0e697672d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0b19fe7441d3c2c5222095c31d9c3677b8c9cf34
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763313"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092725"
 ---
-# <a name="handling-errors-in-durable-functions-azure-functions"></a>Hantera fel i varaktiga funktioner (Azure-funktioner)
+# <a name="handling-errors-in-durable-functions-azure-functions"></a>Hantera fel i varaktiga funktioner (Azure Functions)
 
-Beständiga funktionen orkestreringarna implementeras i kod och kan använda funktionerna i programmeringsspråket felhantering. Med detta i åtanke det verkligen inte finns några nya begrepp som du behöver lära dig om när du använder felhantering och ersättning i din orkestreringarna. Det finns dock några problem som du bör känna till.
+Hållbar funktionen orkestreringar implementeras i kod och kan använda funktionerna för hantering av fel i programmeringsspråket. Med detta i åtanke, det verkligen inte finns några nya begrepp som du behöver mer information om när du använder felhantering och ersättning i din orkestreringar. Det finns dock några beteenden som du bör känna till.
 
-## <a name="errors-in-activity-functions"></a>Fel i aktiviteten funktioner
+## <a name="errors-in-activity-functions"></a>Fel i Aktivitetsfunktioner
 
-Alla undantag utlöstes i en aktivitet funktionen ordnas tillbaka till orchestrator-funktionen och sig som en `FunctionFailedException`. Du kan skriva hantering och ersättning felkoden som passar dina behov i orchestrator-funktionen.
+Alla undantag som genereras i en aktivitet funktionen ordnas tillbaka till orchestrator-funktion och genereras som en `FunctionFailedException`. Du kan skriva felhantering och kompensation felkoden som passar dina behov i orchestrator-funktion.
 
-Tänk dig följande funktion i orchestrator som överför medel från ett konto till en annan:
+Anta exempelvis att följande orchestrator-funktion som överför pengar från ett konto till en annan:
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -68,11 +64,11 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-Om anropet till den **CreditAccount** misslyckas åtgärden för mål-kontot, funktionen orchestrator kompenserar för detta genom kreditering medel tillbaka till källkonto.
+Om anropet till den **CreditAccount** misslyckas åtgärden för mål-konto, orchestrator-funktion kompenserar för det här genom kreditering pengar tillbaka till källkontot.
 
-## <a name="automatic-retry-on-failure"></a>Automatiska försök vid fel
+## <a name="automatic-retry-on-failure"></a>Automatiska återförsök vid fel
 
-När du anropar aktivitet funktioner eller underordnade orchestration-funktioner som du kan ange en automatisk försök princip. I följande exempel försöker anropa en funktion upp till 3 gånger och väntar 5 sekunder mellan varje försök:
+När du anropar Aktivitetsfunktioner eller underordnade orchestration-funktioner, kan du ange en automatisk återförsöksprincip. I följande exempel försöker anropa en funktion upp till tre gånger och väntar 5 sekunder mellan varje nytt försök:
 
 ```csharp
 public static async Task Run(DurableOrchestrationContext context)
@@ -87,20 +83,20 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-Den `CallActivityWithRetryAsync` API tar en `RetryOptions` parameter. Underordnade orchestration anrop med hjälp av den `CallSubOrchestratorWithRetryAsync` API kan använda dessa principer med samma försök igen.
+Den `CallActivityWithRetryAsync` API tar en `RetryOptions` parametern. Suborchestration anrop med hjälp av den `CallSubOrchestratorWithRetryAsync` API kan använda dessa samma principer för återförsök.
 
-Det finns flera alternativ för att anpassa principen automatiska försök igen. Dessa inkluderar:
+Det finns flera alternativ för att anpassa automatisk återförsöksprincipen. Dessa inkluderar:
 
-* **Max antal försök**: det maximala antalet nya försök.
-* **Första återförsöket**: hur lång tid att vänta innan det första förnyade försök.
-* **Backoff värde**: värde används för att avgöra ökningstakt för backoff. Standardvärdet är 1.
-* **Max återförsöksintervall**: maximal mängd väntetiden mellan ett nytt försök görs.
-* **Gör timeout**: den maximala mängden tid för detta återförsök. Standardinställningen är att försöka igen under obestämd tid.
-* **Anpassad**: en användardefinierad motringning kan anges som bestämmer om ett funktionsanrop ska göras.
+* **Maxantal försök**: det maximala antalet nya försök.
+* **Första återförsöket**: hur lång tid innan det första återförsöket försöka.
+* **Backoff koefficienten**: koefficienten används för att fastställa ökningstakt för backoff. Standardvärdet är 1.
+* **Max återförsöksintervallet**: längsta tid som ska förflyta mellan försöken.
+* **Nya försök**: längsta tid för gör ett nytt försök görs. Standardinställningen är att försöka igen på obestämd tid.
+* **Anpassad**: en användardefinierad motringning kan anges som bestämmer huruvida ett funktionsanrop ska göras.
 
 ## <a name="function-timeouts"></a>Funktionen tidsgränser
 
-Du kanske vill Avbryt ett funktionsanrop i en orchestrator-funktion om det tar för lång tid att slutföra. Det korrekta sättet att göra detta idag är genom att skapa en [varaktiga timer](durable-functions-timers.md) med `context.CreateTimer` tillsammans med `Task.WhenAny`, som i följande exempel:
+Du kanske vill lämna ett funktionsanrop inom en orchestrator-funktion om det tar för lång tid att slutföra. Det korrekta sättet att göra detta idag är genom att skapa en [varaktiga timer](durable-functions-timers.md) med `context.CreateTimer` tillsammans med `Task.WhenAny`, som i följande exempel:
 
 ```csharp
 public static async Task<bool> Run(DurableOrchestrationContext context)
@@ -130,13 +126,13 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
 ```
 
 > [!NOTE]
-> Den här mekanismen avslutar inte faktiskt funktionen för pågående aktivitetskörningen. I stället bara kan orchestrator-funktionen för att ignorera resultatet och gå vidare. Finns det [Timers](durable-functions-timers.md#usage-for-timeout) dokumentationen för mer information.
+> Den här mekanismen avslutar inte faktiskt pågående aktivitetskörning av funktion. Det helt enkelt står orchestrator-funktion att ignorera resultatet och gå vidare. Mer information finns i den [Timers](durable-functions-timers.md#usage-for-timeout) dokumentation.
 
-## <a name="unhandled-exceptions"></a>Ohanterat undantag
+## <a name="unhandled-exceptions"></a>Ett ohanterat undantag
 
-Om en orchestrator-funktion misslyckas med ett ohanterat undantag loggas information om undantaget och instansen är klar med en `Failed` status.
+Om en orchestrator-funktion misslyckas med ett ohanterat undantag, loggas information om undantaget och instansen är klar med en `Failed` status.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig att felsöka problem](durable-functions-diagnostics.md)
+> [Lär dig att diagnostisera problem](durable-functions-diagnostics.md)

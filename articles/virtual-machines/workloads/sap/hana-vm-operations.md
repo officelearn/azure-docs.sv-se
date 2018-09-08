@@ -13,20 +13,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/27/2018
+ms.date: 09/06/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2ff826f21adf12d48b21acefe4b704866e02c04
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 0a6c9d4ad27eb6dc6b0aba24f32a4a0dfde3c784
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917966"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163326"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Konfigurationer för SAP HANA-infrastruktur och åtgärder på Azure
 Det här dokumentet innehåller anvisningar för att konfigurera Azure-infrastrukturen och använda SAP HANA-system som har distribuerats på Azures inbyggda virtuella datorer (VM). Dokumentet innehåller också konfigurationsinformation för SAP HANA skalbar för M128s VM SKU: N. Det här dokumentet är inte avsedd att ersätta standard SAP-dokumentationen, som innehåller följande innehåll:
 
-- [Administrationsguide för SAP](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/330e5550b09d4f0f8b6cceb14a64cd22.html)
+- [Administrationsguide för SAP](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/330e5550b09d4f0f8b6cceb14a64cd22.html)
 - [SAP-installationsguiderna](https://service.sap.com/instguides)
 - [SAP-anteckningar](https://sservice.sap.com/notes)
 
@@ -212,6 +212,11 @@ När du installerar de virtuella datorerna som kör SAP HANA, måste de virtuell
 
 - Två virtuella nätverkskort som är installerade: ett nätverkskort för att ansluta till undernätet för hantering och ett nätverkskort för att ansluta från det lokala nätverket eller andra nätverk, till SAP HANA-instans i Azure-VM.
 - Statiska privata IP-adresser som har distribuerats för båda virtuella nätverkskort.
+
+> [!NOTE]
+> Du bör tilldela statiska IP-adresser via Azure innebär att enskilda virtuella nätverkskort. Du bör inte tilldela statiska IP-adresser i gästoperativsystemet till ett virtuellt nätverkskort. Vissa Azure-tjänster som Azure Backup-tjänsten är beroende av faktumet att vid minst det primära virtuella nätverkskortet är inställd på DHCP- och inte på statiska IP-adresser. Se även dokumentet [felsöka Azure VM backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking). Om du vill tilldela flera statiska IP-adresser till en virtuell dator måste du tilldela flera virtuella nätverkskort till en virtuell dator.
+>
+>
 
 Men för distributioner som är bestående, måste du skapa ett virtuellt datacenter nätverksarkitektur i Azure. Den här arkitekturen rekommenderar avgränsning av Azure VNet-Gateway som ansluter till lokala i ett separat virtuellt Azure-nätverk. Det här separata virtuella nätverket bör vara värd för all trafik som lämnar antingen till en lokal eller till internet. Den här metoden kan du distribuera programvara för granskning och loggning trafik som anger virtuellt datacenter i Azure i den här separata virtuella hubbnätverket. Du måste ett virtuellt nätverk som är värd för programvara och konfigurationer som är kopplat till in- och utgående trafik till din Azure-distribution.
 

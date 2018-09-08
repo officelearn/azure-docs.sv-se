@@ -15,18 +15,21 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: a58905d4e6ab22af38bb06b41a4523e6e5ddf86e
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 27f9e0a3875b8d7e9411517863f7d7c2f6982ab3
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028697"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158644"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Vanliga frågor och kända problem med hanterade identiteter för Azure-resurser
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 ## <a name="frequently-asked-questions-faqs"></a>Vanliga frågor och svar
+
+> [!NOTE]
+> Hanterade identiteter för azure-resurser är det nya namnet för tjänsten tidigare känd som hanterad tjänstidentitet (MSI).
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>Fungerar hanterade identiteter för Azure-resurser med Azure Cloud Services?
 
@@ -49,7 +52,7 @@ När du använder hanterade identiteter för Azure-resurser med virtuella datore
 3. Certifikat som används av hanterade identiteter för Azure-resurser finns inte längre i den virtuella datorn. 
 4. IMDS slutpunkten är en välkänd icke-dirigerbara IP-adress som endast tillgängliga i den virtuella datorn. 
 
-Hanterade identiteter för VM-tillägg för Azure-resurser finns fortfarande som ska användas i dag; men framöver vi som standard IMDS-slutpunkten. Hanterade identiteter för Azure-resurser VM-tillägget börjar en utfasning planera snart. 
+Hanterade identiteter för VM-tillägg för Azure-resurser finns fortfarande som ska användas i dag; men framöver vi som standard IMDS-slutpunkten. Hanterade identiteter för Azure-resurser VM-tillägget kommer att inaktualiseras i januari 2019. 
 
 Läs mer på Azure Instance Metadata Service [IMDS dokumentation](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
@@ -57,7 +60,7 @@ Läs mer på Azure Instance Metadata Service [IMDS dokumentation](https://docs.m
 
 Alla Linux-distributioner som stöds av Azure IaaS kan användas med hanterade identiteter för Azure-resurser via IMDS-slutpunkt. 
 
-Obs: De hanterade identiteterna för Azure-resurser VM-tillägg stöder endast följande Linux-distributioner:
+Obs: Hanterade identiteter för Azure-resurser VM-tillägg (planerad för utfasning i januari 2019) stöder endast följande Linux-distributioner:
 - CoreOS stabila
 - CentOS 7.1
 - Red Hat 7.2
@@ -87,9 +90,9 @@ När hanterade identiteter för Azure-resurser är aktiverat på en virtuell dat
 
 ![Hanterade identiteter för Azure-resurser automationsskript exportfel](./media/msi-known-issues/automation-script-export-error.png)
 
-Hanterade identiteter för Azure-resurser VM-tillägg stöder för närvarande inte möjligheten att exportera dess schema till en resursgruppmall. Därför visas inte den genererade mallen konfigurationsparametrar för att aktivera hanterade identiteter för Azure-resurser på resursen. Dessa avsnitt kan läggas till manuellt genom att följa exemplen i [konfigurera hanterade identiteter för Azure-resurser på en Azure-dator med hjälp av en mallar](qs-configure-template-windows-vm.md).
+Hanterade identiteter för Azure-resurser VM-tillägg (planerad för utfasning i januari 2019) har för närvarande inte stöd för möjligheten att exportera dess schema till en resursgruppmall. Därför visas inte den genererade mallen konfigurationsparametrar för att aktivera hanterade identiteter för Azure-resurser på resursen. Dessa avsnitt kan läggas till manuellt genom att följa exemplen i [konfigurera hanterade identiteter för Azure-resurser på en Azure-dator med hjälp av en mallar](qs-configure-template-windows-vm.md).
 
-När schemat exportfunktionen blir tillgängliga för hanterade identiteter för VM-tillägg för Azure-resurser, kommer den att listas i [exportera resursgrupper som innehåller VM-tillägg](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
+När schemat exportfunktionen blir tillgängliga för hanterade identiteter för VM-tillägg för Azure-resurser (planerad för utfasning i januari 2019), kommer den att listas i [exportera resursgrupper som innehåller VM-tillägg](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
 
 ### <a name="configuration-blade-does-not-appear-in-the-azure-portal"></a>Konfigurationsbladet visas inte i Azure portal
 
@@ -125,11 +128,11 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 
 - tilldelningar för Användartilldelad identitet är bara tillgängliga för virtuella datorer och VMSS. Viktigt: Användartilldelad identitet tilldelningar kommer att ändras under de kommande månaderna.
 - Duplicera användartilldelade identiteter på samma VM/VMSS, leder VM/VMSS misslyckas. Detta inkluderar identiteter som har lagts till med ett annat skiftläge. t.ex. MyUserAssignedIdentity och myuserassignedidentity. 
-- Etablering av VM-tillägg till en virtuell dator kan misslyckas på grund av DNS-sökning fel. Starta om den virtuella datorn och försök igen. 
+- Etablering av VM-tillägget (planerad för utfasning i januari 2019) till en virtuell dator kan misslyckas på grund av DNS-sökning fel. Starta om den virtuella datorn och försök igen. 
 - Att lägga till en ”icke-existerande' Användartilldelad identitet gör att den virtuella datorn misslyckas. 
 - Det går inte att skapa en Användartilldelad identitet med specialtecken (t.ex. understreck) i namnet.
 - Användartilldelad identitetsnamn är begränsade till 24 tecken för slutpunkt till slutpunkt-scenario. användartilldelade identiteter med namn som är längre än 24 tecken kan inte tilldelas.
-- Om du använder tillägget för virtuell dator hanterad identitet, är gränsen som stöds 32 användartilldelade hanterade identiteter. Gränsen som stöds är 512 utan tillägget för virtuell dator hanterad identitet.  
+- Om du använder tillägget för virtuell dator hanterad identitet, (planerad för utfasning i januari 2019) är gränsen 32 användartilldelade hanterade identiteter. Gränsen som stöds är 512 utan tillägget för virtuell dator hanterad identitet.  
 - När du lägger till en andra Användartilldelad identitet, kanske clientID inte tillgänglig för begäranden token för VM-tillägget. Starta om de hanterade identiteterna för VM-tillägg för Azure-resurser med följande två bash-kommandon som en lösning:
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`

@@ -4,22 +4,18 @@ description: Referensdokumentation för appinställningar för Azure Functions e
 services: functions
 author: ggailey777
 manager: jeconnoc
-editor: ''
-tags: ''
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 08/22/2018
 ms.author: glenga
-ms.openlocfilehash: 46c1cb0a0cb3104e3705e4a7d4ef0dd894a7c2d7
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 9f6746f1bf8fb65e39933afa00b74a2b8266a1a9
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42819054"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44095444"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referens för appinställningar för Azure Functions
 
@@ -51,7 +47,7 @@ Valfritt lagringskontots anslutningssträng för att lagra loggar och visa dem i
 
 |Nyckel|Exempelvärde|
 |---|------------|
-|AzureWebJobsDisableHomepage|sant|
+|AzureWebJobsDisableHomepage|true|
 
 När den här appinställningen är utelämnas eller värdet `false`, en sida som liknar följande exempel visas som svar på URL: en `<functionappname>.azurewebsites.net`.
 
@@ -63,7 +59,7 @@ När den här appinställningen är utelämnas eller värdet `false`, en sida so
 
 |Nyckel|Exempelvärde|
 |---|------------|
-|AzureWebJobsDotNetReleaseCompilation|sant|
+|AzureWebJobsDotNetReleaseCompilation|true|
 
 ## <a name="azurewebjobsfeatureflags"></a>AzureWebJobsFeatureFlags
 

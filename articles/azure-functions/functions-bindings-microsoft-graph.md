@@ -3,20 +3,18 @@ title: Microsoft Graph-bindningar för Azure Functions
 description: Förstå hur du använder Microsoft Graph-utlösare och bindningar i Azure Functions.
 services: functions
 author: mattchenderson
-manager: cfowler
-editor: ''
-ms.service: functions
-ms.tgt_pltfrm: na
+manager: jeconnoc
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 06ee959d7b38f21684280a35cf770fdcc590b102
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 128e7f693755e7baf752d546fddd786b07c0de78
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287995"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093744"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph-bindningar för Azure Functions
 
@@ -352,7 +350,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**Användar-ID**|**Användar-ID**  |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användarens huvudnamn ID som är associerade med en tidigare inloggade användare.|
 |**userToken**|**Metadatafältet**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionsappen. |
 |**Sökväg**|**Sökväg**|Obligatoriskt - sökvägen i OneDrive till Excel-arbetsboken.|
-|**worksheetName**|**WorksheetName**|Kalkylbladet där tabellen finns.|
+|**worksheetName**|**worksheetName**|Kalkylbladet där tabellen finns.|
 |**Tabellnamn**|**Tabellnamn**|Namnet på tabellen. Om den inte anges används innehållet i kalkylbladet.|
 
 <a name="excel-input-code"></a>
@@ -512,7 +510,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**Användar-ID** |**Användar-ID** |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användarens huvudnamn ID som är associerade med en tidigare inloggade användare.|
 |**userToken**|**Metadatafältet**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionsappen. |
 |**Sökväg**|**Sökväg**|Obligatoriskt - sökvägen i OneDrive till Excel-arbetsboken.|
-|**worksheetName**|**WorksheetName**|Kalkylbladet där tabellen finns.|
+|**worksheetName**|**worksheetName**|Kalkylbladet där tabellen finns.|
 |**Tabellnamn**|**Tabellnamn**|Namnet på tabellen. Om den inte anges används innehållet i kalkylbladet.|
 |**Uppdateringstyp**|**Uppdateringstyp**|Krävs – typ av ändring som ska göras i tabellen. Kan vara något av följande värden:<ul><li><code>update</code> -Ersätter innehållet i tabellen i OneDrive.</li><li><code>append</code> -Lägger till nyttolasten i slutet av tabellen i OneDrive genom att skapa nya rader.</li></ul>|
 
@@ -1382,8 +1380,8 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**Användar-ID**|**Användar-ID**  |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användarens huvudnamn ID som är associerade med en tidigare inloggade användare.|
 |**userToken**|**Metadatafältet**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionsappen. |
 |**Åtgärd**|**Åtgärd**|Obligatoriskt – anger åtgärden som bindningen ska utföra. Kan vara något av följande värden:<ul><li><code>create</code> -Registrerar en ny prenumeration.</li><li><code>delete</code> – Tar bort en angiven prenumeration.</li><li><code>refresh</code> – Uppdaterar en angiven prenumeration så att den upphör att gälla.</li></ul>|
-|**subscriptionResource**|**SubscriptionResource**|Krävs om och bara om den _åtgärd_ är inställd på `create`. Anger Microsoft Graph-resurs som ska övervakas för ändringar. Se [arbeta med webhooks i Microsoft Graph]. |
-|**changeType**|**ChangeType**|Krävs om och bara om den _åtgärd_ är inställd på `create`. Anger typen av ändring i den prenumererade resursen som skapar ett meddelande. Godkända värden är: `created`, `updated`, `deleted`. Du kan kombinera flera värden med hjälp av en kommaavgränsad lista.|
+|**subscriptionResource**|**subscriptionResource**|Krävs om och bara om den _åtgärd_ är inställd på `create`. Anger Microsoft Graph-resurs som ska övervakas för ändringar. Se [arbeta med webhooks i Microsoft Graph]. |
+|**changeType**|**changeType**|Krävs om och bara om den _åtgärd_ är inställd på `create`. Anger typen av ändring i den prenumererade resursen som skapar ett meddelande. Godkända värden är: `created`, `updated`, `deleted`. Du kan kombinera flera värden med hjälp av en kommaavgränsad lista.|
 
 ### <a name="webhook-output---usage"></a>Webhook utdata - användning
 

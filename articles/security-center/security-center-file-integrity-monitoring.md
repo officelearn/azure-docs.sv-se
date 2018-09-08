@@ -1,6 +1,6 @@
 ---
-title: Filen integritet övervakning i Azure Security Center (förhandsversion) | Microsoft Docs
-description: " Lär dig hur du aktiverar övervakning integritet i Azure Security Center. "
+title: Övervakning av filintegritet i Azure Security Center | Microsoft Docs
+description: " Lär dig hur du aktiverar Filintegritetsövervakning i Azure Security Center. "
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,80 +12,80 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2018
+ms.date: 09/06/2018
 ms.author: terrylan
-ms.openlocfilehash: 722a4fd11f35f04ed22d73638f07d15c49ea3c26
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 187253bc2ef4a61b7a241b8f5c121bf3eec73eae
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34162178"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162010"
 ---
-# <a name="file-integrity-monitoring-in-azure-security-center-preview"></a>Filen integritet övervakning i Azure Security Center (förhandsgranskning)
+# <a name="file-integrity-monitoring-in-azure-security-center"></a>Övervakning av filintegritet i Azure Security Center
 Lär dig hur du konfigurerar filen integritet övervakning (FIM) i Azure Security Center med den här genomgången.
 
 ## <a name="what-is-fim-in-security-center"></a>Vad är FIM i Security Center?
-Filen integritet övervakning (FIM), även kallat ändra övervakning, undersöker filer och register för operativsystemet och programvara för ändringar som kan tyda på ett angrepp. En jämförelsemetoden används för att avgöra om det aktuella tillståndet för filen skiljer sig från den senaste genomsökningen av filen. Du kan använda den här jämförelsen för att avgöra om giltig eller misstänkta ändringar har gjorts till dina filer.
+Filen integritet övervakning (FIM), även känt som ändra övervakning, undersöker filer och register av operativsystem och programvara för ändringar som kan tyda på ett angrepp. En jämförelsemetod används för att fastställa om det aktuella tillståndet för filen skiljer sig från den senaste genomsökningen av filen. Du kan använda den här jämförelsen för att fastställa om giltiga eller misstänkta ändringar har gjorts till dina filer.
 
-Security Center-övervakning av integritet kontrollerar integriteten för Windows-filer, Windows-registret och Linux-filer. Du kan välja de filer som du vill övervakade genom att aktivera FIM. Security Center övervakar filer med FIM som aktiverats för aktiviteten:
+Security Center-Filintegritetsövervakning kontrollerar integriteten för Windows-filer, Windows-registret och Linux-filer. Du kan välja de filer som du vill övervakade genom att aktivera FIM. Security Center övervakar filer med FIM som aktiverats för aktiviteten som:
 
 - Skapa en fil- och registret och borttagning
-- Filen ändringar (ändringar i storlek, åtkomstkontrollistor och hashvärdet för innehållet)
-- Registret (förändringar i storlek, conrol listor, typ och innehållet)
+- Filändringar (ändringar i filstorlek och åtkomstkontrollistor innehållets hash-värde)
+- Registret ändringar (ändringar i storlek, åtkomst conrol listor, typ och innehållet)
 
-Security Center rekommenderar enheter att övervaka, som du enkelt kan aktivera FIM på. Du kan också definiera egna FIM principer eller enheter som ska övervakas. Den här genomgången visar hur du gör.
+Entiteter för att övervaka, som du kan enkelt aktivera FIM på rekommenderar Security Center. Du kan även definiera dina egna principer för FIM eller entiteter för att övervaka. Den här genomgången visar hur du gör.
 
 > [!NOTE]
-> Filen integritet övervakning (FIM)-funktionen fungerar för Windows och Linux-datorer och virtuella datorer och är tillgänglig på standardnivån av Security Center. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
-FIM överför data till logganalys-arbetsytan. Data avgifter gäller baserat på mängden data som du överför. Se [logganalys priser](https://azure.microsoft.com/pricing/details/log-analytics/) vill veta mer.
+> Filen integritet övervakning (FIM)-funktionen fungerar för Windows och Linux-datorer och virtuella datorer och är tillgängligt på standardnivån i Security Center. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
+FIM överför data till Log Analytics-arbetsytan. Data kan tillkomma, baserat på mängden data som du överför. Se [priserna för Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) vill veta mer.
 >
 >
 
 > [!NOTE]
-> FIM använder Azure ändringsspårning lösningen för att spåra och identifiera ändringar i din miljö. När filen integritet övervakning är aktiverad, har du en **ändringsspårning** resurs av typen lösning. Om du tar bort den **ändringsspårning** resurs måste du inaktivera filintegritet övervakning funktion i Security Center.
+> FIM använder lösningen Azure ändringsspårning för att spåra och identifiera ändringar i din miljö. När Filintegritetsövervakning är aktiverad, har du en **ändringsspårning** resurs av typen lösning. Om du tar bort den **ändringsspårning** resurs kan du inaktivera Filintegritetsövervakning i Security Center.
 >
 >
 
 ## <a name="which-files-should-i-monitor"></a>Vilka filer bör övervaka?
-Du bör tänka på de filer som är viktiga för ditt system och program när du väljer vilka filer som ska övervaka. Du bör använda filer som du inte förväntar dig att ändra utan planera. Välja filer som ofta ändras av program eller operativsystem (till exempel loggfiler och textfiler) skapa mycket brus som gör det svårt att upptäcka en attack.
+Du bör tänka på de filer som är viktiga för dina system och program när du väljer vilka filer som ska övervakas. Överväga att välja filer som du inte tror att ändra utan att planera. Välja filer som ofta ändras av program eller operativsystem (till exempel loggfiler och textfiler) skapa mycket brus som gör det svårt att upptäcka en attack.
 
-Security Center rekommenderar som du bör övervaka som standard enligt kända angreppsmönster som innehåller filer och registerposter ändringar.
+Security Center rekommenderar som du bör övervaka som standard enligt kända angreppsmönster som innehåller filer och register ändringar.
 
-## <a name="using-file-integrity-monitoring"></a>Med hjälp av filen integritet övervakning
+## <a name="using-file-integrity-monitoring"></a>Med hjälp av Filintegritetövervakning
 1. Öppna instrumentpanelen för **Security Center**.
-2. I det vänstra fönstret under **Defense Advanced molnet**väljer **integritet övervaka**.
-![Instrumentpanelen Security Center][1]
+2. I det vänstra fönstret under **Avancerat Molnskydd**väljer **Filintegritetsövervakning**.
+![Instrumentpanelen för Security Center][1]
 
-**Filen integritet övervakning** öppnas.
-  ![Instrumentpanelen Security Center][2]
+**Övervakning av filintegritet** öppnas.
+  ![Instrumentpanelen för Security Center][2]
 
 Den här informationen är för varje arbetsyta:
 
-- Totalt antal ändringar som gjorts under den senaste veckan (du kan se ett streck ”-” om FIM inte är aktiverad på arbetsytan)
-- Totalt antal datorer och virtuella datorer som rapporterar till arbetsytan
-- Geografisk plats på arbetsytan
-- Azure-prenumeration som arbetsytan är under
+- Totala antalet ändringar som gjorts under den senaste veckan (du kanske ser ett bindestreck ”-” om FIM inte är aktiverad på arbetsytan)
+- Totala antalet datorer och virtuella datorer som rapporterar till arbetsytan
+- Geografisk plats i arbetsytan
+- Azure-prenumeration som arbetsytan finns under
 
-Följande knappar kan även visas för en arbetsyta:
+Följande knappar får också anges för en arbetsyta:
 
 - ![Aktivera ikon][3] Anger att FIM inte har aktiverats för arbetsytan. Att välja arbetsytan kan du aktivera FIM på alla datorer under arbetsytan.
-- ![Ikon för uppgraderingsplanen][4] anger arbetsyta eller prenumeration inte körs i Security Center standardnivån. Din prenumeration måste köras Standard för att använda FIM-funktionen.  Om du markerar arbetsytan kan du uppgradera till Standard. Mer information om standardnivån och hur du uppgraderar finns [uppgradera till standardnivån om Security Center för ökad säkerhet](security-center-pricing.md).
-- Ett tomt (det finns ingen knapp) innebär att FIM är redan aktiverat på arbetsytan.
+- ![Uppgradera planen för ikonen][4] anger arbetsytan eller prenumeration inte körs i Security Center Standard-nivån. Prenumerationen måste köras Standard för att använda FIM-funktionen.  Att välja arbetsytan kan du uppgradera till Standard. Mer information om Standard-nivån och hur du uppgraderar finns [uppgradera till standardnivån i Security Center för ökad säkerhet](security-center-pricing.md).
+- En tom (det finns ingen knapp) innebär att FIM redan är aktiverad på arbetsytan.
 
-Under **integritet Filövervakning**, kan du välja en arbetsyta om du vill aktivera FIM för arbetsytan visa instrumentpanelen för övervakning av integriteten för den arbetsytan eller [uppgradera](security-center-pricing.md) arbetsytan till Standard.
+Under **Filintegritetsövervakning**, du kan välja en arbetsyta för att aktivera FIM för den arbetsytan kan visa instrumentpanelen för övervakning av filintegritet för den arbetsytan eller [uppgradera](security-center-pricing.md) arbetsytan till Standard.
 
 ## <a name="enable-fim"></a>Aktivera FIM
-Aktivera FIM på en arbetsyta:
+För att aktivera FIM på en arbetsyta:
 
-1. Under **integritet Filövervakning**, Välj en arbetsyta med den **aktivera** knappen.
-2. **Aktivera övervakning av integritet** öppnas visar antalet Windows och Linux-datorer under arbetsytan.
+1. Under **Filintegritetsövervakning**, Välj en arbetsyta med den **aktivera** knappen.
+2. **Aktivera filintegritetsövervakning** öppnas visar antalet Windows och Linux-datorer under arbetsytan.
 
-   ![Aktivera övervakning av integritet][5]
+   ![Aktivera filintegritetsövervakning][5]
 
-   De rekommenderade inställningarna för Windows och Linux visas också.  Expandera **Windows-filer**, **registret**, och **Linux filer** att se en fullständig lista över rekommenderade objekt.
+   De rekommenderade inställningarna för Windows och Linux visas också.  Expandera **Windows filer**, **registret**, och **Linux-filer** att se en fullständig lista över rekommenderade objekt.
 
-3. Avmarkera alla rekommenderade entiteter som du inte vill tillämpa FIM till.
-4. Välj **gäller övervakning av integritet** att aktivera FIM.
+3. Avmarkera alla rekommenderade entiteter som du inte vill använda FIM för att.
+4. Välj **gäller filintegritetsövervakning** att aktivera FIM.
 
 > [!NOTE]
 > Du kan ändra inställningarna när som helst. Se [redigera övervakade enheter](security-center-file-integrity-monitoring.md#edit-monitored-items) nedan om du vill veta mer.
@@ -93,52 +93,52 @@ Aktivera FIM på en arbetsyta:
 >
 
 ## <a name="view-the-fim-dashboard"></a>Visa instrumentpanelen för FIM
-Den **integritet övervaka** instrumentpanelen visar för arbetsytor där FIM är aktiverat. FIM-instrumentpanelen öppnas när du har aktiverat FIM på en arbetsyta eller när du väljer en arbetsyta i den **integritet övervaka** fönster som redan har aktiverat FIM.
+Den **filintegritetsövervakning** instrumentpanelen visas för arbetsytor där FIM är aktiverat. FIM-instrumentpanelen öppnas när du har aktiverat FIM på en arbetsyta, eller när du väljer en arbetsyta i den **Filintegritetsövervakning** fönster som redan har aktiverat FIM.
 
-![Instrumentpanelen för integritet övervakning av fil][6]
+![Filen övervakning av filintegritet instrumentpanel][6]
 
-FIM-instrumentpanelen för en arbetsyta visas följande:
+FIM-instrumentpanel för en arbetsyta visas följande:
 
 - Totalt antal datorer som är anslutna till arbetsytan
-- Totalt antal ändringar som gjorts under den valda tidsperioden
+- Totala antalet ändringar som gjorts under den valda tidsperioden
 - En detaljerad analys av Ändringstyp (filer, registret)
-- En detaljerad analys av Ändra kategori (ändras, lägga till, tas bort)
+- En detaljerad analys av ändringskategori (ändras, har lagts till, tas bort)
 
 Att välja Filter överst på instrumentpanelen kan du använda den tidsperiod som du vill se ändringar för.
 
-![Tidsfiltret period][7]
+![Period tidsfiltret][7]
 
-Den **datorer** (se ovan) visar en lista över alla datorer som rapporterar till den här arbetsytan. För varje dator visas på instrumentpanelen:
+Den **datorer** fliken (se ovan) visar en lista över alla datorer som rapporterar till den här arbetsytan. För varje dator visas på instrumentpanelen:
 
 - Totalt antal ändringar som gjorts under den valda tidsperioden
-- En detaljerad analys av totalt antal ändringar som ändras eller ändringar i registret
+- En detaljerad analys av totalt antal ändringar som filändringar eller ändringar i registret
 
-**Logga Sök** öppnas när du anger ett datornamn i sökningen eller väljer en dator som finns under fliken datorer. Sök i loggen visar alla ändringar som gjorts under den valda perioden för datorn. Du kan expandera en ändring för mer information.
+**Loggsöknings-** öppnas när du anger ett datornamn i sökningen fältet eller välj en dator som visas under fliken datorer. Loggsökning visar alla ändringar som gjorts under den valda tidsperioden för datorn. Du kan expandera en ändring för mer information.
 
 ![Loggsökning][8]
 
-Den **ändringar** (se nedan) visar alla ändringar för arbetsytan under den valda tidsperioden. För varje entitet som har ändrats, instrumentpanelen visar den:
+Den **ändringar** fliken (se nedan) visar alla ändringar för arbetsytan under den valda tidsperioden. För varje entitet som har ändrats, instrumentpanelen visar den:
 
-- Ändringen som gjordes på datorn
+- Datorn då ändringen utfördes på
 - Typ av ändring (registret eller fil)
-- Ändringskategori (ändras, lägga till, tas bort)
+- Ändringskategori (ändras, har lagts till, tas bort)
 - Datum och tid för ändring
 
 ![Ändringar för arbetsytan][9]
 
-**Ändra uppgifter** öppnas när du gör en ändring i sökningen eller väljer en entitet som visas under den **ändringar** fliken.
+**Ändringsinformation** öppnas när du gör en ändring i sökningen fältet eller välj en entitet som visas under den **ändringar** fliken.
 
-![Ändra uppgifter][10]
+![Information om ändringar][10]
 
 ## <a name="edit-monitored-entities"></a>Redigera övervakas entiteter
 
-1. Gå tillbaka till den **instrumentpanelen för övervakning av fil-integritet** och välj **inställningar**.
+1. Gå tillbaka till den **instrumentpanel för Filintegritetsövervakning** och välj **inställningar**.
 
   ![Inställningar][11]
 
-  **Arbetsytan Configuration** öppnas med tre flikar: **Windows-registret**, **Windows-filer**, och **Linux filer**. Varje flik visar de enheter som du kan redigera i den kategorin. För varje entitet som listas Security Center identifierar om FIM är aktiverad (SANT) eller inte (FALSKT) har aktiverats.  Om du redigerar entiteten kan du aktivera eller inaktivera FIM.
+  **Arbetsytekonfiguration** öppnas visar tre flikar: **Windows-registret**, **Windows filer**, och **Linux-filer**. Varje flik visas de entiteter som du kan redigera i den kategorin. För varje entitet som listas Security Center identifierar om FIM är aktiverad (SANT) eller inte har aktiverats (FALSKT).  Redigera entiteten kan du aktivera eller inaktivera FIM.
 
-  ![Arbetsytans konfiguration][12]
+  ![Arbetsytekonfiguration][12]
 
 2. Välj en identityprotection. I det här exemplet har vi valt ett objekt under Windows-registret. **Redigera för ändringsspårning** öppnas.
 
@@ -146,14 +146,14 @@ Den **ändringar** (se nedan) visar alla ändringar för arbetsytan under den va
 
 Under **Redigera för ändringsspårning** kan du:
 
-- Aktivera (SANT) eller inaktivera (FALSKT) integritet övervakning
-- Ange eller ändra entitetsnamnet på
-- Ange eller ändra värdet eller sökvägen
+- Aktivera (SANT) eller inaktivera (FALSKT) filintegritetsövervakning
+- Ange eller ändra enhetens namn
+- Ange eller ändra värdet eller sökväg
 - Ta bort entiteten, ignorera ändringen eller spara ändringen
 
-## <a name="add-a-new-entity-to-monitor"></a>Lägg till en ny entitet att övervaka
-1. Gå tillbaka till den **filen integirty övervakning instrumentpanel** och välj **inställningar** längst upp. **Arbetsytan Configuration** öppnas.
-2. Under **arbetsytan Configuration**, Välj fliken för typ av enhet som du vill lägga till: Windows-registret, Windows-filer eller Linux-filer. Vi valde i det här exemplet **Linux filer**.
+## <a name="add-a-new-entity-to-monitor"></a>Lägg till en ny entitet för att övervaka
+1. Gå tillbaka till den **filen integirty instrumentpanelen** och välj **inställningar** högst upp. **Arbetsytekonfiguration** öppnas.
+2. Under **Arbetsytekonfiguration**, Välj fliken för typ av enhet som du vill lägga till: Windows-registret, filer för Windows eller Linux-filer. I det här exemplet har vi valt **Linux-filer**.
 
   ![Lägg till ett nytt objekt att övervaka][14]
 
@@ -164,45 +164,45 @@ Under **Redigera för ändringsspårning** kan du:
 4. På den **Lägg till** skriver den begärda informationen och välj **spara**.
 
 ## <a name="disable-monitored-entities"></a>Inaktivera övervakas entiteter
-1. Gå tillbaka till den **integritet övervaka** instrumentpanelen.
-2. Välj en arbetsyta där FIM är aktiverat. En arbetsyta är aktiverad för FIM om Aktivera knappen eller uppgradera planera knappen saknas.
+1. Gå tillbaka till den **Filintegritetsövervakning** instrumentpanelen.
+2. Välj en arbetsyta där FIM är aktiverad. En arbetsyta är aktiverad för FIM om Aktivera-knappen eller uppgradera planera knappen saknas.
 
   ![Välj en arbetsyta där FIM är aktiverat][16]
 
-3. Under övervakning integritet väljer **inställningar**.
+3. Välj under övervakning av filintegritet, **inställningar**.
 
   ![Välj inställningar][17]
 
-4. Under **arbetsytan Configuration**, väljer du en grupp där **aktiverad** har angetts till true.
+4. Under **Arbetsytekonfiguration**, Välj en grupp där **aktiverad** har angetts till true.
 
   ![Arbetsytekonfiguration][18]
 
 5. Under **Redigera för ändringsspårning** fönstret set **aktiverad** till False.
 
-  ![Ange aktiverad till false][19]
+  ![Set-aktiverad på FALSKT][19]
 
 6. Välj **Spara**.
 
 ## <a name="disable-fim"></a>Inaktivera FIM
-Du kan inaktivera FIM. FIM använder Azure ändringsspårning lösningen för att spåra och identifiera ändringar i din miljö. Genom att inaktivera FIM du ta bort lösningen ändringsspårning från valda arbetsytan.
+Du kan inaktivera FIM. FIM använder lösningen Azure ändringsspårning för att spåra och identifiera ändringar i din miljö. Genom att inaktivera FIM du ta bort lösningen ändringsspårning från valda arbetsytan.
 
-1. Om du vill inaktivera FIM återgå till den **integritet övervaka** instrumentpanelen.
+1. Om du vill inaktivera FIM, gå tillbaka till den **Filintegritetsövervakning** instrumentpanelen.
 2. Välj en arbetsyta.
-3. Under **integritet Filövervakning**väljer **inaktivera**.
+3. Under **Filintegritetsövervakning**väljer **inaktivera**.
 
   ![Inaktivera FIM][20]
 
 4. Välj **ta bort** att inaktivera.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln du lärt dig att använda filen integritet övervakning (FIM) i Security Center. I följande avsnitt kan du lära dig mer om Security Center:
+I den här artikeln berättade om du använder filen integritet övervakning (FIM) i Security Center. I följande avsnitt kan du lära dig mer om Security Center:
 
-* [Ställa in säkerhetsprinciper](security-center-policies.md) – Lär dig hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper.
-* [Hantera säkerhetsrekommendationer](security-center-recommendations.md) – Lär dig rekommendationer för att skydda dina Azure-resurser.
+* [Ange säkerhetsprinciper](security-center-policies.md) – Lär dig hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper.
+* [Hantera säkerhetsrekommendationer](security-center-recommendations.md) – Lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.
 * [Övervakning av säkerhetshälsa](security-center-monitoring.md)– Lär dig att övervaka hälsotillståndet hos dina Azure-resurser.
 * [Hantera och åtgärda säkerhetsaviseringar](security-center-managing-and-responding-alerts.md)– Lär dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Övervaka partnerlösningar](security-center-partner-solutions.md) – Lär dig hur du övervakar dina partnerlösningars hälsostatus.
-* [Vanliga frågor om Security Center](security-center-faq.md)--finns vanliga frågor om hur du använder tjänsten.
+* [Security Center vanliga frågor och svar](security-center-faq.md)--finns vanliga frågor om tjänsten.
 * [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – Här kan du hitta de senaste nyheterna och aktuell information om säkerheten i Azure .
 
 <!--Image references-->

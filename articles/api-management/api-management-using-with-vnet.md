@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: deba3ad8a283b111dc94a5361f3fa4e73d95c0b8
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a74d91ad986b606a36a8040ac849e7fcbec03f16
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187391"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093200"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Hur du använder Azure API Management med virtuella nätverk
 Azure-nätverk (Vnet) kan du placera någon av dina Azure-resurser i ett icke-internet-dirigerbara nätverk som du styr åtkomst till. Dessa nätverk kan sedan anslutas till ditt lokala nätverk med olika VPN-teknologier. Läs mer om Azure Virtual Networks börjar med den här informationen: [Azure översikt över Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -109,7 +109,7 @@ När en instans för API Management finns i ett virtuellt nätverk, används por
 | Källa / målportar | Riktning | Transport-protokoll | Källa / mål | Syfte (*) | Typ av virtuellt nätverk |
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Inkommande |TCP |INTERNET / VIRTUAL_NETWORK|Klientkommunikation till API Management|Extern |
-| * / 3443 |Inkommande |TCP |INTERNET / VIRTUAL_NETWORK|Hanteringsslutpunkten för Azure-portalen och Powershell |Intern |
+| * / 3443 |Inkommande |TCP |INTERNET / VIRTUAL_NETWORK|Hanteringsslutpunkten för Azure-portalen och Powershell |Externa och interna |
 | * / 80, 443 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|**Beroende på Azure Storage**, Azure Service Bus och Azure Active Directory (om tillämpligt).|Externa och interna |
 | * / 1433 |Utgående |TCP |VIRTUAL_NETWORK / SQL|**Åtkomst till Azure SQL-slutpunkter** |Externa och interna |
 | * / 5672 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|Beroende för logg till Event Hub-principen och övervakningsagent |Externa och interna |

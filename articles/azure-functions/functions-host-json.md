@@ -3,23 +3,19 @@ title: Host.JSON-referens för Azure Functions
 description: Referensdokumentation för Azure Functions host.json-filen.
 services: functions
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 9043add91022c2829c305425dba9c8f11b224fcf
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 11bf136897b5d5b8140fc7ff1bb259c657a71921
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345522"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092198"
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Host.JSON-referens för Azure Functions
 
@@ -334,7 +330,7 @@ Konfigurationsinställningar för loggar som du skapar med hjälp av en `TraceWr
 
 |Egenskap   |Standard | Beskrivning |
 |---------|---------|---------| 
-|consoleLevel|info|Spårningsnivån för konsolen loggning. Alternativen är: `off`, `error`, `warning`, `info`, och `verbose`.|
+|consoleLevel|Info|Spårningsnivån för konsolen loggning. Alternativen är: `off`, `error`, `warning`, `info`, och `verbose`.|
 |fileLoggingMode|debugOnly|Spårningsnivån för filen loggning. Alternativen är `never`, `always`, `debugOnly`.| 
 
 ## <a name="watchdirectories"></a>watchDirectories

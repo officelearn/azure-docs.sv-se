@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: a61dca8332a613176b01eb85b44cd743ff8b4085
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 0f8789d64b550d9f0a45aa65728fbc1db64d6def
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028709"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094934"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Hur du använder hanterade identiteter för Azure-resurser på en Azure virtuell dator för inloggning 
 
@@ -89,7 +89,7 @@ Svar som följande kan tyda på att den Virtuella datorns hanterad identitet fö
 Om du får något av dessa fel, gå tillbaka till den virtuella Azure-datorn i den [Azure-portalen](https://portal.azure.com) och:
 
 - Gå till den **identitet** sidan och se till att **systemtilldelad** är inställd på ”Yes”.
-- Gå till den **tillägg** sidan och se till att hanterade identiteter för tillägget för Azure-resurser har distribuerats.
+- Gå till den **tillägg** sidan och se till att hanterade identiteter för Azure-resurser tillägget **(planerad för utfasning i januari 2019)** har distribuerats.
 
 Om något är fel, kan du behöva distribuera om de hanterade identiteterna för Azure-resurser på resursen igen eller felsöka distributionsfel. Se [konfigurera hanterade identiteter för Azure-resurser på en virtuell dator med Azure portal](qs-configure-portal-windows-vm.md) om du behöver hjälp med VM-konfiguration.
 

@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/05/2018
 ms.author: dobett
-ms.openlocfilehash: c9004e776488006d563fd4de791cade69736a5b8
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 3989ff6e8ef600500f1c3dcc292d4385d6fb4a8b
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024377"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162571"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referens – IoT Hub-kvoter och begränsningar
 
@@ -25,7 +25,7 @@ Varje IoT-hubb har etablerats med ett visst antal enheter i en specifik nivå. A
 På nivån avgör också de begränsningar gränser som IoT Hub tillämpar på alla åtgärder.
 
 ## <a name="operation-throttles"></a>Åtgärden begränsningar
-Åtgärden begränsningar är priset begränsningar som tillämpas i minuters intervall, och är avsedda att förhindra missbruk. IoT-hubben försöker undvika att returnera fel när det är möjligt, men startar returnerar undantag om begränsningen kränks för länge.
+Åtgärden begränsningar är priset begränsningar som tillämpas i minuters intervall, och är avsedda att förhindra missbruk. IoT-hubben försöker undvika att returnera fel när det är möjligt, men börjar returnera `429 ThrottlingException` om begränsningen kränks för länge.
 
 Vid en given tidpunkt kan du öka kvoter eller begränsningar genom att öka antalet etablerade enheter i en IoT-hubb.
 
@@ -42,15 +42,14 @@ I följande tabell visas de tvingande begränsningar. Värden finns i en enskild
 | Direkta metoder<sup>1</sup> | 160KB per sekund och enhet<sup>2</sup> | 480KB per sekund och enhet<sup>2</sup> | 24MB per sekund och enhet<sup>2</sup> | 
 | Twin (enhets- och modulen) läsningar<sup>1</sup> | 10 per sekund | Högre av 10 per sekund eller 1 per sekund och enhet | 50 per sekund och enhet |
 | Twin uppdateringar (enhets- och modulen)<sup>1</sup> | 10 per sekund | Högre av 10 per sekund eller 1 per sekund och enhet | 50 per sekund och enhet |
-| Jobb skapa, uppdatera, lista och ta bort | 1.67/sec/Unit (100 per minut per enhet) | 1.67/sec/Unit (100 per minut per enhet) | 83.33/sec/Unit (5000 per minut per enhet) |
-| Jobb twin uppdateringen kan anropa åtgärder direkt metod | 10 per sekund | Högre av 10 per sekund eller 1 per sekund och enhet | 50 per sekund och enhet |
-| Jobb bulk import/export-åtgärder | 1 aktiv jobb per hubb | 1 aktiv jobb per hubb | 1 aktiv jobb per hubb |
+| Jobb operations<sup>1,3</sup> <br/> (skapa, uppdatera, visa, ta bort) | 1.67/sec/Unit (100 per minut per enhet) | 1.67/sec/Unit (100 per minut per enhet) | 83.33/sec/Unit (5000 per minut per enhet) |
+| Jobb åtgärder<sup>1</sup> <br/> (uppdatera twin, anropa direkt metod) | 10 per sekund | Högre av 10 per sekund eller 1 per sekund och enhet | 50 per sekund och enhet |
 | Konfigurationer och edge-distributioner<sup>1</sup> <br/> (skapa, uppdatera, visa, ta bort) | 0.33/sec/Unit (20 per minut per enhet) | 0.33/sec/Unit (20 per minut per enhet) | 0.33/sec/Unit (20 per minut per enhet) |
 
 
-<sup>1</sup>den här funktionen är inte tillgänglig i basic-nivån för IoT Hub. Mer information finns i [hur du väljer rätt IoT-hubb](iot-hub-scaling.md). <br/><sup>2</sup>begränsning mätaren storlek är 8 KB.
+<sup>1</sup>den här funktionen är inte tillgänglig i basic-nivån för IoT Hub. Mer information finns i [hur du väljer rätt IoT-hubb](iot-hub-scaling.md). <br/><sup>2</sup>begränsning mätaren storlek är 8 KB. <br/><sup>3</sup>kan du bara ha en aktiv enhet import/export-jobb i taget.
 
-Den *enhetsanslutningar* begränsning styr den hastighet som den nya enhetsanslutningar kan upprättas med en IoT-hubb. Den *enhetsanslutningar* reglerar inte begränsa det maximala antalet samtidigt anslutna enheter. Begränsningen beror på hur många enheter som har etablerats för IoT-hubben.
+Den *enhetsanslutningar* begränsning styr den hastighet som den nya enhetsanslutningar kan upprättas med en IoT-hubb. Den *enhetsanslutningar* reglerar inte begränsa det maximala antalet samtidigt anslutna enheter. Den *enhetsanslutningar* rate begränsning beror på hur många enheter som har etablerats för IoT-hubben.
 
 Till exempel om du köper en enkel S1-enhet kan få du en begränsning av 100 anslutningar per sekund. För att ansluta 100 000 enheter, kan det därför tar minst 1 000 sekunder (cirka 16 minuter). Du kan dock ha så många simultant kopplade enheter som du har enheter som är registrerade i din identitetsregister.
 

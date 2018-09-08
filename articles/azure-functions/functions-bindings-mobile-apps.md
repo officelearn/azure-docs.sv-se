@@ -4,23 +4,19 @@ description: Förstå hur du använder Azure Mobile Apps-bindningar i Azure Func
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: Azure functions, funktioner, händelsebearbetning, dynamisk beräkning, serverlös arkitektur
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 67adec7f30c8e4b24d0726ebdefa613fcefa7d3e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d43032f854aa37f150945c25515c03ec97277b41
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602525"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091313"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Mobile Apps-bindningar för Azure Functions 
 
@@ -157,7 +153,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**Tabellnamn** |**Tabellnamn**|Namnet på den mobila appen datatabell|
 | **ID**| **Id** | Identifierare för posten som ska hämtas. Kan vara statisk eller baserat på utlösare som anropar funktionen. Exempel: Om du använder en kö-utlösare för din funktion sedan `"id": "{queueTrigger}"` använder strängvärdet för kömeddelandet som post-ID ska hämtas.|
 |**anslutning**|**anslutning**|Namnet på en appinställning med URL: en för den mobila appen. Funktionen använder den här URL: en för att konstruera nödvändiga REST-åtgärder mot din mobilapp. Skapa en app-inställning i din funktionsapp som innehåller URL: en för den mobila appen och sedan ange namnet på appinställningen i den `connection` -egenskapen i din indatabindning. URL-Adressen liknar `http://<appname>.azurewebsites.net`.
-|**apiKey**|**ApiKey**|Namnet på en appinställning med API-nyckel för din mobilapp. Ange den API-nyckel om du [implementera en API-nyckel i mobilappen Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), eller [implementera en API-nyckel i din mobila app för .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Skapa en app-inställning i din funktionsapp som innehåller API-nyckel för att ge nyckeln, och sedan lägga till den `apiKey` -egenskapen i din indatabindning med namnet på appinställningen. |
+|**ApiKey**|**ApiKey**|Namnet på en appinställning med API-nyckel för din mobilapp. Ange den API-nyckel om du [implementera en API-nyckel i mobilappen Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), eller [implementera en API-nyckel i din mobila app för .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Skapa en app-inställning i din funktionsapp som innehåller API-nyckel för att ge nyckeln, och sedan lägga till den `apiKey` -egenskapen i din indatabindning med namnet på appinställningen. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -315,7 +311,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 | **Namn**|| Namnet på Utdataparametern i funktionssignaturen.|
 |**Tabellnamn** |**Tabellnamn**|Namnet på den mobila appen datatabell|
 |**anslutning**|**MobileAppUriSetting**|Namnet på en appinställning med URL: en för den mobila appen. Funktionen använder den här URL: en för att konstruera nödvändiga REST-åtgärder mot din mobilapp. Skapa en app-inställning i din funktionsapp som innehåller URL: en för den mobila appen och sedan ange namnet på appinställningen i den `connection` -egenskapen i din indatabindning. URL-Adressen liknar `http://<appname>.azurewebsites.net`.
-|**apiKey**|**ApiKeySetting**|Namnet på en appinställning med API-nyckel för din mobilapp. Ange den API-nyckel om du [implementera en API-nyckel i mobilappsserverdelen Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), eller [implementera en API-nyckel i mobilappsserverdelen .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Skapa en app-inställning i din funktionsapp som innehåller API-nyckel för att ge nyckeln, och sedan lägga till den `apiKey` -egenskapen i din indatabindning med namnet på appinställningen. |
+|**ApiKey**|**ApiKeySetting**|Namnet på en appinställning med API-nyckel för din mobilapp. Ange den API-nyckel om du [implementera en API-nyckel i mobilappsserverdelen Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), eller [implementera en API-nyckel i mobilappsserverdelen .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Skapa en app-inställning i din funktionsapp som innehåller API-nyckel för att ge nyckeln, och sedan lägga till den `apiKey` -egenskapen i din indatabindning med namnet på appinställningen. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

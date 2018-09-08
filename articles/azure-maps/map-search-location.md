@@ -3,24 +3,28 @@ title: Visa sökresultat med Azure Maps | Microsoft Docs
 description: Hur du utför en sökbegäran med Azure Maps och sedan visa resultaten på en Javascript-karta
 author: jingjing-z
 ms.author: jinzh
-ms.date: 08/31/2018
+ms.date: 09/07/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 7d4eb5f9be4a6bcefe4b544d3f97a9b9391c0d81
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 0cc0ec79cf23d3bba01845ed64493df010c1ca66
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665785"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161704"
 ---
 # <a name="show-search-results-on-the-map"></a>Visa sökresultat på kartan
 
 Den här artikeln visar hur du söker efter plats i närheten och visa sökresultatet på kartan. 
 
-## <a name="understand-the-code"></a>Förstå koden
+Det finns två sätt att söka efter en plats i närheten, ett sätt är med hjälp av en modul för tjänsten för att göra en sökbegäran och den andra är genom att göra en sökbegäran via en [XMLHttpRequest](https://xhr.spec.whatwg.org/) till [Azure Maps Fuzzy-sökning API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy). Vi går igenom båda nedan.
+
+## <a name="use-service-module-to-make-a-search-request"></a>Använda service-modulen för att göra en sökbegäran
+
+### <a name="understand-the-code"></a>Förstå koden
 
 <iframe height='500' scrolling='no' title='Visa sökresultat på en karta (Tjänstemodulen)' src='//codepen.io/azuremaps/embed/zLdYEB/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/zLdYEB/'>visa sökresultat på en karta (Tjänstemodulen)</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -29,7 +33,23 @@ I koden ovan första kodblocket konstruerar ett Kartobjekt och skapar en instans
 
 Andra kodblocket använder Fuzzy-sökning [Azure Maps Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) att söka efter orienteringspunkt. Fuzzy-sökning API kan hantera valfri kombination av fuzzy indata. Svaret från tjänsten fuzzy-sökning parsas sedan till GeoJSON-format med den [getGeoJsonSearchResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonsearchresponse?view=azure-iot-typescript-latest#geojsonsearchresponse) metod. De PIN-koderna läggs sedan till kartan för att visa orienteringspunkter på kartan.
 
-Det sista blocket kod lägger till kamera gränser för kartan med hjälp av kartans [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) egenskapen.
+Senaste kodblocket justerar kamera gränser för kartan med hjälp av kartans [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) egenskapen.
+
+
+## <a name="search-by-xmlhttprequest"></a>Sök efter XMLHttpRequest
+
+### <a name="understand-the-code"></a>Förstå koden
+
+<iframe height='500' scrolling='no' title='Visa sökresultat på en karta' src='//codepen.io/azuremaps/embed/KQbaeM/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/KQbaeM/'>visa sökresultat på en karta</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+I koden ovan skapar första kodblocket en Kartobjekt. Du kan se [skapa en karta](./map-create.md) anvisningar.
+
+Andra kodblocket lägger till search resultat lager på kartan. Lagret för search-resultat visas sökresultaten som PIN-koder, på kartan.
+
+Det tredje kodblocket skickar en [XMLHttpRequest](https://xhr.spec.whatwg.org/) till [Azure Maps Fuzzy-sökning API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) att söka efter orienteringspunkt. Fuzzy-sökning API kan hantera valfri kombination av fuzzy indata.
+
+Senaste kodblocket Parsar svaret och anpassar den justerar kamera gränser för kartan med hjälp av kartans [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) att rendera resultatet PIN-koder.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 510bf383848725f3864c40af02c2b309370237f0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 855f147b0622ecc0831f2bc464e83d245af9e574
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438094"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158679"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Självstudier: Azure Active Directory-integration med Clarizen
 
@@ -188,7 +188,7 @@ Skapa en testanvändare som kallas Britta Simon i Azure-portalen.
 
 ### <a name="create-a-clarizen-test-user"></a>Skapa en Clarizen testanvändare
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Clarizen. Clarizen stöder automatisk användaretablering, vilket är som standard aktiverat. Du hittar mer information om [här](clarizen-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
+Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Clarizen.
 
 **Om du vill skapa användare manuellt gör du följande:**
 
@@ -196,11 +196,11 @@ Om du vill aktivera Azure AD-användare att logga in på Clarizen, måste du eta
 
 1. Logga in på webbplatsen Clarizen företag som administratör.
 
-1. Klicka på **personer**.
+2. Klicka på **personer**.
 
     ![Klicka på ”personer”](./media/clarizen-tutorial/create_aaduser_001.png "personer")
 
-1. Klicka på **Bjud in användare**.
+3. Klicka på **Bjud in användare**.
 
     ![Knappen ”Bjud in användare”](./media/clarizen-tutorial/create_aaduser_002.png "bjuda in användare")
 
@@ -251,7 +251,6 @@ När du klickar på panelen Clarizen i åtkomstpanelen, bör det vara loggas in 
 
 * [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Konfigurera Användaretablering](clarizen-provisioning-tutorial.md)
 
 <!--Image references-->
 

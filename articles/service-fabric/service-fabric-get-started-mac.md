@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 618180f9cbd1c65863e3e039bac40d1cc493bc37
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 8473b2e202dd408cce6658f3ca349d884a28dc3a
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918508"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160481"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Konfigurera din utvecklingsmiljö i Mac OS X
 > [!div class="op_single_selector"]
@@ -157,14 +157,16 @@ Service Fabric har ramverktyg som hjälper dig att skapa ett Service Fabric-prog
     ```bash
     npm install -g yo
     ```
-3. Installera den Yeoman-generator du vill använda enligt instruktionerna i [dokumentationen](service-fabric-get-started-linux.md) för att komma igång. Gör så här om du vill skapa Service Fabric-program med hjälp av Yeoman:
+3. Installera den Yeoman-generator du vill använda enligt instruktionerna i [dokumentationen](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables) för att komma igång. Gör så här om du vill skapa Service Fabric-program med hjälp av Yeoman:
 
     ```bash
     npm install -g generator-azuresfjava       # for Service Fabric Java Applications
     npm install -g generator-azuresfguest      # for Service Fabric Guest executables
     npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
     ```
-4. Om du vill skapa ett Service Fabric Java-program på Mac så måste du ha JDK 1.8 och Gradle installerade på värddatorn. Du kan installera programvaran med hjälp av [HomeBrew](https://brew.sh/) enligt följande: 
+4. När du har installerat generatorerna skapar du körbara gästprogram eller containertjänster genom att köra `yo azuresfguest` respektive `yo azuresfcontainer`.
+
+5. Om du vill skapa ett Service Fabric Java-program på Mac så måste du ha JDK 1.8 och Gradle installerade på värddatorn. Du kan installera programvaran med hjälp av [HomeBrew](https://brew.sh/) enligt följande: 
 
     ```bash
     brew update

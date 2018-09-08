@@ -8,18 +8,18 @@ manager: mbaldwin
 editor: ''
 ms.assetid: 4c5599cc-99a1-430f-895f-601615ef12a0
 ms.service: security-center
-ms.topic: hero-article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2017
 ms.author: yurid
-ms.openlocfilehash: 699903ff874ace4991c5c4b0584d4661d3e45f33
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: a0a218fc18c1c9ede71de590179b0c93221eb80c
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894281"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161042"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Identifieringsfunktioner i Azure Security Center
 Det här dokumentet beskriver de avancerade identifieringsfunktionerna i Azure Security Center, som hjälper dig att identifiera aktiva hot mot dina Microsoft Azure-resurser och som ger dig de insikter som du behöver för att reagera snabbt.
@@ -27,7 +27,7 @@ Det här dokumentet beskriver de avancerade identifieringsfunktionerna i Azure S
 Avancerade identifieringar är tillgängliga på standardnivån för Azure Security Center. En kostnadsfri 60-dagars utvärderingsversion är tillgänglig. Information om hur du uppgraderar prisnivån finns i avsnittet om [säkerhetsprinciper](security-center-policies.md). Mer information om priser finns på [sidan för Security Center](https://azure.microsoft.com/pricing/details/security-center/). 
 
 > [!NOTE]
-> Security Center har för den begränsade förhandsversionen publicerat en ny uppsättning identifieringar som utnyttjar auditd-poster, ett gemensamt granskningsramverk för att upptäcka skadligt beteende på Linux-datorer. Skicka ett e-postmeddelande med dina prenumerations-id:n till [oss](mailto:ASC_linuxdetections@microsoft.com) för att ta del av förhandsversionen.
+> Security Center har för den begränsade förhandsversionen publicerat en ny uppsättning identifieringar som utnyttjar granskad poster, ett gemensamt granskningsramverk för att upptäcka skadligt beteende på Linux-datorer. Skicka ett e-postmeddelande med dina prenumerations-id:n till [oss](mailto:ASC_linuxdetections@microsoft.com) för att ta del av förhandsversionen.
 
 ## <a name="responding-to-todays-threats"></a>Svara på vår tids hot
 Hoten i dag ser helt annorlunda ut mot för 20 år sedan. Dåtidens företag behövde oftast bara oroa sig för angrepp mot deras webbplatser av enskilda individer, som oftast bara var ute efter att ”se vad de kunde göra”. Dagens angripare är mycket mer sofistikerade och organiserade. De har ofta specifika ekonomiska och strategiska mål. De har också fler resurser till hands eftersom de kan finansieras av stater eller kriminella organisationer.
@@ -80,7 +80,7 @@ Azure Security Center är knutet till säkerhetsforskning och datavetenskapsteam
 
 Dessa kombinerade ansträngningar resulterar i nya och förbättrade identifieringar, som du kan dra nytta av direkt – ingen åtgärd krävs av dig.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 I det här dokumentet har vi tittat på identifieringsfunktionerna i Azure Security Center. I följande avsnitt kan du lära dig mer om Security Center:
 
 * [Planerings- och bruksanvisning för Azure Security Center](security-center-planning-and-operations-guide.md)

@@ -4,23 +4,19 @@ description: Lär dig hur du använder utlösare och bindningar i Azure Function
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure-funktioner, funktioner, händelsebearbetning, webhooks, dynamisk beräkning, serverlös arkitektur
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 05/24/2018
 ms.author: glenga
-ms.openlocfilehash: 85b7248c9b4c61e29ce3c29b9432f94934255819
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e3f2cc24a3ff765a33d27bbe5a43ca9d5a229e1b
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346610"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092963"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-utlösare och bindningar begrepp
 
@@ -28,7 +24,7 @@ Den här artikeln är en översikt över utlösare och bindningar i Azure Functi
 
 ## <a name="overview"></a>Översikt
 
-En *utlösaren* definierar hur en funktion som anropas. En funktion måste ha exakt en utlösare. Utlösare har associerade data, vilket vanligtvis är den nyttolast som utlöst funktionen.
+En *utlösaren* definierar hur en funktion som anropas. En funktion måste ha exakt en utlösare. Utlösare har associerade data, vilket vanligtvis är nyttolasten som utlöste funktionen.
 
 Indata och utdata *bindningar* tillhandahåller en deklarativ metod för att ansluta till data från i din kod. Bindningar är valfria och en funktion kan ha flera indatafiler och utdatabindningar. 
 

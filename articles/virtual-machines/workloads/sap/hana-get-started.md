@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/15/2016
+ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 1948fb927c00e928a46c347bc6f1a01a43e155df
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 5ce80e85f00c4c3542bf61e910baec9ccd635bcd
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43112147"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161313"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Snabbstart: Manuell installation av en instans SAP HANA på Azure Virtual Machines
 ## <a name="introduction"></a>Introduktion
@@ -45,7 +45,9 @@ Den här guiden förutsätter också att du är bekant med:
    * Information om hur du förbättrar effektiviteten i att använda en multi-SID-installation av ASCS/SCS på Azure. Se [skapa en konfiguration för SAP NetWeaver – flera SÄKERHETSIDENTIFIERARE](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-multi-sid). 
    * Principer för att köra SAP NetWeaver baserat på Linux-drivna virtuella datorer i Azure. Se [som kör SAP NetWeaver på Microsoft Azure SUSE Linux Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/suse-quickstart). Den här guiden innehåller specifika inställningar för Linux i Azure virtuella datorer och information om hur du kopplar korrekt Azure storage-diskar till virtuella Linux-datorer.
 
-För tillfället är virtuella Azure-datorer certifierade av SAP för SAP HANA upp-konfigurationer. Skala ut konfigurationer med SAP HANA-arbetsbelastningar stöds inte ännu. SAP HANA, hög tillgänglighet i fall av skala upp konfigurationer, se [hög tillgänglighet för SAP HANA på Azure virtual machines (VM)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+Vilka typer av virtuella Azure-datorer som kan användas för produktionsscenarier visas i den [SAP-dokumentationen för IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html). För icke-produktionsscenarion finns en mängd olika interna Azure VM-typer.
+För mer information om VM-konfiguration och drift läser dokumentet [konfigurationer för SAP HANA-infrastruktur och åtgärder på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).
+Hög tillgänglighet för SAP HANA, se [SAP HANA, hög tillgänglighet för Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).
 
 Om du vill hämta en instans av SAP HANA eller S/4HANA eller BW/4HANA-system som distribuerats i mycket snabbt, bör du överväga användning av [SAP Cloud Appliance Library](http://cal.sap.com). Det finns mer information om hur du distribuerar till exempel ett S/4HANA-system via SAP CAL på Azure i [den här guiden](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h). Allt du behöver är en Azure-prenumeration och en SAP-användare som kan registreras med SAP Cloud Appliance Library.
 

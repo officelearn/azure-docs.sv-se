@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 75b7ecac465fa12b1e19ca409d1535d89c755801
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 7dde80d8134a6f30f4f32086a2dd030712051256
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44021895"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093150"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Hantera åtkomsträttigheter till Azure Storage-data med RBAC (förhandsversion)
 
@@ -34,10 +34,7 @@ Mer information om hur inbyggda roller definieras för Azure Storage, se [först
 
 Du kan också definiera anpassade roller för användning med behållare och köer. Mer information finns i [skapa anpassade roller för rollbaserad åtkomstkontroll i](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). 
 
-> [!IMPORTANT]
-> Den här förhandsversionen är endast avsedd för icke-produktion användning. Produktion servicenivåavtal (SLA) är inte tillgängliga förrän Azure AD-integrering för Azure Storage har deklarerats allmänt tillgänglig. Om Azure AD-integrering inte stöds ännu för ditt scenario, fortsätta att använda auktorisering för delad nyckel eller SAS-token i dina program. Mer information om förhandsversionen finns [autentisera åtkomsten till Azure Storage med Azure Active Directory (förhandsversion)](storage-auth-aad.md).
->
-> RBAC-rolltilldelningar kan ta upp till fem minuter att sprida i förhandsversionen.
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="assign-a-role-to-a-security-principal"></a>Tilldela en roll till ett säkerhetsobjekt
 

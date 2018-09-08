@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 5f11409ff49830be97d9a13a0ab7f033d9cc1041
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 17a8110624975d8053ad69c5bf30477e6d715ee8
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494473"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159834"
 ---
 # <a name="tutorial-6-add-composite-entity"></a>Självstudie: 6. Lägg till sammansatta entitet 
 I den här självstudien lägger du till en sammansatt entitet för att bifoga extraherade data i en innehållande entiteten.
@@ -28,7 +28,7 @@ I den här guiden får du lära dig att:
 > * Träna och publicera app
 > * Skicka en fråga till appens slutpunkt för att se LUIS JSON-svar
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 Om du inte har appen Human Resources (Personalfrågor) från självstudien om [hierarchical entity](luis-quickstart-intent-and-hier-entity.md) (hierarkisk entitet) ska du [importera](luis-how-to-start-new-app.md#import-new-app) JSON till en ny app på [LUIS-webbplatsen](luis-reference-regions.md#luis-website). Importeringsappen finns på [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json)-GitHub-lagringsplatsen.
@@ -100,15 +100,15 @@ Extraherade data från slutpunkten bör innehålla den här informationen och re
 
 ## <a name="train-the-luis-app"></a>Träna LUIS-appen
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicera appen för att få slutpunkts-URL
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint"></a>Fråga slutpunkten 
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Gå till slutet av URL:en i adressen och ange `Move Jill Jones from a-1234 to z-2345 on March 3 2 p.m.`. Den sista frågesträngsparametern är `q`, uttryck frågan. 
 
@@ -296,7 +296,7 @@ LUIS är klar med den här begäran. Det anropande programmet, till exempel en c
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"] 

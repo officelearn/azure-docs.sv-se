@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 9588bebdc827760f0e0d3e2aadccbff5f24723f1
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: ff50ea8c49d35306ccb48ec703de39c27c24bf7b
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258933"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160684"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Översikt över Azure Cloudshell
 Azure Cloud Shell är en interaktiv, tillgängligt via webbläsaren gränssnitt för att hantera Azure-resurser.
@@ -35,6 +35,7 @@ Försök från Azure-portalen med hjälp av Cloud Shell-ikonen.
 ![Portalen Start](media/overview/portal-launch-icon.png)
 
 ## <a name="features"></a>Funktioner
+
 ### <a name="browser-based-shell-experience"></a>Webbläsarbaserad skalupplevelse
 Cloudshell kan åtkomst till en webbläsarbaserad kommandoradsmiljö som skapats med Azure-hanteringsuppgifter i åtanke.
 Utnyttja molnet gränssnittet för att arbeta gå fritt från en lokal dator på ett sätt endast molnet kan ge.
@@ -65,33 +66,11 @@ Cloudshell är ett flexibelt verktyg som kan användas från:
 * [VS Code Azure-kontotillägg](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>Ansluta din Microsoft Azure Files-lagring
-Cloud Shell datorer är tillfälliga och kräver en Azure Files-resurs som ska monteras som `clouddrive` för bevarande av filer.
+Cloud Shell datorer är tillfälliga och kräver en ny eller befintlig Azure Files-resurs som ska monteras som `clouddrive` för bevarande av filer.
 
 Vid första start Cloud Shell uppmanas du för att skapa en resurs dela gruppen, storage-konto och Azure Files för din räkning. Detta är ett enstaka steg och bifogas automatiskt för alla sessioner. En enda filresurs kan mappas och används av både Bash och PowerShell i Cloud Shell (förhandsversion).
 
-#### <a name="create-new-storage"></a>Skapa ny lagring
-![](media/overview/basic-storage.png)
-
-Ett konto för lokalt redundant lagring (LRS) och Azure Files-resurs kan skapas för din räkning. Om du väljer att använda båda används Azure Files-resurs för både Bash och PowerShell-miljöer. Vanliga storage kan tillkomma.
-
-Tre resurser kommer att skapas åt dig:
-1. Resursgrupp med namnet: `cloud-shell-storage-<region>`
-2. Storage-konto med namnet: `cs<uniqueGuid>`
-3. Filresurs med namnet: `cs-<user>-<domain>-com-<uniqueGuid>`
-
-> [!Note]
-> Bash i Cloud Shell skapar även en standardbild 5 GB-disk för att bevara `$Home`. Alla filer i katalogen $Home som SSH-nycklar finns kvar i din diskavbildning för användare som lagras i monterade Azure-filresursen. Gäller bästa praxis när du sparar filer i din $Home katalog och monterade Azure-filresurs.
-
-#### <a name="use-existing-resources"></a>Använda befintliga resurser
-![](media/overview/advanced-storage.png)
-
-Ett avancerat alternativ har angetts för att koppla befintliga resurser till Cloud Shell.
-Klicka på ”Visa avancerade inställningar” i Kommandotolken storage installationen att visa ytterligare alternativ.
-
-> [!Note]
-> Listrutor filtreras för förtilldelad Cloud Shell-region och LRS/GRS/ZRS-lagringskonton.
-
-[Läs mer om Cloud Shell-lagring, uppdatering av Azure-filresurser och ladda upp/ned filer.](persisting-shell-storage.md)
+Läs mer om du vill veta hur du monterar en [nytt eller befintligt lagringskonto](persisting-shell-storage.md).
 
 ## <a name="concepts"></a>Begrepp
 * Cloudshell som körs på en tillfällig värd på en per session, per användare

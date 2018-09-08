@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/07/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 456f27b97ee644aef34f9bb9e2c0525bd61c1c84
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: a50f91d5cbbc0eac7080437c96144014dad651ee
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056996"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161773"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Använda Azure Resource Manager-mallar i Azure Stack
 
@@ -30,11 +30,11 @@ Du kan använda Azure Resource Manager-mallar för att distribuera och etablera 
 
 Dessa mallar kan distribueras med Microsoft Azure Stack-portalen, PowerShell, kommandorad och Visual Studio.
 
-Följande snabbstartsmallar är tillgängliga på [GitHub](http://aka.ms/azurestackgithub).
+Följande snabbstartsmallar är tillgängliga på [GitHub](http://aka.ms/azurestackgithub):
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>Distribuera SharePoint-Server (distribution med hög tillgänglighet)
 
-Använd PowerShell DSC-tillägget för att skapa en SharePoint Server 2013-servergrupp som innehåller följande resurser:
+Använda PowerShell DSC-tillägget för [skapa en SharePoint Server 2013-servergrupp](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/sharepoint-2013-non-ha) som innehåller följande resurser:
 
 * Ett virtuellt nätverk
 * Tre lagringskonton
@@ -45,7 +45,7 @@ Använd PowerShell DSC-tillägget för att skapa en SharePoint Server 2013-serve
 
 ## <a name="deploy-ad-non-high-availability-deployment"></a>Distribuera AD (icke-hög-tillgänglighet-distribution)
 
-Använd PowerShell DSC-tillägget för att skapa en AD domain controller-servern som innehåller följande resurser:
+Använda PowerShell DSC-tillägget för [skapa en AD-domänkontrollantserver](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/ad-non-ha) som innehåller följande resurser:
 
 * Ett virtuellt nätverk
 * Ett lagringskonto
@@ -54,7 +54,7 @@ Använd PowerShell DSC-tillägget för att skapa en AD domain controller-servern
 
 ## <a name="deploy-adsql-non-high-availability-deployment"></a>Distribuera AD/SQL (icke-hög-tillgänglighet-distribution)
 
-Använd PowerShell DSC-tillägget för att skapa en fristående server för SQL Server 2014 som innehåller följande resurser:
+Använda PowerShell DSC-tillägget för [skapa en fristående server för SQL Server 2014](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/sql-2014-non-ha) som innehåller följande resurser:
 
 * Ett virtuellt nätverk
 * Två lagringskonton
@@ -68,15 +68,15 @@ Använda tillägget PowerShell DSC för att konfigurera en befintlig virtuell da
 
 ## <a name="create-a-virtual-machine-from-a-user-image"></a>Skapa en virtuell dator från en användaravbildning
 
-Skapa en virtuell dator från en anpassad användaravbildning. Den här mallen distribuerar också ett virtuellt nätverk (med DNS), offentlig IP-adress och ett nätverksgränssnitt.
+[Skapa en virtuell dator från en anpassad användaravbildning](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/101-vm-from-user-image). Den här mallen distribuerar också ett virtuellt nätverk (med DNS), offentlig IP-adress och ett nätverksgränssnitt.
 
 ## <a name="basic-virtual-machine"></a>Grundläggande virtuell dator
 
-Distribuera en Windows VM som innehåller ett virtuellt nätverk (med DNS), offentlig IP-adress och ett nätverksgränssnitt.
+[Distribuera en virtuell Windows-dator](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/101-simple-windows-vm) som innehåller ett virtuellt nätverk (med DNS), offentlig IP-adress och ett nätverksgränssnitt.
 
 ## <a name="cancel-a-running-template-deployment"></a>Avbryt en malldistribution som körs
 
-Om du vill avbryta en malldistribution som körs använder den `Stop-AzureRmResourceGroupDeployment` PowerShell-cmdlet.
+Om du vill avbryta en malldistribution som körs använder den [Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) PowerShell-cmdlet.
 
 ## <a name="next-steps"></a>Nästa steg
 

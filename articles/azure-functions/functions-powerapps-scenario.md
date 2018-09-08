@@ -3,26 +3,21 @@ title: Anropa en funktion från PowerApps | Microsoft Docs
 description: Skapa en anpassad anslutningsapp och sedan anropa en funktion med hjälp av kopplingen.
 services: functions
 keywords: molnappar, cloud services, PowerApps, affärsprocesser, affärsprogram
-documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 3693b167f196b82c520703fa50ffabb27b555050
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 55de3cd8830834a2af512661d5389952d927ef9f
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38586984"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094323"
 ---
 # <a name="call-a-function-from-powerapps"></a>Anropa en funktion från PowerApps
 Den [PowerApps](https://powerapps.microsoft.com) -plattformen är utformad för företagsexperter för att skapa appar utan traditionell programkod. Professionella utvecklare kan använda Azure Functions för att utöka funktionerna i PowerApps, samtidigt PowerApps app builders från de tekniska detaljerna.

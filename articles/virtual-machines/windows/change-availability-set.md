@@ -1,6 +1,6 @@
 ---
 title: Ändra en tillgänglighetsuppsättning för virtuella datorer | Microsoft Docs
-description: Lär dig mer om att ändra tillgänglighetsuppsättning för dina virtuella datorer med hjälp av Azure PowerShell och Resource Manager-distributionsmodellen.
+description: Lär dig mer om att ändra tillgänglighetsuppsättning för dina virtuella datorer med Azure PowerShell och distributionsmodellen för Resource Manager.
 keywords: ''
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 2ce73ca0a50a9884337258be0fab00528800db27
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 8d11f81d5fea47ccef8689a84c06768c4ca36012
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701827"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162044"
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>Ändra tillgänglighetsuppsättning för en virtuell Windows-dator
-Följande steg beskriver hur du ändrar en virtuell dator med hjälp av Azure PowerShell tillgänglighetsuppsättning. En virtuell dator kan bara lägga till en tillgänglighetsuppsättning när den skapas. Du kan ändra tillgängligheten ange måste du ta bort och återskapa den virtuella datorn. 
+Följande steg beskriver hur du ändrar tillgänglighetsuppsättning för en virtuell dator med Azure PowerShell. En virtuell dator kan bara läggas till en tillgänglighetsuppsättning när den skapas. Du kan ändra tillgängligheten ange måste du ta bort och återskapa den virtuella datorn. 
 
-## <a name="change-the-availability-set"></a>Ändra tillgänglighetsuppsättningen 
+## <a name="change-the-availability-set"></a>Ändra tillgänglighetsuppsättning 
 
-Följande skript innehåller ett exempel på samla in informationen som krävs, ta bort den ursprungliga virtuella datorn och återskapa det i en ny tillgänglighetsuppsättning.
+Följande skript innehåller ett exempel på samla in informationen som krävs, tar bort den ursprungliga virtuella datorn och sedan återskapa den i en ny tillgänglighetsuppsättning.
 
 ```powershell
 # Set variables
@@ -35,8 +35,8 @@ Följande skript innehåller ett exempel på samla in informationen som krävs, 
     $vmName = "myVM"
     $newAvailSetName = "myAvailabilitySet"
 
-# Get VM Details
-    $originalVM = get-azurermvm `
+# Get the details of the VM to be moved to the Availablity Set
+    $originalVM = Get-AzureRmVM `
        -ResourceGroupName $resourceGroup `
        -Name $vmName
 
@@ -98,5 +98,5 @@ Följande skript innehåller ett exempel på samla in informationen som krävs, 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lägga till ytterligare lagringsutrymme till den virtuella datorn genom att lägga till ytterligare [datadisk](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Lägga till ytterligare lagring till den virtuella datorn genom att lägga till ytterligare [datadisk](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

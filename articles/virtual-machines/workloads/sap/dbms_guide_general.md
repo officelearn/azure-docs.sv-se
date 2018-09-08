@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2018
+ms.date: 09/06/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e7ad93cbfd096cacadaef8666b0ea5b31d7fd992
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: e46503f8dc97f58db1cd5acfd2122e2895fb15b0
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918809"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162316"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Överväganden för distribution av Azure virtuella datorer DBMS för SAP-arbetsbelastningar
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -272,6 +272,11 @@ Det finns flera bästa praxis, vilket resulterade från hundratals kunddistribut
 - De virtuella datorerna i det virtuella nätverket har en statisk allokering av privata IP-adress. Finns i artikeln [IP-adresstyper och allokeringsmetoder i Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) som referens.
 - Routning begränsningar till och från de DBMS på virtuella datorer är **inte** med brandväggar som installeras på den lokala DBMS på virtuella datorer. Routning av nätverkstrafik i stället definieras med [Azure Nätverkssäkerhetsgrupper (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview)
 - I syfte att avgränsa och isolera trafik för DBMS VM kan tilldela du olika nätverkskort till den virtuella datorn. Där varje nätverkskort som har en annan IP-adress och varje nätverkskort som är tilldelade till ett annat VNet-undernät som igen har olika NSG-regler. Tänk på att isolering eller separering av trafik är bara ett mått för Routning och tillåter inte att ange kvoter för dataflöde i nätverket.
+
+> [!NOTE]
+> Du bör tilldela statiska IP-adresser via Azure innebär att enskilda virtuella nätverkskort. Du bör inte tilldela statiska IP-adresser i gästoperativsystemet till ett virtuellt nätverkskort. Vissa Azure-tjänster som Azure Backup-tjänsten är beroende av faktumet att vid minst det primära virtuella nätverkskortet är inställd på DHCP- och inte på statiska IP-adresser. Se även dokumentet [felsöka Azure VM backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking). Om du vill tilldela flera statiska IP-adresser till en virtuell dator måste du tilldela flera virtuella nätverkskort till en virtuell dator.
+>
+>
 
 Med hjälp av två virtuella datorer för din produktion DBMS distribution inom ett Azure-Tillgänglighetsuppsättning plus en separat routning för SAP-programnivån och hantering och åtgärder trafiken till de två DBMS på virtuella datorer, ser grov diagram ut som:
 

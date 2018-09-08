@@ -5,23 +5,23 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 09/01/2018
+ms.date: 09/06/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: b601a3d23b23faa16925881a54e2ceba85c800f8
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 8e77a33667bd6794f667348958e0edb9c6a8fb0d
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669073"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094985"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>När du ska använda en Azure Multi-Factor Authentication-Provider
 
 Tvåstegsverifiering är tillgängligt som standard för globala administratörer med Azure Active Directory och Office 365-användare. Men om du vill dra nytta av [avancerade funktioner](howto-mfa-mfasettings.md) ska du köpa den fullständiga versionen av Azure Multi-Factor Authentication (MFA).
 
-Azure Multi-Factor Authentication-Provider används för att dra nytta av funktionerna som tillhandahålls av Azure Multi-Factor Authentication för användare som **inte har licenser**. 
+Azure Multi-Factor Authentication-Provider används för att dra nytta av funktionerna som tillhandahålls av Azure Multi-Factor Authentication för användare som **inte har licenser**.
 
 Om du har licenser som omfattar alla användare i din organisation kan behöver du inte en Azure Multi-Factor Authentication-Provider. Skapa en Azure Multi-Factor Authentication-Provider endast om du måste också ange tvåstegsverifiering för vissa användare som inte har licenser.
 
@@ -36,41 +36,16 @@ Skapa en Azure Multi-Factor Authentication-Provider för att hämta SDK: N, äve
 
 ## <a name="what-is-an-mfa-provider"></a>Vad är en MFA-provider?
 
-Om du inte har licenser för Azure Multi-Factor Authentication kan skapa du en autentiseringsleverantör för att kräva tvåstegsverifiering för dina användare.
-
 Det finns två typer av Authentication-providers och skillnaden gäller hur din Azure-prenumeration debiteras. Med alternativet per autentisering räknas antalet autentiseringar som utförs mot din klientorganisation under en månad. Det här alternativet är bäst om du har ett antal användare som bara autentiserar sig ibland. Med alternativet per användare räknas hur många användare i din klientorganisation som utför en tvåstegsverifiering under en månad. Det här alternativet är bäst om du har några användare med licenser men behöver utöka MFA till fler användare utanför licensgränsen.
-
-## <a name="create-an-mfa-provider"></a>Skapa en MFA-provider
-
-Med hjälp av följande steg kan du skapa en Azure Multi-Factor Authentication-provider i Azure-portalen:
-
-1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör.
-2. Välj **Azure Active Directory** > **MFA Server** > **Leverantörer**.
-
-   ![Leverantörer][Providers]
-
-3. Välj **Lägg till**.
-4. Fyll i följande fält och välj sedan **lägg till**:
-   - **Namn** – namnet på providern.
-   - **Användningsmodell** – Välj ett av två alternativ:
-      * Per autentisering – köpmodell som debiterar per autentisering. Används vanligtvis för scenarier som använder Azure Multi-Factor Authentication i ett program som riktar sig till konsumenter.
-      * Per aktiverad användare – köpmodell som debiterar per aktiverad användare. Används vanligtvis för medarbetaråtkomst till program som Office 365. Välj det här alternativet om du har några användare som redan har licens för Azure MFA.
-   - **Prenumeration** – Den Azure-prenumeration som debiteras för tvåstegsverifieringsaktiviteten hos providern.
-   - **Katalog** – Den Azure Active Directory-klient som providern är kopplad till.
-      * Du behöver ingen Azure AD-katalog för att skapa en provider. Lämna den här rutan tom om du bara planerar att hämta Azure Multi-Factor Authentication Server.
-      * Providern måste vara associerad med en Azure AD-katalog för att du ska kunna dra nytta av de avancerade funktionerna.
-      * Det går bara att associera en provider med en Azure AD-katalog.
 
 ## <a name="manage-your-mfa-provider"></a>Hantera din MFA-provider
 
-Du kan inte ändra användningsmodellen (per aktiverad användare eller per autentisering) efter att en MFA-provider har skapats. Du kan dock ta bort MFA-providern och sedan skapa en med en annan användningsmodell.
+Du kan inte ändra användningsmodellen (per aktiverad användare eller per autentisering) efter att en MFA-provider har skapats.
 
-Om den aktuella Multi-Factor Authentication-providern är associerad med en Azure AD-katalog (även kallat en Azure AD-klientorganisation), kan du ta bort MFA-providern och skapa en som är kopplad till samma Azure AD-klientorganisation. Du kan också om du har köpt tillräckligt med licenser för att täcka alla användare som är aktiverade för MFA, du kan ta bort MFA-providern helt och hållet.
+Om du har köpt tillräckligt med licenser för att täcka alla användare som är aktiverade för MFA, kan du ta bort MFA-providern helt och hållet.
 
-Om MFA-providern inte är kopplad till en Azure AD-klientorganisation, eller om du kopplar den nya MFA-providern till en annan Azure AD-klientorganisation, överförs inte användarinställningar eller konfigurationsalternativ. Dessutom måste befintliga Azure MFA-servrar återaktiveras med hjälp av aktiveringsautentiseringsuppgifter som skapas via den nya MFA-providern. Återaktivera MFA-servrar för att koppla dem till den nya MFA-providern påverkar inte telefonsamtal och SMS-autentisering, men aviseringar i mobilappen slutar att fungera för alla användare tills de återaktiverar mobilappen.
+Om MFA-providern inte är kopplad till en Azure AD-klientorganisation, eller om du kopplar den nya MFA-providern till en annan Azure AD-klientorganisation, överförs inte användarinställningar eller konfigurationsalternativ. Befintliga Azure MFA-servrar måste också aktiveras med hjälp av autentiseringsuppgifter för aktivering genereras genom MFA-providern. Återaktivera MFA-servrar för att koppla dem till MFA-providern påverkar inte telefonsamtal och SMS-autentisering, men aviseringar i mobilappen slutar att fungera för alla användare tills de återaktiverar mobilappen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 [Konfigurera inställningar för Multi-Factor Authentication](howto-mfa-mfasettings.md)
-
-[Providers]: ./media/concept-mfa-authprovider/add-providers.png "Lägg till MFA-leverantörer"

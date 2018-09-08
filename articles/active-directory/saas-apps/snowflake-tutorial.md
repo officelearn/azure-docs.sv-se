@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 09/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 3ad3f42563878d829f900d5cddb0c6866d2deab5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 247d18eb13f7bad10cbfd89891a80d2d1c6135c3
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307767"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160555"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Självstudier: Azure Active Directory-integrering med Snowflake
 
@@ -39,6 +39,7 @@ Om du vill konfigurera Azure AD-integrering med Snowflake, behöver du följande
 
 - En Azure AD-prenumeration
 - En Snowflake enkel inloggning aktiverat prenumeration
+- Kunder som inte har ett Snowflake-konto och vill prova Azure AD app-galleriet finns [detta](https://trial.snowflake.net/?cloud=azure&utm_source=azure-marketplace&utm_medium=referral&utm_campaign=self-service-azure-mp) länk.
 
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
@@ -103,22 +104,22 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
  
     ![Enkel inloggning för dialogrutan](./media/snowflake-tutorial/tutorial_snowflake_samlbase.png)
 
-3. På den **Snowflake-domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+3. På den **Snowflake-domän och URL: er** avsnittet, utför följande steg:
 
     ![Snowflake-domän och URL: er med enkel inloggning för information](./media/snowflake-tutorial/tutorial_snowflake_url.png)
 
-    a. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<SNOWFLAKE-URL>`
+    a. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
 
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<SNOWFLAKE-URL>/fed/login`
+    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<SNOWFLAKE-URL>.snowflakecomputing.com/fed/login`
 
 4. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Snowflake-domän och URL: er med enkel inloggning för information](./media/snowflake-tutorial/tutorial_snowflake_url1.png)
 
-    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<SNOWFLAKE-URL>`
+    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
      
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och inloggnings-URL. Kontakta [Snowflake klienten supportteamet](https://support.snowflake.net/s/snowflake-support) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och inloggnings-URL.
 
 5. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
@@ -132,7 +133,22 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![Snowflake-konfiguration](./media/snowflake-tutorial/tutorial_snowflake_configure.png) 
 
-8. Att konfigurera enkel inloggning på **Snowflake** sida, som du behöver skicka de hämtade **certifikat (Base64)** och **SAML enkel inloggning för tjänst-URL** till [ Snowflake-supportteamet](https://support.snowflake.net/s/snowflake-support). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+8. I ett annat webbläsarfönster, logga in på Snowflake som en administratör.
+
+9. Kör den nedan SQL-fråga på kalkylbladet genom att ange den **certifikat** värde till den **dowloaded certifikat** och **ssoUrl** till den kopierade **SAML enkel inloggning Tjänst-URL för** från Azure AD för att värdet som visas nedan.
+
+    ![Snowflake-sql](./media/snowflake-tutorial/tutorial_snowflake_sql.png) 
+
+    ```
+    use role accountadmin;
+    alter account set saml_identity_provider = '{
+    "certificate": "<Paste the content of downloaded certificate from Azure portal>",
+    "ssoUrl":"<SAML single sign-on service URL value which you have copied from the Azure portal>",
+    "type":"custom",
+    "label":"AzureAD"
+    }';
+    alter account set sso_login_page = TRUE;
+    ```
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -168,7 +184,25 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="create-a-snowflake-test-user"></a>Skapa en Snowflake testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Snowflake. Arbeta med [Snowflake-supportteamet](https://support.snowflake.net/s/snowflake-support) att lägga till användare i Snowflake-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+Om du vill aktivera Azure AD-användare att logga in på Snowflake, måste de etableras i Snowflake. I Snowflake är etablering en manuell aktivitet.
+
+**Utför följande steg för att etablera ett användarkonto:**
+
+1. Logga in på Snowflake som en administratör.
+
+2. **Växla rollen** till **ACCOUNTADMIN**, genom att klicka på **profil** på upp till höger på sidan.  
+
+    ![Snowflake-administratör ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+
+3. Skapa användaren genom att köra den nedan SQL-fråga, att se till att ”inloggningsnamn” anges till Azure AD-användarnamn i kalkylbladet som visas nedan.
+
+    ![Snowflake-adminsql ](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
+
+    ```
+
+    use role accountadmin;
+    CREATE USER britta_simon PASSWORD = '' LOGIN_NAME = 'BrittaSimon@contoso.com' DISPLAY_NAME = 'Britta Simon';
+    ```
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

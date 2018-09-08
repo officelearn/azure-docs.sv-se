@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 9a22b14df18e10342bb2a872b82b94ab4ea62d0a
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 606b36be4a2bbeff8dd226f41341d60e23f0d988
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859875"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163285"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
@@ -42,9 +42,7 @@ Med Bash i Cloud Shell, kan du köra ett kommando som kallas `clouddrive`, vilke
 #### <a name="prerequisites-for-manual-mounting"></a>Krav för manuell montering
 Du kan uppdatera filresursen som är associerat med Cloud Shell med hjälp av den `clouddrive mount` kommando.
 
-Om du monterar en befintlig resurs måste storage-konton vara:
-* Lokalt redundant lagring eller geo-redundant lagring till stöd för filresurser.
-* Finns i din tilldelade region. När du är onboarding, visas den region som du har tilldelats i resursgruppens namn `cloud-shell-storage-<region>`.
+Om du monterar en befintlig resurs måste storage-konton finnas i din väljer Cloud Shell-region. Hämta platsen genom att köra `env` från Bash och kontrollerar de `ACC_LOCATION`.
 
 #### <a name="the-clouddrive-mount-command"></a>Den `clouddrive mount` kommando
 

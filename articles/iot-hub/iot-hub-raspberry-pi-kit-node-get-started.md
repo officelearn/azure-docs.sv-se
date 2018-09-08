@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 62a5c69eb03733133856ec9ec88ba46d7cf7bec0
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 348186bcb29b272b7e6512ce42221d54d6b388d9
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185762"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161823"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Anslut Raspberry Pi till Azure IoT Hub (Node.js)
 
@@ -230,6 +230,6 @@ Du bör se följande utdata som visar sensordata och meddelanden som skickas til
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har kört ett exempelprogram för att samla in data för kroppssensor och skicka den till din IoT-hubb. Se de meddelanden som Raspberry Pi har skickat till din IoT hub eller skicka meddelanden till Raspberry Pi i ett kommandoradsgränssnitt finns i den [hantera cloud enhet-meddelanden med iothub-explorer självstudiekursen](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
+Du har kört ett exempelprogram för att samla in data för kroppssensor och skicka den till din IoT-hubb. Om du vill se de meddelanden som Raspberry Pi skickade till din IoT hub eller skicka meddelanden till Raspberry Pi, se den [Använd Azure IoT Toolkit-tillägget för Visual Studio Code för att skicka och ta emot meddelanden mellan enheten och IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

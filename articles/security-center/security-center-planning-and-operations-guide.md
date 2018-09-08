@@ -8,17 +8,18 @@ manager: mbaldwin
 editor: ''
 ms.assetid: f984e4a2-ac97-40bf-b281-2f7f473494c4
 ms.service: security-center
-ms.topic: hero-article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: d187d24725084296078f58447c19bda1ace13a69
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: HT
+ms.openlocfilehash: b180acfb74f503447212044f0b6be5589e2dd452
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158797"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Planerings- och användningsguide för Azure Security Center
 Den här guiden riktar sig till IT-tekniker, IT-arkitekter, informationssäkerhetsanalytiker och molnadministratörer i organisationer där man planerar att börja använda Azure Security Center.
@@ -46,7 +47,7 @@ Beroende på hur stor din organisation är och hur den är uppbyggd kan olika me
 
 ![Roller](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
-Med Security Center kan dessa medarbetare effektivt sköta sina respektive arbetsuppgifter. Till exempel:
+Med Security Center kan dessa medarbetare effektivt sköta sina respektive arbetsuppgifter. Exempel:
 
 **Jens (arbetsbelastningsägare)**
 
@@ -125,7 +126,7 @@ En säkerhetsprincip definierar den önskade konfigurationen för arbetsbelastni
 
 Security Center-principer innehåller följande komponenter:
 - [Datainsamling](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): agentetablering och datainsamlingsinställningar.
-- [Säkerhetsprincip](https://docs.microsoft.com/azure/security-center/security-center-policies): en [Azure-princip](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) som bestämmer vilka kontroller som övervakas och rekommenderas av Security Center, eller använd Azure-principen till att skapa nya definitioner, definiera fler principer och tilldela principer i flera hanteringsgrupper.
+- [Säkerhetsprincip](https://docs.microsoft.com/azure/security-center/security-center-policies): en [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) som avgör vilka kontroller som övervakas och rekommenderas av Security Center eller använda Azure Policy för att skapa nya definitioner, definiera ytterligare principer och tilldela principer med hanteringsgrupper.
 - [E-postmeddelanden](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): säkerhetskontakter och inställningar för meddelanden.
 - [Prisnivå](https://docs.microsoft.com/azure/security-center/security-center-pricing): val av kostnadsfritt eller standardpris, som bestämmer vilka Security Center-funktioner som är tillgängliga för resurser i omfattningen (kan anges för prenumerationer, resursgrupper och arbetsytor).
 
@@ -154,7 +155,7 @@ Om du vid ett senare tillfälle vill inaktivera datainsamlingen kan du göra det
 
 ### <a name="workspace"></a>Arbetsyta
 
-En arbetsyta är en Azure-resurs som fungerar som en databehållare. Du eller andra medlemmar i din organisation kan använda flera arbetsytor för att hantera olika uppsättningar av data som samlas in från alla eller delar av din IT-infrastruktur.
+En arbetsyta är en Azure-resurs som fungerar som en datacontainer. Du eller andra medlemmar i din organisation kan använda flera arbetsytor för att hantera olika uppsättningar av data som samlas in från alla eller delar av din IT-infrastruktur.
 
 Data som samlas in från Microsoft Monitoring Agent (för Azure Security Center) lagras i befintliga logganalysarbetsytor som är associerade med din Azure-prenumeration eller nya arbetsytor med hänsyn till den virtuella datorns geografiska plats. 
 

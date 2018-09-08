@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 1587debecd82072c29d4caffc2b81629b1f52b0e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 43f169ae11191c2e98c4538189bce781821de980
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527372"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44157862"
 ---
 # <a name="tutorial-improve-app-with-patternany-entity"></a>Självstudie: Förbättra app med pattern.any entitet
 
@@ -26,7 +26,7 @@ I den här självstudien använder du entiteten pattern.any för att öka avsikt
 * Skapa mönster som använder pattern.any
 * Så här verifierar du förutsägelse förbättringar
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 Om du inte har personalapp från den [mönstret roller](luis-tutorial-pattern-roles.md) självstudien [importera](luis-how-to-start-new-app.md#import-new-app) JSON-koden i en ny app i den [LUIS](luis-reference-regions.md#luis-website) webbplats. App att importera finns i den [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-roles-HumanResources.json) GitHub-lagringsplatsen.
@@ -108,7 +108,7 @@ Entiteten Pattern.any extraherar entiteter med olika längd. Det fungerar bara i
 
 ## <a name="train-the-luis-app"></a>Träna LUIS-appen
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="test-the-new-pattern-for-free-form-data-extraction"></a>Testa det nya mönstret för extrahering av data för fritt format
 1. Välj **testa** från det översta fältet för att öppna panelen test. 
@@ -125,7 +125,7 @@ Entiteten Pattern.any extraherar entiteter med olika längd. Det fungerar bara i
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

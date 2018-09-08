@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 3b836859dd2af45e84d0f53db06d2c7ab2828253
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 4ecc94f4ab5e9091db1705e99d4a5df6abbaf350
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057165"
+ms.locfileid: "44161092"
 ---
 # <a name="security-in-azure-data-lake-store"></a>Säkerhet i Azure Data Lake Store
 Många företag utnyttjar stordata för affärsinsikter som hjälper dem att fatta smarta beslut. En organisation kan ha en komplex och reglerade miljö med ett ökande antal olika användare. Det är viktigt för företaget att se till att affärskritiska data lagras mer säkert med rätt nivå av åtkomst till enskilda användare. Azure Data Lake Store är utformat för att uppfylla dessa krav på säkerhet. I den här artikeln lär dig mer om säkerhetsfunktionerna i Data Lake Store, inklusive:
@@ -80,7 +80,7 @@ Azure Data Lake Store skyddar dina data under hela dess livscykel. För informat
 
 Data Lake Store innehåller också kryptering för data som lagras i kontot. Du kan välja att ha krypterade data eller välja ingen kryptering. Om du väljer i för kryptering krypteras data som lagras i Data Lake Store före lagring på permanenta media. I detta fall är Data Lake Store automatiskt krypterar data före beständig lagring och dekrypterar data för hämtning, så det är helt transparent för klienten åtkomst till data. Det finns några ändringar i koden som krävs på klientsidan för att kryptera/dekryptera data.
 
-För nyckelhantering har Data Lake Store två lägen för att hantera din huvudkrypteringsnycklar (Huvudkrypteringsnycklar), som krävs för att dekryptera data som lagras i Data Lake Store. Du kan antingen låta Data Lake Store hantera Huvudkrypteringsnycklar åt dig, eller väljer att behålla ägarskapet för Huvudkrypteringsnycklar med hjälp av Azure Key Vault-kontot. Du kan ange läget för nyckelhantering medan när du skapar ett Data Lake Store-konto. Mer information om hur du skapar en krypteringsrelaterad konfiguration finns i [Kom igång med Azure Data Lake Store med hjälp av Azure Portal](data-lake-store-get-started-portal.md).
+För nyckelhantering har Data Lake Store två lägen för att hantera din huvudkrypteringsnycklar (Huvudkrypteringsnycklar), som krävs för att dekryptera data som lagras i Data Lake Store. Du kan antingen låta Data Lake Store hantera Huvudkrypteringsnycklar åt dig, eller väljer att behålla ägarskapet för Huvudkrypteringsnycklar med hjälp av Azure Key Vault-kontot. Du kan ange läget för nyckelhantering när du skapar ett Data Lake Store-konto. Mer information om hur du skapar en krypteringsrelaterad konfiguration finns i [Kom igång med Azure Data Lake Store med hjälp av Azure Portal](data-lake-store-get-started-portal.md).
 
 ## <a name="activity-and-diagnostic-logs"></a>Aktivitet och diagnostikloggar
 Du kan använda aktivitet eller diagnostikloggar, beroende på om du söker efter loggar för kontot datorhanteringsrelaterade aktiviteter eller data som är relaterade aktiviteter.

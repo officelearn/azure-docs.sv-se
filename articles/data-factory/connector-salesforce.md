@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 19ba4a97b93c01a049f921904d0f5aba4b8c0617
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 56f1721240d4b685133149d50dd7c2a0e6b7e974
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442062"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158849"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Kopiera data från och till Salesforce med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -293,7 +293,7 @@ När du kopierar data från Salesforce, kan du använda antingen SOQL frågan el
 | Kolumnurval | Måste du ange de fält som ska kopieras i frågan, t.ex. `SELECT field1, filed2 FROM objectname` | `SELECT *` stöds både kolumnen. |
 | Citattecken | Arkiverat/objektnamn kan inte innehålla citattecken. | Fältet/objektnamn kan innehålla citattecken, t.ex. `SELECT "id" FROM "Account"` |
 | DateTime-format |  Finns [här](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) och exempel i nästa avsnitt. | Finns [här](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) och exempel i nästa avsnitt. |
-| Booleska värden | Visas som `False` och `Ture`, t.ex. `SELECT … WHERE IsDeleted=True`. | Visas som 0 eller 1, t.ex. `SELECT … WHERE IsDeleted=1`. |
+| Booleska värden | Visas som `False` och `True`, t.ex. `SELECT … WHERE IsDeleted=True`. | Visas som 0 eller 1, t.ex. `SELECT … WHERE IsDeleted=1`. |
 | Byta namn på kolumn | Stöds ej. | Stöds, t.ex.: `SELECT a AS b FROM …`. |
 | Relation | Stöds, t.ex. `Account_vod__r.nvs_Country__c`. | Stöds ej. |
 

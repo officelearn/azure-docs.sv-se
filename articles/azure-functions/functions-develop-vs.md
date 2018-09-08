@@ -4,22 +4,18 @@ description: Lär dig mer om att utveckla och testa Azure Functions med hjälp a
 services: functions
 documentationcenter: .net
 author: ggailey777
-manager: cfowler
-editor: ''
-ms.service: functions
+manager: jeconnoc
+ms.service: azure-functions
 ms.custom: vs-azure
-ms.workload: azure-vs
-ms.tgt_pltfrm: dotnet
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: glenga
-ms.openlocfilehash: 06cf0334fbc0f21f5ce6865ee88faed64ccbc8e7
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 39745991f7ab3b181f892bbaa59283d92737ecf3
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444851"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093881"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Utveckla Azure-funktioner med hjälp av Visual Studio  
 

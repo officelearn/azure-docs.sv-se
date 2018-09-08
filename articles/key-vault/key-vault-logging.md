@@ -11,21 +11,21 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: e7dcb3778de31258f4aa3c946ffa214d87cb858a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: e86d68107278641e40346327fa3a8cb7059b7d71
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32178831"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159596"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault-loggning
 Azure Key Vault är tillgängligt i de flesta regioner. Mer information finns på sidan med [Key Vault-priser](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## <a name="introduction"></a>Introduktion
-När du har skapat ett eller flera nyckelvalv vill du förmodligen övervaka hur och när nyckelvalven används, och av vem. Du kan göra det genom att aktivera loggning för nyckelvalvet, vilket sparar information i ett Azure-lagringskonto som du anger. En ny behållare med namnet **insights-logs-auditevent** skapas automatiskt för det angivna lagringskontot och du kan använda samma lagringskonto för att samla in loggar för flera nyckelvalv.
+När du har skapat ett eller flera nyckelvalv vill du förmodligen övervaka hur och när nyckelvalven används, och av vem. Du kan göra det genom att aktivera loggning för nyckelvalvet, vilket sparar information i ett Azure-lagringskonto som du anger. En ny container med namnet **insights-logs-auditevent** skapas automatiskt för det angivna lagringskontot och du kan använda samma lagringskonto för att samla in loggar för flera nyckelvalv.
 
 Loggningsinformationen är tillgänglig senast tio minuter efter att nyckelvalvsåtgärden ägde rum. Oftast är informationen dock tillgänglig snabbare än så.  Det är upp till dig att hantera loggarna i ditt lagringskonto:
 
@@ -43,7 +43,7 @@ Den här självstudiekursen hjälper dig att komma igång med Azure Key Vault-lo
 
 Översiktlig information om Azure Key Vault finns i [Vad är Azure Key Vault?](key-vault-whatis.md)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 För att kunna slutföra den här självstudiekursen behöver du följande:
 
 * Ett befintligt nyckelvalv som du har använt.  
@@ -123,18 +123,18 @@ Vad loggas:
 * Oautentiserade förfrågningar som resulterar i ett 401-svar. Till exempel förfrågningar som inte har någon ägartoken, som är felaktiga, som har upphört att gälla eller som har en ogiltig token.  
 
 ## <a id="access"></a>Komma åt loggarna
-Loggarna för nyckelvalvet lagras i behållaren **insights-logs-auditevent** i det lagringskonto som du angav. Om du vill visa alla blobbar i den här behållaren skriver du:
+Loggarna för nyckelvalvet lagras i containern **insights-logs-auditevent** i det lagringskonto som du angav. Om du vill visa alla blobar i den här containern skriver du:
 
-Börja med att skapa en variabel för behållarens namn. Detta kommer att användas i resten av genomgången.
+Börja med att skapa en variabel för containerns namn. Detta kommer att användas i resten av genomgången.
 
     $container = 'insights-logs-auditevent'
 
-Om du vill visa alla blobbar i den här behållaren skriver du:
+Om du vill visa alla blobar i den här containern skriver du:
 
     Get-AzureStorageBlob -Container $container -Context $sa.Context
 Följande utdata returneras för detta:
 
-**Behållar-Uri: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
+**Container-Uri: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
 **Namn**
 
@@ -151,7 +151,7 @@ Datum- och tidsvärdena använder UTC.
 
 Eftersom samma lagringskonto kan användas för att samla in loggar för flera resurser är det fullständiga resurs-ID:t i blobbnamnet mycket användbart för att komma åt eller hämta endast de blobbar som du behöver. Men innan vi gör det ska vi titta på hur du hämtar alla blobbar.
 
-Börja med att skapa en mapp som du vill ladda ned blobbarna till. Till exempel:
+Börja med att skapa en mapp som du vill ladda ned blobbarna till. Exempel:
 
     New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
 
@@ -165,7 +165,7 @@ Skicka den här listan via ”Get-AzureStorageBlobContent” för att ladda ned 
 
 När du kör det här andra kommandot skapar **/**-avgränsaren i blobbnamnen en fullständig mappstruktur under målmappen. Den här strukturen används för att hämta och spara blobbarna som filer.
 
-Om du vill ladda ned blobbarna selektivt använder du jokertecken. Till exempel:
+Om du vill ladda ned blobbarna selektivt använder du jokertecken. Exempel:
 
 * Om du har flera nyckelvalv och bara vill hämta loggar för ett av dem, mer specifikt nyckelvalvet CONTOSOKEYVAULT3:
 
@@ -225,7 +225,7 @@ Följande tabell innehåller fältnamnen och beskrivningarna.
 | identity |Identiteten från den token som angavs när REST-API-begäran gjordes. Detta är vanligtvis en ”användare”, ”tjänstens huvudnamn” eller en kombination av ”användare+app-ID”, till exempel då en begäran är resultatet av en Azure PowerShell-cmdlet. |
 | properties |Vilken information som visas i det här fältet beror på åtgärden (operationName). I de flesta fall innehåller det klientinformation (useragent-strängen som skickas av klienten), REST-API-begärans exakta URI och HTTP-statuskoden. När ett objekt returneras som ett resultat av en begäran (till exempel KeyCreate eller VaultGet) innehåller det även nyckelns URI (som ”id”), valvets URI eller hemlighetens URI. |
 
-**operationName**-fältvärdena har ObjectVerb-format. Till exempel:
+**operationName**-fältvärdena har ObjectVerb-format. Exempel:
 
 * Alla åtgärder med ett nyckelvalv har formatet ”Vault`<action>`”, till exempel `VaultGet` och `VaultCreate`.
 * Alla åtgärder med nycklar har formatet ”Key`<action>`”, till exempel `KeySign` och `KeyList`.

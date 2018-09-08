@@ -3,26 +3,28 @@ title: Ange säkerhetsprinciper i Azure Security Center | Microsoft Docs
 description: Den här artikeln hjälper dig att ställa in säkerhetsprinciper i Azure Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/05/2018
-ms.author: terrylan
-ms.openlocfilehash: f12cede430a94da937a874ade2e50e4ed9860da9
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
-ms.translationtype: HT
+ms.date: 09/3/2018
+ms.author: rkarlin
+ms.openlocfilehash: c68b55beba445b7f5d30efe7155a47e7f6f76690
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34756999"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161296"
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Ange säkerhetsprinciper i Azure Security Center
 Den här artikeln hjälper dig att ställa in säkerhetsprinciper i Security Center.
+
+Anvisningar om hur du anger principer med hjälp av PowerShell finns i [Snabbstart: skapa en principtilldelning som identifierar icke-kompatibla resurser med hjälp av Azure RM PowerShell-modulen](../azure-policy/assign-policy-definition-ps.md).
 
 ## <a name="how-security-policies-work"></a>Hur fungerar säkerhetsprinciper?
 Security Center skapar automatiskt en standardsäkerhetsprincip för var och en av dina Azure-prenumerationer. I Security Center kan du redigera principer och övervaka efterlevnaden av principer.
@@ -37,13 +39,12 @@ Du kan redigera standardsäkerhetsprincipen för var och en av dina Azure-prenum
 
 1. Logga in på Azure Portal.
 
-2. Välj **Säkerhetsprincip** under **Allmänt** på instrumentpanelen i **Security Center**.
+2. Klicka på **Säkerhetsprincip** under **Princip och efterlevnad** på instrumentpanelen i **Security Center**.
 
 3. Markera den prenumeration som du vill aktivera en säkerhetsprincip för.
 
-4. I avsnittet **Principkomponenter** väljer du **Säkerhetsprincip**.  
-    Det här är standardprincipen som har tilldelats av Security Center. Du kan aktivera eller inaktivera de tillgängliga säkerhetsrekommendationerna.
-
+4. Aktivera de principer som du vill aktivera för prenumerationen. Du får rekommendationer baserat på varje princip som du väljer. 
+  ![principlista](./media/security-center-policies/policies.png)
 5. När du är färdig med redigeringarna väljer du **Spara**.
 
 ## <a name="available-security-policy-definitions"></a>Tillgängliga säkerhetsprincipdefinitioner
@@ -57,7 +58,7 @@ Använd följande tabell som referens för att förstå de principdefinitioner s
 | Slutpunktsskydd |Rekommendationer om att slutpunktsskydd ska installeras på alla virtuella datorer (VM) med Windows så att virus, spionprogram och annan skadlig programvara kan identifieras och tas bort. |
 | Diskkryptering |Rekommenderar att aktivera diskkryptering på alla virtuella datorer för att förbättra skydd av data i vila. |
 | Nätverkssäkerhetsgrupper |Rekommenderar att [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) ska konfigureras för kontroll av inkommande och utgående trafik till virtuella datorer med offentliga slutpunkter. Nätverkssäkerhetsgrupper som konfigureras för ett undernät ärvs av alla VM-nätverksgränssnitt om inget annat anges. Förutom att kontrollera om en nätverkssäkerhetsgrupp har konfigurerats kontrollerar även den här principen att inkommande säkerhetsregler för att se om det finns några regler som tillåter inkommande trafik. |
-| Brandvägg för webbaserade program |Rekommenderar att en brandvägg för webbaserade program konfigureras på virtuella datorer när något av följande stämmer: <ul><li>En [Offentlig IP på instansnivå](../virtual-network/virtual-networks-instance-level-public-ip.md) används och de inkommande säkerhetsreglerna för den associerade nätverkssäkerhetsgruppen är konfigurerad för att tillåta åtkomst till port 80/443.</li><li>En belastningsutjämnad IP-adress används och associerad nätverksbelastning och inkommande NAT-regler (Network Address Translation) är konfigurerade för att tillåta åtkomst till port 80/443. Mer information finns i [Azure Resource Manager-stöd för belastningsutjämnare](../load-balancer/load-balancer-arm.md).</li> |
+| Brandvägg för webbaserade program |Rekommenderar att en brandvägg för webbaserade program konfigureras på virtuella datorer när något av följande stämmer: <ul><li>En [Offentlig IP på instansnivå](../virtual-network/virtual-networks-instance-level-public-ip.md) används och de inkommande säkerhetsreglerna för den associerade nätverkssäkerhetsgruppen är konfigurerad för att tillåta åtkomst till port 80/443.</li><li>En belastningsutjämnad IP-adress används och associerad nätverksbelastning och inkommande NAT-regler (Network Address Translation) är konfigurerade för att tillåta åtkomst till port 80/443. Mer information finns i [Azure Resource Manager-stöd för lastbalanserare](../load-balancer/load-balancer-arm.md).</li> |
 | Nästa generations brandvägg |Nätverksskyddet utökas utöver nätverkssäkerhetsgrupperna, som är inbyggda i Azure. Security Center identifierar distributioner som nästa generations brandvägg rekommenderas för och du kan sedan göra en virtuell installation. |
 | SQL-granskning och hotidentifiering |Rekommenderar att granskning av åtkomst till SQL-databasen aktiveras för både lag- och regelefterlevnad, avancerad hotidentifiering och undersökning. |
 | SQL-kryptering |Rekommenderar att kryptering i vila ska aktiveras för SQL Database, tillhörande säkerhetskopior och transaktionsloggfiler. Även om intrång sker i dessa data så går dem inte att läsa. |

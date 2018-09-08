@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 71268c07f7e653e1f7cf545f373717fd2760fee9
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 026b9147bf6f0f5ab4732d1937bd61d803967854
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918243"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159528"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Översikt: Active geo-replikering och automatisk redundans-grupper
 
@@ -30,7 +30,7 @@ Aktiv geo-replikering är utformad som en företagslösning för affärskontinui
 > Aktiv Geo-replikering är inte tillgänglig i hanterade instanser.
 >  
 
-Automatisk redundans grupper är en utökning av aktiv geo-replikering. Det är utformat för att hantera redundans för flera geo-replikerade databaser sumultaneously med hjälp av ett program som initierade växling vid fel eller genom att delegera redundansväxling görs av tjänsten SQL Database som baseras på ett villkor som definierats. Det senare kan du återställa flera relaterade databaser i en sekundär region automatiskt efter ett oåterkalleligt fel eller oplanerad händelse som leder till fullständig eller partiell förlust av tillgänglighet för SQL Database-tjänsten i den primära regionen. Du kan dessutom använda läsbara sekundära databaser för att avlasta skrivskyddad frågearbetsbelastningar. Eftersom automatisk redundans grupper omfatta flera databaser, måste databaserna konfigureras på den primära servern. Både primära och sekundära servrar för databaser i redundansgruppen måste vara i samma prenumeration. Automatisk redundans grupper stöd för replikering av alla databaser i gruppen att endast en sekundär server i en annan region.
+Automatisk redundans grupper är en utökning av aktiv geo-replikering. Det är utformat för att hantera redundans för flera geo-replikerade databaser samtidigt med hjälp av ett program som initierade växling vid fel eller genom att delegera redundansväxling görs av tjänsten SQL Database som baseras på ett villkor som definierats. Det senare kan du återställa flera relaterade databaser i en sekundär region automatiskt efter ett oåterkalleligt fel eller oplanerad händelse som leder till fullständig eller partiell förlust av tillgänglighet för SQL Database-tjänsten i den primära regionen. Du kan dessutom använda läsbara sekundära databaser för att avlasta skrivskyddad frågearbetsbelastningar. Eftersom automatisk redundans grupper omfatta flera databaser, måste databaserna konfigureras på den primära servern. Både primära och sekundära servrar för databaser i redundansgruppen måste vara i samma prenumeration. Automatisk redundans grupper stöd för replikering av alla databaser i gruppen att endast en sekundär server i en annan region.
 
 > [!NOTE]
 > Använda aktiv geo-replikering om flera sekundära databaser krävs.

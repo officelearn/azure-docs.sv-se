@@ -1,10 +1,26 @@
+---
+title: ta med fil
+description: ta med fil
+services: iot-hub
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 09/07/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 73b7604e3072e76c69383481259e1cd8990f4df4
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44168730"
+---
 ## <a name="extended-iot-scenarios"></a>Utökade IoT-scenarier
 
 Använd andra Azure-tjänster och -verktyg. När du har anslutit din enhet till IoT Hub kan du utforska ytterligare scenarier som använder andra Azure-verktyg och Azure-tjänster:
 
 | Scenario                                                   | Azure-tjänst eller -verktyg              |
 |----------------------------------------------------------- |------------------------------------|
-| [Hantera IoT Hub-meddelanden][Mg_IoT_Hub_Msg]                  | Verktyget iothub-explorer               |
 | [Hantera IoT Hub-meddelanden][Mg_IoT_Toolkit]                  | VS Code Azure IoT Toolkit-tillägget|
 | [Hantera din IoT-enhet][Mg_IoT_Dv]                        | Azure CLI 2.0 och IoT-tillägget|
 | [Hantera din IoT-enhet][Mg_IoT_Dv_Toolkit]                | VS Code Azure IoT Toolkit-tillägget|
@@ -19,7 +35,6 @@ Använd andra Azure-tjänster och -verktyg. När du har anslutit din enhet till 
 När du har slutfört dessa självstudiekurser kan du fortsätta att utforska funktionerna i IoT Hub i [utvecklarhandboken][lnk-dev-guide]. Du hittar fler självstudier i avsnittet med [instruktionsartiklar][lnk-how-to].
 
 
-[Mg_IoT_Hub_Msg]: ../articles/iot-hub/iot-hub-explorer-cloud-device-messaging.md
 [Mg_IoT_Toolkit]: ../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
 [Mg_IoT_Dv]: ../articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md
 [Mg_IoT_Dv_Toolkit]: ../articles/iot-hub/iot-hub-device-management-iot-toolkit.md

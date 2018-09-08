@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/13/2018
+ms.date: 09/07/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 10bcf54da9660da1edcc8358f10289e9678be5cb
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 89b21af5303afc2082d3d56ddb9e894f3ae4c4b8
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42061503"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158441"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installera och konfigurera en lokal datagateway
 En lokal datagateway krävs när en eller flera Azure Analysis Services-servrar i samma region som ansluter till lokala datakällor. Läs mer om gatewayen i [lokal datagateway](analysis-services-gateway.md).
@@ -35,6 +35,7 @@ En lokal datagateway krävs när en eller flera Azure Analysis Services-servrar 
 * Under installationen när du registrerar din gateway med Azure, väljs standardregionen för din prenumeration. Du kan välja en annan region. Om du har servrar i flera regioner måste du installera en gateway för varje region. 
 * Gatewayen kan inte installeras på en domänkontrollant.
 * Endast en gateway kan installeras på en dator.
+* Som standard använder gatewayen NT SERVICE\PBIEgwService-konto för att logga in. Ett annat konto kan anges under installationen eller i tjänster. Kontrollera inställningarna för grupprincipen Tillåt tjänstkontot har en inloggning som tjänst privilegier.
 * Installera gatewayen på en dator som finns kvar och går inte i viloläge.
 * Installera inte gatewayen på en dator som trådlöst anslutna till nätverket. Prestanda kan minskas.
 * Logga in på Azure med ett konto i Azure AD för samma [klient](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) som prenumerationen som du registrerar gatewayen på den. Azure B2B (Gäst)-konton stöds inte när du installerar och registrerar en gateway.
@@ -111,9 +112,9 @@ När du har installerat och registrerat din gateway, måste du skapa en resurs f
     > [!NOTE]
     > Om din gateway inte visas i listan, är din server förmodligen inte i samma region som regionen som du angav när du registrerar gatewayen. 
 
-Det var allt. Om du behöver öppna portar eller göra en felsökning kan du kolla in [lokal datagateway](analysis-services-gateway.md).
+Klart! Om du behöver öppna portar eller göra en felsökning kan du kolla in [lokal datagateway](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Hantera Analysis Services](analysis-services-manage.md)   
 * [Hämta data från Azure Analysis Services](analysis-services-connect.md)   
-* [Använda gateway för datakällor på Azure Virtual Network](analysis-services-vnet-gateway.md)
+* [Använda gateway för datakällor på ett virtuellt Azure-nätverk](analysis-services-vnet-gateway.md)

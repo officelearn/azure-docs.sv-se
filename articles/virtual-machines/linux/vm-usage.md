@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: ab56ad07bd3da17f105bd09f2484173207d30015
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d9df71f6fa2f64544cbefc7d9aca8c153c86ac98
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025072"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094263"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Förstå användningen av Azure-dator
 Kraftfulla förbrukning insikter som kan uppnås genom att analysera dina data i Azure-användning – insikter som kan aktivera kostnad bättre hantering och tilldelning i hela organisationen. Det här dokumentet innehåller en djupdykning i din information på Azure Compute-förbrukning. För ytterligare information om allmänna Azure-användning, går du till [förstå din faktura](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
@@ -128,7 +128,7 @@ ImageType fältet fylls bara för en delmängd av bilder. Om du inte har distrib
 ### <a name="why-is-the-vmname-blank-in-the-additional-info"></a>Varför är VMName tom i ytterligare information?
 VMName fylls bara i fältet ytterligare information för virtuella datorer i en skalningsuppsättning. Fältet InstanceID innehåller VM-namnet för icke-skalningsuppsättningar i virtuella datorer.
 ### <a name="what-does-computehr-mean-in-the-usagetype-field-in-the-additional-info"></a>Vad betyder ComputeHR i fältet UsageType i ytterligare information?
-ComputeHR står för Compute timme, som representerar användningshändelse för underliggande infrasturcture kostnaden. Om UsageType är ComputeHR\_SW, användningshändelse representerar en avgift för premium-programvara för den virtuella datorn.
+ComputeHR står för Beräkningstimme som representerar användningshändelse för kostnaden för underliggande infrastruktur. Om UsageType är ComputeHR\_SW, användningshändelse representerar en avgift för premium-programvara för den virtuella datorn.
 ### <a name="how-do-i-know-if-i-am-charged-for-premium-software"></a>Hur vet jag om jag får betala för premium-programmet?
 När utforska vilka VM-avbildning som bäst passar dina behov, måste du ta en titt på [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute). Avbildningen har den programvara plan hastigheten. Om du ser ”kostnadsfri” för priset finns utan extra kostnad för programvaran. 
 ### <a name="what-is-the-difference-between-microsoftclassiccompute-and-microsoftcompute-in-the-consumed-service"></a>Vad är skillnaden mellan Microsoft.ClassicCompute och Microsoft.Compute i tjänsten förbrukade?

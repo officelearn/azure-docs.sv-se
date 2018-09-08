@@ -1,35 +1,31 @@
 ---
-title: Anpassade orchestration status i varaktiga funktioner – Azure
-description: Lär dig hur du konfigurerar och använder anpassade orchestration status för beständig funktioner.
+title: Anpassad orkestreringsstatus i varaktiga funktioner – Azure
+description: Lär dig hur du konfigurerar och använder anpassad orkestreringsstatus för varaktiga funktioner.
 services: functions
 author: kadimitr
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 840b96b9cfdb28ca1b17f54698677f4d491342c8
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: c8eb2be6836e11ddbaed81970024ea7200ea819d
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32310353"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093099"
 ---
-# <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Anpassade orchestration status i varaktiga funktioner (Azure-funktioner)
+# <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Anpassad orkestreringsstatus i varaktiga funktioner (Azure Functions)
 
-Anpassade orchestration status kan du ange ett värde för anpassad status för orchestrator-funktionen. Den här statusen tillhandahålls via HTTP GetStatus API eller `DurableOrchestrationClient.GetStatusAsync` API.
+Anpassad orkestreringsstatus kan du ange ett värde för anpassad status för orchestrator-funktion. Den här statusen tillhandahålls via HTTP GetStatus-API eller `DurableOrchestrationClient.GetStatusAsync` API.
 
-## <a name="sample-use-cases"></a>Exempel användningsområden 
+## <a name="sample-use-cases"></a>Exemplet användningsfall 
 
 ### <a name="visualize-progress"></a>Visualisera pågår
 
-Klienter kan söka slutpunkten status och visa förloppet användargränssnitt som visualizes det aktuella steget för körning. I följande exempel visar förloppet delning:
+Klienter kan söka slutpunkten status och visa förloppet användargränssnitt som hjälper dig att visualiserar det aktuella steget för körning. I följande exempel visar förloppet delning:
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -56,7 +52,7 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-Och sedan klienten tar emot utdata från orchestration endast när `CustomStatus` fältet är inställt på ”London”:
+Och sedan tar klienten emot utdata från orchestration endast när `CustomStatus` anges till ”London”:
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -89,9 +85,9 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-### <a name="output-customization"></a>Anpassning av utdata 
+### <a name="output-customization"></a>Utdata-anpassning 
 
-En annan intressant scenario är att segmentera användare genom att returnera anpassade utdata baserat på unika egenskaper eller interaktioner. Med hjälp av anpassade orchestration status förblir koden klientsidan generisk. Alla ändringar av centrala sker på serversidan som visas i följande exempel:
+En annan intressant scenario är att segmentera användare genom att returnera anpassade utdata baserat på unika egenskaper eller interaktioner. Med hjälp av anpassad orkestreringsstatus förblir klientkod Allmänt. Alla huvudsakliga ändringar sker på serversidan som visas i följande exempel:
 
 ```csharp
 [FunctionName("CityRecommender")]
@@ -129,9 +125,9 @@ public static void Run(
 } 
 ```
 
-### <a name="instruction-specification"></a>Instruktion specifikation 
+### <a name="instruction-specification"></a>Instruktionen-specifikation 
 
-Orchestrator kan ge unik instruktioner till klienter via anpassade tillstånd. Instruktioner för anpassad status kommer att mappas till steg i orchestration-kod:
+Orchestrator kan ge unika instruktioner till klienter via anpassade tillstånd. Anpassade status anvisningarna ska mappas till stegen i orchestration-kod:
 
 ```csharp
 [FunctionName("ReserveTicket")]
@@ -161,7 +157,7 @@ public static async Task<bool> Run(
 
 ## <a name="sample"></a>Exempel
 
-I följande exempel anges anpassade statusen först.
+I följande exempel och anges anpassade status först.
 
 ```csharp
 public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext ctx)
@@ -183,7 +179,7 @@ GET /admin/extensions/DurableTaskExtension/instances/instance123
 
 ```
 
-Klienter får följande svar: 
+Klienter kommer att få följande svar: 
 
 ```http
 {
@@ -197,7 +193,7 @@ Klienter får följande svar:
 ```
 
 > [!WARNING]
->  Anpassad status nyttolasten är begränsad till 16 KB UTF-16 JSON-texten eftersom den måste kunna få plats i en kolumn med Azure Table Storage. Utvecklare kan använda extern lagring om de behöver större nyttolast.
+>  Anpassade nyttolasten är begränsad till 16 KB av UTF-16 JSON-texten eftersom den måste kunna få plats i en kolumn för Azure Table Storage. Utvecklare kan använda extern lagring om det behövs större nyttolast.
 
 
 ## <a name="next-steps"></a>Nästa steg

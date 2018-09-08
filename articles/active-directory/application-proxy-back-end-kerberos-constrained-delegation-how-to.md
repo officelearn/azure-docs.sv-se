@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: ad2140d9d94cc4655043625200d42485b03c719b
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 258df8f784cf673d628e3e70874a89c8ade692bd
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364299"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093693"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Felsöka Kerberos-begränsad delegering konfigurationer för Application Proxy
 
@@ -117,42 +117,42 @@ Konsumenter av Kerberos-biljetten som tillhandahålls av anslutningen. Förvänt
 
 3.  Kör DevTools (**F12**) med Internet Explorer eller [Fiddler](https://blogs.msdn.microsoft.com/crminthefield/2012/10/10/using-fiddler-to-check-for-kerberos-auth/) från connector-värden. Gå till programmet genom att använda den interna URL: en. Granska de erbjudna WWW auktorisering rubriker som returneras i svaret från programmet för att se till att antingen förhandla eller Kerberos finns. 
 
-    a. Nästa Kerberos-blob som returneras i svaret från webbläsaren till programmet börjar med **YII**. Dessa bokstäver berättar att Kerberos körs. Microsoft NT LAN Manager (NTLM), å andra sidan alltid börjar med **TlRMTVNTUAAB**, som läser NTLM Security Support Provider (NTLMSSP) när avkodas från Base64. Om du ser **TlRMTVNTUAAB** i början av blobben Kerberos är inte tillgänglig. Om du inte ser **TlRMTVNTUAAB**, Kerberos troligen tillgängliga.
-
+    - Nästa Kerberos-blob som returneras i svaret från webbläsaren till programmet börjar med **YII**. Dessa bokstäver berättar att Kerberos körs. Microsoft NT LAN Manager (NTLM), å andra sidan alltid börjar med **TlRMTVNTUAAB**, som läser NTLM Security Support Provider (NTLMSSP) när avkodas från Base64. Om du ser **TlRMTVNTUAAB** i början av blobben Kerberos är inte tillgänglig. Om du inte ser **TlRMTVNTUAAB**, Kerberos troligen tillgängliga.
+   
        > [!NOTE]
        > Om du använder Fiddler kan kräver den här metoden att tillfälligt inaktivera utökat skydd på programmets konfiguration i IIS.
-
-       ![Webbläsarfönster network inspection](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic6.png)
-
-    b. Blob i den här bilden inte börjar med **TIRMTVNTUAAB**. Så i det här exemplet Kerberos är tillgänglig och Kerberos-blob inte börjar med **YII**.
+      
+      ![Webbläsarfönster network inspection](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic6.png)
+   
+    - Blob i den här bilden inte börjar med **TIRMTVNTUAAB**. Så i det här exemplet Kerberos är tillgänglig och Kerberos-blob inte börjar med **YII**.
 
 4.  Ta bort NTLM tillfälligt från listan med providers på IIS-webbplats. Åtkomst till appen direkt från Internet Explorer på värden för anslutningen. NTLM är inte längre i listan med providers. Du kan komma åt programmet genom att endast använda Kerberos. Om programmet inte, kan det finnas ett problem med programmets konfiguration. Kerberos-autentisering fungerar inte.
 
-    a. Om Kerberos inte är tillgänglig, kontrollera programmets autentiseringsinställningarna i IIS. Se till att **förhandla** visas överst med NTLM precis under den. Om du ser **inte förhandla**, **Kerberos eller förhandla**, eller **PKU2U**, Fortsätt bara om Kerberos fungerar.
+    - Om Kerberos inte är tillgänglig, kontrollera programmets autentiseringsinställningarna i IIS. Se till att **förhandla** visas överst med NTLM precis under den. Om du ser **inte förhandla**, **Kerberos eller förhandla**, eller **PKU2U**, Fortsätt bara om Kerberos fungerar.
 
        ![Windows autentiseringsprovidrar](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
    
-    b. Med Kerberos och NTLM på plats kan du tillfälligt inaktivera förautentisering för programmet i portalen. Försök att komma åt den från internet med hjälp av den externa URL: en. Du uppmanas att autentisera. Du kan göra det med samma konto som används i föregående steg. Om inte, det finns ett problem med backend-programmet, inte KCD.
+    - Med Kerberos och NTLM på plats kan du tillfälligt inaktivera förautentisering för programmet i portalen. Försök att komma åt den från internet med hjälp av den externa URL: en. Du uppmanas att autentisera. Du kan göra det med samma konto som används i föregående steg. Om inte, det finns ett problem med backend-programmet, inte KCD.
 
-    c. Återaktivera förautentisering i portalen. Autentisera via Azure genom att försöka ansluta till programmet via den externa URL: en. Om enkel inloggning misslyckas kan se du meddelandet förbjudet fel i webbläsaren och händelsen 13022 i loggen:
+    - Återaktivera förautentisering i portalen. Autentisera via Azure genom att försöka ansluta till programmet via den externa URL: en. Om enkel inloggning misslyckas kan se du meddelandet förbjudet fel i webbläsaren och händelsen 13022 i loggen:
 
        *Microsoft AAD Application Proxy Connector kan inte autentisera användaren eftersom backend-servern svarar på Kerberos-autentiseringsförsök med ett HTTP 401-fel.*
 
        ![HTTTP 401 förbjudet fel](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic8.png)
-
-    d. Kontrollera IIS-program. Kontrollera att den konfigurera programpoolen och SPN har konfigurerats för att använda samma konto i Azure AD. Navigera i IIS som visas i följande bild:
-
+   
+    - Kontrollera IIS-program. Kontrollera att den konfigurera programpoolen och SPN har konfigurerats för att använda samma konto i Azure AD. Navigera i IIS som visas i följande bild:
+      
        ![Konfigurationsfönstret för IIS-program](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic9.png)
-
+      
        När du känner till identiteten, kontrollera att det här kontot har konfigurerats med SPN i fråga. Ett exempel är `setspn –q http/spn.wacketywack.com`. Ange följande text i en kommandotolk:
-
+      
        ![SetSPN-kommandofönster](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic10.png)
-
-    e. Kontrollera SPN definieras programinställningar i portalen. Se till att samma SPN konfigurerats mot målet Azure AD-konto används av programpoolen app.
+      
+    - Kontrollera SPN definieras programinställningar i portalen. Se till att samma SPN konfigurerats mot målet Azure AD-konto används av programpoolen app.
 
        ![SPN-konfigurationen på Azure-portalen](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
    
-    f. Gå till IIS och välj den **Konfigurationsredigeraren** alternativ för programmet. Gå till **system.webServer/security/authentication/windowsAuthentication**. Kontrollera att värdet **UseAppPoolCredentials** är **SANT**.
+    - Gå till IIS och välj den **Konfigurationsredigeraren** alternativ för programmet. Gå till **system.webServer/security/authentication/windowsAuthentication**. Kontrollera att värdet **UseAppPoolCredentials** är **SANT**.
 
        ![IIS-konfigurationspooler app autentiseringsuppgift alternativet](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic12.png)
 

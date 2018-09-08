@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 4434b67393d34c3418e44e82681a586c268a37e5
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 88c73b3c9fd3ffc0c323b9971e245e6f6d9695a0
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42747004"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44095546"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -22,7 +22,7 @@ Den här artikeln är utformad för att hjälpa dig att felsöka och lösa probl
 
 1. [Azure Storage-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 2. [UserVoice för Azure Files](https://feedback.azure.com/forums/217298-storage/category/180670-files).
-3. Microsoft-supporten. Att skapa en ny supportbegäran i Azure-portalen på den **hjälpa** fliken den **hjälp + support** och välj sedan **ny supportbegäran**.
+3. Microsoft Support. Att skapa en ny supportbegäran i Azure-portalen på den **hjälpa** fliken den **hjälp + support** och välj sedan **ny supportbegäran**.
 
 ## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>Jag har problem med Azure File Sync på Min server (sync, cloud lagringsnivåer, etc.). Ta bort och återskapa min serverslutpunkt
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
@@ -125,8 +125,18 @@ Set-AzureRmStorageSyncServerEndpoint `
     -CloudTiering true `
     -VolumeFreeSpacePercent 60
 ```
+<a id="server-endpoint-noactivity"></a>**Serverslutpunkten har en hälsostatus ”ingen aktivitet” eller ”väntande” och Servertillstånd på bladet registrerade servrar är ”visas som offline”**  
 
-## <a name="sync"></a>Synkronisering
+Det här problemet kan inträffa om Övervakaren för synkronisering av lagring-processen körs inte eller servern kan inte kommunicera med Azure File Sync-tjänsten på grund av en proxy eller brandvägg.
+
+Utför följande steg för att lösa problemet:
+
+1. Öppna Aktivitetshanteraren på servern och kontrollera övervakaren lagring för synkronisering (AzureStorageSyncMonitor.exe)-processen körs. Om processen inte körs, först försöka starta om servern. Om du startar om servern inte löser problemet, avinstallera och installera om Azure File Sync-agenten (Obs: serverinställningar bevaras när avinstallera och installera om agenten).
+2. Kontrollera inställningarna för brandväggen och proxyservern är korrekt konfigurerade:
+    - Om servern finns bakom en brandvägg kan du kontrollera att port 443 för utgående trafik tillåts. Om brandväggen begränsar trafik till specifika domäner, kontrollerar du de domäner som anges i brandväggen [dokumentation](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) är tillgängliga.
+    - Om servern finns bakom en proxyserver kan du konfigurera datoromfattande eller appspecifika proxyinställningarna genom att följa stegen i proxyn [dokumentation](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
+
+## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**Om jag har skapat en fil direkt i min Azure-filresurs via SMB eller via portalen, hur lång tid tar det för den fil som ska synkroniseras till servrar i synkroniseringsgruppen?**  
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
@@ -214,7 +224,7 @@ Om du vill se de här felen, kör den **FileSyncErrorsReport.ps1** PowerShell-sk
 
 #### <a name="troubleshooting-per-filedirectory-sync-errors"></a>Felsöka per synkroniseringsfel för filen eller katalogen
 **ItemResults log - per-item synkroniseringsfel**  
-| HRESULT | HRESULT (decimal) | Felsträng | Problem | Åtgärd |
+| HRESULT | HRESULT (decimal) | Felsträng | Problem | Reparation |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80c80065 | -2134376347 | ECS_E_DATA_TRANSFER_BLOCKED | Filen har genererat permanenta fel under synkronisering och därför endast försök att synkronisera en gång per dag. Det underliggande felet finns i en tidigare händelselogg. | I agenter R2 (2.0) och senare, det ursprungliga felet i stället för den här visas. Uppgradera till den senaste agenten för att se det underliggande felet eller titta på tidigare händelseloggar för att hitta orsaken till det ursprungliga felet. |
 | 0x7B | 123 | ERROR_INVALID_NAME | Namnet på filen eller katalogen är ogiltig. | Byt namn på filen eller katalogen i fråga. Se [Azure Files riktlinjerna för namngivning](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) och listan med tecken som inte stöds nedan. |
@@ -223,7 +233,7 @@ Om du vill se de här felen, kör den **FileSyncErrorsReport.ps1** PowerShell-sk
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | En fil kan inte synkroniseras eftersom den inte används. Filen kommer att synkroniseras när den inte längre används. | Ingen åtgärd krävs. Azure File Sync skapas en tillfällig VSS-ögonblicksbild en gång om dagen på servern för att synkronisera filer som har öppna referenser. |
 | 0x20 | 32 | ERROR_SHARING_VIOLATION | En fil kan inte synkroniseras eftersom den inte används. Filen kommer att synkroniseras när den inte längre används. | Ingen åtgärd krävs. |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Fil- eller katalogändring kan inte synkroniseras än eftersom en beroende mapp inte har synkroniserats ännu. Det här objektet synkroniseras när de beroende ändringarna har synkroniserats. | Ingen åtgärd krävs. |
-| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | En fil ändrades under synkroniseringen och måste därför synkroniseras igen. | Ingen åtgärd krävs. |
+| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | En fil ändrades under synkroniseringen, så den behöver för att synkronisera igen. | Ingen åtgärd krävs. |
 
 #### <a name="handling-unsupported-characters"></a>Hantering av stöds inte tecken
 Om den **FileSyncErrorsReport.ps1** PowerShell-skript visar fel på grund av tecken som inte stöds (felkoder 0x7b och 0x8007007b), bör du ta bort eller byta namn på tecknen vid fel från respektive filerna. PowerShell kommer sannolikt att skriva ut dessa tecken som frågetecken eller tom rektanglar eftersom de flesta av dessa tecken har ingen standard visuell kodning.
@@ -413,7 +423,7 @@ Det här felet kan inträffa om organisationen använder en avslutande SSL-proxy
     Restart-Service -Name FileSyncSvc -Force
     ```
 
-När det här registervärdet har angetts godkänner Azure File Sync-agenten alla lokalt betrodda SSL-certifikat vid överföring av data mellan servern och molntjänsten.
+Genom att ange det här registervärdet godtar Azure File Sync-agenten ett lokalt betrodda SSL-certifikat när data överförs mellan servern och Molntjänsten.
 
 <a id="-2147012894"></a>**Det gick inte att upprätta en anslutning till tjänsten.**  
 | | |
@@ -506,7 +516,7 @@ I fall där det finns många per fil synkroniseringsfel, synkroniseringssessione
 | **Felsträng** | ECS_E_SYNC_INVALID_PATH |
 | **Reparation krävs** | Ja |
 
-Se till att sökvägen finns, är på en lokal NTFS-volym och att den inte är en referenspunkt eller befintlig serverslutpunkt.
+Se till att sökvägen finns, finns på en lokal NTFS-volym och är inte en referenspunkt eller en befintlig server-slutpunkt.
 
 <a id="-2134376373"></a>**Tjänsten är inte tillgänglig för tillfället.**  
 | | |

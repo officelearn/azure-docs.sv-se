@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/07/2018
 ms.author: mabrigg
-ms.openlocfilehash: ca07c3aca106f6c92187fea5a3ebf7bf172cddcc
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 8e4c86a3c9ff40f23a2a758b450d685b81dabc1a
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44026210"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091908"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Tillämpa uppdateringar i Azure Stack
 
@@ -65,7 +65,7 @@ Följande procedur visar hur du importerar och installera uppdateringspaket i ad
 6. Under **ladda upp blob**, klicka på mappikonen, bläddra till den uppdateringspaketet .exe-fil och klicka sedan på **öppna** filen i Utforskaren.
   
 7. Under **ladda upp blob**, klickar du på **överför**. 
- 
+  
     ![Visar var du vill ladda upp varje fil för registreringspaketet](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
 8. Upprepa steg 6 och 7 för de *PackageName*.bin och Metadata.xml-filer. Importera inte filen kompletterande Notice.txt om ingår.
@@ -74,6 +74,8 @@ Följande procedur visar hur du importerar och installera uppdateringspaket i ad
 11. Om du vill installera uppdateringen, Välj det paket som har markerats som **redo** och antingen högerklicka på paketet och välj **Uppdatera nu**, eller klicka på den **Uppdatera nu** åtgärd i den övre delen .
 12. När du klickar på installera uppdateringspaketet du kan visa statusen i den **uppdatering körningsinformation** området. Härifrån kan du också klicka på **fullständig Hämtningsloggar** att ladda ned filerna.
 13. När uppdateringen är klar visas panelen Update den uppdaterade versionen av Azure Stack.
+
+Du kan manuellt ta bort uppdateringar från storage-konto när de har installerats på Azure Stack. Azure Stack med jämna mellanrum söker efter äldre uppdateringspaket och tar bort dem från lagring. Det kan ta Azure Stack två veckor för att ta bort de gamla paket.
 
 ## <a name="next-steps"></a>Nästa steg
 

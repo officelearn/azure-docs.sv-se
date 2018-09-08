@@ -1,6 +1,6 @@
 ---
-title: Tjänstkarta integrering med System Center Operations Manager | Microsoft Docs
-description: Tjänstkarta är en lösning i Azure som automatiskt identifierar programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Den här artikeln beskrivs med hjälp av en Tjänstkarta att automatiskt skapa diagram för distribuerade program i Operations Manager.
+title: Tjänstkarta-integrering med System Center Operations Manager | Microsoft Docs
+description: Tjänstkarta är en lösning i Azure som automatiskt identifierar programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Den här artikeln beskrivs med hjälp av Tjänstkarta för att automatiskt skapa diagram över distribuerade program i Operations Manager.
 services: monitoring
 documentationcenter: ''
 author: daveirwin1
@@ -14,122 +14,122 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: 6fbc49584b040f952fdff147207864d2d1f6377e
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 5aca1400ddfe1522cd9dc8d68d8cba8a222e4d21
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887876"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44095206"
 ---
-# <a name="service-map-integration-with-system-center-operations-manager"></a>Tjänstkarta integrering med System Center Operations Manager
+# <a name="service-map-integration-with-system-center-operations-manager"></a>Tjänstkarta-integrering med System Center Operations Manager
   > [!NOTE]
-  > Den här funktionen är tillgänglig som förhandsversion.
+  > Den här funktionen är i offentlig förhandsversion.
   > 
   
-Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Tjänstkarta kan du visa dina servrar på sätt som du betrakta dem som sammanlänkade system som levererar kritiska tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar i alla TCP-anslutna arkitektur med ingen konfiguration krävs förutom installation av en agent. Mer information finns i [Tjänstkarta dokumentationen]( monitoring-service-map.md).
+Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Tjänstkarta kan du visa dina servrar på sätt som du tänker på dem, sammankopplat system som levererar viktiga tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar i alla TCP-anslutna arkitekturer utan konfiguration krävs förutom installationen av en agent. Mer information finns i den [Tjänstkarta dokumentation]( monitoring-service-map.md).
 
-Med den här integreringen mellan Tjänstkarta och System Center Operations Manager kan automatiskt skapa diagram för distribuerade program i Operations Manager som är baserade på dynamiskt beroende maps i Tjänstkartan.
+Med den här integreringen mellan Service Map och System Center Operations Manager kan du automatiskt skapa diagram över distribuerade program i Operations Manager som är baserade på dynamiska beroende-kartor i Tjänstkartan.
 
 ## <a name="prerequisites"></a>Förutsättningar
-* En Operations Manager-hanteringsgrupp (2012 R2 eller senare) som kan hantera en uppsättning servrar.
-* En logganalys-arbetsytan med Tjänstkarta lösningen aktiverad.
-* En uppsättning servrar (minst) som hanteras av Operations Manager och skicka data till Tjänstkartan. Windows- och Linux-servrar stöds.
-* Ett huvudnamn för tjänsten med åtkomst till Azure-prenumerationen som är kopplad till logganalys-arbetsytan. Mer information finns på [skapa ett huvudnamn för tjänsten](#creating-a-service-principal).
+* En Operations Manager-hanteringsgrupp (2012 R2 eller senare) som hanterar en uppsättning servrar.
+* Log Analytics-arbetsytan med lösningen Tjänstkarta aktiverat.
+* En uppsättning servrar (minst) som hanteras av Operations Manager och skicka data till Service Map. Windows och Linux-servrar stöds.
+* Ett huvudnamn för tjänsten med åtkomst till Azure-prenumerationen som är associerad med Log Analytics-arbetsytan. Mer information går du till [skapa ett huvudnamn för tjänsten](#create-a-service-principal).
 
-## <a name="install-the-service-map-management-pack"></a>Installera Tjänstkarta management pack
-Du kan aktivera integrering mellan Operations Manager och Tjänstkarta genom att importera det Microsoft.SystemCenter.ServiceMap management Pack (Microsoft.SystemCenter.ServiceMap.mpb). Du kan ladda ned det management Pack från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=55763). Paketet innehåller följande hanteringspaket:
-* Microsoft Service kartvy program
+## <a name="install-the-service-map-management-pack"></a>Installera Service Map management pack
+Du kan aktivera integrering mellan Operations Manager och Service Map genom att importera Microsoft.SystemCenter.ServiceMap hanteringspaketsamlingen (Microsoft.SystemCenter.ServiceMap.mpb). Du kan hämta hanteringspaketsamling från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=55763). Paketet innehåller följande hanteringspaket:
+* Microsoft Service Map Programvyer
 * Microsoft System Center Service Map internt
 * Microsoft System Center Service Map åsidosättningar
-* Microsoft System Center-Tjänstkarta
+* Microsoft System Center Service Map
 
-## <a name="configure-the-service-map-integration"></a>Konfigurera Tjänstkarta-integrering
+## <a name="configure-the-service-map-integration"></a>Konfigurera Service Map-integrering
 När du har installerat en ny nod i hanteringspaketet Tjänstkarta **Tjänstkarta**, visas under **Operations Management Suite** i den **Administration** fönstret. 
 
-Om du vill konfigurera Tjänstkarta-integrering gör du följande:
+Om du vill konfigurera Service Map integration, gör du följande:
 
-1. Öppna guiden Konfigurera i den **översikt över tjänsten** rutan klickar du på **lägger du till arbetsytan**.  
+1. Öppna guiden Konfigurera i den **kartan tjänstöversikt** fönstret klickar du på **Lägg till arbetsyta**.  
 
-    ![Översikt över tjänsten fönstret](media/monitoring-service-map/scom-configuration.png)
+    ![Översiktsfönstret för Service Map](media/monitoring-service-map/scom-configuration.png)
 
-2. I den **anslutningskonfiguration** , ange innehavarens namn eller ID, program-ID (användarnamn eller clientID) och lösenordet för tjänstens huvudnamn och klicka sedan på **nästa**. Mer information finns på [skapa ett huvudnamn för tjänsten](#creating-a-service-principal).
+2. I den **anslutningskonfigurationen** , ange klientorganisationens namn eller ID, program-ID (även kallat användarnamn eller clientID) och lösenordet för tjänstens huvudnamn och klicka sedan på **nästa**. Mer information går du till [skapa ett huvudnamn för tjänsten](#creating-a-service-principal).
 
     ![Fönstret anslutningskonfiguration](media/monitoring-service-map/scom-config-spn.png)
 
-3. I den **prenumeration markeringen** fönstret Välj Azure-prenumeration, Azure-resursgrupp (en som innehåller logganalys-arbetsytan) och logganalys-arbetsytan och klicka sedan på **nästa**.
+3. I den **val av prenumeration** fönstret Välj Azure-prenumeration, Azure-resursgrupp (det som innehåller Log Analytics-arbetsytan) och Log Analytics-arbetsytan och klicka sedan på **nästa**.
 
-    ![Operations Manager Configuration-arbetsyta](media/monitoring-service-map/scom-config-workspace.png)
+    ![Operations Manager-konfiguration-arbetsyta](media/monitoring-service-map/scom-config-workspace.png)
 
-4. I den **val av datorn** fönstret väljer vilka kartan datorgrupper som du vill synkronisera till Operations Manager. Klicka på **Lägg till/ta bort datorgrupper**, Välj grupper i listan över **tillgängliga datorgrupper**, och klicka på **Lägg till**.  När du har valt grupper klickar du på **Ok** ska slutföras.
+4. I den **val av dator** fönstret väljer vilka kartan datorgrupper som du vill synkronisera till Operations Manager. Klicka på **Lägg till/ta bort datorgrupper**, Välj grupper i listan över **tillgängliga datorgrupper**, och klicka på **Lägg till**.  När du har valt grupper klickar du på **Ok** ska slutföras.
     
-    ![Operations Manager Configuration dator grupper](media/monitoring-service-map/scom-config-machine-groups.png)
+    ![I Operations Manager Configuration datorgrupper](media/monitoring-service-map/scom-config-machine-groups.png)
     
-5. I den **Serverval** fönstret du konfigurerar gruppen Service Map servrar med de servrar som du vill synkronisera mellan Operations Manager och Tjänstkartan. Klicka på **Lägg till/ta bort servrar**.   
+5. I den **Serverval** fönstret Konfigurera du gruppen Service Map servrar med de servrar som du vill synkronisera mellan Operations Manager och Service Map. Klicka på **Lägg till/ta bort servrar**.   
     
-    Servern för integrering skapa ett distribuerat program diagram för en server måste vara:
+    Servern för att integrationen ska skapa ett diagram över distribuerade program för en server, måste vara:
 
     * Hanteras av Operations Manager
-    * Hanteras av en Tjänstkarta
-    * Som anges i gruppen Service Map servrar
+    * Hanteras av Tjänstkarta
+    * Visas i gruppen Service Map-servrar
 
     ![Gruppen för Operations Manager-konfiguration](media/monitoring-service-map/scom-config-group.png)
 
-6. Valfritt: Välj resurspoolen hanteringsservern kan kommunicera med logganalys och klicka sedan på **lägger du till arbetsytan**.
+6. Valfritt: Välj resurspoolen för hanteringsservern att kommunicera med Log Analytics och klicka sedan på **lägger du till arbetsytan**.
 
     ![Operations Manager Configuration resurspoolen](media/monitoring-service-map/scom-config-pool.png)
 
-    Det kan ta någon minut att konfigurera och registrera logganalys-arbetsytan. När den har konfigurerats, initierar den första synkroniseringen Tjänstkarta Operations Manager.
+    Det kan ta några minuter och konfigurera och registrera Log Analytics-arbetsytan. När den har konfigurerats, initierar den första synkroniseringen i Service Map Operations Manager.
 
     ![Operations Manager Configuration resurspoolen](media/monitoring-service-map/scom-config-success.png)
 
 
-## <a name="monitor-service-map"></a>Övervakare för Tjänstmappning
-När logganalys-arbetsytan är anslutet visas en ny mapp på Tjänstkartan, i den **övervakning** rutan i Operations Manager-konsolen.
+## <a name="monitor-service-map"></a>Övervaka Service Map
+När Log Analytics-arbetsytan är ansluten, visas en ny mapp Tjänstkartan i den **övervakning** rutan i Operations Manager-konsolen.
 
-![Övervakning av Operations Manager-fönstret](media/monitoring-service-map/scom-monitoring.png)
+![Fönstret Operations Manager-övervakning](media/monitoring-service-map/scom-monitoring.png)
 
 Mappen Tjänstkarta har fyra noder:
-* **Aktiva aviseringar**: Visar en lista över alla aktiva aviseringar om kommunikation mellan Operations Manager och Tjänstkartan.  Observera att dessa varningar inte logganalys aviseringar som synkroniseras till Operations Manager. 
+* **Aktiva aviseringar**: Visar en lista över alla aktiva aviseringar om kommunikationen mellan Operations Manager och Service Map.  Observera att dessa aviseringar inte är Log Analytics aviseringar som synkroniseras till Operations Manager. 
 
-* **Servrar**: Visar de övervakade servrarna som är konfigurerade för synkronisering från Tjänstkartan.
+* **Servrar**: Visar en lista över de övervakade servrarna som är konfigurerade att synkronisera från Tjänstkarta.
 
-    ![Övervaka servrar för Operations Manager-fönstret](media/monitoring-service-map/scom-monitoring-servers.png)
+    ![Övervakning av servrar i Operations Manager-fönstret](media/monitoring-service-map/scom-monitoring-servers.png)
 
-* **Datorn beroende Gruppvyer**: Visar en lista över alla datorgrupper som synkroniseras från Tjänstkartan. Du kan klicka på valfri grupp om du vill visa dess distribuerade program-diagram.
+* **Datorn beroende Gruppvyer**: Visar en lista över alla datorgrupper som synkroniseras från Tjänstkarta. Du kan klicka på valfri grupp om du vill visa dess diagram över distribuerade program.
 
     ![Diagram för Operations Manager-distribuerade program](media/monitoring-service-map/scom-group-dad.png)
 
-* **Servern beroende vyer**: Visar en lista över alla servrar som synkroniseras från Tjänstkartan. Du kan klicka på en server om du vill visa dess distribuerade program-diagram.
+* **Servern beroende vyer**: Visar en lista över alla servrar som synkroniseras från Tjänstkarta. Du kan klicka på valfri server om du vill visa dess diagram över distribuerade program.
 
     ![Diagram för Operations Manager-distribuerade program](media/monitoring-service-map/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>Redigera eller ta bort arbetsytan
-Du kan redigera eller ta bort arbetsytan konfigurerade via den **översikt över tjänsten** fönstret (**Administration** fönstret > **Operations Management Suite**  >  **Service Map**). Du kan konfigurera en enda logganalys-arbetsytan nu.
+Du kan redigera eller ta bort den konfigurerade arbetsytan via den **kartan tjänstöversikt** fönstret (**Administration** fönstret > **Operations Management Suite**  >  **Service Map**). Du kan konfigurera endast en Log Analytics-arbetsyta för tillfället.
 
-![Redigera arbetsytan för Operations Manager](media/monitoring-service-map/scom-edit-workspace.png)
+![Fönstret Redigera arbetsyta för Operations Manager](media/monitoring-service-map/scom-edit-workspace.png)
 
 ## <a name="configure-rules-and-overrides"></a>Konfigurera regler och åsidosättningar
-En regel _Microsoft.SystemCenter.ServiceMapImport.Rule_, skapas för att regelbundet hämta information från Tjänstkartan. Om du vill ändra tidsinställningar för synkronisering, kan du konfigurera åsidosättningar av regeln (**redigering** fönstret > **regler** > **Microsoft.SystemCenter.ServiceMapImport.Rule**) .
+En regel _Microsoft.SystemCenter.ServiceMapImport.Rule_, har skapats för att regelbundet hämta information från Tjänstkarta. Om du vill ändra synkronisering tidsinställningar, du kan konfigurera åsidosättningar av regeln (**redigering** fönstret > **regler** > **Microsoft.SystemCenter.ServiceMapImport.Rule**) .
 
-![Egenskapsfönstret för åsidosättningar i Operations Manager](media/monitoring-service-map/scom-overrides.png)
+![Egenskapsfönstret åsidosättningar i Operations Manager](media/monitoring-service-map/scom-overrides.png)
 
 * **Aktiverad**: aktivera eller inaktivera automatiska uppdateringar. 
-* **IntervalMinutes**: återställa tiden mellan uppdateringar. Standardintervallet är en timme. Du kan ändra värdet om du vill synkronisera server maps oftare.
+* **IntervalMinutes**: Återställ tiden mellan uppdateringar. Standardintervallet är en timme. Om du vill synkronisera server maps oftare, ändrar du värdet.
 * **TimeoutSeconds**: återställa hur lång tid innan tidsgränsen uppnås för begäran. 
-* **TimeWindowMinutes**: återställa tidsfönstret för datafrågor. Standardvärdet är 60 minuter-fönstret. Det maximala värdet som tillåts av Tjänstkarta är 60 minuter.
+* **TimeWindowMinutes**: återställa tidsperioden för att köra frågor mot data. Standardvärdet är 60 minuter-fönstret. Det maximala värdet som tillåts av Service Map är 60 minuter.
 
 ## <a name="known-issues-and-limitations"></a>Kända problem och begränsningar
 
-Den aktuella designen innehåller följande problem och begränsningar:
-* Du kan bara ansluta till en enda logganalys-arbetsyta.
-* Du kan lägga till servrar i kartan servrar tjänstgruppen manuellt via den **redigering** rutan kartor för servrarna synkroniseras inte omedelbart.  De kommer att synkroniseras från Tjänstkarta under nästa synkronisering cykel.
-* Om du gör några ändringar i diagrammet för distribuerade program som skapats av management pack ändringarna sannolikt att skrivas över på nästa synkronisering med Tjänstkartan.
+Den aktuella designen visar följande problem och begränsningar:
+* Du kan bara ansluta till en enda Log Analytics-arbetsyta.
+* Du kan lägga till servrar i kartan servrar tjänstgruppen manuellt via den **redigering** fönstret maps för servrarna synkroniseras inte omedelbart.  De kommer att synkroniseras från Service Map under nästa synkroniseringscykel.
+* Om du ändrar i diagram för distribuerade program som skapats av management pack ändringarna kommer sannolikt att skrivas över vid nästa synkronisering med Service Map.
 
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
-Officiell Azure-dokumentation om hur du skapar en tjänst huvudnamn finns:
+Officiella Azure dokumentation om hur du skapar en tjänst huvudnamn finns:
 * [Skapa ett huvudnamn för tjänsten med hjälp av PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)
 * [Skapa ett huvudnamn för tjänsten med hjälp av Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
-* [Skapa ett huvudnamn för tjänsten med hjälp av Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* [Skapa ett huvudnamn för tjänsten med hjälp av Azure-portalen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)
 
 ### <a name="feedback"></a>Feedback
-Du har feedback för oss om Tjänstkarta eller den här dokumentationen? Besök vår [User Voice sidan](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), där du kan föreslår funktioner eller rösta på förslag befintliga.
+Har du feedback för oss om Tjänstkarta eller den här dokumentationen? Besök vår [User Voice-sidan](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), där du kan föreslå funktioner eller rösta på förslag på befintliga.

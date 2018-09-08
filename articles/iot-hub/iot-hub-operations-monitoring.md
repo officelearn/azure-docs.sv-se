@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: nberdy
-ms.openlocfilehash: 0f4d5105b7266ba24fc5efa9af887b4458c05d5e
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 3aa452cd178bd0d064726c5be7dbdf65c6ef8d92
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186204"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160056"
 ---
 # <a name="iot-hub-operations-monitoring"></a>Övervakning av IoT Hub-åtgärder
 
@@ -96,7 +96,7 @@ Telemetri enhetskategorin spårar fel som inträffar på IoT-hubben och som är 
 }
 ```
 
-### <a name="cloud-to-device-commands"></a>Kommandon för moln-till-enhet
+### <a name="cloud-to-device-commands"></a>Moln till enhet-kommandon
 
 Moln till enhet kommandon kategorin spårar fel som inträffar på IoT-hubben och som är relaterade till moln till enhet meddelandepipeline. Den här kategorin innehåller fel som uppstår när du skickar meddelanden från molnet till enheten (till exempel obehöriga avsändare), ta emot meddelanden från molnet till enheten (till exempel leveransantalet har överskridits) och mottagande moln till enhet-meddelande (t ex feedback har gått ut). Den här kategorin fånga inte fel från en enhet som hanterar ett moln-till-enhet-meddelande felaktigt om moln till enhet meddelandet levererades har.
 
@@ -185,26 +185,6 @@ Meddelandet routning kategorin spårar fel som inträffar när meddelandet väge
     "details": "ExternalEndpointDisabled"
 }
 ```
-
-## <a name="view-events"></a>Visa händelser
-
-Du kan använda den *iothub-explorer* verktyg för att snabbt testa att din IoT-hubb genererar övervaknigshändelser. Om du vill installera verktyget, se anvisningarna i den [iothub-explorer] [ lnk-iothub-explorer] GitHub-lagringsplatsen.
-
-1. Kontrollera att den **anslutningar** övervakning kategori har angetts till **utförlig** i portalen.
-
-1. Kör följande kommando för att läsa från den övervakning slutpunkten i en kommandotolk:
-
-    ```
-    iothub-explorer monitor-ops --login {your iothubowner connection string}
-    ```
-
-1. Kör följande kommando för att simulera en enhet som skickar meddelanden från enheten till molnet i en annan kommandotolk:
-
-    ```
-    iothub-explorer simulate-device {your device name} --send "My test message" --login {your iothubowner connection string}
-    ```
-
-1. Första Kommandotolken visar händelser som övervakning, eftersom den simulerade enheten ansluter till IoT hub.
 
 ## <a name="connect-to-the-monitoring-endpoint"></a>Ansluta till slutpunkten för övervakning
 
@@ -303,5 +283,4 @@ Om du vill fortsätta för att utforska funktionerna för IoT Hub, se:
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md

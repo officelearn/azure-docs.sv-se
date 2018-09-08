@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: a8c45ddf-5c4c-4393-b6e9-46ed1f91bf5f
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: yurid
-ms.openlocfilehash: 1d6fee9cb46fcfec32c0ecdb91eec09a56063c4e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: HT
+ms.openlocfilehash: b9040158679b99ca71a6b973dec9804869351938
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779285"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158304"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Säkerhetsspelbok i Azure Security Center (förhandsversion)
 Det här dokumentet hjälper dig att använda strategiböcker för säkerhet i Azure Security Center för att svara på säkerhetsrelaterade problem.
@@ -96,7 +96,7 @@ Du kan ändra en befintlig spelbok i Security Center för att lägga till åtgä
 > Om du vill ha mer information om hur du kan skapa en egen spelbok med hjälp av Azure Logic App kan du läsa [Skapa ditt första logikapparbetsflöde för att automatisera processer mellan molnappar och molntjänster](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app#add-an-action-that-responds-to-your-trigger).
 
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 I det här avsnittet har du fått lära dig hur du använder strategiböcker i Azure Security Center. I följande avsnitt kan du lära dig mer om Azure Security Center:
 
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Lär dig hur du hanterar aviseringar och åtgärdar säkerhetsincidenter i Security Center.

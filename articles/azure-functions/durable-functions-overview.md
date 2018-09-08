@@ -3,23 +3,19 @@ title: Översikt över varaktiga funktioner – Azure
 description: Introduktion till tillägget varaktiga funktioner för Azure Functions.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 25f7cf6de4f217219e510ae00ce21762e755d2e8
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 136316feab5a08308a9f10e499f645aaee0c90d3
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627414"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093251"
 ---
 # <a name="durable-functions-overview"></a>Översikt över varaktiga funktioner
 
@@ -348,7 +344,7 @@ När en orchestration-funktion får mer arbete att göra (till exempel ett svars
 
 Beteendet repetitionsattacker skapar begränsningar på vilken typ av kod som kan skrivas i en orchestrator-funktion. Till exempel måste orchestrator-koden vara deterministisk, eftersom den ska återupprepas flera gånger och måste ge samma resultat varje gång. Den fullständiga listan över begränsningar finns i den [Orchestrator kod begränsningar](durable-functions-checkpointing-and-replay.md#orchestrator-code-constraints) delen av den **kontrollpunkter och starta om** artikeln.
 
-## <a name="language-support"></a>Språkstöd
+## <a name="language-support"></a>Stöd för språk
 
 För närvarande C# (Functions v1 och v2), F # och JavaScript (endast funktioner v2) är de enda språk som stöds för varaktiga funktioner. Detta inkluderar orchestrator och Aktivitetsfunktioner. Framöver kommer vi lägga till stöd för alla språk som stöds av Azure Functions. Se Azure-funktioner [GitHub-lagringsplatsen Problemlista](https://github.com/Azure/azure-functions-durable-extension/issues) att se senaste status för vår ytterligare språk stöder arbete.
 

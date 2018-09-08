@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/27/2018
+ms.date: 09/06/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 27fa69043797860c0a4acb1a128b45fe9e2b01c1
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 3892b546bb6873a802d85b30cd89801abc9a7424
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090702"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162435"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Använda Azure vid som är värd för och köra SAP-arbetsbelastningsscenarier
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -307,58 +307,32 @@ Som är värd för SAP-arbetsbelastningsscenarier i Azure kan också skapa krav 
 
 ## <a name="latest-changes"></a>Senaste ändringarna
 
+Dokumentation om runt SAP HANA dynamisk lagringsnivåer för virtuella Azure-datorer
+
+- [Konfigurationer och åtgärder för SAP HANA i Azure-infrastrukturer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations#sap-hana-dynamic-tiering-20-for-azure-virtual-machines)
+
 Dokumentation om runt SAP HANA skala ut på Azure VM M128s har lagts till:
 
-- [Konfigurationer och åtgärder för SAP HANA i Azure-infrastrukturer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
+- [Konfigurationer och åtgärder för SAP HANA i Azure-infrastrukturer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations#configuring-azure-infrastructure-for-sap-hana-scale-out)
 - [SAP HANA-tillgänglighet inom en Azure-region](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region)
 
 
 ## <a name="sap-hana-on-sap-hana-on-azure-large-instances"></a>SAP HANA på SAP HANA på Azure (stora instanser)
 
-### <a name="overview-and-architecture-of-sap-hana-on-azure-large-instances"></a>Översikt och arkitektur för SAP HANA på Azure (stora instanser)
-Rubrik: Översikt och arkitektur för SAP HANA på Azure (stora instanser)
+En serie med dokumentation leder dig genom SAP HANA på Azure (stora instanser) eller i korta stora HANA-instanser. Dokumenten omfatta listade områden med stora HANA-instanser:
 
-Sammanfattning: Den här arkitekturen och tekniska distributionsguiden innehåller information för att distribuera SAP på den nya SAP HANA på Azure (stora instanser) i Azure. Det är inte avsedd att vara en heltäckande vägledning som täcker specifika inställningarna för SAP-lösningar, men i stället användbar information i den första distributionen och pågående åtgärder. Det bör inte ersätta SAP-dokumentation som rör installationen av SAP HANA (eller många SAP Support-kommentarer som täcker området). Det ger dig en översikt och innehåller ytterligare information för att installera SAP HANA på Azure (stora instanser).
+- [Översikt över SAP HANA på Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- [Arkitektur för SAP HANA på Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-architecture)
+- [Infrastruktur och anslutning till SAP HANA på Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity)
+- [Installera SAP HANA på SAP HANA på Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-installation)
+- [Hög tillgänglighet och Haveriberedskap för SAP HANA på Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)
+- [Felsökning och övervakning av SAP HANA på Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
 
-Uppdaterad: Oktober 2017
+Nästa steg:
 
-[Den här guiden finns här](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- Läs [översikt och arkitektur för SAP HANA på Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
 
-### <a name="infrastructure-and-connectivity-to-sap-hana-on-azure-large-instances"></a>Infrastruktur och anslutning till SAP HANA på Azure (stora instanser)
-Rubrik: Infrastruktur och anslutning till SAP HANA på Azure (stora instanser)
 
-Sammanfattning: Efter inköpet av SAP HANA på Azure (stora instanser) har slutförts mellan dig och Microsoft enterprise-kontoteamet, olika nätverkskonfigurationer krävs för att se till att rätt anslutning.  Det här dokumentet innehåller information som ska delas med följande information krävs. Det här dokumentet beskriver vilken information som har samlas in och vad konfigurationsskript behöver köras.
-
-Uppdaterad: Oktober 2017
-
-[Den här guiden finns här](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-### <a name="install-sap-hana-in-sap-hana-on-azure-large-instances"></a>Installera SAP HANA i SAP HANA på Azure (stora instanser)
-Rubrik: Installera SAP HANA på SAP HANA på Azure (stora instanser)
-
-Sammanfattning: Det här dokumentet beskrivs hur du installationen för att installera SAP HANA på stora Azure-instanser.
-
-Uppdaterad: Juli 2017
-
-[Den här guiden finns här](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-### <a name="high-availability-and-disaster-recovery-of-sap-hana-on-azure-large-instances"></a>Hög tillgänglighet och katastrofåterställning återställning av SAP HANA på Azure (stora instanser)
-Rubrik: Hög tillgänglighet och Haveriberedskap för SAP HANA på Azure (stora instanser)
-
-Sammanfattning: Hög tillgänglighet (HA) och Disaster Recovery (DR) är viktiga aspekter av att köra dina verksamhetskritiska SAP HANA på Azure (stora instanser) servrar. Det är viktigt att arbeta med SAP, din systemintegratör och/eller Microsoft att korrekt konstruera och implementera rätt hr/DR-strategi för dig. Viktiga överväganden som mål för återställningspunkt (RPO) och återställning mål för återställningstid (RTO), specifikt för din miljö måste beaktas.  Det här dokumentet beskriver dina alternativ för att aktivera din önskade nivå för HA och DR.
-
-Uppdaterad: Oktober 2017
-
-[Det här dokumentet finns här](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-### <a name="troubleshooting-and-monitoring-of-sap-hana-on-azure-large-instances"></a>Felsökning och övervakning av SAP HANA på Azure (stora instanser)
-Rubrik: Felsökning och övervakning av SAP HANA på Azure (stora instanser)
-
-Sammanfattning: Den här guiden innehåller information som är användbar vid fastställandet av övervakning av SAP HANA på Azure-miljö, samt ytterligare information om felsökning.
-
-Uppdaterad: Oktober 2017
-
-[Det här dokumentet finns här](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="sap-hana-on-azure-virtual-machines"></a>SAP HANA på Azure Virtual Machines
 
@@ -367,7 +341,6 @@ Rubrik: Snabbstartsguide till manuell installation av SAP HANA på Azure Virtual
 
 Sammanfattning: Den här snabbstartsguiden hjälper till att konfigurera en enda instans SAP HANA-system på Azure Virtual Machines genom en manuell installation av 7.5 för SAP NetWeaver och SAP HANA SP12. Handboken förutsätter att läsaren är bekant med grunderna för Azure IaaS som hur du distribuerar virtuella datorer eller virtuella nätverk via Azure-portalen eller Powershell/CLI inklusive alternativet att använda json-mallar. Vidare förväntas att läsaren är bekant med SAP HANA, SAP NetWeaver och hur du installerar den på plats.
 
-Uppdaterad: Juni 2017
 
 [Den här guiden finns här](hana-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -376,7 +349,6 @@ Rubrik: Distribuera SAP S/4HANA eller BW/4HANA på Azure
 
 Sammanfattning: Den här guiden hjälper till att demonstrera distributionen av SAP S/4HANA på Azure med SAP Cloud Appliance Library. SAP Cloud Appliance Library är en tjänst av SAP tillåter inte för att distribuera SAP-program på Azure. Den här guiden beskriver steg för steg distributionen.
 
-Uppdaterad: Juni 2017
 
 [Den här guiden finns här](cal-s4h.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -385,7 +357,7 @@ Rubrik: Hög tillgänglighet för SAP HANA på Azure-datorer
 
 Sammanfattning: Den här guiden leder dig genom konfiguration för hög tillgänglighet för SUSE 12 OS och SAP HANA för att hantera HANA System replication med automatisk redundans. Guiden är specifikt för Azure virtuella datorer och SUSE. I guiden gäller inte ännu för Red Hat eller bare metal- eller privata moln eller andra icke-Azure offentligt moln-distributioner.
 
-Uppdaterad: Juni 2017
+
 
 [Den här guiden finns här](sap-hana-high-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -394,7 +366,7 @@ Rubrik: Guiden Säkerhetskopiering för SAP HANA på Azure Virtual Machines
 
 Sammanfattning: Den här guiden innehåller grundläggande information om säkerhetskopiering möjligheter och köra SAP HANA på Azure Virtual Machines.
 
-Uppdaterad: Mars 2017
+
 
 [Den här guiden finns här](sap-hana-backup-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -403,7 +375,7 @@ Rubrik: SAP HANA-säkerhetskopia baserat på ögonblicksbilder av lagring
 
 Sammanfattning: Den här guiden innehåller information om hur du använder ögonblicksbildbaserade säkerhetskopior på virtuella Azure-datorer när du kör SAP HANA på Azure Virtual Machines.
 
-Uppdaterad: Mars 2017
+
 
 [Den här guiden finns här](sap-hana-backup-file-level.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -413,7 +385,7 @@ Rubrik: SAP HANA Azure Backup på filnivå
 
 Sammanfattning: Den här guiden innehåller information om hur du använder SAP HANA säkerhetskopiering på filnivå och köra SAP HANA på Azure Virtual Machines
 
-Uppdaterad: Mars 2017
+
 
 [Den här guiden finns här](sap-hana-backup-storage-snapshots.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -425,7 +397,6 @@ Rubrik: Testa SAP NetWeaver på SUSE Linux-datorer för Microsoft Azure
 
 Sammanfattning: Det här dokumentet beskriver distributionen av ett system för SAP IDES som baseras på Windows- och SQL Server på Azure med SAP Cloud Appliance Library. SAP Cloud appliance Library är en SAP-tjänst som gör att distributionen av SAP-produkter på Azure. Det här dokumentet går steg för steg igenom distributionen av ett system för SAP IDES. IDE-system är bara ett exempel för flera andra dussin program som kan distribueras via SAP Cloud appliance på Microsoft Azure.
 
-Uppdaterad: Juni 2017
 
 [Den här guiden finns här](cal-ides-erp6-erp7-sp3-sql.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -435,7 +406,6 @@ Rubrik: Testa SAP NetWeaver på SUSE Linux-datorer för Microsoft Azure
 
 Sammanfattning: Den här artikeln beskrivs olika saker att tänka på när du kör SAP NetWeaver på Microsoft Azure SUSE Linux-datorer (VM). SAP NetWeaver stöds officiellt på SUSE Linux virtuella datorer på Azure. All information om Linux-versioner, SAP kernel-versioner och andra uppgifter finns i SAP anteckning 1928533 ”SAP-program i Azure: produkter som stöds och Azure VM-typer”.
 
-Uppdaterad: September 2016
 
 [Den här guiden finns här](suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -444,7 +414,7 @@ Rubrik: Azure-datorer planering och implementering av SAP NetWeaver
 
 Sammanfattning: Det här dokumentet är guiden för att börja med om du funderar på att köra SAP NetWeaver på Azure virtuella datorer. Den här guiden för planering och implementering hjälper dig att utvärdera om ett befintligt eller planerat SAP NetWeaver-baserat system kan distribueras till en Azure Virtual Machines-miljö. Den omfattar flera SAP NetWeaver distributionsscenarier och innehåller SAP-konfigurationer som är specifika för Azure. Pappret listar och beskriver all nödvändig konfigurationsinformation du behöver på SAP/Azure-sidan för att köra ett SAP-hybridlandskap. Åtgärder som du kan vidta för att garantera hög tillgänglighet för SAP NetWeaver-baserade system på IaaS omfattas också.
 
-Uppdaterad: Juni 2017
+
 
 [Den här guiden finns här][planning-guide]
 
@@ -453,7 +423,7 @@ Rubrik: Azure-datorer hög tillgänglighet för SAP NetWeaver
 
 Sammanfattning: I det här dokumentet beskriver vi de steg som du kan vidta för att distribuera SAP-system för hög tillgänglighet i Azure med hjälp av Azure Resource Manager-distributionsmodellen. Vi vägleder dig igenom dessa viktiga uppgifter. I dokumentet beskrivs hur en –--felpunkter komponenter som Advanced Business Application Programming (ABAP) SAP Central Services (ASCS) / SAP Central Services (SCS) och system för databashantering (DBMS) och redundanta komponenter som SAP Programservern ska skyddas när de körs i virtuella Azure-datorer. Ett steg för steg-exempel på en installation och konfiguration av en SAP-system för hög tillgänglighet i ett Windows Server Failover Clustering-kluster och SUSE Linux Enterprise Server-kluster-ramverk i Azure visas och visas i det här dokumentet.
 
-Uppdaterad: Oktober 2017
+
 
 [Den här guiden finns här][ha-guide-get-started]
 
@@ -462,7 +432,7 @@ Rubrik: Skapa en konfiguration för SAP NetWeaver-multi-SID
 
 Sammanfattning: Det här dokumentet är ett tillägg till webbplatsen för hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer. På grund av nya funktioner i Azure som har introducerats i September 2016 är det möjligt att distribuera flera SAP NetWeaver ASCS/SCS-instanser i ett par med virtuella Azure-datorer. Du kan minska antalet virtuella datorer som behövs för att distribuera för att upptäcka konfigurationer med hög tillgänglighet SAP NetWeaver med en sådan konfiguration. Den här guiden beskriver inställningarna för sådana multi-SID-konfigurationer.
 
-Uppdaterad: December 2016
+
 
 [Den här guiden finns här](high-availability-multi-sid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -471,7 +441,7 @@ Rubrik: Azure Virtual Machines-distribution för SAP NetWeaver
 
 Sammanfattning: Det här dokumentet innehåller riktlinjer för distribution av programvara för SAP NetWeaver till virtuella datorer i Azure. Det här dokumentet fokuserar på tre specifika distributionsscenarier med betoning på att aktivera Azure Monitoring-tillägg för SAP, inklusive felsökningsrekommendationer för Azure Monitoring-tillägget för SAP. Det här dokumentet förutsätter att du har läst guiden för planering och implementering.
 
-Uppdaterad: Juni 2017
+
 
 [Den här guiden finns här][deployment-guide]
 
@@ -480,7 +450,7 @@ Rubrik: Azure Virtual Machines DBMS-distribution för SAP NetWeaver
 
 Sammanfattning: Det här dokumentet beskriver planerings- och implementeringsöverväganden för DBMS system som ska köras tillsammans med SAP. I den första delen listas och presenteras allmänna överväganden. Följande delar av papperet avser distributioner av olika DBMS i Azure som stöds av SAP. Olika DBMS som visas är SQL Server, SAP ASE och Oracle. I de specifika delarna diskuteras överväganden som du behöver beakta när du kör SAP-system på Azure tillsammans med de olika DBMS. Ämnen som vilka metoder för säkerhetskopiering och hög tillgänglighet som stöds av olika DBMS på Azure presenteras för användning med SAP-program.
 
-Uppdaterad: Juni 2017
+
 
 [Den här guiden finns här][dbms-guide]
 
@@ -489,6 +459,6 @@ Rubrik: SAP NetWeaver: skapa en lösning för Haveriberedskap med Azure Site Rec
 
 Sammanfattning: Det här dokumentet beskriver hur hur Azure Site Recovery services kan användas för att hantera scenarier för haveriberedskap. Fall där Azure används som disaster recovery plats för en lokal SAP-landskap med hjälp av Azure Site Recovery Services. Ett annat scenario som beskrivs i dokumentet är Aure till Azure (A2A) disaster recovery fallet och hur hanteras med Azure Site Recovery.  
 
-Uppdaterad: Augusti 2017
+
 
 [Den här guiden finns här](http://aka.ms/asr-sap)

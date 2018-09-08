@@ -1,6 +1,6 @@
 ---
-title: Utveckla ditt företag med Microsoft | Azure
-description: Utveckla ditt företag med hjälp av Azure Marketplace och AppSource för appen och tjänsten utgivare
+title: Marknadsföra ditt företag med Microsoft | Azure
+description: Flytta upp din verksamhet med hjälp av Azure Marketplace och AppSource för appen och tjänsten utgivare
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: jm-aditi-ms
@@ -14,30 +14,30 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: b2b0a0bbc91115de22eda98df91fb104eb5972ed
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: b02ab403c82fd781af72c3b1f08e843c3fc770e3
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825229"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094951"
 ---
-# <a name="promote-your-business-with-microsoft"></a>Utveckla ditt företag med Microsoft  
-Microsoft har målet att stödja partners (du) och för att förenkla försäljning av din app eller erbjuda i skyltfönster på marketplace. Lista på marketplace du åtkomst till program och resurser på marketplace. 
+# <a name="promote-your-business-with-microsoft"></a>Marknadsföra ditt företag med Microsoft  
+Microsoft har målet för partner (du) och för att förenkla den sälja din app eller erbjuda i butiker på marketplace. Genom att lista på marketplace, du har åtkomst till program och resurser på marketplace. 
 
-Om du redan inte har registrerat dig till Microsoft Partner Network (MPN) och sedan det här tecknet innan du fortsätter.  
-*   Mer information om MPN besöka sidan finns på Microsoft Partner Network [partner.microsoft.com](https://partner.microsoft.com).  
+Om du redan inte har loggat till Microsoft Partner Network (MPN), sedan göra det innan du fortsätter.  
+*   Mer information om MPN finns i Microsoft Partner Network sidan finns på [partner.microsoft.com](https://partner.microsoft.com).  
 
-MPN ger vägledning om följande ämnen.  
+MPN innehåller information om följande avsnitt.  
 *   Nya affärsmöjligheter  
 *   Ansluta med team eller partners  
-*   Lösningar och utbildning för att utöka dina kunskaper  
+*   Lösningar och utbildning som hjälper dig att utöka din kompetens  
 
-Använd följande tabell för att flytta upp ditt erbjudande eller en app, åtkomst till flera fördelar och resurser. 
+Använd följande tabell för att flytta upp ditt erbjudande eller en app, att få åtkomst till fler förmåner och resurser. 
 
-| Förmåner | resurser |  
+| Förmånen | resurser |  
 |:--- |:--- |  
-| Använd grundläggande förmåner | Som en del av Microsoft Partner Network får du en mängd fördelar som kan hjälpa dig att spara tid och pengar. Fördelarna kan också hjälpa dig att stärka dina funktioner, bättre tjäna kunder och skapa anslutningar för att nå företaget fullständig potentiella.<ul> <li>Mer information om grundläggande förmåner finns grundläggande förmåner och kravsidan finns på [partner.microsoft.com/membership/core-benefits](https://partner.microsoft.com/membership/core-benefits).</li> </ul> |  
-| Skaffa din Cloud Platform kompetensen | Skaffa en kompetensen hjälper dig att särskilja själv bland andra Microsoft-partner. Skaffa en kompetensen hjälper dig också att visa teknisk expertis och goda resultat på marknaden. Kompetensen är en förutsättning för många viktiga partnerprogram som samtidigt säljer.<ul> <li>Mer information om Molnplattform kompetensen finns kompetensen Cloud Platform sidan finns på [partner.microsoft.com/membership/cloud-platform-competency](https://partner.microsoft.com/membership/cloud-platform-competency).</li> </ul> |  
-| Bli samtidigt säljer klar | Samtidigt säljer redo programmet kan du samarbeta direkt med Microsoft säljare och andra partners på mål kunden affärsmöjligheter och planera för kontot. Din lösning blir synlig Microsoft säljare i katalogen säljare lösning. Microsoft säljare är belönad samarbeta och vinna med dig.<ul> <li>Mer information om samtidigt säljer beredskap finns uppgradera din verksamhet sidan finns på [partner.microsoft.com/reach-customers/promote-your-business](https://partner.microsoft.com/reach-customers/promote-your-business).</li> </ul> |  
+| Använd dina förmåner för kärnor | Som en del av Microsoft Partner Network får du en uppsättning viktiga fördelar som kan hjälpa dig spara tid och pengar. Fördelarna kan också hjälpa dig att stärka din funktioner, bättre kundservice och skapa anslutningar för att nå verksamheten fullständig potentiella.<ul> <li>Mer information om viktiga fördelar finns viktiga fördelar och kravsidan finns på [partner.microsoft.com/membership/core-benefits](https://partner.microsoft.com/membership/core-benefits).</li> </ul> |  
+| Tjäna din Molnplattformskompetens | Tjäna kompetens hjälper dig att särskilj dig bland andra Microsoft-partner. Tjäna kompetens hjälper dig också att visa teknisk expertis och kunden ska lyckas på marknaden. Molnplattformskompetens är en förutsättning för många viktiga partnerprogram, till exempel Medförsäljning.<ul> <li>Mer information om Cloud Platform-kompetensen finns Molnplattformskompetens sidan finns på [partner.microsoft.com/membership/cloud-platform-competency](https://partner.microsoft.com/membership/cloud-platform-competency).</li> </ul> |  
+| Bli redo för Medförsäljning | Medförsäljning redo programmet kan du samarbeta direkt med Microsoft-säljare och andra partners på målet kundtillfällen och planera för kontot. Din lösning blir synliga för Microsoft-säljare i försäljning lösning katalogen. Microsoft-säljare är belönad samarbeta och vinna med dig.<ul> <li>Mer information om medförsäljning finns främja din verksamheten sidan finns på [partner.microsoft.com/reach-customers/promote-your-business](https://partner.microsoft.com/reach-customers/promote-your-business).</li> </ul> |  
 
 ---  

@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 65cae4d10a4683207474008a18bac39751ce8e96
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 9f042779e3463f0d75dc6327b3553156edbf162a
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235096"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162231"
 ---
 # <a name="test-parameters-for-validation-as-a-service-azure-stack"></a>Parametrar för verifiering som en tjänst Azure Stack
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Innan du kör alla Test Suite från verifieringar som en tjänst (VaaS), Välj en lösning och skapa en testet.
 

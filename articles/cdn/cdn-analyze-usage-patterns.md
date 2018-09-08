@@ -1,6 +1,6 @@
 ---
-title: Core rapporter från Verizon | Microsoft Docs
-description: 'Du kan visa användningsmönster för din CDN med hjälp av följande rapporter: bandbredd, överförda Data, träffar, Cache status, Cache träffar förhållandet, IPV4/IPv6-Data överförs.'
+title: Core-rapporter från Verizon | Microsoft Docs
+description: 'Du kan visa användningsmönster i CDN-nätverket med hjälp av följande rapporter: bandbredd, överförda Data, träffar, cachelagring, Cache träffar förhållande, IPV4/IPv6-Data överförs.'
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -14,124 +14,124 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: fa828bfa736d677fb4881e5cc2628c0e03eb8749
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: d10a40d03f0f76676e70afdec94e9adfaa0dd09f
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26345255"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162078"
 ---
-# <a name="core-reports-from-verizon"></a>Core rapporter från Verizon
+# <a name="core-reports-from-verizon"></a>Core-rapporter från Verizon
 
-[!INCLUDE[cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-Genom att använda Verizon Core rapporter via hantera portal för Verizon profiler kan visa du användningsmönster för din CDN med följande rapporter:
+Genom att använda Verizon Core-rapporter via portalen hantera för Verizon profiler kan visa du användningsmönster i CDN-nätverket med följande rapporter:
 
 * Bandbredd
 * Data som överförs
 * Träffar
-* Cache-status
-* Träffgrad för cache
-* IPv4/IPv6-Data som överförs
+* Status för cachelagring
+* Träffrekvensen för cacheminnet
+* IPv4/IPV6-Data som överförs
 
-## <a name="accessing-verizon-core-reports"></a>Åtkomst till Verizon Core rapporter
-1. CDN-profilbladet klickar du på den **hantera** knappen.
+## <a name="accessing-verizon-core-reports"></a>Åtkomst till Verizon Core-rapporter
+1. Från bladet för CDN-profil klickar du på den **hantera** knappen.
    
-    ![CDN-profilen hantera knappen](./media/cdn-reports/cdn-manage-btn.png)
+    ![Knappen för CDN-profil hantera](./media/cdn-reports/cdn-manage-btn.png)
    
     CDN-hanteringsportalen öppnas.
-2. Hovra över den **Analytics** och klicka sedan hovra över den **Core rapporter** utfällbar. Klicka på en rapport i menyn.
+2. Hovra över den **Analytics** och sedan hovra över den **Core-rapporter** utfällbar meny. Klicka på en rapport i menyn.
    
-    ![CDN-hanteringsportalen - Core rapporter-menyn](./media/cdn-reports/cdn-core-reports.png)
+    ![CDN-hanteringsportalen - Core-rapporter-menyn](./media/cdn-reports/cdn-core-reports.png)
 
-3. För varje rapport väljer du ett datumintervall från den **datumintervall** lista. Du kan antingen välja ett fördefinierat datumintervall som **idag** eller **veckans**, eller så kan du välja **anpassade** och manuellt ange ett datumintervall genom att klicka på kalenderikonerna. 
+3. För varje rapport väljer du ett datumintervall från den **datumintervall** lista. Du kan antingen välja ett fördefinierat datumintervall, till exempel **idag** eller **veckans**, eller så kan du välja **anpassade** och manuellt anger ett datumintervall genom att klicka på kalenderikonerna. 
 
 4. När du har valt ett datumintervall, klickar du på **Gå** att generera rapporten. 
 
 4. Om du vill exportera data i Excel-format, klickar du på ikonen Excel den **Gå** knappen.
 
 ## <a name="bandwidth"></a>Bandbredd
-Rapporten bandbredd består av ett diagram och en datatabell som anger CDN bandbreddsanvändningen för HTTP och HTTPS under en viss tidsperiod i Mbit/s. Du kan visa bandbreddsanvändningen över alla POP eller för en viss POP. Den här rapporten kan du visa trafik toppar och distribution för POP.
+Rapporten bandbredd består av ett diagram och en datatabell som anger CDN-bandbreddsanvändning för HTTP och HTTPS under en viss tidsperiod, i Mbit/s. Du kan visa bandbreddsanvändningen över alla POP-servrar eller för en viss POP. Den här rapporten kan du visa toppar i trafiken och distribution för POP.
 
-Från den **kant noder** väljer **kant noderna** att se trafik från alla noder, eller välj en specifik region.
+Från den **Kantnoder** väljer **alla Kantnoder** att se trafik från alla noder eller välja en specifik region.
 
 Rapporten uppdateras var femte minut.
 
 ![Bandbredd-rapport](./media/cdn-reports/cdn-bandwidth.png)
 
 ## <a name="data-transferred"></a>Data som överförs
-Den här rapporten består av ett diagram och en datatabell som anger hur CDN-trafik för HTTP och HTTPS under en viss tidsperiod i GB. Du kan visa hur trafik över alla POP eller för en viss POP. Den här rapporten kan du visa trafik toppar och distribution över POP.
+Den här rapporten består av ett diagram och en datatabell som anger hur CDN trafik för HTTP och HTTPS under en viss tidsperiod, i GB. Du kan visa hur trafik över alla POP-servrar eller för en viss POP. Den här rapporten kan du visa toppar i trafiken och distribution över POP.
 
-Från den **kant noder** väljer **kant noderna** att se trafik från alla noder, eller välj en specifik region.
+Från den **Kantnoder** väljer **alla Kantnoder** att se trafik från alla noder eller välja en specifik region.
 
 Rapporten uppdateras var femte minut.
 
 ![Överförda data rapporten](./media/cdn-reports/cdn-data-transferred.png)
 
 ## <a name="hits-status-codes"></a>Träffar (statuskoder)
-Den här rapporten beskrivs distribution av begäran statuskoder för ditt innehåll. Varje förfrågan om innehållet genererar en HTTP-statuskod. Statuskoden beskriver hur edge POP hanteras begäran. Till exempel anger en 2xx statuskod att begäran behandlades har till en klient, medan en 4xx statuskod anger att ett fel inträffade. Mer information om HTTP-statuskoder finns [listan över HTTP-statuskoder](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes).
+Den här rapporten beskriver distributionen av begäran statuskoder för ditt innehåll. Alla förfrågningar om innehåll genererar en HTTP-statuskod. Statuskoden beskriver hur avgränsade POP-servrar hanteras begäran. Statuskoden 2xx anger till exempel att begäran behandlades har till en klient, medan en 4xx-statuskod anger att ett fel uppstod. Mer information om HTTP-statuskoder finns i [lista över HTTP-statuskoder](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes).
 
 ![Träffar rapport](./media/cdn-reports/cdn-hits.png)
 
 ## <a name="cache-statuses"></a>Status för cachelagring
-Den här rapporten beskrivs distribution av träffar och cachemissar för klientbegäranden. Eftersom bästa prestanda beror på cacheträffar, kan du optimera hastighet för leverans av data genom att minimera cachemissar och cacheträffar på har upphört att gälla. 
+Den här rapporten beskriver distributionen av cacheträffar och cachemissar för klientbegäranden. Eftersom bästa prestanda beror på cacheträffar, kan du optimera hastighet för leverans av data genom att minimera cachemissar och har upphört att gälla cacheträffar. 
 
-Om du vill minska cachemissar konfigurera ursprungsservern för att minska användningen av följande: 
- * `no-cache`svarsrubriker
- * Cachelagring av frågesträng, såvida inte absolut nödvändigt  
- * Icke-Cacheable ställs svarskoder
+För att minska cachemissar kan du konfigurera ursprungsservern för att minska användningen av följande: 
+ * `no-cache` Svarshuvuden
+ * Frågesträng cachelagring, såvida inte strikt behövs  
+ * Icke webbtillämpningar svarskoder
 
-Ange en tillgång för att minska utgångna cacheträffar `max-age` till en längre tid att minimera antalet begäranden till den ursprungliga servern.
+Ange en tillgång för att minska har upphört att gälla cacheträffar `max-age` till en lång tid att minimera antalet begäranden till den ursprungliga servern.
 
-![Rapport för cache-status](./media/cdn-reports/cdn-cache-statuses.png)
+![Cache statusar rapport](./media/cdn-reports/cdn-cache-statuses.png)
 
-### <a name="main-cache-statuses-include"></a>Huvud-cache statusvärden är:
-* TCP_HIT: Hanteras från edge-server. Objektet har i cachen och inte har överskridit sin maximal ålder.
-* TCP_MISS: Hanteras från ursprungsservern. Objektet var inte i cachen och svaret var tillbaka till ursprunget.
-* TCP_EXPIRED _MISS: hanteras från ursprungsservern efter Omverifiering med ursprung. Objektet är i cacheminnet men har överskridit sin maximal ålder. En validering med ursprung resulterade i cacheobjektet som ersätts av ett nytt svar från ursprunget.
-* TCP_EXPIRED _HIT: hanteras från kant efter Omverifiering med ursprung. Objektet är i cacheminnet men har överskridit sin maximal ålder. En validering med den ursprungliga servern resulterade i cacheobjektet som ska ändras.
+### <a name="main-cache-statuses-include"></a>Viktigaste för cachelagring är:
+* TCP_HIT: Hanteras från edge-servern. Objektet har i cachen och inte har överskridit sin maxåldern.
+* TCP_MISS: Hanteras från ursprungsservern. Objektet var inte i cacheminnet och svaret tillbaka till ursprunget.
+* TCP_EXPIRED _MISS: hanteras från ursprungsservern efter omverifieringen med ursprung. Objektet har i cacheminnet, men har överskridit sin maxåldern. En omverifieringen med ursprung resulterade i cacheobjektet ersättas med ett nytt svar från ursprunget.
+* TCP_EXPIRED _HIT: hanteras från Edge efter omverifieringen med ursprung. Objektet är i cacheminnet, men har överskridit sin maxåldern. En omverifieringen med den ursprungliga servern resulterade i cacheobjektet som ska ändras.
 
-### <a name="full-list-of-cache-statuses"></a>Fullständig lista över cache-status
-* TCP_HIT – denna status rapporteras när en begäran hämtas direkt från POP till klienten. En tillgång hanteras direkt från en POP när cachelagras på POP närmast klienten och har en giltig time to live (TTL). TTL bestäms av följande svarshuvuden:
+### <a name="full-list-of-cache-statuses"></a>Fullständig lista över för cachelagring
+* TCP_HIT – denna status rapporteras när en begäran hanteras direkt från POP till klienten. En tillgång hanteras direkt från en POP när den cachelagras på POP närmast klienten och har en giltig time to live (TTL). TTL bestäms av de följande svarshuvuden:
   
   * Cache-Control: s-maxage
-  * Cache-Control: maximal ålder för
-  * Förfaller
-* TCP_MISS: Denna status anger att en cachelagrad version av den begärda tillgången inte hittades på POP närmast klienten. Tillgången begärs från en ursprungsserver eller en shield ursprungsservern. Om den ursprungliga servern eller shield ursprungsservern returnerar en tillgång, är det skickas till klienten och cachelagras på både klienten och gränsservern. Annars statuskod-200 (till exempel 403 inte hitta otillåtna eller 404) returneras.
-* TCP_EXPIRED_HIT: Denna status rapporteras när en begäran som riktar sig till en tillgång med en utgångna TTL behandlades direkt från POP till klienten. Till exempel när tillgången är maximal ålder har gått ut. 
+  * Cache-Control: max-age
+  * Upphör att gälla
+* TCP_MISS: Denna status anger att en cachelagrad version av den begärda tillgången inte hittades på den POP-plats som är närmast klienten. Tillgången har begärts från en ursprungsserver eller en shield ursprungsservern. Om den ursprungliga servern eller shield ursprungsservern returnerar du en tillgång, den hanteras av klienten och cachelagras på både klienten och edge-servern. I annat fall en icke-200-statuskod (till exempel 403 förbjudet eller 404 hittades inte) returneras.
+* TCP_EXPIRED_HIT: Denna status rapporteras när en begäran som riktar sig mot en tillgång med en har upphört att gälla TTL behandlades direkt från POP till klienten. Till exempel när tillgången är maxåldern har gått ut. 
   
-   En begäran om har upphört att gälla som vanligtvis resulterar i en begäran om förnyelse till den ursprungliga servern. För en TCP_EXPIRED_HIT status ska ske, måste den ursprungliga servern ange att en nyare version av tillgången inte finns. Den här situationen ger vanligtvis en uppdatering av tillgångens Cache-Control och Expires-huvuden.
-* TCP_EXPIRED_MISS: Denna status rapporteras när en nyare version av en utgången cachelagrade tillgång hanteras från POP till klienten. Den här statusen visas när TTL-värdet för den cachelagra resursen har upphört att gälla (till exempel har upphört att gälla maximal ålder) och den ursprungliga servern returnerar en nyare version av tillgången. Den här nya versionen av tillgången levereras till klienten i stället för den cachelagrade versionen. Dessutom cachelagras på gränsservern och klienten.
-* CONFIG_NOCACHE: Denna status anger att en kundspecifika konfiguration edge POP hindras tillgången från att cachelagras.
-* Inget – denna status anger att en kontroll av innehåll dokumentens inte utfördes.
-* TCP_CLIENT_REFRESH_MISS: Denna status rapporteras när HTTP-klienter, till exempel en webbläsare, tvingar en kant POP för att hämta en ny version av en inaktuella tillgång från den ursprungliga servern. Som standard förhindra servrarna att en HTTP-klient att tvinga servrarna för att hämta en ny version av tillgången från den ursprungliga servern.
-* TCP_PARTIAL_HIT: Denna status rapporteras när en byteintervallbegäran resulterar i en träff för en delvis cachelagrade tillgång. Det begärda byte-intervallet hanteras direkt från POP till klienten.
-* UNCACHEABLE: Denna status rapporteras när en tillgång `Cache-Control` och `Expires` indikerar att det inte ska cachelagras på en POP eller av klienten för HTTP-rubriker. Dessa typer av begäranden hanteras från den ursprungliga servern.
+   En begäran om har upphört att gälla som vanligtvis resulterar i en begäran om förnyelse till den ursprungliga servern. TCP_EXPIRED_HIT status ska ske, måste den ursprungliga servern indikerar att det inte finns en nyare version av tillgången. Den här situationen uppstår vanligen i en uppdatering av tillgångens Cache-Control och Expires-huvuden.
+* TCP_EXPIRED_MISS: Denna status rapporteras när en nyare version av en har upphört att gälla cachelagrade tillgång har hämtats från POP till klienten. Den här statusen visas när TTL-värdet för ett cachelagrat tillgången har upphört att gälla (till exempel har gått ut max-age) och ursprungsservern returnerar en nyare version av tillgången. Den nya versionen av tillgången levereras till klienten i stället för den cachelagrade versionen. Dessutom cachelagras på edge-servern och klienten.
+* CONFIG_NOCACHE: Denna status anger att en kund konfiguration edge POP förhindrade tillgången att cachelagras.
+* Ingen - denna status anger att en cacheminnet content färskhet kontroll inte har utförts.
+* TCP_CLIENT_REFRESH_MISS: Denna status rapporteras när en HTTP-klient, till exempel en webbläsare, tvingar en kant POP för att hämta en ny version av en inaktuella tillgång från den ursprungliga servern. Som standard förhindra servrarna att en HTTP-klient framtvinga edge-servrar för att hämta en ny version av tillgången från den ursprungliga servern.
+* TCP_PARTIAL_HIT: Denna status rapporteras när en byte-Intervallbegäran resulterar i en träff för en delvis cachelagrade tillgång. Det begärda byte-intervallet är omedelbart hanteras från POP till klienten.
+* UNCACHEABLE: Denna status rapporteras när en tillgång `Cache-Control` och `Expires` rubriker indikerar att det inte ska cachelagras på en POP eller av HTTP-klienten. Dessa typer av begäranden hanteras från den ursprungliga servern.
 
-## <a name="cache-hit-ratio"></a>Träffgrad för cache
+## <a name="cache-hit-ratio"></a>Träffrekvensen för cacheminnet
 Den här rapporten visar procentandelen av cachelagrade begäranden som har hanteras direkt från cachen.
 
-Den här rapporten innehåller följande information:
+Rapporten innehåller följande information:
 
-* Det begärda innehållet cachelagrades på närmast beställaren POP.
-* Begäran behandlades direkt från i utkanten av nätverket.
-* Begäran kräver inte Omverifiering med den ursprungliga servern.
+* Det begärda innehållet har cachelagrats på närmast den som begär POP.
+* Begäran har behandlats direkt från gränsen på vårt nätverk.
+* Begäran kräver inte omverifieringen med den ursprungliga servern.
 
-Rapporten innehåller:
+Rapporten innehåller inte:
 
 * Begäranden som nekats på grund av land filtreringsalternativ.
-* Begäranden om tillgångar vars huvuden tyda på att de inte ska cachelagras. Till exempel `Cache-Control: private`, `Cache-Control: no-cache`, eller `Pragma: no-cache` huvuden förhindra en tillgång från att cachelagras.
-* Byte range-begäran för delvis cachelagrat innehåll.
+* Begäranden för tillgångar vars rubriker tyda på att de inte ska cachelagras. Till exempel `Cache-Control: private`, `Cache-Control: no-cache`, eller `Pragma: no-cache` rubriker förhindra att en tillgång att cachelagras.
+* Begäranden med byte-intervall för delvis cachelagrat innehåll.
 
 Formeln är: (TCP_ träffar / (TCP_ träffar + TCP_MISS)) * 100
 
-![Antal träffar i rapport](./media/cdn-reports/cdn-cache-hit-ratio.png)
+![Cacheträff rapport](./media/cdn-reports/cdn-cache-hit-ratio.png)
 
-## <a name="ipv4ipv6-data-transferred"></a>IPv4/IPv6-Data som överförs
+## <a name="ipv4ipv6-data-transferred"></a>IPv4/IPV6-Data som överförs
 Den här rapporten visar trafikfördelning för användning i IPV4 eller IPV6.
 
-![IPv4/IPv6-Data som överförs](./media/cdn-reports/cdn-ipv4-ipv6.png)
+![IPv4/IPV6-Data som överförs](./media/cdn-reports/cdn-ipv4-ipv6.png)
 
 ## <a name="considerations"></a>Överväganden
-Rapporter kan endast genereras under de senaste 18 månaderna.
+Rapporter kan bara aktiveras under de senaste 18 månaderna.
 

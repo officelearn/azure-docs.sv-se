@@ -6,14 +6,14 @@ keywords: ansible, azure, devops, översikt, etablera molnet, konfigurationshant
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 01/19/2018
+ms.date: 09/02/2018
 ms.topic: article
-ms.openlocfilehash: e710770131c844598762feebe09ba50dc120de0c
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 977fef390c0efecd47ec5e19b1a82c05e2ecfd0f
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106908"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160753"
 ---
 # <a name="ansible-with-azure"></a>Ansible med Azure
 
@@ -37,13 +37,17 @@ När du har använt Ansible för att definiera infrastrukturen kan använda du d
 
 ## <a name="automate-cloud-native-application-in-azure"></a>Automatisera molnbaserade program i Azure
 
-Ansible kan du automatisera molnprogram i Azure med Azure-mikrotjänster som [Azure Functions](https://azure.microsoft.com//services/functions/) och [Kubernetes på Azure](https://azure.microsoft.com/services/container-service/kubernetes/)).  
+Ansible kan du automatisera molnprogram i Azure med Azure-mikrotjänster som [Azure Functions](https://azure.microsoft.com//services/functions/) och [Kubernetes på Azure](https://azure.microsoft.com/services/container-service/kubernetes/).  
 
 ## <a name="manage-deployments-with-dynamic-inventory"></a>Hantera distributioner med dynamisk lager
 Via dess [dynamisk lager](http://docs.ansible.com/ansible/intro_dynamic_inventory.html) funktionen, Ansible gör möjligheten att pull inventering från Azure-resurser. Du kan tagga dina befintliga Azure-distributioner och hantera dessa taggade distributioner via Ansible.
 
 ## <a name="additional-azure-marketplace-options"></a>Ytterligare alternativ för Azure Marketplace
 Den [Ansible Tower](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.ansible-tower) Azure Marketplace-avbildning från Red Hat hjälper organisationer att skala IT-automatisering och hantera komplexa distributioner mellan fysiska, virtuella och molnbaserade infrastrukturer. Ansible Tower innehåller funktioner som ger ytterligare kontrollmöjligheter synlighet, kontroll, säkerhet och effektivitet som behövs för dagens företag. Ansible Tower krypterar autentiseringsuppgifter, till exempel Azure och SSH-nycklar så att du kan delegera jobb till ovana anställda utan att riskera att exponera dina autentiseringsuppgifter.
+
+## <a name="ansible-module-and-version-matrix-for-azure"></a>Ansible-modulen och version matris för Azure
+Ansible levereras med ett antal moduler som kan utföras direkt på fjärrvärdar eller via spelböcker.
+Den [Ansible-modulen och version matris](./ansible-matrix.md) visar Ansible-moduler för Azure som kan utnyttja Azure-molnresurser, till exempel virtuella datorer, nätverk och behållartjänster. 
 
 ## <a name="next-steps"></a>Nästa steg
 - [Konfigurera Ansible](/azure/virtual-machines/linux/ansible-install-configure?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)

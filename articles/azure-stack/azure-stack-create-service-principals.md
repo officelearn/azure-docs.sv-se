@@ -11,22 +11,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
+ms.date: 09/06/2018
 ms.author: sethm
-ms.openlocfilehash: f7233d6a27b9ec3d58f33f7032bbec7a646d24f7
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 65fa9593b35af45ee9b8568bac5e4886909314e1
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42366127"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092553"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Ge programåtkomst till Azure Stack
 
 *Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-När ett program behöver tillgång till distribuera eller konfigurera resurser via Azure Resource Manager i Azure Stack, kan du skapa ett huvudnamn för tjänsten, vilket är en autentiseringsuppgift för ditt program.  Du kan sedan delegera endast behörighet att tjänstobjektet.  
+När ett program behöver tillgång till distribuera eller konfigurera resurser via Azure Resource Manager i Azure Stack, kan du skapa ett huvudnamn för tjänsten, vilket är en autentiseringsuppgift för ditt program. Du kan sedan delegera endast behörighet att tjänstobjektet.  
 
-Du kan exempelvis ha ett hanteringsverktyg för konfiguration som använder Azure Resource Manager för att inventera Azure-resurser.  I det här scenariot du skapar ett huvudnamn för tjänsten, ge läsarrollen till tjänstobjektet och begränsa verktyget configuration management till skrivskyddad åtkomst. 
+Du kan exempelvis ha ett hanteringsverktyg för konfiguration som använder Azure Resource Manager för att inventera Azure-resurser. I det här scenariot du skapar ett huvudnamn för tjänsten, ge läsarrollen till tjänstobjektet och begränsa verktyget configuration management till skrivskyddad åtkomst. 
 
 Tjänstens huvudnamn är bättre att köra appen enligt dina autentiseringsuppgifter eftersom:
 
@@ -36,17 +36,17 @@ Tjänstens huvudnamn är bättre att köra appen enligt dina autentiseringsuppgi
 
 ## <a name="getting-started"></a>Komma igång
 
-Beroende på hur du har distribuerat Azure Stack kan börja du genom att skapa ett tjänstens huvudnamn.  Det här dokumentet hjälper dig att skapa ett huvudnamn för tjänsten för både [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) och [Active Directory Federation Services(AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).  När du har skapat tjänstens huvudnamn, en uppsättning steg som är gemensamma för både AD FS och Azure Active Directory är vana vid [delegera behörigheter](azure-stack-create-service-principals.md#assign-role-to-service-principal) till rollen.     
+Beroende på hur du har distribuerat Azure Stack kan börja du genom att skapa ett tjänstens huvudnamn. Det här dokumentet beskrivs hur du skapar ett huvudnamn för tjänsten för både [Azure Active Directory (Azure AD)](#create-service-principal-for-azure-ad) och [Active Directory Federation Services(AD FS)](#create-service-principal-for-ad-fs). När du har skapat tjänstens huvudnamn, en uppsättning steg som är gemensamma för både AD FS och Azure Active Directory är vana vid [delegera behörigheter](#assign-role-to-service-principal) till rollen.     
 
 ## <a name="create-service-principal-for-azure-ad"></a>Skapa tjänstens huvudnamn för Azure AD
 
-Om du har distribuerat Azure Stack med Azure AD som Identitetslagret kan skapa du tjänstens huvudnamn precis som du gör för Azure.  Det här avsnittet visar hur du utför stegen via portalen.  Kontrollera att du har den [Azure AD-behörigheter som krävs för](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) innan du börjar.
+Om du har distribuerat Azure Stack med Azure AD som Identitetslagret kan skapa du tjänstens huvudnamn precis som du gör för Azure. Det här avsnittet visar hur du utför stegen via portalen. Kontrollera att du har den [Azure AD-behörigheter som krävs för](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) innan du börjar.
 
 ### <a name="create-service-principal"></a>Skapa tjänstens huvudnamn
 I det här avsnittet skapar du ett program (tjänstens huvudnamn) i Azure AD som representerar ditt program.
 
 1. Logga in på ditt Azure-konto via den [Azure-portalen](https://portal.azure.com).
-2. Välj **Azure Active Directory** > **appregistreringar** > **Lägg till**   
+2. Välj **Azure Active Directory** > **appregistreringar** > **ny programregistrering**   
 3. Ange ett namn och en URL för programmet. Välj antingen **webbapp / API** eller **interna** för typ av program som du vill skapa. När du har angett värdena, Välj **skapa**.
 
 Du har skapat ett huvudnamn för tjänsten för ditt program.
@@ -63,23 +63,21 @@ När du loggar in, använder ID: T för ditt program och för en webbapp / API, 
 
 4. Tillhandahåll beskrivning av och varaktighet för nyckeln. Välj **Spara** när du är klar.
 
-När du har sparat nyckeln visas nyckelns värde. Kopiera det här värdet eftersom det inte går att hämta nyckeln senare. Du kan ange nyckelvärdet med program-ID för att logga in som programmet. Lagra nyckelvärdet där programmet kan hämta det.
+När du har sparat nyckeln visas nyckelns värde. Kopiera det här värdet i anteckningar eller på en tillfällig plats, eftersom du inte kan hämta nyckeln senare. Du kan ange nyckelvärdet med program-ID för att logga in som programmet. Store nyckelvärdet på en plats där programmet kan hämta den.
 
 ![sparad nyckel](./media/azure-stack-create-service-principal/image15.png)
 
-
-När du är klar fortsätter du till [tilldela en roll för ditt program](azure-stack-create-service-principals.md#assign-role-to-service-principal).
+När du är klar fortsätter du till [tilldela en roll för ditt program](#assign-role-to-service-principal).
 
 ## <a name="create-service-principal-for-ad-fs"></a>Skapa tjänstens huvudnamn för AD FS
 Om du har distribuerat Azure Stack med AD FS, kan du använda PowerShell för att skapa ett huvudnamn för tjänsten, tilldela en roll för åtkomst och logga in från PowerShell med hjälp av den identiteten.
 
 Skriptet körs från den privilegierade slutpunkten på en ERCS-dator.
 
-
 Krav:
 - Det krävs ett certifikat.
 
-**Parametrar**
+#### <a name="parameters"></a>Parametrar
 
 Följande information måste anges som indata för automation-parametrar:
 
@@ -88,36 +86,36 @@ Följande information måste anges som indata för automation-parametrar:
 |---------|---------|---------|
 |Namn|Namnet på kontot SPN|MyAPP|
 |ClientCertificates|Matris med objekt för certifikat|X509 certifikat|
-|ClientRedirectUris<br>(Valfritt)|Programmet omdirigerings-URI|         |
+|ClientRedirectUris<br>(Valfritt)|Programmet omdirigerings-URI|-|
 
-**Exempel**
+#### <a name="example"></a>Exempel
 
 1. Öppna en upphöjd Windows PowerShell-session och kör följande kommandon:
 
    > [!NOTE]
-   > Det här exemplet skapar ett självsignerat certifikat. När du kör dessa kommandon i en Produktionsdistribution, använder du Get-certifikat för att hämta certifikatobjektet för det certifikatet som du vill använda.
+   > Det här exemplet skapar ett självsignerat certifikat. Använd när du kör dessa kommandon i en Produktionsdistribution [Get-Certificate](/powershell/module/pkiclient/get-certificate) att hämta certifikatobjekt för det certifikatet som du vill använda.
 
    ```PowerShell  
-    # Credential for accessing the ERCS PrivilegedEndpoint typically domain\cloudadmin
+    # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
     $creds = Get-Credential
 
     # Creating a PSSession to the ERCS PrivilegedEndpoint
     $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
 
-    # This produces a self signed cert for testing purposes.  It is prefered to use a managed certificate for this.
+    # This produces a self signed cert for testing purposes. It is prefered to use a managed certificate for this.
     $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
 
     $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name '<yourappname>' -ClientCertificates $using:cert}
     $AzureStackInfo = Invoke-Command -Session $session -ScriptBlock { get-azurestackstampinformation }
     $session|remove-pssession
 
-    # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. We will read this from the AzureStackStampInformation output of the ERCS VM.
+    # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. This is read from the AzureStackStampInformation output of the ERCS VM.
     $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
 
-    # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. We will read this from the AzureStackStampInformation output of the ERCS VM.
+    # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. This is read from the AzureStackStampInformation output of the ERCS VM.
     $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
 
-    # TenantID for the stamp. We will read this from the AzureStackStampInformation output of the ERCS VM.
+    # TenantID for the stamp. This is read from the AzureStackStampInformation output of the ERCS VM.
     $TenantID = $AzureStackInfo.AADTenantID
 
     # Register an AzureRM environment that targets your Azure Stack instance
@@ -146,7 +144,7 @@ Följande information måste anges som indata för automation-parametrar:
 
    Exempel:
 
-   ```
+   ```shell
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
    ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
    Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
@@ -156,7 +154,7 @@ Följande information måste anges som indata för automation-parametrar:
    ```
 
 ### <a name="assign-a-role"></a>Tilldela en roll
-När tjänstens huvudnamn har skapats måste du [tilldela den till en roll](azure-stack-create-service-principals.md#assign-role-to-service-principal)
+När tjänstens huvudnamn har skapats måste du [tilldela den till en roll](#assign-role-to-service-principal).
 
 ### <a name="sign-in-through-powershell"></a>Logga in via PowerShell
 När du har tilldelat en roll, kan du logga in på Azure Stack med tjänstens huvudnamn med följande kommando:

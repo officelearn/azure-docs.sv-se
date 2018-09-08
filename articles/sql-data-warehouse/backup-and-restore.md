@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 08/24/2018
+ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e9b5005fad1eeb13314e1fb6a5708bb02b96cbf9
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: bdcc0510503e48caf70f4f0d91d7602d767ca9ab
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248664"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092486"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Säkerhetskopiering och återställning i Azure SQL Data Warehouse
 Lär dig hur säkerhetskopiering och återställning fungerar i Azure SQL Data Warehouse. Användningsdata warehouse ögonblicksbilder till recovery eller kopiera ditt informationslager till en tidigare återställningspunkt i den primära regionen. Användningsdata warehouse geo-redundanta säkerhetskopieringar att återställa till en annan geografisk region. 
@@ -28,7 +28,7 @@ En *datalager återställning* är ett nytt datalager som har skapats från en �
 ## <a name="automatic-restore-points"></a>Automatiska återställningspunkter
 Ögonblicksbilder är en inbyggd funktion av tjänsten som skapar återställningspunkter. Du behöver inte aktivera den här funktionen. Automatiska återställningspunkter för närvarande kan inte tas bort av användare där tjänsten använder dessa återställningspunkter pekar Underhåll serviceavtal för återställning.
 
-SQL Data Warehouse tar ögonblicksbilder av informationslagret under dagen skapar återställningspunkter som är tillgängliga i sju dagar. Den här kvarhållningsperioden kan inte ändras. SQL Data Warehouse stöder en åttonde timme återställningspunkt (RPO). Du kan återställa ditt informationslager i den primära regionen från någon av ögonblicksbilder som tas under de senaste sju dagarna.
+SQL Data Warehouse tar ögonblicksbilder av informationslagret under dagen skapar återställningspunkter som är tillgängliga i sju dagar. Den här kvarhållningsperioden kan inte ändras. SQL Data Warehouse stöder en snabbutvärdering på åtta timmar mål för återställningspunkt (RPO). Du kan återställa ditt informationslager i den primära regionen från någon av ögonblicksbilder som tas under de senaste sju dagarna.
 
 Om du vill se när den senaste ögonblicksbilden startas, kör du den här frågan på online SQL Data Warehouse. 
 
@@ -40,19 +40,20 @@ order by run_id desc
 ```
 
 ## <a name="user-defined-restore-points"></a>Användardefinierade återställningspunkter
-Den här funktionen kan du manuellt utlösaren ögonblicksbilder att skapa återställningspunkter för ditt informationslager före och efter stora ändringar. Den här funktionen ser till att återställningspunkter är logiskt konsekvent som tillhandahåller ytterligare dataskydd vid eventuella avbrott i arbetsbelastningen och användarfel för tiden för snabb återställning. Användardefinierade återställningspunkter är tillgängliga i sju dagar och tas bort automatiskt åt dig. Du kan inte ändra kvarhållningsperioden för användardefinierade återställningspunkter. Endast 42 användardefinierade återställningspunkter stöds när som helst i tid så att de måste vara [bort](https://go.microsoft.com/fwlink/?linkid=875299) innan du skapar en annan återställningspunkt. Du kan utlösa ögonblicksbilder för att skapa en användardefinierad återställningspunkter via [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples) eller Azure-portalen.
+Den här funktionen kan du manuellt utlösaren ögonblicksbilder att skapa återställningspunkter för ditt informationslager före och efter stora ändringar. Den här funktionen ser till att återställningspunkter är logiskt konsekvent som tillhandahåller ytterligare dataskydd vid eventuella avbrott i arbetsbelastningen och användarfel för tiden för snabb återställning. Användardefinierade återställningspunkter är tillgängliga i sju dagar och tas bort automatiskt åt dig. Du kan inte ändra kvarhållningsperioden för användardefinierade återställningspunkter. **återställningspunkter för 42 användardefinierade** garanterat när som helst i tid så att de måste vara [bort](https://go.microsoft.com/fwlink/?linkid=875299) innan du skapar en annan återställningspunkt. Du kan utlösa ögonblicksbilder för att skapa en användardefinierad återställningspunkter via [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples) eller Azure-portalen.
 
 
 > [!NOTE]
 > Om du behöver återställningspunkter som är längre än 7 dagar kan du rösta på den här funktionen [här](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). Du kan också skapa en återställningspunkt för användardefinierade och återställa från den nyligen skapade återställningspunkten till ett nytt datalager. När du har återställt ha datalagret online och kan pausa på obestämd tid för att spara beräkningskostnader. Pausad databasen medför avgifter för lagring till Azure Premium Storage-kostnad. Om du behöver en aktiv kopia av återställda data warehouse kan återuppta du som tar bara några minuter.
 >
 
-### <a name="snapshot-retention-when-a-data-warehouse-is-paused"></a>Ögonblicksbild kvarhållning när ett informationslager har pausats
-SQL Data Warehouse skapar inte ögonblicksbilder och upphör inte återställningspunkter medan ett informationslager har pausats. Återställa punkter ändras inte när informationslagret har pausats. Återställningspunkt baseras kvarhållningen på hur många dagar data warehouse är online, inte kalenderdagar.
-
-Om en ögonblicksbild startas 1 oktober kl 4 och informationslagret har pausats oktober 3 4 klockan, är återställningspunkterna upp till två dagar. När datalagret är online igen är återställningspunkten två dagar gamla. Om datalagret är online 5 oktober kl 4, återställningspunkten är två dagar gamla och förblir i fem dagar.
-
-När datalagret är online igen, fortsätter med att skapa nya återställningspunkter SQL Data Warehouse och går ut dem när de har mer än sju dagarnas data.
+### <a name="restore-point-retention"></a>Återställa kvarhållning av återställningspunkt
+Nedan beskrivs information på kvarhållningsperioder tidpunkt för återställning:
+1. SQL Data Warehouse tar bort en återställningspunkt när den når 7 dagars kvarhållningsperioden **och** när det finns minst 42 Totalt antal återställningspunkter (inklusive både en användardefinierad och automatisk)
+2. Ögonblicksbilder tas inte när ett informationslager har pausats
+3. Ålder för en återställningspunkt mäts absolut kalenderdagar från tidpunkten då återställningspunkten tas även när informationslagret har pausats
+4. Vid varje givet tillfälle, ett informationslager är korrekt för att kunna lagra upp till 42 användardefinierade återställningspunkter och 42 Automatiska-återställningspunkter är så länge återställningspunkterna inte har nått kvarhållningsperiod för 7 dagar
+5. Om en ögonblicksbild tas, datalagret sedan har pausats för fler än 7 dagar och återupptar, är det möjligt för återställningspunkt för att bevara tills det inte finns 42 Totalt antal återställningspunkter (inklusive både en användardefinierad och automatisk)
 
 ### <a name="snapshot-retention-when-a-data-warehouse-is-dropped"></a>Ögonblicksbild kvarhållning när ett informationslager har släppts
 När du släpper ett data warehouse, SQL Data Warehouse skapar en slutlig ögonblicksbild och sparar den i sju dagar. Du kan återställa datalagret till den sista återställningspunkten som skapas vid borttagning. 
@@ -67,12 +68,12 @@ SQL Data Warehouse utför en geo-säkerhetskopia en gång per dag för att en [k
 GEO-säkerhetskopiering är aktiverat som standard. Om ditt informationslager är Gen1, kan du [avanmäla dig](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) om du vill. Du kan inte välja bort geo-säkerhetskopiering för Gen2 eftersom dataskydd är en inbyggd garanteras.
 
 > [!NOTE]
-> Om du behöver ett kortare Återställningspunktmål för geo-säkerhetskopiering kan rösta för den här funktionen [här](https://feedback.azure.com/forums/307516-sql-data-warehouse). Du kan också skapa en återställningspunkt för användardefinierade och återställa från den nyligen skapade återställningspunkten till ett nytt datalager i en annan region. När du har återställt ha datalagret online och kan pausa på obestämd tid för att spara beräkningskostnader. Pausad databasen medför avgifter för lagring till Azure Premium Storage-kostnad. och sedan pausa. Om du behöver en aktiv kopia av datalagret, kan du återuppta som tar bara några minuter.
+> Om du behöver ett kortare Återställningspunktmål för geo-säkerhetskopiering kan rösta på den här funktionen [här](https://feedback.azure.com/forums/307516-sql-data-warehouse). Du kan också skapa en återställningspunkt för användardefinierade och återställa från den nyligen skapade återställningspunkten till ett nytt datalager i en annan region. När du har återställt ha datalagret online och kan pausa på obestämd tid för att spara beräkningskostnader. Pausad databasen medför avgifter för lagring till Azure Premium Storage-kostnad. och sedan pausa. Om du behöver en aktiv kopia av datalagret, kan du återuppta som tar bara några minuter.
 >
 
 
 ## <a name="backup-and-restore-costs"></a>Kostnader för säkerhetskopiering och återställning
-Du ser Azure-faktura har ett radobjekt för lagring och ett radobjekt för Disaster Recovery-lagring. Avgiften för lagring är den totala kostnaden för att lagra data i den primära regionen tillsammans med de inkrementella ändringar som avbildas av ögonblicksbilder. En mer detaljerad förklaring på hur ögonblicksbilder tas för närvarande finns i den här [dokumentation](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). Geo-redundant avgiften täcker kostnaden för lagring av geo-säkerhetskopiering.  
+Du ser Azure-faktura har ett radobjekt för lagring och ett radobjekt för Disaster Recovery-lagring. Avgiften för lagring är den totala kostnaden för att lagra data i den primära regionen tillsammans med de inkrementella ändringar som avbildas av ögonblicksbilder. En mer detaljerad förklaring på hur ögonblicksbilder tas för närvarande finns i det här [dokumentation](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). Geo-redundant avgiften täcker kostnaden för lagring av geo-säkerhetskopiering.  
 
 Den totala kostnaden för din primära datalagret och sju dagar efter ögonblicksbild ändringar avrundas till närmaste TB. Till exempel att om ditt informationslager är 1,5 TB och ögonblicksbilderna samlar in 100 GB, kommer du att debiteras för 2 TB data enligt priserna för Azure Premium Storage. 
 

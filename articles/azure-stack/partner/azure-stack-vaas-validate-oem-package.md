@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: a08f439780e0080d8da2cde1531e1580dbdad14f
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: cefa32c35df4e87d4d2b983ee8c4a16dc065e774
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235478"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160463"
 ---
 # <a name="validate-oem-packages"></a>Verifiera OEM-paket
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Du kan testa ett nytt OEM-paket när det har skett en ändring av inbyggd programvara eller drivrutiner för en färdiga lösningen verifiering. När paketet har passerat testet, är det signerat av Microsoft. Testet måste innehålla det uppdaterade OEM-tilläggspaket med drivrutiner och inbyggd programvara som har klarat logotyp för Windows Server och datorer tester.
 

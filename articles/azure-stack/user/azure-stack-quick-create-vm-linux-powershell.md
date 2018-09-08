@@ -1,6 +1,6 @@
 ---
-title: Skapa en virtuell Linux-dator med hjälp av PowerShell i Azure-stacken | Microsoft Docs
-description: Skapa en virtuell Linux-dator med PowerShell i Azure-stacken.
+title: Skapa en Linux-dator med hjälp av PowerShell i Azure Stack | Microsoft Docs
+description: Skapa en Linux-dator med PowerShell i Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,39 +12,41 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/24/2018
+ms.date: 09/07/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 9d3c063dab11f31b10762e8399a1f11f2c28c3cd
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bb356a8b485817daae803d14b30832e7b1322f29
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227004"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158916"
 ---
-# <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Snabbstart: skapa en virtuell dator Linux server med PowerShell i Azure-stacken
+# <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Snabbstart: Skapa en Linux-server-dator med hjälp av PowerShell i Azure Stack
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Du kan skapa en virtuell Ubuntu Server 16.04 LTS-dator med hjälp av PowerShell för Azure-stacken. Följ stegen i den här artikeln för att skapa och använda en virtuell dator.  Den här artikeln kan du också stegen för att:
+Du kan skapa en Ubuntu Server 16.04 LTS-dator med hjälp av Azure Stack PowerShell. Följ stegen i den här artikeln för att skapa och använda en virtuell dator.  Den här artikeln ger dig också hur du:
 
-* Ansluta till den virtuella datorn med en fjärransluten klient.
-* Installera NGINX-webbserver och visa standardstartsida.
+* Anslut till den virtuella datorn med en fjärransluten klient.
+* Installera NGINX-webbservern och visa standardstartsidan.
 * Rensa oanvända resurser.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **En Linux-avbildning i Azure-stacken marketplace**
+* **En Linux-avbildning i Azure Stack marketplace**
 
-   Stacken för Azure marketplace innehåller inte en Linux-avbildning som standard. Hämta Azure Stack-operatorn för att ange den **Ubuntu Server 16.04 LTS** bilden som du behöver. Operatorn kan använda stegen som beskrivs i den [hämta marketplace-objekt från Azure till Azure-stacken](../azure-stack-download-azure-marketplace-item.md) artikel.
+   I Azure Stack marketplace innehåller inte en Linux-avbildning som standard. Hämta Azure Stack-operatör att tillhandahålla den **Ubuntu Server 16.04 LTS** avbildning som du behöver. Operatören kan använda stegen som beskrivs i den [hämta marketplace-objekt från Azure till Azure Stack](../azure-stack-download-azure-marketplace-item.md) artikeln.
 
-* Azure-stacken kräver en viss version av Azure PowerShell för att skapa och hantera resurser. Om du inte har konfigurerats för stacken Azure PowerShell, logga in på den [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), eller en Windows-baserad extern klient om du är [anslutna via VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) och följ stegen för att [ installera](azure-stack-powershell-install.md) och [konfigurera](azure-stack-powershell-configure-user.md) PowerShell.
+* Azure Stack kräver en viss version av Azure PowerShell för att skapa och hantera resurserna. Om du inte har konfigurerats för Azure Stack PowerShell, följer du stegen för att [installera](azure-stack-powershell-install.md) PowerShell.
 
-* En offentlig SSH-nyckel med namnet-id_rsa.pub sparas i katalogen .ssh på din Windows-användarprofil. Detaljerad information om hur du skapar SSH-nycklar finns [skapa SSH-nycklar i Windows](../../virtual-machines/linux/ssh-from-windows.md).
+* Med Azure Stack PowerShell ställa in, behöver du ansluta till Azure Stack-miljön. Anvisningar finns i [Anslut till Azure Stack med PowerShell som en användare](azure-stack-powershell-configure-user.md).
+
+* En offentlig SSH-nyckel med namnet-id_rsa.pub sparas i .ssh-katalogen för din Windows-användarprofil. Detaljerad information om hur du skapar SSH-nycklar finns i [skapar SSH-nycklar på Windows](../../virtual-machines/linux/ssh-from-windows.md).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-En resursgrupp är en logisk behållare där du kan distribuera och hantera resurser i Azure-stacken. Kör följande kodblock om du vill skapa en resursgrupp från din development kit eller Azure-stacken integrerat system. Tilldelar värden för alla variabler i det här dokumentet kan du använda dessa värden eller tilldela nya värden.
+En resursgrupp är en logisk behållare där du kan distribuera och hantera Azure Stack-resurser. Från din development kit eller integrerade Azure Stack-system, kör du följande kodblock för att skapa en resursgrupp. Värden har tilldelats för alla variabler i det här dokumentet kan du kan använda dessa värden eller tilldela nya värden.
 
 ```powershell
 # Create variables to store the location and resource group names.
@@ -56,9 +58,9 @@ New-AzureRmResourceGroup `
   -Location $location
 ```
 
-## <a name="create-storage-resources"></a>Skapa storage-resurser
+## <a name="create-storage-resources"></a>Skapa lagringsresurser
 
-Skapa ett lagringskonto och sedan skapa en lagringsbehållare för Ubuntu Server 16.04 LTS avbildningen.
+Skapa ett lagringskonto och sedan skapa en lagringsbehållare för Ubuntu Server 16.04 LTS-avbildning.
 
 ```powershell
 # Create variables to store the storage account name and the storage account SKU information
@@ -85,7 +87,7 @@ $container = New-AzureStorageContainer `
 
 ## <a name="create-networking-resources"></a>Skapa nätverksresurser
 
-Skapa ett virtuellt nätverk, undernät och offentlig IP-adress. Dessa resurser används för att ge nätverksanslutning till den virtuella datorn.
+Skapa ett virtuellt nätverk, undernät och offentlig IP-adress. Dessa resurser används för att skapa nätverksanslutning till den virtuella datorn.
 
 ```powershell
 # Create a subnet configuration
@@ -113,7 +115,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>Skapa en nätverkssäkerhetsgrupp och en regel för nätverkssäkerhetsgrupp
 
-Nätverkssäkerhetsgruppen skyddar den virtuella datorn med hjälp av regler för inkommande och utgående. Skapa en regel för inkommande trafik för port 3389 för att tillåta inkommande anslutningar till fjärrskrivbord och en inkommande regel för port 80 för att tillåta inkommande webbtrafik.
+Nätverkssäkerhetsgruppen skyddar den virtuella datorn med hjälp av inkommande och utgående regler. Skapa en inkommande regel för port 3389 för att tillåta inkommande anslutningar till fjärrskrivbord och en inkommande regel för port 80 för att tillåta inkommande webbtrafik.
 
 ```powershell
 # Create variables to store the network security group and rules names.
@@ -154,7 +156,7 @@ $nic = New-AzureRmNetworkInterface `
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
-Skapa en virtuell datorkonfiguration. Den här konfigurationen innehåller de inställningar som används när du distribuerar den virtuella datorn. Till exempel: användarautentiseringsuppgifter, storlek och avbildningen av virtuella datorn.
+Skapa en virtuell datorkonfiguration. Den här konfigurationen innehåller de inställningar som används för att distribuera den virtuella datorn. Till exempel: användarautentiseringsuppgifter, storlek och avbildningen av virtuella datorn.
 
 ```powershell
 # Define a credential object.
@@ -211,10 +213,10 @@ New-AzureRmVM `
   -VM $VirtualMachine
 ```
 
-## <a name="quick-create-virtual-machine---full-script"></a>Snabbt skapa virtuella datorn – fullständig skript
+## <a name="quick-create-virtual-machine---full-script"></a>Snabbt skapa virtuell dator – fullständigt skript
 
 > [!NOTE]
-> Det är mer eller mindre koden ovan samman, men med ett lösenord i stället för SSH nyckel för autentisering.
+> Det är mer eller mindre koden ovan samman, men med ett lösenord i stället för SSH-nyckeln för autentisering.
 
 ```powershell
 ## Create a resource group
@@ -388,17 +390,17 @@ När den virtuella datorn har distribuerats kan du konfigurera en SSH-anslutning
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Från en klientdator med SSH installerat, använder du följande kommando för att ansluta till den virtuella datorn. Om du arbetar med Windows, kan du använda [Putty](http://www.putty.org/) att skapa anslutningen.
+Från en klientsystem med SSH installerat använder du följande kommando för att ansluta till den virtuella datorn. Om du arbetar med Windows kan du använda [Putty](http://www.putty.org/) att skapa anslutningen.
 
 ```
 ssh <Public IP Address>
 ```
 
-När du uppmanas, anger du azureuser som användarens inloggning. Om du använder en lösenfras när du har skapat SSH-nycklar, har du att ange lösenfrasen.
+När du uppmanas, anger du azureuser som inloggad användare. Om du använde en lösenfras när du skapade SSH-nycklar, kommer du behöva ange lösenfrasen.
 
-## <a name="install-the-nginx-web-server"></a>Installera NGINX-webbserver
+## <a name="install-the-nginx-web-server"></a>Installera NGINX-webbservern
 
-Om du vill uppdatera paketet resurser och installera det senaste NGINX-paketet, kör du följande skript:
+Kör följande skript för att uppdatera paketresurser och installera det senaste NGINX-paketet:
 
 ```bash
 #!/bin/bash
@@ -412,13 +414,13 @@ apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>Visa NGINX-välkomstsidan
 
-Med NGINX installerat, och port 80 som är öppna på den virtuella datorn, kan du komma åt webbservern med hjälp av den virtuella datorns offentliga IP-adressen. Öppna en webbläsare och gå till ```http://<public IP address>```.
+När NGINX är installerat och port 80 är öppen på den virtuella datorn kan du komma åt webbservern med hjälp av den virtuella datorns offentliga IP-adressen. Öppna en webbläsare och gå till ```http://<public IP address>```.
 
-![Välkomstsida för NGINX web server](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
+![Välkomstsidan för NGINX web server](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Rensa de resurser som du inte behöver längre. Du kan använda den [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup?view=azurermps-4.3.1) kommando för att ta bort dessa resurser. Ta bort resursgruppen och alla dess resurser genom att köra följande kommando:
+Rensa de resurser som du inte behöver längre. Du kan använda den [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup?view=azurermps-4.3.1) till att ta bort de här resurserna. Om du vill ta bort resursgruppen och alla dess resurser, kör du följande kommando:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -426,4 +428,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten distribuerade virtuell dator för grundläggande Linux-server. Om du vill veta mer om Azure-stacken virtuella datorer kan du gå till [överväganden för virtuella datorer i Azure-stacken](azure-stack-vm-considerations.md).
+I den här snabbstarten har distribuerat du en grundläggande virtuell dator för Linux-servern. Om du vill veta mer om Azure Stack-datorer går du till [överväganden för virtuella datorer i Azure Stack](azure-stack-vm-considerations.md).

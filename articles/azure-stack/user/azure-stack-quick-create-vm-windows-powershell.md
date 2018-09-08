@@ -1,6 +1,6 @@
 ---
-title: Skapa en Windows-dator med hjälp av PowerShell i Azure-stacken | Microsoft Docs
-description: Skapa en virtuell Windows-dator med PowerShell i Azure-stacken.
+title: Skapa en virtuell Windows-dator med hjälp av PowerShell i Azure Stack | Microsoft Docs
+description: Skapa en virtuell Windows-dator med PowerShell i Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,24 +12,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/20/2018
+ms.date: 09/07/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 9f5752a969ff6a191ec60e175494316aea4abcaf
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: aaeed9c86f340d2eda2524922c7af9a8285a1782
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32152127"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162684"
 ---
-# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Snabbstart: skapa en virtuell dator med Windows Server med PowerShell i Azure-stacken
+# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Snabbstart: skapa en Windows Server-dator med hjälp av PowerShell i Azure Stack
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Du kan skapa en virtuell dator i Windows Server 2016 med hjälp av PowerShell för Azure-stacken. Följ stegen i den här artikeln för att skapa och använda en virtuell dator. Den här artikeln kan du också stegen för att:
+Du kan skapa en virtuell Windows Server 2016-dator med hjälp av Azure Stack PowerShell. Följ stegen i den här artikeln för att skapa och använda en virtuell dator. Den här artikeln ger dig också hur du:
 
-* Ansluta till den virtuella datorn med en fjärransluten klient.
-* Installera IIS-webbservern och visa standardstartsida.
+* Anslut till den virtuella datorn med en fjärransluten klient.
+* Installera IIS-webbservern och visa standardstartsidan.
 * Rensa dina resurser.
 
 >[!NOTE]
@@ -37,13 +37,15 @@ Du kan skapa en virtuell dator i Windows Server 2016 med hjälp av PowerShell f�
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Kontrollera att Azure Stack-operator har lagt till ”Windows Server 2016” bilden Stack för Azure marketplace.
+* Se till att Azure Stack-operatör har lagts till i **Windows Server 2016** avbildning till Azure Stack marketplace.
 
-* Azure-stacken kräver en viss version av Azure PowerShell för att skapa och hantera resurser. Om du inte har konfigurerats för stacken Azure PowerShell, följer du stegen för att [installera](azure-stack-powershell-install.md) och [konfigurera](azure-stack-powershell-configure-user.md) PowerShell.
+* Azure Stack kräver en viss version av Azure PowerShell för att skapa och hantera resurserna. Om du inte har konfigurerats för Azure Stack PowerShell, följer du stegen för att [installera](azure-stack-powershell-install.md) PowerShell.
+
+* Med Azure Stack PowerShell ställa in, behöver du ansluta till Azure Stack-miljön. Anvisningar finns i [Anslut till Azure Stack med PowerShell som en användare](azure-stack-powershell-configure-user.md).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-En resursgrupp är en logisk behållare i vilka Azure-stacken resurser distribueras och hanteras. Kör följande kodblock om du vill skapa en resursgrupp från din development kit eller Azure-stacken integrerat system. Tilldelar värden för alla variabler i det här dokumentet kan du använda dessa värden eller tilldela nya värden.
+En resursgrupp är en logisk behållare där Azure Stack resurser distribueras och hanteras. Från din development kit eller integrerade Azure Stack-system, kör du följande kodblock för att skapa en resursgrupp. Värden har tilldelats för alla variabler i det här dokumentet kan du kan använda dessa värden eller tilldela nya värden.
 
 ```powershell
 # Create variables to store the location and resource group names.
@@ -55,9 +57,9 @@ New-AzureRmResourceGroup `
   -Location $location
 ```
 
-## <a name="create-storage-resources"></a>Skapa storage-resurser
+## <a name="create-storage-resources"></a>Skapa lagringsresurser
 
-Skapa ett lagringskonto och en lagringsbehållare för lagring av Windows Server 2016-avbildningen.
+Skapa ett lagringskonto och en lagringsbehållare för att lagra avbildningen Windows Server 2016.
 
 ```powershell
 # Create variables to store the storage account name and the storage account SKU information
@@ -84,7 +86,7 @@ $container = New-AzureStorageContainer `
 
 ## <a name="create-networking-resources"></a>Skapa nätverksresurser
 
-Skapa ett virtuellt nätverk, undernät och offentlig IP-adress. Dessa resurser används för att ge nätverksanslutning till den virtuella datorn.
+Skapa ett virtuellt nätverk, undernät och offentlig IP-adress. Dessa resurser används för att skapa nätverksanslutning till den virtuella datorn.
 
 ```powershell
 # Create a subnet configuration
@@ -111,7 +113,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>Skapa en nätverkssäkerhetsgrupp och en regel för nätverkssäkerhetsgrupp
 
-Nätverkssäkerhetsgruppen skyddar den virtuella datorn med hjälp av regler för inkommande och utgående. Kan skapa en regel för inkommande trafik för port 3389 för att tillåta inkommande anslutningar till fjärrskrivbord och en inkommande regel för port 80 för att tillåta inkommande webbtrafik.
+Nätverkssäkerhetsgruppen skyddar den virtuella datorn med hjälp av inkommande och utgående regler. Nu ska vi skapa en inkommande regel för port 3389 för att tillåta inkommande anslutningar till fjärrskrivbord och en inkommande regel för port 80 för att tillåta inkommande webbtrafik.
 
 ```powershell
 # Create an inbound network security group rule for port 3389
@@ -163,7 +165,7 @@ $nic = New-AzureRmNetworkInterface `
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
-Skapa en virtuell datorkonfiguration. Den här konfigurationen innehåller de inställningar som används när du distribuerar den virtuella datorn. Till exempel: autentiseringsuppgifter, storlek och avbildningen av virtuella datorn.
+Skapa en virtuell datorkonfiguration. Den här konfigurationen innehåller de inställningar som används för att distribuera den virtuella datorn. Till exempel: autentiseringsuppgifter, storlek och avbildningen av virtuella datorn.
 
 ```powershell
 # Define a credential object to store the username and password for the virtual machine
@@ -214,14 +216,14 @@ New-AzureRmVM `
 
 ## <a name="connect-to-the-virtual-machine"></a>Ansluta till den virtuella datorn
 
-Fjärråtkomst till den virtuella datorn som du skapade i föregående steg, om du behöver den offentliga IP-adressen. Kör följande kommando för att hämta den offentliga IP-adressen för den virtuella datorn:
+Fjärråtkomst till den virtuella datorn som du skapade i föregående steg, måste du offentlig IP-adress. Kör följande kommando för att hämta den offentliga IP-adressen för den virtuella datorn:
 
 ```powershell
 Get-AzureRmPublicIpAddress `
   -ResourceGroupName $ResourceGroupName | Select IpAddress
 ```
 
-Använd följande kommando för att skapa en fjärrskrivbordssession med den virtuella datorn. Ersätt IP-adressen med publicIPAddress för den virtuella datorn. När du uppmanas, anger du användarnamn och lösenord som du använde när du skapar den virtuella datorn.
+Använd följande kommando för att skapa en fjärrskrivbordssession med den virtuella datorn. Ersätt IP-adressen med publicIPAddress för den virtuella datorn. När du uppmanas, anger du användarnamnet och lösenordet som du använde när du skapar den virtuella datorn.
 
 ```powershell
 mstsc /v <publicIpAddress>
@@ -237,13 +239,13 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>Visa välkomstsidan för IIS
 
-Du kan använda en webbläsare som du väljer för att visa välkomstsidan för IIS med IIS installerat och port 80 som är öppna på den virtuella datorn. Använd den *publicIpAddress* du dokumenterade i avsnittet ovan för att besöka sidan.
+Med IIS är installerat och port 80 är öppen på den virtuella datorn, kan du använda en webbläsare om du väljer för att visa välkomstsidan för IIS. Använd den *publicIpAddress* du dokumenterade i föregående avsnitt för att besöka standardsidan.
 
 ![Standardwebbplatsen i IIS](./media/azure-stack-quick-create-vm-windows-powershell/default-iis-website.png)
 
 ## <a name="delete-the-virtual-machine"></a>Ta bort den virtuella datorn
 
-När det inte längre behövs, Använd följande kommando för att ta bort resursgruppen som innehåller den virtuella datorn och dess relaterade resurser:
+När den inte längre behövs kan använda följande kommando för att ta bort resursgruppen som innehåller den virtuella datorn och dess relaterade resurser:
 
 ```powershell
 Remove-AzureRmResourceGroup `
@@ -252,4 +254,4 @@ Remove-AzureRmResourceGroup `
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har distribuerat en enkel Windows virtuell dator i den här snabbstarten. Om du vill veta mer om Azure-stacken virtuella datorer kan fortsätta att [överväganden för virtuella datorer i Azure-stacken](azure-stack-vm-considerations.md).
+I den här snabbstarten har du distribuerat en enkel Windows-dator. Om du vill veta mer om Azure Stack-datorer kan fortsätta att [överväganden för virtuella datorer i Azure Stack](azure-stack-vm-considerations.md).

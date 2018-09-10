@@ -16,14 +16,21 @@
 ### [Nätverksarkitektur](hana-network-architecture.md)
 ### [Lagringsarkitektur](hana-storage-architecture.md)
 ### [HLI-scenarier som stöds](hana-supported-scenario.md)
-## [Infrastruktur och anslutningsmöjlighet](hana-overview-infrastructure-connectivity.md)
-## [Installera SAP HANA](hana-installation.md)
+## Infrastruktur och anslutning
+### [HLI-distribution](hana-overview-infrastructure-connectivity.md)
+### [Ansluta virtuella Azure-datorer till HANA – stora instanser](hana-connect-azure-vm-large-instances.md)
+### [Ansluta ett virtuellt nätverk till HANA – stora instanser ExpressRoute](hana-connect-vnet-express-route.md)
+### [Ytterligare nätverkskrav](hana-additional-network-requirements.md)
+## Installera SAP HANA
+### [Verifiera konfigurationen](hana-installation.md)
+### [Exempel på HANA-installation](hana-example-installation.md)
 ## [Hög tillgänglighet och haveriberedskap](hana-overview-high-availability-disaster-recovery.md)
 ## [Felsök och övervaka](troubleshooting-monitoring.md)
 ## Gör så här för att
 ### [Konfiguration för hög tillgänglighet med STONITH](ha-setup-with-stonith.md)
 ### [Säkerhetskopiering av operativsystem för Type II-SKU:er](os-backup-type-ii-skus.md)
 ### [Uppgradering av operativsystem för HANA på stora instanser](os-upgrade-hana-large-instance.md)
+### [Konfigurera SMT-server för SUSE Linux](hana-setup-smt.md)
 # SAP HANA på Azure Virtual Machines
 ## [Enkel instans av SAP HANA-installation](hana-get-started.md)
 ## [Distributionsguide för S/4 HANA eller BW/4 HANA SAP CAL](cal-s4h.md)

@@ -1,6 +1,6 @@
 ---
-title: Inbyggda roller i Azure | Microsoft Docs
-description: Beskriver de inbyggda rollerna för rollbaserad åtkomstkontroll (RBAC) i Azure. Visar en lista över åtgärder, NotActions, DataActions och NotDataActions.
+title: Inbyggda roller för Azure-resurser | Microsoft Docs
+description: Beskriver de inbyggda rollerna för rollbaserad åtkomstkontroll (RBAC) och Azure-resurser. Visar en lista över åtgärder, NotActions, DataActions och NotDataActions.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,18 +11,18 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/19/2018
+ms.date: 09/06/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: e03b2ab45edd57a124dcc960ff518ece4902d2fa
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 44b32746c43569705b445ac5df0a5727463acbe0
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048376"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44095342"
 ---
-# <a name="built-in-roles-in-azure"></a>Inbyggda roller i Azure
+# <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 [Rollbaserad åtkomstkontroll (RBAC)](overview.md) har flera inbyggda rolldefinitioner som du kan tilldela till användare, grupper och tjänstens huvudnamn. Rolltilldelningar är det sätt som du styr åtkomst till resurser i Azure. Om de inbyggda rollerna inte uppfyller organisationens specifika krav kan du skapa egna, [anpassade roller](custom-roles.md).
 
 De inbyggda rollerna är alltid under utveckling. Hämta de senaste rolldefinitionerna för [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) eller [az role definition list](/cli/azure/role/definition#az-role-definition-list).
@@ -43,7 +43,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 | [Operatörsroll för API Management](#api-management-service-operator-role) | Kan hantera tjänsten men inte API:er |
 | [Läsarroll för API Management-tjänsten](#api-management-service-reader-role) | Skrivskyddad åtkomst till tjänst och API:er |
 | [Application Insights-Komponentdeltagare](#application-insights-component-contributor) | Kan hantera Application Insights-komponenter |
-| [Application Insights Snapshot Debugger](#application-insights-snapshot-debugger) | Ger användarbehörighet att visa och hämta ögonblicksbilder för felsökning som samlas in med Application Insights Snapshot Debugger. Observera att den här rollen ingår i varken den [ägare](#owner) eller [deltagare](#contributor) roller. |
+| [Application Insights Snapshot Debugger](#application-insights-snapshot-debugger) | Ger användarbehörighet att visa och hämta ögonblicksbilder för felsökning som samlas in med Application Insights Snapshot Debugger. Observera att dessa behörigheter inte ingår i den [ägare](#owner) eller [deltagare](#contributor) roller. |
 | [Automation-Jobboperator](#automation-job-operator) | Skapa och hantera jobb med Automation Runbooks. |
 | [Automation-operatör](#automation-operator) | Automation-operatörer kan starta, stoppa, göra uppehåll i och återuppta jobb |
 | [Automation Runbook-Operator](#automation-runbook-operator) | Läs runbook-egenskaperna för att kunna skapa jobb av den runbooken. |
@@ -62,10 +62,11 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 | [Klassisk nätverksdeltagare](#classic-network-contributor) | Låter dig hantera klassiska nätverk, men ger dig inte tillgång till dem. |
 | [Klassisk Lagringskontodeltagare](#classic-storage-account-contributor) | Låter dig hantera klassiska lagringskonton, men ger dig inte åtkomst att hantera dem. |
 | [Tjänstroll som operatör av Lagringskontonyckel konto klassisk lagring](#classic-storage-account-key-operator-service-role) | Operatörer av klassiska lagringskontonycklar får lista och återskapa nycklar till klassiska lagringskonton |
-| [Klassisk virtuell Datordeltagare](#classic-virtual-machine-contributor) | Låter dig hantera klassiska virtuella datorer, men ger dig inte tillgång till dem eller till det virtuella nätverk eller lagringskonto som de är anslutna till.|
+| [Klassisk virtuell Datordeltagare](#classic-virtual-machine-contributor) | Låter dig hantera klassiska virtuella datorer, men ger dig inte tillgång till dem eller till det virtuella nätverk eller lagringskonto som de är anslutna till. |
+| [Cognitive Services-användare](#cognitive-services-user) | Kan du läsa och lista nycklar för Cognitive Services. |
 | [Läsarroll för cosmos DB-konto](#cosmos-db-account-reader-role) | Kan läsa data i Azure Cosmos DB-konto. Se [DocumentDB-Kontodeltagare](#documentdb-account-contributor) för att hantera Azure Cosmos DB-konton. |
 | [Data Box-deltagare](#data-box-contributor) | Låter dig hantera allt under Data Box-tjänsten förutom att ge åtkomst till andra. |
-| [Data Box-Operator](#data-box-operator) | Låter dig hantera Data Box-tjänsten förutom att skapas eller redigera orderinformationen och ge åtkomst till andra. |
+| [Data Box-läsare](#data-box-reader) | Låter dig hantera Data Box-tjänsten förutom att skapas eller redigera orderinformationen och ge åtkomst till andra. |
 | [Data Factory-deltagare](#data-factory-contributor) | Låter dig hantera datafabriker, men ger dig inte tillgång till dem. |
 | [Data Lake Analytics-utvecklare](#data-lake-analytics-developer) | Låter dig skicka in, övervaka och hantera dina egna jobb, men inte skapa eller ta bort Data Lake Analytics-konton. |
 | [Data Purger](#data-purger) | Det går att rensa analysdata |
@@ -80,6 +81,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 | [Logic App-deltagare](#logic-app-contributor) | Låter dig hantera logikappar, men du kan inte komma åt dem. |
 | [Logic App-operatör](#logic-app-operator) | Låter dig läsa, aktivera och inaktivera logikapp. |
 | [Operatörsroll för hanterat program](#managed-application-operator-role) | Du kan läsa och utföra åtgärder på hanterade resurser |
+| [Läsare för hanterade program](#managed-applications-reader) | Kan du läsa resurser i en hanterad app och begära JIT-åtkomst. |
 | [Hanterad Identitetsdeltagare](#managed-identity-contributor) | Skapa, läs, uppdatera och ta bort användartilldelad identitet |
 | [Hanterade Identitetsoperatör](#managed-identity-operator) | Läs och tilldela användartilldelad identitet |
 | [Hanteringsgrupp-deltagare](#management-group-contributor) | Rollen hanteringsgrupp-deltagare |
@@ -259,7 +261,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Ger användarbehörighet för att använda funktionerna i Application Insights Snapshot Debugger |
+> | **Beskrivning** | Ger användarbehörighet att visa och hämta ögonblicksbilder för felsökning som samlas in med Application Insights Snapshot Debugger. Observera att dessa behörigheter inte ingår i den [ägare](#owner) eller [deltagare](#contributor) roller. |
 > | **Id** | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
@@ -653,6 +655,27 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 
+## <a name="cognitive-services-user"></a>Cognitive Services-användare
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Kan du läsa och lista nycklar för Cognitive Services. |
+> | **Id** | a97b65f3-24c7-4388-baec-2e87135dc908 |
+> | **Åtgärder** |  |
+> | Microsoft.CognitiveServices/*/read |  |
+> | Microsoft.CognitiveServices/accounts/listkeys/action | Lista över nycklar |
+> | Microsoft.Insights/metricdefinitions/read | Läs måttdefinitioner |
+> | Microsoft.Insights/metrics/read | Läs mått |
+> | Microsoft.Insights/alertRules/read | Läsa en klassisk måttavisering |
+> | Microsoft.Insights/diagnosticSettings/read | Läsa en resursdiagnostikinställning |
+> | Microsoft.Insights/logDefinitions/read | Läs Loggdefinitioner |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighetsstatusarna för alla resurser i det angivna området |
+> | Microsoft.Resources/deployments/operations/read | Hämtar eller listar distributionsåtgärder. |
+> | Microsoft.Resources/subscriptions/operationresults/read | Hämtar prenumerationsåtgärdsresultaten. |
+> | Microsoft.Resources/subscriptions/read | Hämtar listan över prenumerationer. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
+> | Microsoft.Support/* | Skapa och hantera supportärenden |
+
 ## <a name="cosmos-db-account-reader-role"></a>Läsarroll för Cosmos DB-konto
 > [!div class="mx-tableFixed"]
 > | | |
@@ -682,7 +705,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | Microsoft.Databox/* |  |
 
-## <a name="data-box-operator"></a>Data Box-Operator
+## <a name="data-box-reader"></a>Data Box-läsare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -690,9 +713,11 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | **Id** | 028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027 |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
+> | Microsoft.Databox/*/read |  |
+> | Microsoft.Databox/jobs/listsecrets/action | Visar lista med okrypterade hemligheter för beställningen. |
+> | Microsoft.Databox/locations/availableSkus/action | Den här metoden returnerar listan över tillgängliga SKU:er. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighetsstatusarna för alla resurser i det angivna området |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
-> | Microsoft.Databox/jobs/listsecrets/action | Visar lista med okrypterade hemligheter för beställningen. |
 
 ## <a name="data-factory-contributor"></a>Data Factory-deltagare
 > [!div class="mx-tableFixed"]
@@ -865,6 +890,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.LabServices/labAccounts/*/read |  |
 > | Microsoft.LabServices/labAccounts/createLab/action | Skapa ett labb i ett labbkonto. |
 > | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action | Hämta information om regional tillgänglighet för varje kategori för storlek som konfigurerats under ett labbkonto |
+> | Microsoft.LabServices/labAccounts/getRegionalAvailability/action | Hämta information om regional tillgänglighet för varje kategori för storlek som konfigurerats under ett labbkonto |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 
@@ -964,6 +990,17 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | **Åtgärder** |  |
 > | Microsoft.Solutions/applications/read | Hämtar en lista över program. |
 
+## <a name="managed-applications-reader"></a>Läsare för hanterade program
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Kan du läsa resurser i en hanterad app och begära JIT-åtkomst. |
+> | **Id** | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
+> | **Åtgärder** |  |
+> | * / läsa | Läsa resurser av alla typer utom hemligheter. |
+> | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
+> | Microsoft.Solutions/jitRequests/* |  |
+
 ## <a name="managed-identity-contributor"></a>Hanterad identitetsdeltagare
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1045,7 +1082,8 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/action | Hämtar de delade nycklarna för arbetsytan. De här nycklarna används för att ansluta Microsoft Operational Insights-agenter till arbetsytan. |
 > | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Läs/Skriv/ta bort Log Analytics insight lagringskonfigurationer. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
-> | Microsoft.WorkloadMonitor/workloads/* |  |
+> | Microsoft.WorkloadMonitor/monitors/* |  |
+> | Microsoft.WorkloadMonitor/notificationSettings/* |  |
 > | Microsoft.WorkloadMonitor/workloadInsights/* |  |
 
 ## <a name="monitoring-metrics-publisher"></a>Övervaka mått utgivare

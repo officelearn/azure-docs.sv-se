@@ -1,40 +1,36 @@
 ---
-title: Konfigurera Azure funktionen App-inställningar | Microsoft Docs
-description: Lär dig hur du konfigurerar Azure funktionen app-inställningar.
+title: Konfigurera inställningar för Azure-funktion | Microsoft Docs
+description: Lär dig mer om att konfigurera inställningar för Azure-funktion.
 services: ''
 documentationcenter: .net
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: dotnet
-ms.devlang: na
-ms.topic: article
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 8974b2ca243da5dd2f7202c66602f7254496d040
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 90b5009b3b260a0f4245459467ae248f800ad818
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30283810"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094543"
 ---
-# <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Så här hanterar du en funktionsapp i Azure-portalen 
+# <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Så här hanterar du en funktionsapp i Azure portal 
 
-I Azure Functions ger en funktionsapp körningskontexten för dina enskilda funktioner. Funktionen app beteenden gäller för alla funktioner hos en viss funktionsapp. Det här avsnittet beskriver hur du konfigurerar och hanterar dina appar för funktionen i Azure-portalen.
+I Azure Functions tillhandahåller en funktionsapp körningssammanhang för dina enskilda funktioner. Funktionen app beteenden som gäller för alla funktioner som är värd för en viss funktionsapp. Det här avsnittet beskriver hur du konfigurerar och hanterar dina funktionsappar i Azure-portalen.
 
-Börja, gå till den [Azure-portalen](http://portal.azure.com) och logga in på ditt Azure-konto. I sökfältet längst upp i portalen skriver du namnet på din funktionsapp. Välj den sedan i listan. När du har valt appen funktion, visas följande sida:
+Börja, gå till den [Azure-portalen](http://portal.azure.com) och logga in på ditt Azure-konto. I sökfältet längst upp i portalen skriver du namnet på din funktionsapp. Välj den sedan i listan. När du har valt din funktionsapp, ser du följande sida:
 
-![Översikt över funktionen app i Azure-portalen](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
+![Översikt över funktionen i Azure portal](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-## <a name="favorite"></a>Favorit funktioner i portalen 
+## <a name="favorite"></a>Funktionerna i portalen 
 
-Det kan ibland vara svårt att söka efter resurser i den [Azure-portalen]. Om du vill göra det lättare att hitta funktionen-appar som du har skapat, att lägga till funktionen appar i dina Favoriter i portalen. 
+Det kan ibland vara svårt att hitta dina resurser i den [Azure Portal]. Om du vill göra det enklare att hitta funktionsappar som du har skapat, att lägga till Funktionsappar i dina Favoriter på portalen. 
 
-1. Logga in på [Azure-portalen].
+1. Logga in på [Azure Portal].
 
 2. Klicka på pilen längst ned till vänster för att expandera alla tjänster, skriv `Functions` i fältet **Filter** och klicka sedan på stjärnan bredvid **Funktionsappar**.  
  
@@ -44,31 +40,31 @@ Det kan ibland vara svårt att söka efter resurser i den [Azure-portalen]. Om d
 
 3. Stäng menyn och bläddra ned till slutet så att du ser funktionsikonen. Klicka på ikonen för att visa alla dina funktionsappar. Klicka på funktionsappen för att arbeta med funktionerna i den här appen. 
  
-    ![Funktionen appar i Favoriter](./media/functions-how-to-use-azure-function-app-settings/functions-function-apps-hub.png)
+    ![Funktionsappar i Favoriter](./media/functions-how-to-use-azure-function-app-settings/functions-function-apps-hub.png)
  
-[Azure-portalen]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
 ## <a name="manage-app-service-settings"></a>Fliken för funktionen app-inställningar
 
-![Funktionen app översikt i Azure-portalen.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
+![Funktionen översikt över Azure-portalen.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-Den **inställningar** är där du kan uppdatera funktioner körtidsversion som används av din funktionsapp. Det är också där du hanterar värd-nycklar som används för att begränsa HTTP-åtkomst till alla funktioner som appen funktionen som värd.
+Den **inställningar** fliken är där du kan uppdatera Functions runtime-versionen som används av din funktionsapp. Det är också där du hanterar värdnycklar som används för att begränsa HTTP-åtkomst till alla funktioner som är värd för funktionsappen.
 
-Funktioner stöder både förbrukning värd och Apptjänst som är värd för planer. Mer information finns i [väljer du rätt serviceplan för Azure Functions](functions-scale.md). För bättre förutsägbarhet i planen förbrukning funktioner kan du begränsa användning av plattform genom att ange en daglig användning kvot i GB-sekunder. När den dagliga kvoten har nåtts kan har funktionen appen stoppats. En funktionsapp stoppades på grund av når utgiftsgränsen kvoten kan aktiveras igen från samma kontext som upprätta dagligen utgifter kvoten. Finns det [Azure Functions sida med priser](http://azure.microsoft.com/pricing/details/functions/) information om fakturering.   
+Functions har stöd för både som är värd för förbrukning och App Service som är värd för planer. Mer information finns i [Välj korrekt tjänsteplan för Azure Functions](functions-scale.md). Funktioner för bättre förutse förbrukningsplanen kan du begränsa plattformsanvändningen genom att ange en kvot för daglig användning i gigabyte-sekunder. När dagskvoten uppnås stoppas funktionsappen. En funktionsapp som stoppats på grund av når utgiftsgränsen kvoten kan återaktiveras från samma kontext som upprättar dagliga utgiftskvot. Se den [Azure Functions sidan med priser](http://azure.microsoft.com/pricing/details/functions/) mer information om fakturering.   
 
-## <a name="platform-features-tab"></a>Plattform funktioner fliken
+## <a name="platform-features-tab"></a>Plattformen funktioner fliken
 
-![Funktionen app plattform funktioner fliken.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
+![Funktionen app-plattformen funktioner fliken.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
 
-Funktionen appar körs i och underhålls av Azure App Service-plattformen. Därför har funktionen-appar åtkomst till de flesta av funktionerna i Azures core webbvärd plattform. Den **plattformsfunktioner** fliken är där du kan komma åt de många funktionerna i Apptjänst-plattformen som du kan använda i dina appar för funktionen. 
+Funktionsappar körs i och hanteras av Azure App Service-plattformen. Dina funktionsappar har därför åtkomst till de flesta av funktionerna i Azure core webbvärdtjänster plattform. Den **plattformsfunktioner** fliken är där du kan komma åt de många funktionerna i App Service-plattformen som du kan använda i dina funktionsappar. 
 
 > [!NOTE]
-> Inte alla Apptjänst funktioner är tillgängliga när en funktionsapp körs på förbrukningen värd plan.
+> Inte alla App Service-funktioner är tillgängliga när en funktionsapp som körs på förbrukningen som är värd för planen.
 
-Resten av det här avsnittet fokuserar på följande Apptjänst funktioner i Azure portal som är användbara för funktioner:
+Resten av det här avsnittet fokuserar på de följande App Service-funktioner i Azure-portalen som är användbara för funktioner:
 
-+ [Redigeraren för Apptjänst](#editor)
-+ [Programinställningar](#settings) 
++ [App Service editor](#editor)
++ [programinställningar](#settings) 
 + [Konsol](#console)
 + [Avancerade verktyg (Kudu)](#kudu)
 + [Distributionsalternativ](#deployment)
@@ -76,21 +72,21 @@ Resten av det här avsnittet fokuserar på följande Apptjänst funktioner i Azu
 + [Autentisering](#auth)
 + [API-definition](#swagger)
 
-Mer information om hur du arbetar med App Service-inställningar finns [konfigurera inställningarna för Azure App Service](../app-service/web-sites-configure.md).
+Mer information om hur du arbetar med App Service-inställningar finns i [konfigurera Azure App Service-inställningarna](../app-service/web-sites-configure.md).
 
 ### <a name="editor"></a>App Service Editor
 
 | | |
 |-|-|
-| ![Funktionsapp Apptjänst-redigeraren.](./media/functions-how-to-use-azure-function-app-settings/function-app-appsvc-editor.png)  | Redigeraren för Apptjänst är en avancerad i portalen redigerare som du kan använda för att ändra JSON-konfigurationsfiler och kodfiler likadan. Det här alternativet startar en separat webbläsarflik med ett grundläggande redigeringsprogram. På så sätt kan du integrera med Git-lagringsplatsen, köra och felsöka kod och ändra funktionen app-inställningar. Den här redigeraren ger en förbättrad utvecklingsmiljön för dina funktioner jämfört med bladet standard funktionen.    |
+| ![Funktionsapp App Service editor.](./media/functions-how-to-use-azure-function-app-settings/function-app-appsvc-editor.png)  | App Service-redigeraren är en avancerad redigerare i portalen som du kan använda för att ändra JSON-konfigurationsfiler och kodfiler både. Det här alternativet startar en separat webbläsarflik med en grundläggande redigerare. På så sätt kan du integrera med Git-lagringsplats, köra och felsöka kod och ändra funktionsappinställningarna. Den här redigeraren ger en förbättrad utvecklingsmiljö för dina funktioner jämfört med standard-funktionen appbladet.    |
 
-![Redigeraren för Apptjänst](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
+![App Service-redigeraren](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
-### <a name="settings"></a>Programinställningar
+### <a name="settings"></a>programinställningar
 
 | | |
 |-|-|
-| ![Funktionen app programinställningar.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | App Service **programinställningar** bladet är där du kan konfigurera och hantera framework-versioner, fjärrfelsökning, app-inställningar och anslutningssträngar. Du kan ändra de här inställningarna när du integrerar dina funktionsapp med andra Azure och tjänster från tredje part. Om du vill ta bort en inställning, bläddra till höger och markera den **X** längst till höger på raden (visas inte i följande bild).
+| ![Programinställningar för funktionen app.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | App Service- **programinställningar** bladet kan du konfigurera och hantera framework-versioner, fjärrfelsökning, appinställningar och anslutningssträngar. När du integrerar din funktionsapp med andra Azure och tjänster från tredje part, kan du ändra dessa inställningar här. Ta bort en inställning genom att bläddra till höger och välj den **X** ikonen längst till höger på raden (visas inte i följande bild).
 
 ![Konfigurera programinställningar](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
@@ -98,7 +94,7 @@ Mer information om hur du arbetar med App Service-inställningar finns [konfigur
 
 | | |
 |-|-|
-| ![Funktionen app-konsolen i Azure-portalen](./media/functions-how-to-use-azure-function-app-settings/function-app-console.png) | I portalen konsolen är ett perfekt developer verktyg när du föredrar att arbeta med funktionen appen från kommandoraden. Vanliga kommandon omfattar directory skapas och navigering, samt och köra batch-filer och skript. |
+| ![Funktionen app-konsolen i Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-console.png) | Konsolen i portalen är ett perfekt utvecklarverktyget när du föredrar att interagera med din funktionsapp från kommandoraden. Vanliga kommandon är directory och skapa en fil och navigering, samt köra batch-filer och skript. |
 
 ![Funktionen app-konsolen](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
 
@@ -106,7 +102,7 @@ Mer information om hur du arbetar med App Service-inställningar finns [konfigur
 
 | | |
 |-|-|
-| ![Funktionsapp Kudu i Azure-portalen](./media/functions-how-to-use-azure-function-app-settings/function-app-advanced-tools.png) | Avancerade verktyg för Apptjänst (även kallat Kudu) ger åtkomst till appen funktionen avancerade administrativa funktioner. Från Kudu Hantera Systeminformation, app-inställningar, miljövariabler, webbplatstillägg, HTTP-huvuden och servervariabler. Du kan också starta **Kudu** genom att bläddra till SCM-slutpunkten för din funktionsapp som `https://<myfunctionapp>.scm.azurewebsites.net/` |
+| ![Kudu-funktionsapp i Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-advanced-tools.png) | Avancerade verktyg för App Service (även kallat Kudu) ger åtkomst till avancerade administrativa funktioner i din funktionsapp. Från Kudu hanterar du Systeminformation, app-inställningar, miljövariabler, webbplatstillägg, HTTP-huvuden och servervariabler. Du kan också starta **Kudu** genom att bläddra till SCM-slutpunkten för din funktionsapp, som `https://<myfunctionapp>.scm.azurewebsites.net/` |
 
 ![Konfigurera Kudu](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
 
@@ -115,22 +111,22 @@ Mer information om hur du arbetar med App Service-inställningar finns [konfigur
 
 | | |
 |-|-|
-| ![Distributionsalternativ för funktionen app i Azure-portalen](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | Funktioner kan du utveckla Funktionskoden på din lokala dator. Du kan sedan överföra dina lokala funktionen app-projekt till Azure. Utöver traditionella FTP överför funktioner kan du distribuera appen funktionen med hjälp av populära kontinuerlig integration lösningar som GitHub, VSTS, Dropbox, Bitbucket och andra. Mer information finns i [kontinuerlig distribution för Azure Functions](functions-continuous-deployment.md). Om du vill överföra manuellt med hjälp av FTP- eller lokal Git, du måste också [konfigurera dina autentiseringsuppgifter för distribution](functions-continuous-deployment.md#credentials). |
+| ![Funktionen app-distributionsalternativ i Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | Functions kan du utveckla Funktionskoden på den lokala datorn. Du kan sedan överföra ditt lokala funktionsappsprojekt till Azure. Utöver traditionella FTP-överföring kan du distribuera funktionsappen med hjälp av populära kontinuerlig integreringslösningar som GitHub, VSTS, Dropbox, Bitbucket och andra funktioner. Mer information finns i [kontinuerlig distribution för Azure Functions](functions-continuous-deployment.md). Om du vill ladda upp manuellt med hjälp av FTP- eller lokal Git måste du också måste [konfigurera dina autentiseringsuppgifter för distribution](functions-continuous-deployment.md#credentials). |
 
 
 ### <a name="cors"></a>CORS
 
 | | |
 |-|-|
-| ![Funktionsapp CORS i Azure-portalen](./media/functions-how-to-use-azure-function-app-settings/function-app-cors.png) | För att förhindra att skadlig kod i dina tjänster, blockerar Apptjänst anrop till funktionen appar från externa källor. Functions stöder resursdelning för korsande ursprung (CORS) om du vill kan du definiera ”godkänd” tillåtna ursprung som dina funktioner kan acceptera fjärrbegäranden.  |
+| ![Funktionsapp CORS i Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-cors.png) | App Service blockerar anrop till dina funktionsappar från externa källor för att förhindra körning av skadlig kod i dina tjänster. Functions har stöd för cross-origin resource sharing (CORS) om du vill kan du definiera en ”lista över tillåtna” tillåtna ursprung som dina funktioner kan acceptera fjärr-förfrågningar.  |
 
-![Konfigurera Funktionsapp CORS](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
+![Konfigurera Funktionsappens CORS](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
 
 ### <a name="auth"></a>Autentisering
 
 | | |
 |-|-|
-| ![Funktionen app autentisering i Azure-portalen](./media/functions-how-to-use-azure-function-app-settings/function-app-authentication.png) | När funktioner använder en HTTP-utlösare kan kräva du anrop till först autentiseras. Apptjänst har stöd för Azure Active Directory-autentisering och logga in med sociala leverantörer, till exempel Facebook, Microsoft och Twitter. Mer information om hur du konfigurerar specifika autentiseringsproviders finns [översikt över Azure App Service-autentisering](../app-service/app-service-authentication-overview.md). |
+| ![Funktionen app-autentisering i Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-authentication.png) | När funktioner använder en HTTP-utlösare kan kräva du anrop till först autentiseras. App Service har stöd för Azure Active Directory-autentisering och logga in med sociala leverantörer, till exempel Facebook, Microsoft och Twitter. Mer information om hur du konfigurerar specifika autentiseringsproviders finns i [översikt över Azure App Service-autentisering](../app-service/app-service-authentication-overview.md). |
 
 ![Konfigurera autentisering för en funktionsapp](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
@@ -139,7 +135,7 @@ Mer information om hur du arbetar med App Service-inställningar finns [konfigur
 
 | | |
 |-|-|
-| ![Funktionen app API swagger-definition i Azure-portalen](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functions stöder Swagger så att klienterna kan enkelt använda din HTTP-utlösta funktioner. Mer information om hur du skapar API-definitioner med Swagger finns [värd för en RESTful-API med CORS i Azure App Service](../app-service/app-service-web-tutorial-rest-api.md). Du kan också använda funktioner proxyservrar för att definiera en enda API-yta för flera funktioner. Mer information finns i [arbeta med Azure Functions proxyservrar](functions-proxies.md). |
+| ![Funktionen app API swagger-definition i Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functions har stöd för Swagger ska tillåta klienter att enkelt använda din HTTP-utlösta funktioner. Mer information om hur du skapar API-definitioner med Swagger finns [vara värd för en RESTful-API med CORS i Azure App Service](../app-service/app-service-web-tutorial-rest-api.md). Du kan också använda Functions Proxies för att definiera en enda API-yta för flera funktioner. Mer information finns i [arbeta med Azure Functions Proxies](functions-proxies.md). |
 
 ![Konfigurera Funktionsapp-API](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
 

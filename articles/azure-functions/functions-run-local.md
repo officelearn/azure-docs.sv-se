@@ -5,21 +5,18 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-editor: ''
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: multiple
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: glenga
-ms.openlocfilehash: cb336d6742aab10e1fd8305fd52f1376bb4f2598
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 294dea695f120ff47712e0ccf79072a41baca07b
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42055881"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092826"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -213,7 +210,7 @@ När ingen giltig lagringsanslutningssträng har angetts för **AzureWebJobsStor
 
 Även om du använder storage-emulatorn för utveckling, kan du vill testa med en verkligt lagringsutrymme-anslutning. Om vi antar att du redan har [skapat ett lagringskonto](../storage/common/storage-create-storage-account.md), du kan hämta en giltig lagringsanslutningssträng i något av följande sätt:
 
-+ Från den [Azure-portalen]. Gå till ditt lagringskonto väljer **åtkomstnycklar** i **inställningar**, kopiera en av de **anslutningssträngen** värden.
++ Från den [Azure Portal]. Gå till ditt lagringskonto väljer **åtkomstnycklar** i **inställningar**, kopiera en av de **anslutningssträngen** värden.
 
   ![Kopiera anslutningssträngen från Azure-portalen](./media/functions-run-local/copy-storage-connection-portal.png)
 
@@ -423,7 +420,7 @@ Du kan använda följande alternativ:
 
 Det här kommandot publicerar till en befintlig funktionsapp i Azure. Ett fel uppstår när den `<FunctionAppName>` finns inte i din prenumeration. Läs hur du skapar en funktionsapp från Kommandotolken eller med hjälp av Azure CLI-terminalfönstret i [skapa en Funktionsapp för serverlös körning](./scripts/functions-cli-create-serverless.md).
 
-Den `publish` kommando laddar upp innehållet i projektkatalogen funktioner. Om du tar bort filer lokalt, den `publish` kommandot tar inte bort dem från Azure. Du kan ta bort filer i Azure med hjälp av den [Kudu-verktyget](functions-how-to-use-azure-function-app-settings.md#kudu) i den [Azure-portalen].  
+Den `publish` kommando laddar upp innehållet i projektkatalogen funktioner. Om du tar bort filer lokalt, den `publish` kommandot tar inte bort dem från Azure. Du kan ta bort filer i Azure med hjälp av den [Kudu-verktyget](functions-how-to-use-azure-function-app-settings.md#kudu) i den [Azure Portal].  
 
 >[!IMPORTANT]  
 > När du skapar en funktionsapp i Azure använder version 1.x av funktionskörningen som standard. Att göra funktionen app Använd version 2.x av körning, Lägg till inställningen `FUNCTIONS_EXTENSION_VERSION=beta`.  
@@ -443,5 +440,5 @@ Till filen en bugg eller funktionen begäran [öppna ett GitHub-ärende](https:/
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure-portalen]: https://portal.azure.com 
+[Azure Portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows

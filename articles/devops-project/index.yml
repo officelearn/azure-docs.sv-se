@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: dd941fcb57c358e33abe0da54ab8f76f2dccae28
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295234"
 documentType: LandingData
 title: Azure DevOps-projekt
 metadata:
-  document_id: 
+  document_id: null
   title: Dokumentation för Azure DevOps-projekt – snabbstart och självstudier
-  meta.description: 
+  meta.description: null
   services: devops-project
   author: mlearned
   manager: douge
@@ -21,61 +15,61 @@ metadata:
   ms.date: 07/06/2018
   ms.author: mlearned
 abstract:
-  description: Azure DevOps-projektet ger ett förenklat sätt att ta med befintlig kod och Git-lagringsplatser i Azure, eller välja ett av exempelprogrammen för att skapa en pipeline för kontinuerlig integration (CI) och kontinuerlig leverans (CD) till Azure.
+  description: 'Azure DevOps-projektet ger ett förenklat sätt att ta med befintlig kod och Git-lagringsplatser i Azure, eller välja ett av exempelprogrammen för att skapa en pipeline för kontinuerlig integration (CI) och kontinuerlig leverans (CD) till Azure.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: _img\video-devops-project.png
       width: 250
-    title: Skapa CI/CD med Azure DevOps-projektvideo (8:53)
-    href: https://channel9.msdn.com/Events/Connect/2017/T174/player/
+    title: 'Skapa CI/CD med Azure DevOps-projektvideo (8:53)'
+    href: 'https://channel9.msdn.com/Events/Connect/2017/T174/player/'
     width: 250
 sections:
-- title: Snabbstarter på 5 minuter
-  items:
-  - type: paragraph
-    text: 'Lär dig hur du bygger apptyper och distribuerar dem till den Azure-tjänst du har valt:'
-  - type: list
-    style: icon48
+  - title: Snabbstarter på 5 minuter
     items:
-    - image:
-        src: media\logo_net.svg
-      text: .NET
-      href: /azure/devops-project/azure-devops-project-aspnet-core
-    - image:
-        src: media\logo_nodejs.svg
-      text: Node.js
-      href: /azure/devops-project/azure-devops-project-nodejs
-    - image:
-        src: media\logo_java.svg
-      text: Java
-      href: /azure/devops-project/azure-devops-project-java
-    - image:
-        src: media\logo_python.svg
-      text: Python
-      href: /azure/devops-project/azure-devops-project-python
-    - image:
-        src: media\logo_php.svg
-      text: PHP
-      href: /azure/devops-project/azure-devops-project-php
-    - image:
-        src: media\logo_ruby.svg
-      text: Ruby
-      href: /azure/devops-project/azure-devops-project-ruby
-    - image:
-        src: media\logo_gopher.svg
-      text: Go
-      href: /azure/devops-project/azure-devops-project-go
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: Lär dig hur du använder Azure DevOps-projekt för att skapa pipeliner för Azure-releaser
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Lär dig hur du bygger apptyper och distribuerar dem till den Azure-tjänst du har valt:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media\logo_net.svg
+            text: .NET
+            href: /azure/devops-project/azure-devops-project-aspnet-core
+          - image:
+              src: media\logo_nodejs.svg
+            text: Node.js
+            href: /azure/devops-project/azure-devops-project-nodejs
+          - image:
+              src: media\logo_java.svg
+            text: Java
+            href: /azure/devops-project/azure-devops-project-java
+          - image:
+              src: media\logo_python.svg
+            text: Python
+            href: /azure/devops-project/azure-devops-project-python
+          - image:
+              src: media\logo_php.svg
+            text: PHP
+            href: /azure/devops-project/azure-devops-project-php
+          - image:
+              src: media\logo_ruby.svg
+            text: Ruby
+            href: /azure/devops-project/azure-devops-project-ruby
+          - image:
+              src: media\logo_gopher.svg
+            text: Go
+            href: /azure/devops-project/azure-devops-project-go
+  - title: Steg för steg-självstudier
     items:
-    - html: <a href="/azure/devops-project/azure-devops-project-github">Ta med din egen kod med GitHub</a>
-    - html: <a href="/azure/devops-project/azure-devops-project-vms">Distribuera din ASP.NET-app till virtuella Azure-datorer</a>
-    - html: <a href="/azure/devops-project/azure-devops-project-sql-database">Distribuera din ASP.NET-app och Azure SQL Database</a>
-    - html: <a href="/azure/devops-project/azure-devops-project-aks">Distribuera din app till Azure Container Service och Kubernetes</a>
-    - html: <a href="/azure/devops-project/azure-devops-project-service-fabric">Distribuera din app till Azure Service Fabric</a>
+      - type: paragraph
+        text: Lär dig hur du använder Azure DevOps-projekt för att skapa pipeliner för Azure-releaser
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/devops-project/azure-devops-project-github">Ta med din egen kod med GitHub</a>
+          - html: <a href="/azure/devops-project/azure-devops-project-vms">Distribuera din ASP.NET-app till virtuella Azure-datorer</a>
+          - html: <a href="/azure/devops-project/azure-devops-project-sql-database">Distribuera din ASP.NET-app och Azure SQL Database</a>
+          - html: <a href="/azure/devops-project/azure-devops-project-aks">Distribuera din app till Azure Container Service och Kubernetes</a>
+          - html: <a href="/azure/devops-project/azure-devops-project-service-fabric">Distribuera din app till Azure Service Fabric</a>

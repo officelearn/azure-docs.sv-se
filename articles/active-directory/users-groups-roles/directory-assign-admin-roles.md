@@ -14,12 +14,12 @@ ms.date: 09/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 9aa8e5e6e683da0cb95583979e96c1d315dffff9
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 2768ba4726ccaf5e2249e356e425aeafaaaf91f6
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094306"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349253"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Tilldela administratörsroller i Azure Active Directory
 
@@ -86,7 +86,7 @@ Följande administratörsroller är tillgängliga:
 
 * **[Partner – nivå 2-stöd](#partner-tier2-support)**: Använd inte. Den här rollen har gjorts inaktuell och kommer att tas bort från Azure AD i framtiden. Den här rollen är avsedd att användas av ett litet antal Microsoft återförsäljning-partner och är inte avsedd för allmänt bruk.
 
-* **[Lösenordsadministratör / Supportavdelningsadministratör](#helpdesk-administrator)**: användare med den här rollen kan ändra lösenord, hanterar tjänstbegäranden och övervakar tjänstehälsa. Supportadministratörer kan endast ändra lösenord för användare och andra supportadministratörer. 
+* **[Lösenordsadministratör / Supportavdelningsadministratör](#helpdesk-administrator)**: användare med den här rollen kan ändra lösenord, ogiltigförklara uppdateringstoken, hanterar tjänstbegäranden och övervakar tjänstehälsa. Helpdeks-administratörer kan ändra lösenord och ogiltigförklara uppdateringstoken endast för användare och andra supportadministratörer. Ogiltigförklara en uppdateringstoken Tvingar användaren att logga in igen.
 
   > [!NOTE]
   > I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras rollen som ”Supportavdelningsadministratör”. Det är ”Lösenordsadministratör” i den [Azure-portalen](https://portal.azure.com/).
@@ -126,7 +126,7 @@ Följande administratörsroller är tillgängliga:
   >
   >
 
-* **[Användarkontoadministratören](#user-account-administrator)**: användarna med den här rollen kan skapa och hantera alla aspekter av användare och grupper. Dessutom innehåller den här rollen möjlighet att hantera supportbegäranden och kontrollera tjänstens hälsotillstånd. Vissa begränsningar gäller. Den här rollen tillåter exempelvis inte att ta bort en global administratör. Användarkontoadministratörer kan ändra lösenord för användare, supportadministratörer och andra Användarkontoadministratörer.
+* **[Användarkontoadministratören](#user-account-administrator)**: användarna med den här rollen kan skapa och hantera alla aspekter av användare och grupper. Dessutom innehåller den här rollen möjlighet att hantera supportbegäranden och kontrollera tjänstens hälsotillstånd. Vissa begränsningar gäller. Den här rollen tillåter exempelvis inte att ta bort en global administratör. Användarkontoadministratörer kan ändra lösenord och ogiltigförklara uppdateringstoken för användare, supportadministratörer och andra användaradministratörer endast. Ogiltigförklara en uppdateringstoken Tvingar användaren att logga in igen.
 
 | Kan göra | Det går inte att göra |
 | --- | --- |
@@ -1176,6 +1176,6 @@ Standardrollen för användare. Kan läsa alla och skriva en begränsad uppsätt
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om hur du ändrar administratörer för en Azure-prenumeration finns i [Lägga till eller ändra Azure-administratörsroller](../../billing/billing-add-change-azure-subscription-administrator.md)
+* Mer information om hur du tilldelar en användare som administratör för en Azure-prenumeration finns [hantera åtkomst med RBAC och Azure portal](../../role-based-access-control/role-assignments-portal.md)
 * Mer information om hur resursåtkomsten hanteras i Microsoft Azure finns i [Förstå resursåtkomst i Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Mer information om hur Azure Active Directory relaterar till din Azure-prenumeration finns i [Hur Azure-prenumerationer är associerade med Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)

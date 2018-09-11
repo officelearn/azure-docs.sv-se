@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: glenga
-ms.openlocfilehash: 294dea695f120ff47712e0ccf79072a41baca07b
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: b33c9246bef2ca22542e338a1ec1f91a92aa300e
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092826"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44324843"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -26,11 +26,11 @@ Azure Functions Core Tools kan du utveckla och testa dina funktioner på den lok
 
 ## <a name="core-tools-versions"></a>Core Tools versioner
 
-Det finns två versioner av Azure Functions Core Tools. Vilken version du använder beror på din lokala utvecklingsmiljö, val av språk och supportnivå som krävs:
+Det finns två versioner av Azure Functions Core Tools. Vilken version du använder beror på din lokala utvecklingsmiljö [val av språk](supported-languages.md), och nivå av support som krävs:
 
-+ [Version 1.x](#v1): har stöd för version 1.x av körning, som är allmänt tillgänglig (GA). Den här versionen av verktygen stöds endast på Windows-datorer och installeras från en [npm-paketet](https://docs.npmjs.com/getting-started/what-is-npm). Med den här versionen kan du skapa funktioner i experimentella språk som inte stöds officiellt. Mer information finns i [språk som stöds i Azure Functions](supported-languages.md)
++ [Version 1.x](#v1): har stöd för version 1.x av körning, som är allmänt tillgänglig (GA). Den här versionen av verktygen stöds endast på Windows-datorer och installeras från en [npm-paketet](https://docs.npmjs.com/getting-started/what-is-npm).
 
-+ [Version 2.x](#v2): har stöd för [version 2.x av runtime](functions-versions.md). Den här versionen stöder [Windows](#windows-npm), [macOS](#brew), och [Linux](#linux). Använder plattformsspecifika pakethanterare eller npm för installation. Som 2.x-körningen är den här versionen av de viktigaste verktygen för närvarande i förhandsversion. 
++ [Version 2.x](#v2): har stöd för [version 2.x av runtime](functions-versions.md). Den här versionen stöder [Windows](#windows-npm), [macOS](#brew), och [Linux](#linux). Använder plattformsspecifika pakethanterare eller npm för installation. Som 2.x-körningen är den här versionen av de viktigaste verktygen för närvarande i förhandsversion. I version 2.x kan alla funktioner i en funktionsapp måste använda samma CLR.
 
 Om inget annat anges i exemplen i den här artikeln gäller för version 2.x. Att ta emot viktiga uppdateringar i version 2.x, inklusive de senaste ändras meddelanden, titta på den [Azure App Service-meddelanden](https://github.com/Azure/app-service-announcements/issues) lagringsplats.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 90b5009b3b260a0f4245459467ae248f800ad818
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 18e4adb47ecf8e6d44edea873a4b3cc73492b273
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094543"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301491"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Så här hanterar du en funktionsapp i Azure portal 
 
@@ -111,7 +111,7 @@ Mer information om hur du arbetar med App Service-inställningar finns i [konfig
 
 | | |
 |-|-|
-| ![Funktionen app-distributionsalternativ i Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | Functions kan du utveckla Funktionskoden på den lokala datorn. Du kan sedan överföra ditt lokala funktionsappsprojekt till Azure. Utöver traditionella FTP-överföring kan du distribuera funktionsappen med hjälp av populära kontinuerlig integreringslösningar som GitHub, VSTS, Dropbox, Bitbucket och andra funktioner. Mer information finns i [kontinuerlig distribution för Azure Functions](functions-continuous-deployment.md). Om du vill ladda upp manuellt med hjälp av FTP- eller lokal Git måste du också måste [konfigurera dina autentiseringsuppgifter för distribution](functions-continuous-deployment.md#credentials). |
+| ![Funktionen app-distributionsalternativ i Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | Functions kan du utveckla Funktionskoden på den lokala datorn. Du kan sedan överföra ditt lokala funktionsappsprojekt till Azure. Utöver traditionella FTP-överföring kan du distribuera funktionsappen med hjälp av populära kontinuerlig integreringslösningar, som GitHub, Azure DevOps, Dropbox, Bitbucket och andra funktioner. Mer information finns i [kontinuerlig distribution för Azure Functions](functions-continuous-deployment.md). Om du vill ladda upp manuellt med hjälp av FTP- eller lokal Git måste du också måste [konfigurera dina autentiseringsuppgifter för distribution](functions-continuous-deployment.md#credentials). |
 
 
 ### <a name="cors"></a>CORS

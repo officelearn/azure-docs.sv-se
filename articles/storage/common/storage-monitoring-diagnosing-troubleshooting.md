@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.component: common
-ms.openlocfilehash: e560eb9e0bbce09c541bfc66ea760ea3e636f841
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0807bc5df9d4ee8782ae017dbb7ed63c38a13443
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528722"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304687"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Övervaka, diagnostisera och felsök Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -73,7 +73,7 @@ En praktisk guide till slutpunkt till slutpunkt felsökning i Azure Storage-prog
   * [Bilaga 2: Använder Wireshark för att avbilda nätverkstrafik]
   * [Tillägg 3: Använda Microsoft Message Analyzer för att avbilda nätverkstrafik]
   * [Tillägg 4: Använda Excel för att visa mått och logga data]
-  * [Tillägg 5: Övervaka med Programinsikter för Visual Studio Team Services]
+  * [Tillägg 5: Övervakning med Application Insights för Azure DevOps]
 
 ## <a name="introduction"></a>Introduktion
 Den här guiden visar hur du använder funktioner, till exempel Azure Storage Analytics Klientloggning i Azure Storage-klientbiblioteket och andra verktyg från tredje part för att identifiera, diagnostisera och felsöka Azure Storage-relaterade problem.
@@ -125,7 +125,7 @@ Du kan använda den [Azure-portalen](https://portal.azure.com) att visa hälsoti
 Den [Azure-portalen](https://portal.azure.com) kan också ge meddelanden om incidenter som påverkar olika Azure-tjänster.
 Obs: Den här informationen fanns tidigare, tillsammans med historiska data på den [Azure instrumentpanel](http://status.azure.com).
 
-Medan den [Azure-portalen](https://portal.azure.com) samlar in hälsoinformation från inuti Azure datacenter (inom ut övervakning), du kan också fundera på att börja använda en utifrån metod för att generera syntetiska transaktioner som regelbundet använder ditt Azure-värdbaserade webbprogram från flera platser. Tjänster som erbjuds av [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) och Application Insights för Visual Studio Team Services är exempel på den här metoden. Mer information om Application Insights för Visual Studio Team Services finns i tillägget ”[tillägg 5: övervakning med Application Insights för Visual Studio Team Services](#appendix-5)”.
+Medan den [Azure-portalen](https://portal.azure.com) samlar in hälsoinformation från inuti Azure datacenter (inom ut övervakning), du kan också fundera på att börja använda en utifrån metod för att generera syntetiska transaktioner som regelbundet använder ditt Azure-värdbaserade webbprogram från flera platser. Tjänster som erbjuds av [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) och Application Insights för Azure DevOps är exempel på den här metoden. Mer information om Application Insights för Azure DevOps finns i bilagan ”[tillägg 5: övervakning med Application Insights för Azure DevOps](#appendix-5)”.
 
 ### <a name="monitoring-capacity"></a>Övervakningskapacitet
 Mätvärden i Storage lagrar bara kapacitet för blob-tjänsten eftersom blobar vanligtvis hänsyn till största andelen av lagrade data (vid tidpunkten för skrivning, det går inte att använda Lagringsmått för att övervaka kapaciteten för dina tabeller och köer). Du hittar dessa data i den **$MetricsCapacityBlob** tabellen om du har aktiverat övervakning för Blob-tjänsten. Lagringsmått registrerar dessa data en gång per dag och du kan använda värdet för den **RowKey** att fastställa om raden innehåller en entitet som är kopplad till användarens data (värdet **data**) eller analytics-data (värde **analytics**). Innehåller information om mängden lagringsutrymme som används för varje lagrad entitet (**kapacitet** mätt i byte) och det aktuella antalet behållare (**ContainerCount**) och blobar (**ObjectCount** ) används i lagringskontot. Mer information om kapacitetsmåtten lagras i den **$MetricsCapacityBlob** tabellen, se [Schema över Måttabeller i Storage Analytics](http://msdn.microsoft.com/library/azure/hh343264.aspx).
@@ -466,7 +466,7 @@ Den vanligaste orsaken till felet är en klient kopplar från innan tidsgränsen
 ### <a name="the-client-is-receiving-403-messages"></a>Klienten tar emot HTTP 403 (förbjudet) meddelanden
 Om klientprogrammet som utlöste HTTP 403 (förbjudet) fel, är en trolig orsak att klienten använder en har upphört att gälla signatur för delad åtkomst (SAS) när den skickar en begäran om lagring (även om andra möjliga orsaker inkluderar klockan skeva, ogiltig nycklar och tom rubriker ). Om en har upphört att gälla SAS-nyckel är orsaken, visas inte några poster i Storage Logging loggdata för serversidan. I följande tabell visar ett exempel från klientsidan loggen genereras av Storage-klientbiblioteket som illustrerar det här problemet inträffar:
 
-| Källa | Utförlighet | Utförlighet | ID för klientbegäran | Åtgärden text |
+| Källa | Utförlighet | Utförlighet | ID för klientförfrågan | Åtgärden text |
 | --- | --- | --- | --- | --- |
 | Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Startar åtgärden med platsen primära per platsläget PrimaryOnly. |
 | Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Startar synkron begäran om att https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp; sr = c&amp;si = mypolicy&amp;sig = OFnd4Rd7z01fIvh % 2BmcR6zbudIH2F5Ikm % 2FyhNYZEmJNQ % 3D&amp;api-version = 2014-02-14. |
@@ -571,7 +571,7 @@ I följande tabell visas ett exempel från serversidan loggmeddelande från logg
 | Fråge-URL        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
 | &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | Rubrik för begäran-ID  | a1f348d5-8032-4912-93EF-b393e5252a3b |
-| ID för klientbegäran  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
+| ID för klientförfrågan  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
 
 Undersök varför ditt klientprogram försöker utföra en åtgärd som den inte har beviljats behörighet.
@@ -625,7 +625,7 @@ Om detta inträffar ofta bör du undersöka varför klienten kan inte ta emot be
 ### <a name="the-client-is-receiving-409-messages"></a>Klienten tar emot HTTP 409 (konflikt) meddelanden
 I följande tabell visas ett utdrag ur serversidan loggen för två Klientåtgärder: **DeleteIfExists** följt omedelbart av **CreateIfNotExists** med hjälp av samma blobbehållarens namn. Varje klientåtgärden resulterar i två begäranden som skickas till servern, först en **GetContainerProperties** begäran om att kontrollera om behållaren finns, följt av den **DeleteContainer** eller  **CreateContainer** begäran.
 
-| Tidsstämpel | Åtgärd | Resultat | Containerns namn | ID för klientbegäran |
+| Tidsstämpel | Åtgärd | Resultat | Containerns namn | ID för klientförfrågan |
 | --- | --- | --- | --- | --- |
 | 05:10:13.7167225 |GetContainerProperties |200 |mmcont |c9f52c89-... |
 | 05:10:13.8167325 |DeleteContainer |202 |mmcont |c9f52c89-... |
@@ -799,8 +799,8 @@ Importera dina data för loggning av lagring till Excel när du har hämtat frå
 
 I steg 1 i den **Text i guiden Importera**väljer **semikolon** som endast avgränsare och välj double-offert som den **textavgränsare**. Klicka sedan på **Slutför** och välj var du vill placera data i din arbetsbok.
 
-### <a name="appendix-5"></a>Tillägg 5: Övervakning med Application Insights för Visual Studio Team Services
-Du kan också använda funktionen Programinsikter för Visual Studio Team Services som en del av din tillgänglighetsövervakning av prestanda och. Det här verktyget kan:
+### <a name="appendix-5"></a>Tillägg 5: Övervakning med Application Insights för Azure DevOps
+Du kan också använda funktionen Application Insights för Azure DevOps som en del av din tillgänglighetsövervakning av prestanda och. Det här verktyget kan:
 
 * Kontrollera att din webbtjänst är tillgänglig och svarar. Om din app är en webbplats eller en app för enheter som använder en webbtjänst, kan den Testa URL några minuters mellanrum från platser runtom i världen och att du vet om det finns ett problem.
 * Diagnostisera snabbt eventuella problem med prestanda eller undantag i din webbtjänst. Lär dig om CPU- eller andra resurser är sträcks, få stackspårningar från undantag och enkelt söka igenom loggspårningar. Om appens prestanda sjunker under rimliga gränser, kan Microsoft skicka ett e-postmeddelande. Du kan övervaka både .NET och Java-webbtjänster.
@@ -865,7 +865,7 @@ Du hittar mer information på [vad är Application Insights](../../application-i
 [Bilaga 2: Använder Wireshark för att avbilda nätverkstrafik]: #appendix-2
 [Tillägg 3: Använda Microsoft Message Analyzer för att avbilda nätverkstrafik]: #appendix-3
 [Tillägg 4: Använda Excel för att visa mått och logga data]: #appendix-4
-[Tillägg 5: Övervaka med Programinsikter för Visual Studio Team Services]: #appendix-5
+[Tillägg 5: Övervakning med Application Insights för Azure DevOps]: #appendix-5
 
 <!--Image references-->
 [1]: ./media/storage-monitoring-diagnosing-troubleshooting/overview.png

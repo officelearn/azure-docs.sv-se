@@ -1,116 +1,123 @@
+items:
 - name: Dokumentation om Azure-övervakning
   href: index.md
 - name: Översikt
   items:
-    - name: Övervakning i Azure
-      href: monitoring-overview.md
+  - name: Övervakning i Azure
+    href: monitoring-overview.md
 - name: Delade tjänster
   items:
-    - name: Aviseringar
-      items:
-        - name: Azure-aviseringar
-          href: ../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: Åtgärdsgrupper
-          href: ../monitoring-and-diagnostics/monitoring-action-groups.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: Importera Operations Manager-aviseringar
-          href: ../log-analytics/log-analytics-solution-alert-management.md?toc=%2fazure%2fmonitoring%2ftoc.json
+  - name: Aviseringar
+    items:
+    - name: Azure-aviseringar
+      href: ../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Åtgärdsgrupper
+      href: ../monitoring-and-diagnostics/monitoring-action-groups.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Importera Operations Manager-aviseringar
+      href: ../log-analytics/log-analytics-solution-alert-management.md?toc=%2fazure%2fmonitoring%2ftoc.json
+  - name: Automatisk skalning
+    items:
     - name: Automatisk skalning
-      items:
-        - name: Automatisk skalning
-          href: ../monitoring-and-diagnostics/monitoring-overview-autoscale.md?toc=%2fazure%2fmonitoring%2ftoc.json
+      href: ../monitoring-and-diagnostics/monitoring-overview-autoscale.md?toc=%2fazure%2fmonitoring%2ftoc.json
+  - name: Mått
+    items:
     - name: Mått
-      items:
-        - name: Mått
-          href: ../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fmonitoring%2ftoc.json
-    - name: Logs
-      items:
-        - name: Aktivitetsloggar
-          href: ../monitoring-and-diagnostics/monitoring-overview-activity-logs.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: Diagnostikloggar
-          href: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: Samla in loggar mellan Azure-prenumerationer
-          href: ../log-analytics/log-analytics-activity-logs-subscriptions.md?toc=%2fazure%2fmonitoring%2ftoc.json
+      href: ../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fmonitoring%2ftoc.json
+  - name: Logs
+    items:
+    - name: Aktivitetsloggar
+      href: ../monitoring-and-diagnostics/monitoring-overview-activity-logs.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Diagnostikloggar
+      href: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Samla in loggar mellan Azure-prenumerationer
+      href: ../log-analytics/log-analytics-activity-logs-subscriptions.md?toc=%2fazure%2fmonitoring%2ftoc.json
 - name: Övervaka data
   items:
-    - name: Datatyper och analysverktyg
-      href: monitoring-data-collection.md
-    - name: Källor för Azure-övervakningsdata
-      href: monitoring-data-sources.md
+  - name: Datatyper och analysverktyg
+    href: monitoring-data-collection.md
+  - name: Källor för Azure-övervakningsdata
+    href: monitoring-data-sources.md
 - name: Övervaka resurser
   items:
-    - name: Program
+  - name: Program
+    items:
+    - name: Application Insights
+      href: ../application-insights/app-insights-overview.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Application Insights-anslutningsapp
+      href: ../log-analytics/log-analytics-app-insights-connector.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Key Vault-analys
+      href: ../log-analytics/log-analytics-azure-key-vault.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Service Fabric-analys
+      href: ../service-fabric/service-fabric-diagnostics-oms-setup.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Azure Web Apps-analys
+      href: ../log-analytics/log-analytics-azure-web-apps-analytics.md?toc=%2fazure%2fmonitoring%2ftoc.json
+  - name: Containrar
+    items:
+    - name: Översikt över containerövervakning
+      href: monitoring-container-overview.md
+    - name: AKS-containerhälsa
+      href: monitoring-container-health.md
+    - name: Övervakning av Docker- och Windows-containrar
+      href: ../log-analytics/log-analytics-containers.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Övervaka Docker-program
+      href: ../application-insights/app-insights-docker.md?toc=%2fazure%2fmonitoring%2ftoc.json
+  - name: Databaser
+    items:
+    - name: Azure SQL
+      href: ../log-analytics/log-analytics-azure-sql.md?toc=%2fazure%2fmonitoring%2ftoc.json
+  - name: Virtuella datorer
+    items:
+    - name: Agenthälsa
+      href: ../monitoring/monitoring-solution-agenthealth.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: VMWare-analys
+      href: ../log-analytics/log-analytics-vmware.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Tjänstkarta
       items:
-        - name: Application Insights
-          href: ../application-insights/app-insights-overview.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: Application Insights-anslutningsapp
-          href: ../log-analytics/log-analytics-app-insights-connector.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: Key Vault-analys
-          href: ../log-analytics/log-analytics-azure-key-vault.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: Service Fabric-analys
-          href: ../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: Azure Web Apps-analys
-          href: ../log-analytics/log-analytics-azure-web-apps-analytics.md?toc=%2fazure%2fmonitoring%2ftoc.json
-    - name: Behållare
+      - name: Användning
+        href: monitoring-service-map.md
+      - name: Konfigurera
+        href: monitoring-service-map-configure.md
+      - name: Integration med Operations Manager
+        href: monitoring-service-map-scom.md
+  - name: Andra resurser
+    items:
+    - name: Utvärdering av AD-hälsa
+      href: ../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: AD-replikeringsstatus
+      href: ../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Office 365
+      href: ../monitoring/monitoring-solution-office-365.md
+    - name: Surface Hub
+      href: ../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2fmonitoring%2ftoc.json
+  - name: Hanteringslösningar
+    items:
+    - name: Användning
       items:
-        - name: Översikt över behållarövervakning
-          href: monitoring-container-overview.md
-        - name: AKS-behållarhälsa
-          href: monitoring-container-health.md
-        - name: Övervakning av Docker- och Windows-behållare
-          href: ../log-analytics/log-analytics-containers.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: Övervaka Docker-program
-          href: ../application-insights/app-insights-docker.md?toc=%2fazure%2fmonitoring%2ftoc.json
-    - name: Databaser
+      - name: Installera och använda lösningar
+        href: monitoring-solutions.md
+      - name: Inventering av lösningar
+        href: monitoring-solutions-inventory.md
+      - name: Mållösningar
+        href: monitoring-solution-targeting.md
+    - name: Skapa
       items:
-        - name: Azure SQL
-          href: ../log-analytics/log-analytics-azure-sql.md?toc=%2fazure%2fmonitoring%2ftoc.json
-    - name: Virtuella datorer
-      items:
-        - name: Agenthälsa
-          href: ../monitoring/monitoring-solution-agenthealth.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: VMWare-analys
-          href: ../log-analytics/log-analytics-vmware.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: Tjänstkarta
-          items:
-            - name: Användning
-              href: monitoring-service-map.md
-            - name: Konfigurera
-              href: monitoring-service-map-configure.md
-            - name: Integration med Operations Manager
-              href: monitoring-service-map-scom.md
-    - name: Andra resurser
-      items:
-        - name: Utvärdering av AD-hälsa
-          href: ../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: AD-replikeringsstatus
-          href: ../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: Office 365
-          href: ../monitoring/monitoring-solution-office-365.md
-        - name: Surface Hub
-          href: ../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2fmonitoring%2ftoc.json
-    - name: Hanteringslösningar
-      items:
-        - name: Användning
-          items:
-            - name: Installera och använda lösningar
-              href: monitoring-solutions.md
-            - name: Inventering av lösningar
-              href: monitoring-solutions-inventory.md
-            - name: Mållösningar
-              href: monitoring-solution-targeting.md
-        - name: Skapa
-          items:
-            - name: Utforma och skapa
-              href: monitoring-solutions-creating.md
-            - name: Lösningsfil
-              href: monitoring-solutions-solution-file.md
-            - name: Automation-resurser
-              href: monitoring-solutions-resources-automation.md
-            - name: Loggsökningar och aviseringar
-              href: monitoring-solutions-resources-searches-alerts.md
-            - name: Vyer
-              href: monitoring-solutions-resources-views.md
-            - name: Bästa praxis
-              href: monitoring-solutions-best-practices.md
-            - name: Samla in övervakningsdata från ett runbook-flöde
-              href: monitoring-runbook-datacollect.md
+      - name: Utforma och skapa
+        href: monitoring-solutions-creating.md
+      - name: Lösningsfil
+        href: monitoring-solutions-solution-file.md
+      - name: Automation-resurser
+        href: monitoring-solutions-resources-automation.md
+      - name: Loggsökningar och aviseringar
+        href: monitoring-solutions-resources-searches-alerts.md
+      - name: Vyer
+        href: monitoring-solutions-resources-views.md
+      - name: Bästa praxis
+        href: monitoring-solutions-best-practices.md
+      - name: Samla in övervakningsdata från ett runbook-flöde
+        href: monitoring-runbook-datacollect.md
+ms.openlocfilehash: 190062c30d87628e9aba42c616815313c45b8623
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44324707"

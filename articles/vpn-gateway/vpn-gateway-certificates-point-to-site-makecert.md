@@ -4,36 +4,20 @@ description: Skapa ett självsignerat rotcertifikat, exportera den offentliga ny
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/12/2018
+ms.date: 09/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: b2f31761e4560cf4b9b9a5b92f5de9982a663a75
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3ff7e754a55e15a8fa8a32f846efbbbe5025e46e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38651795"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297867"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Skapa och exportera certifikat till punkt-till-plats-anslutningar med hjälp av MakeCert
 
-Punkt-till-plats-anslutningar använder certifikat för autentisering. Den här artikeln visar hur du skapar ett självsignerat rotcertifikat och generera klientcertifikat med hjälp av MakeCert. Om du letar efter konfigurationssteg för punkt-till-plats, till exempel hur du överför rotcertifikat, väljer du en av artiklarna ”Configure punkt-till-plats” i listan nedan:
-
-> [!div class="op_single_selector"]
-> * [Skapa självsignerade certifikat – PowerShell](vpn-gateway-certificates-point-to-site.md)
-> * [Skapa självsignerade certifikat - MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)
-> * [Konfigurera punkt-till-plats - Resource Manager – Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-> * [Konfigurera punkt-till-plats - Resource Manager – PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Konfigurera punkt-till-plats - klassisk – Azure portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
-> 
-> 
+Punkt-till-plats-anslutningar använder certifikat för autentisering. Den här artikeln visar hur du skapar ett självsignerat rotcertifikat och generera klientcertifikat med hjälp av MakeCert. Om du letar efter olika certifikat anvisningar Se [certifikat – PowerShell](vpn-gateway-certificates-point-to-site.md) eller [certifikat – Linux](vpn-gateway-certificates-point-to-site-linux.md).
 
 Medan vi rekommenderar att du använder den [steg för Windows 10 PowerShell](vpn-gateway-certificates-point-to-site.md) för att skapa dina certifikat, vi tillhandahåller instruktionerna MakeCert som en valfri metod. De certifikat som du genererar med hjälp av någon av metoderna kan installeras på [alla stöds klientoperativsystemet](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq). MakeCert har dock följande begränsningar:
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: 42910675bcf512a3d6c76369adc9f41215420a78
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 18aa5ab16a1690fdcead46ebc15d72837f62612d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972299"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302477"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry på Azure
 
@@ -60,9 +60,9 @@ Om du använder Pivotal Cloud Foundry, service broker är också [tillgängliga 
 
 ## <a name="related-resources"></a>Relaterade resurser
 
-### <a name="visual-studio-team-services-plugin"></a>Visual Studio Team Services-plugin-programmet
+### <a name="azure-devops-services-plugin"></a>Plugin-programmet med Azure DevOps-tjänsterna
 
-Cloud Foundry är utmärkt för snabb programutveckling, inklusive användning av kontinuerlig integrering (CI) och kontinuerlig leverans (CD). Om du använder Visual Studio Team Services (VSTS) för att hantera dina projekt och vill använda som in en CI/CD i pipeline riktar in sig på Cloud Foundry, kan du använda den [VSTS Cloud Foundry skapa tillägg för](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension). Plugin-programmet gör det enkelt att konfigurera och automatisera distributioner till Cloud Foundry, oavsett om körs i Azure eller någon annan miljö.
+Cloud Foundry är utmärkt för snabb programutveckling, inklusive användning av kontinuerlig integrering (CI) och kontinuerlig leverans (CD). Om du använder Azure DevOps-tjänster för att hantera dina projekt och vill använda som in en CI/CD i pipeline riktar in sig på Cloud Foundry, kan du använda den [Azure DevOps tjänster Cloud Foundry skapa tillägg för](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension). Plugin-programmet gör det enkelt att konfigurera och automatisera distributioner till Cloud Foundry, oavsett om körs i Azure eller någon annan miljö.
 
 ## <a name="next-steps"></a>Nästa steg
 

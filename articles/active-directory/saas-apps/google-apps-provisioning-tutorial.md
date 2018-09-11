@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 26715c6abb9c2c940090c84b64a30f7fb701d059
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 924584a77d36ec41488d8c76d9631baf484ff494
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445697"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346397"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Självstudie: Konfigurera G Suite för automatisk användaretablering
 
 Målet med den här självstudien är att visa dig hur du automatiskt etablera och avetablera användarkonton från Azure Active Directory (AD Azure) till G Suite.
 
 > [!NOTE]
-> Den här självstudien beskrivs en koppling som bygger på Azure AD-användare Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor och svar finns i [automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](./../active-directory-saas-app-provisioning.md).
+> Den här självstudien beskrivs en koppling som bygger på Azure AD-användare Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor och svar finns i [automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -88,7 +88,7 @@ Det här avsnittet vägleder dig genom processen för att ansluta din Azure AD t
 
     b. Välj **domännamn** på den vänstra navigeringsfönstret och välj sedan **Lägg till**.
      
-     ![Domän](./media/google-apps-provisioning-tutorial/domain_1.png)
+     ![Domain](./media/google-apps-provisioning-tutorial/domain_1.png)
 
      ![Lägg till domän](./media/google-apps-provisioning-tutorial/domain_2.png)
 
@@ -100,7 +100,7 @@ Det här avsnittet vägleder dig genom processen för att ansluta din Azure AD t
     
     Mer omfattande information om hur du verifierar domännamn med Azure AD finns [lägga till ditt eget domännamn i Azure AD](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409).
      
-     ![Domän](./media/google-apps-provisioning-tutorial/domain_4.png)
+     ![Domain](./media/google-apps-provisioning-tutorial/domain_4.png)
 
     e. Upprepa föregående steg för alla domäner som du vill lägga till i din katalog.
 
@@ -172,7 +172,7 @@ Det här avsnittet vägleder dig genom processen för att ansluta din Azure AD t
 
 Den här processen startar den första synkroniseringen av alla användare eller grupper som är kopplade till G Suite i avsnittet användare och grupper. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär varje 40 minuter medan tjänsten körs. Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsloggar. Dessa loggar beskrivs alla åtgärder som utförs av etableringstjänsten i din app.
 
-Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../active-directory-saas-provisioning-reporting.md).
+Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

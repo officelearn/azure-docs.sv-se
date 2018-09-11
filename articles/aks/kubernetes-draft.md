@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: iainfou
-ms.openlocfilehash: faffd919e1c57f2dff21c42c2294a06eb82a2c0a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 15fbf254eb479f0935e154806795ebd00cff6adf
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092618"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345955"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Använda Draft med Azure Kubernetes Service (AKS)
 
@@ -268,6 +268,6 @@ Mer information om hur du använder Draft finns i Draft-dokumentationen på GitH
 <!-- LINKS - internal -->
 [acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
 [aks-helm]: ./kubernetes-helm.md
-[kubernetes-ingress]: ./ingress.md
+[kubernetes-ingress]: ./ingress-basic.md
 [aks-quickstart]: ./kubernetes-walkthrough.md
 [az-acr-login]: /cli/azure/acr#az-acr-login

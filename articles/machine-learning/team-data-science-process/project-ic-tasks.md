@@ -1,6 +1,6 @@
 ---
-title: Gruppuppgifter vetenskap av data för en enskild bidragsgivare - Azure | Microsoft Docs
-description: En översikt över aktiviteter för en enskild bidragsgivare på en datavetenskap team projekt.
+title: Team Data Science Process uppgifter för en enskild deltagare – Azure | Microsoft Docs
+description: En översikt över aktiviteter för en enskild deltagare på ett teamprojekt för data science.
 documentationcenter: ''
 author: deguhath
 manager: cgronlun
@@ -14,67 +14,67 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: e431d89e5d74f5712f6f109075201c95dc233bd3
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: f21098381d75a4843e9300beaae687adc6ec107d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838559"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303769"
 ---
-# <a name="individual-contributor-tasks"></a>Enskilda aktiviteter för deltagare
+# <a name="individual-contributor-tasks"></a>Enskilda deltagare uppgifter
 
-Det här avsnittet beskrivs de åtgärder som en enskild bidragsgivare är förväntas utföra för sina datavetenskap team. Målet är att upprätta grupp användare miljö som standardiserar på den [Team datavetenskap Process](overview.md) (TDSP). En beskrivning av rollerna personal och förknippade aktiviteter som hanteras av ett team för datavetenskap standardisera på den här processen finns [Team datavetenskap Process roller och aktiviteter](roles-tasks.md).
+Det här avsnittet beskrivs de uppgifter som en enskild deltagare är väntat att slutföra sina data science-teamet. Målet är att upprätta samarbetsteam miljö som standardiserar på den [Team Data Science Process](overview.md) (TDSP). En översikt över rollerna som personal och förknippade aktiviteter som hanteras av en datavetenskapliga team standardisera om den här processen finns i [roller för Team Data Science Process och uppgifter](roles-tasks.md).
 
-Uppgifter i projektet enskilda deltagare (datavetare) för att ställa in miljön för projektet TDSP illustreras på följande sätt: 
+Uppgifter i projektet enskilda deltagare (dataexperter) för att ställa in TDSP-miljön för projektet illustreras på följande sätt: 
 
 ![1](./media/project-ic-tasks/project-ic-1-tdsp-data-scientist.png)
 
 - **GroupUtilities** är lagringsplatsen för att underhålla din grupp om du vill dela användbara verktyg för hela gruppen. 
-- **TeamUtilities** är lagringsplatsen för att underhålla din grupp specifikt för din grupp. 
+- **TeamUtilities** är den lagringsplats som ditt team för att underhålla specifikt för ditt team. 
 
-Anvisningar om hur du kör ett datavetenskap projekt under TDSP finns [körning av datavetenskap projekt](project-execution.md). 
+Anvisningar om hur du kör ett datavetenskapsprojekt under TDSP finns i [körning av Dataforskningsprojekt](project-execution.md). 
 
->[AZURE.NOTE] Vi beskriver de steg som krävs för att ställa in en TDSP teammiljö med hjälp av Visual Studio Team Services VSTS () i följande instruktioner. Anger vi hur du utför dessa uppgifter med VSTS eftersom det är hur vi implementera TDSP på Microsoft. Om en annan värd för koden plattform används för din grupp, ändrar inte uppgifter som måste slutföras av team lead normalt. Men sättet att utföra dessa uppgifter ska vara olika.
+>[AZURE.NOTE] Vi beskriver de steg som krävs för att ställa in en TDSP teammiljö med Azure DevOps i följande anvisningar. Vi anger du hur du utför dessa uppgifter med Azure DevOps eftersom det är hur vi implementerar TDSP på Microsoft. Om du använder en annan värd för koden plattform för din grupp, ändra inte de uppgifter som måste slutföras av gruppledare Allmänt. Men sättet att utföra dessa uppgifter kommer att vara olika.
 
 
 ## <a name="repositories-and-directories"></a>Databaser och kataloger
 
-Den här kursen använder förkortade namn för databaser och kataloger. Dessa namn gör det lättare att följa åtgärder mellan databaser och kataloger. Notation (**R** för Git-databaser och **D** för lokala kataloger på dina DSVM) används i följande avsnitt:
+Den här självstudien använder förkortade namnen för databaser och kataloger. Dessa namn gör det lättare att följa åtgärderna mellan databaser och kataloger. Den här notationen (**R** för Git-lagringsplatser och **D** för lokala kataloger på din DSVM) används i följande avsnitt:
 
-- **R2**: den GroupUtilities databasen på Git som din gruppansvarig har ställts in på servern VSTS grupp.
-- **R4**: den TeamUtilities databasen på Git som team-ledtid har ställts in.
-- **R5**: I projektet databasen på Git som har ställts in av ditt projekt lead.
-- **D2**: den lokala katalogen klonad från R2.
-- **D4**: den lokala katalogen klonad från R4.
-- **D5**: den lokala katalogen klonad från R5.
+- **R2**: The GroupUtilities databasen på Git som din gruppansvarig har ställts in på din server för Azure DevOps-gruppen.
+- **R4**: The TeamUtilities databasen på Git som din gruppledare har ställts in.
+- **R5**: The projektets lagringsplats på Git som har ställts in av din projektledare.
+- **D2**: den lokala katalogen klonas från R2.
+- **D4**: den lokala katalogen klonas från R4.
+- **D5**: den lokala katalogen klonas från R5.
 
 
-## <a name="step-0-prerequisites"></a>Steg-0: förutsättningar
+## <a name="step-0-prerequisites"></a>Steg-0: krav
 
-Krav uppfylls genom att genomföra aktiviteter som tilldelats av din gruppansvarig som beskrivs i [Gruppansvarig uppgifter för ett datavetenskap team](group-manager-tasks.md). Följande krav måste uppfyllas innan du påbörjar team lead uppgifter för att sammanfatta här: 
-- Grupp-hanteraren har ställt in den **GroupUtilities** databasen (eventuella). 
-- Team-ledtid har ställt in den **TeamUtilities** databasen (eventuella).
-- Ditt projekt lead har ställt in projekt-databasen. 
-- Du har lagts till lagringsplatsen för projektet av dina projekt lead med behörighet att klona från och skickar tillbaka till projektet lagringsplatsen.
+Kraven är uppfyllda genom att slutföra de uppgifter som tilldelats till din gruppchef som beskrivs i [Gruppansvarig uppgifter för team data science](group-manager-tasks.md). Följande krav måste uppfyllas innan du påbörjar lead gruppaktiviteter för att sammanfatta här: 
+- Chefen grupp har konfigurerat den **GroupUtilities** databasen (om sådan finns). 
+- Din gruppledare har konfigurerat den **TeamUtilities** databasen (om sådan finns).
+- Din projektledare har konfigurerat på projektets lagringsplats. 
+- Du har lagts till projektets lagringsplats genom din projektledare med behörighet att klona från och skicka tillbaka till projektets lagringsplats.
 
-Andra **TeamUtilities** databasen, nödvändiga är valfritt, beroende på om din grupp har en team-specifika verktyg-databas. Om någon av andra tre förutsättningar inte har slutförts, kontakta ditt team lead, projekt-ledtid eller deras ombud för att konfigurera genom att följa anvisningarna för [Team leda uppgifter för ett datavetenskap team](team-lead-tasks.md) eller för [ Projektet Lead uppgifter för ett datavetenskap team](project-lead-tasks.md).
+Andra **TeamUtilities** lagringsplatsen, nödvändiga är valfritt, beroende på om ditt team har en lagringsplats för team-specifika verktyg. Om någon av de andra tre förutsättningar inte har slutförts, kontaktar du din gruppledare, din projektledare eller deras delegerar du konfigurera den genom att följa anvisningarna för [gruppledare uppgifter för team data science](team-lead-tasks.md) eller för [ Projektet Lead-uppgifter för team data science](project-lead-tasks.md).
 
-- Git måste vara installerad på datorn. Om du använder en virtuell dator på vetenskap (DSVM) Git redan har installerats och du är redo att börja. Annars går du till den [plattformar och verktyg bilaga](platforms-and-tools.md#appendix).  
-- Om du använder en **Windows DSVM**, måste du ha [Git autentiseringsuppgifter Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installerat på datorn. I filen README.md rulla ned till den **ladda ned och installera** avsnittet och klicka på den *senaste installer*. Då kommer du till sidan senaste installer. Hämta .exe installationsprogrammet härifrån och köra den. 
-- Om du använder **Linux DSVM**, skapar en offentlig SSH-nyckel på din DSVM och lägga till den i din grupp VSTS server. Mer information om SSH finns i **skapa SSH offentlig nyckel** i avsnittet den [plattformar och verktyg bilaga](platforms-and-tools.md#appendix). 
-- Om din grupp och/eller projekt lead har skapat några Azure fillagring som du behöver montera din DSVM, bör du hämta Azure file storage-informationen från dem. 
+- Git måste installeras på din dator. Om du använder en virtuell dator på datavetenskap (DSVM) Git har installerats i förväg och du är redo att börja. Annars läser den [plattformar och verktyg bilaga](platforms-and-tools.md#appendix).  
+- Om du använder en **Windows DSVM**, måste du ha [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installerat på datorn. README.md-filen, rulla ned till den **ladda ned och installera** och klicka på *senaste installationsprogrammet*. Detta tar dig till den senaste sidan för installationsprogrammet. Ladda ned installationsprogrammet .exe här och kör den. 
+- Om du använder **Linux DSVM**, skapa en offentlig SSH-nyckel för din DSVM och lägga till den i din grupp Azure DevOps-tjänsterna. Mer information om SSH finns i den **offentlig skapa SSH-nyckel** i avsnittet den [plattformar och verktyg bilaga](platforms-and-tools.md#appendix). 
+- Om ditt team och/eller projektgrupp lead har skapat vissa Azure-fillagring som du behöver för att montera för din DSVM, bör du få Azure file storage information från dem. 
 
-## <a name="step-1-3-clone-group-team-and-project-repositories-to-local-machine"></a>Steg 1 – 3: klona grupp och team projekt databaser till den lokala datorn
+## <a name="step-1-3-clone-group-team-and-project-repositories-to-local-machine"></a>Steg 1 – 3: klona grupp, team och projekt databaser till lokal dator
 
-Det här avsnittet innehåller instruktioner för slutfört projekt enskilda deltagare först tre uppgifter: 
+Det här avsnittet innehåller anvisningar om slutföra tre första uppgifterna med enskilda deltagare i projektet: 
 
-- Klona den **GroupUtilities** databasen R2 till D2
-- Klona den **TeamUtilities** databasen R4 till D4 
-- Klona den **projekt** databasen R5 till D5.
+- Klona den **GroupUtilities** lagringsplatsen R2 till D2
+- Klona den **TeamUtilities** lagringsplatsen R4 till D4 
+- Klona den **projekt** lagringsplatsen R5 till D5.
 
-Skapa en katalog på din lokala dator ***C:\GitRepos*** (för Windows) eller ***$home/GitRepos*** (forLinux) och ändra till katalogen. 
+Skapa en katalog på den lokala datorn ***C:\GitRepos*** (för Windows) eller ***$home/GitRepos*** (forLinux), och ändra sedan till den katalogen. 
 
-Kör något av följande kommandon (som passar ditt operativsystem) för att klona din **GroupUtilities**, **TeamUtilities**, och **projekt** databaser till kataloger på dina lokal dator: 
+Kör något av följande kommandon (som passar ditt operativsystem) för att klona din **GroupUtilities**, **TeamUtilities**, och **projekt** databaser till kataloger på din lokal dator: 
 
 **Windows**
     
@@ -84,7 +84,7 @@ Kör något av följande kommandon (som passar ditt operativsystem) för att klo
     
 ![2](./media/project-ic-tasks/project-ic-2-clone-three-repo-to-ic.png)
 
-Bekräfta att du ser de tre mapparna under projektkatalogen.
+Kontrollera att du ser de tre mapparna under projektkatalogen.
 
 ![3](./media/project-ic-tasks/project-ic-3-three-repo-cloned-to-ic.png)
 
@@ -96,20 +96,20 @@ Bekräfta att du ser de tre mapparna under projektkatalogen.
 
 ![4](./media/project-ic-tasks/project-ic-4-clone-three-repo-to_ic-linux.png)
 
-Bekräfta att du ser de tre mapparna under projektkatalogen.
+Kontrollera att du ser de tre mapparna under projektkatalogen.
 
 ![5](./media/project-ic-tasks/project-ic-5-three-repo-cloned-to-ic-linux.png)
 
-## <a name="step-4-5-mount-azure-file-storage-to-your-dsvm-optional"></a>Steg 4 och 5: montera Azure fillagring till din DSVM (valfritt)
+## <a name="step-4-5-mount-azure-file-storage-to-your-dsvm-optional"></a>Steg 4 – 5: montera Azure file storage för din DSVM (valfritt)
 
-Att montera Azure file storage till din DSVM kan se anvisningarna i avsnittet 4 i den [Team lead uppgifter för ett datavetenskap team](team-lead-tasks.md)
+Se anvisningarna i avsnitt 4 för att montera Azure file storage för din DSVM den [lead gruppaktiviteter för team data science](team-lead-tasks.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Här är länkar till mer detaljerade beskrivningar av de roller och aktiviteter som definierats av Team av vetenskapliga data:
+Här finns länkar till mer detaljerade beskrivningar av de roller och uppgifter som definieras av Team Data Science Process:
 
-- [Gruppera Manager aktiviteter för en datavetenskap-teamet](group-manager-tasks.md)
-- [Gruppuppgifter Lead för ett datavetenskap team](team-lead-tasks.md)
-- [Projektet Lead uppgifter för ett datavetenskap team](project-lead-tasks.md)
-- [Projektet enskilda deltagare för ett datavetenskap team](project-ic-tasks.md)
+- [Gruppansvarig uppgifter för team data science](group-manager-tasks.md)
+- [Lead gruppaktiviteter för team data science](team-lead-tasks.md)
+- [Lead projektaktiviteter för team data science](project-lead-tasks.md)
+- [Projektet enskilda deltagare för team data science](project-ic-tasks.md)
 

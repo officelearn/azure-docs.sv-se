@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: 4d3f1c66c6403720bf02c80af1d6833dc3cee3f1
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: bd440e0ef017e2bf116e80ad049883e2338efddb
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42056959"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298955"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Kontinuerlig distribution till Azure App Service
-Den här artikeln visar hur du konfigurerar kontinuerlig distribution för [Azure App Service](app-service-web-overview.md). App Service möjliggör kontinuerlig distribution från BitBucket, GitHub, och [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/team-services/) genom att dra i de senaste uppdateringarna från din befintliga lagringsplats i någon av dessa tjänster.
+Den här artikeln visar hur du konfigurerar kontinuerlig distribution för [Azure App Service](app-service-web-overview.md). App Service möjliggör kontinuerlig distribution från BitBucket, GitHub, och [Azure DevOps-tjänsterna](https://www.visualstudio.com/team-services/) genom att dra i de senaste uppdateringarna från din befintliga lagringsplats i någon av dessa tjänster.
 
 Att ta reda på hur du konfigurerar kontinuerlig distribution manuellt från en molnlagringsplats som inte visas i Azure Portal (till exempel [GitLab](https://gitlab.com/)), se [ställa in kontinuerlig distribution med manuella steg](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
-Publicera din förberedda lagringsplats till en av tjänsterna som stöds. Mer information om hur du publicerar projektet till dessa tjänster finns i avsnitten [Skapa en repo (GitHub)], [Skapa en repo (BitBucket)] samt [Kom igång med VSTS].
+Publicera din förberedda lagringsplats till en av tjänsterna som stöds. Mer information om hur du publicerar projektet till dessa tjänster finns i [skapa en repo (GitHub)], [skapa en repo (BitBucket)], och [Kom igång med Azure DevOps-tjänsterna].
 
 ## <a name="deploy-continuously-from-github"></a>Distribuera kontinuerligt från GitHub
 
@@ -47,18 +47,18 @@ I den **Build-provider** , Välj build-provider och klicka på > **Fortsätt**.
 
 I den **konfigurera** väljer organisation, lagringsplatsen och grenen från vilken du vill distribuera kontinuerligt. När du är klar klickar du på **Fortsätt**.
 
-### <a name="option-2-use-vsts-continuous-delivery"></a>Alternativ 2: Använd kontinuerlig leverans i VSTS
+### <a name="option-2-use-azure-devops-services-continuous-delivery"></a>Alternativ 2: Använd kontinuerlig leverans för Azure DevOps-tjänsterna
 
 > [!NOTE]
-> För App Service för att skapa den nödvändiga versionen och versionsdefinitioner i VSTS-kontot, Azure-kontot måste ha rollen **ägare** i Azure-prenumerationen.
+> För App Service för att skapa nödvändiga Azure Pipelines i din organisation med Azure DevOps-tjänsterna, Azure-kontot måste ha rollen **ägare** i Azure-prenumerationen.
 >
 
 I den **konfigurera** sidan den **kod** väljer organisation, lagringsplatsen och grenen från vilken du vill distribuera kontinuerligt. När du är klar klickar du på **Fortsätt**.
 
-I den **konfigurera** sidan den **skapa** avsnittet, konfigurera ett nytt VSTS-konto eller ange ett befintligt konto. När du är klar klickar du på **Fortsätt**.
+I den **konfigurera** sidan den **skapa** avsnittet, konfigurera en ny Azure DevOps-tjänsterna organisation eller ange en befintlig organisation. När du är klar klickar du på **Fortsätt**.
 
 > [!NOTE]
-> Om du vill använda ett befintligt VSTS-konto som inte visas kan du behöva [länka VSTS-konto till din Azure-prenumeration](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Om du vill använda en befintlig Azure DevOps-tjänsterna organisation som inte visas kan du behöva [länka Azure DevOps-tjänsterna organisationen till din Azure-prenumeration](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 I den **Test** väljer du om du vill aktivera belastningstester och klicka sedan på **Fortsätt**.
 
@@ -90,11 +90,11 @@ I den **sammanfattning** kontrollerar du dina alternativ och klickar på **Slutf
 
 När konfigurationen är klar distribueras nya allokeringarna i den valda databasen kontinuerligt i din App Service-app.
 
-## <a name="deploy-continuously-from-vsts"></a>Distribuera kontinuerligt från VSTS
+## <a name="deploy-continuously-from-azure-devops-services"></a>Distribuera kontinuerligt från Azure DevOps-tjänster
 
-Om du vill aktivera kontinuerlig distribution med VSTS, navigera till din App Service-appsida i den [Azure-portalen](https://portal.azure.com).
+Om du vill aktivera kontinuerlig distribution med Azure DevOps-tjänsterna, navigera till din App Service-appsida i den [Azure-portalen](https://portal.azure.com).
 
-I den vänstra menyn klickar du på **Deployment Center** > **VSTS** > **Fortsätt**. 
+I den vänstra menyn klickar du på **Deployment Center** > **Azure DevOps-tjänsterna** > **Fortsätt**. 
 
 ![](media/app-service-continuous-deployment/vsts-choose-source.png)
 
@@ -102,20 +102,20 @@ I den **Build-provider** , Välj build-provider och klicka på > **Fortsätt**.
 
 ### <a name="option-1-use-app-service-kudu-build-server"></a>Alternativ 1: Använd App Service Kudu-versionsserver
 
-I den **konfigurera** väljer VSTS-konto, projekt, lagringsplatsen och grenen från vilken du vill distribuera kontinuerligt. När du är klar klickar du på **Fortsätt**.
+I den **konfigurera** väljer du den Azure DevOps-tjänsterna organisation, projekt, lagringsplatsen och grenen från vilken du vill distribuera kontinuerligt. När du är klar klickar du på **Fortsätt**.
 
-### <a name="option-2-use-vsts-continuous-delivery"></a>Alternativ 2: Använd kontinuerlig leverans i VSTS
+### <a name="option-2-use-azure-devops-services-continuous-delivery"></a>Alternativ 2: Använd kontinuerlig leverans för Azure DevOps-tjänsterna
 
 > [!NOTE]
-> För App Service för att skapa den nödvändiga versionen och versionsdefinitioner i VSTS-kontot, Azure-kontot måste ha rollen **ägare** i Azure-prenumerationen.
+> För App Service för att skapa nödvändiga Azure Pipelines i din organisation med Azure DevOps-tjänsterna, Azure-kontot måste ha rollen **ägare** i Azure-prenumerationen.
 >
 
-I den **konfigurera** sidan den **kod** väljer VSTS-konto, projekt, lagringsplatsen och grenen från vilken du vill distribuera kontinuerligt. När du är klar klickar du på **Fortsätt**.
+I den **konfigurera** sidan den **kod** väljer du den Azure DevOps-tjänsterna organisation, projekt, lagringsplatsen och grenen från vilken du vill distribuera kontinuerligt. När du är klar klickar du på **Fortsätt**.
 
 > [!NOTE]
-> Om du vill använda ett befintligt VSTS-konto som inte visas kan du behöva [länka VSTS-konto till din Azure-prenumeration](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Om du vill använda en befintlig Azure DevOps-tjänsterna organisation som inte visas kan du behöva [länka Azure DevOps-tjänsterna organisationen till din Azure-prenumeration](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
-I den **konfigurera** sidan den **skapa** anger ramverk för anspråksregelspråket som VSTS ska använda för att köra build-uppgifter för valda lagringsplatsen. När du är klar klickar du på **Fortsätt**.
+I den **konfigurera** sidan den **skapa** anger språkramverk som Azure DevOps-tjänsterna ska använda för att köra build-uppgifter för valda lagringsplatsen. När du är klar klickar du på **Fortsätt**.
 
 I den **Test** väljer du om du vill aktivera belastningstester och klicka sedan på **Fortsätt**.
 
@@ -131,7 +131,7 @@ När konfigurationen är klar distribueras nya allokeringarna i den valda databa
 
 Om du vill inaktivera kontinuerlig distribution, navigera till din App Service-appsida i den [Azure-portalen](https://portal.azure.com).
 
-I den vänstra menyn klickar du på **Deployment Center** > **GitHub** eller **VSTS** eller **BitBucket**  >  **Koppla från**.
+I den vänstra menyn klickar du på **Deployment Center** > **GitHub** eller **Azure DevOps-tjänsterna** eller **BitBucket**  >  **Koppla från**.
 
 ![](media/app-service-continuous-deployment/disable.png)
 
@@ -153,4 +153,4 @@ I den vänstra menyn klickar du på **Deployment Center** > **GitHub** eller **V
 
 [Skapa en repo (GitHub)]: https://help.github.com/articles/create-a-repo
 [Skapa en repo (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
-[Kom igång med VSTS]: https://www.visualstudio.com/docs/vsts-tfs-overview
+[Kom igång med Azure DevOps-tjänsterna]: https://www.visualstudio.com/docs/vsts-tfs-overview

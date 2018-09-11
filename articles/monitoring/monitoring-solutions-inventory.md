@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 40b8f51c66ebe98cd1c312002b7bd5e96e5032bd
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 3154a2f8b283f68ec3e10ba621ccba3ee6d77de2
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112713"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44324758"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Data samling information om lösningar i Azure
 Den här artikeln innehåller en lista över [hanteringslösningar](monitoring-solutions.md) tillgängliga från Microsoft med länkar till deras detaljerad dokumentation.  Det innehåller även information om deras metod och frekvensen för insamling av data till Log Analytics.  Du kan använda informationen i den här artikeln för att identifiera de olika lösningarna som är tillgängliga och förstå datakrav för flödet och anslutningen för olika lösningar. 
@@ -59,14 +59,13 @@ Förklaringar av kolumnerna är följande:
 | [Kapacitet och prestanda (förhandsgranskning)](../log-analytics/log-analytics-capacity.md) |Windows |&#8226; |&#8226; | | |&#8226; |anländer |
 | [Spårning av ändringar](../log-analytics/log-analytics-change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |varje timme |
 | [Spårning av ändringar](../log-analytics/log-analytics-change-tracking.md) |Linux |&#8226; | | | | |varje timme |
-| 
-  [Containrar](../log-analytics/log-analytics-containers.md) | Windows och Linux | &#8226; | &#8226; |  |  |  | 3 minuter |
+| [Containrar](../log-analytics/log-analytics-containers.md) | Windows och Linux | &#8226; | &#8226; |  |  |  | 3 minuter |
 | [Key Vault-analys](../log-analytics/log-analytics-azure-key-vault.md) |Windows | | | | | |på meddelandet |
 | [Utvärdering av skadlig kod](../log-analytics/log-analytics-malware.md) |Windows |&#8226; |&#8226; | | |&#8226; |varje timme |
 | [Övervakning av nätverksprestanda](../log-analytics/log-analytics-network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | TCP-handskakningar var femte sekund, data skickas var 3: e minut |
 | [Office 365 Analytics (förhandsversion)](../operations-management-suite/oms-solution-office-365.md) |Windows | | | | | |på meddelandet |
 | **Lösning för hantering** | **Plattform** | **Microsoft övervakningsagent** | **Operations Manager-agent** | **Azure Storage** | **Operations Manager som krävs?** | **Operations Manager agent-data skickas via hanteringsgruppen** | **Insamlingsfrekvens** |
-| [Service Fabric-analys (förhandsversion)](../log-analytics/log-analytics-service-fabric.md) |Windows | | |&#8226; | | |5 minuter |
+| [Service Fabric-analys](../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5 minuter |
 | [Tjänstkarta](../operations-management-suite/operations-management-suite-service-map.md) | Windows och Linux | &#8226; | &#8226; |  |  |  | 15 sekunder |
 | [SQL-bedömning](../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 dagar |
 | [SurfaceHub](../log-analytics/log-analytics-surface-hubs.md) |Windows |&#8226; | | | | |anländer |

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 8bbc64a34b5ae95e044b95f921770adc9045574c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 57c691271c2b2673ade40d600162934341e18a81
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42059680"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300248"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Kontinuerlig integrering och distribution i Azure Data Factory
 
@@ -53,9 +53,9 @@ Välj **Läs in fil** och markerar den exporterade Resource Manager-mallen som d
 ![Öppna kodvyn för att se anslutningssträngen](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
 ## <a name="continuous-integration-lifecycle"></a>Livscykel för kontinuerlig integrering
-Här är hela livscykeln för kontinuerlig integration och distribution som du kan använda när du har aktiverat VSTS GIT-integrering i Användargränssnittet för Data Factory:
+Här är hela livscykeln för kontinuerlig integration och distribution som du kan använda när du har aktiverat Azure DevOps Services GIT-integrering i Användargränssnittet för Data Factory:
 
-1.  Konfigurera en data factory för utveckling med VSTS där alla utvecklare kan skapa Data Factory-resurser som pipelines, datauppsättningar och så vidare.
+1.  Konfigurera en data factory för utveckling med Azure DevOps-tjänsterna där alla utvecklare kan skapa Data Factory-resurser som pipelines, datauppsättningar och så vidare.
 
 1.  Utvecklare kan sedan ändra resurser, till exempel pipelines. När de gör ändringarna kan de välja **felsöka** att se hur pipelinekörningarna med de senaste ändringarna.
 
@@ -67,25 +67,25 @@ Här är hela livscykeln för kontinuerlig integration och distribution som du k
 
 1.  Den exporterade Resource Manager-mallen kan distribueras med olika parameterfiler fabriken för testning och produktion fabriken.
 
-## <a name="automate-continuous-integration-with-vsts-releases"></a>Automatisera kontinuerlig integrering med VSTS-versioner
+## <a name="automate-continuous-integration-with-azure-devops-services-releases"></a>Automatisera kontinuerlig integrering med Azure DevOps tjänster versioner
 
-Här följer stegen för att konfigurera en VSTS-version så att du kan automatisera distributionen av en data factory till flera miljöer.
+Här följer stegen för att konfigurera en version med Azure DevOps-tjänster så att du kan automatisera distributionen av en data factory till flera miljöer.
 
-![Diagram över kontinuerlig integrering med VSTS](media/continuous-integration-deployment/continuous-integration-image12.png)
+![Diagram över kontinuerlig integrering med Azure DevOps-tjänsterna](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ### <a name="requirements"></a>Krav
 
--   En Azure-prenumeration som är länkad till Team Foundation Server eller VSTS med hjälp av den [ *Azure Resource Manager-tjänstslutpunkt*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+-   En Azure-prenumeration som är länkad till Team Foundation Server eller Azure DevOps-tjänster med hjälp av den [ *Azure Resource Manager-tjänstslutpunkt*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
--   En Datafabrik med VSTS Git konfigurerats.
+-   En Datafabrik med Azure DevOps Services Git konfigurerats.
 
 -   En [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) som innehåller hemligheterna.
 
-### <a name="set-up-a-vsts-release"></a>Konfigurera en VSTS-version
+### <a name="set-up-a-azure-devops-services-release"></a>Konfigurera en version med Azure DevOps-tjänster
 
-1.  Gå till din VSTS-sida i samma projekt som konfigurerats med Data Factory.
+1.  Gå till sidan Azure DevOps-tjänsterna i samma projekt som konfigurerats med Data Factory.
 
-1.  Klicka på den översta menyn **Build and Release** &gt; **versioner** &gt; **skapa versionsdefinition**.
+1.  Klicka på den översta menyn **Azure Pipelines** &gt; **versioner** &gt; **skapa versionsdefinition**.
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
@@ -113,15 +113,15 @@ Här följer stegen för att konfigurera en VSTS-version så att du kan automati
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-1.  Spara versionsdefinitionen.
+1.  Spara versionspipelinen.
 
-1.  Skapa en ny version från den här versionsdefinitionen.
+1.  Skapa en ny version från den här releasepipeline.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
 ### <a name="optional---get-the-secrets-from-azure-key-vault"></a>Valfritt – som får hemligheterna från Azure Key Vault
 
-Om du har hemligheter för att skicka in en Azure Resource Manager-mall, bör du använda Azure Key Vault med VSTS-versionen.
+Om du har hemligheter för att skicka in en Azure Resource Manager-mall, bör du använda Azure Key Vault med Azure DevOps-tjänsterna.
 
 Det finns två sätt att hantera hemligheterna:
 
@@ -148,7 +148,7 @@ Det finns två sätt att hantera hemligheterna:
 
     -   Parameterfilen måste vara i grenen publicera.
 
-1.  Lägg till en [Azure Key Vault uppgift](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) innan Azure Resource Manager-distribution som beskrivs i föregående avsnitt:
+1.  Lägg till en [Azure Key Vault uppgift](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) innan Azure Resource Manager-distribution som beskrivs i föregående avsnitt:
 
     -   Välj den **uppgifter** fliken, skapa en ny uppgift, Sök efter **Azure Key Vault** och lägga till den.
 
@@ -156,13 +156,13 @@ Det finns två sätt att hantera hemligheterna:
 
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-### <a name="grant-permissions-to-the-vsts-agent"></a>Bevilja behörigheter till VSTS-agent
-Azure Key Vault-uppgiften misslyckas för första gången med ett felmeddelande om nekad. Hämta loggar för versionen och leta upp den `.ps1` filen med kommandot för att ge behörighet till VSTS-agenten. Du kan köra kommandot direkt, eller du kan kopiera huvudkonto-ID från filen och lägga till åtkomstprincipen manuellt i Azure-portalen. (*Hämta* och *lista* är den lägsta behörigheten som krävs).
+### <a name="grant-permissions-to-the-azure-devops-services-agent"></a>Ge behörigheter till Azure DevOps-Services-agenten
+Azure Key Vault-uppgiften misslyckas för första gången med ett felmeddelande om nekad. Hämta loggar för versionen och leta upp den `.ps1` filen med kommandot för att ge behörigheter till Azure DevOps-Services-agenten. Du kan köra kommandot direkt, eller du kan kopiera huvudkonto-ID från filen och lägga till åtkomstprincipen manuellt i Azure-portalen. (*Hämta* och *lista* är den lägsta behörigheten som krävs).
 
 ### <a name="update-active-triggers"></a>Uppdatera active utlösare
 Distributionen kan misslyckas om du försöker uppdatera active utlösare. För att uppdatera active utlösare, måste du manuellt stoppa dem och starta dem efter distributionen. Du kan lägga till en Azure Powershell-uppgift för detta ändamål som visas i följande exempel:
 
-1.  I fliken uppgifter i VSTS-versionen, söker du efter **Azure Powershell** och lägga till den.
+1.  I fliken aktiviteter för Azure DevOps tjänster versionen söker du efter **Azure Powershell** och lägga till den.
 
 1.  Välj **Azure Resource Manager** som anslutningen skriver och välj din prenumeration.
 
@@ -180,7 +180,7 @@ Du kan följa liknande steg och använda liknande kod (med den `Start-AzureRmDat
 
 ## <a name="sample-deployment-template"></a>Exempelmall för distribution
 
-Här är en exempelmall för distribution som du kan importera i VSTS.
+Här är en exempelmall för distribution som du kan importera i Azure DevOps-tjänsterna.
 
 ```json
 {

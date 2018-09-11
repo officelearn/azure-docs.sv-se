@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: b85c0e93-9982-48ad-b23f-53b367f22b10
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 91d1be062dbf05f4c7c9c5c4a1eb3dfcfdb001af
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: caab7e3d15f6d82ee4daf6eb343601ff849bfde5
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42441702"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298786"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Få insyn i klienttäckande för Azure Security Center
 Den här artikeln hjälper dig att komma igång genom att göra flera åtgärder och maximerar fördelarna Azure Security Center tillhandahåller. Utför dessa åtgärder kan du få insyn i alla Azure-prenumerationer som är länkade till din Azure Active Directory-klient och effektivt sätt hantera din organisations säkerhetsposition i stor skala genom att tillämpa säkerhetsprinciper på flera prenumerationer på ett aggregative sätt.
@@ -38,7 +38,7 @@ En detaljerad översikt över hanteringsgrupper finns i den [organisera dina res
 Du kan ordna prenumerationer till hanteringsgrupper och tillämpa styrningsprinciper för av hanteringsgrupper. Alla prenumerationer i en hanteringsgrupp ärver automatiskt de principer som tillämpas på hanteringsgruppen. Medan hanteringsgrupper inte behövs för att integrera Security Center, rekommenderar vi starkt att du skapar minst en hanteringsgrupp så hanteringsgruppen rot har skapats. När gruppen har skapats, kommer alla prenumerationer i Azure AD-klienten att länkas till den. Anvisningar för PowerShell och mer information finns i [skapa hanteringsgrupper för resurs- och organisation](../azure-resource-manager/management-groups-create.md).
 
  
-1. Logga in på [Azure-portalen](http://portal.azure.com).
+1. Logga in på [Azure Portal](http://portal.azure.com).
 2. Välj **alla tjänster** > **hanteringsgrupper**.
 3. Välj på huvudsidan **ny hanteringsgrupp.** 
 

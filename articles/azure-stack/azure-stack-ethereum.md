@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-stack
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 0e03b524834f528ddb7555a344fbebe720b4d9ff
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d3c89e2028986e05d5d3957c9805d22f07a840b3
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446983"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298122"
 ---
 # <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Azure Stack Ethereum blockchain-lösningsmallar
 
@@ -25,16 +25,14 @@ Med en handfull användarindata och en enda musklick distribution via portalen f
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Hämta följande [från Marketplace](azure-stack-download-azure-marketplace-item.md):
+Ladda ned de senaste objekten [från Marketplace](azure-stack-download-azure-marketplace-item.md):
 
-* Ubuntu Server 16.04 LTS version 16.04.201802220
-* Windows Server 2016 
-* Anpassat skript för Linux 2.0 
-* Anpassat skripttillägg 
+* Ubuntu Server 16.04 LTS
+* Windows Server 2016
+* Anpassat skript för Linux 2.0
+* Tillägget för anpassat skript för Windows
 
-Läs mer om blockchain scenarier på Azure, [Ethereum proof of work consortium lösningsmallen](../blockchain-workbench/ethereum-deployment-guide.md).
-
-Det krävs en Azure-prenumeration som har stöd för distribution av flera virtuella datorer. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
+Läs mer om blockkedjescenarier [Ethereum proof of work consortium lösningsmallen](../blockchain-workbench/ethereum-deployment-guide.md).
 
 ## <a name="deployment-architecture"></a>Distributionsarkitektur för
 
@@ -43,6 +41,7 @@ Den här lösningsmallen kan distribuera en eller flera medlemmar Ethereum conso
 ## <a name="deployment-use-cases"></a>Användningsfall för distribution
 
 Mallen kan distribuera Ethereum consortium för ledare och Anslut till medlem i en mängd olika sätt, här är de som vi har testat:
+
 - En Azure-Stack med flera noder, med Azure AD eller AD FS, distribuera lead och medlem med samma prenumeration eller med olika prenumerationer.
 - Distribuera lead och medlem med samma prenumeration på en nod Azure Stack (med Azure AD).
 

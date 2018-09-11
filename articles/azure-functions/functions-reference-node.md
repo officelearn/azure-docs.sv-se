@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: 36307c86332ac331e444d65ba27c044585379e68
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d80914fcd1f667924b52122b39f95871c1e21532
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093412"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298020"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Utvecklarguide för Azure Functions JavaScript
 
@@ -67,13 +67,19 @@ module.exports = function(context) {
 ```
 context.bindings
 ```
-Returnerar ett namngivna objekt som innehåller alla inkommande och utgående data. Till exempel följande Bindningsdefinitionen i din *function.json* kan du få åtkomst till innehållet i kö från den `context.bindings.myInput` objekt. 
+Returnerar ett namngivna objekt som innehåller alla inkommande och utgående data. Till exempel följande bindningsdefinitionerna i din *function.json* kan du få åtkomst till innehållet i en kö från `context.bindings.myInput` och tilldela utdata till en kö med hjälp av `context.bindings.myOutput`.
 
 ```json
 {
     "type":"queue",
     "direction":"in",
     "name":"myInput"
+    ...
+},
+{
+    "type":"queue",
+    "direction":"out",
+    "name":"myOutput"
     ...
 }
 ```
@@ -87,25 +93,27 @@ context.bindings.myOutput = {
         a_number: 1 };
 ```
 
+Observera att du kan välja att definiera utdata bindning data med den `context.done` metoden i stället för den `context.binding` objekt (se nedan).
+
 ### <a name="contextdone-method"></a>Context.Done metod
 ```
 context.done([err],[propertyBag])
 ```
 
-Informerar den runtime som koden har slutförts. Om din funktion använder den `async function` deklarationen (tillgängligt med hjälp av Node 8 + i Functions version 2.x), du behöver inte använda `context.done()`. Den `context.done` anropas implicit återanrop.
+Informerar den runtime som koden har slutförts. Om din funktion använder JavaScript [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) deklarationen (tillgängligt med hjälp av Node 8 + i Functions version 2.x), du behöver inte använda `context.done()`. Den `context.done` anropas implicit återanrop.
 
 Om funktionen inte är en async-funktion, **måste du anropa `context.done`**  att informera körningen att funktionen har slutförts. Körningen når tidsgränsen om den saknas.
 
-Den `context.done` metoden kan du ange både en användardefinierad fel att körningen och en egenskapsuppsättning av egenskaperna som skriver över egenskaperna på den `context.bindings` objekt.
+Den `context.done` metoden kan du ange både en användardefinierad fel att körningen och ett JSON-objekt som innehåller utdata-bindning. Egenskaper som skickas till `context.done` skrivs allt på den `context.bindings` objekt.
 
 ```javascript
 // Even though we set myOutput to have:
-//  -> text: hello world, number: 123
+//  -> text: 'hello world', number: 123
 context.bindings.myOutput = { text: 'hello world', number: 123 };
 // If we pass an object to the done function...
 context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 // the done method will overwrite the myOutput binding to be: 
-//  -> text: hello there, world, noNumber: true
+//  -> text: 'hello there, world', noNumber: true
 ```
 
 ### <a name="contextlog-method"></a>Context.log metod  
@@ -113,7 +121,7 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 ```
 context.log(message)
 ```
-Gör att du kan skriva till direktuppspelningsloggarna konsolen på standardnivå för spårningen. På `context.log`, ytterligare loggning metoder är tillgängliga som gör att du bara behöver skriva till konsolloggen på andra spårningsnivåer:
+Gör att du kan skriva till direktuppspelningsloggarna funktion på standardnivå för spårningen. På `context.log`, ytterligare loggning metoder är tillgängliga som gör att du sparar funktionsloggar på andra spårningsnivåer:
 
 
 | Metod                 | Beskrivning                                |
@@ -123,12 +131,14 @@ Gör att du kan skriva till direktuppspelningsloggarna konsolen på standardniv�
 | **information (_meddelande_)**    | Skriver till info-nivån loggningen eller lägre.    |
 | **utförlig (_meddelande_)** | Skriver till utförlig loggning för nivån.           |
 
-I följande exempel skriver till konsolen vid varningsspårningsnivå:
+I följande exempel skriver en logg vid spårningsnivån varning:
 
 ```javascript
 context.log.warn("Something has happened."); 
 ```
-Du kan ange spårningsnivå tröskelvärdet för att logga in filen host.json eller stänga av den.  Mer information om hur du kan skriva till loggar finns i nästa avsnitt.
+Du kan [konfigurera spårningsnivå tröskelvärdet för loggning](#configure-the-trace-level-for-console-logging) i host.json-filen. Mer information om hur du skriver loggar finns i [skriva trace utdata](#writing-trace-output-to-the-console) nedan.
+
+Läs [övervaka Azure Functions](functions-monitoring.md) vill veta mer om att visa och fråga funktionsloggar.
 
 ## <a name="binding-data-type"></a>Bindningstyp för data
 
@@ -143,11 +153,11 @@ För att definiera datatypen för en indatabindning använder den `dataType` -eg
 }
 ```
 
-Andra alternativ för `dataType` är `stream` och `string`.
+Alternativ för `dataType` är: `binary`, `stream`, och `string`.
 
 ## <a name="writing-trace-output-to-the-console"></a>Skrivning spårningsutdata till konsolen 
 
-I funktioner, använder du den `context.log` metoder för att skriva spårningsutdata till konsolen. Nu kan du inte använda `console.log` att skriva till konsolen.
+I funktioner, använder du den `context.log` metoder för att skriva spårningsutdata till konsolen. Du kan inte använda i Functions v1.x `console.log` att skriva till konsolen. Spåra ouputs via i Functions v2.x `console.log` samlas på Funktionsapp-nivå. Det innebär att utdata från `console.log` inte är knutna till en specifik funktionsanrop.
 
 När du anropar `context.log()`, meddelandet skrivs till konsolen vid spårningsnivån standard, vilket är den _info_ spårningsnivå. Följande kod skriver till konsolen vid spårningsnivån info:
 
@@ -155,22 +165,21 @@ När du anropar `context.log()`, meddelandet skrivs till konsolen vid spårnings
 context.log({hello: 'world'});  
 ```
 
-Föregående kod motsvarar följande kod:
+Den här koden motsvarar koden ovan:
 
 ```javascript
 context.log.info({hello: 'world'});  
 ```
 
-Följande kod skriver till konsolen vid Felnivån:
+Den här koden skriver till konsolen vid Felnivån:
 
 ```javascript
 context.log.error("An error has occurred.");  
 ```
 
-Eftersom _fel_ är högsta spårningen loggningsnivån genom den här skrivs spåret till utdata i alla spårningsnivåer som har aktiverats.  
+Eftersom _fel_ är högsta spårningen loggningsnivån genom den här skrivs spåret till utdata i alla spårningsnivåer som har aktiverats.
 
-
-Alla `context.log` metoderna stöder samma parameter-format som stöds av Node.js [util.format metoden](https://nodejs.org/api/util.html#util_util_format_format). Titta på följande kod som skriver till konsolen med hjälp av standard spårningsnivån:
+Alla `context.log` metoderna stöder samma parameter-format som stöds av Node.js [util.format metoden](https://nodejs.org/api/util.html#util_util_format_format). Titta på följande kod som skriver funktionsloggar med hjälp av standard spårningsnivån:
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=' + req.originalUrl);
@@ -204,7 +213,7 @@ HTTP- och webhook-utlösare och HTTP-utdata bindningar använda begäranden och 
 
 ### <a name="request-object"></a>Objekt
 
-Den `request` objekt har följande egenskaper:
+Den `context.req` (begäran) objekt har följande egenskaper:
 
 | Egenskap       | Beskrivning                                                    |
 | ------------- | -------------------------------------------------------------- |
@@ -219,7 +228,7 @@ Den `request` objekt har följande egenskaper:
 
 ### <a name="response-object"></a>-Svarsobjekt
 
-Den `response` objekt har följande egenskaper:
+Den `context.res` ()-svarsobjekt har följande egenskaper:
 
 | Egenskap   | Beskrivning                                               |
 | --------- | --------------------------------------------------------- |
@@ -230,13 +239,7 @@ Den `response` objekt har följande egenskaper:
 
 ### <a name="accessing-the-request-and-response"></a>Åtkomst till begäranden och svar 
 
-När du arbetar med HTTP-utlösare kan komma du åt HTTP-begäranden och svar-objekt på något av tre sätt:
-
-+ Från namngivna indata och utdatabindningar. På så sätt kan fungerar HTTP-utlösare och bindningar på samma som för andra bindningen. I följande exempel anges svarsobjekt med hjälp av en namngiven `response` bindning: 
-
-    ```javascript
-    context.bindings.response = { status: 201, body: "Insert succeeded." };
-    ```
+När du arbetar med HTTP-utlösare kan komma du åt HTTP-begäranden och svar-objekt på flera olika sätt:
 
 + Från `req` och `res` egenskaper på den `context` objekt. På så sätt kan du använda det vanliga mönstret att komma åt HTTP data från context-objektet i stället för att använda fullständiga `context.bindings.name` mönster. I följande exempel visas hur du kommer åt den `req` och `res` objekt på den `context`:
 
@@ -247,7 +250,20 @@ När du arbetar med HTTP-utlösare kan komma du åt HTTP-begäranden och svar-ob
     context.res = { status: 202, body: 'You successfully ordered more coffee!' }; 
     ```
 
-+ Genom att anropa `context.done()`. En särskild typ av HTTP-bindning returnerar ett svar som skickas till den `context.done()` metoden. Följande HTTP-utdatabindning definierar en `$return` utdataparameter:
++ Från namngivna indata och utdatabindningar. På så sätt kan fungerar HTTP-utlösare och bindningar på samma som för andra bindningen. I följande exempel anges svarsobjekt med hjälp av en namngiven `response` bindning: 
+
+    ```json
+    {
+        "type": "http",
+        "direction": "out",
+        "name": "response"
+    }
+    ```
+    ```javascript
+    context.bindings.response = { status: 201, body: "Insert succeeded." };
+    ```
+
++ [Endast svar] Genom att anropa `context.done()`. En särskild typ av HTTP-bindning returnerar ett svar som skickas till den `context.done()` metoden. Följande HTTP-utdatabindning definierar en `$return` utdataparameter:
 
     ```json
     {
@@ -256,15 +272,13 @@ När du arbetar med HTTP-utlösare kan komma du åt HTTP-begäranden och svar-ob
       "name": "$return"
     }
     ``` 
-    Den här utdatabindning förväntar sig att du kan ange svaret när du anropar `done()`, enligt följande:
-
     ```javascript
      // Define a valid response object.
     res = { status: 201, body: "Insert succeeded." };
     context.done(null, res);   
     ```  
 
-## <a name="node-version-and-package-management"></a>Hantering av version och paket
+## <a name="node-version"></a>Nodversionen
 
 I följande tabell visas Node.js-version som används av varje huvudversion av Functions-körning:
 
@@ -275,6 +289,7 @@ I följande tabell visas Node.js-version som används av varje huvudversion av F
 
 Du kan se den aktuella versionen med hjälp av körningen genom att skriva ut `process.version` från valfri funktion.
 
+## <a name="package-management"></a>Pakethantering
 Följande steg kan du inkludera paket i din funktionsapp: 
 
 1. Gå till `https://<function_app_name>.scm.azurewebsites.net`.

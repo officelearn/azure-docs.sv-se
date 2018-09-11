@@ -8,26 +8,26 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 93f406a1d5e4a8c2ce5ad1db0c3936dd3ad2bfb9
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 1b4d97c1e8c4360028cb249b7e1a61f9fc26e9f2
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991437"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300536"
 ---
 ## <a name="configuring-homepage"></a>Konfigurera startsida
 
 Startsidan är den sida som läses in när användare som har åtkomst navigera till programmets URL. Om du har valt antingen ”exempel Contoso” eller ”exempel Devkits” programmallar när du skapar ditt program, ska ditt program ha fördefinierade startsidor. Om du valde å andra sidan programmallen ”anpassade program”, kommer din startsida måste anges.
 
-Här är till exempel startsidan för programmen baserat på mallen ”Contoso Sample”. Om du vill anpassa startsidan för ditt program måste först aktivera **på** **designläget** längst upp till höger. 
+Här är till exempel startsidan för programmen baserat på mallen ”Contoso Sample”. Välj först för att anpassa startsidan för ditt program, **redigera** längst upp till höger. 
 
 ![Startsida för programmen baserat på mallen ”Contoso exemplet”](media\howto-configure-homepage\image1.png)
 
-Att aktivera **designläget** **på**, öppnas instrumentpanelen biblioteket på en panel till vänster. Det finns många typer av paneler och instrumentpanelen primitiver som kan läggas till att anpassa din startsida.
+Att välja **redigera**, öppnas instrumentpanelen biblioteket på en panel till vänster. Det finns många typer av paneler och instrumentpanelen primitiver som kan läggas till att anpassa din startsida.
 
 ![Instrumentpanelen bibliotek](media\howto-configure-homepage\image2.png)
 
-Du kan till exempel lägga till en **inställningar och egenskaper** rutan för att visa ett urval av de aktuella värdena för inställningar och egenskaper. Om du vill göra det väljer du först en **enheten mallen** Välj sedan en **enhetsinstansen**. Efter som tillhandahåller panelen en rubrik och väljer en **inställningen** eller en **egenskapen** ska visas. I det här fallet har vi valt **fläkthastighet**. Klicka på **spara** leder till den här panelen visas på startsidan.
+Du kan till exempel lägga till en **inställningar och egenskaper** rutan för att visa ett urval av de aktuella värdena för inställningar och egenskaper. Om du vill göra det väljer du först en **enheten mallen** Välj sedan en **enhetsinstansen**. Efter som tillhandahåller panelen en rubrik och väljer en **inställningen** eller en **egenskapen** ska visas. I det här fallet har vi valt **fläkthastighet**. Klicka på **klar** leder till den här panelen visas på startsidan.
 
 ![”Konfigurera enhetsinformation” formuläret med information om inställningar och egenskaper](media\howto-configure-homepage\image3.png)
 

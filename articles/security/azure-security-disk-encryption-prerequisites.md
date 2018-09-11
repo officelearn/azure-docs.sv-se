@@ -1,24 +1,18 @@
 ---
 title: Krävs för Azure Disk Encryption | Microsoft Docs
 description: Den här artikeln innehåller förutsättningar för att använda Microsoft Azure Disk Encryption för virtuella IaaS-datorer.
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 1b2daefc-1326-44dd-9c8b-10e413769af7
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/29/2018
 ms.author: mstewart
-ms.openlocfilehash: 67c3591b0218beac6343b49ba7867294ebeb3f44
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.date: 09/10/2018
+ms.openlocfilehash: 0750ea0877d5f27a8ceb091f8c3904048c9314aa
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43381988"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348284"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Krav för Azure Disk Encryption 
  Den här artikeln krävs för Azure Disk Encryption, förklarar objekt som måste vara uppfyllda innan du kan använda Azure Disk Encryption. Azure Disk Encryption är integrerad med [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) för att hantera krypteringsnycklar. Du kan använda [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure/), eller [Azure-portalen](https://portal.azure.com) att konfigurera Azure Disk Encryption.
@@ -76,7 +70,7 @@ Ett exempel på kommandon som kan användas för att montera datadiskarna och sk
         -  Installera PowerShell Core, Azure PowerShell för .NET Core och läsa in modulen AzureRM.Netcore.
 
 2. Kontrollera de installerade versionerna av AzureRM-modulen. Om det behövs [uppdatera Azure PowerShell-modulen](/powershell/azure/install-azurerm-ps#update-the-azure-powershell-module).
-    -  AzureRM-Modulversion måste vara 6.0.0 eller högre.
+    -  AzureRM-modulversionen måste vara 6.0.0 eller senare.
     - Du bör använda den senaste versionen av AzureRM-modulen.
 
      ```powershell

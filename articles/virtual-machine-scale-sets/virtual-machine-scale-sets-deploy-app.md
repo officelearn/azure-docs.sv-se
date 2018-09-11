@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 8817facc21d2a7ac86bdaf198aab3179a93c4914
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 25773124fcd479489f5d2d544cc5b6e3b11e325a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38718989"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301148"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Distribuera ditt program i VM-skalningsuppsättningar
 Om du vill köra program på virtuella datorinstanser i en skalningsuppsättning, måste du först installera programkomponenter och nödvändiga filer. Den här artikeln beskrivs olika sätt att skapa en anpassad virtuell datoravbildning för instanser i en skalningsuppsättning eller automatiskt köra installationsskripten på befintliga VM-instanser. Du också lära dig hur du hanterar program eller uppdateringar av Operativsystemet i en skalningsuppsättning.
@@ -114,7 +114,7 @@ az vmss create \
 ### <a name="install-applications-with-os-updates"></a>Installera program med OS-uppdateringar
 När nya OS-versioner är tillgängliga kan du kan använda eller skapa en ny anpassad avbildning och [distribuera OS-uppgraderingar](virtual-machine-scale-sets-upgrade-scale-set.md) att en skalningsuppsättning. Varje virtuell datorinstans uppgraderas till den senaste avbildningen som du anger. Du kan använda en anpassad avbildning med programmet redan installerat tillägget för anpassat skript eller PowerShell DSC för att ha ditt program som är automatiskt tillgängligt när du utför uppgraderingen. Du kan behöva planera för programunderhåll när du utför den här processen för att säkerställa att det finns ingen version kompatibilitetsproblem.
 
-Om du använder en anpassad virtuell datoravbildning med programmet redan är installerat, kan du integrera programuppdateringar med en pipeline för distribution och skapa nya avbildningar som du kan distribuera OS-uppgraderingar i skalningsuppsättningen. På så sätt kan pipelinen att hämta de senaste versioner av programmet, skapa och validera en VM-avbildning och sedan uppgradera de Virtuella datorinstanserna i skalningsuppsättningen. Om du vill köra en pipeline för distribution som skapar och distribuerar programuppdateringar över anpassade VM-avbildningar kan du [skapa en Packer-avbildning och distribuera med Visual Studio Team Services](/vsts/pipelines/apps/cd/azure/deploy-azure-scaleset), eller använda en annan plattform som [Spinnaker ](https://www.spinnaker.io/) eller [Jenkins](https://jenkins.io/).
+Om du använder en anpassad virtuell datoravbildning med programmet redan är installerat, kan du integrera programuppdateringar med en pipeline för distribution och skapa nya avbildningar som du kan distribuera OS-uppgraderingar i skalningsuppsättningen. På så sätt kan pipelinen att hämta de senaste versioner av programmet, skapa och validera en VM-avbildning och sedan uppgradera de Virtuella datorinstanserna i skalningsuppsättningen. Om du vill köra en pipeline för distribution som skapar och distribuerar programuppdateringar över anpassade VM-avbildningar kan du [skapa en Packer-avbildning och distribuera med Azure DevOps-tjänsterna](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset), eller använda en annan plattform som [Spinnaker](https://www.spinnaker.io/) eller [Jenkins](https://jenkins.io/).
 
 
 ## <a name="next-steps"></a>Nästa steg

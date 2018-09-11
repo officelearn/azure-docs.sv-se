@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: fc45cde1a5f0f287274302541ac0115569e2239d
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: cf0c9b76a7edace9f2a9147823b292e218e20bf7
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666344"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300281"
 ---
 # <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>Azure AD-katalogroller som du kan hantera i PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -63,21 +63,19 @@ Om du vill ge en annan användare åtkomst till att hantera i PIM själva de rol
 ## <a name="roles-not-managed-in-pim"></a>Roller som inte hanteras i PIM
 Roller i Exchange Online eller SharePoint Online, förutom de som nämns ovan, representeras inte i Azure AD och så visas inte i PIM. Mer information om hur du ändrar detaljerade rolltilldelningar i de här Office 365-tjänster finns i [behörigheter i Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-Azure-prenumerationer och resursgrupper är också inte representeras i Azure AD. För att hantera Azure-prenumerationer, se [lägga till eller ändra Azure-administratörsroller](../../billing/billing-add-change-azure-subscription-administrator.md) och Läs mer om Azure RBAC [rollbaserad åtkomstkontroll i Azure](../../role-based-access-control/role-assignments-portal.md).
-
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 
 
 ## <a name="user-roles-and-signing-in"></a>Användarroller och logga in
 För vissa Microsoft-tjänster och program, kanske tilldela en användare till en roll inte är tillräckligt för att aktivera användaren vara administratör.
 
-Åtkomst till Azure-portalen kräver användaren vara en tjänstadministratör eller delad administratör för en Azure-prenumeration, även om användaren inte behöver hantera Azure-prenumerationer.  Till exempel för att hantera konfigurationsinställningar för Azure AD, måste en användare vara både en global administratör i Azure AD och medadministratör för prenumerationen till en Azure-prenumeration.  Läs hur du lägger till användare till Azure-prenumerationer i [lägga till eller ändra Azure-administratörsroller](../../billing/billing-add-change-azure-subscription-administrator.md).
+Åtkomst till Azure-portalen kräver användaren är ägare till en Azure-prenumeration, även om användaren inte behöver hantera Azure-prenumerationer.  Till exempel för att hantera konfigurationsinställningar för Azure AD, en användare måste vara både en Global administratör i Azure AD och en ägare för en Azure-prenumeration.  Läs hur du lägger till användare till Azure-prenumerationer i [hantera åtkomst med RBAC och Azure portal](../..//role-based-access-control/role-assignments-portal.md).
 
 Åtkomst till Microsoft Online Services kan kräva att användaren också tilldelas en licens innan de kan öppna tjänstens portalen eller utföra administrativa uppgifter.
 
 ## <a name="assign-a-license-to-a-user-in-azure-ad"></a>Tilldela en licens till en användare i Azure AD
 
-1. Logga in på den [Azure-portalen](http://portal.azure.com) med ett konto som Global administratör eller en delad administratör-konto.
+1. Logga in på den [Azure-portalen](http://portal.azure.com) med rollen Global administratör eller ägare.
 
 1. Välj Azure AD-katalog som du vill arbeta med och som har licenser som är kopplade till den.
 

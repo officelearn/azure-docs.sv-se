@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: spelluru
-ms.openlocfilehash: bafc08eae4a32f803f485097401a586a662f64e9
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: a8213ebfe1d2643fd3c38e655b2571de82ef048f
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700415"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346568"
 ---
 # <a name="message-browsing"></a>Bläddra i meddelanden
 
-Meddelandet surfning (”granskning”) kan ett klientprogram att räkna upp alla meddelanden som finns i en kö eller prenumeration, vanligtvis för diagnostik och felsökning.
+Bläddra i meddelanden eller granskning, aktiverar du en Service Bus-klient att räkna upp alla meddelanden som finns i en kö eller prenumeration, vanligtvis för diagnos och felsökning.
 
 Peek-åtgärder returnerar alla meddelanden som finns i Meddelandelogg kö eller prenumeration inte endast de tillgängliga för omedelbar med `Receive()` eller `OnMessage()` loop. Den `State` egenskapen för varje meddelande som anger om meddelandet är aktiv (tillgänglig som ska tas emot), [uppskjutna](message-deferral.md), eller [schemalagda](message-sequencing.md).
 
@@ -30,13 +30,13 @@ Förbrukade och utgångna meddelanden rensas av en asynkron ”skräpinsamling�
 
 Detta är särskilt viktigt att tänka på när du försöker återställa uppskjutna meddelanden från kön. Ett meddelande som den [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc#Microsoft_Azure_ServiceBus_Message_ExpiresAtUtc) snabbmeddelanden har passerat inte längre är berättigad för regelbundna hämtning på annat sätt, även när det är som returneras av Peek. Returnera dessa meddelanden är avsiktlig, eftersom Peek är ett verktyg för diagnostik som återger det aktuella tillståndet för loggen.
 
-Granska även Returnerar meddelanden som låstes och bearbetas för närvarande av andra mottagare, men ännu inte har slutförts. Men eftersom Peek returnerar en frånkopplad ögonblicksbild, status för aktiveringslås för ett meddelande från nebyly nalezeny instance förhandsgranskas meddelanden och [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.lockeduntilutc#Microsoft_Azure_ServiceBus_Core_MessageReceiver_LockedUntilUtc) och [LockToken](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.locktoken#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_LockToken) egenskaper throw en [ InvalidOperationException](/dotnet/api/system.invalidoperationexception) när programmet försöker läsa dem.
+Granska även Returnerar meddelanden som låstes och bearbetas för närvarande av andra mottagare, men ännu inte har slutförts. Men eftersom Peek returnerar en frånkopplad ögonblicksbild, status för aktiveringslås för ett meddelande från nebyly nalezeny instance förhandsgranskas meddelanden och [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.lockeduntilutc) och [LockToken](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.locktoken#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_LockToken) egenskaper throw en [ InvalidOperationException](/dotnet/api/system.invalidoperationexception) när programmet försöker läsa dem.
 
 ## <a name="peek-apis"></a>Granska API: er
 
 Den [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) och [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) metoder finns i alla .NET och Java-klientbibliotek och på alla mottagare objekt: **MessageReceiver**, **MessageSession**, **QueueClient**, och **SubscriptionClient**. Granska fungerar på alla köer och prenumerationer och deras respektive köer.
 
-När den anropas upprepade gånger metoden Peek räknar alla meddelanden som finns i kö eller prenumeration loggen, i sekvens nummer ordning, från det lägsta tillgängliga sekvensnumret till högst upp. Det här är den ordning som lagts till meddelanden i kön; Det är inte den ordning i vilken meddelanden så småningom kan hämtas.
+När den anropas upprepade gånger metoden Peek räknar alla meddelanden som finns i kö eller prenumeration loggen, i sekvens nummer ordning, från det lägsta tillgängliga sekvensnumret till högst upp. Detta är den ordning som lagts till meddelanden i kön och är inte den ordning i vilken meddelanden så småningom kan hämtas.
 
 [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) hämtar flera meddelanden och returnerar dem som en uppräkning. Om det finns några meddelanden, är uppräkning tom, inte null.
 

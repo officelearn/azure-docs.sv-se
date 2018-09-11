@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 143d0d4b66fc8e6e62364090e3d3187c4aa7bb51
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: e53e3e551041ed5bb04ae8e692a3fe3baf2521f8
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42919014"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302247"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Skapa miljöer för flera virtuella datorer och PaaS-resurser med Azure Resource Manager-mallar
 
 Den [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=525040) kan du enkelt [lägga till en virtuell dator i taget till ett labb](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Men om miljön innehåller flera virtuella datorer kan måste varje virtuell dator individuellt skapas. För scenarier, till exempel en webbapp för flera nivåer eller en SharePoint-servergrupp krävs en mekanism för att tillåta för att skapa flera virtuella datorer i ett enda steg. Med hjälp av Azure Resource Manager-mallar kan du nu definierar infrastruktur och konfiguration av din Azure-lösning och upprepade gånger distribuera flera virtuella datorer i ett konsekvent tillstånd. Den här funktionen ger följande fördelar:
 
-- Azure Resource Manager-mallar har lästs in direkt från centrallagret för källkontroll (GitHub eller Team Services Git).
+- Azure Resource Manager-mallar har lästs in direkt från centrallagret för källkontroll (GitHub eller Azure DevOps Services Git).
 - När du konfigurerat dina användare kan skapa en miljö genom att välja en Azure Resource Manager-mall från Azure portal, precis som med andra typer av [VM-databaser](./devtest-lab-comparing-vm-base-image-types.md).
 - Azure PaaS-resurser kan etableras i en miljö från en Azure Resource Manager-mall förutom virtuella IaaS-datorer.
 - Kostnaden för miljöer kan spåras i labbet, utöver enskilda virtuella datorer som skapats av andra typer av baser.
@@ -42,7 +42,7 @@ Mer information om många [fördelarna med att använda Resource Manager-mallar]
 Azure DevTest Labs har en [offentliga lagringsplatsen för Azure Resource Manager-mallar](https://github.com/Azure/azure-devtestlab/tree/master/Environments) som du kan använda för att skapa miljöer utan att behöva ansluta till en extern källa för GitHub själv. Den här lagringsplatsen innehåller ofta använda mallar som Azure Web Apps, Service Fabric-kluster och utveckling SharePoint-servergruppen miljö. Den här funktionen liknar den offentliga databasen artefakter som ingår för varje labb som du skapar. Miljö-databasen kan du snabbt komma igång med färdiga miljömallar med minsta indataparametrar för att ge dig en smidig upplevelse för komma igång för PaaS-resurser inom labs. Mer information finns i [konfigurera och använda offentliga miljöer i DevTest Labs](devtest-lab-configure-use-public-environments.md).
 
 ## <a name="configure-your-own-template-repositories"></a>Konfigurera en egen mall-databaser
-Som en av de bästa metoderna med infrastruktur som kod och konfiguration som kod, ska miljömallar hanteras i källkontrollen. Azure DevTest Labs följer den här övningen och läser in alla Azure Resource Manager-mallar direkt från GitHub eller VSTS Git-lagringsplatser. Resource Manager-mallar kan därför användas över hela lanseringen-livscykel, från testmiljö till produktionsmiljön.
+Som en av de bästa metoderna med infrastruktur som kod och konfiguration som kod, ska miljömallar hanteras i källkontrollen. Azure DevTest Labs följer den här övningen och läser in alla Azure Resource Manager-mallar direkt från dina GitHub- eller Azure DevOps Services Git-lagringsplatser. Resource Manager-mallar kan därför användas över hela lanseringen-livscykel, från testmiljö till produktionsmiljön.
 
 Se vilka mallar som skapats av DevTest Labs-teamet i den [offentliga GitHub-lagringsplatsen](https://github.com/Azure/azure-devtestlab/tree/master/Environments). I den här offentliga databasen, kan du visa mallar som delas av andra att du kan använda direkt eller anpassa dem efter dina behov. När du har skapat mallen kan du lagra den i den här lagringsplatsen att dela den med andra. Du kan också ställa in din egen Git-lagringsplats med mallar som kan användas för att konfigurera miljöer i molnet. 
 
@@ -79,9 +79,9 @@ Följande steg beskriver hur du lägger till en lagringsplats till ditt labb med
 1. Välj **Lägg till +** att lägga till din lagringsplats för Azure Resource Manager-mall.
 1. När andra **databaser** öppnas, ange nödvändig information på följande sätt:
     - **Namn på** – ange namnet på lagringsplatsen som används i laboratoriet.
-    - **URL för Git-klonen** – ange URL: en för GIT HTTPS klonade från GitHub eller Visual Studio Team Services.  
+    - **URL för Git-klonen** – ange URL: en för GIT HTTPS klonade från GitHub eller Azure DevOps-tjänsterna.  
     - **Gren** -ange grennamnet att komma åt din Malldefinitioner för Azure Resource Manager-. 
-    - **Personlig åtkomsttoken** -personliga åtkomsttoken som används för att få säker åtkomst till databasen. Välj för att få din token från Visual Studio Team Services,  **&lt;dittnamn >> min profil > Säkerhet > offentlig åtkomst-token**. Välj din avatar följt genom att välja för att få din token från GitHub, **Inställningar > offentlig åtkomst-token**. 
+    - **Personlig åtkomsttoken** -personliga åtkomsttoken som används för att få säker åtkomst till databasen. Välj för att få din token från Azure DevOps-tjänsterna,  **&lt;dittnamn >> min profil > Säkerhet > offentlig åtkomst-token**. Välj din avatar följt genom att välja för att få din token från GitHub, **Inställningar > offentlig åtkomst-token**. 
     - **Mappsökvägar** -med någon av de två inmatningsfält, ange sökvägen som börjar med ett snedstreck - / - och är i förhållande till din Git-klon URI till antingen artefakt definitionerna (första inmatningsfält) eller definitionerna för Azure Resource Manager-mall .   
     
         ![Offentlig repo](./media/devtest-lab-create-environment-from-arm/repo-values.png)

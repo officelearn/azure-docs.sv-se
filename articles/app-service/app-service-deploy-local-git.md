@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: f461a9a7cc900ce5f8fdba7b255417b1790d3f4d
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: ae8739a65efbe7662a8f72e961d772fecaf4b527
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055011"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303705"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokal Git-distribution till Azure Apptjänst
 
@@ -101,10 +101,10 @@ Du kan se runtime-specifika automation i utdata, till exempel MSBuild för ASP.N
 
 Bläddra till din app för att kontrollera att innehållet distribueras.
 
-## <a name="deploy-from-local-git-with-vsts-builds"></a>Distribuera från lokal Git med VSTS-versioner
+## <a name="deploy-from-local-git-with-azure-devops-services-builds"></a>Distribuera från lokal Git med Azure DevOps-tjänsterna versioner
 
 > [!NOTE]
-> För App Service för att skapa den nödvändiga versionen och versionsdefinitioner i VSTS-kontot, Azure-kontot måste ha rollen **ägare** i Azure-prenumerationen.
+> För App Service för att skapa nödvändiga Azure Pipelines i din organisation med Azure DevOps-tjänsterna, Azure-kontot måste ha rollen **ägare** i Azure-prenumerationen.
 >
 
 Om du vill aktivera lokal Git-distribution för din app med Kudu build-servern, navigerar du till din app i den [Azure-portalen](https://portal.azure.com).
@@ -113,14 +113,14 @@ I den vänstra navigeringen i din appsida klickar du på **Deployment Center** >
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-Klicka på **kontinuerlig leverans i VSTS** > **fortsätta**.
+Klicka på **Azure DevOps Services kontinuerlig leverans** > **fortsätta**.
 
 ![](media/app-service-deploy-local-git/vsts-build-server.png)
 
-I den **konfigurera** sidan, konfigurera ett nytt VSTS-konto eller ange ett befintligt konto. När du är klar klickar du på **Fortsätt**.
+I den **konfigurera** sidan, konfigurera en ny Azure DevOps-tjänsterna organisation eller ange en befintlig organisation. När du är klar klickar du på **Fortsätt**.
 
 > [!NOTE]
-> Om du vill använda ett befintligt VSTS-konto som inte visas kan du behöva [länka VSTS-konto till din Azure-prenumeration](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Om du vill använda en befintlig Azure DevOps-tjänsterna organisation som inte visas kan du behöva [länka Azure DevOps-tjänsterna organisationen till din Azure-prenumeration](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 I den **Test** väljer du om du vill aktivera belastningstester och klicka sedan på **Fortsätt**.
 
@@ -128,7 +128,7 @@ Beroende på den [prisnivån](https://azure.microsoft.com/pricing/details/app-se
 
 I den **sammanfattning** kontrollerar du dina alternativ och klickar på **Slutför**.
 
-Det tar några minuter för VSTS-kontot ska bli klar. När det är klart, Kopiera URL: en för Git-lagringsplats i deployment center.
+Det tar några minuter för Azure DevOps-tjänsterna organisationen ska bli klar. När det är klart, Kopiera URL: en för Git-lagringsplats i deployment center.
 
 ![](media/app-service-deploy-local-git/vsts-repo-ready.png)
 
@@ -138,7 +138,7 @@ I det _lokala terminalfönstret_ kan du lägga till en Azure-fjärrdatabas till 
 git remote add vsts <url>
 ```
 
-Skicka till Azure-fjärrdatabasen för att distribuera appen med följande kommando. När du uppmanas av Git Credential Manager, logga in med din visualstudio.com-användare. Ytterligare autentiseringsmetoder finns [översikt över autentisering VSTS](/vsts/git/auth-overview?view=vsts).
+Skicka till Azure-fjärrdatabasen för att distribuera appen med följande kommando. När du uppmanas av Git Credential Manager, logga in med din visualstudio.com-användare. Ytterligare autentiseringsmetoder finns [översikt över Azure DevOps-tjänsterna autentisering](/vsts/git/auth-overview?view=vsts).
 
 ```bash
 git push vsts master

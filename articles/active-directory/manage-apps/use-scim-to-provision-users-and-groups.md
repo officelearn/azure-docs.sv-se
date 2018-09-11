@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: b696325c19d4e1d9c9fe6b85a3c46add756340ea
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4247ef1ffd1b8d5c5ec393e3ebff20c3e04e32b3
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443519"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347706"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Med hjälp av System för domänerna Identity Management (SCIM) att automatiskt etablera användare och grupper från Azure Active Directory till program
 
@@ -84,7 +84,7 @@ Program som stöder SCIM-profilen som beskrivs i den här artikeln kan anslutas 
 13. Klicka på **spara** att starta den Azure AD-etableringstjänsten. 
 14. Om synkronisera enbart tilldelade användare och grupper (rekommenderas), måste du markera den **användare och grupper** fliken och tilldela användare och/eller grupper som du vill synkronisera.
 
-När den inledande synkroniseringen har startats kan du använda den **granskningsloggar** flik för att övervaka förloppet, som visar alla åtgärder som utförs av etableringstjänsten i din app. Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../active-directory-saas-provisioning-reporting.md).
+När den inledande synkroniseringen har startats kan du använda den **granskningsloggar** flik för att övervaka förloppet, som visar alla åtgärder som utförs av etableringstjänsten i din app. Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](check-status-user-account-provisioning.md).
 
 >[!NOTE]
 >Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som tjänsten körs. 
@@ -152,7 +152,7 @@ Det enklaste sättet att implementera en SCIM-slutpunkt som kan ta emot etableri
 13. Klicka på **spara** att starta den Azure AD-etableringstjänsten. 
 14. Om synkronisera enbart tilldelade användare och grupper (rekommenderas), måste du markera den **användare och grupper** fliken och tilldela användare och/eller grupper som du vill synkronisera.
 
-När den inledande synkroniseringen har startats kan du använda den **granskningsloggar** flik för att övervaka förloppet, som visar alla åtgärder som utförs av etableringstjänsten i din app. Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../active-directory-saas-provisioning-reporting.md).
+När den inledande synkroniseringen har startats kan du använda den **granskningsloggar** flik för att övervaka förloppet, som visar alla åtgärder som utförs av etableringstjänsten i din app. Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](check-status-user-account-provisioning.md).
 
 Det sista steget i att verifiera exemplet är att öppna filen TargetFile.csv i mappen \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug på din Windows-dator. När etableringen har körts, innehåller den här filen information om alla tilldelade och etablerat användare och grupper.
 
@@ -692,11 +692,11 @@ Följande bild visar meddelandena som Azure AcD skickar till SCIM-tjänsten att 
 
 ## <a name="related-articles"></a>Relaterade artiklar
 * [Artikelindex för programhantering i Azure Active Directory](../active-directory-apps-index.md)
-* [Automatisera användaren etablering/avetablering för SaaS-appar](../active-directory-saas-app-provisioning.md)
-* [Anpassa attributmappningar för etableringen av användare](../active-directory-saas-customizing-attribute-mappings.md)
-* [Skriva uttryck för attributmappningar](../active-directory-saas-writing-expressions-for-attribute-mappings.md)
-* [Omfångsfilter för etableringen av användare](../active-directory-saas-scoping-filters.md)
-* [Kontoetableringsmeddelanden](../active-directory-saas-app-provisioning.md)
+* [Automatisera användaren etablering/avetablering för SaaS-appar](user-provisioning.md)
+* [Anpassa attributmappningar för etableringen av användare](customize-application-attributes.md)
+* [Skriva uttryck för attributmappningar](functions-for-customizing-application-data.md)
+* [Omfångsfilter för etableringen av användare](define-conditional-rules-for-provisioning-user-accounts.md)
+* [Kontoetableringsmeddelanden](user-provisioning.md)
 * [Lista över guider om hur du integrerar SaaS-appar](../saas-apps/tutorial-list.md)
 
 <!--Image references-->

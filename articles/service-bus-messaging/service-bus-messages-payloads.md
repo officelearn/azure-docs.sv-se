@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: spelluru
-ms.openlocfilehash: 100559f86a72cd5a5148d1db99764e5b04f3e3b1
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 44c25aa589b757ec29dad6863ff1969e76aed872
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702484"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346244"
 ---
 # <a name="messages-payloads-and-serialization"></a>Meddelanden, nyttolaster och serialisering
 
@@ -36,7 +36,7 @@ De motsvarande namn som används på protokollnivån AMQP visas inom parentes.
 |---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  [ContentType](/dotnet/api/microsoft.azure.servicebus.message.contenttype) (innehållstyp)           | Du kan också beskriver nyttolasten för meddelandet med en beskrivning som följer formatet på RFC2045, avsnitt 5; till exempel `application/json`.                                                                                                                                                                                                                                                                                             |
 |  [CorrelationId](/dotnet/api/microsoft.azure.servicebus.message.correlationid#Microsoft_Azure_ServiceBus_Message_CorrelationId) (Korrelations-id)       | Gör att ett program att ange en kontext för meddelandet för korrelation; till exempel återger den **MessageId** av ett meddelande som besvaras.                                                                                                                                                                                                                                                                  |
-| [DeadLetterSource](/dotnet/api/microsoft.azure.servicebus.message.deadlettersource)                      | Endast in i meddelanden som har gått förlorade lettered och därefter automatiskt-vidarebefordras från obeställbara meddelanden till en annan entitet. Anger den entitet som meddelandet var dead lettered. Den här egenskapen är skrivskyddad.                                                                                                                                                                                                                                  |
+| [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource)                      | Endast in i meddelanden som har gått förlorade lettered och därefter automatiskt-vidarebefordras från obeställbara meddelanden till en annan entitet. Anger den entitet som meddelandet var dead lettered. Den här egenskapen är skrivskyddad.                                                                                                                                                                                                                                  |
 | [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deliverycount)                         | Antal leveranser som har gjorts för det här meddelandet. Antalet ökar stegvis om ett lås för meddelandet upphör att gälla eller meddelandet uttryckligen avbrutits av mottagaren. Den här egenskapen är skrivskyddad.                                                                                                                                                                                                                                                  |
 | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber)                | Den här egenskapen visar sekvensnummer som först hade tilldelats till meddelandet på dess ursprungliga plats för bidrag för meddelanden som har vidarebefordras automatiskt. Den här egenskapen är skrivskyddad.                                                                                                                                                                                                                                                                |
 | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc)                       | UTC omedelbar då meddelandet har accepterat och lagras i entiteten. Det här värdet kan användas som en auktoritär och neutral ankomst tid indikator när mottagaren inte vill lita på avsändarens klockan. Den här egenskapen är skrivskyddad.                                                                                                                                                                                                   |

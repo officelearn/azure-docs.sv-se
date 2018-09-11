@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/28/2018
+ms.date: 09/06/2018
 ms.author: alkohli
-ms.openlocfilehash: 2fdd574adf3587f11984bee2a2549d9bcd0c4c0d
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: aaa4e4bb24ca42adb9d283e6286dbef879bcb1ea
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126013"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299856"
 ---
 # <a name="azure-data-box-disk-system-requirements-preview"></a>Systemkrav för Azure Data Box-Disk (förhandsversion)
 
@@ -35,17 +35,29 @@ Systemkraven omfattar plattformarna som stöds för klienter som ansluter till d
 
 Här är en lista över operativsystem som stöds för disken låsa upp och Datakopieringen via klienter som är anslutna till Data Box-Disk.
 
-| **Operativsystem/plattform** | **Versioner** |
+| **Operativsystem** | **Testade versioner** |
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
 | Windows |7, 8, 10 |
-| Windows PowerShell |4.0 |
+|Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8.11, 9 <br> 7.0 <br> 6.5, 6,9, 7.0, 7.5 |  
+
+## <a name="other-required-software-for-windows-clients"></a>Annan nödvändig programvara för Windows-klienter
+
+För Windows-klienten installeras även följande.
+
+| **Programvara**| **Version** |
+| --- | --- |
+| Windows PowerShell |5.0 |
 | .NET Framework |4.5.1 |
-| Windows Management Framework |4.0|
+| Windows Management Framework |5.0|
+| BitLocker| - |
 
-> [!NOTE] 
-> BitLocker måste vara aktiverad på klienter som kör disken låsa upp verktyget och används för att kopiera data.
+## <a name="other-required-software-for-linux-clients"></a>Annan nödvändig programvara för Linux-klienter
 
+Verktygsuppsättningen för Data Box-Disk installerar följande nödvändig programvara för Linux-klient:
+
+- dislocker
+- OpenSSL
 
 ## <a name="supported-storage-accounts"></a>Stöds storage-konton
 

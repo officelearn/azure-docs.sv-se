@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: glenga
-ms.openlocfilehash: 53a5de98ccdae4d4a73d8dc7b150c8e333024b33
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d7396ddb94017048247050726f83b0302e946633
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095172"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347128"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>ZIP-distribution för Azure Functions
 
@@ -93,7 +93,7 @@ Du kan också välja att köra dina funktioner direkt från paketet distribution
 > [!NOTE]
 > Möjligheten att köra din funktionsapp från distributionspaketet genomgår förhandsgranskning.
 
-ZIP-distribution kan integreras med den här funktionen, som du kan aktivera genom att ange funktionsappsinställning `WEBSITE_RUN_FROM_ZIP` till ett värde av `1`. Mer information finns i [kör dina funktioner från en distribution paketfil](run-functions-from-deployment-package.md).
+ZIP-distribution kan integreras med den här funktionen, som du kan aktivera genom att ange funktionsappsinställning `WEBSITE_RUN_FROM_PACKAGE` till ett värde av `1`. Mer information finns i [kör dina funktioner från en distribution paketfil](run-functions-from-deployment-package.md).
 
 [!INCLUDE [app-service-deploy-zip-push-custom](../../includes/app-service-deploy-zip-push-custom.md)]
 

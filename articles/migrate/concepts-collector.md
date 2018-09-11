@@ -4,21 +4,19 @@ description: Översikt över insamlingsprogrammet och hur du konfigurerar den.
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/25/2018
+ms.date: 09/10/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 74caf0ab052e1f6558dc20d15d84c01177b3f9cb
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: dae6cc9a55049e2b44291eb105288b33a1db9e7b
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665588"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325540"
 ---
 # <a name="collector-appliance"></a>Insamlingsprogrammet
 
 [Azure Migrate](migrate-overview.md) utvärderar lokala arbetsbelastningar för migrering till Azure. Den här artikeln innehåller information om hur du använder insamlingsprogrammet.
-
-
 
 ## <a name="overview"></a>Översikt
 
@@ -27,6 +25,17 @@ Ett Azure Migrate Collector är en enkel installation som kan användas för att
 Insamlaren är en OVF som du kan hämta från Azure Migrate-projektet. Den skapar en instans av en virtuell VMware-dator med 4 kärnor, 8 GB RAM-minne och en disk på 80 GB. Operativsystemet på enheten som är Windows Server 2012 R2 (64-bitars).
 
 Du kan skapa insamlaren genom att följa stegen här – [så här skapar du VM-insamlaren](tutorial-assessment-vmware.md#create-the-collector-vm).
+
+## <a name="discovery-methods"></a>Identifieringsmetoder
+
+Det finns två metoder som du identifiera din lokala miljö:
+
+a. **Enstaka identifiering:** insamlaren för den här modellen kommunicerar med vCenter Server för att samla in metadata om de virtuella datorerna. För insamling av prestandadata för de virtuella datorerna, förlitar sig på historiska prestandadata som lagras i vCenter Server och samlar in prestandahistoriken för den senaste månaden. I den här modellen Azure Migrate samlar in genomsnittlig räknare (jämfört med högsta counter) för varje mått, [Läs mer] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) om prestandaräknarna som samlats in av Azure Migrate. Eftersom det är en enstaka identifiering är installationen i det här fallet inte kontinuerligt ansluten i projektet. Därför återspeglas inte ändringar i den lokala miljön i Azure Migrate när identifieringen är klar. Om du vill att ändras för att återspegla som du behöver göra en ny identifiering av samma miljö att samma projekt.
+
+b. **Kontinuerlig identifiering:** insamlingsprogrammet för den här modellen är kontinuerligt anslutna till Azure Migrate-projektet. Kontinuerligt Profileringen den lokala miljön för att samla in användningsdata i realtid på var 20: e sekund. Installationen sedan samlar upp exempel 20 sekunder och skapar en enskild datapunkt för varje kvart genom att välja det maximala värdet som skickas till Azure. Den här modellen är inte beroende av statistikinställningarna för vCenter Server för insamling av prestandadata. Du kan stoppa kontinuerlig Profileringen när som helst av programmet.
+
+> [!NOTE]
+> Funktionen för identifiering av kontinuerlig genomgår förhandsgranskning.
 
 ## <a name="collector-communication-diagram"></a>Insamlaren kommunikation diagram
 
@@ -39,13 +48,9 @@ Du kan skapa insamlaren genom att följa stegen här – [så här skapar du VM-
 | Insamlare      | vCenter Server        | Standard 443                             | Insamlaren ska kunna kommunicera med vCenter-servern. Den ansluter till vCenter på 443 som standard. Om vCenter lyssnar på en annan port ska ska den porten vara tillgängliga som utgående port på insamlaren |
 | Insamlare      | RDP|   | TCP 3389 | Du ska kunna använda RDP till insamlardatorn |
 
-
-
-
-
 ## <a name="collector-pre-requisites"></a>Förutsättningar för insamlaren
 
-Insamlaren måste skicka några sökningar efter nödvändiga komponenter för att säkerställa att den kan ansluta till tjänsten Azure Migrate och ladda upp den identifierade data. Den här artikeln tittar på var och en av förutsättningarna och förstå varför det är obligatoriskt.
+Insamlaren måste skicka några sökningar efter nödvändiga komponenter för att säkerställa att den kan ansluta till tjänsten Azure Migrate och ladda upp den identifierade data. Den här artikeln tittar på var och en av förutsättningarna och förstår varför det är obligatoriskt.
 
 ### <a name="internet-connectivity"></a>Internetanslutning
 
@@ -77,8 +82,8 @@ Om proxyservern som du använder för att ansluta till internet är en spärrand
 6. Välj alternativet att **placera alla certifikat i nedanstående arkiv**. Klicka på **Bläddra** och välj **betrodda utgivare** från listan över certifikat som kommer upp. Klicka på **Nästa**.
 
     ![Certifikatarkivet](./media/concepts-intercepting-proxy/certificate-store.png)
-    
-7. Klicka på **Slutför**. Certifikatet importeras. 
+
+7. Klicka på **Slutför**. Certifikatet importeras.
 8. Alternativt kan du verifiera certifikatet har importerats genom att öppna verktyget certifikat som i steg 1 och 2 ovan.
 9. Kontrollera den nödvändiga kontrollen för internet-anslutningen har utförts på Azure Migrate collector-appen.
 
@@ -132,7 +137,7 @@ Insamlaren ska ansluta till vCenter-servern och kunna skicka frågor för de vir
 
     |Aktivitet  |Nödvändiga administratörsrollskontot  |Behörigheter  |
     |---------|---------|---------|
-    |Insamlaren installation baserad identifiering    | Du behöver minst en skrivskyddad användare        |Data Center-objekt –> Sprid till underordnat objekt, roll = skrivskyddad         |
+    |Insamlaren installation-baserad identifiering    | Du behöver minst en skrivskyddad användare        |Data Center-objekt –> Sprid till underordnat objekt, roll = skrivskyddad         |
 
 2. Dessa datacenter som är tillgängliga för det angivna vCenter-kontot kan nås för identifiering.
 3. Du måste ange Vcentre-FQDN/IP-adress att ansluta till vCenter-servern. Som standard ansluter det via port 443. Om du har konfigurerat vCenter för att lyssna på ett annat portnummer, kan du ange den som en del av serveradressen i formatet IPAddress:Port_Number eller FQDN:Port_Number.
@@ -166,7 +171,7 @@ När identifieringen startar de virtuella datorerna på vCenter identifieras och
 
 ### <a name="what-data-is-collected"></a>Vilka data som samlas in?
 
-Samling jobbet identifieras följande statiska metadata om de valda virtuella datorerna.
+Insamlingsprogrammet identifieras följande statiska metadata om de valda virtuella datorerna.
 
 1. VM-visningsnamn (på vCenter)
 2. Virtuella datorns lager sökväg (värd/mapp i vCenter)
@@ -177,7 +182,9 @@ Samling jobbet identifieras följande statiska metadata om de valda virtuella da
 6. Minnesstorlek, diskstorlekar
 7. Och prestandaräknarna för den virtuella datorn, disk och nätverk som anges i tabellen nedan.
 
-I följande tabell visas de prestandaräknare som samlas in och visar också utvärderingsresultat som påverkas om en särskild räknare inte har samlats in.
+I följande tabell visas de exakta prestandaräknare som samlas in och visar också utvärderingsresultat som påverkas om en särskild räknare inte samlas för modellen på gång.
+
+För kontinuerlig identifiering samma prestandaräknare som samlas in i realtid (20 sekunder intervall), så det finns inga beroende på statistiknivå. Installationen sedan samlar upp 20 sekunder exemplen för att skapa en enskild datapunkt för varje kvart genom att välja det högsta värdet 20 sekunder exemplen och skickar det till Azure.
 
 |Räknare                                  |Nivå    |Nivå per enhet  |Utvärdering av påverkan                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
@@ -191,16 +198,20 @@ I följande tabell visas de prestandaräknare som samlas in och visar också utv
 |NET.Transmitted.Average                  | 2       |3                 |VM-storlek och nätverk kostnad                        |
 
 > [!WARNING]
-> Om du precis har högre statistik, ska det ta upp till en dag att generera prestandaräknare. Därför rekommenderar vi att du kör identifieringen efter en dag.
+> För enstaka identifiering om du precis har en högre nivå för statistik, ska det ta upp till en dag att generera prestandaräknare. Därför rekommenderar vi att du kör identifieringen efter en dag. Vänta minst en dag när du har startat identifieringen att profilera miljön och sedan skapa utvärderingar för identifiering av kontinuerlig-modellen.
 
 ### <a name="time-required-to-complete-the-collection"></a>Tid som krävs för att slutföra insamlingen
 
-Insamlaren endast identifieras data för den dator och skickar det till projektet. Projektet kan ta längre tid innan de identifierade data visas på portalen och du kan börja skapa en utvärdering.
+**Enstaka identifiering**
 
-Baserat på antalet virtuella datorer i det valda omfånget, tar det upp till 15 minuter för att skicka statiska metadata i projektet. När statiska metadata är tillgängliga på portalen kan du se en lista över datorer i portalen och börja skapa grupper. En utvärdering kan inte skapas förrän samling jobbet har slutförts och projektet har bearbetat data. När samlingen jobbet har slutförts på insamlaren, det kan ta upp till en timme efter prestandadata ska vara tillgängliga på portalen, baserat på antalet virtuella datorer i det valda omfånget.
+I den här modellen insamlaren samlar in och historiken för virtuella datorer från vCenter-servern och skickar det till projektet. Installationen är i det här fallet inte kontinuerligt anslutna i projektet. Baserat på antalet virtuella datorer i det valda omfånget, tar det upp till 15 minuter att skicka konfigurationsmetadata i projektet. När konfigurationsmetadata är tillgängliga på portalen kan du se en lista över datorer i portalen och börja skapa grupper. När konfigurationsdata som samlas in, det kan ta upp till en timme efter prestandadata ska vara tillgängliga på portalen, baserat på antalet virtuella datorer i det valda omfånget.
+
+**Kontinuerlig identifiering**
+
+Konfigurationsdata för lokala virtuella datorer är tillgänglig i den här modellen efter 1 timme för att utlösa identifiering-och prestandadata startar blir tillgänglig efter 2 timmar. Eftersom detta är en kontinuerlig modell håller insamlaren kontinuerligt skickar prestandadata till Azure Migrate-projektet.
 
 ## <a name="locking-down-the-collector-appliance"></a>Låsa insamlingsprogrammet
-Vi rekommenderar att körs kontinuerliga Windows-uppdateringar på insamlingsprogrammet. Om en insamlare inte har uppdaterats i 60 dagar startar insamlaren automatiskt stänger av datorn. Om en identifiering körs kommer datorn inte stängas av, även om den har passerat dess 60 dagars period. Efter identifiering av jobbet har slutförts, datorn kommer att inaktiveras. Om du använder insamlaren i mer än 45 dagar, rekommenderar vi att hålla datorn uppdaterat hela tiden genom att köra Windows update.
+Vi rekommenderar att körs kontinuerliga Windows-uppdateringar på insamlingsprogrammet. Om en insamlare inte har uppdaterats i 60 dagar startar insamlaren automatiskt stänger av datorn. Om en identifiering körs kommer datorn inte stängas av, även om det har passerat dess 60 dagar. Efter identifiering av jobbet har slutförts, datorn kommer att inaktiveras. Om du använder insamlaren i mer än 45 dagar, rekommenderar vi att hålla datorn uppdaterat hela tiden genom att köra Windows update.
 
 Vi rekommenderar också följande steg för att skydda din installation
 1. Dela inte eller tappar bort administratörslösenord med obehöriga personer.

@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 70552e982ff4c21d02b5f52ea48f108ce7f3b97e
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ce27f51dc5e80b4ce2bd83b5f9f6c75853a2ea73
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366817"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325285"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Så här distribuerar du Access Panel-tillägg för Internet Explorer med hjälp av en Grupprincip
 Den här självstudien visar hur du använder grupprinciper för att fjärrinstallera Access Panel-tillägg för Internet Explorer på användarnas datorer. Det här tillägget är obligatoriskt för Internet Explorer-användare som behöver logga in på appar som har konfigurerats med hjälp av [lösenordsbaserad enkel inloggning](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on).
@@ -120,7 +120,7 @@ Tillägget ska nu vara aktiverad för datorer i den valda Organisationsenheten. 
 ## <a name="step-5-optional-disable-remember-password-prompt"></a>Steg 5 (valfritt): inaktivera ”Kom ihåg lösenord” fråga
 När användare loggar in till webbplatser som använder tillägget för åtkomst-panelen, kan Internet Explorer indikera följande meddelandet som ber ”vill du lagra ditt lösenord”?
 
-![](./media/active-directory-saas-ie-group-policy/remember-password-prompt.png)
+![Lösenordsprompt](./media/active-directory-saas-ie-group-policy/remember-password-prompt.png)
 
 Om du vill hindra användarna från att se den här uppmaningen följer du stegen nedan för att förhindra automatisk komplettering från att komma ihåg lösenord:
 

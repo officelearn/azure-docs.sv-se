@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: barbkess
-ms.openlocfilehash: 1c9fe9fb63b45233ed1a11bb63c0763c6103bc6d
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: a48b5aabdaf7f8f9e7269a995d92d046cca21786
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095189"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325574"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Skriva uttryck för attributmappningar i Azure Active Directory
 När du konfigurerar etablering till ett SaaS-program, är en av typerna av attributmappningar som du kan ange mappningen för en uttryck. För dessa, måste du skriva ett skript-liknande uttryck som hjälper dig att omvandla dina användares data till format som kan användas mer för SaaS-program.
@@ -269,6 +269,6 @@ Om delstatskod inte matchar någon av de fördefinierade alternativ, använder d
 * [Anpassa attributmappningar för etableringen av användare](active-directory-saas-customizing-attribute-mappings.md)
 * [Omfångsfilter för etableringen av användare](active-directory-saas-scoping-filters.md)
 * [Använda SCIM för att aktivera automatisk etablering av användare och grupper från Azure Active Directory till program](manage-apps/use-scim-to-provision-users-and-groups.md)
-* [Kontoetableringsmeddelanden](active-directory-saas-account-provisioning-notifications.md)
+* [Kontoetableringsmeddelanden](active-directory-saas-app-provisioning.md)
 * [Lista över guider om hur du integrerar SaaS-appar](saas-apps/tutorial-list.md)
 

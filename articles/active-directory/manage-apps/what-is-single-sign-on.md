@@ -14,12 +14,12 @@ ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 1ac15ce8f8abf2b30b42f02b300a17448f86fc40
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: d17b5967519bc51e4fb33a410149d17c82c28d10
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052776"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347995"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Vad är programåtkomst och enkel inloggning med Azure Active Directory?
 Enkel inloggning innebär det att kunna komma åt alla program och resurser som du behöver för att göra affärer, genom att logga in med ett enda användarkonto. När du har loggat in, du kan komma åt alla program som du behöver utan att behöva autentisera dig (exempel: Skriv ett lösenord) en andra gång.
@@ -89,7 +89,7 @@ Välj program aktiverar Azure AD för automatisk användaretablering och avetabl
 
 När en användare tas bort eller deras informationen ändras i Azure AD, visas ändringarna också i SaaS-program. Det innebär att konfigurera automatiserade identitetslivcykelhantering gör att administratörer kan styra och tillhandahålla Automatisk etablering och avetablering från SaaS-program. I Azure AD aktiveras den här automatisering av identitetslivcykelhantering som etableringen av användare.
 
-Mer information finns i [automatisk Användaretablering och avetablering för SaaS-program](../active-directory-saas-app-provisioning.md)
+Mer information finns i [automatisk Användaretablering och avetablering för SaaS-program](user-provisioning.md)
 
 ## <a name="get-started-with-the-azure-ad-application-gallery"></a>Kom igång med Azure AD-programgalleriet
 Redo att sätta igång? Distribuera enkel inloggning mellan Azure AD och SaaS-program som din organisation använder, följer dessa riktlinjer.
@@ -109,7 +109,7 @@ När du har hittat ditt program, kan du komma igång genom att följa de stegvis
 ### <a name="application-not-in-the-gallery"></a>Program inte i galleriet?
 Om ditt program inte finns i Azure AD-programgalleriet, finns följande alternativ:
 
-* **Lägg till en ny app som du använder** -använda anpassad kategori i app-galleriet i Azure-portalen för att ansluta ett olistade program som din organisation använder. Du kan lägga till alla program som stöder SAML 2.0 som federerade app eller alla program som har en HTML-baserad på inloggningssidan som ett lösenord för SSO-app. Mer information finns i den här artikeln på [att lägga till ditt eget program](../application-config-sso-how-to-configure-federated-sso-non-gallery.md).
+* **Lägg till en ny app som du använder** -använda anpassad kategori i app-galleriet i Azure-portalen för att ansluta ett olistade program som din organisation använder. Du kan lägga till alla program som stöder SAML 2.0 som federerade app eller alla program som har en HTML-baserad på inloggningssidan som ett lösenord för SSO-app. Mer information finns i den här artikeln på [att lägga till ditt eget program](configure-federated-single-sign-on-non-gallery-applications.md).
 * **Lägg till dina egna app som du utvecklar** – om du har utvecklat programmet själv, följer du instruktionerna i dokumentationen för Azure AD-utvecklare att implementera federerad enkel inloggning eller etablering med hjälp av Azure AD graph API. Mer information finns i följande källor:
   
   * [Autentiseringsscenarier för Azure AD](../develop/authentication-scenarios.md)

@@ -15,15 +15,15 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 2b2b44deacf8278b8e8c2554cc873c5d0b75f6f9
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 95d2f65e99b37b38f99ec5a750d74828661fe7ee
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366196"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349151"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Hantera konto etablering för företagsappar i Azure portal
-Den här artikeln beskriver hur du använder den [Azure-portalen](https://portal.azure.com) att hantera etablering av automatisk användarkonto och avetablering för program som stöder det, särskilt de som har lagts till från kategorin ”aktuella” för [ Azure Active Directory-programgalleriet](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). Läs mer om automatisk användarkontoetablering och hur det fungerar i [automatisera Användaretablering och avetablering för SaaS-program med Azure Active Directory](../active-directory-saas-app-provisioning.md).
+Den här artikeln beskriver hur du använder den [Azure-portalen](https://portal.azure.com) att hantera etablering av automatisk användarkonto och avetablering för program som stöder det, särskilt de som har lagts till från kategorin ”aktuella” för [ Azure Active Directory-programgalleriet](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). Läs mer om automatisk användarkontoetablering och hur det fungerar i [automatisera Användaretablering och avetablering för SaaS-program med Azure Active Directory](user-provisioning.md).
 
 ## <a name="finding-your-apps-in-the-portal"></a>Hitta dina appar i portalen
 Alla program som är konfigurerade för enkel inloggning i en katalog med en directory-administratör med hjälp av den [Azure Active Directory-programgalleriet](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery), kan visas och hanteras i den [Azure-portalen](https://portal.azure.com). Programmen finns i den **alla tjänster** &gt; **företagsprogram** i portalen. Enterprise-appar är appar som distribueras och används i din organisation.
@@ -46,7 +46,7 @@ Den **etablering** fönstret börjar med en **läge** meny som visar vilka etabl
 Att välja den **automatisk** alternativet visar en skärm som är uppdelad i fyra delar:
 
 ### <a name="admin-credentials"></a>Autentiseringsuppgifter för administratör
-Det här avsnittet är där autentiseringsuppgifterna som krävs för Azure AD för att ansluta till programmets Användarhantering API har angetts. Indata som krävs varierar beroende på programmet. Läs om autentiseringstyper och krav för specifika program i den [självstudierna för konfiguration för det specifika programmet](../active-directory-saas-app-provisioning.md).
+Det här avsnittet är där autentiseringsuppgifterna som krävs för Azure AD för att ansluta till programmets Användarhantering API har angetts. Indata som krävs varierar beroende på programmet. Läs om autentiseringstyper och krav för specifika program i den [självstudierna för konfiguration för det specifika programmet](user-provisioning.md).
 
 Att välja den **Testanslutning** knappen kan du testa autentiseringsuppgifterna genom att låta Azure AD-försök att ansluta till appen etablering app med hjälp av de angivna autentiseringsuppgifterna.
 
@@ -60,7 +60,7 @@ Det finns en förkonfigurerad uppsättning mappningar mellan Azure AD-användaro
 Anpassningar som stöds är:
 
 * Aktivera och inaktivera mappningar för specifika objekt, till exempel Azure AD-användarobjektet med SaaS-appens användarobjektet.
-* Redigera attribut som flödar från Azure AD-användarobjektet till appens användarobjektet. Läs mer på attributmappning [förstå mappning attributtyper](../active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-types).
+* Redigera attribut som flödar från Azure AD-användarobjektet till appens användarobjektet. Läs mer på attributmappning [förstå mappning attributtyper](customize-application-attributes.md#understanding-attribute-mapping-types).
 * Filtrera de etablering åtgärder som Azure AD utför på det aktuella programmet. I stället för att låta Azure AD fullt Synkronisera objekt, kan du begränsa de åtgärder som utförs. Till exempel genom att välja endast **uppdatering**, Azure AD endast säkerhetsuppdateringar befintliga konton i ett program och inte skapa nya. Genom att välja endast **skapa**, Azure endast skapar nya användarkonton men inte uppdatera befintliga. Den här funktionen gör att administratörer kan skapa olika mappningar för skapande av konto och uppdatera arbetsflöden.
 
 ### <a name="settings"></a>Inställningar

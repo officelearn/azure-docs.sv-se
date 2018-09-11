@@ -2,19 +2,19 @@
 title: 'Azure Backup: Återställa virtuella datorer med hjälp av Azure portal'
 description: Återställa en Azure virtuell dator från en återställningspunkt med hjälp av Azure-portalen
 services: backup
-author: markgalioto
-manager: carmonm
+author: geethalakshmig
+manager: vijayts
 keywords: Återställ säkerhetskopia. Så här återställer du; återställningspunkt;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
-ms.author: markgal
-ms.openlocfilehash: 872bfc0027fd5b69bb42f391c036f7116789f529
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: geetha.g
+ms.openlocfilehash: c0dc738af450711c129b6c1802aec34c6b1da6ec
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431155"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346227"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Använd Azure portal för att återställa virtuella datorer
 Skydda dina data genom att ta ögonblicksbilder av dina data med definierade intervall. De här ögonblicksbilderna kallas återställningspunkter och de lagras i Recovery Services-valv. Om det är nödvändigt att reparera eller återskapa en virtuell dator (VM), kan du återställa den virtuella datorn från någon av de sparade återställningspunkterna. När du återställer en återställningspunkt kan du:
@@ -37,7 +37,7 @@ Den här artikeln förklarar hur du återställer en virtuell dator till en ny v
 * Välj typ av återställning, skapa en ny virtuell dator eller Återställ diskar och ange de obligatoriska parametrarna. 
 
 ## <a name="select-a-restore-point-for-restore"></a>Välj en återställningspunkt för återställning
-1. Logga in på [Azure-portalen](http://portal.azure.com/).
+1. Logga in på [Azure Portal](http://portal.azure.com/).
 
 1. På Azure-menyn, Välj **Bläddra**. I listan över tjänster skriver **återställningstjänster**. Listan över tjänster som anpassar sig till det du skriver. När du ser **Recovery Services-valv**, markera den.
 

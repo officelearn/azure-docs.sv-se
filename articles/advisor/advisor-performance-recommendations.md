@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: makohli
-ms.openlocfilehash: c2d7cc21b1546c9594a2ef174927777f583a6841
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 9516534216c4a2c0f61e33ea3cbf1bbcb2ab58c7
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42059189"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301318"
 ---
 # <a name="advisor-performance-recommendations"></a>Advisor-rekommendationer
 
@@ -60,6 +60,10 @@ Datasnedställning kan orsaka onödiga data movement eller resurs flaskhalsar n�
 ## <a name="create-or-update-outdated-table-statistics-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Skapa eller uppdatera inaktuella tabellstatistik på SQL data warehouse-tabell att öka prestanda för frågor
 
 Advisor identifierar tabeller som inte har uppdaterat [tabellstatistik](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) och rekommenderar att skapa eller uppdatera tabellstatistik. SQL data warehouse-fråga optimering använder uppdaterade statiska värden för att beräkna kardinalitet eller antalet rader i frågeresultatet som gör att frågeoptimerare att skapa en högkvalitativ frågeplan för bästa prestanda.
+
+## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>Migrera ditt Storage-konto till Azure Resource Manager för att få alla de senaste Azure-funktionerna
+
+Migrera din modell för distribution av Storage-konto till Azure Resource Manager (ARM) att dra nytta av malldistributioner, ytterligare säkerhetsalternativ och möjlighet att uppgradera till ett GPv2-konto för användning av Azure Storage senaste funktionerna. Advisor identifierar eventuella fristående lagringskonton som använder den klassiska distributionsmodellen och rekommenderar att du migrerar till ARM-distributionsmodellen. 
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Hur du kommer åt prestandarekommendationer i Advisor
 

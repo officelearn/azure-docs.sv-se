@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: gokuma
-ms.openlocfilehash: 8131122f78f743d04e332bfc8dfeba87a8c34236
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 37a30055e567b27f4e215dac162642d4447a8e49
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782662"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298216"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Etablera Windows Data Science-dator på Azure
 Microsoft Data Science Virtual Machine (DSVM) är en avbildning för Windows Azure-dator (VM). Det har förinstallerat och har konfigurerats med flera verktyg som används för dataanalys och maskininlärning. Följande verktyg ingår:
@@ -40,7 +40,7 @@ Microsoft Data Science Virtual Machine (DSVM) är en avbildning för Windows Azu
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/). Visual datautvinning och machine learning-programvara i Java.
   * [Apache Drill](https://drill.apache.org/). En schemafria SQL frågemotor för Apache Hadoop-, NoSQL- och molnlagring.  Det har stöd för ODBC- och JDBC-gränssnitt för frågor till NoSQL och filer från standard BI-verktyg som Power BI, Microsoft Excel och Tableau.
 * Bibliotek i R och Python för använder i Azure Machine Learning och andra Azure-tjänster.
-* Git, inklusive Git Bash, att arbeta med lagringsutrymmen för källkod som omfattar GitHub och Visual Studio Team Services. Git innehåller flera populära Linux-kommandoradsverktyg som är tillgängliga både på Git Bash och en kommandotolk. Exempel är awk, sed, perl, grep, Sök, wget eller curl.
+* Git, inklusive Git Bash, att arbeta med lagringsutrymmen för källkod som omfattar GitHub och Azure DevOps. Git innehåller flera populära Linux-kommandoradsverktyg som är tillgängliga både på Git Bash och en kommandotolk. Exempel är awk, sed, perl, grep, Sök, wget eller curl.
 
 Datavetenskap omfattar iteration av en serie uppgifter:
 

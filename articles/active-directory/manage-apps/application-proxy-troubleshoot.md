@@ -15,12 +15,12 @@ ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 20cc91a1754c3d68b447430abf21a3aad5925e05
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: aa7962e3659618b8c5a4f161d667c5e90477acc9
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365356"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347655"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Felsöka problem med Application Proxy och felmeddelanden
 Om fel uppstår i komma åt ett publicerat program eller publicera program kontrollerar du följande alternativ för att se om Microsoft Azure AD-programproxyn fungerar korrekt:
@@ -67,7 +67,7 @@ Den här tabellen beskriver mer vanliga fel som kommer från Kerberos-installati
 | 13016 – azure AD kan inte hämta en Kerberos-biljett för användarens räkning eftersom det finns inget UPN i kant-token eller i åtkomst-cookie. | Det finns ett problem med STS-konfigurationen. Åtgärda Anspråkskonfiguration UPN i STS. |
 | 13019 – azure AD kan inte hämta en Kerberos-biljett för användarens räkning på grund av följande allmänna API-fel. | Den här händelsen kan tyda på felaktig konfiguration mellan Azure AD och Domänkontrollantservern eller ett problem i tid och datum-konfigurationen på båda datorerna. Domänkontrollanten avvisade Kerberos-biljetten som skapats av Azure AD. Verifiera Azure AD och backend-programserver har konfigurerats korrekt, särskilt SPN-konfigurationen. Kontrollera att Azure AD är domänansluten till samma domän som domänkontrollanten för att se till att domänkontrollanten upprättar förtroende med Azure AD. Se till att tid och datum-konfigurationen på Azure AD och domänkontrollanten ska synkroniseras. |
 | 13020 – azure AD kan inte hämta en Kerberos-biljett för användarens räkning eftersom SPN för backend-servern inte har definierats. | Den här händelsen kan tyda på felaktig konfiguration mellan Azure AD och Domänkontrollantservern eller ett problem i tid och datum-konfigurationen på båda datorerna. Domänkontrollanten avvisade Kerberos-biljetten som skapats av Azure AD. Verifiera Azure AD och backend-programserver har konfigurerats korrekt, särskilt SPN-konfigurationen. Kontrollera att Azure AD är domänansluten till samma domän som domänkontrollanten för att se till att domänkontrollanten upprättar förtroende med Azure AD. Se till att tid och datum-konfigurationen på Azure AD och domänkontrollanten ska synkroniseras. |
-| 13022 – azure AD autentisera inte användaren eftersom backend-servern svarar på Kerberos-autentiseringsförsök med ett HTTP 401-fel. | Den här händelsen kan tyda på felaktig konfiguration mellan Azure AD och backend-servern för programmet, eller ett problem i tid och datum-konfigurationen på båda datorerna. Backend-servern avvisade Kerberos-biljetten som skapats av Azure AD. Verifiera Azure AD och programmet backend-servern är rätt konfigurerade. Se till att tid och datum-konfigurationen på Azure AD och backend-programserver ska synkroniseras. Mer information finns i [felsöka Kerberos-begränsad delegering konfigurationer för Application Proxy](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md).  |
+| 13022 – azure AD autentisera inte användaren eftersom backend-servern svarar på Kerberos-autentiseringsförsök med ett HTTP 401-fel. | Den här händelsen kan tyda på felaktig konfiguration mellan Azure AD och backend-servern för programmet, eller ett problem i tid och datum-konfigurationen på båda datorerna. Backend-servern avvisade Kerberos-biljetten som skapats av Azure AD. Verifiera Azure AD och programmet backend-servern är rätt konfigurerade. Se till att tid och datum-konfigurationen på Azure AD och backend-programserver ska synkroniseras. Mer information finns i [felsöka Kerberos-begränsad delegering konfigurationer för Application Proxy](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).  |
 
 ## <a name="end-user-errors"></a>Slutanvändaren fel
 

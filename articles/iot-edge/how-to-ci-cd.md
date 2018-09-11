@@ -1,6 +1,6 @@
 ---
-title: Azure IoT kant kontinuerlig integrering och kontinuerlig distribution | Microsoft Docs
-description: Översikt över kontinuerlig integration och kontinuerlig distribution för Azure IoT kant
+title: Azure IoT Edge kontinuerlig integrering och kontinuerlig distribution | Microsoft Docs
+description: Översikt över kontinuerlig integrering och kontinuerlig distribution för Azure IoT Edge
 author: shizn
 manager: ''
 ms.author: xshi
@@ -8,38 +8,38 @@ ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 62d8d770f6b4c3a62a2395eb8c1505dbc3835c28
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5099ca70503ba2ed4ae8f4969a9199816c4986fb
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047463"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302579"
 ---
-# <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Kontinuerlig integrering och kontinuerlig distribution till Azure IoT kant
+# <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edge
 
-Den här artikeln visar hur du kan använda kontinuerlig integrering och funktioner för kontinuerlig distribution för Visual Studio Team Services VSTS () och Microsoft Team Foundation Server (TFS) för att bygga, testa och distribuera program snabbare och effektivare till din Azure IoT-kant. 
+Den här artikeln visar hur du kan använda kontinuerlig integrering och kontinuerlig distribution funktionerna i Azure DevOps-tjänsterna och Microsoft Team Foundation Server (TFS) för att bygga, testa och distribuera program snabbt och effektivt till Azure IoT Edge. 
 
 I den här artikeln får du lära dig hur du:
-* Skapa och i exemplet kant för IoT-lösning som innehåller enhet tester.
-* Installera tillägg för Azure IoT kant för din VSTS.
-* Konfigurera kontinuerlig integration (KO) för att skapa lösningen och köra testerna enhet.
+* Skapa och kontrollera i ett exempel på IoT Edge-lösning som innehåller enhet tester.
+* Installera Azure IoT Edge-tillägget för Azure DevOps.
+* Konfigurera kontinuerlig integrering (CI) för att skapa lösningen och köra enhetstesterna.
 * Konfigurera kontinuerlig distribution (CD) för att distribuera lösningen och visa svar.
 
 Det tar 30 minuter att slutföra stegen i den här artikeln.
 
-![CD-skivan och CI](./media/how-to-ci-cd/cd.png)
+![CI och CD](./media/how-to-ci-cd/cd.png)
 
-## <a name="create-a-sample-azure-iot-edge-solution-using-visual-studio-code"></a>Skapa en lösning för Azure IoT kanten av exemplet med hjälp av Visual Studio Code
+## <a name="create-a-sample-azure-iot-edge-solution-using-visual-studio-code"></a>Skapa en exempel Azure IoT Edge-lösning som använder Visual Studio Code
 
-I det här avsnittet skapar du ett prov IoT kant lösning som innehåller kontroller som du kan köra som en del av skapar. Innan du följer riktlinjerna i det här avsnittet bör du slutföra stegen i [utveckla en kant för IoT-lösning med flera moduler i Visual Studio Code](tutorial-multiple-modules-in-vscode.md).
+I det här avsnittet skapar du ett exempel på IoT Edge lösning som innehåller enhetstester kan du köra som en del av skapandeprocessen. Innan du följer riktlinjerna i det här avsnittet utför du stegen i [utveckla en IoT Edge-lösning med flera moduler i Visual Studio Code](tutorial-multiple-modules-in-vscode.md).
 
-1. Skriv i VS kod kommandot paletten och kör kommandot **kant: kant för ny IoT-lösningen**. Välj arbetsytemappen, ange lösningens namn (standardnamnet är **EdgeSolution**), och skapa en C#-modul (**FilterModule**) som den första användarmodulen i den här lösningen. Du måste också ange lagringsplatsen för Docker-avbildningar för din första modul. Standard avbildningslagringsplatsen baseras på en lokal Docker-registret (`localhost:5000/filtermodule`). Du måste ändra registret för Azure-behållaren (`<your container registry address>/filtermodule`) eller Docker-hubb för ytterligare kontinuerlig integration.
+1. I VS Code kommandopalett skriver och kör kommandot **Edge: nya IoT-Edge lösning**. Välj sedan din arbetsytemapp, anger du Lösningsnamnet (standardnamnet är **EdgeSolution**), och skapa en C#-modul (**FilterModule**) som den första användarmodulen i den här lösningen. Du måste också ange lagringsplatsen för Docker-avbildningar för din första modul. Standard avbildningslagringsplatsen baseras på en lokal Docker-register (`localhost:5000/filtermodule`). Du behöver ändra den till Azure Container Registry (`<your container registry address>/filtermodule`) eller Docker-hubb för ytterligare kontinuerlig integrering.
 
     ![Konfigurera ACR](./media/how-to-ci-cd/acr.png)
 
-2. Fönstret VS kod laddar IoT kant lösning arbetsytan. Du kan alternativt skriver och kör **kant: lägga till kant för IoT-modulen** att lägga till flera moduler. Det finns en `modules` mapp, en `.vscode` mapp och en manifestet mallfil distribution i rotmappen. Alla användare modulen koder kommer att undermappar under `modules`. Den `deployment.template.json` är manifestet Distributionsmall. Vissa parametrar i den här filen kommer att tolkas från den `module.json`, som finns i varje modul-mapp.
+2. VS Code-fönstret läser in din arbetsyta för IoT Edge-lösning. Du kan också skriva och kör **Edge: Lägg till IoT Edge-modul** att lägga till flera moduler. Det finns en `modules` mapp, ett `.vscode` mappen och ett manifest mallfilen distribution i rotmappen. Alla användare modulen koder kommer att undermappar i mappen `modules`. Den `deployment.template.json` är manifestet Distributionsmall. Några av parametrarna i den här filen kommer att tolkas från den `module.json`, som finns i varje modul-mapp.
 
-3. Ditt exempel kant för IoT-lösningen är nu klar. Standard C# modulen fungerar som en modul för pipe-meddelande. I den `deployment.template.json`, visas den här lösningen innehåller två moduler. Meddelandet kommer att skapas från den `tempSensor` modulen, och ska skickas direkt `FilterModule`, sedan skickas till din IoT-hubb. Ersätt hela **Program.cs** filen med nedan innehåll. Mer information om det här kodstycket kan referera till [skapar en IoT kant C#-modulen projekt](https://docs.microsoft.com/azure/iot-edge/tutorial-csharp-module#create-an-iot-edge-module-project).
+3. Din lösning för IoT Edge-exemplet är nu klar. Standard C# modulen fungerar som en modul för pipe-meddelande. I den `deployment.template.json`, visas den här lösningen innehåller två moduler. Meddelandet kommer att genereras från den `tempSensor` -modulen och kommer skickas direkt `FilterModule`, skickas sedan till din IoT-hubb. Ersätt hela **Program.cs** filen med nedan innehåll. Mer information om det här kodfragmentet kan du referera till [skapa en IoT Edge C#-modulen projekt](https://docs.microsoft.com/azure/iot-edge/tutorial-csharp-module#create-an-iot-edge-module-project).
 
     ```csharp
     namespace FilterModule
@@ -183,7 +183,7 @@ I det här avsnittet skapar du ett prov IoT kant lösning som innehåller kontro
     }
     ```
 
-4. Skapa ett .net Core enhet test projektet. Skapa en ny mapp i Utforskaren VS kod **tests\FilterModuleTest** på arbetsytan. I VS koden integrerad terminal (**Ctrl + '**), kör följande kommandon för att skapa ett xunit test-projekt och Lägg till referens till den **FilterModule** projekt.
+4. Skapa en .net Core enhet test-projektet. Skapa en ny mapp i VS Code-Utforskaren, **tests\FilterModuleTest** i din arbetsyta. I VS Code-integrerade terminalen (**Ctrl + '**), kör följande kommandon för att skapa ett testprojekt för xunit och Lägg till referens till den **FilterModule** projekt.
 
     ```cmd
     cd tests\FilterModuleTest
@@ -193,7 +193,7 @@ I det här avsnittet skapar du ett prov IoT kant lösning som innehåller kontro
 
     ![Mappstruktur](./media/how-to-ci-cd/add-test-project.png)
 
-5. I den **FilterModuleTest** mapp, uppdatera namnet på **UnitTest1.cs** till **FilterModuleTest.cs**. Markera och öppna **FilterModuleTest.cs**, Ersätt hela koden med under kodavsnitt som innehåller enheten testerna mot FilterModule projektet.
+5. I den **FilterModuleTest** mappen uppdatera namnet på **UnitTest1.cs** till **FilterModuleTest.cs**. Välj och öppna **FilterModuleTest.cs**, Ersätt hela koden med under kodfragment som innehåller enhetstester mot FilterModule-projektet.
 
     ```csharp
     using Xunit;
@@ -270,48 +270,48 @@ I det här avsnittet skapar du ett prov IoT kant lösning som innehåller kontro
     }
     ```
 
-6. Du kan ange följande kommandon för att köra kontroller lokalt i integrerad terminal. 
+6. Du kan ange följande kommandon för att köra enhetstester lokalt i integrerade terminalen. 
     ```cmd
     dotnet test
     ```
 
-    ![Enhetstest](./media/how-to-ci-cd/unit-test.png)
+    ![Test jednotky](./media/how-to-ci-cd/unit-test.png)
 
-7. Spara dessa projekt och sedan checkar in i databasen VSTS eller TFS.
+7. Spara dessa projekt och checkar in i din Azure DevOps eller TFS-lagringsplats.
     
 
 > [!NOTE]
-> Mer information om hur du använder VSTS code databaser, se [dela din kod med Visual Studio och VSTS Git](https://docs.microsoft.com/vsts/git/share-your-code-in-git-vs?view=vsts).
+> Mer information om hur du använder Azure-databaser finns i [dela din kod med Visual Studio och Azure-lagringsplatser](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
 
 
-## <a name="configure-continuous-integration"></a>Konfigurera kontinuerlig integration
-I det här avsnittet skapar du en build-definition som är konfigurerad för att köras automatiskt när du checkar in ändringar till exempel IoT Edge-lösningen och kör den automatiskt enhet testerna som den innehåller.
+## <a name="configure-continuous-integration"></a>Konfigurera kontinuerlig integrering
+I det här avsnittet skapar du en build-pipeline som är konfigurerad för att köras automatiskt när du checkar in ändringar till exempel IoT Edge-lösningen och enhetstester som den innehåller kör automatiskt.
 
-1. Logga in på ditt konto i VSTS (**https://**_ditt konto_**. visualstudio.com**) och öppna projektet där du har markerat i sample-appen.
+1. Logga in på din Azure DevOps-organisation (**https://**_ditt konto_**. visualstudio.com**) och öppna projektet där du har markerat i exempelappen.
 
     ![Checka in kod](./media/how-to-ci-cd/init-project.png)
 
-1. Besök [Azure IoT kant VSTS](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) på VSTS Marketplace. Klicka på **hämta den kostnadsfria** och Följ guiden för att installera det här tillägget till ditt VSTS eller ladda ned till din TFS.
+1. Besök [Azure IoT Edge för Azure DevOps](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) på Azure Marketplace för DevOps. Klicka på **helt kostnadsfritt** och Följ guiden för att installera det här tillägget till din Azure DevOps-organisation eller ladda ned till din TFS.
 
     ![Installera tillägget](./media/how-to-ci-cd/install-extension.png)
 
-1. Öppna i din VSTS den **skapa &amp; versionen** hubb och i den **bygger** , Välj **+ ny definition**. Eller, om du redan har build definitioner, väljer du den **+ ny** knappen. 
+1. I din Azure DevOps, öppnar den **skapa &amp; versionen** hub och i den **bygger** fliken **+ ny pipeline**. Eller, om du redan har skapandet av pipelines, välja den **+ ny** knappen. 
 
     ![Ny version](./media/how-to-ci-cd/add-new-build.png)
 
-1. Välj den **VSTS Git** typ av datakälla; Välj projekt, databasen och avdelningskontor där koden finns. Välj **fortsätta**.
+1. Om det händer väljer den **Azure DevOps Git** datakällans typ, välj sedan projektet, lagringsplatsen och grenen som var koden finns. Välj **fortsätta**.
 
-    ![Välj VSTS git](./media/how-to-ci-cd/select-vsts-git.png)
+    ![Välj Azure DevOps-git](./media/how-to-ci-cd/select-vsts-git.png)
 
 1. I **Välj en mall** fönstret Välj **börja med en tom process**.
 
     ![Tom från början](./media/how-to-ci-cd/start-with-empty.png)
 
-1. Klicka på **+** på höger sida av **fas 1** lägga till en aktivitet till fasen. Sök sedan och välj **.Net Core**, och klicka på **Lägg till** att lägga till den här aktiviteten i fasen.
+1. Klicka på **+** på höger sida av **fas 1** att lägga till en uppgift i fasen. Sök sedan och välj **.Net Core**, och klicka på **Lägg till** att lägga till den här uppgiften till fasen.
 
     ![DotNet-test](./media/how-to-ci-cd/add-dot-net-core.png)
 
-1. Uppdatering av **visningsnamn** till **dotnet test**, och i den **kommandot** listrutan, Välj **testa**. Lägga till under sökvägen till den **sökvägen till projektet**.
+1. Uppdatera den **visningsnamn** till **dotnet test**, och i den **kommandot** listrutan, väljer **testa**. Lägg till nedan sökvägen till den **sökvägen till projektet**.
 
     ```
     tests/FilterModuleTest/*.csproj
@@ -319,54 +319,54 @@ I det här avsnittet skapar du en build-definition som är konfigurerad för att
 
     ![Konfigurera dotnet-test](./media/how-to-ci-cd/dotnet-test.png)
 
-1. Klicka på **+** på höger sida av **fas 1** lägga till en aktivitet till fasen. Sök sedan och välj **Azure IoT kant**, och klicka på **Lägg till** knappen **två gånger** att lägga till fasen dessa aktiviteter.
+1. Klicka på **+** på höger sida av **fas 1** att lägga till en uppgift i fasen. Sök sedan och välj **Azure IoT Edge**, och klicka på **Lägg till** knappen **två gånger** att lägga till dessa aktiviteter till fasen.
 
     ![IoT Edge](./media/how-to-ci-cd/add-azure-iot-edge.png)
 
-1. I den första aktiviteten i Azure IoT kant uppdatera den **visningsnamn** till **modulen bygga och Push**, och i den **åtgärd** listrutan, Välj **skapa och skicka**. I den **Module.json filen** textruta lägga till under sökvägen till den. Välj **registret behållartypen**, måste du konfigurera och välj samma registret i koden. Den här uppgiften skapar och push alla moduler i lösningen och publicera i registret för behållaren som du angav. Om dina moduler ska skickas till olika register, du har flera **modulen bygga och Push** uppgifter.
+1. I den första aktiviteten i Azure IoT Edge, uppdaterar den **visningsnamn** till **modulen bygga och Push**, och i den **åtgärd** listrutan, väljer **bygga och Push-**. I den **Module.json filen** textrutan lägga till på sökvägen till den. Välj sedan **behållare registertyp**, se till att du konfigurerar och välj samma registret i din kod. Den här uppgiften ska skapa och skicka alla moduler i lösningen och publicera till behållarregistret som du har angett. Om dina moduler ska skickas till olika register, du har flera **modulen bygga och Push** uppgifter.
 
     ```
     **/module.json
     ```
 
-    ![Modulen bygg- och Push](./media/how-to-ci-cd/module-build-push.png)
+    ![Modulen versions- och Push](./media/how-to-ci-cd/module-build-push.png)
 
-1. I den andra uppgiften i Azure IoT kant uppdatera den **visningsnamn** till **till IoT-enhet**, och i den **åtgärd** listrutan, Välj **distribuera IoT kant enheten**. Välj din Azure-prenumeration och ange din IoT-hubb-namn. Du kan ange en gräns för IoT distributions-ID och prioritet för distribution. Du kan också välja att distribuera till en eller flera enheter. Om du distribuerar till flera enheter, måste du ange målvillkoren för enheten. Om du vill använda enheten taggar som villkor, måste du uppdatera enheterna motsvarande taggar före distributionen. 
+1. I den andra aktiviteten i Azure IoT Edge, uppdaterar den **visningsnamn** till **distribuera till IoT Edge-enhet**, och i den **åtgärd** listrutan, väljer **distribuera till IoT Edge enheten**. Välj din Azure-prenumeration och ange namnet på din IoT-hubb. Du kan ange ett ID för IoT Edge-distribution och distributionsprioritet. Du kan också välja att distribuera till en eller flera enheter. Om du distribuerar till flera enheter, måste du ange Målvillkor enheten. Om du vill använda taggar för enheten som villkoret måste du uppdatera enheterna motsvarande taggar före distributionen. 
 
-    ![Distribuera kant](./media/how-to-ci-cd/deploy-to-edge.png)
+    ![Distribuera till Edge](./media/how-to-ci-cd/deploy-to-edge.png)
 
-1. Klickar du på den **processen** och kontrollera att din **Agent kön** är **finns Linux Preview**.
+1. Klickar du på den **processen** och se till att din **fronta agenta** är **finns Linux-förhandsvisningen**.
 
     ![Konfigurera](./media/how-to-ci-cd/configure-env.png)
 
-1. Öppna den **utlösare** fliken och aktivera den **kontinuerlig integration** utlösare. Se till att grenen som innehåller koden ingår.
+1. Öppna den **utlösare** fliken och aktivera den **kontinuerlig integrering** utlösaren. Se till att grenen som innehåller koden ingår.
 
     ![Utlösare](./media/how-to-ci-cd/configure-trigger.png)
 
-1. Spara den nya build-definitionen och kö en ny version. Klicka på den **Spara & kö** knappen.
+1. Spara ny build-pipeline och Köa en ny version. Klicka på den **spara och köa** knappen.
 
-1. Välj länken för att bygga i meddelandefältet som visas. Eller skapa definition för att se senaste köade build-jobbet.
+1. Välj länken till versionen i meddelandefält som visas. Eller gå till skapa pipeline för att se senaste köade build-jobb.
 
     ![Utveckla](./media/how-to-ci-cd/build-def.png)
 
-1. När versionen har slutförts kan du se sammanfattning för varje aktivitet och resultat i live loggfilen. 
+1. När bygget har slutförts ser vi sammanfattningen för varje uppgift och resultat i live loggfilen. 
     
     ![Slutför](./media/how-to-ci-cd/complete.png)
 
-1. Du kan gå tillbaka till VS-kod och kontrollera IoT-hubb enheten explorer. Gränsenheten med modulen ska börja köra (Kontrollera att du har lagt till registret autentiseringsuppgifter Edge runtime).
+1. Du kan gå tillbaka till VS Code och kontrollera enhetsutforskaren för IoT Hub. Edge-enhet med modulen ska börja köra (se till att du har lagt till autentiseringsuppgifter för registret i Edge-körningen).
 
-    ![Edge körs](./media/how-to-ci-cd/edge-running.png)
+    ![Edge som körs](./media/how-to-ci-cd/edge-running.png)
 
-## <a name="continuous-deployment-to-iot-edge-devices"></a>Kontinuerlig distribution till enheter som IoT
+## <a name="continuous-deployment-to-iot-edge-devices"></a>Kontinuerlig distribution till IoT Edge-enheter
 
-Om du vill aktivera kontinuerlig distribution i princip du måste ange CI-jobb med rätt kant för IoT-enheter, aktivera den **utlösare** för grenarna i projektet. Ett projekt innehåller två huvudsakliga grenar i en klassiska DevOps-metod. Mastergrenen bör vara stabil version av koden och utveckla grenen innehåller de senaste ändringarna i koden. Alla utvecklare i teamet bör duplicera utveckla gren till hans eller sitt eget funktionen gren när startar uppdaterar kod, vilket betyder att alla genomför sker på funktionen filialer av grenen utveckla. Och varje intryckt genomförande bör testas via CI-system. När testats fullt ut koden lokalt, slås grenen funktionen samman utveckla grenen via en pull-begäran. När koden på utvecklare gren testas via CI-system, kan de kopplas till mastergrenen via en pull-begäran.
+För att aktivera kontinuerlig distribution, i princip måste du ställa in CI-jobb med rätt IoT Edge-enheter, aktivera den **utlösare** för grenarna i projektet. I en klassisk DevOps-praxis innehåller ett projekt två huvudsakliga grenar. Huvudgrenen bör vara den säkra versionen av koden och utveckla grenen innehåller de senaste ändringarna i koden. Alla utvecklare i teamet bör Förgrena utveckla gren till hans eller sin egen funktion grenen när börjar uppdatera koden, vilket innebär att alla skrivningar händer om funktionen grenar av grenen utveckla. Och varje pushade incheckning bör testas via CI-system. När testats fullt ut koden lokalt, slås grenen funktionen samman till grenen utveckla via en pull-begäran. När koden på developer-gren testas via CI-system, kan den sammanfogas till mastergrenen via en pull-begäran.
 
-Så, när du distribuerar till enheter som IoT, det finns tre huvudsakliga miljöer.
-- Du kan använda simulerade IoT insticksenhet på utvecklingsdatorn eller distribuera till en fysisk enhet som IoT kanten på funktionen gren.
-- Utveckla på avdelningskontor, du ska distribuera till en fysisk enhet som IoT kant.
-- På mastergrenen ska IoT kant målenheterna enheter för produktion.
+Så när du distribuerar till IoT Edge-enheter, finns det tre huvudsakliga miljöer.
+- Du kan använda simulerade IoT Edge-enhet på utvecklingsdatorn eller distribuera till en fysisk IoT Edge-enhet på funktionen gren.
+- Utveckla på avdelningskontor, bör du distribuera till en fysisk IoT Edge-enhet.
+- På huvudgrenen ska target IoT Edge-enheter för produktionsenheter.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Förstå IoT kant distributionen i [förstå IoT kant distributioner för enstaka enheter eller i skala](module-deployment-monitoring.md)
-* Gå igenom stegen för att skapa, uppdatera eller ta bort en distribution i [distribuera och övervaka IoT kant moduler i skala](how-to-deploy-monitor.md).
+* Förstå IoT Edge-distribution i [förstå IoT Edge-distributioner för enskilda enheter eller i stor skala](module-deployment-monitoring.md)
+* Gå igenom stegen för att skapa, uppdatera eller ta bort en distribution i [distribuera och övervaka IoT Edge-moduler i stor skala](how-to-deploy-monitor.md).

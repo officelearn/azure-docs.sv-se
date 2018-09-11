@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: a8e894a9-8781-4749-ae8f-8c8e01658566
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 010c641c247552a8994c9d1c945cd585148fadf9
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 8c236b995d71cd067546cea5eeaaebe6d5dc4fab
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37340798"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300655"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Undersöka incidenter och aviseringar i Azure Security Center (förhandsversion)
 Det här dokumentet hjälper dig att använda undersökningsfunktionen i Azure Security Center för att undersöka incidenter och aviseringar.
@@ -52,7 +52,7 @@ När en entitet presenteras i diagrammet visar flikarna mer information om den h
 
 ![Allmän information](./media/security-center-investigation/security-center-investigation-fig3.png)
 
-Informationsfliken visar information som är relevant till incidenten som har valts på kartan. Incident är en behållare som innehåller resultaten av en undersökning. Varje undersökning sker i samband med en incident.
+Informationsfliken visar information som är relevant till incidenten som har valts på kartan. Incident är en container som innehåller resultaten av en undersökning. Varje undersökning sker i samband med en incident.
 
 En incident skapas bara när en användare klickar på knappen **Starta undersökning** för en specifik avisering. Grundfunktionen som är tillgänglig för utredaren är att markera entiteter som användare, dator eller avisering. När en entitet markeras som relaterad anges en orsak. Hädanefter visas den här entiteten direkt under incidenten i diagrammet och listan över incidententiteter.
 

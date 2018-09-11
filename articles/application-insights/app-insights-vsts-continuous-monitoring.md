@@ -1,77 +1,78 @@
 ---
-title: "Kontinuerlig övervakning av din pipeline för versionen av DevOps med VSTS och Azure Application Insights | Microsoft Docs"
-description: "Innehåller instruktioner för att snabbt konfigurera kontinuerlig övervakning med Application Insights"
+title: Kontinuerlig övervakning av din version DevOps-pipeline med Azure DevOps och Azure Application Insights | Microsoft Docs
+description: Innehåller instruktioner för att snabbt konfigurera kontinuerlig övervakning med Application Insights
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/13/2017
 ms.service: application-insights
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5bfbdd0033f966422a84071a694845627827f016
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ecda8621640223f1c27f32834f2e4a098da4aba6
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301640"
 ---
-# <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Lägg till kontinuerlig övervakning i din version pipeline
+# <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Lägg till kontinuerlig övervakning i din releasepipeline
 
-Visual Studio Team Services VSTS () integreras med Azure Application Insights för att tillåta kontinuerlig övervakning av din DevOps versionen pipeline genom utvecklingslivscykeln programvara. 
+Azure DevOps-tjänster som integreras med Azure Application Insights för att tillåta kontinuerlig övervakning av din DevOps-pipeline för versionen i hela livscykel. 
 
-VSTS stöder nu kontinuerlig övervakning innebär versionen pipelines kan införliva övervakningsdata från Application Insights och andra Azure-resurser. När en avisering för Application Insights upptäcks distributionen kan förbli gated eller återställas tillbaka förrän varningen har åtgärdats. Om alla kontroller har klarat kan distributioner fortsätta automatiskt från test till produktion utan att behöva manuella åtgärder. 
+Azure DevOps-tjänster har nu stöd för kontinuerlig övervakning innebär att distributions-pipelines kan införliva övervakningsdata från Application Insights och andra Azure-resurser. När en avisering för Application Insights identifieras distributionen kan vara skyddad eller återställas tillbaka förrän aviseringen har lösts. Om alla kontroller skickar kan distributioner fortsätta automatiskt från test ända till produktion utan att behöva ingripa manuellt. 
 
 ## <a name="configure-continuous-monitoring"></a>Konfigurera en löpande övervakning
 
-1. Välj en befintlig VSTS.
+1. Välj en befintlig Azure DevOps-tjänster.
 
-2. Hovra över **bygga och släpper** > Välj **versioner** > klickar du på den **plustecknet** > **skapa versionen definition** > Sök efter **övervakning** > **Azure App Service-distributionen med kontinuerlig övervakning.**
+2. Hovra över **Build and Release** > Välj **versioner** > klickar du på den **plustecknet** > **skapa versionsdefinition** > Sök efter **övervakning** > **Azure App Service-distribution med kontinuerlig övervakning.**
 
-   ![Ny VSTS versionen Definition](.\media\app-insights-continuous-monitoring\001.png)
+   ![Nya Releasepipeline för Azure DevOps-tjänster](.\media\app-insights-continuous-monitoring\001.png)
 
-3. Klicka på **tillämpas.**
+3. Klicka på **gäller.**
 
-4. Bredvid rött utropstecken markerar du texten i blått till **visa aktiviteter för miljön.**
+4. Bredvid rött utropstecken markerar du texten i blått till **visa miljöuppgifter.**
 
-   ![Visa uppgifter i miljön](.\media\app-insights-continuous-monitoring\002.png)
+   ![Visa miljöuppgifter](.\media\app-insights-continuous-monitoring\002.png)
 
-   En konfigurationen visas, använder du följande tabell för att fylla i fälten inkommande.
+   En konfigurationsruta visas, Använd följande tabell för att fylla i indatafälten.
 
     | Parameter        | Värde |
    | ------------- |:-----|
-   | **Namn**      | Namn som beskriver versionen definition miljö |
-   | **Azure-prenumeration** | Listrutan fylls med Azure-prenumerationer som länkas till VSTS-kontot|
-   | **Apptjänst namn** | Manuell inmatning av ett nytt värde kan krävas för det här fältet för andra alternativ |
+   | **Miljönamn**      | Namn som beskriver den version pipeline-miljön |
+   | **Azure-prenumeration** | Listrutan fylls med Azure-prenumerationer som länkade till organisationen Azure DevOps-tjänsterna|
+   | **Namn på App Service** | Manuell inmatning av ett nytt värde kan krävas för det här fältet för andra alternativ |
    | **Resursgrupp**    | Listrutan fylls med tillgängliga resursgrupper |
-   | **Resursnamnet för Application Insights** | Listrutan fylls med alla Application Insights-resurser som motsvarar den tidigare valda resursgruppen.
+   | **Application Insights-resursnamn** | Listrutan fylls i med alla Application Insights-resurser som motsvarar den tidigare valda resursgruppen.
 
-5. Välj **konfigurera Application Insights aviseringar**
+5. Välj **konfigurera Application Insights-aviseringar**
 
-6. Standard Varningsregler, Välj **spara** > Ange en kommentar > klickar du på **OK**
+6. Standard Varningsregler, Välj **spara** > Ange en kommentar > Klicka på **OK**
 
-## <a name="modify-alert-rules"></a>Ändra Varningsregler
+## <a name="modify-alert-rules"></a>Ändra notifieringsregler
 
-1. Om du vill ändra de fördefinierade aviseringsinställningarna, klicka på rutan med **ellipserna...**  till höger om **Varna regler.**
+1. Om du vill ändra de fördefinierade aviseringsinställningarna, klicka på rutan med **ellipserna...**  till höger om **Aviseringsregler.**
 
-   (Out of box fyra Varningsregler finns: tillgänglighet, misslyckade begäranden, serversvarstid, undantag.)
+   (Out of box fyra Varningsregler finns: tillgänglighet, misslyckade begäranden, svarstid för servern, Server-undantag.)
 
-2. Klicka på listrutan symbolen bredvid **tillgänglighet.**
+2. Klicka på symbolen listrutan bredvid **tillgänglighet.**
 
-3. Ändra tillgängligheten **tröskelvärdet** så att de uppfyller dina krav på tjänsten.
+3. Ändra tillgängligheten **tröskelvärdet** att uppfylla behoven för tjänsten.
 
    ![Ändra varning](.\media\app-insights-continuous-monitoring\003.png)
 
-4. Välj **OK** > **spara** > Ange en kommentar > klickar du på **OK.**
+4. Välj **OK** > **spara** > Ange en kommentar > Klicka på **OK.**
 
 ## <a name="add-deployment-conditions"></a>Lägg till villkor för distribution
 
-1. Klicka på **Pipeline** > Välj den **före** eller **efter distributionen villkor** symbol beroende på de steg som kräver en kontinuerlig övervakning gate.
+1. Klicka på **Pipeline** > Välj den **Pre** eller **efter distributionen villkor** beroende på scenen som kräver en kontinuerlig övervakning gate.
 
-   ![Före distributionen villkor](.\media\app-insights-continuous-monitoring\004.png)
+   ![Före villkor](.\media\app-insights-continuous-monitoring\004.png)
 
-2. Ange **Gates** till **aktiverad** > **godkännande gates**> klickar du på **Lägg till.**
+2. Ange **Gates** till **aktiverad** > **godkännande gates**> Klicka på **Lägg till.**
 
-3. Välj **Azure-Monitor** (det här alternativet ger dig möjlighet att åtkomst aviseringar både från Azure-Monitor och Application Insights)
+3. Välj **Azure Monitor** (det här alternativet ger dig möjlighet att åtkomst aviseringar både från Azure Monitor och Application Insights)
 
     ![Azure Monitor](.\media\app-insights-continuous-monitoring\005.png)
 
@@ -79,14 +80,14 @@ VSTS stöder nu kontinuerlig övervakning innebär versionen pipelines kan infö
 
 5. Ange en **samplingsintervall.**
 
-## <a name="deployment-gate-status-logs"></a>Distributionsloggar gate status
+## <a name="deployment-gate-status-logs"></a>Distributionsloggar för gate-status
 
-När du har lagt till distribution gates skyddar en avisering i Application Insights, vilket överskrider din tidigare definierade tröskelvärdet distributionen från oönskade versionen befordran. När aviseringen har lösts fortsätta distributionen automatiskt.
+När du lägger till distribution gates skyddar en avisering i Application Insights som överskrider tröskeln för ditt tidigare definierade, distributionen från oönskad versionen befordran. När aviseringen har lösts fortsätta distributionen automatiskt.
 
-Om du vill se det här beteendet, Välj **versioner** > högerklickar du på versionen namnet **öppna** > **loggar.**
+Om du vill se det här beteendet, Välj **versioner** > Högerklicka på versionen namn **öppna** > **loggar.**
 
 ![Logs](.\media\app-insights-continuous-monitoring\006.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om VSTS bygga och versionen försök med dessa [Snabbstart.](https://docs.microsoft.com/vsts/build-release/)
+Läs mer om Azure Pipelines försök med dessa [snabbstarter.](https://docs.microsoft.com/azure/devops/pipelines)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 1b52c64db29e17a0c52eb63721be81844e856b64
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: cd022677da59588eca910a508b2596aa513eff4b
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42059208"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302817"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Hur du auktorisera konton med hjälp av OAuth 2.0 i Azure API Management
 
@@ -63,9 +63,9 @@ Den här guiden visar hur du konfigurerar din API Management-tjänstinstans för
 
     ![Ny OAuth 2.0-server](./media/api-management-howto-oauth2/oauth-03.png)
 
-    För en Azure Active Directory OAuth 2.0-server i **Token slutpunkts-URL** har följande format, där `<APPID>` har formatet `yourapp.onmicrosoft.com`.
+    För en Azure Active Directory OAuth 2.0-server i **Token slutpunkts-URL** har följande format, där `<TenantID>` har formatet `yourapp.onmicrosoft.com`.
 
-    `https://login.microsoftonline.com/<APPID>/oauth2/token`
+    `https://login.microsoftonline.com/<TenantID>/oauth2/token`
 
     Standardinställningen för **klientautentiseringsmetoder** är **grundläggande**, och **åtkomsttoken som metod för att skicka** är **auktoriseringsrubrik**. Dessa värden konfigureras på det här avsnittet av formuläret, tillsammans med den **standardomfattning**.
 

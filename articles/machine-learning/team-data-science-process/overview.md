@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: deguhath
-ms.openlocfilehash: e44b21530cb3db8a2ba354ef19ebb3d2c557ecae
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 2cce0b883c18a813aed386186c825c26b0e4b674
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125767"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303786"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Vad är TDSP (Team Data Science Process)?
 
@@ -71,7 +71,7 @@ Följande diagram ger en rutnätsvy för aktiviteter (i blått) och artefakter (
 
 ## <a name="standardized-project-structure"></a>Standardiserad projektstruktur
 
-Med alla projekt dela en katalogstruktur och använda mallar för project-dokument gör det enkelt för gruppmedlemmar att hitta information om deras projekt. Alla kod och dokument lagras i ett versionskontrollsystem (paket) som Git, TFS eller Subversion för att aktivera samarbete. Uppgifter och funktioner i en flexibel system som Jira för projektspårning kan Rally, Visual Studio Team Services spåras, närmare spårning av koden för enskilda funktioner. Sådana spårning kan också team att få bättre kostnadsuppskattningar. TDSP rekommenderar att du skapar en separat lagringsplats för varje projekt på paket för versionshantering, informationssäkerhet och samarbete. Standardiserad strukturen för alla projekt hjälper till att bygga upp institutionella kunskaper i organisationen.
+Med alla projekt dela en katalogstruktur och använda mallar för project-dokument gör det enkelt för gruppmedlemmar att hitta information om deras projekt. Alla kod och dokument lagras i ett versionskontrollsystem (paket) som Git, TFS eller Subversion för att aktivera samarbete. Spåra uppgifter och funktioner i en flexibel spårningssystem som Jira, Rally och Azure DevOps-projektet kan närmare spårning av koden för enskilda funktioner. Sådana spårning kan också team att få bättre kostnadsuppskattningar. TDSP rekommenderar att du skapar en separat lagringsplats för varje projekt på paket för versionshantering, informationssäkerhet och samarbete. Standardiserad strukturen för alla projekt hjälper till att bygga upp institutionella kunskaper i organisationen.
 
 Vi tillhandahåller mallar för mappstrukturen och nödvändiga dokument i standardplatserna. Den här mappstrukturen organiserar de filer som innehåller kod för datagranskning och extrahering av funktionen och som registrera modellen iterationer. Dessa mallar gör det enklare för gruppmedlemmar att förstå arbete som görs av andra och lägga till nya medlemmar i teams. Det är enkelt att visa och uppdatera mallar i markdown-format. Använd mallar för att ge checklistor viktiga frågor för varje projekt för att se till att problemet är väl definierade och att slutprodukter uppfyller den kvalitet som förväntat. Exempel:
 

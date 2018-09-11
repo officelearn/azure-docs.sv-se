@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 4dfeff0e22a541a39a59c37c869af41a7e444fa6
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: c33d1fe1385619420215ec0f0fa3b0a2f90dddc0
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842506"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299465"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Lägg till värdservrar för SQL-resursprovider
 
@@ -45,6 +45,9 @@ Granska följande obligatoriska och allmänna krav innan du lägger till en SQL 
 SQL IaaS avbildningar av virtuella datorer är tillgängliga via Marketplace-hanteringsfunktionen. Dessa avbildningar är samma som den virtuella SQL-datorer som är tillgängliga i Azure.
 
 Se till att du alltid hämta den senaste versionen av den **SQL IaaS-tillägget** innan du distribuerar en SQL-VM med hjälp av ett Marketplace-objekt. IaaS-tillägget och motsvarande portal förbättringar erbjuder ytterligare funktioner, till exempel automatisk uppdatering och säkerhetskopiering. Mer information om det här tillägget finns i [automatisera hanteringsuppgifter på Azure virtuella datorer med SQL Server Agent-tillägget](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
+
+> [!NOTE]
+> SQL IaaS-tillägget är _krävs_ för alla SQL på Windows-avbildningar i marketplace; inte den virtuella datorn ska distribueras om du inte gick att hämta tillägget. Den används inte med Linux-baserade SQL avbildningar av virtuella datorer.
 
 Det finns andra alternativ för att distribuera SQL virtuella datorer, inklusive mallar i den [Azure Stack-Snabbstartsgalleriet](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
@@ -125,7 +128,7 @@ Om du vill aktivera automatisk seeding på alla instanser, redigera och kör fö
   GO
   ```
 
-Observera att tillgänglighetsgruppen måste omges av hakparenteser.
+Tillgänglighetsgruppen måste omges av hakparenteser.
 
 Kör följande SQL-kommando på de sekundära noderna:
 

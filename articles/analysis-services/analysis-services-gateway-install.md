@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 09/10/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 89b21af5303afc2082d3d56ddb9e894f3ae4c4b8
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 1ef5d51db34e0d0a947a4d6ba6c7e614b1ac3384
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158441"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348896"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installera och konfigurera en lokal datagateway
 En lokal datagateway krävs när en eller flera Azure Analysis Services-servrar i samma region som ansluter till lokala datakällor. Läs mer om gatewayen i [lokal datagateway](analysis-services-gateway.md).
@@ -35,9 +35,9 @@ En lokal datagateway krävs när en eller flera Azure Analysis Services-servrar 
 * Under installationen när du registrerar din gateway med Azure, väljs standardregionen för din prenumeration. Du kan välja en annan region. Om du har servrar i flera regioner måste du installera en gateway för varje region. 
 * Gatewayen kan inte installeras på en domänkontrollant.
 * Endast en gateway kan installeras på en dator.
-* Som standard använder gatewayen NT SERVICE\PBIEgwService-konto för att logga in. Ett annat konto kan anges under installationen eller i tjänster. Kontrollera inställningarna för grupprincipen Tillåt tjänstkontot har en inloggning som tjänst privilegier.
 * Installera gatewayen på en dator som finns kvar och går inte i viloläge.
 * Installera inte gatewayen på en dator som trådlöst anslutna till nätverket. Prestanda kan minskas.
+* När du installerar gatewayen, måste du är inloggad på datorn med användarkontot ha Log på som tjänsten privilegier. När installationen är klar använder lokala data gateway-tjänsten NT SERVICE\PBIEgwService-konto för att logga in som en tjänst. Ett annat konto kan anges under installationen eller i tjänster när installationen är klar. Kontrollera inställningarna för grupprincipen Tillåt både det konto som du är inloggad med när du installerar och det tjänstkonto som du väljer ha loggen som tjänsten privilegier.
 * Logga in på Azure med ett konto i Azure AD för samma [klient](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) som prenumerationen som du registrerar gatewayen på den. Azure B2B (Gäst)-konton stöds inte när du installerar och registrerar en gateway.
 * Om datakällor finns på Azure Virtual Network (VNet), måste du konfigurera den [AlwaysUseGateway](analysis-services-vnet-gateway.md) serveregenskap.
 * (Enhetlig) gatewayen beskrivs här stöds inte i Azure Government, Azure Tyskland och Azure Kina landsbaserade regioner. Använd **dedikerad lokal gateway för Azure Analysis Services**, installerad från serverns **Snabbstart** i portalen. 
@@ -79,7 +79,7 @@ Du måste registrera den lokala instansen som du installerade med Gateway-Molntj
 ## <a name="create-resource"></a>Skapa en Azure-gateway-resurs
 När du har installerat och registrerat din gateway, måste du skapa en resurs för gatewayen i Azure-prenumerationen. Logga in på Azure med samma konto som du använde när du registrera Gateway-servern.
 
-1. I Azure-portalen klickar du på **skapa en ny tjänst** > **Företagsintegrering** > **lokal datagateway**  >   **Skapa**.
+1. I Azure-portalen klickar du på **skapa en resurs** > **integrering** > **lokal datagateway**.
 
    ![Skapa en resurs för gatewayen](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: 0df23d50fa208482e45d2d35555ec79c587cc80a
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 930ca49a63e34214ec197d8dd37f38361b34fe90
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445668"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347043"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>Självstudie: Konfigurera Workday för automatisk användar-etablering (förhandsversion)
 
@@ -27,7 +27,7 @@ Målet med den här självstudien är att visa dig vad du behöver utföra för 
 
 ## <a name="overview"></a>Översikt
 
-Den [tjänst Azure Active Directory för användaretablering](../active-directory-saas-app-provisioning.md) kan integreras med den [Workday Human Resources API](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) för att etablera användarkonton. Azure AD använder den här anslutningen för att aktivera etablering arbetsflöden följande användare:
+Den [tjänst Azure Active Directory för användaretablering](../manage-apps/user-provisioning.md) kan integreras med den [Workday Human Resources API](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) för att etablera användarkonton. Azure AD använder den här anslutningen för att aktivera etablering arbetsflöden följande användare:
 
 * **Etablera användare i Active Directory** -synkronisera valda uppsättningar med användare från Workday till en eller flera Active Directory-skogar.
 
@@ -39,13 +39,13 @@ Den [tjänst Azure Active Directory för användaretablering](../active-director
 
 Workday användaren etablering arbetsflöden stöds av etableringstjänsten för Azure AD-användare aktivera automatisering av följande personal och scenarier för hantering av identitet livscykel:
 
-* **Anställa nyanställda** – när en ny medarbetare har lagts till i Workday, skapas automatiskt ett användarkonto i Active Directory, Azure Active Directory och du kan också Office 365 och [andra SaaS-program som stöds av Azure AD](../active-directory-saas-app-provisioning.md), med återskrivning e-postadress till Workday.
+* **Anställa nyanställda** – när en ny medarbetare har lagts till i Workday, skapas automatiskt ett användarkonto i Active Directory, Azure Active Directory och du kan också Office 365 och [andra SaaS-program som stöds av Azure AD](../manage-apps/user-provisioning.md), med återskrivning e-postadress till Workday.
 
-* **Medarbetaren attribut och profilen uppdateringar** – när en medarbetarpost uppdateras i Workday (till exempel deras namn, avdelning eller manager), användarkontot uppdateras automatiskt i Active Directory, Azure Active Directory och du kan också Office 365 och [andra SaaS-program som stöds av Azure AD](../active-directory-saas-app-provisioning.md).
+* **Medarbetaren attribut och profilen uppdateringar** – när en medarbetarpost uppdateras i Workday (till exempel deras namn, avdelning eller manager), användarkontot uppdateras automatiskt i Active Directory, Azure Active Directory och du kan också Office 365 och [andra SaaS-program som stöds av Azure AD](../manage-apps/user-provisioning.md).
 
-* **Medarbetaren uppsägningar** – när en anställd avslutas i Workday, användarkontot inaktiveras automatiskt i Active Directory, Azure Active Directory och du kan också Office 365 och [andra SaaS-program som stöds av Azure AD](../active-directory-saas-app-provisioning.md).
+* **Medarbetaren uppsägningar** – när en anställd avslutas i Workday, användarkontot inaktiveras automatiskt i Active Directory, Azure Active Directory och du kan också Office 365 och [andra SaaS-program som stöds av Azure AD](../manage-apps/user-provisioning.md).
 
-* **Medarbetare igen nyanställda** – när en anställd rehired i Workday, sina gamla kontot kan automatiskt återaktiverats eller etableras igen (beroende på dina preferenser) till Active Directory, Azure Active Directory, och du kan också Office 365 och [andra SaaS-program som stöds av Azure AD](../active-directory-saas-app-provisioning.md).
+* **Medarbetare igen nyanställda** – när en anställd rehired i Workday, sina gamla kontot kan automatiskt återaktiverats eller etableras igen (beroende på dina preferenser) till Active Directory, Azure Active Directory, och du kan också Office 365 och [andra SaaS-program som stöds av Azure AD](../manage-apps/user-provisioning.md).
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Vem är den här användaren etablering lösning som bäst passar för?
 
@@ -327,7 +327,7 @@ I det här avsnittet konfigurerar du hur informationen flödar från Workday til
 
          * **Konstant** -skriva en statisk, konstant strängvärde till AD-attribut
 
-         * **Uttrycket** – kan du skriva ett anpassat värde till attributet AD baserat på en eller flera Workday-attribut. [Mer information finns i den här artikeln på uttryck](../active-directory-saas-writing-expressions-for-attribute-mappings.md).
+         * **Uttrycket** – kan du skriva ett anpassat värde till attributet AD baserat på en eller flera Workday-attribut. [Mer information finns i den här artikeln på uttryck](../manage-apps/functions-for-customizing-application-data.md).
 
       * **Källattributet** -användarattributet från Workday. Om attributet som du letar efter inte finns, se [anpassning av listan över Workday-användarattribut](#customizing-the-list-of-workday-user-attributes).
 
@@ -356,7 +356,7 @@ I det här avsnittet konfigurerar du hur informationen flödar från Workday til
 
 -   UserPrincipalName-attribut i Active Directory skapas genom att sammanfoga Workday användar-ID med ett domänsuffix
 
--   [Det finns dokumentation om hur du skriver uttryck här](../active-directory-saas-writing-expressions-for-attribute-mappings.md). Det finns exempel på hur du tar bort specialtecken.
+-   [Det finns dokumentation om hur du skriver uttryck här](../manage-apps/functions-for-customizing-application-data.md). Det finns exempel på hur du tar bort specialtecken.
 
   
 | WORKDAY ATTRIBUT | ACTIVE DIRECTORY-ATTRIBUT |  MATCHANDE ID? | SKAPA / UPPDATERA |
@@ -490,7 +490,7 @@ När delar 1 – 3 har slutförts, kan du starta etableringstjänsten tillbaka i
 
 3. Detta startar den första synkroniseringen, vilket kan ta flera timmar beroende på hur många användare finns i Workday variabeln.
 
-4. När som helst kontrollera den **granskningsloggar** flik i Azure portal för att se vilka åtgärder som etableringstjänsten har utförts. Granskningsloggarna innehåller alla enskilda synkroniseringar händelser utförs av etableringstjänsten, till exempel vilka användare som ska läsa från Workday och sedan därefter läggs till eller uppdateras till Active Directory. **[Finns i guiden för etablering reporting för detaljerade anvisningar om hur du tolkar granskningsloggar](../active-directory-saas-provisioning-reporting.md)**
+4. När som helst kontrollera den **granskningsloggar** flik i Azure portal för att se vilka åtgärder som etableringstjänsten har utförts. Granskningsloggarna innehåller alla enskilda synkroniseringar händelser utförs av etableringstjänsten, till exempel vilka användare som ska läsa från Workday och sedan därefter läggs till eller uppdateras till Active Directory. **[Finns i guiden för etablering reporting för detaljerade anvisningar om hur du tolkar granskningsloggar](../manage-apps/check-status-user-account-provisioning.md)**
 
 1.  Kontrollera den [Windows-händelseloggen](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx) på Windows Server-datorn som är värd för agenten för nya fel eller varningar. Dessa händelser kan visas genom att starta **Eventvwr.msc** på servern och välja **Windows loggar > program**. Alla etablering-meddelanden loggas under källan **AADSyncAgent**.
 
@@ -581,7 +581,7 @@ I det här avsnittet konfigurerar du hur informationen flödar från Workday til
 
       * **Konstant** -skriva en statisk, konstant strängvärde till AD-attribut
 
-      * **Uttrycket** – kan du skriva ett anpassat värde till attributet AD baserat på en eller flera Workday-attribut. [Mer information finns i den här artikeln på uttryck](../active-directory-saas-writing-expressions-for-attribute-mappings.md).
+      * **Uttrycket** – kan du skriva ett anpassat värde till attributet AD baserat på en eller flera Workday-attribut. [Mer information finns i den här artikeln på uttryck](../manage-apps/functions-for-customizing-application-data.md).
 
    * **Källattributet** -användarattributet från Workday. Om attributet som du letar efter inte finns, se [anpassning av listan över Workday-användarattribut](#customizing-the-list-of-workday-user-attributes).
 
@@ -611,7 +611,7 @@ När du delar 1 – 2 har slutförts, kan du starta etableringstjänsten.
 
 3. Detta startar den första synkroniseringen, vilket kan ta flera timmar beroende på hur många användare finns i Workday variabeln.
 
-4. Enskilda synkronisera händelser kan visas i den **granskningsloggar** fliken. **[Finns i guiden för etablering reporting för detaljerade anvisningar om hur du tolkar granskningsloggar](../active-directory-saas-provisioning-reporting.md)**
+4. Enskilda synkronisera händelser kan visas i den **granskningsloggar** fliken. **[Finns i guiden för etablering reporting för detaljerade anvisningar om hur du tolkar granskningsloggar](../manage-apps/check-status-user-account-provisioning.md)**
 
 5. En klar skrivs en sammanfattning av granskningsrapporten den **etablering** fliken enligt nedan.
 
@@ -669,7 +669,7 @@ När du delar 1 – 2 har slutförts, kan du starta etableringstjänsten.
 
 3. Detta startar den första synkroniseringen, vilket kan ta flera timmar beroende på hur många användare finns i Workday variabeln.
 
-4. Enskilda synkronisera händelser kan visas i den **granskningsloggar** fliken. **[Finns i guiden för etablering reporting för detaljerade anvisningar om hur du tolkar granskningsloggar](../active-directory-saas-provisioning-reporting.md)**
+4. Enskilda synkronisera händelser kan visas i den **granskningsloggar** fliken. **[Finns i guiden för etablering reporting för detaljerade anvisningar om hur du tolkar granskningsloggar](../manage-apps/check-status-user-account-provisioning.md)**
 
 5. En klar skrivs en sammanfattning av granskningsrapporten den **etablering** fliken enligt nedan.
 
@@ -808,7 +808,7 @@ Workday etablera lösningen för Active Directory kräver en synkroniseringsagen
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig att granska loggarna och få rapporter om etablering aktivitet](../active-directory-saas-provisioning-reporting.md)
+* [Lär dig att granska loggarna och få rapporter om etablering aktivitet](../manage-apps/check-status-user-account-provisioning.md)
 * [Lär dig hur du konfigurerar enkel inloggning mellan Workday och Azure Active Directory](workday-tutorial.md)
 * [Lär dig hur du integrerar andra SaaS-program med Azure Active Directory](tutorial-list.md)
 

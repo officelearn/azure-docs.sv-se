@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 928e4811f15953313df167375043231478f5c11a
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 3dafef052f181a961cdf30cb647328ee1b2db601
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056044"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299924"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Konfigurera enkel inloggning till program som inte ingår i Azure Active Directory-programgalleriet
 
@@ -42,17 +42,17 @@ De här funktionerna kallas även *mallar för integrering*anger standardbaserad
 ## <a name="adding-an-unlisted-application"></a>Lägga till ett program som inte finns i listan
 Logga in på Azure portal med ditt konto i Azure Active Directory-administratör om du vill ansluta ett program med en mall för integrering. Bläddra till den **Active Directory > företagsprogram > Nytt program > icke-galleriprogram** väljer **Lägg till**, och sedan **lägga till ett program från galleriet** .
 
-  ![](./media/active-directory-saas-custom-apps/customapp1.png)
+  ![Lägga till ett program](./media/active-directory-saas-custom-apps/customapp1.png)
 
 I app-galleriet kan du lägga till en app som inte finns i listan genom att välja den **icke-galleriprogram** panel som visas i sökresultaten om din önskade app inte hittades. När du har angett ett namn för ditt program, kan du konfigurera alternativ för enkel inloggning och beteende. 
 
 **Snabbtips**: ett bra tips är att använda sökfunktionen för att kontrollera om programmet redan finns i programgalleriet. Om hitta appen och dess beskrivning nämner enkel inloggning, stöds redan programmet för federerad enkel inloggning.
 
-  ![](./media/active-directory-saas-custom-apps/customapp2.png)
+  ![Search](./media/active-directory-saas-custom-apps/customapp2.png)
 
 Lägga till ett program på så sätt är liknande som tillgänglig för redan integrerade program. För att starta, markerar **Konfigurera enkel inloggning** eller klicka på **enkel inloggning** från programmets vänstra navigeringsmenyn. Nästa skärm anger alternativ för att konfigurera enkel inloggning. Alternativen beskrivs i nästa avsnitt av den här artikeln.
   
-![](./media/active-directory-saas-custom-apps/customapp3.png)
+![Konfigurationsalternativ](./media/active-directory-saas-custom-apps/customapp3.png)
 
 ## <a name="saml-based-single-sign-on"></a>SAML-baserad enkel inloggning
 Välj det här alternativet för att konfigurera SAML-baserad autentisering för programmet. Detta kräver att programmet har stöd för SAML 2.0. Du bör samla in information om hur du använder SAML-funktioner i programmet innan du fortsätter. Gå igenom följande avsnitt för att konfigurera enkel inloggning mellan programmet och Azure AD.
@@ -98,7 +98,7 @@ När en användare autentiseras till programmet utfärdar Azure AD en SAML-token
 
 Du kan visa eller redigera anspråk som skickats i SAML-token till program under den **attribut** fliken.
 
-  ![](./media/active-directory-saas-custom-apps/customapp7.png)
+  ![Attribut](./media/active-directory-saas-custom-apps/customapp7.png)
 
 Det finns två orsaker till varför du kan behöva redigera anspråk som utfärdats i SAML-token:
 
@@ -138,7 +138,7 @@ När ditt program har konfigurerats för att använda Azure AD som en SAML-baser
 
 Om du vill tilldela en användare eller grupp i ditt program, klickar du på den **tilldela användare** knappen. Välj den användare eller grupp som du vill tilldela och väljer sedan den **tilldela** knappen.
 
-  ![](./media/active-directory-saas-custom-apps/customapp6.png)
+  ![Tilldela användare](./media/active-directory-saas-custom-apps/customapp6.png)
 
 Tilldela en användare kan Azure AD för att utfärda en token för användaren. Det gör även en panel för det här programmet ska visas i användarens åtkomstpanelen. Ett program sida vid sida visas också i startprogrammet för Office 365 om användaren använder Office 365. 
 
@@ -175,5 +175,5 @@ När du har valt **nästa**, uppmanas du att ange Webbadressen till programmet f
 
 - [Artikelindex för programhantering i Azure Active Directory](active-directory-apps-index.md)
 - [Anpassa anspråk som utfärdats i SAML-Token för förintegrerade appar](active-directory-saml-claims-customization.md)
-- [Felsöka SAML-baserad enkel inloggning](active-directory-saml-debugging.md)
+- [Felsöka SAML-baserad enkel inloggning](develop/howto-v1-debug-saml-sso-issues.md)
 

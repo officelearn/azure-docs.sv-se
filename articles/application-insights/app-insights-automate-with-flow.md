@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 28228755f76f38ef2ed5e50c776a99427118e090
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 449a6274b67f3eb72ea6d8bd19f555fc59158d7e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424559"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299108"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatisera Azure Application Insights processer med anslutningsappen för Microsoft Flow
 
@@ -25,7 +25,7 @@ Hittar du själv upprepade gånger köra samma frågor på dina telemetridata f�
 
 Med den här integrationen kan du nu automatisera många processer utan att behöva skriva en enda rad kod. När du har skapat ett flöde med hjälp av en Application Insights-åtgärd körs flödet automatiskt din Application Insights Analytics-fråga. 
 
-Du kan lägga till ytterligare åtgärder samt. Microsoft Flow tillgängliggör hundratals åtgärder. Du kan till exempel använda Microsoft Flow för att automatiskt skicka ett e-postmeddelande eller skapa en bugg i Visual Studio Team Services. Du kan också använda en av många [mallar](https://ms.flow.microsoft.com/en-us/connectors/shared_applicationinsights/?slug=azure-application-insights) som är tillgängliga för anslutningsappen för Microsoft Flow. Dessa mallar snabba upp processen med att skapa ett flöde. 
+Du kan lägga till ytterligare åtgärder samt. Microsoft Flow tillgängliggör hundratals åtgärder. Du kan till exempel använda Microsoft Flow för att automatiskt skicka ett e-postmeddelande eller skapa en bugg i Azure DevOps. Du kan också använda en av många [mallar](https://ms.flow.microsoft.com/en-us/connectors/shared_applicationinsights/?slug=azure-application-insights) som är tillgängliga för anslutningsappen för Microsoft Flow. Dessa mallar snabba upp processen med att skapa ett flöde. 
 
 <!--The Application Insights connector also works with [Azure Power Apps](https://powerapps.microsoft.com/en-us/) and [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/?v=17.23h). --> 
 

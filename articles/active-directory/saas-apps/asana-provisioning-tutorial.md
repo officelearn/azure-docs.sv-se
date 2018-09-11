@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 9ab2b22840d162fc0194151c5eec02675aad92dc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 26642fefbb86b2709e110b13d782286fd18d5e60
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427660"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348063"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Asana för automatisk användaretablering
 
@@ -89,7 +89,7 @@ Det här avsnittet hjälper dig att ansluta din Azure AD till användarkontot i 
 
 1. Under den **mappningar** väljer **synkronisera Azure Active Directory-användare till Asana**.
 
-1. I den **attributmappningar** går du igenom användarattribut som ska synkroniseras från Azure AD med Asana. Attribut som har markerats som **matchande** egenskaper som används för att matcha användarkonton i Asana för uppdateringsåtgärder. Välj **spara** att genomföra ändringarna. Mer information finns i [anpassa attributmappningar för användare etablera](../active-directory-saas-customizing-attribute-mappings.md).
+1. I den **attributmappningar** går du igenom användarattribut som ska synkroniseras från Azure AD med Asana. Attribut som har markerats som **matchande** egenskaper som används för att matcha användarkonton i Asana för uppdateringsåtgärder. Välj **spara** att genomföra ändringarna. Mer information finns i [anpassa attributmappningar för användare etablera](../manage-apps/customize-application-attributes.md).
 
 1. Så här aktiverar du den Azure AD-etableringstjänsten för Asana, i den **inställningar** ändrar **Etableringsstatus** till **på**.
 
@@ -97,7 +97,7 @@ Det här avsnittet hjälper dig att ansluta din Azure AD till användarkontot i 
 
 Nu den första synkroniseringen startar för alla användare som tilldelats Asana i den **användare** avsnittet. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som tjänsten körs. Använd den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsloggar. Granskningsloggarna beskrivs alla åtgärder som utförs av etableringstjänsten i Asana-app.
 
-Mer information om hur du läser den Azure AD etablering loggar finns i [rapportera om automatisk användarkontoetablering](../active-directory-saas-provisioning-reporting.md).
+Mer information om hur du läser den Azure AD etablering loggar finns i [rapportera om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: dc70a20667db7e59f0fe77ec4d84831cfb7e75a5
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: d1d17ff331d3e770b77ce729904e57cf88ebc16c
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617226"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348576"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric-kluster kapacitetsplanering
 För alla Produktionsdistribution är kapacitetsplanering ett viktigt steg. Här är några av de objekt som du måste väga in som en del av den här processen.
@@ -51,7 +51,7 @@ Varje nodtyp är en distinkt skala ange och kan skalas upp eller ned oberoende a
 
 Service Fabric-kluster kan bestå av fler än en nodtyp. I sådana fall består klustret av en primära nodtypen och en eller flera icke-primär nodtyper.
 
-En enda nodtyp får inte bara överskrida 100 noder per VM scale Sets. Du kan behöva lägga till VM scale sets för att få den riktade skalan och automatisk skalning inte kan automagically lägga till VM-skalningsuppsättningar. Att lägga till skalningsuppsättningar för virtuella datorer på plats till ett aktivt kluster är en utmaning och ofta detta leder användare etablera nya kluster med lämpliga nodtyperna etablerats vid tidpunkten för skapandet. 
+En enda nodtyp skala inte på ett tillförlitligt sätt utöver 100 noder per skalningsuppsättning för SF program; uppnå större än 100 noder på ett tillförlitligt sätt måste du lägga till ytterligare VM-skalningsuppsättningar.
 
 ### <a name="primary-node-type"></a>Primära nodtypen
 

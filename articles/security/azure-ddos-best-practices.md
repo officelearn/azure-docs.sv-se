@@ -1,6 +1,6 @@
 ---
-title: Azure DDoS-skydd metodtips och referera till arkitekturer | Microsoft Docs
-description: Läs mer om hur du kan använda loggning av data och få djupa insikter om ditt program.
+title: Azure DDoS Protection bästa praxis och referensarkitekturer | Microsoft Docs
+description: Läs mer om hur du kan använda loggningsdata för att få djupa insikter om ditt program.
 services: security
 author: barclayn
 manager: mbaldwin
@@ -13,268 +13,268 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: b802c7b96bd8d0cfa56347d45542495caf69d7e4
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 09411ad3f0a27ba4d6d36342f9e298e177a021d8
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824718"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44324945"
 ---
-# <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS-skydd: Metodtips och referera till arkitekturer
+# <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection: Bästa praxis och referensarkitekturer
 
-Den här artikeln används för IT-beslutsfattare och säkerhet personal. Den förväntar sig att du är bekant med Azure, nätverk och säkerhet.
+Den här artikeln är för IT-beslutsfattare och security personal. Det förväntar sig att du är bekant med Azure, nätverk och säkerhet.
 
-Utformning för distribuerade DOS-attacker (DDoS) kräver återhämtning planering och utformning av olika feltillstånd. Den här artikeln innehåller metodtips för att utforma program i Azure för återhämtning mot DDoS-attacker.
+Designa för distribuerade överbelastningsattacker (DDoS) kräver återhämtning planering och design för en mängd olika fellägen. Den här artikeln innehåller metodtips för att utforma program i Azure för skydd mot DDoS-attacker.
 
 ## <a name="types-of-attacks"></a>Typer av attacker
 
-DDoS är en typ av angrepp som försöker få slut på resurser. Målet är att påverka programmets tillgänglighet och dess förmåga att hantera legitima begäranden. Attacker blir mer förfinade och större i storlek och effekt. DDoS-attacker kan vara mål för valfri slutpunkt som är offentligt tillgänglig via internet.
+DDoS är en typ av angrepp som används för att få slut på resurser. Målet är att påverka programmets tillgänglighet och dess förmåga att hantera legitima begäranden. Attacker blir allt mer sofistikerade och större i storlek och effekt. DDoS-attacker kan riktas till valfri slutpunkt som kan nås offentligt via internet.
 
-Azure tillhandahåller kontinuerlig skydd mot DDoS-attacker. Det här skyddet är integrerat i Azure-plattformen som standard och utan extra kostnad. 
+Azure tillhandahåller kontinuerligt skydd mot DDoS-attacker. Det här skyddet är integrerad i Azure-plattformen som standard och utan extra kostnad. 
 
-Förutom grundläggande DDoS-skydd i plattformen, [Azure DDoS-skydd Standard](https://azure.microsoft.com/services/ddos-protection/) ger avancerade funktioner för DDoS-minskning mot nätverksattacker. Det är automatiskt justerade för att skydda specifika Azure-resurser. Skydd är enkel att aktivera under genereringen av nya virtuella nätverk. Det kan även utföras när den har skapats och kräver inga ändringar i programmet eller resursen.
+Förutom grundläggande DDoS-skydd i plattformen, [Azure DDoS Protection Standard](https://azure.microsoft.com/services/ddos-protection/) innehåller avancerade DDoS-skyddsfunktioner mot nätverksattacker. Det är automatiskt justerade för att skydda din specifika Azure-resurser. Skydd är enkelt att använda när du skapar nya virtuella nätverk. Det kan också göras när du har skapat och kräver inga ändringar i programmet eller resursen.
 
-![Rollen för Azure DDoS-skydd för att skydda kunder och ett virtuellt nätverk från en angripare](media/azure-ddos-best-practices/image1.png)
+![Rollen Azure DDoS Protection har i att skydda kunder och ett virtuellt nätverk från en angripare](media/azure-ddos-best-practices/image1.png)
 
-DDoS-attacker kan delas in i tre kategorier: Överför, protokoll och resurs.
+DDoS-attacker kan klassificeras i tre kategorier: Överför, protokoll och resursen.
 
 ### <a name="volumetric-attacks"></a>Överför attacker
 
-Överför attacker är den vanligaste typen DDoS-attacker. Överför attacker är brute force-assaults som är riktade till nätverks- och lager. De försöker få slut på resurser som nätverkslänkar. 
+Överför attacker är den vanligaste typen av DDoS-attacker. Överför attacker är brute force-assaults som är riktade till nätverks- och lager. De försöker att få slut på resurser som nätverkslänkar. 
 
-Angreppen använder ofta flera infekterade system för att översvämma nätverket lager med till synes legitima trafik. De använder nätverk protokollen som kontrollen meddelandet ICMP (Internet Protocol), User Datagram Protocol (UDP) och Transmission Control Protocol (TCP).
+Dessa attacker använder ofta flera infekterade system för att översvämma nätverk lager med till synes legitima trafik. De använder nätverkslager protokoll som ICMP Internet Control Message Protocol (), User Datagram Protocol (UDP) och Transmission Control Protocol (TCP).
 
-De vanligaste nätverksnivån DDoS-attacker är TCP SYN överbelasta ICMP echo, UDP översvämning, DNS, och NTP förstärkning attacker. Den här typen av attacker kan användas inte bara för att stoppa tjänsten, utan även som en smokescreen för nefarious och mer riktad intrång. Ett exempel på en senaste överför attack är den [Memcached utnyttja](https://www.wired.com/story/github-ddos-memcached/) som påverkade GitHub. Angrepp riktade UDP-port 11211 och genererade 1.35 Tb/s attack volym.
+De vanligaste nätverkslagret DDoS-attacker är TCP SYN överbelasta ICMP echo, UDP överbelasta, DNS, och NTP-förstärkning attacker. Den här typen av angrepp kan användas inte bara för att stoppa tjänsten, utan även som en smokescreen för skräppost och mer riktad intrång. Ett exempel på en nyligen överför attack är det [Memcached utnyttja](https://www.wired.com/story/github-ddos-memcached/) som påverkade GitHub. Angrepp riktade UDP-port 11211 och genereras 1.35 Tb/s av attack volym.
 
 ### <a name="protocol-attacks"></a>Protokollet attacker
 
-Protokollet attacker mål programprotokoll. De försöker använda alla tillgängliga resurser i infrastrukturen enheter, till exempel brandväggar, programservrar och belastningsutjämnare. Protokollet attacker använda paket som är felaktig eller innehåller protokollet avvikelser. Angreppen fungerar genom att skicka stort antal öppna begäranden att servrar och andra kommunikationsenheter besvara och vänta på svar paket. Målet försöker besvara öppna begäranden, vilket till slut medför att systemet kraschar.
+Protokollet attacker target programprotokoll. Försöker de förbrukar alla tillgängliga resurser i infrastrukturen enheter, till exempel brandväggar, programservrar, och belastningsutjämnare. Protokollet attacker använda paket som felaktigt eller innehålla protokollet avvikelser. Dessa attacker driva genom att skicka stora mängder öppna förfrågningar att servrar och andra kommunikationsenheter besvara och vänta tills ett paket-svar. Målet försöker besvara öppna begäranden, vilket till slut medför systemet ska krascha.
 
-De vanligaste exempel på ett protokoll-baserade DDoS-attacker är TCP SYN översvämning. I det här angreppet försöker TCP SYN begäranden upprepade överväldigande ett mål. Målet är att göra svarar inte. 2016 Dyn avbrott, förutom att angreppet programnivå bestod av TCP SYN floods den aktuella porten 53 Dyns DNS-servrar.
+Det vanligaste exemplet-protokollsbaserade DDoS-angrepp är TCP SYN mängd. I den här angrepp försöker en följd av begäranden för TCP SYN utnyttjandet ett mål. Målet är att göra svarar inte. 2016 Dyn avbrott, förutom de som angreppet programnivå bestod av TCP SYN floods den riktade porten 53 Dyn's DNS-servrar.
 
 ### <a name="resource-attacks"></a>Resurs-attacker
 
-Resursen attacker mål Applikationsnivån. De utlöser backend-processer för att överbelasta ett system. Resurs-attacker missbruk trafik som ser ut normal men som utför processorintensiva frågor till servern. Mängden trafik som behövs för att få slut på resurser som är lägre än den andra typen av attacker. Trafik i en resurs-attack är identiska med legitima trafik, vilket gör det svårt att identifiera. De vanligaste attacker som resursen finns på HTTP/HTTPS- och DNS-tjänster.
+Resursen attacker rikta programnivån. De utlösa backend-processer i syfte att överbelasta ett system. Resurs-attacker missbruk trafik som ser ut normala men som uppfyller processorintensiva frågor till servern. Mängden trafik som behövs för att få slut på resurser är lägre än för den andra typen av attacker. Trafik i en resurs-attack är identiska med legitima trafik, vilket gör det svårt att identifiera. De vanligaste resurs-attackerna finns på HTTP/HTTPS- och DNS-tjänster.
 
 ## <a name="shared-responsibility-in-the-cloud"></a>Delat ansvar i molnet
 
-Skydd på djupet hjälper bekämpa ökande och vilken nivå av attacker. Säkerhet är ett delat ansvar mellan kunden och Microsoft. Microsoft kallar det en [delat ansvar modellen](https://azure.microsoft.com/blog/microsoft-incident-response-and-shared-responsibility-for-cloud-computing/). Följande bild visar den här uppdelningen av ansvar:
+Skydd på djupet hjälper till att bekämpa olika aspekter och grad av attacker. Säkerhet är ett delat ansvar mellan kunden och Microsoft. Microsoft kallar det en [delat ansvar modellen](https://azure.microsoft.com/blog/microsoft-incident-response-and-shared-responsibility-for-cloud-computing/). Följande bild visar den här delen av ansvarsområden:
 
 ![Ansvarsområden av kunden och Azure](media/azure-ddos-best-practices/image2.png)
 
-Azure-kunder dra nytta av att granska bästa praxis från Microsoft och skapa globalt distribuerade program som designas och testas för fel.
+Azure-kunder dra nytta av granska metodtips och skapa globalt distribuerade program som designas och testas för fel.
 
-## <a name="fundamental-best-practices"></a>Grundläggande bästa praxis
+## <a name="fundamental-best-practices"></a>Grundläggande Metodtips
 
-Följande avsnitt innehåller normativ vägledning för att skapa DDoS-flexibel tjänster i Azure.
+I följande avsnitt ger vägledning för att skapa DDoS anpassningsbara tjänster på Azure.
 
 ### <a name="design-for-security"></a>Utforma för säkerhet
 
-Se till att säkerheten är en prioritet under hela livscykeln för ett program från designen och implementeringen till distribution och användning. Program kan ha buggar som gör att en relativt låg volymen av begäranden att använda orimligt mycket resurser, vilket resulterar i ett avbrott i tjänsten. 
+Kontrollera att säkerhet är en prioritet under hela livscykeln för ett program, från design och implementering till distribution och drift. Program kan ha buggar som gör att en relativt låg volym av begäranden om att använda en ovanligt mängd resurser, vilket resulterar i avbrott i tjänsten. 
 
-För att skydda en tjänst som körs på Microsoft Azure, bör du ha en god förståelse av din programarkitektur och fokusera på den [fem pelare programvara kvalitet](https://docs.microsoft.com/azure/architecture/guide/pillars).
-Du bör känna till vanliga trafikvolymer modellen anslutning mellan programmet och andra program och tjänsten på de slutpunkter som exponeras för det offentliga internet.
+För att skydda en tjänst som körs på Microsoft Azure, bör du ha en god förståelse av programarkitekturen och fokusera på den [fem grundpelare för programkvalitet](https://docs.microsoft.com/azure/architecture/guide/pillars).
+Du bör känna till vanliga trafikvolymer modellen anslutning mellan programmet och andra program och Tjänsteslutpunkter som exponeras för det offentliga internet.
 
-Det är viktigt att säkerställa att ett program är flexibel att hantera en denial of service som är riktad till programmet. Säkerhet och sekretess är inbyggda i Azure-plattformen, från och med den [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). Av SDL adresser säkerhet i varje utvecklingsfas och säkerställer att Azure uppdateras kontinuerligt så att den blir ännu säkrare.
+Se till att ett program är tillräckligt flexibel för att hantera DOS-attacker som riktas mot själva programmet är viktigast. Säkerhet och sekretess är inbyggt i Azure-plattformen, från och med den [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). SDL-processen hanterar säkerheten i varje utvecklingsfas och ser till att Azure uppdateras ständigt för att göra det ännu säkrare.
 
 ### <a name="design-for-scalability"></a>Design för skalbarhet
 
-Skalbarhet är hur bra ett system kan hantera en ökad belastning. Du måste skapa dina program [skala horisontellt](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) att uppfylla behovet av en förstärkt belastning, särskilt i händelse av en DDoS-attack. Om programmet är beroende av en enda instans av en tjänst, skapas en enskild felpunkt. Flera instanser etablering systemet mer flexibel och skalbar mer.
+Skalbarhet är hur bra ett system kan hantera ökad belastning. Du måste programmen utformas för [skala horisontellt](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) att uppfylla behovet av en förstärkt belastning, särskilt i händelse av en DDoS-attack. Om ditt program är beroende av en enda instans av en tjänst, skapas en enskild felpunkt. Etablering av flera instanser kan systemet mer skalbart och återhämtningsbart mer.
 
-För [Azure App Service](../app-service/app-service-value-prop-what-is.md), Välj en [programtjänstplanen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) som erbjuder flera instanser. Konfigurera var och en av dina roller som ska användas för Azure Cloud Services [flera instanser](../cloud-services/cloud-services-choose-me.md). För [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), se till att din arkitektur för virtuell dator (VM) innehåller fler än en virtuell dator och att varje virtuell dator ska ingå i en [tillgänglighetsuppsättning](../virtual-machines/virtual-machines-windows-manage-availability.md). Vi rekommenderar att du använder [skalningsuppsättningar i virtuella](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för autoskalning funktioner.
+För [Azure App Service](../app-service/app-service-value-prop-what-is.md)väljer en [App Service-plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) som erbjuder flera instanser. Konfigurera var och en av dina roller att använda för Azure Cloud Services, [flera instanser](../cloud-services/cloud-services-choose-me.md). För [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), se till att din virtuella dator (VM)-arkitektur innehåller fler än en virtuell dator och att varje virtuell dator ingår i en [tillgänglighetsuppsättning](../virtual-machines/virtual-machines-windows-manage-availability.md). Vi rekommenderar att du använder [VM-skalningsuppsättningar](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för funktioner för automatisk skalning.
 
 ### <a name="defense-in-depth"></a>Skydd på djupet
 
-Tanken bakom skydd på djupet är att hantera risker med hjälp av olika defensiva strategier. Skikta säkerhetsskyddet i ett program minskar risken för ett angrepp. Vi rekommenderar att du implementera säker Designer för dina program med hjälp av de inbyggda funktionerna i Azure-plattformen.
+Tanken bakom skydd på djupet är att hantera risker med hjälp av olika skydden strategier. Skikta säkerhetsskyddet i ett program minskar risken för angrepp. Vi rekommenderar att du implementerar säker design för dina program med hjälp av de inbyggda funktionerna i Azure-plattformen.
 
-Till exempel risken för angrepp ökar med storleken (*yta området*) för programmet. Du kan minska risken genom för att stänga ned exponerade IP-adressutrymmet vitlistning och lyssningsportar som inte behövs på belastningsutjämnare ([Azure belastningsutjämnare](../load-balancer/load-balancer-get-started-internet-portal.md) och [Azure Programgateway](../application-gateway/application-gateway-create-probe-portal.md)). [Nätverkssäkerhetsgrupper (NSG: er)](../virtual-network/security-overview.md) är ett annat sätt att minska risken för angrepp.
-Du kan använda [tjänsten taggar](/virtual-network/security-overview.md#service-tags) och [programmet säkerhetsgrupper](/virtual-network/security-overview.md#application-security-groups) att minimera komplexitet för att skapa säkerhetsregler och konfigurera nätverkssäkerhet, som en naturlig förlängning av ett program.
+Till exempel risken för angrepp ökar med storleken (*ytområde*) av programmet. Du kan minska ytan med hjälp av listan över tillåtna program ska stänga exponerade IP-adressutrymmet och lyssningsportar som inte behövs på belastningsutjämnarna ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) och [Azure Application Gateway](../application-gateway/application-gateway-create-probe-portal.md)). [Nätverkssäkerhetsgrupper (NSG)](../virtual-network/security-overview.md) är ett annat sätt att minska risken för angrepp.
+Du kan använda [tjänsttaggar](../virtual-network/security-overview.md#service-tags) och [programsäkerhetsgrupper](../virtual-network/security-overview.md#application-security-groups) att minska komplexiteten för att skapa säkerhetsregler och konfigurera nätverkssäkerhet, som en naturlig förlängning av ett programs struktur.
 
-Du bör distribuera Azure-tjänster i en [virtuellt nätverk](../virtual-network/virtual-networks-overview.md) när det är möjligt. Detta gör tjänsten resurser för att kommunicera via privata IP-adresser. Azure-tjänstens trafik från ett virtuellt nätverk använder offentliga IP-adresser som käll-IP-adresser som standard. Med hjälp av [tjänstens slutpunkter](../virtual-network/virtual-network-service-endpoints-overview.md) växlar trafik från tjänsten om du vill använda virtuella privata nätverksadresser som käll-IP-adresser när de försöker komma åt Azure-tjänsten från ett virtuellt nätverk.
+Du bör distribuera Azure-tjänster i en [virtuellt nätverk](../virtual-network/virtual-networks-overview.md) när det är möjligt. Detta gör att service-resurser kommunicera via privata IP-adresser. Azure-tjänsttrafiken från ett virtuellt nätverk använder offentliga IP-adresser som käll-IP-adresser som standard. Med hjälp av [tjänstslutpunkter](../virtual-network/virtual-network-service-endpoints-overview.md) växlar för att använda privata vnet-adresser som käll-IP-adresser när de får åtkomst till Azure-tjänsten från ett virtuellt nätverk-tjänstens trafik.
 
-Vi kan ofta se kundernas lokala resurser komma angripna tillsammans med sina resurser i Azure. Om du ansluter en lokal miljö till Azure, rekommenderar vi att du minimerar risken för lokala resurser för det offentliga internet. Du kan använda skala och avancerade DDoS-skydd-funktionerna i Azure genom att distribuera din välkända offentliga enheter i Azure. Eftersom dessa enheter som är offentligt tillgänglig ofta ett mål för DDoS-attacker kan minskar placera dem i Azure inverkan på din lokala resurser.
+Ofta ser vi kundernas lokala resurser komma angripna tillsammans med sina resurser i Azure. Om du ansluter en lokal miljö till Azure, rekommenderar vi att du minimera exponering av lokala resurser till det offentliga internet. Du kan använda den omfattning och avancerade DDoS protection-funktioner i Azure genom att distribuera dina välkänd offentlig entiteter i Azure. Eftersom dessa offentligt tillgänglig entiteter är ofta ett mål för DDoS-attacker, minskar placera dem i Azure påverkan på din lokala resurser.
 
 ## <a name="azure-offerings-for-ddos-protection"></a>Azure-erbjudanden för DDoS-skydd
 
-Azure har två DDoS Tjänsterbjudanden som ger skydd mot nätverksattacker (Layer 3 och 4): DDoS-skydd Basic och DDoS-skydd Standard. 
+Azure har två DDoS-Tjänsterbjudanden som ger skydd mot nätverksattacker (Layer 3 och 4): DDoS Protection Basic- och DDoS Protection Standard. 
 
-### <a name="ddos-protection-basic"></a>Basic för DDoS-skydd
+### <a name="ddos-protection-basic"></a>DDoS Protection Basic
 
-Grundläggande skydd är integrerat i Azure som standard utan extra kostnad. Ger skydd mot vanliga nätverksnivån attacker via alltid i trafik övervaknings- och realtid minskning skala och kapacitet för globalt distribuerade Azure-nätverk. DDoS-skydd grundläggande kräver konfiguration eller programmet användarändringar. DDoS-skydd grundläggande skyddar alla Azure-tjänster, inklusive PaaS-tjänster som Azure DNS.
+Grundläggande skydd är integrerad i Azure som standard utan extra kostnad. Ger skydd mot vanliga attacker på nätverkslager via ständig övervakning och i realtid minskning skalbarhet och kapacitet för globalt distribuerade Azure-nätverket. DDoS Protection grundläggande kräver konfiguration eller programmet användarändringar. DDoS Protection Basic kan du skydda alla Azure-tjänster, inklusive PaaS-tjänster som Azure DNS.
 
-![Mappa representation av Azure-nätverk med texten ”globala DDoS minskning förekomst” och ”inledande DDoS minskning kapacitet”](media/azure-ddos-best-practices/image3.png)
+![Mappa representation av Azure-nätverket med texten ”globala DDoS minskning närvaro” och ”inledande DDoS-hanteringskapacitet”](media/azure-ddos-best-practices/image3.png)
 
-Grundläggande DDoS-skydd i Azure består av både program-och maskinvara. En plan för kontroll av programvara avgör när, var och vilken typ av trafik bör vara styrd via maskinvara apparater som analysera och ta bort attack trafik. Plan för åtkomstkontroll gör detta beslut baserat på en infrastruktur för hela DDoS-skydd *princip*. Den här principen statiskt ställs och tillämpas universellt alla Azure-kunder.
+Grundläggande DDoS-skydd i Azure består av både program- och komponenter. En programvara kontrollplanet avgör när, var, och vilken typ av trafik bör vara styrd via maskinvaruinstallationer som analyserar och ta bort attack trafik. Kontrollplanet gör detta beslut baserat på en infrastruktur för hela DDoS Protection *princip*. Den här principen ställs statiskt och tillämpas universellt på alla Azure-kunder.
 
-Till exempel DDoS-skydd-principen anger på vilka trafikvolym skyddet ska vara *utlöses.* (Det vill säga den klienttrafik ska vidarebefordras genom skrubbningsjobb installationer.) Principen anger sedan hur bakgrundsrensning installationer bör *minimera* angrepp.
+Till exempel DDoS Protection-principen anger på vilka trafikvolym skyddet ska vara *utlöses.* (Det vill säga klientens trafik ska dirigeras via Skrubba installationer.) Principen anger sedan hur ska rensningsjobbet installationer *minimera* angreppet.
 
-Tjänsten Azure DDoS-skydd Basic är inriktad på infrastrukturen och skydd av Azure-plattformen. Det minskar trafik när den överskrider en hastighet som är viktiga att det kan påverka flera kunder i en flerklientsmiljö. Den ger inte aviseringar eller per kund anpassade principer.
+Tjänsten Azure DDoS Protection Basic är avsett för skydd av infrastrukturen och skydd av Azure-plattformen. Det minskar trafik när tröskeln för ett pris som är så stort att det kan påverka flera kunder i en miljö med flera innehavare. Det ger inte aviseringar eller per kund anpassade principer.
 
 ### <a name="ddos-protection-standard"></a>Standard för DDoS-skydd
 
-Standard protection innehåller funktioner för DDoS-lösning. Det är automatiskt justerade för att skydda specifika Azure-resurser i ett virtuellt nätverk. Skydd är enkel att aktivera på alla nya eller befintliga virtuella nätverk och det krävs inga ändringar i programmet eller resursen. Den har flera fördelar jämfört med grundläggande tjänsten, inklusive loggning, varningar och telemetri. I följande avsnitt beskrivs viktiga funktioner i tjänsten Azure DDoS-skydd Standard.
+Standard protection tillhandahåller funktioner för DDoS-minskning. Det är automatiskt justerade för att skydda din specifika Azure-resurser i ett virtuellt nätverk. Skydd är enkelt att aktivera på alla nya eller befintliga virtuella nätverket och det krävs inga ändringar i programmet eller resursen. Den har flera fördelar jämfört med grundläggande tjänsten, inklusive loggning, aviseringar och telemetri. I följande avsnitt beskrivs de viktigaste funktionerna i tjänsten Azure DDoS Protection Standard.
 
-#### <a name="adaptive-real-time-tuning"></a>Anpassningsbar realtid justera
+#### <a name="adaptive-real-time-tuning"></a>Anpassningsbar justering i realtid
 
-Tjänsten Azure DDoS-skydd Basic hjälper kunder och förhindra påverkan till andra kunder. Om exempelvis en tjänst har etablerats för en typisk volym av legitima inkommande trafik som är mindre än den *utlösaren hastighet* för den infrastruktur hela DDoS-skydd för en DDoS-attack på resurser som kunden kan gå oupptäckta. Generellt komplexitet senaste attacker (till exempel flera vector DDoS) och programspecifika beteenden för klienter kräver per kund, anpassade skyddsprinciper. Tjänsten genomför den här anpassningen genom att använda två insikter:
+Tjänsten Azure DDoS Protection Basic hjälper att skydda kunder och förhindra påverkan för andra kunder. Exempel: om en tjänst har etablerats för en typisk volym av legitima inkommande trafik som är mindre än den *frekvensutlösare* av infrastruktur hela DDoS Protection-principen, DDoS-attacker på kundens resurser försätts obemärkt förbi. Vanligtvis, komplexitet och deras senaste attacker (till exempel flera vektor DDoS) och de programspecifika beteenden med klienter kräver per kund, anpassade skyddsprinciper. Tjänsten genomför den här anpassningen genom att använda två insights:
 
-- Automatisk inlärning av (per-IP) per kund trafikmönster för Layer 3 och 4.
+- Automatisk inlärning av (per IP) per kund trafikmönster för Layer 3 och 4.
 
-- Minimera falska positiva identifieringar som överväger att skala Azure tillåter att det skulle kunna ta emot en stor mängd trafik.
+- Minimera falska positiva identifieringar som överväger att skalningen i Azure kan det absorbera en betydande mängd trafik.
 
-![Diagram över hur DDoS-skydd Standard fungerar med ”Principgenerering” inringad](media/azure-ddos-best-practices/image5.png)
+![Diagram över hur DDoS Protection Standard fungerar, med ”Principgenerering” inringade](media/azure-ddos-best-practices/image5.png)
 
-#### <a name="ddos-protection-telemetry-monitoring-and-alerting"></a>DDoS-skydd telemetri, övervakning och avisering
+#### <a name="ddos-protection-telemetry-monitoring-and-alerting"></a>DDoS Protection telemetri, övervakning och avisering
 
-DDoS-skydd Standard exponerar omfattande telemetri via [Azure-Monitor](/monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) under en DDoS-attack. Du kan konfigurera aviseringar för någon av de Azure-Monitor-mätvärden som använder DDoS-skydd. Du kan integrera loggning med Splunk (Azure Event Hubs) och Azure logganalys Azure Storage för avancerad analys via Azure-Monitor diagnostik-gränssnittet.
+DDoS Protection Standard exponerar omfattande telemetri via [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) för hela DDoS-angrepp. Du kan konfigurera aviseringar för någon av de Azure Monitor-mått som DDoS Protection använder. Du kan integrera loggning med Splunk (Azure Event Hubs), Azure Log Analytics och Azure Storage för avancerad analys via Azure Monitor Diagnostics-gränssnittet.
 
-##### <a name="ddos-mitigation-policies"></a>Principer för DDoS-lösning
+##### <a name="ddos-mitigation-policies"></a>Principer för DDoS-minskning
 
-Välj i Azure-portalen **övervakaren** > **mått**. I den **mått** fönstret Välj resursgruppen, Välj en resurstyp i **offentliga IP-adressen**, och välj din Azure offentliga IP-adress. DDoS mått visas i den **tillgängliga mått** fönstret.
+I Azure-portalen väljer du **övervakaren** > **mått**. I den **mått** fönstret, Välj resursgruppen, Välj en resurstyp för **offentliga IP-adressen**, och välj din Azure offentlig IP-adress. DDoS-mått är synliga i den **tillgängliga mått** fönstret.
 
-DDoS-skydd Standard gäller tre automatiskt justerade minskning principer (TCP SYN, TCP och UDP) för varje offentlig IP-adress för den skyddade resursen i det virtuella nätverket som har DDoS aktiverat. Du kan visa tröskelvärdena som principen genom att välja mått **inkommande paket som utlöser DDoS minskning**.
+DDoS Protection Standard gäller tre automatiskt justerade minskning principer (TCP SYN, TCP och UDP) för varje offentlig IP-Adressen för den skyddade resursen i det virtuella nätverket som har aktiverat DDoS. Du kan visa tröskelvärdena som principen genom att välja måttet **inkommande paket att utlösa DDoS-minskning**.
 
-![Tillgängliga mått och mått diagram](media/azure-ddos-best-practices/image7.png)
+![Tillgängliga mått och diagram med prestandamått](media/azure-ddos-best-practices/image7.png)
 
-Tröskelvärden för principen är automatiskt konfigurerade via profilering av machine learning-baserat nätverk trafik. DDoS minskning inträffar för en IP-adress angripet bara när principen tröskelvärde har överskridits.
+Tröskelvärden för principen är automatiskt konfigurerad via profilering för machine learning-baserat nätverk trafik. DDoS-åtgärd utförs för en IP-adress under attack endast när principer tröskelvärden överskrids.
 
 ##### <a name="metric-for-an-ip-address-under-ddos-attack"></a>Mått för en IP-adress under DDoS-attack
 
-Om den offentliga IP-adressen är under attacker, värdet för måttet **Under DDoS-attacker eller inte** ändras till 1 som DDoS-skydd utför lösning för attack trafiken.
+Om den offentliga IP-adressen är attacker, värdet för måttet **Under DDoS-angrepp eller inte** ändras till 1 när DDoS Protection utför minskning av attack trafiken.
 
-![”Under DDoS attacker eller inte” mått och diagram](media/azure-ddos-best-practices/image8.png)
+![”Under DDoS angrepp eller inte” mått och diagram](media/azure-ddos-best-practices/image8.png)
 
-Vi rekommenderar att du konfigurerar en avisering på det här måttet. Du får sedan ett meddelande när det finns en aktiv DDoS minskning utförs på din offentliga IP-adress.
+Vi rekommenderar att du konfigurerar en avisering på det här måttet. Du kommer sedan att meddelas när det finns en aktiv DDoS-åtgärd som utförs på din offentliga IP-adress.
 
-Mer information finns i [hantera Azure DDoS-skydd Standard med hjälp av Azure portal](../virtual-network/ddos-protection-manage-portal.md).
+Mer information finns i [hantera Azure DDoS Protection Standard med hjälp av Azure portal](../virtual-network/ddos-protection-manage-portal.md).
 
 #### <a name="web-application-firewall-for-resource-attacks"></a>Brandvägg för webbaserade program för resurs-attacker
 
-Specifika för resursen attacker på programnivån, bör du konfigurera en brandvägg för webbaserade program (Brandvägg) för att säkra webbprogram. En Brandvägg kontrollerar om inkommande webbtrafik om du vill blockera SQL injektioner webbplatser skript, DDoS och andra lager 7-attacker. Azure tillhandahåller [Brandvägg som en funktion för Programgateway](../application-gateway/application-gateway-web-application-firewall-overview.md) för centraliserad skydd av dina webbapplikationer från vanliga kryphål och säkerhetsproblem. Det finns andra Brandvägg erbjudanden från Azure-partners som kan vara lämpligt för dina behov via den [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=WAF&page=1).
+Specifikt för resursen attacker på programnivå, bör du konfigurera en brandvägg för webbaserade program (WAF) för att skydda dina webbappar. En WAF inspekterar inkommande webbtrafik att blockera SQL-inmatningar, skriptkörning över flera webbplatser, DDoS och andra Layer 7-attacker. Azure tillhandahåller [WAF som en funktion i Application Gateway](../application-gateway/application-gateway-web-application-firewall-overview.md) för centraliserat skydd för dina webbprogram mot vanliga kryphål och säkerhetsproblem. Det finns andra WAF-erbjudanden som är tillgängliga från Azure-partner som kan passa bättre för dina behov via den [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=WAF&page=1).
 
-Även web application brandväggar är sårbar för angrepp med överför och state uttömning. Vi rekommenderar starkt att aktivera DDoS-skydd Standard på det virtuella nätverket Brandvägg för att skydda mot överför och protokollet attacker. Mer information finns i [DDoS-skydd referensarkitekturer](#ddos-protection-reference-architectures) avsnitt.
+Även brandväggar för webbprogram är sårbar för attacker överför och statliga överbelastning. Vi att rekommenderar du aktiverar DDoS Protection Standard i det virtuella nätverket WAF för att skydda mot överför och protocol-attacker. Mer information finns i den [DDoS Protection referensarkitekturer](#ddos-protection-reference-architectures) avsnittet.
 
 ### <a name="protection-planning"></a>Planera för skydd
 
-Planering och förberedelser är viktigt att förstå hur en systemet utför under en DDoS-attack. Designa en incidenthantering åtgärdsplanen är del av denna åtgärd.
+Planering och förberedelser är avgörande att förstå hur ett system utför under en DDoS-attack. Utforma en plan för incidenthantering svar är en del av det.
 
-Om du har DDoS-skydd Standard, se till att den är aktiverad på det virtuella nätverket mot internet-slutpunkter. Konfigurera aviseringar för DDoS hjälper dig att se hela tiden för alla potentiella attacker på din infrastruktur. 
+Om du har DDoS Protection Standard kan du kontrollera att den är aktiverad i det virtuella nätverket för internet-riktade slutpunkter. Konfigurera aviseringar för DDoS hjälper dig att se hela tiden för alla eventuella attacker på din infrastruktur. 
 
-Du bör övervaka dina program oberoende av varandra. Förstå normal beteendet för ett program. Förbereda för att fungera om programmet inte fungerar inte som förväntat under en DDoS-attack.
+Du bör övervaka dina program oberoende av varandra. Förstå det normala beteendet för ett program. Förbered för att fungera om programmet inte fungerar som förväntat under en DDoS-attack.
 
-#### <a name="testing-through-simulations"></a>Testa via simulering
+#### <a name="testing-through-simulations"></a>Testa via simuleringar
 
-Det är en bra idé att testa din antaganden om hur dina tjänster kommer att besvara ett angrepp genom att utföra regelbundna simulering. Verifiera att tjänsterna eller programmen fortsätter att fungera som förväntat och det inte finns några avbrott användarupplevelsen under testningen. Identifiera brister från både teknik- och processen synvinkel och lägga till dem i strategi för DDoS-svar. Vi rekommenderar att du utför dessa tester i mellanlagringsmiljöer eller vid låg belastning för att minimera inverkan på produktionsmiljön.
+Det är en bra idé att testa dina antaganden om hur dina tjänster kommer att besvara ett angrepp genom att utföra regelbundna simuleringar. Under testningen, verifiera att dina tjänster eller program fortsätter att fungera som förväntat och att det finns inga störningar i användarupplevelsen. Identifiera brister baserat på både teknik- och processen av och lägga till dem i strategi för DDoS-svar. Vi rekommenderar att du utför dessa tester i mellanlagringsmiljöer eller vid låg belastning minimera effekten till produktionsmiljön.
 
-Vi samarbetar med [BreakingPoint moln](https://www.ixiacom.com/products/breakingpoint-cloud) att skapa ett gränssnitt där Azure-kunder kan skapa trafik mot DDoS-skydd-aktiverade offentliga slutpunkter för simulering. Du kan använda den [BreakingPoint moln](https://www.ixiacom.com/products/breakingpoint-cloud) simuleringen till:
+Vi samarbetar med [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud) att skapa ett gränssnitt där Azure-kunder kan generera trafik mot DDoS Protection-aktiverade offentliga slutpunkter för simuleringar. Du kan använda den [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud) simuleringen till:
 
-- Validera hur Azure DDoS-skydd skyddar dina Azure-resurser från DDoS-attacker.
+- Kontrollera hur Azure DDoS Protection hjälper dig att skydda dina Azure-resurser mot DDoS-attacker.
 
-- Optimera incidenter processen under tiden för DDoS-attacker.
+- Optimera din incidenthanteringsprocess medan under DDoS-attacker.
 
-- Dokumentera DDoS-kompatibilitet.
+- Dokumentera DDoS-efterlevnad.
 
-- Träna din network security team.
+- Träna dina network security team.
 
-Cybersecurity kräver konstant innovation i skydd. Azure DDoS Standard-skydd är en tillstånd-med den senaste erbjudande med en effektiv lösning för att minska allt mer komplexa DDoS-attacker.
+Cybersäkerhet kräver konstant innovation i defense. Azure Standard för DDoS protection är en-för-avancerade erbjuder en effektiv lösning för att minimera allt mer komplexa DDoS-attacker.
 
-## <a name="components-of-a-ddos-response-strategy"></a>Komponenter i en strategi för DDoS-svar
+## <a name="components-of-a-ddos-response-strategy"></a>Komponenterna i en strategi för DDoS-svar
 
-En DDoS-attack som riktas mot Azure-resurser vanligtvis kräver minimala åtgärder från en användare synvinkel. Fortfarande införliva DDoS lösning som en del av en strategi för incidenter hjälper till att minimera påverkan på kontinuitet för företag.
+DDoS-attacker som riktas mot Azure-resurser vanligtvis kräver minimala åtgärder från användaren synpunkt. Fortfarande, införliva DDoS lösning som en del av en incidenthantering strategi hjälper till att minimera påverkan på affärskontinuitet.
 
 ### <a name="microsoft-threat-intelligence"></a>Microsoft hotinformation
 
-Microsoft har ett omfattande hot intelligence-nätverk. Det här nätverket använder kollektiva kunskap om en utökad säkerhet-community som stöder Microsoft online services, Microsoft-partner och relationer inom gruppen internet security. 
+Microsoft har ett omfattande threat intelligence nätverk. Det här nätverket använder en utökad säkerhet-community som har stöd för Microsoft online services, Microsoft-partner och relationer inom gruppen internet security kunskapen. 
 
-Microsoft tar emot tidiga varningar om hot som en kritisk infrastruktur-provider. Microsoft samlar in hotinformation från dess onlinetjänster och dess globala kundbas. Microsoft inkluderar alla den här hotinformation tillbaka i Azure DDoS-skydd-produkter.
+Microsoft tar emot tidiga varningar om hot som en viktig infrastruktur-provider. Microsoft samlar in hotinformation från onlinetjänster och sin globala kundbas. Microsoft inkluderar alla den här hotinformationen tillbaka i Azure DDoS Protection-produkter.
 
-Microsoft Digital Crimes Unit (DCU) utför också stötande strategier mot botnät. Botnät är en gemensam källa med kommandot och kontroll för DDoS-attacker.
+Microsoft Digital Crimes Unit (DCU) utför även, stötande strategier mot botnät. Botnät är en gemensam källa till kommando och kontroll för DDoS-attacker.
 
-### <a name="risk-evaluation-of-your-azure-resources"></a>Riskbedömning av Azure-resurser
+### <a name="risk-evaluation-of-your-azure-resources"></a>Riskbedömning av dina Azure-resurser
 
 Det är viktigt att förstå vilka risken från en DDoS-attack med jämna mellanrum. Regelbundet fråga dig själv: 
 - Vilka nya allmänt tillgängliga Azure-resurser behöver skydd?
 
 - Finns det en enskild felpunkt i tjänsten? 
 
-- Hur kan tjänster vara isolerad för att begränsa effekten av en attack när fortfarande gör tillgängliga tjänster för giltiga kunder?
+- Hur kan tjänster är isolerade i begränsa effekten av en attack när fortfarande gör tjänster tillgängliga för giltiga kunder?
 
-- Finns det virtuella nätverk där DDoS-skydd Standard ska aktiveras, men inte? 
+- Finns det virtuella nätverk där DDoS Protection Standard ska aktiveras men inte? 
 
-- Är Mina tjänster aktiva med redundans över flera regioner?
+- Är Mina tjänster aktiv/aktiv med redundans i flera regioner?
 
 ### <a name="customer-ddos-response-team"></a>Kunden DDoS svarsgrupp
 
-Att skapa en DDoS svarsgrupp är ett viktigt steg i att svara på en attack snabbt och effektivt sätt. Identifiera kontakter i organisationen som ska övervaka planering och genomförande. DDoS-svar teamet bör grundligt förstå tjänsten Azure DDoS-skydd Standard. Kontrollera att gruppen kan identifiera och åtgärda ett angrepp genom samordning med interna och externa kunder, inklusive Microsoft support-teamet.
+Det är ett viktigt steg i att svara på en attack snabbt och effektivt för att skapa ett team för DDoS-svar. Identifiera kontakter i din organisation som ska övervaka planering och körning. Den här DDoS svarsgrupp bör noggrant förstå tjänsten Azure DDoS Protection Standard. Se till att teamet kan identifiera och åtgärda ett angrepp genom att koordinera med interna och externa kunder, inklusive Microsoft-supporten.
 
-För arbetsgruppen DDoS svar rekommenderar vi att du använder simuleringen övningarna som en normal del av tjänstetillgänglighet och affärskontinuitet planering. De här övningarna bör innehålla skalningstester.
+För teamet DDoS-svar rekommenderar vi att du använder simulering övningarna som en normal del av tjänstens tillgänglighet och affärskontinuitet planera. De här övningarna ska inkludera skaltestning.
 
-### <a name="alerts-during-an-attack"></a>Aviseringar under en attack
+### <a name="alerts-during-an-attack"></a>Aviseringar under ett angrepp
 
-Azure DDoS-skydd Standard identifierar och minskar DDoS-attacker utan användarens ingripande. Om du vill få information när det finns en aktiv lösning för en skyddad offentliga IP-adress, kan du [konfigurera en varning](../virtual-network/ddos-protection-manage-portal.md) på måttet **Under DDoS-attacker eller inte**. Du kan välja att skapa aviseringar för DDoS-mätvärden att förstå skalan för angrepp, trafik som tas bort och annan information.
+Azure DDoS Protection Standard identifierar och minskar risken för DDoS-attacker utan användarens ingripande. Om du vill få ett meddelande när det finns en aktiv lösning för en skyddad offentliga IP-adress, kan du [konfigurera en varning](../virtual-network/ddos-protection-manage-portal.md) på måttet **Under DDoS-angrepp eller inte**. Du kan välja att skapa aviseringar för andra mått för DDoS att förstå skalan för angrepp, trafik som förloras och andra uppgifter.
 
 #### <a name="when-to-contact-microsoft-support"></a>När du kontaktar Microsoft support
 
-- Du upptäcker att prestandan hos den skyddade resursen är kraftigt försämrad eller resursen är inte tillgänglig under en DDoS-attack.
+- När en DDoS-attack hitta att prestandan hos den skyddade resursen är kraftigt försämrad eller resursen är inte tillgänglig.
 
-- Du tror att tjänsten DDoS-skydd inte fungerar som förväntat. 
+- Du tycker att tjänsten DDoS Protection inte fungerar som förväntat. 
 
-  DDoS-skydd-tjänsten startar minskning endast om måttet **princip för att utlösa DDoS-lösning (SYN TCP/TCP/UDP)** är lägre än den trafik som tas emot på den skyddade offentliga IP-resursen.
+  Tjänsten DDoS Protection börjar minskning endast om mätvärdet **princip för att utlösa DDoS-åtgärd (SYN TCP/TCP/UDP)** är lägre än den trafik som tas emot på den skyddade offentliga IP-adressresursen.
 
-- Du planerar en viral händelse som ökar avsevärt trafik på nätverket.
+- Du planerar en viral händelse som ökar avsevärt din nätverkstrafik.
 
-- En aktör har riskerar att starta en DDoS-attack mot dina resurser.
+- En aktör har riskerade att starta en DDoS-attack mot dina resurser.
 
-För attacker som kan påverka affärskritiska, skapa en allvarlighetsgrad A [stöder biljett](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+För attacker som har en kritisk inverkan på verksamheten, skapa en allvarlighetsgrad A [supportärende](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-### <a name="post-attack-steps"></a>Efter attack steg
+### <a name="post-attack-steps"></a>Steg efter angrepp
 
-Det är alltid en bra strategi för att göra en postmortem efter en attack och justera strategi för DDoS-svar efter behov. Saker att tänka på:
+Det är alltid en bra strategi för att göra en postmortem efter ett angrepp och justera strategi för DDoS-svar efter behov. Saker att tänka på:
 
-- Var det eventuella avbrott i tjänsten eller användare får på grund av bristande skalbar arkitektur?
+- Var det något avbrott på tjänsten eller användare får på grund av bristande skalbar arkitektur?
 
-- Haft mest vilka program eller tjänster?
+- Vilka program eller tjänster haft mest?
 
 - Hur effektiva var strategi för DDoS-svar och hur kan den förbättras?
 
-Om du misstänker att du ligger under en DDoS-attack, eskalera via din vanliga kanaler för Azure-supporten.
+Om du misstänker att du är under en DDoS-attack, eskalera via dina vanliga supportkanaler för Azure.
 
-## <a name="ddos-protection-reference-architectures"></a>DDoS-skydd referensarkitekturer
+## <a name="ddos-protection-reference-architectures"></a>DDoS Protection-referensarkitekturer
 
-DDoS-skydd Standard är utformad [för tjänster som har distribuerats i ett virtuellt nätverk](../virtual-network/virtual-network-for-azure-services.md). DDoS-skydd grundläggande standardtjänsten gäller för andra tjänster. Följande referensarkitekturer ordnas efter scenarier med arkitektur mönster grupperas tillsammans.
+DDoS Protection Standard har utformats [för tjänster som har distribuerats i ett virtuellt nätverk](../virtual-network/virtual-network-for-azure-services.md). DDoS Protection grundläggande standardtjänsten gäller för andra tjänster. I följande referensarkitekturer ordnas efter scenarier med mönster för molnarkitektur grupperas tillsammans.
 
-### <a name="virtual-machine-windowslinux-workloads"></a>Arbetsbelastningar på virtuella datorer (Windows-/ Linux)
+### <a name="virtual-machine-windowslinux-workloads"></a>Arbetsbelastningar på virtuella datorer (Windows/Linux)
 
 #### <a name="application-running-on-load-balanced-vms"></a>Program som körs på belastningsutjämnade virtuella datorer
 
-Denna Referensarkitektur visar en uppsättning beprövade metoder för att köra flera virtuella Windows-datorer i skaluppsättningen bakom en belastningsutjämnare för bättre tillgänglighet och skalbarhet. Den här arkitekturen kan användas för tillståndslösa arbetsbelastningar, till exempel en webbserver.
+Denna Referensarkitektur visas en uppsättning beprövade metoder för att köra flera virtuella Windows-datorer i en skaluppsättning bakom en belastningsutjämnare för att förbättra tillgängligheten och skalbarheten. Den här arkitekturen kan användas för tillståndslösa arbetsbelastningar, till exempel en webbserver.
 
-![Diagram över Referensarkitektur för ett program som körs på belastningsutjämnade virtuella datorer](media/azure-ddos-best-practices/image9.png)
+![Diagram över Referensarkitektur för program som körs på belastningsutjämnade virtuella datorer](media/azure-ddos-best-practices/image9.png)
 
-En arbetsbelastning distribueras över flera VM-instanser i den här arkitekturen. Det finns en offentlig IP-adress och internet-trafiken fördelas till virtuella datorer via en belastningsutjämnare. DDoS-skydd Standard är aktiverat på belastningsutjämnaren Azure (internet) som har den offentliga IP som är associerade med den virtuella nätverk.
+En arbetsbelastning distribueras över flera VM-instanser i den här arkitekturen. Det finns en enda offentlig IP-adress och internet-trafiken ska distribueras till de virtuella datorerna via en belastningsutjämnare. DDoS Protection Standard är aktiverat på det virtuella nätverket för Azure (internet) belastningsutjämnaren som har den offentliga IP-Adressen som är associerade med den.
 
-Belastningsutjämnaren distribuerar inkommande internet-förfrågningar till VM-instanser. Skaluppsättningar för den virtuella datorn kan antalet VMs skalas in eller ut manuellt eller automatiskt baserat på fördefinierade regler. Detta är viktigt om resursen ligger under DDoS-attacker. Mer information om denna Referensarkitektur finns [i den här artikeln](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/multi-vm).
+Belastningsutjämnaren distribuerar inkommande internet-begäranden till de Virtuella datorinstanserna. VM-skalningsuppsättningar gör att antalet virtuella datorer kan skalas in eller ut manuellt eller automatiskt baserat på fördefinierade regler. Detta är viktigt om resursen ligger under DDoS-attacker. Mer information om denna Referensarkitektur finns [i den här artikeln](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/multi-vm).
 
 #### <a name="application-running-on-windows-n-tier"></a>Program som körs på Windows N-nivå
 
-Det finns många sätt att implementera en arkitektur på N-nivå. I följande diagram visas en typisk trelagers-webbprogram. Den här arkitekturen bygger på artikeln [kör Utjämning av nätverksbelastning VMs för skalbarhet och tillgänglighet](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/multi-vm). Webb- och företagsnivåer använder belastningsutjämnade virtuella datorer.
+Det finns många sätt att implementera en arkitektur på N-nivå. Följande diagram visar ett typiskt webbprogram på tre nivåer. Den här arkitekturen bygger på artikeln [kör belastningsutjämnade virtuella datorer för skalbarhet och tillgänglighet](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/multi-vm). Webb- och företagsnivåer använder belastningsutjämnade virtuella datorer.
 
-![Diagram över Referensarkitektur för ett program som körs på Windows N-nivå](media/azure-ddos-best-practices/image10.png)
+![Diagram över Referensarkitektur för program som körs på Windows N-nivå](media/azure-ddos-best-practices/image10.png)
 
-I den här arkitekturen aktiveras DDoS-skydd Standard på det virtuella nätverket. Alla offentliga IP-adresser i det virtuella nätverket hämta DDoS-skydd för Layer 3 och 4. Distribuera Programgateway i Brandvägg SKU för Layer 7 skydd. Mer information om denna Referensarkitektur finns [i den här artikeln](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/n-tier).
+I den här arkitekturen är DDoS Protection Standard aktiverad på det virtuella nätverket. Alla offentliga IP-adresser i det virtuella nätverket få DDoS-skydd för Layer 3 och 4. Distribuera Application Gateway i WAF SKU för Layer 7-skydd. Mer information om denna Referensarkitektur finns [i den här artikeln](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/n-tier).
 
 #### <a name="paas-web-application"></a>PaaS-webbprogram
 
-Denna Referensarkitektur visar kör ett program i Azure App Service i en region. Den här arkitekturen visar en uppsättning beprövade metoder för ett webbprogram som använder [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/) och [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/).
-En vänteläge region ställs in för redundans-scenarier.
+Den här referensarkitekturen visar köra en Azure App Service-App i en enda region. Den här arkitekturen visar en uppsättning beprövade metoder för ett webbprogram som använder [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/) och [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/).
+En standby region har ställts in för redundansscenarier.
 
-![Diagram över Referensarkitektur för ett PaaS-webbprogram](media/azure-ddos-best-practices/image11.png)
+![Diagram över referensarkitekturen för ett PaaS-webbprogram](media/azure-ddos-best-practices/image11.png)
 
-Azure Traffic Manager dirigerar inkommande förfrågningar till Application Gateway i någon av regionerna. Under normal drift dirigerar begäran till Application Gateway i det aktiva området. Om den regionen blir otillgänglig, Traffic Manager kan inte över Programgateway i vänteläge region.
+Med Azure Traffic Manager dirigerar inkommande begäranden till Application Gateway i en av regionerna. Under normal drift dirigerar den begäranden till Application Gateway i den aktiva regionen. Om den regionen blir otillgänglig, Traffic Manager som redundansväxlar till Application Gateway i vänteläge region.
 
-All trafik från internet till webbprogrammet dirigeras till den [Programgateway offentliga IP-adressen](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview) via Traffic Manager. I det här scenariot app service (webbprogram) själva är inte direkt externt riktade mot och skyddas av Application Gateway. 
+All trafik från internet är avsedd för webbprogrammet dirigeras till den [Application Gateway offentliga IP-adressen](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview) via Traffic Manager. I det här scenariot, app service (webbapp) är inte direkt externt riktade och skyddas av Application Gateway. 
 
-Vi rekommenderar att du konfigurerar programmet Gateway Brandvägg SKU (förhindra läge) för att skydda mot angrepp på lager 7 (WebSocket-HTTP/HTTPS). Dessutom webbprogram har konfigurerats för att [accepterar endast trafik från Programgatewayen](https://azure.microsoft.com/blog/ip-and-domain-restrictions-for-windows-azure-web-sites/) IP-adress.
+Vi rekommenderar att du konfigurerar Application Gateway WAF-SKU (förhindra läge) för att skydda mot attacker med Layer 7 (HTTP/HTTPS/WebSocket). Dessutom webbappar är konfigurerade för [accepterar endast trafik från Programgatewayen](https://azure.microsoft.com/blog/ip-and-domain-restrictions-for-windows-azure-web-sites/) IP-adress.
 
 Mer information om denna Referensarkitektur finns [i den här artikeln](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region).
 
@@ -282,24 +282,24 @@ Mer information om denna Referensarkitektur finns [i den här artikeln](https://
 
 #### <a name="hdinsight-on-azure"></a>HDInsight på Azure
 
-Denna Referensarkitektur visar hur du konfigurerar DDoS-skydd Standard för en [Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/). Se till att HDInsight-klustret är länkat till ett virtuellt nätverk och att DDoS-skydd är aktiverat på det virtuella nätverket.
+Den här referensarkitekturen visar hur du konfigurerar DDoS Protection Standard för en [Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/). Se till att HDInsight-klustret är länkad till ett virtuellt nätverk och att DDoS Protection är aktiverat på det virtuella nätverket.
 
-![”HDInsight” och ”inställningar” rutor med inställningarna för virtuella nätverk](media/azure-ddos-best-practices/image12.png)
+![”HDInsight” och ”avancerade inställningar” fönster med inställningar för virtuella nätverk](media/azure-ddos-best-practices/image12.png)
 
-![Markering för att aktivera DDoS-skydd](media/azure-ddos-best-practices/image13.png)
+![Val för att aktivera DDoS-skydd](media/azure-ddos-best-practices/image13.png)
 
-I den här arkitekturen vidarebefordras trafik till HDInsight-kluster från internet till offentliga IP-adresser som är associerade med belastningsutjämnaren HDInsight gateway. Gateway-belastningsutjämnaren skickar sedan trafiken till huvudnoderna eller arbetsnoderna direkt. DDoS-skydd Standard är aktiverad på det virtuella nätverket i HDInsight, hämta alla offentliga IP-adresser i det virtuella nätverket DDoS-skydd för Layer 3 och 4. Den här referensen för arkitekturen kan kombineras med N-nivå och referensarkitekturer för flera regioner.
+I den här arkitekturen dirigeras trafiken till HDInsight-kluster från internet till den offentliga IP-Adressen som är associerade med belastningsutjämnaren för HDInsight-gatewayen. Belastningsutjämnare för Programgateway skickar sedan trafiken till huvudnoderna eller arbetsnoderna direkt. Eftersom DDoS Protection Standard är aktiverat på det virtuella nätverket för HDInsight, får alla offentliga IP-adresser i det virtuella nätverket DDoS-skydd för Layer 3 och 4. Den här referensarkitekturen kan kombineras med N-nivå och referensarkitekturer för flera regioner.
 
-Mer information om den här referensen för arkitekturen finns i [utöka Azure HDInsight med hjälp av ett Azure Virtual Network](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network?toc=%2fazure%2fvirtual-network%2ftoc.json) dokumentation.
+Mer information om denna Referensarkitektur finns i den [utöka Azure HDInsight med hjälp av Azure Virtual Network](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network?toc=%2fazure%2fvirtual-network%2ftoc.json) dokumentation.
 
 
 > [!NOTE]
-> Azure Apptjänst-miljö för PowerApps eller API-hantering i ett virtuellt nätverk med en offentlig IP-adress är båda stöds inte internt.
+> Azure App Service Environment för PowerApps eller API-hantering i ett virtuellt nätverk med en offentlig IP-adress stöds båda inte.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Azure produktsidan för DDoS-skydd](https://azure.microsoft.com/services/ddos-protection/)
+* [Produktsida för Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/)
 
-* [Azure DDoS-skydd-blogg](http://aka.ms/ddosblog)
+* [Azure DDoS Protection-blogg](http://aka.ms/ddosblog)
 
-* [Dokumentation för Azure DDoS-skydd](../virtual-network/ddos-protection-overview.md)
+* [Dokumentation om Azure DDoS Protection](../virtual-network/ddos-protection-overview.md)

@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 09/10/2018
 ms.author: cherylmc
-ms.openlocfilehash: d89463826cb05bf4cafd36cf4a38e60852d93094
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 34d84a27406f0ebabd7bca576ee443da1d0c9bcd
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42057289"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348812"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>Om virtuella nätverksgatewayer för ExpressRoute
 En virtuell nätverksgateway används för att skicka nätverkstrafik mellan Azure-nätverk och lokala platser. Du kan använda en virtuell nätverksgateway kan användas för trafik för ExpressRoute eller VPN-trafik. Den här artikeln handlar om virtuella nätverksgatewayer för ExpressRoute.
@@ -31,7 +31,7 @@ Varje virtuellt nätverk kan bara ha en VNet-gateway per gateway-typ. Du kan exe
 ## <a name="gwsku"></a>Gateway-SKU:er
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-Om du vill uppgradera din gateway till en kraftfullare gateway-SKU, kan du använda storleksändring-AzureRmVirtualNetworkGateway PowerShell-cmdleten i de flesta fall. Detta fungerar för uppgradering till Standard och HighPerformance SKU: er. För att uppgradera till UltraPerformance SKU, kommer du dock behöva återskapa gatewayen.
+Om du vill uppgradera din gateway till en kraftfullare gateway-SKU, kan du använda storleksändring-AzureRmVirtualNetworkGateway PowerShell-cmdleten i de flesta fall. Detta fungerar för uppgradering till Standard och HighPerformance SKU: er. För att uppgradera till UltraPerformance SKU, kommer du dock behöva återskapa gatewayen. Återskapa en gateway medför driftavbrott.
 
 ### <a name="aggthroughput"></a>Uppskattade prestanda efter gateway-SKU
 I följande tabell visar gateway-typerna och uppskattade prestanda. Tabellen gäller både för Resource Manager- och den klassiska distributionsmodellen.

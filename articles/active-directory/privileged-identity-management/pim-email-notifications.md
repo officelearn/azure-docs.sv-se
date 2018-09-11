@@ -11,28 +11,38 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: pim
-ms.date: 07/24/2018
+ms.date: 09/07/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 1a1635e0ba16bdc0fa6dc90aa0e1a417f43e04ac
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: de1d29d3ab1b370257c3a2d6b6ff9f677197fc2a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190184"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303072"
 ---
 # <a name="email-notifications-in-pim"></a>E-postmeddelanden i PIM
 
-När viktiga händelser inträffar i Azure AD Privileged Identity Management (PIM), skickas e-postmeddelanden till relevant administratör eller användare. Till exempel skickar PIM e-postmeddelanden för följande händelser:
+När viktiga händelser inträffar i Azure AD Privileged Identity Management (PIM), skickas e-postmeddelanden. Till exempel skickar PIM e-postmeddelanden för följande händelser:
 
 - När en aktivering av Privilegierade roller väntar på godkännande
-- När en begäran om aktivering av Privilegierade roller har godkänts
+- När en begäran om aktivering av Privilegierade roller är slutförd
 - När en privilegierad roll är aktiverad
 - När en privilegierad roll tilldelas
 - När Azure AD PIM är aktiverat
 
-Med början vid slutet av juli 2018, har e-postmeddelanden som skickas via PIM en ny avsändarens e-postadress och en ny visuell design. Den här uppdateringen påverkar både PIM för Azure AD och PIM för Azure-resurser. Alla händelser som tidigare utlösts ett e-postmeddelande kommer att fortsätta att skicka ett e-postmeddelande. E-postmeddelanden har uppdaterat innehåll att tillhandahålla mer riktad information.
+E-postmeddelanden skickas till följande administratörer:
+
+- Privilegierad rolladministratör
+- Säkerhetsadministratör
+
+E-postmeddelanden skickas också till användaren som har den privilegierade rollen för följande händelser:
+
+- När en begäran om aktivering av Privilegierade roller är slutförd
+- När en privilegierad roll tilldelas
+
+Med början vid slutet av juli 2018, har e-postmeddelanden som skickas via PIM nya avsändarens e-postadress och en ny visuell design. Den här uppdateringen påverkar både PIM för Azure AD och PIM för Azure-resurser. Alla händelser som tidigare utlösts ett e-postmeddelande kommer att fortsätta att skicka ett e-postmeddelande. E-postmeddelanden har uppdaterat innehåll att tillhandahålla mer riktad information.
 
 ## <a name="sender-email-address"></a>Avsändarens e-postadress
 

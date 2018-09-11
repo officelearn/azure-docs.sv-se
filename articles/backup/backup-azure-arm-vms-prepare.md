@@ -7,14 +7,14 @@ manager: carmonm
 keywords: säkerhetskopior. Säkerhetskopiera;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/21/2018
+ms.date: 9/10/2018
 ms.author: markgal
-ms.openlocfilehash: 40a83b93443ebe1482f89a114505a1ba27b93bd2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: dc9d7b924f51fb3a4e9662dfa7ad4b9557b481bc
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445751"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347009"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Förbereda din miljö för att säkerhetskopiera Resource Manager-distribuerade virtuella datorer
 
@@ -46,6 +46,7 @@ Om dessa villkor finns redan i din miljö, fortsätter du till den [säkerhetsko
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Begränsningar när du säkerhetskopierar och återställer en virtuell dator
 Innan du förbereder din miljö måste du förstå följande begränsningar:
 
+* Säkerhetskopiera virtuella datorer med Standard SSD stöds inte för närvarande.
 * Säkerhetskopiering av virtuella datorer med fler än 16 datadiskar stöds inte.
 * Säkerhetskopiering av virtuella datorer med en reserverad IP-adress och ingen definierad slutpunkt stöds inte.
 * Säkerhetskopiera virtuella Linux-datorer krypteras med kryptering för Linux Unified nyckel installationsprogrammet (LUKS) stöds inte.

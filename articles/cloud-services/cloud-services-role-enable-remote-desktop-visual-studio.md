@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
-ms.openlocfilehash: 87c7029836bf28464fd48e17480119a4dcb1201c
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 703e969fe31def329be60037cceba27864063b4e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056290"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304072"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Aktivera anslutning till fjärrskrivbordet för en roll i Azure Cloud Services med hjälp av Visual Studio
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](cloud-services-role-enable-remote-desktop-new-portal.md)
+> * [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
@@ -30,7 +30,7 @@ Fjärrskrivbord kan du komma åt skrivbordet för en roll som körs i Azure. Du 
 
 Publiceringsguiden med Visual Studio för molntjänster innehåller ett alternativ för att aktivera Fjärrskrivbord under publiceringsprocessen, med hjälp av autentiseringsuppgifter som du anger. Det är lämpligt att använda det här alternativet när du använder Visual Studio 2017 version 15.4 och tidigare.
 
-Med Visual Studio 2017 version 15.5 och senare, men rekommenderar vi att du inte aktivera fjärrskrivbord via Publiceringsguiden såvida inte du arbetar endast som en enskild utvecklare. För alla situationer som projektet som kan öppnas av andra utvecklare aktivera du i stället fjärrskrivbord via Azure-portalen, via PowerShell eller från en versionsdefinition i ett arbetsflöde för kontinuerlig distribution. Den här rekommendationen är på grund av en ändring i hur Visual Studio kommunicerar med fjärrskrivbord i Molntjänsten VM, enligt beskrivningen i den här artikeln.
+Med Visual Studio 2017 version 15.5 och senare, men rekommenderar vi att du inte aktivera fjärrskrivbord via Publiceringsguiden såvida inte du arbetar endast som en enskild utvecklare. För alla situationer som projektet som kan öppnas av andra utvecklare aktivera du i stället fjärrskrivbord via Azure-portalen, via PowerShell eller från en releasepipeline i ett arbetsflöde för kontinuerlig distribution. Den här rekommendationen är på grund av en ändring i hur Visual Studio kommunicerar med fjärrskrivbord i Molntjänsten VM, enligt beskrivningen i den här artikeln.
 
 ## <a name="configure-remote-desktop-through-visual-studio-2017-version-154-and-earlier"></a>Konfigurera fjärrskrivbord via Visual Studio 2017 version 15.4 och tidigare
 
@@ -82,9 +82,9 @@ Om du delar projektet med ett team, är det bäst att avmarkerar du alternativet
 
 ### <a name="deploying-from-a-build-server-with-visual-studio-2017-version-155-and-later"></a>Distribuera från en build-server med Visual Studio 2017 version 15.5 och senare
 
-Du kan distribuera ett molntjänstprojekt från en build-servern (till exempel med Visual Studio Team Services) vilka Visual Studio 2017 version 15.5 eller senare är installerad i build-agenten. Med den här ordningen sker distribueringen från samma dator där krypteringscertifikatet är tillgänglig.
+Du kan distribuera ett molntjänstprojekt från en build-servern (till exempel med Azure DevOps-tjänster) som Visual Studio 2017 version 15.5 eller senare är installerad i build-agenten. Med den här ordningen sker distribueringen från samma dator där krypteringscertifikatet är tillgänglig.
 
-Om du vill använda RDP-tillägget från Visual Studio Team Services, med följande information i din build-definition:
+Om du vill använda RDP-tillägget från Azure DevOps-tjänster med följande information i din pipeline för build:
 
 1. Inkludera `/p:ForceRDPExtensionOverPlugin=true` i MSBuild-argument för att kontrollera att distributionen fungerar med RDP-tillägget i stället för RDP-plugin-programmet. Exempel:
 

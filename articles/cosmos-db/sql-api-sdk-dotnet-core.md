@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3c0efe7fbeb3d3259d1e8505a965499cfb941e9
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: b1ab1381271391da9f4775488908af4eb1e47f5d
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049396"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346278"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -52,6 +52,15 @@ ms.locfileid: "44049396"
 ## <a name="release-notes"></a>Viktig information
 
 Azure Cosmos DB .NET Core SDK har funktionsparitet med den senaste versionen av den [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md).
+
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+
+* Har lagts till behöver support för avbrott.
+* Har lagts till SetCurrentLocation till ConnectionPolicy som automatiskt fyller de önskade platser baserat på regionen.
+* En bugg har åtgärdats i mellan Partition frågor med Min/Max- och ett filter som matchar inga dokument på en enskild partition.
+* DocumentClient metoderna har nu paritet med IDocumentClient.
+* Uppdaterade direkt TCP transport stackutrymme för att minska antalet anslutningar som upprättats.
+* Tillagt stöd för direkt TCP för läge för icke-Windows-klienter.
 
 ### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
 
@@ -186,8 +195,7 @@ Om du har frågor som rör detta SDK kan skicka till [StackOverflow](http://stac
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
-| [2.0.0-preview2](#2.0.0-preview2) |26 juli 2018 |--- |
-| [2.0.0-Preview](#2.0.0-preview) |Den 11 maj 2018 |--- |
+| [2.0.0](#2.0.0) |07 september 2018 |--- |
 | [1.9.1](#1.9.1) |09 mars 2018 |--- |
 | [1.8.2](#1.8.2) |21 februari 2018 |--- |
 | [1.8.1](#1.8.1) |05 februari 2018 |--- |

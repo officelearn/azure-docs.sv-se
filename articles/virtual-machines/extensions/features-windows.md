@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc2433b8ac12bc1d485b6f23b56f356041e5128e
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 4fd6175f68f98cce726e70e76b0b884a7a31fbda
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783108"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325336"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Virtuella datorer, tillägg och funktioner för Windows
 
@@ -66,7 +66,7 @@ Vissa tillägg stöds inte i alla operativsystem och kan skapa *felkod 51, 'Oper
 Tilläggspaket laddas ned från Azure Storage-tilläggscentrallagret och tillägget status uppladdningar skickas till Azure Storage. Om du använder [stöds](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) version av agenterna kan du inte behöver att tillåta åtkomst till Azure Storage i regionen VM kan använda agenten för att omdirigera kommunikationen till Azure-infrastrukturkontrollanten för agenten kommunikation. Om du har en version som inte stöds av agenten kan behöva du tillåter utgående åtkomst till Azure storage i regionen från den virtuella datorn.
 
 > [!IMPORTANT]
-> Om du har blockerat åtkomsten till *168.63.129.1* med gästdatorns brandvägg, sedan tillägg misslyckas oavsett ovan.
+> Om du har blockerat åtkomsten till *168.63.129.16* med gästdatorns brandvägg, sedan tillägg misslyckas oavsett ovan.
 
 Agenter kan bara användas för att ladda ned tilläggspaket och Rapporteringsstatus. Till exempel om en installation av tillägget måste hämta ett skript från GitHub (anpassade skript) eller behöver åtkomst till Azure Storage (Azure Backup), sedan ytterligare brandvägg/Network Security Group portar måste du öppna. Olika tillägg har olika krav, eftersom de är program självständigt. För tillägg som kräver åtkomst till Azure Storage, kan du tillåta åtkomst med hjälp av Azure NSG-Tjänsttaggar för [Storage](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 

@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: 0df7c7680137be9a4b2c7c3cedb46330f4d3e5bd
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: dba0474e83c886edcad1101083e45ff39ee222dd
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42059720"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300231"
 ---
 # <a name="use-visual-studio-to-view-azure-stream-analytics-jobs"></a>Använda Visual Studio för att visa Azure Stream Analytics-jobb
 
@@ -88,5 +88,5 @@ Den **Testanslutningen** visas resultaten i **utdata** fönster.
 
 * [Övervaka och hantera Azure Stream Analytics-jobb med hjälp av Visual Studio](stream-analytics-monitor-jobs-use-vs.md)
 * [Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Visual Studio](stream-analytics-quick-create-vs.md)
-* [Självstudie: Distribuera Azure Stream Analytics-jobb med CI/CD med VSTS](stream-analytics-tools-visual-studio-cicd-vsts.md)
+* [Självstudie: Distribuera Azure Stream Analytics-jobb med CI/CD med hjälp av Azure-Pipelines](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Integrera och utveckla kontinuerligt med Stream Analytics-verktyg](stream-analytics-tools-for-visual-studio-cicd.md)

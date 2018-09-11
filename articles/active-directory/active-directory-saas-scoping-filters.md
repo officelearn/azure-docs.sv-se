@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9f28c97fed2a5fa4990c1310e8389868c6b7dc20
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 1da742f54a9a415c6078a6185a9605db700dffd5
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369088"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44324962"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Attributbaserad programetablering med Omfångsfilter
 Målet med den här artikeln är att förklara hur du använder Omfångsfilter för att definiera attributbaserade regler som bestämmer vilka användare som tilldelas ett program.
@@ -115,7 +115,7 @@ Omfångsfilter konfigureras som en del av attributmappningar för varje Azure AD
 * [Automatisera etablering och avetablering för SaaS-program](active-directory-saas-app-provisioning.md)
 * [Anpassa attributmappningar för etableringen av användare](active-directory-saas-customizing-attribute-mappings.md)
 * [Skriva uttryck för attributmappningar](active-directory-saas-writing-expressions-for-attribute-mappings.md)
-* [Kontoetableringsmeddelanden](active-directory-saas-account-provisioning-notifications.md)
+* [Kontoetableringsmeddelanden](active-directory-saas-app-provisioning.md)
 * [Använda SCIM för att aktivera automatisk etablering av användare och grupper från Azure Active Directory till program](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Lista över guider om hur du integrerar SaaS-appar](saas-apps/tutorial-list.md)
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: d3438f42753cba82a28d16be2b63926c4762b26b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 35b8ae347181d272dc899f41f07af36a611aa9f0
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421941"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299159"
 ---
 # <a name="deploy-docker-ce-cluster"></a>Distribuera Docker CE-kluster
 
@@ -169,7 +169,7 @@ I den här snabbstartsguide används fördefinierade containeravbildningar för 
 
 I den här snabbstartsguiden distribuerade du ett Docker Swarm-kluster och distribuerade sedan ett flerbehållarprogram till det.
 
-Mer information om integrering av Docker Swarm med Visual Studio Team Services finns i CI/CD med Docker Swarm och VSTS.
+Om du vill veta mer om integrering av Docker swarm med Azure DevOps kan du fortsätta att CI/CD med Docker Swarm och Azure DevOps.
 
 > [!div class="nextstepaction"]
-> [CI/CD med Docker Swarm och VSTS](./container-service-docker-swarm-setup-ci-cd.md)
+> [CI/CD med Docker Swarm och Azure DevOps](./container-service-docker-swarm-setup-ci-cd.md)

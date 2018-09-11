@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 93c3b0cbc3ce063aaeb086d089631a8810293bbe
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: e96ea7d212f1a34bb6d10f8c49a15e1b34bfc469
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382541"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348964"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Pingboard för automatisk användaretablering
 
@@ -89,7 +89,7 @@ Det här avsnittet hjälper dig att ansluta din Azure AD till användarkontot Pi
 
 1. Under den **mappningar** väljer **synkronisera Azure Active Directory-användare till Pingboard**.
 
-1. I den **attributmappningar** går du igenom användarattribut som ska synkroniseras från Azure AD med Pingboard. Attribut som har markerats som **matchande** egenskaper som används för att matcha användarkontona i Pingboard för uppdateringsåtgärder. Välj **spara** att genomföra ändringarna. Mer information finns i [anpassa attributmappningar för användaretablering](../active-directory-saas-customizing-attribute-mappings.md).
+1. I den **attributmappningar** går du igenom användarattribut som ska synkroniseras från Azure AD med Pingboard. Attribut som har markerats som **matchande** egenskaper som används för att matcha användarkontona i Pingboard för uppdateringsåtgärder. Välj **spara** att genomföra ändringarna. Mer information finns i [anpassa attributmappningar för användaretablering](../manage-apps/customize-application-attributes.md).
 
 1. Så här aktiverar du den Azure AD-etableringstjänsten för Pingboard, i den **inställningar** ändrar **Etableringsstatus** till **på**.
 
@@ -97,7 +97,7 @@ Det här avsnittet hjälper dig att ansluta din Azure AD till användarkontot Pi
 
 Den första synkroniseringen tar längre tid än följande synkroniseringar som sker ungefär var 40 minut så länge som tjänsten körs. Använd den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsloggar. Loggarna beskrivs alla åtgärder som vidtas av etableringstjänsten på Pingboard appen.
 
-Mer information om hur du läser den Azure AD etablering loggar finns i [rapportera om automatisk användarkontoetablering](../active-directory-saas-provisioning-reporting.md).
+Mer information om hur du läser den Azure AD etablering loggar finns i [rapportera om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

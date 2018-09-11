@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 57109848bf78311ea4d601b135c5dd304d613aeb
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ece3511d0d3c12be13a649385ea9b6dd5c75bfe0
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008135"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303718"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Skapa och distribuera en molntjänst
 Azure-portalen ger dig två sätt att skapa och distribuera en molntjänst: *Snabbregistrering* och *skapa anpassade*.
@@ -27,7 +27,7 @@ Azure-portalen ger dig två sätt att skapa och distribuera en molntjänst: *Sna
 Den här artikeln förklarar hur du använder Snabbregistrering för att skapa en ny molntjänst och sedan använda **överför** att ladda upp och distribuera ett molntjänstpaket i Azure. När du använder den här metoden gör tillgängliga lättillgängliga länkar för att slutföra alla krav när du går i Azure-portalen. Om du är redo att distribuera din molntjänst när du skapar den, kan du göra både på samma gång med att skapa anpassade.
 
 > [!NOTE]
-> Om du planerar att publicera din molntjänst från Visual Studio Team Services (VSTS) använda Snabbregistrering och sedan konfigurera VSTS publicering från Azure-Snabbstart eller instrumentpanelen. Mer information finns i [kontinuerlig leverans till Azure med hjälp av Visual Studio Team Services][TFSTutorialForCloudService], eller se hjälp för den **Snabbstart** sidan.
+> Om du planerar att publicera din molntjänst från Azure DevOps, Använd Snabbregistrering och sedan ställa in Azure DevOps-publicering från Azure-Snabbstart eller instrumentpanelen. Mer information finns i [kontinuerlig leverans till Azure med hjälp av Azure DevOps][TFSTutorialForCloudService], eller se hjälp för den **Snabbstart** sidan.
 >
 >
 

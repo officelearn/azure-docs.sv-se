@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: bbee7f0e6022e2945563c102a851819734d52e77
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 4f6297fa8477ff4794bee589737e047993427c06
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40107328"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345870"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Tableau Online för automatisk användaretablering
 
 Målet med den här självstudien är att ange vilka åtgärder som ska utföras i Tableau Online och Azure Active Directory (AD Azure) att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till Tableau Online.
 
 > [!NOTE]
-> Den här självstudien beskrivs en koppling som bygger på Azure AD-användare Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor och svar finns i [automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../active-directory-saas-app-provisioning.md).
+> Den här självstudien beskrivs en koppling som bygger på Azure AD-användare Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor och svar finns i [automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -149,7 +149,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
     ![Tableau Online etablering](./media/tableau-online-provisioning-tutorial/GroupAttributeMapping.png)
 
-15. Om du vill konfigurera Omfångsfilter avser följande instruktionerna i den [Scoping filter självstudien](../active-directory-saas-scoping-filters.md).
+15. Om du vill konfigurera Omfångsfilter avser följande instruktionerna i den [Scoping filter självstudien](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
 16. Om du vill aktivera den Azure AD-etableringstjänsten för Tableau Online, ändra den **Etableringsstatus** till **på** i den **inställningar** avsnittet.
 
@@ -165,7 +165,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
 Den här åtgärden startar den första synkroniseringen av alla användare och grupper som angetts i **omfång** i den **inställningar** avsnittet. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som den Azure AD-etableringtjänsten körs. Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsrapporten som beskriver alla åtgärder som utförs av den Azure AD-etableringtjänsten på Tableau Online.
 
-Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../active-directory-saas-provisioning-reporting.md).
+Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -175,7 +175,7 @@ Mer information om hur du läser den Azure AD etablering loggar finns i [rapport
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig att granska loggarna och få rapporter om etablering aktivitet](../active-directory-saas-provisioning-reporting.md)
+* [Lär dig att granska loggarna och få rapporter om etablering aktivitet](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/tableau-online-provisioning-tutorial/tutorial_general_01.png

@@ -1,6 +1,6 @@
 ---
 title: Azure säkerhetsdata exportera till SIEM - Pipeline Configuration [förhandsgranskning] | Microsoft Docs
-description: Den här artikeln dokumenteras producerar för att få Azure security center-loggar till en SIEM
+description: Den här artikeln beskrivs ges för att få Azure security center-loggar till en SIEM
 services: security-center
 documentationcenter: na
 author: Barclayn
@@ -9,65 +9,65 @@ editor: ''
 ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2018
 ms.author: barclayn
-ms.openlocfilehash: 7a0a72a25010952f13eb190f0e0a1a65cc6d42d3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: aede60a729fe9c0594ded485e189c0b467e34271
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29124841"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298241"
 ---
-# <a name="azure-security-data-export-to-siem--pipeline-configuration-preview"></a>Azure säkerhetsdata exportera till SIEM - Pipeline Configuration [förhandsgranskning]
+# <a name="azure-security-data-export-to-siem--pipeline-configuration-preview"></a>Azure Security dataexport till SIEM - Pipeline Configuration [förhandsgranskning]
 
-Det här dokumentet beskriver hur du exporterar data i Azure Security Säkerhetscenter till en SIEM.
+Det här dokumentet beskriver hur du exporterar Azure Security Center säkerhetsdata till en SIEM.
 
-Bearbetade händelser som genereras av Azure Security Center har publicerats till Azure [aktivitetsloggen](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), en av loggen typer tillgängliga via Azure-Monitor. Övervakare för Azure erbjuder en konsoliderad pipeline för omdirigering av någon av dina övervakningsdata i ett SIEM-verktyg. Detta görs genom strömning dessa data till en Händelsehubb där den kan sedan ska hämtas till en partner-verktyget.
+Bearbetade händelser som genereras av Azure Security Center publiceras till Azure [aktivitetsloggen](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), någon av loggen skriver tillgängliga i Azure Monitor. Azure Monitor erbjuder en konsoliderad pipeline för routning någon av dina övervakade data i ett SIEM-verktyg. Detta görs genom att dessa data till en Händelsehubb där det kan sedan hämtas för direktuppspelning i ett partner-verktyg.
 
-Aktuell pipe använder den [Azure-övervakning enkel rörledning](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) för att få åtkomst till övervakningsdata från Azure-miljön. På så sätt kan du enkelt konfigurera siem-servrar och övervakningsverktyg för att använda data.
+Den här pipe använder den [Azure Monitoring enkel rörledning](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) för att få åtkomst till övervakningsdata från Azure-miljön. På så sätt kan du enkelt konfigurera Siem och övervakningsverktyg för att använda data.
 
-I nästa avsnitt beskrivs hur du konfigurerar data strömmas till en händelsehubb. Anvisningarna förutsätter att du redan har konfigurerats i din Azure-prenumeration för Azure Security Center.
+I nästa avsnitt beskrivs hur du kan konfigurera data strömmas till en händelsehubb. Förutsätter vi att du redan har konfigurerats i din Azure-prenumeration för Azure Security Center.
 
 Översikt på hög nivå
 
 ![Översikt på hög nivå](media/security-center-export-data-to-siem/overview.png)
 
-## <a name="what-is-the-azure-security-data-exposed-to-siem"></a>Vad är Azure säkerhetsdata utsätts för SIEM?
+## <a name="what-is-the-azure-security-data-exposed-to-siem"></a>Vad är Azure-säkerhetsdata som är exponerade för SIEM?
 
-I den här förhandsversionen du använda den [säkerhetsaviseringar.](../security-center/security-center-managing-and-responding-alerts.md) Vi kommer förbättra datauppsättningen med säkerhetsrekommendationer i kommande versioner.
+I den här förhandsversionen vi exponerar den [säkerhetsaviseringar.](../security-center/security-center-managing-and-responding-alerts.md) Vi kommer berika datauppsättningen med säkerhetsrekommendationer i kommande versioner.
 
-## <a name="how-to-setup-the-pipeline"></a>Hur du ställer in pipeline? 
+## <a name="how-to-setup-the-pipeline"></a>Så här konfigurerar du pipelinen? 
 
 ### <a name="create-an-event-hub"></a>Skapa en händelsehubb 
 
-Innan du börjar måste du [skapa ett namnområde för Händelsehubbar](../event-hubs/event-hubs-create.md). Det här namnområdet och Event Hub är mål för alla övervakningsdata.
+Innan du börjar måste du [skapa ett namnområde för Event Hubs](../event-hubs/event-hubs-create.md). Den här namnområde och en Händelsehubb är målet för alla dina övervakningsdata.
 
-### <a name="stream-the-azure-activity-log-to-event-hubs"></a>Dataströmmen Azure aktivitetsloggen i Händelsehubbar
+### <a name="stream-the-azure-activity-log-to-event-hubs"></a>Stream Azure-aktivitetsloggen till Event Hubs
 
-Se följande artikel [dataströmmen aktivitetsloggen i Händelsehubbar](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
+Se följande artikel [strömma aktivitetsloggen till Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
 
-### <a name="install-a-partner-siem-connector"></a>Installera en partner SIEM-koppling 
+### <a name="install-a-partner-siem-connector"></a>Installera en partneranslutningsapp 
 
-Routning övervakningsdata till en Händelsehubb med Azure-Monitor kan du lätt kan integrera med partner SIEM och övervakningsverktyg.
+Routning övervakningsdata till en Event Hub med Azure Monitor kan du lätt kan integrera med partner SIEM och övervakningsverktyg.
 
-Referera till följande länk för att se en lista över [stöd för Siem](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)
+Finns på följande länk för att se en lista över [SIEMs som stöds](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)
 
 ## <a name="example-for-querying-data"></a>Exempel för att fråga efter data 
 
 Här är några Splunk frågor som du kan använda för att hämta aviseringsdata:
 
-| **Beskrivning av frågan**                                | **Fråga**                                                                                                                              |
+| **Beskrivning av fråga**                                | **Fråga**                                                                                                                              |
 |---------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| Alla aviseringar                                              | index=main Microsoft.Security/locations/alerts                                                                                         |
-| Sammanfatta antal åtgärder med deras namn             | index = huvudsakliga sourcetype = ”amal: säkerhet” \| tabell operationName \| stats räkna med operationName                                |
-| Få aviseringar information: tid, namn, status, ID och prenumeration | index = huvudsakliga Microsoft.Security/locations/alerts \| tabell \_tid, properties.eventName, tillstånd, properties.operationId, am_subscriptionId |
+| Alla aviseringar                                              | index = huvudsakliga Microsoft.Security/locations/alerts                                                                                         |
+| Sammanfatta antalet åtgärder efter deras namn             | index = huvudsakliga sourcetype = ”amal: säkerhet” \| tabell operationName \| stats antal efter operationName                                |
+| Hämta aviseringar info: tid, namn, status, ID och prenumeration | index = huvudsakliga Microsoft.Security/locations/alerts \| tabell \_tid, properties.eventName, tillstånd, properties.operationId, am_subscriptionId |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Stöds Siem](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)
+- [SIEMs som stöds](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)
 - [Strömma aktivitetsloggen till Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
 - [Säkerhetsaviseringar.](../security-center/security-center-managing-and-responding-alerts.md)

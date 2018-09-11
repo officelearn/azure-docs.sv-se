@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 9d6d74c4afb4d1cd62e5946b7e6f8c401e7ef2aa
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 6ba274bb3ff3679b4a44950db168215c54f3ade6
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124652"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299754"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Skapa strömmande customer insights instrumentpanel med Azure Logic Apps och Azure Functions
 
@@ -103,7 +103,7 @@ Till föregående vy i körningshistorik i Visual Studio eller Azure-portalen:
 
 ## <a name="create-automated-deployment-templates"></a>Skapa mallar för automatisk distribution
 
-När du har skapat en lösning för logic app kan du samla in och distribuera din app som en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-overview.md#template-deployment) till alla Azure-regioner i världen. Du kan använda den här funktionen för både för att ändra parametrar för att skapa olika versioner av din app och för att integrera din lösning i en version och versionen pipeline. Du kan även inkludera Azure Functions i dina Distributionsmall så att du kan hantera hela lösningen med alla beroenden som en enda mall. Lär dig [hur du skapar logic app-distributionsmallar](../logic-apps/logic-apps-create-deploy-template.md).
+När du har skapat en lösning för logic app kan du samla in och distribuera din app som en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-overview.md#template-deployment) till alla Azure-regioner i världen. Du kan använda den här funktionen båda för att ändra parametrar för att skapa olika versioner av din app och för att integrera din lösning i Azure-Pipelines. Du kan även inkludera Azure Functions i dina Distributionsmall så att du kan hantera hela lösningen med alla beroenden som en enda mall. Lär dig [hur du skapar logic app-distributionsmallar](../logic-apps/logic-apps-create-deploy-template.md).
 
 En exempel-distributionsmallen med en Azure-funktion, kontrollera den [Snabbstart för Azure-mallagret](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 

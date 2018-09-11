@@ -15,12 +15,12 @@ ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: 4ce76f1156d4d8d85f5e10bb750b012f93ba7afb
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 1178d85f295c6ac01f367db8adc2c9b855cdc829
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366688"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347842"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos-begränsad delegering för enkel inloggning till dina appar med Application Proxy
 
@@ -135,12 +135,12 @@ Om delegerad inloggningsidentitet används, kan värdet inte vara unika mellan a
    * Den lokala SAM-kontonamn (beroende på konfigurationen av domänkontrollanten)
 
 ### <a name="troubleshooting-sso-for-different-identities"></a>Felsökning av enkel inloggning för olika identiteter
-Om det finns ett fel i processen för enkel inloggning, den visas i händelseloggen för connector dator enligt beskrivningen i [felsökning](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
+Om det finns ett fel i processen för enkel inloggning, den visas i händelseloggen för connector dator enligt beskrivningen i [felsökning](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
 Men i vissa fall kan begäran skickas har till backend-applikationer medan det här programmet svarar i olika andra HTTP-svar. Felsökning av dessa fall bör börja genom att undersöka händelsenummer 24029 på connector-dator i händelseloggen för Application Proxy-session. Användar-ID som användes för delegering visas i fältet ”användare” i händelseinformationen. Om du vill aktivera sessionsloggen Välj **visa analytiska loggar och felsökningsloggar** i event viewer Visa-menyn.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Så här konfigurerar du ett programproxy-program att använda Kerberos-begränsad delegering](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
+* [Så här konfigurerar du ett programproxy-program att använda Kerberos-begränsad delegering](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Felsöka problem med Application Proxy](application-proxy-troubleshoot.md)
 
 

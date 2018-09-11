@@ -10,14 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/09/2018
-ms.author: sdash ; mbullwin
-ms.openlocfilehash: c97b45616a58035dd5a1d7e832212fb90694ccce
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.reviewer: sdash
+ms.author: mbullwin
+ms.openlocfilehash: 392abef7f92dce024ba6e4af091cf58fde5119b6
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302399"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Övervaka tillgänglighet och svarstider på valfri webbplats
 När du har distribuerat din webbapp eller webbplats till en server kan du konfigurera tester för att övervaka appens tillgänglighet och svarstider. [Azure Application Insights](app-insights-overview.md) skickar begäranden till ditt program med jämna mellanrum från platser över hela världen. Den varnar dig om programmet inte svarar eller svarar långsamt.
@@ -113,7 +115,7 @@ Från ett tillgänglighetstestresultat kan du:
 
 * Kontrollera de svar som mottas från servern.
 * Diagnostisera fel med telemetri på serversidan som samlats in under bearbetning av instansen för det misslyckade begärandet.
-* Logga ett problem eller arbetsuppgift i Git eller VSTS för att spåra problemet. Buggen innehåller en länk till den här händelsen.
+* Logga ett problem eller arbetsuppgift i Git eller Azure DevOps för att spåra problemet. Buggen innehåller en länk till den här händelsen.
 * Öppna resultatet av webbtestet i Visual Studio.
 
 *Ser det okej ut trots att fel har rapporterats?* Se [vanliga frågor och svar](#qna) för sätt att minska bruset.
@@ -180,7 +182,9 @@ Spela in en webbsession med Visual Studio Enterprise.
 
 Visa testresultat och eventuella fel på samma sätt som för tester med en enskild URL.
 
-Dessutom kan du hämta testresultat och visa dem i Visual Studio.
+Du kan också hämta testresultat och visa dem i Visual Studio.
+
+Ladda ned testresultaten. Gå till den sammanfattning av tillgänglighetstestet, klicka på ett resultat i diagrammet för att öppna fönstret tillgänglighet test resultatet och klicka sedan på **öppna i Visual Studio** att ladda ned testresultatet.
 
 #### <a name="too-many-failures"></a>För många fel?
 
@@ -253,7 +257,7 @@ Om testet måste logga in med OAuth är den allmänna riktlinjen att:
 ## <a name="performance-tests"></a>Prestandatester
 Du kan köra ett inläsningstest på din webbplats. Som med tillgänglighetstestet kan du skicka antingen enkla begäranden eller begäranden med flera steg från våra platser runtom i världen. Till skillnad från ett tillgänglighetstest skickas många begäranden, som simulerar flera samtidiga användare.
 
-Öppna **Inställningar**, **Prestandatest** från bladet Översikt. När du skapar ett test uppmanas du att ansluta till eller att skapa ett konto för Visual Studio Team Services.
+Öppna **Inställningar**, **Prestandatest** från bladet Översikt. När du skapar ett test uppmanas du att ansluta till eller skapa en organisation med Azure DevOps-tjänsterna.
 
 När testet är klart visas svarstiderna och slutförandefrekvens.
 
@@ -271,7 +275,7 @@ När testet är klart visas svarstiderna och slutförandefrekvens.
 ## <a name="qna"></a>Har du några frågor? Har du problem?
 * *Tillfälligt test misslyckades med ett protokollfel?*
 
-    Felet (”protokollfel... CR måste följas av LF ”) anger ett problem med servern (eller beroenden). Detta händer när felaktiga huvuden är inställda i svaret. Detta kan orsakas av belastningsutjämnare eller andra CDN-lösningar. Mer specifikt kanske vissa huvuden inte använder CRLF för att ange radslut vilket överskrider HTTP-specifikationen och därför misslyckas valideringen på .NET WebRequest-nivån. Kontrollera svaret för att hitta huvuden som kan vara felaktiga.
+    Felet (”protokollfel... CR måste följas av LF ”) anger ett problem med servern (eller beroenden). Detta händer när felaktiga huvuden är inställda i svaret. Detta kan orsakas av lastbalanserare eller andra CDN-lösningar. Mer specifikt kanske vissa huvuden inte använder CRLF för att ange radslut vilket överskrider HTTP-specifikationen och därför misslyckas valideringen på .NET WebRequest-nivån. Kontrollera svaret för att hitta huvuden som kan vara felaktiga.
     
     Obs: URL:en kanske inte är felaktig på webbläsare som har en avslappnad verifiering av HTTP-huvuden. I det här blogginlägget finns en detaljerad förklaring av felet: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
 * *Webbplatsen ser bra ut men testet är felaktigt?*

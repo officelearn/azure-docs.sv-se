@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: 419b5d480ebd1f978eb2a870231d151b549b25ea
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: cc9b5810085d3300861735a95a94e577bf61d70e
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42061702"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346057"
 ---
 # <a name="azure-active-directory-faq"></a>Vanliga frågor och svar om Azure Active Directory
 Azure Active Directory (Azure AD) är en omfattande IDaaS-lösning (Identity as a Service) som omfattar alla aspekter relaterade till identiteter, åtkomsthantering och säkerhet.
@@ -48,14 +48,13 @@ Azure AD-betaltjänsterna som Enterprise Mobility + Security kompletterar andra 
 
 - - -
 
-**F: Vad är skillnaden mellan prenumerationsadministratör och katalogadministratör?**
+**F: Vad är skillnaderna mellan ägare och Global administratör?**
 
-**S:** Som standard tilldelas du rollen som prenumerationsadministratör när du registrerar dig för Azure. En prenumerationsadministratör kan använda antingen ett Microsoft-konto eller ett arbets- eller skolkonto från den katalog som Azure-prenumerationen är associerad med.  Den här rollen har behörighet att hantera tjänster på Azure-portalen.
+**S:** som standard den person som registrerar sig för en Azure-prenumeration har tilldelats rollen ägare för Azure-resurser. Ägare kan använda antingen ett Microsoft-konto eller ett arbets- eller skolkonto från den katalog som Azure-prenumerationen är associerad med.  Den här rollen har behörighet att hantera tjänster på Azure-portalen.
 
-Om andra behöver logga in och komma åt tjänster med samma prenumeration kan du lägga till dem som medadministratörer. Den här rollen har samma åtkomstbehörigheter som tjänstadministratören, men kan inte ändra associationen mellan prenumerationer och Azure-kataloger.  Ytterligare information om prenumerationsadministratörer finns i [How to add or change Azure administrator roles](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator) (Så här lägger du till eller ändrar Azure-administratörsroller) och [Hur Azure-prenumerationer är associerade med Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
+Om andra behöver logga in och komma åt tjänster med hjälp av samma prenumeration kan du tilldela dem lämplig [inbyggd roll](../../role-based-access-control/built-in-roles.md). Mer information finns i [hantera åtkomst med RBAC och Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
-
-Azure AD har en annan uppsättning administratörsroller för att hantera katalog- och identitetsrelaterade funktioner.  De här administratörerna har åtkomst till olika funktioner i Azure Portal eller Azure-portalen. Administratörens roll avgör vad de kan göra, som att skapa eller redigera användare, tilldela administrativa roller till andra, återställa användarlösenord, hantera användarlicenser eller hantera domäner.  Mer information om Azure AD-katalogadministratörer och deras roller finns i [Tilldela administratörsroller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Som standard tilldelas den person som registrerar sig för en Azure-prenumeration rollen som Global administratör för katalogen. Globala administratörer har åtkomst till alla funktioner i Azure AD-katalog. Azure AD har en annan uppsättning administratörsroller för att hantera katalog- och identitetsrelaterade funktioner. Dessa administratörer har åtkomst till olika funktioner i Azure-portalen. Administratörens roll avgör vad de kan göra, som att skapa eller redigera användare, tilldela administrativa roller till andra, återställa användarlösenord, hantera användarlicenser eller hantera domäner.  Mer information om Azure AD-katalogadministratörer och deras roller finns i [tilldela en användare till administratörsroller i Azure Active Directory](active-directory-users-assign-role-azure-portal.md) och [Tilldela administratörsroller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
 
 Dessutom kompletterar Azure AD-betaltjänster som Enterprise Mobility + Security andra webbtjänster, som Office 365 och Microsoft Azure, med heltäckande hanterings- och säkerhetslösningar i företagsklass.
 
@@ -163,7 +162,7 @@ En fullständig lista över redan integrerade program finns på [Active Director
 
 Mer information finns i:
 
-* [Konfigurera enkel inloggning för program som inte ingår i Azure Active Directory-programgalleriet](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
+* [Konfigurera enkel inloggning för program som inte ingår i Azure Active Directory-programgalleriet](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [Använda SCIM för att aktivera automatisk etablering av användare och grupper från Azure Active Directory till program](../manage-apps/use-scim-to-provision-users-and-groups.md)
 
 - - -
@@ -208,7 +207,7 @@ Mer information finns i [Skydda åtkomsten till Office 365 och andra appar som �
 
 **S:** Med Azure AD kan du automatisera genereringen, underhållet och borttagningen av användaridentiteter i många populära SaaS-appar i molnet.
 
-Mer information finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../active-directory-saas-app-provisioning.md).
+Mer information finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
 
 - - -
 **F: Kan jag skapa en säker LDAP-anslutning med Azure AD?**

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: b52a447bf643510528e1bd8c6d473bf5d77731fe
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ead6202b0365df770382077618795cd6b6e57cd2
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42055948"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346737"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegierad åtkomst för hybrid- och distributioner i Azure AD
 
@@ -300,7 +300,7 @@ Azure-loggintegrering kan du integrera raw loggar från dina Azure-resurser till
 
 #### <a name="implement-user-provisioning-for-connected-apps"></a>Implementera användaretablering för anslutna appar
 
-Azure AD kan du automatisera skapandet, underhållet och borttagningen av användaridentiteter i molnprogram (SaaS), till exempel Dropbox, Salesforce, ServiceNow och så vidare. Mer information finns i [automatisera användaretablering och avetablering för SaaS-program med Azure AD](../active-directory-saas-app-provisioning.md).
+Azure AD kan du automatisera skapandet, underhållet och borttagningen av användaridentiteter i molnprogram (SaaS), till exempel Dropbox, Salesforce, ServiceNow och så vidare. Mer information finns i [automatisera användaretablering och avetablering för SaaS-program med Azure AD](../manage-apps/user-provisioning.md).
 
 #### <a name="integrate-information-protection"></a>Integrera informationsskydd
 

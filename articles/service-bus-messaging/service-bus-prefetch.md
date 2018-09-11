@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: spelluru
-ms.openlocfilehash: ff0e3124168927d03816079a4f5ab322663459ac
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e6dd30fc8da919995849ba818f608604a57a0b37
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702460"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346834"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Förhämtning av Azure Service Bus-meddelanden
 
@@ -44,7 +44,7 @@ Med den [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemod
 
 I den [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) mottagningsläge, meddelanden som hämtas till Prefetch buffert är upptagna till buffert i låst läge och har klockan timeout för lås ska. Om bearbetningen tar så lång tid meddelandet tiden upphör samtidigt som finns i bufferten prefetch eller även om programmet bearbetar meddelandet prefetch bufferten är stor, kan det finnas vissa förvirrande händelser för att programmet ska hantera.
 
-Programmet kan hämta ett meddelande med ett lås som har upphört att gälla eller imminently upphör. I så, fall kan programmet bearbeta meddelandet, men sedan hitta att det går inte att slutföra på grund av ett lås upphör att gälla. Programmet kan kontrollera den [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.lockeduntilutc#Microsoft_Azure_ServiceBus_Core_MessageReceiver_LockedUntilUtc) egenskapen (som omfattas av klockan skeva mellan broker och klockan för lokal dator). Om meddelandelåset har upphört att gälla, måste programmet ignorera meddelandet. Inga API-anrop eller med meddelandet ska göras. Om meddelandet inte har upphört att gälla men upphör att gälla är nära förestående, låset kan förnyas och utökas med ett annat Lås standardvärdet genom att anropa [meddelande. RenewLock()](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_)
+Programmet kan hämta ett meddelande med ett lås som har upphört att gälla eller imminently upphör. I så, fall kan programmet bearbeta meddelandet, men sedan hitta att det går inte att slutföra på grund av ett lås upphör att gälla. Programmet kan kontrollera den [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.lockeduntilutc) egenskapen (som omfattas av klockan skeva mellan broker och klockan för lokal dator). Om meddelandelåset har upphört att gälla, måste programmet ignorera meddelandet. Inga API-anrop eller med meddelandet ska göras. Om meddelandet inte har upphört att gälla men upphör att gälla är nära förestående, låset kan förnyas och utökas med ett annat Lås standardvärdet genom att anropa [meddelande. RenewLock()](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_)
 
 Om låset tyst går ut i bufferten prefetch meddelandet behandlas som avbrutet och igen görs tillgänglig för hämtning från kön. Som kan orsaka det hämtas till prefetch buffert; placeras i slutet. Om prefetch bufferten vanligtvis att lista via under förfallodatum för meddelanden, detta medför att meddelanden ska upprepade gånger prefetched men aldrig effektivt levererade oanvändbar (Åtgärdsparametern låst) och slutligen flyttas till kön för obeställbara meddelanden när de Maximalt antal leveranser har överskridits.
 

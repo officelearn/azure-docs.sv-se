@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 2097ce5cf249e7ff895769142d63b6cf47eed06d
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 5d3833d3218a4b6252c9591bb67686ddc1c3cdf9
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161015"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298584"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Konfigurera Azure Multi-Factor Authentication-servern för hög tillgänglighet
 
@@ -29,9 +29,9 @@ Azure MFA Server service-arkitektur består av flera komponenter som du ser i f�
 
 En MFA-Server är en Windows-Server med Azure Multi-Factor Authentication program som finns installerade. MFA Server-instansen måste aktiveras av MFA-tjänsten i Azure ska fungera. Mer än en MFA-servern kan vara installerade på plats.
 
-Den första MFA-servern som är installerad är huvudservern MFA vid aktivering av tjänsten Azure MFA som standard. Master MFA-servern har en skrivbar kopia av databasen PhoneFactor.pfdata. Efterföljande installationer av instanser av MFA-Server kallas slaves. MFA-slaves har en replikerad skrivskyddad kopia av databasen PhoneFactor.pfdata. MFA-servrarna replikerar information med hjälp av Remote Procedure Call (RPC). Alla MFA-servrarna måste sammantaget antingen vara domänanslutna eller fristående att replikera information.
+Den första MFA-servern som är installerad är huvudservern MFA vid aktivering av tjänsten Azure MFA som standard. Master MFA-servern har en skrivbar kopia av databasen PhoneFactor.pfdata. Efterföljande installationer av instanser av MFA-Server kallas underordnade. MFA-underordnade ha en replikerad skrivskyddad kopia av PhoneFactor.pfdata-databas. MFA-servrarna replikerar information med hjälp av Remote Procedure Call (RPC). Alla MFA-servrarna måste sammantaget antingen vara domänanslutna eller fristående att replikera information.
 
-Både MFA-huvudserver och underordnad MFA-servrarna kommunicerar med MFA-tjänsten när tvåfaktorsautentisering krävs. Till exempel när en användare försöker få åtkomst till ett program som kräver tvåfaktorsautentisering, autentiseras användaren först av en identitetsprovider, till exempel Active Directory (AD).
+Både MFA huvudservrar och underordnade MFA-servrar kommunicerar med MFA-tjänsten när tvåfaktorsautentisering krävs. Till exempel när en användare försöker få åtkomst till ett program som kräver tvåfaktorsautentisering, autentiseras användaren först av en identitetsprovider, till exempel Active Directory (AD).
 
 Efter en lyckad autentisering med AD kommunicerar MFA-servern med MFA-tjänsten. MFA-servern väntar på meddelanden från MFA-tjänsten för att tillåta eller neka användaråtkomst till programmet.
 
@@ -42,7 +42,7 @@ Om MFA-huvudserver kopplas från, autentiseringar kan bearbetas fortfarande, men
 Tänk på följande viktiga för belastningsutjämning i Azure MFA-servern och dess relaterade komponenter.
 
 * **Med RADIUS-standarden för att uppnå hög tillgänglighet**. Du kan potentiellt konfigurera en MFA-Server som en primär RADIUS-mål för autentisering och andra Azure MFA-servrar som mål för sekundär autentisering om du använder Azure MFA-servrar som RADIUS-servrar. Men kanske den här metoden för att uppnå hög tillgänglighet inte praktiska eftersom du måste vänta tills en timeout-period ska uppvisas när autentisering misslyckas på den primära autentisering måldatorn innan du kan autentiseras mot målet för sekundär autentisering. Det är mer effektivt att belastningsutjämna RADIUS-trafik mellan RADIUS-klienten och RADIUS-servrar (i det här fallet Azure MFA-servrar som fungerar som RADIUS-servrar) så att du kan konfigurera RADIUS-klienter med en enskild URL som de kan pekar på.
-* **Du måste manuellt uppgradera MFA slaves**. Om Azure MFA-huvudservern kopplas från, fortsätta sekundärservrar för Azure MFA ska bearbeta begäranden för MFA. Dock tills en MFA-huvudserver finns tillgänglig, Administratörer kan inte lägga till användare eller ändra inställningar för MFA, och användarna kan inte göra ändringar i användarportalen. Uppgradera en MFA-slavserver till rollen är alltid manuellt.
+* **Du måste manuellt uppgradera MFA underordnade**. Om Azure MFA-huvudservern kopplas från, fortsätta sekundärservrar för Azure MFA ska bearbeta begäranden för MFA. Dock tills en MFA-huvudserver finns tillgänglig, Administratörer kan inte lägga till användare eller ändra inställningar för MFA, och användarna kan inte göra ändringar i användarportalen. Uppgradera en MFA är som är underordnad rollen alltid manuellt.
 * **Avskiljbarhet komponenter**. Azure MFA Server består av flera komponenter som kan installeras på samma Windows Server-instans eller på olika instanser. Dessa komponenter omfattar Användarportalen och webbtjänsten Mobile App ADFS-adaptern (agent). Den här Avskiljbarhet gör det möjligt att använda Web Application Proxy för att publicera Användarportalen och webbservern för Mobile App från perimeternätverket. En sådan konfiguration lägger till den övergripande säkerheten för din design, som visas i följande diagram. MFA-Användarportalen och webbservern för Mobile App kan också distribueras i konfigurationer för hög tillgänglighet Utjämning av nätverksbelastning.
 
    ![MFA Server med ett perimeternätverk](./media/howto-mfaserver-deploy-ha/mfasecurity.png)
@@ -62,7 +62,7 @@ Observera följande objekt för motsvarande numrerade området föregående diag
    ![Azure MFA Server - appservern hög tillgänglighet](./media/howto-mfaserver-deploy-ha/mfaapp.png)
 
    > [!NOTE]
-   > Eftersom RPC använder dynamiska portar, rekommenderas det inte att öppna brandväggar upp till intervallet för dynamiska portar som RPC kan användaren använda. Om du har en brandvägg **mellan** din MFA-programservrar, bör du konfigurera MFA-servern för att kommunicera på en statisk port för replikeringstrafiken mellan underordnade och huvudservrar och öppna den porten i brandväggen. Du kan tvinga den statiska porten genom att skapa ett DWORD-registervärde på ```HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Positive Networks\PhoneFactor``` kallas ```Pfsvc_ncan_ip_tcp_port``` och ställer in värdet på en tillgänglig statisk port. Anslutningar initieras alltid av underordnade MFA-servrar till huvuddatabasen, den statiska porten krävs endast i bakgrunden, men eftersom du kan flytta upp en underordnad server för att vara huvuddatabasen när som helst, bör du ange den statiska porten på alla servrar för MFA.
+   > Eftersom RPC använder dynamiska portar, rekommenderas det inte att öppna brandväggar upp till intervallet för dynamiska portar som RPC kan användaren använda. Om du har en brandvägg **mellan** din MFA-programservrar, bör du konfigurera MFA-servern för att kommunicera på en statisk port för replikeringstrafiken mellan underordnade och överordnade servrar och öppna den porten i brandväggen. Du kan tvinga den statiska porten genom att skapa ett DWORD-registervärde på ```HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Positive Networks\PhoneFactor``` kallas ```Pfsvc_ncan_ip_tcp_port``` och ställer in värdet på en tillgänglig statisk port. Anslutningar initieras alltid av de underordnade servrarna MFA till huvuddatabasen, den statiska porten krävs endast i bakgrunden, men eftersom du kan flytta upp en underordnad server för att vara huvuddatabasen när som helst, bör du ange den statiska porten på alla servrar för MFA.
 
 2. De två användare Portal/MFA-Mobilapp-servrarna (MFA-UP-MAS1 och MFA-UP-MAS2) belastningsutjämnas i en **tillståndskänslig** konfiguration (mfa.contoso.com). Kom ihåg att fästsessioner är ett krav för MFA-Användarportalen och Mobile App-tjänsten för belastningsutjämning.
    ![Azure MFA Server - Användarportalen och Mobiltjänst till App hög tillgänglighet](./media/howto-mfaserver-deploy-ha/mfaportal.png)

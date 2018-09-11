@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 9763c7a9e79f4c9e9d6296efb79e944205e8a99c
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 7d6056987ee05f68eecf026e954327a2f62cf886
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264155"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348913"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Slack för automatisk användaretablering
 
@@ -32,7 +32,7 @@ Syftet med den här självstudien är att visa dig de steg som du behöver utfö
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
-*   En Azure Active Directory-klient
+*   En Azure Active Directory-klientorganisation
 *   En Slack-klienten med den [Plus plan](https://aadsyncfabric.slack.com/pricing) eller bättre har aktiverats 
 *   Ett användarkonto i Slack med administratörsbehörighet för Team 
 
@@ -111,7 +111,7 @@ Alternativt kan du aktivera etablering av gruppobjekt från Azure AD till Slack.
 
 Det här resultatet i någon grupp-objekt som tilldelats Slack i den **användare och grupper** avsnittet fullständigt som synkroniseras från Azure AD till Slack. Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsloggar som beskriver alla åtgärder som utförs av etableringstjänsten på din Slack-app.
 
-Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../active-directory-saas-provisioning-reporting.md).
+Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
 
 
 ## <a name="additional-resources"></a>Ytterligare resurser

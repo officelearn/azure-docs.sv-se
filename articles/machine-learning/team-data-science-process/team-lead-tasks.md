@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 9d2043808cbd61d5e2a69cbe0f2a5a611e3afa31
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 86ab49cb0acd9ffee47fb1f8f531c3a0cd6e6730
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34839766"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297969"
 ---
 # <a name="team-lead-tasks"></a>Gruppaktiviteter för Lead
 
@@ -29,11 +29,11 @@ En **gruppledare** hanterar ett team för data science-enheten på ett företag.
 
 ![1](./media/team-lead-tasks/team-leads-1-creating-teams.png)
 
->[AZURE.NOTE] Uppgifter i block om 1 och 2 i bilden krävs om du använder Visual Studio Team Services (VSTS) som koden som är värd för plattformen och du vill ha ett separat teamprojekt för ditt team. När uppgifterna har slutförts, kan alla databaser i ditt team skapas under det här grupprojektet. 
+>[AZURE.NOTE] Uppgifter i block om 1 och 2 i bilden krävs om du använder Azure DevOps som värdplattform för kod och du vill ha en separat Azure DevOps-projekt för ditt team. När uppgifterna har slutförts, kan alla databaser i ditt team skapas under det här projektet. 
 
 När du har flera förutsättningar uppgifter som anges i följande avsnitt är uppfyllda av hanteraren för gruppen, det är de fem främsta uppgifterna (vissa valfria) som du har slutfört i den här självstudien. Dessa uppgifter motsvara den huvudsakliga numrerade i detta avsnitt:
 
-1. Skapa en **grupprojekt** på gruppens VSTS-server i gruppen och två team databaserna i projektet:
+1. Skapa en **projekt** på gruppens Azure DevOps-tjänsterna i gruppen och två team databaserna i projektet:
     - **ProjectTemplate lagringsplats** 
     - **TeamUtilities lagringsplats**
 2. Dirigera teamet **ProjectTemplate** databasen från den **GroupProjectTemplate** databasen som har ställts in av hanteraren för gruppen. 
@@ -43,76 +43,76 @@ När du har flera förutsättningar uppgifter som anges i följande avsnitt är 
 4. (Valfritt) Montera Azure file storage för att den **Data Science Virtual Machine** (DSVM) för teamet leda och Lägg till datatillgångar på den.
 5. Konfigurera den **säkerhetskontroll** genom att lägga till gruppmedlemmar och konfigurera sina privilegier.
 
->[AZURE.NOTE] Vi beskriver de steg som krävs för att ställa in en TDSP teammiljö med VSTS i följande anvisningar. Vi anger hur du utför dessa uppgifter med VSTS eftersom det är hur vi implementerar TDSP på Microsoft. Om du använder en annan kod som är värd för plattformen för din grupp, ändra inte de uppgifter som måste slutföras av gruppledare Allmänt. Men sättet att utföra dessa uppgifter kommer att vara olika.
+>[AZURE.NOTE] Vi beskriver de steg som krävs för att ställa in en TDSP teammiljö med Azure DevOps i följande anvisningar. Vi anger du hur du utför dessa uppgifter med Azure DevOps eftersom det är hur vi implementerar TDSP på Microsoft. Om du använder en annan kod som är värd för plattformen för din grupp, ändra inte de uppgifter som måste slutföras av gruppledare Allmänt. Men sättet att utföra dessa uppgifter kommer att vara olika.
 
 ## <a name="repositories-and-directories"></a>Databaser och kataloger
 
 Det här avsnittet använder förkortade namnen för databaser och kataloger. Dessa namn gör det lättare att följa åtgärderna mellan databaser och kataloger. Den här notationen (**R** för Git-lagringsplatser och **D** för lokala kataloger på din DSVM) används i följande avsnitt:
 
-- **R1**: den **GroupProjectTemplate** databasen på Git som din gruppansvarig ställts in på VSTS grupp servern.
+- **R1**: den **GroupProjectTemplate** databasen på Git som din gruppansvarig ställts in på din server för Azure DevOps-gruppen.
 - **R3**: teamet **ProjectTemplate** databasen på Git som du har konfigurerat.
 - **R4**: den **TeamUtilities** databasen på Git som du har konfigurerat.
 - **D1**: den lokala katalogen klonas från R1 och kopieras till D3.
 - **D3**: den lokala katalogen klonas från R3, anpassa och kopieras till R3.
 - **D4**: den lokala katalogen klonas från R4, anpassa och kopieras till R4.
 
-Namnen på har angetts för databaser och kataloger i den här självstudien har angetts på antagandet att målet är att upprätta ett separat teamprojekt för ditt team i en större grupp för data science. Men det finns andra alternativ som är öppna för dig som gruppledare:
+Namnen på har angetts för databaser och kataloger i den här självstudien har angetts på antagandet att målet är att upprätta en separat projekt för ditt team i en större grupp för data science. Men det finns andra alternativ som är öppna för dig som gruppledare:
 
-- Hela gruppen kan du skapa ett enda teamprojekt. Sedan är alla projekt från alla data science-team under den här enda grupprojekt. Du kan ange en git-administratör att följa dessa instruktioner för att skapa ett enda teamprojekt för att uppnå detta. Det här scenariot kan vara giltig, till exempel för:
+- Hela gruppen kan du skapa ett enda projekt. Sedan är alla projekt från alla data science-team under den här enda projekt. Du kan ange en git-administratör att följa dessa instruktioner för att skapa ett projekt för att uppnå detta. Det här scenariot kan vara giltig, till exempel för:
     -  en små data science-grupp som inte har flera data science-team 
     -  en större data science grupp med flera data datavetenskapsteam som ändå vill optimera samarbete mellan team med aktiviteter, till exempel gruppnivå sprint planera. 
-- Teamen kan välja att ha team-specifika projektmallar eller team-specifika verktyg under det enda grupprojektet för hela gruppen. I detta fall bör gruppledare Skapa team projekt mall databaser och/eller team verktyg databaser under samma grupprojekt. Namnge dessa databaser *< TeamName\>ProjectTemplate* och *< TeamName\>verktyg*, till exempel *TeamJohnProjectTemplate*och *TeamJohnUtilities*. 
+- Teamen kan välja att ha team-specifika projektmallar eller team-specifika verktyg under det enda projektet för hela gruppen. I detta fall bör gruppledare skapa projekt mall databaser och/eller team verktyg databaser under samma projekt. Namnge dessa databaser *< TeamName\>ProjectTemplate* och *< TeamName\>verktyg*, till exempel *TeamJohnProjectTemplate*och *TeamJohnUtilities*. 
 
-I båda fallen måste gruppledare så att deras teammedlemmar vet som mall och hjälpmedel lagringsplatser att införa när de konfigurerar och klona lagringsplatser för projektet och verktyg. Projektet leads bör följa den [projektbeskrivning uppgifter för team data science](project-lead-tasks.md) att skapa projektet lagringsplatser enligt separat grupprojekt eller under ett enda teamprojekt. 
+I båda fallen måste gruppledare så att deras teammedlemmar vet som mall och hjälpmedel lagringsplatser att införa när de konfigurerar och klona lagringsplatser för projektet och verktyg. Projektet leads bör följa den [projektbeskrivning uppgifter för team data science](project-lead-tasks.md) att skapa projektet lagringsplatser enligt separata projekt eller under ett enda projekt. 
 
 
 ## <a name="0-prerequisites"></a>0. Förutsättningar
 
 Kraven är uppfyllda genom att slutföra de uppgifter som tilldelats till din gruppchef som beskrivs i [Gruppansvarig uppgifter för team data science](group-manager-tasks.md). Följande krav måste uppfylla innan du börjar lead gruppaktiviteter för att sammanfatta här: 
 
-- Din **grupp VSTS server** (eller gruppkonto på andra kod som är värd för plattform) har ställts in av hanteraren för gruppen.
+- Din **gruppen Azure DevOps-tjänsterna** (eller gruppkonto på andra kod som är värd för plattform) har ställts in av hanteraren för gruppen.
 - Din **GroupProjectTemplate databasen** (R1) har ställts in på ditt gruppkonto med din gruppchef på koden som är värd för plattform som du tänker använda.
 - Du har **behörighet** på din gruppkonto för att skapa databaser för ditt team.
 - Git måste installeras på din dator. Om du använder en virtuell dator på datavetenskap (DSVM) Git har installerats i förväg och du är redo att börja. Annars läser den [plattformar och verktyg bilaga](platforms-and-tools.md#appendix).  
 - Om du använder en **Windows DSVM**, måste du ha [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installerat på datorn. README.md-filen, rulla ned till den **ladda ned och installera** och klicka på *senaste installationsprogrammet*. Detta tar dig till den senaste sidan för installationsprogrammet. Ladda ned installationsprogrammet .exe här och kör den. 
-- Om du använder **Linux DSVM**, skapa en offentlig SSH-nyckel för din DSVM och lägga till den i din grupp VSTS-server. Mer information om SSH finns i den **offentlig skapa SSH-nyckel** i avsnittet den [plattformar och verktyg bilaga](platforms-and-tools.md#appendix). 
+- Om du använder **Linux DSVM**, skapa en offentlig SSH-nyckel för din DSVM och lägga till den i din grupp Azure DevOps-tjänsterna. Mer information om SSH finns i den **offentlig skapa SSH-nyckel** i avsnittet den [plattformar och verktyg bilaga](platforms-and-tools.md#appendix). 
     
-## <a name="1-create-a-team-project-and-repositories"></a>1. Skapa ett teamprojekt och databaser
+## <a name="1-create-a-project-and-repositories"></a>1. Skapa ett projekt och databaser
 
-Slutför det här steget om du använder VSTS som koden som är värd för plattformen för versionshantering och samarbete. Det här avsnittet har du skapa tre artefakter i VSTS-server i din grupp:
+Slutför det här steget om du använder Azure DevOps som koden som är värd för plattformen för versionshantering och samarbete. Det här avsnittet har du skapa tre artefakter i Azure DevOps-tjänsterna i din grupp:
 
-- **MyTeam** projekt i VSTS
+- **MyTeam** projekt i Azure DevOps
 - **MyProjectTemplate** lagringsplats (**R3**) på Git
 - **MyTeamUtilities** lagringsplats (**R4**) på Git
 
 ### <a name="create-the-myteam-project"></a>Skapa MyTeam-projekt
 
-- Gå till din grupps VSTS server startsida på URL: en `https://<VSTS Server Name\>.visualstudio.com`. 
-- Klicka på **New** att skapa ett teamprojekt. 
+- Gå till startsidan för din grupp Azure DevOps-tjänsterna på URL: en `https://<Azure DevOps Services Name\>.visualstudio.com`. 
+- Klicka på **New** att skapa ett projekt. 
 
     ![2](./media/team-lead-tasks/team-leads-2-create-new-team.png)
 
-- Skapa team projekt-fönstret ber dig att ange projektnamnet (**MyTeam** i det här exemplet). Kontrollera att du väljer **Agile** som den **processmall** och **Git** som den **versionskontroll**. 
+- Ett fönster för skapa projektet ber dig att ange projektnamnet (**MyTeam** i det här exemplet). Kontrollera att du väljer **Agile** som den **processmall** och **Git** som den **versionskontroll**. 
 
     ![3](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
 
-- Klicka på **skapa projekt**. Ditt projekt i teamform **MyTeam** skapas i mindre än 1 minut. 
+- Klicka på **skapa projekt**. Ditt projekt **MyTeam** skapas i mindre än 1 minut. 
 
-- Efter teamprojektet **MyTeam** är skapat, klickar du på **navigera till projektet** knapp, så att de dirigeras till startsidan i ditt teamprojekt. 
+- När projektet **MyTeam** är skapat, klickar du på **navigera till projektet** knapp, så att de dirigeras till startsidan i ditt projekt. 
 
     ![4](./media/team-lead-tasks/team-leads-4-create-new-team-3.png)
 
-- Om du ser en **Grattis!** popup-fönstret klickar du på den **lägger du till kod** (knapp med röd ram). Annars klickar du på **kod** (i gul ruta). Detta leder till sidan Git-lagringsplatsen i ditt projekt i teamform. 
+- Om du ser en **Grattis!** popup-fönstret klickar du på den **lägger du till kod** (knapp med röd ram). Annars klickar du på **kod** (i gul ruta). Detta leder till sidan Git-lagringsplatsen i ditt projekt. 
 
     ![5](./media/team-lead-tasks/team-leads-5-team-project-home.png)
 
 ### <a name="create-the-myprojecttemplate-repository-r3-on-git"></a>Skapa MyProjectTemplate databasen (R3) på Git
 
-- Klicka på nedpilen bredvid namnet på lagringsplatsen på sidan Git-lagringsplatsen i ditt projekt i teamform **MyTeam**, och välj **hantera databaser...** .
+- På sidan för Git-lagringsplatsen i ditt projekt klickar du på nedpilen bredvid namnet på lagringsplatsen **MyTeam**, och välj **hantera databaser...** .
 
     ![6](./media/team-lead-tasks/team-leads-6-rename-team-project-repo.png)
 
-- På den **versionskontroll** fliken i Kontrollpanelen på ditt projekt i teamform, klickar du på **MyTeam**och välj sedan **Byt namn på databasen...** . 
+- På den **versionskontroll** fliken i Kontrollpanelen på ditt projekt, klickar du på **MyTeam**och välj sedan **Byt namn på databasen...** . 
 
     ![7](./media/team-lead-tasks/team-leads-7-rename-team-project-repo-2.png)
 
@@ -122,7 +122,7 @@ Slutför det här steget om du använder VSTS som koden som är värd för platt
 
 ### <a name="create-the-myteamutilities-repository-r4-on-git"></a>Skapa MyTeamUtilities databasen (R4) på Git
 
-- Att skapa en ny lagringsplats *< ditt Lagnamn\>verktyg* under ditt team projekt klickar du på **nya databasen...**  på den **versionskontroll** fliken i ditt team-projekt på Kontrollpanelen.  
+- Att skapa en ny lagringsplats *< ditt Lagnamn\>verktyg* under ditt projekt klickar du på **nya databasen...**  på den **versionskontroll** fliken i ditt projekt på Kontrollpanelen.  
 
     ![9](./media/team-lead-tasks/team-leads-9-create-team-utilities.png)
 
@@ -130,7 +130,7 @@ Slutför det här steget om du använder VSTS som koden som är värd för platt
 
     ![10](./media/team-lead-tasks/team-leads-10-create-team-utilities-2.png)
 
-- Kontrollera att du ser de två nya Git databaserna som har skapats under ditt projekt i teamform **MyTeam**. I det här exemplet: 
+- Kontrollera att du ser de två nya Git lagringsplatser som har skapats under ditt projekt **MyTeam**. I det här exemplet: 
 
 - **MyTeamProjectTemplate** (R3) 
 - **MyTeamUtilities** (R4).
@@ -138,7 +138,7 @@ Slutför det här steget om du använder VSTS som koden som är värd för platt
     ![11](./media/team-lead-tasks/team-leads-11-two-repo-in-team.png)
 
 
-## <a name="2-seed-your-team-projecttemplate-and-teamutilities-repositories"></a>2. Dirigera dina team ProjectTemplate och TeamUtilities lagringsplatser
+## <a name="2-seed-your-projecttemplate-and-teamutilities-repositories"></a>2. Dirigera dina ProjectTemplate och TeamUtilities lagringsplatser
 
 Seeding proceduren använder katalogerna på din lokala DSVM som mellanliggande mellanlagring platser. Om du vill anpassa din **ProjectTemplate** och **TeamUtilities** databaser att uppfylla vissa specifika team behöver, gör du det i det näst sista steget i följande procedur. Här är en sammanfattning av de steg som används till att dirigera innehållet i den **MyTeamProjectTemplate** och **MyTeamUtilities** lagringsplatser för team data science. De enskilda stegen motsvarar underavsnitt i seeding procedur:
 
@@ -151,7 +151,7 @@ Seeding proceduren använder katalogerna på din lokala DSVM som mellanliggande 
 
 ### <a name="initialize-the-team-repositories"></a>Initiera team-databaser
 
-I det här steget kan du initiera team projekt-mallagret från malldatabasen grupp projekt:
+I det här steget kan du initiera dina projekt mallagret från malldatabasen grupp projekt:
 
 - **MyTeamProjectTemplate** lagringsplats (**R3**) från din **GroupProjectTemplate** (**R1**) databasen
 
@@ -168,45 +168,45 @@ Att starta den här proceduren:
 
 **Windows**
 
-    git clone https://<Your VSTS Server name>.visualstudio.com/GroupCommon/_git/GroupProjectTemplate
+    git clone https://<Your Azure DevOps Services name>.visualstudio.com/GroupCommon/_git/GroupProjectTemplate
     
 
 ![12](./media/team-lead-tasks/team-leads-12-create-two-group-repos.png)
 
 **Linux**
     
-    git clone ssh://<Your VSTS Server name>@<Your VSTS Server name>.visualstudio.com:22/GroupCommon/_git/GroupProjectTemplate
+    git clone ssh://<Your Azure DevOps Services name>@<Your Azure DevOps Services name>.visualstudio.com:22/GroupCommon/_git/GroupProjectTemplate
     
     
 ![13](./media/team-lead-tasks/team-leads-13-clone_two_group_repos_linux.png)
 
-Dessa kommandon klona din **GroupProjectTemplate** (R1) databasen på din grupp VSTS-server till lokal katalog i **GitRepos\GroupCommon** på den lokala datorn. Efter kloning av directory **GroupProjectTemplate** (D1) skapas i katalogen **GitRepos\GroupCommon**. Här kan vi antar att din gruppansvarig skapat ett projekt i teamform **GroupCommon**, och **GroupProjectTemplate** databasen är under det här grupprojektet. 
+Dessa kommandon klona din **GroupProjectTemplate** (R1) databasen på din grupp Azure DevOps-tjänsterna till lokal katalog i **GitRepos\GroupCommon** på den lokala datorn. Efter kloning av directory **GroupProjectTemplate** (D1) skapas i katalogen **GitRepos\GroupCommon**. Här kan vi antar att din gruppansvarig skapat ett projekt **GroupCommon**, och **GroupProjectTemplate** databasen är under det här projektet. 
 
 
 ### <a name="clone-your-team-repositories-into-local-directories"></a>Klona team-databaser till lokala kataloger
 
-Dessa kommandon klona din **MyTeamProjectTemplate** (R3) och **MyTeamUtilities** (R4) databaser under ditt projekt i teamform **MyTeam** på din grupp VSTS-server så att  **MyTeamProjectTemplate** (D3) och **MyTeamUtilities** (D4) kataloger i **GitRepos\MyTeam** på den lokala datorn. 
+Dessa kommandon klona din **MyTeamProjectTemplate** (R3) och **MyTeamUtilities** (R4) databaser under projektet **MyTeam** på gruppen Azure DevOps-tjänster till den **MyTeamProjectTemplate** (D3) och **MyTeamUtilities** (D4) kataloger i **GitRepos\MyTeam** på den lokala datorn. 
 
 - Ändra till katalogen **GitRepos\MyTeam**
 - Kör följande kommandon och efter behov, på operativsystemet på den lokala datorn. 
 
 **Windows**
 
-    git clone https://<Your VSTS Server name>.visualstudio.com/<Your Team Name>/_git/MyTeamProjectTemplate
-    git clone https://<Your VSTS Server name>.visualstudio.com/<Your Team Name>/_git/MyTeamUtilities
+    git clone https://<Your Azure DevOps Services name>.visualstudio.com/<Your Team Name>/_git/MyTeamProjectTemplate
+    git clone https://<Your Azure DevOps Services name>.visualstudio.com/<Your Team Name>/_git/MyTeamUtilities
 
 ![14](./media/team-lead-tasks/team-leads-14-clone_two_empty_team_repos.png)
         
 **Linux**
     
-    git clone ssh://<Your VSTS Server name>@<Your VSTS Server name>.visualstudio.com:22/<Your Team Name>/_git/MyTeamProjectTemplate
-    git clone ssh://<Your VSTS Server name>@<Your VSTS Server name>.visualstudio.com:22/<Your Team Name>/_git/MyTeamUtilities
+    git clone ssh://<Your Azure DevOps Services name>@<Your Azure DevOps Services name>.visualstudio.com:22/<Your Team Name>/_git/MyTeamProjectTemplate
+    git clone ssh://<Your Azure DevOps Services name>@<Your Azure DevOps Services name>.visualstudio.com:22/<Your Team Name>/_git/MyTeamUtilities
     
 ![15](./media/team-lead-tasks/team-leads-15-clone_two_empty_team_repos_linux.png)
 
-Efter kloning av två kataloger **MyTeamProjectTemplate** (D3) och **MyTeamUtilities** (D4) skapas i katalogen **GitRepos\MyTeam**. Vi har antas här du gav ditt projekt i teamform mall och hjälpmedel databaser **MyTeamProjectTemplate** och **MyTeamUtilities**. 
+Efter kloning av två kataloger **MyTeamProjectTemplate** (D3) och **MyTeamUtilities** (D4) skapas i katalogen **GitRepos\MyTeam**. Vi har antas här du gav ditt projekt mall och hjälpmedel databaser **MyTeamProjectTemplate** och **MyTeamUtilities**. 
 
-### <a name="copy-the-group-project-template-content-to-the-local-team-project-template-directory"></a>Kopiera gruppinnehåll för projekt som mall till mallen för lokala team projektkatalogen
+### <a name="copy-the-group-project-template-content-to-the-local-project-template-directory"></a>Kopiera grupp projekt mallinnehållet till den lokala projektkatalogen för mallen
 
 Kopiera innehållet i lokalt **GroupProjectTemplate** (D1) mappen till lokalt **MyTeamProjectTemplate** (D3) kör något av följande kommandoskript: 
 
@@ -228,7 +228,7 @@ Kopiera innehållet i lokalt **GroupProjectTemplate** (D1) mappen till lokalt **
 Skripten exkludera innehållet i katalogen .git. Skripten uppmanas att ange den **slutföra sökvägar** källkatalogen D1 och målkatalogen D3.
         
 
-### <a name="customize-your-team-project-template-or-team-utilities-optional"></a>Anpassa ditt team projektmall eller team verktyg (valfritt)
+### <a name="customize-your-project-template-or-team-utilities-optional"></a>Anpassa ditt projekt mall eller team verktyg (valfritt)
 
 Anpassa din **MyTeamProjectTemplate** (D3) och **MyTeamUtilities** (D4), om det behövs i det här skedet av installationen. 
 
@@ -248,7 +248,7 @@ För att lägga till innehållet i (du kan också anpassade) lokala kataloger D3
     
 ![18](./media/team-lead-tasks/team-leads-18-push-to-group-server-2.png)
 
-Filerna i MyTeamProjectTemplate lagringsplatsen för din grupp VSTS server synkroniseras nästan direkt när det här skriptet körs.
+Filerna i MyTeamProjectTemplate lagringsplatsen för din grupp Azure DevOps-tjänsterna synkroniseras nästan direkt när det här skriptet körs.
 
 ![19](./media/team-lead-tasks/team-leads-19-push-to-group-server-showed-up.png)
 
@@ -299,7 +299,7 @@ Ange namnet på Azure file storage för att skapa. Endast lägre fall tecken, si
 
 För att underlätta montera och dela den här lagringen när den har skapats, spara Azure file storage-information i en textfil och anteckna sökvägen till platsen. I synnerhet måste den här filen för att montera din Azure file storage till Azure-datorer i nästa avsnitt. 
 
-Det är en bra idé att checka in den här filen i ditt team ProjectTemplate databas. Vi rekommenderar att du placerar i katalogen **Docs\DataDictionaries**. Den här datatillgången kan därför användas av alla projekt i ditt team. 
+Det är en bra idé att checka in den här filen till din ProjectTemplate lagringsplats. Vi rekommenderar att du placerar i katalogen **Docs\DataDictionaries**. Den här datatillgången kan därför användas av alla projekt i ditt team. 
 
 ![26](./media/team-lead-tasks/team-leads-26-file-create-s5.png)
 
@@ -329,7 +329,7 @@ Ange namnet på Azure med fillagring för att skapa, endast gemener, siffror och
 
 För att underlätta åtkomst till den här lagringen när den har skapats, spara Azure file storage-information i en textfil och anteckna sökvägen till platsen. I synnerhet måste den här filen för att montera din Azure file storage till Azure-datorer i nästa avsnitt.
 
-Det är en bra idé att checka in den här filen i ditt team ProjectTemplate databas. Vi rekommenderar att du placerar i katalogen **Docs\DataDictionaries**. Den här datatillgången kan därför användas av alla projekt i ditt team. 
+Det är en bra idé att checka in den här filen till din ProjectTemplate lagringsplats. Vi rekommenderar att du placerar i katalogen **Docs\DataDictionaries**. Den här datatillgången kan därför användas av alla projekt i ditt team. 
 
 ![31](./media/team-lead-tasks/team-leads-31-file-create-linux-s5.png)
 
@@ -406,7 +406,7 @@ Bekräfta att en ny F-enhet har monterats på din dator.
 
 ## <a name="5-set-up-security-control-policy"></a>5. Konfigurera principer för åtkomstkontroll av säkerhet 
 
-På startsidan för din grupp VSTS-Servers, klickar du på den **kugghjulsikonen** bredvid ditt användarnamn i det övre högra hörnet, väljer den **Security** fliken. Du kan lägga till medlemmar till ditt team med olika behörigheter.
+På startsidan för din grupp Azure DevOps Services, klickar du på den **kugghjulsikonen** bredvid ditt användarnamn i det övre högra hörnet, väljer den **Security** fliken. Du kan lägga till medlemmar till ditt team med olika behörigheter.
 
 ![44](./media/team-lead-tasks/team-leads-44-add-team-members.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 0238dce3f8cbf838e7fce3afefb866e3aaa791bc
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: c1005d60df0b1cfd3b24be954ab4ff1b18c8f7a8
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054996"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348777"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Uppgradering av Service Fabric-programmet med hjälp av PowerShell
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Skapa och publicera programmet genom att högerklicka på programprojektet, **Vi
 > 
 > 
 
-När du har skapat projektet i Visual Studio, kan du använda PowerShell-kommandot [kopia ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) att kopiera programpaketet till ImageStore. Om du vill kontrollera app-paketet lokalt, använda den [Test ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet. Nästa steg är att registrera programmet i Service Fabric runtime med hjälp av den [registrera ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) cmdlet. Följande steg är att starta en förekomst av programmet med hjälp av den [New ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet.  De här tre stegen är analoga med hjälp av den **distribuera** menyalternativ i Visual Studio.  När etableringen har slutförts ska du rensa det kopierade programpaketet från avbildningsarkivet för att minska de resurser som används.  Om det krävs inte längre programtyp, bör den vara avregistrera av samma orsak. Se [distribuera och ta bort program med hjälp av PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) för mer information.
+När du har skapat projektet i Visual Studio, kan du använda PowerShell-kommandot [kopia ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) att kopiera programpaketet till ImageStore. Om du vill kontrollera app-paketet lokalt, använda den [Test ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage) cmdlet. Nästa steg är att registrera programmet i Service Fabric runtime med hjälp av den [registrera ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype) cmdlet. Följande steg är att starta en förekomst av programmet med hjälp av den [New ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet.  De här tre stegen är analoga med hjälp av den **distribuera** menyalternativ i Visual Studio.  När etableringen har slutförts ska du rensa det kopierade programpaketet från avbildningsarkivet för att minska de resurser som används.  Om det krävs inte längre programtyp, bör den vara avregistrera av samma orsak. Se [distribuera och ta bort program med hjälp av PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) för mer information.
 
 Du kan nu använda [Service Fabric Explorer för att visa klustret och programmet](service-fabric-visualizing-your-cluster.md). Programmet har en webbtjänst som kan navigera till i Internet Explorer genom att skriva [ http://localhost:8081/visualobjects ](http://localhost:8081/visualobjects) i adressfältet.  Du bör se vissa flytande visuella objekt som flyttas runt på skärmen.  Du kan dessutom använda [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) att kontrollera statusen för programmet.
 

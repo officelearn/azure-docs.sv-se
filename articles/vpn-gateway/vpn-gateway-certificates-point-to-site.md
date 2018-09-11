@@ -4,36 +4,20 @@ description: Skapa ett självsignerat rotcertifikat, exportera den offentliga ny
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 27b99f7c-50dc-4f88-8a6e-d60080819a43
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/12/2018
+ms.date: 09/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: 385b6ed2e8104fd2e15e6e55d46dcd12b963ec6b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 18d705f68ff06621e30c051dac9fb9607fd043ac
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696556"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300944"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Skapa och exportera certifikat för punkt-till-plats med hjälp av PowerShell
 
-Punkt-till-plats-anslutningar använder certifikat för autentisering. Den här artikeln visar hur du skapar ett självsignerat rotcertifikat och generera klientcertifikat med hjälp av PowerShell på Windows 10 eller Windows Server 2016. Om du letar efter konfigurationssteg för punkt-till-plats, till exempel hur du överför rotcertifikat, väljer du en av artiklarna ”Configure punkt-till-plats” i listan nedan:
-
-> [!div class="op_single_selector"]
-> * [Skapa självsignerade certifikat – PowerShell](vpn-gateway-certificates-point-to-site.md)
-> * [Skapa självsignerade certifikat - MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)
-> * [Konfigurera punkt-till-plats - Resource Manager – Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-> * [Konfigurera punkt-till-plats - Resource Manager – PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Konfigurera punkt-till-plats - klassisk – Azure portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
-> 
-> 
+Punkt-till-plats-anslutningar använder certifikat för autentisering. Den här artikeln visar hur du skapar ett självsignerat rotcertifikat och generera klientcertifikat med hjälp av PowerShell på Windows 10 eller Windows Server 2016. Om du letar efter olika certifikat anvisningar Se [certifikat – Linux](vpn-gateway-certificates-point-to-site-linux.md) eller [certifikat - MakeCert](vpn-gateway-certificates-point-to-site-makecert.md).
 
 Du måste utföra stegen i den här artikeln på en dator som kör Windows 10 eller Windows Server 2016. PowerShell-cmdlets som används för att generera certifikat är en del av operativsystemet och fungerar inte på andra versioner av Windows. Windows 10 eller Windows Server 2016-dator krävs endast för att generera certifikat. När certifikat som har genererats kan du överföra dem eller installera dem på alla operativsystem stöds för klientdatorer. 
 

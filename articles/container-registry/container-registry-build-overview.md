@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: marsma
-ms.openlocfilehash: 63bbd9b5711330207c34ac4aa05aac3a71304653
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 5c5e41f1baad8bd49f4fa2889ef0677d69db10da
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413587"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299873"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-build"></a>Automatisera framework uppdatering med ACR Build av operativsystem och
 
@@ -31,7 +31,7 @@ Utlösaren behållaravbildning bygger automatiskt när koden strävar efter att 
 
 ## <a name="quick-build-inner-loop-extended-to-the-cloud"></a>Snabb Build: inre-loop utökats till molnet
 
-I början av livscykelhantering startar innan utvecklare skickar sina första rader med kod. ACR Build [snabbt skapa](container-registry-tutorial-quick-build.md) funktionen gör det möjligt för en integrerad lokal inre slingan utvecklingsupplevelse, avlastning versioner till Azure. Med snabb skapas måste verifiera du dina automatiserade byggdefinitioner innan du checka in din kod.
+I början av livscykelhantering startar innan utvecklare skickar sina första rader med kod. ACR Build [snabbt skapa](container-registry-tutorial-quick-build.md) funktionen gör det möjligt för en integrerad lokal inre slingan utvecklingsupplevelse, avlastning versioner till Azure. Med snabb skapas måste verifiera du dina automatiserade skapandet av pipelines innan checka in din kod.
 
 Använda vanlig `docker build` format, den [az acr build] [ az-acr-build] kommandot i Azure CLI stöder en **kontext** (uppsättningen filer för att skapa), skickar det till ACR Build-tjänsten och som standard skickar den skapade avbildningen till dess registret när åtgärden har slutförts.
 

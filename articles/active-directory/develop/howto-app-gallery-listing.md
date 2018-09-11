@@ -17,12 +17,12 @@ ms.date: 08/31/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: e5db7b9bed674011c2922f026c301172f347f53f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: d5c00e9df9c1bfee0c665cafc763c52a36f98052
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666316"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345853"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Visa ditt program i Azure Active Directory-programgalleriet
 
@@ -69,7 +69,7 @@ Om du vill visa ett program i Azure AD-appgalleri, måste du först att implemen
 
     * Om du har några frågor om åtkomst kan du kontakta den [enkel inloggning för Azure AD-integrering Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **SAML 2.0** eller **WS-Fed**: om din app har stöd för SAML 2.0, kan du integrera det direkt med en Azure AD-klient med hjälp av den [anvisningar för att lägga till ett anpassat program](../active-directory-saas-custom-apps.md).
+*   **SAML 2.0** eller **WS-Fed**: om din app har stöd för SAML 2.0, kan du integrera det direkt med en Azure AD-klient med hjälp av den [anvisningar för att lägga till ett anpassat program](../manage-apps/configure-single-sign-on-non-gallery-applications.md).
 
     ![Tidslinje för att visa en lista över SAML 2.0 eller WS-Fed program i galleriet](./media/howto-app-gallery-listing/saml.png)
 

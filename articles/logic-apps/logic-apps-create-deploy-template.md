@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: 68e655490470db6aade53c6f3523d0c9d87c3fbd
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 393543bbb1891e14ed67487aff26a7bda1eebcd5
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123473"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304245"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Skapa Azure Resource Manager-mallar för distribution av logikappar
 
@@ -173,7 +173,7 @@ Om du har en befintlig resursgrupp-projekt kan du lägga till din logikapp i pro
 
 ## <a name="deploy-a-logic-app-template"></a>Distribuera en mall för logikapp
 
-Du kan distribuera mallen med hjälp av alla verktyg som PowerShell, REST API, [Visual Studio Team Services Release Management](#team-services), och för malldistribution via Azure portal.
+Du kan distribuera mallen med hjälp av alla verktyg som PowerShell, REST API, [versionshantering för Azure DevOps](#team-services), och för malldistribution via Azure portal.
 Dessutom för att lagra värdena för parametrarna, rekommenderar vi att du skapar en [parameterfilen](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
 Lär dig hur du [distribuera resurser med Azure Resource Manager-mallar och PowerShell](../azure-resource-manager/resource-group-template-deploy.md) eller [distribuera resurser med Azure Resource Manager-mallar och Azure-portalen](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
@@ -185,13 +185,13 @@ Du måste dock fortfarande godkänna OAuth-anslutningar för att skapa en giltig
 Det finns ett exempelskript på GitHub under den [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) projekt.
 
 <a name="team-services"></a>
-## <a name="visual-studio-team-services-release-management"></a>Versionshantering för Visual Studio Team Services
+## <a name="azure-devops-release-management"></a>Azure DevOps-versionshantering
 
-Ett vanligt scenario för att distribuera och hantera en miljö är att använda ett verktyg som versionshantering i Visual Studio Team Services, med en logic app-Distributionsmall. Visual Studio Team Services innehåller en [distribuera Azure-resursgrupp](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) uppgift att du kan lägga till någon version eller frigöra pipeline. Du måste ha en [tjänstens huvudnamn](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) för auktorisering för att distribuera, och du kan generera versionsdefinitionen.
+Ett vanligt scenario för att distribuera och hantera en miljö är att använda ett verktyg som versionshantering i Azure DevOps med en logic app-Distributionsmall. Azure DevOps innehåller en [distribuera Azure-resursgrupp](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) uppgift att du kan lägga till någon version eller frigöra pipeline. Du måste ha en [tjänstens huvudnamn](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) för auktorisering för att distribuera, och du kan generera versionspipelinen.
 
-1. Välj i Release Management **tom** så att du skapar en tom definition.
+1. Välj i Release Management **tom** så att du skapar en tom pipeline.
 
-    ![Skapa en tom definition][1]
+    ![Skapa tomma pipelinen][1]
 
 2. Välj alla resurser som du behöver för att detta är förmodligen inklusive logic app-mallen som skapas manuellt eller som en del av skapandeprocessen.
 3. Lägg till en **Azure Resursgruppsdistribution** uppgift.

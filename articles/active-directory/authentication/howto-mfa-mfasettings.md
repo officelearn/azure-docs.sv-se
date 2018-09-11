@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 766f617f3534ffaccdc326e7de8155adb84a69ce
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: da5905af4a861502f190cd873033923d8fd0bfa7
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162151"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349100"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera Azure Multi-Factor Authentication-inställningar
 
@@ -200,7 +200,7 @@ Oavsett om funktionen tillförlitliga IP-adresser är aktiverat, krävs tvåsteg
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>Aktivera funktionen tillförlitliga IP-adresser med hjälp av inställningarna för tjänsten
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Till vänster, Välj **Azure Active Directory** > **användare och grupper** > **alla användare**.
+2. Till vänster, Välj **Azure Active Directory** > **användare**.
 3. Välj **Multifaktorautentisering**.
 4. Under Multi-Factor Authentication, väljer **tjänstinställningar**.
 5. På den **tjänstinställningar** sidan under **tillförlitliga IP-adresser**, välja mellan följande två alternativ:

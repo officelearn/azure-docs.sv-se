@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5f40b4c9fff57b105b7d96de69780fea83871032
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 3e2648bc019612835baa172210984d8fc1c6d801
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302304"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304103"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -66,15 +66,25 @@ ExpressRoute stöder [tre routningsdomäner](expressroute-circuit-peerings.md) f
 >Offentlig peering har inaktiverats på nya ExpressRoute-kretsar. Azure-tjänster är tillgängliga på Microsoft-peering.
 >
 
+* Power BI
+* Dynamics 365 för finans och åtgärder (tidigare kallat Dynamics AX Online)
+* De flesta av de Azure-tjänsterna stöds. Kontrollera direkt med den tjänst som du vill använda för att verifiera support.<br>
+  Följande tjänster stöds inte:
+    * CDN
+    * Azure DevOps-tjänsterna belastningstest
+    * Multifaktorautentisering
+    * Traffic Manager
+
 ### <a name="microsoft-peering"></a>Microsoft-peering
 
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 
 * Power BI
 * Azure Active Directory
-* Visual Studio Team Services belastningstest
+* Azure DevOps-tjänsterna belastningstest
 * De flesta av de Azure-tjänsterna stöds. Kontrollera direkt med den tjänst som du vill använda för att verifiera support.<br>Följande tjänster är **stöds inte**:
     * CDN
+    * Azure DevOps-tjänsterna belastningstest
     * Multifaktorautentisering
     * Traffic Manager
 

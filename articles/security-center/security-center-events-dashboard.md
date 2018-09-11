@@ -9,119 +9,119 @@ editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: terrylan
-ms.openlocfilehash: 367067874b167268bd690a9e0b55412e92e08122
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32273647d0f773c3f47653ac6fc87fef48630c0a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23926531"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299295"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Övervakning och bearbetning av säkerhetshändelser i Azure Security Center
-Händelser instrumentpanelen innehåller en översikt över antalet säkerhetshändelser samlas in med tiden och en lista över viktiga händelser som kan kräva din uppmärksamhet.  
+Instrumentpanelen för händelser innehåller en översikt av antalet säkerhetshändelser som samlas in över tid och en lista över viktiga händelser som kan kräva din uppmärksamhet.  
 
 > [!NOTE]
-> Om du vill använda den här funktionen måste din arbetsyta kör logganalys version 2 och vara på standardnivån för Security Center. Se Security Center [sida med priser](security-center-pricing.md) mer information om standardnivån.
+> Om du vill använda den här funktionen, måste din arbetsyta köra Log Analytics version 2 och vara på Security Center Standard-nivån. Se de Säkerhetscenter [prissättningssidan](security-center-pricing.md) för mer information om Standard-nivån.
 >
 >
 
 ## <a name="what-is-a-security-event"></a>Vad är en säkerhetshändelse?
-Security Center använder Microsoft Monitoring Agent att samla in olika säkerhet relaterade konfigurationer och händelser från dina datorer och lagrar dessa händelser i dina arbetsytor. Exempel på sådana data är: operativsystemet systemloggar (Windows-händelseloggar), kör bearbetar och händelser från säkerhetslösningar integrerad med Security Center. Microsoft Monitoring Agent kopierar också kraschdumpfiler till dina arbetsytor.
+Security Center använder Microsoft Monitoring Agent att samla in olika säkerhetsrelaterade konfigurationer och händelser från dina virtuella datorer och lagrar dessa händelser i dina arbetsytor. Exempel på sådana data är: operativsystemloggar (Windows-händelseloggar), kör bearbetar och händelser från säkerhetslösningar som är integrerade med Security Center. Microsoft Monitoring Agent kopierar också kraschdumpfiler till dina arbetsytor.
 
-## <a name="events-processed-dashboard"></a>Händelser som har bearbetats instrumentpanelen
-Du har åtkomst till den **händelser** instrumentpanelen från Security Center huvudmenyn eller Security Center **översikt** bladet.  
+## <a name="events-processed-dashboard"></a>Instrumentpanelen för händelser som bearbetas
+Du har åtkomst till den **händelser** instrumentpanelen från huvudmenyn i Security Center eller Security Center **översikt** bladet.  
 
-![Händelser som har bearbetats instrumentpanelen][1]
+![Instrumentpanelen för händelser som bearbetas][1]
 
 Den **händelser** panelen **Security Center** visar antalet händelser som flödar till Security Center från dina virtuella Azure-datorer och Azure-datorer.
 
-Den **händelser instrumentpanelen** ger en översikt över antalet händelser som har bearbetats övertid och en lista över händelser.
+Den **instrumentpanelen för händelser** innehåller en översikt över hur många händelser som bearbetas övertid och en lista över händelser.
 
  ![Instrumentpanel][2]
 
- Den övre delen av instrumentpanelen trender alla händelser som har bearbetats under den senaste veckan. Nederkant hälften av instrumentpanelen visar en lista över viktiga händelser och alla händelser efter typ:
+ Den övre delen av instrumentpanelen trender alla händelser som bearbetas under den senaste veckan. Nederkant hälften av instrumentpanelen visar viktiga händelser och alla händelser enligt typ:
 
- - **Viktiga händelser** inkluderar händelsefrågor som tillhandahåller Security Center och händelsefrågor som du skapar och lägga till. Instrumentpanelen innehåller också en snabb överblick över antalet varje viktiga händelse.
- - **Alla händelser efter typ** visar vilka händelsetyper av som tas emot och ett antal för varje typ av. Exempel på händelsetyp är SecurityEvent, CommonSecurityLog, WindowsFirewall och W3CIISLog.
+ - **Viktiga händelser** omfattar händelsefrågor som Security Center tillhandahåller och händelsefrågor som du skapar och lägga till. Instrumentpanelen innehåller också en snabb överblick över antal varje viktig händelse.
+ - **Alla händelser enligt typ** visar vilka händelsetyper av som tas emot och ett antal för varje typ av. Exempel på händelsetyp är SecurityEvent, CommonSecurityLog, WindowsFirewall och W3CIISLog.
 
 > [!NOTE]
-> Viktiga händelser inkluderar [web baslinjen assessment](https://docs.microsoft.com/azure/operations-management-suite/oms-security-web-baseline-assessment). Målet med utvärderingen av webbaslinjen är att hitta potentiellt sårbara webbserverinställningar.
+> Viktiga händelser inkluderar [web säkerhetsbaslinje](https://docs.microsoft.com/azure/operations-management-suite/oms-security-web-baseline-assessment). Målet med utvärderingen av webbaslinjen är att hitta potentiellt sårbara webbserverinställningar.
 
 ## <a name="view-processed-event-details"></a>Visa bearbetade händelseinformation
-1. Under den **Security Center** Huvudmeny, Välj **händelser**.
-2. Den **händelser instrumentpanelen** arbetsytan selector öppnas. Om du har en enda arbetsyta, visas inte den här arbetsytan väljare. Om du har mer än en arbetsyta, måste du välja en arbetsyta för att visa händelseinformation om bearbetade. Välj en arbetsyta i listan om du har mer än en arbetsyta.
+1. Under den **Security Center** Huvudmeny väljer **händelser**.
+2. Den **instrumentpanelen för händelser** Väljaren kan öppna. Om du har endast en arbetsyta, visas inte den här Väljaren. Om du har fler än en arbetsyta måste välja en arbetsyta för att visa information om den bearbetade händelse. Välj en arbetsyta i listan om du har fler än en arbetsyta.
 
-  ![Arbetsytelista][3]
+  ![Arbetsytans lista][3]
 
-3. Den **händelser instrumentpanelen** öppnas med händelseinformationen för den valda arbetsytan. Du kan visa viktiga händelser och alla händelser som är av typen.  Vi valde i det här exemplet **viktiga händelser**.
+3. Den **instrumentpanelen för händelser** öppnas där du kan se händelsedetaljerna för den valda arbetsytan. Du kan visa viktiga händelser och alla händelser enligt typ.  I det här exemplet har vi valt **viktiga händelser**.
 
-  ![Viktiga händelse][4]
+  ![Viktig händelse][4]
 
-4. Du kan fråga efter mer data under arbetsytan genom att välja en händelsetyp. Vi valde i det här exemplet **SecurityEvent**.
+4. Du kan fråga efter mer data under arbetsytan genom att välja en händelsetyp. I det här exemplet har vi valt **SecurityEvent**.
 
   ![Att välja en händelsetyp][5]
 
-5. **Logga Sök** öppnas med ytterligare information om vilken typ av händelse.
+5. **Loggsöknings-** öppnas med mer information om hur händelsetyp.
 
   ![Loggsökning][6]
 
-## <a name="add-a-notable-event"></a>Lägg till en viktiga händelse
-Security Center ger out box viktiga händelser. Du kan lägga till viktiga händelser baserat på egna frågan med de [Log Analytics-frågespråket](../log-analytics/log-analytics-search-reference.md). Vi återkommer till den **händelser instrumentpanelen** att lägga till en händelse som viktiga.
+## <a name="add-a-notable-event"></a>Lägg till en viktig händelse
+Security Center tillhandahåller out-of the box viktiga händelser. Du kan lägga till viktiga händelser baserat på din egen fråga med hjälp av den [Log Analytics-frågespråket](../log-analytics/log-analytics-search-reference.md). Vi återkommer till den **instrumentpanelen för händelser** att lägga till en viktig händelse.
 
-1. Välj **lägga till viktiga händelsen**.
+1. Välj **Lägg till viktig händelse**.
 
-  ![Lägg till en viktiga händelse][7]
+  ![Lägg till en viktig händelse][7]
 
-2. **Lägg till anpassade viktiga händelsen** öppnas.  Under **visningsnamn**, ange ett namn för din viktiga händelse. Under **sökfråga**, ange din fråga för händelsen.
+2. **Lägg till anpassad viktig händelse** öppnas.  Under **visningsnamn**, ange ett namn för din viktig händelse. Under **sökfråga**, ange din fråga för händelsen.
 
   ![Ange din fråga][8]
 
 4. Välj **OK**.
 
 ## <a name="update-your-workspace-for-events-processing"></a>Uppdatera din arbetsyta för bearbetning av händelser
-Ditt arbetsområde måste vara igång logganalys version 2 och vara i Security Center standardnivån att använda händelsebearbetning i Security Center. Den **händelser instrumentpanelen** arbetsytan selector identifierar arbetsytor som inte uppfyller kraven.
+Din arbetsyta måste köra Log Analytics version 2 och på standardnivån i Security Center använder händelsebearbetning i Security Center. Den **instrumentpanelen för händelser** Väljaren identifierar arbetsytor som inte uppfyller dessa krav.
 
 ![Arbetsytan uppfyller inte kraven][9]
 
-Om arbetsytan rad:
+Om arbetsytan raden:
 
-- Innehåller **kräver uppdatera** -du behöver uppdatera din arbetsyta till logganalys version 2
-- Innehåller **uppgradera planera** – du behöver uppgradera din arbetsyta till standardnivån om Security Center
-- Tomt - arbetsytan uppfyller kraven och välja en arbetsyta går till instrumentpanelen
+- Innehåller **kräver uppdatera** -du behöver uppdatera din arbetsyta till Log Analytics version 2
+- Innehåller **uppgradera planera** – du måste uppgradera arbetsytan till standardnivån i Security Center
+- Har inte angetts - uppfyller din arbetsyta och att välja en arbetsyta tar dig till instrumentpanelen
 
 > [!NOTE]
-> Under **händelser instrumentpanelen**, **händelser** visar mängden händelser i varje arbetsyta.  Den här kolumnen är tomt i vissa arbetsytors eftersom Security Center kostnadsfria nivån tillämpas på arbetsytan. Under den kostnadsfria nivån Security Center samlar in händelser men händelserna som sparas inte i logganalys och är inte tillgängliga i instrumentpanelen.
+> Under **instrumentpanelen för händelser**, **händelser** kolumn visar antalet händelser i varje arbetsyta.  Den här kolumnen är tom i vissa arbetsytors eftersom Security Centers kostnadsfria nivån tillämpas på arbetsytan. Security Center samlar in händelser under den kostnadsfria nivån, men händelserna sparas inte i Log Analytics och är inte tillgängliga i instrumentpanelen.
 >
 >
 
-## <a name="update-workspace-to-log-analytics-version-2"></a>Uppdatera arbetsytan till logganalys version 2
+## <a name="update-workspace-to-log-analytics-version-2"></a>Uppdatera arbetsytan till Log Analytics version 2
 1. Välj en arbetsyta som **kräver uppdatering**.
-2. **Söka efter uppgraderingen** öppnas. Välj **uppgradera nu**.
+2. **Sök efter uppgraderingen** öppnas. Välj **uppgradera nu**.
 
   ![Uppgradera nu][10]
 
-## <a name="upgrade-to-security-centers-standard-tier"></a>Uppgradera till standardnivån om Security Center
+## <a name="upgrade-to-security-centers-standard-tier"></a>Uppgradera till standardnivån i Security Center
 1. Välj en arbetsyta med **uppgradera planera**.
-2. **Händelser instrumentpanelen** öppnas. Välj **försök händelser instrumentpanelen**.
+2. **Instrumentpanelen för händelser** öppnas. Välj **försök händelser instrumentpanelen**.
 
-  ![Försök instrumentpanelen][11]
+  ![Testa instrumentpanelen][11]
 
-3. Under **Onboarding till avancerad säkerhet**, väljer arbetsytan som du uppgraderar.
+3. Under **registrering för avancerad säkerhet**, Välj den arbetsyta som du uppgraderar.
 4. Under **priser**väljer **Standard**.
 5. Välj **Spara**.
 
-  ![Uppgradera till standardnivån][12]
+  ![Uppgradera till Standard-nivån][12]
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln beskrivs hur du använder instrumentpanelen för Security Center-händelse. Mer information om hur instrumentpanelen fungerar och för att skriva egna händelsefrågor finns:
+I den här artikeln beskrivs hur du använder instrumentpanelen för Security Center-händelse. Mer information om hur instrumentpanelen fungerar och för att skriva din egen händelsefrågor, se:
 
-- [Vad är Log Analytics?](../log-analytics/log-analytics-overview.md) – Översikt på logganalys
-- [Förstå loggen söker i logganalys](../log-analytics/log-analytics-log-search-new.md) – beskriver hur loggen sökningar används i logganalys och begrepp som du bör känna till innan du skapar en logg-sökning
-- [Logganalys söka referens](../log-analytics/log-analytics-search-reference.md) – Lär dig att skriva egna händelsefrågor med frågespråket i loggen
+- [Vad är Log Analytics?](../log-analytics/log-analytics-overview.md) – Översikt på Log Analytics
+- [Förstå log söker i Log Analytics](../log-analytics/log-analytics-log-search-new.md) – beskriver hur du använder loggsökningar i Log Analytics och tillhandahåller begrepp som du bör känna till innan du skapar en loggsökning
+- [Log Analytics Sök referens](../log-analytics/log-analytics-search-reference.md) – Lär dig att skriva egna händelsefrågor med hjälp av frågespråket i loggen
 
 Mer information om Security Center finns:
 

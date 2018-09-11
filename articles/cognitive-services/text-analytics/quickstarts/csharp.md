@@ -1,5 +1,6 @@
 ---
-title: C#-Snabbstart för Cognitive Services API för textanalys | Microsoft Docs
+title: 'Snabbstart: Använder C# för att anropa API för textanalys | Microsoft Docs'
+titleSuffix: Azure Cognitive Services
 description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med API för textanalys i Microsoft Cognitive Services på Azure.
 services: cognitive-services
 documentationcenter: ''
@@ -9,14 +10,14 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 42a682898303b742a17b0a6d4d98c2b9fedf9003
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: b4d945b7495897caf1f4edd1e909581614798a23
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841702"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303029"
 ---
-# <a name="quickstart-for-the-text-analytics-api-with-c"></a>Snabbstart för textanalys-API med C# 
+# <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Använder C# för att anropa tjänsten Text Analytics Cognitive
 <a name="HOLTop"></a>
 
 Den här artikeln visar hur du identifiera språk, utför sentimentanalyser och extrahera nyckelfraser med hjälp av den [Text Analytics API: er](//go.microsoft.com/fwlink/?LinkID=759711) med C#. Koden har skrivits för att arbeta med en .NET Core-App med minimal referenser till externa bibliotek, så du kan också köra den på Linux eller MacOS.

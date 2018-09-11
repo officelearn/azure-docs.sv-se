@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 676d5e553e2929ae09d447141ca315fd1cc448e3
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c88ae933360b5040ad3d2b877041049512f08b0d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450020"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303412"
 ---
 # <a name="permissions-on-the-azureiotsolutionscom-site"></a>Behörigheter på webbplatsen azureiotsolutions.com
 
@@ -62,7 +62,7 @@ Mer information om användare och roller i AAD finns i följande resurser:
 
 Azure-administratörsroller styra möjligheten att mappa en Azure-prenumeration till en AAD-klient.
 
-Lär dig mer om Azure administratörsroller i artikeln [lägga till eller ändra Azure delad administratör, tjänstadministratör och kontoadministratör][lnk-admin-roles].
+Lär dig mer om Azure administratörsroller i artikeln [Lägg till eller ändra Azure-prenumerationsadministratörer][lnk-admin-roles].
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 

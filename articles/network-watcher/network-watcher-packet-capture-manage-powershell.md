@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: d13c02696c9babae9fd04233ae7d2fdc75fca25f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: d768367b8e35c30b1e8cb1646e6cbfceb6151dec
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090698"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348301"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Hantera infångade paket med Azure Network Watcher med hjälp av PowerShell
 
@@ -35,7 +35,7 @@ Den här artikeln tar dig igenom de olika administrativa uppgifter som är tillg
 
 - [**Starta ett infångat paket**](#start-a-packet-capture)
 - [**Stoppa ett infångat paket**](#stop-a-packet-capture)
-- [**ta bort ett infångat paket**](#delete-a-packet-capture)
+- [**Ta bort ett infångat paket**](#delete-a-packet-capture)
 - [**Ladda ned ett infångat paket**](#download-a-packet-capture)
 
 ## <a name="before-you-begin"></a>Innan du börjar
@@ -67,7 +67,7 @@ I följande exempel hämtar tilläggsinformation som behövs för att köra den 
 För Windows-datorer:
 
 ```powershell
-$AzureNetworkWatcherExtension = Get-AzureRmVMExtensionImage -Location WestCentralUS -PublisherName Microsoft.Azure.NetworkWatcher -Type NetworkWatcherAgentWindows -Version 1.4.13.0
+$AzureNetworkWatcherExtension = Get-AzureRmVMExtensionImage -Location WestCentralUS -PublisherName Microsoft.Azure.NetworkWatcher -Type NetworkWatcherAgentWindows -Version 1.4.585.2
 $ExtensionName = "AzureNetworkWatcherExtension"
 Set-AzureRmVMExtension -ResourceGroupName $VM.ResourceGroupName  -Location $VM.Location -VMName $VM.Name -Name $ExtensionName -Publisher $AzureNetworkWatcherExtension.PublisherName -ExtensionType $AzureNetworkWatcherExtension.Type -TypeHandlerVersion $AzureNetworkWatcherExtension.Version.Substring(0,3)
 ```
@@ -144,7 +144,7 @@ $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName testrg -Name test
 Filter kan användas för att begränsa de data som lagras med paketfångsten. I följande exempel ställer in två filter.  Ett filter samlar in utgående TCP-trafik från lokala IP 10.0.0.3 för målportar 20, 80 och 443.  Det andra filtret samlar in UDP-trafik.
 
 ```powershell
-$filter1 = New-AzureRmPacketCaptureFilterConfig -Protocol TCP -RemoteIPAddress "1.1.1.1-255.255.255" -LocalIPAddress "10.0.0.3" -LocalPort "1-65535" -RemotePort "20;80;443"
+$filter1 = New-AzureRmPacketCaptureFilterConfig -Protocol TCP -RemoteIPAddress "1.1.1.1-255.255.255.255" -LocalIPAddress "10.0.0.3" -LocalPort "1-65535" -RemotePort "20;80;443"
 $filter2 = New-AzureRmPacketCaptureFilterConfig -Protocol UDP
 ```
 
@@ -255,7 +255,7 @@ Stop-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketC
 > [!NOTE]
 > Cmdleten returnerar inga svar när kördes på en pågående avbildningssessionen eller en befintlig session som redan har stoppats.
 
-## <a name="delete-a-packet-capture"></a>ta bort ett infångat paket
+## <a name="delete-a-packet-capture"></a>Ta bort ett infångat paket
 
 ```powershell
 Remove-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"

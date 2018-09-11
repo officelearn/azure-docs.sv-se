@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91ed29b100e0fab0f0e386f771dc6f71d7b424c6
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 7b1f937a71a0ff5b8030c922073dc463af3c8430
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163421"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349270"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuella datorer, planering och implementering av SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -1921,6 +1921,7 @@ Följande Azure konstruktioner används för SAP NetWeaver-systemet för att min
 * Hela systemet körs inom en Azure-prenumeration (krävs).
 * Hela systemet körs inom ett virtuellt Azure-nätverk (krävs).
 * Uppdelning av de virtuella datorerna i ett SAP-system i tre Tillgänglighetsuppsättningar är möjligt även med alla de virtuella datorerna som hör till samma virtuella nätverk.
+* Varje lager (till exempel DBMS, ASCS, programservrar) måste använda en dedikerad Tillgänglighetsuppsättning.
 * Alla virtuella datorer som kör DBMS instanser av en SAP-system är i en Tillgänglighetsuppsättning. Vi förutsätter att det finns fler än en virtuell dator som kör DBMS instanser per system eftersom interna DBMS-hög tillgänglighet funktioner används som SQL Server AlwaysOn- eller Oracle Data Guard.
 * Alla virtuella datorer som kör DBMS instanser använder sina egna storage-konto. DBMS filer för data och loggfiler replikeras till ett annat lagringskonto med hjälp av funktioner för DBMS hög tillgänglighet som synkroniserar data från ett lagringskonto. Otillgänglig för en storage-kontot genereras otillgänglig för en SQL-Windows-klusternod, men inte hela SQL Server-tjänsten.
 * Alla virtuella datorer som kör en SAP-system (A) SCS-instans är i en Tillgänglighetsuppsättning. Ett Windows Server Failover kluster (WSFC) har konfigurerats i dessa virtuella datorer för att skydda (A) SCS-instans.

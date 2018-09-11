@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: d22b86ad33db600eb5273e3ab09e71a1b1fd527b
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: cdce0ae223a637ac30ed472d2bf711aa36958414
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577504"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346771"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Migrera AD FS på lokala appar till Azure 
 
@@ -55,7 +55,7 @@ För organisationer som redan använder AD FS, Ping eller någon annan lokal aut
 - Azure AD, som är en identitetsprovider för SaaS-appar, stöder ytterligare funktioner som exempelvis:
   - Certifikat för tokensignering per program.
   - [Konfigurerbara förfallodatum för certifikat](manage-certificates-for-federated-single-sign-on.md).
-  - [Automatiserad etablering](../active-directory-saas-app-provisioning.md) av användarkonton (i viktiga Azure Marketplace-appar), baserat på Azure AD-identiteter.
+  - [Automatiserad etablering](user-provisioning.md) av användarkonton (i viktiga Azure Marketplace-appar), baserat på Azure AD-identiteter.
 
 **Behåll fördelarna med en lokal identitetsprovider**
 - Samtidigt som du får fördelarna med Azure AD, kan du fortsätta att använda en lokal lösning för autentisering. Det innebär att fördelar som lokala Multi-Factor Authentication-lösningar, loggning och granskning finns kvar. 
@@ -232,7 +232,7 @@ Eftersom konfigurationen skapades tidigare i **Identitet** > **Enkel inloggning*
 ![Välja Azure AD som autentiseringstjänst](media/migrate-adfs-apps-to-azure/migrate10.png)
 
 ### <a name="optional-configure-user-provisioning-in-azure-ad"></a>Valfritt: Konfigurera användaretablering i Azure AD
-Om du vill att Azure AD ska hantera användaretablering direkt för SaaS-appen, kan du läsa mer i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../active-directory-saas-app-provisioning.md).
+Om du vill att Azure AD ska hantera användaretablering direkt för SaaS-appen, kan du läsa mer i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](user-provisioning.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

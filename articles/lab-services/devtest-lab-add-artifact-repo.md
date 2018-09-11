@@ -1,6 +1,6 @@
 ---
 title: Lägga till en Git-lagringsplats i ett labb i Azure DevTest Labs | Microsoft Docs
-description: Lär dig hur du lägger till en GitHub eller Visual Studio Team Services Git-lagringsplats för din anpassade artefakter källa i Azure DevTest Labs.
+description: Lär dig hur du lägger till en GitHub- eller Azure DevOps Services Git-lagringsplats för källan anpassade artefakter i Azure DevTest Labs.
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: spelluru
@@ -14,35 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 80724a7d8d2b5cec19bdbce27cdafd4a9c09eb47
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e6c6f36d877f220bcc8d83b75750f54f85dcc198
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452506"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299890"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Lägg till en Git-lagringsplats för att lagra anpassade artefakter och Resource Manager-mallar
 
-Du kan [skapa anpassade artefakter](devtest-lab-artifact-author.md) för virtuella datorer i labbet, eller [Använd Azure Resource Manager-mallar för att skapa en anpassad testmiljö](devtest-lab-create-environment-from-arm.md). Du måste lägga till en privata Git-lagringsplats för artefakter eller Resource Manager-mallar som ditt team skapar. Databasen kan finnas på [GitHub](https://github.com) eller på [Visual Studio Team Services](https://visualstudio.com).
+Du kan [skapa anpassade artefakter](devtest-lab-artifact-author.md) för virtuella datorer i labbet, eller [Använd Azure Resource Manager-mallar för att skapa en anpassad testmiljö](devtest-lab-create-environment-from-arm.md). Du måste lägga till en privata Git-lagringsplats för artefakter eller Resource Manager-mallar som ditt team skapar. Databasen kan finnas på [GitHub](https://github.com) eller på [Azure DevOps-tjänsterna](https://visualstudio.com).
 
 Vi erbjuder en [GitHub-lagringsplats för artefakter](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) som du kan distribuera som – är, eller du kan anpassa dem efter dina labb. När du anpassa eller skapa en artefakt, kan inte du lagra artefakten i den offentliga databasen. Du måste skapa din egen privata lagringsplats för anpassade artefakter och artefakter som du skapar. 
 
 När du skapar en virtuell dator kan du spara Resource Manager-mallen, anpassa den om du vill ha och sedan använda den senare för att skapa fler virtuella datorer. Du måste skapa din egen privata lagringsplatsen för att lagra dina anpassade Resource Manager-mallar.  
 
 * Läs hur du skapar en GitHub-lagringsplats i [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
-* Läs hur du skapar ett Team Services-projekt som har en Git-lagringsplats i [Anslut till Visual Studio Team Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
+* Läs hur du skapar ett Azure-tjänster för DevOps-projekt som har en Git-lagringsplats i [Anslut till Azure DevOps-tjänsterna](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
 
 Följande bild är ett exempel på hur en databas som har artefakter kan se i GitHub:  
 
 ![Artefakter GitHub-exempellager](./media/devtest-lab-add-repo/devtestlab-github-artifact-repo-home.png)
 
 ## <a name="get-the-repository-information-and-credentials"></a>Hämta information för databasen och autentiseringsuppgifter
-Om du vill lägga till en lagringsplats i labbet, först få viktig information från databasen. I följande avsnitt beskrivs hur du hämtar information som behövs för databaser som finns på GitHub eller Visual Studio Team Services.
+Om du vill lägga till en lagringsplats i labbet, först få viktig information från databasen. I följande avsnitt beskrivs hur du hämtar information som behövs för databaser som finns på GitHub eller Azure DevOps-tjänsterna.
 
 ### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>Hämta GitHub-lagringsplatsen klon-URL och personlig åtkomst-token
 
 1. Gå till startsidan för GitHub-lagringsplatsen som innehåller artefakten eller Malldefinitioner för Resource Manager.
-2. Välj **klona eller ladda ned**.
+2. Välj **Klona eller ladda ned**.
 3. URL: en till Urklipp och markera den **url för HTTPS-klon** knappen. Spara URL: en för senare användning.
 4. Välj en avbildning med profilen i det övre högra hörnet på GitHub och välj sedan **inställningar**.
 5. I den **personliga inställningar** menyn till vänster, Välj **personliga åtkomsttoken**.
@@ -52,7 +52,7 @@ Om du vill lägga till en lagringsplats i labbet, först få viktig information 
 9. Stäng GitHub.   
 10. Fortsätta att den [ansluta ditt labb till databasen](#connect-your-lab-to-the-repository) avsnittet.
 
-### <a name="get-the-visual-studio-team-services-repository-clone-url-and-personal-access-token"></a>Hämta Visual Studio Team Services databasen klon-URL och personlig åtkomst-token
+### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>Få Azure-lagringsplatser klonen URL och personlig åtkomsttoken
 
 1. Gå till startsidan för din team-samling (till exempel https://contoso-web-team.visualstudio.com), och välj sedan ditt projekt.
 2. Välj på projektets startsida, **kod**.
@@ -79,9 +79,9 @@ Om du vill lägga till en lagringsplats i labbet, först få viktig information 
     ![Knappen Lägg till databasen](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. På andra **databaser** anger du följande information:
   1. **Namn**. Ange ett namn för databasen.
-  2. **Url för Git-klonen**. Ange URL för Git HTTPS-klonen som du kopierade tidigare från GitHub eller Visual Studio Team Services.
+  2. **Url för Git-klonen**. Ange URL för Git HTTPS-klonen som du kopierade tidigare från GitHub eller Azure DevOps-tjänsterna.
   3. **Gren**. Ange grenen för att få definitionerna.
-  4. **Personlig åtkomsttoken**. Ange din personliga åtkomsttoken som du tidigare fått från GitHub eller Visual Studio Team Services.
+  4. **Personlig åtkomsttoken**. Ange din personliga åtkomsttoken som du tidigare fått från GitHub eller Azure DevOps-tjänsterna.
   5. **Mappsökvägar**. Ange minst en mappsökväg i förhållande till den klon-URL som innehåller din artefakt eller Malldefinitioner för Resource Manager. När du anger en underkatalog måste du kontrollera att du inkluderar snedstreck i mappsökvägen.
 
      ![Lagringsplatser området](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)

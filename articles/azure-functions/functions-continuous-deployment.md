@@ -11,15 +11,15 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: 4561b343fa15346388572a70616840be0dd06679
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 7529d20535eedab92d164df5a0435efeda83fca2
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095495"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301556"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Löpande distribution för Azure Functions
-Azure Functions gör det enkelt att distribuera funktionsappen med kontinuerlig integrering för App Service. Functions kan integreras med BitBucket, Dropbox, GitHub och Visual Studio Team Services (VSTS). På så sätt kan ett arbetsflöde där Funktionskoden uppdaterar genom att använda en av dessa integrerade tjänster utlösaren distribution till Azure. Om du är nybörjare på Azure Functions, börja med [översikt över Azure Functions](functions-overview.md).
+Azure Functions gör det enkelt att distribuera funktionsappen med kontinuerlig integrering för App Service. Functions kan integreras med BitBucket, Dropbox, GitHub och Azure DevOps. På så sätt kan ett arbetsflöde där Funktionskoden uppdaterar genom att använda en av dessa integrerade tjänster utlösaren distribution till Azure. Om du är nybörjare på Azure Functions, börja med [översikt över Azure Functions](functions-overview.md).
 
 Kontinuerlig distribution är ett bra alternativ för projekt där flera och ofta återkommande bidrag integreras. Du kan också behålla källkontroll på din functions-kod. Följande distributionskällor stöds för närvarande:
 
@@ -29,7 +29,7 @@ Kontinuerlig distribution är ett bra alternativ för projekt där flera och oft
 * [Lokal Git-lagringsplats](../app-service/app-service-deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
-* [Visual Studio Team Services](https://www.visualstudio.com/team-services/)
+* [Azure DevOps-tjänsterna](https://www.visualstudio.com/team-services/)
 
 Distributioner är konfigurerade på basis av per funktion app. När kontinuerlig distribution har aktiverats, att Funktionskoden i portalen har angetts till *skrivskyddad*.
 
@@ -39,10 +39,10 @@ Du måste ha din distributionskälla som konfigurerats och din functions-kod i d
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-För att kunna distribuera från VSTS, måste du först länka ditt VSTS-konto med Azure-prenumerationen. Mer information finns i [ställer in faktureringen för ditt VSTS-konto](https://docs.microsoft.com/vsts/billing/set-up-billing-for-your-account-vs?view=vsts#set-up-billing-via-the-azure-portal).
+För att kunna distribuera från Azure DevOps, måste du först koppla organisationen Azure DevOps med Azure-prenumerationen. Mer information finns i [ställer in faktureringen för din Azure DevOps-organisation](https://docs.microsoft.com/azure/devops/organizations/billing/set-up-billing-for-your-organization-vs?view=vsts#set-up-billing-via-the-azure-portal).
 
 ## <a name="set-up-continuous-deployment"></a>Konfigurera kontinuerlig distribution
-Använd den här proceduren för att konfigurera kontinuerlig distribution för en befintlig funktionsapp. De här stegen visar integrering med en GitHub-lagringsplats, men liknande steg som gäller för Visual Studio Team Services eller andra distributionstjänster.
+Använd den här proceduren för att konfigurera kontinuerlig distribution för en befintlig funktionsapp. De här stegen visar integrering med en GitHub-lagringsplats, men liknande steg som gäller för Azure DevOps- eller förhandstjänster distribution.
 
 1. I funktionsappen i den [Azure-portalen](https://portal.azure.com), klickar du på **plattformsfunktioner** och **distributionsalternativ**. 
    

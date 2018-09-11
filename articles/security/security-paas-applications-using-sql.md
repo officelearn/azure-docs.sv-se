@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: ee606540bef47b11ad8fd9e820af2f5b51d47b0b
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 00b2b249f5889888f34d57fd1577ccfea776d00c
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493029"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347978"
 ---
 # <a name="securing-paas-databases-in-azure"></a>Skydda PaaS-databaser i Azure
 
@@ -79,7 +79,7 @@ Mer information om Azure SQL-brandväggen och IP-begränsningar finns:
 ### <a name="encryption-of-data-at-rest"></a>Kryptering av vilande data
 [Transparent datakryptering (TDE)](https://msdn.microsoft.com/library/azure/bb934049) är aktiverat som standard. TDE krypterar transparent SQL Server, Azure SQL Database och Azure SQL Data Warehouse filer för data och loggfiler. TDE skyddar mot en kompromettering av direkt åtkomst till filer eller deras säkerhetskopiering. På så sätt kan du kryptera vilande data utan att ändra befintliga program. TDE bör alltid vara aktiverade; men att detta inte slutar en angripare med hjälp av sökvägen för normal åtkomst. TDE ger möjlighet att följa många lagar, bestämmelser och riktlinjerna i olika branscher.
 
-Azure SQL hanterar viktiga relaterade problem för transparent Datakryptering. Som med transparent Datakryptering, lokala särskild försiktighet måste vidtas för att säkerställa återställning och när du flyttar databaser. I mer avancerade scenarier nycklarna kan uttryckligen hanteras i Azure Key Vault med utökningsbar nyckelhantering (se [aktivera TDE på SQL Server med hjälp av EKM](/security/encryption/enable-tde-on-sql-server-using-ekm)). Detta kan också för ta med din egen nyckel (BYOK) via Azure Key valv BYOK-funktionen.
+Azure SQL hanterar viktiga relaterade problem för transparent Datakryptering. Som med transparent Datakryptering, lokala särskild försiktighet måste vidtas för att säkerställa återställning och när du flyttar databaser. I mer avancerade scenarier nycklarna kan uttryckligen hanteras i Azure Key Vault med utökningsbar nyckelhantering (se [aktivera TDE på SQL Server med hjälp av EKM](/sql/relational-databases/security/encryption/enable-tde-on-sql-server-using-ekm)). Detta kan också för ta med din egen nyckel (BYOK) via Azure Key valv BYOK-funktionen.
 
 Azure SQL ger dig kryptering för kolumnerna till [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). På så sätt kan endast auktoriserade program åtkomst till känsliga kolumner. Med hjälp av den här typen av kryptering begränsar SQL-frågor för krypterade kolumner till likhet-baserade värden.
 

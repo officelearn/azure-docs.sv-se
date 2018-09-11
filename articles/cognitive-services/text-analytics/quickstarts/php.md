@@ -1,5 +1,6 @@
 ---
-title: PHP-Snabbstart för Azure Cognitive Services API för textanalys | Microsoft Docs
+title: 'Snabbstart: Använda PHP för att anropa API för textanalys | Microsoft Docs'
+titleSuffix: Azure Cognitive Services
 description: Hämta information och exempel på kod som hjälper dig att snabbt komma igång med API för textanalys i Microsoft Cognitive Services på Azure.
 services: cognitive-services
 documentationcenter: ''
@@ -9,14 +10,14 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 2f654736e998652ecaf8825b308c7ff3bf84a924
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 602988747f54c3dbdfa933986d47b631b757db65
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43840778"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298717"
 ---
-# <a name="quickstart-for-text-analytics-api-with-php"></a>Snabbstart för textanalys-API med PHP 
+# <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Använda PHP för att anropa tjänsten Text Analytics Cognitive
 <a name="HOLTop"></a>
 
 Den här artikeln visar hur du [identifiera språk](#Detect), [analysera sentiment](#SentimentAnalysis), [extrahera nyckelfraser](#KeyPhraseExtraction), och [identifiera länkade entiteter](#Entities) med hjälp av den [Text Analytics API: er](//go.microsoft.com/fwlink/?LinkID=759711) med PHP.

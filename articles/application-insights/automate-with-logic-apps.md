@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4ae5adaf37f49e9909fa80fd31f088ed6ee1b081
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 91b5c2c23445e5cd3445d1d5b640cb3ecb8e5e7a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449871"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301199"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatisera processer för Application Insights med hjälp av Logic Apps
 
@@ -25,7 +25,7 @@ Hittar du själv upprepade gånger köra samma frågor på dina telemetridata f�
 
 Med den här integrationen kan du automatisera många processer utan att behöva skriva en enda rad kod. Du kan skapa en logikapp med Application Insights-anslutningsprogrammet för att automatisera snabbt en Application Insights-process. 
 
-Du kan lägga till ytterligare åtgärder samt. Logic Apps-funktionen i Azure App Service tillgängliggör hundratals åtgärder. Till exempel med hjälp av en logikapp, kan du automatiskt skicka ett e-postmeddelande eller skapa en bugg i Visual Studio Team Services. Du kan också använda en av många tillgängliga [mallar](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) för att påskynda processen för att skapa din logikapp. 
+Du kan lägga till ytterligare åtgärder samt. Logic Apps-funktionen i Azure App Service tillgängliggör hundratals åtgärder. Till exempel med hjälp av en logikapp, kan du automatiskt skicka ett e-postmeddelande eller skapa en bugg i Azure DevOps. Du kan också använda en av många tillgängliga [mallar](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) för att påskynda processen för att skapa din logikapp. 
 
 ## <a name="create-a-logic-app-for-application-insights"></a>Skapa en logikapp för Application Insights
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/11/18
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: e382f53678806aa3442151703277c3a57bb30830
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 2e74e45761a2f21c522f80d453da48948e17de58
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302285"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347758"
 ---
 # <a name="what-is-the-myapps-portal"></a>Vad är MyApps-portalen?
 
@@ -109,16 +109,6 @@ Azure Active Directory-teamet publicerar den mobila appen för Mina appar. När 
 
 > [!NOTE]
 > Du kan logga in på program som stöder federation med Azure AD (inklusive Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 och mycket mer än 70 andra) på i stort sett alla webbläsare, på alla enheter, utan att behöva en plugin-programmet eller mobila app. Som ska användas på en mobil enhet, den andra [MyApps-portalen inträffar](https://myapps.microsoft.com/) även kräver inte den mobila appen för Mina appar.
->
->
-
-### <a name="my-apps-for-android"></a>Mina appar för Android
-
-Mina appar för Android stöds på alla Android-enheter som kör Android-version 4.1 eller senare.  
-
-Det är tillgängligt på den [Google Play-butiken](https://play.google.com/store/apps/details?id=com.microsoft.myapps).
-
-![Mina appar för Android][3]   
 
 ### <a name="my-apps-for-iphone-and-ipad"></a>Mina appar för iPhone och iPad
 
@@ -129,13 +119,13 @@ Det är tillgängligt på den [Apple App Store](https://itunes.apple.com/us/app/
 ![Mina appar för iOS][4]    
 
 
-## <a name="managed-browser-for-my-apps"></a>Hanterad webbläsare för Mina appar
+## <a name="intune-managed-browser-for-my-apps"></a>Intune Managed Browser för Mina appar
 
-Mina appar är också integrerat med Intune Managed Browser. Intune Managed Browser för iOS och Android-enheter spelar en viktig roll i att se till att data på mobila enheter förblir säkra. Webbläsaren kan du säkert visa och navigera webbsidor som kan innehålla företagsinformation, och kan tillhandahålla en säker webbsurfning upplevelse.  
+Mina appar är också integrerat med Intune Managed Browser. Intune Managed Browser för iOS och Android-enheter hjälper dig att säkrare och navigerar webbsidor som kan innehålla företagsinformation, vilket ger en säkrare webbsurfning upplevelse.  
 
-Du får snabb åtkomst till Mina appar på startsidan för Managed Browser och i dina bokmärken så att färre klick krävs för att nå alla program som du vill komma åt.
+Du kan komma till Mina appar både på startsidan för Managed Browser från dina bokmärken, vilket innebär att det finns färre klick för att uppnå dina appar.
 
-Intune Managed Browser finns på den [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) och [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser&hl=en).
+Intune Managed Browser finns på den [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) och [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
 
 ![Hanterad webbläsare för Mina appar][5]    
 
@@ -216,11 +206,10 @@ Om ett program är konfigurerad för att autentisera användare med hjälp av AD
  
 - Mer information om hur du hanterar appar med Azure AD finns i [introduktion till enkel inloggning och hantera appåtkomst med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
  
-- Läs mer om etableringen av användare i [automatisera användaretablering och avetablering för SaaS-program](../active-directory-saas-app-provisioning.md).
+- Läs mer om etableringen av användare i [automatisera användaretablering och avetablering för SaaS-program](../manage-apps/user-provisioning.md).
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-introduction/01.png
 [2]: ./media/active-directory-saas-access-panel-introduction/02.png
-[3]: ./media/active-directory-saas-access-panel-introduction/03.png
 [4]: ./media/active-directory-saas-access-panel-introduction/04.png
 [5]: ./media/active-directory-saas-access-panel-introduction/05.png

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: accc2e994e7ea361315d5dfb33b257e58410490c
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 4d3967acc7c6dc3b2c94236cc53e8b45e09e6b6d
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056195"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325387"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Anpassa attributmappningar för Användaretablering för SaaS-program i Azure Active Directory
 Microsoft Azure AD har stöd för användaretablering för SaaS-program från tredje part, till exempel Salesforce, Google Apps och andra. Om du har användaretablering för ett tredje parts SaaS-program som aktiverad, styr dess attributvärden i form av attributmappningar Azure-portalen.
@@ -33,18 +33,18 @@ Det finns en förkonfigurerad uppsättning attribut och attributmappningar mella
 I Azure AD-portalen kan du komma åt den här funktionen genom att klicka på en **mappningar** konfigurationen under **etablering** i den **hantera** delen av en  **Företagsprogram**.
 
 
-![Salesforce][5] 
+![Salesforce](media/active-directory-saas-customizing-attribute-mappings/21.png) 
 
 Klicka på en **mappningar** konfiguration, öppnar det relaterade **attributmappning** skärmen. Det finns attributmappningar som krävs av ett SaaS-program ska fungera korrekt. För obligatoriska attribut i **ta bort** funktionen är inte tillgänglig.
 
 
-![Salesforce][6]  
+![Salesforce](media/active-directory-saas-customizing-attribute-mappings/22.png)
 
 I exemplet ovan ser du att den **användarnamn** attribut för ett hanterat objekt i Salesforce fylls i med de **userPrincipalName** värdet för den länkade Azure Active Directory-objektet.
 
 Du kan anpassa befintliga **attributmappningar** genom att klicka på en mappning. Då öppnas det **redigera attributet** skärmen.
 
-![Salesforce][7]  
+![Salesforce](media/active-directory-saas-customizing-attribute-mappings/23.png)
 
 
 ### <a name="understanding-attribute-mapping-types"></a>Förstå attributmappning typer
@@ -77,7 +77,7 @@ Förutom den här egenskapen stöder också attributmappningar följande attribu
 
 Ett valt antal program, till exempel ServiceNow, Box och Google Apps, stöd för möjligheten att etablera gruppobjekt förutom användarobjekt. Gruppera objekt kan innehålla egenskaper, till exempel visningsnamn och e-alias, förutom att medlemmar i gruppen.
 
-![ServiceNow][8]  
+![ServiceNow](media/active-directory-saas-customizing-attribute-mappings/24.png)
 
 Gruppetablering kan också aktiveras eller inaktiveras genom att välja mappningen av enhetsgrupp under **mappningar**, och inställningen **aktiverad** till önskat alternativ i den **attributmappning** skärmen.
 
@@ -104,7 +104,7 @@ Program och system som har stöd för anpassning av attributlistan är:
 >[!NOTE]
 >Redigera listan över attribut som stöds rekommenderas endast för administratörer som har anpassat schemat för sina program och system, och som har erfarenhet kunskaper om hur deras anpassade attribut har definierats. Detta kräver ibland kunskap om de verktyg för API: er och utvecklare som tillhandahålls av ett program eller system. 
 
-![Redigeringsprogram][9]  
+![Redigeringsprogram](media/active-directory-saas-customizing-attribute-mappings/25.png) 
 
 När du redigerar listan över attribut som stöds, finns följande egenskaper:
 
@@ -152,10 +152,4 @@ Det här alternativet tvingar effektivt omsynkronisering av alla användare meda
 * [Använda SCIM för att aktivera automatisk etablering av användare och grupper från Azure Active Directory till program](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Lista över guider om hur du integrerar SaaS-appar](saas-apps/tutorial-list.md)
 
-<!--Image references-->
-[5]: ./media/active-directory-saas-customizing-attribute-mappings/21.png
-[6]: ./media/active-directory-saas-customizing-attribute-mappings/22.png
-[7]: ./media/active-directory-saas-customizing-attribute-mappings/23.png
-[8]: ./media/active-directory-saas-customizing-attribute-mappings/24.png
-[9]: ./media/active-directory-saas-customizing-attribute-mappings/25.PNG
 

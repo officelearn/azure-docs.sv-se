@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: a2ad07809963560b1225ff07b095509c93618996
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 26f8880d01da00780317ee2a6f66ee5007576a50
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160429"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347672"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack Managed Disks: Skillnader och överväganden
 Den här artikeln sammanfattas de kända skillnaderna mellan Azure Stack Managed Disks och Managed Disks för Azure. Läs mer om övergripande skillnader mellan Azure Stack och Azure, i den [viktiga överväganden](azure-stack-considerations.md) artikeln.
@@ -38,7 +38,7 @@ Hanterade diskar förenklar Diskhantering för virtuella IaaS-datorer genom att 
 |Alternativen för katastrofåterställning |Stöd för Azure Site Recovery |Stöds inte än|
 |Disktyper     |Premium SSD, Standard SSD (förhandsversion) och Standard-Hårddisk |Premium SSD, Standard-Hårddisk |
 |Premium-diskar  |Stöds fullt ut |Kan tillhandahållas, men ingen prestandagräns eller garanterar  |
-|Premium-diskar  |IOPs  |Beroende av disk-storlek 2300 IOPs per disk |
+|Premium-diskar IOPs  |Beror på diskstorleken  |2300 IOPs per disk |
 |Dataflöde för Premium-diskar |Beror på diskstorleken |145 MB/sekund per disk |
 |Maxstorlek för disk  |4 TB       |1 TB       |
 |Diskar prestanda analytiska |Aggregera mått och per disk-mått som stöds |Stöds inte än |

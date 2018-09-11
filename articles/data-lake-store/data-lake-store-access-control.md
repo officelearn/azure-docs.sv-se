@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: ca1ea5fb95ba1c49b5c1e3660c598e8f1443b43c
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 8680a8fa9c460983b88aa4845adcbe72d3a43abf
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666275"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325523"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Åtkomstkontroll i Azure Data Lake Storage Gen1
 
@@ -121,19 +121,7 @@ Nedan följer några vanliga scenarier för att förstå vilka behörigheter som
 * För att mappen ska iterera behöver anroparen **Läs + kör**-behörigheter.
 * För alla överordnade mappar behöver anroparen **Kör**-behörigheter.
 
-## <a name="viewing-permissions-in-the-azure-portal"></a>Visa behörigheter i Azure-portalen
 
-Från den **Datautforskaren** bladet i Data Lake Storage Gen1-kontot, klickar du på **åtkomst** att se ACL: er för filen eller mappen som visas i Datautforskaren. Klicka på **Åtkomst** för att se ACL:er för mappen **katalog** under kontot **mydatastore**.
-
-![Data Lake Storage Gen1 ACL: er](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
-
-Överst på det här bladet visas ägarens behörigheter. (På skärmbilden är den ägande användaren Bob.) Efter det så visas de tilldelade åtkomst-ACL:erna. 
-
-![Data Lake Storage Gen1 ACL: er](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
-
-Klicka på **Avancerad vy** om du vill se en mer avancerad vy där standard-ACL:er, mask och en beskrivning av superanvändare visas.  Det här bladet ger också ett sätt att rekursivt ange åtkomst- och standard-ACL:er för underordnade filer och mappar baserat på behörigheterna i den aktuella mappen.
-
-![Data Lake Storage Gen1 ACL: er](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
 ## <a name="the-super-user"></a>Superanvändaren
 
@@ -227,30 +215,27 @@ def access_check( user, desired_perms, path ) :
   return ( (desired_perms & perms & mask ) == desired_perms)
 ```
 
-## <a name="the-mask-and-effective-permissions"></a>Mask och "gällande behörigheter"
+## <a name="the-mask"></a>Masken
 
-**Mask** är ett RWX-värde som används för att begränsa åtkomsten för **namngivna användare**, **ägande grupp** och **namngivna grupper** när du utför algoritmen för åtkomstkontroll. Här följer nyckelbegreppen för masken.
-
-* Masken skapar "gällande behörigheter" D.v.s. den modifierar behörigheterna vid tidpunkten för åtkomstkontroll.
-* Masken kan redigeras direkt av filens ägare och alla superanvändare.
-* Masken kan ta bort behörigheter för att skapa den gällande behörigheten. Masken *kan inte* lägga till behörigheter till den gällande behörigheten.
-
-Låt oss titta på några exempel. Nedan är masken inställd på **RWX**, vilket innebär att masken inte tar bort några behörigheter. De gällande behörigheterna för den namngivna användaren, ägande gruppen och namngivna gruppen ändras inte under åtkomstkontrollen.
-
-![Data Lake Storage Gen1 ACL: er](./media/data-lake-store-access-control/data-lake-store-acls-mask-1.png)
-
-I exemplet nedan anges masken till **R-X**. Så den **inaktiverar skrivbehörighet** för **namngiven användare**, **ägande grupp** och **namngiven grupp** vid tidpunkten för åtkomstkontroll.
-
-![Data Lake Storage Gen1 ACL: er](./media/data-lake-store-access-control/data-lake-store-acls-mask-2.png)
-
-Som referens är det här masken för en fil eller mapp visas i Azure-portalen.
-
-![Data Lake Storage Gen1 ACL: er](./media/data-lake-store-access-control/data-lake-store-show-acls-mask-view.png)
+Enligt beskrivningen i algoritmen Kontrollera åtkomst, masken begränsar åtkomst för **namngivna användare**, **ägande grupp**, och **namngivna grupper**.  
 
 > [!NOTE]
 > För ett nytt Data Lake Storage Gen1-konto får masken för åtkomst-ACL för rotmappen (”/”) som standard RWX.
 >
 >
+
+### <a name="the-sticky-bit"></a>Sticky bit
+
+Sticky bit är en mer avancerad funktion i ett POSIX-filsystem. I samband med Data Lake Storage Gen1 är det troligt att sticky bit kommer att behövas.
+
+I följande tabell visar hur sticky bit fungerar i Data Lake Storage Gen1.
+
+| Användargrupp         | Fil    | Mapp |
+|--------------------|---------|-------------------------|
+| Sticky bit **AV** | Ingen effekt   | Ingen effekt.           |
+| Sticky bit **PÅ**  | Ingen effekt   | Förhindrar alla utom **superanvändare** och **ägande användare** av ett underordnat objekt från att ta bort eller byta namn på det underordnade objektet.               |
+
+Sticky bit visas inte i Azure-portalen.
 
 ## <a name="permissions-on-new-files-and-folders"></a>Behörigheter för nya filer och mappar
 
@@ -278,34 +263,37 @@ När en underordnad mapp skapas under en överordnad mapp, kopieras den överord
 
 Här följer lite avancerad information som hjälper dig att förstå hur ACL: er bestäms för Data Lake Storage Gen1 filer eller mappar.
 
-### <a name="umasks-role-in-creating-the-access-acl-for-new-files-and-folders"></a>Umasks roll är att skapa åtkomst-ACL för nya filer och mappar
+### <a name="umask"></a>umask
 
-I ett POSIX-kompatibelt system är allmänna begrepp som umask ett 9-bitars värde för den överordnade mappen som används för att omvandla behörigheten för **ägande användare**, **ägande grupp** och **andra** på en ny underordnad fils eller mapps åtkomst-ACL. En umasks bitar identifierar vilka bitar som ska inaktiveras i det underordnade objektets åtkomst-ACL. Den används därför för att selektivt förhindra spridning av behörigheter för **ägande användare**, **ägande grupp** och **övriga**.
+När du skapar en fil eller mapp, används umask för att ändra hur standard-ACL: er är inställda på det underordnade objektet. umask är ett 9-bitars ett 9-bitars värde för överordnade mappar som innehåller ett RWX-värde för **ägande användare**, **ägande grupp**, och **andra**.
 
-I ett HDFS-system är umask vanligtvis ett konfigurationsalternativ för hela platsen som styrs av administratörer. Data Lake Storage Gen1 använder en **umask för konto** som inte kan ändras. I följande tabell visas umask för Data Lake Storage Gen1.
+Umask för Azure Data Lake Storage Gen1 en konstant värde som är inställt på 007. Det här värdet motsvarar
 
-| Användargrupp  | Inställning | Effekt av nytt underordnade objekts åtkomst-ACL |
-|------------ |---------|---------------------------------------|
-| Ägande användare | ---     | Ingen effekt                             |
-| Ägande grupp| ---     | Ingen effekt                             |
-| Annat       | RWX     | Ta bort läsa + skriva + köra         |
+* umask.owning_user = 0 #---
+* umask.owning_group = 0 #---
+* umask.Other = 7 # RWX
 
-Följande bild visar denna umask när den är aktiv. Nettoeffekten är att ta bort **läsa + skriva + köra** för **andra** användare. Eftersom umask inte har angett bitar för **ägande användare** och **ägande grupp**, omvandlas inte dessa behörigheter.
+Umask värdet innebär ett effektivt sätt att värdet för andra aldrig skickas som standard på nya underordnade - oavsett vad som anger standard-ACL. 
 
-![Data Lake Storage Gen1 ACL: er](./media/data-lake-store-access-control/data-lake-store-acls-umask.png)
+Följande psuedocode visar hur umask används när du skapar ACL: er för ett underordnat objekt.
 
-### <a name="the-sticky-bit"></a>Sticky bit
+```
+def set_default_acls_for_new_child(parent, child):
+    child.acls = []
+    foreach entry in parent.acls :
+        new_entry = None
+        if (entry.type == OWNING_USER) :
+            new_entry = entry.clone(perms = entry.perms & (~umask.owning_user))
+        elif (entry.type == OWNING_GROUP) :
+            new_entry = entry.clone(perms = entry.perms & (~umask.owning_group))
+        elif (entry.type == OTHER) :
+            new_entry = entry.clone(perms = entry.perms & (~umask.other))
+        else :
+            new_entry = entry.clone(perms = entry.perms )
+        child_acls.add( new_entry )
+```
 
-Sticky bit är en mer avancerad funktion i ett POSIX-filsystem. I samband med Data Lake Storage Gen1 är det troligt att sticky bit kommer att behövas.
 
-I följande tabell visar hur sticky bit fungerar i Data Lake Storage Gen1.
-
-| Användargrupp         | Fil    | Mapp |
-|--------------------|---------|-------------------------|
-| Sticky bit **AV** | Ingen effekt   | Ingen effekt.           |
-| Sticky bit **PÅ**  | Ingen effekt   | Förhindrar alla utom **superanvändare** och **ägande användare** av ett underordnat objekt från att ta bort eller byta namn på det underordnade objektet.               |
-
-Sticky bit visas inte i Azure-portalen.
 
 ## <a name="common-questions-about-acls-in-data-lake-storage-gen1"></a>Vanliga frågor om ACL: er i Data Lake Storage Gen1
 
@@ -348,15 +336,6 @@ En GUID visas när användaren inte finns i Azure AD längre. Detta inträffar v
 ### <a name="does-data-lake-storage-gen1-support-inheritance-of-acls"></a>Stöder Data Lake Storage Gen1 arv av ACL: er?
 
 Nej, men standard-ACL:er kan användas för att ange ACL:er för underordnade filer och mappar som nyligen skapats under den överordnade mappen.  
-
-### <a name="what-is-the-difference-between-mask-and-umask"></a>Vad är skillnaden mellan mask och umask?
-
-| mask | umask|
-|------|------|
-| Egenskapen **mask** är tillgänglig på varje fil och mapp. | Den **umask** är en egenskap för Data Lake Storage Gen1-konto. Så finns det bara en enda umask i Data Lake Storage Gen1.    |
-| Maskegenskapen på en fil eller mapp kan ändras av ägande användare eller ägande grupp för en fil eller en superanvändare. | Umask-egenskapen kan inte ändras av någon användare, inte ens en superanvändare. Det är ett konstant värde som inte ändras.|
-| Maskegenskapen används under algoritmen för åtkomstkontroll vid körning för att avgöra om en användare har behörighet att utföra åtgärden på en fil eller mapp. Maskrollen är att skapa "gällande behörigheter" vid tidpunkten för åtkomstkontroll. | Umask används inte vid åtkomstkontroll alls. Umask används för att bestämma åtkomst-ACL för de nya underordnade objekten i en mapp. |
-| Masken är ett 3-bitars RWX-värde som gäller för en namngiven användare, ägande grupp och namngiven grupp vid tidpunkten för åtkomstkontroll.| Umask är ett 9-bitarsvärde som gäller för ägande användare, ägande grupper och **övriga** för ett nytt underordnat objekt.|
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Var hittar jag mer information om POSIX-modellen för åtkomstkontroll?
 

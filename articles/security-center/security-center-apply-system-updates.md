@@ -1,6 +1,6 @@
 ---
-title: Tillämpa uppdateringar i Azure Security Center | Microsoft Docs
-description: Det här dokumentet beskrivs hur du implementerar Azure Security Center-rekommendationerna ** gäller system uppdateringar ** och ** startas om efter system uppdateringar **.
+title: Tillämpa systemuppdateringar i Azure Security Center | Microsoft Docs
+description: Det här dokumentet visar hur du implementerar Azure Security Center-rekommendationer **tillämpa systemuppdateringar** och **starta om efter systemuppdateringar**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -9,75 +9,75 @@ editor: ''
 ms.assetid: e5bd7f55-38fd-4ebb-84ab-32bd60e9fa7a
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: terrylan
-ms.openlocfilehash: 9f7924f3f0975dc32fdf5b8e1b89a1fb8e9b7d57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5f6747629139e85f1ae50364da807636937a464a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23866431"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301940"
 ---
-# <a name="apply-system-updates-in-azure-security-center"></a>Tillämpa uppdateringar i Azure Security Center
-Azure Security Center övervakar dagliga Windows och Linux virtuella datorer (VM) och datorer efter saknade uppdateringar av operativsystemet. Security Center hämtar en lista med tillgängliga säkerhetsuppdateringar och viktiga uppdateringar från Windows Update eller Windows Server Update Services (WSUS), beroende på vilken tjänsten har konfigurerats på en Windows-dator. Säkerhetscenter kontrollerar också efter de senaste uppdateringarna i Linux-system. Om din dator eller VM saknas för en uppdatering av system, kommer Security Center rekommenderar att du installerar uppdateringar.
+# <a name="apply-system-updates-in-azure-security-center"></a>Tillämpa systemuppdateringar i Azure Security Center
+Azure Security Center övervakar dagliga Windows och Linux-datorer (VM) och datorer efter saknade uppdateringar av operativsystemet. Security Center hämtar en lista med tillgängliga säkerhetsuppdateringar och viktiga uppdateringar från Windows Update eller Windows Server Update Services (WSUS), beroende på vilken tjänst som har konfigurerats på en Windows-dator. Security Center söker också efter de senaste uppdateringarna i Linux-system. Om en virtuell dator eller en dator saknar en systemuppdatering, rekommenderar Security Center att du tillämpar systemuppdateringar.
 
 ## <a name="implement-the-recommendation"></a>Implementera rekommendationen
-Tillämpa system uppdateringar visas som en rekommendation i Security Center. Om din dator eller VM saknas för en uppdatering av system, visas den här rekommendationen **rekommendationer** och under **Compute**.  Markerar rekommendationen öppnas den **gäller systemuppdateringar** instrumentpanelen.
+Tillämpa system uppdateringar visas som en rekommendation i Security Center. Om en virtuell dator eller en dator saknar en systemuppdatering, den här rekommendationen visas under **rekommendationer** och under **Compute**.  Om du väljer rekommendationen öppnas den **tillämpa systemuppdateringar** instrumentpanelen.
 
 I det här exemplet ska vi använda **Compute**.
 
-1. Välj **Compute** under huvudmenyn Security Center.
+1. Välj **Compute** huvudmenyn i Security Center.
 
-   ![Välj beräkning][1]
+   ![Välj Compute][1]
 
-2. Under **Compute**väljer **saknas systemuppdateringar**. Den **gäller systemuppdateringar** instrumentpanelen öppnas.
+2. Under **Compute**väljer **systemuppdateringar**. Den **tillämpa systemuppdateringar** instrumentpanelen öppnas.
 
    ![Tillämpa uppdateringar instrumentpanel för systemet][2]
 
-   Överst i instrumentpanelen innehåller:
+   Överst på instrumentpanelen ger:
 
-    - Det totala antalet Windows och Linux virtuella datorer och datorer som saknar uppdateringar.
-    - Det totala antalet viktiga uppdateringar som saknas i dina virtuella datorer och datorer.
+    - Det totala antalet Windows och Linux-datorer och datorer som saknar systemuppdateringar.
+    - Det totala antalet kritiska uppdateringar som saknas i dina virtuella datorer och datorer.
     - Det totala antalet säkerhetsuppdateringar som saknas i dina virtuella datorer och datorer.
 
-  Längst ned på instrumentpanelen visar en lista över alla saknade uppdateringar för dina virtuella datorer och datorer och hur allvarligt klassas.  Listan innehåller:
+  Längst ned på instrumentpanelen visar en lista över alla saknade uppdateringar för dina virtuella datorer och datorer och allvarlighetsgraden för saknad uppdatering.  Listan innehåller:
 
-    - NAME: Namnet på saknad uppdatering.
-    - NEJ. FÖR virtuella datorer och datorer: Totalt antal virtuella datorer och datorer som saknar den här uppdateringen.
+    - NAME: Namnet på uppdateringen som saknas.
+    - NEJ. VM: ar och datorer: Totalt antal virtuella datorer och datorer som saknar denna uppdatering.
     - TILLSTÅND: Det aktuella tillståndet för rekommendationen:
 
       - Öppna: Rekommendationen har inte utförts än.
-      - Pågår: Rekommendationen är för tillfället används resurserna och ingen åtgärd krävs av dig.
-      - Matcha: Rekommendationen har redan slutförts. (När problemet har lösts, inaktiveras posten).
+      - Pågår: Rekommendationen håller på att utföras och ingen åtgärd krävs av dig.
+      - Löst: Rekommendationen har redan slutförts. (När problemet har lösts, inaktiveras posten).
 
-    - ALLVARLIGHETSGRAD: Här visas hur viktig rekommendationen:
+    - ALLVARLIGHETSGRAD: Visas hur viktig rekommendationen:
 
-      - Hög: Ett säkerhetsproblem finns i en viktig resurs (program, virtuell dator eller nätverkssäkerhetsgrupp) som måste åtgärdas.
-      - Medel: Icke-kritiska eller ytterligare steg krävs för att slutföra en process eller åtgärda en säkerhetsrisk.
-      - Låg: En säkerhetsrisk bör åtgärdas men kräver inte omedelbara uppmärksamhet. (Rekommendationer med låg allvarlighetsgrad visas normalt inte, men du kan filtrera fram dem om du vill se dem.)
+      - Hög: En säkerhetsrisk finns en viktig resurs (program, virtuell dator eller nätverkssäkerhetsgrupp) som måste åtgärdas.
+      - Medel: Icke-kritiska eller ytterligare åtgärder krävs för att slutföra en process eller åtgärda en säkerhetsrisk.
+      - Låg: En säkerhetsrisk bör åtgärdas, men kräver inte omedelbar åtgärd. (Rekommendationer med låg allvarlighetsgrad visas normalt inte, men du kan filtrera fram dem om du vill se dem.)
 
-3. Välj en saknad uppdatering i listan för att visa information.
+3. Välj en saknad uppdatering i listan om du vill visa information.
 
-   ![Saknad uppdatering][3]
+   ![Saknade säkerhetsuppdateringen][3]
 
-4. Välj den **Sök** ikon på menyfliken översta.  En sökfråga logganalys öppnas filtrerade till datorer som saknar uppdateringen.
+4. Välj den **Search** ikonen i menyfliksområdet längst upp.  En sökfråga för Log Analytics öppnas filtrerade till de datorer som saknar uppdateringen.
 
-   ![Logganalys Sök][4]
+   ![Log Analytics-sökningen][4]
 
-5. Välj en dator i listan för mer information. En annan sökresultatet öppnas med information som filtrerad endast för den datorn.
+5. Välj en dator i listan för mer information. En annan sökresultat öppnas med information som filtrerad endast för den datorn.
 
-    ![Logganalys Sök][5]
+    ![Log Analytics-sökningen][5]
 
 ## <a name="reboot-after-system-updates"></a>Starta om datorn efter uppdateringarna
-1. Gå tillbaka till den **rekommendationer** bladet. En ny post skapades när du använt systemuppdateringar kallas **startas om efter systemuppdateringar**. Den här posten kan du vet att du måste starta om den virtuella datorn för att slutföra processen att tillämpa uppdateringar.
+1. Gå tillbaka till den **rekommendationer** bladet. En ny post genererades när du har tillämpat systemuppdateringar, kallas **starta om efter systemuppdateringar**. Den här posten kan du vet att du behöver starta om den virtuella datorn för att slutföra processen med att tillämpa uppdateringar.
 
    ![Starta om datorn efter uppdateringarna][6]
-2. Välj **startas om efter systemuppdateringar**. Då öppnas **väntar en omstart för att slutföra systemuppdateringar** bladet visas en lista över virtuella datorer som du måste starta om för att slutföra systemets tillämpa uppdateringar processen.
+2. Välj **starta om efter systemuppdateringar**. Då öppnas **väntar en omstart för att slutföra systemuppdateringar** bladet som visar en lista över virtuella datorer som du måste starta om för att slutföra tillämpa systemet uppdaterar processen.
 
-   ![Väntande omstart][7]
+   ![Väntar på omstart][7]
 
 Starta om den virtuella datorn från Azure för att slutföra processen.
 
@@ -85,12 +85,12 @@ Starta om den virtuella datorn från Azure för att slutföra processen.
 I följande avsnitt kan du lära dig mer om Security Center:
 
 * [Ange säkerhetsprinciper i Azure Security Center](security-center-policies.md) – Här får du lära dig hur du ställer in säkerhetsprinciper för prenumerationer och resursgrupper i Azure.
-* [Hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md) – Lär dig rekommendationer för att skydda dina Azure-resurser.
+* [Hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md) – Lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md) – Lär dig att övervaka hälsotillståndet hos dina Azure-resurser.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Här får du lära dig hur du övervakar dina partnerlösningars hälsostatus.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
-* [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) --hittar du blogginlägg om säkerhet och Azure kompatibilitet.
+* [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) --hittar du blogginlägg om Azure-säkerhet och regelefterlevnad.
 
 <!--Image references-->
 [1]: ./media/security-center-apply-system-updates/missing-system-updates.png

@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 98dc33cc961c5c90fc3f6737a1cc470d4a753fd0
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c731fd78ed7052697b3a5bd7c4da3a743e5a208d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048765"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299621"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Använd en U-SQL database-projekt för att utveckla en U-SQL-databas för Azure Data Lake
 
@@ -57,7 +57,7 @@ Verktyget ger en användarvänliga UI-redigerare som hjälper dig att registrera
 
 Skapa utdata för ett projekt för U-SQL-databas är ett U-SQL-databas distributionspaket, med namnet med suffixet `.usqldbpack`. Den `.usqldbpack` paketet är en .zip-fil som innehåller alla DDL-instruktionerna i ett enda U-SQL-skript i den **DDL** mappen och alla DLL: er och ytterligare filer för sammansättningar i den **Temp** mapp.
 
-Läs mer om [hur du skapar ett projekt med U-SQL-databas med MSBuild kommandoraden och en Visual Studio Team Services Skapa uppgift](data-lake-analytics-cicd-overview.md).
+Läs mer om [hur du skapar ett projekt med U-SQL-databas med MSBuild kommandoraden och en Azure-tjänster för DevOps Skapa uppgift](data-lake-analytics-cicd-overview.md).
 
 ## <a name="deploy-a-u-sql-database"></a>Distribuera en U-SQL-databas
 
@@ -94,7 +94,7 @@ Du kan distribuera en U-SQL-databas via ett projekt för U-SQL-databas eller en 
 
 `PackageDeploymentTool.exe` innehåller programmering och kommandoradsverktyget gränssnitt som hjälper dig för att distribuera U-SQL-databaser. SDK: N som ingår i den [U-SQL SDK Nuget-paketet](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), som finns i `build/runtime/PackageDeploymentTool.exe`.
 
-[Mer information om SDK och hur du ställer in CI/CD-pipeline för U-SQL-databasdistribution](data-lake-analytics-cicd-overview.md#deploy-u-sql-database-through-visual-studio-team-service).
+[Mer information om SDK och hur du ställer in CI/CD-pipeline för U-SQL-databasdistribution](data-lake-analytics-cicd-overview.md#deploy-u-sql-database-through-azure-devops).
 
 ## <a name="reference-a-u-sql-database-project"></a>Referera till ett projekt för U-SQL-databas
 

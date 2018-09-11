@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6055dbab85acb1e5fed9679a5072144bc84712c
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: f58c156019048a4e6b08267bf28325857ec69b3a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917131"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302217"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Överföra ägarskapet för en Azure-prenumeration till ett annat konto
 
@@ -33,7 +33,7 @@ ms.locfileid: "42917131"
 > Om du överför en prenumeration på en ny Azure AD-klient, alla rolltilldelningar i [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md) tas bort permanent från käll-klient och migreras inte till Målklienten.
 
 > [!div class="nextstepaction"]
-> [Hjälp oss att förbättra Azure fakturering docs](https://go.microsoft.com/fwlink/p/?linkid=2010091)
+> [Hjälp till att förbättra faktureringsdokument för Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Överföra ägarskapet för en Azure-prenumeration
 
@@ -77,7 +77,7 @@ Enterprise-administratör kan överföra ägarskapet för prenumerationer i en r
 
 ## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Nästa steg efter att du godkänt ägarskapet för prenumerationen
 
-1. Du är nu kontoadministratör Granska och uppdatera tjänstadministratören och Medadministratörer andra RBAC-roller. Mer information finns i [Lägg till eller ändra Azure-administratörsroller som hanterar prenumerationen eller tjänsterna](billing-add-change-azure-subscription-administrator.md).
+1. Du är nu kontoadministratör Granska och uppdatera tjänstadministratören och Medadministratörer andra RBAC-roller. Mer information finns i [Lägg till eller ändra Azure-prenumerationsadministratörer](billing-add-change-azure-subscription-administrator.md) och [hantera åtkomst med RBAC och Azure portal](../role-based-access-control/role-assignments-portal.md).
 1. Uppdatera autentiseringsuppgifter som är associerade med den här prenumerationens tjänster, inklusive:
    1. Av hanteringscertifikat som och ger användaren administratörsbehörighet till prenumerationsresurser. Mer information finns i [skapa och ladda upp ett certifikat för Azure](../cloud-services/cloud-services-certs-create.md)
    1. Snabbtangenter för tjänster som lagring. Mer information finns i [om Azure storage-konton](../storage/common/storage-create-storage-account.md)

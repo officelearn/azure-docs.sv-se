@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: 7d200cfa6a529c33555a18cd6598183fedbfd2fc
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: ea9c9d773cb863c6ee2b052fcbd097275f00fc87
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818281"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300995"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Azure-säkerhet och efterlevnad skissen - PaaS webbprogram för Australien SKYDDAS
 
@@ -42,7 +42,7 @@ Alla Azure-resurser i den här lösningen som hanteras som en resursgrupp i Azur
 
 Den här lösningen använder följande Azure-tjänster. Mer information finns i den [distributionsarkitektur](#deployment-architecture) avsnittet.
 
-- Programgateway
+- Application Gateway
     - Brandvägg för webbaserade program
         - Brandväggsläge: dataförlustskydd
         - Regeluppsättning: OWASP
@@ -58,8 +58,8 @@ Den här lösningen använder följande Azure-tjänster. Mer information finns i
 - Azure Resource Manager
 - Azure Security Center
 - Azure SQL Database
-- Azure-lagring
-- Azure Logganalys
+- Azure Storage
+- Azure Log Analytics
 - Azure Virtual Network
     - (1) /16 nätverk
     - (4) /24 nätverk
@@ -101,7 +101,7 @@ Användning av App Service-miljöer för den här arkitekturen tillåta följand
 - [Brandvägg för webbaserade program – begränsa data](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
 - Tillåt [Azure SQL Database-trafik](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview)
 
-**Azure Web App**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) ger kunder möjlighet att bygga och agera värd för webbprogram i programmeringsspråket helst utan att behöva hantera infrastrukturen. Azure Web Apps tillhandahåller automatisk skalning och hög tillgänglighet, har stöd för både Windows och Linux och möjliggör automatiska distributioner från GitHub, Visual Studio Team Services eller valfri Git-lagringsplats.
+**Azure Web App**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) ger kunder möjlighet att bygga och agera värd för webbprogram i programmeringsspråket helst utan att behöva hantera infrastrukturen. Den tillhandahåller automatisk skalning och hög tillgänglighet, har stöd för både Windows och Linux och möjliggör automatiska distributioner från GitHub, Azure DevOps-tjänsterna eller valfri Git-lagringsplats.
 
 ### <a name="virtual-network"></a>Virtual Network
 Arkitekturen definierar ett privat virtuellt nätverk med ett adressutrymme för 10.200.0.0/16.
@@ -202,7 +202,7 @@ Följande Log Analytics [hanteringslösningar](https://docs.microsoft.com/azure/
 
 **Azure Monitor**: [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) hjälper användare att spåra prestanda, upprätthålla säkerhet och identifiera trender genom att organisationer kan granska, skapa aviseringar och arkivera data, inklusive spårning API-anrop i sina Azure resurser.
 
-Azure Network Watcher: [Azure Network Watcher] 9https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview) innehåller verktyg för att övervaka, diagnostisera, visa mått, och aktivera eller inaktivera loggar för resurser i Azure-nätverk.  Samväldet entiteter bör implementera Network Watcher flödesloggar för NSG: er och virtuella datorer. Dessa loggar bör lagras på en dedikerad lagringskonto som endast säkerhetsloggar lagras i och åtkomst till storage-konto bör skyddas med rollen baserade åtkomstkontroller.
+Azure Network Watcher: [Azure Network Watcher] 9 https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview) innehåller verktyg för att övervaka, diagnostisera, visa mått, och aktivera eller inaktivera loggar för resurser i Azure-nätverk.  Samväldet entiteter bör implementera Network Watcher flödesloggar för NSG: er och virtuella datorer. Dessa loggar bör lagras på en dedikerad lagringskonto som endast säkerhetsloggar lagras i och åtkomst till storage-konto bör skyddas med rollen baserade åtkomstkontroller.
 
 ## <a name="threat-model"></a>Hotmodell
 

@@ -16,12 +16,12 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 58108bd2851050e96df1b5453ce96856374b7163
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: bd75ecde75d0f22dc66f047cd063dd85807f6f33
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437043"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304449"
 ---
 # <a name="manage-access-for-external-users-using-rbac"></a>Hantera åtkomst för externa användare med RBAC
 
@@ -42,7 +42,7 @@ Det finns två vanliga exempel när RBAC används (men inte begränsat till):
 RBAC-roller som kan beviljas endast av **ägare** för prenumerationen. Därför kan måste administratören vara inloggad som en användare som har den här rollen tilldelas i förväg eller har skapats i Azure-prenumeration.
 
 Azure-portalen när du har loggat in som administratör, Välj ”prenumerationer” och välj den du vill använda.
-![prenumerationsbladet i Azure-portalen](./media/role-assignments-external-users/0.png) som standard om administratören har köpt Azure-prenumerationen för användaren visas som **kontoadministratören**, detta är rollen prenumeration. Läs mer om Azure-prenumeration roller [Lägg till eller ändra Azure-administratörsroller som hanterar prenumerationen eller tjänsterna](../billing/billing-add-change-azure-subscription-administrator.md).
+![prenumerationsbladet i Azure-portalen](./media/role-assignments-external-users/0.png) som standard om administratören har köpt Azure-prenumerationen för användaren visas som **kontoadministratören**, detta är rollen prenumeration. Läs mer om Azure-prenumeration roller [Lägg till eller ändra Azure-prenumerationsadministratörer](../billing/billing-add-change-azure-subscription-administrator.md).
 
 I det här exemplet är användaren ”alflanigan@outlook.com” är den **ägare** av ”kostnadsfri utvärdering” prenumerationen i AAD-klient ”standard klient Azure”. Eftersom den här användaren är skapare av Azure-prenumeration med inledande Account ”Outlook” (Account = Outlook, Live osv) standarddomännamnet för alla andra användare som har lagts till i den här klienten kommer att **”\@ alflaniganuoutlook.onmicrosoft.com ”**. Avsiktligt bildas syntaxen för den nya domänen genom att sätta ihop användarnamn och namnet på användaren som skapade klienten och att lägga till tillägget **”. onmicrosoft.com”**.
 Dessutom kan användare logga in med ett anpassat domännamn i klienten efter att lägga till och verifierar den för den nya innehavaren. Mer information om hur du verifierar ett anpassat domännamn i Azure Active Directory-klient finns i [lägga till ett anpassat domännamn i katalogen](/active-directory/active-directory-add-domain).

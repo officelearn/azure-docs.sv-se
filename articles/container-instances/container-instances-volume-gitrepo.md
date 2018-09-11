@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: marsma
-ms.openlocfilehash: 34036c5ec9ccd8c502104ce862e4749c59be62b9
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 86d85f9f84b8d3ae3c31ff59089ce264d5e3192e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43112979"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304347"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Montera en gitRepo volym i Azure Container Instances
 
@@ -90,17 +90,17 @@ Till exempel Azure CLI `--gitrepo-url` parameter för en privat GitHub-lagringsp
 --gitrepo-url https://gituser:abcdef1234fdsa4321abcdef@github.com/GitUser/some-private-repository
 ```
 
-Ange ett användarnamn (du kan använda ”vstsuser” som i följande exempel) i kombination med en giltig PAT för VSTS Git-lagringsplats:
+Ange ett användarnamn (du kan använda ”azuredevopsuser” som i följande exempel) i kombination med en giltig PAT för en Azure DevOps Git-lagringsplatsen:
 
 ```azurecli
---gitrepo-url https://vstsuser:abcdef1234fdsa4321abcdef@vstsaccountname.visualstudio.com/_git/some-private-repository
+--gitrepo-url https://azuredevopsuser:abcdef1234fdsa4321abcdef@azuredevopsorganizationname.visualstudio.com/_git/some-private-repository
 ```
 
-Mer information om personlig åtkomsttoken för GitHub och VSTS finns följande:
+Mer information om personlig åtkomsttoken för GitHub och Azure DevOps, finns följande:
 
 GitHub: [skapar en personlig åtkomsttoken för kommandoraden][pat-github]
 
-VSTS: [skapa personliga åtkomsttoken för att autentisera åtkomst][pat-vsts]
+Azure DevOps: [skapa personliga åtkomsttoken för att autentisera åtkomst][pat-vsts]
 
 ## <a name="next-steps"></a>Nästa steg
 

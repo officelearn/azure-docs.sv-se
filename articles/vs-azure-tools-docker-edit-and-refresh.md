@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/22/2016
 ms.author: mlearned
-ms.openlocfilehash: 01741ba25ac3a6ab187a08636b7e26ee58dbee90
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 07a7c1e11d8ca20ff4f42abcb84961cb7cd9e0e1
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054756"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298224"
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>Felsök appar i en lokal Docker-container
 ## <a name="overview"></a>Översikt
@@ -96,7 +96,7 @@ Du kan hämta produktivitet arbeta lokalt, med produktion mer i att utveckla i e
 [Felsökning av Visual Studio Docker-utveckling](vs-azure-tools-docker-troubleshooting-docker-errors.md)
 
 ## <a name="more-about-docker-with-visual-studio-windows-and-azure"></a>Mer om Docker med Visual Studio, Windows och Azure
-* [Docker-verktyg för Visual Studio Team Services](http://aka.ms/dockertoolsforvsts) – skapa och distribuera docker-behållare
+* [Docker-verktyg för Azure DevOps](http://aka.ms/dockertoolsforvsts) – skapa och distribuera docker-behållare
 * [Docker-verktyg för Visual Studio Code](http://aka.ms/dockertoolsforvscode) -språktjänster för redigering av dockerfiler med flera e2e scenarier kommer
 * [Windows-behållare Information](http://aka.ms/containers)-information om Windows Server och Nano Server
 * [Azure Container Service](https://azure.microsoft.com/services/container-service/) - [Azure Container Service-innehåll](http://aka.ms/AzureContainerService)

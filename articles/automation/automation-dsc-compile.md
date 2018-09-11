@@ -6,21 +6,21 @@ ms.service: automation
 ms.component: dsc
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/08/2018
+ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 03b22e3a4c2c0b8eb87ee0b61edba3c6f0923170
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: a78d2b0b2fa0b1968e6804fdfd5f2f325ed11bfb
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443823"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347621"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Kompilera DSC-konfigurationer i Azure Automation State Configuration
 
 Du kan sammanställa Desired State Configuration (DSC) konfigurationer på två sätt med Azure Automation-Tillståndskonfiguration: i Azure-portalen och med Windows PowerShell. Tabellen nedan hjälper dig att avgöra när du ska använda vilken metod baserat på egenskaperna för var och en:
 
-**Azure-portalen**
+**Azure Portal**
 
 - Enklaste metoden med interaktivt användargränssnitt
 - Formulär med enkla parametervärden
@@ -235,7 +235,7 @@ Referenser för tillgången är desamma i Azure Automation-Tillståndskonfigurat
 
 ### <a name="credential-assets"></a>Inloggningstillgångar
 
-DSC-konfigurationer i Azure Automation kan referera till inloggningstillgångar i Automation med hjälp av `Get-AzureRmAutomationCredential`. Om en konfiguration har en parameter som har en **PSCredential** skriver, kan du använda den `Get-AutomationRmAutomationCredential` cmdlet genom att skicka sträng namnet på en Azure Automation-autentiseringsuppgiftstillgång till cmdlet för att hämta autentiseringsuppgifterna. Du kan sedan använda objektet för parametern att kräva den **PSCredential** objekt. I bakgrunden är Azure Automation-autentiseringsuppgiftstillgång med det namnet hämtas och skickas till konfigurationen. Exemplet nedan visar detta fungerar i praktiken.
+DSC-konfigurationer i Azure Automation kan referera till inloggningstillgångar i Automation med hjälp av den `Get-AutomationPSCredential` cmdlet. Om en konfiguration har en parameter som har en **PSCredential** skriver, kan du använda den `Get-AutomationPSCredential` cmdlet genom att skicka sträng namnet på en Azure Automation-autentiseringsuppgiftstillgång till cmdlet för att hämta autentiseringsuppgifterna. Du kan sedan använda objektet för parametern att kräva den **PSCredential** objekt. I bakgrunden är Azure Automation-autentiseringsuppgiftstillgång med det namnet hämtas och skickas till konfigurationen. Exemplet nedan visar detta fungerar i praktiken.
 
 Att hålla autentiseringsuppgifter kräver säker nodkonfigurationer (MOF configuration dokument) kryptering av autentiseringsuppgifter i noden configuration MOF-filen. Men tala för närvarande du om för PowerShell DSC det är okej om autentiseringsuppgifter för att vara för utdata i klartext under noden configuration MOF-generering, eftersom PowerShell DSC inte vet att Azure Automation kommer att kryptera hela MOF-filen efter dess generering via en Kompileringsjobb.
 

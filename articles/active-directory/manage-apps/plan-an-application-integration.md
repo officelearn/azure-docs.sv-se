@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: e90ffa0a7b5eb9e622a666fdcfa956763abd7633
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: d52ec316f9f5540d4d0d0fe0bc4e4bf778e1daf7
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162809"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345457"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Integrera Azure Active Directory med komma igång-guide
 
@@ -85,7 +85,7 @@ Om du vill lägga till ditt anpassade program till Azure-Programgalleriet [”ta
 I följande artiklar beskrivs sätt som du kan hantera åtkomst till program när de har integrerats med Azure AD med Azure AD-Anslutningsappar och Azure AD.
 
 * [Hantera åtkomst till appar med hjälp av Azure AD](what-is-access-management.md)
-* [Automatisera med Azure AD-Anslutningsappar](../active-directory-saas-app-provisioning.md)
+* [Automatisera med Azure AD-Anslutningsappar](user-provisioning.md)
 * [Tilldela användare till ett program](../active-directory-applications-guiding-developers-assigning-users.md)
 * [Tilldela grupper till ett program](../active-directory-applications-guiding-developers-assigning-groups.md)
 * [Dela konton](../active-directory-sharing-accounts.md)

@@ -9,22 +9,23 @@ editor: ''
 ms.assetid: ''
 ms.service: security
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/17/2018
+ms.date: 9/10/2018
 ms.author: tomsh
-ms.openlocfilehash: cc922762f84b3a0658d503c4bfa6eb0079173e4e
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: b6953cc45305cf0812b185187c01149f0345756d
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841555"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346075"
 ---
 # <a name="azure-security-white-papers"></a>Azure Security-faktablad
 | | |
 |-|-|
 |[Introduktion&nbsp;till&nbsp;Azure&nbsp;säkerhet](azure-security.md)|Förklarar insamling av säkerhet-säkerhetskontrollerna i Azure från både kunden och Microsoft operations perspektiv. Azure ger en omfattande titt på kundinriktade säkerhetsåtgärder.|
+|[Rekommenderade säkerhetsmetoder för Azure-lösningar](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions)|En uppsättning beprövade metoder för att använda när du utformar, distribuerar och hanterar dina molnlösningar med hjälp av Azure.|
 |[Avancerad hotidentifiering](azure-threat-detection.md)|Guider för dig genom Azure närmar sig mot hot säkerhetsrisk utvärderingar, diagnostik och analys. Beskriver hur Microsoft använder Avancerat identifieringsmetoder för att skydda plattformen. Beskriver också hur Microsoft innehåller dessa mekanismer i offentliga internetuppkopplade funktioner och tjänster.|
 |[Azure data kryptering vid vila](azure-security-encryption-atrest.md)|Fokuserar på hur data är skyddade i vila i Azure och de olika komponenterna som deltar i data protection implementering. Granskar- och nackdelar med olika nyckelhantering protection metoder.|
 |[Loggning och granskning i Azure](azure-log-audit.md)|Ger en introduktion för generera, samla in och analysera säkerhetsloggar från tjänster som finns på Azure. Dessa loggar kan hjälpa dig att få insikt i dina Azure-distributioner säkerheten. |

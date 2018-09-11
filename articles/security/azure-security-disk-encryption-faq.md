@@ -1,24 +1,18 @@
 ---
 title: Azure Disk Encryption vanliga frågor och svar | Microsoft Docs
 description: Den här artikeln innehåller svar på vanliga frågor och svar om Microsoft Azure Disk Encryption för Windows och Linux IaaS-datorer.
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 7188da52-5540-421d-bf45-d124dee74979
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: b93ad4d6d4637b3060d92fb5e17747294c7e6211
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.date: 09/10/2018
+ms.openlocfilehash: 9d1414959ef8eae2277e530e6eca57ec06aaec37
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886000"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345515"
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure Disk Encryption vanliga frågor och svar
 
@@ -30,7 +24,7 @@ Azure Disk Encryption för Windows och Linux IaaS-datorer är allmänt tillgäng
 
 ## <a name="what-user-experiences-are-available-with-azure-disk-encryption"></a>Vilken användare som inträffar är tillgängliga med Azure Disk Encryption?
 
-Azure Disk Encryption GA stöder Azure Resource Manager-mallar, Azure PowerShell och Azure CLI. Flera användarupplevelser ger dig flexibilitet. Du har tre olika alternativ för att aktivera diskkryptering för din virtuella IaaS-datorer. Mer information om användarupplevelsen och stegvisa anvisningar som är tillgängliga i Azure Disk Encryption finns [aktivera Azure Disk Encryption för Windows](azure-security-disk-encryption-windows.md) och [aktivera Azure Disk Encryption för Linux](azure-security-disk-encryption-linux.md).
+Azure Disk Encryption GA stöder Azure Resource Manager-mallar, Azure PowerShell och Azure CLI. Erfarenheterna från olika användare ger dig flexibilitet. Du har tre olika alternativ för att aktivera diskkryptering för din virtuella IaaS-datorer. Mer information om användarupplevelsen och stegvisa anvisningar som är tillgängliga i Azure Disk Encryption finns [aktivera Azure Disk Encryption för Windows](azure-security-disk-encryption-windows.md) och [aktivera Azure Disk Encryption för Linux](azure-security-disk-encryption-linux.md).
 
 ## <a name="how-much-does-azure-disk-encryption-cost"></a>Hur mycket kostar Azure Disk Encryption?
 
@@ -82,7 +76,7 @@ Kom igång genom att läsa den [översikt över Azure Disk Encryption](azure-sec
 
 Ja, du kan kryptera start- och datavolymer för Windows och Linux IaaS-datorer. Du kan inte krypteras data utan att första kryptera operativsystemvolymen för Windows-datorer. Det är möjligt att kryptera datavolymen utan att behöva kryptera operativsystemvolymen först för virtuella Linux-datorer. När du har krypterat operativsystemvolymen för Linux, stöds inaktivering av kryptering på en OS-volym för virtuella Linux IaaS-datorer inte.
 
-## <a name="does-azure-disk-encryption-allow-you-to-bring-your-own-key-byok-capability"></a>Azure Disk Encryption tillåter att du kan ta med din egen nyckel (BYOK)-funktionen?
+## <a name="does-azure-disk-encryption-allow-you-to-bring-your-own-key-byok"></a>Azure Disk Encryption tillåter att du kan använda en egen nyckel (BYOK)?
 
 Ja, kan du ange en egen nyckel krypteringsnycklar. Dessa nycklar skyddas i Azure Key Vault, vilket är nyckelarkivet för Azure Disk Encryption. Mer information om viktiga krypteringsnycklarna stöder scenarier, se [som krävs för Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md).
 
@@ -106,7 +100,7 @@ Det finns förutsättningar för Azure Disk Encryption. Se den [som krävs för 
 Ja. Diskkryptering som använder en Azure AD-app stöds fortfarande. Men när du krypterar nya virtuella datorer rekommenderas att du använder den nya metoden i stället för att kryptera med en Azure AD-app. 
 
 ## <a name="can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app"></a>Kan jag migrera virtuella datorer som krypterats med en Azure AD-app till kryptering utan en Azure AD-app?
-Det finns för närvarande inte en direkt migreringsvägen för datorer som krypterats med en Azure AD-app till kryptering utan en Azure AD-app. Det finns också också inte en direkt sökväg från kryptering utan en Azure AD-app till kryptering med en AD-app. 
+  Det finns inte för närvarande en direkt migreringsvägen för datorer som krypterats med en Azure AD-app till kryptering utan en Azure AD-app. Det finns inte dessutom en direkt sökväg från kryptering utan en Azure AD-app till kryptering med en AD-app. 
 
 ## <a name="what-version-of-azure-powershell-does-azure-disk-encryption-support"></a>Vilken version av Azure PowerShell har stöd för Azure Disk Encryption?
 
@@ -126,9 +120,9 @@ Ja, kan du utföra en uppdatering eller uppdatera en Red Hat Linux-dator. Mer in
 ## <a name="what-is-the-recommended-azure-disk-encryption-workflow-for-linux"></a>Vad är rekommenderade Azure disk encryption-arbetsflöde för Linux?
 
 Följande arbetsflöde bör vara de bästa resultat på Linux:
-* Starta från oförändrad lagerartiklar galleriet bilden som motsvarar det önskade OS-distribution och den version
-* Säkerhetskopiera alla monterade enheter som kommer att krypteras.  Det möjliggör återställning om det uppstår ett fel, till exempel om den virtuella datorn startas om innan kryptering har slutförts.
-* Kryptera (kan ta flera timmar eller t.o.m. dagar beroende på vm-egenskaper och storleken på eventuella anslutna datadiskar)
+* Starta från oförändrad lagerartiklar galleriet bilden som motsvarar de nödvändiga OS-distribution och version
+* Säkerhetskopiera alla monterade enheter som kommer att krypteras.  Det möjliggör tillbaka upp återställning om det uppstår ett fel, till exempel om den virtuella datorn startas om innan kryptering har slutförts.
+* Kryptera (kan ta flera timmar eller t.o.m. dagar beroende på VM-egenskaper och storleken på eventuella anslutna datadiskar)
 * Anpassa och lägga till programvara i avbildningen efter behov.
 
 Om det här arbetsflödet inte är möjligt, förlitar sig på [Lagringstjänstkryptering](../storage/common/storage-service-encryption.md) (SSE) på plattformen storage konto lager kan vara ett alternativ till fullständig diskkryptering med dm-crypt.
@@ -139,12 +133,15 @@ Om det här arbetsflödet inte är möjligt, förlitar sig på [Lagringstjänstk
 > [!NOTE]
 > Ta bort eller inte redigera något innehåll i den här disken. Demontera inte disken eftersom viktiga förekomsten kryptering krävs för krypteringsåtgärder på IaaS-VM.
 
+## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>Om jag använder EncryptFormatAll och anger alla volymtyper av, kommer den att radera data på dataenheter som vi redan har krypterat?
+Nej, inte data raderas från enheter som redan är krypterade med Azure Disk Encryption. Liknande hur EncryptFormatAll inte kryptera operativsystemenheten, den kommer inte att kryptera enheten redan krypterade data. Mer information finns i den [EncryptFormatAll kriterier](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
+
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>Var kan jag få ställa frågor eller lämna feedback?
 
 Du kan ställa frågor eller lämna feedback om den [forum för Azure Disk Encryption](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption).
 
 ## <a name="next-steps"></a>Nästa steg
-I det här dokumentet har du lärt dig mer om de vanligaste frågor som rör Azure Disk Encryption. Mer information om den här tjänsten och dess funktioner finns i följande artiklar:
+I det här dokumentet har du lärt dig mer om de vanligaste frågor som rör Azure Disk Encryption. Mer information om den här tjänsten finns i följande artiklar:
 
 - [Azure Disk Encryption-översikt](azure-security-disk-encryption-overview.md)
 - [Tillämpa diskkryptering i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)

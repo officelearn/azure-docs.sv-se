@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/21/2018
+ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6c080d44aed7c2b3db54a34f4b711db66681cbe9
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 5de5177db92e4069710e597a41c44287e5af90b2
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42058277"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325302"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg gäller för alla målgrupper.
@@ -36,6 +36,16 @@ Steg för att uppgradera från Azure AD Connect | Olika metoder för att [uppgra
 Nödvändiga behörigheter | Behörigheter som krävs för att tillämpa en uppdatering, se [konton och behörigheter](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Ladda ned | [Hämta Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+
+ 
+## <a name="118820"></a>1.1.882.0  
+
+9/7/2018: lanserats för nedladdning, kommer inte att versionen för automatisk uppgradering 
+
+### <a name="fixed-issues"></a>Åtgärdade problem  
+
+Azure AD Connect uppgradera misslyckas om SQL alltid på tillgänglighet har konfigurerats för ADSync DB. Den här snabbkorrigeringen löser problemet och gör att uppgraderingen ska lyckas. 
 
 ## <a name="118800"></a>1.1.880.0
 
@@ -91,7 +101,7 @@ Nya funktioner och förbättringar
 - Konfiguration för tillbakaskrivning av enhet hanteras nu endast i den Azure AD Connect-guiden.
 - En ny PowerShell-modul kallas ADSyncTools.psm1 har lagts till som kan användas för att felsöka anslutningsproblem med SQL och olika andra verktyg för felsökning. Läs mer om modulen ADSyncTools [här](active-directory-aadconnect-tshoot-sql-connectivity.md). 
 - En ny ytterligare uppgift ”konfigurera Enhetsalternativ” har lagts till. Du kan använda för att konfigurera följande två åtgärder: 
-    -   **Hybrid Azure AD-anslutning**: om din miljö har en lokal AD-fotavtryck och du även vill utnyttja funktionerna i Azure Active Directory, du kan implementera hybrid Azure AD-anslutna enheter. Enheter är enheter som är både, ansluten till din lokala Active Directory och Azure Active Directory.
+    -   **Hybrid Azure AD-anslutning**: om din miljö har en lokal AD-fotavtryck och du även vill utnyttja funktionerna i Azure Active Directory, du kan implementera hybrid Azure AD-anslutna enheter. Det är enheter som är anslutna både till din lokala Active Directory och din Azure Active Directory.
     -   **Tillbakaskrivning av enhet**: tillbakaskrivning av enhet som används för att aktivera villkorlig åtkomst baserat på enheter till AD FS (2012 R2 eller senare) skyddade enheter
 
    >[!NOTE] 

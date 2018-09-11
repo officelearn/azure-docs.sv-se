@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 41d495e38a8360609afe924bb49ccf2f6aea086e
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 4c8f2966df9c33ec227b14c00996f84f39043cdb
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340047"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349236"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory som bevis på koncept strategibok: komponenter
 
@@ -340,7 +340,7 @@ Om programmet har etablering aktiverad, kan du behöva vänta några minuter fö
 | Steg | Resurser |
 | --- | --- |
 | Ta bort användaren från gruppen har tilldelats appen | [Hantera gruppmedlemskap för användare i din Azure Active Directory-klient](fundamentals/active-directory-groups-members-azure-portal.md) |
-| Vänta några minuter för avetablering | [Automatisk Användaretablering för SaaS-App i Azure AD: hur fungerar automatisk etablering?](active-directory-saas-app-provisioning.md#how-does-automatic-provisioning-work) |
+| Vänta några minuter för avetablering | [Automatisk Användaretablering för SaaS-App i Azure AD: hur fungerar automatisk etablering?](manage-apps/user-provisioning.md#how-does-automatic-provisioning-work) |
 | Logga in som informationsarbetare till Mina appar-portalen och bekräfta den panelen saknas på en separat webbläsarsession | http://myapps.microsoft.com |
 
 

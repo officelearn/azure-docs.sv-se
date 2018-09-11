@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: c6e82dfef55a49a8db70bdbefd0d7150b4fbac40
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: c08dba56e3a7d9590ea95e7e4c569839f3a32100
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43305190"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44324860"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Välja rätt autentiseringsmetod för din Azure Active Directory-hybrididentitetslösning 
 
@@ -171,7 +171,7 @@ Följande diagram visas de övergripande arkitektur komponenter som krävs för 
 |Vad är alternativ för villkorlig åtkomst?|[Azure AD villkorsstyrd åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Azure AD villkorsstyrd åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Azure AD villkorsstyrd åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)<br><br>[ADFS-anspråksregler](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
 |Blockerar äldre protokoll som stöds?|[Ja](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[Ja](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[Ja](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
 |Kan du anpassa logotyp, bild och beskrivning på sidan logga in?|[Ja, med Azure AD Premium](https://docs.microsoft.com/azure/active-directory/customize-branding)|[Ja, med Azure AD Premium](https://docs.microsoft.com/azure/active-directory/customize-branding)|[Ja](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-management#customlogo)|
-|Vilka avancerade scenarier stöds?|[Smart lösenordsutelåsning](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords)<br><br>[Läcka ut autentiseringsuppgifter rapporter](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events)|[Smart lösenordsutelåsning](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)|Flera webbplatser med låg latens autentiseringssystem<br><br>[AD FS extranätsutelåsning](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-lockout-protection)<br><br>[Integrering med tredje parts identitetssystem](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility)|
+|Vilka avancerade scenarier stöds?|[Smart lösenordsutelåsning](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords)<br><br>[Läcka ut autentiseringsuppgifter rapporter](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events)|[Smart lösenordsutelåsning](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)|Flera webbplatser med låg latens autentiseringssystem<br><br>[AD FS extranätsutelåsning](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)<br><br>[Integrering med tredje parts identitetssystem](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility)|
 
 > [!NOTE] 
 > Anpassade kontroller i Azure AD villkorsstyrd åtkomst stöder för närvarande inte registrera enheten.

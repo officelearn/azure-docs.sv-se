@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/05/2016
 ms.author: mlearned
-ms.openlocfilehash: db3cc8bb546758402e4f0b3fe91449e597e754fa
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: d0bf66a224a8a42f813bc817f78321167e309bdb
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42055790"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303531"
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>Självstudiekurs: DevOps med Azure-portalen
 Azure-plattformen är full av flexibla DevOps-arbetsflöden. I den här självstudien får du lära dig hur du utnyttjar funktionerna i Azure portal för att utveckla, testa, distribuera, felsöka, övervaka och hantera program som körs. Den här självstudiekursen fokuserar på följande:
@@ -82,7 +82,7 @@ Skapa en webbapp med [Azure App Service](https://azure.microsoft.com/services/ap
     
     ![image15][image15]
     
-    Aktivera kontinuerlig distribution med Azure-portalen är enkelt. Du kan också skapa mer komplexa publiceringskanaler och använda många andra tekniker med befintliga system för källkontroll och kontinuerlig integration för distribution till Azure, t.ex. genom att använda automatiska utvecklings- och versionshanteringssystem.
+    Aktivera kontinuerlig distribution med Azure-portalen är enkelt. Du kan också skapa mer komplexa publiceringskanaler och använda många andra tekniker med befintliga källkontroll och kontinuerliga integreringssystem att distribuera till Azure, till exempel att använda automatisk Azure Pipelines hanteringssystem.
 
 ## <a name="develop-and-test-an-app"></a>Utveckla och testa en app
 Nu ska du göra några ändringar i kodbasen och snabbt distribuera dina ändringar. Du kan också konfigurera prestandatestning för webbappen.
@@ -99,7 +99,7 @@ Nu ska du göra några ändringar i kodbasen och snabbt distribuera dina ändrin
 4. Du kan skicka kommandon live för din app i konsolfönstret. Skriv kommandot dir och tryck på Retur. Observera att kommandon som kräver utökade privilegier inte fungerar.
    
    ![image19][image19]
-5. Gå tillbaka till kategorin Utveckla och välj Visual Studio Online. Obs! Visual Studio Online heter Visual Studio Team Services nu.
+5. Gå tillbaka till kategorin Utveckla och välj Visual Studio Online. Obs: Visual Studio Online heter nu Azure DevOps-tjänsterna.
    
    ![image20][image20]
 6. Aktivera webbläsarredigering för din app.
@@ -125,7 +125,7 @@ Nu ska du göra några ändringar i kodbasen och snabbt distribuera dina ändrin
 12. Gå tillbaka till verktygsbladet och klicka på Prestandatest under kategorin Utveckla.
     
     ![image28][image28]
-13. Du måste ange ett Team Services-konto. Mer information finns här: [skapa ett Team Services-konto](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student).
+13. Du måste ange en organisation med Azure DevOps-tjänsterna. Mer information finns här: [skapa en organisation med Azure DevOps Services](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student).
 14. Klicka på Nytt för att skapa ett prestandatest.
     
     ![image29][image29]

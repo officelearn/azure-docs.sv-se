@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: makohli
-ms.openlocfilehash: 7bd0737e7fb26af95eed63696d1ac07c88a9dec4
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 541ab91bf3a79b1b91fa237880f48bd8e0ccc152
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42060865"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348080"
 ---
 # <a name="advisor-high-availability-recommendations"></a>Advisor-rekommendationer för hög tillgänglighet
 
@@ -66,6 +66,10 @@ Traffic Manager-profiler med mer än en slutpunkt uppleva högre tillgänglighet
 Om alla slutpunkter i en Traffic Manager-profil som är konfigurerad för närhet routning finns i samma region, avbrott användare från andra regioner i anslutningen. Att lägga till eller flytta en slutpunkt till en annan region förbättra prestandan och få bättre tillgänglighet om inte alla slutpunkter i en region. Advisor identifierar Traffic Manager-profiler som konfigurerats för närhet routning där alla slutpunkterna är i samma region och rekommenderar att lägga till eller flytta en slutpunkt till en annan Azure-region.
 
 Om en Traffic Manager-profil har konfigurerats för geografisk routning för dirigeras trafiken till slutpunkterna baserat på definierade regioner. Om det inte går att en region, finns det inga fördefinierade redundans. Med en slutpunkt där Regional gruppering konfigureras att ”alla (världen)” undvika trafik som förloras och förbättra tjänstens tillgänglighet. Advisor identifierar Traffic Manager-profiler som konfigurerats för geografisk routning där det finns ingen slutpunkt som konfigurerats för att ha Regional gruppering som ”alla (världen)” och rekommenderar att göra den konfigurationsändringen.
+
+## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-in-the-event-of-accidental-overwrite-or-deletion"></a>Använd mjuk ta bort på ditt Azure Storage-konto för att spara och återställa data i händelse av oavsiktliga överskrivning eller tas bort
+
+Aktivera [mjuk borttagning](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) på ditt lagringskonto så att ta bort blobbar övergången till ett ej permanent Borttaget tillstånd i stället för att permanent ta bort. När data skrivs över, genereras en ej permanent borttagen ögonblicksbild för att spara tillståndet för över data. Detta gör att du kan återhämta sig vid oavsiktlig borttagning eller skriver över. Advisor identifierar Azure Storage-konton som inte har aktivera mjuk borttagning och föreslår att du aktiverar den.
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Hur du kommer åt rekommendationer för hög tillgänglighet i Advisor
 

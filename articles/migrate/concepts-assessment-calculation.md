@@ -4,14 +4,14 @@ description: Översikt över utvärderingsberäkningar i Azure Migrate-tjänsten
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/25/2018
+ms.date: 09/10/2018
 ms.author: raynew
-ms.openlocfilehash: 092f0844854c13898fd7f07ce9b7ddea98ff01ed
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 24033431bc170969ccbdf1e993e4b6a5501acd81
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286281"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325404"
 ---
 # <a name="assessment-calculations"></a>Utvärderingsberäkningar
 
@@ -72,9 +72,6 @@ OS tillhörigheten **andra** i vCenter Server | Azure Migrate identifiera inte O
 
 När en dator markeras som redo för Azure, storlekar Azure Migrate den virtuella datorn och dess diskar för Azure. Om storlekskriteriet som angetts i egenskaperna för utvärdering är att utföra prestandabaserade storleksändringar, överväger Azure Migrate prestandahistoriken för datorn att identifiera VM-storlek och disk-typ i Azure. Den här metoden är användbar i scenarier där du har tilldelat en lokal virtuell dator över men användningen är låg och du vill att storleksanpassa de virtuella datorerna i Azure för att minska kostnaderna.
 
-> [!NOTE]
-> Azure Migrate samlar in prestandahistoriken för lokala virtuella datorer från vCenter-servern. För att säkerställa att korrekt rätt storlek, kontrollera att statistikinställningen i vCenter Server är inställd på nivå 3 och vänta minst en dag innan drog identifiering av lokala virtuella datorer. Om statistikinställningen i vCenter Server är lägre än nivå 3, prestandadata för disk och nätverk har inte samlats in.
-
 Om du inte vill överväga prestandahistorik för VM-storlek och vill ta den virtuella datorn som – är till Azure, kan du ange storlekskriteriet som *som lokalt* och Azure Migrate kommer sedan ändra storlek på de virtuella datorerna baserat på lokala platser konfiguration utan att överväga användningsdata. Ändra storlek på disken i det här fallet kommer att göras baserat på vilken lagringstyp som du anger i egenskaperna för utvärdering (Standard disk eller Premium-diskar)
 
 ### <a name="performance-based-sizing"></a>Prestandabaserad storleksändring
@@ -119,14 +116,24 @@ För prestandabaserade storleksändringar behöver Azure Migrate användningsdat
    61 %–80 % | 4 stjärnor
    81 %–100 % | 5 stjärnor
 
-En utvärdering kanske inte har tillgång till alla datapunkter på grund av någon av följande orsaker:
-- Statistikinställningen i vCenter Server har inte angetts till nivå 3. Om statistikinställningen i vCenter Server är lägre än nivå 3 så görs ingen insamling av prestandadata för disk och nätverk från vCenter Server. I det här fallet är rekommendationen från Azure Migrate för disk och nätverk inte användningsbaserad. Utan att överväga diskens IOPS/dataflöde kan inte Azure Migrate veta om disken behöver en Premium-disk i Azure. Därför rekommenderar Azure Migrate Standard-diskar för alla diskar.
-- Statistikinställningen i vCenter Server var inställd på nivå 3 under en kort period, innan identifieringen drog igång. Vi tänker oss exempelvis ett scenario där du ändrar statistikinställningen till nivå 3 i dag och sätter igång identifieringen med insamlingsprogrammet i morgon (efter 24 timmar). Om du skapar en utvärdering för en dag, har du alla datapunkter och säkerhetsomdömet för utvärderingen blir 5 stjärnor. Men om du ändrar varaktigheten i utvärderingsegenskaperna till en månad går säkerhetsomdömet ned om prestandadata från disken och nätverket för den senaste månaden inte är tillgängliga. Om du vill undersöka prestandadata för den senaste månaden rekommenderar vi att du behåller statistikinställningen för vCenter Server på nivå 3 i en månad innan du startar identifieringen.
-- Några virtuella datorer stängdes av under perioden som utvärderingen utfördes. Om några virtuella datorer stängdes av under en viss period så kommer vCenter Server inte att ha prestandadata för den perioden.
-- Några virtuella datorer skapades under perioden som utvärderingen utförs. Om du till exempel skapar en utvärdering för prestandahistoriken för den senaste månaden, men några virtuella datorer skapades i miljön för en vecka sedan. I sådana fall är prestandahistoriken för de nya virtuella datorerna inte med för hela perioden.
+   Nedan angående är de orsaker till varför en utvärdering kan hämta ett låga säkerhetsomdöme:
 
-> [!NOTE]
-> Om säkerhetsomdömet för någon utvärdering är lägre än 4 stjärnor rekommenderar vi att du ändrar nivån för statistikinställningar i vCenter Server till 3, väntar så länge som du vill att utvärderingen ska utvärdera (en dag/en vecka/en månad) och sedan utför en identifiering och en utvärdering. Om det föregående inte kan utföras kan prestandabaserade storleksändringar vara mindre tillförlitliga och därför rekommenderar vi att du byter till *storleksändringar av typen "som lokalt"* genom att ändra utvärderingsegenskaperna.
+   **Enstaka identifiering**
+
+   - Statistikinställningen i vCenter Server har inte angetts till nivå 3. Eftersom enstaka identifiering modellen beror på statistikinställningarna för vCenter-servern, om statistikinställningen i vCenter Server är lägre än nivå 3, samlas inte prestandadata för disk och nätverk från vCenter-servern. I det här fallet är rekommendationen från Azure Migrate för disk och nätverk inte användningsbaserad. Utan att överväga diskens IOPS/dataflöde kan inte Azure Migrate veta om disken behöver en Premium-disk i Azure. Därför rekommenderar Azure Migrate Standard-diskar för alla diskar.
+   - Statistikinställningen i vCenter Server var inställd på nivå 3 under en kort period innan identifieringen drog. Vi tänker oss exempelvis ett scenario där du ändrar statistikinställningen till nivå 3 i dag och sätter igång identifieringen med insamlingsprogrammet i morgon (efter 24 timmar). Om du skapar en utvärdering för en dag, har du alla datapunkter och säkerhetsomdömet för utvärderingen blir 5 stjärnor. Men om du ändrar varaktigheten i utvärderingsegenskaperna till en månad går säkerhetsomdömet ned om prestandadata från disken och nätverket för den senaste månaden inte är tillgängliga. Om du vill undersöka prestandadata för den senaste månaden rekommenderar vi att du behåller statistikinställningen för vCenter Server på nivå 3 i en månad innan du startar identifieringen.
+
+   **Kontinuerlig identifiering**
+
+   - Du inte Profilerar din miljö för hela som du skapar utvärderingen. Om du skapar utvärderingen med varaktigheten inställt på 1 dag, måste du vänta minst en dag efter att du börjar identifieringen för alla datapunkter att hämta samlas in.
+
+   **Vanliga orsaker**  
+
+   - Några virtuella datorer stängdes av under perioden som utvärderingen utfördes. Om alla virtuella datorer stängdes av under en viss period, kommer vi inte att kunna samla in prestandadata för den perioden.
+   - Några virtuella datorer skapades under perioden som utvärderingen utförs. Om du till exempel skapar en utvärdering för prestandahistoriken för den senaste månaden, men några virtuella datorer skapades i miljön för en vecka sedan. I sådana fall är prestandahistoriken för de nya virtuella datorerna inte med för hela perioden.
+
+   > [!NOTE]
+   > Om säkerhetsomdömet för någon utvärdering är lägre än 4 stjärnor för identifiering av en modell, vi rekommenderar att du ändrar i vCenter servernivån för statistikinställningar till 3, väntar så länge som du vill att utvärderingen ska utvärdera (en dag/en vecka/1 månad) och gör sedan identifiering och utvärdering. Vänta minst en dag att profilera miljön för identifiering av kontinuerlig-modellen och sedan *beräkna om* utvärderingen. Om den föregående inte kan utföras kan prestandabaserade storleksändringar kanske inte är tillförlitlig och rekommenderar vi att växla till *som lokalt storlek* genom att ändra utvärderingsegenskaperna.
 
 ## <a name="monthly-cost-estimation"></a>Uppskattning per månad
 

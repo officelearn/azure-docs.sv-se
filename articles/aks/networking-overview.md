@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: marsma
-ms.openlocfilehash: e78be76d68cf75cf9d59f5b5dff86c65524275a9
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 16349af5932987cc0db4295355a0365c8579fcbf
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697249"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345748"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Nätverkskonfigurationen i Azure Kubernetes Service (AKS)
 
@@ -173,11 +173,14 @@ Följande frågor och svar gäller den **Avancerat** nätverkskonfiguration.
 
 Mer information om nätverk i AKS i följande artiklar:
 
-[Använda en statisk IP-adress med belastningsutjämnare för Azure Kubernetes Service (AKS)](static-ip.md)
+- [Använda en statisk IP-adress med belastningsutjämnare för Azure Kubernetes Service (AKS)](static-ip.md)
+- [Använda en intern belastningsutjämnare med Azure Container Service (AKS)](internal-lb.md)
 
-[HTTPS-ingress på Azure Container Service (AKS)](ingress.md)
-
-[Använda en intern belastningsutjämnare med Azure Container Service (AKS)](internal-lb.md)
+- [Skapa en grundläggande ingress-kontrollant med extern nätverksanslutning][aks-ingress-basic]
+- [Aktivera HTTP-programmet routning tillägg][aks-http-app-routing]
+- [Skapa en ingress-kontrollant som använder ett privat internt nätverk och IP-adress][aks-ingress-internal]
+- [Skapa en ingress-kontrollant med en dynamisk offentlig IP-adress och konfigurera kryptera vi för att automatiskt generera TLS-certifikat][aks-ingress-tls]
+- [Skapa en ingress-kontrollant med en statisk offentlig IP-adress och konfigurera kryptera vi för att automatiskt generera TLS-certifikat][aks-ingress-static-tls]
 
 ### <a name="acs-engine"></a>ACS-motor
 
@@ -200,3 +203,8 @@ Kubernetes-kluster som skapas med ACS-motorn ha stöd för både den [kubenet] [
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [aks-ssh]: ssh.md
 [ManagedClusterAgentPoolProfile]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object
+[aks-ingress-basic]: ingress-basic.md
+[aks-ingress-tls]: ingress-tls.md
+[aks-ingress-static-tls]: ingress-static-ip.md
+[aks-http-app-routing]: http-application-routing.md
+[aks-ingress-internal]: ingress-internal-ip.md

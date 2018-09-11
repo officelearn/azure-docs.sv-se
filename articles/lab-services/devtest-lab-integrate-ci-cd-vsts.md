@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 108abe45b4b296e0d7928f2da00a06ac43e1ccbe
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b7ce07547eccd52a8b10d4cffecaf1456778da4a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438791"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301216"
 ---
-# <a name="integrate-azure-devtest-labs-into-your-vsts-continuous-integration-and-delivery-pipeline"></a>Integrera Azure DevTest Labs i din VSTS kontinuerlig integrering och leverans pipeline
-Du kan använda den *Azure DevTest Labs-uppgifter* som är installerad i Visual Studio Team Services (VSTS) att enkelt integrera din version och versionen CI/CD-pipeline med Azure DevTest Labs. Tillägget installeras tre uppgifter: 
+# <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Integrera Azure DevTest Labs i din Azure DevOps kontinuerlig integrering och leverans pipeline
+Du kan använda den *Azure DevTest Labs-uppgifter* som är installerad i Azure DevOps att enkelt integrera din version och versionen CI/CD-pipeline med Azure DevTest Labs. Tillägget installeras tre uppgifter: 
 * Skapa en virtuell dator
 * Skapa en anpassad avbildning från en virtuell dator
 * Ta bort en virtuell dator 
@@ -85,16 +85,16 @@ Det här avsnittet beskriver hur du skapar Azure Resource Manager-mallen som anv
 
 1. Kontrollera skriptet ditt källkontrollsystem. Något som **GetLabVMParams.ps1**.
 
-   När du kör det här skriptet på agenten som en del av versionsdefinitionen och om du använder uppgift som *Azure File Copy* eller *PowerShell på måldatorer*, skriptet samlar in de värden som du behöver distribuera din app till den virtuella datorn. Du skulle normalt använda dessa uppgifter för att distribuera appar till en Azure-dator. Uppgifterna kan du kräva värden som namn på resursgrupp för virtuell dator, IP-adress och fullständigt kvalificerade domännamnet (fullständigt domännamn).
+   När du kör det här skriptet på agenten som en del av versionspipelinen, och om du använder uppgift som *Azure File Copy* eller *PowerShell på måldatorer*, skriptet samlar in de värden som du behöver distribuera din app till den virtuella datorn. Du skulle normalt använda dessa uppgifter för att distribuera appar till en Azure-dator. Uppgifterna kan du kräva värden som namn på resursgrupp för virtuell dator, IP-adress och fullständigt kvalificerade domännamnet (fullständigt domännamn).
 
-## <a name="create-a-release-definition-in-release-management"></a>Skapa en versionsdefinition i Release Management
-Om du vill skapa versionsdefinitionen, gör du följande:
+## <a name="create-a-release-pipeline-in-release-management"></a>Skapa en pipeline för versionen i Release Management
+Om du vill skapa versionspipelinen, gör du följande:
 
 1. På den **versioner** fliken den **Build & Release** hubb, klicka på plustecknet (+).
 1. I den **skapa versionsdefinition** väljer den **tom** mallen och välj sedan **nästa**.
-1. Välj **väljer senare**, och välj sedan **skapa** att skapa en ny versionsdefinition med en standardmiljö och inga länkade artefakter.
-1. Om du vill öppna snabbmenyn i den nya versionsdefinition, Välj ellipsen (...) bredvid miljönamnet på, och därefter **konfigurera variabler**. 
-1. I den **konfigurera - miljö** fönster för de variabler som du använder i definitionen publiceringsuppgifter anger du följande värden:
+1. Välj **väljer senare**, och välj sedan **skapa** att skapa en ny version-pipeline med en standardmiljö och inga länkade artefakter.
+1. Välj ellipsen (...) bredvid miljönamnet på för att öppna snabbmenyn i nya versionspipelinen, och välj sedan **konfigurera variabler**. 
+1. I den **konfigurera - miljö** fönster för de variabler som du använder i pipeline publiceringsuppgifter anger du följande värden:
 
    a. För **vmName**, anger du namnet som tilldelats den virtuella datorn när du skapade Resource Manager-mall i Azure-portalen.
 
@@ -106,13 +106,13 @@ Om du vill skapa versionsdefinitionen, gör du följande:
 
 Nästa steg i distributionen är att skapa den virtuella datorn ska användas som ”gyllene bild” för efterföljande distributioner. Du kan skapa den virtuella datorn i Azure DevTest Lab-instans med hjälp av den aktivitet som har utvecklats särskilt för detta ändamål. 
 
-1. Välj i versionsdefinitionen, **lägga till aktiviteter**.
+1. Välj i versionspipelinen, **lägga till aktiviteter**.
 1. På den **distribuera** fliken, lägga till en *Skapa virtuell dator i Azure DevTest Labs* uppgift. Konfigurera aktiviteten enligt följande:
 
    > [!NOTE]
    > Om du vill skapa den virtuella datorn ska användas för efterföljande distributioner [Azure DevTest Labs-uppgifter](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. För **Azure RM-prenumeration**, Välj ett projekt i den **tillgängliga Azure-Tjänstanslutningar** , eller skapa en mer begränsade behörigheter för anslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager-tjänstslutpunkt](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. För **Azure RM-prenumeration**, Välj ett projekt i den **tillgängliga Azure-Tjänstanslutningar** , eller skapa en mer begränsade behörigheter för anslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager-tjänstslutpunkt](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
    b. För **Labbnamn**, Välj namnet på den instans som du skapade tidigare.
 
@@ -135,14 +135,14 @@ Nästa steg i distributionen är att skapa den virtuella datorn ska användas so
    ```
 
 1. Kör skriptet som du skapade tidigare för att samla in information om DevTest Labs-VM. 
-1. I versionsdefinitionen av väljer **lägga till aktiviteter** och klicka sedan på den **distribuera** fliken, lägga till en *Azure PowerShell* uppgift. Konfigurera aktiviteten enligt följande:
+1. I versionspipelinen, väljer **lägga till aktiviteter** och klicka sedan på den **distribuera** fliken, lägga till en *Azure PowerShell* uppgift. Konfigurera aktiviteten enligt följande:
 
    > [!NOTE]
    > Om du vill samla in information om DevTest Labs VM, se [distribuera: Azure PowerShell](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzurePowerShell) och kör skriptet.
 
    a. För **Azure anslutningstypen**väljer **Azure Resource Manager**.
 
-   b. För **Azure RM-prenumeration**, Välj en anslutning i listan under **tillgängliga Azure-Tjänstanslutningar**, eller skapa en mer begränsade behörigheter för anslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager-tjänstslutpunkt](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   b. För **Azure RM-prenumeration**, Välj en anslutning i listan under **tillgängliga Azure-Tjänstanslutningar**, eller skapa en mer begränsade behörigheter för anslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager-tjänstslutpunkt](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
    c. För **Skripttyp**väljer **skriptfilen**.
  
@@ -154,22 +154,22 @@ Nästa steg i distributionen är att skapa den virtuella datorn ska användas so
       ```
       -labVmId '$(labVMId)'
       ```
-    Skriptet samlar in värdena som krävs och lagrar dem i miljövariabler i versionsdefinitionen så att du enkelt kan hänvisa till dem i efterföljande steg.
+    Skriptet samlar in värdena som krävs och lagrar dem i miljövariabler i versionspipelinen, så att du enkelt kan hänvisa till dem i efterföljande steg.
 
 1. Distribuera din app till den nya DevTest Labs virtuella datorn. Uppgifter som du normalt använda för att distribuera appen är *Azure File Copy* och *PowerShell på måldatorer*.
-   Information om den virtuella datorn som du behöver för parametrarna för uppgifterna lagras i tre configuration variabler med namnet **labVmRgName**, **labVMIpAddress**, och **labVMFqdn**inom versionsdefinitionen. Om du bara vill experimentera med att skapa en DevTest Labs virtuell dator och en anpassad avbildning, utan att distribuera en app kan du hoppa över det här steget.
+   Information om den virtuella datorn som du behöver för parametrarna för uppgifterna lagras i tre configuration variabler med namnet **labVmRgName**, **labVMIpAddress**, och **labVMFqdn**inom versionspipelinen. Om du bara vill experimentera med att skapa en DevTest Labs virtuell dator och en anpassad avbildning, utan att distribuera en app kan du hoppa över det här steget.
 
 ### <a name="create-an-image"></a>Skapa en avbildning
 
 Nästa steg är att skapa en avbildning av den nyligen distribuerade virtuella datorn i din Azure DevTest Labs-instans. Du kan sedan använda avbildningen för att skapa kopior av den virtuella datorn på begäran när du vill köra en dev-uppgift eller köra vissa tester. 
 
-1. Välj i versionsdefinitionen, **lägga till aktiviteter**.
+1. Välj i versionspipelinen, **lägga till aktiviteter**.
 1. På den **distribuera** fliken, lägga till en **Azure DevTest Labs Skapa anpassad avbildning** uppgift. Konfigurera enligt följande:
 
    > [!NOTE]
    > För att skapa avbildningen, se [Azure DevTest Labs-uppgifter](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. För **Azure RM-prenumeration**i den **tillgängliga Azure-Tjänstanslutningar** listan, Välj en anslutning i listan eller skapa en mer begränsade behörigheter för anslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager-tjänstslutpunkt](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. För **Azure RM-prenumeration**i den **tillgängliga Azure-Tjänstanslutningar** listan, Välj en anslutning i listan eller skapa en mer begränsade behörigheter för anslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager-tjänstslutpunkt](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
    b. För **Labbnamn**, Välj namnet på den instans som du skapade tidigare.
 
@@ -185,17 +185,17 @@ Nästa steg är att skapa en avbildning av den nyligen distribuerade virtuella d
 
 Det sista steget är att ta bort den virtuella datorn som du distribuerade i din Azure DevTest Labs-instans. Du skulle normalt tar bort den virtuella datorn när du kör uppgifterna för utveckling eller köra testerna som du behöver på den distribuerade virtuella datorn. 
 
-1. I versionsdefinitionen av väljer **lägga till aktiviteter** och klicka sedan på den **distribuera** fliken, lägga till en *ta bort virtuell dator i Azure DevTest Labs* uppgift. Konfigurera enligt följande:
+1. I versionspipelinen, väljer **lägga till aktiviteter** och klicka sedan på den **distribuera** fliken, lägga till en *ta bort virtuell dator i Azure DevTest Labs* uppgift. Konfigurera enligt följande:
 
       > [!NOTE]
       > Om du vill ta bort den virtuella datorn, se [Azure DevTest Labs-uppgifter](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. För **Azure RM-prenumeration**, Välj ett projekt i den **tillgängliga Azure-Tjänstanslutningar** , eller skapa en mer begränsade behörigheter för anslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager-tjänstslutpunkt](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. För **Azure RM-prenumeration**, Välj ett projekt i den **tillgängliga Azure-Tjänstanslutningar** , eller skapa en mer begränsade behörigheter för anslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager-tjänstslutpunkt](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
  
    b. För **Lab VM-ID**, om du har ändrat standardnamn för miljövariabeln som automatiskt har fyllts med ID för Virtuella labbdatorer med en tidigare uppgift, redigera den här. Standardvärdet är **$(labVMId)**.
 
-1. Ange ett namn för versionsdefinitionen och spara den.
-1. Skapa en ny version, Välj den senaste versionen och distribuera den till den enda miljön i definitionen.
+1. Ange ett namn för versionspipelinen och spara den.
+1. Skapa en ny version, Välj den senaste versionen och distribuera den till den enda miljön i pipelinen.
 
 Uppdatera vyn för din DevTest Labs-instans i Azure portal för att visa den virtuella datorn och avbildning som skapas och den virtuella datorn som tas bort igen i varje steg.
 
@@ -207,5 +207,5 @@ Du kan nu använda den anpassade avbildningen för att skapa virtuella datorer n
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [skapa miljöer för flera virtuella datorer med Resource Manager-mallar](devtest-lab-create-environment-from-arm.md).
 * Utforska fler Snabbstart Resource Manager-mallar för DevTest Labs automation från den [offentliga DevTest Labs GitHub-lagringsplatsen](https://github.com/Azure/azure-quickstart-templates).
-* Om det behövs kan du se den [VSTS felsökning](https://docs.microsoft.com/vsts/build-release/actions/troubleshooting) sidan.
+* Om det behövs kan du se den [felsökning för Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/troubleshooting) sidan.
  

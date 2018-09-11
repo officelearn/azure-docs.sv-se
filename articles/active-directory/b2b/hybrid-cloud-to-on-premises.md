@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 9c9cde23f8f8dc557b99d2f1508c923aaa2dce91
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: b7b1279dbb1256269705da3f8be6f6d2c1151368
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42055947"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346346"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Grant B2B-användare i Azure AD åtkomst till dina lokala program
 
@@ -27,7 +27,7 @@ Om din lokala app använder SAML-baserad autentisering, kan du enkelt göra appa
 
 Du måste göra följande:
 
-- Integrera SAML-app med hjälp av mallen för icke-galleriprogram, enligt beskrivningen i [Konfigurera enkel inloggning till program som inte ingår i Azure Active Directory-programgalleriet](../active-directory-saas-custom-apps.md). Se till att Observera det du använder för den **inloggnings-URL** värde.
+- Integrera SAML-app med hjälp av mallen för icke-galleriprogram, enligt beskrivningen i [Konfigurera enkel inloggning till program som inte ingår i Azure Active Directory-programgalleriet](../manage-apps/configure-single-sign-on-non-gallery-applications.md). Se till att Observera det du använder för den **inloggnings-URL** värde.
 -  Använda Azure AD-programproxy för att publicera appen lokalt med **Azure Active Directory** konfigurerad som autentiseringskälla. Anvisningar finns i [publicera program med Azure AD Application Proxy](../manage-apps/application-proxy-publish-azure-portal.md). 
 
    När du konfigurerar den **interna URL: en** Använd inloggnings-URL: en som du angav i mallen icke-galleriprogram. På så sätt kan komma användarna åt programmet från utanför gränsen för organisationen. Programproxy utför den SAML enkel inloggning för appen lokalt.

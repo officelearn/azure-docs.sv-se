@@ -1,6 +1,6 @@
 ---
-title: Hantera program i flera miljöer i Azure Service Fabric | Microsoft Docs
-description: Azure Service Fabric-program kan köras på kluster intervallet i storlek från en dator till tusentals datorer. I vissa fall kommer du vill konfigurera ditt program på olika sätt för de olika miljöer. Den här artikeln beskriver hur du definierar parametrar för olika program per miljö.
+title: Hantera program för flera miljöer i Azure Service Fabric | Microsoft Docs
+description: Azure Service Fabric-program kan köras på kluster intervallet i storlek från en dator till tusentals datorer. I vissa fall kommer du vill konfigurera ditt program på olika sätt för dessa olika miljöer. Den här artikeln beskriver hur du definierar parametrar för olika program per miljö.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -14,50 +14,50 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 15ad606578970290cef440ec4efdd967ca0c0b32
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: dac96ef6fce38a0557444e181fa6eccb649cfb9a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205237"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298343"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Hantera program för flera miljöer
 
-Azure Service Fabric-kluster kan du skapa kluster med var som helst från ett till många tusentals datorer. I de flesta fall måste du själv behöva distribuera programmet över flera klusterkonfigurationer: din lokal utveckling, ett kluster med delad utveckling och produktion-klustret. Alla dessa kluster betraktas som olika miljöer måste köras på din kod. Programmet binärfiler kan köras utan ändringar i den här brett spektrum, men du vill ofta konfigurera programmet på olika sätt.
+Azure Service Fabric-kluster kan du skapa kluster med var som helst från en till många tusentals datorer. I de flesta fall du märker att behöva distribuera ditt program i flera klusterkonfigurationer: det lokala utvecklingsklustret, ett kluster för delade utveckling och produktion klustret. Alla dessa kluster anses olika miljöer som måste köras på din kod. Binärfilerna för programmet kan köras utan ändringar i den här brett spektrum, men du vill ofta konfigurera programmet på olika sätt.
 
-Överväg att två enkla exempel:
-  - tjänsten lyssnar på en angiven port, men du måste porten ska vara olika mellan miljöerna
-  - Du måste ange autentiseringsuppgifter för olika bindning för en databas över miljöerna
+Överväg två enkla exempel:
+  - tjänsten lyssnar på en definierad port, men du måste den porten vara olika för miljöer
+  - Du måste ange autentiseringsuppgifter för olika bindning för en databas över miljöer
 
 ## <a name="specifying-configuration"></a>Ange konfiguration
 
 Den konfiguration som du anger kan delas i två kategorier:
 
-- Konfigurationen som gäller för hur dina tjänster körs
+- Konfiguration som gäller för hur dina tjänster körs
   - Till exempel portnumret för en slutpunkt eller antalet instanser av en tjänst
   - Den här konfigurationen har angetts i programmet eller tjänstmanifestfilen
-- Konfigurationen som gäller för din programkod
+- Konfiguration som gäller för din programkod
   - Till exempel bindningsinformation för en databas
-  - Den här konfigurationen kan anges antingen via configuration-filer eller miljövariabler
+  - Den här konfigurationen kan anges antingen via konfigurationsfiler eller miljövariabler
 
 > [!NOTE]
-> Inte alla attribut i programmet och service manifest file stöd parametrar.
-> I dessa fall måste ha du förlitar sig på att ersätta strängar som en del av arbetsflöde för distribution. I Visual Studio Team Services kan du använda ett tillägg som Ersätt token: https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens eller Jenkins kan du köra ett skript-aktivitet för att ersätta värdena.
+> Inte alla attribut i programmet och service manifest filen support parametrar.
+> I sådana fall kan behöva du förlitar sig på Ersätt strängar som en del av ditt arbetsflöde för distribution. Du kan använda ett tillägg som ersätter token i Azure DevOps: https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens eller du kan köra ett skript-aktivitet för att ersätta värdena i Jenkins.
 >
 
-## <a name="specifying-parameters-during-application-creation"></a>Ange parametrar när programmet skulle skapas
+## <a name="specifying-parameters-during-application-creation"></a>Ange parametrar under skapa program
 
-När du skapar en namngiven programinstanser i Service Fabric har du möjlighet att skicka in-parametrar. Hur du gör det beror på hur du skapar programinstansen.
+När du skapar en namngiven programinstanser i Service Fabric, har du möjlighet att skicka parametrar. Hur du gör det beror på hur du skapar instansen för programmet.
 
-  - I PowerShell den [ `New-ServiceFabricApplication` ](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet tar parametrar för program som en hash-tabell.
+  - I PowerShell, den [ `New-ServiceFabricApplication` ](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet tar applikationsparametrarna som en hash-tabell.
   - Med hjälp av sfctl, den [ `sfctl application create` ](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) kommandot tar parametrar som en JSON-sträng. Skriptet install.sh använder sfctl.
-  - Visual Studio ger en uppsättning parametern filer i mappen parametrar i projektet för konsolprogrammet. Parameterfilerna används vid publicering från Visual Studio med hjälp av Visual Studio Team Service eller Team Foundation Server. I Visual Studio som parametern-filer skickas till skriptet du distribuera FabricApplication.ps1.
+  - Du får en uppsättning parameterfiler i mappen parametrar i programprojektet i Visual Studio. De här parameterfilerna används när du publicerar från Visual Studio, med hjälp av Azure DevOps-tjänsterna eller Team Foundation Server. I Visual Studio är parameterfilerna överförs till skriptet Deploy-FabricApplication.ps1.
 
 ## <a name="next-steps"></a>Nästa steg
-I följande artiklar beskriver hur du använder vissa av de begrepp som beskrivs här:
+I följande artiklar visar hur du använder några av de koncept som beskrivs här:
 
 - [Hur du anger miljövariabler för tjänster i Service Fabric](service-fabric-how-to-specify-environment-variables.md)
 - [Så här anger du portnumret för en tjänst med parametrar i Service Fabric](service-fabric-how-to-specify-port-number-using-parameters.md)
-- [Parameteriserar konfigurationsfiler](service-fabric-how-to-parameterize-configuration-files.md)
+- [Så här Parameterisera konfigurationsfiler](service-fabric-how-to-parameterize-configuration-files.md)
 
 - [Variabeln miljöreferens](service-fabric-environment-variables-reference.md)

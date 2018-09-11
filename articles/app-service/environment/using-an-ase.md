@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: b3550c771b4c2916987c66f318010e5bb246fa39
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 80abe29c80898b691aa6e5e47bf068a9e69e50e4
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446858"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303378"
 ---
 # <a name="use-an-app-service-environment"></a>Använda en App Service environment #
 
@@ -136,7 +136,7 @@ Med en extern ASE fungerar dessa alla publiceringsalternativ på samma sätt. Me
 
 Den största skillnaden publicering är med avseende på en ILB ASE. Med en ILB ASE publiceringsslutpunkterna alla bara är tillgängliga via den interna Belastningsutjämnaren. Den interna Belastningsutjämnaren finns på en privat IP-adress i ASE-undernät i det virtuella nätverket. Om du inte har åtkomst till den interna Belastningsutjämnaren kan publicera du inte alla appar i denna ASE. Enligt vad som anges i [skapa och använda en ILB ASE][MakeILBASE], måste du konfigurera DNS för appar i systemet. Det omfattar SCM-slutpunkten. Om de inte har definierats korrekt kan publicera du inte. Din IDE: er måste också ha nätverksåtkomst till den interna Belastningsutjämnaren för att publicera direkt till den.
 
-Internet-baserad CI-system, till exempel GitHub och Visual Studio Team Services, fungerar inte med en ILB ASE eftersom publiceringsslutpunkten inte är åtkomlig via Internet. Istället måste du använda ett CI-system som använder en pull-modell, som Dropbox.
+Internet-baserad CI-system, till exempel GitHub och Azure DevOps, fungerar inte med en ILB ASE eftersom publiceringsslutpunkten inte är åtkomlig via Internet. Istället måste du använda ett CI-system som använder en pull-modell, som Dropbox.
 
 Publiceringsslutpunkterna för appar i en ILB ASE använder domänen som ILB ASE skapades med. Du kan se det i appens publiceringsprofil och i appens portalblad (i **översikt** > **Essentials** och även i **egenskaper**). 
 

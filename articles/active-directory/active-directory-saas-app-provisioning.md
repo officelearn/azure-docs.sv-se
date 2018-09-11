@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 0d6f345a35275328212d6a245242083b809943b7
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 3ec19c2b8ef4ae75a28690fb7e38b80a454f8b0c
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144092"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325319"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatisera etablering och avetablering för SaaS-program med Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Vad är automatisk användaretablering för SaaS-appar?
@@ -228,7 +228,7 @@ Information om hur läsningen granskningsloggarna i Azure-portalen finns i den [
 
 ##<a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>Hur felsöker jag problem med etableringen av användare?
 
-Scenariobaserade vägledning om hur du felsöker automatisk användaretablering finns i [problem med att konfigurera och etablera användare till ett program](active-directory-application-provisioning-content-map.md).
+Scenariobaserade vägledning om hur du felsöker automatisk användaretablering finns i [problem med att konfigurera och etablera användare till ett program](application-provisioning-config-problem.md).
 
 
 ##<a name="what-are-the-best-practices-for-rolling-out-automatic-user-provisioning"></a>Vilka är rekommenderade metoder för att lansera automatisk användaretablering?

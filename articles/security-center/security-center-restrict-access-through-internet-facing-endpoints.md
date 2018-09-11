@@ -1,6 +1,6 @@
 ---
 title: Begränsa åtkomst via Internet-riktade slutpunkter i Azure Security Center | Microsoft Docs
-description: Det här dokumentet beskrivs hur du implementerar rekommenderar Azure Security Center **begränsa åtkomst via Internetuppkopplad slutpunkt**.
+description: Det här dokumentet visar hur du implementerar Azure Security Center-rekommendationen **begränsa åtkomst via slutpunkt mot Internet**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -9,22 +9,22 @@ editor: ''
 ms.assetid: 727d88c9-163b-4ea0-a4ce-3be43686599f
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2017
 ms.author: terrylan
-ms.openlocfilehash: 92906d31f4db21f37094f192dadd080e28cc6e8e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0b7de1f63f765705a78535ae04c1b844e06c029c
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363061"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301165"
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Begränsa åtkomst via Internet-riktade slutpunkter i Azure Security Center
-Azure Security Center rekommenderar att du begränsar åtkomst via Internet-riktade slutpunkter om någon av dina Nätverkssäkerhetsgrupper (NSG: er) har en eller flera regler för inkommande trafik som tillåter åtkomst från ”alla” källans IP-adress. Öppna åtkomst till ”” kan du aktivera angripare att få åtkomst till dina resurser. Security Center rekommenderar att du redigera dessa regler för inkommande trafik för att begränsa åtkomsten till källans IP-adresser som verkligen behöver åtkomst.
+Azure Security Center rekommenderar att du begränsar åtkomst via Internet-riktade slutpunkter om någon av dina Nätverkssäkerhetsgrupper (NSG) har en eller flera inkommande regler som tillåter åtkomst från ”alla” källans IP-adress. Öppna åtkomst till ”alla” kan angripare får tillgång till dina resurser. Security Center rekommenderar att du redigerar dessa regler för inkommande trafik för att begränsa åtkomsten till källans IP-adresser som faktiskt behöver åtkomst.
 
-Denna rekommendation genereras för alla icke-web-portar som innehåller ”något” som källa.
+Den här rekommendationen genereras för alla icke-web-portar som innehåller ”något” som källa.
 
 > [!NOTE]
 > I det här dokumentet beskrivs tjänsten genom en exempeldistribution. Det är alltså inte en steg-för-steg-guide.
@@ -32,31 +32,31 @@ Denna rekommendation genereras för alla icke-web-portar som innehåller ”någ
 >
 
 ## <a name="implement-the-recommendation"></a>Implementera rekommendationen
-1. I den **rekommendationer bladet**väljer **begränsa åtkomst via Internetuppkopplad slutpunkt**.
+1. I den **rekommendationsbladet**väljer **begränsa åtkomst via slutpunkt mot Internet**.
 
    ![Begränsa åtkomst via slutpunkt mot Internet][1]
-2. Gör det öppnas bladet **begränsa åtkomst via Internetuppkopplad slutpunkt**. Det här bladet visar de virtuella datorerna (VM) med regler för inkommande trafik som skapar en potentiell säkerhetsrisk. Välj en virtuell dator.
+2. Då öppnas bladet **begränsa åtkomst via slutpunkt mot Internet**. Det här bladet visar en lista över virtuella datorer (VM) med regler för inkommande trafik som skapar potentiella säkerhetsproblem. Välj en virtuell dator.
 
    ![Välj en virtuell dator][2]
-3. Den **NSG** bladet visar Nätverkssäkerhetsgruppen information, relaterade regler för inkommande trafik och den associera virtuella datorn. Välj **redigera regler för inkommande trafik** att fortsätta med att redigera en inkommande regel.
+3. Den **NSG** bladet visar Nätverkssäkerhetsgrupp information, relaterade regler för inkommande trafik och den associerade virtuella datorn. Välj **redigera regler för inkommande trafik** att fortsätta med att redigera en inkommande regel.
 
-   ![Nätverkssäkerhetsgruppen bladet][3]
-4. På den **inkommande säkerhetsregler** bladet Välj en inkommande regel för att redigera. I det här exemplet ska vi väljer **AllowWeb**.
+   ![Bladet för Nätverkssäkerhetsgrupp][3]
+4. På den **ingående säkerhetsregler** bladet Välj den inkommande regeln att redigera. I det här exemplet väljer vi **AllowWeb**.
 
-   ![Inkommande säkerhetsregler][4]
+   ![Ingående säkerhetsregler][4]
 
-   Observera att du kan också välja **standard regler** att se en uppsättning standardregler som finns i alla NSG: er. Standardreglerna kan inte tas bort, men eftersom de har tilldelats en lägre prioritet, kan de överskridas av de regler som du skapar. Lär dig mer om [standard regler](../virtual-network/security-overview.md#default-security-rules).
+   Observera att du kan också välja **standardregler** att se uppsättning standardregler som finns i alla NSG: er. Standardreglerna kan inte tas bort, men eftersom de är tilldelade en lägre prioritet, kan de överskridas av de regler som du skapar. Läs mer om [standardregler](../virtual-network/security-overview.md#default-security-rules).
 
    ![Standardregler][5]
-5. På den **AllowWeb** bladet redigera egenskaper för regel för inkommande trafik så att den **källa** är ett IP-adress eller ett block av IP-adresser. Mer information om egenskaperna för den inkommande regeln finns [NSG-regler](../virtual-network/security-overview.md#security-rules).
+5. På den **AllowWeb** bladet redigera egenskaperna för den inkommande regeln så att den **källa** är ett IP-adress eller ett block av IP-adresser. Läs mer om egenskaperna för den inkommande regeln i [NSG-regler](../virtual-network/security-overview.md#security-rules).
 
    ![Redigera regel för inkommande trafik][6]
 
 ## <a name="see-also"></a>Se också
-Den här artikeln visar dig hur du implementerar Security Center-rekommendationen ”begränsa åtkomst via internetuppkopplad slutpunkt”. Mer information om hur du aktiverar regler och NSG: er finns i följande avsnitt:
+Den här artikeln visar dig hur du implementerar Security Center-rekommendationen ”begränsa åtkomst via Internet-riktade slutpunkten”. Mer information om hur du aktiverar NSG: er och regler finns följande:
 
 * [Vad är en nätverkssäkerhetsgrupp (NSG)?](../virtual-network/security-overview.md)
-* [Hantera en nätverkssäkerhetsgrupp](../virtual-network/manage-network-security-group.md)
+* [Hantera en grupp](../virtual-network/manage-network-security-group.md)
 
 I följande avsnitt kan du lära dig mer om Security Center:
 

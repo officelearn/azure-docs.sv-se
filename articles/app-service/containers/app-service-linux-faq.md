@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: yili
-ms.openlocfilehash: cd107ddc5ac443daee592c40bbed451c913a8a3b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: aba6a1f7028ac09cad8acf587fd56dcc2c16919b
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444597"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295726"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service i Linux vanliga frågor och svar
 
@@ -74,7 +74,7 @@ Ja, du måste ange en app som heter `WEBSITE_WEBDEPLOY_USE_SCM` till *FALSKT*.
 
 Om det inte går att webbappen Linux Git-distribution, väljer du något av följande alternativ för att distribuera din programkod:
 
-- Använda funktionen för kontinuerlig leverans (förhandsversion): du kan lagra källkoden för din app i ett Team Services Git-lagringsplats eller GitHub-lagringsplatsen att använda Azure kontinuerlig leverans. Mer information finns i [konfigurera kontinuerlig leverans för Linux-webbapp](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+- Använda funktionen för kontinuerlig leverans (förhandsversion): du kan lagra källkoden för din app i en Azure DevOps Git-lagringsplats eller GitHub-lagringsplatsen att använda Azure kontinuerlig leverans. Mer information finns i [konfigurera kontinuerlig leverans för Linux-webbapp](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
 - Använd den [ZIP distribuera API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): att använda detta API [SSH till din webbapp](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) och gå till mappen där du vill distribuera din kod. Kör följande kod:
 

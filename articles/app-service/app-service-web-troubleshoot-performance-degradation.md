@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 0f053c0293488f19adcd058f1ba8304d8d238738
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 3ec67488b238118067e771baf3dd5124308a84cf
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128314"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296201"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Felsöka långsam prestandaproblem med webbappar i Azure App Service
 Den här artikeln hjälper dig att felsöka långsam prestandaproblem med webbappar i [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -88,7 +88,7 @@ Du kan också övervaka programprestanda med hjälp av en *webbplatstillägg*.
 
 Varje App Service webbapp innehåller en utökningsbar hantering-slutpunkt som gör det möjligt att en kraftfull verktygsuppsättning som distribueras som webbplatstillägg. Tillägg är: 
 
-- Källkodsredigering som [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
+- Källkodsredigering som [Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Hanteringsverktyg för anslutna resurser, till exempel en MySQL-databas ansluten till en webbapp.
 
 [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) är en plats-tillägg som är också tillgängligt för prestandaövervakning. Om du vill använda Application Insights måste återskapa du din kod med ett SDK. Du kan också installera ett tillägg som ger åtkomst till ytterligare data. Med SDK kan du skriva kod för att övervaka användning och prestanda för din app i detalj. Mer information finns i [övervaka prestanda i webbprogram](../application-insights/app-insights-web-monitor-performance.md).
@@ -158,7 +158,7 @@ Några av de saker som Kudu tillhandahåller är:
 
 En annan bra funktion i Kudu är att, om ditt program som utlöste första chansen-undantag, du kan använda Kudu och verktyget SysInternals Procdump skapa minne minnesdumpar. Dessa minnesdumpar är ögonblicksbilder av processen och ofta kan hjälpa dig att felsöka mer komplicerade problem med ditt webbprogram.
 
-Läs mer om funktioner som är tillgängliga i Kudu [Azure Websites Team Services-verktyg som du bör känna till om](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
+Läs mer om funktioner som är tillgängliga i Kudu [Azure DevOps-verktyg som du bör känna till om](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
 

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: f465a6e6cb0642f64670a8d2727c939f91bad134
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 6fe85d7ac527179ab39e89739f5744f3aa1ef8e2
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617257"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297563"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure-säkerhet och efterlevnad skiss: PaaS Web program som är värd för Storbritannien officiella arbetsbelastningar
 
@@ -27,7 +27,7 @@ Den här Azure Blueprint för säkerhet och efterlevnad ger vägledning och auto
 
 Den här skissen har granskats av den Storbritannien nationella Cyberhot Security Center (NCSC) och stämmer överens med Molnsäkerhetsprinciper för NCSC 14.
 
-Arkitekturen använder Azure [plattform som en tjänst](https://azure.microsoft.com/overview/what-is-paas/) komponenter för att leverera en miljö som gör att kunderna slipper du kostnaderna och besväret med att köpa programvarulicenser för att hantera underliggande programinfrastruktur och middleware eller utvecklingsverktygen och andra resurser. Kunderna hantera program och tjänster som de utvecklar fokusera på att leverera affärsvärde, även om Microsoft Azure hanterar andra Azure-resurser, till exempel virtuella datorer, lagring och nätverk, placera flera av de [divisionen av ansvar](https://docs.microsoft.com/azure/security/security-paas-deployments#division-of-responsibility) för infrastrukturhantering in på Azure-plattformen. [Azure App Services](https://azure.microsoft.com/services/app-service/) ger automatisk skalning, hög tillgänglighet, har stöd för Windows och Linux och möjliggör automatiska distributioner från GitHub, Visual Studio Team Services eller valfri Git-lagringsplats som standardtjänster. Med hjälp av App Services, kan utvecklare koncentrera dig på att leverera värde utan att behöva hantera infrastrukturen. Det är möjligt att bygg nya webbprogram i Java, PHP, Node.js, Python, HTML eller C# eller också migrera befintliga molnet eller på lokala webbprogram till Azure App Services, (även om omfattande förfallodatum noggrannhet och testningen bekräfta prestanda krävs).
+Arkitekturen använder Azure [plattform som en tjänst](https://azure.microsoft.com/overview/what-is-paas/) komponenter för att leverera en miljö som gör att kunderna slipper du kostnaderna och besväret med att köpa programvarulicenser för att hantera underliggande programinfrastruktur och middleware eller utvecklingsverktygen och andra resurser. Kunderna hantera program och tjänster som de utvecklar fokusera på att leverera affärsvärde, även om Microsoft Azure hanterar andra Azure-resurser, till exempel virtuella datorer, lagring och nätverk, placera flera av de [divisionen av ansvar](https://docs.microsoft.com/azure/security/security-paas-deployments#division-of-responsibility) för infrastrukturhantering in på Azure-plattformen. [Azure App Services](https://azure.microsoft.com/services/app-service/) ger automatisk skalning, hög tillgänglighet, har stöd för Windows och Linux och möjliggör automatiska distributioner från GitHub, Azure DevOps eller valfri Git-lagringsplats som standardtjänster. Med hjälp av App Services, kan utvecklare koncentrera dig på att leverera värde utan att behöva hantera infrastrukturen. Det är möjligt att bygg nya webbprogram i Java, PHP, Node.js, Python, HTML eller C# eller också migrera befintliga molnet eller på lokala webbprogram till Azure App Services, (även om omfattande förfallodatum noggrannhet och testningen bekräfta prestanda krävs).
 
 Den här skissen fokuserar på etablering av en säker grund [plattform som en tjänst](https://azure.microsoft.com/overview/what-is-paas/) webbaserat gränssnitt för offentliga och även bakåt office-användare. Det här designscenariot skissen tar hänsyn till användningen av Azure värdbaserade webbaserade tjänster där en offentlig användare kan på ett säkert sätt skicka, visa och hantera känsliga data. också att en backend office eller government-operator på ett säkert sätt kan bearbeta känsliga data som offentliga användaren har skickat. Användningsområden för det här scenariot kan omfatta:
 
@@ -103,7 +103,7 @@ Data överförs från utanför och mellan Azure-komponenter är skyddat med hjä
 
 #### <a name="azure-app-service"></a>Azure App Service
 
-Azure Web Apps får du en fullständigt hanterad värdmiljö för webbprogram som har utvecklats i Java, PHP, Node.js, Python, HTML- och C# utan att behöva hantera infrastrukturen. Den tillhandahåller automatisk skalning och hög tillgänglighet, har stöd för både Windows och Linux och möjliggör automatiska distributioner från [Visual Studio Team Services](https://azure.microsoft.com/services/visual-studio-team-services/) eller valfri Git-baserade lagringsplats.
+Azure Web Apps får du en fullständigt hanterad värdmiljö för webbprogram som har utvecklats i Java, PHP, Node.js, Python, HTML- och C# utan att behöva hantera infrastrukturen. Den tillhandahåller automatisk skalning och hög tillgänglighet, har stöd för både Windows och Linux och möjliggör automatiska distributioner från [Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/) eller valfri Git-baserade lagringsplats.
 
 App Service är [ISO, SOC och PCI-kompatibel](https://www.microsoft.com/TrustCenter/) och kan autentisera användare med [Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) eller med social inloggning ([Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication), [Facebook](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication), [Twitter](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication), och [Microsoft authentication](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication).
 

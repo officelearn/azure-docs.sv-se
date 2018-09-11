@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6048a17bf50ecac691c7cf687f87e454c54ee9d9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 790d192823867ee858a7fa6bf030721002a6bd94
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521891"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296881"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profilera live-Azure-webbappar med Application Insights
 
@@ -204,7 +204,7 @@ Om du omdistribuerar din webbapp till en resurs för Web Apps med Profiler som �
 
 *Katalogen är inte tom ”D:\\home\\plats\\wwwroot\\App_Data\\Jobbens*
 
-Det här felet uppstår om du kör Web Deploy från skript eller Distributionspipeline för Visual Studio Team Services. Lösningen är att lägga till följande parametrar för ytterligare distribution till Web Deploy-uppgift:
+Det här felet uppstår om du kör Web Deploy från skript eller från Azure DevOps pipelinen. Lösningen är att lägga till följande parametrar för ytterligare distribution till Web Deploy-uppgift:
 
 ```
 -skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'

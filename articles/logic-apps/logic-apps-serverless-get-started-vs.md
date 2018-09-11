@@ -11,12 +11,12 @@ ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.custom: vs-azure
 ms.topic: article
 ms.date: 08/01/2018
-ms.openlocfilehash: a69c129d5ae1405462e3a54a24cd2edbad2a86a7
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: f5555d9a60934529bf8fed6db6a18dd783f46075
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126785"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297476"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Skapa ditt första serverlösa program med Azure Logic Apps och Azure Functions – Visual Studio
 
@@ -122,7 +122,7 @@ För att skapa din Functions-projekt och en funktion med JavaScript, Python, F #
 
 ## <a name="deploy-functions-from-visual-studio"></a>Distribuera funktioner från Visual Studio
 
-Din Distributionsmall distribuerar alla Azure-funktioner som du har i din lösning från Git-lagringsplats som anges av variabler i den `azuredeploy.json` filen. Om du skapar och redigerar din Functions-projekt i din lösning du kan kontrollera projektet till Git-källkontroll, till exempel GitHub eller Visual Studio Team Services, och sedan uppdatera den `repo` variabel så att mallen distribuerar din Azure-funktion.
+Din Distributionsmall distribuerar alla Azure-funktioner som du har i din lösning från Git-lagringsplats som anges av variabler i den `azuredeploy.json` filen. Om du skapar och redigerar din Functions-projekt i din lösning du kan kontrollera projektet till Git-källkontroll, till exempel GitHub eller Azure DevOps och sedan uppdatera den `repo` variabel så att mallen distribuerar din Azure-funktion.
 
 ## <a name="manage-logic-apps-and-view-run-history"></a>Hantera logic apps och visa körningshistorik
 

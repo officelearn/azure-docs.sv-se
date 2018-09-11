@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 56c464b9fbc9fe5f2d9acd1a403333fd1c729113
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 05a7dda67ca9747c5d6205952bc9337af628de8f
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023400"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296745"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage-brandväggar och virtuella nätverk
 Azure Storage tillhandahåller en skiktbaserad säkerhetsmodell som gör att du kan skydda dina storage-konton till en specifik uppsättning tillåtna nätverk.  Om Nätverksregler har konfigurerats endast program från tillåtna nätverk kan komma åt ett storage-konto.  När du anropar från ett tillåtna nätverk programmen kräver rätt auktorisering (en giltig åtkomstnyckel eller SAS-token) att komma åt lagringskontot.
@@ -208,7 +208,7 @@ IP-Nätverksregler för lagringskonton kan hanteras via Azure-portalen, PowerShe
 2. Klicka på inställningsmenyn kallas **brandväggar och virtuella nätverk**.
 3. Se till att du har valt att tillåta åtkomst från valda-nätverk.
 4. Att bevilja åtkomst till ett internet IP-adressintervall, ange IP-adressen eller adressintervallet (i CIDR-format) under brandvägg adressintervall.
-5. Om du vill ta bort en regel för IP-nätverket, klickar du på ”...” för att öppna snabbmenyn för regeln och klicka på ”Ta bort”.
+5. Klicka på Papperskorgen bredvid nätverksregel för att ta bort en regel för IP.
 6. Klicka på *spara* att tillämpa ändringarna.
 
 #### <a name="powershell"></a>PowerShell

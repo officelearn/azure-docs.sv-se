@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: af7c0f9d7e02e4a3074f2fddbdf8a6e0ab52d423
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: ec3b1f43c7b89a545ee5bb26c4cc0d068a993021
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024332"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295861"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Använd API-versionsprofiler med Azure CLI 2.0 i Azure Stack
 
@@ -160,8 +160,11 @@ Använd följande steg för att ansluta till Azure Stack:
 
    ```azurecli
    az cloud update \
-     --profile 2017-03-09-profile
+     --profile 2018-03-01-hybrid
    ```
+
+    >[!NOTE]  
+    >Om du kör en version av Azure Stack innan 1808 versionen, kommer du att behöva använda profilen för API-version **2017-03-09-profile** i stället för API-version profilen **2018-03-01-hybrid**.
 
 1. Logga in på Azure Stack-miljön med hjälp av den `az login` kommando. Du kan logga in på Azure Stack-miljön som en användare eller som en [tjänstens huvudnamn](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 

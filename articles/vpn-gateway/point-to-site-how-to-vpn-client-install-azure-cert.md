@@ -1,49 +1,45 @@
 ---
-title: Installera ett certifikat för P2S | Azure
-description: Installera en Mac- eller Windows client-certifikat för P2S certifikatautentisering.
+title: 'Installera ett klientcertifikat för punkt-till-plats: Azure | Microsoft Docs'
+description: Installera klientcertifikatet för certifikatautentisering för P2S - Windows, Mac, Linux.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager, azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/02/2018
+ms.date: 09/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: bf2788fff64ab8b3a5ccf75b8a80f2bd5aba5151
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: eec15b84e4bdb8df3fe84a53909d5da4b39545ff
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30318001"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294450"
 ---
-# <a name="install-a-client-certificate-for-point-to-site-azure-certificate-authentication-connections"></a>Installera ett klientcertifikat för autentisering anslutningar för punkt-till-plats Azure certifikat
+# <a name="install-client-certificates-for-p2s-certificate-authentication-connections"></a>Installera klientcertifikat för P2S-anslutningar med autentisering
 
-Alla klienter som ansluter till ett virtuellt nätverk med Azure certifikatautentisering för punkt-till-plats kräver ett klientcertifikat. Den här artikeln hjälper dig att installera ett klientcertifikat som används för autentisering när du ansluter till ett VNet med P2S.
+Alla klienter som ansluter till ett virtuellt nätverk med punkt-till-plats Azure-certifikatautentisering kräver ett klientcertifikat. Den här artikeln hjälper dig att installera ett klientcertifikat som används för autentisering när du ansluter till ett virtuellt nätverk med P2S.
 
-## <a name="generate"></a>Skapa och exportera ett certifikat
+## <a name="generate"></a>Skaffa ett klientcertifikat
 
-Du kan generera ett certifikat från ett rotcertifikat som skapades med en Företagscertifikatutfärdare lösning eller ett självsignerat rotcertifikat. Finns det [PowerShell](vpn-gateway-certificates-point-to-site.md) eller [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) instruktioner om åtgärder. Exportera dem efter genererar klientcertifikat som PFX-filer. Se till att inkludera hela certifikatkedjan när du exporterar.
+Oavsett vilka klientoperativsystem som du vill ansluta från, måste du alltid ha ett klientcertifikat. Du kan generera ett klientcertifikat från ett rotcertifikat som genererades med en certifikatutfärdarlösning för företag eller ett självsignerat rotcertifikat. Se den [PowerShell](vpn-gateway-certificates-point-to-site.md), [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md), eller [Linux](vpn-gateway-certificates-point-to-site-linux.md) instruktioner för hur du skapar ett klientcertifikat. 
 
-## <a name="installwin"></a>Installera certifikat – Windows
+## <a name="installwin"></a>Windows
 
 [!INCLUDE [Install on Windows](../../includes/vpn-gateway-certificates-install-client-cert-include.md)]
 
-## <a name="installmac"></a>Installera certifikat – Mac
+## <a name="installmac"></a>Mac
 
-Mac-VPN-klienter stöds endast distributionsmodell hanteraren för filserverresurser. De stöds inte för den klassiska distributionsmodellen.
+>[!NOTE]
+>Mac VPN-klienter har stöd för endast distributionsmodellen Resource Manager. De stöds inte för den klassiska distributionsmodellen.
+>
+>
 
 [!INCLUDE [Install on Mac](../../includes/vpn-gateway-certificates-install-mac-client-cert-include.md)]
 
+## <a name="installlinux"></a>Linux
+
+Linux-Klientcertifikatet har installerats på klienten som en del av klientkonfigurationen. Se [klientkonfigurationen - Linux](point-to-site-vpn-client-configuration-azure-cert.md#linuxinstallcli) anvisningar.
+
 ## <a name="next-steps"></a>Nästa steg
 
-Fortsätt med konfigurationssteg punkt-till-plats.
-
-* [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-* [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-* [Azure Portal (klassisk)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+Fortsätt med konfigurationssteg för punkt-till-plats att [skapa och installera VPN-klientkonfigurationsfiler](point-to-site-vpn-client-configuration-azure-cert.md).

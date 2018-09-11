@@ -10,8 +10,7 @@ Om du vill skapa och hantera virtuella Azure-datorer (VM) på ett konsekvent sä
     - [Azure Automation](#azure-automation) kan utföra åtgärder i hela Azure och den lokala infrastrukturen.
 
 - Automatisera distribution av program och leverans
-    - Exempel är [Visual Studio Team Services](#visual-studio-team-services) och [Jenkins](#jenkins).
-
+    - Exempel är [Azure DevOps-tjänsterna](#visual-studio-team-services) och [Jenkins](#jenkins).
 
 ## <a name="ansible"></a>Ansible
 [Ansible](https://www.ansible.com/) är en automatiseringsmotor för konfigurationshantering, skapa en virtuell dator eller programdistribution. Ansible använder en modell utan agent, vanligtvis med SSH-nycklar för att autentisera och hantera måldatorer. Konfigurationsuppgifter definieras i strategiböcker med ett antal Ansible-moduler som är tillgängliga för att utföra specifika uppgifter. Mer information finns i [hur Ansible fungerar](https://www.ansible.com/how-ansible-works).
@@ -52,8 +51,8 @@ Cloud-init fungerar med olika distributioner. Du använder till exempel inte **a
 |Canonical |UbuntuServer |16.04-LTS |senaste |ja | 
 |Canonical |UbuntuServer |14.04.5-LTS |senaste |ja |
 |CoreOS |CoreOS |Stable |senaste |ja |
-|OpenLogic |CentOS |7-CI |senaste |förhandsgranskning |
-|Redhat |RHEL |7-RAW-CI |senaste |förhandsgranskning |
+|OpenLogic |CentOS |7-CI |senaste |förhandsversion |
+|Redhat |RHEL |7-RAW-CI |senaste |förhandsversion |
 
 Lär dig mer om cloud-init på Azure:
 
@@ -114,12 +113,12 @@ Lär dig att:
 - [Använd Azure Automation DSC](../articles/automation/automation-dsc-getting-started.md).
 
 
-## <a name="visual-studio-team-services"></a>Visual Studio Team Services
-[Team Services](https://www.visualstudio.com/team-services/) är en uppsättning med verktyg som hjälper dig att dela och spåra code, Använd automatiserade versioner och skapa en fullständig kontinuerlig integrering och utveckling (CI/CD) pipeline. Team Services integreras med Visual Studio och andra redigerare för att förenkla användningen. Team Services kan också skapa och konfigurera virtuella Azure-datorer och distribuera kod till dem.
+## <a name="azure-devops-services"></a>Azure DevOps Services
+[Azure DevOps-tjänster](https://www.visualstudio.com/team-services/) är en uppsättning med verktyg som hjälper dig att dela och spåra code, Använd automatiserade versioner och skapa en fullständig kontinuerlig integrering och utveckling (CI/CD) pipeline. Azure DevOps-tjänster som integreras med Visual Studio och andra redigerare för att förenkla användningen. Azure DevOps-tjänster kan också skapa och konfigurera virtuella Azure-datorer och distribuera kod till dem.
 
 Lär dig att:
 
-- [Skapa en pipeline för kontinuerlig integrering med Team Services](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md).
+- [Skapa en pipeline för kontinuerlig integrering med Azure DevOps-tjänsterna](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md).
 
 
 ## <a name="jenkins"></a>Jenkins

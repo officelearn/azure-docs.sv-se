@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 2c6db85763b448133d53b22c0600b27b533b2041
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 468c6486274b8bf1dc202716f525c39face91862
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424236"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297306"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Introduktionsguide för Azure-utvecklare
 
@@ -58,7 +58,7 @@ Du kan skapa webbappar, serverdelar för mobilappar och API apps.
 
 Eftersom alla tre apptyperna delar en App Service runtime kan du vara värd för en webbplats, stöd för mobila klienter och exponera dina API: er i Azure, allt från samma projekt eller lösning. Läs mer om App Service i [vad är Azure Web Apps](../../app-service/app-service-web-overview.md).
 
-App Service har utformats med DevOps i åtanke. Det stöder olika verktyg för publicering och kontinuerlig integration distributioner, däribland GitHub webhooks, Jenkins, Visual Studio Team Services, TeamCity och andra.
+App Service har utformats med DevOps i åtanke. Det stöder olika verktyg för publicering och kontinuerlig integration distributioner, däribland GitHub webhooks, Jenkins, Azure DevOps, TeamCity och andra.
 
 Du kan migrera dina befintliga program till App Service med hjälp av den [onlinemigreringsverktyg](https://www.migratetoazure.net/).
 
@@ -186,7 +186,7 @@ Med upp ditt program och som körs i Azure kan behöver du för att kunna överv
 
 ### <a name="devops-integration"></a>DevOps-integration
 
-Om den är etablera virtuella datorer eller publicera dina webbprogram med kontinuerlig integrering, integrerar Azure med de flesta av de populära DevOps-verktyg. Du kan arbeta med de verktyg du redan har och maximera dina befintliga upplevelse med stöd för verktyg som Jenkins, GitHub, Puppet, Chef, TeamCity, Ansible, VSTS, och andra.
+Om den är etablera virtuella datorer eller publicera dina webbprogram med kontinuerlig integrering, integrerar Azure med de flesta av de populära DevOps-verktyg. Du kan arbeta med de verktyg du redan har och maximera dina befintliga upplevelse med stöd för verktyg som Jenkins, GitHub, Puppet, Chef, TeamCity, Ansible, Azure DevOps, och andra.
 
 >**Prova nu:** [kan prova att använda flera av integrering av DevOps](https://azure.microsoft.com/try/devops/).
 
@@ -269,19 +269,7 @@ Förutom att definiera enskilda Azure-konto identiteter, även kallat *användar
 
 ### <a name="manage-your-subscriptions"></a>Hantera prenumerationer
 
-En prenumeration är en logisk enhet på Azure-tjänster som är länkad till ett Azure-konto. Varje associerad konto har en roll i en prenumeration. Fakturering för Azure-tjänster som görs på basis av per prenumeration. En lista över tillgängliga prenumerationserbjudanden efter typ, se [Erbjudandeinformationen för Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/).
-
-#### <a name="administrator-roles"></a>Administratörsroller
-
-En Azure-prenumeration har flera konto-administratörsroller, som du kan tilldela när som helst.
-
--   **Kontoadministratör**: den här rollen har full kontroll över prenumerationen och är det konto som är ansvarig för fakturering.
-
--   **Tjänstadministratör**: den här rollen har kontroll över alla tjänster i prenumerationen. Som standard är detta samma konto som kontoadministratör.
-
--   **Medadministratör**: den här rollen har samma åtkomst som tjänstadministratören, förutom att den inte kan ändra associationen mellan prenumerationen till en Azure-katalog.
-
-Läs mer om administratörsroller i [lägga till eller ändra Azure-administratörsroller](../../billing/billing-add-change-azure-subscription-administrator.md#add-an-admin-for-a-subscription).
+En prenumeration är en logisk gruppering av Azure-tjänster som är länkad till ett Azure-konto. En enda Azure-konto kan innehålla flera prenumerationer. Fakturering för Azure-tjänster som görs på basis av per prenumeration. En lista över tillgängliga prenumerationserbjudanden efter typ, se [Erbjudandeinformationen för Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/). Azure-prenumerationer har en konto-administratör som har fullständig kontroll över prenumerationen, och en tjänstadministratör kan vem som har kontroll över alla tjänster i prenumerationen. Information om klassiska prenumerationsadministratörer finns i [Lägg till eller ändra Azure-prenumerationsadministratörer](../../billing/billing-add-change-azure-subscription-administrator.md). Förutom administratörer, enskilda konton kan få detaljerad kontroll över Azure-resurser med [rollbaserad åtkomstkontroll (RBAC)](../../role-based-access-control/overview.md).
 
 #### <a name="resource-groups"></a>Resursgrupper
 
@@ -293,11 +281,11 @@ Azure Resource Explorer är ett bra verktyg för visualisering av de resurser so
 
 När du tillåter åtkomst till Azure-resurser, men det är alltid en bra idé att förse användarna med det lägsta privilegium som krävs för att utföra en viss uppgift.
 
--   **Rollbaserad åtkomstkontroll (RBAC)**: I Azure kan du bevilja åtkomst till användarkonton (huvudkonton) på ett angivet omfång: prenumerationen, resursgruppen eller enskilda resurser. Med RBAC kan du distribuera en uppsättning resurser i en resursgrupp och tilldela behörigheter till en specifik användare eller grupp. Du kan också begränsa åtkomsten till endast de resurser som tillhör målresursgruppen. Du kan också ge åtkomst till en enda resurs, till exempel en virtuell dator eller ett virtuellt nätverk. Om du vill bevilja åtkomst, tilldela en roll till användare, grupp eller tjänstens huvudnamn. Det finns många fördefinierade roller du kan även definiera dina egna anpassade roller.
+-   **Rollbaserad åtkomstkontroll (RBAC)**: I Azure kan du bevilja åtkomst till användarkonton (huvudkonton) på ett angivet omfång: prenumerationen, resursgruppen eller enskilda resurser. Med RBAC kan du distribuera en uppsättning resurser i en resursgrupp och tilldela behörigheter till en specifik användare eller grupp. Du kan också begränsa åtkomsten till endast de resurser som tillhör målresursgruppen. Du kan också ge åtkomst till en enda resurs, till exempel en virtuell dator eller ett virtuellt nätverk. Om du vill bevilja åtkomst, tilldela en roll till användare, grupp eller tjänstens huvudnamn. Det finns många fördefinierade roller du kan även definiera dina egna anpassade roller. Mer information finns i [vad är rollbaserad åtkomstkontroll (RBAC)?](../../role-based-access-control/overview.md).
 
-    >**När du ska använda**: när du behöver tillgång till ingående åtkomsthantering för användare och grupper.
+    >**När du ska använda**: när du behöver detaljerad åtkomsthantering för användare och grupper eller när du behöver göra en användare en ägare av en prenumeration.
 
-    >**Kom igång**: Mer information finns i [Kom igång med åtkomsthantering i Azure portal](../../role-based-access-control/overview.md).
+    >**Kom igång**: Mer information finns i [hantera åtkomst med RBAC och Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 -   **Tjänsten huvudnamn objekt**: förutom att ge åtkomst till användares huvudnamn och grupper kan du ge samma åtkomst till ett huvudnamn för tjänsten.
 

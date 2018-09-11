@@ -1,5 +1,5 @@
 ---
-title: Data science kod testning på Azure med UCI vuxet inkomst förutsägelse datauppsättningen - Team Data Science Process och Visual Studio Team Services
+title: Data science kod testning på Azure med UCI vuxet inkomst förutsägelse datauppsättningen - Team Data Science Process och Azure DevOps-tjänsterna
 description: Data science kod testning med UCI vuxet intäkter
 services: machine-learning, team-data-science-process
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: weig
-ms.openlocfilehash: 46d156ce09b1ebcdcceb27ede6e7fa1595d30da6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ad0a8b5b0bb9afbbe626c9481961f20ccd4797bf
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439505"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294709"
 ---
 # <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>Data science kod testning med UCI vuxet inkomst förutsägelse datauppsättningen
 Den här artikeln ger preliminär riktlinjer för att testa koden i ett arbetsflöde för datavetenskap. Sådant test ger datatekniker ett systematiskt och effektivt sätt att kontrollera kvaliteten och förväntade resultatet av sin kod. Vi använder ett Team Data Science Process (TDSP) [projekt som använder UCI vuxet inkomst datauppsättningen](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) som vi har publicerat tidigare för att visa hur kod testning kan göras. 
@@ -37,8 +37,8 @@ Den här artikeln ersätter termen ”enhet testning” med ”testning av kod�
 
 Den här artikeln innehåller referenser som användbara resurser.
 
-## <a name="visual-studio-team-services-for-the-testing-framework"></a>Visual Studio Team Services för ramen för testning
-Den här artikeln beskriver hur du utför och automatisera testning med hjälp av Visual Studio Team Services (VSTS). Du kan välja att använda andra verktyg. Vi visar också hur man ställer in en automatisk build med VSTS och agenter. Build-agenter, kan vi använda Azure virtuella datorer för datavetenskap (Dsvm).
+## <a name="azure-devops-for-the-testing-framework"></a>Azure DevOps för testning framework
+Den här artikeln beskriver hur du utför och automatisera testning med Azure DevOps. Du kan välja att använda andra verktyg. Vi visar också hur man ställer in en automatisk build med hjälp av Azure DevOps och agenter. Build-agenter, kan vi använda Azure virtuella datorer för datavetenskap (Dsvm).
 
 ## <a name="flow-of-code-testing"></a>Flödet av kod testning
 Det totala arbetsflödet för testning koden i ett datavetenskapsprojekt ser ut så här: 
@@ -48,7 +48,7 @@ Det totala arbetsflödet för testning koden i ett datavetenskapsprojekt ser ut 
     
 ## <a name="detailed-steps"></a>Detaljerade steg
 
-Använd följande steg för att konfigurera och köra kod testning och en automatisk build med hjälp av en skapandeagent och VSTS:
+Använd följande steg för att konfigurera och köra kod testning och en automatisk build med hjälp av en skapandeagent och Azure DevOps:
 
 1. Skapa ett projekt i Visual Studio-skrivbordsprogram:
 
@@ -60,7 +60,7 @@ Använd följande steg för att konfigurera och köra kod testning och en automa
 
     ![Solution Explorer](./media/code-test/solution_explorer_in_vs.PNG)
 
-1. Skicka projektkoden till VSTS-kodlagringsplatsen projekt: 
+1. Skicka projektkoden till kodlagringsplatsen för Azure DevOps-projekt: 
 
     ![Lagringsplatsen för projektet](./media/code-test/create_repo.PNG)
 
@@ -108,13 +108,13 @@ Använd följande steg för att konfigurera och köra kod testning och en automa
 
     ![Kör testerna](./media/code-test/run_tests.PNG)
 
-1. Kontrollera i din kod till lagringsplatsen för projektet genom att använda Git-kommandon. Senaste arbetet visas snart i VSTS.
+1. Kontrollera i din kod till lagringsplatsen för projektet genom att använda Git-kommandon. Senaste arbetet visas snart i Azure DevOps.
 
     ![Git-kommandon för att kontrollera i kod](./media/code-test/git_check_in.PNG)
 
-    ![Senaste arbete i VSTS](./media/code-test/git_check_in_most_recent_work.PNG)
+    ![Senaste arbete i Azure DevOps](./media/code-test/git_check_in_most_recent_work.PNG)
 
-1. Konfigurera automatisk build och testa i VSTS:
+1. Konfigurera automatisk build och testa i Azure DevOps:
 
     a. I lagringsplatsen för projektet, väljer **Build and Release**, och välj sedan **+ ny** att skapa en ny build-process.
 
@@ -128,7 +128,7 @@ Använd följande steg för att konfigurera och köra kod testning och en automa
 
        ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
 
-    d. Namnge versionen och välj agenten. Du kan välja standard här om du vill använda en DSVM för att slutföra skapandeprocessen. Mer information om inställningen agenter finns i [skapa och släpp agenter](https://docs.microsoft.com/vsts/build-release/concepts/agents/agents?view=vsts).
+    d. Namnge versionen och välj agenten. Du kan välja standard här om du vill använda en DSVM för att slutföra skapandeprocessen. Mer information om inställningen agenter finns i [skapa och släpp agenter](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
     
        ![Build and agent selections](./media/code-test/select_agent.PNG)
 
@@ -142,17 +142,17 @@ Använd följande steg för att konfigurera och köra kod testning och en automa
     
        ![PowerShell details](./media/code-test/powershell_scripts.PNG)
 
-    g. Välj **spara och köa** att slutföra processen för build-definition.
+    g. Välj **spara och köa** Slutför pipeline skapandeprocessen.
 
        !["Save & queue" button](./media/code-test/save_and_queue_build_definition.PNG)
 
 Varje gång en ny allokering skickas till kodlagringsplatsen, startas nu skapandeprocessen automatiskt. (Använder här vi master som lagringsplats, men du kan definiera valfri gren.) Processen körs den **test1.py** fil på agentdatorn att se till att allt definieras i koden körs korrekt. 
 
-Om aviseringar har ställts in korrekt, kommer du att meddelas via e-post när bygget har slutförts. Du kan också kontrollera status för build i VSTS. Om det misslyckas kan du kontrollera informationen för versionen och ta reda på vilka delar är bruten.
+Om aviseringar har ställts in korrekt, kommer du att meddelas via e-post när bygget har slutförts. Du kan också kontrollera status för build i Azure DevOps. Om det misslyckas kan du kontrollera informationen för versionen och ta reda på vilka delar är bruten.
 
 ![E-postmeddelande för en lyckad build](./media/code-test/email_build_succeed.PNG)
 
-![VSTS-meddelande för en lyckad build](./media/code-test/vs_online_build_succeed.PNG)
+![Meddelande om Azure DevOps för en lyckad build](./media/code-test/vs_online_build_succeed.PNG)
 
 ## <a name="next-steps"></a>Nästa steg
 * Se den [UCI inkomst-förutsägelse lagringsplats](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) konkreta exempel på enhetstester för data science-scenarier.
@@ -161,5 +161,5 @@ Om aviseringar har ställts in korrekt, kommer du att meddelas via e-post när b
 ## <a name="references"></a>Referenser
 * [TDSP](https://aka.ms/tdsp)
 * [Testa Visual Studio-verktyg](https://www.visualstudio.com/vs/features/testing-tools/)
-* [VSTS testning resurser](https://www.visualstudio.com/team-services/)
+* [Testa Azure DevOps-resurser](https://www.visualstudio.com/team-services/)
 * [Virtuella datorer för datavetenskap](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

@@ -1,6 +1,6 @@
 ---
-title: Lägg till nästa generations brandvägg i Azure Security Center | Microsoft Docs
-description: Det här dokumentet beskrivs hur du implementerar Azure Security Center-rekommendationerna **lägger du till nästa generations brandvägg** och **väg traffice via nästa generations Brandvägg endast**.
+title: Lägg till en nästa generations brandvägg i Azure Security Center | Microsoft Docs
+description: Det här dokumentet visar hur du implementerar Azure Security Center-rekommendationer **lägga till en nästa generations brandvägg** och **väg traffice via NGFW endast**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -9,20 +9,20 @@ editor: ''
 ms.assetid: 48b99015-4db8-4ce8-85e4-b544c0fa203e
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 25601b01489b95de0e86b314b4b934d3cffd38c2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ff5c667318f961dddcab02cb1b2b679285d8c790
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36330748"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294025"
 ---
-# <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Lägg till nästa generations brandvägg i Azure Security Center
-Azure Security Center kan rekommenderar att du lägger till nästa generations brandvägg (nästa generations Brandvägg) från en Microsoft-partner att öka din säkerhetsskydd. Det här dokumentet vägleder dig genom ett exempel på hur du gör detta.
+# <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Lägg till en nästa generations brandvägg i Azure Security Center
+Azure Security Center rekommendera att du lägger till en nästa generations brandvägg (NGFW) från en Microsoft-partner att öka din säkerhetsskydd. Det här dokumentet vägleder dig genom ett exempel på hur du gör detta.
 
 > [!NOTE]
 > I det här dokumentet beskrivs tjänsten genom en exempeldistribution.  Det är alltså inte en steg-för-steg-guide.
@@ -30,32 +30,32 @@ Azure Security Center kan rekommenderar att du lägger till nästa generations b
 >
 
 ## <a name="implement-the-recommendation"></a>Implementera rekommendationen
-1. I den **rekommendationer** bladet väljer **lägger du till nästa generations brandvägg**.
+1. I den **rekommendationer** bladet väljer **lägga till en nästa generations brandvägg**.
    ![Lägga till en nästa generations brandvägg][1]
-2. I den **lägger du till nästa generations brandvägg** bladet väljer du en slutpunkt.
+2. I den **lägga till en nästa generations brandvägg** bladet väljer du en slutpunkt.
    ![Välj en slutpunkt][2]
-3. En andra **lägger du till nästa generations brandvägg** blad öppnas. Du kan välja att använda en befintlig lösning om det är tillgängligt eller du kan skapa en ny. I det här exemplet finns det inga befintliga lösningar så skapar vi ett nästa generations Brandvägg.
+3. En andra **lägga till en nästa generations brandvägg** blad öppnas. Du kan välja att använda en befintlig lösning om det är tillgängligt eller du kan skapa en ny. I det här exemplet finns det inga befintliga lösningar så skapar vi en NGFW.
    ![Skapa nästa generations brandvägg][3]
-4. Välj en lösning för att skapa en nästa generations Brandvägg, i listan med integrerade partnerleverantörer. I det här exemplet väljer vi **Check Point**.
-   ![Välj nästa generations brandvägg lösning][4]
-5. Den **Check Point** öppnas ett blad med information om Partnerlösningen. Välj **skapa** i bladet information.
+4. Välj en lösning för att skapa en NGFW, i listan med integrerade partnerleverantörer. I det här exemplet väljer vi **Check Point**.
+   ![Välj nästa generations brandväggslösningen][4]
+5. Den **Check Point** öppnas bladet ger dig information om Partnerlösningen. Välj **skapa** på bladet information.
    ![Brandväggen information bladet][5]
-6. Den **Skapa virtuell dator** blad öppnas. Här kan du ange informationen som krävs för att få igång en virtuell dator (VM) som körs i nästa generations Brandvägg. Följ anvisningarna och ange nästa generations Brandvägg information som krävs. Välj OK om du vill använda.
-   ![Skapa virtuell dator för att köra nästa generations Brandvägg][6]
+6. Den **Skapa virtuell dator** blad öppnas. Här kan du ange information som krävs för att skapa en virtuell dator (VM) som kör NGFW. Följ stegen och ange NGFW informationen som krävs. Välj OK om du vill använda.
+   ![Skapa virtuell dator för att köra NGFW][6]
 
 ## <a name="route-traffic-through-ngfw-only"></a>Dirigera trafiken endast via NGFW
-Gå tillbaka till den **rekommendationer** bladet. En ny post skapades när du har lagt till en nästa generations Brandvägg via Security Center, som kallas **dirigera trafik via nästa generations Brandvägg endast**. Denna rekommendation skapas bara om du har installerat din nästa generations Brandvägg via Security Center. Om du har mot Internet slutpunkter rekommenderar Security Center att du konfigurerar Network Security Group regler som tvingar inkommande trafik till den virtuella datorn via din nästa generations Brandvägg.
+Gå tillbaka till den **rekommendationer** bladet. En ny post har skapats efter att du har lagt till en NGFW via Security Center, som kallas **dirigera trafiken endast via NGFW**. Den här rekommendationen skapas endast om du har installerat din NGFW via Security Center. Om du har Internet-riktade slutpunkter kan rekommenderar Security Center att du konfigurerar regler för Nätverkssäkerhetsgruppen som tvingar inkommande trafik till den virtuella datorn via din NGFW.
 
-1. I den **rekommendationer bladet**väljer **dirigera trafik via nästa generations Brandvägg endast**.
+1. I den **rekommendationsbladet**väljer **dirigera trafiken endast via NGFW**.
    ![Dirigera trafiken endast via NGFW][7]
-2. Gör det öppnas bladet **dirigera trafik via nästa generations Brandvägg endast**, som visar en lista över virtuella datorer som du kan vidarebefordra trafiken till. Välj en virtuell dator i listan.
+2. Då öppnas bladet **dirigera trafiken endast via NGFW**, som visar en lista över virtuella datorer som du kan dirigera trafik till. Välj en virtuell dator i listan.
    ![Välj en virtuell dator][8]
-3. Öppnas ett blad för den valda virtuella datorn, med relaterade regler för inkommande trafik. En beskrivning får du mer information om möjliga nästa steg. Välj **redigera regler för inkommande trafik** att fortsätta med att redigera en inkommande regel. Förväntningen är att **källa** inte har angetts till **alla** för mot Internet-slutpunkter som är kopplad till nästa generations Brandvägg. Mer information om egenskaperna för den inkommande regeln finns [säkerhetsregler](../virtual-network/security-overview.md#security-rules).
-   ![Konfigurera regler för att begränsa åtkomst][9]
-   ![Redigera inkommande regel][10]
+3. Ett blad för den valda virtuella datorn öppnas och visar relaterade regler för inkommande trafik. En beskrivning får du mer information om möjliga nästa steg. Välj **redigera regler för inkommande trafik** att fortsätta med att redigera en inkommande regel. Väntas som **källa** inte är inställt på **alla** för Internet-riktade slutpunkter som är kopplad till NGFW. Läs mer om egenskaperna för den inkommande regeln i [säkerhetsregler](../virtual-network/security-overview.md#security-rules).
+   ![Konfigurera regler för att begränsa åtkomsten][9]
+   ![Redigera regel för inkommande trafik][10]
 
 ## <a name="see-also"></a>Se också
-Det här dokumentet visar dig hur du implementerar Security Center-rekommendationen ”Lägg till nästa generations brandvägg”. Mer information om NGFWs och Partnerlösningen Check Point finns i:
+Det här dokumentet visade hur du implementerar Security Center-rekommendationen ”Lägg till en nästa generations brandvägg”. Mer information om NGFWs och Partnerlösningen Check Point finns följande:
 
 * [Nästa generations brandvägg](https://en.wikipedia.org/wiki/Next-Generation_Firewall)
 * [Check Point vSEC](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec)
@@ -63,12 +63,12 @@ Det här dokumentet visar dig hur du implementerar Security Center-rekommendatio
 I följande avsnitt kan du lära dig mer om Security Center:
 
 * [Ange säkerhetsprinciper i Azure Security Center](security-center-policies.md) – Lär dig hur du ställer in säkerhetsprinciper.
-* [Hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md) – Lär dig rekommendationer för att skydda dina Azure-resurser.
+* [Hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md) – Lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md) – Lär dig att övervaka hälsotillståndet hos dina Azure-resurser.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Här får du lära dig hur du övervakar dina partnerlösningars hälsostatus.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
-* [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) --hittar du blogginlägg om säkerhet och Azure kompatibilitet.
+* [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) --hittar du blogginlägg om Azure-säkerhet och regelefterlevnad.
 
 <!--Image references-->
 [1]: ./media/security-center-add-next-gen-firewall/add-next-gen-firewall.png

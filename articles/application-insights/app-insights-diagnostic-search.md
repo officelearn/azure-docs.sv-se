@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1a343e238662393995404b8e4c705cf799866855
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 4d49b6c4fca668a6afe88ade5fbafb0ea9c02dfc
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39137385"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296167"
 ---
 # <a name="using-search-in-application-insights"></a>Använda sökning i Application Insights
 Search är en funktion i [Application Insights](app-insights-overview.md) att du använder för att hitta och utforska enskilda telemetri-objekt, till exempel sidvisningar, undantag, eller webb-begäranden. Och du kan visa loggspårningar och händelser som du har kodat.
@@ -133,13 +133,13 @@ Om din app genererar mycket telemetri (och du använder ASP.NET SDK version 2.0.
 [Lär dig mer om insamling](app-insights-sampling.md).
 
 ## <a name="create-work-item"></a>Skapa arbetsobjekt
-Du kan skapa en bugg i GitHub eller Visual Studio Team Services med information från alla telemetriobjekt. 
+Du kan skapa en bugg i GitHub eller Azure DevOps med information från alla telemetriobjekt. 
 
 ![Klicka på nytt arbetsobjekt och Fyll i fälten.](./media/app-insights-diagnostic-search/42.png)
 
-Första gången du gör detta uppmanas att konfigurera en länk till ditt Team Services-konto och projekt.
+Första gången du gör detta uppmanas att konfigurera en länk till din Azure DevOps-organisation och dina projekt.
 
-![Fyll URL: en för ditt Team Services-servern och på projektets namn och klicka på auktorisera](./media/app-insights-diagnostic-search/41.png)
+![Fyll URL: en för din Azure DevOps-tjänsterna och projektnamnet och klicka på auktorisera](./media/app-insights-diagnostic-search/41.png)
 
 (Du kan också konfigurera länken på bladet arbetsobjekt.)
 

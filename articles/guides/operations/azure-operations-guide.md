@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 06365e4397075d18150095f7e77367f457e3308c
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 28eeae8906480a5a160bfe11386da96b646f7427
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190433"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296864"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Kom igång för Azure IT-operatörer
 
@@ -149,7 +149,7 @@ En av beneﬁts med att använda Azure är att du kan distribuera dina program i
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Azure-portalen är ett webbaserat program som kan användas för att skapa, hantera och ta bort Azure-resurser och tjänster. Azure-portalen finns i [Shell.Azure.com](https://portal.azure.com). Den innehåller en anpassningsbar instrumentpanel och verktyg för hantering av Azure-resurser. Den innehåller också information om fakturering och prenumeration. Mer information finns i [översikt över Microsoft Azure portal](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) och [hantera Azure-resurser via portalen](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
+Azure-portalen är ett webbaserat program som kan användas för att skapa, hantera och ta bort Azure-resurser och tjänster. Azure-portalen finns i [portal.azure.com](https://portal.azure.com). Den innehåller en anpassningsbar instrumentpanel och verktyg för hantering av Azure-resurser. Den innehåller också information om fakturering och prenumeration. Mer information finns i [översikt över Microsoft Azure portal](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) och [hantera Azure-resurser via portalen](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
 
 ### <a name="resources"></a>Resurser
 
@@ -185,7 +185,7 @@ Administratörer kan använda Azure PowerShell och Azure CLI via en webbläsare-
 
 ## <a name="azure-subscriptions"></a>Azure-prenumerationer
 
-En prenumeration är en logisk gruppering av Azure-tjänster som är länkad till ett Azure-konto. Ett enskilt Azure-konto kan innehålla flera prenumerationer. Fakturering för Azure-tjänster som görs på basis av per prenumeration. Azure-prenumerationer har en kontoadministratör som har fullständig kontroll över prenumerationen och en tjänstadministratör kan vem som har kontroll över alla tjänster i prenumerationen. Förutom administratörer, enskilda konton kan få detaljerad kontroll över Azure-resurser via rollbaserad åtkomstkontroll (RBAC).
+En prenumeration är en logisk gruppering av Azure-tjänster som är länkad till ett Azure-konto. En enda Azure-konto kan innehålla flera prenumerationer. Fakturering för Azure-tjänster som görs på basis av per prenumeration. Azure-prenumerationer har en konto-administratör som har fullständig kontroll över prenumerationen, och en tjänstadministratör kan vem som har kontroll över alla tjänster i prenumerationen. Information om klassiska prenumerationsadministratörer finns i [Lägg till eller ändra Azure-prenumerationsadministratörer](../../billing/billing-add-change-azure-subscription-administrator.md). Förutom administratörer, enskilda konton kan få detaljerad kontroll över Azure-resurser med [rollbaserad åtkomstkontroll (RBAC)](../../role-based-access-control/overview.md).
 
 ### <a name="select-and-enable-an-azure-subscription"></a>Välja och aktivera en Azure-prenumeration
 
@@ -205,13 +205,9 @@ Om du överstiger mängden som kredit inaktiveras tjänsten förrän nästa mån
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Tilldela administrativ åtkomst till en Azure-prenumeration
 
-Flera administratörsroller för kontot är tillgängliga och kan ändras när som helst. Det finns två viktiga roller:
+RBAC har flera inbyggda roller som du kan använda för att tilldela behörigheter. Om du vill göra en administratör för en Azure-prenumeration för en användare, tilldela dem den [ägare](../../role-based-access-control/built-in-roles.md#owner) rollen prenumerationsområde. Ägarrollen ger användaren fullständig åtkomst till alla resurser i prenumerationen, inklusive rätten att delegera åtkomst till andra.
 
-- **Tjänstadministratör**: den här rollen har behörighet att hantera Azure-tjänster. Som standard beviljas åtkomst till samma konto som kontoadministratör.
-
-- **Medadministratör**: den här rollen har samma åtkomst som tjänstadministratör. Den här rollen kan inte ändra associationen mellan en prenumeration och Azure-kataloger.
-
-Mer information finns i [lägga till eller ändra Azure-administratörsroller](../../billing/billing-add-change-azure-subscription-administrator.md).
+Mer information finns i [hantera åtkomst med RBAC och Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="view-billing-information-in-the-azure-portal"></a>Visa faktureringsinformation i Azure portal
 
@@ -307,13 +303,13 @@ Du kan bevilja operativa åtkomst till användarkonton i ett angivet omfång: pr
 
 Om du vill bevilja åtkomst, tilldela en roll till användaren eller användargruppen. Det finns många fördefinierade roller. Du kan även definiera dina egna anpassade roller.
 
-Här följer några exempel roller är inbyggda i Azure:
+Här följer några exempel [inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md):
 
 - **Ägare**: en användare med den här rollen kan hantera allt, inklusive åtkomst.
 
 - **Läsare**: en användare med den här rollen kan läsa resurser av alla typer (utom hemligheter) men inte göra några ändringar.
 
-- **Virtuell datordeltagare**: en användare med den här rollen kan hantera virtuella datorer men kan inte hantera det virtuella nätverket som de är anslutna eller storage-konto där VHD-filen finns.
+- **Virtuell Datordeltagare**: en användare med den här rollen kan hantera virtuella datorer men kan inte hantera det virtuella nätverket som de är anslutna eller storage-konto där VHD-filen finns.
 
 - **SQL DB-deltagare**: en användare med den här rollen kan hantera SQL-databaser, men inte deras säkerhetsrelaterade principer.
 
@@ -321,7 +317,7 @@ Här följer några exempel roller är inbyggda i Azure:
 
 - **Lagringskontodeltagare**: en användare med den här rollen kan hantera lagringskonton, men det går inte att hantera åtkomst till storage-konton.
 
-Mer information finns i [använda rolltilldelningar för att hantera åtkomst till din Azure-prenumerationsresurser](../../role-based-access-control/role-assignments-portal.md).
+Mer information finns i [hantera åtkomst med RBAC och Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="azure-virtual-machines"></a>Azure Virtual Machines
 

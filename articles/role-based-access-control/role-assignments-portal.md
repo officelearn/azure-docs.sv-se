@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 09/05/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 97bf33cb882d5a121b9811a8e36a1d26f9a954f8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 14ac23e6b69302ac412aac3ecab06345e5d722fd
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715377"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296354"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>Hantera åtkomst med hjälp av RBAC och Azure Portal
 
@@ -109,9 +109,9 @@ Vid hantering av åtkomst vill du veta vem som har åtkomst, deras behörigheter
 
 ## <a name="grant-access"></a>Bevilja åtkomst
 
-För att skapa åtkomst i RBAC skapar du rolltilldelningar. Följ dessa steg om du vill bevilja åtkomst med olika omfång.
+I RBAC, om du vill bevilja åtkomst måste tilldela du en roll. Följ dessa steg om du vill bevilja åtkomst med olika omfång.
 
-### <a name="create-a-role-assignment-at-a-resource-group-scope"></a>Skapa en rolltilldelning på resursgruppomfång
+### <a name="assign-a-role-at-a-resource-group-scope"></a>Tilldela en roll en resursgruppomfånget
 
 1. Visa **resursgrupper** i navigationslistan.
 
@@ -131,11 +131,11 @@ För att skapa åtkomst i RBAC skapar du rolltilldelningar. Följ dessa steg om 
 
 1. I listan **Välj** väljer du en användare, grupp eller ett program. Om du inte ser säkerhetsobjekt i listan kan du ange visningsnamn, e-postadresser och objektidentifierare i rutan**Välj** om du vill söka i katalogen.
 
-1. Välj **spara** för att skapa rolltilldelningen.
+1. Välj **spara** du tilldela rollen.
 
    Efter en liten stund tilldelas säkerhetsobjektet till rollen på resursgruppsomfång.
 
-### <a name="create-a-role-assignment-at-a-subscription-scope"></a>Skapa en rolltilldelning i omfånget för en prenumeration
+### <a name="assign-a-role-at-a-subscription-scope"></a>Tilldela en roll i omfånget för en prenumeration
 
 1. Gå till Azure Portal och välj **Alla tjänster** och sedan **Prenumerationer**.
 
@@ -155,11 +155,37 @@ För att skapa åtkomst i RBAC skapar du rolltilldelningar. Följ dessa steg om 
 
 1. I listan **Välj** väljer du en användare, grupp eller ett program. Om du inte ser säkerhetsobjekt i listan kan du ange visningsnamn, e-postadresser och objektidentifierare i rutan**Välj** om du vill söka i katalogen.
 
-1. Välj **spara** för att skapa rolltilldelningen.
+1. Välj **spara** du tilldela rollen.
 
    Efter en liten stund tilldelas säkerhetsobjektet till rollen på prenumerationsomfång.
 
-### <a name="create-a-role-assignment-at-a-management-group-scope"></a>Skapa en rolltilldelning i ett omfång för hantering av grupp
+### <a name="assign-a-user-as-an-administrator-of-a-subscription"></a>Tilldela en användare som administratör för en prenumeration
+
+Om du vill göra en administratör för en Azure-prenumeration för en användare, tilldela dem den [ägare](built-in-roles.md#owner) rollen prenumerationsområde. Ägarrollen ger användaren fullständig åtkomst till alla resurser i prenumerationen, inklusive rätten att delegera åtkomst till andra. De här stegen är desamma som alla andra rolltilldelning.
+
+1. Gå till Azure Portal och välj **Alla tjänster** och sedan **Prenumerationer**.
+
+1. Välj din prenumeration.
+
+1. Välj **Åtkomstkontroll (IAM)** för att visa den aktuella listan med rolltilldelningar i omfånget för en prenumeration.
+
+   ![Åtkomstkontroll (IAM)-bladet för en prenumeration](./media/role-assignments-portal/grant-subscription-access-control.png)
+
+1. Välj **Lägg till** för att öppna fönstret **Lägg till behörigheter**.
+
+   Om du inte har behörighet att tilldela roller kan du inte se alternativet **Lägg till**.
+
+   ![Fönstret Lägg till behörigheter](./media/role-assignments-portal/add-permissions.png)
+
+1. I den **rollen** listrutan, väljer den **ägare** roll.
+
+1. I den **Välj** väljer du en användare. Om du inte ser användare i listan kan du skriva i den **Välj** om du vill söka i katalogen för visningsnamn och e-postadresser.
+
+1. Välj **spara** du tilldela rollen.
+
+   Efter en liten stund tilldelas användaren ägarrollen prenumerationsområde.
+
+### <a name="assign-a-role-at-a-management-group-scope"></a>Tilldela en roll i ett omfång för hantering av grupp
 
 1. I Azure-portalen väljer du **alla tjänster** och sedan **hanteringsgrupper**.
 
@@ -185,7 +211,7 @@ För att skapa åtkomst i RBAC skapar du rolltilldelningar. Följ dessa steg om 
 
 1. I listan **Välj** väljer du en användare, grupp eller ett program. Om du inte ser säkerhetsobjekt i listan kan du ange visningsnamn, e-postadresser och objektidentifierare i rutan**Välj** om du vill söka i katalogen.
 
-1. Välj **spara** för att skapa rolltilldelningen.
+1. Välj **spara** du tilldela rollen.
 
    Efter en liten stund tilldelas säkerhetsobjektet rollen på management-Gruppomfång.
 

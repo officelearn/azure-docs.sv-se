@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30ca8fe89105584b1062c5a068e107bdfde154fc
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: be8adf9779c2d168c0ac7a0ed7dbc3e85935df68
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579528"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44293736"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autentisera med ett privat Docker-behållarregister
 
@@ -48,7 +48,7 @@ Tjänstens huvudnamn aktivera fjärradministrerad anslutning till ett register i
 
   * *Läsare*: behållardistributioner från ett register till orchestration-system, inklusive Kubernetes, DC/OS och Docker Swarm. Du kan också hämta från behållarregister till relaterade Azure-tjänster som [AKS](../aks/index.yml), [Apptjänst](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), och övriga.
 
-  * *Deltagare*: lösningar för kontinuerlig integrering och distribution som Visual Studio Team Services (VSTS) eller Jenkins som bygger upp behållaravbildningar och skicka dem till ett register.
+  * *Deltagare*: kontinuerlig integrering och distribution av lösningar som Azure DevOps eller Jenkins som bygger upp behållaravbildningar och skicka dem till ett register.
 
 > [!TIP]
 > Du kan återskapa lösenordet för ett huvudnamn för tjänsten genom att köra den [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials) kommando.

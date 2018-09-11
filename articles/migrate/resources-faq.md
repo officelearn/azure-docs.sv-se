@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/03/2018
 ms.author: snehaa
-ms.openlocfilehash: ce9dc4aab26b99bbb1e9f24f018354b8c91f66f4
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: f4ce2130b18b183f633c649f98fc1add30753a27
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699972"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296015"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate – och vanliga frågor svar (FAQ)
 
@@ -41,7 +41,7 @@ Azure Migrate är en utvärdering av tjänst som hjälper dig att identifiera di
 Azure Migrate är ett verktyg för migreringsplanering och Distributionshanteraren för Azure Site Recovery är en katastrofåterställning (DR) kapacitetsplaneringsverktyget.
 
 **Migrering från VMware till Azure**: Om du planerar att migrera dina lokala arbetsbelastningar till Azure, använda Azure Migrate för planering av migreringsaktiviteter. Azure Migrate utvärderar lokala arbetsbelastningar och tillhandahåller vägledning, insikter och mekanismer för att hjälpa dig att migrera till Azure. Du kan använda tjänster som Azure Site Recovery och Azure Database Migration Service för att migrera datorerna till Azure när du är klar med din migreringsplan.
-
+ 
 **Migrering från Hyper-V till Azure**: Azure Migrate stöder för närvarande endast utvärdering av virtuella VMware-datorer för migrering till Azure. Stöd för Hyper-V är våra planer för Azure Migrate. Under tiden kan använda du Site Recovery Deployment Planner. När Hyper-V-stöd är aktiverat i Azure Migrate kan använda du Azure Migrate för att planera migrering av Hyper-V-arbetsbelastningar.
 
 **Haveriberedskap från VMware/Hyper-V till Azure**: Om du vill göra katastrofåterställning (DR) på Azure med hjälp av Azure Site Recovery (Site Recovery) använda Site Recovery Deployment Planner för DR planera. Distributionshanteraren för site Recovery har en djupgående, ASR-specifika bedömning av din lokala miljö. Den innehåller rekommendationer som krävs av Site Recovery för lyckade DR-åtgärder, till exempel replikering, redundans för dina virtuella datorer.  
@@ -87,6 +87,10 @@ Installationen-baserade identifieringen samlar in metadata om lokala virtuella d
   - Nätverk ut
 
 Agentbaserad identifiering är ett alternativ som är tillgängliga ovanpå installation-baserade identifieringen och hjälper kunder att [visualisera beroenden](how-to-create-group-machine-dependencies.md) för de lokala virtuella datorerna. Beroendeagenter samla in information som FQDN, operativsystem, IP-adress, MAC-adress, processer som körs i den virtuella datorn och de inkommande/utgående TCP-anslutningarna från den virtuella datorn. Agentbaserad identifiering är valfritt och du kan välja att inte installera agenterna om du inte vill att visualisera beroenden för de virtuella datorerna.
+
+### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>Skulle det finnas en prestandaförsämring på analyserade ESXi värdmiljön?
+
+Eftersom vi samlar in information via vCenter-servern påverkas inte prestanda på ESXi-värdar. Det finns nästan noll prestandapåverkan även på vCenter-servern.
 
 ### <a name="where-is-the-collected-data-stored-and-for-how-long"></a>Var finns insamlade data lagrade och hur länge?
 

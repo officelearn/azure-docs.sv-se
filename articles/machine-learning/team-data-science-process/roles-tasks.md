@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 8cec2c2b72b88a27c4a6c15b197e859b879bef43
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 3e0e9a59d7f77355077fc1f7781eb3be4dbe0532
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308532"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296711"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Roller för team Data Science Process och uppgifter
 
 Team Data Science Process är ett ramverk som utvecklats av Microsoft och som tillhandahåller en strukturerad metod för att skapa prediktiva Analyslösningar och intelligenta program effektivt. Den här artikeln beskrivs rollerna som personal och förknippade aktiviteter som hanteras av data science team standardisera om den här processen. 
 
-Den här introduktionen innehåller länkar till självstudier som innehåller instruktioner om hur du ställer in miljön för TDSP för hela data science-grupp, data science team och projekt. Det ger detaljerad vägledning med hjälp av Visual Studio Team Services (VSTS) i självstudier.  VSTS innehåller en kodvärd plattformen och flexibel planering verktyg för att hantera gruppaktiviteter, styra åtkomst och hantera databaser. 
+Den här introduktionen innehåller länkar till självstudier som innehåller instruktioner om hur du ställer in miljön för TDSP för hela data science-grupp, data science team och projekt. Det ger detaljerad vägledning med Azure DevOps i självstudierna. Azure DevOps innehåller en kodvärd plattformen och flexibel planering verktyg för att hantera gruppaktiviteter, styra åtkomst och hantera databaser. 
 
 Du kan använda den här informationen för att implementera TDSP på din egen värd för kod och flexibel planeringsverktyg. 
 
@@ -64,7 +64,7 @@ Följande bild visar de översta uppgifterna för personal efter roll i att anta
 Det här schemat och följande, mer detaljerad översikt över aktiviteter som är kopplade till varje roll i TDSP hjälper dig att välja den aktuella självstudien baserat på dina ansvarsområden i organisationen.
 
 > [!NOTE]
-> I följande anvisningar visas hur du ställer in en TDSP-miljö och utföra andra uppgifter för data science i Visual Studio Team Services (VSTS). Vi anger hur du utför dessa uppgifter med VSTS eftersom det är vad vi använder för att implementera TDSP på Microsoft. VSTS underlättar samarbete genom att integrera hanteringen av arbetsobjekt som spårar aktiviteter och en värdtjänst för kod som används för att dela verktyg, ordna versioner och tillhandahålla rollbaserad säkerhet. Du kan välja andra plattformar, om du föredrar att utföra uppgifter som beskrivs av TDSP. Men beroende på din plattform, vissa funktioner som utnyttjas från VSTS kanske inte tillgänglig. 
+> I följande anvisningar visas hur du ställer in en TDSP-miljö och utföra andra data science-åtgärder i Azure DevOps. Vi anger du hur du utför dessa uppgifter med Azure DevOps eftersom det är vad vi använder för att implementera TDSP på Microsoft. Azure DevOps underlättar samarbete genom att integrera hanteringen av arbetsobjekt som spårar aktiviteter och en värdtjänst för kod som används för att dela verktyg, ordna versioner och tillhandahålla rollbaserad säkerhet. Du kan välja andra plattformar, om du föredrar att utföra uppgifter som beskrivs av TDSP. Men beroende på din plattform, vissa funktioner som utnyttjas från Azure DevOps kanske inte tillgänglig. 
 >
 >Instruktionerna här också använda den [Data Science Virtual Machine (DSVM)](http://aka.ms/dsvm) på Azure moln som analys-skrivbordet med flera populära verktyg för datavetenskap som redan har konfigurerats och integreras med olika Microsoft-programvara och Azure tjänster. Du kan använda DSVM eller någon annan utvecklingsmiljö för att implementera TDSP. 
 
@@ -73,7 +73,7 @@ Det här schemat och följande, mer detaljerad översikt över aktiviteter som �
 
 Följande åtgärder har utförts av Gruppansvarig (eller en utsedd administratör för TDSP-system) för att införa TDSP:
 
-- Skapa en **gruppkontot** på en kod som är värd för plattform (till exempel Github, Git, VSTS eller andra)
+- Skapa en **gruppkontot** på en kod som är värd för plattform (till exempel Github, Git, Azure DevOps eller andra)
 - Skapa en **projekt mallagret** på gruppkonto och dirigering från malldatabasen projekt har utvecklats av Microsoft TDSP-team. TDSP-projekt malldatabasen från Microsoft 
     - tillhandahåller en **standardiserade katalogstruktur** inklusive kataloger för data, kod och dokument, 
     - innehåller en uppsättning **standardiserade mallar** att vägleda en effektiv data science process. 
@@ -86,10 +86,10 @@ Detaljerade stegvisa anvisningar finns i [Gruppansvarig uppgifter för team data
 
 ## <a name="team-lead-tasks"></a>Gruppaktiviteter för Lead
 
-Följande åtgärder har utförts av teamet leda (eller en projektadministratör avsedda team) att införa TDSP:
+Följande åtgärder har utförts av teamet leda (eller en avsedda projektadministratör) att införa TDSP:
 
-- Om VSTS väljs vara kod värdplattform för versionshantering och samarbete, skapa en **grupprojekt** på gruppens VSTS-servern. I annat fall kan den här aktiviteten hoppas över.
-- Skapa den **team projekt mallagret** under grupprojekt och dirigering från malldatabasen grupp projekt som konfigurerats av din gruppchef eller delegerat av hanteraren för. 
+- Om Azure DevOps väljs vara kod värdplattform för versionshantering och samarbete, skapa en **projekt** på gruppens Azure DevOps-tjänsterna. I annat fall kan den här aktiviteten hoppas över.
+- Skapa den **projekt mallagret** under projektet och dirigering från malldatabasen grupp projekt som konfigurerats av din gruppchef eller delegerat av hanteraren för. 
 - Skapa den **team verktyget databasen**, och Lägg till team-specifika verktyg på lagringsplatsen. 
 - (Valfritt) Skapa **[Azure-fillagring](https://azure.microsoft.com/services/storage/files/)** som används för att lagra datatillgångar som kan vara användbara för hela gruppen. Andra gruppmedlemmar kan montera den här delade molnet filarkiv på sina datorer för analys.
 - (Valfritt) Montera Azure file storage för att den **Data Science Virtual Machine** (DSVM) för teamet leda och Lägg till datatillgångar på den.
@@ -102,7 +102,7 @@ Detaljerade stegvisa anvisningar finns i [gruppledare uppgifter för team data s
 
 Följande åtgärder har utförts genom att införa TDSP projektbeskrivning:
 
-- Skapa en **projektets lagringsplats** under grupprojekt och dirigering från teamet projektet mallagret. 
+- Skapa en **projektets lagringsplats** under projektet, och dirigera från malldatabasen projekt. 
 - (Valfritt) Skapa **Azure-fillagring** som används för att lagra datatillgångar i projektet. 
 - (Valfritt) Montera Azure file storage för att den **Data Science Virtual Machine** (DSVM) projektets leda och lägga till projektet datatillgångar på den.
 - Konfigurera den **säkerhetskontroll** genom att lägga till projektmedlemmar och konfigurera sina privilegier. 
@@ -125,7 +125,7 @@ Detaljerade stegvisa anvisningar för registreringen till ett projekt, se [proje
  
 Genom att följa de relevanta uppsättningen anvisningar, skapa dataexperter och projektledare gruppledare arbetsobjekt för att spåra alla aktiviteter och steg som krävs för ett projekt från början till dess slut. Med hjälp av git också främjar samarbete mellan dataforskare och garanterar att de artefakter som genereras under projektkörning är version kontrollerade och delas av alla projektmedlemmar.
 
-Instruktioner för projektkörning av har utvecklats baserat på antagandet att båda dina arbetsuppgifter och projektet lagringsplatserna finns på VSTS git. Med VSTS för både kan du länka dina arbetsuppgifter med Git-grenar av ditt projekt-databaser. På så sätt kan spåra du lätt vad som har gjorts för ett arbetsobjekt. 
+Instruktioner för projektkörning av har utvecklats baserat på antagandet att båda dina arbetsuppgifter och projektet git-lagringsplatser finns på Azure DevOps. Med Azure DevOps för både kan du länka dina arbetsuppgifter med Git-grenar av ditt projekt-databaser. På så sätt kan spåra du lätt vad som har gjorts för ett arbetsobjekt. 
 
 Följande bild visar arbetsflödet för projektkörning av med TDSP.
 

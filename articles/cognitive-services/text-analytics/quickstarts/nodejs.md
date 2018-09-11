@@ -1,5 +1,6 @@
 ---
-title: Snabbstart för node.js för Azure Cognitive Services API för textanalys | Microsoft Docs
+title: 'Snabbstart: Använda Node.js för att anropa API för textanalys | Microsoft Docs'
+titleSuffix: Azure Cognitive Services
 description: Hämta information och exempel på kod som hjälper dig att snabbt komma igång med API för textanalys i Microsoft Cognitive Services på Azure.
 services: cognitive-services
 documentationcenter: ''
@@ -9,14 +10,14 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 9c4ff79384399cb7efd70393cb65f8ff055251ed
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 6cb02ea6c886b3c784826f41f6c3cb638e7104e0
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43840430"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297085"
 ---
-# <a name="quickstart-for-text-analytics-api-with-nodejs"></a>Snabbstart för textanalys-API med Node.js 
+# <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Använda Node.js för att anropa tjänsten Text Analytics Cognitive
 <a name="HOLTop"></a>
 
 Den här artikeln visar hur du [identifiera språk](#Detect), [analysera sentiment](#SentimentAnalysis), [extrahera nyckelfraser](#KeyPhraseExtraction), och [identifiera länkade entiteter](#Entities) med hjälp av den [Text Analytics API: er](//go.microsoft.com/fwlink/?LinkID=759711) med Node.JS.

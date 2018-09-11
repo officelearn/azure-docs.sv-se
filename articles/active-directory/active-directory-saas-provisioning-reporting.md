@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: app-mgmt
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 3231792ed1cb7f80cd2a106faf3760c48dd13c19
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 47ce9729e25fdfe3b72f45b3090473bb7dbeaa7a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42059690"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296337"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Självstudie: Rapportering om automatisk användarens kontoetablering
 
@@ -30,11 +30,11 @@ Den här artikeln beskrivs hur du kontrollerar etableringsstatusen jobb när de 
 
 ## <a name="overview"></a>Översikt
 
-Etablering kopplingar är att ställa in och konfigureras med den [Azure-portalen](https://portal.azure.com), genom att följa den [tillhandahålls dokumentation](saas-apps/tutorial-list.md) för programmet som stöds. När konfigurerad och körs, etablering jobb kan du rapportera om hur du använder en av två metoder:
+Etablering kopplingar är att ställa in och konfigureras med den [Azure-portalen](https://portal.azure.com), genom att följa den [tillhandahålls dokumentation](./saas-apps/tutorial-list.md) för programmet som stöds. När konfigurerad och körs, etablering jobb kan du rapportera om hur du använder en av två metoder:
 
 * **Azure-hanteringsportalen** -den här artikeln beskriver främst hämtar rapportinformation från den [Azure-portalen](https://portal.azure.com), som innehåller både en etablering sammanfattningsrapport samt detaljerade etablering granskningsloggar för en visst program.
 
-* **Granska API** -Azure Active Directory innehåller också en granska API som ger programmatisk hämtning av detaljerade etablering granskningsloggarna. Se [Azure Active Directory granska API-referens](active-directory-reporting-api-audit-reference.md) för hur du använder den här API-dokumentation. Även om den här artikeln inte beskriver hur du använder API: et specifikt, den redogör för typerna av etablering händelser som registreras i granskningsloggen.
+* **Granska API** -Azure Active Directory innehåller också en granska API som ger programmatisk hämtning av detaljerade etablering granskningsloggarna. Se [Azure Active Directory granska API-referens](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) för hur du använder den här API-dokumentation. Även om den här artikeln inte beskriver hur du använder API: et specifikt, den redogör för typerna av etablering händelser som registreras i granskningsloggen.
 
 ### <a name="definitions"></a>Definitioner
 
@@ -131,7 +131,7 @@ För bästa läsbarhet i Azure-portalen väljer du den **kolumner** knappen och 
 
 Etablering sammanfattande rapport och granska loggarna spela en viktig roll som hjälper administratörer felsöka olika användarkonto konfigurationsproblem.
 
-Scenariobaserade vägledning om hur du felsöker automatisk användaretablering finns i [problem med att konfigurera och etablera användare till ett program](active-directory-application-provisioning-content-map.md).
+Scenariobaserade vägledning om hur du felsöker automatisk användaretablering finns i [problem med att konfigurera och etablera användare till ett program](application-provisioning-config-problem.md).
 
 
 ## <a name="additional-resources"></a>Ytterligare resurser

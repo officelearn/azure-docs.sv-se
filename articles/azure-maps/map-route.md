@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: 37323bacf47613c0faf7769701808ecef2645115
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: cb0d5d7239095b67235cc68233d9492377178362
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157961"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295541"
 ---
 # <a name="show-directions-from-a-to-b"></a>Visa anvisningar från A till B 
 
 Den här artikeln visar hur du gör en begäran om väg och visa rutten på kartan.
 
-Det finns två sätt att göra det, ett sätt är av genom att fråga den [API: T för Azure Maps-väg](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) via en tjänst som modulen och den andra är genom att göra en [XMLHttpRequest](https://xhr.spec.whatwg.org/) -API: et. Båda beskrivs nedan.
+Det finns två sätt att göra det, ett sätt är genom att fråga den [API: T för Azure Maps-väg](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) via en tjänst som modulen och den andra är genom att göra en [XMLHttpRequest](https://xhr.spec.whatwg.org/) -API: et. Båda beskrivs nedan.
 
-## <a name="use-service-module-to-query-for-a-route"></a>Använda servicemodulen till frågan för en väg
+## <a name="querying-the-route-via-service-module"></a>Fråga route via tjänstemodulen
 
 ## <a name="understand-the-code"></a>Förstå koden
 
@@ -43,7 +43,7 @@ Det sjätte kodblocket skapas en väg.
 
 Senaste kodblocket frågar Azure Maps-tjänst för händelsedirigering via den [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) metod för att hämta en väg mellan start- och mål. Svaret parsas sedan till GeoJSON-format med den [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes) metod. Det lägger till alla dessa rader på kartan för att rendera vägen. Du kan se [lägger till en rad på kartan](./map-add-shape.md#addALine) för mer information.
 
-## <a name="use-xmlhttprequest-to-query-for-a-route"></a>Använda XMLHTTPRequest till frågan för en väg
+## <a name="querying-the-route-via-xmlhttprequest"></a>Fråga route via XMLHttpRequest
 
 ## <a name="understand-the-code"></a>Förstå koden
 

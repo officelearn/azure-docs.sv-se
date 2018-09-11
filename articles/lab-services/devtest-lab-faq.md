@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: a295cad2bf1cafce4dc64909174e9417daa7918e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 08b27acc2d3114486b86aa0c311b9396c0bed48f
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38235456"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297323"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs vanliga frågor och svar
 Få svar på några av de vanligaste frågorna om Azure DevTest Labs.
@@ -88,17 +88,17 @@ En omfattande artikel om hur du skapar anpassade roller och tilldela behörighet
 
 **Integration av CI/CD och automatisering**
 ## <a name="does-devtest-labs-integrate-with-my-cicd-toolchain"></a>DevTest Labs integrera med min CI/CD-verktygskedja?
-Om du använder Visual Studio Team Services, kan du använda en [DevTest Labs-uppgifter tillägget](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) att automatisera dina releasepipeline i DevTest Labs. Några av de uppgifter som du kan göra med det här tillägget är:
+Om du använder Azure DevOps kan du använda en [DevTest Labs-uppgifter tillägget](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) att automatisera dina releasepipeline i DevTest Labs. Några av de uppgifter som du kan göra med det här tillägget är:
 
-* Skapa och distribuera en virtuell dator automatiskt. Du kan också konfigurera den virtuella datorn med den senaste versionen med hjälp av Azure File Copy eller PowerShell Team Services-uppgifter.
+* Skapa och distribuera en virtuell dator automatiskt. Du kan också konfigurera den virtuella datorn med den senaste versionen med hjälp av Azure File Copy eller PowerShell Azure DevOps-tjänsterna uppgifter.
 * Spara automatiskt tillståndet för en virtuell dator efter test för att återskapa en bugg i samma virtuella dator för vidare studier.
 * Ta bort den virtuella datorn i slutet av versionspipelinen, när den inte längre behövs.
 
-Följande blogginlägg erbjudandet vägledning och information om hur du använder Team Services-tillägget:
+Följande blogginlägg erbjudandet vägledning och information om hur du använder tillägget Azure DevOps-tjänsterna:
 
-* [DevTest Labs och Visual Studio Team Services-tillägget](https://blogs.msdn.microsoft.com/devtestlab/2016/06/15/azure-devtest-labs-vsts-extension/)
-* [Distribuera en ny virtuell dator i en befintlig labb i DevTest Labs från Team Services](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
-* [Med Team Services-versionshantering för kontinuerlig distribution till DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
+* [DevTest Labs och Azure DevOps-tillägget](https://blogs.msdn.microsoft.com/devtestlab/2016/06/15/azure-devtest-labs-vsts-extension/)
+* [Distribuera en ny virtuell dator i en befintlig labb i DevTest Labs från Azure DevOps-tjänster](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
+* [Med Azure DevOps-tjänsterna versionshantering för kontinuerlig distribution till DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
 
 För andra kontinuerlig integrering (CI) / kontinuerlig leverans (CD) verktygskedjor som du kan uppnå samma scenarier genom att distribuera [Azure Resource Manager-mallar](https://aka.ms/dtlquickstarttemplate) med hjälp av [Azure PowerShell-cmdlets](../azure-resource-manager/resource-group-template-deploy.md) och [.NET SDK: er](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). Du kan också använda [REST API: er för DevTest Labs](http://aka.ms/dtlrestapis) att integrera med din verktygskedja.  
 
@@ -112,7 +112,7 @@ En anpassad avbildning är en virtuell hårddisk (VHD). En formel är en avbildn
 
 ## <a name="how-do-i-create-multiple-vms-from-the-same-template-at-once"></a>Hur gör jag skapa flera virtuella datorer från samma mall på samma gång?
 Har du två alternativ för att skapa flera virtuella datorer samtidigt från samma mall:
-* Du kan använda den [tillägget för Visual Studio Team Services-uppgifter](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks). 
+* Du kan använda den [Azure DevOps-uppgifter tillägget](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks). 
 * Du kan [Generera en Resource Manager-mall](devtest-lab-add-vm.md#save-azure-resource-manager-template) när du skapar en virtuell dator och [distribuera Resource Manager-mall från Windows PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## <a name="how-do-i-move-my-existing-azure-vms-into-my-devtest-labs-lab"></a>Hur flyttar jag min befintliga Azure virtuella datorer i min labb i DevTest Labs?

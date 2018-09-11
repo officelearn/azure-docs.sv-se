@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 5f19a6cb356332e95f96484953f1be3df006dd09
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 03723b8653e42bca371f47e16657e7e973c257ae
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931930"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294994"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Hur du använder Packer för att skapa Windows-avbildningar i Azure
 Varje virtuell dator (VM) i Azure skapas från en avbildning som definierar den Windows-distribution och operativsystemsversion. Bilder kan innehålla förinstallerade program och konfigurationer. Azure Marketplace erbjuder många avbildningar av första och tredje part för de vanligaste OS och programmiljöer, eller skapa dina egna anpassade avbildningar som är specialanpassade utifrån dina behov. Den här artikeln beskriver hur du använder Verktyg för öppen källkod [Packer](https://www.packer.io/) att definiera och skapa anpassade avbildningar i Azure.
@@ -36,7 +36,7 @@ $location = "East US"
 New-AzureRmResourceGroup -Name $rgName -Location $location
 ```
 
-## <a name="create-azure-credentials"></a>Skapa autentiseringsuppgifter för Azure
+## <a name="create-azure-credentials"></a>Skapa Azure-autentiseringsuppgifter
 Packer autentiserar med Azure med ett huvudnamn för tjänsten. Ett huvudnamn för Azure-tjänsten är en säkerhetsidentitet som du kan använda med appar, tjänster och automatiseringsverktyg som Packer. Du kontrollerar och definiera behörigheter om vilka åtgärder som tjänstens huvudnamn kan utföra i Azure.
 
 Skapa ett tjänstobjekt med [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) och tilldela behörigheter för tjänstens huvudnamn att skapa och hantera resurser med [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment):
@@ -243,6 +243,6 @@ Ange den offentliga IP-adressen i en webbläsare om du vill se den virtuella dat
 
 
 ## <a name="next-steps"></a>Nästa steg
-I det här exemplet används Packer för att skapa en VM-avbildning med IIS är redan installerad. Du kan använda den här Virtuella datorn tillsammans med befintliga arbetsflöden för distribution, till exempel att distribuera din app till virtuella datorer som skapats från avbildningen med Team Services, Ansible, Chef eller Puppet.
+I det här exemplet används Packer för att skapa en VM-avbildning med IIS är redan installerad. Du kan använda den här Virtuella datorn tillsammans med befintliga arbetsflöden för distribution, till exempel att distribuera din app till virtuella datorer som skapats från avbildningen med Azure DevOps-tjänsterna, Ansible, Chef eller Puppet.
 
 Ytterligare exempel Packer på mallar för andra Windows-distributioner, se [denna GitHub-lagringsplats](https://github.com/hashicorp/packer/tree/master/examples/azure).

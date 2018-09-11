@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 09/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: e0a2e26fb3dd0afeb4d1f3d030cb42bdc181e63c
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 807026d2de40de1b14d2eb1d9eeb9da0aade4ad7
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094968"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297765"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -163,7 +163,7 @@ Medan åtgärden körs, fortsätta att ta emot 202 statuskoden. Vänta antalet s
 
 ## <a name="services-that-can-be-moved"></a>Tjänster som kan flyttas
 
-Tjänster som gör det möjligt att flytta till en ny resursgrupp och en prenumeration är:
+Följande lista innehåller en allmän översikt över Azure-tjänster som kan flyttas till en ny resursgrupp och prenumeration. Läs mer detaljerat, [flytta åtgärden stöd för resurser](move-support-resources.md).
 
 * Analysis Services
 * API Management
@@ -173,6 +173,7 @@ Tjänster som gör det möjligt att flytta till en ny resursgrupp och en prenume
 * Automation
 * Azure Active Directory B2C
 * Azure Cosmos DB
+* Azure DevOps - köper Azure DevOps-organisationer med icke-Microsoft-tillägg måste [Avbryt sina inköp](https://go.microsoft.com/fwlink/?linkid=871160) innan de kan flytta kontot mellan prenumerationer.
 * Azure Maps
 * Azure Relay
 * Azure Stack - registreringar
@@ -227,12 +228,11 @@ Tjänster som gör det möjligt att flytta till en ny resursgrupp och en prenume
 * Virtuella datorer (klassiska) – Se [begränsningar för klassisk distribution](#classic-deployment-limitations)
 * VM Scale Sets – Se [begränsningar för virtuella datorer](#virtual-machines-limitations)
 * Virtuella nätverk - finns i [begränsningar för virtuella nätverk](#virtual-networks-limitations)
-* Visual Studio Team Services - VSTS-konton med icke-Microsoft-tillägg-köp måste [Avbryt sina inköp](https://go.microsoft.com/fwlink/?linkid=871160) innan de kan flytta kontot mellan prenumerationer.
 * VPN Gateway
 
 ## <a name="services-that-cannot-be-moved"></a>Tjänster som inte kan flyttas
 
-De tjänster som för närvarande inte aktiverar en resurs flyttas är:
+Följande lista innehåller en allmän översikt över Azure-tjänster som inte kan flyttas till en ny resursgrupp och prenumeration. Läs mer detaljerat, [flytta åtgärden stöd för resurser](move-support-resources.md).
 
 * AD DS
 * Hybrid AD-tjänsten för hälsotillstånd

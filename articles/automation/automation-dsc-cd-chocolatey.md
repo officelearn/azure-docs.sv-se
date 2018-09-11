@@ -9,12 +9,12 @@ ms.author: dacoulte
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dc0e49f2857468338f6e1f16462ed814893ea6e7
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 100b3fa0e43be054a85ca9e32d9bb1b11033afb8
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054554"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296269"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Användningsexempel: Kontinuerlig distribution till virtuella datorer med Automation-Tillståndskonfiguration och Chocolatey
 
@@ -182,7 +182,7 @@ Den nuspec måste kompileras och lagras i NuGet-server. Den här processen beskr
 ## <a name="step-6-tying-it-all-together"></a>Steg 6: Binda allt på samma plats
 
 Varje gång en version skickar QA och har godkänts för distribution, skapas paketet nuspec och nupkg uppdateras och distribueras till NuGet-servern. Dessutom måste du uppdatera konfigurationen (steg 4 ovan) för att komma överens med det nya versionsnumret. Det måste skickas till den pull-servern och kompileras.
-Från den punkten på är det upp till de virtuella datorer som är beroende av att konfigurationen för att hämta uppdateringen och installera den. Var och en av de här uppdateringarna är enkla – bara en eller två rader av PowerShell. Vissa av dem är inkapslade i build-uppgifter som kan sammanlänkas i en build när det gäller Visual Studio Team Services. Detta [artikeln](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery) innehåller mer information. Detta [GitHub-lagringsplatsen](https://github.com/Microsoft/vso-agent-tasks) beskriver de olika tillgängliga build-uppgifterna.
+Från den punkten på är det upp till de virtuella datorer som är beroende av att konfigurationen för att hämta uppdateringen och installera den. Var och en av de här uppdateringarna är enkla – bara en eller två rader av PowerShell. När det gäller Azure DevOps, är några av dem inkapslade i build-uppgifter som kan sammanlänkas i en version. Detta [artikeln](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery) innehåller mer information. Detta [GitHub-lagringsplatsen](https://github.com/Microsoft/vso-agent-tasks) beskriver de olika tillgängliga build-uppgifterna.
 
 ## <a name="notes"></a>Anteckningar
 

@@ -11,18 +11,19 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: carolz
-ms.openlocfilehash: e34f6bc4de95c72083e67f9e8481a93ea3b6f239
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ae73659ee8fbf9099e7e8fab65e020a170126e3
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23069111"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304177"
 ---
 <div class="content">
    <h1>Docker på Azure</h1>   
     <div class="introHolder" style="justify-content: space-between;">
     <div class="intro" style="min-width: 200px">
-     <img src="media/Docker.png" align="right" alt="Docker Logo">Docker är en populär behållarhantering- och avbildningsplattform som gör att du snabbt kan arbeta med behållare på Linux och Windows.  Lär dig hur du använder Docker på Azure med våra snabbstarter och självstudier.
+     <img src="media/Docker.png" align="right" alt="Docker Logo">
+Docker är en populär containerhanterings- och avbildningsplattform som gör att du snabbt kan arbeta med containrar på Linux och Windows.  Lär dig hur du använder Docker på Azure med våra snabbstarter och självstudier.
     </div>
     </div>
 <h2>Snabbstarter på 5 minuter</h2>
@@ -32,7 +33,7 @@ ms.locfileid: "23069111"
 <p>Lär dig hur du använder Docker i ditt program och som en del av din CI/CD-pipeline:</p>
 <ol>
   <li><a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app">Skapa Python och PostgreSQL med Docker</a></li>
-  <li><a href="/azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine">CI/CD med Docker Swarm och Visual Studio Team Services</a></li>
+  <li><a href="/azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine">CI/CD med Docker Swarm och Azure DevOps Services</a></li>
   <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Integrera Docker, Jenkins och virtuella Linux-datorer</a></li>
 </ol>
 <h2>Resurser</h2>

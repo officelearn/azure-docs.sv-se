@@ -1,80 +1,87 @@
+items:
 - name: Jenkins på Azure
   href: index.yml
 - name: Översikt
   items:
-    - name: Om Jenkins på Azure
-      href: overview.md
+  - name: Om Jenkins på Azure
+    href: overview.md
 - name: Snabbstarter
-  expanded: true
   items:
-    - name: Skapa en Jenkins-server
-      href: /azure/jenkins/install-jenkins-solution-template
-      maintainContext: true
+  - name: Skapa en Jenkins-server
+    href: /azure/jenkins/install-jenkins-solution-template
+    maintainContext: true
+  expanded: true
 - name: Självstudier
   items:
-    - name: CI/CD till App Service
-      href: /azure/jenkins/java-deploy-webapp-tutorial
-    - name: CI/CD till Kubernetes
-      href: /azure/container-service/kubernetes/container-service-kubernetes-jenkins
-      maintainContext: true
-    - name: CI/CD till virtuella Linux-datorer
-      href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
-      maintainContext: true
-    - name: Skapa Azure-resurser i ett pipeline-jobb
-      href: /azure/jenkins/execute-cli-jenkins-pipeline
-    - name: Skala med Azure VM-agenter
-      href: /azure/jenkins/jenkins-azure-vm-agents
-    - name: Skapa med hjälp av Azure Container Instances
-      href: /azure/container-instances/container-instances-jenkins
-      maintainContext: true
-    - name: Distribuera till AKS med hjälp av blått/grönt mönster
-      href: /azure/jenkins/jenkins-aks-blue-green-deployment
+  - name: CI/CD till App Service
+    href: /azure/jenkins/java-deploy-webapp-tutorial
+  - name: CI/CD till Kubernetes
+    href: /azure/container-service/kubernetes/container-service-kubernetes-jenkins
+    maintainContext: true
+  - name: CI/CD till virtuella Linux-datorer
+    href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
+    maintainContext: true
+  - name: Skapa Azure-resurser i ett pipeline-jobb
+    href: /azure/jenkins/execute-cli-jenkins-pipeline
+  - name: Skala med Azure VM-agenter
+    href: /azure/jenkins/jenkins-azure-vm-agents
+  - name: Skapa med hjälp av Azure Container Instances
+    href: /azure/container-instances/container-instances-jenkins
+    maintainContext: true
+  - name: Distribuera till AKS med hjälp av blått/grönt mönster
+    href: /azure/jenkins/jenkins-aks-blue-green-deployment
 - name: Så här gör du
   items:
-    - name: Säker Jenkins på Azure
-      href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
-    - name: Använda App Service-pluginprogrammet
-      href: deploy-jenkins-app-service-plugin.md
-    - name: Publicera till Azure Storage
-      href: /azure/storage/storage-java-jenkins-continuous-integration-solution
-      maintainContext: true
-    - name: Använda Jenkins med VSTS
-      href: 'https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins'
-    - name: Distribuera Service Fabric-appar
-      href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
-      maintainContext: true
+  - name: Säker Jenkins på Azure
+    href: https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/
+  - name: Använda App Service-pluginprogrammet
+    href: deploy-jenkins-app-service-plugin.md
+  - name: Publicera till Azure Storage
+    href: /azure/storage/storage-java-jenkins-continuous-integration-solution
+    maintainContext: true
+  - name: Använd Jenkins med Azure DevOps
+    href: https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins
+  - name: Distribuera Service Fabric-appar
+    href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
+    maintainContext: true
 - name: Exempel
   items:
-    - name: Exempeljobb och skript
-      href: 'https://github.com/azure/jenkins'
+  - name: Exempeljobb och skript
+    href: https://github.com/azure/jenkins
 - name: Resurser
   items:
-    - name: Plugin-program
-      items:
-        - name: Azure App Service-pluginprogram
-          href: 'https://plugins.jenkins.io/azure-app-service'
-        - name: Plugin-program för Azure AD
-          href: 'https://plugins.jenkins.io/azure-ad'
-        - name: Azure Container Agents-pluginprogram
-          href: 'https://plugins.jenkins.io/azure-container-agents'
-        - name: Azure Container Service-pluginprogram
-          href: 'https://plugins.jenkins.io/azure-acs'
-        - name: Azure Credential-pluginprogram
-          href: 'https://plugins.jenkins.io/azure-credentials'
-        - name: Azure Function-pluginprogram
-          href: 'https://plugins.jenkins.io/azure-function'
-        - name: Plugin-program för Azure Service Fabric
-          href: 'https://plugins.jenkins.io/service-fabric'
-        - name: Azure Storage-pluginprogram
-          href: 'https://plugins.jenkins.io/windows-azure-storage'
-        - name: Pluginprogram för Azure VM-agenter
-          href: 'https://plugins.jenkins.io/azure-vm-agents'
-        - name: Plugin-program för Azure VM Scale Sets
-          href: 'https://plugins.jenkins.io/azure-vmss'
-    - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Jenkins-startsida
-      href: 'https://jenkins.io/'
-    - name: Jenkins-arkitektur
-      href: /azure/architecture/reference-architectures/jenkins/
-      maintainContext: true
+  - name: Plugin-program
+    items:
+    - name: Azure App Service-pluginprogram
+      href: https://plugins.jenkins.io/azure-app-service
+    - name: Plugin-program för Azure AD
+      href: https://plugins.jenkins.io/azure-ad
+    - name: Azure Container Agents-pluginprogram
+      href: https://plugins.jenkins.io/azure-container-agents
+    - name: Azure Container Service-pluginprogram
+      href: https://plugins.jenkins.io/azure-acs
+    - name: Azure Credential-pluginprogram
+      href: https://plugins.jenkins.io/azure-credentials
+    - name: Azure Function-pluginprogram
+      href: https://plugins.jenkins.io/azure-function
+    - name: Plugin-program för Azure Service Fabric
+      href: https://plugins.jenkins.io/service-fabric
+    - name: Azure Storage-pluginprogram
+      href: https://plugins.jenkins.io/windows-azure-storage
+    - name: Pluginprogram för Azure VM-agenter
+      href: https://plugins.jenkins.io/azure-vm-agents
+    - name: Plugin-program för Azure VM Scale Sets
+      href: https://plugins.jenkins.io/azure-vmss
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/
+  - name: Jenkins-startsida
+    href: https://jenkins.io/
+  - name: Jenkins-arkitektur
+    href: /azure/architecture/reference-architectures/jenkins/
+    maintainContext: true
+ms.openlocfilehash: 9b7a9493dec61b110b8371510b3e1a3f1fb45acb
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304211"

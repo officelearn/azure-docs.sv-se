@@ -8,15 +8,15 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: c01fcc7e69cf5af26b127519f183062ccf4923cc
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 0d4121bd68611c1f3c6a8c89a0d60251401d670a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172752"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301301"
 ---
 # <a name="app-service-documentation"></a>Dokumentation om App Service
-Med Azure App Service kan du skapa och vara värd för webbappar med valfritt programmeringsspråk utan att behöva hantera infrastrukturen, språket eller webbramverkskörningen. Azure Web Apps tillhandahåller automatisk skalning och hög tillgänglighet, har stöd för både Windows och Linux och möjliggör automatiska distributioner från GitHub, Visual Studio Team Services eller valfri Git-lagringsplats. Lär dig hur du använder Azure App Service med våra snabbstarter, självstudier och exempel.
+Med Azure App Service kan du skapa och vara värd för webbappar med valfritt programmeringsspråk utan att behöva hantera infrastrukturen, språket eller webbramverkskörningen. Azure Web Apps tillhandahåller automatisk skalning och hög tillgänglighet, har stöd för både Windows och Linux och möjliggör automatiska distributioner från GitHub, Azure DevOps Services eller valfri Git-lagringsplats. Lär dig hur du använder Azure App Service med våra snabbstarter, självstudier och exempel.
 
 ## <a name="windows-linux-and-docker"></a>Windows, Linux och Docker
 [Web Apps](/app-service/app-service-web-overview) är App Services främsta erbjudande för att skapa och agera värd åt webbprogram med hjälp av Windows-miljöer. Utvecklare som föredrar en Linux-miljö kan välja [App Service för Linux](/app-service/containers/app-service-linux-intro). Utvecklare kan även distribuera Docker-avbildningar direkt i App Service för Linux för att distribuera anpassade körningar/ramverk.

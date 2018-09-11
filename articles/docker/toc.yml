@@ -1,33 +1,40 @@
+items:
 - name: Docker-dokumentation
   href: index.md
 - name: Snabbstart
-  expanded: true
   items:
-    - name: Docker Marketplace-mall
-      href: 'https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS'
+  - name: Docker Marketplace-mall
+    href: https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS
+  expanded: true
 - name: Självstudier
   items:
-    - name: Python-webbapp med Docker och PostgreSQL
-      href: /azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app
-    - name: Kontinuerlig integrering och kontinuerlig leverans (CI/CD) med Docker Swarm och VSTS
-      href: /azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine
-    - name: 'CI/CD med Docker, Jenkins och Linux'
-      href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
+  - name: Python-webbapp med Docker och PostgreSQL
+    href: /azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app
+  - name: CI/CD med Docker Swarm och Azure DevOps
+    href: /azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine
+  - name: CI/CD med Docker, Jenkins och Linux
+    href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
 - name: Instruktionsguider
   items:
-    - name: Docker VM-tillägg
-      href: /azure/virtual-machines/linux/dockerextension
-    - name: Docker-dator
-      href: /azure/virtual-machines/linux/docker-machine
-    - name: Docker-behållarregister
-      href: /azure/container-registry/container-registry-get-started-portal
+  - name: Docker VM-tillägg
+    href: /azure/virtual-machines/linux/dockerextension
+  - name: Docker-dator
+    href: /azure/virtual-machines/linux/docker-machine
+  - name: Docker-containerregister
+    href: /azure/container-registry/container-registry-get-started-portal
 - name: Resurser
   items:
-    - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Docker Azure-drivrutin
-      href: 'https://docs.docker.com/machine/drivers/azure/'
-    - name: Docker Azure-webbplats
-      href: 'https://www.docker.com/docker-azure'
-    - name: Docker-webbplats
-      href: 'https://docker.com'
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/
+  - name: Docker Azure-drivrutin
+    href: https://docs.docker.com/machine/drivers/azure/
+  - name: Docker Azure-webbplats
+    href: https://www.docker.com/docker-azure
+  - name: Docker-webbplats
+    href: https://docker.com
+ms.openlocfilehash: f972901eb06345b7bfd241ec8d21bb10cacd9f73
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44293896"

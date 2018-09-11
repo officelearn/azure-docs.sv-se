@@ -25,7 +25,9 @@
 ### [Verifiera konfigurationen](hana-installation.md)
 ### [Exempel på HANA-installation](hana-example-installation.md)
 ## [Hög tillgänglighet och haveriberedskap](hana-overview-high-availability-disaster-recovery.md)
-## [Felsök och övervaka](troubleshooting-monitoring.md)
+## Felsök och övervaka
+### [Övervaka HLI](troubleshooting-monitoring.md)
+### [Övervaka och felsöka från HANA-sida](hana-monitor-troubleshoot.md)
 ## Gör så här för att
 ### [Konfiguration för hög tillgänglighet med STONITH](ha-setup-with-stonith.md)
 ### [Säkerhetskopiering av operativsystem för Type II-SKU:er](os-backup-type-ii-skus.md)

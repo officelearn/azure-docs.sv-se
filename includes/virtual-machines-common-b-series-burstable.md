@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 533fa1a8491a701571011f407b338e04fb6a7e8b
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 14feb7ad09a24904034f9ae90cf4a54cf786a44c
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40182679"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44369092"
 ---
 B-serien VM-familj kan du välja vilka VM-storlek har du nödvändiga basnivå prestanda för din arbetsbelastning med möjlighet att utöka CPU-prestanda upp till 100% av en Intel® Broadwell E5-2673 v4 2,3 GHz eller en Intel® Haswell 2,4 GHz E5-2673 v3-processor virtuell processor.
 
-Virtuella datorer i B-serien är idealiska för arbetsbelastningar som inte behöver fullständig prestanda för Processorn kontinuerligt, som webbservrar, små databaser och utveckling och testmiljöer. Dessa arbetsbelastningar har normalt anpassningsbara prestandakrav. B-serien ger dig möjligheten att köpa en VM-storlek med baslinje-prestanda och den Virtuella datorinstansen byggs upp krediter när den använder mindre än dess baslinje. När den virtuella datorn har ackumulerats kredit, utöka den virtuella datorn ovanför baslinjen med upp till 100% av den virtuella processorn när ditt program kräver mer processorkraft.
+Virtuella datorer i B-serien är idealiska för arbetsbelastningar som inte behöver fullständig prestanda för Processorn kontinuerligt, som webbservrar, bevis på koncept, små databaser och skapa utvecklingsmiljöer. Dessa arbetsbelastningar har normalt anpassningsbara prestandakrav. B-serien ger dig möjligheten att köpa en VM-storlek med baslinje-prestanda och den Virtuella datorinstansen byggs upp krediter när den använder mindre än dess baslinje. När den virtuella datorn har ackumulerats kredit, utöka den virtuella datorn ovanför baslinjen med upp till 100% av den virtuella processorn när ditt program kräver mer processorkraft.
 
 B-serien levereras i de sex storlekarna som följande:
 
@@ -47,11 +47,11 @@ Mer information om hur du kommer åt mätvärden för Azure finns i [översikt �
 ### <a name="q-how-are-credits-accumulated"></a>F: hur ackumuleras krediter?
 **En**: den virtuella datorns anhopning och förbrukning är inställda så att en virtuell dator som kör på exakt dess grundläggande prestandanivå har varken en net anhopning eller förbrukning av bursting krediter.  En virtuell dator har en net ökning i kredit varje gång den körs under dess grundläggande prestandanivå och har en net minskning i kredit när Virtuellt datorn använder CPU som är mer än grundläggande prestanda.
 
-**Exempel**: jag distribuera en virtuell dator med B1ms storleken för min små tid och närvaro databasprogram. Den här storleken kan mitt program att använda upp till 20% av en virtuell processor som min baslinje, vilket är.2 krediter per minut som jag kan använda eller bank. 
+**Exempel**: jag distribuera en virtuell dator med B1ms storleken för min små tid och närvaro databasprogram. Den här storleken kan mitt program att använda upp till 20% av en virtuell processor som min baslinje, vilket är 0,2 krediter per minut som jag kan använda eller bank. 
 
-Mitt program är upptagen i början och slutet av min anställda arbetsdag mellan 7:00-9:00 och 4:00 – 18:00:00. Under de andra 20 timmarna på dagen, mitt program är vanligtvis vid inaktivitet, endast med 10% av den virtuella processorn. För de låg belastning jag betalar, desto 0,2 krediter per minut men bara använda 0.l krediter per minut, så att den virtuella datorn kommer bank.1 x 60 = 6 krediter per timme.  För de 20 timmarna som jag är låg, kommer jag bankens 120 krediter.  
+Mitt program är upptagen i början och slutet av min anställda arbetsdag mellan 7:00-9:00 och 4:00 – 18:00:00. Under de andra 20 timmarna på dagen, mitt program är vanligtvis vid inaktivitet, endast med 10% av den virtuella processorn. För de låg belastning, jag betalar, desto 0,2 krediter per minut men bara använda 0.l krediter per minut, så att den virtuella datorn kommer bank 0.1 x 60 = 6 krediter per timme.  För de 20 timmarna som jag är låg, kommer jag bankens 120 krediter.  
 
-Under belastning mitt program anger 60% vCPU utnyttjande, jag fortfarande erhålla 0,2 krediter per minut, men jag använda 0,6 krediter per minut, en net kostnaden för.4 krediter en minut eller.4 x 60 = 24 kredit per timme. Jag har 4 timmar per dag för högsta användning, så att det kostar 4 x 24 = 96 krediter för min högsta användning.
+Under belastning mitt program anger 60% vCPU utnyttjande, jag fortfarande erhålla 0,2 krediter per minut, men jag använda 0,6 krediter per minut, en net kostnaden för 0,4 krediter en minut eller 0.4 x 60 = 24 kredit per timme. Jag har 4 timmar per dag för högsta användning, så att det kostar 4 x 24 = 96 krediter för min högsta användning.
 
 Om jag tar 120 krediter jag tjänade med låg belastning och subtrahera 96 krediter som jag har använt för min Högbelastningstider bankens jag en ytterligare 24 krediter per dag som jag kan använda för andra ökningar av aktivitet.
 

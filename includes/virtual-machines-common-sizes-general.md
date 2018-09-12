@@ -8,21 +8,24 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 1606b5e38b79cb535108ca747783a05de1fbc982
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: eac6c6d76bcc3b3d9cfeda7d8ca4e52e28ba9d8f
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40027165"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44369282"
 ---
 VM-storlekar för generell användning ger balanserat förhållande mellan processor och minne. Utmärkt för tester och utveckling, små till mellanstora databaser och webbservrar med låg till medelhög trafik. Den här artikeln innehåller information om hur många virtuella processorer, diskar och nätverkskort samt genomflödet för storlekar i den här grupperingen. 
 
-- Virtuella datorer i Av2-serien kan distribueras på en rad olika maskinvarutyper och processorer. Storleken begränsas, baserat på maskinvaran, för att erbjuda enhetliga processorprestanda på instansen som körs, oavsett vilken maskinvara instansen har distribuerats på. Du kan kontrollera vilken fysisk maskinvara som storleken har distribuerats på genom att köra en fråga mot den virtuella maskinvaran från den virtuella datorn.
+- Virtuella datorer i Av2-serien kan distribueras på en rad olika maskinvarutyper och processorer. Virtuella datorer i A-serien har CPU-prestanda och minneskonfigurationer som är bäst lämpade för arbetsbelastningar på ingångsnivån som utveckling och testning. Storleken begränsas, baserat på maskinvaran, för att erbjuda enhetliga processorprestanda på instansen som körs, oavsett vilken maskinvara instansen har distribuerats på. Du kan kontrollera vilken fysisk maskinvara som storleken har distribuerats på genom att köra en fråga mot den virtuella maskinvaran från den virtuella datorn.
 
-- Dv2-serien, en uppföljare till den ursprungliga D-serien, har en kraftfullare processor. Processorn i Dv2-serien är cirka 35 % snabbare än den i D-serien. Den är baserad på den senaste generationens Intel Xeon® E5-2673 v3 (Haswell) 2,4 GHz- eller E5-2673 v4 (Broadwell) 2,3 GHz-processorer och kan gå upp till 3,1 GHz med Intel Turbo Boost Technology 2.0. Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
+  Exemplen omfattar utveckling och testservrar, webbservrar för låg trafik, små till medelstora databaser, proof-of-concept och kodlagringsplatser.
+
+- Dv2-serien, en uppföljare till den ursprungliga D-serien, har en kraftfullare processor och optimal processor och minne-konfiguration, vilket gör dem lämpliga för de flesta produktionsarbetsbelastningar. Processorn i Dv2-serien är cirka 35 % snabbare än den i D-serien. Den är baserad på den senaste generationens Intel Xeon® E5-2673 v3 (Haswell) 2,4 GHz- eller E5-2673 v4 (Broadwell) 2,3 GHz-processorer och kan gå upp till 3,1 GHz med Intel Turbo Boost Technology 2.0. Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
 
 - Dv3-serien har 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell)-processor eller senaste 2,3 GHz Intel XEON® E5-2673 v4-processorn processorn (Broadwell) i en hyper-threaded konfiguration som ger ett mer prisvärt för arbetsbelastningar för de flesta allmänt syfte.  Minne har expanderats (från ~3.5 GiB/Vcpu(:er) för 4 GiB/vCPU) medan disk- och gränser har justerats på basis av per kärna för att anpassas till flytten till hypertrådning.  Dv3 inte längre har extra minne VM-storlekar av D/Dv2-familjer, de som har flyttats till nya Ev3-familjen.
 
+  Exemplen i D-serien omfattar program, relationsdatabaser, minnesintern cachelagring och analys. 
 
 ## <a name="b-series"></a>B-serien
 
@@ -31,6 +34,8 @@ Premium Storage: stöds
 Premium Storage cachelagring: Stöds inte
 
 Virtuella datorer med burst B-serien är idealiska för arbetsbelastningar som inte behöver fullständig prestanda för Processorn kontinuerligt, som webbservrar, små databaser och utveckling och testmiljöer. Dessa arbetsbelastningar har normalt anpassningsbara prestandakrav. B-serien ger dessa kunder möjligheten att köpa en VM-storlek med ett pris medvetna baslinje-prestanda som gör att den Virtuella datorinstansen att bygga upp krediter när Virtuellt datorn använder mindre än dess grundläggande prestanda. När den virtuella datorn har ackumulerats kredit, utöka den virtuella datorn över den Virtuella datorns baslinje med upp till 100% av CPU när ditt program kräver mer processorkraft.
+
+Exemplen omfattar utveckling och testning, webbservrar med låg trafik, små databaser, mikrotjänster, servrar för proof-of-concept, kompileringsservrar.
 
 
 | Storlek             | Virtuell processor  | Minne: GiB | Lokal SSD: GiB | Grundläggande Perf av en kärna | Krediter till bank / timme | Max till bank krediter | Maximalt antal datadiskar | Max lokal disk perf: IOPS / Mbit/s | Maximalt icke cachelagrat disk perf: IOPS / Mbit/s | Maximalt antal nätverkskort |          

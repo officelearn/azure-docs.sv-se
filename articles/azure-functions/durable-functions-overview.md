@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 136316feab5a08308a9f10e499f645aaee0c90d3
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 1d6160f8c66fd749942be581cb2992977da82911
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093251"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377997"
 ---
 # <a name="durable-functions-overview"></a>Översikt över varaktiga funktioner
 
@@ -334,7 +334,7 @@ I bakgrunden tillägget varaktiga funktioner är byggt ovanpå den [varaktiga up
 
 ### <a name="event-sourcing-checkpointing-and-replay"></a>Händelsekällor kontrollpunkter och återuppspelning
 
-Orchestrator-funktioner på ett tillförlitligt sätt underhålla sina körningstillstånd med en designmönster för molnet som kallas [händelsekällor](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing). I stället för att direkt spara den *aktuella* tillståndet för en orkestrering och varaktiga tillägget använder en lagringsplats för endast tillägg för att registrera den *fullständig serie åtgärder* vidtas av funktionen dirigering. Detta har många fördelar, inklusive förbättra prestanda, skalbarhet och tillgänglighet jämfört med ”dumpning” fullständig runtime-tillståndet. Andra fördelar är att tillhandahålla konsekvens för transaktionsdata och bibehåller fullständig granskningshistorik och historik. Granskningshistoriken själva Aktivera tillförlitlig kompenserande åtgärder.
+Orchestrator-funktioner på ett tillförlitligt sätt underhålla sina körningstillstånd med en designmönster som kallas [händelsekällor](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing). I stället för att direkt spara den *aktuella* tillståndet för en orkestrering och varaktiga tillägget använder en lagringsplats för endast tillägg för att registrera den *fullständig serie åtgärder* vidtas av funktionen dirigering. Detta har många fördelar, inklusive förbättra prestanda, skalbarhet och tillgänglighet jämfört med ”dumpning” fullständig runtime-tillståndet. Andra fördelar är att tillhandahålla konsekvens för transaktionsdata och bibehåller fullständig granskningshistorik och historik. Granskningshistoriken själva Aktivera tillförlitlig kompenserande åtgärder.
 
 Användning av händelsekällor av det här tillägget är transparent. Under försättsbladen, den `await` operator i en orchestrator-funktion ger kontroll över orchestrator-tråd tillbaka till varaktiga uppgift Framework-avsändaren. Avsändaren sedan genomför alla nya åtgärder som orchestrator-funktion som schemalagts (till exempel anropa en eller flera underordnade funktioner eller schemalägga en hållbar timer) till lagring. Den här transparent commit-åtgärden läggs till i *körningshistorik* för orchestration-instans. Historiken lagras i en lagringstabell. Commit-åtgärden sedan lägger till meddelanden i kö för att schemalägga det faktiska arbetet. Orchestrator-funktion kan nu tas bort från minnet. Faktureringen för den stoppas om du använder Azure Functions Consumption-Plan.  Om det finns mer arbete att göra, funktionen har startats om och dess tillstånd rekonstruerad.
 
@@ -369,6 +369,8 @@ Tillägget varaktiga funktioner använder Azure Storage-köer, tabeller och BLOB
 Orchestrator-funktioner schemalägga Aktivitetsfunktioner och få svar via interna Kömeddelanden. När en funktionsapp som körs i Azure Functions-förbrukningsplanen kan dessa köer övervakas av den [Azure Functions skala Controller](functions-scale.md#how-the-consumption-plan-works) och ny beräkning instanser läggs till efter behov. Vid utskalning till flera virtuella datorer kan en orchestrator-funktion körs på en virtuell dator medan den anropar Aktivitetsfunktioner körs på flera olika virtuella datorer. Du hittar mer information i skala beteendet för varaktiga funktioner i [prestanda och skalning](durable-functions-perf-and-scale.md).
 
 Tabellagring används för att lagra körningshistorik för orchestrator-konton. När en instans rehydrates på en viss virtuell dator, hämtar den dess körningshistorik från table storage så att den kan återskapa det lokala tillståndet. Något av de praktiskt att ha historik som är tillgängliga i Table storage är att du kan ta en titt och historik över din orkestreringar med verktyg som [Microsoft Azure Lagringsutforskaren](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+
+Storage-blobbar används främst som en leasingmekanism för att koordinera skalbar orchestration instanser mellan flera virtuella datorer. De används också för att lagra data för stora meddelanden som inte kan lagras direkt i tabeller eller köer.
 
 ![Azure Storage Explorer skärmbild](media/durable-functions-overview/storage-explorer.png)
 

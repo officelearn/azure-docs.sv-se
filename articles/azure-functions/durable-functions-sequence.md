@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ea8c275e5cc37f8c5ecd7c29491b7146669d00fb
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: c84977dacddcf9ccca7fde735ad4acb8a1523fa9
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092911"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378711"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Funktionen länkning i varaktiga funktioner - Hello sekvens-exempel
 
@@ -104,6 +104,9 @@ Att köra den `E1_HelloSequence` orchestration, skicka följande HTTP POST-begä
 ```
 POST http://{host}/orchestrators/E1_HelloSequence
 ```
+
+> [!NOTE]
+> Föregående HTTP-kodavsnitt förutsätter att det finns en post i den `host.json` fil som tar bort standard `api/` prefixet från alla HTTP-utlösaren functions URL: er. Du hittar koden för den här konfigurationen i den `host.json` filen i exemplen.
 
 Till exempel om du kör exemplet i en funktionsapp med namnet ”myfunctionapp”, Ersätt ”{värd}” med ”myfunctionapp.azurewebsites.net”.
 

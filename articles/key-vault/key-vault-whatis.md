@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: d7357dc7e8fa473bd8517dd80ede749b9d8e3f07
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 580ebbf219daa4c22034ffbf9ee3abbbdd0c8130
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162843"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378771"
 ---
 # <a name="what-is-azure-key-vault"></a>Vad är Azure Key Vault?
 
 Azure Key Vault kan hjälpa dig att lösa följande problem
-- Azure Key Vault kan användas för säker lagring av och kontrollerad åtkomst till token, lösenord, certifikat, API-nycklar och andra hemligheter
-- Azure Key Vault kan även användas som nyckelhanteringslösning. Med Azure Key Vault är det enkelt att skapa och kontrollera de krypteringsnycklar som används för att kryptera dina data. 
-- Azure Key Vault är också en tjänst där du enkelt kan etablera, hantera och distribuera offentliga och privata SSL/TLS-certifikat (Secure Sockets Layer/Transport Layer Security) för användning med Azure och dina interna anslutna resurser. 
-- Hemligheter och nycklar kan skyddas antingen med programvara eller med FIPS 140-2 Level 2-verifierade HSM:er
+- **Hantering av hemligheter** – Azure Key Vault kan användas för att lagra säkert och väl styr åtkomsten till token, lösenord, certifikat, API-nycklar och andra hemligheter
+- **Hantering av nycklar** – Azure Key Vault kan också användas som en lösning för hantering av nycklar. Med Azure Key Vault är det enkelt att skapa och kontrollera de krypteringsnycklar som används för att kryptera dina data. 
+- **Certifikathantering** – Azure Key Vault är också en tjänst som gör att du enkelt etablera, hantera och distribuera offentliga och privata Secure Sockets Layer/Transport Layer Security (SSL/TLS)-certifikat för användning med Azure och den interna ansluten resurser. 
+- **Maskinvarusäkerhetsmoduler** -hemligheter och nycklar kan skyddas genom programvara eller FIPS 140-2 Level 2 verifierar HSM: er
 
 ## <a name="basic-concepts"></a>Grundläggande begrepp
 

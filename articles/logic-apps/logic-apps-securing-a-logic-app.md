@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 11/22/2016
-ms.openlocfilehash: fc4fdff5080e6ebe13850157e8d560a1d31e7719
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 1307b6df22c51af9710d44abb23178d65e3507aa
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127487"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377402"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Säker åtkomst i Azure Logic Apps
 
@@ -77,7 +77,7 @@ Den här inställningen kan konfigureras i inställningarna för logic app:
 1. Klicka på den **arbetsflödesinställningarna** menyalternativet under **inställningar**
 1. Ange listan med IP-adresser som ska godkännas av utlösaren
 
-En giltig IP-adressintervall har formatet `192.168.1.1/255`. Om du vill logikappen som ska bara aktiveras som en kapslad logikapp, Välj den **enbart andra logic apps** alternativet. Det här alternativet skriver en tom matris till resursen, betydelse endast anropas från själva (överordnade logikappar) tjänsten utlöses har.
+En giltig IP-adressintervall har formatet `192.168.1.1/32`. Om du vill logikappen som ska bara aktiveras som en kapslad logikapp, Välj den **enbart andra logic apps** alternativet. Det här alternativet skriver en tom matris till resursen, betydelse endast anropas från själva (överordnade logikappar) tjänsten utlöses har.
 
 > [!NOTE]
 > Du kan fortfarande köra en logikapp med en begäransutlösare via REST API / Management `/triggers/{triggerName}/run` oavsett IP. Det här scenariot kräver autentisering mot Azure REST-API och alla händelser som visas i granskningsloggen för Azure. Ställ in åtkomst till principer för åtkomstkontroll i enlighet med detta.
@@ -255,7 +255,7 @@ Alla anrop från logikappar kommer från en specifik uppsättning IP-adresser pe
 
 Logic apps är integrering med flera tjänster att tillhandahålla säker och tillförlitlig lokala kommunikation.
 
-#### <a name="on-premises-data-gateway"></a>Lokal datagateway
+#### <a name="on-premises-data-gateway"></a>Lokal dataanslutningsgateway
 
 Många hanterade anslutningsappar för logic apps ger säkra anslutningar till lokala system, inklusive filsystem, SQL, SharePoint, DB2 och mycket mer. Gatewayen vidarebefordrar data från lokala källor på krypterade kanaler via Azure Service Bus. All trafik som samlas in som säker utgående trafik från gateway-agenten. Läs mer om [hur datagateway fungerar](logic-apps-gateway-install.md#gateway-cloud-service).
 

@@ -1,6 +1,6 @@
 ---
-title: Schemaläggaren gränser och standardvärden
-description: Schemaläggaren gränser och standardvärden
+title: Scheduler-begränsningar och standardvärden
+description: Scheduler-begränsningar och standardvärden
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
@@ -14,21 +14,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: db6b1c196cb468f41c7a7ce34758de346b522abb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4be0695402b66fdb2a027bfbada0e0b26e02d36f
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23867817"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378728"
 ---
-# <a name="scheduler-limits-and-defaults"></a>Schemaläggaren gränser och standardvärden
-## <a name="scheduler-quotas-limits-defaults-and-throttles"></a>Schemaläggaren kvoter, gränser, standarder och begränsningar
+# <a name="scheduler-limits-and-defaults"></a>Scheduler-begränsningar och standardvärden
+## <a name="scheduler-quotas-limits-defaults-and-throttles"></a>Scheduler-kvoter, gränser, standardinställningar och begränsningar
 [!INCLUDE [scheduler-limits-table](../../includes/scheduler-limits-table.md)]
 
-## <a name="the-x-ms-request-id-header"></a>Huvudet x-ms-begäran-id
-Alla begäranden som görs mot Schemaläggaren returnerar ett svarshuvud med namnet**x-ms-begäran-id**. Det här sidhuvudet innehåller ett täckande värde som unikt identifierar begäran.
+## <a name="the-x-ms-request-id-header"></a>Rubriken x-ms-request-id
+Varje begäran som görs mot tjänsten Scheduler returnerar ett svarshuvud med namnet **x-ms-request-id**. Den här rubriken innehåller ett täckande värde som unikt identifierar begäran.
 
-Om en begäran konsekvent misslyckas och du har verifierat att begäran är korrekt formulerade, kan du använda det här värdet rapportera felet till Microsoft. I rapporten, inkluderar du värdet för x-ms-begäran-id, den ungefärliga tid som begäran gjordes, identifierare för prenumerationen, jobbsamlingen, och/eller jobb och typ av åtgärd som misslyckades med begäran.
+Om en begäran misslyckas konsekvent och du har verifierat att begäran korrekt formulerat, kan du använda det här värdet och rapportera felet till Microsoft. Inkludera i rapporten, värdet för x-ms-request-id, den ungefärliga tid som begäran gjordes, ID för prenumerationen, jobb-samling och/eller jobbet och vilken typ av åtgärd som begäran gjordes ett försök.
 
 ## <a name="see-also"></a>Se även
  [Vad är Scheduler?](scheduler-intro.md)

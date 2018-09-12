@@ -8,13 +8,13 @@ keywords: Återställ säkerhetskopia. Så här återställer du; återställnin
 ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
-ms.author: geetha.g
-ms.openlocfilehash: c0dc738af450711c129b6c1802aec34c6b1da6ec
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.author: geg
+ms.openlocfilehash: eb47b1d8d3f2859b2b5c0b79633b2d37e5a40756
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346227"
+ms.locfileid: "44380173"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Använd Azure portal för att återställa virtuella datorer
 Skydda dina data genom att ta ögonblicksbilder av dina data med definierade intervall. De här ögonblicksbilderna kallas återställningspunkter och de lagras i Recovery Services-valv. Om det är nödvändigt att reparera eller återskapa en virtuell dator (VM), kan du återställa den virtuella datorn från någon av de sparade återställningspunkterna. När du återställer en återställningspunkt kan du:

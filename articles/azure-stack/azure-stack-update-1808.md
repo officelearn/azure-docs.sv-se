@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 09/11/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: f9973f2099ed5c6dda38c6569f42995b6903ef5e
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 8574eeb54d3695eff5bca43b24e90e45a36b1a70
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162418"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391665"
 ---
 # <a name="azure-stack-1808-update"></a>Uppdatering av Azure Stack 1808
 
@@ -70,6 +70,8 @@ Den här uppdateringen innehåller följande förbättringar för Azure Stack.
 - <!-- 1697698  | IS, ASDK --> *Snabbstartsguider* i användaren portalens instrumentpanel nu länken till artiklarna i onlinedokumentationen för Azure Stack.
 
 - <!-- 2515955   | IS ,ASDK--> *Alla tjänster* ersätter *fler tjänster* i Azure Stack administratörs- och portaler. Du kan nu använda *alla tjänster* som ett alternativ till att navigera i Azure Stack-portaler på samma sätt som du gör i Azure-portaler.
+
+- <!-- TBD | IS, ASDK --> **+ Skapa en resurs** ersätter **+ ny** i Azure Stack administratörs- och portaler.  Du kan nu använda *+ skapa en resurs* som ett alternativ till att navigera i Azure Stack-portaler på samma sätt som du gör i Azure-portaler. 
 
 - <!--  TBD – IS, ASDK --> *Basic A* storlekar för virtuella datorer är inte längre tillgängligt för [skapar VM-skalningsuppsättningar](azure-stack-compute-add-scalesets.md) (VMSS) via portalen. Använd PowerShell eller en mall för att skapa en VMSS med den här storleken.  
 
@@ -137,7 +139,7 @@ Den här uppdateringen innehåller även minskningen för spekulativ körning si
 
 Här följer efter installation kända problem för den här build-versionen.
 
-### <a name="portal"></a>Portalen
+### <a name="portal"></a>Portal
 -  <!--  2873083 - IS ASDK --> När du använder portalen för att skapa en virtuell datorskalning ange (VMSS), den *instansstorlek* listrutan inte in korrekt när du använder Internet Explorer. Undvik problemet genom att använda en annan webbläsare när du använder portalen för att skapa en VMSS.  
 
 - <!-- 2931230 – IS  ASDK --> Planer som läggs till i en användarprenumeration som en tilläggsplanen kan inte raderas även när du tar bort planen från användarprenumerationen. Planen finns kvar tills de prenumerationer som refererar till tilläggsplanen tas också bort. 
@@ -238,7 +240,7 @@ Här följer efter installation kända problem för den här build-versionen.
 
 
 
-### <a name="usage"></a>Användning  
+### <a name="usage"></a>Användning   
 - <!-- TBD - IS ASDK --> Offentlig IP-adress användning mätaren användningsdata visar samma *EventDateTime* värde för varje post i stället för den *TimeDate* stämpel som visar när posten skapades. För närvarande kan använda du inte dessa data för att utföra redovisas korrekt användning av offentlig IP-adress.
 
 

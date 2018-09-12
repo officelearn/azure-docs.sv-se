@@ -6,18 +6,18 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/03/2018
 ms.author: snehaa
-ms.openlocfilehash: f4ce2130b18b183f633c649f98fc1add30753a27
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 16fce3eb5ab3874f7106d05bf99dc795cc22a528
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296015"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377557"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate – och vanliga frågor svar (FAQ)
 
 Den här artikeln innehåller vanliga frågor och svar om Azure Migrate. Om du har några ytterligare frågor när du har läst den här artikeln, publicera dem på den [Azure Migrate forum](http://aka.ms/AzureMigrateForum).
 
-## <a name="general"></a>Allmänt
+## <a name="general"></a>Generell
 
 ### <a name="does-azure-migrate-support-assessment-of-only-vmware-workloads"></a>Stöder Azure Migrate bedömning av VMware-arbetsbelastningar?
 
@@ -48,13 +48,13 @@ Azure Migrate är ett verktyg för migreringsplanering och Distributionshanterar
 
 ### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Vilka Azure-regioner stöds av Azure Migrate?
 
-Azure Migrate stöder för närvarande USA, östra och USA, västra centrala som migrering projekt platser. Observera att även om du kan bara skapa migreringsprojekt i västra centrala USA och östra USA, du kan fortfarande utvärdera dina datorer för [flera målplatser](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). Projektplatsen används bara för att lagra de identifierade data.
+Azure Migrate stöder för närvarande USA, östra och USA, västra centrala som migrering projekt platser. Trots att du kan bara skapa migreringsprojekt i västra centrala USA och östra USA, du kan fortfarande utvärdera dina datorer för [flera målplatser](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). Projektplatsen används bara för att lagra de identifierade data.
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>Hur ansluter en lokal plats till Azure Migrate?
 
 Anslutningen kan vara via internet eller använda ExpressRoute med offentlig peering.
 
-### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Kan jag skydda den virtuella datorn som konfigurerats med den. OVA mallen?
+### <a name="can-i-harden-the-vm-set-up-with-theova-template"></a>Kan jag skydda den virtuella datorn som konfigurerats med den. OVA mallen?
 
 Ytterligare komponenter (till exempel ett virusskyddsprogram) kan läggas till i den. OVA mallen är så länge lämnas kommunikation och brandväggen regler som krävs för Azure Migrate-installation för att fungera som.   
 
@@ -90,7 +90,9 @@ Agentbaserad identifiering är ett alternativ som är tillgängliga ovanpå inst
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>Skulle det finnas en prestandaförsämring på analyserade ESXi värdmiljön?
 
-Eftersom vi samlar in information via vCenter-servern påverkas inte prestanda på ESXi-värdar. Det finns nästan noll prestandapåverkan även på vCenter-servern.
+I fall med den [en metod för identifiering av tid](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods), för att samla in prestandadata, statistiknivån i vCenter-servern måste vara inställd på 3. Ange värdet till den här nivån skulle samla in ett stort antal felsökning av data som lagras i vCenter Server-databas. Det kan därför orsaka vissa prestandaproblem på vCenter-servern. Det skulle vara ska påverkas minimalt på ESXi-värden.
+
+Vi har introducerat kontinuerlig profilering av prestandadata (som finns i förhandsversion). Med kontinuerlig profilering finns inte längre behöver ändra vCenter Server statistiknivån att göra en utvärdering för prestandabaserad. Insamlingsprogrammet kommer nu att profilera de lokala datorerna för att mäta prestandadata för de virtuella datorerna. Detta skulle ha nästan noll prestandapåverkan på ESXi-värdar och på vCenter-servern.
 
 ### <a name="where-is-the-collected-data-stored-and-for-how-long"></a>Var finns insamlade data lagrade och hur länge?
 
@@ -134,7 +136,7 @@ Azure Migrate stöder för närvarande inte kostnadsuppskattning för [erbjudand
 
   ![Rabatt](./media/resources-faq/discount.png)
 
-## <a name="dependency-visualization"></a>Visualisering av beroenden
+## <a name="dependency-visualization"></a>Beroendevisualisering
 
 ### <a name="do-i-need-to-pay-to-use-the-dependency-visualization-feature"></a>Behöver jag betala för att använda funktionen beroendevisualisering?
 

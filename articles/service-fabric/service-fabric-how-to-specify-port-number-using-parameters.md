@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: mikhegn
-ms.openlocfilehash: 06cfb375c6c18082a0d0316cfcb742a7779fc8a8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d69e02126564388bf045693b9960e6e574307641
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206386"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391342"
 ---
 # <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Så här anger du portnumret för en tjänst med parametrar i Service Fabric
 
@@ -25,13 +25,13 @@ Den här artikeln visar hur du anger du portnumret för en tjänst med parametra
 
 ## <a name="procedure-for-specifying-the-port-number-of-a-service-using-parameters"></a>Proceduren för att ange portnumret för en tjänst med parametrar
 
-I det här exemplet anger du portnumret för din asp.net core webb-API som använder en parameter.
+I det här exemplet anger du portnumret för din asp.net core webb-API med hjälp av en parameter.
 
 1. Öppna Visual Studio och skapa ett nytt Service Fabric-program.
-1. Välj mallen tillståndslös ASP.NET Core.
+1. Välj den tillståndslösa ASP.NET Core-mallen.
 1. Välj webb-API.
-1. Öppna filen ServiceManifest.xml.
-1. Notera namnet på slutpunkten som specificeras för din tjänst. Standardvärdet är `ServiceEndpoint`.
+1. Öppna filen servicemanifest.XML.
+1. Anteckna namnet på den slutpunkt som angavs för din tjänst. Standardvärdet är `ServiceEndpoint`.
 1. Öppna filen ApplicationManifest.xml
 1. I den `ServiceManifestImport` element, lägga till en ny `RessourceOverrides` element med en referens till slutpunkten i filen ServiceManifest.xml.
 
@@ -47,7 +47,7 @@ I det här exemplet anger du portnumret för din asp.net core webb-API som anvä
       </ServiceManifestImport>
     ```
 
-1. I den `Endpoint` element, kan du nu åsidosätta alla attribut som använder en parameter. I det här exemplet anger du `Port` och ange det till ett parameternamn med hakparenteser - t.ex. `[MyWebAPI_PortNumber]`
+1. I den `Endpoint` element, kan du nu åsidosätter alla attribut med hjälp av en parameter. I det här exemplet anger du `Port` och väljer ett parameternamn med hakparenteser - exempel: `[MyWebAPI_PortNumber]`
 
     ```xml
       <ServiceManifestImport>
@@ -61,7 +61,7 @@ I det här exemplet anger du portnumret för din asp.net core webb-API som anvä
       </ServiceManifestImport>
     ```
 
-1. Fortfarande i filen ApplicationManifest.xml du ange parametern i den `Parameters` element
+1. Fortfarande i filen applicationmanifest.XML anger du sedan parametern i den `Parameters` element
 
     ```xml
       <Parameters>
@@ -78,17 +78,17 @@ I det här exemplet anger du portnumret för din asp.net core webb-API som anvä
     ```
 
 1. Öppna mappen ApplicationParameters och `Cloud.xml` fil
-1. Om du vill ange en annan port som ska användas vid publicering till ett kluster, lägger du till parametern med portnummer till den här filen.
+1. Lägga till parametern med portnummer till den här filen om du vill ange en annan port som ska användas när du publicerar till ett fjärrkluster.
 
     ```xml
       <Parameters>
-        <Parameter Name="MyWebAPI_PortNumber" DefaultValue="80" />
+        <Parameter Name="MyWebAPI_PortNumber" Value="80" />
       </Parameters>
     ```
 
-När publicering av programmet från Visual Studio med hjälp av Cloud.xml publiceringsprofil, har tjänsten konfigurerats för användning av port 80. Om du distribuerar programmet utan att ange parametern MyWebAPI_PortNumber använder tjänsten port 8080.
+När publicering av programmet från Visual Studio med hjälp av Cloud.xml publiceringsprofil, är tjänsten konfigurerad för port 80. Om du distribuerar programmet utan att ange parametern MyWebAPI_PortNumber använder tjänsten port 8080.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om några grundläggande begrepp som diskuteras i den här artikeln finns det [hantera program för flera miljöer artiklar](service-fabric-manage-multiple-environment-app-configuration.md).
+Mer information om några av de viktigaste begreppen som beskrivs i den här artikeln finns det [hantera program för flera miljöer artiklar](service-fabric-manage-multiple-environment-app-configuration.md).
 
-Information om andra app-hanteringsfunktioner som är tillgängliga i Visual Studio finns [hantera din Service Fabric-program i Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+Information om andra funktioner för hantering av appen som är tillgängliga i Visual Studio finns i [hantera dina Service Fabric-program i Visual Studio](service-fabric-manage-application-in-visual-studio.md).

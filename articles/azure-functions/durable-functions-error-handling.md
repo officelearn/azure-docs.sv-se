@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 09/05/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 0b19fe7441d3c2c5222095c31d9c3677b8c9cf34
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 6bf9eb2cd2ebdf5f6d53e00923146bab49a142bf
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092725"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377913"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Hantera fel i varaktiga funktioner (Azure Functions)
 
@@ -92,7 +92,7 @@ Det finns flera alternativ för att anpassa automatisk återförsöksprincipen. 
 * **Backoff koefficienten**: koefficienten används för att fastställa ökningstakt för backoff. Standardvärdet är 1.
 * **Max återförsöksintervallet**: längsta tid som ska förflyta mellan försöken.
 * **Nya försök**: längsta tid för gör ett nytt försök görs. Standardinställningen är att försöka igen på obestämd tid.
-* **Anpassad**: en användardefinierad motringning kan anges som bestämmer huruvida ett funktionsanrop ska göras.
+* **Hantera**: en användardefinierad motringning kan anges som bestämmer huruvida ett funktionsanrop ska göras.
 
 ## <a name="function-timeouts"></a>Funktionen tidsgränser
 

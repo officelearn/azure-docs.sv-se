@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: aliceku
 monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: 0ed05fd2d55f1c4c80bec9f64925be2eddddc067
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: afc53fc1abce74b247ec2e25bc3e4845bc870860
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043979"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380207"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent datakryptering för SQL Database och Data Warehouse
 
@@ -128,7 +128,7 @@ Om du vill konfigurera transparent datakryptering via REST API, måste du vara a
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En allmän beskrivning av transparent datakryptering, se [Transparent datakryptering] ((https://docs.microsoft.com/sql/relational-databases/security/transparent-data-encryption).
+- En allmän beskrivning av transparent datakryptering, se [Transparent datakryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption).
 - Läs mer om transparent datakryptering med Bring Your Own Key-stöd för SQL-databasen och informationslagret i [Transparent datakryptering med stöd för Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md).
 - Om du vill börja använda transparent datakryptering med stöd för Bring Your Own Key, finns i den här guiden [aktivera transparent datakryptering med hjälp av en egen nyckel från Key Vault med hjälp av PowerShell](transparent-data-encryption-byok-azure-sql-configure.md).
 - Läs mer om Key Vault, den [dokumentationssidan för Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault).

@@ -10,19 +10,19 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 3e2008315a8b1c728ef1dac50002b8322907eb51
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: c035ef1a79cde7c594c66964052c0653c5c709d9
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248012"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377980"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Snabbstart: Pausa och återuppta beräkning i Azure SQL Data Warehouse med PowerShell
 Använd PowerShell för att pausa beräkning i Azure SQL Data Warehouse för att sänka kostnaderna. [Återuppta beräkningarna](sql-data-warehouse-manage-compute-overview.md) när du är redo att använda datalagret.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-För den här självstudien krävs Azure PowerShell-modul version 5.1.1 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att se vilken version du har. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps.md) (Installera Azure PowerShell-modul).
+För den här självstudien krävs Azure PowerShell-modul version 5.1.1 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att se vilken version du har. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -54,7 +54,7 @@ Leta upp databasens namn, servernamnet och resursgruppen för det informationsla
 
 Följ de här anvisningarna för att hitta platsen för ditt informationslager.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Klicka på **SQL-databaser** på den vänstra sidan i Azure-portalen.
 3. Välj **mySampleDataWarehouse** på sidan **SQL-databaser**. Informationslagret öppnas.
 
@@ -67,7 +67,7 @@ Följ de här anvisningarna för att hitta platsen för ditt informationslager.
 ## <a name="pause-compute"></a>Pausa databearbetning
 Du kan pausa och återuppta beräkning resurser på begäran för att spara kostnader. Till exempel om du inte använder databasen under natten och helger, kan du pausa under dessa tider och återuppta den under dagen. Det finns ingen kostnad för beräkningsresurser när databasen har pausats. Dock fortsätta att betala för lagring.
 
-För att pausa en databas, använda den [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase.md) cmdlet. Följande exempel pausar ett informationslager med namnet **mySampleDataWarehouse** finns på en server med namnet **newserver-20171113**. Servern är i ett Azure-resursgrupp med namnet **myResourceGroup**.
+För att pausa en databas, använda den [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase) cmdlet. Följande exempel pausar ett informationslager med namnet **mySampleDataWarehouse** finns på en server med namnet **newserver-20171113**. Servern är i ett Azure-resursgrupp med namnet **myResourceGroup**.
 
 
 ```Powershell
@@ -93,7 +93,7 @@ Resume-AzureRmSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "newserver-20171113" -DatabaseName "mySampleDataWarehouse"
 ```
 
-En variant den här nästa exempel hämtar databasen i $database-objekt. Det kommer sedan objektet till [Resume-AzureRmSqlDatabase](/powershell/module/azurerm.sql/resume-azurermsqldatabase.md) och lagrar resultatet i $resultDatabase. Det slutliga kommandot visas resultatet.
+En variant den här nästa exempel hämtar databasen i $database-objekt. Det kommer sedan objektet till [Resume-AzureRmSqlDatabase](/powershell/module/azurerm.sql/resume-azurermsqldatabase) och lagrar resultatet i $resultDatabase. Det slutliga kommandot visas resultatet.
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `

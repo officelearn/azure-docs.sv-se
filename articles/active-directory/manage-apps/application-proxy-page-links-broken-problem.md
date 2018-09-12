@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/18/2018
+ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 505b3e7df64ef804448bd5753bdaa6148b22a2c3
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 382b484f5ed1e45863d24635554cd7c3a55176a4
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357698"
+ms.locfileid: "44378422"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Länkarna på sidan fungerar inte för ett Application Proxy-program
 
@@ -43,9 +43,7 @@ Det finns tre sätt att lösa problemet. Alternativen nedan visas i i allt mer k
 
     Det här alternativet säkerställer att länkar i ditt program är externt tillgänglig via programproxy eftersom länkarna i programmet till interna URL: er identifieras också externt. Alla länkar måste tillhöra ett publicerat program. Men med det här alternativet länkarna behöver inte tillhöra samma program och kan höra till flera program.
 
-3.  Om inget av dessa alternativ är möjlig, kan du förhandsgranska en ny funktion som utför översättning/skriva om URL: en. Med den här funktionen är intern URL: er eller länkar som finns i HTML-innehållet i dina program översättas eller ”mappas”, till den publicerade externa App Proxy-URL: er. Den här translation fungerar bara på länkarna i HTML- eller CSS, och bidrar inte om länken genereras via JS. 
-
-Därför rekommenderar vi använder den [anpassade domäner](application-proxy-configure-custom-domain.md) lösning om möjligt. Om du vill använda förhandsgranskningen, e- <aadapfeedback@microsoft.com> med applicationId(s).
+3.  Om inget av dessa alternativ är möjlig, finns det flera alternativ för att aktivera infogad länköversättning. Dessa alternativ inkluderar med hjälp av Intune Managed Browser, Mina appar-tillägg, eller med hjälp av länken anonymt i programmet. Läs mer om var och en av dessa alternativ och hur du aktiverar dem i [omdirigera hårdkodad länkar till appar som publiceras med Azure AD Application Proxy](application-proxy-configure-hard-coded-link-translation.md).
 
 ## <a name="next-steps"></a>Nästa steg
 [Arbeta med befintliga lokala proxyservrar](application-proxy-configure-connectors-with-proxy-servers.md)

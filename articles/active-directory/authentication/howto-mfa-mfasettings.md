@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: da5905af4a861502f190cd873033923d8fd0bfa7
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 890a6b9dd1ef63fcc59984686b2d6dec773cdb52
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349100"
+ms.locfileid: "44391852"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera Azure Multi-Factor Authentication-inställningar
 
@@ -180,7 +180,7 @@ Oavsett om funktionen tillförlitliga IP-adresser är aktiverat, krävs tvåsteg
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Till vänster, Välj **Azure Active Directory** > **villkorlig åtkomst** > **namngivna platser**.
 3. Välj **konfigurera betrodda MFA IP-adresser**.
-4. På den **tjänstinställningar** sidan under **tillförlitliga IP-adresser**, välja mellan följande två alternativ:
+4. På den **tjänstinställningar** sidan under **tillförlitliga IP-adresser**, Välj från någon av följande två alternativ:
    
    * **För förfrågningar från federerade användare som kommer från mitt intranät**: Välj det här alternativet genom att markera kryssrutan. Alla externa användare som loggar in från företagsnätverket kringgå tvåstegsverifiering med hjälp av ett anspråk som utfärdas av AD FS. Kontrollera att AD FS har en regel för att lägga till intranätet anspråk på lämpligt trafik. Om regeln inte finns, kan du skapa följande regel i AD FS:<br/>
 
@@ -203,7 +203,7 @@ Oavsett om funktionen tillförlitliga IP-adresser är aktiverat, krävs tvåsteg
 2. Till vänster, Välj **Azure Active Directory** > **användare**.
 3. Välj **Multifaktorautentisering**.
 4. Under Multi-Factor Authentication, väljer **tjänstinställningar**.
-5. På den **tjänstinställningar** sidan under **tillförlitliga IP-adresser**, välja mellan följande två alternativ:
+5. På den **tjänstinställningar** sidan under **tillförlitliga IP-adresser**, väljer du en (eller båda) av följande två alternativ:
    
    * **För förfrågningar från federerade användare från mitt intranät**: Välj det här alternativet genom att markera kryssrutan. Alla externa användare som loggar in från företagsnätverket kringgå tvåstegsverifiering med hjälp av ett anspråk som utfärdas av AD FS. Kontrollera att AD FS har en regel för att lägga till intranätet anspråk på lämpligt trafik. Om regeln inte finns, kan du skapa följande regel i AD FS:<br/>
 

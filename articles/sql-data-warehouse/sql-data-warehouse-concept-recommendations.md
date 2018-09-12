@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 07/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 48d64873f0a8c3754ac5c3ecda2294c0f337b9d5
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 57bce631a570f549d46a9b0beefcb5adce4decfc
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094612"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380122"
 ---
 # <a name="sql-data-warehouse-recommendations"></a>Rekommendationer för SQL Data Warehouse
 
@@ -37,6 +37,6 @@ Datasnedställning kan orsaka ytterligare data movement eller resurs flaskhalsar
 
 Att använda icke-optimal statistik kan frågeprestanda kraftigt försämras eftersom detta kan medföra Frågeoptimeringen SQL Data Warehouse att skapa icke-optimal frågeplaner. Följande dokumentation innehåller metodtips kring skapar och uppdaterar statistik:
 
-- [Skapa och uppdatera tabellstatistik](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistic)
+- [Skapa och uppdatera tabellstatistik](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics)
 
 Om du vill se en lista över tabeller som påverkas av de här rekommendationerna, kör du följande [T-SQL-skript](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables). Advisor körs kontinuerligt samma T-SQL-skript för att generera rekommendationerna.

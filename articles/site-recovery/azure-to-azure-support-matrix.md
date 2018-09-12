@@ -7,14 +7,14 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 09/10/2018
 ms.author: sujayt
-ms.openlocfilehash: c3852f4055b5afe84aaa233c50f50732f98537a2
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 43955cd516e9779200b66608270797a66565f53b
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022900"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378473"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Stöd matrix för replikering från en Azure-region till en annan
 
@@ -36,7 +36,7 @@ Den här artikeln sammanfattar konfigurationer som stöds och komponenter när d
 
 **Flytta resurstypen** | **Detaljer**
 --- | --- | ---
-**Flytta valv mellan resursgrupper** | Stöds inte<br/><br/> Du kan inte flytta ett Recovery services-valv mellan resursgrupper.
+**Flytta valv mellan resursgrupper** | Stöds ej<br/><br/> Du kan inte flytta ett Recovery services-valv mellan resursgrupper.
 **Flytta resurser för beräkning/lagringsnätverk mellan resursgrupper** | Stöds ej.<br/><br/> Om du flyttar en virtuell dator eller tillhörande komponenter, till exempel lagringsnätverk/när den replikerar, måste du inaktivera replikering och återaktivera replikering för den virtuella datorn.
 **Replikera virtuella Azure-datorer från en prenumeration till en annan för katastrofåterställning** | Stöd för inom samma Azure Active Directory-klient för ”Resource manager-distributionsmodellen” virtuella datorer. För virtuella datorer i klassiska distributionsmodellen stöds inte.
 **Migrera virtuella datorer mellan regioner i stöds geografiska kluster (inom och mellan prenumerationer)** | Stöd för inom samma Azure Active Directory-klient för ”Resource manager-distributionsmodellen” virtuella datorer. För virtuella datorer i klassiska distributionsmodellen stöds inte.
@@ -60,8 +60,8 @@ Den nedan support som gäller för alla arbetsbelastningar som körs på den nä
 
 #### <a name="linux"></a>Linux
 
-- Red Hat Enterprise Linux 6.7, 6.8, 6,9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5   
-- CentOS 6.5, 6.6, 6.7, 6.8, 6,9, 7.0, 7.1, 7.2, 7.3,7.4, 7.5
+- Red Hat Enterprise Linux 6.7, 6.8, 6,9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5   
+- CentOS 6.5, 6.6, 6.7, 6.8, 6,9, 6.10, 7.0, 7.1, 7.2, 7.3,7.4, 7.5
 - Ubuntu 14.04 LTS Server [ (kernel-versioner som stöds)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Ubuntu 16.04 LTS Server [ (kernel-versioner som stöds)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Debian 7 [ (kernel-versioner som stöds)](#supported-debian-kernel-versions-for-azure-virtual-machines)
@@ -81,26 +81,27 @@ Den nedan support som gäller för alla arbetsbelastningar som körs på den nä
 
 **Versionen** | **Mobilitetstjänstversionen** | **Kernelversion** |
 --- | --- | --- |
+14.04 LTS | 9.19 | 3.13.0-24-Generic till 3.13.0-153-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-131-generic |
 14.04 LTS | 9.18 | 3.13.0-24-Generic till 3.13.0-151-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-128-generic |
 14.04 LTS | 9.17 | 3.13.0-24-Generic till 3.13.0-147-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-124-generic |
 14.04 LTS | 9.16 | 3.13.0-24-Generic till 3.13.0-144-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-119-generic |
-14.04 LTS | 9.15 | 3.13.0-24-Generic till 3.13.0-143-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-116-generic |
 |||
+16.04 LTS | 9.19 | 4.4.0-21-Generic till 4.4.0-131-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-42-generic,<br/>4.11.0-13-Generic till 4.11.0-14-generic,<br/>4.13.0-16-Generic till 4.13.0-45-generic,<br/>4.15.0-13-Generic till 4.15.0-30-generic<br/>4.11.0-1009-Azure till 4.11.0-1016-azure,<br/>4.13.0-1005-Azure till 4.13.0-1018-azure <br/>4.15.0-1012-Azure till 4.15.0-1019-azure|
 16.04 LTS | 9.18 | 4.4.0-21-Generic till 4.4.0-128-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-42-generic,<br/>4.11.0-13-Generic till 4.11.0-14-generic,<br/>4.13.0-16-Generic till 4.13.0-45-generic,<br/>4.11.0-1009-Azure till 4.11.0-1016-azure,<br/>4.13.0-1005-Azure till 4.13.0-1018-azure |
 16.04 LTS | 9.17 | 4.4.0-21-Generic till 4.4.0-124-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-42-generic,<br/>4.11.0-13-Generic till 4.11.0-14-generic,<br/>4.13.0-16-Generic till 4.13.0-41-generic,<br/>4.11.0-1009-Azure till 4.11.0-1016-azure,<br/>4.13.0-1005-Azure till 4.13.0-1016-azure |
 16.04 LTS | 9.16 | 4.4.0-21-Generic till 4.4.0-119-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-42-generic,<br/>4.11.0-13-Generic till 4.11.0-14-generic,<br/>4.13.0-16-Generic till 4.13.0-38-generic,<br/>4.11.0-1009-Azure till 4.11.0-1016-azure,<br/>4.13.0-1005-Azure till 4.13.0-1012-azure |
-16.04 LTS | 9.15 | 4.4.0-21-Generic till 4.4.0-116-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-42-generic,<br/>4.11.0-13-Generic till 4.11.0-14-generic,<br/>4.13.0-16-Generic till 4.13.0-37-generic,<br/>4.11.0-1009-Azure till 4.11.0-1016-azure,<br/>4.13.0-1005-Azure till 4.13.0-1012-azure |
 
 
 ### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Debian kernel-versioner som stöds för virtuella Azure-datorer
 
 **Versionen** | **Mobilitetstjänstversionen** | **Kernelversion** |
 --- | --- | --- |
-Debian 7 | 9.17,9.18 | 3.2.0-4-amd64 till 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
-Debian 7 | 9.15, 9.16 | 3.2.0-4-amd64 till 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.17,9.18,9.19 | 3.2.0-4-amd64 till 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.16 | 3.2.0-4-amd64 till 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
+Debian 8 | 9.19 | 3.16.0-4-amd64 till 3.16.0-6-amd64 4.9.0-0.bpo.4-amd64 till 4.9.0-0.bpo.7-amd64 |
 Debian 8 | 9.17, 9.18 | 3.16.0-4-amd64 till 3.16.0-6-amd64 4.9.0-0.bpo.4-amd64 till 4.9.0-0.bpo.6-amd64 |
-Debian 8 | 9.15, 9.16 | 3.16.0-4-amd64 till 3.16.0-5-amd64 4.9.0-0.bpo.4-amd64 till 4.9.0-0.bpo.5-amd64 |
+Debian 8 | 9.16 | 3.16.0-4-amd64 till 3.16.0-5-amd64 4.9.0-0.bpo.4-amd64 till 4.9.0-0.bpo.5-amd64 |
 
 ### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>SUSE Linux Enterprise Server 12 kernel-versioner som stöds för Azure-datorer
 
@@ -147,9 +148,9 @@ Lägg till disk i replikerade virtuella datorn | Stöds ej. Du måste inaktivera
 --- | --- | ---
 Storlek | Alla Azure VM-storlekar med minst 2 CPU-kärnor och 1 GB RAM-minne | Referera till [storlekar för Azure virtuella datorer](../virtual-machines/windows/sizes.md)
 Tillgänglighetsuppsättningar | Stöds | Om du använder alternativet under ”Aktivera replikering” steg i portalen är tillgänglighetsuppsättningen automatiskt skapa baserat på konfigurationen av datakällan region. Du kan ändra tillgänglighetsuppsättning för målet i ”replikerat objekt > Inställningar > beräkning och nätverk > tillgänglighetsuppsättning” när som helst.
-Tillgänglighetszoner | Stöds inte | Virtuella datorer som distribueras i tillgänglighetszoner stöds inte för närvarande.
+Tillgänglighetszoner | Stöds ej | Virtuella datorer som distribueras i tillgänglighetszoner stöds inte för närvarande.
 Hybrid Använd förmånen (HUB) virtuella datorer | Stöds | Om den Virtuella källdatorn har HUB-licens, använder redundanstest eller Failover VM också HUB-licens.
-Skalningsuppsättningar för virtuella datorer | Stöds inte |
+Virtual Machine Scale Sets | Stöds ej |
 Galleriavbildningar för Azure - Microsoft publicerat | Stöds | Stöds så länge som den virtuella datorn körs på ett operativsystem som stöds av Site Recovery
 Azure-galleriet-avbildningar – från tredje part publicerats | Stöds | Stöd för så länge som den virtuella datorn körs på ett operativsystem som stöds av Site Recovery.
 Anpassade avbildningar - från tredje part publicerats | Stöds | Stöd för så länge som den virtuella datorn körs på ett operativsystem som stöds av Site Recovery.
@@ -170,16 +171,16 @@ Standard Managed disks | Stöd i Azure-regioner där Azure Site Recovery stöds.
 Premium Managed disks | Stöd i Azure-regioner där Azure Site Recovery stöds. |
 Lagringsutrymmen | Stöds |         
 Kryptering i vila (SSE) | Stöds | SSE är standardinställningen på storage-konton.   
-Azure Disk Encryption (ADE) | Stöds inte |
-Frekvent Lägg till/ta bort disk | Stöds inte | Om du lägger till eller ta bort datadisk på den virtuella datorn, måste du inaktivera replikering och aktiverar replikering igen för den virtuella datorn.
-Uteslut disk | Stöds inte|   Temporär disk är undantagen som standard.
-Lagringsdirigering  | Stöds inte|
-Skalbar filserver  | Stöds inte|
+Azure Disk Encryption (ADE) | Stöds ej |
+Frekvent Lägg till/ta bort disk | Stöds ej | Om du lägger till eller ta bort datadisk på den virtuella datorn, måste du inaktivera replikering och aktiverar replikering igen för den virtuella datorn.
+Uteslut disk | Stöds ej|   Temporär disk är undantagen som standard.
+Lagringsdirigering  | Stöds ej|
+Skalbar filserver  | Stöds ej|
 LRS | Stöds |
 GRS | Stöds |
 RA-GRS | Stöds |
-ZRS | Stöds inte |  
-Frekventa och lågfrekventa lagring | Stöds inte | Virtuella diskar stöds inte på frekventa och lågfrekventa lagring
+ZRS | Stöds ej |  
+Frekventa och lågfrekventa lagring | Stöds ej | Virtuella diskar stöds inte på frekventa och lågfrekventa lagring
 Azure Storage-brandväggar för virtuella nätverk  | Nej | Finns inte stöd för att tillåta åtkomst till specifika Azure-nätverk på cachelagringskonton som används för att lagra replikerade data.
 Storage-konton för generell användning V2 (både frekvent och lågfrekvent nivå) | Nej | Transaktionen kostnaderna ökar avsevärt jämfört med generell användning V1-lagringskonton
 
@@ -202,11 +203,11 @@ Traffic Manager-integrering | Stöds | Du kan förkonfigurera traffic manager s�
 Azure-hanterade DNS | Stöds |
 Anpassad DNS  | Stöds |    
 Via oautentiserad proxyserver | Stöds | Referera till [nätverk vägledningsdokumentet.](site-recovery-azure-to-azure-networking-guidance.md)    
-Autentiserad Proxy | Stöds inte | Om den virtuella datorn använder en autentiserad proxyserver för utgående anslutningar, kan inte replikeras med Azure Site Recovery.    
+Autentiserad Proxy | Stöds ej | Om den virtuella datorn använder en autentiserad proxyserver för utgående anslutningar, kan inte replikeras med Azure Site Recovery.    
 VPN för plats till plats med en lokal (med eller utan ExpressRoute)| Stöds | Se till att Udr och NSG: er konfigureras så att Site recovery trafiken inte dirigeras till den lokala. Referera till [nätverk vägledningsdokumentet.](site-recovery-azure-to-azure-networking-guidance.md)  
 Anslutning mellan virtuella nätverk | Stöds | Referera till [nätverk vägledningsdokumentet.](site-recovery-azure-to-azure-networking-guidance.md)  
 Slutpunkter för virtuellt nätverk | Stöds | Azure Storage-brandväggar för virtuella nätverk stöds inte. Finns inte stöd för att tillåta åtkomst till specifika Azure-nätverk på cachelagringskonton som används för att lagra replikerade data.
-Accelererat nätverk | Stöds inte | En virtuell dator med Accelererat nätverk aktiverat kan replikeras, men redundansen VM kommer inte att ha Accelererat nätverk aktiverat. Accelererat nätverk kommer också att inaktiveras för den Virtuella källdatorn på återställning efter fel.
+Accelererat nätverk | Stöds ej | En virtuell dator med Accelererat nätverk aktiverat kan replikeras, men redundansen VM kommer inte att ha Accelererat nätverk aktiverat. Accelererat nätverk kommer också att inaktiveras för den Virtuella källdatorn på återställning efter fel.
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 08ab76e587c4e2c8b8afe9cb27e9df59a5924475
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: d063e4b79819a881dbf018979654d4d7d96b904a
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842048"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44390935"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Distribuera SQL Server-resursprovider i Azure Stack
 
@@ -44,7 +44,7 @@ Det finns flera förutsättningar som måste vara uppfyllda innan du kan distrib
 
 - Kontrollera att datacenter integration krav är uppfyllda:
 
-    |Krav|Referens|
+    |Förutsättning|Referens|
     |-----|-----|
     |Villkorlig vidarebefordran av DNS är korrekt.|[Integrering med Azure Stack datacenter - DNS](azure-stack-integrate-dns.md)|
     |Ingående portar för resursprovider är öppna.|[Azure Stack datacenter-integrering – publicera slutpunkter](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
@@ -93,7 +93,10 @@ Du kan ange följande parametrar från kommandoraden. Om du inte, eller om någo
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>Distribuera SQL-resursprovidern med ett anpassat skript
 
-Du kan anpassa följande skript för att minimera ingen manuell konfiguration när du distribuerar resursprovidern måste. Ändra standard-kontoinformation och lösenord som behövs för din Azure Stack-distribution.
+<a name="to-eliminate-any-manual-configuration-when-deploying-the-resource-provider-you-can-customize-the-following-script"></a>Du kan anpassa följande skript för att minimera ingen manuell konfiguration när du distribuerar resursprovidern måste.  
+-  
+- Ändra standard-kontoinformation och lösenord som behövs för din Azure Stack-distribution.
+
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module

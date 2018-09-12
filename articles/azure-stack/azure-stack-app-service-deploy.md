@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: anwestg
-ms.openlocfilehash: 9173dfcbb5f73c2292bce7d28c2dae5dbece79cd
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 9e868788d0cf3b3c0f2f30095388046f64ced71c
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42059573"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378548"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Lägga till en App Service-resursprovider i Azure Stack
 
@@ -97,7 +97,7 @@ Distribuera App Service-resursprovider genom att följa dessa steg:
 8. Ange information för filresursen och välj sedan **nästa**. Adressen till filresursen måste använda det fullständigt kvalificerade domännamn (FQDN) eller IP-adressen för din filserver. Till exempel \\\appservicefileserver.local.cloudapp.azurestack.external\websites, eller \\\10.0.0.1\websites.
 
    >[!NOTE]
-   >Ett försök görs att testa anslutningen till filresursen innan du fortsätter. Men om du distribuerar till ett befintligt virtuellt nätverk, du kan rapportera det här anslutningstestet. Du får en varning och en fråga för att fortsätta. Om filresursen informationen är korrekt, fortsätter distributionen.
+   >Ett försök görs att testa anslutningen till filresursen innan du fortsätter. Men om du distribuerar till ett befintligt virtuellt nätverk, det här Anslutningstestet misslyckas. Du får en varning och en fråga för att fortsätta. Om filresursen informationen är korrekt, fortsätter distributionen.
 
    ![App Service-installationsprogrammet][7]
 
@@ -151,11 +151,11 @@ Distribuera App Service-resursprovider genom att följa dessa steg:
     >[!NOTE]
     >Vid Produktionsdistribution måste följa riktlinjerna i [kapacitetsplanering för Azure App Service-serverroller i Azure Stack](azure-stack-app-service-capacity-planning.md).
 
-    | Roll | Minsta instanser | Minsta SKU | Anteckningar |
+    | Roll | Minsta instanser | Minsta SKU | OBS! |
     | --- | --- | --- | --- |
     | Kontrollenhet | 1 | Standard_A2 - (2 virtuella processorer, 3584 MB) | Hanterar och underhåller hälsotillståndet för App Service-molnet. |
     | Hantering | 1 | Standard_A2 - (2 virtuella processorer, 3584 MB) | Hanterar App Service Azure Resource Manager och API-slutpunkter, portal tillägg (admin, klient, Functions-portalen) och data service. Stöd för växling vid fel, ökat rekommenderade instanserna till 2. |
-    | Utgivare | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Publicerar innehåll via FTP och webbtjänster distribution. |
+    | Publisher | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Publicerar innehåll via FTP och webbtjänster distribution. |
     | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Dirigerar begäranden till App Service-program. |
     | Delade Arbetarservrar | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Webb-värdar eller API-program och Azure Functions-appar. Du kanske vill lägga till fler instanser. Som operatör kan du definiera ditt erbjudande och välja valfri SKU-nivå. Nivåerna måste ha minst en virtuell processor. |
 

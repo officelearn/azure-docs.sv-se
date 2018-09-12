@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 196882cf4515be8afd129128402e9eaee322cb4b
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 1bb6e464b748f2558cec35a95554bb3e08b667f0
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093591"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378337"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Virtual Machine Serial Console (förhandsversion) 
 
@@ -98,7 +98,10 @@ Seriekonsol kan användas för att skicka en NMI till en Azure virtuell dator me
 Information om hur du konfigurerar Windows för att skapa en kraschdumpfil när den får en NMI finns: [hur du skapar en fullständig kraschdumpfil eller en kernel-kraschdumpfil genom att använda en NMI på en Windows-dator](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
 ## <a name="disable-serial-console"></a>Inaktivera Seriekonsol
-Som standard har alla prenumerationer seriell konsolåtkomst är aktiverad för alla virtuella datorer. Du kan inaktivera seriekonsolen på prenumerationsnivån eller VM-nivå.
+Som standard har alla prenumerationer seriell konsolåtkomst är aktiverad för alla virtuella datorer. Du kan inaktivera seriekonsolen på prenumerationsnivån eller VM-nivå. 
+
+> [!Note] 
+> För att aktivera eller inaktivera seriekonsol för en prenumeration, måste du ha skrivbehörighet till prenumerationen. Detta omfattar, men är inte begränsat till administratörer eller ägare. Anpassade roller kan också ha skrivbehörighet.
 
 ### <a name="subscription-level-disable"></a>Prenumerationsnivå inaktivera
 Seriell konsol kan inaktiveras för en hel prenumeration genom att via den [inaktivera konsolen REST API-anrop](https://aka.ms/disableserialconsoleapi). Du kan använda ”prova” funktionerna som är tillgängliga på sidan API-dokumentationen om du inaktiverar och aktiverar Seriekonsol för en prenumeration. Ange din `subscriptionId`, ”standard” i den `default` fältet och klicka på Kör. Azure CLI-kommandon är inte tillgängliga ännu och anländer vid ett senare tillfälle. [Testa REST API-anrop här](https://aka.ms/disableserialconsoleapi).
@@ -190,7 +193,6 @@ Eftersom vi är fortfarande i förhandsstadium för seriell konsolåtkomst, vi a
 
 Problem                             |   Åtgärd 
 :---------------------------------|:--------------------------------------------|
-Det finns inget alternativ med VM scale set-instans från seriell konsol | Åtkomst till seriekonsol för VM-skalningsuppsättningsinstanser stöds inte vid tidpunkten för förhandsversionen.
 Träffa ange när anslutningen popup-meddelandet inte visas en logg i Kommandotolken | Finns på följande sida: [Hitting ange ingenting](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Detta kan inträffa om du använder en anpassad virtuell dator härdade installation eller GRUB konfiguration som causers Windows för att kunna ansluta ordentligt till den seriella porten.
 Endast hälsoinformation visas när du ansluter till en virtuell Windows-dator| Detta kommer att visas om den särskilda administrationskonsolen inte har aktiverats för din Windows-avbildning. Se [åtkomst Seriell konsol för Windows](#access-serial-console-for-windows) för instruktioner om hur du manuellt Aktivera SAC på din virtuella Windows-dator. Mer information finns på [Windows hälsotillstånd signaler](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 Det går inte att skriva vid SAC fråga om kernel-felsökning är aktiverad | RDP till den virtuella datorn och köra `bcdedit /debug {current} off` från en upphöjd kommandotolk. Om du kan inte använda RDP du i stället kan koppla OS-disken till en annan virtuell Azure-dator och ändra den när ansluten som en disk med `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, sedan växla tillbaka disken.
@@ -203,9 +205,25 @@ Ett ”förbjuden”-svar påträffades vid åtkomst till den här Virtuella dat
 
 A. Ge feedback som ett problem genom att gå till https://aka.ms/serialconsolefeedback. Du kan också mindre (rekommenderas) skicka feedback via azserialhelp@microsoft.com eller i kategori för virtuell dator av http://feedback.azure.com
 
-**FRÅGOR OCH. Jag kan inte komma åt seriekonsolen var kan jag registrera ett supportärende?**
+**FRÅGOR OCH. Seriell konsol som har stöd för kopiera/klistra in?**
 
-A. Den här förhandsversionsfunktionen täcks via Azure-förhandsversioner. Stöd för detta hanteras bäst via kanaler som nämns ovan. 
+A. Ja sker. Använd Ctrl + Skift + C och Ctrl + Skift + V för att kopiera och klistra in i terminalen.
+
+**FRÅGOR OCH. Vem kan aktivera eller inaktivera seriekonsol för min prenumeration?**
+
+A. För att aktivera eller inaktivera Seriell konsol på en prenumeration hela-nivå, måste du ha skrivbehörighet till prenumerationen. Roller som har behörighet att skriva omfattar, men är inte begränsad till administratörer eller ägare. Anpassade roller kan också ha skrivbehörighet.
+
+**FRÅGOR OCH. Vem som kan komma åt seriekonsol för min virtuella dator?**
+
+A. Du måste ha deltagarbehörighet inom nivå eller högre till en virtuell dator för att komma åt den Virtuella datorns Seriell konsol. 
+
+**FRÅGOR OCH. Min seriekonsolen inte visas allt, hur gör jag?**
+
+A. Avbildningen är antagligen felkonfigurerad för seriell konsolåtkomst. Se [aktiverar Seriekonsol i anpassade eller äldre bilder](#Enable-Serial-Console-in-custom-or-older-images) mer information om hur du konfigurerar din avbildning om du vill aktivera Seriell konsol.
+
+**FRÅGOR OCH. Är seriell konsol för Virtual Machine Scale Sets?**
+
+A. Åtkomst till seriekonsol för VM-skalningsuppsättningsinstanser stöds inte för tillfället.
 
 ## <a name="next-steps"></a>Nästa steg
 * En detaljerad guide till CMD- och PowerShell-kommandon som du kan använda i Windows-SAC klickar du på [här](serial-console-cmd-ps-commands.md).

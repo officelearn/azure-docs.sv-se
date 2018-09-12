@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: ac8686d0ea5704492bfc2e08972a2f70c9b34c43
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 16e2a9cfbd9f08428fddade290117b27bc3401f7
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37906827"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44369137"
 ---
-Azure virtuella datorer i H-serien är senast inom databehandling med höga prestanda virtuella datorer som riktar sig till bearbetningsbehov, som molekylär modellering och beräkningsströmningsdynamik. Dessa 8 och 16 vCPU virtuella datorer är baserade på Intel Haswell E5-2667 V3-processor teknik DDR4-minne och SSD-baserad temporär lagring. 
+Azure virtuella datorer i H-serien är senast inom databehandling virtuella datorer som syftar till att hantera arbetsbelastningar som batchbearbetning, analyser, molekulär modellering och fluiddynamik med höga prestanda. Dessa 8 och 16 vCPU virtuella datorer är baserade på Intel Haswell E5-2667 V3-processor teknik DDR4-minne och SSD-baserad temporär lagring. 
 
 Förutom den imponerande processorkraften erbjuder H-serien olika alternativ för RDMA-nätverk med låg fördröjning med FDR InfiniBand och flera minneskonfigurationer som ger stöd för minnesintensiva beräkningskrav.
 

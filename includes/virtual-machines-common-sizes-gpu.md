@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: danlep;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 268da0e5d078f7b6b4b36929dbf6755068adb444
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 1527ea5fbd97527312600e74417ac444422ab614
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37907182"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44369377"
 ---
 GPU-optimerad VM storlekar är specialiserade virtuella datorer som är tillgängliga med en eller flera NVIDIA GPU: er. De här storlekarna är utformade för arbetsbelastningar för beräkningsintensiva, grafik och visualisering. Den här artikeln innehåller information om antalet och typen av GPU: er, virtuella processorer, diskar och nätverkskort. Storage dataflöde och nätverket bandbredd ingår också för varje storlek i den här grupperingen. 
 
-* **NC, NCv2, NCv3 och ND** storlekarna är optimerade för beräkningsintensiva och nätverksintensiva program och algoritmer. Några exempel är CUDA - och OpenCL-baserade program och simuleringar, AI och Djupinlärning. 
-* **NV** storlekar optimerade och utformade för fjärrvisualiserings, streaming, spel, kodning och VDI-scenarier med ramverk som OpenGL och DirectX.  
+* **NC, NCv2, NCv3 och ND** storlekarna är optimerade för beräkningsintensiva och nätverksintensiva program och algoritmer. Några exempel är CUDA - och OpenCL-baserade program och simuleringar, AI och Djupinlärning. NC-serien fokuserar på högpresterande arbetsbelastningar med NVIDIA: s Tesla V100 GPU.  ND-serien fokuserar på utbildning och inferensscenarier för djupinlärning. I serien används NVIDIA Tesla P40 GPU:er
+* **NV** storlekar optimerade och utformade för fjärrvisualiserings, streaming, spel, kodning och VDI-scenarier med ramverk som OpenGL och DirectX.  Dessa virtuella datorer backas upp av NVIDIA Tesla M60 GPU.
 
 
 ## <a name="nc-series"></a>NC-serien

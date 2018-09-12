@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: e4b6d115aebfd96d127e0d72c0c99188bedd93e6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: cade124cefbd4e2e63ab4cb6fa4f22b3bd672ad0
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057189"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391818"
 ---
 # <a name="batch-ai-service-quotas-and-limits"></a>Batch AI-tjänsten kvoter och begränsningar
 
@@ -33,22 +33,7 @@ Om du planerar att köra produktionsarbetsbelastningar i Batch AI kan du behöva
 
 ## <a name="resource-quotas"></a>Resurskvoter
 
-I Batch AI har en standardgräns för kvoten för antal kärnor såväl antalet kluster tillåts per region för en prenumeration.
-
-| **Resurs** | **Standardgräns** | **Övre gräns** |
-| --- | --- | --- |
-| Reserverade kärnor per region | 10 – 24 | N/A<sup>1</sup> |
-| Lågprioritetskärnor per region | 10 – 24 | EJ TILLÄMPLIGT<sup>2</sup> |
-| Kluster per region | 20 | 200<sup>3</sup> |
-
-> [!NOTE]
-> Standardgränserna varierar beroende på vilken typ av prenumeration som du har.
-
-<sup>1</sup> kan du öka antalet reserverade kärnor per Batch AI-prenumeration, men det maximala antalet är okänt. Kontakta Azure-supporten diskutera alternativ för utökning.
-
-<sup>2</sup> kan du öka antalet lågprioritetskärnor per Batch AI-prenumeration, men det maximala antalet är okänt. Kontakta Azure-supporten diskutera alternativ för utökning.
-
-<sup>3</sup> kontakta Azure-supporten om du vill begära en ökning utöver denna gräns.
+[!INCLUDE [azure-batch-ai-limits](../../includes/azure-batch-ai-limits.md)]
 
 ## <a name="other-limits"></a>Andra gränser
 

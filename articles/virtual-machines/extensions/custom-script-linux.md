@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: 439b38af14da85a9ad263645be8a0961c1266d73
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: e3f4268a3bde9cd7eddb96fbc2e6ec3bca77501b
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414733"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391291"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Använda Azure anpassade skript-tillägget Version 2 med Linux-datorer
 Anpassat skript-tillägget Version 2 laddar ned och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för konfigurationen efter distribution, Programvaruinstallation eller andra konfigurationshantering/uppgifter. Du kan hämta skript från Azure Storage eller en annan tillgänglig Internetplats eller du kan ange dem till tillägget-körningen. 
@@ -92,7 +92,7 @@ De här objekten ska behandlas som känsliga data och anges i den skyddade Konfi
     "autoUpgradeMinorVersion": true,
     "settings": {
       "skipDos2Unix":false,
-      "timestamp":"123456789",          
+      "timestamp":123456789,          
     },
     "protectedSettings": {
        "commandToExecute": "<command-to-execute>",
@@ -116,7 +116,7 @@ De här objekten ska behandlas som känsliga data och anges i den skyddade Konfi
 | fileUris (t.ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | matris |
 | commandToExecute (t.ex.) | Python MyPythonScript.py < Mina param1 > | sträng |
 | skriptet | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo = | sträng |
-| skipDos2Unix (t.ex.) | false | boolesk |
+| skipDos2Unix (t.ex.) | falskt | boolesk |
 | tidsstämpel (t.ex.) | 123456789 | 32-bitars heltal |
 | storageAccountName (t.ex.) | examplestorageacct | sträng |
 | storageAccountKey (t.ex.) | TmJK/1N3AbAZ3q / + hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg == | sträng |

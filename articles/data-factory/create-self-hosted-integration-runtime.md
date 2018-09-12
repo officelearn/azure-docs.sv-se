@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: bb5e58c0cb06baabf76d7d0443e94b368549176f
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 7948b54bd6402cf238c5709d270087746ed4fa95
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051348"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380377"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Skapa och konfigurera lokal Integration Runtime
 Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Data Factory för att tillhandahålla funktioner för dataintegrering i olika nätverksmiljöer. Mer information om IR finns [översikten över Integration Runtime](concepts-integration-runtime.md).
@@ -134,7 +134,6 @@ Här följer kraven för TLS/SSL-certifikatet som används för att säkra kommu
 
 - Certifikatet måste vara ett offentligt betrott X509 v3-certifikat. Vi rekommenderar att du använder certifikat som utfärdas av en offentlig (tredje parts) certifikatutfärdare (CA).
 - Det här certifikatet måste lita på varje nod för integration runtime.
-- Certifikat med jokertecken stöds. Om din FQDN-namn är **node1.domain.contoso.com**, du kan använda ***. domain.contoso.com** som ämnesnamnet för certifikatet.
 - SAN-certifikat rekommenderas inte eftersom det sista objektet i Alternativt ämnesnamn används och alla andra kommer att ignoreras på grund av aktuell begränsning. T.ex. du har ett SAN-certifikat vars SAN är **node1.domain.contoso.com** och **node2.domain.contoso.com**, du kan bara använda det här certifikatet på datorn vars FQDN är **node2.domain.contoso.com**.
 - Stöder alla nyckelstorlek som stöds av Windows Server 2012 R2 för SSL-certifikat.
 - Certifikat med CNG-nycklar stöds inte.  

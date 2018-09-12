@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: roiyz
-ms.openlocfilehash: c00d4d481c992e90597276d0ce8655aef2be731f
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 40f9e8ec394385691f74d021829ca2366f480717
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42059540"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377657"
 ---
 # <a name="custom-script-extension-for-windows"></a>Tillägget för anpassat skript för Windows
 
@@ -139,7 +139,8 @@ Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schem
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution
 
-Den `Set-AzureRmVMCustomScriptExtension` kommando kan användas för att lägga till tillägget för anpassat skript i en befintlig virtuell dator. Mer information finns i [Set-AzureRmVMCustomScriptExtension ](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension).
+Den `Set-AzureRmVMCustomScriptExtension` kommando kan användas för att lägga till tillägget för anpassat skript i en befintlig virtuell dator. Mer information finns i [Set-AzureRmVMCustomScriptExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension).
+
 ```powershell
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -VMName myVM `
@@ -201,7 +202,7 @@ Om du vill köra det anpassade skripttillägget mer än en gång kan du bara gö
 
 ## <a name="troubleshoot-and-support"></a>Felsökning och support
 
-### <a name="troubleshoot"></a>Felsöka
+### <a name="troubleshoot"></a>Felsökning
 
 Data om tillståndet för distributioner av tillägget kan hämtas från Azure-portalen och med hjälp av Azure PowerShell-modulen. Om du vill se distributionsstatusen för tillägg för en viss virtuell dator, kör du följande kommando:
 

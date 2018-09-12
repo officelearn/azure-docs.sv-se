@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3fa4f230f5e2d15e815c47792c3955aa93d29fc4
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 29fd4e62c13852e23e15f89ab6b4e2976fc42b25
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094747"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377148"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API: er i varaktiga funktioner (Azure Functions)
 
@@ -41,10 +41,11 @@ Den här funktionen exempel genererar följande JSON-data som svar. Datatypen f�
 
 | Fält             |Beskrivning                           |
 |-------------------|--------------------------------------|
-| id                |ID för orchestration-instans. |
+| ID                |ID för orchestration-instans. |
 | statusQueryGetUri |Status för Webbadressen till orchestration-instans. |
 | sendEventPostUri  |”Rera händelse” Webbadressen till orchestration-instans. |
 | terminatePostUri  |”Avsluta” Webbadressen till orchestration-instans. |
+| rewindPostUri     |”Tillbakaspolning” Webbadressen till orchestration-instans. |
 
 Här är ett exempel på ett svar:
 
@@ -52,13 +53,14 @@ Här är ett exempel på ett svar:
 HTTP/1.1 202 Accepted
 Content-Length: 923
 Content-Type: application/json; charset=utf-8
-Location: https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
+Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
 
 {
     "id":"34ce9a28a6834d8492ce6a295f1a80e2",
-    "statusQueryGetUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
-    "sendEventPostUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
-    "terminatePostUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
+    "statusQueryGetUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "sendEventPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "terminatePostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "rewindPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/rewind?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
 }
 ```
 > [!NOTE]
@@ -84,7 +86,7 @@ Alla HTTP APIs som implementeras av tillägget Gör följande parametrar. Dataty
 
 | Parameter  | Parametertyp  | Beskrivning |
 |------------|-----------------|-------------|
-| instanceId | URL             | ID för orchestration-instans. |
+| instanceId | Webbadress             | ID för orchestration-instans. |
 | taskHub    | Frågesträng    | Namnet på den [uppgift hub](durable-functions-task-hubs.md). Om inte anges, antas hubbnamnet för den aktuella funktionsapp uppgift. |
 | anslutning | Frågesträng    | Den **namn** av anslutningssträngen för lagringskontot. Om inte anges, antas standardanslutningssträngen för funktionsappen. |
 | systemKey  | Frågesträng    | Auktoriseringsnyckeln som krävs för att anropa API: et. |
@@ -99,7 +101,7 @@ Följande avsnitt beskriver den specifika HTTP APIs stöds av tillägget och inn
 
 Hämtar status för en angiven orchestration-instans.
 
-#### <a name="request"></a>Förfrågan
+#### <a name="request"></a>Begäran
 
 För Functions 1.0 är format för förfrågan på följande sätt:
 
@@ -110,7 +112,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}?taskHub={taskH
 Functions 2.0-formatet har samma parametrar, men har ett något annorlunda URL-prefix:
 
 ```http
-GET /runtime/webhooks/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
+GET /runtime/webhooks/durabletask/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
 #### <a name="response"></a>Svar
@@ -121,6 +123,7 @@ Flera möjliga status code-värden kan returneras.
 * **HTTP 202 (accepterad)**: den angivna instansen pågår.
 * **HTTP 400 (felaktig begäran)**: den angivna instansen misslyckades eller avbröts.
 * **HTTP 404 (hittades inte)**: den angivna instansen finns inte eller har inte startats.
+* **HTTP 500 (Internt serverfel)**: den angivna instansen misslyckades med ett ohanterat undantag.
 
 Svarets nyttolast för den **HTTP 200** och **HTTP 202** fall är en JSON-objekt med följande fält:
 
@@ -195,7 +198,7 @@ Den **HTTP 202** svaret innehåller också en **plats** svarshuvud som refererar
 
 Du kan också fråga status för alla instanser. Ta bort den `instanceId` i 'Hämta status för instans-begäran. Parametrarna är samma som ”Get-instans status”. 
 
-#### <a name="request"></a>Förfrågan
+#### <a name="request"></a>Begäran
 
 För Functions 1.0 är format för förfrågan på följande sätt:
 
@@ -206,7 +209,7 @@ GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connecti
 Functions 2.0-formatet har samma parametrar men ett något annorlunda URL-prefix: 
 
 ```http
-GET /runtime/webhooks/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
+GET /runtime/webhooks/durabletask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
 #### <a name="response"></a>Svar
@@ -270,7 +273,7 @@ Här är ett exempel på svar-nyttolaster som inkluderar orkestreringsstatus (fo
 
 Skickar en händelse-meddelande till en orchestration-instans som körs.
 
-#### <a name="request"></a>Förfrågan
+#### <a name="request"></a>Begäran
 
 För Functions 1.0 är format för förfrågan på följande sätt:
 
@@ -281,14 +284,14 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/raiseEvent/{e
 Functions 2.0-formatet har samma parametrar, men har ett något annorlunda URL-prefix:
 
 ```http
-POST /runtime/webhooks/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
+POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
 ```
 
 Parametrar för detta API innehåller en standarduppsättning som tidigare nämnts samt följande unika parametrar för begäran:
 
 | Fält       | Parametertyp  | Data tType | Beskrivning |
 |-------------|-----------------|-----------|-------------|
-| EventName   | URL             | sträng    | Namnet på den händelse som orchestration målinstansen väntar på. |
+| EventName   | Webbadress             | sträng    | Namnet på den händelse som orchestration målinstansen väntar på. |
 | {innehåll}   | Begära innehåll | JSON      | JSON-formaterad händelsenyttolast. |
 
 #### <a name="response"></a>Svar
@@ -316,18 +319,18 @@ Svar för detta API innehåller inte något innehåll.
 
 Avbryter en orchestration-instans som körs.
 
-#### <a name="request"></a>Förfrågan
+#### <a name="request"></a>Begäran
 
 För Functions 1.0 är format för förfrågan på följande sätt:
 
 ```http
-DELETE /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
 Functions 2.0-formatet har samma parametrar, men har ett något annorlunda URL-prefix:
 
 ```http
-DELETE /runtime/webhooks/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
 Begära parametrar för detta API innehåller en standarduppsättning som tidigare nämnts samt följande unika parameter.
@@ -347,7 +350,47 @@ Flera möjliga status code-värden kan returneras.
 Här är en exempelbegäran som avslutar en instans som körs och anger en anledning för **buggy**:
 
 ```
-DELETE /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason=buggy&taskHub=DurableFunctionsHub&connection=Storage&code=XXX
+POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason=buggy&taskHub=DurableFunctionsHub&connection=Storage&code=XXX
+```
+
+Svar för detta API innehåller inte något innehåll.
+
+## <a name="rewind-instance-preview"></a>Tillbakaspolning instans (förhandsversion)
+
+Återställer en misslyckad orchestration-instans till ett körningsläge genom att spela upp de senaste misslyckade åtgärderna.
+
+#### <a name="request"></a>Begäran
+
+För Functions 1.0 är format för förfrågan på följande sätt:
+
+```http
+POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/rewind?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+Functions 2.0-formatet har samma parametrar, men har ett något annorlunda URL-prefix:
+
+```http
+POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+Begära parametrar för detta API innehåller en standarduppsättning som tidigare nämnts samt följande unika parameter.
+
+| Fält       | Parametertyp  | Datatyp | Beskrivning |
+|-------------|-----------------|-----------|-------------|
+| orsak      | Frågesträng    | sträng    | Valfri. Orsaken till spola tillbaka orchestration-instans. |
+
+#### <a name="response"></a>Svar
+
+Flera möjliga status code-värden kan returneras.
+
+* **HTTP 202 (accepterad)**: tillbakaspolning begäran togs emot för bearbetning.
+* **HTTP 404 (hittades inte)**: Det gick inte att hitta den angivna instansen.
+* **HTTP 410 ()**: den angivna instansen har slutförts eller har avslutats.
+
+Här är en exempelbegäran som Spolar tillbaka en instans som misslyckats och anger en anledning för **fast**:
+
+```
+POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/rewind?reason=fixed&taskHub=DurableFunctionsHub&connection=Storage&code=XXX
 ```
 
 Svar för detta API innehåller inte något innehåll.

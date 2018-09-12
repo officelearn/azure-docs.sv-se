@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 09/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 41e75fcfd0b88d5c37bb8dd6fcc16b1767b34dba
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: bc3b5cfc106fdb90e99fb918113f4f371f928b26
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285365"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377963"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sömlös enkel inloggning
 
 ## <a name="what-is-azure-active-directory-seamless-single-sign-on"></a>Vad är Azure Active Directory sömlös enkel inloggning?
 
-Azure Active Directory sömlös enkel inloggning (Azure AD sömlös SSO) loggar automatiskt användare när de är på sina företagets enheter som är anslutna till företagsnätverket. När aktiverad, behöver inte användarna ange sina lösenord och logga in på Azure AD, även skriver i deras användarnamn. Den här funktionen ger användarna enkel åtkomst till dina molnbaserade program utan några ytterligare lokala komponenter.
+Sömlös enkel inloggning med Azure Active Directory (sömlös SSO med Azure AD) loggar automatiskt in användare när de är på sina företagsenheter som är anslutna till företagsnätverket. När aktiverad, behöver inte användarna ange sina lösenord och logga in på Azure AD, även skriver i deras användarnamn. Den här funktionen ger användarna enkel åtkomst till dina molnbaserade program utan några ytterligare lokala komponenter.
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
@@ -62,13 +62,15 @@ Sömlös enkel inloggning kan kombineras med antingen den [Lösenordshashsynkron
 
 | OS\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Ja|Nej|Ja|Ja\*|Gäller inte
-|Windows 8.1|Ja|Gäller inte|Ja|Ja\*|Gäller inte
-|Windows 8|Ja|Gäller inte|Ja|Ja\*|Gäller inte
-|Windows 7|Ja|Gäller inte|Ja|Ja\*|Gäller inte
-|Mac OS X|Gäller inte|Gäller inte|Ja\*|Ja\*|Ja\*
+|Windows 10|Ja\*|Nej|Ja|Ja\*\*|Ej tillämpligt
+|Windows 8.1|Ja\*|Ej tillämpligt|Ja|Ja\*\*|Ej tillämpligt
+|Windows 8|Ja\*|Ej tillämpligt|Ja|Ja\*\*|Ej tillämpligt
+|Windows 7|Ja\*|Ej tillämpligt|Ja|Ja\*\*|Ej tillämpligt
+|Mac OS X|Ej tillämpligt|Ej tillämpligt|Ja\*\*|Ja\*\*|Ja\*
 
-\*Kräver [ytterligare konfiguration](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
+\*Kräver Internet Explorer version 10 eller senare
+
+\*\*Kräver [ytterligare konfiguration](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
 
 >[!NOTE]
 >För Windows 10, rekommendationen är att använda [Azure AD Join](../active-directory-azureadjoin-overview.md) för den optimala enkel inloggning med Azure AD.

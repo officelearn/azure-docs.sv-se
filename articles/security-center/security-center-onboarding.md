@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: e74a5a431144c303b0301c8b7a22417784ecb65b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 50055befaa0a5f0bb03bda18e01edfb751e49369
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300513"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380003"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Kom igång med Azure Security Center Standard för ökad säkerhet
 Uppgradera till Security Center Standard att dra nytta av förbättrad säkerhetshantering och skydd mot hot i dina hybridmolnarbetsbelastningar.  Du kan prova Standard kostnadsfritt under 60 dagar. Se de Säkerhetscenter [prissättningssidan](https://azure.microsoft.com/pricing/details/security-center/) för mer information.
@@ -69,7 +69,7 @@ Security Center kan övervaka säkerhetsstatusen för icke-Azure-datorer men du 
 
 3. Klicka på **konfigurera** under **lägga till nya Azure-datorer**. En lista över dina logganalysarbetsytor visas. Om det är tillämpligt innehåller listan standardarbetsytan som har skapats för dig av Security Center när automatisk etablering aktiverades. Välj den här arbetsytan eller någon annan arbetsyta som du vill använda.
 
-  ![Lägga till en dator som inte är en Azure-dator][7]
+  ![Lägg till icke-Azure-dator][7]
 
 Om du har befintliga arbetsytor kan de visas under **lägga till nya icke-Azure-datorer**. Du kan lägga till datorer till en befintlig arbetsyta eller skapa en ny arbetsyta. Klicka på länken om du vill skapa en ny arbetsyta **lägga till en ny arbetsyta**.
 
@@ -103,7 +103,7 @@ Du kan lägga till en dator genom att följa arbetsflödet från **Onboarding**,
 
    ![Lägga till datorer][7]
 
- Den **Direktagent** bladet innehåller en länk för att ladda ned en Windows- eller Linux-agent och nycklar för arbetsyte-ID för användning vid konfigureringen av agenten.   
+ Den **Direktagent** bladet innehåller en länk för att ladda ned en Windows- eller Linux-agenten samt arbetsyte-ID och nycklar för att använda vid konfigureringen av agenten.   
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln beskrivs hur du integrera Azure och icke-Azure-resurser för att kunna dra nytta av avancerad säkerhet i Security Center.  Om du vill göra mer med din integrerade resurser finns i

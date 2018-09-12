@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 32cf0ad791a8b36d6a90519d428df0b21d542a31
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 6a9ecbcc5161f47a192d5bf3a893a42b3ee9ce2f
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092809"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379510"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Bindningar för varaktiga funktioner (Azure Functions)
 
@@ -121,7 +121,7 @@ module.exports = df(function*(context) {
 
 Utlösaren aktivitet kan du redigera funktioner som anropas av orchestrator-funktioner.
 
-Om du använder Visual Studio aktivitet utlösaren konfigureras med hjälp av den [ActvityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) .NET-attributet. 
+Om du använder Visual Studio aktivitet utlösaren konfigureras med hjälp av den [ActivityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) .NET-attributet. 
 
 Om du använder Azure-portalen för utveckling, aktivitet utlösaren definieras av följande JSON-objekt i den `bindings` matris med *function.json*:
 

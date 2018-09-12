@@ -6,21 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 847f18b2-49a9-4931-9c09-9374e932a071
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 09/10/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 76953f14744196306d0274882e8ec3b454fa99e3
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ffe3dbf975984eb8df341728075e628d14080ada
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051195"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380241"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Vanliga frågor i Azure Stack användnings-API
 
@@ -41,7 +40,7 @@ Användning har rapporterats för följande resource providers:
 **Enhet**: IP-adresser  
 **Anteckningar**: antal IP-adresser som används. Om du anropar API: et för användning med en daglig kornighet som returnerar mätaren IP-adress som multiplicerat med antalet timmar.  
   
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagringsutrymme
   
 **Mäter ID**: B4438D5D-453B-4EE1-B42A-DC72E377F1E4  
 **Mätarnamn**: TableCapacity  
@@ -240,7 +239,7 @@ Användning har rapporterats för följande resource providers:
 **Mätarnamn**: DatabaseSizeHourMySqlMeter  
 **Enhet**: MB\*timmar  
 **Anteckningar**: Totalt antal DB kapacitet när du skapar. Om du anropar API: et för användning med en daglig kornighet som returnerar mätaren MB multiplicerat med antalet timmar.    
-### <a name="key-vault"></a>Key Vault   
+### <a name="key-vault"></a>Nyckelvalv   
   
 **Mäter ID**: EBF13B9F-B3EA-46FE-BF54-396E93D48AB4  
 **Mätarnamn**: Key Vault-transaktioner  

@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 6dff2d1886a560e3a7e2758816a884782e33787f
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 12023216575b08732f3ef2d04bac9e825621f720
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287978"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44376977"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Vad är nytt i Azure SQL Data Warehouse? Juni 2018
 Azure SQL Data Warehouse tar emot förbättringar kontinuerligt. Den här artikeln beskriver nya funktioner och ändringar som har införts i juni 2018. 
@@ -23,7 +23,7 @@ Azure SQL Data Warehouse tar emot förbättringar kontinuerligt. Den här artike
 ## <a name="user-defined-restore-points"></a>Användardefinierad återställningspunkter
 SQL Data Warehouse tar automatiskt ögonblicksbilder av ditt informationslager var åttonde timme, vilket ger en snabbutvärdering på åtta timmar mål för återställningspunkt (RPO). Detta automatiserad ögonblicksbilder enkel hanteringsbelastning för att köra ditt informationslager, finns men det ett behov av att ta bilder av kritiska perioder baserat på företagets behov. Till exempel ta en ögonblicksbild precis före en stor datainläsning eller distribution av nya skript till datalagret för att aktivera en återställningspunkt precis före åtgärden. 
 
-SQL Data Warehouse har nu stöd [användardefinierade återställningspunkter](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) via den [New AzureRmSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoin) cmdlet.
+SQL Data Warehouse har nu stöd [användardefinierade återställningspunkter](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) via den [New AzureRmSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint) cmdlet.
 
 ```PowerShell
 New-AzureRmSqlDatabaseRestorePoint
@@ -50,7 +50,7 @@ The SELECT permission was denied on the column 'SSN' of the object 'Membership',
 ```
 
 ## <a name="objectschemaname"></a>OBJECT_SCHEMA_NAME
-Den [OBJECT_SCHEMA_NAME()]() funktionen returnerar databasnamnet för schemat för schema-omfattande objekt. Den här funktionen har blivit vanliga i ETL-verktyg när objektet schemavalidering. 
+Den [OBJECT_SCHEMA_NAME()](https://docs.microsoft.com/sql/t-sql/functions/object-schema-name-transact-sql) funktionen returnerar databasnamnet för schemat för schema-omfattande objekt. Den här funktionen har blivit vanliga i ETL-verktyg när objektet schemavalidering. 
 
 ```sql
 SELECT

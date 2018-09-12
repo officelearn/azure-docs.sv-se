@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 18/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: f43ebff65cf32dce1dae6bb9a592b491e56c8810
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 08174a6781772abdebd9e203a3433a1a4ac82859
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295403"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378371"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Anpassa OS-säkerhetskonfigurationer i Azure Security Center (förhandsversion)
 
@@ -69,9 +69,11 @@ Om du vill anpassa den OS standardkonfigurationen för säkerhet i Security Cent
    > Konfigurationsfilen som du laddar ned är som standard i *json* format. Anvisningar om hur du ändrar den här filen finns i [anpassa konfigurationsfilen](#customize-the-configuration-file).
    >
 
-   När du har har sparat filen, tillämpas konfigurationen på alla virtuella datorer och datorer som är anslutna till alla arbetsytor under prenumerationen. Processen tar några minuter vanligtvis, men kan ta längre tid beroende på storleken för infrastruktur.
-
 6. För att genomföra ändringen, Välj **spara**. I annat fall lagras inte principen.
+
+    ![Knappen Spara](media/security-center-customize-os-security-config/save-successfully.png)
+
+   När du har har sparat filen, tillämpas konfigurationen på alla virtuella datorer och datorer som är anslutna till arbetsytor under prenumerationen. Processen tar några minuter vanligtvis, men kan ta längre tid beroende på storleken för infrastruktur.
 
 När som helst kan du återställa aktuell principkonfiguration till sitt ursprungsläge. Gör, i den **redigera OS reglerna för säkerhetskonfigurationen** väljer **återställa**. Bekräfta det här alternativet genom att välja **Ja** i popup-bekräftelsefönstret.
 

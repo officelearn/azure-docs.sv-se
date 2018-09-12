@@ -5,15 +5,15 @@ services: backup
 author: markgalioto
 ms.service: backup
 ms.topic: include
-ms.date: 2/7/2018
+ms.date: 9/10/2018
 ms.author: trinadhk;sogup
 ms.custom: include file
-ms.openlocfilehash: 1f41567f7d5dcc9b6536b47ef639ba53abff8ec4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 64101ea5a3bbaac4a6b2e349a04d06ea84a87081
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38756018"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44381108"
 ---
 Följande begränsningar gäller för Azure Backup.
 
@@ -24,7 +24,7 @@ Följande begränsningar gäller för Azure Backup.
 | Antalet säkerhetskopieringsvalv som kan skapas i varje Azure-prenumeration |500 recovery Services-valv per region |
 | Antal gånger som säkerhetskopiering kan schemaläggas per dag |3 per dag för Windows Server/klient <br/> 2 per dag för SCDPM <br/> En gång per dag för virtuella IaaS-datorer |
 | Diskar som är anslutna till en Azure-dator för säkerhetskopiering |16 |
-| Storleken på enskilda datadisk som är ansluten till en Azure-dator för säkerhetskopiering| 4 095 GB <sup>2</sup>|
+| Storleken på enskilda datadisk som är ansluten till en Azure-dator för säkerhetskopiering| 4 095 GB|
 
 * <sup>1</sup>54400 GB gränsen gäller inte för IaaS VM-säkerhetskopiering.
  

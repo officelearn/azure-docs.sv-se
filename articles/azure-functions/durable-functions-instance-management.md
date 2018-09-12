@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 08/31/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 72ea5e54bf86ce408700c0456f6d37f5f3c29924
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 70ea13c1badf79c86bed53a34d9036706dbbac6a
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091790"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378164"
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Hantera instanser i varaktiga funktioner (Azure Functions)
 
@@ -145,8 +145,6 @@ Parametrarna för [RaiseEventAsync](https://azure.github.io/azure-functions-dura
 * **EventData**: en JSON-serialiserbara för att skicka till instansen.
 
 ```csharp
-#r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
-
 [FunctionName("RaiseEvent")]
 public static Task Run(
     [OrchestrationClient] DurableOrchestrationClient client,
@@ -207,7 +205,8 @@ Det finns två fall beroende på den tid som krävs för att få ett svar från 
             "id": "d3b72dddefce4e758d92f4d411567177",
             "sendEventPostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/raiseEvent/{eventName}?taskHub={taskHub}&connection={connection}&code={systemKey}",
             "statusQueryGetUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177?taskHub={taskHub}&connection={connection}&code={systemKey}",
-            "terminatePostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
+            "terminatePostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}",
+            "rewindPostUri": "https://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/rewind?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
         }
     ```
 
@@ -228,12 +227,12 @@ Metoden returnerar en instans av den [HttpManagementPayload](https://azure.githu
 * **StatusQueryGetUri**: status-URL: en för orchestration-instans.
 * **SendEventPostUri**: ”rera händelse” Webbadressen till orchestration-instans.
 * **TerminatePostUri**: ”avsluta” Webbadressen till orchestration-instans.
+* **RewindPostUri**: ”tillbakaspolning” Webbadressen till orchestration-instans.
 
 Aktivitetsfunktioner kan skicka en instans av [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) till externa system för att övervaka eller generera händelser till en orkestrering:
 
 ```csharp
-#r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
-
+[FunctionName("SendInstanceInfo")]
 public static void SendInstanceInfo(
     [ActivityTrigger] DurableActivityContext ctx,
     [OrchestrationClient] DurableOrchestrationClient client,
@@ -246,6 +245,29 @@ public static void SendInstanceInfo(
 
     // send the payload to Cosmos DB
     document = new { Payload = payload, id = ctx.InstanceId };
+}
+```
+
+## <a name="rewinding-instances-preview"></a>Spola tillbaka instances (förhandsversion)
+
+En misslyckad orchestration-instans kan vara *spolas tillbaka* till en tidigare felfritt tillstånd med hjälp av den [RewindAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RewindAsync_System_String_System_String_) API. Det fungerar genom att placera orchestration tillbaka till den *kör* tillstånd och köra aktiviteten och/eller underordnade orchestration körning fel som orsakade orchestration-fel.
+
+> [!NOTE]
+> Detta API är inte avsedd att vara en ersättning för rätt felhantering och försöka principer. I stället är den avsedd att användas endast i fall där orchestration-instanser misslyckas av oväntat orsaker. Mer information om fel felhantering och principer finns i den [felhantering](durable-functions-error-handling.md) avsnittet.
+
+Ett exempel användningsfall för *spola tillbaka* är ett arbetsflöde som omfattar en serie [mänskliga godkännanden](durable-functions-overview.md#pattern-5-human-interaction). Anta att det finns ett antal Aktivitetsfunktioner som meddelar någon att deras godkännande krävs och vänta ut i realtid svaret. För godkännandet har när alla aktiviteter fått svar eller Tidsgränsen nåddes under en annan aktivitet misslyckas på grund av ett konfigurationsfel för programmet (t.ex. en ogiltig databasanslutningssträng). Resultatet är ett orchestration-fel i arbetsflödet. Med den `RewindAsync` API, programadministratör kan åtgärda felet för konfiguration och *spola tillbaka* misslyckade orchestration tillbaka till tillståndet omedelbart före felet. Ingen av mänsklig interaktion stegen måste vara godkända igen och dirigering kan nu slutföras.
+
+> [!NOTE]
+> Den *spola tillbaka* funktionen stöder inte spola tillbaka orchestration instanser som använder varaktiga timers.
+
+```csharp
+[FunctionName("RewindInstance")]
+public static Task Run(
+    [OrchestrationClient] DurableOrchestrationClient client,
+    [ManualTrigger] string instanceId)
+{
+    string reason = "Orchestrator failed and needs to be revived.";
+    return client.RewindAsync(instanceId, reason);
 }
 ```
 

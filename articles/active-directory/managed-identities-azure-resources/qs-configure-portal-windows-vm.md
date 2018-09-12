@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: f729a7972a36d53cb8f4f3769aedde4ca2005d80
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 77953884253002c6da7b0151151d97bb65a6c659
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346142"
+ms.locfileid: "44377096"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>Konfigurera hanterade identiteter för Azure-resurser på en virtuell dator med Azure-portalen
 
@@ -34,8 +34,10 @@ I den här artikeln får du lära dig hur du aktiverar och inaktiverar system- o
 - Om du är bekant med hanterade identiteter för Azure-resurser kan du kolla den [översiktsavsnittet](overview.md).
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
 - Ditt konto måste följande Azure rollbaserad åtkomstkontroll tilldelningar för att utföra vilka hanteringsåtgärder i den här artikeln:
+
     > [!NOTE]
     > Inga ytterligare Azure AD directory rolltilldelningar krävs.
+
     - [Virtuell Datordeltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) aktivera och ta bort systemtilldelade hanterad identitet från en Azure-dator.
 
 ## <a name="system-assigned-managed-identity"></a>Systemtilldelade hanterad identitet

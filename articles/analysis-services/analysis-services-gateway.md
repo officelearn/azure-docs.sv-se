@@ -5,18 +5,18 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/11/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8ba46223f0d0a4db7615bc94fe8a1bbfa18e57f8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9ed2614969952eab90dfec572d9b61071981c4bf
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442346"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391631"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Ansluta till lokala datakällor med Azure lokala Data Gateway
-Den lokala datagatewayen fungerar som en brygga med säker dataöverföring mellan lokala datakällor och din Azure Analysis Services-servrar i molnet. Utöver att arbeta med flera Azure Analysis Services-servrar i samma region, fungerar den senaste versionen av gatewayen även med Azure Logic Apps, Power BI, Powerapps och Microsoft Flow. Du kan associera flera tjänster i samma region med en enda gateway. 
+Den lokala datagatewayen fungerar som en brygga med säker dataöverföring mellan lokala datakällor och din Azure Analysis Services-servrar i molnet. Utöver att arbeta med flera Azure Analysis Services-servrar i samma region, fungerar den senaste versionen av gatewayen även med Azure Logic Apps, Power BI, Powerapps och Microsoft Flow. Du kan associera flera tjänster i samma prenumeration och samma region med en enda gateway. 
 
 Hämta installationsprogrammet med gatewayen första gången är en process som genomförs i fyra delar:
 
@@ -26,14 +26,14 @@ Hämta installationsprogrammet med gatewayen första gången är en process som 
 
 - **Skapa en resurs för gatewayen i Azure** – i det här steget skapar du en resurs för gatewayen i Azure-prenumerationen.
 
-- **Anslut dina servrar till gatewayresursen** -när du har en gateway-resurs i din prenumeration kan du börja ansluta dina servrar till den. Du kan ansluta flera servrar och andra resurser till den.
+- **Anslut dina servrar till gatewayresursen** -när du har en gateway-resurs i din prenumeration kan du börja ansluta dina servrar till den. Du kan ansluta flera servrar och andra resurser, förutsatt att de är i samma prenumeration och samma region.
 
 Kom igång nu direkt, se [installera och konfigurera den lokala datagatewayen](analysis-services-gateway-install.md).
 
 ## <a name="how-it-works"> </a>Så här fungerar det
 Du installerar på en dator i din organisation gatewayen körs som en Windows-tjänst, **lokal datagateway**. Den här lokal tjänst har registrerats med Gateway-Molntjänsten via Azure Service Bus. Du kan sedan skapa en resurs för gatewayen Gateway-Molntjänsten för din Azure-prenumeration. Azure Analysis Services-servrar är sedan anslutna till gatewayresursen. När modeller på servern behöver ansluta till dina lokala data källor för frågor eller bearbetning, inom en fråga och dataflödet gatewayresursen, Azure Service Bus, lokala data gateway-tjänsten och dina datakällor. 
 
-![Hur det fungerar](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
+![Så här fungerar det](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
 
 Frågor och dataflödet:
 
@@ -91,7 +91,7 @@ Det finns för närvarande inte någon enskild plats där klientadministratörer
 
 ## <a name="faq"></a>Vanliga frågor och svar
 
-### <a name="general"></a>Allmänt
+### <a name="general"></a>Generell
 
 **Frågor och**: behöver jag en gateway för datakällor i molnet, till exempel Azure SQL Database? <br/>
 **En**: Nej. En gateway krävs för att ansluta till lokala datakällor endast.

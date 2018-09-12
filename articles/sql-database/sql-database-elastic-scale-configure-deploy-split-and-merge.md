@@ -9,12 +9,12 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 10ba369c9627f7492f9776a757d4bccb74013b5f
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c7682b63689d9b47fce5fa65a3c0a2301d53502a
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349202"
+ms.locfileid: "44379205"
 ---
 # <a name="deploy-a-split-merge-service"></a>Distribuera en tjänst för att dela/sammanslå
 Dela / sammanslå-verktyget kan du flytta data mellan shardade databaser. Se [flytta data mellan utskalade molndatabaser](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -143,7 +143,7 @@ Om din arbetsroll inte går att använda, men din webbroll lyckas, är det troli
 
 ## <a name="test-the-service-deployment"></a>Testa service-distributionen
 ### <a name="connect-with-a-web-browser"></a>Ansluta med en webbläsare
-Fastställa webbslutpunkt för dela / Sammanslå-tjänsten. Du hittar den i den klassiska Azure-portalen genom att gå till den **instrumentpanelen** av cloud Services och leta under **webbplatsens URL** på höger sida. Ersätt **http://** med **https://** eftersom standardsäkerhetsinställningarna inaktivera HTTP-slutpunkt. Läs in sidan för den här URL: en i webbläsaren.
+Fastställa webbslutpunkt för dela / Sammanslå-tjänsten. Du hittar den i portalen genom att gå till den **översikt** av cloud Services och leta under **webbplatsens URL** på höger sida. Ersätt **http://** med **https://** eftersom standardsäkerhetsinställningarna inaktivera HTTP-slutpunkt. Läs in sidan för den här URL: en i webbläsaren.
 
 ### <a name="test-with-powershell-scripts"></a>Testa med PowerShell-skript
 Distributionen och din miljö kan testas genom att köra PowerShell-skript inkluderade exemplet.

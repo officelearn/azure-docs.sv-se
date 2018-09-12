@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 9d33ccf9262d4432ac7255121e97f318d00b5145
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: bc57d445c334baeb32dbffda814cb10a35956d03
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050657"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380224"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Resource provider API-versioner som stöds av profiler i Azure Stack
 
@@ -48,15 +48,15 @@ En förklaring av API-profiler och version frisläppningstakt för Azure Stack f
 | Microsoft.Authorization (åtgärder) | 2015-11-01 |
 | Microsoft.Insights | 2015-11-01 |
 | Microsoft.Keyvault | 2016-10-01 |
-| Princip | 2016-10-01 |
+| Policy | 2016-10-01 |
 | Resurser | 2016-10-01 |
 | Resources_Links | 2016-10-01 |
 | Resources_Locks | 2016-10-01 |
 | Prenumerationer | 2016-10-01 |
 
-Läs mer en lista över versioner för varje resurstyp för leverantörer i api-profilen, [information för 2018-03-01-hybrid](#details-for-the-2018-03-01-hybrid) profil.
+Läs mer en lista över versioner för varje resurstyp för leverantörer i API-profilen, [information för 2018-03-01-hybrid](#details-for-the-2018-03-01-hybrid) profil.
 
-## <a name="overview-of-2017-03-09-profile"></a>Översikt över 2017-03-09-profile
+## <a name="overview-of-2018-03-01-hybrid"></a>Översikt över 2018-03-01-hybrid
 
 | Resursprovider | API-versionen |
 |------------------------------------------------|------------------------------|
@@ -70,13 +70,13 @@ Läs mer en lista över versioner för varje resurstyp för leverantörer i api-
 | Microsoft.Authorization<Br>(åtgärder) | 2015-11-01 |
 | Microsoft.Insights | 2015-11-01 |
 | Microsoft.Keyvault | 2016-10-01 |
-| Princip | 2015-10-01-preview |
+| Policy | 2015-10-01-preview |
 | Resurser | 2016-02-01 |
 | Resources_Links | 2016-09-01 |
 | Resources_Locks | 2016-09-01 |
 | Prenumerationer | 2016-06-1 |
 
-Läs mer en lista över versioner för varje resurstyp för leverantörer i api-profilen, [information för 2017-03-09-profile](#details-for-the-2017-03-09-profile)
+Läs mer en lista över versioner för varje resurstyp för leverantörer i api-profilen, [information för 2018-03-01-hybrid](#details-for-the-2018-03-01-hybrid)
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>Information om 2018-03-01-hybrid
 
@@ -119,7 +119,7 @@ Azure Compute-API: erna får du programmeringsbaserad åtkomst till virtuella da
 | Platser/användningar | 2016-03-30 |
 | Platser/vmSizes | 2016-03-30 |
 | Åtgärder | 2016-03-30 |
-| Virtuella datorer | 2016-03-30 |
+| Virtual Machines | 2016-03-30 |
 | Virtuella datorer /-tillägg | 2016-03-30 |
 | Virtual Machine Scale Sets | 2016-03-30 |
 | Virtual Machine Scale Sets/tillägg | 2016-03-30 |
@@ -136,8 +136,8 @@ Azure Compute-API: erna får du programmeringsbaserad åtkomst till virtuella da
 | Hanterad extrahering | 2015-04-01 |
 | Galleriobjekt | 2015-04-01 |
 | Åtgärder | 2015-04-01 |
-| Portalen | 2015-04-01 |
-| Search | 2015-04-01 |
+| Portal | 2015-04-01 |
+| Sök | 2015-04-01 |
 | Föreslå | 2015-04-01 |
 
 ### <a name="microsoftinsights"></a>Microsoft.Insights
@@ -145,7 +145,7 @@ Azure Compute-API: erna får du programmeringsbaserad åtkomst till virtuella da
 | Resurstyper | API-versioner |
 |--------------------|--------------------|
 | Åtgärder | 2015-04-01 |
-| Typer av händelse | 2015-04-01 |
+| Händelsetyper | 2015-04-01 |
 | Händelsekategorier | 2015-04-01 |
 | Måttdefinitioner | 2018-01-01 |
 | Mått | 2018-01-01 |
@@ -183,7 +183,7 @@ Operations samtalsresultat är en representation av tillgängliga moln operation
 | Åtgärder | 2015-06-15 |
 | Offentlig IP-adress | 2015-06-15 |
 | Routningstabeller | 2015-06-15 |
-| Virtuell nätverksgateway | 2015-06-15 |
+| Virtuell nätverks-gateway | 2015-06-15 |
 | Virtuella nätverk | 2015-06-15 |
 
 ### <a name="microsoftresources"></a>Microsoft.Resources
@@ -202,7 +202,7 @@ Azure Resource Manager kan du distribuera och hantera infrastrukturen för dina 
 | Metadata för tillägg | 2015-01-01 |
 | Länkar | 2016-09-01 |
 | Platser | 2015-01-01 |
-| Erbjudande | 2015-01-01 |
+| Erbjudanden | 2015-01-01 |
 | Åtgärder | 2015-01-01 |
 | Leverantörer | 2017-08-01 |
 | Resursgrupper | 2016-09-01 |
@@ -231,7 +231,7 @@ Storage Resource Provider (SRP) kan du hantera dina lagringskonton och nycklar p
 | StorageAccounts | 2016-01-01 |
 | Användningar | 2016-01-01 |
 
-## <a name="details-for-the-2017-03-09-profile"></a>Information om 2017-03-09-profile
+## <a name="details-for-the-2018-03-01-hybrid"></a>Information om 2018-03-01-hybrid
 
 ### <a name="microsoft-authorization"></a>Microsoft-auktorisering
 
@@ -257,7 +257,7 @@ Storage Resource Provider (SRP) kan du hantera dina lagringskonton och nycklar p
 | Platser/användningar | 2016-03-30 |
 | Platser/vmSizes | 2016-03-30 |
 | Åtgärder | 2016-03-30 |
-| Virtuella datorer | 2016-03-30 |
+| Virtual Machines | 2016-03-30 |
 | Virtuella datorer /-tillägg | 2016-03-30 |
 | Virtual Machine Scale Sets | 2016-03-30 |
 | Virtual Machine Scale Sets/tillägg | 2016-03-30 |
@@ -282,7 +282,7 @@ Storage Resource Provider (SRP) kan du hantera dina lagringskonton och nycklar p
 | Åtgärder | 2015-06-15 |
 | Offentlig IP-adress | 2015-06-15 |
 | Routningstabeller | 2015-06-15 |
-| Virtuell nätverksgateway | 2015-06-15 |
+| Virtuell nätverks-gateway | 2015-06-15 |
 | Virtuella nätverk | 2015-06-15 |
 
 ### <a name="microsoftresources"></a>Microsoft.Resources
@@ -299,7 +299,7 @@ Storage Resource Provider (SRP) kan du hantera dina lagringskonton och nycklar p
 | Metadata för tillägg | 2015-01-01 |
 | Länkar | 2016-09-01 |
 | Platser | 2015-01-01 |
-| Erbjudande | 2015-01-01 |
+| Erbjudanden | 2015-01-01 |
 | Åtgärder | 2015-01-01 |
 | Leverantörer | 2017-08-01 |
 | Resursgrupper | 2016-09-01 |

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 07/21/2018
-ms.openlocfilehash: 7494f139f824d3794fced3a0eb4f8d676f3961f5
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 18f6647a8412477384a48aa777461f99b2fbcb0a
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173715"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379558"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database för PostgreSQL prisnivåer
 
@@ -22,7 +22,7 @@ Du kan skapa en Azure Database for PostgreSQL-server i en av tre olika tjänstni
 
 |    | **Basic** | **Generell användning** | **Optimerat minne** |
 |:---|:----------|:--------------------|:---------------------|
-| Compute-generering | Gen 4, generation 5 | Gen 4, generation 5 | Generation 5 |
+| Compute-generering | Gen 4, generation 5 | Gen 4, generation 5 | 5:e generationen |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Minne per vCore | 2 GB | 5 GB | 10 GB |
 | Lagringsstorlek | 5 GB till 1 TB | 5 GB till 4 TB | 5 GB till 4 TB |
@@ -33,9 +33,9 @@ Använd följande tabell som utgångspunkt för att välja en prisnivå.
 
 | Prisnivå | Målbelastningar |
 |:-------------|:-----------------|
-| Basic | Arbetsbelastningar som kräver lätt beräkning och i/o-prestanda. Exempel är servrar som används för utveckling eller testning eller sällan småskaliga program. |
-| Generellt syfte | De flesta företags arbetsbelastningar som kräver belastningsutjämnade beräknings- och minnesresurser med skalbart i/o-dataflöde. Exempel är servrar som värd för webb- och mobilappar och andra företagsprogram.|
-| Minnesoptimerad | Högpresterande arbetsbelastningar som kräver minnesprestanda för snabbare bearbetning av transaktioner och högre samtidighet. Exempel är servrar för att bearbeta realtidsdata och transaktionsappar eller analysappar appar med höga prestanda.|
+| Standard | Arbetsbelastningar som kräver lätt beräkning och i/o-prestanda. Exempel är servrar som används för utveckling eller testning eller sällan småskaliga program. |
+| Allmän | De flesta företags arbetsbelastningar som kräver belastningsutjämnade beräknings- och minnesresurser med skalbart i/o-dataflöde. Exempel är servrar som värd för webb- och mobilappar och andra företagsprogram.|
+| Optimerat minne  | Högpresterande arbetsbelastningar som kräver minnesprestanda för snabbare bearbetning av transaktioner och högre samtidighet. Exempel är servrar för att bearbeta realtidsdata och transaktionsappar eller analysappar appar med höga prestanda.|
 
 När du har skapat en server, antalet virtuella kärnor, skapande av maskinvara och priser nivå (förutom till och från Basic) kan ändras upp eller ned på några sekunder. Du kan även oberoende Justera mängden lagringsutrymme upp och kvarhållningsperioden för säkerhetskopior upp eller ned utan någon nedtid. Du kan inte ändra lagringstypen säkerhetskopiering när en server har skapats. Mer information finns i den [skala resurser](#scale-resources) avsnittet.
 
@@ -46,36 +46,36 @@ Compute-resurser som tillhandahålls som vCores, som representerar en logisk CPU
 
 | **Azure-region** | **Generation 4** | **5: e generationen** |
 |:---|:----------:|:--------------------:|
-| Centrala USA | X |  |
-| Östra USA | X | X |
+| Centrala USA | X | X |
+| USA, östra | X | X |
 | Östra USA 2 | X | X |
 | Norra centrala USA | X | X |
 | Södra centrala USA | X | X |
-| Västra USA | X | X |
+| USA, västra | X | X |
 | Västra USA 2 |  | X |
-| Centrala Kanada | X | X |
-| Östra Kanada | X | X |
+| Canada Central | X | X |
+| Canada East | X | X |
 | Södra Brasilien | X | X |
-| Norra Europa | X | X |
-| Västra Europa |  | X |
-| Frankrike, centrala |  | X |
-| Storbritannien, västra |  | X |
-| Storbritannien, södra |  | X |
-| Östasien | X | X |
-| Sydostasien | X | X |
+| Europa, norra | X | X |
+| Europa, västra |  | X |
+| Centrala Frankrike |  | X |
+| Västra Storbritannien |  | X |
+| Södra Storbritannien |  | X |
+| Asien, östra | X | X |
+| Asien, sydöstra | X | X |
 | Östra Australien |  | X |
 | Australien, centrala |  | X |
 | Australien, centrala 2 |  | X |
 | Sydöstra Australien |  | X |
 | Indien, centrala | X | X |
 | Indien, västra | X | X |
-| Södra Indien |  | X |
+| Indien, södra |  | X |
 | Östra Japan | X | X |
 | Västra Japan | X | X |
-| Centrala Korea |  | X |
-| Sydkorea |  | X |
+| Sydkorea, centrala |  | X |
+| Sydkorea, södra |  | X |
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Lagringsutrymme
 
 Lagring som du etablerar är mängden lagringskapacitet som är tillgängliga för din Azure Database for PostgreSQL-server. Lagringsutrymmet används för databasfilerna, temporära filer, transaktionsloggar och PostgreSQL-servern loggar. Den totala mängden lagring som du etablerar definierar också tillgänglig i/o-kapacitet till din server.
 

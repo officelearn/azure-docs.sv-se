@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 74a4066e3d30b1e91fe558fcfeb6f39220e41c02
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 08ba5e7cbdc041a41f1d006d69980bf6efc00101
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887352"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380306"
 ---
-# <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Konfigurera en webhook i en Azure metrisk varning
+# <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Har en klassisk måttavisering meddela en icke-Azure-system med en webhook
 Du kan använda webhooks för att dirigera Azure aviseringsmeddelanden till andra system för efterbearbetning eller anpassade åtgärder. Du kan använda en webhook på en avisering och dirigerar den till tjänster som skickar SMS-meddelanden, logga buggar, för att meddela ett team via chatt eller meddelandetjänster eller för olika åtgärder. 
 
 Den här artikeln beskriver hur du anger en webhook för en Azure metrisk varning. Den visar även hur nyttolast för HTTP-POST till en webhook som ser ut. Information om installation och schemat för en Azure aktivitet log avisering (varning vid händelser), finns i [anropa en webhook i en Azure aktivitetsloggavisering](insights-auditlog-to-webhook-email.md).
@@ -69,31 +69,31 @@ POST-åtgärd innehåller följande JSON-nyttolast och schemat för alla mått-b
 ```
 
 
-| Fält | Obligatorisk | Fast uppsättning värden | Anteckningar |
+| Fält | Obligatorisk | Fast uppsättning värden | OBS! |
 |:--- |:--- |:--- |:--- |
 | status |Y |Aktiverat, löst |Status för aviseringen baserat på villkor du anger. |
-| kontext |Y | |I aviseringssammanhanget. |
+| Kontext |Y | |I aviseringssammanhanget. |
 | tidsstämpel |Y | |Den tid då aviseringen utlöstes. |
-| id |Y | |Varje varningsregeln har ett unikt ID. |
+| ID |Y | |Varje varningsregeln har ett unikt ID. |
 | namn |Y | |Aviseringens namn. |
 | beskrivning |Y | |En beskrivning av aviseringen. |
 | conditionType |Y |Mått, händelse |Två typer av aviseringar som stöds: mått- och. Måttaviseringar baseras på en måttvillkor. Aviseringar baseras på en händelse i aktivitetsloggen. Använd det här värdet om du vill kontrollera om aviseringen är baserad på ett mått eller på en händelse. |
-| tillstånd |Y | |Specifika fält att söka baserat på den **conditionType** värde. |
-| metricName |För aviseringar för mått | |Namnet på det mått som definierar vad regeln övervakar. |
+| villkor |Y | |Specifika fält att söka baserat på den **conditionType** värde. |
+| MetricName |För aviseringar för mått | |Namnet på det mått som definierar vad regeln övervakar. |
 | metricUnit |För aviseringar för mått |Byte, BytesPerSecond, antal, CountPerSecond, procent, sekunder |Den enhet som tillåts i måttet. Se [tillåtna värden](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
 | metricValue |För aviseringar för mått | |Det faktiska värdet för det mått som orsakade aviseringen. |
 | Tröskelvärde |För aviseringar för mått | |Tröskelvärdet då aviseringen har aktiverats. |
 | Fönsterstorlek |För aviseringar för mått | |Tidsperioden som används för att övervaka Aviseringsaktivitet baserat på tröskelvärdet. Värdet måste vara mellan 5 minuter och 1 dag. Värdet måste vara i ISO 8601-format för varaktighet. |
 | timeAggregation |För aviseringar för mått |Genomsnittlig, senaste, högsta, Minimum, None, totalt |Hur ska de data som samlas in kombineras med tiden. Standardvärdet är medelvärde. Se [tillåtna värden](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
-| operator |För aviseringar för mått | |Den operator som används för att jämföra den aktuella måttdata till det angivna tröskelvärdet. |
+| Operator |För aviseringar för mått | |Den operator som används för att jämföra den aktuella måttdata till det angivna tröskelvärdet. |
 | subscriptionId |Y | |Azure-prenumerations-ID. |
 | resourceGroupName |Y | |Namnet på resursgruppen för resursen som påverkas. |
 | resourceName |Y | |Resursnamnet för resursen som påverkas. |
-| resourceType |Y | |Resurstypen för resurser som påverkas. |
+| ResourceType |Y | |Resurstypen för resurser som påverkas. |
 | resourceId |Y | |Resurs-ID för resursen som påverkas. |
 | resourceRegion |Y | |Den region eller plats för resurser som påverkas. |
 | portalLink |Y | |En direktlänk till sammanfattningssidan portal resurs. |
-| properties |N |Valfri |En uppsättning nyckel/värde-par som innehåller information om händelsen. Till exempel `Dictionary<String, String>`. För egenskapsfältet är valfritt. I ett anpassat gränssnitt eller logic app-baserade arbetsflödet, kan användarna ange nyckel/värde-par som kan skickas via nyttolasten. Ett annat sätt att skicka anpassade egenskaper till webhooken är via webhooken URI (som frågeparametrar). |
+| properties |N |Valfritt |En uppsättning nyckel/värde-par som innehåller information om händelsen. Till exempel `Dictionary<String, String>`. För egenskapsfältet är valfritt. I ett anpassat gränssnitt eller logic app-baserade arbetsflödet, kan användarna ange nyckel/värde-par som kan skickas via nyttolasten. Ett annat sätt att skicka anpassade egenskaper till webhooken är via webhooken URI (som frågeparametrar). |
 
 > [!NOTE]
 > Du kan ange den **egenskaper** fältet genom att använda [Azure Monitor REST API: er](https://msdn.microsoft.com/library/azure/dn933805.aspx).

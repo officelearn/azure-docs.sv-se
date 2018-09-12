@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: sethm
 ms.reviewer: thoroet
-ms.openlocfilehash: b563117f4d4b0e3859f0478a66610b0238f265dd
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 995a22b947756fd0fb297c395846df26de20bdd9
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092567"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391835"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installera PowerShell för Azure Stack
 
@@ -27,7 +27,7 @@ ms.locfileid: "44092567"
 
 För att fungera med ditt moln, måste du installera Azure Stack-kompatibla PowerShell-moduler. Kompatibilitet aktiveras via en funktion som kallas *API profiler*.
 
-API-profilerna ger ett sätt att hantera skillnaderna mellan Azure och Azure Stack. En profil för API-versionen är en uppsättning Azure Resource Managers PowerShell-moduler med specifika API-versioner. Varje molnplattform har en uppsättning API-versionsprofiler stöds. Till exempel Azure Stack stöd för en specifik daterat profil-version som **2017-03-09-profile**, och Azure har stöd för den **senaste** API version profil. När du installerar en profil kan installeras på Azure Resource Managers PowerShell-moduler som motsvarar den angivna profilen.
+API-profilerna ger ett sätt att hantera skillnaderna mellan Azure och Azure Stack. En profil för API-versionen är en uppsättning Azure Resource Managers PowerShell-moduler med specifika API-versioner. Varje molnplattform har en uppsättning API-versionsprofiler stöds. Till exempel Azure Stack stöd för en specifik daterat profil-version som **2017-03-09-profile**, och Azure har stöd för den **senaste** API version profil. När du installerar en profil kan installeras på Azure Resource Managers PowerShell-moduler som motsvarar den angivna profilen.  
 
 Du kan installera Azure Stack kompatibla PowerShell-moduler i Internet ansluten, delvis ansluten eller frånkopplad scenarier. Den här artikeln beskriver de detaljerade anvisningarna för att installera PowerShell för Azure Stack för dessa scenarier.
 

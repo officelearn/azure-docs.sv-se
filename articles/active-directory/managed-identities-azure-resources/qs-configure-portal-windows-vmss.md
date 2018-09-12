@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: cfd9936a4eb43fcecb66e672767b6f1133262c1d
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 0a6440b7fffe1aec26ba4755f21fa2f56935887e
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345728"
+ms.locfileid: "44377589"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Konfigurera hanterade identiteter för Azure-resurser på en VM-skalningsuppsättning med Azure portal
 
@@ -32,8 +32,10 @@ I den här artikeln med hjälp av PowerShell, du lära dig hur du utför följan
 - Om du är bekant med hanterade identiteter för Azure-resurser kan du kolla den [översiktsavsnittet](overview.md).
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
 - Ditt konto måste följande Azure rollbaserad åtkomstkontroll tilldelningar för att utföra vilka hanteringsåtgärder i den här artikeln:
+
     > [!NOTE]
     > Inga ytterligare Azure AD directory rolltilldelningar krävs.
+
     - [Virtuell Datordeltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) aktivera och ta bort systemtilldelade hanterad identitet från en skalningsuppsättning för virtuell dator.
 
 ## <a name="system-assigned-managed-identity"></a>Systemtilldelade hanterad identitet

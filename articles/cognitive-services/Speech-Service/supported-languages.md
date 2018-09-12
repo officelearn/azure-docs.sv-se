@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: de9abac2839341e1744a694daaaa0befdff4e7fa
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 704534ed50e12e7f9290cb321ad3b9e1b99117d5
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668588"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377896"
 ---
 # <a name="supported-languages-for-speech-service"></a>Språk som stöds för Speech service
 
@@ -29,13 +29,22 @@ Microsoft taligenkänningens API stöder följande språk.
  ar-t.ex. | Arabiska (Egypten), moderna standard | Nej | Ja | Nej
  IT-IT | Italienska (Italien) | Nej | Ja | Nej 
  de-DE | Tyska (Tyskland) | Nej | Ja | Ja
- ja-JP | Japanska (Japan) | Nej | Ja | Nej
- sv-SE | Engelska (USA) | Ja | Ja | Ja
- pt-BR | Portugisiska (Brasilien) | Nej | Ja | Nej
- es-ES | Spanska (Spanien) | Nej | Ja | Nej
- ru-RU | Ryska (Ryssland) | Nej | Ja | Nej
  fr-FR | Franska (Frankrike) | Nej | Ja | Nej
+ sv-SE | Engelska (USA) | Ja | Ja | Ja
+ en-GB | Engelska (Storbritannien) | Nej | Ja | Nej
+ en CA: N | Engelska (Kanada) | Nej | Ja | Nej
+ SV-Australien | Engelska (Australien) | Nej | Ja | Nej
+ es-ES | Spanska (Spanien) | Nej | Ja | Nej
+ NL-NL | Nederländska (Nederländerna) | Nej | Ja | Nej
+ PT-PT | Portoguese (Portogal) | Nej | Ja | Nej
+ TR-TR | Turkiska (Turkiet) | Nej | Ja | Nej
+ pt-BR | Portugisiska (Brasilien) | Nej | Ja | Nej
+ ru-RU | Ryska (Ryssland) | Nej | Ja | Nej
  zh-CN | Kinesiska (Mandarin, förenklad) | Nej | Ja | Nej
+ zh-HK | Kinesiska (Mandarin, traditionell) | Nej | Ja | Nej
+ zh-TW | Kinesiska (Mandarin Taiwanesiska) | Nej | Ja | Nej
+ ja-JP | Japanska (Japan) | Nej | Ja | Nej
+ ko-KR | Koreanska (Korea) | Nej | Ja | Nej
 
 ## <a name="text-to-speech"></a>Text till tal
 
@@ -63,7 +72,7 @@ en-GB | English (UK) | Kvinna | ”Microsoft Server tal Text till tal-röst (en-
 | | |Kvinna | ”Microsoft Server tal Text till tal-röst (en-GB, HazelRUS)”
 | | |Man | ”Microsoft Server tal Text till tal-röst (en-GB, George, Apollo)”
 en IE | Engelska (Irland) |Man | ”Microsoft Server tal Text till tal-röst (en IE, Stefan)”
-en Indien | English (India) | Kvinna | ”Microsoft Server tal Text till tal-röst (en-IN-, Heera, Apollo)”
+en Indien | Engelska (Indien) | Kvinna | ”Microsoft Server tal Text till tal-röst (en-IN-, Heera, Apollo)”
 | | |Kvinna | ”Microsoft Server tal Text till tal-röst (en-IN-, PriyaRUS)”
 | | |Man | ”Microsoft Server tal Text till tal-röst (en-IN-, Ravi, Apollo)”
 sv-SE | English (US) |Kvinna | ”Microsoft Server tal Text till tal-röst (en-US, ZiraRUS)”
@@ -92,7 +101,7 @@ hu-HU | Ungerska | Man | ”Microsoft Server tal Text till tal-röst (hu-HU, Sza
 ID-ID | Indonesiska| Man | ”Microsoft Server tal Text till tal-röst (id-ID, Andika)”
 IT-IT | Italienska |Man | ”Microsoft Server tal Text till tal-röst (it-IT, Cosimo, Apollo)”
 | | |Kvinna | ”Microsoft Server tal Text till tal-röst (it-IT, LuciaRUS)”
-ja-JP | Japanska |Kvinna | ”Microsoft Server tal Text till tal röst (ja-JP, Ayumi, Apollo)”
+ja-JP | japanska |Kvinna | ”Microsoft Server tal Text till tal röst (ja-JP, Ayumi, Apollo)”
 | | |Man | ”Microsoft Server tal Text till tal röst (ja-JP, Ichiro, Apollo)”
 | | |Kvinna | ”Microsoft Server tal Text till tal röst (ja-JP, HarukaRUS)”
 ko-KR | Koreanska |Kvinna | ”Microsoft Server tal Text till tal-röst (ko-KR, HeamiRUS)”
@@ -111,7 +120,7 @@ sk-SK | Slovakiska|Man | ”Microsoft Server tal Text till tal röst (sk-SK, Fil
 sl-SI | Slovenska|Man | ”Microsoft Server tal Text till tal röst (sl-SI, Lado)”
 SV-SE | Svenska|Kvinna | ”Microsoft Server tal Text till tal-röst (sv-SE, HedvigRUS)”
 ta IN | Tamil (Indien) |Man | ”Microsoft Server tal Text till tal-röst (ta-IN-, Valluvar)”
-TH-TH | Thai|Man | ”Microsoft Server tal Text till tal röst (th-TH, Pattara)”
+TH-TH | Thailändska|Man | ”Microsoft Server tal Text till tal röst (th-TH, Pattara)”
 TR-TR |Turkiska| Kvinna | ”Microsoft Server tal Text till tal röst (tr-TR, SedaRUS)”
 Vi VN | Vietnamesiska|Man | ”Microsoft Server tal Text till tal röst (vi VN ett)”
 zh-CN | Kinesiska (fastlandet)|Kvinna | ”Microsoft Server tal Text till tal-röst (zh-CN, HuihuiRUS)”
@@ -145,11 +154,11 @@ Du kan hämta en lista med språk som programmässigt med hjälp av REST-API-slu
 |:----------- |-|
 | Arabiska (moderna Standard)      | `ar` |
 | Kinesiska (Mandarin)      | `zh` |
-| Svenska      | `en` |
+| Engelska      | `en` |
 | Franska      | `fr` |
 | Tyska      | `de` |
 | Italienska      | `it` |
-| Japanska      | `jp` |
+| japanska      | `jp` |
 | Portugisiska (Brasilien)     | `pt` |
 | Ryska      | `ru` |
 | Spanska      |  `es` |
@@ -171,7 +180,7 @@ Du kan hämta en lista med språk som programmässigt med hjälp av REST-API-slu
 | Tjeckiska      | `cs`          |
 | Danska      | `da`          |
 | Nederländska      | `nl`          |
-| Svenska      | `en`          |
+| Engelska      | `en`          |
 | Estniska      | `et`          |
 | Fijianska      | `fj`          |
 | Filippinska      | `fil`          |
@@ -186,7 +195,7 @@ Du kan hämta en lista med språk som programmässigt med hjälp av REST-API-slu
 | Ungerska      | `hu`          |
 | Indonesiska      | `id`          |
 | Italienska      | `it`          |
-| Japanska      | `ja`          |
+| japanska      | `ja`          |
 | Kiswahili      | `sw`          |
 | Klingon      | `tlh`          |
 | Klingon (plqaD)      | `tlh-Qaak`          |
@@ -211,8 +220,8 @@ Du kan hämta en lista med språk som programmässigt med hjälp av REST-API-slu
 | Spanska      | `es`          |
 | Svenska      | `sv`          |
 | Tahitian      | `ty`          |
-| Tamilska      | `ta`          |
-| Thai      | `th`          |
+| Tamiliska      | `ta`          |
+| Thailändska      | `th`          |
 | Tongan      | `to`          |
 | Turkiska      | `tr`          |
 | Ukrainska      | `uk`          |

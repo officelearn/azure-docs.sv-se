@@ -1,5 +1,5 @@
 ---
-title: Vad är Azure reservationer? | Microsoft Docs
+title: Vad är Azure Reservations? | Microsoft Docs
 description: Läs mer om Azure-reservationer och priser för att spara på dina virtuella datorer, SQL-databaser och andra resurskostnader.
 services: billing
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashar
-ms.openlocfilehash: 82b23f46acc94fefccc871583657200b90a33f05
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 9ca31a09cd14a8b05e6f98d05f552e202ca4a9fd
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43303570"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391869"
 ---
-# <a name="what-are-azure-reservations"></a>Vad är Azure reservationer?
+# <a name="what-are-azure-reservations"></a>Vad är Azure Reservations?
 
 Azure reservationer kan du spara pengar genom att förväg betala för ett eller tre års virtuell dator, SQL-databas för att beräkna kapacitet eller andra Azure-resurser. Betala förväg kan du få rabatt på de resurser du använder. Reservationer kan avsevärt minska den virtuella datorn, SQL database beräkning eller andra resurskostnader upp till 72% jämfört med användningsbaserad betalning. Reservationer ger en rabatt på fakturering och påverka inte körtiden för dina resurser.
 
@@ -70,13 +70,21 @@ För att bättre förstå hur reservationer påverkar din fakturering, finns i f
 
 I slutet av reservationsperioden fakturering rabatten upphör att gälla och den virtuella datorn, SQL-databas eller annan resurs debiteras enligt avgifterna för betala per användning-som-du gå priset. Azure reservationer inte den automatiska förnyelsen. Om du vill fortsätta få rabatten fakturering, måste du köpa en ny reservation för berättigade tjänster och programvara.
 
+## <a name="discount-applies-to-different-sizes-with-instance-size-flexibility"></a>Rabatten gäller för olika storlekar med flexibilitet för datorinstanser storlek
+
+När du köper en reservation gälla rabatten andra instanser med attribut som tillhör storleksgruppen samma. Flexibiliteten i rabatt täckning beror på vilken typ av reservation och de attribut som du väljer när du köper reservationen.
+
+- Reserverade VM-instanser: När du köper reservationen, om du väljer **optimerade för**: **instans storlek flexibilitet**, rabatt täckning beror på virtuella datorstorlek som du väljer. Reservationen kan använda för storlekar för virtuella datorer (VM) i gruppen för serien av samma storlek. Mer information finns i [VM-storlek flexibilitet med reserverade VM-instanser](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+- SUSE Linux Enterprise programvaruplanen: rabatt täckning är beroende av vcpu: er för de virtuella datorerna där du kör SUSE-programvara. Mer information finns i [förstå hur SUSE Linux Enterprise software plan rabatten](billing-understand-suse-reservation-charges.md).
+- SQL Database reserverad kapacitet: den rabatt täckningen beror på den prestandanivå som du väljer. Mer information finns i [förstå hur ett Azure reservationsrabatten tillämpas](billing-understand-reservation-charges.md).
+
 ## <a name="next-steps"></a>Nästa steg
 
 Starta sparas på dina virtuella datorer genom att köpa en [reserverade VM-instanser](../virtual-machines/windows/prepay-reserved-vm-instances.md) eller [SQL Database reserverad kapacitet](../sql-database/sql-database-reserved-capacity.md).
 
 Om du vill veta mer om Azure reservationer, finns i följande artiklar:
 
-- [Hantera Azure-reservationer](billing-manage-reserved-vm-instance.md)
+- [Hantera Azure Reservations](billing-manage-reserved-vm-instance.md)
 - [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
 - [Förstå användningen av reserverade för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
 - [Kostnader för Windows-programvara ingår inte i reservationer](billing-reserved-instance-windows-software-costs.md)

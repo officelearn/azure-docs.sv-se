@@ -3,7 +3,7 @@ title: Azure Seriekonsol för GRUB och enanvändarläge | Microsoft Docs
 description: Med hjälp av Seriekonsol för grub på Azure virtuella datorer.
 services: virtual-machines-linux
 documentationcenter: ''
-author: alsin
+author: asinn826
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,15 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 059cb0cbc7e62af16dbf95693be421feebcc1ee0
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 9952720e917dc9202630b2feda0fadd0402d9eb6
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42061727"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377878"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Använd Seriekonsol för att komma åt GRUB och enanvändarläge
 Enanvändarläge är en minimal miljö med minimal funktioner. Det kan vara användbara för att undersöka problem eller nätverksproblem som färre tjänsterna kan köras i bakgrunden och, beroende på är ett filsystem kan inte ens att automatiskt montera. Detta är användbart att undersöka situationer, till exempel ett skadat filsystem, en bruten fstab eller nätverksanslutning (felaktig iptables-konfiguration).
+
+För att komma åt GRUB, behöver du starta om den virtuella datorn samtidigt som det öppna bladet Seriell konsol. Detta kan göras med en SysRq `'b'` kommandot, eller genom att klicka på omstarten knappen på översiktsbladet. Vissa distributioner kräver tangentbordsinmatning att visa GRUB, medan andra automatiskt visa GRUB under några sekunder vid start och tillåter indata från användaren att avbryta timeout-värdet med tangentbordsinmatning. 
 
 Vissa distributioner förlorar automatiskt du i enanvändarläge eller nödläge om den virtuella datorn inte att starta. Andra, men kräver ytterligare konfiguration innan de kan släpper du i enanvändarläge eller nödläge läge automatiskt.
 

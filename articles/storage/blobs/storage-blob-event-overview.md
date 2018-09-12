@@ -8,16 +8,18 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: d38ab71ed2d2ebff04004f02589cfccca4199318
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: c6dfb8ac36f3b5d51cc1d6126449b458f8f4946c
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42060329"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377437"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagera på Blob storage-händelser
 
-Azure Storage-händelser tillåta program att reagera på skapandet och borttagningen av blobar med moderna arkitekturer utan server. Detta sker utan behov av komplicerade kod eller dyrt och ineffektiv avsökningen tjänster.  I stället händelser skickas [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) till prenumeranter som [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), eller till och med dina egna anpassade http-lyssnare och du bara betala för det du använder. 
+Azure Storage-händelser tillåta program att reagera på skapandet och borttagningen av blobar med moderna arkitekturer utan server. Detta sker utan behov av komplicerade kod eller dyrt och ineffektiv avsökningen tjänster.  I stället händelser skickas [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) till prenumeranter som [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), eller till och med dina egna anpassade http-lyssnare och du bara betala för det du använder.
+
+BLOB storage-händelser skickas på ett tillförlitligt sätt till Event grid-tjänsten som tillhandahåller pålitlig leverans till dina program via omfattande återförsöksprinciper och förlorade leverans.
 
 Vanliga händelse scenarier för Blob storage är bild eller video bearbetning, sökindexering eller något arbetsflöde för filen indatavärdena.  Asynkrona filöverföringar är passade bra för händelser.  När ändringarna är ovanliga, men din situation kräver omedelbar svarstider, kan händelsebaserad arkitektur vara särskilt effektivt.
 
@@ -45,12 +47,12 @@ BLOB storage-händelser innehåller all information du behöver för att svara p
 > |Ämne|sträng|Relativ resurssökväg till objektet som omfattas av händelsen, med samma utökade Azure Resource Manager-format som vi använder för att beskriva storage-konton, tjänster och behållare för Azure RBAC.  Det här formatet innehåller ett bevara blobnamn.|
 > |eventTime|sträng|Datum/tid som händelsen har genererats i ISO 8601-format|
 > |Händelsetyp|sträng|”Microsoft.Storage.BlobCreated” eller ”Microsoft.Storage.BlobDeleted”|
-> |Id|sträng|Unik identifierare om den här händelsen|
+> |ID|sträng|Unik identifierare om den här händelsen|
 > |dataVersion|sträng|Dataobjektets schemaversion.|
 > |metadataVersion|sträng|Schemaversion för översta egenskaper.|
 > |data|objekt|Insamling av data för blob storage-händelse|
 > |data.contentType|sträng|Innehållstypen för bloben som ska returneras i Content-Type-rubriken från blob|
-> |data.contentLength|nummer|Storleken på blobben som heltal som motsvarar ett antal byte som ska returneras i Content-Length-huvudet från blob.  Skickas med BlobCreated händelse, men inte med BlobDeleted.|
+> |data.contentLength|antal|Storleken på blobben som heltal som motsvarar ett antal byte som ska returneras i Content-Length-huvudet från blob.  Skickas med BlobCreated händelse, men inte med BlobDeleted.|
 > |data.URL|sträng|URL: en för det objekt som omfattas av händelsen|
 > |data.eTag|sträng|Etag för objektet när den här händelsen utlöses.  Inte tillgängligt för händelsen BlobDeleted.|
 > |data.api|sträng|Namnet på api-åtgärden som utlöste händelsen. Det här värdet är ”PutBlob”, ”PutBlockList” eller ”CopyBlob” för BlobCreated händelser. Det här värdet är ”DeleteBlob” för BlobDeleted händelser. Dessa värden är samma api-namn som finns i diagnostikloggar för Azure Storage. Se [loggade åtgärder och statusmeddelanden](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).|

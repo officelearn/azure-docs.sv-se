@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 579e900ee6616af8fd197e501364acd8e18d3e37
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 6e5b6fac25c8c7f76991a58fbcab363c6fc20f12
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970531"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380360"
 ---
 # <a name="governance-in-azure"></a>Styrning i Azure
 
@@ -68,9 +68,9 @@ De tre övergripande hierarki mönster är funktionella, affärsenhet, och geogr
 
 Följ en hierarki i fyra nivåer för organisationer med ett Enterprise Agreement Azure-prenumerationer:
 
-1. Registreringen för företagsadministratör
+1. Företagsadministratör för registrering
 
-2. Avdelning administratör
+2. Avdelningsadministratör
 
 3. Kontoägare
 
@@ -124,7 +124,7 @@ Azure har två distributionsmodeller: [klassiska](https://docs.microsoft.com/azu
 
 I den klassiska modellen finns varje resurs separat. Det går inte att gruppera relaterade resurser. Du måste manuellt spåra vilka resurser utgör din lösning eller ditt program och Kom ihåg att hantera dem på ett samordnat sätt. Den grundläggande hanteringsenheten är prenumerationen. Det är svårt att bryta ned resurser inom en prenumeration, vilket leder till skapande av stora mängder prenumerationer.
 
-Distributionsmodellen för Resource Manager innehåller konceptet en [resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). En resursgrupp är en behållare för resurser som har en gemensam livscykel. Den kan innehålla alla resurser för lösningen eller endast de resurser som du vill hantera som en grupp. Du bestämmer hur du vill allokera resurser till resursgrupper baserat på vad som är lämpligast för din organisation.
+Distributionsmodellen för Resource Manager innehåller konceptet en [resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). En resursgrupp är en container för resurser som har en gemensam livscykel. Den kan innehålla alla resurser för lösningen eller endast de resurser som du vill hantera som en grupp. Du bestämmer hur du vill allokera resurser till resursgrupper baserat på vad som är lämpligast för din organisation.
 
 Resource Manager-distributionsmodellen ger många fördelar:
 

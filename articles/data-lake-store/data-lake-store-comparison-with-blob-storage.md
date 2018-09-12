@@ -1,6 +1,6 @@
 ---
-title: Jämförelse av Azure Data Lake Store med Azure Storage Blob | Microsoft Docs
-description: Jämförelse av Azure Data Lake Store med Azure Storage Blob
+title: Azure Data Lake Storage Gen1 jämförelse med Azure Storage Blob | Microsoft Docs
+description: Azure Data Lake Storage Gen1 jämförelse med Azure Storage Blob
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 0b374e92a1e1d9828bc8c095e29e1dfdfd13275b
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 3cc38e7ede9882e78e509738351696a64c938c40
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492919"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391427"
 ---
-# <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Jämför Azure Data Lake Store och Azure Blob Storage
-Tabellen i den här artikeln sammanfattas skillnaderna mellan Azure Data Lake Store och Azure Blob Storage med viktiga aspekter av bearbetning av stordata. Azure Blob Storage är en allmän och skalbar objektlagring som är utformad för en mängd olika lagringsscenarier. Azure Data Lake Store är en lagringsplats i hyperskala som är optimerad för stordataanalyser.
+# <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Jämför Azure Data Lake Storage Gen1 och Azure Blob Storage
+Tabellen i den här artikeln sammanfattas skillnaderna mellan Azure Data Lake Storage Gen1 och Azure Blob Storage med viktiga aspekter av bearbetning av stordata. Azure Blob Storage är en allmän och skalbar objektlagring som är utformad för en mängd olika lagringsscenarier. Azure Data Lake Storage Gen1 är en lagringsplats i hyperskala som är optimerad för stordataanalyser.
 
-|  | Azure Data Lake Store | Azure Blob Storage |
+|  | Azure Data Lake Storage Gen1 | Azure Blob Storage |
 | --- | --- | --- |
 | Syfte |Optimerad lagring för stordataanalyser |Objektlagring för generell användning för en mängd olika lagringsscenarier, inklusive analys av stordata |
 | Användningsfall |Batch, interaktiv, streaming analytics och machine learning som loggfiler för IoT-data, klickströmmar, stora datauppsättningar |Alla typer av text eller binära data, till exempel program tillbaka slutet, säkerhetskopierade data, Medialagring för direktuppspelning och allmänt syfte data. Dessutom fullständig support för analytiska arbetsbelastningar för; batch, interaktiv, streaming analytics och machine learning som loggfiler för IoT-data, klickströmmar, stora datauppsättningar |
-| Viktiga begrepp |Data Lake Store-konto innehåller mappar, som i sin tur innehåller data som lagras som filer |Lagringskontot har behållare, som i sin tur har data i form av BLOB-objekt |
+| Viktiga begrepp |Data Lake Storage Gen1 konto innehåller mappar, som i sin tur innehåller data som lagras som filer |Lagringskontot har behållare, som i sin tur har data i form av BLOB-objekt |
 | struktur |Faktiskt hierarkiskt filsystem |Objektlagring med ostrukturerad namnrymd |
 | API |REST-API via HTTPS |REST-API via HTTP/HTTPS |
 | API för serversidan |[WebHDFS-kompatibla REST-API](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[REST API: et för Azure Blob Storage](https://msdn.microsoft.com/library/azure/dd135733.aspx) |

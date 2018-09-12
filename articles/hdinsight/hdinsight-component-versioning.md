@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: 120068cb9dcd92b2b18c2e175793d2072baa2724
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 95d6c392bb0fcb5dfef21fabde9b0bd44e2284a3
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43112171"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379493"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Vad är Hadoop-komponenter och versioner som är tillgängliga med HDInsight?
 
@@ -65,7 +65,7 @@ Ett annat sätt att kontrollera vilken komponentversion är att logga in i ett k
 > [!IMPORTANT]
 > Linux är det enda operativsystem som används på HDInsight version 3.4 och senare. Mer information finns i [Windows-avveckling på HDInsight](#hdinsight-windows-retirement).
 
-### <a name="release-notes"></a>Viktig information
+### <a name="release-notes"></a>Viktigt
 
 Se [HDInsight viktig](hdinsight-release-notes.md) för ytterligare viktig information på de senaste versionerna av HDInsight.
 
@@ -242,7 +242,7 @@ I tabellerna nedan listas standard-storlekar för virtuella datorer (VM) för HD
   | Edge: Rekommenderad storlek för virtuell dator | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
 * Södra Brasilien och västra Japan endast (ingen v2-storlekar):
 
-  | Klustertyp | Hadoop | HBase | Interaktiv fråga |Storm | Spark | ML-Server |
+  | Klustertyp | Hadoop | HBase | Interaktiv fråga |Storm | Spark | ML-tjänst |
   | --- | --- | --- | --- | --- | --- | --- |
   | Huvud: standardstorleken för virtuella datorer |D3 |D3  | D13, D14 |A3 |D12 |D12 |
   | Huvud: rekommenderade storlekar för Virtuella datorer |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |

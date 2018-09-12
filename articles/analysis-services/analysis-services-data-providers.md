@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 09/10/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 88ff30ec90427f16ebd82259c17ee8cbb2644be2
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 90d9c22ab1ad06a101c58a85f7b2f7c701772c88
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071602"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377742"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Klientbibliotek för att ansluta till Azure Analysis Services
 
@@ -34,8 +34,8 @@ Klientbibliotek för Analysis Services AMO (Management Objects) och ADOMD är ti
 
 |Paket  | Produktversion  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.3.1     |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.3.1     |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.5.0     |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.5.0     |
 
 NuGet-paketet sammansättningar AssemblyVersion följer semantiska versionshantering: större. MINDRE. PATCH. NuGet-referenser läsa in den förväntade versionen, även om det finns en annan version i GAC (vilket ger från MSI-installation). PATCH ökas för varje version. AMO och ADOMD-versioner hålls synkroniserade.
 

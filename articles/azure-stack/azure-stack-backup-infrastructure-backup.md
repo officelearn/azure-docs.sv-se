@@ -1,6 +1,6 @@
 ---
-title: Säkerhetskopiering och återställa data för Azure-stacken med Backup-tjänsten infrastruktur | Microsoft Docs
-description: Du kan säkerhetskopiera och återställa konfiguration och tjänstdata med hjälp av tjänsten infrastruktur för säkerhetskopiering.
+title: Säkerhetskopiering och dataåterställning för Azure Stack med infrastruktur Backup-tjänsten | Microsoft Docs
+description: Du kan säkerhetskopiera och återställa konfiguration och tjänstdata med hjälp av Backup-tjänsten infrastruktur.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,53 +12,53 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/20/2017
+ms.date: 9/10/2018
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 12138ac5a173f66d8b6b0041de9f31f4ac326485
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 9f2668ff84ade4ba99b7aa7dcd67feafadc1c6c4
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34822963"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377844"
 ---
-# <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Säkerhetskopiering och återställa data för Azure-stacken med infrastruktur Backup-tjänsten
+# <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Säkerhetskopiering och dataåterställning för Azure Stack med Backup-tjänsten infrastruktur
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Du kan säkerhetskopiera och återställa konfiguration och tjänstdata med hjälp av tjänsten infrastruktur för säkerhetskopiering. Varje Azure Stack-installationen innehåller en instans av tjänsten. Du kan använda säkerhetskopior som har skapats av tjänsten för Omdistributionen av Azure Stack-molnet för att återställa identitet, säkerhet och Azure Resource Manager-data.
+Du kan säkerhetskopiera och återställa konfiguration och tjänstdata med hjälp av Backup-tjänsten infrastruktur. Varje Azure Stack-installation innehåller en instans av tjänsten. Du kan använda säkerhetskopior som har skapats av tjänsten för omdistribution av Azure Stack-molnet för att återställa identitet, säkerhet och Azure Resource Manager-data.
 
-Du kan aktivera säkerhetskopiering när du är redo att placera ditt moln i produktion. Aktivera inte säkerhetskopia om du planerar att utföra tester och verifieringen av en längre tidsperiod.
+Du kan aktivera säkerhetskopiering när du är redo att använda molnet i produktion. Aktivera inte säkerhetskopia om du planerar att utföra testning och validering för en längre tidsperiod.
 
-Innan du aktiverar din säkerhetskopieringstjänsten, kontrollera att du har [krav på plats](#verify-requirements-for-the-infrastructure-backup-service).
+Innan du aktiverar din backup-tjänsten, kontrollera att du har [krav uppfyllda](#verify-requirements-for-the-infrastructure-backup-service).
 
 > [!Note]  
-> Infrastruktur Backup-tjänsten innehåller inte användardata och program. Se följande artiklar för instruktioner om säkerhetskopiering och återställning [Apptjänster](https://aka.ms/azure-stack-app-service), [SQL](https://aka.ms/azure-stack-ms-sql), och [MySQL](https://aka.ms/azure-stack-mysql) resursproviders och associerade användardata...
+> Infrastruktur för Backup-tjänsten innehåller inte användardata och program. Finns i följande artiklar för mer information om säkerhetskopiering och Återställ [Apptjänster](https://aka.ms/azure-stack-app-service), [SQL](https://aka.ms/azure-stack-ms-sql), och [MySQL](https://aka.ms/azure-stack-mysql) resursprovidrar och associerade användardata...
 
-## <a name="the-infrastructure-backup-service"></a>Tjänsten infrastrukturen för säkerhetskopiering
+## <a name="the-infrastructure-backup-service"></a>Säkerhetskopieringstjänsten infrastruktur
 
-Tjänsten innehåller följande funktioner.
+Tjänsterna innehåller följande funktioner.
 
 | Funktion                                            | Beskrivning                                                                                                                                                |
 |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Säkerhetskopiering infrastrukturtjänster                     | Samordna säkerhetskopiering över en delmängd av infrastrukturtjänster i Azure-stacken. Om det finns en katastrof, kan data återställas som en del av omdistributionen. |
-| Komprimering och kryptering av exporterade säkerhetskopierade Data | Säkerhetskopierade data komprimeras och krypteras av systemet innan den exporteras till extern lagringsplats som tillhandahålls av administratören.                |
-| Säkerhetskopieringsjobbet övervakning                              | När säkerhetskopieringen jobb misslyckas och reparation steg visas ett meddelande.                                                                                                |
-| Säkerhetskopiering hanteringen                       | Säkerhetskopiering RP stöd för att aktivera säkerhetskopiering.                                                                                                                         |
-| Molnet återställning                                     | Om det finns en oåterkallelig dataförlust, användas säkerhetskopieringar för att återställa core Azure Stackinformation som en del av distributionen.                                 |
+| Säkerhetskopiering infrastrukturtjänster                     | Samordna säkerhetskopiering för en delmängd av infrastrukturtjänster i Azure Stack. Om det finns en katastrof, kan data återställas som en del av omdistribution. |
+| Komprimering och kryptering av exporterade säkerhetskopierade Data | Säkerhetskopierade data komprimeras och krypteras av systemet innan den exporteras till den externa lagringsplatsen som tillhandahålls av administratören.                |
+| Säkerhetskopieringsjobbet övervakning                              | När säkerhetskopiering jobb misslyckas och reparation steg visas ett meddelande.                                                                                                |
+| Upplevelse för hantering av säkerhetskopiering                       | Säkerhetskopiering RP har stöd för Aktivera säkerhetskopiering.                                                                                                                         |
+| Molnåterställning                                     | Om det finns en oåterkallelig dataförlust, användas säkerhetskopieringar för att återställa information om grundläggande Azure Stack som en del av distributionen.                                 |
 
 ## <a name="verify-requirements-for-the-infrastructure-backup-service"></a>Kontrollera krav för infrastruktur Backup-tjänsten
 
 - **Lagringsplats**  
-  Behöver du en filresurs tillgänglig från Azure-grupp som kan innehålla sju säkerhetskopieringar. Varje säkerhetskopiering är cirka 10 GB. Resursen ska kunna lagra säkerhetskopior 140 GB. Mer information om hur du väljer en lagringsplats för tjänsten Azure Stack infrastruktur säkerhetskopiering finns [kraven för säkerhetskopiering domänkontrollanter](azure-stack-backup-reference.md#backup-controller-requirements).
+  Du behöver en filresurs kan nås från Azure Stack som kan innehålla sju säkerhetskopieringar. Varje säkerhetskopiering är ungefär 10 GB. Din resurs ska kunna lagra 140 GB säkerhetskopieringar. Mer information om hur du väljer en lagringsplats för Azure Stack-infrastruktur Backup-tjänsten finns i [kraven för säkerhetskopiering domänkontrollanter](azure-stack-backup-reference.md#backup-controller-requirements).
 - **Autentiseringsuppgifter**  
   Du behöver ett domänanvändarkonto och autentiseringsuppgifter, du kan till exempel använda Azure Stack-administratörsautentiseringsuppgifter.
 - **Krypteringsnyckel**  
-  Säkerhetskopiorna krypteras med den här nyckeln. Se till att lagra den här nyckeln på en säker plats. När du anger den här nyckeln för första gången eller rotera nyckeln i framtiden ska visa du inte den här nyckeln från det här gränssnittet. Mer information att generera en i förväg delad nyckel, följ skript på [Aktivera säkerhetskopiering för Azure-stacken med PowerShell](azure-stack-backup-enable-backup-powershell.md).
+  Säkerhetskopiorna krypteras med hjälp av den här nyckeln. Se till att lagra den här nyckeln på en säker plats. När du anger den här nyckeln för första gången eller rotera nyckeln i framtiden ska visa du inte den här nyckeln från det här gränssnittet. För mer anvisningar för att generera en i förväg delad nyckel, följer du skript på [Aktivera säkerhetskopiering för Azure Stack med PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [Aktivera säkerhetskopiering för Azure-stacken från administrationsportalen](azure-stack-backup-enable-backup-console.md).
-- Lär dig hur du [Aktivera säkerhetskopiering för Azure-stacken med PowerShell](azure-stack-backup-enable-backup-powershell.md).
+- Lär dig hur du [Aktivera säkerhetskopiering för Azure Stack från administrationsportalen](azure-stack-backup-enable-backup-console.md).
+- Lär dig hur du [Aktivera säkerhetskopiering för Azure Stack med PowerShell](azure-stack-backup-enable-backup-powershell.md).
 - Lär dig hur du [säkerhetskopiera Azure Stack](azure-stack-backup-back-up-azure-stack.md )
-- Lär dig hur du [återställa från oåterkallelig dataförlust](azure-stack-backup-recover-data.md)
+- Lär dig hur du [fort oåterkallelig dataförlust](azure-stack-backup-recover-data.md)

@@ -6,36 +6,34 @@ documentationcenter: ''
 author: apwestgarth
 manager: stefsch
 editor: ''
-ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/10/2018
 ms.author: anwestg
-ms.openlocfilehash: f12eb7d74d9c47567c72cddda8d2813f394fb1de
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 0e2b5b9902dbd3e9716801941663667bfa2b9da8
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42055793"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379018"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Uppdatera Azure App Service i Azure Stack
 
 *Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Uppdateringen är 1807 integrerade Azure Stack-system eller distribuera den senaste Azure Stack development kit innan du distribuerar Azure App Service 1.3.
 >
 >
 
 Genom att följa anvisningarna i den här artikeln kan du uppgradera den [App Service-resursprovider](azure-stack-app-service-overview.md) distribueras i en Azure Stack-miljö som är ansluten till Internet.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Innan du kör uppgraderingen bör du kontrollera att du redan har slutfört den [distribution av Azure App Service i Azure Stack Resource Provider](azure-stack-app-service-deploy.md)
->
->
+
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Kör installationsprogrammet för providern App Service-resurs
 

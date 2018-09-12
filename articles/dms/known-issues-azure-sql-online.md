@@ -10,108 +10,111 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/24/2018
-ms.openlocfilehash: 1f8e3ede4140ab5346285f7c247864f8ef8e2d48
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.date: 09/11/2018
+ms.openlocfilehash: e61e975a07dd643652ca4847025499e3e77f42be
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42889642"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377079"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Begränsningar för kända problem/migrering med online migreringar till Azure SQL DB
 
 Kända problem och begränsningar som är associerade med online migreringar från SQL Server till Azure SQL Database beskrivs nedan.
 
-- Migrering av temporala tabeller som inte stöds
+### <a name="migration-of-temporal-tables-not-supported"></a>Migrering av temporala tabeller som inte stöds
 
-    **Symtom**
+**Symtom**
 
-    Om din källdatabas består av en eller flera temporala tabeller, Databasmigreringen misslyckas under åtgärden ”fullständiga Datainläsningen” och följande felmeddelande:
+Om din källdatabas består av en eller flera temporala tabeller, Databasmigreringen misslyckas under åtgärden ”fullständiga Datainläsningen” och följande felmeddelande:
 
-    {”resourceId” ”: /subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>”, ”errorType”: ”databasmigreringsfel”, ”errorEvents”: ”[” avbildning funktioner gick inte att ange. RetCode: SQL_ERROR SqlState: 42000 NativeError: 13570 meddelande: [Microsoft] [SQL Server Native Client 11.0] [SQL Server] användning av replikering stöds inte med den temporala systemversionstabellen ' [program. Städer], rad: 1 kolumn: -1 ”]”}
+{”resourceId” ”: /subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>”, ”errorType”: ”databasmigreringsfel”, ”errorEvents”: ”[” avbildning funktioner gick inte att ange. RetCode: SQL_ERROR SqlState: 42000 NativeError: 13570 meddelande: [Microsoft] [SQL Server Native Client 11.0] [SQL Server] användning av replikering stöds inte med den temporala systemversionstabellen ' [program. Städer], rad: 1 kolumn: -1 ”]”}
  
-   ![Den temporala tabellen fel exempel](media\known-issues-azure-sql-online\dms-temporal-tables-errors.png)
+ ![Den temporala tabellen fel exempel](media\known-issues-azure-sql-online\dms-temporal-tables-errors.png)
 
-   **Lösning**
+**Lösning**
 
-   1. Hitta temporala tabeller i din käll-schemat med frågan nedan.
-        ``` 
-       select name,temporal_type,temporal_type_desc,* from sys.tables where temporal_type <>0
-        ```
-   2. Undanta dessa tabeller från den **konfigurera migreringsinställningarna** bladet, där du anger tabeller för migrering.
-   3. Kör migreringsaktiviteten.
+1. Hitta temporala tabeller i din käll-schemat med frågan nedan.
+     ``` 
+     select name,temporal_type,temporal_type_desc,* from sys.tables where temporal_type <>0
+     ```
+2. Undanta dessa tabeller från den **konfigurera migreringsinställningarna** bladet, där du anger tabeller för migrering.
 
-    **Resurser**
+3. Kör migreringsaktiviteten.
 
-    Mer information finns i artikeln [Temporala tabeller](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables?view=sql-server-2017).
+**Resurser**
+
+Mer information finns i artikeln [Temporala tabeller](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables?view=sql-server-2017).
  
-- Migrering av tabeller innehåller en eller flera kolumner med datatypen hierarchyid
+### <a name="migration-of-tables-includes-one-or-more-columns-with-the-hierarchyid-data-type"></a>Migrering av tabeller innehåller en eller flera kolumner med datatypen hierarchyid
 
-    **Symtom**
+**Symtom**
 
-    Du kan se ett SQL-undantag föreslå ”ntext är inte kompatibel med hierarchyid” under ”fullständiga Datainläsningen”-åtgärd:
+Du kan se ett SQL-undantag föreslå ”ntext är inte kompatibel med hierarchyid” under ”fullständiga Datainläsningen”-åtgärd:
      
-    ![exempel för hierarchyid-fel](media\known-issues-azure-sql-online\dms-hierarchyid-errors.png)
+![exempel för hierarchyid-fel](media\known-issues-azure-sql-online\dms-hierarchyid-errors.png)
 
-    **Lösning**
+**Lösning**
 
-    1. Hitta användartabeller som innehåller kolumner med datatypen hierarchyid med frågan nedan.
+1. Hitta användartabeller som innehåller kolumner med datatypen hierarchyid med frågan nedan.
 
-        ``` 
-        select object_name(object_id) 'Table name' from sys.columns where system_type_id =240 and object_id in (select object_id from sys.objects where type='U')
-        ``` 
+      ``` 
+      select object_name(object_id) 'Table name' from sys.columns where system_type_id =240 and object_id in (select object_id from sys.objects where type='U')
+      ``` 
 
-    2.  Undanta dessa tabeller från den **konfigurera migreringsinställningarna** bladet, där du anger tabeller för migrering.
-    3.  Kör migreringsaktiviteten.
+ 2. Undanta dessa tabeller från den **konfigurera migreringsinställningarna** bladet, där du anger tabeller för migrering.
 
-- Migrering fel med olika integritet överträdelser med active utlösare i schemat under ”fullständiga Datainläsningen” eller ”inkrementell datasynkronisering”
+ 3. Kör migreringsaktiviteten.
 
-    **Lösning**
-    1. Hitta utlösare som är aktiva i källdatabasen med frågan nedan:
-        ```
-        select * from sys.triggers where is_disabled =0
-        ```
-    2.  Inaktivera utlösare på källdatabasen med hjälp av anvisningarna i artikeln [inaktivera UTLÖSAREN (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017).
-    3.  Kör migreringsaktiviteten igen.
+### <a name="migration-failures-with-various-integrity-violations-with-active-triggers-in-the-schema-during-full-data-load-or-incremental-data-sync"></a>Migrering fel med olika integritet överträdelser med active utlösare i schemat under ”fullständiga Datainläsningen” eller ”inkrementell datasynkronisering”
 
-- Stöd för LOB-datatyper
+**Lösning**
+1. Hitta utlösare som är aktiva i källdatabasen med frågan nedan:
+     ```
+     select * from sys.triggers where is_disabled =0
+     ```
+2. Inaktivera utlösare på källdatabasen med hjälp av anvisningarna i artikeln [inaktivera UTLÖSAREN (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017).
 
-    **Symtom**
+3. Kör migreringsaktiviteten igen.
 
-    Om längden på kolumnen för stora objekt (LOB) är större än 32 KB, kan data hämta trunkeras på målet. Du kan kontrollera längden på LOB-kolumn med hjälp av frågan nedan: 
+### <a name="support-for-lob-data-types"></a>Stöd för LOB-datatyper
 
-    ``` 
-    SELECT max(len(ColumnName)) as LEN from TableName
-    ```
+**Symtom**
 
-    **Lösning**
+Om längden på kolumnen för stora objekt (LOB) är större än 32 KB, kan data hämta trunkeras på målet. Du kan kontrollera längden på LOB-kolumn med hjälp av frågan nedan: 
 
-    Om du har en LOB-kolumn som är större än 32 KB, kontakta teknikteamet på [ dmsfeedback@microsoft.com ](mailto:dmsfeedback@microsoft.com).
+``` 
+SELECT max(len(ColumnName)) as LEN from TableName
+```
 
-- Problem med tidsstämpelkolumner
+**Lösning**
 
-    **Symtom**
+Om du har en LOB-kolumn som är större än 32 KB, kontakta teknikteamet på [ dmsfeedback@microsoft.com ](mailto:dmsfeedback@microsoft.com).
 
-    DMS migrera inte tidsstämpel källvärdet; i stället genererar DMS ett nytt tidsstämpelvärde i måltabellen.
+### <a name="issues-with-timestamp-columns"></a>Problem med tidsstämpelkolumner
 
-    **Lösning**
+**Symtom**
 
-    Om du behöver DMS att migrera det exakta tidsstämpelvärde som lagras i källtabellen, kontakta teknikteamet på [ dmsfeedback@microsoft.com ](mailto:dmsfeedback@microsoft.com).
+DMS migrera inte tidsstämpel källvärdet; i stället genererar DMS ett nytt tidsstämpelvärde i måltabellen.
 
-- Migreringsfel innehåller ytterligare information på bladet Database detaljerad statusinformation om.
+**Lösning**
 
-    **Symtom**
+Om du behöver DMS att migrera det exakta tidsstämpelvärde som lagras i källtabellen, kontakta teknikteamet på [ dmsfeedback@microsoft.com ](mailto:dmsfeedback@microsoft.com).
 
-    När det uppstår migrering fel i statusvyn för databaser information om att välja den **migreringsfel** länken i övre menyfliksområdet kan inte innehålla ytterligare information som är specifika för migreringen felen.
+### <a name="data-migration-errors-do-not-provide-additional-details-on-the-database-detailed-status-blade"></a>Migreringsfel innehåller ytterligare information på bladet Database detaljerad statusinformation om.
 
-     ![migreringsfel ingen information-exempel](media\known-issues-azure-sql-online\dms-data-migration-errors-no-details.png)
+**Symtom**
 
-    **Lösning**
+När det uppstår migrering fel i statusvyn för databaser information om att välja den **migreringsfel** länken i övre menyfliksområdet kan inte innehålla ytterligare information som är specifika för migreringen felen.
 
-    Gå till information om specifika felet genom att följa stegen nedan.
+![migreringsfel ingen information-exempel](media\known-issues-azure-sql-online\dms-data-migration-errors-no-details.png)
 
-    1.  Stäng bladet Database detaljerad statusinformation om du vill visa skärmen aktivitet migrering.
+**Lösning**
+
+Gå till information om specifika felet genom att följa stegen nedan.
+
+1. Stäng bladet Database detaljerad statusinformation om du vill visa skärmen aktivitet migrering.
 
      ![skärmen aktivitet för migrering](media\known-issues-azure-sql-online\dms-migration-activity-screen.png)
 
-    2. Välj **se felinformationen** att visa felmeddelanden som hjälper dig att felsöka migreringsfel.
+2. Välj **se felinformationen** att visa felmeddelanden som hjälper dig att felsöka migreringsfel.

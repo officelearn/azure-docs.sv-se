@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: fb9193066c9501341efb779b9f9e2ccace02cccf
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: a43c52143f936eaefd4383714b1c67b6b74d34e8
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888212"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378677"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>Hur du använder ”förväntades entitet”-egenskapen för åtgärder
 
@@ -30,7 +30,7 @@ Den här självstudien krävs att Allmänt självstudiekursen bot körs
 
     npm run tutorial-general
 
-## <a name="details"></a>Information
+## <a name="details"></a>Detaljer
 Använd fältet ”förväntades entitet” i en åtgärd för att kommunicera med systemet som du förväntar dig användarens svar till en åtgärd är att ange en entitet.
 
 Concretely, om fältet ”förväntades entitet” i en åtgärd har angetts till $entity och sedan på nästa användaren uttryck, kommer systemet:
@@ -65,7 +65,7 @@ Concretely, om fältet ”förväntades entitet” i en åtgärd har angetts til
     - Det här värdet innebär att om den här frågan ombeds och användarens svar inte har några entiteter som har identifierats, roboten anta att hela användarens svar är den här entiteten.
 2. Klicka på åtgärder och sedan ny åtgärd för att skapa en andra åtgärd.
 3. Skriv ”Hello $name' som svar.
-    - Entiteten läggs automatiskt som en obligatorisk entitet. 
+    - Observera att entiteten automatiskt läggs till som en obligatorisk entitet. 
 4. Klicka på Spara.
 
 Nu har du två åtgärder.

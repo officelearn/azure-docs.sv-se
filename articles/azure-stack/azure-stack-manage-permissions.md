@@ -1,53 +1,52 @@
 ---
-title: Hantera behörigheter till resurser per användare i Azure-stacken (tjänstadministratören och klient) | Microsoft Docs
-description: Lär dig hur du hantera RBAC behörigheter som en tjänstadministratör eller innehavare.
+title: Hantera behörigheter till resurser per användare i Azure Stack (tjänstadministratör och klient) | Microsoft Docs
+description: Lär dig hantera RBAC-behörigheter som en tjänstadministratör eller klient.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
-manager: fenila
+manager: femila
 editor: ''
-ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 09/10/2018
 ms.author: mabrigg
-ms.reviewer: thomas.roettinger
-ms.openlocfilehash: 0e50ea44ebb0b0a7285dab04666dd55cad480c6a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: thoroet
+ms.openlocfilehash: ab61e1f892f46ad36df741b7a72afcfcbaa0ed87
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29385644"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44376943"
 ---
 # <a name="manage-role-based-access-control"></a>Hantera rollbaserad åtkomstkontroll
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-En användare i Azure-stacken kan vara en läsare, ägare eller deltagare för varje instans av en prenumeration, resursgrupp eller tjänst. Till exempel kan användare A läsaren behörighet till en prenumeration, men har tillräckliga rättigheter till sju till virtuell dator.
+En användare i Azure Stack kan vara en läsare, ägare eller deltagare för varje instans av en prenumeration, resursgrupp eller tjänsten. Användare A kan exempelvis läsare åtkomstbehörighet till en prenumeration men har ägarbehörighet för virtuell dator sju.
 
- - Läsare: Användare kan visa allt, men göra inte några ändringar.
- - Deltagare: Användare kan hantera allt utom åtkomst till resurser.
- - Ägare: Användare kan hantera allt, inklusive åtkomst till resurser.
+ - Läsare: Användaren kan visa allt, men göra inte några ändringar.
+ - Deltagare: Användaren kan hantera allt förutom åtkomst till resurser.
+ - Ägare: Användaren kan hantera allt, inklusive åtkomst till resurser.
 
 ## <a name="set-access-permissions-for-a-user"></a>Ange åtkomstbehörighet för en användare
 
-1. Logga in med ett konto som har ägarbehörighet för till resursen som du vill hantera.
+1. Logga in med ett konto som har ägarbehörighet för den resurs du vill hantera.
 2. I bladet för resursen klickar du på den **åtkomst** ikonen ![](media/azure-stack-manage-permissions/image1.png).
-3. I den **användare** bladet, klickar du på **roller**.
-4. I den **roller** bladet, klickar du på **Lägg till** att lägga till behörigheter för användaren.
+3. I den **användare** bladet klickar du på **roller**.
+4. I den **roller** bladet klickar du på **Lägg till** och lägga till behörigheter för användaren.
 
 ## <a name="set-access-permissions-for-a-universal-group"></a>Ange åtkomstbehörighet för en universell grupp 
 
 > [!Note]  
 Gäller endast för Active Directory Federation Services (AD FS).
 
-1. Logga in med ett konto som har ägarbehörighet för till resursen som du vill hantera.
+1. Logga in med ett konto som har ägarbehörighet för den resurs du vill hantera.
 2. I bladet för resursen klickar du på den **åtkomst** ikonen ![](media/azure-stack-manage-permissions/image1.png).
-3. I den **användare** bladet, klickar du på **roller**.
-4. I den **roller** bladet, klickar du på **Lägg till** att lägga till behörigheter för universell grupp Active Directory-gruppen.
+3. I den **användare** bladet klickar du på **roller**.
+4. I den **roller** bladet klickar du på **Lägg till** och lägga till behörigheter för universell grupp Active Directory-gruppen.
 
 ## <a name="next-steps"></a>Nästa steg
 [Lägga till en Azure Stack-klientorganisation](azure-stack-add-new-user-aad.md)

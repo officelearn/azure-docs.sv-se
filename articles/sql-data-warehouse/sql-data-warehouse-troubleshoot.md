@@ -10,18 +10,18 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: befb4cc075841d45cae769b5ddf924434e65eff3
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 3500754c7e9cb14ea86e9c0e562ec5f98fc1fc94
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307255"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377776"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Felsöka Azure SQL Data Warehouse
-Det här avsnittet innehåller vanliga frågor för felsökning.
+Den här artikeln innehåller vanliga frågor för felsökning.
 
 ## <a name="connecting"></a>Ansluter
-| Problem | Lösning |
+| Problem | Upplösning |
 |:--- |:--- |
 | Inloggningen misslyckades för användaren ”NT AUTHORITY\\ANONYMOUS LOGON”. (Microsoft SQL Server, fel: 18456) |Det här felet uppstår när en AAD-användare försöker ansluta till master-databasen, men har inte en användare i huvuddatabasen.  Om du vill åtgärda problemet antingen ange SQL Data Warehouse som du vill ansluta till vid anslutningstid eller lägga till användaren i master-databasen.  Se [Säkerhetsöversikt] [ Security overview] nedan för mer information. |
 | Servern huvudnamn ”MyUserName” kan inte få åtkomst till databasen ”master” under det aktuella säkerhetssammanhanget. Det går inte att öppna användarens standarddatabas. Inloggningen misslyckades. Inloggningen misslyckades för användaren 'MyUserName'. (Microsoft SQL Server, fel: 916) |Det här felet uppstår när en AAD-användare försöker ansluta till master-databasen, men har inte en användare i huvuddatabasen.  Om du vill åtgärda problemet antingen ange SQL Data Warehouse som du vill ansluta till vid anslutningstid eller lägga till användaren i master-databasen.  Se [Säkerhetsöversikt] [ Security overview] nedan för mer information. |
@@ -30,13 +30,13 @@ Det här avsnittet innehåller vanliga frågor för felsökning.
 | Det går inte att ansluta med verktyget eller drivrutinen |SQL Data Warehouse rekommenderar att du använder [SSMS][SSMS], [SSDT för Visual Studio][SSDT for Visual Studio], eller [sqlcmd] [ sqlcmd] att fråga data. Mer information om drivrutiner och ansluta till SQL Data Warehouse finns i [drivrutiner för Azure SQL Data Warehouse] [ Drivers for Azure SQL Data Warehouse] och [Anslut till Azure SQL Data Warehouse] [ Connect to Azure SQL Data Warehouse] artiklar. |
 
 ## <a name="tools"></a>Verktyg
-| Problem | Lösning |
+| Problem | Upplösning |
 |:--- |:--- |
 | Visual Studio-Objektutforskaren saknar AAD-användare |Det här är ett känt problem.  Som en lösning kan du visa användarna i [sys.database_principals][sys.database_principals].  Se [autentisera till Azure SQL Data Warehouse] [ Authentication to Azure SQL Data Warehouse] mer information om hur du använder Azure Active Directory med SQL Data Warehouse. |
 |Manuell scripting, med hjälp av guiden skript eller ansluta via SSMS är långsam, låsta eller berörda fel| Se till att användarna har skapats i huvuddatabasen. I skriptalternativ, också se till att versionen av motorn har angetts som ”Microsoft Azure SQL Data Warehouse Edition” och motortyp är ”Microsoft Azure SQL Database”.|
 
 ## <a name="performance"></a>Prestanda
-| Problem | Lösning |
+| Problem | Upplösning |
 |:--- |:--- |
 | Prestandafelsökning för fråga |Om du vill felsöka en viss fråga, börjar du med [lära dig hur du övervakar dina frågor][Learning how to monitor your queries]. |
 | Dålig frågeprestanda och planer är ofta ett resultat av saknas statistik |Den vanligaste orsaken med sämre prestanda är bristande statistik på dina tabeller.  Se [underhålla tabellstatistik] [ Statistics] mer information om hur du skapar statistik och varför de är viktiga för din prestanda. |
@@ -46,7 +46,7 @@ Det här avsnittet innehåller vanliga frågor för felsökning.
 | Dåliga prestanda på grund av dålig index kvalitet |Ibland kan saktas ned grund av [Poor columnstore index quality][Poor columnstore index quality].  Se den här artikeln för mer information och hur du [återskapa index för att förbättra segmentkvaliteten][Rebuild indexes to improve segment quality]. |
 
 ## <a name="system-management"></a>Systemhantering
-| Problem | Lösning |
+| Problem | Upplösning |
 |:--- |:--- |
 | Msg 40847: Det gick inte att utföra åtgärden eftersom servern skulle överskrida den tillåtna Database Transaction Unit-kvoten för 45000. |Antingen den [DWU] [ DWU] av databasen som du försöker skapa eller [öka kvoten][request a quota increase]. |
 | Undersöka användningen |Se [tabellen storlekar] [ Table sizes] att förstå användningen av systemet. |
@@ -54,13 +54,13 @@ Det här avsnittet innehåller vanliga frågor för felsökning.
 |Transparent data encryption (TDE) förloppsindikatorn uppdateras inte i Azure Portal|Du kan visa status för transparent Datakryptering via [powershell](/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption).|
 
 ## <a name="polybase"></a>Polybase
-| Problem | Lösning |
+| Problem | Upplösning |
 |:--- |:--- |
 | Läs in misslyckas på grund av stora rader |Stöd för stor rad är för närvarande inte tillgängligt för Polybase.  Det innebär att om tabellen innehåller VARCHAR(MAX), NVARCHAR(MAX) eller VARBINARY(MAX), externa tabeller inte kan användas för att läsa in dina data.  Läser in stora rader är för närvarande stöds endast via Azure Data Factory (med BCP), Azure Stream Analytics, SSIS, BCP eller klassen .NET SqlBulkCopy körs. PolyBase-stöd för stora rader läggs till i en framtida version. |
 | BCP belastningen på tabellen med MAX-datatypen kan inte |Det finns ett känt problem som kräver att VARCHAR(MAX), NVARCHAR(MAX) eller VARBINARY(MAX) placeras i slutet av tabellen i vissa situationer.  Försök att flytta dina maximalt antal kolumner i slutet av tabellen. |
 
 ## <a name="differences-from-sql-database"></a>Skillnader från SQL-databas
-| Problem | Lösning |
+| Problem | Upplösning |
 |:--- |:--- |
 | SQL Database-funktioner som inte stöds |Se [table-funktioner som inte stöds][Unsupported table features]. |
 | Datatyper stöds inte SQL-databas |Se [datatyper][Unsupported data types]. |
@@ -102,7 +102,7 @@ För mer hjälp med att hitta lösning på problemet, är här några resurser s
 [Unsupported data types]: sql-data-warehouse-tables-data-types.md#unsupported-data-types
 [Overview]: sql-data-warehouse-tables-overview.md
 [Data types]: sql-data-warehouse-tables-data-types.md
-[Distribute]:/sql-data-warehouse-tables-distribute.md
+[Distribute]: sql-data-warehouse-tables-distribute.md
 [Index]: sql-data-warehouse-tables-index.md
 [Partition]: sql-data-warehouse-tables-partition.md
 [Statistics]: sql-data-warehouse-tables-statistics.md

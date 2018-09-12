@@ -15,11 +15,11 @@ ms.author: sethm
 ms.reviewer: sijuman
 <!-- dev: viananth -->
 ms.openlocfilehash: c55dcf0736642690f245f680db5cb1620c2175e7
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42061528"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44390970"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Använd API-versionsprofiler med Python i Azure Stack
 
@@ -51,9 +51,9 @@ För att kunna använda Azure SDK för Python med Azure Stack, måste du ange f�
 
 | Värde | Miljövariabler | Beskrivning |
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
-| Klient-ID:t | AZURE_TENANT_ID | Värdet för Azure Stack [klient-ID](../azure-stack-identity-overview.md). |
+| Klientorganisations-ID | AZURE_TENANT_ID | Värdet för Azure Stack [klient-ID](../azure-stack-identity-overview.md). |
 | Klient-ID | AZURE_CLIENT_ID | Tjänsten huvudnamn program-ID sparas när tjänstens huvudnamn har skapats i föregående avsnitt i det här dokumentet. |
-| Prenumerations-ID:t | AZURE_SUBSCRIPTION_ID | Den [prenumerations-ID](../azure-stack-plan-offer-quota-overview.md#subscriptions) är hur du kommer åt erbjudanden i Azure Stack. |
+| Prenumerations-ID | AZURE_SUBSCRIPTION_ID | Den [prenumerations-ID](../azure-stack-plan-offer-quota-overview.md#subscriptions) är hur du kommer åt erbjudanden i Azure Stack. |
 | Klienthemlighet | AZURE_CLIENT_SECRET | Huvudnamn tjänstprogrammet hemlighet sparas när tjänstens huvudnamn har skapats. |
 | Resource Manager-slutpunkten | ARM_ENDPOINT | Se [Azure Stack resource manager-slutpunkten](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
 
@@ -137,7 +137,7 @@ Exemplen är inte nödvändigtvis i den ordning som visas i listan ovan.
     python unmanaged-disks\example.py
     ```
 
-## <a name="notes"></a>Anteckningar
+## <a name="notes"></a>OBS!
 
 Du kanske tro att försöka hämta en virtuell dators OS-disk med hjälp av `virtual_machine.storage_profile.os_disk`.
 I vissa fall kan detta göra vad du vill ha, men tänk på att den ger dig en `OSDisk` objekt.

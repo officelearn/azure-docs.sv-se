@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/09/2018
+ms.date: 09/10/2018
 ms.author: raynew
-ms.openlocfilehash: d19aa4c3765beecc853a1b800a7ba1d3ebd74e9c
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 8c50930404b12f37c709af87ff7def99dcd5100d
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004335"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378881"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Supportmatris för VMware och fysisk serverreplikering till Azure
 
@@ -33,7 +33,7 @@ Fysiska servrar | Replikering av lokala Windows-/ Linux fysiska servrar till Azu
 **Server** | **Krav** | **Detaljer**
 --- | --- | ---
 VMware | vCenter Server 6.7 6.5, 6.0 eller 5.5 eller vSphere 6.7, 6.5, 6.0 eller 5.5 | Vi rekommenderar att du använder en vCenter-server.<br/><br/> Vi rekommenderar att vSphere-värdar och vCenter-servrar finns i samma nätverk som processervern. Som standard process server-komponenter som körs på konfigurationsservern, så blir det nätverket där du ställer in konfigurationsservern, om inte du ställa in en dedikerad processerver.
-Fysiska | Gäller inte
+Fysiska | Ej tillämpligt
 
 ## <a name="site-recovery-configuration-server"></a>Site Recovery konfigurationsserver
 
@@ -53,7 +53,7 @@ Windows Server-roller | Aktivera inte: <br> - Active Directory Domain Services <
 Grupprinciper| Aktivera inte: <br> -Förhindra åtkomst till Kommandotolken. <br> -Förhindra åtkomst till registerredigeringsverktygen. <br> -Förtroende för bifogade filer. <br> -Aktivera körning av skript. <br> [Läs mer](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | Se till att du:<br/><br/> -Inte har en befintlig standardwebbplatsen <br> -Aktivera [anonym autentisering](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Aktivera [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) inställningen  <br> -Inte har redan befintliga webbplats/appen lyssnar på port 443<br>
 Typ av nätverkskort | VMXNET3 (när distribueras som en VMware VM)
-IP-adresstyp | Statisk
+IP-adresstyp | Static
 Portar | 443 används för kontrolkanalsorchestration)<br>9443 som används för dataöverföring
 
 ## <a name="replicated-machines"></a>Replikerade datorer
@@ -64,7 +64,7 @@ Site Recovery har stöd för replikering av alla arbetsbelastningar som körs p�
 --- | ---
 Datorinställningar | Datorer som replikeras till Azure måste uppfylla [krav för Azure](#azure-vm-requirements).
 Windows-operativsystem | 64-bitars Windows Server 2016 (Server Core, Server med Skrivbordsmiljö), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 med på minst SP1. </br></br>  [Windows Server 2008 med på minst SP2 - 32-bitars och 64-bitars](migrate-tutorial-windows-server-2008.md) (migrering). </br></br> Windows 2016 Nano Server stöds inte.
-Linux-operativsystem | Red Hat Enterprise Linux: 5.2 till 5.11<b>\*\*</b>, 6.1 6,9<b>\*\*</b>, 7.0 7.5 <br/><br/>CentOS: 5.2 till 5.11<b>\*\*</b>, 6.1 6,9<b>\*\*</b>, 7.0 7.5 <br/><br/>Ubuntu 14.04 LTS server[ (kernel-versioner som stöds)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (kernel-versioner som stöds)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (kernel-versioner som stöds)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (kernel-versioner som stöds)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4, 6.5 som kör Red Hat kompatibla kernel eller Unbreakable Enterprise Kernel version 3 (UEK3) <br/><br/></br>* *Uppgradera replikerade datorer från SUSE Linux Enterprise Server 11 SP3 till SP4 stöds inte. Om du vill uppgradera, inaktiverar du replikering och aktivera det igen efter uppgraderingen.*</br></br><b>\*\*</b> *Referera till [stöd för Linux-datorer i Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) att förstå stöd för Linux och teknik med öppen källkod i Azure. Azure Site Recovery kan du redundans och kör Linux-servrar i Azure, men Linux-leverantörer kan begränsa stödet till bara dessa versioner av deras distribution som inte har nått end of life.*
+Linux-operativsystem | Red Hat Enterprise Linux: 5.2 till 5.11<b>\*\*</b>, 6.1 6.10<b>\*\*</b>, 7.0 7.5 <br/><br/>CentOS: 5.2 till 5.11<b>\*\*</b>, 6.1 6.10<b>\*\*</b>, 7.0 7.5 <br/><br/>Ubuntu 14.04 LTS server[ (kernel-versioner som stöds)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (kernel-versioner som stöds)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (kernel-versioner som stöds)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (kernel-versioner som stöds)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4, 6.5 som kör Red Hat kompatibla kernel eller Unbreakable Enterprise Kernel version 3 (UEK3) <br/><br/></br>* *Uppgradera replikerade datorer från SUSE Linux Enterprise Server 11 SP3 till SP4 stöds inte. Om du vill uppgradera, inaktiverar du replikering och aktivera det igen efter uppgraderingen.*</br></br><b>\*\*</b> *Referera till [stöd för Linux-datorer i Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) att förstå stöd för Linux och teknik med öppen källkod i Azure. Azure Site Recovery kan du redundans och kör Linux-servrar i Azure, men Linux-leverantörer kan begränsa stödet till bara dessa versioner av deras distribution som inte har nått end of life.*
 
 
 >[!NOTE]
@@ -80,15 +80,15 @@ Linux-operativsystem | Red Hat Enterprise Linux: 5.2 till 5.11<b>\*\*</b>, 6.1 6
 
 **Versionen som stöds** | **Azure Site Recovery-Mobilitetstjänsten-versionen** | **Kernelversion** |
 --- | --- | --- |
+14.04 LTS | 9.19 | 3.13.0-24-Generic till 3.13.0-153-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-131-generic |
 14.04 LTS | 9.18 | 3.13.0-24-Generic till 3.13.0-153-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-130-generic |
 14.04 LTS | 9.17 | 3.13.0-24-Generic till 3.13.0-149-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-127-generic |
 14.04 LTS | 9.16 | 3.13.0-24-Generic till 3.13.0-144-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-119-generic |
-14.04 LTS | 9.15 | 3.13.0-24-Generic till 3.13.0-144-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-119-generic |
 |||
+16.04 LTS | 9.19 | 4.4.0-21-Generic till 4.4.0-131-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-42-generic,<br/>4.11.0-13-Generic till 4.11.0-14-generic,<br/>4.13.0-16-Generic till 4.13.0-45-generic,<br/>4.15.0-13-Generic till 4.15.0-30-generic<br/>4.11.0-1009-Azure till 4.11.0-1016-azure,<br/>4.13.0-1005-Azure till 4.13.0-1018-azure <br/>4.15.0-1012-Azure till 4.15.0-1019-azure|
 16.04 LTS | 9.18 | 4.4.0-21-Generic till 4.4.0-130-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-42-generic,<br/>4.11.0-13-Generic till 4.11.0-14-generic,<br/>4.13.0-16-Generic till 4.13.0-45-generic |
 16.04 LTS | 9.17 | 4.4.0-21-Generic till 4.4.0-127-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-42-generic,<br/>4.11.0-13-Generic till 4.11.0-14-generic,<br/>4.13.0-16-Generic till 4.13.0-43-generic |
 16.04 LTS | 9.16 | 4.4.0-21-Generic till 4.4.0-119-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-42-generic,<br/>4.11.0-13-Generic till 4.11.0-14-generic,<br/>4.13.0-16-Generic till 4.13.0-38-generic |
-16.04 LTS | 9.15 | 4.4.0-21-Generic till 4.4.0-119-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-42-generic,<br/>4.11.0-13-Generic till 4.11.0-14-generic,<br/>4.13.0-16-Generic till 4.13.0-38-generic |
 
 
 ### <a name="debian-kernel-versions"></a>Debian kernel-versioner
@@ -96,12 +96,12 @@ Linux-operativsystem | Red Hat Enterprise Linux: 5.2 till 5.11<b>\*\*</b>, 6.1 6
 
 **Versionen som stöds** | **Azure Site Recovery-Mobilitetstjänsten-versionen** | **Kernelversion** |
 --- | --- | --- |
-Debian 7 | 9.17, 9.18 | 3.2.0-4-amd64 till 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
-Debian 7 | 9.15, 9.16 | 3.2.0-4-amd64 till 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.17,9.18,9.19 | 3.2.0-4-amd64 till 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.16 | 3.2.0-4-amd64 till 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
+Debian 8 | 9.19 | 3.16.0-4-amd64 till 3.16.0-6-amd64 4.9.0-0.bpo.4-amd64 till 4.9.0-0.bpo.7-amd64 |
 Debian 8 | 9.17, 9.18 | 3.16.0-4-amd64 till 3.16.0-6-amd64 4.9.0-0.bpo.4-amd64 till 4.9.0-0.bpo.6-amd64 |
 Debian 8 | 9.16 | 3.16.0-4-amd64 till 3.16.0-5-amd64 4.9.0-0.bpo.4-amd64 till 4.9.0-0.bpo.6-amd64 |
-Debian 8 | 9.15 | 3.16.0-4-amd64 till 3.16.0-5-amd64 4.9.0-0.bpo.4-amd64 till 4.9.0-0.bpo.5-amd64 |
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 kernel-versioner som stöds
 
@@ -160,7 +160,7 @@ Behåll källans IP-adress | Ja
 Azure Virtual Network-tjänstslutpunkter<br/> (utan Azure Storage-brandväggar) | Ja
 Accelererat nätverk | Nej
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Lagringsutrymme
 **Komponent** | **Stöds**
 --- | ---
 Värden NFS | Ja för VMware<br/><br/> Nej för fysiska servrar
@@ -245,7 +245,7 @@ Flytta lagring, nätverk, virtuella Azure-datorer mellan resursgrupper<br/><br/>
 
 ## <a name="download-latest-azure-site-recovery-components"></a>Hämta senaste Azure Site Recovery-komponenter
 
-**Namn** | **Beskrivning** | **Senaste version Hämtningsinstruktioner** 
+**Namn** | **Beskrivning** | **Senaste version Hämtningsinstruktioner**
 --- | --- | --- | --- | ---
 Konfigurationsservern | Samordnar kommunikationen mellan lokala VMware-servrar och Azure <br/><br/> Installerad på den lokala VMware-servrar | Ny installation klickar du på [här](vmware-azure-deploy-configuration-server.md). För att uppgradera befintliga komponenten till senaste versionen, klickar du på [här](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
 Processervern|Installeras som standard på konfigurationsservern. Den tar emot replikeringsdata; optimerar dem med cachelagring, komprimering och kryptering och skickar dem till Azure Storage. Allt eftersom distributionen växer kan du lägga till ytterligare, separat processervrar för att hantera större mängder replikeringstrafik.| Ny installation klickar du på [här](vmware-azure-set-up-process-server-scale.md). För att uppgradera befintliga komponenten till senaste versionen, klickar du på [här](vmware-azure-manage-process-server.md#upgrade-a-process-server).

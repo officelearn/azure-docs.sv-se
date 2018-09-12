@@ -1,6 +1,6 @@
 ---
-title: Ersätta en fysisk disk i Azure-stacken | Microsoft Docs
-description: Beskriver processen för hur du ersätter en fysisk disk i Azure-stacken.
+title: Ersätta en fysisk disk i Azure Stack | Microsoft Docs
+description: Beskriver processen för hur du ersätter en fysisk disk i Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,69 +12,69 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 09/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: f168c005c729ae75a5369b80b3dc5eab03ee0243
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 7ce501be5458282273e51a5b2bc18482592d2333
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30311329"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44376960"
 ---
-# <a name="replace-a-physical-disk-in-azure-stack"></a>Ersätta en fysisk disk i Azure-stacken
+# <a name="replace-a-physical-disk-in-azure-stack"></a>Ersätta en fysisk disk i Azure Stack
 
-*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
 
-Den här artikeln beskriver den allmänna processen för att ersätta en fysisk disk i Azure-stacken. Om en fysisk disk kraschar, ska du ersätta det så snart som möjligt.
+Den här artikeln beskrivs den allmänna processen för att ersätta en fysisk disk i Azure Stack. Om en fysisk disk kraschar, bör du ersätta det så snart som möjligt.
 
 Du kan använda den här proceduren för integrerade system och development kit distributioner som har diskar som växlas.
 
-Faktiska diskbyte stegen varierar utifrån maskinvaruleverantören OEM-tillverkaren (OEM). Dokumentationen leverantörens fältet utbytbara enhet (FRU) för detaljerade anvisningar som är specifika för ditt system. 
+Faktiska diskbyte stegen varierar baserat på din maskinvaruleverantör för OEM-tillverkare (original equipment manufacturer). Se dokumentationen från leverantören fältet replaceable enhet (FRU) för detaljerade anvisningar som är specifika för ditt system. 
 
 ## <a name="review-disk-alert-information"></a>Granska disk aviseringsinformation
-När en disk kraschar kan du få ett meddelande som talar om att anslutningen har brutits till en fysisk disk. 
+När en disk misslyckas, kan du få ett meddelande som talar om att anslutningen har kopplats till en fysisk disk. 
 
- ![Aviseringen visar anslutningen bröts till fysisk disk](media/azure-stack-replace-disk/DiskAlert.png)
+ ![Avisering som visar anslutningen kopplades till fysisk disk](media/azure-stack-replace-disk/DiskAlert.png)
 
-Om du öppnar du aviseringen innehåller varningsbeskrivningen noden skala enhet och platsen för den disk som du måste ersätta exakta fysiska plats. Ytterligare Azure Stack hjälper dig att identifiera den skadade disken med hjälp av Indikator för indikatorn funktioner.
+Om du öppnar aviseringen innehåller varningsbeskrivningen noden skala enhet och plats exakta fysiska platsen för den disk som du måste ersätta. Ytterligare Azure Stack hjälper dig att identifiera den skadade disken med hjälp av LED indikator funktionerna.
 
  ## <a name="replace-the-disk"></a>Ersätt disken
 
-Följ anvisningarna för din OEM maskinvaruleverantören FRU för faktiska diskbyte.
+Följ instruktionerna för din OEM maskinvaruleverantörens FRU för faktiska diskbyte.
 
 > [!note]
-> Ersätt diskar för en scale unit nod i taget. Vänta tills de virtuella disken reparera slutförts innan du går vidare till nästa nod i skala enhet
+> Ersätt diskar för en skala enhet nod i taget. Vänta tills de virtuell disk reparera ska slutföras innan du fortsätter till nästa nod i skala enhet
 
-För att förhindra användningen av en disk som inte stöds i ett integrerat system, blockerar systemet diskar som inte stöds av leverantören. Om du försöker använda en disk som inte stöds, om en ny avisering att en disk har har placerats i karantän på grund av en modell som inte stöds eller inbyggd programvara.
+Om du vill förhindra användning av en disk som inte stöds i ett integrerat system, blockerar systemet diskar som inte stöds av leverantören. Om du försöker använda en som inte stöds disk, om en ny avisering att en disk har har placerats i karantän på grund av en modell som inte stöds eller inbyggd programvara.
 
-När du ersätter disken Azure Stack identifierar den nya disken och automatiskt startar reparationsprocessen virtuell disk.  
+När du ersätter disken identifieras den nya disken automatiskt i Azure Stack och startar reparationsprocessen virtuell disk.  
  
- ## <a name="check-the-status-of-virtual-disk-repair"></a>Kontrollera status för reparation av virtuell disk
+ ## <a name="check-the-status-of-virtual-disk-repair"></a>Kontrollera status för virtuell disk reparation
  
- När du ersätter disken kan du övervaka hälsotillståndet för virtuell disk och reparera jobbförloppet med hjälp av Privilegierade slutpunkten. Följ dessa steg från valfri dator som har en nätverksanslutning till Privilegierade slutpunkten.
+ När du ersätter disken kan du övervaka hälsostatus för virtuell disk och reparera jobbförlopp genom att använda privilegierad slutpunkt. Följ dessa steg från alla datorer som har en nätverksanslutning till privilegierad slutpunkt.
 
-1. Öppna Windows PowerShell-sessionen och Anslut till Privilegierade slutpunkten.
+1. Öppna en Windows PowerShell-session och Anslut till privilegierad slutpunkt.
     ````PowerShell
         $cred = Get-Credential
         Enter-PSSession -ComputerName <IP_address_of_ERCS>`
           -ConfigurationName PrivilegedEndpoint -Credential $cred
     ```` 
   
-2. Kör följande kommando för att visa hälsan för den virtuella disken:
+2. Kör följande kommando för att visa hälsotillstånd för virtuell disk:
     ````PowerShell
         Get-VirtualDisk -CimSession s-cluster
     ````
    ![PowerShell-utdata från kommandot Get-VirtualDisk](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
 
-3. Kör följande kommando för att visa aktuell jobbstatus för lagring:
+3. Kör följande kommando för att visa aktuell status för jobbet av lagring:
     ```PowerShell
         Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
     ````
       ![PowerShell-utdata från kommandot Get-StorageJob](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
-## <a name="troubleshoot-virtual-disk-repair"></a>Felsöka reparation av virtuell disk
+## <a name="troubleshoot-virtual-disk-repair"></a>Felsöka virtuell disk reparation
 
-Om den virtuella disken reparera visas jobb låsta, kör följande kommando för att starta om jobbet:
+Om den virtuella disken reparera visas jobb har fastnat, kör följande kommando för att starta om jobbet:
   ````PowerShell
         Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
   ```` 

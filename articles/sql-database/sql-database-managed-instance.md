@@ -9,14 +9,14 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/30/2018
+ms.date: 09/11/2018
 ms.author: bonova
-ms.openlocfilehash: 5caafdfbaca1a701d2728afdfcb31e8e73b4fded
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 7a2b98f0a78c82b65d7d29181a048ab59f237107
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050314"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391937"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Vad är en hanterad instans (förhandsversion)?
 
@@ -58,7 +58,7 @@ En virtuell kärna representerar en logisk CPU med möjligheten att välja mella
 
 I följande tabell beskriver vi hur du väljer den bästa konfigurationen av din beräkning, minne, lagring och i/o-resurser.
 
-||Generation 4|Generation 5|
+||4:e generationen|5:e generationen|
 |----|------|-----|
 |Maskinvara|Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer, anslutna SSD vCore = 1 PP (fysiska kärnor)|Intel E5-2673 v4 (Broadwell) 2,3 GHz-processorer för snabb eNVM SSD, vCore = 1 LP (hyper-tråd)|
 |Prestandanivåer|8, 16, 24 virtuella kärnor|8, 16, 24, 32, 40, 64, 80 virtuella kärnor|
@@ -200,7 +200,7 @@ Hanterade instans mål användarscenarier med drivrutiner för masslagring Datab
 ### <a name="backup-and-restore"></a>Säkerhetskopiering och återställning  
 
 Förhållningssätt till Databasmigrering utnyttjar SQL-säkerhetskopior till Azure blob storage. Säkerhetskopior som lagras i Azure storage blob kan återställas direkt till hanterade instansen med hjälp av den [T-SQL RESTORE-kommandot](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current). 
-  - Se en självstudie som visar hur du återställer Wide World Importers – Standard databassäkerhetskopia, [återställa en säkerhetskopia till en hanterad instans](sql-database-managed-instance-get-started-restore.md). Den här kursen visar du behöver ladda upp en säkerhetskopia till Azure BLOB-lagring och skydda den med en signatur för delad åtkomstnyckel.
+  - En Snabbstart som visar hur du återställer Wide World Importers – Standard databassäkerhetskopia, se [återställa en säkerhetskopia till en hanterad instans](sql-database-managed-instance-get-started-restore.md). Denna Snabbstart visar du behöver ladda upp en säkerhetskopia till Azure BLOB-lagring och skydda den med en signatur för delad åtkomstnyckel.
   - Information om återställning från URL: en finns i [interna ÅTERSTÄLLA från URL: en](sql-database-managed-instance-migrate.md#native-restore-from-url).
   
 ### <a name="data-migration-service"></a>Data Migration Service
@@ -251,6 +251,6 @@ I följande tabell visar flera egenskaper som är tillgängliga via Transact-SQL
 - Information om hur du skapar din första hanterad instans finns [snabbstartsguiden](sql-database-managed-instance-get-started.md).
 - För en funktioner och jämförelse lista, se [SQL vanliga funktioner](sql-database-features.md).
 - Mer information om konfiguration av virtuella nätverk finns i avsnittet om [konfiguration av virtuella nätverk för hanterade instanser](sql-database-managed-instance-vnet-configuration.md).
-- Se en självstudie som skapar en hanterad instans och återställer en databas från en säkerhetskopia, [skapar en hanterad instans](sql-database-managed-instance-get-started.md).
+- En Snabbstart som skapar en hanterad instans och återställer en databas från en säkerhetskopia, se [skapar en hanterad instans](sql-database-managed-instance-get-started.md).
 - En självstudie om hur du använder Azure Database Migration Service (DMS) för migrering finns i avsnittet om [migrering av hanterade instanser med DMS](../dms/tutorial-sql-server-to-managed-instance.md).
 - Information om priser finns i [priser för SQL Database Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/).

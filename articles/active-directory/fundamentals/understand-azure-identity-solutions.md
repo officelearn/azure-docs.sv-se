@@ -14,12 +14,12 @@ ms.component: fundamentals
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 118f8258673c8a19d5f06e5fc62ff56d0fb44ea1
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: ec84cdb4e226eea4d16d28d63acd7be59241b973
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398372"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346924"
 ---
 # <a name="understand-azure-identity-solutions"></a>Förstå Azure-identitetslösningar
 Microsoft Azure Active Directory (Azure AD) är en molnlösning för identitets- och åtkomsthantering som tillhandahåller katalogtjänster, identitetsstyrning och programåtkomsthantering. Azure AD [aktiverar snabbt enkel inloggning (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) till tusentals förintegrerade kommersiella och anpassade appar i [Azure AD-programgalleriet](https://azure.microsoft.com/marketplace/active-directory/all/). Du använder säkert många av de här apparna, till exempel Office 365, Salesforce.com, Box, ServiceNow och Workday.
@@ -110,10 +110,10 @@ Vi har en mängd bra resurser online för att lära dig allt om Azure AD. Här �
 
 * [Aktivera din katalog för hybridhantering med Azure AD Connect](../connect/active-directory-aadconnect.md)
 * [Ytterligare säkerhet för en allt mer ansluten värld](../authentication/multi-factor-authentication.md)
-* [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../active-directory-saas-app-provisioning.md)
+* [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md)
 * [Hantera dina lösenord var du än är](../user-help/active-directory-passwords-update-your-own-password.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../active-directory-saas-app-provisioning.md)
+* [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md)
 * [Ge säker fjärråtkomst till lokala program](../manage-apps/application-proxy.md)
 * [Hantera åtkomst till resurser med Azure Active Directory-grupper](active-directory-manage-groups.md)
 * [Vad är Microsoft Azure Active Directory-licensiering?](active-directory-licensing-whatis-azure-portal.md)

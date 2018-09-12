@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: ponatara
-ms.openlocfilehash: 3ef52030f694b0f9ccf2bd10545918a4fae9f2ee
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: c9a2f258ca952ca36000e1ca0630fbde31ba7ba0
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918313"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391325"
 ---
 # <a name="failover-in-site-recovery"></a>Redundans i Site Recovery
 Den här artikeln beskrivs hur du redundansväxling för virtuella datorer och fysiska servrar som skyddas av Site Recovery.
@@ -31,14 +31,14 @@ Använd följande tabell om du vill veta om alternativen för redundans av Azure
 
 
 ## <a name="run-a-failover"></a>Köra en redundansväxling
-Den här proceduren beskriver hur du kör en redundansväxling för en [återställningsplanen](site-recovery-create-recovery-plans.md). Du kan också köra redundans för en enskild virtuell dator eller fysisk server från den **replikerade objekt** sidan
+Den här proceduren beskriver hur du kör en redundansväxling för en [återställningsplanen](site-recovery-create-recovery-plans.md). Du kan också köra redundans för en enskild virtuell dator eller fysisk server från den **replikerade objekt** sidan enligt [här](vmware-azure-tutorial-failover-failback.md#run-a-failover-to-azure).
 
 
 ![Redundans](./media/site-recovery-failover/Failover.png)
 
 1. Välj **Återställningsplaner** > *recoveryplan_name*. Klicka på **redundans**
 2. På den **redundans** väljer en **återställningspunkt** att redundansväxla till. Du kan välja något av följande alternativ:
-    1.  **Senaste** (standard): det här alternativet startar jobbet genom att första bearbeta alla data som har skickats till Site Recovery-tjänsten. Bearbeta data skapar en återställningspunkt för varje virtuell dator. Den här återställningspunkten används av den virtuella datorn under redundansväxlingen. Det här alternativet ger det lägsta MÅLET (mål för återställningspunkt) som den virtuella datorn skapas efter att redundansen har fått alla data som har replikerats till Site Recovery-tjänsten när redundansen utlöstes.
+    1.  **Senaste**: det här alternativet startar jobbet genom att första bearbeta alla data som har skickats till Site Recovery-tjänsten. Bearbeta data skapar en återställningspunkt för varje virtuell dator. Den här återställningspunkten används av den virtuella datorn under redundansväxlingen. Det här alternativet ger det lägsta MÅLET (mål för återställningspunkt) som den virtuella datorn skapas efter att redundansen har fått alla data som har replikerats till Site Recovery-tjänsten när redundansen utlöstes.
     1.  **Senaste bearbetade**: det här alternativet redundansväxlar alla virtuella datorer i återställningsplanen till den senaste återställningspunkten som redan har bearbetats av Site Recovery-tjänsten. När du gör redundanstest för en virtuell dator, visas också tidsstämpeln för den senaste bearbetade återställningspunkten. Om du genomför redundans för en återställningsplan går du till en enskild virtuell dator och titta på **senaste återställningspunkter** panelen för att få den här informationen. Ingen tid på för att bearbeta obearbetade data, ger det här alternativet ett lågt mål för Återställningstid (RTO) redundans alternativ.
     1.  **Senaste appkonsekventa**: det här alternativet redundansväxlar alla virtuella datorer i återställningsplanen till den senaste programkonsekvent återställningspunkt som redan har bearbetats av Site Recovery-tjänsten. När du gör redundanstest för en virtuell dator, visas också tidsstämpeln för den senaste appkonsekventa återställningspunkten. Om du genomför redundans för en återställningsplan går du till en enskild virtuell dator och titta på **senaste återställningspunkter** panelen för att få den här informationen.
     1.  **Senaste multi-VM bearbetas**: det här alternativet är bara tillgängligt för återställningsplaner som har minst en virtuell dator med konsekvens på. Virtuella datorer som är en del av en replikering gruppväxling till den senaste vanliga Konsekvens programkonsekvent återställningspunkten för programkatalog. Andra virtuella datorer redundans till sina senaste bearbetade återställningspunkten.  
@@ -104,18 +104,19 @@ I vissa fall kräver redundans för virtuella datorer ett extra steg som vanligt
 
 Den här mellanliggande steg krävs inte i alla andra fall, och den tid det tar för redundans är lägre.
 
-
-
-
-
 ## <a name="using-scripts-in-failover"></a>Med hjälp av skript i redundanskluster
 Du kanske vill automatisera vissa åtgärder när du gör en redundansväxling. Du kan använda skript eller [Azure automation-runbooks](site-recovery-runbook-automation.md) i [återställningsplaner](site-recovery-create-recovery-plans.md) du gör.
 
 ## <a name="post-failover-considerations"></a>Publicera tänka på vid
 Efter redundans du beakta följande rekommendationer:
 ### <a name="retaining-drive-letter-after-failover"></a>Behåller enhetsbeteckningen efter redundans
-Om du vill behålla enhetsbeteckning på virtuella datorer efter en redundansväxling kan du ställa in den **SAN-princip** för den virtuella datorn till **OnlineAll**. [Läs mer](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+Om du vill behålla enhetsbeteckning på virtuella datorer efter en redundansväxling kan du ställa in den **SAN-princip** för den virtuella datorn till **OnlineAll**. [Läs mer](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
+## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Förbereda för att ansluta till virtuella Azure-datorer efter en redundansväxling
+
+Om du vill ansluta till virtuella Azure-datorer med RDP/SSH efter en redundansväxling kan du följa kraven som sammanfattas i tabellen [här](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+
+Följ stegen som beskrivs [här](site-recovery-failover-to-azure-troubleshoot.md) felsökning av någon anslutning efter problem med redundans.
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 7fc5b164792907644a0a41615436806f998a8b1e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 2f5396826da88fd2efdd3588babdbdfdeb42252a
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398717"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026151"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java-sdk-v7"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Java SDK V7
 
@@ -208,7 +208,7 @@ I den här snabbstarten har du lärt dig hur du överför filer mellan en lokal 
 
 > [!div class="nextstepaction"]
 > [Azure Storage SDK för Java](https://github.com/azure/azure-storage-java) 
-> [API-referens](https://docs.microsoft.com/en-us/java/api/storage/client?view=azure-java-stable)
+> [API-referens](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
 > [Kodexempel för Java](../common/storage-samples-java.md)
 
 * Mer information om Storage Explorer och blobar finns i [Hantera Azure Blob Storage-resurser med Storage Explorer ](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: d4eb8f3e805d96a276851052b74cac90465d1185
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4c1696fc373975eb9857c40366829fbe6a535911
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054380"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391886"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Auktorisera konton med hjälp av Azure Active Directory i Azure API Management
 
@@ -35,7 +35,7 @@ Den här artikeln visar hur du aktiverar åtkomst till utvecklarportalen för an
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Auktorisera konton med hjälp av Azure AD
 
 1. Logga in på [Azure Portal](https://portal.azure.com). 
-1. Välj ![arrow](./media/api-management-howto-aad/arrow.png).
+1. Markera ![arrow](./media/api-management-howto-aad/arrow.png).
 1. Typ **api** i sökrutan.
 1. Välj **API Management-tjänster**.
 1. Välj API Management-tjänstinstansen.
@@ -52,7 +52,7 @@ Den här artikeln visar hur du aktiverar åtkomst till utvecklarportalen för an
    ![Steg för att lägga till en identitetsprovider i Azure portal](./media/api-management-howto-aad/api-management-with-aad001.png)  
 1. Öppna en annan flik i webbläsaren. 
 1. Gå till [Azure-portalen](https://portal.azure.com).
-1. Välj ![arrow](./media/api-management-howto-aad/arrow.png).
+1. Markera ![arrow](./media/api-management-howto-aad/arrow.png).
 1. Typ **active**. Den **Azure Active Directory** visas fönstret.
 1. Välj **Azure Active Directory**.
 1. Under **hantera**väljer **appregistreringar**.
@@ -79,7 +79,10 @@ Den här artikeln visar hur du aktiverar åtkomst till utvecklarportalen för an
 
     ![Kryssrutorna för behörighet](./media/api-management-howto-aad/api-management-with-aad005.png)
 
+1. Välj **bevilja** godkänna behörigheter för programmet.
+
     Läs mer om behörigheter för programmet och delegerade behörigheter [åtkomst till Graph API][Accessing the Graph API].
+    
 1. I den vänstra rutan, kopierar den **program-ID** värde.
 
     ![”Program-ID-värdet](./media/api-management-howto-aad/application-id.png)
@@ -98,6 +101,7 @@ Den här artikeln visar hur du aktiverar åtkomst till utvecklarportalen för an
     > Anteckna den här nyckeln. När du stänger fönstret för Azure AD-konfiguration kan nyckeln inte visas igen.
     > 
     > 
+
 1. Gå tillbaka till ditt API Management-program. 
 
     I den **Lägg till identitetsprovider** och klistra in nyckeln i den **klienthemlighet** textrutan.
@@ -106,6 +110,7 @@ Den här artikeln visar hur du aktiverar åtkomst till utvecklarportalen för an
     > Glöm inte att uppdatera den **klienthemlighet** innan nyckeln upphör att gälla. 
     >  
     >
+
 1. Den **Lägg till identitetsprovider** fönstret innehåller också de **tillåtna klienter** textrutan. Där kan ange domänerna för Azure AD-instanser som du vill bevilja åtkomst till API: er för API Management-tjänstinstans. Du kan avgränsa flera domäner med nya rader, blanksteg och kommatecken.
 
     Du kan ange flera domäner i den **tillåtna klienter** avsnittet. Innan alla användare kan logga in från en annan domän än den ursprungliga domänen där programmet har registrerats, måste en global administratör i en annan domän bevilja behörighet för programmet att komma åt katalogdata. Om du vill bevilja behörighet, bör den globala administratören:

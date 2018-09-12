@@ -6,14 +6,14 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 08/23/2018
+ms.date: 09/07/2018
 ms.author: danlep
-ms.openlocfilehash: 0ef3cc373b3b87bbd1dde5682fbc076e6b77d6a0
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e1d6f2d6181e70fde75907191664dcf6cd0b7252
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698391"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391767"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Övervaka Batch-lösningar genom att räkna aktiviteter och nod efter tillstånd
 
@@ -53,11 +53,9 @@ Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
 
 Du kan använda ett liknande mönster för REST och andra språk som stöds för att hämta uppgiften antalet för ett jobb. 
 
-### <a name="counts-for-large-numbers-of-tasks"></a>Antal för stort antal aktiviteter
-
-Hämta uppgift räknar-åtgärden returnerar antalet aktiviteternas status i systemet vid en tidpunkt i tid. När jobbet har ett stort antal uppgifter, kan antalet som returneras av hämta uppgift räknar lag faktiska aktiviteternas status av upp till några sekunder. Batch säkerställer eventuell konsekvens mellan resultatet från att hämta uppgift räknar och faktiska aktiviteternas status (som du kan skicka frågor via API: T för listan uppgifter). Men om jobbet har ett mycket stort antal uppgifter (> 200 000), rekommenderar vi att du använder API: T för listan uppgifter och en [filtrerade fråga](batch-efficient-list-queries.md) i stället som ger mer uppdaterad information. 
-
-Batch-tjänstens API-versioner innan 2018-08-01.7.0 returnerar också en `validationStatus` egenskapen hämta uppgift räknar-svar. Den här egenskapen anger om Batch markerat tillståndet antal för konsekvens med tillstånd som rapporteras i API: T för listan uppgifter. Värdet `validated` bara anger att Batch markerats för att få konsekvens minst en gång för jobbet. Värdet för den `validationStatus` egenskapen anger inte om de antal som hämta uppgift räknar returnerar är för närvarande uppdaterade.
+> [!NOTE]
+> Batch-tjänstens API-versioner innan 2018-08-01.7.0 returnerar också en `validationStatus` egenskapen hämta uppgift räknar-svar. Den här egenskapen anger om Batch markerat tillståndet antal för konsekvens med tillstånd som rapporteras i API: T för listan uppgifter. Värdet `validated` bara anger att Batch markerats för att få konsekvens minst en gång för jobbet. Värdet för den `validationStatus` egenskapen anger inte om de antal som hämta uppgift räknar returnerar är för närvarande uppdaterade.
+>
 
 ## <a name="node-state-counts"></a>Nodtillstånd räknar
 

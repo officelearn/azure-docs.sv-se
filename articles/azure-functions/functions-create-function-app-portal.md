@@ -4,28 +4,24 @@ description: Skapa en ny funktionsapp i Azure App Service från portalen.
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 4716d29a7b8c0830e2311398f033f8358ef24529
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1e27fb26b00502b63d6023b41b6a26b179b453be
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38467653"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094050"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Skapa en funktionsapp från Azure Portal
 
-Azure-funktionsappar använder Azure App Service-infrastrukturen. I det här avsnittet visar vi hur du skapar en funktionsapp i Azure Portal. En funktionsapp är en behållare som är värd för körningen av enskilda funktioner. När du skapar en funktionsapp i App Service-värdplanen kan din funktionsapp använda alla funktioner i App Service.
+Azure-funktionsappar använder Azure App Service-infrastrukturen. I det här avsnittet visar vi hur du skapar en funktionsapp i Azure Portal. En funktionsapp är en container som är värd för körningen av enskilda funktioner. När du skapar en funktionsapp i App Service-värdplanen kan din funktionsapp använda alla funktioner i App Service.
 
 ## <a name="create-a-function-app"></a>Skapa en funktionsapp
 

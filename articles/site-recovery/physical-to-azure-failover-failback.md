@@ -5,22 +5,22 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: raynew
-ms.openlocfilehash: 93f62bac3e2207caa265b3fca6634656d64b1491
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4036ab6e62f4738f4b2906eb7571dc5d0e972988
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918245"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391155"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Redundans och växla tillbaka fysiska servrar som replikeras till Azure
 
-Den här självstudien beskrivs hur du växlar över en fysisk server till Azure. När du har redundansväxlat kan växla du servern tillbaka till din lokala plats när den är tillgänglig. 
+Den här självstudien beskrivs hur du växlar över en fysisk server till Azure. När du har redundansväxlat kan växla du servern tillbaka till din lokala plats när den är tillgänglig.
 
 ## <a name="preparing-for-failover-and-failback"></a>Förbereda för redundans och återställning efter fel
 
-Fysiska servrar som replikeras till Azure med Site Recovery kan bara växla tillbaka som virtuella VMware-datorer. Du behöver en VMware-infrastruktur för att återställas. 
+Fysiska servrar som replikeras till Azure med Site Recovery kan bara växla tillbaka som virtuella VMware-datorer. Du behöver en VMware-infrastruktur för att återställas.
 
 Redundans och återställning efter fel består av fyra steg:
 
@@ -44,7 +44,7 @@ Kontrollera egenskaperna för servern och se till att den överensstämmer med [
 
 1. I **Inställningar** > **Replikerade objekt** klickar du på datorn > **Redundans**.
 2. I **Redundans** väljer du en **återställningspunkt** att redundansväxla till. Du kan välja något av följande alternativ:
-   - **Senaste** (standard): Det här alternativet bearbetar först alla data som skickas till Site Recovery. De ger det lägsta målet för återställningspunkten eftersom Azure VM skapas efter att redundansen har fått alla data som replikerades till Site Recovery när redundansen utlöstes.
+   - **Senaste**: det här alternativet bearbetar först alla data som skickas till Site Recovery. De ger det lägsta målet för återställningspunkten eftersom Azure VM skapas efter att redundansen har fått alla data som replikerades till Site Recovery när redundansen utlöstes.
    - **Senaste bearbetade**: det här alternativet redundansväxlar datorn till den senaste återställningspunkten som bearbetats av Site Recovery. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt mål för återställningstiden.
    - **Senaste appkonsekventa**: det här alternativet redundansväxlar datorn till den senaste appkonsekventa återställningspunkten som bearbetats av Site Recovery.
    - **Anpassad**: Ange en återställningspunkt.
@@ -55,7 +55,13 @@ Kontrollera egenskaperna för servern och se till att den överensstämmer med [
 
 > [!WARNING]
 > Avbryt inte en pågående redundansväxling. Innan redundansväxling har startat, stoppar replikeringen av datorn. Om du avbryter växling vid fel, stoppas, men datorn kommer inte att replikeras igen.
-> För fysiska servrar ta redundans ytterligare bearbetning cirka 8 till 10 minuter för att slutföra. 
+> För fysiska servrar ta redundans ytterligare bearbetning cirka 8 till 10 minuter för att slutföra.
+
+## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Förbereda för att ansluta till virtuella Azure-datorer efter en redundansväxling
+
+Om du vill ansluta till virtuella Azure-datorer med RDP/SSH efter en redundansväxling kan du följa kraven som sammanfattas i tabellen [här](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+
+Följ stegen som beskrivs [här](site-recovery-failover-to-azure-troubleshoot.md) felsökning av någon anslutning efter problem med redundans.
 
 ## <a name="create-a-process-server-in-azure"></a>Skapa en processerver i Azure
 
@@ -70,7 +76,7 @@ Processervern tar emot data från den virtuella Azure-datorn och skickar den til
 Som standard huvudmålservern tar emot data för återställning efter fel. Den körs på den lokala konfigurationsservern.
 
 - Om VMware-VM som du inte återställa är på en ESXi-värd som hanteras av VMware vCenter-Server, måste huvudmålservern ha åtkomst till den Virtuella datorns datalager (VMDK) att skriva replikerade data till VM-diskarna. Kontrollera att VM-datalagret har monterats på huvudmålserverns värd med läs- och skrivåtkomst.
-- Om ESXi-värden som inte hanteras av en vCenter-server, Site Recovery-tjänsten skapar en ny virtuell dator vid återaktiveringen av skyddet. Den virtuella datorn skapas på ESX-värden som du skapade Huvudmålet VM. Hårddisken på den virtuella datorn måste vara i ett datalager som kan nås av den värd där huvudmålservern körs.
+- Om ESXi-värden som inte hanteras av en vCenter-server, Site Recovery-tjänsten skapar en ny virtuell dator vid återaktiveringen av skyddet. Den virtuella datorn skapas på ESX-värden som du skapade Huvudmålet VM. Hårddisken på den virtuella datorn måste finnas i ett datalager som kan nås av den värd där huvudmålservern körs.
 - För fysiska datorer som du inte återställa, bör du genomföra identifiering av den värd där huvudmålservern körs, innan du kan skydda datorn igen.
 - Ett annat alternativ är om det finns redan en lokal virtuell dator för återställning efter fel, att ta bort den innan du gör en återställning efter fel. Återställningen efter fel skapar sedan en ny virtuell dator på samma värddator som är värd för huvudmålserverns ESX. När du återställer till en annan plats, återställs datan till samma datalager och samma ESX-värd som användes av den lokala huvudmålservern.
 - Du kan inte använda Storage vMotion på huvudmålservern. Om du gör detta fungerar återställningen inte, eftersom diskarna inte är tillgängliga för den. Ta bort huvudmålservrarna från vMotion-listan.
@@ -114,10 +120,9 @@ Kör en redundans enligt följande:
 
 ## <a name="reprotect-on-premises-machines-to-azure"></a>Återaktivera skyddet av lokala datorer till Azure
 
-Data bör nu vara tillbaka på din lokala plats, men de replikeras inte till Azure. Du kan påbörja replikeringen till Azure igen på följande sätt:
+Dina data bör nu finnas lokalt igen, men de replikeras inte till Azure. Du kan påbörja replikeringen till Azure igen på följande sätt:
 
 1. I valvet > **Inställningar** >**Replikerade objekt** väljer du de återställda virtuella datorerna och klickar på **Återaktivera skydd**.
 2. Välj den processerver som används för att skicka replikerade data till Azure och klicka på **OK**.
 
 När återaktiveringen av skyddet har slutförts kommer den virtuella datorn replikera tillbaka till Azure och du kan köra en redundans vid behov.
-

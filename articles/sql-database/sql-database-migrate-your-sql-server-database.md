@@ -9,12 +9,12 @@ ms.custom: mvc,migrate
 ms.topic: tutorial
 ms.date: 07/02/2018
 ms.author: carlrab
-ms.openlocfilehash: ceab627d98149774a3eb767ee56d688f9c11ff99
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1d8ec772293354c059f21aaae8006f5c40540058
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346849"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050212"
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>Migrera din SQL Server-databas till Azure SQL Database med DMA
 
@@ -33,7 +33,7 @@ I de här självstudierna får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Följande krav måste uppfyllas för att kunna köra den här självstudiekursen:
 
@@ -263,7 +263,7 @@ Du kan ändra tjänstnivån, prestandanivån och kompatibilitetsnivån med hjäl
     ```
 
 ## <a name="next-steps"></a>Nästa steg 
-I de här självstudierna lärde du dig att:
+I den här självstudien fick du lärda dig att:
 
 > * Skapa en tom Azure SQL-databas på Azure-portalen 
 > * Skapa en brandväggsregel på servernivå på Azure-portalen 

@@ -4,24 +4,20 @@ description: Använd Azure Functions till att skapa en serverfri funktion som an
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 03/27/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 928ea1dbb68206e128f0593ba15cb48935ab1ccf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 48bb97b298b24951982b69fa07a7e366fcb3e38e
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602671"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093864"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Skapa en funktion som utlöses av Azure Blob Storage
 
@@ -66,9 +62,9 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
 3. Klicka på **Skapa** för att skapa den nya funktionen.
 
-Anslut sedan till ditt Azure Storage-konto och skapa behållaren **samples-workitems**.
+Anslut sedan till ditt Azure Storage-konto och skapa containern **samples-workitems**.
 
-## <a name="create-the-container"></a>Skapa behållaren
+## <a name="create-the-container"></a>Skapa containern
 
 1. Klicka på **Integrera** i din funktion, expandera **Dokumentation** och kopiera både **kontonamnet** och **kontonyckeln**. Du använder dessa autentiseringsuppgifter för att ansluta till lagringskontot. Om du redan har anslutit ditt lagringskonto går du vidare till steg 4.
 
@@ -86,7 +82,7 @@ Anslut sedan till ditt Azure Storage-konto och skapa behållaren **samples-worki
 
     ![Skapa en lagringskö.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-create-blob-container.png)
 
-Nu när du har en blobbehållare kan du testa funktionen genom att ladda upp en fil till behållaren.
+Nu när du har en blobcontainer kan du testa funktionen genom att ladda upp en fil till containern.
 
 ## <a name="test-the-function"></a>Testa funktionen
 
@@ -94,7 +90,7 @@ Nu när du har en blobbehållare kan du testa funktionen genom att ladda upp en 
 
 1. Expandera ditt lagringskonto, **Blob containers** (Blobbehållare) och **samples-workitems** i Storage Explorer. Klicka på **Ladda upp** och sedan på **Ladda upp filer**.
 
-    ![Ladda upp en fil till blobbehållaren.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
+    ![Ladda upp en fil till blobcontainern.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
 
 1. Klicka på fältet **Filer** i dialogrutan **Ladda upp filer**. Bläddra till en fil lokalt i datorn, till exempel en bildfil, markera den, klicka på **Öppna** och sedan på **Ladda upp**.
 

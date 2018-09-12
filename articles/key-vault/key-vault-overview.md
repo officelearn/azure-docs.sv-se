@@ -14,22 +14,21 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 07/17/2018
 ms.author: barclayn
-ms.openlocfilehash: a55c99764cf9d77ab3ee269e3f5b0c2a13ec1ac7
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: b509bf9575c3fdeedd1673d4ffe1395d46e3d919
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42023103"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051620"
 ---
 # <a name="what-is-azure-key-vault"></a>Vad är Azure Key Vault?
 
-Azure Key Vault är en molntjänst som fungerar som säkert lager för hemligheter.
+Azure Key Vault kan hjälpa dig att lösa följande problem
+- Azure Key Vault kan användas för säker lagring av och kontrollerad åtkomst till token, lösenord, certifikat, API-nycklar och andra hemligheter
+- Azure Key Vault kan även användas som nyckelhanteringslösning. Med Azure Key Vault är det enkelt att skapa och kontrollera de krypteringsnycklar som används för att kryptera dina data. 
+- Azure Key Vault är också en tjänst där du enkelt kan etablera, hantera och distribuera offentliga och privata SSL/TLS-certifikat (Secure Sockets Layer/Transport Layer Security) för användning med Azure och dina interna anslutna resurser. 
+- Hemligheter och nycklar kan skyddas antingen med programvara eller med FIPS 140-2 Level 2-verifierade HSM:er
 
-Du har lösenord, anslutningssträngar och andra uppgifter som behövs för att hålla igång dina program. Du vill se till att den här informationen är tillgänglig men att den samtidigt är skyddad. Lösningen på det här problemet heter Azure Key Vault. Med Azure Key Vault kan du säkert lagra och hantera programhemligheter.
-
-Du kan skapa flera säkra containrar, som kallas valv, i Key Vault. De här valven stöds av säkerhetsmoduler på maskinvarunivå (HSM:er). Med valv så minskar risken för att säkerhetsinformation förloras av misstag eftersom lagringen av hemligheter centraliseras. Key Vaults styr och loggar dessutom åtkomsten till informationen du lagrar. Azure Key Vault kan hantera förfrågningar om och förnyande av TLS-certifikat (Transport Layer Security), och du har tillgång till alla de funktioner som krävs för en robust livscykelhantering av certifikat.
-
- Azure Key Vault har stöd för alla typer av hemligheter. Med det menar vi att Key Vault kan användas för att lagra lösenord, databasautentiseringsuppgifter, API-nycklar och certifikat, som antingen kan vara programvaruskyddade eller HSM-skyddade
 ## <a name="why-use-azure-key-vault"></a>Därför ska du använda Azure Key Vault
 
 ### <a name="centralize-application-secrets"></a>Central lagring av programhemligheter

@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,security
 ms.topic: tutorial
-ms.date: 04/24/2018
+ms.date: 09/07/2018
 ms.author: daredis
-ms.openlocfilehash: 54ec3c1386d6ce2023106367a6af1915e754948f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6d805a39831ce2eea204689a4daa069d10b757e8
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193469"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054078"
 ---
 # <a name="secure-your-azure-sql-database"></a>Skydda din Azure SQL-databas
 
@@ -46,9 +46,9 @@ Kontrollera att du har gjort följande för att kunna genomföra den här själv
 
 - Installerat den senaste versionen av [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). 
 - Installerat Microsoft Excel
-- Skapat en Azure SQL-server och -databas – Se [Skapa en Azure SQL-databas på Azure Portal](sql-database-get-started-portal.md), [Skapa en enskild Azure SQL-databas med Azure CLI](sql-database-get-started-cli.md) och [Skapa en enskild Azure SQL-databas med PowerShell](sql-database-get-started-powershell.md). 
+- Skapat en Azure SQL-server och -databas – Se [Skapa en Azure SQL-databas på Azure Portal](sql-database-get-started-portal.md), [Skapa en enskild Azure SQL-databas med Azure CLI](sql-database-cli-samples.md) och [Skapa en enskild Azure SQL-databas med PowerShell](sql-database-powershell-samples.md). 
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
+## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 

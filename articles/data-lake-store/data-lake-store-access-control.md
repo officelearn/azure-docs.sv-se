@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 8680a8fa9c460983b88aa4845adcbe72d3a43abf
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 114413d65bb8b1d70bad21badb9508c5f942845c
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44325523"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391121"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Åtkomstkontroll i Azure Data Lake Storage Gen1
 
-Azure Data Lake Storage Gen1 implementerar en modell för åtkomstkontroll som härstammar från HDFS och i sin tur från POSIX-modellen för åtkomstkontroll. Den här artikeln sammanfattar grunderna i modellen för åtkomstkontroll för Data Lake Storage Gen1. Läs mer om HDFS-modellen för åtkomstkontroll i [Guide för HDFS-behörigheter](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html).
+Azure Data Lake Storage Gen1 implementerar en modell för åtkomstkontroll som härstammar från HDFS och i sin tur från POSIX-modellen för åtkomstkontroll. Den här artikeln sammanfattar grunderna i modellen för åtkomstkontroll för Data Lake Storage Gen1. 
 
 ## <a name="access-control-lists-on-files-and-folders"></a>Åtkomstkontrollistor för filer och mappar
 
@@ -31,11 +31,8 @@ Det finns två sorters åtkomstkontrollistor (ACL:er), **Åtkomst-ACL:er** och *
 
 * **Standard-ACL**: En "mall" av ACL:er som är associerad med en mapp som bestämmer åtkomst-ACL:er för underordnade objekt som skapats under mappen. Filer har inte standard-ACL:er.
 
-![Data Lake Storage Gen1 ACL: er](./media/data-lake-store-access-control/data-lake-store-acls-1.png)
 
 Både åtkomst-ACL:er och standard-ACL:er har samma struktur.
-
-![Data Lake Storage Gen1 ACL: er](./media/data-lake-store-access-control/data-lake-store-acls-2.png)
 
 
 
@@ -48,7 +45,7 @@ Både åtkomst-ACL:er och standard-ACL:er har samma struktur.
 
 Alla filer och mappar har olika behörigheter för dessa identiteter:
 
-* Ägande användare av filen
+* Ägande användare
 * Ägande grupp
 * Namngivna användare
 * Namngivna grupper
@@ -74,7 +71,7 @@ Behörigheter för ett objekt i filsystemet är **Läsa**, **Skriva** och **Kör
 |--------------|------------|------------------------|
 | 7            | RWX        | Läsa + skriva + köra |
 | 5            | R-X        | Läsa + köra         |
-| 4            | R--        | Läsa                   |
+| 4            | R--        | Läsbehörighet                   |
 | 0            | ---        | Inga behörigheter         |
 
 
@@ -86,27 +83,15 @@ I POSIX modellen som används av Data Lake Storage Gen1, förvaras behörigheter
 
 Nedan följer några vanliga scenarier för att förstå vilka behörigheter som krävs för att utföra vissa åtgärder på ett Data Lake Storage Gen1-konto.
 
-### <a name="permissions-needed-to-read-a-file"></a>Behörigheter som krävs för att läsa en fil
-
-![Data Lake Storage Gen1 ACL: er](./media/data-lake-store-access-control/data-lake-store-acls-3.png)
-
-* För den fil som ska läsas behöver anroparen **Läs**-behörigheter.
-* För alla mapparna i mappstrukturen som innehåller filen behöver anroparen **Kör**-behörigheter.
-
-### <a name="permissions-needed-to-append-to-a-file"></a>Behörigheter som krävs för att lägga till i en fil
-
-![Data Lake Storage Gen1 ACL: er](./media/data-lake-store-access-control/data-lake-store-acls-4.png)
-
-* För filen som ska läggas till i behöver anroparen **Skriv**-behörigheter.
-* För alla mappar som innehåller filen behöver anroparen **Kör**-behörigheter.
-
-### <a name="permissions-needed-to-delete-a-file"></a>Behörigheter för att ta bort en fil
-
-![Data Lake Storage Gen1 ACL: er](./media/data-lake-store-access-control/data-lake-store-acls-5.png)
-
-* För den överordnade mappen behöver anroparen **Skriv + kör**-behörigheter.
-* För alla andra mappar i sökvägen behöver anroparen **Kör**-behörigheter.
-
+|    Operation             |    /    | Seattle / | Portland / | Data.txt     |
+|--------------------------|---------|----------|-----------|--------------|
+| Läs Data.txt            |   --X   |   --X    |  --X      | R--          |
+| Lägga till i Data.txt       |   --X   |   --X    |  --X      | RW-          |
+| Ta bort Data.txt          |   --X   |   --X    |  -WX      | ---          |
+| Skapa Data.txt          |   --X   |   --X    |  -WX      | ---          |
+| Lista /                   |   R-X   |   ---    |  ---      | ---          |
+| Lista /Seattle/           |   --X   |   R-X    |  ---      | ---          |
+| Lista /Seattle/Portland /  |   --X   |   --X    |  R-X      | ---          |
 
 
 > [!NOTE]
@@ -122,10 +107,21 @@ Nedan följer några vanliga scenarier för att förstå vilka behörigheter som
 * För alla överordnade mappar behöver anroparen **Kör**-behörigheter.
 
 
+Från den **Datautforskaren** bladet i Data Lake Storage Gen1-kontot, klickar du på **åtkomst** att se ACL: er för filen eller mappen som visas i Datautforskaren. Klicka på **åtkomst** att se ACL: er för den **catalog** mapp under den **mydatastorage** konto.
+
+![Data Lake Storage Gen1 ACL: er](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
+
+Överst på det här bladet visas ägarens behörigheter. (På skärmbilden är den ägande användaren Bob.) Efter det så visas de tilldelade åtkomst-ACL:erna. 
+
+![Data Lake Storage Gen1 ACL: er](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
+
+Klicka på **Avancerad vy** om du vill se en mer avancerad vy där standard-ACL:er, mask och en beskrivning av superanvändare visas.  Det här bladet ger också ett sätt att rekursivt ange åtkomst- och standard-ACL:er för underordnade filer och mappar baserat på behörigheterna i den aktuella mappen.
+
+![Data Lake Storage Gen1 ACL: er](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
 ## <a name="the-super-user"></a>Superanvändaren
 
-En superanvändare har mest behörighet av alla användare i Data Lake Store. En superanvändare:
+En superanvändare har mest behörighet av alla användare i Data Lake Storage Gen1-konto. En superanvändare:
 
 * Har RWX-behörigheter till **alla** filer och mappar.
 * Kan ändra behörigheterna för alla filer och mappar.
@@ -157,14 +153,11 @@ Användaren som skapade objektet är automatiskt ägande användare för objekte
 
 ## <a name="the-owning-group"></a>Ägande grupp
 
-I POSIX-ACL:er är varje användare associerad med en "primär grupp". Användaren "Alice" kan t.ex. tillhöra gruppen "Ekonomi". Alice kan också tillhöra flera grupper, men en grupp anges alltid som hennes primära grupp. När Alice skapar en fil i POSIX ställs den ägande gruppen för filen in som hennes primära grupp, som i det här fallet är "Ekonomi".
+I POSIX-ACL:er är varje användare associerad med en "primär grupp". Användaren "Alice" kan t.ex. tillhöra gruppen "Ekonomi". Alice kan också tillhöra flera grupper, men en grupp anges alltid som hennes primära grupp. När Alice skapar en fil i POSIX ställs den ägande gruppen för filen in som hennes primära grupp, som i det här fallet är "Ekonomi". Den ägande gruppen fungerar annars ungefär som tilldelade behörigheter för andra användare/grupper.
 
-När ett nytt filsystemsobjekt skapats, tilldelar Data Lake Storage Gen1 ett värde till den ägande gruppen.
-
+Koppla den ägande gruppen för en ny fil eller mapp:
 * **Fall 1**: Rotmappen "/". Den här mappen skapas när ett Data Lake Storage Gen1 konto skapas. I det här fallet har den ägande gruppen angetts till den användaren som skapade kontot.
 * **Fall 2** (alla andra fall): När ett nytt objekt skapas, kopieras den ägande gruppen från den överordnade mappen.
-
-Den ägande gruppen fungerar annars ungefär som tilldelade behörigheter för andra användare/grupper.
 
 Den ägande gruppen kan ändras av:
 * Alla superanvändare.
@@ -173,9 +166,10 @@ Den ägande gruppen kan ändras av:
 > [!NOTE]
 > Den ägande gruppen *kan inte* ändra ACL:er för en fil eller mapp.  Även om den ägande gruppen har angetts till användaren som skapade kontot för rotmappen i **Fall 1** ovan, är ett enda användarkonto inte giltigt för att ge behörighet via den ägande gruppen.  Du kan tilldela den här behörigheten till en giltig användargrupp, om det är lämpligt.
 
+
 ## <a name="access-check-algorithm"></a>Algoritm för åtkomstkontroll
 
-Följande psuedocode representerar algoritmen för åtkomstkontroll för Data Lake Storage Gen1 konton.
+Följande pseudocode representerar algoritmen för åtkomstkontroll för Data Lake Storage Gen1 konton.
 
 ```
 def access_check( user, desired_perms, path ) : 
@@ -215,7 +209,7 @@ def access_check( user, desired_perms, path ) :
   return ( (desired_perms & perms & mask ) == desired_perms)
 ```
 
-## <a name="the-mask"></a>Masken
+### <a name="the-mask"></a>Masken
 
 Enligt beskrivningen i algoritmen Kontrollera åtkomst, masken begränsar åtkomst för **namngivna användare**, **ägande grupp**, och **namngivna grupper**.  
 
@@ -224,44 +218,18 @@ Enligt beskrivningen i algoritmen Kontrollera åtkomst, masken begränsar åtkom
 >
 >
 
-### <a name="the-sticky-bit"></a>Sticky bit
+#### <a name="the-sticky-bit"></a>Sticky bit
 
-Sticky bit är en mer avancerad funktion i ett POSIX-filsystem. I samband med Data Lake Storage Gen1 är det troligt att sticky bit kommer att behövas.
-
-I följande tabell visar hur sticky bit fungerar i Data Lake Storage Gen1.
-
-| Användargrupp         | Fil    | Mapp |
-|--------------------|---------|-------------------------|
-| Sticky bit **AV** | Ingen effekt   | Ingen effekt.           |
-| Sticky bit **PÅ**  | Ingen effekt   | Förhindrar alla utom **superanvändare** och **ägande användare** av ett underordnat objekt från att ta bort eller byta namn på det underordnade objektet.               |
+Sticky bit är en mer avancerad funktion i ett POSIX-filsystem. I samband med Data Lake Storage Gen1 är det troligt att sticky bit kommer att behövas. Sammanfattningsvis om sticky bit är aktiverad på en mapp, kan ett underordnat objekt bara tas bort eller byta namn på av det underordnade objektets ägande användare.
 
 Sticky bit visas inte i Azure-portalen.
 
-## <a name="permissions-on-new-files-and-folders"></a>Behörigheter för nya filer och mappar
+## <a name="default-permissions-on-new-files-and-folders"></a>Standardbehörigheter för nya filer och mappar
 
 När en ny fil eller mapp skapas under en befintlig mapp, anger standard-ACL:en på den överordnade mappen:
 
 - En underordnad mapps standard-ACL och åtkomst-ACL.
 - En underordnad fils åtkomst-ACL (filer har inte en standard-ACL).
-
-### <a name="the-access-acl-of-a-child-file-or-folder"></a>En underordnad fils eller mapps åtkomst-ACL
-
-När en underordnad fil eller mapp skapas, kopieras den överordnade filens standard-ACL till den underordnade filens eller mappens åtkomst-ACL. Även om **andra** användare har RWX-behörigheter i det överordnade objektets standard-ACL, tas de bort från det underordnade objektets åtkomst-ACL.
-
-![Data Lake Storage Gen1 ACL: er](./media/data-lake-store-access-control/data-lake-store-acls-child-items-1.png)
-
-I de flesta fall är ovanstående information allt du behöver känna till om hur ett underordnat objekts åtkomst-ACL bestäms. Om du är bekant med POSIX-system och vill förstå mer djupgående hur transformationen uppnås finns information i avsnittet [Umasks roll vid skapandet av åtkomst-ACL för nya filer och mappar](#umasks-role-in-creating-the-access-acl-for-new-files-and-folders) senare i den här artikeln.
-
-
-### <a name="a-child-folders-default-acl"></a>En underordnad mapps standard-ACL
-
-När en underordnad mapp skapas under en överordnad mapp, kopieras den överordnade mappens standard-ACL över, som den är, till den underordnade mappens standard-ACL.
-
-![Data Lake Storage Gen1 ACL: er](./media/data-lake-store-access-control/data-lake-store-acls-child-items-2.png)
-
-## <a name="advanced-topics-for-understanding-acls-in-data-lake-storage-gen1"></a>Avancerade ämnen för att förstå ACL: er i Data Lake Storage Gen1
-
-Här följer lite avancerad information som hjälper dig att förstå hur ACL: er bestäms för Data Lake Storage Gen1 filer eller mappar.
 
 ### <a name="umask"></a>umask
 
@@ -269,13 +237,15 @@ När du skapar en fil eller mapp, används umask för att ändra hur standard-AC
 
 Umask för Azure Data Lake Storage Gen1 en konstant värde som är inställt på 007. Det här värdet motsvarar
 
-* umask.owning_user = 0 #---
-* umask.owning_group = 0 #---
-* umask.Other = 7 # RWX
+| umask-komponent     | Numeriskt format | Kortformat | Betydelse |
+|---------------------|--------------|------------|---------|
+| umask.owning_user   |    0         |   ---      | För ägande användare, kopierar du överordnat filens standard-ACL till barnets åtkomst-ACL | 
+| umask.owning_group  |    0         |   ---      | Kopiera överordnat filens standard-ACL till barnets åtkomst-ACL för ägande grupp | 
+| umask.Other         |    7         |   RWX      | Ta bort alla behörigheter för barnets åtkomst-ACL för andra, |
 
-Umask värdet innebär ett effektivt sätt att värdet för andra aldrig skickas som standard på nya underordnade - oavsett vad som anger standard-ACL. 
+Umask-värde som används av Azure Data Lake Storage Gen1 effektivt innebär att värdet för andra aldrig skickas som standard på nya underordnade - oavsett vad som anger standard-ACL. 
 
-Följande psuedocode visar hur umask används när du skapar ACL: er för ett underordnat objekt.
+Följande pseudocode visar hur umask används när du skapar ACL: er för ett underordnat objekt.
 
 ```
 def set_default_acls_for_new_child(parent, child):
@@ -293,11 +263,7 @@ def set_default_acls_for_new_child(parent, child):
         child_acls.add( new_entry )
 ```
 
-
-
 ## <a name="common-questions-about-acls-in-data-lake-storage-gen1"></a>Vanliga frågor om ACL: er i Data Lake Storage Gen1
-
-Här är några frågor som ofta kommer upp rörande ACL: er i Data Lake Storage Gen1.
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>Måste jag aktivera stöd för ACL:er?
 
@@ -340,19 +306,12 @@ Nej, men standard-ACL:er kan användas för att ange ACL:er för underordnade fi
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Var hittar jag mer information om POSIX-modellen för åtkomstkontroll?
 
 * [POSIX-åtkomstkontrollistor på Linux](https://www.linux.com/news/posix-acls-linux)
-
 * [Guide för HDFS-behörighet](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
-
 * [Vanliga frågor och svar om POSIX](http://www.opengroup.org/austin/papers/posix_faq.html)
-
 * [POSIX 1003.1 2008](http://standards.ieee.org/findstds/standard/1003.1-2008.html)
-
 * [POSIX 1003.1 2013](http://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
-
 * [POSIX 1003.1 2016](http://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
-
 * [POSIX ACL på Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
-
 * [ACL med åtkomstkontrollistor på Linux](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
 ## <a name="see-also"></a>Se också
